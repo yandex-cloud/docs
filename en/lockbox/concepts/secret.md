@@ -11,6 +11,16 @@ A secret is a set of versions that store your data, such as API keys, passwords,
 
 You can set up access to secrets using [{{ iam-full-name }}](../../iam/index.yaml). The roles available for different use cases are described in the [{#T}](../security/index.md) section.
 
+## Secret type {#secret-type}
+
+{{ lockbox-full-name }} allows creating two types of secrets: generated secrets and user secrets.
+
+* A _generated secret_ is an automatically generated sequence of random characters. You can configure generation parameters, such as length and character set. Generated secrets are good for passwords you do not have to set manually as well as for passwords with frequent rotation, e.g., for database access, microservice level authentication, in CI/CD systems, and for other program interactions.
+
+   You can also use generated secrets to store data on connections to {{ PG }}, {{ MY }}, and {{ CH }} databases via [{{ connection-manager-full-name }}](../../metadata-hub/concepts/connection-manager.md). In which case the secret is created in {{ connection-manager-full-name }} and stored in {{ lockbox-full-name }}.
+
+* A _user secret_ is created manually. It is suitable for externally generated secrets. You can specify not only a string but also a file for your user secret's confidential value.
+
 ## Version {#version}
 
 {{ lockbox-full-name }} stores secrets as versions. Each version contains metadata and one or more key-value pairs, which allows you to track changes and manage a secret's lifecycle.
@@ -19,7 +29,7 @@ Once created, a version cannot be changed. If you need to change key-value pairs
 
 Only one version of a secret can be valid at a time. You can manage a valid version of a secret by adding new versions or [rolling back to previous ones](../operations/secret-version-manage.md#backup).
 
-You can set up access to versions of a secret in addition to access to the secret itself. This requires you to assign the `{{ roles-lockbox-admin }}` or `{{ roles-lockbox-payloadviewer }}` role. For more information about managing access, see [{{ lockbox-full-name }} access management: What roles I need](../security/index.md#choosing-roles).
+You can set up access to versions of a secret in addition to access to the secret itself. To do this, you need to assign the `{{ roles-lockbox-admin }}` or `{{ roles-lockbox-payloadviewer }}` role. For more information about managing access, see [{{ lockbox-full-name }} access management: What roles do I need](../security/index.md#choosing-roles).
 
 ## Secret encryption using {{ kms-full-name }} {#encryption}
 

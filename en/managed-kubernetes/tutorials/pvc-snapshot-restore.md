@@ -22,7 +22,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
          {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
-      1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../../managed-kubernetes/operations/node-group/node-group-create.md) in any suitable configuration. When creating them, specify the security groups prepared in advance.
+      1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../../managed-kubernetes/operations/node-group/node-group-create.md) in any suitable configuration. When creating, specify the security groups prepared earlier.
 
    - {{ TF }} {#tf}
 
@@ -104,8 +104,8 @@ To test snapshots, a [PersistentVolumeClaim](../concepts/volume.md#persistent-vo
    spec:
      containers:
        - name: app
-        image: ubuntu
-        command: ["/bin/sh"]
+         image: ubuntu
+         command: ["/bin/sh"]
          args:
            ["-c", "while true; do echo $(date -u) >> /data/out.txt; sleep 5; done"]
          volumeMounts:

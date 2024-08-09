@@ -1,11 +1,15 @@
 # Создание кластера {{ dataproc-name }}
 
-Для создания [кластера](../../glossary/cluster.md) {{ dataproc-name }} пользователю должна быть назначена [роль](../../iam/concepts/access-control/roles.md) `dataproc.editor`. Подробнее см. в [описании ролей](../security/index.md#roles-list).
+Для создания кластера {{ dataproc-name }} у пользователя должны быть следующие роли:
+
+* [dataproc.editor](../security/index.md#dataproc-editor) — чтобы создать кластер;
+* [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) — чтобы работать с [сетью](../../vpc/concepts/network.md#network) кластера;
+* [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) — чтобы создавать ресурсы от имени [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) кластера.
 
 
 ## Настройте сеть {#setup-network}
 
-Настройте доступ в интернет из [подсети](../../vpc/concepts/network.md#subnet), к которой будет подключен [подкластер](../concepts/index.md#resources) {{ dataproc-name }} с хостом-мастером, например при помощи [NAT-шлюза](../../vpc/operations/create-nat-gateway.md). Это необходимо, чтобы подкластер {{ dataproc-name }} мог взаимодействовать с сервисами {{ yandex-cloud }} или хостами в других [сетях](../../vpc/concepts/network.md#network).
+Настройте доступ в интернет из [подсети](../../vpc/concepts/network.md#subnet), к которой будет подключен [подкластер](../concepts/index.md#resources) {{ dataproc-name }} с хостом-мастером, например при помощи [NAT-шлюза](../../vpc/operations/create-nat-gateway.md). Это необходимо, чтобы подкластер {{ dataproc-name }} мог взаимодействовать с сервисами {{ yandex-cloud }} или хостами в других сетях.
 
 ## Настройте группы безопасности {#change-security-groups}
 
@@ -95,7 +99,10 @@
      {% endnote %}
 
   1. Вставьте в поле **{{ ui-key.yacloud.mdb.forms.config_field_public-keys }}** публичную часть вашего [SSH-ключа](../../glossary/ssh-keygen.md). Как сгенерировать и использовать SSH-ключи, читайте в [документации {{ compute-full-name }}](../../compute/operations/vm-connect/ssh.md).
-  1. Выберите или создайте [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), которому нужно разрешить доступ к кластеру {{ dataproc-name }}. Сервисному аккаунту кластера {{ dataproc-name }} должна быть [назначена роль](../security/index.md#grant-role) `dataproc.agent`.
+  1. Выберите или создайте сервисный аккаунт, которому нужно разрешить доступ к кластеру {{ dataproc-name }}. Сервисному аккаунту кластера {{ dataproc-name }} должны быть [назначены роли](../../iam/operations/sa/assign-role-for-sa.md):
+
+     {% include [sa-roles](../../_includes/data-proc/sa-roles.md) %}
+
   1. Выберите зону доступности для кластера {{ dataproc-name }}.
   1. При необходимости задайте [свойства компонентов кластера {{ dataproc-name }}, заданий и среды окружения](../concepts/settings-list.md).
   1. При необходимости укажите пользовательские [скрипты инициализации](../concepts/init-action.md) хостов кластера {{ dataproc-name }}. Для каждого скрипта укажите:
@@ -120,7 +127,7 @@
   1. Включите опцию **{{ ui-key.yacloud.mdb.forms.config_field_ui_proxy }}**, чтобы получить доступ к [веб-интерфейсам компонентов](../concepts/interfaces.md) {{ dataproc-name }}.
   1. Логи кластера {{ dataproc-name }} сохраняются в сервисе [{{ cloud-logging-full-name }}](../../logging/). Выберите нужную лог-группу из списка или [создайте новую](../../logging/operations/create-group.md).
 
-     Для работы этой функции [назначьте](../../iam/operations/roles/grant.md) сервисному аккаунту кластера {{ dataproc-name }} роль `logging.writer`. Подробнее см. в [документации {{ cloud-logging-name }}](../../logging/security/index.md).
+     Для работы этой функции [назначьте](../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту кластера {{ dataproc-name }} роль `logging.writer`. Подробнее см. в [документации {{ cloud-logging-name }}](../../logging/security/index.md).
   1. Настройте подкластеры {{ dataproc-name }}: не больше одного подкластера с хостом-мастером (обозначается как **Мастер**), и подкластеры для хранения или обработки данных.
 
      Роли подкластеров {{ dataproc-name }} для хранения и обработки данных различаются тем, что на подкластерах для хранения данных можно разворачивать компоненты для хранения, а для обработки — компоненты для вычислений. [Хранилище](../concepts/storage.md) на подкластере {{ dataproc-name }} для обработки данных предназначено только для временного хранения обрабатываемых файлов.
@@ -141,8 +148,6 @@
        {% endnote %}
 
   1. В подкластерах {{ dataproc-name }} для обработки данных можно задать параметры [автоматического масштабирования](../concepts/autoscaling.md).
-
-     {% include [note-info-service-account-roles](../../_includes/data-proc/service-account-roles.md) %}
 
      1. В блоке **{{ ui-key.yacloud.mdb.forms.label_create-subcluster }}** нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_configure }}**.
      1. В поле **{{ ui-key.yacloud.mdb.forms.base_field_roles }}** выберите `COMPUTENODE`.
@@ -220,7 +225,10 @@
      Где:
      * `--bucket` — имя бакета в {{ objstorage-name }}, в котором будут храниться зависимости заданий и результаты их выполнения. [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md) кластера {{ dataproc-name }} должен иметь разрешение `READ и WRITE` для этого бакета.
      * `--zone` — [зона доступности](../../overview/concepts/geo-scope.md), в которой должны быть размещены хосты кластера {{ dataproc-name }}.
-     * `--service-account-name` — имя сервисного аккаунта кластера {{ dataproc-name }}. Сервисному аккаунту кластера {{ dataproc-name }} должна быть [назначена роль](../security/index.md#grant-role) `dataproc.agent`.
+     * `--service-account-name` — имя сервисного аккаунта кластера {{ dataproc-name }}. Сервисному аккаунту кластера {{ dataproc-name }} должны быть [назначены роли](../../iam/operations/sa/assign-role-for-sa.md):
+
+       {% include [sa-roles](../../_includes/data-proc/sa-roles.md) %}
+
      * `--version` — [версия образа](../concepts/environment.md).
 
        {% include [note-light-weight-cluster](../../_includes/data-proc/note-light-weight-cluster.md) %}
@@ -295,8 +303,6 @@
      * `cpu-utilization-target` — целевой уровень загрузки CPU, в процентах. Используйте эту настройку, чтобы включить [масштабирование](../concepts/autoscaling.md) на основе загрузки CPU, иначе в качестве метрики будет использоваться `yarn.cluster.containersPending` (на основе количества ожидающих задания ресурсов). Минимальное значение — `10`, максимальное — `100`.
      * `autoscaling-decommission-timeout` — [таймаут декомиссии](../concepts/decommission.md) в секундах. Минимальное значение — `0`, максимальное — `86400` (сутки).
 
-     {% include [note-info-service-account-roles](../../_includes/data-proc/service-account-roles.md) %}
-
   1. Чтобы создать кластер {{ dataproc-name }}, размещенный на [группах выделенных хостов](../../compute/concepts/dedicated-host.md), укажите через запятую их идентификаторы в параметре `--host-group-ids`:
 
      ```bash
@@ -364,15 +370,15 @@
        description = "<описание_сервисного_аккаунта>"
      }
 
-     resource "yandex_resourcemanager_folder_iam_member" "dataproc" {
+     resource "yandex_resourcemanager_folder_iam_member" "dataproc-agent" {
        folder_id = "<идентификатор_каталога>"
        role      = "dataproc.agent"
        member    = "serviceAccount:${yandex_iam_service_account.data_proc_sa.id}"
      }
 
-     resource "yandex_resourcemanager_folder_iam_member" "bucket-creator" {
+     resource "yandex_resourcemanager_folder_iam_member" "dataproc-provisioner" {
        folder_id = "<идентификатор_каталога>"
-       role      = "dataproc.editor"
+       role      = "dataproc.provisioner"
        member    = "serviceAccount:${yandex_iam_service_account.data_proc_sa.id}"
      }
 
@@ -382,7 +388,7 @@
 
      resource "yandex_storage_bucket" "data_bucket" {
        depends_on = [
-         yandex_resourcemanager_folder_iam_member.bucket-creator
+         yandex_resourcemanager_folder_iam_member.dataproc-provisioner
        ]
 
        bucket     = "<имя_бакета>"
@@ -542,7 +548,10 @@
     * Публичную часть [SSH-ключа](../../glossary/ssh-keygen.md) в параметре `configSpec.hadoop.sshPublicKeys`.
     * Настройки подкластеров {{ dataproc-name }} в параметре `configSpec.subclustersSpec`.
   * Зону доступности кластера {{ dataproc-name }} в параметре `zoneId`.
-  * Идентификатор [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) кластера {{ dataproc-name }} в параметре `serviceAccountId`.
+  * Идентификатор [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) кластера {{ dataproc-name }} в параметре `serviceAccountId`. Сервисному аккаунту должны быть [назначены роли](../../iam/operations/sa/assign-role-for-sa.md):
+
+       {% include [sa-roles](../../_includes/data-proc/sa-roles.md) %}
+
   * Имя бакета в параметре `bucket`.
   * Идентификаторы групп безопасности кластера {{ dataproc-name }} в параметре `hostGroupIds`.
   * Настройки защиты от удаления кластера {{ dataproc-name }} в параметре `deletionProtection`.

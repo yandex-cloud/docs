@@ -17,4 +17,5 @@ description: "Различные сценарии использования {{ 
 * [{#T}](ydb-to-object-storage.md)
 * [{#T}](object-storage-to-ydb.md)
 * [{#T}](ydb-to-clickhouse.md)
+* [{#T}](opensearch-to-ydb.md)
 * [{#T}](ci-cd-serverless.md)

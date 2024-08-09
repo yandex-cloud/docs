@@ -92,7 +92,7 @@ You can grant access to an asymmetric [digital signature key pair](../concepts/a
 
 {% endlist %}
 
-## Assign multiple roles {#set-access-bindings}
+## Assigning multiple roles {#set-access-bindings}
 
 {% list tabs group=instructions %}
 
@@ -117,7 +117,7 @@ You can grant access to an asymmetric [digital signature key pair](../concepts/a
 
    To assign multiple roles for a digital signature key pair:
 
-   1. Make sure the key pair has no roles assigned that you would rather not lose:
+   1. Make sure the key pair has no roles assigned that you would not want to lose:
 
       ```bash
       yc kms asymmetric-signature-key list-access-bindings \
@@ -139,7 +139,7 @@ You can grant access to an asymmetric [digital signature key pair](../concepts/a
    1. Get the [ID of the user](../../iam/operations/users/get.md), [service account](../../iam/operations/sa/get-id.md), or user group you are assigning roles to.
    1. Use one of the commands below to assign roles:
 
-      * To a user with a Yandex account:
+      * To a Yandex account user:
 
          ```bash
          yc kms asymmetric-signature-key set-access-bindings \

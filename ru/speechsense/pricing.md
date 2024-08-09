@@ -6,7 +6,7 @@ editable: false
 
 
 
-{{ speechsense-full-name }} находится на стадии [Preview](../overview/concepts/launch-stages.md). 
+{{ speechsense-full-name }} находится на стадии [Preview](../overview/concepts/launch-stages.md).
 
 ## Из чего складывается стоимость использования {{ speechsense-name }} {#rules}
 
@@ -45,5 +45,6 @@ editable: false
   {% include [kzt-speechsense](../_pricing_examples/speechsense/kzt-speechsense.md) %}
 
 {% endlist %}
+
 
 

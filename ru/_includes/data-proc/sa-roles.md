@@ -1,0 +1,2 @@
+* [dataproc.agent](../../data-proc/security/index.md#dataproc-agent) — чтобы сервисный аккаунт мог получать информацию о состоянии хостов кластера, [заданиях](../../data-proc/concepts/jobs.md) и [лог-группах](../../logging/concepts/log-group.md).
+* [dataproc.provisioner](../../data-proc/security/index.md#dataproc-provisioner) — чтобы сервисный аккаунт мог взаимодействовать с автоматически масштабируемой группой ВМ. Тогда будет доступно [автомасштабирование подкластеров](../../data-proc/concepts/autoscaling.md).

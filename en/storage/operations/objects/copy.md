@@ -15,6 +15,10 @@ Large objects uploaded using [multipart uploads](../../concepts/multipart.md) ar
 
 You can copy either the [entire bucket contents](#copy-from-bucket-to-bucket) or an [individual bucket object](#copy-single-object). You can also copy objects between [buckets of different organizations](#copy-to-another-org-bucket).
 
+
+{% include [encryption-roles](../../../_includes/storage/encryption-roles.md) %}
+
+
 ## Copying a single object {#copy-single-object}
 
 {% list tabs group=instructions %}

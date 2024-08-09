@@ -30,7 +30,7 @@ You can grant access to a [symmetric key](../concepts/key.md) to a user, service
 
    To assign a role for a symmetric key:
 
-   1. See the description of the CLI command for assigning a role:
+   1. See the description of the CLI role assignment command:
 
       ```bash
       yc kms symmetric-key add-access-binding --help
@@ -124,7 +124,7 @@ You can grant access to a [symmetric key](../concepts/key.md) to a user, service
          --id <key_ID>
       ```
 
-   1. See the description of the CLI command for assigning roles:
+   1. See the description of the CLI role assignment command:
 
       ```bash
       yc kms symmetric-key set-access-bindings --help

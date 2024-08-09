@@ -1,0 +1,1 @@
+For a full list of SDKs for accessing the S3 API, see the [AWS official repository on GitHub](https://github.com/aws/aws-sdk).

@@ -1,7 +1,7 @@
 # Node groups with GPUs
 
 
-You can create [node groups](../index.md#node-group) with [graphics accelerators (GPUs)](../../../compute/concepts/gpus.md) in [{{ managed-k8s-name }} clusters](../index.md#kubernetes-cluster). A node is created from an [image](../../../compute/concepts/image.md) of a GPU-compatible [VM](../../../compute/concepts/vm.md) with NVIDIA drivers and [CUDA libraries](https://developer.nvidia.com/gpu-accelerated-libraries) installed for GPU acceleration.
+You can create [{{ managed-k8s-name }} cluster](../index.md#kubernetes-cluster) [node groups](../index.md#node-group) with [graphics accelerators](../../../compute/concepts/gpus.md) (GPUs). A node is created from an [image](../../../compute/concepts/image.md) of a GPU-compatible [VM](../../../compute/concepts/vm.md) with NVIDIA drivers and [CUDA libraries](https://developer.nvidia.com/gpu-accelerated-libraries) installed for GPU acceleration.
 
 ## Prerequisites {#requirements}
 

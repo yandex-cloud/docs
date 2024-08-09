@@ -238,7 +238,7 @@ To grant access permissions for an organization, you need the `{{ roles-organiza
 
 ## Assigning a role for a resource {#resource}
 
-You can assign a role not only for an organization, cloud, or folder, but also their child resources. These are listed in [{#T}](../../concepts/access-control/resources-with-access-control.md).
+You can assign a role not only for an organization, cloud, or folder, but also for their child resources. These are listed in [{#T}](../../concepts/access-control/resources-with-access-control.md).
 
 {% list tabs group=instructions %}
 

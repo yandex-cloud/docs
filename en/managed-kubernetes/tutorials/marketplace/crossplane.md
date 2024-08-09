@@ -41,7 +41,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
          {% include [sg-common-warning](../../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
-      1. [Create a {{ k8s }} cluster](../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../../../managed-kubernetes/operations/node-group/node-group-create.md) in any suitable configuration. When creating them, specify the security groups prepared in advance.
+      1. [Create a {{ k8s }} cluster](../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../../../managed-kubernetes/operations/node-group/node-group-create.md) in any suitable configuration. When creating, specify the security groups prepared earlier.
 
    - {{ TF }} {#tf}
 
@@ -210,8 +210,11 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
    - Manually {#manual}
 
       1. [Delete the {{ k8s }} cluster](../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
-      1. [Delete the created subnets](../../../vpc/operations/subnet-delete.md) and [networks](../../../vpc/operations/network-delete.md).
-      1. [Delete the created service accounts](../../../iam/operations/sa/delete.md).
+      1. [Delete the created subnets](../../../vpc/operations/subnet-delete.md).
+      1. [Delete the route table](../../../vpc/operations/delete-route-table.md).
+      1. [Delete the NAT gateway](../../../vpc/operations/delete-nat-gateway.md).
+      1. [Delete the networks](../../../vpc/operations/network-delete.md).
+      1. [Delete the service accounts you created](../../../iam/operations/sa/delete.md).
 
    - {{ TF }} {#tf}
 

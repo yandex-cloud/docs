@@ -547,7 +547,7 @@ To use the Cilium network policy controller in a cluster:
 
    {% endcut %}
 
-1. Make sure the `tiefighter` and `xwing` applications have access to the `deathstar` API and return `Ship landed`, as the network policies are disabled:
+1. Make sure the `tiefighter` and `xwing` applications have access to the `deathstar` API and return the `Ship landed` string, because the network policies not activated:
 
    ```bash
    kubectl exec tiefighter -- curl -s -XPOST deathstar.default.svc.cluster.local/v1/request-landing && \

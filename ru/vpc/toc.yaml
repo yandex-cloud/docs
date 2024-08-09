@@ -147,8 +147,8 @@ items:
         href: concepts/network.md
       - name: Адреса облачных ресурсов
         href: concepts/address.md
-      - name: Статические маршруты
-        href: concepts/static-routes.md
+      - name: Маршрутизация
+        href: concepts/routing.md
       - name: Группы безопасности
         href: concepts/security-groups.md
       - name: Шлюзы

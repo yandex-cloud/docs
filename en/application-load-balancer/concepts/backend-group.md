@@ -30,18 +30,21 @@ You can only select a backend group's type when creating it. You can't change th
 
 ## Backend types {#types}
 
-Backends in **{{ ui-key.yacloud.alb.label_proto-http }}** groups can be of two types:
+Based on the backend group type, backends can be of the following types:
+* **{{ ui-key.yacloud.alb.label_proto-http }}**:
 
-* One or more [_target groups_](target-group.md): Sets of IP addresses of {{ compute-name }} VM instances that your network applications are running on. Traffic between all VMs in target groups belonging to the same backend is distributed evenly based on the [backend settings](#settings) and results of [health checks](#health-checks).
-* {{ objstorage-name }} _bucket_: Set of files (objects) and settings related to their storage. For more information, see [{#T}](../../storage/concepts/bucket.md) in the {{ objstorage-name }} documentation.
+   * [_Target groups_](target-group.md): IP addresses of {{ compute-name }} VMs that your network applications are running on. Multiple target groups can belong to a single backend. Traffic between all VMs in target groups belonging to the same backend is distributed evenly based on the [backend settings](#settings) and results of [health checks](#health-checks).
+   * {{ objstorage-full-name }} [_bucket_](../../storage/concepts/bucket.md): Collection of files (objects) and their storage settings.
 
-   {% include [bucket-availability-note](../_includes_service/bucket-availability-note.md) %}
+      {% include [bucket-availability-note](../_includes_service/bucket-availability-note.md) %}
 
-In **{{ ui-key.yacloud.alb.label_proto-grpc }}** and **{{ ui-key.yacloud.alb.label_proto-stream }}** groups, only target groups and their sets can act as backends.
+   In the **{{ ui-key.yacloud.alb.label_proto-http }}** backend group, you can use backends of both types at the same time.
+
+* **{{ ui-key.yacloud.alb.label_proto-grpc }}** and **{{ ui-key.yacloud.alb.label_proto-stream }}**: Target groups only. Multiple target groups can belong to a single backend.
 
 ## Session affinity {#session-affinity}
 
-If you want requests from one user session to be processed by the same application endpoint, enable session affinity for a backend group.
+If you want to route all requests from a user session to the same backend endpoint, enable session affinity for the backend group.
 
 {% include [session-affinity-prereqs](../../_includes/application-load-balancer/session-affinity-prereqs.md) %}
 
@@ -100,9 +103,9 @@ If you do not use the panic mode, failure of some backends will further increase
 ### Locality aware routing {#locality}
 
 
-By default, the load balancer evenly distributes traffic between all endpoints of the backend's target groups. If the application is running in multiple availability zones, you can configure the L7 load balancer to send requests to endpoints in the availability zone where the load balancer accepted the request. If no backends are running in this availability zone, the load balancer will send the request to another zone.
+By default, the load balancer evenly distributes traffic between all backend endpoints. For example, endpoints can belong to a target group. If endpoints reside in multiple availability zones, you can configure the L7 load balancer to send requests to the endpoints of the availability zone in which the load balancer had accepted the request. If no endpoints are running in that availability zone, the load balancer will send the request to another zone.
 
-If strict locality is enabled, the load balancer will respond with an error (503 Service Unavailable) if no application backends are running in the availability zone that accepted the request.
+If strict locality is enabled, the load balancer will respond with an error (503 Service Unavailable) if no backend endpoints are running in the availability zone that had accepted the request.
 
 ## Health checks {#health-checks}
 
@@ -118,12 +121,12 @@ The following health check settings are supported:
 * HTTP health check settings:
 
    * Domain name for the `Host` header (HTTP/1.1) or the `:authority` pseudo-header (HTTP/2).
-   * Path in the URI of a request to the endpoint.
+   * Path in the URI of request to the endpoint.
    * HTTP/2 flag.
 
 * Settings of gRPC health checks:
 
-   * Name of the service being checked.
+   * Name of the service checked.
 
 * Settings of Stream health checks (TCP):
 

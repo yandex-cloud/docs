@@ -20,7 +20,8 @@ description: "Из статьи вы узнаете, как задать нас�
 1. {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
     
     * [Миграция со сменой хранилища: {{ MY }} в {{ ydb-short-name }}](../../../tutorials/managed-mysql-to-ydb.md);
-    * [Миграция со сменой хранилища: {{ PG }} в {{ ydb-short-name }}](../../../tutorials/mpg-to-ydb.md).
+    * [Миграция со сменой хранилища: {{ PG }} в {{ ydb-short-name }}](../../../tutorials/mpg-to-ydb.md);
+    * [Миграция со сменой хранилища: {{ OS }} в {{ ydb-short-name }}](../../../tutorials/opensearch-to-ydb.md).
 
 1. {% include [queue](../../../../_includes/data-transfer/scenario-captions/queue.md) %}
     

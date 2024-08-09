@@ -12,7 +12,7 @@
 
       {% include [disclamer](../../_includes/iam/iam-token-note.md) %}
 
-      {% endnote %} 
+      {% endnote %}
 
       1. [Получите IAM-токен](../../iam/operations/iam-token/create-for-sa.md).
       1. Полученный IAM-токен передавайте в заголовке `Authorization` в следующем формате:
@@ -20,7 +20,7 @@
           ```
           Authorization: Bearer <IAM-токен>
           ```
-         
+
    * С помощью [API-ключей](../../iam/concepts/authorization/api-key).
 
       {% note info %}

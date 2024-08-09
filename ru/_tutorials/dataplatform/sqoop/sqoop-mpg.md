@@ -23,7 +23,14 @@
 1. Чтобы импортировать данные в бакет {{ objstorage-name }}:
 
     1. [Создайте бакет](../../../storage/operations/buckets/create.md) с ограниченным доступом.
-    1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md).
+    1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) с ролями:
+
+        * [dataproc.agent](../../../data-proc/security/index.md#dataproc-agent);
+        * [dataproc.provisioner](../../../data-proc/security/index.md#dataproc-provisioner);
+        * [{{ roles-monitoring-viewer }}](../../../monitoring/security/index.md#monitoring-viewer);
+        * [storage.viewer](../../../storage/security/index.md#storage-viewer);
+        * [storage.uploader](../../../storage/security/index.md#storage-uploader).
+
     1. [Выдайте этому сервисному аккаунту](../../../storage/operations/buckets/edit-acl.md) разрешения на чтение и запись в бакет.
 
 1. [Создайте кластер {{ dataproc-name }}](../../../data-proc/operations/cluster-create.md) любой подходящей вам [конфигурации](../../../data-proc/concepts/instance-types.md).

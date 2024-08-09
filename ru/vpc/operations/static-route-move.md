@@ -6,7 +6,7 @@
 
 - Консоль управления {#console}
 
-  Чтобы переместить [таблицу маршрутизации](../concepts/static-routes.md) в другой каталог:
+  Чтобы переместить [таблицу маршрутизации](../concepts/routing.md) в другой каталог:
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, где находится таблица маршрутизации.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
@@ -21,7 +21,7 @@
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  Чтобы переместить [таблицу маршрутизации](../concepts/static-routes.md) в другой каталог:
+  Чтобы переместить [таблицу маршрутизации](../concepts/routing.md) в другой каталог:
 
   1. Посмотрите описание команды CLI для перемещения таблицы маршрутизации:
 
@@ -83,7 +83,7 @@
 
 - API {#api}
 
-  Чтобы переместить [таблицу маршрутизации](../concepts/static-routes.md) в другой каталог, воспользуйтесь методом REST API [move](../api-ref/RouteTable/move.md) для ресурса [RouteTable](../api-ref/RouteTable/index.md) или вызовом gRPC API [RouteTableService/Move](../api-ref/grpc/route_table_service.md#Move) и передайте в запросе:
+  Чтобы переместить [таблицу маршрутизации](../concepts/routing.md) в другой каталог, воспользуйтесь методом REST API [move](../api-ref/RouteTable/move.md) для ресурса [RouteTable](../api-ref/RouteTable/index.md) или вызовом gRPC API [RouteTableService/Move](../api-ref/grpc/route_table_service.md#Move) и передайте в запросе:
 
   * Идентификатор таблицы маршрутизации, которую нужно перенести, в параметре `routeTableId`.
 

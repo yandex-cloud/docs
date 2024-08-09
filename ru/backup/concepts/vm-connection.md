@@ -84,6 +84,6 @@
 
 {% endlist %}
 
-Чтобы обеспечить сетевой доступ, [назначьте](../../compute/operations/vm-control/vm-attach-public-ip.md) ВМ публичный IP-адрес или примените [таблицу маршрутизации](../../vpc/concepts/static-routes.md#rt-vm), разрешающую доступ в интернет через [NAT-шлюз](../../vpc/concepts/gateways.md) или пользовательский маршрутизатор.
+Чтобы обеспечить сетевой доступ, [назначьте](../../compute/operations/vm-control/vm-attach-public-ip.md) ВМ публичный IP-адрес или примените [таблицу маршрутизации](../../vpc/concepts/routing.md#rt-vm), разрешающую доступ в интернет через [NAT-шлюз](../../vpc/concepts/gateways.md) или пользовательский маршрутизатор.
 
 Правила [группы безопасности](../../vpc/concepts/security-groups.md) ВМ должны разрешать доступ к указанным ресурсам. Вы можете [добавить правила](../../vpc/operations/security-group-add-rule.md) в существующую группу безопасности или [создать](../../vpc/operations/security-group-create.md) новую группу с нужными правилами.

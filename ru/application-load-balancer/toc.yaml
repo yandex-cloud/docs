@@ -118,6 +118,8 @@ items:
         href: concepts/target-group.md
       - name: Квоты и лимиты
         href: concepts/limits.md
+      - name: Рекомендации по настройке проверок состояния
+        href: concepts/best-practices.md
   - name: Инструменты для {{ managed-k8s-name }}
     items:
       - name: Обзор

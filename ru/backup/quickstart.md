@@ -160,7 +160,7 @@
       1. В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** выберите подсеть, [подготовленную ранее](#network-setup).
       1. В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** выберите `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
           
-          Вместо назначения ВМ публичного IP-адреса вы можете привязать к подсети с ВМ [таблицу маршрутизации](../vpc/concepts/static-routes.md#rt-vm), разрешающую доступ в интернет через [NAT-шлюз](../vpc/concepts/gateways.md) или пользовательский маршрутизатор.
+          Вместо назначения ВМ публичного IP-адреса вы можете привязать к подсети с ВМ [таблицу маршрутизации](../vpc/concepts/routing.md#rt-vm), разрешающую доступ в интернет через [NAT-шлюз](../vpc/concepts/gateways.md) или пользовательский маршрутизатор.
 
       1. В поле **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** выберите группу безопасности, [настоенную ранее](#sg-setup).
 

@@ -36,7 +36,7 @@ Create a folder where your {{ dataproc-name }} cluster will run.
 
    1. In the [management console]({{ link-console-main }}), select a cloud and click ![create](../../_assets/console-icons/plus.svg)**{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
    1. Give your folder a name, e.g., `data-folder`.
-   1. Select the **{{ ui-key.yacloud.iam.cloud.folders-create.field_default-net }}** option. This will create a [network](../../vpc/concepts/network.md#network) with subnets in each [availability zone](../../overview/concepts/geo-scope.md).
+   1. Select **{{ ui-key.yacloud.iam.cloud.folders-create.field_default-net }}**. This will create a [network](../../vpc/concepts/network.md#network) with subnets in each [availability zone](../../overview/concepts/geo-scope.md).
    1. Click **{{ ui-key.yacloud.iam.cloud.folders-create.button_create }}**.
 
 {% endlist %}
@@ -192,7 +192,7 @@ You can view your current resources under [Quotas]({{ link-console-quotas }}) in
 
    1. Select the created bucket in the **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}** field.
    1. Select a network for the cluster.
-   1. Enable the **{{ ui-key.yacloud.mdb.forms.config_field_ui_proxy }}** option to access the [web interfaces of {{ dataproc-name }} components](../../data-proc/concepts/interfaces.md).
+   1. Enable **{{ ui-key.yacloud.mdb.forms.config_field_ui_proxy }}** to access the [web interfaces of {{ dataproc-name }} components](../../data-proc/concepts/interfaces.md).
    1. Configure subclusters: no more than one main subcluster with a **{{ ui-key.yacloud.mdb.forms.label_master-subcluster }}** host and subclusters for data storage or computing.
 
       {% note info %}
@@ -265,9 +265,14 @@ As a user of a cluster deployed in {{ dataproc-name }}, you manage its lifecycle
 
 {% endnote %}
 
-To stop paying for the resources you created:
+Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
-* [Delete the objects](../../storage/operations/objects/delete-all.md) from the bucket.
-* [Delete the bucket](../../storage/operations/buckets/delete.md).
-* [Delete the cluster](../../data-proc/operations/cluster-delete.md).
-* [Delete the project](../../datasphere/operations/projects/delete.md).
+* [Objects](../../storage/operations/objects/delete-all.md) from the bucket
+* [Bucket](../../storage/operations/buckets/delete.md)
+* [Cluster](../../data-proc/operations/cluster-delete.md)
+* [Project](../../datasphere/operations/projects/delete.md)
+* [Subnet](../../vpc/operations/subnet-delete.md)
+* [Route table](../../vpc/operations/delete-route-table.md)
+* [NAT gateway](../../vpc/operations/delete-nat-gateway.md)
+* [Network](../../vpc/operations/network-delete.md)
+* [Service account](../../iam/operations/sa/delete.md)

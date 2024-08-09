@@ -87,7 +87,7 @@ When using {{ marketplace-name }} to install HashiCorp Vault that supports {{ km
    export HELM_EXPERIMENTAL_OCI=1 && \
    cat <authorized_key_file_path> | helm registry login cr.yandex --username 'json_key' --password-stdin && \
    helm pull oci://cr.yandex/yc-marketplace/yandex-cloud/vault/chart/vault \
-     --version 0.27.0+yckms \
+     --version 0.28.0+yckms \
      --untar && \
    helm install \
      --namespace <namespace> \
