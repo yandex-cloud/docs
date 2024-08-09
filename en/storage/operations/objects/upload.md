@@ -11,6 +11,10 @@ You cannot upload objects larger than 5 GB via the management console (see [{#T}
 
 ## Regular uploads {#simple}
 
+
+{% include [encryption-roles](../../../_includes/storage/encryption-roles.md) %}
+
+
 {% list tabs group=instructions %}
 
 - Management console {#console}

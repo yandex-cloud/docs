@@ -258,7 +258,7 @@ To prepare the model and calculate the properties:
 
    ```
    #!g1.1
-   model = ResNet50(weights='imagenet', input_shape=(224, 224, 3))
+   model = ResNet50(weights='imagenet',  input_shape=(224, 224, 3))
    ...
    ```
 
@@ -271,7 +271,7 @@ In this section, you will train the LightGBM classifier on the properties calcul
 
 The [K-fold](http://scikit-learn.org/0.16/modules/generated/sklearn.cross_validation.StratifiedKFold.html) method of the scikit-learn package is used. Parts of the training sample (folds) are created based on the specified percentage of data from each class.
 
-This is important when there are much fewer images of one category of your data than in another. This example uses cross-validation with five folds. You can set a different number of folds in the `n_splits` parameter.
+This is important when your data contains much fewer images of one category than another. This example uses five-fold cross-validation. You can set a different number of folds in the `n_splits` parameter.
 
 Go to the **Training and cross-validation** and **Saving the model** sections. These are used to perform the following operations:
 
@@ -328,7 +328,7 @@ To use the resulting model:
    ```
    %%time
    clf = lgb.Booster(model_file='ImageClassificationML/lightgbm_classifier.model')
-   model = ResNet50(weights='imagenet', input_shape=(224, 224, 3))
+   model = ResNet50(weights='imagenet',  input_shape=(224, 224, 3))
    ...
    ```
 
@@ -362,8 +362,10 @@ There are several practical uses for your model:
 
 ## How to delete the resources you created {#clear-out}
 
-To shut down the model and stop paying for the resources you created:
+Some resources are not free of charge. To shut down the model and stop paying for the resources you created, delete those you no longer need:
 
-1. [Delete](../../storage/operations/objects/delete.md) all objects from the bucket.
-1. [Delete](../../storage/operations/buckets/delete.md) the bucket.
-1. [Delete](../../datasphere/operations/projects/delete.md) the project.
+1. [Delete all objects from the bucket](../../storage/operations/objects/delete.md).
+1. [Delete the bucket](../../storage/operations/buckets/delete.md).
+1. [Delete the project](../../datasphere/operations/projects/delete.md).
+1. [Delete the route table](../../vpc/operations/delete-route-table.md).
+1. [Delete the NAT gateway](../../vpc/operations/delete-nat-gateway.md).

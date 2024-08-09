@@ -82,6 +82,8 @@ items:
             href: operations/objects/edit-acl.md
           - name: Object label management
             href: operations/objects/tagging.md
+          - name: Managing an object's custom metadata
+            href: operations/objects/object-meta.md
       - name: Static website hosting
         items:
           - name: Hosting setup

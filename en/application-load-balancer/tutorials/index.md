@@ -15,3 +15,4 @@ description: "Various {{ alb-full-name }} use cases in {{ yandex-cloud }}"
 * [{#T}](gateway-api.md)
 * [{#T}](alb-ingress-controller.md)
 * [{#T}](alb-ingress-controller-log-options.md)
+* [{#T}](custom-health-checks.md)

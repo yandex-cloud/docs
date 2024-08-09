@@ -26,7 +26,7 @@
 
 - Вручную {#manual}
 
-    1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) `dataproc-s3-sa` и назначьте ему роли `dataproc.agent` и `storage.uploader`.
+    1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) `dataproc-s3-sa` и назначьте ему роли `dataproc.agent`, `dataproc.provisioner` и `storage.uploader`.
     1. В {{ objstorage-full-name }} [создайте бакет](../../../storage/operations/buckets/create.md) `dataproc-bucket` и предоставьте сервисному аккаунту разрешение `READ и WRITE` для этого бакета.
     1. [Создайте облачную сеть](../../../vpc/operations/network-create.md) `dataproc-network`.
     1. В этой сети [создайте подсеть](../../../vpc/operations/subnet-create.md) `dataproc-subnet`.

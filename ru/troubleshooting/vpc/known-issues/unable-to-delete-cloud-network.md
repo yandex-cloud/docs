@@ -13,7 +13,7 @@ description: Network is not empty; code: GATEWAY_REQUEST_ERROR;
 
 * [Подсети](../../../vpc/operations/subnet-delete.md);
 * [Группы безопасности](../../../vpc/operations/security-group-delete.md);
-* [Таблицы маршрутизации](../../../vpc/concepts/static-routes.md).
+* [Таблицы маршрутизации](../../../vpc/concepts/routing.md).
 
 Для того чтобы проверить, остались ли у вас ресурсы, препятствующие удалению облачной сети, вы можете использовать [страницу со списком квот](https://console.cloud.yandex.ru/cloud?section=quotas) для интересующего вас облака.
 

@@ -10,7 +10,7 @@ The tutorial below describes configuring DNS for the `example.com` domain name.
    1. Open the **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}** section of the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you need to create a [DNS zone](../../dns/concepts/dns-zone.md).
    1. Click **{{ ui-key.yacloud.dns.button_zone-create }}**.
    1. Specify the DNS zone settings:
-      * **{{ ui-key.yacloud.dns.label_zone }}**: `example.com.`. Or specify your registered domain.
+      * **{{ ui-key.yacloud.dns.label_zone }}**: `example.com.`. You can provide you registered domain instead.
       * **{{ ui-key.yacloud.common.type }}**: `{{ ui-key.yacloud.dns.label_public }}`.
       * **{{ ui-key.yacloud.common.name }}**: `example-zone-1`.
    1. Click **{{ ui-key.yacloud.common.create }}**.

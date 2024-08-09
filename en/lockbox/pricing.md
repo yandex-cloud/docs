@@ -4,7 +4,7 @@ description: "This article describes the {{ lockbox-name }} pricing policy."
 editable: false
 ---
 
-# {{ lockbox-name }} pricing
+# {{ lockbox-name }} pricing policy
 
 The cost of using {{ lockbox-name }} is calculated based on:
 
@@ -28,6 +28,7 @@ The prices are valid as of March 10, 2024.
 
 ### Secret storage price {#secrets}
 
+Billed hourly. The price per month is provided for reference only based on 720 hours (30 days) per month. The value is rounded. Secrets that are [deactivated](operations/secret-activation-manage.md) but not deleted are charged as active ones.
 
 
 
@@ -43,3 +44,4 @@ Billing is hourly. The price per month is provided for reference only based on 7
 
 
 {% include [usd.md](../_pricing/lockbox/usd-requests.md) %}
+

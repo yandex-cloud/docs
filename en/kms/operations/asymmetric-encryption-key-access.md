@@ -30,7 +30,7 @@ You can grant access to an [asymmetric encryption key pair](../concepts/asymmetr
 
    To assign a role for an asymmetric encryption key pair:
 
-   1. See the description of the CLI command for assigning a role:
+   1. See the description of the CLI role assignment command:
 
       ```bash
       yc kms asymmetric-encryption-key add-access-binding --help
@@ -124,7 +124,7 @@ You can grant access to an [asymmetric encryption key pair](../concepts/asymmetr
          --id <key_pair_ID>
       ```
 
-   1. See the description of the CLI command for assigning roles:
+   1. See the description of the CLI role assignment command:
 
       ```bash
       yc kms asymmetric-encryption-key set-access-bindings --help

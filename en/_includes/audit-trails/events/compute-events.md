@@ -3,6 +3,7 @@
 | `AddInstanceOneToOneNat` | Adding a public IP address for a VM instance |
 | `AttachInstanceDisk` | Connecting a disk to a VM |
 | `AttachInstanceFilesystem` | Connecting a file system to a VM |
+| `AttachInstanceNetworkInterface` | Connecting a network interface |
 | `ChangeDiskStatus` | Changing a non-replicated disk status |
 | `CrashInstance` | Emergency VM shutdown |
 | `CreateDisk` | Creating a disk |
@@ -24,6 +25,7 @@
 | `DeleteSnapshotSchedule` | Deleting a disk snapshot schedule |
 | `DetachInstanceDisk` | Detaching a disk from a VM instance |
 | `DetachInstanceFilesystem` | Detaching a file system from a VM instance |
+| `DetachInstanceNetworkInterface` | Disconnecting a network interface |
 | `DisableSnapshotSchedule` | Disabling a disk snapshot schedule |
 | `EnableSnapshotSchedule` | Enabling a disk snapshot schedule |
 | `GuestStopInstance` | Stopping a VM on command from this VM |
@@ -57,4 +59,3 @@
 | `instancegroup.StopInstanceGroupInstances` | Stopping an instance from a group |
 | `instancegroup.UpdateInstanceGroup` | Updating an instance group |
 | `instancegroup.UpdateInstanceGroupAccessBindings` | Updating roles for an instance group |
-| `serialssh.ConnectSerialPort` | Connecting to an instance serial port |

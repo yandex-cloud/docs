@@ -98,6 +98,8 @@ items:
     href: security/index.md
   - name: Pricing policy
     href: pricing.md
+  - name: CLI reference
+    href: ../cli/cli-ref/managed-services/smartwebsecurity/index.md
   - name: API reference
     items:
       - name: Authentication with the API

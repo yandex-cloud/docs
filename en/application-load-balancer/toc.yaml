@@ -98,6 +98,10 @@ items:
         href: tutorials/alb-ingress-controller.md
       - name: Logging settings for {{ alb-name }} Ingress controllers
         href: tutorials/alb-ingress-controller-log-options.md
+      - name: >-
+          Health checking your applications in a {{ k8s }} cluster using the {{
+          alb-name }} Ingress controller
+        href: tutorials/custom-health-checks.md
   - name: Concepts
     items:
       - name: Overview

@@ -22,6 +22,8 @@
 * [AWS SDK for PHP](aws-sdk-php.md)
 * [AWS SDK for Go](aws-sdk-go.md)
 
+{% include [all-aws-sdks](../../_includes/storage/all-aws-sdks.md) %}
+
 ## FUSE {#fuse}
 
 * [GeeseFS](geesefs.md)

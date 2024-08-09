@@ -69,6 +69,10 @@ items:
           помощью {{ data-transfer-full-name }}
         href: tutorials/ydb-to-clickhouse.md
       - name: >-
+          Миграция данных из {{ mos-full-name }} в {{ ydb-short-name }} с
+          помощью {{ data-transfer-full-name }}
+        href: tutorials/opensearch-to-ydb.md
+      - name: >-
           Построение пайплайна CI/CD в {{ GL }} с использованием
           serverless-продуктов
         href: tutorials/ci-cd-serverless.md

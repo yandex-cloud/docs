@@ -86,6 +86,7 @@
    1. Введите имя [сервисного аккаунта](../../iam/concepts/users/service-accounts.md), например `sa-for-data-proc`.
    1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и назначьте сервисному аккаунту [роли](../../iam/concepts/access-control/roles.md):
       * `dataproc.agent` — для создания и использования кластеров {{ dataproc-name }}.
+      * `dataproc.provisioner` — для [автомасштабирования подкластеров](../../data-proc/concepts/autoscaling.md).
       * `vpc.user` — для работы с сетью кластера {{ dataproc-name }}.
       * `iam.serviceAccounts.user` — для создания ресурсов в каталоге от имени сервисного аккаунта.
 

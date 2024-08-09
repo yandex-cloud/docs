@@ -5,6 +5,12 @@ description: "In this tutorial, you will learn how to export logs from {{ cloud-
 
 # Exporting logs to {{ objstorage-name }}
 
+{% note info %}
+
+To start log export, the user or service account must have the `logging.editor` [role](../../iam/roles-reference.md#logging-roles) or higher.
+
+{% endnote %}
+
 {% list tabs group=instructions %}
 
 - Management console {#console}

@@ -15,7 +15,7 @@
 
 1. В консоли управления [создайте сервисный аккаунт](../../../iam/operations/sa/create.md).
 1. [Добавьте сервисный аккаунт в пространство](../space/add-user-to-space.md) с ролью `{{ roles-speechsense-data-editor }}`. Это позволит сервисному аккаунту загружать данные в созданное [подключение](../../concepts/resources-hierarchy.md#connection).
-1. [Создайте API-ключ](../../../iam/operations/api-key/create.md) или [IAM-токен](../../../iam/operations/iam-token/create-for-sa.md) для сервисного аккаунта, чтобы аутентифицироваться в API. 
+1. [Создайте API-ключ](../../../iam/operations/api-key/create.md) или [IAM-токен](../../../iam/operations/iam-token/create-for-sa.md) для сервисного аккаунта, чтобы аутентифицироваться в API.
 
 1. Склонируйте репозиторий [API {{ yandex-cloud }}](https://github.com/yandex-cloud/cloudapi):
 
@@ -36,7 +36,7 @@
    {% list tabs group=programming_language %}
 
    - Bash {#bash}
-   
+
       ```bash
       cd <путь_к_папке_cloudapi> && \
       mkdir upload_data && \

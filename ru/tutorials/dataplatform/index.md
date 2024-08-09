@@ -100,6 +100,7 @@ description: "На странице представлен список прак
 * [{#T}](elasticsearch-to-opensearch.md)
 * [{#T}](data-transfer-mkf-mos.md)
 * [{#T}](mos-migration-from-standalone.md)
+* [{#T}](opensearch-to-ydb.md)
 
 
 ## {{ PG }} {#postgresql}
@@ -135,6 +136,7 @@ description: "На странице представлен список прак
 * [{#T}](object-storage-to-ydb.md)
 * [{#T}](ydb-to-object-storage.md)
 * [{#T}](ydb-to-clickhouse.md)
+* [{#T}](opensearch-to-ydb.md)
 
 ## {{ dns-full-name }} {#dns}
 

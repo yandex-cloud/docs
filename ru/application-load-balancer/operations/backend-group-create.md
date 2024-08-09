@@ -322,3 +322,7 @@ description: "Следуя данной инструкции, вы сможет�
   Воспользуйтесь методом REST API [create](../api-ref/BackendGroup/create.md) для ресурса [BackendGroup](../api-ref/BackendGroup/index.md) или вызовом gRPC API [BackendGroupService/Create](../api-ref/grpc/backend_group_service.md#Create).
 
 {% endlist %}
+
+### См. также {#see-also}
+
+* [{#T}](../concepts/best-practices.md)

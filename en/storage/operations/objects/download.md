@@ -5,11 +5,15 @@ description: "In this tutorial, you will learn how to download an object from {{
 
 # Downloading an object
 
+
+{% include [encryption-roles](../../../_includes/storage/encryption-roles.md) %}
+
+
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the appropriate folder.
+   1. In the [management console]({{ link-console-main }}), select the folder.
    1. Select **{{ objstorage-name }}**.
    1. Select the bucket from which you want to download an object.
    1. Next to the object you want to download, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.storage.file.button_download }}**.

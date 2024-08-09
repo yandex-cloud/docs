@@ -16,9 +16,11 @@ Routes inside an HTTP router are combined in [virtual hosts](#virtual-host). Rou
 
 ## Virtual hosts {#virtual-host}
 
-Virtual hosts combine [routes](#routes) belonging to the same set of domains: the `Host` header values of an HTTP request. Both exact matches and wildcards are supported. When an incoming request is received, the balancer checks route predicates one-by-one and selects the first predicate matching the request.
+Virtual hosts combine [routes](#routes) belonging to the same set of domains, i.e., the `Host` (`:authority`) header values of an HTTP request. Both exact matches and wildcards are supported. When an incoming request is received, the balancer checks route predicates one-by-one and selects the first predicate matching the request.
 
 How the headers of HTTP requests and responses are modified is also configured at the virtual host level.
+
+To protect virtual hosts from external threats, you can connect a security profile created in [{{ sws-full-name }}](../../smartwebsecurity/concepts/index.md).
 
 ## Routes {#routes}
 
@@ -46,6 +48,3 @@ HTTP routers support two types of routes, **{{ ui-key.yacloud.alb.label_proto-ht
 
    * Sending a request to a **{{ ui-key.yacloud.alb.label_proto-grpc }}** [backend group](backend-group.md) for processing. In this case, you can replace the Host header and configure timeouts to process the request.
    * Immediate return of the static response.
-
-
-

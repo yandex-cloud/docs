@@ -76,7 +76,7 @@ For buckets with restricted access, the service generates temporary pre-signed U
 
 ## Metadata {#metadata}
 
-Metadata is stored with an object as `name-value` pairs.
+Metadata is stored with the object in the form of `key-value` pairs.
 
 This can be either system or user metadata.
 
@@ -84,7 +84,7 @@ This can be either system or user metadata.
 
 System metadata is defined by {{ objstorage-name }}.
 
-| Name | Description |
+| Key | Description |
 ----- | -----
 | `Date` | Date and time the request to upload an object to {{ objstorage-name }} was sent. |
 | `Content-Length` | Object size in bytes. |
@@ -93,20 +93,21 @@ System metadata is defined by {{ objstorage-name }}.
 | `Cache-Control` | Value of the `Cache-Control` HTTP header provided by the client when saving the object to the bucket. Afterwards, {{ objstorage-name }} returns this header to clients when responding to a request for an object or its metadata.<br/><br/>For example, the `Cache-Control: max-age=200` header means the object expires 200 seconds after the client receives it. You can read more about it in [RFC 7234](https://tools.ietf.org/html/rfc7234#section-5.2). |
 | `Expires` | Value of the `Expires` HTTP header provided by the client when saving the object to the bucket. Afterwards, {{ objstorage-name }} returns this header to clients when responding to a request for an object or its metadata.<br/><br/>For example, the `Expires: Thu, 15 Apr 2020 20:00:00 GMT` header means the object expires at 8 pm GMT on April 15, 2020. You can read more about it in [RFC 7234](https://tools.ietf.org/html/rfc7234#section-5.3). |
 
-
 ### User-defined metadata {#user-meta}
 
-When uploading an object to {{ objstorage-name }}, you can provide its metadata as `name-value` pairs.
+When uploading an object to {{ objstorage-name }}, you can provide its metadata in the form of `key-value` pairs.
 
-In an Amazon S3-compatible HTTP API, metadata is provided as HTTP headers. The header name must start with `X-Amz-Meta-`. When an object is requested via HTTP API, {{ objstorage-name }} returns metadata as HTTP headers with the same prefix.
+In an Amazon S3-compatible HTTP API, metadata is provided as HTTP headers. The header name must start with `X-Amz-Meta-`. When an object is requested via the HTTP API, {{ objstorage-name }} returns metadata as HTTP headers with the same prefix.
 
-Metadata names must consist of [ASCII characters](https://{{ lang }}.wikipedia.org/wiki/ASCII) only. The headers being provided are transformed as follows: `X-Amz-Meta-foo-bar_baz` → `X-Amz-Meta-Foo-Bar_baz`, where `Foo-Bar_baz` is the name of the metadata to store with the object.
+Metadata keys must consist of [ASCII characters](https://{{ lang }}.wikipedia.org/wiki/ASCII) only. The headers will be transformed as follows: `X-Amz-Meta-foo-bar_baz` → `X-Amz-Meta-Foo-Bar_baz`, where `Foo-Bar_baz` is the key of the metadata that will be saved with the object.
 
 {% note info %}
 
 The PUT request header must not exceed 8 KB. The maximum size of user-defined metadata in this header is 2 KB.
 
 {% endnote %}
+
+For more information, see [{#T}](../operations/objects/object-meta.md).
 
 
 ### See also {#see-also}

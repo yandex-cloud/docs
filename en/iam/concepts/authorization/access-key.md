@@ -28,7 +28,7 @@ In addition to static access keys, you can use [{{ sts-name }}](sts.md) temporar
 
 ### Key ID {#key-id}
 
-A key ID consists of 25 characters and always starts with `YC`. Other characters may be:
+A key ID consists of 25 characters and always starts with `YC`. Other characters may include:
 
 * Latin letters
 * Numbers
@@ -38,7 +38,7 @@ Here is an example of a key ID: `YCchbYEDdcsYFBnxSWbcjDJDn`.
 
 ### Secret key {#private-key}
 
-A secret consists of 40 characters and always starts with `YC`. Other characters may be:
+A secret consists of 40 characters and always starts with `YC`. Other characters may include:
 
 * Latin letters
 * Numbers

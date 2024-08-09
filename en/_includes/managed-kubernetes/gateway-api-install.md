@@ -1,8 +1,8 @@
-# Installing the Gateway API
+# Installing Gateway API
 
-The [Gateway API](https://github.com/kubernetes-sigs/gateway-api) is a collection of API resources that model networking in a [{{ managed-k8s-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster). These include `GatewayClass`, `Gateway`, `HTTPRoute`, and more.
+[Gateway API](https://github.com/kubernetes-sigs/gateway-api) is a collection of API resources that model networking in a [{{ managed-k8s-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster). These include `GatewayClass`, `Gateway`, `HTTPRoute`, and more.
 
-In {{ managed-k8s-name }}, the Gateway API launches [{{ alb-full-name }}](../../application-load-balancer/) and the required auxiliary resources when a {{ k8s }} user declares a `Gateway` resource in a {{ managed-k8s-name }} cluster.
+In {{ managed-k8s-name }}, Gateway API launches [{{ alb-full-name }}](../../application-load-balancer/) and the required auxiliary resources when a {{ k8s }} user declares a `Gateway` resource in a {{ managed-k8s-name }} cluster.
 
 ## Getting started {#before-you-begin}
 
@@ -32,11 +32,11 @@ In {{ managed-k8s-name }}, the Gateway API launches [{{ alb-full-name }}](../../
 ## Installation using {{ marketplace-full-name }} {#marketplace-install}
 
 1. Go to the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-1. Click the name of the {{ managed-k8s-name }} cluster you need and select the **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**![Marketplace](../../_assets/console-icons/shopping-cart.svg) tab.
+1. Click the name of the {{ managed-k8s-name }} cluster and select the **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**![Marketplace](../../_assets/console-icons/shopping-cart.svg) tab.
 1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [Gateway API](/marketplace/products/yc/gateway-api) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Configure the application:
    * **Namespace**: Select a [namespace](../../managed-kubernetes/concepts/index.md#namespace) or create a new one.
-   * **Application name**: Enter a name for the application.
+   * **Application name**: Specify the app name.
    * **Folder ID**: Select the folder to create load balancers in.
    * **Network ID**: Select the [cloud network](../../vpc/concepts/network.md#network) to [host the load balancers](../../application-load-balancer/concepts/application-load-balancer.md#lb-location).
    * **Subnet ID 1**, **Subnet ID 2**, **Subnet ID 3**: Select the [subnets](../../vpc/concepts/network.md#subnet) to [host the load balancers](../../application-load-balancer/concepts/application-load-balancer.md#lb-location).

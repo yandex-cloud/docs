@@ -21,6 +21,7 @@ The following IP address ranges are assigned to resources that are available to 
 | `84.201.128.0/18`  |
 | `84.252.128.0/20`  |
 | `89.169.128.0/18`  |
+| `89.232.188.0/22`  |
 | `130.193.32.0/19`  |
 | `158.160.0.0/16`   |
 | `178.154.192.0/18` |

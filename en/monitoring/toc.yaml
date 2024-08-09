@@ -142,7 +142,7 @@ items:
     items:
       - name: Current pricing policy
         href: pricing.md
-      - name: Archive
+      - name: Archives
         items:
           - name: Policy before October 1, 2020
             href: pricing-archive/pricing-01102020.md
@@ -188,6 +188,8 @@ items:
     items:
       - name: All metric references
         href: metrics-ref/index.md
+      - name: '{{ api-gw-name }}'
+        href: metrics-ref/api-gateway-ref.md
       - name: '{{ alb-name }}'
         href: metrics-ref/alb-ref.md
       - name: '{{ at-name }}'
@@ -198,6 +200,8 @@ items:
         href: metrics-ref/cdn-ref.md
       - name: '{{ compute-name }}'
         href: metrics-ref/compute-ref.md
+      - name: '{{ container-registry-name }}'
+        href: metrics-ref/container-registry-ref.md
       - name: '{{ dataproc-name }}'
         href: metrics-ref/data-proc-ref.md
       - name: '{{ data-transfer-name }}'

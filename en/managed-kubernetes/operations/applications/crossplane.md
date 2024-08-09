@@ -1,7 +1,7 @@
 # Installing Crossplane with {{ yandex-cloud }} support
 
 
-[Crossplane](https://crossplane.io/) is a freeware add-on to {{ k8s }}, which enables platform development teams to build infrastructure for multiple vendors and produce higher-level API services used by application development teams.
+[Crossplane](https://crossplane.io/) is a freeware add-on to {{ k8s }} that enables platform development teams to build infrastructure for multiple vendors and produce higher-level service APIs for application development teams.
 
 ## Getting started {#before-you-begin}
 
@@ -27,7 +27,7 @@
 1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [Crossplane with {{ yandex-cloud }} support](/marketplace/products/yc/crossplane) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Configure the application:
    * **Namespace**: Select a [namespace](../../concepts/index.md#namespace) for Crossplane or create a new one.
-   * **Application name**: Enter a name for the application.
+   * **Application name**: Specify the app name.
    * **Service account key**: Paste the contents of the [service account key](../../../iam/concepts/authorization/access-key.md) file you [previously obtained](#before-you-begin), or create a new one.
 1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
 1. Wait for the application to change its status to `Deployed`.
