@@ -35,7 +35,7 @@ To connect to a DB from a function, use the [IAM token](../../iam/concepts/autho
 
 You can connect to a DB out of a function over SSL only.
 
-## Examples of functions for connecting to databases
+## Examples of functions for connecting to databases {#examples}
 
 The connection ID and the entry point are available on the connection page in the [management console]({{ link-console-main }}).
 

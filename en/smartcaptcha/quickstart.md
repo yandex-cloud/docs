@@ -25,7 +25,7 @@ To get started with the service:
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the appropriate folder.
+   1. In the [management console]({{ link-console-main }}), select the folder.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartcaptcha }}**.
    1. Click **{{ ui-key.yacloud.smartcaptcha.button_captcha-settings-create }}**.
 
@@ -57,7 +57,7 @@ To get started with the service:
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the appropriate folder.
+   1. In the [management console]({{ link-console-main }}), select the folder.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartcaptcha }}**.
    1. Click the name of the CAPTCHA or [create](#creat-captcha) a new one.
    1. In the **{{ ui-key.yacloud.common.overview }}** tab, copy the **{{ ui-key.yacloud.smartcaptcha.label_client-key }}** and **{{ ui-key.yacloud.smartcaptcha.label_server-key }}** field values.
@@ -66,7 +66,7 @@ To get started with the service:
 
 {% endlist %}
 
-With the client key, you can [add a {{ captcha-name }} widget](#add-widget) to your page. You will need a server key to [check the user response](#check-answer).
+With the client key, you can [add a {{ captcha-name }} widget](#add-widget) to your page. You will need the server key to [check the user response](#check-answer).
 
 
 ## Add the widget to the page {#add-widget}

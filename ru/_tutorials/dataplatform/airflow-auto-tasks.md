@@ -416,7 +416,7 @@
 
 1. [Удалите](../../storage/operations/buckets/delete.md) бакет {{ objstorage-name }}.
 1. [Отвяжите](../../vpc/operations/subnet-update.md) таблицу маршрутизации от подсети.
-1. Удалите [таблицу маршрутизации](../../vpc/concepts/static-routes.md#rt-vm).
+1. Удалите [таблицу маршрутизации](../../vpc/concepts/routing.md#rt-vm).
 1. Удалите [NAT-шлюз](../../vpc/concepts/gateways.md).
 1. [Удалите](../../managed-airflow/operations/cluster-delete.md) кластер {{ AF }}.
 1. При необходимости удалите [подсети](../../vpc/operations/subnet-delete.md), [сеть](../../vpc/operations/network-delete.md) и [сервисный аккаунт](../../iam/operations/sa/delete.md).

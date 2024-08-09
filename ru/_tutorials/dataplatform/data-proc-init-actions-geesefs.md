@@ -15,7 +15,7 @@
 
 ## Перед началом работы {#before-you-begin}
 
-1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с ролью `dataproc.agent`.
+1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с ролями `dataproc.agent` и `dataproc.provisioner`.
 
 1. [Создайте бакет](../../storage/operations/buckets/create.md) {{ objstorage-full-name }}.
 

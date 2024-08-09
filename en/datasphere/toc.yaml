@@ -253,6 +253,8 @@ items:
             href: tutorials/yagpt-tuning.md
           - name: Tuning classifiers based on {{ yagpt-name }}
             href: tutorials/yagpt-tuning-classifier.md
+          - name: Image generation using the Stable Diffusion model
+            href: tutorials/stable-diffusion.md
       - name: Data analytics
         items:
           - name: >-

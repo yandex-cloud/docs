@@ -34,7 +34,7 @@ The External Secrets Operator with {{ lockbox-name }} support enables you to con
 1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [External Secrets Operator with {{ lockbox-name }} support](/marketplace/products/yc/external-secrets) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Configure the application:
    * **Namespace**: Select a [namespace](../../concepts/index.md#namespace) or create a new one.
-   * **Application name**: Enter a name for the application.
+   * **Application name**: Specify the app name.
    * **Service account key**: Paste the contents of `sa-key.json`.
 1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
 1. Wait for the application to change its status to `Deployed`.

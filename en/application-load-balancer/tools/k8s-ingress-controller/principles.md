@@ -6,10 +6,10 @@ description: "Learn about the operation principles of an {{ alb-name }} Ingress 
 # {{ alb-name }} Ingress controller operation principles
 
 
-An [{{ alb-name }} Ingress controller for {{ managed-k8s-name }}](index.md) owns two [pods](../../../managed-kubernetes/concepts/index.md#pod):
+An [{{ alb-name }} Ingress controller for {{ managed-k8s-name }}](index.md) has two [pods](../../../managed-kubernetes/concepts/index.md#pod):
 
-* The primary `yc-alb-ingress-controller-*` pod handles {{ alb-name }} resource creation and updates. You can track communication with resources through this pod's logs.
-* A [status check](../../concepts/backend-group.md#health-checks) pod called `yc-alb-ingress-controller-hc-*` deploys containers on backend nodes to accept test requests on TCP port 10501.
+* The primary `yc-alb-ingress-controller-*` pod is responsible for creating and updating {{ alb-name }} resources. You can use its logs to follow the operations with the resources.
+* The `yc-alb-ingress-controller-hc-*` [health check](../../concepts/backend-group.md#health-checks) pod with a container receives health check requests from the L7 load balancer on TCP port `10501` and health checks the [kube-proxy](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/) pods on each cluster node. If kube-proxy is healthy, then, even if an application in a particular pod does not respond, {{ k8s }} will redirect traffic to a different pod with that application or to a different node. This is the default health check workflow for the {{ alb-name }} Ingress controller. You can also [configure your own health checks](../../../managed-kubernetes/tutorials/custom-health-checks.md) in the [HttpBackendGroup](../../k8s-ref/http-backend-group.md) resource parameters.
 
 {% note warning %}
 
@@ -35,11 +35,11 @@ The primary pod manages the {{ alb-name }} resource architecture using the follo
 
       Where `secretName` is the reference to the certificate from {{ certificate-manager-full-name }}.
 
-      This will create two types of listeners for the load balancer: one will accept HTTPS traffic on port 443 while the other will redirect HTTP requests (port 80) to HTTPS with the `301 Moved Permanently` status code. The traffic distribution rules for the same domain names that are explicitly specified in other `Ingress` resources lacking the `spec.tls` field, will be given priority with respect to HTTP-to-HTTPS redirects.
+      This will create two types of listeners for the load balancer: some will accept HTTPS traffic on port `443` while the others will redirect HTTP requests (port `80`) to HTTPS with the `301 Moved Permanently` status code. At the same time, the traffic distribution rules for the same domain names explicitly specified in other `Ingress` resources, without the `spec.tls` field, will be prioritized over HTTP-to-HTTPS redirects.
 
       {% include [k8s-ingress-controller-secret-name](../../../_includes/application-load-balancer/k8s-ingress-controller-secret-name.md) %}
 
-   * If an `Ingress` description lacks the `spec.tls` field, a load balancer will only have listeners to receive HTTP traffic on port 80.
+   * If there is no `spec.tls` field in the `Ingress` description, the load balancer will only get listeners to accept HTTP traffic on port `80`.
 
 * You can create backend groups to process incoming traffic:
 

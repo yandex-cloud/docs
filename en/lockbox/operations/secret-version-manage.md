@@ -3,18 +3,19 @@ title: "How to manage secret versions in {{ lockbox-full-name }}"
 description: "Follow this guide to manage secret versions."
 ---
 
-# Managing secret versions
+# Secret version management
 
 
-Secret version control enables you to:
+With secret version management, you can:
 
-* [Create a new version](#create-version).
+* [Create a new user secret version](#create-version).
+* [Create a new generated secret version](#create-generated-version).
 * [Get information about a version](#get-version).
-* [Create a version based on another version](#create-version-based-on-other).
-* [Roll back to a version](#backup).
-* [Schedule version deletion](#set-deleting-time).
+* [Create a version based on an existing version](#create-version-based-on-other).
+* [Roll back to a particular version](#backup).
+* [Schedule a version for deletion](#set-deleting-time).
 
-## Creating a new version {#create-version}
+## Creating a new user secret version {#create-version}
 
 {% list tabs group=instructions %}
 
@@ -91,6 +92,27 @@ Secret version control enables you to:
 
 {% endlist %}
 
+## Creating a new generated secret version {#create-generated-version}
+
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+   1. In the [management console]({{ link-console-main }}), select the folder the secret belongs to.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+   1. Click the name of the secret you need.
+   1. Under **{{ ui-key.yacloud.lockbox.label_secret-versions-section }}**, click **{{ ui-key.yacloud.lockbox.button_add-version }}**.
+   1. (Optional) Add **{{ ui-key.yacloud.common.description }}** of the version.
+   1. (Optional) To change other parameters, click **{{ ui-key.yacloud.lockbox.forms.alert_generated-version-edit_button }}** and specify:
+      * **{{ ui-key.yacloud.lockbox.forms.title_secret-type }}**: You can either leave the generated type or select the user type.
+      * **{{ ui-key.yacloud.lockbox.forms.label_key }}** and **{{ ui-key.yacloud.lockbox.forms.title_auto-generation_params_section }}**, for the generated secret type.
+      * **{{ ui-key.yacloud.lockbox.forms.label_key }}** and **{{ ui-key.yacloud.lockbox.forms.label_value }}**, for the user secret type.
+
+         You can create multiple key-value pairs per version.
+   1. Click **{{ ui-key.yacloud.lockbox.button_add-version }}** or **{{ ui-key.yacloud.common.save }}**.
+
+{% endlist %}
+
 ## Getting information about a version {#get-version}
 
 {% list tabs group=instructions %}
@@ -129,7 +151,7 @@ Secret version control enables you to:
 
 {% endlist %}
 
-## Creating a version based on another version {#create-version-based-on-other}
+## Creating a version based on an existing version {#create-version-based-on-other}
 
 {% list tabs group=instructions %}
 
@@ -143,8 +165,9 @@ Secret version control enables you to:
    1. Edit or add the following parameters:
       * (Optional) **{{ ui-key.yacloud.common.description }}**: Version description.
       * **{{ ui-key.yacloud.lockbox.forms.label_key }}**: Non-secret name that identifies a value.
-      * **{{ ui-key.yacloud.lockbox.forms.label_value }}**: Explicitly represented secret data.
+      * For a user secret, **{{ ui-key.yacloud.lockbox.forms.label_value }}**: Secret data in an explicit form.
          You can create multiple key-value pairs per version.
+      * For a generated secret, you can change the key and the value parameters. To do this, click **Edit secret** and [specify new parameters](secret-update.md).
    1. Click **{{ ui-key.yacloud.lockbox.button_add-version }}**.
 
 - CLI {#cli}
@@ -188,7 +211,7 @@ Secret version control enables you to:
 
 - API {#api}
 
-   To create a version based on another version, use the [addVersion](../api-ref/Secret/addVersion.md) REST API method for the [Secret](../api-ref/Secret/index.md) resource or the [SecretService/AddVersion](../api-ref/grpc/secret_service.md#AddVersion) gRPC API call.
+   To create a version based on an existing version, use the [addVersion](../api-ref/Secret/addVersion.md) REST API method for the [Secret](../api-ref/Secret/index.md) resource or the [SecretService/AddVersion](../api-ref/grpc/secret_service.md#AddVersion) gRPC API call.
 
 {% endlist %}
 
@@ -211,7 +234,7 @@ Secret version control enables you to:
 
 {% endlist %}
 
-## Scheduling version destruction {#set-deleting-time}
+## Scheduling a version for deletion {#set-deleting-time}
 
 {% list tabs group=instructions %}
 
@@ -222,7 +245,7 @@ Secret version control enables you to:
    1. Click the name of the secret you need.
    1. Under **{{ ui-key.yacloud.lockbox.label_secret-versions-section }}**, click ![image](../../_assets/console-icons/ellipsis.svg) next to the appropriate version.
    1. Select **{{ ui-key.yacloud.lockbox.button_action-schedule-for-destruction }}**.
-   1. Enter the destruction pending period.
+   1. Enter the deletion pending period.
    1. Click **{{ ui-key.yacloud.lockbox.forms.button_schedule-destruction }}**.
 
 - CLI {#cli}
@@ -231,12 +254,12 @@ Secret version control enables you to:
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   1. View a description of the CLI command to schedule version destruction:
+   1. View a description of the CLI command to schedule version deletion:
 
       ```bash
       yc lockbox secret schedule-version-destruction --help
       ```
-   1. Schedule a version for destruction by specifying the secret name, version ID, and the destruction pending period. For example, 1 week: `168h`:
+   1. Schedule a version for deletion by specifying the secret name, version ID, and the deletion pending period. For example, 1 week: `168h`:
 
       ```bash
       yc lockbox secret schedule-version-destruction <secret_name> \
@@ -257,7 +280,7 @@ Secret version control enables you to:
 
 - API {#api}
 
-   To schedule a version deletion, use the [scheduleVersionDestruction](../api-ref/Secret/addVersion.md) REST API method for the [Secret](../api-ref/Secret/index.md) resource or the [SecretService/ScheduleVersionDestruction](../api-ref/grpc/secret_service.md#ScheduleVersionDestruction) gRPC API call.
+   To schedule a version for deletion, use the [scheduleVersionDestruction](../api-ref/Secret/addVersion.md) REST API method for the [Secret](../api-ref/Secret/index.md) resource or the [SecretService/ScheduleVersionDestruction](../api-ref/grpc/secret_service.md#ScheduleVersionDestruction) gRPC API call.
 
 {% endlist %}
 

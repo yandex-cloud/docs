@@ -1,13 +1,58 @@
-You can upload a [certificate](../../certificate-manager/concepts/index.md) chain and a private key to use on your own, e.g., when configuring a web server on a [VM](../../compute/concepts/vm.md).
+You can save a [certificate](../../certificate-manager/concepts/index.md) chain and a private key to use on your own, e.g., when configuring a web server on a [VM](../../compute/concepts/vm.md).
 
 To get the contents of a certificate:
 
 {% list tabs group=instructions %}
 
+- Management console {#console}
+
+   1. In the [management console]({{ link-console-main }}), select the folder where the certificate is located.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+   1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the certificate and select **{{ ui-key.yacloud.certificate-manager.overview.certificate_content_export }}**.
+
+      You can only export certificates with the `Issued` status.
+   1. Select one of the export options. The `certificate.pem` file will contain the following data in Base64 encoded text format:
+      * **{{ ui-key.yacloud.certificate-manager.overview.certificate_content_select_full }}**: Certificate chain (root and target certificate) and private key with standard framing:
+         ```
+         -----BEGIN CERTIFICATE-----
+         MIIE5zCCA8+gAwI...
+         -----END CERTIFICATE-----
+         -----BEGIN CERTIFICATE-----
+         MIIFFjCCAv6gAwIBAg...
+         -----END CERTIFICATE-----
+         -----BEGIN PRIVATE KEY-----
+         MIIEvgIBADANBgk...
+         -----END PRIVATE KEY-----
+         ```
+
+      * **{{ ui-key.yacloud.certificate-manager.overview.certificate_content_select_no_private_key }}**: Certificate chain (root and target certificate):
+         ```
+          -----BEGIN CERTIFICATE-----
+          MIIE5zCCA8+gAwI...
+          -----END CERTIFICATE-----
+          -----BEGIN CERTIFICATE-----
+          MIIFFjCCAv6gAwIBAg...
+          -----END CERTIFICATE-----
+         ```
+
+      * **{{ ui-key.yacloud.certificate-manager.overview.certificate_content_select_leaf_only }}**:
+         ```
+         -----BEGIN CERTIFICATE-----
+         MIIFFjCCAv6gAwIBAg...
+         -----END CERTIFICATE-----`
+         ```
+      * **{{ ui-key.yacloud.certificate-manager.overview.certificate_content_select_private_key_only }}**:
+         ```
+         -----BEGIN PRIVATE KEY-----
+         MIIEvgIBADANBgk...
+         -----END PRIVATE KEY-----`
+         ```
+
+   1. Click **{{ ui-key.yacloud.certificate-manager.overview.certificate_content_download }}**.
+
 - CLI {#cli}
 
    The command will display a certificate chain and a private key and save their contents to the `--chain` and `--key` files, respectively.
-
    * `--id`: Certificate ID; make sure you set either the `--id` or `--name` flag.
    * `--name`: Name of the certificate; make sure you set either the `--id` or `--name` flag.
    * `--chain`: (Optional) File to save the certificate chain to in PEM format.
@@ -27,7 +72,6 @@ To get the contents of a certificate:
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
    To get the contents of a custom certificate using {{ TF }}:
-
    1. In the {{ TF }} configuration file, describe the parameters of the resources you want to create:
 
       
@@ -47,9 +91,7 @@ To get the contents of a certificate:
       ```
 
 
-
       Where:
-
       * `data "yandex_cm_certificate_content"`: Description of the data source for the certificate contents:
          * `certificate_id`: Certificate ID
       * `output` sections: `certificate_chain` output variables with a certificate chain and a `certificate_key` private key:
@@ -57,13 +99,11 @@ To get the contents of a certificate:
          * `sensitive`: Label data as sensitive
 
       For more information about the `yandex_cm_certificate_content` data source parameters, see the [provider documentation]({{ tf-provider-datasources-link }}/datasource_cm_certificate_content).
-
    1. Create resources:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
       {{ TF }} will create all the required resources. To check the results, run these commands:
-
       * Get a certificate chain:
 
          ```bash

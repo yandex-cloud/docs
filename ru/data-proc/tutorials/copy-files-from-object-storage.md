@@ -27,6 +27,10 @@
 
 1. При создании кластера укажите [сервисный аккаунт](../../iam/operations/sa/create.md#create-sa). Если кластер уже создан, добавьте сервисный аккаунт с помощью кнопки **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** в консоли управления.
 
+    Сервисному аккаунту должны быть [назначены роли](../../iam/operations/sa/assign-role-for-sa.md):
+
+    {% include [sa-roles](../../_includes/data-proc/sa-roles.md) %}
+
 1. У сервисного аккаунта должен быть доступ к нужному бакету. Для этого выдайте сервисному аккаунту права в [ACL бакета](../../storage/concepts/acl), либо роль `storage.viewer` или `storage.editor`.
 
     Подробнее про эти роли см. в [документации {{ objstorage-name }}](../../storage/security/index.md).

@@ -15,7 +15,7 @@ description: "Статический маршрут по умолчанию (0.0
 
 - Консоль управления {#console}
 
-  Чтобы создать таблицу маршрутизации и добавить в нее [статические маршруты](../concepts/static-routes.md): 
+  Чтобы создать таблицу маршрутизации и добавить в нее [статические маршруты](../concepts/routing.md): 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, где требуется создать статический маршрут.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.vpc.network.switch_route-table }}**.
@@ -42,7 +42,7 @@ description: "Статический маршрут по умолчанию (0.0
 
 - CLI {#cli}
 
-  Чтобы создать таблицу маршрутизации и добавить в нее [статические маршруты](../concepts/static-routes.md): 
+  Чтобы создать таблицу маршрутизации и добавить в нее [статические маршруты](../concepts/routing.md): 
   1. Посмотрите описание команды CLI для создания таблиц маршрутизации:
 
      ```
@@ -138,7 +138,7 @@ description: "Статический маршрут по умолчанию (0.0
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  Чтобы создать таблицу маршрутизации и добавить в нее [статические маршруты](../concepts/static-routes.md):
+  Чтобы создать таблицу маршрутизации и добавить в нее [статические маршруты](../concepts/routing.md):
 
   1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
 
@@ -197,7 +197,7 @@ description: "Статический маршрут по умолчанию (0.0
 
 - API {#api}
 
-  Чтобы создать таблицу маршрутизации и добавить в нее [статические маршруты](../concepts/static-routes.md), воспользуйтесь методом REST API [create](../api-ref/RouteTable/create.md) для ресурса [RouteTable](../api-ref/RouteTable/index.md) или вызовом gRPC API [RouteTableService/Create](../api-ref/grpc/route_table_service.md#Create) и передайте в запросе:
+  Чтобы создать таблицу маршрутизации и добавить в нее [статические маршруты](../concepts/routing.md), воспользуйтесь методом REST API [create](../api-ref/RouteTable/create.md) для ресурса [RouteTable](../api-ref/RouteTable/index.md) или вызовом gRPC API [RouteTableService/Create](../api-ref/grpc/route_table_service.md#Create) и передайте в запросе:
 
   * Идентификатор каталога, в котором будет размещена таблица маршрутизации, в параметре `folderId`.
   * Имя таблицы маршрутизации в параметре `name`. Формат имени:

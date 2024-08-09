@@ -18,7 +18,7 @@
 
 - Вручную {#manual}
 
-    1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) с именем `dataproc-s3-sa` и назначьте ему роль `dataproc.agent`.
+    1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) с именем `dataproc-s3-sa` и назначьте ему роли `dataproc.agent` и `dataproc.provisioner`.
     1. {% include [basic-before-buckets](../../../_includes/data-proc/tutorials/basic-before-buckets.md) %}
     1. [Создайте облачную сеть](../../../vpc/operations/network-create.md) с именем `dataproc-network`.
     1. В сети `dataproc-network` [создайте подсеть](../../../vpc/operations/subnet-create.md) в любой зоне доступности.

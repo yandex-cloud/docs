@@ -38,6 +38,7 @@ description: "In this article, you will learn how to work with {{ objstorage-ful
 * [{#T}](objects/deleting-multipart.md)
 * [{#T}](objects/edit-acl.md)
 * [{#T}](objects/tagging.md)
+* [{#T}](objects/object-meta.md)
 
 ## Hosting static sites {#hosting}
 

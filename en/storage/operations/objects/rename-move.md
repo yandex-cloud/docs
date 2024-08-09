@@ -5,6 +5,10 @@ description: "In this tutorial, you will learn how to rename and move an object 
 
 # Renaming and moving objects
 
+
+{% include [encryption-roles](../../../_includes/storage/encryption-roles.md) %}
+
+
 ## Renaming {#rename}
 
 {% list tabs group=instructions %}

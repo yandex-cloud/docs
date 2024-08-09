@@ -29,7 +29,7 @@ To view assigned roles:
 
    1. In the [management console]({{ link-console-main }}), navigate to the folder the service account belongs to.
    1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
-   1. The service account's roles for the current folder are listed in the **{{ ui-key.yacloud.iam.folder.service-accounts.column_roles }}** column.
+   1. The service account's roles are listed in the **{{ ui-key.yacloud.iam.folder.service-accounts.column_roles }}** column.
 
 - CLI {#cli}
 

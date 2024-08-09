@@ -1,4 +1,4 @@
-The name of the metric is written in the `name` label.
+The metric name is written to the `name` label.
 
 Common labels for all {{ mmg-name }} metrics:
 
@@ -35,7 +35,7 @@ Processor core workload.
 | `cpu_utilization_by_db_60_limit`<br/>`DGAUGE`, % | Maximum VM processor core (vCPUs) utilization by a database over 60 seconds (%) |
 
 ## Disk metrics {#managed-mongodb-disk-metrics}
-| Name<br/>Type, unit | Description |
+| Name<br/>Type, units | Description |
 | ----- | ----- |
 | `disk.free_bytes`<br/>`DGAUGE`, bytes | Free space |
 | `disk.free_inodes`<br/>`DGAUGE`, number | Number of free inodes |
@@ -114,7 +114,7 @@ Processor core workload.
 
 ## dbStats metrics {#managed-mongodb-dbstats-metrics}
 
-| Name<br/>Type, unit | Description |
+| Name<br/>Type, units | Description |
 | ----- | ----- |
 | `db_stats_dataSize`<br/>`DGAUGE`, bytes | Size of uncompressed data in the DB |
 | `db_stats_indexSize`<br/>`DGAUGE`, bytes | Space used by DB indexes |
@@ -192,9 +192,9 @@ Processor core workload.
 | `ip_inhdrerrors`<br/>`DGAUGE`, number | Number of input packets with header errors |
 | `ip_inreceives`<br/>`DGAUGE`, number | Total number of input packets received from interfaces, including those received through error |
 | `ip_inunknownprotos`<br/>`DGAUGE`, number | Number of unknown protocol packets received |
-| `ip_outdiscards`<br/>`DGAUGE`, number | Number of output IP packets encountering no problems preventing transmission to their destination but still dropped, e.g., for lack of buffer space. Note that the counter would include datagrams counted in `ip_forwdatagrams` if they met this (discretionary) discard criterion. |
+| `ip_outdiscards`<br/>`DGAUGE`, number | Number of output IP packets encountering no problems preventing transmission to their destination but still dropped, e.g., for lack of buffer space. Note that the counter would include packets counted in `ip_forwdatagrams` if they met this (discretionary) discard criterion. |
 | `ip_outnoroutes`<br/>`DGAUGE`, number | Number of IP packets dropped because no route could be found to transmit them to their destination. This counter includes all the packets counted in `ip_forwdatagrams` that meet this No Route criterion. This includes any packets a host cannot redirect because all its default gateways are down. |
-| `ip_outrequests`<br/>`DGAUGE`, number | Total number of IP packets which local IP user protocols (including ICMP) supplied to IP in requests for transmission. This counter does not include any datagrams counted in `ip_forwdatagrams`. |
+| `ip_outrequests`<br/>`DGAUGE`, number | Total number of IP packets which local IP user protocols (including ICMP) supplied to IP in requests for transmission. This counter does not include the packets counted in `ip_forwdatagrams`. |
 | `ip_reasmfails`<br/>`DGAUGE`, number | Number of failures detected by the IP reassembly algorithm (for whatever reason: timed out, errors, etc.). This is not necessarily a count of dropped IP fragments since some algorithms (such as the algorithm in RFC 815) can lose track of the number of fragments, combining them as they are received. |
 | `ip_reasmoks`<br/>`DGAUGE`, number | Number of IP packets successfully reassembled |
 | `ip_reasmreqds`<br/>`DGAUGE`, number | Number of IP fragments received which needed to be reassembled in this object |

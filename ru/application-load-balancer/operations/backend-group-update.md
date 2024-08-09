@@ -715,3 +715,7 @@ description: "Пошаговая инструкция по изменению г
   Воспользуйтесь методом REST API [removeBackend](../api-ref/BackendGroup/removeBackend.md) для ресурса [BackendGroup](../api-ref/BackendGroup/index.md) или вызовом gRPC API [BackendGroupService/RemoveBackend](../api-ref/grpc/backend_group_service.md#RemoveBackend).
 
 {% endlist %}
+
+### См. также {#see-also}
+
+* [{#T}](../concepts/best-practices.md)
