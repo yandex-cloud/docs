@@ -18,30 +18,27 @@ description: "Follow this guide to add the {{ ydb-full-name }} extension using t
       {% include [common-spec-constructor](../../../_includes/api-gateway/common-spec-constructor.md) %}
 
       * **Service account**: Service account for authorization when accessing the [database](../../../ydb/concepts/resources.md#database). If you do not have a service account, [create](../../../iam/operations/sa/create.md) one.
-      * **Operation**: [Operation type](../../concepts/extensions/ydb.md#podderzhivaemye-operacii).
+      * **Database**: Database name.
+      * **Table**: Name of the table the operation will be performed on.
+      * **Operation**: [Operation type](../../concepts/extensions/ydb.md#podderzhivaemye-operacii) and its respective parameters:
 
-         To specify operation parameters, click ![image](../../../_assets/console-icons/plus.svg):
+         * `PutItem`
+         * `GetItem`:
 
-         * PutItem:
-            * **Table**: Name of the table the operation will be performed on.
-            * **Database**: Relative path to the database.
-         * GetItem:
-            * **Table**: Name of the table the operation will be performed on.
-            * **Database**: Relative path to the database.
             * **Key**: Primary key of the element the operation will be performed on.
-         * UpdateItem:
-            * **Table**: Name of the table the operation will be performed on.
-            * **Database**: Relative path to the database.
+
+         * `UpdateItem`:
+
             * **Key**: Primary key of the element the operation will be performed on.
             * **Update expression**: Expression that will define which attributes must be updated and how.
             * (Optional) **Alias**: Alias that can be used in the update expression instead of the attribute value. It must start with a colon `:`.
-         * DeleteItem:
-            * **Table**: Name of the table the operation will be performed on.
-            * **Database**: Relative path to the database.
+
+         * `DeleteItem`:
+
             * **Key**: Primary key of the element the operation will be performed on.
-         * Scan:
-            * **Table**: Name of the table the operation will be performed on.
-            * **Database**: Relative path to the database.
+
+         * `Scan`:
+
             * (Optional) **Limit**: Maximum number of read elements.
             * (Optional) **Element primary key**: Primary key of the element to start the search.
 

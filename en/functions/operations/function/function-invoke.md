@@ -29,8 +29,8 @@ As an example, we use the function described in [{#T}](../function/version-manag
 
       * **{{ ui-key.yacloud.serverless-functions.item.testing.value_empty }}**: Custom data format.
       * **{{ ui-key.yacloud.serverless-functions.item.testing.value_http-request }}**: Data format for a function acting as an HTTPS request handler. For more information, see [Concepts](../../concepts/function-invoke.md).
-            * **{{ ui-key.yacloud.serverless-functions.item.testing.value_ymq-trigger }}**: Data format for the function invoked by a trigger in order to process messages from the queue.
-            * **{{ ui-key.yacloud.serverless-functions.item.testing.value_alice-skill }}**: Data format for invoking the function receiving [requests](https://yandex.ru/dev/dialogs/alice/doc/request.html) from Yandex Dialogs.
+      * **{{ ui-key.yacloud.serverless-functions.item.testing.value_ymq-trigger }}**: Data format for the function invoked by a trigger in order to process messages from the queue.
+      * **{{ ui-key.yacloud.serverless-functions.item.testing.value_alice-skill }}**: Data format for invoking the function receiving [requests](https://yandex.ru/dev/dialogs/alice/doc/request.html) from Yandex Dialogs.
 
    1. In the **{{ ui-key.yacloud.serverless-functions.item.testing.field_payload }}**, enter the input data to test the function.
 
@@ -115,11 +115,9 @@ As an example, we use the function described in [{#T}](../function/version-manag
       yc serverless function invoke <function_ID> --tag <version_tag>
       ```
 
-
 - {{ yandex-cloud }} Toolkit {#yc-toolkit}
 
    You can call a function using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [JetBrains](https://www.jetbrains.com/) [IntelliJ platform](https://www.jetbrains.com/opensource/idea/).
-
 
 {% endlist %}
 

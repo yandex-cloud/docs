@@ -11,7 +11,7 @@ To create a trigger, you need:
    * [Create a function](../../../functions/operations/function/function-create.md).
    * [Create a function version](../../../functions/operations/function/version-manage.md).
 
-* (Optional) A [Dead Letter Queue](../../../functions/concepts/dlq.md) where messages that could not be processed by a function will be redirected. If you do not have a queue, [create one](../../../message-queue/operations/message-queue-new-queue.md).
+* (Optional) A [dead-letter queue](../../../functions/concepts/dlq.md) where messages that could not be processed by a function will be redirected. If you do not have a queue, [create one](../../../message-queue/operations/message-queue-new-queue.md).
 
 * [Service accounts](../../../iam/concepts/users/service-accounts.md) with the following permissions:
 
@@ -31,7 +31,7 @@ To create a trigger, you need:
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you want to create your trigger.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a trigger.
 
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
 
@@ -49,6 +49,12 @@ To create a trigger, you need:
 
       {% include [mail-trigger-attachements](../../../_includes/functions/mail-trigger-attachements.md) %}
 
+   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}**, specify:
+
+      {% include [batch-settings](../../../_includes/functions/batch-settings.md) %}
+
+      {% include [batch-messages](../../../_includes/functions/batch-messages.md) %}
+
    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}**, select a function and specify:
 
       {% include [function-settings](../../../_includes/functions/function-settings.md) %}
@@ -57,7 +63,7 @@ To create a trigger, you need:
 
       {% include [repeat-request.md](../../../_includes/functions/repeat-request.md) %}
 
-   1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the dead-letter queue and the service account with write permissions for this queue.
+   1. Optionally, under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the dead-letter queue and the service account with write permissions for this queue.
 
    1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
@@ -86,7 +92,7 @@ To create a trigger, you need:
 
    Where:
 
-   * `--name`: Trigger name
+   * `--name`: Trigger name.
 
    {% include [batch-settings-messages](../../../_includes/functions/batch-settings-messages.md) %}
 
@@ -167,65 +173,6 @@ To create a trigger, you need:
          * `batch_size`: Message batch size. This is an optional parameter. The values may range from 1 to 10. The default value is 1.
 
       {% include [tf-dlq-params](../../../_includes/serverless-containers/tf-dlq-params.md) %}
-
-      For more information about the `yandex_function_trigger` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/function_trigger).
-
-   1. Create resources:
-
-      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
-
-   {{ TF }} will create all the required resources. You can check the new trigger using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
-
-   ```bash
-   yc serverless trigger get <trigger_ID>
-   ```
-
-- {{ TF }} {#tf}
-
-   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
-
-   {% include [terraform-install](../../../_includes/terraform-install.md) %}
-
-   To create an email trigger that invokes a function:
-
-   1. In the configuration file, describe the trigger parameters:
-
-      ```hcl
-      resource "yandex_function_trigger" "my_trigger" {
-        name = "<trigger_name>"
-        function {
-          id                 = "<function_ID">
-          service_account_id = "<service_account_ID>"
-          retry_attempts     = <number_of_retry_invocation_attempts>
-          retry_interval     = <interval_between_retry_attempts>
-        }
-        mail {
-          attachments_bucket_id = "<bucket_name>"
-          service_account_id    = "<service_account_ID>"
-          batch_cutoff          = <wait_time>
-          batch_size            = <event_batch_size>
-        }
-        dlq {
-          queue_id           = "<DLQ_ID>"
-          service_account_id = "<service_account_ID>"
-        }
-      }
-      ```
-
-      Where:
-
-      * `name`: Trigger name. The name format is as follows:
-
-         {% include [name-format](../../../_includes/name-format.md) %}
-
-      * `function`: Properties of the function the trigger will invoke:
-
-         * `id`: Function ID.
-         * `service_account_id`: ID of the service account with permissions to invoke the function.
-         * `retry_attempts`: Number of invocation retries before the trigger moves a message to the dead-letter queue. This is an optional parameter. The values may range from 1 to 5. The default value is 1.
-         * `retry_interval`: Time until another attempt is made to invoke the function if the current attempt fails. This is an optional parameter. The values may range from 10 to 60 seconds. The default value is 10 seconds.
-
-      {% include [trigger-tf-param](../../../_includes/functions/trigger-tf-param.md) %}
 
       For more information about the `yandex_function_trigger` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/function_trigger).
 

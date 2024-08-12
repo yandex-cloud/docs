@@ -56,6 +56,8 @@ items:
             href: operations/monitoring.md
   - name: Практические руководства
     items:
+      - name: Настройка политики индексов в {{ mos-name }}
+        href: tutorials/opensearch-index-policy.md
       - name: Миграция данных из {{ ES }}
         href: tutorials/migration-to-opensearch.md
       - name: Загрузка логов из {{ at-name }}
@@ -80,6 +82,8 @@ items:
         href: concepts/host-roles.md
       - name: Индексы
         href: concepts/indexing.md
+      - name: Политики индексов
+        href: concepts/index-policy.md
       - name: Поиск с помощью {{ OS }}
         href: concepts/searching.md
       - name: Классы хостов

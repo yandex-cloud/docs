@@ -4,7 +4,7 @@
 
 ### Я могу получить логи моей работы в сервисах? {#logs}
 
-Да, вы можете запросить записи о том, что происходило с вашими ресурсами, из логов сервисов {{ yandex-cloud }}. Подробнее читайте в разделе [{#T}](../../support/request.md).
+Вы можете самостоятельно получить логи сервисов {{ yandex-cloud }} с помощью подключения к [{{ datalens-short-name }} Usage Analytics](../operations/connection/create-usage-tracking.md).
 
 {% include [copy-folder](../../_qa/datalens/copy-folder.md) %}
 

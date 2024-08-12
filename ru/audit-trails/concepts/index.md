@@ -41,6 +41,8 @@ description: "{{ at-full-name }} позволяет собирать аудит�
 
 Если вы загружаете аудитные логи в лог-группу или поток данных, то их размер не должен превышать как лимиты {{ at-name }}, так и лимиты сервисов [{{ cloud-logging-full-name }}](../../logging/concepts/limits.md) и [{{ yds-full-name }}](../../data-streams/concepts/limits.md). При превышении лимитов информация в аудитных логах событий большого размера будет неполной.
 
+{% include [logging-dublicate-events](../../_includes/audit-trails/logging-dublicate-events.md) %}
+
 Рекомендуем также загружать аудитные логи в бакет {{ objstorage-name }}.
 
 {% note info %}
@@ -48,5 +50,3 @@ description: "{{ at-full-name }} позволяет собирать аудит�
 {% include [error-note](../../_includes/audit-trails/error-note.md) %}
 
 {% endnote %}
-
-{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

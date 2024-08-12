@@ -152,8 +152,8 @@ The manifest uses YAML format and contains the following data:
       user_values:
       - name: app.port
         title:
-          en: <English_title>
-          ru: <Title_in_Russian>
+          en: <title_in_English>
+          ru: <title_in_Russian>
       ```
    * `description`: Variable description, can be either in Russian or English. The value must start with a capital letter.
 
@@ -166,53 +166,52 @@ The manifest uses YAML format and contains the following data:
             ru: <Description_in_Russian>
       ```
 
+   * `required` (optional): *Required* flag. The flag can be set for any variable type except `boolean_value`. The available values are `true` and `false`.
+
    * Variable type. Legal values:
-      * `boolean_value`. May contain a default value.
+      * `simple_disabled`. May contain a default value and the enable flag.
 
          ```yaml
          user_values:
-           - name: <Name>
+           - name: <name>
+             disabled: true
              title: <Title>
-             description: <Description>
-             boolean_value:
-               default_value: true
+             string_value:
+               required: true
+               default_value: "simple_string_value"
          ```
 
-      * `integer_value`. May contain a default value, the <q>required</q> flag, and a range of legal values.
+      * `integer_value`. May contain a default value and a range of valid values.
 
          ```yaml
          user_values:
-           - name: <Name>
+           - name: <name>
              title: <Title>
              description: <Description>
              integer_value:
-               default_value: <an integer by default>
+               default_value: <default_integer>
                required: true
                restrictions:
                  min: <integer_1>
                  max: <integer_2>
          ```
 
-      * `string_value`. May contain the <q>required</q>> and the <q> >secret field</q> flags as well as a length limit for the value.
+      * `boolean_value`. May contain a default value.
 
          ```yaml
          user_values:
-           - name: <Name>
+           - name: <name>
              title: <Title>
              description: <Description>
-             string_value:
-               required: true
-               secret: true
-               length_restrictions:
-                 min: <min_row_length>
-                 max: <max_row_length>
+             boolean_value:
+               default_value: true
          ```
 
-      * `string_selector_value`: String from a pre-defined list. May contain a default value, the <Q>required</q> flag, and a list of legal values.
+      * `string_selector_value`: String from a pre-defined list. May contain a default value and a list of valid values.
 
          ```yaml
          user_values:
-           - name: <Name>
+           - name: <name>
              title: <Title>
              description: <Description>
              string_selector_value:
@@ -224,11 +223,11 @@ The manifest uses YAML format and contains the following data:
                  - <value_3>
          ```
 
-      * `integer_selector_value`: Integer value from a pre-defined list. May contain a default value, the <q>required</q> flag, and a list of legal values.
+      * `integer_selector_value`: Integer value from a pre-defined list. May contain a default value and a list of valid values.
 
          ```yaml
          user_values:
-           - name: <Name>
+           - name: <name>
              title: <Title>
              description: <Description>
              integer_selector_value:
@@ -240,11 +239,106 @@ The manifest uses YAML format and contains the following data:
                  - <integer_3>
          ```
 
-      * `service_account_aws_key_value`: [Static key](../../iam/concepts/authorization/access-key.md) of the service account to access {{ objstorage-name }}. It is delivered in JSON format and may include the *Required* flag.
+      * `string_value`. May contain a flag and a *secret field*, as well as a value length limit.
 
          ```yaml
          user_values:
-           - name: <Name>
+           - name: <name>
+             title: <Title>
+             description: <Description>
+             string_value:
+               required: true
+               secret: true
+               length_restrictions:
+                 min: <min_row_length>
+                 max: <max_row_length>
+         ```
+
+      * `cloudiddisabled`: [Cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) ID in {{ yandex-cloud }}. If you provide a parameter, the appropriate product field in the management console will not be available for editing and will be automatically pre-filled.
+
+         ```yaml
+         user_values:
+           - name: <name>
+             title: <Title>
+             cloud_id_value:
+               required: true
+         ```
+
+      * `cloudid`: Сloud ID in {{ yandex-cloud }}, which you can select from the management console.
+
+         ```yaml
+         user_values:
+           - name: <name>
+             title: <Title>
+             cloud_id_value:
+               required: true
+         ```
+
+      * `folderid`: [Folder](../../resource-manager/concepts/resources-hierarchy.md#folder) ID.
+
+         ```yaml
+         user_values:
+           - name: <name>
+             title: <Title>
+             folder_id_value:
+               required: true
+         ```
+
+      * `clusterid`: [{{ k8s }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) ID.
+
+         ```yaml
+         user_values:
+           - name: <name>
+             title: <Title>
+             cluster_id_value:
+               required: true
+         ```
+
+      * `networkid`: {{ vpc-full-name }} [network](../../vpc/concepts/network.md#network) ID.
+
+         ```yaml
+         user_values:
+           - name: <name>
+             title: <Title>
+             network_id_value:
+               required: true
+         ```
+
+      * `subnetid`: {{ vpc-name }} [subnet](../../vpc/concepts/network.md#subnet) ID.
+
+         ```yaml
+         user_values:
+           - name: <name>
+             title: <Title>
+             subnet_id_value:
+               required: true
+         ```
+
+      * `serviceaccountid`: [Service account](../../iam/concepts/users/service-accounts.md) ID.
+
+         ```yaml
+         user_values:
+           - name: <name>
+             title: <Title>
+             service_account_id_value:
+               required: true
+         ```
+
+      * `serviceaccountkey`: Service account's [authorized key](../../iam/concepts/authorization/key.md).
+
+         ```yaml
+         user_values:
+           - name: <name>
+             title: <Title>
+             service_account_key_value:
+               required: true
+         ```
+
+      * `service_account_aws_key_value`: Service account's [static key](../../iam/concepts/authorization/access-key.md) for access to {{ objstorage-name }}. It is delivered in JSON format.
+
+         ```yaml
+         user_values:
+           - name: <name>
              title: <Title>
              description: <Description>
              service_account_aws_key_value:
@@ -294,7 +388,115 @@ The manifest uses YAML format and contains the following data:
            SECRET_ACCESS_KEY: {{ include "mychart.access_key_secret" . | b64enc | quote }}
          ```
 
-The variable values specified by the user when installing the product in a Kubernetes cluster will override the values from `values.yaml`.
+      * `ciliumvaluedisabled`: Use of the Cilium network policy provider. If you provide a parameter, the appropriate product field in the management console will not be available for editing and will be automatically pre-filled.
+
+         ```yaml
+         user_values:
+           - name: <name>
+             title: <Title>
+           cilium_value: {}
+         ```
+
+      * `ciliumvalue`: Use of the Cilium network policy provider.
+
+         ```yaml
+         user_values:
+           - name: <name>
+             title: <Title>
+           cilium_value: {}
+         ```
+
+      * `kubednsclusteripvaluedisabled`: {{ k8s }} cluster IP address. If you provide a parameter, the appropriate product field in the management console will not be available for editing and will be automatically pre-filled.
+
+         ```yaml
+         user_values:
+           - name: <name>
+             title: <Title>
+           kube_dns_cluster_ip_value:
+               required: true
+         ```
+
+      * `kubednsclusteripvalue`: {{ k8s }} cluster IP address.
+
+         ```yaml
+         user_values:
+           - name: <name>
+             title: <Title>
+           kube_dns_cluster_ip_value:
+               required: true
+         ```
+
+      * `loggroupidvalue`: {{ cloud-logging-full-name }} [log group](../../logging/concepts/log-group.md) ID.
+
+         ```yaml
+         user_values:
+           - name: <name>
+             title: <Title>
+             log_group_id_value:
+               required: true
+         ```
+
+      * `kmskeyidvalue`: [{{ kms-full-name }} key](../../kms/concepts/key.md) contents.
+
+         ```yaml
+         user_values:
+           - name: <name>
+             title: <Title>
+           kms_key_id_value:
+               required: true
+         ```
+
+      * `domainvalue`: Domain to host the {{ k8s }} cluster.
+
+         ```yaml
+         user_values:
+           - name: <name>
+             title: <Title>
+             domain_value:
+               required: true
+         ```
+
+      * `iamapikeyvalue`: Service account's [API key](../../iam/concepts/authorization/api-key.md) value. It is delivered in JSON format.
+
+         ```yaml
+         user_values:
+           - name: <name>
+             title: <Title>
+           iam_api_key_value:
+               required: true
+         ```
+
+      * `storagebucketvalue`: {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md).
+
+         ```yaml
+         user_values:
+           - name: <name>
+             title: <Title>
+           storage_bucket_value:
+               required: true
+         ```
+
+      * `prometheusworkspaceidvalue`: {{ prometheus-name }} workspace name.
+
+         ```yaml
+         user_values:
+           - name: <name>
+             title: <Title>
+           prometheus_workspace_id_value:
+               required: false
+         ```
+
+      * `licenseidvalue`: [Subscription](license-manager-integration.md) ID from the {{ license-manager }} API.
+
+         ```yaml
+         user_values:
+           - name: <name>
+             title: <Title>
+           license_id_value:
+               required: false
+         ```
+
+The variable values specified by the user when installing the product in a {{ k8s }} cluster will override the values from the `values.yaml` file.
 
 ## Example manifest and corresponding variable file {#examples}
 

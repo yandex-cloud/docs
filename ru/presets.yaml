@@ -4346,7 +4346,7 @@ default:
               comment: Текст комментария
             property:
               ignoreCase: Игнорировать регистр
-              noMatchBefore: Не соответствовал до этого
+              noMatchBefore: Параметр изменился
               removeMarkup: Игнорировать разметку
             type:
               links:
@@ -5785,6 +5785,10 @@ default:
         button_resource-deactivate-raw-logs: Выключить
         column_name: Название
         field_access: Доступ конечных пользователей к контенту
+        field_address-acl: Доступ по IP-адресам
+        field_address-acl_excepted-values: Список IP-адресов
+        field_address-acl_policy-type_allow: Запретить для всех, кроме
+        field_address-acl_policy-type_deny: Разрешить для всех, кроме
         field_group-name: Название группы
         field_origin-state: Приоритет
         field_secure-key: Секретный ключ
@@ -6353,7 +6357,7 @@ default:
             section_access: Доступ
             section_additional: Дополнительные настройки
             section_backup: Cloud Backup
-            section_base: Базовые параметры
+            section_base: Общая информация
             section_coi: Настройка Docker-контейнера
             section_disk: Диски
             section_image: Выбор образа/загрузочного диска
@@ -9184,7 +9188,7 @@ default:
         template-name: Имя шаблона
       docker:
         build-path: Путь к образу внутри проекта
-        credentials-switcher-label: Данные для аутентификации в Docker Hub
+        credentials-switcher-label: Данные для аутентификации
         docker-template: Шаблон Docker-образа
         dockerfile: Файл Docker
         repository: Имя образа
@@ -9193,7 +9197,7 @@ default:
         add-description: Добавить описание
         advanced-settings: Расширенные настройки
         balance: Баланс проекта
-        dataproc-cluster: Кластер Data Proc
+        dataproc-cluster: Кластер Yandex Data Proc
         dedicated-vm-inactivity-timeout: Остановить простаивающую ВМ через
         name: Имя
         security-group: Группа безопасности
@@ -9275,8 +9279,8 @@ default:
           request: Запрос
       open-project:
         create-connector: Создать коннектор
-        select-configuration: Конфигурации ВМ проекта
-        with-dataproc-cluster: Для кластера Data Proc
+        select-configuration: Конфигурации ВМ ноутбука
+        with-dataproc-cluster: Для кластера Yandex Data Proc
       project-page:
         change-project-disk-size: Изменить размер хранилища
         debugging-tools-key-value: Решение проблем
@@ -9305,7 +9309,7 @@ default:
       projects:
         create-project: Создать проект
       resources:
-        dataProc: Data Proc
+        dataProc: Yandex Data Proc
         dataset: Датасет
         docker: Docker-образ
         node: Нода
@@ -9313,7 +9317,7 @@ default:
         secret: Секрет
       restrictions:
         CHANGING_DISK_SIZE: Изменение размера хранилища проекта
-        DATAPROC_TEMPLATES: Шаблоны Data Proc
+        DATAPROC_TEMPLATES: Шаблоны Yandex Data Proc
         DEDICATED_INSTANCE_COUNT: Максимальное количество ВМ в проекте
         JUPYTER_TOKEN: Подключение внешних IDE
         NODES_AND_ALIASES: Развертывание эксплуатации моделей
@@ -9328,14 +9332,14 @@ default:
         community-resources: Ресурсы сообщества
         configurations: Конфигурации вычислительных ресурсов
       spark-connector:
-        create-cluster-in-dataproc: Создать кластер в Data Proc
+        create-cluster-in-dataproc: Создать кластер в Yandex Data Proc
         create-temporary-cluster:
           title: Создать временный кластер
-        dataproc-cluster: Кластер Data Proc
+        dataproc-cluster: Кластер Yandex Data Proc
         s3-settings: Настройки S3
         select-cluster:
           title: Выберите кластер
-        spark-settings: 'Настройки Spark '
+        spark-settings: Настройки Spark
         use-default-settings:
           title: Использовать настройки по умолчанию
       transferring:
@@ -9546,11 +9550,11 @@ default:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/yc-alb-ingress/yc-alb-ingress-controller-chart
-        tag: v0.2.6
+        tag: v0.2.7
     yc_argo-cd:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/argo/chart/argo-cd
-        tag: 5.46.8-6
+        tag: 7.3.11-2
     yc_cert-manager-webhook-yandex:
       helmChart:
         name: >-

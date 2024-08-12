@@ -16,7 +16,7 @@ Create a [{{ objstorage-name }} trigger](../../concepts/trigger/os-trigger.md) t
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you want to create your trigger.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a trigger.
 
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
 
@@ -37,6 +37,12 @@ Create a [{{ objstorage-name }} trigger](../../concepts/trigger/os-trigger.md) t
       * (Optional) In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_prefix }}** field, enter a [prefix](../../concepts/trigger/os-trigger.md#filter) for filtering.
       * (Optional) In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_suffix }}** field, enter a [suffix](../../concepts/trigger/os-trigger.md#filter) for filtering.
 
+   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}**, specify:
+
+      {% include [batch-settings](../../../_includes/functions/batch-settings.md) %}
+
+      {% include [batch-events](../../../_includes/functions/batch-events.md) %}
+
    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}**, select a function and specify:
 
       {% include [function-settings](../../../_includes/functions/function-settings.md) %}
@@ -45,7 +51,7 @@ Create a [{{ objstorage-name }} trigger](../../concepts/trigger/os-trigger.md) t
 
       {% include [repeat-request.md](../../../_includes/functions/repeat-request.md) %}
 
-   1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the dead-letter queue and the service account with write permissions for this queue.
+   1. Optionally, under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the dead-letter queue and the service account with write permissions for this queue.
 
    1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
@@ -161,7 +167,7 @@ Create a [{{ objstorage-name }} trigger](../../concepts/trigger/os-trigger.md) t
          * `bucket_id`: Bucket ID.
          * Select one or more [event](../../concepts/trigger/os-trigger.md#event) types to be handled by the trigger:
 
-            * `create`: The trigger will invoke the function when a new object is created in the storage. It may take either the `true` or `false` value.
+            * `create`: Trigger will invoke the function when a new object is created in the storage. It may take either the `true` or `false` value.
             * `update`: The trigger will invoke the function when a new object is updated in the storage. It may take either the `true` or `false` value.
             * `delete`: The trigger will invoke the function when a new object is deleted from the storage. It may take either the `true` or `false` value.
 

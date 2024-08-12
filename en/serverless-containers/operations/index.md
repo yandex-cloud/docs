@@ -49,6 +49,7 @@ description: "In this tutorial, you will learn how to use the {{ serverless-cont
 * [Removing a label](./label-delete.md)
 * [Viewing monitoring charts](./monitoring.md)
 * [Viewing logs](./logs.md)
+* [Writing to the execution log](./logs-write.md)
 * [{#T}](./migration.md)
 * [{#T}](./delete.md)
 

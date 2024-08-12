@@ -16,7 +16,7 @@ Create a [trigger for {{ cloud-logging-name }}](../../concepts/trigger/cloud-log
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you want to create your trigger.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a trigger.
 
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
 
@@ -34,12 +34,11 @@ Create a [trigger for {{ cloud-logging-name }}](../../concepts/trigger/cloud-log
 
       {% include [logging-settings](../../../_includes/functions/logging-settings.md) %}
 
-   1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}**, specify:
+   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}**, specify:
 
-      * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_ymq-cutoff }}**. The values may range from 1 to 60 seconds. The default value is 1 second.
-      * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_size }}**. The values may range from 1 to 100. The default value is 1.
+      {% include [batch-settings](../../../_includes/functions/batch-settings.md) %}
 
-      The trigger groups messages for a period of time not exceeding the specified timeout and sends them to a function. However, the number of messages does not exceed the specified group size.
+      {% include [batch-messages](../../../_includes/functions/batch-messages.md) %}
 
    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}**, select a function and specify:
 
@@ -49,7 +48,7 @@ Create a [trigger for {{ cloud-logging-name }}](../../concepts/trigger/cloud-log
 
       {% include [repeat-request.md](../../../_includes/functions/repeat-request.md) %}
 
-   1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the dead-letter queue and the service account with write permissions for this queue.
+   1. Optionally, under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the dead-letter queue and the service account with write permissions for this queue.
 
    1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 

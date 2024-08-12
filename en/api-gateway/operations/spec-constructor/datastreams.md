@@ -19,8 +19,8 @@ description: "Follow this guide to add the {{ yds-full-name }} extension using t
 
       * (Optional) **Service account**: Service account used for authorization when performing {{ yds-name }} [stream](../../../data-streams/concepts/glossary.md#stream-concepts) operations. If you do not have a service account, [create](../../../iam/operations/sa/create.md) one.
       * **Operation**: Operation in progress.
-      * **Name of Data Streams stream**: {{ yds-name }} stream name.
-      * (Optional) **Type of message content**: Message content type. If the value is `body`, only the request body will be written to the stream. If the value is `request`, the whole request in JSON format will be written to the stream. The default value is `body`.
+      * **{{ yds-name }} stream name**: {{ yds-name }} data stream name.
+      * (Optional) **Record content type**: Record content type. If the value is `body`, only the request body will be written to the stream. If the value is `request`, the whole request in JSON format will be written to the stream. The default value is `body`.
       * (Optional) **Segment key**: [Segment key](../../../data-streams/concepts/partition-keys.md). If not specified, a random segment will be written to.
    1. Click **{{ ui-key.yacloud.common.add }}**.
 
