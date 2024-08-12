@@ -13,6 +13,12 @@
 1. [Установите и запустите веб-хук в кластере {{ managed-k8s-name }}](#yandex-webhook).
 1. [Удалите созданные ресурсы](#clear-out).
 
+{% note info %}
+
+Менеджер сертификатов с веб-хуком ACME для {{ dns-full-name }} поддерживает работу с [Wildcard-сертификатами](../../glossary/ssl-certificate.md#types).
+
+{% endnote %}
+
 ## Перед началом работы {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}

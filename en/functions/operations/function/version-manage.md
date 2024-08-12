@@ -120,7 +120,7 @@ When creating a version, set the following parameters:
           name               = "test-function"
           description        = "Test function"
           user_hash          = "first-function"
-          runtime            = "python311"
+          runtime            = "nodejs18"
           entrypoint         = "main"
           memory             = "128"
           execution_timeout  = "10"

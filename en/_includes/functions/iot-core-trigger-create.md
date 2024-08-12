@@ -23,9 +23,13 @@ The trigger must be in the same [cloud](../../resource-manager/concepts/resource
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a trigger.
+
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+
    1. In the left-hand panel, select ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
+
    1. Click **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
+
    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
 
       * Enter a name and description for the trigger.
@@ -33,6 +37,13 @@ The trigger must be in the same [cloud](../../resource-manager/concepts/resource
       * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_function }}`.
 
    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_iot }}**, specify the registry, device, and MQTT topic to create a trigger for. When creating a trigger for a registry topic, you do not need to specify a device or an MQTT topic. If no MQTT topic is set, the trigger fires for all registry or device topics.
+
+   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}**, specify:
+
+      {% include [batch-settings](batch-settings.md) %}
+
+      {% include [batch-messages](batch-messages.md) %}
+
    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}**, select a function and specify:
 
       {% include [function-settings](function-settings.md) %}
@@ -69,7 +80,6 @@ The trigger must be in the same [cloud](../../resource-manager/concepts/resource
    ```
 
    Where:
-
    * `--name`: Trigger name.
    * `--registry-id`: [Registry ID](../../iot-core/operations/registry/registry-list.md).
    * `--device-id`: [Device ID](../../iot-core/operations/device/device-list.md). If you are creating a trigger for a registry topic, you can omit this parameter.

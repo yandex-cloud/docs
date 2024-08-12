@@ -4,9 +4,9 @@ You can connect your own domain to access the API gateway. You can connect a wil
 
 {% note warning %}
 
-If a third-party DNS provider manages your domain, it must be a third-level domain or lower. For example, you can connect the _www.example.com_ domain but not _example.com_. This has to do with how CNAME records are processed on DNS hostings. Learn more in [RFC 1912, section 2.4](https://www.ietf.org/rfc/rfc1912.txt).
+If a third-party DNS provider manages your domain, it must be a third-level domain or lower. For example, you can connect the `www.example.com` domain, but not `example.com`. This has to do with how CNAME records are processed on DNS hostings. Learn more in [RFC 1912, section 2.4](https://www.ietf.org/rfc/rfc1912.txt).
 
-To use a top-level domain or higher, delegate it to [{{ dns-full-name }}](../../dns/) and create an [ANAME record](../../dns/concepts/resource-record.md#aname) in the DNS zone.
+To use the second-level domain (`example.com`), delegate it to [{{ dns-full-name }}](../../dns/) and create an [ANAME record](../../dns/concepts/resource-record.md#aname) in the DNS zone.
 
 {% endnote %}
 
@@ -37,7 +37,7 @@ To connect a domain to an API gateway:
 
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}** and:
 
-      1. Add a [Let's Encrypt<sup>®</sup> certificate](../../certificate-manager/operations/managed/cert-create.md) or a [custom certificate](../../certificate-manager/operations/import/cert-create.md) for the domain you are connecting.
+      1. Add a [Let's Encrypt<sup>®</sup> certificate](../../certificate-manager/operations/managed/cert-create.md) or a [user certificate](../../certificate-manager/operations/import/cert-create.md) for the domain you are connecting.
 
          {% note info %}
 

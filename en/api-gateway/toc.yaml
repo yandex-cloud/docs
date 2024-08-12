@@ -15,7 +15,6 @@ items:
       - name: Creating an API gateway
         href: operations/api-gw-create.md
       - name: Managing API gateways
-        expanded: true
         items:
           - name: Updating API gateways and their specifications
             href: operations/api-gw-update.md
@@ -29,14 +28,56 @@ items:
             href: operations/api-gw-canary.md
           - name: Viewing monitoring charts
             href: operations/api-gw-monitoring.md
-          - name: Viewing execution logs
-            href: operations/api-gw-logs.md
+          - name: Managing logs
+            items:
+              - name: Viewing logs
+                href: operations/api-gw-logs.md
+              - name: Writing logs
+                href: operations/api-gw-logs-write.md
           - name: Disconnecting a domain
             href: operations/api-gw-domain-detach.md
           - name: Migration to the {{ region-id }}-d availability zone
             href: operations/api-gw-migration.md
           - name: Deleting an API gateway
             href: operations/api-gw-delete.md
+      - name: Getting information about a trigger
+        items:
+          - name: Getting a list of triggers
+            href: operations/trigger/trigger-list.md
+          - name: Getting information about a trigger
+            href: operations/trigger/trigger-info.md
+      - name: Creating a trigger
+        items:
+          - name: Creating a timer
+            href: operations/trigger/timer-create.md
+          - name: Creating a trigger for {{ message-queue-name }}
+            href: operations/trigger/ymq-trigger-create.md
+          - name: Creating a trigger for {{ objstorage-name }}
+            href: operations/trigger/os-trigger-create.md
+          - name: Creating a trigger for {{ container-registry-name }}
+            href: operations/trigger/cr-trigger-create.md
+          - name: Creating a trigger for {{ cloud-logging-name }}
+            href: operations/trigger/cloud-logging-trigger-create.md
+          - name: Creating a trigger for {{ iot-name }}
+            items:
+              - name: Device
+                href: operations/trigger/iot-core-trigger-create.md
+              - name: Broker
+                href: operations/trigger/iot-core-trigger-broker-create.md
+          - name: Creating a trigger for budgets
+            href: operations/trigger/budget-trigger-create.md
+          - name: Creating a trigger for {{ yds-name }}
+            href: operations/trigger/data-streams-trigger-create.md
+          - name: Creating an email trigger
+            href: operations/trigger/mail-trigger-create.md
+      - name: Managing triggers
+        items:
+          - name: Updating a trigger
+            href: operations/trigger/trigger-update.md
+          - name: Viewing monitoring charts
+            href: operations/trigger/trigger-monitoring.md
+          - name: Deleting a trigger
+            href: operations/trigger/trigger-delete.md
       - name: Specification constructor
         items:
           - name: Overview
@@ -59,6 +100,8 @@ items:
             href: operations/spec-constructor/ydb.md
           - name: '{{ ml-platform-short-name }}'
             href: operations/spec-constructor/datasphere.md
+      - name: Viewing operations with the service's resources
+        href: operations/operation-logs.md
   - name: Tutorials
     items:
       - name: All tutorials
@@ -139,6 +182,28 @@ items:
             href: concepts/extensions/canary.md
           - name: Request rate limit
             href: concepts/extensions/rate-limit.md
+      - name: Trigger
+        items:
+          - name: Overview
+            href: concepts/trigger/index.md
+          - name: Timer
+            href: concepts/trigger/timer.md
+          - name: Trigger for {{ message-queue-name }}
+            href: concepts/trigger/ymq-trigger.md
+          - name: Trigger for {{ objstorage-name }}
+            href: concepts/trigger/os-trigger.md
+          - name: Trigger for {{ container-registry-name }}
+            href: concepts/trigger/cr-trigger.md
+          - name: Trigger for {{ cloud-logging-full-name }}
+            href: concepts/trigger/cloud-logging-trigger.md
+          - name: Trigger for {{ iot-full-name }}
+            href: concepts/trigger/iot-core-trigger.md
+          - name: Trigger for budgets
+            href: concepts/trigger/budget-trigger.md
+          - name: Trigger for {{ yds-name }}
+            href: concepts/trigger/data-streams-trigger.md
+          - name: Email trigger
+            href: concepts/trigger/mail-trigger.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Access management
@@ -147,6 +212,8 @@ items:
     href: pricing.md
   - name: CLI reference
     href: ../cli/cli-ref/managed-services/serverless/api-gateway/index.md
+  - name: CLI Triggers reference
+    href: ../cli/cli-ref/managed-services/serverless/trigger/index.md
   - name: '{{ TF }} reference'
     href: tf-ref.md
   - name: API reference
@@ -217,6 +284,44 @@ items:
                 href: apigateway/websocket/api-ref/Connection/get.md
               - name: send
                 href: apigateway/websocket/api-ref/Connection/send.md
+  - name: API Triggers reference
+    items:
+      - name: Authentication with the API
+        href: api-ref/triggers/authentication.md
+      - name: gRPC
+        items:
+          - name: Overview
+            href: triggers/api-ref/grpc/index.md
+          - name: TriggerService
+            href: triggers/api-ref/grpc/trigger_service.md
+          - name: OperationService
+            href: triggers/api-ref/grpc/operation_service.md
+      - name: REST
+        items:
+          - name: Overview
+            href: triggers/api-ref/index.md
+          - name: Trigger
+            items:
+              - name: Overview
+                href: triggers/api-ref/Trigger/index.md
+              - name: create
+                href: triggers/api-ref/Trigger/create.md
+              - name: delete
+                href: triggers/api-ref/Trigger/delete.md
+              - name: get
+                href: triggers/api-ref/Trigger/get.md
+              - name: list
+                href: triggers/api-ref/Trigger/list.md
+              - name: listOperations
+                href: triggers/api-ref/Trigger/listOperations.md
+              - name: pause
+                href: triggers/api-ref/Trigger/pause.md
+              - name: resume
+                href: triggers/api-ref/Trigger/resume.md
+              - name: update
+                href: triggers/api-ref/Trigger/update.md
+  - name: '{{ monitoring-name }} metrics'
+    href: metrics.md
   - name: '{{ at-name }} events'
     href: at-ref.md
   - name: Release notes

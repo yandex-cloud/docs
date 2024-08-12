@@ -46,12 +46,12 @@ To create a trigger, you need:
 
    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_ymq }}**, select a message queue and a service account with permissions to read messages from this queue.
 
-   1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}**, specify:
+   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}**, specify:
 
-      * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_ymq-cutoff }}**.​ The values may range from 0 to 20 seconds. The default value is 10 seconds.
-      * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_size }}**.​ The values may range from 1 to 1,000. The default value is 1.
+      * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_ymq-cutoff }}**​. The values may range from 0 to 20 seconds. The default value is 10 seconds.
+      * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_size }}**​. The values may range from 1 to 1,000. The default value is 1.
 
-      The trigger groups messages for a period of time not exceeding the specified timeout and sends them to a function. However, the number of messages does not exceed the specified batch size.
+      {% include [batch-messages](../../../_includes/functions/batch-messages.md) %}
 
    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}**, select a function and specify:
 

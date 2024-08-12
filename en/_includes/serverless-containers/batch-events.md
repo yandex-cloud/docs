@@ -1,0 +1,1 @@
+The trigger groups events for a period not exceeding the specified timeout and sends them to a container. The number of events cannot exceed the specified batch size.

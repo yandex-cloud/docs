@@ -19,8 +19,7 @@ description: "Follow this guide to add the {{ sf-full-name }} extension using th
 
       * (Optional) **Service account**: Service account for authorization when accessing the function. If you do not have a service account, [create](../../../iam/operations/sa/create.md) one.
       * (Optional) **Request format version**: Function request format version. The possible values are 0.1 and 1.0. The default version is 0.1.
-      * **Function ID**: Function ID. To find out the ID, [get information about the function](../../../functions/operations/function/function-info.md).
-      * **Tag**: Function [version tag](../../../functions/concepts/function.md#tag). The default value is `\$latest`.
+      * **Function**: [Function](../../../functions/concepts/function.md) name and function [version tag](../../../functions/concepts/function.md#tag).
    1. (Optional) Paste or upload operation context — any object in YAML or JSON format.
    1. Click **{{ ui-key.yacloud.common.add }}**.
 

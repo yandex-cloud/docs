@@ -19,10 +19,12 @@
 
 ## Требования {#requirements}
 
-Исходный и целевой бакеты должны находиться в одном [облаке](../../resource-manager/concepts/resources-hierarchy.md#cloud).
+* Исходный и целевой бакеты должны различаться.
+
+* Исходный и целевой бакеты должны находиться в одном [облаке](../../resource-manager/concepts/resources-hierarchy.md#cloud).
 
 
-На целевом бакете не должно быть включено [шифрование](../operations/buckets/encrypt.md).
+* На целевом бакете не должно быть включено [шифрование](../operations/buckets/encrypt.md).
 
 
 {% include [target-backet-note](../../_includes/storage/target-bucket-note.md) %}

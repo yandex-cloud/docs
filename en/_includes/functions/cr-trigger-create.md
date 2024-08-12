@@ -14,7 +14,7 @@ Create a [{{ container-registry-name }} trigger](../../functions/concepts/trigge
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you want to create your trigger.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a trigger.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
    1. In the left-hand panel, select ![image](../../_assets/functions/triggers.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
    1. Click **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
@@ -31,6 +31,12 @@ Create a [{{ container-registry-name }} trigger](../../functions/concepts/trigge
       * (Optional) In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_image-name }}** field, enter an image name for [filtering](../../functions/concepts/trigger/cr-trigger.md#filter). To find out the Docker image name, [get a list of Docker images in the registry](../../container-registry/operations/docker-image/docker-image-list.md).
       * (Optional) In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_tag }}** field, enter the [image tag](../../functions/concepts/trigger/cr-trigger.md#filter) for filtering.
 
+   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}**, specify:
+
+      {% include [batch-settings](batch-settings.md) %}
+
+      {% include [batch-events](batch-events.md) %}
+
    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}**, select a function and specify:
 
       {% include [function-settings](function-settings.md) %}
@@ -40,7 +46,7 @@ Create a [{{ container-registry-name }} trigger](../../functions/concepts/trigge
       {% include [repeat-request.md](repeat-request.md) %}
 
    
-   1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the dead-letter queue and the service account with write permissions for this queue.
+   1. Optionally, under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the dead-letter queue and the service account with write permissions for this queue.
 
 
    1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
@@ -154,9 +160,9 @@ Create a [{{ container-registry-name }} trigger](../../functions/concepts/trigge
 
       * `container_registry`: Trigger parameters:
 
-         * `registry_id`: Registry ID
-         * `image_name`: Docker image name
-         * `tag`: Docker image tag
+         * `registry_id`: Registry ID.
+         * `image_name`: Docker image name.
+         * `tag`: Docker image tag.
          * Select one or more event types to be handled by the trigger:
 
             * `create_image`: Trigger will invoke the function when a new Docker image is created in the registry. It may take either the `true` or `false` value.

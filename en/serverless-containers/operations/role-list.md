@@ -7,7 +7,7 @@ description: "Use this guide to view roles assigned to a container."
 
 {% note info %}
 
-[Roles](../security/index.md#roles-list) assigned to a folder or cloud are automatically inherited by the [container](../../iam/concepts/access-control/index.md#inheritance). However, they do not appear in the list of assigned roles. You can learn more about viewing roles [here](../../iam/operations/roles/get-assigned-roles.md).
+A container automatically [inherits](../security/index.md#roles-list) [roles](../../iam/concepts/access-control/index.md#inheritance) assigned for a folder, cloud, or organization. However, they do not appear in the list of assigned roles. You can learn more about viewing roles [here](../../iam/operations/roles/get-assigned-roles.md).
 
 {% endnote %}
 

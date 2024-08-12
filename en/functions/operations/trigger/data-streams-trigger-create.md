@@ -47,10 +47,10 @@ To create a trigger, you need:
 
    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_data-streams }}**, select a data stream and a service account with rights to read data from and write data to it.
 
-   1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}**, specify:
+   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}**, specify:
 
-      * Message batch size in bytes. The values may range from 1 B to 64 KB. The default value is 1 B.
-      * Maximum wait time. The values may range from 1 to 60 seconds. The default value is 1 second.
+      * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_cutoff }}**​. The values may range from 1 to 60 seconds. The default value is 1 second.
+      * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_stream-size }}**​. The values may range from 1 B to 64 KB. The default value is 1 B.
 
       The trigger groups messages for a period of time not exceeding the specified timeout and sends them to a function. The total amount of data transmitted to a function may exceed the specified batch size if the data is transmitted as a single message. Otherwise, the amount of data does not exceed the batch size.
 

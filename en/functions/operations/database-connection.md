@@ -39,6 +39,8 @@ You can connect to a DB out of a function over SSL only.
 
 The connection ID and the entry point are available on the connection page in the [management console]({{ link-console-main }}).
 
+[In the examples below, the IAM token is automatically extracted from the function invocation context](function-sa.md). You do not need to specify it manually.
+
 ### {{ mpg-name }}
 
 {% list tabs group=programming_language %}

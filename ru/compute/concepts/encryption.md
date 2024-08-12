@@ -16,7 +16,7 @@
 * Сетевой SSD-диск (`network-ssd`).
 * Сетевой HDD-диск (`network-hdd`).
 * Нереплицируемый SSD-диск (`network-ssd-nonreplicated`).
-* Высокопроизводительный SSD-диск (`network-ssd-io-m3`).
+* Сверхбыстрое сетевое хранилище с тремя репликами (SSD) (`network-ssd-io-m3`).
 
 Подробнее см. [Типы дисков](disk.md#disks-types).
 

@@ -10,7 +10,7 @@ description: "Follow this guide to delete an API gateway."
 - Management console {#console}
 
    To delete an [API gateway](../concepts/index.md):
-   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to delete an API gateway.
+   1. In the [management console]({{ link-console-main }}), go to the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to delete an API gateway.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
    1. In the API gateway row, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.serverless-functions.gateways.list.button_action-delete }}**.
    1. In the window that opens, click **{{ ui-key.yacloud.serverless-functions.gateways.list.popup-confirm_button_delete }}**.
@@ -36,7 +36,6 @@ description: "Follow this guide to delete an API gateway."
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
    To delete an [API gateway](../concepts/index.md) created using {{ TF }}:
-
    1. Open the {{ TF }} configuration file and delete the fragment with the API gateway description.
 
       Example API gateway description in the {{ TF }} configuration:
@@ -63,14 +62,14 @@ description: "Follow this guide to delete an API gateway."
                 parameters:
                   - name: user
                     in: query
-                    description: User name to appear in greetings
+                    description: User name to appear in greetings.
                     required: false
                     schema:
                       type: string
                       default: 'world'
                 responses:
                   '200':
-                    description: Greeting
+                    description: Greeting.
                     content:
                       'text/plain':
                         schema:
@@ -107,7 +106,6 @@ description: "Follow this guide to delete an API gateway."
       ```
 
       The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
-
    1. Apply the configuration changes:
 
       ```bash

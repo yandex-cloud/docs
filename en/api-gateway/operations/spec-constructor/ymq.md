@@ -17,9 +17,8 @@ description: "Follow this guide to add the {{ message-queue-full-name }} extensi
 
       {% include [common-spec-constructor](../../../_includes/api-gateway/common-spec-constructor.md) %}
 
-      * (Optional) **Service account**: Service account for authorization when accessing the [message queue](../../../message-queue/concepts/queue.md). If you do not have a service account, [create](../../../iam/operations/sa/create.md) one.
-      * **Queue address**: Message queue address.
-      * **Folder**: Folder containing the message queue.
+      * **Service account**: Service account for authorization when accessing the [message queue](../../../message-queue/concepts/queue.md). If you do not have a service account, [create](../../../iam/operations/sa/create.md) one.
+      * **Queue**: Folder containing the message queue and message queue name.
       * (Optional) **Type of message content**: Message content type. If the value is `body`, only the request body will be written to the queue. If the value is `request`, the whole request in JSON format will be written to the queue. The default value is `body`.
       * (Optional) **Delay**: Time in seconds during which the message will be hidden when enqueued.
    1. Click **{{ ui-key.yacloud.common.add }}**.

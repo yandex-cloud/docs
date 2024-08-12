@@ -97,6 +97,7 @@ description: "На странице представлен список прак
 
 ## {{ OS }} {#opensearch}
 
+* [{#T}](opensearch-index-policy.md)
 * [{#T}](elasticsearch-to-opensearch.md)
 * [{#T}](data-transfer-mkf-mos.md)
 * [{#T}](mos-migration-from-standalone.md)

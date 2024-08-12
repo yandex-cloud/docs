@@ -4,6 +4,8 @@ title: "How to link a subscription purchased on {{ marketplace-full-name }} to a
 
 # Linking a subscription
 
+To link a subscription, you need the [{{ roles-license-manager-user }}](../../security/index.md#license-manager-user) role for the folder.
+
 {% list tabs group=service %}
 
 - {{ compute-name }} {#compute}

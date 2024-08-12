@@ -11,12 +11,12 @@ To create a trigger, you need:
    * [Create a container](../../serverless-containers/operations/create.md).
    * [Create a container revision](../../serverless-containers/operations/manage-revision.md#create).
 
-* (Optional) A [dead letter queue](../../serverless-containers/concepts/dlq.md) where messages that could not be processed by a container will be redirected. If you do not have a queue, [create one](../../message-queue/operations/message-queue-new-queue.md).
+* (Optional) A [dead-letter queue](../../serverless-containers/concepts/dlq.md) where messages that could not be processed by a container will be redirected. If you do not have a queue, [create one](../../message-queue/operations/message-queue-new-queue.md).
 
-* [Service accounts](../../iam/concepts/users/service-accounts.md) with rights:
+* [Service accounts](../../iam/concepts/users/service-accounts.md) with the following permissions:
 
    * To invoke a container.
-   * (Optional) To write to a dead letter queue.
+   * (Optional) To write to a dead-letter queue.
    * (Optional) To upload objects to buckets.
 
    You can use the same service account or different ones. If you do not have a service account, [create one](../../iam/operations/sa/create.md).
@@ -31,7 +31,7 @@ To create a trigger, you need:
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you want to create your trigger.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a trigger.
 
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
 
@@ -51,11 +51,17 @@ To create a trigger, you need:
 
    1. {% include [container-settings](../../_includes/serverless-containers/container-settings.md) %}
 
+   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}**, specify:
+
+      {% include [batch-settings](../../_includes/functions/batch-settings.md) %}
+
+      {% include [batch-messages](../../_includes/serverless-containers/batch-messages.md) %}
+
    1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function-retry }}**:
 
       {% include [repeat-request](../../_includes/serverless-containers/repeat-request.md) %}
 
-   1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the dead-letter queue and the service account with write permissions for this queue.
+   1. Optionally, under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the dead-letter queue and the service account with write permissions for this queue.
 
    1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
@@ -172,65 +178,6 @@ To create a trigger, you need:
          * `batch_size`: Message batch size. This is an optional parameter. The values may range from 1 to 10. The default value is 1.
 
       {% include [tf-dlq-params](../../_includes/serverless-containers/tf-dlq-params.md) %}
-
-      For more information about the `yandex_function_trigger` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/function_trigger).
-
-   1. Create resources:
-
-      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
-
-   You can check the trigger update using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
-
-   ```bash
-   yc serverless trigger get <trigger_ID>
-   ```
-
-- {{ TF }} {#tf}
-
-   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
-
-   {% include [terraform-install](../../_includes/terraform-install.md) %}
-
-   To create an email trigger that invokes a container:
-
-   1. In the configuration file, describe the trigger parameters:
-
-      ```hcl
-      resource "yandex_function_trigger" "my_trigger" {
-        name = "<trigger_name>"
-        container {
-          id                 = "<container_ID>"
-          service_account_id = "<service_account_ID>"
-          retry_attempts     = <number_of_invocation_retries>
-          retry_interval     = <interval_between_invocation_retries>
-        }
-        mail {
-          attachments_bucket_id = "<bucket_name>"
-          service_account_id    = "<service_account_ID>"
-          batch_cutoff          = <timeout>
-          batch_size            = <event_batch_size>
-        }
-        dlq {
-          queue_id           = "<queue_ID>"
-          service_account_id = "<service_account_ID>"
-        }
-      }
-      ```
-
-      Where:
-
-      * `name`: Trigger name. The name format is as follows:
-
-         {% include [name-format](../../_includes/name-format.md) %}
-
-      * `container`: Settings for the container that will be activated by the trigger:
-
-         * `id`: Container ID.
-         * `service_account_id`: ID of the service account with rights to invoke the container.
-         * `retry_attempts`: Number of invocation retries before the trigger moves a message to the dead-letter queue. This is an optional parameter. The values may range from 1 to 5. The default value is 1.
-         * `retry_intervall`: Time to retry invoking the container if the current attempt fails. This is an optional parameter. The values may range from 10 to 60 seconds. The default value is 10 seconds.
-
-      {% include [trigger-tf-param](../../_includes/functions/trigger-tf-param.md) %}
 
       For more information about the `yandex_function_trigger` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/function_trigger).
 
