@@ -4,6 +4,12 @@
 
 {% include [Tags](../_includes/mdb/release-notes-tags.md) %}
 
+## Июль 2024 {#jule-2024}
+
+* Доступна новая версия {{ CH }} [24.6](https://clickhouse.com/docs/en/whats-new/changelog#-clickhouse-release-246-2024-07-01).
+* Добавлена возможность автоматического преобразования нереплицируемых таблиц в [реплицируемые](./concepts/replication.md#replicated-tables) при добавлении [{{ ZK }}-хостов](./operations/zk-hosts.md). Функциональность значительно упрощает процесс перехода к отказоустойчивой конфигурации для однохостовых кластеров.
+* Добавлена возможность ручного удаления [резервных копий](./concepts/backup.md).
+
 ## Июнь 2024 {#june-2024}
 
 Доступна новая версия {{ CH }} [24.5](https://clickhouse.com/docs/en/whats-new/changelog#-clickhouse-release-245-2024-05-30).

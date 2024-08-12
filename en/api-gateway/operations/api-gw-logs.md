@@ -3,9 +3,9 @@ title: "Viewing the execution log in {{ api-gw-full-name }}"
 description: "You can view the execution log in {{ api-gw-full-name }} using the management console. To do this, select {{ api-gw-name }}, then select the API gateway that you want to view the execution log for. In the window that opens, go to Logs and specify the time period. The default time period is 1 hour. The execution log uses UTC time."
 ---
 
-# Viewing execution logs in {{ api-gw-name }}
+# Viewing the execution log in {{ api-gw-name }}
 
-The execution log uses [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) time.
+The execution log uses [UTC time](https://en.wikipedia.org/wiki/Coordinated_Universal_Time).
 
 {% list tabs group=instructions %}
 
@@ -20,3 +20,4 @@ The execution log uses [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal
 Each log event contains the `release` parameter set to `canary` if a request was handled by the canary release and to `stable` if it was handled by the current release.
 
 Learn more about working with logs in the [{{ cloud-logging-full-name }} documentation](../../logging/).
+

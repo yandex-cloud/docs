@@ -13,7 +13,7 @@ To create a trigger, you need:
    * [Create a container](create.md).
    * [Create a container revision](manage-revision.md#create).
 
-* [Service accounts](../../iam/concepts/users/service-accounts.md) with rights:
+* [Service accounts](../../iam/concepts/users/service-accounts.md) with the following permissions:
 
    * To invoke a container.
    * To read from the queue the trigger receives messages from.
@@ -30,7 +30,7 @@ To create a trigger, you need:
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you want to create your trigger.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a trigger.
 
    1. Open **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
 
@@ -44,14 +44,14 @@ To create a trigger, you need:
       * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_ymq }}`.
       * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_container }}`.
 
-   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_ymq }}**, select a message queue and a service account with rights to read messages from this message queue.
+   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_ymq }}**, select a message queue and a service account with permissions to read messages from this queue.
 
-   1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}**, specify:
+   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}**, specify:
 
-      * Batch size. The values may range from 1 to 1,000. The default value is 1.
-      * Maximum wait time. The values may range from 0 to 20 seconds. The default value is 10 seconds.
+      * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_ymq-cutoff }}**​. The values may range from 0 to 20 seconds. The default value is 10 seconds.
+      * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_size }}**​. The values may range from 1 to 1,000. The default value is 1.
 
-      The trigger groups messages for a period of time not exceeding the specified timeout and sends them to a container. However, the number of messages does not exceed the specified batch size.
+      {% include [batch-messages](../../_includes/serverless-containers/batch-messages.md) %}
 
    1. {% include [container-settings](../../_includes/serverless-containers/container-settings.md) %}
 

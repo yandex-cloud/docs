@@ -7,7 +7,7 @@ description: "This guide describes how you can view the roles assigned to a func
 
 {% note info %}
 
-[Roles](../../security/index.md#roles-list) assigned to a folder or cloud are automatically [inherited](../../../iam/concepts/access-control/index.md#inheritance) by the function. However, they do not appear in the list of assigned roles. You can learn more about viewing roles [here](../../../iam/operations/roles/get-assigned-roles.md).
+A function automatically [inherits](../../../iam/concepts/access-control/index.md#inheritance) [roles](../../security/index.md#roles-list) assigned for a folder, cloud, or organization. However, they do not appear in the list of assigned roles. You can learn more about viewing roles [here](../../../iam/operations/roles/get-assigned-roles.md).
 
 {% endnote %}
 

@@ -528,6 +528,8 @@ items:
           Миграция данных из {{ mmy-full-name }} в {{ mgp-full-name }} с помощью
           {{ data-transfer-full-name }}
         href: dataplatform/mmy-to-mgp.md
+      - name: Настройка политики индексов в {{ mos-full-name }}
+        href: dataplatform/opensearch-index-policy.md
       - name: Миграция данных из {{ ES }} в {{ mos-name }}
         href: dataplatform/elasticsearch-to-opensearch.md
       - name: >-

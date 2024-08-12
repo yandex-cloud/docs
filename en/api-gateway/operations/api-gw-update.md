@@ -11,7 +11,7 @@ After you create an [API gateway](../concepts/index.md), you can change any of i
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to update an API gateway.
+   1. In the [management console]({{ link-console-main }}), go to the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to update an API gateway.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
    1. In the API gateway row, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.serverless-functions.gateways.list.button_action-edit }}**.
    1. Edit the API gateway parameters or OpenAPI specification if needed.
@@ -27,7 +27,6 @@ After you create an [API gateway](../concepts/index.md), you can change any of i
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
    To update an API gateway:
-
    1. If necessary, edit the OpenAPI specification file or create a new one.
    1. View a description of the CLI command for updating an API gateway:
 
@@ -51,7 +50,6 @@ After you create an [API gateway](../concepts/index.md), you can change any of i
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
    To change the name, description, or specification of the API gateway:
-
    1. Open the {{ TF }} configuration file and change the `name`, `description`, or `spec` parameters.
 
       Here is an example of the configuration file structure:
@@ -78,14 +76,14 @@ After you create an [API gateway](../concepts/index.md), you can change any of i
                 parameters:
                   - name: user
                     in: query
-                    description: User name to appear in greetings
+                    description: User name to appear in greetings.
                     required: false
                     schema:
                       type: string
                       default: 'world'
                 responses:
                   '200':
-                    description: Greeting
+                    description: Greeting.
                     content:
                       'text/plain':
                         schema:
@@ -103,7 +101,6 @@ After you create an [API gateway](../concepts/index.md), you can change any of i
       ```
 
       For more information about the `yandex_api_gateway` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/api_gateway).
-
    1. Check the configuration using this command:
 
       ```bash
@@ -123,7 +120,6 @@ After you create an [API gateway](../concepts/index.md), you can change any of i
       ```
 
       The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
-
    1. Apply the configuration changes:
 
       ```bash
@@ -144,6 +140,6 @@ After you create an [API gateway](../concepts/index.md), you can change any of i
 
 - {{ yandex-cloud }} Toolkit {#yc-toolkit}
 
-   You can edit the name, the description, or the specification of an API gateway using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the family of IDEs on the [JetBrains](https://www.jetbrains.com/) [IntelliJ platform](https://www.jetbrains.com/opensource/idea/).
+   You can edit the name, description, or specification of an API gateway using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the family of IDEs on the [JetBrains](https://www.jetbrains.com/) [IntelliJ platform](https://www.jetbrains.com/opensource/idea/).
 
 {% endlist %}

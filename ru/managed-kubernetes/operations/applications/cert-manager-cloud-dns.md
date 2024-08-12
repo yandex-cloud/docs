@@ -6,6 +6,12 @@
 * [DNS-01](https://letsencrypt.org/ru/docs/challenge-types/#проверка-dns-01). Для прохождения проверки используется сервис [{{ dns-full-name }}](../../../dns/). Вместе с cert-manager устанавливается плагин {{ dns-full-name }} ACME webhook, который обеспечивает интеграцию с сервисом.
 * [HTTP-01](https://letsencrypt.org/ru/docs/challenge-types/#проверка-http-01). Для прохождения проверки используется Ingress-контроллер, который нужно установить в кластер.
 
+{% note info %}
+
+Приложение cert-manager c плагином {{ dns-full-name }} ACME webhook поддерживает работу с [Wildcard-сертификатами](../../../glossary/ssl-certificate.md#types).
+
+{% endnote %}
+
 ## Перед началом работы {#before-you-begin}
 
 1. {% include [cli-install](../../../_includes/cli-install.md) %}

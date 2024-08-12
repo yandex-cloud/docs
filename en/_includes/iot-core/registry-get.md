@@ -13,13 +13,13 @@
 
    {% include [default-catalogue](../default-catalogue.md) %}
 
-   1. View the description of the CLI command to get information about a registry:
+   1. View the description of the CLI command to get information about the registry:
 
       ```bash
       yc iot registry get --help
       ```
 
-   1. Get detailed information about a registry by specifying its name or ID:
+   1. Get detailed information about the registry by specifying its name or ID:
 
        ```bash
        yc iot registry get <registry_name>

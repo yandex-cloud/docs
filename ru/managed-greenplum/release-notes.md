@@ -4,6 +4,10 @@
 
 {% include [Tags](../_includes/mdb/release-notes-tags.md) %}
 
+## Июль 2024 {#jule-2024}
+
+* Добавлена возможность управления настройками [PXF](./operations/external-tables.md) из API и UI. Теперь можно настраивать импорт и экспорт данных из других СУБД, S3, и HDFS.
+
 ## Июнь 2024 {#jun-2024}
 
 Добавлена возможность [создавать внешние источники данных](operations/index.md#pxf) S3, JDBC, HDFS и Hive для работы с внешними таблицами. {{ tag-con }} {{ tag-api }}

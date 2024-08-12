@@ -35,15 +35,15 @@ description: "Follow this guide to configure and invoke a function asynchronousl
 
     To set up asynchronous invocation, run the following command:
 
-    ```
+    ```bash
     yc serverless function version create \
       --function-name=<function_name> \
       --runtime <runtime_environment> \
       --entrypoint <entry_point> \
-      --memory 128m \
-      --execution-timeout 5s \
+      --memory <RAM_amount> \
+      --execution-timeout <maximum_execution_time> \
       --source-version-id <version_ID> \
-      --async-max-retries 3 \
+      --async-max-retries <number_of_retry_invocation_attempts> \
       --async-service-account-id <service_account_ID> \
       --async-success-ymq-arn <message_queue> \
       --async-success-sa-id <service_account_ID> \
@@ -59,11 +59,11 @@ description: "Follow this guide to configure and invoke a function asynchronousl
     * `--memory`: Amount of RAM.
     * `--execution-timeout`: Maximum function execution time before the timeout is reached.
     * `--source-version-id`: ID of the function version to copy the code of.
-    * `--async-max-retries`: Number of invocation retries before the call is considered failed.
+    * `--async-max-retries`: Number of retry attempts to make before the invocation fails.
     * `--async-service-account-id`: ID of the service account with permissions to invoke the function.
-    * `--async-success-ymq-arn`: ARN of the destination queue in {{ message-queue-name }} for messages about successful function invocations. If omitted, the messages are not sent.
+    * `--async-success-ymq-arn`: ARN of the destination queue in {{ message-queue-name }} for messages about successful function invocations. If the parameter is omitted, messages will not be sent.
     * `--async-success-sa-id`: ID of the service account with permissions to write to the `async-success-ymq-arn` queue.
-    * `--async-failure-ymq-arn`: ARN of the destination queue in {{ message-queue-name }} for messages about failed function invocations. If omitted, the messages are not sent.
+    * `--async-failure-ymq-arn`: ARN of the destination queue in {{ message-queue-name }} for messages about failed function invocations. If the parameter is omitted, messages will not be sent.
     * `--async-failure-sa-id`: ID of the service account with permissions to write to the `async-failure-ymq-arn` queue.
 
 - {{ TF }} {#tf}
@@ -108,10 +108,10 @@ description: "Follow this guide to configure and invoke a function asynchronousl
         * `service_account_id`: Service account with permissions to invoke the function.
         * `ymq_failure_target`: Parameters of the queue for failed invocations:
            * `service_account_id`: Service account with permissions to write to the queue for failed asynchronous invocations.
-           * `arn`: ARN of the destination queue in {{ message-queue-name }} for messages about failed function invocations. If omitted, the messages are not sent.
+           * `arn`: ARN of the destination queue in {{ message-queue-name }} for messages about failed function invocations. If the parameter is omitted, messages will not be sent.
         * `ymq_failure_target`: Parameters of the queue for successful invocations:
            * `service_account_id`: Service account with permissions to write to the queue for successful asynchronous invocations.
-           * `arn`: ARN of the destination queue in {{ message-queue-name }} for messages about successful function invocations. If omitted, the messages are not sent.
+           * `arn`: ARN of the destination queue in {{ message-queue-name }} for messages about successful function invocations. If the parameter is omitted, messages will not be sent.
 
      For more information about the `yandex_function` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/function).
 

@@ -10,7 +10,7 @@
 
 ## Роли, необходимые для корректной работы триггера для {{ cloud-logging-name }} {#roles}
 
-* Для создания триггера вам необходимо разрешение на сервисный аккаунт, от имени которого триггер выполняет операцию. Это разрешение входит в роли [iam.serviceAccounts.user](../../../iam/concepts/access-control/roles#sa-user), [editor](../../../iam/concepts/access-control/roles#editor) и выше.
+* Для создания триггера вам необходимо разрешение на сервисный аккаунт, от имени которого триггер выполняет операцию. Это разрешение входит в роли [iam.serviceAccounts.user](../../../iam/concepts/access-control/roles.md#sa-user), [editor](../../../iam/concepts/access-control/roles.md#editor) и выше.
 * Для работы триггера сервисному аккаунту необходимы роли:
     * `api-gateway.websocketBroadcaster` на каталог, в котором находится API-шлюз.
     * `logging.reader` на лог-группу, при добавлении записей в которую вызывается триггер.

@@ -44,7 +44,11 @@ description: "Следуя данной инструкции, вы сможет�
 
       {% include [enable-secure-token](../../../_includes/cdn/enable-secure-token.md) %}
 
+      {% include [enable-ip-policy](../../../_includes/cdn/enable-ip-policy.md) %}
+
       Подробнее см. в разделе [{#T}](enable-secure-token.md).
+
+
 
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 

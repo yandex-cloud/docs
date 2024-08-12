@@ -11,13 +11,13 @@ To create a trigger, you need:
    * [Create a container](create.md).
    * [Create a container revision](manage-revision.md#create).
 
-* (Optional) A [dead letter queue](../concepts/dlq.md) where messages that could not be processed by a container will be redirected. If you do not have a queue, [create one](../../message-queue/operations/message-queue-new-queue.md).
+* (Optional) A [dead-letter queue](../concepts/dlq.md) where messages that could not be processed by a container will be redirected. If you do not have a queue, [create one](../../message-queue/operations/message-queue-new-queue.md).
 
-* [Service accounts](../../iam/concepts/users/service-accounts.md) with rights:
+* [Service accounts](../../iam/concepts/users/service-accounts.md) with the following permissions:
 
    * To invoke a container.
    * To read from the stream that activates the trigger when data is sent there.
-   * (optional) To write to the dead letter queue.
+   * (Optional) To write to the dead-letter queue.
 
    You can use the same service account or different ones. If you do not have a service account, [create one](../../iam/operations/sa/create.md).
 
@@ -31,7 +31,7 @@ To create a trigger, you need:
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you want to create your trigger.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a trigger.
 
    1. Open **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
 
@@ -47,12 +47,12 @@ To create a trigger, you need:
 
    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_data-streams }}**, select a data stream and a service account with rights to read data from and write data to it.
 
-   1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}**, specify:
+   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}**, specify:
 
-      * Message batch size in bytes. The values may range from 1 B to 64 KB. The default value is 1 B.
-      * Maximum wait time. The values may range from 1 to 60 seconds. The default value is 1 second.
+      * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_cutoff }}**​. The values may range from 1 to 60 seconds. The default value is 1 second.
+      * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_stream-size }}**​. The values may range from 1 B to 64 KB. The default value is 1 B.
 
-      The trigger groups messages for a period of time not exceeding the specified timeout and sends them to a container. The total amount of data transmitted to a container may exceed the specified group size if the data is transmitted as a single message. Otherwise, the amount of data does not exceed the batch size.
+      The trigger groups messages for a period of time not exceeding the specified timeout and sends them to a container. The total amount of data transmitted to a container may exceed the specified batch size if the data is transmitted as a single message. Otherwise, the amount of data does not exceed the batch size.
 
    1. {% include [container-settings](../../_includes/serverless-containers/container-settings.md) %}
 
@@ -60,7 +60,7 @@ To create a trigger, you need:
 
       {% include [repeat-request](../../_includes/serverless-containers/repeat-request.md) %}
 
-   1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the dead-letter queue and the service account with write permissions for this queue.
+   1. Optionally, under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the dead-letter queue and the service account with write permissions for this queue.
 
    1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
@@ -177,7 +177,7 @@ To create a trigger, you need:
       * `data_streams`: Trigger parameters:
 
          * `stream_name`: Data stream name.
-         * `database`: Location of the {{ ydb-short-name }} database that the {{ yds-name }} stream is linked to.
+         * `database`: Location of the {{ ydb-short-name }} database the {{ yds-name }} stream is linked to.
 
             To find out where the database is located, run the `yc ydb database list` command. The DB location is specified in the `ENDPOINT` column, in the `database` parameter, e.g., `/ru-central1/b1gia87mba**********/etn7hehf6g*******`.
 

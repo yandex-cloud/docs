@@ -4,6 +4,8 @@ title: "How to buy a subscription on {{ marketplace-full-name }}"
 
 # Buying a subscription
 
+To purchase a subscription, you need the [{{ roles-license-manager-user }}](../../security/index.md#license-manager-user) role for the folder.
+
 {% list tabs group=service %}
 
 - {{ compute-name }} {#compute}
@@ -47,7 +49,7 @@ title: "How to buy a subscription on {{ marketplace-full-name }}"
 
    {% include [buy-subscription-site](../../../_includes/marketplace/buy-subscription-site.md) %}
 
-     After purchasing a subscription on the {{ marketplace-name }} website, you need to [link](lock-subscription.md) it to the service yourself.
+   After purchasing a subscription on the {{ marketplace-name }} website, you need to [link](lock-subscription.md) it to the service yourself.
 
 {% endlist %}
 

@@ -1,0 +1,2 @@
+* `--batch-size`: Event batch size. This is an optional parameter. The values may range from 1 to 1,000. The default value is 1.
+* `--batch-cutoff`: Maximum wait time. This is an optional parameter. The values may range from 1 to 60 seconds. The default value is 1 second. The trigger groups events for a period not exceeding `batch-cutoff` and sends them to WebSocket connections. The number of events cannot exceed `batch-size`.

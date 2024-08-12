@@ -2,8 +2,10 @@ Images of products placed in the Marketplace must meet the [requirements](../../
 
 If you do not have a VM image, create one:
 
-* Use [Packer](../../tutorials/infrastructure-management/packer-quickstart). The image is automatically uploaded to {{ compute-name }}.<br>For creating an image, we recommend the following:
-   * As a base image, use an image from the {{ yandex-cloud }} [public catalog](../../compute/operations/images-with-pre-installed-software/get-list).
+* Use [Packer](../../tutorials/infrastructure-management/packer-quickstart.md). The image is automatically uploaded to {{ compute-name }}.<br>For creating an image, we recommend the following:
+   * As a base image, use an image from the {{ yandex-cloud }} [public catalog](../../compute/operations/images-with-pre-installed-software/get-list.md).
    * See [examples of packer recipes](https://github.com/yandex-cloud/examples/tree/master/jenkins-packer/packer).
-   * [Automate](../../tutorials/infrastructure-management/jenkins) VM image builds using Jenkins.
-* Use other tools that are convenient for you. In this case, you need to [upload](../../compute/operations/image-create/upload.md) an image to {{ compute-name }}. The supported image formats include Qcow2, VMDK, RAW, and VHD.
+   * [Automate](../../tutorials/infrastructure-management/jenkins.md) VM image builds using Jenkins.
+* Use other tools that are convenient for you. In this case, you need to [upload](../../compute/operations/image-create/upload.md) an image to {{ compute-name }}.
+
+{% include [available-image-format](../compute/available-image-format.md) %}

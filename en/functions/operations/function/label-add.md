@@ -7,6 +7,16 @@ description: "Follow this guide to add a function label."
 
 {% list tabs group=instructions %}
 
+- Management console {#console}
+
+   1. In the [management console]({{ link-console-main }}), select the folder containing your function.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+   1. Select a function.
+   1. In the top-right corner, click **{{ ui-key.yacloud.serverless-functions.list.button_action-edit }}**.
+   1. In the **{{ ui-key.yacloud.component.label-set.label_labels }}** field, click **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
+   1. Specify the key and value and press **Enter**.
+   1. Click **{{ ui-key.yacloud.common.save }}**.
+
 - CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}

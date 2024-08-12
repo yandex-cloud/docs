@@ -361,6 +361,8 @@
 
 Трейл создастся и начнет загружать аудитные логи в лог-группу. 
 
+{% include [logging-dublicate-events](../../_includes/audit-trails/logging-dublicate-events.md) %}
+
 ## Что дальше {#whats-next} 
 
 * Узнайте о [формате аудитных логов](../concepts/format.md).

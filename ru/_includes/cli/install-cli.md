@@ -117,6 +117,4 @@
 
 {% endlist %}
 
-
-
-
+Если в процессе установки CLI возникла ошибка, см. раздел [Решение проблем CLI](../../cli/error.md#failure-writing-output-to-destination).

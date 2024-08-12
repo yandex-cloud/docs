@@ -65,7 +65,7 @@ Notification example:
 
 ### Email not delivered notification {#bounce}
 
-Comes when the recipient's email client responds to a delivery attempt with an error which, according to {{ postbox-name }}, does not require another delivery attempt, or when the recipient's address is on the stop list.
+Comes when the recipient's email client responds to a delivery attempt with an error that {{ postbox-name }} regards as not requiring another delivery attempt, or the recipient's address is on the stop list.
 
 Notification example:
 
@@ -112,8 +112,8 @@ The notification is written to the {{ yds-full-name }} [data stream](../../data-
 --- | --- | ---
 | `notificationType` | String | [Notification type](#types). Possible values: `Bounce`, `Delivery`, `Send`. |
 | `mail` | [Mail](#mail-object) object | Object containing general information about the sent email. |
-| `bounce` | [Bounce](#bounce-object) object | Object containing information that the email has not been delivered. Required if the `notificationType` is `Bounce`, otherwise not present. |
-| `delivery` | [Delivery](#delivery-object) object | Object containing information about the email being delivered to an individual recipient. Required if the `notificationType` is `Delivery`, otherwise not present. |
+| `bounce` | [Bounce](#bounce-object) object | Object containing information that the email has not been delivered. Required if the `notificationType` is `Bounce`; otherwise, not present. |
+| `delivery` | [Delivery](#delivery-object) object | Object containing information about the email being delivered to an individual recipient. Required if the `notificationType` is `Delivery`; otherwise, not present. |
 | `eventId` | String | Unique ID of the event. |
 
 ### Mail object {#mail-object}
@@ -161,8 +161,8 @@ Empty object.
 
 | Name | Type | Description |
 --- | --- | ---
-| `timestamp` | String | Date in [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) `(2006-01-02T15:04:05Z07:00)` format. Time when {{ postbox-name }} sent the email and received a successful response from the recipient's email client. |
-| `processingTimeMillis` | Integer | Time spent to process the email in milliseconds. |
+| `timestamp` | String | Date in [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) (`2006-01-02T15:04:05Z07:00`) format. Time when {{ postbox-name }} sent the email and received a successful response from the recipient's email client. |
+| `processingTimeMillis` | Integer | Time it took to process the email in milliseconds. |
 | `recipients` | Array of strings | Addresses of recipients. |
 
 ## Quality of service (QoS) level {#qos}
@@ -175,7 +175,7 @@ If an address is linked to a [configuration](glossary.md#configuration) that has
 
 You sent an email to two recipients: `user1@example.com` and `user2@other.example.com`. {{ postbox-name }} sent it to both recipients separately.
 
-The email client of `user1@example.com` accepted the email. The email client of `user2@other.example.com` returned an error after the first attempt to send the email and declined to accept the email after the second attempt, replying that the user was not found.
+The email client of the recipient `user1@example.com` accepted the email. The email client of the recipient `user2@other.example.com` returned an error after the first attempt to send the email and declined to accept the email after the second attempt, replying that the user was not found.
 
 In which case you will get these three notifications:
 * Notification that {{ postbox-name }} accepted the email for processing.

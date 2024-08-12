@@ -22,6 +22,10 @@ You can delete [Helm charts](https://helm.sh/docs/topics/charts/) in a {{ contai
 
 - CLI {#cli}
 
+   {% include [cli-install](../../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
    To delete a Helm chart uploaded to {{ container-registry-name }}, run the command you would use to [delete](../docker-image/docker-image-delete.md) Docker images:
 
    ```bash

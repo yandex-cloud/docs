@@ -16,7 +16,7 @@ Create a [trigger for {{ objstorage-name }}](../concepts/trigger/os-trigger.md) 
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you want to create your trigger.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a trigger.
 
    1. Open **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
 
@@ -37,13 +37,19 @@ Create a [trigger for {{ objstorage-name }}](../concepts/trigger/os-trigger.md) 
       * (Optional) In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_prefix }}** field, enter a prefix for filtering.
       * (Optional) In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_suffix }}** field, enter a suffix for filtering.
 
+   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}**, specify:
+
+      {% include [batch-settings](../../_includes/functions/batch-settings.md) %}
+
+      {% include [batch-events](../../_includes/serverless-containers/batch-events.md) %}
+
    1. {% include [container-settings](../../_includes/serverless-containers/container-settings.md) %}
 
    1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function-retry }}**:
 
       {% include [repeat-request](../../_includes/serverless-containers/repeat-request.md) %}
 
-   1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the dead-letter queue and the service account with write permissions for this queue.
+   1. Optionally, under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the dead-letter queue and the service account with write permissions for this queue.
 
    1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
@@ -136,11 +142,11 @@ Create a [trigger for {{ objstorage-name }}](../concepts/trigger/os-trigger.md) 
           retry_interval     = "<interval_between_retry_attempts>"
         }
         object_storage {
-           bucket_id    = "<bucket_ID>"
-           create       = true
-           delete       = true
-           batch_cutoff = "<timeout>"
-           batch_size   = "<event_batch_size>"
+          bucket_id    = "<bucket_ID>"
+          create       = true
+          delete       = true
+          batch_cutoff = "<timeout>"
+          batch_size   = "<event_batch_size>"
         }
         dlq {
           queue_id           = "<DLQ_ID>"

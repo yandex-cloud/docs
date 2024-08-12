@@ -20,3 +20,5 @@
   * `WARN` — для значения `CANCELLED`;
   * `INFO` — в остальных случаях.
 * **{{ ui-key.yacloud.logging.column_header-message }}** — содержит значения полей `event_status`, `event_type`, `subject_name`, `cloud_name`, `resource_name`.
+
+{% include [logging-dublicate-events](../../_includes/audit-trails/logging-dublicate-events.md) %}
