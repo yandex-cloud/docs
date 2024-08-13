@@ -430,38 +430,33 @@ yc iam create-token
 
 - Node.js {#node}
 
-  Пример создания JWT с использованием [node-jose](https://github.com/cisco/node-jose):
+  Пример создания JWT с использованием [node-jsonwebtoken](https://github.com/auth0/node-jsonwebtoken):
   - Проверено для Node.js v20.12.1 и node-jose 2.2.0.
   - Необходимые данные читаются из JSON-файла, полученного при создании авторизованного ключа.
 
   ```js
-  var jose = require('node-jose');
-  var fs = require('fs');
+  const jwt = require('jsonwebtoken');
+  const fs = require('fs');
   
-  var json = JSON.parse(fs.readFileSync(require.resolve('<JSON-файл_c_ключами>')));
+  const json = JSON.parse(fs.readFileSync(require.resolve('<JSON-файл_c_ключами>')));
   
-  var key = json.private_key;
-  var serviceAccountId = json.service_account_id;
-  var keyId = json.id;
+  const key = json.private_key;
+  const serviceAccountId = json.service_account_id;
+  const keyId = json.id;
   
-  var now = Math.floor(new Date().getTime() / 1000);
+  const now = Math.floor(new Date.now() / 1000);
   
-  var payload = {
+  const payload = {
      aud: "https://iam.{{ api-host }}/iam/v1/tokens",
      iss: serviceAccountId,
      iat: now,
      exp: now + 3600
   };
   
-  jose.JWK.asKey(key, 'pem', { kid: keyId, alg: 'PS256' })
-     .then(function (result) {
-        jose.JWS.createSign({ format: 'compact' }, result)
-           .update(JSON.stringify(payload))
-           .final()
-           .then(function (result) {
-              console.log(result);
-           });
-     });
+  const token = jwt.sign(payload, key, {
+    algorithm: "PS256",
+    keyid: keyId
+  });
   ```
 
 - PHP {#php}
@@ -702,6 +697,38 @@ yc iam create-token
     }
     return data.IAMToken
   }
+  ```
+  - Node.js {#node}
+
+  Пример обмена JWT на IAM-токен:
+
+  ```js
+  async getYCIAMToken(token) {
+    try {
+  
+      const response = await fetch(process.env.YC_IAM_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({jwt: token})
+      });
+  
+      if(response.ok && response.status === 200) {
+        const data = await response.json();
+        return data;
+      }
+
+      else {
+        // обработка ошибки ответа
+        throw new Error(`Server response error - response.status: ${response.status}`);
+      }
+    }
+    catch(e) {
+      console.log(e);
+    }
+  }
+  
   ```
 
 {% endlist %}
