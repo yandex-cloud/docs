@@ -63,7 +63,7 @@ To ensure fault tolerance for DNS forwarders, they will be placed behind the [in
       * `forwarder1`: For the VM in `subnet3`.
       * `forwarder2`: For the VM in `subnet4`.
    * Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
-      * **{{ ui-key.yacloud.component.compute.network-select.field_external }}**: `{{ ui-key.yacloud.component.compute.network-select.switch_none }}`
+      * **{{ ui-key.yacloud.component.compute.network-select.field_external }}**: `{{ ui-key.yacloud.component.compute.network-select.switch_none }}`.
       * **{{ ui-key.yacloud.component.compute.network-select.field_internal-ipv4 }}**: Select `{{ ui-key.yacloud.component.compute.network-select.switch_manual }}` and specify:
          * 172.16.3.5: For the `forwarder1` VM.
          * 172.16.4.5: For the `forwarder2` VM.
@@ -72,8 +72,8 @@ To ensure fault tolerance for DNS forwarders, they will be placed behind the [in
 
    * **{{ ui-key.yacloud.common.name }}**: `test1`.
    * Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
-      * **{{ ui-key.yacloud.component.compute.network-select.field_external }}**: `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`
-      * **{{ ui-key.yacloud.component.compute.network-select.field_internal-ipv4 }}**: `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`
+      * **{{ ui-key.yacloud.component.compute.network-select.field_external }}**: `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
+      * **{{ ui-key.yacloud.component.compute.network-select.field_internal-ipv4 }}**: `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
 
 1. To be able to install software from the internet in `subnet3` and `subnet4`, set up a [NAT gateway](../../vpc/operations/create-nat-gateway.md).
 
@@ -242,13 +242,13 @@ The infrastructure support costs include:
 
 Create an [internal network load balancer](../../network-load-balancer/operations/internal-lb-create.md) with the following parameters:
 
-* **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_network-load-balancer-type }}**: `{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_internal }}`
+* **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_network-load-balancer-type }}**: `{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_internal }}`.
 
 * Under **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.section_listeners }}**:
    * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-subnet-id }}**: Select `subnet3` from the list.
-   * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-protocol }}**: `{{ ui-key.yacloud.common.label_udp }}`
-   * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-port }}**: `53`
-   * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-target-port }}**: `53`
+   * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-protocol }}**: `{{ ui-key.yacloud.common.label_udp }}`.
+   * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-port }}**: `53`.
+   * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-target-port }}**: `53`.
 
 * Under **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.section_target-groups }}**:
    * Create a group with the `forwarder1` and `forwarder2` hosts.
@@ -257,13 +257,13 @@ Create an [internal network load balancer](../../network-load-balancer/operation
       {% list tabs %}
 
       * CoreDNS
-         * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-protocol }}**: `{{ ui-key.yacloud.common.label_http }}`
-         * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-path }}**: `/health`
-         * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-port }}**: `8080`
+         * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-protocol }}**: `{{ ui-key.yacloud.common.label_http }}`.
+         * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-path }}**: `/health`.
+         * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-port }}**: `8080`.
 
       * Unbound
-         * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`
-         * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-port }}**: `53`
+         * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`.
+         * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-port }}**: `53`.
 
       {% endlist %}
 
@@ -323,10 +323,12 @@ Configure the corporate servers so that DNS queries to the [{{ yandex-cloud }} p
 
 To stop paying for the resources:
 
-* [Delete](../../compute/operations/vm-control/vm-delete) the VM.
-* [Delete](../../vpc/operations/address-delete) the static public IPs if you reserved them specifically for your VMs.
-* [Delete](../../network-load-balancer/operations/target-group-delete.md) the target groups.
-* [Delete](../../network-load-balancer/operations/listener-remove.md) the listeners.
-* [Delete](../../network-load-balancer/operations/load-balancer-delete.md) the network load balancer.
-* [Delete](../../vpc/operations/subnet-delete.md) the subnets.
-* [Delete](../../vpc/operations/network-delete.md) the networks.
+* [Delete the VM](../../compute/operations/vm-control/vm-delete).
+* [Delete the static public IP addresses](../../vpc/operations/address-delete) if you reserved them specifically for your VMs.
+* [Delete the target groups](../../network-load-balancer/operations/target-group-delete.md).
+* [Delete the listeners](../../network-load-balancer/operations/listener-remove.md).
+* [Delete the network load balancer](../../network-load-balancer/operations/load-balancer-delete.md).
+* [Delete the subnets](../../vpc/operations/subnet-delete.md).
+* [Delete the route table](../../vpc/operations/delete-route-table.md).
+* [Delete the NAT gateway](../../vpc/operations/delete-nat-gateway.md).
+* [Delete the networks](../../vpc/operations/network-delete.md).

@@ -48,7 +48,7 @@
           ```bash
           cd <путь_к_папке_cloudapi>
           mkdir output
-          python -m grpc_tools.protoc -I . -I third_party/googleapis \
+          python3 -m grpc_tools.protoc -I . -I third_party/googleapis \
             --python_out=output \
             --grpc_python_out=output \
             google/api/http.proto \
@@ -75,8 +75,8 @@
           import yandex.cloud.ai.tts.v3.tts_service_pb2_grpc as tts_service_pb2_grpc
 
           # Задайте настройки синтеза.
-          # Вместо iam_token передавайте api_key при аутентификации с API-ключом 
-          #def synthesize(api_key, text) -> pydub.AudioSegment: 
+          # Вместо iam_token передавайте api_key при аутентификации с API-ключом
+          #def synthesize(api_key, text) -> pydub.AudioSegment:
           def synthesize(iam_token, text) -> pydub.AudioSegment:
               request = tts_pb2.UtteranceSynthesisRequest(
                   text=text,
@@ -138,7 +138,7 @@
           ```bash
           export IAM_TOKEN=<IAM-токен_сервисного_аккаунта>
           export TEXT='Я Яндекс Спичк+ит. Я могу превратить любой текст в речь. Теперь и в+ы — можете!'
-          python output/test.py \
+          python3 output/test.py \
             --token ${IAM_TOKEN} \
             --output speech.wav \
             --text ${TEXT}

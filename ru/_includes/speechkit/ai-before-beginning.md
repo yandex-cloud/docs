@@ -20,7 +20,7 @@
           ```
           Authorization: Bearer <IAM-токен>
           ```
-         
+
    * С помощью [API-ключей](../../iam/concepts/authorization/api-key).
 
      {% include [api-keys-disclaimer](../iam/api-keys-disclaimer.md) %}

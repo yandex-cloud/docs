@@ -1,4 +1,4 @@
-# Потоковое распознавание речи с автоматическим определением языка
+# Потоковое распознавание речи с автоматическим определением языка в API v3
 
 Пример показывает, как с помощью [API v3](../../stt-v3/api-ref/grpc/) {{ speechkit-short-name }} в режиме реального времени распознать речь в формате LPCM с автоматическим определением языка (языков).
 
@@ -16,7 +16,7 @@
 ## Подготовьте необходимые ресурсы {#preparations}
 
 1. [Создайте](../../../iam/operations/sa/create.md) сервисный аккаунт и [назначьте](../../../iam/operations/sa/assign-role-for-sa.md) ему роль `{{ roles-speechkit-stt }}`.
-1. Для сервисного аккаунта [получите](../../../iam/operations/iam-token/create-for-sa#via-cli) и сохраните IAM-токен. 
+1. Для сервисного аккаунта [получите](../../../iam/operations/iam-token/create-for-sa#via-cli) и сохраните IAM-токен.
 1. Скачайте [пример](https://{{ s3-storage-host }}/speechkit/speech.pcm) аудиофайла для распознавания или [сгенерируйте](../../tts/api/tts-examples-v3.md) свой.
 
 ## Создайте приложение для потокового распознавания речи {#recognition}
@@ -46,7 +46,7 @@
             ```bash
             cd <путь_к_папке_cloudapi>
             mkdir output
-            python -m grpc_tools.protoc -I . -I third_party/googleapis \
+            python3 -m grpc_tools.protoc -I . -I third_party/googleapis \
                 --python_out=output \
                 --grpc_python_out=output \
                 google/api/http.proto \
@@ -105,7 +105,7 @@
                         yield stt_pb2.StreamingRequest(chunk=stt_pb2.AudioChunk(data=data))
                         data = f.read(CHUNK_SIZE)
 
-            # Вместо iam_token передавайте api_key при аутентификации с API-ключом 
+            # Вместо iam_token передавайте api_key при аутентификации с API-ключом
             # от имени сервисного аккаунта.
             # def run(api_key, audio_file_name):
             def run(iam_token, audio_file_name):

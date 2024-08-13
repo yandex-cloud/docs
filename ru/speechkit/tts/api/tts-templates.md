@@ -25,7 +25,7 @@
 
 Ограничения на параметры шаблона:
 
-* Длительность фразы для синтеза — не более {{ tts-v3-time }} (ограничение API) вместе с переменной частью. Оптимальная для восприятия длительность фразы — не более 16 секунд, как в разговорной речи.
+* Максимальная длительность фразы для синтеза — {{ tts-v3-time }} (ограничение API) вместе с переменной частью. Оптимальная для восприятия длительность фразы — не более 16 секунд, как в разговорной речи.
 * Длина шаблона — не более {{ tts-v3-count }} нормализованного текста.
 
 {% note warning %}
@@ -55,7 +55,7 @@
        ```bash
        git clone https://github.com/yandex-cloud/cloudapi
        ```
-       
+
     1. Установите зависимости с помощью [менеджера пакетов pip](https://pip.pypa.io/en/stable/):
 
         ```bash
@@ -79,7 +79,7 @@
         ```bash
         cd <путь_к_папке_cloudapi> && \
         mkdir output && \
-        python -m grpc_tools.protoc -I . -I third_party/googleapis \
+        python3 -m grpc_tools.protoc -I . -I third_party/googleapis \
           --python_out=output \
           --grpc_python_out=output \
           google/api/http.proto \
@@ -200,7 +200,7 @@
 
               with open(args.input, 'rb') as file:
                   speech = file.read()
-    
+
               audio = synthesize(args.token, speech)
               with open(args.output, 'wb') as fp:
                   audio.export(fp, format='wav')
@@ -212,7 +212,7 @@
 
         ```bash
         export IAM_TOKEN=<IAM-токен_сервисного_аккаунта> && \
-        python output/test.py \
+        python3 output/test.py \
           --token ${IAM_TOKEN} \
           --input sample.wav \
           --output speech.wav

@@ -9,7 +9,7 @@ To deploy the service and perform load testing:
 1. [Prepare a domain](#prepare-domain).
 1. [Install Ingress](#install-ingress).
 1. [Configure horizontal pod autoscaling](#configure-autoscaling).
-1. [Perform load testing of a gRPC service](#load-testing).
+1. [Load test the gRPC service](#load-testing).
 
 When testing is complete, [delete the created resources](#clear-out) if you no longer need them.
 
@@ -245,7 +245,7 @@ This instruction will use a gRPC service as a test target.
    kubectl apply -f hpa.yaml
    ```
 
-## Perform load testing of the gRPC service {#load-testing}
+## Load test the gRPC service {#load-testing}
 
 1. Create a service account:
    1. [Create](../../iam/operations/sa/create.md) a `sa-loadtest` service account in the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to host the [agent](../../load-testing/concepts/agent.md) that will generate the [load](../../load-testing/concepts/index.md).
@@ -253,7 +253,7 @@ This instruction will use a gRPC service as a test target.
       * `loadtesting.generatorClient`: Enables you to run agents and tests on agents and upload test results to the storage.
       * `compute.admin`: Enables you to manage a [VM](../../compute/concepts/vm.md) in [{{ compute-full-name }}](../../compute/).
       * `vpc.user`: Enables you to connect to [{{ vpc-full-name }}](../../vpc/) network resources and use them.
-1. [Create and configure a NAT gateway](../../vpc/operations/create-nat-gateway.md) in the subnet where your test target is and the agent will be hosted. This will enable the agent to access [{{ load-testing-full-name }}](../../load-testing/).
+1. [Create and configure a NAT gateway](../../vpc/operations/create-nat-gateway.md) in the subnet where your test target is and where the agent will reside. This will enable the agent to access [{{ load-testing-full-name }}](../../load-testing/).
 1. [Create](../../load-testing/tutorials/loadtesting-grpc.md#create-agent) a test agent.
 1. Prepare the `ammo.json` file with [test data](../../load-testing/concepts/payload.md):
 
@@ -331,6 +331,8 @@ This instruction will use a gRPC service as a test target.
 ## Delete the resources you created {#clear-out}
 
 Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
-1. If you set up [CNAME records](../../dns/concepts/resource-record.md#cname) in {{ dns-name }}, [delete](../../dns/operations/zone-delete.md) the DNS zone.
-1. [Delete](../../application-load-balancer/operations/application-load-balancer-delete.md) the L7 load balancer.
-1. [Delete](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md) the {{ managed-k8s-name }} cluster.
+1. If you had set up [CNAME records](../../dns/concepts/resource-record.md#cname) in {{ dns-name }}, [delete the DNS zone](../../dns/operations/zone-delete.md).
+1. [Delete the L7 load balancer](../../application-load-balancer/operations/application-load-balancer-delete.md).
+1. [Delete the {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
+1. [Delete the route table](../../vpc/operations/delete-route-table.md).
+1. [Delete the NAT gateway](../../vpc/operations/delete-nat-gateway.md).

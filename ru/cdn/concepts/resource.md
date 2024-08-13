@@ -90,6 +90,8 @@ CDN-ресурс начинает корректно работать через
 
 Вы можете посмотреть статистику работы на [странице ресурса](../operations/resources/get-stats.md#cdn-ui) или в [интерфейсе {{ monitoring-name }}](../operations/resources/get-stats.md#monitoring).
 
+{% include [metrics-note](../../_includes/cdn/metrics-note.md) %}
+
 Список метрик, передаваемых в {{ monitoring-name }}, представлен в [справочнике](../metrics.md).
 
 #### См. также {#see-also}

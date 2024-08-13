@@ -26,10 +26,10 @@
 | m | bilabial nasal |
 | s | voiceless alveolar fricative |
 | z | voiced alveolar fricative |
-| æ | near open-front unrounded vowel | 
-| ɑ | long open-back unrounded vowel | 
-| ʊ |  
-| ʋ |  
-| i | long close front unrounded vowel | 
-| n | velar nasal | 
+| æ | near open-front unrounded vowel |
+| ɑ | long open-back unrounded vowel |
+| ʊ |
+| ʋ |
+| i | long close front unrounded vowel |
+| n | velar nasal |
 | ɾ | |

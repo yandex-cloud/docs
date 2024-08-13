@@ -19,6 +19,7 @@
     
     * [Загрузка данных из {{ MY }} в {{ objstorage-name }}](../../../tutorials/mmy-objs-migration.md);
     * [Загрузка данных из {{ PG }} в {{ objstorage-name }}](../../../tutorials/mpg-to-objstorage.md);
+    * [Загрузка данных из {{ OS }} в {{ objstorage-name }}](../../../tutorials/opensearch-to-object-storage.md);
     * [Загрузка данных из {{ ydb-name }} в {{ objstorage-name }}](../../../tutorials/ydb-to-object-storage.md).
 
 Подробное описание возможных сценариев передачи данных в {{ data-transfer-full-name }} см. в разделе [Практические руководства](../../../tutorials/index.md).
@@ -33,7 +34,7 @@
 * [{{ KF }}](../source/kafka.md);
 * [{{ AB }}](../../../transfer-matrix.md#airbyte);
 * [{{ DS }}](../source/data-streams.md);
-* [Oracle](../source/oracle.md)
+* [Oracle](../source/oracle.md);
 * [{{ ydb-name }}](../source/ydb.md);
 * [{{ ES }}](../source/elasticsearch.md);
 * [{{ OS }}](../source/opensearch.md).

@@ -7,7 +7,7 @@
 * [язык](../index.md#langs) — русский;
 * [голос](../voices.md) — `filipp`.
 
-Преобразование и запись результата в формат WAV выполняются с помощью утилиты [SoX](http://sox.sourceforge.net/). 
+Преобразование и запись результата в формат WAV выполняются с помощью утилиты [SoX](http://sox.sourceforge.net/).
 
 Аутентификация происходит от имени аккаунта на Яндексе или федеративного аккаунта с помощью [IAM-токена](../../../iam/concepts/authorization/iam-token.md). Если вы используете сервисный аккаунт, передавать в запросе идентификатор каталога не нужно. Подробнее об аутентификации в API {{ speechkit-name }} см. [{#T}](../../concepts/auth.md).
 
@@ -37,7 +37,7 @@
 
      Где:
 
-     * `TEXT` — текст в [TTS-разметке](../markup/tts-markup.md), который нужно cинтезировать.
+     * `TEXT` — текст в [TTS-разметке](../markup/tts-markup.md), который нужно синтезировать.
      * `FOLDER_ID` — [идентификатор каталога](../../../resource-manager/operations/folder/get-id.md).
      * `IAM_TOKEN` — [IAM-токен](../../../iam/concepts/authorization/iam-token.md).
      * `lang` — [язык](../index.md#langs) текста.
@@ -94,7 +94,7 @@
 
      * `iamToken` — [IAM-токен](../../../iam/concepts/authorization/iam-token.md).
      * `folderId` — [идентификатор каталога](../../../resource-manager/operations/folder/get-id.md).
-     * `text` — текст в [TTS-разметке](../markup/tts-markup.md), который нужно cинтезировать.
+     * `text` — текст в [TTS-разметке](../markup/tts-markup.md), который нужно синтезировать.
      * `lang` — [язык](../index.md#langs) текста.
      * `voice` — [голос](../voices.md) для синтеза речи.
      * `format` — [формат](../../formats.md) синтезированного аудиофайла.
@@ -156,10 +156,10 @@
        ```bash
        export FOLDER_ID=<идентификатор_каталога>
        export IAM_TOKEN=<IAM-токен>
-       python test.py 
-         --token ${IAM_TOKEN} 
-         --folder_id ${FOLDER_ID} 
-         --output speech.raw 
+       python3 test.py
+         --token ${IAM_TOKEN}
+         --folder_id ${FOLDER_ID}
+         --output speech.raw
          --text "Я Яндекс Спичк+ит. Я могу превратить любой текст в речь. Теперь и в+ы — можете!"
        ```
 
@@ -168,7 +168,7 @@
        * `FOLDER_ID` — [идентификатор каталога](../../../resource-manager/operations/folder/get-id.md).
        * `IAM_TOKEN` — [IAM-токен](../../../iam/concepts/authorization/iam-token.md).
        * `--output` — имя файла для записи аудио.
-       * `--text` — текст в [TTS-разметке](../markup/tts-markup.md), который нужно cинтезировать.
+       * `--text` — текст в [TTS-разметке](../markup/tts-markup.md), который нужно синтезировать.
 
    - PHP {#php}
 

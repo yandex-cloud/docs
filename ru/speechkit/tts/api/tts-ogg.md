@@ -145,7 +145,7 @@
      ```bash
      export FOLDER_ID=<идентификатор_каталога>
      export IAM_TOKEN=<IAM-токен>
-     python test.py 
+     python3 test.py
        --token ${IAM_TOKEN} \
        --folder_id ${FOLDER_ID} \
        --output speech.ogg \

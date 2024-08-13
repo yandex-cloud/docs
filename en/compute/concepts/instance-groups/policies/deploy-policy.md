@@ -33,14 +33,14 @@ Where:
 
 If you use the proactive strategy, {{ ig-name }} will select which instances to stop on its own.
 
-With the opportunistic strategy, {{ ig-name }}, rather than stopping the instances, will wait until at least one of the following conditions are met:
+With the opportunistic strategy, {{ ig-name }} does not stop the instances but waits until at least one of the following conditions is met:
 * User [stops](../../../operations/vm-control/vm-stop-and-start.md#stop) an instance in {{ compute-name }}.
 * Application or user stops the instance internally.
 * Instance fails the application [health check](../autohealing.md#functional-healthcheck).
 
 For example, let's assume you created an instance group with automatic scaling based on the [custom metric](../scale.md#custom-metrics) of the number of jobs in the queue. {{ ig-name }} will create an instance group to run the jobs from the queue. As soon as there are no more jobs, {{ ig-name }} must reduce the group size from the actual size to the target one according to the [scaling policy](scale-policy.md).
-  * If you selected proactive stop, {{ ig-name }} will change the target group size and decrease the actual number of instances in the group to the target amount.
-  * Under the opportunistic strategy, {{ ig-name }} will change the target group size, but will not stop the instances until they are stopped by themselves or by the user.
+  * If you selected the proactive stop, {{ ig-name }} will change the target group size and decrease the actual number of instances in the group to the target amount.
+  * If you use the opportunistic strategy, {{ ig-name }} will change the target group size but will not stop the instances until they stop by themselves or are stopped by the user.
 
 Here is how a YAML file entry may look like:
 
@@ -78,7 +78,7 @@ Where:
 
 | Key | Value |
 | ----- | ----- |
-| `minimal_action` | Minimum action to perform for an instance's update. The possible values include:<ul><li>`LIVE_UPDATE`: Update an instance without stopping it.</li><li>`RESTART`: Update an instance by restarting it.</li><li>`RECREATE`: Update an instance by recreating it.</li></ul> The default value is `LIVE_UPDATE`. |
+| `minimal_action` | Minimum action to perform for an instance's update. The possible values are:<ul><li>`LIVE_UPDATE`: Update an instance without stopping it.</li><li>`RESTART`: Update an instance by restarting it.</li><li>`RECREATE`: Update an instance by recreating it.</li></ul> The default value is `LIVE_UPDATE`. |
 
 #### See also {#see-also}
 

@@ -6,4 +6,4 @@
 
 1. Самостоятельно настроить интеграцию можно с помощью [плагинов Unispeech](https://www.unispeech.io/yandex) для {{ yandex-cloud }}. Используя эти плагины на вашем UniMRCP-сервере, вы сможете [распознавать](../stt/) и [синтезировать](../tts/) речь через [Media Resource Control Protocol](https://en.wikipedia.org/wiki/Media_Resource_Control_Protocol) (MRCP).
 
-1. Решение от [VoiceAI Connect](https://voiceaiconnect.audiocodes.com/) позволит вам самостоятельно интегрировать {{ speechkit-name }} с вашей платформой телефонии. 
+1. Решение от [VoiceAI Connect](https://voiceaiconnect.audiocodes.com/) позволит вам самостоятельно интегрировать {{ speechkit-name }} с вашей платформой телефонии.

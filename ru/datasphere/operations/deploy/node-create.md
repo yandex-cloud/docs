@@ -27,12 +27,12 @@
 
    {% endnote %}
 
-   Для моделей XGBoost и LightGBM имена входных и выходных параметров и их типы остаются неизменными: 
-   * входные параметры: `input__0` типа `TYPE_FP32`, вектор длиной [N]. Например, при N=32 в поле **{{ ui-key.yc-ui-datasphere.common.dimension }}** укажите `[32]`. 
+   Для моделей XGBoost и LightGBM имена входных и выходных параметров и их типы остаются неизменными:
+   * входные параметры: `input__0` типа `TYPE_FP32`, вектор длиной [N]. Например, при N=32 в поле **{{ ui-key.yc-ui-datasphere.common.dimension }}** укажите `[32]`.
    * выходные параметры: `output__0` типа `TYPE_FP32`, скалярная величина. В поле **{{ ui-key.yc-ui-datasphere.common.dimension }}** укажите `[1]`.
-   
+
    {% note tip %}
-   
+
    Чтобы создать ноду из моделей XGBoost и LightGBM, сохраненных в {{ ml-platform-name }} до 8 апреля 2024 года, повторно сохраните их в ресурс [модель](../../concepts/models/index.md).
 
    {% endnote %}
@@ -58,7 +58,7 @@
    * **{{ ui-key.yc-ui-datasphere.new-node.title.docker-image }}** вида `{{ registry }}/<идентификатор_реестра>/<идентификатор_образа>:<тег>`.
    * **{{ ui-key.yc-ui-datasphere.new-node.kdi-form-label.user-name }}** автоматически получит значение `json_key`.
    * **{{ ui-key.yc-ui-datasphere.new-node.kdi-form-label.password-secret }}** — выберите из списка [секрет](../../concepts/secrets.md) с содержимым файла с [авторизованным ключом](../../../iam/concepts/authorization/key.md) для сервисного аккаунта из настроек проекта.
-     
+
    Чтобы использовать образ из другого хранилища Docker-образов, выберите тип **{{ ui-key.yc-ui-datasphere.common.other }}** и заполните остальные поля значениями, необходимыми для подключения к вашему реестру.
 
 1. (Опционально) В блоке **{{ ui-key.yc-ui-datasphere.new-node.title.runtime-options }}** укажите размер диска, доступного в Docker-образе.
@@ -69,7 +69,7 @@
    * **{{ ui-key.yc-ui-datasphere.common.timeout }}** — укажите продолжительность сессии в секундах.
    * **{{ ui-key.yc-ui-datasphere.new-node.endpoint-form-label.idle-timeout }}** — укажите время простоя соединения до разъединения в секундах.
 1. (Опционально) В блоке **{{ ui-key.yc-ui-datasphere.new-node.title.telemetry }}**:
-   * **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.type }}** — выберите сервис для телеметрии: **{{ ui-key.yc-ui-datasphere.new-node.telemetry-form-label.prometheus }}** или **{{ ui-key.yc-ui-datasphere.new-node.telemetry-form-label.yandex-monitoring }}**. 
+   * **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.type }}** — выберите сервис для телеметрии: **{{ ui-key.yc-ui-datasphere.new-node.telemetry-form-label.prometheus }}** или **{{ ui-key.yc-ui-datasphere.new-node.telemetry-form-label.yandex-monitoring }}**.
    * **{{ ui-key.yc-ui-datasphere.new-node.telemetry-form-label.http-path }}** — укажите адрес, на который будут отправляться данные телеметрии.
    * **{{ ui-key.yc-ui-datasphere.new-node.telemetry-form-label.port }}** — укажите порт, на который будут отправляться данные телеметрии.
 1. (Опционально) В блоке **{{ ui-key.yc-ui-datasphere.new-node.title.healthcheck }}**:

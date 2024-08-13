@@ -21,7 +21,7 @@
 1. В правом верхнем углу нажмите кнопку **{{ ui-key.yc-ui-datasphere.common.create-resource }}**. Во всплывающем окне выберите **{{ ui-key.yc-ui-datasphere.resources.s3 }}**.
 1. Заполните поля:
    * **{{ ui-key.yc-ui-datasphere.common.name }}** — имя создаваемого коннектора. Требования к имени:
-      
+
      {% include [name-format](../../../_includes/name-format-2.md) %}
 
    * (Опционально) **{{ ui-key.yc-ui-datasphere.common.description }}** создаваемого коннектора.
@@ -38,7 +38,7 @@
 
      {% include [name-format](../../../_includes/name-format.md) %}
 
-   * **{{ ui-key.yc-ui-datasphere.new-s3-page.access-key-id }}**, который используется для подключения к хранилищу. 
+   * **{{ ui-key.yc-ui-datasphere.new-s3-page.access-key-id }}**, который используется для подключения к хранилищу.
    * **{{ ui-key.yc-ui-datasphere.new-s3-page.static-access-key }}** — выберите из списка [секрет](../../concepts/secrets.md), содержащий секретную часть статического ключа доступа, или создайте новый секрет.
    * **{{ ui-key.yc-ui-datasphere.new-s3-page.mode }}** — режим доступа к объектному хранилищу: **{{ ui-key.yc-ui-datasphere.s3-page.mode-read }}** или **{{ ui-key.yc-ui-datasphere.s3-page.mode-read-write }}**.
 1. Нажмите кнопку **{{ ui-key.yc-ui-datasphere.common.create }}**.
@@ -55,7 +55,7 @@
 
 ## Отключить хранилище S3 {#unmount}
 
-1. На странице проекта в разделе **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** нажмите **{{ ui-key.yc-ui-datasphere.resources.s3 }}**. 
+1. На странице проекта в разделе **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** нажмите **{{ ui-key.yc-ui-datasphere.resources.s3 }}**.
 1. Выберите коннектор и перейдите на страницу ресурса.
 1. Нажмите кнопку **{{ ui-key.yc-ui-datasphere.common.deactivate }}** в правом верхнем углу страницы.
 
@@ -82,4 +82,4 @@
 1. В списке коннекторов S3 выберите тот, который хотите удалить. Нажмите ![options](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yc-ui-datasphere.common.delete }}**.
 1. Нажмите **{{ ui-key.yc-ui-datasphere.common.submit }}**.
 
-Отобразится сообщение о том, что секрет удален. 
+Отобразится сообщение о том, что секрет удален.

@@ -5,14 +5,14 @@
 Вы также можете запускать задания на любом другом Docker-образе, указав его в секции `env` файла конфигурации задания. Это может быть:
 
 * системный образ {{ ml-platform-name }}
-  
+
   ```text
   env:
     docker: system-python-3-10   # Системный образ Python 3.10
   ```
 
 * пользовательский Docker-образ, доступный в проекте задания
- 
+
   ```text
   env:
     docker: <идентификатор_Docker-образа>  # Идентификатор вида b1gxxxxxxxxxxxxxxxxx
@@ -27,7 +27,7 @@
 * произвольный образ из внешнего источника
 
   Вы можете использовать любой реестр образов ([{{ container-registry-full-name }}](https://yandex.cloud/ru/services/container-registry), [Docker Hub](https://hub.docker.com/), [Docker — Private Registries](https://www.geeksforgeeks.org/docker-private-registries/) и т.п.), указав логин и пароль для доступа к образу.
-  
+
   ```text
   env:
     docker:
@@ -41,7 +41,7 @@
 
   * `<путь_к_образу>` — полный путь к образу в реестре контейнеров, например `{{ registry }}/b1g**********/myenv:0.1`.
   * `<логин>` — логин для доступа к вашему реестру. Для аутентификации в {{ container-registry-full-name }} используйте [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) и [авторизованный ключ](../../../iam/concepts/authorization/key.md).
-  * `<идентификатор_секрета_проекта>` — идентификатор секрета с паролем. Секрет должен быть [создан](../../operations/data/secrets.md#create) в проекте {{ ml-platform-name }}. 
+  * `<идентификатор_секрета_проекта>` — идентификатор секрета с паролем. Секрет должен быть [создан](../../operations/data/secrets.md#create) в проекте {{ ml-platform-name }}.
 
   Если вы используете публичный образ, данные для аутентификации можно не указывать:
 

@@ -20,9 +20,9 @@ If you no longer need the resources, [delete them](#delete-resources).
 
 ### Required paid resources {#paid-resources}
 
-The cost of resources created with {{ TF }} includes:
+The cost of support for the infrastructure deployed through {{ TF }} in this tutorial includes:
 * Fee for a [{{ managed-k8s-name }} regional master](../../managed-kubernetes/concepts/index.md#master) (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
-* Fee for continuously running [{{ managed-k8s-name }} node group](../../managed-kubernetes/concepts/index.md#node-group) [VMs](../../compute/concepts/vm.md) (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Fee for continuously running [VMs](../../compute/concepts/vm.md) in the [{{ managed-k8s-name }} node group](../../managed-kubernetes/concepts/index.md#node-group) (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * Fee for using a dynamic [public IP address](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 
 ## Install {{ TF }} {#install-terraform}

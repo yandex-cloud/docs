@@ -78,4 +78,4 @@
 1. В списке секретов выберите тот, который хотите удалить, нажмите ![options](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yc-ui-datasphere.common.delete }}**.
 1. Нажмите **{{ ui-key.yc-ui-datasphere.common.submit }}**.
 
-Отобразится сообщение о том, что секрет удален. 
+Отобразится сообщение о том, что секрет удален.

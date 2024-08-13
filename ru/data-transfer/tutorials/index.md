@@ -95,6 +95,7 @@ C помощью {{ data-transfer-name }} вы можете реализоват
 
 * [{{ MY }} в {{ objstorage-name }}](mmy-objs-migration.md)
 * [{{ PG }} в {{ objstorage-name }}](mpg-to-objstorage.md)
+* [{{ OS }} в {{ objstorage-name }}](opensearch-to-object-storage.md)
 * [{{ ydb-short-name }} в {{ objstorage-name }}](ydb-to-object-storage.md)
 
 

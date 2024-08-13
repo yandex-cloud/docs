@@ -34,7 +34,7 @@ To learn how to integrate the gRPC framework for different programming languages
 1. Configure support for gRPC Server Reflection. To learn how to configure gRPC Server Reflection for different programming languages, see the [documentation](https://grpc.github.io/grpc/core/md_doc_server-reflection.html).
 
    With gRPC Server Reflection, the load generator polls the server at the start of a test to collect information about services and their methods and uses this data to generate correct gRPC requests during the test.
-1. Install a port for accessing the gRPC service: `8080`.
+1. Install a port for access to the gRPC service: `8080`.
 
 You can also use {{ load-testing-name }} for load testing of a service that is public or located in a subnet and [security group](../../vpc/concepts/security-groups.md) other than those of the agent.
 
@@ -50,7 +50,7 @@ For a service whose subnet and security group differ from the agent's ones, [cre
 
 ### Configure a network {#network-setup}
 
-[Create and configure a NAT gateway](../../vpc/operations/create-nat-gateway.md) in the subnet where your test target is and the agent will be hosted. Thus, the agent will have access to {{ load-testing-name }}.
+[Create and configure a NAT gateway](../../vpc/operations/create-nat-gateway.md) in the subnet where your test target is and where the agent will reside. This will enable the agent to access {{ load-testing-name }}.
 
 ### Configure security groups {#security-group-setup}
 
@@ -183,12 +183,16 @@ For a service whose subnet and security group differ from the agent's ones, [cre
 
       1. Click **{{ ui-key.yacloud.common.create }}**.
 
-   Afterwards, the configuration will be verified, and the agent will start loading the gRPC service being tested.
+   Once you do that, the configuration will pass checks, and the agent will start loading the gRPC service you are testing.
 
-   To see the testing progress, select the created test and go to the **{{ ui-key.yacloud.load-testing.label_test-report }}** tab.
+   To see the testing progress, select the new test and go to the **{{ ui-key.yacloud.load-testing.label_test-report }}** tab.
 
 {% endlist %}
 
 ## Delete the resources you created {#clear-out}
 
-To stop paying for the resources created, just [delete the agent](../../compute/operations/vm-control/vm-delete.md).
+Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
+
+1. [Delete the agent](../../compute/operations/vm-control/vm-delete.md).
+1. [Delete the route table](../../vpc/operations/delete-route-table.md).
+1. [Delete the NAT gateway](../../vpc/operations/delete-nat-gateway.md).

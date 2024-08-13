@@ -51,6 +51,8 @@
 
 {% include [roles-primitive](../../_includes/roles-primitive.md) %}
 
+{% include [primitive-roles-footnote](../../_includes/primitive-roles-footnote.md) %}
+
 #### Что дальше {#next}
 
 * [Как назначить роль](../../iam/operations/roles/grant.md).

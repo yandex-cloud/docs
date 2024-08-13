@@ -1,17 +1,19 @@
+Примитивные роли позволяют пользователям совершать действия во [всех сервисах](../overview/concepts/services.md) {{ yandex-cloud }}.
+
 #### {{ roles-auditor }} {#auditor}
 
-Позволяет просматривать конфигурацию и метаданные сервиса без возможности доступа к данным.
+{% include [auditor](../_roles/primitive-roles/auditor.md) %}
 
 #### {{ roles-viewer }} {#viewer}
 
-Позволяет просматривать информацию о ресурсах.
+{% include [viewer](../_roles/primitive-roles/viewer.md) %}
 
 #### {{ roles-editor }} {#editor}
 
-Позволяет управлять ресурсами, например создавать, изменять и удалять их.
+{% include [editor](../_roles/primitive-roles/editor.md) %}
 
 #### {{ roles-admin }} {#admin}
 
-Позволяет управлять ресурсами и доступом к ним.
+{% include [admin](../_roles/primitive-roles/admin.md) %}
 
-Подробнее о примитивных ролях см. в [справочнике ролей {{ yandex-cloud }}](../iam/roles-reference.md#primitive-roles).
+Вместо примитивных ролей мы рекомендуем использовать роли сервисов. Такой подход позволит более гранулярно управлять доступом и обеспечить соблюдение [принципа минимальных привилегий](../security/standard/all.md#min-privileges).

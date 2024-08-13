@@ -69,6 +69,8 @@ description: "В этом разделе вы узнаете, на какие р
 
 {% include [roles-primitive](../../_includes/roles-primitive.md) %}
 
+{% include [primitive-roles-footnote](../../_includes/primitive-roles-footnote.md) %}
+
 ## Какие роли необходимы {#required-roles}
 
 Чтобы пользоваться сервисом, необходима [роль](../../iam/concepts/access-control/roles.md) `{{ roles.mes.editor }}` или выше на каталог, в котором создается кластер. Роль `{{ roles.mes.viewer }}` позволит только просматривать список кластеров.

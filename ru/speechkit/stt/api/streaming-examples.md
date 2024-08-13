@@ -41,7 +41,7 @@
         ```bash
         cd cloudapi
         mkdir output
-        python -m grpc_tools.protoc -I . -I third_party/googleapis \
+        python3 -m grpc_tools.protoc -I . -I third_party/googleapis \
           --python_out=output \
           --grpc_python_out=output \
             google/api/http.proto \
@@ -148,7 +148,7 @@
      1. Выполните созданный файл:
 
         ```bash
-        python test.py --token ${IAM_TOKEN} --folder_id ${FOLDER_ID} --path speech.pcm
+        python3 test.py --token ${IAM_TOKEN} --folder_id ${FOLDER_ID} --path speech.pcm
         ```
 
         Где `--path` — путь к аудиофайлу, который необходимо распознать.
