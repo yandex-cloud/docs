@@ -18,7 +18,8 @@ description: "Из статьи вы узнаете, как задать нас�
 
 {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
 
-* [Миграция кластера {{ OS }}](../../../tutorials/os-to-mos.md);
+* [Миграция кластера {{ OS }}](../../../tutorials/os-to-mos.md).
+* [Загрузка данных из {{ OS }} в {{ objstorage-name }}](../../../tutorials/opensearch-to-object-storage.md).
 * [Миграция со сменой хранилища: {{ OS }} в {{ ydb-short-name }}](../../../tutorials/opensearch-to-ydb.md).
 
 Подробное описание возможных сценариев передачи данных в {{ data-transfer-full-name }} см. в разделе [Практические руководства](../../../tutorials/index.md).

@@ -247,7 +247,7 @@ To prepare a test target:
 
 1. Click **{{ ui-key.yacloud.common.create }}**.
 
-Afterwards, the configuration will be verified, and the agent will start loading the service being tested.
+Once you do that, the configuration will pass checks, and the agent will start loading the service you are testing.
 
 ## Repeat the test {#rerun-test}
 
@@ -270,4 +270,9 @@ To compare the results:
 
 ## How to delete the resources you created {#clear-out}
 
-To stop paying for the resources created, just [delete the agent](../../compute/operations/vm-control/vm-delete.md).
+Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
+
+1. [Delete the agent](../../compute/operations/vm-control/vm-delete.md).
+1. [Delete the route table](../../vpc/operations/delete-route-table.md).
+1. [Delete the NAT gateway](../../vpc/operations/delete-nat-gateway.md).
+

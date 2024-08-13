@@ -62,6 +62,8 @@ items:
             href: operations/applications/gitlab-runner.md
           - name: Установка HashiCorp Vault
             href: operations/applications/hashicorp-vault.md
+          - name: Установка Ingress NGINX
+            href: operations/applications/ingress-nginx.md
           - name: Установка Ingress-контроллера {{ alb-name }}
             href: operations/applications/alb-ingress-controller.md
           - name: Обновление Ingress-контроллера {{ alb-name }}

@@ -78,6 +78,8 @@ keywords:
 
 {% include [roles-primitive](../../_includes/roles-primitive.md) %}
 
+{% include [primitive-roles-footnote](../../_includes/primitive-roles-footnote.md) %}
+
 ## Какие роли необходимы {#required-roles}
 
 Чтобы пользоваться сервисом, необходима роль [{{ roles.mgp.editor }} или выше](../../iam/concepts/access-control/roles.md) на каталог, в котором создается кластер. Роль `{{ roles.mgp.viewer }}` позволит только просматривать список кластеров.

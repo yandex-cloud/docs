@@ -42,7 +42,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Configure a network {#network-setup}
 
-[Create and configure a NAT gateway](../../vpc/operations/create-nat-gateway.md) in the subnet where your test target is and the agent will be hosted. Thus, the agent will have access to {{ load-testing-name }}.
+[Create and configure a NAT gateway](../../vpc/operations/create-nat-gateway.md) in the subnet where your test target is and where the agent will reside. This will enable the agent to access {{ load-testing-name }}.
 
 ### Configure the security group {#security-group-setup}
 
@@ -234,3 +234,5 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 1. [Delete the service accounts](../../iam/operations/sa/delete.md).
 1. [Delete the {{ objstorage-name }} bucket](../../storage/operations/buckets/delete.md).
 1. Make sure that the test agent created by the script was deleted. You can [delete the agent](../../compute/operations/vm-control/vm-delete.md) manually.
+1. [Delete the route table](../../vpc/operations/delete-route-table.md).
+1. [Delete the NAT gateway](../../vpc/operations/delete-nat-gateway.md).

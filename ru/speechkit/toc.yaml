@@ -170,6 +170,8 @@ items:
             href: stt/api/streaming-examples.md
           - name: Синхронное распознавание API v1
             href: stt/api/request-examples.md
+          - name: Асинхронное распознавание аудиофайлов в формате WAV — API v3
+            href: stt/api/transcribation-api-v3.md
           - name: Асинхронное распознавание формата LPCM — API v2
             href: stt/api/transcribation-lpcm.md
           - name: Асинхронное распознавание формата OggOpus — API v2

@@ -4,7 +4,7 @@
 
 1. В блоке ![folder](../../_assets/datasphere/jupyterlab/folder.svg) **File Browser** выберите папку, в которую нужно загрузить данные.
 1. Слева сверху нажмите кнопку ![upload](../../_assets/datasphere/jupyterlab/upload.svg).
-1. Выберите файлы, которые нужно загрузить. 
+1. Выберите файлы, которые нужно загрузить.
 
 [Подробнее о хранилище проекта](../../datasphere/concepts/project.md#storage).
 

@@ -71,6 +71,10 @@ items:
           data-transfer-full-name }}
         href: tutorials/migration-from-standalone.md
       - name: >-
+          Загрузка данных из {{ mos-name }} в {{ objstorage-name }} с помощью {{
+          data-transfer-full-name }}
+        href: tutorials/opensearch-to-object-storage.md
+      - name: >-
           Миграция данных из {{ mos-name }} в {{ ydb-full-name }} с помощью {{
           data-transfer-full-name }}
         href: tutorials/opensearch-to-ydb.md

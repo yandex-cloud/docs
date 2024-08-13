@@ -6,9 +6,9 @@
 
 ## Создать шаблон {{ dataproc-name }} {#create}
 
-1. {% include [ui-find-project](../../_includes/datasphere/ui-find-project.md) %} 
+1. {% include [ui-find-project](../../_includes/datasphere/ui-find-project.md) %}
 1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** нажмите ![data-proc-template](../../_assets/datasphere/data-proc-template.svg) **{{ ui-key.yc-ui-datasphere.resources.dataProc }}**.
-1. Нажмите **{{ ui-key.yc-ui-datasphere.data-proc.create-template }}**. 
+1. Нажмите **{{ ui-key.yc-ui-datasphere.data-proc.create-template }}**.
 1. В поле **{{ ui-key.yc-ui-datasphere.data-proc.template-name }}** задайте имя. Требования к имени:
 
     {% include [name-format](../../_includes/name-format.md) %}
@@ -25,7 +25,7 @@
 
 ## Поделиться шаблоном {{ dataproc-name }} {#share}
 
-1. {% include [ui-find-project](../../_includes/datasphere/ui-find-project.md) %} 
+1. {% include [ui-find-project](../../_includes/datasphere/ui-find-project.md) %}
 1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** нажмите ![data-proc-template](../../_assets/datasphere/data-proc-template.svg) **{{ ui-key.yc-ui-datasphere.resources.dataProc }}**.
 1. Выберите нужный шаблон в списке.
 1. Перейдите на вкладку **{{ ui-key.yc-ui-datasphere.common.access }}**.
@@ -44,7 +44,7 @@
 
 ## Удалить шаблон {{ dataproc-name }} {#delete}
 
-1. {% include [ui-find-project](../../_includes/datasphere/ui-find-project.md) %} 
+1. {% include [ui-find-project](../../_includes/datasphere/ui-find-project.md) %}
 1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** нажмите ![data-proc-template](../../_assets/datasphere/data-proc-template.svg) **{{ ui-key.yc-ui-datasphere.resources.dataProc }}**.
 1. Выберите в списке шаблон, который нужно удалить.
 1. Нажмите ![options](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yc-ui-datasphere.common.delete }}**.

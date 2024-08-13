@@ -41,7 +41,7 @@
 
 1. Введите имя бакета и получите список объектов в нем:
 
-    ```python    
+    ```python
     for key in s3.list_objects(Bucket='<имя_бакета>')['Contents']:
         print(key['Key'])
     ```

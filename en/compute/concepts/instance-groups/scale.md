@@ -16,7 +16,7 @@ You can [create fixed-size instance groups](../../operations/instance-groups/cre
 
 When [creating an automatically scaled instance group](../../operations/instance-groups/create-autoscaled-group.md), you specify the target metric value, while the service continuously re-adjusts the number of instances:
 
-* If the average metric value rises above the target, {{ ig-name }} will create new instances in the group.
+* If the [average metric value](#average-metric) exceeds the target, {{ ig-name }} will create new instances in the group.
 * If the average value decreases below the target value with a smaller group, {{ ig-name }} will delete unnecessary instances.
 
 This is done to ensure that the average metric value within the same [availability zone](../../../overview/concepts/geo-scope.md) or the entire group (depending on the [automatic scaling type](#auto-scale-type)) does not differ much from the target value.
@@ -31,14 +31,14 @@ For automatically scaled groups, you need to specify [common scaling settings](#
 
 {{ ig-name }} can adjust the number of instances separately in each [availability zone](../../../overview/concepts/geo-scope.md) specified in the group settings or in the entire instance group:
 
-* With _zonal_ scaling, {{ ig-name }} will calculate an average metric value for scaling and the required number of instances for each availability zone. This type of automatic scaling is used by default.
+* With _zonal_ scaling, {{ ig-name }} will calculate the [average metric value](#average-metric) for scaling and required number of instances separately for each availability zone. This type of automatic scaling is used by default.
 * With _regional_ scaling, the metric value and the number of instances are calculated for the entire group. To change the group auto scaling type to regional, [specify the `auto_scale` scaling policy](policies/scale-policy.md#auto-scale-policy) with the `auto_scale_type: REGIONAL` key.
 
 
 ### General settings {#auto-scale-settings}
 
 To reduce adjustment sensitivity, with {{ ig-name }}, you can configure:
-* *Stabilization period*: After the number of VMs increases, the group size will not decrease until the end of a stabilization period, even if the average value of the metric has become sufficiently low.
+* *Stabilization period*: After the number of VMs increases, the group size will not decrease until the stabilization period ends, even if the [average metric value](#average-metric) has dropped low enough.
 * *Warm-up period*: Period during which the VM, upon its start, will not use:
 
   * [CPU utilization](#cpu-utilization).
@@ -92,7 +92,7 @@ When using monitoring metrics, specify the following in {{ ig-name }}:
 
   You will also need specify other labels for this metric:
 
-* _Metric type_ that affects how {{ ig-name }} computes the average metric value:
+* _Metric type_ that affects how {{ ig-name }} will calculate the [average metric value](#average-metric):
   * `GAUGE`: Used for metrics that show the metric value at a specific point in time, such as the number of requests per second to a server running on an instance. {{ ig-name }} computes the average metric value for the specified averaging period.
   * `COUNTER`: Used for metrics that grow uniformly over time, such as the total number of requests to a server running on an instance. {{ ig-name }} calculates the average metric growth for the specified averaging period.
 * _Metric rule type_:
@@ -113,8 +113,44 @@ When using monitoring metrics, specify the following in {{ ig-name }}:
     If zonal scaling is applied to the group, when delivered in {{ monitoring-name }}, the `WORKLOAD` metric must have the `zone_id` label.
 * _Target metric value_ by which {{ ig-name }} calculates the required number of VM instances. For `UTILIZATION` metrics, the target value is the required level of resource consumption by each instance. For `WORKLOAD` metrics, it is the maximum allowed workload on each instance.
 
+### Calculating the average metric value {#average-metric}
+
+The average metric value is calculated using an [_exponential moving average_](https://en.wikipedia.org/wiki/Moving_average#Exponential_moving_average). This makes autoscaling sensitive to metric spikes while smoothing out peaks.
+
+The _normal average_ is calculated using the following formula:
+
+$$\begin{array}{c}
+\frac{\int_a^b f(x)dx}{b - a}
+\end{array}{}
+,
+$$
+
+where $f(x)$ is the function of the metric in the $[ a, b ]$ time range.
+
+There may be spikes in metric values over the entire $[ a, b ]$ time range. The normal average is calculated without regard to when the spike occurred — whether closer to the beginning or end of the time range. This can cause a VM group to scale excessively and increase the costs of resources.
+
+To account for the time of a metric spike, an exponential moving average is used:
+
+$$\begin{array}{c}
+\frac{\int_a^b f(x)w(x)dx}{\int_a^b w(x)dx}
+\end{array}{}
+,
+$$
+
+where $w(x)$ is the $w(x) = k^{-(x - a)}$, $k \in (0, 1)$ weight function allowing you to assign larger weights to the $f(x)$ function values at the end of the $b$ segment, i.e., closer to the current time.
+
+The $k$ factor depends on how long the metric is measured and is calculated using this formula:
+
+$$\begin{array}{c}
+k=\frac{1}{exp(10/t)}
+\end{array}{}
+,
+$$
+
+where $t$ is the time of measuring the metric in seconds, $t = b - a$.
+
 #### See also {#see-also}
 
-* [{#T}](policies/scale-policy.md).
-* [{#T}](../../operations/instance-groups/create-fixed-group.md).
-* [{#T}](../../operations/instance-groups/create-autoscaled-group.md).
+* [{#T}](policies/scale-policy.md)
+* [{#T}](../../operations/instance-groups/create-fixed-group.md)
+* [{#T}](../../operations/instance-groups/create-autoscaled-group.md)

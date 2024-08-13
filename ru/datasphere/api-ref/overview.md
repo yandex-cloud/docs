@@ -5,7 +5,7 @@ description: "Управление ресурсами {{ ml-platform-full-name }
 
 # Обзор API {{ ml-platform-name }}
 
-В {{ ml-platform-name }} все основные операции по работе с ресурсами и ноутбуками доступны не только из пользовательского интерфейса, но и через API. 
+В {{ ml-platform-name }} все основные операции по работе с ресурсами и ноутбуками доступны не только из пользовательского интерфейса, но и через API.
 
 Для управления ресурсами в [API {{ yandex-cloud }}](https://github.com/yandex-cloud/cloudapi) определены наборы вызовов [gRPC](grpc/index.md) и методов [REST](index.md). Особенности их реализации и взаимодействия см. в [Документации API {{ yandex-cloud }}](../../api-design-guide/concepts/standard-methods.md).
 

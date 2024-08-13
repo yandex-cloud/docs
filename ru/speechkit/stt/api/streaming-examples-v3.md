@@ -1,6 +1,6 @@
 ---
 title: "Потоковое распознавание аудиофайла с помощью API v3 в {{ speechkit-full-name }}"
-description: "Следуя данной инструкции, вы сможете использовать потоковое распознавание аудиофайла с помощью API v3." 
+description: "Следуя данной инструкции, вы сможете использовать потоковое распознавание аудиофайла с помощью API v3."
 ---
 
 # Потоковое распознавание аудиофайла с помощью API v3
@@ -26,7 +26,7 @@ description: "Следуя данной инструкции, вы сможет�
     {% list tabs group=programming_language %}
 
     - Python 3 {#python}
-      
+
       1. Склонируйте репозиторий [{{ yandex-cloud }} API](https://github.com/yandex-cloud/cloudapi):
 
          ```bash
@@ -44,7 +44,7 @@ description: "Следуя данной инструкции, вы сможет�
          ```bash
          cd <путь_к_папке_cloudapi>
          mkdir output
-         python -m grpc_tools.protoc -I . -I third_party/googleapis \
+         python3 -m grpc_tools.protoc -I . -I third_party/googleapis \
            --python_out=output \
            --grpc_python_out=output \
              google/api/http.proto \
@@ -106,10 +106,10 @@ description: "Следуя данной инструкции, вы сможет�
                      yield stt_pb2.StreamingRequest(chunk=stt_pb2.AudioChunk(data=data))
                      data = f.read(CHUNK_SIZE)
 
-         # Вместо iam_token передавайте api_key при авторизации с API-ключом 
+         # Вместо iam_token передавайте api_key при авторизации с API-ключом
          # от имени сервисного аккаунта.
-         # def run(api_key, audio_file_name): 
-         def run(iam_token, audio_file_name): 
+         # def run(api_key, audio_file_name):
+         def run(iam_token, audio_file_name):
              # Установите соединение с сервером.
              cred = grpc.ssl_channel_credentials()
              channel = grpc.secure_channel('{{ api-host-sk-stt }}:443', cred)
@@ -164,7 +164,7 @@ description: "Следуя данной инструкции, вы сможет�
       1. Выполните созданный файл:
 
          ```bash
-         python output/test.py --token ${IAM_TOKEN} --path <путь_к_файлу_speech.pcm>
+         python3 output/test.py --token ${IAM_TOKEN} --path <путь_к_файлу_speech.pcm>
          ```
 
          Где `--path` — путь к аудиофайлу, который необходимо распознать.
@@ -235,7 +235,7 @@ description: "Следуя данной инструкции, вы сможет�
           sending  initial request
           Done sending
           Stt stream completed
-          Recognized text is я яндекс спичкит я могу превратить любой текст в речь теперь и вы можете 
+          Recognized text is я яндекс спичкит я могу превратить любой текст в речь теперь и вы можете
           ```
 
     {% endlist %}

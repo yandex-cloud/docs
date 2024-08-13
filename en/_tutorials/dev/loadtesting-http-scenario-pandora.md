@@ -43,7 +43,7 @@ For a service whose subnet and security group differ from the agent's ones, [cre
 
 ### Configure a network {#network-setup}
 
-[Create and configure a NAT gateway](../../vpc/operations/create-nat-gateway.md) in the subnet where your test target is and the agent will be hosted. Thus, the agent will have access to {{ load-testing-name }}.
+[Create and configure a NAT gateway](../../vpc/operations/create-nat-gateway.md) in the subnet where your test target is and where the agent will reside. This will enable the agent to access {{ load-testing-name }}.
 
 ### Configure security groups {#security-group-setup}
 
@@ -204,10 +204,14 @@ In your test script, specify a sequence of HTTP requests to run during testing. 
 
 1. Click **{{ ui-key.yacloud.common.create }}**.
 
-Afterwards, the configuration will be verified, and the agent will start loading the service being tested.
+Once you do that, the configuration will pass checks, and the agent will start loading the service you are testing.
 
-To see the testing progress, select the created test and go to the **{{ ui-key.yacloud.load-testing.label_test-report }}** tab.
+To see the testing progress, select the new test and go to the **{{ ui-key.yacloud.load-testing.label_test-report }}** tab.
 
 ## How to delete the resources you created {#clear-out}
 
-To stop paying for the resources created, just [delete the agent](../../compute/operations/vm-control/vm-delete.md).
+Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
+
+1. [Delete the agent](../../compute/operations/vm-control/vm-delete.md).
+1. [Delete the route table](../../vpc/operations/delete-route-table.md).
+1. [Delete the NAT gateway](../../vpc/operations/delete-nat-gateway.md).

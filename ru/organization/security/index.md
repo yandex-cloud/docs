@@ -60,6 +60,8 @@
 
 {% include [roles-primitive](../../_includes/roles-primitive.md) %}
 
+{% include [primitive-roles-footnote](../../_includes/primitive-roles-footnote.md) %}
+
 ### Назначить пользователя администратором организации {#admin}
 
 Чтобы дать пользователю права на управление организацией, [назначьте](#add-role) ему одну из ролей:

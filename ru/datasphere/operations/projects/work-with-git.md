@@ -107,7 +107,7 @@ description: "Из статьи вы узнаете, как работать с 
 
    Изменения отправлены в удаленный репозиторий.
 
-## Получить изменения из удалённого репозитория {#pull}
+## Получить изменения из удаленного репозитория {#pull}
 
 1. Перейдите в блок ![git](../../../_assets/datasphere/jupyterlab/git.svg) **Git**.
 1. Нажмите кнопку ![git](../../../_assets/datasphere/jupyterlab/pull.svg) **Pull latest changes**.
@@ -127,18 +127,18 @@ description: "Из статьи вы узнаете, как работать с 
 
     1. [Создайте](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-new-repository) новый пустой репозиторий на GitHub. Вы сможете добавить файлы README, license и gitignore позднее.
     1. В проекте {{ ml-platform-name }} создайте локальный репозиторий:
-    
+
        1. В левом навигационном меню, в разделе ![folder](../../../_assets/datasphere/jupyterlab/folder.svg) **File Browser**, создайте или выберите папку, в которой вы хотите создать клон репозитория, и перейдите в нее.
        1. В верхнем меню нажмите **Git** и выберите **Initialize a Repository**.
        1. В открывшемся окне нажмите кнопку **Yes**.
 
     1. Сопоставьте локальный репозиторий с удаленным репозиторием GitHub:
-    
+
        1. В верхнем меню нажмите **Git** и выберите **Add Remote Repository**.
        1. В открывшемся окне введите адрес удаленного репозитория и нажмите **Add**.
 
     1. Добавьте все нужные файлы под версионный контроль:
-    
+
        1. Перейдите в блок ![git](../../../_assets/datasphere/jupyterlab/git.svg) **Git**.
        1. На вкладке **Change**, в выпадающем списке **Untracked**, найдите файл проекта.
        1. Справа от имени файла нажмите ![add](../../../_assets/datasphere/jupyterlab/add.svg).
@@ -166,19 +166,19 @@ description: "Из статьи вы узнаете, как работать с 
 
     1. [Создайте](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-new-repository) новый пустой репозиторий на GitHub. Вы сможете добавить файлы README, license и gitignore позднее.
     1. В проекте {{ ml-platform-name }} создайте локальный репозиторий:
-    
+
        1. В левом навигационном меню, в разделе ![folder](../../../_assets/datasphere/jupyterlab/folder.svg) **File Browser**, создайте или выберите папку, в которой вы хотите создать клон репозитория, и перейдите в нее.
        1. В верхнем меню нажмите **Git** и выберите **Initialize a Repository**.
        1. В открывшемся окне нажмите кнопку **Yes**.
 
     1. Сопоставьте локальный репозиторий с удаленным репозиторием GitHub:
-    
+
        1. В верхнем меню нажмите **Git** и выберите **Manage Remote Repositories**.
        1. В открывшемся окне введите имя и адрес удаленного репозитория и нажмите **Add**.
        1. Закройте окно добавления удаленных репозиториев.
 
     1. Добавьте все нужные файлы под версионный контроль:
-    
+
        1. Перейдите в блок ![git](../../../_assets/datasphere/jupyterlab/git.svg) **Git**.
        1. На вкладке **Change**, в выпадающем списке **Untracked**, найдите файл проекта.
        1. Справа от имени файла нажмите ![add](../../../_assets/datasphere/jupyterlab/add.svg).

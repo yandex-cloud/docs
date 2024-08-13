@@ -63,6 +63,8 @@ description: "Управление доступом в сервисе, пред�
 
 {% include [roles-primitive](../../_includes/roles-primitive.md) %}
 
+{% include [primitive-roles-footnote](../../_includes/primitive-roles-footnote.md) %}
+
 ## См. также {#see-also}
 
 * [{#T}](../operations/buckets/iam-access.md)
