@@ -1,6 +1,6 @@
 ---
 title: "Синтез речи с помощью Python SDK {{ speechkit-full-name }}"
-description: "Следуя данной инструкции, вы сможете протестировать синтез речи с помощью Python SDK {{ speechkit-name }}." 
+description: "Следуя данной инструкции, вы сможете протестировать синтез речи с помощью Python SDK {{ speechkit-name }}."
 ---
 
 # Синтез речи с помощью Python SDK

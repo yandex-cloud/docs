@@ -30,6 +30,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
       1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
       1. Enter the service account name and click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
+      1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_dashboard }}** tab.
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
       1. Select the registry and click the row with its name.
       1. Go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
@@ -184,7 +185,7 @@ Create a VM with a public IP address and link the service account you created to
       Where:
       * `--name`: VM name.
 
-         {% include [name-fqdn](../../_includes/compute/name-fqdn.md) %}
+        {% include [name-fqdn](../../_includes/compute/name-fqdn.md) %}
 
       * `--zone`: Availability zone that corresponds to the selected subnet.
       * `subnet-name`: Name of the selected subnet.
@@ -319,7 +320,7 @@ After creating the VM, [build and upload the Docker image to {{ container-regist
 
 {% include [create-image](../_tutorials_includes/run-docker-on-vm/create-image.md) %}
 
-## Download the Docker image to the VM {#run}
+## Upload the Docker image to the VM {#run}
 
 {% include [run](../_tutorials_includes/run-docker-on-vm/run.md) %}
 

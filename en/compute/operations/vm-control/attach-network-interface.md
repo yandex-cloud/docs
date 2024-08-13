@@ -1,7 +1,7 @@
 # Adding another network interface to a virtual machine
 
 
-A virtual machine can have [one or multiple](../../concepts/limits.md) [network interfaces](../../concepts/network.md).
+A virtual machine can have one or more [network interfaces](../../concepts/network.md). For more information on the maximum number of VM network interfaces, see [{#T}](../../concepts/limits.md).
 
 You can add network interfaces to either [running](#add-to-running) or [stopped](#add-to-stopped) VMs. To maintain [network connectivity](../../../vpc/concepts/static-routes.md#rt-vm), we recommend adding network interfaces to stopped VMs.
 

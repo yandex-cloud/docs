@@ -86,6 +86,8 @@ description: "Управление доступом в сервисе для с�
 
 {% include [roles-primitive](../../_includes/roles-primitive.md) %}
 
+{% include [primitive-roles-footnote](../../_includes/primitive-roles-footnote.md) %}
+
 ## Какие роли мне необходимы {#choosing-roles}
 
 **Пример разграничения доступа к ключам**

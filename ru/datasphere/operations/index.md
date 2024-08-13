@@ -77,6 +77,7 @@ description: "Страница содержит все инструкции дл
 
 ## {{ ds-jobs }} {#ds-jobs}
 
+* [{#T}](projects/authentication.md)
 * [{#T}](projects/work-with-jobs.md)
 * [{#T}](projects/jobs-toolkit.md)
 

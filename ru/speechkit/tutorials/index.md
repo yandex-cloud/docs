@@ -28,7 +28,9 @@ description: "На странице представлен список прак
 
 * [{#T}](../stt/api/transcribation-lpcm.md) — в примере заданы русский язык, языковая модель `general:rc`, формат аудиофайла LPCM, частота дискретизации 8000 Гц и один аудиоканал.
 
-* [{#T}](../stt/api/transcribation-ogg.md) — в примере заданы русский язык, остальные параметры [оставлены по умолчанию](../stt/api/transcribation-api.md#sendfile-params).
+* [{#T}](../stt/api/transcribation-ogg.md) — в примере задан русский язык, остальные параметры [оставлены по умолчанию](../stt/api/transcribation-api.md#sendfile-params).
+
+* [{#T}](../stt/api/transcribation-api-v3.md) — в примере заданы языковая модель `general`, формат аудиофайла WAV, остальные параметры [оставлены по умолчанию](../stt/api/transcribation-api.md#sendfile-params).
 
 * [{#T}](../stt/api/batch-transcribation.md) — в примере заданы русский язык и языковая модель `general`. Распознается речь из аудиофайлов любого [поддерживаемого формата](../formats.md).
 

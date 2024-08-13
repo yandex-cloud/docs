@@ -1,6 +1,6 @@
 # Monitoring network connections
 
-To ensure the performance of the [network load balancer](../../network-load-balancer) and [security groups](security-groups.md), {{ vpc-short-name }} monitors network connections.
+To ensure the performance of the [network load balancer](../../network-load-balancer) and [security groups](./security-groups.md), {{ vpc-short-name }} monitors network connections.
 
 A network connection refers to the [traffic flow](https://en.wikipedia.org/wiki/Traffic_flow_%28computer_networking%29) in any direction. Five parameters uniquely define a connection: source IP address, source port, target IP address, target port, and network protocol. The target and source order is disregarded.
 

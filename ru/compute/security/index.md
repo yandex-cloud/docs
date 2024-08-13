@@ -87,6 +87,8 @@ description: "Управление доступом в сервисе предо
 
 {% include [roles-primitive](../../_includes/roles-primitive.md) %}
 
+{% include [primitive-roles-footnote](../../_includes/primitive-roles-footnote.md) %}
+
 #### Что дальше {#what-is-next}
 
 * [Как назначить роль](../../iam/operations/roles/grant.md).

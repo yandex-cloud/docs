@@ -35,7 +35,7 @@ The infrastructure support cost for {{ TF }} states includes:
 * Data storage fees (see [{{ objstorage-name }} pricing](../../storage/pricing.md#prices-storage)).
 * Fee for running queries to the database (see [{{ ydb-name }} pricing](../../ydb/pricing/serverless.md)).
 
-The cost for supporting the infrastructure deployed through {{ TF }} in this sample scenario includes:
+The cost of support for the example infrastructure deployed through {{ TF }} in this tutorial includes:
 * Fee for a continuously running [VM](../../compute/concepts/vm.md) (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * Fee for using a dynamic [public IP address](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 

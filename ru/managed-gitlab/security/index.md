@@ -48,6 +48,8 @@ description: "Управление доступом в веб-инструмен
 
 {% include [roles-primitive](../../_includes/roles-primitive.md) %}
 
+{% include [primitive-roles-footnote](../../_includes/primitive-roles-footnote.md) %}
+
 ## Какие роли необходимы {#required-roles}
 
 Чтобы пользоваться сервисом, необходима роль [{{ roles.gitlab.editor }} или выше](../../iam/concepts/access-control/roles.md) на каталог, в котором создаются проекты. Роль `{{ roles.gitlab.viewer }}` позволит только просматривать список проектов и содержимое файлов, которые были загружены.

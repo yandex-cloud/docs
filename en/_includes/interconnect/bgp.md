@@ -13,7 +13,11 @@ To maintain continuous BGP connectivity, we recommend setting up policies for ro
 
 ### BGP ASN {#bgp-asn}
 
-To set up BGP connectivity, each side must specify the BGP autonomous system number (ASN) in ASPlain format. The BGP ASN value for {{ yandex-cloud }} is fixed at **{{ cic-bgp-asn }}**. On the client side, you can set up a public BGP ASN (if any) or use any number from private BGP ASNs in the range of `64512-65534`.
+To set up BGP connectivity, each side must specify the BGP autonomous system number (ASN) in ASPlain format. The BGP ASN value for {{ yandex-cloud }} is fixed at **{{ cic-bgp-asn }}**.
+
+On client equipment, you are **allowed** to use the public BGP ASN (if available) or any value from the BGP ASN private number range: `64512 - 65534` [RFC 6996](https://datatracker.ietf.org/doc/rfc6996).
+
+On client equipment, you are **not allowed** to use the following BGP ASN number range: `64496 – 64511` [RFC 5398](https://datatracker.ietf.org/doc/rfc5398), or to have an ASN from this range in the BGP `AS_Path` attribute.
 
 {% note warning %}
 

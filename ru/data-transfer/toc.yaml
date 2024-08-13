@@ -234,6 +234,8 @@ items:
             href: tutorials/mmy-objs-migration.md
           - name: '{{ PG }} в {{ objstorage-name }}'
             href: tutorials/mpg-to-objstorage.md
+          - name: '{{ OS }} в {{ objstorage-name }}'
+            href: tutorials/opensearch-to-object-storage.md
           - name: '{{ ydb-name }} в {{ objstorage-name }}'
             href: tutorials/ydb-to-object-storage.md
   - name: Концепции

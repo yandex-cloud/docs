@@ -6,7 +6,7 @@
       "config": {
          "specification": {
             "languageCode": "ru-RU",
-            "model": "general:rc",
+            "model": "general",
             "audioEncoding": "LINEAR16_PCM",
             "sampleRateHertz": 8000,
             "audioChannelCount": 1

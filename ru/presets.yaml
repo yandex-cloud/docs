@@ -242,6 +242,7 @@ default:
   kraft-name: Apache Kafka® Raft
   kraft-short-name: KRaft
   lang: ru
+  lets-encrypt: Let's Encrypt®
   license-manager: License Manager
   link-app-android: https://play.google.com/store/apps/details?id=ru.yandex.cloud
   link-app-ios: https://apps.apple.com/ru/app/yandex-cloud/id1515465314
@@ -9608,6 +9609,11 @@ default:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/gitlab-org/gitlab-runner/chart/gitlab-runner
         tag: 0.54.0-8
+    yc_ingress-nginx:
+      helmChart:
+        name: >-
+          cr.yandex/yc-marketplace/yandex-cloud/ingress-nginx/chart/ingress-nginx
+        tag: 4.10.0
     yc_istio:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/istio/istio

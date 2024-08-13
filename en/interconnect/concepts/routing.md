@@ -45,7 +45,7 @@ To allow asymmetric traffic from {{ yandex-cloud }}, disable [RPF](https://en.wi
 To prioritize traffic by direction in {{ interconnect-name }}, you can use the following methods:
 
 * [Longest prefix match (LPM)](#lpm1)
-* [BGP AS path prepending](#prepend1)
+* [BGP AS-Path Prepend](#prepend1)
 
 The longest prefix match method has a higher priority than BGP AS path prepending when it comes to the algorithm for selecting the best route on routers. We recommend that you only choose one of the suggested methods rather than use both at the same time.
 

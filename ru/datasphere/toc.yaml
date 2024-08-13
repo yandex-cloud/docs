@@ -131,6 +131,8 @@ items:
             href: operations/deploy/alias-api.md
       - name: '{{ ds-jobs }}'
         items:
+          - name: Аутентификация в {{ ds-jobs }}
+            href: operations/projects/authentication.md
           - name: Запустить задание {{ ml-platform-name }} Jobs
             href: operations/projects/work-with-jobs.md
           - name: Работа с заданиями из Visual Studio Code
@@ -177,8 +179,6 @@ items:
         items:
           - name: Задания
             href: concepts/jobs/index.md
-          - name: Аутентификация
-            href: concepts/jobs/authentication.md
           - name: DataSphere CLI
             href: concepts/jobs/cli.md
           - name: Docker-образы в заданиях

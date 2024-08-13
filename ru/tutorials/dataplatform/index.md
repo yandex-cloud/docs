@@ -101,6 +101,7 @@ description: "На странице представлен список прак
 * [{#T}](elasticsearch-to-opensearch.md)
 * [{#T}](data-transfer-mkf-mos.md)
 * [{#T}](mos-migration-from-standalone.md)
+* [{#T}](opensearch-to-object-storage.md)
 * [{#T}](opensearch-to-ydb.md)
 
 

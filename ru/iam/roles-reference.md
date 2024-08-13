@@ -12,21 +12,7 @@ description: "В статье приведен полный справочник
 
 ![image](../_assets/iam/security/primitive-roles-hierarchy.svg)
 
-#### {{ roles-auditor }} {#auditor}
-
-{% include [auditor](../_roles/primitive-roles/auditor.md) %}
-
-#### {{ roles-viewer }} {#viewer}
-
-{% include [viewer](../_roles/primitive-roles/viewer.md) %}
-
-#### {{ roles-editor }} {#editor}
-
-{% include [editor](../_roles/primitive-roles/editor.md) %}
-
-#### {{ roles-admin }} {#admin}
-
-{% include [admin](../_roles/primitive-roles/admin.md) %}
+{% include [roles-primitive](../_includes/roles-primitive.md) %}
 
 
 ## Служебные роли {#auxiliary-roles}
