@@ -23,6 +23,12 @@
 
 * [{#T}](data-recording.md)
 
-## Практические советы
+## Мониторинг {#monitoring}
+
+* [{#T}](datalens.md)
+* [{#T}](monitoring.md)
+
+## Практические советы {#practice-advices}
 
 * [{#T}](message-delivery-check.md)
+* [{#T}](iot-emulation.md)

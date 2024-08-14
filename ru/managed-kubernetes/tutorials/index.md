@@ -48,7 +48,7 @@ C помощью {{ managed-k8s-name }} вы можете работать с [�
 
 ## Резервное копирование {#backup}
 
-* [{#T}](backup.md)
+* [{#T}](kubernetes-backup.md)
 * [{#T}](pvc-snapshot-restore.md)
 
 ## Мониторинг {#monitoring}

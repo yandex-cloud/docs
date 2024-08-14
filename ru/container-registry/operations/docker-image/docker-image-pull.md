@@ -1,6 +1,6 @@
 # Скачать Docker-образ из реестра
 
-Для скачивания [Docker-образа](../../concepts/docker-image.md) необходимо знать в каком [репозитории](../../concepts/repository.md) он хранится, а также его [тег или хеш](../../concepts/docker-image.md#version).
+Для скачивания [Docker-образа](../../concepts/docker-image.md) необходима [роль](../../security/index.md#container-registry-images-puller) `container-registry.images.puller` или выше. Кроме того, вам нужно знать, в каком [репозитории](../../concepts/repository.md) хранится Docker-образ, а также его [тег или хеш](../../concepts/docker-image.md#version).
 
 Чтобы работать с Docker-образами, [установите и настройте](../configure-docker.md) Docker.
 

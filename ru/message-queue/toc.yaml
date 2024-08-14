@@ -74,6 +74,8 @@ items:
     items:
       - name: Конвертация видео в GIF на Python
         href: tutorials/video-converting-queue.md
+      - name: Хранение статического ключа доступа в секрете {{ lockbox-name }}
+        href: tutorials/static-key-in-lockbox.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

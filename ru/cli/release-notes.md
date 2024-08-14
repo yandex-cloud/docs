@@ -7,7 +7,31 @@ description: "На странице представлены релизы YC CLI
 
 ## Текущая версия {#latest-release}
 
-## Версия 0.130.0 (01.08.24) {#version0.130.0}
+## Версия 0.131.0 (14.08.24) {#version0.131.0}
+### Изменения в сервисах {{ yandex-cloud }} {#services}
+
+#### {{ backup-name }} {#backup}
+
+* Добавлена команда `backup policy execute` для создания резервной копии виртуальной машины согласно указанной политике резервного копирования.
+
+#### {{ iam-name }} {#iam}
+
+* В команды `add-access-binding` и `remove-access-binding` добавлена поддержка опции `--agent`.
+* Добавлено дерево команд `yc iam workload-identity` для управления федерацией удостоверений рабочей нагрузки.
+
+#### {{ container-registry-name }} {#container-registry}
+
+* В команду `yc container registry create` добавлена опция `--secure` для создания реестра с настройками безопасности.
+
+#### Сервисы управляемых баз данных {#managed-db}
+
+**{{ mgp-name }}**
+
+* Добавлена команда `yc managed-greenplum cluster move` для перемещения кластера в другой каталог.
+
+## Предыдущие релизы {#previous-releases}
+
+### Версия 0.130.0 (01.08.24) {#version0.130.0}
 
 ### Изменения в сервисах {{ yandex-cloud }} {#services}
 
@@ -37,8 +61,6 @@ description: "На странице представлены релизы YC CLI
 
 * Протокол авторизации федеративных аккаунтов изменен на Authorization Code Flow с Proof Key for Code Exchange (PKCE).
 
-
-## Предыдущие релизы {#previous-releases}
 
 ### Версия 0.129.0 (16.07.24) {#version0.129.0}
 

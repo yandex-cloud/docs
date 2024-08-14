@@ -56,6 +56,8 @@ items:
           - name: Визуализация данных с использованием инструмента "Тепловые карты"
             hidden: true
             href: tutorials/data-on-heat-map-dashboard.md
+          - name: Мониторинг состояния географически распределенных устройств
+            href: tutorials/datalens.md
       - name: Аналитика сервисов
         items:
           - name: 'Яндекс Метрика: прямое подключение'

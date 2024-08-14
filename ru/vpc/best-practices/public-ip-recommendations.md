@@ -24,7 +24,7 @@
 * [{#T}](../../storage/operations/hosting/setup.md).
 
 
-* [{#T}](../../cdn/tutorials/blue-green-canary-deployment.md).
+* [{#T}](../../tutorials/web/blue-green-canary-deployment.md).
 
 
 #### Используйте Site-to-Site VPN {#site-to-site}

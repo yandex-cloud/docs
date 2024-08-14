@@ -8,6 +8,8 @@
 
 {% endnote %}
 
+Для загрузки Docker-образа в реестр необходима [роль](../../security/index.md#container-registry-images-pusher) `container-registry.images.pusher` или выше.
+
 {% list tabs group=instructions %}
 
 - CLI {#cli}

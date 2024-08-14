@@ -84,8 +84,14 @@ items:
             href: operations/authorized-key/delete.md
   - name: Практические руководства
     items:
+      - name: Все руководства
+        href: tutorials/index.md
       - name: Хранение статического ключа доступа в секрете {{ lockbox-name }}
         href: tutorials/static-key-in-lockbox.md
+      - name: >-
+          Сервисный аккаунт с профилем OS Login для управления ВМ с помощью
+          Ansible
+        href: tutorials/sa-oslogin-ansible.md
   - name: Концепции
     items:
       - name: Обзор

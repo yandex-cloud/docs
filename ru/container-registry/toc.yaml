@@ -106,6 +106,10 @@ items:
           managed-k8s-name }} с помощью {{ GL }}
         href: tutorials/cr-scanner-with-k8s-and-gitlab.md
       - name: >-
+          Непрерывное развертывание контейнеризованных приложений с помощью {{
+          GL }}
+        href: tutorials/gitlab-containers.md
+      - name: >-
           Построение пайплайна CI/CD в {{ GL }} с использованием
           serverless-продуктов
         href: tutorials/ci-cd-serverless.md
@@ -113,6 +117,8 @@ items:
         href: tutorials/image-storage.md
       - name: Подключение к {{ container-registry-name }} из {{ vpc-short-name }}
         href: tutorials/vpc-cr-access.md
+      - name: Запуск внешних агентов для нагрузочного тестирования
+        href: tutorials/loadtesting-external-agent.md
   - name: Концепции
     items:
       - name: Обзор

@@ -36,3 +36,5 @@ description: "На странице представлен список прак
 
 * [Публикация обновлений для игр с помощью {{ cdn-full-name }}](../web/prefetch.md)
 * [{#T}](../infrastructure-management/sap.md)
+* [{#T}](../ml-ai/recognizer-bot.md)
+* [{#T}](../infrastructure/minecraft-server.md)

@@ -72,6 +72,16 @@ items:
         href: tutorials/cert-manager-webhook.md
       - name: Привязка доменного имени к ВМ с веб-сервером
         href: tutorials/bind-domain-vm.md
+      - name: Публикация обновлений для игр
+        href: tutorials/prefetch.md
+      - name: Терминирование TLS-соединений
+        items:
+          - name: Обзор
+            href: tutorials/tls-termination/index.md
+          - name: Консоль управления
+            href: tutorials/tls-termination/console.md
+          - name: '{{ TF }}'
+            href: tutorials/tls-termination/terraform.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
@@ -128,7 +138,7 @@ items:
                 href: api-ref/DnsZone/updateRecordSets.md
               - name: upsertRecordSets
                 href: api-ref/DnsZone/upsertRecordSets.md
-  - name: Метрики "{{ monitoring-name }}"
+  - name: Метрики {{ monitoring-name }}
     href: metrics.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md

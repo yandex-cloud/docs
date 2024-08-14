@@ -136,8 +136,14 @@ items:
         href: tutorials/java.md
       - name: Запись данных с устройства в Managed Service for PostgreSQL
         href: tutorials/data-recording.md
+      - name: Мониторинг состояния географически распределенных устройств
+        href: tutorials/datalens.md
+      - name: Мониторинг показаний датчиков и уведомления о событиях
+        href: tutorials/monitoring.md
       - name: Тестирование доставки сообщения
         href: tutorials/message-delivery-check.md
+      - name: Эмуляция множества IoT-устройств
+        href: tutorials/iot-emulation.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

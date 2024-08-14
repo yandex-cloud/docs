@@ -48,3 +48,5 @@
    1. Нажмите **{{ ui-key.yc-ui-datasphere.common.submit }}**.
 
 {% endlist %}
+
+{% include [deletion-time](../../../_includes/datasphere/deletion-time.md) %}
