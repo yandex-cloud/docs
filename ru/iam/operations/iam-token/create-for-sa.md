@@ -698,7 +698,7 @@ yc iam create-token
     return data.IAMToken
   }
   ```
-  - Node.js {#node}
+- Node.js {#node}
 
   Пример обмена JWT на IAM-токен:
 
