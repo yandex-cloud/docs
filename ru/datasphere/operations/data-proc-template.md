@@ -49,3 +49,5 @@
 1. Выберите в списке шаблон, который нужно удалить.
 1. Нажмите ![options](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yc-ui-datasphere.common.delete }}**.
 1. Нажмите **{{ ui-key.yc-ui-datasphere.common.submit }}**.
+
+{% include [deletion-time](../../_includes/datasphere/deletion-time.md) %}

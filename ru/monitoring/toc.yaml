@@ -114,6 +114,10 @@ items:
         href: concepts/ttl.md
       - name: Квоты и лимиты
         href: concepts/limits.md
+  - name: Практические руководства
+    items:
+      - name: Мониторинг показаний датчиков и уведомления о событиях
+        href: tutorials/monitoring.md
   - name: '{{ managed-prometheus-name }}'
     items:
       - name: Обзор

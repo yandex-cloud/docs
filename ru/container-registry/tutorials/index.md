@@ -8,6 +8,8 @@ description: "Различные сценарии использования {{ 
 * [{#T}](run-docker-on-vm/index.md)
 * [{#T}](sign-with-cosign.md)
 * [{#T}](cr-scanner-with-k8s-and-gitlab.md)
+* [{#T}](gitlab-containers.md)
 * [{#T}](ci-cd-serverless.md)
 * [{#T}](image-storage.md)
 * [{#T}](vpc-cr-access.md)
+* [{#T}](loadtesting-external-agent.md)

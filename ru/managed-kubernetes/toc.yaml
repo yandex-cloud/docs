@@ -220,7 +220,7 @@ items:
       - name: Резервное копирование
         items:
           - name: Резервное копирование в {{ objstorage-name }}
-            href: tutorials/backup.md
+            href: tutorials/kubernetes-backup.md
           - name: Работа со снапшотами
             href: tutorials/pvc-snapshot-restore.md
       - name: Мониторинг

@@ -472,6 +472,8 @@ items:
             href: ext-app-setup.md
           - name: Передать данные приложения команде Tracker
             href: ext-app-info.md
+      - name: Интеграция {{ tracker-full-name }} с {{ GL }}
+        href: tutorials/tracker-integration.md
   - name: Инструменты разработчика
     items:
       - name: API

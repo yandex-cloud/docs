@@ -82,6 +82,10 @@ items:
         href: tutorials/index.md
       - name: Создание кластера {{ PG }} для 1С
         href: tutorials/1c-postgresql.md
+      - name: >-
+          Создание кластера Linux-серверов «1С:Предприятия» с кластером {{
+          mpg-name }}
+        href: tutorials/1c-postgresql-linux.md
       - name: Выгрузка базы данных в {{ dataproc-full-name }}
         href: tutorials/sqoop.md
       - name: Поиск проблем с производительностью кластера
@@ -110,6 +114,18 @@ items:
           Перенос данных из {{ objstorage-full-name }} с использованием {{
           data-transfer-full-name }}
         href: tutorials/object-storage-to-postgresql.md
+      - name: Создание сайта на базе Joomla с базой данных PostgreSQL
+        items:
+          - name: Обзор
+            href: tutorials/joomla-postgresql/index.md
+          - name: Консоль управления
+            href: tutorials/joomla-postgresql/console.md
+          - name: '{{ TF }}'
+            href: tutorials/joomla-postgresql/terraform.md
+      - name: Мониторинг состояния географически распределенных устройств
+        href: tutorials/datalens.md
+      - name: Запись логов балансировщика в {{ PG }}
+        href: tutorials/logging.md
       - name: Репликация и миграция
         items:
           - name: Логическая репликация {{ PG }}

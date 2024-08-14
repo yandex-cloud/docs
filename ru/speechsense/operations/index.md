@@ -20,12 +20,6 @@ description: "Страница содержит все инструкции дл
 * [{#T}](space/delete.md)
 * [{#T}](space/delete-user-from-space.md)
 
-### Теги пространства {#space-tag}
-
-* [{#T}](space/tag/create.md)
-* [{#T}](space/tag/change.md)
-* [{#T}](space/tag/delete.md)
-
 ## Подключения {#connection}
 
 * [{#T}](connection/create.md)
@@ -37,8 +31,15 @@ description: "Страница содержит все инструкции дл
 * [{#T}](project/delete.md)
 * [{#T}](project/delete-user-from-project.md)
 
-### Теги проекта {#project-tag}
+## Теги {#tag}
 
 * [{#T}](project/tag/create.md)
 * [{#T}](project/tag/change.md)
 * [{#T}](project/tag/delete.md)
+
+## Словари {#dictionary}
+
+* [{#T}](dictionary/create.md)
+* [{#T}](dictionary/change.md)
+* [{#T}](dictionary/add.md)
+* [{#T}](dictionary/delete.md)

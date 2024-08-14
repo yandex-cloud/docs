@@ -2,13 +2,13 @@
 
 #### Что делать, если часть моих данных потеряется при обновлении версии {{ k8s }}? {#backups-update}
 
-Данные не потеряются: перед [обновлением версии {{ k8s }}](../../managed-kubernetes/concepts/release-channels-and-updates.md) {{ managed-k8s-name }} подготавливаем для них резервные копии. Вы можете самостоятельно настроить [резервное копирование кластера в {{ objstorage-full-name }}](../../managed-kubernetes/tutorials/backup.md). Также мы рекомендуем выполнять резервное копирование баз данных средствами самого приложения.
+Данные не потеряются: перед [обновлением версии {{ k8s }}](../../managed-kubernetes/concepts/release-channels-and-updates.md) {{ managed-k8s-name }} подготавливаем для них резервные копии. Вы можете самостоятельно настроить [резервное копирование кластера в {{ objstorage-full-name }}](../../managed-kubernetes/tutorials/kubernetes-backup.md). Также мы рекомендуем выполнять резервное копирование баз данных средствами самого приложения.
 
 #### Можно ли настроить резервное копирование для кластера {{ k8s }}? {#cluster-backups}
 
 Данные в [кластерах {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) надежно хранятся и реплицируются в инфраструктуре {{ yandex-cloud }}. Однако в любой момент вы можете сделать резервные копии данных из [групп узлов](../../managed-kubernetes/concepts/index.md#node-group) кластеров {{ managed-k8s-name }} и хранить их в [{{ objstorage-name }}](../../storage/) или другом хранилище.
 
-Подробнее читайте в разделе [{#T}](../../managed-kubernetes/tutorials/backup.md).
+Подробнее читайте в разделе [{#T}](../../managed-kubernetes/tutorials/kubernetes-backup.md).
 
 #### Будут ли ресурсы простаивать при обновлении версии {{ k8s }}? {#downtime-update}
 

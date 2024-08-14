@@ -11,7 +11,7 @@
 
      * `{{ ui-key.yacloud.storage.bucket.lifecycle.value_days }}` — срабатывает через указанное в поле **{{ ui-key.yacloud.storage.bucket.lifecycle.field_days }}** количество дней после загрузки объекта.
      * `{{ ui-key.yacloud.storage.bucket.lifecycle.value_date }}` — срабатывает в дату, указанную в поле **{{ ui-key.yacloud.storage.bucket.lifecycle.field_date }}**.
-     * `{{ ui-key.yacloud.storage.bucket.lifecycle.value_expired-object-delete-marker }}` — срабатывает после того, как у объекта осталась только текущая версия.
+     * `{{ ui-key.yacloud.storage.bucket.lifecycle.value_expired-object-delete-marker }}` — удаляет маркер удаления, для которого больше не существует неактуальных версий объекта.
 
    * `{{ ui-key.yacloud.storage.bucket.lifecycle.label_transition-type }}` — перемещение любых объектов из стандартного (`STANDARD`) в холодное (`COLD`) хранилище:
 
