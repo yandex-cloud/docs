@@ -703,10 +703,13 @@ yc iam create-token
   Пример обмена JWT на IAM-токен:
 
   ```js
+  /**
+  * @param {string} token - JWT, который был сформирован в примере выше
+  */
   async getYCIAMToken(token) {
     try {
   
-      const response = await fetch(process.env.YC_IAM_URL, {
+      const response = await fetch('https://iam.api.cloud.yandex.net/iam/v1/tokens', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
