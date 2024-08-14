@@ -13,7 +13,6 @@
 * [Как использовать IPv6-адреса](using-ipv6.md)
 * [Как использовать отказоустойчивый VPN или NGWF](using-failsafe-vpn.md)
 * [Как вернуть IP-адрес](restore-ip-address.md)
-* [Как связать два облака между собой](choosing-routing-or-network.md)
 * [В чем различие между NAT-шлюзом и NAT-инстансом](difference-nat-gateway-and-nat-instance.md)
 * [Как перенести IP в другую зону доступности](transferring-ip-to-a-different-zone.md)
 * [Как заблокировать IP-адрес](block-ip-address.md)

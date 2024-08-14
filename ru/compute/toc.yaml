@@ -388,18 +388,58 @@ items:
         href: tutorials/autoscale-monitoring.md
       - name: Обновление группы ВМ под нагрузкой
         href: tutorials/updating-under-load.md
-      - name: Передача логов с ВМ в Yandex Cloud Logging
+      - name: Передача логов с ВМ в {{ cloud-logging-full-name }}
         href: tutorials/vm-fluent-bit-logging.md
       - name: >-
           Сборка образа ВМ с набором инфраструктурных инструментов с помощью
           Packer
         href: tutorials/packer-custom-image.md
+      - name: Миграция в {{ yandex-cloud }} с помощью Hystax Acura
+        href: tutorials/hystax-migration.md
+      - name: Защита от сбоев с помощью Hystax Acura
+        href: tutorials/hystax-disaster-recovery.md
       - name: Резервное копирование ВМ с помощью Hystax Acura Backup
         href: tutorials/hystax-backup.md
       - name: Развертывание отказоустойчивой архитектуры с прерываемыми ВМ
         href: tutorials/nodejs-cron-restart-vm.md
       - name: Привязка доменного имени к ВМ с веб-сервером
         href: tutorials/bind-domain-vm.md
+      - name: Интернет-магазин на платформе OpenCart
+        items:
+          - name: Обзор
+            href: tutorials/opencart/index.md
+          - name: Консоль управления
+            href: tutorials/opencart/console.md
+          - name: '{{ TF }}'
+            href: tutorials/opencart/terraform.md
+      - name: Создание веб-приложения на Python с использованием фреймворка Flask
+        href: tutorials/flask.md
+      - name: Создание SAP-программы в {{ yandex-cloud }}
+        href: tutorials/sap.md
+      - name: Развертывание сервера Minecraft в {{ yandex-cloud }}
+        href: tutorials/minecraft-server.md
+      - name: Автоматизация сборки образов с помощью Jenkins и Packer
+        href: tutorials/jenkins.md
+      - name: Создание тестовых виртуальных машин через {{ GL }} CI
+        href: tutorials/test-vms-creation-via-gitlab-ci.md
+      - name: Высокопроизводительные вычисления (HPC) на прерываемых ВМ
+        href: tutorials/hpc-on-preemptible.md
+      - name: Однонодовый файловый сервер
+        href: tutorials/single-node-file-server.md
+      - name: Настройка SFTP-сервера на Centos 7
+        href: tutorials/backup-and-archive-to-sftp.md
+      - name: >-
+          Развертывание параллельной файловой системы GlusterFS в
+          высокодоступном режиме
+        href: tutorials/ha-regional-glusterfs.md
+      - name: >-
+          Развертывание параллельной файловой системы GlusterFS в
+          высокопроизводительном режиме
+        href: tutorials/ha-regional-glusterfs-high-performance.md
+      - name: Резервное копирование в {{ objstorage-name }} с помощью Bacula
+        href: tutorials/backup-with-bacula.md
+      - name: Создание балансировщика с защитой от DDoS
+        href: tutorials/alb-with-ddos-protection.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов

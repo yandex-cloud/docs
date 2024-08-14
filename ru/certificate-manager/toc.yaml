@@ -56,8 +56,24 @@ items:
         href: operations/operation-logs.md
   - name: Практические руководства
     items:
+      - name: Все руководства
+        href: tutorials/index.md
       - name: Установка Ingress-контроллера NGINX в {{ managed-k8s-name }}
         href: tutorials/nginx-ingress-certificate-manager.md
+      - name: Организация виртуального хостинга
+        href: tutorials/virtual-hosting.md
+      - name: >-
+          Хостинг статического сайта на фреймворке Gatsby в {{ objstorage-name
+          }}
+        href: tutorials/gatsby-static-website.md
+      - name: Терминирование TLS-соединений
+        items:
+          - name: Обзор
+            href: tutorials/tls-termination/index.md
+          - name: Консоль управления
+            href: tutorials/tls-termination/console.md
+          - name: '{{ TF }}'
+            href: tutorials/tls-termination/terraform.md
   - name: Концепции
     items:
       - name: Обзор

@@ -18,7 +18,7 @@ OS Login связывает учетную запись пользователя
 
 Чтобы подключиться через стандартный SSH-клиент с использованием SSH-сертификата к ВМ или узлу {{ k8s }} с включенным доступом по OS Login, нужно [экспортировать](../../compute/operations/vm-connect/os-login-export-certificate.md) сертификат OS Login и использовать его при подключении. Сертификат действителен один час. По истечении этого времени для подключения к ВМ или узлу {{ k8s }} необходимо экспортировать новый сертификат.
 
-Чтобы [подключиться](../../compute/operations/vm-connect/os-login.md#connect-via-key) к ВМ или узлу {{ k8s }} с включенным доступом по OS Login через YC CLI с SSH-ключом, нужно [создать SSH-ключ](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) и [добавить](../../organization/operations/add-ssh.md) его в профиль пользователя организации в {{ org-name }}. Вы также можете добавить SSH-ключ в профиль [сервисного аккаунта](../../iam/concepts/users/service-accounts.md), чтобы иметь возможность [подключаться](../../tutorials/security/sa-oslogin-ansible.md) к ВМ по OS Login от имени этого сервисного аккаунта. 
+Чтобы [подключиться](../../compute/operations/vm-connect/os-login.md#connect-via-key) к ВМ или узлу {{ k8s }} с включенным доступом по OS Login через YC CLI с SSH-ключом, нужно [создать SSH-ключ](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) и [добавить](../../organization/operations/add-ssh.md) его в профиль пользователя организации в {{ org-name }}. Вы также можете добавить SSH-ключ в профиль [сервисного аккаунта](../../iam/concepts/users/service-accounts.md), чтобы иметь возможность [подключаться](../tutorials/sa-oslogin-ansible.md) к ВМ по OS Login от имени этого сервисного аккаунта. 
 
 Преимущества OS Login:
 
@@ -34,4 +34,4 @@ OS Login связывает учетную запись пользователя
 * [{#T}](../operations/os-login-profile-create.md)
 * [{#T}](../../compute/operations/vm-connect/os-login.md)
 * [Подключиться к узлу {{ k8s }} через OS Login](../../managed-kubernetes/operations/node-connect-oslogin.md)
-* [Использовать сервисный аккаунт с профилем OS Login для управления ВМ с помощью Ansible](../../tutorials/security/sa-oslogin-ansible.md)
+* [Использовать сервисный аккаунт с профилем OS Login для управления ВМ с помощью Ansible](../tutorials/sa-oslogin-ansible.md)

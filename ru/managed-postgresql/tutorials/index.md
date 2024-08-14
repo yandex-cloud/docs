@@ -6,6 +6,7 @@ description: "Различные сценарии использования {{ 
 # Практические руководства {{ mpg-name }}
 
 * [Создание кластера {{ PG }} для <q>1С:Предприятия</q>](./1c-postgresql.md)
+* [{#T}](./1c-postgresql-linux.md)
 * [{#T}](./sqoop.md)
 * [{#T}](./performance-problems.md)
 * [{#T}](./profiling.md)
@@ -16,6 +17,9 @@ description: "Различные сценарии использования {{ 
 * [{#T}](./mkf-to-mpg.md)
 * [{#T}](./object-storage-to-postgresql.md)
 * [{#T}](./container-connect.md)
+* [{#T}](./joomla-postgresql/index.md)
+* [{#T}](./datalens.md)
+* [{#T}](logging.md)
 
 ## Репликация и миграция {#replication-and-migration}
 

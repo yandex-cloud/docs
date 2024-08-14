@@ -19,6 +19,7 @@ description: "В разделе описаны сценарии использо
   * [Анализ открытых данных ДТП на дорогах России](data-from-csv-geo-visualization.md)
   * [Анализ продаж и локаций пиццерий на данных из БД {{ CH }} и Marketplace](data-from-ch-to-geolayers-visualization.md)
   * [{#T}](data-from-ch-geocoder.md)
+  * [{#T}](datalens.md)
 
 * Аналитика сервисов
 

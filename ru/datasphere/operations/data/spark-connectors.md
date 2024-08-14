@@ -81,3 +81,5 @@
 1. Нажмите **{{ ui-key.yc-ui-datasphere.common.submit }}**.
 
 Отобразится сообщение о том, что коннектор удален.
+
+{% include [deletion-time](../../../_includes/datasphere/deletion-time.md) %}

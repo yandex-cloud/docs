@@ -1170,8 +1170,6 @@ items:
         href: vpc/how-to/using-failsafe-vpn.md
       - name: Как вернуть IP-адрес
         href: vpc/how-to/restore-ip-address.md
-      - name: Как связать два облака между собой
-        href: vpc/how-to/choosing-routing-or-network.md
       - name: В чем различие между NAT-шлюзом и NAT-инстансом
         href: vpc/how-to/difference-nat-gateway-and-nat-instance.md
       - name: Как перенести IP в другую зону доступности

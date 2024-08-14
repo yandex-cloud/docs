@@ -14,10 +14,14 @@
 Далее включите параметр`Log min duration statement`. Значение `1 ms` желательно не устанавливать, так как в этом случае кластер будет занят только записью логов.
 
 Этот параметр можно включить через UI, на странице настройки кластера: **Настройки СУБД** или с помощью YC CLI командой: 
-```yc managed-postgresql cluster update-config <имя кластера> --set log_min_duration_statement=100
+
+```
+yc managed-postgresql cluster update-config <имя кластера> --set log_min_duration_statement=100
 ```
 
 Затем можно посмотреть записи в логах, например, через YC CLI: 
-```yc managed-postgresql cluster list-logs --service-type postgresql --since '2h' --until '1s' --id=YOUR-CLUSTER-ID
+
+```
+yc managed-postgresql cluster list-logs --service-type postgresql --since '2h' --until '1s' --id=YOUR-CLUSTER-ID
 ```
 

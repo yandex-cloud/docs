@@ -302,7 +302,7 @@ items:
             href: web/gatsby-static-website.md
       - name: 1С
         items:
-          - name: Интернет-магазин на 1С-Битрикс
+          - name: Интернет-магазин на «1С-Битрикс»
             items:
               - name: Обзор
                 href: internet-store/bitrix-shop/index.md

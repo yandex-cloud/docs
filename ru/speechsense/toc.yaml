@@ -35,14 +35,6 @@ items:
             href: operations/space/delete.md
           - name: Удалить пользователя из пространства
             href: operations/space/delete-user-from-space.md
-          - name: Работа с тегами пространства
-            items:
-              - name: Создать тег пространства
-                href: operations/space/tag/create.md
-              - name: Изменить тег пространства
-                href: operations/space/tag/change.md
-              - name: Удалить тег пространства
-                href: operations/space/tag/delete.md
       - name: Подключения
         items:
           - name: Создать подключение
@@ -57,14 +49,24 @@ items:
             href: operations/project/delete.md
           - name: Удалить пользователя из проекта
             href: operations/project/delete-user-from-project.md
-          - name: Работа с тегами проекта
-            items:
-              - name: Создать тег проекта
-                href: operations/project/tag/create.md
-              - name: Изменить тег проекта
-                href: operations/project/tag/change.md
-              - name: Удалить тег проекта
-                href: operations/project/tag/delete.md
+      - name: Теги
+        items:
+          - name: Создать тег
+            href: operations/project/tag/create.md
+          - name: Изменить тег
+            href: operations/project/tag/change.md
+          - name: Удалить тег
+            href: operations/project/tag/delete.md
+      - name: Словари
+        items:
+          - name: Создать словарь
+            href: operations/dictionary/create.md
+          - name: Изменить словарь
+            href: operations/dictionary/change.md
+          - name: Добавить словарь в тег
+            href: operations/dictionary/add.md
+          - name: Удалить словарь
+            href: operations/dictionary/delete.md
   - name: Концепции
     items:
       - name: Иерархия ресурсов
@@ -73,6 +75,8 @@ items:
         href: concepts/dialogs.md
       - name: Теги в диалогах
         href: concepts/tags.md
+      - name: Словари для тегов
+        href: concepts/dictionaries.md
       - name: Отчеты
         items:
           - name: Обзор

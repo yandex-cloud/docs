@@ -227,3 +227,5 @@
 
 1. На странице проекта в блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** нажмите ![dataset](../../../_assets/console-icons/layers.svg) **{{ ui-key.yc-ui-datasphere.resources.dataset }}**.
 1. В строке с нужным датасетом нажмите значок ![options](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yc-ui-datasphere.common.delete }}**.
+
+{% include [deletion-time](../../../_includes/datasphere/deletion-time.md) %}

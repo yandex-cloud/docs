@@ -183,4 +183,4 @@ description: "Следуя данной инструкции, вы сможет�
 * [{#T}](../operations/add-ssh.md)
 * [{#T}](../../compute/operations/vm-connect/os-login.md)
 * [Подключиться к узлу {{ k8s }} через OS Login](../../managed-kubernetes/operations/node-connect-oslogin.md)
-* [Использовать сервисный аккаунт с профилем OS Login для управления ВМ с помощью Ansible](../../tutorials/security/sa-oslogin-ansible.md)
+* [Использовать сервисный аккаунт с профилем OS Login для управления ВМ с помощью Ansible](../tutorials/sa-oslogin-ansible.md)

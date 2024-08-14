@@ -119,8 +119,8 @@ items:
       - name: Анализ логов с использованием DataLens
         href: tutorials/storage-logs-analysis.md
       - name: >-
-          Использование скриптов инициализации для настройки GeeseFS в {{
-          dataproc-full-name }}
+          "Использование скриптов инициализации для настройки GeeseFS в {{
+          dataproc-full-name }}"
         href: tutorials/data-proc-init-actions-geesefs.md
       - name: Подключение бакета как диска в Windows
         href: tutorials/s3-disk-connect.md
@@ -168,6 +168,34 @@ items:
         href: tutorials/gatsby-static-website.md
       - name: Хранение статического ключа доступа в секрете {{ lockbox-name }}
         href: tutorials/static-key-in-lockbox.md
+      - name: Статический веб-сайт в {{ objstorage-full-name }}
+        items:
+          - name: Обзор
+            href: tutorials/static/index.md
+          - name: Консоль управления
+            href: tutorials/static/console.md
+          - name: Terraform
+            href: tutorials/static/terraform.md
+      - name: Публикация обновлений для игр
+        href: tutorials/prefetch.md
+      - name: Резервное копирование ВМ с помощью Hystax Acura Backup
+        href: tutorials/hystax-backup.md
+      - name: >-
+          Резервное копирование в {{ objstorage-name }} с помощью CloudBerry
+          Desktop Backup
+        href: tutorials/object-storage-cloudberry.md
+      - name: Резервное копирование в {{ objstorage-name }} через Duplicati
+        href: tutorials/object-storage-duplicati.md
+      - name: Резервное копирование в {{ objstorage-name }} с помощью Bacula
+        href: tutorials/backup-with-bacula.md
+      - name: >-
+          Резервное копирование в {{ objstorage-name }} с помощью Veritas Backup
+          Exec
+        href: tutorials/object-storage-veritas.md
+      - name: >-
+          Резервное копирование кластера {{ managed-k8s-name }} в {{
+          objstorage-name }}
+        href: tutorials/kubernetes-backup.md
   - name: Концепции
     items:
       - name: Обзор

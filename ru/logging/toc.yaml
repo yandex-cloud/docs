@@ -68,6 +68,8 @@ items:
           Визуализация логов в {{ grafana-name }} с помощью плагина {{
           cloud-logging-full-name }}
         href: tutorials/grafana-logs-plugin.md
+      - name: Запись логов балансировщика в {{ PG }}
+        href: tutorials/logging.md
   - name: Концепции
     items:
       - name: Лог-группа

@@ -11,6 +11,8 @@ description: "Из статьи вы узнаете, как удалить Docke
 
 {% endnote %}
 
+Чтобы удалить Docker-образ из реестра, необходима [роль](../../security/index.md#container-registry-images-pusher) `container-registry.images.pusher` или выше.
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}

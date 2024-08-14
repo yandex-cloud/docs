@@ -410,8 +410,10 @@ items:
         href: tutorials/java-servlet-todo-list.md
       - name: Разработка навыка Алисы и сайта с авторизацией
         href: tutorials/alice-shareable-todolist.md
-      - name: Запись данных с устройства в Managed Service for PostgreSQL
+      - name: Запись данных с устройства в {{ mpg-short-name }}
         href: tutorials/data-recording.md
+      - name: Запись логов балансировщика в {{ PG }}
+        href: tutorials/logging.md
       - name: Разработка Slack-бота
         href: tutorials/slack-bot-serverless.md
       - name: Разработка Telegram-бота
@@ -452,6 +454,12 @@ items:
           Создание триггеров, которые вызывают функции для остановки ВМ и
           отправки уведомлений в Telegram
         href: tutorials/serverless-trigger-budget-queue-vm-tg.md
+      - name: Мониторинг состояния географически распределенных устройств
+        href: tutorials/datalens.md
+      - name: Мониторинг показаний датчиков и уведомления о событиях
+        href: tutorials/monitoring.md
+      - name: Эмуляция множества IoT-устройств
+        href: tutorials/iot-emulation.md
   - name: Правила тарификации
     href: pricing.md
   - name: Управление доступом

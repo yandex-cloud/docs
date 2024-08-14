@@ -70,6 +70,8 @@ items:
             href: operations/revoke-role.md
   - name: Практические руководства
     items:
+      - name: Все руководства
+        href: tutorials/index.md
       - name: Управление федерациями удостоверений
         items:
           - name: Обзор
@@ -90,6 +92,10 @@ items:
                 href: tutorials/federations/group-mapping/entra-id.md
               - name: Сопоставление групп пользователей в Keycloak
                 href: tutorials/federations/group-mapping/keycloak.md
+      - name: >-
+          Сервисный аккаунт с профилем OS Login для управления ВМ с помощью
+          Ansible
+        href: tutorials/sa-oslogin-ansible.md
   - name: Концепции
     items:
       - name: Облака и сервисы
