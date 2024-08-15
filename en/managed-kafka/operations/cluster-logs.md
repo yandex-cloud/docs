@@ -49,7 +49,7 @@ Here, the log is the system log of the cluster and its hosts. This log is not re
 
       * {% include [logs output limit](../../_includes/cli/logs/limit.md) %}
       * `--columns`: List of columns with output data:
-         * `hostname`: [Host name](cluster-hosts.md#list-hosts).
+         * `hostname`: [Host name](cluster-hosts.md).
          * `message`: Message output by the component.
          * `severity`: Logging level, such as `I` or `W` (`Info` or `Warning`, respectively).
          * `origin`: Message source, such as `kafka_server` or `kafka_controller`.

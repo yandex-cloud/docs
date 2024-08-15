@@ -7,6 +7,8 @@ sourcePath: ru/_api-ref-grpc/translate/api-ref/grpc/translation_service.md
 
 Набор методов для сервиса Yandex Translate.
 
+При работе с API Translate отправляйте данные для [аутентификации](/docs/translate/api-ref/authentication) в заголовке `Authorization` каждого запроса.
+
 | Вызов | Описание |
 | --- | --- |
 | [Translate](#Translate) | Переводит текст на указанный язык. |

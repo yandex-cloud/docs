@@ -4,6 +4,8 @@
 
 Другие пользователи смогут [управлять группой](../operations/manage-groups.md#access-manage-group), если вы назначите им соответствующие [роли](../security/index.md#service-roles). Например, `organization-manager.groups.memberAdmin` для просмотра информации и добавления участников.
 
+Кроме групп, создаваемых администратором, в {{ yandex-cloud }} существуют [системные группы](../../iam/concepts/access-control/system-group.md) `All users in organization X` и `All users in federation N`, а также [публичные группы](../../iam/concepts/access-control/public-group.md) `All authenticated users` и `All users`.
+
 Группы поддерживают только одноуровневую структуру. Нельзя создать группу внутри группы, а членство в группе дает равные права всем участникам.
 
 Если вы используете группы пользователей в вашем поставщике удостоверений при работе с [федерациями](add-federation.md), вы можете [сопоставить группы](add-federation.md#group-mapping) в поставщике удостоверений и в {{ org-name }}.

@@ -143,4 +143,4 @@ DNS-запросы — это запросы от одного сервера к
 
 1. Добавьте [ресурсные записи](../dns/operations/resource-record-create.md) и [управляйте доступом](../dns/security/index.md).
 
-1. Чтобы предоставить сотруднику вашей компании доступ к {{ dns-name }}, настройте соответствующие роли для их аккаунтов на Яндексе, сервисных аккаунтов или системной группе. Как назначить роли см. [Назначение роли](../iam/operations/roles/grant.md).
+1. Чтобы предоставить сотруднику вашей компании доступ к {{ dns-name }}, настройте соответствующие роли для их [аккаунтов на Яндексе](../iam/concepts/users/accounts.md#passport) или [сервисных аккаунтов](../iam/concepts/users/service-accounts.md), либо для одной из [системных](../iam/concepts/access-control/system-group.md) или [публичных](../iam/concepts/access-control/public-group.md) групп. Как назначить роли см. [Назначение роли](../iam/operations/roles/grant.md).

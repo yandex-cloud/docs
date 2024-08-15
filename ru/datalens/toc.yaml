@@ -1045,6 +1045,9 @@ items:
       - name: Ошибка на стороне БД
         hidden: true
         href: troubleshooting/errors/ERR-US-BAD_REQUEST-ALREADY_EXISTS.md
+      - name: Ошибка в синтаксисе формулы
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-FORMULA-PARSE-UNEXPECTED_TOKEN.md
       - name: Ошибка преобразования типа данных
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-TYPE_CAST-FAILED.md

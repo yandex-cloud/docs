@@ -22,10 +22,10 @@ Syntax:
 |`--maintenance-window`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Maintenance window settings<br/><br/>Possible property names:<br/><ul> <li><code>type</code>:     Type of maintenance window, it can be anytime or weekly. A day and hour of window need to be specified with weekly window.</li> <li><code>hour</code>:     Hour of day in UTC time zone (1-24) for maintenance window if window type is weekly.</li> <li><code>day</code>:     Day of week for maintenance window if window type is weekly. One of MON, TUE, WED, THU, FRI, SAT, SUN. Values: 'mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'</li> </ul>|
 |`--description`|<b>`string`</b><br/>New description for the cluster.|
 |`--labels`|<b>`key=value[,key=value...]`</b><br/>A new set of cluster labels as key-value pairs. Existing set of labels will be completely overwritten.|
-|`--feature-compatibility-version`|<b>`string`</b><br/>When set, minimal DB version possible (can not be downgraded). Supported value: 3.6, 4.0, 4.2, 4.4, 5.0, 6.0|
+|`--feature-compatibility-version`|<b>`string`</b><br/>When set, minimal DB version possible (can not be downgraded). Supported value: 5.0, 6.0, 7.0|
 |`--security-group-ids`|<b>`value[,value]`</b><br/>A list of security groups for the MongoDB cluster.|
 |`--deletion-protection`|Deletion Protection inhibits deletion of the cluster.|
-|`--mongodb-version`|<b>`string`</b><br/>Version of MongoDB used by the cluster. Supported value: 3.6, 4.0, 4.2, 4.4, 5.0, 6.0|
+|`--mongodb-version`|<b>`string`</b><br/>Version of MongoDB used by the cluster. Supported value: 5.0, 6.0, 7.0|
 |`--backup-window-start`|<b>`timeofday`</b><br/>Start time for the daily backup in UTC timezone. Format: HH:MM:SS|
 |`--backup-retain-period-days`|<b>`int`</b><br/>Retain period of automatically created backup in days.|
 |`--performance-diagnostics`|Enable or disable performance diagnostics|

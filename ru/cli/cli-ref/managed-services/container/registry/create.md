@@ -19,6 +19,7 @@ Syntax:
 |----|----|
 |`--name`|<b>`string`</b><br/>Name of the registry.|
 |`--labels`|<b>`key=value[,key=value...]`</b><br/>List of label KEY=VALUE pairs to add.|
+|`--secure`|Setup secure registry|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

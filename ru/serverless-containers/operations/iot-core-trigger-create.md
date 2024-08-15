@@ -75,13 +75,13 @@ description: "Создайте триггер для топика устройс
       --name <имя_триггера> \
       --registry-id <идентификатор_реестра> \
       --device-id <идентификатор_устройства> \
-      --mqtt-topic '$devices/<идентификатор_устройства>/events' \
+      --mqtt-topic '<MQTT-топик_брокера>' \
       --batch-size <размер_группы_сообщений> \
       --batch-cutoff <максимальное_время_ожидания> \
       --invoke-container-id <идентификатор_контейнера> \
       --invoke-container-service-account-id <идентификатор_сервисного_аккаунта> \
-      --retry-attempts 1 \
-      --retry-interval 10s \
+      --retry-attempts <количество_повторных_вызовов> \
+      --retry-interval <интервал_между_повторными_вызовами> \
       --dlq-queue-id <идентификатор_очереди_Dead_Letter_Queue> \
       --dlq-service-account-id <идентификатор_сервисного_аккаунта>
     ```
@@ -143,12 +143,12 @@ description: "Создайте триггер для топика устройс
         iot {
           registry_id  = "<идентификатор_реестра>"
           device_id    = "<идентификатор_устройства>"
-          topic        = "<идентификатор_топика>"
-          batch_cutoff = "<время_ожидания>"
+          topic        = "<MQTT-топик_брокера>"
+          batch_cutoff = "<максимальное_время_ожидания>"
           batch_size   = "<размер_группы_сообщений>"
         }
         dlq {
-         queue_id           = "<идентификатор_очереди_DLQ>"
+         queue_id           = "<идентификатор_очереди_Dead_Letter_Queue>"
          service_account_id = "<идентификатор_сервисного_аккаунта>"
        }
       }
@@ -182,7 +182,7 @@ description: "Создайте триггер для топика устройс
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
+      {% include [terraform-check-result](../../_tutorials/_tutorials_includes/terraform-check-result.md) %}
 
       ```bash
       yc serverless trigger list

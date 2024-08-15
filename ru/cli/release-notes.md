@@ -7,7 +7,13 @@ description: "На странице представлены релизы YC CLI
 
 ## Текущая версия {#latest-release}
 
-## Версия 0.131.0 (14.08.24) {#version0.131.0}
+## Версия 0.131.1 (15.08.24) {#version0.131.1}
+### Изменения в CLI {#cli}
+* Исправлена проблема в обработке некоторых ошибок, из-за которой в тексте ошибки символ `_` заменялся на `-`.
+
+## Предыдущие релизы {#previous-releases}
+
+### Версия 0.131.0 (14.08.24) {#version0.131.0}
 ### Изменения в сервисах {{ yandex-cloud }} {#services}
 
 #### {{ backup-name }} {#backup}
@@ -18,6 +24,7 @@ description: "На странице представлены релизы YC CLI
 
 * В команды `add-access-binding` и `remove-access-binding` добавлена поддержка опции `--agent`.
 * Добавлено дерево команд `yc iam workload-identity` для управления федерацией удостоверений рабочей нагрузки.
+* Команды `yc iam service-account list` и `yc iam service-account get` теперь показывают время последней аутентификации сервисного аккаунта.
 
 #### {{ container-registry-name }} {#container-registry}
 
@@ -28,8 +35,6 @@ description: "На странице представлены релизы YC CLI
 **{{ mgp-name }}**
 
 * Добавлена команда `yc managed-greenplum cluster move` для перемещения кластера в другой каталог.
-
-## Предыдущие релизы {#previous-releases}
 
 ### Версия 0.130.0 (01.08.24) {#version0.130.0}
 

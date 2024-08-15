@@ -26,7 +26,7 @@ To use the service, log in to the management console with a [Yandex account](../
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-To allow access to {{ mes-name }} service resources (clusters and hosts, cluster backups, and accounts), assign the user the appropriate roles for a folder or cloud hosting the resources.
+To allow access to {{ mes-name }} resources (clusters and hosts, cluster backups, and accounts), assign the user the appropriate roles for a folder, cloud, or organization containing these resources.
 
 ## Which roles exist in the service {#roles-list}
 
@@ -71,7 +71,7 @@ The chart below shows which roles are available in the service and how they inhe
 
 ## Roles required {#required-roles}
 
-To use the service, you need the `{{ roles.mes.editor }}` [role](../../iam/concepts/access-control/roles.md) or higher for the folder where the cluster is created. With the`{{ roles.mes.viewer }}` role, you can only view the list of clusters.
+To use the service, you need the `{{ roles.mes.editor }}` [role](../../iam/concepts/access-control/roles.md) or higher for the folder where the cluster is created. The `{{ roles.mes.viewer }}` role enables you only to view the list of clusters.
 
 You can always assign a role with more permissions. For instance, you can assign `{{ roles.mes.admin }}` instead of `{{ roles.mes.editor }}`.
 

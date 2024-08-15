@@ -22,7 +22,7 @@ Roles for a resource can be assigned by users who have the `mdb.admin`, `managed
 
 {% include [basic-resources](../_includes/iam/basic-resources-for-access-control.md) %}
 
-To allow access to {{ mch-name }} service resources (DB clusters and hosts, cluster backups, databases, and their users), assign the user the appropriate roles for the folder or cloud hosting the resources.
+{% include [assign-roles-mdb](../_includes/iam/assign-roles-mdb.md) %}
 
 ## Which roles exist in the service {#roles-list}
 
@@ -70,7 +70,7 @@ The chart below shows which roles are available in the service and how they inhe
 
 ## Roles required {#required-roles}
 
-To use the service, you need the `{{ roles.mch.editor }}` [role](../iam/concepts/access-control/roles.md) or higher for the folder where the cluster is created. With the `{{ roles.mch.viewer }}` role, you can only view the list of clusters.
+To use the service, you need the `{{ roles.mch.editor }}` [role](../iam/concepts/access-control/roles.md) or higher for the folder where the cluster is created. The `{{ roles.mch.viewer }}` role enables you only to view the list of clusters.
 
 You can always assign a role with more permissions. For instance, you can assign `{{ roles.mch.admin }}` instead of `{{ roles.mch.editor }}`.
 

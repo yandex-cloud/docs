@@ -7,6 +7,7 @@ description: "На странице представлен список прак
 
 * [Получение статистики запросов к объекту с использованием S3 Select](./server-logs.md)
 * [Получение статистики посещения сайта с использованием S3 Select](./user-agent-statistics.md)
+* [Получение статистики запросов к объектам с использованием {{ yq-full-name }}](./server-logs-yq.md)
 * [Интеграция L7-балансировщика с {{ cdn-name }} и {{ objstorage-name }}](./cdn-storage-integration.md)
 * [Сине-зеленое и канареечное развертывание версий сервиса](./blue-green-canary-deployment.md)
 * [Анализ логов с использованием {{ datalens-name }}](./storage-logs-analysis.md)

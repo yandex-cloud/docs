@@ -22,7 +22,7 @@ Roles for a resource can be assigned by users who have the `gitlab.admin` role o
 
 ## Which resources you can assign a role for {#resources}
 
-You can assign a role for a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) or [folder](../../resource-manager/concepts/resources-hierarchy.md#folder). Cloud roles also apply to nested folders.
+You can assign a role for an organization, [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), or [folder](../../resource-manager/concepts/resources-hierarchy.md#folder). Their nested resources will automatically inherit the roles.
 
 ## Which roles exist in the service {#roles-list}
 

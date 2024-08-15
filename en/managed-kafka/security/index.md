@@ -22,7 +22,7 @@ Roles for a resource can be assigned by users who have the `mdb.admin`, `managed
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-To allow access to {{ mkf-name }} service resources (clusters and hosts, cluster backups, partitions and topics, and users), assign the user the appropriate roles for the folder or cloud hosting the resources.
+To allow access to {{ mkf-name }} resources (clusters, hosts, cluster backups, partitions, topics, and users), assign the user the appropriate roles for the folder, cloud, or organization containing these resources.
 
 ## Which roles exist in the service {#roles-list}
 

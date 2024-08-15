@@ -49,7 +49,7 @@ If the file is multi-channel, take into account the total recording time of all 
 
 #### Internal Server Error {#internal-server-err}
 
-Make sure the [format](../../{{ speechkit-slug }}/stt/api/request-api.md#body_params) you specified in the request matches the actual file format. If the error persists, send us sample audio files that can't be recognized.
+Make sure the [format](../../{{ speechkit-slug }}/stt/api/request-api.md#body_params) you specified in the request matches the actual file format. If the error persists, send us examples of your audio files that cannot be recognized.
 
 #### When is a response sent during recognition? {#when-response}
 

@@ -32,6 +32,7 @@ Aliases:
 - [yc managed-greenplum cluster expand](expand.md) — Expands the specified Greenplum cluster
 - [yc managed-greenplum cluster list-logs](list-logs.md) — Retrieves logs for the specified Greenplum cluster
 - [yc managed-greenplum cluster list-operations](list-operations.md) — List operations for the specified Greenplum cluster
+- [yc managed-greenplum cluster move](move.md) — Move the specified Greenplum cluster into the folder
 - [yc managed-greenplum cluster start](start.md) — Start the specified Greenplum cluster
 - [yc managed-greenplum cluster stop](stop.md) — Stop the specified Greenplum cluster
 

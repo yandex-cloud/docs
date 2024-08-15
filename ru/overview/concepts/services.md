@@ -68,7 +68,7 @@ _Сервис_ в составе {{ yandex-cloud }} позволяет упра�
 | [{{ tracker-full-name }}](../../tracker/index.yaml) | Сервис для совместной работы и организации процессов в компании. | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
 | [{{ translate-full-name }}](../../translate/index.yaml) | Сервис машинного перевода. | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
 | [{{ vpc-full-name }}](../../vpc/index.yaml) | Сервис для управления облачными сетями. | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
-| [{{ vision-full-name }}](../../vision/index.yaml) | Сервис компьютерного зрения для анализа изображений. | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
+| [{{ vision-full-name }}](../../vision/index.yaml) | Сервис компьютерного зрения для распознавания текста на изображениях и в файлах PDF. | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
 | [{{ websql-full-name }}](../../websql/index.yaml) | Сервис для подключения к кластерам управляемых баз данных. | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
 | [{{ wiki-full-name }}](../../wiki/index.yaml) | Сервис для создания корпоративной базы знаний. | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
 

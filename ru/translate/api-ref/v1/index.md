@@ -9,6 +9,8 @@ description: "Набор методов для сервиса Yandex Translate."
 
 Набор методов для сервиса Yandex Translate.
 
+При работе с API Translate отправляйте данные для [аутентификации](/docs/translate/api-ref/authentication) в заголовке `Authorization` каждого запроса.
+
 ## Методы {#methods}
 
 Метод | Описание

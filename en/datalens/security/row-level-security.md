@@ -120,6 +120,6 @@ You can transfer the RLS logic to the source side for sources where the data str
 
 ## How to change permissions to a row in a dataset {#how-to-manage-rls}
 
-To configure permissions for a data row value:
+To configure permissions to a data row value:
 
 {% include [datalens-manage-rls](../../_includes/datalens/operations/datalens-manage-rls.md) %}

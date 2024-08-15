@@ -56,8 +56,7 @@
       +--------------------------------+-------------+
       ```
 
-
-  1. Узнайте идентификатор пользователя по логину или адресу электронной почты. Чтобы назначить роль не пользователю, а сервисному аккаунту или системной группе используйте [примеры](#examples) ниже.
+  1. Узнайте идентификатор пользователя по логину или адресу электронной почты.
 
       ```bash
       yc iam user-account get test-user
@@ -80,6 +79,7 @@
         --subject userAccount:gfei8n54hmfh********
       ```
 
+  Чтобы назначить роль не пользователю, а [сервисному аккаунту](../../../iam/concepts/users/service-accounts.md), [группе пользователей](../../../organization/concepts/groups.md) или [системной группе](../../../iam/concepts/access-control/system-group.md), воспользуйтесь [примерами](../../../iam/operations/roles/grant.md#cloud-or-folder).
 
 - {{ TF }} {#tf}
 
@@ -108,6 +108,8 @@
        * `userAccount:<идентификатор_пользователя>` — [ID пользователя](../../../iam/operations/users/get.md).
        * `serviceAccount:<идентификатор_сервисного_аккаунта>` — [ID сервисного аккаунта](../../../iam/operations/sa/get-id.md).
        * `federatedUser:<идентификатор_пользовательского_аккаунта>` — [ID пользовательского аккаунта](../../../organization/operations/users-get.md).
+       * `system:group:organization:<идентификатор_организации>:users` — идентификатор [организации](../../../organization/quickstart.md), чтобы назначить роль [системной группе](../../../iam/concepts/access-control/system-group.md#allOrganizationUsers) `All users in organization X`.
+       * `system:group:federation:<идентификатор_федерации>:users` — идентификатор [федерации удостоверений](../../../organization/concepts/add-federation.md), чтобы назначить роль [системной группе](../../../iam/concepts/access-control/system-group.md#allFederationUsers) `All users in federation N`.
 
      {% cut "Пример назначения роли на каталог с помощью {{ TF }}" %}
 
@@ -251,12 +253,14 @@
       yc resource-manager folder list-access-bindings my-folder
       ```
   1. Например, назначьте роль нескольким пользователям:
+
       ```bash
       yc resource-manager folder set-access-bindings my-folder \
         --access-binding role=editor,subject=userAccount:gfei8n54hmfh********
         --access-binding role=viewer,subject=userAccount:helj89sfj80a********
       ```
 
+  Чтобы назначить роль не пользователю, а [сервисному аккаунту](../../../iam/concepts/users/service-accounts.md), [группе пользователей](../../../organization/concepts/groups.md) или [системной группе](../../../iam/concepts/access-control/system-group.md), воспользуйтесь [примерами](../../../iam/operations/roles/grant.md#multiple-roles).
 
 - {{ TF }} {#tf}
 

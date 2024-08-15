@@ -117,6 +117,10 @@ items:
         href: testing/loadtesting-external-agent.md
       - name: Нагрузочный тест с помощью JMeter
         href: testing/loadtesting-jmeter.md
+      - name: >-
+          Получение статистики запросов к объектам {{ objstorage-name }} с
+          использованием {{ yq-name }}
+        href: testing/server-logs-yq.md
   - name: Базовая инфраструктура
     items:
       - name: Все руководства

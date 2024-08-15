@@ -11,11 +11,11 @@
 
 {% include [making-available-chart](../../_qa/datalens/making-available-chart.md) %}
 
-### How do I make a dashboard containing Yandex Metrica or AppMetrica data public? {#how-metrica-appmetrica-share}
+### How do I make a dashboard containing Metrica or AppMetrica data public? {#how-metrica-appmetrica-share}
 
 You cannot publish a dashboard like this.
 
-To share a dashboard containing Yandex Metrica or AppMetrica data, use one of the following methods:
+To share a dashboard containing Metrica or AppMetrica data, use one of the following methods:
 
 {% include [datalens-metrica-appmetrica-share](../../_includes/datalens/datalens-metrica-appmetrica-share.md) %}
 

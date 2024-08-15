@@ -62,7 +62,7 @@ Write formulas according to the following requirements:
 {% note info %}
 
 * Field name syntax is case-sensitive. For example, if a formula uses `[NAME]`, and a dataset contains only `[Name]`, the formula field will be highlighted in red.
-* Function syntax is not case-sensitive. For instance, `count` and `COUNT` will perform the same operation.
+* Function syntax is not case-sensitive. For example, `count` and `COUNT` will perform the same operation.
 
 {% endnote %}
 
@@ -84,7 +84,7 @@ You can create calculated fields in the dataset or wizard interface.
    {% include [datalens-workbooks-collections-select-note](../../../_includes/datalens/operations/datalens-workbooks-collections-select-note.md) %}
 
 
-   1. In the left-hand panel, click ![image](../../../_assets/console-icons/chart-column.svg) **Charts** and select the chart created in the [wizard]({{ link-datalens-main }}/wizard).
+   1. In the left-hand panel, click ![image](../../../_assets/console-icons/chart-column.svg) **Charts** and select the chart created in the [wizard]({{ link-datalens-wizard }}).
    1. On the left side of the screen above the list of dataset fields, click ![image](../../../_assets/console-icons/plus.svg) and select **Field**.
    1. Enter a name for the field.
    1. Enter the required formula.

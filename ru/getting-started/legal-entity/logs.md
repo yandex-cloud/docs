@@ -88,7 +88,7 @@
         ```
         done (1s)
         ```
-    * всем авторизованным пользователям (системная группа `allAuthenticatedUsers`):
+    * всем авторизованным пользователям ([публичная группа](../../iam/concepts/access-control/public-group.md) `All authenticated users`):
         ```
         yc logging group add-access-binding \
             --name <имя_лог-группы> \

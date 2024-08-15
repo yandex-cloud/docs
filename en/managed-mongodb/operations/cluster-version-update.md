@@ -1,12 +1,11 @@
-# Upgrading {{ MG }} version
+# Upgrading the {{ MG }} version
 
-You can only upgrade your {{ mmg-name }} cluster to a version that immediately follows the current one, such as 4.0 to 4.2. Upgrades to higher versions are performed in steps. For example, to upgrade {{ MG }} from 4.2 to 6.0, follow the steps: 4.2 → 4.4 → 5.0 → 6.0.
+You can only upgrade your {{ mmg-name }} cluster to a version that immediately follows the current one, such as 4.2 to 4.4. Upgrades to higher versions are performed in steps. For example, to upgrade {{ MG }} from 4.2 to 6.0, follow the steps: 4.2 → 4.4 → 5.0 → 6.0.
 
 
 {% note alert %}
 
-* After upgrading, you cannot roll a cluster back to the previous version.
-* Perform setup steps prior to the upgrade.
+After upgrading, you cannot roll a cluster back to the previous version.
 
 {% endnote %}
 
@@ -15,7 +14,7 @@ You can only upgrade your {{ mmg-name }} cluster to a version that immediately f
 Make sure this does not affect your applications:
 
 1. See the {{ MG }} [changelog](https://docs.mongodb.com/manual/release-notes/) to check how updates might affect your applications.
-1. Try updating the version on a test cluster. You can deploy it from a backup of the main cluster.
+1. Try upgrading the version on a test cluster. You can deploy it from a backup of the main cluster.
 1. [Create a backup](cluster-backups.md) of the main cluster directly before the version upgrade.
 
 ## Upgrading a cluster {#start-update}
@@ -110,7 +109,7 @@ Make sure this does not affect your applications:
 
 ## Examples {#examples}
 
-Let's assume you need to upgrade your cluster from version 4.0 to 4.2.
+Let's assume that you need to upgrade your cluster from version 5.0 to version 6.0.
 
 {% list tabs group=instructions %}
 
@@ -120,7 +119,11 @@ Let's assume you need to upgrade your cluster from version 4.0 to 4.2.
 
       ```bash
       {{ yc-mdb-mg }} cluster list
+      ```
 
+      Result:
+
+      ```text
       +----------------------+---------------+---------------------+--------+---------+
       |          ID          |     NAME      |     CREATED AT      | HEALTH | STATUS  |
       +----------------------+---------------+---------------------+--------+---------+
@@ -132,33 +135,38 @@ Let's assume you need to upgrade your cluster from version 4.0 to 4.2.
 
       ```bash
       {{ yc-mdb-mg }} cluster get c9qut3k64b2o********
-        id: c9qut3k64b2o********
-        folder_id: b1g0itj57rbj********
-        created_at: "2019-07-16T09:43:50.393231Z"
-        name: mongodb406
-        environment: PRODUCTION
-        monitoring:
-        - name: Console
+      ```
+
+      Result:
+
+      ```text
+      id: c9qut3k64b2o********
+      folder_id: b1g0itj57rbj********
+      created_at: "2019-07-16T09:43:50.393231Z"
+      name: mongodb406
+      environment: PRODUCTION
+      monitoring:
+      - name: Console
           description: Console charts
           link: {{ link-console-main }}/folders/b1g0itj57rbj********/managed-mongodb/cluster/c9qut3k64b2o********?section=monitoring
-        config:
-          version: "4.0"
-          feature_compatibility_version: "4.0"
+      config:
+          version: "5.0"
+          feature_compatibility_version: "5.0"
           ...
       ```
 
-   1. To upgrade the `c9qutgkd4b2o********` cluster to version 4.2, run this command:
+   1. To upgrade the `c9qutgkd4b2o********` cluster to version 6.0, run this command:
 
       ```bash
       {{ yc-mdb-mg }} cluster update c9qutgkd4b2o******** \
-          --mongodb-version=4.2
+          --mongodb-version=6.0
       ```
 
-   1. To enable all 4.2 features in the cluster `c9qutgkd4b2o********`, run this command:
+   1. To enable all 6.0 features in the `c9qutgkd4b2o********` cluster, run this command:
 
       ```bash
       {{ yc-mdb-mg }} cluster update c9qutgkd4b2o******** \
-          --feature-compatibility-version=4.2
+          --feature-compatibility-version=6.0
       ```
 
 {% endlist %}

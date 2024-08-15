@@ -64,16 +64,16 @@
     yc serverless trigger create logging \
       --name <имя_триггера> \
       --log-group-name <имя_лог-группы> \
-      --batch-size 1 \
-      --batch-cutoff 1s \
+      --batch-size <размер_группы_сообщений> \
+      --batch-cutoff <максимальное_время_ожидания> \
       --resource-ids <идентификатор_ресурса> \
       --resource-types <тип_ресурса> \
       --stream-names <поток_логирования> \
       --log-levels <уровень_логирования> \
       --invoke-function-id <идентификатор_функции> \
       --invoke-function-service-account-id <идентификатор_сервисного_аккаунта> \
-      --retry-attempts 1 \
-      --retry-interval 10s \
+      --retry-attempts <количество_повторных_вызовов> \
+      --retry-interval <интервал_между_повторными_вызовами> \
       --dlq-queue-id <идентификатор_очереди_Dead_Letter_Queue> \
       --dlq-service-account-id <идентификатор_сервисного_аккаунта>
     ```
@@ -147,13 +147,13 @@
           group_id       = "<идентификатор_лог-группы>"
           resource_types = [ "<тип_ресурса>" ]
           resource_ids   = [ "<идентификатор_ресурса>" ]
-          levels         = [ "INFO", "ERROR" ]
           stream_names   = [ "<поток_логирования>" ]
-          batch_cutoff   = "<время_ожидания>"
-          batch_size     = "<размер_группы_событий>"
+          levels         = [ "<уровень_логирования>", "<уровень_логирования>" ]
+          batch_cutoff   = "<максимальное_время_ожидания>"
+          batch_size     = "<размер_группы_сообщений>"
        }
        dlq {
-         queue_id           = "<идентификатор_очереди>"
+         queue_id           = "<идентификатор_очереди_Dead_Letter_Queue>"
          service_account_id = "<идентификатор_сервисного_аккаунта>"
        }
      }
@@ -165,11 +165,11 @@
 
      * `logging` — параметры триггера:
 
-        * `group_id` — идентификатор лог-группы.
+        * `group_id` — идентификатор лог-группы, при добавлении записей в которую будет вызываться функция.
         * `resource_types` — типы ресурсов, например функции {{ sf-name }} `resource_types = [ "serverless.function" ]`. Можно указать сразу несколько типов. 
-        * `resource_ids` — идентификаторы ваших ресурсов или ресурсов {{ yandex-cloud }}, например функций `resource_ids = [ "<идентификатор_функции>" ]`. Вы можете указать несколько идентификаторов. 
+        * `resource_ids` — идентификаторы ваших ресурсов или ресурсов {{ yandex-cloud }}, например функций `resource_ids = [ "<идентификатор_функции>" ]`. Вы можете указать несколько идентификаторов.
+        * `stream_names` — потоки логирования. Необязательный параметр.
         * `levels` — уровни логирования. Например, `levels = [ "INFO", "ERROR"]`.
-        * `stream_names` — потоки логирования.
 
           Триггер срабатывает, когда в указанную лог-группу добавляют записи, которые соответствуют всем следующим параметрам: `resource-ids`, `resource-types`, `stream-names` и `levels`. Если параметр не задан, триггер срабатывает при любом его значении.
 
@@ -184,10 +184,10 @@
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
+     {% include [terraform-check-result](../../../_tutorials/_tutorials_includes/terraform-check-result.md) %}
 
      ```bash
-     yc serverless trigger get <идентификатор_триггера>
+     yc serverless trigger list
      ```
 
 - API {#api}

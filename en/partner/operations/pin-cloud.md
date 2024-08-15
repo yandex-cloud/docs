@@ -1,6 +1,6 @@
 # Linking a cloud to a subaccount
 
-If the customer has previously used {{ yandex-cloud }} resources and has an existing [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), you can link this cloud to the partner subaccount.
+If the customer has previously used {{ yandex-cloud }} resources and has an existing [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), you can link this cloud to the partner subaccount. You should do this only after confirming the partnership; otherwise, the operation of your resources in the cloud may be suspended. Make sure the customer has [confirmed](../program/var-pin-client.md#confirm-partnership) willingness to cooperate and has the `Active` status on the partner portal.
 
 {% note alert %}
 
