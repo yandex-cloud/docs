@@ -6,6 +6,7 @@ description: "In this tutorial, you will learn how to connect to {{ MY }} in {{ 
 # Creating a {{ MY }} connection
 
 
+
 {% note warning %}
 
 {% include [connection-note](../../../_includes/datalens/datalens-connection-note.md) %}
@@ -14,7 +15,6 @@ description: "In this tutorial, you will learn how to connect to {{ MY }} in {{ 
 
 
 To create a {{ MY }} connection:
-
 
 1. Open the page for [creating a new connection]({{ link-datalens-main }}/connections/new).
 1. Under **Databases**, select the **MySQL** connection.
@@ -57,6 +57,7 @@ To create a {{ MY }} connection:
 
 
 1. Enter a name for the connection and click **Create**.
+
 
 
 ## Additional settings {#additional-settings}

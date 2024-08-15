@@ -772,16 +772,16 @@ yc compute instance update <ID_виртуальной_машины> \
 
 #### 1.16 На ресурсах в организации отсутствует <q>публичный доступ</q> {#public-access}
 
-В {{ yandex-cloud }} существует возможность предоставлять публичный доступ на ресурсы. Публичный доступ предоставляется путем назначения прав доступа для [системных групп](../../../iam/concepts/access-control/system-group.md) (`{{ subjects-allAuthenticatedUsers }}`, `{{ subjects-allUsers }}`). 
+В {{ yandex-cloud }} существует возможность предоставлять публичный доступ на ресурсы. Публичный доступ предоставляется путем назначения прав доступа для [публичных групп](../../../iam/concepts/access-control/public-group.md) (`All authenticated users`, `All users`). 
 
-Описание системных групп:
+Описание публичных групп:
 
-* `{{ subjects-allAuthenticatedUsers }}` — все пользователи, прошедшие аутентификацию. Это все зарегистрированные пользователи или сервисные аккаунты {{ yandex-cloud }}: как из ваших облаков, так и из облаков других пользователей.
-* `{{ subjects-allUsers }}` — любой пользователь, аутентификация не требуется.
+* `All authenticated users` — все пользователи, прошедшие аутентификацию. Это все зарегистрированные пользователи или сервисные аккаунты {{ yandex-cloud }}: как из ваших облаков, так и из облаков других пользователей.
+* `All users` — любой пользователь, аутентификация не требуется.
 
 {% note warning %}
 
-Сейчас `{{ subjects-allUsers }}` поддерживается только в сервисах: {{ objstorage-short-name }} при управлении доступом с помощью ACL, {{ container-registry-name }}, {{ sf-name }}. В остальных сервисах назначение роли для группы `{{ subjects-allUsers }}` эквивалентно назначению роли для `{{ subjects-allAuthenticatedUsers }}`.
+Сейчас `All users` поддерживается только в сервисах: {{ objstorage-short-name }} при управлении доступом с помощью ACL, {{ container-registry-name }}, {{ sf-name }}. В остальных сервисах назначение роли для группы `All users` эквивалентно назначению роли для `All authenticated users`.
 
 {% endnote %}
 
@@ -795,21 +795,21 @@ yc compute instance update <ID_виртуальной_машины> \
 
   1. Откройте консоль управления {{ yandex-cloud }} в вашем браузере.
   1. Далее перейдите в общее меню облака (нажать на облако в исходном меню облака). Выберите вкладку **Права доступа**.
-  1. Проверьте, есть ли среди пользователей `{{ subjects-allUsers }}` и `{{ subjects-allAuthenticatedUsers }}`.
+  1. Проверьте, есть ли среди пользователей `All users` и `All authenticated users`.
 
   Проверка ролей в каталоге:
 
   1. Откройте консоль управления {{ yandex-cloud }} в вашем браузере.
   1. Перейдите в нужный каталог нужного облака и перейдите во вкладку **Права доступа**.
-  1. Проверьте, есть ли среди пользователей `{{ subjects-allUsers }}` и `{{ subjects-allAuthenticatedUsers }}`.
+  1. Проверьте, есть ли среди пользователей `All users` и `All authenticated users`.
   1. Повторите действия для всех каталогов всех ваших облаков.
 
   Проверка ролей в {{ objstorage-short-name }}:
 
   1. Откройте консоль управления {{ yandex-cloud }} в вашем браузере.
   1. Перейдите в нужное облако и найдите сервис **{{ objstorage-short-name }}**.
-  1. Нажмите на три точки напротив бакета и проверьте ACL бакета на наличие `{{ subjects-allUsers }}` и `{{ subjects-allAuthenticatedUsers }}`.
-  1. Зайдите внутрь бакета и проверьте ACL на каждый объект бакета на наличие `{{ subjects-allUsers }}` и `{{ subjects-allAuthenticatedUsers }}`.
+  1. Нажмите на три точки напротив бакета и проверьте ACL бакета на наличие `allUsers`, `allAuthenticatedUsers`.
+  1. Зайдите внутрь бакета и проверьте ACL на каждый объект бакета на наличие `allUsers`, `allAuthenticatedUsers`.
   1. Зайдите в глобальные настройки бакета и в разделе **Доступ на чтение объектов** проверьте, что параметр **Публичный** выключен.
   1. Повторите действия для всех бакетов и объектов во всех ваших облаках.
 
@@ -818,7 +818,7 @@ yc compute instance update <ID_виртуальной_машины> \
   1. Откройте консоль управления {{ yandex-cloud }} в вашем браузере.
   1. Далее перейдите в каждое облако и найдите сервис **{{ container-registry-name }}**.
   1. Перейдите в необходимый реестр и слева нажмите **Права доступа**.
-  1. Проверьте, есть ли среди пользователей `{{ subjects-allUsers }}` и `{{ subjects-allAuthenticatedUsers }}`.
+  1. Проверьте, есть ли среди пользователей `All users` и `All authenticated users`.
   1. Повторите действия для всех ваших облаков.
 
   Проверка ролей в {{ sf-name }}:
@@ -826,7 +826,7 @@ yc compute instance update <ID_виртуальной_машины> \
   1. Откройте консоль управления {{ yandex-cloud }} в вашем браузере.
   1. Далее перейдите в каждое облако и найдите сервис **{{ sf-name }}**.
   1. Перейдите во все облачные функции и проверьте, что параметр **Публичный доступ** выключен.
-  1. Если в каждом указанном ресурсе нет субъектов `{{ subjects-allUsers }}` и `{{ subjects-allAuthenticatedUsers }}`, то рекомендация выполняется. Если есть, то перейдите к п. <q>Инструкции и решения по выполнению</q>.
+  1. Если в каждом указанном ресурсе нет субъектов `All users` и `All authenticated users`, то рекомендация выполняется. Если есть, то перейдите к п. <q>Инструкции и решения по выполнению</q>.
 
 - Проверка через CLI {#cli}
 
@@ -845,7 +845,7 @@ yc compute instance update <ID_виртуальной_машины> \
         --format=json | jq -r '.[] | select(.role_id=="admin" or .role_id=="organization-manager.organizations.owner" or .role_id=="organization-manager.admin" or .role_id=="resource-manager.clouds.owner")'
       ```
 
-  1. Выполните команду для поиска прав доступа `{{ subjects-allUsers }}`, `{{ subjects-allAuthenticatedUsers }}` на уровне облаков:
+  1. Выполните команду для поиска прав доступа `allUsers`, `allAuthenticatedUsers` на уровне облаков:
 
       ```bash
       export ORG_ID=<ID организации>
@@ -854,7 +854,7 @@ yc compute instance update <ID_виртуальной_машины> \
       done
       ```
 
-  1. Выполните команду для поиска прав доступа `{{ subjects-allUsers }}`, `{{ subjects-allAuthenticatedUsers }}` на уровне каталогов:
+  1. Выполните команду для поиска прав доступа `allUsers`, `allAuthenticatedUsers` на уровне каталогов:
 
       ```bash
       export ORG_ID=<ID организации>
@@ -865,7 +865,7 @@ yc compute instance update <ID_виртуальной_машины> \
       done
       ```
 
-  1. Выполните команду для поиска прав доступа `{{ subjects-allUsers }}`, `{{ subjects-allAuthenticatedUsers }}` на уровне {{ container-registry-name }} во всех каталогах:
+  1. Выполните команду для поиска прав доступа `allUsers`, `allAuthenticatedUsers` на уровне {{ container-registry-name }} во всех каталогах:
 
       ```bash
       export ORG_ID=<ID организации>
@@ -878,7 +878,7 @@ yc compute instance update <ID_виртуальной_машины> \
       done
       ```
 
-  1. Выполните команду для поиска прав доступа `{{ subjects-allUsers }}`, `{{ subjects-allAuthenticatedUsers }}` на уровне {{ sf-name }} во всех каталогах:
+  1. Выполните команду для поиска прав доступа `allUsers`, `allAuthenticatedUsers` на уровне {{ sf-name }} во всех каталогах:
 
       ```bash
       export ORG_ID=<ID организации>
@@ -891,13 +891,13 @@ yc compute instance update <ID_виртуальной_машины> \
       done
       ```
 
-  1. Если в каждом указанном ресурсе отсутствуют субъекты: `{{ subjects-allUsers }}`, `{{ subjects-allAuthenticatedUsers }}` то рекомендация выполняется. Если нет, то перейдите к п. <q>Инструкции и решения по выполнению</q>.
+  1. Если в каждом указанном ресурсе отсутствуют субъекты: `allUsers`, `allAuthenticatedUsers` то рекомендация выполняется. Если нет, то перейдите к п. <q>Инструкции и решения по выполнению</q>.
 
 {% endlist %}
 
 **Инструкции и решения по выполнению:**
 
-Если обнаружено наличие прав доступа у `{{ subjects-allUsers }}`, `{{ subjects-allAuthenticatedUsers }}`, необходимо удалить данные права.
+Если обнаружено наличие прав доступа у `All users`, `All authenticated users`, необходимо удалить данные права.
 
 #### 1.17 Контактные данные ответственного за организацию актуальны {#org-contacts}
 

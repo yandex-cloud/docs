@@ -16,6 +16,8 @@ items:
         href: quickstart/container.md
       - name: Создание триггера
         items:
+          - name: Обзор
+            href: quickstart/create-trigger/index.md
           - name: Таймер
             href: quickstart/timer.md
   - name: Пошаговые инструкции

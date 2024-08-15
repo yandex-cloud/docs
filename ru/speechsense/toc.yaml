@@ -19,6 +19,8 @@ items:
             href: operations/data/upload-data.md
           - name: Загрузка переписки из чата
             href: operations/data/upload-chat-text.md
+          - name: Поиск данных
+            href: operations/data/search-data.md
           - name: Работа с диалогами
             href: operations/data/manage-dialogs.md
           - name: Работа с отчетами

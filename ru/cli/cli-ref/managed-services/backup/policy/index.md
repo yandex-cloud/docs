@@ -27,6 +27,7 @@ Aliases:
 - [yc backup policy delete](delete.md) — Delete policy(-es)
 - [yc backup policy apply](apply.md) — Apply policy to vm(-s)
 - [yc backup policy revoke](revoke.md) — Revoke policy from vm(-s)
+- [yc backup policy execute](execute.md) — Execute policy for vm
 
 #### Global Flags
 

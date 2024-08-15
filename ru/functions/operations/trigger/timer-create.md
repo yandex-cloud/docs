@@ -53,7 +53,6 @@
 
     Чтобы создать триггер, который вызывает функцию, выполните команду:
 
-    
     ```bash
     yc serverless trigger create timer \
       --name <имя_таймера> \
@@ -61,13 +60,12 @@
       --payload <сообщение> \
       --invoke-function-id <идентификатор_функции> \
       --invoke-function-service-account-id <идентификатор_сервисного_аккаунта> \
-      --retry-attempts 1 \
-      --retry-interval 10s \
+      --retry-attempts <количество_повторных_вызовов> \
+      --retry-interval <интервал_между_повторными_вызовами> \
       --dlq-queue-id <идентификатор_очереди_Dead_Letter_Queue> \
       --dlq-service-account-id <идентификатор_сервисного_аккаунта>
     ```
   
-
     Где:
 
     * `--name` — имя таймера.
@@ -78,7 +76,6 @@
 
     Результат:
 
-    
     ```text
     id: a1sfe084v4**********
     folder_id: b1g88tflru**********
@@ -100,7 +97,6 @@
             service-account-id: aje3932acd**********
     status: ACTIVE
     ```
-  
 
 - {{ TF }} {#tf}
 
@@ -127,7 +123,7 @@
          payload         = "<сообщение>"
        }
        dlq {
-         queue_id           = "<идентификатор_очереди>"
+         queue_id           = "<идентификатор_очереди_Dead_Letter_Queue>"
          service_account_id = "<идентификатор_сервисного_аккаунта>"
        }
      }
@@ -150,10 +146,10 @@
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
+      {% include [terraform-check-result](../../../_tutorials/_tutorials_includes/terraform-check-result.md) %}
 
       ```bash
-      yc serverless trigger get <идентификатор триггера>
+      yc serverless trigger list
       ```
 
 - API {#api}

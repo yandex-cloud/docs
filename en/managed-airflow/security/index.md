@@ -21,7 +21,7 @@ Roles for a resource can be assigned by users who have the `managed-airflow.admi
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-To allow access to {{ maf-name }} service resources, assign the user the appropriate roles for the folder or cloud hosting the resources.
+To allow access to {{ maf-name }} resources, assign the user the appropriate roles for the folder, cloud, or organization containing these resources.
 
 ## Which roles exist in the service {#roles-list}
 

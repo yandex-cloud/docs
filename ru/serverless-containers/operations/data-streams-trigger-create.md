@@ -77,13 +77,13 @@
       --name <имя_триггера> \
       --database <размещение_базы_данных> \
       --stream <имя_потока_данных> \
-      --batch-size 1b \
-      --batch-cutoff 1s \
+      --batch-size <размер_группы_сообщений> \
+      --batch-cutoff <максимальное_время_ожидания> \
       --stream-service-account-id <идентификатор_сервисного_аккаунта> \
       --invoke-container-id <идентификатор_контейнера> \
       --invoke-container-service-account-id <идентификатор_сервисного_аккаунта> \
-      --retry-attempts 1 \
-      --retry-interval 10s \
+      --retry-attempts <количество_повторных_вызовов> \
+      --retry-interval <интервал_между_повторными_вызовами> \
       --dlq-queue-id <идентификатор_очереди_Dead_Letter_Queue> \
       --dlq-service-account-id <идентификатор_сервисного_аккаунта>
     ```
@@ -152,11 +152,11 @@
          stream_name        = "<имя_потока_данных>"
          database           = "<размещение_базы_данных>"
          service_account_id = "<идентификатор_сервисного_аккаунта>"
-         batch_cutoff       = "<время_ожидания>"
-         batch_size         = "<размер_группы_событий>"
+         batch_cutoff       = "<максимальное_время_ожидания>"
+         batch_size         = "<размер_группы_сообщений>"
        }
        dlq {
-         queue_id           = "<идентификатор_очереди>"
+         queue_id           = "<идентификатор_очереди_Dead_Letter_Queue>"
          service_account_id = "<идентификатор_сервисного_аккаунта>"
        }
      }
@@ -181,9 +181,10 @@
 
              Чтобы узнать, где размещена база данных, выполните команду `yc ydb database list`. Размещение базы данных указано в столбце `ENDPOINT`, в параметре `database`, например `/ru-central1/b1gia87mba**********/etn7hehf6g*******`.
 
-         * `service_account_id` — сервисный аккаунт с правами на чтение из потока {{ yds-name }}  и запись в него.
+         * `service_account_id` — идентификатор сервисного аккаунта, у которого есть права на чтение из потока данных и запись в него.
 
-         {% include [tf-batch-msg-params](../../_includes/serverless-containers/tf-batch-msg-params.md) %}
+         * `batch_cutoff` — максимальное время ожидания. Необязательный параметр. Допустимые значения от 1 до 60 секунд, значение по умолчанию — 1 секунда. Триггер группирует сообщения не дольше `batch_cutoff` и отправляет их в контейнер. Число сообщений при этом не превышает `batch_size`.
+         * `batch_size` — размер группы сообщений. Необязательный параметр. Допустимые значения от 1 Б до 64 КБ, значение по умолчанию — 1 Б.
 
      {% include [tf-dlq-params](../../_includes/serverless-containers/tf-dlq-params.md) %}
 
@@ -193,11 +194,11 @@
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
+     {% include [terraform-check-result](../../_tutorials/_tutorials_includes/terraform-check-result.md) %}
 
-        ```bash
-        yc serverless trigger list
-        ```
+     ```bash
+     yc serverless trigger list
+     ```
 
 - API {#api}
 

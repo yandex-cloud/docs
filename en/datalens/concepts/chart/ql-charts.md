@@ -31,11 +31,11 @@ The following types of QL charts are supported:
       {% include [datalens-sql-ch-example](../../../_includes/datalens/datalens-sql-ch-example.md) %}
 
 
-* **{{ prometheus-name }}**. These allow you to create a chart based on {{ prometheus-name }} data. You cannot build a dataset on top of this source. You can only work with it using QL charts.
+* **{{ prometheus-name }}**​. Allow you to create a chart based on {{ prometheus-name }} data. You cannot build a dataset on top of this source. You can only work with it using QL charts.
 
    {% include [datalens-prometheus-ch-example](../../../_includes/datalens/datalens-prometheus-ch-example.md) %}
 
-* **{{ monitoring-short-name }}**. These allow you to create a chart based on {{ monitoring-full-name }} data. You cannot build a dataset on top of this source. You can only work with it using QL charts.
+* **{{ monitoring-short-name }}**​. Allow you to create a chart based on {{ monitoring-full-name }} data. You cannot build a dataset on top of this source. You can only work with it using QL charts.
 
    {% include [datalens-monitoring-ch-example](../../../_includes/datalens/datalens-monitoring-ch-example.md) %}
 

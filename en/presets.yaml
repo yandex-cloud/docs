@@ -9471,6 +9471,8 @@ default:
           input-label: Schema
         service-account:
           input-label: Service account
+        test:
+          button-text: Check
       yq-connection-info:
         database:
           label: Database

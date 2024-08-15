@@ -76,7 +76,7 @@ items:
             href: tutorials/data-from-yandex-query-visualization.md
           - name: Visualizing {{ monitoring-full-name }} data
             href: tutorials/data-from-monitoring-visualization.md
-          - name: Visualizing {{ ytsaurus-name }}} CHYT data
+          - name: Visualizing data from {{ ytsaurus-name }} CHYT
             href: tutorials/data-from-ch-over-yt.md
       - name: Functional
         items:
@@ -92,22 +92,16 @@ items:
         href: concepts/caching.md
       - name: Combining data
         href: concepts/data-join.md
-      - name: Step-by-step guides
+      - name: Databases
         items:
           - name: Creating a {{ CH }} connection
             href: operations/connection/create-clickhouse.md
-          - name: Creating a {{ MY }} connection
-            href: operations/connection/create-mysql.md
           - name: Creating a {{ PG }} connection
             href: operations/connection/create-postgresql.md
-          - name: Creating a {{ MS }} connection
-            href: operations/connection/create-mssql-server.md
-          - name: Creating an Oracle Database connection
-            href: operations/connection/create-oracle.md
+          - name: Creating a {{ MY }} connection
+            href: operations/connection/create-mysql.md
           - name: Creating a {{ ydb-short-name }} connection
             href: operations/connection/create-ydb.md
-          - name: Creating a {{ GP }} connection
-            href: operations/connection/create-greenplum.md
           - name: Creating a {{ ytsaurus-name }} CHYT connection
             items:
               - name: Connection
@@ -116,34 +110,44 @@ items:
                 href: operations/connection/chyt/chyt-global-join.md
               - name: Recommendations
                 href: operations/connection/chyt/chyt-recommendations.md
-          - name: Creating a {{ datalens-short-name }} Usage Analytics connection
-            href: operations/connection/create-usage-tracking.md
-          - name: Creating a connection to a file
+          - name: Creating a {{ GP }} connection
+            href: operations/connection/create-greenplum.md
+          - name: Creating a {{ MS }} connection
+            href: operations/connection/create-mssql-server.md
+          - name: Creating an Oracle Database connection
+            href: operations/connection/create-oracle.md
+          - name: Creating a {{ prometheus-name }} connection
+            href: operations/connection/create-prometheus.md
+          - name: Creating a BigQuery connection
+            href: operations/connection/create-big-query.md
+          - name: Creating a Snowflake connection
+            href: operations/connection/create-snowflake.md
+      - name: Files and services
+        items:
+          - name: Creating a connection to files
             href: operations/connection/create-file.md
           - name: Creating a connection to Yandex Documents
             href: operations/connection/create-yadocs.md
           - name: Creating a Google Sheets connection
             href: operations/connection/create-google-sheets.md
-          - name: Creating a BigQuery connection
-            href: operations/connection/create-big-query.md
-          - name: Creating a {{ prometheus-name }} connection
-            href: operations/connection/create-prometheus.md
           - name: Creating a {{ yq-full-name }} connection
             href: operations/connection/create-yandex-query.md
-          - name: Creating a {{ monitoring-full-name }} connection
-            href: operations/connection/create-monitoring.md
-          - name: Creating a Bitrix24 connection
-            href: operations/connection/create-bitrix24.md
-          - name: Creating a Yandex Music podcast connection
-            href: operations/connection/create-podcasts.md
           - name: Creating a Yandex Metrica API connection
             href: operations/connection/create-metrica-api.md
           - name: Creating an AppMetrica connection
             href: operations/connection/create-appmetrica.md
           - name: Creating a {{ billing-name }} connection
             href: operations/connection/create-cloud-billing.md
-          - name: Creating a Snowflake connection
-            href: operations/connection/create-snowflake.md
+          - name: Creating a {{ monitoring-full-name }} connection
+            href: operations/connection/create-monitoring.md
+          - name: Creating a {{ datalens-short-name }} Usage Analytics connection
+            href: operations/connection/create-usage-tracking.md
+      - name: Partner connections
+        items:
+          - name: Creating a Bitrix24 connection
+            href: operations/connection/create-bitrix24.md
+          - name: Creating a Yandex Music podcast connection
+            href: operations/connection/create-podcasts.md
   - name: Datasets
     items:
       - name: Overview

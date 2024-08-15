@@ -54,7 +54,7 @@
       +--------------------------------+-------------+
       ```
 
-  1. Узнайте идентификатор пользователя по логину или адресу электронной почты. Чтобы назначить роль не пользователю, а сервисному аккаунту или системной группе используйте [примеры](#examples) ниже.
+  1. Узнайте идентификатор пользователя по логину или адресу электронной почты.
 
       ```bash
       yc iam user-account get test-user
@@ -77,6 +77,7 @@
         --subject userAccount:<идентификатор_пользователя>
       ```
 
+  Чтобы назначить роль не пользователю, а [сервисному аккаунту](../../../iam/concepts/users/service-accounts.md), [группе пользователей](../../../organization/concepts/groups.md) или [системной группе](../../../iam/concepts/access-control/system-group.md), воспользуйтесь [примерами](../../../iam/operations/roles/grant.md#cloud-or-folder).
 
 - {{ TF }} {#tf}
 
@@ -85,10 +86,12 @@
   1. Опишите в конфигурационном файле параметры прав доступа к облаку:
       * `cloud_id` — идентификатор облака. Получить список доступных облаков можно с помощью команды [CLI](../../../cli/quickstart.md): `yc resource-manager cloud list`.
       * `role` — роль, которую нужно назначить. Перечень ролей можно получить с помощью команды [CLI](../../../cli/quickstart.md): `yc iam role list`. В одном ресурсе `yandex_resourcemanager_cloud_iam_member` можно назначить только одну роль.
-      * `member` — пользователь, которому нужно назначить роль. Каждый ресурс `yandex_resourcemanager_cloud_iam_member` может иметь одно из следующих значений:
+      * `member` — пользователь или группа, которым нужно назначить роль. Каждый ресурс `yandex_resourcemanager_cloud_iam_member` может иметь одно из следующих значений:
         * `userAccount:<идентификатор_пользователя>` — [идентификатор пользователя](../../../iam/operations/users/get.md).
         * `serviceAccount:<идентификатор_сервисного_аккаунта>` — [идентификатор сервисного аккаунта](../../../iam/operations/sa/get-id.md).
         * `federatedUser:<идентификатор_федеративного_аккаунта>` — [идентификатор федеративного аккаунта](../../../organization/operations/users-get.md).
+        * `system:group:organization:<идентификатор_организации>:users` — идентификатор [организации](../../../organization/quickstart.md), чтобы назначить роль [системной группе](../../../iam/concepts/access-control/system-group.md#allOrganizationUsers) `All users in organization X`.
+        * `system:group:federation:<идентификатор_федерации>:users` — идентификатор [федерации удостоверений](../../../organization/concepts/add-federation.md), чтобы назначить роль [системной группе](../../../iam/concepts/access-control/system-group.md#allFederationUsers) `All users in federation N`.
 
       Пример структуры конфигурационного файла:
 
@@ -237,13 +240,7 @@
         --access-binding role=viewer,subject=userAccount:<идентификатор_второго_пользователя>
       ```
 
-
-      ```bash
-      yc resource-manager cloud set-access-bindings my-cloud \
-        --access-binding role=editor,subject=federatedUser:<идентификатор_первого_пользователя>
-        --access-binding role=viewer,subject=federatedUser:<идентификатор_второго_пользователя>
-      ```
-
+  Чтобы назначить роль не пользователю, а [сервисному аккаунту](../../../iam/concepts/users/service-accounts.md), [группе пользователей](../../../organization/concepts/groups.md) или [системной группе](../../../iam/concepts/access-control/system-group.md), воспользуйтесь [примерами](../../../iam/operations/roles/grant.md#multiple-roles).
 
 - {{ TF }} {#tf}
 

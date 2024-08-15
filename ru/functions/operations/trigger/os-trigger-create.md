@@ -63,7 +63,6 @@
 
     Чтобы создать триггер, который вызывает функцию, выполните команду:
 
-    
     ```bash
     yc serverless trigger create object-storage \
       --name <имя_триггера> \
@@ -71,16 +70,15 @@
       --prefix '<префикс_ключа_объекта>' \
       --suffix '<суффикс_ключа_объекта>' \
       --events 'create-object','delete-object','update-object' \
-      --batch-size <размер_группы> \
+      --batch-size <размер_группы_событий> \
       --batch-cutoff <максимальное_время_ожидания> \
       --invoke-function-id <идентификатор_функции> \
       --invoke-function-service-account-id <идентификатор_сервисного_аккаунта> \
-      --retry-attempts 1 \
-      --retry-interval 10s \
+      --retry-attempts <количество_повторных_вызовов> \
+      --retry-interval <интервал_между_повторными_вызовами> \
       --dlq-queue-id <идентификатор_очереди_Dead_Letter_Queue> \
       --dlq-service-account-id <идентификатор_сервисного_аккаунта>
     ```
-  
 
     Где:
 
@@ -147,12 +145,17 @@
          retry_interval     = "<интервал_между_повторными_вызовами>"
        }
        object_storage {
-         bucket_id = "<идентификатор_бакета>"
-         create    = true
-         update    = true
+         bucket_id    = "<идентификатор_бакета>"
+         prefix       = "<префикс_ключа_объекта>"
+         suffix       = "<суффикс_ключа_объекта>"
+         create       = true
+         update       = true
+         delete       = true
+         batch_cutoff = "<максимальное_время_ожидания>"
+         batch_size   = "<размер_группы_событий>"
        }
        dlq {
-         queue_id           = "<идентификатор_очереди>"
+         queue_id           = "<идентификатор_очереди_Dead_Letter_Queue>"
          service_account_id = "<идентификатор_сервисного_аккаунта>"
        }
      }
@@ -165,12 +168,16 @@
      * `object_storage` — параметры триггера:
 
         * `bucket_id` — идентификатор бакета.
-        * Выберите один или несколько типов [событий](../../concepts/trigger/os-trigger.md#event), которые будет обрабатывать триггер:
+        * `prefix` — [префикс](../../concepts/trigger/os-trigger.md#filter) ключа объекта в бакете. Необязательный параметр. Используется для фильтрации.
+        * `suffix` — [суффикс](../../concepts/trigger/os-trigger.md#filter) ключа объекта в бакете. Необязательный параметр. Используется для фильтрации.
+        * [События](../../concepts/trigger/os-trigger.md#event), после наступления которых триггер запускается:
 
             * `create` — триггер вызовет функцию при создании нового объекта в хранилище. Принимает значения `true` или `false`.
             * `update` — триггер вызовет функцию при обновлении объекта в хранилище. Принимает значения `true` или `false`.
             * `delete` — триггер вызовет функцию при удалении объекта из хранилища. Принимает значения `true` или `false`.
-
+        
+        {% include [tf-batch-params-events](../../../_includes/functions/tf-batch-params-events.md) %}
+        
      {% include [tf-dlq-params](../../../_includes/serverless-containers/tf-dlq-params.md) %}
 
      Более подробную информацию о параметрах ресурса `yandex_function_trigger` см. в [документации провайдера]({{ tf-provider-resources-link }}/function_trigger).
@@ -179,10 +186,10 @@
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
+     {% include [terraform-check-result](../../../_tutorials/_tutorials_includes/terraform-check-result.md) %}
 
      ```bash
-     yc serverless trigger get <идентификатор_триггера>
+     yc serverless trigger list
      ```
 
 - API {#api}
