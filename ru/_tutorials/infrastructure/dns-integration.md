@@ -242,6 +242,12 @@
 
 Создайте [внутренний сетевой балансировщик](../../network-load-balancer/operations/internal-lb-create.md) с параметрами:
 
+{% note info %}
+
+Обработка UDP-трафика для сетевого балансировщика по умолчанию выключена. Чтобы включить обработку UDP-трафика на сетевом балансировщике, обратитесь в [техническую поддержку](../../support/overview.md). Подробнее можно прочитать [здесь](../../network-load-balancer/concepts/specifics.md#nlb-udp).
+
+{% endnote %}
+
 * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_network-load-balancer-type }}**: `{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_internal }}`.
 
 * В блоке **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.section_listeners }}**:
