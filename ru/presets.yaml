@@ -9477,6 +9477,8 @@ default:
           input-label: Схема
         service-account:
           input-label: Сервисный аккаунт
+        test:
+          button-text: Проверить
       yq-connection-info:
         database:
           label: База данных

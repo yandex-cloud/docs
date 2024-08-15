@@ -76,7 +76,7 @@
     ```bash
     yc serverless trigger create mail \
       --name <имя_триггера> \
-      --batch-size <размер_группы> \
+      --batch-size <размер_группы_сообщений> \
       --batch-cutoff <максимальное_время_ожидания> \
       --attachements-bucket <имя_бакета> \
       --attachements-service-account-id <идентификатор_сервисного_аккаунта> \
@@ -148,11 +148,11 @@
          mail {
            attachments_bucket_id = "<имя_бакета>"
            service_account_id    = "<идентификатор_сервисного_аккаунта>"
-           batch_cutoff          = <время_ожидания>
-           batch_size            = <размер_группы_событий>
+           batch_cutoff          = <максимальное_время_ожидания>
+           batch_size            = <размер_группы_сообщений>
          }
          dlq {
-           queue_id           = "<идентификатор_очереди>"
+           queue_id           = "<идентификатор_очереди_Dead_Letter_Queue>"
            service_account_id = "<идентификатор_сервисного_аккаунта>"
          }
        }
@@ -174,9 +174,9 @@
 
            * `attachments_bucket_id` — имя бакета, в который будут сохраняться вложения из писем. Необязательный параметр.
            * `service_account_id` — идентификатор сервисного аккаунта, у которого есть права на загрузку объектов в бакет {{ objstorage-name }}. Необязательный параметр.
-           * `batch_cutoff` — максимальное время ожидания. Необязательный параметр. Допустимые значения от 1 до 60 секунд, значение по умолчанию — 1 секунда. Триггер группирует сообщения не дольше `batch-cutoff` и отправляет их в контейнер. Число сообщений при этом не превышает `batch-size`.
-           * `batch_size` — размер группы сообщений. Необязательный параметр. Допустимые значения от 1 до 10, значение по умолчанию — 1.
-       
+
+           {% include [tf-batch-msg-params.md](../../_includes/serverless-containers/tf-batch-msg-params.md) %}
+
        {% include [tf-dlq-params](../../_includes/serverless-containers/tf-dlq-params.md) %}
 
        Более подробную информацию о параметрах ресурса `yandex_function_trigger` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/function_trigger).
@@ -185,11 +185,11 @@
 
         {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-    Проверить изменение триггера можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
+        {% include [terraform-check-result](../../_tutorials/_tutorials_includes/terraform-check-result.md) %}
 
-    ```bash
-    yc serverless trigger get <идентификатор_триггера>
-    ```
+        ```bash
+        yc serverless trigger list
+        ```
 
 - API {#api}
 

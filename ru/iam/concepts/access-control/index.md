@@ -50,14 +50,34 @@
 Роли назначаются субъектам. Существуют следующие типы субъектов:
 
 * `userAccount` — [аккаунт на Яндексе](../users/accounts.md#passport), добавленный в {{ yandex-cloud }}.
+
+    Идентификатор субъекта — уникальный [идентификатор](../../../api-design-guide/concepts/resources-identification.md), [присвоенный](../../operations/users/get.md) пользователю.
+
 * `serviceAccount` — [сервисный аккаунт](../users/service-accounts.md), созданный в {{ yandex-cloud }}.
 
+    Идентификатор субъекта — уникальный идентификатор, [присвоенный](../../operations/sa/get-id.md) сервисному аккаунту.
+
     {% include [include](../../../_includes/sa-assign-role-note.md) %}
-* `federatedUser` — аккаунт пользователя  [федерации удостоверений](../../../organization/concepts/add-federation.md), например из Active Directory.
 
-* `group` — группа пользователей, созданная в [{{ org-full-name }}](../../../organization/).
+* `federatedUser` — аккаунт пользователя [федерации удостоверений](../../../organization/concepts/add-federation.md), например из Active Directory.
 
-* `system` — [системная группа](system-group.md).
+    Идентификатор субъекта — уникальный идентификатор, [присвоенный](../../operations/users/get.md) пользователю.
+
+* `group` — [группа пользователей](../../../organization/concepts/groups.md), созданная в [{{ org-full-name }}](../../../organization/).
+
+    Идентификатор субъекта — уникальный идентификатор, присвоенный группе пользователей.
+
+* `system` — [публичная группа](./public-group.md) или [системная группа](./system-group.md).
+
+    Идентификатор субъекта:
+
+    * `allAuthenticatedUsers` — для [публичной группы](./public-group.md#allAuthenticatedUsers) `All authenticated users`;
+
+    * `allUsers` — для [публичной группы](./public-group.md#allUsers) `All users`;
+
+    * `group:organization:<идентификатор_организации>:users` — для [системной группы](./system-group.md#allOrganizationUsers) `All users in organization X`, где `<идентификатор_организации>` — уникальный идентификатор, присвоенный [организации](../../../organization/quickstart.md) `X`.
+
+    * `group:federation:<идентификатор_федерации>:users` — для [системной группы](./system-group.md#allFederationUsers) `All users in federation N`, где `<идентификатор_федерации>` — уникальный идентификатор, присвоенный [федерации удостоверений](../../../organization/concepts/add-federation.md) `N`.
 
 ### Привязка прав доступа {#access-bindings}
 

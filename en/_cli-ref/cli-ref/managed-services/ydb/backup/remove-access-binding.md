@@ -22,6 +22,7 @@ Syntax:
 |`--service-account-name`|<b>`string`</b><br/>Service account, whose access will be updated.|
 |`--user-account-id`|<b>`string`</b><br/>User account, whose access will be updated.|
 |`--user-yandex-login`|<b>`string`</b><br/>User account, whose access will be updated.|
+|`--agent`|<b>`string`</b><br/>Agent service account, whose access will be updated; in SERVICE_ID:MICROSERVICE_ID format.|
 |`--all-authenticated-users`|Access will be updated for all authenticated users|
 |`--group-members`|<b>`string`</b><br/>Update access for members of the group with specified ID|
 |`--organization-users`|<b>`string`</b><br/>Update access for users of organization with specified ID|

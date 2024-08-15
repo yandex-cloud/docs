@@ -61,22 +61,20 @@
 
     Чтобы создать триггер, который вызывает контейнер, выполните команду:
 
-    
     ```bash
     yc serverless trigger create container-registry \
       --name <имя_триггера> \
       --registry-id <идентификатор_реестра> \
       --events 'create-image','delete-image','create-image-tag','delete-image-tag' \
-      --batch-size <размер_группы> \
+      --batch-size <размер_группы_событий> \
       --batch-cutoff <максимальное_время_ожидания> \
       --invoke-container-id <идентификатор_контейнера> \
       --invoke-container-service-account-id <идентификатор_сервисного_аккаунта> \
-      --retry-attempts 1 \
-      --retry-interval 10s \
+      --retry-attempts <количество_повторных_вызовов> \
+      --retry-interval <интервал_между_повторными_вызовами> \
       --dlq-queue-id <идентификатор_очереди_Dead_Letter_Queue> \
       --dlq-service-account-id <идентификатор_сервисного_аккаунта>
     ```
-  
 
     Где:
 
@@ -90,7 +88,6 @@
 
     Результат:
 
-    
     ```text
     id: a1s5msktijh2********
     folder_id: b1gmit33hgh2********
@@ -118,7 +115,6 @@
             service-account-id: aje3932acdh2********
     status: ACTIVE
     ```
-  
 
 - {{ TF }} {#tf}
 
@@ -147,11 +143,11 @@
           delete_image     = true
           create_image_tag = true
           delete_image_tag = true
-          batch_cutoff     = "<время_ожидания>"
+          batch_cutoff     = "<максимальное_время_ожидания>"
           batch_size       = "<размер_группы_событий>"
         }
         dlq {
-          queue_id           = "<идентификатор_очереди>"
+          queue_id           = "<идентификатор_очереди_Dead_Letter_Queue>"
           service_account_id = "<идентификатор_сервисного_аккаунта>"
         }
       }
@@ -171,17 +167,17 @@
 
       * `container_registry` — параметры триггера:
 
-        * `registry_id` — идентификатор реестра.
-        * `image_name` — имя Docker-образа.
-        * `tag` — тег Docker-образа.
-        * Выберите один или несколько типов событий, которые будет обрабатывать триггер:
+        * `registry_id` — [идентификатор реестра](../../container-registry/operations/registry/registry-list.md).
+        * `image_name` — имя образа для [фильтрации](../concepts/trigger/cr-trigger.md#filter). Чтобы узнать имя Docker-образа, [получите список Docker-образов в реестре](../../container-registry/operations/docker-image/docker-image-list.md).
+        * `tag` — тег образа для фильтрации.
+        * [События](../concepts/trigger/cr-trigger.md#event), после наступления которых триггер запускается:
 
           * `create_image` — триггер вызовет контейнер при создании нового Docker-образа в реестре. Принимает значения `true` или `false`.
           * `delete_image` — триггер вызовет контейнер при удалении Docker-образа в реестре. Принимает значения `true` или `false`.
           * `create_image_tag` — триггер вызовет контейнер при создании нового тега Docker-образа в реестре. Принимает значения `true` или `false`.
           * `delete_image_tag`— триггер вызовет контейнер при удалении тега Docker-образа в реестре. Принимает значения `true` или `false`.
-          
-        {% include [tf-batch-msg-params](../../_includes/serverless-containers/tf-batch-msg-params.md) %}
+
+        {% include [tf-batch-params-events](../../_includes/serverless-containers/tf-batch-params-events.md) %}
 
         {% include [tf-dlq-params](../../_includes/serverless-containers/tf-dlq-params.md) %}
 
@@ -191,10 +187,10 @@
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
+      {% include [terraform-check-result](../../_tutorials/_tutorials_includes/terraform-check-result.md) %}
 
       ```bash
-      yc serverless trigger get <идентификатор триггера>
+      yc serverless trigger list
       ```
 
 - API {#api}

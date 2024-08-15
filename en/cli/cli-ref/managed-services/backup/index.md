@@ -36,6 +36,7 @@ Syntax:
 	- [yc backup policy delete](policy/delete.md) — Delete policy(-es)
 	- [yc backup policy apply](policy/apply.md) — Apply policy to vm(-s)
 	- [yc backup policy revoke](policy/revoke.md) — Revoke policy from vm(-s)
+	- [yc backup policy execute](policy/execute.md) — Execute policy for vm
 
 #### Global Flags
 

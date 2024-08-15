@@ -1,18 +1,18 @@
 # Widgets
 
-_Widgets_ are dashboard elements. You can create links between selectors and chart widgets.
+_Widgets_ are dashboard elements. You can create links between **Selector** and **Chart** widgets.
 
-{{ datalens-full-name }} offers the following types of widgets:
+{{ datalens-short-name }} supports the following widget types:
 
-* [Chart](#chart)
-* [Selector](#selector)
-* [Text](#text)
-* [Title](#title)
+* [{#T}](#chart)
+* [{#T}](#selector)
+* [{#T}](#text)
+* [{#T}](#title)
 
 ## Chart {#chart}
 
 Visualization as a table or chart.
-You can place charts anywhere on a dashboard and change their size.
+You can place charts anywhere on the dashboard and resize the dashboard.
 Charts can be linked to selectors.
 
 For more information about charts, see [{#T}](../concepts/chart/index.md).
@@ -20,8 +20,7 @@ For more information about charts, see [{#T}](../concepts/chart/index.md).
 ## Selector {#selector}
 
 A filter that affects query results on its linked widgets. To add a selector to a dashboard, go to [{#T}](../operations/dashboard/add-selector.md).
-A selector can be linked to a chart or another selector.
-For more information, see [Link](#link).
+A selector can be linked to a chart or another selector. For more information, see [{#T}](./link.md).
 
 For more information about selectors, see [{#T}](./selector.md).
 

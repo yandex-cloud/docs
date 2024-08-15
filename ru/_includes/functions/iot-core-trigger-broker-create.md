@@ -69,13 +69,13 @@
     yc serverless trigger create iot-broker \
       --name <имя_триггера> \
       --broker-id <идентификатор_брокера> \
-      --mqtt-topic '<MQTT-топик_брокера>' \
+      --mqtt-topic '<MQTT-топик>' \
       --batch-size <размер_группы_сообщений> \
       --batch-cutoff <максимальное_время_ожидания> \
       --invoke-function-id <идентификатор_функции> \
       --invoke-function-service-account-id <идентификатор_сервисного_аккаунта> \
-      --retry-attempts 1 \
-      --retry-interval 10s \
+      --retry-attempts <количество_повторных_вызовов> \
+      --retry-interval <интервал_между_повторными_вызовами> \
       --dlq-queue-id <идентификатор_очереди_Dead_Letter_Queue> \
       --dlq-service-account-id <идентификатор_сервисного_аккаунта>
     ```

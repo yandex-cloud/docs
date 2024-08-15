@@ -55,7 +55,7 @@
      * `role` — роль, которую нужно назначить.
      * `members` — список пользователей, которым нужно назначить роль.
 
-        Чтобы функция стала публичной, назначьте роль `{{ roles-functions-invoker }}` всем неавторизованным пользователям ([системной группе](../../../iam/concepts/access-control/system-group.md) `allUsers`).
+        Чтобы функция стала публичной, назначьте роль `{{ roles-functions-invoker }}` всем неавторизованным пользователям ([публичной группе](../../../iam/concepts/access-control/public-group.md) `All users`).
 
      Более подробную информацию о параметрах ресурса `yandex_function_iam_binding` см. в [документации провайдера]({{ tf-provider-resources-link }}/function_iam_binding).
 

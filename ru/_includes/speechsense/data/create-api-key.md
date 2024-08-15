@@ -1,0 +1,1 @@
+Чтобы аутентифицироваться в API {{ yandex-cloud }}, [создайте API-ключ](../../../iam/operations/api-key/create.md) или [IAM-токен](../../../iam/operations/iam-token/create-for-sa.md) для сервисного аккаунта.

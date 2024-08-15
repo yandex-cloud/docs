@@ -6,14 +6,13 @@ description: "In this tutorial, you will learn how to connect to {{ GP }} in {{ 
 # Creating a {{ GP }} connection
 
 
+
 {% note warning %}
 
 {% include [connection-note](../../../_includes/datalens/datalens-connection-note.md) %}
 
 {% endnote %}
 
-
-## Connecting to {{ GP }} {#greenplum-connection}
 
 To create a {{ GP }} connection:
 
@@ -64,6 +63,8 @@ To create a {{ GP }} connection:
 
 
 1. Enter a name for the connection and click **Create**.
+
+
 
 ## Additional settings {#additional-settings}
 

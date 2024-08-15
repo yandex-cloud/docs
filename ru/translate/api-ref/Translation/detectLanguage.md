@@ -5,8 +5,8 @@ sourcePath: ru/_api-ref/ai/translate/api-ref/Translation/detectLanguage.md
 
 # Метод detectLanguage
 Определяет язык текста.
- 
 
+При работе с API Translate отправляйте данные для [аутентификации](/docs/translate/api-ref/authentication) в заголовке `Authorization` каждого запроса.
  
 ## HTTP-запрос {#https-request}
 ```

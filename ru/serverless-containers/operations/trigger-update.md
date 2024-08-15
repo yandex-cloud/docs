@@ -36,13 +36,12 @@
   1. Измените параметры триггера, например переименуйте его:
 
       ```bash
-      yc serverless trigger update <тип_триггера> <имя_триггера> \ 
+      yc serverless trigger update <тип_триггера> <имя_триггера> \
         --new-name <новое_имя_триггера> 
       ```
 
       Результат:
 
-      
       ```text
       id: a1s5msktijh2********
       folder_id: b1gmit33hgh2********
@@ -68,8 +67,6 @@
               service-account-id: aje3932acdh2********
       status: ACTIVE
       ```
-
-
 
 - {{ TF }} {#tf}
 
@@ -123,7 +120,7 @@
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      Проверить изменения можно в [консоли управления]({{ link-console-main }}) или с помощью команд [CLI](../../cli/quickstart.md):
+      Проверить изменения можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
 
       ```bash
       yc serverless trigger list

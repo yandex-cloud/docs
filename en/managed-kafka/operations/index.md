@@ -11,15 +11,14 @@ description: "This page provides a list of step-by-step guides for {{ mkf-name }
 - [Creating a cluster](cluster-create.md)
 - [Changing cluster settings](cluster-update.md)
 - [{#T}](cluster-version-update.md)
-- [Stopping and starting clusters](cluster-stop.md)
-- [Managing cluster hosts](cluster-hosts.md)
+- [Stopping and starting a cluster](cluster-stop.md)
+- [Getting a list of cluster hosts](cluster-hosts.md)
 - [{#T}](host-migration.md)
 - [Deleting a cluster](cluster-delete.md)
 
 ## Connecting to a cluster {#connect}
 
 * [Pre-configuration](connect/index.md)
-* [FQDNs of {{ KF }} hosts](connect/fqdn.md)
 * [Connecting to a cluster from applications](connect/clients.md)
 * [Code examples for connecting to a cluster](connect/code-examples.md)
 

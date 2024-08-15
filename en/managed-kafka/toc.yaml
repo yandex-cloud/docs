@@ -24,7 +24,7 @@ items:
             href: operations/cluster-version-update.md
           - name: Stopping and starting a cluster
             href: operations/cluster-stop.md
-          - name: Managing {{ KF }} hosts
+          - name: Getting a list of {{ KF }} cluster hosts
             href: operations/cluster-hosts.md
           - name: Migrating hosts to a different availability zone
             href: operations/host-migration.md
@@ -34,8 +34,6 @@ items:
         items:
           - name: Pre-configuration
             href: operations/connect/index.md
-          - name: FQDNs of hosts
-            href: operations/connect/fqdn.md
           - name: Connecting from applications
             href: operations/connect/clients.md
           - name: Code snippets

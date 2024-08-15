@@ -4,62 +4,30 @@
 
 Текстовые сообщения передаются в формате JSON. Также для загрузки данных используется отдельный JSON-файл с метаданными разговора.
 
-[Аутентификация](../../api-ref/authentication.md) происходит от имени сервисного аккаунта с помощью [IAM-токена](../../../iam/concepts/authorization/iam-token.md) или [API-ключа](../../../iam/concepts/authorization/api-key.md).
+{% include [authentication](../../../_includes/speechsense/data/authentication.md) %}
 
 Если вы хотите загрузить аудиозапись разговора вместо переписки, обратитесь к [инструкции](upload-data.md).
 
 ## Перед началом работы {#before-you-begin}
 
-Для работы с API {{ yandex-cloud }} потребуется Git, Python 3.6 или старше и пакет `grpcio-tools`. [Узнайте, как установить Python](https://www.python.org/downloads/).
+{% include [software](../../../_includes/speechsense/data/software.md) %}
 
 Чтобы подготовиться к загрузке переписки из чата:
 
-1. [Создайте подключение](../connection/create.md) типа **Чат**.
+1. [Создайте подключение](../connection/create.md#create-chat-connection) типа **Чат**.
 1. [Создайте проект](../project/create.md) с новым подключением.
 
    В созданные проект и подключение будут загружены текстовые сообщения.
 
-1. В консоли управления [создайте сервисный аккаунт](../../../iam/operations/sa/create.md).
-1. [Добавьте сервисный аккаунт в пространство](../space/add-user-to-space.md) с ролью `{{ roles-speechsense-data-editor }}`. Это позволит сервисному аккаунту загружать данные в {{ speechsense-name }}.
-1. Чтобы аутентифицироваться в API {{ yandex-cloud }}, [создайте API-ключ](../../../iam/operations/api-key/create.md) или [IAM-токен](../../../iam/operations/iam-token/create-for-sa.md) для сервисного аккаунта.
-1. Склонируйте [репозиторий API {{ yandex-cloud }}](https://github.com/yandex-cloud/cloudapi):
-
-   ```bash
-   git clone https://github.com/yandex-cloud/cloudapi
-   ```
-
-1. Установите пакет `grpcio-tools` с помощью менеджера пакетов [pip](https://pip.pypa.io/en/stable/):
-
-   ```python
-   pip install grpcio-tools
-   ```
+1. {% include [create-sa](../../../_includes/speechsense/data/create-sa.md) %}
+1. {% include [role-sa](../../../_includes/speechsense/data/role-sa.md) %}
+1. {% include [create-api-key](../../../_includes/speechsense/data/create-api-key.md) %}
+1. {% include [clone-cloudapi](../../../_includes/speechsense/data/clone-cloudapi.md) %}
+1. {% include [install-grpcio-tools](../../../_includes/speechsense/data/install-grpcio-tools.md) %}
 
 ## Загрузить данные {#upload-data}
 
-1. Перейдите в папку с репозиторием API {{ yandex-cloud }}, создайте папку `upload_data`, сгенерируйте в ней код интерфейса клиента и перейдите в папку `upload_data`:
-
-   {% list tabs group=programming_language %}
-
-   - Bash {#bash}
-
-      ```bash
-      cd <путь_к_папке_cloudapi> && \
-      mkdir upload_data && \
-      python3 -m grpc_tools.protoc -I . -I third_party/googleapis \
-           --python_out=./upload_data/ \
-           --grpc_python_out=./upload_data/ \
-           google/api/http.proto \
-           google/api/annotations.proto \
-           yandex/cloud/api/operation.proto \
-           google/rpc/status.proto \
-           yandex/cloud/operation/operation.proto \
-           yandex/cloud/validation.proto \
-           yandex/cloud/speechsense/v1/*.proto \
-           yandex/cloud/speechsense/v1/*/*.proto
-      cd upload_data
-      ```
-
-   {% endlist %}
+1. {% include [interface-code-generation](../../../_includes/speechsense/data/interface-code-generation.md) %}
 
 1. В папке `upload_data` создайте Python-скрипт `upload_text.py`, который загрузит переписку из чата в {{ speechsense-name }}:
 
@@ -169,17 +137,7 @@
    * `user_id` — идентификатор автора сообщения. Идентификатор должен совпадать с идентификатором клиента, оператора или бота в JSON-файле с метаданными.
    * `timestamp` — момент времени, когда сообщение было отправлено. Укажите значение в формате `ГГГГ-ММ-ДДTЧЧ:ММ:СС.СССZ`.
 
-1. Задайте API-ключ сервисного аккаунта:
-
-   ```bash
-   export API_KEY=<API-ключ_сервисного_аккаунта>
-   ```
-
-   Если вы используете IAM-токен, передайте его вместо API-ключа:
-
-   ```bash
-   export IAM_TOKEN=<IAM-токен_сервисного_аккаунта>
-   ```
+1. {% include [api-key](../../../_includes/speechsense/data/api-key.md) %}
 
 1. Запустите скрипт `upload_text.py` с нужными параметрами:
 

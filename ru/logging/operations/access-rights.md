@@ -78,7 +78,7 @@
         done (1s)
         ```
 
-    * всем авторизованным пользователям (системная группа `allAuthenticatedUsers`):
+    * всем авторизованным пользователям ([публичная группа](../../iam/concepts/access-control/public-group.md) `All authenticated users`):
 
         ```
         yc logging group add-access-binding \
@@ -137,7 +137,7 @@
         done (1s)
         ```
 
-    * у всех авторизованных пользователей (системная группа `allAuthenticatedUsers`):
+    * у всех авторизованных пользователей ([публичная группа](../../iam/concepts/access-control/public-group.md) `All authenticated users`):
 
         ```
         yc logging group remove-access-binding \

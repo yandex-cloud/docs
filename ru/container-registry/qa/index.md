@@ -15,13 +15,13 @@ Docker-клиент подставляет тег `latest` автоматиче�
 
 #### Как сделать реестр публичным? {#public-registry}
 
-Можно выдать [роль](../../iam/concepts/access-control/roles.md) [container-registry.images.puller](../security/index.md#container-registry-images-puller) на ваш [реестр](../concepts/registry.md) для системной группы [allUsers](../../iam/concepts/access-control/system-group.md).
+Можно выдать [роль](../../iam/concepts/access-control/roles.md) [container-registry.images.puller](../security/index.md#container-registry-images-puller) на ваш [реестр](../concepts/registry.md) для публичной группы [All users](../../iam/concepts/access-control/public-group.md).
 
 {% note alert %}
 
 При этом все Docker-образы из этого реестра станут доступны без [аутентификации](../operations/authentication.md).
 
-Не назначайте системной группе роли `container-registry.images.pusher`, `editor` и `admin` на реестр. Это позволит любому, кто узнает идентификатор вашего реестра, пользоваться им.
+Не назначайте публичной группе роли `container-registry.images.pusher`, `editor` и `admin` на реестр. Это позволит любому, кто узнает идентификатор вашего реестра, пользоваться им.
 
 {% endnote %} 
 

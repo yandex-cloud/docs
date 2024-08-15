@@ -24,4 +24,4 @@ To create a chart:
 
 #### See also {#see-also}
 
-* [{#T}](../../concepts/chart/index.md).
+* [{#T}](../../concepts/chart/index.md)

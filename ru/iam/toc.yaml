@@ -110,6 +110,8 @@ items:
             href: concepts/access-control/roles.md
           - name: Системные группы
             href: concepts/access-control/system-group.md
+          - name: Публичные группы
+            href: concepts/access-control/public-group.md
           - name: Ресурсы, на которые можно назначать роли
             href: concepts/access-control/resources-with-access-control.md
       - name: Авторизация и аутентификация

@@ -100,11 +100,11 @@
 
       * Параметры для настройки [ACL](../../storage/concepts/acl.md) бакета:
         * `--acl` — предопределенный ACL. Список возможных значений см. в разделе [Предопределенные ACL](../../storage/concepts/acl.md#predefined-acls). Нельзя использовать одновременно с параметром `--grants`.
-        * `--grants` — настройки разрешений для отдельных пользователей, [сервисных аккаунтов](../../iam/concepts/users/service-accounts.md), [групп пользователей](../../organization/concepts/groups.md) и [системных групп](../../storage/concepts/acl.md#system-groups) (группа всех пользователей интернета, группа всех аутентифицированных пользователей {{ yandex-cloud }}). Нельзя использовать одновременно с параметром `--acl`. Значение параметра указывается в формате: `grant-type=<тип_получателя_разрешения>,grantee-id=<идентификатор_получателя>,permission=<тип_разрешения>`, где:
+        * `--grants` — настройки разрешений для отдельных пользователей, [сервисных аккаунтов](../../iam/concepts/users/service-accounts.md), [групп пользователей](../../organization/concepts/groups.md) и [публичных групп](../../storage/concepts/acl.md#public-groups) (группа всех пользователей интернета, группа всех аутентифицированных пользователей {{ yandex-cloud }}). Нельзя использовать одновременно с параметром `--acl`. Значение параметра указывается в формате: `grant-type=<тип_получателя_разрешения>,grantee-id=<идентификатор_получателя>,permission=<тип_разрешения>`, где:
           * `grant-type` — тип получателя разрешения. Возможные значения:
             * `grant-type-account` — пользователь, [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) или [группа пользователей](../../organization/concepts/groups.md);
-            * `grant-type-all-authenticated-users` — [системная группа](../../storage/concepts/acl.md#system-groups) всех аутентифицированных пользователей {{ yandex-cloud }};
-            * `grant-type-all-users` — системная группа всех пользователей интернета.
+            * `grant-type-all-authenticated-users` — [публичная группа](../../storage/concepts/acl.md#public-groups) всех аутентифицированных пользователей {{ yandex-cloud }};
+            * `grant-type-all-users` — публичная группа всех пользователей интернета.
           * `grantee-id` — идентификатор пользователя, сервисного аккаунта или группы пользователей, которым нужно дать разрешение. Указывается, только если `grant-type=grant-type-account`.
           * `permission` — тип разрешения ACL. Возможные значения: `permission-full-control`, `permission-write`, `permission-read`. Подробнее о разрешениях см. в разделе [Виды разрешений](../../storage/concepts/acl.md#permissions-types).
 
@@ -158,7 +158,7 @@
 
   {% cut "Опциональные параметры" %}
 
-  Вы можете применить к бакету [предопределенный ACL](../../storage/concepts/acl.md#predefined-acls) или настроить разрешения для отдельных пользователей, [сервисных аккаунтов](../../iam/concepts/users/service-accounts.md), [групп пользователей](../../organization/concepts/groups.md) и [системных групп](../../storage/concepts/acl.md#system-groups) (группа всех пользователей интернета, группа всех аутентифицированных пользователей {{ yandex-cloud }}). Эти настройки несовместимы: у бакета должен быть либо предопределенный ACL, либо набор отдельных разрешений.
+  Вы можете применить к бакету [предопределенный ACL](../../storage/concepts/acl.md#predefined-acls) или настроить разрешения для отдельных пользователей, [сервисных аккаунтов](../../iam/concepts/users/service-accounts.md), [групп пользователей](../../organization/concepts/groups.md) и [публичных групп](../../storage/concepts/acl.md#public-groups) (группа всех пользователей интернета, группа всех аутентифицированных пользователей {{ yandex-cloud }}). Эти настройки несовместимы: у бакета должен быть либо предопределенный ACL, либо набор отдельных разрешений.
 
   {% note info %}
 
@@ -195,8 +195,8 @@
     Вы можете задать несколько разрешений в одной команде.
   * Возможные получатели разрешений:
     * `id=<идентификатор_получателя>` — идентификатор пользователя, сервисного аккаунта или группы пользователей, которым нужно дать разрешение.
-    * `uri=http://acs.amazonaws.com/groups/global/AuthenticatedUsers` — [системная группа](../../storage/concepts/acl.md#system-groups) всех аутентифицированных пользователей {{ yandex-cloud }}.
-    * `uri=http://acs.amazonaws.com/groups/global/AllUsers` — системная группа всех пользователей интернета.
+    * `uri=http://acs.amazonaws.com/groups/global/AuthenticatedUsers` — [публичная группа](../../storage/concepts/acl.md#public-groups) всех аутентифицированных пользователей {{ yandex-cloud }}.
+    * `uri=http://acs.amazonaws.com/groups/global/AllUsers` — публичная группа всех пользователей интернета.
 
   По умолчанию для каждого нового бакета создается пустой ACL.
 

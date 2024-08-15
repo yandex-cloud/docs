@@ -49,7 +49,7 @@
          --service-account-id <идентификатор_сервисного_аккаунта>
        ```
 
-     * у всех авторизованных пользователей (системная группа `allAuthenticatedUsers`):
+     * у всех авторизованных пользователей ([публичная группа](../../../iam/concepts/access-control/public-group.md) `All authenticated users`):
        
        ```bash
        yc container <ресурс> remove-access-binding <имя_или_идентификатор_ресурса> \
