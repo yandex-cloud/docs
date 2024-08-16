@@ -1,9 +1,9 @@
-# Устранение ошибки 422 UNPROCESSABLE ENTITY The specified extension <'ext_name'> is not present in shared_preload_libraries
+# Устранение ошибки `422 UNPROCESSABLE ENTITY The specified extension <'ext_name'> is not present in shared_preload_libraries`
 
 
 ## Описание проблемы {#issue-description}
 
-При попытке установить нужное расширение на базу данных по [инструкции](../../../managed-postgresql/operations/extensions/cluster-extensions.md) возникает ошибка:
+При попытке установить нужное расширение на базу данных по этой [инструкции](../../../managed-postgresql/operations/extensions/cluster-extensions.md) возникает ошибка:
 ```
 «422 UNPROCESSABLE ENTITY The specified extension 'EXT_NAME'
 is not present in shared_preload_libraries.»
@@ -13,11 +13,11 @@ is not present in shared_preload_libraries.»
 
 Указанная ошибка говорит о неустановленном флаге `EXT_NAME` в кластере.
 
-Пожалуйста, установите его следующим образом: **Обзор кластера** -> **Изменить кластер** -> **Настройки СУБД** -> **Shared preload libraries**, выбрать `EXT_NAME`. После можно установить расширение.
+Пожалуйста, установите его следующим образом: **Обзор кластер** → **Изменить кластер** → **Настройки СУБД** → **Shared preload libraries**, затем выберите `EXT_NAME`. После этого можно установить расширение.
 
 {% note alert %}
 
-Внесение изменений в настройки кластера приведет к перезагрузке сервера PostgreSQL.
+Внесение изменений в настройки кластера приведет к перезагрузке сервера {{ PG }}.
 
 {% endnote %}
 

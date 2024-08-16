@@ -53,7 +53,7 @@ Configure the environment for your programming language:
 
 - Python {#python}
 
-   1. [Install](https://www.python.org/downloads/) Python 3.6 or higher.
+   1. [Install](https://www.python.org/downloads/) Python 3.8 or higher.
    1. Install the Boto3 library:
 
       ```bash

@@ -1,4 +1,4 @@
-# Решения для Forms
+# Решения для {{ forms-name }}
 
 {% include [how-to-index](how-to/index.md) %}
 

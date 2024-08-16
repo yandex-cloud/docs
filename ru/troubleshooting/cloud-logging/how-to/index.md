@@ -1,3 +1,3 @@
-## Примеры конфигураций и сценариев Cloud Logging {#configuration-examples}
+## Примеры конфигураций и сценариев {{ cloud-logging-name }} {#configuration-examples}
 
-* [Настройка отправки журналов работы сторонних приложений в Cloud Logging](sending-logs-from-third-party-libraries-and-apps.md)
+* [Как настроить отправку журналов работы сторонних приложений в {{ cloud-logging-name }}](sending-logs-from-third-party-libraries-and-apps.md)

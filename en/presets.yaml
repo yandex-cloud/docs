@@ -98,6 +98,7 @@ default:
   connection-manager-name: Connection Manager
   console-full-name: Yandex Cloud Console
   console-host: console.cloud.yandex.com
+  console-name: Cloud Console
   container-registry-full-name: Yandex Container Registry
   container-registry-name: Container Registry
   container-registry-short-name: Container Registry
@@ -4225,6 +4226,20 @@ default:
           edit: Edit
         blocks_w-grid-preview:
           data_type: Data type
+    datalens:
+      component:
+        aside-header:
+          view:
+            switch_datasets: Datasets
+            switch_root: All objects
+      connection:
+        connections-list:
+          modify:
+            button_create-connection: Create connection
+      editor:
+        templates:
+          view:
+            label_metric: Indicator
     forms:
       common:
         blocks_correct-answers:
@@ -5031,6 +5046,7 @@ default:
     yacloud_billing_account:
       cloud-billing-account:
         account_label_new: New payer
+        base_label_payer: Payer
         label_card-add: Add card
         label_wizard-next: Next
         payment-type_label_card: Bank card
@@ -5193,6 +5209,9 @@ default:
         key-values-input:
           label_key: Key
           label_value: Value
+      iam:
+        cloud:
+          label_acl: Access bindings
     yacloud_components:
       acl:
         action:
@@ -5205,6 +5224,9 @@ default:
           service-accounts: Service accounts
           title: Configuring access bindings
           user-accounts: User accounts
+      cloud:
+        button_delete: Delete
+        label_delete-now: Delete now
       forms:
         label_value: Value
       marketplace:
@@ -5221,10 +5243,13 @@ default:
         button_submit: Confirm
         field_theme: Interface theme
         field_theme-contrast: Contrast
+        label_alerting-name: Monitoring
         label_monitoring-name: Monitoring
         label_telegram: Telegram
         label_title_appearance: Appearance
         label_title_region: Language and region
+        section_email: Email settings
+        section_phone: Phone number settings
         section_settings: Notification settings
         section_transports: Notification methods
       usermenu:
@@ -5259,6 +5284,8 @@ default:
         label_evaluation-window: Evaluation window
         label_trigger-condition: Condition
         label_warning: Warning
+        method_email: Email
+        method_sms: SMS
         section_alert-conditions: Alert parameters
         section_metrics: Metrics
         section_notifications: Notification channels
@@ -5316,6 +5343,7 @@ default:
       dashboard:
         dash:
           create-alert: Create alert
+          open-in-monitoring: Open in Monitoring
         settings:
           dashboard-settings: Dashboard settings
         tab:
@@ -5382,8 +5410,14 @@ default:
         label_mysql: Managed Service for MySQL
         label_postgresql: Managed Service for PostgreSQL
       wizard:
+        axes:
+          linear: Linear
         tab:
           axes: Axes
+          downsampling: Downsampling
+        vis:
+          downsampling:
+            none: No downsampling
     yacloud_org:
       actions:
         add: Add
@@ -5755,6 +5789,8 @@ default:
             button_refill: Top up account
             popup-refill_button_company-action: Issue receipt
           detail:
+            button_export: Export details
+            label_title: Usage details
             popup-csv_button_download: Download
             tab_product: By product
           reconciliation-reports:
@@ -6167,6 +6203,7 @@ default:
           field_type: Type
         disk:
           overview:
+            label_snapshot: Snapshot
             label_status: Status
         disks:
           button_action-attach: Attach
@@ -6567,6 +6604,7 @@ default:
         field_admin-login: Login
         field_approval-rules: Approval rules
         field_approval-rules-token: Gitlab token
+        field_delete-untagged: Delete untagged images during maintenance
         field_domain: Domain
         label_admin-section: Administrator data
         label_configuration-section: Configuration
@@ -7207,6 +7245,7 @@ default:
             button_action-delete: Delete
             button_action-edit: Edit
             label_access-datalens: DataLens access
+            label_advanced-settings: DBMS settings
             label_bucket: Bucket name
             label_hdd: Storage
             label_health: State

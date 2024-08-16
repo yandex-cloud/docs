@@ -1,4 +1,4 @@
-# Решения для ClickHouse
+# Решения для {{ mch-name }}
 
 {% include [how-to-index](how-to/index.md) %}
 

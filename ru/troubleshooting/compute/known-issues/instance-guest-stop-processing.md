@@ -1,4 +1,4 @@
-# Виртуальная машина выключается операцией "Instance guest stop processing"
+# Виртуальная машина выключается операцией `Instance guest stop processing`
 
 
 ## Описание проблемы {#issue-description}

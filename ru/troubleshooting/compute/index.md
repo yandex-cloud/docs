@@ -1,4 +1,4 @@
-# Решения для Compute Cloud
+# Решения для {{ compute-name }}
 
 {% include [how-to-index](how-to/index.md) %}
 

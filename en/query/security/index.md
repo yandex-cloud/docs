@@ -32,7 +32,7 @@ You can manage access to {{ yq-name }} objects using both service and primitive 
 
 </center>
 
-The list below shows all roles that are considered when verifying access rights in the {{ yq-name }} service.
+The list below shows all roles considered when verifying access permissions in {{ yq-name }}.
 
 ### Service roles {#service-roles}
 

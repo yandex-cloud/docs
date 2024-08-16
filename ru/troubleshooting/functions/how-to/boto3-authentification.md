@@ -13,16 +13,17 @@
 {% note info %}
 
 К AWS-совместимым сервисам относятся:
-* [{{  yds-full-name }}](https://yandex.cloud/ru/docs/data-streams/);
-* [{{ objstorage-full-name }}](https://yandex.cloud/ru/docs/storage/); 
-* [{{ message-queue-full-name }}](https://yandex.cloud/ru/docs/message-queue/); 
-* [{{ ydb-full-name }}](https://yandex.cloud/ru/docs/ydb/).
+
+* [{{ yds-full-name }}](../../../data-streams/);
+* [{{ objstorage-full-name }}](../../../storage/); 
+* [{{ message-queue-full-name }}](../../../message-queue/); 
+* [{{ ydb-full-name }}](../../../ydb/).
 
 {% endnote %}
 
-В метаданных не хранятся AWS-ключи, только IAM-токен. Поэтому понадобится использовать либо [переменные окружения](../../../functions/operations/function/environment-variables-add.md), в которые явно заносить ключ и его секрет, либо предусмотреть [интеграцию с {{ lockbox-short-name }}](../../../lockbox/operations/serverless/functions.md).
+В метаданных не хранятся AWS-ключи, только {{ iam-short-name }}-токен. Поэтому понадобится использовать либо [переменные окружения](../../../functions/operations/function/environment-variables-add.md), в которые явно заносить ключ и его секрет, либо предусмотреть [интеграцию с {{ lockbox-short-name }}](../../../lockbox/operations/serverless/functions.md).
 
-Пример кода настройки boto3 для работы с S3 через переменные окружения:
+{% cut "Пример кода настройки `boto3` для работы с S3 через переменные окружения" %}
 
 ```python
 import os, boto3
@@ -38,3 +39,5 @@ s3 = boto3.client('s3',
 def handler(event, context):
     return s3.list_buckets()['Buckets']
 ```
+
+{% endcut %}

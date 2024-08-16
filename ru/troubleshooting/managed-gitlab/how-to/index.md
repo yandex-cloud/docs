@@ -1,6 +1,6 @@
-## Примеры конфигураций и сценариев Managed Service for GitLab {#configuration-examples}
+## Примеры конфигураций и сценариев {{ mgl-name }} {#configuration-examples}
 
-* [Изменение типа инстанса Managed Service for GitLab](change-gitlab-instance-flavour.md)
-* [Обновление ПО на инстансе Managed Service for GitLab](update-gitlab-software-version.md)
-* [Как настроить Cleanup Policy когда закончилось место](cleanup-policy.md)
+* [Как изменить тип инстанса {{ mgl-name }}](change-gitlab-instance-flavour.md)
+* [Как обновить ПО на инстансе {{ mgl-name }}](update-gitlab-software-version.md)
+* [Как настроить Cleanup Policy, когда закончилось место](cleanup-policy.md)
 * [Как настроить миграцию проектов](migrate-projects.md)

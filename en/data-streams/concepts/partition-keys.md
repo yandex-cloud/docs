@@ -4,9 +4,9 @@ The following examples illustrate the concepts of [partitions](glossary.md#hard)
 
 ## When the message processing order is important {#order}
 
-Let's consider a finance application that calculates the balance on a user's account and permits or prohibits debiting the funds.
+Let's consider a financial application that calculates the user's account balance and either allows or denies debiting the funds.
 
-For such tasks, you can use a [message queue](https://en.wikipedia.org/wiki/Message_queue). When you top up your account, debit funds, or make a purchase, a message with the account ID, amount, and transaction type is registered in the queue. The application processes incoming messages and calculates the balance.
+You can approach such tasks using a [message queue](https://en.wikipedia.org/wiki/Message_queue). When you top up your account, debit funds, or make a purchase, a message with the account ID, amount, and transaction type is registered in the queue. The application processes incoming messages and calculates the balance.
 
 
 

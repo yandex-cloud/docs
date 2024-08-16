@@ -1,115 +1,81 @@
 ---
-title: "{{ datalens-full-name }} release notes for June 2024"
-description: "Check out {{ datalens-full-name }} release notes for June 2024."
+title: "{{ datalens-full-name }} release notes for July 2024"
+description: "Check out {{ datalens-full-name }} release notes for July 2024."
 ---
 
-# {{ datalens-full-name }} release notes: June 2024
+# {{ datalens-full-name }} release notes: July 2024
 
 * [Updates](#updates)
 * [Fixes and improvements](#fixes)
-* [Mobile version updates](#mobile-version-changes)
 
 ## Updates {#updates}
 
-### Viewing linked objects {#related-objects-view}
-
-You can now see where an object is used or which objects it is using. To do this, click ![image](../../_assets/console-icons/ellipsis.svg) → **Linked objects** on the navigation page or object editing window. For example, this can give you a clue as to the sources used to build a dashboard or the charts based on a given dataset.
-
-{% cut "Linked object window" %}
-
-![image](../../_assets/datalens/release-notes/related-objects-view.png)
-
-{% endcut %}
-
-### Basic background color for widgets {#background-base-color}
-
-Now you can set the same background color for the [Text](../dashboard/widget.md#text) and [Header](../dashboard/widget.md#title) widgets as for charts and selectors: white for the light interface theme and dark gray for the dark one. To do this, set the background color to ![image](../../_assets/console-icons/chart-column.svg) **Basic** in the widget settings window.
-
-{% cut "**Text** widget settings window" %}
-
-![image](../../_assets/datalens/release-notes/background-base-color.png)
-
-{% endcut %}
-
-### Disabling default preview in a dataset {#preview-disable}
-
-Now you can [disable](../concepts/dataset/settings.md#preview-default) default data preview at the dataset level. This is especially useful when editing datasets with large numbers of complex [calculated fields](../concepts/calculations/index.md).
-
-### Displaying a header in the indicator {#indicator-title}
-
-You can now customize header appearance in the [Indicator](../visualization-ref/indicator-chart.md) chart's [settings](../concepts/chart/settings.md#common-settings):
-
-* `Field name`: Show header field name.
-* `Manually`: Rename header.
-* `Hide`: Hide header.
-
-{% cut "**Indicator** chart settings window" %}
-
-![image](../../_assets/datalens/release-notes/preview-disable.png)
-
-{% endcut %}
-
-### QL charts based on {{ ydb-name }} {#ydb-ql-chart}
-
-Now you can create [QL charts](../concepts/chart/ql-charts.md) based on a [{{ ydb-name }} connection](../operations/connection/create-ydb.md).
 
 
-### Undoing and redoing changes in the wizard {#undo-redo}
+### Grouping selectors on dashboards {#group-controls}
 
-When editing a chart, you can now undo/redo any change introduced within the current version:
+You can now group multiple [selectors](../dashboard/selector.md) within a single widget on the dashboard.
 
-* To undo changes, click ![image](../../_assets/console-icons/arrow-uturn-ccw-left.svg) in the top right corner of the screen or press **Ctrl** (**Cmd**) + **Z**.
-* To redo changes, click ![image](../../_assets/console-icons/arrow-uturn-cw-right.svg) or press **Ctrl** (**Cmd**) + **Shift** + **Z**.
+You can configure additional control buttons for widgets with one or more selectors:
+
+* **Apply button**: Applies the values of all selectors in the widget. The selector values are not applied until you click the button.
+* **Reset button**: Resets the values of all selectors in the widget to their defaults.
+
+For a widget with multiple selectors, you can configure their order and layout. You can set the width of each selector in pixels or as a percentage of the widget's total width. Specifying `100%` for each selector will create a vertical group. For more information, see [{#T}](../operations/dashboard/add-selector.md).
+
+![screenshot](../../_assets/datalens/dashboard/dashboard-group-selectors.svg)
 
 
+### Bulk operations with fields in a dataset {#bulk-changes}
+
+You can now select multiple [dataset](../concepts/dataset/index.md) fields at once to delete, hide, or display them.
+
+![screenshot](../../_assets/datalens/dataset/dataset-fields-bulk-changes.svg)
 
 ## Fixes and improvements {#fixes}
 
-### Pivot table sorting {#pivot-table-sorted}
+### Line shape for measures in the Y2 section {#y2-forms}
 
-Fixed a row sorting issue for the [pivot table](../visualization-ref/pivot-table-chart.md). The issue occurred after editing a [parameter](../concepts/parameters.md) in the [calculated field](../concepts/calculations/index.md) of a column or row.
+In the [line](../visualization-ref/line-chart.md) and [combination](../visualization-ref/combined-chart.md) charts, you can now customize the line shape for measures from the **Y2** section.
 
-### Date filtering in charts {#chart-date-filter}
+### Setting color for null values {#zero-colors}
 
-Fixed the date filtering behavior in charts. Now, dashboard [filters](../concepts/chart/settings.md#filter) use by default the **Equals** comparison operation instead of **Belongs to range** for fields of the [Date](../concepts/data-types.md#date) and [Date and time](../concepts/data-types.md#datetime) types.
+Fixed the issue in [pivot tables](../visualization-ref/pivot-table-chart.md) where color settings did not apply to null measure values.
 
+### Displaying a tooltip in maps {#map-tooltips}
 
-### Other fixes and improvements {#other-fixes}
+Fixed the tooltip display error on [maps](../visualization-ref/map-chart.md) in the wizard.
 
-{% list tabs %}
+### Searching for values in list selectors {#list-search}
 
-- Fixes
+Fixed an error when searching for values ​​in **List** type selectors.
 
-   * Increased the number of dashboard tabs whose names are not truncated in the drop-down list.
-   * Increased the width of the default value setting window for the **Calendar** type selector.
-   * Fixed line sorting in descending order for negative values in tooltips.
-   * Fixed an error where the chart saving option was not available after adding/removing a [tooltip](../visualization-ref/table-chart.md#hint-column) to/from a table field in the wizard.
-   * Fixed a header display issue in **Indicator** type charts where the chart name was always substituted from the dataset field name.
-   * Fixed an interface display issue in tables occurring on selecting a palette in a [linear indicator](../visualization-ref/table-chart.md#add-linear-indicator).
-   * Fixed a value loading error for chart [color customization](../concepts/chart/settings.md#color-settings).
-   * Fixed a pagination error in the [Pivot table](../visualization-ref/pivot-table-chart.md) type chart.
-   * Fixed tooltip display in the **Checkbox** type selector.
-   * Fixed incorrect chart rendering when the **Empty values (null)** parameter is set to `Do not show`.
-   * Fixed an issue where empty charts were invisibly overlapping the space below them on the dashboard.
-   * Fixed an error occurring on duplicating a dashboard from the navigation panel.
-   * Now, if you change field visibility (![image](../../_assets/console-icons/eye-slash.svg)) in the dataset field editor, an attempt to close the page will prompt an unsaved changes warning.
-   * Fixed the calculation of the [Text](../dashboard/widget.md#text) widget minimum height with **Auto height** enabled.
-   * Fixed display of the tooltip input field in the selector settings window. It is now displayed only if the **Tooltip** option is enabled.
+### Adding possible selector values {#selector-values}
 
-- Improvements
+For possible selector values ​​entered manually:
 
-   * Added a panel for migrating legacy dashboard configurations.
-   * Modified the navigation interface. Now, when you select multiple items from the navigation list for a bulk action, the ![image](../../_assets/console-icons/ellipsis.svg) icon at the top of the window gets hidden.
-
-{% endlist %}
+* Set up placing the cursor directly into the input field for you to start typing.
+* Enabled adding the values you enter by pressing **Enter**.
 
 
-## Mobile version updates {#mobile-version-changes}
+### Public dashboard label layout {#public-dash-footer}
 
-* The new menu at the top of the screen allows you to switch between navigation pages (**Charts**, **Dashboards**, and **Collections and workbooks**), change settings (language, theme), and contact support.
-* You can now open a chart preview from the new **Charts** navigation page.
-* Improved the **Collections and workbooks** navigation page.
-* Improved the appearance of pages and windows with bigger font sizes and interface elements.
-* Added a table of contents for dashboards.
-* Clicking the **Share** button now opens the link settings window.
+Improved label layout in [public dashboards](../concepts/datalens-public.md): long labels no longer overlap widgets.
 
+### Displaying tooltips of embedded charts in the mobile version {#mobile-tooltips}
+
+In the mobile version, tooltips for embedded public and private charts are now always located below the chart.
+
+### Warning when deleting keys for embedding {#delete-keys-warning}
+
+Added a warning pop-up window when deleting keys for [embedding private charts](../security/private-embedded-objects.md) or actual embeddings.
+
+### Displaying group selectors in the old link interface {#group-selectors-displaying}
+
+Fixed an error where widgets with a selector group were not displayed in the old [link](../dashboard/link.md) setup interface.
+
+
+
+### Height of the _Linked objects_ dialog window {#linked-objects}
+
+Increased the height of the **Linked objects** dialog window.

@@ -1,4 +1,4 @@
-# Решения для Serverless Containers
+# Решения для {{ serverless-containers-name }}
 
 {% include [how-to-index](how-to/index.md) %}
 

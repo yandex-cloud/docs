@@ -1,4 +1,4 @@
-# Решения для Container Registry
+# Решения для {{ container-registry-name }}
 
 {% include [how-to-index](how-to/index.md) %}
 

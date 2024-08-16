@@ -15,10 +15,10 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 
 ## Решение {#issue-resolution}
 
-Такое сообщение может быть связано с тем, что в коде при использовании `pandas` встречается «цепное назначение». Это сочетание цепочки и назначения в одном шаге. Чтобы избежать этого, рекомендуем использовать синтаксис `.loc[row_indexer,col_indexer]`, например:
+Такое сообщение может быть связано с тем, что в коде встречается «цепное назначение». Это сочетание цепочки и назначения в одном шаге. Чтобы избежать этого, рекомендуем использовать синтаксис `.loc[row_indexer,col_indexer]`, например:
 
 ```python
 df2 = df.loc[:, ['A']]
 ```
 
-Подробнее можно прочитать в [официальной документации `pandas`](https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy).
+Подробнее можно прочитать в [официальной документации pandas](https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy).

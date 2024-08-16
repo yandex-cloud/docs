@@ -200,6 +200,8 @@ items:
         href: metrics-ref/at-ref.md
       - name: '{{ certificate-manager-name }}'
         href: metrics-ref/certificate-manager-ref.md
+      - name: '{{ backup-name }}'
+        href: metrics-ref/backup-ref.md
       - name: '{{ cdn-name }}'
         href: metrics-ref/cdn-ref.md
       - name: '{{ sf-name }}'

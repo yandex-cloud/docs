@@ -581,17 +581,17 @@ To move a database to a different availability zone, follow [this guide](migrati
 
 ## Assigning a role for a database {#add-access-binding}
 
-You can grant a user, service account, or user group access to a {{ ydb-name }} database. To do this, assign a [role](../../iam/concepts/access-control/roles.md) for the database. To choose the appropriate role, [find out](../security/index.md#roles-list) which ones exist in the service.
+You can grant access to a {{ ydb-name }} database to a user, service account, or user group. To do this, assign a [role](../../iam/concepts/access-control/roles.md) for the database. To choose the one you need, [learn](../security/index.md#roles-list) about the service's roles.
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder where the database is located.
+   1. In the [management console]({{ link-console-main }}), select the folder the database resides in.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
-   1. Click the name of the database you need.
+   1. Click the name of the database.
    1. Go to the ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** section and click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
-   1. Select the group, user, or service account to grant access to the database.
+   1. Select the group, user, or service account you want to grant access to the database.
    1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the roles.
    1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
 
@@ -603,19 +603,19 @@ You can grant a user, service account, or user group access to a {{ ydb-name }} 
 
    To assign a role for a database:
 
-   1. See the description of the CLI command for assigning roles:
+   1. See the description of the CLI role assignment command:
 
       ```bash
       yc ydb database add-access-binding --help
       ```
 
-   1. Get a list of databases along with their IDs:
+   1. Get a list of databases with their IDs:
 
       ```bash
       yc ydb database list
       ```
 
-   1. Get the [ID of the user](../../iam/operations/users/get.md), [service account](../../iam/operations/sa/get-id.md), or user group you are assigning roles to.
+   1. Get the [ID of the user](../../iam/operations/users/get.md), [service account](../../iam/operations/sa/get-id.md), or user group you are assigning a role to.
    1. Use one of these commands to assign a role:
 
       * To a user:
@@ -660,8 +660,8 @@ You can grant a user, service account, or user group access to a {{ ydb-name }} 
 
    * `ADD` in the `access_binding_deltas[].action` parameter to add a role.
    * Role in the `access_binding_deltas[].access_binding.role_id` parameter.
-   * ID of the subject being assigned the role in the `access_binding_deltas[].access_binding.subject.id` parameter.
-   * Type of the subject being assigned the role in the `access_binding_deltas[].access_binding.subject.id` parameter.
+   * ID of the subject you are assigning the role to in the `access_binding_deltas[].access_binding.subject.id` parameter.
+   * Type of the subject you are assigning the role to in the `access_binding_deltas[].access_binding.subject.id` parameter.
 
 {% endlist %}
 
@@ -671,11 +671,11 @@ You can grant a user, service account, or user group access to a {{ ydb-name }} 
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder where the database is located.
+   1. In the [management console]({{ link-console-main }}), select the folder the database resides in.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
-   1. Click the name of the database you need.
+   1. Click the name of the database.
    1. Go to the ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** section and click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
-   1. Select the group, user, or service account to grant access to the database.
+   1. Select the group, user, or service account you want to grant access to the database.
    1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the roles.
    1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
 
@@ -689,29 +689,29 @@ You can grant a user, service account, or user group access to a {{ ydb-name }} 
 
    To assign multiple roles for a database:
 
-   1. Make sure the database has no roles assigned that you would rather not lose:
+   1. Make sure the database has no roles assigned that you would not want to lose:
 
       ```bash
       yc ydb database list-access-bindings \
          --id <database_ID>
       ```
 
-   1. See the CLI command description for assigning roles:
+   1. See the description of the CLI role assignment command:
 
       ```bash
       yc ydb database set-access-bindings --help
       ```
 
-   1. Get a list of databases along with their IDs:
+   1. Get a list of databases with their IDs:
 
       ```bash
       yc ydb database list
       ```
 
-   1. Get the [ID of the user](../../iam/operations/users/get.md), [service account](../../iam/operations/sa/get-id.md), or user group you assign roles to.
+   1. Get the [ID of the user](../../iam/operations/users/get.md), [service account](../../iam/operations/sa/get-id.md), or user group you are assigning roles to.
    1. Use one of the commands below to assign roles:
 
-      * To a user with a Yandex account:
+      * To a Yandex account user:
 
          ```bash
          yc ydb database set-access-bindings \
@@ -757,11 +757,11 @@ You can grant a user, service account, or user group access to a {{ ydb-name }} 
 
    {% include [set-access-bindings-api](../../_includes/iam/set-access-bindings-api.md) %}
 
-   Use the [DatabaseService/SetAccessBindings](../api-ref/grpc/database_service.md#SetAccessBindings) gRPC API call. Provide an array of objects in your request, with each object associated with a particular role and containing the following data:
+   Use the [DatabaseService/SetAccessBindings](../api-ref/grpc/database_service.md#SetAccessBindings) gRPC API call. In your request, provide an array of objects, each one corresponding to a particular role and containing the following data:
 
    * Role in the `access_bindings[].role_id` parameter.
-   * ID of the subject being assigned the roles in the `access_bindings[].subject.id` parameter.
-   * Type of the subject being assigned the roles in the `access_bindings[].subject.type` parameter.
+   * ID of the subject you are assigning the roles to in the `access_bindings[].subject.id` parameter.
+   * Type of the subject you are assigning the roles to in the `access_bindings[].subject.type` parameter.
 
 {% endlist %}
 

@@ -103,6 +103,7 @@ default:
   connection-manager-name: Connection Manager
   console-full-name: Yandex Cloud Console
   console-host: console.cloud.yandex.ru
+  console-name: Cloud Console
   container-registry-full-name: Yandex Container Registry
   container-registry-name: Container Registry
   container-registry-short-name: Container Registry
@@ -4229,6 +4230,20 @@ default:
           edit: Редактировать
         blocks_w-grid-preview:
           data_type: Тип данных
+    datalens:
+      component:
+        aside-header:
+          view:
+            switch_datasets: Датасеты
+            switch_root: Все объекты
+      connection:
+        connections-list:
+          modify:
+            button_create-connection: Создать подключение
+      editor:
+        templates:
+          view:
+            label_metric: Индикатор
     forms:
       common:
         blocks_correct-answers:
@@ -5037,6 +5052,7 @@ default:
     yacloud_billing_account:
       cloud-billing-account:
         account_label_new: Новый плательщик
+        base_label_payer: Плательщик
         label_card-add: Добавить карту
         label_wizard-next: Вперед
         payment-type_label_card: Банковская карта
@@ -5199,6 +5215,9 @@ default:
         key-values-input:
           label_key: Ключ
           label_value: Значение
+      iam:
+        cloud:
+          label_acl: Права доступа
     yacloud_components:
       acl:
         action:
@@ -5211,6 +5230,9 @@ default:
           service-accounts: Сервисные аккаунты
           title: Настройка прав доступа
           user-accounts: Пользовательские аккаунты
+      cloud:
+        button_delete: Удалить
+        label_delete-now: Удалить сейчас
       forms:
         label_value: Значение
       marketplace:
@@ -5227,10 +5249,13 @@ default:
         button_submit: Подтвердить
         field_theme: Тема интерфейса
         field_theme-contrast: Контрастность
+        label_alerting-name: Мониторинг
         label_monitoring-name: Мониторинг
         label_telegram: Telegram
         label_title_appearance: Оформление
         label_title_region: Язык и регион
+        section_email: Настройки почтового ящика
+        section_phone: Настройки номера телефона
         section_settings: Настройки уведомлений
         section_transports: Способы уведомления
       usermenu:
@@ -5265,6 +5290,8 @@ default:
         label_evaluation-window: Окно вычисления
         label_trigger-condition: Условие срабатывания
         label_warning: Warning
+        method_email: Email
+        method_sms: SMS
         section_alert-conditions: Настройки алерта
         section_metrics: Метрики
         section_notifications: Каналы уведомлений
@@ -5322,6 +5349,7 @@ default:
       dashboard:
         dash:
           create-alert: Создать алерт
+          open-in-monitoring: Открыть в Мониторинге
         settings:
           dashboard-settings: Настройки дашборда
         tab:
@@ -5388,8 +5416,14 @@ default:
         label_mysql: Managed Service for MySQL
         label_postgresql: Managed Service for PostgreSQL
       wizard:
+        axes:
+          linear: Линейный
         tab:
           axes: Оси
+          downsampling: Прореживание
+        vis:
+          downsampling:
+            none: Без прореживания
     yacloud_org:
       actions:
         add: Добавить
@@ -5761,6 +5795,8 @@ default:
             button_refill: Пополнить баланс
             popup-refill_button_company-action: Выписать счет
           detail:
+            button_export: Экспорт детализации
+            label_title: Детализация
             popup-csv_button_download: Скачать
             tab_product: По продуктам
           reconciliation-reports:
@@ -6173,6 +6209,7 @@ default:
           field_type: Тип
         disk:
           overview:
+            label_snapshot: Снимок
             label_status: Статус
         disks:
           button_action-attach: Присоединить
@@ -6575,6 +6612,7 @@ default:
         field_admin-login: Логин
         field_approval-rules: Правила ревью кода
         field_approval-rules-token: Gitlab токен
+        field_delete-untagged: Удалять образы без тегов при обслуживании
         field_domain: Домен
         label_admin-section: Данные администратора
         label_configuration-section: Конфигурация
@@ -7215,6 +7253,7 @@ default:
             button_action-delete: Удалить
             button_action-edit: Редактировать
             label_access-datalens: Доступ из DataLens
+            label_advanced-settings: Настройки СУБД
             label_bucket: Имя бакета
             label_hdd: Хранилище
             label_health: Состояние

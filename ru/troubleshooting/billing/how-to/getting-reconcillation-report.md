@@ -13,36 +13,31 @@
 
 - Юридические лица и ИП
 
-    Сформировать и загрузить акт сверки за один или несколько закрытых отчетных периодов можно, перейдя в раздел **{{ ui-key.yacloud_billing.billing.account.switch_acts }}** [на странице свойств платежного аккаунта]({{ link-console-billing }})
+    Сформировать и загрузить акт сверки за один или несколько закрытых отчетных периодов можно, перейдя в раздел **{{ ui-key.yacloud_billing.billing.account.switch_acts }}** [на странице свойств платежного аккаунта]({{ link-console-billing }}).
 
     Акт сверки за текущий месяц можно заказать спустя 7 рабочих дней после его завершения.
 
     Чтобы заказать акт сверки:
     1. В консоли управления в левом верхнем углу нажмите значок ![image](../../../_assets/main-menu.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}** и выберите сервис [**{{ billing-name }}**]({{ link-console-billing }}).
-    2. На странице **{{ ui-key.yacloud_billing.billing.title_accounts }}** выберите платежный аккаунт.
-    3. Перейдите в раздел **{{ ui-key.yacloud_billing.billing.account.switch_acts }}**.
-    4. Откройте вкладку **{{ ui-key.yacloud_billing.billing.account.tab_reconciliation-reports-title }}**.
-    5. Нажмите на кнопку **{{ ui-key.yacloud_billing.billing.account.reconciliation-reports.action_request-report }}**. В открывшемся окне выберите период, за который требуется сформировать акт сверки, и нажмите **{{ ui-key.yacloud_billing.billing.account.reconciliation-reports.action_request-report-short }}**.
-    6. Когда статус запроса изменится на **{{ ui-key.yacloud_billing.billing.account.reconciliation-reports.value_completed }}**, в столбце **{{ ui-key.yacloud_billing.billing.account.reconciliation-reports.field_actions }}** появится кнопка для скачивания. Выберите **{{ ui-key.yacloud_billing.billing.account.reconciliation-reports.action_download-with-facsimile }}** или **{{ ui-key.yacloud_billing.billing.account.reconciliation-reports.action_download-without-facsimile }}**.
+    1. На странице **{{ ui-key.yacloud_billing.billing.title_accounts }}** выберите платежный аккаунт.
+    1. Перейдите в раздел **{{ ui-key.yacloud_billing.billing.account.switch_acts }}**.
+    1. Откройте вкладку **{{ ui-key.yacloud_billing.billing.account.tab_reconciliation-reports-title }}**.
+    1. Нажмите на кнопку **{{ ui-key.yacloud_billing.billing.account.reconciliation-reports.action_request-report }}**. В открывшемся окне выберите период, за который требуется сформировать акт сверки, и нажмите **{{ ui-key.yacloud_billing.billing.account.reconciliation-reports.action_request-report-short }}**.
+    1. Когда статус запроса изменится на **{{ ui-key.yacloud_billing.billing.account.reconciliation-reports.value_completed }}**, в столбце **{{ ui-key.yacloud_billing.billing.account.reconciliation-reports.field_actions }}** появится кнопка для скачивания. Выберите **{{ ui-key.yacloud_billing.billing.account.reconciliation-reports.action_download-with-facsimile }}** или **{{ ui-key.yacloud_billing.billing.account.reconciliation-reports.action_download-without-facsimile }}**.
 
     {% note info %}
 
-    Если на странице управления платежным аккаунтом отсутствует раздел **{{ ui-key.yacloud_billing.billing.account.switch_acts }}** или кнопка **{{ ui-key.yacloud_billing.billing.account.reconciliation-reports.action_request-report }}**, это означает, что у вашей учетной записи в облаке не хватает необходимых ролей.
-    Запросите у владельца платежного аккаунта роль `billing.accounts.viewer`.
+    Если на странице управления платежным аккаунтом отсутствует раздел **{{ ui-key.yacloud_billing.billing.account.switch_acts }}** или кнопка **{{ ui-key.yacloud_billing.billing.account.reconciliation-reports.action_request-report }}**, это означает, что у вашей учетной записи в облаке не хватает необходимых ролей. Запросите у владельца платежного аккаунта роль `billing.accounts.viewer`.
 
     {% endnote %}
 
     Также вы можете сформировать и загрузить доступные акты сверки в [Яндекс Балансе](https://balance.yandex.ru/reconciliations.xml)
 
-    Если вам нужен подписанный ООО «Яндекс.Облако» оригинал документа, то отправьте, пожалуйста, акт в двух экземплярах по адресу:
+    Если вам нужен подписанный ООО «Яндекс.Облако» оригинал документа, то отправьте акт в двух экземплярах по адресу:
 
-    
-    * Почтой России: 115035, г.Москва, ул. Садовническая, д. 82, стр. 2. ФИО получателя указывать не требуется.
-    * Курьером: 115035, Москва, ул. Садовническая, д. 82, стр. 2
-    Вход с ул. Садовническая, между 5 и 6 подъездами БЦ «Аврора». Курьерский ресепшен работает с понедельника по пятницу с 9:00 д о 18:00,
-    телефон +7 (495) 739-70-00, далее - 1, после включения голосового меню •7704
-
-
+    * Почтой России: 115035, г. Москва, ул. Садовническая, д. 82, стр. 2. ФИО получателя указывать не требуется.
+    * Курьером: 115035, Москва, ул. Садовническая, д. 82, стр. 2;
+    Вход с ул. Садовническая, между 5 и 6 подъездами БЦ «Аврора». Курьерский ресепшен работает с понедельника по пятницу с 9:00 до 18:00, телефон +7 (495) 739-70-00, далее - 1, после включения голосового меню •7704.
 
     Ваш экземпляр будет подписан и отправлен вам обратно.
 
@@ -55,14 +50,14 @@
 - Физические лица
 
     Для физических лиц скачивание отчетных документов в настоящий момент недоступно.
+    
     Воспользуйтесь [детализацией по вашему платежному аккаунту](../../../billing/operations/check-charges.md), чтобы получить информацию об услугах потребленных за один или несколько отчетных периодов.
 
 {% endlist %}
 
-## Если ничего не получилось {#if-issue-still-persists}
+## Если ничего не получилось {#if-nothing-worked}
 
-Если вышеописанные рекомендации не помогли решить задачу, [создайте запрос в техническую поддержку]({{ link-console-support }}).
-При создании запроса укажите следующую информацию:
+Если вышеописанные рекомендации не помогли решить задачу, [создайте запрос в техническую поддержку]({{ link-console-support }}). При создании запроса укажите следующую информацию:
 
-1. Номер договора с ООО «Яндекс.Облако» (имеет вид `ХХХХХХ/ХХ`) либо идентификатор платежного аккаунта. Он имеет вид `d2nXXXXXXXXXXXXXXXXX`. Этот идентификатор можно найти [на странице с данными по платежному аккаунту]({{ link-console-billing }}).
-1. ИНН/КПП вашей организации.
+1. Номер договора с ООО «Яндекс.Облако» (имеет вид `XXXXXX/XX`) либо идентификатор платежного аккаунта. Он имеет вид `d2nXXXXXXXXXXXXXXXXX`. Этот идентификатор можно найти [на странице с данными по платежному аккаунту]({{ link-console-billing }}).
+1. ИНН или КПП вашей организации.

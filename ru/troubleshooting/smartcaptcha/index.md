@@ -1,4 +1,4 @@
-# Решения для SmartCaptcha
+# Решения для {{ captcha-name }}
 
 {% include [how-to-index](how-to/index.md) %}
 

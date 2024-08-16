@@ -1,4 +1,4 @@
-# Решения для Managed Service for PostgreSQL
+# Решения для {{ mpg-name }}
 
 {% include [how-to-index](how-to/index.md) %}
 

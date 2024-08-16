@@ -1,4 +1,4 @@
-# Решения для Консоли управления
+# Решения для {{ console-name }}
 
 {% include [how-to-index](how-to/index.md) %}
 

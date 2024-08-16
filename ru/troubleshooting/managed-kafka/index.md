@@ -1,4 +1,4 @@
-# Решения для Managed Service for Kafka
+# Решения для {{ mkf-name }}
 
 {% include [how-to-index](how-to/index.md) %}
 

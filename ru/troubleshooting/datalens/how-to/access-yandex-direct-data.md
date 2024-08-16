@@ -1,9 +1,12 @@
-# Подключение к Яндекс Директ из DataLens
+# Как подключиться к {{ yandex-direct }} из {{ datalens-name }}
+
 
 ## Описание задачи {#case-description}
-Возникла необходимость настроить подключение к данным из Яндекс Директа в DataLens.
+
+Необходимо настроить подключение к данным из {{ yandex-direct }} в {{ datalens-name }}.
 
 ## Решение {#case-resolution}
 
-Вы можете запрашивать данные из [API Яндекс Директа](https://yandex.ru/dev/direct/#start) с помощью [Cloud Functions](../../../functions/quickstart/index.md).
-Для этого понадобится создать функцию, которая будет сохранять данные из Яндекс Директа в промежуточной БД, например в кластер [Managed Service for Clickhouse](../../../managed-clickhouse/quickstart.md). Затем на стороне DataLens потребуется [настроить подключение](../../../datalens/operations/connection/create-clickhouse.md) к этой базе данных.
+Вы можете запрашивать данные из [API {{ yandex-direct }}](https://yandex.ru/dev/direct/#start) с помощью [{{ sf-name }}](../../../functions/quickstart/index.md).
+
+Для этого понадобится создать функцию, которая будет сохранять данные из {{ yandex-direct }} в промежуточной базе данных, например в кластер [{{ mch-full-name }}](../../../managed-clickhouse/quickstart.md). Затем на стороне {{ datalens-name }} потребуется [настроить подключение](../../../datalens/operations/connection/create-clickhouse.md) к этой БД.

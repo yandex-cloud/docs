@@ -1,7 +1,7 @@
-## Примеры конфигураций и сценариев DataLens {#configuration-examples}
+## Примеры конфигураций и сценариев {{ datalens-name }} {#configuration-examples}
 
-* [Подключение к Яндекс Директ из DataLens](access-yandex-direct-data.md)
-* [Получение токена для подключения к БД Битрикс24 из DataLens](get-bitrix24-token-connector.md)
+* [Как подключиться к {{ yandex-direct }} из {{ datalens-name }}](access-yandex-direct-data.md)
+* [Как получить токен для подключения к БД Битрикс24 из {{ datalens-name }}](get-bitrix24-token-connector.md)
 * [Как подключиться к коннектору МойСклад](marketplace-connector-support.md)
 * [Как восстановить сломанный датасет](restoring-dataset.md)
 * [Как восстановить удаленные объекты](restoring-deleted-objects.md)
