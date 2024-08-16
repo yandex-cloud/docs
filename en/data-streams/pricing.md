@@ -4,7 +4,7 @@ description: "This article describes the {{ yds-name }} pricing policy."
 editable: false
 ---
 
-# {{ yds-full-name }} pricing
+# {{ yds-full-name }} pricing policy
 
 
 
@@ -33,7 +33,7 @@ Data processing cost per month (for a 31-day month):
 
 
 
-{% include [usd.md](../_pricing/data-streams/usd-example.md) %}
+{% include [usd.md](../_pricing_examples/data-streams/usd-data-streams.md) %}
 
 
 ## Prices for the Russia region {#prices}
@@ -54,10 +54,6 @@ The first 2,000,000 units of written data per month are free of charge.
 
 The price is specified for one hour of using allocated resources:
 
-#### Data storage price with segment throughput limit of up to 128 KB/s {#up-to-128}
-
-
-#### Data storage price with segment throughput limit of up to 512 KB/s {#up-to-512}
 
 
 #### Data storage price with segment throughput limit of up to 1 MB/s {#up-to-1}
@@ -82,3 +78,4 @@ If pricing based on the actual usage is used:
 * Data streams stored in [{{ ydb-short-name }} serverless databases](../ydb/concepts/serverless-and-dedicated.md#serverless) are charged for based on the [pricing policy for {{ ydb-short-name }} serverless mode](../ydb/pricing/serverless.md).
 
 * Data streams stored in [{{ ydb-short-name }} dedicated databases](../ydb/concepts/serverless-and-dedicated.md#dedicated) are not charged for separately (you only pay for a dedicated database, see the [pricing policy for dedicated databases](../ydb/pricing/dedicated.md)).
+

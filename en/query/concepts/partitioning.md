@@ -123,7 +123,7 @@ If other data types are used for partitioning, an error is returned.
 
 ## Supported storage path formats {#formats}
 
-Storage path format where each folder's name explicitly specifies a column name is called [Hive-Metastore format](https://en.wikipedia.org/wiki/Apache_Hive) or just Hive format.
+The storage path format where each folder name explicitly specifies a column name is called [Hive-Metastore format](https://en.wikipedia.org/wiki/Apache_Hive) or just Hive format.
 
 This format looks as follows:
 ```

@@ -1,3 +1,3 @@
-## Решения для известных проблем Консоли управления {#configuration-examples}
+## Решения для известных проблем {{ console-name }} {#known-issues-resolving}
 
-* [Устранение ошибки подключения к консоли](console-connection-timeout.md)
+* [Устранение ошибки подключения к {{ console-name }}](console-connection-timeout.md)

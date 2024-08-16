@@ -1,5 +1,19 @@
 # {{ websql-full-name }} release notes: 2024
 
+## July {#july}
+
+### Improvements {#improvements-july}
+
+1. Query history displays users who ran the queries.
+1. Enabled running queries without exporting the connection structure.
+1. Added support for long-running database queries.
+1. Added information about databases and certificates to the connection card.
+
+### Fixed issues {#fixes-july}
+
+1. Fixed the error when running all DML queries in a {{ CH }} cluster.
+1. Fixed the query editor issue for Safari version 15.
+
 ## June {#june}
 
 ### New features {#new-features-june}

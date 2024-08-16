@@ -1,4 +1,4 @@
-# Решения для Yandex Monitoring
+# Решения для {{ monitoring-name }}
 
 {% include [how-to-index](how-to/index.md) %}
 

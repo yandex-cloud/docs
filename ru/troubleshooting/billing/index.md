@@ -1,4 +1,4 @@
-# Решения для Cloud Billing
+# Решения для {{ billing-name }}
 
 {% include [how-to-index](how-to/index.md) %}
 

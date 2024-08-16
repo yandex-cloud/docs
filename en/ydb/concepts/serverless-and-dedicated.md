@@ -62,7 +62,7 @@ Since the storage size in a serverless DB is indefinitely large, the maximum amo
 
 The **Maximum amount of data** limit for a serverless DB enables you to restrict the amount of data in this DB allowed by {{ ydb-short-name }}. By default, a limit of 50 GB is set for new DBs, which limits your monthly charges for the amount of stored data to approximately ₽650 according to the pricing at the time of this writing (₽13.41 per GB, 1 GB for free).
 
-You can change the **Maximum amount of data** limit interactively at any time, both via the UI console and the CLI and raise or reduce it without limitations. This allows you to quickly adjust it as needed.
+You can change the **Maximum amount of data** limit interactively at any time, either via the GUI console or the CLI, to increase or reduce it without any limitations. This allows you to quickly adjust it as needed.
 
 We do not recommend setting the **Maximum amount of data** limit below the current actual amount; otherwise, all data modification operations, including `DELETE`, will become unavailable. You will only be able to reduce the amount of data with the `DROP TABLE` or `DROP INDEX` commands. If the limit is accidentally set below the actual size, we recommend returning it to the operating value exceeding the actual size with some redundancy.
 

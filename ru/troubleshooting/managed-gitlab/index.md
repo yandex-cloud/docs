@@ -1,4 +1,4 @@
-# Решения для Managed Service for GitLab
+# Решения для {{ mgl-name }}
 
 {% include [how-to-index](how-to/index.md) %}
 

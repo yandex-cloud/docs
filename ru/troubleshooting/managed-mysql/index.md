@@ -1,4 +1,4 @@
-# Решения для Managed Service for MySQL
+# Решения для {{ mmy-name }}
 
 {% include [how-to-index](how-to/index.md) %}
 

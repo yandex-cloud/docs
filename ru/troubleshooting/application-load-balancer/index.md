@@ -1,4 +1,4 @@
-# Решения для Application Load Balancer
+# Решения для {{ alb-name }}
 
 {% include [how-to-index](how-to/index.md) %}
 
