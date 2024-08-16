@@ -1,4 +1,4 @@
-# Решения для Yandex Cloud Identity and Access Management
+# Решения для {{ iam-name }}
 
 {% include [how-to-index](how-to/index.md) %}
 

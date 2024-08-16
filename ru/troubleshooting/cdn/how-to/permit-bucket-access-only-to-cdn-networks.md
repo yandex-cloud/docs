@@ -15,8 +15,8 @@
 
 Список задействованных сервисом IP-адресов и подсетей можно получить по следующим ссылкам:
 
-- [Список публичных IP-адресов провайдера EdgeЦентр](https://api.edgecenter.ru/cdn/public_ips_list);
-- [Список подсетей провайдера EdgeЦентр c указанием CIDR](https://api.edgecenter.ru/cdn/public_net_list).
+* [Список публичных IP-адресов провайдера EdgeЦентр](https://api.edgecenter.ru/cdn/public_ips_list);
+* [Список подсетей провайдера EdgeЦентр c указанием CIDR](https://api.edgecenter.ru/cdn/public_net_list).
 
 {% note info %}
 

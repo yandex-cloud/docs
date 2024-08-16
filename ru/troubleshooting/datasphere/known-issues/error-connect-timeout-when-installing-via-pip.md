@@ -3,7 +3,7 @@
 
 ## Описание проблемы {#issue-description}
 
-Попытка установки новых пакетов Python в проекте {{ ml-platform-full-name }} возвращает ошибку:
+Попытка установки новых пакетов Python в проекте {{ ml-platform-short-name }} возвращает ошибку:
 ```
 % pip install langchain
 Defaulting to user installation because normal site-packages is not writeable

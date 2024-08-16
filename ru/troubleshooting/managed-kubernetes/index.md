@@ -1,4 +1,4 @@
-# Решения для Managed Service for Kubernetes
+# Решения для {{ managed-k8s-name }}
 
 {% include [how-to-index](how-to/index.md) %}
 

@@ -9,6 +9,7 @@ description: "На странице приведен список справоч
 * [{{ api-gw-full-name }}](api-gateway-ref.md)
 * [{{ alb-full-name }}](alb-ref.md)
 * [{{ at-full-name }}](at-ref.md)
+* [{{ backup-full-name }}](backup-ref.md)
 * [{{ certificate-manager-full-name }}](certificate-manager-ref.md)
 * [{{ cdn-full-name }}](cdn-ref.md)
 * [{{ sf-full-name }}](functions-ref.md)

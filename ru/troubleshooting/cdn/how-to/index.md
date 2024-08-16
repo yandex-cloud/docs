@@ -1,3 +1,3 @@
-## Примеры конфигураций и сценариев Cloud CDN {#configuration-examples}
+## Примеры конфигураций и сценариев {{ cdn-short-name }} {#configuration-examples}
 
-* [Ограничение доступа к бакету Object Storage диапазоном IP-адресов, принадлежащих Cloud CDN](permit-bucket-access-only-to-cdn-networks.md)
+* [Как ограничить доступ к бакету {{ objstorage-name }} диапазоном IP-адресов, принадлежащих {{ cdn-name }}](permit-bucket-access-only-to-cdn-networks.md)

@@ -1,4 +1,4 @@
-## Решения для известных проблем Yandex Monitoring
+## Решения для известных проблем {{ monitoring-name }}
 
 * [Графики мониторинга имеют разрывы и пустоты при нормальной работе облачных ресурсов](gaps-in-chart-lines.md)
-* [Не приходят алерты о событиях после настройки канала уведомлений в Yandex Monitoring](no-incoming-sms-and-emails-after-alert-config.md)
+* [Не приходят оповещения о событиях после настройки канала уведомлений в {{ monitoring-name }}](no-incoming-sms-and-emails-after-alert-config.md)

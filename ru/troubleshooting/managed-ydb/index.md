@@ -1,4 +1,4 @@
-# Решения для Managed Service for YDB
+# Решения для {{ ydb-name}}
 
 {% include [how-to-index](how-to/index.md) %}
 

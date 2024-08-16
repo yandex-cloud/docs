@@ -8,7 +8,10 @@
 
 {% endnote %}
 
-Привязать облако клиента к партнерскому сабаккаунту можно на партнерском портале или в консоли управления.
+Привязать облако клиента к партнерскому сабаккаунту можно на партнерском портале или в консоли управления. Для привязки вам потребуются роли:
+
+* на [платежный аккаунт](../../billing/security/index.md#roles-list) — `billing.accounts.owner`, `admin` или `editor`;
+* на [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud) — `resource-manager.clouds.owner`.
 
 {% list tabs group=instructions %}
 

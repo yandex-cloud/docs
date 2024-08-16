@@ -297,7 +297,7 @@
   1. В блоке **{{ ui-key.yacloud.ydb.forms.label_section-network }}** настройте параметры сети:
       1. (Опционально) В поле **{{ ui-key.yacloud.ydb.forms.field_public-ips }}** выберите опцию **{{ ui-key.yacloud.ydb.forms.label_text-public-ips }}**, если вы планируете отправлять запросы к базе не только из сети {{ yandex-cloud }}, но и через интернет.
 
-          {% include  [traffic_metering](../_includes/traffic_metering.md) %}
+          {% include [traffic_metering](../_includes/traffic_metering.md) %}
 
       1. Выберите существующую сеть из списка **{{ ui-key.yacloud.ydb.forms.field_network }}** или создайте новую:
           * Нажмите кнопку **{{ ui-key.yacloud.ydb.forms.button_create-network-new }}**.
@@ -389,7 +389,7 @@
         network_id          = "<идентификатор_сети>"
         subnet_ids          = ["<идентификатор_подсети_1>", "<идентификатор_подсети_2>", "<идентификатор_подсети_3>"]
 
-        resource_preset_id  = "<конфигурация_вычислительных_ресурсов>"      
+        resource_preset_id  = "<конфигурация_вычислительных_ресурсов>"
         deletion_protection = "<защита_от_удаления>"
 
         scale_policy {
@@ -401,7 +401,7 @@
         storage_config {
           group_count     = <количество_групп_хранения>
           storage_type_id = "<тип_носителя>"
-        }     
+        }
       }
      ```
 

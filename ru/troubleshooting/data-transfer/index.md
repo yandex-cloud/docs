@@ -1,4 +1,4 @@
-# Решения для Data Transfer
+# Решения для {{ data-transfer-name }}
 
 {% include [how-to-index](how-to/index.md) %}
 

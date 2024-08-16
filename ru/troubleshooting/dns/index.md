@@ -1,4 +1,4 @@
-# Решения для Cloud DNS
+# Решения для {{ dns-name }}
 
 {% include [how-to-index](how-to/index.md) %}
 

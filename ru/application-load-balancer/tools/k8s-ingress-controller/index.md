@@ -62,10 +62,6 @@ spec:
 
 При такой конфигурации ресурса `Ingress` в [ALB Ingress Controller](/marketplace/products/yc/alb-ingress-controller) версии 0.2.0 и позднее [группы бэкендов](principles.md) соответствуют параметру `backend.service`. В версиях 0.1.x используются другие параметры: `host`, `http.paths.path` и `http.paths.pathType`. В результате при обновлении ALB Ingress Controller могут возникнуть коллизии. Чтобы избежать их, [узнайте, применимы ли ограничения при обновлении](../../operations/k8s-ingress-controller-upgrade.md) к вашей инфраструктуре.
 
-## Настройки логирования {#log-options}
-
-Чтобы задать настройки логирования для L7-балансировщика, созданного с помощью Ingress-контроллера {{ alb-name }} в кластере {{ managed-k8s-name }}, добавьте аннотацию `ingress.alb.yc.io/group-settings-name` с именем для настроек группы ресурсов Ingress и укажите настройки в дополнительном ресурсе `IngressGroupSettings`. Подробнее см. в разделе [Аннотации ресурса Ingress](../../k8s-ref/ingress.md#annotations).
-
 ## Установка и требования {#install}
 
 Для установки Ingress-контроллера {{ alb-name }} требуются:
@@ -75,6 +71,16 @@ spec:
 * Пространство имен в кластере для хранения ключа [сервисного аккаунта](service-account.md).
 
 Установить Ingress-контроллер можно по [инструкции](../../operations/k8s-ingress-controller-install.md).
+
+## Настройки логирования {#log-options}
+
+Чтобы задать настройки логирования для L7-балансировщика, созданного с помощью Ingress-контроллера {{ alb-name }} в кластере {{ managed-k8s-name }}, добавьте аннотацию `ingress.alb.yc.io/group-settings-name` с именем для настроек группы ресурсов Ingress и укажите настройки в дополнительном ресурсе `IngressGroupSettings`. Подробнее см. в разделе [Аннотации ресурса Ingress](../../k8s-ref/ingress.md#annotations).
+
+## Интеграция с сервисом {{ sws-full-name }} {#smart-web-security}
+
+В Ingress-контроллере вы можете включить поддержку сервиса [{{ sws-full-name }}](../../../smartwebsecurity/concepts/index.md), который позволяет защититься от [DDoS-атак](../../../glossary/ddos.md) и ботов, а также задействовать [WAF](../../../smartwebsecurity/concepts/waf.md) и [ограничить нагрузку](../../../smartwebsecurity/concepts/arl.md) на защищаемый ресурс.
+
+{% include [annot-description](../../../_includes/managed-kubernetes/alb-ref/annot-security-profile-id.md) %}
 
 ## Маршрутизация трафика с помощью нескольких Ingress-контроллеров {#ingress-class}
 

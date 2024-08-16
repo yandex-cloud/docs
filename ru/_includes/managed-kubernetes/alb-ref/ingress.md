@@ -94,6 +94,7 @@ annotations:
   ingress.alb.yc.io/modify-header-response-replace: <string>
   ingress.alb.yc.io/modify-header-response-rename: <string>
   ingress.alb.yc.io/modify-header-response-remove: <string>
+  ingress.alb.yc.io/security-profile-id: <string>
   ingress.alb.yc.io/use-regex: <string>
 ```
 
@@ -116,7 +117,7 @@ annotations:
 
   Имя группы ресурсов `Ingress`. Для каждой группы создается отдельный балансировщик. Несколько ресурсов `Ingress` можно объединить в одну группу, чтобы не создавать балансировщик для каждого отдельного ресурса `Ingress`. Подробнее о формате см. в [документации {{ k8s }}](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
 
-  Поле обязательно даже если ресурс `Ingress` — единственный в группе.
+  Поле обязательно, даже если ресурс `Ingress` — единственный в группе.
 
 * **ingress.alb.yc.io/subnets** {#annot-subnets}
 
@@ -198,7 +199,7 @@ annotations:
 
   {% endnote %}
 
-  Протокол шифрования соединений между балансировщиком и бэкендами, указанными в `Ingress` напрямую (без `HttpBackendGroup`):
+  Протокол шифрования соединений между балансировщиком и бэкендами, указанными в `Ingress` напрямую (без `HttpBackendGroup`).
 
   Допустимое значение: `tls` — TLS без проверки сертификата.
 
@@ -312,6 +313,12 @@ annotations:
   ```
 
   Где `<ключ>` — имя удаляемого заголовка.
+
+* **ingress.alb.yc.io/security-profile-id** {#annot-security-profile-id}
+
+  Включает поддержку сервиса [{{ sws-full-name }}](../../../smartwebsecurity/concepts/index.md), который позволяет защититься от [DDoS-атак](../../../glossary/ddos.md) и ботов, а также задействовать [WAF](../../../smartwebsecurity/concepts/waf.md) и [ограничить нагрузку](../../../smartwebsecurity/concepts/arl.md) на защищаемый ресурс.
+
+  {% include [annot-description](annot-security-profile-id.md) %}
 
 * **ingress.alb.yc.io/use-regex** {#annot-use-regex}
 
