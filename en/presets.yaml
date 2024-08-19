@@ -4358,7 +4358,7 @@ default:
               comment: Comment text
             property:
               ignoreCase: Ignore case
-              noMatchBefore: Didn't match before
+              noMatchBefore: Parameter changed
               removeMarkup: Ignore markup
             type:
               links:
@@ -5238,6 +5238,8 @@ default:
         label_inherited-subscribers: Default subscribers
         label_subscribers-dialog-header: Adding users
         label_users: Users
+      request-alpha-flag-dialog:
+        button_send: Send request
       settings:
         button_add-empty-telegram: Set up
         button_submit: Confirm
@@ -6004,6 +6006,7 @@ default:
         button_logout: Log out
         button_update: Update
         cancel: Cancel
+        clear: Clear
         clone: Clone
         continue: Continue
         create: Create
@@ -6119,7 +6122,10 @@ default:
           condition_and: and
           condition_full-trafic: All traffic
           condition_name-authority: Host
+          condition_name-body: HTTP body
+          condition_name-cookie: Cookie
           condition_name-header: HTTP header
+          condition_name-host: Host
           condition_name-httpMethod: HTTP method
           condition_name-ip-range: IP
           condition_name-requestUri: Request URI
@@ -7657,7 +7663,7 @@ default:
             label_title-test-result: Test result
             value_alice-skill: Alice's skill
             value_empty: Without preset
-            value_http-request: HTTPS invoke
+            value_http-request: HTTPS call
             value_ymq-trigger: Trigger for Message Queue
         list:
           button_action-delete: Delete
@@ -7746,6 +7752,15 @@ default:
           button_create: Create connection
       smart-web-security:
         action_empty: Create
+        arl:
+          column_rule-conditions: Conditions for traffic
+          label_connected-security-profiles: Connecting a security profile
+          label_create-profile: Create ARL profile
+          label_profiles: ARL profiles
+          label_rule-without-grouping: No grouping
+          label_save-rule: Save rule
+          section_rules: Rules
+          title_profile: ARL profile
         attach-dialog:
           action_add-balancer: Add load balancer
           action_connect: Connect
@@ -7756,6 +7771,7 @@ default:
           button_add-rule: Add rule
           label_action-allow: Allow
           label_action-deny: Deny
+          label_arl-profile: ARL profile
           label_default-action: Action for the default base rule
           section_security-rules: Security rules
         label_search-rule-type: 'Rule type:'
@@ -7781,9 +7797,26 @@ default:
         title_no-template: From scratch
         title_profiles: Security profiles
         waf:
+          action_exclusion-rule-add-rules: Add rules
+          field_analyze-request-body: Inspect request body
+          field_logging: Write logs
+          field_max-request-body-size: Maximum request body size
+          label_action-edit-settings: Configure basic rule set
+          label_analyze-request-body-action-deny: Block request
+          label_analyze-request-body-action-ignore: Do not analyze body
+          label_anomaly-threshold: Anomaly threshold
+          label_create-exclusion-rule: Create exception rule
           label_create-profile: Create WAF profile
+          label_paranoia-level: Paranoia level
           label_profiles: WAF profiles
+          label_save-settings: Save settings
+          section_analyze-request: Request analysis
           title_connected-profiles: Connected security profiles
+          title_exclusion-rule-condition-section: Traffic conditions
+          title_exclusion-rule-rules-section: Scope of use
+          title_exclusion-rules: Exclusion rules
+          value_exclude-all-no: Selected rules
+          value_exclude-all-yes: All rules
       smartcaptcha:
         button_captcha-settings-create: Create captcha
         label_additional-challenge: Additional challenge
@@ -8851,7 +8884,7 @@ default:
                         title: Subnet ID
                     PostgresConnection:
                       connection_type:
-                        title: Connection type
+                        title: Installation type
                       database:
                         title: Database
                       password:

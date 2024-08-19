@@ -79,7 +79,8 @@
             {% include [Maintenance window](../../_includes/mdb/console/maintenance-window-description.md) %}
 
         * {% include [Datalens access](../../_includes/mdb/console/datalens-access.md) %}
-        * {% include [DataTransfer access](../../_includes/mdb/console/datatransfer-access.md) %}
+
+
         * {% include [Deletion protection](../../_includes/mdb/console/deletion-protection.md) %}
 
             {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
@@ -235,20 +236,22 @@
 
         {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
-    1. Чтобы разрешить доступ из [{{ datalens-full-name }}](../../datalens/concepts/index.md) или [{{ data-transfer-full-name }}](../../data-transfer/), передайте значение `true` в соответствующих параметрах при создании кластера:
+    1. Чтобы разрешить доступ из [{{ datalens-full-name }}](../../datalens/concepts/index.md), передайте значение `true` в соответствующих параметрах при создании кластера:
 
+
+        
         ```bash
         {{ yc-mdb-gp }} cluster create <имя_кластера> \
            ...
-           --datalens-access=<доступ_из_datalens> \
-           --datatransfer-access=<доступ_из_data_transfer>
+           --datalens-access=<доступ_из_DataLens>
         ```
+
 
         Где:
 
         * `--datalens-access` — доступ из {{ datalens-full-name }}: true или false.
-        * `--datatransfer-access` — доступ из {{ data-transfer-full-name }}: true или false.
-        
+
+
 - {{ TF }} {#tf}
 
     {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}

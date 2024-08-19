@@ -184,7 +184,8 @@ keywords:
           Операции по обслуживанию проводятся для включенных и выключенных кластеров. Во время обслуживания могут, например, применяться патчи или обновляться СУБД.
 
       * `--read-admin-password` — пароль пользователя `admin`. Если указать параметр в команде, после ее ввода будет предложено ввести пароль.
-      * `--data-transfer-access` — доступ из [{{ data-transfer-full-name }}](../../data-transfer/index.yaml): `true` или `false`.
+
+
       * `--serverless-access` — доступ из [{{ serverless-containers-full-name }}](../../serverless-containers/index.yaml): `true` или `false`.
       * `--plugins` — [плагины {{ OS }}](../concepts/plugins.md), которые нужно установить в кластер.
       * `--advanced-params` — дополнительные параметры кластера. Возможные значения:
