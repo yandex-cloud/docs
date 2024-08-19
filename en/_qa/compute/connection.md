@@ -61,7 +61,7 @@ Common causes of errors include:
 To solve the issue, try to specify the appropriate private key using the `-i` flag when connecting to your VM:
 
 ```bash
-ssh -i <key_path/key_file_name><username>@<VM_public_IP_address>
+ssh -i <key_path/key_file_name> <username>@<VM_public_IP_address>
 ```
 
 #### How do I set up an RDP/VNC connection to a Linux VM? {#set-rdp-vnc-to-linux}
