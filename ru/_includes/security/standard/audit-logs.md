@@ -66,7 +66,8 @@
 Вы также можете анализировать аудит логи вручную, если у вас отсутствует SIEM система, одним из следующих образов (в порядке удобства):
 
 * [поиск](../../../audit-trails/tutorials/query.md) событий {{ yandex-cloud }} в {{ yq-full-name }};
-* [загрузка](../../../audit-trails/tutorials/logs-analysis.md) аудитных логов в {{ mch-full-name }} и визуализация данных в {{ datalens-full-name }};
+
+
 * [поиск](../../../audit-trails/tutorials/search-cloud-logging.md) событий {{ yandex-cloud }} в {{ cloud-logging-name }};
 * [поиск](../../../audit-trails/tutorials/search-bucket.md) событий {{ yandex-cloud }} в {{ objstorage-name }}.
 

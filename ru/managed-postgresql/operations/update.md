@@ -449,7 +449,6 @@ description: "Из статьи вы узнаете, как изменить н�
 
     {% include [Performance diagnostic API](../../_includes/mdb/mpg/performance-diagnostics-api.md) %}
 
-    {% include [datatransfer access](../../_includes/mdb/api/datatransfer-access-create.md) %}
 
 {% endlist %}
 

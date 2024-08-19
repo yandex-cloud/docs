@@ -1,22 +1,25 @@
 # Создать профиль ARL
 
-{% include [note-preview-arl](../../_includes/smartwebsecurity/note-preview-arl.md) %}
+{% note info %}
+
+Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md). Чтобы получить к ней доступ, при создании первого профиля ARL опишите, как вы планируете использовать ARL, и нажмите кнопку **{{ ui-key.yacloud_components.request-alpha-flag-dialog.button_send }}**.
+
+После одобрения заявки вы сможете перейти к созданию профиля ARL.
+
+{% endnote %}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите создать профиль ARL.
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы хотите создать [профиль ARL](../concepts/arl.md).
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
-  1. Перейдите на вкладку ![image](../../_assets/smartwebsecurity/arl.svg) **Профили ARL** и нажмите кнопку **Создать профиль ARL**.
-  1. Опишите, как вы планируете использовать ARL, и нажмите кнопку **Отправить заявку**.
-
-      После одобрения заявки вы сможете перейти к созданию профиля ARL.
+  1. На панели слева выберите ![image](../../_assets/smartwebsecurity/arl.svg) **{{ ui-key.yacloud.smart-web-security.arl.label_profiles }}** и нажмите кнопку **{{ ui-key.yacloud.smart-web-security.arl.label_create-profile }}**.
   1. Введите имя профиля.
   1. (опционально) Введите описание.
-  1. (опционально) Добавьте профилю [метку](../../resource-manager/concepts/labels.md).
-  1. [Добавьте правила ARL](arl-rule-add.md).
-  1. Нажмите кнопку **Создать**.
+  1. (опционально) Добавьте профилю [метки](../../resource-manager/concepts/labels.md).
+  1. [Добавьте](arl-rule-add.md) правила ARL.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 

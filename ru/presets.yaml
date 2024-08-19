@@ -5244,6 +5244,8 @@ default:
         label_inherited-subscribers: Подписчики по умолчанию
         label_subscribers-dialog-header: Добавление пользователей
         label_users: Пользователи
+      request-alpha-flag-dialog:
+        button_send: Отправить заявку
       settings:
         button_add-empty-telegram: Настроить
         button_submit: Подтвердить
@@ -6010,6 +6012,7 @@ default:
         button_logout: Выйти
         button_update: Обновить
         cancel: Отменить
+        clear: Очистить
         clone: Клонировать
         continue: Продолжить
         create: Создать
@@ -6125,7 +6128,10 @@ default:
           condition_and: и
           condition_full-trafic: Весь трафик
           condition_name-authority: Host
+          condition_name-body: HTTP body
+          condition_name-cookie: Cookie
           condition_name-header: HTTP header
+          condition_name-host: Host
           condition_name-httpMethod: HTTP method
           condition_name-ip-range: IP
           condition_name-requestUri: Request URI
@@ -7754,6 +7760,15 @@ default:
           button_create: Создать подключение
       smart-web-security:
         action_empty: Создать
+        arl:
+          column_rule-conditions: Условия на трафик
+          label_connected-security-profiles: Подключенные профили безопасности
+          label_create-profile: Создать профиль ARL
+          label_profiles: Профили ARL
+          label_rule-without-grouping: Без группировки
+          label_save-rule: Сохранить правило
+          section_rules: Правила
+          title_profile: Профиль ARL
         attach-dialog:
           action_add-balancer: Добавить балансировщик
           action_connect: Подключить
@@ -7764,6 +7779,7 @@ default:
           button_add-rule: Добавить правило
           label_action-allow: Разрешить
           label_action-deny: Запретить
+          label_arl-profile: Профиль ARL
           label_default-action: Действие для базового правила по умолчанию
           section_security-rules: Правила безопасности
         label_search-rule-type: 'Тип правила:'
@@ -7789,9 +7805,26 @@ default:
         title_no-template: С чистого листа
         title_profiles: Профили безопасности
         waf:
+          action_exclusion-rule-add-rules: Добавить правила
+          field_analyze-request-body: Инспектировать тело запроса
+          field_logging: Запись логов
+          field_max-request-body-size: Максимальный размер тела запроса
+          label_action-edit-settings: Настроить набор базовых правил
+          label_analyze-request-body-action-deny: Блокировать запрос
+          label_analyze-request-body-action-ignore: Не анализировать тело запроса
+          label_anomaly-threshold: Порог аномальности
+          label_create-exclusion-rule: Создать правило-исключение
           label_create-profile: Создать профиль WAF
+          label_paranoia-level: Уровень паранойи
           label_profiles: Профили WAF
+          label_save-settings: Сохранить настройки
+          section_analyze-request: Анализ запроса
           title_connected-profiles: Подключённые профили безопасности
+          title_exclusion-rule-condition-section: Условия на трафик
+          title_exclusion-rule-rules-section: Область применения
+          title_exclusion-rules: Правила-исключения
+          value_exclude-all-no: Выбранные правила
+          value_exclude-all-yes: Все правила
       smartcaptcha:
         button_captcha-settings-create: Создать капчу
         label_additional-challenge: Дополнительное задание
@@ -8859,7 +8892,7 @@ default:
                         title: Идентификатор подсети
                     PostgresConnection:
                       connection_type:
-                        title: Тип подключения
+                        title: Тип инсталляции
                       database:
                         title: База данных
                       password:
