@@ -148,7 +148,8 @@ description: "Следуя данной инструкции, вы сможет�
             {% include [Maintenance window](../../_includes/mdb/console/maintenance-window-description.md) %}
 
         * {% include [Datalens access](../../_includes/mdb/console/datalens-access.md) %}
-        * {% include [DataTransfer access](../../_includes/mdb/console/datatransfer-access.md) %}
+
+
         * {% include [Deletion protection](../../_includes/mdb/console/deletion-protection.md) %}
 
             {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
@@ -187,17 +188,19 @@ description: "Следуя данной инструкции, вы сможет�
 
     1. Выполните команду, передав список настроек, которые хотите изменить:
 
+
+        
         ```bash
         {{ yc-mdb-gp }} cluster update <имя_или_идентификатор_кластера> \
             --backup-window-start <время_начала_резервного_копирования> \
-            --datalens-access=<доступ_из_datalens> \
-            --datatransfer-access=<доступ_из_data_transfer> \
+            --datalens-access=<доступ_из_DataLens> \
             --maintenance-window type=<тип_технического_обслуживания>,`
                                 `day=<день_недели>,`
                                 `hour=<час_дня> \
             --assign-public-ip=<публичный_доступ_к_кластеру> \
-            --deletion-protection=<защита_от_удаления_кластера> \
+            --deletion-protection=<защита_от_удаления_кластера>
         ```
+
 
     Вы можете изменить следующие настройки:
 
@@ -205,7 +208,6 @@ description: "Следуя данной инструкции, вы сможет�
 
     * `--datalens-access` — разрешает доступ из [{{ datalens-full-name }}](../../datalens/concepts/index.md). Значение по умолчанию — `false`.
 
-    * `--datatransfer-access` — разрешает доступ из [{{ data-transfer-full-name }}](../../data-transfer/). Значение по умолчанию — `false`.
 
     * `--maintenance-window` — настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров), где `type` — тип технического обслуживания:
 

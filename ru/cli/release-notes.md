@@ -1205,7 +1205,6 @@ description: "На странице представлены релизы YC CLI
   * `yc managed-greenplum cluster update` — позволяет изменять настройки уже созданных кластеров.
   * `yc managed-greenplum cluster update-config` — позволяет изменять параметры конфигурации уже созданных кластеров.
 
-* В команду `yc managed-greenplum create cluster` добавлен флаг `--datatransfer-access` для разрешения доступа из {{ data-transfer-name }}.
 
 
 
@@ -1430,26 +1429,16 @@ description: "На странице представлены релизы YC CLI
 * В команду `yc managed-clickhouse cluster restore` добавлен флаг `--folder-id` для указания каталога, в котором будет создан восстановленный кластер.
 
 * В команду `yc managed-clickhouse cluster update` добавлен флаг:
-  * `--datatransfer-access` — для разрешения доступа к кластеру из сервиса {{ data-transfer-name }}.
+
+
   * `--yandexquery-access` — для разрешения доступа к кластеру из сервиса {{ yq-full-name }}.
 
-**{{ mkf-name }}**
-
-* В команды `yc managed-kafka cluster [ create | update ]` добавлен флаг `--datatransfer-access` для разрешения доступа к кластеру из сервиса {{ data-transfer-name }}.
-
-**{{ mmg-name }}**
-
-* В команды `yc managed-mongodb cluster [ create | restore | update ]` добавлен флаг `--datatransfer-access` для разрешения доступа к кластеру из сервиса {{ data-transfer-name }}.
 
 **{{ mmy-name }}**
 
-* В команды `yc managed-mysql cluster [ create | restore | update ]` добавлен флаг `--datatransfer-access` для разрешения доступа к кластеру из сервиса {{ data-transfer-name }}.
 
 * В команду `yc managed-mysql cluster update` добавлен флаг `--performance-diagnostics`, позволяющий управлять настройками сервиса диагностики производительности.
 
-**{{ mpg-name }}**
-
-* В команды `yc managed-postgresql cluster [ create | restore | update ]` добавлен флаг `--datatransfer-access` для разрешения доступа к кластеру из сервиса {{ data-transfer-name }}.
 
 ### Версия 0.89.0 (23.03.22) {#version0.89.0}
 

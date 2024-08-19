@@ -262,7 +262,7 @@ keywords:
 
         {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
-    * `--data-transfer-access` — доступ из [{{ data-transfer-full-name }}](../../data-transfer/index.yaml): `true` или `false`.
+
     * `--serverless-access` — доступ из [{{ serverless-containers-full-name }}](../../serverless-containers/index.yaml): `true` или `false`.
 
 - {{ TF }} {#tf}

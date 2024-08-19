@@ -2,7 +2,7 @@
 yc smartwebsecurity security-profile get <имя_или_идентификатор_профиля_безопасности>
 ```
 
-Результат:
+{% cut "Результат:" %}
 
 ```yaml
 id: fev450d61ucv********
@@ -67,3 +67,5 @@ security_rules:
     description: My first security rule. This rule it's just example to show possibilities of configuration.
 created_at: "2024-08-05T17:54:48.898624Z"
 ```
+
+{% endcut %}
