@@ -57,13 +57,11 @@ jobs:
 
       - name: Run CSpell
         run: |
-          CHANGED_FILES="${{ steps.pr_diff.outputs.PR_DIFF }}"
+          $CHANGED_FILES="${{ steps.changed-files.outputs.PR_DIFF }}"
           echo "Files to check:"
           echo "$CHANGED_FILES"
           echo "Running CSpell..."
-          cspell --config ./cspell.json \
-                 --show-context \
-                 $CHANGED_FILES
+          cspell --config ./cspell.json --show-context $CHANGED_FILES
         continue-on-error: true
 
       - name: Comment PR
@@ -71,7 +69,7 @@ jobs:
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
-            const cspellResult = ${{ steps.cspell.outputs.CSPELL_RESULT }};
+            const cspellResult = ${{ steps.spellcheck.outputs.CSPELL_RESULT }};
             const commentBody = `
             ## CSpell Check Results
 
@@ -86,5 +84,5 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
               issue_number: context.issue.number,
-              body: commentBody,
+              body: commentBody
             });
