@@ -71,8 +71,7 @@ jobs:
           script: |
             const cspellResult = ${{ steps.spellcheck.outputs.CSPELL_RESULT }};
             const commentBody = `
-            ## CSpell Check Results
-
+            ## CSpell Check Result
             \\\`
             ${cspellResult}
             \\\`
@@ -80,9 +79,9 @@ jobs:
             Please review and correct any spelling errors.
             `;
 
-            await github.rest.issues.createComment({
+            github.rest.issues.createComment({
               owner: context.repo.owner,
               repo: context.repo.repo,
               issue_number: context.issue.number,
               body: commentBody
-            });
+            })
