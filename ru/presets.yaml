@@ -290,6 +290,7 @@ default:
   link-speechsense-main: https://speechsense.yandex.cloud/
   link-support-mail: cloud@support.yandex.ru
   link-tracker: https://tracker.yandex.ru/
+  link-video-main: https://video.yandex.cloud/
   link-wiki: https://wiki.yandex.ru/
   link-ya-360-notfree: https://yandex.ru/support/business/payment/disable-free-version.html
   link-yandex: https://yandex.ru
@@ -707,6 +708,7 @@ default:
   v100-broadwell: Intel Broadwell with NVIDIA® Tesla® V100
   v100-cascade-lake: Intel Cascade Lake with NVIDIA® Tesla® V100
   video-full-name: Yandex Cloud Video
+  video-name: Cloud Video
   vision-full-name: Yandex Vision OCR
   vision-name: Vision OCR
   vision-short-name: Vision OCR
@@ -5244,6 +5246,8 @@ default:
         label_inherited-subscribers: Подписчики по умолчанию
         label_subscribers-dialog-header: Добавление пользователей
         label_users: Пользователи
+      organization:
+        action_send-invitation: Отправить приглашение
       request-alpha-flag-dialog:
         button_send: Отправить заявку
       settings:
@@ -5594,6 +5598,65 @@ default:
         products: Продукты
         publisher-users: Управление доступом
         support: Поддержка
+    yacloud_video:
+      channels:
+        action_create-channel: Создать канал
+        label_description: Описание
+        label_title: Имя
+      common:
+        action_accept: Сохранить
+        action_add: Добавить
+        action_create: Создать
+        action_delete: Удалить
+        action_download: Скачать
+        action_edit: Редактировать
+        statistics: Статистика
+      dashboard:
+        action_add-user: Добавить участника
+        action_go-to-org: Перейти в организацию
+      stream-lines:
+        action_create-line: Создать линию
+        label_input-stream-protocol: Протокол входного потока
+        label_input-stream-type: Тип потока
+        label_server-address: Адрес сервера
+        label_stream-key: Ключ трансляции
+        label_url: Адрес сервера
+        title_lines: Линии
+      streams:
+        action_add-stream-episode: Добавить эпизод
+        action_copy-code: Скопировать
+        action_create-stream: Создать трансляцию
+        action_start-stream: Начать
+        action_stop-stream: Завершить
+        label_episode-autoplay: Запускать видео автоматически
+        label_episode-hidden: Скрывать элементы управления в плеере
+        label_episode-mute: По умолчанию воспроизводить без звука (рекомендуется)
+        label_stream-type: Тип потока
+        label_type-on-demand: По требованию
+        label_type-schedule: По расписанию
+        status_finished: Finished
+        status_offline: Offline
+        status_on-air: On air
+        status_preparing: Preparing
+        status_ready: Ready
+        title_past-code: Встроить на сайте
+        title_stream-episodes: Эпизоды
+        title_streams: Трансляции
+      thumbnails:
+        label_thumbnail: Обложка
+      videos:
+        action_create-video: Загрузить видео
+        label_allow-access: Разрешить доступ
+        label_title: Название
+        label_visibility-status: Публичный доступ
+        status_error: Error
+        status_processing: Processing
+        status_published: Published
+        status_ready: Ready
+        status_unpublished: Unpublished
+        status_wait-uploading: Uploading
+        title_past-code: Код вставки
+        title_videos: Видео
     yacloud:
       airflow:
         button_create-cluster: Создать кластер

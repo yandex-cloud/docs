@@ -75,14 +75,14 @@ env:
   docker: <Docker_image_ID>  # Docker image available in the project {{ ml-platform-name }}
   # You can also specify a Docker image in an image registry
   # docker:
-  #   image: <image_path_in_registry>:<tag>  # E.g., <{{ registry }}/crtabcdef12345678900/myenv:0.1>
+  #   image: <image_path_in_registry>:<tag>  # For example, <{{ registry }}/crtabcdef12345678900/myenv:0.1>
                                               # For Docker Hub, it is enough to specify `<name>:<tag>`, e.g., `ubuntu:focal`
   #   username: <username>
   #   password: <password> # in text format or {{ ml-platform-name }} secret name
   #   # password:
   #   #   secret-id: PASSWORD
 
-  # Environmet dependency build method
+  # Environment dependency build method
   python: auto # Fully automated environment build
 
   # python: # Environment parameters are set manually. If no parameters are specified, their values will be determined from the current environment automatically
@@ -123,8 +123,8 @@ The job `config.yaml` file contains multiple sections.
 
    There are two ways to set up the environment for your Python projects:
 
-   * Allow {{ ml-platform-name }} to automatically identify all required dependencies, analyze the current environment on your local computer, and build and migrate the environment on its own. To enable this, set `python: auto` in the `env` section.
-   * You can specify the Python interpreter version and used libraries yourself directly in the configuration file or in a separate `requirements.txt` file. If you explicitly set at least one parameter, missing parameter values will be fetched from the current environment automatically.
+   * Allow {{ ml-platform-name }} to automatically identify all required dependencies, analyze the current environment on your local computer, and build and migrate the environment. To enable this option, set `python: auto` in the `env` section.
+   * You yourself can specify the Python interpreter version and the libraries you are going to use directly in the configuration file or a separate `requirements.txt` file. If you explicitly set at least one parameter, the missing ones will be fetched from the current environment automatically.
 
    {% note warning %}
 

@@ -17,9 +17,9 @@ To use the {{ speechsense-name }} API, [create](../../iam/operations/sa/create.m
       1. [Get an IAM token](../../iam/operations/iam-token/create-for-sa.md).
       1. Specify the obtained IAM token in the `Authorization` header in the following format:
 
-          ```
-          Authorization: Bearer <IAM token>
-          ```
+         ```
+         Authorization: Bearer <IAM_token>
+         ```
 
    * With [API keys](../../iam/concepts/authorization/api-key).
 
@@ -32,9 +32,9 @@ To use the {{ speechsense-name }} API, [create](../../iam/operations/sa/create.m
       1. [Get an API key](../../iam/operations/api-key/create.md).
       1. Specify the obtained API key in the `Authorization` header in the following format:
 
-          ```
-          Authorization: Api-Key <API key>
-          ```
+         ```
+         Authorization: Api-Key <API_key>
+         ```
 
    Do not specify the folder ID in your requests, as {{ yagpt-name }} uses the folder in which the service account was created.
 

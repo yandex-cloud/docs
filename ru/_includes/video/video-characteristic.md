@@ -1,0 +1,3 @@
+Поддерживается загрузка видео в следующих форматах: [MP4](https://ru.wikipedia.org/wiki/MPEG-4_Part_14), [AVI](https://ru.wikipedia.org/wiki/Audio_Video_Interleave), [MKV](https://ru.wikipedia.org/wiki/Matroska), [FLV](https://ru.wikipedia.org/wiki/Flash_Video), [MOV](https://en.wikipedia.org/wiki/QuickTime_File_Format).
+
+В сервисе действуют [ограничения](../../video/concepts/limits.md) на разрешение публикуемых видео.
