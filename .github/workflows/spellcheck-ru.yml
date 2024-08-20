@@ -5,34 +5,13 @@ on:
     types: [created]
 
 jobs:
-  spellcheck:
-    if: github.event.issue.pull_request && github.event.comment.body == '/check-ru'
+  cspell-check:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v2
         with:
           fetch-depth: 0
-
-      - name: Get changed files
-        id: changed-files
-        run: |
-          if [[ $GITHUB_EVENT_NAME == 'pull_request' ]]; then
-            PR_NUMBER=$(echo $GITHUB_REF | awk 'BEGIN { FS = "/" } ; { print $3 }')
-            git fetch origin pull/$PR_NUMBER/head:pr-$PR_NUMBER
-            echo "PR_DIFF<<EOF" >> $GITHUB_OUTPUT
-            git diff --name-only origin/${{ github.base_ref }} pr-$PR_NUMBER >> $GITHUB_OUTPUT
-            echo "EOF" >> $GITHUB_OUTPUT
-          else
-            echo "PR_DIFF<<EOF" >> $GITHUB_OUTPUT
-            git diff --name-only ${{ github.event.before }} ${{ github.sha }} >> $GITHUB_OUTPUT
-            echo "EOF" >> $GITHUB_OUTPUT
-          fi
-        shell: /usr/bin/bash -e {0}
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18'
 
       - name: Install CSpell and dictionaries
         run: |
@@ -55,33 +34,28 @@ jobs:
               exit 1
           fi
 
-      - name: Run CSpell
+      - name: Check diff
         run: |
-          $CHANGED_FILES="${{ steps.changed-files.outputs.PR_DIFF }}"
-          echo "Files to check:"
-          echo "$CHANGED_FILES"
-          echo "Running CSpell..."
-          cspell --config ./cspell.json --show-context $CHANGED_FILES
-        continue-on-error: true
+          cspell --config ./cspell.json --show-context
 
-      - name: Comment PR
+      - name: Comment on PR
         uses: actions/github-script@v6
         with:
-          github-token: ${{secrets.GITHUB_TOKEN}}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const cspellResult = ${{ steps.spellcheck.outputs.CSPELL_RESULT }};
-            const commentBody = `
-            ## CSpell Check Result
-            \\\`
-            ${cspellResult}
-            \\\`
-
-            Please review and correct any spelling errors.
-            `;
-
-            github.rest.issues.createComment({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: context.issue.number,
-              body: commentBody
+            github.issues.createComment({
+              issue_number: github.context.issue.number,
+              owner: github.context.repo.owner,
+              repo: github.context.repo.repo,
+              body: 'CSpell check result:\n' + github.actions.getCommandOutput('cspell-check')
             })
+
+      - name: Trigger on /check-ru comment
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const comment = github.context.payload.comment.body;
+            if (comment === '/check-ru') {
+              github.actions.setCommandOutput('cspell-check', 'true');
+            }
