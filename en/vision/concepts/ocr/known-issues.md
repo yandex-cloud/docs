@@ -7,7 +7,6 @@ description: "Text recognition currently works with a number of restrictions. Re
 
 Text recognition currently works with a number of restrictions. Make sure to consider them before getting started:
 
-* The recognition accuracy (`confidence`) value is only calculated for a `line`. For words and languages, it will be borrowed from the line's value.
 * You will see a single language for all recognized words, even though they are recognized in all languages from the supported [model](supported-languages.md). For example, if you specify `["en", "ar"]` and the text has mostly English words, all words will be marked as `en`, including those in Arabic.
 * The text recognition feature may have difficulties with:
    * Artistic fonts.

@@ -99,6 +99,7 @@
 * [{{ compute-name }}](../../compute/pricing.md#cvos)
 * [{{ mkf-name }}](../../managed-kafka/pricing.md#cvos)
 * [{{ mch-name }}](../../managed-clickhouse/pricing.md#cvos)
+* [{{ mgp-name }}](../../managed-greenplum/pricing/index.md#cvos)
 * [{{ mmy-name }}](../../managed-mysql/pricing.md#cvos)
 * [{{ mos-name }}](../../managed-opensearch/pricing.md#cvos)
 * [{{ mpg-name }}](../../managed-postgresql/pricing.md#cvos)

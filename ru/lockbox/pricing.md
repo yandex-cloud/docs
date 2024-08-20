@@ -59,3 +59,26 @@ editable: false
 
 
 
+
+### Пример расчета стоимости {#price-example}
+
+Пример расчета стоимости использования {{ lockbox-name }} в месяц для следующей конфигурации:
+
+* количество секретов: 3, у каждого секрета 5 версий;
+* количество операций `get` со всеми секретами: 20 000.
+
+
+{% list tabs group=pricing %}
+
+- Расчет в рублях {#prices-rub}
+
+  {% include [rub-lockbox](../_pricing_examples/lockbox/rub.md) %}
+
+- Расчет в тенге {#prices-kzt}
+
+  {% include [kzt-lockbox](../_pricing_examples/lockbox/kzt.md) %}
+
+{% endlist %}
+
+
+

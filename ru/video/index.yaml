@@ -1,0 +1,34 @@
+title: Yandex Cloud Video
+description:
+  - >-
+    <i>Yandex Cloud Video находится на <a
+    href="/docs/overview/concepts/launch-stages">стадии Preview</a>.</i>
+  - >-
+    Yandex Cloud Video — комплексная платформа управления видеоконтентом.
+    Воспользуйтесь полным набором инструментов для хранения, обработки и
+    хостинга видео, а также запуска онлайн-трансляций. Трансляции и видео
+    воспроизводятся в интегрированном видеоплеере.
+meta:
+  title: Yandex Cloud Video
+links:
+  - title: Начало работы
+    description: Загрузите первое видео или создайте первую трансляцию
+    href: quickstart-overview
+  - title: Пошаговые инструкции
+    description: Инструкции по выполнению рутинных операций
+    href: operations/
+  - title: Концепции
+    description: Узнайте про каналы, трансляции, линии и видео
+    href: concepts/
+  - title: Квоты и лимиты
+    description: Технические и организационные ограничения сервиса
+    href: concepts/limits
+  - title: Управление доступом
+    description: Настройте права доступа для работы с сервисом
+    href: security/
+  - title: Правила тарификации
+    description: Цены и правила расчета стоимости услуг сервиса
+    href: pricing
+  - title: Справочник API (англ.)
+    description: Описание вызовов gRPC API
+    href: api-ref/grpc/

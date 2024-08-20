@@ -1,0 +1,134 @@
+title: Yandex Cloud Video
+href: index.yaml
+label:
+  title: RU
+  description: Сервис доступен только в регионе Россия.
+  theme: unknown
+  when: region == "kz"
+stage: preview
+items:
+  - name: Начало работы
+    items:
+      - name: Обзор
+        href: quickstart-overview.md
+      - name: Хостинг видео
+        href: hosting.md
+      - name: Видеотрансляция
+        href: streaming.md
+  - name: Пошаговые инструкции
+    items:
+      - name: Все инструкции
+        href: operations/index.md
+      - name: Каналы
+        items:
+          - name: Создать канал
+            href: operations/channels/create.md
+          - name: Изменить канал
+            href: operations/channels/update.md
+          - name: Удалить канал
+            href: operations/channels/delete.md
+      - name: Видео
+        items:
+          - name: Загрузить видео
+            href: operations/video/upload.md
+          - name: Изменить видео
+            href: operations/video/update.md
+          - name: Скачать видео
+            href: operations/video/download.md
+          - name: Опубликовать видео
+            href: operations/video/publish.md
+          - name: Получить код вставки или ссылку
+            href: operations/video/get-link.md
+          - name: Добавить видео в плейлист
+            href: operations/video/add-to-playlist.md
+          - name: Получить статистику просмотров
+            href: operations/video/get-statistics.md
+          - name: Удалить видео
+            href: operations/video/delete.md
+      - name: Линии
+        items:
+          - name: Создать линию
+            href: operations/lines/create.md
+          - name: Изменить линию
+            href: operations/lines/update.md
+          - name: Удалить линию
+            href: operations/lines/delete.md
+      - name: Трансляции
+        items:
+          - name: Создать трансляцию
+            href: operations/streams/create.md
+          - name: Изменить трансляцию
+            href: operations/streams/update.md
+          - name: Получить адрес сервера и ключ трансляции
+            href: operations/streams/get-key.md
+          - name: Начать трансляцию
+            href: operations/streams/start.md
+          - name: Получить код вставки или ссылку
+            href: operations/streams/get-link.md
+          - name: Добавить завершенную трансляцию в плейлист
+            href: operations/streams/add-to-playlist.md
+          - name: Удалить трансляцию
+            href: operations/streams/delete.md
+      - name: Плейлисты
+        items:
+          - name: Создать плейлист
+            href: operations/playlists/create.md
+          - name: Изменить плейлист
+            href: operations/playlists/update.md
+          - name: Получить код вставки или ссылку
+            href: operations/playlists/get-link.md
+          - name: Удалить плейлист
+            href: operations/playlists/delete.md
+      - name: Управление видеоплеером
+        href: operations/player-control.md
+      - name: Добавить участника
+        href: operations/add-member.md
+  - name: Концепции
+    items:
+      - name: Обзор
+        href: concepts/index.md
+      - name: Видео
+        href: concepts/videos.md
+      - name: Трансляции
+        href: concepts/streams.md
+      - name: Видеоплеер
+        href: concepts/player.md
+      - name: Плейлисты
+        href: concepts/playlists.md
+      - name: Квоты и лимиты
+        href: concepts/limits.md
+  - name: Управление доступом
+    href: security/index.md
+  - name: Правила тарификации
+    href: pricing.md
+  - name: Справочник API
+    items:
+      - name: Аутентификация в API
+        href: api-ref/authentication.md
+      - name: gRPC (англ.)
+        items:
+          - name: Overview
+            href: api-ref/grpc/index.md
+          - name: ChannelService
+            href: api-ref/grpc/channel_service.md
+          - name: EpisodeService
+            href: api-ref/grpc/episode_service.md
+          - name: StreamLineService
+            href: api-ref/grpc/stream_line_service.md
+          - name: StreamService
+            href: api-ref/grpc/stream_service.md
+          - name: ThumbnailService
+            href: api-ref/grpc/thumbnail_service.md
+          - name: VideoService
+            href: api-ref/grpc/video_service.md
+          - name: OperationService
+            href: api-ref/grpc/operation_service.md
+  - name: Справочник Cloud Video Player SDK
+    items:
+      - name: IFrame
+        href: iframe-sdk.md
+  - name: История изменений
+    href: release-notes.md
+  - name: Решение проблем
+    href: troubleshooting.md
+base: ru/video

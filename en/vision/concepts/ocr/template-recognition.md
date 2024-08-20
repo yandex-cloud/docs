@@ -1,6 +1,6 @@
 # Document recognition
 
-You can extract standard fields and recognize the text of templates and documents, such as passports, driver licenses, vehicle registration certificates, and license plate numbers.
+You can extract standard fields and recognize the text of templates and documents, such as passports, driver's licenses, vehicle registration certificates, and license plate numbers.
 
 ## Recognition models {#models}
 
@@ -35,7 +35,7 @@ Specify the model you need in the `model` field in your request.
    * Ukraine
    * France
 
-- Driver licenses, vehicle registration certificates, and license plate numbers
+- Driver's licenses, vehicle registration certificates, and license plate numbers
 
    * Russia
    * Azerbaijan
@@ -76,21 +76,21 @@ Depending on the model, the list of fields in the response may vary:
 * `issued_by`: Issued by.
 * `issue_date`: Date of issue.
 * `subdivision`: Department code.
-* `expiration_date`: Expiration date.
+* `expiration_date`: Date of expiration.
 
 
 `driver-license-front` model:
 * `name`: First name.
 * `middle_name`: Middle name.
 * `surname`: Last name.
-* `number`: Driver license number.
+* `number`: Driver's license number.
 * `birth_date`: Date of birth.
 * `issue_date`: Date of issue.
 * `expiration_date`: Date of expiration.
 
 `driver-license-back` model:
 * `experience_from`: Driving experience since (year).
-* `number`: Driver license number.
+* `number`: Driver's license number.
 * `issue_date`: Date of issue.
 * `expiration_date`: Date of expiration.
 * `prev_number`: Driver's previous license number.
@@ -109,12 +109,6 @@ Depending on the model, the list of fields in the response may vary:
 `vehicle-registration-back` model:
 * `stsback_car_owner`: Owner full name or legal entity name.
 * `stsback_sts_number`: Vehicle registration certificate (VRC) number.
-
-{% note info %}
-
-If the [recognition accuracy](./index.md#confidence) is low, some fields may be missing from recognition results.
-
-{% endnote %}
 
 ## Example {#example}
 

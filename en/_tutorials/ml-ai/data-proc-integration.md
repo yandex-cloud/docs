@@ -86,6 +86,7 @@ Create a folder where your {{ dataproc-name }} cluster will run.
    1. Enter the name of the [service account](../../iam/concepts/users/service-accounts.md), for example, `sa-for-data-proc`.
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and assign the following [roles](../../iam/concepts/access-control/roles.md) to the service account:
       * `dataproc.agent` to create and use {{ dataproc-name }} clusters.
+      * `dataproc.provisioner` to enable [subcluster autoscaling](../../data-proc/concepts/autoscaling.md).
       * `vpc.user` to use the {{ dataproc-name }} cluster network.
       * `iam.serviceAccounts.user` to create resources in the folder on behalf of the service account.
 

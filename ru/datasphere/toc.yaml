@@ -249,6 +249,8 @@ items:
             href: tutorials/node-from-docker-fast-api.md
           - name: Развертывание сервиса на основе модели ONNX
             href: tutorials/node-from-model.md
+          - name: Развертывание gRPC-сервиса на основе Docker-образа
+            href: tutorials/grpc-node.md
           - name: Дообучение модели {{ yagpt-name }}
             href: tutorials/yagpt-tuning.md
           - name: Дообучение классификаторов на базе {{ yagpt-name }}

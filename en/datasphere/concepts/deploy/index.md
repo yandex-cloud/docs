@@ -57,7 +57,9 @@ To use {{ container-registry-full-name }}, the project service account needs the
 
 {% endnote %}
 
-When [creating a node from a Docker image](../../operations/deploy/node-create.md#from-docker), you set the node's API, port you want your service to use, connection time, format of metrics you will collect, and other parameters. Once the node is created, {{ ml-platform-name }} will monitor its state, maintain the operation of the instances, and scale the node within the specified instance range as needed.
+When [creating a node from a Docker image](../../operations/deploy/node-create.md#from-docker), you set the node's API, port you want your service to use, connection time, format of metrics you will collect, and other parameters. Once the node is created, {{ ml-platform-name }} will monitor its state, maintain the operation of the instances, and scale the node within the specified instance range as needed. For instances, you can use the `{{ region-id }}-a` and `{{ region-id }}-b` [availability zones](../../../overview/concepts/geo-scope.md).
+
+To work with a node based on a large model or Docker image, you can connect an additional disk from 10 to 4,096 GB. If a node has multiple instances, a disk will be created for each one.
 
 ### Node statuses {#statuses}
 
