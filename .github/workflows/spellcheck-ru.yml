@@ -36,10 +36,10 @@ jobs:
 
       - name: Install CSpell and dictionaries
         run: |
-          npm install -g cspell
-          npm install -g @cspell/dict-ru_ru
+          npm install cspell
+          npm install @cspell/dict-ru_ru
           cspell link add @cspell/dict-ru_ru
-          npm install -g @cspell/dict-en-common-misspellings
+          npm install @cspell/dict-en-common-misspellings
           cspell link add @cspell/dict-en-common-misspellings
 
       - name: Download latest SDD dictionary
@@ -62,7 +62,6 @@ jobs:
           echo "$CHANGED_FILES"
           echo "Running CSpell..."
           cspell --config ./cspell.json \
-                 --dictionaries cspell-dicts/internal.txt,cspell-dicts/forbidden-en.txt,cspell-dicts/forbidden-ru.txt,cspell-dicts/allowed-en.txt,cspell-dicts/allowed-ru.txt,cspell-dicts/sdd.txt \
                  --show-context \
                  $CHANGED_FILES
         continue-on-error: true
@@ -72,9 +71,20 @@ jobs:
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
-            github.rest.issues.createComment({
-              issue_number: context.issue.number,
+            const cspellResult = ${{ steps.cspell.outputs.CSPELL_RESULT }};
+            const commentBody = `
+            ## CSpell Check Results
+
+            \\\`
+            ${cspellResult}
+            \\\`
+
+            Please review and correct any spelling errors.
+            `;
+
+            await github.rest.issues.createComment({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: 'CSpell check completed. Please check the action logs for results.'
-            })
+              issue_number: context.issue.number,
+              body: commentBody,
+            });
