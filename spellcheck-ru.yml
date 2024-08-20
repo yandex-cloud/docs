@@ -1,0 +1,73 @@
+name: CSpell Check
+
+on:
+  issue_comment:
+    types: [created]
+
+jobs:
+  spellcheck:
+    if: github.event.issue.pull_request && github.event.comment.body == '/check-ru'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Get PR diff
+        id: pr_diff
+        run: |
+          PR_NUMBER=$(echo $GITHUB_REF | awk 'BEGIN { FS = "/" } ; { print $3 }')
+          git fetch origin pull/$PR_NUMBER/head:pr-$PR_NUMBER
+          echo "PR_DIFF<<EOF" >> $GITHUB_OUTPUT
+          git diff --name-only origin/${{ github.base_ref }} pr-$PR_NUMBER >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install CSpell and dictionaries
+        run: |
+          npm install -g cspell
+          npm install -g @cspell/dict-ru_ru
+          cspell link add @cspell/dict-ru_ru
+          npm install -g @cspell/dict-en-common-misspellings
+          cspell link add @cspell/dict-en-common-misspellings
+
+      - name: Download latest SDD dictionary
+        run: |
+          REPO="AlexJameson/software-development-dictionary-ru"
+          LATEST_RELEASE=$(curl -s https://api.github.com/repos/$REPO/releases/latest)
+          DOWNLOAD_URL=$(echo $LATEST_RELEASE | grep -o '"browser_download_url": "[^"]*sdd.txt"' | cut -d '"' -f 4)
+          if [ -n "$DOWNLOAD_URL" ]; then
+              curl -L -o sdd.txt "$DOWNLOAD_URL"
+              echo "Downloaded sdd.txt from latest release"
+          else
+              echo "Error: Could not find sdd.txt in the latest release"
+              exit 1
+          fi
+
+      - name: Run CSpell
+        run: |
+          CHANGED_FILES="${{ steps.pr_diff.outputs.PR_DIFF }}"
+          echo "Files to check:"
+          echo "$CHANGED_FILES"
+          echo "Running CSpell..."
+          cspell --config ./cspell.json \
+                 --dictionaries tokens.txt,forbidden.txt,allowed.txt,sdd.txt \
+                 --show-context \
+                 $CHANGED_FILES
+        continue-on-error: true
+
+      - name: Comment PR
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: 'CSpell check completed. Please check the action logs for results.'
+            })

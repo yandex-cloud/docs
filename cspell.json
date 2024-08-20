@@ -1,0 +1,80 @@
+{
+	"$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json",
+	"version": "0.2",
+	"language": "en,ru",
+	"dictionaryDefinitions": [
+	   {
+		    "name": "sdd",
+		    "path": "cspell-dicts/sdd.txt",
+		    "addWords": true
+	   },
+	   {
+		    "name": "allowed-ru",
+		    "path": "cspell-dicts/allowed-ru.txt",
+		    "addWords": true
+	 },	  
+	 {
+		    "name": "allowed-en",
+		    "path": "cspell-dicts/allowed-en.txt",
+		    "addWords": true
+	 },
+	 {
+		    "name": "internal",
+		    "path": "cspell-dicts/internal.txt",
+		    "addWords": true
+	 },
+	 {
+		    "name": "forbidden-ru",
+		    "path": "cspell-dicts/forbidden-ru.txt",
+		    "addWords": true
+	 },
+	 {
+		    "name": "forbidden-en",
+		    "path": "cspell-dicts/forbidden-en.txt",
+		    "addWords": true
+	 }
+	],
+	"dictionaries": [
+		"sdd",
+		"allowed-ru",
+		"allowed-en",
+		"forbidden-ru",
+		"forbidden-en",
+		"internal"
+	],
+	"import": [
+		"@cspell/dict-ru_ru/cspell-ext.json", 
+		"@cspell/dict-en-common-misspellings/cspell-ext.json"
+	],
+	"ignorePaths": [
+		 "node_modules", 
+	    "cspell-dicts/sdd.txt", 
+		 "cspell-dicts/allowed-ru.txt", 
+		 "cspell-dicts/allowed-en.txt", 
+		 "cspell-dicts/internal.txt", 
+		 "cspell-dicts/forbidden-ru.txt", 
+		 "cspell-dicts/forbidden-en.txt"
+	],
+	"languageSettings": [
+		{"languageId": "markdown", "caseSensitive": false},
+		{"languageId": "yaml", "caseSensitive": false}
+	],
+	"ignoreRegExpList": [
+		// Ignores snippets enclosed in backticks
+		"\\`\\`\\`[^]*\\`\\`\\`",		
+		// Ignores YFM variables 
+		"\\{\\{\\s*[^}]*\\}\\}",
+		// Ignores **{{ key variables }}** 
+		"\\*+\\{\\{\\s*[^}]*\\}\\}\\*+",
+		// Ignores another type of `{{ key variables }}`
+		"\\`\\{\\{\\s*[^}]*\\}\\}\\`",
+		// Ignores links to the headings like {#create-preemptible}
+		"\\{\\#[^}]*\\}",
+		//Ignores auxilary elements like {% if audience == "external" %}
+		"\\{\\%\\s*[^}]*\\%\\}",
+		//DANGER! Ignores all symbols enclosed in single backticks without newlines like `--name`, `{{ yc-compute-ig }} rolling-recreate`, `--instance-ids epdl7gdvb69f********,epd3anghn4vb********`
+		//"[^\n]*`"
+  ]
+}
+ 
+ 
