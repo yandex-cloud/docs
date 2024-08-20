@@ -13,14 +13,21 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Get PR diff
-        id: pr_diff
+      - name: Get changed files
+        id: changed-files
         run: |
-          PR_NUMBER=$(echo $GITHUB_REF | awk 'BEGIN { FS = "/" } ; { print $3 }')
-          git fetch origin pull/$PR_NUMBER/head:pr-$PR_NUMBER
-          echo "PR_DIFF<<EOF" >> $GITHUB_OUTPUT
-          git diff --name-only origin/${{ github.base_ref }} pr-$PR_NUMBER >> $GITHUB_OUTPUT
-          echo "EOF" >> $GITHUB_OUTPUT
+          if [[ $GITHUB_EVENT_NAME == 'pull_request' ]]; then
+            PR_NUMBER=$(echo $GITHUB_REF | awk 'BEGIN { FS = "/" } ; { print $3 }')
+            git fetch origin pull/$PR_NUMBER/head:pr-$PR_NUMBER
+            echo "PR_DIFF<<EOF" >> $GITHUB_OUTPUT
+            git diff --name-only origin/${{ github.base_ref }} pr-$PR_NUMBER >> $GITHUB_OUTPUT
+            echo "EOF" >> $GITHUB_OUTPUT
+          else
+            echo "PR_DIFF<<EOF" >> $GITHUB_OUTPUT
+            git diff --name-only ${{ github.event.before }} ${{ github.sha }} >> $GITHUB_OUTPUT
+            echo "EOF" >> $GITHUB_OUTPUT
+          fi
+        shell: /usr/bin/bash -e {0}
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
