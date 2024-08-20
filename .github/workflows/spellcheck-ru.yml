@@ -37,7 +37,7 @@ jobs:
       - name: Install CSpell and dictionaries
         run: |
           npm install -g cspell
-          npm install-g @cspell/dict-ru_ru
+          npm install -g @cspell/dict-ru_ru
           cspell link add @cspell/dict-ru_ru
           npm install -g @cspell/dict-en-common-misspellings
           cspell link add @cspell/dict-en-common-misspellings
