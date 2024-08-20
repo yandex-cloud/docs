@@ -24,11 +24,11 @@ A _connection_ is a {{ speechsense-name }} entity that contains:
 
 * Uploaded [voice call recordings](../operations/data/upload-data.md) or [chat conversations](../operations/data/upload-chat-text.md).
 * Record types: audio or text messages.
-* Records metadata collected from chats, PBX, CRM systems, or other sources.
+* Record metadata received from PBXs, chats, CRM systems, or other sources.
 
-   Metadata presents such parameters as agent's, client's, and bot's (the latter for chats only) names and IDs, dialog date and language. You can use metadata to analyze a [dialog](dialogs.md) or a group of dialogs using [reports](reports/index.md).
+   The metadata contains such properties as the names and IDs of the agent, customer, and bot (only for chats), as well as the conversation date and language. You can use this metadata to analyze one or more [conversations](dialogs.md) using [reports](reports/index.md).
 
-If groups of dialogs have different metadata sets or record types, you can create a separate connection for each group.
+If various groups of conversations have different metadata or record types, you can create a separate connection for each group.
 
 ### Project {#project}
 
@@ -46,7 +46,7 @@ When a user performs an operation in {{ speechsense-name }}, [{{ iam-full-name }
 * Permissions for a space extend to all connections and projects within that space.
 * Permissions for a project extend to all dialogs and reports within that project.
 
-No access permissions are granted for connections. Connections are subject to space permissions. To learn more about the roles available in the service, see [{#T}](../security/index.md).
+No access permissions are granted to connections. Connections are subject to space permissions. To learn more about the roles available in the service, see [{#T}](../security/index.md).
 
 > **Examples**:
 >
@@ -54,4 +54,4 @@ No access permissions are granted for connections. Connections are subject to sp
 > * A user with the `speech-sense.viewer` (`{{ roles-speechsense-viewer }}` in {{ speechsense-name }}) role at the space level can view data for a space, as well as its nested connections and projects.
 > * A user with the `speech-sense.admin` (`{{ roles-speechsense-admin }}` in {{ speechsense-name }}) at the project level can perform any action within this project alone.
 
-A user will not be able to access a space without space or organization level rights.
+A user will not be able to access a space without space or organization level permissions.

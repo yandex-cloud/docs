@@ -285,6 +285,7 @@ default:
   link-speechsense-main: https://speechsense.yandex.cloud/
   link-support-mail: cloud@support.yandex.ru
   link-tracker: https://tracker.yandex.com/
+  link-video-main: https://video.yandex.cloud/
   link-wiki: https://wiki.yandex.com/
   link-ya-360-notfree: https://yandex.ru/support/business/payment/disable-free-version.html
   link-yandex: https://yandex.com
@@ -703,6 +704,7 @@ default:
   v100-broadwell: Intel Broadwell with NVIDIA® Tesla® V100
   v100-cascade-lake: Intel Cascade Lake with NVIDIA® Tesla® V100
   video-full-name: Yandex Cloud Video
+  video-name: Cloud Video
   vision-full-name: Yandex Vision OCR
   vision-name: Vision OCR
   vision-short-name: Vision OCR
@@ -5238,6 +5240,8 @@ default:
         label_inherited-subscribers: Default subscribers
         label_subscribers-dialog-header: Adding users
         label_users: Users
+      organization:
+        action_send-invitation: Send invitation
       request-alpha-flag-dialog:
         button_send: Send request
       settings:
@@ -5588,6 +5592,65 @@ default:
         products: Products
         publisher-users: Access management
         support: Support
+    yacloud_video:
+      channels:
+        action_create-channel: Create a channel
+        label_description: Description
+        label_title: Name
+      common:
+        action_accept: Save
+        action_add: Add
+        action_create: Create
+        action_delete: Delete
+        action_download: Download
+        action_edit: Edit
+        statistics: Statistics
+      dashboard:
+        action_add-user: Add a participant
+        action_go-to-org: Go to organization
+      stream-lines:
+        action_create-line: Create a line
+        label_input-stream-protocol: Stream input protocol
+        label_input-stream-type: Stream type
+        label_server-address: Server address
+        label_stream-key: Broadcast key
+        label_url: Server address
+        title_lines: Lines
+      streams:
+        action_add-stream-episode: Add an episode
+        action_copy-code: Copy
+        action_create-stream: Create a broadcast
+        action_start-stream: Start
+        action_stop-stream: Finish
+        label_episode-autoplay: Auto play video
+        label_episode-hidden: Hide controls in player
+        label_episode-mute: Play video without sound by default (recommended)
+        label_stream-type: Stream type
+        label_type-on-demand: On demand
+        label_type-schedule: By schedule
+        status_finished: Finished
+        status_offline: Offline
+        status_on-air: On air
+        status_preparing: Preparing
+        status_ready: Ready
+        title_past-code: Embed in site
+        title_stream-episodes: Episodes
+        title_streams: Broadcasts
+      thumbnails:
+        label_thumbnail: Thumbnail
+      videos:
+        action_create-video: Upload video
+        label_allow-access: Grant access
+        label_title: Name
+        label_visibility-status: Public access
+        status_error: Error
+        status_processing: Processing
+        status_published: Published
+        status_ready: Ready
+        status_unpublished: Unpublished
+        status_wait-uploading: Uploading
+        title_past-code: Past code
+        title_videos: Video
     yacloud:
       airflow:
         button_create-cluster: Create a cluster

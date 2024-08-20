@@ -253,7 +253,7 @@ items:
             href: tutorials/yagpt-tuning.md
           - name: Tuning classifiers based on {{ yagpt-name }}
             href: tutorials/yagpt-tuning-classifier.md
-          - name: Image generation using the Stable Diffusion model
+          - name: Image generation using Stable Diffusion model
             href: tutorials/stable-diffusion.md
       - name: Data analytics
         items:
@@ -405,6 +405,10 @@ items:
     href: public-talks.md
   - name: Release notes
     href: release-notes.md
-  - name: FAQ
-    href: qa/index.md
+  - name: Troubleshooting
+    items:
+      - name: Problems with library installation
+        href: qa/environment-problems.md
+      - name: FAQ
+        href: qa/index.md
 base: en/datasphere

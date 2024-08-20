@@ -103,7 +103,7 @@ Cost of using {{ ds-inf }} with the following parameters:
 
 Converting node runtime into seconds:
 
-> 2 × (24 × 60 × 60) + 3 × (60 × 60) + 36 × 60 = 172,800 + 10,800 + 2,160= 185,760
+> 2 × (24 × 60 × 60) + 3 × (60 × 60) + 36 × 60 = 172,800 + 10,800 + 2,160 = 185,760
 
 Where:
 * (24 × 60 × 60): Number of seconds in 24 hours.

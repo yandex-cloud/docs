@@ -1,0 +1,1 @@
+The following video formats are supported: [MP4](https://en.wikipedia.org/wiki/MP4_file_format), [AVI](https://en.wikipedia.org/wiki/Audio_Video_Interleave), [MKV](https://en.wikipedia.org/wiki/Matroska), [FLV](https://en.wikipedia.org/wiki/Flash_Video), and [MOV](https://en.wikipedia.org/wiki/QuickTime_File_Format).
