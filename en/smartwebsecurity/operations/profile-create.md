@@ -1,3 +1,8 @@
+---
+title: "How to create a {{ sws-full-name }} security profile"
+description: "Follow this guide to create a {{ sws-full-name }} security profile."
+---
+
 # Creating a security profile
 
 {% list tabs group=instructions %}
@@ -31,6 +36,56 @@
 
       The rules you created will appear under **{{ ui-key.yacloud.smart-web-security.form.section_security-rules }}** in the table.
    1. Click **{{ ui-key.yacloud.common.create }}**.
+
+- CLI {#cli}
+
+   {% include [cli-install](../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+   1. View the description of the [CLI](../../cli/quickstart.md) command for creating a [security profile](../concepts/profiles.md):
+
+      ```bash
+      yc smartwebsecurity security-profile create --help
+      ```
+
+   1. To create a security profile, run this command:
+
+      ```bash
+      yc smartwebsecurity security-profile create \
+         --name <security_profile_name> \
+         --description "<profile_description>" \
+         --labels <key_of_label_1>=<value_of_label_1>,<key_of_label_2>=<value_of_label_2>,...,<key_of_label_n>=<value_of_label_n> \
+         --default-action <action> \
+         --captcha-id <CAPTCHA_ID> \
+         --security-rules-file <path_to_file_with_rules>
+      ```
+
+      Where:
+
+      * `--name`: Security profile name. This is a required parameter. If you specify only the profile name without additional parameters, a single [basic rule](../concepts/rules.md#base-rules) will be created in the security profile.
+      * `--description`: Text description of the security profile. This is an optional parameter.
+      * `--labels`: List of [labels](../../resource-manager/concepts/labels.md) to add to the profile in `KEY=VALUE` format. This is an optional parameter. For example, it may take the following value: `--labels foo=baz,bar=baz'`.
+      * `--default-action`: Action to perform for traffic that mismatches the criteria of other rules. This is an optional parameter. The default value is `allow`, which allows all requests to the service. To block requests, set the parameter to `deny`.
+      * `--captcha-id`: ID of the CAPTCHA in [{{ captcha-full-name }}](../../smartcaptcha/) to verify suspicious requests. This is an optional parameter.
+      * `--security-rules-file`: Path to the [YAML](https://en.wikipedia.org/wiki/YAML) file with security rules. This is an optional parameter. For example:
+
+         {% include [profile-create-yaml-example](../../_includes/smartwebsecurity/profile-create-yaml-example.md) %}
+
+      Result:
+
+      ```bash
+      id: fev6q4qqnn2q********
+      folder_id: b1g07hj5r6i********
+      cloud_id: b1gia87mbaom********
+      name: my-sample-profile
+      description: "my description"
+      labels: label1=value1,label2=value2
+      default_action: DENY
+      created_at: "2024-07-25T19:21:05.039610Z"
+      ```
+
+   For more information about the `yc smartwebsecurity security-profile create` command, see the [CLI reference](../../cli/cli-ref/managed-services/smartwebsecurity/security-profile/create.md).
 
 - API {#api}
 

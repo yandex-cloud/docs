@@ -142,7 +142,7 @@ items:
     items:
       - name: Current pricing policy
         href: pricing.md
-      - name: Archives
+      - name: Archive
         items:
           - name: Policy before October 1, 2020
             href: pricing-archive/pricing-01102020.md
@@ -198,6 +198,8 @@ items:
         href: metrics-ref/certificate-manager-ref.md
       - name: '{{ cdn-name }}'
         href: metrics-ref/cdn-ref.md
+      - name: '{{ sf-name }}'
+        href: metrics-ref/functions-ref.md
       - name: '{{ compute-name }}'
         href: metrics-ref/compute-ref.md
       - name: '{{ container-registry-name }}'
@@ -208,10 +210,14 @@ items:
         href: metrics-ref/data-transfer-ref.md
       - name: '{{ iam-name }}'
         href: metrics-ref/iam-ref.md
+      - name: '{{ iot-name }}'
+        href: metrics-ref/iot-core-ref.md
       - name: '{{ kms-name }}'
         href: metrics-ref/kms-ref.md
       - name: '{{ lockbox-name }}'
         href: metrics-ref/lockbox-ref.md
+      - name: '{{ maf-name }}'
+        href: metrics-ref/managed-airflow-ref.md
       - name: '{{ mkf-name }}'
         href: metrics-ref/managed-kafka-ref.md
       - name: '{{ mch-name }}'

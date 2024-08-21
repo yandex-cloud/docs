@@ -256,7 +256,7 @@
 
 {% include [dataproc-s3-connector](../../_includes/datasphere/dataproc-s3-connector.md) %}
 
-Подробнее о запуске вычислений на кластерах {{ dataproc-name }} в {{ ml-platform-name }} см. [{#T}](../../datasphere/concepts/data-proc.md#session).
+Подробнее о запуске вычислений на кластерах {{ dataproc-name }} в {{ ml-platform-name }} см. в [концепции](../../datasphere/concepts/data-proc.md#existing-clusters).
 
 ## Удалите созданные ресурсы {#clear-out}
 

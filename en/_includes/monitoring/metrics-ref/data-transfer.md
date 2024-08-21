@@ -5,7 +5,7 @@ All {{ data-transfer-name }} metrics have common labels:
 | Label | Value |
 --- | ---
 | service | Service ID: `data-transfer` |
-| job_index | Worker index to distinguish workers used for [parallel data copying](../../../data-transfer/concepts/sharded.md) |
+| job_index | [Worker](../../../data-transfer/concepts/index.md#worker) index to distinguish workers used for [parallel data copying](../../../data-transfer/concepts/sharded.md). |
 | src_id | [Source](../../../data-transfer/transfer-matrix.md) ID |
 | target_type | [Target](../../../data-transfer/transfer-matrix.md) type, e.g., `mongo` |
 | resource_id | {{ data-transfer-name }} [transfer](../../../data-transfer/concepts/index.md#transfer) ID |
@@ -23,7 +23,7 @@ Common labels for all CPU metrics:
 --- | ---
 | component | System component, e.g., `psutil` |
 
-| Name</br>Type, unit | Description |
+| Name</br>Type, units | Description |
 ----- | -----
 | `cpu.counts`</br>`COUNTER`, number | Number of CPUs allocated for data transfer in the worker |
 | `proc.cpu`</br>`DGAUGE`, % | Processor core workload |
@@ -38,7 +38,7 @@ Common labels for all RAM metrics:
 --- | ---
 | component | System component, e.g., `psutil` |
 
-| Name</br>Type, unit | Description |
+| Name</br>Type, units | Description |
 ----- | -----
 | `mem.available`</br>`COUNTER`, bytes | RAM usage, `available` usage type |
 | `mem.percentage`</br>`DGAUGE`, % | Percentage of RAM usage |
@@ -85,10 +85,10 @@ Common labels for all RAM metrics:
 | `runtime.alloc`</br>`COUNTER`, bytes | Total amount of memory allocated but not freed up yet</br>`component` label: System component, e.g., `psutil` |
 | `runtime.heapIdle`</br>`COUNTER`, bytes | Amount of memory allocated for dynamic memory but not currently in use</br>`component` label: System component, e.g., `psutil` |
 | `runtime.heapInuse`</br>`COUNTER`, bytes | Amount of memory actively used as dynamic memory</br>`component` label: System component, e.g., `psutil` |
-| `runtime.numGC`</br>`COUNTER`, bytes | Number of garbage collection (GC) cycles performed since the start of measurement time</br>`component` label: System component, e.g.,`psutil` |
+| `runtime.numGC`</br>`COUNTER`, bytes | Number of garbage collection (GC) cycles performed since the start of measurement time</br>`component` label: System component, e.g., `psutil` |
 | `runtime.sys`</br>`COUNTER`, bytes | Total amount of system memory in use</br>`component` label: System component, e.g., `psutil` |
 | `runtime.totalAlloc`</br>`COUNTER`, bytes | Total amount of memory allocated for the entire run time</br>`component` label: System component, e.g., `psutil` |
-| `sinker.pusher.data.changeitems`</br>`COUNTER`, number | Number of events written to the target (apart from the data to transfer, these events may include housekeeping operations). |
+| `sinker.pusher.data.changeitems`</br>`COUNTER`, number | Number of events written to the target (apart from the data to transfer, these events may include housekeeping operations) |
 | `sinker.pusher.data.row_events_pushed`</br>`COUNTER`, number | Number of rows sent to target |
 | `sinker.pusher.time.batch_push_distribution_sec`</br>`IGAUGE`, seconds | Full time it takes to write a batch to the target, including data preprocessing</br>`bin` label: Histogram buckets |
 | `sinker.pusher.time.row_lag_sec`</br>`IGAUGE`, seconds | Time lag between records appearing at target and source</br>`bin` label: Histogram buckets |

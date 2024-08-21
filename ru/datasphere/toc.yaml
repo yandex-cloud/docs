@@ -168,7 +168,13 @@ items:
           - name: Доступные команды
             href: concepts/magic.md
           - name: Вычисления на кластерах Apache Spark™
-            href: concepts/data-proc.md
+            items:
+              - name: Способы работы с кластерами Apache Spark™
+                href: concepts/data-proc.md
+              - name: Вычисления на кластерах Apache Spark™
+                href: concepts/data-proc-operations.md
+              - name: Особенности работы с временными кластерами {{ dataproc-name }}
+                href: concepts/temporary-data-proc-clusters.md
       - name: '{{ ds-inf }}'
         items:
           - name: Ноды и алиасы

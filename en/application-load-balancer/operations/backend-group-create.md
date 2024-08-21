@@ -322,3 +322,7 @@ To create a [backend group](../concepts/backend-group.md):
    Use the [create](../api-ref/BackendGroup/create.md) REST API method for the [BackendGroup](../api-ref/BackendGroup/index.md) resource or the [BackendGroupService/Create](../api-ref/grpc/backend_group_service.md#Create) gRPC API call.
 
 {% endlist %}
+
+### See also {#see-also}
+
+* [{#T}](../concepts/best-practices.md)

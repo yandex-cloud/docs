@@ -2,7 +2,6 @@
 
 * [В детализации по платежному аккаунту стало отображаться потребление по сервису {{ cloud-logging-name }}](cloud-logging-unexpectedly-charges-in-billing-account-details.md)
 * [Не удается оформить резервируемое потребление для {{ compute-short-name }}](unable-to-issue-a-new-cvos-position.md)
-* [Платежный аккаунт находится в статусе `PAYMENT_REQUIRED`](account-blocked-due-to-debt.md)
 * [Устранение проблем с привязкой банковской карты к платежному аккаунту](couldnt-link-card.md)
 * [Устранение ошибки `INVALID_PERSON_TYPE` при регистрации платежного аккаунта](invalid-person-type.md)
 * [Устранение проблем с оплатой](payment-problems.md)

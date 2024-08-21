@@ -138,4 +138,6 @@ Note that if the backend is configured to use TLS with the target group endpoint
 * If the type of a health check is HTTP, it will be made over HTTPS.
 * For Stream health checks, a TLS connection will be established and the check results will be returned through this connection.
 
+### See also {#see-also}
 
+* [{#T}](best-practices.md)
