@@ -9,20 +9,9 @@ jobs:
     if: github.event.issue.pull_request && github.event.comment.body == '/check-ru'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-
       - name: Get changed files
         id: changed-files
-        run: |
-            PR_NUMBER=$(echo $GITHUB_REF | awk 'BEGIN { FS = "/" } ; { print $3 }')
-            git fetch origin pull/$PR_NUMBER/head:pr-$PR_NUMBER
-            echo "PR_DIFF<<EOF" >> $GITHUB_OUTPUT
-            git diff --name-only origin/${{ github.base_ref }} pr-$PR_NUMBER >> $GITHUB_OUTPUT
-            echo "EOF" >> $GITHUB_OUTPUT
-            echo "::set-output name=pr_output::$GITHUB_OUTPUT"
-        shell: /usr/bin/bash -e {0}
+        uses: tj-actions/changed-files@v44
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
@@ -38,15 +27,18 @@ jobs:
           cspell link add @cspell/dict-en-common-misspellings
 
       - name: Run CSpell
+        env:
+          ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
         run: |
-          CHANGED_FILES="${{ steps.changed-files.outputs.pr_output }}"
-          echo "Files to check:"
-          echo "$CHANGED_FILES"
-          echo "Running CSpell..."		
-          CSPELL_OUTPUT=$(cspell --config ./cspell.json --debug $CHANGED_FILES)
-          echo "CSpell output:"
-          echo "$CSPELL_OUTPUT"
-          echo "::set-output name=cspell_output::$CSPELL_OUTPUT"
+          cspell_output=""
+          for file in ${ALL_CHANGED_FILES}; do
+            echo "Running CSpell on $file..."
+            file_content=$(cat $file)
+            cspell_errors=$(echo "$file_content" | cspell --config ./cspell.json --show-context)
+            if [ -n "$cspell_errors" ]; then
+              cspell_output+="CSpell errors in $file:\n$cspell_errors\n\n"
+            fi
+          done
         id: cspell		
         continue-on-error: true
 
