@@ -62,23 +62,12 @@ jobs:
         continue-on-error: true
 
       - name: Comment PR
-        uses: actions/github-script@v6
-        with:
-         github-token: ${{secrets.GITHUB_TOKEN}}
-         script: |
-           const cspellResults = cat cspell-results.txt;
-           if (cspellResults.trim() !== '') {
-             github.rest.issues.createComment({
-               issue_number: context.issue.number,
-               owner: context.repo.owner,
-               repo: context.repo.repo,
-               body: 'CSpell check found errors:\n\n' + cspellResults
-             });
-           } else {
-             github.rest.issues.createComment({
-               issue_number: context.issue.number,
-               owner: context.repo.owner,
-               repo: context.repo.repo,
-               body: 'CSpell check completed with no errors.'
-             });
-           }
+        run: |
+          cspellResults=$(cat cspell-results.txt)
+          if [ -n "$cspellResults" ]; then
+            github rest issues create-comment --issue-number ${{github.event.issue.number}} --body "CSpell check found errors:\n\n$cspellResults"
+          else
+            github rest issues create-comment --issue-number ${{github.event.issue.number}} --body "CSpell check completed with no errors."
+          fi
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
