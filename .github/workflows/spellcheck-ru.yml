@@ -6,7 +6,7 @@ on:
 
 jobs:
   spellcheck:
-    if: github.event.issue.pull_request && github.event.comment.body == '/check-ru'
+    if: github.event.comment.body == '/check-ru'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
