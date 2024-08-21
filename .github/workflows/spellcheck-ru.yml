@@ -48,6 +48,6 @@ jobs:
         uses: streetsidesoftware/cspell-action@v6
         id: cspell-action
         with:
-          files: ./ru/compute/sample.md
+          files: ru/compute/sample.md
           check_dot_files: false
           config: ./cspell.json
