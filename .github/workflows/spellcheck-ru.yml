@@ -21,15 +21,11 @@ jobs:
         id: changed-files
         uses: tj-actions/changed-files@v44
         with:
-         base_sha: ${{ steps.get-pr.outputs.base_sha }}
-         sha: ${{ steps.get-pr.outputs.head_sha }}
+          changed_files=$(git diff --name-only ${{ steps.get-pr.outputs.base_sha }} ${{ steps.get-pr.outputs.head_sha }})
+          echo "::set-output name=all_changed_files::$changed_files"
 
       - name: Print PR outputs
         run: |
-          echo "Base SHA: ${{ steps.get-pr.outputs.base_sha }}"
-          echo "Head SHA: ${{ steps.get-pr.outputs.head_sha }}"
-          echo "Base ref: ${{ steps.get-pr.outputs.base_ref }}"
-          echo "Head ref: ${{ steps.get-pr.outputs.head_ref }}"
           echo "Changed: ${{ steps.changed-files.outputs.all_changed_files }}"
           echo "Current working directory: $(pwd)"
 
