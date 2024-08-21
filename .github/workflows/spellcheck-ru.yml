@@ -58,12 +58,7 @@ jobs:
       - name: Run CSpell
         run: |
           CHANGED_FILES="${{ steps.pr_diff.outputs.PR_DIFF }}"
-          echo "Files to check:"
-          echo "$CHANGED_FILES"
-          echo "Running CSpell..."
-          cspell --config ./cspell.json \
-                 --show-context \
-                 $CHANGED_FILES
+          cspell $CHANGED_FILES
         continue-on-error: true
 
       - name: Comment PR
