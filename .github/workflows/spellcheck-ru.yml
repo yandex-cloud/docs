@@ -13,6 +13,10 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Get changed files
+        id: changed-files
+        uses: tj-actions/changed-files@v44
+
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
@@ -26,6 +30,8 @@ jobs:
           npm install -g @cspell/dict-en-common-misspellings
           cspell link add @cspell/dict-en-common-misspellings
 
-      - name: Run CSpell
+      - name: Run CSpell Action
         uses: streetsidesoftware/cspell-action@v6
-
+        id: cspell-action
+        with:
+          files: ${{ steps.changed-files.outputs.all_changed_files }}
