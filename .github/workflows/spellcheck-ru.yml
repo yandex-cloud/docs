@@ -1,12 +1,12 @@
 name: CSpell Check
 
 on:
-  pull_request_review_comment:
+  issue_comment:
     types: [created]
 
 jobs:
   spellcheck:
-    if: github.event.comment.body == '/check-ru'
+    if: github.event.comment.body == '/check-ru' && github.event.issue.pull_request != null 
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
