@@ -16,7 +16,6 @@ jobs:
       - name: Get changed files
         id: changed-files
         run: |
-            [[ $GITHUB_EVENT_NAME == 'pull_request' ]]; then
             PR_NUMBER=$(echo $GITHUB_REF | awk 'BEGIN { FS = "/" } ; { print $3 }')
             git fetch origin pull/$PR_NUMBER/head:pr-$PR_NUMBER
             echo "PR_DIFF<<EOF" >> $GITHUB_OUTPUT
