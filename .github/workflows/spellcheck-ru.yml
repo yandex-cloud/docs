@@ -58,7 +58,7 @@ jobs:
       - name: Run CSpell
         run: |
           CHANGED_FILES="${{ steps.pr_diff.outputs.PR_DIFF }}"
-          cspell $CHANGED_FILES
+          cspell --output=$GITHUB_WORKSPACE/cspell-results.txt $CHANGED_FILES
         continue-on-error: true
 
       - name: Comment PR
