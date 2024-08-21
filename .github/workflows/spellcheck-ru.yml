@@ -69,11 +69,21 @@ jobs:
       - name: Comment PR
         uses: actions/github-script@v6
         with:
-          github-token: ${{secrets.GITHUB_TOKEN}}
-          script: |
-            github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: 'CSpell check completed. Please check the action logs for results.'
-            })
+         github-token: ${{secrets.GITHUB_TOKEN}}
+         script: |
+           const cspellResults = fs.readFileSync('cspell-results.txt', 'utf8');
+           if (cspellResults.trim() !== '') {
+             github.rest.issues.createComment({
+               issue_number: context.issue.number,
+               owner: context.repo.owner,
+               repo: context.repo.repo,
+               body: 'CSpell check found errors:\n\n' + cspellResults
+             });
+           } else {
+             github.rest.issues.createComment({
+               issue_number: context.issue.number,
+               owner: context.repo.owner,
+               repo: context.repo.repo,
+               body: 'CSpell check completed with no errors.'
+             });
+           }

@@ -42,10 +42,6 @@
 		"forbidden-en",
 		"internal"
 	],
-	"import": [
-		"@cspell/dict-ru_ru/cspell-ext.json", 
-		"@cspell/dict-en-common-misspellings/cspell-ext.json"
-	],
 	"ignorePaths": [
 		 "node_modules", 
 	    "cspell-dicts/sdd.txt", 
