@@ -58,22 +58,20 @@ jobs:
       - name: Run CSpell
         run: |
           CHANGED_FILES="${{ steps.pr_diff.outputs.PR_DIFF }}"
-          cspell --show-context $CHANGED_FILES &> $GITHUB_WORKSPACE/cspell-results.txt
+          echo "Files to check:"
+          echo "$CHANGED_FILES"
+          echo "Running CSpell..."		
+          CSPELL_OUTPUT=$(cspell --config ./cspell.json --show-context $CHANGED_FILES)
+          echo "CSpell output:"
+          echo "$CSPELL_OUTPUT"
+          echo "::set-output name=cspell_output::$CSPELL_OUTPUT"
+        id: cspell		
         continue-on-error: true
 
-      - name: Upload CSpell results
-        uses: actions/upload-artifact@v3
+      - name: Create comment
+        if: steps.cspell.outputs.cspell_output != ''
+        uses: thollander/actions-comment-pull-request@v2
         with:
-          name: cspell-results
-          path: $GITHUB_WORKSPACE/cspell-results.txt
-
-      - name: Comment PR
-        run: |
-          cspellResults=$(cat cspell-results.txt)
-          if [ -n "$cspellResults" ]; then
-            github rest issues create-comment --issue-number ${{github.event.issue.number}} --body "CSpell check found errors:\n\n$cspellResults"
-          else
-            github rest issues create-comment --issue-number ${{github.event.issue.number}} --body "CSpell check completed with no errors."
-          fi
-        env:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          message: |
+            CSpell output:
+            ${{ steps.cspell.outputs.cspell_output }}
