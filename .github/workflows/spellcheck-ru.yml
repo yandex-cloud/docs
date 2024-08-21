@@ -13,10 +13,6 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Get changed files
-        id: changed-files
-        uses: tj-actions/changed-files@v44
-
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
@@ -31,24 +27,5 @@ jobs:
           cspell link add @cspell/dict-en-common-misspellings
 
       - name: Run CSpell
-        env:
-          ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
-        run: |
-          cspell_output=""
-          for file in ${ALL_CHANGED_FILES}; do
-            echo "Running CSpell on $file..."
-            file_content=$(cat $file)
-            cspell_errors=$(echo "$file_content" | cspell --config ./cspell.json --show-context)
-            if [ -n "$cspell_errors" ]; then
-              cspell_output+="CSpell errors in $file:\n$cspell_errors\n\n"
-            fi
-          done
-        id: cspell		
-        continue-on-error: true
+        uses: streetsidesoftware/cspell-action@v6
 
-      - name: Create comment
-        uses: thollander/actions-comment-pull-request@v2
-        with:
-          message: |
-            CSpell output:
-            ${{ steps.cspell.outputs.cspell_output }}
