@@ -30,6 +30,7 @@ jobs:
           echo "Head SHA: ${{ steps.get-pr.outputs.head_sha }}"
           echo "Base ref: ${{ steps.get-pr.outputs.base_ref }}"
           echo "Head ref: ${{ steps.get-pr.outputs.head_ref }}"
+          echo "Changed: ${{ steps.changed-files.outputs.all_changed_files }}"
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
