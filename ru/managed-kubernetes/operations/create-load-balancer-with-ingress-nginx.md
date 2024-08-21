@@ -12,31 +12,39 @@
 1. [Создайте кластер {{ managed-k8s-name }}](kubernetes-cluster/kubernetes-cluster-create.md). В настройках кластера укажите сервисный аккаунт и группы безопасности, созданные ранее.
 1. {% include [Установка Helm](../../_includes/managed-kubernetes/helm-install.md) %}
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
-1. Добавьте в Helm репозиторий для NGINX:
+1. Настройте Helm для работы с репозиторием NGINX:
 
-   ```bash
-   helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
-   ```
+   1. Добавьте в Helm репозиторий для NGINX:
 
-   Результат:
+      ```bash
+      helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+      ```
 
-   ```text
-   "ingress-nginx" has been added to your repositories
-   ```
+      Результат:
 
-1. Обновите набор данных для создания экземпляра приложения в [кластере {{ managed-k8s-name }}](../concepts/index.md#kubernetes-cluster):
+      ```text
+      "ingress-nginx" has been added to your repositories
+      ```
 
-   ```bash
-   helm repo update
-   ```
+   1. Обновите набор данных для создания экземпляра приложения в [кластере {{ managed-k8s-name }}](../concepts/index.md#kubernetes-cluster):
 
-   Результат:
+      ```bash
+      helm repo update
+      ```
 
-   ```text
-   Hang tight while we grab the latest from your chart repositories...
-   ...Successfully got an update from the "ingress-nginx" chart repository
-   Update Complete. ⎈Happy Helming!⎈
-   ```
+      Результат:
+
+      ```text
+      Hang tight while we grab the latest from your chart repositories...
+      ...Successfully got an update from the "ingress-nginx" chart repository
+      Update Complete. ⎈Happy Helming!⎈
+      ```
+
+   {% note tip %}
+
+   Ingress-контроллер NGINX можно также [установить с помощью {{ marketplace-full-name }}](applications/ingress-nginx.md).
+
+   {% endnote %}
 
 ## Внешний сетевой балансировщик {#external}
 

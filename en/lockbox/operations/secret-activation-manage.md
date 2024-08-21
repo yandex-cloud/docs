@@ -5,6 +5,8 @@ description: "In this tutorial, you will learn how to deactivate and activate a 
 
 # Deactivating and activating a secret
 
+A secret can be either active or deactivated. When a secret is active, it enables access to both its metadata and content (key-value pairs). When deactivated, it allows access only to its metadata, with the secret content being inaccessible.
+
 ## Deactivating a secret {#secret-deactivate}
 
 {% list tabs group=instructions %}

@@ -1,115 +1,27 @@
-# Вычисления на кластерах Apache Spark™ в {{ ml-platform-name }}
+# Способы работы с кластерами Apache Spark™ в {{ ml-platform-name }}
 
-Сервис {{ dataproc-full-name }} позволяет разворачивать кластеры Apache Spark™. Вы можете использовать кластеры {{ dataproc-name }}, чтобы запускать распределенные обучения на кластерах. {{ ml-platform-name }} поддерживает работу в сессиях, созданных с помощью [Apache Livy](https://livy.apache.org/).
+Сервис [{{ dataproc-full-name }}](../../data-proc/) позволяет разворачивать кластеры Apache Spark™. Вы можете использовать кластеры {{ dataproc-name }}, чтобы запускать распределенные обучения на кластерах.
 
 ## Варианты развертывания кластеров {#types}
 
-Вы можете развернуть кластер для вычислений в {{ ml-platform-name }} двумя способами:
-* создать кластер в {{ ml-platform-name }}, используя специальный ресурс — [шаблон {{ dataproc-name }}](data-proc-template.md);
-* самостоятельно создать кластер в [сервисе {{ dataproc-full-name }}](../../data-proc/) и интегрировать его в проект {{ ml-platform-name }}.
+Чтобы работать в {{ ml-platform-name }} с кластерами {{ dataproc-name }}, вы можете использовать:
 
-Все кластеры {{ dataproc-name }} вне зависимости от варианта развертывания тарифицируются по [правилам сервиса {{ dataproc-full-name }}](../../data-proc/pricing.md). Все кластеры, доступные в проекте, можно посмотреть в разделе **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** ⟶ ![data-proc-template](../../_assets/datasphere/data-proc-template.svg) **{{ ui-key.yc-ui-datasphere.resources.dataProc }}** на странице проекта.
+* [коннектор Spark](data-proc-operations.md#spark-with-existing-cluster);
+* [Livy-сессию](data-proc-operations.md#livy-sessions).
 
-### Шаблоны {{ dataproc-name }} {#template}
+Если у вас нет существующих кластеров {{ dataproc-full-name }} или кластер нужен на непродолжительное время, вы можете использовать временные кластеры {{ dataproc-name }}. Их можно создать с помощью:
 
-В шаблоне {{ dataproc-name }} вы выбираете одну из предопределенных конфигураций кластера. На основе шаблона {{ dataproc-name }}, активированного в проекте, {{ ml-platform-name }} развернет временный кластер, используя необходимые параметры проекта.
+* [коннектора Spark](temporary-data-proc-clusters.md#spark-with-temporary-cluster) (предпочтительный способ);
+* [шаблона {{ dataproc-name }}](temporary-data-proc-clusters.md#template).
 
-{{ ml-platform-name }} следит за работой временных кластеров. Если в течение двух часов кластер не используется для вычислений, {{ ml-platform-name }} его выключит. Вы можете повторно развернуть кластер в проекте, когда он вам понадобится. Вы также можете делиться шаблонами {{ dataproc-name }} с другими пользователями.
-
-[Подробнее о работе с шаблонами {{ dataproc-name }}](../operations/data-proc-template.md).
-
-### Интеграция с сервисом {{ dataproc-full-name }} {#clusters}
-
-Если вы уже работали с [сервисом {{ dataproc-full-name }}](../../data-proc/), или стандартные конфигурации шаблонов вам не подходят, вы можете развернуть кластер и использовать его для вычислений в {{ ml-platform-name }}.
-
-{% note warning %}
-
-Используя кластер, развернутый в сервисе {{ dataproc-name }}, вы управляете его жизненным циклом самостоятельно. Даже если вычислений нет больше двух часов, кластер будет работать и тарифицироваться, пока вы его не выключите.
-
-{% endnote %}
-
-Для корректной интеграции с {{ ml-platform-name }} развернутый кластер {{ dataproc-name }} должен иметь [версию образа](../../data-proc/concepts/environment.md) не ниже `1.3` с включенными сервисами `LIVY`, `SPARK`, `YARN` и `HDFS`.
-
-{% include [dataproc-s3-connector](../../_includes/datasphere/dataproc-s3-connector.md) %}
+Все кластеры {{ dataproc-name }} вне зависимости от варианта развертывания тарифицируются по [правилам сервиса {{ dataproc-full-name }}](../../data-proc/pricing.md).
 
 ## Настройки проекта {{ ml-platform-name }} для работы с кластерами {{ dataproc-name }} {#settings}
 
 {% include [preferences](../../_includes/datasphere/settings-for-dataproc.md) %}
 
-## Вычислительные сессии {#session}
-
-{% include [dataproc](../../_includes/datasphere/dataproc-sessions.md) %}
-
-### Ограничения сессий {{ dataproc-name }} {#restrictions}
-
-{% include [cluster variables](../../_includes/datasphere/dataproc-session-vars.md) %}
-
-### Запуск python-кода в кластере {#run-code}
-
-Код запускается в ячейках с заголовком:
-
-```
-#!spark [--cluster <кластер>] [--session <сессия>] [--variables <входящая_переменная>] [--return_variables <возвращаемая_переменная>]
-```
-
-Где:
-
-* `--cluster` — кластер {{ dataproc-name }}, на котором будут производиться вычисления. Может быть:
-  * Именем кластера, созданного через интерфейс ноутбука.
-  * HTTP-ссылкой на внутренний IP-адрес хоста `masternode`, например `http://10.0.0.8:8998/`.
-* `--session` — идентификатор вычислительной сессии. Если параметр пропущен, используется сессия кластера {{ dataproc-name }} по умолчанию.
-* `--variables` — переменная, импортированная из {{ ml-platform-name }} в кластер {{ dataproc-name }}. Поддерживаемые типы: `bool`, `int`, `float`, `str`, `pandas.DataFrame` (преобразовывается в Spark DataFrame в кластере).
-* `--return_variables` — переменная, которая будет экспортирована из кластера {{ dataproc-name }} в {{ ml-platform-name }}. Поддерживаемые типы: `bool`, `int`, `float`, `str`, `pandas.DataFrame` (преобразованный Spark DataFrame).
-
-#### Пример использования вычислительных сессий с пользовательскими параметрами {#example-custom-sessions}
-
-Чтобы запустить вычисления в сессии с заданными настройками, сначала создайте сессию, а затем передайте код в ячейке с заголовком `#!spark`:
-
-1. Создайте сессию и определите ее параметры:
-
-   ```python
-   %create_livy_session --cluster my-new-cluster --id ses1 --conf spark.cores.max=4 --conf spark.executor.memory=4g
-   ```
-
-1. В следующей ячейке запустите вычисления:
-
-   ```python
-   #!spark --cluster my-new-cluster --session ses1
-   import random
-
-   def inside(p):
-   x, y = random.random(), random.random()
-   return x*x + y*y < 1
-
-   NUM_SAMPLES = 1_000_000
-
-   count = sc.parallelize(range(0, NUM_SAMPLES)) \
-      .filter(inside).count()
-   print("Pi is roughly %f" % (4.0 * count / NUM_SAMPLES))
-   ```
-
-1. Если сессия вам больше не нужна, удалите ее:
-
-   ```python
-   %delete_livy_session --cluster my-new-cluster --id ses1
-   ```
-
-### Работа с библиотекой Spark SQL {#sql}
-
-{{ ml-platform-name }} может работать с библиотекой Spark SQL. Например, следующий запрос вернет все записи в таблице `animals`, созданной в кластере `cluster test-dataproc-cluster`:
-
-```python
-#!spark --cluster test-dataproc-cluster --return_variables df
-df = spark.sql("SELECT * FROM animals;")
-```
-
-```python
-df
-```
-
-Подробнее о синтаксисе SQL-запросов и работе с библиотекой Spark SQL см. в [официальной документации](https://spark.apache.org/docs/latest/sql-ref-syntax-qry-select.html).
-
-#### См. также {#see-also}
+## См. также {#see-also}
 
 * [{#T}](data-proc-template.md).
 * [{#T}](../tutorials/data-proc-integration.md).
+* [{#T}](spark-connector.md).

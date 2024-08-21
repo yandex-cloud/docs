@@ -17,3 +17,4 @@
 | Maximum number of routes per HTTP router | 128 |
 | Maximum number of listeners per L7 load balancer | 8 |
 | Maximum number of SNI listeners per L7 load balancer | 32 |
+| Maximum number of authority headers you can specify in a virtual host | 32 |

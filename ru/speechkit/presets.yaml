@@ -3,4 +3,4 @@ default:
   lang: ru
   audience: external
   product: yandex-cloud
-  api-host: api.cloud.yandex.net/speech
+  api-host: api.cloud.yandex.net

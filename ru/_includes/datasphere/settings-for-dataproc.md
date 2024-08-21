@@ -8,3 +8,9 @@
 * [Подсеть](../../vpc/concepts/network.md#subnet) для связи {{ ml-platform-name }} с кластером {{ dataproc-name }}. Кластеру {{ dataproc-name }} необходим доступ в интернет, поэтому в подсети должен быть [настроен NAT-шлюз](../../vpc/operations/create-nat-gateway.md).
 
   {% include [subnet-create](../../_includes/subnet-create.md) %}
+
+{% note warning %}
+
+Постоянный кластер {{ dataproc-name }} должен иметь настройку `livy:livy.spark.deploy-mode : client`.
+
+{% endnote %}

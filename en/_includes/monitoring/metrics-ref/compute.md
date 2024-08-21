@@ -1,4 +1,4 @@
-The metric name is written in the `name` label.
+The metric name is written to the `name` label.
 
 All {{ compute-name }} metrics share the `service=compute` label.
 
@@ -10,7 +10,7 @@ If the disk name is set, it will be returned in a response from the service. If 
 
 ## Virtual machine and disk metrics {#vm-disk-metrics}
 
-| Metric name<br>Type, units of measurement | Description<br>Labels |
+| Metric name<br>Type, unit | Description<br>Labels |
 --- | ---
 | `cpu_usage`<br>`DGAUGE`, % | VM processor utilization percentage. The value can exceed 100% if the VM consumes more resources than the guaranteed amount.<br>Labels:<br>- *resource_id*: VM ID.<br>- *resource_type*: Resource type. The only available value is `vm`. |
 | `cpu_utilization`<br>`DGAUGE`, % | VM processor core (vCPU) utilization percentage. Ranges from 0% to the [vCPU performance level](../../../compute/concepts/performance-levels.md). <br>Labels:<br>- *cpu_name*: CPU core ID.<br>- *resource_id*: VM ID.<br>- *resource_type*: Resource type. The only available value is `vm`. |
@@ -26,7 +26,7 @@ If the disk name is set, it will be returned in a response from the service. If 
 | `disk.read_ops_burst`<br>`RATE`, operations/s | Maximum number of VM disk read operations.<br>Labels:<br>- *disk*: Disk ID or name.<br>- *instance*: VM ID. |
 | `disk.read_ops_in_flight`<br>`DGAUGE`, operations/s | Average number of VM disk read operations at the current point in time.<br>Labels:<br>- *disk*: Disk ID or name.<br>- *instance*: VM ID. |
 | `disk.read_ops_in_flight_burst`<br>`DGAUGE`, operations/s | Maximum number of VM disk read operations at the current point in time.<br>Labels:<br>- *disk*: Disk ID or name.<br>- *instance*: VM ID. |
-| `disk.read_throttler_delay`<br>`HIST_RATE`, milliseconds | Histogram of the read operations latency caused by the VM disk quota excess.<br>Labels:<br>- *disk*: Disk ID or name.<br>- *instance*: VM ID. |
+| `disk.read_throttler_delay`<br>`HIST_RATE`, milliseconds | Histogram of the read operations latency caused by exceeding the VM disk quota.<br>Labels:<br>- *disk*: Disk ID or name. |
 | `disk.write_bytes`<br>`RATE`, bytes/s | Average number of bytes written to the VM disk.<br>Labels:<br>- *disk*: Disk ID or name.<br>- *instance*: VM ID. |
 | `disk.write_bytes_burst`<br>`RATE`, bytes/s | Maximum number of bytes written to the VM disk.<br>Labels:<br>- *disk*: Disk ID or name.<br>- *instance*: VM ID. |
 | `disk.write_bytes_in_flight`<br>`DGAUGE`, bytes/s | Average number of bytes being written to the VM disk at the current point in time.<br>Labels:<br>- *disk*: Disk ID or name.<br>- *instance*: VM ID. |
@@ -37,17 +37,7 @@ If the disk name is set, it will be returned in a response from the service. If 
 | `disk.write_ops_burst`<br>`RATE`, operations/s | Maximum number of VM disk write operations.<br>Labels:<br>- *disk*: Disk ID or name.<br>- *instance*: VM ID. |
 | `disk.write_ops_in_flight`<br>`DGAUGE`, operations/s | Average number of VM disk write operations at the current point in time.<br>Labels:<br>- *disk*: Disk ID or name.<br>- *instance*: VM ID. |
 | `disk.write_ops_in_flight_burst`<br>`DGAUGE`, operations/s | Maximum number of VM disk write operations at the current point in time.<br>Labels:<br>- *disk*: Disk ID or name.<br>- *instance*: VM ID. |
-| `disk.write_throttler_delay`<br>`HIST_RATE`, milliseconds | Histogram of the write operations latency caused by the VM disk quota excess.<br>Labels:<br>- *disk*: Disk ID or name.<br>- *instance*: VM ID. |
-| `disk_read_bytes`<br>`DGAUGE`, bytes/s | Number of bytes per second read from the VM disk.<br>Labels:<br>- *device*: Disk ID.<br>- *resource_id*: VM ID.<br>- *resource_type*: Resource type. The only available value is `vm`. |
-| `disk_read_latency`<br>`HIST_RATE`, milliseconds | Distribution histogram for the latencies of VM disk read requests.<br>Labels:<br>- *bin*: Histogram buckets.<br>- *device*: Disk ID.<br>- *resource_id*: VM ID.<br>- *resource_type*: Resource type. The only available value is `vm`. |
-| `disk_read_ops`<br>`DGAUGE`, operations/s | Number of VM disk reads per second.<br>Labels:<br>- *device*: Disk ID.<br>- *resource_id*: VM ID.<br>- *resource_type*: Resource type. The only available value is `vm`. |
-| `disk_read_ops_failed`<br>`DGAUGE`, operations/s | Number of failed VM disk reads per second.<br>Labels:<br>- *device*: Disk ID.<br>- *resource_id*: VM ID.<br>- *resource_type*: Resource type. The only available value is `vm`. |
-| `disk_read_ops_in_flight`<br>`DGAUGE`, operations/s | Number of concurrent VM disk reads per second.<br>Labels:<br>- *device*: Disk ID.<br>- *resource_id*: VM ID.<br>- *resource_type*: Resource type. The only available value is `vm`. |
-| `disk_write_bytes`<br>`DGAUGE`, bytes/s | Number of bytes per second written to the VM disk.<br>Labels:<br>- *device*: Disk ID.<br>- *resource_id*: VM ID.<br>- *resource_type*: Resource type. The only available value is `vm`. |
-| `disk_write_latency`<br>`HIST_RATE`, milliseconds | Distribution histogram for the latencies of VM disk write requests.<br>Labels:<br>- *bin*: Histogram buckets.<br>- *device*: Disk ID.<br>- *resource_id*: VM ID.<br>- *resource_type*: Resource type. The only available value is `vm`. |
-| `disk_write_ops`<br>`DGAUGE`, operations/s | Number of VM disk write operations per second. <br>Labels:<br>- *device*: Disk ID.<br>- *resource_id*: VM ID.<br>- *resource_type*: Resource type. The only available value is `vm`. |
-| `disk_write_ops_failed`<br>`DGAUGE`, operations/s | Number of failed VM disk write operations per second.<br>Labels:<br>- *device*: Disk ID.<br>- *resource_id*: VM ID.<br>- *resource_type*: Resource type. The only available value is `vm`. |
-| `disk_write_ops_in_flight`<br>`DGAUGE`, operations/s | Number of concurrent VM disk writes per second.<br>Labels:<br>- *device*: Disk ID.<br>- *resource_id*: VM ID.<br>- *resource_type*: Resource type. The only available value is `vm`. |
+| `disk.write_throttler_delay`<br>`HIST_RATE`, milliseconds | Histogram of the write operations latency caused by exceeding the VM disk quota.<br>Labels:<br>- *disk*: Disk ID or name. |
 | `maintenance_event` | `1` if a [maintenance event](../../../compute/concepts/vm-policies) is active on the VM.<br>Labels:<br>- *resource_id*: VM ID.<br>- *resource_type*: Resource type. The only available value is `vm`.<br>- *type*: Maintenance event type. The available values are `migrate`, `restart`. |
 | `network_connections.quota_utilization`<br>`DGAUGE`, % | VM network connection [quota]({{ link-console-quotas }}) utilization, from 0% to 100%. <br>Labels:<br>- *resource_id*: VM ID.<br>- *resource_type*: Resource type. The only available value is `vm`. |
 | `network_received_bytes`<br>`DGAUGE`, bytes/s | Number of bytes per second received on the VM network interface.<br>Labels:<br>- *interface_number*: VM network interface ID.<br> - *resource_id*: VM ID.<br>- *resource_type*: Resource type. The only available value is `vm`. |
@@ -64,8 +54,8 @@ Common labels for all file storage metrics:
 | filestore | [File storage](../../../compute/concepts/filesystem.md) ID |
 | instance | [VM](../../../compute/concepts/vm.md) name |
 
-| Metric name<br>Type, units of measurement | Description<br>Labels |
---- | ---
+| Metric name<br>Type, unit | Description<br>Labels |
+--- | ---  
 | `filestore.read_bytes`<br>`RATE`, bytes/s | Average number of bytes read from a file storage |
 | `filestore.read_bytes_burst`<br>`DGAUGE`, bytes/s | Maximum number of bytes read from a file storage |
 | `filestore.read_errors`<br>`RATE`, operations/s | Number of read operations from a file storage that ended with an error |
@@ -81,8 +71,8 @@ Common labels for all file storage metrics:
 
 ## Instance group metrics {#ig-metrics}
 
-| Metric name<br>Type, units of measurement | Description<br>Labels |
---- | ---
+| Metric name<br>Type, unit | Description<br>Labels |
+--- | ---                                                                
 | `instances_count`<br>`IGAUGE`, pcs | Number of instances in the group.<br>Labels:<br>- *resource_id*: Instance group ID.<br>- *resource_type*: Resource type. The only value is `instance_group`. |
 | `target_instances_count`<br>`IGAUGE`, pcs | Target number of instances in the group.<br>Labels:<br>- *resource_id*: Instance group ID.<br>- *resource_type*: Resource type. The only value is `instance_group`. |
 | `target_utilization`<br>`DGAUGE` | Target utilization of resources per VM instance.<br>Labels:<br>- *resource_id*: Instance group ID.<br>- *resource_type*: Resource type. The only available value is `instance_group`.<br>- *source_metric*: Metric name. |
