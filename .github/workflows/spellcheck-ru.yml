@@ -42,3 +42,6 @@ jobs:
         id: cspell-action
         with:
           files: ${{ steps.changed-files.outputs.all_changed_files }}
+          check_dot_files: false
+          config: /cspell.json
+          incremental_files_only: false
