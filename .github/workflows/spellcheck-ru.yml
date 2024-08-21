@@ -48,11 +48,13 @@ jobs:
       - name: Run CSpell on changed files
         env:
           ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
+          GITHUB_WORKSPACE: ${{ github.workspace }}
         run: |
           cspell_output=""
           for file in ${ALL_CHANGED_FILES}; do
             echo "Running CSpell on $file..."
-            file_content=$(cat $file)
+            file_path="${GITHUB_WORKSPACE}/${file}"
+            file_content=$(cat "${file_path}")
             cspell_errors=$(echo "$file_content" | cspell --config ./cspell.json --debug)
             if [ -n "$cspell_errors" ]; then
               cspell_output+="CSpell errors in $file:\n$cspell_errors\n\n"
