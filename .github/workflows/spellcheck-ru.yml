@@ -21,16 +21,7 @@ jobs:
         id: changed-files
         run: |
           changed_files=$(git diff --name-only ${{ steps.get-pr.outputs.base_sha }}..${{ steps.get-pr.outputs.head_sha }})
-          echo "::set-output name=all_changed_files::${changed_files}"
-
-      - name: Print PR outputs
-        run: |
-          echo "Changed: ${{ steps.changed-files.outputs.all_changed_files }}"
-          echo "Current working directory: $(pwd)"
-
-      - name: Find file
-        run: |
-          find . -name sample.md
+          echo "::set-output name=all_changed_files::$changed_files"
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
@@ -50,6 +41,7 @@ jobs:
           ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
           GITHUB_WORKSPACE: ${{ github.workspace }}
         run: |
+          echo "ALL_CHANGED_FILES: $ALL_CHANGED_FILES"
           cspell_output=""
           for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
             echo "Running CSpell on $file..."
