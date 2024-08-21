@@ -49,7 +49,8 @@
 		 "cspell-dicts/allowed-en.txt", 
 		 "cspell-dicts/internal.txt", 
 		 "cspell-dicts/forbidden-ru.txt", 
-		 "cspell-dicts/forbidden-en.txt"
+		 "cspell-dicts/forbidden-en.txt",
+		 ".github/workflows/spellcheck-ru.yml"
 	],
 	"languageSettings": [
 		{"languageId": "markdown", "caseSensitive": false},

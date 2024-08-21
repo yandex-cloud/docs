@@ -13,9 +13,16 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Get pull request
+        id: get-pr
+        uses: xt0rted/pull-request-comment-branch@v2
+  
       - name: Get changed files
         id: changed-files
         uses: tj-actions/changed-files@v44
+        with:
+         base_sha: ${{ steps.get-pr.outputs.base_sha }}
+         sha: ${{ steps.get-pr.outputs.head_sha }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
