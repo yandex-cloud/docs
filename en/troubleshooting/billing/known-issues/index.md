@@ -1,6 +1,5 @@
 # Solutions for known {{ billing-name }} issues
 
-* [Billing account is in the PAYMENT_REQUIRED status](account-blocked-due-to-debt.md)
 * [Billing account was created in the "Paid" status after registration](account-created-in-paid-status.md)
 * [Resolving the BALANCE.WRONG.ACCOUNT error](balance-wrong-account-issue.md)
 * [Funds for unused resources are debited from the billing account balance](billing-account-is-charged-by-unused-resources.md)

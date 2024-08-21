@@ -82,8 +82,6 @@ items:
         href: billing/known-issues/balance-wrong-account-issue.md
       - name: Billing account is in the PAYMENT_NOT_CONFIRMED status
         href: billing/known-issues/payment-not-confirmed-issue.md
-      - name: Billing account is in the PAYMENT_REQUIRED status
-        href: billing/known-issues/account-blocked-due-to-debt.md
       - name: >-
           What to do if documents are not delivered to the Electronic Document
           Management system

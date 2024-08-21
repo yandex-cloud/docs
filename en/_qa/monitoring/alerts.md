@@ -2,7 +2,7 @@
 
 #### How can I reduce the number of false alerts? {#reduce-false-alerts}
 
-You can increase the [evaluation window](../../monitoring/concepts/alerting.md#evaluation-window) or change the [aggregation function](../../monitoring/concepts/alerting.md#aggregation) in the [alert](../../monitoring/concepts/alerting.md#alert) parameters.
+You can increase the [evaluation window](../../monitoring/concepts/alerting/alert.md#evaluation-window) or change the [aggregation function](../../monitoring/concepts/alerting/alert.md#aggregation) in the [alert](../../monitoring/concepts/alerting/alert.md#alert-parameters) parameters.
 
 #### What value should I specify in a threshold? {#threshold-values}
 
@@ -20,6 +20,6 @@ The following methods are supported in the [notification channel](../../monitori
 
 #### A user does not receive any alerts. Why is that? {#alert-receive-failed}
 
-Check the mailbox and phone number settings in the user account's [notification channel](../../monitoring/concepts/alerting.md#channel-parameters).
+Check the mailbox and phone number settings in the user account's [notification channel](../../monitoring/concepts/alerting/notification-channel.md).
 
 {% include [notifications-requirements](../../_includes/monitoring/notifications-requirements.md) %}

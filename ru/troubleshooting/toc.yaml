@@ -39,8 +39,6 @@ items:
       - name: Устранение ошибки `Unauthorized` при создании платежного аккаунта
         href: >-
           billing/known-issues/unauthorized-error-after-attempt-to-create-billing-account.md
-      - name: Платежный аккаунт находится в статусе `PAYMENT_REQUIRED`
-        href: billing/known-issues/account-blocked-due-to-debt.md
       - name: Закончился пробный период
         href: billing/known-issues/trial-expired-issue.md
       - name: >-

@@ -28,20 +28,30 @@ description: "Следуя данному руководству, вы смож�
 1. [Зарегистрируйте публичную доменную зону и делегируйте домен](../../dns/operations/zone-create-public.md).
 1. {% include [install externaldns](../../_includes/managed-kubernetes/install-externaldns.md) %}
 
-## Установите Ingress-контроллер NGINX с помощью Helm-чарта {#install-controller}
+## Установите Ingress-контроллер NGINX {#install-controller}
 
-1. [Установите менеджер пакетов {{ k8s }} Helm](https://helm.sh/ru/docs/intro/install).
-1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с Ingress-контроллером NGINX выполните команду:
+{% list tabs group=instructions %}
 
-   ```bash
-   helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx && \
-   helm repo update && \
-   helm install ingress-nginx ingress-nginx/ingress-nginx
-   ```
+- {{ marketplace-full-name }} {#marketplace}
 
-Созданный контроллер будет установлен за [{{ network-load-balancer-full-name }}](../../network-load-balancer/).
+  Установите приложение [Ingress NGINX](/marketplace/products/yc/ingress-nginx) из {{ marketplace-name }} [по инструкции](../operations/applications/ingress-nginx.md).
 
-Чтобы настроить конфигурацию контроллера самостоятельно, обратитесь к [документации Helm](https://helm.sh/ru/docs/intro/using_helm/#настройка-chart-а-перед-установкой) и отредактируйте файл [values.yaml](https://github.com/kubernetes/ingress-nginx/blob/master/charts/ingress-nginx/values.yaml).
+- Вручную {#manual}
+
+  1. [Установите менеджер пакетов {{ k8s }} Helm](https://helm.sh/ru/docs/intro/install).
+  1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с Ingress-контроллером NGINX выполните команду:
+
+     ```bash
+     helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx && \
+     helm repo update && \
+     helm install ingress-nginx ingress-nginx/ingress-nginx
+     ```
+
+  Созданный контроллер будет установлен за [{{ network-load-balancer-full-name }}](../../network-load-balancer/).
+
+  Чтобы настроить конфигурацию контроллера самостоятельно, обратитесь к [документации Helm](https://helm.sh/ru/docs/intro/using_helm/#настройка-chart-а-перед-установкой) и отредактируйте файл [values.yaml](https://github.com/kubernetes/ingress-nginx/blob/master/charts/ingress-nginx/values.yaml).
+
+{% endlist %}
 
 Чтобы пробросить определенные порты при установке Ingress-контроллера NGINX, следуйте [инструкции](../operations/create-load-balancer-with-ingress-nginx.md#port-forwarding).
 

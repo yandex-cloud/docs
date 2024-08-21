@@ -715,3 +715,7 @@ To remove a backend from a group:
    Use the [removeBackend](../api-ref/BackendGroup/removeBackend.md) REST API method for the [BackendGroup](../api-ref/BackendGroup/index.md) resource or the [BackendGroupService/RemoveBackend](../api-ref/grpc/backend_group_service.md#RemoveBackend) gRPC API call.
 
 {% endlist %}
+
+### See also {#see-also}
+
+* [{#T}](../concepts/best-practices.md)

@@ -116,6 +116,8 @@ items:
         href: concepts/target-group.md
       - name: Quotas and limits
         href: concepts/limits.md
+      - name: Tips for configuring health checks
+        href: concepts/best-practices.md
   - name: Tools for {{ managed-k8s-name }}
     items:
       - name: Overview

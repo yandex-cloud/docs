@@ -111,6 +111,9 @@ To validate the token, send a GET request to `https://smartcaptcha.yandexcloud.n
 
 {% include [query-parameters](../_includes/smartcaptcha/query-parameters.md) %}
 
+In its response, the service will return a JSON object containing the `status` and `message` fields. If the `status` field value is `ok`, the `host` field is added to a JSON object. It shows on what website the validation was passed. For response examples, see [User validation](concepts/validation.md#service-response).
+
+
 Example of the token validation function:
 
 {% list tabs group=programming_language %}

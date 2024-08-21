@@ -67,6 +67,12 @@ description: "Узнайте, как установить приложение I
       ingress-nginx ./ingress-nginx/
    ```
 
+## Примеры использования {#examples}
+
+* [{#T}](../create-load-balancer-with-ingress-nginx.md)
+* [{#T}](../../tutorials/ingress-cert-manager.md)
+* [{#T}](../../tutorials/nginx-ingress-certificate-manager.md)
+
 ## См. также {#see-also}
 
 * [Документация Ingress NGINX](https://docs.nginx.com/nginx-ingress-controller/)
