@@ -66,7 +66,7 @@ jobs:
         with:
          github-token: ${{secrets.GITHUB_TOKEN}}
          script: |
-           const cspellResults = core.readFile('cspell-results.txt');
+           const cspellResults = cat cspell-results.txt;
            if (cspellResults.trim() !== '') {
              github.rest.issues.createComment({
                issue_number: context.issue.number,
