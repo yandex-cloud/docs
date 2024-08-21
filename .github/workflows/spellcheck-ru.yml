@@ -61,6 +61,12 @@ jobs:
           cspell --output=$GITHUB_WORKSPACE/cspell-results.txt $CHANGED_FILES
         continue-on-error: true
 
+      - name: Upload CSpell results
+        uses: actions/upload-artifact@v3
+        with:
+          name: cspell-results
+          path: $GITHUB_WORKSPACE/cspell-results.txt
+
       - name: Comment PR
         run: |
           cspellResults=$(cat cspell-results.txt)
