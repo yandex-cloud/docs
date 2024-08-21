@@ -62,7 +62,6 @@ jobs:
           echo "$CHANGED_FILES"
           echo "Running CSpell..."
           cspell --config ./cspell.json \
-                 --dictionaries cspell-dicts/internal.txt,cspell-dicts/forbidden-en.txt,cspell-dicts/forbidden-ru.txt,cspell-dicts/allowed-en.txt,cspell-dicts/allowed-ru.txt,cspell-dicts/sdd.txt \
                  --show-context \
                  $CHANGED_FILES
         continue-on-error: true
