@@ -69,7 +69,6 @@ jobs:
         continue-on-error: true
 
       - name: Create comment
-        if: steps.cspell.outputs.cspell_output != ''
         uses: thollander/actions-comment-pull-request@v2
         with:
           message: |
