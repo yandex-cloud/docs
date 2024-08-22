@@ -1,6 +1,5 @@
 # Настройка Kyverno & Kyverno Policies
 
-
 Приложение [Kyverno](https://kyverno.io) и его расширение [Kyverno policies](https://github.com/kyverno/kyverno/tree/main/charts/kyverno-policies) используются для управления политиками безопасности {{ k8s }}. Они представлены в Kyverno как ресурсы {{ k8s }}.
 
 Чтобы интегрировать [Kyverno & Kyverno Policies](/marketplace/products/yc/kyverno) в {{ managed-k8s-name }}:

@@ -94,4 +94,11 @@ Yes, you can.
 
 {% include [account-in-organization](../../_includes/billing/pay-resouces-of-another-organization.md) %}
 
-For more information, refer to [Managing a billing account in an organization](../../billing/concepts/organization.md).
+See [Managing a billing account in an organization](../../billing/concepts/organization.md).
+
+#### How do I stop using the platform and delete my billing account? {#delete-account}
+
+
+Delete all [clouds](../../resource-manager/concepts/resources-hierarchy.md#cloud), [folders](../../resource-manager/concepts/resources-hierarchy.md#folder), and resources within them, pay off the existing arrears, and select **{{ ui-key.yacloud_billing.billing.account.dashboard.label_inactivation }}** on the billing account page in [**{{ billing-name }}**]({{ link-console-billing }}). For more information, see [{#T}](../../billing/operations/delete-account.md).
+
+

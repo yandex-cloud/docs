@@ -199,4 +199,5 @@ Create a [{{ container-registry-name }} trigger](../../functions/concepts/trigge
 
 ## See also {#see-also}
 
-* [Trigger for {{ container-registry-name }} that invokes a {{ serverless-containers-name }} container](../../serverless-containers/operations/cr-trigger-create.md).
+* [{#T}](../../serverless-containers/operations/cr-trigger-create.md)
+* [{#T}](../../api-gateway/operations/trigger/cr-trigger-create.md)

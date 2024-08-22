@@ -20,7 +20,7 @@ To create a trigger, you need:
 
    You can use the same service account or different ones. If you do not have a service account, [create one](../../../iam/operations/sa/create.md).
 
-* A message queue that the trigger receives messages from. If you do not have a queue, [create one](../../../message-queue/operations/message-queue-new-queue.md).
+* Message queue the trigger will collect messages from. If you do not have a queue, [create one](../../../message-queue/operations/message-queue-new-queue.md).
 
 ## Creating a trigger {#trigger-create}
 
@@ -172,7 +172,7 @@ To create a trigger, you need:
 
       For more information about the `yandex_function_trigger` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/function_trigger).
 
-   1. Create resources:
+   1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
@@ -208,4 +208,5 @@ To create a trigger, you need:
 
 ## See also {#see-also}
 
-* [Trigger for {{ message-queue-short-name }} that sends messages to the {{ serverless-containers-name }} container](../../../serverless-containers/operations/ymq-trigger-create.md).
+* [{#T}](../../../serverless-containers/operations/ymq-trigger-create.md)
+* [{#T}](../../../api-gateway/operations/trigger/ymq-trigger-create.md)

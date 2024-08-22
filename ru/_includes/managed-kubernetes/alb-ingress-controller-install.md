@@ -1,6 +1,5 @@
 # Установка Ingress-контроллера {{ alb-name }}
 
-
 Для балансировки нагрузки и распределения трафика между приложениями {{ k8s }} используйте [Ingress-контроллер {{ alb-full-name }}](../../application-load-balancer/tools/k8s-ingress-controller/index.md). Он запускает балансировщик и необходимые вспомогательные ресурсы, когда пользователь создает ресурс `Ingress` в кластере {{ managed-k8s-name }}.
 
 ## Перед началом работы {#before-you-begin}
@@ -56,7 +55,7 @@
    sudo apt update && sudo apt install jq
    ```
 
-1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с Ingress-контроллером выполните команды:
+1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с Ingress-контроллером выполните команду:
 
    
    ```bash
@@ -73,7 +72,6 @@
      --set-file saKeySecretKey=sa-key.json \
      yc-alb-ingress-controller ./yc-alb-ingress-controller-chart/
    ```
-
 
 ## Примеры использования {#examples}
 

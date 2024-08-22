@@ -20,7 +20,7 @@ public class Handler : YcFunction<int, String> {
 Examples of invalid handlers:
 ```C#
 // YcFunction has only one parameter type specified
-// Handler should not have any type parameters (see [the handler requirements](index.md))
+// Handler should not have any type parameters
 public class Handler<T> : YcFunction<T, int> {
   public int FunctionHandler(T i, Context c) {
     return 2;
@@ -36,6 +36,8 @@ public class Handler : YcFunction {
   }
 }
 ```
+
+To learn more about listener requirements, see [{#T}](index.md).
 
 You can use any classes as input and return types.
 

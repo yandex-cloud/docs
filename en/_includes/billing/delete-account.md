@@ -1,4 +1,4 @@
-1. Go to [**{{ billing-name }}**](https://billing.yandex.cloud/accounts/).
+1. Go to [**{{ billing-name }}**]({{ link-console-billing }}).
 1. Select the billing account from the list.
 1. In the top-right corner of the **{{ ui-key.yacloud_billing.billing.account.switch_overview }}** page, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_billing.billing.account.dashboard.label_inactivation }}**.
 1. Confirm and wait until the service checks whether your billing account can be deleted.
@@ -8,7 +8,7 @@
    * The account has linked [resources](../../resource-manager/concepts/resources-hierarchy.md#rm-resources), [clouds](../../organization/concepts/manage-services.md#cloud), [organizations](../../organization/concepts/membership.md), {{ ml-platform-name }} [communities](../../datasphere/concepts/community.md), or {{ speechsense-name }} [spaces](../../speechsense/concepts/resources-hierarchy.md#space) left.
    * You still have resources purchased under the [CVoS](../../billing/concepts/cvos.md).
    * You have not disabled the paid [Technical support](../../support/overview.md) service plan.
-   * Your billing account has a [partner](../../partner/terms.md#referral-partner) status or you are a [partner's customer](../../partner/terms.md#subaccount).
+   * Your billing account has a [partner](../../partner/terms.md#referral-partner) status or you are a [partner's customer](../../partner/terms.md#sub-account).
    * [Payment settlements for the provided services are still pending](../../billing/concepts/act.md).
 
    If you cannot fix the issue preventing the deletion of your account on your own, please [contact]({{ link-console-support }}/tickets/create) our technical support.

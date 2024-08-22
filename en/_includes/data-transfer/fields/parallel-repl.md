@@ -1,4 +1,4 @@
-**{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferTypeIncrement.increment_settings.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.IncrementSettings.parallel_settings.title }}**: Specify the number of workers required for parallel copy processes. This setting is available for the sources {{ ydb-short-name }}, {{ KF }}, and {{ DS }}. If multiple replication processes are run, they will share the partitions of the topic being replicated. 
+**{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferTypeIncrement.increment_settings.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.IncrementSettings.parallel_settings.title }}**: Specify the number of [workers](../../../data-transfer/concepts/index.md#worker) required for parallel replication processes. This setting is available for the sources {{ ydb-short-name }}, {{ KF }}, and {{ DS }}. If multiple replication processes are run, they will share the partitions of the topic under replication.
 
 {% note info %}
 

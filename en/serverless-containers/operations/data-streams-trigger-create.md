@@ -189,7 +189,7 @@ To create a trigger, you need:
 
       For more information about the `yandex_function_trigger` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/function_trigger).
 
-   1. Create resources:
+   1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
@@ -211,4 +211,5 @@ To create a trigger, you need:
 
 ## See also {#see-also}
 
-* [Trigger for {{ yds-name }} that invokes a {{ sf-name }} function](../../functions/operations/trigger/data-streams-trigger-create.md).
+* [{#T}](../../functions/operations/trigger/data-streams-trigger-create.md)
+* [{#T}](../../api-gateway/operations/trigger/data-streams-trigger-create.md)

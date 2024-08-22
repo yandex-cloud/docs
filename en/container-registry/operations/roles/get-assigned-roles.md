@@ -5,22 +5,15 @@ description: "Follow this guide to view roles assigned for resources."
 
 # Viewing roles assigned for a resource
 
-To view assigned [roles](../../../iam/concepts/access-control/roles.md):
-
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) to view resource roles.
-   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
-   1. View the roles assigned for a resource:
-      * Viewing roles for a [registry](../../concepts/registry.md):
-         1. To the right of the registry name, click ![horizontal-ellipsis](../../../_assets/console-icons/ellipsis.svg) and select **Registry ACL**.
-         1. In the window that opens, you can see a list of users and their permissions for the registry.
-      * Viewing roles for a repository:
-         1. Select the registry.
-         1. To the right of the repository name, click ![horizontal-ellipsis](../../../_assets/console-icons/ellipsis.svg) and select **Configure ACL**.
-         1. In the window that opens, you can see a list of users and their permissions for the repository.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to view the [roles](../../../iam/concepts/access-control/roles.md) assigned for a resource.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
+  1. Select a [registry](../../concepts/registry.md) or [repository](../../concepts/repository.md) in it.
+  1. Go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
+  1. Find the required user, group, or [service account](../../../iam/concepts/users/service-accounts.md) in the list. Assigned roles are specified in the **{{ ui-key.yacloud.common.resource-acl.label_bindings }}** column.
 
 - CLI {#cli}
 
@@ -31,33 +24,34 @@ To view assigned [roles](../../../iam/concepts/access-control/roles.md):
    Run this command:
 
    ```bash
-   yc <service_name> <resource> list-access-bindings <resource_name_or_ID>
+   yc container <resource> list-access-bindings <resource_name_or_ID>
    ```
 
    Where:
-   * `<service_name>`: `container` service name.
-   * `<resource>`: Category of the resource (`registry` or `repository`).
-   * `<resource_name_or_ID>`: Name or ID of the resource the role is assigned for.
+   * `<resource>`: Resource type (`registry` or `repository`).
+   * `<resource_name_or_ID>`: Name or ID of the resource you want to view the assigned roles for.
 
-   > Example. View the roles for the registry with the `crp0pmf1n68d********` ID:
-   >
-   > ```bash
-   > yc container registry list-access-bindings crp0pmf1n68d********
-   > ```
-   >
-   > Command result:
-   >
-   > ```bash
-   > +--------------------------+------------------+----------------------+
-   > |         ROLE ID          |   SUBJECT TYPE   |      SUBJECT ID      |
-   > +--------------------------+------------------+----------------------+
-   > | container-registry.admin | federatedAccount | kolhpriseeio******** |
-   > +--------------------------+------------------+----------------------+
-   > ```
+   **Example**
+
+   ```bash
+   yc container registry list-access-bindings my-first-registry
+   ```
+
+   Result:
+
+   ```bash
+   +--------------------------+---------------+----------------------+
+   |         ROLE ID          | SUBJECT TYPE  |      SUBJECT ID      |
+   +--------------------------+---------------+----------------------+
+   | container-registry.admin | federatedUser | ajekv7lpqpgu******** |
+   +--------------------------+---------------+----------------------+
+   ```
 
 - API {#api}
 
-   Use the `listAccessBindings` method for the `registry` and `repository` resources.
+  Use the [listAccessBindings](../../api-ref/Registry/listAccessBindings.md) REST API method for the [Registry](../../api-ref/Registry/index.md) resource or the [RegistryService/listAccessBindings](../../api-ref/grpc/registry_service.md#UpdateAccessBindings) gRPC API call.
+
+  Use the [listAccessBindings](../../api-ref/Repository/listAccessBindings.md) REST API method for the [Repository](../../api-ref/Repository/index.md) resource or the [RepositoryService/listAccessBindings](../../api-ref/grpc/repository_service.md#UpdateAccessBindings) gRPC API call.
 
 {% endlist %}
 

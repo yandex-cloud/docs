@@ -1,0 +1,1 @@
+You get the first 1,000 night time requests at no charge every month.

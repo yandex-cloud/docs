@@ -209,7 +209,7 @@ We recommend using a [VM](../../compute/concepts/vm.md) with basic configuration
 
       1. Click **{{ ui-key.yacloud.common.apply }}**.
 
-   1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the information required to access the instance:
+   1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the data for access to the VM:
       * Enter the VM user name in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
       * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file. You need to [create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) a key pair for the SSH connection yourself.
 
@@ -280,7 +280,7 @@ A [{{ lockbox-name }} secret](../../lockbox/concepts/secret.md) will store the e
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder to create the [secret](../../lockbox/concepts/secret.md).
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a [secret](../../lockbox/concepts/secret.md).
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
    1. Click **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
    1. In the **{{ ui-key.yacloud.common.name }}** field, enter the secret name: `mongodb-creds`.
@@ -444,13 +444,13 @@ The [registry](../../container-registry/concepts/registry.md) in {{ container-re
 
          ```
          docker tag mongo-express \
-         {{ registry }}/crpd50616s9a********/mongo-express:mongo-tag
+         {{ registry }}/<registry_ID>/mongo-express:mongo-tag
          ```
 
       1. Push the `mongo-express` image to the registry:
 
          ```
-         docker push {{ registry }}/crpd50616s9a********/mongo-express:mongo-tag
+         docker push {{ registry }}/<registry_ID>/mongo-express:mongo-tag
          ```
 
    {% endlist %}
@@ -463,7 +463,7 @@ To run your application in {{ yandex-cloud }}, create a [container](../../server
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you want to create your container.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a container.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
    1. Click **{{ ui-key.yacloud.serverless-containers.button_create-container }}**.
    1. Enter `mongo-express-container` as your container name.

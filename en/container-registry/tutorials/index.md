@@ -6,17 +6,8 @@ description: "Various {{ container-registry-full-name }} use cases in {{ yandex-
 # {{ container-registry-name }} tutorials
 
 * [{#T}](run-docker-on-vm/index.md)
-
-
-* [{#T}](image-auto-scan.md)
-
-
 * [{#T}](sign-with-cosign.md)
-
-
 * [{#T}](cr-scanner-with-k8s-and-gitlab.md)
 * [{#T}](ci-cd-serverless.md)
-
-
 * [{#T}](image-storage.md)
 * [{#T}](vpc-cr-access.md)

@@ -6145,8 +6145,6 @@ default:
       component:
         acl-dialog:
           button_remove-new: Отменить
-          button_revoke: Отозвать
-          column_permissions: Разрешения
           label_select-placeholder: Выберите пользователя
           label_title: Редактирование ACL
         acl:
@@ -7322,6 +7320,7 @@ default:
             button_action-delete: Удалить
             button_action-edit: Редактировать
             label_access-datalens: Доступ из DataLens
+            label_access-websql-service: Доступ из WebSQL
             label_advanced-settings: Настройки СУБД
             label_bucket: Имя бакета
             label_hdd: Хранилище
@@ -8897,6 +8896,8 @@ default:
                       mdb_cluster_id:
                         title: Кластер Managed Service for OpenSearch
                     OpenSearchSource:
+                      connection:
+                        title: Настройки подключения
                       dump_index_with_mapping:
                         title: Перенести индекс с сопоставлением типов
                     OpenSearchTarget:

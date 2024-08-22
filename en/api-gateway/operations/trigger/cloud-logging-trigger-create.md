@@ -28,7 +28,7 @@ Create a [trigger for {{ cloud-logging-name }}](../../concepts/trigger/cloud-log
 
       * Enter a name and description for the trigger.
       * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_logging }}`.
-      * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** field, select the `API gateway`.
+      * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_gateway-broadcast }}`.
 
    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_logging }}**, specify:
 

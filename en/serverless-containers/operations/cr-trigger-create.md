@@ -187,7 +187,7 @@ Create a [trigger for {{ container-registry-name }}](../concepts/trigger/cr-trig
 
       For more information about the `yandex_function_trigger` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/function_trigger).
 
-   1. Create resources:
+   1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
@@ -209,4 +209,5 @@ Create a [trigger for {{ container-registry-name }}](../concepts/trigger/cr-trig
 
 ## See also {#see-also}
 
-* [Trigger for {{ container-registry-name }} that invokes a {{ sf-name }} function](../../functions/operations/trigger/cr-trigger-create.md).
+* [{#T}](../../functions/operations/trigger/cr-trigger-create.md)
+* [{#T}](../../api-gateway/operations/trigger/cr-trigger-create.md)

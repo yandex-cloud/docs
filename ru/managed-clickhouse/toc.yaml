@@ -134,6 +134,10 @@ items:
           помощью {{ data-transfer-full-name }}
         href: tutorials/object-storage-to-clickhouse.md
       - name: >-
+          Копирование данных из {{ mos-name }} в {{ mch-name }} с помощью {{
+          data-transfer-full-name }}
+        href: tutorials/opensearch-to-clickhouse.md
+      - name: >-
           Загрузка данных из {{ ydb-full-name }} в {{ mch-name }} с помощью {{
           data-transfer-full-name }}
         href: tutorials/ydb-to-clickhouse.md

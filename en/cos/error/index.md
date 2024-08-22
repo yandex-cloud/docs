@@ -15,22 +15,22 @@ See below for a list of common issues and their fixes:
 
 ## Service account has no permission to download the specified Docker image {#permission-denied}
 
-**Example:**
+**Example**:
 
 ```
 Mar 25 12:07:39 instance-name yc-container-daemon[516]:
 {"level":"DEBUG","ts":"2021-03-25T12:07:39.785Z","caller":"container/image.go:75","msg":"trying to pull image (0/3)"}
 Mar 25 12:07:39 instance-name yc-container-daemon[516]:
-{"level":"DEBUG","ts":"2021-03-25T12:07:39.786Z","caller":"container/image.go:47","msg":"pulling image: '{{ registry }}/crpgrueprnc1cgt1la/nginx:1.16.0'"}
+{"level":"DEBUG","ts":"2021-03-25T12:07:39.786Z","caller":"container/image.go:47","msg":"pulling image: '{{ registry }}/crpgrueprn********/nginx:1.16.0'"}
 Mar 25 12:07:41 instance-name yc-container-daemon[516]:
-{"level":"ERROR","ts":"2021-03-25T12:07:41.005Z","caller":"container/image.go:78","msg":"error pulling image: Error response from daemon: pull access denied for {{ registry }}/crpgruernc1bgt1la/ngin>
+{"level":"ERROR","ts":"2021-03-25T12:07:41.005Z","caller":"container/image.go:78","msg":"error pulling image: Error response from daemon: pull access denied for {{ registry }}/crpgruern********/ngin>
 ```
 
 **How to fix it**: [Assign](../../iam/operations/sa/set-access-bindings.md) the `viewer` or `container-registry.images.puller` role to the service account for a repository, registry, or folder. For more information about the roles available in the service, see our [documentation](../../container-registry/security/index.md).
 
 ## No network access to {{ container-registry-name }} {#connection-to-cr}
 
-**Example:**
+**Example**:
 
 ```
 Sep 28 08:00:18 cl17bn514eluq62d****-**** yc-container-daemon[952]:
@@ -45,7 +45,7 @@ Sep 28 08:00:33 cl17bn514eluq62d****-**** yc-container-daemon[952]:
 
 ## No service account is linked to the VM to enable access to {{ container-registry-name }} {#sa-for-registry}
 
-**Example:**
+**Example**:
 
 ```
 Mar 25 12:13:23 instance-name yc-container-daemon[518]:
@@ -77,7 +77,7 @@ Mar 25 12:34:46 intr13-vm yc-container-daemon[518]:
 
 ## The requested image's platform does not match the host platform {#platforms-not-match}
 
-**Example:**
+**Example**:
 
 ```
 WARNING: The requested image's platform (linux/arm64/v8) does not match the detected host platform (linux/amd64/v4) and no specific platform was requested

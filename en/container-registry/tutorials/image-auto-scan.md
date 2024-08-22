@@ -34,7 +34,7 @@ You can also deploy an infrastructure for automatic scanning of Docker images on
 
 {% include [cli-install](../../_includes/cli-install.md) %}
 
-1. [Install](https://www.docker.com) Docker.
+1. [Install and configure](../operations/configure-docker.md) Docker.
 1. Create a registry to push a Docker image to.
 
    {% list tabs group=instructions %}
@@ -238,7 +238,7 @@ Create a trigger that will invoke your function when creating a [tag](../concept
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you want to create your trigger.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a trigger.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
    1. Go to the **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}** tab.
    1. Click **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
@@ -272,7 +272,7 @@ Create a trigger that will invoke your function when creating a [tag](../concept
    * `--registry-id`: [ID of the registry](../operations/registry/registry-list.md) to push the Docker image to.
    * `--events`: [Events](../../functions/concepts/trigger/cr-trigger.md#event) activating the trigger.
    * `--invoke-function-id`: Function ID.
-   * `--invoke-function-service-account-id`: ID of the service account with rights to invoke the function.
+   * `--invoke-function-service-account-id`: ID of the service account with the permissions to invoke the function.
 
    Result:
 
@@ -323,7 +323,7 @@ Create a trigger that will invoke your function when creating a [tag](../concept
 
       1. Make sure that Docker is configured.
 
-         The `/home/<user>/.docker/config.json` configuration file must include the following line:
+         The following line must appear in the `/home/<user>/.docker/config.json` configuration file:
 
          ```json
          "{{ registry }}": "yc"
@@ -477,7 +477,6 @@ Create a trigger that will invoke your function when creating a [tag](../concept
 ## How to delete the resources you created {#clear-out}
 
 To stop paying for the resources you created:
-
 * [Delete the Docker image](../../container-registry/operations/docker-image/docker-image-delete.md) stored in [{{ cos-full-name }}](../../cos/), as well as the [registry](../../container-registry/operations/registry/registry-delete.md).
 * [Delete](../../functions/operations/function/function-delete.md) the {{ sf-name }} function.
 * [Delete](../../functions/operations/function/function-delete.md) the {{ sf-name }} trigger.
@@ -487,7 +486,6 @@ To stop paying for the resources you created:
 {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
 To set up automatic Docker image scan on push using {{ TF }}:
-
 1. [Install {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform) and [get the authentication data](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials).
 1. Specify the source for installing the {{ yandex-cloud }} provider (see [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), step 1).
 1. Prepare files with the infrastructure description:
@@ -520,7 +518,6 @@ To set up automatic Docker image scan on push using {{ TF }}:
          {% endcut %}
 
       1. Prepare a ZIP archive with the function code.
-
          1. Create the `handler.sh` file and paste the following code to it:
 
             {% cut "handler.sh" %}
@@ -536,17 +533,13 @@ To set up automatic Docker image scan on push using {{ TF }}:
    {% endlist %}
 
    For more information about the parameters of resources used in {{ TF }}, see the provider documentation:
-
    * [yandex_iam_service_account]({{ tf-provider-resources-link }}/yandex_iam_service_account)
    * [yandex_resourcemanager_folder_iam_member]({{ tf-provider-resources-link }}/yandex_resourcemanager_folder_iam_member)
    * [yandex_container_registry]({{ tf-provider-resources-link }}/yandex_container_registry)
    * [yandex_function]({{ tf-provider-resources-link }}/yandex_function)
-
 1. In the `image-auto-scan.auto.tfvars` file, set the user-defined parameters:
-
    * `zone`: [Availability zone](../../overview/concepts/geo-scope.md) to create the infrastructure in.
    * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) to create the infrastructure in.
-
 1. Create resources:
 
    {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

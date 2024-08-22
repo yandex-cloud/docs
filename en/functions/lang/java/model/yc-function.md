@@ -1,14 +1,9 @@
-# Using the YcFunction interface to set a handler function in Java
+# Using the YcFunction interface for a Java handler
 
-You can set a handler function in Java by implementing the [YcFunction](https://github.com/yandex-cloud/java-sdk/blob/master/java-sdk-functions/src/main/java/yandex/cloud/sdk/functions/YcFunction.java) interface. To do this, add an [SDK](../sdk.md) to the [dependencies](../dependencies.md).
-
-{% note warning %}
-
-You should specify both values for `YcFunction` type parameters: the first one being the input argument type and the second one the type of the return value. The `handle` method also has the second argument: the [invocation context](../context.md).
-
-{% endnote %}
+To create a Java [handler](../handler.md), you can implement the [YcFunction](https://github.com/yandex-cloud/java-sdk/blob/master/java-sdk-functions/src/main/java/yandex/cloud/sdk/functions/YcFunction.java) interface. To do this, add the [SDK](../sdk.md) to the [dependencies](../dependencies.md).
 
 Example of a valid handler:
+
 ```java
 import yandex.cloud.sdk.functions.YcFunction;
 import yandex.cloud.sdk.functions.Context;
@@ -21,7 +16,14 @@ public class Handler implements YcFunction<Integer, String> {
 }
 ```
 
+{% note warning %}
+
+Specify both values for `YcFunction` type parameters: the first one is for the input argument type, while the second one, for the return value type. For the `handle` method, make sure to provide the [invocation context](../context.md) as its second argument.
+
+{% endnote %}
+
 Examples of invalid handlers:
+
 ```java
 import yandex.cloud.sdk.functions.YcFunction;
 import yandex.cloud.sdk.functions.Context;
@@ -51,7 +53,7 @@ You can use any classes as input and return types.
 
 {% note info %}
 
-Fields of these classes may have any [access modifiers](https://docs.oracle.com/javase/tutorial/java/javaOO/accesscontrol.html). If a field is non-public, writing `getter`/`setter` methods for it is optional.
+Fields of these classes may have any [access modifiers](https://docs.oracle.com/javase/tutorial/java/javaOO/accesscontrol.html). For non-public fields, you do not have to write `getter`/`setter`.
 
 {% endnote %}
 

@@ -23,4 +23,5 @@ After the trigger is activated, it sends the following message to the container:
 
 ## See also {#see-also}
 
-* [Timer that invokes a {{ sf-name }} function](../../../functions/concepts/trigger/timer.md).
+* [{#T}](../../../functions/concepts/trigger/timer.md)
+* [{#T}](../../../api-gateway/concepts/trigger/timer.md)

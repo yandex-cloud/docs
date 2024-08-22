@@ -178,7 +178,7 @@ The trigger must be in the same cloud as the registry or device whose topic it r
 
       For more information about resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/function_trigger).
 
-   1. Create resources:
+   1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
@@ -200,4 +200,5 @@ The trigger must be in the same cloud as the registry or device whose topic it r
 
 ## See also {#see-also}
 
-* [Trigger for {{ iot-name }} that sends messages from registry or device topics to a {{ sf-name }} function](../../functions/operations/trigger/iot-core-trigger-create.md).
+* [{#T}](../../functions/operations/trigger/iot-core-trigger-create.md)
+* [{#T}](../../api-gateway/operations/trigger/iot-core-trigger-create.md)

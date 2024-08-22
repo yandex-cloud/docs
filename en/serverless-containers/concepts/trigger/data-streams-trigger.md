@@ -8,8 +8,8 @@ For more information about creating a trigger for {{ yds-name }}, see [{#T}](../
 
 ## Roles required for the proper operation of a trigger for {{ yds-name }} {#roles}
 
-* To create a trigger, you need a permission for a service account that runs the trigger executing the operation. This permission is included in the [iam.serviceAccounts.user](../../../iam/concepts/access-control/roles#sa-user) and [editor](../../../iam/concepts/access-control/roles#editor) roles and higher.
-* To run a trigger, service accounts need the following roles:
+* To create a trigger, you need a permission for the service account under which the trigger executes the operation. This permission comes with the [iam.serviceAccounts.user](../../../iam/concepts/access-control/roles.md#sa-user) and [editor](../../../iam/concepts/access-control/roles.md#editor) roles or higher.
+* For the trigger to fire, service accounts need the following roles:
    * `serverless.containers.invoker` for the container that the trigger invokes.
    * `yds.admin` for the stream that invokes the trigger when data is sent there.
 
@@ -22,4 +22,5 @@ After the trigger is activated, it sends a message to the container. The message
 
 ## See also {#see-also}
 
-* [Trigger for {{ yds-name }} that invokes a {{ sf-name }} function](../../../functions/concepts/trigger/data-streams-trigger.md).
+* [{#T}](../../../functions/concepts/trigger/data-streams-trigger.md)
+* [{#T}](../../../api-gateway/concepts/trigger/data-streams-trigger.md)
