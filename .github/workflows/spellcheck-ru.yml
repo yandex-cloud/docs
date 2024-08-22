@@ -34,13 +34,4 @@ jobs:
       - name: Run CSpell on all changed files
         continue-on-error: true
         run: |
-          IFS=' ' read -r -a files <<< "${{ steps.files.outputs.all_files }}"
-          echo "${files[@]}" 
-          for file in "${files[@]}"; do
-            if [[ "$file" == ".github/workflows/spellcheck-ru.yml" || "$file" == "cspell.json" ]]; then
-              echo "Skipping CSpell check for $file"
-              continue
-            fi
-            echo "Checking $file for spelling errors..."
-            cspell "$file" --config cspell.json --show-suggestions
-          done
+          cspell $file --config cspell.json --show-suggestions --files ${{ steps.files.outputs.all_files }} --debug --no-must-find-file
