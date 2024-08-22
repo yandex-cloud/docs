@@ -21,6 +21,7 @@ jobs:
         id: changed-files
         run: |
           changed_files=$(git diff --name-only ${{ steps.get-pr.outputs.base_sha }}..${{ steps.get-pr.outputs.head_sha }})
+          changed_files=$(echo "$changed_files" | tr '\n' ' ')
           echo "Changed files: $changed_files"
           echo "::set-output name=all_changed_files::$changed_files"
 
@@ -47,8 +48,9 @@ jobs:
           for file in $ALL_CHANGED_FILES; do
             echo "Running CSpell on $file..."
             file_path="${GITHUB_WORKSPACE}/${file}"
+            echo "File path: $file_path"
             file_content=$(cat "${file_path}")
-            cspell_errors=$(echo "$file_content" | cspell --config ${GITHUB_WORKSPACE}/cspell.json --no-must-find-files --exclude **/spellcheck-ru.yml)
+            cspell_errors=$(echo "$file_content" | cspell --config ${GITHUB_WORKSPACE}/cspell.json --no-must-find-files --exclude .github/workflows/spellcheck-ru.yml)
             if [ -n "$cspell_errors" ]; then
               cspell_output+="CSpell errors in $file:\n$cspell_errors\n\n"
             fi
