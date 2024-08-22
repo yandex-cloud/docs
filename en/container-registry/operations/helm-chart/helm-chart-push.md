@@ -93,7 +93,7 @@ To push a Helm chart:
       Result:
 
       ```text
-      Pushed: {{ registry }}/<registry_ID>/<Helm_chart_name>:<version>
+      Pushed: {{ registry }}/crp3h07fgv9b********/<Helm_chart_name>:<version>
       Digest: <SHA256...>
       ```
 
@@ -132,7 +132,7 @@ To push a Helm chart:
    1. Push the Helm chart to {{ container-registry-name }}:
 
       ```bash
-      helm push my-chart-3.11.2.tgz oci://{{ registry }}/crp3h07fgv9b********
+      helm push my-chart-3.11.2.tgz oci://{{ registry }}/<registry_ID>
       ```
 
       Result:

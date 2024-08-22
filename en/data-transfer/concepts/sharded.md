@@ -23,7 +23,7 @@ The service connects to {{ GP }} cluster segments directly and transfers data fr
 
   **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferTypeRegularSnapshot.snapshot_settings.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.SnapshotSettings.parallel_settings.title }}**:
 
-  * **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.ParallelSnapshotSettings.workers_count.title }}**: Number of workers to run in parallel to copy data. Each worker is run on a stand-alone VM with dedicated CPU and RAM resources and a dedicated network connection.
+  * **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.ParallelSnapshotSettings.workers_count.title }}**: Number of [workers](index.md#worker) to run concurrently to copy data. Each worker is run on a stand-alone VM with dedicated CPU and RAM resources and a dedicated network connection.
 
   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.ParallelSnapshotSettings.threads_count.title }}**: Number of threads per worker. Each thread is run in a separate container on a worker's VM and copies a single table or its part (depending on the source type).
 

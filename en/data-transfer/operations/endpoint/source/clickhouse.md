@@ -181,8 +181,6 @@ Connecting to the database with explicitly specified network addresses and ports
 
    * {% include [exclude_tables](../../../../_includes/data-transfer/fields/clickhouse/ui/exclude-tables.md) %}
 
-   {% include [Description of table names](../../../../_includes/data-transfer/fields/clickhouse/description-table-name.md) %}
-
    Included and excluded table names must meet the ID naming rules in {{ CH }}. For more information, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/syntax#syntax-identifiers). Escaping double quotes is not required.
 
    Leave the lists empty to transfer all the tables.
@@ -195,8 +193,6 @@ Connecting to the database with explicitly specified network addresses and ports
 
    * {% include [exclude-table](../../../../_includes/data-transfer/fields/clickhouse/cli/exclude-table.md) %}
 
-   {% include [Description of table names](../../../../_includes/data-transfer/fields/clickhouse/description-table-name.md) %}
-
    If no lists are specified, data from all tables will be transferred.
 
 - {{ TF }} {#tf}
@@ -207,8 +203,6 @@ Connecting to the database with explicitly specified network addresses and ports
 
    * {% include [exclude_tables](../../../../_includes/data-transfer/fields/clickhouse/terraform/exclude-tables.md) %}
 
-   {% include [Description of table names](../../../../_includes/data-transfer/fields/clickhouse/description-table-name.md) %}
-
    If no lists are specified, data from all tables will be transferred.
 
 - API {#api}
@@ -218,8 +212,6 @@ Connecting to the database with explicitly specified network addresses and ports
       {% include [Description for Included tables](../../../../_includes/data-transfer/fields/description-included-tables.md) %}
 
    * {% include [excludeTables](../../../../_includes/data-transfer/fields/clickhouse/api/exclude-tables.md) %}
-
-   {% include [Description of table names](../../../../_includes/data-transfer/fields/clickhouse/description-table-name.md) %}
 
    If no lists are specified, data from all tables will be transferred.
 

@@ -137,7 +137,7 @@ The steps for assigning a billing account role depend on whether this billing ac
    1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
    1. Select a billing account.
    1. Go to the **{{ ui-key.yacloud_billing.billing.account.switch_users }}** page.
-   1. At the top right, click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**. In the window that appears:
+   1. At the top right, click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**. In the window that opens:
 
       1. Click ![image](../../_assets/create.svg) **{{ ui-key.yacloud_components.acl.action.select-subject }}**.
       1. Select a user or service account from the list or use the search bar.
@@ -213,4 +213,4 @@ You can only delete users from those billing accounts that are not added to an o
 1. In the line with the user or service account you need, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_billing.billing.account.users.button_remove-user }}**.
 1. This deletes the user from the list of the billing account users.
 
-If the billing account is added to an organization, you can simply [revoke](#delete-role) the required role from a user or service account. You can [remove a user from the organization](../../organization/edit-account) to prevent them from accessing any of its clouds or resources.
+If the billing account is added to an organization, you can simply [revoke](#delete-role) the required role from a user or service account. You can [remove a user from the organization](../../organization/operations/edit-account.md#remove-user) to prevent them from accessing any of its clouds or resources.

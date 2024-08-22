@@ -6139,8 +6139,6 @@ default:
       component:
         acl-dialog:
           button_remove-new: Cancel
-          button_revoke: Revoke
-          column_permissions: Permissions
           label_select-placeholder: Select a user
           label_title: ACL editing
         acl:
@@ -7314,6 +7312,7 @@ default:
             button_action-delete: Delete
             button_action-edit: Edit
             label_access-datalens: DataLens access
+            label_access-websql-service: WebSQL access
             label_advanced-settings: DBMS settings
             label_bucket: Bucket name
             label_hdd: Storage
@@ -8889,6 +8888,8 @@ default:
                       mdb_cluster_id:
                         title: Managed Service for OpenSearch cluster
                     OpenSearchSource:
+                      connection:
+                        title: Connection settings
                       dump_index_with_mapping:
                         title: Dump an index with type mapping
                     OpenSearchTarget:

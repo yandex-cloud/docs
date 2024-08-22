@@ -86,6 +86,7 @@ C помощью {{ data-transfer-name }} вы можете реализоват
 * [{{ objstorage-name }} в {{ CH }}](object-storage-to-clickhouse.md)
 * [{{ objstorage-name }} в {{ ydb-short-name }}](object-storage-to-ydb.md)
 * [{{ ydb-short-name }} в {{ CH }}](ydb-to-clickhouse.md)
+* [{{ OS }} в {{ CH }}](opensearch-to-clickhouse.md)
 
 ## Загрузка данных в {{ objstorage-name }} {#upload-to-storage}
 

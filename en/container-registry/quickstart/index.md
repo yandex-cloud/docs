@@ -1,6 +1,6 @@
 # Getting started with {{ container-registry-name }}
 
-Use this guide to create your first [registry](../concepts/registry.md) and try your hand at managing [Docker images](../concepts/docker-image.md).
+Use this guide to create your first [registry](../concepts/registry.md) and try managing [Docker images](../concepts/docker-image.md).
 
 ## Getting started {#before-you-begin}
 
@@ -8,7 +8,7 @@ To create a registry, you will need a folder in {{ yandex-cloud }}. If you do no
 
 {% include [create-folder](../../_includes/create-folder.md) %}
 
-You will also need the [{{ yandex-cloud }} CLI](../../cli/quickstart.md) and [Docker](https://docs.docker.com/install/).
+To work with {{ container-registry-name }} and Docker images, [install the {{ yandex-cloud }} CLI](../../cli/operations/install-cli.md) and [configure](../operations/configure-docker.md) Docker.
 
 ## Creating a registry and performing basic operations on Docker images {#registry-create}
 
@@ -46,7 +46,7 @@ You will also need the [{{ yandex-cloud }} CLI](../../cli/quickstart.md) and [Do
       During setup, information about the current user profile is saved.
    1. Make sure that Docker is configured.
 
-      The `/home/<user>/.docker/config.json` configuration file must include the following line:
+      The following line must appear in the `/home/<user>/.docker/config.json` configuration file:
 
       ```json
       "{{ registry }}": "yc"
@@ -62,21 +62,21 @@ You will also need the [{{ yandex-cloud }} CLI](../../cli/quickstart.md) and [Do
 
    ```bash
    docker tag ubuntu \
-   {{ registry }}/crpc9qeoft23********/ubuntu:hello
+   {{ registry }}/<registry_ID>/ubuntu:hello
    ```
 
 1. Push the Docker image to the repository {{ container-registry-name }}:
 
    ```bash
    docker push \
-   {{ registry }}/crpc9qeoft23********/ubuntu:hello
+   {{ registry }}/<registry_ID>/ubuntu:hello
    ```
 
 1. Run the Docker image:
 
    ```bash
    docker run \
-   {{ registry }}/crpc9qeoft23********/ubuntu:hello
+   {{ registry }}/<registry_ID>/ubuntu:hello
    ```
 
 #### See also {#see-also}

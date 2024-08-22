@@ -28,7 +28,7 @@ Create a [trigger for {{ objstorage-name }}](../../concepts/trigger/os-trigger.m
 
       * Enter a name and description for the trigger.
       * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_storage }}`.
-      * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** field, select the `API gateway`.
+      * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_gateway-broadcast }}`.
 
    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_storage }}**:
 

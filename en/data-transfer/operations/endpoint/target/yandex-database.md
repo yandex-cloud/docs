@@ -19,8 +19,9 @@ description: "In this tutorial, you will learn how to set up a {{ ydb-name }} ta
 
 1. {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
 
-   * [Migration with the storage change from {{ MY }} to {{ ydb-short-name }}](../../../tutorials/managed-mysql-to-ydb.md).
-   * [Migration with the storage change from {{ PG }} to {{ ydb-short-name }}](../../../tutorials/mpg-to-ydb.md).
+   * [Migration with change of storage from {{ MY }} to {{ ydb-short-name }}](../../../tutorials/managed-mysql-to-ydb.md).
+   * [Migration with change of storage from {{ PG }} to {{ ydb-short-name }}](../../../tutorials/mpg-to-ydb.md).
+   * [Migration with change of storage from {{ OS }} to {{ ydb-short-name }}](../../../tutorials/opensearch-to-ydb.md).
 
 1. {% include [queue](../../../../_includes/data-transfer/scenario-captions/queue.md) %}
 
@@ -41,9 +42,9 @@ Configure one of the supported data sources:
 * [{{ AB }}](../../../transfer-matrix.md#airbyte)​
 * [{{ DS }}](../source/data-streams.md)​
 * [{{ objstorage-full-name }}](../source/object-storage.md).
-* [{{ PG }}](../source/postgresql.md)
-* [{{ ES }}](../source/elasticsearch.md)
-* [{{ OS }}](../source/opensearch.md).
+* [{{ PG }}](../source/postgresql.md)​
+* [{{ ES }}](../source/elasticsearch.md)​
+* [{{ OS }}](../source/opensearch.md)​
 
 For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available Transfers](../../../transfer-matrix.md).
 
@@ -53,7 +54,7 @@ For a complete list of supported sources and targets in {{ data-transfer-full-na
 
 ## Configuring the {{ ydb-name }} target endpoint {#endpoint-settings}
 
-When [creating](../index.md#create) or [editing](../index.md#update) an endpoint, you can define:
+When [creating](../index.md#create) or [updating](../index.md#update) an endpoint, you can define:
 
 * {{ ydb-full-name }} DB connection settings. These are required parameters.
 * [Additional parameters](#additional-settings).
@@ -84,7 +85,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
 
 - Management console {#console}
 
-   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTargetAdvancedSettings.shard_count.title }}**: Specify the required `N` number of shards.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTargetAdvancedSettings.shard_count.title }}**: Specify the required `N` number of shards.
 
       If the setting is specified, the `_shard_col` column is added to tables. The values in it are calculated as the remainder of `H/N`, where `H` is the result of the hash function at the current time and `N` is the number of shards specified by the setting.
 

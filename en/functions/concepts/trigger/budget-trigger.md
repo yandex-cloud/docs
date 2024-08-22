@@ -8,7 +8,7 @@ For more information about creating a trigger for budgets, see [{#T}](../../oper
 
 ## Roles required for the proper operation of a trigger for budgets {#roles}
 
-* To create a trigger, you need a permission for a service account that runs the trigger executing the operation. This permission is included in the [iam.serviceAccounts.user](../../../iam/concepts/access-control/roles#sa-user) and [{{ roles-editor }}](../../../iam/concepts/access-control/roles#editor) roles and higher.
+* To create a trigger, you need a permission for the service account under which the trigger executes the operation. This permission comes with the [iam.serviceAccounts.user](../../../iam/concepts/access-control/roles.md#sa-user) and [{{ roles-editor }}](../../../iam/concepts/access-control/roles.md#editor) roles or higher.
 * For the trigger to fire, the service account requires the `{{ roles-functions-invoker }}` role for the function invoked by the trigger.
 
 ## Format of the message from the trigger for budgets {#format}
@@ -19,5 +19,6 @@ After the trigger is activated, it sends the following message to the function:
 
 ## See also {#see-also}
 
-* [{#T}](../../../serverless-containers/concepts/trigger/budget-trigger.md).
-* [{#T}](../../tutorials/serverless-trigger-budget-vm.md).
+* [{#T}](../../../serverless-containers/concepts/trigger/budget-trigger.md)
+* [{#T}](../../../api-gateway/concepts/trigger/budget-trigger.md)
+* [{#T}](../../tutorials/serverless-trigger-budget-vm.md)

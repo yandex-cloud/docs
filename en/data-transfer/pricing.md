@@ -6,7 +6,7 @@ editable: false
 
 
 
-{{ data-transfer-name }} usage cost depends on the amount of computing resources used and the number of data rows delivered by transfers that are at the [GA](../overview/concepts/launch-stages.md) stage:
+{{ data-transfer-name }} cost depends on the amount of computing resources you use and the number of data rows delivered by transfers that are at the [GA](../overview/concepts/launch-stages.md) stage:
 
 * [{{ PG }}](operations/endpoint/source/postgresql.md) ![arrow_right](../_assets/console-icons/arrow-right.svg) [{{ PG }}](operations/endpoint/target/postgresql.md)
 * [{{ PG }}](operations/endpoint/source/postgresql.md) ![arrow_right](../_assets/console-icons/arrow-right.svg) [{{ CH }}](operations/endpoint/target/clickhouse.md)
@@ -46,11 +46,11 @@ Data delivery for transfers that are at the Preview stage is free of charge. For
 
 ## Examples of cost calculation {#price-example}
 
-When calculating the cost, note that by default a single worker uses 2 vCPUs and 4 GB of RAM.
+When doing your cost calculation, remember that one [worker](concepts/index.md#worker) uses 2 vCPUs and 4 GB of RAM by default.
 
 ### Single data copying from {{ PG }} to {{ CH }} {#copy}
 
-The number of data rows transferred from {{ PG }} to {{ CH }} during the reporting month is 500,000,000. The copying was handled by one worker and took 24 hours.
+The number of data rows transferred from {{ PG }} to {{ CH }} during the reporting month is 500,000,000. The copying was performed by one worker (2 vCPUs and 4 GB RAM) and took 24 hours.
 
 
 
@@ -67,13 +67,13 @@ Data transfer cost:
 > (500 - 100) * $0.0216 = $8.64
 
 **Total cost**:
- 
+
 > $0.50304 + $0.2688 + $8.64 = $9.41184
 
 
 ### Replicating data from {{ PG }} to {{ PG }} {#replication}
 
-The number of data rows transferred from {{ PG }} to {{ PG }} during the reporting month is 50,000,000. The replication went on continuously throughout the whole month with the help of 6 workers.
+The number of data rows transferred from {{ PG }} to {{ PG }} during the reporting month is 50,000,000. The replication was active throughout the month, and was performed by 6 workers (12 vCPUs and 24 GB RAM).
 
 
 
@@ -96,7 +96,6 @@ Free of charge, as 50,000,000 rows is less than the free usage quota.
 
 ## See also {#see-also}
 
-* [How to optimize data delivery in {{ data-transfer-name }}](https://www.youtube.com/watch?v=1BJ9YEASOeU)
-
+* [How to optimize data delivery in {{ data-transfer-name }}](https://www.youtube.com/watch?v=1BJ9YEASOeU).
 
 {% include [clickhouse-disclaimer](../_includes/clickhouse-disclaimer.md) %}

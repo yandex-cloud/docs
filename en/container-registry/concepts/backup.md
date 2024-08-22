@@ -88,7 +88,7 @@ To back up your Docker images:
    - CLI {#cli}
 
       ```bash
-      docker pull {{ registry }}/crp1abc2tl3d********/ubuntu:hello
+      docker pull {{ registry }}/<registry_ID>/ubuntu:hello
       ```
 
       Result:
@@ -116,7 +116,7 @@ To back up your Docker images:
 
       ```bash
       REPOSITORY                                   TAG     IMAGE ID      CREATED     SIZE
-      {{ registry }} /crp1abc2tl3d********/ubuntu  hello   d12e********  3 days ago  72.9MB
+      {{ registry }} /crp1abc2tl3d********/ubuntu       hello   d12e********  3 days ago  72.9MB
       ubuntu                                       latest  d12e********  3 days ago  72.9MB
       ```
 

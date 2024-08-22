@@ -1,5 +1,6 @@
-* {% include [Field CLI Host](../../fields/common/cli/host.md) %}
-* {% include [Field CLI Port](../../fields/common/cli/port.md) %}
+* {% include [Field CLI Shards and Hosts](../../fields/clickhouse/cli/host.md) %}
+* {% include [Field CLI HTTP Port](../../fields/clickhouse/cli/http-port.md) %}
+* {% include [Field CLI Native Port](../../fields/clickhouse/cli/native-port.md) %}
 * {% include [Field CLI CA Certificate](../../fields/common/cli/ca-certificate.md) %}
 * {% include [Field CLI Subnet ID](../../fields/common/cli/subnet-id.md) %}
 * {% include [Field CLI Database](../../fields/common/cli/database.md) %}

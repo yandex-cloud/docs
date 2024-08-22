@@ -233,8 +233,7 @@ Apart from identity documents, the VM metadata service provides their cryptograp
 
    1. Create a `certificate` file and add a public certificate to it:
 
-     
-
+      
       ```
       -----BEGIN CERTIFICATE-----
       MIIC4TCCAcmgAwIBAgIUP0zcGO1MeRwze8VdSMEt/OdBXoIwDQYJKoZIhvcNAQEL
@@ -255,8 +254,6 @@ Apart from identity documents, the VM metadata service provides their cryptograp
       r9ZBjEa0oLFVV0pP5Tj4Gf1DDpuJ
       -----END CERTIFICATE-----
       ```
-     
-
 
 
 
@@ -293,8 +290,7 @@ Apart from identity documents, the VM metadata service provides their cryptograp
 
    1. Create a `certificate` file and save a public certificate to it:
 
-     
-
+      
       ```
       -----BEGIN CERTIFICATE-----
       MIIERjCCA+ugAwIBAgIULIUmuptqf9Pz7nMGMHeW+BPNneYwCwYJYIZIAWUDBAMC
@@ -320,10 +316,7 @@ Apart from identity documents, the VM metadata service provides their cryptograp
       mzAfBgNVHSMEGDAWgBTj+x+t2VJhAWI57o9xRwMOeTFjmzAPBgNVHRMBAf8EBTAD
       AQH/MAsGCWCGSAFlAwQDAgNIADBFAiAX2ABj/9ea1Q4ssAgIGkA4vJywoUoT4Sbg
       LFFIJGlNWgIhAO0b749SY5+6UMEOLsxgvNzKKcv58BKADfBdJAXE6fRk
-      -----END CERTIFICATE-----
       ```
-     
-
 
 
 
@@ -373,8 +366,6 @@ Apart from identity documents, the VM metadata service provides their cryptograp
 
    1. Create a `certificate` file and save a public certificate to it:
 
-     
-
       ```
       -----BEGIN CERTIFICATE-----
       MIIC4TCCAcmgAwIBAgIUP0zcGO1MeRwze8VdSMEt/OdBXoIwDQYJKoZIhvcNAQEL
@@ -395,10 +386,6 @@ Apart from identity documents, the VM metadata service provides their cryptograp
       r9ZBjEa0oLFVV0pP5Tj4Gf1DDpuJ
       -----END CERTIFICATE-----
       ```
-     
-
-
-
 
    1. Extract a public key from the certificate and save it to a file named `key`:
 

@@ -73,7 +73,7 @@ paths:
         in: query
         required: false
         schema:
-          type: string      
+          type: string
 ```
 
 Пример проксирования всех запросов на `https://example.com`, где:
@@ -98,7 +98,7 @@ paths:
           Bar-Header: [ "one", "two" ]
           Single-header: three
         omitEmptyHeaders: true
-        omitEmptyQueryParameters: true  
+        omitEmptyQueryParameters: true
       parameters:
       - name: path
         in: path

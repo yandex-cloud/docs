@@ -102,7 +102,9 @@ To move a transfer and [endpoints](../concepts/index.md#endpoint) to a different
                * {% include [field parallel copy](../../_includes/data-transfer/fields/parallel-copy.md) %}
 
 
-      * (Optional) **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.data_objects.title }}**: Specify the full path to each object to transfer. Only objects from this list will be transferred. If you specified a list of included tables or collections in the source endpoint settings, only objects on both the lists will transfer. If you specify objects that are not in the list of the included tables or collections in the source endpoint settings, the transfer activation will return the `$table not found in source` error. This setting is not available for such sources as {{ KF }}, and {{ DS }}.
+      * For the [billable](../pricing.md) source-target pairs at the [GA](../../overview/concepts/launch-stages.md) stage, you can configure the amount of computing resources per VM in the **Runtime environment** settings section. Select one of the three suggested configurations. The VM resource configuration determines the performance of the data transfer [workers](../concepts/index.md#worker). A separate VM is allocated for each worker. For vCPU and RAM pricing policy, calculation examples, and cost optimization recommendations, see [Pricing policy](../pricing.md).
+
+      * (Optional) **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.data_objects.title }}**: Specify full path to each object you are going to transfer. Only objects from this list will be transferred. If you have listed included tables or collections in the source endpoint settings, only objects that are on both these lists will be transfered. If you specify objects not listed among included tables or collections in the source endpoint settings, transfer activation will end with the `$table not found in source` error. This setting is not available for such sources as {{ KF }}, and {{ DS }}.
 
          Enter the full name of the object. Depending on the source type, use the appropriate naming convention:
 
@@ -111,12 +113,12 @@ To move a transfer and [endpoints](../concepts/index.md#endpoint) to a different
          * {{ MG }}: `<database_name>.<collection_path>`
          * {{ MY }}: `<database_name>.<table_path>`
          * {{ PG }}: `<schema_name>.<table_path>`
-         * {{ ydb-short-name }}: table path
-         * Oracle: `<schema_name>.<table_path>`
+         * {{ ydb-short-name }}: table path.
+         * Oracle: `<schema_name>.<table_path>`.
 
          If the specified object is on the excluded table or collection list in the source endpoint settings, or the object name was entered incorrectly, the transfer will end with an error. A running {{ dt-type-repl }} or {{ dt-type-copy-repl }} transfer will terminate immediately; an inactive one will terminate as soon as activated.
 
-      * (Optional) **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.transformation.title }}**: Rules for [transforming data](../concepts/data-transformation.md). This setting only appears when the source and target are of different types.
+      * (Optional) **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.transformation.title }}**: [Data transformation](../concepts/data-transformation.md) rules. This setting only appears when the source and target are of different types.
 
          {% include [list-of-transformers](../../_includes/data-transfer/list-of-transformers.md) %}
 
@@ -252,7 +254,9 @@ To move a transfer and [endpoints](../concepts/index.md#endpoint) to a different
          * {% include [field parallel copy](../../_includes/data-transfer/fields/parallel-copy.md) %}
 
 
-      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.data_objects.title }}**: Specify the full path to each object to transfer. Only objects from this list will be transferred. If you specified a list of included tables or collections in the source endpoint settings, only objects on both the lists will transfer. If you specify objects that are not in the list of the included tables or collections in the source endpoint settings, the transfer activation will return the `$table not found in source` error. This setting is not available for such sources as {{ KF }}, and {{ DS }}.
+      * For the [billable](../pricing.md) source-target pairs at the [GA](../../overview/concepts/launch-stages.md) stage, you can edit the amount of computing resources per VM in the **Runtime environment** settings section. Select one of the three suggested configurations. The VM resource configuration determines the performance of the data transfer [workers](../concepts/index.md#worker). A separate VM is allocated for each worker. For vCPU and RAM pricing policy, calculation examples, and cost optimization recommendations, see [Pricing policy](../pricing.md).
+
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.data_objects.title }}**: Specify full path to each object you are going to transfer. Only objects from this list will be transferred. If you have listed included tables or collections in the source endpoint settings, only objects that are on both these lists will be transfered. If you specify objects not listed among included tables or collections in the source endpoint settings, transfer activation will end with the `$table not found in source` error. This setting is not available for such sources as {{ KF }}, and {{ DS }}.
 
          Adding new objects to {{ dt-type-copy-repl }} or {{ dt-type-repl }} transfers in the {{ dt-status-repl }} status will result in uploading data history for these objects or tables. If a table is large, uploading the history may take a long time. You cannot edit the list of objects for transfers in the {{ dt-status-copy }} status.
 
@@ -263,12 +267,13 @@ To move a transfer and [endpoints](../concepts/index.md#endpoint) to a different
          * {{ MG }}: `<database_name>.<collection_path>`
          * {{ MY }}: `<database_name>.<table_path>`
          * {{ PG }}: `<schema_name>.<table_path>`
-         * {{ ydb-short-name }}: table path
-         * Oracle: `<schema_name>.<table_path>`
+         * {{ ydb-short-name }}: table path.
+         * Oracle: `<schema_name>.<table_path>`.
 
          If the specified object is on the excluded table or collection list in the source endpoint settings, or the object name was entered incorrectly, the transfer will end with an error. A running {{ dt-type-repl }} or {{ dt-type-copy-repl }} transfer will terminate immediately; an inactive one will terminate as soon as activated.
 
-      * (Optional) **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.transformation.title }}**: Rules for [transforming data](../concepts/data-transformation.md). This setting only appears when the source and target are of different types.
+      * (Optional) **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.transformation.title }}**: [Data transformation](../concepts/data-transformation.md) rules. This setting only appears when the source and target are of different types.
+
 
          {% include [list-of-transformers](../../_includes/data-transfer/list-of-transformers.md) %}
 

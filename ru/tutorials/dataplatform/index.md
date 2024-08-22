@@ -50,6 +50,7 @@ description: "На странице представлен список прак
 * [{#T}](mch-mch-resharding.md)
 * [{#T}](data-transfer-direct-to-mch.md)
 * [{#T}](object-storage-to-clickhouse.md)
+* [{#T}](opensearch-to-clickhouse.md)
 * [{#T}](ydb-to-clickhouse.md)
 
 ## {{ GP }} {#greenplum}
@@ -103,6 +104,7 @@ description: "На странице представлен список прак
 * [{#T}](mos-migration-from-standalone.md)
 * [{#T}](opensearch-to-object-storage.md)
 * [{#T}](opensearch-to-ydb.md)
+* [{#T}](opensearch-to-clickhouse.md)
 
 
 ## {{ PG }} {#postgresql}

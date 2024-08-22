@@ -336,6 +336,30 @@ items:
         href: lang/java/errors.md
       - name: Using the SDK
         href: lang/java/sdk.md
+  - name: Developing in Kotlin
+    items:
+      - name: Overview
+        href: lang/kotlin/index.md
+      - name: Programming model
+        items:
+          - name: Overview
+            href: lang/kotlin/model/index.md
+          - name: Top-level function
+            href: lang/kotlin/model/top-level-function.md
+          - name: YcFunction interface
+            href: lang/kotlin/model/yc-function.md
+      - name: Managing dependencies
+        href: lang/kotlin/dependencies.md
+      - name: Request handler
+        href: lang/kotlin/handler.md
+      - name: Invocation context
+        href: lang/kotlin/context.md
+      - name: Logging
+        href: lang/kotlin/logging.md
+      - name: Handling errors
+        href: lang/kotlin/errors.md
+      - name: Using the SDK
+        href: lang/kotlin/sdk.md
   - name: Developing in R
     items:
       - name: Overview
@@ -548,6 +572,8 @@ items:
                 href: triggers/api-ref/Trigger/resume.md
               - name: update
                 href: triggers/api-ref/Trigger/update.md
+  - name: '{{ monitoring-name }} metrics'
+    href: metrics.md
   - name: '{{ at-name }} events'
     href: at-ref.md
   - name: Release notes

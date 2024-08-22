@@ -30,7 +30,7 @@ Create a [trigger for {{ message-queue-short-name }} message queue](../../concep
 
       * Enter a name and description for the trigger.
       * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_ymq }}`.
-      * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** field, select the `API gateway`.
+      * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_gateway-broadcast }}`.
 
    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_ymq }}**, select a message queue and a service account with permissions to read messages from this queue.
 
@@ -116,7 +116,7 @@ Create a [trigger for {{ message-queue-short-name }} message queue](../../concep
 
 - {{ message-queue-name }}
 
-    Check that the number of enqueued messages is decreasing. To do this, view the queue statistics:
+   Check that the number of enqueued messages is decreasing. To do this, view the queue statistics:
 
    1. In the [management console]({{ link-console-main }}), open **{{ ui-key.yacloud.iam.folder.dashboard.label_ymq }}**.
    1. Select the queue that you created the trigger for.

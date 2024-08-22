@@ -186,4 +186,5 @@ The trigger must be in the same [cloud](../../resource-manager/concepts/resource
 
 ## See also {#see-also}
 
-* [Trigger for {{ iot-name }} that sends messages from registry or device topics to a {{ serverless-containers-full-name }} container](../../serverless-containers/operations/iot-core-trigger-create.md).
+* [{#T}](../../serverless-containers/operations/iot-core-trigger-create.md)
+* [{#T}](../../api-gateway/operations/trigger/iot-core-trigger-create.md)

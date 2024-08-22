@@ -453,6 +453,10 @@ items:
           помощью {{ data-transfer-full-name }}
         href: dataplatform/object-storage-to-clickhouse.md
       - name: >-
+          Миграция данных со сменой хранилища из {{ mos-name }} в {{ mch-name }}
+          с помощью {{ data-transfer-full-name }}
+        href: dataplatform/opensearch-to-clickhouse.md
+      - name: >-
           Загрузка данных из {{ ydb-full-name }} в {{ mch-full-name }} с помощью
           {{ data-transfer-full-name }}
         href: dataplatform/ydb-to-clickhouse.md

@@ -18,7 +18,8 @@ description: "In this tutorial, you will learn how to set up an {{ OS }} source 
 
 {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
 
-* [Migrating the {{ OS }} cluster](../../../tutorials/os-to-mos.md).
+* [Migrating a {{ OS }} cluster](../../../tutorials/os-to-mos.md).
+* [Migration with change of storage from {{ OS }} to {{ ydb-short-name }}](../../../tutorials/opensearch-to-ydb.md).
 
 For a detailed description of possible {{ data-transfer-full-name }} data transfer scenarios, see [Tutorials](../../../tutorials/index.md).
 
@@ -28,7 +29,7 @@ For a detailed description of possible {{ data-transfer-full-name }} data transf
 
 ## Configuring the {{ OS }} source endpoint {#endpoint-settings}
 
-When [creating](../index.md#create) or [editing](../index.md#update) an endpoint, you can define:
+When [creating](../index.md#create) or [updating](../index.md#update) an endpoint, you can define:
 
 * [{{ mos-full-name }} cluster](#managed-service) connection or [custom installation](#on-premise) settings, including those based on {{ compute-full-name }} VMs. These are required parameters.
 * [Additional parameters](#additional-settings).
@@ -84,11 +85,11 @@ Connecting to nodes with explicitly specified network addresses and ports.
 
 Configure the target endpoint:
 
-* [{{ OS }}](../target/opensearch.md).
-* [{{ CH }}](../target/clickhouse.md).
+* [{{ OS }}](../target/opensearch.md).​
+* [{{ CH }}](../target/clickhouse.md)​.
 * [{{ GP }}](../target/greenplum.md).
 * [{{ ydb-full-name }}](../target/yandex-database.md).
-* [{{ objstorage-full-name }}](../target/object-storage.md).
+* [{{ objstorage-full-name }}](../target/object-storage.md)​.
 * [{{ KF }}](../target/kafka.md).
 * [{{ DS }}](../target/data-streams.md).
 

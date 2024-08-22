@@ -74,9 +74,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 1. {% include [install-kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 1. [Install the {{ k8s }} Helm package manager](https://helm.sh/docs/intro/install).
 
-### Add multiple Docker images to the {{ container-registry-name }} registry {#add-docker-images}.
+### Add multiple Docker images to the {{ container-registry-name }} registry {#add-docker-images}
 
-1. [Get authenticated in {{ container-registry-name }}](../../container-registry/operations/authentication.md).
+1. [Configure](../../container-registry/operations/configure-docker.md) Docker and [get authenticated in {{ container-registry-name }}](../../container-registry/operations/authentication.md).
 1. [Create multiple Docker images](../../container-registry/operations/docker-image/docker-image-create.md). One image will be signed using Cosign, while others will remain unsigned.
 1. [Push Docker images](../../container-registry/operations/docker-image/docker-image-push.md) to the {{ container-registry-name }} registry.
 

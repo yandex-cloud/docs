@@ -162,6 +162,8 @@ items:
             href: tutorials/mmy-to-mgp.md
           - name: '{{ ES }} to {{ OS }}'
             href: tutorials/mes-to-mos.md
+          - name: '{{ OS }} to {{ ydb-short-name }}'
+            href: tutorials/opensearch-to-ydb.md
       - name: Change data capture and delivery to the queue
         items:
           - name: '{{ MY }} to {{ KF }}'
@@ -224,12 +226,16 @@ items:
             href: tutorials/object-storage-to-clickhouse.md
           - name: '{{ objstorage-name }} to {{ ydb-short-name }}'
             href: tutorials/object-storage-to-ydb.md
+          - name: '{{ ydb-short-name }} in {{ CH }}'
+            href: tutorials/ydb-to-clickhouse.md
       - name: Uploading data to {{ objstorage-name }}
         items:
           - name: '{{ MY }} to {{ objstorage-name }}'
             href: tutorials/mmy-objs-migration.md
           - name: '{{ PG }} to {{ objstorage-name }}'
             href: tutorials/mpg-to-objstorage.md
+          - name: '{{ ydb-name }} in {{ objstorage-name }}'
+            href: tutorials/ydb-to-object-storage.md
   - name: Concepts
     items:
       - name: Resource relationships
@@ -350,6 +356,8 @@ items:
     items:
       - name: All release notes
         href: release-notes/index.md
+      - name: July 2024
+        href: release-notes/2407.md
       - name: June 2024
         href: release-notes/2406.md
       - name: May 2024

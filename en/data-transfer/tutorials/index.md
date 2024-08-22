@@ -31,6 +31,7 @@ Migration with data storage type changed.
 * [{{ PG }} to {{ MY }}](mpg-to-mmy.md)
 * [{{ MY }} to {{ GP }}](mmy-to-mgp.md)
 * [{{ ES }} to {{ OS }}](mes-to-mos.md)
+* [{{ OS }} to {{ ydb-short-name }}](opensearch-to-ydb.md)
 
 ## Change data capture {#cdc}
 
@@ -39,13 +40,13 @@ CDC is used for creating apps that are sensitive to real-time data changes, exch
 
 ![cdc](../../_assets/data-transfer/tutorials/cdc.svg)
 
-* {{ MY }} change data capture and delivery to
+* {{ MY }} change data capture and delivery to:
    * [{{ KF }}](cdc-mmy.md)
    * [{{ DS }}](mmy-to-yds.md)
-* {{ PG }} change data capture and delivery to
+* {{ PG }} change data capture and delivery to:
    * [{{ KF }}](cdc-mpg.md)
    * [{{ DS }}](mpg-to-yds.md)
-* {{ ydb-short-name }} change data capture and delivery to
+* {{ ydb-short-name }} change data capture and delivery to:
    * [{{ KF }}](cdc-ydb.md)
    * [{{ DS }}](ydb-to-yds.md)
 
@@ -84,6 +85,7 @@ Loading data to data marts is a process of transferring prepared data to storage
 * [{{ objstorage-name }} to {{ MY }}](objs-mmy-migration.md)
 * [{{ objstorage-name }} to {{ CH }}](object-storage-to-clickhouse.md)
 * [{{ objstorage-name }} to {{ ydb-short-name }}](object-storage-to-ydb.md)
+* [{{ ydb-short-name }} to {{ CH }}](ydb-to-clickhouse.md)
 
 ## Importing data to {{ objstorage-name }} {#upload-to-storage}
 
@@ -93,6 +95,7 @@ Uploading data to scalable {{ objstorage-name }} storage allows you to save on d
 
 * [{{ MY }} to {{ objstorage-name }}](mmy-objs-migration.md)
 * [{{ PG }} to {{ objstorage-name }}](mpg-to-objstorage.md)
+* [{{ ydb-short-name }} to {{ objstorage-name }}](ydb-to-object-storage.md)
 
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

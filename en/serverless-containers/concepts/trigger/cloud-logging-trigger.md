@@ -10,8 +10,8 @@ For more information about creating a trigger for {{ cloud-logging-name }}, see 
 
 ## Roles required for the proper operation of a trigger for {{ cloud-logging-name }} {#roles}
 
-* To create a trigger, you need a permission for a service account that runs the trigger executing the operation. This permission is included in the [iam.serviceAccounts.user](../../../iam/concepts/access-control/roles#sa-user) and [editor](../../../iam/concepts/access-control/roles#editor) roles and higher.
-* For a trigger to work, the service account needs the following roles:
+* To create a trigger, you need a permission for the service account under which the trigger executes the operation. This permission comes with the [iam.serviceAccounts.user](../../../iam/concepts/access-control/roles.md#sa-user) and [editor](../../../iam/concepts/access-control/roles.md#editor) roles or higher.
+* For the trigger to fire, the service account needs the following roles:
    * `serverless.containers.invoker` for the container that the trigger invokes.
    * `logging.reader` for the log group that will activate the trigger when records are added to it.
 
@@ -23,4 +23,5 @@ After the trigger is activated, it sends the following message to the container:
 
 ## See also {#see-also}
 
-* [Trigger for {{ cloud-logging-name }} that invokes a {{ sf-name }} function](../../../functions/concepts/trigger/cloud-logging-trigger.md).
+* [{#T}](../../../functions/concepts/trigger/cloud-logging-trigger.md)
+* [{#T}](../../../api-gateway/concepts/trigger/cloud-logging-trigger.md)

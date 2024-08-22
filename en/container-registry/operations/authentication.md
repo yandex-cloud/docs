@@ -1,47 +1,50 @@
 ---
 title: "Authentication in {{ container-registry-full-name }}"
-description: "Before you start using {{ container-registry-name }}, you need to authenticate for the corresponding interface."
+description: "Before you start using {{ container-registry-name }}, you need to get authenticated for the appropriate interface."
 ---
 
 # Authentication in {{ container-registry-name }}
 
-Before you start using {{ container-registry-name }}, you need to authenticate for the corresponding interface:
+Before you start using {{ container-registry-name }}, you need to [configure Docker](./configure-docker.md) and get authenticated to use the appropriate interface:
 * In the **Management console**, the minimum required [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) [role](../../iam/concepts/access-control/roles.md) is `viewer`.
 * In the **Docker CLI** or **{{ managed-k8s-full-name }}**, the minimum required role for the [registry](../concepts/registry.md) or [repository](../concepts/repository.md) is `container-registry.images.puller`.
 
-Assign the proper role to a {{ yandex-cloud }} user or [service account](../../iam/concepts/users/service-accounts.md). Read about [authentication methods](#method) and choose the appropriate one.
+Assign the required role to the {{ yandex-cloud }} user. Read about [authentication methods](#method) and choose the appropriate one.
 
 For more information about roles, see [{#T}](../security/index.md).
+
 
 ## Authentication methods {#method}
 
 You can authenticate:
 
-
 * As a user:
-   * [Using an OAuth token](#user-oauth) (lifetime is **one year**).
-   * [Using an {{ iam-full-name }} token](#user-iam) (maximum lifetime is **{{ iam-token-lifetime }}**).
+   * [Using an OAuth token](#user-oauth) (with a 12-month lifetime).
+   * [Using an {{ iam-full-name }} token](#user-iam) (with a {{ iam-token-lifetime }} lifetime or less).
 
+* [Using a Docker credential helper](#cred-helper).
 
+## Authenticating as a user {#user}
 
-* [Using a Docker credential helper credential store](#cred-helper).
+{% note warning %}
+
+To get authenticated in {{ container-registry-name }} using the `docker login` command, [disable Docker credential helper](#ch-not-use). For more information, see [Troubleshooting in {{ container-registry-name }}](../error/index.md).
+
+{% endnote %}
 
 The authentication command looks like this:
 
 ```bash
-docker login \
+echo <token> | docker login \
   --username <token_type> \
-  --password <token> \
+  --password-stdin \
   {{ registry }}
 ```
 
 Where:
-* `--username`: Token type. Acceptable values: `oauth`, `iam`, or `json_key`.
-* `--password`: Token body.
+* `--username`: Token type. The possible values are `oauth` or `iam`.
+* `<token>`: Token body.
 * `{{ registry }}`: The endpoint that Docker will access when working with the image registry. If it not specified, the request will be sent to [Docker Hub](https://hub.docker.com) as the default service.
-
-## Authenticate as a user {#user}
-
 
 ### Authentication using an OAuth token {#user-oauth}
 
@@ -55,12 +58,11 @@ Where:
 1. Run this command:
 
    ```bash
-   docker login \
+   echo <OAuth_token> | docker login \
      --username oauth \
-     --password <OAuth token> \
+     --password-stdin \
      {{ registry }}
    ```
-
 
 ### Authentication using an {{ iam-name }} token {#user-iam}
 
@@ -74,9 +76,9 @@ Where:
 1. Run this command:
 
    ```bash
-   docker login \
+   echo <IAM_token> | docker login \
      --username iam \
-     --password <IAM token> \
+     --password-stdin \
      {{ registry }}
    ```
 
@@ -84,7 +86,7 @@ Where:
 
 The Docker Engine can keep user credentials in an external credentials store. This is more secure than storing credentials in the Docker configuration file. To use a credential store, you need external [Docker credential helper](https://docs.docker.com/engine/reference/commandline/login/#credential-helpers) software.
 
-The {{ yandex-cloud }} CLI uses `docker-credential-yc` as a Docker credential helper for {{ yandex-cloud }}. It stores user credentials and allows you to use private {{ yandex-cloud }} registries without running the `docker login` command. This authentication method supports operations on behalf of a user and service account.
+[{{ yandex-cloud }} CLI](../../cli/quickstart.md) uses `docker-credential-yc` as a Docker credential helper for {{ yandex-cloud }}. It stores user credentials and allows you to use private {{ yandex-cloud }} registries without running the `docker login` command.
 
 ### Configuring a credential helper {#ch-setting}
 

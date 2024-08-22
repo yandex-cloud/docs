@@ -10,4 +10,4 @@ To run a [Docker image on a VM](index.md) using a [{{ container-registry-full-na
 
 ## See also {#see-also}
 
-* [{#T}](terraform.md).
+* [{#T}](terraform.md)

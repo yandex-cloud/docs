@@ -298,6 +298,8 @@ items:
                 href: broker/api-ref/Broker/listPasswords.md
               - name: update
                 href: broker/api-ref/Broker/update.md
+  - name: '{{ monitoring-name }} metrics'
+    href: metrics.md
   - name: '{{ at-name }} events'
     href: at-ref.md
   - name: Release notes

@@ -1,6 +1,6 @@
 # Trigger for {{ container-registry-name }} that invokes a {{ serverless-containers-name }} container
 
-A [trigger](../trigger/) for {{ container-registry-name }} invokes a {{ serverless-containers-name }} [container](../container.md) when certain events occur with a {{ container-registry-name }} [Docker image](../../../container-registry/concepts/docker-image.md). The trigger must be in the same cloud as the [registry](../../../container-registry/concepts/registry.md) whose events it is subscribed to.
+A [trigger](../trigger/) for {{ container-registry-name }} invokes a {{ serverless-containers-name }} [container](../container.md) when specific events occur with a {{ container-registry-name }} [Docker image](../../../container-registry/concepts/docker-image.md). The trigger must be in the same cloud as the [registry](../../../container-registry/concepts/registry.md) whose events it is subscribed to.
 
 A trigger for {{ container-registry-name }} needs a [service account](../../../iam/concepts/users/service-accounts.md) to invoke the container.
 
@@ -27,4 +27,5 @@ After the trigger is activated, it sends the following message to the container:
 
 ## See also {#see-also}
 
-* [Trigger for {{ container-registry-name }} that invokes a {{ sf-name }} function](../../../functions/concepts/trigger/cr-trigger.md).
+* [{#T}](../../../functions/concepts/trigger/cr-trigger.md)
+* [{#T}](../../../api-gateway/concepts/trigger/cr-trigger.md)

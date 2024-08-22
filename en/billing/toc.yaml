@@ -75,7 +75,7 @@ items:
         href: concepts/promo-code.md
       - name: Billing threshold
         href: concepts/billing-threshold.md
-      - name: Billing accounts
+      - name: Billing account
         items:
           - name: Overview
             href: concepts/billing-account.md
@@ -93,7 +93,7 @@ items:
         href: concepts/reporting-period.md
       - name: Committed volume of services (CVoS)
         href: concepts/cvos.md
-      - name: Free tier of serverless ecosystem
+      - name: Free tier
         href: concepts/serverless-free-tier.md
       - name: Budget
         href: concepts/budget.md

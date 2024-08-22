@@ -189,7 +189,7 @@
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}**:
 
       1. Перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_coi }}** и нажмите **{{ ui-key.yacloud.compute.instances.create.image_coi_label_empty-button }}**.
-      1. В открывшемся окне перейдите на вкладку  **{{ ui-key.yacloud.compute.instances.create.value_docker-compose-yaml }}** и укажите спецификацию ВМ:
+      1. В открывшемся окне перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.value_docker-compose-yaml }}** и укажите спецификацию ВМ:
 
          ```yaml
          version: '3.1'
@@ -285,10 +285,10 @@
   1. Нажмите **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
   1. В поле **{{ ui-key.yacloud.common.name }}** введите имя секрета — `mongodb-creds`.
   1. В блоке **{{ ui-key.yacloud.lockbox.label_version-dialog-title }}**:
-      * В поле **{{ ui-key.yacloud.lockbox.forms.label_key }}**  введите `login`.
+      * В поле **{{ ui-key.yacloud.lockbox.forms.label_key }}** введите `login`.
       * В поле **{{ ui-key.yacloud.lockbox.forms.label_value }}** введите логин пользователя БД — `mongo_db_user`.
   1. Нажмите **{{ ui-key.yacloud.lockbox.forms.button_add-pair }}** и укажите второй секрет:
-      * В поле **{{ ui-key.yacloud.lockbox.forms.label_key }}**  введите `password`.
+      * В поле **{{ ui-key.yacloud.lockbox.forms.label_key }}** введите `password`.
       * В поле **{{ ui-key.yacloud.lockbox.forms.label_value }}** введите пароль для доступа к БД — значение `MONGO_INITDB_ROOT_PASSWORD` из [спецификации ВМ](#create-vm).
   1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
