@@ -34,4 +34,4 @@ jobs:
       - name: Run CSpell on all changed files
         continue-on-error: true
         run: |
-          cspell $file --config cspell.json --show-suggestions --files ${{ steps.files.outputs.all_files }} --debug --no-must-find-file
+          cspell --config cspell.json --show-suggestions ${{ steps.files.outputs.all_files }}
