@@ -25,7 +25,11 @@ description: "In this tutorial, you will learn how to set up a {{ ydb-full-name 
 
 1. {% include [data-mart](../../../../_includes/data-transfer/scenario-captions/data-mart.md) %}
 
+   * [Loading data from {{ ydb-short-name }} to the {{ CH }} data mart](../../../tutorials/ydb-to-clickhouse.md).
+
 1. {% include [storage](../../../../_includes/data-transfer/scenario-captions/storage.md) %}
+
+   * [Loading data from {{ ydb-short-name }} to {{ objstorage-name }}](../../../../_tutorials/dataplatform/datatransfer/ydb-to-object-storage.md).
 
 For a detailed description of possible {{ data-transfer-full-name }} data transfer scenarios, see [Tutorials](../../../tutorials/index.md).
 
@@ -35,7 +39,7 @@ For a detailed description of possible {{ data-transfer-full-name }} data transf
 
 ## Configuring the {{ ydb-name }} source endpoint {#endpoint-settings}
 
-When [creating](../index.md#create) or [editing](../index.md#update) an endpoint, you can define:
+When [creating](../index.md#create) or [updating](../index.md#update) an endpoint, you can define:
 * {{ ydb-full-name }} DB connection settings. These are required parameters.
 * Transfer path list (for tables and directories).
 
@@ -78,11 +82,11 @@ To create or edit an endpoint of a managed database, you need to have the [`ydb.
 
 Configure one of the supported data targets:
 
-* [{{ CH }}](../target/clickhouse.md).
-* [{{ objstorage-full-name }}](../target/object-storage.md).
+* [{{ CH }}](../target/clickhouse.md)​.
+* [{{ objstorage-full-name }}](../target/object-storage.md)​.
 * [{{ KF }}](../target/kafka.md).
 * [{{ DS }}](../target/data-streams.md).
-* [{{ ydb-full-name }}](../target/yandex-database.md).
+* [{{ ydb-full-name }}](../target/yandex-database.md)​.
 
 For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available Transfers](../../../transfer-matrix.md).
 

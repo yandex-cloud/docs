@@ -2,6 +2,8 @@
 
 The guide describes how to create and build a [Docker image](../../concepts/docker-image.md) from a Dockerfile.
 
+To work with Docker images, [install and configure](../configure-docker.md) Docker.
+
 {% list tabs group=instructions %}
 
 - CLI {#cli}

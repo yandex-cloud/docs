@@ -42,11 +42,11 @@ A new revision of a container is created when {{ lockbox-name }} secrets are tra
    ```
    yc serverless container revision deploy \
       --container-name test \
-      --image {{ registry }}/crpp35a1s2d3********/repository:tag \
+      --image {{ registry }}/<registry_ID>/repository:tag \
       --cores 1 \
       --memory 1GB \
-      --service-account-id bfbtfcp0o9i8******** \
-      --secret environment-variable=KEY,id=fc3q4aq3w5e6********,version-id=fc3gvvz4x5c6********,key=secret-key
+      --service-account-id <service_account_ID> \
+      --secret environment-variable=<environment_variable_name>,id=<secret_ID>,version-id=<secret_version_ID>,key=<secret_key>
    ```
 
    Where:

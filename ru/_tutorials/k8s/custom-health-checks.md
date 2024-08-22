@@ -1,6 +1,5 @@
 # Проверка состояния приложений в кластере {{ managed-k8s-full-name }} с помощью Ingress-контроллера {{ alb-full-name }}
 
-
 Вы можете автоматически проверять работоспособность приложений, которые развернуты в кластере {{ managed-k8s-name }} с помощью [Ingress-контроллера {{ alb-name }}](../../application-load-balancer/tools/k8s-ingress-controller/index.md). 
 
 Ingress-контроллер, установленный в кластер, разворачивает [L7-балансировщик](../../application-load-balancer/concepts/application-load-balancer.md) со всеми необходимыми ресурсами {{ alb-name }}, основываясь на конфигурации созданных вами ресурсов [Ingress](../../managed-kubernetes/alb-ref/ingress.md) и [HttpBackendGroup](../../managed-kubernetes/alb-ref/http-backend-group.md).

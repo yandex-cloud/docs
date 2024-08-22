@@ -31,4 +31,5 @@ Before copying a message to a container, the trigger converts the copy to the be
 
 ## See also {#see-also}
 
-* [Trigger for {{ iot-name }} that sends messages to the {{ sf-name }} function](../../../functions/concepts/trigger/iot-core-trigger.md).
+* [{#T}](../../../functions/concepts/trigger/iot-core-trigger.md)
+* [{#T}](../../../api-gateway/concepts/trigger/iot-core-trigger.md)

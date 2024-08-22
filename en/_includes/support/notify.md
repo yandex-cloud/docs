@@ -32,17 +32,7 @@ Folder notifications include information about the following resources:
 
 * Virtual machines (VM ID)
 * Virtual disks (disk ID)
-* Database clusters (cluster ID):
-
-  * {{ KF }}
-  * {{ CH }}
-  * {{ GP }}
-  * {{ k8s }}
-  * {{ MG }}
-  * {{ MY }}
-  * {{ OS }}
-  * {{ PG }}
-  * {{ RD }}
+* MDB clusters (cluster ID)
 
 Folder notifications are sent to both folder subscribers and parent cloud subscribers. Please note that it is not possible to identify the folder for some types of resources. Therefore, we recommend subscribing important recipients to cloud notifications.
 

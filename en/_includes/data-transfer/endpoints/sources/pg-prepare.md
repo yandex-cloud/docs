@@ -195,9 +195,9 @@ Large objects in the [TOAST storage system](https://www.postgresql.org/docs/12/s
 
    1. To enable parallel data reads from the table, set its primary key to [serial mode](https://www.postgresql.org/docs/current/datatype-numeric.html#DATATYPE-SERIAL).
 
-      Then specify the number of jobs and threads in the [transfer parameters](../../../../data-transfer/operations/transfer.md#create) under **Runtime environment**.
+      Then specify the number of [workers](../../../../data-transfer/concepts/index.md#worker) and threads in the [transfer parameters](../../../../data-transfer/operations/transfer.md#create) under **Runtime environment**.
 
-   1. If replication via [Patroni](https://github.com/zalando/patroni) is configured on the source, add an [ignore_slots](https://patroni.readthedocs.io/en/latest/SETTINGS.html?highlight=ignore_slots#dynamic-configuration-settings) block to the source configuration:
+   1. If replication via [Patroni](https://github.com/zalando/patroni) is configured on the source, add an [ignore_slots](https://patroni.readthedocs.io/en/latest/SETTINGS.html?highlight=ignore_slots#dynamic-configuration-settings) section to the source configuration:
 
       ```yaml
       ignore_slots:

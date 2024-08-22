@@ -5,7 +5,7 @@ description: "In this tutorial, you will learn how to set up a {{ PG }} source e
 
 # Transferring data from a {{ PG }} source endpoint
 
-{{ data-transfer-full-name }} enables you to migrate data from a {{ PG }} database and implement various scenarios of data transfer, processing and transformation. To implement a transfer:
+{{ data-transfer-full-name }} enables you to migrate data from a {{ PG }} database and implement various data transfer, processing, and transformation scenarios. To implement a transfer:
 
 1. [Explore possible data transfer scenarios](#scenarios).
 1. [Prepare the {{ PG }}](#prepare) database for the transfer.
@@ -19,10 +19,10 @@ description: "In this tutorial, you will learn how to set up a {{ PG }} source e
 
 1. {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
 
-   * [Migrating the {{ PG }} cluster](../../../tutorials/managed-postgresql.md).
+   * [Migrating a {{ PG }} cluster](../../../tutorials/managed-postgresql.md).
    * [Migrating from AWS RDS for {{ PG }}](../../../tutorials/rds-to-mpg.md).
-   * [Migrating with change of storage: {{ PG }} to {{ ydb-short-name }}](../../../tutorials/mpg-to-ydb.md).
-   * [Migration with change of storage: {{ PG }} to {{ MY }}](../../../tutorials/mpg-to-mmy.md).
+   * [Migration with change of storage from {{ PG }} to {{ ydb-short-name }}](../../../tutorials/mpg-to-ydb.md).
+   * [Migration with change of storage from {{ PG }} to {{ MY }}](../../../tutorials/mpg-to-mmy.md).
 
 1. {% include [cdc](../../../../_includes/data-transfer/scenario-captions/cdc.md) %}
 
@@ -45,7 +45,7 @@ For a detailed description of possible {{ data-transfer-full-name }} data transf
 
 ## Configuring the {{ PG }} source endpoint {#endpoint-settings}
 
-When [creating](../index.md#create) or [editing](../index.md#update) an endpoint, you can define:
+When [creating](../index.md#create) or [updating](../index.md#update) an endpoint, you can define:
 
 * [{{ mpg-full-name }} cluster](#managed-service) connection or [custom installation](#on-premise) settings, including those based on {{ compute-full-name }} VMs. These are required parameters.
 * [Additional parameters](#additional-settings).
@@ -177,7 +177,7 @@ For OnPremise, all fields are filled in manually.
 
 - Management console {#console}
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.table_filter.title }}**:
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresTableFilter.include_tables.title }}**: Data is only transferred from listed tables.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresTableFilter.include_tables.title }}**: Only data from the tables listed here will be transferred.
 
             {% include [Description for Included tables](../../../../_includes/data-transfer/fields/description-included-tables.md) %}
 
@@ -220,7 +220,7 @@ For OnPremise, all fields are filled in manually.
 
 - CLI {#cli}
 
-   * `--include-table`: List of included tables. If this is on, the data will only be transferred from the tables in this list.
+   * `--include-table`: List of included tables. Only data from the tables listed here will be transferred.
 
       {% include [Description for Included tables](../../../../_includes/data-transfer/fields/description-included-tables.md) %}
 
@@ -244,7 +244,7 @@ For OnPremise, all fields are filled in manually.
 
 - {{ TF }} {#tf}
 
-   * `include_tables`: List of included tables. If this is on, the data will only be transferred from the tables in this list.
+   * `include_tables`: List of included tables. Only data from the tables listed here will be transferred.
 
       {% include [Description for Included tables](../../../../_includes/data-transfer/fields/description-included-tables.md) %}
 
@@ -290,7 +290,7 @@ For OnPremise, all fields are filled in manually.
 
 - API {#api}
 
-   * `includeTables`: List of included tables. If this is on, the data will only be transferred from the tables in this list.
+   * `includeTables`: List of included tables. Only data from the tables listed here will be transferred.
 
       {% include [Description for Included tables](../../../../_includes/data-transfer/fields/description-included-tables.md) %}
 
@@ -337,7 +337,7 @@ The transfer of the schema at both the initial and final stages is performed usi
 
 {% note info %}
 
-When editing the settings of an endpoint of the transfer in the {{ dt-status-repl }} status, the table schemas on the target are preserved. In this case, only the schemas of the tables that are missing on the target at the time of restart are transferred to the target.
+When editing the settings of an endpoint of the transfer in the {{ dt-status-repl }} status, the table schemas on the target are preserved. In this case, only the table schemas that are missing on the target at the transfer restart will be transferred to the target.
 
 {% endnote %}
 
@@ -347,16 +347,16 @@ Replication cannot guarantee that sequence values are preserved, so we recommend
 
 Configure one of the supported data targets:
 
-* [{{ PG }}](../target/postgresql.md).
-* [{{ MY }}](../target/mysql.md).
-* [{{ CH }}](../target/clickhouse.md).
+* [{{ PG }}](../target/postgresql.md).​
+* [{{ MY }}](../target/mysql.md)​.
+* [{{ CH }}](../target/clickhouse.md)​.
 * [{{ GP }}](../target/greenplum.md).
 * [{{ ydb-full-name }}](../target/yandex-database.md).
-* [{{ objstorage-full-name }}](../target/object-storage.md).
+* [{{ objstorage-full-name }}](../target/object-storage.md)​.
 * [{{ KF }}](../target/kafka.md).
 * [{{ DS }}](../target/data-streams.md).
-* [{{ ES }}](../target/elasticsearch.md).
-* [{{ OS }}](../target/opensearch.md).
+* [{{ ES }}](../target/elasticsearch.md)​.
+* [{{ OS }}](../target/opensearch.md)​.
 
 For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available Transfers](../../../transfer-matrix.md).
 

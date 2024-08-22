@@ -14,7 +14,7 @@ Create a [timer](../concepts/trigger/timer.md) — a trigger that invokes a [{{ 
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you want to create your trigger.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a trigger.
 
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
 
@@ -31,7 +31,7 @@ Create a [timer](../concepts/trigger/timer.md) — a trigger that invokes a [{{ 
    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_timer }}**:
 
       * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_cron-expression }}** field, specify the function invocation schedule as a [cron expression](../concepts/trigger/timer.md#cron-expression).
-      * (Optional) In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_cron-payload }}** field, enter the message to be delivered to the function if the timer triggers in the `payload` field. The data type is a string up to 4,096 characters long.
+      * (Optional) In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_cron-payload }}** field, enter the message that will be sent to the function if the timer fires in the `payload` field. The data type is a string up to 4,096 characters long.
 
    1. {% include [container-settings](../../_includes/serverless-containers/container-settings.md) %}
 
@@ -39,7 +39,7 @@ Create a [timer](../concepts/trigger/timer.md) — a trigger that invokes a [{{ 
 
       {% include [repeat-request](../../_includes/serverless-containers/repeat-request.md) %}
 
-   1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the dead-letter queue and the service account with write permissions for this queue.
+   1. Optionally, under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the dead-letter queue and the service account with write permissions for this queue.
 
    1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
@@ -68,7 +68,7 @@ Create a [timer](../concepts/trigger/timer.md) — a trigger that invokes a [{{ 
 
    * `--name`: Timer name.
    * `--cron-expression`: Container invocation schedule specified as a [cron expression](../concepts/trigger/timer.md#cron-expression).
-   * `--payload`: Message to be delivered to the function if the timer triggers. The string length must not exceed 4,096 characters.
+   * `--payload`: Message that will be sent to the function if the timer fires. The string length must not exceed 4,096 characters.
 
    {% include [trigger-cli-param](../../_includes/serverless-containers/trigger-cli-param.md) %}
 
@@ -140,13 +140,13 @@ Create a [timer](../concepts/trigger/timer.md) — a trigger that invokes a [{{ 
       * `timer`: Trigger parameters:
 
          * `cron_expression`: Container invocation schedule specified as a [cron expression](../concepts/trigger/timer.md#cron-expression).
-         * `payload`: Message to deliver to the container if the timer gets triggered. The string length must not exceed 4,096 characters.
+         * `payload`: Message that will be sent to the container if the timer fires. The string length must not exceed 4,096 characters.
 
       {% include [tf-dlq-params](../../_includes/serverless-containers/tf-dlq-params.md) %}
 
       For more information about the `function_trigger` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/function_trigger).
 
-   1. Create resources:
+   1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
@@ -168,4 +168,5 @@ Create a [timer](../concepts/trigger/timer.md) — a trigger that invokes a [{{ 
 
 ## See also {#see-also}
 
-* [Timer that invokes a {{ sf-name }} function](../../functions/operations/trigger/timer-create.md).
+* [{#T}](../../functions/operations/trigger/timer-create.md)
+* [{#T}](../../api-gateway/operations/trigger/timer-create.md)

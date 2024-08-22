@@ -2,6 +2,8 @@
 
 To download a [Docker image](../../concepts/docker-image.md), you need to know the [repository](../../concepts/repository.md) it is stored in as well as its [tag or digest](../../concepts/docker-image.md#version).
 
+To work with Docker images, [install and configure](../configure-docker.md) Docker.
+
 {% list tabs group=instructions %}
 
 - CLI {#cli}
@@ -11,7 +13,7 @@ To download a [Docker image](../../concepts/docker-image.md), you need to know t
       * Using the **tag**:
 
          ```bash
-         docker pull {{ registry }}/crpd50616s9a********/ubuntu:hello
+         docker pull {{ registry }}/<registry_ID>/ubuntu:hello
          ```
 
          Result:
@@ -29,7 +31,7 @@ To download a [Docker image](../../concepts/docker-image.md), you need to know t
       * Using the **digest**:
 
          ```bash
-         docker pull {{ registry }}/crpd50616s9a********/ubuntu@sha256:035ac8e1bd9c49871a2fd76
+         docker pull {{ registry }}/<registry_ID>/ubuntu@sha256:035ac8e1bd9c49871a2fd76
          ```
 
          Result:
@@ -55,7 +57,7 @@ To download a [Docker image](../../concepts/docker-image.md), you need to know t
 
       ```text
       REPOSITORY                                  TAG     IMAGE ID      CREATED       SIZE
-      {{ registry }}/crpd50616s9a********/ubuntu  <none>  50ff********  24 hours ago  86.7MB
+      {{ registry }}/crpd50616s9a********/ubuntu       <none>  50ff********  24 hours ago  86.7MB
       ubuntu                                      latest  1d9c********  2 weeks ago   86.7MB
       ```
 

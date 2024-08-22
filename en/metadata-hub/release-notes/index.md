@@ -1,5 +1,11 @@
 # {{ metadata-hub-full-name }} release notes: 2024
 
+## July {#july}
+
+### New features {#new-features-june}
+
+1. Added [{{ connection-manager-name }}](../concepts/connection-manager.md) integration with [{{ mch-short-name }}](../../managed-clickhouse). Connections for {{ mch-short-name }} clusters [will be created automatically](../quickstart/connection-manager.md).
+
 ## June {#june}
 
 ### New features {#new-features-june}

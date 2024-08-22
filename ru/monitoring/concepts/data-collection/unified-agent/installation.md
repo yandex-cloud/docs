@@ -159,18 +159,41 @@ description: "Из статьи вы узнаете, как установить
 
 - При создании ВМ {#vm}
 
-  Вы можете установить агент при создании виртуальной машины в [консоли управления]({{ link-console-main }}). Для этого в блоке **{{ ui-key.yacloud.compute.instances.create.section_monitoring }}** включите опцию **{{ ui-key.yacloud.compute.instances.create.unified-agent }}**. Агент автоматически установится с файлом конфигурации по умолчанию, который будет отправлять [базовые метрики виртуальной машины](./inputs.md#linux_metrics_input), а также [метрики здоровья агента](./inputs.md#agent_metrics_input). Отправка метрик [тарифицируется](../../../pricing.md).
+  Вы можете установить {{ unified-agent-short-name }} при создании виртуальной машины в консоли управления, через CLI, API или {{ TF }}. 
+  
+  Чтобы установить агент из [консоли управления]({{ link-console-main }}), в блоке **{{ ui-key.yacloud.compute.instances.create.section_monitoring }}** включите опцию **{{ ui-key.yacloud.compute.instances.create.unified-agent }}**.
 
-  Устанавливаемый агент является обычным [агентом Unified Agent](./index.md), который можно дополнительно [настроить](./configuration.md) для поставки собственных метрик или [логов в {{ cloud-logging-name }}](./outputs.md#yc_logs_output).
-
-  Чтобы установить агент при создании виртуальной машины через CLI или API, укажите в [пользовательских метаданных](../../../../compute/concepts/vm-metadata.md#how-to-send-metadata) (`user-data`) строку:
+  Чтобы установить агент через CLI или API, укажите в [пользовательских метаданных](../../../../compute/concepts/vm-metadata.md#how-to-send-metadata) (`user-data`) строку:
 
   ```
   #cloud-config\nruncmd:\n  - wget -O - https://monitoring.{{ api-host }}/monitoring/v2/unifiedAgent/config/install.sh | bash
   ```
+  Чтобы установить агент с помощью {{ TF }}, добавьте в конфигурационный файл метаданные:
 
-  Для корректной установки агента и отправки метрик у созданной виртуальной машины должен быть доступ в интернет. 
+  ```
+  resource "yandex_compute_instance" "this" {
+  ...
+  resources {
+    ...
+  } 
 
+  ...
+
+  metadata = {
+    ssh-keys = "<имя_пользователя>:<содержимое_SSH-ключа>",
+    "install-unified-agent": "1"
+  }
+  }
+  ```
+  
+  Для установки агента и отправки метрик у виртуальной машины должен быть доступ в интернет. 
+  
+  Агент устанавливается с файлом конфигурации по умолчанию, который находится в `/etc/yandex/unified_agent/config.yml`.
+  
+  В файле конфигурации настроена отправка [базовых метрик виртуальной машины](./inputs.md#linux_metrics_input) и [метрик здоровья агента](./inputs.md#agent_metrics_input). Отправка метрик [тарифицируется](../../../pricing.md).
+
+  Дополнительно можно [настроить](./configuration.md) поставку собственных метрик или [логов в {{ cloud-logging-name }}](./outputs.md#yc_logs_output).
+  
   Обновление и поддержка агента выполняется самостоятельно.
   
 {% endlist %}

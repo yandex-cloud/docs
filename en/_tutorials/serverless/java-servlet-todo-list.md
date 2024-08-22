@@ -6,7 +6,7 @@ To create a web application:
 
 1. [Prepare your cloud](#before-begin).
 1. [Prepare the environment](#preare).
-1. [Create a {{ objstorage-full-name }} bucket](#create-bucket).
+1. [Create an {{ objstorage-full-name }} bucket](#create-bucket).
 1. [Create a {{ ydb-short-name }} database](#create-db).
 1. [Create functions {{ sf-full-name }}](#create-functions).
 1. [Create an API gateway](#create-api-gw).
@@ -30,10 +30,15 @@ The cost of resources to support a web application includes:
 
 ## Prepare the environment {#prepare}
 
-1. [Download](https://{{ s3-storage-host }}/doc-files/servlet.zip) the archive with project files.
-1. [Create](../../iam/operations/sa/create.md#create-sa) a service account and [assign](../../iam/operations/roles/grant.md#cloud-or-folder) it the `{{ roles-viewer }}` and `{{ roles-editor }}` roles for your folder.
+1. [Create](../../iam/operations/sa/create.md#create-sa) a service account and [assign](../../iam/operations/roles/grant.md#cloud-or-folder) it the `{{ roles-editor }}` role for your folder.
+1. Clone the [repository](https://github.com/yandex-cloud-examples/yc-serverless-servlet) with the project:
 
-## Create a {{ objstorage-name }} bucket {#create-bucket}
+   ```bash
+   git clone https://github.com/yandex-cloud-examples/yc-serverless-servlet
+   ```
+1. Add the contents of the `yc-serverless-servlet` local repository you cloned to a ZIP archive named `servlet.zip`. You will need this archive later to create {{ sf-full-name }} functions.
+
+## Create an {{ objstorage-name }} bucket {#create-bucket}
 
 Create a [bucket](../../storage/concepts/bucket.md) and upload `index.html` there:
 
@@ -73,7 +78,7 @@ Create a [bucket](../../storage/concepts/bucket.md) and upload `index.html` ther
 
       1. Under **{{ ui-key.yacloud.ydb.forms.label_field_database-type }}**, select `{{ ui-key.yacloud.ydb.forms.label_serverless-type }}`.
       1. Click **{{ ui-key.yacloud.ydb.forms.button_create-database }}**.
-      1. Wait until the database starts. When a database is being created, it has the `Provisioning` status. Once it is ready for use, its status will change to `Running`.
+      1. Wait until the database starts. While being created, you database will have the `Provisioning` status. Once it is ready for use, its status will change to `Running`.
       1. Select the database created.
       1. Under **{{ ui-key.yacloud.ydb.overview.section_connection }}**, find the **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field and save its value. You will need it when creating functions.
 
@@ -136,9 +141,9 @@ Create a [function](../../functions/concepts/function.md) for each servlet:
    1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
    1. Enter `add-task` as a function name, and add a function description.
    1. Click **{{ ui-key.yacloud.common.create }}**.
-   1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title }}**, select the `java21` runtime environment and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
+   1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title }}**, select the `java21` runtime environment, disable **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}** and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
    1. Prepare the function code. To do this, select `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}` in the **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}** field.
-   1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.field_file }}** field, click **Attach file** and select the `servlet.zip` archive you downloaded.
+   1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.field_file }}** field, click **Attach file** and select the `servlet.zip` archive created earlier.
    1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}** field, enter `yandex.cloud.examples.serverless.todo.AddTaskServlet`.
    1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}** field, enter `10`.
    1. In the **{{ ui-key.yacloud.forms.label_service-account-select }}** field, enter the account that you created when [preparing the environment](#prepare).
@@ -190,7 +195,7 @@ Create a [function](../../functions/concepts/function.md) for each servlet:
       * `--entrypoint`: Entry point specified in the `<function_file_name>`.`<handler_name>` format.
       * `--memory`: Amount of RAM.
       * `--execution-timeout`: Maximum function execution time before the timeout is reached.
-      * `--source-path`: ZIP archive with the function code and required dependencies.
+      * `--source-path`: Path to the previously created `servlet.zip` ZIP archive with the function code and required dependencies.
       * `--environment`: Environment variables in `key=value` format.
 
       Result:

@@ -45,6 +45,12 @@ _Transfer_ is the process of transmitting data between the source and target ser
 
 If subnets are specified for endpoints, these subnets must be hosted in the same [availability zone](../../overview/concepts/geo-scope.md). Otherwise, activating the transfer with such endpoints will result in an error.
 
+### Worker {#worker}
+
+_Worker_ is a utility process that starts a data transfer. A separate VM is allocated for each worker. By default, one worker uses 2 vCPUs and 4 GB RAM. During [parallel copying](sharded.md) or parallel replication (for the {{ DS }}, {{ ydb-short-name }}, and {{ KF }} sources), the user selects the number of workers to run at the same time.
+
+vCPU count and RAM size impact the [cost of {{ data-transfer-name }} resources](../pricing.md). To optimize usage and data transfer costs, we recommend using workers efficiently by reducing their number and increasing the load on each worker. You can also change the worker configuration in the [transfer settings](../operations/transfer.md#update) for the [billable](../pricing.md) source-target pairs at the [GA](../../overview/concepts/launch-stages.md) stage.
+
 ### Transfer types {#transfer-type}
 
 {% include [include](../../_includes/data-transfer/transfer-types.md) %}

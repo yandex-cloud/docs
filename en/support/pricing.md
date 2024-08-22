@@ -67,6 +67,6 @@ If an organization with an activated support service plan uses resources paid fr
 
 ### Premium {#premium}
 
-The Premium plan covers all the services of the other plans and can be further enhanced to best suit your requirements.
+The [Premium plan](/support) covers all services of other plans and can be further enhanced to best suit your requirements. It may include troubleshooting recommendations for interactions of {{ yandex-cloud }} services with third-party software, consulting sessions with a dedicated support engineer based on your {{ yandex-cloud }} usage scenario, and services of a personal technical manager.
 
 For a cost estimate for the Premium plan, please contact your {{ yandex-cloud }} manager or [technical support]({{ link-console-support }}).

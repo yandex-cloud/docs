@@ -18,6 +18,7 @@
 
    * [Loading data from {{ MY }} to {{ objstorage-name }}](../../../tutorials/mmy-objs-migration.md).
    * [Loading data from {{ PG }} to {{ objstorage-name }}](../../../tutorials/mpg-to-objstorage.md).
+   * [Loading data from {{ ydb-name }} to {{ objstorage-name }}](../../../tutorials/ydb-to-object-storage.md).
 
 For a detailed description of possible {{ data-transfer-full-name }} data transfer scenarios, see [Tutorials](../../../tutorials/index.md).
 

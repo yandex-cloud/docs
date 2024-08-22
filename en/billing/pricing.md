@@ -16,19 +16,16 @@ The following services are always free of charge:
 * [Yandex Cloud Console](../console/pricing.md)
 * {{ preview-stage }} [{{ cloud-desktop-full-name }}](../cloud-desktop/pricing.md)
 * [{{ org-full-name }}](../organization/pricing.md)
-* [{{ datalens-full-name }}](../datalens/pricing.md)
 * [{{ forms-full-name }}](../forms/pricing.md)
 * [{{ iam-full-name }}](../iam/pricing.md)
 * {{ preview-stage }} [{{ maf-full-name }}](../managed-airflow/pricing.md)
 * {{ preview-stage }} [{{ metadata-hub-full-name }}](../metadata-hub/pricing.md)
 * {{ preview-stage }} [{{ postbox-name }}](../postbox/pricing.md)
-* {{ preview-stage }} [{{ sws-full-name }}](../smartwebsecurity/pricing.md)
-* {{ preview-stage }} [{{ speechsense-full-name }}](../speechsense/pricing.md)
 * [{{ resmgr-full-name }}](../resource-manager/pricing.md)
 * {{ preview-stage }} [{{ websql-full-name }}](../websql/pricing.md)
 * [{{ wiki-full-name }}](../wiki/pricing.md)
 
-Services at the [Preview](../overview/concepts/launch-stages.md) stage are tagged with {{ preview-stage }}.
+ Services at the [Preview](../overview/concepts/launch-stages.md) stage are tagged with {{ preview-stage }}.
 
 ## Fees for individual services {#billable}
 

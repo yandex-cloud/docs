@@ -118,7 +118,7 @@ items:
         href: tutorials/api-gw-integration.md
       - name: Developing CRUD APIs for movie services
         href: tutorials/movies-database.md
-      - name: Working with an API gateway using the WebSocket protocol
+      - name: Working with an API gateway via WebSocket
         href: tutorials/api-gw-websocket.md
       - name: Building a CI/CD pipeline in {{ GL }} using serverless products
         href: tutorials/ci-cd-serverless.md
@@ -182,6 +182,10 @@ items:
             href: concepts/extensions/canary.md
           - name: Request rate limit
             href: concepts/extensions/rate-limit.md
+          - name: Response code replacement
+            href: concepts/extensions/status-mapping.md
+          - name: Transformation of response and request bodies
+            href: concepts/extensions/schema-mapping.md
       - name: Trigger
         items:
           - name: Overview

@@ -33,6 +33,7 @@ description: "In this tutorial, you will learn how to set up a {{ CH }} target e
 
 * [Loading {{ PG }} data to {{ CH }}](../../../tutorials/rdbms-to-clickhouse.md).
 * [Loading data from {{ objstorage-name }} to {{ CH }}](../../../tutorials/object-storage-to-clickhouse.md).
+* [Loading data from {{ ydb-short-name }} to a {{ CH }} data mart](../../../tutorials/ydb-to-clickhouse.md).
 
 For a detailed description of possible {{ data-transfer-full-name }} data transfer scenarios, see [Tutorials](../../../tutorials/index.md).
 
@@ -277,7 +278,7 @@ After configuring the data source and target, [create and start the transfer](..
 
 See a full list of recommendations in the [Troubleshooting](../../../troubleshooting/index.md) section.
 
-{% include [no-new-tables](../../../../_includes/data-transfer/troubles/no-new-tables.md) %}
+{% include [no-new-tables](../../../../_includes/data-transfer/troubles/no-new-tables-mch.md) %}
 
 {% include [table-names](../../../../_includes/data-transfer/troubles/table-names.md) %}
 

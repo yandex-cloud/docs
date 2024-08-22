@@ -33,24 +33,6 @@ The chart update period is 15 seconds.
 
 {% endlist %}
 
-## Custom {#metrics} metrics
+## Custom metrics {#metrics}
 
- To get started with [metrics](../../../monitoring/concepts/data-model.md#metric), [dashboards](../../../monitoring/concepts/visualization/dashboard.md), and [alerts](../../../monitoring/concepts/alerting.md#alert) in {{ monitoring-name }}, in the upper-right corner, click **{{ ui-key.yacloud.monitoring.button_open-in-monitoring }}**. 
-
-| Metric name | Units | Explanations |
-|----|----|----|
-| `serverless.functions.inflight` | Invocations | Number of concurrent function invocations |
-| `serverless.functions.started_per_second` | Invocations per second | Function call frequency |
-| `serverless.functions.finished_per_second` | Invocations per second | Frequency of completing function invocation processing |
-| `serverless.functions.errors_per_second` | Errors per second | Error frequency when processing function invocations |
-| `serverless.functions.initializations_per_second` | Initializations per second | Frequency of new function instance initialization |
-| `serverless.functions.execution_time_milliseconds` | Invocations per second | Function invocation frequency distribution histogram by request processing time in milliseconds. Request processing time intervals are shown in the `bin` label. |
-| `serverless.functions.used_memory_bytes` | Invocations per second | Function invocation frequency distribution histogram by memory used in bytes. Intervals of the RAM used by the request are shown in the `bin` label. |
-
-### Custom metrics labels {#labels}
-
-| Label name | Possible values | Explanations |
-|----|----|----|
-| `function` | Function name | The label contains the name of the function that the metric values refer to. |
-| `version` | Version ID | The label contains the ID of the function version the metric values refer to. |
-| `bin` | Interval of histogram values | For metrics represented by a histogram, the label value describes the interval of the measured value during which the event occurred. |
+{% include [metrics](../../../_includes/functions/metrics.md) %}

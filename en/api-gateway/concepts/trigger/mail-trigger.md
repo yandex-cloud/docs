@@ -1,4 +1,4 @@
-# Email trigger that sends messages to WebSocket connections
+# Email trigger sending messages to WebSocket connections
 
 An email [trigger](../trigger/) sends messages to [WebSocket connections](../extensions/websocket.md) when an email arrives. The service automatically generates an email address when creating the trigger.
 

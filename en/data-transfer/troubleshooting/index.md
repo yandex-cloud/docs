@@ -83,7 +83,7 @@ Error example:
 
 ## {{ CH }} {#clickhouse}
 
-{% include [no-new-tables](../../_includes/data-transfer/troubles/no-new-tables.md) %}
+{% include [no-new-tables](../../_includes/data-transfer/troubles/no-new-tables-mch.md) %}
 
 {% include [table-names](../../_includes/data-transfer/troubles/table-names.md) %}
 

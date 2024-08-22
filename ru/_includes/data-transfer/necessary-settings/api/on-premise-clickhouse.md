@@ -1,6 +1,7 @@
 * `onPremise` — параметры подключения к базе данных:
-    * {% include [Field API Hosts](../../fields/common/api/hosts.md) %}
-    * {% include [Field API Port](../../fields/common/api/port.md) %}
+    * {% include [Field API Shards and Hosts](../../fields/clickhouse/api/shards.md) %}
+    * {% include [Field API HTTP Port](../../fields/clickhouse/api/http-port.md) %}
+    * {% include [Field API Native Port](../../fields/clickhouse/api/native-port.md) %}
     * {% include [Field API Tls mode](../../fields/common/api/tls-mode.md) %}
     * {% include [Field API Subnet ID](../../fields/common/api/subnet-id.md) %}
 * {% include [Field API Security Group](../../fields/common/api/security-groups.md) %}

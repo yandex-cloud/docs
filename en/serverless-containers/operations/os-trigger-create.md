@@ -183,7 +183,7 @@ Create a [trigger for {{ objstorage-name }}](../concepts/trigger/os-trigger.md) 
 
       For more information about the `yandex_function_trigger` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/function_trigger).
 
-   1. Create resources:
+   1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
@@ -205,4 +205,5 @@ Create a [trigger for {{ objstorage-name }}](../concepts/trigger/os-trigger.md) 
 
 ## See also {#see-also}
 
-* [Trigger for {{ objstorage-name }} that invokes a {{ sf-name }} function](../../functions/operations/trigger/os-trigger-create.md).
+* [{#T}](../../functions/operations/trigger/os-trigger-create.md)
+* [{#T}](../../api-gateway/operations/trigger/os-trigger-create.md)

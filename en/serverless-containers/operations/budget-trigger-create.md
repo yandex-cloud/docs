@@ -16,7 +16,7 @@ Create a [trigger for budgets](../concepts/trigger/budget-trigger.md) that invok
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you want to create your trigger.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a trigger.
 
    1. Open **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
 
@@ -38,7 +38,7 @@ Create a [trigger for budgets](../concepts/trigger/budget-trigger.md) that invok
 
       {% include [repeat-request](../../_includes/serverless-containers/repeat-request.md) %}
 
-   1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the dead-letter queue and the service account with write permissions for this queue.
+   1. Optionally, under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the dead-letter queue and the service account with write permissions for this queue.
 
    1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
@@ -106,4 +106,5 @@ Create a [trigger for budgets](../concepts/trigger/budget-trigger.md) that invok
 
 ## See also {#see-also}
 
-* [Trigger for budgets that invokes a {{ sf-name }} function](../../functions/operations/trigger/budget-trigger-create.md).
+* [{#T}](../../functions/operations/trigger/budget-trigger-create.md)
+* [{#T}](../../api-gateway/operations/trigger/budget-trigger-create.md)
