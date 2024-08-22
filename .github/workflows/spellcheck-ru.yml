@@ -56,9 +56,7 @@ jobs:
               continue
             fi
             echo "Running CSpell on $file..."
-            file_path="${file}"
-            echo "File path: $file_path"
-            file_content=$(cat "${file_path}")
+            file_content=$(cat "${file}")
             cspell_errors=$(echo "$file_content" | cspell --config cspell.json --show-suggestions)
             if [ -n "$cspell_errors" ]; then
               cspell_output+="CSpell errors in $file:\n$cspell_errors\n\n"
