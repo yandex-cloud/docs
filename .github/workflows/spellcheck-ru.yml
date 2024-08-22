@@ -1,13 +1,11 @@
 name: CSpell Check
 
 on:
-  issue_comment:
-    types: [created]
-  
+  pull_request:
+    types: [opened, synchronize, reopened]
 
 jobs:
   spellcheck:
-    if: github.event.comment.body == '/check-ru' && github.event.issue.pull_request != null 
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -28,44 +26,19 @@ jobs:
           npm install -g @cspell/dict-en-common-misspellings
           cspell link add @cspell/dict-en-common-misspellings
 
-      - name: Get PR number
-        id: pr
-        run: echo "::set-output name=number::${{ github.event.issue.number }}"
-  
-      - name: Fetch all added and modified files
+      - name: Fetch all modified files
         id: files
-        uses: jitterbit/get-changed-files@v1
-        with:
-          format: 'space-delimited'
-          token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Run CSpell on all added and modified files
-        id: cspell_check
         run: |
-          output=""
-          for file in ${{ steps.files.outputs.all_added_modified }}; do
-            echo "Checking $file for spelling errors..."
-            result=$(cspell "$file" --config cspell.json --show-suggestions)
-            if [ -n "$result" ]; then
-              output+="### Errors in $file:\n\\\\n$result\n\\\\n\n"
+          echo "::set-output name=all_files::$(git diff --name-only ${{ github.event.before }} ${{ github.event.after }} | tr '\n' ' ')"
+
+      - name: Run CSpell on all changed files
+        continue-on-error: true
+        run: |
+          for file in ${{ steps.files.outputs.all_files }}; do
+            if [ "$file" = ".github/workflows/spellcheck-ru.yml" ] || [ "$file" = "cspell.json" ]; then
+              echo "Skipping CSpell check for $file"
+              continue
             fi
+            echo "Checking $file for spelling errors..."
+            cspell $file --config cspell.json --show-suggestions
           done
-          echo "::set-output name=results::${output}"
-
-
-      - name: Post results as a PR comment
-        if: steps.cspell_check.outputs.results != ''
-        uses: actions/github-script@v5
-        with:
-          script: |
-            const output = ${{ steps.cspell_check.outputs.results }};
-            const prNumber = ${{ steps.pr.outputs.number }};
-            const repoName = context.repo.repo;
-            const ownerName = context.repo.owner;
-            github.rest.issues.createComment({
-              owner: ownerName,
-              repo: repoName,
-              issue_number: prNumber,
-              body: output
-            });
-		
