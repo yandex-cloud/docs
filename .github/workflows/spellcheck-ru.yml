@@ -43,6 +43,7 @@ jobs:
           ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
           GITHUB_WORKSPACE: ${{ github.workspace }}
         run: |
+          pwd
           echo "ALL_CHANGED_FILES: $ALL_CHANGED_FILES"
           cspell_output=""
           for file in $ALL_CHANGED_FILES; do
@@ -55,7 +56,7 @@ jobs:
               continue
             fi
             echo "Running CSpell on $file..."
-            file_path="${GITHUB_WORKSPACE}/${file}"
+            file_path="${file}"
             echo "File path: $file_path"
             file_content=$(cat "${file_path}")
             cspell_errors=$(echo "$file_content" | cspell --config cspell.json --show-suggestions)
