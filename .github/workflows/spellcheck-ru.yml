@@ -1,38 +1,24 @@
 name: CSpell Check
 
 on:
-  issue_comment:
-    types: [created]
+  pull_request:
+    types: [opened, synchronize, reopened]
 
 jobs:
   spellcheck:
-    if: github.event.comment.body == '/check-ru' && github.event.issue.pull_request != null 
     runs-on: ubuntu-latest
     steps:
-
-      - name: Get pull request
-        id: get-pr
-        uses: xt0rted/pull-request-comment-branch@v2
-
-      - uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
         with:
-          fetch-depth: 0
-          ref: ${{ steps.get-pr.outputs.head_ref }}
-
-      - name: Get changed files
-        id: changed-files
-        run: |
-          changed_files=$(git diff --name-only ${{ steps.get-pr.outputs.base_sha }}..${{ steps.get-pr.outputs.head_sha }})
-          changed_files=$(echo "$changed_files" | tr '\n' ' ')
-          echo "Changed files: $changed_files"
-          echo "::set-output name=all_changed_files::$changed_files"
+          fetch-depth: 0  # ensures the full git history is available
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '18'
 
-      - name: Install CSpell and dictionaries
+      - name: Install CSpell
         run: |
           npm install -g cspell
           npm install -g @cspell/dict-ru_ru
@@ -40,33 +26,19 @@ jobs:
           npm install -g @cspell/dict-en-common-misspellings
           cspell link add @cspell/dict-en-common-misspellings
 
-      - name: Run CSpell on changed files
-        env:
-          ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
-          GITHUB_WORKSPACE: ${{ github.workspace }}
+      - name: Fetch all modified files
+        id: files
         run: |
-          pwd
-          echo "ALL_CHANGED_FILES: $ALL_CHANGED_FILES"
-          cspell_output=""
-          for file in $ALL_CHANGED_FILES; do
-            if [ "$file" = ".github/workflows/spellcheck-ru.yml" ]; then
-              echo "Skipping CSpell check for $file"
-              continue
-            fi
-            if [ "$file" = "cspell.json" ]; then
-              echo "Skipping CSpell check for $file"
-              continue
-            fi
-            echo "Running CSpell on $file..."
-            file_path="${GITHUB_WORKSPACE}/${file}"
-            file_content=$(cat "${file_path}")
-            cspell_errors=$(echo "$file_content" | cspell --config cspell.json --show-suggestions)
-            if [ -n "$cspell_errors" ]; then
-              cspell_output+="CSpell errors in $file:\n$cspell_errors\n\n"
-            fi
-          done
-          echo "CSpell output:"
-          echo "$cspell_output"
-          echo "::set-output name=cspell_output::$cspell_output"
-        id: cspell
+          echo "::set-output name=all_files::$(git diff --name-only ${{ github.event.before }} ${{ github.event.after }} | tr '\n' ' ')"
+
+      - name: Run CSpell on all changed files
         continue-on-error: true
+        run: |
+          for file in ${{ steps.files.outputs.all_files }}; do
+            if [ "$file" = ".github/workflows/spellcheck-ru.yml" ] || [ "$file" = "cspell.json" ]; then
+              echo "Skipping CSpell check for $file"
+              continue
+            fi
+            echo "Checking $file for spelling errors..."
+            cspell $file --config cspell.json
+          done
