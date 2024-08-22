@@ -46,11 +46,19 @@ jobs:
           echo "ALL_CHANGED_FILES: $ALL_CHANGED_FILES"
           cspell_output=""
           for file in $ALL_CHANGED_FILES; do
+            if [ "$file" = ".github/workflows/spellcheck-ru.yml" ]; then
+              echo "Skipping CSpell check for $file"
+              continue
+            fi
+            if [ "$file" = "cspell.json" ]; then
+              echo "Skipping CSpell check for $file"
+              continue
+            fi
             echo "Running CSpell on $file..."
             file_path="${GITHUB_WORKSPACE}/${file}"
             echo "File path: $file_path"
             file_content=$(cat "${file_path}")
-            cspell_errors=$(echo "$file_content" | cspell --config ${GITHUB_WORKSPACE}/cspell.json --no-must-find-files --exclude .github/workflows/spellcheck-ru.yml)
+            cspell_errors=$(echo "$file_content" | cspell --config cspell.json --show-suggestions)
             if [ -n "$cspell_errors" ]; then
               cspell_output+="CSpell errors in $file:\n$cspell_errors\n\n"
             fi
