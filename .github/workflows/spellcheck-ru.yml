@@ -40,5 +40,5 @@ jobs:
               continue
             fi
             echo "Checking $file for spelling errors..."
-            cspell $file --config cspell.json
+            cspell $file --config cspell.json --show-suggestions
           done
