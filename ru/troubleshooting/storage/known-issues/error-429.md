@@ -9,11 +9,11 @@ message: ; status: 429; description: ; code: undefined; Request ID: undefined; T
 ```
 ## Решение {#issue-resolution}
 
-Такая ошибка говорит о слишком большом количестве запросов. При ее возникновении рекомендуем снизить частоту обращений к Object Storage.
+Такая ошибка говорит о слишком большом количестве запросов. При ее возникновении рекомендуем снизить частоту обращений к {{ objstorage-name }}.
 
 {% note info %}
 
-Со всеми кодами ошибок и ответов API Object Storage можно ознакомиться в [документации](../../../storage/s3/api-ref/response-codes.md)
+Со всеми кодами ошибок и ответов API {{ objstorage-name }} можно ознакомиться в [документации](../../../storage/s3/api-ref/response-codes.md).
 
 {% endnote %}
 
@@ -29,4 +29,4 @@ aws s3 --endpoint-url=https://storage.yandexcloud.net rm s3://bucket-name --recu
 aws s3 --endpoint-url=https://storage.yandexcloud.net rm s3://my-bucket/my-folder/ --recursive
 ```
 
-Инструкция по установке и настройке AWS CLI также есть в нашей [документации](../../../docs/storage/tools/aws-cli).
+Инструкция по установке и настройке AWS CLI также есть в нашей [документации](../../../storage/tools/aws-cli.md).

@@ -4,7 +4,7 @@ You can set up _[object locks](../../concepts/object-lock.md)_ in [versioned](v
 
 {% note info %}
 
-In buckets with paused versioning, object lock is not available.
+In buckets with paused versioning, object locks are not available.
 
 {% endnote %}
 
@@ -34,8 +34,50 @@ To enable object locks:
    Where:
 
    * `--bucket`: Bucket name.
-   * `--object-lock-configuration`: Lock configuration in the bucket. The `ObjectLockEnabled=Enabled` value enables object lock.
+   * `--object-lock-configuration`: Bucket lock settings. The `ObjectLockEnabled=Enabled` value enables object lock.
    * `--endpoint-url`: {{ objstorage-name }} endpoint.
+
+- {{ TF }} {#tf}
+
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+   1. Open the {{ TF }} configuration file and add the `object_lock_configuration` section to the bucket description:
+
+      ```hcl
+      resource "yandex_storage_bucket" "b" {
+        ...
+        object_lock_configuration {
+          object_lock_enabled = "Enabled"
+        }
+      }
+      ```
+
+      Where:
+
+      * `object_lock_configuration`: Object lock settings:
+         * `object_lock_enabled`: Enables object locks. Requires enabled bucket versioning. This is an optional parameter.
+
+      For more information about the bucket parameters you can specify using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/storage_bucket).
+
+   1. Create the resources:
+
+      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+   With that done, an object lock for the bucket will be created in the specified folder. You can check that the object lock is there using this [CLI](../../../cli/quickstart.md) command:
+
+   ```bash
+   yc storage bucket get <bucket_name>
+   ```
+
+   Result:
+
+   ```bash
+   name: my-bucket
+   folder_id: b1geoelk2fld*********
+   ...
+   object_lock:
+     status: OBJECT_LOCK_STATUS_ENABLED
+   ```
 
 - API {#api}
 
@@ -43,10 +85,9 @@ To enable object locks:
 
 {% endlist %}
 
-
 ## Setting up default object locks {#default}
 
-Default locks are set for all new object versions uploaded to the bucket. These settings don't affect previously uploaded versions.
+Default locks are set for all new object versions uploaded to the bucket. These settings do not affect the previously uploaded versions.
 
 The minimum required role is `storage.admin`.
 
@@ -68,7 +109,7 @@ To set up default object locks:
             "Mode": "<lock_type>",
             "Days": <lock_period_in_days>,
             "Years": <lock_period_in_years>
-          }       
+          }
         }
       }
       ```
@@ -79,7 +120,7 @@ To set up default object locks:
 
          {% note alert %}
 
-         This is a required field. If you omit `Enabled` in this parameter, you'll see the `InvalidRequest` error message, and object lock will not be enabled. See also [Disabling object locks](#disable).
+         This is a required field. If you omit `Enabled` in this parameter, you will get the `InvalidRequest` error message, and object lock will not be enabled. See also [Disabling object locks](#disable).
 
          {% endnote %}
 
@@ -88,10 +129,10 @@ To set up default object locks:
          * `GOVERNANCE`: Object lock with a predefined retention period that can be managed.
          * `COMPLIANCE`: Object lock with a predefined retention period with strict compliance.
 
-      * `Days`: The retention period in days after uploading an object version. It must be a positive integer. You can't set it simultaneously with `Years`.
-      * `Years`: The retention period in years after uploading an object version. It must be a positive integer. You can't set it simultaneously with `Days`.
+      * `Days`: Retention period in days after uploading an object version. It must be a positive integer. You cannot use it together with `Years`.
+      * `Years`: Retention period in years after uploading an object version. It must be a positive integer. You cannot use it together with `Days`.
 
-      When you're done, you can save your configuration as a file, like `default-object-lock.json`.
+      When ready, you can save your configuration into a file, e.g., `default-object-lock.json`.
 
    1. Upload the configuration to the bucket:
 
@@ -105,8 +146,54 @@ To set up default object locks:
       Where:
 
       * `--bucket`: Bucket name.
-      * `--object-lock-configuration`: Default object lock configuration. In this case, specified in the `default-object-lock.json` file.
+      * `--object-lock-configuration`: Default lock settings. In this case, specified in the `default-object-lock.json` file.
       * `--endpoint-url`: {{ objstorage-name }} endpoint.
+
+- {{ TF }} {#tf}
+
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+   1. Open the {{ TF }} configuration file and add the default lock settings to the `object_lock_configuration` section:
+
+      ```
+      ...
+      rule {
+        default_retention {
+          mode = "GOVERNANCE"
+          years = 1
+        }
+      }
+      ...
+      ```
+
+      Where:
+
+      * `rule`: Object lock rule. Contains the `default_retention` parameter with retention settings:
+         * `mode`: Lock type. The possible values are `GOVERNANCE` or `COMPLIANCE`. This is an optional parameter.
+         * `years` or `days`: Object lock duration specified as a number. This is an optional parameter.
+
+   1. Apply the changes:
+
+      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+   You can check that the object lock is there using this [CLI](../../../cli/quickstart.md) command:
+
+   ```bash
+   yc storage bucket get <bucket_name>
+   ```
+
+   Result:
+
+   ```bash
+   name: my-bucket
+   folder_id: b1geoelk2fld********
+   ...
+   object_lock:
+   status: OBJECT_LOCK_STATUS_ENABLED
+   default_retention:
+     mode: MODE_GOVERNANCE
+     years: "1"
+   ```
 
 {% endlist %}
 
@@ -136,8 +223,52 @@ To disable object locks:
    Where:
 
    * `--bucket`: Bucket name.
-   * `--object-lock-configuration`: Lock configuration in the bucket. The `ObjectLockEnabled=""` value disables object lock.
+   * `--object-lock-configuration`: Bucket lock settings. The `ObjectLockEnabled=""` value disables object lock.
    * `--endpoint-url`: {{ objstorage-name }} endpoint.
+
+- {{ TF }} {#tf}
+
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+   1. Open the {{ TF }} configuration file and delete the `object_lock_configuration` section.
+
+      {% cut "Example of an object lock description in a {{ TF }} configuration" %}
+
+      ```
+      ...
+      object_lock_configuration {
+        object_lock_enabled = "Enabled"
+        rule {
+          default_retention {
+            mode = "GOVERNANCE"
+            years = 1
+          }
+        }
+      }
+      ...
+      ```
+
+      {% endcut %}
+
+   1. Apply the changes:
+
+      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+   You can check the object lock deletion using this [CLI](../../../cli/quickstart.md) command:
+
+   ```bash
+   yc storage bucket get <bucket_name>
+   ```
+
+   Result:
+
+   ```bash
+   name: my-bucket
+   folder_id: b1geoelk2fld********
+   ...
+   object_lock:
+     status: OBJECT_LOCK_STATUS_DISABLED
+   ```
 
 - API {#api}
 

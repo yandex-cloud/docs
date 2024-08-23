@@ -9,6 +9,12 @@ description: "In this tutorial, you will learn how to download an object from {{
 {% include [encryption-roles](../../../_includes/storage/encryption-roles.md) %}
 
 
+{% note info %}
+
+To download an object group with a specified prefix (a [directory](../../concepts/object.md#folder) with objects) or all objects from a bucket, use the AWS CLI or file browsers compatible with the Amazon S3 API, e.g., [CyberDuck](../../tools/cyberduck.md) and [WinSCP](../../tools/winscp.md).
+
+{% endnote %}
+
 {% list tabs group=instructions %}
 
 - Management console {#console}
@@ -28,7 +34,7 @@ description: "In this tutorial, you will learn how to download an object from {{
 
    If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
 
-   To download a single object, run this command:
+   **Downloading a single object**
 
    ```bash
    aws s3 cp \
@@ -40,11 +46,31 @@ description: "In this tutorial, you will learn how to download an object from {{
    Where:
 
    * `--endpoint-url`: {{ objstorage-name }} endpoint.
-   * `<bucket_name>`: Name of the bucket to download the object from.
-   * `<object_key>`: [Key](../../concepts/object.md#key) of the object to download.
-   * `<local_path>`: Path to the directory to save the downloaded object to, e.g., `~/downloads/`.
+   * `<bucket_name>`: Name of the bucket you want to download the object from.
+   * `<object_key>`: [Key](../../concepts/object.md#key) of the object you want to download.
+   * `<local_path>`: Path to the directory to save the downloaded object to. e.g., `~/downloads/`.
 
-   To download all bucket objects, run this command:
+   **Downloading a directory (all objects with a specified prefix)**
+
+   For more information about directories in {{ objstorage-name }}, see [{#T}](../../concepts/object.md#folder).
+
+   ```bash
+   aws s3 cp \
+     --endpoint-url=https://{{ s3-storage-host }} \
+     --recursive \
+     s3://<bucket_name>/<prefix>/ \
+     <local_path>
+   ```
+
+   Where:
+
+   * `--endpoint-url`: {{ objstorage-name }} endpoint.
+   * `--recursive`: Parameter for downloading all objects with the specified prefix.
+   * `<bucket_name>`: Name of the bucket you want to download the objects from.
+   * `<prefix>`: Prefix (directory) of the objects you want to download, e.g., `test/folder`.
+   * `<local_path>`: Path to the directory to save the downloaded objects to, e.g., `~/downloads/`.
+
+   **Downloading all objects from a bucket**
 
    ```bash
    aws s3 cp \
@@ -57,8 +83,8 @@ description: "In this tutorial, you will learn how to download an object from {{
    Where:
 
    * `--endpoint-url`: {{ objstorage-name }} endpoint.
-   * `--recursive`: Command to download all objects from the specified bucket to a local directory.
-   * `<bucket_name>`: Name of the bucket to download the object from.
+   * `--recursive`: Parameter for downloading all objects from the bucket to a local directory.
+   * `<bucket_name>`: Name of the bucket you want to download the objects from.
    * `<local_path>`: Path to the directory to save the downloaded objects to, e.g., `~/downloads/`.
 
    The `aws s3 cp` command is high-level, its functionality is limited. For more information, see the [AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/cp.html).
@@ -78,7 +104,7 @@ description: "In this tutorial, you will learn how to download an object from {{
       Where:
 
       * `--endpoint-url`: {{ objstorage-name }} endpoint.
-      * `--bucket`: Name of the bucket to download objects from.
+      * `--bucket`: Name of the bucket you want to download the objects from.
       * `--query`: Query in [JMESPath](https://jmespath.org/) format.
       * `<local_path>`: Path to the directory to save the downloaded objects to, e.g., `~/downloads/`.
 
@@ -106,7 +132,7 @@ description: "In this tutorial, you will learn how to download an object from {{
       Where:
 
       * `--endpoint-url`: {{ objstorage-name }} endpoint.
-      * `--bucket`: Name of the bucket to download objects from.
+      * `--bucket`: Name of the bucket you want to download the objects from.
       * `--query`: Query in [JMESPath](https://jmespath.org/) format.
       * `<local_path>`: Path to the directory to save the downloaded objects to, e.g., `d:\downloads\`.
 
@@ -126,3 +152,7 @@ description: "In this tutorial, you will learn how to download an object from {{
    To download an object, use the [get](../../s3/api-ref/object/get.md) S3 API method.
 
 {% endlist %}
+
+#### See also {#see-also}
+
+* [{#T}](link-for-download.md)

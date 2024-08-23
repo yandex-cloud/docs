@@ -180,5 +180,8 @@ To initialize the vault:
 
 ## See also {#see-also}
 
-* [HashiCorp Vault documentation](https://developer.hashicorp.com/vault/docs?product_intent=vault).
-* [{{ kms-name }} documentation](../../../kms/).
+* [HashiCorp Vault documentation](https://developer.hashicorp.com/vault/docs?product_intent=vault)
+* [{{ kms-name }} documentation](../../../kms/)
+* [{#T}](../../tutorials/marketplace/hashicorp-vault.md)
+* [{#T}](./external-secrets-operator.md)
+* [{#T}](../../tutorials/kubernetes-lockbox-secrets.md)

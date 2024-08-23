@@ -1,4 +1,4 @@
-# Решения для SpeechKit
+# Решения для {{ speechkit-name }}
 
 {% include [how-to-index](how-to/index.md) %}
 

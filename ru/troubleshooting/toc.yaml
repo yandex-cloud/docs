@@ -904,16 +904,14 @@ items:
           Нужно ли заключать отдельный договор по № 152-ФЗ для размещения
           персональных данных
         href: legal/how-to/fl-152.md
-  - name: Object Storage
+  - name: '{{ objstorage-name }}'
     items:
-      - name: Все решения для Object Storage
+      - name: Все решения для {{ objstorage-name }}
         href: storage/index.md
-      - name: Решения для известных проблем Object Storage
+      - name: Решения для известных проблем {{ objstorage-name }}
         href: storage/known-issues/index.md
         hidden: true
-      - name: >-
-          Устранение ошибки Bucket not empty при удалении бакета из Object
-          Storage
+      - name: Устранение ошибки `Bucket is not empty` при удалении бакета
         href: storage/known-issues/bucket-deletion-issue.md
       - name: >-
           Устранение ошибок доступа к бакету с назначенной политикой
@@ -921,43 +919,49 @@ items:
         href: storage/known-issues/unable-to-access-bucket-with-assigned-policy.md
       - name: Устранение ошибки 429
         href: storage/known-issues/error-429.md
-      - name: Устранение ошибки 409 BucketAlreadyExists
+      - name: Устранение ошибки 409 `BucketAlreadyExists`
         href: storage/known-issues/error-409-bucket-already-exists.md
-      - name: Устранение ошибки доступа к бакетам S3 из кластера DataProc 1.4
+      - name: >-
+          Устранение ошибки доступа к бакетам S3 из кластера {{ dataproc-name }}
+          1.4
         href: storage/known-issues/cannot-access-buckets.md
       - name: >-
           Устранение ошибки 403 (не отдается заголовок при использовании метода
-          OPTION)
+          `OPTION`)
         href: storage/known-issues/error-403-cors-header.md
       - name: Устранение ошибки сертификата
         href: storage/known-issues/wrong-certificate.md
-      - name: Устранение ошибки GATEWAY_REQUEST_ERROR
+      - name: Устранение ошибки `GATEWAY_REQUEST_ERROR`
         href: storage/known-issues/error-gateway-request.md
       - name: >-
           Устранение проблем с некорректным MIME-типов объектов при их загрузке
-          в {{ objstorage-short-name }}
+          в {{ objstorage-name }}
         href: storage/known-issues/incorrect-mime-type.md
       - name: Устранение проблем с загрузкой новых объектов в бакет
         href: storage/known-issues/objects-uploading-issue.md
-      - name: Примеры конфигураций и сценариев Object Storage
+      - name: Примеры конфигураций и сценариев {{ objstorage-name }}
         href: storage/how-to/index.md
         hidden: true
-      - name: Перемещение данных из бакета Object Storage в ледяное хранилище
+      - name: >-
+          Как перенести данные из бакета {{ objstorage-name }} в ледяное
+          хранилище
         href: storage/how-to/moving-objects-to-glacier-storage-type.md
       - name: >-
-          Ограничение доступа к бакету Object Storage диапазоном IP-адресов,
-          принадлежащих Cloud CDN
+          Как ограничить доступ к бакету {{ objstorage-name }} диапазоном
+          IP-адресов, принадлежащих {{ cdn-name }}
         href: storage/how-to/permit-bucket-access-only-to-cdn-networks.md
-      - name: Перенос содержимого бакета в другой бакет в пределах каталога
+      - name: Как перенести содержимое бакета в другой бакет в пределах каталога
         href: storage/how-to/moving-data-to-other-bucket-within-folder.md
-      - name: Работа напрямую с API Object Storage без использования SDK
+      - name: >-
+          Как работать напрямую с API {{ objstorage-name }} без использования
+          SDK
         href: storage/how-to/curl-api-request-example.md
-      - name: Просмотр и удаление незавершенных загрузок
+      - name: Как просматривать и удалять незавершенные загрузки
         href: storage/how-to/incomplete-downloads.md
       - name: Как узнать скорость загрузки и скачивания данных
         href: storage/how-to/upload-download-speed.md
       - name: >-
-          Как настроить заголовки кэширования cache-control для объектов в
+          Как настроить заголовки кэширования `Cache-Control` для объектов в
           бакете при HTTP-запросах
         href: storage/how-to/configure-cache-headings-with-http-queries.md
       - name: Как ограничить доступ к бакету для пользователя
@@ -1105,23 +1109,23 @@ items:
           Какое время жизни токена, который возвращает метод `check` в {{
           captcha-name }}
         href: smartcaptcha/how-to/check-token-expiration-time.md
-  - name: SpeechKit
+  - name: '{{ speechkit-name }}'
     items:
-      - name: Все решения для SpeechKit
+      - name: Все решения для {{ speechkit-name }}
         href: speechkit/index.md
-      - name: Решения для известных проблем SpeechKit
+      - name: Решения для известных проблем {{ speechkit-name }}
         href: speechkit/known-issues/index.md
         hidden: true
-      - name: Устранение ошибки audio duration should be less than 30s в SpeechKit
+      - name: Устранение ошибки `audio duration should be less than 30s`
         href: speechkit/known-issues/error-audio-duration-should-be-less-then-30s.md
-      - name: Устранение ошибки Invalid audio received
+      - name: Устранение ошибки `Invalid audio received`
         href: speechkit/known-issues/invalid-audio-received.md
-      - name: Примеры конфигураций и сценариев SpeechKit
+      - name: Примеры конфигураций и сценариев {{ speechkit-name }}
         href: speechkit/how-to/index.md
         hidden: true
       - name: >-
-          Включение автоматической расстановки знаков препинания в распознанном
-          тексте
+          Как включить автоматическую расстановку знаков препинания в
+          распознанном тексте
         href: speechkit/how-to/enabling-punctuator-in-speechkit.md
   - name: VPC
     items:
@@ -1203,22 +1207,26 @@ items:
         hidden: true
       - name: Как увеличить квоты
         href: console/how-to/increase-quota.md
-  - name: Terraform-провайдер Yandex Cloud
+  - name: '{{TF}}-провайдер {{ yandex-cloud }}'
     items:
-      - name: Все решения по Terraform-провайдеру для Yandex Cloud
+      - name: Все решения для {{ TF }}-провайдера {{ yandex-cloud }}
         href: terraform/index.md
-      - name: Решения для известных проблем c провайдером Terraform для Yandex Cloud
+      - name: >-
+          Решения для известных проблем c {{ TF }}-провайдером {{ yandex-cloud
+          }}
         href: terraform/known-issues/index.md
         hidden: true
       - name: >-
-          Устранение ошибки Failed to query available provider packages при
-          использовании Terraform
+          Устранение ошибки `Failed to query available provider packages при
+          использовании` {{ TF }}
         href: terraform/known-issues/failed-to-quety-available-provider-packages.md
       - name: Зона создается публичной и приватной одновременно
         href: terraform/known-issues/zone-private-and-public.md
-      - name: Устранение ошибки Invalid provider registry host
+      - name: Устранение ошибки `Invalid provider registry host`
         href: terraform/known-issues/invalid-provider-registry-host.md
-      - name: Примеры конфигураций и сценариев провайдера Terraform для Yandex Cloud
+      - name: >-
+          Примеры конфигураций и сценариев {{ TF }}-провайдера {{ yandex-cloud
+          }}
         href: terraform/how-to/index.md
         hidden: true
   - name: Tracker

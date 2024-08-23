@@ -1,4 +1,4 @@
-# Решения для Terraform
+# Решения для провайдера {{ TF }} {{ yandex-cloud }}
 
 {% include [how-to-index](how-to/index.md) %}
 

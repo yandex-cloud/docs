@@ -1,3 +1,3 @@
-## Примеры конфигураций и сценариев SpeechKit {#configuration-examples}
+## Примеры конфигураций и сценариев {{ speechkit-name }} {#configuration-examples}
 
-* [Включение автоматической расстановки знаков препинания в распознанном тексте](enabling-punctuator-in-speechkit.md)
+* [Как включить автоматическую расстановку знаков препинания в распознанном тексте](enabling-punctuator-in-speechkit.md)

@@ -4,6 +4,18 @@ description:
     Yandex Container Registry is a service that allows you to store and
     distribute Docker images.
   - >-
+    Container Registry offers a reliable storage solution independent of
+    external locks.  In Container Registry, Docker images are stored in the same
+    Yandex Cloud  <a href="/docs/overview/concepts/geo-scope">data centers</a>
+    as the rest of the cloud infrastructure,  ensuring high speed Docker image
+    operations and no expenses for external traffic.
+  - >-
+    Container Registry comes with a built-in <a
+    href="/docs/container-registry/concepts/vulnerability-scanner">vulnerability
+    scanner</a>  that enables you to scan Docker images both upon uploading them
+    to the registry and later on a schedule,  as well as flexibly manage scan
+    results.
+  - >-
     The service is subject to the <a
     href="https://yandex.com/legal/cloud_sla">Service Level Agreement</a>. The
     service level is defined in the <a

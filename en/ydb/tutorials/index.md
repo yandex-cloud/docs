@@ -14,5 +14,8 @@ description: "Various {{ ydb-full-name }} use cases in {{ yandex-cloud }}."
 * [{#T}](mmy-ydb-migration.md)
 * [{#T}](ydb-mkf-replication.md)
 * [{#T}](ydb-to-yds.md)
+* [{#T}](ydb-to-object-storage.md)
 * [{#T}](object-storage-to-ydb.md)
+* [{#T}](ydb-to-clickhouse.md)
+* [{#T}](opensearch-to-ydb.md)
 * [{#T}](ci-cd-serverless.md)
