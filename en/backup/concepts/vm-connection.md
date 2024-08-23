@@ -12,11 +12,7 @@ After connecting to {{ backup-name }}, [add](../operations/policy-vm/attach-and-
 
 ## VM configuration requirements {#requirements}
 
-A VM's minimum configuration required to install and correctly run the {{ backup-name }} agent is as follows:
-* Free disk space:
-  * For Linux-based VMs: 2 GB.
-  * For Windows-based VMs: 1.2 GB.
-* RAM: For backups, 1 GB of RAM is required per TB of a backup. The amount of RAM used depends on the volume and type of data being handled by the agent.
+{% include [vm-requirements](../../_includes/backup/vm-requirements.md) %}
 
 ## Supported operating systems {#os}
 
@@ -82,18 +78,7 @@ For the {{ backup-name }} agent to exchange data with the [backup provider](inde
 
 - Egress traffic {#outgoing}
 
-   | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} |
-   --- | --- | --- | ---
-   | `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `213.180.193.0/24` |
-   | `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `213.180.204.0/24` |
-   | `443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `84.47.172.0/24` |
-   | `443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `84.201.181.0/24` |
-   | `443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `178.176.128.0/24` |
-   | `443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `213.180.193.0/24` |
-   | `443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `213.180.204.0/24` |
-   | `7770-7800` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `84.47.172.0/24` |
-   | `8443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `84.47.172.0/24` |
-   | `44445` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `51.250.1.0/24` |
+   {% include [outgoing traffic](../../_includes/backup/outgoing-rules.md) %}
 
 {% endlist %}
 

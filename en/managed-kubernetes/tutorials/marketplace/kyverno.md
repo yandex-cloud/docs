@@ -3,9 +3,11 @@
 
 The [Kyverno](https://kyverno.io) application and its [Kyverno policies](https://github.com/kyverno/kyverno/tree/main/charts/kyverno-policies) extension are used for managing {{ k8s }} security policies. They appear in Kyverno as {{ k8s }} resources.
 
-To integrate [Kyverno & Kyverno Policies](/marketplace/products/yc/kyverno) into {{ managed-k8s-name }}:
-1. [{#T}](#kyverno-policies)
-1. [{#T}](#check-apps)
+To integrate [Kyverno & Kyverno Pоlicies](/marketplace/products/yc/kyverno) into {{ managed-k8s-name }}:
+
+1. [{#T}](#install-kyverno)
+1. [{#T}](#check-baseline)
+1. [{#T}](#create-check-policies)
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -23,7 +25,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
          {% include [sg-common-warning](../../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
-      1. [Create a {{ managed-k8s-name }} cluster](../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../../../managed-kubernetes/operations/node-group/node-group-create.md) in any suitable configuration. When creating them, specify the security groups prepared in advance.
+      1. [Create a {{ managed-k8s-name }} cluster](../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../../../managed-kubernetes/operations/node-group/node-group-create.md) in any suitable configuration. When creating them, specify the security groups prepared earlier.
 
    - {{ TF }} {#tf}
 
@@ -63,10 +65,61 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. {% include [kubectl-install-links](../../../_includes/managed-kubernetes/kubectl-install.md) %}
 
-## Create a Kyverno policy {#kyverno-policies}
+## Install the Kyverno & Kyverno Pоlicies application {#install-kyverno}
 
-1. Install the [Kyverno & Kyverno Policies](/marketplace/products/yc/kyverno) application by following this [guide](../../operations/applications/kyverno.md).
-1. Create a policy that will require that all [pods](../../concepts/index.md#pod) have the `app.kubernetes.io/name` [{{ k8s }} label](../../../resource-manager/concepts/labels.md).
+Follow this [guide](../../operations/applications/kyverno.md) to install [Kyverno & Kyverno Pоlicies](/marketplace/products/yc/kyverno) with the following settings:
+
+* **Pod Security Standard profile**: `baseline`
+* **Validation failure action**: `enforce`
+
+[The `baseline` Pod Security Standard profile](https://kubernetes.io/docs/concepts/security/pod-security-standards/) already contains a minimum restriction policy that prevents known privilege abuses.
+
+## Check how the policy works for the baseline profile {#check-baseline}
+
+* Create a pod named `nginx` with standard parameters:
+
+   ```bash
+   kubectl run nginx --image nginx
+   ```
+
+   Result:
+
+   ```text
+   pod/nginx created
+   ```
+
+   Such a pod will satisfy the policy requirements for the `baseline` profile.
+
+* Create a pod named `nginx` in privileged mode:
+
+   ```bash
+   kubectl run nginx --image nginx --privileged=true
+   ```
+
+   Result:
+
+   ```text
+   Error from server: admission webhook "validate.kyverno.svc-fail" denied the request:
+
+   policy Pod/default/nginx for resource violation:
+
+   disallow-privileged-containers:
+     privileged-containers: 'validation error: Privileged mode is disallowed. The fields
+       spec.containers[*].securityContext.privileged and spec.initContainers[*].securityContext.privileged
+       must be unset or set to `false`. rule privileged-containers failed at path /spec/containers/0/securityContext/privileged/'
+   ```
+
+   The policy rules for the `baseline` profile prohibit creating pods in privileged mode.
+
+{% note info %}
+
+Although the policies are designed for pods, Kyverno applies them to any resources able to create pods.
+
+{% endnote %}
+
+## Create your own Kyverno policy and check how it works {#create-check-policies}
+
+1. Create a policy that will require that all [pods](../../concepts/index.md#pod) have the `app.kubernetes.io/name` [label](../../../resource-manager/concepts/labels.md):
    1. Save the specification for `ClusterPolicy` creation in a YAML file named `policy.yaml`:
 
       ```yaml
@@ -75,7 +128,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       metadata:
         name: require-labels
       spec:
-        validationFailureAction: enforce
+        validationFailureAction: Enforce
         rules:
         - name: check-for-labels
           match:
@@ -94,7 +147,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
    1. Run this command:
 
       ```bash
-      kubectl apply -f ./policy.yaml
+      kubectl apply -f policy.yaml
       ```
 
       Result:
@@ -102,22 +155,19 @@ If you no longer need the resources you created, [delete them](#clear-out).
       ```text
       clusterpolicy.kyverno.io/require-labels created
       ```
-
 1. {% include [install policy reporter](../../../_includes/managed-kubernetes/install-policy-reporter.md) %}
 
-## Test Kyverno & Kyverno Policies {#check-apps}
+## Test Kyverno & Kyverno Pоlicies {#check-apps}
 
-* Create a pod with no `app.kubernetes.io/name` {{ k8s }} label:
+* Create a pod named `nginx` with no `app.kubernetes.io/name` {{ k8s }} label:
 
    ```bash
    kubectl run nginx --image nginx
    ```
 
    Result:
-
    ```text
    Error from server: admission webhook "validate.kyverno.svc-fail" denied the request:
-
    resource Pod/default/nginx was blocked due to the following policies
 
    require-labels:
@@ -125,7 +175,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
        Rule check-for-labels failed at path /metadata/labels/app.kubernetes.io/name/'
    ```
 
-* Create a pod with the `app.kubernetes.io/name` {{ k8s }} label:
+* Create a pod named `nginx` with the `app.kubernetes.io/name` label:
 
    ```bash
    kubectl run nginx --image nginx --labels app.kubernetes.io/name=nginx
@@ -136,12 +186,6 @@ If you no longer need the resources you created, [delete them](#clear-out).
    ```text
    pod/nginx created
    ```
-
-{% note info %}
-
-Although the policies are designed for pods, Kyverno applies them to any resources that can create pods.
-
-{% endnote %}
 
 ## Delete the resources you created {#clear-out}
 

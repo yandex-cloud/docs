@@ -312,7 +312,7 @@ items:
         href: ./terraform/cdc.md
       - name: Создание вторичных индексов строковых таблиц
         href: ./terraform/row-tables-secondary-index.md
-      - name: Управление конфигурацией топиков {{ydb-short-name}}
+      - name: Управление конфигурацией топиков {{ ydb-short-name }}
         href: ./terraform/topic.md
   - name: Вопросы и ответы
     href: faq.md
