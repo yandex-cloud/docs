@@ -1,6 +1,6 @@
 # {{ managed-k8s-name }} tutorials
 
-You can use {{ managed-k8s-name }} to deploy, scale, and manage your containerized applications in the {{ yandex-cloud }} infrastructure.
+You can use {{ managed-k8s-name }} to deploy, scale, and manage your containerized applications in the {{ yandex-cloud }} infrastructure.
 
 ## Creating and setting up a project {#creating-project}
 
@@ -72,3 +72,4 @@ You can use {{ managed-k8s-name }} to deploy, scale, and manage your containeriz
 * [{#T}](marketplace/metrics-provider.md)
 * [{#T}](marketplace/thumbor.md)
 * [{#T}](marketplace/istio.md)
+* [{#T}](marketplace/hashicorp-vault.md)

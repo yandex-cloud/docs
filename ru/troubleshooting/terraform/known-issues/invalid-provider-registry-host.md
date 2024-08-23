@@ -1,4 +1,4 @@
-# Устранение ошибки Invalid provider registry host
+# Устранение ошибки `Invalid provider registry host`
 
 
 ## Описание проблемы {#issue-description}

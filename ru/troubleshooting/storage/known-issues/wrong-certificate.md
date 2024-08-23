@@ -7,8 +7,6 @@
 
 ## Решение {#issue-resolution}
 
-Возможно, в панели управления доменом создана CNAME-запись, указывающая на поддомен `<bucket-name>.storage.yandexcloud.net`.
+Возможно, в панели управления доменом создана CNAME-запись, указывающая на поддомен `<bucket-name>.storage.yandexcloud.net`. Нужно изменить ее содержимое на `<bucket-name>.website.yandexcloud.net`, где `<bucket-name>` – имя вашего бакета.
 
-Нужно изменить ее содержимое на `<bucket-name>.website.yandexcloud.net`, где `<bucket-name>` – имя вашего бакета
-
-О настройке собственного домена мы пишем [здесь](../../../storage/operations/hosting/own-domain.md).
+О настройке собственного домена пишем в [документации](../../../storage/operations/hosting/own-domain.md).

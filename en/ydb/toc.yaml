@@ -2,7 +2,7 @@ title: '{{ ydb-full-name }}'
 href: index.yaml
 label:
   title: RU
-  description: This service is only available in Russia.
+  description: This service is only available in the Russia region.
   theme: unknown
   when: region == "kz"
 items:
@@ -60,6 +60,18 @@ items:
           Loading data from {{ objstorage-full-name }} to {{ ydb-short-name }}
           using {{ data-transfer-full-name }}
         href: tutorials/object-storage-to-ydb.md
+      - name: >-
+          Loading data from {{ ydb-short-name }} to {{ objstorage-full-name }}
+          using {{ data-transfer-full-name }}
+        href: tutorials/ydb-to-object-storage.md
+      - name: >-
+          Loading data from {{ ydb-short-name }} to {{ mch-full-name }} using {{
+          data-transfer-full-name }}
+        href: tutorials/ydb-to-clickhouse.md
+      - name: >-
+          Migrating data from {{ mos-full-name }} to {{ ydb-short-name }} using
+          {{ data-transfer-full-name }}
+        href: tutorials/opensearch-to-ydb.md
       - name: Building a CI/CD pipeline in {{ GL }} using serverless products
         href: tutorials/ci-cd-serverless.md
   - name: Concepts
@@ -120,7 +132,7 @@ items:
                 href: docapi/tools/aws-cli/update-item.md
               - name: Data selections
                 href: docapi/tools/aws-cli/query.md
-              - name: Deleting created resources
+              - name: Deleting the resources you created
                 href: docapi/tools/aws-cli/cleanup.md
           - name: Working with the AWS SDK
             items:
@@ -292,13 +304,13 @@ items:
         href: ./terraform/serverless-database.md
       - name: Creating and editing parameters of a dedicated database
         href: ./terraform/dedicated-database.md
-      - name: Creating row-based tables in a database
+      - name: Creating row tables in a database
         href: ./terraform/row-tables.md
       - name: Creating document tables in a database
         href: ./terraform/dynamodb-tables.md
       - name: Creating a changefeed for a table
         href: ./terraform/cdc.md
-      - name: Creating secondary indexes in row-based tables
+      - name: Creating secondary indexes in row tables
         href: ./terraform/row-tables-secondary-index.md
       - name: Managing {{ ydb-short-name }} topic configurations
         href: ./terraform/topic.md

@@ -1,9 +1,9 @@
-# Устранение ошибки Failed to query available provider packages при использовании Terraform
+# Устранение ошибки `Failed to query available provider packages` при использовании {{ TF }}
 
 
 ## Описание проблемы {#issue-description}
 
-При попытке задействовать Terraform для создания, изменения или удаления облачных ресурсов возникает сообщение об ошибке:
+При попытке задействовать {{ TF }} для создания, изменения или удаления облачных ресурсов возникает сообщение об ошибке:
 
 ```text
 │ Error: Failed to query available provider packages
@@ -14,16 +14,16 @@
 
 ## Решение {#issue-resolution}
 
-Компания Hashicorp заблокировала доступ к своим репозиториям с российских IP-адресов.
-Воспользуйтесь зеркалом реестра Hashicorp в Yandex Cloud. Для этого понадобится [сконфигурировать Terraform по следующей инструкции](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider)
+Компания HashiCorp заблокировала доступ к своим репозиториям с российских IP-адресов. Воспользуйтесь зеркалом реестра HashiCorp в {{ yandex-cloud }}. Для этого понадобится:
 
-Затем перейдите в каталог с кодом terraform-манифестов и выполните `terraform init -upgrade`.
+1. [Сконфигурировать {{ TF }} по следующей инструкции](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+1. Перейти в каталог с кодом {{ TF }}-манифестов.
+1. Выполнить команду `terraform init -upgrade`.
 
 ## Если проблема осталась {#if-issue-still-persists}
 
-Если вышеописанные действия не помогли решить проблему, [создайте запрос в техническую поддержку]({{ link-console-support }}).
-В запросе укажите следующую информацию:
+Если вышеописанные действия не помогли решить проблему, [создайте запрос в техническую поддержку]({{ link-console-support }}). При создании запроса укажите следующую информацию:
 
-1. Содержимое файла `~/.terraformrc` (на компьютерах с Linux или MacOS) или `%APPDATA%/terraform.rc` (на компьютерах с Windows). В Linux и MacOS символ `~` используется для сокращенного обозначения домашней директории пользователя.
-2. Вывод ошибки при попытке примененить код манифеста командой `terraform plan` или `terraform apply`.
-3. Вывод команд `curl -vk registry.terraform.io` и `curl -vk https://terraform-mirror.yandexcloud.net`
+1. Содержимое файла `~/.terraformrc` для устройств с Linux или MacOS или `%APPDATA%/terraform.rc` для устройств с Microsoft Windows®. Для Linux и MacOS символ `~` используется для сокращенного обозначения домашней директории пользователя.
+1. Вывод ошибки при попытке применить код манифеста командой `terraform plan` или `terraform apply`.
+1. Вывод команд `curl -vk registry.terraform.io` и `curl -vk https://terraform-mirror.yandexcloud.net`.

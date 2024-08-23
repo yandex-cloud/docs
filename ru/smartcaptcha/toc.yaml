@@ -20,6 +20,8 @@ items:
         href: operations/get-keys.md
       - name: Добавить виджет расширенным методом
         href: operations/advanced-method.md
+      - name: Проверить капчу
+        href: operations/validate-captcha.md
       - name: Посмотреть операции с капчей
         href: operations/operation-logs.md
   - name: Практические руководства

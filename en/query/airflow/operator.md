@@ -15,10 +15,10 @@ Optional arguments:
 Example:
 
 ```python
-yq_operator = YQExecuteQueryOperator(task_id="yq_operator", sql="SELECT 'Hello, World!'")
+yq_operator = YQExecuteQueryOperator(task_id="yq_operator", sql="SELECT 'Hello, world!'")
 ```
 
-In this example, we are creating an {{ AF }} job with the `yq_operator` ID, which runs the `SELECT 'Hello, World!'` query. For the full example of a query to {{ yq-full-name }} from {{ maf-short-name }}, see [{#T}](../tutorials/airflow.md).
+In this example, we are creating an {{ AF }} job with the `yq_operator` ID, which runs the `SELECT 'Hello, world!'` query. For the full example of a query to {{ yq-full-name }} from {{ maf-short-name }}, see [{#T}](../tutorials/airflow-auto-tasks.md).
 
 ## Returned values {#ret_values}
 
@@ -93,6 +93,6 @@ Below are the rules for converting YQL types to Python results.
 | `EmptyDict` | `{}` |
 
 
-## See also {#see-also}
+#### See also {#see-also}
 
-* [{#T}](../tutorials/airflow.md).
+* [{#T}](../tutorials/airflow-auto-tasks.md)
