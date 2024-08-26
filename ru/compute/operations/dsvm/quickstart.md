@@ -18,7 +18,7 @@
 
 После подключения в приветственном сообщении вы увидите команды для активации окружения и запуска [Jupyter Notebook](http://jupyter.org/index.html) и [JupyterLab](https://jupyterlab.readthedocs.io/en/stable/):
 
-```
+```text
 #####################################################################
 Welcome to Yandex Data Science Virtual Machine
 Image Build: ...

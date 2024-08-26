@@ -329,7 +329,7 @@
         * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_device }}** введите `my-device`.
         * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_mqtt-topic }}** укажите топик, в который устройство отправляет данные:
 
-            ```
+            ```text
             $devices/<идентификатор_устройства>/events
             ```
 

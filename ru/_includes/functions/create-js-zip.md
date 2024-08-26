@@ -1,6 +1,6 @@
 1. Сохраните следующий код в файл с названием `index.js`:
 
-    ```
+    ```js
     exports.handler = async function (event, context) {
         let name = 'World';
         if (event.queryStringParameters && event.queryStringParameters.name) {

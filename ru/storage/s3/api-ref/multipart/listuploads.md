@@ -7,7 +7,7 @@
 
 ## Запрос {#request}
 
-```
+```http
 GET /{bucket}?uploads HTTP/2
 ```
 
@@ -49,7 +49,7 @@ GET /{bucket}?uploads HTTP/2
 
 ### Схема данных {#response-scheme}
 
-```
+```xml
 <ListMultipartUploadsResult xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
   <Bucket>bucket</Bucket>
   <KeyMarker></KeyMarker>

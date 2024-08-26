@@ -43,7 +43,7 @@
 ```
 
 Пример REST запроса на получение статуса операции:
-```
+```http
 GET https://operation.{{ api-host }}/operations/fcmq0j5033e516c56ctq
 ```
 
@@ -65,7 +65,7 @@ GET https://operation.{{ api-host }}/operations/fcmq0j5033e516c56ctq
 ```
 
 Пример отмены операции в REST:
-```
+```http
 POST https://operation.{{ api-host }}/operations/a3s17h9sbq5asdgss12:cancel
 ```
 В ответ сервер вернет объект `Operation`, который будет содержать текущий статус отменяемой операции.
@@ -113,7 +113,7 @@ POST https://operation.{{ api-host }}/operations/a3s17h9sbq5asdgss12:cancel
 {% include [page-size-field](../_includes/page-size-field.md) %}
 
 Пример запроса списка операций в REST:
-```
+```http
 GET https://compute.{{ api-host }}/compute/v1/disks/e0m97h0gbq0foeuis03/operations
 ```
 Ответ сервера:

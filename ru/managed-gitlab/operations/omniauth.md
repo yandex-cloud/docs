@@ -128,13 +128,13 @@
 
 О том, как зарегистрировать приложение на стороне провайдера идентификации, см. в [документации {{ yandex-oauth }}](https://yandex.ru/dev/id/doc/register-client). При регистрации приложения разрешите доступ к адресу электронной почты пользователя. Если в качестве платформы выбраны веб-сервисы, укажите в поле **Redirect URI** адрес URL вида:
 
-```
+```text
 https://<адрес_инстанса_{{ GL }}>/users/auth/Yandex/callback
 ```
 
 Пример URL:
 
-```
+```text
 https://my-domain.gitlab.yandexcloud.net/users/auth/Yandex/callback
 ```
 

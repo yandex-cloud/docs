@@ -6,7 +6,7 @@
 
 Формат данных:
 
-```
+```json
 {"tag": "/Add", "call": "api.Adder.Add", "metadata": {"Authorization": "Bearer $YC_TOKEN"}, "payload": {"x": 21, "y": 12}}
 {"tag": "/Add", "call": "api.Adder.Add", "metadata": {"Authorization": "Bearer $YC_TOKEN"}, "payload": {"x": 22, "y": 13}}
 {"tag": "/Add", "call": "api.Adder.Add", "metadata": {"Authorization": "Bearer $YC_TOKEN"}, "payload": {"x": 23, "y": 14}}
@@ -20,7 +20,7 @@
 
 При конфигурации генератора нагрузки Pandora с помощью yaml-файла необходимо указать тип `grpc/json` в секции `ammo`:
 
-```
+```yaml
 pandora:
   enabled: true
   config_content:

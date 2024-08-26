@@ -165,12 +165,12 @@ description: "Из статьи вы узнаете, как установить
 
   Чтобы установить агент через CLI или API, укажите в [пользовательских метаданных](../../../../compute/concepts/vm-metadata.md#how-to-send-metadata) (`user-data`) строку:
 
-  ```
+  ```text
   #cloud-config\nruncmd:\n  - wget -O - https://monitoring.{{ api-host }}/monitoring/v2/unifiedAgent/config/install.sh | bash
   ```
   Чтобы установить агент с помощью {{ TF }}, добавьте в конфигурационный файл метаданные:
 
-  ```
+  ```hcl
   resource "yandex_compute_instance" "this" {
   ...
   resources {
@@ -185,7 +185,7 @@ description: "Из статьи вы узнаете, как установить
   }
   }
   ```
-  
+
   Для установки агента и отправки метрик у виртуальной машины должен быть доступ в интернет. 
   
   Агент устанавливается с файлом конфигурации по умолчанию, который находится в `/etc/yandex/unified_agent/config.yml`.

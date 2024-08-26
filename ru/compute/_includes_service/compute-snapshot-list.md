@@ -1,4 +1,4 @@
-```
+```bash
 yc compute snapshot list
 ```
 

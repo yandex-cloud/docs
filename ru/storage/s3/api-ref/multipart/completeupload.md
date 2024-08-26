@@ -16,7 +16,7 @@
 
 ## Запрос {#request}
 
-```
+```http
 POST /{bucket}/{key}?uploadId=UploadId HTTP/2
 ```
 
@@ -43,7 +43,7 @@ POST /{bucket}/{key}?uploadId=UploadId HTTP/2
 
 Список частей составной загрузки передается в виде XML-файла следующего формата:
 
-```
+```xml
 <CompleteMultipartUpload>
   <Part>
     <PartNumber>PartNumber</PartNumber>
@@ -83,7 +83,7 @@ POST /{bucket}/{key}?uploadId=UploadId HTTP/2
 
 ### Схема данных {#request-scheme}
 
-```
+```xml
 <CompleteMultipartUploadResult xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
   <Location>http://Example-Bucket.{{ s3-storage-host }}/Example-Object</Location>
   <Bucket>Example-Bucket</Bucket>

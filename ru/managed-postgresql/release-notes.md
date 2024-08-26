@@ -1,6 +1,9 @@
-# История изменений в {{ mpg-full-name }}
+---
+title: "История изменений в {{ mpg-full-name }}"
+description: "В разделе представлена история изменений сервиса {{ mpg-name }}."
+---
 
-В разделе представлена история изменений сервиса {{ mpg-name }}.
+# История изменений в {{ mpg-full-name }}
 
 {% include [Tags](../_includes/mdb/release-notes-tags.md) %}
 

@@ -16,7 +16,7 @@
 
     If you are working on a device with a GUI, you can also [install](https://docs.docker.com/desktop/install/linux-install/) Docker Desktop for Linux.
 
- - macOS {#macos}
+- macOS {#macos}
 
   [Download](https://docs.docker.com/get-docker/) and install the Docker Desktop distribution for macOS. For more information, see the [developer documentation](https://docs.docker.com/desktop/install/mac-install/).
 

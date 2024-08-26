@@ -7,7 +7,7 @@
 
 ## Запрос {#request}
 
-```
+```http
 PUT /{bucket}?cors HTTP/2
 ```
 

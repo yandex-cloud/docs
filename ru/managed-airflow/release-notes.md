@@ -1,6 +1,9 @@
-# История изменений в {{ maf-full-name }}
+---
+title: "История изменений в {{ maf-full-name }}"
+description: "В разделе представлена история изменений сервиса {{ maf-name }}."
+---
 
-В разделе представлена история изменений сервиса {{ maf-name }}.
+# История изменений в {{ maf-full-name }}
 
 {% include [Tags](../_includes/mdb/release-notes-tags.md) %}
 

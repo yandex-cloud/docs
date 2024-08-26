@@ -86,7 +86,7 @@ description: "Группы безопасности позволяют конт�
 
 Например, можно создать группу безопасности `vm_group_sg`, описав ее в {{ TF }} следующим образом:
 
-```
+```hcl
 resource yandex_vpc_security_group vm_group_sg {
   ...  
   ingress {
@@ -143,7 +143,7 @@ resource yandex_vpc_security_group vm_group_sg {
 * `web-sg` — для группы веб-серверов.
 * `db-sg` — для кластера {{ mpg-name }}.
 
-```
+```hcl
 resource "yandex_vpc_security_group" "web_sg" {
   name                = "web-sg"
   ...
@@ -233,7 +233,7 @@ resource "yandex_vpc_security_group" "db_sg" {
 
 ### Виртуальная машина с веб-сервером {#security-group-vm-web}
 
-```
+```hcl
 resource yandex_vpc_security_group vm_group_sg {
 ...
   ingress {
@@ -260,7 +260,7 @@ resource yandex_vpc_security_group vm_group_sg {
 
 ### Виртуальная машина за сетевым балансировщиком {#security-group-vm-nlb}
 
-```
+```hcl
 resource yandex_vpc_security_group vm_group_sg {
 ...
   ingress {

@@ -8,7 +8,7 @@
 
 ## Запрос {#request}
 
-```
+```http
 PUT /{bucket}/{key}?retention&versionId={versionId} HTTP/2
 ```
 

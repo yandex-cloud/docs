@@ -5,7 +5,7 @@
 
 ## Запрос {#request}
 
-```
+```http
 GET /{bucket}?versions&delimiter=Delimiter&encoding-type=EncodingType&key-marker=KeyMarker&max-keys=MaxKeys&prefix=Prefix&version-id-marker=VersionIdMarker HTTP/2
 ```
 

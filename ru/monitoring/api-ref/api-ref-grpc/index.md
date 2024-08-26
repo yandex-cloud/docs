@@ -20,7 +20,7 @@
 * получить ответ из поля `response`.
 
 Пример ошибки:
-```
+```text
 code: 6
 message: "ALREADY_EXISTS: Name must be uniq in parentId"
 ```
@@ -29,13 +29,13 @@ message: "ALREADY_EXISTS: Name must be uniq in parentId"
 
 Если возникает ошибка, {{ monitoring-name }} API возвращает gRPC `status != OK`. В теле ответа содержится подробное описание ошибки в следующем формате:
 
-```
+```text
 code: <number> код ошибки
 message: <string>  текст ошибки
 ```
 
 Пример сообщения об ошибке:
-```
+```text
 code: 6
 message: "ALREADY_EXISTS: Name must be uniq in parentId"
 ```

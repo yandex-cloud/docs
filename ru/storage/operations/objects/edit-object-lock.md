@@ -74,7 +74,7 @@
        --retention '{}' \
        --bypass-governance-retention
      ```
-   
+
      Где:
    
      * `--bucket` — имя вашего бакета.
@@ -112,7 +112,7 @@
        --version-id <идентификатор_версии> \
        --legal-hold Status=<статус_блокировки>
      ```
-   
+
      Где:
    
      * `--bucket` — имя вашего бакета.

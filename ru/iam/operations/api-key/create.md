@@ -54,7 +54,7 @@
       
       В результате вы получите файл `api_key.yaml`, который содержит значение API-ключа в поле `secret`:
 
-      ```
+      ```yaml
       api_key:
         id: ajeke74kbp5b********
         service_account_id: ajepg0mjt06s********

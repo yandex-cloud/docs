@@ -2,7 +2,7 @@
 
 Чтобы использовать [SDK (Software Development Kit)](https://ru.wikipedia.org/wiki/SDK), необходимо добавить [зависимость](dependencies.md) `@yandex-cloud/nodejs-sdk` в приложение на Node.js. Исходный код библиотеки находится на [GitHub](https://github.com/yandex-cloud/nodejs-sdk).
 
-```
+```json
 {
   "name": "my-awesome-package",
   "version": "1.0.0",

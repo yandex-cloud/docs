@@ -36,7 +36,7 @@ description: "Следуя данной инструкции, вы сможет�
   ```bash
   yc container registry list-access-bindings my-first-registry
   ```
-  
+
   Результат:
   
   ```bash

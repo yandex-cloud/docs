@@ -126,7 +126,7 @@
 
   1. Опишите в конфигурационном файле {{ TF }} параметры ресурсов, которые необходимо создать:
 
-      ```
+      ```hcl
       resource "yandex_function_trigger" "my_trigger" {
         name = "<имя_триггера>"
         container {

@@ -11,7 +11,7 @@ sourcePath: ru/tracker/api-ref/concepts/issues/post-attachment.md
 
 Чтобы прикрепить файл, используйте HTTP-запрос с методом `POST`.
 
-```
+```http
 POST /{{ ver }}/issues/<ключ_или_идентификатор_задачи>/attachments/
 Host: {{ host }}
 Authorization: OAuth <OAuth-токен>
@@ -26,7 +26,7 @@ Content-Type: multipart/form-data
 - **Host**
     Адрес узла, предоставляющего API:
 
-    ```
+    ```text
     {{ host }}
     ```
 
@@ -34,7 +34,7 @@ Content-Type: multipart/form-data
 
     OAuth-токен в формате `OAuth <OAuth-токен>`, например:
 
-    ```
+    ```text
     OAuth 0c4181a7c2cf4521964a72ff********
     ```
 

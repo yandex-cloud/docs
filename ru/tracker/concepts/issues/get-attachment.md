@@ -11,7 +11,7 @@ sourcePath: ru/tracker/api-ref/concepts/issues/get-attachment.md
 
 Чтобы скачать файл, используйте HTTP-запрос с методом `GET`.
 
-```
+```http
 GET /{{ ver }}/issues/<ключ_или_идентификатор_задачи>/attachments/<идентификатор_файла>/<имя_файла>
 Host: {{ host }}
 Authorization: OAuth <OAuth-токен>

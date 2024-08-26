@@ -109,6 +109,8 @@ items:
         href: tutorials/index.md
       - name: Архитектура и защита базового интернет-сервиса
         href: tutorials/web-service.md
+      - name: Настройки DHCP для работы с корпоративным DNS-сервером
+        href: tutorials/dhcp-options.md
       - name: Маршрутизация с помощью NAT-инстанса
         href: tutorials/nat-instance.md
       - name: Организация сетевой связности с помощью IPsec-шлюзов
@@ -137,6 +139,8 @@ items:
         href: tutorials/multi-folder-vpc.md
       - name: Настройка PT Application Firewall
         href: tutorials/pt-application-firewall.md
+      - name: Использование модулей {{ yandex-cloud }} в {{ TF }}
+        href: tutorials/terraform-modules.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса

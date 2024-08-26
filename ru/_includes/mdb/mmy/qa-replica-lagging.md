@@ -3,7 +3,7 @@
 1. Проверьте, установлено ли параметру `slave_rows_search_algorithms` значение `INDEX_SCAN,HASH_SCAN`.
 1. Вместо выполнения операции `ALTER TABLE` над объемными таблицами рекомендуется использовать утилиту `pt-online-schema-change` из пакета Percona Toolkit — это обеспечит отсутствие блокировок.
 1. Если отставание сохраняется, включите параллельную репликацию. Для этого настройте параметры:
-   ```
+   ```text
    slave_parallel_type=LOGICAL_CLOCK
    slave_parallel_workers=8
    ```

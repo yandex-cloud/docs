@@ -2,7 +2,7 @@
 
 {% cut "Файл init.ps1" %}
 
-```
+```cloudinit
 #ps1
 # ^^^ 'ps1' is only for cloudbase-init, some sort of sha-bang in linux
 

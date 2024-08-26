@@ -25,12 +25,12 @@
 
     Чтобы сделать функцию приватной, выполните команду:
 
-    ```
+    ```bash
     yc serverless function deny-unauthenticated-invoke <имя_функции>
     ```
 
     Результат:
-    ```
+    ```text
     done (1s)   
     ```
 

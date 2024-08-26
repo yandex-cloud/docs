@@ -6,7 +6,7 @@
 
 Пример файла `requirements.txt`:
 
-```
+```text
 boto3==1.13.15
 attrs==19.3.0
 ```

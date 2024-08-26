@@ -20,7 +20,7 @@
 
     Выполните команду:
 
-    ```
+    ```bash
     curl https://{{ s3-storage-host-cli }}{{ yc-install-path }} | bash -s -- -h
     Usage: install [options...]
     Options:
@@ -34,14 +34,14 @@
     Примеры использования:  
     - Установка CLI в `/opt/yc`, без изменений в файле `.bashrc`:
 
-        ```
+        ```bash
         curl https://{{ s3-storage-host-cli }}{{ yc-install-path }} | \
             bash -s -- -i /opt/yc -n
         ```
 
     - Установка CLI в директорию по умолчанию, в файл `.bashrc` добавляются `completion` и `PATH`:
 
-        ```
+        ```bash
         curl https://{{ s3-storage-host-cli }}{{ yc-install-path }} | \
             bash -s -- -a
         ```

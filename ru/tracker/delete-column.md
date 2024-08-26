@@ -11,7 +11,7 @@ sourcePath: ru/tracker/api-ref/delete-column.md
 
 Чтобы удалить колонку, используйте HTTP-запрос с методом `DELETE`.
 
-```
+```http
 DELETE /{{ ver }}/boards/<идентификатор_доски>/columns/<идентификатор_колонки>
 Host: {{ host }}
 Authorization: OAuth <OAuth-токен>
@@ -24,7 +24,7 @@ If-Match: "<номер_версии>"
 - **Host**
 
     Адрес узла, предоставляющего API:
-    ```
+    ```text
     {{ host }}
     ```
 
@@ -32,7 +32,7 @@ If-Match: "<номер_версии>"
 
     OAuth-токен в формате `OAuth <OAuth-токен>`, например:
 
-    ```
+    ```text
     OAuth 0c4181a7c2cf4521964a72ff********
     ```
 

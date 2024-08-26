@@ -11,7 +11,7 @@ sourcePath: ru/tracker/api-ref/get-boards.md
 
 Чтобы получить параметры всех досок задач, используйте HTTP-запрос с методом `GET`.
 
-```
+```http
 GET /{{ ver }}/boards
 Host: {{ host }}
 Authorization: OAuth <OAuth-токен>

@@ -60,7 +60,7 @@
 1. В открывшемся окне перейдите в раздел **Главное**.
 1. В подразделе **Общие**, в поле ввода **JDBC URL**, укажите следующий путь:
 
-    ```
+    ```text
     jdbc:ydb:grpcs://grpc.yandex-query.cloud.yandex.net:2135/<folder_id>?saFile=<path_to_auth_key_file.json>
     ```
 

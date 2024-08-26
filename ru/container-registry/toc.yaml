@@ -117,6 +117,8 @@ items:
         href: tutorials/image-storage.md
       - name: Подключение к {{ container-registry-name }} из {{ vpc-short-name }}
         href: tutorials/vpc-cr-access.md
+      - name: Настройка отказоустойчивой архитектуры в {{ yandex-cloud }}
+        href: tutorials/fault-tolerance.md
       - name: Запуск внешних агентов для нагрузочного тестирования
         href: tutorials/loadtesting-external-agent.md
   - name: Концепции

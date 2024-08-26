@@ -52,7 +52,7 @@ description: "Для создания целевой группы {{ alb-full-na
 
      Результат:
 
-      ```yaml
+      ```bash
       id: a5d751meibht********
       name: <имя_целевой_группы>
       folder_id: aoerb349v3h4********
@@ -81,7 +81,7 @@ description: "Для создания целевой группы {{ alb-full-na
 
       Результат:
 
-      ```yaml
+      ```bash
       id: ds7s2dld2usr********
       name: <имя_целевой_группы>
       folder_id: aoerb349v3h4********

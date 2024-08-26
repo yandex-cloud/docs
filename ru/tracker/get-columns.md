@@ -11,7 +11,7 @@ sourcePath: ru/tracker/api-ref/get-columns.md
 
 Чтобы получить параметры всех колонок доски, используйте HTTP-запрос с методом `GET`.
 
-```
+```http
 GET /{{ ver }}/boards/<идентификатор_доски>/columns
 Host: {{ host }}
 Authorization: OAuth <OAuth-токен>

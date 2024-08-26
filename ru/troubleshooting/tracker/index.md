@@ -1,4 +1,4 @@
-# Решения для Tracker
+# Решения для {{ tracker-name }}
 
 {% include [how-to-index](how-to/index.md) %}
 

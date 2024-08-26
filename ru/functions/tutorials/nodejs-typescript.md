@@ -9,11 +9,11 @@ Node.js не поддерживает [TypeScript](https://www.typescriptlang.or
 1. Установите [Node.js](https://nodejs.org/ru/).
 1. Откройте директорию с вашим проектом.
 1. Установите [TypeScript](https://www.typescriptlang.org/download):
-    ```
+    ```bash
     npm install typescript --save-dev
     ```
 1. Создайте конфигурацию Typescript:
-    ```
+    ```bash
     npx ts --init --preserveConstEnums --moduleResolution Node --isolatedModules --outDir build --strict false --target ES2021
     ```
 
@@ -25,7 +25,7 @@ Node.js не поддерживает [TypeScript](https://www.typescriptlang.or
     | 16 | ES2021 |
 
 1. Скомпилируйте функцию:
-    ```
+    ```bash
     npx tsc
     ```
 1. В проекте появится директория `build`. Добавьте её содержимое в ZIP-архив.

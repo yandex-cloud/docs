@@ -26,7 +26,7 @@
 
 ## Пример запроса {#request-example}
 
-```
+```text
 Action=ListQueues
 &Version=2012-11-05
 &QueueNamePrefix=test

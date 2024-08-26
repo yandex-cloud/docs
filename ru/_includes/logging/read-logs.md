@@ -35,13 +35,13 @@
 
     Чтобы посмотреть записи в формате JSON, выполните команду:
 
-    ```
+    ```bash
     yc logging read --group-name=default --format=json
     ```
 
     Результат:
 
-    ```
+    ```bash
     [
       {
         "uid": "488ece3c-75b8-4d35-95ac-2b49********",
@@ -60,7 +60,7 @@
 
     Чтобы читать записи по мере их поступления, используйте флаг `--follow`:
 
-    ```
+    ```bash
     yc logging read --group-name=default --follow
     ```
 

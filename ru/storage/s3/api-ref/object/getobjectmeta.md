@@ -6,7 +6,7 @@
 
 ## Запрос {#request}
 
-```
+```http
 HEAD /{bucket}/{key} HTTP/2
 ```
 

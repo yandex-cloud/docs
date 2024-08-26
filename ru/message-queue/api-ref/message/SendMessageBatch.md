@@ -48,7 +48,7 @@
 
 ## Пример запроса {#request-example}
 
-```
+```text
 Action=SendMessageBatch
 &Version=2012-11-05
 &QueueUrl=https://message-queue.{{ api-host }}/b1g8ad42m6he********/dj6000000000********/sample-queue

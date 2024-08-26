@@ -4,7 +4,7 @@
 
 На страницах {{ wiki-name }} можно оформить исходный код с подсветкой синтаксиса. Для этого используйте разметку: 
 
-```
+```text
 %%(<обозначение_языка> nomark nohighlight)
 программный код
 %%
@@ -80,7 +80,7 @@ YQL | yql
 
 #### Стандартное оформление {#examples-standart}  
 
-```
+```text
 %%(php)
 <?
 phpinfo();
@@ -97,7 +97,7 @@ print $s;
 
 #### Без нумерации строк {#examples-without-line-numbering}
 
-   ```
+   ```text
    %%(python nomark)
    @requires_authorization
    def somefunc(param1, param2):
@@ -119,7 +119,7 @@ print $s;
 
 #### Без подсветки синтаксиса {#examples-without-highlighting}
 
-   ```
+   ```text
    %%(code nohighlight)
    @requires_authorization
    def somefunc(param1, param2):
@@ -143,7 +143,7 @@ print $s;
 
   Программный код, записанный в одну строку, после форматирования останется однострочным.
 
-   ```
+   ```text
    %%(css)body {display: none;}%%
    ```
    {% cut "Как выглядит результат" %}

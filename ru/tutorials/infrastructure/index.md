@@ -25,7 +25,7 @@ description: "Различные сценарии использования с�
 
 * [Начало работы с {{ TF }}](../infrastructure-management/terraform-quickstart.md)
 * [Источники данных Terraform](../infrastructure-management/terraform-data-sources.md)
-* [Загрузка состояний {{ TF }} в {{ objstorage-name }}](../infrastructure-management/terraform-state-storage.md)
+* [Загрузка состояний {{ TF }} в {{ objstorage-full-name }}](../infrastructure-management/terraform-state-storage.md)
 * [Начало работы с Packer](../infrastructure-management/packer-quickstart.md)
 * [Сборка образа ВМ с набором инфраструктурных инструментов с помощью Packer](../infrastructure-management/packer-custom-image.md)
 * [Блокировка состояний {{ TF }} с помощью {{ ydb-full-name }}](../infrastructure-management/terraform-state-lock.md)

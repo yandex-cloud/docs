@@ -13,7 +13,7 @@ sourcePath: ru/tracker/api-ref/concepts/projects/update-project.md
 
 Чтобы изменить проект, используйте HTTP-запрос с методом `PUT`. Параметры запроса передаются в его теле в формате JSON.
 
-```
+```http
 PUT /{{ ver }}/projects/<идентификатор_проекта>?version=<номер_версии>
 Host: {{ host }}
 Authorization: OAuth <OAuth-токен>

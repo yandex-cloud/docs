@@ -67,4 +67,62 @@ items:
     href: pricing.md
   - name: Справочник CLI
     href: ../cli/cli-ref/managed-services/desktops/index.md
+  - name: Справочник API
+    items:
+      - name: Аутентификация в API
+        href: api-ref/authentication.md
+      - name: gRPC (англ.)
+        items:
+          - name: Overview
+            href: api-ref/grpc/index.md
+          - name: DesktopGroupService
+            href: api-ref/grpc/desktop_group_service.md
+          - name: DesktopService
+            href: api-ref/grpc/desktop_service.md
+          - name: OperationService
+            href: api-ref/grpc/operation_service.md
+      - name: REST (англ.)
+        items:
+          - name: Overview
+            href: api-ref/index.md
+          - name: DesktopGroup
+            items:
+              - name: Overview
+                href: api-ref/DesktopGroup/index.md
+              - name: create
+                href: api-ref/DesktopGroup/create.md
+              - name: delete
+                href: api-ref/DesktopGroup/delete.md
+              - name: get
+                href: api-ref/DesktopGroup/get.md
+              - name: list
+                href: api-ref/DesktopGroup/list.md
+              - name: listAccessBindings
+                href: api-ref/DesktopGroup/listAccessBindings.md
+              - name: listDesktops
+                href: api-ref/DesktopGroup/listDesktops.md
+              - name: listOperations
+                href: api-ref/DesktopGroup/listOperations.md
+              - name: setAccessBindings
+                href: api-ref/DesktopGroup/setAccessBindings.md
+              - name: updateAccessBindings
+                href: api-ref/DesktopGroup/updateAccessBindings.md
+          - name: Desktop
+            items:
+              - name: Overview
+                href: api-ref/Desktop/index.md
+              - name: create
+                href: api-ref/Desktop/create.md
+              - name: delete
+                href: api-ref/Desktop/delete.md
+              - name: get
+                href: api-ref/Desktop/get.md
+              - name: getRdpFile
+                href: api-ref/Desktop/getRdpFile.md
+              - name: list
+                href: api-ref/Desktop/list.md
+              - name: listOperations
+                href: api-ref/Desktop/listOperations.md
+              - name: resetPassword
+                href: api-ref/Desktop/resetPassword.md
 base: ru/cloud-desktop

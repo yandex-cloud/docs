@@ -11,7 +11,7 @@
 
 ## Запрос {#request}
 
-```
+```http
 HEAD /{bucket} HTTP/2
 ```
 

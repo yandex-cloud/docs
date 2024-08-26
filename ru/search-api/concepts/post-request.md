@@ -31,7 +31,7 @@ https://yandex.<домен>/search/xml
 
 Значение API-ключа [передавайте](../operations/auth.md) в заголовке `Authorization` в формате:
 
-```
+```yaml
 Authorization: Api-Key <API-ключ>
 ```
 

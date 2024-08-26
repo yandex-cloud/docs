@@ -281,7 +281,7 @@
 
    Проверьте, что среди записей присутствует веб-хук ACME для {{ dns-full-name }}:
 
-   ```
+   ```text
    NAME                                                         READY   STATUS    RESTARTS   AGE
    ... 
    yandex-webhook-cert-manager-webhook-yandex-5578cfb98-tw4mq   1/1     Running   1          43h

@@ -82,7 +82,7 @@
   
   Используйте метод REST API [update](../../managed-clickhouse/api-ref/Cluster/update.md), передав в теле запроса требуемые параметры `rollup`:
 
-    ```
+    ```json
     "graphiteRollup": [
               {
                 "name": "test_rollup",

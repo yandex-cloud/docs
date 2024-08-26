@@ -47,7 +47,7 @@
      	-d @prompt.json
      	https://llm.{{ api-host }}/foundationModels/v1/completion
 	```
-	
+
 	Где:
 
 	* `<IAM-токен>` — IAM-токен, полученный для вашего аккаунта.
@@ -127,7 +127,7 @@
      	-d @prompt.json
      	https://llm.{{ api-host }}/foundationModels/v1/completion
 	```
-	
+
 	Где:
 
 	* `<IAM-токен>` — IAM-токен, полученный для вашего аккаунта.

@@ -20,7 +20,7 @@ SAML (Security Assertion Markup Language) — это язык разметки �
 
     Используйте URL со [специальным FQDN кластера](connect.md#special-fqdns):
 
-    ```
+    ```text
     https://c-<идентификатор_кластера_{{ OS }}>.rw.{{ dns-zone }}/_opendistro/_security/saml/acs
     ```
 
@@ -32,7 +32,7 @@ SAML (Security Assertion Markup Language) — это язык разметки �
 
     Используйте URL со [специальным FQDN кластера](connect.md#special-fqdns):
 
-    ```
+    ```text
     https://c-<идентификатор_кластера>rw.{{ dns-zone }}
     ```
 

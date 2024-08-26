@@ -39,7 +39,7 @@
 
     {% endnote %}
 
-    ```
+    ```bash
     yc serverless container revision deploy \
        --container-name test \
        --image {{ registry }}/<идентификатор_реестра>/repository:tag \

@@ -8,7 +8,7 @@
 
 ## Запрос {#request}
 
-```
+```http
 PUT /{bucket}?versioning HTTP/2
 ```
 

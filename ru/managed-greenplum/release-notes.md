@@ -1,6 +1,9 @@
-# История изменений в {{ mgp-full-name }}
+---
+title: "История изменений в {{ mgp-full-name }}"
+description: "В разделе представлена история изменений сервиса {{ mgp-name }}."
+---
 
-В разделе представлена история изменений сервиса {{ mgp-name }}.
+# История изменений в {{ mgp-full-name }}
 
 {% include [Tags](../_includes/mdb/release-notes-tags.md) %}
 

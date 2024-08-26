@@ -59,7 +59,7 @@
 
 Параметры фильтрации добавятся к адресу чарта после знака вопроса `?`. При передаче более одного параметра, они будут перечислены через знак амперсанда `&`.
 
-```
+```html
 <iframe frameborder="0" src="https://datalens.yandex/z2uxl5pbztkep?shopid_vj2j=sp-15&shopid_vj2j=sp-18&shopid_vj2j=sp-20&_embedded=1&_no_controls=1&_theme=light&_lang=ru" width="100%" height="400px"></iframe>
 ```
 

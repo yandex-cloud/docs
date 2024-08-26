@@ -41,7 +41,7 @@ description: "Из статьи вы узнаете, как начать раб�
    ```bash
    docker logs stt-server
    ```
-   
+
    ```text
    stt-server  | Server listening on 0.0.0.0:50053
    stt-server  | Waiting for join...

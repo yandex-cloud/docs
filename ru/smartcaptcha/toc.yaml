@@ -48,6 +48,8 @@ items:
         href: concepts/domain-validation.md
       - name: Типы заданий
         href: concepts/tasks.md
+      - name: Варианты заданий
+        href: concepts/captcha-variants.md
       - name: Методы подключения виджета
         href: concepts/widget-methods.md
       - name: Ключи капчи

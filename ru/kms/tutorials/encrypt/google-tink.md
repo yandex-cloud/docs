@@ -49,7 +49,7 @@
     
     Создайте [Aead](https://google.github.io/tink/javadoc/tink/1.3.0/index.html?com/google/crypto/tink/Aead.html)-объект и используйте методы encrypt и decrypt для шифрования и расшифрования данных:
     
-    ```
+    ```text
     AeadConfig.register(); 
     KmsClients.add(new YcKmsClient(credentialProvider).withEndpoint(endpoint));
     
@@ -70,7 +70,7 @@
 
     Создайте [aead](https://pkg.go.dev/github.com/google/tink/go/aead?tab=doc)-объект и используйте методы encrypt и decrypt для шифрования и расшифрования данных:
     
-    ```
+    ```go
     sdk, err := ycsdk.Build(context, ycsdk.Config{
       Endpoint:    endpoint,
       Credentials: credentials,

@@ -4,7 +4,7 @@
 
 ## Запрос {#request}
 
-```
+```http
 OPTIONS /{bucket}/{key} HTTP/2
 ```
 

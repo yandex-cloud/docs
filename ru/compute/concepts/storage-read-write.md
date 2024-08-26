@@ -109,7 +109,7 @@ sudo fio \
 
 Результат:
 
-```
+```yaml
 ---
   write: IOPS=39.7k, BW=155MiB/s (162MB/s)(5112MiB/33001msec); 0 zone resets
     slat (usec): min=2, max=19776, avg= 5.25, stdev=47.15
@@ -138,7 +138,7 @@ sudo fio \
 
 Результат:
 
-```
+```yaml
 ---
 write: IOPS=9596, BW=37.5MiB/s (39.3MB/s)(4499MiB/120011msec); 0 zone resets
     slat (usec): min=2, max=338, avg= 5.21, stdev= 4.52
@@ -167,7 +167,7 @@ sudo fio \
 
 Результат:
 
-```
+```yaml
 ---
    write: IOPS=112, BW=449MiB/s (471MB/s)(52.8GiB/120237msec); 0 zone resets
     slat (usec): min=166, max=270963, avg=8814.82, stdev=10995.16
@@ -196,7 +196,7 @@ sudo fio \
 
 Результат:
 
-```
+```yaml
 ---
   read: IOPS=62.2k, BW=243MiB/s (255MB/s)(28.5GiB/120008msec)
     slat (usec): min=2, max=123901, avg= 6.88, stdev=151.96
@@ -225,7 +225,7 @@ sudo fio \
 
 Результат:
 
-```
+```yaml
 ---
   read: IOPS=112, BW=449MiB/s (470MB/s)(52.7GiB/120227msec)
     slat (usec): min=85, max=177850, avg=8878.47, stdev=9824.19
@@ -254,7 +254,7 @@ sudo fio \
 
 Результат:
 
-```
+```yaml
 ---
  read: IOPS=17.0k, BW=66.4MiB/s (69.6MB/s)(7966MiB/120006msec)
     slat (usec): min=2, max=114, avg= 9.05, stdev= 5.36

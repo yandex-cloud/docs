@@ -17,7 +17,7 @@
       1. [Получите IAM-токен](../../iam/operations/iam-token/create-for-sa.md).
       1. Полученный IAM-токен передавайте в заголовке `Authorization` в следующем формате:
 
-          ```
+          ```yaml
           Authorization: Bearer <IAM-токен>
           ```
 
@@ -32,7 +32,7 @@
       1. [Получите API-ключ](../../iam/operations/api-key/create.md).
       1. Полученный API-ключ передавайте в заголовке `Authorization` в следующем формате:
 
-          ```
+          ```yaml
           Authorization: Api-Key <API-ключ>
           ```
 

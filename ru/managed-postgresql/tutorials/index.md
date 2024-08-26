@@ -17,6 +17,7 @@ description: "Различные сценарии использования {{ 
 * [{#T}](./mkf-to-mpg.md)
 * [{#T}](./object-storage-to-postgresql.md)
 * [{#T}](./container-connect.md)
+* [{#T}](fault-tolerance.md)
 * [{#T}](./joomla-postgresql/index.md)
 * [{#T}](./datalens.md)
 * [{#T}](logging.md)

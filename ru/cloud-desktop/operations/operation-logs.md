@@ -57,7 +57,7 @@
 
   Результат:
 
-  ```yaml
+  ```bash
   - id: e3vlaf6r4241********
     description: Restart desktop
     created_at: "2024-05-14T17:55:00.742136402Z"
@@ -101,7 +101,7 @@
 
       Результат:
 
-      ```yaml
+      ```bash
       id: e3vlaf6r4241********
       description: Restart desktop
       created_at: "2024-05-14T17:55:00.742Z"

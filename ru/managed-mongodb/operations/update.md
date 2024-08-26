@@ -56,7 +56,7 @@ description: "Следуя данной инструкции, вы сможет�
 
   1. Посмотрите описание команды CLI для изменения кластера:
 
-      ```
+      ```bash
       {{ yc-mdb-mg }} cluster update --help
       ```
 
@@ -128,7 +128,7 @@ description: "Следуя данной инструкции, вы сможет�
         }
       }
       ```
-  
+
   1. Проверьте корректность настроек.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
@@ -240,7 +240,7 @@ description: "Следуя данной инструкции, вы сможет�
         }
       }
       ```
-    
+
     1. Проверьте корректность настроек.
     
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
@@ -288,13 +288,13 @@ description: "Следуя данной инструкции, вы сможет�
 
   Чтобы изменить [настройки {{ MG }}](../concepts/settings-list.md#dbms-cluster-settings) для кластера, используйте команду:
 
-  ```
+  ```bash
   {{ yc-mdb-mg }} cluster update-config
   ```
 
   Например, для установки значения параметра [net.maxIncomingConnections](https://docs.mongodb.com/manual/reference/configuration-options/#mongodb-setting-net.maxIncomingConnections) в `4096`, выполните следующую команду:
 
-  ```
+  ```bash
   {{ yc-mdb-mg }} cluster update-config <имя_кластера> \
      --set net.max_incoming_connections=4096
   ```

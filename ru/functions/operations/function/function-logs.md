@@ -28,11 +28,11 @@ description: "Вы можете посмотреть график монитор
 
     Посмотрите журнал выполнения функции:
 
-    ```
+    ```bash
     yc serverless function logs <имя_функции>
     ```
     Результат:
-    ```
+    ```text
     2019-07-04 09:27:43     START RequestID: 34dc9533-ed6e-4468-b9f2-2aa0******** Version: b09i2s85a0c1********
     2019-07-04 09:27:43     END RequestID: 34dc9533-ed6e-4468-b9f2-2aa0********
     2019-07-04 09:27:43     REPORT RequestID: 34dc9533-ed6e-4468-b9f2-2aa0******** Duration: 538.610 ms Billed Duration: 538.700 ms Memory Size: 128 MB Max Memory Used: 13 MB

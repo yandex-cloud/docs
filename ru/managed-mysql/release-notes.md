@@ -1,6 +1,9 @@
-# История изменений в {{ mmy-full-name }}
+---
+title: "История изменений в {{ mmy-full-name }}"
+description: "В разделе представлена история изменений сервиса {{ mmy-name }}."
+---
 
-В разделе представлена история изменений сервиса {{ mmy-name }}.
+# История изменений в {{ mmy-full-name }}
 
 {% include [Tags](../_includes/mdb/release-notes-tags.md) %}
 

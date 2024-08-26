@@ -65,7 +65,7 @@
 
   Результат:
 
-  ```yaml
+  ```bash
   - id: epd2ohv6ur6a********
     description: Update instance
     created_at: "2023-10-20T08:34:01Z"
@@ -133,7 +133,7 @@
 
      Результат:
 
-     ```yaml
+     ```bash
      id: ef3ovrdqhhf9********
      description: Delete instance
      created_at: "2023-10-17T16:08:10Z"

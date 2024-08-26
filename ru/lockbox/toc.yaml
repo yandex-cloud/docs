@@ -60,6 +60,8 @@ items:
         href: tutorials/gitlab-lockbox-integration.md
       - name: Хранение статического ключа доступа в секрете {{ lockbox-name }}
         href: tutorials/static-key-in-lockbox.md
+      - name: Развертывание отказоустойчивой архитектуры с прерываемыми ВМ
+        href: tutorials/nodejs-cron-restart-vm.md
   - name: Квоты и лимиты
     href: concepts/limits.md
   - name: Управление доступом

@@ -7,8 +7,6 @@ description: "В разделе представлена история изме
 
 {% include [Elasticsearch-end-of-service](../_includes/mdb/mes/note-end-of-service.md) %}
 
-В разделе представлена история изменений сервиса {{ mes-name }}.
-
 {% include [Tags](../_includes/mdb/release-notes-tags.md) %}
 
 ## IV квартал 2022 {#q4-2022}

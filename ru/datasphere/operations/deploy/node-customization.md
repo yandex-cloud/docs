@@ -45,7 +45,7 @@
 
 1. [Загрузите](../../../container-registry/operations/docker-image/docker-image-push.md) образ в реестр контейнеров. Для этого запустите ячейку с кодом:
 
-   ```
+   ```text
    #!:docker-publish <имя_образа>:<тег_образа> {{ registry }}/<адрес_реестра>:<тег>
    ```
 

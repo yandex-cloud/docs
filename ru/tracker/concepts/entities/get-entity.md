@@ -13,7 +13,7 @@ sourcePath: ru/tracker/api-ref/concepts/entities/get-entity.md
 
 Чтобы получить параметры сущности, используйте HTTP-запрос с методом `GET`.
 
-```
+```http
 GET /{{ ver }}/entities/<тип_сущности>/<идентификатор_сущности>?expand=attachments&fields=summary,teamAccess
 Host: {{ host }}
 Authorization: OAuth <OAuth-токен>

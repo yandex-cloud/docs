@@ -115,7 +115,7 @@ VPN-туннель работает между двумя решениями ViP
 
     Чтобы создать облачную сеть выполните команду:
 
-    ```
+    ```bash
     yc vpc network create --name vipnet-network --folder-id <идентификатор_каталога_vipnet-folder>
     ```
 
@@ -158,7 +158,7 @@ VPN-туннель работает между двумя решениями ViP
 
     1. Создайте подсеть `public-subnet`:
 
-        ```
+        ```bash
         yc vpc subnet create \
         --name public-subnet \
         --folder-id <идентификатор_каталога_vipnet-folder> \
@@ -281,7 +281,7 @@ VPN-туннель работает между двумя решениями ViP
           ```bash
           md5 <имя_архива>
           ```
-    
+
           Результат:
 
           ```bash   
@@ -468,7 +468,7 @@ VPN-туннель работает между двумя решениями ViP
       -rw-------  1    272M Aug 21 15:22 va_vipnet_base_x86_64-disk1.vdi
       -rw-------  1    311M Aug 21 15:22 va_vipnet_base_x86_64-disk2.vdi
       ```
-  
+
   1. Преобразуйте диски в формат `qcow2` с помощью утилиты `qemu-img`:
 
       ```bash
@@ -506,7 +506,7 @@ VPN-туннель работает между двумя решениями ViP
       ------    8/24/2022  10:42 PM    324009984 va_vipnet_base_x86_64-disk2.vdi
       ------    8/24/2022  10:42 PM    286261248 va_vipnet_base_x86_64-disk1.vdi
       ```
-  
+
   1. Преобразуйте диски в формат `qcow2` с помощью утилиты `qemu-img`:
 
       ```powershell

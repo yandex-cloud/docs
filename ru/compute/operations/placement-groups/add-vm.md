@@ -43,7 +43,7 @@
 
      Результат:
 
-     ```yaml
+     ```bash
      id: epdlv1pp5401********
      ...
      ```
@@ -75,7 +75,7 @@
 
      Результат:
 
-     ```yaml
+     ```bash
      id: epdlv1pp5401********
      ...
      status: STOPPED
@@ -103,7 +103,7 @@
 
      Результат:
 
-     ```yaml
+     ```bash
      id: epdlv1pp5401********
      ...
      placement_policy:

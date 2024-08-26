@@ -49,10 +49,10 @@ description: "Следуя данной инструкции, вы сможет�
         ```bash
         {{ yc-compute }} image create --source-image-id=fd8o0pt9qfbt********
         ```
-   
+
         Результат:
         
-        ```bash
+        ```yaml
         done (12s)
         id: fd8eq6b2fkut********
         folder_id: b1g07hj5r6i4********
