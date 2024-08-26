@@ -7,30 +7,70 @@ description: "На странице представлены релизы YC CLI
 
 ## Текущая версия {#latest-release}
 
-## Версия 0.131.1 (15.08.24) {#version0.131.1}
-### Изменения в CLI {#cli}
-* Исправлена проблема в обработке некоторых ошибок, из-за которой в тексте ошибки символ `_` заменялся на `-`.
+### Версия 0.132.0 (26.08.24) {#version0.132.0}
+
+#### Изменения в сервисах {{ yandex-cloud }} {#services}
+
+##### {{ iam-name }} {#iam}
+
+* Добавлена команда `yc iam revoke-token` для отзыва скомпрометированных токенов.
+* Добавлена команда `yc iam api-key list-scopes` для получения списка областей действия, доступных при создании API-ключей.
+
+##### {{ sf-name }} {#cloud-functions}
+
+* В команду `yc serverless function version create` добавлен параметр `--mount` для указания монтируемых ресурсов, таких как бакеты {{ objstorage-name }} и эфемерные диски.
+* В команде `yc serverless function version create` параметр `--storage-mounts` помечен как `deprecated`.
+
+##### {{ serverless-containers-name }} {#serverless-containers}
+
+* В команду `yc serverless container revision deploy` добавлен параметр `--mount` для указания монтируемых ресурсов, таких как бакеты {{ objstorage-name }} и эфемерные диски.
+* В команде `yc serverless container revision deploy` параметр `--storage-mounts` помечен как `deprecated`.
+
+##### {{ backup-name }} {#backup}
+
+* Добавлен флаг `--type` в команду `backup vm list` для указания типа ресурсов, которые должны вернуться в списке.
+
+##### {{ vpc-name }} {#vpc}
+
+* Добавлена группа команд `yc vpc private-endpoint` для управления ресурсами VPC Private Endpoint.
+
+##### Сервисы управляемых баз данных {#managed-db}
+
+**{{ mmg-name }}**
+
+* В команды `yc managed-mongodb cluster create` и `yc managed-mongodb cluster update` добавлен параметр `--disk-size-autoscaling` для включения автоматического масштабирования диска.
+
+**{{ mrd-name }}**
+
+* В командах `yc managed-redis cluster create` и `yc managed-redis cluster update` для `--disk-size-autoscaling` изменены единицы измерения `disk-size-limit` с байт на гигабайты.
 
 ## Предыдущие релизы {#previous-releases}
 
-### Версия 0.131.0 (14.08.24) {#version0.131.0}
-### Изменения в сервисах {{ yandex-cloud }} {#services}
+### Версия 0.131.1 (15.08.24) {#version0.131.1}
 
-#### {{ backup-name }} {#backup}
+#### Изменения в CLI {#cli}
+
+* Исправлена проблема в обработке некоторых ошибок, из-за которой в тексте ошибки символ `_` заменялся на `-`.
+
+### Версия 0.131.0 (14.08.24) {#version0.131.0}
+
+#### Изменения в сервисах {{ yandex-cloud }} {#services}
+
+##### {{ backup-name }} {#backup}
 
 * Добавлена команда `backup policy execute` для создания резервной копии виртуальной машины согласно указанной политике резервного копирования.
 
-#### {{ iam-name }} {#iam}
+##### {{ iam-name }} {#iam}
 
 * В команды `add-access-binding` и `remove-access-binding` добавлена поддержка опции `--agent`.
 * Добавлено дерево команд `yc iam workload-identity` для управления федерацией удостоверений рабочей нагрузки.
 * Команды `yc iam service-account list` и `yc iam service-account get` теперь показывают время последней аутентификации сервисного аккаунта.
 
-#### {{ container-registry-name }} {#container-registry}
+##### {{ container-registry-name }} {#container-registry}
 
 * В команду `yc container registry create` добавлена опция `--secure` для создания реестра с настройками безопасности.
 
-#### Сервисы управляемых баз данных {#managed-db}
+##### Сервисы управляемых баз данных {#managed-db}
 
 **{{ mgp-name }}**
 
@@ -38,34 +78,33 @@ description: "На странице представлены релизы YC CLI
 
 ### Версия 0.130.0 (01.08.24) {#version0.130.0}
 
-### Изменения в сервисах {{ yandex-cloud }} {#services}
+#### Изменения в сервисах {{ yandex-cloud }} {#services}
 
-#### {{ data-transfer-name }}
+##### {{ data-transfer-name }}
 
 * В команду `yc datatransfer endpoint create clickhouse-source` добавлен флаг `--cluster-name`, позволяющий указать имя ClickHouse-кластера для переноса данных.
 
-#### {{ marketplace-name }}
+##### {{ marketplace-name }}
 
 * Добавлена команда `yc marketplace reset-password`, ошибочно не попавшая в прошлый релиз.
 
-#### {{ iam-name }} {#iam}
+##### {{ iam-name }} {#iam}
 
 * Из дерева команд `yc iam service-control` удалены команды `pause` и `resume`.
 
-#### {{compute-name }}
+##### {{compute-name }}
 
 * В команду `yc compute host-group list-instances` добавлен флаг `--host-id`, позволяющий указать id хоста в группе хостов для листинга виртуальных машин.
 
-#### {{ load-testing-name }}
+##### {{ load-testing-name }}
 
 * В команду `yc loadtesting agent create` добавлена возможность ожидания подключения созданного агента к сервису {{ load-testing-name }}:
   * флаг `--wait-ready` — не завершать команду, пока агент не перейдет в статус `READY FOR TEST`;
   * параметр `--wait-ready-timeout` — максимальное время ожидания для `--wait-ready` (default: 5m).
 
-### Изменения в CLI {#cli}
+#### Изменения в CLI {#cli}
 
 * Протокол авторизации федеративных аккаунтов изменен на Authorization Code Flow с Proof Key for Code Exchange (PKCE).
-
 
 ### Версия 0.129.0 (16.07.24) {#version0.129.0}
 
