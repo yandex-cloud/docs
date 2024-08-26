@@ -11,7 +11,7 @@
 
 Пример разметки:
 
-```
+```text
 %%(graphviz neato)
  digraph A { 
  a -> b0
@@ -50,7 +50,7 @@
 
 Пример разметки:
 
-```
+```text
 %%(blockdiag)
 {
 orientation = portrait
@@ -81,7 +81,7 @@ orientation = portrait
 
 Пример разметки:
 
-```
+```text
 %%(seqdiag)
 {
    // normal edge and doted edge
@@ -121,7 +121,7 @@ orientation = portrait
 
 Пример разметки:
 
-```
+```text
 %%(plantuml)
 @startuml
 actor Foo1

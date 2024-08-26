@@ -10,7 +10,7 @@
 
   1. Создайте файл Dockerfile на вашем устройстве и добавьте туда следующие строки:
 
-     ```
+     ```dockerfile
      FROM ubuntu:latest
      CMD echo "Hi, I'm inside"
      ```
@@ -19,7 +19,7 @@
 
   1. Соберите Docker-образ. В качестве `<идентификатора_реестра>` используется `ID`, полученный при [создании реестра](../registry/registry-create.md).
 
-     ```
+     ```bash
      docker build . \
        -t {{ registry }}/<идентификатор_реестра>/ubuntu:hello
      ```

@@ -165,7 +165,7 @@ DEFINE
 #### Примеры {#match-examples}
 
 Входными данными для всех примеров являются:
-```
+```text
  button: 1
  button: 1
  button: 2

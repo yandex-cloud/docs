@@ -4,7 +4,7 @@
 
 Общий вид конфигурации:
 
-```
+```xml
 <CORSConfiguration>
     <CORSRule>
         <AllowedOrigin>URL</AllowedOrigin>
@@ -36,7 +36,7 @@
 
 Приведенная ниже конфигурация позволяет отправлять кросс-доменные запросы с сайта `http://www.example.com` методами `PUT`, `POST`, `DELETE` без ограничений по заголовкам.
 
-```
+```xml
 <CORSConfiguration>
     <CORSRule>
         <AllowedOrigin>http://www.example.com</AllowedOrigin>

@@ -6,11 +6,11 @@
 
 Примеры аннотаций:
 
-```
+```text
 Alert `not_var{{alert.name}}` is in not_var{{status.code}} state
 ```
 
-```
+```text
 Used disk space is not_var{{pointValue}} Gbs, expected less than not_var{{alert.warnThreshold}} Gbs
 ```
 

@@ -266,7 +266,7 @@ SELECT s.CAST FROM S3Object s
   {"timestamp":"2021-02-26T01:27:19Z","object_key":"name2","status":200,"request_time":12}
   {"timestamp":"2021-02-26T01:27:20Z","object_key":"name3","status":200,"request_time":6}
   ```
-  
+
   Запрос с использованием всех агрегатных функций:
 
   ```sql
@@ -285,18 +285,18 @@ SELECT s.CAST FROM S3Object s
   ```json
   {"count": 2, "min": 6, "max": 12, "sum": 18, "avg": 9.0}
   ```
-    
+
 - CSV {#csv}
 
   Образец данных:
 
-  ```
+  ```csv
   timestamp,object_key,status,request_time
   2021-02-26T01:27:19Z,name1,404,16
   2021-02-26T01:27:19Z,name2,200,12
   2021-02-26T01:27:20Z,name3,200,6
   ```
-  
+
   Запрос с использованием всех агрегатных функций:
 
   ```sql
@@ -309,14 +309,14 @@ SELECT s.CAST FROM S3Object s
   FROM S3Object
   WHERE status = '200'
   ```
-    
+
   Так как все значения во входных CSV-файлах считаются строками, их нужно приводить к нужным типам с помощью функции `CAST`.
 
   Результат:
 
-  ```
+  ```text
   count,min,max,sum,avg
   2,6,12,18,9.0
   ```
-    
+
 {% endlist %}

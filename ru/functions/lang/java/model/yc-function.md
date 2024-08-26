@@ -91,13 +91,13 @@ public class Handler implements YcFunction<Integer, Boolean> {
 
 Пример входных данных:
 
-```
+```text
 41
 ```
 
 В журнале будет напечатано:
 
-```
+```text
 Function name: <название_функции>
 Function version: <идентификатор_версии_функции>
 Service account token: <токен_сервисного_аккаунта>
@@ -105,6 +105,6 @@ Service account token: <токен_сервисного_аккаунта>
 
 Возвращаемая строка:
 
-```
+```text
 false
 ```

@@ -1127,18 +1127,18 @@ items:
           Как включить автоматическую расстановку знаков препинания в
           распознанном тексте
         href: speechkit/how-to/enabling-punctuator-in-speechkit.md
-  - name: VPC
+  - name: '{{ vpc-short-name }}'
     items:
-      - name: Все решения для VPC
+      - name: Все решения для {{ vpc-short-name }}
         href: vpc/index.md
-      - name: Решения для известных проблем VPC
+      - name: Решения для известных проблем {{ vpc-short-name }}
         href: vpc/known-issues/index.md
         hidden: true
       - name: Устранение ошибок при удалении облачной сети
         href: vpc/known-issues/unable-to-delete-cloud-network.md
       - name: >-
           Ошибочно определяется географическая принадлежность IP-адресов
-          ресурсов Yandex Cloud
+          ресурсов {{ yandex-cloud }}
         href: vpc/known-issues/external-ip-address-country-affiliation-issue.md
       - name: >-
           Устранение проблем со скоростью сетевого соединения при работе с
@@ -1156,14 +1156,14 @@ items:
         href: vpc/known-issues/error-quota-limit-exceeded.md
       - name: Устранение ошибки `Quota limit vpc.routeTables.count exceeded`
         href: vpc/known-issues/error-quota-limit-vpc-routetables-count-exceeded.md
-      - name: Примеры конфигураций и сценариев VPC
+      - name: Примеры конфигураций и сценариев {{ vpc-short-name }}
         href: vpc/how-to/index.md
         hidden: true
-      - name: Отключение защиты от DDoS
+      - name: Как отключить защиту от DDoS
         href: vpc/how-to/disable-ddos-protection-on-external-ip.md
       - name: Перенос внешнего статического IP-адреса в другое облако
         href: vpc/how-to/move-external-ip-between-cloud.md
-      - name: Получение входящего или исходящего трафика ВМ
+      - name: Как получить входящий или исходящий трафик ВМ
         href: vpc/how-to/incoming-and-outcoming-traffic-logs.md
       - name: Как узнать скорость каналов связи
         href: vpc/how-to/connection-speed.md
@@ -1171,7 +1171,7 @@ items:
         href: vpc/how-to/connection-speed-bandwidth-restriction.md
       - name: Как изменить сеть или подсеть для MDB-кластера
         href: vpc/how-to/changing-net-or-subnet.md
-      - name: Как читать график Connections quota utilization
+      - name: Как читать график `Connections quota utilization`
         href: vpc/how-to/connections-quota-utilization.md
       - name: Как привязать фиксированный IP-адрес к NAT-шлюзу
         href: vpc/how-to/link-ip-address-to-nat-gateway.md
@@ -1179,7 +1179,7 @@ items:
         href: vpc/how-to/activate-egress-nat.md
       - name: Как осуществить маршутизацию трафика между двумя облачными сетями
         href: vpc/how-to/routing-traffic-between-two-vpcs.md
-      - name: Подключение расширенной защиты от DDoS
+      - name: Как подключить расширенную защиту от DDoS
         href: vpc/how-to/enable-advanced-anti-ddos-protection.md
       - name: Как использовать IPv6-адреса
         href: vpc/how-to/using-ipv6.md
@@ -1193,6 +1193,48 @@ items:
         href: vpc/how-to/transferring-ip-to-a-different-zone.md
       - name: Как заблокировать IP-адрес
         href: vpc/how-to/block-ip-address.md
+  - name: '{{ tracker-name }}'
+    items:
+      - name: Все решения для {{ tracker-name }}
+        href: tracker/index.md
+      - name: Решения для известных проблем c {{ tracker-name }}
+        href: tracker/known-issues/index.md
+        hidden: true
+      - name: Недоступно редактирование воркфлоу
+        href: tracker/known-issues/unable-to-modify-workflow.md
+      - name: Устранение ошибки `Illegal parameter` при создании очереди
+        href: tracker/known-issues/illegal-parameter-while-creating-queue.md
+      - name: Примеры конфигураций и сценариев {{ tracker-name }}
+        href: tracker/how-to/index.md
+        hidden: true
+      - name: Как подключить {{ tracker-name }} после периода неактивности
+        href: tracker/how-to/activating-tracker-after-inactivity.md
+      - name: Как отключить {{ tracker-name }}
+        href: tracker/how-to/deactivating-tracker.md
+      - name: Как восстановить {{ tracker-name }} после удаления
+        href: tracker/how-to/restoring-tracker.md
+      - name: Как использовать новые доски задач
+        href: tracker/how-to/using-new-task-boards.md
+      - name: Как редактировать клонированные воркфлоу
+        href: tracker/how-to/modifying-cloned-worfklows.md
+      - name: Как ограничить доступ к очередям
+        href: tracker/how-to/limiting-queue-access.md
+      - name: Как подключить и использовать платный {{ tracker-name }}
+        href: tracker/how-to/using-paid-version.md
+      - name: Как войти в {{ tracker-name }}
+        href: tracker/how-to/logging-into-tracker.md
+      - name: Как подключить к {{ mgl-name }} репозиторий со стороннего сервера
+        href: tracker/how-to/connecting-gitlab-repository.md
+      - name: Как создать задачу в {{ tracker-name }} через {{ forms-name }}
+        href: tracker/how-to/creating-tasks-via-forms.md
+      - name: Как удалить пользователя из {{ tracker-name }}
+        href: tracker/how-to/excluding-user-from-tracker.md
+      - name: Как добавить пользователя в {{ tracker-name }}
+        href: tracker/how-to/adding-user-to-tracker.md
+      - name: Как отключить почтовые уведомления в {{ tracker-name }}
+        href: tracker/how-to/disabling-notifications.md
+      - name: Как удалить задачу из очереди
+        href: tracker/how-to/removing-task-from-queue.md
   - name: '{{ console-name }}'
     items:
       - name: Все решения для {{ console-name }}
@@ -1229,51 +1271,6 @@ items:
           }}
         href: terraform/how-to/index.md
         hidden: true
-  - name: Tracker
-    items:
-      - name: Все решения для Tracker
-        href: tracker/index.md
-      - name: Решения для известных проблем c Tracker
-        href: tracker/known-issues/index.md
-        hidden: true
-      - name: Недоступно редактирование воркфлоу
-        href: tracker/known-issues/unable-to-modify-workflow.md
-      - name: Устранение ошибки `Illegal parameter` при создании очереди
-        href: tracker/known-issues/illegal-parameter-while-creating-queue.md
-      - name: Примеры конфигураций и сценариев Tracker
-        href: tracker/how-to/index.md
-        hidden: true
-      - name: Подключение {{ tracker-full-name }} после периода неактивности
-        href: tracker/how-to/activating-tracker-after-inactivity.md
-      - name: Отключение или удаление {{ tracker-full-name }}
-        href: tracker/how-to/deactivating-tracker.md
-      - name: Восстановление {{ tracker-full-name }} после удаления
-      - name: Восстановление Трекера после удаления
-        href: tracker/how-to/restoring-tracker.md
-      - name: Как использовать новые доски задач
-        href: tracker/how-to/using-new-task-boards.md
-      - name: Редактирование клонированных воркфлоу
-        href: tracker/how-to/modifying-cloned-worfklows.md
-      - name: Ограничение доступа к очередям
-        href: tracker/how-to/limiting-queue-access.md
-      - name: Как подключить и использовать платный {{ tracker-full-name }}
-        href: tracker/how-to/using-paid-version.md
-      - name: Как войти в {{ tracker-full-name }}
-        href: tracker/how-to/logging-into-tracker.md
-      - name: Как подключить репозиторий GitLab с личного сервера
-        href: tracker/how-to/connecting-gitlab-repository.md
-      - name: Как подключить и использовать платный Трекер
-        href: tracker/how-to/using-paid-version.md
-      - name: >-
-          Как создавать задачу в {{ tracker-full-name }} через {{
-          forms-full-name }}
-        href: tracker/how-to/creating-tasks-via-forms.md
-      - name: Как удалить пользователя из {{ tracker-full-name }}
-        href: tracker/how-to/excluding-user-from-tracker.md
-      - name: Как добавить пользователя в {{ tracker-full-name }}
-        href: tracker/how-to/adding-user-to-tracker.md
-      - name: Как отключить почтовые уведомления в {{ tracker-full-name }}
-        href: tracker/how-to/disabling-notifications.md
   - name: Partner
     items:
       - name: Все решения для Partner

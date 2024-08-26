@@ -43,7 +43,7 @@ gRPC-описание метода [List](https://github.com/yandex-cloud/clouda
 
 Пример REST запроса на получение списка дисков в каталоге:
 
-```
+```http
 GET https://compute.{{ api-host }}/compute/v1/disks?folderId=a3s17h9sbq5asdgss12&pageToken=1acdeb26078146e6
 ```
 

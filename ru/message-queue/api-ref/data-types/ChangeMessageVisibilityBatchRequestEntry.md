@@ -4,7 +4,7 @@
 
 Все сообщения должны нумероваться начиная с 1. Например:
 
-```
+```text
 &ChangeMessageVisibilityBatchRequestEntry.1.Id=change_visibility_msg_2
 
 &ChangeMessageVisibilityBatchRequestEntry.1.ReceiptHandle=your_receipt_handle

@@ -50,7 +50,7 @@ yandex.cloud.datasphere.v1.NodeService/ExecuteAlias
 
 В успешном ответе будет возвращен объект:
 
-```
+```json
 {
    "output": {
       <выходные_переменные>

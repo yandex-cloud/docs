@@ -45,7 +45,7 @@ yandex.cloud.datasphere.v1.NodeService/Execute
 
 В успешном ответе будет возвращен объект:
 
-```
+```json
 {
    "output": {
       <выходные_переменные>

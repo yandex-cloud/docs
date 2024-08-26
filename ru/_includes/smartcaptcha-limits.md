@@ -3,6 +3,8 @@
 Вид ограничения | Значение
 ----- | -----
 Максимальное количество капч на облако | 10
+Максимальное количество [вариантов заданий](../smartcaptcha/concepts/captcha-variants.md) на облако | 32
+Максимальное количество [правил показа](../smartcaptcha/concepts/captcha-variants.md#captcha-view-rules) на облако | 250
 
 #### Лимиты {#limits}
 

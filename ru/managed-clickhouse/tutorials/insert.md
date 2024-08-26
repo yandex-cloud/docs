@@ -170,7 +170,7 @@ pip3 install protobuf varint pycapnp
    - Cap'n Proto {#capn}
 
      `user.capnp`
-     ```
+     ```capnproto
      @0xbec0f3f99cec4fbf;
 
      struct User {
@@ -184,7 +184,7 @@ pip3 install protobuf varint pycapnp
    - Protobuf {#protobuf}
 
      `user.proto`
-     ```
+     ```capnproto
      syntax = "proto3";
 
      message User {

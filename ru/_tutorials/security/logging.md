@@ -227,7 +227,7 @@
          request_time    numeric NULL
      );
      ```
-  
+
   1. Нажмите кнопку **{{ ui-key.yacloud.clickhouse.cluster.explore.button_execute }}**.
   1. Дождитесь появления надписи о завершении выполнения запроса.
   
@@ -462,7 +462,7 @@
              }
          }
      ```
-     
+
      {% endcut %}
   
   1. Задайте следующие параметры версии:

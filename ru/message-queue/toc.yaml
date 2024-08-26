@@ -72,8 +72,16 @@ items:
         href: concepts/yds-ymq-comparison.md
   - name: Практические руководства
     items:
+      - name: Все руководства
+        href: tutorials/index.md
       - name: Конвертация видео в GIF на Python
         href: tutorials/video-converting-queue.md
+      - name: Автомасштабирование группы ВМ для обработки сообщений из очереди
+        href: tutorials/autoscale-monitoring.md
+      - name: >-
+          Создание триггеров, которые вызывают функции для остановки ВМ и
+          отправки уведомлений в Telegram
+        href: tutorials/serverless-trigger-budget-queue-vm-tg.md
       - name: Хранение статического ключа доступа в секрете {{ lockbox-name }}
         href: tutorials/static-key-in-lockbox.md
   - name: Управление доступом

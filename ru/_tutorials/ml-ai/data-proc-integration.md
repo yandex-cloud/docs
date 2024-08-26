@@ -168,7 +168,7 @@
    1. В поле **{{ ui-key.yacloud.mdb.forms.config_field_zone }}** выберите `{{ region-id }}-a`.
    1. При необходимости в поле **{{ ui-key.yacloud.mdb.forms.config_field_properties }}** задайте свойства Hadoop и его компонентов, например:
 
-      ```
+      ```text
       hdfs:dfs.replication : 2
       hdfs:dfs.blocksize : 1073741824
       spark:spark.driver.cores : 1

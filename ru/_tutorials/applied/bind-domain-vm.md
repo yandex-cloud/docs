@@ -157,7 +157,7 @@
 
   Результат:
 
-  ```yaml
+  ```bash
   id: enp4htsnl1sa********
   folder_id: b1gt6g8ht345********
   created_at: "2023-12-23T19:07:03Z"

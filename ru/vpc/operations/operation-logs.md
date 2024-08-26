@@ -57,7 +57,7 @@
 
   Результат:
 
-  ```yaml
+  ```bash
   - id: enp75021agjg********
     description: Create network
     created_at: "2024-02-01T10:16:51.955935138Z"
@@ -102,7 +102,7 @@
 
       Результат:
 
-      ```yaml
+      ```bash
       id: enp75021agjg********
       description: Create network
       created_at: "2024-02-01T10:16:51.955Z"

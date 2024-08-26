@@ -18,7 +18,7 @@ description: "Метод uploadPart в {{ objstorage-name }} API (S3) сохра
 
 ## Запрос {#request}
 
-```
+```http
 PUT /{bucket}/{key}?partNumber=PartNumber&uploadId=UploadId HTTP/2
 ```
 

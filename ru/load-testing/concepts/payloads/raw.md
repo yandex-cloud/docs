@@ -6,7 +6,7 @@
 
 Формат данных:
 
-```
+```http
 73 good
 GET / HTTP/1.0
 Host: xxx.tanks.example.com
@@ -20,7 +20,7 @@ User-Agent: xxx (shell 1)
 
 При конфигурации генератора нагрузки Pandora с помощью yaml-файла необходимо указать тип `raw` в секции `ammo`:
 
-```
+```yaml
 config_content:
    pools:
    - id: HTTP

@@ -96,7 +96,7 @@ if __name__ == '__main__':
 
 1. Создайте файл Dockerfile и добавьте в него следующие строки:
 
-    ```
+    ```dockerfile
     FROM python:3.10
 
     WORKDIR /usr/src/app

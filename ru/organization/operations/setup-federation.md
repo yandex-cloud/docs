@@ -283,13 +283,13 @@
 
   1. Посмотрите описание команды добавления сертификата:
 
-      ```
+      ```bash
       yc organization-manager federation saml certificate create --help
       ```
 
   1. Добавьте сертификат для федерации, указав путь к файлу сертификата:
 
-      ```
+      ```bash
       yc organization-manager federation saml certificate create --federation-name <имя_федерации> \
         --name "<имя_сертификата>" \
         --certificate-file <путь_к_файлу_сертификата>

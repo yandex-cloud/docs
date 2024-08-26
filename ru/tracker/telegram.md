@@ -55,7 +55,7 @@
     - Способ авторизации — **NoAuth**.
     - Тип содержимого — **application/json**.
     - Тело запроса:
-        ```
+        ```json
         {
             "chat_id": "<идентификатор_чата>",
             "text": "Требуется информация по задаче [not_var{{issue.key}}: not_var{{issue.summary}}]({{ link-tracker }}not_var{{issue.key}})"

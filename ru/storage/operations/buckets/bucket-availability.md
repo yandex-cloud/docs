@@ -75,7 +75,7 @@ description: "Следуя данной инструкции, вы сможет�
 
       Результат:
 
-      ```yaml
+      ```bash
       name: first-bucket
       folder_id: b1gmit33ngp6********
       anonymous_access_flags:
@@ -225,7 +225,7 @@ description: "Следуя данной инструкции, вы сможет�
 
       Результат:
 
-      ```yaml
+      ```bash
       name: first-bucket
       folder_id: b1gmit33ngp6********
       anonymous_access_flags:

@@ -11,7 +11,7 @@ sourcePath: ru/tracker/api-ref/get-components.md
 
 Чтобы получить все компоненты, используйте HTTP-запрос с методом `GET`.
 
-```
+```http
 GET /v2/components
 Host: {{ host }}
 Authorization: OAuth <OAuth-токен>

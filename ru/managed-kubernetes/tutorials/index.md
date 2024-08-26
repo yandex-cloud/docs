@@ -10,6 +10,7 @@ C помощью {{ managed-k8s-name }} вы можете работать с [�
 * [{#T}](driverless-gpu.md)
 * [{#T}](time-slicing-gpu.md)
 * [{#T}](migration-to-an-availability-zone.md)
+* [{#T}](terraform-modules.md)
 
 ## Настройка и тестирование масштабирования {#scaling}
 
@@ -47,6 +48,7 @@ C помощью {{ managed-k8s-name }} вы можете работать с [�
 * [{#T}](dns-autoscaler.md)
 * [{#T}](node-local-dns.md)
 * [{#T}](dnschallenge.md)
+* [{#T}](cert-manager-webhook.md)
 
 ## Резервное копирование {#backup}
 

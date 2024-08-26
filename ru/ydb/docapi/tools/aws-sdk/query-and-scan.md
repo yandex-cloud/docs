@@ -992,7 +992,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
 
       run_me if $PROGRAM_NAME == __FILE__
       ```
-  
+
   1. Запустите программу:
 
       ```bash

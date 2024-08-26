@@ -273,7 +273,7 @@
 
      Результат:
 
-     ```yaml
+     ```bash
      done (25s)
      id: cl1qjhlcdofg********
      folder_id: b1g86q4m5vej********

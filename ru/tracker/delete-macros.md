@@ -11,7 +11,7 @@ sourcePath: ru/tracker/api-ref/delete-macros.md
 
 Чтобы удалить макрос, используйте HTTP-запрос с методом `DELETE`:
 
-```
+```http
 DELETE /{{ ver }}/queues/<ключ_или_идентификатор_очереди>/macros/<идентификатор_макроса>
 Host: {{ host }}
 Authorization: OAuth <OAuth-токен>

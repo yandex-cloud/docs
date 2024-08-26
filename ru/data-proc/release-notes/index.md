@@ -1,6 +1,9 @@
-# История изменений в {{ dataproc-full-name }}
+---
+title: "История изменений в {{ dataproc-full-name }}"
+description: "В разделе представлена история изменений сервиса {{ dataproc-name }}."
+---
 
-В разделе представлена история изменений сервиса {{ dataproc-name }}.
+# История изменений в {{ dataproc-full-name }}
 
 {% include [Tags](../../_includes/mdb/release-notes-tags.md) %}
 

@@ -19,7 +19,7 @@
 
 ## Запрос {#request}
 
-```
+```http
 PUT /{bucket}/{key} HTTP/2
 ```
 

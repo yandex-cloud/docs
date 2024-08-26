@@ -8,10 +8,10 @@ editable: false
 
 ## HTTP-запрос {#https-request}
 
-```
+```http
 POST https://marketplace.{{ api-host }}/marketplace/v1/metering/imageProductUsage/write
 ```
- 
+
 ## Параметры запроса {#body_params}
  
 ```json 

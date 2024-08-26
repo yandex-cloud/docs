@@ -13,7 +13,7 @@ description: "Переводит заданный текст на указанн
 
 ## Запрос {#request}
 
-```
+```http
 POST https://translate.{{ api-host }}/translate/v1/translate
 ```
 

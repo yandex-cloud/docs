@@ -112,11 +112,11 @@ Specification description:
 |---|---|---|
 | `compression` | Backup compression ratio. | <ul><li>`COMPRESSION_UNSPECIFIED`: Not set.</li><li>`NORMAL`: Standard compression.</li><li>`HIGH`: High compression ratio.</li><li>`MAX`: Maximum compression.</li><li>`OFF`: Disabled.</li></ul> |
 | `format` | Backup format. | <ul><li>`FORMAT_UNSPECIFIED`: Not set.</li><li>`VERSION_11`: Deprecated format, not recommended.</li><li>`VERSION_12`: Recommended format for fast backup and recovery.</li><li>`AUTO`: Automatic format selection. Defaults to version 12. The exception is creating incremental backups for images created in other versions.</li></ul> |
-| `multiVolumeSnapshottingEnabled` | Making snapshots of multiple volumes at the same time. | <ul><li>`true`: Enabled.</li><li>`false`: Disabled.</li></ul> |
+| `multiVolumeSnapshottingEnabled` | Making backups of multiple volumes at the same time. | <ul><li>`true`: Enabled.</li><li>`false`: Disabled.</li></ul> |
 | `preserveFileSecuritySettings` | Preserving file security settings. | <ul><li>`true`: Enabled.</li><li>`false`: Disabled.</li></ul> |
 | `cbt` | Changed Block Tracking (configuration for tracking backup contents). | <ul><li>`CHANGED_BLOCK_TRACKING_UNSPECIFIED`: Not set.</li><li>`USE_IF_ENABLED`: Use if enabled.</li><li>`ENABLE_AND_USE`: Enable and use.</li><li>`DO_NOT_USE`: Do not use.</li></ul> |
 | `fastBackupEnabled` | Fast backup: Setting for tracking changes to files. When enabled, file changes are detected by the file's size and timestamp. When disabled, files are checked for changes by comparing their contents to backed up files. | <ul><li>`true`: Enabled.</li><li>`false`: Disabled.</li></ul> |
-| `quiesceSnapshottingEnabled` | Using `quiescing` mode when creating snapshots. | <ul><li>`true`: Enabled.</li><li>`false`: Disabled.</li></ul> |
+| `quiesceSnapshottingEnabled` | Using `quiescing` mode when creating backups. | <ul><li>`true`: Enabled.</li><li>`false`: Disabled.</li></ul> |
 
 Attribute sections with multiple nested values.
 
@@ -137,11 +137,11 @@ Attribute sections with multiple nested values.
 
 - vmSnapshotReattempts
 
-   Setting up snapshot creation reattempts in the event of failures.
+   Setting up backup creation reattempts in the event of failures.
 
    | Attribute | Description | Possible values |
    |---|---|---|
-   | `vmSnapshotReattempts.enabled` | Retry creating a VM snapshot if an error occurs. | <ul><li>`true`: Enabled.</li><li>`false`: Disabled.</li></ul> |
+   | `vmSnapshotReattempts.enabled` | Retry creating a backup if an error occurs. | <ul><li>`true`: Enabled.</li><li>`false`: Disabled.</li></ul> |
    | `vmSnapshotReattempts.interval.type` | Unit of time used to set the reattempt interval. | <ul><li>`TYPE_UNSPECIFIED`: Not set.</li><li>`SECONDS`</li><li>`MINUTES`</li><li>`HOURS`</li><li>`DAYS`</li><li>`WEEKS`</li><li>`MONTHS`</li></ul> |
    | `vmSnapshotReattempts.interval.count` | Duration of the interval between reattempts. | Integer |
    | `vmSnapshotReattempts.maxAttempts` | Maximum number of reattempts. If reached, the operation is considered failed. | Integer |

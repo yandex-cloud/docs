@@ -19,13 +19,13 @@
 
     Чтобы сделать функцию публичной, выполните команду:
     
-    ```
+    ```bash
     yc serverless function allow-unauthenticated-invoke <имя_функции>
     ```
 
     Результат:
 
-    ```
+    ```text
     done (1s)
     ```
 
@@ -39,7 +39,7 @@
 
   1. Опишите в конфигурационном файле параметры прав доступа к функции:
 
-     ```
+     ```hcl
      resource "yandex_function_iam_binding" "function-iam" {
        function_id = "<идентификатор_функции>"
        role        = "{{ roles-functions-invoker }}"

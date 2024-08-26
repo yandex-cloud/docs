@@ -42,7 +42,7 @@ description: "Для управления доступом к бакету {{ ob
   ```bash
   yc storage bucket update --help
   ```
-  
+
   Чтобы посмотреть текущий ACL бакета, выполните команду:
 
   ```bash
@@ -58,7 +58,7 @@ description: "Для управления доступом к бакету {{ ob
     ```bash
     yc storage bucket update --name <имя_бакета> --acl <предопределенный_ACL>
     ```
-  
+
     Где:
     * `--name` — имя бакета.
     * `--acl` — предопределенный ACL. Список значений см. в разделе [{#T}](../../concepts/acl.md#predefined-acls).
@@ -94,7 +94,7 @@ description: "Для управления доступом к бакету {{ ob
        yc storage bucket update --name <имя_бакета> \
          --grants grant-type=<тип_получателя_разрешения>,grantee-id=<идентификатор_получателя>,permission=<тип_разрешения>
        ```
-     
+
        Где:
        * `grant-type` — тип получателя разрешения. Возможные значения:
          * `grant-type-account` — пользователь, [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) или [группа пользователей](../../../organization/concepts/groups.md);
@@ -281,7 +281,7 @@ description: "Для управления доступом к бакету {{ ob
         ```bash
         terraform apply
         ```
-   
+
      1. Подтвердите создание ресурсов.
 
      После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).

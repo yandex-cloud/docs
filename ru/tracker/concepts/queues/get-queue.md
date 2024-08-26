@@ -11,7 +11,7 @@ sourcePath: ru/tracker/api-ref/concepts/queues/get-queue.md
 
 Для получения информации об очереди используйте HTTP-запрос с методом `GET`.
 
-```
+```http
 GET /v2/queues/<ключ_или_идентификатор_очереди>
 Host: {{ host }}
 Authorization: OAuth <OAuth-токен>

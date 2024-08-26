@@ -13,7 +13,7 @@ description: "Определение языка, на котором напис�
 
 ## Запрос {#request}
 
-```
+```http
 POST https://translate.{{ api-host }}/translate/v1/detect
 ```
 

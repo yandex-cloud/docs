@@ -36,3 +36,6 @@ description: "На странице представлен список прак
 * [{#T}](./static-key-in-lockbox.md)
 * [{#T}](./opensearch-to-object-storage.md)
 * [{#T}](./ydb-to-object-storage.md)
+* [{#T}](./static-key-in-lockbox.md)
+* [{#T}](./terraform-state-storage.md)
+* [{#T}](./terraform-state-lock.md)

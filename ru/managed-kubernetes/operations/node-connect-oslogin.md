@@ -77,7 +77,7 @@ description: "Следуя данной инструкции, вы сможет�
             --name <имя_группы_узлов> \
             --metadata enable-oslogin=true
           ```
-  
+
           Имя группы узлов можно запросить со [списком групп узлов в каталоге](./node-group/node-group-list.md#list).
 
           {% include [note-oslogin-ssh-warning](../../_includes/managed-kubernetes/note-oslogin-ssh-warning.md) %}

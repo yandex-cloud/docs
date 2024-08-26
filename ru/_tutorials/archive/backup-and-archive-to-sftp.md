@@ -371,7 +371,7 @@
 
    Результат:
 
-   ```
+   ```text
    SFTP_USER=fuser
    SFTP_SERVER=10.128.0.5
    ```
@@ -445,7 +445,7 @@ sudo find /etc -type f -name *.conf -print0 | sudo tar -czf backup.tar.gz --null
 
 1. Добавьте следующие строки, чтобы запускать резервное копирование каждый день в 11 часов вечера по UTC:
 
-   ```
+   ```text
    SFTP_SERVER=<IP_адрес_SFTP_сервера>
    SFTP_USER='fuser'
 

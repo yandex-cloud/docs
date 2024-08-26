@@ -41,7 +41,7 @@ public class Handler {
 
 Возвращаемая строка:
 
-```
+```text
 Message is Hello, number is 24
 ```
 
@@ -111,12 +111,12 @@ public class Handler {
 
 В журнале будет напечатано:
 
-```
+```text
 POST, { "name": "Anonymous" }
 ```
 
 Возвращаемый ответ:
 
-```
+```text
 Hello, Anonymous
 ```

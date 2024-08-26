@@ -57,7 +57,7 @@
 
   Результат:
 
-  ```yaml
+  ```bash
   - id: abji19ucm6b1********
     description: update key
     created_at: "2024-03-26T10:33:12.360289758Z"
@@ -115,7 +115,7 @@
 
       Результат:
 
-      ```yaml
+      ```bash
       id: abji19ucm6b1********
       description: update key
       created_at: "2024-03-26T10:33:12.360Z"

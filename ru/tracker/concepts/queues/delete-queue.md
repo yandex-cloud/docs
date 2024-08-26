@@ -11,7 +11,7 @@ sourcePath: ru/tracker/api-ref/concepts/queues/delete-queue.md
 
 Чтобы удалить очередь, используйте HTTP-запрос с методом `DELETE`.
 
-```
+```http
 DELETE /{{ ver }}/queues/<ключ_или_идентификатор_очереди>
 Host: {{ host }}
 Authorization: OAuth <OAuth-токен>

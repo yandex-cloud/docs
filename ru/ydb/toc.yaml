@@ -76,6 +76,8 @@ items:
           Построение пайплайна CI/CD в {{ GL }} с использованием
           serverless-продуктов
         href: tutorials/ci-cd-serverless.md
+      - name: Блокировка состояний {{ TF }} с помощью {{ ydb-name }}
+        href: tutorials/terraform-state-lock.md
   - name: Концепции
     items:
       - name: Обзор

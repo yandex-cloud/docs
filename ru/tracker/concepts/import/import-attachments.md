@@ -139,7 +139,7 @@ sourcePath: ru/tracker/api-ref/concepts/import/import-attachments.md
 	  }
 	}
     ```
-    
+
     {% cut "Параметры ответа" %}
     
     Параметр | Описание | Тип данных

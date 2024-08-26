@@ -46,7 +46,7 @@ description: "Следуя данной инструкции, вы сможет�
 
      Результат:
 
-     ```yaml
+     ```bash
      id: ds7e9te73uak********
      name: my-first-router
      folder_id: b1gt6g8ht345********
@@ -85,7 +85,7 @@ description: "Следуя данной инструкции, вы сможет�
 
      Результат:
 
-     ```yaml
+     ```bash
      done (1s)
      name: test-virtual-host
      routes:

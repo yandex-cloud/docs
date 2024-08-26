@@ -233,7 +233,7 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
    ```powershell
    Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
    ```
-   
+
    Результат:
 
    ```text

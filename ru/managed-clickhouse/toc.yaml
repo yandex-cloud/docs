@@ -107,8 +107,8 @@ items:
       - name: Обмен данными с {{ dataproc-full-name }}
         href: tutorials/exchange-data-with-dp.md
       - name: >-
-          Настройка {{ dns-full-name }} для доступа к кластеру из других
-          облачных сетей
+          "Настройка {{ dns-full-name }} для доступа к кластеру из других
+          облачных сетей"
         href: tutorials/dns-peering.md
       - name: >-
           Анализ логов {{ objstorage-full-name }} при помощи {{
@@ -134,13 +134,13 @@ items:
           помощью {{ data-transfer-full-name }}
         href: tutorials/object-storage-to-clickhouse.md
       - name: >-
-          Копирование данных из {{ mos-name }} в {{ mch-name }} с помощью {{
-          data-transfer-full-name }}
-        href: tutorials/opensearch-to-clickhouse.md
-      - name: >-
           Загрузка данных из {{ ydb-full-name }} в {{ mch-name }} с помощью {{
           data-transfer-full-name }}
         href: tutorials/ydb-to-clickhouse.md
+      - name: >-
+          Копирование данных из {{ mos-name }} в {{ mch-name }} с помощью {{
+          data-transfer-full-name }}
+        href: tutorials/opensearch-to-clickhouse.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса

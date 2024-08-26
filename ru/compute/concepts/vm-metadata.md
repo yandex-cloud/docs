@@ -187,12 +187,12 @@
      ```bash
      curl http://169.254.169.254/latest/vendor/instance-identity/document
      ```
-     
+
    {% endlist %}   
 
    Пример ответа: 
    
-   ```
+   ```json
    {"instanceId":"fhmm5252k8vl********","productCodes":null,"imageId":"fd8evlqsgg4e********","productIds":["f2e3ia802lab********"],"createdAt":"2023-05-29T09:46:59Z","version":"2023-03-01"}
    ```
 
@@ -231,12 +231,12 @@
        ```bash
        curl http://169.254.169.254/latest/vendor/instance-identity/rsa > rsa2048
        ```
-  
+
   1. Создайте файл `certificate` и добавьте в него публичный сертификат:
 
      
 
-     ```
+     ```text
      -----BEGIN CERTIFICATE-----
      MIIC4TCCAcmgAwIBAgIUP0zcGO1MeRwze8VdSMEt/OdBXoIwDQYJKoZIhvcNAQEL
      BQAwADAeFw0yMzA2MDcwNjU4MTBaFw0zMzA2MDQwNjU4MTBaMAAwggEiMA0GCSqG
@@ -256,7 +256,7 @@
      r9ZBjEa0oLFVV0pP5Tj4Gf1DDpuJ
      -----END CERTIFICATE-----
      ```
-     
+
 
 
 
@@ -295,7 +295,7 @@
 
      
 
-     ```
+     ```text
      -----BEGIN CERTIFICATE-----
      MIIERjCCA+ugAwIBAgIULIUmuptqf9Pz7nMGMHeW+BPNneYwCwYJYIZIAWUDBAMC
      MAAwHhcNMjMwNjA3MDY1NjI0WhcNMzMwNjA0MDY1NjI0WjAAMIIDRjCCAjkGByqG
@@ -322,7 +322,7 @@
      LFFIJGlNWgIhAO0b749SY5+6UMEOLsxgvNzKKcv58BKADfBdJAXE6fRk
      -----END CERTIFICATE-----
      ```
-     
+
 
 
 
@@ -355,7 +355,7 @@
        ```bash
        curl http://169.254.169.254/latest/vendor/instance-identity/base64 | base64 -d >> signature
        ```
-  
+
   1. Получите идентификационный документ и сохраните его в файл `document`:
 
      * **GCE**:
@@ -374,7 +374,7 @@
 
      
 
-     ```
+     ```text
      -----BEGIN CERTIFICATE-----
      MIIC4TCCAcmgAwIBAgIUP0zcGO1MeRwze8VdSMEt/OdBXoIwDQYJKoZIhvcNAQEL
      BQAwADAeFw0yMzA2MDcwNjU4MTBaFw0zMzA2MDQwNjU4MTBaMAAwggEiMA0GCSqG
@@ -394,7 +394,7 @@
      r9ZBjEa0oLFVV0pP5Tj4Gf1DDpuJ
      -----END CERTIFICATE-----
      ```
-     
+
 
 
 
@@ -416,11 +416,11 @@
 
 Сопоставьте идентификационный документ из метаданных ВМ с документом, сохраненным в файле:
 
-```
+```bash
 curl http://169.254.169.254/latest/vendor/instance-identity/document | openssl dgst -sha256
 ```
 
-```
+```bash
 openssl dgst -sha256 < document
 ```
 

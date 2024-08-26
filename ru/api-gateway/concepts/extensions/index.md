@@ -15,11 +15,12 @@ description: "Расширение x-yc-apigateway позволяет задат
 
  Параметр                | Тип               | Описание                                                                                                                                          
 -------------------------|-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------
- `serviceAccountId`    | `string`          | Идентификатор [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md), от имени которого API-шлюз будет выполнять операции.     
+ `serviceAccountId`      | `string`          | Идентификатор [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md), от имени которого API-шлюз будет выполнять операции.
  `validator`             | `ValidatorObject` | [Валидатор HTTP-запросов и ответов](validator.md#validator_object) или ссылка на него. Может быть переопределен на уровне конкретной операции. 
  `cors`                  | `CorsRuleObject`  | [Правило обработки preflight-запросов CORS](cors.md#corsrule_object) или ссылка на него. Может быть переопределено на уровне конкретного пути. 
  `rateLimit`             | `RateLimitObject` | [Ограничение скорости обработки запросов](rate-limit.md#rate_limit_object) или ссылка на него. Может быть переопределено на уровне конкретного пути и/или операции. 
  `ignoreTrailingSlashes` | `boolean`         | Если установлено значение `true`, {{ api-gw-name }} игнорирует слеш (`/`) в конце URL запроса, иначе — учитывает его наличие или отсутствие при поиске обработчика в OpenAPI-спецификации. Значение по умолчанию — `true`.
+ `securityProfileId`     | `string`          | Идентификатор [профиля безопасности](../../../smartwebsecurity/concepts/profiles.md) {{ sws-name }}.
 
 ### Спецификация расширения {#tl-spec}
 
@@ -30,6 +31,8 @@ x-yc-apigateway:
   cors: <CorsRuleObject_или_ссылка_на_него>
   rateLimit: <RateLimitObject_или_ссылка_на_него>
   ignoreTrailingSlashes: <true_или_false>
+  smartWebSecurity:
+    securityProfileId: <идентификатор_профиля_безопасности>
 ```
 
 ## Расширение x-yc-apigateway-integration {#integration}
@@ -64,7 +67,7 @@ x-yc-apigateway:
 * [serverless_containers](containers.md) — перенаправляет запрос в указанный контейнер.
 * [cloud_ymq](ymq.md) — обращается к {{ message-queue-full-name }} для выполнения операции с указанной очередью.
 * [cloud_ydb](ydb.md) — обращается к {{ ydb-full-name }} для выполнения операции с указанной [документной таблицей](../../../ydb/concepts/dynamodb-tables.md).
- 
+
 Все типы поддерживают подстановку параметров — замену всех ключей на соответствующее значение. Ключ должен быть определен как параметр соответствующей операции (допускаются все типы параметров, определенные в [OpenAPI-Specification](https://github.com/OAI/OpenAPI-Specification) — `path`, `query`, `header`, `cookie`).
 Подстановка параметров производится только в некоторых значениях, в зависимости от типа расширения.
 

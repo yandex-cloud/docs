@@ -40,7 +40,7 @@
 
     db.auth("user1")
     ```
-  
+
 1. Заполните коллекцию `collection1` в базе `db1` случайными значениями. В коллекцию будет вставлено 200 000 записей:
   
     ```javascript
@@ -179,7 +179,7 @@
       ```javascript
       db.collection1.getShardDistribution()
       ```
-      
+
       ```text
       Shard rs01 at rs01/<хост_1>
       {

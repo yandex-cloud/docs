@@ -5,7 +5,7 @@
 
 ## Запрос {#request}
 
-```
+```http
 PUT /{bucket} HTTP/2
 ```
 

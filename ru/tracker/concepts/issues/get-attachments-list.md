@@ -11,7 +11,7 @@ sourcePath: ru/tracker/api-ref/concepts/issues/get-attachments-list.md
 
 Чтобы получить список прикрепленных файлов, используйте HTTP-запрос с методом `GET`.
 
-```
+```http
 GET /{{ ver }}/issues/<ключ_или_идентификатор_задачи>/attachments
 Host: {{ host }}
 Authorization: OAuth <OAuth-токен>

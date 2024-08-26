@@ -102,7 +102,7 @@
 
      Результат:
 
-     ```yaml
+     ```bash
      access_key:
        id: aje6t3vsbj8l********
        service_account_id: ajepg0mjt06s********

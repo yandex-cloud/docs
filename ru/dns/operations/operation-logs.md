@@ -35,7 +35,7 @@
 
   Результат:
 
-  ```yaml
+  ```bash
   - id: dnsi5gv00kas********
     description: Update DNS RecordSets
     created_at: "2024-02-01T08:46:21.554860158Z"
@@ -83,7 +83,7 @@
 
       Результат:
 
-      ```yaml
+      ```bash
       id: dnsi5gv00kas********
       description: Create DNS Zone
       created_at: "2024-02-01T08:45:40.481Z"

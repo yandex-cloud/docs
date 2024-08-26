@@ -95,7 +95,7 @@ ACL | Описание
 
 Разрешение для `AllUsers` выглядит следующим образом:
 
-```
+```xml
 <Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="Group">
     <URI>http://acs.amazonaws.com/groups/global/AllUsers</URI>
 </Grantee>
@@ -107,7 +107,7 @@ ACL | Описание
 
 Разрешение для `AuthenticatedUsers` выглядит следующим образом:
 
-```
+```xml
 <Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="Group">
     <URI>http://acs.amazonaws.com/groups/global/AuthenticatedUsers</URI>
 </Grantee>

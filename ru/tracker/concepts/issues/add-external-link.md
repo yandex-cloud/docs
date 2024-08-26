@@ -11,7 +11,7 @@ sourcePath: ru/tracker/api-ref/concepts/issues/add-external-link.md
 
 Чтобы создать внешнюю связь, используйте HTTP-запрос с методом `POST`. 
 
-```
+```http
 POST /{{ ver }}/issues/<ключ_или_идентификатор_задачи>/remotelinks?backlink=true
 Host: {{ host }}
 Authorization: OAuth <OAuth-токен>
@@ -98,7 +98,7 @@ origin | Идентификатор приложения, с объектом к
     }
 
     ```
-   
+
     {% cut "Параметры ответа" %}
 
     Параметр | Описание | Тип данных

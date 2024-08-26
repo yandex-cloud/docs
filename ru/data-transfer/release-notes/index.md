@@ -1,3 +1,8 @@
+---
+title: "История изменений в {{ data-transfer-full-name }}"
+description: "В разделе представлена история изменений сервиса {{ data-transfer-name }}."
+---
+
 # История изменений {{ data-transfer-name }}
 
 - [Июль 2024](2407.md)

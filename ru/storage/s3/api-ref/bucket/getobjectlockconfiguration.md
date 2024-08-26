@@ -4,7 +4,7 @@
 
 ## Запрос {#request}
 
-```
+```http
 GET /{bucket}?object-lock HTTP/2
 ```
 

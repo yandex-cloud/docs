@@ -17,7 +17,7 @@ sudo journalctl -u yc-container-daemon
 
 **Пример**:
 
-```
+```text
 Mar 25 12:07:39 instance-name yc-container-daemon[516]:
 {"level":"DEBUG","ts":"2021-03-25T12:07:39.785Z","caller":"container/image.go:75","msg":"trying to pull image (0/3)"}
 Mar 25 12:07:39 instance-name yc-container-daemon[516]:
@@ -32,7 +32,7 @@ Mar 25 12:07:41 instance-name yc-container-daemon[516]:
 
 **Пример**:
 
-```
+```text
 Sep 28 08:00:18 cl17bn514eluq62d****-**** yc-container-daemon[952]:
 {"level":"DEBUG","ts":"2019-09-28T08:00:18.842Z ","caller":"container/container.go:121","msg":"trying to pull image (0/3)"}
 Sep 28 08:00:18 cl17bn514eluq62d****-**** yc-container-daemon[952]:
@@ -47,7 +47,7 @@ Sep 28 08:00:33 cl17bn514eluq62d****-**** yc-container-daemon[952]:
 
 **Пример**:
 
-```
+```text
 Mar 25 12:13:23 instance-name yc-container-daemon[518]:
 {"level":"WARN","ts":"2021-03-25T12:13:23.466Z","caller":"container/container.go:240","msg":"Attempting to pull Container Registry image with empty credentials. It will only work if public registry>
 Mar 25 12:13:23 instance-name yc-container-daemon[518]:
@@ -64,7 +64,7 @@ Mar 25 12:13:24 instance-name yc-container-daemon[518]:
 
 **Пример**:
 
-```
+```text
 Mar 25 12:34:22 intr13-vm yc-container-daemon[518]:
 {"level":"DEBUG","ts":"2021-03-25T12:34:22.043Z","caller":"container/image.go:75","msg":"trying to pull image (0/3)"}
 Mar 25 12:34:22 intr13-vm yc-container-daemon[518]:
@@ -79,7 +79,7 @@ Mar 25 12:34:46 intr13-vm yc-container-daemon[518]:
 
 **Пример**:
 
-```
+```text
 WARNING: The requested image's platform (linux/arm64/v8) does not match the detected host platform (linux/amd64/v4) and no specific platform was requested
 ```
 

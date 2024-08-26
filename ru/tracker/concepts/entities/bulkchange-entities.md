@@ -11,7 +11,7 @@ sourcePath: ru/tracker/api-ref/concepts/entities/bulkchange-entities.md
 
 Для пакетного изменения нескольких сущностей используйте HTTP-запрос с методом `POST`. Параметры запроса передаются в его теле в формате JSON.
 
-```
+```http
 POST /{{ ver }}/entities/<тип_сущности>/bulkchange/_update
 Host: {{ host }}
 Authorization: OAuth <OAuth-токен>

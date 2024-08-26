@@ -137,7 +137,7 @@
       ```bash
       yc alb virtual-host create test-virtual-host --http-router-name test-http-router
       ```
-  
+
   1. Добавьте маршрут:
 
       ```bash

@@ -11,7 +11,7 @@ sourcePath: ru/tracker/api-ref/concepts/issues/delete-link-issue.md
 
 Чтобы удалить связь текущей задачи с другой задачей, используйте HTTP-запрос с методом `DELETE`. 
 
-```
+```http
 DELETE /{{ ver }}/issues/<ключ_или_идентификатор_задачи>/links/<идентификатор_связи>
 Host: {{ host }}
 Authorization: OAuth <OAuth-токен>

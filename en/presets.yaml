@@ -345,6 +345,7 @@ default:
   message-queue-name: Message Queue
   message-queue-short-name: Message Queue
   metadata-hub-full-name: Yandex MetaData Hub
+  metadata-hub-name: Yandex MetaData Hub
   metastore-full-name: Hive Metastore
   metastore-name: Metastore
   metrika: Yandex Metrica
@@ -4569,6 +4570,8 @@ default:
       ui_components_admin-repositories_ConnectRepositoryDialog:
         connect: Connect
         token-label: Token
+      ui_components_admin-tab-types_AdminTabTypes:
+        title: Issues types
       ui_components_agile_agile-board_AgileBoardActionsMenu:
         delete-board-menu-item: Delete board
         migration-rollback: Switch back to the old version
@@ -4654,6 +4657,8 @@ default:
         deck-field-label: Deck of estimates
         display-estimated-field-label: Display estimated issues
         save: Save
+      ui_components_App:
+        title-queues: Queue
       ui_components_attachments-manager:
         attach: Attach files
         attachments-section-title: Files
@@ -4663,6 +4668,8 @@ default:
         apply: Apply
       ui_components_CreateIssueForm:
         create-issue: Create issue
+      ui_components_dashboard_CollapseHeader:
+        copy-menu-item: Copy
       ui_components_dashboard_DashboardActionsMenu:
         set-start-page-action: Set as start page
       ui_components_dashboard_DashboardHeader:
@@ -4737,6 +4744,7 @@ default:
         color-type-by-parameter: by task parameters
         color-type-monochrome: monochrome
         delete-link: Remove link
+        exit: Exit
         scale-days: Week
         scale-month: Month
         scale-quarters: Quarter
@@ -4806,6 +4814,8 @@ default:
         links-tab: Links
       ui_components_ModalTextEditor:
         save: Save
+      ui_components_navigation:
+        invite-user: Add user
       ui_components_new-process_ProcessTypeStep:
         next-button: Next
         process-type-development: Development
@@ -4922,6 +4932,8 @@ default:
         subscribe: Subscribe
         subscribe-all: Subscribe to all notifications
         subscribe-new-tickets: Subscribe to new issues
+      ui_components_PageQueues:
+        new-queue: New queue
       ui_components_portfolios_Header:
         description-tab: About the portfolio
         projects-tab: Projects
@@ -5244,6 +5256,8 @@ default:
         action_send-invitation: Send invitation
       request-alpha-flag-dialog:
         button_send: Send request
+      services:
+        service_compute: Compute Cloud
       settings:
         button_add-empty-telegram: Set up
         button_submit: Confirm
@@ -6235,6 +6249,7 @@ default:
           label_billing: Billing
           label_monitoring: Monitoring
           label_notifications: Notifications
+          label_vpc: Virtual Private Cloud
         security-group-field:
           label_sg-auto: Auto
           label_sg-from-list: From list
@@ -6392,7 +6407,7 @@ default:
             field_ua-enabled: Agent for delivering metrics
             label_host: Internal FQDN
             label_network-interface: Network interface
-            label_public-ipv4: Public IPv4
+            label_public-ipv4: Public IPv4 address
             popup-confirm_button_remove-one-to-one-nat: Delete
             section_monitoring: Monitoring
             section_network: Network
@@ -7667,7 +7682,7 @@ default:
             button_deploy-version: Save changes
             create-file: Create file
             field_bucket: Bucket
-            field_entry: Entrypoint
+            field_entry: Entry point
             field_environment-variables: Environment variables
             field_file: File
             field_method: Method
@@ -7688,7 +7703,7 @@ default:
             label_mount-point-name: Mount point
             label_mount-point-path: Mount path
             label_mq: Message Queue
-            label_readonly: Read only
+            label_readonly: Read-only
             label_success-sa: Destination for successful result
             label_title: Editor
             label_title-params: Parameters
@@ -7696,7 +7711,7 @@ default:
             label_tries-count: Number of retries
             label_turn-on-button: Enable
             label_with-template: Add files with code examples
-            option_queues-mq: Message queue
+            option_queues-mq: Message Queue
             option_queues-unset: Not specified
             title_mount-files: Mounted buckets
             value_method-editor: Code editor
@@ -7723,9 +7738,9 @@ default:
             label_result-success: Done
             label_title: Testing
             label_title-test-result: Test result
-            value_alice-skill: Alice's skill
-            value_empty: Without preset
-            value_http-request: HTTPS call
+            value_alice-skill: Skill for Alice
+            value_empty: No template
+            value_http-request: HTTPS invoke
             value_ymq-trigger: Trigger for Message Queue
         list:
           button_action-delete: Delete
@@ -8048,6 +8063,7 @@ default:
           button_action-dynamic: Make dynamic
           button_action-static: Make static
           button_create: Reserve address
+          label_title: IP addresses
           popup-confirm_button_disable-protection: Disable
           popup-confirm_button_dynamic: Change
           popup-confirm_button_static: Change

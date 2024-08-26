@@ -131,7 +131,7 @@
 
   1. Опишите в конфигурационном файле параметры триггера:
 
-     ```
+     ```hcl
      resource "yandex_function_trigger" "my_trigger" {
        name = "<имя_триггера>"
        container {

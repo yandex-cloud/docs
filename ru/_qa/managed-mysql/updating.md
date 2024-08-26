@@ -51,7 +51,7 @@
 
    1. Посмотрите описание команды CLI для переключения мастера:
 
-      ```
+      ```bash
       {{ yc-mdb-my }} cluster start-failover --help
       ```
 

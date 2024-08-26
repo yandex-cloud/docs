@@ -11,7 +11,7 @@ description: "Метод copyPart в {{ objstorage-name }} API (S3) копиру
 
 ## Запрос {#request}
 
-```
+```http
 PUT /{bucket}/{key}?partNumber=PartNumber&uploadId=UploadId HTTP/2
 ```
 
@@ -76,7 +76,7 @@ PUT /{bucket}/{key}?partNumber=PartNumber&uploadId=UploadId HTTP/2
 
 ### Схема данных {#response-scheme}
 
-```
+```xml
 <CopyObjectResult>
    <LastModified>2019-02-15T14:32:00</LastModified>
    <ETag>"9bgh7535f2734ec974343yuc93985328"</ETag>

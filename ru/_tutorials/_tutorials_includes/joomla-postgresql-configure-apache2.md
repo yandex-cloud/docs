@@ -22,7 +22,7 @@
 
      Приведите файл к виду:
 
-     ```
+     ```xml
      <VirtualHost *:80 [::]:80>
        ServerAdmin webmaster@localhost
        DocumentRoot /var/www/html/

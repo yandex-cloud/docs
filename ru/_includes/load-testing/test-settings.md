@@ -27,7 +27,7 @@
 
   В файле конфигурации обязательно укажите предельное время работы теста в блоке `autostop`:
 
-  ```
+  ```yaml
   autostop:
     enabled: true
     package: yandextank.plugins.Autostop

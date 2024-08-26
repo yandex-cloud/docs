@@ -1,6 +1,9 @@
-# История изменений в {{ iam-full-name }}
+---
+title: "История изменений в {{ iam-full-name }}"
+description: "В разделе представлена история изменений сервиса {{ iam-name }}."
+---
 
-В разделе представлена история изменений сервиса {{ iam-name }}.
+# История изменений в {{ iam-full-name }}
 
 {% include [Tags-nosql](../_includes/release-notes-tags-nosql.md) %}
 

@@ -388,6 +388,8 @@ items:
         href: tutorials/autoscale-monitoring.md
       - name: Обновление группы ВМ под нагрузкой
         href: tutorials/updating-under-load.md
+      - name: Начало работы с Packer
+        href: tutorials/packer-quickstart.md
       - name: Передача логов с ВМ в {{ cloud-logging-full-name }}
         href: tutorials/vm-fluent-bit-logging.md
       - name: >-
@@ -404,6 +406,18 @@ items:
         href: tutorials/nodejs-cron-restart-vm.md
       - name: Привязка доменного имени к ВМ с веб-сервером
         href: tutorials/bind-domain-vm.md
+      - name: Настройка отказоустойчивой архитектуры в {{ yandex-cloud }}
+        href: tutorials/fault-tolerance.md
+      - name: Маршрутизация с помощью NAT-инстанса
+        href: tutorials/nat-instance.md
+      - name: >-
+          Создание триггера для бюджетов, который вызывает функцию для остановки
+          ВМ
+        href: tutorials/serverless-trigger-budget-vm.md
+      - name: >-
+          Создание триггеров, которые вызывают функции для остановки ВМ и
+          отправки уведомлений в Telegram
+        href: tutorials/serverless-trigger-budget-queue-vm-tg.md
       - name: Интернет-магазин на платформе OpenCart
         items:
           - name: Обзор

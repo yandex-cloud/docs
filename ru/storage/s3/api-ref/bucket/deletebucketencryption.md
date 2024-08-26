@@ -4,7 +4,7 @@
 
 ## Запрос {#request}
 
-```
+```http
 DELETE /{bucket}?encryption HTTP/2
 ```
 

@@ -13,7 +13,7 @@ description: "Получение списка направлений перев�
 
 ## Запрос {#request}
 
-```
+```http
 POST https://translate.{{ api-host }}/translate/v1/languages
 ```
 

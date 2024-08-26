@@ -454,6 +454,8 @@ items:
           Создание триггеров, которые вызывают функции для остановки ВМ и
           отправки уведомлений в Telegram
         href: tutorials/serverless-trigger-budget-queue-vm-tg.md
+      - name: Масштабирование группы ВМ по расписанию
+        href: tutorials/vm-scale-scheduled.md
       - name: Мониторинг состояния географически распределенных устройств
         href: tutorials/datalens.md
       - name: Мониторинг показаний датчиков и уведомления о событиях

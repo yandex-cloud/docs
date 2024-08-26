@@ -7,7 +7,7 @@
 
 ## Запрос {#request}
 
-```
+```http
 DELETE /{bucket}/{key}?uploadId=UploadId HTTP/2
 ```
 

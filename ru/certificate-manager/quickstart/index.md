@@ -52,7 +52,7 @@
 
     Например, для домена `www.example.com` необходимо добавить запись:
 
-    ```
+    ```text
     www.example.com CNAME www.example.com.{{ s3-web-host }}
     ```
 
@@ -128,7 +128,7 @@
       aws --endpoint-url=https://{{ s3-storage-host }} \
          s3 rm s3://<имя_бакета>/.well-known/acme-challenge/<имя_файла>
       ```
-   
+
 {% endlist %}
 
 {% note warning %}

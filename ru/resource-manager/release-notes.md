@@ -1,6 +1,9 @@
-# История изменений в {{ resmgr-full-name }}
+---
+title: "История изменений в {{ resmgr-full-name }}"
+description: "В разделе представлена история изменений сервиса {{ resmgr-name }}."
+---
 
-В разделе представлена история изменений сервиса {{ resmgr-name }}.
+# История изменений в {{ resmgr-full-name }}
 
 {% include [Tags-nosql](../_includes/release-notes-tags-nosql.md) %}
 

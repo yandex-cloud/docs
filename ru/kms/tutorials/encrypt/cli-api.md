@@ -21,7 +21,7 @@
   * `--aad-context-file` — (опционально) входной файл с [AAD-контекстом](../../concepts/symmetric-encryption.md#add-context).
   * `--ciphertext-file` — выходной файл с шифртекстом.
 
-  ```
+  ```bash
   yc kms symmetric-crypto encrypt \
     --id abj76v82fics******** \
     --plaintext-file plaintext-file \
@@ -48,7 +48,7 @@
   * `--aad-context-file` — (опционально) входной файл с [AAD-контекстом](../../concepts/symmetric-encryption.md#add-context).
   * `--plaintext-file` — выходной файл с шифртекстом.
 
-  ```
+  ```bash
   yc kms symmetric-crypto decrypt \
     --id abj76v82fics******** \
     --ciphertext-file ciphertext-file \

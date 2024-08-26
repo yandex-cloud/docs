@@ -13,7 +13,7 @@ sourcePath: ru/tracker/api-ref/concepts/projects/get-projects.md
 
 Чтобы получить список проектов, используйте HTTP-запрос с методом `GET`.
 
-```
+```http
 GET /{{ ver }}/projects
 Host: {{ host }}
 Authorization: OAuth <OAuth-токен>

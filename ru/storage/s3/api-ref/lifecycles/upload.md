@@ -4,7 +4,7 @@
 
 ## Запрос {#request}
 
-```
+```http
 PUT /{bucket}?lifecycle HTTP/2
 ```
 
