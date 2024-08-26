@@ -100,6 +100,10 @@ items:
         href: tutorials/index.md
       - name: Получение статистики запросов к объекту с использованием S3 Select
         href: tutorials/server-logs.md
+      - name: >-
+          Получение статистики запросов к объектам {{ objstorage-full-name }} с
+          использованием {{ yq-full-name }}
+        href: tutorials/server-logs-yq.md
       - name: Получение статистики посещения сайта с использованием S3 Select
         href: tutorials/user-agent-statistics.md
       - name: >-
@@ -168,6 +172,10 @@ items:
         href: tutorials/gatsby-static-website.md
       - name: Хранение статического ключа доступа в секрете {{ lockbox-name }}
         href: tutorials/static-key-in-lockbox.md
+      - name: Загрузка состояний {{ TF }} в {{ objstorage-name }}
+        href: tutorials/terraform-state-storage.md
+      - name: Блокировка состояний {{ TF }} с помощью {{ ydb-name }}
+        href: tutorials/terraform-state-lock.md
       - name: Статический веб-сайт в {{ objstorage-full-name }}
         items:
           - name: Обзор

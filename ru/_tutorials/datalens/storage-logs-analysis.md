@@ -53,10 +53,10 @@
      aws --endpoint-url https://{{ s3-storage-host }} \
        s3 mb s3://<имя_бакета>
      ```
-     
+
      Результат:
      
-     ```
+     ```text
      make_bucket: <имя_бакета>
      ```
 
@@ -74,14 +74,14 @@
 
   1. Добавьте в конфигурационный файл параметры бакета:
   
-     ```
+     ```hcl
      resource "yandex_storage_bucket" "bucket-logs" {
        access_key = yandex_iam_service_account_static_access_key.sa-static-key.access_key
        secret_key = yandex_iam_service_account_static_access_key.sa-static-key.secret_key
        bucket     = "<имя_бакета>"
      }
      ```
-     
+
      Подробнее о ресурсе `yandex_storage_bucket` см. в [документации]({{ tf-provider-resources-link }}/storage_bucket) провайдера {{ TF }}.
      
   1. Проверьте корректность настроек.
@@ -126,7 +126,7 @@
 
   1. Выполните команду:
      
-     ```
+     ```bash
      aws s3api put-bucket-logging \
        --endpoint-url https://{{ s3-storage-host }} \
        --bucket <имя_бакета> \

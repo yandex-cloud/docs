@@ -350,6 +350,7 @@ default:
   message-queue-name: Message Queue
   message-queue-short-name: Message Queue
   metadata-hub-full-name: Yandex MetaData Hub
+  metadata-hub-name: Yandex MetaData Hub
   metastore-full-name: Hive Metastore
   metastore-name: Metastore
   metrika: Яндекс Метрика
@@ -4573,6 +4574,8 @@ default:
       ui_components_admin-repositories_ConnectRepositoryDialog:
         connect: Подключить
         token-label: Токен
+      ui_components_admin-tab-types_AdminTabTypes:
+        title: Типы задач
       ui_components_agile_agile-board_AgileBoardActionsMenu:
         delete-board-menu-item: Удалить доску
         migration-rollback: Миграция в старую версию
@@ -4658,6 +4661,8 @@ default:
         deck-field-label: Колода оценок
         display-estimated-field-label: Отображать оценённые задачи
         save: Сохранить
+      ui_components_App:
+        title-queues: Очереди
       ui_components_attachments-manager:
         attach: Прикрепить файлы
         attachments-section-title: Файлы
@@ -4667,6 +4672,8 @@ default:
         apply: Применить
       ui_components_CreateIssueForm:
         create-issue: Создать задачу
+      ui_components_dashboard_CollapseHeader:
+        copy-menu-item: Копировать
       ui_components_dashboard_DashboardActionsMenu:
         set-start-page-action: Сделать стартовой
       ui_components_dashboard_DashboardHeader:
@@ -4741,6 +4748,7 @@ default:
         color-type-by-parameter: по параметрам задачи
         color-type-monochrome: однотонный
         delete-link: Удалить связь
+        exit: Выйти
         scale-days: Неделя
         scale-month: Месяц
         scale-quarters: Квартал
@@ -4810,6 +4818,8 @@ default:
         links-tab: Связи
       ui_components_ModalTextEditor:
         save: Сохранить
+      ui_components_navigation:
+        invite-user: Добавить пользователя
       ui_components_new-process_ProcessTypeStep:
         next-button: Продолжить
         process-type-development: Разработка
@@ -4928,6 +4938,8 @@ default:
         subscribe: Подписаться
         subscribe-all: Подписаться на все уведомления
         subscribe-new-tickets: Подписаться на создание задач
+      ui_components_PageQueues:
+        new-queue: Создать очередь
       ui_components_portfolios_Header:
         description-tab: О портфеле
         projects-tab: Проекты
@@ -5250,6 +5262,8 @@ default:
         action_send-invitation: Отправить приглашение
       request-alpha-flag-dialog:
         button_send: Отправить заявку
+      services:
+        service_compute: Compute Cloud
       settings:
         button_add-empty-telegram: Настроить
         button_submit: Подтвердить
@@ -6241,6 +6255,7 @@ default:
           label_billing: Биллинг
           label_monitoring: Monitoring
           label_notifications: Уведомления
+          label_vpc: Virtual Private Cloud
         security-group-field:
           label_sg-auto: Автоматически
           label_sg-from-list: Из списка
@@ -6398,7 +6413,7 @@ default:
             field_ua-enabled: Агент для поставки метрик
             label_host: Внутренний FQDN
             label_network-interface: Сетевой интерфейс
-            label_public-ipv4: Публичный IPv4
+            label_public-ipv4: Публичный IPv4-адрес
             popup-confirm_button_remove-one-to-one-nat: Удалить
             section_monitoring: Мониторинг
             section_network: Сеть
@@ -7686,7 +7701,7 @@ default:
             label_add-folder: Добавить бакет
             label_async: Асинхронный вызов
             label_bucket: Бакет
-            label_bucket-prefix: Папка
+            label_bucket-prefix: Directory
             label_failed-sa: Назначение для неуспешного результата
             label_lockbox-env-key: Переменная окружения
             label_lockbox-secret: Секреты Lockbox
@@ -8056,6 +8071,7 @@ default:
           button_action-dynamic: Сделать динамическим
           button_action-static: Сделать статическим
           button_create: Зарезервировать адрес
+          label_title: IP-адреса
           popup-confirm_button_disable-protection: Выключить
           popup-confirm_button_dynamic: Изменить
           popup-confirm_button_static: Изменить

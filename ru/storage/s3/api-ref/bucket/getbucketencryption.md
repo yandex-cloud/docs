@@ -5,7 +5,7 @@
 
 ## Запрос {#request}
 
-```
+```http
 GET /{bucket}?encryption HTTP/2
 ```
 
@@ -33,7 +33,7 @@ GET /{bucket}?encryption HTTP/2
 
 ### Схема данных {#response-scheme}
 
-```
+```xml
 <ServerSideEncryptionConfiguration>
    <Rule>
       <ApplyServerSideEncryptionByDefault>

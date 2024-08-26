@@ -105,7 +105,7 @@
       ```bash
       {{ yc-mdb-rd }} cluster list
       ```
-      
+
 	  Результат:
 	  
       ```text

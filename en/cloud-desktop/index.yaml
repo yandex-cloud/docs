@@ -41,3 +41,6 @@ links:
   - title: Access management
     description: Setting up access permissions for the service
     href: security/
+  - title: API reference
+    description: HTTP API method descriptions
+    href: api-ref/

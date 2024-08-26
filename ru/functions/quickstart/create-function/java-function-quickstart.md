@@ -24,13 +24,13 @@
 
     Чтобы создать функцию, выполните команду:
 
-    ```
+    ```bash
     yc serverless function create --name=java-function
     ```
 
     Результат:
 
-    ```
+    ```bash
     id: b09bhaokchn9********
     folder_id: aoek49ghmknn********
     created_at: "2019-06-14T10:03:37.475Z"
@@ -128,7 +128,7 @@
 
     Чтобы создать версию функции, выполните команду:
 
-    ```
+    ```bash
     yc serverless function version create \
       --function-name=java-function \
       --runtime java11 \
@@ -149,7 +149,7 @@
 
     Результат:
 
-    ```
+    ```bash
     done (1s)
     id: d4evvn8obisa********
     function_id: d4elpv8pft63********

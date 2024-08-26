@@ -22,7 +22,7 @@
   with open('mob.xml', 'w') as f:
     subprocess.run(['curl', '-H', MOBILE_HEADER, URL], stdout=f)
   ```
-  
+
 {% endlist %}
 
 Результаты мобильной выдачи: 

@@ -14,6 +14,7 @@ API-шлюз задается декларативно при помощи сп�
 * [Обращение по HTTP](../concepts/extensions/http.md)
 * [Интеграция с {{ sf-name }}](../concepts/extensions/cloud-functions.md)
 * [Интеграция с {{ serverless-containers-name }}](../concepts/extensions/containers.md)
+* [Интеграция с {{ sws-name }}](../concepts/extensions/sws.md)
 * [Интеграция с {{ objstorage-name }}](../concepts/extensions/object-storage.md)
 * [Интеграция с {{ ml-platform-name }}](../concepts/extensions/datasphere.md)
 * [Интеграция с {{ yds-name }}](../concepts/extensions/datastreams.md)

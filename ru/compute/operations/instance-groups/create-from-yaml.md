@@ -17,10 +17,10 @@ description: "Следуя данной инструкции, вы сможет�
 
   Выполните следующую команду:
   
-  ```
+  ```bash
   {{ yc-compute-ig }} create --file specification.yaml
   ```
-  
+
   Подробнее о команде `{{ yc-compute-ig}} create` см. в [справочнике CLI](../../../cli/cli-ref/managed-services/compute/instance-group/create.md).
 
 - API {#api}

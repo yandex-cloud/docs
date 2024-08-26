@@ -11,7 +11,7 @@ sourcePath: ru/tracker/api-ref/delete-board.md
 
 Чтобы удалить доску, используйте HTTP-запрос с методом `DELETE`.
 
-```
+```http
 DELETE /{{ ver }}/boards/<идентификатор_доски>
 Host: {{ host }}
 Authorization: OAuth <OAuth-токен>

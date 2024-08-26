@@ -4,7 +4,7 @@
 
 ## Запрос {#request}
 
-```
+```http
 GET /{bucket}?versioning HTTP/2
 ```
 

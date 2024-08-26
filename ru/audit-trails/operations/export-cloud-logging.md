@@ -21,7 +21,7 @@
 
       * [`audit-trails.viewer`](../security/index.md#roles-list) на облако, с которого будут собираться аудитные логи:
 
-        ```
+        ```bash
         yc resource-manager cloud add-access-binding \
           --role audit-trails.viewer \
           --id <идентификатор_облака> \
@@ -36,7 +36,7 @@
 
       * [`logging.writer`](../../logging/security/index.md#roles-list) на каталог, в котором будет находиться трейл:
 
-        ```
+        ```bash
         yc resource-manager folder add-access-binding \
           --role logging.writer \
           --id <идентификатор_каталога> \

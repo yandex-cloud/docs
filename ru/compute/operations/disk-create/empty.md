@@ -43,7 +43,7 @@
       ```bash
       yc compute disk create --help
       ```
-  
+
   1. Создайте диск в каталоге по умолчанию:
   
       ```bash
@@ -52,7 +52,7 @@
         --size 10 \
         --description "my first disk via yc"
       ```
-  
+
       Данная команда создаст диск размером 10 ГБ с именем `first-disk` и описанием `my first disk via yc`.
 
       Требования к имени диска:
@@ -65,12 +65,12 @@
   
       Получите тот же список с большим количеством деталей в формате YAML:
   
-      ```
+      ```bash
       yc compute disk list --format yaml
       ```
 
       Результат:
-      ```yaml
+      ```bash
       - id: fhm4aq4hvq5g********
           folder_id: b1gm3og7ei7a********
           created_at: "2018-10-29T07:43:06Z"

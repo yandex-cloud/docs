@@ -14,13 +14,13 @@
 
     Чтобы сделать контейнер приватным, выполните команду:
 
-    ```
+    ```bash
     yc serverless container deny-unauthenticated-invoke <имя_контейнера>
     ```
 
     Результат:
 
-    ```
+    ```text
     done (1s)
     ```
 

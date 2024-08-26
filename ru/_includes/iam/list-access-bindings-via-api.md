@@ -8,7 +8,7 @@ curl -H "Authorization: Bearer ${IAM_TOKEN}" "https://resource-manager.{{ api-ho
 
 Результат:
 
-```
+```json
 {
   "accessBindings": [
   {

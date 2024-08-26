@@ -24,13 +24,13 @@
 
     Чтобы создать функцию, выполните команду:
 
-    ```
+    ```bash
     yc serverless function create --name=php-function
     ```
 
     Результат:
 
-    ```
+    ```bash
     id: b09bhaokchn9********
     folder_id: aoek49ghmknn********
     created_at: "2019-06-14T10:03:37.475Z"
@@ -101,7 +101,7 @@
 
     Чтобы создать версию функции, выполните команду:
 
-    ```
+    ```bash
     yc serverless function version create \
       --function-name=php-function \
       --runtime php74 \
@@ -122,7 +122,7 @@
 
     Результат:
 
-    ```
+    ```bash
     done (1s)
     id: d4evvn8obisa********
     function_id: d4elpv8pft63********

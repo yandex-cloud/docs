@@ -78,7 +78,7 @@
          }
        }
        ```
-  
+
     1. Проверьте корректность настроек.
   
          {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
@@ -136,7 +136,7 @@
       ```bash
       {{ yc-mdb-mg }} cluster get c9qut3k64b2o********
       ```
-      
+
       Результат:
 
       ```text

@@ -5,7 +5,7 @@
 
 ## Запрос {#request}
 
-```
+```http
 GET /{bucket}?acl HTTP/2
 ```
 

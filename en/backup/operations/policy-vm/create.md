@@ -213,11 +213,11 @@ description: "In this tutorial, you will learn how to create a backup policy in 
          * `VERSION_11`: Deprecated format, not recommended.
          * `VERSION_12`: Recommended format for fast backup and recovery.
          * `AUTO`: Automatic format selection. The default value is `VERSION_12`. The exception is creating [incremental](../../concepts/backup.md#types) backups for images created in other versions.
-      * `multi_volume_snapshotting_enabled`: Creating snapshots of multiple volumes at the same time. This is an optional parameter. It may take either the `true` or `false` value.
+      * `multi_volume_snapshotting_enabled`: Creating backups of multiple volumes at the same time. This is an optional parameter. It may take either the `true` or `false` value.
       * `name`: Backup policy name.
       * `performance_window_enabled`: Time windows to limit backup performance. This is an optional parameter. It may take either the `true` or `false` value. The default value is `false`.
       * `preserve_file_security_settings`: Retain security file settings. This is an optional parameter. It may take either the `true` or `false` value. The default value is `true`. We recommend using the `true` value.
-      * `quiesce_snapshotting_enabled`: Using the `quiescing` mode when creating [snapshots](../../../compute/concepts/snapshot.md). This is an optional parameter. It may take either the `true` or `false` value. The default value is `false`.
+      * `quiesce_snapshotting_enabled`: Using the `quiescing` mode when creating backups. This is an optional parameter. It may take either the `true` or `false` value. The default value is `false`.
       * `silent_mode_enabled`: Silent mode that assumes minimum interaction with users. This is an optional parameter. It may take either the `true` or `false` value. The default value is `true`.
       * `splitting_bytes`: Parameter that defines the size for splitting backups. This is an optional parameter. The default value is `9223372036854775807`.
       * `vss_provider`: VSS settings. This is an optional parameter. The value can be `NATIVE` or `TARGET_SYSTEM_DEFINED`. The default value is `NATIVE`.
@@ -253,8 +253,8 @@ description: "In this tutorial, you will learn how to create a backup policy in 
             * `repeat_every`: Frequency for repeating backups. This is an optional parameter.
             * `type`: Schedule type. The possible values are `HOURLY`, `DAILY`, `WEEKLY`, or `MONTHLY`.
             * `weekdays`: List of days of the week to apply the backup on. Used in `WEEKLY` format.
-      * `vm_snapshot_reattempts`: Parameters of snapshot creation reattempts in the event of failure:
-         * `enabled`: Retry creating a VM snapshot if an error occurs. This is an optional parameter. It may take either the `true` or `false` value. The default value is `true`.
+      * `vm_snapshot_reattempts`: Parameters of backup creation reattempts in the event of failure:
+         * `enabled`: Retry creating a backup if an error occurs. This is an optional parameter. It may take either the `true` or `false` value. The default value is `true`.
          * `interval`: Interval between reattempts. This is an optional parameter. The default value is `5m`.
          * `max_attempts`: Maximum number of reattempts. If reached, the operation is considered failed. This is an optional parameter. The default value is `5`.
 

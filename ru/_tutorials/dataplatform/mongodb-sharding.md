@@ -30,7 +30,7 @@
 1. [Включите шардирование](../../managed-mongodb/operations/shards.md#enable) для кластера.
 1. [Подключитесь](../../managed-mongodb/operations/connect/index.md) к хосту `MONGOS` или `MONGOINFRA` с помощью CLI `mongosh` и включите шардирование:
 
-   ```
+   ```text
    sh.enableSharding("<имя_БД>")
    ```
 
@@ -38,13 +38,13 @@
 
 1. Задайте индекс в шардированной коллекции:
 
-   ```
+   ```text
    db.getSiblingDB("<имя_БД>").<имя_коллекции>.createIndex( { "<индекс>": <тип_индекса> } )
    ```
 
 1. Включите шардирование коллекции:
 
-   ```
+   ```text
    sh.shardCollection( "<имя_БД>.<коллекция>", { "<индекс>": <тип_индекса> } )
    ```
 
@@ -72,19 +72,19 @@
 1. [Подключитесь](../../managed-mongodb/operations/connect/index.md) к базе `billing`. У пользователя, от имени которого вы подключаетесь к базе, должна быть роль [mdbShardingManager](../../managed-mongodb/concepts/users-and-roles.md#mdbShardingManager) в базе данных [admin](https://docs.mongodb.com/manual/reference/glossary/#term-admin-database).
 1. Включите шардирование для базы `billing`:
 
-   ```
+   ```text
    sh.enableSharding("billing")
    ```
 
 1. Определите индекс в шардированной коллекции:
 
-   ```
+   ```text
    db.payments.ensureIndex( { "_id": "hashed" } )
    ```
 
 1. Создайте необходимое количество шардов в [консоли управления]({{ link-console-main }}).
 1. Задайте шардирование для коллекции с учетом ее пространства имен:
-   ```
+   ```text
    sh.shardCollection( "billing.payments", { "_id": "hashed" } )
    ```
 

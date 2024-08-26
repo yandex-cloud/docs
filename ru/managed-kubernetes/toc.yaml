@@ -171,6 +171,8 @@ items:
         href: tutorials/time-slicing-gpu.md
       - name: Миграция ресурсов в другую зону доступности
         href: tutorials/migration-to-an-availability-zone.md
+      - name: Использование модулей {{ yandex-cloud }} в {{ TF }}
+        href: tutorials/terraform-modules.md
       - name: Настройка и тестирование масштабирования
         items:
           - name: Горизонтальное масштабирование приложения в кластере
@@ -217,6 +219,8 @@ items:
             href: tutorials/node-local-dns.md
           - name: Проверка DNS Challenge для сертификатов Let's Encrypt®
             href: tutorials/dnschallenge.md
+          - name: Создание веб-хука резолвера ACME для ответов на DNS01-проверки
+            href: tutorials/cert-manager-webhook.md
       - name: Резервное копирование
         items:
           - name: Резервное копирование в {{ objstorage-name }}

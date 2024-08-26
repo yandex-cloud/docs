@@ -322,7 +322,7 @@
 
 1. Перезапустите службу сервера Samba:
 
-    ```
+    ```bash
     sudo systemctl restart smb.service
     ```
 

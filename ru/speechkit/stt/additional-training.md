@@ -47,7 +47,7 @@
 
 Тогда файл с шаблонами `templates.tsv` может состоять из записей вида
 
-```
+```text
 Добрый день, вы {first-name=first-names.tsv} {middle-name=middle-names.tsv} {last-name=last-names.tsv}?
 Здравствуйте, я могу поговорить с {first-name=first-names-ablative.tsv} {middle-name=middle-names-ablative.tsv}?
 ```

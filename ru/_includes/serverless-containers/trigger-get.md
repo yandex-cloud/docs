@@ -42,7 +42,7 @@
             service-account-id: aje3lebfemh2********
     status: ACTIVE
     ```
-  
+
 
 - API {#api}
 

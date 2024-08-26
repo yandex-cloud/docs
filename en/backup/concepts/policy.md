@@ -8,7 +8,7 @@ The backup policy specifies:
 
 * Backup frequency: By hour, day, week, or month. The time is provided for the [UTC](https://{{ lang }}.wikipedia.org/wiki/UTC±00:00) time zone.
 * Backup type: Full or incremental. For more information, see [{#T}](backup.md#types).
-* [Snapshot retention](#retention) settings.
+* [Backups retention](#retention) settings.
 
 {% include [policy-execute-time](../../_includes/backup/policy-execute-time.md) %}
 
@@ -18,7 +18,7 @@ You can set up backup storage for the policy. The following can be stored for ea
 
 * All backups created under this policy.
 * Only the last several backups.
-* Only the snapshots younger than a certain age, e.g., those created during the last few days.
+* Only the backups younger than a certain age, e.g., those created during the last few days.
 
 The settings apply to all VMs in the policy.
 

@@ -48,7 +48,7 @@ type | Ключ [типа изменения](#diff-type). | Строка
 	
     Заголовки `Link` содержат ссылки на первую (`rel="first"`) и последующую (`rel="next"`) страницы ответа. По умолчанию на каждой странице располагается 50 изменений.
 	
-    ```
+    ```text
     ...
     Link: <{{ host }}/v2/issues/SCR-8/changelog?perPage=50>; rel="first"
     Link: <{{ host }}/v2/issues/SCR-8/changelog?id=5b9a1a88f7c60500********&perPage=50>; rel="next"

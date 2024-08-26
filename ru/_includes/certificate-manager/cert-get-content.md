@@ -13,7 +13,7 @@
        Экспортировать можно только сертификаты в статусе `Issued`.
     1. Выберите один из вариантов экспорта. В файле `certificate.pem` в текстовом формате в кодировке Base64 будут сохранены:
        * **{{ ui-key.yacloud.certificate-manager.overview.certificate_content_select_full }}** — цепочка сертификатов (корневой и конечный сертификат) и приватный ключ со стандартным обрамлением:
-          ```
+          ```text
           -----BEGIN CERTIFICATE-----
           MIIE5zCCA8+gAwI...
           -----END CERTIFICATE-----
@@ -26,7 +26,7 @@
           ```
 
        * **{{ ui-key.yacloud.certificate-manager.overview.certificate_content_select_no_private_key }}** — цепочка сертификатов (корневой и конечный сертификат):
-         ```
+         ```text
           -----BEGIN CERTIFICATE-----
           MIIE5zCCA8+gAwI...
           -----END CERTIFICATE-----
@@ -36,13 +36,13 @@
           ```
 
        * **{{ ui-key.yacloud.certificate-manager.overview.certificate_content_select_leaf_only }}**:
-           ```
+           ```text
           -----BEGIN CERTIFICATE-----
           MIIFFjCCAv6gAwIBAg...
           -----END CERTIFICATE-----`
           ```
        * **{{ ui-key.yacloud.certificate-manager.overview.certificate_content_select_private_key_only }}**:
-          ```
+          ```text
           -----BEGIN PRIVATE KEY-----
           MIIEvgIBADANBgk...
           -----END PRIVATE KEY-----`

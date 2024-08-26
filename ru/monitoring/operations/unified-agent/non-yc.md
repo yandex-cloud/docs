@@ -43,7 +43,7 @@
            "private_key": "-----BEGIN PRIVATE KEY-----\nMI..."
        }
        ```
-   
+
 1. [Установите и настройте на хосте {{unified-agent-full-name}}](../../concepts/data-collection/unified-agent/installation.md):
    
    1. Установите [Docker](https://docs.docker.com).

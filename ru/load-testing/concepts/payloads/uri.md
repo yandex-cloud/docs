@@ -6,7 +6,7 @@
 
 Формат данных:
 
-```
+```text
 [Header_name: header_value]
 uri1 
 uri2 tag
@@ -56,7 +56,7 @@ uri2 tag
 
    - Текстовый файл с заголовками и запросами `ammo.txt`:
 
-   ```
+   ```http
    [Connection: close]
    [Host: target.example.com]
    [Cookie: None]
@@ -114,7 +114,7 @@ uri2 tag
 
    Также заголовки и эндпоинты могут быть вынесены в отдельный текстовый файл: 
 
-   ```
+   ```yaml
    config_content:
       pools:
       - id: HTTP

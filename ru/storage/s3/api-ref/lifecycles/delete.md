@@ -4,7 +4,7 @@
 
 ## Запрос {#request}
 
-```
+```http
 DELETE /{bucket}?lifecycle HTTP/2
 ```
 

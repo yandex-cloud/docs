@@ -35,7 +35,7 @@
      | xc8n3spmksqm******** | original-image |        |             | READY  |
      +----------------------+----------------+--------+-------------+--------+
      ```
-     
+
    - API {#api}
      
      Воспользуйтесь методом REST API [list](../../api-ref/Image/list.md) для ресурса [Image](../../api-ref/Image/index.md) или вызовом gRPC API [ImageService/List](../../api-ref/grpc/image_service.md#List).

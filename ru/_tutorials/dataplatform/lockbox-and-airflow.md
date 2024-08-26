@@ -61,7 +61,7 @@
 
    * **Имя** — `airflow/connections/pg`;
    * **Значение** — укажите следующее содержимое:
-      ```
+      ```json
       {
         "conn_type": "postgres",
         "host": "<FQDN_хоста_кластера_{{ PG }}>",

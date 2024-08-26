@@ -1,3 +1,8 @@
+---
+title: "История изменений в {{ objstorage-full-name }}"
+description: "В разделе представлена история изменений сервиса {{ objstorage-name }}."
+---
+
 # История изменений в {{ objstorage-full-name }}
 
 ## II квартал 2024 {#q2-2024}

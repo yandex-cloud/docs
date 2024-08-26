@@ -116,6 +116,8 @@ items:
         href: concepts/limits.md
   - name: Практические руководства
     items:
+      - name: Автомасштабирование группы ВМ для обработки сообщений из очереди
+        href: tutorials/autoscale-monitoring.md
       - name: Мониторинг показаний датчиков и уведомления о событиях
         href: tutorials/monitoring.md
   - name: '{{ managed-prometheus-name }}'

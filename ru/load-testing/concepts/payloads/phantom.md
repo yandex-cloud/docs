@@ -6,7 +6,7 @@
 
 Формат данных:
 
-```
+```text
 <byte_length_1> <tag_1>\r\n
 <request_headers_1>\r\n
 <request_body_1>\r\n
@@ -31,7 +31,7 @@
 
 - GET запросы:
 
-	```
+	```http
 	73 good
 	GET / HTTP/1.0
 	Host: xxx.tanks.example.com
@@ -50,7 +50,7 @@
 
 - POST запросы (бинарные данные):
 
-	```
+	```http
 	904
 	POST /upload/2 HTTP/1.0
 	Content-Length: 801
@@ -74,7 +74,7 @@
 
 - POST запросы (multipart):
 
-	```
+	```http
 	533
 	POST /updateShopStatus? HTTP/1.0
 	User-Agent: xxx/1.2.3

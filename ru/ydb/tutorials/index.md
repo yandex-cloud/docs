@@ -19,3 +19,4 @@ description: "Различные сценарии использования {{ 
 * [{#T}](ydb-to-clickhouse.md)
 * [{#T}](opensearch-to-ydb.md)
 * [{#T}](ci-cd-serverless.md)
+* [{#T}](terraform-state-lock.md)

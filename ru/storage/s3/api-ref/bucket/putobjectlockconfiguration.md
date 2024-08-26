@@ -9,7 +9,7 @@
 
 ## Запрос {#request}
 
-```
+```http
 PUT /{bucket}?object-lock HTTP/2
 ```
 

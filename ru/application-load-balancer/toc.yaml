@@ -101,6 +101,10 @@ items:
       - name: Настройки логирования для Ingress-контроллеров {{ alb-name }}
         href: tutorials/alb-ingress-controller-log-options.md
       - name: >-
+          Отказоустойчивый сайт с балансировкой нагрузки с помощью {{ alb-name
+          }}
+        href: tutorials/application-load-balancer-website.md
+      - name: >-
           Проверка состояния приложений в кластере {{ k8s }} с помощью
           Ingress-контроллера {{ alb-name }}
         href: tutorials/custom-health-checks.md

@@ -114,6 +114,8 @@ items:
           Перенос данных из {{ objstorage-full-name }} с использованием {{
           data-transfer-full-name }}
         href: tutorials/object-storage-to-postgresql.md
+      - name: Настройка отказоустойчивой архитектуры в {{ yandex-cloud }}
+        href: tutorials/fault-tolerance.md
       - name: Создание сайта на базе Joomla с базой данных PostgreSQL
         items:
           - name: Обзор

@@ -321,7 +321,7 @@ Bacula состоит из нескольких компонентов:
         ```bash
         sudo sed -i "/^bacula/ s@/bin/bash@/sbin/nologin@" /etc/passwd 
         ```
-   
+
 ## Настройте компоненты Bacula {#configure-bacula}
 
 ### Настройте Bacula Director {#configure-director}
@@ -585,7 +585,7 @@ Bacula Director, Storage Daemon и File Daemon используют пароли
     ```bash
     run    
     ```
-    
+
     Чтобы запустить задачу `BackupFiles`, выберите `1`:
 
     ```bash
@@ -618,7 +618,7 @@ Bacula Director, Storage Daemon и File Daemon используют пароли
     ======================================================================
          2 Full    BackupFiles.2019-09-12_07.22.56_03 is running
     ```
-    
+
     Результат, если резервное копирование завершено:
 
     ```text
@@ -722,7 +722,7 @@ Bacula Director, Storage Daemon и File Daemon используют пароли
     ```bash
     OK to run? (yes/mod/no): yes
     ```
-    
+
 1. Проверьте статус восстановления:
 
     ```bash

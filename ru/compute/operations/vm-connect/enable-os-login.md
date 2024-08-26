@@ -99,7 +99,7 @@ description: "Следуя данной инструкции, вы сможет�
 
     - Linux {#linux}
 
-      ```
+      ```bash
       curl https://storage.yandexcloud.net/oslogin-configs/common/remove_oslogin.sh | bash
       ```
 

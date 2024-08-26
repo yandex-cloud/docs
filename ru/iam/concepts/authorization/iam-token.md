@@ -8,7 +8,7 @@ IAM-токен — уникальная последовательность с
 
 Для работы с {{ TF }} [добавьте IAM-токен в переменные окружения](../../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) или укажите его в [конфигурационном файле с настройками провайдера](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider):
 
-```
+```hcl
 provider "yandex" {
   token = "<IAM-токен>"
 }

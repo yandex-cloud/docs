@@ -11,7 +11,7 @@ sourcePath: ru/tracker/api-ref/concepts/issues/temp-attachment.md
 
 Чтобы добавить временный файл, используйте HTTP-запрос с методом `POST`.
 
-```
+```http
 POST /{{ ver }}/attachments/
 Host: {{ host }}
 Authorization: OAuth <OAuth-токен>
@@ -25,7 +25,7 @@ Content-Type: multipart/form-data
 
 - **Host**
     Адрес узла, предоставляющего API:
-    ```
+    ```text
     {{ host }}
     ```
 
@@ -33,7 +33,7 @@ Content-Type: multipart/form-data
 
     OAuth-токен в формате `OAuth <OAuth-токен>`, например:
 
-    ```
+    ```text
     OAuth 0c4181a7c2cf4521964a72ff********
     ```
 

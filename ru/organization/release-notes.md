@@ -1,6 +1,9 @@
-# История изменений в {{ org-full-name }}
+---
+title: "История изменений в {{ org-full-name }}"
+description: "В разделе представлена история изменений сервиса {{ org-name }}."
+---
 
-В разделе представлена история изменений сервиса {{ org-name }}.
+# История изменений в {{ org-full-name }}
 
 {% include [Tags-nosql](../_includes/release-notes-tags-nosql.md) %}
 

@@ -12,6 +12,6 @@
 
 Пример:
 
-```
+```http
 X-Amz-Grant-Read: uri="http://acs.amazonaws.com/groups/s3/AuthenticatedUsers"
 ```

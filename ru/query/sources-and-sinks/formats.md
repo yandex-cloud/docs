@@ -17,7 +17,7 @@
 Данный формат основан на формате [CSV](https://ru.wikipedia.org/wiki/CSV). Данные размещены в колонках, разделены запятыми, на первой строке файла находятся имена колонок.
 
 Пример данных:
-```
+```text
 Year,Manufacturer,Model,Price
 1997,Ford,E350,3000.00
 1999,Chevy,"Venture «Extended Edition»",4900.00
@@ -57,7 +57,7 @@ WITH
 Данный формат основан на формате [TSV](https://ru.wikipedia.org/wiki/TSV). Данные размещены в колонках, разделены символами табуляции (код `0x9`), в первой строке файла находятся имена колонок.
 
 Пример данных:
-```
+```text
 Year    Manufacturer    Model   Price
 1997    Ford    E350    3000.00
 1999    Chevy   "Venture «Extended Edition»"    4900.00
@@ -171,7 +171,7 @@ WITH
 
 Результат выполнения запроса:
 
-```
+```text
 Year,Manufacturer,Model,Price
 1997,Ford,E350,3000.00
 1999,Chevy,\"Venture «Extended Edition»\",4900.00

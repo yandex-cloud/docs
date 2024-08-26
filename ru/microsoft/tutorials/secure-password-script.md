@@ -52,7 +52,7 @@
 
    Результат:
 
-   ```yaml
+   ```bash
    id: ajehr0to1g8b********
    folder_id: b1gv87ssvu49********
    created_at: "2024-03-15T09:03:11.665153755Z"
@@ -129,7 +129,7 @@
 
       Выполните команду:
 
-      ```
+      ```bash
       yc resource-manager folder add-access-binding <идентификатор_каталога> \
          --role kms.keys.encrypterDercrypter \
          --subject serviceAccount:<идентификатор_сервисного_аккаунта>
@@ -259,7 +259,7 @@
 
       Выполните команду:
 
-      ```
+      ```bash
       yc resource-manager folder add-access-binding <идентификатор_каталога> \
          --role lockbox.payloadViewer \
          --subject serviceAccount:<идентификатор_сервисного_аккаунта>
@@ -277,7 +277,7 @@
 
 1. Создайте файл `init.ps1` и сохраните в него код:
 
-   ```
+   ```text
    #ps1
    
    # logging
@@ -363,7 +363,7 @@
 
       Выполните команду:
 
-      ```
+      ```bash
       yc compute instance create --name win-test --hostname windows10 --zone {{ region-id }}-a --create-boot-disk image-id=<imade_id> --cores 2 --core-fraction 100 --memory 4 --metadata-from-file user-data=init.ps1  --network-interface subnet-name=<subnet_name>,nat-ip-version=ipv4 --service-account-name win-test-sa --platform standard-v3
       ```
 

@@ -48,6 +48,24 @@ items:
             href: operations/target-group-delete.md
       - name: Посмотреть операции с ресурсами сервиса
         href: operations/operation-logs.md
+  - name: Практические руководства
+    items:
+      - name: Все руководства
+        href: tutorials/index.md
+      - name: Архитектура и защита базового интернет-сервиса
+        href: tutorials/web-service.md
+      - name: Настройка отказоустойчивой архитектуры в {{ yandex-cloud }}
+        href: tutorials/fault-tolerance.md
+      - name: >-
+          Отказоустойчивый сайт с балансировкой нагрузки с помощью {{
+          network-load-balancer-name }}
+        href: tutorials/load-balancer-website.md
+      - name: Работа с группой ВМ с автомасштабированием
+        href: tutorials/vm-autoscale.md
+      - name: Обновление группы ВМ под нагрузкой
+        href: tutorials/updating-under-load.md
+      - name: Интеграция {{ dns-name }} и корпоративного сервиса DNS
+        href: tutorials/dns-integration.md
   - name: Концепции
     items:
       - name: Обзор

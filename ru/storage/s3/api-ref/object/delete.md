@@ -5,7 +5,7 @@
 
 ## Запрос {#request}
 
-```
+```http
 DELETE /{bucket}/{key} HTTP/2
 ```
 

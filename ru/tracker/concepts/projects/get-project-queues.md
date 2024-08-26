@@ -11,7 +11,7 @@ sourcePath: ru/tracker/api-ref/concepts/projects/get-project-queues.md
 
 Чтобы получить список очередей проекта, используйте HTTP-запрос с методом `GET`.
 
-```
+```http
 GET /{{ ver }}/projects/<идентификатор_проекта>/queues
 Host: {{ host }}
 Authorization: OAuth <OAuth-токен>

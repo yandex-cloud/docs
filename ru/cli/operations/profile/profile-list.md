@@ -6,7 +6,7 @@
 
 Для получения списка профилей выполните команду:
 
-```
+```bash
 yc config profile list
 prod ACTIVE
 test
@@ -19,7 +19,7 @@ test
 Получите подробную информацию о профиле с именем `prod`:
 
 
-```
+```bash
 yc config profile get prod
 token: AQAAAAAV6O...
 cloud-id: b1gvl...

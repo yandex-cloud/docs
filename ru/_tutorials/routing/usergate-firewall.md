@@ -55,41 +55,41 @@
      ```bash
      yc vpc network create usergate-network
      ```
-     
+
      Результат:
-       
-     ```
-     id: enptrcle5q3d3ktd33hj
-     folder_id: b1g9hv2loamqfnbul7d9
+
+     ```bash
+     id: enptrcle5q3d********
+     folder_id: b1g9hv2loamq********
      created_at: "2022-06-08T09:25:03Z"
      name: usergate-network
-     default_security_group_id: enpbsnnop4akg7ng70ll
+     default_security_group_id: enpbsnnop4ak********
      ```
-     
+
      Подробнее о команде `yc vpc network create` см. в [справочнике CLI](../../cli/cli-ref/managed-services/vpc/network/create.md).
-     
+
   1. Создайте подсеть `usergate-subnet-{{ region-id }}-a` в зоне доступности `{{ region-id }}-a`:
-  
-     ```
+
+     ```bash
      yc vpc subnet create usergate-subnet-{{ region-id }}-a \
        --zone {{ region-id }}-a \
        --network-name usergate-network \
        --range 10.1.0.0/16
      ```
-   
+
      Результат:
     
-     ``` 
-     id: e9bnnssj8sc8mjhat9qk
-     folder_id: b1g9hv2loamqfnbul7d9
+     ```yaml
+     id: e9bnnssj8sc8********
+     folder_id: b1g9hv2loamq********
      created_at: "2022-06-08T09:27:00Z"
      name: usergate-subnet-{{ region-id }}-a
-     network_id: enptrcle5q3d3ktd33hj
+     network_id: enptrcle5q3d********
      zone_id: {{ region-id }}-a
      v4_cidr_blocks:
      - 10.1.0.0/16
      ```
-     
+
      Подробнее о команде `yc vpc subnet create` см. в [справочнике CLI](../../cli/cli-ref/managed-services/vpc/subnet/create.md).
 
 
@@ -98,7 +98,7 @@
 
   1. Опишите в конфигурационном файле параметры сети `usergate-network` и ее подсетей:
 
-     ```
+     ```hcl
      resource "yandex_vpc_network" "usergate-network" {
        name = "usergate-network"
      }
@@ -167,8 +167,8 @@
   Результат:
 
   ```bash
-  id: e9b6un9gkso6stdh6b3p
-  folder_id: b1g7gvsi89m34pipa3ke
+  id: e9b6un9gkso6********
+  folder_id: b1g7gvsi89m3********
   created_at: "2022-06-08T17:52:42Z"
   external_ipv4_address:
     address: 178.154.253.52
@@ -255,8 +255,8 @@
      Результат:
 
      ```bash
-     id: fhm2na1siftpfhrfc03l
-     folder_id: b1g86q4m5vej8lkljme5
+     id: fhm2na1siftp********
+     folder_id: b1g86q4m5vej********
      created_at: "2022-06-09T11:15:52Z"
      name: usergate-firewall
      zone_id: {{ region-id }}-a
@@ -268,19 +268,19 @@
      status: RUNNING
      boot_disk:
        mode: READ_WRITE
-       device_name: fhmiq60rni2tqvjdiq3l
+       device_name: fhmiq60rni2t********
        auto_delete: true
-       disk_id: fhmiq60rni2tqvjdiq3l
+       disk_id: fhmiq60rni2t********
      network_interfaces:
      - index: "0"
        mac_address: d0:0d:2b:a8:3c:93
-       subnet_id: e9bqlr188as7rgsgh4kn
+       subnet_id: e9bqlr188as7********
        primary_v4_address:
          address: 10.1.0.27
          one_to_one_nat:
            address: 51.250.72.1
            ip_version: IPV4
-     fqdn: fhm2na1siftpfhrfc03l.auto.internal
+     fqdn: fhm2na1siftp********.auto.internal
      scheduling_policy: {}
      network_settings:
        type: STANDARD
@@ -294,7 +294,7 @@
   1. [Получите](../../compute/operations/images-with-pre-installed-software/get-list.md) идентификатор последней версии образа UserGate NGFW из списка публичных образов.
   1. Опишите в конфигурационном файле параметры ВМ `usergate-firewall`:
 
-     ```
+     ```hcl
      resource "yandex_compute_disk" "boot-disk" {
        name     = "boot-disk"
        type     = "network-hdd"
@@ -476,11 +476,11 @@
      ```
 
      Результат:
-     ```
+     ```text
      +----------------------+--------------------+
      |          ID          |      NAME          |
      +----------------------+--------------------+
-     | enp846vf5fus0nt3lu83 | usergate-network   |
+     | enp846vf5fus******** | usergate-network   |
      +----------------------+--------------------+
      ```
 
@@ -489,7 +489,7 @@
      ```bash
      yc vpc route-table create \
        --name=test-route-table \
-       --network-id=enp846vf5fus0nt3lu83 \
+       --network-id=enp846vf5fus******** \
        --route destination=0.0.0.0/0,next-hop=10.129.0.24
      ```
 
@@ -502,13 +502,13 @@
         * `next-hop` — внутренний IP-адрес виртуальной машины UserGate `usergate-firewall`.
 
      Результат:
-     ```
+     ```bash
      ...done
-     id: enpsi6b08q2vfdmppsnb
-     folder_id: b1gqs1teo2q2a4vnmi2t
+     id: enpsi6b08q2v********
+     folder_id: b1gqs1teo2q2********
      created_at: "2019-06-24T09:57:54Z"
      name: test-route-table
-     network_id: enp846vf5fus0nt3lu83
+     network_id: enp846vf5fus********
      static_routes:
      - destination_prefix: 0.0.0.0/0
        next_hop_address: 10.129.0.24
@@ -518,37 +518,37 @@
 
   1. Получите список подсетей в вашем облаке:
 
-     ```
+     ```bash
      yc vpc subnet list
      ```
 
      Результат:
-     ```
+     ```text
      +----------------------+-------------------------------+----------------------+----------------------+---------------+-----------------+
      |          ID          |               NAME            |      NETWORK ID      |    ROUTE TABLE ID    |       ZONE    |      RANGE      |
      +----------------------+-------------------------------+----------------------+----------------------+---------------+-----------------+
-     | b0c4l3v9jrgdqve43902 | usergate-subnet-{{ region-id }}-a | enpjsdf771h0c0fs7g5a |                      | {{ region-id }}-a | [10.130.0.0/24] |
+     | b0c4l3v9jrgd******** | usergate-subnet-{{ region-id }}-a | enpjsdf771h0******** |                      | {{ region-id }}-a | [10.130.0.0/24] |
      +----------------------+-------------------------------+----------------------+----------------------+---------------+-----------------+
      ```
 
   1. Привяжите таблицу маршрутизации к подсети, в которой будет работать веб-сервис, например, к подсети `usergate-subnet-{{ region-id }}-a`:
 
      ```bash
-     yc vpc subnet update b0c4l3v9jrgdqve43902 --route-table-id e2l5345dlgr1ugidhmov
+     yc vpc subnet update b0c4l3v9jrgd******** --route-table-id e2l5345dlgr1********
      ```
 
      Результат:
-     ```
+     ```bash
      ..done
-     id: b0c4l3v9jrgdqve43902
-     folder_id: b1gqs1teo2q2a4vnmi2t
+     id: b0c4l3v9jrgd********
+     folder_id: b1gqs1teo2q2********
      created_at: "2019-03-12T13:27:22Z"
      name: subnet-1
-     network_id: enp846vf5fus0nt3lu83
+     network_id: enp846vf5fus********
      zone_id: {{ region-id }}-a
      v4_cidr_blocks:
      - 192.168.0.0/24
-     route_table_id: e2l5345dlgr1ugidhmov
+     route_table_id: e2l5345dlgr1********
      ```
 
 - {{ TF }} {#tf}
@@ -623,7 +623,7 @@
 1. [Создайте](../../compute/operations/vm-create/create-linux-vm) виртуальную машину из публичного образа Linux в подсети `usergate-subnet-{{ region-id }}-a`. В настройках виртуальной машины включите [серийную консоль](../../compute/operations/serial-console/index.md).
 1. Подключитесь к ВМ с помощью [CLI](../../compute/operations/serial-console/connect-cli.md), выполнив команду:
 
-   ```
+   ```bash
    yc compute connect-to-serial-port --instance-name <имя_виртуальной_машины>
    ```
 

@@ -6,7 +6,7 @@
 
 ## Запрос {#request}
 
-```
+```http
 GET / HTTP/2
 ```
 
@@ -27,7 +27,7 @@ GET / HTTP/2
 
 ### Схема данных {#response-scheme}
 
-```
+```xml
 <ListAllMyBucketsResult>
   <Buckets>
     <Bucket>

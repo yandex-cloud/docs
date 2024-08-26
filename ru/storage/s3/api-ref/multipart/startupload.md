@@ -7,7 +7,7 @@
 
 ## Запрос {#request}
 
-```
+```http
 POST /{bucket}/{key}?uploads HTTP/2
 ```
 
@@ -59,7 +59,7 @@ POST /{bucket}/{key}?uploads HTTP/2
 
 ### Схема данных {#response-scheme}
 
-```
+```xml
 <InitiateMultipartUploadResult>
   <Bucket>bucket-name</Bucket>
   <Key>object-key</Key>
