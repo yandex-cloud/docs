@@ -43,9 +43,7 @@ editable: false
 
 ## Цены для региона Россия {#prices}
 
-
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
-
 
 Цены за месяц использования формируются из расчета 720 часов в месяц.
 

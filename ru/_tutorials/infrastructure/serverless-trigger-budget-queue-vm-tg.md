@@ -105,7 +105,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
 
           Результат:
 
-          ```bash
+          ```text
           done (2s)
           effective_deltas:
             - action: ADD
@@ -227,7 +227,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
 
       Результат:
 
-      ```bash
+      ```text
       id: e2l1ejkvq4jv********
       folder_id: b1g9d2k0itu4********
       created_at: "2024-02-23T18:40:26Z"
@@ -415,7 +415,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
 
           Результат:
 
-          ```bash
+          ```text
           done (2m32s)
           id: d4em5gaeev2b********
           function_id: d4e4aigfdm0b********
@@ -492,7 +492,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
 
   Результат:
 
-  ```bash
+  ```text
   id: a1sjrukc64hs********
   folder_id: b1g9d2k0itu4********
   created_at: "2024-02-23T21:20:03.308963151Z"
@@ -669,7 +669,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
 
           Результат:
 
-          ```bash
+          ```text
           done (29s)
           id: d4e41l4gj7rk********
           function_id: d4e6r2g9trt5********
@@ -746,7 +746,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
 
   Результат:
 
-  ```bash
+  ```text
   id: a1sqq6341kvh********
   folder_id: b1g9d2k0itu4********
   created_at: "2024-02-24T08:35:39.296084612Z"

@@ -62,6 +62,7 @@ Example of calculating the cost of a container with the following parameters:
 
 ## Prices for the Russia region {#prices}
 
+{% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 ### Invoking a container {#prices-invoking}
 

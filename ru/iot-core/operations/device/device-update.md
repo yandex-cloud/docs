@@ -31,7 +31,7 @@
   ```
 
   Результат:
-  ```bash
+  ```text
   id: b9135goeh1uc********
   registry_id: b91ki3851hab********
   created_at: "2019-05-28T16:08:30.938Z"

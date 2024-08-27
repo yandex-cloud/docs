@@ -166,7 +166,7 @@
 
      Результат:
 
-     ```bash
+     ```text
      id: d4ejb1799eko********
      folder_id: aoek49ghmknn********
      created_at: "2021-03-08T14:07:32.134Z"
@@ -201,7 +201,7 @@
 
      Результат:
 
-     ```bash
+     ```text
      done (1s)
      id: d4evvn8obisa********
      function_id: d4ejb1799eko********
@@ -219,7 +219,7 @@
 
      Результат:
 
-     ```bash
+     ```text
      done (1s)
      ```
 
@@ -355,7 +355,7 @@
 
      Результат:
 
-     ```bash
+     ```text
      done (41s)
      id: d5delqeel34q********
      folder_id: b1g86q4m5vej********

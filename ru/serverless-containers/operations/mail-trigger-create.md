@@ -100,7 +100,7 @@
 
     Результат:
 
-    ```bash
+    ```text
     id: a1sfe084v4h2********
     folder_id: b1g88tflruh2********
     created_at: "2022-12-04T08:45:31.131391Z"

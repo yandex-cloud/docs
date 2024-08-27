@@ -88,6 +88,7 @@ Where $45.362400 is the cost of using the instance for 30 days.
 
 ## Prices for the Russia region {#prices}
 
+{% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 
 All prices below do not include VAT.

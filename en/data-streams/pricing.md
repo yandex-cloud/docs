@@ -38,6 +38,7 @@ Data processing cost per month (for a 31-day month):
 
 ## Prices for the Russia region {#prices}
 
+{% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 ### Price per unit of written data {#event}
 

@@ -4,6 +4,7 @@ editable: false
 
 # {{ yandex-cloud }} pricing policy
 
+{% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 In {{ yandex-cloud }}, you can use resources of both billable and non-billable services. The fee for using {{ billing-name }} is included in the service price and is not charged separately.
 

@@ -1036,6 +1036,9 @@ items:
       - name: Не удалось создать <тип_объекта>
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-DB_OPERATIONAL_ERROR.md
+      - name: Невозможно обновить данные
+        hidden: true
+        href: troubleshooting/errors/ERR-FILE-CANNOT_UPDATE_DATA.md
       - name: Ошибка в запросе к объекту
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-US-BAD_REQUEST.md

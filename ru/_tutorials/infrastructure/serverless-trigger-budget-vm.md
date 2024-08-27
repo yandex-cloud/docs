@@ -58,7 +58,7 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-trigger-budget
         ```
 
         Результат:
-        ```bash
+        ```text
         id: ajersamh4sjq********
         folder_id: b1gc1t4cb638********
         created_at: "2022-12-07T10:36:29.726397755Z"
@@ -167,7 +167,7 @@ zip src.zip index.go go.mod
         ```
 
         Результат:
-        ```bash
+        ```text
         done (1s)
         id: d4eiqjdbqt7s********
         folder_id: b1gc1t4cb638********
@@ -203,7 +203,7 @@ zip src.zip index.go go.mod
         * `--source-path` — путь до ZIP-архива `src.zip`.
 
         Результат:
-        ```bash
+        ```text
         done (2m7s)
         id: d4ev38dddr41********
         function_id: d4eiqjdbqt7s********
@@ -345,7 +345,7 @@ zip src.zip index.go go.mod
         * `--ssh-key` — путь до публичного SSH-ключа. Для этого ключа на виртуальной машине будет автоматически создан пользователь `yc-user`. [Как создать пару SSH-ключей](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
 
         Результат:
-        ```bash
+        ```text
         done (34s)
         id: fhm8lon8b9a9********
         folder_id: b1gc1t4cb638********

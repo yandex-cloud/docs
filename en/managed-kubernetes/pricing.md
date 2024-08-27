@@ -15,6 +15,7 @@ Nodes are charged based on the [{{ compute-full-name }} pricing policy](../compu
 
 
 
+{% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 
 ### Master {#master}

@@ -77,7 +77,7 @@
 
      Результат:
 
-     ```bash
+     ```text
      id: ajehb3tcdfa1********
      folder_id: b1g86q4m5vej********
      created_at: "2024-07-22T16:05:14.237381531Z"
@@ -96,7 +96,7 @@
 
      Результат:
 
-     ```bash
+     ```text
      done (3s)
      effective_deltas:
        - action: ADD
@@ -142,7 +142,7 @@
 
      Результат:
 
-     ```bash
+     ```text
      id: enptrcle5q3d********
      folder_id: b1g9hv2loamq********
      created_at: "2024-06-08T09:25:03Z"
@@ -163,7 +163,7 @@
 
      Результат:
 
-     ```bash
+     ```text
      id: e9bnnssj8sc8********
      folder_id: b1g9hv2loamq********
      created_at: "2024-06-08T09:27:00Z"
@@ -226,7 +226,7 @@
 
   Результат:
 
-  ```bash
+  ```text
   id: enp0v73fe8fs********
   folder_id: b1g86q4m5vej********
   created_at: "2024-07-22T20:17:43Z"

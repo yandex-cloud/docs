@@ -49,6 +49,8 @@ Calculating the cost per month (30 days) with the same hourly load:
 
 ## Prices for the Russia region {#prices}
 
+{% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
+
 
 
 {% include [usd-lcu.md](../_pricing/application-load-balancer/usd-lcu.md) %}

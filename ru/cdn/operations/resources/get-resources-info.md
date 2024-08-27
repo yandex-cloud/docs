@@ -33,7 +33,7 @@ title: "Как получить информацию о ресурсе в {{ cdn
 
       Результат:
 
-      ```bash
+      ```text
       id: bc8v43fzihmv********
       folder_id: b1ggmp8es27t********
       cname: cdn-res-group.test.com
@@ -102,7 +102,7 @@ title: "Как получить информацию о ресурсе в {{ cdn
 
       Результат:
 
-      ```bash
+      ```text
       resource_active = true
       ```
 
@@ -143,7 +143,7 @@ title: "Как получить информацию о ресурсе в {{ cdn
 
       Результат:
 
-      ```bash
+      ```text
       cname: cl-54b75255.edgecdn.ru
       folder_id: b1geoelk7fld*******
       ```
@@ -189,7 +189,7 @@ title: "Как получить информацию о ресурсе в {{ cdn
 
       Результат:
 
-      ```bash
+      ```text
       resource_cname = "cl-54b75255.edgecdn.ru"
       ```
 

@@ -2,9 +2,7 @@
 
 
 
-
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
-
 
 Услуга предоставляется при наличии технической возможности.
 

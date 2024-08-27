@@ -39,6 +39,7 @@ Data operations are billed according to the following policy:
 
 
 
+{% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 
 ### Data storage {#prices-storage}

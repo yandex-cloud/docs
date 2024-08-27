@@ -38,7 +38,7 @@ title: "Как получить информацию об HTTP-роутере в
 
       Результат:
 
-      ```bash
+      ```text
       id: ds7u8nv8gl2s********
       name: alb-router
       folder_id: b1geoelk7fld********
@@ -96,7 +96,7 @@ title: "Как получить информацию об HTTP-роутере в
 
       Результат:
 
-      ```bash
+      ```text
       tf-router-name = "myrouter"
       ```
 

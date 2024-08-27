@@ -21,7 +21,7 @@
     yc serverless container revision get <идентификатор_ревизии>
     ```
     Результат:
-    ```bash
+    ```text
     id: bbaq84v92qqc********
     container_id: bbab5i36nvda********
     created_at: "2021-09-09T11:22:28.128Z"

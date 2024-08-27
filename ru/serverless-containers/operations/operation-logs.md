@@ -57,7 +57,7 @@
 
   Результат:
 
-  ```bash
+  ```text
   - id: bba1fu790ass********
     description: Update container
     created_at: "2024-06-21T10:56:42.746Z"
@@ -103,7 +103,7 @@
 
       Результат:
 
-      ```bash
+      ```text
       id: bbaogemlt3jf********
       description: Create container
       created_at: "2024-06-21T10:51:57.338Z"
