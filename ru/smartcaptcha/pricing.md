@@ -26,11 +26,11 @@ editable: false
 
 Примеры расчета стоимости использования {{ captcha-name }}:
 
-1. Пользователь прошел капчу, что привело к корректному запросу `/validate` с сервера - тарифицируется.
+1. Пользователь прошел капчу, что привело к корректному запросу `/validate` с сервера — тарифицируется.
 
-1. Пользователь отправил пустой или некорректный `token`, что привело к некорректному запросу `/validate` - не тарифицируется.
+1. Пользователь отправил пустой или некорректный `token`, что привело к некорректному запросу `/validate` — не тарифицируется.
 
-1. Разработчик бэкэнда допустил ошибку и отправил некорректный `secret` или `token` в ответном запросе `/validate`. API вернет ошибку в поле `message` - не тарифицируется.
+1. Разработчик бэкэнда допустил ошибку и отправил некорректный `secret` или `token` в ответном запросе `/validate`. API вернет ошибку в поле `message` — не тарифицируется.
 
 1. Злоумышленник прошел капчу и, получив `token`, отправил его 10 раз в течение первой минуты. API вернет статус `ok` только на первый запрос, и тарифицируется также только первый запрос.
 
@@ -45,12 +45,21 @@ editable: false
 
 - Цены в рублях {#prices-rub}
 
-  {% include notitle [rub.md](../_pricing/smartcaptcha/rub.md) %}
+  {% include [rub](../_pricing/smartcaptcha/rub.md) %}
+
+  Оплачивается фактическое количество запросов.
+
+  {% include [rub-smartcaptcha](../_pricing_examples/smartcaptcha/rub-smartcaptcha.md) %}
 
 - Цены в тенге {#prices-kzt}
 
-  {% include notitle [kzt.md](../_pricing/smartcaptcha/kzt.md) %}
+  {% include [kzt](../_pricing/smartcaptcha/kzt.md) %}
+
+  Оплачивается фактическое количество запросов.
+
+  {% include [kzt-smartcaptcha](../_pricing_examples/smartcaptcha/kzt-smartcaptcha.md) %}
 
 {% endlist %}
+
 
 

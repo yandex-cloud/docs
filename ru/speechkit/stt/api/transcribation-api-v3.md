@@ -8,7 +8,7 @@ description: "Следуя данной инструкции, вы сможет�
 Ниже рассмотрен пример асинхронного распознавания речи из аудиофайла в формате WAV с помощью [API v3](../../stt-v3/api-ref/grpc/index.md) {{ speechkit-name }}. В примере заданы параметры:
 
 * формат аудиопотока — WAV;
-* [модель распознавания речи](../models.md) — `general`;
+* [модель распознавания речи](../models.md#tags) — `general`;
 * остальные параметры оставлены по умолчанию.
 
 Аутентификация происходит от имени сервисного аккаунта с помощью [API-ключа](../../../iam/concepts/authorization/api-key.md) или [IAM-токена](../../../iam/concepts/authorization/iam-token.md). Подробнее об аутентификации в API {{ speechkit-name }} см. в [справочнике API](../../concepts/auth.md).
@@ -30,7 +30,7 @@ description: "Следуя данной инструкции, вы сможет�
 
       ```json
       {
-        "uri": "https://storage.yandexcloud.net/<название_бакета>/<путь_к_wav-файлу_в_бакете>",
+        "uri": "https://storage.yandexcloud.net/<название_бакета>/<путь_к_WAV-файлу_в_бакете>",
         "recognition_model": {
           "model": "general",
           "audio_format": {
@@ -44,11 +44,11 @@ description: "Следуя данной инструкции, вы сможет�
 
       Где:
 
-      * `uri` — ссылка на аудиофайл в {{ objstorage-name }}. Пример ссылки: `https://{{ s3-storage-host }}/speechkit/speech.opus`.
+      * `uri` — ссылка на аудиофайл в {{ objstorage-name }}. Пример ссылки: `https://{{ s3-storage-host }}/speechkit/speech.wav`.
 
           Для бакета с ограниченным доступом в ссылке присутствуют дополнительные query-параметры (после знака `?`). Эти параметры не нужно передавать в {{ speechkit-name }} — они игнорируются.
 
-      * `model` — [модель распознавания речи](../models.md).
+      * `model` — модель распознавания речи.
       * `container_audio_type` — тип аудиоконтейнера.
 
   1. Выполните запрос, используя один из способов аутентификации через сервисный аккаунт:    
@@ -58,7 +58,7 @@ description: "Следуя данной инструкции, вы сможет�
         export IAM_TOKEN=<IAM-токен_сервисного_аккаунта> && \
         curl -k \
              -H "Authorization: Bearer ${IAM_TOKEN}" \
-             -d @request.json https://stt.api.cloud.yandex.net:443/stt/v3/recognizeFileAsync
+             -d @request.json https://stt.{{ api-host }}:443/stt/v3/recognizeFileAsync
         ```
 
         Где `IAM_TOKEN` — IAM-токен сервисного аккаунта.
@@ -71,7 +71,7 @@ description: "Следуя данной инструкции, вы сможет�
         export API_KEY=<API-ключ_сервисного_аккаунта> && \
         curl -k \
              -H "Authorization: Api-Key ${API_KEY}" \
-             -d @request.json https://stt.api.cloud.yandex.net:443/stt/v3/recognizeFileAsync
+             -d @request.json https://stt.{{ api-host }}:443/stt/v3/recognizeFileAsync
         ```
 
       Пример результата:
@@ -99,7 +99,7 @@ description: "Следуя данной инструкции, вы сможет�
           curl -k \
                -X GET \
                -H "Authorization: Bearer ${IAM_TOKEN}" \
-               https://operation.api.cloud.yandex.net/operations/<идентификатор_операции_распознавания>
+               https://operation.{{ api-host }}/operations/<идентификатор_операции_распознавания>
           ```
 
       * С авторизацией через API-ключ:
@@ -108,7 +108,7 @@ description: "Следуя данной инструкции, вы сможет�
           curl -k \
                -X GET \
                -H "Authorization: Api-key ${API_KEY}" \
-               https://operation.api.cloud.yandex.net/operations/<идентификатор_операции_распознавания>
+               https://operation.{{ api-host }}/operations/<идентификатор_операции_распознавания>
           ```
 
       Пример результата:
@@ -132,7 +132,7 @@ description: "Следуя данной инструкции, вы сможет�
           curl -k \
                -X GET \
                -H "Authorization: Bearer ${IAM_TOKEN}" \
-               https://stt.api.cloud.yandex.net:443/stt/v3/getRecognition?operation_id=<идентификатор_операции_распознавания>
+               https://stt.{{ api-host }}:443/stt/v3/getRecognition?operation_id=<идентификатор_операции_распознавания>
           ```
 
       * С авторизацией через API-ключ:
@@ -141,7 +141,7 @@ description: "Следуя данной инструкции, вы сможет�
           curl -k \
                -X GET \
                -H "Authorization: Api-key ${API_KEY}" \
-               https://stt.api.cloud.yandex.net:443/stt/v3/getRecognition?operation_id=<идентификатор_операции_распознавания>
+               https://stt.{{ api-host }}:443/stt/v3/getRecognition?operation_id=<идентификатор_операции_распознавания>
           ```
 
       {% cut "Пример результата" %}
@@ -254,130 +254,130 @@ description: "Следуя данной инструкции, вы сможет�
             "sessionUuid": {
                "uuid": "24935f24-2c1f62dc-8dd49006-********",
                "userRequestId": "f8d2h7m07t4i********"
-           },
-           "audioCursors": {
-              "receivedDataMs": "7400",
-              "resetTimeMs": "0",
-              "partialTimeMs": "7400",
-              "finalTimeMs": "7400",
-              "finalIndex": "0",
-              "eouTimeMs": "0"
-           },
-           "responseWallTimeMs": "189",
-           "finalRefinement": {
-              "finalIndex": "0",
-              "normalizedText": {
-                 "alternatives": [
-                    {
-                       "words": [
-                          {
-                             "text": "я",
-                             "startTimeMs": "459",
-                             "endTimeMs": "520"
-                          },
-                          {
-                             "text": "яндекс",
-                             "startTimeMs": "640",
-                             "endTimeMs": "1060"
-                          },
-                          {
-                             "text": "спичкит",
-                             "startTimeMs": "1120",
-                             "endTimeMs": "1959"
-                          },
-                          {
-                             "text": "я",
-                             "startTimeMs": "2480",
-                             "endTimeMs": "2520"
-                          },
-                          {
-                             "text": "могу",
-                             "startTimeMs": "2580",
-                             "endTimeMs": "2800"
-                          },
-                          {
-                             "text": "превратить",
-                             "startTimeMs": "2860",
-                             "endTimeMs": "3360"
-                          },
-                          {
-                             "text": "любой",
-                             "startTimeMs": "3439",
-                             "endTimeMs": "3709"
-                          },
-                          {
-                             "text": "текст",
-                             "startTimeMs": "3800",
-                             "endTimeMs": "4140"
-                          },
-                          {
-                             "text": "в",
-                             "startTimeMs": "4200",
-                             "endTimeMs": "4220"
-                          },
-                          {
-                             "text": "речь",
-                             "startTimeMs": "4279",
-                             "endTimeMs": "4740"
-                          },
-                          {
-                             "text": "теперь",
-                             "startTimeMs": "5140",
-                             "endTimeMs": "5759"
-                          },
-                          {
-                             "text": "и",
-                             "startTimeMs": "5859",
-                             "endTimeMs": "5900"
-                          },
-                          {
-                             "text": "вы",
-                             "startTimeMs": "5980",
-                             "endTimeMs": "6399"
-                          },
-                          {
-                             "text": "можете",
-                             "startTimeMs": "6660",
-                             "endTimeMs": "7180"
-                          }
-                       ],
-                       "text": "Я яндекс спичкит я могу превратить любой текст в речь теперь и вы можете",
-                       "startTimeMs": "0",
-                       "endTimeMs": "7400",
-                       "confidence": 0,
-                       "languages": []
-                    }
-                 ],
-                 "channelTag": "0"
-              }
-           },
-           "channelTag": "0"
-        }
-     }
-     {
-        "result": {
-           "sessionUuid": {
-              "uuid": "24935f24-2c1f62dc-8dd49006-********",
-              "userRequestId": "f8d2h7m07t4i********"
-           },
-           "audioCursors": {
-              "receivedDataMs": "7400",
-              "resetTimeMs": "0",
-              "partialTimeMs": "7400",
-              "finalTimeMs": "7400",
-              "finalIndex": "0",
-              "eouTimeMs": "7400"
-           },
-           "responseWallTimeMs": "190",
-           "eouUpdate": {
-              "timeMs": "7400"
-           },
-           "channelTag": "0"
-        }
-     }
-     ```
+            },
+            "audioCursors": {
+               "receivedDataMs": "7400",
+               "resetTimeMs": "0",
+               "partialTimeMs": "7400",
+               "finalTimeMs": "7400",
+               "finalIndex": "0",
+               "eouTimeMs": "0"
+            },
+            "responseWallTimeMs": "189",
+            "finalRefinement": {
+               "finalIndex": "0",
+               "normalizedText": {
+                  "alternatives": [
+                     {
+                        "words": [
+                           {
+                              "text": "я",
+                              "startTimeMs": "459",
+                              "endTimeMs": "520"
+                           },
+                           {
+                              "text": "яндекс",
+                              "startTimeMs": "640",
+                              "endTimeMs": "1060"
+                           },
+                           {
+                              "text": "спичкит",
+                              "startTimeMs": "1120",
+                              "endTimeMs": "1959"
+                           },
+                           {
+                              "text": "я",
+                              "startTimeMs": "2480",
+                              "endTimeMs": "2520"
+                           },
+                           {
+                              "text": "могу",
+                              "startTimeMs": "2580",
+                              "endTimeMs": "2800"
+                           },
+                           {
+                              "text": "превратить",
+                              "startTimeMs": "2860",
+                              "endTimeMs": "3360"
+                           },
+                           {
+                              "text": "любой",
+                              "startTimeMs": "3439",
+                              "endTimeMs": "3709"
+                           },
+                           {
+                              "text": "текст",
+                              "startTimeMs": "3800",
+                              "endTimeMs": "4140"
+                           },
+                           {
+                              "text": "в",
+                              "startTimeMs": "4200",
+                              "endTimeMs": "4220"
+                           },
+                           {
+                              "text": "речь",
+                              "startTimeMs": "4279",
+                              "endTimeMs": "4740"
+                           },
+                           {
+                              "text": "теперь",
+                              "startTimeMs": "5140",
+                              "endTimeMs": "5759"
+                           },
+                           {
+                              "text": "и",
+                              "startTimeMs": "5859",
+                              "endTimeMs": "5900"
+                           },
+                           {
+                              "text": "вы",
+                              "startTimeMs": "5980",
+                              "endTimeMs": "6399"
+                           },
+                           {
+                              "text": "можете",
+                              "startTimeMs": "6660",
+                              "endTimeMs": "7180"
+                           }
+                        ],
+                        "text": "Я яндекс спичкит я могу превратить любой текст в речь теперь и вы можете",
+                        "startTimeMs": "0",
+                        "endTimeMs": "7400",
+                        "confidence": 0,
+                        "languages": []
+                     }
+                  ],
+                  "channelTag": "0"
+               }
+            },
+            "channelTag": "0"
+         }
+      }
+      {
+         "result": {
+            "sessionUuid": {
+               "uuid": "24935f24-2c1f62dc-8dd49006-********",
+               "userRequestId": "f8d2h7m07t4i********"
+            },
+            "audioCursors": {
+               "receivedDataMs": "7400",
+               "resetTimeMs": "0",
+               "partialTimeMs": "7400",
+               "finalTimeMs": "7400",
+               "finalIndex": "0",
+               "eouTimeMs": "7400"
+            },
+            "responseWallTimeMs": "190",
+            "eouUpdate": {
+               "timeMs": "7400"
+            },
+            "channelTag": "0"
+         }
+      }
+      ```
 
-     {% endcut %}
+      {% endcut %}
 
 - Python 3 {#python}
 
@@ -420,7 +420,7 @@ description: "Следуя данной инструкции, вы сможет�
       from yandex.cloud.ai.stt.v3 import stt_pb2, stt_service_pb2_grpc
 
       request = stt_pb2.RecognizeFileRequest(
-        uri='https://storage.yandexcloud.net/<название_бакета>/<путь_к_wav-файлу_в_бакете>',
+        uri='https://storage.yandexcloud.net/<название_бакета>/<путь_к_WAV-файлу_в_бакете>',
         recognition_model=stt_pb2.RecognitionModelOptions(
           model='general',
           audio_format=stt_pb2.AudioFormatOptions(
@@ -432,7 +432,7 @@ description: "Следуя данной инструкции, вы сможет�
       )
 
       cred = grpc.ssl_channel_credentials()
-      chan = grpc.secure_channel('stt.api.cloud.yandex.net:443', cred)
+      chan = grpc.secure_channel('stt.{{ api-host }}:443', cred)
       stub = stt_service_pb2_grpc.AsyncRecognizerStub(chan)
 
       # Выберите один из способов аутентификации:
@@ -479,7 +479,7 @@ description: "Следуя данной инструкции, вы сможет�
       )
 
       cred = grpc.ssl_channel_credentials()
-      chan = grpc.secure_channel('stt.api.cloud.yandex.net:443', cred)
+      chan = grpc.secure_channel('stt.{{ api-host }}:443', cred)
       stub = stt_service_pb2_grpc.AsyncRecognizerStub(chan)
 
       # Аутентификация с IAM-токеном
