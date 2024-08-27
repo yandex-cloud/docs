@@ -19,11 +19,18 @@
 | 100% vCPU | {{ sku|RUB|compute.vm.cpu.c100.v3|string }} | {{ sku|RUB|compute.vm.cpu.c100.preemptible.v3|string }} | {{ sku|RUB|v1.commitment.selfcheckout.m6.compute.vm.cpu.c100.standard.v3|string }} | {{ sku|RUB|v1.commitment.selfcheckout.y1.compute.vm.cpu.c100.standard.v3|string }} |
 | 1 GPU Nvidia T4 | {{ sku|RUB|compute.vm.gpu.standard.v3-t4|string }} | {{ sku|RUB|compute.vm.gpu.standard.v3-t4.preemptible|string }} | − | − |
 | RAM (за 1 ГБ) | {{ sku|RUB|compute.vm.ram.v3|string }} | {{ sku|RUB|compute.vm.ram.preemptible.v3|string }} | {{ sku|RUB|v1.commitment.selfcheckout.m6.compute.vm.ram.standard.v3|string }} | {{ sku|RUB|v1.commitment.selfcheckout.y1.compute.vm.ram.standard.v3|string }} |
+| **Intel Ice Lake (Compute Optimized)** | Обычная ВМ | Прерываемая&nbsp;ВМ | | |
+| 100% vCPU | {{ sku|RUB|compute.vm.cpu.c100.highfreq-v3|string }} | - | − | − |
+| RAM (за 1 ГБ) | {{ sku|RUB|compute.vm.ram.highfreq-v3|string }} | - | − | − |
 | **AMD EPYC™** | Обычная ВМ | Прерываемая&nbsp;ВМ | | |
 | 100% vCPU | {{ sku|RUB|compute.vm.cpu.c100.gpu-standard.v3|string }} | {{ sku|RUB|compute.vm.cpu.c100.gpu-standard.preemptible.v3|string }} | − | − |
 | 1 GPU Nvidia A100 | {{ sku|RUB|compute.vm.gpu.gpu-standard.v3|string }} | {{ sku|RUB|compute.vm.gpu.gpu-standard.preemptible.v3|string }} | − | − |
 | RAM (за 1 ГБ) | {{ sku|RUB|compute.vm.ram.gpu-standard.v3|string }} | {{ sku|RUB|compute.vm.ram.gpu-standard.preemptible.v3|string }} | − | − |
-| **Intel Ice Lake (Compute Optimized)** | Обычная ВМ | Прерываемая&nbsp;ВМ | | |
-| 100% vCPU | {{ sku|RUB|compute.vm.cpu.c100.highfreq-v3|string }} | - | − | − |
-| RAM (за 1 ГБ) | {{ sku|RUB|compute.vm.ram.highfreq-v3|string }} | - | − | − |
+| **AMD EPYC™ 9474F with Gen2**^*^ | Обычная ВМ | Прерываемая&nbsp;ВМ | | |
+| 100% vCPU | 0,90 ₽ | 0,90 ₽ | - | - |
+| 1 GPU | 1 667,30 ₽ | 1 667,30 ₽ | - | - |
+| RAM (за 1 ГБ) | 0,28 ₽ | 0,28 ₽ | - | - |
+
+^*^ Доступ предоставляется по запросу, при наличии технической возможности.
+
 

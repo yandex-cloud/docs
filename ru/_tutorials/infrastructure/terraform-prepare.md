@@ -34,7 +34,7 @@
 
           Результат:
 
-          ```bash
+          ```text
           id: aje8nn871qo4********
           service_account_id: ajehr0to1g8b********
           created_at: "2022-09-14T09:11:43.479156798Z"

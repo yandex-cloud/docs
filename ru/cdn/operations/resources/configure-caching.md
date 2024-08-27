@@ -61,7 +61,7 @@ description: "Следуя данной инструкции, вы сможет�
   
      Результат:
 
-      ```bash
+      ```text
       id: s0me1dkfjq********
       folder_id: s0mef01der7p********
       cname: testexample.com

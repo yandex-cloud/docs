@@ -59,7 +59,7 @@
 
   Результат:
 
-  ```bash
+  ```text
   - id: enp87akr8sdr********
   description: Create NetworkLoadBalancer
   created_at: "2024-02-01T09:33:45.035Z"
@@ -106,7 +106,7 @@
 
       Результат:
 
-      ```bash
+      ```text
       id: enp87akr8sdr********
       description: Create NetworkLoadBalancer
       created_at: "2024-02-01T09:33:45.035Z"

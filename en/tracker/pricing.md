@@ -23,6 +23,8 @@ You can find the FAQ for payments in [{#T}](payment.md).
 
 ## Prices for Russia {#prices}
 
+{% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
+
 
 
 For large companies, the cost of using {{ tracker-name }} is [calculated on a progressive scale](#sec_calculate). For the first 100 users, full access to {{ tracker-name }} costs {{ sku|USD|b2b.tracker.license.v1|pricingRate.6|string }} per user per month. If 100 employees are already subscribed to {{ tracker-name }}, the subscription fee for the next 150 users will be lower: {{ sku|USD|b2b.tracker.license.v1|pricingRate.100|string }} per user per month. If more than 250 employees are subscribed, the monthly fee for new users is {{ sku|USD|b2b.tracker.license.v1|pricingRate.250|string }}.

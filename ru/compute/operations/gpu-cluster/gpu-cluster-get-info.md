@@ -35,7 +35,7 @@ title: "Как получить информацию о кластере GPU в 
 
       Результат:
 
-      ```bash
+      ```text
       id: fhm6cnc4kpp8********
       folder_id: b1gqs1teo2q2********
       created_at: "2024-02-14T15:10:21Z"

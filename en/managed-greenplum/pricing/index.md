@@ -133,6 +133,8 @@ CVoS discount is only available for certain types of resources. For non-supporte
 
 ## Prices for the Russia region {#prices}
 
+{% include [pricing-diff-regions](../../_includes/pricing-diff-regions.md) %}
+
 
 All prices below do not include VAT.
 

@@ -97,7 +97,7 @@ description: "Следуя данной инструкции, вы сможет�
 
   Результат:
 
-  ```bash
+  ```text
   id: crp6lg1868p3********
   name: test-policy
   repository_id: crp3cpm16edq********

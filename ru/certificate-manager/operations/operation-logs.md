@@ -47,7 +47,7 @@
 
   Результат:
 
-  ```bash
+  ```text
   - id: fpq207m67dkq********
     description: Update certificate
     created_at: "2024-03-26T16:32:07.034Z"
@@ -115,7 +115,7 @@
 
       Результат:
 
-      ```bash
+      ```text
       id: fpq207m67dkq********
       description: Update certificate
       created_at: "2024-03-26T16:32:07.034Z"

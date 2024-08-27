@@ -14,9 +14,26 @@ editable: false
 
 ## Prices for the Russia region {#prices}
 
+{% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
+
+### Speech dialog analytics {#speech}
+
 
 
 {% include [usd.md](../_pricing/speechsense/usd-speechsense.md) %}
+
+
+### Text dialog analytics {#text}
+
+{% note warning %}
+
+The following price will be effective as of September 6, 2024.
+
+{% endnote %}
+
+
+
+{% include [usd.md](../_pricing/speechsense/usd-text-dialogs.md) %}
 
 
 ### Cost calculation example {#price-example}

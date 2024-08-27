@@ -65,7 +65,7 @@ description: "Для управления доступом к бакету {{ ob
 
     Результат:
 
-    ```bash
+    ```text
     name: my-bucket
     folder_id: csgeoelk7fl1********
     default_storage_class: STANDARD

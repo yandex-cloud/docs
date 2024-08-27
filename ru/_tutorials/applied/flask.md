@@ -79,7 +79,7 @@
 
       Результат:
 
-      ```bash
+      ```text
       id: enp1gg8kr3pv********
       folder_id: b1gt6g8ht345********
       created_at: "2023-12-20T20:08:11Z"
@@ -162,7 +162,7 @@
 
   Результат:
 
-  ```bash
+  ```text
   id: enpv1c0q7j01********
   folder_id: b1gt6g8ht345********
   created_at: "2024-03-23T18:54:05Z"

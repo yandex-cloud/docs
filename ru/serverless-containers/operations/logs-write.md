@@ -65,7 +65,7 @@
 
     Результат:
 
-    ```bash
+    ```text
     done (5s)
     id: bba9vrtrjlld********
     container_id: bbanb9mvu1dl********

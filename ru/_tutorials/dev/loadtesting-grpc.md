@@ -89,7 +89,7 @@
 
    Результат:
 
-   ```bash
+   ```text
    api.Adder
    grpc.reflection.v1alpha.ServerReflection
    ```

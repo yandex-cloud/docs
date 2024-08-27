@@ -77,7 +77,7 @@ description: "В этой инструкции вы научитесь созд�
       
       Результат:
 
-      ```bash
+      ```text
       version_id: e6qqr7k79ecm********
       entries:
         - key: first_key

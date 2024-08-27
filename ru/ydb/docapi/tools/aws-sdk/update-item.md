@@ -825,7 +825,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/update-item.md
 
       Результат:
 
-      ```bash
+      ```text
       Данные о сериале обновлены:
       {'Attributes': {'info': {'rating': Decimal('9'),
                               'release_date': '2005-09-13',
@@ -1009,7 +1009,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/update-item.md
 
       Результат:
 
-      ```bash
+      ```text
       Обновление записи...
       Успешно обновлено: {
         "Attributes": {
@@ -1409,7 +1409,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/update-item.md
 
       Результат:
 
-      ```bash
+      ```text
       Попытка условного обновления записи...
       Condition not satisfied
       ```
@@ -1426,7 +1426,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/update-item.md
 
       Результат:
 
-      ```bash
+      ```text
       Попытка условного обновления записи...
       Данные о сериале обновлены:
       {'Attributes': {'info': {'release_date': '2005-09-13',

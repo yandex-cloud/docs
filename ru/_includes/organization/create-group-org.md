@@ -7,6 +7,10 @@
   1. На панели слева выберите раздел **{{ ui-key.yacloud_org.pages.groups }}** ![icon-services](../../_assets/console-icons/persons.svg).
   1. В правом верхнем углу страницы нажмите **{{ ui-key.yacloud_org.entity.group.action_create }}** и введите название и описание [группы](../../organization/concepts/groups.md).
 
+      Название должно быть уникальным в организации и соответствовать требованиям:
+
+      {% include [group-name-format](group-name-format.md) %}
+
 - {{ TF }} {#tf}
 
   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
@@ -17,16 +21,16 @@
 
      ```hcl
      resource "yandex_organizationmanager_group" "my-group" {
-        name            = "<имя_группы>"
+        name            = "<название_группы>"
         description     = "<описание_группы>"
         organization_id = "<идентификатор_организации>"
      }
      ```
 
      Где:
-     * `name` — имя группы. Формат имени:
+     * `name` — название группы. Название должно быть уникальным в организации и соответствовать требованиям:
 
-       {% include [name-format](../../_includes/name-format.md) %}
+        {% include [group-name-format](group-name-format.md) %}
 
      * `description` — описание группы. Необязательный параметр.
      * `organization_id` — идентификатор организации, к которой нужно присоединить группу.

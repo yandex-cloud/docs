@@ -166,7 +166,7 @@
 
      Результат:
 
-     ```bash
+     ```text
      access_key:
        id: ajen8d7fur27********
        service_account_id: aje6aoc8hccu********
@@ -193,7 +193,7 @@
 
      Результат:
 
-     ```bash
+     ```text
      id: aje3qc9pagb9********
      service_account_id: aje6aoc8hccu********
      created_at: "2022-10-13T12:53:04.810240976Z"

@@ -48,9 +48,7 @@ editable: false
 
 ## Цены для региона Россия {#prices}
 
-
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
-
 
 ### Цена единицы записываемых данных {#event}
 

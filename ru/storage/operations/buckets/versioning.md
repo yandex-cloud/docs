@@ -37,7 +37,7 @@ description: "Версионирование бакета — это возмо�
      
      Результат:
 
-     ```bash
+     ```text
      name: my-bucket
      folder_id: csgeoelk7fl15********
      default_storage_class: STANDARD

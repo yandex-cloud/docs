@@ -63,7 +63,7 @@
 
         Результат:
 
-        ```bash
+        ```text
         name: first-bucket
         folder_id: b1gmit33ngp6********
         default_storage_class: STANDARD

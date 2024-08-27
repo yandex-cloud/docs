@@ -39,7 +39,7 @@ description: "Из статьи вы узнаете, как остановить
       yc compute snapshot-schedule list --format yaml
       ```
       Результат:
-      ```bash
+      ```text
       - id: fc852cvb1ipd5********
         folder_id: e1ea8s8l71li********
         created_at: "2022-09-28T13:25:02Z"
@@ -80,7 +80,7 @@ description: "Из статьи вы узнаете, как остановить
       yc compute snapshot-schedule disable <имя_или_идентификатор_расписания>
       ```
       Результат:
-      ```bash
+      ```text
       done (3s)
       id: fc8e52mvchb2********
       folder_id: e1ea8s8l71li********
@@ -138,7 +138,7 @@ description: "Из статьи вы узнаете, как остановить
       yc compute snapshot-schedule list --format yaml
       ```
       Результат:
-      ```bash
+      ```text
       - id: fc852cvb1ipd5********
         folder_id: e1ea8s8l71li********
         created_at: "2022-09-28T13:25:02Z"
@@ -179,7 +179,7 @@ description: "Из статьи вы узнаете, как остановить
       yc compute snapshot-schedule enable <имя_или_идентификатор_расписания>
       ```
       Результат:
-      ```bash
+      ```text
       done (3s)
       id: fc8e52mvchb2********
       folder_id: e1ea8s8l71li********

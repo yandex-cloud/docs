@@ -59,7 +59,7 @@
 
   Результат:
 
-  ```bash
+  ```text
   - id: ds71vdf0jqut********
     description: update loadbalancer 'ds7857cmjtuv********'
     created_at: "2024-05-14T14:36:06.637766633Z"

@@ -144,7 +144,7 @@
 
          Результат:
 
-         ```bash
+         ```text
          Profile 'sa-firezone' created and activated
          ```
 
@@ -263,7 +263,7 @@
          ```
 
          Результат:
-         ```bash
+         ```text
          {
             "admin_email" = "admin@example.com"
             "admin_password" = "7fVN********"

@@ -34,7 +34,7 @@
 
       Результат:
 
-      ```bash
+      ```text
       id: cdg4g6c4jlak********
       description: apply policy
       created_at: "2024-05-14T15:24:23.800129Z"

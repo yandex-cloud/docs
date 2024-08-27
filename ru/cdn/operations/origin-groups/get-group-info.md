@@ -90,7 +90,7 @@ title: "Как получить информацию об источнике в 
 
       Результат:
 
-      ```bash
+      ```text
       id: "2149********"
       folder_id: b1ggmp8es27t********
       name: test-cdn-group

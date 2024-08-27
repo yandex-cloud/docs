@@ -42,7 +42,7 @@
 
       Результат:
 
-      ```bash
+      ```text
       done (6s)
       id: abcdefg1hi23********
       folder_id: m4n56op78mev********

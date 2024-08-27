@@ -14,9 +14,7 @@ editable: false
 
 ## Цены для региона Россия {#prices}
 
-
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
-
 
 ### Время выполнения тестов {#test-time}
 

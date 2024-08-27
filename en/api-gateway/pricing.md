@@ -35,6 +35,7 @@ Cost per month = $0.96 × Number of millions of requests
 
 ## Prices for the Russia region {#prices}
 
+{% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 ### API gateway requests {#request}
 

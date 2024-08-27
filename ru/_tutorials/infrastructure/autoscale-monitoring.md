@@ -155,7 +155,7 @@
 
      Результат:
 
-     ```bash
+     ```text
      id: enpabce123hd********
      folder_id: b0g12ga82bcv********
      created_at: "2021-10-04T16:28:15.905337847Z"
@@ -179,7 +179,7 @@
 
      Результат:
 
-     ```bash
+     ```text
      id: e1lnabc23r1c********
      folder_id: b0g12ga82bcv********
      created_at: "2021-10-04T16:29:12.450858436Z"

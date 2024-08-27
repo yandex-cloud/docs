@@ -35,7 +35,7 @@
 
   Результат:
 
-  ```bash
+  ```text
   id: fhmp74bfis2a********
   folder_id: b1gpvjd9ia42********
   ...

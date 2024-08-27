@@ -134,7 +134,7 @@
 
         Результат:
 
-        ```bash
+        ```text
         data.yandex_compute_image.container-optimized-image: Refreshing state...
 
         An execution plan has been generated and is shown below.
@@ -154,7 +154,7 @@
 
         Результат:
 
-        ```bash
+        ```text
         yandex_compute_instance.instance-based-on-coi: Creating...
         yandex_compute_instance.instance-based-on-coi: Still creating... [10s elapsed]
         yandex_compute_instance.instance-based-on-coi: Still creating... [20s elapsed]
@@ -194,7 +194,7 @@
 
         Результат:
 
-        ```bash
+        ```text
         Warning: Permanently added '<публичный_IP-адрес>' (ECDSA) to the list of known hosts.
         Welcome to Ubuntu 20.04.1 LTS (GNU/Linux 5.4.0-52-generic x86_64)
 
@@ -353,7 +353,7 @@
 
         Результат:
 
-        ```bash
+        ```text
         data.yandex_compute_image.container-optimized-image: Refreshing state...
         
         An execution plan has been generated and is shown below.
@@ -373,7 +373,7 @@
 
         Результат:
 
-        ```bash
+        ```text
         yandex_compute_instance_group.ig-with-coi: Creating...
         yandex_compute_instance_group.ig-with-coi: Still creating... [10s elapsed]
         yandex_compute_instance_group.ig-with-coi: Still creating... [20s elapsed]
@@ -414,7 +414,7 @@
 
         Результат:
 
-        ```bash
+        ```text
         Warning: Permanently added '<публичный_IP-адрес_ВМ_1>' (ECDSA) to the list of known hosts.
         Welcome to Ubuntu 20.04.1 LTS (GNU/Linux 5.4.0-52-generic x86_64)
 

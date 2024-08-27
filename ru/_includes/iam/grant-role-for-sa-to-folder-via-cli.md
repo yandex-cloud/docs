@@ -8,7 +8,7 @@
 
     Результат:
 
-    ```bash
+    ```text
     id: aje6o61dvog2********
     folder_id: b1gvmob95yys********
     created_at: "2018-10-15T18:01:25Z"

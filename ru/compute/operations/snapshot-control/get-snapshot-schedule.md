@@ -35,7 +35,7 @@ title: "Как получить информацию о расписании, п
 
       Результат:
 
-      ```bash
+      ```text
       id: fd8cc5qd25cp********
       folder_id: b1gmit33ngp3********
       created_at: "2023-10-30T14:53:33Z"
@@ -89,7 +89,7 @@ title: "Как получить информацию о расписании, п
 
       Результат:
 
-      ```bash
+      ```text
       snapshot_schedule = "inactive"
       ```
 

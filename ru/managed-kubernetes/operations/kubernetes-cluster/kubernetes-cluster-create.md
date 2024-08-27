@@ -95,7 +95,7 @@
 
      Результат:
 
-     ```bash
+     ```text
      done (5m47s)
      id: cathn0s6qobf********
      folder_id: b1g66jflru0e********

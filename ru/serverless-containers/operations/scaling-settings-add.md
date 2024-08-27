@@ -49,7 +49,7 @@
 
     Результат:
 
-    ```bash
+    ```text
     id: bbajn5q2d74c********
 	container_id: bba3fva6ka5g********
 	created_at: "2021-07-09T15:04:55.135Z"
