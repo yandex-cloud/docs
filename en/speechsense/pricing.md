@@ -27,7 +27,7 @@ editable: false
 
 {% note warning %}
 
-The following price will be effective as of September 6, 2024.
+The following price will be effective as of September 10, 2024.
 
 {% endnote %}
 

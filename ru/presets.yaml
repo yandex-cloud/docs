@@ -6847,6 +6847,7 @@ default:
             label_smartcaptcha: SmartCaptcha
             label_smartcaptcha_ru: Yandex SmartCaptcha
             label_smartwebsecurity: Smart Web Security
+            label_speechkit: SpeechKit
             label_storage: Object Storage
             label_vdi: Cloud Desktop
             label_vpc: Virtual Private Cloud
@@ -7924,6 +7925,22 @@ default:
         value_config-standard: Стандартный
         value_pre-check-checkbox: Чекбокс
         value_pre-check-slider: Слайдер
+      speechkit:
+        help-speech-synthesis:
+          context_pauses-title: Паузы
+          context_phonemes-title: Фонемы
+          context_word-stress-title: Ударение
+          context_word-title: Акцент на слове
+        label_playground: SpeechKit Playground
+        speech-synthesis:
+          field_audio: Формат аудио
+          field_language: Язык
+          field_pitch-shift: Высота голоса
+          field_role: Амплуа
+          field_speed: Скорость речи
+          field_voice: Голос
+          label_button_playback: Синтезировать и воспроизвести
+          label_synthesis-settings: Настройки синтеза
       storage:
         bucket:
           button_action-permissions: ACL объекта

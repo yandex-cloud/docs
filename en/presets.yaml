@@ -6839,6 +6839,7 @@ default:
             label_smartcaptcha: SmartCaptcha
             label_smartcaptcha_ru: Yandex SmartCaptcha
             label_smartwebsecurity: Smart Web Security
+            label_speechkit: SpeechKit
             label_storage: Object Storage
             label_vdi: Cloud Desktop
             label_vpc: Virtual Private Cloud
@@ -7916,6 +7917,22 @@ default:
         value_config-standard: Standard
         value_pre-check-checkbox: Checkbox
         value_pre-check-slider: Slider
+      speechkit:
+        help-speech-synthesis:
+          context_pauses-title: Pauses
+          context_phonemes-title: Phonemes
+          context_word-stress-title: Stress
+          context_word-title: Emphasize word
+        label_playground: SpeechKit Playground
+        speech-synthesis:
+          field_audio: Audio format
+          field_language: Language
+          field_pitch-shift: Voice pitch
+          field_role: Role
+          field_speed: Speech speed
+          field_voice: Voice
+          label_button_playback: Synthesize and playback
+          label_synthesis-settings: Synthesis settings
       storage:
         bucket:
           button_action-permissions: Object ACL
