@@ -42,7 +42,7 @@
 
       Результат:
 
-      ```bash
+      ```text
       id: e9b6un9gkso6********
       folder_id: b1g7gvsi89m3********
       created_at: "2021-01-19T17:52:42Z"

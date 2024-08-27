@@ -100,6 +100,7 @@ CVoS discount is only available for certain types of resources. For non-supporte
 
 
 
+{% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 
 

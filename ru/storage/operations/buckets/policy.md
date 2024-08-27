@@ -108,7 +108,7 @@
 
      Результат:
 
-     ```bash
+     ```text
      name: my-bucket
      folder_id: csgeoelk7fl1********
      default_storage_class: STANDARD

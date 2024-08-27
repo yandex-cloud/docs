@@ -36,7 +36,7 @@ description: "Из статьи вы узнаете, как деактивиро
       ```
       Результат:
 
-      ```bash
+      ```text
       id: e6qkkp3k29jf********
       folder_id: b1go3el0d8fs********
       created_at: "2023-11-08T13:14:34.676Z"
@@ -85,7 +85,7 @@ description: "Из статьи вы узнаете, как деактивиро
       ```
       Результат:
 
-      ```bash
+      ```text
       id: e6qkkp3k29jf********
       folder_id: b1go3el0d8fs********
       created_at: "2023-11-08T13:14:34.676Z"

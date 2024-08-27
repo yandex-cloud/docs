@@ -74,7 +74,7 @@
 
       Результат:
 
-      ```bash
+      ```text
       id: bpfejaidgt9u********
       subject_id: ajeqdl8mdv12********
       data: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOra4Rg9OpwS5cozMHDGpdp6ug/jYUnWtTFD********
@@ -131,7 +131,7 @@
     ```
 
     Результат:
-    ```bash
+    ```text
     158.160.**.*** | SUCCESS => {
     "ansible_facts": {
         "discovered_interpreter_python": "/usr/bin/python3"

@@ -21,6 +21,7 @@ The cost of using {{ translate-full-name }} is calculated based on the total num
 
 ## Prices for the Russia region {#prices}
 
+{% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 ### Translation and language detection {#prices-translate-detect}
 

@@ -60,7 +60,7 @@ description: "Следуя данной инструкции, вы сможет�
 
           Результат:
 
-          ```bash
+          ```text
           id: ds7pmslal3km********
           name: sample-alb1
           folder_id: b1gmit33ngp3********

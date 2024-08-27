@@ -435,7 +435,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/load-data.md
 
       Результат:
 
-      ```bash
+      ```text
       Загрузка сериалов в YDB. Пожалуйста, подождите...
       Добавлен сериал: The Office
       Добавлен сериал: IT Crowd

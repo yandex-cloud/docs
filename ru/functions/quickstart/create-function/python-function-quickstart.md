@@ -30,7 +30,7 @@
 
     Результат:
 
-    ```bash
+    ```text
     id: b09bhaokchn9********
     folder_id: aoek49ghmknn********
     created_at: "2023-08-16T19:01:37.475Z"
@@ -124,7 +124,7 @@
 
     Результат:
 
-    ```bash
+    ```text
     done (1s)
     id: d4evvn8obisa********
     function_id: d4elpv8pft63********

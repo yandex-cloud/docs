@@ -14,6 +14,7 @@ The cost of using {{ search-api-name }} is calculated based on the number of sea
 
 ## Prices for the Russia region {#prices}
 
+{% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 Free tier includes 1,000 requests per user per month during night hours^1^ from 00:00:00 to 07:59:59. The following pricing applies to requests beyond this threshold.
 

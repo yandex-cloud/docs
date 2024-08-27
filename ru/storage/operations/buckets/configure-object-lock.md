@@ -71,7 +71,7 @@
 
     Результат:
 
-    ```bash
+    ```text
     name: my-bucket
     folder_id: b1geoelk2fld*********
     ...
@@ -184,7 +184,7 @@
 
     Результат:
 
-    ```bash
+    ```text
     name: my-bucket
     folder_id: b1geoelk2fld********
     ... 
@@ -262,7 +262,7 @@
 
     Результат:
 
-    ```bash
+    ```text
     name: my-bucket
     folder_id: b1geoelk2fld********
     ...

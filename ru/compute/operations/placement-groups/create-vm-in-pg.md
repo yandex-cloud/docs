@@ -53,7 +53,7 @@
 
      Результат:
 
-     ```bash
+     ```text
      id: epdep2kq6dt5********
      ...
      placement_policy:

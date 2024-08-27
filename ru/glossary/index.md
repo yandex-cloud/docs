@@ -72,6 +72,7 @@
 
 ## Безопасность {#security}
 
+* [{#T}](sasl.md)
 * [{#T}](tls.md)
 * [{#T}](waf.md)
 * [{#T}](ssl-certificate.md)

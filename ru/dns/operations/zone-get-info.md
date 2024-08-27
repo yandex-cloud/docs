@@ -37,7 +37,7 @@ title: "Как получить информацию о зоне DNS в {{ dns-f
 
       Результат:
 
-      ```bash
+      ```text
       id: dns6oh57qm9n********
       folder_id: f01derqpemb4********
       created_at: "2023-11-02T08:34:58.493Z"

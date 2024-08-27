@@ -9,6 +9,11 @@
   1. На панели слева выберите раздел **{{ ui-key.yacloud_org.pages.groups }}** ![icon-services](../../_assets/console-icons/persons.svg).
   1. Выберите группу в списке и нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) напротив имени группы.
   1. Нажмите **{{ ui-key.yacloud_org.entity.group.action_edit }}** и введите новое название или описание группы.
+
+      Название должно быть уникальным в организации и соответствовать требованиям:
+
+      {% include [group-name-format](group-name-format.md) %}
+
   1. Нажмите **{{ ui-key.yacloud_org.actions.save-changes }}**.
 
 - {{ TF }} {#tf}
@@ -21,16 +26,16 @@
 
      ```hcl
      resource "yandex_organizationmanager_group" "my-group" {
-        name            = "new-group-name"
-        description     = "My first group"
+        name            = "<название_группы>"
+        description     = "<описание_группы>"
         organization_id = "<идентификатор_организации>"
      }
      ```
 
      Где:
-     * `name` — новое имя группы. Формат имени:
+     * `name` — новое название группы. Название должно быть уникальным в организации и соответствовать требованиям:
 
-       {% include [name-format](../../_includes/name-format.md) %}
+        {% include [group-name-format](group-name-format.md) %}
 
      * `description` — новое описание группы.
      * `organization_id` — идентификатор организации, к которой принадлежит группа.
@@ -41,7 +46,7 @@
      {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/):
 
      ```bash
-     yc organization-manager group get --name=<имя_группы> --organization-id=<идентификатор_организации>
+     yc organization-manager group get --name=<название_группы> --organization-id=<идентификатор_организации>
      ```
 
 {% endlist %}

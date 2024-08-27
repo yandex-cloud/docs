@@ -49,6 +49,7 @@ However, if the function uses other {{ yandex-cloud }} resources, they are bille
 
 ## Prices for the Russia region {#prices}
 
+{% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 ### Invoking a function {#invoke}
 

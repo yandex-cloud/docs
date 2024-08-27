@@ -29,7 +29,7 @@
   ```
 
   Результат:
-  ```bash
+  ```text
   id: b91ki3851hab********
   folder_id: aoek49ghmknn********
   created_at: "2019-05-28T11:29:42.420Z"
@@ -123,7 +123,7 @@
   ```
 
   Результат:
-  ```bash
+  ```text
   id: b91ki3851hab********
   folder_id: aoek49ghmknn********
   created_at: "2019-05-28T11:29:42.420Z"
@@ -228,7 +228,7 @@
   ```
 
   Результат:
-  ```bash
+  ```text
   id: b91ki3851hab********
   folder_id: aoek49ghmknn********
   created_at: "2019-05-28T11:29:42.420Z"
@@ -337,7 +337,7 @@
   ```
 
   Результат:
-  ```bash
+  ```text
   id: b91ki3851hab********
   folder_id: aoek49ghmknn********
   created_at: "2019-05-28T11:29:42.420Z"
@@ -435,7 +435,7 @@
   ```
 
   Результат:
-  ```bash
+  ```text
   id: b91ki3851hab********
   folder_id: aoek49ghmknn********
   created_at: "2019-05-28T11:29:42.420Z"

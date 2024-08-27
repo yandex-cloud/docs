@@ -9,9 +9,7 @@ editable: false
 
 
 
-
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
-
 
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}

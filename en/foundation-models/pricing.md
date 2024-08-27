@@ -56,6 +56,7 @@ At the [Preview](../overview/concepts/launch-stages.md) stage, {{ yandexart-name
 
 ## Prices for the Russia region {#prices}
 
+{% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 ### Text generation in {{ yagpt-full-name }} {#pricing-generating}
 

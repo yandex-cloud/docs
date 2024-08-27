@@ -1,4 +1,8 @@
 Тип | Цена за ВМ в кластере в час, вкл. НДС 
 --- | ---
-Кластер GPU, Infiniband | {{ sku|KZT|compute.vm.gpu.infiniband.ic|string }}
-Кластер GPU, Infiniband, прерываемые ВМ | {{ sku|KZT|compute.vm.gpu.infiniband.ic.preemptible|string }}
+Высокоскоростной кластер GPU | {{ sku|KZT|compute.vm.gpu.infiniband.ic|string }}
+Высокоскоростной кластер GPU, прерываемые ВМ | {{ sku|KZT|compute.vm.gpu.infiniband.ic.preemptible|string }}
+Высокоскоростной кластер GPU для платформы AMD EPYC™ 9474F with Gen2^*^ | 3 702,00 ₸
+Высокоскоростной кластер GPU для платформы AMD EPYC™ 9474F with Gen2, прерываемые ВМ^*^ | 3 702,00 ₸
+
+^*^ Доступ предоставляется по запросу, при наличии технической возможности.

@@ -284,7 +284,7 @@
 
   Результат:
 
-  ```bash
+  ```text
   id: enpkq1sb7hed********
   folder_id: b1g681qpemb4********
   created_at: "2024-05-19T13:20:36Z"
@@ -331,7 +331,7 @@
 
   Результат:
 
-  ```bash
+  ```text
   id: enp4v8foko6s********
   folder_id: b1g681qpemb4********
   created_at: "2024-05-19T13:22:47Z"
@@ -375,7 +375,7 @@
 
   Результат:
 
-  ```bash
+  ```text
   id: e9b6n3jj3gh6********
   folder_id: b1g681qpemb4********
   created_at: "2024-05-19T13:24:58Z"

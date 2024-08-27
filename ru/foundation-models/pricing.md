@@ -56,9 +56,7 @@ editable: false
 
 ## Цены для региона Россия {#prices}
 
-
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
-
 
 ### Генерация текста в {{ yagpt-full-name }} {#pricing-generating}
 

@@ -231,7 +231,7 @@ warp get \
 
     Результат:
 
-    ```bash
+    ```text
     download: s3://<имя_бакета>/s3_test_file.txt to ./s3_test_file.txt
     ```
 

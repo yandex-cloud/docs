@@ -38,7 +38,7 @@ description: "Следуя данной инструкции, вы сможет�
 
   Результат:
 
-  ```bash
+  ```text
   id: crp3qleutgks********
   folder_id: b1g88tflru0e********
   name: new-reg
@@ -66,7 +66,7 @@ description: "Следуя данной инструкции, вы сможет�
 
   Результат:
 
-  ```bash
+  ```text
   id: crp3qleutgks********
   folder_id: b1g88tflru0e********
   name: new-reg

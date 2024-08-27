@@ -33,6 +33,8 @@ Pricing features:
 
 
 
+{% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
+
 
 ### {{ monitoring-short-name }} API {#monitoring-api}
 

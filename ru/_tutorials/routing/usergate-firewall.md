@@ -58,7 +58,7 @@
 
      Результат:
 
-     ```bash
+     ```text
      id: enptrcle5q3d********
      folder_id: b1g9hv2loamq********
      created_at: "2022-06-08T09:25:03Z"
@@ -166,7 +166,7 @@
 
   Результат:
 
-  ```bash
+  ```text
   id: e9b6un9gkso6********
   folder_id: b1g7gvsi89m3********
   created_at: "2022-06-08T17:52:42Z"
@@ -254,7 +254,7 @@
 
      Результат:
 
-     ```bash
+     ```text
      id: fhm2na1siftp********
      folder_id: b1g86q4m5vej********
      created_at: "2022-06-09T11:15:52Z"
@@ -502,7 +502,7 @@
         * `next-hop` — внутренний IP-адрес виртуальной машины UserGate `usergate-firewall`.
 
      Результат:
-     ```bash
+     ```text
      ...done
      id: enpsi6b08q2v********
      folder_id: b1gqs1teo2q2********
@@ -538,7 +538,7 @@
      ```
 
      Результат:
-     ```bash
+     ```text
      ..done
      id: b0c4l3v9jrgd********
      folder_id: b1gqs1teo2q2********

@@ -36,7 +36,7 @@
 
    Результат:
 
-   ```bash
+   ```text
          Name                    Value             Type    Location
          ----                    -----             ----    --------
       profile                <not set>             None    None

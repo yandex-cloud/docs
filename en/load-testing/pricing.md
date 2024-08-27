@@ -14,6 +14,7 @@ Tests run by multiple agents are charged as a sum of tests run by each agent.
 
 ## Prices for the Russia region {#prices}
 
+{% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 ### Test running time {#test-time}
 

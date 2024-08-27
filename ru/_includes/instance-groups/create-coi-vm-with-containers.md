@@ -37,7 +37,7 @@
 
         Результат:
 
-        ```bash
+        ```text
         id: ajeabccde01d********
         folder_id: b0g12ga82bcv********
         created_at: "2023-03-13T14:32:18.900092Z"
@@ -81,7 +81,7 @@
 
         Результат:
 
-        ```bash
+        ```text
         id: enpabce123hd********
         folder_id: b0g12ga82bcv********
         created_at: "2023-03-13T14:57:15Z"
@@ -96,7 +96,7 @@
 
         Результат:
 
-        ```bash
+        ```text
         id: e1lnabc23r1c********
         folder_id: b0g12ga82bcv********
         created_at: "2023-03-13T16:23:12Z"
@@ -190,7 +190,7 @@
 
      Результат:
 
-     ```bash
+     ```text
      done (48s)
      id: cl0q12abcd4e********
      folder_id: b0g12ga82bcv********
@@ -225,7 +225,7 @@
 
      Результат:
 
-     ```bash
+     ```text
      +----------------------+---------------------------+----------------------------------+-------------+------------------------+----------------+
      |     INSTANCE ID      |           NAME            |            EXTERNAL IP           | INTERNAL IP |         STATUS         | STATUS MESSAGE |
      +----------------------+---------------------------+----------------------------------+-------------+------------------------+----------------+
@@ -254,7 +254,7 @@
 
      Результат:
 
-     ```bash
+     ```text
      Welcome to Ubuntu 20.04.1 LTS (GNU/Linux 5.4.0-54-generic x86_64)
 
       * Documentation:  https://help.ubuntu.com
@@ -277,7 +277,7 @@
 
      Результат:
 
-     ```bash
+     ```text
      CONTAINER ID  IMAGE  COMMAND                 CREATED             STATUS             PORTS               NAMES
      c0a125a1765a  redis  "docker-entrypoint.s…"  About a minute ago  Up About a minute  6379/tcp            redis
      01288d7e382f  nginx  "/docker-entrypoint.…"  About a minute ago  Up About a minute  0.0.0.0:80->80/tcp  nginx

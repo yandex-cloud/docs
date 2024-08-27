@@ -80,7 +80,7 @@ _Внешний агент_ — физический или виртуальны
 
     Результат:
 
-    ```bash
+    ```text
     latest: Pulling from yc/ya-lt-agent
     df6635ed1257: Pull complete 
     7a51fa4387ba: Pull complete 

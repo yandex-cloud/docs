@@ -31,7 +31,7 @@ description: "Данные в {{ container-registry-name }} надежно хр�
 
      Результат:
 
-     ```bash
+     ```text
      +----------------------+-------------+----------------------+
      |          ID          |   NAME      |      FOLDER ID       |
      +----------------------+-------------+----------------------+
@@ -67,7 +67,7 @@ description: "Данные в {{ container-registry-name }} надежно хр�
 
      Результат:
 
-     ```bash
+     ```text
      +----------------------+---------------------+-----------------------------+-------+-----------------+
      |          ID          |       CREATED       |            NAME             | TAGS  | COMPRESSED SIZE |
      +----------------------+---------------------+-----------------------------+-------+-----------------+
@@ -93,7 +93,7 @@ description: "Данные в {{ container-registry-name }} надежно хр�
 
      Результат:
 
-     ```bash
+     ```text
      hello: Pulling from crp1abc2tl3d********/ubuntu
      Digest: sha256:1d2b339619babc2d008eca2d5293e3c43ff84cbee597ff76dd3e7f7d********
      Status: Downloaded newer image for {{ registry }}/crp1abc2tl3d********/ubuntu:hello
@@ -114,7 +114,7 @@ description: "Данные в {{ container-registry-name }} надежно хр�
 
      Результат:
 
-     ```bash
+     ```text
      REPOSITORY                                   TAG     IMAGE ID      CREATED     SIZE
      {{ registry }} /crp1abc2tl3d********/ubuntu       hello   d12e********  3 days ago  72.9MB
      ubuntu                                       latest  d12e********  3 days ago  72.9MB

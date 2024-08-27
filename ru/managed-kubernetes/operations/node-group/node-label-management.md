@@ -80,7 +80,7 @@
 
      Результат:
 
-     ```bash
+     ```text
      done (2m19s)
      id: catkuapro07e********
      cluster_id: abcsk1s2f3fm********

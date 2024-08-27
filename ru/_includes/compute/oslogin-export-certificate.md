@@ -22,7 +22,7 @@
 
       Результат:
 
-      ```bash
+      ```text
       +----------------------+-------------------------+-------------------------+
       |          ID          |          NAME           |          TITLE          |
       +----------------------+-------------------------+-------------------------+
@@ -46,7 +46,7 @@
 
       Результат:
 
-      ```bash
+      ```text
       Identity: /home/user1/.ssh/yc-cloud-id-b1gia87mbaom********-orgusername
       Certificate: /home/user1/.ssh/yc-cloud-id-b1gia87mbaom********-orgusername-cert.pub
       ```

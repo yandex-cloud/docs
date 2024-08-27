@@ -14,9 +14,7 @@ editable: false
 
 
 
-
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
-
 
 
 ### Входящий и исходящий трафик {#prices-traffic}

@@ -49,7 +49,7 @@ description: "Следуя данной инструкции, вы сможет�
 
      Результат:
 
-     ```bash
+     ```text
      name: first-bucket
      folder_id: b1gmit33ngp6********
      anonymous_access_flags:
@@ -117,7 +117,7 @@ description: "Следуя данной инструкции, вы сможет�
 
      Результат:
 
-     ```bash
+     ```text
      name: first-bucket
      max_size: "5368709120"
      used_size: "621552"

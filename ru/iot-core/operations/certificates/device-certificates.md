@@ -55,7 +55,7 @@
   ```
 
   Результат:
-  ```bash
+  ```text
   device_id: b9135goeh1uc********
   fingerprint: 65e5b050069da5ca5996a4a8a9251409********
   certificate_data: |

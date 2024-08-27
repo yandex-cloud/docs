@@ -64,7 +64,7 @@
 
       Результат:
 
-      ```bash
+      ```text
       id: gfei8n54hmfh********
       yandex_passport_user_account:
         login: test-user

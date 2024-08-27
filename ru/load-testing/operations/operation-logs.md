@@ -38,7 +38,7 @@
 
       Результат:
 
-      ```bash
+      ```text
       id: ff67zb1214j6********
       description: Create Job
       created_at: "2024-02-01T09:07:33.271288Z"

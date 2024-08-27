@@ -404,7 +404,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/create-item.md
 
       Результат:
 
-      ```bash
+      ```text
       Добавление новой записи...
       Сериал успешно добавлен: {}
       ```

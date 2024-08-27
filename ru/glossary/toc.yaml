@@ -107,6 +107,8 @@ items:
         href: ddos.md
       - name: IPsec
         href: ipsec.md
+      - name: SASL
+        href: sasl.md
       - name: SSL-сертификат
         href: ssl-certificate.md
       - name: TLS

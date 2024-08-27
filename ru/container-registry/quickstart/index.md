@@ -39,7 +39,7 @@
 
       Результат:
 
-      ```bash
+      ```text
       Credential helper is configured in '/home/<user>/.docker/config.json'
       ```
 

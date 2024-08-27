@@ -24,6 +24,7 @@ The prices are valid as of March 10, 2024.
 
 
 
+{% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 
 ### Secret storage price {#secrets}
