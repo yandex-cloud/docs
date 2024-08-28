@@ -102,38 +102,49 @@ If you need to grant access to a resource that is not on the list, assign the ro
 ## Resources for which you can assign roles using {{ TF }} {#terraform}
 
 **{{ container-registry-name }}**
-* [Registry](../../../container-registry/concepts/registry.md)
-* [Repository](../../../container-registry/concepts/repository.md)
+* [Registry](../../../container-registry/operations/roles/grant.md)
+* [Repository](../../../container-registry/operations/roles/grant.md)
 
 **{{ ml-platform-name }}**
-* [Project](../../../datasphere/concepts/project.md)
-* [Community](../../../datasphere/concepts/community.md)
+* [Project](../../../datasphere/security/index.md)
+* [Community](../../../datasphere/security/index.md)
 
 **{{ dns-name }}**
-* [DNS zone](../../../dns/concepts/dns-zone.md)
+* [DNS zone](../../../dns/operations/zone-access.md)
 
 **{{ sf-name }}**
-* [Function](../../../functions/concepts/function.md)
+* [Function](../../../functions/operations/function/role-add.md)
+
+**{{ compute-name }}**
+* [VM instance](../../../compute/operations/vm-control/vm-access.md)
+* [VM placement group](../../../compute/operations/placement-groups/access.md)
+* [Non-replicated disk placement group](../../../compute/operations/disk-placement-groups/access.md)
+* [VM disk](../../../compute/operations/disk-control/disk-access.md)
+* [GPU cluster](../../../compute/operations/gpu-cluster/access.md)
+* [Image](../../../compute/operations/image-control/access.md)
+* [Snapshot schedule](../../../compute/operations/snapshot-control/snapshot-schedule-access.md)
+* [Disk snapshot](../../../compute/operations/snapshot-control/snapshot-access.md)
+* [File storage](../../../compute/operations/filesystem/filesystem-access.md)
 
 **{{ iam-name }}**
-* [Service account](../users/service-accounts.md)
+* [Service account](../../operations/sa/assign-role-for-sa.md)
 
 **{{ kms-name }}**
 
 {% include notitle [kms-resources](../../../_includes/iam/resources-with-access-control/kms.md) %}
 
 **{{ lockbox-name }}**
-* [Secret](../../../lockbox/concepts/secret.md)
+* [Secret](../../../lockbox/operations/secret-access.md)
 
 **{{ resmgr-name }}**
-* [Cloud](../../../resource-manager/concepts/resources-hierarchy.md#cloud)
-* [Folder](../../../resource-manager/concepts/resources-hierarchy.md#folder)
+* [Cloud](../../../resource-manager/operations/cloud/set-access-bindings.md)
+* [Folder](../../../resource-manager/operations/folder/set-access-bindings.md)
 
 **{{ serverless-containers-name }}**
-* [Container](../../../serverless-containers/concepts/container.md)
+* [Container](../../../serverless-containers/operations/role-add.md)
 
 **{{ ydb-name }}**
-* [YDB DBMS](../../../ydb/concepts/index.md#ydb)
+* [YDB DBMS](../../../ydb/security/index.md)
 
 **{{ org-name }}**
 

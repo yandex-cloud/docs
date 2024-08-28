@@ -57,7 +57,7 @@ To export audit logs of a cloud:
    * `yds.viewer` for the {{ yds-name }} data stream.
 
 
-## Create a trail {#the-trail-creation}
+## Creating a trail {#the-trail-creation}
 
 To create a trail that exports audit logs from the cloud:
 
@@ -69,17 +69,17 @@ To create a trail that exports audit logs from the cloud:
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
    1. Click **{{ ui-key.yacloud.audit-trails.button_create-trail }}** and specify:
 
-      * **{{ ui-key.yacloud.common.name }}**: Name of the trail being created.
-      * **{{ ui-key.yacloud.common.description }}**: Description of the trail (optional).
+      * **{{ ui-key.yacloud.common.name }}**: Name of the new trail.
+      * **{{ ui-key.yacloud.common.description }}**: Trail description (optional).
 
-   1. Under **{{ ui-key.yacloud.audit-trails.label_destination }}**, set up the destination object:
+   1. Under **{{ ui-key.yacloud.audit-trails.label_destination }}**, configure the destination object:
 
       * **{{ ui-key.yacloud.audit-trails.label_destination }}**: `{{ ui-key.yacloud.audit-trails.label_dataStream }}`.
       * **{{ ui-key.yacloud.audit-trails.label_stream-name }}**: Select the data stream. You can also create a new data stream by clicking **{{ ui-key.yacloud.common.create-new }}** and [specifying](../../data-streams/operations/manage-streams.md#create-data-stream) the data stream settings.
 
    1. Under **{{ ui-key.yacloud.audit-trails.label_service-account }}**, select the service account that the trail will use to upload audit log files to the data stream.
 
-   1. Under **{{ ui-key.yacloud.audit-trails.label_path-filter-section }}**, set up the collection of management event audit logs:
+   1. Under **{{ ui-key.yacloud.audit-trails.label_path-filter-section }}**, configure the collection of management event audit logs:
 
       * **{{ ui-key.yacloud.audit-trails.label_collecting-logs }}**: Select `{{ ui-key.yacloud.common.enabled }}`.
       * **{{ ui-key.yacloud.audit-trails.label_resource-type }}**: Select `{{ ui-key.yacloud.audit-trails.label_resource-manager.cloud }}`.
@@ -161,7 +161,7 @@ To create a trail that exports audit logs from the cloud:
 
       {% endcut %}
 
-   1. To create a trail for collecting management event and [data event](../concepts/format-data-plane.md) audit logs, use the trail YAML specification file.
+   1. To create a trail to collect management event and [data event](../concepts/format-data-plane.md) audit logs, use the trail's YAML specification file.
 
       1. Create a trail configuration file, e.g., `specification.yaml`:
 
@@ -263,7 +263,7 @@ To create a trail that exports audit logs from the cloud:
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-   1. Describe in the configuration file the parameters of the trail that will collect audit events of the cloud resources:
+   1. In the configuration file, describe the parameters of the trail that will collect audit events of the cloud resources:
 
       ```hcl
       resource "yandex_audit_trails_trail" "basic_trail" {
@@ -288,17 +288,17 @@ To create a trail that exports audit logs from the cloud:
               resource_id   = "<organization_ID>"
               resource_type = "<parent_resource_type>"
               any_filters {
-                  resource_id   = "<cloud_ID_1>"
+                  resource_id   = "<cloud_1_ID>"
                   resource_type = "<child_resource_type>"
               }
               any_filters {
-                  resource_id   = "<cloud_ID_2>"
+                  resource_id   = "<cloud_2_ID>"
                   resource_type = "<child_resource_type>"
               }
             }
           }
           event_filters {
-            service = "<service_ID_1>"
+            service = "<service_1_ID>"
             categories {
               plane = "DATA_PLANE"
               type  = "<action_type>"
@@ -311,7 +311,7 @@ To create a trail that exports audit logs from the cloud:
             }
           }
           event_filters {
-            service = "<service_ID_2>"
+            service = "<service_2_ID>"
             categories {
               plane = "DATA_PLANE"
               type  = "<action_type>"
@@ -337,7 +337,7 @@ To create a trail that exports audit logs from the cloud:
 
       For more information about the parameters of the `yandex_audit_trails_trail` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/audit_trails_trail).
 
-   1. Create resources:
+   1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 

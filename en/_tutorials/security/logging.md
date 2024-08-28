@@ -185,7 +185,7 @@ To create a cluster and a database:
 
    1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**, add a host to be accessible from outside {{ yandex-cloud }}. To do this, enable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
    1. Under **{{ ui-key.yacloud.mdb.forms.section_additional }}**, enable **{{ ui-key.yacloud.mdb.forms.additional-field-websql }}** and **{{ ui-key.yacloud.mdb.forms.additional-field-serverless }}**.
-   1. Leave the default values in the other fields.
+   1. Leave the default values in all other fields.
    1. Click **{{ ui-key.yacloud.mdb.forms.button_create }}**.
 
 {% endlist %}
@@ -235,7 +235,7 @@ You need to create a log table in advance:
 
 ## Create an instance group {#create-vms}
 
-As web servers for your site, you will use an [instance group](../../compute/concepts/instance-groups/index.md) {{ compute-name }}. The servers will be deployed on the LEMP stack (Linux, NGINX, MySQL, PHP). For more information, see [Website on LAMP or LEMP stack](../../tutorials/web/lamp-lemp/index.md).
+As web servers for your website, you will use a {{ compute-name }} [instance group](../../compute/concepts/instance-groups/index.md). The servers will be deployed based on the LEMP stack (Linux, NGINX, MySQL, PHP). For more information, see this guide on [LAMP or LEMP-based website](../../tutorials/web/lamp-lemp/index.md).
 
 To create an instance group:
 
@@ -255,7 +255,7 @@ To create an instance group:
       - Select the VM's [platform](../../compute/concepts/vm-platforms.md).
       - Specify the required number of vCPUs and the amount of RAM.
 
-      The minimum configuration is enough for functional website testing:
+      This minimum configuration is enough for functional website testing:
       * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Cascade Lake`
       * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `5%`
       * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`
@@ -265,7 +265,7 @@ To create an instance group:
    1. In the **{{ ui-key.yacloud.compute.instances.create.field_instance-group-address }}** field, select **{{ ui-key.yacloud.compute.instances.create.value_address-auto }}**.
    1. Select the [previously created](#create-security-groups) `alb-logging-sg-vms` security group.
    1. Specify the data required for accessing the VM:
-      - Enter the username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
+      - Enter the username into the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
       - In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the public key file.
 
          You need to create a key pair for the SSH connection yourself. See the [section on how to connect to VMs via SSH](../../compute/operations/vm-connect/ssh.md).
@@ -504,7 +504,7 @@ To create a trigger:
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you want to create your trigger.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a trigger.
 
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
 

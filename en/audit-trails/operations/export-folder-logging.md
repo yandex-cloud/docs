@@ -54,7 +54,7 @@ To export folder audit logs:
    * `audit-trails.viewer` for the folder from which audit logs will be collected.
    * `logging.viewer` for a log group in {{ cloud-logging-name }}.
 
-## Create a trail {#the-trail-creation}
+## Creating a trail {#the-trail-creation}
 
 To create a trail that exports folder audit logs:
 
@@ -66,25 +66,25 @@ To create a trail that exports folder audit logs:
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
    1. Click **{{ ui-key.yacloud.audit-trails.button_create-trail }}** and specify:
 
-      * **{{ ui-key.yacloud.common.name }}**: Name of the trail being created.
-      * **{{ ui-key.yacloud.common.description }}**: Description of the trail (optional).
+      * **{{ ui-key.yacloud.common.name }}**: Name of the new trail.
+      * **{{ ui-key.yacloud.common.description }}**: Trail description (optional).
 
-   1. Under **{{ ui-key.yacloud.audit-trails.label_destination }}**, set up the destination object:
+   1. Under **{{ ui-key.yacloud.audit-trails.label_destination }}**, configure the destination object:
 
       * **{{ ui-key.yacloud.audit-trails.label_destination }}**: `{{ ui-key.yacloud.audit-trails.label_cloudLogging }}`.
       * **{{ ui-key.yacloud.logging.label_loggroup }}**: Select a log group. You can also create a new log group. For this:
 
          * Click **{{ ui-key.yacloud.common.label_create-new_female }}**, then specify the parameters of the log group:
 
-            * **{{ ui-key.yacloud.common.name }}**: Name of the group being created
-            * **{{ ui-key.yacloud.common.description }}**: Description of the log group (optional)
-            * **{{ ui-key.yacloud.logging.label_retention-period }}**.
+            * **{{ ui-key.yacloud.common.name }}**: Name of the new group.
+            * **{{ ui-key.yacloud.common.description }}**: Log group description (optional).
+            * **{{ ui-key.yacloud.logging.label_retention-period }}**​.
 
          * Click **{{ ui-key.yacloud.logging.button_create-group }}**.
 
    1. Under **{{ ui-key.yacloud.audit-trails.label_service-account }}**, select the service account that the trail will use to upload audit log files to the log group.
 
-   1. Under **{{ ui-key.yacloud.audit-trails.label_path-filter-section }}**, set up the collection of management event audit logs:
+   1. Under **{{ ui-key.yacloud.audit-trails.label_path-filter-section }}**, configure the collection of management event audit logs:
 
       * **{{ ui-key.yacloud.audit-trails.label_collecting-logs }}**: Select `{{ ui-key.yacloud.common.enabled }}`.
       * **{{ ui-key.yacloud.audit-trails.label_resource-type }}**: Select `{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}`.
@@ -154,7 +154,7 @@ To create a trail that exports folder audit logs:
 
       {% endcut %}
 
-   1. To create a trail for collecting management event and [data event](../concepts/format-data-plane.md) audit logs, use the trail YAML specification file.
+   1. To create a trail to collect management event and [data event](../concepts/format-data-plane.md) audit logs, use the trail's YAML specification file.
 
       1. Create a trail configuration file, e.g., `specification.yaml`:
 

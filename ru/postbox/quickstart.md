@@ -34,6 +34,7 @@
         {% endnote %}
 
     1. Скопируйте в поле **{{ ui-key.yacloud.postbox.label_private-key }}** содержимое файла приватного ключа `privatekey.pem`, [созданного ранее](#service-account-and-keys).
+    1. (Опционально) [Настройте логирование](operations/logs-write.md).
     1. Нажмите кнопку **{{ ui-key.yacloud.postbox.button_create-identity }}**.
 
 {% endlist %}

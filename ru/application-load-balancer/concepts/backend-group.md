@@ -22,6 +22,8 @@
 
 Группы типов **{{ ui-key.yacloud.alb.label_proto-http }}** и **{{ ui-key.yacloud.alb.label_proto-grpc }}** подключаются к [обработчикам](application-load-balancer.md#listener) типа **{{ ui-key.yacloud.alb.label_listener-type-http }}** через [HTTP-роутеры](http-router.md), группы типа **{{ ui-key.yacloud.alb.label_proto-stream }}** — к обработчикам типа **{{ ui-key.yacloud.alb.label_listener-type-stream }}** напрямую.
 
+Бэкендам типа **{{ ui-key.yacloud.alb.label_proto-stream }}** по умолчанию доступен только IP-адрес балансировщика. Чтобы дополнительно передавать в бэкенд IP-адрес клиента и другие метаданные, включите [протокол PROXY от HAProxy](https://www.haproxy.org/download/1.9/doc/proxy-protocol.txt) в настройках бэкенда. Подробнее см. [Создать группу бэкендов](../operations/backend-group-create.md).
+
 {% note alert %}
 
 Выбрать тип группы бэкендов можно только при ее создании. Изменить тип существующей группы невозможно.

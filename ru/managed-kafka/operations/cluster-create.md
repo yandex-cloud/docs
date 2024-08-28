@@ -166,6 +166,20 @@
 
      {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
+  1. Чтобы в кластере не заканчивалось место на диске, создайте кластер с [автоматическим увеличением размера хранилища](../concepts/storage.md#auto-rescale):
+
+     ```bash
+     {{ yc-mdb-kf }} cluster create \
+        ...
+        --disk-size-autoscaling disk-size-limit=<максимальный_размер_хранилища_в_байтах>,`
+                               `planned-usage-threshold=<процент_для_планового_увеличения>,`
+                               `emergency-usage-threshold=<процент_для_незамедлительного_увеличения>
+     ```
+
+     {% include [description-of-parameters](../../_includes/mdb/mkf/disk-auto-scaling.md) %}
+
+     {% include [warn-storage-resize](../../_includes/mdb/mpg/warn-storage-resize.md) %}
+
 
   
   1. Чтобы создать кластер {{ mkf-name }}, размещенный на группах [выделенных хостов](../../compute/concepts/dedicated-host.md), укажите через запятую их идентификаторы в параметре `--host-group-ids` при создании кластера:
@@ -286,13 +300,19 @@
     {% include [deletion-protection-limits](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
   Чтобы управлять схемами данных с помощью [{{ mkf-msr }}](../concepts/managed-schema-registry.md), передайте значение `true` для параметра `configSpec.schemaRegistry`. Эту настройку невозможно изменить после создания кластера {{ mkf-name }}.
-  
+
 
   
   Чтобы создать кластер {{ mkf-name }}, размещенный на группах [выделенных хостов](../../compute/concepts/dedicated-host.md), передайте список их идентификаторов в параметре `hostGroupIds`.
 
   {% include [Dedicated hosts note](../../_includes/mdb/mkf/note-dedicated-hosts.md) %}
 
+
+  Чтобы в кластере не заканчивалось место на диске, создайте кластер с [автоматическим увеличением размера хранилища](../concepts/storage.md#auto-rescale). Для этого передайте в запросе:
+
+  {% include [api-storage-resize](../../_includes/mdb/mpg/api-storage-resize.md) %}
+
+  {% include [warn-storage-resize](../../_includes/mdb/mpg/warn-storage-resize.md) %}
 
 {% endlist %}
 
@@ -374,12 +394,26 @@
         ...
         --maintenance-window type=<тип_технического_обслуживания>,`
                             `day=<день_недели>,`
-                            `hour=<час_дня> \
+                            `hour=<час_дня>
      ```
 
      Где `type` — тип технического обслуживания:
 
      {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
+
+  1. Чтобы в кластере не заканчивалось место на диске, создайте кластер с [автоматическим увеличением размера хранилища](../concepts/storage.md#auto-rescale):
+
+     ```bash
+     {{ yc-mdb-kf }} cluster create \
+        ...
+        --disk-size-autoscaling disk-size-limit=<максимальный_размер_хранилища_в_байтах>,`
+                               `planned-usage-threshold=<процент_для_планового_увеличения>,`
+                               `emergency-usage-threshold=<процент_для_незамедлительного_увеличения>
+     ```
+
+     {% include [description-of-parameters](../../_includes/mdb/mkf/disk-auto-scaling.md) %}
+
+     {% include [warn-storage-resize](../../_includes/mdb/mpg/warn-storage-resize.md) %}
 
 
   
@@ -509,6 +543,12 @@
 
   {% include [Dedicated hosts note](../../_includes/mdb/mkf/note-dedicated-hosts.md) %}
 
+
+  Чтобы в кластере не заканчивалось место на диске, создайте кластер с [автоматическим увеличением размера хранилища](../concepts/storage.md#auto-rescale). Для этого передайте в запросе:
+
+  {% include [api-storage-resize](../../_includes/mdb/mpg/api-storage-resize.md) %}
+
+  {% include [warn-storage-resize](../../_includes/mdb/mpg/warn-storage-resize.md) %}
 
 {% endlist %}
 

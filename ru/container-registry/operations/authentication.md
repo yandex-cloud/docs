@@ -18,69 +18,69 @@ description: "Перед началом работы с {{ container-registry-na
 
 Вы можете аутентифицироваться:
 
-* Как пользователь:
-  * [С помощью OAuth-токена](#user-oauth) (срок жизни — год).
-  * [С помощью {{ iam-full-name }}-токена](#user-iam) (срок жизни — не более {{ iam-token-lifetime }}).
+* [Как пользователь](#user):
+  * С помощью OAuth-токена (срок жизни — год).
+  * С помощью IAM-токена (срок жизни — не более {{ iam-token-lifetime }}).
 
 * [С помощью хранилища учетных данных Docker Credential helper](#cred-helper).
 
 ## Аутентифицироваться как пользователь {#user}
 
-{% note warning %}
+{% list tabs group=registry_auth %}
 
-Чтобы аутентифицироваться в {{ container-registry-name }} с помощью команды `docker login`, [отключите Docker Credential helper](#ch-not-use). Подробнее см. в разделе [Решение проблем в {{ container-registry-name }}](../error/index.md).
+- С помощью OAuth-токена {#oauth-token}
 
-{% endnote %}
+  {% note info %}
 
-Команда для аутентификации выглядит следующим образом:
+  {% include [oauth-token-lifetime](../../_includes/oauth-token-lifetime.md) %}
 
-```bash
-echo <токен> | docker login \
-  --username <тип_токена> \
-  --password-stdin \
-  {{ registry }}
-```
+  {% endnote %}
 
-Где:
-* `--username` — тип токена. Допустимые значения: `oauth` или `iam`.
-* `<токен>` — тело токена.
-* `{{ registry }}` — эндпоинт, к которому будет обращаться [Docker](/blog/posts/2022/03/docker-containers) при работе с реестром образов. Если его не указать, запрос пойдет в сервис по умолчанию — [Docker Hub](https://hub.docker.com).
+  1. Если у вас не установлен Docker, [установите](./configure-docker.md) его.
+  1. Если у вас еще нет OAuth-токена, получите его по [ссылке]({{ link-cloud-oauth }}).
+  1. Выполните команду:
 
-### Аутентификация с помощью OAuth-токена {#user-oauth}
+     ```bash
+     echo <OAuth-токен> | docker login \
+       --username oauth \
+       --password-stdin \
+      {{ registry }}
+     ```
 
-{% note info %}
+      Где:
+      * `<OAuth-токен>` — тело полученного ранее OAuth-токена.
+      * `--username` — тип токена: значение `oauth` указывает на то, что для аутентификации используется OAuth-токен.
+      * `{{ registry }}` — эндпоинт, к которому будет обращаться [Docker](/blog/posts/2022/03/docker-containers) при работе с реестром образов. Если его не указать, запрос пойдет в сервис по умолчанию — [Docker Hub](https://hub.docker.com).
 
-{% include [oauth-token-lifetime](../../_includes/oauth-token-lifetime.md) %}
+- С помощью IAM-токена {#iam-token}
 
-{% endnote %}
+  {% note info %}
 
-1. Если у вас еще нет OAuth-токена, получите его по [ссылке]({{ link-cloud-oauth }}).
-1. Выполните команду:
+  {% include [iam-token-note](../../_includes/iam/iam-token-note.md) %}
 
-   ```bash
-   echo <OAuth-токен> | docker login \
-     --username oauth \
-     --password-stdin \
-     {{ registry }}
-   ```
+  {% endnote %}
 
-### Аутентификация с помощью {{ iam-name }}-токена {#user-iam}
+  1. Если у вас не установлен Docker, [установите](./configure-docker.md) его.
+  1. [Получите IAM-токен](../../iam/operations/iam-token/create.md).
+  1. Выполните команду:
 
-{% note info %}
+      ```bash
+      echo <IAM-токен> | docker login \
+        --username iam \
+        --password-stdin \
+        {{ registry }}
+      ```
 
-{% include [iam-token-note](../../_includes/iam/iam-token-note.md) %}
+      Где:
+      * `<IAM-токен>` — тело полученного ранее IAM-токена.
+      * `--username` — тип токена: значение `iam` указывает на то, что для аутентификации используется IAM-токен.
+      * `{{ registry }}` — эндпоинт, к которому будет обращаться [Docker](/blog/posts/2022/03/docker-containers) при работе с реестром образов. Если его не указать, запрос пойдет в сервис по умолчанию — [Docker Hub](https://hub.docker.com).
 
-{% endnote %}
+{% endlist %}
 
-1. [Получите {{ iam-name }}-токен](../../iam/operations/iam-token/create.md).
-1. Выполните команду:
+При выполнении команды вы можете получить сообщение об ошибке: `docker login is not supported with yc credential helper`.
 
-   ```bash
-   echo <IAM-токен> | docker login \
-     --username iam \
-     --password-stdin \
-     {{ registry }}
-   ```
+В этом случае [отключите Docker Credential helper](#ch-not-use). Подробнее см. в разделе [Решение проблем в {{ container-registry-name }}](../error/index.md).
 
 ## Аутентифицироваться с помощью Docker Credential helper {#cred-helper}
 

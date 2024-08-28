@@ -22,7 +22,8 @@ description: "Из статьи вы узнаете, как задать нас�
     * [Миграция кластера {{ PG }}](../../../tutorials/managed-postgresql.md);
     * [Миграция из AWS RDS for {{ PG }}](../../../tutorials/rds-to-mpg.md);
     * [Миграция со сменой хранилища: {{ PG }} в {{ ydb-short-name }}](../../../tutorials/mpg-to-ydb.md);
-    * [Миграция со сменой хранилища: {{ PG }} в {{ MY }}](../../../tutorials/mpg-to-mmy.md).
+    * [Миграция со сменой хранилища: {{ PG }} в {{ MY }}](../../../tutorials/mpg-to-mmy.md);
+    * [Миграция со сменой хранилища: {{ PG }} в {{ OS }}](../../../tutorials/postgresql-to-opensearch.md).
 
 1. {% include [cdc](../../../../_includes/data-transfer/scenario-captions/cdc.md) %}
 

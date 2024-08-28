@@ -16,3 +16,7 @@ Organization membership may be held by:
 
 * Users invited to join an organization, upon acceptance of the invitation.
 * Users of an [identity federation](./add-federation.md) created within an organization (they become members automatically).
+
+To join an organization, ask its [owner](../security/index.md#organization-manager-organizations-owner) or [administrator](../security/index.md#organization-manager-admin) to [add](../operations/add-account.md) you. You can also [create](../operations/manage-organizations.md#create-additional-org) your own organization and become its owner.
+
+A user can be an owner or member of multiple organizations at the same time. You can [switch](../operations/manage-organizations.md#switch-to-another-org) between organizations in the [management console]({{ link-console-main }}).

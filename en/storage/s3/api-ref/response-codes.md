@@ -106,7 +106,7 @@ In case of an error, {{ objstorage-name }} returns a message with the appropriat
 || 429 | `TooManyRequests` | Too many requests to {{ objstorage-name }}. Reduce the request rate. ||
 || 500 | `InternalError` | {{ objstorage-name }} internal error. Repeat the request. ||
 || 501 | `NotImplemented` | The provided header is not processed by {{ objstorage-name }}. ||
-|| 503 | `ServiceUnavailable` | {{ objstorage-name }} is not available.<br/>Reduce your request rate.
+|| 503 | `ServiceUnavailable` | {{ objstorage-name }} is not available.<br/>Reduce your request rate. ||
 || 503 | `SlowDown` | Reduce your request rate. ||
 |#
 

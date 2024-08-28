@@ -2,6 +2,6 @@
 canonical: "{{ link-docs }}/tutorials/dataplatform/data-proc-init-actions-geesefs"
 ---
 
-# Использование скриптов инициализации для настройки GeeseFS в {{ dataproc-full-name }}
+# Монтирование бакетов {{ objstorage-name }} к файловой системе хостов {{ dataproc-full-name }}
 
 {% include notitle [GeeseFS with init-actions](../../_tutorials/dataplatform/data-proc-init-actions-geesefs.md) %}

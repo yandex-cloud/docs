@@ -1,4 +1,8 @@
 default:
+  region: ru
+  lang: ru
+  product: yandex-cloud
+  api-host: api.cloud.yandex.net
   dp-libs:
     iceberg:
       dp20:

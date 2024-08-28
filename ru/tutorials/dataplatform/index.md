@@ -105,6 +105,7 @@ description: "На странице представлен список прак
 * [{#T}](opensearch-to-object-storage.md)
 * [{#T}](opensearch-to-ydb.md)
 * [{#T}](opensearch-to-clickhouse.md)
+* [{#T}](postgresql-to-opensearch.md)
 
 
 ## {{ PG }} {#postgresql}
@@ -124,6 +125,7 @@ description: "На странице представлен список прак
 * [{#T}](mpg-to-mmy.md)
 * [{#T}](mpg-to-yds.md)
 * [{#T}](rds-to-mpg.md)
+* [{#T}](postgresql-to-opensearch.md)
 
 
 ## {{ RD }} {#redis}

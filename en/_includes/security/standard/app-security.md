@@ -4,13 +4,13 @@
 
 #### 9.1 {{ captcha-full-name }} is used {#use-smartcaptcha}
 
-To mitigate the risks associated with automated attacks on applications, we recommend using [{{ captcha-full-name }}](/services/smartcaptcha). The service checks user requests with its ML algorithms and only shows tasks to those users whose requests it considers suspicious. You do not have to place the **"I’m not a robot"** button on the page.
+To mitigate the risks associated with automated attacks on applications, we recommend using [{{ captcha-full-name }}](/services/smartcaptcha). The service checks user requests with its ML algorithms and only shows challenges to those users whose requests it considers suspicious. You do not have to place the **"I’m not a robot"** button on the page.
 
 {% list tabs group=instructions %}
 
 - Performing a check in the management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the appropriate folder.
+  1. In the [management console]({{ link-console-main }}), select the folder.
   1. Select **{{ captcha-full-name }}**.
   1. Make sure at least one CAPTCHA is [created](../../../smartcaptcha/operations/create-captcha.md) for your application.
 
@@ -26,7 +26,7 @@ To mitigate the risks associated with automated attacks on applications, we reco
 
 #### 9.2 Docker image scans on push to {{ container-registry-full-name }} {#upload-policy}
 
-[Auto scans](../../../container-registry/tutorials/image-auto-scan.md) of Docker images on push are critical for early detection and elimination of vulnerabilities to ensure secure deployment of containers. Reports on completed scans provide a brief description of detected vulnerabilities and issues and help you set priorities and eliminate security risks in containerized applications.
+[Auto scans](../../../container-registry/operations/scanning-docker-image.md#automatically) of Docker images on push are critical for early detection and elimination of vulnerabilities to ensure secure deployment of containers. Reports on completed scans provide a brief description of detected vulnerabilities and issues and help you set priorities and eliminate security risks in containerized applications.
 
 {% list tabs group=instructions %}
 
@@ -92,7 +92,7 @@ Checking Docker images used in production environments with the last scan date n
 
 #### 9.5 Software artifacts are built using attestations {#provenance-attestation}
 
-Attestations are used when building software artifacts to ensure a secure and verifiable record of an artifact's origin, integrity, and SBOM compliance. This helps ensure the artifact reliability throughout its lifecycle. A Software Bill of Materials (SBOM) is required to secure a supply chain, manage vulnerabilities, comply with requirements, assess risks, ensure transparency, and respond to incidents in an effective way.
+Attestations are used when building software artifacts to ensure a secure and verifiable record of an artifact's origin, integrity, and SBOM compliance. This helps ensure the artifact reliability throughout its lifecycle. A software bill of materials (SBOM) is required to secure a supply chain, manage vulnerabilities, comply with requirements, assess risks, ensure transparency, and respond to incidents in an effective way.
 
 With {{ mgl-name }}, attestations are easier to use, as the service has a feature for generating a [provenance attestation](https://about.gitlab.com/releases/2022/06/22/gitlab-15-1-released/#slsa-2-attestation-included-for-build-artifacts). An SBOM can be generated using [syft](https://github.com/anchore/syft), a third-party software tool.
 

@@ -21,6 +21,8 @@ items:
         href: operations/create-configuration.md
       - name: Привязка конфигурации к адресу
         href: operations/bind-configuration.md
+      - name: Запись логов
+        href: operations/logs-write.md
   - name: Концепции
     items:
       - name: Уведомления о доставке писем

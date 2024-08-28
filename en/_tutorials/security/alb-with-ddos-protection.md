@@ -705,7 +705,7 @@ To create an L7 load balancer with DDoS protection using {{ TF }}:
    * [yandex_alb_load_balancer]({{ tf-provider-resources-link }}/alb_load_balancer)
 1. In the `alb-with-ddos-protection.auto.tfvars` file, set user-defined parameters:
    * `folder_id`: [Folder ID](../../resource-manager/operations/folder/get-id.md).
-   * `vm_user`: VM user name.
+   * `vm_user`: VM username.
    * `ssh_key_path`: Path to the file with a public SSH key to authenticate the user on the VM. For more information, see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
 1. Create resources:
 
