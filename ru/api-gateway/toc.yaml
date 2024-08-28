@@ -138,6 +138,10 @@ items:
         href: tutorials/jwt-authorizer-firebase.md
       - name: Канареечный релиз функции {{ sf-name }}
         href: tutorials/canary-release.md
+      - name: >-
+          Использование {{ api-gw-name }} для настройки синтеза речи в {{
+          speechkit-full-name }}
+        href: tutorials/speechkit-integrarion-via-agi-gw.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса

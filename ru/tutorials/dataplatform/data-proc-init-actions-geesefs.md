@@ -1,8 +1,8 @@
 ---
-title: "Использование скриптов инициализации для настройки GeeseFS в {{ dataproc-full-name }}"
-description: "В сервисе {{ dataproc-full-name }} вы можете использовать для настройки хостов скрипты инициализации (initialization actions)."
+title: "Монтирование бакетов {{ objstorage-full-name }} к файловой системе хостов {{ dataproc-full-name }}"
+description: "Вы можете получить доступ к директориям бакетов из файловой системы хостов {{ dataproc-name }}. Для этого примонтируйте бакеты с помощью скриптов инициализации и программы GeeseFS."
 ---
 
-# Использование скриптов инициализации для настройки GeeseFS в {{ dataproc-full-name }}
+# Монтирование бакетов {{ objstorage-full-name }} к файловой системе хостов {{ dataproc-full-name }}
 
 {% include notitle [GeeseFS with init-actions](../../_tutorials/dataplatform/data-proc-init-actions-geesefs.md) %}

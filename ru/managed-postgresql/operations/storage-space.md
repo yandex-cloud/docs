@@ -218,6 +218,8 @@ description: "При заполнении хранилища более чем �
                                    `emergency-usage-threshold=<процент_для_незамедлительного_увеличения>
         ```
 
+        Если настроено увеличение хранилища в окно обслуживания, настройте расписание окна обслуживания.
+
 - API {#api}
 
     Чтобы разрешить автоматическое увеличение размера хранилища, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) и передайте в запросе:
@@ -225,7 +227,5 @@ description: "При заполнении хранилища более чем �
     {% include [api-storage-resize](../../_includes/mdb/mpg/api-storage-resize.md) %}
 
 {% endlist %}
-
-{% include [storage-resize-maintenance](../../_includes/mdb/mpg/storage-resize-maintenance.md) %}
 
 {% include [storage-resize-steps](../../_includes/mdb/mpg/storage-resize-steps.md) %}

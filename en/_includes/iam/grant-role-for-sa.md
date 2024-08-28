@@ -2,7 +2,7 @@ You can assign roles to a service account for any resources in any cloud if thes
 
 ## Assigning a role for a resource {#binding-role-resource}
 
-Child resources inherit access permissions from their parent resources. For example, if a service account is assigned a role for a cloud, the service account will be granted the appropriate permissions to all resources in all folders of this cloud.
+Сhild resources inherit access permissions from their parent resources. For example, if a service account gets a role for a cloud, it will also get the required permissions for all resources across the cloud's folders.
 
 [Learn](../../iam/concepts/access-control/resources-with-access-control.md) which resources you can assign a role for.
 
@@ -16,7 +16,7 @@ To assign a role for a resource:
 
    To assign a service account a role for a cloud or folder:
 
-   1. In the [management console]({{ link-console-main }}), select the appropriate cloud or folder.
+   1. In the [management console]({{ link-console-main }}), select a cloud or folder.
    1. Go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
    1. Click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
    1. In the window that opens, select **{{ ui-key.yacloud_components.acl.label.service-accounts}}**.
@@ -74,7 +74,7 @@ To assign a role for a resource:
 
    1. Make sure the configuration files are correct.
 
-      1. In the command line, go to the directory where you created the configuration file.
+      1. In the command line, go to the folder where you created the configuration file.
       1. Run a check using this command:
 
          ```
@@ -107,7 +107,7 @@ To assign a role for a resource:
 
 ## Assigning a role for an organization {#binding-role-organization}
 
-Access permissions are inherited from an organization by all resources created in the organization. For example, if a service account is assigned a role for an organization, the service account will be granted the appropriate permissions to all resources in all clouds of this organization.
+Access permissions are inherited from an organization by all resources created in the organization. For example, if a service account gets a role for an organization, it will also get the required permissions for all resources across the organization's clouds.
 
 To grant a service account permissions to access an organization, you need the `{{ roles-organization-admin }}` role or higher.
 
@@ -154,7 +154,7 @@ To grant a service account permissions to access an organization, you need the `
 
    For example, to assign a service account the `{{ roles-viewer }}` role for the `MyOrg` organization:
 
-   1. Select a role to assign to the service account. You can find the description of the roles in the {{ iam-full-name }} documentation in the [{{ yandex-cloud }} role reference](../../iam/roles-reference.md).
+   1. Select the role to assign to the service account. You can find the description of the roles in the {{ iam-full-name }} documentation in the [{{ yandex-cloud }} role reference](../../iam/roles-reference.md).
 
    1. Get a list of available organizations to find out their IDs and technical names:
 
@@ -240,7 +240,7 @@ To grant a service account permissions to access an organization, you need the `
 
    1. Make sure the configuration files are correct.
 
-      1. In the command line, go to the directory where you created the configuration file.
+      1. In the command line, go to the folder where you created the configuration file.
       1. Run a check using this command:
 
          ```
@@ -259,7 +259,7 @@ To grant a service account permissions to access an organization, you need the `
 
       1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
-      All the resources you need will then be created in the specified organization. You can check the new resource using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
+      This will create the required resources in the specified organization. You can check the new resource using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
       ```bash
       yc organization-manager organization list-access-bindings <organization_name_or_ID>
@@ -269,7 +269,7 @@ To grant a service account permissions to access an organization, you need the `
 
    To assign the service account a role for the organization, use the [updateAccessBindings](../../organization/api-ref/Organization/updateAccessBindings.md) REST API method for the [Organization](../../organization/api-ref/Organization/index.md) resource:
 
-   1. Select a role to assign to the service account. You can find the description of the roles in the {{ iam-full-name }} documentation in the [{{ yandex-cloud }} role reference](../../iam/roles-reference.md).
+   1. Select the role to assign to the service account. You can find the description of the roles in the {{ iam-full-name }} documentation in the [{{ yandex-cloud }} role reference](../../iam/roles-reference.md).
    1. [Get](../../resource-manager/operations/folder/get-id.md) the ID of the service accounts folder.
    1. [Get](../../iam/operations/iam-token/create.md) an IAM token for authorization in the {{ yandex-cloud }} API.
    1. Get a list of folder service accounts to find out their IDs:

@@ -36,7 +36,7 @@ curl -X POST \
 
 Синтезированная речь будет записана в файл `speech.ogg` в папке, из которой вы выполнили эту команду.
 
-По умолчанию аудио создается в формате [OggOpus](https://wiki.xiph.org/OggOpus). Прослушать созданный файл можно в браузере, например в [Яндекс.Браузере](https://browser.yandex.ru) или [Mozilla Firefox](http://www.mozilla.org).
+По умолчанию аудио создается в формате [OggOpus](https://wiki.xiph.org/OggOpus). Прослушать созданный файл можно в браузере, например в [Яндекс Браузере](https://browser.yandex.ru) или [Mozilla Firefox](http://www.mozilla.org).
 
 См. подробнее [описание формата запроса на синтез речи](../tts/request.md).
 

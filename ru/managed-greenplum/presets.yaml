@@ -1,5 +1,8 @@
 default:
+  region: ru
+  lang: ru
   audience: external
+  product: yandex-cloud
   state: ga
   versions:
     tf:
@@ -11,3 +14,5 @@ default:
     console:
       latest: '6.25'
       str: 6.22 или 6.25
+  api-host: api.cloud.yandex.net
+  api-host-mdb: mdb.api.cloud.yandex.net

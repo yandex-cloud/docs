@@ -1,4 +1,7 @@
 default:
+  region: ru
+  lang: ru
+  product: yandex-cloud
   policy: keep
   versions:
     tf:

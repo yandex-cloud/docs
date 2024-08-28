@@ -7,7 +7,7 @@ description: "In this tutorial, you will learn about possible errors related to 
 
 ## Federation not found {#federation-not-found}
 
-Federation with the requested ID not found.
+Federation with the requested ID not found. Check the specified ID or contact your federation administrator.
 
 ## Internal application error {#internal-server-error}
 

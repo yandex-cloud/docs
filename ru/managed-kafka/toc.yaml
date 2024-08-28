@@ -22,6 +22,8 @@ items:
             href: operations/cluster-update.md
           - name: Обновление версии {{ KF }}
             href: operations/cluster-version-update.md
+          - name: Управление дисковым пространством
+            href: operations/storage-space.md
           - name: Остановка и запуск кластера
             href: operations/cluster-stop.md
           - name: Получение списка хостов кластера {{ KF }}
@@ -128,7 +130,7 @@ items:
         href: concepts/network.md
       - name: Квоты и лимиты
         href: concepts/limits.md
-      - name: Типы дисков
+      - name: Хранилище в {{ mkf-name }}
         href: concepts/storage.md
       - name: Коннекторы
         href: concepts/connectors.md

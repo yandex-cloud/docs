@@ -19,7 +19,6 @@
 * [{{ mmy-full-name }}](#mmy)
 * [{{ mpg-full-name }}](#mpg)
 * [{{ objstorage-full-name }}](#objstorage)
-* [{{ sws-full-name }}](#smartwebsecurity)
 * [{{ speechsense-full-name }}](#speechsense)
 * [{{ sws-full-name }}](#sws)
 * [{{ wiki-full-name }}](#wiki)
@@ -78,12 +77,6 @@
 Имя сервиса — `storage`.
 
 {% include [storage-events-dp](../../_includes/audit-trails/events/storage-events-dp.md) %}
-
-## {{ sws-full-name }} {#smartwebsecurity}
-
-Имя сервиса — `smartwebsecurity`.
-
-{% include [sws-events](../../_includes/audit-trails/events/sws-events-dp.md) %}
 
 ## {{ speechsense-full-name }} {#speechsense}
 

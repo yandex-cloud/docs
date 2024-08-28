@@ -1,15 +1,15 @@
 1. [Log in]({{ link-passport-login }}) to your Yandex account.
-1. Get an OAuth token from Yandex.OAuth. To do this, follow the [link]({{ link-cloud-oauth }}), click **Allow**, and copy the OAuth token obtained.
-1. Exchange the OAuth token for an IAM token:
+1. Get an [OAuth token](../../iam/concepts/authorization/oauth-token.md) from Yandex.OAuth. To do this, follow [this link]({{ link-cloud-oauth }}), click **Allow**, and copy the OAuth token you got.
+1. Exchange the OAuth token for an [IAM token](../../iam/concepts/authorization/iam-token.md):
 
-   * Using [curl](https://curl.haxx.se) in Bash:
+    * Using [curl](https://curl.haxx.se) in Bash:
 
-      ```bash
-      curl -X POST \
-        -d '{"yandexPassportOauthToken":"<OAuth_token>"}' \
-        https://iam.{{ api-host }}/iam/v1/tokens
-      ```
-   * Using the built-in PowerShell function:
+        ```bash
+        curl -X POST \
+          -d '{"yandexPassportOauthToken":"<OAuth_token>"}' \
+          https://iam.{{ api-host }}/iam/v1/tokens
+        ```
+    * Using the built-in PowerShell function:
 
         ```powershell
         $yandexPassportOauthToken = "<OAuth_token>"

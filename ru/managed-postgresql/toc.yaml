@@ -156,6 +156,10 @@ items:
               Миграция данных из AWS RDS for {{ PG }} в {{ mpg-name }} с помощью
               {{ data-transfer-full-name }}
             href: tutorials/rds-to-mpg.md
+          - name: >-
+              Миграция данных из {{ mpg-name }} в {{ mos-name }} с помощью {{
+              data-transfer-full-name }}
+            href: tutorials/postgresql-to-opensearch.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса

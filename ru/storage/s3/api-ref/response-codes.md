@@ -106,7 +106,7 @@ description: "Описаны коды ответов и ошибок в {{ objst
 || 429 | `TooManyRequests` | Слишком много запросов к {{ objstorage-name }}. Снизьте частоту обращений. ||
 || 500 | `InternalError` | Внутренняя ошибка {{ objstorage-name }}. Повторите запрос. ||
 || 501 | `NotImplemented` | Переданный заголовок не обрабатывается {{ objstorage-name }}. ||
-|| 503 | `ServiceUnavailable` | {{ objstorage-name }} недоступен.<br/>Уменьшите частоту ваших запросов.
+|| 503 | `ServiceUnavailable` | {{ objstorage-name }} недоступен.<br/>Уменьшите частоту ваших запросов. ||
 || 503 | `SlowDown` | Уменьшите частоту ваших запросов. ||
 |#
 
