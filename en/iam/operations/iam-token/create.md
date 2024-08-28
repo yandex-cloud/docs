@@ -17,7 +17,7 @@ description: "Follow this guide to get an IAM token for an account."
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
-  Get an IAM token:
+  Get an [IAM token](../../concepts/authorization/iam-token.md):
 
   ```bash
   yc iam create-token

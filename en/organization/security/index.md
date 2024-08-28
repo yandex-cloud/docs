@@ -4,7 +4,7 @@ Access management in {{ yandex-cloud }} leverages the [Role Based Access Control
 
 Each role consists of a set of permissions that describe operations that can be performed with the resource. A user can assign a role with only those permissions which are available to themselves. For example, only a user with the organization [owner](#admin) role can assign this role: the administrator role is not sufficient to do this.
 
-If a resource has child resources, all permissions from the parent resource will be inherited by the child resources. For instance, if you assign a user the administrator role for the organization hosting the cloud, all the role's permissions will apply to the cloud and all the cloud's nested resources.
+If a resource has child resources, all permissions from the parent resource will be inherited by the child resources. For example, if you assign the administrator role for the organization hosting the cloud, all the role's permissions will apply to the cloud and all its nested resources.
 
 For more information about access control in {{ yandex-cloud }}, see the {{ iam-full-name }} documentation, [{#T}](../../iam/concepts/access-control/index.md).
 
@@ -64,8 +64,8 @@ You can assign a role via the YC CLI or {{ yandex-cloud }} API for individual re
 
 To grant a user organization management access, [assign](#add-role) the user one of the following roles:
 
-* `organization-manager.admin`.
-* `organization-manager.organizations.owner`.
+* `organization-manager.admin`
+* `organization-manager.organizations.owner`
 
 ### Assigning a role to a user {#add-role}
 
@@ -149,7 +149,7 @@ For information about roles available in {{ yandex-cloud }} and their associated
 
    1. Make sure the configuration files are correct.
 
-      1. In the command line, go to the directory where you created the configuration file.
+      1. In the command line, go to the folder where you created the configuration file.
       1. Run a check using this command:
 
       ```
@@ -318,7 +318,7 @@ The role can be revoked by a user with the `organization-manager.admin` or `orga
       }
       ```
 
-   1. Create a request body, for example, in the `body.json` file. In the request body, specify which access binding to delete. For example, revoke the `organization-manager.admin` role from the `aje6o61dvog2********` user:
+   1. Create the request body, for example, in the `body.json` file. In the request body, specify which access binding to delete. For example, revoke the `organization-manager.admin` role from the `aje6o61dvog2********` user:
 
       Example of `body.json` file:
 

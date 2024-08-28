@@ -82,6 +82,10 @@ items:
           Копирование данных из {{ mos-name }} в {{ mch-name }} с помощью {{
           data-transfer-full-name }}
         href: tutorials/opensearch-to-clickhouse.md
+      - name: >-
+          Миграция данных из {{ mpg-name }} в {{ mos-name }} с помощью {{
+          data-transfer-full-name }}
+        href: tutorials/postgresql-to-opensearch.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса

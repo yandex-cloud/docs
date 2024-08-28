@@ -16,3 +16,4 @@
 * [Канареечный релиз функции {{ sf-full-name }}](canary-release.md)
 * [Интерактивная отладка функций {{ sf-name }}](serverless-live-debug.md)
 * [{#T}](deploy-app-container.md)
+* [{#T}](speechkit-integrarion-via-agi-gw.md)

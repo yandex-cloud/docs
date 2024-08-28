@@ -471,8 +471,8 @@ items:
       - name: Импорт данных из {{ mpg-name }} в {{ dataproc-name }} с помощью Sqoop
         href: dataplatform/sqoop-mpg.md
       - name: >-
-          Использование скриптов инициализации для настройки GeeseFS в {{
-          dataproc-name }}
+          Монтирование бакетов {{ objstorage-name }} к файловой системе хостов
+          {{ dataproc-name }}
         href: dataplatform/data-proc-init-actions-geesefs.md
       - name: Работа с топиками {{ KF }} с помощью {{ dataproc-full-name }}
         href: dataplatform/data-proc-and-kafka.md
@@ -552,6 +552,10 @@ items:
           Миграция данных из {{ mos-full-name }} в {{ ydb-full-name }} с помощью
           {{ data-transfer-full-name }}
         href: dataplatform/opensearch-to-ydb.md
+      - name: >-
+          Миграция данных из {{ mpg-full-name }} в {{ mos-full-name }} с помощью
+          {{ data-transfer-full-name }}
+        href: dataplatform/postgresql-to-opensearch.md
       - name: Создание кластера {{ PG }} для «1С:Предприятия»
         href: dataplatform/1c-postgresql.md
       - name: Анализ производительности и оптимизация {{ mpg-name }}
@@ -586,6 +590,10 @@ items:
           Миграция данных из {{ mpg-name }} в {{ mmy-name }} с помощью {{
           data-transfer-name }}
         href: dataplatform/mpg-to-mmy.md
+      - name: >-
+          Миграция данных из {{ mpg-full-name }} в {{ mos-full-name }} с помощью
+          {{ data-transfer-full-name }}
+        href: dataplatform/postgresql-to-opensearch.md
       - name: Миграция БД из {{ GP }} в {{ CH }}
         href: dataplatform/greenplum-to-clickhouse.md
       - name: Миграция БД из {{ GP }} в {{ PG }}
@@ -774,4 +782,8 @@ items:
           Запуск контейнерного приложения в {{ serverless-containers-full-name
           }}
         href: serverless/deploy-app-container.md
+      - name: >-
+          Использование {{ api-gw-full-name }} для настройки синтеза речи в {{
+          speechkit-full-name }}
+        href: serverless/speechkit-integrarion-via-agi-gw.md
 base: ru/tutorials

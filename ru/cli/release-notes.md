@@ -7,6 +7,14 @@ description: "На странице представлены релизы YC CLI
 
 ## Текущая версия {#latest-release}
 
+### Версия 0.132.1 (28.08.24) {#version0.132.1}
+
+#### Изменения в CLI {#cli}
+
+* Исправлены ошибки в документации флага `--help`.
+
+## Предыдущие релизы {#previous-releases}
+
 ### Версия 0.132.0 (26.08.24) {#version0.132.0}
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
@@ -43,8 +51,6 @@ description: "На странице представлены релизы YC CLI
 **{{ mrd-name }}**
 
 * В командах `yc managed-redis cluster create` и `yc managed-redis cluster update` для `--disk-size-autoscaling` изменены единицы измерения `disk-size-limit` с байт на гигабайты.
-
-## Предыдущие релизы {#previous-releases}
 
 ### Версия 0.131.1 (15.08.24) {#version0.131.1}
 

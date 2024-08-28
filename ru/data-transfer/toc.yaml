@@ -164,6 +164,8 @@ items:
             href: tutorials/mes-to-mos.md
           - name: '{{ OS }} в {{ ydb-short-name }}'
             href: tutorials/opensearch-to-ydb.md
+          - name: '{{ PG }} в {{ OS }}'
+            href: tutorials/postgresql-to-opensearch.md
       - name: Захват изменений данных и поставка в очередь
         items:
           - name: '{{ MY }} в {{ KF }}'

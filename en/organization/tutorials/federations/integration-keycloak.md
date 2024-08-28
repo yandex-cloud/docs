@@ -400,7 +400,7 @@ To follow the steps in this section, you will need:​
 
          * {% include [forceauthn-api-enable](../../../_includes/organization/forceauth-api-enable.md) %}
 
-         * `ssoBinding`: Single sign-on binding type. Most identity providers support the `POST` binding type.
+         * `ssoBinding`: Specify the single sign-on binding type. Most identity providers support the `POST` binding type.
 
    1. {% include [include](../../../_includes/iam/create-federation-curl.md) %}
 
@@ -440,7 +440,7 @@ To follow the steps in this section, you will need:​
             {{ link-keycloak-example-old }}
             ```
 
-      * `sso_binding`: Single sign-on binding type. Most identity providers support the `POST` binding type.
+      * `sso_binding`: Specify the single sign-on binding type. Most identity providers support the `POST` binding type.
       * `sso_url`: URL of the page the browser redirects the user to for authentication:
 
          - Keycloak 17 or higher
@@ -937,7 +937,7 @@ You can set up a mapping between the SAML message attributes and the personal da
 | Name | Used for search in {{ yandex-cloud }} services.<br> Value length limit: {{ saml-limit-first-name }}. | `firstName` |
 | Full name | Displayed in {{ yandex-cloud }} services.<br> Value length limit: {{ saml-limit-display-name }}. | `name` |
 | Email | Used to send notifications from {{ yandex-cloud }} services.<br>Example:&nbsp;`smith@example.com`.<br> Value length limit: {{ saml-limit-email }}. | `email` |
-| Phone | Used to send notifications from {{yandex-cloud}} services.<br>Example: +71234567890.<br> Value length limit: {{ saml-limit-phone }}. | `phone` |
+| Phone | Used to send notifications from {{ yandex-cloud }} services.<br>Example: +71234567890.<br> Value length limit: {{ saml-limit-phone }}. | `phone` |
 | Profile image | Displayed in {{ yandex-cloud }} services. The image must be provided in Base64 format.<br> Value length limit: {{ saml-limit-thumbnail-photo }}. | `thumbnailPhoto` |
 | Group membership | Used for dynamic mapping of group members. | `member` |
 

@@ -1,2 +1,1 @@
-The validity period of an OAuth token is one year. Then you must [get new OAuth token]({{ link-cloud-oauth }}) and repeat the authentication process.
-
+An OAuth token lives 12 months. After that, you need to [get a new one]({{ link-cloud-oauth }}) and get authenticated again.

@@ -11,7 +11,7 @@ description: "На странице представлен список прак
 * [Интеграция L7-балансировщика с {{ cdn-name }} и {{ objstorage-name }}](./cdn-storage-integration.md)
 * [Сине-зеленое и канареечное развертывание версий сервиса](./blue-green-canary-deployment.md)
 * [Анализ логов с использованием {{ datalens-name }}](./storage-logs-analysis.md)
-* [Использование скриптов инициализации для настройки GeeseFS в {{ dataproc-full-name }}](./data-proc-init-actions-geesefs.md)
+* [{#T}](./data-proc-init-actions-geesefs.md)
 * [Подключение бакета как диска в Windows](./s3-disk-connect.md)
 * [Автоматическое копирование объектов из бакета в бакет](./bucket-to-bucket.md)
 * [Регулярное распознавание аудиофайлов в бакете](./batch-recognition-stt.md)

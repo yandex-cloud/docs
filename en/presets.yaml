@@ -5427,6 +5427,7 @@ default:
       services:
         label_custom: Custom Metrics
         label_managed-elasticsearch: Managed Service for Elasticsearch
+        label_managed-kafka: Managed Service for Kafka
         label_mysql: Managed Service for MySQL
         label_postgresql: Managed Service for PostgreSQL
       wizard:
@@ -6148,6 +6149,7 @@ default:
           label_time-min_many: minutes
           label_time-min_zero: minutes
           label_time-sec_many: seconds
+        unspecified: Not specified
         user: User
         value: Value
       component:
@@ -7587,6 +7589,7 @@ default:
         label_dns-record-value: Value
         label_event-destinations: Subscriptions
         label_identities: Addresses
+        label_mail-statuses: Mail statuses
         label_private-key: Private key
         label_selector: Selector
         label_signature-verification: Signature verification

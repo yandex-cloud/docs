@@ -39,4 +39,4 @@
 
 {% include [throttling](../throttling.md) %}
 
-Чтобы увеличить максимальные значения IOPS и bandwidth и снизить вероятность троттлинга, расширьте размер хранилища при [изменении кластера](../../managed-kafka/operations/cluster-update.md#change-disk-size).
+Чтобы увеличить максимальные значения IOPS и bandwidth и снизить вероятность троттлинга, [расширьте размер хранилища](../../managed-kafka/operations/storage-space.md#change-disk-size).

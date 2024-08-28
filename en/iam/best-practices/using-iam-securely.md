@@ -1,6 +1,6 @@
 # Secure use of {{ yandex-cloud }}
 
-This section provides recommendations on how to make the best use of  {{ iam-short-name }} for secure work with {{ yandex-cloud }} services.
+This section provides recommendations on how to make the best use of {{ iam-short-name }} for secure work with {{ yandex-cloud }} services.
 
 ## Do not grant unnecessary access rights {#restrict-access}
 

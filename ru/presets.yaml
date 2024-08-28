@@ -568,6 +568,8 @@ default:
       admin: managed-elasticsearch.admin
       editor: managed-elasticsearch.editor
       viewer: managed-elasticsearch.viewer
+    metastore:
+      integrationProvider: managed-metastore.integrationProvider
     mgp:
       admin: managed-greenplum.admin
       editor: managed-greenplum.editor
@@ -5433,6 +5435,7 @@ default:
       services:
         label_custom: Custom Metrics
         label_managed-elasticsearch: Managed Service for Elasticsearch
+        label_managed-kafka: Managed Service for Kafka
         label_mysql: Managed Service for MySQL
         label_postgresql: Managed Service for PostgreSQL
       wizard:
@@ -6154,6 +6157,7 @@ default:
           label_time-min_many: минут
           label_time-min_zero: минут
           label_time-sec_many: секунд
+        unspecified: Не задано
         user: Пользователь
         value: Значение
       component:
@@ -7595,6 +7599,7 @@ default:
         label_dns-record-value: Значение
         label_event-destinations: Подписки
         label_identities: Адреса
+        label_mail-statuses: Статусы писем
         label_private-key: Приватный ключ
         label_selector: Селектор
         label_signature-verification: Подтверждение подписи

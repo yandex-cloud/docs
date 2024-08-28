@@ -32,6 +32,7 @@ C помощью {{ data-transfer-name }} вы можете реализоват
 * [{{ MY }} в {{ GP }}](mmy-to-mgp.md)
 * [{{ ES }} в {{ OS }}](mes-to-mos.md)
 * [{{ OS }} в {{ ydb-short-name }}](opensearch-to-ydb.md)
+* [{{ PG }} в {{ OS }}](postgresql-to-opensearch.md)
 
 ## Захват изменений данных {#cdc}
 
