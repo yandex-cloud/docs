@@ -12,5 +12,6 @@ description: "Различные сценарии по управлению фе
 
 ## Сопоставление групп пользователей
 
+* [{#T}](./group-mapping/adfs.md)
 * [{#T}](./group-mapping/entra-id.md)
 * [{#T}](./group-mapping/keycloak.md)

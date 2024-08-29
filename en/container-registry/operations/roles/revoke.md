@@ -49,7 +49,7 @@ You can prevent a [subject](../../../iam/concepts/access-control/index.md#subjec
            --service-account-id <service_account_ID>
          ```
 
-      * All authorized users (`allAuthenticatedUsers` system group):
+      * All authorized users (the [All authenticated users](../../../iam/concepts/access-control/public-group.md) `public group`):
 
          ```bash
          yc container <resource> remove-access-binding <resource_name_or_ID> \
@@ -80,48 +80,48 @@ You can prevent a [subject](../../../iam/concepts/access-control/index.md#subjec
 
 - {{ TF }} {#tf}
 
-  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  1. Open the {{ TF }} configuration file and delete the fragment with the role assignment description.
+   1. Open the {{ TF }} configuration file and delete the fragment with the role assignment description.
 
-     Example role assignment description in the {{ TF }} configuration:
+      Example role assignment description in the {{ TF }} configuration:
 
-       ```
-       resource "yandex_container_registry_iam_binding" "registry_name" {
-         registry_id = "<registry_ID>"
-         role        = "<role>"
+      ```
+      resource "yandex_container_registry_iam_binding" "registry_name" {
+        registry_id = "<registry_ID>"
+        role        = "<role>"
 
-         members = [
-           "userAccount:<user_ID>",
-         ]
-       }
-       ```
+        members = [
+          "userAccount:<user_ID>",
+        ]
+      }
+      ```
 
-     For more information about the `yandex_container_registry_iam_binding` resource, see the [provider documentation]({{ tf-provider-resources-link }}/container_registry_iam_binding).
+      For more information about the `yandex_container_registry_iam_binding` resource, see the [provider documentation]({{ tf-provider-resources-link }}/container_registry_iam_binding).
 
-  1. {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+   1. {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-  You can check that the role is revoked using the [management console]({{ link-console-main }}) or the [CLI](../../../cli/quickstart.md) command:
+   You can check that the role is revoked using the [management console]({{ link-console-main }}) or the [CLI](../../../cli/quickstart.md) command:
 
-     * Registry:
+   * Registry:
 
-       ```bash
-       yc container registry list-access-bindings <registry_name_or_ID>
-       ```
+      ```bash
+      yc container registry list-access-bindings <registry_name_or_ID>
+      ```
 
-     * Repository:
+   * Repository:
 
-       ```bash
-       yc container repository list-access-bindings <repository_name_or_ID>
-       ```
+      ```bash
+      yc container repository list-access-bindings <repository_name_or_ID>
+      ```
 
 - API {#api}
 
-  [View](get-assigned-roles.md#cli) the roles assigned for resources.
+   [View](get-assigned-roles.md#cli) the roles assigned for resources.
 
-  To revoke registry roles, use the [updateAccessBindings](../../api-ref/Registry/updateAccessBindings.md) REST API method for the [Registry](../../api-ref/Registry/index.md) resource or the [RegistryService/UpdateAccessBindings](../../api-ref/grpc/registry_service.md#UpdateAccessBindings) gRPC API call.
+   To revoke registry roles, use the [updateAccessBindings](../../api-ref/Registry/updateAccessBindings.md) REST API method for the [Registry](../../api-ref/Registry/index.md) resource or the [RegistryService/UpdateAccessBindings](../../api-ref/grpc/registry_service.md#UpdateAccessBindings) gRPC API call.
 
-  To revoke repository roles, use the [updateAccessBindings](../../api-ref/Repository/updateAccessBindings.md) REST API method for the [Repository](../../api-ref/Repository/index.md) resource or the [RepositoryService/UpdateAccessBindings](../../api-ref/grpc/repository_service.md#UpdateAccessBindings) gRPC API call.
+   To revoke repository roles, use the [updateAccessBindings](../../api-ref/Repository/updateAccessBindings.md) REST API method for the [Repository](../../api-ref/Repository/index.md) resource or the [RepositoryService/UpdateAccessBindings](../../api-ref/grpc/repository_service.md#UpdateAccessBindings) gRPC API call.
 
 {% endlist %}
 

@@ -2,7 +2,7 @@ title: Yandex SpeechSense
 href: index.yaml
 label:
   title: RU
-  description: The service is only available in the Russia region.
+  description: This service is only available in the Russia region.
   theme: unknown
   when: region == "kz"
 stage: preview
@@ -35,14 +35,6 @@ items:
             href: operations/space/delete.md
           - name: Removing a user from a space
             href: operations/space/delete-user-from-space.md
-          - name: Managing space tags
-            items:
-              - name: Creating a space tag
-                href: operations/space/tag/create.md
-              - name: Changing a space tag
-                href: operations/space/tag/change.md
-              - name: Deleting a space tag
-                href: operations/space/tag/delete.md
       - name: Connections
         items:
           - name: Creating a connection
@@ -57,14 +49,24 @@ items:
             href: operations/project/delete.md
           - name: Removing a user from a project
             href: operations/project/delete-user-from-project.md
-          - name: Managing project tags
-            items:
-              - name: Creating a project tag
-                href: operations/project/tag/create.md
-              - name: Changing a project tag
-                href: operations/project/tag/change.md
-              - name: Deleting a project tag
-                href: operations/project/tag/delete.md
+      - name: Tags
+        items:
+          - name: Creating a tag
+            href: operations/project/tag/create.md
+          - name: Changing a tag
+            href: operations/project/tag/change.md
+          - name: Removing a tag
+            href: operations/project/tag/delete.md
+      - name: Dictionaries
+        items:
+          - name: Creating a dictionary
+            href: operations/dictionary/create.md
+          - name: Editing a dictionary
+            href: operations/dictionary/change.md
+          - name: Adding a dictionary to a tag
+            href: operations/dictionary/add.md
+          - name: Removing a dictionary
+            href: operations/dictionary/delete.md
   - name: Concepts
     items:
       - name: Resource hierarchy
@@ -73,6 +75,8 @@ items:
         href: concepts/dialogs.md
       - name: Dialog tags
         href: concepts/tags.md
+      - name: Dictionaries for tags
+        href: concepts/dictionaries.md
       - name: Reports
         items:
           - name: Overview

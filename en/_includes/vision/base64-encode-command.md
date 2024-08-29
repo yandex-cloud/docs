@@ -26,9 +26,10 @@
   import base64
 
   # Create a function that will encode a file and return results.
-  def encode_file(file):
-    file_content = file.read()
-    return base64.b64encode(file_content)
+  def encode_file(file_path):
+    with open(file_path, "rb") as fid:
+        file_content = fid.read()
+    return base64.b64encode(file_content).decode("utf-8")
   ```
 
 - Node.js {#node}

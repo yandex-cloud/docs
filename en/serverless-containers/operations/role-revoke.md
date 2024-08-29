@@ -33,7 +33,7 @@ description: "Use this guide to revoke roles assigned to a container."
       ```
       done (1s)
       ```
-   * All authorized users (`allAuthenticatedUsers` system group):
+   * All authorized users (the [All authenticated users](../../iam/concepts/access-control/public-group.md) `public group`):
       ```
       yc serverless container remove-access-binding \
         --name <container_name> \

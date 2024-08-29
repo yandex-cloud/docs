@@ -20,7 +20,7 @@ You can assign a role for a [cloud](../../resource-manager/concepts/resources-hi
 
 ## Which roles exist in the service {#roles-list}
 
-The list below shows all roles that are considered when verifying access rights in the {{ iot-short-name }} service.
+The list below shows all roles considered when verifying access permissions in {{ iot-short-name }}.
 
 ### Service roles {#service-roles}
 
@@ -49,3 +49,5 @@ For more information about service roles, see [{#T}](../../iam/concepts/access-c
 ### Primitive roles {#primitive-roles}
 
 {% include [roles-primitive](../../_includes/roles-primitive.md) %}
+
+{% include [primitive-roles-footnote](../../_includes/primitive-roles-footnote.md) %}

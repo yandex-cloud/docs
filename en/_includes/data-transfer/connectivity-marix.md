@@ -17,7 +17,7 @@ Possible source and target combinations:
 | ![kafka](../../_assets/data-transfer/icons/kafka-icon.svg =10x)<br>[{{ KF }}](../../data-transfer/operations/endpoint/source/kafka.md) | [R](../../data-transfer/tutorials/mkf-to-mpg.md) | [R](../../data-transfer/tutorials/mkf-to-mmy.md) | [R](../../data-transfer/tutorials/mkf-to-mmg.md) | [R](../../data-transfer/tutorials/mkf-to-mch.md) | [R](../../data-transfer/tutorials/managed-kafka-to-greenplum.md) | [R](../../data-transfer/tutorials/mkf-to-ydb.md)<br>![GA](../../_assets/console-icons/credit-card.svg) | R | [R](../../data-transfer/tutorials/mkf-to-mkf.md)<br>![GA](../../_assets/console-icons/credit-card.svg) | [R](../../data-transfer/tutorials/mkf-to-yds.md) | P | [R](../../data-transfer/tutorials/mkf-to-mos.md) | ![kafka](../../_assets/data-transfer/icons/kafka-icon.svg =10x)<br>[{{ KF }}](../../data-transfer/operations/endpoint/source/kafka.md) |
 | ![airbyte](../../_assets/data-transfer/icons/airbyte.png =32x)<br>[{{ AB }}](#airbyte) | C | C | C | C | C | C | - | C | C | - | - | ![airbyte](../../_assets/data-transfer/icons/airbyte.png =32x)<br>[{{ AB }}](#airbyte) |
 | ![elasticsearch](../../_assets/data-transfer/icons/elasticsearch-icon.svg =10x)<br>[{{ ES }}](../../data-transfer/operations/endpoint/source/elasticsearch.md) | C | - | - | C | C | C | C | C | C | C | [C](../../data-transfer/tutorials/mes-to-mos.md) | ![elasticsearch](../../_assets/data-transfer/icons/elasticsearch-icon.svg =10x)<br>[{{ ES }}](../../data-transfer/operations/endpoint/source/elasticsearch.md) |
-| ![opensearch](../../_assets/data-transfer/icons/opensearch-icon.svg =10x)<br>[{{ OS }}](../../data-transfer/operations/endpoint/source/opensearch.md) | C | - | - | C | C | [C](../../data-transfer/tutorials/opensearch-to-ydb.md) | C | C | C | C | [C](../../data-transfer/tutorials/os-to-mos.md) | ![opensearch](../../_assets/data-transfer/icons/opensearch-icon.svg =10x)<br>[{{ OS }}](../../data-transfer/operations/endpoint/source/opensearch.md) |
+| ![opensearch](../../_assets/data-transfer/icons/opensearch-icon.svg =10x)<br>[{{ OS }}](../../data-transfer/operations/endpoint/source/opensearch.md) | C | - | - | C | C | [C](../../data-transfer/tutorials/opensearch-to-ydb.md) | [C](../../data-transfer/tutorials/opensearch-to-object-storage.md) | C | C | C | [C](../../data-transfer/tutorials/os-to-mos.md) | ![opensearch](../../_assets/data-transfer/icons/opensearch-icon.svg =10x)<br>[{{ OS }}](../../data-transfer/operations/endpoint/source/opensearch.md) |
 
 
 
@@ -28,8 +28,8 @@ CR: [Copy and replicate](../../data-transfer/concepts/transfer-lifecycle.md#copy
 
 
 
-![GA](../../_assets/console-icons/credit-card.svg): Transfer is at the [GA](../../overview/concepts/launch-stages.md) stage and is charged as per the respective [pricing policy](../../data-transfer/pricing.md).
-The remaining transfers are at the [Preview](../../overview/concepts/launch-stages.md) stage; you can activate them upon request to our [technical support]({{ link-console-support }}) or your account manager.
+![GA](../../_assets/console-icons/credit-card.svg): Transfer is at the [GA](../../overview/concepts/launch-stages.md) stage and is charged in accordance with the respective [pricing policy](../../data-transfer/pricing.md).
+The remaining transfers are at the [Preview](../../overview/concepts/launch-stages.md) stage and will be activated upon request to [technical support]({{ link-console-support }}) or your account manager.
 
 
 

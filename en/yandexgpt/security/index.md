@@ -30,6 +30,8 @@
 
 {% include [roles-primitive](../../_includes/roles-primitive.md) %}
 
+{% include [primitive-roles-footnote](../../_includes/primitive-roles-footnote.md) %}
+
 #### See also {#see-also}
 
 * [How to assign a role](../../iam/operations/roles/grant.md).

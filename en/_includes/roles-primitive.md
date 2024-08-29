@@ -1,17 +1,19 @@
+Primitive roles allow users to perform actions in all {{ yandex-cloud }} [services](../overview/concepts/services.md).
+
 #### {{ roles-auditor }} {#auditor}
 
-Grants permission to view service configuration and metadata without access to data.
+{% include [auditor](../_roles/primitive-roles/auditor.md) %}
 
 #### {{ roles-viewer }} {#viewer}
 
-Enables you to view information about resources.
+{% include [viewer](../_roles/primitive-roles/viewer.md) %}
 
 #### {{ roles-editor }} {#editor}
 
-Allows managing (creating, editing, and deleting) resources.
+{% include [editor](../_roles/primitive-roles/editor.md) %}
 
 #### {{ roles-admin }} {#admin}
 
-Allows you to manage your resources and access to them.
+{% include [admin](../_roles/primitive-roles/admin.md) %}
 
-For more information about primitive roles, see the [{{ yandex-cloud }} role reference](../iam/roles-reference.md#primitive-roles).
+Instead of primitive roles, we recommend using service roles. This ensures more selective access control and implementation of the [principle of least privilege](../security/standard/all.md#min-privileges).

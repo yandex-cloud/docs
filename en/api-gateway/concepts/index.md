@@ -32,6 +32,73 @@ Available extensions:
 * [Response code replacement](../concepts/extensions/status-mapping.md)
 * [Transformation of response and request bodies](../concepts/extensions/schema-mapping.md)
 
+## Algorithm to search for a handler in the OpenAPI specification {#algorithm}
+
+When searching for a handler, {{ api-gw-name }} does the following:
+1. It selects routes in the OpenAPI specification matching the request being processed.
+1. It sorts the selected routes by priority:
+   * The highest priority is given to fixed routes, which do not contain path parameters and [greedy parameters](extensions/greedy-parameters.md), such as `/simple/path`.
+   * Routes that contain path parameters but do not have any greedy parameters get the medium priority. These are such routes as `/{param}/path`.
+   * The lowest priority is given to routes with greedy parameters, such as `/{greedy_param+}`.
+
+   If two routes have the same priority:
+   * Two routes with medium priority are consistently compared across URL segments. There are two types of segments: fixed (e.g., `simple`) and parameterized (e.g., `{param}`). A fixed segment has a higher priority than a parameterized one. If all route segments have the same priority, the longer route is selected.
+   * If two routes have the lowest priority, the longer one is selected.
+
+### Examples of route comparison
+
+{% cut "`/a/{param1}/b` and `/a/{param2}/{param3}`" %}
+
+Both routes have medium priority because they contain path parameters, but do not contain greedy parameters, so they are consistently compared across URL segments.
+
+1. The `a` and `a` segments are both fixed and have the same priority.
+1. The `{param1}` and `{param2}` segments are both parameterized and have the same priority.
+1. The `b` segment is fixed and the `{param3}` segment is parameterized, so the `b` segment is selected.
+
+The handler that is selected is `/a/{param1}/b`.
+
+{% endcut %}
+
+{% cut "`/a/b/{param1}` and `/a/{param2}/d`" %}
+
+Both routes contain path parameters but do not contain greedy parameters, so they have medium priority and are consistently compared across URL segments.
+
+1. The `a` and `a` segments are both fixed and have the same priority.
+1. The `b` segment is fixed and the `{param2}` segment is parameterized, so the `b` segment is selected.
+
+The handler that is selected is `/a/b/{param1}`.
+
+{% endcut %}
+
+{% cut "`/a/b/{param+}` and `/a/{param2}/d`" %}
+
+The `/a/b/{param+}` route contains a greedy parameter, which means it has the lowest priority. The `/a/{param2}/d` route contains a path parameter, but does not contain a greedy parameter, so it has medium priority. Out of the middle and lowest-priority routes, the route with the middle priority is selected.
+
+The handler that is selected is `/a/{param2}/d`.
+
+{% endcut %}
+
+{% cut "`/a/{param}` and `/a/{prm}`" %}
+
+Both routes contain path parameters but do not contain greedy parameters, so they have medium priority and are consistently compared across URL segments.
+
+1. The `a` and `a` segments are both fixed and have the same priority.
+1. The `{param}` and `{prm}` segments are both parameterized and have the same priority.
+
+Since it is impossible to select a route based on the segments, the route lengths are compared. The `/a/{param}` route is longer than the `/a/{prm}` route.
+
+The handler that is selected is `/a/{param}`.
+
+{% endcut %}
+
+{% cut "`/a/{param1}/{param+}` and `/a/{param2}/{prm+}`" %}
+
+Both routes contain greedy parameters, so they have the lowest priority and are compared in length. The `/a/{param1}/{param+}` route is longer than the `/a/{param2}/{prm+}` route.
+
+The handler that is selected is `/a/{param1}/{param+}`.
+
+{% endcut %}
+
 ## Using domains {#domains}
 
 {{ api-gw-short-name }} is integrated with the {{ certificate-manager-short-name }} domain management system.

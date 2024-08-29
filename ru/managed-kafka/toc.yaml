@@ -92,6 +92,8 @@ items:
             href: tutorials/managed-kafka-to-greenplum.md
           - name: Поставка из {{ KF }} в {{ MG }}
             href: tutorials/mkf-to-mmg-migration.md
+          - name: Поставка из {{ MY }} в {{ KF }}
+            href: tutorials/cdc/cdc-mmy.md
           - name: Поставка из {{ KF }} в {{ MY }}
             href: tutorials/mkf-to-mmy-migration.md
           - name: Поставка из {{ KF }} в {{ OS }}

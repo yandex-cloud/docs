@@ -1,0 +1,1 @@
+When uploading to {{ cloud-logging-name }}, you may get duplicate events in a [log group](../../logging/concepts/log-group.md). To find out whether an event in a log group is a duplicate, use the unique ID of the `json_payload.event_id` record.

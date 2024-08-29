@@ -1,6 +1,6 @@
 # x-yc-apigateway-integration:serverless_containers extension
 
-The `x-yc-apigateway-integration:serverless_containers` extension invokes the specified [container](../../../serverless-containers/concepts/container.md) and transfers the HTTP request made to the API gateway, to it. In this case, the `Host` header specifies the host on which the user accessed the API gateway rather than the container's host.
+The `x-yc-apigateway-integration:serverless_containers` extension invokes the relevant [container](../../../serverless-containers/concepts/container.md) and transfers the HTTP request sent to the API gateway to it. The `Host` header specifies the host on which the user accessed the API gateway rather than the container's host.
 
 {% include [ip](../../../_includes/serverless-containers/ip.md) %}
 
@@ -13,12 +13,12 @@ The `x-yc-apigateway-integration:serverless_containers` extension invokes the sp
 | Parameter | Type | Description |
 ----|----|----
 | `container_id` | `string` | Container ID. |
-| `service_account_id` | `string` | Service account ID used for authorization when accessing a container. If not specified, it defaults to the [top-level](./index.md#top-level) `service_account_id` parameter. |
-| `context` | `object` | This is an optional parameter. Operation context is an arbitrary object in `YAML` or `JSON` format. Encoded in `Base64` and passed to the container in the `X-Yc-ApiGateway-Operation-Context` header. `Context` is where parameter substitution takes place. |
+| `service_account_id` | `string` | Service account ID used for authorization when accessing a container. If it is not specified, its default value is taken from the [parent](./index.md#top-level) `service_account_id`. |
+| `context` | `object` | This is an optional parameter. It provides the operation context, i.e., an object in `YAML` or `JSON` format. It is encoded in `Base64` and provided to the container in the `X-Yc-ApiGateway-Operation-Context` header. `context` is used for parameter substitution. |
 
 ## Extension specification {#spec}
 
-Example specification:
+Specification example:
 
 ```yaml
 /example/{ID}:

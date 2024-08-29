@@ -32,6 +32,8 @@ Syntax:
 	- [yc loadtesting test stop](test/stop.md) — Stop running test
 	- [yc loadtesting test get-report-table](test/get-report-table.md) — Get report table for finished test.
 	- [yc loadtesting test wait](test/wait.md) — Wait until test transition to final state.
+	- [yc loadtesting test check-regression](test/check-regression.md) — Checks for regressions for the specified test.
+The regression conditions (metric thresholds) should be configured on regression dashboards in the same folder.
 
 #### Global Flags
 

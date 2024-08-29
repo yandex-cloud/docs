@@ -5,6 +5,10 @@ description: "Пошаговые инструкции по работе с {{ al
 
 # Пошаговые инструкции для {{ alb-name }}
 
+## Визард {#application-load-balancer-wizard}
+
+* [{#T}](../quickstart-wizard.md)
+
 ## Целевые группы {#target-group-operations}
 
 * [{#T}](target-group-create.md)

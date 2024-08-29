@@ -16,6 +16,7 @@ Syntax:
 #### Command Tree
 
 - [yc iam create-token](create-token.md) — Create IAM token and print to STDOUT
+- [yc iam revoke-token](revoke-token.md) — Revoke IAM token
 - [yc iam role](role/index.md) — Manage roles
 	- [yc iam role get](role/get.md) — Show information about the specified role
 	- [yc iam role list](role/list.md) — List roles
@@ -45,6 +46,7 @@ Syntax:
 - [yc iam api-key](api-key/index.md) — Manage service account API keys
 	- [yc iam api-key get](api-key/get.md) — Show information about the specified API key
 	- [yc iam api-key list](api-key/list.md) — List API keys for the specified service account
+	- [yc iam api-key list-scopes](api-key/list-scopes.md) — List of scopes
 	- [yc iam api-key create](api-key/create.md) — Create an API key for the specified service account
 	- [yc iam api-key delete](api-key/delete.md) — Delete the specified API key
 - [yc iam user-account](user-account/index.md) — Manage user accounts

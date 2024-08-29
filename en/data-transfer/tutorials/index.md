@@ -95,6 +95,7 @@ Uploading data to scalable {{ objstorage-name }} storage allows you to save on d
 
 * [{{ MY }} to {{ objstorage-name }}](mmy-objs-migration.md)
 * [{{ PG }} to {{ objstorage-name }}](mpg-to-objstorage.md)
+* [{{ OS }} to {{ objstorage-name }}](opensearch-to-object-storage.md)
 * [{{ ydb-short-name }} to {{ objstorage-name }}](ydb-to-object-storage.md)
 
 

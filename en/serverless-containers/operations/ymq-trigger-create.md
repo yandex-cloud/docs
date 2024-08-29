@@ -72,8 +72,8 @@ To create a trigger, you need:
      --queue-service-account-id <service_account_ID> \
      --invoke-container-id <container_ID> \
      --invoke-container-service-account-id <service_account_ID> \
-     --batch-size 1 \
-     --batch-cutoff 10s
+     --batch-size <message_batch_size> \
+     --batch-cutoff <maximum_wait_time>
    ```
 
    Where:
@@ -84,8 +84,8 @@ To create a trigger, you need:
       {% include [ymq-id](../../_includes/serverless-containers/ymq-id.md) %}
 
    * `--invoke-container-id`: Container ID.
-   * `--queue-service-account-name`: Service account with permissions to read messages from the queue.
-   * `--invoke-container-service-account-id`: Service account with permissions to invoke the container.
+   * `--queue-service-account-id`: ID of the service account with permissions to read messages from the queue.
+   * `--invoke-container-service-account-id`: ID of the service account with permissions to invoke the container.
    * `--batch-size`: Message batch size. This is an optional parameter. The values may range from 1 to 1,000. The default value is 1.
    * `--batch-cutoff`: Maximum wait time. This is an optional parameter. The values may range from 0 to 20 seconds. The default value is 10 seconds. The trigger groups messages for a period not exceeding `batch-cutoff` and sends them to a container. The number of messages cannot exceed `batch-size`.
 
@@ -119,8 +119,7 @@ To create a trigger, you need:
 
    1. In the configuration file, describe the trigger parameters:
 
-      
-      ```
+      ```hcl
       resource "yandex_function_trigger" "my_trigger" {
         name = "<trigger_name>"
         container {
@@ -130,12 +129,11 @@ To create a trigger, you need:
         message_queue {
           queue_id           = "<queue_ID>"
           service_account_id = "<service_account_ID>"
-          batch_cutoff       = "<timeout>"
-          batch_size         = "<event_batch_size>"
+          batch_cutoff       = "<maximum_wait_time>"
+          batch_size         = "<message_batch_size>"
         }
       }
       ```
-
 
       Where:
 
@@ -153,18 +151,18 @@ To create a trigger, you need:
 
             {% include [ymq-id](../../_includes/serverless-containers/ymq-id.md) %}
 
-         * `service_account_id`: Service account with permissions to read messages from the queue.
+         * `service_account_id`: ID of the service account with permissions to read messages from the queue.
 
-         * `batch_cutoff`: Maximum wait time. This is an optional parameter. The values may range from 1 to 60 seconds. The default value is 1 second. The trigger groups messages for a period not exceeding `batch_cutoff` and sends them to a container. The number of messages cannot exceed `batch_size`.
+         * `batch_cutoff`: Maximum wait time. This is an optional parameter. The values may range from 0 to 20 seconds. The default value is 10 seconds. The trigger groups messages for a period not exceeding `batch-cutoff` and sends them to a container. The number of messages cannot exceed `batch-size`.
          * `batch_size`: Message batch size. This is an optional parameter. The values may range from 1 to 1,000. The default value is 1.
 
       For more information about the `yandex_function_trigger` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/function_trigger).
 
-   1. Create the resources:
+   1. Create resources:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
+      {% include [terraform-check-result](../../_tutorials/_tutorials_includes/terraform-check-result.md) %}
 
       ```bash
       yc serverless trigger list

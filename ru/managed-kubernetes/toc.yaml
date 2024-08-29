@@ -199,6 +199,10 @@ items:
             href: tutorials/container-registry.md
           - name: Подпись и проверка Docker-образов {{ container-registry-name }}
             href: tutorials/sign-cr-with-cosign.md
+      - name: Использование {{ mkf-name }}
+        items:
+          - name: Развертывание веб-интерфейса {{ KF }}
+            href: tutorials/deploy-kafka-ui.md
       - name: Непрерывная интеграция с {{ GL }}
         items:
           - name: >-

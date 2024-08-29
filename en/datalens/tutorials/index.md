@@ -19,6 +19,7 @@ Below is a description of guidelines for working with {{ datalens-full-name }}:
   * [Analyzing public data on road accidents in Russia](data-from-csv-geo-visualization.md)
   * [Analyzing sales and locations of pizzerias based on data from {{ CH }} databases and Marketplace](data-from-ch-to-geolayers-visualization.md)
   * [{#T}](data-from-ch-geocoder.md)
+  * [{#T}](datalens.md)
 
 * Service analytics
 

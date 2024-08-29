@@ -3,7 +3,7 @@
 The example shows how you can synthesize speech from text with [TTS markup](../markup/tts-markup.md) to a [WAV](https://en.wikipedia.org/wiki/WAV) file using the [API v1](../request.md).
 
 The example uses the following synthesis parameters:
-* Synthesized audio file [format](../../formats.md): LPCM with a sample rate of 48000 Hz, [WAV](https://en.wikipedia.org/wiki/WAV) container.
+* Synthesized audio file [format](../../formats.md): LPCM with a sample rate of 48000 Hz, [WAV](https://en.wikipedia.org/wiki/WAV) container
 * [Language](../index.md#langs): Russian
 * [Voice](../voices.md): `filipp`
 
@@ -156,7 +156,7 @@ The Yandex account or federated account are authenticated using an [IAM token](.
          ```bash
          export FOLDER_ID=<folder_ID>
          export IAM_TOKEN=<IAM_token>
-         python test.py
+         python3 test.py
            --token ${IAM_TOKEN}
            --folder_id ${FOLDER_ID}
            --output speech.raw

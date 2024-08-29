@@ -1,7 +1,6 @@
 # x-yc-apigateway-integration:object_storage extension
 
-The `x-yc-apigateway-integration:object_storage` extension turns over control of request handling to {{ objstorage-short-name }} to distribute static files.
-
+The `x-yc-apigateway-integration:object_storage` extension enables {{ objstorage-short-name }} to manage request handling for serving static files.
 {% include [add-extentions-console](../../../_includes/api-gateway/add-extentions-console.md) %}
 
 ## Supported parameters {#parameters}
@@ -11,15 +10,15 @@ The `x-yc-apigateway-integration:object_storage` extension turns over control of
 | Parameter | Type | Description |
 ----|----|----
 | `bucket` | `string` | [Bucket](../../../storage/concepts/bucket.md) name |
-| `object` | `string` | [Object](../../../storage/concepts/object.md) name. Supports parameter standardization from the path of the original request. <br>Parameters are substituted in `object`. |
-| `error_object` | `string` | This is an optional parameter. [Object](../../../storage/concepts/object.md) name returned if an HTTP error code 4xx is received instead of `object`. Parameters are substituted in `error_object`. |
-| `default_object` | `string` | This is an optional parameter. The name of the [object](../../../storage/concepts/object.md) returned if an HTTP error code 404 is received instead of `object`. Parameters are substituted in `default_object`. |
-| `service_account_id` | `string` | ID of the service account used for authorization when accessing {{ objstorage-short-name }}. If not specified, it defaults to the [top-level](./index.md#top-level) `service_account_id` parameter. If there is no top-level parameter either, the object is available without authorization. |
+| `object` | `string` | [Object](../../../storage/concepts/object.md) name. It supports parameter templating from the path of the original request. <br>`object` is used for parameter substitution. |
+| `error_object` | `string` | This is an optional parameter. It specifies the [object](../../../storage/concepts/object.md) name returned if an HTTP error code 4xx is received instead of `object`. `error_object` is used for parameter substitution. |
+| `default_object` | `string` | This is an optional parameter. It specifies the name of the [object](../../../storage/concepts/object.md) returned if an HTTP error code 404 is received instead of `object`. `default_object` is used for parameter substitution. |
+| `service_account_id` | `string` | ID of the service account used for authorization when accessing {{ objstorage-short-name }}. If it is not specified, its default value is taken from the [parent](./index.md#top-level) `service_account_id`. If the parent parameter is also missing, the object will be available without authorization. |
 
 
 ## Extension specification {#spec}
 
-Example specification:
+Specification example:
 
 ```yaml
   /static/{file}:

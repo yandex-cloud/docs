@@ -35,7 +35,7 @@ When you run a job, the `datasphere` library analyzes the environment, collects 
    name: <job_name>
    desc: <job_description>
    cmd: >
-       python <executable_file> --data ${DATA} --result ${OUTPUT}
+       python3 <executable_file> --data ${DATA} --result ${OUTPUT}
    env:
      python: auto
    inputs:
@@ -169,7 +169,7 @@ To run a job, you need Python 3.10.0 and TensorFlow 2.12.0.
    ```yaml
    name: simple-tf-script
    desc: Simple TF script
-   cmd: python example.py --input ${INPUT} --model ${MODEL}
+   cmd: python3 example.py --input ${INPUT} --model ${MODEL}
    env:
      python: auto
    inputs:

@@ -15,3 +15,5 @@ You can only delete the communities in which you have the `{{ roles-datasphere-c
 1. Select the community to delete.
 1. In the top-right corner, click **{{ ui-key.yc-ui-datasphere.common.more }}** and select **{{ ui-key.yc-ui-datasphere.common.delete }}** from the drop-down list.
 1. In the window that opens, click **{{ ui-key.yc-ui-datasphere.common.submit }}**.
+
+{% include [deletion-time](../../../_includes/datasphere/deletion-time.md) %}

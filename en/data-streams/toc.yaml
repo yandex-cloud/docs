@@ -2,7 +2,7 @@ title: Yandex Data Streams
 href: index.yaml
 label:
   title: RU
-  description: This service is only available in Russia.
+  description: This service is only available in the Russia region.
   theme: unknown
   when: region == "kz"
 items:
@@ -88,6 +88,8 @@ items:
         href: tutorials/kafka-to-yds.md
       - name: '{{ ydb-short-name }} change data capture and delivery to {{ DS }}'
         href: tutorials/ydb-to-yds.md
+      - name: Storing a static access key in a {{ lockbox-name }} secret
+        href: tutorials/static-key-in-lockbox.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

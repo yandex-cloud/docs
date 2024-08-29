@@ -61,22 +61,20 @@ Create a [trigger for {{ container-registry-name }}](../concepts/trigger/cr-trig
 
    To create a trigger that invokes a container, run this command:
 
-   
    ```bash
    yc serverless trigger create container-registry \
      --name <trigger_name> \
      --registry-id <registry_ID> \
-     --events 'create-image', 'delete-image', 'create-image-tag', 'delete-image-tag' \
-     --batch-size <batch_size> \
+     --events 'create-image','delete-image','create-image-tag','delete-image-tag' \
+     --batch-size <event_batch_size> \
      --batch-cutoff <maximum_wait_time> \
      --invoke-container-id <container_ID> \
      --invoke-container-service-account-id <service_account_ID> \
-     --retry-attempts 1 \
-     --retry-interval 10s \
+     --retry-attempts <number_of_retry_invocation_attempts> \
+     --retry-interval <interval_between_retry_attempts> \
      --dlq-queue-id <dead_letter_queue_ID> \
      --dlq-service-account-id <service_account_ID>
    ```
-
 
    Where:
 
@@ -90,7 +88,6 @@ Create a [trigger for {{ container-registry-name }}](../concepts/trigger/cr-trig
 
    Result:
 
-   
    ```text
    id: a1s5msktijh2********
    folder_id: b1gmit33hgh2********
@@ -119,7 +116,6 @@ Create a [trigger for {{ container-registry-name }}](../concepts/trigger/cr-trig
    status: ACTIVE
    ```
 
-
 - {{ TF }} {#tf}
 
    {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
@@ -147,11 +143,11 @@ Create a [trigger for {{ container-registry-name }}](../concepts/trigger/cr-trig
           delete_image     = true
           create_image_tag = true
           delete_image_tag = true
-          batch_cutoff     = "<timeout>"
+          batch_cutoff     = "<maximum_wait_time>"
           batch_size       = "<event_batch_size>"
         }
         dlq {
-          queue_id           = "<queue_ID>"
+          queue_id           = "<dead_letter_queue_ID>"
           service_account_id = "<service_account_ID>"
         }
       }
@@ -171,30 +167,30 @@ Create a [trigger for {{ container-registry-name }}](../concepts/trigger/cr-trig
 
       * `container_registry`: Trigger parameters:
 
-         * `registry_id`: Registry ID.
-         * `image_name`: Docker image name.
-         * `tag`: Docker image tag.
-         * Select one or more event types to be handled by the trigger:
+         * `registry_id`: [Registry ID](../../container-registry/operations/registry/registry-list.md).
+         * `image_name`: Name of the image for [filtering](../concepts/trigger/cr-trigger.md#filter). To find out the Docker image name, [get a list of Docker images in the registry](../../container-registry/operations/docker-image/docker-image-list.md).
+         * `tag`: Tag of the image for filtering.
+         * [Events](../concepts/trigger/cr-trigger.md#event) activating the trigger:
 
             * `create_image`: Trigger will invoke the container when a new Docker image is created in the registry. It may take either the `true` or `false` value.
             * `delete_image`: Trigger will invoke the container when a Docker image is deleted from the registry. It may take either the `true` or `false` value.
             * `create_image_tag`: Trigger will invoke the container when a new Docker image tag is created in the registry. It may take either the `true` or `false` value.
             * `delete_image_tag`: Trigger will invoke the container when a Docker image tag is deleted from the registry. It may take either the `true` or `false` value.
 
-         {% include [tf-batch-msg-params](../../_includes/serverless-containers/tf-batch-msg-params.md) %}
+         {% include [tf-batch-params-events](../../_includes/serverless-containers/tf-batch-params-events.md) %}
 
          {% include [tf-dlq-params](../../_includes/serverless-containers/tf-dlq-params.md) %}
 
       For more information about the `yandex_function_trigger` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/function_trigger).
 
-   1. Create the resources:
+   1. Create resources:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
+      {% include [terraform-check-result](../../_tutorials/_tutorials_includes/terraform-check-result.md) %}
 
       ```bash
-      yc serverless trigger get <trigger_ID>
+      yc serverless trigger list
       ```
 
 - API {#api}

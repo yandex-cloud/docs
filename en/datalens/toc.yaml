@@ -56,6 +56,8 @@ items:
           - name: Visualizing data using Heat Maps
             hidden: true
             href: tutorials/data-on-heat-map-dashboard.md
+          - name: Status monitoring of geographically distributed devices
+            href: tutorials/datalens.md
       - name: Service analytics
         items:
           - name: 'Yandex Metrica: direct connection'
@@ -1041,6 +1043,9 @@ items:
       - name: Database-side error
         hidden: true
         href: troubleshooting/errors/ERR-US-BAD_REQUEST-ALREADY_EXISTS.md
+      - name: Formula syntax error
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-FORMULA-PARSE-UNEXPECTED_TOKEN.md
       - name: Data type conversion error
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-TYPE_CAST-FAILED.md

@@ -83,3 +83,5 @@ You can only delete a [deactivated](#unmount) connector, unavailable to the com
 1. Click **{{ ui-key.yc-ui-datasphere.common.submit }}**.
 
 You will see a message saying that the secret has been deleted.
+
+{% include [deletion-time](../../../_includes/datasphere/deletion-time.md) %}

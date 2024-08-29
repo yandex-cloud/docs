@@ -313,7 +313,7 @@ You can use the API to set up access to a project (`ProjectService`, `Project`) 
      yandex.cloud.datasphere.v2.ProjectService/ListAccessBindings
    ```
 
-   **Example**. Viewing a list of access permissions for a community:
+   **Example**. Return a list of access permissions for a community:
 
    ```bash
    grpcurl -rpc-header "Authorization: Bearer <IAM_token>" \
@@ -333,7 +333,7 @@ You can use the API to set up access to a project (`ProjectService`, `Project`) 
      -X GET "https://datasphere.{{ api-host }}/datasphere/v2/projects/<resource_ID>:accessBindings"
    ```
 
-   **Example**. Viewing a list of access permissions for a community:
+   **Example**. Return a list of access permissions for a community:
 
    ```bash
    curl -H "Authorization: Bearer <IAM_token>" \

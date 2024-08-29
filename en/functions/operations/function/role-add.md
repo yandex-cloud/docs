@@ -37,7 +37,7 @@ description: "Follow this guide to assign roles to a function."
       ```
       done (1s)
       ```
-   * All authorized users (`allAuthenticatedUsers` system group):
+   * All authorized users (the `All authenticated users` [public group](../../../iam/concepts/access-control/public-group.md)):
       ```
       yc serverless function add-access-binding \
         --id <function_ID> \

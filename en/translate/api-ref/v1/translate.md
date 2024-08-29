@@ -9,6 +9,8 @@ description: "Translates the source text into the specified language."
 
 Translates the source text into the specified language.
 
+When using the Translate API, provide your [authentication](/docs/translate/api-ref/authentication) credentials in the `Authorization` header.
+
 ## Request {#request}
 
 ```

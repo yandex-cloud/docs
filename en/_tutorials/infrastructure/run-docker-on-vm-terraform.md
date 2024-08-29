@@ -1,7 +1,7 @@
 1. [Prepare your cloud](#before-begin).
 1. [Create an infrastructure](#deploy).
 1. [Build and upload the Docker image to {{ container-registry-name }}](#create-image).
-1. [Download the Docker image to the VM](#run).
+1. [Download the Docker image to a VM](#run).
 1. [Check the result](#check-result).
 
 If you no longer need the resources you created, [delete them](#clear-out).
@@ -20,19 +20,23 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Create an infrastructure {#deploy}
 
-{% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+{% include [terraform-definition](../_tutorials_includes/terraform-definition.md) %}
 
 To create an infrastructure using {{ TF }}:
-1. [Install](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform) {{ TF }} and specify the source for installing the {{ yandex-cloud }} provider (see [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), step 1).
-1. Prepare a file with the infrastructure description:
+1. [Install {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials), and specify the source for installing the {{ yandex-cloud }} provider (see [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), step 1).
+1. Prepare files with the infrastructure description:
 
    {% list tabs group=infrastructure_description %}
 
-   - Ready-made archive {#ready}
+   - Ready-made configuration {#ready}
 
-      1. Create a directory for the file with the infrastructure description.
-      1. Download the [archive](https://{{ s3-storage-host }}/doc-files/run-docker-on-vm-terraform.zip) (1.5 KB).
-      1. Unpack the archive to the directory. As a result, it should contain the `run-docker-on-vm.tf` configuration file.
+      1. Clone the [repository](https://github.com/yandex-cloud-examples/yc-run-docker-on-vm) with configuration files:
+
+         ```bash
+         git clone https://github.com/yandex-cloud-examples/yc-run-docker-on-vm.git
+         ```
+
+      1. Go to the directory with the repository. There you should see the `run-docker-on-vm-config.tf` file with the configuration of the infrastructure to create.
 
    - Manually {#manual}
 

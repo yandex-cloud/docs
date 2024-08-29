@@ -49,3 +49,5 @@ You can only change the name of an existing template. To change the configuratio
 1. In the list, select the template to delete.
 1. Click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yc-ui-datasphere.common.delete }}**.
 1. Click **{{ ui-key.yc-ui-datasphere.common.submit }}**.
+
+{% include [deletion-time](../../_includes/datasphere/deletion-time.md) %}

@@ -4,8 +4,8 @@ With the [API v1](../request.md), you can synthesize speech from text with [TTS 
 
 The example uses the following synthesis parameters:
 
-* [Language](../index.md#langs): Russian
-* [Voice](../voices.md): `filipp`
+* [Language](../index.md#langs): Russian.
+* [Voice](../voices.md): `filipp`.
 * Other parameters left by default.
 
 The Yandex account or federated account are authenticated using an [IAM token](../../../iam/concepts/authorization/iam-token.md). If you use your service account, you do not need to include the folder ID in the request. For more information about authentication in the {{ speechkit-name }} API, see [{#T}](../../concepts/auth.md).
@@ -145,11 +145,11 @@ The Yandex account or federated account are authenticated using an [IAM token](.
       ```bash
       export FOLDER_ID=<folder_ID>
       export IAM_TOKEN=<IAM_token>
-      python test.py
+      python3 test.py
         --token ${IAM_TOKEN} \
        --folder_id ${FOLDER_ID} \
        --output speech.ogg \
-       --text "I'm Yandex Sp+eechKit. I can turn any text into speech. Now y+ou can, too!
+       --text "I'm Yandex Speech+Kit. I can turn any text into speech. Now y+ou can, too!
       ```
 
       Where:

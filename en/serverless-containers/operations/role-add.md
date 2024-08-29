@@ -33,7 +33,7 @@ description: "Follow this guide to assign roles to a container."
       ```
       done (1s)
       ```
-   * All authorized users (`allAuthenticatedUsers` system group):
+   * All authorized users (the `All authenticated users` [public group](../../iam/concepts/access-control/public-group.md)):
       ```
       yc serverless container add-access-binding \
         --name <container_name> \

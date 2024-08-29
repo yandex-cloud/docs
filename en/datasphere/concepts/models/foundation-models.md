@@ -20,12 +20,6 @@ You can access the tuned models from the {{ ml-platform-name }} project and thro
 
 In the {{ ml-platform-name }} interface, create a new fine-tuned foundation model, set the tuning rate, and upload the data. Tuning will take some time.
 
-{% note warning %}
-
-{{ gpt-lite }}-based models (created before March 27, 2024) will cease to operate on April 29, 2024.
-
-{% endnote %}
-
 ## Data required for {{ gpt-pro }} tuning {#yagpt-tuning}
 
 {% include [logging](../../../_includes/foundation-models/yandexgpt/logging-disclaimer.md) %}

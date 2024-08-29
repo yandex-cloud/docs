@@ -2,7 +2,7 @@ title: Yandex API Gateway
 href: index.yaml
 label:
   title: RU
-  description: The service is only available in the Russia region.
+  description: This service is only available in the Russia region.
   theme: unknown
   when: region == "kz"
 items:
@@ -100,6 +100,8 @@ items:
             href: operations/spec-constructor/ydb.md
           - name: '{{ ml-platform-short-name }}'
             href: operations/spec-constructor/datasphere.md
+          - name: '{{ yagpt-name }}'
+            href: operations/spec-constructor/yagpt.md
       - name: Viewing operations with the service's resources
         href: operations/operation-logs.md
   - name: Tutorials

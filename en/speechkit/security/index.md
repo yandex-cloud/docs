@@ -67,6 +67,8 @@ When working with {{ speechkit-name }}, you may need roles of other services, fo
 
 {% include [roles-primitive](../../_includes/roles-primitive.md) %}
 
+{% include [primitive-roles-footnote](../../_includes/primitive-roles-footnote.md) %}
+
 #### What's next {#what-is-next}
 
 * [How to assign a role](../../iam/operations/roles/grant.md)

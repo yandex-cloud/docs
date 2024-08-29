@@ -113,8 +113,8 @@ The guide in this checklist item will help you set up operations with logs and a
 1. Select a log group.
 1. Go to the **{{ ui-key.yacloud.common.monitoring }}** tab.
 1. The following charts will open on the page:
-* **Records successfully ingested**: Number of records delivered to the {{ cloud-logging-name }} system. Only user logs are counted.
-* **Records saved**: Number of records saved to the {{ cloud-logging-name }} system. Service and user logs are counted.
-* **Records read**: Number of records read.
-* **Records ingest errors**: Number of errors when adding records.
-* **Records save lag**: Difference between the time of record delivery and its saving to the {{ cloud-logging-name }} system.
+    * **Records successfully ingested**: Number of records delivered to the {{ cloud-logging-name }} system. Only user logs are counted.
+    * **Records saved**: Number of records saved to the {{ cloud-logging-name }} system. Service and user logs are counted.
+    * **Records read**: Number of records read.
+    * **Records ingest errors**: Number of errors when adding records.
+    * **Records save lag**: Difference between the time of record delivery and its saving to the {{ cloud-logging-name }} system.

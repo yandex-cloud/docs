@@ -41,7 +41,7 @@ To view assigned roles:
    1. Get the resource ID or name.
    1. {% include [include](../../../_includes/iam/list-access-bindings-via-cli.md) %}
 
-      In the server response, find all the rows where the subject contains the account ID and the `allUsers` and `allAuthenticatedUsers` [system groups](../../concepts/access-control/system-group.md) as subjects.
+      In the server response, find all the rows where the subject contains the account ID, as well as those where the subject is the `All users` or `All authenticated users` [public groups](../../concepts/access-control/public-group.md).
    1. Repeat the previous two steps for all the parent resources.
 
 - API {#api}
@@ -52,7 +52,7 @@ To view assigned roles:
    1. Get the resource ID or name.
    1. {% include [include](../../../_includes/iam/list-access-bindings-via-api.md) %}
 
-      In the server response, find all the rows where the subject contains the account ID and the `allUsers` and `allAuthenticatedUsers` [system groups](../../concepts/access-control/system-group.md) as subjects.
+      In the server response, find all the rows where the subject contains the account ID, as well as those where the subject is the `All users` or `All authenticated users` [public groups](../../concepts/access-control/public-group.md).
    1. Repeat the previous two steps for all the parent resources.
 
 {% endlist %}

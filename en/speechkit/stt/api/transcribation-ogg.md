@@ -3,7 +3,7 @@ title: "Asynchronous OggOpus audio file recognition in {{ speechkit-full-name }}
 description: "Follow this guide to use asynchronous OggOpus audio file recognition."
 ---
 
-# Asynchronously recognizing audio files in OggOpus format
+# Asynchronous recognition of OggOpus audio files using the API v2
 
 Here are examples of [asynchronous recognition of speech](../transcribation.md) from an audio file using the {{ speechkit-name }} [API v2](transcribation-api.md). These examples use the following parameters:
 
@@ -34,7 +34,7 @@ For two-channel OggOpus audio files, do not specify the number of channels in th
 - cURL {#curl}
 
    1. [Get a link to an audio file](../../../storage/operations/objects/link-for-download.md) in {{ objstorage-name }}.
-   1. Create a file like `body.json` and add the following code to it:
+   1. Create a file, e.g., `body.json`, and paste the following code to it:
 
       ```json
       {
@@ -52,7 +52,7 @@ For two-channel OggOpus audio files, do not specify the number of channels in th
       Where:
 
       * `languageCode`: [Recognition language](../models.md#languages)
-      * `uri`: Link to the audio file in {{ objstorage-name }}. Sample link: `https://{{ s3-storage-host }}/speechkit/speech.opus`.
+      * `uri`: Link to the audio file in {{ objstorage-name }}, e.g., Sample link: `https://{{ s3-storage-host }}/speechkit/speech.opus`.
 
          The link contains additional query parameters (after `?`) for buckets with restricted access. You do not need to provide these parameters in {{ speechkit-name }} as they are ignored.
 

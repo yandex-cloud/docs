@@ -1,5 +1,15 @@
 # {{ api-gw-full-name }} release notes
 
+## July 2024 {#july-2024}
+
+### Updates {#updates}
+
+* Added support for [triggers](concepts/trigger/index.md) that send messages to WebSocket connections.
+
+### Fixes and improvements {#fixes-improvements}
+
+* Fixed errors when [selecting a handler](concepts/index.md#algorithm) in the OpenAPI specification.
+
 ## May–June 2024 {#may-june-2024}
 
 ### Updates {#updates}

@@ -35,16 +35,18 @@ You can delete a model in the {{ jlab }}Lab interface or on the project page und
 
 - {{ jlab }}Lab
 
-1. Open the {{ jlab }}Lab interface and select ![models](../../../_assets/console-icons/nodes-right.svg) in the right-hand panel.
-1. In the list of models, choose the one you want to delete, click ![options](../../../_assets/console-icons/ellipsis.svg), and select ![delete](../../../_assets/datasphere/jupyterlab/delete-red.svg)**Delete**.
-1. Click **{{ ui-key.yc-ui-datasphere.common.submit }}**.
+   1. Open the {{ jlab }}Lab interface and select ![models](../../../_assets/console-icons/nodes-right.svg) in the right-hand panel.
+   1. In the list of models, choose the one you want to delete, click ![options](../../../_assets/console-icons/ellipsis.svg), and select ![delete](../../../_assets/datasphere/jupyterlab/delete-red.svg)**Delete**.
+   1. Click **{{ ui-key.yc-ui-datasphere.common.submit }}**.
 
 - Project resources
 
-1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
-1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, click ![model](../../../_assets/console-icons/nodes-right.svg)**Model**.
-1. In the list of models, select the one you want to delete.
-1. On the view model page, click **More** and select ![delete](../../../_assets/datasphere/jupyterlab/delete-red.svg)**{{ ui-key.yc-ui-datasphere.common.delete }}**.
-1. Click **{{ ui-key.yc-ui-datasphere.common.submit }}**.
+   1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
+   1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, click ![model](../../../_assets/console-icons/nodes-right.svg)**Model**.
+   1. In the list of models, select the one you want to delete.
+   1. On the view model page, click **More** and select ![delete](../../../_assets/datasphere/jupyterlab/delete-red.svg)**{{ ui-key.yc-ui-datasphere.common.delete }}**.
+   1. Click **{{ ui-key.yc-ui-datasphere.common.submit }}**.
 
 {% endlist %}
+
+{% include [deletion-time](../../../_includes/datasphere/deletion-time.md) %}

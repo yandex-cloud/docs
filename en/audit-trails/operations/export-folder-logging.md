@@ -328,6 +328,7 @@ To create a trail that exports folder audit logs:
 
 The trail will be created and will start uploading audit logs to the log group.
 
+{% include [logging-dublicate-events](../../_includes/audit-trails/logging-dublicate-events.md) %}
 
 ## What's next {#whats-next}
 

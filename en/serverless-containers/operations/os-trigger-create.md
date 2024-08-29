@@ -68,12 +68,12 @@ Create a [trigger for {{ objstorage-name }}](../concepts/trigger/os-trigger.md) 
      --prefix '<object_key_prefix>' \
      --suffix '<object_key_suffix>' \
      --events 'create-object','delete-object','update-object' \
-     --batch-size <batch_size> \
+     --batch-size <event_batch_size> \
      --batch-cutoff <maximum_wait_time> \
      --invoke-container-id <container_ID> \
      --invoke-container-service-account-id <service_account_ID> \
-     --retry-attempts 1 \
-     --retry-interval 10s \
+     --retry-attempts <number_of_retry_invocation_attempts> \
+     --retry-interval <interval_between_retry_attempts> \
      --dlq-queue-id <dead_letter_queue_ID> \
      --dlq-service-account-id <service_account_ID>
    ```
@@ -131,7 +131,6 @@ Create a [trigger for {{ objstorage-name }}](../concepts/trigger/os-trigger.md) 
 
    1. In the configuration file, describe the trigger parameters:
 
-      
       ```
       resource "yandex_function_trigger" "my_trigger" {
         name = "<trigger_name>"
@@ -143,18 +142,20 @@ Create a [trigger for {{ objstorage-name }}](../concepts/trigger/os-trigger.md) 
         }
         object_storage {
           bucket_id    = "<bucket_ID>"
+          prefix       = "<object_key_prefix>"
+          suffix       = "<object_key_suffix>"
           create       = true
+          update       = true
           delete       = true
-          batch_cutoff = "<timeout>"
+          batch_cutoff = "<maximum_wait_time>"
           batch_size   = "<event_batch_size>"
         }
         dlq {
-          queue_id           = "<DLQ_ID>"
+          queue_id           = "<dead_letter_queue_ID>"
           service_account_id = "<service_account_ID>"
         }
       }
       ```
-
 
       Where:
 
@@ -162,7 +163,7 @@ Create a [trigger for {{ objstorage-name }}](../concepts/trigger/os-trigger.md) 
 
          {% include [name-format](../../_includes/name-format.md) %}
 
-      * `container`: Container parameters:
+      * `container-name`: Container parameters:
 
          {% include [tf-container-params](../../_includes/serverless-containers/tf-container-params.md) %}
 
@@ -171,23 +172,25 @@ Create a [trigger for {{ objstorage-name }}](../concepts/trigger/os-trigger.md) 
       * `object_storage`: Trigger parameters:
 
          * `bucket_id`: Bucket ID.
-         * Select one or more [event](../concepts/trigger/os-trigger.md#event) types to be handled by the trigger:
+         * `prefix`: Bucket object key [prefix](../concepts/trigger/os-trigger.md#filter). This is an optional parameter. It is used for filtering.
+         * `suffix`: Bucket object key [suffix](../concepts/trigger/os-trigger.md#filter). This is an optional parameter. It is used for filtering.
+         * [Events](../concepts/trigger/os-trigger.md#event) activating the trigger:
 
             * `create`: Trigger will invoke the container when a new object is created in the storage. It may take either the `true` or `false` value.
             * `update`: Trigger will invoke the container when a new object is updated in the storage. It may take either the `true` or `false` value.
             * `delete`: Trigger will invoke the container when a new object is deleted from the storage. It may take either the `true` or `false` value.
 
-         {% include [tf-batch-params.md](../../_includes/serverless-containers/tf-batch-params.md) %}
+         {% include [tf-batch-params-events.md](../../_includes/serverless-containers/tf-batch-params-events.md) %}
 
       {% include [tf-dlq-params](../../_includes/serverless-containers/tf-dlq-params.md) %}
 
       For more information about the `yandex_function_trigger` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/function_trigger).
 
-   1. Create the resources:
+   1. Create resources:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
+      {% include [terraform-check-result](../../_tutorials/_tutorials_includes/terraform-check-result.md) %}
 
       ```bash
       yc serverless trigger list

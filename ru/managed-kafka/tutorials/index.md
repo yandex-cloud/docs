@@ -24,6 +24,7 @@
 * [Из {{ KF }} в {{ yds-name }}](mkf-yds-stream.md)
 * [Из {{ KF }} в {{ GP }}](managed-kafka-to-greenplum.md)
 * [Из {{ KF }} в {{ MG }}](mkf-to-mmg-migration.md)
+* [Из {{ MY }} в {{ KF }}](cdc/cdc-mmy.md)
 * [Из {{ KF }} в {{ MY }}](mkf-to-mmy-migration.md)
 * [Из {{ KF }} в {{ OS }}](mkf-to-mos-migration.md)
 

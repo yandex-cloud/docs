@@ -19,6 +19,7 @@ description: "In this tutorial, you will learn how to set up an {{ OS }} source 
 {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
 
 * [Migrating a {{ OS }} cluster](../../../tutorials/os-to-mos.md).
+* [Loading data from {{ OS }} to {{ objstorage-name }}](../../../tutorials/opensearch-to-object-storage.md).
 * [Migration with change of storage from {{ OS }} to {{ ydb-short-name }}](../../../tutorials/opensearch-to-ydb.md).
 
 For a detailed description of possible {{ data-transfer-full-name }} data transfer scenarios, see [Tutorials](../../../tutorials/index.md).
@@ -85,7 +86,7 @@ Connecting to nodes with explicitly specified network addresses and ports.
 
 Configure the target endpoint:
 
-* [{{ OS }}](../target/opensearch.md).​
+* [{{ OS }}](../target/opensearch.md)​.
 * [{{ CH }}](../target/clickhouse.md)​.
 * [{{ GP }}](../target/greenplum.md).
 * [{{ ydb-full-name }}](../target/yandex-database.md).

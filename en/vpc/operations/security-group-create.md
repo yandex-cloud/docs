@@ -3,7 +3,7 @@ title: "How to create a security group"
 description: "Follow this guide to create a security group."
 ---
 
-# Create a security group
+# Creating a security group
 
 {% include [sg-rules](../../_includes/vpc/sg-rules.md) %}
 
@@ -29,7 +29,7 @@ To create a new [security group](../concepts/security-groups.md):
          1. `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` field alternative. Select:
             * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}`: To allow networking between the resources within the current security group.
             * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-list }}`: To allow networking with the resources of the selected group.
-         1. `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}`.
+         1. `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}`​.
    1. Click **{{ ui-key.yacloud.common.save }}**. Add other rules, if required.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -143,22 +143,22 @@ To create a new [security group](../concepts/security-groups.md):
 
       For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
 
-   2. Make sure the configuration files are valid.
+   1. Make sure the configuration files are correct.
 
-      1. In the command line, go to the directory where you created the configuration file.
-      2. Run a check using this command:
+      1. In the command line, go to the folder where you created the configuration file.
+      1. Run a check using this command:
          ```
          terraform plan
          ```
       If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
-   3. Deploy cloud resources.
+   1. Deploy cloud resources.
 
       1. If the configuration does not contain any errors, run this command:
          ```
          terraform apply
          ```
-      2. Confirm that you want to create the resources.
+      1. Confirm that you want to create the resources.
 
       All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
 
@@ -170,7 +170,7 @@ To create a new [security group](../concepts/security-groups.md):
    * ID of the network where the security group will be placed, in the `networkId` parameter.
    * Settings for the security group rules, in the `ruleSpecs[]` array.
 
-      * Traffic direction for which the rule is created, in the `ruleSpecs[].direction` parameter. The possible values include:
+      * Traffic direction for which the rule is created, in the `ruleSpecs[].direction` parameter. The possible values are:
 
          * `ingress`: Incoming traffic
          * `egress`: Outgoing traffic
