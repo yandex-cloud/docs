@@ -53,7 +53,6 @@ Create a [timer](../../concepts/trigger/timer.md), i.e., a trigger that calls a 
 
    To create a trigger that invokes a function, run this command:
 
-   
    ```bash
    yc serverless trigger create timer \
      --name <timer_name> \
@@ -61,12 +60,11 @@ Create a [timer](../../concepts/trigger/timer.md), i.e., a trigger that calls a 
      --payload <message> \
      --invoke-function-id <function_ID> \
      --invoke-function-service-account-id <service_account_ID> \
-     --retry-attempts 1 \
-     --retry-interval 10s \
-     --dlq-queue-id <Dead_Letter_Queue_ID> \
+     --retry-attempts <number_of_retry_invocation_attempts> \
+     --retry-interval <interval_between_retry_attempts> \
+     --dlq-queue-id <dead_letter_queue_ID> \
      --dlq-service-account-id <service_account_ID>
    ```
-
 
    Where:
 
@@ -78,7 +76,6 @@ Create a [timer](../../concepts/trigger/timer.md), i.e., a trigger that calls a 
 
    Result:
 
-   
    ```text
    id: a1sfe084v4**********
    folder_id: b1g88tflru**********
@@ -100,7 +97,6 @@ Create a [timer](../../concepts/trigger/timer.md), i.e., a trigger that calls a 
            service-account-id: aje3932acd**********
    status: ACTIVE
    ```
-
 
 - {{ TF }} {#tf}
 
@@ -127,7 +123,7 @@ Create a [timer](../../concepts/trigger/timer.md), i.e., a trigger that calls a 
           payload         = "<message>"
         }
         dlq {
-          queue_id           = "<queue_ID>"
+          queue_id           = "<dead_letter_queue_ID>"
           service_account_id = "<service_account_ID>"
         }
       }
@@ -146,14 +142,14 @@ Create a [timer](../../concepts/trigger/timer.md), i.e., a trigger that calls a 
 
       For more information about the `yandex_function_trigger` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/function_trigger).
 
-   1. Create the resources:
+   1. Create resources:
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
+      {% include [terraform-check-result](../../../_tutorials/_tutorials_includes/terraform-check-result.md) %}
 
       ```bash
-      yc serverless trigger get <trigger_ID>
+      yc serverless trigger list
       ```
 
 - API {#api}

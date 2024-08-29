@@ -11,12 +11,12 @@ The `x-yc-apigateway-integration:dummy` extension returns fixed content with the
 | Parameter | Type | Description |
 ----|----|----
 | `http_code` | `int` | HTTP response code. |
-| `http_headers` | `map[string](string\|[]string)` | List of headers to be sent in response. Parameters are substituted in `http_headers`. |
-| `content` | `map[string]string` | Data to be sent in response. <br>Can be either real content or mapping from the requested `Content-Type` into data. This lets you send errors in the requested format: JSON or XML. The `*` key is used for the default value. Parameters are substituted in `content`. |
+| `http_headers` | `map[string](string\|[]string)` | It shows the list of headers to send in the response. `http_headers` is used for parameter substitution. |
+| `content` | `map[string]string` | Data to send in response. <br>It can be either actual content or the result of mapping the requested `Content-Type` into data. This allows you to send errors in the requested format: JSON or XML. The `*` key is used for the default value. `content` is used for parameter substitution. |
 
 ## Extension specification {#spec}
 
-Example specification:
+Specification example:
 
 ```yaml
 x-yc-apigateway-integration:
@@ -29,10 +29,10 @@ x-yc-apigateway-integration:
     "application/json": "{ \"message\": \"You've been redirected.\" }"
 ```
 
-Extension features:
+Extension specifics:
 * If the request has the `Accept` header:
    * The best match is selected first.
    * If there is no match, the `*` key is selected.
    * If there is no key, the `415 Media not supported` response is returned.
-* If the `Accept` header is missing, an arbitrary response is selected.
+* If the `Accept` header is missing, any response may be selected.
 * If the content option is selected by the `*` key, the response's `Content-Type` is picked from `http_headers`. If it is not specified there, the actual `Content-Type` is returned.

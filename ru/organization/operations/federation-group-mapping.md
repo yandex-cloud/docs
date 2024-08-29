@@ -18,8 +18,9 @@
 
     Инструкции по настройке сопоставления групп некоторых поставщиков удостоверений:
 
-   * [KeyCloak](../tutorials/federations/group-mapping/keycloak.md)
-   * [Microsoft AD FS](https://learn.microsoft.com/en-us/power-pages/security/authentication/saml2-settings#create-an-ad-fs-relying-party-trust)
+   * [{{ keycloak }}](../tutorials/federations/group-mapping/keycloak.md).
+   * [{{ microsoft-idp.adfs-full }}](../tutorials/federations/group-mapping/adfs.md).
+   * [{{ microsoft-idp.entra-id-full }}](../tutorials/federations/group-mapping/entra-id.md).
    * [Google](https://support.google.com/a/answer/11143403?sjid=815248229840499495-EU).
 
 1. Задайте сопоставление групп пользователей в настройках федерации:

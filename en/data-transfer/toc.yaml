@@ -2,7 +2,7 @@ title: Yandex Data Transfer
 href: index.yaml
 label:
   title: KZ
-  description: The service is available in Kazakhstan.
+  description: This service is only available in the Kazakhstan region.
   theme: info
   when: region == "kz"
 items:
@@ -234,6 +234,8 @@ items:
             href: tutorials/mmy-objs-migration.md
           - name: '{{ PG }} to {{ objstorage-name }}'
             href: tutorials/mpg-to-objstorage.md
+          - name: '{{ OS }} to {{ objstorage-name }}'
+            href: tutorials/opensearch-to-object-storage.md
           - name: '{{ ydb-name }} in {{ objstorage-name }}'
             href: tutorials/ydb-to-object-storage.md
   - name: Concepts

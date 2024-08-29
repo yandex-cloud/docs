@@ -1,6 +1,6 @@
 # Exchanging files with a Linux VM
 
-To exchange files with a Linux VM, we recommend using the [SCP](https://ru.wikipedia.org/wiki/SCP) and [SFTP](https://ru.wikipedia.org/wiki/SFTP) protocols.
+We recommend the [SCP](https://ru.wikipedia.org/wiki/SCP) and [SFTP](https://ru.wikipedia.org/wiki/SFTP) protocols for exchanging files with a Linux VM.
 
 Both protocols tunnel TCP connections via [SSH](https://ru.wikipedia.org/wiki/SSH) when transferring files, which ensures the same security and authentication level as that of SSH.
 

@@ -2,7 +2,7 @@ title: Yandex Container Registry
 href: index.yaml
 label:
   title: KZ
-  description: The service is available in Kazakhstan.
+  description: This service is only available in the Kazakhstan region.
   theme: info
   when: region == "kz"
 items:
@@ -105,12 +105,16 @@ items:
           Scanning vulnerabilities during continuous deployment of {{
           managed-k8s-name }} applications using {{ GL }}
         href: tutorials/cr-scanner-with-k8s-and-gitlab.md
+      - name: Continuous deployment of containerized applications using {{ GL }}
+        href: tutorials/gitlab-containers.md
       - name: Building a CI/CD pipeline in {{ GL }} using serverless products
         href: tutorials/ci-cd-serverless.md
       - name: Storing Docker images created in {{ mgl-full-name }} projects
         href: tutorials/image-storage.md
       - name: Connecting to {{ container-registry-name }} from {{ vpc-short-name }}
         href: tutorials/vpc-cr-access.md
+      - name: Running external agents for load testing
+        href: tutorials/loadtesting-external-agent.md
   - name: Concepts
     items:
       - name: Overview

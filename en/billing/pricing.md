@@ -33,3 +33,4 @@ The following services are always free of charge:
 Billable service costs are calculated based on the resources consumed and time used. Each service implements its own consumed resources calculation logic.
 
 For more information about {{ yandex-cloud }} prices and the pricing policy across all services, see the [Pricing]({{ link-cloud-calculator }}) page.
+

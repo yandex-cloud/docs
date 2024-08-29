@@ -16,6 +16,6 @@ You can [restrict](../community/manage-community-config.md) resizing the project
 
 {% note warning %}
 
-Project storage is used for file storage as well for file system needs and other support functions.
+A project storage is more than a file storage facility: it also addresses the file system needs and other support functions.
 
 {% endnote %}

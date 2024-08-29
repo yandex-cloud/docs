@@ -55,7 +55,7 @@ To allow any user to invoke a function without passing an authorization header, 
       * `role`: Role to be assigned.
       * `members`: List of users to assign the role to.
 
-         To make a function public, assign the `{{ roles-functions-invoker }}` role to all unauthorized users (`allUsers` [system group](../../../iam/concepts/access-control/system-group.md)).
+         To make a function public, assign the `{{ roles-functions-invoker }}` role to all unauthorized users (the `All users` [public group](../../../iam/concepts/access-control/public-group.md)).
 
       For more information about the parameters of the `yandex_function_iam_binding` resource, see the [provider documentation]({{ tf-provider-resources-link }}/function_iam_binding).
 

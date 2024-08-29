@@ -835,7 +835,7 @@ We do not recommend that you use privileged containers to run loads that process
       done
       ```
 
-   1. If you don't see `privileged: true` before any VM ID, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
+   1. If there is no `privileged: true` in front of each VM ID, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
 {% endlist %}
 
@@ -889,7 +889,7 @@ We recommend that you update certificates in advance if they are not [updated au
       done
       ```
 
-   1. If you don't see `privileged: true` before any VM ID, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
+   1. If there is no `privileged: true` in front of each VM ID, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
 {% endlist %}
 

@@ -20,14 +20,13 @@ Install and configure 1C-Bitrix:
 
 1. Configure the database:
    1. In the **Server** field, enter the fully qualified domain name (FQDN) of the DB you created. To find out this name:
-      1. Open the folder page in the [management console]({{ link-console-main }}) in a new browser tab.
-      1. Select **{{ mmy-name }}**.
-      1. In the table, click the row of the DB cluster you created.
-      1. Go to the **Hosts** tab.
-      1. Hover over the **Hostname** field value and click ![copy](../../_assets/console-icons/copy.svg).
-   1. In the **Username** and **Password** fields, specify the data you entered when creating the DB.
-   1. In the **Database name** field, specify the DB name (`db1` in this example).
-   1. Leave the default values in the other fields.
+      1. In the [management console]({{ link-console-main }}), open the folder page in a new browser tab.
+      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+      1. In the window that opens, select the `BitrixMySQL` cluster you created earlier.
+      1. Select the **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}** tab in the left-hand menu.
+      1. In the **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}** field, hover over the host name (format: `rc1c-cfazv1db********`) and copy the database FQDN by clicking the ![copy](../../_assets/copy.svg) icon that appears. The FQDN will be added to the host name, so the **Server** field should contain a name in `rc1c-cfazv1db********.{{ dns-zone }}` format.
+   1. In the **Username** and **Password** fields, enter the data that you specified when creating the DB in [Create a {{ MY }} DB cluster](#create-mysql).
+   1. In the **Database name** field, specify the name of the created DB (`db1`).
    1. Click **Next**.
 
    ![Step 5](../../_assets/tutorials/bitrix-shop/bitrix-shop5.png)
@@ -64,7 +63,7 @@ Install and configure 1C-Bitrix:
 
    ![Step 13](../../_assets/tutorials/bitrix-shop/bitrix-shop13.png)
 
-1. Select the types of payers your online store should work with and click **Next**.
+1. Select the types of payers your online store will work with and click **Next**.
 
    ![Step 14](../../_assets/tutorials/bitrix-shop/bitrix-shop14.png)
 
@@ -76,7 +75,7 @@ Install and configure 1C-Bitrix:
 
    ![Step 16](../../_assets/tutorials/bitrix-shop/bitrix-shop16.png)
 
-1. When the installation is complete, click **Go to site**.
+1. Once the installation is complete, click **Go to website**.
 
    ![Step 17](../../_assets/tutorials/bitrix-shop/bitrix-shop17.png)
 
@@ -84,7 +83,8 @@ Install and configure 1C-Bitrix:
 
    ![Step 18](../../_assets/tutorials/bitrix-shop/bitrix-shop18.png)
 
-1. Click **Exit** in the top-right corner of the page to see the site home page as a regular user. To return to edit mode, log in to the website using the 1C-Bitrix administrator credentials.
+1. To view the website home page as a user, exit your website administration mode. To do this, click **Exit** in the top-right corner of the page and go to `http://<VM_public_IP_address>/`.
+   To return to edit mode, log in to the website using the administrator credentials you provided when configuring 1C-Bitrix.
 
    ![Step 19](../../_assets/tutorials/bitrix-shop/bitrix-shop19.png)
 

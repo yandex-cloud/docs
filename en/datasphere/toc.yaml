@@ -2,7 +2,7 @@ title: Yandex DataSphere
 href: index.yaml
 label:
   title: RU
-  description: The service is only available in the Russia region.
+  description: This service is only available in the Russia region.
   theme: unknown
   when: region == "kz"
 items:
@@ -131,6 +131,8 @@ items:
             href: operations/deploy/alias-api.md
       - name: '{{ ds-jobs }}'
         items:
+          - name: Authenticating in {{ ds-jobs }}
+            href: operations/projects/authentication.md
           - name: Running a job in {{ ml-platform-name }} Jobs
             href: operations/projects/work-with-jobs.md
           - name: Working with Visual Studio Code jobs
@@ -177,8 +179,6 @@ items:
         items:
           - name: Jobs
             href: concepts/jobs/index.md
-          - name: Authentication
-            href: concepts/jobs/authentication.md
           - name: DataSphere CLI
             href: concepts/jobs/cli.md
           - name: Docker images in jobs

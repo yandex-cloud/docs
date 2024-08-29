@@ -63,9 +63,11 @@ For more information about service roles, see [{#T}](../../iam/concepts/access-c
 
 {% include [roles-primitive](../../_includes/roles-primitive.md) %}
 
+{% include [primitive-roles-footnote](../../_includes/primitive-roles-footnote.md) %}
+
 ## What roles do I need {#choosing-roles}
 
-The table below lists the roles needed to perform a particular action. You can always assign a role granting more permissions than the role specified. For example, you can assign the `editor` role instead of `viewer`.
+The table below lists the roles required to perform a particular action. You can always assign a role offering more permissions than the one specified. For example, you can assign the `editor` role instead of `viewer`.
 
 
 | Action | Methods | Required roles |
@@ -78,11 +80,11 @@ The table below lists the roles needed to perform a particular action. You can a
 | **Manage resources** |
 | [Create registries in a folder](../operations/registry/registry-create.md). | `create` | `container-registry.editor` for a folder. |
 | [Update](../operations/registry/registry-update.md) and [delete](../operations/registry/registry-delete.md) registries | `update`, `delete` | `container-registry.editor` for the specified registry. |
-| [Create Docker images](../operations/docker-image/docker-image-create.md) using basic Docker images from the registry | N/A | `container-registry.images.puller`<br>for the registry or repository. |
-| [Create Docker images](../operations/docker-image/docker-image-create.md) without using basic Docker images from the registry. | N/A | No roles required. |
+| [Create Docker images](../operations/docker-image/docker-image-create.md) using basic Docker images from the registry | — | `container-registry.images.puller`<br>for the registry or repository. |
+| [Create Docker images](../operations/docker-image/docker-image-create.md) without using basic Docker images from the registry. | — | No roles required. |
 | [Push Docker images to the registry](../operations/docker-image/docker-image-push.md). | `push` | `container-registry.images.pusher`<br>for the registry or repository. |
 | [Delete Docker images](../operations/docker-image/docker-image-delete.md). | `delete` | `container-registry.images.pusher` for a registry or repository containing a Docker image. |
-| [Creating](../operations/lifecycle-policy/lifecycle-policy-create.md), [editing](../operations/lifecycle-policy/lifecycle-policy-update.md), [deleting](../operations/lifecycle-policy/lifecycle-policy-delete.md), and performing a [dry run](../operations/lifecycle-policy/lifecycle-policy-dry-run.md) of a lifecycle policy. | `create`, `update`, `delete`, `dryRun` | `container-registry.editor` for the registry or repository that the lifecycle policy was created for. |
+| [Create](../operations/lifecycle-policy/lifecycle-policy-create.md), [edit](../operations/lifecycle-policy/lifecycle-policy-update.md), [delete](../operations/lifecycle-policy/lifecycle-policy-delete.md), and perform a [dry run](../operations/lifecycle-policy/lifecycle-policy-dry-run.md) of a lifecycle policy. | `create`, `update`, `delete`, `dryRun` | `container-registry.editor` for the registry or repository that the lifecycle policy was created for. |
 | **Manage resource access** |
 | [Granting a role](../../iam/operations/roles/grant.md), [revoking a role](../../iam/operations/roles/revoke.md), and viewing the roles assigned to a folder, a cloud, or a registry. | `setAccessBindings`, `updateAccessBindings`, `listAccessBindings` | `admin` for the resource. |
 | **Scanning for vulnerabilities** |

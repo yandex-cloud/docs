@@ -21,10 +21,10 @@ View the list of supported languages in [{#T}](models.md#languages).
 
 ## How to asynchronously recognize pre-recorded audio {#async-recognition}
 
-The {{ speechkit-name }} API v2 is used for asynchronous speech recognition. To recognize pre-recorded audio:
+The {{ speechkit-name }} API v2 and v3 are used for asynchronous speech recognition. To recognize pre-recorded audio:
 
 1. [Create a service account](../../iam/operations/sa/create.md).
-1. [Assign it the following roles](../../iam/operations/sa/assign-role-for-sa.md):
+1. [Assign the following roles to it](../../iam/operations/sa/assign-role-for-sa.md):
 
    * `{{ roles-speechkit-stt }}` for speech recognition.
    * `storage.uploader` for uploading audio files to a [{{ objstorage-full-name }} bucket](../../storage/concepts/bucket.md).
@@ -37,10 +37,10 @@ The {{ speechkit-name }} API v2 is used for asynchronous speech recognition. To 
 
  The link contains additional query parameters (after `?`) for buckets with restricted access. You do not need to provide these parameters in {{ speechkit-name }} as they are ignored.
 
-1. [Send an API request to recognize the file](api/transcribation-api.md#sendfile). In the body of the request, provide the link to the audio file. In the HTTP header, specify your authentication credentials:
+1. Send an API request to recognize a file via the [gRPC API](../stt-v3/api-ref/grpc/AsyncRecognizer) or [REST API](../stt-v3/api-ref/AsyncRecognizer/index.md). In the body of the request, provide the link to the audio file. In the HTTP header, specify your authentication credentials:
 
-   * `Authorization: Bearer <IAM_token>`: For authorization using an IAM token.
-   * `Authorization: Api-Key <API_key>`: For authorization using an API key.
+   * `Authorization: Bearer <IAM_token>`: To authenticate with an IAM token.
+   * `Authorization: Api-Key <API_key>`: To authenticate with an API key.
 
    The response to the request returns the ID of the recognition operation. Save it: you will need it for the next request.
 
@@ -50,15 +50,22 @@ The {{ speechkit-name }} API v2 is used for asynchronous speech recognition. To 
 
    {% endnote %}
 
-1. Wait for the recognition to complete. It takes about 10 seconds to recognize one minute of a single-channel audio file.
-1. [Send an API request to get the recognition results](api/transcribation-api.md#get-result). Specify the same authentication credentials in the HTTP header.
+1. Wait for the recognition to complete. It takes about 10 seconds to recognize one minute of a single-channel audio file.
+1. Send an API request to get the recognition results:
+   * Using the [API v2](api/transcribation-api.md#get-result)
+   * Using the [API v3]:
+      * [REST](../stt-v3/api-ref/AsyncRecognizer/getRecognition.md)
+      * [gRPC](../stt-v3/api-ref/grpc/AsyncRecognizer.md#GetRecognition)
+
+   Specify the same authentication credentials in the HTTP header.
 
    The results contain the entire recognized text and a list of recognized words.
 
 
 ## Examples of using the asynchronous recognition API {#examples}
 
-* [{#T}](api/transcribation-lpcm.md).
-* [{#T}](api/transcribation-ogg.md).
-* [{#T}](api/batch-transcribation.md).
+* [{#T}](api/transcribation-lpcm.md)
+* [{#T}](api/transcribation-ogg.md)
+* [{#T}](api/transcribation-api-v3.md)
+* [{#T}](api/batch-transcribation.md)
 

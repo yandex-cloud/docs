@@ -59,6 +59,8 @@ With {{ connection-manager-full-name }} service roles, you can view non-secret c
 
 {% include [roles-primitive](../../_includes/roles-primitive.md) %}
 
+{% include [primitive-roles-footnote](../../_includes/primitive-roles-footnote.md) %}
+
 ### What roles do I need {#choosing-roles}
 
 The table below lists the roles required to perform a particular action. You can always assign a role offering more permissions than the one specified. For example, you can assign the `editor` role instead of `viewer`.

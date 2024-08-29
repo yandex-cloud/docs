@@ -75,13 +75,13 @@ The trigger must be in the same cloud as the registry or device whose topic it r
      --name <trigger_name> \
      --registry-id <registry_ID> \
      --device-id <device_ID> \
-     --mqtt-topic '$devices/<device_ID>/events' \
+     --mqtt-topic '<broker_MQTT_topic>' \
      --batch-size <message_batch_size> \
      --batch-cutoff <maximum_wait_time> \
      --invoke-container-id <container_ID> \
      --invoke-container-service-account-id <service_account_ID> \
-     --retry-attempts 1 \
-     --retry-interval 10s \
+     --retry-attempts <number_of_retry_invocation_attempts> \
+     --retry-interval <interval_between_retry_attempts> \
      --dlq-queue-id <dead_letter_queue_ID> \
      --dlq-service-account-id <service_account_ID>
    ```
@@ -143,12 +143,12 @@ The trigger must be in the same cloud as the registry or device whose topic it r
         iot {
           registry_id  = "<registry_ID>"
           device_id    = "<device_ID>"
-          topic        = "<topic_ID>"
-          batch_cutoff = "<timeout>"
+          topic        = "<broker_MQTT_topic>"
+          batch_cutoff = "<maximum_wait_time>"
           batch_size   = "<message_batch_size>"
         }
         dlq {
-         queue_id           = "<DLQ_ID>"
+         queue_id           = "<dead_letter_queue_ID>"
          service_account_id = "<service_account_ID>"
        }
       }
@@ -178,11 +178,11 @@ The trigger must be in the same cloud as the registry or device whose topic it r
 
       For more information about resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/function_trigger).
 
-   1. Create the resources:
+   1. Create resources:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
+      {% include [terraform-check-result](../../_tutorials/_tutorials_includes/terraform-check-result.md) %}
 
       ```bash
       yc serverless trigger list

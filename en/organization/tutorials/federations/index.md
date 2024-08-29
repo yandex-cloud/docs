@@ -1,16 +1,16 @@
 ---
-title: "{{ org-full-name }} use cases"
-description: "Various {{ org-full-name }} use cases in {{ yandex-cloud }}."
+title: "Use cases for managing identity federations in {{ org-full-name }}"
+description: "Various use cases for managing {{ org-full-name }} identity federations in {{ yandex-cloud }}."
 ---
 
-# Tutorials for managing identity federations in {{ org-full-name }}
+# Managing identity federations in {{ org-name }}
 
 * [{#T}](integration-adfs.md)
 * [{#T}](integration-gworkspace.md)
 * [{#T}](integration-azure.md)
 * [{#T}](integration-keycloak.md)
 
-## Mapping user groups
+## User group mapping
 
 * [{#T}](./group-mapping/entra-id.md)
 * [{#T}](./group-mapping/keycloak.md)

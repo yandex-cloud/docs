@@ -118,6 +118,10 @@ items:
           Загрузка данных из {{ objstorage-full-name }} в {{ mgp-name }} с
           помощью {{ data-transfer-full-name }}
         href: tutorials/object-storage-to-greenplum.md
+      - name: Поставка данных с помощью {{ data-transfer-name }}
+        items:
+          - name: Поставка из {{ KF }} в {{ GP }}
+            href: tutorials/managed-kafka-to-greenplum.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса

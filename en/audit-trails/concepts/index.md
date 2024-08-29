@@ -5,7 +5,7 @@ description: "{{ at-full-name }} lets you collect audit logs about {{ yandex-clo
 
 # {{ at-full-name }} overview
 
-{{ at-full-name }} allows you to collect [management event audit logs](./events.md) and [data event audit logs](./events-data-plane.md) for {{ yandex-cloud }} resources and upload them to {{ objstorage-name }} buckets, {{ yds-name }} streams, or {{ cloud-logging-name }} log groups:
+{{ at-full-name }} allows you to collect [management event audit logs](./events.md) and [data event audit logs](./events-data-plane.md) for {{ yandex-cloud }} resources and upload them to a {{ objstorage-name }} bucket, {{ yds-name }} stream, or {{ cloud-logging-name }} log group:
 
 * [Uploading audit logs to a bucket](../operations/index.md#bucket).
 * [Uploading audit logs to Cloud Logging](../operations/index.md#logging).
@@ -40,6 +40,8 @@ The log captures authorization errors. For example, if a user attempts to create
 The service has [quotas and limits](limits.md).
 
 If you upload audit logs to a log group or a data stream, make sure their size is both within the {{ at-name }} limits and the [{{ cloud-logging-full-name }}](../../logging/concepts/limits.md) and [{{ yds-full-name }}](../../data-streams/concepts/limits.md) limits. If the limits are exceeded, information in event audit logs that are large in size will be incomplete.
+
+{% include [logging-dublicate-events](../../_includes/audit-trails/logging-dublicate-events.md) %}
 
 We also recommend uploading audit logs to the {{ objstorage-name }} bucket.
 

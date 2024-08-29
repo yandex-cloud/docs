@@ -11,13 +11,14 @@ Lists available resources
 
 Syntax: 
 
-`yc backup vm list [Flags...] [Global Flags...]`
+`yc backup vm list <INSTANCE-TYPE> [Flags...] [Global Flags...]`
 
 #### Flags
 
 | Flag | Description |
 |----|----|
 |`--limit`|<b>`int`</b><br/>The maximum number of items to list.|
+|`--type`|<b>`string`</b><br/>Specified resource type for listing, one of 'compute' or ''|
 
 #### Global Flags
 

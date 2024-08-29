@@ -4,6 +4,8 @@ For organizations with a lot of employees, multiple users may need to be granted
 
 Other users will be able to [manage the group](../operations/manage-groups.md#access-manage-group) if you grant them appropriate [roles](../security/index.md#service-roles), e.g., `organization-manager.groups.memberAdmin` to view data and add group members.
 
+In addition to groups created by the administrator, {{ yandex-cloud }} has [system groups](../../iam/concepts/access-control/system-group.md) (`All users in organization X` and `All users in federation N`) and [public groups](../../iam/concepts/access-control/public-group.md) (`All authenticated users` and `All users`).
+
 Groups may only have a one-level structure. You cannot create nested groups. Membership in a group provides all of its members with equal rights.
 
 If you use user groups in your identity provider (IdP) when working with [federations](add-federation.md), you can [map groups](add-federation.md#group-mapping) between the IdP and {{ org-name }}.

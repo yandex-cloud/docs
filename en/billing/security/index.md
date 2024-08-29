@@ -9,10 +9,10 @@ description: "Billing account access is provided through the {{ billing-name }} 
 
 [Billing account](../concepts/billing-account.md) access is provided through the {{ billing-name }} service. A billing account can be created by users with a registered Yandex or Yandex 360 account:
 
-* If you have not created an account for yourself or an employee yet, create one in [Yandex](https://passport.yandex.ru/registration) or [Yandex 360](https://yandex.com/support/business/add-users.html).
-* If you use a social network profile to log in to Yandex, [create a username and password](https://passport.yandex.ru/passport?mode=postregistration&create_login=1).
+* If you or your employee have no account yet, create one on [Yandex](https://passport.yandex.ru/registration) or [Yandex 360](https://yandex.com/support/business/add-users.html).
+* If using a social network profile to log in to Yandex, [create a username and password](https://passport.yandex.ru/passport?mode=postregistration&create_login=1).
 
-The operations a user can perform on a billing account are determined by the role assigned to them. Roles can be assigned to a Yandex account, a [service account](../../iam/concepts/users/service-accounts.md), [federated users](../../iam/concepts/federations.md), a [user group](../../organization/operations/manage-groups.md), or a [system group](../../iam/concepts/access-control/system-group.md).
+The operations a user can perform on a billing account depend on the role assigned. You can assign roles to a Yandex account, [service account](../../iam/concepts/users/service-accounts.md), [federated users](../../iam/concepts/federations.md), [user group](../../organization/operations/manage-groups.md), [system group](../../iam/concepts/access-control/system-group.md), or public group.
 
 {% note info %}
 
@@ -43,6 +43,10 @@ Access can only be granted to a user whose billing account has a cloud linked in
 #### billing.accounts.admin {#billing-accounts-admin}
 
 {% include [billing.accounts.admin](../../_roles/billing/accounts/admin.md) %}
+
+#### billing.accounts.member {#billing-accounts-member}
+
+{% include [billing.accounts.member](../../_roles/billing/accounts/member.md) %}
 
 #### billing.accounts.varWithoutDiscounts {#billing-accounts-var-without-discounts}
 

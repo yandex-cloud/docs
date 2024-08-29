@@ -36,6 +36,7 @@ To view detailed error information, follow the link by clicking the error code:
 | [ERR.DS_API.FIELD.NOT_FOUND](ERR-DS_API-FIELD-NOT_FOUND.md) | Unknown field |
 | [ERR.DS_API.FIELD.TITLE.CONFLICT](ERR-DS_API-FIELD-TITLE-CONFLICT.md) | Field title conflicts with another field |
 | [ERR.DS_API.FILTER.MEASURE_UNSUPPORTED](ERR-DS_API-FILTER-MEASURE_UNSUPPORTED.md) | Measure filter is unsupported for this type of query |
+| [ERR.DS_API.FORMULA.PARSE.UNEXPECTED_TOKEN](ERR-DS_API-FORMULA-PARSE-UNEXPECTED_TOKEN.md) | Formula syntax error |
 | [ERR.DS_API.FORMULA.UNKNOWN_FIELD_IN_FORMULA](ERR-DS_API-FORMULA-UNKNOWN_FIELD_IN_FORMULA.md) | Unknown field found in formula |
 | [ERR.DS_API.FORMULA.UNKNOWN_SOURCE_COLUMN](ERR-DS_API-FORMULA-UNKNOWN_SOURCE_COLUMN.md) | Unknown referenced source column |
 | [ERR.DS_API.FORMULA.UNKNOWN_WINDOW_DIMENSION](ERR-DS_API-FORMULA-UNKNOWN_WINDOW_DIMENSION.md) | Unknown dimension for window |

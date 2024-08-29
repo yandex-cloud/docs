@@ -8,6 +8,8 @@ To push an image, you need to [configure](../configure-docker.md) Docker and [ge
 
 {% endnote %}
 
+To push a Docker image to the registry, you need the `container-registry.images.pusher` [role](../../security/index.md#container-registry-images-pusher) or higher.
+
 {% list tabs group=instructions %}
 
 - CLI {#cli}

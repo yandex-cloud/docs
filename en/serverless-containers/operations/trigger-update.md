@@ -42,7 +42,6 @@ Your changes will apply within five minutes.
 
       Result:
 
-      
       ```text
       id: a1s5msktijh2********
       folder_id: b1gmit33hgh2********
@@ -68,8 +67,6 @@ Your changes will apply within five minutes.
               service-account-id: aje3932acdh2********
       status: ACTIVE
       ```
-
-
 
 - {{ TF }} {#tf}
 
@@ -107,7 +104,7 @@ Your changes will apply within five minutes.
 
       * `timer`: Trigger parameters:
          * `cron_expression`: Container invocation schedule specified as a [cron expression](../concepts/trigger/timer.md#cron-expression).
-         * `payload`: Message to be delivered to the function if the timer triggers. The string length must not exceed 4,096 characters.
+         * `payload`: Message that will be sent to the function if the timer fires. The string length must not exceed 4,096 characters.
 
       * `container`: Settings for the container that will be activated by the trigger:
 

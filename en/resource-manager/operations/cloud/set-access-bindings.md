@@ -54,7 +54,7 @@ To grant a user access to cloud resources, assign the user a [role](../../../iam
       +--------------------------------+-------------+
       ```
 
-   1. Find out the user ID from the login or email address. To assign a role to a service account or system group instead of a user, see the [examples](#examples) below.
+   1. Find out the user ID from the login or email address.
 
       ```bash
       yc iam user-account get test-user
@@ -77,6 +77,7 @@ To grant a user access to cloud resources, assign the user a [role](../../../iam
         --subject userAccount:<user_ID>
       ```
 
+   To assign a role to a [service account](../../../iam/concepts/users/service-accounts.md), [user group](../../../organization/concepts/groups.md), or [system group](../../../iam/concepts/access-control/system-group.md) instead of a user, see [these examples](../../../iam/operations/roles/grant.md#cloud-or-folder).
 
 - {{ TF }} {#tf}
 
@@ -85,10 +86,12 @@ To grant a user access to cloud resources, assign the user a [role](../../../iam
    1. Describe the cloud access permission parameters in the configuration file:
       * `cloud_id`: Cloud ID. You can get a list of available clouds using the [CLI](../../../cli/quickstart.md) command: `yc resource-manager cloud list`.
       * `role`: Role to be assigned. You can get a list of roles using the [CLI](../../../cli/quickstart.md) command: `yc iam role list`. In one `yandex_resourcemanager_cloud_iam_member` resource, you can assign only one role.
-      * `member`: User to assign the role to. Each `yandex_resourcemanager_cloud_iam_member` resource may have one of the following values:
-                  * `userAccount:<user_ID>`: [User ID](../../../iam/operations/users/get.md)
+      * `member`: User or group to assign the role to. Each `yandex_resourcemanager_cloud_iam_member` resource may have one of the following values:
+         * `userAccount:<user_ID>`: [User ID](../../../iam/operations/users/get.md).
          * `serviceAccount:<service_account_ID>`: [Service account ID](../../../iam/operations/sa/get-id.md)
          * `federatedUser:<federated_account_ID>`: [Federated account ID](../../../organization/operations/users-get.md)
+         * `system:group:organization:<organization_ID>:users`: ID of the [organization](../../../organization/quickstart.md) to assign a role to the `All users in organization X` [system group](../../../iam/concepts/access-control/system-group.md#allOrganizationUsers).
+         * `system:group:federation:<federation_ID>:users`: ID of the [identity federation](../../../organization/concepts/add-federation.md) to assign a role to the `All users in federation N` [system group](../../../iam/concepts/access-control/system-group.md#allFederationUsers).
 
       Here is an example of the configuration file structure:
 
@@ -237,13 +240,7 @@ To grant a user access to cloud resources, assign the user a [role](../../../iam
         --access-binding role=viewer,subject=userAccount:<second_user_ID>
       ```
 
-
-      ```bash
-      yc resource-manager cloud set-access-bindings my-cloud \
-        --access-binding role=editor,subject=federatedUser:<first_user_ID>
-        --access-binding role=viewer,subject=federatedUser:<second_user_ID>
-      ```
-
+   To assign a role to a [service account](../../../iam/concepts/users/service-accounts.md), [user group](../../../organization/concepts/groups.md), or [system group](../../../iam/concepts/access-control/system-group.md) instead of a user, see [these examples](../../../iam/operations/roles/grant.md#multiple-roles).
 
 - {{ TF }} {#tf}
 

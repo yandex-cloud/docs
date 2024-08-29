@@ -10,21 +10,21 @@ Audio classifiers are only supported for Russian speech.
 
 {% endnote %}
 
-You can apply classifiers both to intermediate and final recognition results. To enable a classifier, define the [`recognition_classifier`](../stt-v3/api-ref/grpc/stt_service.md#RecognitionClassifierOptions) parameter in the session options. Classifier results will arrive in a separate message immediately after the [events](../stt-v3/api-ref/grpc/stt_service.md#StreamingResponse) specified in the classifier settings. Depending on the classifier, these may be the events of the `partial`, `eou_update`, or `final` type.
+You can apply classifiers both to intermediate and final recognition results. To enable a classifier, define the [`recognition_classifier`](../stt-v3/api-ref/grpc/stt_service.md#RecognitionClassifierOptions) parameter in the session options. Classifier results will arrive in a separate message immediately after the [events](../stt-v3/api-ref/grpc/stt_service.md#StreamingResponse) specified in the classifier settings. For classifiers, these may be the events of the `partial`, `eou_update`, or `final` type.
 
 {{ speechkit-name }} supports the following classifiers:
 
-| Classifier | Description | Result | Supported event types | Support in model versions |
-|---|---|---|---|---|
-| `formal_greeting` | Formal greeting like "good afternoon" or "good morning" | Probability of a phrase belonging to the formal greeting class | `ON_UTTERANCE`, `ON_FINAL`, `ON_PARTIAL` (in `general:rc`) | `general:rc`, `general` |
-| `informal_greeting` | Informal greeting like "hi" or "hey there" | Probability of a phrase belonging to the informal greeting class | `ON_UTTERANCE`, `ON_FINAL`, `ON_PARTIAL` (in `general:rc`) | `general:rc`, `general` |
-| `formal_farewell` | Formal farewell like "goodbye" or "have a nice day" | Probability of a phrase belonging to the formal farewell class | `ON_UTTERANCE`, `ON_FINAL`, `ON_PARTIAL` (in `general:rc`) | `general:rc`, `general` |
-| `informal_farewell` | Informal farewell like "bye-bye" or "adios" | Probability of a phrase belonging to the informal farewell class | `ON_UTTERANCE`, `ON_FINAL`, `ON_PARTIAL` (in `general:rc`) | `general:rc`, `general` |
-| `insult` | Insults like "idiot" or "jerk" | Probability of a phrase belonging to the insult class | `ON_UTTERANCE`, `ON_FINAL` | `ON_UTTERANCE`, `ON_FINAL`, `ON_PARTIAL` (in `general:rc`) |
-| `profanity` | Profanity | Probability of a phrase belonging to the profanity class | `ON_UTTERANCE`, `ON_FINAL`, `ON_PARTIAL` (in `general:rc`) | `general:rc`, `general` |
-| `gender` | Gender | Probability values for `male` and `female` | `ON_UTTERANCE`, `ON_FINAL`, `ON_PARTIAL` | `general:rc`, `general` |
-| `negative` | Negativity | Probability of a recognized phrase being negative | `ON_UTTERANCE`, `ON_FINAL`, `ON_PARTIAL` | `general:rc`, `general` |
-| `answerphone` | Answerphone | Probability of an answerphone response | `ON_UTTERANCE`, `ON_FINAL`, `ON_PARTIAL` | `general:rc`, `general` |
+| Classifier | Description | Result |
+|---|---|---|
+| `formal_greeting` | Formal greeting like "good afternoon" or "good morning" | Probability of a phrase belonging to the formal greeting class |
+| `informal_greeting` | Informal greeting like "hi" or "hey there" | Probability of a phrase belonging to the informal greeting class |
+| `formal_farewell` | Formal farewell like "goodbye" or "have a nice day" | Probability of a phrase belonging to the formal farewell class |
+| `informal_farewell` | Informal farewell like "bye-bye" or "adios" | Probability of a phrase belonging to the informal farewell class |
+| `insult` | Insults like "idiot" or "jerk" | Probability of a phrase belonging to the insult class |
+| `profanity` | Profanity | Probability of a phrase belonging to the profanity class |
+| `gender` | Gender | Probability values for `male` and `female` |
+| `negative` | Negativity | Probability of a recognized phrase being negative |
+| `answerphone` | Answerphone | Probability of an answerphone response |
 
 {% list tabs group=programming_language %}
 

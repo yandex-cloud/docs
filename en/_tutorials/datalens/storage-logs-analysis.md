@@ -183,7 +183,7 @@ The cost includes:
 
 ### Create a {{ CH }} cluster {#create-ch-cluster}
 
-To create a {{ mch-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the [{{ roles.mch.editor }} role or higher](../../managed-clickhouse/security.md#roles-list). For information on assigning roles, see the [{{ iam-name }} documentation](../../iam/operations/roles/grant.md).
+To create a {{ mch-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the [{{ roles.mch.editor }} role or higher](../../managed-clickhouse/security.md#roles-list). For more information on assigning roles, see the [{{ iam-name }} documentation](../../iam/operations/roles/grant.md).
 
 {% list tabs group=instructions %}
 

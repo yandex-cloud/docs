@@ -6,8 +6,8 @@ In {{ yandex-cloud }}, identification, authentication, and access control is per
 The platform works with three categories of users:
 
 * [Yandex accounts](../../../iam/concepts/users/accounts.md#passport): Accounts in Yandex ID.
-* [Federated accounts](../../../iam/concepts/users/accounts.md#saml-federation): Accounts in a corporate [SAML-compatible identity federation](../../../organization/concepts/add-federation.md), such as Active Directory.
-* [Service accounts](../../../iam/concepts/users/accounts.md#sa): Accounts that can be used by a program to manage resources.
+* [Federated accounts](../../../iam/concepts/#saml-federation): Accounts in a corporate [SAML-compatible identity federation](../../../organization/concepts/add-federation.md), such as Active Directory.
+* [Service accounts](../../../iam/concepts/#sa): Accounts that can be used by programs to manage resources.
 
 Yandex ID accounts and federated accounts are authenticated in their own systems. {{ yandex-cloud }} has no access to these users' passwords and only authenticates service accounts via {{ iam-short-name }}.
 
@@ -606,7 +606,7 @@ For a Yandex ID account, set up 2FA using [this guide](https://yandex.com/suppo
 * `{{ roles-admin }}` assigned for a billing account.
 * `organization-manager.organizations.owner`.
 * `organization-manager.admin`.
-* `{{ roles-cloud-owner }}`.
+* `{{ roles-cloud-owner }}`​.
 * `{{ roles-admin }}` and `{{ roles-editor }}` assigned for an organization.
 * `{{ roles-admin }}` and `{{ roles-editor }}` assigned for a cloud.
 * `{{ roles-admin }}` and `{{ roles-editor }}` assigned for a folder.
@@ -772,16 +772,16 @@ When developing an access model for your infrastructure, we recommend the follow
 
 #### 1.16 There is no <q>public access</q> to your organization resources {#public-access}
 
-{{ yandex-cloud }} lets you grant public access to your resources. This is done by granting access rights to [system groups](../../../iam/concepts/access-control/system-group.md) (`{{ subjects-allAuthenticatedUsers }}` and `{{ subjects-allUsers }}`).
+{{ yandex-cloud }} allows you to grant public access to your resources. You can grant public access by assigning access permissions to [public groups](../../../iam/concepts/access-control/public-group.md) (`All authenticated users`, `All users`).
 
-System group description:
+Public group details:
 
-* `{{ subjects-allAuthenticatedUsers }}`: All authenticated users. These are all registered users or service accounts in {{ yandex-cloud }}: both from your clouds and other users'.
-* `{{ subjects-allUsers }}`: Any user. No authentication is required.
+* `All authenticated users`: All users who have authenticated. These are all registered users or {{ yandex-cloud }} service accounts: both from your clouds and other users' clouds.
+* `All users`: Any user. No authentication is required.
 
 {% note warning %}
 
-Now `{{ subjects-allUsers }}` is only supported in the following services: {{ objstorage-short-name }} (if ACL-based access management is used), {{ container-registry-name }}, and {{ sf-name }}. For other services, assigning a role to the `{{ subjects-allUsers }}` group is equivalent to assigning the role to `{{ subjects-allAuthenticatedUsers }}`.
+Currently, `All users` is only supported for the following services: {{ objstorage-short-name }} (when using ACL-based access management), {{ container-registry-name }}, and {{ sf-name }}. For other services, assigning a role to the `All users` group is the same as doing so to `All authenticated users`.
 
 {% endnote %}
 
@@ -795,21 +795,21 @@ Make sure that these groups have no public access to your resources: clouds, fol
 
    1. Open the {{ yandex-cloud }} management console in your browser.
    1. Next, go to the global cloud menu (click the cloud in the initial cloud menu). Select the **Access rights** tab.
-   1. Check whether there are `{{ subjects-allUsers }}` and `{{ subjects-allAuthenticatedUsers }}` among users.
+   1. Check whether there are `All users` and `All authenticated users` among the users.
 
    Checking roles in a folder:
 
    1. Open the {{ yandex-cloud }} management console in your browser.
    1. Go to the appropriate folder of the appropriate cloud and open the **Access rights** tab.
-   1. Check whether there are `{{ subjects-allUsers }}` and `{{ subjects-allAuthenticatedUsers }}` among users.
+   1. Check whether there are `All users` and `All authenticated users` among the users.
    1. Repeat the steps for all folders in all your clouds.
 
    Checking roles in {{ objstorage-short-name }}:
 
    1. Open the {{ yandex-cloud }} management console in your browser.
    1. Go to the desired cloud and find **{{ objstorage-short-name }}**.
-   1. Click the three dots next to the desired bucket and check its ACL for `{{ subjects-allUsers }}` and `{{ subjects-allAuthenticatedUsers }}`.
-   1. Open the bucket and check the ACL of each of its objects for `{{ subjects-allUsers }}` and `{{ subjects-allAuthenticatedUsers }}`.
+   1. Click the three dots next to the bucket and check its ACL for `allUsers` and `allAuthenticatedUsers`.
+   1. Open the bucket and check the ACL of each of its objects for `allUsers` and `allAuthenticatedUsers`.
    1. Open the bucket's global settings, select **Object read access**, and make sure the **Public** parameter is disabled.
    1. Repeat the steps for all the buckets and objects in all of your clouds.
 
@@ -818,7 +818,7 @@ Make sure that these groups have no public access to your resources: clouds, fol
    1. Open the {{ yandex-cloud }} management console in your browser.
    1. Next, go to each cloud and find **{{ container-registry-name }}**.
    1. Open the appropriate registry and click **Access rights** on the left.
-   1. Check whether there are `{{ subjects-allUsers }}` and `{{ subjects-allAuthenticatedUsers }}` among users.
+   1. Check whether there are `All users` and `All authenticated users` among the users.
    1. Repeat the steps for all your clouds.
 
    Checking roles in {{ sf-name }}:
@@ -826,7 +826,7 @@ Make sure that these groups have no public access to your resources: clouds, fol
    1. Open the {{ yandex-cloud }} management console in your browser.
    1. Next, go to each cloud and find **{{ sf-name }}**.
    1. Open all cloud functions and make sure the **Public access** parameter is disabled.
-   1. If none of the specified resources contain `{{ subjects-allUsers }}` and `{{ subjects-allAuthenticatedUsers }}`, the recommendation is fulfilled. Otherwise, proceed to the <q>Guides and solutions to use</q>.
+   1. If there are no `All users` and `All authenticated users` subjects in each specified resource, the recommendation is fulfilled. Otherwise, proceed to the <q>Guides and solutions to use</q>.
 
 - Performing a check via the CLI {#cli}
 
@@ -845,7 +845,7 @@ Make sure that these groups have no public access to your resources: clouds, fol
         --format=json | jq -r '.[] | select(.role_id=="admin" or .role_id=="organization-manager.organizations.owner" or .role_id=="organization-manager.admin" or .role_id=="resource-manager.clouds.owner")'
       ```
 
-   1. Run the command below to search for cloud-level access rights such as `{{ subjects-allUsers }}` and `{{ subjects-allAuthenticatedUsers }}`:
+   1. To search for `allUsers` and `allAuthenticatedUsers` access permissions at the cloud level, run the following command:
 
       ```bash
       export ORG_ID=<organization ID>
@@ -854,7 +854,7 @@ Make sure that these groups have no public access to your resources: clouds, fol
       done
       ```
 
-   1. Run the command below to search for folder-level access rights such as `{{ subjects-allUsers }}` and `{{ subjects-allAuthenticatedUsers }}`:
+   1. To search for `allUsers` and `allAuthenticatedUsers` access permissions at the folder level, run the following command:
 
       ```bash
       export ORG_ID=<organization ID>
@@ -865,7 +865,7 @@ Make sure that these groups have no public access to your resources: clouds, fol
       done
       ```
 
-   1. Run the command below to search for the `{{ subjects-allUsers }}` and `{{ subjects-allAuthenticatedUsers }}` access rights at the {{ container-registry-name }} level in all folders:
+   1. To search for `allUsers` and `allAuthenticatedUsers` access permissions at the {{ container-registry-name }} level in all folders, run the following command:
 
       ```bash
       export ORG_ID=<organization ID>
@@ -878,7 +878,7 @@ Make sure that these groups have no public access to your resources: clouds, fol
       done
       ```
 
-   1. Run the command below to search for the `{{ subjects-allUsers }}` and `{{ subjects-allAuthenticatedUsers }}` access rights at the {{ sf-name }} level in all folders:
+   1. To search for `allUsers` and `allAuthenticatedUsers` access permissions at the {{ sf-name }} level in all folders, run the following command:
 
       ```bash
       export ORG_ID=<organization ID>
@@ -891,13 +891,13 @@ Make sure that these groups have no public access to your resources: clouds, fol
       done
       ```
 
-   1. If none of the specified resources contain `{{ subjects-allUsers }}` and `{{ subjects-allAuthenticatedUsers }}`, the recommendation is fulfilled. Otherwise, proceed to the <q>Guides and solutions to use</q>.
+   1. If none of the specified resources contains `allUsers` and `allAuthenticatedUsers`, the recommendation is fulfilled. Otherwise, proceed to the <q>Guides and solutions to use</q>.
 
 {% endlist %}
 
 **Guides and solutions to use:**
 
-If you detect that `{{ subjects-allUsers }}` and `{{ subjects-allAuthenticatedUsers }}` have the access rights that they should not have, remove these rights.
+If `All users` and `All authenticated users` have access permissions, you need to delete these permissions.
 
 #### 1.17 Contact information of the person in charge of an organization is valid {#org-contacts}
 
@@ -1054,7 +1054,7 @@ To control access more selectively and implement the principle of least privileg
 - Performing a check in the management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the appropriate folder.
-   1. Go to the **Access rights** tab.
+   1. Click the **Access bindings** tab.
    1. Click **Assign roles**.
    1. In the **Configure access bindings** window, click **Select user**.
    1. Select a user from the list or search by user.

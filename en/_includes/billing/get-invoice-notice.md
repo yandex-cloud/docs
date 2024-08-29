@@ -1,0 +1,1 @@
+For general information about billing documents issued by {{ yandex-cloud }}, see [{#T}](../../billing/payment/documents.md).

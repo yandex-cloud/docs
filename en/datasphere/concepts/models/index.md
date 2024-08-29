@@ -12,7 +12,7 @@ Once created, the model is available for the project. Like any other resource, y
 
 You can create a model based on different library types supported by [serialzy](https://github.com/lambdazy/serialzy#list-of-supported-libraries-for-stable-serialization). The table below provides a list of supported data and variable types.
 
-| Library | Types | Data format |
+| Libraries | Types | Data format |
 |---|---|---|
 | [CatBoost](https://catboost.ai) | [CatBoostRegressor](https://catboost.ai/en/docs/concepts/python-reference_catboostregressor), [CatBoostClassifier](https://catboost.ai/en/docs/concepts/python-reference_catboostclassifier), [CatBoostRanker](https://catboost.ai/en/docs/concepts/python-reference_catboostranker) | [cbm](https://catboost.ai/en/docs/concepts/python-reference_catboost_save_model) |
 | [CatBoost](https://catboost.ai) | [Pool](https://catboost.ai/en/docs/concepts/python-reference_pool) | [quantized pool](https://catboost.ai/en/docs/concepts/python-reference_pool_save) |

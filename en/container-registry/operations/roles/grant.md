@@ -44,7 +44,7 @@ To grant access to a [resource](../../../iam/concepts/access-control/resources-w
         --service-account-id <service_account_ID>
       ```
 
-   * All authorized users (`allAuthenticatedUsers` system group):
+   * All authorized users (the `All authenticated users` [public group](../../../iam/concepts/access-control/public-group.md)):
 
       ```bash
       yc container <resource> add-access-binding <resource_name_or_ID> \

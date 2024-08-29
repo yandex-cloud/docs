@@ -1,6 +1,6 @@
 # Pattern-based speech synthesis
 
-With pattern-based synthesis, you can synthesize speech based on pre-edited phrases, or _patterns_, with changeable key parts called _variables_. A new phrase is synthesized integrally instead of combining multiple pre-recorded and synthesized blocks. Speech intonations are copied from the pattern. This makes speech sound natural – just like real human speech.
+With pattern-based synthesis, you can synthesize speech based on pre-edited phrases, or _patterns_, with changeable key parts called _variables_. A new phrase is synthesized integrally instead of combining multiple pre-recorded and synthesized blocks. Speech intonations are copied from the pattern. This makes speech sound natural – just like real human speech.
 
 Pattern-based synthesis is only available for [{{ brand-voice-name }}](brand-voice/index.md) voices.
 
@@ -68,6 +68,6 @@ The logical stress should not fall on the variable part of the phrase.
 
 * API v3:
 
-   * [{{ brand-voice-premium }} and {{ brand-voice-core }}](api/tts-templates.md).
-   * [{{ brand-voice-cc-name }}](api/tts-templates-bvcc.md)​.
+   * [{{ brand-voice-premium }} and {{ brand-voice-core }}](api/tts-templates.md)
+   * [{{ brand-voice-cc-name }}](api/tts-templates-bvcc.md)​
 

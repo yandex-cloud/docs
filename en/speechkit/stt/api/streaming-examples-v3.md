@@ -39,12 +39,12 @@ To implement an example from this section:
       pip install grpcio-tools
       ```
 
-      1. Go to the directory hosting the cloned {{ yandex-cloud }} API repository, create an `output` directory, and generate the client interface code there:
+      1. Go to the folder hosting the cloned {{ yandex-cloud }} API repository, create a folder named `output`, and generate the client interface code there:
 
          ```bash
-         cd <path_to_cloudapi_directory>
+         cd <path_to_cloudapi_folder>
          mkdir output
-         python -m grpc_tools.protoc -I . -I third_party/googleapis \
+         python3 -m grpc_tools.protoc -I . -I third_party/googleapis \
            --python_out=output \
            --grpc_python_out=output \
              google/api/http.proto \
@@ -106,8 +106,8 @@ To implement an example from this section:
                      yield stt_pb2.StreamingRequest(chunk=stt_pb2.AudioChunk(data=data))
                      data = f.read(CHUNK_SIZE)
 
-         # Instead of iam_token, provide api_key for authorization as a service account
-         # with an API key.
+         # When authorizing with an API key
+         # as a service account, provide api_key instead of iam_token.
          # def run(api_key, audio_file_name):
          def run(iam_token, audio_file_name):
              # Establish a server connection.
@@ -149,7 +149,7 @@ To implement an example from this section:
          Where:
 
          * `audio_encoding`: [Format](../../formats.md) of the audio stream.
-         * `sample_rate_hertz`: Sampling rate.
+         * `sample_rate_hertz`: Sampling rate of the audio stream.
          * `audio_channel_count`: Number of audio channels.
          * `profanity_filter`: [Profanity filter](../../stt-v3/api-ref/grpc/stt_service#TextNormalizationOptions).
          * `literature_text`: [Flag to generate the recognized text in a literary style](../../stt-v3/api-ref/grpc/stt_service#TextNormalizationOptions).
@@ -164,7 +164,7 @@ To implement an example from this section:
       1. Run the created file:
 
          ```bash
-         python output/test.py --token ${IAM_TOKEN} --path <path_to_speech.pcm>
+         python3 output/test.py --token ${IAM_TOKEN} --path <path_to_speech.pcm>
          ```
 
          Where `path` is the path to the audio file to recognize:
@@ -218,7 +218,7 @@ To implement an example from this section:
       1. Specify the service account's [API key](../../../iam/concepts/authorization/api-key.md):
 
          ```bash
-         export API_KEY=<API key>
+         export API_KEY=<API_key>
          ```
 
       1. Run the Java program for speech recognition:

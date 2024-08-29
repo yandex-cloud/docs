@@ -73,7 +73,7 @@ To create a trail that exports organization audit logs:
 
    1. Under **{{ ui-key.yacloud.audit-trails.label_destination }}**, configure the destination object:
 
-      * **{{ ui-key.yacloud.audit-trails.label_destination }}**: `{{ ui-key.yacloud.audit-trails.label_cloudLogging }}`.
+      * **{{ ui-key.yacloud.audit-trails.label_destination }}**: `{{ ui-key.yacloud.audit-trails.label_cloudLogging }}`
       * **{{ ui-key.yacloud.logging.label_loggroup }}**: Select a log group. You can also create a new log group. For this:
 
          * Click **{{ ui-key.yacloud.common.label_create-new_female }}**, then specify the parameters of the log group:
@@ -359,6 +359,7 @@ To create a trail that exports organization audit logs:
 
 The trail will be created and will start uploading audit logs to the log group.
 
+{% include [logging-dublicate-events](../../_includes/audit-trails/logging-dublicate-events.md) %}
 
 ## What's next {#whats-next}
 

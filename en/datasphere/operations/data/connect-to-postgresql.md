@@ -52,7 +52,7 @@ In the {{ yandex-cloud }} infrastructure, [{{ PG }}](https://www.postgresql.org/
 
 - Connecting without SSL {#without-ssl}
 
-   Connecting without an SSL certificate is only supported for hosts that are not publicly accessible. If this is the case, internal cloud network traffic will not be encrypted for connecting to a database.
+   Connecting without an SSL certificate is only supported for non-public hosts. If this is the case, internal cloud network traffic will not be encrypted when connecting to a database.
 
    1. [Configure your project](../../operations/projects/update.md). For this, on the project edit page, add or change the following data in the relevant fields:
 

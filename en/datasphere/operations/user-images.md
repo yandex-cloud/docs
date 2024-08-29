@@ -8,7 +8,7 @@ You can configure the environment to run your code using [Docker images](../conc
 
 1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
 1. In the top-right corner, click **{{ ui-key.yc-ui-datasphere.project-page.project-card.create-resource }}**. In the pop-up window, select **{{ ui-key.yc-ui-datasphere.resources.docker }}**.
-1. Fill out the fields below:
+1. Fill in the fields as follows:
    * **{{ ui-key.yc-ui-datasphere.docker.build-path }}**: Path inside the project where the created Docker image will be stored. `.` is the root directory.
    * **{{ ui-key.yc-ui-datasphere.docker.repository }}**: Image name, e.g., `tensorflow`.
    * **{{ ui-key.yc-ui-datasphere.docker.tag }}**: Image tag, e.g., `1.0.0`.
@@ -86,3 +86,5 @@ To make a Docker image available for use in another project, the project adminis
 1. Click **{{ ui-key.yc-ui-datasphere.common.submit }}**.
 
 You will see a message saying that the resource has been deleted.
+
+{% include [deletion-time](../../_includes/datasphere/deletion-time.md) %}

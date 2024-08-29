@@ -1,3 +1,7 @@
+---
+canonical: "{{ link-docs }}/tutorials/dataplatform/data-transfer-mkf-mch"
+---
+
 # Поставка данных в {{ mch-full-name }} с помощью {{ data-transfer-full-name }}
 
 

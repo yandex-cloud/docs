@@ -17,7 +17,7 @@ The trigger must be in the same cloud as the broker whose topic it reads message
 
 {% include [trigger-before-you-begin](../../_includes/serverless-containers/trigger-before-you-begin.md) %}
 
-* [Broker](../../iot-core/concepts/index.md#broker) whose topic the trigger will collect copies of messages from. If you do not have a broker, [create one](../../iot-core/operations/broker/broker-create.md).
+* [Broker](../../iot-core/concepts/index.md#broker) from the topic of which the trigger will collect message copies. If you do not have a broker, [create one](../../iot-core/operations/broker/broker-create.md).
 
 ## Creating a trigger {#trigger-create}
 
@@ -74,13 +74,13 @@ The trigger must be in the same cloud as the broker whose topic it reads message
    yc serverless trigger create iot-broker \
      --name <trigger_name> \
      --broker-id <broker_ID> \
-     --mqtt-topic '<broker_MQTT_topic>' \
-     --batch-size <message_batch_size \
+     --mqtt-topic '<MQTT_topic>' \
+     --batch-size <message_batch_size> \
      --batch-cutoff <maximum_wait_time> \
      --invoke-container-id <container_ID> \
      --invoke-container-service-account-id <service_account_ID> \
-     --retry-attempts 1 \
-     --retry-interval 10s \
+     --retry-attempts <number_of_retry_invocation_attempts> \
+     --retry-interval <interval_between_retry_attempts> \
      --dlq-queue-id <dead_letter_queue_ID> \
      --dlq-service-account-id <service_account_ID>
    ```

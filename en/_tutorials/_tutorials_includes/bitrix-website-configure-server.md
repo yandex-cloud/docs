@@ -1,14 +1,12 @@
 To configure a server for 1C-Bitrix:
-1. [Connect](../../compute/operations/vm-connect/ssh.md) to the VM via SSH (use the `ubuntu` username you specified when [creating the VM](#create-vm)):
+1. [Connect](../../compute/operations/vm-connect/ssh.md) to the VM over SSH on behalf of the user specified when [creating the VM](#create-vm), e.g., `ubuntu`:
 
    ```bash
    ssh ubuntu@<VM_public_IP_address>
    ```
 
-   To find out the public IP address of your VM, on the folder page in the [management console]({{ link-console-main }}):
-   1. Select the **{{ compute-name }}** section.
-   1. Click the name of your VM (**bitrixwebsite** in the example).
-   1. A window will open with general information about your VM. You can find the public IP address in the **Public IPv4** field under **Network**.
+   You can look up the VM's public IP address in the [management console]({{ link-console-main }}) by checking the **{{ ui-key.yacloud.compute.instance.overview.label_public-ipv4 }}** field under **{{ ui-key.yacloud.compute.instance.overview.section_network }}** on the VM page.
+
 1. Install the required software:
 
    ```bash
@@ -20,14 +18,14 @@ To configure a server for 1C-Bitrix:
 
    ```bash
    cd /var/www/html/
-   sudo wget https://www.1c-bitrix.ru/download/standard_encode.tar.gz
+   sudo wget https://www.1c-bitrix.ru/download/business_encode.tar.gz
    ```
 
 1. Unpack the downloaded archive and delete unnecessary files:
 
    ```bash
-   sudo tar -zxf standard_encode.tar.gz
-   sudo rm -f index.html standard_encode.tar.gz
+   sudo tar -zxf business_encode.tar.gz
+   sudo rm -f index.html business_encode.tar.gz
    ```
 
 1. Make the `www-data` user the owner of the project's working directory:
@@ -45,16 +43,14 @@ To configure a server for 1C-Bitrix:
    Result:
 
    ```text
-   total 76
-   drwxrwxr-x 6 www-data www-data  4096 May 15 13:50 bitrix
-   -rwxrwxr-x 1 www-data www-data  1378 May 15 13:50 index.php
-   -rwxrwxr-x 1 www-data www-data   150 Mar 11  2013 install.config
-   -rwxrwxr-x 1 www-data www-data 30741 Apr 10 14:36 license.html
-   -rwxrwxr-x 1 www-data www-data   113 Nov 20  2012 license.php
-   -rwxrwxr-x 1 www-data www-data 14054 Feb  6  2017 readme.html
+   total 40
+   drwxrwxr-x 7 www-data www-data  4096 Jun  8  2023 bitrix
+   -rwxrwxr-x 1 www-data www-data  1150 Nov 30  2020 favicon.ico
+   -rwxrwxr-x 1 www-data www-data  1353 Jun  8  2023 index.php
+   -rwxrwxr-x 1 www-data www-data   268 Apr 17  2023 install.config
+   -rwxrwxr-x 1 www-data www-data 12821 Mar 18  2022 readme.html
    -rwxrwxr-x 1 www-data www-data   112 Mar 27  2013 readme.php
-   drwxrwxr-x 2 www-data www-data  4096 May 15 13:50 upload
-   -rwxrwxr-x 1 www-data www-data   691 Oct 27  2009 web.config
+   drwxrwxr-x 2 www-data www-data  4096 Jun  8  2023 upload
    ```
 
 1. For 1C to work correctly, configure the PHP settings. To do this, use the built-in `nano` editor and modify the following variables in the `php.ini` configuration file:
@@ -86,20 +82,20 @@ To configure a server for 1C-Bitrix:
       sudo nano /etc/apache2/sites-enabled/000-default.conf
       ```
 
-   1. Add the following block after the `DocumentRoot /var/www/html` line:
+   1. Add the following section after the `DocumentRoot /var/www/html` line and save the changes:
 
       ```html
       <Directory /var/www/html>
-      Options Indexes FollowSymLinks
-      AllowOverride All
-      Require all granted
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Require all granted
       </Directory>
       ```
 
-   1. Restart the web server to apply all the new settings.
+   1. Restart the web server to apply all the updated settings:
 
       ```bash
-      sudo service apache2 restart
+      sudo systemctl restart apache2
       ```
 
 After you run these commands, the server side will be configured for 1C-Bitrix to work correctly.

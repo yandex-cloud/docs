@@ -11,6 +11,8 @@ Deleting a [Docker image](../../concepts/docker-image.md) is a deferred action o
 
 {% endnote %}
 
+To delete a Docker image from the registry, you need the `container-registry.images.pusher` [role](../../security/index.md#container-registry-images-pusher) or higher.
+
 {% list tabs group=instructions %}
 
 - Management console {#console}

@@ -1,8 +1,8 @@
 # Secure user access to cloud resources based on WireGuard VPN
 
-To set up secure remote [VPN](https://ru.wikipedia.org/wiki/VPN) access to your cloud resources via the [WireGuard VPN](https://www.wireguard.com/) protocol, use the open-source [Firezone](https://www.firezone.dev/) solution. To implement [Single Sign-On](https://ru.wikipedia.org/wiki/Технология_единого_входа) scenarios for users, the solution supports multiple authentication services ([Identity Providers](https://www.firezone.dev/docs/authenticate)). In the example below, we will use the [Keycloak](https://www.keycloak.org/) identity and access management solution.
+To set up secure remote [VPN](https://ru.wikipedia.org/wiki/VPN) access to your cloud resources over [WireGuard VPN](https://www.wireguard.com/), use the open-source [Firezone](https://www.firezone.dev/) solution. To implement [Single Sign-On](https://ru.wikipedia.org/wiki/Технология_единого_входа) scenarios for users, the solution supports multiple authentication services ([Identity Providers](https://www.firezone.dev/docs/authenticate)). In the example below, we will use the [Keycloak](https://www.keycloak.org/) identity and access management solution.
 
-In this tutorial, you will deploy a cloud infrastructure in {{ yandex-cloud }} to set up a remote access VPN based on WireGuard VPN using the following scenario:
+In this scenario, you will deploy a cloud infrastructure in {{ yandex-cloud }} to set up a remote access VPN based on WireGuard VPN using the following scenario:
 
 ![image](../../_assets/tutorials/remote-access-vpn.svg)
 
@@ -54,7 +54,7 @@ The infrastructure support costs include:
 
    - Management console {#console}
 
-      1. In the [management console]({{ link-console-main }}), select a folder where you want to create your service account.
+      1. In the [management console]({{ link-console-main }}), select the folder where you want to create your service account.
       1. In the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab, click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
       1. Enter a name for the service account, e.g., `sa-firezone`.
       1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
@@ -92,15 +92,16 @@ The infrastructure support costs include:
       1. Go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
       1. Find the `sa-firezone` service account in the list and click ![image](../../_assets/console-icons/ellipsis.svg).
       1. Click **{{ ui-key.yacloud.common.resource-acl.button_assign-binding }}**.
-      1. Click **Add role** in the dialog box that opens and select the `admin` role.
+      1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.acl.update-dialog.button_add-role }}** in the dialog box that opens and select the `admin` role.
 
    - CLI {#cli}
 
       Run this command:
+
       ```
       yc resource-manager folder add-access-binding <folder_ID> \
-         --role admin \
-         --subject serviceAccount:<service_account_ID>
+        --role admin \
+        --subject serviceAccount:<service_account_ID>
       ```
 
    {% endlist %}
@@ -112,11 +113,12 @@ The infrastructure support costs include:
    - CLI {#cli}
 
       1. Create an [authorized key](../../iam/concepts/authorization/key.md) for the service account and save it to the file:
+
          ```
          yc iam key create \
-         --service-account-id <service_account_ID> \
-         --folder-id <ID_of_folder_with_service_account> \
-         --output key.json
+           --service-account-id <service_account_ID> \
+           --folder-id <ID_of_folder_with_service_account> \
+           --output key.json
          ```
 
          Where:
@@ -135,26 +137,30 @@ The infrastructure support costs include:
          ```
 
       1. Create a CLI profile to run operations on behalf of the service account:
-         ```
+
+         ```bash
          yc config profile create sa-firezone
          ```
 
          Result:
-         ```
+
+         ```bash
          Profile 'sa-firezone' created and activated
          ```
 
       1. Set the profile configuration:
-         ```
+
+         ```bash
          yc config set service-account-key key.json
          ```
 
          Here, `service-account-key` is the file with the service account authorized key.
 
       1. Save the access key to the environment variable:
+
+         ```bash
+         export YC_TOKEN=$(yc iam create-token)
          ```
-             export YC_TOKEN=$(yc iam create-token)
-             ```
 
    {% endlist %}
 
@@ -204,9 +210,9 @@ You will need a domain to use for Firezone and Keycloak VMs. Make sure to first 
    | Certificate Manager certificate | 1 |
    | DNS zone | 1 |
    | Managed Service for PostgreSQL cluster | 1 |
-   | SSD storage capacity per PostgreSQL cluster | 10 GB |
-   | Number of vCPUs per PostgreSQL cluster | 2 |
-   | Amount of RAM per PostgreSQL cluster | 8 |
+   | SSD storage capacity for PostgreSQL cluster | 10 GB |
+   | Number of vCPUs for PostgreSQL cluster | 2 |
+   | Amount of RAM for PostgreSQL cluster | 8 |
 
    {% endcut %}
 
@@ -215,27 +221,31 @@ You will need a domain to use for Firezone and Keycloak VMs. Make sure to first 
    - {{ TF }} {#tf}
 
       1. Go to the `main` directory:
+
          ```bash
          cd main
          ```
 
       1. Initialize Terraform:
+
          ```bash
          terraform init
          ```
 
-      1. Check the list of created cloud resources:
+      1. Check the list of cloud resources you are about to create:
+
          ```bash
          terraform plan
          ```
 
-      1. Create resources:
+      1. Create the resources:
+
          ```bash
          terraform apply
          ```
          Wait for the process to complete. It may take up to 30 minutes to process a request for a Let's Encrypt certificate.
 
-      1. After that, the URL addresses for connecting to the Firezone and Keycloak web interfaces and Firezone and Keycloak admin credentials will be output to the command line. Afterwards, you can view this information by running the `terraform output` command.
+      1. When it is over, the command line will output the URL addresses for connection to the Firezone and Keycloak web interfaces, as well as the Firezone and Keycloak admin credentials. Later on, you can view this information by running the `terraform output` command.
 
          ```bash
          Outputs:
@@ -268,27 +278,31 @@ You will need a domain to use for Firezone and Keycloak VMs. Make sure to first 
 
 - {{ TF }} {#tf}
 
-   1. After you deploy the Firezone and Keycloak VMs, go to the `keycloak-config` directory to set up Keycloak for a scenario of Keycloak integration with Firezone and Single Sign-On.
+   1. After you deploy the Firezone and Keycloak VMs, go to the `keycloak-config` folder to set up Keycloak for the scenario where Keycloak integrates with Firezone and Single Sign-On.
+
       ```bash
       cd ../keycloak-config
       ```
 
    1. Initialize Terraform:
+
       ```bash
       terraform init
       ```
 
-   1. Check the list of created cloud resources:
+   1. Check the list of cloud resources you are about to create:
+
       ```bash
       terraform plan
       ```
 
-   1. Create resources:
+   1. Create the resources:
+
       ```bash
       terraform apply
       ```
 
-   1. Once the `terraform apply` process is complete, the command line will show information for Firezone and Keycloak integration setup and test user credentials to test SSO in Keycloak and connect to the VPN. Afterwards, you can view this information by running the `terraform output` command.
+   1. Once the `terraform apply` process is complete, the command line will show information for Firezone and Keycloak integration setup and test user credentials to test SSO in Keycloak and connect to the VPN. Later on, you can view this information by running the `terraform output` command.
 
       ```bash
       Outputs:
@@ -329,7 +343,10 @@ You will need a domain to use for Firezone and Keycloak VMs. Make sure to first 
 
 ## Test Firezone {#test-firezone}
 
-1. Download the [WireGuard client](https://www.wireguard.com/install/) from the WireGuard website and install it on your device. For further steps to set up the WireGuard client, we will use Windows as an example. For other operating systems, the names of UI elements may differ.
+1. Install the [WireGuard client](https://www.wireguard.com/install/) from the WireGuard website on your device.
+
+   For further steps to set up the WireGuard client, we will use Windows as an example. For other operating systems, the names of UI elements may differ.
+
 1. In the browser, open `https://firezone_url`, where `firezone_url` is the `terraform output firezone_url` command output in the `main` directory. If you have an active admin session in the Firezone web interface, **Log Out** first. Click **Sign in with Keycloak**. You will be redirected to the Keycloak web page for single sign-on.
 1. Log in using the test user credentials from the `terraform output test_user_credentials` command output in the `keycloak-config` directory.
 1. After successful authentication in the Firezone web interface as the test user, add a device to establish a VPN connection from. To do this, click **Add Device**.
@@ -344,7 +361,7 @@ You will need a domain to use for Firezone and Keycloak VMs. Make sure to first 
 
 1. Add a new VPN tunnel (**Import tunnel(s) from file**) in the WireGuard app using the configuration file you downloaded.
 1. Click **Activate** to activate the tunnel.
-1. Open the command line on your device and run `ping 192.168.1.1` to check whether the gateway is accessible from the `firezone` cloud subnet. You are now connected to the cloud infrastructure through the VPN tunnel.
+1. Use `ping 192.168.1.1` in the command line on your device to check whether the gateway is accessible from the `firezone` cloud subnet. You are now connected to the cloud infrastructure through the VPN tunnel.
 
    ```bash
    Pinging 192.168.1.1 with 32 bytes of data:

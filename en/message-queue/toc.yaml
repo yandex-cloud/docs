@@ -74,6 +74,8 @@ items:
     items:
       - name: Converting a video to a GIF in Python
         href: tutorials/video-converting-queue.md
+      - name: Storing a static access key in a {{ lockbox-name }} secret
+        href: tutorials/static-key-in-lockbox.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

@@ -25,51 +25,26 @@
    +----------------------+-----------------+---------------+---------+----------------------+
    ```
 
-1. Connect to the VM by specifying its name. The connect command depends on the VM's Linux version:
+1. Connect to the VM:
 
-   * **Debian, Ubuntu 20.04+**
+   To connect via OS login, use the VM name:
 
-      ```bash
-      yc compute ssh \
-        --name <VM_name>
-      ```
+   ```bash
+   yc compute ssh \
+     --name <VM_name>
+   ```
 
-      When connecting via OS Login, you can specify the VM ID instead of its name:
+   When connecting via OS Login, you can specify the VM ID instead of its name:
 
-      ```bash
-      yc compute ssh \
-        --id <VM_ID>
-      ```
+   ```bash
+   yc compute ssh \
+     --id <VM_ID>
+   ```
 
-      To connect via OS login by internal IP address, use the `--internal-address` parameter:
+   To connect via OS login by internal IP address, use the `--internal-address` parameter:
 
-      ```bash
-      yc compute ssh \
-        --name <VM_name> \
-        --internal-address
-      ```
-
-   * **CentOS 7, Ubuntu 18.04**
-
-      ```bash
-      yc compute ssh \
-        --name <VM_name> \
-        -o "PubkeyAcceptedKeyTypes=+ssh-rsa-cert-v01@openssh.com"
-      ```
-
-      When connecting via OS Login, you can specify the VM ID instead of its name:
-
-      ```bash
-      yc compute ssh \
-        --id <VM_ID> \
-        -o "PubkeyAcceptedKeyTypes=+ssh-rsa-cert-v01@openssh.com"
-      ```
-
-      To connect via OS login by internal IP address, use the `--internal-address` parameter:
-
-      ```bash
-      yc compute ssh \
-        --name <VM_name> \
-        -o "PubkeyAcceptedKeyTypes=+ssh-rsa-cert-v01@openssh.com" \
-        --internal-address
-      ```
+   ```bash
+   yc compute ssh \
+     --name <VM_name> \
+     --internal-address
+   ```

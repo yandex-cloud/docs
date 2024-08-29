@@ -274,7 +274,7 @@ You do not need to restart a VM when adding or deleting rules. The rules are app
 
    * New security group rules, in the `additionRuleSpecs[]` array.
 
-      * Traffic direction for which the rule is created, in the `additionRuleSpecs[].direction` parameter. The possible values include:
+      * Traffic direction for which the rule is created, in the `additionRuleSpecs[].direction` parameter. The possible values are:
 
          * `ingress`: Incoming traffic
          * `egress`: Outgoing traffic

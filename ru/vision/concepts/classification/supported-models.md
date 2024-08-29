@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Поддерживаемые модели
 
 {% include [deprecation-warning](../../../_includes/vision/deprecation-warning.md) %}

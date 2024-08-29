@@ -82,6 +82,13 @@ Syntax:
 	- [yc vpc gateway delete](gateway/delete.md) — Delete a gateway.
 	- [yc vpc gateway list-operations](gateway/list-operations.md) — List operations for a gateway.
 	- [yc vpc gateway move](gateway/move.md) — Move a gateway to another folder.
+- [yc vpc private-endpoint](private-endpoint/index.md) — Manage private endpoints.
+	- [yc vpc private-endpoint get](private-endpoint/get.md) — Get information about a private endpoint.
+	- [yc vpc private-endpoint list](private-endpoint/list.md) — List private endpoints in a folder.
+	- [yc vpc private-endpoint create](private-endpoint/create.md) — Create a private endpoint.
+	- [yc vpc private-endpoint update](private-endpoint/update.md) — Modify configuration or attributes of a private endpoint.
+	- [yc vpc private-endpoint delete](private-endpoint/delete.md) — Delete a private endpoint.
+	- [yc vpc private-endpoint list-operations](private-endpoint/list-operations.md) — List operations for a private endpoint.
 
 #### Global Flags
 

@@ -27,13 +27,13 @@ To enable OS Login access at the organization level:
    1. In the left-hand panel, select ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud_org.pages.oslogin.title }}**.
    1. Enable the required access options:
 
-      * **{{ ui-key.yacloud_org.form.oslogin-settings.title_ssh-certificate-settings }}**.
+      * **{{ ui-key.yacloud_org.form.oslogin-settings.title_ssh-certificate-settings }}**​
          The option allows you to connect to a VM or {{ k8s }} cluster node with an OS Login certificate [via the YC CLI](../../compute/operations/vm-connect/os-login.md#connect-via-cli) or a [standard SSH client](../../compute/operations/vm-connect/os-login.md#connect-via-exported-certificate).
 
-      * **{{ ui-key.yacloud_org.form.oslogin-settings.title_user-ssh-key-settings }}**.
+      * **{{ ui-key.yacloud_org.form.oslogin-settings.title_user-ssh-key-settings }}**​
          The option allows you to connect to a VM or {{ k8s }} cluster node via the YC CLI with an [SSH key](../../compute/operations/vm-connect/os-login.md#connect-via-key) stored in an organization user profile.
 
-      * **{{ ui-key.yacloud_org.form.oslogin-settings.title_allow-edit-own-keys }}**.
+      * **{{ ui-key.yacloud_org.form.oslogin-settings.title_allow-edit-own-keys }}**​
          The option is available if OS Login access with SSH keys is enabled.
          It allows users to [upload](./add-ssh.md) public SSH keys to their profile to connect to VMs or {{ k8s }} cluster nodes on their own.
 
@@ -183,4 +183,4 @@ To enable OS Login access at the organization level:
 * [{#T}](../operations/add-ssh.md)
 * [{#T}](../../compute/operations/vm-connect/os-login.md)
 * [Connecting to a {{ k8s }} node via OS Login](../../managed-kubernetes/operations/node-connect-oslogin.md)
-* [Using a service account with an OS Login profile for VM management via Ansible](../../tutorials/security/sa-oslogin-ansible.md)
+* [Using a service account with an OS Login profile for VM management via Ansible](../tutorials/sa-oslogin-ansible.md)

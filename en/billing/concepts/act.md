@@ -1,6 +1,6 @@
 # Reports
 
-{{ yandex-cloud }} users can request [completion reports](##report-of-completion) and a [reconciliation report](#reconciliation-report). Reconciliation reports are available only for residents of the Russian Federation.
+{{ yandex-cloud }} users can request [completion reports](#report-of-completion) and a [reconciliation report](#reconciliation-report). Reconciliation reports are available only for residents of Russia and Kazakhstan.
 
 ## Completion report {#report-of-completion}
 
@@ -32,3 +32,10 @@ Reports are then used as a basis for generating [invoices](../concepts/invoice.m
 {% endlist %}
 
 
+## Reconciliation report {#reconciliation-report}
+
+Reconciliation reports are available only for residents of Russia and Kazakhstan. They are [generated upon a request](../operations/download-reporting-docs) you can submit in {{ billing-name }}. After your request is processed, the document will become available for download.
+
+You can download copies of your documents or request the original documents and the reconciliation report in your [Yandex Balance](https://balance.yandex.com) account.
+
+{% include [get-invoice-notice](../../_includes/billing/get-invoice-notice.md) %}

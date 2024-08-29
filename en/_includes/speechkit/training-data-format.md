@@ -1,5 +1,4 @@
-The glossary and the text templates must be in [TSV](https://en.wikipedia.org/wiki/Tab-separated_values) format and in a normalized format:
-
+The glossary and the text templates must be in [TSV](https://en.wikipedia.org/wiki/Tab-separated_values) format and normalized:
 * Numerals: Written as words.
 * Latin words and characters: Transcribed.
 * Abbreviations: Spelled out.

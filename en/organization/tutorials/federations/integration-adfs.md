@@ -95,7 +95,7 @@ To follow the steps in this section, you will need:​
       * `--name`: Federation name. It must be unique within the folder.
       * `--organization-id`: Organization ID.
       * `--auto-create-account-on-login`: Flag to enable the automatic creation of new cloud users following authentication on the IdP server.
-         This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources the `allUsers` or `allAuthenticatedUsers` [system group](../../../iam/concepts/access-control/system-group.md) roles are assigned to.
+         This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources for which roles are assigned to the `All users` or `All authenticated users` [public group](../../../iam/concepts/access-control/public-group.md).
 
          If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
 
@@ -128,7 +128,7 @@ To follow the steps in this section, you will need:​
 
          Enter a link in `http://<ADFS>/adfs/services/trust` format, where `<ADFS>` is the FQDN of your AD FS server.
 
-      * `sso_binding`: Single sign-on binding type. Most identity providers support the `POST` binding type.
+      * `sso_binding`: Specify the single sign-on binding type. Most identity providers support the `POST` binding type.
       * `sso_url`: URL of the page the browser redirects the user to for authentication.
 
          Enter a link in `https://<ADFS>/adfs/ls/` format, where `<ADFS>` is the FQDN of your AD FS server.
@@ -137,14 +137,14 @@ To follow the steps in this section, you will need:​
 
       * `cookie_max_age`: Time, in seconds, before the browser asks the user to re-authenticate. The default value is `8 hours`.
       * `auto_create_account_on_login`: Flag to activate the automatic creation of new cloud users after authenticating on the IdP server.
-         This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources the `allUsers` or `allAuthenticatedUsers` [system group](../../../iam/concepts/access-control/system-group.md) roles are assigned to.
+         This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources for which roles are assigned to the `All users` or `All authenticated users` [public group](../../../iam/concepts/access-control/public-group.md).
 
          If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
       * `case_insensitive_name_ids`: Flag that indicates whether usernames are case-insensitive.
          If the option is enabled, the IDs of federated user names will be case-insensitive.
       * `security_settings`: Federation security settings:
          * `encrypted_assertions`: Sign authentication requests.
-            If this option is enabled, all authentication requests from {{ yandex-cloud }} will have a digital signature. You need to download and install a {{ yandex-cloud }} certificate.
+            If this option is enabled, all authentication requests from {{ yandex-cloud }} will have a digital signature. You will need to download and install a {{ yandex-cloud }} certificate.
 
       Here is an example of the configuration file structure:
 
@@ -209,7 +209,7 @@ To follow the steps in this section, you will need:​
       * `name`: Federation name. It must be unique within the folder.
       * `organizationId`: Organization ID.
       * `autoCreateAccountOnLogin`: Flag to activate the automatic creation of new cloud users after authenticating on the IdP server.
-         This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources the `allUsers` or `allAuthenticatedUsers` [system group](../../../iam/concepts/access-control/system-group.md) roles are assigned to.
+         This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources for which roles are assigned to the `All users` or `All authenticated users` [public group](../../../iam/concepts/access-control/public-group.md).
 
          If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
 
@@ -224,7 +224,7 @@ To follow the steps in this section, you will need:​
 
          {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
 
-      * `ssoBinding`: Single sign-on binding type. Most identity providers support the `POST` binding type.
+      * `ssoBinding`: Specify the single sign-on binding type. Most identity providers support the `POST` binding type.
 
       * {% include [forceauthn-api-enable](../../../_includes/organization/forceauth-api-enable.md) %}
 
@@ -427,7 +427,7 @@ When AD FS authenticates a user, it sends a SAML message to {{ yandex-cloud }} t
 
 For `Name ID`, use only the Active Directory user attributes that are unique and unlikely to change. If a federation user's `Name ID` changes, this user will have to get a new federation account created and will lose access to previous settings and data in {{ yandex-cloud }}.
 
-The `thumbnailPhoto` attribute value exceeding the length limit is ignored. If the value of another attribute exceeds the limit, the part in excess of the limit will be truncated.
+The `thumbnailPhoto` attribute value exceeding the length limit is ignored. If the value of a different attribute exceeds the limit, the value part that goes beyond the limit is truncated.
 
 {% endnote %}
 

@@ -2,7 +2,7 @@ title: Yandex IoT Core
 href: index.yaml
 label:
   title: RU
-  description: The service is only available in the Russia region.
+  description: This service is only available in the Russia region.
   theme: unknown
   when: region == "kz"
 items:
@@ -136,8 +136,14 @@ items:
         href: tutorials/java.md
       - name: Writing data from a device to Managed Service for PostgreSQL
         href: tutorials/data-recording.md
+      - name: Status monitoring of geographically distributed devices
+        href: tutorials/datalens.md
+      - name: Monitoring sensor readings and event notifications
+        href: tutorials/monitoring.md
       - name: Testing message delivery
         href: tutorials/message-delivery-check.md
+      - name: Emulating multiple IoT devices
+        href: tutorials/iot-emulation.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

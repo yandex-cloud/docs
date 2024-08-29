@@ -88,6 +88,10 @@ items:
             items:
               - name: >-
                   Сопоставление групп пользователей в {{
+                  microsoft-idp.adfs-short }}
+                href: tutorials/federations/group-mapping/adfs.md
+              - name: >-
+                  Сопоставление групп пользователей в {{
                   microsoft-idp.entra-id-full }}
                 href: tutorials/federations/group-mapping/entra-id.md
               - name: Сопоставление групп пользователей в Keycloak

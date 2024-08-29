@@ -1,7 +1,6 @@
 # x-yc-apigateway-integration:cloud_ydb extension
 
-`x-yc-apigateway-integration:cloud_ydb` enables you to perform operations with [document tables](../../../ydb/concepts/dynamodb-tables.md) in a {{ ydb-full-name }} database. To work with {{ ydb-short-name }}, use [Document API](../../../ydb/docapi/api-ref/index.md) that is compatible with Amazon's DynamoDB.
-
+`x-yc-apigateway-integration:cloud_ydb` enables you to perform operations with [document tables](../../../ydb/concepts/dynamodb-tables.md) in {{ ydb-full-name }}. To work with {{ ydb-short-name }}, use [Document API](../../../ydb/docapi/api-ref/index.md) that is compatible with Amazon's DynamoDB.
 {% include [add-extentions-console](../../../_includes/api-gateway/add-extentions-console.md) %}
 
 ## Supported operations
@@ -14,7 +13,7 @@
 | [DeleteItem](../../../ydb/docapi/api-ref/actions/deleteItem.md) | `table_name`<br/>`key` | Element deleted from the table |
 | [Scan](../../../ydb/docapi/api-ref/actions/scan.md) | `table_name`<br/>`limit`<br/>`exclusive_start_key` | A list of elements read from the table |
 
-To convert the request body into an associative array with values of the [AttributeValue](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_AttributeValue.html) type and place it into the `Item` parameter when performing the `PutItem` operation, pass it in JSON format.
+To convert the request body into an associative array with values of the [AttributeValue](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_AttributeValue.html) type and place it into the `Item` parameter when performing the `PutItem` operation, provide it in JSON format.
 
 If an object in JSON format emerges in the request body for the `UpdateItem` operation, the [AttributeUpdates](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributeUpdates.html) set of changes will be generated and inserted into the appropriate operation parameter.
 
@@ -22,17 +21,17 @@ If an object in JSON format emerges in the request body for the `UpdateItem` ope
 
 {% include [param-table](../../../_includes/api-gateway/parameters-table.md) %}
 
-| Parameter | Type | Required | Parameter<br/>placement | Description |
-|----|----|-----|----|----|
-| `action` | `string` | Yes | No | Operation in progress. Possible values: `PutItem`, `GetItem`, `UpdateItem`, `DeleteItem`, or `Scan`. |
+| Parameter | Type | Required | Parameter<br/>substitution | Description |
+----|----|-----|----|----
+| `action` | `string` | Yes | No | Operation in progress. The possible values are `PutItem`, `GetItem`, `UpdateItem`, `DeleteItem`, or `Scan`. |
 | `database` | `string` | Yes | No | Relative path to the database. |
-| `service_account_id` | `string` | Yes | No | Service account ID. Used for authorization when performing a database operation. If not specified, it defaults to the [top-level `service_account_id` parameter](./index.md#top-level). |
+| `service_account_id` | `string` | Yes | No | Service account ID. Used for authorization when performing a database operation. If it is not specified, its value is taken from the [parent](./index.md#top-level) `service_account_id`. |
 | `table_name` | `string` | Yes | Yes | Name of the table with which the operation is performed. |
-| `key` | `string` | No | Yes | Primary key of the element with which the operation is performed. A set of attributes and their values in JSON format. You must specify all key attributes. Attribute values are automatically converted to objects of the [AttributeValue](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_AttributeValue.html) type. Used in the [GetItem](../../../ydb/docapi/api-ref/actions/getItem.md), [UpdateItem](../../../ydb/docapi/api-ref/actions/updateItem.md), and [DeleteItem](../../../ydb/docapi/api-ref/actions/deleteItem.md) operations. |
+| `key` | `string` | No | Yes | Primary key of the element with which the operation is performed. This is a set of attributes and their values in JSON format. You must specify all key attributes. Attribute values are automatically converted to objects of the [AttributeValue](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_AttributeValue.html) type. It is used in the [GetItem](../../../ydb/docapi/api-ref/actions/getItem.md), [UpdateItem](../../../ydb/docapi/api-ref/actions/updateItem.md), and [DeleteItem](../../../ydb/docapi/api-ref/actions/deleteItem.md) operations. |
 | `update_expression` | `string` | No | Yes | Expression that specifies how and which attributes must be updated. Used in the [UpdateItem](../../../ydb/docapi/api-ref/actions/updateItem.md) operation. |
-| `expression_attribute_values` | `string` | No | Yes | Alias that can be used in the `update_expression` expression instead of the attribute value. It must start with a colon `:`. Used in the [UpdateItem](../../../ydb/docapi/api-ref/actions/updateItem.md) operation. |
+| `expression_attribute_values` | `string` | No | Yes | Alias that can be used in `update_expression` instead of the attribute value. It must start with a `:` (colon). Used in the [UpdateItem](../../../ydb/docapi/api-ref/actions/updateItem.md) operation. |
 | `limit` | `string` | No | Yes | Maximum number of elements read. Used in the [Scan](../../../ydb/docapi/api-ref/actions/scan.md) operation. |
-| `exclusive_start_key` | `string` | No | Yes | Primary key of the element which the search starts from. A set of attributes and their values in JSON format. Attribute values are automatically converted to objects of the [AttributeValue](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_AttributeValue.html) type. Used in the [Scan](../../../ydb/docapi/api-ref/actions/scan.md) operation. |
+| `exclusive_start_key` | `string` | No | Yes | Primary key of the element from which the search starts. This is a set of attributes and their values in JSON format. Attribute values are automatically converted to objects of the [AttributeValue](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_AttributeValue.html) type. Used in the [Scan](../../../ydb/docapi/api-ref/actions/scan.md) operation. |
 
 ## Specification examples {#examples}
 
@@ -249,7 +248,7 @@ x-yc-apigateway:
 
 ### Specification for tables with multiple primary keys {#composite-primary-key-spec}
 
-If using tables with multiple primary keys, describe each one in the specification, and specify the values from both columns in your request. The example below shows a request to the `staff` table. It contains information about the company employees and a key consisting of two columns: `FirstName` and `LastName`.
+If you use tables with multiple primary keys, describe each one in the specification, and specify the values from both columns in your request. The example below shows a request to the `staff` table. It contains information about the company employees and a key consisting of two columns: `FirstName` and `LastName`.
 
 {{ api-gw-name }} specification example:
 
@@ -312,16 +311,16 @@ x-yc-apigateway:
   service_account_id: ajent55o2h**********
 ```
 
-Request for information on the employee Ivan Ivanov:
+Here is how the request for information on the John Doe employee will look like:
 
 ```bash
 curl -X GET -H "Authorization: Bearer `yc iam create-token`" \
-"https://d5d16gda7ell********.apigw.yandexcloud.net/staff?FirstName=Ivan&LastName=Ivanov"
+"https://d5d16gda7ell********.apigw.yandexcloud.net/staff?FirstName=John&LastName=Doe"
 ```
 
 Where:
 
-* `staff`: The requested table.
+* `staff`: Table being requested.
 * `FirstName`: First part of the key.
 * `LastName`: Second part of the key.
 

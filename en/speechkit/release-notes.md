@@ -38,11 +38,11 @@ We invite you to join in testing the version. Any feedback will be appreciated.
 
 In transcription only:
 
-* `hqa`: The _Amati_ version.
+* `hqa`: _Amati_ version.
 
 In streaming, transcription, and short audio recognition:
 
-* `general`: The _Galen_ version.
+* `general`: _Galen_ version.
 * `general:rc`: _Demosthenes_ version.
 * `general:deprecated`: _Zeno_ version.
 
@@ -54,11 +54,11 @@ In transcription by the `hqa` model tag, a new version named _Guarneri_ is now a
 
 In transcription only:
 
-* `hqa`: The _Guarneri_ version.
+* `hqa`: _Guarneri_ version.
 
 In streaming, transcription, and short audio recognition:
 
-* `general`: The _Galen_ version.
+* `general`: _Galen_ version.
 * `general:rc`: _Galen_ version.
 * `general:deprecated`: _Zeno_ version.
 
@@ -70,11 +70,11 @@ The _Galen_ version of the basic recognition model was tested successfully and i
 
 In transcription only:
 
-* `hqa`: The _Amati_ version.
+* `hqa`: _Amati_ version.
 
 In streaming, transcription, and short audio recognition:
 
-* `general`: The _Galen_ version.
+* `general`: _Galen_ version.
 * `general:rc`: _Galen_ version.
 * `general:deprecated`: _Zeno_ version.
 
@@ -86,7 +86,7 @@ In transcription by the `hqa` model tag, a new version named _Amati_ is now avai
 
 In transcription only:
 
-* `hqa`: The _Amati_ version.
+* `hqa`: _Amati_ version.
 
 In streaming, transcription, and short audio recognition:
 
@@ -102,7 +102,7 @@ In streaming, transcription, and short audio recognition by the `general:rc` tag
 
 In transcription only:
 
-* `hqa`: The _Stradivarius_ version.
+* `hqa`: _Stradivarius_ version.
 
 In streaming, transcription, and short audio recognition:
 
@@ -118,7 +118,7 @@ After successful testing, the _Zeno_ version is now the main released version of
 
 In transcription only:
 
-* `hqa`: The _Stradivarius_ version.
+* `hqa`: _Stradivarius_ version.
 
 In streaming, transcription, and short audio recognition:
 
@@ -141,10 +141,10 @@ A next-generation recognition model is available in transcription: `hqa`. This m
 
 In transcription:
 
-* `hqa`: The _Stradivarius_ version.
+* `hqa`: _Stradivarius_ version.
 * `general`: _Anaximander_ version.
-* `general:rc`: The _Zeno_ version.
-* `general:deprecated`: The _Marcus Aurelius_ version.
+* `general:rc`: _Zeno_ version.
+* `general:deprecated`: _Marcus Aurelius_ version.
 
 In streaming and short audio recognition: no changes.
 
@@ -193,12 +193,12 @@ New versions of the `general` model are now available in transcription and short
 
 Available versions by tag:
 
-* `general:rc`: The _Anaximander_ version.
-* `general` and `general:deprecated`: The _Marcus Aurelius version_.
+* `general:rc`: _Anaximander_ version.
+* `general` and `general:deprecated`: _Marcus Aurelius version_.
 
 Versions of the `general` model available for streaming recognition:
 
-* `general`: The _Marcus Aurelius_ version.
+* `general`: _Marcus Aurelius_ version.
 * `general:rc`: _Anaximander_ version.
 * `general:deprecated`: _Diogenes_ version.
 

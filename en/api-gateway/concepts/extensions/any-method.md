@@ -4,7 +4,7 @@ The `x-yc-apigateway-any-method` extension defines operations performed by any H
 
 ## Supported parameters {#parameters}
 
-The table below lists the parameters specific to API gateways of Yandex API Gateway. Read more about other parameters in the [OpenAPI Specification 3.0](https://github.com/OAI/OpenAPI-Specification).
+The table below lists the parameters specific to API gateways of Yandex API Gateway. You can find the description of other parameters in the [OpenAPI 3.0 specification](https://github.com/OAI/OpenAPI-Specification).
 
 | Parameter | Type | Description |
 ----|----|----

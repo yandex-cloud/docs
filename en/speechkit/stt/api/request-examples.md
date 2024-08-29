@@ -1,4 +1,4 @@
-# Example use for synchronous recognition API
+# Example of using the API v1 for synchronous recognition
 
 The example shows how the [API v1](request-api.md) helps synchronously recognize speech in the [OggOpus](../../formats.md#OggOpus) audio file format.
 

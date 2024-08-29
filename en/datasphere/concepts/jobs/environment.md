@@ -19,7 +19,7 @@ We recommend running jobs in a [virtual Python environment](https://docs.python.
 If you are running Python scripts, {{ ml-platform-name }} can automatically set up the environment for your job. To enable this, specify the `python: auto` parameter under `env`:
 
 ```yaml
-cmd: python main.py <call_arguments>
+cmd: python3 main.py <call_arguments>
 env:
   python: auto
 ```
@@ -29,7 +29,7 @@ In the auto mode, {{ ml-platform-name }} will analyze the job script dependencie
 You can modify an automated environment build:
 
 ```yaml
-cmd: python main.py <call_arguments>
+cmd: python3 main.py <call_arguments>
 env:
   python:
     type: auto # specify automated environment build
@@ -83,9 +83,9 @@ You can use the `if __name__ == "__main__":` [standard statement](https://docs.p
 {% endnote %}
 
 To run Python scripts in jobs, you can use one of the following methods:
-* Run a script explicitly via `python main.py <arguments>`.
+* Run a script explicitly via `python3 main.py <arguments>`.
 * Utilize pre-configured third-party launchers such as [deepspeed](https://pypi.org/project/deepspeed/): `deepspeed main.py --num_gpus=1 --deepspeed_stage 2 --apply_lora True`.
-* Provide programs as arguments when running other programs: `python main.py other.py`.
+* Provide programs as arguments when running other programs: `python3 main.py other.py`.
 
 To build the environment and launch the job, {{ ml-platform-name }} will need to identify all the program's entry points. If {{ ml-platform-name }} is unable to do this in the auto mode, specify them in the `config.yaml` configuration file:
 

@@ -4,15 +4,15 @@ With {{ ml-platform-full-name }}, you can set up student-friendly workspaces. To
 
 This guide describes how you can set up a course for students with {{ ml-platform-name }}.
 
-1. [{#T}](#create-projects).
-1. [{#T}](#prepare-tasks).
-1. [{#T}](#check-tasks).
+1. [{#T}](#create-projects)
+1. [{#T}](#prepare-tasks)
+1. [{#T}](#check-tasks)
 
 ## Getting started {#before-you-begin}
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin-datasphere.md) %}
 
-## Creating projects {#create-projects}
+## Create projects {#create-projects}
 
 Create a separate [project](../concepts/project.md) for each student in the community, so they can store their own resources and run the {{ jlab }}Lab development environment. You can [restrict](../operations/community/manage-community-config.md) the [configurations](../concepts/configurations.md) allowed in the community. Furthermore, you can set [limits](../operations/projects/restrictions.md) to manage resource usage within each educational project.
 

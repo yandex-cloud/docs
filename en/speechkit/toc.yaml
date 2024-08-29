@@ -2,7 +2,7 @@ title: '{{ speechkit-full-name }}'
 href: index.yaml
 label:
   title: RU
-  description: The service is only available in the Russia region.
+  description: This service is only available in the Russia region.
   theme: unknown
   when: region == "kz"
 items:
@@ -170,6 +170,8 @@ items:
             href: stt/api/streaming-examples.md
           - name: Synchronous recognition, API v1
             href: stt/api/request-examples.md
+          - name: Asynchronous recognition of WAV audio files, API v3
+            href: stt/api/transcribation-api-v3.md
           - name: Asynchronous recognition of LPCM format, API v2
             href: stt/api/transcribation-lpcm.md
           - name: Asynchronous recognition of OggOpus format, API v2

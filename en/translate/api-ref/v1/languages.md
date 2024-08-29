@@ -9,6 +9,8 @@ description: "Get a list of translation directions supported by the service."
 
 Get a list of translation directions supported by the service.
 
+When using the Translate API, provide your [authentication](/docs/translate/api-ref/authentication) credentials in the `Authorization` header.
+
 ## Request {#request}
 
 ```

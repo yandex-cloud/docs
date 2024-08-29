@@ -2,7 +2,7 @@ title: '{{ serverless-containers-full-name }}'
 href: index.yaml
 label:
   title: RU
-  description: The service is only available in the Russia region.
+  description: This service is only available in the Russia region.
   theme: unknown
   when: region == "kz"
 items:
@@ -16,6 +16,8 @@ items:
         href: quickstart/container.md
       - name: Creating a trigger
         items:
+          - name: Overview
+            href: quickstart/create-trigger/index.md
           - name: Timer
             href: quickstart/timer.md
   - name: Step-by-step guides

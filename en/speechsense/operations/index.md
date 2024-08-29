@@ -20,12 +20,6 @@ description: "The page contains all guides for {{ speechsense-name }} in {{ yand
 * [{#T}](space/delete.md)
 * [{#T}](space/delete-user-from-space.md)
 
-### Space tags {#space-tag}
-
-* [{#T}](space/tag/create.md)
-* [{#T}](space/tag/change.md)
-* [{#T}](space/tag/delete.md)
-
 ## Connections {#connection}
 
 * [{#T}](connection/create.md)
@@ -37,8 +31,15 @@ description: "The page contains all guides for {{ speechsense-name }} in {{ yand
 * [{#T}](project/delete.md)
 * [{#T}](project/delete-user-from-project.md)
 
-### Project tags {#project-tag}
+## Tags {#tag}
 
 * [{#T}](project/tag/create.md)
 * [{#T}](project/tag/change.md)
 * [{#T}](project/tag/delete.md)
+
+## Dictionaries {#dictionary}
+
+* [{#T}](dictionary/create.md)
+* [{#T}](dictionary/change.md)
+* [{#T}](dictionary/add.md)
+* [{#T}](dictionary/delete.md)
