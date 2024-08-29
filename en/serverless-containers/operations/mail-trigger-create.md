@@ -76,15 +76,15 @@ To create a trigger, you need:
    ```bash
    yc serverless trigger create mail \
      --name <trigger_name> \
-     --batch-size <batch_size> \
+     --batch-size <message_batch_size> \
      --batch-cutoff <maximum_wait_time> \
      --attachements-bucket <bucket_name> \
      --attachements-service-account-id <service_account_ID> \
      --invoke-container-id <container_ID> \
      --invoke-container-service-account-id <service_account_ID> \
-     --retry-attempts <number_of_invocation_retries> \
-     --retry-interval <interval_between_invocation_retries> \
-     --dlq-queue-id <dead-letter_queue_ID> \
+     --retry-attempts <number_of_retry_invocation_attempts> \
+     --retry-interval <interval_between_retry_attempts> \
+     --dlq-queue-id <dead_letter_queue_ID> \
      --dlq-service-account-id <service_account_ID>
    ```
 
@@ -142,17 +142,17 @@ To create a trigger, you need:
         container {
           id                 = "<container_ID>"
           service_account_id = "<service_account_ID>"
-          retry_attempts     = <number_of_invocation_retries>
-          retry_interval     = <interval_between_invocation_retries>
+          retry_attempts     = <number_of_retry_invocation_attempts>
+          retry_interval     = <interval_between_retry_attempts>
         }
         mail {
           attachments_bucket_id = "<bucket_name>"
           service_account_id    = "<service_account_ID>"
-          batch_cutoff          = <timeout>
-          batch_size            = <event_batch_size>
+          batch_cutoff          = <maximum_wait_time>
+          batch_size            = <message_batch_size>
         }
         dlq {
-          queue_id           = "<queue_ID>"
+          queue_id           = "<dead_letter_queue_ID>"
           service_account_id = "<service_account_ID>"
         }
       }
@@ -174,22 +174,22 @@ To create a trigger, you need:
 
          * `attachments_bucket_id`: Name of the bucket to save email attachments to. This is an optional parameter.
          * `service_account_id`: ID of the service account authorized to upload objects to the {{ objstorage-name }} bucket. This is an optional parameter.
-         * `batch_cutoff`: Maximum wait time. This is an optional parameter. The values may range from 1 to 60 seconds. The default value is 1 second. The trigger groups messages for a period not exceeding `batch-cutoff` and sends them to a container. The number of messages cannot exceed `batch-size`.
-         * `batch_size`: Message batch size. This is an optional parameter. The values may range from 1 to 10. The default value is 1.
+
+         {% include [tf-batch-msg-params.md](../../_includes/serverless-containers/tf-batch-msg-params.md) %}
 
       {% include [tf-dlq-params](../../_includes/serverless-containers/tf-dlq-params.md) %}
 
       For more information about the `yandex_function_trigger` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/function_trigger).
 
-   1. Create the resources:
+   1. Create resources:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-   You can check the trigger update using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
+      {% include [terraform-check-result](../../_tutorials/_tutorials_includes/terraform-check-result.md) %}
 
-   ```bash
-   yc serverless trigger get <trigger_ID>
-   ```
+      ```bash
+      yc serverless trigger list
+      ```
 
 - API {#api}
 

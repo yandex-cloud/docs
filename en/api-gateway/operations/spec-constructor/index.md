@@ -18,3 +18,4 @@ Available integrations:
 * [{{ yds-name }}](datastreams.md)
 * [{{ ydb-name }}](ydb.md)
 * [{{ ml-platform-name }}](datasphere.md)
+* [{{ yagpt-name }}](yagpt.md)

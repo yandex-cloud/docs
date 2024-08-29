@@ -62,16 +62,16 @@ Create a [trigger for {{ cloud-logging-name }}](../concepts/trigger/cloud-loggin
    yc serverless trigger create logging \
      --name <trigger_name> \
      --log-group-name <log_group_name> \
-     --batch-size 1 \
-     --batch-cutoff 1s \
+     --batch-size <message_batch_size> \
+     --batch-cutoff <maximum_wait_time> \
      --resource-ids <resource_ID> \
      --resource-types <resource_type> \
      --stream-names <logging_stream> \
      --log-levels <logging_level> \
      --invoke-container-id <container_ID> \
      --invoke-container-service-account-id <service_account_ID> \
-     --retry-attempts 1 \
-     --retry-interval 10s \
+     --retry-attempts <number_of_retry_invocation_attempts> \
+     --retry-interval <interval_between_retry_attempts> \
      --dlq-queue-id <dead_letter_queue_ID> \
      --dlq-service-account-id <service_account_ID>
    ```
@@ -143,13 +143,13 @@ Create a [trigger for {{ cloud-logging-name }}](../concepts/trigger/cloud-loggin
           group_id       = "<log_group_ID>"
           resource_types = [ "<resource_type>" ]
           resource_ids   = [ "<resource_ID>" ]
-          levels         = [ "INFO", "ERROR" ]
-          stream_names   = [ "<log_stream>" ]
-          batch_cutoff   = "<timeout>"
-          batch_size     = "<event_batch_size>"
+          stream_names   = [ "<logging_stream>" ]
+          levels         = [ "logging_level", "logging_level" ]
+          batch_cutoff   = "<maximum_wait_time>"
+          batch_size     = "<message_batch_size>"
         }
         dlq {
-         queue_id           = "<DLQ_ID>"
+         queue_id           = "<dead_letter_queue_ID>"
          service_account_id = "<service_account_ID>"
        }
       }
@@ -169,11 +169,11 @@ Create a [trigger for {{ cloud-logging-name }}](../concepts/trigger/cloud-loggin
 
       * `logging`: Trigger parameters:
 
-         * `group_id`: Log group ID.
+         * `group_id`: ID of the log group that invokes the container when entries are added there.
          * `resource_types`: Types of resources, e.g., {{ sf-name }} functions. This is an optional parameter.
          * `resource_ids`: IDs of your resources or {{ yandex-cloud }} resources, e.g., {{ sf-name }} functions. This is an optional parameter.
-         * `levels`: Logging levels. This is an optional parameter.
          * `stream_names`: Log streams. This is an optional parameter.
+         * `levels`: Logging levels. This is an optional parameter.
 
             A trigger fires when records are added to the specified log group that satisfy all of the following parameters: `resource_ids`, `resource_types`, `stream_names`, and `levels`. If a parameter is not specified, the trigger fires for any value of the parameter.
 
@@ -183,11 +183,11 @@ Create a [trigger for {{ cloud-logging-name }}](../concepts/trigger/cloud-loggin
 
       For more information about resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/function_trigger).
 
-   1. Create the resources:
+   1. Create resources:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
+      {% include [terraform-check-result](../../_tutorials/_tutorials_includes/terraform-check-result.md) %}
 
       ```bash
       yc serverless trigger list

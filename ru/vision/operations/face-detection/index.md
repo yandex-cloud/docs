@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Обнаружение лиц на изображении
 
 {% include [deprecation-warning](../../../_includes/vision/deprecation-warning.md) %}

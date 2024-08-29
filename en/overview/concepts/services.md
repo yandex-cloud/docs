@@ -68,7 +68,7 @@ There are different service packages available in different [regions](region.md)
 | [{{ tracker-full-name }}](../../tracker/index.yaml) | Service for business collaboration and workflows | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
 | [{{ translate-full-name }}](../../translate/index.yaml) | Machine translation service | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
 | [{{ vpc-full-name }}](../../vpc/index.yaml) | Cloud network management service | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
-| [{{ vision-full-name }}](../../vision/index.yaml) | Computer vision service for image analysis | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
+| [{{ vision-full-name }}](../../vision/index.yaml) | Computer vision service for image text and PDF recognition. | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
 | [{{ websql-full-name }}](../../websql/index.yaml) | Service for connecting to managed database clusters | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
 | [{{ wiki-full-name }}](../../wiki/index.yaml) | Service for creating a corporate knowledge base | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
 

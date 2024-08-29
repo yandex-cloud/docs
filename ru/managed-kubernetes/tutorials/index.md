@@ -34,6 +34,10 @@ C помощью {{ managed-k8s-name }} вы можете работать с [�
 * [{#T}](container-registry.md)
 * [{#T}](sign-cr-with-cosign.md)
 
+## Использование {{ mkf-name }} {#kafka}
+
+[{#T}](deploy-kafka-ui.md)
+
 ## Непрерывная интеграция с {{ GL }} {#gitlab}
 
 * [{#T}](gitlab-containers.md)

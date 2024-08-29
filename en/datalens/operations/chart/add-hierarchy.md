@@ -15,25 +15,30 @@ description: "Follow this guide to add a hierarchy."
 To add a hierarchy:
 
 
-{% include [datalens-workbooks-collections-note](../../../_includes/datalens/operations/datalens-workbooks-collections-note.md) %}
+{% include [datalens-workbooks-collections-select-note](../../../_includes/datalens/operations/datalens-workbooks-collections-select-note.md) %}
 
 
 
-1. On the {{ datalens-short-name }} [home page]({{ link-datalens-main }}), click **Create chart**.
-1. Under **Dataset**, select a dataset for visualization. If you do not have a dataset, [create one](../dataset/create.md).
+1. In the left-hand panel, click ![image](../../../_assets/console-icons/chart-column.svg) **Charts** and select a chart to which you want to add a hierarchy.
 
 
 
-1. Select any chart type except **Map**, **Indicator**, and **Pivot table**.
-1. On the left side of the screen above the list of dataset fields, click ![image](../../../_assets/console-icons/plus.svg) and select **Hierarchy**.
+1. On the left side of the screen above the list of dimensions and measures, click ![image](../../../_assets/console-icons/plus.svg) and select **Hierarchy**.
+
+   ![screenshot](../../../_assets/datalens/chart/chart-add-hierarchy.png)
+
 1. Enter the hierarchy name, select dimensions, and arrange them as you see fit.
+
+   ![screenshot](../../../_assets/datalens/chart/chart-hierarchy-settings.png)
+
 1. In the bottom-right corner, click **Save**.
 1. Drag the created hierarchy to any available section. For example, for the **Table** chart type, you can use the **Columns** section.
 1. Drag other dimensions and measures to the appropriate sections.
+1. In the top-right corner, click **Save**.
 
 ## Example of adding a hierarchy {#add-hierarchy-example}
 
-We will use a Moscow retail chain's demo sales {{ CH }} database as our data source. For an example of creating a connection and dataset, see [this guide](../../quickstart.md).
+We will use a Moscow retail chain's demo {{ CH }} sales database as our data source. For an example of creating a connection and dataset, see [this guide](../../quickstart.md).
 
 1. In the top-right corner of the dataset, click **Create chart**.
 1. Select the **Donut chart** visualization type.

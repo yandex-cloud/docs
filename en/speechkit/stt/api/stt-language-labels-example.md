@@ -1,4 +1,4 @@
-# Streaming speech recognition with auto language detection
+# Streaming speech recognition with auto language detection in the API v3
 
 The example shows how you can recognize speech in LPCM format in real time using the {{ speechkit-short-name }} [API v3](../../stt-v3/api-ref/grpc/) with auto language detection.
 
@@ -41,12 +41,12 @@ To implement an example from this section:
          pip install grpcio-tools
          ```
 
-      1. Go to the directory hosting the cloned {{ yandex-cloud }} API repository, create an `output` directory, and generate the client interface code there:
+      1. Go to the folder hosting the cloned {{ yandex-cloud }} API repository, create a folder named `output`, and generate the client interface code there:
 
          ```bash
-         cd <path_to_cloudapi_directory>
+         cd <path_to_cloudapi_folder>
          mkdir output
-         python -m grpc_tools.protoc -I . -I third_party/googleapis \
+         python3 -m grpc_tools.protoc -I . -I third_party/googleapis \
              --python_out=output \
              --grpc_python_out=output \
              google/api/http.proto \

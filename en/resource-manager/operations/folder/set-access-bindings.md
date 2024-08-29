@@ -56,8 +56,7 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
       +--------------------------------+-------------+
       ```
 
-
-  1. Find out the user ID from the login or email address. To assign a role to a service account or system group instead of a user, see the [examples](#examples) below.
+  1. Find out the user ID from the login or email address.
 
       ```bash
       yc iam user-account get test-user
@@ -80,6 +79,7 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
         --subject userAccount:gfei8n54hmfh********
       ```
 
+   To assign a role to a [service account](../../../iam/concepts/users/service-accounts.md), [user group](../../../organization/concepts/groups.md), or [system group](../../../iam/concepts/access-control/system-group.md) instead of a user, see [these examples](../../../iam/operations/roles/grant.md#cloud-or-folder).
 
 - {{ TF }} {#tf}
 
@@ -104,10 +104,12 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
 
          {% endnote %}
 
-      * `member`: User to assign the role to. This is a required parameter. Possible values:
-                  * `userAccount:<user_ID>`: [User ID](../../../iam/operations/users/get.md)
+      * `member`: User to assign the role to. This is a required parameter. It may have one of the following values:
+         * `userAccount:<user_ID>`: [User ID](../../../iam/operations/users/get.md).
          * `serviceAccount:<service_account_ID>`: [Service account ID](../../../iam/operations/sa/get-id.md)
          * `federatedUser:<user_account_ID>`: [User account ID](../../../organization/operations/users-get.md)
+         * `system:group:organization:<organization_ID>:users`: ID of the [organization](../../../organization/quickstart.md) to assign a role to the `All users in organization X` [system group](../../../iam/concepts/access-control/system-group.md#allOrganizationUsers).
+         * `system:group:federation:<federation_ID>:users`: ID of the [identity federation](../../../organization/concepts/add-federation.md) to assign a role to the `All users in federation N` [system group](../../../iam/concepts/access-control/system-group.md#allFederationUsers).
 
       {% cut "Example of assigning roles to a folder using {{ TF }}" %}
 
@@ -251,12 +253,14 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
       yc resource-manager folder list-access-bindings my-folder
       ```
   1. For example, assign a role to multiple users:
+
       ```bash
       yc resource-manager folder set-access-bindings my-folder \
         --access-binding role=editor,subject=userAccount:gfei8n54hmfh********
         --access-binding role=viewer,subject=userAccount:helj89sfj80a********
       ```
 
+   To assign a role to a [service account](../../../iam/concepts/users/service-accounts.md), [user group](../../../organization/concepts/groups.md), or [system group](../../../iam/concepts/access-control/system-group.md) instead of a user, see [these examples](../../../iam/operations/roles/grant.md#multiple-roles).
 
 - {{ TF }} {#tf}
 

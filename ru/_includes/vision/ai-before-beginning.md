@@ -8,7 +8,7 @@
   1. [Получите идентификатор каталога](../../resource-manager/operations/folder/get-id.md), на который у вашего аккаунта есть роль `{{ roles-vision-user }}` или выше.
   1. При обращении к {{ vision-name }} через API в каждом запросе передавайте полученные параметры: 
 
-      * Для [Vision API](../../vision/vision/api-ref/index.md) и [Classifier API](../../vision/classifier/api-ref/grpc/index.md):
+      * Для Vision API и Classifier API:
 
           Указывайте IAM-токен в заголовке `Authorization` в следующем формате:
 

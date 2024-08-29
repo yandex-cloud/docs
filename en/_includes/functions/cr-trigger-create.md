@@ -59,22 +59,20 @@ Create a [{{ container-registry-name }} trigger](../../functions/concepts/trigge
 
    To create a trigger that invokes a function, run this command:
 
-   
    ```bash
    yc serverless trigger create container-registry \
      --name <trigger_name> \
      --registry-id <registry_ID> \
      --events 'create-image', 'delete-image', 'create-image-tag', 'delete-image-tag' \
-     --batch-size <batch_size> \
-     --batch-cutoff <maximum_wait_time> \
+     --batch-size <event_batch_size> \
+     --batch-cutoff <maximum_timeout> \
      --invoke-function-id <function_ID> \
      --invoke-function-service-account-id <service_account_ID> \
-     --retry-attempts 1 \
-     --retry-interval 10s \
-     --dlq-queue-id <Dead_Letter_Queue_ID> \
+     --retry-attempts <number_of_retry_invocation_attempts> \
+     --retry-interval <interval_between_retry_attempts> \
+     --dlq-queue-id <dead_letter_queue_ID> \
      --dlq-service-account-id <service_account_ID>
    ```
-
 
    Where:
 
@@ -144,11 +142,11 @@ Create a [{{ container-registry-name }} trigger](../../functions/concepts/trigge
           delete_image     = true
           create_image_tag = true
           delete_image_tag = true
-          batch_cutoff     = "<timeout>"
+          batch_cutoff     = "<maximum_timeout>"
           batch_size       = "<event_batch_size>"
         }
         dlq {
-          queue_id           = "<queue_ID>"
+          queue_id           = "<dead_letter_queue_ID>"
           service_account_id = "<service_account_ID>"
         }
       }
@@ -160,18 +158,17 @@ Create a [{{ container-registry-name }} trigger](../../functions/concepts/trigge
 
       * `container_registry`: Trigger parameters:
 
-         * `registry_id`: Registry ID.
+         * `registry_id`: [Registry ID](../../container-registry/operations/registry/registry-list.md).
          * `image_name`: Docker image name.
          * `tag`: Docker image tag.
-         * Select one or more event types to be handled by the trigger:
+         * [Events](../../functions/concepts/trigger/cr-trigger.md#event) activating the trigger:
 
             * `create_image`: Trigger will invoke the function when a new Docker image is created in the registry. It may take either the `true` or `false` value.
             * `delete_image`: Trigger will invoke the function when a Docker image is deleted from the registry. It may take either the `true` or `false` value.
             * `create_image_tag`: Trigger will invoke the function when a new Docker image tag is created in the registry. It may take either the `true` or `false` value.
             * `delete_image_tag`: Trigger will invoke the function when a Docker image tag is deleted from the registry. It may take either the `true` or `false` value.
 
-         * `batch_cutoff`: Maximum wait time. This is an optional parameter. The values may range from 1 to 60 seconds. The default value is 1 second. The trigger groups events for a period not exceeding `batch-cutoff` and sends them to a function. The number of events cannot exceed `batch-size`.
-         * `batch_size`: Event batch size. This is an optional parameter. The values may range from 1 to 10. The default value is 1.
+         {% include [tf-batch-params-events](../../_includes/functions/tf-batch-params-events.md) %}
 
       {% include [tf-dlq-params](../serverless-containers/tf-dlq-params.md) %}
 
@@ -181,10 +178,10 @@ Create a [{{ container-registry-name }} trigger](../../functions/concepts/trigge
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
+      {% include [terraform-check-result](../../_tutorials/_tutorials_includes/terraform-check-result.md) %}
 
       ```bash
-      yc serverless trigger get <trigger_ID>
+      yc serverless trigger list
       ```
 
 - API {#api}

@@ -56,7 +56,7 @@ If you want any user to be able to invoke a container without providing the auth
       Where:
       * `roleId`: Role to be assigned. The `serverless-containers.containerInvoker` role allows you to invoke a container.
       * `id`: Subject to assign the role to. `allUsers`: Any user. No authentication is required.
-      * `type`: Type of subject the role is assigned to. `system`: [System group](../../iam/concepts/access-control/system-group.md).
+      * `type`: Type of subject the role is assigned to. `system`: [Public group](../../iam/concepts/access-control/public-group.md).
 
    1. Run the request stating the IAM token, path to the `body.json` file, and container ID:
 

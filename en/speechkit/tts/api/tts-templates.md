@@ -25,7 +25,7 @@ A template consists of a pattern phrase audio recording and its text with markup
 
 Template parameter restrictions are as follows:
 
-* A phrase for synthesis must not be longer than {{ tts-v3-time }} (the API limit), including the variable part. A phrase ideal for perception is under 16 seconds, as in a regular conversation.
+* A phrase for synthesis cannot be longer than {{ tts-v3-time }} (the API limit), including the variable part. A phrase ideal for perception is under 16 seconds, as in a regular conversation.
 * The pattern must not be longer than {{ tts-v3-count }} of normalized text.
 
 {% note warning %}
@@ -79,7 +79,7 @@ Create and run a client app to send your data to the API:
       ```bash
       cd <path_to_cloudapi_directory> && \
       mkdir output && \
-      python -m grpc_tools.protoc -I . -I third_party/googleapis \
+      python3 -m grpc_tools.protoc -I . -I third_party/googleapis \
         --python_out=output \
         --grpc_python_out=output \
         google/api/http.proto \
@@ -212,7 +212,7 @@ Create and run a client app to send your data to the API:
 
       ```bash
       export IAM_TOKEN=<service_account_IAM_token> && \
-      python output/test.py \
+      python3 output/test.py \
         --token ${IAM_TOKEN} \
         --input sample.wav \
         --output speech.wav

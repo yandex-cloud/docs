@@ -1,3 +1,7 @@
+---
+canonical: "{{ link-docs }}/tutorials/dataplatform/kafka-connector"
+---
+
 # Миграция базы данных из стороннего кластера {{ KF }}
 
 

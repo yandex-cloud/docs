@@ -349,8 +349,8 @@ items:
           data-transfer-name }}
         href: dataplatform/data-transfer-mkf.md
       - name: >-
-          "Поставка данных из {{ mmy-name }} в {{ mkf-name }} с помощью {{
-          data-transfer-name }}"
+          Поставка данных из {{ mmy-name }} в {{ mkf-name }} с помощью {{
+          data-transfer-name }}
         href: dataplatform/data-transfer-mmy.md
       - name: Поставка данных из {{ mmy-name }} в {{ mkf-name }} с помощью Debezium
         href: dataplatform/debezium-mmy.md
@@ -428,6 +428,7 @@ items:
           Поставка данных из {{ mkf-name }} в {{ mch-name }} с помощью {{
           data-transfer-name }}
         href: dataplatform/data-transfer-mkf-mch.md
+        hidden: true
       - name: Получение данных из {{ RMQ }} в {{ mch-name }}
         href: dataplatform/fetch-data-from-rabbitmq.md
       - name: Сохранение потока данных {{ yds-name }} в {{ mch-name }}
@@ -512,6 +513,7 @@ items:
         href: dataplatform/objs-mmy-migration.md
       - name: Импорт данных из {{ mmy-name }} в {{ dataproc-name }} с помощью Sqoop
         href: dataplatform/sqoop-mmy.md
+        hidden: true
       - name: >-
           Поставка данных из {{ mmy-name }} в {{ mkf-name }} с помощью {{
           data-transfer-name }}
@@ -566,6 +568,7 @@ items:
         href: dataplatform/postgresql-data-migration.md
       - name: Асинхронная репликация данных из {{ PG }} в {{ CH }}
         href: dataplatform/rdbms-to-clickhouse.md
+        hidden: true
       - name: >-
           Поставка данных из {{ mpg-name }} в {{ mkf-name }} с помощью {{
           data-transfer-name }}
@@ -574,6 +577,7 @@ items:
         href: dataplatform/./debezium-mpg.md
       - name: Импорт данных из {{ mpg-name }} в {{ dataproc-name }} с помощью Sqoop
         href: dataplatform/sqoop-mpg.md
+        hidden: true
       - name: >-
           Поставка данных из {{ mpg-name }} в {{ ydb-name }} с помощью {{
           data-transfer-name }}
@@ -612,18 +616,22 @@ items:
           Поставка данных из {{ ydb-name }} в {{ mkf-name }} с помощью {{
           data-transfer-name }}
         href: dataplatform/ydb-mkf-replication.md
+        hidden: true
       - name: >-
           Поставка данных из {{ mkf-name }} в {{ ydb-name }} с помощью {{
           data-transfer-name }}
         href: dataplatform/mkf-ydb-stream.md
+        hidden: true
       - name: >-
           Миграция БД из {{ mmy-name }} в {{ ydb-name }} с помощью {{
           data-transfer-name }}
         href: dataplatform/mmy-ydb-migration.md
+        hidden: true
       - name: >-
           Поставка данных из {{ mpg-name }} в {{ ydb-name }} с помощью {{
           data-transfer-name }}
         href: dataplatform/mpg-ydb-replication.md
+        hidden: true
       - name: >-
           Загрузка данных из {{ objstorage-full-name }} в {{ ydb-full-name }} с
           помощью {{ data-transfer-full-name }}

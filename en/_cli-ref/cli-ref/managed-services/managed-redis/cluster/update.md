@@ -33,7 +33,7 @@ Syntax:
 |`--backup-window-start`|<b>`timeofday`</b><br/>Start time for the daily backup in UTC timezone. Format: HH:MM:SS|
 |`--datalens-access`|Allow access for DataLens|
 |`--maintenance-window`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Maintenance window settings<br/><br/>Possible property names:<br/><ul> <li><code>type</code>:     Type of maintenance window, it can be anytime or weekly. A day and hour of window need to be specified with weekly window.</li> <li><code>hour</code>:     Hour of day in UTC time zone (1-24) for maintenance window if window type is weekly.</li> <li><code>day</code>:     Day of week for maintenance window if window type is weekly. One of MON, TUE, WED, THU, FRI, SAT, SUN. Values: 'mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'</li> </ul>|
-|`--disk-size-autoscaling`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Disk size autoscaling settings<br/><br/>Possible property names:<br/><ul> <li><code>disk-size-limit</code>:     Set disk size limit</li> <li><code>planned-usage-threshold</code>:     Planned usage threshold</li> <li><code>emergency-usage-threshold</code>:     Emergency usage threshold</li> </ul>|
+|`--disk-size-autoscaling`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Disk size autoscaling settings<br/><br/>Possible property names:<br/><ul> <li><code>disk-size-limit</code>:     Set disk size limit (GB)</li> <li><code>planned-usage-threshold</code>:     Planned usage threshold</li> <li><code>emergency-usage-threshold</code>:     Emergency usage threshold</li> </ul>|
 
 #### Global Flags
 

@@ -6,9 +6,9 @@ sourcePath: overlay/security/start_auth.md
 
 # Access management in {{ ydb-name }}
 
-{{ yandex-cloud }} users can only perform operations on resources that are allowed by the roles assigned to them. If a user does not have any roles assigned, almost all operations are forbidden.
+{{ yandex-cloud }} users can only perform operations on resources that are allowed by the roles assigned to them. As long as a user has no roles assigned, almost all operations are forbidden.
 
-To allow access to {{ ydb-short-name }} resources (databases and database users), assign the required roles from the list below to the Yandex account, [service account](../../iam/concepts/users/service-accounts.md), [federated users](../../iam/concepts/federations.md), [user group](../../organization/operations/manage-groups.md), or [system group](../../iam/concepts/access-control/system-group.md). A role can be assigned for a parent resource (folder or cloud) whose roles are inherited by nested resources.
+To enable access to {{ ydb-short-name }} resources (databases and their users), assign the required roles from the list below to a Yandex account, [service account](../../iam/concepts/users/service-accounts.md), [federated users](../../iam/concepts/federations.md), [user group](../../organization/operations/manage-groups.md), [system group](../../iam/concepts/access-control/system-group.md), or [public group](../../iam/concepts/access-control/public-group.md). A role can be assigned for a parent resource (folder or cloud) whose roles are inherited by nested resources.
 
 You can also grant a role to access a specific database. This will allow a user without any roles in the directory hosting the database to access the database according to the role assigned.
 

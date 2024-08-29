@@ -54,9 +54,11 @@ You can assign a role for a [trail](../concepts/trail.md) via the YC CLI or the 
 
 {% include [roles-primitive](../../_includes/roles-primitive.md) %}
 
+{% include [primitive-roles-footnote](../../_includes/primitive-roles-footnote.md) %}
+
 ## What roles do I need {#choosing-roles}
 
-The table shows actions and minimum roles required to perform them. You can always assign a role granting broader access rights than the role from the table. For example, instead of `audit-trails.configViewer`, you can assign the `audit-trails.editor` role.
+The table shows actions and minimum roles required to perform them. You can always assign a role offering more permissions than the one specified in the table. For example, instead of `audit-trails.configViewer`, you can assign the `audit-trails.editor` role.
 
 | Action | Role |
 ----- | -----

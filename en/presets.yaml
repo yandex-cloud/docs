@@ -651,7 +651,6 @@ default:
   stt-streaming-audioLength: 5 minutes
   stt-streaming-fileSize: 10 MB
   subjects-allAuthenticatedUsers: allAuthenticatedUsers
-  subjects-allUsers: allUsers
   subnet-id: b0rcctk2rvtr8efcch64
   subnet-name: default-ru-central1-c
   support-center-name: Support Center
@@ -5697,6 +5696,7 @@ default:
         button_select: Select
         button_target-group-create: Create target group
         button_virtual-host-add: Add virtual host
+        button_wizard-create-tg: Create and continue
         column_target: IP address
         label_address-auto: Automatically
         label_address-list: List
@@ -5704,6 +5704,7 @@ default:
         label_affinity-cookie: By cookie
         label_affinity-header: By HTTP header
         label_alb-create-form: Manual
+        label_alb-create-wizard: Wizard
         label_authority: Authority
         label_backend-group: Backend group
         label_backend-groups: Backend groups
@@ -7634,6 +7635,8 @@ default:
       serverless-containers:
         button_create-container: Create container
         button_deploy-revision: Create revision
+        label_args: Arguments
+        label_command: Command
         label_containers: Containers
         label_edit-active-revision: Make active
         label_editor: Editor
@@ -7643,6 +7646,7 @@ default:
         label_service-account: Service account
         label_timeout: Timeout, s
         label_url: Link to invoke
+        label_working-directory: Working directory
         popup-confirm-edit-active-revision_button_confirm: Confirm
         section_image: Image settings
         section_parameters: Settings

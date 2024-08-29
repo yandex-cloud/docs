@@ -1,12 +1,12 @@
-# Changing a project tag
+# Changing a tag
 
 When managing a project [tag](../../../concepts/tags.md), you can:
 
-* [Edit the tag](#edit).
+* [Edit it](#edit).
 * [Activate or deactivate the tag](#activate-tag).
 * [Change the tag channel](#tag-channel).
 
-For system tags, you can only change the channel and the activation status. To change a space tag, follow [this guide](../../space/tag/change.md).
+For system tags, you can only change the channel and the activation status.
 
 To change a project tag, you need either the `{{ roles-speechsense-admin }}` or the `{{ roles-speechsense-editor }}` role for the project.
 
@@ -19,7 +19,7 @@ Changes to the tag apply only to the dialogs uploaded to the project after the c
 ## Editing a project tag {#edit}
 
 1. Open the {{ speechsense-name }} [home page]({{ link-speechsense-main }}).
-1. Go to the space of interest and select a project.
+1. Go to the space you need and select a project.
 1. On the **Tags** tab, click the line with the tag.
 1. In the window that opens, set the following configuration:
 
@@ -30,7 +30,7 @@ Changes to the tag apply only to the dialogs uploaded to the project after the c
 ## Activating or deactivating a tag {#activate-tag}
 
 1. Open the {{ speechsense-name }} [home page]({{ link-speechsense-main }}).
-1. Go to the space of interest and select a project.
+1. Go to the space you need and select a project.
 1. Go to the **Tags** tab.
 1. In the line with the tag you need, enable **Use in projects** to activate the tag. Disable to deactivate the tag.
 
@@ -39,7 +39,7 @@ Changes to the tag apply only to the dialogs uploaded to the project after the c
 ## Change the tag channel {#tag-channel}
 
 1. Open the {{ speechsense-name }} [home page]({{ link-speechsense-main }}).
-1. Go to the space of interest and select a project.
+1. Go to the space you need and select a project.
 1. Go to the **Tags** tab.
 1. To change the channel of a single tag:
 

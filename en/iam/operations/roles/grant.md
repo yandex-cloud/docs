@@ -48,7 +48,7 @@ To select roles, look them up in the [role reference](../../roles-reference.md).
       yc resource-manager <cloud_or_folder> list
       ```
 
-   1. Get the [ID of the user](../users/get.md), [service account](../sa/get-id.md), or user group you are assigning a role to.
+   1. Get the [ID of the user](../users/get.md), [service account](../sa/get-id.md), user group, organization, or identity federation to which or the users of which you are assigning a role.
    1. Use one of these commands to assign a role:
 
       * To a Yandex account user:
@@ -85,6 +85,24 @@ To select roles, look them up in the [role reference](../../roles-reference.md).
             --id <cloud_or_folder_ID> \
             --role <role> \
             --subject group:<group_ID>
+         ```
+
+      * To all users of an organization:
+
+         ```bash
+         yc resource-manager <cloud_or_folder> add-access-binding \
+            --id <cloud_or_folder_ID> \
+            --role <role> \
+            --organization-users <organization_ID>
+         ```
+
+      * To all users of an identity federation:
+
+         ```bash
+         yc resource-manager <cloud_or_folder> add-access-binding \
+            --id <cloud_or_folder_ID> \
+            --role <role> \
+            --federation-users <federation_ID>
          ```
 
 - API {#api}
@@ -140,7 +158,7 @@ To grant access permissions for an organization, you need the `{{ roles-organiza
       yc organization-manager organization list
       ```
 
-   1. Get the [ID of the user](../users/get.md), [service account](../sa/get-id.md), or user group you are assigning a role to.
+   1. Get the [ID of the user](../users/get.md), [service account](../sa/get-id.md), user group, organization, or identity federation to which or the users of which you are assigning a role.
    1. Use one of these commands to assign a role:
 
       * To a Yandex account user:
@@ -170,13 +188,22 @@ To grant access permissions for an organization, you need the `{{ roles-organiza
             --service-account-id <service_account_ID>
          ```
 
-      * To a user group:
+      * To all users of an organization:
 
          ```bash
          yc organization-manager organization add-access-binding \
             --id <organization_ID> \
             --role <role> \
-            --subject group:<group_ID>
+            --organization-users <organization_ID>
+         ```
+
+      * To all users of an identity federation:
+
+         ```bash
+         yc organization-manager organization add-access-binding \
+            --id <organization_ID> \
+            --role <role> \
+            --federation-users <federation_ID>
          ```
 
 - {{ TF }} {#tf}
@@ -208,6 +235,8 @@ To grant access permissions for an organization, you need the `{{ roles-organiza
          * `members = ["federatedUser:<user_ID>"]` for a federated user.
          * `members = ["serviceAccount:<user_ID>"]` for a service account.
          * `members = ["group:<user_ID>"]` for a user group.
+         * `members = ["system:group:organization:<organization_ID>:users"]` for all users of an [organization](../../../organization/quickstart.md).
+         * `members = ["system:group:federation:<federation_ID>:users"]` for all users of an [identity federation](../../../organization/concepts/add-federation.md).
 
       For more information, see the [provider documentation]({{ tf-provider-link }}).
 
@@ -238,7 +267,7 @@ To grant access permissions for an organization, you need the `{{ roles-organiza
 
 ## Assigning a role for a resource {#resource}
 
-You can assign a role not only for an organization, cloud, or folder, but also for their child resources. These are listed in [{#T}](../../concepts/access-control/resources-with-access-control.md).
+You can assign a role not only for an organization, cloud, or folder but their child resources as well. These are listed in [{#T}](../../concepts/access-control/resources-with-access-control.md).
 
 {% list tabs group=instructions %}
 
@@ -279,7 +308,7 @@ You can assign a role not only for an organization, cloud, or folder, but also f
       yc <service_name> <resource> list
       ```
 
-   1. Get the [ID of the user](../users/get.md), [service account](../sa/get-id.md), or user group you are assigning a role to.
+   1. Get the [ID of the user](../users/get.md), [service account](../sa/get-id.md), user group, organization, or identity federation to which or the users of which you are assigning a role.
    1. Use one of these commands to assign a role:
 
       * To a Yandex account user:
@@ -316,6 +345,24 @@ You can assign a role not only for an organization, cloud, or folder, but also f
             --id <resource_ID> \
             --role <role> \
             --subject group:<group_ID>
+         ```
+
+      * To all users of an organization:
+
+         ```bash
+         yc <service_name> <resource> add-access-binding \
+            --id <resource_ID> \
+            --role <role> \
+            --organization-users <organization_ID>
+         ```
+
+      * To all users of an identity federation:
+
+         ```bash
+         yc <service_name> <resource> add-access-binding \
+            --id <resource_ID> \
+            --role <role> \
+            --federation-users <federation_ID>
          ```
 
 - API {#api}
@@ -378,7 +425,7 @@ You can assign a role not only for an organization, cloud, or folder, but also f
       yc <service_name> <resource> list
       ```
 
-   1. Get the [ID of the user](../users/get.md), [service account](../sa/get-id.md), or user group you are assigning roles to.
+   1. Get the [ID of the user](../users/get.md), [service account](../sa/get-id.md), user group, organization, or identity federation to which or the users of which you are assigning a role.
    1. Use one of the commands below to assign roles:
 
       * To a Yandex account user:
@@ -411,6 +458,22 @@ You can assign a role not only for an organization, cloud, or folder, but also f
          yc <service_name> <resource> set-access-bindings \
             --id <resource_ID> \
             --access-binding role=<role>,subject=group:<group_ID>
+         ```
+
+      * To all users of an organization:
+
+         ```bash
+         yc <service_name> <resource> set-access-bindings \
+            --id <resource_ID> \
+            --access-binding role=<role>,subject=system:group:organization:<organization_ID>:users
+         ```
+
+      * To all users of an identity federation:
+
+         ```bash
+         yc <service_name> <resource> set-access-bindings \
+            --id <resource_ID> \
+            --access-binding role=<role>,subject=system:group:federation:<federation_ID>:users
          ```
 
       Provide a separate `--access-binding` flag for each role. Example:

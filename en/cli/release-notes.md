@@ -7,6 +7,39 @@ description: "This page provides a list of YC CLI releases and updates rolled ou
 
 ## Current version {#latest-release}
 
+## Version 0.130.0 (01/08/24) {#version0.130.0}
+
+### Changes to {{ yandex-cloud }} services {#services}
+
+#### {{ data-transfer-name }}
+
+* Added the `--cluster-name` flag to the `yc datatransfer endpoint create clickhouse-source` command to specify the name of the ClickHouse cluster for data transfer.
+
+#### {{ marketplace-name }}
+
+* Added the `yc marketplace reset-password` command that was accidentally left out of the previous release.
+
+#### {{ iam-name }} {#iam}
+
+* Deleted the `pause` and `resume` commands from the `yc iam service-control` command tree.
+
+#### {{ compute-name }}
+
+* Added the `--host-id` flag to the `yc compute host-group list-instances` command to specify the host ID in a host group for listing VMs.
+
+#### {{ load-testing-name }}
+
+* In the `yc loadtesting agent create` command, added the option to wait for the created agent to connect to {{ load-testing-name }}:
+   * `--wait-ready` flag: Do not terminate the command until the agent has the `READY FOR TEST` status.
+   * `--wait-ready-timeout` parameter: Maximum timeout for `--wait-ready` (default: 5m).
+
+### Changes to the CLI {#cli}
+
+* Changed the federated account authorization protocol to Authorization Code Flow with Proof Key for Code Exchange (PKCE).
+
+
+## Previous releases {#previous-releases}
+
 ### Version 0.129.0 (16/07/24) {#version0.129.0}
 
 #### Changes to {{ yandex-cloud }} services {#services}
@@ -45,7 +78,6 @@ Added support for {{ sws-name }}:
 
 * Added the `yc marketplace reset-password` command to reset passwords on virtual machines with the password reset agent installed.
 
-## Previous releases {#previous-releases}
 
 ### Version 0.128.0 (02/07/24) {#version0.128.0}
 
@@ -384,7 +416,7 @@ Added the `yc serverless network` command group to manage networks that are used
 
 Added the parameters to the `yc cdn resource update` and `yc cdn resource create` commands to define the *ip address acl* option:
 
-* `--policy-type`: Client access policy by IP address, either *allow* or *deny*.
+* `--policy-type`: Client access policy by IP address; either *allow* or *deny*.
 * `--acl-excepted-values`: List of IP addresses for which access will be allowed or denied depending on the specified policy type.
 
 ##### {{ load-testing-name }}
@@ -615,7 +647,7 @@ Fixed the issue with the `yc compute instance-group update` command when the ins
 ##### {{ kms-name }} {#kms}
 
 * Added the `--inform` and `--outform` parameters to the `yc kms asymmetric-encryption-crypto decrypt`, `yc kms asymmetric-signature-crypto sign`, and `yc kms asymmetric-signature-crypto sign-hash` commands to set input and output data formats.
-* In the `yc kms asymmetric-signature-crypto sign` and `yc kms asymmetric-signature-crypto sign-hash` commands, we renamed the `--signature-file` parameter specifying the file to save the resulting signature value to to `--signature-output-file`.
+* In the `yc kms asymmetric-signature-crypto sign` and `yc kms asymmetric-signature-crypto sign-hash` commands, we renamed the `--signature-file` parameter specifying the file to save the resulting signature value to `--signature-output-file`.
 
 ##### {{ managed-k8s-name }} {#k8s}
 
@@ -3319,7 +3351,7 @@ Use the keys to protect your secrets, private data, and other confidential infor
 
 * Commands for displaying a list of elements: `yc <service> <resource> list`.
 
-   Increased the maximum number of elements to return from 100 to 1000.
+   Increased the maximum number of elements to return from 100 to 1,000.
 
 #### Changes to {{ yandex-cloud }} services {#services}
 

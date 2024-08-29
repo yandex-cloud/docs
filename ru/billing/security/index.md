@@ -44,6 +44,10 @@ description: "Доступ к платежному аккаунту предос
 
 {% include [billing.accounts.admin](../../_roles/billing/accounts/admin.md) %}
 
+#### billing.accounts.member {#billing-accounts-member}
+
+{% include [billing.accounts.member](../../_roles/billing/accounts/member.md) %}
+
 #### billing.accounts.varWithoutDiscounts {#billing-accounts-var-without-discounts}
 
 {% include [billing.accounts.varwithoutdiscounts](../../_roles/billing/accounts/varWithoutDiscounts.md) %}

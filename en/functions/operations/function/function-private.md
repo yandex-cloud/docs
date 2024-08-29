@@ -4,7 +4,7 @@ For a function to be invoked only by users with rights to invoke it, make the fu
 
 {% note info %}
 
-If all unauthorized users (`allUsers` system group) of a cloud or folder are granted rights to invoke a function, the function will be public regardless of the settings. [How to revoke a role](../../../iam/operations/roles/revoke.md).
+If all unauthorized users (the `All users` [public group](../../../iam/concepts/access-control/public-group.md)) of a cloud or folder are granted permissions to invoke a function, the function will be public regardless of its settings. [How to revoke a role](../../../iam/operations/roles/revoke.md).
 
 {% endnote %}
 

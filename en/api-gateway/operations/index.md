@@ -56,3 +56,4 @@ description: "In this tutorial, you will learn how to work with {{ api-gw-full-n
 * [{{ yds-name }}](spec-constructor/datastreams.md)
 * [{{ ydb-name }}](spec-constructor/ydb.md)
 * [{{ ml-platform-name }}](spec-constructor/datasphere.md)
+* [{{ yagpt-name }}](spec-constructor/yagpt.md)

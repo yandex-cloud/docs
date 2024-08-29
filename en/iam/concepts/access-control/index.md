@@ -50,14 +50,34 @@ To find out what roles exist and what permissions they include, see [{#T}](roles
 Roles are assigned to subjects. The following subject types are available:
 
 * `userAccount`: [Yandex account](../users/accounts.md#passport) added to {{ yandex-cloud }}.
+
+   Subject ID: Unique [ID](../../../api-design-guide/concepts/resources-identification.md) [assigned](../../operations/users/get.md) to the user.
+
 * `serviceAccount`: [Service account](../users/service-accounts.md) created in {{ yandex-cloud }}.
 
+   Subject ID: Unique ID [assigned](../../operations/sa/get-id.md) to the service account.
+
    {% include [include](../../../_includes/sa-assign-role-note.md) %}
-* `federatedUser`: User account in an [identity federation](../../../organization/concepts/add-federation.md), e.g., Active Directory.
 
-* `group`: User group created in [{{ org-full-name }}](../../../organization/).
+* `federatedUser`: User account from an [identity federation](../../../organization/concepts/add-federation.md), such as Active Directory.
 
-* `system`: [System group](system-group.md).
+   Subject ID: Unique ID [assigned](../../operations/users/get.md) to the user.
+
+* `group`: [User group](../../../organization/concepts/groups.md) created in [{{ org-full-name }}](../../../organization/).
+
+   Subject ID: Unique ID assigned to the user group.
+
+* `system`: [Public group](./public-group.md) or [system group](./system-group.md).
+
+   Subject ID:
+
+   * `allAuthenticatedUsers`: For the `All authenticated users` [public group](./public-group.md#allAuthenticatedUsers).
+
+   * `allUsers`: For the `All users` [public group](./public-group.md#allUsers).
+
+   * `group:organization:<organization_ID>:users`: For the `All users in organization X` [system group](./system-group.md#allOrganizationUsers), where `<organization_ID>` is the unique ID assigned to the `X` [organization](../../../organization/quickstart.md).
+
+   * `group:federation:<federation_ID>:users`: For the `All users in federation N` [system group](./system-group.md#allFederationUsers), where `<federation_ID>` is the unique ID assigned to `N` [identity federation](../../../organization/concepts/add-federation.md).
 
 ### Access binding {#access-bindings}
 
@@ -67,9 +87,9 @@ Roles to a resource are assigned as a list of _role-subject_ bindings. They are 
 
 Each binding is a single assignment of a role to a subject. To assign a user multiple roles to a resource, set a separate binding for each role.
 
-### Inheritance of access rights {#inheritance}
+### Inheriting access permissions {#inheritance}
 
-If a resource has child resources, all permissions from the parent resource will be inherited by the child resources. For example, if you assign a user a role for a folder where a VM instance resides, all permissions of this role will also apply to the instance.
+If a resource has child resources, all permissions from the parent resource will be inherited by the child resources. For example, if you assign the user a role for a folder containing a VM, all the role's permissions will also apply to the VM.
 
 If a child resource is also assigned some roles, a list of permissions for this resource will be combined with a list of permissions for its parent resource. You cannot limit the list of permissions inherited from the parent resource.
 

@@ -60,6 +60,8 @@ You can assign a role via the YC CLI or {{ yandex-cloud }} API for individual re
 
 {% include [roles-primitive](../../_includes/roles-primitive.md) %}
 
+{% include [primitive-roles-footnote](../../_includes/primitive-roles-footnote.md) %}
+
 ### Appointing a user the organization administrator {#admin}
 
 To grant a user organization management access, [assign](#add-role) the user one of the following roles:

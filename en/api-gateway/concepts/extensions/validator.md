@@ -24,7 +24,7 @@ The table below lists the `ValidatorObject` parameters.
 | `validateRequestBody` | `boolean` | No | `false` | Enabling or disabling request body validation. |
 | `validateRequestParameters` | `boolean` | No | `false` | Enabling or disabling request parameter validation. |
 | `validateResponseBody` | `boolean` | No | `false` | Enabling or disabling response body validation. |
-| `validateResponseHeaders` | `string` | No | `undefined` | [Type of response body validation](#type). Possible values: `any`, `superset`, `subset`, and `exact`. |
+| `validateResponseHeaders` | `string` | No | `undefined` | [Type of response body validation](#type). The possible values are `any`, `superset`, `subset`, and `exact`. |
 
 #### Types of response header validation
 
@@ -35,7 +35,7 @@ The table below lists the `ValidatorObject` parameters.
 
 ## X-yc-apigateway-validators extension {#validators}
 
-The `x-yc-apigateway-validators` extension allows you to describe validators in the [components](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.1.0.md#components-object) section. You can refer to these validators using the `$ref` parameter in the `x-yc-apigateway-validator` extension and link the same validators to different operations or to the entire API gateway (see the `validator` parameter of the [`x-yc-apigateway` extension](index.md#top-level)).
+The `x-yc-apigateway-validators` extension allows you to describe validators in the [components](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.1.0.md#components-object) section. You can refer to these validators using the `$ref` parameter in the `x-yc-apigateway-validator` extension and link the same validators to multiple operations or to the entire API gateway. For details, see `validator` for [`x-yc-apigateway`](index.md#top-level).
 
 ## X-yc-apigateway-validator extension {#validator}
 

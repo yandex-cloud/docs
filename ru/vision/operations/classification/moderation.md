@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Модерирование изображений
 
 {% include [deprecation-warning](../../../_includes/vision/deprecation-warning.md) %}

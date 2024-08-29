@@ -6,18 +6,12 @@
 
 ## Перед началом работы {#before-begin}
 
-{% list tabs group=instructions %}
+Чтобы воспользоваться примерами запросов через API, установите:
 
-- API {#api}
+* [cURL](https://curl.haxx.se) для отправки API-запросов;
+* утилиту [jq](https://github.com/jqlang/jq) для работы с файлами JSON.
 
-  Чтобы воспользоваться примерами запросов через API, установите:
-  
-  * [cURL](https://curl.haxx.se) для отправки API-запросов;
-  * утилиту [jq](https://github.com/jqlang/jq) для работы с файлами JSON.
-
-  Получите данные для аутентификации в API, как описано на странице [{#T}](../../api-ref/authentication.md).
-
-{% endlist %}
+Получите данные для аутентификации в API, как описано на странице [{#T}](../../api-ref/authentication.md).
 
 ## Сгенерируйте изображение {#generate-text}
 
@@ -27,9 +21,11 @@
 
 {% endnote %}
 
-{% list tabs group=instructions %}
+{% list tabs group=programming_language %}
 
-- API {#api}
+- Bash {#bash}
+
+  {% include [bash-windows-note-single](../../../_includes/translate/bash-windows-note-single.md) %}
 
   1. Создайте файл с телом запроса (например, `prompt.json`):
 
@@ -71,8 +67,7 @@
      В ответе сервис вернет объект Operation:
 
      ```json
-     {
-     "id":"fbveu1sntj**********","description":"","createdAt":null,"createdBy":"","modifiedAt":null,"done":false,"metadata":null}
+     {"id":"fbveu1sntj**********","description":"","createdAt":null,"createdBy":"","modifiedAt":null,"done":false,"metadata":null}
      ```
 
      Сохраните идентификатор (`id`) операции, полученный в ответе.

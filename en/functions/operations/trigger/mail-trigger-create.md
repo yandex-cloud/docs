@@ -78,7 +78,7 @@ To create a trigger, you need:
    ```bash
    yc serverless trigger create mail \
      --name <trigger_name> \
-     --batch-size <batch_size> \
+     --batch-size <message_batch_size> \
      --batch-cutoff <maximum_wait_time> \
      --attachements-bucket <bucket_name> \
      --attachements-service-account-id <service_account_ID> \
@@ -86,7 +86,7 @@ To create a trigger, you need:
      --invoke-function-service-account-id <service_account_ID> \
      --retry-attempts <number_of_retry_invocation_attempts> \
      --retry-interval <interval_between_retry_attempts> \
-     --dlq-queue-id <dead-letter_queue_ID> \
+     --dlq-queue-id <dead_letter_queue_ID> \
      --dlq-service-account-id <service_account_ID>
    ```
 
@@ -151,11 +151,11 @@ To create a trigger, you need:
         mail {
           attachments_bucket_id = "<bucket_name>"
           service_account_id    = "<service_account_ID>"
-          batch_cutoff          = <wait_time>
-          batch_size            = <event_batch_size>
+          batch_cutoff          = <maximum_wait_time>
+          batch_size            = <message_batch_size>
         }
         dlq {
-          queue_id           = "<DLQ_ID>"
+          queue_id           = "<dead_letter_queue_ID>"
           service_account_id = "<service_account_ID>"
         }
       }
@@ -176,15 +176,15 @@ To create a trigger, you need:
 
       For more information about the `yandex_function_trigger` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/function_trigger).
 
-   1. Create the resources:
+   1. Create resources:
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-   {{ TF }} will create all the required resources. You can check the new trigger using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
+      {% include [terraform-check-result](../../../_tutorials/_tutorials_includes/terraform-check-result.md) %}
 
-   ```bash
-   yc serverless trigger get <trigger_ID>
-   ```
+      ```bash
+      yc serverless trigger list
+      ```
 
 - API {#api}
 

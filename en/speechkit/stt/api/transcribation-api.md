@@ -1,11 +1,11 @@
 ---
-title: "Asynchronous recognition API in {{ speechkit-full-name }}"
-description: "Follow this guide to learn how to use the asynchronous recognition API."
+title: "Asynchronous recognition API v2 in {{ speechkit-full-name }}"
+description: "Follow this guide to learn how to use the asynchronous recognition API v2."
 ---
 
-# Asynchronous Recognition API
+# Asynchronous recognition API v2
 
-You will need the following to use the API:
+To use the API v2, you will need:
 
 * [{{ objstorage-full-name }} bucket](../../../storage/operations/buckets/create.md) to which you will upload your audio file for recognition.
 * [Service account](../../../iam/operations/sa/create.md) with the `{{ roles-speechkit-stt }}` and `storage.uploader` roles needed for accessing {{ speechkit-name }} and {{ objstorage-name }}.
@@ -19,7 +19,7 @@ Please note that you can only recognize audio files asynchronously under a servi
 
 {% endnote %}
 
-The asynchronous recognition service is located at: `transcribe.{{ api-host }}/speech/stt/v2/longRunningRecognize`
+The asynchronous recognition service for the API v2 is located at: `transcribe.{{ api-host }}/speech/stt/v2/longRunningRecognize`
 
 ## Sending a file for recognition {#sendfile}
 
@@ -167,7 +167,7 @@ The field is not supported. Do not use it. ||
 || response.<br>chunks.<br>channelTag | **string**
 Audio channel for which the recognition was performed. ||
 || id | **string**
-Operation ID. It is generated on the service side. ||
+Operation ID. Generated on the service side. ||
 || createdAt | [google.protobuf.Timestamp](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/timestamp.proto)
 Operation start time. It is specified in [RFC3339 (Timestamps)](https://www.ietf.org/rfc/rfc3339.txt) format. ||
 || createdBy | **string**

@@ -45,7 +45,7 @@ To create a trigger, you need:
       * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** field, select **{{ ui-key.yacloud.serverless-functions.triggers.form.label_data-streams }}**.
       * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** field, select **{{ ui-key.yacloud.serverless-functions.triggers.form.label_function }}**.
 
-   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_data-streams }}**, select a data stream and a service account with rights to read data from and write data to it.
+   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_data-streams }}**, select a data stream and a service account with permissions to read data from the stream and write data to it.
 
    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}**, specify:
 
@@ -79,13 +79,13 @@ To create a trigger, you need:
      --name <trigger_name> \
      --database <database_location> \
      --stream <data_stream_name> \
-     --batch-size 1b \
-     --batch-cutoff 1s \
+     --batch-size <message_batch_size> \
+     --batch-cutoff <maximum_wait_time> \
      --stream-service-account-id <service_account_ID> \
      --invoke-function-id <function_ID> \
      --invoke-function-service-account-id <service_account_ID> \
-     --retry-attempts 1 \
-     --retry-interval 10s \
+     --retry-attempts <number_of_retry_invocation_attempts> \
+     --retry-interval <interval_between_retry_attempts> \
      --dlq-queue-id <dead_letter_queue_ID> \
      --dlq-service-account-id <service_account_ID>
    ```
@@ -100,7 +100,7 @@ To create a trigger, you need:
    * `--stream`: {{ yds-name }} data stream name.
    * `--batch-size`: Message batch size. This is an optional parameter. The values may range from 1 B to 64 KB. The default value is 1 B.
    * `--batch-cutoff`: Maximum wait time. This is an optional parameter. The values may range from 1 to 60 seconds. The default value is 1 second. The trigger groups messages for a period not exceeding `batch-cutoff` and sends them to a function. The total amount of data transmitted to a function may exceed `batch-size` if the data is transmitted as a single message. Otherwise, the amount of data does not exceed `batch-size`.
-   * `--stream-service-account-id`: ID of the service account with rights to read from the data stream and write to it.
+   * `--stream-service-account-id`: ID of the service account with permissions to read from the data stream and write to it.
 
    {% include [trigger-cli-param](../../../_includes/functions/trigger-cli-param.md) %}
 
@@ -155,11 +155,11 @@ To create a trigger, you need:
           stream_name        = "<data_stream_name>"
           database           = "<database_location>"
           service_account_id = "<service_account_ID>"
-          batch_cutoff       = "<wait_time>"
-          batch_size         = "<event_batch_size>"
+          batch_cutoff       = "<maximum_wait_time>"
+          batch_size         = "<message_batch_size>"
         }
         dlq {
-          queue_id           = "<queue_ID>"
+          queue_id           = "<dead_letter_queue_ID>"
           service_account_id = "<service_account_ID>"
         }
       }
@@ -171,25 +171,25 @@ To create a trigger, you need:
 
       * `data_streams`: Trigger parameters:
 
-         * `stream_name`: Data stream name.
+         * `stream_name`: {{ yds-name }} data stream name.
          * `database`: Location of the {{ ydb-short-name }} database the {{ yds-name }} stream is linked to.
 
             To find out where the database is located, run the `yc ydb database list` command. The DB location is specified in the `ENDPOINT` column, in the `database` parameter, e.g., `/ru-central1/b1gia87mba**********/etn7hehf6g*******`.
 
          * `service_account_id`: Service account with permissions to read from and write to the {{ yds-name }} stream.
 
-         * `batch_cutoff`: Maximum wait time. This is an optional parameter. The values may range from 1 to 60 seconds. The default value is 1 second. The trigger groups messages for a period not exceeding `batch_cutoff` and sends them to a function. The number of messages cannot exceed `batch_size`.
-         * `batch_size`: Message batch size. This is an optional parameter. The values may range from 1 to 10. The default value is 1.
+         * `batch_cutoff`: Maximum wait time. This is an optional parameter. The values may range from 1 to 60 seconds. The default value is 1 second. The trigger groups messages for a period not exceeding `batch-cutoff` and sends them to a function. The total amount of data transmitted to a function may exceed `batch-size` if the data is transmitted as a single message. Otherwise, the amount of data does not exceed `batch-size`.
+         * `batch_size`: Message batch size. This is an optional parameter. The values may range from 1 B to 64 KB. The default value is 1 B.
 
       {% include [tf-dlq-params](../../../_includes/serverless-containers/tf-dlq-params.md) %}
 
       For more information about the `yandex_function_trigger` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/function_trigger).
 
-   1. Create the resources:
+   1. Create resources:
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
+      {% include [terraform-check-result](../../../_tutorials/_tutorials_includes/terraform-check-result.md) %}
 
       ```bash
       yc serverless trigger list

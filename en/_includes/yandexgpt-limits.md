@@ -21,6 +21,7 @@
 
 | Type of limit | Value |
 ----- | -----
+| Period to store results of asynchronous requests on the server | 3 days |
 | [Text vectorization](../foundation-models/concepts/embeddings.md) |
 | Number of input tokens | 2,000 |
 | Output vector size | {{ emb-vector }} |

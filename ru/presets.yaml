@@ -367,6 +367,9 @@ default:
   mgp-name: Managed Service for Greenplum®
   mgp-short-name: Managed Service for Greenplum®
   microsoft-idp:
+    adfs-abbreviated: AD FS
+    adfs-full: Microsoft Active Directory Federation Services
+    adfs-short: Active Directory Federation Services
     azure-ad-legacy: Azure Active Directory
     entra-full: Microsoft Entra
     entra-id-full: Microsoft Entra ID
@@ -657,7 +660,6 @@ default:
   stt-streaming-audioLength: 5 минут
   stt-streaming-fileSize: 10 МБ
   subjects-allAuthenticatedUsers: allAuthenticatedUsers
-  subjects-allUsers: allUsers
   subnet-id: b0rcctk2rvtr********
   subnet-name: default-ru-central1-d
   support-center-name: Support Center
@@ -5705,6 +5707,7 @@ default:
         button_select: Выбрать
         button_target-group-create: Создать целевую группу
         button_virtual-host-add: Добавить виртуальный хост
+        button_wizard-create-tg: Создать и продолжить
         column_target: IP-адрес
         label_address-auto: Автоматически
         label_address-list: Список
@@ -5712,6 +5715,7 @@ default:
         label_affinity-cookie: По cookie
         label_affinity-header: По HTTP-заголовку
         label_alb-create-form: Вручную
+        label_alb-create-wizard: Визард
         label_authority: Authority
         label_backend-group: Группа бэкендов
         label_backend-groups: Группы бэкендов
@@ -7644,6 +7648,8 @@ default:
       serverless-containers:
         button_create-container: Создать контейнер
         button_deploy-revision: Создать ревизию
+        label_args: Аргументы
+        label_command: Команда
         label_containers: Контейнеры
         label_edit-active-revision: Сделать активной
         label_editor: Редактор
@@ -7653,6 +7659,7 @@ default:
         label_service-account: Сервисный аккаунт
         label_timeout: Таймаут, с
         label_url: Ссылка для вызова
+        label_working-directory: Рабочая директория
         popup-confirm-edit-active-revision_button_confirm: Подтвердить
         section_image: Параметры образа
         section_parameters: Настройки

@@ -5,7 +5,7 @@ description: "This page presents questions and answers about {{ container-regist
 
 # FAQ about {{ container-registry-name }}
 
-#### Why is the `latest` tag missing or why is it assigned to a Docker image that was not the last one pushed? {#latest}
+#### Why is the `latest` tag missing or applied to a Docker image that is not the last one pushed? {#latest}
 
 The reason is that you specified a different [tag](../concepts/docker-image.md#version) when pushing the [Docker image](../concepts/docker-image.md).
 
@@ -15,13 +15,13 @@ The Docker client assigns the `latest` tag automatically if the Docker image is 
 
 #### How do I make a registry public? {#public-registry}
 
-You can issue the [container-registry.images.puller](../security/index.md#container-registry-images-puller) [role](../../iam/concepts/access-control/roles.md) for your [registry](../concepts/registry.md) to the [allUsers](../../iam/concepts/access-control/system-group.md) system group.
+You can grant the [container-registry.images.puller](../security/index.md#container-registry-images-puller) [role](../../iam/concepts/access-control/roles.md) for your [registry](../concepts/registry.md) to the [All users](../../iam/concepts/access-control/public-group.md) public group.
 
 {% note alert %}
 
 This makes all Docker images in the registry available without [authentication](../operations/authentication.md).
 
-Do not assign the `container-registry.images.pusher`, `editor` or `admin` roles to the system group for the registry. This will enable anyone with your registry ID to use the registry.
+Do not assign the `container-registry.images.pusher`, `editor`, or `admin` roles for the registry to the public group. This will enable anyone with your registry ID to use the registry.
 
 {% endnote %}
 

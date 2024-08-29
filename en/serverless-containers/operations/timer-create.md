@@ -58,8 +58,8 @@ Create a [timer](../concepts/trigger/timer.md) — a trigger that invokes a [{{ 
      --payload <message> \
      --invoke-container-id <container_ID> \
      --invoke-container-service-account-id <service_account_ID> \
-     --retry-attempts 1 \
-     --retry-interval 10s \
+     --retry-attempts <number_of_retry_invocation_attempts> \
+     --retry-interval <interval_between_retry_attempts> \
      --dlq-queue-id <dead_letter_queue_ID> \
      --dlq-service-account-id <service_account_ID>
    ```
@@ -115,11 +115,11 @@ Create a [timer](../concepts/trigger/timer.md) — a trigger that invokes a [{{ 
           retry_interval     = <interval_between_retry_attempts>
         }
         timer {
-          cron_expression = "<cron_expression>"
+          cron_expression = "<cron expression>"
           payload         = "<message>"
         }
         dlq {
-          queue_id           = "<DLQ_ID>"
+          queue_id           = "<dead_letter_queue_ID>"
           service_account_id = "<service_account_ID>"
         }
       }
@@ -146,11 +146,11 @@ Create a [timer](../concepts/trigger/timer.md) — a trigger that invokes a [{{ 
 
       For more information about the `function_trigger` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/function_trigger).
 
-   1. Create the resources:
+   1. Create resources:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
+      {% include [terraform-check-result](../../_tutorials/_tutorials_includes/terraform-check-result.md) %}
 
       ```bash
       yc serverless trigger list
