@@ -312,7 +312,7 @@ psql "host=c-c9qash3nb1v9********.ro.{{ dns-zone }} \
         mkdir --parents ~/.postgresql && \
         wget "{{ crt-web-path }}" \
              --output-document ~/.postgresql/root.crt && \
-        chmod 0600 ~/.postgresql/root.crt
+        chmod 0655 ~/.postgresql/root.crt
     ```
 
 {% endlist %}

@@ -36,8 +36,6 @@ items:
             href: operations/edit-account.md
           - name: Покинуть организацию
             href: operations/leave-organization.md
-          - name: Управление группами пользователей
-            href: operations/manage-groups.md
       - name: Управление федерациями удостоверений
         items:
           - name: Обзор

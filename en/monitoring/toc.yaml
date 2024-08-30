@@ -2,7 +2,7 @@ title: Yandex Monitoring
 href: index.yaml
 label:
   title: KZ
-  description: The service is available in Kazakhstan.
+  description: This service is only available in the Kazakhstan region.
   theme: info
   when: region == "kz"
 items:
@@ -114,6 +114,10 @@ items:
         href: concepts/ttl.md
       - name: Quotas and limits
         href: concepts/limits.md
+  - name: Tutorials
+    items:
+      - name: Monitoring sensor readings and event notifications
+        href: tutorials/monitoring.md
   - name: '{{ managed-prometheus-name }}'
     items:
       - name: Overview
@@ -196,6 +200,8 @@ items:
         href: metrics-ref/at-ref.md
       - name: '{{ certificate-manager-name }}'
         href: metrics-ref/certificate-manager-ref.md
+      - name: '{{ backup-name }}'
+        href: metrics-ref/backup-ref.md
       - name: '{{ cdn-name }}'
         href: metrics-ref/cdn-ref.md
       - name: '{{ sf-name }}'

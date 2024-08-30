@@ -6,7 +6,9 @@ editable: false
 
 
 
-Чтобы рассчитать стоимость использования сервиса {{ backup-name }}, ознакомьтесь с тарифами в этом разделе.
+{% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
+
+{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
 ## Из чего складывается стоимость использования {{ backup-name }} {#rules}
 

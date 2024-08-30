@@ -38,6 +38,8 @@ items:
             href: operations/connect-interfaces.md
           - name: Using Sqoop
             href: operations/sqoop-usage.md
+          - name: Setting up {{ IBRG }}
+            href: operations/apache-iceberg.md
           - name: Delta Lake
             items:
               - name: Setting up Delta Lake in single-cluster mode
@@ -176,6 +178,8 @@ items:
         href: concepts/storage.md
       - name: Component properties
         href: concepts/settings-list.md
+      - name: '{{ IBRG }} in {{ dataproc-name }}'
+        href: concepts/apache-iceberg.md
       - name: Delta Lake in {{ dataproc-name }}
         href: concepts/deltalake.md
       - name: Logs in {{ dataproc-name }}

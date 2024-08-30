@@ -56,6 +56,8 @@ items:
     items:
       - name: Все руководства
         href: tutorials/index.md
+      - name: Развертывание веб-интерфейса {{ KF }}
+        href: tutorials/deploy-kafka-ui.md
       - name: Перемещение данных из {{ KF }}
         items:
           - name: Настройка {{ KFC }} для работы с {{ mkf-name }}
@@ -68,7 +70,7 @@ items:
             href: tutorials/mkf-to-mkf-transfer.md
       - name: Использование схем формата данных с {{ mkf-name }}
         items:
-          - name: Обзор
+          - name: Управление схемами данных в {{ mkf-name }}
             href: tutorials/schema-registry-overview.md
           - name: Работа с управляемым реестром схем формата данных
             href: tutorials/managed-schema-registry.md
@@ -128,7 +130,7 @@ items:
         href: concepts/managed-schema-registry.md
       - name: Классы хостов
         href: concepts/instance-types.md
-      - name: Сеть в Managed Service for Apache Kafka®
+      - name: Сеть в {{ mkf-name }}
         href: concepts/network.md
       - name: Квоты и лимиты
         href: concepts/limits.md
@@ -138,7 +140,7 @@ items:
         href: concepts/connectors.md
       - name: Техническое обслуживание
         href: concepts/maintenance.md
-      - name: Настройки Apache Kafka®
+      - name: Настройки {{ KF }}
         href: concepts/settings-list.md
   - name: Управление доступом
     href: security/index.md

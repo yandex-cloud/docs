@@ -29,14 +29,14 @@ Prepare the infrastructure:
          * `SPARK`
          * `YARN`
       * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: `dataproc-sa`.
-      * **{{ ui-key.yacloud.mdb.forms.config_field_properties }}**: `spark:spark.sql.hive.metastore.sharedPrefixes` with the `com.amazonaws,ru.yandex.cloud` value. You need it to run PySpark jobs and integrate with {{ metastore-name }}.
+      * **{{ ui-key.yacloud.mdb.forms.config_field_properties }}**: `spark:spark.sql.hive.metastore.sharedPrefixes` with the `com.amazonaws,ru.yandex.cloud` value. Required for PySpark jobs and integration with {{ metastore-name }}.
       * **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}**: Bucket you created for output data.
       * **{{ ui-key.yacloud.mdb.forms.config_field_network }}**: `dataproc-network`.
 
    1. If the cloud network uses [security groups](../../../vpc/concepts/security-groups.md), [add](../../../vpc/operations/security-group-add-rule.md) the following rule for outgoing traffic to the {{ dataproc-name }} cluster security group:
 
       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-metastore }}`
-      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`)
+      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`
       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`
 
@@ -198,10 +198,13 @@ Some resources are not free of charge. Delete the resources you no longer need t
 
    - Manually {#manual}
 
-      1. [{{ dataproc-name }} clusters](../../../data-proc/operations/cluster-delete.md)
-      1. [{{ objstorage-name }} buckets](../../../storage/operations/buckets/delete.md)
-      1. [Cloud network](../../../vpc/operations/network-delete.md)
-      1. [Service account](../../../iam/operations/sa/delete.md)
+      1. [{{ dataproc-name }} clusters](../../../data-proc/operations/cluster-delete.md).
+      1. [{{ objstorage-name }} buckets](../../../storage/operations/buckets/delete.md).
+      1. [Subnet](../../../vpc/operations/subnet-delete.md).
+      1. [Route table](../../../vpc/operations/delete-route-table.md).
+      1. [NAT gateway](../../../vpc/operations/delete-nat-gateway.md).
+      1. [Cloud network](../../../vpc/operations/network-delete.md).
+      1. [Service account](../../../iam/operations/sa/delete.md).
 
    - {{ TF }} {#tf}
 

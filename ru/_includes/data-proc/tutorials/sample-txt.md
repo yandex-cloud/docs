@@ -1,12 +1,16 @@
-Скачайте и [загрузите в бакет](../../../storage/operations/objects/upload) для исходных данных файл для обработки [text.txt](https://{{ s3-storage-host }}/examples/text.txt):
+Загрузите файл для обработки:
 
-{% cut "text.txt" %}
+1. Скопируйте и сохраните в файле `text.txt`:
 
-```text
-she sells sea shells on the sea shore
-the shells that she sells are sea shells I am sure
-so if she sells sea shells on the sea shore
-I am sure that the shells are sea shore shells
-```
+    {% cut "text.txt" %}
 
-{% endcut %}
+    ```text
+    she sells sea shells on the sea shore
+    the shells that she sells are sea shells I am sure
+    so if she sells sea shells on the sea shore
+    I am sure that the shells are sea shore shells
+    ```
+
+    {% endcut %}
+
+1. [Загрузите](../../../storage/operations/objects/upload) файл `text.txt` в бакет для исходных данных.

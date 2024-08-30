@@ -1,56 +1,10 @@
-### Bash {#bash}
-
-Before connecting, install the [MongoDB Shell utility]({{ shell-link }}).
-
-{% list tabs group=connection %}
-
-- Connecting via SSL for {{ MG }} 4.2 and higher {#with-ssl}
-
-   ```bash
-   mongosh --norc \
-           --tls \
-           --tlsCAFile /home/<home_directory>/.mongodb/root.crt \
-           --host '<FQDN_of_{{ MG }}_host_1>:{{ port-mmg }},...,<FQDN_of_{{ MG }}_host_N>:{{ port-mmg }}' \
-           --username <DB_username> \
-           --password <DB_user_password> \
-           <DB_name>
-   ```
-
-- Connecting via SSL for {{ MG }} 4.0 {#with-ssl-4}
-
-   ```bash
-   mongosh --norc \
-           --ssl \
-           --sslCAFile /home/<home_directory>/.mongodb/root.crt \
-           --host '<FQDN_of_{{ MG }}_host_1>:{{ port-mmg }},...,<FQDN_of_{{ MG }}_host_N>:{{ port-mmg }}' \
-           --username <DB_username> \
-           --password <DB_user_password> \
-           <DB_name>
-   ```
-
-- Connecting without SSL {#without-ssl}
-
-   ```bash
-   mongosh --norc \
-           --host '<FQDN_of_{{ MG }}_host_1>:{{ port-mmg }},...,<FQDN_of_{{ MG }}_host_N>:{{ port-mmg }}' \
-           --username <DB_username> \
-           --password <DB_user_password> \
-           <DB_name>
-   ```
-
-{% endlist %}
-
-{% include [see-fqdn-host](fqdn-host.md) %}
-
-After connecting, run the `db` command.
-
-### Go {#go}
+## Go {#go}
 
 **Before connecting, install the dependencies:**
 
 ```bash
 sudo apt update && sudo apt install --yes golang git && \
-    go get go.mongodb.org/mongo-driver/mongo
+go get go.mongodb.org/mongo-driver/mongo
 ```
 
 {% list tabs group=connection %}
@@ -154,7 +108,7 @@ sudo apt update && sudo apt install --yes golang git && \
 go run connect.go
 ```
 
-### Java {#java}
+## Java {#java}
 
 **Before connecting:**
 
@@ -365,7 +319,7 @@ mvn clean package && \
     java -jar target/app-0.1.0-jar-with-dependencies.jar
 ```
 
-### Node.js {#nodejs}
+## Node.js {#nodejs}
 
 **Before connecting, install the dependencies**:
 
@@ -459,7 +413,7 @@ npm install mongodb
 node app.js
 ```
 
-### PHP {#php}
+## PHP {#php}
 
 **Before connecting, install the dependencies:**
 
@@ -552,41 +506,7 @@ sudo apt update && sudo apt install --yes php php-mongodb
 php connect.php
 ```
 
-### PowerShell {#powershell}
-
-Before connecting, install the [MongoDB Shell utility](https://www.mongodb.com/try/download/shell).
-
-{% list tabs group=connection %}
-
-- Connecting via SSL for {{ MG }} 4.2 and higher {#with-ssl}
-
-   ```powershell
-   mongosh.exe --norc `
-               --host '<FQDN_of_{{ MG }}_host_1>:{{ port-mmg }},...,<FQDN_of_{{ MG }}_host_N>:{{ port-mmg }}' `
-               --tls `
-               --tlsCAFile $HOME\.mongodb\root.crt `
-               --username <DB_username> `
-               --password <DB_user_password> `
-               <DB_name>
-   ```
-
-- Connecting without SSL {#without-ssl}
-
-   ```powershell
-   mongosh.exe --norc `
-               --host '<FQDN_of_{{ MG }}_host_1>:{{ port-mmg }},...,<FQDN_of_{{ MG }}_host_N>:{{ port-mmg }}' `
-               --username <DB_username> `
-               --password <DB_user_password> `
-               <DB_name>
-   ```
-
-{% endlist %}
-
-{% include [see-fqdn-host](fqdn-host.md) %}
-
-After connecting, run the `db` command.
-
-### Python {#python}
+## Python {#python}
 
 **Before connecting, install the dependencies:**
 

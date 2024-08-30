@@ -6,7 +6,7 @@
    mkdir -p ~/.postgresql && \
    wget "{{ crt-web-path }}" \
         --output-document ~/.postgresql/root.crt && \
-   chmod 0600 ~/.postgresql/root.crt
+   chmod 0655 ~/.postgresql/root.crt
    ```
 
    Сертификат будет сохранен в файле `~/.postgresql/root.crt`.

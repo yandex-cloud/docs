@@ -12,7 +12,9 @@ editable: false
 
 В этом разделе описаны [правила](#rules), по которым тарифицируется использование сервиса {{ mes-name }}, и представлены [актуальные цены](#prices) на предоставляемые им ресурсы.
 
-Чтобы рассчитать стоимость пользования сервисом, воспользуйтесь [калькулятором]({{ link-calc }}) на сайте {{ yandex-cloud }}.
+{% include [use-calculator](../_includes/pricing/use-calculator.md) %}
+
+{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 

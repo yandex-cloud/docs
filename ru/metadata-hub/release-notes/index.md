@@ -5,9 +5,15 @@ description: "В разделе представлена история изме
 
 # История изменений {{ metadata-hub-full-name }} в 2024 году
 
+## Август {#august}
+
+### Новые возможности {#new-features-august}
+
+1. Поддержаны соединения для пользовательских инсталляций БД {{ RD }} и кластеров [{{ mrd-name }}](../../managed-redis/concepts/index.md).
+
 ## Июль {#july}
 
-### Новые возможности {#new-features-june}
+### Новые возможности {#new-features-july}
 
 1. Добавлена интеграция [{{ connection-manager-name }}](../concepts/connection-manager.md) с [{{ mch-short-name }}](../../managed-clickhouse). Подключения для кластеров {{ mch-short-name }} [будут создаваться автоматически](../quickstart/connection-manager.md).
 

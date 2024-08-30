@@ -2,7 +2,7 @@ title: Yandex Cloud Logging
 href: index.yaml
 label:
   title: KZ
-  description: The service is available in Kazakhstan.
+  description: This service is only available in the Kazakhstan region.
   theme: info
   when: region == "kz"
 items:
@@ -22,7 +22,7 @@ items:
         items:
           - name: Getting a list of log groups
             href: operations/list.md
-          - name: Getting information about log groups
+          - name: Getting information about a log group
             href: operations/get-group.md
       - name: Managing log groups
         items:
@@ -46,7 +46,7 @@ items:
                 href: operations/export-logs-yds.md
           - name: Getting a list of sinks
             href: operations/list-sink.md
-          - name: Getting information about sinks
+          - name: Getting information about a sink
             href: operations/get-sink.md
   - name: Tutorials
     items:
@@ -68,6 +68,8 @@ items:
           Visualizing logs in {{ grafana-name }} using the {{
           cloud-logging-full-name }} plugin
         href: tutorials/grafana-logs-plugin.md
+      - name: Writing load balancer logs to {{ PG }}
+        href: tutorials/logging.md
   - name: Concepts
     items:
       - name: Log group

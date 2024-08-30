@@ -398,12 +398,14 @@ items:
         href: dataplatform/mkf-yds-stream.md
       - name: Настройка Kafka Connect для работы с кластером {{ mkf-name }}
         href: dataplatform/kafka-connect.md
-      - name: Управление схемами данных в {{ mkf-name }}
-        href: dataplatform/schema-registry-overview.md
-      - name: Использование {{ mkf-msr }} с {{ mkf-name }}
-        href: dataplatform/managed-schema-registry.md
-      - name: Использование Confluent Schema Registry с {{ mkf-name }}
-        href: dataplatform/confluent-schema-registry.md
+      - name: Использование схем формата данных с {{ mkf-name }}
+        items:
+          - name: Управление схемами данных в {{ mkf-name }}
+            href: dataplatform/schema-registry-overview.md
+          - name: Использование {{ mkf-msr }} с {{ mkf-name }}
+            href: dataplatform/managed-schema-registry.md
+          - name: Использование Confluent Schema Registry с {{ mkf-name }}
+            href: dataplatform/confluent-schema-registry.md
       - name: Хранение подключений и переменных {{ AF }} в {{ lockbox-full-name }}
         href: dataplatform/lockbox-and-airflow.md
       - name: Автоматизация задач {{ yq-full-name }} с помощью {{ maf-full-name }}

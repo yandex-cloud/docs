@@ -51,3 +51,5 @@ You can assign a role for an [organization](../../organization/), [cloud](../../
 ### Primitive roles {#primitive-roles}
 
 {% include [roles-primitive](../../_includes/roles-primitive.md) %}
+
+{% include [primitive-roles-footnote](../../_includes/primitive-roles-footnote.md) %}

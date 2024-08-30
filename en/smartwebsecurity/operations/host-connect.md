@@ -5,6 +5,24 @@ description: "Follow this guide to connect a security profile in {{ sws-full-nam
 
 # Connecting a security profile to a virtual host
 
+The security profile connection method depends on who manages the [{{ alb-full-name }}](../../application-load-balancer/concepts/index.md) load balancer:
+
+* If the load balancer is managed by you, use the {{ yandex-cloud }} interfaces.
+
+* If the load balancer is managed by an {{ alb-name }} [Ingress controller](../../application-load-balancer/tools/k8s-ingress-controller/index.md), use the [Ingress resource annotation](../../application-load-balancer/k8s-ref/ingress.md#annot-security-profile-id).
+
+   {% note warning %}
+
+   Annotation is the only way for an Ingress controller to connect the security profile.
+
+   If you connect the profile via the {{ yandex-cloud }} interfaces and then update the Ingress resource, the Ingress controller will disable the support of the security profile due to the lack of annotation.
+
+   {% endnote %}
+
+   To learn more about Ingress controller settings, see the [{{ managed-k8s-full-name }} documentation](../../managed-kubernetes/tutorials/alb-ingress-controller.md).
+
+To connect a security profile using the {{ yandex-cloud }} interfaces:
+
 {% list tabs group=instructions %}
 
 - Management console {#console}
@@ -122,6 +140,6 @@ description: "Follow this guide to connect a security profile in {{ sws-full-nam
 
 {% include [auto-scaling-tip](../../_includes/smartwebsecurity/auto-scaling-tip.md) %}
 
-### See also {#see-also}
+## See also {#see-also}
 
 * [{#T}](host-delete.md)

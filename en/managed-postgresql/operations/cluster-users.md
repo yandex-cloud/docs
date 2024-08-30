@@ -84,10 +84,10 @@ You can use SQL commands to assign privileges to users, but you cannot use them 
 
    ```
    {{ yc-mdb-pg }} user create <username> \
-        --cluster-name <cluster_name> \
-        --password=<password> \
-        --permissions=<DB_list> \
-        --conn-limit=<maximum_number_of_connections>
+      --cluster-name <cluster_name> \
+      --password=<password> \
+      --permissions=<DB_list> \
+      --conn-limit=<maximum_number_of_connections>
    ```
 
    Where:
@@ -425,9 +425,13 @@ For information on setting up user privileges and roles, see [Assigning privileg
 
    {% include [Сброс настроек изменяемого объекта](../../_includes/note-api-updatemask.md) %}
 
-
-
 {% endlist %}
+
+{% note warning %}
+
+Deletion protection only applies at specific user level. Deleting a cluster will delete all users, including those protected from deletion.
+
+{% endnote %}
 
 ## Deleting a user {#removeuser}
 

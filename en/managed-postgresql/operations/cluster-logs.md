@@ -4,6 +4,7 @@
 
 {% include [log-duration](../../_includes/mdb/log-duration.md) %}
 
+To identify potential issues in a cluster, [use other tools](../tutorials/performance-problems.md) to analyze the cluster state along with its logs.
 
 ## Getting a cluster log {#get-log}
 

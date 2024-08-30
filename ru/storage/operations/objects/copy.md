@@ -78,6 +78,7 @@ description: "Из статьи вы узнаете, как скопироват
 
   {% endnote %}
 
+
 {% endlist %}
 
 ## Копирование объектов в бакет другой организации {#copy-to-another-org-bucket}

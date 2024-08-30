@@ -6,6 +6,10 @@ editable: false
 
 # Правила тарификации для {{ kms-name }}
 
+{% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
+
+{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
+
 Стоимость использования {{ kms-name }} складывается из:
 
 * Количества активных версий ключа — версий в статусе `Active` и `Scheduled For Destruction`.

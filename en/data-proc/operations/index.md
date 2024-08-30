@@ -23,6 +23,7 @@ description: "This page provides a list of step-by-step guides for {{ dataproc-n
 
 * [{#T}](connect-interfaces.md)
 * [{#T}](sqoop-usage.md)
+* [Setting up {{ IBRG }}](./apache-iceberg.md)
 
 ### Delta Lake
 

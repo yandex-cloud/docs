@@ -292,6 +292,9 @@ The `WRITABLE` option enables you to write data to an external object. To be abl
       ```
 
    1. [Upload your test file to the bucket](../../../storage/operations/objects/upload.md).
+
+      Files you are uploading to the bucket may not start with `.` and `_`. Such files are considered hidden, and PXF does not read data from them.
+
    1. [Connect to the {{ GP }} DB](../connect.md).
    1. To read data from the {{ objstorage-name }} bucket:
 

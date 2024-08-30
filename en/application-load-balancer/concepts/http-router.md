@@ -18,9 +18,11 @@ Routes inside an HTTP router are combined in [virtual hosts](#virtual-host). Rou
 
 Virtual hosts combine [routes](#routes) belonging to the same set of domains, i.e., the `Host` (`:authority`) header values of an HTTP request. Both exact matches and wildcards are supported. When an incoming request is received, the balancer checks route predicates one-by-one and selects the first predicate matching the request.
 
-How the headers of HTTP requests and responses are modified is also configured at the virtual host level.
+The load balancer routes traffic to the [backend](./backend-group.md) that refers to various resources. These resources may be vulnerable to external threats. You can protect your resources using [{{ sws-full-name }}](../../smartwebsecurity/concepts/index.md) by connecting a [security profile](../../smartwebsecurity/operations/host-connect.md) to the virtual host.
 
-To protect virtual hosts from external threats, you can connect a security profile created in [{{ sws-full-name }}](../../smartwebsecurity/concepts/index.md).
+When an {{ alb-name }} [Ingress controller](../tools/k8s-ingress-controller/index.md) manages the load balancer, connect the security profile using an [Ingress resource annotation](../k8s-ref/ingress.md#annot-security-profile-id).
+
+The modifications of the HTTP headers of requests and responses are also configured at the virtual host level.
 
 ## Routes {#routes}
 

@@ -11,3 +11,4 @@ description: "Various {{ cloud-logging-full-name }} use cases in {{ yandex-cloud
 * [{#T}](replicate-logs-to-storage.md)
 * [{#T}](replicate-logs-to-storage-via-data-streams.md)
 * [{#T}](grafana-logs-plugin.md)
+* [{#T}](logging.md)

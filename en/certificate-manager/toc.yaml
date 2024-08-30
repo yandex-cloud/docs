@@ -2,7 +2,7 @@ title: Yandex Certificate Manager
 href: index.yaml
 label:
   title: KZ
-  description: The service is available in Kazakhstan.
+  description: This service is only available in the Kazakhstan region.
   theme: info
   when: region == "kz"
 items:
@@ -56,8 +56,22 @@ items:
         href: operations/operation-logs.md
   - name: Tutorials
     items:
+      - name: All tutorials
+        href: tutorials/index.md
       - name: Installing an NGINX Ingress controller in {{ managed-k8s-name }}
         href: tutorials/nginx-ingress-certificate-manager.md
+      - name: Setting up virtual hosting
+        href: tutorials/virtual-hosting.md
+      - name: Hosting a static Gatsby-based website in {{ objstorage-name }}
+        href: tutorials/gatsby-static-website.md
+      - name: Terminating TLS connections
+        items:
+          - name: Overview
+            href: tutorials/tls-termination/index.md
+          - name: Management console
+            href: tutorials/tls-termination/console.md
+          - name: '{{ TF }}'
+            href: tutorials/tls-termination/terraform.md
   - name: Concepts
     items:
       - name: Overview
