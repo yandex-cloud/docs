@@ -6,6 +6,10 @@ editable: false
 
 # Правила тарификации для {{ alb-full-name }}
 
+{% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
+
+{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
+
 ## Из чего складывается стоимость использования {{ alb-name }} {#rules}
 
 При работе с сервисом {{ alb-name }} вы платите за фактическое использование вычислительных ресурсов каждого активного балансировщика.

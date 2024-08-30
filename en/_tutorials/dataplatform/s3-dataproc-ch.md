@@ -245,11 +245,14 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
 - Manually {#manual}
 
-   1. [{{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-delete.md).
-   1. [{{ dataproc-name }} cluster](../../data-proc/operations/cluster-delete.md).
-   1. [{{ objstorage-name }} buckets](../../storage/operations/buckets/delete.md).
-   1. [Cloud network](../../vpc/operations/network-delete.md).
-   1. [Service account](../../iam/operations/sa/delete.md).
+   1. [{{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-delete.md)
+   1. [{{ dataproc-name }} cluster](../../data-proc/operations/cluster-delete.md)
+   1. [{{ objstorage-name }} buckets](../../storage/operations/buckets/delete.md)
+   1. [Subnet](../../vpc/operations/subnet-delete.md)
+   1. [Route table](../../vpc/operations/delete-route-table.md)
+   1. [NAT gateway](../../vpc/operations/delete-nat-gateway.md)
+   1. [Cloud network](../../vpc/operations/network-delete.md)
+   1. [Service account](../../iam/operations/sa/delete.md)
 
 - {{ TF }} {#tf}
 

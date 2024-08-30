@@ -6,6 +6,10 @@ editable: false
 
 
 
+{% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
+
+{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
+
 ## Тарифные планы {{ datalens-name }} {#effective-rules}
 
 В сервисе {{ datalens-full-name }} действуют тарифные планы, которые различаются набором предоставляемых услуг:

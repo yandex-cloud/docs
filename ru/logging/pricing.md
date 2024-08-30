@@ -6,6 +6,10 @@ editable: false
 
 # Правила тарификации для {{ cloud-logging-name }}
 
+{% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
+
+{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
+
 ## Из чего складывается стоимость использования {{ cloud-logging-name }} {#rules}
 
 В рамках сервиса {{ cloud-logging-name }} тарифицируются объем записываемых данных и время их хранения.

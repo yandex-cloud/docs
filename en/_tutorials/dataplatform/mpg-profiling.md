@@ -10,6 +10,7 @@
 
 Here are some tips for diagnosing and fixing these issues.
 
+To detect potential issues in a cluster, [use tools](../../managed-postgresql/tutorials/performance-problems.md) for comprehensive cluster state analysis.
 
 ## Getting started {#before-start}
 

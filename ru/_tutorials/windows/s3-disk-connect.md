@@ -89,6 +89,7 @@
 
 ## Создайте статический ключ доступа {#create-static-key}
 
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}

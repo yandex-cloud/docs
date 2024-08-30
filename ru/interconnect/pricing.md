@@ -2,7 +2,13 @@
 
 
 
+
+{% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
+
+{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
+
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
+
 
 Услуга предоставляется при наличии технической возможности.
 

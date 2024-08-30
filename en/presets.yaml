@@ -209,6 +209,7 @@ default:
   iam-name: Identity and Access Management
   iam-short-name: IAM
   iam-token-lifetime: 12 hours
+  IBRG: Apache Iceberg™
   ig-full-name: Yandex Instance Groups
   ig-name: Instance Groups
   interconnect-full-name: Yandex Cloud Interconnect

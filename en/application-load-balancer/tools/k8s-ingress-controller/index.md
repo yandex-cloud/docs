@@ -62,10 +62,6 @@ Where `secretName` is the ID of the certificate from {{ certificate-manager-full
 
 With this `Ingress` resource configuration in [ALB Ingress Controller](/marketplace/products/yc/alb-ingress-controller) version 0.2.0 and later, the [backend groups](principles.md) correspond to the `backend.service` parameter. Versions 0.1.x use other parameters: `host`, `http.paths.path`, and `http.paths.pathType`. As a result, collisions may occur when updating the ALB Ingress Controller. To avoid them, [find out whether upgrade restrictions apply](../../operations/k8s-ingress-controller-upgrade.md) to your infrastructure.
 
-## Logging settings {#log-options}
-
-To set up logging for an L7 load balancer created using the {{ alb-name }} Ingress controller in your {{ managed-k8s-name }} cluster, add the `ingress.alb.yc.io/group-settings-name` annotation with a name for the Ingress resource group settings and specify the settings in the additional `IngressGroupSettings` resource. For more information, see [Ingress resource annotations](../../k8s-ref/ingress.md#annotations).
-
 ## Installation and requirements {#install}
 
 To install the {{ alb-name }} Ingress controller, you need:
@@ -75,6 +71,16 @@ To install the {{ alb-name }} Ingress controller, you need:
 * Cluster namespace to store the [service account](service-account.md) key.
 
 To learn how to install the Ingress controller, see [this guide](../../operations/k8s-ingress-controller-install.md).
+
+## Logging settings {#log-options}
+
+To set up logging for an L7 load balancer created using the {{ alb-name }} Ingress controller in your {{ managed-k8s-name }} cluster, add the `ingress.alb.yc.io/group-settings-name` annotation with a name for the Ingress resource group settings and specify the settings in the additional `IngressGroupSettings` resource. For more information, see [Ingress resource annotations](../../k8s-ref/ingress.md#annotations).
+
+## Integration with {{ sws-full-name }} {#smart-web-security}
+
+In the Ingress controller, you can enable support for [{{ sws-full-name }}](../../../smartwebsecurity/concepts/index.md) that allows you to get protected against DDoS attacks and bots, as well as use a [WAF](../../../smartwebsecurity/concepts/waf.md) and [reduce the load](../../../smartwebsecurity/concepts/arl.md) on the resource being protected.
+
+{% include [annot-description](../../../_includes/managed-kubernetes/alb-ref/annot-security-profile-id.md) %}
 
 ## Traffic routing using multiple Ingress controllers {#ingress-class}
 

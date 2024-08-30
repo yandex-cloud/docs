@@ -297,6 +297,8 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
    * [Endpoints](../../../data-transfer/operations/endpoint/index.md#delete)
    * [Amazon RDS for {{ PG }} instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html)
    * [{{ mpg-name }} cluster](../../../managed-postgresql/operations/cluster-delete.md)
+   * [Route table](../../../vpc/operations/delete-route-table.md)
+   * [NAT gateway](../../../vpc/operations/delete-nat-gateway.md)
 
 - {{ TF }} {#tf}
 

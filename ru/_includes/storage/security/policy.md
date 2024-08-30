@@ -42,6 +42,7 @@
 
 : Получатель запрошенного разрешения. Это может быть пользователь {{ iam-short-name }}, [федеративный пользователь](../../../iam/concepts/federations.md), [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md), анонимный пользователь или [группа пользователей](../../../organization/concepts/groups.md). [Задать](../../../storage/operations/buckets/policy.md) группу пользователей в политике можно с помощью {{ yandex-cloud }} CLI, AWS CLI, {{ TF }} и API.
 
+
 Условие
 
 : Определение случаев, когда действует правило. Подробнее читайте в разделе [Условия](../../../storage/s3/api-ref/policy/conditions.md).

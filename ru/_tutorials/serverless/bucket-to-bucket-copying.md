@@ -173,6 +173,7 @@
 
 Создайте [статический ключ доступа](../../iam/concepts/authorization/access-key.md) для сервисного аккаунта `s3-copy-fn`.
 
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}

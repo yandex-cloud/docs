@@ -23,7 +23,7 @@
 
 1. {% include [Скачать и загрузить файл с текстовыми данными](../../_includes/data-proc/tutorials/sample-txt.md) %}
 
-1. Скачайте и загрузите в бакет для исходных данных [jar-файл](https://{{ s3-storage-host }}/examples/scala-spark/jar/spark-app_2.11-0.1.0-SNAPSHOT.jar), собранный из исходного текста программы анализа [word_count.scala](https://{{ s3-storage-host }}/examples/scala-spark/word_count.scala) на языке Scala:
+1. Скачайте и загрузите в бакет для исходных данных jar-файл `spark-app_2.11-0.1.0-SNAPSHOT.jar`, собранный из исходного текста программы анализа [word_count.scala](https://{{ s3-storage-host }}/examples/scala-spark/word_count.scala) на языке Scala:
 
     {% cut "word_count.scala" %}
 

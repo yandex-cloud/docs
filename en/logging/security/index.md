@@ -23,7 +23,7 @@ You can assign a role via the YC CLI or {{ yandex-cloud }} API for individual re
 
 ## Which roles exist in the service {#roles-list}
 
-The list below shows all roles that are considered when verifying access rights in the {{ cloud-logging-name }} service.
+The list below shows all roles considered when verifying access permissions in {{ cloud-logging-name }}.
 
 ### Service roles {#service-roles}
 
@@ -50,3 +50,5 @@ The list below shows all roles that are considered when verifying access rights 
 ### Primitive roles {#primitive-roles}
 
 {% include [roles-primitive](../../_includes/roles-primitive.md) %}
+
+{% include [primitive-roles-footnote](../../_includes/primitive-roles-footnote.md) %}

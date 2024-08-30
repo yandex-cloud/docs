@@ -201,7 +201,7 @@ column "wait_event_type" does not exist LINE 10: wait_event_type || ': ' || wait
         mkdir --parents ~/.postgresql && \
         wget "{{ crt-web-path }}" \
              --output-document ~/.postgresql/root.crt && \
-        chmod 0600 ~/.postgresql/root.crt
+        chmod 0655 ~/.postgresql/root.crt
     ```
 
 {% endlist %}

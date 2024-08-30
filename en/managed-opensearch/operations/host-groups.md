@@ -93,12 +93,6 @@ To create a host group:
 
    1. Click **{{ ui-key.yacloud.opensearch.cluster.node-groups.action_create-node-group }}**.
 
-   {% note warning %}
-
-   Once you have added a host group, you will not be able to change the **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** option. You can only [change](#update-host-group) other configuration settings using the API. However, you can also create a new host group with a different configuration, if required.
-
-   {% endnote %}
-
 - CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
@@ -238,6 +232,39 @@ To create a host group:
 ## Updating a host group configuration {#update-host-group}
 
 {% list tabs group=instructions %}
+
+- Management console {#console}
+
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+   1. Click the name of the cluster you need and select the ![host-groups.svg](../../_assets/console-icons/copy-transparent.svg) **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_node-groups }}** tab.
+   1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the line with the appropriate group and select **{{ ui-key.yacloud.opensearch.cluster.node-groups.action_edit }}**.
+   1. Change host group settings:
+
+      * [Host roles](../concepts/host-roles.md) (for `{{ OS }}` host groups only).
+      * Platform, host type, and host class.
+
+         The host class defines the technical characteristics of virtual machines that {{ OS }} nodes are deployed on. All available options are listed under [Host classes](../concepts/instance-types.md).
+
+      * Disk size.
+
+         Disk resizing increments depend on disk type:
+
+         * Network HDD and SSD storage: In increments of 1 GB.
+
+         
+         * Local SSD storage:
+            * For **Intel Cascade Lake**: In increments of 100 GB.
+            * For **Intel Ice Lake**: In increments of {{ local-ssd-v3-step }}.
+         * Non-replicated SSD storage: In increments of 93 GB.
+
+
+      * Host distribution across availability zones and subnets.
+
+      * Number of hosts.
+
+      * Public access to hosts.
+
+   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
