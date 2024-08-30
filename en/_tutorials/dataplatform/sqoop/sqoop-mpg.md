@@ -215,9 +215,12 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
       * [{{ mpg-name }}](../../../managed-postgresql/operations/cluster-delete.md).
       * [{{ dataproc-name }}](../../../data-proc/operations/cluster-delete.md).
 
-   1. If you created an {{ objstorage-name }} bucket, [delete it](../../../storage/operations/buckets/delete.md).
-   1. Delete the [subnet](../../../vpc/operations/subnet-delete.md).
-   1. Delete the [cloud network](../../../vpc/operations/network-delete.md).
+   1. If you created a {{ objstorage-name }} bucket, [delete it](../../../storage/operations/buckets/delete.md).
+   1. [Delete the subnet](../../../vpc/operations/subnet-delete.md).
+   1. [Delete the route table](../../../vpc/operations/delete-route-table.md).
+   1. [Delete the NAT gateway](../../../vpc/operations/delete-nat-gateway.md).
+   1. [Delete the cloud network](../../../vpc/operations/network-delete.md).
+   1. [Delete the service account](../../../iam/operations/sa/delete.md).
 
 - {{ TF }} {#tf}
 
@@ -242,6 +245,8 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
    Delete the resources you created manually:
 
    1. [Subnet](../../../vpc/operations/subnet-delete.md)
+   1. [Route table](../../../vpc/operations/delete-route-table.md)
+   1. [NAT gateway](../../../vpc/operations/delete-nat-gateway.md)
    1. [Cloud network](../../../vpc/operations/network-delete.md)
 
 {% endlist %}

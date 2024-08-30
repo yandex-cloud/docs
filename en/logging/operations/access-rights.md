@@ -78,7 +78,7 @@ The [default log group](../concepts/log-group.md) inherits the [roles assigned f
         done (1s)
         ```
 
-    * All authorized users (`allAuthenticatedUsers` system group):
+    * All authorized users (the `All authenticated users` [public group](../../iam/concepts/access-control/public-group.md)):
 
         ```
         yc logging group add-access-binding \
@@ -137,7 +137,7 @@ The [default log group](../concepts/log-group.md) inherits the [roles assigned f
         done (1s)
         ```
 
-    * All authorized users (`allAuthenticatedUsers` system group):
+    * All authorized users (the `All authenticated users` [public group](../../iam/concepts/access-control/public-group.md)):
 
         ```
         yc logging group remove-access-binding \

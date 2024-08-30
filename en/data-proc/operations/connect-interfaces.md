@@ -38,7 +38,7 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
 
 - API {#api}
 
-   Use the [update](../api-ref/Cluster/update.md) API method and provide the following in the request:
+   Use the [update](../api-ref/Cluster/update.md) API method and include the following in the request:
 
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list).
    * `true` value in the `uiProxy` parameter.
@@ -97,7 +97,7 @@ To connect to the {{ dataproc-name }} host port you need, run the following comm
 
 ```bash
 ssh -A \
-    -J <VM_public_IP_address> \
+    -J <VM_username>@<VM_public_IP_address> \
     -L <port_number>:<Data_Proc_host_FQDN>:<port_number> <username>@<Data_Proc_host_FQDN>
 ```
 

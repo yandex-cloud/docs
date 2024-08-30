@@ -8,6 +8,10 @@ editable: false
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
 
+{% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
+
+{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
+
 ## Из чего складывается стоимость использования {{ dataproc-name }} {#rules}
 
 Итоговый расчет стоимости использования {{ dataproc-name }} учитывает:

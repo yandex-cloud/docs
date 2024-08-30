@@ -12,6 +12,7 @@
 
 ## Перед началом работы {#before-you-begin}
 
+
 Подготовьте инфраструктуру:
 
 {% list tabs group=instructions %}

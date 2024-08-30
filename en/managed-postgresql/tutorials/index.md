@@ -7,6 +7,7 @@ description: "Various {{ mpg-full-name }} use cases in {{ yandex-cloud }}."
 
 * [Creating a {{ PG }} cluster for <q>1C:Enterprise</q>](./1c-postgresql.md)
 * [{#T}](./sqoop.md)
+* [{#T}](./performance-problems.md)
 * [{#T}](./profiling.md)
 * [{#T}](./cdc-data-transfer.md)
 * [{#T}](./cdc-debezium.md)

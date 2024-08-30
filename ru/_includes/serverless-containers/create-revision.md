@@ -12,7 +12,7 @@
       * **{{ ui-key.yacloud.serverless-containers.label_command }}** — команды, которые контейнер выполнит при запуске. Соответствует инструкции `ENTRYPOINT` в Dockerfile.
       * **{{ ui-key.yacloud.serverless-containers.label_args }}** — соответствует инструкции `CMD` в Dockerfile. Аргументы указываются в формате `ключ = значение`. Если не указано, будет использоваться значение `CMD` по умолчанию из Docker-образа.
 
-          В функцию можно передать несколько аргументов. Для этого нажмите **{{ ui-key.yacloud.common.add }}**.
+          В контейнер можно передать несколько аргументов. Для этого нажмите **{{ ui-key.yacloud.common.add }}**.
 
       * **{{ ui-key.yacloud.serverless-containers.label_working-directory }}** — позволяет изменить рабочую директорию контейнера. Соответствует инструкции `WORKDIR` в Dockerfile. Рекомендуется устанавливать абсолютные пути к папкам.
 

@@ -71,7 +71,9 @@
     s3 mb s3://<имя_бакета>
   ```
 
+
 {% include [store-aws-key-in-lockbox](../../_includes/storage/store-aws-key-in-lockbox.md) %}
+
 
 ## Особенности {#specifics}
 

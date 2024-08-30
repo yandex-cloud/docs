@@ -10,6 +10,8 @@ editable: false
 
 {% include [use-calculator](../_includes/pricing/use-calculator.md) %}
 
+{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
+
 ## Из чего складывается стоимость использования {{ speechkit-short-name }} {#rules}
 
 ### Использование синтеза речи {#rules-tts}
@@ -149,7 +151,6 @@ editable: false
   {% include [kzt.md](../_pricing/speechkit/kzt-stt.md) %}
 
 {% endlist %}
-
 
 
 

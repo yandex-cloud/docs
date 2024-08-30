@@ -51,6 +51,7 @@ description: "Для управления доступом к бакету {{ ob
 
   Вы можете применить к бакету [предопределенный ACL](../../concepts/acl.md#predefined-acls) или настроить разрешения для отдельных пользователей, [сервисных аккаунтов](../../../iam/concepts/users/service-accounts.md), [групп пользователей](../../../organization/concepts/groups.md) и [публичных групп](../../concepts/acl.md#public-groups) (группа всех пользователей интернета, группа всех аутентифицированных пользователей {{ yandex-cloud }}). Эти настройки несовместимы: у бакета должен быть либо предопределенный ACL, либо набор отдельных разрешений.
 
+
   Предопределенный ACL
 
   : Выполните команду:
@@ -125,6 +126,7 @@ description: "Для управления доступом к бакету {{ ob
   Чтобы управлять ACL бакета, назначьте сервисному аккаунту, через который работает AWS CLI, [роль](../../security/index.md#storage-admin) `storage.admin`.
 
   {% endnote %}
+
 
   Посмотрите текущий ACL бакета:
 
@@ -204,6 +206,7 @@ description: "Для управления доступом к бакету {{ ob
 - {{ TF }} {#tf}
 
   {% include [terraform-role](../../../_includes/storage/terraform-role.md) %}
+
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 

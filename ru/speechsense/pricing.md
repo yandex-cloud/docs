@@ -6,6 +6,10 @@ editable: false
 
 
 
+{% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
+
+{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
+
 {{ speechsense-full-name }} находится на стадии [Preview](../overview/concepts/launch-stages.md).
 
 ## Из чего складывается стоимость использования {{ speechsense-name }} {#rules}

@@ -19,7 +19,7 @@ To view the statistics:
    1. Click the name of the load balancer you need.
    1. Go to the **{{ ui-key.yacloud.common.monitoring }}** tab.
    1. Select the dashboard: **{{ ui-key.yacloud.alb.label_tab-http-stats }}** or **{{ ui-key.yacloud.alb.label_tab-capacity-stats }}**.
-   1. Select the time period to view statistics for: 1 hour, 3 hours, 1 day, 1 week, or 1 month.
+   1. Select the time period for the statistics: one hour, three hours, one day, one week, or one month.
 
 {% endlist %}
 
@@ -48,9 +48,9 @@ To view the statistics:
       * **Backend**: Backend.
       * **Zone**: Availability zone where the load balancer nodes are located. For more information, see [{#T}](../concepts/application-load-balancer.md#lb-location).
 
-      If `*` is the value selected in the field, the dashboard will display aggregate statistics for all resources of the relevant type, such as all HTTP routers.
+      If you select `*` in the field, the dashboard will display aggregate statistics for all resources of the relevant type, such as all HTTP routers.
 
    1. Select the time period to view the statistics for.
-   1. If you need to configure the dashboard to autoupdate, click ![](../../_assets/console-icons/arrow-rotate-right.svg).
+   1. To refresh a dashboard, click ![](../../_assets/console-icons/arrows-rotate-right.svg). Next to the button, you can also set the statistics auto refresh rate.
 
 {% endlist %}

@@ -78,10 +78,12 @@ items:
     items:
       - name: All tutorials
         href: tutorials/index.md
-      - name: Creating a {{ PG }} cluster for 1C
+      - name: Creating a {{ PG }} cluster for 1С
         href: tutorials/1c-postgresql.md
       - name: Exporting databases to {{ dataproc-full-name }}
         href: tutorials/sqoop.md
+      - name: Searching for cluster performance issues
+        href: tutorials/performance-problems.md
       - name: Performance analysis and tuning
         href: tutorials/profiling.md
       - name: >-

@@ -13,7 +13,6 @@ You can add, rename, and remove databases, as well as view information about the
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
    1. Click the cluster name and open the **{{ ui-key.yacloud.postgresql.cluster.switch_databases }}** tab.
 
-
 - CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
@@ -27,7 +26,6 @@ You can add, rename, and remove databases, as well as view information about the
    ```
 
    You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
-
 
 - API {#api}
 
@@ -263,6 +261,12 @@ You can add, rename, and remove databases, as well as view information about the
    * New value of the `deletionProtection` parameter. The possible values are `true` and `false`. The default value is `unspecified` (inherited from the cluster).
 
 {% endlist %}
+
+{% note warning %}
+
+Deletion protection only applies at specific DB level. Deleting a cluster will delete all DBs, including those protected from deletion.
+
+{% endnote %}
 
 ## Deleting a database {#remove-db}
 

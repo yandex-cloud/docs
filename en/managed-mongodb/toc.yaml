@@ -32,16 +32,22 @@ items:
             href: operations/cluster-backups.md
           - name: Deleting a cluster
             href: operations/cluster-delete.md
+      - name: Connection
+        items:
+          - name: Pre-configuration
+            href: operations/connect/index.md
+          - name: Connecting from applications
+            href: operations/connect/clients.md
+          - name: Code snippets
+            items:
+              - name: Overview
+                href: operations/connect/code-examples.md
+              - name: Examples for connection to a non-sharded cluster
+                href: operations/connect/non-sharded.md
+              - name: Examples for connection to a sharded cluster
+                href: operations/connect/sharded.md
       - name: Databases
         items:
-          - name: Connecting to a database
-            items:
-              - name: Overview of database connection methods
-                href: operations/connect/index.md
-              - name: Connecting to a non-sharded cluster
-                href: operations/connect/non-sharded.md
-              - name: Connecting to a sharded cluster
-                href: operations/connect/sharded.md
           - name: Managing databases
             href: operations/databases.md
           - name: Managing database users
