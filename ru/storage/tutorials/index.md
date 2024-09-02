@@ -32,6 +32,7 @@ description: "На странице представлен список прак
 * [{#T}](./object-storage-to-greenplum.md)
 * [{#T}](./object-storage-to-clickhouse.md)
 * [{#T}](./object-storage-to-ydb.md)
+* [{#T}](./elasticsearch-to-opensearch.md)
 * [{#T}](./gatsby-static-website.md)
 * [{#T}](./static-key-in-lockbox.md)
 * [{#T}](./opensearch-to-object-storage.md)

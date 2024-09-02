@@ -365,6 +365,14 @@ Command result:
          * `m`: Minutes
          * `h`: Hours
 
+      * `ingress.alb.yc.io/security-profile-id`: Support for [{{ sws-full-name }}](../../smartwebsecurity/concepts/index.md) that allows you to get protected against DDoS attacks and bots, plus enable [WAF](../../smartwebsecurity/concepts/waf.md) and [limit the load](../../smartwebsecurity/concepts/arl.md) on the resource you are protecting.
+
+         To enable support for {{ sws-full-name }}, specify the previously created {{ sws-name }} [security profile](../../smartwebsecurity/concepts/profiles.md) in the Ingress annotation:
+
+         ```yaml
+         ingress.alb.yc.io/security-profile-id: <security_profile_ID>
+         ```
+
       * `ingress.alb.yc.io/use-regex`: Support for [RE2](https://github.com/google/re2/wiki/Syntax) regular expressions when matching the request path. If the `true` string is provided, the support is enabled. Only applies if the `pathType` parameter is set to `Exact`.
 
       {% endcut %}
@@ -617,6 +625,14 @@ Command result:
          * `m`: Minutes
          * `h`: Hours
 
+      * `ingress.alb.yc.io/security-profile-id`: Support for [{{ sws-full-name }}](../../smartwebsecurity/concepts/index.md) that allows you to get protected against DDoS attacks and bots, plus enable [WAF](../../smartwebsecurity/concepts/waf.md) and [limit the load](../../smartwebsecurity/concepts/arl.md) on the resource you are protecting.
+
+         To enable support for {{ sws-full-name }}, specify the previously created {{ sws-name }} [security profile](../../smartwebsecurity/concepts/profiles.md) in the Ingress annotation:
+
+         ```yaml
+         ingress.alb.yc.io/security-profile-id: <security_profile_ID>
+         ```
+
       * `ingress.alb.yc.io/use-regex`: Support for [RE2](https://github.com/google/re2/wiki/Syntax) regular expressions when matching the request path. If the `true` string is provided, the support is enabled. Only applies if the `pathType` parameter is set to `Exact`.
 
       {% note info %}
@@ -632,7 +648,7 @@ Command result:
       kubectl apply -f .
       ```
 
-   1. Wait until the Ingress controller is created and assigned a public IP address. This may take several minutes:
+   1. Wait until the Ingress controller is created and assigned a public IP address. This may take several minutes.
 
       To track the progress of controller creation and check that it is error-free, open the logs of the pod where the controller is being created:
 

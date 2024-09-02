@@ -63,6 +63,9 @@ To learn how to manage access to buckets and objects in them, see [{#T}](../conc
 
 {% include [roles-primitive](../../_includes/roles-primitive.md) %}
 
+{% include [primitive-roles-footnote](../../_includes/primitive-roles-footnote.md) %}
+
 ## See also {#see-also}
 
 * [{#T}](../operations/buckets/iam-access.md)
+

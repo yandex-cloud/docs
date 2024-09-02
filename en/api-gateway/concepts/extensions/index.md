@@ -20,6 +20,7 @@ The `x-yc-apigateway` extension allows you to set parent API gateway parameters 
 | `cors` | `CorsRuleObject` | [Rule for handling CORS preflight requests](cors.md#corsrule_object) or a link to it. It can be overridden at the level of a specific path. |
 | `rateLimit` | `RateLimitObject` | [Request rate limit](rate-limit.md#rate_limit_object) or a link to it. It can be overridden at the level of a specific path or operation. |
 | `ignoreTrailingSlashes` | `boolean` | If `true`, {{ api-gw-name }} ignores the trailing slash (`/`) in the request URL; otherwise, it uses the exact URL path to search for a handler in the OpenAPI specification. The default value is `true`. |
+| `securityProfileId` | `string` | {{ sws-name }} [security profile](../../../smartwebsecurity/concepts/profiles.md) ID |
 
 ### Extension specification {#tl-spec}
 
@@ -30,6 +31,8 @@ x-yc-apigateway:
   cors: <CorsRuleObject_or_link_to_it>
   rateLimit: <RateLimitObject_or_link_to_it>
   ignoreTrailingSlashes: <true_or_false>
+  smartWebSecurity:
+    securityProfileId: <security_profile_ID>
 ```
 
 ## x-yc-apigateway-integration extension {#integration}
@@ -113,7 +116,7 @@ components:
 
 ## x-yc-status-mapping extension {#status-mapping}
 
-The [x-yc-status-mapping](status-mapping.md) extension allows you to replace a response code in an integration.
+The [x-yc-status-mapping](status-mapping.md) extensions allows you to replace a response code in an integration.
 
 ### Extension specification {#status-mapping-spec}
 

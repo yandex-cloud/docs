@@ -44,6 +44,8 @@ To edit the basic settings of a [resource](../../concepts/resource.md):
 
       {% include [enable-secure-token](../../../_includes/cdn/enable-secure-token.md) %}
 
+      {% include [enable-ip-policy](../../../_includes/cdn/enable-ip-policy.md) %}
+
       For more information, see [{#T}](enable-secure-token.md).
 
    1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -132,7 +134,7 @@ To edit the basic settings of a [resource](../../concepts/resource.md):
 
       {% include [create-resource-tf](../../../_includes/cdn/create-resource-tf.md) %}
 
-   1. In the command line, go to the directory with the {{ TF }} configuration file.
+   1. In the command line, go to the folder with the {{ TF }} configuration file.
 
    1. Check the configuration using this command:
       ```

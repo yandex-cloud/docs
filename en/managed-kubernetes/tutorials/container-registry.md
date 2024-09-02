@@ -19,7 +19,7 @@ To integrate {{ managed-k8s-name }} with {{ container-registry-name }}:
 1. [Run the test app](#test-app).
 1. [Delete the resources you created](#delete-resources).
 
-{% include [requirements](backup.md#requirements) %}
+{% include [requirements](kubernetes-backup.md#requirements) %}
 
 {% include [before-you-begin](../../_includes/before-begin.md) %}
 
@@ -232,7 +232,7 @@ Build a Docker image and push it to the registry.
 
       {% endlist %}
 
-   1. Build a Docker image:
+   1. Build the Docker image:
 
       ```
       docker build . -f hello.dockerfile -t {{ registry }}/$REGISTRY_ID/ubuntu:hello
@@ -362,6 +362,6 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
 #### See also {#see-also}
 
-* [{#T}](../../container-registry/concepts/docker-image.md).
-* [{#T}](../../container-registry/operations/authentication.md).
-* [{#T}](../../container-registry/operations/index.md).
+* [{#T}](../../container-registry/concepts/docker-image.md)
+* [{#T}](../../container-registry/operations/authentication.md)
+* [{#T}](../../container-registry/operations/index.md)

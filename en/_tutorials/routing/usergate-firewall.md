@@ -430,7 +430,7 @@ You can also add other traffic filtering rules. We don't recommend combining ser
 
 ## Set up routing for the subnet {#subnet-routing}.
 
-Create a [static route](../../vpc/concepts/static-routes.md):
+Create a [static route](../../vpc/concepts/routing.md):
 
 {% list tabs group=instructions %}
 
@@ -462,7 +462,7 @@ Create a [static route](../../vpc/concepts/static-routes.md):
 
 - CLI {#cli}
 
-   To create a routing table and add [static routes](../../vpc/concepts/static-routes.md):
+   To create a routing table and add [static routes](../../vpc/concepts/routing.md):
    1. View a description of the CLI command for creating routing tables:
 
       ```bash
@@ -553,7 +553,7 @@ Create a [static route](../../vpc/concepts/static-routes.md):
 
 - {{ TF }} {#tf}
 
-   To create a routing table and add [static routes](../../vpc/concepts/static-routes.md):
+   To create a routing table and add [static routes](../../vpc/concepts/routing.md):
 
    1. In the configuration file, describe the parameters of the resources you want to create:
 

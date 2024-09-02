@@ -4,9 +4,9 @@
 [Velero](https://velero.io/) is a backup, recovery, and migration tool for [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) objects, including [persistent volumes](../../concepts/volume.md#persistent-volume). With Velero, you can:
 * Protect your data from loss using a flexible backup system.
 * Recover a {{ managed-k8s-name }} cluster faster if it goes down.
-* Transfer data across {{ managed-k8s-name }} clusters.
+* Move your data from one {{ managed-k8s-name }} cluster to another.
 
-Velero uses the {{ CSI }} driver to [create backups](../../tutorials/backup.md) and restore persistent volumes from {{ yandex-cloud }} [disk snapshots](../../../compute/concepts/snapshot.md).
+Velero uses the {{ CSI }} driver to [create backups](../../tutorials/kubernetes-backup.md) and restore persistent volumes from {{ yandex-cloud }} [disk snapshots](../../../compute/concepts/snapshot.md).
 
 ## Getting started {#before-you-begin}
 
@@ -20,7 +20,7 @@ Velero uses the {{ CSI }} driver to [create backups](../../tutorials/backup.md) 
    yc iam service-account create --name <service_account_name>
    ```
 
-1. [Assign the service account](../../../iam/operations/sa/assign-role-for-sa.md) the `storage.editor` role:
+1. [Assign](../../../iam/operations/sa/assign-role-for-sa.md) the `storage.editor` role to the service account:
 
    ```bash
    yc resource-manager folder add-access-binding <folder_ID> \
@@ -56,7 +56,7 @@ Velero uses the {{ CSI }} driver to [create backups](../../tutorials/backup.md) 
 
       {% endnote %}
 
-   * **Application name**: Enter a name for the application.
+   * **Application name**: Specify the app name.
    * **{{ objstorage-name }} static access key**: Copy the contents of the `sa-key.json` file or create a new [access key](../../../iam/concepts/authorization/access-key.md) for the service account. The service account must have the `storage.editor` role.
    * **{{ objstorage-name }} bucket name**: Specify the name of the {{ objstorage-name }} bucket.
 1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.

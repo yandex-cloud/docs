@@ -2,7 +2,7 @@ title: Yandex Managed Service for Kubernetes
 href: index.yaml
 label:
   title: KZ
-  description: The service is available in Kazakhstan.
+  description: This service is only available in the Kazakhstan region.
   theme: info
   when: region == "kz"
 items:
@@ -64,6 +64,8 @@ items:
             href: operations/applications/gitlab-runner.md
           - name: Installing HashiCorp Vault
             href: operations/applications/hashicorp-vault.md
+          - name: Installing Ingress NGINX
+            href: operations/applications/ingress-nginx.md
           - name: Installing the {{ alb-name }} Ingress controller
             href: operations/applications/alb-ingress-controller.md
           - name: Upgrading the {{ alb-name }} Ingress controller
@@ -161,7 +163,7 @@ items:
         href: tutorials/new-kubernetes-project.md
       - name: Creating a {{ k8s }} cluster with no internet access
         href: tutorials/k8s-cluster-with-no-internet.md
-      - name: Running workloads using GPUs
+      - name: Running workloads with GPUs
         href: tutorials/running-pod-gpu.md
       - name: Using node groups with GPUs and no pre-installed drivers
         href: tutorials/driverless-gpu.md
@@ -214,7 +216,7 @@ items:
       - name: Backups
         items:
           - name: Backups to {{ objstorage-name }}
-            href: tutorials/backup.md
+            href: tutorials/kubernetes-backup.md
           - name: Working with snapshots
             href: tutorials/pvc-snapshot-restore.md
       - name: Monitoring
@@ -263,7 +265,7 @@ items:
         href: concepts/index.md
       - name: Release channels and updates
         href: concepts/release-channels-and-updates.md
-      - name: Encrypting secrets
+      - name: Encryption
         href: concepts/encryption.md
       - name: Using {{ k8s }} API objects
         items:

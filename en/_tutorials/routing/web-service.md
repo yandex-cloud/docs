@@ -90,7 +90,7 @@ Configure routing between the remote network and your IPSec instance. In the exa
 
 ### Create a route table {#create-route-table}
 
-Create a route table and add [static routes](../../vpc/concepts/static-routes.md):
+Create a route table and add [static routes](../../vpc/concepts/routing.md):
 
 {% list tabs %}
 

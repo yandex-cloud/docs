@@ -25,7 +25,7 @@ You can only specify one filter per lifecycle rule. To specify more than one fil
 
 If you are using the [S3 API](../s3/index.md), specify a lifecycle configuration in [XML format](../s3/api-ref/lifecycles/xml-config.md). For various [tools](../tools/index.md) with the S3 API support, other configuration formats may be required. The AWS CLI, for example, uses the JSON format.
 
-You can only configure object lifecycles for each individual bucket, not for a bucket group, folder, or cloud.
+You can only [configure](../operations/buckets/lifecycles.md) object lifecycles for each individual bucket, not for a bucket group, folder, or cloud.
 
 Once a day, lifecycles are updated with the latest changes as of 00:00 UTC. This operation takes a few hours to complete.
 

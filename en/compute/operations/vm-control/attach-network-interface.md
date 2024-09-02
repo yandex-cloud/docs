@@ -3,7 +3,7 @@
 
 A virtual machine can have one or more [network interfaces](../../concepts/network.md). For more information on the maximum number of VM network interfaces, see [{#T}](../../concepts/limits.md).
 
-You can add network interfaces to either [running](#add-to-running) or [stopped](#add-to-stopped) VMs. To maintain [network connectivity](../../../vpc/concepts/static-routes.md#rt-vm), we recommend adding network interfaces to stopped VMs.
+You can add network interfaces to either [running](#add-to-running) or [stopped](#add-to-stopped) VMs. To maintain [network connectivity](../../../vpc/concepts/routing.md#rt-vm), we recommend adding network interfaces to stopped VMs.
 
 ## Adding a network interface to a stopped VM {#add-to-stopped}
 
@@ -322,7 +322,7 @@ If your VM is running Linux and you cannot restart it, you can activate the netw
       sudo dhclient <interface_name>
       ```
 
-   1. Delete the default route for the new network interface from the [VM's route table](../../../vpc/concepts/static-routes.md#rt-vm):
+   1. Delete the default route for the new network interface from the [VM's route table](../../../vpc/concepts/routing.md#rt-vm):
 
       ```bash
       sudo ip route del default dev <interface_name>
@@ -387,7 +387,7 @@ To check the performance of the attached network interface:
 
       `state UP` for the `eth0`, `eth1`, and `eth2` interfaces means that they are running and active.
 
-   1. To view the [VM's route table](../../../vpc/concepts/static-routes.md#rt-vm), run this command:
+   1. To view the [VM's route table](../../../vpc/concepts/routing.md#rt-vm), run this command:
 
       ```bash
       ip r

@@ -6,7 +6,7 @@ The `vpc.securityGroups.user` role allows you to assign security groups to netwo
 * Get a list of [cloud networks](../../../vpc/concepts/network.md#network) and view information on them.
 * Get a list of [subnets](../../../vpc/concepts/network.md#subnet) and view information on them.
 * Get a list of [cloud resource addresses](../../../vpc/concepts/address.md) and view information on them.
-* Get a list of [route tables](../../../vpc/concepts/static-routes.md#rt-vpc) and view information on them.
+* Get a list of [route tables](../../../vpc/concepts/routing.md#rt-vpc) and view information on them.
 * Get a list of [security groups](../../../vpc/concepts/security-groups.md) and view information on them.
 * View information on [NAT gateways](../../../vpc/concepts/gateways.md).
 * View information on the IP addresses used in subnets.

@@ -48,7 +48,7 @@ You can use {{ managed-k8s-name }} to deploy, scale, and manage your containe
 
 ## Backups {#backup}
 
-* [{#T}](backup.md)
+* [{#T}](kubernetes-backup.md)
 * [{#T}](pvc-snapshot-restore.md)
 
 ## Monitoring {#monitoring}

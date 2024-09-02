@@ -137,7 +137,7 @@
 
 1. Если вы создаете задачу с помощью внешнего источника (например, [{{ forms-full-name }}](../forms/create-task.md)), при настройке [интеграции](manager/forms-integration.md) сохраняйте данные для построения виджета в новое поле.
 
-1. [Отредактируйте](user/edit-dashboard.md#section_xz4_bk4_mz) старый виджет: укажите в настройках новое поле вместо поля **{{ ui-key.startrek.ui_components_dashboard.summary-field-name }}**.
+1. [Отредактируйте](user/edit-dashboard.md#section_xz4_bk4_mz) старый виджет: укажите в настройках новое поле вместо поля **Задача**.
 
 
 ## Как отключить автоматический выход из аккаунта у федеративного пользователя {#disable-auto-log-out}

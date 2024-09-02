@@ -39,7 +39,7 @@ The `dataproc.provisioner` role grants access to the API to create, update, and 
 * View the list of [cloud networks](../../vpc/concepts/network.md#network) and info on them, as well as use them.
 * View the list of [subnets](../../vpc/concepts/network.md#subnet) and info on them, as well as use them.
 * View the list of [cloud resource addresses](../../vpc/concepts/address.md) and info on them, as well as use such addresses.
-* View the list of [route tables](../../vpc/concepts/static-routes.md#rt-vpc) and info on them, as well as use them.
+* View the list of [route tables](../../vpc/concepts/routing.md#rt-vpc) and info on them, as well as use them.
 * View the list of security groups and info on them, as well as use them.
 * View information on [NAT gateways](../../vpc/concepts/gateways.md) and connect them to route tables.
 * View information on the IP addresses used in subnets.

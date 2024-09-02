@@ -39,3 +39,5 @@ Using the {{ yandex-cloud }} console or the YC CLI, you can assign a role for a 
 ### Primitive roles {#primitive-roles}
 
 {% include [roles-primitive](../../_includes/roles-primitive.md) %}
+
+{% include [primitive-roles-footnote](../../_includes/primitive-roles-footnote.md) %}

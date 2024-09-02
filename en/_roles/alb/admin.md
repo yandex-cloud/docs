@@ -11,7 +11,7 @@ The `alb.admin` role enables managing Application Load Balancer resources and in
 * View the list of [cloud networks](../../vpc/concepts/network.md#network) and info on them, as well as use them.
 * View the list of [subnets](../../vpc/concepts/network.md#subnet) and info on them, as well as use them.
 * View the list of [cloud resource addresses](../../vpc/concepts/address.md) and info on them, as well as use such addresses.
-* View the list of [route tables](../../vpc/concepts/static-routes.md#rt-vpc) and info on them, as well as use them.
+* View the list of [route tables](../../vpc/concepts/routing.md#rt-vpc) and info on them, as well as use them.
 * View the list of [security groups](../../vpc/concepts/security-groups.md) and info on them, as well as use them.
 * View information on [NAT gateways](../../vpc/concepts/gateways.md) and connect them to route tables.
 * View the info on the used IP addresses in subnets, as well as create [internal addresses](../../vpc/concepts/address.md#internal-addresses).

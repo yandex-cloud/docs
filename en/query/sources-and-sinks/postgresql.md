@@ -106,7 +106,7 @@ The table below shows how {{ PG }} and {{ yq-full-name }} types map. All other d
 | `timestamp` | `Optional<Utf8>` | |
 | `bytea` | `Optional<String>` | |
 | `character` | `Optional<Utf8>` | Default [sorting rules](https://www.postgresql.org/docs/current/collation.html) apply; the string is padded with spaces to the required length. |
-| `character varying` | `Utf8` | Default [sorting rules](https://www.postgresql.org/docs/current/collation.html) apply. |
-| `text` | `Utf8` | Default [sorting rules](https://www.postgresql.org/docs/current/collation.html) apply. |
-| `json` | `Json` | |
+| `character varying` | `Optional<Utf8>` | Default [sorting rules](https://www.postgresql.org/docs/current/collation.html) apply. |
+| `text` | `Optional<Utf8>` | Default [sorting rules](https://www.postgresql.org/docs/current/collation.html) apply. |
+| `json` | `Optional<Json>` | |
 

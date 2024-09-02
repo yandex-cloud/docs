@@ -15,7 +15,7 @@ The default static route (`0.0.0.0/0`) is used for VMs with public IPs. If you n
 
 - Management console {#console}
 
-   To create a route table and add [static routes](../concepts/static-routes.md):
+   To create a route table and add [static routes](../concepts/routing.md):
    1. In the [management console]({{ link-console-main }}), go to the folder where you need to create a static route.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.vpc.network.switch_route-table }}**.
@@ -42,7 +42,7 @@ The default static route (`0.0.0.0/0`) is used for VMs with public IPs. If you n
 
 - CLI {#cli}
 
-   To create a route table and add [static routes](../concepts/static-routes.md):
+   To create a route table and add [static routes](../concepts/routing.md):
    1. View a description of the CLI command for creating routing tables:
 
       ```
@@ -138,7 +138,7 @@ The default static route (`0.0.0.0/0`) is used for VMs with public IPs. If you n
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-   To create a route table and add [static routes](../concepts/static-routes.md):
+   To create a route table and add [static routes](../concepts/routing.md):
 
    1. In the configuration file, describe the parameters of the resources you want to create:
 
@@ -197,7 +197,7 @@ The default static route (`0.0.0.0/0`) is used for VMs with public IPs. If you n
 
 - API {#api}
 
-   To create a route table and add [static routes](../concepts/static-routes.md) to it, use the [create](../api-ref/RouteTable/create.md) REST API method for the [RouteTable](../api-ref/RouteTable/index.md) resource or the [RouteTableService/Create](../api-ref/grpc/route_table_service.md#Create) gRPC API call, and provide the following in the request:
+   To create a route table and add [static routes](../concepts/routing.md) to it, use the [create](../api-ref/RouteTable/create.md) REST API method for the [RouteTable](../api-ref/RouteTable/index.md) resource or the [RouteTableService/Create](../api-ref/grpc/route_table_service.md#Create) gRPC API call, and provide the following in the request:
 
    * ID of the folder where the route table will be placed, in the `folderId` parameter.
    * Route table name, in the `name` parameter. The name format is as follows:

@@ -219,7 +219,7 @@ We recommend using a [VM](../../compute/concepts/vm.md) with basic configuration
 
 - CLI {#cli}
 
-   1. [Prepare](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) the public and private key pair for SSH access to the VM.
+   1. [Prepare](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) a key pair (public and private keys) for SSH access to the VM.
 
    1. Create the `docker-spec.yaml` Docker container specification file:
 

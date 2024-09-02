@@ -58,7 +58,7 @@ If an [ACL](../../concepts/acl.md) has been set for an object, it will be comple
    * `--bucket`: Bucket name.
    * `--key`: Object key.
 
-   You can apply a [predefined ACL](../../concepts/acl.md#predefined-acls) to an object or configure permissions for individual users, [service accounts](../../../iam/concepts/users/service-accounts.md), [user groups](../../../organization/concepts/groups.md) and [system groups](../../concepts/acl.md#system-groups) (e.g., a group of all internet users or a group of all authenticated {{ yandex-cloud }} users). These settings are not compatible: an object should have either a predefined ACL or a set of individual permissions.
+   You can apply a [predefined ACL](../../concepts/acl.md#predefined-acls) to an object or configure permissions for individual users, [service accounts](../../../iam/concepts/users/service-accounts.md), [user groups](../../../organization/concepts/groups.md) and [public groups](../../concepts/acl.md#public-groups) (e.g., a group of all internet users or a group of all authenticated {{ yandex-cloud }} users). These settings are not compatible: an object should have either a predefined ACL or a set of individual permissions.
 
    **Predefined ACL**
 
@@ -84,8 +84,8 @@ If an [ACL](../../concepts/acl.md) has been set for an object, it will be comple
    1. To grant ACL permissions to a {{ yandex-cloud }} user, service account, or user group, get their ID:
 
       
-      * [User](../../../iam/operations/users/get.md)
-      * [Service account](../../../iam/operations/sa/get-id.md)
+      * [User](../../../iam/operations/users/get.md).
+      * [Service account](../../../iam/operations/sa/get-id.md).
       * User group: Navigate to the [**{{ ui-key.yacloud_org.pages.groups }}**]({{ link-org-main }}groups) tab in the {{ org-name }} interface.
 
 
@@ -112,8 +112,8 @@ If an [ACL](../../concepts/acl.md) has been set for an object, it will be comple
          You can set multiple permissions within the same command.
       * The possible permission grantees are:
          * `id=<grantee_ID>`: ID of the user, service account, or user group to grant permission to.
-         * `uri=http://acs.amazonaws.com/groups/global/AuthenticatedUsers`: [System group](../../concepts/acl.md#system-groups) of all authenticated {{ yandex-cloud }} users.
-         * `uri=http://acs.amazonaws.com/groups/global/AllUsers`: System group of all internet users.
+         * `uri=http://acs.amazonaws.com/groups/global/AuthenticatedUsers`: [Public group](../../concepts/acl.md#public-groups) of all authenticated {{ yandex-cloud }} users.
+         * `uri=http://acs.amazonaws.com/groups/global/AllUsers`: Public group of all internet users.
 
 - {{ TF }} {#tf}
 

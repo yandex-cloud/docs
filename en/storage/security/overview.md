@@ -5,7 +5,7 @@
 * [Access control list (ACL)](#acl)
 * [Bucket policy](#policy)
 * [Public access](#anonymous)
-* [{{ sts-name }}](#sts)
+* [{{ sts-name }}](#sts)​
 * [Pre-signed URLs](#pre-signed)
 
 The flow chart below shows how these methods work together in {{ objstorage-name }}.
@@ -46,6 +46,7 @@ Access grantees include:
 * [Federated user](../../iam/concepts/federations.md)
 * [User group](../../organization/operations/manage-groups.md)
 * [System group](../../iam/concepts/access-control/system-group.md)
+* [Public group](../../iam/concepts/access-control/public-group.md)
 
 Access is granted to a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), [folder](../../resource-manager/concepts/resources-hierarchy.md#folder), or [bucket](../concepts/bucket.md).
 
@@ -65,6 +66,7 @@ Access grantees include:
 * [Federated user](../../iam/concepts/federations.md)
 * [User group](../../organization/operations/manage-groups.md) (you can specify a user group using the {{ yandex-cloud }} CLI, AWS CLI, {{ TF }}, and the API, see [Editing a bucket ACL](../operations/buckets/edit-acl.md) and [Editing an object ACL](../operations/objects/edit-acl.md))
 * [System group](../../iam/concepts/access-control/system-group.md)
+* [Public group](../../iam/concepts/access-control/public-group.md)
 
 Access is granted to a [bucket](../concepts/bucket.md) or [object](../concepts/object.md).
 

@@ -2,7 +2,7 @@
 
 _IP-based access policy_ allows you to restrict access to content distributed over a CDN by setting an _allow_ or _block_ policy for [CDN resources](./resource.md).
 
-You can configure the access policy when [creating](../operations/resources/create-resource.md) or [updating](../operations/resources/configure-basics.md) a CDN resource using the [CLI](../../cli/quickstart.md), [{{ TF }}]({{ tf-provider-resources-link }}/cdn_resource), and [API](../../api-design-guide/concepts/general.md).
+You can configure the access policy when [creating](../operations/resources/create-resource.md) or [updating](../operations/resources/configure-basics.md) a CDN resource using the [management console]({{ link-console-main }}), [CLI](../../cli/quickstart.md), [{{ TF }}]({{ tf-provider-resources-link }}/cdn_resource), and [API](../../api-design-guide/concepts/general.md).
 
 The IP-based access policy is defined by the [policy type](#policy-type) and the [list of IP addresses](#ip-list) to exclude from the policy.
 

@@ -18,7 +18,7 @@ _Public IP addresses_ allow cloud resources to exchange data with the internet a
 
 {% note info %}
 
-A virtual machine can access the internet and you can access the VM via a public IP address only if there is no `0.0.0.0/0` default [static route](./static-routes.md) in its subnet. If a virtual machine is [behind a NAT instance](../../tutorials/routing/nat-instance.md), you can connect to it via an internal IP address using the NAT instance as a jump host:
+A virtual machine can access the internet and you can access the VM via a public IP address only if there is no `0.0.0.0/0` default [static route](./routing.md) in its subnet. If a virtual machine is [behind a NAT instance](../../tutorials/routing/nat-instance.md), you can connect to it via an internal IP address using the NAT instance as a jump host:
 
 ```bash
 ssh -J <NAT_instance_user_name>@<NAT_instance_public_IP_address> \

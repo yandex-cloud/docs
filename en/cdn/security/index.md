@@ -40,9 +40,11 @@ In this section, you will learn:
 
 {% include [roles-primitive](../../_includes/roles-primitive.md) %}
 
+{% include [primitive-roles-footnote](../../_includes/primitive-roles-footnote.md) %}
+
 ## What roles do I need {#required-roles}
 
-The table below lists the roles needed to perform a particular action. You can always assign a role granting more permissions than the role specified. For example, you can assign the `editor` role instead of `viewer`.
+The table below lists the roles required to perform a particular action. You can always assign a role offering more permissions than the one specified. For example, you can assign the `editor` role instead of `viewer`.
 
 | Action | Required roles |
 -------- | --------
@@ -67,7 +69,7 @@ The table below lists the roles needed to perform a particular action. You can a
 | [Delete an origin group](../operations/origin-groups/delete-group.md) | `cdn.editor` for the folder with an origin group |
 | **Manage paid features** |
 | Origin shielding | `cdn.editor` for the folder with CDN resources |
-| Exporting logs | `cdn.editor` for the folder with CDN resources |
+| Log export | `cdn.editor` for the folder with CDN resources |
 | **Manage resource access** |
 | [Grant a role](../../iam/operations/roles/grant.md), [revoke a role](../../iam/operations/roles/revoke.md), and view roles granted for the resource | `admin` for the resource |
 

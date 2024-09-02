@@ -37,15 +37,15 @@ You can use an existing [cloud network](../vpc/concepts/network.md#network) and 
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), go to the folder where you want to create a VM with a {{ backup-name }} connection.
-   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-   1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
-   1. In the **{{ ui-key.yacloud.vpc.networks.create.field_name }}** field, enter a name for the network. The naming requirements are as follows:
+  1. In the [management console]({{ link-console-main }}), go to the folder where you want to create a VM with a {{ backup-name }} connection.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
+  1. In the **{{ ui-key.yacloud.vpc.networks.create.field_name }}** field, enter a name for the network. The naming requirements are as follows:
 
       {% include [name-format](../_includes/name-format.md) %}
 
-   1. Keep **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}** enabled.
-   1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
+  1. Keep **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}** enabled.
+  1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
 
 {% endlist %}
 
@@ -63,13 +63,13 @@ You can use an existing [security group](../vpc/concepts/security-groups.md) or 
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), go to the folder where you want to create a VM with a {{ backup-name }} connection.
-   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-   1. In the left-hand panel, select ![image](../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.switch_security-groups }}**.
-   1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
-   1. Enter a name for the security group.
-   1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** field, select the network that the security group will refer to.
-   1. Click **{{ ui-key.yacloud.common.create }}**.
+  1. In the [management console]({{ link-console-main }}), go to the folder where you want to create a VM with a {{ backup-name }} connection.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. In the left-hand panel, select ![image](../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.switch_security-groups }}**.
+  1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
+  1. Enter a name for the security group.
+  1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** field, select the network that the security group will refer to.
+  1. Click **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 
@@ -81,16 +81,16 @@ Add VM outgoing traffic [rules](../vpc/concepts/security-groups.md#security-grou
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), go to the folder where you want to create a VM with a {{ backup-name }} connection.
-   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-   1. In the left-hand panel, select ![image](../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.switch_security-groups }}**.
-   1. Next to the security group you want to add rules to, click ![image](../_assets/console-icons/ellipsis.svg) and select ![image](../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
-   1. Under **{{ ui-key.yacloud.vpc.network.security-groups.forms.label_section-rules }}**, go to the **{{ ui-key.yacloud.vpc.network.security-groups.label_egress }}** tab and click **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**.
-   1. Add the following outgoing traffic rules one by one:
+  1. In the [management console]({{ link-console-main }}), go to the folder where you want to create a VM with a {{ backup-name }} connection.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. In the left-hand panel, select ![image](../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.switch_security-groups }}**.
+  1. Next to the security group you want to add rules to, click ![image](../_assets/console-icons/ellipsis.svg) and select ![image](../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
+  1. Under **{{ ui-key.yacloud.vpc.network.security-groups.forms.label_section-rules }}**, go to the **{{ ui-key.yacloud.vpc.network.security-groups.label_egress }}** tab and click **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**.
+  1. Add the following outgoing traffic rules one by one:
 
       {% include [outgoing-traffic](../_includes/backup/outgoing-rules.md) %}
 
-   1. Click **{{ ui-key.yacloud.common.save }}**.
+  1. Click **{{ ui-key.yacloud.common.save }}**.
 
 {% endlist %}
 
@@ -124,9 +124,9 @@ To activate the service, you need _at least_ the `backup.editor` [role](security
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a VM with a {{ backup-name }} connection.
-   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
-   1. If you have not activated {{ backup-name }} yet, click **{{ ui-key.yacloud.backup.button_action-activate }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder where you want to create a VM with a {{ backup-name }} connection.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
+  1. If you have not activated {{ backup-name }} yet, click **{{ ui-key.yacloud.backup.button_action-activate }}**.
 
       If there is no **{{ ui-key.yacloud.backup.button_action-activate }}** button, and you have access to creating a VM with a {{ backup-name }} connection, it means the service has already been activated. Proceed to the next step.
 
@@ -160,7 +160,7 @@ To activate the service, you need _at least_ the `backup.editor` [role](security
       1. In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select the subnet you [prepared earlier](#network-setup).
       1. In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
 
-         Instead of assigning a public IP address to your VM, you can link the subnet hosting this VM to a [route table](../vpc/concepts/static-routes.md#rt-vm) allowing internet access via a [NAT gateway](../vpc/concepts/gateways.md) or a custom router.
+         Instead of assigning a public IP address to your VM, you can link the subnet hosting this VM to a [route table](../vpc/concepts/routing.md#rt-vm) allowing internet access via a [NAT gateway](../vpc/concepts/gateways.md) or a custom router.
 
       1. In the **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** field, select the security group you [configured previously](#sg-setup).
 

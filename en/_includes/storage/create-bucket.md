@@ -100,11 +100,11 @@ To create a [bucket](../../storage/concepts/bucket.md), you need _at least_ the 
 
       * Parameters to configure the bucket [ACL](../../storage/concepts/acl.md):
          * `--acl`: Predefined ACL. For a list of possible values, see [Predefined ACLs](../../storage/concepts/acl.md#predefined-acls). You cannot use this parameter together with the `--grants` parameter.
-         * `--grants`: Enables you to configure permissions for individual users, [service accounts](../../iam/concepts/users/service-accounts.md), [user groups](../../organization/concepts/groups.md), and [system groups](../../storage/concepts/acl.md#system-groups) (e.g., a group of all internet users or a group of all authenticated {{ yandex-cloud }} users). You cannot use this parameter together with the `--acl` parameter. Specify this parameter in the following format: `grant-type=<permission_grantee_type>,grantee-id=<grantee_ID>,permission=<permission_type>`, where:
-            * `grant-type`: Type of the permission grantee. The possible values include:
+         * `--grants`: Enables you to configure permissions for individual users, [service accounts](../../iam/concepts/users/service-accounts.md), [user groups](../../organization/concepts/groups.md), and [public groups](../../storage/concepts/acl.md#public-groups) (e.g., a group of all internet users or a group of all authenticated {{ yandex-cloud }} users). You cannot use this parameter together with the `--acl` parameter. Specify this parameter in the following format: `grant-type=<permission_grantee_type>,grantee-id=<grantee_ID>,permission=<permission_type>`, where:
+            * `grant-type`: Type of the permission grantee. The possible values are:
                * `grant-type-account`: User, [service account](../../iam/concepts/users/service-accounts.md), or [user group](../../organization/concepts/groups.md).
-               * `grant-type-all-authenticated-users`: [System group](../../storage/concepts/acl.md#system-groups) of all authenticated {{ yandex-cloud }} users.
-               * `grant-type-all-users`: System group of all internet users.
+               * `grant-type-all-authenticated-users`: [Public group](../../storage/concepts/acl.md#public-groups) of all authenticated {{ yandex-cloud }} users.
+               * `grant-type-all-users`: Public group of all internet users.
             * `grantee-id`: ID of the user, service account, or user group to grant permission to. It is specified only if `grant-type=grant-type-account`.
             * `permission`: ACL permission type. Possible values are `permission-full-control`, `permission-write`, and `permission-read`. For more information about permissions, see [Permission types](../../storage/concepts/acl.md#permissions-types).
 
@@ -158,7 +158,7 @@ To create a [bucket](../../storage/concepts/bucket.md), you need _at least_ the 
 
    {% cut "Optional parameters" %}
 
-   You can apply a [predefined ACL](../../storage/concepts/acl.md#predefined-acls) to a bucket or configure permissions for individual users, [service accounts](../../iam/concepts/users/service-accounts.md), [user groups](../../organization/concepts/groups.md) and [system groups](../../storage/concepts/acl.md#system-groups) (e.g., a group of all internet users or a group of all authenticated {{ yandex-cloud }} users). These settings are not compatible: a bucket should have either a predefined ACL or a set of individual permissions.
+   You can apply a [predefined ACL](../../storage/concepts/acl.md#predefined-acls) to a bucket or configure permissions for individual users, [service accounts](../../iam/concepts/users/service-accounts.md), [user groups](../../organization/concepts/groups.md) and [public groups](../../storage/concepts/acl.md#public-groups) (e.g., a group of all internet users or a group of all authenticated {{ yandex-cloud }} users). These settings are not compatible: a bucket should have either a predefined ACL or a set of individual permissions.
 
    {% note info %}
 
@@ -193,10 +193,10 @@ To create a [bucket](../../storage/concepts/bucket.md), you need _at least_ the 
       * `--grant-full-control`: Full access to the bucket and the objects in it.
 
       You can set multiple permissions within the same command.
-   * The possible permission grantees include:
+   * The possible permission grantees are:
       * `id=<grantee_ID>`: ID of the user, service account, or user group to grant permission to.
-      * `uri=http://acs.amazonaws.com/groups/global/AuthenticatedUsers`: [System group](../../storage/concepts/acl.md#system-groups) of all authenticated {{ yandex-cloud }} users.
-      * `uri=http://acs.amazonaws.com/groups/global/AllUsers`: System group of all internet users.
+      * `uri=http://acs.amazonaws.com/groups/global/AuthenticatedUsers`: [Public group](../../storage/concepts/acl.md#public-groups) of all authenticated {{ yandex-cloud }} users.
+      * `uri=http://acs.amazonaws.com/groups/global/AllUsers`: Public group of all internet users.
 
    By default, an empty ACL is created for each new bucket.
 

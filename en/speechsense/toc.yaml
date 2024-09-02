@@ -19,6 +19,8 @@ items:
             href: operations/data/upload-data.md
           - name: Uploading chat conversations
             href: operations/data/upload-chat-text.md
+          - name: Searching data
+            href: operations/data/search-data.md
           - name: Working with dialogs
             href: operations/data/manage-dialogs.md
           - name: Working with reports

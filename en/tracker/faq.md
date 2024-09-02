@@ -137,7 +137,7 @@ If you add keywords to issue names to use them for grouping issues in widgets, w
 
 1. If you use an external source to create an issue (e.g., [{{ forms-full-name }}](../forms/create-task.md)) when setting up [integration](manager/forms-integration.md), save the widget data to a new field.
 
-1. [Edit](user/edit-dashboard.md#section_xz4_bk4_mz) the old widget: use the new field instead of the **{{ ui-key.startrek.ui_components_dashboard.summary-field-name }}** field in the settings.
+1. [Edit](user/edit-dashboard.md#section_xz4_bk4_mz) the old widget: use the new field instead of the **Summary** field in the settings.
 
 
 ## How do I disable automatic sign-out for a federated user account? {#disable-auto-log-out}
