@@ -8,7 +8,7 @@ The `vpc.securityGroups.admin` role allows you to manage security groups and vie
 * Get a list of cloud networks and view information on them.
 * Get a list of [subnets](../../../vpc/concepts/network.md#subnet) and view information on them.
 * Get a list of [cloud resource addresses](../../../vpc/concepts/address.md) and view information on them.
-* Get a list of [route tables](../../../vpc/concepts/static-routes.md#rt-vpc) and view information on them.
+* Get a list of [route tables](../../../vpc/concepts/routing.md#rt-vpc) and view information on them.
 * View information on [NAT gateways](../../../vpc/concepts/gateways.md).
 * View information on the IP addresses used in subnets.
 * View information on Virtual Private Cloud [quotas](../../../vpc/concepts/limits.md#vpc-quotas).

@@ -416,7 +416,7 @@ To delete the infrastructure and stop paying for the resources you created:
 
 1. [Delete](../../storage/operations/buckets/delete.md) the {{ objstorage-name }} bucket.
 1. [Unlink](../../vpc/operations/subnet-update.md) the route table from the subnet.
-1. Delete the [route table](../../vpc/concepts/static-routes.md#rt-vm).
+1. Delete the [route table](../../vpc/concepts/routing.md#rt-vm).
 1. Delete the [NAT gateway](../../vpc/concepts/gateways.md).
 1. [Delete](../../managed-airflow/operations/cluster-delete.md) the {{ AF }} cluster.
 1. Delete the [subnets](../../vpc/operations/subnet-delete.md), [network](../../vpc/operations/network-delete.md), and the [service account](../../iam/operations/sa/delete.md), if required.

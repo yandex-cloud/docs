@@ -9,6 +9,7 @@ description: "The page contains all guides for {{ speechsense-name }} in {{ yand
 
 * [{#T}](data/upload-data.md)
 * [{#T}](data/upload-chat-text.md)
+* [{#T}](data/search-data.md)
 * [{#T}](data/manage-dialogs.md)
 * [{#T}](data/manage-reports.md)
 

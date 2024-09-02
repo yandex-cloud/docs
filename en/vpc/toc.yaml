@@ -145,8 +145,8 @@ items:
         href: concepts/network.md
       - name: Cloud resource addresses
         href: concepts/address.md
-      - name: Static routes
-        href: concepts/static-routes.md
+      - name: Routing
+        href: concepts/routing.md
       - name: Security groups
         href: concepts/security-groups.md
       - name: Gateways

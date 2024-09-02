@@ -22,5 +22,5 @@ Above you can see a general diagram showing the relationships between networks, 
 For more information about cloud networks, see:
 - [Cloud networks and subnets](network.md)
 - [Cloud resource addresses](address.md)
-- [Static routing](static-routes.md)
+- [Static routing](routing.md)
 - [Security groups](security-groups.md)

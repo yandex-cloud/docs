@@ -154,6 +154,8 @@ items:
                 href: concepts/extensions/cloud-functions.md
               - name: '{{ serverless-containers-name }}'
                 href: concepts/extensions/containers.md
+              - name: '{{ sws-name }}'
+                href: concepts/extensions/sws.md
               - name: '{{ objstorage-name }}'
                 href: concepts/extensions/object-storage.md
               - name: '{{ ml-platform-short-name }}'

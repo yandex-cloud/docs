@@ -85,14 +85,14 @@ When using {{ marketplace-name }} to install HashiCorp Vault that supports {{ km
 
    ```bash
    export HELM_EXPERIMENTAL_OCI=1 && \
-   cat <authorized_key_file_path> | helm registry login cr.yandex --username 'json_key' --password-stdin && \
-   helm pull oci://cr.yandex/yc-marketplace/yandex-cloud/vault/chart/vault \
-     --version 0.28.0+yckms \
+   cat <path_to_file_with_authorized_key> | helm registry login cr.yandex --username 'json_key' --password-stdin && \
+   helm pull oci://{{ registry }}/yc-marketplace/yandex-cloud/vault/chart/vault \
+     --version 0.28.1+yckms \
      --untar && \
    helm install \
      --namespace <namespace> \
      --create-namespace \
-     --set-file yandexKmsAuthJson=<authorized_key_file_path> \
+     --set-file yandexKmsAuthJson=<path_to_file_with_authorized_key> \
      --set yandexKmsKeyId=<KMS_key_ID> \
      hashicorp ./vault/
    ```

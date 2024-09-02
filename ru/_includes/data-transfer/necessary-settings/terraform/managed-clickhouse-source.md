@@ -1,4 +1,5 @@
 * {% include [Field Terraform Cluster ID](../../fields/clickhouse/terraform/cluster-id.md) %}
+* `clickhouse_cluster_name` — группа шардов, из которой будут передаваться данные. Если параметр не указан, будут передаваться данные из всех шардов.
 * {% include [Field Terraform Subnet ID](../../fields/clickhouse/terraform/subnet-id.md) %}
 * {% include [Field Terraform Security Group](../../fields/common/terraform/security-group-cluster-mdb.md) %}
 

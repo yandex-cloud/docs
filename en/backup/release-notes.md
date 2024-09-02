@@ -1,6 +1,6 @@
 # {{ backup-full-name }} release notes
 
-## Q2 2024 {#q1-2024}
+## Q2 2024 {#q2-2024}
 
 * Updated the {{ backup-name }} backup agent.
 * Added support for new operating systems:

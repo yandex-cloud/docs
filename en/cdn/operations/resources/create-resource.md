@@ -60,6 +60,9 @@ To create a [resource](../../concepts/resource.md):
          {% include [enable-secure-token](../../../_includes/cdn/enable-secure-token.md) %}
 
          For more information, see [{#T}](enable-secure-token.md).
+
+      1. {% include [enable-ip-policy](../../../_includes/cdn/enable-ip-policy.md) %}
+
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
@@ -152,7 +155,7 @@ To create a [resource](../../concepts/resource.md):
 
 - {{ TF }} {#tf}
 
-   Make sure to activate the CDN provider before a resource is created. You can activate it in the [management console]({{ link-console-main }}) or using the [CLI](../../../cli/) command:
+   Make sure to activate the CDN provider before a resource is created. You can activate it in the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/) command:
 
    ```bash
    yc cdn provider activate \

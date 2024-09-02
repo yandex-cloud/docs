@@ -19,10 +19,12 @@ To start writing logs, do the following:
 
 ## Prerequisites {#requirements}
 
-The source and target buckets must be in the same [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud).
+* The source and target buckets must be different.
+
+* The source and target buckets must be in the same [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud).
 
 
-[Encryption](../operations/buckets/encrypt.md) must be disabled on the target bucket.
+* [Encryption](../operations/buckets/encrypt.md) must be disabled on the target bucket.
 
 
 {% include [target-backet-note](../../_includes/storage/target-bucket-note.md) %}

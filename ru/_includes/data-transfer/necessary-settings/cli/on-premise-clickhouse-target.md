@@ -1,3 +1,4 @@
+* `--cluster-name` — имя кластера, в который будут передаваться данные.
 * {% include [Field CLI Shards and Hosts](../../fields/clickhouse/cli/host.md) %}
 * {% include [Field CLI HTTP Port](../../fields/clickhouse/cli/http-port.md) %}
 * {% include [Field CLI Native Port](../../fields/clickhouse/cli/native-port.md) %}

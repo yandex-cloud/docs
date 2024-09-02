@@ -6,6 +6,12 @@
 * [DNS-01](https://letsencrypt.org/docs/challenge-types/#dns-01-challenge). To pass this challenge, use [{{ dns-full-name }}](../../../dns/). Together with cert-manager, you need to install the ACME webhook {{ dns-full-name }} plugin for integration with the service.
 * [HTTP-01](https://letsencrypt.org/docs/challenge-types/#http-01-challenge). To pass this challenge, use an Ingress controller installed in a cluster.
 
+{% note info %}
+
+The cert-manager app with the {{ dns-full-name }} ACME webhook plugin supports [Wildcard certificates](https://en.wikipedia.org/wiki/Public_key_certificate#Wildcard_certificate).
+
+{% endnote %}
+
 ## Getting started {#before-you-begin}
 
 1. {% include [cli-install](../../../_includes/cli-install.md) %}
@@ -66,7 +72,6 @@
    * `https://acme-staging-v02.api.letsencrypt.org/directory`: Test URL.
 
    This command also creates a new namespace required for cert-manager.
-
 1. Make sure the cert-manager [pod](../../concepts/index.md#pod) has changed its status to `Running`:
 
    ```bash

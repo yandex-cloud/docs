@@ -1,3 +1,3 @@
-В строке тега, который надо продублировать, нажмите ![icon](../../../_assets/console-icons/ellipsis.svg), затем ![icon](../../../_assets/console-icons/copy.svg) **Дублировать**.
+В строке тега, который надо продублировать, нажмите ![icon](../../../_assets/console-icons/ellipsis.svg), затем ![icon](../../../_assets/console-icons/copy.svg) **{{ ui-key.yc-ui-talkanalytics.common.duplicate }}**.
 
 В открывшемся окне видно, что по умолчанию подставляются значения настроек, которые были заданы в исходном теге. Имя нового тега по умолчанию — `<имя_исходного_тега> 1`.

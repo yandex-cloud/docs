@@ -240,6 +240,7 @@ default:
   kraft-name: Apache Kafka® Raft
   kraft-short-name: KRaft
   lang: en
+  lets-encrypt: Let's Encrypt®
   license-manager: License Manager
   link-app-android: https://play.google.com/store/apps/details?id=ru.yandex.cloud
   link-app-ios: https://apps.apple.com/ru/app/yandex-cloud/id1515465314
@@ -4689,8 +4690,6 @@ default:
         editor-save-button: Save
       ui_components_dashboard_TableWidget:
         show-all: Show All
-      ui_components_dashboard:
-        summary-field-name: Summary
       ui_components_entity-page_ActivitySection:
         activity: Activity
         new-activity-on-top: New comments first
@@ -7256,7 +7255,6 @@ default:
             button_create: Create backup
             button_delete: Delete backup
             button_restore: Restore cluster
-            column_name: Name
             label_title: Backups
           databases:
             action_add-database: Create database
@@ -8307,6 +8305,8 @@ default:
                         title: Database
                       security_groups:
                         title: Security groups
+                      shard_group:
+                        title: Shard group
                     ClickHouseConnectionType:
                       managed:
                         title: Managed cluster
@@ -9523,6 +9523,47 @@ default:
         send-request: Send request
         temperature:
           title: Temperature
+    yc-ui-talkanalytics:
+      common:
+        delete-key-value: Delete
+        duplicate: Duplicate
+        edit: Edit
+        save: Save
+      connections:
+        fields:
+          client: Client
+          operator: Agent
+      dialogs:
+        classifiers: Tags
+      dictionaries:
+        add-dictionary: Add dictionary
+      projects:
+        dialogs: Dialogs
+      tags:
+        binding-events-key-value: Limitations
+        binding-events:
+          classifier: The main tag was triggered
+          dialog-start-key-value: Start of dialog
+          silence-key-value: Long pause
+        change-channel: Change channel
+        channel:
+          client: Client
+          operator: Agent
+          operator-and-client: Agent and customer
+        conditions: Trigger conditions
+        create-dependent-tag: Create dependent tag
+        create-tag-key-value: Create tag
+        exact-match-key-value: Exact match
+        exceptions: Exceptions
+        important-tag-key-value: Important tag
+        key-phrases-key-value: Keywords
+        new-channel: New channel
+        restrict-search-area-key-value: Limit the search area
+        restrictions: Restrictions
+        search-area-key-value: Search direction
+        search-area:
+          after-key-value: Forward
+        words-between-key-value: Distance between words
     yql:
       yq-audit-trails:
         audit-trails-type-toggle:
@@ -9724,7 +9765,7 @@ default:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/yc-alb-ingress/yc-alb-ingress-controller-chart
-        tag: v0.2.7
+        tag: v0.2.8
     yc_argo-cd:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/argo/chart/argo-cd

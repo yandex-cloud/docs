@@ -62,7 +62,7 @@ Mar 25 12:13:24 instance-name yc-container-daemon[518]:
 
 ## Not enough disk space {#disk-full}
 
-**Example:**
+**Example**:
 
 ```
 Mar 25 12:34:22 intr13-vm yc-container-daemon[518]:
@@ -83,6 +83,6 @@ Mar 25 12:34:46 intr13-vm yc-container-daemon[518]:
 WARNING: The requested image's platform (linux/arm64/v8) does not match the detected host platform (linux/amd64/v4) and no specific platform was requested
 ```
 
-**How to fix**: Use a Docker image compatible with a platform that fits in with your VM's OS and architecture.
+**How to fix**: Use a Docker image compatible with a platform that fits your VM's OS and architecture.
 
 One Docker image can support [multiple platforms](https://docs.docker.com/build/building/multi-platform/). When you run such an image, Docker will automatically select an option that fits in with your host's OS and architecture. If the image contains no suitable option, it will fail to run with an error message.

@@ -1,6 +1,6 @@
 ---
 title: "Access management in {{ cloud-desktop-full-name }}"
-description: "Access management in {{ cloud-desktop-full-name }}. Permissions are granted when assigning a role. A role can be assigned for an organization, a folder or a cloud: all organization and cloud permissions are inherited."
+description: "Access management in {{ cloud-desktop-full-name }}. Permissions are granted when assigning a role. You can assign a role for an organization, folder, or cloud: all permissions from a cloud or organization are inherited."
 ---
 
 # Access management in {{ cloud-desktop-name }}
@@ -13,7 +13,7 @@ In this section, you will learn:
 
 ## Which resources you can assign a role for {#resources}
 
-{% include [basic-resources](../../_includes/iam/basic-resources-for-access-control-without-service-account.md) %}
+{% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
 ## Which roles exist in the service {#roles-list}
 
@@ -36,6 +36,8 @@ For more information about service roles, see [{#T}](../../iam/concepts/access-c
 ### Primitive roles {#primitive-roles}
 
 {% include [roles-primitive](../../_includes/roles-primitive.md) %}
+
+{% include [primitive-roles-footnote](../../_includes/primitive-roles-footnote.md) %}
 
 #### What's next {#what-is-next}
 

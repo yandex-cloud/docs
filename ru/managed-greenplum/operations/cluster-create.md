@@ -254,100 +254,102 @@
 
 - {{ TF }} {#tf}
 
-    {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+  
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
 
   Чтобы создать кластер {{ mgp-name }}:
 
-    1. В командной строке перейдите в каталог, в котором будут расположены конфигурационные файлы {{ TF }} с планом инфраструктуры. Если такой директории нет — создайте ее.
+  1. В командной строке перейдите в каталог, в котором будут расположены конфигурационные файлы {{ TF }} с планом инфраструктуры. Если такой директории нет — создайте ее.
 
-    
-    1. {% include [terraform-install](../../_includes/terraform-install.md) %}
-
-    2. Создайте конфигурационный файл с описанием [облачной сети](../../vpc/concepts/network.md#network) и [подсетей](../../vpc/concepts/network.md#subnet).
-
-       Кластер размещается в облачной сети. Если подходящая сеть у вас уже есть, описывать ее повторно не нужно.
-
-       Хосты кластера размещаются в подсетях выбранной облачной сети. Если подходящие подсети у вас уже есть, описывать их повторно не нужно.
-
-       Пример структуры конфигурационного файла, в котором описывается облачная сеть с одной подсетью:
-
-       ```hcl
-       resource "yandex_vpc_network" "<имя_сети_в_{{ TF }}>" { name = "<имя_сети>" }
   
-       resource "yandex_vpc_subnet" "<имя_подсети_в_{{ TF }}>" {
-         name           = "<имя_подсети>"
-         zone           = "<зона_доступности>"
-         network_id     = yandex_vpc_network.<имя_сети_в_{{ TF }}>.id
-         v4_cidr_blocks = ["<подсеть>"]
-       }
-       ```
+  1. {% include [terraform-install](../../_includes/terraform-install.md) %}
 
+  1. Создайте конфигурационный файл с описанием [облачной сети](../../vpc/concepts/network.md#network) и [подсетей](../../vpc/concepts/network.md#subnet).
 
-    1. Создайте конфигурационный файл с описанием кластера и его хостов.
+      Кластер размещается в облачной сети. Если подходящая сеть у вас уже есть, описывать ее повторно не нужно.
 
-       Пример структуры конфигурационного файла:
+      Хосты кластера размещаются в подсетях выбранной облачной сети. Если подходящие подсети у вас уже есть, описывать их повторно не нужно.
 
-       
-       ```hcl
-       resource "yandex_mdb_greenplum_cluster" "<имя_кластера_в_{{ TF }}>" {
-         name                = "<имя_кластера>"
-         environment         = "<окружение>"
-         network_id          = yandex_vpc_network.<имя_сети_в_{{ TF }}>.id
-         zone                = "<зона_доступности>"
-         subnet_id           = yandex_vpc_subnet.<имя_подсети_в_{{ TF }}>.id
-         assign_public_ip    = <публичный_доступ_к_хостам_кластера>
-         deletion_protection = <защита_от_удаления_кластера>
-         version             = "<версия_Greenplum>"
-         master_host_count   = <количество_хостов_мастеров>
-         segment_host_count  = <количество_хостов_сегментов>
-         segment_in_host     = <количество_сегментов_на_хост>
+      Пример структуры конфигурационного файла, в котором описывается облачная сеть с одной подсетью:
+
+      ```hcl
+      resource "yandex_vpc_network" "<имя_сети_в_{{ TF }}>" { name = "<имя_сети>" }
   
-         master_subcluster {
-           resources {
-             resource_preset_id = "<класс_хоста>"
-             disk_size          = <объем_хранилища_ГБ>
-             disk_type_id       = "<тип_диска>"
-           }
-         }
+      resource "yandex_vpc_subnet" "<имя_подсети_в_{{ TF }}>" {
+        name           = "<имя_подсети>"
+        zone           = "<зона_доступности>"
+        network_id     = yandex_vpc_network.<имя_сети_в_{{ TF }}>.id
+        v4_cidr_blocks = ["<подсеть>"]
+      }
+      ```
+
+
+  1. Создайте конфигурационный файл с описанием кластера и его хостов.
+
+      Пример структуры конфигурационного файла:
+
+      
+      ```hcl
+      resource "yandex_mdb_greenplum_cluster" "<имя_кластера_в_{{ TF }}>" {
+        name                = "<имя_кластера>"
+        environment         = "<окружение>"
+        network_id          = yandex_vpc_network.<имя_сети_в_{{ TF }}>.id
+        zone                = "<зона_доступности>"
+        subnet_id           = yandex_vpc_subnet.<имя_подсети_в_{{ TF }}>.id
+        assign_public_ip    = <публичный_доступ_к_хостам_кластера>
+        deletion_protection = <защита_от_удаления_кластера>
+        version             = "<версия_Greenplum>"
+        master_host_count   = <количество_хостов_мастеров>
+        segment_host_count  = <количество_хостов_сегментов>
+        segment_in_host     = <количество_сегментов_на_хост>
   
-         segment_subcluster {
-           resources {
-             resource_preset_id = "<класс_хоста>"
-             disk_size          = <объем_хранилища_ГБ>
-             disk_type_id       = "<тип_диска>"
-           }
-         }
-
-         user_name     = "<имя_пользователя>"
-         user_password = "<пароль>"
+        master_subcluster {
+          resources {
+            resource_preset_id = "<класс_хоста>"
+            disk_size          = <объем_хранилища_ГБ>
+            disk_type_id       = "<тип_диска>"
+          }
+        }
   
-         security_group_ids = ["<список_идентификаторов_групп_безопасности>"]
-       }
-       ```
+        segment_subcluster {
+          resources {
+            resource_preset_id = "<класс_хоста>"
+            disk_size          = <объем_хранилища_ГБ>
+            disk_type_id       = "<тип_диска>"
+          }
+        }
+
+        user_name     = "<имя_пользователя>"
+        user_password = "<пароль>"
+  
+        security_group_ids = ["<список_идентификаторов_групп_безопасности>"]
+      }
+      ```
 
 
-       Где:
+      Где:
 
-       * `assign_public_ip` — публичный доступ к хостам кластера: true или false.
-       * `deletion_protection` — защита от удаления кластера: true или false.
-       * `version` — версия {{ GP }}.
-       * `master_host_count` — количество хостов-мастеров: 1 или 2.
-       * `segment_host_count` — количество хостов-сегментов: от 2 до 32.
-       * `segment_in_host` — [количество сегментов на хост](../concepts/index.md). Максимальное значение этого параметра зависит от класса хостов.
+      * `assign_public_ip` — публичный доступ к хостам кластера: true или false.
+      * `deletion_protection` — защита от удаления кластера: true или false.
+      * `version` — версия {{ GP }}.
+      * `master_host_count` — количество хостов-мастеров: 1 или 2.
+      * `segment_host_count` — количество хостов-сегментов: от 2 до 32.
+      * `segment_in_host` — [количество сегментов на хост](../concepts/index.md). Максимальное значение этого параметра зависит от класса хостов.
 
-       Включенная защита от удаления кластера не помешает подключиться вручную и удалить содержимое базы данных.
+      Включенная защита от удаления кластера не помешает подключиться вручную и удалить содержимое базы данных.
 
-       Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-mgp }}).
+      Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-mgp }}).
 
-    1. Проверьте корректность файлов конфигурации {{ TF }}:
+  1. Проверьте корректность файлов конфигурации {{ TF }}:
 
-       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Создайте кластер:
+  1. Создайте кластер:
 
-       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-       {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
+      {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
 
 - API {#api}
 

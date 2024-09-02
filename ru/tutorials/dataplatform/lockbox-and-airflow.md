@@ -1,6 +1,5 @@
 ---
 noIndex: true
-
 ---
 
 # Хранение подключений и переменных {{ AF }} в {{ lockbox-full-name }}

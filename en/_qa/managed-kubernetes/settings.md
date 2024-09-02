@@ -2,13 +2,13 @@
 
 #### What do I do if some data gets lost after I update the {{ k8s }} version? {#backups-update}
 
-Your data will not get lost: prior to [updating the {{ k8s }} version](../../managed-kubernetes/concepts/release-channels-and-updates.md) {{ managed-k8s-name }} creates a data backup. You can manually configure [cluster backup in {{ objstorage-full-name }}](../../managed-kubernetes/tutorials/backup.md). We also recommend backing up your database using the application tools.
+Your data will not get lost: prior to [updating the {{ k8s }} version](../../managed-kubernetes/concepts/release-channels-and-updates.md) {{ managed-k8s-name }} creates a data backup. You can manually configure [cluster backup in {{ objstorage-full-name }}](../../managed-kubernetes/tutorials/kubernetes-backup.md). We also recommend backing up your database using the application tools.
 
 #### Can I configure a backup for a {{ k8s }} cluster? {#cluster-backups}
 
 Data in [{{ managed-k8s-name }} clusters](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) is securely stored and replicated within the {{ yandex-cloud }} infrastructure. However, you can back up data from [{{ managed-k8s-name }} cluster node groups](../../managed-kubernetes/concepts/index.md#node-group) at any time and store them in [{{ objstorage-name }}](../../storage/) or other types of storage.
 
-For more information, see [{#T}](../../managed-kubernetes/tutorials/backup.md).
+For more information, see [{#T}](../../managed-kubernetes/tutorials/kubernetes-backup.md).
 
 #### Will resources be idle while the {{ k8s }} version is updating? {#downtime-update}
 
@@ -18,7 +18,7 @@ If the `max_expansion` value is greater than zero, new nodes are created when {{
 
 #### Can I update a {{ managed-k8s-name }} cluster in one step? {#upgrade-in-one-step}
 
-It depends on the source and target version you want to migrate your {{ managed-k8s-name }} cluster from/to. You can only update your {{ managed-k8s-name }} cluster in a single step to the minor version next to the current one. Updating to newer versions should be done in steps, e.g., 1.19 → 1.20 → 1.21. For more information, see [{#T}](../../managed-kubernetes/operations/update-kubernetes.md#cluster-upgrade).
+It depends on the source and target version you want to migrate your {{ managed-k8s-name }} cluster from/to. You can only update your {{ managed-k8s-name }} cluster in a single step to the next minor version from the current one. Updating to newer versions is done in steps, e.g., 1.19 → 1.20 → 1.21. For more information, see [{#T}](../../managed-kubernetes/operations/update-kubernetes.md#cluster-upgrade).
 
 If you want to skip interim versions, [create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) of the appropriate version and transfer the load from the old cluster to the new one.
 

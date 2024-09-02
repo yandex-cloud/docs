@@ -356,7 +356,7 @@ Run the following command on the `vm-ovpn-host` VM:
 sudo ip route add 10.128.0.0./24 via 10.253.11.19
 ```
 
-On the test VM in {{ yandex-cloud }}, adding a static route within the VM will not help. In {{ yandex-cloud }}, static routes for VMs should be specified [in a different way](../../vpc/concepts/static-routes.md).
+On the test VM in {{ yandex-cloud }}, adding a static route within the VM will not help. In {{ yandex-cloud }}, static routes for VMs should be specified [in a different way](../../vpc/concepts/routing.md).
 
 In {{ yandex-cloud }}, the `ao-openvpn-as` (OpenVPN server) and `ao-openvpn-test` VMs are hosted in the same `default` subnet. In the settings of this subnet, add a static route with the following parameters:
 

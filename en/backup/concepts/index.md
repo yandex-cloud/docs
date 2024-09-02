@@ -14,6 +14,8 @@ To enable backups for your VM, you need to connect it to the service and configu
 
 Once you have connected your instance to {{ backup-name }} and set it up, you need to link it to a [backup policy](policy.md) that is, to a {{ backup-name }} resource. The policy includes settings for creating and storing backups. You can link your instances to default policies or create custom policies.
 
+{{ backup-name }} automatically delivers [metrics](../metrics.md) on the number of protected VMs and the storage space used by backups to [{{ monitoring-full-name }}](../../monitoring/index.yaml).
+
 The service has two types of restrictions: [quotas and limits](limits.md).
 
 ## Comparison with disk snapshots in {{ compute-name }} {#snapshot-comparison}

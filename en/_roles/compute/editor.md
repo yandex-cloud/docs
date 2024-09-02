@@ -33,7 +33,7 @@ The `compute.editor` role allows you to manage instances, instance groups, disks
 * View information on [cloud networks](../../vpc/concepts/network.md#network) and use them.
 * View information on [subnets](../../vpc/concepts/network.md#subnet) and use them.
 * View information on [cloud resource addresses](../../vpc/concepts/address.md) and use them.
-* View information on [route tables](../../vpc/concepts/static-routes.md#rt-vpc) and use them.
+* View information on [route tables](../../vpc/concepts/routing.md#rt-vpc) and use them.
 * View information on security groups and use them.
 * View information on [NAT gateways](../../vpc/concepts/gateways.md) and connect them to route tables.
 * View information on the IP addresses used in subnets.

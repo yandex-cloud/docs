@@ -99,7 +99,7 @@ To create and set up a NAT gateway:
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-   To create a NAT gateway, specify it as the next hop in the [route](../concepts/static-routes.md) table, and link the table to the subnet, use the following configuration:
+   To create a NAT gateway, specify it as the next hop in the [route](../concepts/routing.md) table, and link the table to the subnet, use the following configuration:
 
    ```hcl
    data "yandex_vpc_network" "net" {

@@ -10,6 +10,8 @@ After connecting to {{ backup-name }}, [add](../operations/policy-vm/attach-and-
 
 {% include [vm-running](../../_includes/backup/vm-running.md) %}
 
+You can also link a policy to a virtual machine while creating it. Policy linking is performed asynchronously after you create and initialize a VM, as well as install and configure a backup agent. This may take up to 10-15 minutes. For more information, see [{#T}](../tutorials/vm-with-backup-policy.md).
+
 ## VM configuration requirements {#requirements}
 
 {% include [vm-requirements](../../_includes/backup/vm-requirements.md) %}
@@ -78,11 +80,10 @@ For the {{ backup-name }} agent to exchange data with the [backup provider](inde
 
 - Egress traffic {#outgoing}
 
-   {% include [outgoing traffic](../../_includes/backup/outgoing-rules.md) %}
+  {% include [outgoing traffic](../../_includes/backup/outgoing-rules.md) %}
 
 {% endlist %}
 
-To provide network access, [assign](../../compute/operations/vm-control/vm-attach-public-ip.md) the VM a public IP or use a [route table](../../vpc/concepts/static-routes.md#rt-vm) that allows internet access via a [NAT gateway](../../vpc/concepts/gateways.md) or a custom router.
+To provide network access, [assign](../../compute/operations/vm-control/vm-attach-public-ip.md) the VM a public IP or use a [route table](../../vpc/concepts/routing.md#rt-vm) that allows internet access via a [NAT gateway](../../vpc/concepts/gateways.md) or a custom router.
 
 The VM's [security group](../../vpc/concepts/security-groups.md) rules must allow access to the specified resources. You can [add the rules](../../vpc/operations/security-group-add-rule.md) to an existing security group or [create](../../vpc/operations/security-group-create.md) a new group with the rules.
-

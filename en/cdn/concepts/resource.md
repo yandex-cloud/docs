@@ -90,6 +90,8 @@ You can view statistics on the resource page in the [management console]({{ link
 
 You can view performance statistics on the [resource page](../operations/resources/get-stats.md#cdn-ui) or in the [{{ monitoring-name }} interface](../operations/resources/get-stats.md#monitoring).
 
+{% include [metrics-note](../../_includes/cdn/metrics-note.md) %}
+
 For a list of metrics delivered to {{ monitoring-name }}, see the [reference](../metrics.md).
 
 #### See also {#see-also}

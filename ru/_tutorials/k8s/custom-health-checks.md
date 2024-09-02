@@ -28,7 +28,7 @@ L7-балансировщик автоматически проверяет ра
 
 {% list tabs group=instructions %}
 
-* Вручную {#manual}
+- Вручную {#manual}
 
    1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
 
@@ -42,7 +42,7 @@ L7-балансировщик автоматически проверяет ра
    1. {% include [k8s-ingress-controller-create-node-group](../../_includes/application-load-balancer/k8s-ingress-controller-create-node-group.md) %}
    1. [Создайте реестр](../../container-registry/operations/registry/registry-create.md) {{ container-registry-full-name }}.
 
-* {{ TF }} {#tf}
+- {{ TF }} {#tf}
 
    1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
    1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
@@ -230,7 +230,7 @@ Docker-образ будет создан из файла `app/Dockerfile` и б
 
 {% list tabs group=instructions %}
 
-* Вручную {#manual}
+- Вручную {#manual}
 
    1. [Зарезервируйте статический публичный IP-адрес](../../vpc/operations/get-static-ip.md) для балансировщика {{ alb-name }}.
    1. [Зарегистрируйте публичную доменную зону и делегируйте домен](../../dns/operations/zone-create-public.md).
@@ -247,7 +247,7 @@ Docker-образ будет создан из файла `app/Dockerfile` и б
       <домен> has address <IP-адрес>
       ```
 
-* {{ TF }} {#tf}
+- {{ TF }} {#tf}
 
    1. Расположите файл конфигурации [address-for-k8s-health-checks.tf](https://github.com/yandex-cloud-examples/yc-mk8s-alb-ingress-health-checks/blob/main/terraform-manifests/address-for-k8s-health-checks.tf) в той же рабочей директории, где находится файл `k8s-custom-health-checks.tf`.
 

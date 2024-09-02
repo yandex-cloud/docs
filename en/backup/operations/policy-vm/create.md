@@ -46,6 +46,7 @@ description: "In this tutorial, you will learn how to create a backup policy in 
       The example describes a configuration for a backup policy that will create [incremental](../../concepts/backup.md#types) [VM](../../../compute/concepts/vm.md) [backups](../../concepts/backup.md) every Monday at 00:05 (UTC+0). Only the last 10 backups will be stored.
 
       See [Full backup policy specification](../../concepts/policy.md#specification).
+
    1. Create a backup policy:
 
       ```bash
@@ -96,7 +97,7 @@ description: "In this tutorial, you will learn how to create a backup policy in 
         retention:
           rules:
             - max_count: "10"
-          after_backup: true
+          before_backup: true
         scheduling:
           backup_sets:
             - time:
@@ -186,28 +187,28 @@ description: "In this tutorial, you will learn how to create a backup policy in 
      }
      ```
 
-     Where:
+      Where:
 
       * `archive_name`: Generated archive names. This is an optional parameter. The parameter variables include:
          * `Machine Name`: [VM](../../../compute/concepts/vm.md) name.
          * `Plan ID`: Plan ID.
          * `Unique ID`: Unique identifier.
 
-            Make sure the last character in the generated archive name is not a variable.
+         Make sure the last character in the generated archive name is not a variable.
       * `cbt`: Configuration for tracking [backup](../../concepts/backup.md) contents. This is an optional parameter. The possible values include:
          * `CHANGED_BLOCK_TRACKING_UNSPECIFIED`: Not set.
          * `USE_IF_ENABLED`: Use if enabled.
          * `ENABLE_AND_USE`: Enable and use.
          * `DO_NOT_USE`: Do not use.
 
-            The default value is `DO_NOT_USE`.
+         The default value is `DO_NOT_USE`.
       * `compression`: Backup compression ratio. This is an optional parameter. The possible values include:
          * `NORMAL`: Standard compression ratio.
          * `HIGH`: High compression ratio.
          * `MAX`: Maximum compression ratio.
          * `OFF`: Disabled.
 
-            The default value is `NORMAL`.
+         The default value is `NORMAL`.
       * `fast_backup_enabled`: Fast backup for tracking changes to files. When enabled, file changes are detected by the file size and its timestamp. When disabled, files are checked for changes by comparing their contents to backed up files. It may take either the `true` or `false` value.
       * `format`: Backup format. This is an optional parameter. The possible values include:
          * `VERSION_11`: Deprecated format, not recommended.
@@ -232,7 +233,7 @@ description: "In this tutorial, you will learn how to create a backup policy in 
             * `max_count`: Delete backups if their number exceeds `max_count`.
             * `repeat_period`: Period for applying the rules.
 
-               The `max_age` and `max_count` attributes are mutually exclusive. Using one of them disables the use of the other.
+            The `max_age` and `max_count` attributes are mutually exclusive. Using one of them disables the use of the other.
       * `scheduling`: Backup schedule parameters:
          * `enabled`: Enable backup scheduling. This is an optional parameter. It may take either the `true` or `false` value. The default value is `true`.
          * `max_parallel_backups`: Maximum number of parallel backups. This is an optional parameter. The default value is `0` (unlimited).
@@ -243,7 +244,7 @@ description: "In this tutorial, you will learn how to create a backup policy in 
             * `WEEKLY_FULL_DAILY_INCREMENTAL`: Weekly: full; daily: incremental.
             * `WEEKLY_INCREMENTAL`: Weekly: incremental.
 
-               The default value is `ALWAYS_INCREMENTAL`.
+            The default value is `ALWAYS_INCREMENTAL`.
          * `weekly_backup_day`: Day of the week for weekly backups. This is an optional parameter. The default value is `MONDAY`.
          * `execute_by_time`: Settings for backups at a specified time:
             * `include_last_day_of_month`: Making backups on the last day of each month. This is an optional parameter. It may take either the `true` or `false` value. The default value is `false`.

@@ -305,4 +305,4 @@ If your bucket has access policies, you will also need to [configure](./policy.m
 
 {% endlist %}
 
-When disabling public access to the bucket, make sure the `AllUsers` [system group](../../../iam/concepts/access-control/system-group.md) have no `viewer`, `storage.viewer`, or higher [roles](../../security/index.md#service-roles) assigned for the folder or bucket. Otherwise, the bucket will still be publically accessible.
+When disabling public access to the bucket, make sure the `All users` [public group](../../../iam/concepts/access-control/public-group.md) has no `viewer`, `storage.viewer`, or [higher](../../security/index.md#service-roles) roles assigned for the folder or bucket. Otherwise, the bucket will still be publically accessible.

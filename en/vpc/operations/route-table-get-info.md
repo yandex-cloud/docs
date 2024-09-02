@@ -8,7 +8,7 @@ title: "Getting information about a route table in {{ vpc-full-name }}"
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing your [route table](../concepts/static-routes.md).
+   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing your [route table](../concepts/routing.md).
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.vpc.switch_route-tables }}**.
    1. Select the route table you need.
@@ -20,7 +20,7 @@ title: "Getting information about a route table in {{ vpc-full-name }}"
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   1. View the description of the [CLI](../../cli/) command to get information about a [route table](../concepts/static-routes.md):
+   1. View the description of the [CLI](../../cli/) command to get information about a [route table](../concepts/routing.md):
 
       ```bash
       yc vpc route-table get --help
@@ -51,7 +51,7 @@ title: "Getting information about a route table in {{ vpc-full-name }}"
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-   To get information about a [route table](../concepts/static-routes.md) using {{ TF }}:
+   To get information about a [route table](../concepts/routing.md) using {{ TF }}:
 
    1. Add the `data` and `output` sections to the {{ TF }} configuration file:
 
@@ -97,6 +97,6 @@ title: "Getting information about a route table in {{ vpc-full-name }}"
 
 - API {#api}
 
-   To get detailed information about a [route table](../concepts/static-routes.md), use the [get](../api-ref/RouteTable/get.md) REST API method for the [RouteTable](../api-ref/RouteTable/index.md) resource or the [RouteTableService/Get](../api-ref/grpc/route_table_service.md#Get) gRPC API call.
+   To get detailed information about a [route table](../concepts/routing.md), use the [get](../api-ref/RouteTable/get.md) REST API method for the [RouteTable](../api-ref/RouteTable/index.md) resource or the [RouteTableService/Get](../api-ref/grpc/route_table_service.md#Get) gRPC API call.
 
 {% endlist %}

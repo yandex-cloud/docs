@@ -1,7 +1,7 @@
 To create a rule:
 
 1. Enable **{{ ui-key.yacloud.storage.bucket.lifecycle.field_status }}**. With this option, you can enable or disable a rule without deleting it from a configuration.
-1. Fill out the fields below:
+1. Fill in the fields as follows:
    * **{{ ui-key.yacloud.storage.bucket.lifecycle.field_description }}**: Provide the rule description as you see fit.
    * **{{ ui-key.yacloud.storage.bucket.lifecycle.field_prefix }}**: Portion of the object's [key](../concepts/object.md#key) of the required length starting from the beginning of the key. The prefix is used to sort the objects falling within the scope of the rule. If the rule is valid for all objects, leave this field empty.
    * **{{ ui-key.yacloud.storage.bucket.lifecycle.field_max-size }}**: Triggers for all objects smaller than or matching the specified size.
@@ -11,7 +11,7 @@ To create a rule:
 
       * `{{ ui-key.yacloud.storage.bucket.lifecycle.value_days }}`: Triggers as many days after an object was uploaded as specified in the **{{ ui-key.yacloud.storage.bucket.lifecycle.field_days }}** field.
       * `{{ ui-key.yacloud.storage.bucket.lifecycle.value_date }}`: Triggers on the date specified in the **{{ ui-key.yacloud.storage.bucket.lifecycle.field_date }}** field.
-      * `{{ ui-key.yacloud.storage.bucket.lifecycle.value_expired-object-delete-marker }}`: Triggers if an object has only the current version left.
+      * `{{ ui-key.yacloud.storage.bucket.lifecycle.value_expired-object-delete-marker }}`: Deletes the delete marker for which expired object versions no longer exist.
 
    * `{{ ui-key.yacloud.storage.bucket.lifecycle.label_transition-type }}`: Move any objects from the `STANDARD` to `COLD` storage:
 

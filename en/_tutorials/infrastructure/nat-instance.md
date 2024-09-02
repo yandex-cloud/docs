@@ -3,7 +3,7 @@
 
 A _NAT instance_ is a special [VM](../../compute/concepts/vm.md) with pre-configured routing and [IP address](../../vpc/concepts/address.md) translation rules.
 
-{{ yandex-cloud }} allows you to configure internet connections for multiple VMs via a NAT instance using [static routing](../../vpc/concepts/static-routes.md). In this case, only one public IP address is used: the one assigned to the NAT instance.
+{{ yandex-cloud }} allows you to configure internet connections for multiple VMs via a NAT instance using [static routing](../../vpc/concepts/routing.md). In this case, only one public IP address is used: the one assigned to the NAT instance.
 
 To set up routing through a NAT instance:
 1. [Prepare your cloud](#before-you-begin).
