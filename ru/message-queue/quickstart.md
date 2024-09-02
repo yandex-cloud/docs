@@ -11,7 +11,7 @@ description: "В этой инструкции вы научитесь выпо�
 
 {% note warning %}
 
-В данный момент отсутствует поддержка новых версий `AWS CLI` с протоколом JSON. Используйте [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-version.html#:~:text=Install%20past%20releases%20of%20the%20AWS%20CLI%20version%202) не выше версии `2.13.33` до введения протокола `AWS JSON-1.0 protocol`.
+В данный момент отсутствует поддержка новых версий AWS CLI с протоколом JSON. Используйте [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-version.html#:~:text=Install%20past%20releases%20of%20the%20AWS%20CLI%20version%202) не выше версии 2.13.33 до введения протокола `AWS JSON-1.0 protocol`.
 
 {% endnote %}
 
