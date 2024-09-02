@@ -8,6 +8,13 @@ description: "In this tutorial, you will learn how to make basic actions with me
 Let's perform the basic actions using the [AWS CLI](https://aws.amazon.com/cli/), one of the [tools](instruments/index.md) you can use to work with {{ message-queue-name }}.
 
 1. [Install](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) the AWS CLI, a command line utility for working with {{ message-queue-name }}.
+
+{% note warning %}
+
+Currently, there is no support for the latest versions of the `AWS CLI` with the JSON protocol. Use [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-version.html#:~:text=Install%20past%20releases%20of%20the%20AWS%20CLI%20version%202) `2.13.33` or earlier before the AWS JSON-1.0 protocol was introduced.
+
+{% endnote %}
+
 1. [Create](../iam/operations/sa/create.md) a service account with the `editor` role.
 1. [Create](../iam/operations/sa/create-access-key.md) static access keys. Save the ID and secret key to a secure location. You will not be able to view the secret key parameters again after you close the window.
 1. Set up the AWS CLI:
