@@ -10,7 +10,7 @@ On VMs created from public Linux images, the IP address and hostname (FQDN) are 
 
 You can change the network interface settings on stopped VMs by assigning a public IP address, changing the subnet, selecting other security groups, or configuring the DNS settings.
 
-You can also [add](../operations/vm-control/attach-network-interface.md) more network interfaces and [delete](../operations/vm-control/attach-network-interface.md) them from both stopped and running VMs. However, to avoid [VM routing](../../vpc/concepts/static-routes.md#rt-vm) issues, we recommended adding and removing network interfaces on stopped VMs.
+You can also [add](../operations/vm-control/attach-network-interface.md) more network interfaces and [delete](../operations/vm-control/attach-network-interface.md) them from both stopped and running VMs. However, to avoid [VM routing](../../vpc/concepts/routing.md#rt-vm) issues, we recommended adding and removing network interfaces on stopped VMs.
 
 {% include [add-network-interface-hotplug-preview-note](../../_includes/compute/add-network-interface-hotplug-preview-note.md) %}
 
@@ -20,7 +20,7 @@ If the network interfaces you added are inactive or you can no longer [connect](
 
 For stable network operation on a VM, follow these recommendations:
 
-* To maintain [network connectivity](../../vpc/concepts/static-routes.md#rt-vpc), add network interfaces to stopped VMs.
+* To maintain [network connectivity](../../vpc/concepts/routing.md#rt-vpc), add network interfaces to stopped VMs.
 * Assign a public IP address to a single VM's network interface only.
 
 ## Internal IP address {#internal-ip}

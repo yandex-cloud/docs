@@ -14,6 +14,7 @@ Available extensions:
 * [Access over HTTP](../concepts/extensions/http.md)
 * [Integration with {{ sf-name }}](../concepts/extensions/cloud-functions.md)
 * [Integration with {{ serverless-containers-name }}](../concepts/extensions/containers.md)
+* [Integration with {{ sws-name }}](../concepts/extensions/sws.md)
 * [Integration with {{ objstorage-name }}](../concepts/extensions/object-storage.md)
 * [Integration with {{ ml-platform-name }}](../concepts/extensions/datasphere.md)
 * [Integration with {{ yds-name }}](../concepts/extensions/datastreams.md)
@@ -32,9 +33,9 @@ Available extensions:
 * [Response code replacement](../concepts/extensions/status-mapping.md)
 * [Transformation of response and request bodies](../concepts/extensions/schema-mapping.md)
 
-## Algorithm to search for a handler in the OpenAPI specification {#algorithm}
+## Algorithm for searching the handler in the OpenAPI specification {#algorithm}
 
-When searching for a handler, {{ api-gw-name }} does the following:
+When searching for the {{ api-gw-name }} handler:
 1. It selects routes in the OpenAPI specification matching the request being processed.
 1. It sorts the selected routes by priority:
    * The highest priority is given to fixed routes, which do not contain path parameters and [greedy parameters](extensions/greedy-parameters.md), such as `/simple/path`.

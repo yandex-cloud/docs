@@ -37,7 +37,7 @@ x-yc-apigateway-integration:
     read: 5
 ```
 
-Extension specifics:
+Extension features:
 * If the value of a header or query parameter is an array, it is provided as a single row separated by commas.
 * By default, any headers other than `User-Agent` and the original request query parameters are not provided. To send all original request headers and query parameters that are not overridden in the specification, add `'*': '*'` to the `query` and `headers` sections. If you need to prevent certain headers from being provided, set their values to empty and the `omitEmptyHeaders` field value, to `true`. Similarly, you can omit certain query parameters by using the `omitEmptyQueryParameters` field.
 * The `User-Agent` header is provided by default unless it is overridden in the specification.

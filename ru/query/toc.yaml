@@ -88,7 +88,7 @@ items:
         href: sources-and-sinks/ydb.md
       - name: Запись метрик в {{ monitoring-full-name }}
         href: sources-and-sinks/monitoring.md
-  - name: Сценарии использования
+  - name: Практические руководства
     items:
       - name: Обработка логов {{ cloud-logging-name }}
         href: tutorials/cloud-logging.md

@@ -102,7 +102,7 @@ Once a day, lifecycles are updated with the latest changes as of 00:00 UTC. This
       * `expiration`: Parameter of a rule for deleting any objects. This is an optional parameter. It may contain:
          * `date`: Date after which you want the rule to take effect. Format: [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601), e.g., `YYYY-MM-DDT00:00:00Z`. Time: Always 00:00 UTC. You cannot use the `date` key together with the `days` key. This is an optional parameter.
          * `days`: Number of days from object creation date after which the rule will take effect. The minimum value is `1`. You cannot use the `days` key together with the `date` key. This is an optional parameter.
-         * `expired_object_delete_marker`: It triggers when the object has only the current version left. It may take either the `true` or `false` value. This is an optional parameter.
+         * `expired_object_delete_marker`: Deletes the delete marker for which expired object versions no longer exist. It may take either the `true` or `false` value. This is an optional parameter.
       * `noncurrent_transitions`: Parameter of a rule for changing the storage class of non-current object versions from standard (`STANDARD`) to cold (`COLD` or `STANDARD_IA`) or ice (`ICE`) or from cold to ice. This is an optional parameter. It may contain:
          * `noncurrent_days`: Number of days before the transition. The minimum value is `1`. This is a required parameter.
          * `storage_class`: Storage class to move the object to. It can be `COLD`, `STANDARD_IA`, or `ICE`. This is a required parameter.
@@ -230,7 +230,7 @@ Once a day, lifecycles are updated with the latest changes as of 00:00 UTC. This
 
          If no object filter is set, the rule applies to all objects in the bucket.
 
-      * `Status`: Rule status. This is a required parameter. The possible values are:
+      * `Status`: Rule status. This is a required parameter. Values:
          * `Enabled`: Rule enabled.
          * `Disabled`: Rule disabled.
       * `Transitions`: Parameter of a rule for changing the storage class of any objects from standard (`STANDARD`) to cold (`COLD` or `STANDARD_IA`) or ice (`ICE`) or from cold to ice. This is an optional parameter. It may contain:
@@ -248,7 +248,7 @@ Once a day, lifecycles are updated with the latest changes as of 00:00 UTC. This
       * `Expiration`: Parameter of a rule for deleting any objects. This is an optional parameter. It may contain:
          * `Date`: Date after which the object will be deleted, Format: [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601), e.g., `YYYY-MM-DD`. Time: Always 00:00 UTC. You cannot use the `Date` key together with the `Days` key. This is an optional parameter.
          * `Days`: Number of days from object creation date after which the object will be deleted. The minimum value is `1`. You cannot use the `Days` key together with the `Date` key. This is an optional parameter.
-         * `ExpiredObjectDeleteMarker`: It triggers when the object has only the current version left. It may take either the `true` or `false` value. This is an optional parameter.
+         * `ExpiredObjectDeleteMarker`: Deletes the delete marker for which expired object versions no longer exist. It may take either the `true` or `false` value. This is an optional parameter.
       * `NoncurrentVersionTransitions`: Parameter of a rule for changing the storage class of non-current object versions from standard (`STANDARD`) to cold (`COLD` or `STANDARD_IA`) or ice (`ICE`) or from cold to ice. This is an optional parameter. It may contain:
          * `NoncurrentDays`: Number of days before changing the storage class of non-current object versions. The minimum value is `1`. This is a required parameter.
          * `StorageClass`: Storage class to move the object to. It can be `COLD`, `STANDARD_IA`, or `ICE`. This is a required parameter.
@@ -436,7 +436,7 @@ Once a day, lifecycles are updated with the latest changes as of 00:00 UTC. This
       `expiration` parameters:
       * `date`: Date after which you want the rule to take effect. You cannot use the `date` parameter together with the `days` parameter. This is an optional parameter.
       * `days`: Number of days from object creation date after which the rule will take effect. The minimum value is `1`. You cannot use the `days` parameter together with the `date` parameter. This is an optional parameter.
-      * `expired_object_delete_marker`: It triggers when the object has only the current version left. It may take either the `true` or `false` value. This is an optional parameter.
+      * `expired_object_delete_marker`: Deletes the delete marker for which expired object versions no longer exist. It may take either the `true` or `false` value. This is an optional parameter.
 
       `transition` parameters:
       * `date`: Date after which you want the rule to take effect. You cannot use the `date` parameter together with the `days` parameter. This is an optional parameter.

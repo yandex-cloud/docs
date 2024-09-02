@@ -17,6 +17,16 @@
 1. Configure the application:
    * **Namespace**: Select the `kube-system` [namespace](../../concepts/index.md#namespace).
    * **Application name**: Specify the name for the application to be deployed in the {{ managed-k8s-name }} cluster.
+   * **Internal IP address of the kube-dns service**: Address for accessing NodeLocal DNS Cache. Requests sent from application pods to the address in the field are routed to [local DNS](https://github.com/kubernetes/enhancements/blob/master/keps/sig-network/1024-nodelocal-cache-dns/README.md#iptables-notrack) using the `iptables` rules.
+
+      The field contains the `ClusterIP` address of `kube-dns` in the `kube-system` namespace. You can get the value of the field using the following command:
+
+      ```bash
+      kubectl get svc kube-dns -n kube-system -o jsonpath={.spec.clusterIP}
+      ```
+
+      Since {{ yandex-cloud }} adds the `kube-dns` service when creating the cluster, the IP address of the service is pre-defined. Therefore, you cannot change it in the **kube-dns internal IP address** field.
+
    * **Work with Cilium**: Select this option if a cluster uses the [Cilium network policy controller](../../concepts/network-policy.md#cilium).
 1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
 1. Wait for the application to change its status to `Deployed`.
@@ -44,5 +54,7 @@ After installing NodeLocal DNS, use the following values:
      --set config.clusterIp=$KUBE_DNS_IP \
      node-local-dns ./chart/
    ```
+
+   Where `KUBE_DNS_IP` is the address for accessing NodeLocal DNS Cache. Requests sent from application pods to the `KUBE_DNS_IP` address are routed to [local DNS](https://github.com/kubernetes/enhancements/blob/master/keps/sig-network/1024-nodelocal-cache-dns/README.md#iptables-notrack) using the `iptables` rules.
 
 For more information about local DNS caching, see [{#T}](../../tutorials/node-local-dns.md).

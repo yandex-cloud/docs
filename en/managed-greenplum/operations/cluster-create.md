@@ -247,7 +247,9 @@ For more information, see [{#T}](../concepts/index.md).
 
 - {{ TF }} {#tf}
 
-      {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+   
+   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
 
    To create a cluster:
 
@@ -256,7 +258,7 @@ For more information, see [{#T}](../concepts/index.md).
    
    1. {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-   2. Create a configuration file describing the [cloud network](../../vpc/concepts/network.md#network) and [subnets](../../vpc/concepts/network.md#subnet).
+   1. Create a configuration file describing the [cloud network](../../vpc/concepts/network.md#network) and [subnets](../../vpc/concepts/network.md#subnet).
 
       The cluster is hosted on a cloud network. If you already have a suitable network, you do not need to describe it again.
 

@@ -2,7 +2,7 @@ title: Yandex Cloud Backup
 href: index.yaml
 label:
   title: RU
-  description: The service is only available in the Russia region.
+  description: This service is only available in the Russia region.
   theme: unknown
   when: region == "kz"
 items:
@@ -52,6 +52,12 @@ items:
             href: operations/backup-vm/delete.md
       - name: Viewing operations with the service's resources
         href: operations/operation-logs.md
+      - name: Viewing backup statistics
+        href: operations/get-stats.md
+  - name: Tutorials
+    items:
+      - name: Linking a backup policy to a VM automatically
+        href: tutorials/vm-with-backup-policy.md
   - name: Concepts
     items:
       - name: Overview
@@ -70,7 +76,7 @@ items:
     items:
       - name: Current pricing policy
         href: pricing.md
-      - name: Archives
+      - name: Archive
         items:
           - name: Before April 1, 2024
             href: pricing-archive/pricing-20240401.md
@@ -158,6 +164,8 @@ items:
                 href: backup/api-ref/Resource/list.md
               - name: listTasks
                 href: backup/api-ref/Resource/listTasks.md
+  - name: '{{ monitoring-name }} metrics'
+    href: metrics.md
   - name: '{{ at-name }} events'
     href: at-ref.md
   - name: Release notes

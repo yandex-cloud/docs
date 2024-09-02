@@ -24,7 +24,7 @@
 
     {% list tabs group=programming_language %}
 
-    * Bash {#bash}
+    - Bash {#bash}
 
         ```bash
         cd <путь_к_папке_cloudapi> && \

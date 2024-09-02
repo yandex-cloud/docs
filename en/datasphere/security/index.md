@@ -7,7 +7,7 @@ description: "Access management in {{ ml-platform-full-name }}, a service that p
 
 User access to {{ ml-platform-full-name }} depends on relevant permissions granted within an organization. Organizations are managed using [{{ org-full-name }}](../../organization/).
 
-The operations available to {{ ml-platform-short-name }} users are determined by their roles. You can assign roles to a Yandex account, a [service account](../../iam/concepts/users/service-accounts.md), [federated users](../../iam/concepts/federations.md), a [user group](../../organization/operations/manage-groups.md), or a [system group](../../iam/concepts/access-control/system-group.md). For more information about managing access to {{ yandex-cloud }}, see [{#T}](../../iam/concepts/access-control/index.md).
+The operations available to {{ ml-platform-short-name }} users are determined by their roles. You can assign roles to a Yandex account, [service account](../../iam/concepts/users/service-accounts.md), [federated users](../../iam/concepts/federations.md), [user group](../../organization/operations/manage-groups.md), [system group](../../iam/concepts/access-control/system-group.md), or [public group](../../iam/concepts/access-control/public-group.md). For more information about managing access to {{ yandex-cloud }}, see [{#T}](../../iam/concepts/access-control/index.md).
 
 ## Which resources you can assign a role for {#resources}
 
@@ -94,7 +94,7 @@ The table below lists the roles required to perform a particular action. You can
 
 #### See also {#see-also}
 
-* [{{ org-full-name }}](../../organization/)​
+* [{{ org-full-name }}](../../organization/)
 * [{#T}](../../iam/concepts/access-control/index.md)
 * [{#T}](../../iam/concepts/users/service-accounts.md)
 * [Learn more about inheriting roles](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance)

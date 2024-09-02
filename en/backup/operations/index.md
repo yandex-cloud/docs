@@ -33,3 +33,4 @@ description: "This page provides a list of step-by-step guides for {{ backup-nam
 ## Service operations {#service-operations}
 
 * [Viewing operations with the service's resources](operation-logs.md)
+* [Viewing backup statistics](get-stats.md)

@@ -44,7 +44,7 @@ To learn how to change the [availability zone](../../../overview/concepts/geo-sc
    1. Open **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}** in the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to update the {{ managed-k8s-name }} cluster.
    1. Click the name of the {{ managed-k8s-name }} cluster.
    1. Go to the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** tab.
-   1. Select the desired node group.
+   1. Select the required node group.
    1. Click **{{ ui-key.yacloud.common.edit }}** in the top-right corner.
    1. Change the required parameters in the window that opens.
    1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -82,7 +82,7 @@ To learn how to change the [availability zone](../../../overview/concepts/geo-sc
    * `--latest-revision`: Get all available updates for the current [{{ managed-k8s-name }} master](../../concepts/index.md#master) version.
    * Scaling settings:
 
-      * `--fixed-size`: Changing the fixed number of nodes in the {{ managed-k8s-name }} node group.
+      * `--fixed-size`: Changing the fixed number of nodes in a {{ managed-k8s-name }} node group.
       * `--auto-scale`: Changing the [{{ managed-k8s-name }} cluster automatic scaling](../../concepts/node-group/cluster-autoscaler.md) settings:
 
          * `min`: Minimum number of nodes in the group.
@@ -210,11 +210,11 @@ To learn how to change the [availability zone](../../../overview/concepts/geo-sc
 
 {% endlist %}
 
-Alternatively, you can grant internet access permission to {{ managed-k8s-name }} cluster nodes by creating and setting up a [NAT gateway](../../../vpc/operations/create-nat-gateway.md) or [NAT instance](../../../vpc/tutorials/nat-instance.md). As a result, through [static routing](../../../vpc/concepts/static-routes.md), traffic will be routed via the gateway or a separate VM instance with NAT features.
+Alternatively, you can grant internet access permission to {{ managed-k8s-name }} cluster nodes by creating and setting up a [NAT gateway](../../../vpc/operations/create-nat-gateway.md) or [NAT instance](../../../vpc/tutorials/nat-instance.md). As a result, through [static routing](../../../vpc/concepts/routing.md), traffic will be routed via the gateway or a separate VM instance with NAT features.
 
 {% note info %}
 
-If you assigned public IP addresses to the cluster nodes and then configured the NAT gateway or NAT instance, internet access via the public IP addresses will be disabled. For more information, see the [{{ vpc-full-name }} documentation](../../../vpc/concepts/static-routes.md#internet-routes).
+If you assigned public IP addresses to the cluster nodes and then configured the NAT gateway or NAT instance, internet access via the public IP addresses will be disabled. For more information, see the [{{ vpc-full-name }} documentation](../../../vpc/concepts/routing.md#internet-routes).
 
 {% endnote %}
 
@@ -468,7 +468,7 @@ You can perform the following actions with [cloud labels](../../../resource-mana
 
 {% endlist %}
 
-## Changing the connection method to nodes in a node group {#switch-node-connect-mode}
+## Changing the method of connecting to nodes in a node group {#switch-node-connect-mode}
 
 {% include [node-connect-mode-reconciling-warning](../../../_includes/managed-kubernetes/node-connect-mode-reconciling-warning.md) %}
 
@@ -481,7 +481,7 @@ You can perform the following actions with [cloud labels](../../../resource-mana
    1. Go to the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** tab.
    1. Select the required node group.
    1. Click **{{ ui-key.yacloud.common.edit }}** in the top-right corner.
-   1. Change the settings for connection methods:
+   1. Change the connection method settings:
 
       1. To enable or disable access to nodes via {{ oslogin }}, use the **{{ ui-key.yacloud.compute.instances.create.field_os-login-access-method }}** option.
 
@@ -535,7 +535,7 @@ You can perform the following actions with [cloud labels](../../../resource-mana
 
 {% include [node-group-metadata-warning](../../../_includes/managed-kubernetes/node-group-metadata-warning.md) %}
 
-After the metadata is changed, the node group status will temporarily change to `Reconciling`: all the nodes will be recreated for the changes to apply.
+After you change the metadata, the node group status will temporarily change to `Reconciling`: all the group's nodes will be recreated for the changes to take effect.
 
 {% endnote %}
 
@@ -550,7 +550,7 @@ After the metadata is changed, the node group status will temporarily change to 
    1. Click **{{ ui-key.yacloud.common.edit }}** in the top-right corner.
    1. Open the **{{ ui-key.yacloud.common.metadata }}** block and edit, add, or remove metadata for the nodes.
 
-      To add metadata, click **{{ ui-key.yacloud.common.metadata-add-field }}**. Specify the key and value of each metadata element in a separate set of fields.
+      To add metadata, click **{{ ui-key.yacloud.common.metadata-add-field }}**. Specify the key and value for each metadata element in a separate set of fields.
 
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -568,7 +568,7 @@ After the metadata is changed, the node group status will temporarily change to 
          {{ yc-k8s }} node-group add-metadata --help
          ```
 
-      1. To add new metadata or modify it if it exists, run the following command:
+      1. To add new or modify existing metadata, run the following command:
 
          ```bash
          {{ yc-k8s }} node-group add-metadata \
@@ -582,7 +582,7 @@ After the metadata is changed, the node group status will temporarily change to 
 
          {% note tip %}
 
-         Use the `--metadata-from-file` parameter instead of `--metadata` if you want to get the value from a file:
+         Use the `--metadata-from-file` parameter instead of `--metadata` to get the value from a file:
 
          ```bash
          --metadata-from-file <key>=<path_to_file_with_value>
@@ -618,7 +618,7 @@ After the metadata is changed, the node group status will temporarily change to 
 
       For more information about creating this file, see [{#T}](./node-group-create.md).
 
-   1. To add, modify, or delete metadata with a specific key, modify the list of keys and values in the `instance_template.metadata` parameter. If there is no such parameter, add it.
+   1. To add, modify, or delete metadata with a specific key, edit the list of keys and values in the `instance_template.metadata` parameter. If there is no such parameter, add it.
 
       ```hcl
       resource "yandex_kubernetes_node_group" "<node_group_name>" {
@@ -637,7 +637,7 @@ After the metadata is changed, the node group status will temporarily change to 
 
       {% note tip %}
 
-      Use the `file()` function if you want to get a value from a file:
+      Use the `file()` function to get a value from a file:
 
       ```hcl
       "<key>" = file("<path_to_file_with_value>")
@@ -669,9 +669,9 @@ After the metadata is changed, the node group status will temporarily change to 
 
          {% include [Note API updateMask](../../../_includes/note-api-updatemask.md) %}
 
-      * `nodeTemplate.metadata` parameter that lists the metadata of the node group.
+      * `nodeTemplate.metadata` parameter listing the node group's metadata.
 
-         Make the required changes to the metadata list you received in the previous step: add, modify, or delete `key=value` pairs. Then provide the updated list in the `nodeTemplate.metadata` parameter.
+         Make the required changes to the metadata list you got in the previous step: add, modify, or delete `key=value` pairs. Then provide the updated list in the `nodeTemplate.metadata` parameter.
 
          {% note alert %}
 

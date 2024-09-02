@@ -1,10 +1,12 @@
-* {% include [Field CLI Cluster ID](../../fields/common/cli/cluster-id.md) %}
+* `--cluster-name` — имя кластера, из которого будут передаваться данные.
+* {% include [Field CLI Shards and Hosts](../../fields/clickhouse/cli/host.md) %}
+* {% include [Field CLI HTTP Port](../../fields/clickhouse/cli/http-port.md) %}
+* {% include [Field CLI Native Port](../../fields/clickhouse/cli/native-port.md) %}
+* {% include [Field CLI CA Certificate](../../fields/common/cli/ca-certificate.md) %}
+* {% include [Field CLI Subnet ID](../../fields/common/cli/subnet-id.md) %}
 * {% include [Field CLI Database](../../fields/common/cli/database.md) %}
 * {% include [Field CLI User](../../fields/common/cli/username.md) %}
 * {% include [Field CLI Security Group](../../fields/common/cli/security-group.md) %}
-
-    Убедитесь, что указанные группы безопасности [настроены](../../../../managed-clickhouse/operations/connect/index.md#configuring-security-groups).
-
 
 * Чтобы задать пароль пользователя для доступа к базе данных, используйте один из параметров:
 

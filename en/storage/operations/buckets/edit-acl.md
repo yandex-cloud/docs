@@ -49,7 +49,7 @@ If an [ACL](../../concepts/acl.md) has already been set for a [bucket](../../con
    yc storage bucket get <bucket_name> --with-acl
    ```
 
-   You can apply a [predefined ACL](../../concepts/acl.md#predefined-acls) to a bucket or configure permissions for individual users, [service accounts](../../../iam/concepts/users/service-accounts.md), [user groups](../../../organization/concepts/groups.md) and [system groups](../../concepts/acl.md#system-groups) (e.g., a group of all internet users or a group of all authenticated {{ yandex-cloud }} users). These settings are not compatible: a bucket should have either a predefined ACL or a set of individual permissions.
+   You can apply a [predefined ACL](../../concepts/acl.md#predefined-acls) to a bucket or configure permissions for individual users, [service accounts](../../../iam/concepts/users/service-accounts.md), [user groups](../../../organization/concepts/groups.md) and [public groups](../../concepts/acl.md#public-groups) (e.g., a group of all internet users or a group of all authenticated {{ yandex-cloud }} users). These settings are not compatible: a bucket should have either a predefined ACL or a set of individual permissions.
 
    Predefined ACL
 
@@ -96,10 +96,10 @@ If an [ACL](../../concepts/acl.md) has already been set for a [bucket](../../con
       ```
 
       Where:
-      * `grant-type`: Type of the permission grantee. The possible values include:
+      * `grant-type`: Type of the permission grantee. The possible values are:
          * `grant-type-account`: User, [service account](../../../iam/concepts/users/service-accounts.md), or [user group](../../../organization/concepts/groups.md).
-         * `grant-type-all-authenticated-users`: [System group](../../concepts/acl.md#system-groups) of all authenticated {{ yandex-cloud }} users.
-         * `grant-type-all-users`: System group of all internet users.
+         * `grant-type-all-authenticated-users`: [Public group](../../concepts/acl.md#public-groups) of all authenticated {{ yandex-cloud }} users.
+         * `grant-type-all-users`: Public group of all internet users.
       * `grantee-id`: ID of the user, service account, or user group to grant permission to. It is specified only if `grant-type=grant-type-account`.
       * `permission`: ACL permission type. The possible values are:
          * `permission-read`: Permission to access the list of objects in the bucket, read various bucket settings (lifecycle, CORS, static hosting), and read all objects in the bucket.
@@ -138,7 +138,7 @@ If an [ACL](../../concepts/acl.md) has already been set for a [bucket](../../con
    * `--bucket`: Bucket name.
    * `--endpoint`: {{ objstorage-name }} endpoint.
 
-   You can apply a [predefined ACL](../../concepts/acl.md#predefined-acls) to a bucket or configure permissions for individual users, [service accounts](../../../iam/concepts/users/service-accounts.md), [user groups](../../../organization/concepts/groups.md) and [system groups](../../concepts/acl.md#system-groups) (e.g., a group of all internet users or a group of all authenticated {{ yandex-cloud }} users). These settings are not compatible: a bucket should have either a predefined ACL or a set of individual permissions.
+   You can apply a [predefined ACL](../../concepts/acl.md#predefined-acls) to a bucket or configure permissions for individual users, [service accounts](../../../iam/concepts/users/service-accounts.md), [user groups](../../../organization/concepts/groups.md) and [public groups](../../concepts/acl.md#public-groups) (e.g., a group of all internet users or a group of all authenticated {{ yandex-cloud }} users). These settings are not compatible: a bucket should have either a predefined ACL or a set of individual permissions.
 
    Predefined ACL
 
@@ -186,10 +186,10 @@ If an [ACL](../../concepts/acl.md) has already been set for a [bucket](../../con
 
          For more information about permissions, see [{#T}](../../concepts/acl.md#permissions-types).
 
-      * The possible permission grantees include:
+      * The possible permission grantees are:
          * `id=<grantee_ID>`: ID of the user, service account, or user group to grant permission to.
-         * `uri=http://acs.amazonaws.com/groups/global/AuthenticatedUsers`: [System group](../../concepts/acl.md#system-groups) of all authenticated {{ yandex-cloud }} users.
-         * `uri=http://acs.amazonaws.com/groups/global/AllUsers`: System group of all internet users.
+         * `uri=http://acs.amazonaws.com/groups/global/AuthenticatedUsers`: [Public group](../../concepts/acl.md#public-groups) of all authenticated {{ yandex-cloud }} users.
+         * `uri=http://acs.amazonaws.com/groups/global/AllUsers`: Public group of all internet users.
 
       To configure multiple permissions, specify the settings, permission type, and permission grantee multiple times. For example, to grant a write permission for a bucket, run the following command:
 
@@ -236,9 +236,9 @@ If an [ACL](../../concepts/acl.md) has already been set for a [bucket](../../con
       * `secret_key`: Value of the secret access key.
       * `bucket`: Bucket name. This is a required parameter.
       * `grant`: [ACL](../../concepts/acl.md) settings. This is an optional parameter. To manage this parameter, the service account for which the static access keys were obtained must have the `storage.admin` [role](../../security/index.md#roles-list) for a bucket or a folder.
-         * `type`: Type of the permission grantee. The possible values include:
+         * `type`: Type of the permission grantee. The possible values are:
             * `CanonicalUser`: For a user, [service account](../../../iam/concepts/users/service-accounts.md), or [user group](../../../organization/concepts/groups.md).
-            * `Group`: For a [system group](../../concepts/acl.md#system-groups).
+            * `Group`: For a [public group](../../concepts/acl.md#public-groups).
          * `permissions`: Type of ACL [permissions](../../concepts/acl.md#permissions-types), possible values:
             * `READ`: Permission to access the list of objects in the bucket, read various bucket settings (lifecycle, CORS, static hosting), and read all objects in the bucket.
             * `WRITE`: Permission to write, overwrite, and delete objects in the bucket. It is used only together with `READ`, e.g., `permissions = ["READ", "WRITE"]`.
@@ -255,7 +255,7 @@ If an [ACL](../../concepts/acl.md) has already been set for a [bucket](../../con
             * User group: Navigate to the [**{{ ui-key.yacloud_org.pages.groups }}**]({{ link-org-main }}groups) tab in the {{ org-name }} interface.
 
 
-         * `uri`: System group ID. It is used with the `Group` permission grantee type. The possible values include:
+         * `uri`: Public group ID. It is used with the `Group` permission grantee type. The possible values are:
             * `http://acs.amazonaws.com/groups/global/AllUsers`: All internet users.
             * `http://acs.amazonaws.com/groups/global/AuthenticatedUsers`: All authenticated {{ yandex-cloud }} users.
 

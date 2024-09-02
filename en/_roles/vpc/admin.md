@@ -7,7 +7,7 @@ The `vpc.admin` role allows you to manage cloud networks, subnets, route tables,
 * Manage connectivity of multiple cloud networks.
 * Manage multi-interface instances that provide connectivity between multiple networks.
 * View the list of [subnets](../../vpc/concepts/network.md#subnet) and info on them, as well as create, modify, and delete them.
-* View the list of [route tables](../../vpc/concepts/static-routes.md#rt-vpc) and info on them, as well as create, modify, and delete them.
+* View the list of [route tables](../../vpc/concepts/routing.md#rt-vpc) and info on them, as well as create, modify, and delete them.
 * Link route tables to subnets.
 * View information on [NAT gateways](../../vpc/concepts/gateways.md), as well as create, modify, and delete them.
 * Connect NAT gateways to route tables.

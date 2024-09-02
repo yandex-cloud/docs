@@ -13,6 +13,12 @@ To run a webhook in a {{ managed-k8s-name }} cluster:
 1. [Install and run a webhook in a {{ managed-k8s-name }} cluster](#yandex-webhook).
 1. [Delete the resources you created](#clear-out).
 
+{% note info %}
+
+The certificate manager with the ACME webhook for {{ dns-full-name }} supports [Wildcard certificates](https://en.wikipedia.org/wiki/Public_key_certificate#Wildcard_certificate).
+
+{% endnote %}
+
 ## Getting started {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
@@ -23,7 +29,7 @@ To run a webhook in a {{ managed-k8s-name }} cluster:
 1. Install [kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl/), which is the {{ k8s }} CLI.
 1. Make sure you have enough [resources available in the cloud](../../resource-manager/concepts/limits.md).
 1. If you do not have a [network](../../vpc/concepts/network.md#network) yet, [create one](../../vpc/operations/network-create.md).
-1. If you do not have any [subnets](../../vpc/concepts/network.md#subnet), [create them](../../vpc/operations/subnet-create.md) in the [availability zones](../../overview/concepts/geo-scope.md) where your {{ managed-k8s-name }} cluster and node group will be created.
+1. If you do not have any [subnets](../../vpc/concepts/network.md#subnet) yet, [create them](../../vpc/operations/subnet-create.md) in the [availability zones](../../overview/concepts/geo-scope.md) where your {{ managed-k8s-name }} cluster and node group will be created.
 1. [Create service accounts](../../iam/operations/sa/create.md):
 
    * `sa-kubernetes` with the following [roles](../../managed-kubernetes/security/index.md#yc-api):

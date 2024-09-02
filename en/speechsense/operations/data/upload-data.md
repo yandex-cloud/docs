@@ -5,57 +5,30 @@ Use this guide to upload data for API-based speech analysis to {{ speechsense-na
 * [Audio format](../../concepts/formats.md): WAV.
 * The dialog metadata is stored in `metadata_example.json`.
 
-An [IAM token](../../../iam/concepts/authorization/iam-token.md) or [IAM key](../../../iam/concepts/authorization/api-key.md) is used to [authenticate](../../api-ref/authentication.md) the service account.
+{% include [authentication](../../../_includes/speechsense/data/authentication.md) %}
 
 If you want to upload the chat text instead of voice call audio, follow [this guide](upload-chat-text.md).
 
 ## Getting started {#before-you-begin}
 
-To use the API, you will need Git, Python 3.6 or higher, and the `grpcio-tools` package. [How to install Python](https://www.python.org/downloads/).
+{% include [software](../../../_includes/speechsense/data/software.md) %}
 
-1. In the management console, [create a service account](../../../iam/operations/sa/create.md).
-1. [Add the service account to the namespace](../space/add-user-to-space.md) with the `{{ roles-speechsense-data-editor }}` role. This will authorize the service account to upload data to the [connection](../../concepts/resources-hierarchy.md#connection) you created.
-1. [Create an API key](../../../iam/operations/api-key/create.md) or [IAM token](../../../iam/operations/iam-token/create-for-sa.md) for the service account to authenticate with the API.
+To prepare for uploading audio recordings:
 
-1. Clone the [{{ yandex-cloud }} API repository](https://github.com/yandex-cloud/cloudapi):
+1. [Create a connection](../connection/create.md#create-audio-connection) of the **Two-channel audio** type.
+1. [Create a project](../project/create.md) with the new connection.
 
-   ```bash
-   git clone https://github.com/yandex-cloud/cloudapi
-   ```
+   Voice call recordings will be uploaded to the project and connection you created.
 
-1. Install the `grpcio-tools` package using the [pip](https://pip.pypa.io/en/stable/) package manager:
-
-   ```python
-   pip install grpcio-tools
-   ```
+1. {% include [create-sa](../../../_includes/speechsense/data/create-sa.md) %}
+1. {% include [role-sa](../../../_includes/speechsense/data/role-sa.md) %}
+1. {% include [create-api-key](../../../_includes/speechsense/data/create-api-key.md) %}
+1. {% include [clone-cloudapi](../../../_includes/speechsense/data/clone-cloudapi.md) %}
+1. {% include [install-grpcio-tools](../../../_includes/speechsense/data/install-grpcio-tools.md) %}
 
 ## Uploading data {#upload-data}
 
-1. Go to the folder hosting the {{ yandex-cloud }} API repository, create a folder named `upload_data`, and generate the client interface code in it. Then open the `upload_data` folder:
-
-   {% list tabs group=programming_language %}
-
-   - Bash {#bash}
-
-      ```bash
-      cd <path_to_cloudapi_directory> && \
-      mkdir upload_data && \
-      python3 -m grpc_tools.protoc -I . -I third_party/googleapis \
-           --python_out=./upload_data/ \
-           --grpc_python_out=./upload_data/ \
-           google/api/http.proto \
-           google/api/annotations.proto \
-           yandex/cloud/api/operation.proto \
-           google/rpc/status.proto \
-           yandex/cloud/operation/operation.proto \
-           yandex/cloud/validation.proto \
-           yandex/cloud/speechsense/v1/*.proto \
-           yandex/cloud/speechsense/v1/*/*.proto
-      cd upload_data
-      ```
-
-   {% endlist %}
-
+1. {% include [interface-code-generation](../../../_includes/speechsense/data/interface-code-generation.md) %}
 1. In the `upload_data` folder, create the `upload_grpc.py` Python script to upload your data to a {{ speechsense-name }} connection as a single message:
 
    ```python
@@ -131,17 +104,7 @@ To use the API, you will need Git, Python 3.6 or higher, and the `grpcio-tools` 
       upload_talk(args.connection_id, metadata, args.key, audio_bytes)
    ```
 
-1. Specify the service account's API key:
-
-   ```bash
-   export API_KEY=<service_account_API_key>
-   ```
-
-   If using an IAM token, provide it instead of the API key:
-
-   ```bash
-   export IAM_TOKEN=<service_account_IAM_token>
-   ```
+1. {% include [api-key](../../../_includes/speechsense/data/api-key.md) %}
 
 1. Run the `upload_grpc.py` script with the following parameters:
 

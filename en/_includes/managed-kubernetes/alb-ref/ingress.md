@@ -16,13 +16,13 @@ spec: <IngressSpec>
 
 #|
 || **Field**    | **Value or type**      | **Description**                  ||
-|| `apiVersion` | `networking.k8s.io/v1` | **Required**
-                                            Kubernetes API version          ||
-|| `kind`       | `Ingress`              | Resource type                    ||
-|| `metadata`   | `ObjectMeta`           | **Required**
-                                          [Resource metadata](#metadata)    ||
-|| `spec`       | `IngressSpec`          | **Required**
-                                          [Resource specification](#spec)   ||
+|| `apiVersion` | `networking.k8s.io/v1` | **Required**.
+                                            Kubernetes API version.          ||
+|| `kind`       | `Ingress`              | Resource type.                    ||
+|| `metadata`   | `ObjectMeta`           | **Required**.
+                                          [Resource metadata](#metadata).    ||
+|| `spec`       | `IngressSpec`          | **Required**.
+                                          [Resource specification](#spec).   ||
 |#
 
 {% cut "Example" %}
@@ -94,16 +94,17 @@ annotations:
   ingress.alb.yc.io/modify-header-response-replace: <string>
   ingress.alb.yc.io/modify-header-response-rename: <string>
   ingress.alb.yc.io/modify-header-response-remove: <string>
+  ingress.alb.yc.io/security-profile-id: <string>
   ingress.alb.yc.io/use-regex: <string>
 ```
 
 #|
 || **Field**      | **Value or type**   | **Description**          ||
-|| `name`         | `string`            | **Required**
-[Resource name](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names)
+|| `name`         | `string`            | **Required**.
+[Resource name](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
 This name is not the balancer name in {{ alb-name }}. ||
-|| `annotations`  | `map[string]string` | **Required**
-[Resource annotations](#annotations)                               ||
+|| `annotations`  | `map[string]string` | **Required**.
+[Resource annotations](#annotations).                               ||
 |#
 
 ### Annotations (metadata.annotations) {#annotations}
@@ -198,7 +199,7 @@ You can provide the following annotations for the `ObjectMeta` object:
 
    {% endnote %}
 
-   Connection encryption protocol for the load balancer and backends specified in `Ingress` directly (without `HttpBackendGroup`):
+   Connection encryption protocol for the load balancer and backends specified in `Ingress` directly (without `HttpBackendGroup`).
 
    The acceptable value is `tls`: TLS with no certificate challenge.
 
@@ -313,6 +314,12 @@ You can provide the following annotations for the `ObjectMeta` object:
 
    Where `<key>` is the name of the header to remove.
 
+* **ingress.alb.yc.io/security-profile-id** {#annot-security-profile-id}
+
+   Includes support for [{{ sws-full-name }}](../../../smartwebsecurity/concepts/index.md) that allows you to get protected against DDoS attacks and bots, plus enable [WAF](../../../smartwebsecurity/concepts/waf.md) and [limit the load](../../../smartwebsecurity/concepts/arl.md) on the resource you are protecting.
+
+   {% include [annot-description](annot-security-profile-id.md) %}
+
 * **ingress.alb.yc.io/use-regex** {#annot-use-regex}
 
    Enables support for [RE2](https://github.com/google/re2/wiki/Syntax) regular expressions when matching the request path if the `true` string is provided. Only applies if the `pathType` parameter is set to `Exact`.
@@ -334,15 +341,15 @@ rules:
 || `ingressClassName` | `string`             | Name of the [IngressClass](../../../application-load-balancer/k8s-ref/ingress-class.md) resource which the `Ingress` resource refers to.
 
 An `IngressClass` is required to route traffic within a single application using multiple Ingress controllers. If you do not use the `ingressClassName` parameter but use multiple Ingress controllers, create an `IngressClass` resource to apply by default. ||
-|| `tls`              | `[]IngressTLS`        | **Required**
+|| `tls`              | `[]IngressTLS`        | **Required**.
 [Incoming HTTPS traffic settings](#tls): domain name collections and the relevant TLS certificates.
 
-If the filed is specified, two types of [listeners](../../../application-load-balancer/concepts/application-load-balancer.md#listener) will be created for the load balancer: some will be receiving HTTPS traffic on port 443, others will redirect HTTP requests (port 80) to HTTPS. At the same time, the traffic distribution rules for the same domain names, if explicitly specified in other `Ingress` resources without the `tls` field, will be prioritized over HTTP-to-HTTPS redirects.
+If the filed is specified, two types of [listeners](../../../application-load-balancer/concepts/application-load-balancer.md#listener) will be created for the load balancer: some will be receiving HTTPS traffic on port 443, others will redirect HTTP requests (port 80) to HTTPS. The traffic distribution rules for the same domain names explicitly specified in other `Ingress` resources, without the `tls` field, will be prioritized over HTTP-to-HTTPS redirects.
 
 If the field is not specified, only HTTP listeners will be created for the load balancer to handle traffic on port 80.
 ||
 
-|| `rules`  | `[]IngressRule`        | **Required**
+|| `rules`  | `[]IngressRule`        | **Required**.
 [List of rules](#rule) for distribution of incoming traffic among the backends depending on the domain name (`host` field) and requested resource (`http.paths` field).
 
 In {{ alb-name }}, the rules correspond to HTTP router [virtual hosts](../../../application-load-balancer/concepts/http-router.md#virtual-host).
@@ -361,7 +368,7 @@ secretName: <string>
 #|
 || **Field**   | **Value or type** | **Description** ||
 
-|| `hosts`     | `[]string`        | **Required**
+|| `hosts`     | `[]string`        | **Required**.
 Domain names the `secretName` TLS certificate corresponds to.
 
 The load balancer will create a dedicated listener for each domain name used as a value for the Server Name Indication (SNI) TLS extension.
@@ -369,7 +376,7 @@ The load balancer will create a dedicated listener for each domain name used as 
 {% include [k8s-ingress-controller-hostnames-wildcard](../../application-load-balancer/k8s-ingress-controller-hostnames-wildcard.md) %}
 ||
 
-|| `secretName` | `string`         | **Required**
+|| `secretName` | `string`         | **Required**.
 Reference to a TLS certificate from {{ certificate-manager-full-name }} in `yc-certmgr-cert-id-<certificate ID>` format. This is the name a [secret](https://kubernetes.io/docs/concepts/configuration/secret/) with a certificate is available under in {{ managed-k8s-name }}.
 
 In {{ certificate-manager-name }}, you can have [a certificate from Let's Encrypt<sup>®</sup>](../../../certificate-manager/operations/managed/cert-create.md) or [load one of your own](../../../certificate-manager/operations/import/cert-create.md).
@@ -413,7 +420,7 @@ The sequence of routes on the list is important: they are matched against an inc
 
 {% note warning %}
 
-If you create a load balancer for several `Ingress` resources (with the same [ingress.alb.yc.io/group-name](#annot-group-name) annotation value), and they include rules for the same domain name, the route processing sequence is only guaranteed within each of the `Ingress` resources but not across them.
+If you create a load balancer for several `Ingress` resources (with the same [ingress.alb.yc.io/group-name](#annot-group-name) annotation value), and they include rules for the same domain name, the route processing sequence is only guaranteed within each of the `Ingress` resources but not <q>between</q> them.
 
 {% endnote %}
 

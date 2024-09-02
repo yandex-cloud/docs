@@ -6,7 +6,7 @@ The widget displays issue distribution by values of a certain parameter.
 
 {% note info %}
 
-In the **Key parameter** field, we do not recommend using the **{{ ui-key.startrek.ui_components_dashboard.summary-field-name }}** value because the widgets with such settings will soon be disabled. [Read more](../faq.md#section_del_widget).
+In the **Key parameter** field, we do not recommend using the **Summary** value because the widgets with such settings will soon be disabled. [Read more](../faq.md#section_del_widget).
 
 {% endnote %}
 

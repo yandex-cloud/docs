@@ -1,5 +1,5 @@
 ---
-title: "Static routes and route tables"
+title: "Routing"
 description: "With static routing, you can route traffic from a subnet to the specified IP address ranges through the VMs specified as the next hop. Routing is based on route tables. Route tables are linked to a subnet and cannot contain duplicate prefixes."
 keywords:
   - static routing
@@ -7,7 +7,7 @@ keywords:
   - routing
 ---
 
-# Static routes and route tables
+# Routing
 
 When you create a virtual machine (VM) in {{ yandex-cloud }}, it receives a [set of parameters](../../compute/concepts/network.md) for configuring its network environment from the virtual network. The virtual network transmits the values of these parameters to the VM using DHCP. The required network environment parameters for VMs include:
 
@@ -18,24 +18,24 @@ When you create a virtual machine (VM) in {{ yandex-cloud }}, it receives a [set
 
 ## VM route table {#rt-vm}
 
-In {{ yandex-cloud }}, VM instances are typically created with a single network interface. At the time of creation, the VM's route table includes only one route: the one to the default gateway with the prefix `0.0.0.0/0`. For this route (prefix), the gateway is always the **first IP address** on the subnet to which the VM's network interface is connected.
+In {{ yandex-cloud }}, VM instances are typically created with a single network interface. When being created, a VM will have a route table with only one route: the one to the default gateway with the `0.0.0.0/0` prefix. For this route (prefix), the gateway is always the **first IP address** on the subnet to which the VM network interface is connected.
 
-Let's assume a VM's network interface is connected to a subnet with the prefix `192.168.10.0/24`. When the VM was created, its network interface was assigned the IP address `192.168.10.5` on the subnet. The route table for the VM will appear as follows:
+Let's assume a VM network interface is connected to a subnet with the `192.168.10.0/24` prefix. When the VM was created, its network interface was assigned the `192.168.10.5` IP address on the subnet. The route table for the VM will appear as follows:
 
 ```bash
 ip route
 default via 192.168.10.1 dev eth0 proto dhcp src 192.168.10.5 metric 100
 ```
 
-This means that all traffic bound for the virtual network must go through the gateway `192.168.10.1` (`eth0` interface).
+This means that all traffic bound for the virtual network must go through the `192.168.10.1` gateway (`eth0` interface).
 
 {% note alert %}
 
-Changing the IP address for the default gateway in the VM's route table may lead to a complete loss of connectivity with the VM.
+Changing the IP address for the default gateway in the VM route table may lead to completely losing the VM connectivity.
 
 {% endnote %}
 
-If using a VM with multiple network interfaces, keep in mind that the virtual network will configure a different default gateway for each network interface. To prevent routing conflicts, leave only one default gateway by using the `ip route del` command to delete the route table entries associated with the other gateways.
+If using a VM with multiple network interfaces, keep in mind that the virtual network will configure a different default gateway for each network interface. To prevent routing conflicts, leave only one default gateway by using the `ip route del` command to delete the route table entries associated with other gateways.
 
 If you create a VM with multiple network interfaces, the route table within the VM will only allow you to select the network interface for outgoing traffic based on specific destination IP prefixes.
 
@@ -45,7 +45,7 @@ VM route tables do not support forwarding traffic directly from one VM within a 
 
 If you need granular routing at the virtual network level, use {{ vpc-short-name }} route tables. This {{ yandex-cloud }} tool can be useful when processing network traffic on specialized VM instances, such as firewalls, NGFWs, secure gateways, and VPNs.
 
-{{ vpc-short-name }} route tables enable you to control the routing of IPv4 traffic for VM instances. {{ vpc-name }} does not currently support IPv6 protocol.
+{{ vpc-short-name }} route tables enable you to manage IPv4 traffic routing for VM instances. {{ vpc-name }} does not currently support IPv6.
 
 {{ vpc-short-name }} route tables are created within [cloud networks](./network.md#network) and can be applied to any [subnet](./network.md#subnet) on the same network. You cannot apply a route table to subnets belonging to a different cloud network.
 
@@ -68,6 +68,18 @@ Static routes can use the default route prefix, `0.0.0.0/0`. This means that all
 
 When creating a static route with a `Gateway` as the `next hop`, you can specify only the `0.0.0.0/0` default route prefix in the `Destination prefix`. This `next hop` type does not support other prefixes.
 
+
+### Route priority in complex scenarios {#priority}
+
+In complex routing scenarios with multiple default routes in the VPC network (subnets), outgoing traffic will follow this routing order:
+
+* Priority 1: If you set up a default static route of `0.0.0.0/0`, it will have the highest priority.
+
+* Priority 2: If a VM has a public IP address and there is no default static route (priority 1) set in the subnet, traffic will be routed through that public IP address.
+
+* Priority 3: If you announce a default route of `0.0.0.0/0` using [Cloud Interconnect](../../interconnect/concepts/routing.md#cic-routing-default-as), it will be treated as having the lowest priority relative to routes with priorities 1 and 2.
+
+
 ## Limitations {#restrictions}
 
 1. A {{ vpc-short-name }} route table can only have one entry per destination prefix. Duplicating destination prefixes within the same {{ vpc-short-name }} route table is not allowed. This also applies to the default route prefix, `0.0.0.0/0`.
@@ -83,7 +95,7 @@ When creating a static route with a `Gateway` as the `next hop`, you can specify
 1. When using {{ vpc-short-name }} route tables to route reverse traffic from internal load balancer [target resources](../../network-load-balancer/concepts/target-resources.md), consider the [traffic routing specifics](../../network-load-balancer/concepts/specifics.md#nlb-int-routing).
 1. You cannot use IP addresses of an application-level load balancer's [traffic listener](../../application-load-balancer/concepts/application-load-balancer.md#listener) as the `next hop`.
 1. A {{ yandex-cloud }} virtual network does not allow transmitting traffic through itself. In other words, only [private IP address ranges in {{ vpc-name }}](../../vpc/concepts/network.md#subnet) can be used as destination prefixes and gateways for static routes in {{ vpc-short-name }} route tables. Traffic to public destination prefixes or gateways with public IP addresses in the {{ vpc-short-name }} route table will be discarded.
-1. To learn more about the quantitative restrictions on the use of route tables and static routes, see [Quotas and limits](./limits.md#vpc-quotas) in the {{ vpc-name }} documentation.
+1. To learn more about the quota-related restrictions on the use of route tables and static routes, see [Quotas and limits](./limits.md#vpc-quotas) in the {{ vpc-name }} documentation.
 
 ## Static route use cases {#refs}
 
@@ -91,4 +103,4 @@ When creating a static route with a `Gateway` as the `next hop`, you can specify
 1. [Routing through a NAT instance](../../tutorials/routing/nat-instance.md).
 1. [Creating an IPSec VPN tunnel](../../tutorials/routing/ipsec/index.md).
 1. [Creating and configuring a UserGate gateway in firewall mode](../../tutorials/routing/usergate-firewall.md).
-1. [Implementing a secure high-availability network infrastructure with a dedicated DMZ based on the Next-Generation Firewall](../../tutorials/routing/high-accessible-dmz.md).
+1. [Implementing a secure high-availability network infrastructure with a dedicated DMZ based on the next-generation firewall](../../tutorials/routing/high-accessible-dmz.md).

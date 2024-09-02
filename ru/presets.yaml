@@ -91,6 +91,7 @@ default:
   cloud-logging-name: Cloud Logging
   cloud-logging-short-name: Cloud Logging
   cloud-logs-name: Cloud Logs
+  cloud-notify-bot: YandexCloudNotify_bot
   cluster-id: cat0adul1fj0********
   cname-example: cl-msa87*****.edgecdn.ru
   coi: Container Optimized Image
@@ -4697,8 +4698,6 @@ default:
         editor-save-button: Сохранить
       ui_components_dashboard_TableWidget:
         show-all: Показать все
-      ui_components_dashboard:
-        summary-field-name: Задача
       ui_components_entity-page_ActivitySection:
         activity: Активность
         new-activity-on-top: Сначала новые
@@ -7268,7 +7267,6 @@ default:
             button_create: Создать резервную копию
             button_delete: Удалить резервную копию
             button_restore: Восстановить кластер
-            column_name: Имя
             label_title: Резервные копии
           databases:
             action_add-database: Создать базу данных
@@ -8319,6 +8317,8 @@ default:
                         title: База данных
                       security_groups:
                         title: Группы безопасности
+                      shard_group:
+                        title: Группа шардов
                     ClickHouseConnectionType:
                       managed:
                         title: Кластер Managed Service for ClickHouse
@@ -9533,6 +9533,47 @@ default:
         send-request: Отправить запрос
         temperature:
           title: Температура
+    yc-ui-talkanalytics:
+      common:
+        delete-key-value: Удалить
+        duplicate: Дублировать
+        edit: Редактировать
+        save: Сохранить
+      connections:
+        fields:
+          client: Клиент
+          operator: Оператор
+      dialogs:
+        classifiers: Теги
+      dictionaries:
+        add-dictionary: Добавить словарь
+      projects:
+        dialogs: Диалоги
+      tags:
+        binding-events-key-value: Ограничения
+        binding-events:
+          classifier: Сработал основной тег
+          dialog-start-key-value: Начало диалога
+          silence-key-value: Длинная пауза
+        change-channel: Изменить канал
+        channel:
+          client: Клиент
+          operator: Оператор
+          operator-and-client: Оператор и клиент
+        conditions: Условия срабатывания
+        create-dependent-tag: Создать зависимый тег
+        create-tag-key-value: Создать тег
+        exact-match-key-value: Точное совпадение
+        exceptions: Исключения
+        important-tag-key-value: Важный тег
+        key-phrases-key-value: Ключевые фразы
+        new-channel: Новый канал
+        restrict-search-area-key-value: Ограничить область поиска
+        restrictions: Ограничения
+        search-area-key-value: Направление поиска
+        search-area:
+          after-key-value: Вперед
+        words-between-key-value: Дистанция между словами
     yql:
       yq-audit-trails:
         audit-trails-type-toggle:
@@ -9734,7 +9775,7 @@ default:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/yc-alb-ingress/yc-alb-ingress-controller-chart
-        tag: v0.2.7
+        tag: v0.2.8
     yc_argo-cd:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/argo/chart/argo-cd

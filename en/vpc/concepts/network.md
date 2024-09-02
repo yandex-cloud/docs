@@ -50,7 +50,7 @@ You can use the map to visualize networks. For example, with the map, you can id
 * {{ managed-k8s-name }} nodes.
 * [Cloud networks](#network).
 * [Subnets](#subnet).
-* [Route tables](static-routes.md).
+* [Route tables](routing.md).
 
 You have the option to only map network connections for specific resources. This can be useful if you have a large network with a vast number of resources. In addition, you can use the map to navigate to resource pages with just one click. To learn more about using the map, see [this guide](../operations/network-map.md).
 

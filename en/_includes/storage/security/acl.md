@@ -8,7 +8,7 @@ Permissions granted to a bucket apply to all objects it contains. With ACLs, you
 
 {% note warning %}
 
-A bucket [inherits](#inheritance) the same access rights in the {{ iam-short-name }} service as those of the folder and the cloud where it is located.
+A bucket [inherits](#inheritance) the same access permissions in {{ iam-short-name }} as those of the folder and the cloud where it is located.
 
 {% endnote %}
 
@@ -16,7 +16,7 @@ A bucket [inherits](#inheritance) the same access rights in the {{ iam-short-nam
 
 By default, {{ objstorage-name }} creates an empty ACL for each new object or bucket. Users with the appropriate access permissions can edit and upload ACLs for {{ objstorage-name }} buckets and objects.
 
-You can use ACLs to grant permissions to a {{ yandex-cloud }} user, [service account](../../../iam/concepts/users/service-accounts.md), [user group](../../../organization/concepts/groups.md), or [system group](#system-groups) (the group of all internet users, the group of all authenticated {{ yandex-cloud }} users). To do this, you need to know the [permission grantee's ID](#accounts-ids). When granting permissions, you can use [predefined ACLs](#predefined-acls), which contain common permission sets.
+You can use ACLs to grant permissions to a {{ yandex-cloud }} user, [service account](../../../iam/concepts/users/service-accounts.md), [user group](../../../organization/concepts/groups.md), or [public group](#public-groups) (the group of all internet users, the group of all authenticated {{ yandex-cloud }} users). To do this, you need to know the [permission grantee's ID](#accounts-ids). When granting permissions, you can use [predefined ACLs](#predefined-acls), which contain common permission sets.
 
 {% include [console-sa-acl-note](../console-sa-acl-note.md) %}
 
@@ -39,9 +39,9 @@ ACLs uploaded for objects apply immediately. ACLs uploaded for buckets, as well 
 
    To get the ID, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** section in the management console.
 
-* [System group](#system-groups)
+* [Public group](#public-groups)
 
-   Use the system group URI to grant permissions.
+   Use the public group URI to grant permissions.
 
 * [User group](../../../organization/concepts/groups.md)
 
@@ -79,15 +79,15 @@ If you specify the `WRITE` permission without `READ` when creating an ACL, {{ ob
 | ACL | Description |
 --- |---
 | `private`<br>`bucket-owner-full-control` | {{ yandex-cloud }} users get permissions according to their roles in {{ iam-short-name }}. |
-| `public-read` | `AllUsers` system group gets the `READ` permission. |
-| `public-read-write` | `AllUsers` system group gets the `READ` and `WRITE` permissions. |
-| `authenticated-read` | `AuthenticatedUsers` system group gets the `READ` permission. |
+| `public-read` | The `AllUsers` public group gets the `READ` permission. |
+| `public-read-write` | The `AllUsers` public group gets both the `READ` and `WRITE` permissions. |
+| `authenticated-read` | The `AuthenticatedUsers` public group gets the `READ` permission. |
 
 Predefined ACLs can be applied to both objects and buckets. When applied to an object, the `public-read-write` ACL is the same as `public-read`.
 
 You can upload a predefined ACL using only an [Amazon S3-compatible HTTP API](../../../storage/s3/api-ref/acl.md). When uploading an ACL, use the `X-Amz-Acl` HTTP header.
 
-## System groups {#system-groups}
+## Public groups {#public-groups}
 
 ### AllUsers {#all-users}
 
@@ -113,15 +113,15 @@ A permission for `AuthenticatedUsers` looks as follows:
 </Grantee>
 ```
 
-## Inheritance of bucket access permissions by {{ yandex-cloud }} system groups {#inheritance}
+## Inheritance of bucket access permissions by {{ yandex-cloud }} public groups {#inheritance}
 
 A bucket inherits the same access permissions in {{ iam-short-name }} as those of the folder and cloud where it is located. If a user has permissions to access the folder or cloud the bucket belongs to, they will also have permissions to access the bucket itself.
 
 {% note warning %}
 
-Assigning roles to the `AllUsers` and `allAuthenticatedUsers` [system groups](../../../iam/concepts/access-control/system-group.md) for the folder or cloud the bucket belongs to is the same as granting **public access** to the bucket:
-* `allAuthenticatedUsers`: All authenticated {{ yandex-cloud }} users get access to the bucket, both from your clouds and other users' clouds.
-* `allUsers`: Access is granted to all users.
+Assigning roles to the `AllUsers` and `allAuthenticatedUsers` [public groups](../../../iam/concepts/access-control/public-group.md) for the folder or cloud the bucket belongs to is equivalent to granting **public access** to the bucket:
+* `All authenticated users`: All authenticated {{ yandex-cloud }} users get access to the bucket, both from your cloud and other user clouds.
+* `All users`: Access is granted to all users.
 
 You can grant the same access rights to a bucket by adding access rights for the `AuthenticatedUsers` and `AllUsers` groups to the bucket ACL.
 
@@ -151,7 +151,7 @@ A bucket inherits access rights from its folder. If you want to know exactly wha
 
    The output contains `allAuthenticatedUsers` and `allUsers`. This means the users of these groups are granted rights for this folder and all resources it contains, including buckets.
 
-* To revoke a role from the `allAuthenticatedUsers` system group, run this command:
+* To revoke a role from the `All authenticated users` public group, run the following command:
 
    ```bash
    yc resource-manager folder remove-access-binding \
@@ -160,7 +160,7 @@ A bucket inherits access rights from its folder. If you want to know exactly wha
      --allAuthenticatedUsers
    ```
 
-* To revoke a role from the `allUsers` system group, run this command:
+* To revoke a role from the `All users` public group, run the following command:
 
    ```bash
    yc resource-manager folder remove-access-binding \

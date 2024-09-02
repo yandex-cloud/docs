@@ -84,19 +84,19 @@ description: "Из статьи вы узнаете, как задать нас�
 
 - Консоль управления {#console}
 
-    {% include [Managed ClickHouse UI](../../../../_includes/data-transfer/necessary-settings/ui/managed-clickhouse.md) %}
+    {% include [Managed ClickHouse UI](../../../../_includes/data-transfer/necessary-settings/ui/managed-clickhouse-target.md) %}
 
 - CLI {#cli}
 
     * Тип эндпоинта — `clickhouse-target`.
 
-    {% include [Managed ClickHouse CLI](../../../../_includes/data-transfer/necessary-settings/cli/managed-clickhouse.md) %}
+    {% include [Managed ClickHouse CLI](../../../../_includes/data-transfer/necessary-settings/cli/managed-clickhouse-target.md) %}
 
 - {{ TF }} {#tf}
 
     * Тип эндпоинта — `clickhouse_target`.
 
-    {% include [Managed ClickHouse Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/managed-clickhouse.md) %}
+    {% include [Managed ClickHouse Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/managed-clickhouse-target.md) %}
 
     Пример структуры конфигурационного файла:
 
@@ -106,6 +106,7 @@ description: "Из статьи вы узнаете, как задать нас�
       name = "<имя_эндпоинта>"
       settings {
         clickhouse_target {
+          clickhouse_cluster_name="<группа_шардов>"
           security_groups = ["<список_идентификаторов_групп_безопасности>"]
           subnet_id       = "<идентификатор_подсети>"
           connection {
@@ -129,7 +130,7 @@ description: "Из статьи вы узнаете, как задать нас�
 
 - API {#api}
 
-    {% include [Managed ClickHouse API](../../../../_includes/data-transfer/necessary-settings/api/managed-clickhouse.md) %}
+    {% include [Managed ClickHouse API](../../../../_includes/data-transfer/necessary-settings/api/managed-clickhouse-target.md) %}
 
 {% endlist %}
 
@@ -147,13 +148,13 @@ description: "Из статьи вы узнаете, как задать нас�
 
     * Тип эндпоинта — `clickhouse-target`.
 
-    {% include [Managed ClickHouse CLI](../../../../_includes/data-transfer/necessary-settings/cli/on-premise-clickhouse.md) %}
+    {% include [Managed ClickHouse CLI](../../../../_includes/data-transfer/necessary-settings/cli/on-premise-clickhouse-target.md) %}
 
 - {{ TF }} {#tf}
 
     * Тип эндпоинта — `clickhouse_target`.
 
-    {% include [On premise ClickHouse Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/on-premise-clickhouse.md) %}
+    {% include [On premise ClickHouse Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/on-premise-clickhouse-target.md) %}
 
     Пример структуры конфигурационного файла:
 
@@ -163,6 +164,7 @@ description: "Из статьи вы узнаете, как задать нас�
       name = "<имя_эндпоинта>"
       settings {
         clickhouse_target {
+          clickhouse_cluster_name="<имя_кластера>"
           security_groups = ["<список_идентификаторов_групп_безопасности>"]
           subnet_id       = "<идентификатор_подсети>"
           connection {
@@ -198,7 +200,7 @@ description: "Из статьи вы узнаете, как задать нас�
 
 - API {#api}
 
-    {% include [On premise ClickHouse API](../../../../_includes/data-transfer/necessary-settings/api/on-premise-clickhouse.md) %}
+    {% include [On premise ClickHouse API](../../../../_includes/data-transfer/necessary-settings/api/on-premise-clickhouse-target.md) %}
 
 {% endlist %}
 
@@ -217,8 +219,6 @@ description: "Из статьи вы узнаете, как задать нас�
     * {% include [flush_interval](../../../../_includes/data-transfer/fields/clickhouse/ui/flush-interval.md) %}
 
 - CLI {#cli}
-
-    * {% include [cluster-name](../../../../_includes/data-transfer/fields/clickhouse/cli/cluster-name.md) %}
 
     * {% include [alt-name](../../../../_includes/data-transfer/fields/clickhouse/cli/alt-name.md) %}
 
@@ -242,8 +242,6 @@ description: "Из статьи вы узнаете, как задать нас�
 
     * {% include [cleanup_policy](../../../../_includes/data-transfer/fields/clickhouse/terraform/cleanup-policy.md) %}
 
-    * {% include [clickhouse_cluster_name](../../../../_includes/data-transfer/fields/clickhouse/terraform/clickhouse-cluster-name.md) %}
-
     * {% include [alt_names](../../../../_includes/data-transfer/fields/clickhouse/terraform/alt-names.md) %}
 
     * Настройки [шардирования](../../../../managed-clickhouse/concepts/sharding.md) данных:
@@ -265,8 +263,6 @@ description: "Из статьи вы узнаете, как задать нас�
     * {% include [cleanupPolicy](../../../../_includes/data-transfer/fields/clickhouse/api/cleanup-policy.md) %}
 
     * {% include [sharding](../../../../_includes/data-transfer/fields/clickhouse/api/sharding.md) %}
-
-    * {% include [clickhouseClusterName](../../../../_includes/data-transfer/fields/clickhouse/api/clickhouse-cluster-name.md) %}
 
 {% endlist %}
 

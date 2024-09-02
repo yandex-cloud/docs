@@ -1,6 +1,10 @@
 # Пример использования {{ message-queue-full-name }} на Python
 
-Для работы с {{ message-queue-full-name }} из Python используется [boto3](https://aws.amazon.com/ru/sdk-for-python/) — комплект средств разработки для языка Python. Версии `boto3` старше 1.26.0 не поддерживаются.
+{% note warning %}
+
+Для работы с {{ message-queue-full-name }} из Python используется [boto3](https://aws.amazon.com/ru/sdk-for-python/) — комплект средств разработки для языка Python. Версии `boto3` выше 1.26.0 не поддерживаются.
+
+{% endnote %}
 
 ## Установка {#install}
 

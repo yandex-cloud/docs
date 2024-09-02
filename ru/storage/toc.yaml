@@ -172,6 +172,8 @@ items:
         href: tutorials/gatsby-static-website.md
       - name: Хранение статического ключа доступа в секрете {{ lockbox-name }}
         href: tutorials/static-key-in-lockbox.md
+      - name: Миграция данных из {{ ES }} в {{ mos-full-name }}
+        href: tutorials/elasticsearch-to-opensearch.md
       - name: Загрузка состояний {{ TF }} в {{ objstorage-name }}
         href: tutorials/terraform-state-storage.md
       - name: Блокировка состояний {{ TF }} с помощью {{ ydb-name }}

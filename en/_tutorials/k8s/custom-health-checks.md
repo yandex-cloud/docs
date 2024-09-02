@@ -123,7 +123,7 @@ To create a Docker image:
 1. In the environment variable, add the name of the Docker image to create:
 
    ```bash
-   export TEST_IMG=cr.yandex/<registry_ID>/example-app1:latest
+   export TEST_IMG={{ registry }}/<registry_ID>/example-app1:latest
    ```
 
 1. Build the Docker image:
@@ -334,8 +334,8 @@ To create resources:
    Result:
 
    ```bash
-   NAME       CLASS    HOSTS     ADDRESS      PORTS   AGE
-   alb-demo   <none>   <domain>  <IP_address> 80      15h
+   NAME       CLASS    HOSTS      ADDRESS        PORTS   AGE
+   alb-demo   <none>   <domain>   <IP_address>   80      15h
    ```
 
 1. Check that the deployed application is available via the L7 load balancer:
@@ -358,7 +358,7 @@ To create resources:
 
    {% include [check-sg-if-url-unavailable-lvl3](../../_includes/managed-kubernetes/security-groups/check-sg-if-url-unavailable-lvl3.md) %}
 
-1. Make sure the application health checks are working correctly:
+1. Make sure the app health checks are working correctly:
 
    {% list tabs group=instructions %}
 
