@@ -2,7 +2,7 @@ title: Yandex SmartCaptcha
 href: index.yaml
 label:
   title: RU
-  description: The service is available in Russia only.
+  description: This service is only available in the Russia region.
   theme: unknown
   when: region == "kz"
 items:
@@ -20,6 +20,8 @@ items:
         href: operations/get-keys.md
       - name: Adding a widget using the advanced method
         href: operations/advanced-method.md
+      - name: Verifying a CAPTCHA response
+        href: operations/validate-captcha.md
       - name: Viewing operations with CAPTCHA
         href: operations/operation-logs.md
   - name: Tutorials

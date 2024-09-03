@@ -66,7 +66,8 @@ You can set up export to any SIEM using [GeeseFS](../../../storage/tools/geesefs
 If you have no SIEM, you can also analyze audit logs manually using one of the following methods (in descending order of convenience):
 
 * [Searching](../../../audit-trails/tutorials/query.md) for {{ yandex-cloud }} events in {{ yq-full-name }}.
-* [Uploading](../../../audit-trails/tutorials/logs-analysis.md) audit logs to {{ mch-full-name }} and data visualization in {{ datalens-full-name }}.
+
+
 * [Searching](../../../audit-trails/tutorials/search-cloud-logging.md) for {{ yandex-cloud }} events in {{ cloud-logging-name }}.
 * [Searching](../../../audit-trails/tutorials/search-bucket.md) for {{ yandex-cloud }} events in {{ objstorage-name }}.
 

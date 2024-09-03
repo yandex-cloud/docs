@@ -32,21 +32,24 @@ description: "Следуя данной инструкции, вы сможет�
     В сервисе действуют [ограничения](./concepts/limits.md) на разрешение публикуемых видео.
 
 1. Введите **{{ ui-key.yacloud_video.videos.label_title }}** видео. Название будет отображаться на всех ресурсах, где будет размещено видео.
-1. В поле **{{ ui-key.yacloud_video.thumbnails.label_thumbnail }}** нажмите кнопку ![upload](../_assets/console-icons/cloud-arrow-up-in.svg) **Выберите файл** и выберите изображение для обложки.
+1. В поле **{{ ui-key.yacloud_video.videos.label_accessRights }}** укажите, для кого должно быть доступно видео:
+
+    * `{{ ui-key.yacloud_video.videos.label_access_rights-auth-system-access }}` — видео будет доступно пользователям, авторизованным в вашей организации.
+    * `{{ ui-key.yacloud_video.videos.label_access_rights-public }}` — видео будет общедоступным.
+
+1. (Опционально) Чтобы добавить обложку для видео, в поле **{{ ui-key.yacloud_video.thumbnails.label_thumbnail }}** нажмите кнопку ![upload](../_assets/console-icons/cloud-arrow-up-in.svg) **Выберите файл** и выберите изображение для обложки.
 
     {% include [image-characteristic](../_includes/video/image-characteristic.md) %}
 
 1. Нажмите кнопку **{{ ui-key.yacloud_video.common.action_accept }}**.
 
-[Подробнее о видео](./concepts/index.md#videos)
+[Подробнее о видео](./concepts/videos.md)
 
 ## Опубликуйте видео {#publish-video}
 
-В открывшемся окне с параметрами видео:
-1. Дождитесь, пока видео полностью загрузится, обработается и перейдет в статус `{{ ui-key.yacloud_video.videos.status_ready }}`.
-1. Включите опцию **{{ ui-key.yacloud_video.videos.label_allow-access }}**.
+В открывшемся окне с параметрами видео дождитесь, пока видео полностью загрузится, обработается и перейдет в статус `{{ ui-key.yacloud_video.videos.status_ready }}`. Значение поля `{{ ui-key.yacloud_video.videos.label_visibility-status }}` изменится на `{{ ui-key.yacloud_video.videos.status_published }}`.
 
-    Параметр `{{ ui-key.yacloud_video.videos.label_visibility-status }}` изменится на `{{ ui-key.yacloud_video.videos.status_published }}`.
+{% include [default-visibility-status](../_includes/video/default-visibility-status.md) %}
 
 ## Проверьте доступность видео {#test}
 

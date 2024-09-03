@@ -29,9 +29,29 @@
 
 {% include [run-python-code](../../_includes/datasphere/run-code-with-spark-connector.md) %}
 
+### Синхронизация окружения Python с кластером {#synchronization}
+
+При работе с Python Spark через {{ ml-platform-name }} нет необходимости вручную переносить виртуальное окружение. В кластере {{ dataproc-name }} есть возможность изменить базовый состав PyPI пакетов с помощью виртуального окружения:
+
+1. Установите библиотеку `catboost `:
+
+   ```python
+   %pip install catboost
+   ```
+
+1. После завершения установки на верхней панели выберите **Kernel** ⟶ **Restart kernel...**. Если установка прошла без [ошибок](../troubleshooting/troubles-with-spark.md), виртуальное окружение будет автоматически создано и доступно в Spark-сессии c помощью переменной `spark`.
+
+Для синхронизации окружения в настройках коннектора Spark в блоке **{{ ui-key.yc-ui-datasphere.spark-connector.s3-settings }}** должны быть указаны идентификатор [статического ключа](../../iam/concepts/authorization/access-key.md) доступа для бакета и [секрет](secrets.md), содержащий сам статический ключ доступа.
+
+{% note warning %}
+
+Синхронизация окружения Python работает в тестовом режиме. Чтобы разрешить синхронизацию окружения, в настройках коннектора Spark в блоке **{{ ui-key.yc-ui-datasphere.spark-connector.spark-settings }}** укажите параметр `.options` = `venv`.
+
+{% endnote %}
+
 ## Livy-сессии {#livy-sessions}
 
-Для корректной интеграции с {{ ml-platform-name }} через Livy-сессии развернутый кластер {{ dataproc-name }} должен иметь [версию образа](../../data-proc/concepts/environment.md) не ниже `1.3` с включенными сервисами `LIVY`, `SPARK`, `YARN` и `HDFS`.
+Для корректной интеграции с {{ ml-platform-name }} через Livy-сессии развернутый кластер {{ dataproc-name }} должен иметь [версию образа](../../data-proc/concepts/environment.md) не ниже `2.0` с включенными сервисами `LIVY`, `SPARK`, `YARN` и `HDFS`.
 
 {% include [dataproc-s3-connector](../../_includes/datasphere/dataproc-s3-connector.md) %}
 
@@ -75,15 +95,15 @@
    ```python
    #!spark --cluster my-new-cluster --session ses1
    import random
-
+   
    def inside(p):
-   x, y = random.random(), random.random()
-   return x*x + y*y < 1
-
+       x, y = random.random(), random.random()
+       return x*x + y*y < 1
+   
    NUM_SAMPLES = 1_000_000
-
+   
    count = sc.parallelize(range(0, NUM_SAMPLES)) \
-      .filter(inside).count()
+       .filter(inside).count()
    print("Pi is roughly %f" % (4.0 * count / NUM_SAMPLES))
    ```
 

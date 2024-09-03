@@ -4,7 +4,7 @@
 * просматривать информацию о [DNS-зонах](../../dns/concepts/dns-zone.md), а также создавать, использовать, изменять и удалять их;
 * просматривать информацию о [ресурсных записях](../../dns/concepts/resource-record.md), а также создавать, изменять и удалять их;
 * создавать вложенные публичные DNS-зоны;
-* просматривать информацию о [привязках](../../iam/concepts/access-control/index.md#access-bindings) прав доступа к DNS-зонам;
+* просматривать информацию о назначенных [правах доступа](../../iam/concepts/access-control/index.md) к DNS-зонам;
 * просматривать информацию о [квотах](../../dns/concepts/limits.md#cloud-dns-quotas) сервиса Cloud DNS;
 * просматривать информацию о [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder).
 

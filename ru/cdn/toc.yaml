@@ -12,6 +12,8 @@ items:
     items:
       - name: Все инструкции
         href: operations/index.md
+      - name: Подключиться к провайдеру {{ cdn-name }}
+        href: operations/enable-provider.md
       - name: Ресурсы
         items:
           - name: Создать ресурс
@@ -74,6 +76,8 @@ items:
         href: tutorials/cdn-storage-integration.md
       - name: Сине-зеленое и канареечное развертывание версий сервиса
         href: tutorials/blue-green-canary-deployment.md
+      - name: Организация защищенного доступа к контенту
+        href: tutorials/protected-access-to-content.md
   - name: Концепции
     items:
       - name: Обзор сервиса

@@ -5,6 +5,8 @@
 {% include [delete-account](delete-account.md) %}
 
 
+{% include [payment-refund](../../_includes/billing/payment-refund.md) %}
+
 #### См. также {#see-also}
 
 * [Перепривязать облако к другому платежному аккаунту](../../billing/operations/pin-cloud.md)

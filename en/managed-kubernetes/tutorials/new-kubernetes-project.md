@@ -356,7 +356,7 @@ Build a Docker image and push it to the registry.
 
       {% endlist %}
 
-   1. Build a Docker image:
+   1. Build the Docker image:
 
       ```bash
       docker build . -f hello.dockerfile -t {{ registry }}/$REGISTRY_ID/nginx:hello

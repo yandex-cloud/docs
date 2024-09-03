@@ -2,6 +2,10 @@
 
 Резервные копии ресурсов {{ yandex-cloud }} создаются в {{ backup-name }} автоматически в соответствии с _политиками резервного копирования_. 
 
+Создание политик доступно после [активации](index.md#providers) сервиса {{ backup-name }}.
+
+{% include [default-policies](../../_includes/backup/default-policies.md) %}
+
 По умолчанию ВМ в {{ backup-name }} не связаны ни с одной политикой резервного копирования. Чтобы начать создавать резервные копии, [привяжите ВМ](../operations/policy-vm/attach-and-detach-vm.md) к одной или нескольким политикам.
 
 В политике вы указываете:
@@ -38,3 +42,4 @@
 * [{#T}](../operations/policy-vm/attach-and-detach-vm.md)
 * [{#T}](../operations/policy-vm/detach-vm.md)
 * [{#T}](../operations/policy-vm/update.md)
+* [{#T}](../operations/policy-vm/get-info.md)

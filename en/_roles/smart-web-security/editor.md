@@ -2,7 +2,7 @@ The `smart-web-security.editor` role allows you to use security profiles in Smar
 
 Users with this role can:
 * View info on [security profiles](../../smartwebsecurity/concepts/profiles.md) in Smart Web Security, create, modify, and delete them, as well as use these security profiles in other Yandex Cloud services.
-* View info on access [bindings](../../iam/concepts/access-control/index.md#access-bindings) for security profiles.
+* View info on [access permissions](../../iam/concepts/access-control/index.md) assigned for security profiles.
 * View the list of L7 load balancer [virtual hosts](../../application-load-balancer/concepts/http-router.md#virtual-host) in Yandex Application Load Balancer to which the security profile is connected.
 * View information on the relevant [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud).
 * View info on the relevant [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).

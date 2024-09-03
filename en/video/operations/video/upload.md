@@ -5,6 +5,8 @@ description: "Follow this guide to upload a video to {{ video-full-name }}."
 
 # Uploading a video
 
+## Uploading one video {#single}
+
 {% list tabs group=instructions %}
 
 - {{ video-name }} interface {#console}
@@ -12,9 +14,11 @@ description: "Follow this guide to upload a video to {{ video-full-name }}."
    1. Open the {{ video-name }} [home page]({{ link-video-main }}).
    1. Select a channel.
    1. In the ![image](../../../_assets/console-icons/circle-play.svg) **{{ ui-key.yacloud_video.videos.title_videos }}** tab, click **{{ ui-key.yacloud_video.videos.action_create-video }}**.
-   1. Click **Select file** on the upload page and choose the video to upload.
+   1. Click **Select file** on the upload page and choose the video you want to upload.
 
       {% include [video-characteristic](../../../_includes/video/video-characteristic.md) %}
+
+      Wait for the upload to end.
 
    1. **{{ ui-key.yacloud_video.videos.label_title }}** your video. The title will be displayed on all the resources hosting the video.
    1. In the **{{ ui-key.yacloud_video.thumbnails.label_thumbnail }}** field, click ![image](../../../_assets/console-icons/cloud-arrow-up-in.svg) **Select file** and select an image for the cover.
@@ -35,6 +39,28 @@ description: "Follow this guide to upload a video to {{ video-full-name }}."
 - API {#api}
 
    Use the [VideoService/Create](../../api-ref/grpc/video_service.md#Create) gRPC API call.
+
+{% endlist %}
+
+
+## Uploading multiple videos {#multiple}
+
+{% list tabs group=instructions %}
+
+- {{ video-name }} interface {#console}
+
+   1. Open the {{ video-name }} [home page]({{ link-video-main }}).
+   1. Select a channel.
+   1. In the ![image](../../../_assets/console-icons/circle-play.svg) **{{ ui-key.yacloud_video.videos.title_videos }}** tab, click **{{ ui-key.yacloud_video.videos.action_create-video }}**.
+   1. On the upload page, click **Select file** and select the videos you want to upload.
+
+      {% include [video-characteristic](../../../_includes/video/video-characteristic.md) %}
+
+      Wait until all files are uploaded.
+
+   As soon as they are processed, the videos will be available for viewing.
+
+   If you need to, [edit](./update.md) the title and cover separately for each video you uploaded.
 
 {% endlist %}
 

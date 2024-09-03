@@ -1,1 +1,1 @@
-The `container-registry.images.puller` role lets you download Docker images and view information about service resources (registries, Docker images, and repositories).
+The `container-registry.images.puller` role enables downloading [Docker images](../../../container-registry/concepts/docker-image.md) from the registry and viewing the list of [registries](../../../container-registry/concepts/registry.md) and Docker images, as well as info on them.

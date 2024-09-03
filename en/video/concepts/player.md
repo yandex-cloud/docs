@@ -2,8 +2,6 @@
 
 [Broadcasts](./streams.md) and [videos](./videos.md) are played in {{ video-name }} in an integrated _video player_.
 
-For more details on management, configuration, and troubleshooting, see [the Yandex Video Player documentation](https://yandex.ru/support2/video-player/en/).
-
 The support for [Cloud Video Player SDK for IFrame](../iframe-sdk.md) allows users to embed the video player to an HTML page. We are planning to add SDKs for iOS, Android, and JavaScript in future.
 
 ## Example of video player embedding on a page {#example}
@@ -19,3 +17,4 @@ The support for [Cloud Video Player SDK for IFrame](../iframe-sdk.md) allows use
 ## See also {#see-also}
 * [{#T}](../operations/video/get-link.md)
 * [{#T}](../operations/streams/get-link.md)
+* [{#T}](../operations/player-control.md)

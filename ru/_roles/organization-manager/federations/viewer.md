@@ -1,3 +1,1 @@
-Роль `organization-manager.federations.viewer` предоставляет доступ к информации об организациях и федерациях.
-
-Пользователь с этой ролью может просматривать настройки организации, получать список организаций и федераций, а также список сопоставлений групп.
+Роль `organization-manager.federations.viewer` позволяет просматривать информацию об [организации](../../../organization/quickstart.md) и ее настройках, информацию о [федерациях удостоверений](../../../organization/concepts/add-federation.md) и сертификатах, а также списки [сопоставлений](../../../organization/concepts/add-federation.md#group-mapping) групп [пользователей](../../../overview/roles-and-resources.md#users) и информацию о таких сопоставлениях.

@@ -34,6 +34,8 @@ items:
             href: operations/policy-vm/update.md
           - name: Привязать ВМ к политике
             href: operations/policy-vm/attach-and-detach-vm.md
+          - name: Получить информацию о политике
+            href: operations/policy-vm/get-info.md
           - name: Отвязать ВМ от политики
             href: operations/policy-vm/detach-vm.md
           - name: Удалить политику

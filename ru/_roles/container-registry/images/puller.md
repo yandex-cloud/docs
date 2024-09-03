@@ -1,1 +1,1 @@
-Роль `container-registry.images.puller` позволяет скачивать Docker-образы, а также просматривать информацию о ресурсах сервиса (реестрах, Docker-образах, репозиториях).
+Роль `container-registry.images.puller` позволяет скачивать [Docker-образы](../../../container-registry/concepts/docker-image.md) из реестра и просматривать список [реестров](../../../container-registry/concepts/registry.md) и Docker-образов, а также информацию о них.

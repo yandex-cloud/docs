@@ -34,6 +34,9 @@ Soft and hard copies of a document are identical. To prepare your financial repo
    1. Electronic tax invoices (e-invoices) are forwarded to the Information System for Collection and Processing of E-invoices within 15 calendar days of the sale date.
    1. On the first working day of each month, we [invoice](../concepts/bill.md) the customer via the [contact email address]({{ link-console-main }}/settings). The invoice includes total arrears.
 
+   **Reconciliation reports**
+   To [generate a reconciliation report, submit a request](../operations/download-reporting-docs) in {{ billing-name }}. After your request is processed, the document will become available for download.
+
 - Non-residents of Russia and Kazakhstan {#nonresidents}
 
    1. If your account is in arrears, {{ yandex-cloud }} sends _payment details_ stating total arrears and service usage details for the reporting period to your [contact email address]({{ link-console-main }}/settings) on the first working day of each month.

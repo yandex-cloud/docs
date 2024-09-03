@@ -26,6 +26,8 @@ You can use {{ managed-k8s-name }} to deploy, scale, and manage your containe
 * [{#T}](ingress-cert-manager.md)
 * [{#T}](nginx-ingress-certificate-manager.md)
 
+To learn about installing the NGINX Ingress controller using {{ marketplace-full-name }}, see [this guide](../operations/applications/ingress-nginx.md).
+
 ## {{ container-registry-full-name }} usage {#container-registry}
 
 * [{#T}](container-registry.md)

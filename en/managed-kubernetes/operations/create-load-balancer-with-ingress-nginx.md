@@ -12,31 +12,39 @@ When installing an [NGINX Ingress controller](https://kubernetes.github.io/ingre
 1. [Create a {{ managed-k8s-name }} cluster](kubernetes-cluster/kubernetes-cluster-create.md). In the cluster settings, specify the service account and the security groups created earlier.
 1. {% include [Install Helm](../../_includes/managed-kubernetes/helm-install.md) %}
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
-1. Add a repository for NGINX to Helm:
+1. Set up Helm to work with the NGINX repository:
 
-   ```bash
-   helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
-   ```
+   1. Add a repository for NGINX to Helm:
 
-   Result:
+      ```bash
+      helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+      ```
 
-   ```text
-   "ingress-nginx" has been added to your repositories
-   ```
+      Result:
 
-1. Update the dataset to create an application instance in the [{{ managed-k8s-name }} cluster](../concepts/index.md#kubernetes-cluster):
+      ```text
+      "ingress-nginx" has been added to your repositories
+      ```
 
-   ```bash
-   helm repo update
-   ```
+   1. Update the dataset to create an application instance in the [{{ managed-k8s-name }} cluster](../concepts/index.md#kubernetes-cluster):
 
-   Result:
+      ```bash
+      helm repo update
+      ```
 
-   ```text
-   Hang tight while we grab the latest from your chart repositories...
-   ...Successfully got an update from the "ingress-nginx" chart repository
-   Update Complete. ⎈Happy Helming!⎈
-   ```
+      Result:
+
+      ```text
+      Hang tight while we grab the latest from your chart repositories...
+      ...Successfully got an update from the "ingress-nginx" chart repository
+      Update Complete. ⎈Happy Helming!⎈
+      ```
+
+   {% note tip %}
+
+   You can also install an NGINX Ingress controller [using {{ marketplace-full-name }}](applications/ingress-nginx.md).
+
+   {% endnote %}
 
 ## External network load balancer {#external}
 
@@ -101,7 +109,7 @@ To make sure the required network load balancer is created, get a [list of netwo
 
 ## Port forwarding {#port-forwarding}
 
-Although NGINX Ingress controllers officially support external HTTP and HTTPS traffic routing only, you can configure them to accept external TCP or UDP traffic and redirect it to internal services. To do this, install an Ingress controller using a [configuration file](https://github.com/kubernetes/ingress-nginx/blob/main/charts/ingress-nginx/values.yaml) named `values.yaml` with traffic redirect settings and `portNamePrefix`.
+Even though NGINX Ingress controllers officially support external HTTP and HTTPS traffic routing only, you can configure them to accept external TCP or UDP traffic and redirect it to internal services. To do this, install an Ingress controller using a [configuration file](https://github.com/kubernetes/ingress-nginx/blob/main/charts/ingress-nginx/values.yaml) named `values.yaml` with traffic redirect settings and `portNamePrefix`.
 1. Create a `values.yaml` file:
 
    ```yaml

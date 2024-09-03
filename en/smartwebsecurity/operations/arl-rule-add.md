@@ -5,21 +5,19 @@ description: "Follow this guide to add a rule to an ARL profile."
 
 # Adding a rule to an ARL profile
 
-You can only add ARL rules to an [ARL](../concepts/arl.md) profile. Basic [rules](../concepts/rules.md), Smart Protection, and WAF are [added to a security profile](rule-add.md).
+You can only add ARL rules to an [ARL](../concepts/arl.md) profile. Basic [rules](../concepts/rules.md), as well as Smart Protection and WAF rules, are [added to a security profile](rule-add.md).
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder where you want to add a rule to an ARL profile.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) the ARL profile resides in.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
-  1. Go to the ![image](../../_assets/smartwebsecurity/arl.svg) **ARL profiles** tab.
+  1. In the left-hand panel, select ![image](../../_assets/smartwebsecurity/arl.svg) **{{ ui-key.yacloud.smart-web-security.arl.label_profiles }}**.
   1. Select the profile to add a rule to.
-  1. Click ![plus-sign](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}**.
-  1. In the rule creation window:
+  1. Click ![plus-sign](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}** and proceed as follows in the window that opens:
 
-      {% include [add-rule](../../_includes/smartwebsecurity/add-arl-rule.md) %}
-
+      {% include [add-arl-rule](../../_includes/smartwebsecurity/add-arl-rule.md) %}
 
 {% endlist %}
 

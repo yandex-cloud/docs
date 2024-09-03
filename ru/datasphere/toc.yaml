@@ -415,6 +415,8 @@ items:
     items:
       - name: Проблемы с установкой библиотек
         href: qa/environment-problems.md
+      - name: Ошибки при работе коннектора Spark
+        href: troubleshooting/troubles-with-spark.md
       - name: Вопросы и ответы
         href: qa/index.md
 base: ru/datasphere

@@ -1,8 +1,5 @@
-The `editor` role grants permissions to perform any operation related to resource management, except assigning roles to other users.
+The `editor` role provides permissions to manage any Yandex Cloud [resources](../../resource-manager/concepts/resources-hierarchy.md), except for assigning roles to other users, transferring [organization](../../organization/quickstart.md) ownership, removing an organization, and deleting Key Management Service [encryption keys](../../kms/concepts/index.md).
 
-The `editor` role includes all permissions granted by the `viewer` role.
+For instance, users with this role can create, modify, and delete resources.
 
-For example, the `editor` role lets you perform the following operations:
-* Create a resource.
-* Update a resource.
-* Delete a resource.
+This role also includes the `viewer` permissions.

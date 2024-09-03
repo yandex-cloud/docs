@@ -1,7 +1,7 @@
 The `logging.admin` role enables managing your Cloud Logging resources and access to them, as well as viewing and adding entries to log groups.
 
 Users with this role can:
-* View info on [access bindings](../../iam/concepts/access-control/index.md#access-bindings) to Cloud Logging resources and modify such bindings.
+* View info on [access permissions](../../iam/concepts/access-control/index.md) assigned to Cloud Logging resources and modify such permissions.
 * View info on [log groups](../../logging/concepts/log-group.md), as well as create, modify, delete, and use them.
 * View info on log sinks, as well as create, modify, delete, and use them.
 * View info on log exports, run export, and create, modify, and delete exported files.

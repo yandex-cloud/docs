@@ -29,6 +29,8 @@ items:
           Сервисный аккаунт с профилем OS Login для управления ВМ с помощью
           Ansible
         href: security/sa-oslogin-ansible.md
+      - name: Организация защищенного доступа к контенту в {{ cdn-name }}
+        href: security/protected-access-to-content.md
   - name: Хранение и восстановление данных
     items:
       - name: Все руководства

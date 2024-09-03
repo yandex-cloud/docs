@@ -1,18 +1,18 @@
 ---
 title: "Getting started with {{ lockbox-full-name }}"
-description: "In this tutorial, you'll learn how to create secrets and get their contents using {{ lockbox-full-name }}, a service for storing secrets. A secret is a set of versions that store your data. A version contains sets of keys and values. A key is a non-secret name that identifies a value. The value is your secret data."
+description: "In this tutorial, you will learn how to create secrets and get their contents using {{ lockbox-full-name }}, a service for storing secrets. A secret is a set of versions that store your data. A version contains sets of keys and values. A key is a non-secret name that identifies a value. The value is your secret data."
 ---
 
 # Getting started with {{ lockbox-name }}
 
 
-Create your first secret and get its content.
+Create your first secret and get its contents.
 
 A secret is a set of versions that store your data. A version contains sets of keys and values:
 * A key is a non-secret name that identifies a value.
 * The value is your secret data.
 
-Versions can't be changed. Whenever you need to change the number of key-value pairs or their content, you must create a new version.
+Versions can't be changed. Whenever you need to change the number of key-value pairs or their contents, you must create a new version.
 
 ## Creating secrets {#secret}
 
@@ -73,7 +73,7 @@ Versions can't be changed. Whenever you need to change the number of key-value p
         --version-id e6qqr7k79ecm********
       ```
 
-      In this example, you get the contents of a `e6qqr7k79ecm********` version secret.
+      In this example, you get the contents of the `e6qqr7k79ecm********` secret version.
 
       Result:
 
@@ -112,3 +112,5 @@ Versions can't be changed. Whenever you need to change the number of key-value p
       https://{{ api-host-lockbox-payload }}/lockbox/v1/secrets/<secret_ID>/payload
       ```
 {% endlist %}
+
+You can manage secrets and their contents not only through the [management console]({{ link-console-main }}), [CLI](../cli/quickstart.md), and [API](../overview/api.md), but also using SDKs for popular programming languages. For more information, see [{#T}](./concepts/index.md#interface).

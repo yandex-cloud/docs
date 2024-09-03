@@ -1,1 +1,1 @@
-The `organization-manager.osLogins.viewer` role enables you to view OS Login profiles and SSH keys of the organization users.
+The `organization-manager.osLogins.viewer` role enables viewing the organization's [OS Login](../../../organization/concepts/os-login.md) settings and the list of the [organization](../../../organization/quickstart.md) users' OS Login profiles, as well as viewing the list of the organization [users'](../../../overview/roles-and-resources.md#users) SSH keys and the info on them.

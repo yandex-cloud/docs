@@ -22,6 +22,8 @@ description: "In this tutorial, you will learn how to set up an {{ OS }} source 
 * [Loading data from {{ OS }} to {{ objstorage-name }}](../../../tutorials/opensearch-to-object-storage.md).
 * [Migration with change of storage from {{ OS }} to {{ ydb-short-name }}](../../../tutorials/opensearch-to-ydb.md).
 
+* [{#T}](../../../tutorials/opensearch-to-clickhouse.md)
+
 For a detailed description of possible {{ data-transfer-full-name }} data transfer scenarios, see [Tutorials](../../../tutorials/index.md).
 
 ## Preparing the source database {#prepare}
@@ -86,13 +88,13 @@ Connecting to nodes with explicitly specified network addresses and ports.
 
 Configure the target endpoint:
 
-* [{{ OS }}](../target/opensearch.md)​.
-* [{{ CH }}](../target/clickhouse.md)​.
-* [{{ GP }}](../target/greenplum.md).
-* [{{ ydb-full-name }}](../target/yandex-database.md).
-* [{{ objstorage-full-name }}](../target/object-storage.md)​.
-* [{{ KF }}](../target/kafka.md).
-* [{{ DS }}](../target/data-streams.md).
+* [{{ OS }}](../target/opensearch.md)
+* [{{ CH }}](../target/clickhouse.md)
+* [{{ GP }}](../target/greenplum.md)
+* [{{ ydb-full-name }}](../target/yandex-database.md)
+* [{{ objstorage-full-name }}](../target/object-storage.md)
+* [{{ KF }}](../target/kafka.md)
+* [{{ DS }}](../target/data-streams.md)
 
 For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available Transfers](../../../transfer-matrix.md).
 

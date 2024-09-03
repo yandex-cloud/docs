@@ -1,6 +1,5 @@
 # Installing Crossplane with {{ yandex-cloud }} support
 
-
 [Crossplane](https://crossplane.io/) is a freeware add-on to {{ k8s }} that enables platform development teams to build infrastructure for multiple vendors and produce higher-level service APIs for application development teams.
 
 ## Getting started {#before-you-begin}
@@ -38,6 +37,7 @@
 1. {% include [Install and configure kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
 1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with Crossplane, run the following command:
 
+   
    ```bash
    export HELM_EXPERIMENTAL_OCI=1 && \
    helm pull oci://{{ mkt-k8s-key.yc_crossplane.helmChart.name }} \
@@ -49,6 +49,7 @@
      --set-file providerJetYC.creds=key.json \
      crossplane ./crossplane/
    ```
+
 
 ## Installation using the Helm GitHub repository {#helm-repo-install}
 

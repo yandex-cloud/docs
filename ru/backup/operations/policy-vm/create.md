@@ -5,6 +5,10 @@ description: "Из статьи вы узнаете, как создать по�
 
 # Создать политику резервного копирования
 
+Создание политики доступно после [активации](../../concepts/index.md#providers) сервиса {{ backup-name }}.
+
+{% include [default-policies](../../../_includes/backup/default-policies.md) %}
+
 {% include [policy-execute-time](../../../_includes/backup/policy-execute-time.md) %}
 
 {% list tabs group=instructions %}

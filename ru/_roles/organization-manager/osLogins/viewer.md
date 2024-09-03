@@ -1,1 +1,1 @@
-Роль `organization-manager.osLogins.viewer` позволяет просматривать профили и ключи пользователей организации.
+Роль `organization-manager.osLogins.viewer` позволяет просматривать информацию о настройках [OS Login](../../../organization/concepts/os-login.md) организации и список профилей OS Login пользователей [организации](../../../organization/quickstart.md), а также просматривать список SSH-ключей [пользователей](../../../overview/roles-and-resources.md#users) организации и информацию об SSH-ключах.

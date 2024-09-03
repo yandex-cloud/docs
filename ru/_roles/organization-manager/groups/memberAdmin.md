@@ -1,1 +1,1 @@
-Роль `organization-manager.groups.memberAdmin` дает возможность просматривать информацию о группе, добавлять и удалять участников.
+Роль `organization-manager.groups.memberAdmin` позволяет просматривать информацию о [группах пользователей](../../../organization/concepts/groups.md), настраивать [сопоставление](../../../organization/concepts/add-federation.md#group-mapping) групп пользователей, а также просматривать и изменять списки [пользователей](../../../overview/roles-and-resources.md#users), входящих в группы.
