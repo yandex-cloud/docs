@@ -5,11 +5,11 @@ description: "Follow this guide to connect a security profile in {{ sws-full-nam
 
 # Connecting a security profile to a virtual host
 
-The security profile connection method depends on who manages the [{{ alb-full-name }}](../../application-load-balancer/concepts/index.md) load balancer:
+The method of security profile connection depends on the management mode of the [{{ alb-full-name }}](../../application-load-balancer/concepts/index.md) load balancer:
 
-* If the load balancer is managed by you, use the {{ yandex-cloud }} interfaces.
+* When you manage the load balancer, use the {{ yandex-cloud }} interfaces.
 
-* If the load balancer is managed by an {{ alb-name }} [Ingress controller](../../application-load-balancer/tools/k8s-ingress-controller/index.md), use the [Ingress resource annotation](../../application-load-balancer/k8s-ref/ingress.md#annot-security-profile-id).
+* When an {{ alb-name }} [Ingress controller](../../application-load-balancer/tools/k8s-ingress-controller/index.md) manages the load balancer, use the [Ingress resource annotation](../../application-load-balancer/k8s-ref/ingress.md#annot-security-profile-id).
 
    {% note warning %}
 
@@ -27,14 +27,13 @@ To connect a security profile using the {{ yandex-cloud }} interfaces:
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), choose the folder where you want to connect a [security profile](../concepts/profiles.md) to an [{{ alb-full-name }}](../../application-load-balancer/) [virtual host](../../application-load-balancer/concepts/http-router.md#virtual-host).
+   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the [security profile](../concepts/profiles.md) you need.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
-   1. Select the profile to connect to the host.
-   1. Click ![plug](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.smart-web-security.overview.action_attach-to-host }}**.
-   1. In the window that opens, select:
+   1. Select the security profile to connect to the [{{ alb-full-name }}](../../application-load-balancer/) [virtual host](../../application-load-balancer/concepts/http-router.md#virtual-host).
+   1. Click ![plug](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.smart-web-security.overview.action_attach-to-host }}**. In the window that opens, select the following:
       * [**{{ ui-key.yacloud.smart-web-security.attach-dialog.label_balancer }}**](../../application-load-balancer/concepts/application-load-balancer.md).
       * [**{{ ui-key.yacloud.smart-web-security.attach-dialog.label_http-router }}**](../../application-load-balancer/concepts/http-router.md).
-      * **{{ ui-key.yacloud.smart-web-security.attach-dialog.label_virtual-host }}**. You can connect the security profile to multiple virtual hosts at once.
+      * **{{ ui-key.yacloud.smart-web-security.attach-dialog.label_virtual-host }}**​. You can connect the security profile to multiple virtual hosts at once.
 
          To connect the profile to another L7 load balancer, click **{{ ui-key.yacloud.smart-web-security.attach-dialog.action_add-balancer }}**.
    1. Click **{{ ui-key.yacloud.smart-web-security.attach-dialog.action_connect }}**. If the selected hosts are already connected to another security profile, confirm the connection.

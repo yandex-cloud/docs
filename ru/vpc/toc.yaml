@@ -75,6 +75,18 @@ items:
             href: operations/delete-route-table.md
           - name: Удалить NAT-шлюз
             href: operations/delete-nat-gateway.md
+      - name: Сервисные подключения
+        items:
+          - name: Создать сервисное подключение
+            href: operations/private-endpoint-create.md
+          - name: Получить информацию о сервисном подключении
+            href: operations/private-endpoint-get-info.md
+          - name: >-
+              Назначить политику доступа в Object Storage для сервисного
+              подключения
+            href: operations/private-endpoint-storage-policy.md
+          - name: Удалить сервисное подключение
+            href: operations/private-endpoint-delete.md
       - name: Группы безопасности
         items:
           - name: Создать группу безопасности
@@ -161,6 +173,8 @@ items:
         href: concepts/security-groups.md
       - name: Шлюзы
         href: concepts/gateways.md
+      - name: Сервисные подключения
+        href: concepts/private-endpoint.md
       - name: Мониторинг сетевых соединений
         href: concepts/monitoring-connections.md
       - name: Диапазоны публичных IP-адресов

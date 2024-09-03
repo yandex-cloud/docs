@@ -1,6 +1,5 @@
 # Health checking your applications in a {{ managed-k8s-full-name }} cluster with the {{ alb-full-name }} Ingress controller
 
-
 You can use the [{{ alb-name }} Ingress controller](../../application-load-balancer/tools/k8s-ingress-controller/index.md) to automatically health check your applications deployed in a {{ managed-k8s-name }} cluster.
 
 The Ingress controller installed in the cluster deploys an [L7 load balancer](../../application-load-balancer/concepts/application-load-balancer.md) with all the required {{ alb-name }} resources based on the configuration of the [Ingress](../../managed-kubernetes/alb-ref/ingress.md) and [HttpBackendGroup](../../managed-kubernetes/alb-ref/http-backend-group.md) resources you created.

@@ -1,6 +1,5 @@
 # Setting up Kyverno & Kyverno Policies
 
-
 The [Kyverno](https://kyverno.io) application and its [Kyverno policies](https://github.com/kyverno/kyverno/tree/main/charts/kyverno-policies) extension are used for managing {{ k8s }} security policies. They appear in Kyverno as {{ k8s }} resources.
 
 To integrate [Kyverno & Kyverno Pоlicies](/marketplace/products/yc/kyverno) into {{ managed-k8s-name }}:

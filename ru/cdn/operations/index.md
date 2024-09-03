@@ -5,6 +5,8 @@ description: "На странице представлен список поша
 
 # Пошаговые инструкции для {{ cdn-name }}
 
+* [{#T}](./enable-provider.md)
+
 ## Ресурсы {#resources}
 
 * [{#T}](resources/create-resource.md)

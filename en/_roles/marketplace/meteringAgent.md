@@ -1,5 +1,8 @@
-The `marketplace.meteringAgent` role allows you to log how Marketplace products are used.
 
-Using this role, you can authenticate your apps in Metering API and track app metrics configured by partners for billing purposes.
+The `marketplace.meteringAgent` role enables tracking Marketplace [product](../../marketplace/concepts/product.md) usage.
 
-You can assign this role to a service account.
+This role allows a [partner](../../marketplace/quickstart.md) to:
+- Authenticate apps in Metering API.
+- Track the installed [app metrics](../../marketplace/concepts/api-usage.md#guidelines) to [price](../../marketplace/concepts/tariff.md) the app usage.
+
+You can assign this role to a [service account](../../iam/concepts/users/service-accounts.md) under which you are going to send the usage metrics.

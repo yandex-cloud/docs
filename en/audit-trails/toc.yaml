@@ -2,7 +2,7 @@ title: Yandex Audit Trails
 href: index.yaml
 label:
   title: KZ
-  description: The service is available in Kazakhstan.
+  description: This service is only available in the Kazakhstan region.
   theme: info
   when: region == "kz"
 items:
@@ -52,10 +52,6 @@ items:
         href: tutorials/alerts-monitoring.md
       - name: Configuring a response in {{ sf-name }}
         href: tutorials/logging-functions.md
-      - name: >-
-          Uploading audit logs to {{ mch-full-name }} and data visualiation in
-          {{ datalens-full-name }}
-        href: tutorials/logs-analysis.md
       - name: Exporting audit logs to SIEM systems
         items:
           - name: Uploading audit logs to {{ mos-full-name }}

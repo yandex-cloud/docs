@@ -5664,6 +5664,9 @@ default:
         label_thumbnail: Обложка
       videos:
         action_create-video: Загрузить видео
+        label_access_rights-auth-system-access: Для авторизованных пользователей
+        label_access_rights-public: Для всех пользователей
+        label_accessRights: Доступ
         label_allow-access: Разрешить доступ
         label_title: Название
         label_visibility-status: Публичный доступ
@@ -5674,6 +5677,7 @@ default:
         status_unpublished: Unpublished
         status_wait-uploading: Uploading
         title_past-code: Код вставки
+        title_public-access-section: Доступ
         title_videos: Видео
     yacloud:
       airflow:
@@ -5912,6 +5916,7 @@ default:
         field_address-acl_policy-type_allow: Запретить для всех, кроме
         field_address-acl_policy-type_deny: Разрешить для всех, кроме
         field_group-name: Название группы
+        field_origin: Доменное имя источника
         field_origin-state: Приоритет
         field_secure-key: Секретный ключ
         field_secure-key-enabled: Доступ по защищённому токену
@@ -6148,7 +6153,6 @@ default:
           label_service-account: Сервисный аккаунт
           placeholder_filter-by-type: Тип аккаунта
         save: Сохранить
-        save-changes: Сохранить изменения
         section-base: Общая информация
         select: Выбрать
         start: Запустить
@@ -6866,7 +6870,6 @@ default:
             value_data-proc: Кластер Yandex Data Proc
             value_data-streams: Data Streams
             value_data-transfer: Data Transfer
-            value_managed-clickhouse: Кластер ClickHouse
             value_managed-mysql: Кластер MySQL
             value_managed-postgresql: Кластер PostgreSQL
             value_serverless-functions: Функция
@@ -7881,7 +7884,6 @@ default:
           cell_sec-action-deny: Запретить
           column_action-type: Действие
           column_dry-run-rule: Только логирование
-          column_priority: Приоритет
           column_rule-conditions: Условия
           column_type: Тип
           label_base-rule: Базовое
@@ -7907,7 +7909,6 @@ default:
           label_profiles: Профили WAF
           label_save-settings: Сохранить настройки
           section_analyze-request: Анализ запроса
-          title_connected-profiles: Подключённые профили безопасности
           title_exclusion-rule-condition-section: Условия на трафик
           title_exclusion-rule-rules-section: Область применения
           title_exclusion-rules: Правила-исключения
@@ -8173,6 +8174,7 @@ default:
             label_title: Привязка таблицы маршрутизации
         subnetworks:
           button_action-add-route-table: Привязать таблицу маршрутизации
+          button_action-create: Создать подсеть
           create:
             button_add-cidr: Добавить CIDR
             button_add-domain-name-server: Добавить сервер доменных имен

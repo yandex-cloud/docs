@@ -1,6 +1,5 @@
 # Logging settings for {{ alb-full-name }} Ingress controllers
 
-
 You can configure the logging settings for [L7 balancers](../../application-load-balancer/concepts/application-load-balancer.md) created with {{ alb-name }} [Ingress controllers](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/) within a {{ managed-k8s-name }} cluster.
 
 This article explains how to create three L7 balancers with different logging settings:

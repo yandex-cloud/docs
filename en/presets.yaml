@@ -5654,6 +5654,9 @@ default:
         label_thumbnail: Thumbnail
       videos:
         action_create-video: Upload video
+        label_access_rights-auth-system-access: Users with permission
+        label_access_rights-public: All users
+        label_accessRights: Access
         label_allow-access: Grant access
         label_title: Name
         label_visibility-status: Public access
@@ -5664,6 +5667,7 @@ default:
         status_unpublished: Unpublished
         status_wait-uploading: Uploading
         title_past-code: Past code
+        title_public-access-section: Access
         title_videos: Video
     yacloud:
       airflow:
@@ -5902,6 +5906,7 @@ default:
         field_address-acl_policy-type_allow: Block all except
         field_address-acl_policy-type_deny: Allow all except
         field_group-name: Group name
+        field_origin: Origin domain name
         field_origin-state: Priority
         field_secure-key: Secret key
         field_secure-key-enabled: Access via secure token
@@ -6138,7 +6143,6 @@ default:
           label_service-account: Service account
           placeholder_filter-by-type: Account type
         save: Save
-        save-changes: Save changes
         section-base: General information
         select: Select
         start: Start
@@ -6854,7 +6858,6 @@ default:
             value_data-proc: Yandex Data Proc cluster
             value_data-streams: Data Streams
             value_data-transfer: Data Transfer
-            value_managed-clickhouse: ClickHouse cluster
             value_managed-mysql: MySQL cluster
             value_managed-postgresql: PostgreSQL cluster
             value_serverless-functions: Function
@@ -7869,7 +7872,6 @@ default:
           cell_sec-action-deny: Deny
           column_action-type: Action
           column_dry-run-rule: Only logging
-          column_priority: Priority
           column_rule-conditions: Conditions
           column_type: Type
           label_base-rule: Base
@@ -7895,7 +7897,6 @@ default:
           label_profiles: WAF profiles
           label_save-settings: Save settings
           section_analyze-request: Request analysis
-          title_connected-profiles: Connected security profiles
           title_exclusion-rule-condition-section: Traffic conditions
           title_exclusion-rule-rules-section: Scope of use
           title_exclusion-rules: Exclusion rules
@@ -8161,6 +8162,7 @@ default:
             label_title: Link routing table
         subnetworks:
           button_action-add-route-table: Link routing table
+          button_action-create: Create subnet
           create:
             button_add-cidr: Add CIDR
             button_add-domain-name-server: Add domain name server

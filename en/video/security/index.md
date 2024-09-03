@@ -8,9 +8,11 @@ Roles for a resource can be assigned by users who have the `video.admin` role or
 
 {% include [roles-list](../../_includes/iam/roles-list.md) %}
 
-You can add users to {{ video-name }} as follows:
+## Adding a user to {{ video-name }} {#add-user}
+
+You can add a user to {{ video-name }} as follows:
 * Send an invitation from the {{ video-name }} [interface]({{ link-video-main }}) by specifying the email address that the user used to register in the organization.
-* [Grant](../../organization/security/index.md) access permissions through the {{ org-name }} interface.
+* [Grant](../../organization/security/index.md) access permissions via the {{ org-name }} interface.
 
 ## Which roles exist in the service {#roles-list}
 

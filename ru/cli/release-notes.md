@@ -475,8 +475,8 @@ description: "На странице представлены релизы YC CLI
 
 ##### {{ objstorage-name }}
 
-* В команду `yc storage bucket update --lifecycle-rules/--lifecycle-rules-from-file` добавлена поддержка `andOperation` для объединения условий в `filter`.
-* В команду `yc storage bucket update` добавлена возможность изменения используемого ключа шифрования `--encryption key-id=foobarbaz123`, `--remove-encryption`.
+* В команду `yc storage bucket update` для параметров `--lifecycle-rules/` и `--lifecycle-rules-from-file` добавлена поддержка логического оператора `И` (`andOperation`) для объединения условий в фильтре объектов.
+* В команду `yc storage bucket update` добавлен параметр `--encryption key-id=<идентификатор_ключа>` для изменения используемого ключа шифрования, а также параметр `--remove-encryption` для отключения шифрования в бакете.
 
 ##### Сервисы управляемых баз данных {#managed-db}
 

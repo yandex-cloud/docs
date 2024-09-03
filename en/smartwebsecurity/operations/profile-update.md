@@ -9,15 +9,16 @@ description: "Follow this guide to edit basic parameters of a {{ sws-full-name }
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you want to edit basic parameters for a [security profile](../concepts/profiles.md).
+   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the [security profile](../concepts/profiles.md).
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
-   1. Click ![options](../../_assets/console-icons/ellipsis.svg) next to the profile and select **{{ ui-key.yacloud.smart-web-security.overview.action_edit-profile }}**.
+   1. In the profile row, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.smart-web-security.overview.action_edit-profile }}**.
    1. In the window that opens, edit the parameters:
+
       * **{{ ui-key.yacloud.common.name }}**​.
       * **{{ ui-key.yacloud.common.description }}**​.
       * [**{{ ui-key.yacloud.component.label-set.label_labels }}**](../../resource-manager/concepts/labels.md). To add a label, click **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
       * **{{ ui-key.yacloud.smart-web-security.form.label_default-action }}**: `{{ ui-key.yacloud.smart-web-security.form.label_action-deny }}` or `{{ ui-key.yacloud.smart-web-security.form.label_action-allow }}`.
-      * **ARL profile**: Select or create an [ARL profile](../concepts/arl.md).
+      * **{{ ui-key.yacloud.smart-web-security.form.label_arl-profile }}**: Select or create an [ARL profile](../concepts/arl.md).
       * Select or create a [{{ captcha-name }}](../../smartcaptcha/) to verify suspicious requests.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 

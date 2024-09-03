@@ -1,6 +1,5 @@
 # Installing the {{ alb-name }} Ingress controller
 
-
 To balance the load and distribute traffic between {{ k8s }} applications, use an {{ alb-full-name }} [Ingress controller](../../application-load-balancer/tools/k8s-ingress-controller/index.md). It runs the load balancer and the required auxiliary resources when the user creates an `Ingress` resource in a {{ managed-k8s-name }} cluster.
 
 ## Getting started {#before-you-begin}
@@ -36,7 +35,7 @@ To balance the load and distribute traffic between {{ k8s }} applications, use a
 1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [ALB Ingress Controller](/marketplace/products/yc/alb-ingress-controller) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Configure the application:
    * **Namespace**: Select a [namespace](../../managed-kubernetes/concepts/index.md#namespace) or create a new one.
-   * **Application name**: Enter a name for the application.
+   * **Application name**: Specify the app name.
    * **Folder ID**: Specify a [folder ID](../../resource-manager/operations/folder/get-id.md).
    * **Cluster ID**: Specify a [cluster ID](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-list.md).
    * **Service account key**: Paste the contents of the `sa-key.json` file.
@@ -56,7 +55,7 @@ To balance the load and distribute traffic between {{ k8s }} applications, use a
    sudo apt update && sudo apt install jq
    ```
 
-1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with the Ingress controller, run these commands:
+1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with the Ingress controller, run this command:
 
    
    ```bash
@@ -74,7 +73,6 @@ To balance the load and distribute traffic between {{ k8s }} applications, use a
      yc-alb-ingress-controller ./yc-alb-ingress-controller-chart/
    ```
 
-
 ## Use cases {#examples}
 
 * [{{ alb-name }} Ingress controller configuration tutorial](../../managed-kubernetes/tutorials/alb-ingress-controller.md).
@@ -83,6 +81,6 @@ To balance the load and distribute traffic between {{ k8s }} applications, use a
 ## See also {#see-also}
 
 * Description of Ingress controllers in the documentation:
-   * [{{ k8s }}](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/).
-   * [{{ alb-name }}](../../application-load-balancer/tools/k8s-ingress-controller/index.md).
+   * [{{ k8s }}](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/)​.
+   * [{{ alb-name }}](../../application-load-balancer/tools/k8s-ingress-controller/index.md)​.
 * [Restrictions when updating the ALB Ingress Controller](../../application-load-balancer/operations/k8s-ingress-controller-upgrade.md).

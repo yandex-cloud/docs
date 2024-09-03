@@ -20,9 +20,11 @@ description: "Follow this guide to get the {{ video-full-name }} embed code or l
       1. `{{ ui-key.yacloud_video.streams.label_episode-autoplay }}`.
       1. `Displaying controls in the player`.
 
+      {% include [iframe-settings](../../../_includes/video/iframe-settings.md) %}
+
    1. Select the preferred broadcast link format:
 
-      * `iframe`: HTML embed code in Iframe format.
+      * `html`: HTML embed code in Iframe format.
       * `link`: Direct link to the broadcast.
 
    1. Click ![copy](../../../_assets/console-icons/copy.svg) **{{ ui-key.yacloud_video.streams.action_copy-code }}**.

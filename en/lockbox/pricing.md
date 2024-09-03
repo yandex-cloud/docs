@@ -24,7 +24,6 @@ The prices are valid as of March 10, 2024.
 
 
 
-{% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 
 ### Secret storage price {#secrets}
@@ -45,4 +44,17 @@ Billing is hourly. The price per month is provided for reference only based on 7
 
 
 {% include [usd.md](../_pricing/lockbox/usd-requests.md) %}
+
+
+### Cost calculation example {#price-example}
+
+Here is an example of calculating the monthly cost of {{ lockbox-name }} for the following configuration:
+
+* Number of secrets: three, with five versions of each.
+* Number of `get` operations with all secrets: 20,000.
+
+
+
+{% include [usd-lockbox](../_pricing_examples/lockbox/usd.md) %}
+
 

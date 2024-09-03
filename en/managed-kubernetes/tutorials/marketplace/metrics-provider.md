@@ -1,15 +1,14 @@
 # Using {{ MP }} to stream metrics
 
-
 {{ MP }} streams metrics of {{ managed-k8s-name }} [cluster](../../concepts/index.md#kubernetes-cluster) objects to monitoring systems and [auto scaling systems](../../concepts/autoscale.md).
 
 In this article, you will learn how to set up transfers of external metrics to {{ k8s-hpa }} using {{ MP }}.
 
 To set up the transfer of metrics:
-1. [{#T}](#create-files).
-1. [{#T}](#install).
-1. [{#T}](#validate).
-1. [{#T}](#clear-out).
+1. [{#T}](#create-files)
+1. [{#T}](#install)
+1. [{#T}](#validate)
+1. [{#T}](#clear-out)
 
 ## Getting started {#before-you-begin}
 
@@ -21,7 +20,7 @@ To set up the transfer of metrics:
 
    {% include [sg-common-warning](../../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
-1. [Create a {{ managed-k8s-name }} cluster](../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../../../managed-kubernetes/operations/node-group/node-group-create.md) in any suitable configuration. When creating them, specify the security groups prepared in advance.
+1. [Create a {{ managed-k8s-name }} cluster](../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../../../managed-kubernetes/operations/node-group/node-group-create.md) in any suitable configuration. When creating them, specify the security groups prepared earlier.
 
 1. {% include [Install and configure kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
 
@@ -127,7 +126,7 @@ To test {{ MP }}, an `nginx` test app and [{{ k8s-hpa }}](../../concepts/autosca
    kubectl apply -f hpa.yaml
    ```
 
-1. Make sure that the [pods](../../concepts/index.md#pod) of your applications have changed their status to `Running`:
+1. Make sure that the application [pods](../../concepts/index.md#pod) have entered the `Running` state:
 
    ```bash
    kubectl get pods -n kube-system | grep nginx && \

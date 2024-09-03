@@ -12,13 +12,35 @@ Types of broadcast streams include:
 * On demand: A broadcast is started and finished manually from the {{ video-name }} interface.
 * On schedule: A broadcast is started and finished automatically at the specified time.
 
-You can upload custom covers for your broadcasts. A cover will be displayed in the {{ video-name }} interface and the player on the broadcast hosting site.
+You can upload custom covers for your broadcasts. The cover will appear in the {{ video-name }} interface and the player on the website hosting the broadcast.
 
 {% include [image-characteristic](../../_includes/video/image-characteristic.md) %}
 
-You can publish a broadcast via a direct link or post it on a site.
+You can [publish](../operations/streams/get-link.md) your broadcast using a direct link or by posting it to a website.
 
-Once your broadcast is over, you can keep its video recording available or remove it.
+You can group completed broadcasts into [playlists](./playlists.md) in desired order. For more information on publishing playlists, see [{#T}](../operations/playlists/get-link.md).
+
+Once a broadcast is over, you can keep its video available or remove it.
+
+{% include [streams-limits-notice](../../_includes/video/streams-limits-notice.md) %}
+
+### Statuses {#statuses}
+
+* `{{ ui-key.yacloud_video.streams.status_offline }}`: The broadcast has been created but not started yet.
+* `{{ ui-key.yacloud_video.streams.status_preparing }}`: Preparation of a fault-tolerant {{ yandex-cloud }} infrastructure for video transcoding is ongoing. Awaiting video signal. The broadcast gets this status a few minutes before it starts.
+* `{{ ui-key.yacloud_video.streams.status_ready }}`: The infrastructure is ready, the video signal is received. You can start your broadcast.
+* `{{ ui-key.yacloud_video.streams.status_on-air }}`: The broadcast is on. The broadcast gets this status as soon as you click **{{ ui-key.yacloud_video.streams.action_start-stream }}** or automatically at a specified time.
+* `{{ ui-key.yacloud_video.streams.status_finished }}`: The broadcast is over. The broadcast gets this status as soon as you click **{{ ui-key.yacloud_video.streams.action_stop-stream }}** or automatically at a specified time. You can add a completed broadcast to a playlist.
+
+### Broadcast publishing parameters {#stream-parameters}
+
+You can change the following basic broadcast playback settings when [generating](../operations/streams/get-link.md) a direct link or website embed code:
+
+* Default sound setting for video playback.
+* Automatic start of playback when opened.
+* Displaying broadcast controls in the player.
+
+{% include [iframe-settings](../../_includes/video/iframe-settings.md) %}
 
 ## Lines {#lines}
 

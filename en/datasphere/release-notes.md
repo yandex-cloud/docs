@@ -137,7 +137,7 @@ The Serverless mode is no longer supported.
 
 Greatly improved the Apache Spark™ cluster functionality:
 1. {{ ml-platform-name }} now has a new type of resources: [{{ dataproc-name }} templates](concepts/data-proc-template.md).
-1. You can now [configure a livy session](concepts/data-proc.md#sessions) when using {{ dataproc-name }} clusters.
+1. You can now [configure a livy session](concepts/data-proc.md#session) when using {{ dataproc-name }} clusters.
 1. {{ ml-platform-name }} now supports the [Spark SQL library](concepts/data-proc.md#sql).
 
 ## Release on 23/09/2022 {#230922}
