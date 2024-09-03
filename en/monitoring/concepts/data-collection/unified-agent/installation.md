@@ -159,17 +159,40 @@ Install {{ unified-agent-short-name }} using one of the following methods:
 
 - When creating a VM {#vm}
 
-   You can install the agent when creating a VM in the [management console]({{ link-console-main }}). To do this, enable the **{{ ui-key.yacloud.compute.instances.create.unified-agent }}** option under **{{ ui-key.yacloud.compute.instances.create.section_monitoring }}**. The agent is installed automatically with the default configuration file that will send [basic VM metrics](./inputs.md#linux_metrics_input) and [agent health metrics](./inputs.md#agent_metrics_input). You will be [charged](../../../pricing.md) for metric delivery.
+   You can install {{ unified-agent-short-name }} when creating a VM through the management console, CLI, API, or {{ TF }}.
 
-   The installed agent is a regular [Unified Agent](./index.md) that you can additionally [set up](./configuration.md) to deliver custom metrics or [logs to {{ cloud-logging-name }}](./outputs.md#yc_logs_output).
+   To install the agent from the [management console]({{ link-console-main }}), enable **{{ ui-key.yacloud.compute.instances.create.unified-agent }}** under **{{ ui-key.yacloud.compute.instances.create.section_monitoring }}**.
 
-   To install the agent while creating a VM in the CLI or API, add the following line to [user-defined metadata](../../../../compute/concepts/vm-metadata.md#how-to-send-metadata) (`user-data`):
+   To install the agent via the CLI or API, provide the following string in the [user metadata](../../../../compute/concepts/vm-metadata.md#how-to-send-metadata) (`user-data`):
 
    ```
    #cloud-config\nruncmd:\n - wget -O - https://monitoring.{{ api-host }}/monitoring/v2/unifiedAgent/config/install.sh | bash
    ```
+   To install the agent using {{ TF }}, add this metadata to the configuration file:
 
-   To install the agent and send metrics properly, make sure the created VM has access to the internet.
+   ```
+   resource "yandex_compute_instance" "this" {
+   ...
+   resources {
+     ...
+   }
+
+   ...
+
+   metadata = {
+     ssh-keys = "<username>:<SSH_key_contents>",
+     "install-unified-agent": "1"
+   }
+   }
+   ```
+
+   To install the agent and send metrics, make sure the VM has access to the internet.
+
+   The agent is installed with a default configuration file located at `/etc/yandex/unified_agent/config.yml`.
+
+   The configuration file is set up to send [basic virtual machine metrics](./inputs.md#linux_metrics_input) and [agent health metrics](./inputs.md#agent_metrics_input). You will be [charged](../../../pricing.md) for metric delivery.
+
+   You can also [configure](./configuration.md) the delivery of custom metrics or [logs to {{ cloud-logging-name }}](./outputs.md#yc_logs_output).
 
    You are responsible for updating and maintaining the agent.
 

@@ -2,7 +2,7 @@ The `backup.viewer` role allows you to view information on virtual machines conn
 
 Users with this role can:
 * View info on the connected backup [providers](../../backup/concepts/index.md#providers).
-* View info on [access bindings](../../iam/concepts/access-control/index.md#access-bindings) for backup policies.
+* View info on [access permissions](../../iam/concepts/access-control/index.md) assigned for backup policies.
 * View info on [backup policies](../../backup/concepts/policy.md) and virtual machines linked to them.
 * View info on the virtual machines [connected](../../backup/concepts/vm-connection.md) to the service.
 * View info on [backups](../../backup/concepts/backup.md).

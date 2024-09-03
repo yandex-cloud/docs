@@ -37,6 +37,8 @@ items:
             href: operations/video/download.md
           - name: Опубликовать видео
             href: operations/video/publish.md
+          - name: Снять видео с публикации
+            href: operations/video/unpublish.md
           - name: Получить код вставки или ссылку
             href: operations/video/get-link.md
           - name: Добавить видео в плейлист

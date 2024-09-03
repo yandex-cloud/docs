@@ -172,7 +172,10 @@
 
           Пару ключей для подключения по [SSH](../glossary/ssh-keygen.md) необходимо создать самостоятельно, см. [{#T}](../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
 
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_additional }}** включите опцию подключения ВМ к сервису {{ backup-name }}.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_additional }}**:
+
+      {% include [backup-enable](../_includes/compute/backup-enable.md) %}
+
   1. Нажмите **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
 {% endlist %}

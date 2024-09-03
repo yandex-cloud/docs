@@ -9,11 +9,11 @@ description: "Follow this guide to disconnect a security profile in {{ sws-full-
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you want to disconnect a [security profile](../concepts/profiles.md) from an [{{ alb-full-name }}](../../application-load-balancer/) [virtual host](../../application-load-balancer/concepts/http-router.md#virtual-host).
+   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the [security profile](../concepts/profiles.md) you need.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
-   1. Select the profile to disconnect from the host.
+   1. Select the security profile to disconnect from the [{{ alb-full-name }}](../../application-load-balancer/) [virtual host](../../application-load-balancer/concepts/http-router.md#virtual-host).
    1. Go to the **{{ ui-key.yacloud.smart-web-security.overview.title_connected-to-the-hosts }}** tab.
-   1. Next to the host from which you want to disconnect the profile, click ![options](../../_assets/console-icons/ellipsis.svg) and select ![disconnect](../../_assets/console-icons/arrow-shape-left-from-line.svg) **{{ ui-key.yacloud.smart-web-security.overview.action_disconnect-host }}**.
+   1. In the host row, click ![options](../../_assets/console-icons/ellipsis.svg) ans select ![disconnect](../../_assets/console-icons/arrow-shape-left-from-line.svg) **{{ ui-key.yacloud.smart-web-security.overview.action_disconnect-host }}**.
    1. Confirm your action.
 
 - CLI {#cli}

@@ -19,6 +19,7 @@ description: "Step-by-step guides on how to use the streaming and video hosting 
 * [{#T}](video/publish.md)
 * [{#T}](video/get-link.md)
 * [{#T}](video/get-statistics.md)
+* [{#T}](video/add-to-playlist.md)
 * [{#T}](video/delete.md)
 
 ## Lines {#lines}
@@ -34,7 +35,19 @@ description: "Step-by-step guides on how to use the streaming and video hosting 
 * [{#T}](streams/get-key.md)
 * [{#T}](streams/start.md)
 * [{#T}](streams/get-link.md)
+* [{#T}](streams/add-to-playlist.md)
 * [{#T}](streams/delete.md)
+
+## Playlists {#playlists}
+
+* [{#T}](playlists/create.md)
+* [{#T}](playlists/update.md)
+* [{#T}](playlists/get-link.md)
+* [{#T}](playlists/delete.md)
+
+## Video player {#player}
+
+* [{#T}](player-control.md)
 
 ## Members {#members}
 

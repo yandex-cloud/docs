@@ -1,1 +1,1 @@
-Роль `smart-captcha.auditor` позволяет просматривать информацию о [капчах](../../smartcaptcha/concepts/validation.md) и [привязках](../../iam/concepts/access-control/index.md#access-bindings) прав доступа к ним.
+Роль `smart-captcha.auditor` позволяет просматривать информацию о [капчах](../../smartcaptcha/concepts/validation.md) и назначенных [правах доступа](../../iam/concepts/access-control/index.md) к ним.

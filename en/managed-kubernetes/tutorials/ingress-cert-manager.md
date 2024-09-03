@@ -28,20 +28,30 @@ If you no longer need the resources you created, [delete them](#clear-out).
 1. [Register a public domain zone and delegate your domain](../../dns/operations/zone-create-public.md).
 1. {% include [install externaldns](../../_includes/managed-kubernetes/install-externaldns.md) %}
 
-## Install an NGINX Ingress controller using a Helm chart {#install-controller}
+## Install the NGINX Ingress controller {#install-controller}
 
-1. [Install the {{ k8s }} Helm package manager](https://helm.sh/docs/intro/install).
-1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with the NGINX Ingress controller, run this command:
+{% list tabs group=instructions %}
 
-   ```bash
-   helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx && \
-   helm repo update && \
-   helm install ingress-nginx ingress-nginx/ingress-nginx
-   ```
+- {{ marketplace-full-name }} {#marketplace}
 
-The created controller will be installed behind [{{ network-load-balancer-full-name }}](../../network-load-balancer/).
+   Install the [Ingress NGINX](/marketplace/products/yc/ingress-nginx) application from {{ marketplace-name }} [using this guide](../operations/applications/ingress-nginx.md).
 
-To set up the controller configuration yourself, follow the guidelines provided in the [Helm documentation](https://helm.sh/docs/intro/using_helm/#customizing-the-chart-before-installing) and edit the [values.yaml](https://github.com/kubernetes/ingress-nginx/blob/master/charts/ingress-nginx/values.yaml) file.
+- Manually {#manual}
+
+   1. [Install the {{ k8s }} Helm package manager](https://helm.sh/docs/intro/install).
+   1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with the NGINX Ingress controller, run this command:
+
+      ```bash
+      helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx && \
+      helm repo update && \
+      helm install ingress-nginx ingress-nginx/ingress-nginx
+      ```
+
+   The created controller will be installed behind [{{ network-load-balancer-full-name }}](../../network-load-balancer/).
+
+   To set up the controller configuration yourself, follow the guidelines provided in the [Helm documentation](https://helm.sh/docs/intro/using_helm/#customizing-the-chart-before-installing) and edit the [values.yaml](https://github.com/kubernetes/ingress-nginx/blob/master/charts/ingress-nginx/values.yaml) file.
+
+{% endlist %}
 
 For specific port forwarding at NGINX Ingress controller installation, follow [this guide](../operations/create-load-balancer-with-ingress-nginx.md#port-forwarding).
 
@@ -85,7 +95,7 @@ You can install the certificate manager in one of the following ways:
 
 - {{ marketplace-full-name }} {#marketplace}
 
-   Install the cert-manager app with the {{ dns-name }} ACME webhook plugin [by following this guide](../operations/applications/cert-manager-cloud-dns.md).
+   Install the cert-manager app with the {{ dns-name }} ACME webhook plugin [by following the guide](../operations/applications/cert-manager-cloud-dns.md).
 
 - Manually {#manual}
 

@@ -2,7 +2,7 @@ title: Yandex Cloud Video
 href: index.yaml
 label:
   title: RU
-  description: The service is available in Russia only.
+  description: This service is only available in the Russia region.
   theme: unknown
   when: region == "kz"
 stage: preview
@@ -39,6 +39,8 @@ items:
             href: operations/video/publish.md
           - name: Getting an embed code or link
             href: operations/video/get-link.md
+          - name: Adding a video to a playlist
+            href: operations/video/add-to-playlist.md
           - name: Getting view statistics
             href: operations/video/get-statistics.md
           - name: Deleting a video
@@ -63,8 +65,22 @@ items:
             href: operations/streams/start.md
           - name: Getting an embed code or link
             href: operations/streams/get-link.md
+          - name: Adding a completed broadcast to a playlist
+            href: operations/streams/add-to-playlist.md
           - name: Deleting a broadcast
             href: operations/streams/delete.md
+      - name: Playlists
+        items:
+          - name: Creating a playlist
+            href: operations/playlists/create.md
+          - name: Editing a playlist
+            href: operations/playlists/update.md
+          - name: Getting an embed code or link
+            href: operations/playlists/get-link.md
+          - name: Deleting a playlist
+            href: operations/playlists/delete.md
+      - name: Managing the video player
+        href: operations/player-control.md
       - name: Adding a member
         href: operations/add-member.md
   - name: Concepts
@@ -77,6 +93,10 @@ items:
         href: concepts/streams.md
       - name: Video Player
         href: concepts/player.md
+      - name: Playlists
+        href: concepts/playlists.md
+      - name: Quotas and limits
+        href: concepts/limits.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy
@@ -109,4 +129,6 @@ items:
         href: iframe-sdk.md
   - name: Release notes
     href: release-notes.md
+  - name: Troubleshooting
+    href: troubleshooting.md
 base: en/video

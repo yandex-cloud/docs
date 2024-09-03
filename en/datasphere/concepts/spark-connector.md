@@ -1,8 +1,8 @@
 # Spark connector
 
-{{ ml-platform-name }} allows processing large amounts of data on [{{ dataproc-full-name }}](../../data-proc/) clusters. With a Spark connector, you can either use existing {{ dataproc-name }} clusters or create temporary clusters.
+{{ ml-platform-name }} allows processing large amounts of data on [{{ dataproc-full-name }}](../../data-proc/) clusters. With a Spark connector, you can either [use existing {{ dataproc-name }} clusters](data-proc.md#spark-with-existing-cluster) or [create temporary clusters](data-proc.md#spark-with-temporary-cluster).
 
-The Spark connector is a special resource that stores connection and interaction settings for [existing and temporary](./data-proc.md#types) {{ dataproc-name }} clusters. The selected clusters are automatically connected or created when you start computing in the IDE. When creating a resource, you can also specify data for connection to the S3 object storage.
+A Spark connector is a special resource that stores connection and interaction settings for existing and temporary {{ dataproc-name }} clusters. The selected clusters are automatically connected or created when you start computing in the IDE. When creating a resource, you can also specify data for connection to the S3 object storage.
 
 ## Information about a Spark connector as a resource {#info}
 
@@ -22,7 +22,7 @@ Spark connectors are used in the project notebooks. When first running computati
 
 Once created, the Spark connector becomes available for the project. Like any other resource, you can publish the Spark connector in the community to use it in other projects. To do this, you need at least the `Editor` role in the project and the `Developer` role in the community in which you want to publish it. You can open the access on the **{{ ui-key.yc-ui-datasphere.common.access }}** tab on the Spark connector view page. The resource available to the community will appear on the community page under **{{ ui-key.yc-ui-datasphere.spaces-page.community-resources }}**.
 
-If you chose a temporary {{ dataproc-name }} cluster when creating the Spark connector, {{ ml-platform-name }} will create a {{ dataproc-name }} cluster the first time you run computations in your notebook and will monitor it on its own. The cluster will be deleted if there are no computations on it for the period of time specified in the **{{ ui-key.yc-ui-datasphere.edit-project-page.dedicated-vm-inactivity-timeout }}** parameter, or if the notebook's VM is forced to stop.
+If you chose a temporary {{ dataproc-name }} cluster when creating the Spark connector, {{ ml-platform-name }} will create a {{ dataproc-name }} cluster the first time you run computations in your notebook and will monitor it on its own. The cluster will be deleted if there are no computations on it for the period of time specified in the **{{ ui-key.yc-ui-datasphere.edit-project-page.dedicated-vm-inactivity-timeout }}** parameter, or if you force shut down the notebook VM.
 
 ### Configurations of temporary clusters {#configurations}
 

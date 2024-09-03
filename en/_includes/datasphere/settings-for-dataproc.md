@@ -8,3 +8,9 @@ To use {{ dataproc-name }} clusters, [set the following project parameters](../.
 * [Subnet](../../vpc/concepts/network.md#subnet) for {{ ml-platform-name }} to communicate with the {{ dataproc-name }} cluster. Since the {{ dataproc-name }} cluster needs to access the internet, make sure to [configure a NAT gateway](../../vpc/operations/create-nat-gateway.md) in the subnet.
 
    {% include [subnet-create](../../_includes/subnet-create.md) %}
+
+{% note warning %}
+
+The {{ dataproc-name }} persistent cluster must have the `livy:livy.spark.deploy-mode : client` setting.
+
+{% endnote %}

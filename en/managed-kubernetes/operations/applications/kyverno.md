@@ -1,6 +1,5 @@
 # Installing Kyverno & Kyverno Policies
 
-
 [Kyverno](https://kyverno.io) is an application to manage {{ k8s }} security policies. Security policies appear in Kyverno as {{ k8s }} resources. Kyverno supports such tools as `kubectl`, `git`, and `kustomize`. You can use the Kyverno command line interface to test policies and validate resources as part of the CI/CD pipeline.
 
 [Kyverno policies](https://github.com/kyverno/kyverno/tree/main/charts/kyverno-policies) is a Kyverno extension. Kyverno policies includes an implementation of {{ k8s }} [Pod Security Standards (PSS)](https://kubernetes.io/docs/concepts/security/pod-security-standards/). The original policies are stored in a separate [Kyverno-policies](https://github.com/kyverno/policies/tree/main/pod-security) repository.
@@ -26,7 +25,7 @@ To find vulnerabilities in {{ k8s }} clusters, use [Chaos Mesh](chaos-mesh.md). 
 1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [Kyverno & Kyverno Policies](/marketplace/products/yc/kyverno) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Configure the application:
    * **Namespace**: Select or create a [namespace](../../concepts/index.md#namespace) for Kyverno. Make sure it contains no applications or objects; otherwise, Kyverno will not run properly.
-   * **Application name**: Enter a name for the application.
+   * **Application name**: Specify the app name.
    * **Activating Kyverno Policies**: Select to install the Kyverno Policies extension.
    * **Pod Security Standard profile**: Select a [Pod Security Standard profile](https://kubernetes.io/docs/concepts/security/pod-security-standards/):
       * `baseline`: Policy with minimum restrictions that prevents known privilege abuses.
@@ -46,6 +45,7 @@ To find vulnerabilities in {{ k8s }} clusters, use [Chaos Mesh](chaos-mesh.md). 
 
 1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with Kyverno, run the following command:
 
+   
    ```bash
    export HELM_EXPERIMENTAL_OCI=1 && \
    helm pull oci://{{ mkt-k8s-key.yc_kyverno.helmChart.name }} \
@@ -54,8 +54,9 @@ To find vulnerabilities in {{ k8s }} clusters, use [Chaos Mesh](chaos-mesh.md). 
    helm install \
      --namespace <namespace> \
      --create-namespace \
-     kyverno ./kyverno/
+     multi-kyverno ./multi-kyverno/
    ```
+
 
    Select a namespace that does not contain any applications or objects, or else Kyverno will not run properly.
 
@@ -90,7 +91,7 @@ If you no longer need the Kyverno application, delete it:
    1. Delete the application:
 
       ```bash
-      helm uninstall --namespace <namespace> kyverno ./kyverno/
+      helm uninstall --namespace <namespace> multi-kyverno ./multi-kyverno/
       ```
 
    1. [Clear the application's webhook configurations](https://release-1-8-0.kyverno.io/docs/installation/#clean-up-webhook-configurations), or else the cluster will not run properly.

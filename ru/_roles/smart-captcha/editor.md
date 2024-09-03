@@ -2,7 +2,7 @@
 
 Пользователи с этой ролью могут:
 * просматривать информацию о [капчах](../../smartcaptcha/concepts/validation.md), а также создавать, изменять и удалять их;
-* просматривать информацию о [привязках](../../iam/concepts/access-control/index.md#access-bindings) прав доступа к капчам;
+* просматривать информацию о назначенных [правах доступа](../../iam/concepts/access-control/index.md) к капчам;
 * получать [ключи капчи](../../smartcaptcha/concepts/keys.md).
 
 Включает разрешения, предоставляемые ролью `smart-captcha.viewer`.

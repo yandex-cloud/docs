@@ -20,6 +20,7 @@ description: "In this tutorial, you will learn how to set up a {{ CH }} target e
 1. {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
    * [Migrating a {{ CH }} cluster](../../../tutorials/managed-clickhouse.md).
    * [Redistributing data across shards](../../../tutorials/mch-mch-resharding.md).
+   * [{#T}](../../../tutorials/opensearch-to-clickhouse.md)
 
 1. {% include [queue](../../../../_includes/data-transfer/scenario-captions/queue.md) %}
    * [Delivering data from {{ KF }} to {{ CH }}](../../../tutorials/mkf-to-mch.md).
@@ -45,7 +46,7 @@ Configure one of the supported data sources:
 * [{{ MY }}](../source/mysql.md)​
 * [{{ CH }}](../source/clickhouse.md)​
 * [{{ GP }}](../source/greenplum.md)​
-* [{{ KF }}](../source/kafka.md)
+* [{{ KF }}](../source/kafka.md)​
 * [{{ AB }}](../../../transfer-matrix.md#airbyte)​
 * [{{ metrika }}](../source/metrika.md)​
 * [{{ DS }}](../source/data-streams.md)​

@@ -80,6 +80,8 @@ Use this ID at the next step.
 
 ## Getting recognition results {#get-result}
 
+To check the operation status and get the recognition results, submit a request at `operation.api.cloud.yandex.net`.
+
 Monitor the recognition results using the obtained ID. The number of result monitoring requests is [limited](../../concepts/limits.md): it takes about 10 seconds to recognize 1 minute of a single-channel audio file.
 
 {% note warning %}

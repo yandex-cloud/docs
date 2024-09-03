@@ -39,11 +39,11 @@ You cannot change a billing account type once it is created, but you can [create
 
 {% include [change-payment-method](../../billing/_includes/change-payment-method.md) %}
 
-#### How can I change my payment details or the delivery address? {#change-email} 
+#### How can I change my payment details or the delivery address? {#change-email}
 
 {% include [change-address](../../billing/_includes/change-address.md) %}
 
-#### I received no email with instructions on what to do after creating a billing account with the {{ ui-key.yacloud_billing_account.cloud-billing-account.payment-type_label_invoice }} payment method. Why? {#account-notification} 
+#### I received no email with instructions on what to do after creating a billing account with the {{ ui-key.yacloud_billing_account.cloud-billing-account.payment-type_label_invoice }} payment method. Why? {#account-notification}
 
 It may take up to three business days to activate your billing account.
 If you did not receive an email within that period, send a request to: [{{ billing-docs-email }}](mailto:{{ billing-docs-email }}).

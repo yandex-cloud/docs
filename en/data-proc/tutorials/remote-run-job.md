@@ -4,7 +4,7 @@ This guide describes how to use the [spark-submit utility](https://spark.apache.
 
 {% note info %}
 
-You can also run jobs in the {{ dataproc-name }} cluster from {{ ml-platform-full-name }}. For more information, see [{#T}](../../datasphere/concepts/data-proc.md#session).
+You can also run jobs in the {{ dataproc-name }} cluster from {{ ml-platform-full-name }}. For more information, see [concepts](../../datasphere/concepts/data-proc.md#existing-clusters).
 
 {% endnote %}
 

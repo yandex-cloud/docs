@@ -429,6 +429,10 @@ items:
           {{ data-transfer-full-name }}
         href: dataplatform/object-storage-to-clickhouse.md
       - name: >-
+          Migrating data with change of storage from {{ mos-name }} to {{
+          mch-name }} using {{ data-transfer-full-name }}
+        href: dataplatform/opensearch-to-clickhouse.md
+      - name: >-
           Configuring {{ dns-name }} for accessing {{ mch-name }} clusters from
           other cloud networks
         href: dataplatform/clickhouse-dns-peering.md

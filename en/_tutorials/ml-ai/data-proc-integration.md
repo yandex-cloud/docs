@@ -256,7 +256,7 @@ The file will appear in the bucket. To view bucket contents in the {{ jlab }}Lab
 
 {% include [dataproc-s3-connector](../../_includes/datasphere/dataproc-s3-connector.md) %}
 
-To learn more about running computations in the {{ dataproc-name }} clusters in {{ ml-platform-name }}, see [{#T}](../../datasphere/concepts/data-proc.md#session).
+To learn more about running computations on {{ dataproc-name }} clusters in {{ ml-platform-name }}, see [this concept](../../datasphere/concepts/data-proc.md#existing-clusters).
 
 ## Delete the resources you created {#clear-out}
 

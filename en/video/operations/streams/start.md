@@ -32,7 +32,7 @@ In the program, specify {{ ui-key.yacloud_video.stream-lines.label_stream-key }}
    * In the **Server** field, enter the {{ ui-key.yacloud_video.stream-lines.label_server-address }} you got earlier.
    * In the **Stream Key** field, enter the {{ ui-key.yacloud_video.stream-lines.label_stream-key }} you got earlier.
 
-1. Click **OK**.
+1. Click **OK**.
 1. Under **Sources**, click ![image](../../../_assets/console-icons/plus.svg), select what you want to broadcast, e.g., **Video Capture Device**, and click **OK**.
 1. Select the video stream's source device, e.g., a webcam, and click **OK**.
 1. Under **Controls**, click **Start Streaming**.
@@ -53,6 +53,8 @@ In the program, specify {{ ui-key.yacloud_video.stream-lines.label_stream-key }}
    Use the [StreamService/Create](../../api-ref/grpc/stream_service.md#Create) gRPC API call.
 
 {% endlist %}
+
+{% include [streams-limits-notice](../../../_includes/video/streams-limits-notice.md) %}
 
 ## Check if the broadcast is available {#test}
 

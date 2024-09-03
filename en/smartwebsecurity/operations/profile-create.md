@@ -9,18 +9,19 @@ description: "Follow this guide to create a {{ sws-full-name }} security profile
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you want to create your [security profile](../concepts/profiles.md).
+   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your [security profile](../concepts/profiles.md).
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
    1. Click **{{ ui-key.yacloud.smart-web-security.action_empty }}**.
    1. Select one of the creation options:
       * **{{ ui-key.yacloud.smart-web-security.title_default-template }}** (recommended). A preset profile includes:
+
          * [Basic default rule](../concepts/rules.md#base-rules) enabled for all traffic with the `{{ ui-key.yacloud.smart-web-security.overview.cell_sec-action-deny }}` [action type](../concepts/rules.md#rule-action).
          * [Smart Protection rule](../concepts/rules.md#smart-protection-rules) enabled for all traffic with the `{{ ui-key.yacloud.smart-web-security.overview.cell_mode-full }}` action type.
       * **{{ ui-key.yacloud.smart-web-security.title_no-template }}**​. This profile includes only the basic default rule enabled for all traffic.
 
    1. Enter the profile name.
    1. (Optional) Enter a description.
-   1. (Optional) Add a [label](../../resource-manager/concepts/labels.md) for the profile.
+   1. (Optional) Add [labels](../../resource-manager/concepts/labels.md) for your profile.
    1. In the **{{ ui-key.yacloud.smart-web-security.form.label_default-action }}** field, select an action to be applied to the traffic that mismatches the criteria of other rules: `{{ ui-key.yacloud.smart-web-security.form.label_action-deny }}` or `{{ ui-key.yacloud.smart-web-security.form.label_action-allow }}`.
    1. Select or create an [ARL profile](../operations/arl-profile-create.md) to limit the number of requests.
    1. Select or create a [{{ captcha-full-name }}](../../smartcaptcha/) to verify suspicious requests:

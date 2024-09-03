@@ -86,6 +86,7 @@ Loading data to data marts is a process of transferring prepared data to storage
 * [{{ objstorage-name }} to {{ CH }}](object-storage-to-clickhouse.md)
 * [{{ objstorage-name }} to {{ ydb-short-name }}](object-storage-to-ydb.md)
 * [{{ ydb-short-name }} to {{ CH }}](ydb-to-clickhouse.md)
+* [{{ OS }} to {{ CH }}](opensearch-to-clickhouse.md)
 
 ## Importing data to {{ objstorage-name }} {#upload-to-storage}
 

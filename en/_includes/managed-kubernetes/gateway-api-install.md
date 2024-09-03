@@ -49,14 +49,15 @@ In {{ managed-k8s-name }}, Gateway API launches [{{ alb-full-name }}](../../appl
 
 1. {% include [helm-install](helm-install.md) %}
 1. {% include [Install and configure kubectl](kubectl-install.md) %}
-1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with the Gateway API, run the command below:
+1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with Gateway API, run the command below:
 
+   
    ```bash
-    export HELM_EXPERIMENTAL_OCI=1 && \
-    helm pull oci://{{ mkt-k8s-key.yc_gateway-api.helmChart.name }} \
+   export HELM_EXPERIMENTAL_OCI=1 && \
+   helm pull oci://{{ mkt-k8s-key.yc_gateway-api.helmChart.name }} \
       --version {{ mkt-k8s-key.yc_gateway-api.helmChart.tag }} \
       --untar && \
-    helm install \
+   helm install \
       --namespace <namespace> \
       --create-namespace \
       --set folderId='<folder_ID>' \
@@ -67,6 +68,7 @@ In {{ managed-k8s-name }}, Gateway API launches [{{ alb-full-name }}](../../appl
       --set-file saKeySecretKey='<path_to_the_sa-key.json_file>' \
       gateway-api ./gateway-api/
    ```
+
 
    In the command, specify the network and its subnets to host the [load balancers](../../application-load-balancer/concepts/application-load-balancer.md#lb-location).
 

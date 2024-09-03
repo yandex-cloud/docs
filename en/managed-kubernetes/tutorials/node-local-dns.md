@@ -1,6 +1,5 @@
 # Setting up NodeLocal DNS Cache
 
-
 To reduce the number of DNS queries on a [{{ managed-k8s-name }} cluster](../concepts/index.md#kubernetes-cluster), enable NodeLocal DNS Cache.
 
 {% note tip %}
@@ -19,11 +18,11 @@ This helps avoid the DNAT rules, [connection tracking](https://github.com/kubern
 
 To set up DNS query caching:
 
-1. [{#T}](#install).
-1. [{#T}](#configure).
-1. [{#T}](#dns-queries).
-1. [{#T}](#dns-traffic).
-1. [{#T}](#check-logs).
+1. [{#T}](#install)
+1. [{#T}](#configure)
+1. [{#T}](#dns-queries)
+1. [{#T}](#dns-traffic)
+1. [{#T}](#check-logs)
 
 ## Getting started {#before-you-begin}
 

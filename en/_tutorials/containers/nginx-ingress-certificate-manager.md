@@ -225,55 +225,65 @@ The infrastructure support cost includes:
 
 ## Install the NGINX Ingress controller {#install-nginx-ingress}
 
-1. Add the following to the Helm repository for NGINX:
+{% list tabs group=instructions %}
 
-   ```bash
-   helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
-   ```
+- {{ marketplace-full-name }} {#marketplace}
 
-   Result:
+   Install the [Ingress NGINX](/marketplace/products/yc/ingress-nginx) application from {{ marketplace-name }} [using this guide](../../managed-kubernetes/operations/applications/ingress-nginx.md).
 
-   ```text
-   "ingress-nginx" has been added to your repositories
-   ```
+- Manually {#manual}
 
-1. Update the dataset to create an application instance in the {{ managed-k8s-name }} cluster:
+   1. Add the following to the Helm repository for NGINX:
 
-   ```bash
-   helm repo update
-   ```
+      ```bash
+      helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+      ```
 
-   Result:
+      Result:
 
-   ```text
-   Hang tight while we grab the latest from your chart repositories...
-   ...Successfully got an update from the "ingress-nginx" chart repository
-   Update Complete. ⎈Happy Helming!⎈
-   ```
+      ```text
+      "ingress-nginx" has been added to your repositories
+      ```
 
-1. Install the controller in the standard configuration. The controller will be installed with {{ network-load-balancer-name }}:
+   1. Update the dataset to create an application instance in the {{ managed-k8s-name }} cluster:
 
-   ```bash
-   helm install ingress-nginx ingress-nginx/ingress-nginx
-   ```
+      ```bash
+      helm repo update
+      ```
 
-   Result:
+      Result:
 
-   ```text
-   NAME: ingress-nginx
-   LAST DEPLOYED: Sun Jul 18 22:35:37 2021
-   NAMESPACE: default
-   STATUS: deployed
-   REVISION: 1
-   TEST SUITE: None
-   NOTES:
-   The ingress-nginx controller has been installed.
-   It may take a few minutes for the LoadBalancer IP to be available.
-   You can watch the status by running 'kubectl --namespace default get services -o wide -w ingress-nginx-controller'
-   ...
-   ```
+      ```text
+      Hang tight while we grab the latest from your chart repositories...
+      ...Successfully got an update from the "ingress-nginx" chart repository
+      Update Complete. ⎈Happy Helming!⎈
+      ```
 
-To set up the controller configuration yourself, follow the guidelines provided in the [Helm documentation](https://helm.sh/docs/intro/using_helm/#customizing-the-chart-before-installing) and edit the [values.yaml](https://github.com/kubernetes/ingress-nginx/blob/master/charts/ingress-nginx/values.yaml) file.
+   1. Install the controller in the standard configuration. The controller will be installed with {{ network-load-balancer-name }}:
+
+      ```bash
+      helm install ingress-nginx ingress-nginx/ingress-nginx
+      ```
+
+      Result:
+
+      ```text
+      NAME: ingress-nginx
+      LAST DEPLOYED: Sun Jul 18 22:35:37 2021
+      NAMESPACE: default
+      STATUS: deployed
+      REVISION: 1
+      TEST SUITE: None
+      NOTES:
+      The ingress-nginx controller has been installed.
+      It may take a few minutes for the LoadBalancer IP to be available.
+      You can watch the status by running 'kubectl --namespace default get services -o wide -w ingress-nginx-controller'
+      ...
+      ```
+
+   To set up the controller configuration yourself, follow the guidelines provided in the [Helm documentation](https://helm.sh/docs/intro/using_helm/#customizing-the-chart-before-installing) and edit the [values.yaml](https://github.com/kubernetes/ingress-nginx/blob/master/charts/ingress-nginx/values.yaml) file.
+
+{% endlist %}
 
 For specific port forwarding at NGINX Ingress controller installation, follow [this guide](../../managed-kubernetes/operations/create-load-balancer-with-ingress-nginx.md#port-forwarding).
 

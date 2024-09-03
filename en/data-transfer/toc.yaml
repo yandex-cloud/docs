@@ -226,8 +226,10 @@ items:
             href: tutorials/object-storage-to-clickhouse.md
           - name: '{{ objstorage-name }} to {{ ydb-short-name }}'
             href: tutorials/object-storage-to-ydb.md
-          - name: '{{ ydb-short-name }} in {{ CH }}'
+          - name: '{{ ydb-short-name }} to {{ CH }}'
             href: tutorials/ydb-to-clickhouse.md
+          - name: '{{ OS }} to {{ CH }}'
+            href: tutorials/opensearch-to-clickhouse.md
       - name: Uploading data to {{ objstorage-name }}
         items:
           - name: '{{ MY }} to {{ objstorage-name }}'
@@ -236,7 +238,7 @@ items:
             href: tutorials/mpg-to-objstorage.md
           - name: '{{ OS }} to {{ objstorage-name }}'
             href: tutorials/opensearch-to-object-storage.md
-          - name: '{{ ydb-name }} in {{ objstorage-name }}'
+          - name: '{{ ydb-name }} to {{ objstorage-name }}'
             href: tutorials/ydb-to-object-storage.md
   - name: Concepts
     items:

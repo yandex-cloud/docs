@@ -54,7 +54,7 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
 1. Select the **ClickHouse** connection.
    1. In the window that opens, specify the connection parameters:
       * Connection type: **Specify manually**.
-      * Host name: `rc1a-ckg8nrosr2lim5iz.{{ dns-zone }}, rc1b-cflmvve37lf18tqn.{{ dns-zone }}` (comma-separated).
+      * Host name: `rc1a-g1gicp3imcc0pnsg.{{ dns-zone }},rc1b-vbbl6tob599tr3oi.{{ dns-zone }},rc1d-qf1ven1igeihhbep.{{ dns-zone }}` (comma-separated).
       * HTTP interface port: `8443` (default).
       * Username: `datalens-marathon-2020-11-ro`.
       * Password: `/4b+xBF6aSCgN9wKTevYGuDjxC9IO4Fa`.

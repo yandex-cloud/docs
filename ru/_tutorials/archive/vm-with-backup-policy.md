@@ -465,8 +465,11 @@
      1. В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя: `vm-user`.
      1. В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** вставьте содержимое файла [открытого ключа](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys). Пару ключей для подключения по [SSH](../../glossary/ssh-keygen.md) необходимо [создать](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
 
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_additional }}** включите опцию **{{ ui-key.yacloud.compute.instances.create.section_backup }}**.
-  1. В блоке **{{ ui-key.yacloud.common.metadata }}** добавьте поле с ключом `cloudbackup` и значением `{"initialPolicies": ["<идентификатор_политики_daily-backup>"]}`.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_additional }}**:
+
+      1. Включите опцию **{{ ui-key.yacloud.compute.instances.create.section_backup }}**.
+      1. Выберите политику резервного копирования, [созданную ранее](#create-policy).
+
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
 - {{ yandex-cloud }} CLI {#cli}
