@@ -25,15 +25,14 @@
    * `compute.viewer`;
    * `managed-airflow.integrationProvider`.
 
-1. [Создайте статический ключ доступа](../../iam/operations/sa/create-access-key.md) для сервисного аккаунта. Сохраните его идентификатор и секретный ключ.
-
 1. [Создайте бакет {{ objstorage-full-name }}](../../storage/operations/buckets/create.md) с произвольными настройками.
+
+1. {% include [aiflow-sa-bucket-acl](../../_includes/managed-airflow/aiflow-sa-bucket-acl.md) %}
 
 1. [Создайте кластер {{ maf-name }}](../../managed-airflow/operations/cluster-create.md#create-cluster) с параметрами:
 
    * **Сервисный аккаунт** — `airflow-sa`.
    * **Имя бакета** — имя созданного бакета.
-   * **Идентификатор ключа** и **секретный ключ** — принадлежат статическому ключу доступа.
 
 1. [Создайте виртуальную машину](../../compute/operations/vm-create/create-linux-vm.md) с произвольными настройками.
 

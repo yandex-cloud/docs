@@ -61,6 +61,21 @@
 
     * **Xid wraparound** — использование [последовательности идентификаторов транзакций]({{ gp.docs.vmware }}/7/greenplum-database/admin_guide-intro-about_mvcc.html#transaction-id-wraparound) (в процентах).
 
+    * **Background activities** — группа графиков, показывающих информацию о фоновых процессах:
+
+        * **Tables vacuum age** — количество пользовательских таблиц, [очистка](../concepts/maintenance.md#custom-table-vacuum) которых выполнялась N дней назад.
+        * **Tables analyze age** — количество пользовательских таблиц, [сбор статистики](../concepts/maintenance.md#get-statistics) для которых выполнялся N дней назад.
+        * **Expansion progress** — ход [процесса перераспределения данных](../concepts/expand.md#redistribution) при расширении кластера:
+
+            * **Tables** — процент обработанных таблиц.
+            * **Bytes** — процент перераспределенных байт данных.
+
+            {% note info %}
+
+            Этот график показывает ход процесса, даже если перераспределение данных было запущено не в виде [фонового процесса](../concepts/expand.md#setting-delay-redistribution).
+
+            {% endnote %}
+
 {% endlist %}
 
 ## Мониторинг состояния хостов {#monitoring-hosts}

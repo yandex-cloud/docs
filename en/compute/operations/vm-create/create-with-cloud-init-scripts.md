@@ -346,3 +346,5 @@ Other configuration examples for the `user-data` key:
 * [Creating an instance group connected to a file storage](../instance-groups/create-with-filesystem.md)
 * [Creating an instance group connected to {{ objstorage-full-name }}](../instance-groups/create-with-bucket.md)
 * [Recovering VM network interfaces](../../qa/troubleshooting.md#unable-to-connect-to-new-multi-interface-vm)
+* [{#T}](../../../tutorials/archive/vm-with-backup-policy.md)
+* [Installing the agent for collecting {{ unified-agent-short-name }} metrics and logs](../../../monitoring/concepts/data-collection/unified-agent/installation.md#setup)

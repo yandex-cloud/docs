@@ -20,7 +20,7 @@ You can manage cloud network and subnet traffic using [security groups](security
 
 A _subnet_ is a range of IP addresses in a cloud network. Addresses from this range can be assigned to cloud resources, such as VMs and DB clusters. You can only [create subnets](../operations/subnet-create.md) in the folder the cloud network belongs to.
 
-The size of a subnet is set using the Classless Inter-Domain Routing (CIDR) method. Subnets can only use private IPv4 addresses from the ranges defined by [RFC 1918](https://tools.ietf.org/html/rfc1918):
+Subnet size is set using [Classless Inter-Domain Routing](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) (CIDR). Subnets can only use private IPv4 addresses from the ranges defined by [RFC 1918](https://tools.ietf.org/html/rfc1918):
 * `10.0.0.0/8`
 * `172.16.0.0/12`
 * `192.168.0.0/16`

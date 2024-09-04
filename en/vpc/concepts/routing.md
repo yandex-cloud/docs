@@ -12,15 +12,15 @@ keywords:
 When you create a virtual machine (VM) in {{ yandex-cloud }}, it receives a [set of parameters](../../compute/concepts/network.md) for configuring its network environment from the virtual network. The virtual network transmits the values of these parameters to the VM using DHCP. The required network environment parameters for VMs include:
 
 * [Internal IP addresses](../../compute/concepts/network.md#internal-ip) for each network interface of the VM.
-* Subnet mask: Defines the size of the [subnet](./network.md#subnet) the VM's network interface connects to.
+* Subnet mask: Defines the size of the [subnet](./network.md#subnet) the VM network interface connects to.
 * [Host name and FQDN of the VM](../../compute/concepts/network.md#hostname).
-* Default gateway: The first IP address on the subnet to which the VM's network interface is connected. It will receive all outbound traffic from the VM to the outside world.
+* Default gateway: The first IP address on the subnet to which the VM network interface is connected. It will receive all outbound traffic from the VM to the outside world.
 
 ## VM route table {#rt-vm}
 
 In {{ yandex-cloud }}, VM instances are typically created with a single network interface. When being created, a VM will have a route table with only one route: the one to the default gateway with the `0.0.0.0/0` prefix. For this route (prefix), the gateway is always the **first IP address** on the subnet to which the VM network interface is connected.
 
-Let's assume a VM network interface is connected to a subnet with the `192.168.10.0/24` prefix. When the VM was created, its network interface was assigned the `192.168.10.5` IP address on the subnet. The route table for the VM will appear as follows:
+Let's assume a VM network interface is connected to a subnet with the `192.168.10.0/24` prefix. When the VM was created, its network interface was assigned the `192.168.10.5` IP address on the subnet. The route table for the VM will appear as follows:
 
 ```bash
 ip route
@@ -75,10 +75,11 @@ In complex routing scenarios with multiple default routes in the VPC network (su
 
 * Priority 1: If you set up a default static route of `0.0.0.0/0`, it will have the highest priority.
 
-* Priority 2: If a VM has a public IP address and there is no default static route (priority 1) set in the subnet, traffic will be routed through that public IP address.
+* Priority 2: If a VM has a public IP address configured and there is no default static route (priority 1) in the subnet, traffic will be routed through that public IP address.
 
-* Priority 3: If you announce a default route of `0.0.0.0/0` using [Cloud Interconnect](../../interconnect/concepts/routing.md#cic-routing-default-as), it will be treated as having the lowest priority relative to routes with priorities 1 and 2.
+* Priority 3: If you set up a default static route of `0.0.0.0/0` through a [NAT gateway](./gateways.md#nat-gateway), it will have the lowest priority compared to priorities 1 and 2.
 
+* Priority 4: If you announce a default route of `0.0.0.0/0` using [Cloud Interconnect](../../interconnect/concepts/routing.md#cic-routing-default-as), it will be treated as having the lowest priority relative to routes with priorities 1, 2, and 3.
 
 ## Limitations {#restrictions}
 

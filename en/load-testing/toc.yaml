@@ -176,4 +176,6 @@ items:
                 href: user/api-ref/Test/stop.md
   - name: '{{ at-name }} events'
     href: at-ref.md
+  - name: Release notes
+    href: release-notes.md
 base: en/load-testing

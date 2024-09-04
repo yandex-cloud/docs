@@ -33,16 +33,16 @@ In case you create a disk from a snapshot or image, its information will contain
 * Network SSD (`network-ssd`): Fast network drive, which is an SSD based network block storage.
 * Network HDD (`network-hdd`): Standard network drive, which is an HDD based network block storage.
 * Non-replicated SSD (`network-ssd-nonreplicated`): Network drive with enhanced performance without redundancy.
-* High-performance SSD (`network-ssd-io-m3`): Network drive with the same performance characteristics as `network-ssd-nonreplicated`, plus redundancy.
+* Ultra high-speed network storage with three replicas (SSD) (`network-ssd-io-m3`) is a high-performance SSD that offers the same speed as `network-ssd-nonreplicated` but also provides redundancy.
 * [Local disk](dedicated-host.md#resource-disks) drives on dedicated hosts.
 
 Network SSDs, high-performance SSDs, and network HDDs provide sufficient redundancy for reliable data storage and enable continuous read and write operations, even when multiple physical disks fail at the same time. Non-replicated disks do not ensure data durability.
 
 If a physical disk hosting a network drive fails, the VM will continue running and will quickly regain full access to its data.
 
-### Non-replicated disks and high-performance SSDs {#nr-disks}
+### Non-replicated disks and ultra high-speed network storages with three replicas (SSD) {#nr-disks}
 
-Non-replicated disks and high-performance SSDs outperform network SSDs but their size must be a multiple of 93 GB.
+Non-replicated disks and high-performance SSDs (ultra high-speed network storages with three replicas) outperform network SSDs but their size must be a multiple of 93 GB.
 
 {% include [pricing-gb-size](../../_includes/pricing-gb-size.md) %}
 

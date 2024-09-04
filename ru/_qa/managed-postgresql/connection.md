@@ -18,11 +18,10 @@
 SSL-сертификат можно получить с помощью PowerShell:
 
 ```powershell
-mkdir $HOME\AppData\Roaming\postgresql; `
-curl.exe -o $HOME\AppData\Roaming\postgresql\root.crt {{ crt-web-path }}
+mkdir $HOME\.postgresql; curl.exe -o $HOME\.postgresql\root.crt {{ crt-web-path }}
 ```
 
-Сертификат будет доступен по пути `$HOME\AppData\Roaming\postgresql\root.crt`.
+Сертификат будет сохранен в файле `$HOME\.postgresql\root.crt`.
 
 Подробнее о получении сертификата и подключении к базе данных см. в [документации сервиса](../../managed-postgresql/operations/connect.md).
 

@@ -10,12 +10,6 @@ _Снимок диска_ — это копия файловой системы 
 
 {% include [snapshot-disk-types](../../../_includes/compute/snapshot-disk-types.md) %}
 
-{% note alert %}
-
-Во время создания снимка диска с типом `{{ ui-key.yacloud.compute.value_disk-type-network-ssd-io-m3 }}` или `{{ ui-key.yacloud.compute.value_disk-type-network-ssd-nonreplicated }}` все операции записи будут временно приостановлены, диск будет доступен только для чтения. Все приостановленные операции записи, запрошенные от гостевой ОС, выполнятся после создания снимка. Пока выполняется снимок, гостевая ОС будет находиться в состоянии ожидания завершения операций ввода-вывода (`iowait`).
-
-{% endnote %}
-
 ## Подготовка {#prepare}
 
 {% include [prepare-snapshots](../../../_includes/compute/prepare-snapshots.md) %}

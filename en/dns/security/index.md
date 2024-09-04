@@ -50,9 +50,11 @@ You can assign a role for a [DNS zone](../concepts/dns-zone.md) through the YC C
 
 {% include [roles-primitive](../../_includes/roles-primitive.md) %}
 
+{% include [primitive-roles-footnote](../../_includes/primitive-roles-footnote.md) %}
+
 ## What roles do I need {#required-roles}
 
-The table below lists the roles needed to perform a particular action. You can always assign a role granting more permissions than the role specified. For example, assign `editor` instead of `viewer` or `dns.admin` instead of `dns.editor`.
+The table below lists the roles required to perform a particular action. You can always assign a role offering more permissions than the one specified. For example, assign `editor` instead of `viewer` or `dns.admin` instead of `dns.editor`.
 
 | Action | Methods | Required roles |
 |:----------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------:|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

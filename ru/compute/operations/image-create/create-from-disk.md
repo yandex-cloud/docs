@@ -11,6 +11,12 @@ description: "Следуя данной инструкции, вы сможет�
 
 - Консоль управления {#console}
 
+  {% note info %}
+  
+  {% include [create-unreplicated-instance-via-cli-tf-api](../../_includes_service/create-unreplicated-instance-via-cli-tf-api.md) %}
+  
+  {% endnote %}
+
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать образ.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.switch_disks }}**.

@@ -35,9 +35,7 @@ If you no longer need a NAT gateway, you can [delete it](#delete-nat-gateway). B
       ```bash
       yc vpc route-table list
       ```
-
       Result:
-
       ```text
       +----------------------+----------------------+-------------+----------------------+
       |          ID          |         NAME         | DESCRIPTION |      NETWORK-ID      |
@@ -47,11 +45,9 @@ If you no longer need a NAT gateway, you can [delete it](#delete-nat-gateway). B
       ```
 
    1. Detach the NAT gateway:
-
       ```bash
       yc vpc route-table update <route_table_name_or_ID> --clear-routes
       ```
-
       Use either the `--id` or `--name` parameter.
 
 - {{ TF }} {#tf}
@@ -129,7 +125,7 @@ If you no longer need a NAT gateway, you can [delete it](#delete-nat-gateway). B
 
    If the list contained a single static route, provide an empty list.
 
-   To get a list of static routes, use the [get](../api-ref/RouteTable/get.md) REST API method for the [RouteTable](../api-ref/RouteTable/index.md) resource or the [RouteTableService/Get](../api-ref/grpc/route_table_service.md#Get) gRPC API call and provide the table ID in the following request parameters:
+   To get a list of static routes, use the [get](../api-ref/RouteTable/get.md) REST API method for the [RouteTable](../api-ref/RouteTable/index.md) resource or the [RouteTableService/Get](../api-ref/grpc/route_table_service.md#Get) gRPC API call. In your request, provide the route table ID in this parameter:
    * `routeTableId` for REST API
    * `route_table_id` for gRPC API
 
@@ -139,7 +135,11 @@ If you no longer need a NAT gateway, you can [delete it](#delete-nat-gateway). B
 
 ## Deleting a NAT gateway {#delete-nat-gateway}
 
+{% note warning %}
+
 Before deleting a NAT gateway, [detach it](#unlink-route-table) from all route tables it is attached to.
+
+{% endnote %}
 
 {% list tabs group=instructions %}
 
@@ -171,9 +171,7 @@ Before deleting a NAT gateway, [detach it](#unlink-route-table) from all route t
       ```bash
       yc vpc gateway list
       ```
-
       Result:
-
       ```text
       +----------------------+-----------+-------------+
       |          ID          |   NAME    | DESCRIPTION |
@@ -181,13 +179,10 @@ Before deleting a NAT gateway, [detach it](#unlink-route-table) from all route t
       | enpkq171u4gb******** | gateway-1 |             |
       +----------------------+-----------+-------------+
       ```
-
    1. Delete the NAT gateway:
-
       ```bash
       yc vpc gateway delete <gateway_name_or_ID>
       ```
-
       Use either the `--id` or `--name` parameter.
 
 - {{ TF }} {#tf}
@@ -252,11 +247,11 @@ Before deleting a NAT gateway, [detach it](#unlink-route-table) from all route t
 
 - API {#api}
 
-   To delete a NAT gateway, use the [delete](../api-ref/Gateway/delete.md) REST API method for the [Gateway](../api-ref/Gateway/index.md) resource or the [GatewayService/Delete](../api-ref/grpc/gateway_service.md#Delete) gRPC API call and provide the ID of the NAT gateway to delete in the following request parameters:
+   To delete a NAT gateway, use the [delete](../api-ref/Gateway/delete.md) REST API method for the [Gateway](../api-ref/Gateway/index.md) resource or the [GatewayService/Delete](../api-ref/grpc/gateway_service.md#Delete) gRPC API call. In your request, provide the ID of the NAT gateway you want to delete in this parameter:
    * `gatewayId` for REST API
    * `gateway_id` for gRPC API
 
-   To get the NAT gateway ID, use the [list](../api-ref/Gateway/list.md) REST API method for the [Gateway](../api-ref/Gateway/index.md) resource or the [GatewayService/List](../api-ref/grpc/gateway_service.md#List) gRPC API call and provide the folder ID in the following request parameters:
+   To get the NAT gateway ID, use the [list](../api-ref/Gateway/list.md) REST API method for the [Gateway](../api-ref/Gateway/index.md) resource or the [GatewayService/List](../api-ref/grpc/gateway_service.md#List) gRPC API call. In your request, provide the folder ID in this parameter:
    * `folderId` for REST API
    * `folder_id` for gRPC API
 

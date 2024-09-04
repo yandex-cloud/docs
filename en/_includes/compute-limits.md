@@ -13,7 +13,7 @@
 | Total [HDD storage](../compute/concepts/disk.md#disks-types) capacity per cloud | 500 GB |
 | Total SSD storage capacity per cloud | 200 GB |
 | Total non-replicated SSD storage capacity per cloud | 558 GB |
-| Total high-performance SSD storage capacity per cloud | 186 GB |
+| Total capacity of ultra high-speed network SSD storages with three replicas per cloud | 186 GB |
 | Number of [non-replicated disk placement groups](../compute/concepts/disk-placement-group.md) per cloud | 5 |
 | Total number of [disk snapshots](../compute/concepts/snapshot.md) per cloud | 32 |
 | Total storage capacity of all disk snapshots per cloud | 400 GB |
@@ -124,11 +124,11 @@ Limits per VM depend on the VM [platform](../compute/concepts/vm-platforms.md):
    | Maximum^5^ [bandwidth](../compute/concepts/storage-read-write.md) per vCPU | 100 MB/s |
    | Maximum^5^ bandwidth per VM | 1 GB/s |
 
-- High-performance SSD {#high-perf-ssd}
+- Ultra high-speed network storage with three replicas (SSD) {#high-perf-ssd}
 
    | Type of limit | Value |
    --- | ---
-   | Total number of high-performance SSDs per placement group | 8 |
+   | Total number of ultra high-speed network storages with three replicas (SSD) per placement group | 8 |
    | Maximum^4^ [IOPS](../compute/concepts/storage-read-write.md) per vCPU | 10,000 |
    | Maximum^4^ IOPS per VM | 100,000 |
    | Maximum^5^ [bandwidth](../compute/concepts/storage-read-write.md) per vCPU | 100 MB/s |
@@ -185,11 +185,11 @@ Limits per VM depend on the VM [platform](../compute/concepts/vm-platforms.md):
    | Maximum^5^ bandwidth for reads per disk | 1 GB/s |
    | Maximum^5^ bandwidth for reads per allocation unit | 110 MB/s |
 
-- High-performance SSD {#high-perf-ssd}
+- Ultra high-speed network storage with three replicas (SSD) {#high-perf-ssd}
 
    | Type of limit | Value |
    --- | ---
-   | Minimum size of high-performance disk | 93 GB |
+   | Minimum capacity of ultra high-speed network storage with three replicas (SSD) | 93 GB |
    | [Allocation unit](../compute/concepts/storage-read-write.md) size | 93 GB |
    | Maximum^4^ IOPS for writes per disk | 40,000 |
    | Maximum^4^ IOPS for writes per allocation unit | 5,600 |

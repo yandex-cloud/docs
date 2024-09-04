@@ -1,9 +1,9 @@
-# Creating a high-performance SSD
+# Create an ultra high-speed network storage with three replicas (SSD)
 
 
-You can create a separate [high-performance](../../concepts/disk.md#nr-disks) SSD that combines the high speed of a non-replicated disk with redundancy.
+You can create an [ultra high-speed network storage](../../concepts/disk.md#nr-disks) with three replicas (SSD), which is a high-performance SSD that offers the same speed features as a non-replicated SSD but also provides redundancy.
 
-The size of a disk must be a multiple of 93 GB.
+The disk size must be a multiple of 93 GB.
 
 {% list tabs group=instructions %}
 

@@ -346,5 +346,5 @@ description: "Следуя данной инструкции, вы сможет�
 * [Создание группы виртуальных машин с подключением к файловому хранилищу](../instance-groups/create-with-filesystem.md)
 * [Создание группы виртуальных машин с подключением к {{ objstorage-full-name }}](../instance-groups/create-with-bucket.md)
 * [Восстановление работоспособности сетевых интерфейсов ВМ](../../qa/troubleshooting.md#unable-to-connect-to-new-multi-interface-vm)
-* [{#T}](../../../tutorials/archive/vm-with-backup-policy.md)
+* [{#T}](../../../tutorials/archive/vm-with-backup-policy/index.md)
 * [Установка агента для сбора метрик и логов {{ unified-agent-short-name }}](../../../monitoring/concepts/data-collection/unified-agent/installation.md#setup)

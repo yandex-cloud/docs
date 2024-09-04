@@ -23,11 +23,10 @@ description: "Чтобы начать работать с {{ maf-full-name }}, �
 
    {% include [sg-ui-access](../_includes/mdb/maf/note-sg-ui-access.md) %}
 
+1. [Убедитесь](../iam/operations/roles/get-assigned-roles.md), что для создания кластера у вашего аккаунта есть роль [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) и роль [{{ roles.maf.editor }} или выше](security/index.md#roles-list).
 1. [Создайте бакет {{ objstorage-full-name }}](../storage/operations/buckets/create.md) для хранения [DAG-файлов](concepts/index.md#about-the-service) {{ maf-name }}.
 1. [Создайте сервисный аккаунт](../iam/operations/sa/create.md).
 1. [Назначьте сервисному аккаунту роль](../iam/operations/sa/assign-role-for-sa.md) `storage.viewer` на каталог или бакет.
-1. [Создайте статический ключ доступа](../iam/operations/sa/create-access-key.md) для сервисного аккаунта.
-1. [Убедитесь](../iam/operations/roles/get-assigned-roles.md), что для создания кластера у вашего аккаунта есть роль [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) и роль [{{ roles.maf.editor }} или выше](security/index.md#roles-list).
 
 
 ## Создайте кластер {#cluster-create}

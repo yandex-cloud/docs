@@ -5675,6 +5675,7 @@ default:
         cluster:
           overview:
             section_dependencies: Dependencies
+        field_lockbox: Use Lockbox Secret Backend
         section_accesses: Access settings
         section_airflow-configuration: Airflow configuration
         section_dependencies: Dependencies
@@ -6748,7 +6749,10 @@ default:
             value_hba-type-hostnossl: hostnossl
             value_hba-type-hostssl: hostssl
         field_expand-add-segments-per-host-count: Add segments to host
+        field_expand-close-cluster: Block cluster from load
+        field_expand-delay-redistribution: Background data redistribution
         field_expand-duration: Redistribution timeout
+        field_expand-parallel: Number of redistricting streams
         field_expand-segment-host-count: Number of new segment hosts
         field_hosts-count: Host count
         field_restore-only: Databases and tables for recovery
@@ -7218,6 +7222,7 @@ default:
           title_secret-type: Secret type
           title_secret-type-custom: Custom
           title_secret-type-generated: Generated
+          value_payload-entry-value-type-text: Text
         label_secret-general-section: Information about secret
         label_secret-id: ID
         label_secret-versions-section: Versions

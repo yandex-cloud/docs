@@ -72,7 +72,7 @@ The infrastructure support cost includes:
 
    - Management console {#console}
 
-      1. In the [management console]({{ link-console-main }}), select a folder where you want to create your service account.
+      1. In the [management console]({{ link-console-main }}), select the folder where you want to create your service account.
       1. In the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab, click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
       1. Enter a name for the service account, e.g., `sa-terraform`.
       1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
@@ -148,7 +148,7 @@ The infrastructure support cost includes:
          ```
 
          Where:
-         * `service-account-id`: ID of your service account.
+         * `service-account-id`: Service account ID.
          * `folder-id`: ID of the folder in which the service account was created.
          * `output`: Name of the file with the authorized key.
 
@@ -255,7 +255,7 @@ The infrastructure support cost includes:
    terraform validate
    ```
 
-1. Check the list of created cloud resources:
+1. Check the list of cloud resources you are about to create:
 
    ```bash
    terraform plan

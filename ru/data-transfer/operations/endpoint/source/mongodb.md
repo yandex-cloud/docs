@@ -270,3 +270,5 @@ description: "Из статьи вы узнаете, как задать нас�
 {% include [cluster configuration](../../../../_includes/data-transfer/troubles/mongodb/cluster-configuration.md) %}
 
 {% include [history lost](../../../../_includes/data-transfer/troubles/mongodb/history-lost.md) %}
+
+{% include [cannot-get-delimiters](../../../../_includes/data-transfer/troubles/mongodb/cannot-get-delimiters.md) %}
