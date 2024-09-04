@@ -51,7 +51,7 @@ Public images are, e.g., [products and solutions from {{ marketplace-full-name }
 
 You can learn how to get a list of public images [here](../operations/images-with-pre-installed-software/get-list.md).
 
-To make your image available to other {{ yandex-cloud }} users, grant them public access to it. To do this, assign the `{{ roles-image-user }}` [role](../security/) to the `{{ subjects-allAuthenticatedUsers }}` system group. However, the `{{ roles-image-user }}` role does not grant permission to delete or edit your image.
+To make your image available to other {{ yandex-cloud }} users, grant them public access to it. To do this, assign the `{{ roles-image-user }}` [role](../security/) to the `All authenticated users` [public group](../../iam/concepts/access-control/public-group.md). However, the `{{ roles-image-user }}` role does not grant permission to delete or edit your image.
 
 ## Images optimized for deployment {#images-optimized-for-deployment}
 

@@ -2,7 +2,7 @@ title: Yandex Cloud DNS
 href: index.yaml
 label:
   title: KZ
-  description: The service is available in Kazakhstan.
+  description: This service is only available in the Kazakhstan region.
   theme: info
   when: region == "kz"
 items:
@@ -72,6 +72,16 @@ items:
         href: tutorials/cert-manager-webhook.md
       - name: Assigning a domain name to a VM with a web server
         href: tutorials/bind-domain-vm.md
+      - name: Publishing game updates
+        href: tutorials/prefetch.md
+      - name: Terminating TLS connections
+        items:
+          - name: Overview
+            href: tutorials/tls-termination/index.md
+          - name: Management console
+            href: tutorials/tls-termination/console.md
+          - name: '{{ TF }}'
+            href: tutorials/tls-termination/terraform.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

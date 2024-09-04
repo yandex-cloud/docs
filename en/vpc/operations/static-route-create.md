@@ -170,7 +170,7 @@ The default static route (`0.0.0.0/0`) is used for VMs with public IPs. If you n
 
    1. Make sure the configuration files are correct.
 
-      1. In the command line, go to the directory where you created the configuration file.
+      1. In the command line, go to the folder where you created the configuration file.
       1. Run a check using this command:
 
          ```

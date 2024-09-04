@@ -2,7 +2,7 @@ title: Yandex Compute Cloud
 href: index.yaml
 label:
   title: KZ
-  description: The service is available in Kazakhstan.
+  description: This service is only available in the Kazakhstan region.
   theme: info
   when: region == "kz"
 items:
@@ -390,16 +390,52 @@ items:
         href: tutorials/autoscale-monitoring.md
       - name: Updating an instance group under load
         href: tutorials/updating-under-load.md
-      - name: Transferring logs from a VM instance to Yandex Cloud Logging
+      - name: Transferring logs from a VM instance to {{ cloud-logging-full-name }}
         href: tutorials/vm-fluent-bit-logging.md
       - name: Building a VM image with a set of infrastructure tools using Packer
         href: tutorials/packer-custom-image.md
+      - name: Migrating to {{ yandex-cloud }} using Hystax Acura
+        href: tutorials/hystax-migration.md
+      - name: Fault protection with Hystax Acura
+        href: tutorials/hystax-disaster-recovery.md
       - name: Creating a VM backup with Hystax Acura Backup
         href: tutorials/hystax-backup.md
       - name: Deploying a fault-tolerant architecture with preemptible VMs
         href: tutorials/nodejs-cron-restart-vm.md
       - name: Assigning a domain name to a VM with a web server
         href: tutorials/bind-domain-vm.md
+      - name: OpenCart online store
+        items:
+          - name: Overview
+            href: tutorials/opencart/index.md
+          - name: Management console
+            href: tutorials/opencart/console.md
+          - name: '{{ TF }}'
+            href: tutorials/opencart/terraform.md
+      - name: Creating a Python web application with Flask
+        href: tutorials/flask.md
+      - name: Creating an SAP program in {{ yandex-cloud }}
+        href: tutorials/sap.md
+      - name: Deploying a Minecraft server in {{ yandex-cloud }}
+        href: tutorials/minecraft-server.md
+      - name: Automating image builds using Jenkins and Packer
+        href: tutorials/jenkins.md
+      - name: Creating test VMs via {{ GL }} CI
+        href: tutorials/test-vms-creation-via-gitlab-ci.md
+      - name: High-performance computing on preemptible VMs
+        href: tutorials/hpc-on-preemptible.md
+      - name: Single-node file server
+        href: tutorials/single-node-file-server.md
+      - name: Configuring an SFTP server based on CentOS 7
+        href: tutorials/backup-and-archive-to-sftp.md
+      - name: Deploying the GlusterFS parallel file system in high availability mode
+        href: tutorials/ha-regional-glusterfs.md
+      - name: Deploying the GlusterFS parallel file system in high performance mode
+        href: tutorials/ha-regional-glusterfs-high-performance.md
+      - name: Backup to {{ objstorage-name }} via Bacula
+        href: tutorials/backup-with-bacula.md
+      - name: Creating a load balancer with DDoS protection
+        href: tutorials/alb-with-ddos-protection.md
   - name: Concepts
     items:
       - name: Relationship between resources

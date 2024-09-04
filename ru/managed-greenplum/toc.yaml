@@ -152,6 +152,8 @@ items:
         href: concepts/external-tables.md
       - name: Управление соединениями
         href: concepts/pooling.md
+      - name: Расширение кластера
+        href: concepts/expand.md
       - name: Техническое обслуживание
         href: concepts/maintenance.md
       - name: Настройки {{ GP }}

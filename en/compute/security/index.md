@@ -87,6 +87,8 @@ For more information about service roles, see [{#T}](../../iam/concepts/access-c
 
 {% include [roles-primitive](../../_includes/roles-primitive.md) %}
 
+{% include [primitive-roles-footnote](../../_includes/primitive-roles-footnote.md) %}
+
 #### What's next {#what-is-next}
 
 * [How to assign a role](../../iam/operations/roles/grant.md).

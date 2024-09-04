@@ -219,7 +219,7 @@ go mod init example && go get github.com/jackc/pgx/v4
 
       	connConfig.TLSConfig = &tls.Config{
       		RootCAs:            rootCertPool,
-      		InsecureSkipVerify: true,
+      		ServerName: "c-<идентификатор_кластера>.rw.{{ dns-zone }}",
       	}
 
       	conn, err := pgx.ConnectConfig(context.Background(), connConfig)

@@ -4,11 +4,7 @@
 
 ## UI Proxy {#ui-proxy}
 
-{% note warning %}
-
-Для использования UI Proxy может потребоваться дополнительная [настройка групп безопасности](connect.md#configuring-security-groups).
-
-{% endnote %}
+{% include [ui-proxy-sg-warning](../../_includes/data-proc/ui-proxy-sg-warning.md) %}
 
 ### Включить веб-интерфейсы компонентов {#ui-proxy-enable}
 

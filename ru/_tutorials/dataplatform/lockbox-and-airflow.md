@@ -1,6 +1,6 @@
 # Хранение подключений и переменных {{ AF }} в {{ lockbox-full-name }}
 
-При работе с {{ maf-full-name }} вы можете использовать [{{ lockbox-full-name }}](../../lockbox/index.yaml) для хранения подключений, переменных и конфигурационных данных, которые используются в DAG-файлах. {{ lockbox-name }} интегрируется в {{ maf-short-name }} через провайдер [{{ lockbox-name }} Secret Backend](https://airflow.apache.org/docs/apache-airflow-providers-yandex/stable/secrets-backends/yandex-cloud-lockbox-secret-backend.html). В результате доступ к хранилищу секретов настраивается автоматически.
+При работе с {{ maf-full-name }} вы можете использовать [{{ lockbox-full-name }}](../../lockbox/index.yaml) для хранения артефактов, которые могут использоваться в DAG-файлах: подключений, переменных и конфигурационных данных. {{ lockbox-name }} интегрируется в {{ maf-short-name }} через провайдер [{{ lockbox-name }} Secret Backend](https://airflow.apache.org/docs/apache-airflow-providers-yandex/stable/secrets-backends/yandex-cloud-lockbox-secret-backend.html). В результате доступ к хранилищу секретов настраивается автоматически.
 
 Ниже рассматривается [направленный ациклический граф (DAG)](../../managed-airflow/concepts/index.md#about-the-service), выполняющий SQL-запрос `SELECT 1;` к БД в кластере {{ mpg-full-name }}. Данные для подключения к БД хранятся в {{ lockbox-name }} и автоматически подставляются в граф.
 
@@ -32,15 +32,15 @@
 
    {% endnote %}
 
-1. [Создайте статический ключ доступа](../../iam/operations/sa/create-access-key.md) для сервисного аккаунта. Сохраните его идентификатор и секретный ключ.
-
 1. [Создайте бакет {{ objstorage-name }}](../../storage/operations/buckets/create.md) с произвольными настройками.
+
+1. {% include [aiflow-sa-bucket-acl](../../_includes/managed-airflow/aiflow-sa-bucket-acl.md) %}
 
 1. [Создайте кластер {{ maf-name }}](../../managed-airflow/operations/cluster-create.md#create-cluster) с параметрами:
 
    * **Сервисный аккаунт** — `airflow-sa`;
-   * **Имя бакета** — имя созданного бакета;
-   * **Идентификатор ключа** и **секретный ключ** — принадлежат статическому ключу доступа.
+   * **Имя бакета** — имя созданного бакета.
+   * **{{ ui-key.yacloud.airflow.field_lockbox }}** — убедитесь, что эта опция включена.
 
 1. [Создайте кластер {{ mpg-name }}](../../managed-postgresql/operations/cluster-create.md#create-cluster) с параметрами:
 
@@ -50,17 +50,21 @@
 
 ## Создайте секрет {{ lockbox-full-name }} {#create-lockbox-secret}
 
-Для корректной работы кластера {{ AF }} секрет в {{ lockbox-name }} должен иметь название в формате `airflow/<тип_секрета>/<идентификатор_секрета>`, где:
-   * `<тип_секрета>` — тип хранимого секрета. Доступны следующие типы:
+Для корректной работы кластера {{ AF }} секрет в {{ lockbox-name }} должен иметь имя в формате `airflow/<тип_артефакта>/<идентификатор_артефакта>`, где:
+
+   * `<тип_артефакта>` — тип артефакта, который будет храниться в секрете. Доступны следующие типы:
      * `connections` — подключения;
      * `variables` — переменные;
      * `config` — данные конфигурации.
-   * `<идентификатор_секрета>` — идентификатор, который будет использован для обращения к секрету {{ lockbox-name }} в {{ AF }}.
+   * `<идентификатор_артефакта>` — идентификатор, который будет использован для обращения к артефакту в {{ AF }}.
 
 [Создайте секрет {{ lockbox-name }}](../../lockbox/operations/secret-create.md) с параметрами:
 
-   * **Имя** — `airflow/connections/pg`;
-   * **Значение** — укажите следующее содержимое:
+   * **{{ ui-key.yacloud.common.name }}** — `airflow/connections/pg`.
+   * **{{ ui-key.yacloud.lockbox.forms.title_secret-type }}** — `Пользовательский`.
+   * **{{ ui-key.yacloud.lockbox.forms.label_key }}** — `airflow/connections/pg`.
+   * **{{ ui-key.yacloud.lockbox.forms.label_value }}** — выберите **{{ ui-key.yacloud.lockbox.forms.value_payload-entry-value-type-text }}** и укажите следующее содержимое:
+
       ```json
       {
         "conn_type": "postgres",
@@ -72,7 +76,7 @@
       }
       ```
 
-      В секрете будут сохранены данные для подключения к БД в кластере {{ mpg-name }}.
+В секрете будут сохранены данные для подключения к БД в кластере {{ mpg-name }}.
 
 Подробнее о том, как узнать FQDN хоста кластера {{ PG }}, см. в [документации](https://yandex.cloud/ru/docs/managed-postgresql/operations/connect#fqdn).
 

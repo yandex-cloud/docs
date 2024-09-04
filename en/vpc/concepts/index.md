@@ -9,7 +9,7 @@ description: "{{ vpc-full-name }} ({{ vpc-short-name }}) is a service for creati
 
 ![image](../../_assets/vpc/vpc-overview.png)
 
-You can use {{ vpc-short-name }} to:
+With {{ vpc-short-name }}, you can:
 
 - Create subnets and connect cloud resources to them.
 - Enable information transfer between the cloud resources.

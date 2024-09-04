@@ -242,13 +242,19 @@ The infrastructure support costs include:
 
 Create an [internal network load balancer](../../network-load-balancer/operations/internal-lb-create.md) with the following parameters:
 
+{% note info %}
+
+By default, UDP traffic processing is disabled for the network load balancer. To enable UDP traffic processing on the network load balancer, contact [support](../../support/overview.md). You can learn more [here](../../network-load-balancer/concepts/specifics.md#nlb-udp).
+
+{% endnote %}
+
 * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_network-load-balancer-type }}**: `{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_internal }}`.
 
 * Under **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.section_listeners }}**:
    * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-subnet-id }}**: Select `subnet3` from the list.
-   * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-protocol }}**: `{{ ui-key.yacloud.common.label_udp }}`.
-   * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-port }}**: `53`.
-   * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-target-port }}**: `53`.
+   * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-protocol }}**: `{{ ui-key.yacloud.common.label_udp }}`
+   * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-port }}**: `53`
+   * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-target-port }}**: `53`
 
 * Under **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.section_target-groups }}**:
    * Create a group with the `forwarder1` and `forwarder2` hosts.
@@ -257,13 +263,13 @@ Create an [internal network load balancer](../../network-load-balancer/operation
       {% list tabs %}
 
       * CoreDNS
-         * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-protocol }}**: `{{ ui-key.yacloud.common.label_http }}`.
-         * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-path }}**: `/health`.
-         * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-port }}**: `8080`.
+         * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-protocol }}**: `{{ ui-key.yacloud.common.label_http }}`
+         * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-path }}**: `/health`
+         * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-port }}**: `8080`
 
       * Unbound
-         * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`.
-         * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-port }}**: `53`.
+         * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`
+         * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-port }}**: `53`
 
       {% endlist %}
 

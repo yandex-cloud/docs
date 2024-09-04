@@ -82,7 +82,7 @@ You can provide metadata when creating or [updating](../operations/vm-control/vm
       ...
       ```
 
-  * Only for Linux VMs. Under `ssh-keys`, specify the username and the SSH key to access Linux VMs. Enter your username and the contents of your SSH key as follows:
+   * Only for Linux VMs. Under `ssh-keys`, specify the username and the SSH key to access Linux VMs. Enter your username and the contents of your SSH key as follows:
 
       ```hcl
       ...
@@ -129,6 +129,7 @@ The list of keys that are processed in {{ yandex-cloud }} public images depends 
 
   * `serial-port-enable`: Flag enabling access to the [serial console](../operations/serial-console/index.md). `1`: access enabled; `0`: (default) access disabled.
   * `enable-oslogin`: Flag that enables access via [OS Login](../operations/vm-connect/os-login.md). `True` means access is enabled; `false` (default) means access is disabled.
+  * `install-unified-agent`: Flag that installs the agent for collecting [{{ unified-agent-short-name }}](../../monitoring/concepts/data-collection/unified-agent/installation.md#setup) metrics and logs. `1` stands for `install`, while `0` (default), for `do not install`.
   * `user-data`: String with the user metadata to be processed by the [cloud-init](https://cloud-init.io) agent running on a VM instance.
 
     Cloud-init supports different metadata transmission [formats](https://cloudinit.readthedocs.io/en/latest/topics/format.html), e.g., [cloud-config](https://cloudinit.readthedocs.io/en/latest/topics/examples.html). In this format, you can provide SSH keys and indicate which user each key is associated with. To do this, specify them in the `users/ssh-authorized-keys` section:
@@ -233,28 +234,6 @@ Apart from identity documents, the VM metadata service provides their cryptograp
 
    1. Create a `certificate` file and add a public certificate to it:
 
-      
-      ```
-      -----BEGIN CERTIFICATE-----
-      MIIC4TCCAcmgAwIBAgIUP0zcGO1MeRwze8VdSMEt/OdBXoIwDQYJKoZIhvcNAQEL
-      BQAwADAeFw0yMzA2MDcwNjU4MTBaFw0zMzA2MDQwNjU4MTBaMAAwggEiMA0GCSqG
-      SIb3DQEBAQUAA4IBDwAwggEKAoIBAQDw6TvAvrbJvY4tzIIuDnLEVfRUW4BZJD3y
-      K8fyyxXrYDvC69RKCKk9+TQhnUOLhZNlDST4HFfSPlakOjXUduyJE5M1EmoLAstN
-      81aP3TejseDavxmaNijXRsa9E731T5H+zo44PgAHfQJmiD7rtcr+QOIosKUB2dwp
-      F2acp9hLKd389BfNctziG0Oxq7hlISTDBnhzBg7eKuqWtShjVW5RqQvp3bARfUPa
-      RWdYjmZvR+AnmozV1SGnpAnatzhnF6tNAb5XSEw49tumsX1D4A11J6mtrafO6bsP
-      wdIPwy9W15iCszUNlFcdBaZhESc34VbyCyLMvA5T0Uj1FJHz1RFlAgMBAAGjUzBR
-      MB0GA1UdDgQWBBQq0z6Vcmjcn8wnRTwKGSm5YGas9TAfBgNVHSMEGDAWgBQq0z6V
-      cmjcn8wnRTwKGSm5YGas9TAPBgNVHRMBAf8EBTADAQH/MA0GCSqGSIb3DQEBCwUA
-      A4IBAQBplippQ/Pxn7AkuwOTSwSTeJ7S+rMSb6iSL9chNHetanft0Ikr5BDsSrd6
-      TeHV0sEMilDIjX0EjSNHwYtYrDPk6cGjkzDTYb6/U10c5Xhwi0g7/lMH/RPihPz5
-      co80VEqXWlgfgHuE7/cAiTJ61PiFD9oI494bQcIISQNDfbUUiYfn32+8nK20rn8C
-      w7PbGoIv6zz6A0c6DJT7yXJF5sAHgX4M03Oi9edzQ077ZOboXSuUKe4VfHIpjTjZ
-      0sM/NbG5BFstyetVc3FZOGWGukTRb0C0GSASOm6hCyh5ctmpwlS4menc/OAx9BYO
-      r9ZBjEa0oLFVV0pP5Tj4Gf1DDpuJ
-      -----END CERTIFICATE-----
-      ```
-
 
 
 
@@ -316,6 +295,7 @@ Apart from identity documents, the VM metadata service provides their cryptograp
       mzAfBgNVHSMEGDAWgBTj+x+t2VJhAWI57o9xRwMOeTFjmzAPBgNVHRMBAf8EBTAD
       AQH/MAsGCWCGSAFlAwQDAgNIADBFAiAX2ABj/9ea1Q4ssAgIGkA4vJywoUoT4Sbg
       LFFIJGlNWgIhAO0b749SY5+6UMEOLsxgvNzKKcv58BKADfBdJAXE6fRk
+      -----END CERTIFICATE-----
       ```
 
 
@@ -366,6 +346,7 @@ Apart from identity documents, the VM metadata service provides their cryptograp
 
    1. Create a `certificate` file and save a public certificate to it:
 
+      
       ```
       -----BEGIN CERTIFICATE-----
       MIIC4TCCAcmgAwIBAgIUP0zcGO1MeRwze8VdSMEt/OdBXoIwDQYJKoZIhvcNAQEL
@@ -386,6 +367,8 @@ Apart from identity documents, the VM metadata service provides their cryptograp
       r9ZBjEa0oLFVV0pP5Tj4Gf1DDpuJ
       -----END CERTIFICATE-----
       ```
+
+
 
    1. Extract a public key from the certificate and save it to a file named `key`:
 
