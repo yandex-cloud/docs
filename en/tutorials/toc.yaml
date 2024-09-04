@@ -63,6 +63,8 @@ items:
         href: archive/ha-regional-glusterfs.md
       - name: Deploying the GlusterFS parallel file system in high performance mode
         href: archive/ha-regional-glusterfs-high-performance.md
+      - name: Linking a {{ backup-name }} policy to a VM automatically
+        href: archive/vm-with-backup-policy.md
   - name: Development and testing
     items:
       - name: All tutorials
@@ -97,6 +99,10 @@ items:
         href: testing/loadtesting-external-agent.md
       - name: JMeter load testing
         href: testing/loadtesting-jmeter.md
+      - name: >-
+          Getting statistics for requests to {{ objstorage-full-name }} object
+          using {{ yq-full-name }}
+        href: testing/server-logs-yq.md
   - name: Basic infrastructure
     items:
       - name: All tutorials

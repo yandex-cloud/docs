@@ -1,1 +1,1 @@
-You get up to 10GB of storage at no charge every month.
+You get up to 10 GB of storage at no charge every month.

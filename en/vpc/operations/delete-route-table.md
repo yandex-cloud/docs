@@ -44,9 +44,7 @@ If you no longer need a route table, you can [delete](#delete-route-table) it. B
       ```bash
       yc vpc subnet list
       ```
-
       Result:
-
       ```text
       +----------------------+----------------------------+----------------------+----------------------+---------------+-----------------+
       |          ID          |            NAME            |      NETWORK ID      |    ROUTE TABLE ID    |     ZONE      |      RANGE      |
@@ -57,11 +55,9 @@ If you no longer need a route table, you can [delete](#delete-route-table) it. B
       ```
 
    1. Disassociate the route table from the subnet:
-
       ```bash
       yc vpc subnet update <subnet_name_or_ID> --disassociate-route-table
       ```
-
       Use either the `--id` or `--name` parameter.
 
 - {{ TF }} {#tf}
@@ -146,7 +142,11 @@ If you no longer need a route table, you can [delete](#delete-route-table) it. B
 
 ## Deleting a route table {#delete-route-table}
 
+{% note warning %}
+
 Before deleting a table, [disassociate it](#unlink-route-table) from all subnets it is associated with.
+
+{% endnote %}
 
 {% list tabs group=instructions %}
 
@@ -178,9 +178,7 @@ Before deleting a table, [disassociate it](#unlink-route-table) from all subnets
       ```bash
       yc vpc route-table list
       ```
-
       Result:
-
       ```text
       +----------------------+---------+-------------+----------------------+
       |          ID          |  NAME   | DESCRIPTION |      NETWORK-ID      |
@@ -188,13 +186,10 @@ Before deleting a table, [disassociate it](#unlink-route-table) from all subnets
       | enpd3s8svtkd******** | table-1 |             | enptgj64mv2r******** |
       +----------------------+---------+-------------+----------------------+
       ```
-
    1. Delete the route table:
-
       ```bash
       yc vpc route-table delete <route_table_name_or_ID>
       ```
-
       Use either the `--id` or `--name` parameter.
 
 - {{ TF }} {#tf}

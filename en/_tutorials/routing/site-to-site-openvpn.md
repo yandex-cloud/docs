@@ -51,12 +51,12 @@ To connect cloud resources to the internet, make sure you have a [network](../..
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a cloud network.
-   1. In the list of services, select **{{ vpc-name }}**.
-   1. Click **Create network**.
-   1. Enter a name for the network, e.g., `ovpn-network`.
-   1. Disable the **Create subnets** option.
-   1. Click **Create network**.
+  1. In the [management console]({{ link-console-main }}), select the folder where you want to create a cloud network.
+  1. In the list of services, select **{{ vpc-name }}**.
+  1. Click **Create network**.
+  1. Enter a name for the network, e.g., `ovpn-network`.
+  1. Disable the **Create subnets** option.
+  1. Click **Create network**.
 
 {% endlist %}
 
@@ -66,13 +66,13 @@ To connect cloud resources to the internet, make sure you have a [network](../..
 
 - Management console {#console}
 
-   1. Select `ovpn-network`.
-   1. Click **Add subnet**.
-   1. Enter a name for the subnet, e.g., `ovpn-left`.
-   1. Select an [availability zone](../../overview/concepts/geo-scope.md) from the drop-down list.
-   1. Enter the subnet CIDR: `10.128.0.0/24`.
-   1. Click **Create subnet**.
-   1. Repeat steps 2 to 6 for the second subnet named `ovpn-right` with the `10.253.11.0/24` CIDR.
+  1. Select `ovpn-network`.
+  1. Click **Add subnet**.
+  1. Enter a name for the subnet, e.g., `ovpn-left`.
+  1. Select an [availability zone](../../overview/concepts/geo-scope.md) from the drop-down list.
+  1. Enter the subnet CIDR: `10.128.0.0/24`.
+  1. Click **Create subnet**.
+  1. Repeat steps 2 to 6 for the second subnet named `ovpn-right` with the `10.253.11.0/24` CIDR.
 
 {% endlist %}
 
@@ -82,29 +82,29 @@ To connect cloud resources to the internet, make sure you have a [network](../..
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a cloud network.
-   1. On the [folder page]({{ link-console-main }}), click **Create resource** and select Virtual machine.On the folder page, click Create resource and select **Virtual machine**.
-   1. Under **Basic parameters**:
+  1. In the [management console]({{ link-console-main }}), select the folder where you want to create a cloud network.
+  1. On the [folder page]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
+  1. Under **Basic parameters**:
 
       * Enter `ao-openvpn-test` as your VM name and add a description.
       * Select the availability zone with the `ovpn-left` subnet.
 
-   1. Under **Image/boot disk selection**, choose an image for your VM.
+  1. Under **Image/boot disk selection**, choose an image for your VM.
 
-   1. Under **Network settings**:
+  1. Under **Network settings**:
 
       * Specify the `ovpn-network` network and the `ovpn-left` subnet.
       * In the **Public address** field, select **No address**.
       * In the **Internal address** field, select **Manual** and specify `10.128.0.4`.
 
-   1. Under **Access**, specify the data required to access the VM:
+  1. Under **Access**, specify the data required to access the VM:
 
       * In the **Login** field, enter the SSH username, for example, `yc-user`.
       * In the **SSH key** field, paste the [public SSH key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
 
-   1. Click **Create VM**.
+  1. Click **Create VM**.
 
-   1. Repeat steps 1 to 7 to create your second VM named `vm-ovpn-host`, with the `10.253.11.110` internal address, hosted in the `ovpn-right` subnet.
+  1. Repeat steps 1 to 7 to create your second VM named `vm-ovpn-host`, with the `10.253.11.110` internal address, hosted in the `ovpn-right` subnet.
 
 {% endlist %}
 
@@ -114,30 +114,30 @@ To connect cloud resources to the internet, make sure you have a [network](../..
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a cloud network.
-   1. On the [folder page]({{ link-console-main }}), click **Create resource** and select Virtual machine.On the folder page, click Create resource and select **Virtual machine**.
-   1. Under **Basic parameters**:
+  1. In the [management console]({{ link-console-main }}), select the folder where you want to create a cloud network.
+  1. On the [folder page]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
+  1. Under **Basic parameters**:
 
       * Enter `vm-ovpn-gw` as your VM name and add a description.
       * Select the availability zone where the `ovpn-right` subnet resides.
 
-   1. Under **Image/boot disk selection**, choose an image for your VM.
+  1. Under **Image/boot disk selection**, choose an image for your VM.
 
-   1. Under **Network settings**:
+  1. Under **Network settings**:
 
       * Specify the `ovpn-network` network and the `ovpn-right` subnet.
       * In the **Public address** field, select **Manual** or **Auto**.
 
-         Only use static public IP addresses [from the list](../../vpc/operations/get-static-ip) or [make](../../vpc/operations/set-static-ip) the IP address static. Dynamic IP addresses may change after the VM reboots and the connections will no longer work.
+        Either use static public IP addresses [from the list](../../vpc/operations/get-static-ip) or [convert](../../vpc/operations/set-static-ip) the VM IP address to static. Dynamic IP addresses may change after the VM reboots and the connections will no longer work.
 
       * In the **Internal address** field, select **Manual** and specify `10.253.11.19`.
 
-   1. Under **Access**, specify the data required to access the VM:
+  1. Under **Access**, specify the data required to access the VM:
 
       * In the **Login** field, enter the SSH username, for example, `yc-user`.
       * In the **SSH key** field, paste the [public SSH key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
 
-   1. Click **Create VM**.
+  1. Click **Create VM**.
 
 {% endlist %}
 
@@ -149,47 +149,47 @@ Create a VM to be the gateway for VPN connections:
 
 - Management console {#console}
 
-   1. On the [folder page]({{ link-console-main }}), click **Create resource** and select Virtual machine.On the folder page, click Create resource and select **Virtual machine**.
+  1. On the [folder page]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
 
-   1. Under **Basic parameters**:
+  1. Under **Basic parameters**:
 
-      * Enter `vpn-server` as your VM name and add a description.
-      * Select the [availability zone](../../overview/concepts/geo-scope.md) where the `ovpn-left` subnet resides.
+     * Enter `vpn-server` as your VM name and add a description.
+     * Select the [availability zone](../../overview/concepts/geo-scope.md) where the `ovpn-left` subnet resides.
 
-   1. Under **Image/boot disk selection**:
+  1. Under **Image/boot disk selection**:
 
-      * Go to the **{{ marketplace-name }}** tab.
-      * Click **Show more**.
-      * In the public image list, select [OpenVPN Access Server](/marketplace/products/yc/openvpn-access-server) and click **Use**.
+     * Go to the **{{ marketplace-name }}** tab.
+     * Click **Show more**.
+     * In the public image list, select [OpenVPN Access Server](/marketplace/products/yc/openvpn-access-server) and click **Use**.
 
-   1. Under **Disks**, enter 10 GB as your disk size.
+  1. Under **Disks**, enter 10 GB as your disk size.
 
-   1. Under **Computing resources**, specify:
+  1. Under **Computing resources**, specify:
 
-      * vCPU: 2
-      * RAM: 2 GB
+     * vCPU: 2
+     * RAM: 2 GB
 
-   1. Under **Network settings**:
+  1. Under **Network settings**:
 
-      * Specify the `ovpn-network` network and the `ovpn-left` subnet.
-      * In the **Public address** field, select **Manual** or **Auto**.
+     * Specify the `ovpn-network` network and the `ovpn-left` subnet.
+     * In the **Public address** field, select **Manual** or **Auto**.
 
-         Only use static public IP addresses [from the list](../../vpc/operations/get-static-ip.md) or [make](../../vpc/operations/set-static-ip.md) the IP address static. Dynamic IP addresses may change after the VM reboots and the connections will no longer work.
+       Either use static public IP addresses [from the list](../../vpc/operations/get-static-ip) or [convert](../../vpc/operations/set-static-ip.md) the VM IP address to static. Dynamic IP addresses may change after the VM reboots and the connections will no longer work.
 
-      * In the **Internal address** field, select **Manual** and specify `10.128.0.3`.
+     * In the **Internal address** field, select **Manual** and specify `10.128.0.3`.
 
-      * If a list of **Security groups** is available, select the [security group](../../vpc/concepts/security-groups.md). If you leave this field empty, the [default security group](../../vpc/concepts/security-groups.md#default-security-group) will be assigned.
+     * If a list of **Security groups** is available, select the [security group](../../vpc/concepts/security-groups.md). If you leave this field empty, the [default security group](../../vpc/concepts/security-groups.md#default-security-group) will be assigned.
 
-   1. Under **Access**, specify the data required to access the VM:
+  1. Under **Access**, specify the data required to access the VM:
 
-      * In the **Login** field, enter the SSH username, for example, `yc-user`.
-      * In the **SSH key** field, paste the [public SSH key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+     * In the **Login** field, enter the SSH username, for example, `yc-user`.
+     * In the **SSH key** field, paste the [public SSH key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
 
-   1. Click **Create VM**.
+  1. Click **Create VM**.
 
-   1. A window will open informing you of the pricing type: BYOL (Bring Your Own License).
+  1. A window will open informing you of the pricing type, which is BYOL (Bring Your Own License).
 
-   1. Click **Create**.
+  1. Click **Create**.
 
 {% endlist %}
 

@@ -249,7 +249,7 @@ description: "Следуя данной инструкции, вы сможет�
 
             * {% include [field parallel repl](../../_includes/data-transfer/fields/parallel-repl.md) %}
 
-        * Для трансфера типа {{ dt-type-copy-repl }}:
+        * Для трансфера типа {{ dt-type-copy-repl }}: {#update-copy-repl}
 
             * {% include [field parallel copy](../../_includes/data-transfer/fields/parallel-copy.md) %}
 

@@ -23,7 +23,7 @@ You can move cloud resources between folders within a single [cloud](../../resou
 
    To move a [route table](../concepts/routing.md) to another folder:
 
-   1. View a description of the CLI move route table command:
+   1. View the description of the CLI move route table command:
 
       ```bash
       yc vpc route-table move --help

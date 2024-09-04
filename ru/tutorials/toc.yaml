@@ -78,7 +78,13 @@ items:
       - name: >-
           Автоматическая привязка политики резервного копирования {{ backup-name
           }} к ВМ
-        href: archive/vm-with-backup-policy.md
+        items:
+          - name: Обзор
+            href: archive/vm-with-backup-policy/index.md
+          - name: Консоль управления, CLI, API
+            href: archive/vm-with-backup-policy/console.md
+          - name: '{{ TF }}'
+            href: archive/vm-with-backup-policy/terraform.md
   - name: Разработка и тестирование
     items:
       - name: Все руководства

@@ -48,10 +48,10 @@ In a dataset, you can add an [ad-hoc SQL query](dataset/settings.md#sql-request-
 
 {{ datalens-short-name }} enables you to combine data at the chart level. To combine data at the chart level, you can use an [SQL chart](#sql-chart) or [multi-dataset charts](#datasets-chart).
 
+
 #### QL chart {#sql-chart}
 
 [QL charts](chart/index.md#sql-charts) are charts created from a connection if there is a database at the other end of the connection. Running a SQL query does not create a separate dataset object; instead, it generates one on the fly and displays it in the preview panel. For more information, see [{#T}](../operations/chart/create-sql-chart.md).
-
 
 
 #### Multi-dataset charts {#datasets-chart}

@@ -98,7 +98,7 @@ description: "На странице представлены релизы YC CLI
 
 * Из дерева команд `yc iam service-control` удалены команды `pause` и `resume`.
 
-##### {{compute-name }}
+##### {{ compute-name }}
 
 * В команду `yc compute host-group list-instances` добавлен флаг `--host-id`, позволяющий указать id хоста в группе хостов для листинга виртуальных машин.
 
@@ -229,7 +229,7 @@ description: "На странице представлены релизы YC CLI
 * В команду `yc loadtesting agent create` добавлен флаг `--platform-id` для создания виртуальной машины на указанной платформе.
 * В команду `yc loadtesting test create` добавлены параметры для управления выгрузкой артефактов агента в {{ objstorage-name }}:
   * `--artifacts-output-bucket` для указания имени бакета, в который будут выгружаться артефакты.
-  * `--artifacts-make-archive` для определения того, будут ли артефкаты выгружаться  одним архивом или по отдельности.
+  * `--artifacts-make-archive` для определения того, будут ли артефкаты выгружаться одним архивом или по отдельности.
   * `--artifacts` для указания конкретных файлов, которые будут выгружены.
 
 ##### {{ mos-name }} {#mos}
@@ -415,7 +415,7 @@ description: "На странице представлены релизы YC CLI
 
 ##### {{ data-transfer-name }}
 
-- Для следующих команд добавлен  флаг `--file` для указания YAML-файла для конфигурации запроса:
+- Для следующих команд добавлен флаг `--file` для указания YAML-файла для конфигурации запроса:
   * `yc datatransfer transfer create`
   * `yc datatransfer transfer update`
   * `yc datatransfer endpoint create`
@@ -718,8 +718,8 @@ description: "На странице представлены релизы YC CLI
 
 ##### {{ kms-name }} {#kms}
 
-*  В команды ассиметричного шифрования и подписи `yc kms asymmetric-encryption-crypto decrypt`, `yc kms asymmetric-signature-crypto sign` и `yc kms asymmetric-signature-crypto sign-hash` добавлены параметры `--inform` и `--outform` для указания формата входных и выходных данных.
-*  В командах подписи `yc kms asymmetric-signature-crypto sign` и `yc kms asymmetric-signature-crypto sign-hash` параметр `--signature-file`, указывающий на файл, в который надо сохранить полученное значение подписи, переименован в `--signature-output-file`.
+* В команды ассиметричного шифрования и подписи `yc kms asymmetric-encryption-crypto decrypt`, `yc kms asymmetric-signature-crypto sign` и `yc kms asymmetric-signature-crypto sign-hash` добавлены параметры `--inform` и `--outform` для указания формата входных и выходных данных.
+* В командах подписи `yc kms asymmetric-signature-crypto sign` и `yc kms asymmetric-signature-crypto sign-hash` параметр `--signature-file`, указывающий на файл, в который надо сохранить полученное значение подписи, переименован в `--signature-output-file`.
 
 ##### {{ managed-k8s-name }} {#k8s}
 
@@ -934,7 +934,7 @@ description: "На странице представлены релизы YC CLI
 ##### {{ managed-k8s-name }} {#managed-kubernetes}
 
 В команды `yc managed-kubernetes cluster create` и `yc managed-kubernetes cluster update` добавлен параметр `--master-logging` для настройки логирования со следующими свойствами:
-  
+
 * `enabled` — флаг для отправки логов в {{ cloud-logging-name }}.
 * `log-group-id` — ID [лог-группы](../logging/concepts/log-group.md), в которую нужно отправлять логи.
 * `folder-id` — ID каталога, в который нужно отправлять логи. Логи будут отправляться в лог-группу каталога по умолчанию.
@@ -1168,12 +1168,12 @@ description: "На странице представлены релизы YC CLI
 ##### {{ api-gw-name }} {#api-gw}
 
 * В команду `yc serverless api-gateway add-domain` добавлены параметры:
-  
+
   * `--domain` — для указания FQDN подключаемого [домена](../certificate-manager/concepts/domains/index.md) из {{ certificate-manager-name }};
   * `--certificate-id` — для указания идентификатора сертификата из {{ certificate-manager-name }}.
 
   Параметр `--domain-id` считается устаревшим, вместо него рекомендуется использовать параметру `--domain` и `--certificate-id`.
-  
+
 * Добавлена группа команд `yc serverless api-gateway websocket` для работы с соединениями по протоколу WebSocket:
 
   * `yc serverless api-gateway websocket get` — получение информации о соединении;

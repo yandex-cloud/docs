@@ -115,7 +115,7 @@ Create a cloud [network](../../vpc/concepts/network.md#network) with [subnets](.
 
    1. Make sure the configuration files are correct.
 
-      1. In the command line, go to the directory where you created the configuration file.
+      1. In the command line, go to the folder where you created the configuration file.
       1. Run a check using this command:
 
          ```bash
@@ -329,7 +329,7 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
 
    1. Make sure the configuration files are correct.
 
-      1. In the command line, go to the directory with the configuration file.
+      1. In the command line, go to the folder with the configuration file.
       1. Run a check using this command:
 
          ```bash
@@ -585,7 +585,7 @@ Create a [static route](../../vpc/concepts/routing.md):
 
    1. Make sure the configuration files are correct.
 
-      1. In the command line, go to the directory where you created the configuration file.
+      1. In the command line, go to the folder where you created the configuration file.
       1. Run a check using this command:
 
          ```hcl

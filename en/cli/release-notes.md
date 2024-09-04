@@ -7,7 +7,38 @@ description: "This page provides a list of YC CLI releases and updates rolled ou
 
 ## Current version {#latest-release}
 
-## Version 0.130.0 (01/08/24) {#version0.130.0}
+## Version 0.131.1 (15/08/24) {#version0.131.1}
+
+### Changes to the CLI {#cli}
+
+* Fixed an error handling issue where underscores (`_`) were replaced by hyphens (`-`) in certain error messages.
+
+## Previous releases {#previous-releases}
+
+### Version 0.131.0 (14/08/24) {#version0.131.0}
+### Changes to {{ yandex-cloud }} services {#services}
+
+#### {{ backup-name }} {#backup}
+
+* Added the `backup policy execute` command to create a backup of a virtual machine according to the specified backup policy.
+
+#### {{ iam-name }} {#iam}
+
+* Added support for the `--agent` option to the `add-access-binding` and `remove-access-binding` commands.
+* Added the `yc iam workload-identity` command tree to manage workload identity federation.
+* The `yc iam service-account list` and `yc iam service-account get` commands now show the time of the latest service account authentication.
+
+#### {{ container-registry-name }} {#container-registry}
+
+* Added the `--secure` option to the `yc container registry create` command to create a registry with security settings.
+
+#### Managed database services {#managed-db}
+
+**{{ mgp-name }}**
+
+* Added the `yc managed-greenplum cluster move` command to migrate a cluster to a different folder.
+
+### Version 0.130.0 (01/08/24) {#version0.130.0}
 
 ### Changes to {{ yandex-cloud }} services {#services}
 
@@ -36,9 +67,6 @@ description: "This page provides a list of YC CLI releases and updates rolled ou
 ### Changes to the CLI {#cli}
 
 * Changed the federated account authorization protocol to Authorization Code Flow with Proof Key for Code Exchange (PKCE).
-
-
-## Previous releases {#previous-releases}
 
 ### Version 0.129.0 (16/07/24) {#version0.129.0}
 
@@ -1178,7 +1206,6 @@ Added the following flags to the `yc serverless container revision deploy` comma
    * `yc managed-greenplum cluster update`: Allows you to change the settings of existing clusters.
    * `yc managed-greenplum cluster update-config`: Allows you to change the configuration parameters of existing clusters.
 
-* Added the `--datatransfer-access` flag to the `yc managed-greenplum create cluster` command to allow access from {{ data-transfer-name }}.
 
 
 
@@ -1403,26 +1430,16 @@ Added commands for {{ mgp-name }} primary support:
 * Added the `--folder-id` flag to the `yc managed-clickhouse cluster restore` command to specify the folder to create a restored cluster in.
 
 * Added the following flags to the `yc managed-clickhouse cluster update` command:
-   * `--datatransfer-access` to enable cluster access from {{ data-transfer-name }}.
+
+
    * `--yandexquery-access` to enable cluster access from {{ yq-full-name }}.
 
-**{{ mkf-name }}**
-
-* Added the `--datatransfer-access` flag to the `yc managed-kafka cluster [ create | update ]` commands to enable cluster access from {{ data-transfer-name }}.
-
-**{{ mmg-name }}**
-
-* Added the `--datatransfer-access` flag to the `yc managed-mongodb cluster [ create | restore | update ]` commands to enable cluster access from {{ data-transfer-name }}.
 
 **{{ mmy-name }}**
 
-* Added the `--datatransfer-access` flag to the `yc managed-mysql cluster [ create | restore | update ]` commands to enable cluster access from {{ data-transfer-name }}.
 
 * Added the `--performance-diagnostics` flag to the `yc managed-mysql cluster update` command to allow managing the settings of the performance diagnostics service.
 
-**{{ mpg-name }}**
-
-* Added the `--datatransfer-access` flag to the `yc managed-postgresql cluster [ create | restore | update ]` commands to enable cluster access from {{ data-transfer-name }}.
 
 ### Version 0.89.0 (23/03/22) {#version0.89.0}
 

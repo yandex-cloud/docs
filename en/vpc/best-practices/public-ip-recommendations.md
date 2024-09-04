@@ -20,19 +20,19 @@ To publish your applications, use [{{ network-load-balancer-full-name }}](../../
 
 To publish static files, use [{{ objstorage-name }}](../../storage/) along with [{{ cdn-full-name }}](../../cdn/). This will save the computing resources of your VMs and make their usage more cost-effective. You can also use a {{ cdn-full-name }} to speed up content delivery to users and make your services more reliable.
 
-Read more:
-* [{#T}](../../storage/operations/hosting/setup.md).
+For more information, check:
+* [{#T}](../../storage/operations/hosting/setup.md)
 
 
-* [{#T}](../../cdn/tutorials/blue-green-canary-deployment.md).
+* [{#T}](../../tutorials/web/blue-green-canary-deployment.md)
 
 
 #### Use a site-to-site VPN {#site-to-site}
 
 To set up networking between various sites and external clouds, use a site-to-site VPN. This will protect your applications against unauthorized access and make sure they cannot be accessed from outside. This also allows you to save on public IP addresses: you will only need a single public IP for a VPN connection.
 
-Read more:
-* [{#T}](../../tutorials/routing/ipsec/index.md).
+For more information, check:
+* [{#T}](../../tutorials/routing/ipsec/index.md)
 * [Setting up a VPN with the Azure cloud](https://github.com/yandex-cloud/yc-solution-library-for-azure/tree/main/Yandex-Azure%20VPN).
 * [Setting up a VPN with the AWS cloud](https://github.com/yandex-cloud/yc-solution-library-for-aws/tree/main/VPN/modules/vpn).
 
@@ -41,7 +41,7 @@ Read more:
 
 Connect your local network and cloud infrastructures using [{{ interconnect-name }}](../../interconnect/index.yaml). This allows you to avoid using public IPs both in your network and in {{ yandex-cloud }}. Instead, you can use [internal IP addresses](../concepts/address.md#internal-addresses) from a custom range of [subnets](../../vpc/concepts/network.md#subnet).
 
-Read more:
+For more information, check:
 * [Traffic routing with {{ interconnect-name }}](../../interconnect/concepts/routing.md).
 
 

@@ -165,9 +165,8 @@
     			Addrs:    []string{"c-<идентификатор_кластера>.rw.{{ dns-zone }}:{{ port-mrd-tls }}"},
     			Password: "<пароль>",
     			ReadOnly: false,
-    			SSLConfig: &tls.Config{
-    				RootCAs:            rootCertPool,
-    				InsecureSkipVerify: true,
+    			TLSConfig: &tls.Config{
+    				RootCAs:            rootCertPool,    				
     			},
     		},
     	)
