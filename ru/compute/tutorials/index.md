@@ -6,9 +6,11 @@ description: "Различные сценарии использования {{ 
 # Практические руководства {{ compute-name }}
 
 * [{#T}](ntp.md)
-* [{#T}](vm-autoscale.md)
+* [{#T}](vm-autoscale/index.md)
+
 * [{#T}](vm-scale-scheduled.md)
 * [{#T}](autoscale-monitoring.md)
+
 * [{#T}](updating-under-load.md)
 * [{#T}](vm-fluent-bit-logging.md)
 * [{#T}](packer-quickstart.md)
@@ -19,7 +21,7 @@ description: "Различные сценарии использования {{ 
 * [{#T}](nodejs-cron-restart-vm.md)
 * [{#T}](bind-domain-vm.md)
 * [{#T}](fault-tolerance.md)
-* [{#T}](nat-instance.md)
+* [{#T}](nat-instance/index.md)
 * [{#T}](serverless-trigger-budget-vm.md)
 * [{#T}](serverless-trigger-budget-queue-vm-tg.md)
 * [{#T}](opencart/index.md)
@@ -34,4 +36,4 @@ description: "Различные сценарии использования {{ 
 * [{#T}](ha-regional-glusterfs.md)
 * [{#T}](ha-regional-glusterfs-high-performance.md)
 * [{#T}](backup-with-bacula.md)
-* [{#T}](alb-with-ddos-protection.md)
+* [{#T}](alb-with-ddos-protection/index.md)

@@ -45,7 +45,7 @@ routeTableId | <p>Required. ID of the RouteTable resource to return. To get the 
   ]
 }
 ```
-A RouteTable resource. For more information, see [Static Routes](/docs/vpc/concepts/static-routes).
+A RouteTable resource. For more information, see [Static Routes](/docs/vpc/concepts/routing).
  
 Field | Description
 --- | ---

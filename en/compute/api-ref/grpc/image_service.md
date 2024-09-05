@@ -52,6 +52,7 @@ product_ids[] | **string**<br>License IDs that indicate which licenses are attac
 status | enum **Status**<br>Current status of the image. <ul><li>`CREATING`: Image is being created.</li><li>`READY`: Image is ready to use.</li><li>`ERROR`: Image encountered a problem and cannot operate.</li><li>`DELETING`: Image is being deleted.</li></ul>
 os | **[Os](#Os)**<br>Operating system that is contained in the image. 
 pooled | **bool**<br>When true, indicates there is an image pool for fast creation disks from the image. 
+hardware_generation | **[HardwareGeneration](#HardwareGeneration)**<br>If specified, forces the same HardwareGeneration features to be applied to the instance created using this image as a source for the boot disk. Otherwise the current default will be used. 
 
 
 ### Os {#Os}
@@ -60,6 +61,26 @@ Field | Description
 --- | ---
 type | enum **Type**<br>Operating system type. The default is `LINUX`. <br>This field is used to correctly emulate a vCPU and calculate the cost of using an instance. <ul><li>`LINUX`: Linux operating system.</li><li>`WINDOWS`: Windows operating system.</li></ul>
 
+
+### HardwareGeneration {#HardwareGeneration}
+
+Field | Description
+--- | ---
+features | **oneof:** `legacy_features` or `generation2_features`<br>
+&nbsp;&nbsp;legacy_features | **[LegacyHardwareFeatures](#LegacyHardwareFeatures)**<br> 
+&nbsp;&nbsp;generation2_features | **[Generation2HardwareFeatures](#Generation2HardwareFeatures)**<br> 
+
+
+### LegacyHardwareFeatures {#LegacyHardwareFeatures}
+
+Field | Description
+--- | ---
+pci_topology | enum **PCITopology**<br> 
+
+
+### Generation2HardwareFeatures {#Generation2HardwareFeatures}
+
+Empty.
 
 ## GetLatestByFamily {#GetLatestByFamily}
 
@@ -92,6 +113,7 @@ product_ids[] | **string**<br>License IDs that indicate which licenses are attac
 status | enum **Status**<br>Current status of the image. <ul><li>`CREATING`: Image is being created.</li><li>`READY`: Image is ready to use.</li><li>`ERROR`: Image encountered a problem and cannot operate.</li><li>`DELETING`: Image is being deleted.</li></ul>
 os | **[Os](#Os1)**<br>Operating system that is contained in the image. 
 pooled | **bool**<br>When true, indicates there is an image pool for fast creation disks from the image. 
+hardware_generation | **[HardwareGeneration](#HardwareGeneration1)**<br>If specified, forces the same HardwareGeneration features to be applied to the instance created using this image as a source for the boot disk. Otherwise the current default will be used. 
 
 
 ### Os {#Os1}
@@ -100,6 +122,26 @@ Field | Description
 --- | ---
 type | enum **Type**<br>Operating system type. The default is `LINUX`. <br>This field is used to correctly emulate a vCPU and calculate the cost of using an instance. <ul><li>`LINUX`: Linux operating system.</li><li>`WINDOWS`: Windows operating system.</li></ul>
 
+
+### HardwareGeneration {#HardwareGeneration1}
+
+Field | Description
+--- | ---
+features | **oneof:** `legacy_features` or `generation2_features`<br>
+&nbsp;&nbsp;legacy_features | **[LegacyHardwareFeatures](#LegacyHardwareFeatures1)**<br> 
+&nbsp;&nbsp;generation2_features | **[Generation2HardwareFeatures](#Generation2HardwareFeatures1)**<br> 
+
+
+### LegacyHardwareFeatures {#LegacyHardwareFeatures1}
+
+Field | Description
+--- | ---
+pci_topology | enum **PCITopology**<br> 
+
+
+### Generation2HardwareFeatures {#Generation2HardwareFeatures1}
+
+Empty.
 
 ## List {#List}
 
@@ -143,6 +185,7 @@ product_ids[] | **string**<br>License IDs that indicate which licenses are attac
 status | enum **Status**<br>Current status of the image. <ul><li>`CREATING`: Image is being created.</li><li>`READY`: Image is ready to use.</li><li>`ERROR`: Image encountered a problem and cannot operate.</li><li>`DELETING`: Image is being deleted.</li></ul>
 os | **[Os](#Os2)**<br>Operating system that is contained in the image. 
 pooled | **bool**<br>When true, indicates there is an image pool for fast creation disks from the image. 
+hardware_generation | **[HardwareGeneration](#HardwareGeneration2)**<br>If specified, forces the same HardwareGeneration features to be applied to the instance created using this image as a source for the boot disk. Otherwise the current default will be used. 
 
 
 ### Os {#Os2}
@@ -151,6 +194,26 @@ Field | Description
 --- | ---
 type | enum **Type**<br>Operating system type. The default is `LINUX`. <br>This field is used to correctly emulate a vCPU and calculate the cost of using an instance. <ul><li>`LINUX`: Linux operating system.</li><li>`WINDOWS`: Windows operating system.</li></ul>
 
+
+### HardwareGeneration {#HardwareGeneration2}
+
+Field | Description
+--- | ---
+features | **oneof:** `legacy_features` or `generation2_features`<br>
+&nbsp;&nbsp;legacy_features | **[LegacyHardwareFeatures](#LegacyHardwareFeatures2)**<br> 
+&nbsp;&nbsp;generation2_features | **[Generation2HardwareFeatures](#Generation2HardwareFeatures2)**<br> 
+
+
+### LegacyHardwareFeatures {#LegacyHardwareFeatures2}
+
+Field | Description
+--- | ---
+pci_topology | enum **PCITopology**<br> 
+
+
+### Generation2HardwareFeatures {#Generation2HardwareFeatures2}
+
+Empty.
 
 ## Create {#Create}
 
@@ -180,6 +243,7 @@ source | **oneof:** `image_id`, `disk_id`, `snapshot_id` or `uri`<br>
 &nbsp;&nbsp;uri | **string**<br>URI of the source image to create the new image from. Currently only supports links to images that are stored in Object Storage. Currently only supports Qcow2, VMDK, and RAW formats. 
 os | **[Os](#Os3)**<br>Operating system that is contained in the image. <br>If not specified and you used the `image_id` or `disk_id` field to set the source, then the value can be inherited from the source resource. 
 pooled | **bool**<br>When true, an image pool will be created for fast creation disks from the image. 
+hardware_generation | **[HardwareGeneration](#HardwareGeneration3)**<br>Specify the overrides to hardware_generation of a source disk, image or snapshot, or to the default values if the source does not define it. 
 
 
 ### Os {#Os3}
@@ -188,6 +252,26 @@ Field | Description
 --- | ---
 type | enum **Type**<br>Operating system type. The default is `LINUX`. <br>This field is used to correctly emulate a vCPU and calculate the cost of using an instance. <ul><li>`LINUX`: Linux operating system.</li><li>`WINDOWS`: Windows operating system.</li></ul>
 
+
+### HardwareGeneration {#HardwareGeneration3}
+
+Field | Description
+--- | ---
+features | **oneof:** `legacy_features` or `generation2_features`<br>
+&nbsp;&nbsp;legacy_features | **[LegacyHardwareFeatures](#LegacyHardwareFeatures3)**<br> 
+&nbsp;&nbsp;generation2_features | **[Generation2HardwareFeatures](#Generation2HardwareFeatures3)**<br> 
+
+
+### LegacyHardwareFeatures {#LegacyHardwareFeatures3}
+
+Field | Description
+--- | ---
+pci_topology | enum **PCITopology**<br> 
+
+
+### Generation2HardwareFeatures {#Generation2HardwareFeatures3}
+
+Empty.
 
 ### Operation {#Operation}
 
@@ -229,6 +313,7 @@ product_ids[] | **string**<br>License IDs that indicate which licenses are attac
 status | enum **Status**<br>Current status of the image. <ul><li>`CREATING`: Image is being created.</li><li>`READY`: Image is ready to use.</li><li>`ERROR`: Image encountered a problem and cannot operate.</li><li>`DELETING`: Image is being deleted.</li></ul>
 os | **[Os](#Os4)**<br>Operating system that is contained in the image. 
 pooled | **bool**<br>When true, indicates there is an image pool for fast creation disks from the image. 
+hardware_generation | **[HardwareGeneration](#HardwareGeneration4)**<br>If specified, forces the same HardwareGeneration features to be applied to the instance created using this image as a source for the boot disk. Otherwise the current default will be used. 
 
 
 ## Update {#Update}
@@ -293,6 +378,7 @@ product_ids[] | **string**<br>License IDs that indicate which licenses are attac
 status | enum **Status**<br>Current status of the image. <ul><li>`CREATING`: Image is being created.</li><li>`READY`: Image is ready to use.</li><li>`ERROR`: Image encountered a problem and cannot operate.</li><li>`DELETING`: Image is being deleted.</li></ul>
 os | **[Os](#Os4)**<br>Operating system that is contained in the image. 
 pooled | **bool**<br>When true, indicates there is an image pool for fast creation disks from the image. 
+hardware_generation | **[HardwareGeneration](#HardwareGeneration4)**<br>If specified, forces the same HardwareGeneration features to be applied to the instance created using this image as a source for the boot disk. Otherwise the current default will be used. 
 
 
 ### Os {#Os4}
@@ -301,6 +387,26 @@ Field | Description
 --- | ---
 type | enum **Type**<br>Operating system type. The default is `LINUX`. <br>This field is used to correctly emulate a vCPU and calculate the cost of using an instance. <ul><li>`LINUX`: Linux operating system.</li><li>`WINDOWS`: Windows operating system.</li></ul>
 
+
+### HardwareGeneration {#HardwareGeneration4}
+
+Field | Description
+--- | ---
+features | **oneof:** `legacy_features` or `generation2_features`<br>
+&nbsp;&nbsp;legacy_features | **[LegacyHardwareFeatures](#LegacyHardwareFeatures4)**<br> 
+&nbsp;&nbsp;generation2_features | **[Generation2HardwareFeatures](#Generation2HardwareFeatures4)**<br> 
+
+
+### LegacyHardwareFeatures {#LegacyHardwareFeatures4}
+
+Field | Description
+--- | ---
+pci_topology | enum **PCITopology**<br> 
+
+
+### Generation2HardwareFeatures {#Generation2HardwareFeatures4}
+
+Empty.
 
 ## Delete {#Delete}
 

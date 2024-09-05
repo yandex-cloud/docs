@@ -11,6 +11,7 @@ description: "Различные сценарии использования с�
 * [{#T}](remote-wireguard-vpn.md)
 * [{#T}](usergate-firewall.md)
 * [{#T}](route-switcher.md)
+* [{#T}](nat-instance/index.md)
 * [{#T}](high-accessible-dmz.md)
 * [{#T}](network-segmentation-checkpoint.md)
 * [{#T}](dataproc-nat-instance.md)

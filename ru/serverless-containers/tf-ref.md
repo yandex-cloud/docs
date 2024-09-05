@@ -9,7 +9,7 @@
 | **Ресурс {{ TF }}** | **Ресурс {{ yandex-cloud }}** |
 | --- | --- |
 | [yandex_serverless_container]({{ tf-provider-resources-link }}/serverless_container) | [Контейнер](./concepts/container.md) |
-| [yandex_serverless_container_iam_binding]({{ tf-provider-resources-link }}/serverless_container_iam_binding) | [Привязка](../iam/concepts/access-control/index.md#access-bindings) прав доступа к контейнеру |
+| [yandex_serverless_container_iam_binding]({{ tf-provider-resources-link }}/serverless_container_iam_binding) | [Назначение](../iam/concepts/access-control/index.md#access-bindings) прав доступа к контейнеру |
 | [yandex_function_trigger]({{ tf-provider-resources-link }}/function_trigger) | [Триггер](./concepts/trigger/index.md) |
 
 ## Источники данных {#data-sources}

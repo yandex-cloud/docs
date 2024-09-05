@@ -6,8 +6,10 @@
 
 Подробная информация про работу с различными источниками данных приведена в соответствующих разделах:
 * [{{ CH }}](../sources-and-sinks/clickhouse.md).
+* [{{ MY }}](../sources-and-sinks/mysql.md).
 * [{{ PG }}](../sources-and-sinks/postgresql.md).
 * [S3](../sources-and-sinks/object-storage-binding.md).
+* [{{ ydb-short-name }}](../sources-and-sinks/ydb.md).
 
 Пример работы с федеративными запросами с помощью {{ yq-full-name }}:
 

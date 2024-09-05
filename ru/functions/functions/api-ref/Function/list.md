@@ -35,7 +35,6 @@ filter | <p>A filter expression that filters functions listed in the response.</
       "name": "string",
       "description": "string",
       "labels": "object",
-      "logGroupId": "string",
       "httpInvokeUrl": "string",
       "status": "string"
     }
@@ -54,7 +53,6 @@ functions[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp for 
 functions[].<br>name | **string**<br><p>Name of the function. The name is unique within the folder.</p> <p>The string length in characters must be 3-63.</p> 
 functions[].<br>description | **string**<br><p>Description of the function.</p> <p>The string length in characters must be 0-256.</p> 
 functions[].<br>labels | **object**<br><p>Function labels as ``key:value`` pairs.</p> <p>No more than 64 per resource.</p> 
-functions[].<br>logGroupId | **string**<br><p>ID of the log group for the function.</p> 
 functions[].<br>httpInvokeUrl | **string**<br><p>URL that needs to be requested to invoke the function.</p> 
 functions[].<br>status | **string**<br><p>Status of the function.</p> <ul> <li>CREATING: Function is being created.</li> <li>ACTIVE: Function is ready to be invoked.</li> <li>DELETING: Function is being deleted.</li> <li>ERROR: Function failed.</li> </ul> 
 nextPageToken | **string**<br><p>Token for getting the next page of the list. If the number of results is greater than the specified <a href="/docs/functions/functions/api-ref/Function/list#query_params">pageSize</a>, use ``nextPageToken`` as the value for the <a href="/docs/functions/functions/api-ref/Function/list#query_params">pageToken</a> parameter in the next list request.</p> <p>Each subsequent page will have its own ``nextPageToken`` to continue paging through the results.</p> 

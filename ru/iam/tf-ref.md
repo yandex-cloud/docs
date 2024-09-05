@@ -10,8 +10,8 @@
 | --- | --- |
 | [yandex_iam_service_account]({{ tf-provider-resources-link }}/iam_service_account) | [Сервисный аккаунт](./concepts/users/service-accounts.md) |
 | [yandex_iam_service_account_api_key]({{ tf-provider-resources-link }}/iam_service_account_api_key) | [API-ключ](./concepts/authorization/api-key.md) |
-| [yandex_iam_service_account_iam_binding]({{ tf-provider-resources-link }}/iam_service_account_iam_binding) |[Привязка](./concepts/access-control/index.md#access-bindings) прав доступа к сервисному аккаунту. Имеет ограничение в 1000 привязок на ресурс. <br>Вместо `iam_service_account_iam_binding` рекомендуется использовать `iam_service_account_iam_member` |
-| [yandex_iam_service_account_iam_member]({{ tf-provider-resources-link }}/iam_service_account_iam_member) | [Привязка](./concepts/access-control/index.md#access-bindings) прав доступа к сервисному аккаунту |
+| [yandex_iam_service_account_iam_binding]({{ tf-provider-resources-link }}/iam_service_account_iam_binding) | [Назначение](./concepts/access-control/index.md#access-bindings) прав доступа к сервисному аккаунту. Имеет ограничение в 1000 привязок на ресурс. <br>Вместо `iam_service_account_iam_binding` рекомендуется использовать `iam_service_account_iam_member` |
+| [yandex_iam_service_account_iam_member]({{ tf-provider-resources-link }}/iam_service_account_iam_member) | [Назначение](./concepts/access-control/index.md#access-bindings) прав доступа к сервисному аккаунту |
 | [yandex_iam_service_account_iam_policy]({{ tf-provider-resources-link }}/iam_service_account_iam_policy) | Устанавливает политику доступа сервисного аккаунта и заменяет любую заданную политику |
 | [yandex_iam_service_account_key]({{ tf-provider-resources-link }}/iam_service_account_key) | [Авторизованный ключ](./concepts/authorization/key.md) |
 | [yandex_iam_service_account_static_access_key]({{ tf-provider-resources-link }}/iam_service_account_static_access_key) | [Статический ключ](./concepts/authorization/access-key.md) |

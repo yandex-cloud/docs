@@ -8,4 +8,4 @@ See the interface definitions of the API on [GitHub](https://github.com/yandex-c
 
 Service | Description
 --- | ---
-[TranslationService](./translation_service.md) | A set of methods for the Translate service.
+[TranslationService](./translation_service.md) | A set of methods for the Translate service. <br>Make sure you send your [authentication](/docs/translate/api-ref/authentication) credentials in the `Authorization` header of each request.

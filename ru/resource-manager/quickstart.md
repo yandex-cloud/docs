@@ -12,7 +12,7 @@
 
     1. На [стартовой странице]({{ link-console-main }}) консоли управления выберите каталог.
     1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
-    1. Нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_configure-access }}**.
     1. В окне **{{ ui-key.yacloud.component.acl.update-dialog.label_title }}** нажмите кнопку **{{ ui-key.yacloud.component.acl.update-dialog.button_select-subject }}**.
     1. Выберите пользователя из списка или воспользуйтесь поиском по пользователям.
     1. Нажмите кнопку **{{ ui-key.yacloud.component.acl.update-dialog.button_add-role }}**.

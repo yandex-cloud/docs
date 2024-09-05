@@ -19,12 +19,13 @@ description: "Из статьи вы узнаете, какие расширен
 
 В таблице ниже перечислены параметры объекта `ValidatorObject`.
 
- Параметр                    | Тип       | Обязательный | Значение по-умолчанию | Описание                                                                                                           
------------------------------|-----------|--------------|-----------------------|--------------------------------------------------------------------------------------------------------------------
- `validateRequestBody`       | `boolean` | Нет          | `false`               | Включить или выключить валидацию тела запроса.                                                                       
- `validateRequestParameters` | `boolean` | Нет          | `false`               | Включить или выключить валидацию параметров запроса.                                                                 
- `validateResponseBody`      | `boolean` | Нет          | `false`               | Включить или выключить валидацию тела ответа.                                                                        
- `validateResponseHeaders`   | `string`  | Нет          | `undefined`           | [Тип валидации заголовков ответа](#type). Может принимать одно из следующих значений: `any`, `superset`, `subset`, `exact`. 
+ Параметр                    | Тип            | Обязательный | Значение по-умолчанию | Описание
+-----------------------------|----------------|--------------|-----------------------|--------------------------------------------------------------
+ `validateRequestBody`       | `boolean`      | Нет          | `false`               | Включить или выключить валидацию тела запроса.                                                                       
+ `validateRequestParameters` | `boolean`      | Нет          | `false`               | Включить или выключить валидацию параметров запроса.                                                                 
+ `validateResponseBody`      | `boolean`      | Нет          | `false`               | Включить или выключить валидацию тела ответа.                                                                        
+ `validateResponseHeaders`   | `string`       | Нет          | `undefined`           | [Тип валидации заголовков ответа](#type). Может принимать одно из следующих значений: `any`, `superset`, `subset`, `exact`. 
+ `validationErrorHandler`    | `ErrorHandler` | Нет          | `undefined`           | [Обработчик ошибок валидации](#errorhandler).
 
 #### Типы валидации заголовков ответа
 
@@ -32,6 +33,39 @@ description: "Из статьи вы узнаете, какие расширен
 * `superset` — проверяется, что заголовки, перечисленные в спецификации, входят в список заголовков ответа.
 * `subset` — проверяется, что заголовки ответа входят в список заголовков, перечисленных в спецификации.
 * `exact` — проверяется, что список заголовков ответа полностью соответствует списку заголовков, перечисленных в спецификации.
+
+## Объект ErrorHandler {#errorhandler}
+
+Содержит набор параметров, который позволяет передать ошибки валидации в интеграцию. Например, передать ошибки для обработки в [функцию](cloud-functions.md), [контейнер](containers.md), [HTTP-интеграцию](http.md) или [вернуть объект из бакета](object-storage.md).
+
+### Параметры {#errorhandler_parameters}
+
+В таблице ниже перечислены параметры объекта `ErrorHandler`.
+
+ Параметр                      | Тип                                                            | Обязательный | Описание 
+-------------------------------|----------------------------------------------------------------|--------------|------------------------------------
+ `x-yc-apigateway-integration` | [Расширение x-yc-apigateway-integration](index.md#integration) | Да           | Интеграция, которая будет вызвана при ошибке валидации.
+ `statusCode`                  | `number`                                                       | Нет          | Код ответа, который будет возвращен пользователю вместе с ответом от интеграции.
+
+Если интеграция из `ErrorHandler` вернет ответ с кодом `200`, этот ответ отправится пользователю, который сделал запрос к API-шлюзу. Изменить код ответа, отправляемый пользователю, можно с помощью параметра `statusCode` в `ErrorHandler`.
+
+Если интеграция из `ErrorHandler` вернет ошибку, пользователь увидит стандартное сообщение об ошибке валидации.
+
+## Объект ErrorHandlerEvent {#errorhandlerevent}
+
+Если при валидации API-шлюз обнаружил ошибку в запросе, он вызывает интеграцию, указанную в `ErrorHandler`. В эту интеграцию передается объект `ErrorHandlerEvent` с информацией об ошибке.
+
+### Параметры {#errorhandlerevent_parameters}
+
+В таблице ниже перечислены параметры объекта `ErrorHandlerEvent`.
+
+ Параметр     | Тип             | Описание                                                                                      
+--------------|-----------------|-------------------------------------------------------------------------------------------------------------------
+ `errorType`  | `string`        | Возможные значения: `response-body-validation-error`, `response-headers-validation-error`, `request-validation-error`.
+ `errorData`  | `ErrorObject[]` | Массив ошибок валидации.
+ `statusCode` | `number`        | Код ошибки валидации.
+ `path`       | `string`        | Путь в спецификации OpenAPI.
+ `request`    | `object`        | Запрос, вызвавший ошибку.
 
 ## Расширение x-yc-apigateway-validators {#validators}
 
@@ -256,4 +290,39 @@ components:
           type: integer
         name:
           type: string
+```
+
+### Пример спецификации с обработчиком ошибок
+
+```yaml
+openapi: "3.0.0"
+info:
+  title: Sample API
+  version: 1.0.0
+
+paths:
+  /path-for-humans/{id}:
+    get:
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+          description: Numeric path parameter
+      x-yc-apigateway-integration:
+        type: dummy
+        content:
+          '*': Hello, World!
+        http_code: 200
+        http_headers:
+          Content-Type: text/plain
+      x-yc-apigateway-validator:
+        validateRequestParameters: true
+        validationErrorHandler:        
+          x-yc-apigateway-integration:
+            bucket: bucket
+            type: object_storage
+            object: error.html
+          statusCode: 400
 ```

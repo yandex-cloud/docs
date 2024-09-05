@@ -380,8 +380,14 @@ items:
         href: tutorials/index.md
       - name: Настройка синхронизации часов с помощью NTP
         href: tutorials/ntp.md
-      - name: Работа с группой ВМ с автомасштабированием
-        href: tutorials/vm-autoscale.md
+      - name: Работа с группой ВМ с автоматическим масштабированием
+        items:
+          - name: Обзор
+            href: tutorials/vm-autoscale/index.md
+          - name: Консоль управления
+            href: tutorials/vm-autoscale/console.md
+          - name: '{{ TF }}'
+            href: tutorials/vm-autoscale/terraform.md
       - name: Масштабирование группы ВМ по расписанию
         href: tutorials/vm-scale-scheduled.md
       - name: Автомасштабирование группы ВМ для обработки сообщений из очереди
@@ -408,8 +414,14 @@ items:
         href: tutorials/bind-domain-vm.md
       - name: Настройка отказоустойчивой архитектуры в {{ yandex-cloud }}
         href: tutorials/fault-tolerance.md
-      - name: Маршрутизация с помощью NAT-инстанса
-        href: tutorials/nat-instance.md
+      - name: Маршрутизация через NAT-инстанс
+        items:
+          - name: Обзор
+            href: tutorials/nat-instance/index.md
+          - name: Консоль управления
+            href: tutorials/nat-instance/console.md
+          - name: '{{ TF }}'
+            href: tutorials/nat-instance/terraform.md
       - name: >-
           Создание триггера для бюджетов, который вызывает функцию для остановки
           ВМ
@@ -452,8 +464,14 @@ items:
         href: tutorials/ha-regional-glusterfs-high-performance.md
       - name: Резервное копирование в {{ objstorage-name }} с помощью Bacula
         href: tutorials/backup-with-bacula.md
-      - name: Создание балансировщика с защитой от DDoS
-        href: tutorials/alb-with-ddos-protection.md
+      - name: Создание L7-балансировщика с защитой от DDoS
+        items:
+          - name: Обзор
+            href: tutorials/alb-with-ddos-protection/index.md
+          - name: Консоль управления, CLI
+            href: tutorials/alb-with-ddos-protection/console.md
+          - name: '{{ TF }}'
+            href: tutorials/alb-with-ddos-protection/terraform.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов

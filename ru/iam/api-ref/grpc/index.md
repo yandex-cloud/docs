@@ -19,4 +19,6 @@ Service | Description
 [AccessKeyService](./access_key_service.md) | A set of methods for managing access keys.
 [CertificateService](./certificate_service.md) | A set of methods for managing certificates.
 [FederationService](./federation_service.md) | A set of methods for managing federations.
+[FederatedCredentialService](./federated_credential_service.md) | A set of methods for managing federated credentials.
+[FederationService](./federation_service.md) | A set of methods for managing OIDC workload identity federations.
 [OperationService](./operation_service.md) | A set of methods for managing operations for asynchronous API requests.

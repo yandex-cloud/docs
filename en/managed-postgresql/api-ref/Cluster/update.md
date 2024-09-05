@@ -2321,7 +2321,8 @@ clusterId | <p>Required. ID of the PostgreSQL Cluster resource to update. To get
   "securityGroupIds": [
     "string"
   ],
-  "deletionProtection": true
+  "deletionProtection": true,
+  "networkId": "string"
 }
 ```
 
@@ -4565,6 +4566,7 @@ maintenanceWindow.<br>weeklyMaintenanceWindow.<br>day | **string**<br><p>Day of 
 maintenanceWindow.<br>weeklyMaintenanceWindow.<br>hour | **string** (int64)<br><p>Hour of the day in UTC (in ``HH`` format).</p> <p>Acceptable values are 1 to 24, inclusive.</p> 
 securityGroupIds[] | **string**<br><p>User security groups</p> 
 deletionProtection | **boolean** (boolean)<br><p>Deletion Protection inhibits deletion of the cluster</p> 
+networkId | **string**<br><p>ID of the network to move the cluster to.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

@@ -9,10 +9,10 @@
 | **Ресурс {{ TF }}** | **Ресурс {{ yandex-cloud }}** |
 | --- | --- |
 | [yandex_container_registry]({{ tf-provider-resources-link }}/container_registry) | [Реестр](./concepts/registry.md) |
-| [yandex_container_registry_iam_binding]({{ tf-provider-resources-link }}/container_registry_iam_binding) | [Привязка](../iam/concepts/access-control/index.md#access-bindings) прав доступа к реестру |
+| [yandex_container_registry_iam_binding]({{ tf-provider-resources-link }}/container_registry_iam_binding) | [Назначение](../iam/concepts/access-control/index.md#access-bindings) прав доступа к реестру |
 | [yandex_container_registry_ip_permission]({{ tf-provider-resources-link }}/container_registry_ip_permission) | [Доступ к реестру](./operations/registry/registry-access.md) |
 | [yandex_container_repository]({{ tf-provider-resources-link }}/container_repository) | [Репозиторий](./concepts/repository.md) |
-| [yandex_container_repository_iam_binding]({{ tf-provider-resources-link }}/container_repository_iam_binding) | [Привязка](../iam/concepts/access-control/index.md#access-bindings) прав доступа к репозиторию |
+| [yandex_container_repository_iam_binding]({{ tf-provider-resources-link }}/container_repository_iam_binding) | [Назначение](../iam/concepts/access-control/index.md#access-bindings) прав доступа к репозиторию |
 | [yandex_container_repository_lifecycle_policy]({{ tf-provider-resources-link }}/container_repository_lifecycle_policy) | [Политика автоматического удаления Docker-образов](./concepts/lifecycle-policy.md) |
 
 ## Источники данных {#data-sources}

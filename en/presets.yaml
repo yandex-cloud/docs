@@ -5266,6 +5266,7 @@ default:
         label_monitoring-name: Monitoring
         label_telegram: Telegram
         label_title_appearance: Appearance
+        label_title_communications: Notifications
         label_title_region: Language and region
         section_email: Email settings
         section_phone: Phone number settings
@@ -5549,6 +5550,7 @@ default:
         create: Create organization
         federations: Federations
         groups: Groups
+        notifications: Notifications
         oslogin:
           title: Security settings
         raw_services: Clouds & services
@@ -6135,6 +6137,7 @@ default:
         remove: Delete
         resource-acl:
           button_assign-binding: Edit roles
+          button_configure-access: Configure access
           button_invite-users: Invite users
           button_new-bindings: Assign bindings
           button_remove-bindings: Remove bindings
@@ -6607,6 +6610,7 @@ default:
         label_data-storage-time-limit: Time Limit
         label_data-stream: Data stream
         label_database: Database
+        label_request-units: Actual usage
       data-transfer:
         button_create-endpoint: Create endpoint
         button_create-transfer: Create transfer
@@ -9707,6 +9711,7 @@ default:
         action_clickhouse: Managed Service for ClickHouse
         action_datastreams: Data Streams
         action_monitoring: Monitoring
+        action_mysql: Managed Service for MySQL
         action_object-storage: Object Storage
         action_postgersql: Managed Service for PostgreSQL
         action_ydb: Managed Service for YDB

@@ -33,7 +33,8 @@ backupId | <p>Required. ID of the backup to return information about. To get the
     "string"
   ],
   "size": "string",
-  "type": "string"
+  "type": "string",
+  "journalSize": "string"
 }
 ```
 A MongoDB Backup resource. For more information, see the 
@@ -49,3 +50,4 @@ startedAt | **string** (date-time)<br><p>Time when the backup operation was star
 sourceShardNames[] | **string**<br><p>Shard names used as a source for backup.</p> 
 size | **string** (int64)<br><p>Size of backup in bytes</p> 
 type | **string**<br><p>How this backup was created (manual/automatic/etc...)</p> <ul> <li>AUTOMATED: Backup created by automated daily schedule</li> <li>MANUAL: Backup created by user request</li> </ul> 
+journalSize | **string** (int64)<br><p>Size of the journal associated with backup, in bytes</p> 

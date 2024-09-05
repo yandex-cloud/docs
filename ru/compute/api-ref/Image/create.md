@@ -31,6 +31,16 @@ POST https://compute.{{ api-host }}/compute/v1/images
     "type": "string"
   },
   "pooled": true,
+  "hardwareGeneration": {
+
+    // `hardwareGeneration` includes only one of the fields `legacyFeatures`, `generation2Features`
+    "legacyFeatures": {
+      "pciTopology": "string"
+    },
+    "generation2Features": {},
+    // end of the list of possible fields`hardwareGeneration`
+
+  },
 
   //  includes only one of the fields `imageId`, `diskId`, `snapshotId`, `uri`
   "imageId": "string",
@@ -55,6 +65,10 @@ productIds[] | **string**<br><p>License IDs that indicate which licenses are att
 os | **object**<br>Operating system that is contained in the image.  If not specified and you used the `image_id` or `disk_id` field to set the source, then the value can be inherited from the source resource.
 os.<br>type | **string**<br><p>Operating system type. The default is ``LINUX``.</p> <p>This field is used to correctly emulate a vCPU and calculate the cost of using an instance.</p> <ul> <li>LINUX: Linux operating system.</li> <li>WINDOWS: Windows operating system.</li> </ul> 
 pooled | **boolean** (boolean)<br><p>When true, an image pool will be created for fast creation disks from the image.</p> 
+hardwareGeneration | **object**<br>Specify the overrides to hardware_generation of a source disk, image or snapshot, or to the default values if the source does not define it.
+hardwareGeneration.<br>legacyFeatures | **object** <br>`hardwareGeneration` includes only one of the fields `legacyFeatures`, `generation2Features`<br><br><p>A first hardware generation, by default compatible with all legacy images. Allows switching to PCI_TOPOLOGY_V2 and back.</p> 
+hardwareGeneration.<br>legacyFeatures.<br>pciTopology | **string**
+hardwareGeneration.<br>generation2Features | **object** <br>`hardwareGeneration` includes only one of the fields `legacyFeatures`, `generation2Features`<br><br><p>A second hardware generation, which by default assumes PCI_TOPOLOGY_V2 and UEFI boot (with UEFI related features).</p> 
 imageId | **string** <br> includes only one of the fields `imageId`, `diskId`, `snapshotId`, `uri`<br><br><p>ID of the source image to create the new image from.</p> <p>The maximum string length in characters is 50.</p> 
 diskId | **string** <br> includes only one of the fields `imageId`, `diskId`, `snapshotId`, `uri`<br><br><p>ID of the disk to create the image from.</p> <p>The maximum string length in characters is 50.</p> 
 snapshotId | **string** <br> includes only one of the fields `imageId`, `diskId`, `snapshotId`, `uri`<br><br><p>ID of the snapshot to create the image from.</p> <p>The maximum string length in characters is 50.</p> 

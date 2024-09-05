@@ -4,9 +4,9 @@
 `CreateSpace` | Создание пространства
 `DeleteProject` | Удаление проекта
 `DeleteSpace` | Удаление пространства
-`SetProjectAccessBindings` | Назначение привязок прав доступа к проекту
-`SetSpaceAccessBindings` | Назначение привязок прав доступа к пространству
+`SetProjectAccessBindings` | Назначение прав доступа к проекту
+`SetSpaceAccessBindings` | Назначение прав доступа к пространству
 `UpdateProject` | Изменение проекта
-`UpdateProjectAccessBindings` | Изменение привязок прав доступа к проекту
+`UpdateProjectAccessBindings` | Изменение прав доступа к проекту
 `UpdateSpace` | Изменение пространства
-`UpdateSpaceAccessBindings` | Изменение привязок прав доступа к пространству
+`UpdateSpaceAccessBindings` | Изменение прав доступа к пространству

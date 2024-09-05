@@ -347,6 +347,7 @@ source | **oneof:** `source_image_id` or `source_snapshot_id`<br>
 &nbsp;&nbsp;source_snapshot_id | **string**<br>ID of the snapshot that was used for disk creation. 
 instance_ids[] | **string**<br>Array of instances to which the disk is attached. 
 disk_placement_policy | **[DiskPlacementPolicy](#DiskPlacementPolicy)**<br>Placement policy configuration. 
+hardware_generation | **[HardwareGeneration](#HardwareGeneration)**<br>If specified, forces the same HardwareGeneration features to be applied to the instance created using this disk as a boot one. Otherwise the current default will be used. 
 
 
 ### DiskPlacementPolicy {#DiskPlacementPolicy}
@@ -356,6 +357,26 @@ Field | Description
 placement_group_id | **string**<br>Placement group ID. 
 placement_group_partition | **int64**<br> 
 
+
+### HardwareGeneration {#HardwareGeneration}
+
+Field | Description
+--- | ---
+features | **oneof:** `legacy_features` or `generation2_features`<br>
+&nbsp;&nbsp;legacy_features | **[LegacyHardwareFeatures](#LegacyHardwareFeatures)**<br> 
+&nbsp;&nbsp;generation2_features | **[Generation2HardwareFeatures](#Generation2HardwareFeatures)**<br> 
+
+
+### LegacyHardwareFeatures {#LegacyHardwareFeatures}
+
+Field | Description
+--- | ---
+pci_topology | enum **PCITopology**<br> 
+
+
+### Generation2HardwareFeatures {#Generation2HardwareFeatures}
+
+Empty.
 
 ## ListOperations {#ListOperations}
 

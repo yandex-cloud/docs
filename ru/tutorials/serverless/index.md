@@ -16,4 +16,5 @@
 * [Канареечный релиз функции {{ sf-full-name }}](canary-release.md)
 * [Интерактивная отладка функций {{ sf-name }}](serverless-live-debug.md)
 * [{#T}](deploy-app-container.md)
+* [Передача событий {{ postbox-full-name }} в {{ yds-full-name }} и их анализ с помощью {{ datalens-full-name }}](events-from-postbox-to-yds.md)
 * [{#T}](speechkit-integrarion-via-agi-gw.md)

@@ -21,7 +21,17 @@ POST https://compute.{{ api-host }}/compute/v1/snapshots
   "diskId": "string",
   "name": "string",
   "description": "string",
-  "labels": "object"
+  "labels": "object",
+  "hardwareGeneration": {
+
+    // `hardwareGeneration` includes only one of the fields `legacyFeatures`, `generation2Features`
+    "legacyFeatures": {
+      "pciTopology": "string"
+    },
+    "generation2Features": {},
+    // end of the list of possible fields`hardwareGeneration`
+
+  }
 }
 ```
 
@@ -33,6 +43,10 @@ diskId | **string**<br><p>Required. ID of the disk to create the snapshot from. 
 name | **string**<br><p>Name of the snapshot.</p> <p>Value must match the regular expression ``\|[a-z]([-a-z0-9]{0,61}[a-z0-9])?``.</p> 
 description | **string**<br><p>Description of the snapshot.</p> <p>The maximum string length in characters is 256.</p> 
 labels | **object**<br><p>Resource labels as ``key:value`` pairs.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression ``[a-z][-_./\@0-9a-z]*``. The maximum string length in characters for each value is 63. Each value must match the regular expression ``[-_./\@0-9a-z]*``.</p> 
+hardwareGeneration | **object**<br><p>Specify the overrides to hardware_generation of a source disk, image or snapshot, or to the default values if the source does not define it.</p> <p>A set of features, specific to a particular Compute hardware generation. They are not necessary supported by every host OS or distro, thus they are fixed to an image and are applied to all instances created with it as their boot disk image. These features significantly determine how the instance is created, thus cannot be changed after the fact.</p> 
+hardwareGeneration.<br>legacyFeatures | **object** <br>`hardwareGeneration` includes only one of the fields `legacyFeatures`, `generation2Features`<br><br><p>A first hardware generation, by default compatible with all legacy images. Allows switching to PCI_TOPOLOGY_V2 and back.</p> 
+hardwareGeneration.<br>legacyFeatures.<br>pciTopology | **string**
+hardwareGeneration.<br>generation2Features | **object** <br>`hardwareGeneration` includes only one of the fields `legacyFeatures`, `generation2Features`<br><br><p>A second hardware generation, which by default assumes PCI_TOPOLOGY_V2 and UEFI boot (with UEFI related features).</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

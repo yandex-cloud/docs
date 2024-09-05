@@ -161,7 +161,10 @@ POST https://{{ api-host-data-transfer }}/v1/transfer
               "string"
             ]
           },
-          "filter": "string"
+          "filter": "string",
+          "filters": [
+            "string"
+          ]
         },
         // end of the list of possible fields`transformation.transformers[]`
 
@@ -217,7 +220,7 @@ transformation.<br>transformers[].<br>replacePrimaryKey.<br>tables | **object**<
 transformation.<br>transformers[].<br>replacePrimaryKey.<br>tables.<br>includeTables[] | **string**<br><p>List of tables that will be included to transfer</p> 
 transformation.<br>transformers[].<br>replacePrimaryKey.<br>tables.<br>excludeTables[] | **string**<br><p>List of tables that will be excluded to transfer</p> 
 transformation.<br>transformers[].<br>replacePrimaryKey.<br>keys[] | **string**<br><p>List of columns to be used as primary keys</p> 
-transformation.<br>transformers[].<br>convertToString | **object** <br>`transformation.transformers[]` includes only one of the fields `maskField`, `filterColumns`, `renameTables`, `replacePrimaryKey`, `convertToString`, `sharderTransformer`, `tableSplitterTransformer`, `filterRows`<br><br><p>Convert column values to strings. The values will be converted depending on the source type. Conversion rules are described in <a href="/docs/data-transfer/concepts/data-transformation#convert-to-string">documentation</a>.</p> 
+transformation.<br>transformers[].<br>convertToString | **object** <br>`transformation.transformers[]` includes only one of the fields `maskField`, `filterColumns`, `renameTables`, `replacePrimaryKey`, `convertToString`, `sharderTransformer`, `tableSplitterTransformer`, `filterRows`<br><br><p>Convert column values to strings The values will be converted depending on the source type Conversion rules are described here: https://cloud.yandex.com/en/docs/data-transfer/concepts/data-transformation#convert-to-string</p> 
 transformation.<br>transformers[].<br>convertToString.<br>tables | **object**<br><p>List of included and excluded tables</p> <p>Filter tables using lists of included and excluded tables.</p> 
 transformation.<br>transformers[].<br>convertToString.<br>tables.<br>includeTables[] | **string**<br><p>List of tables that will be included to transfer</p> 
 transformation.<br>transformers[].<br>convertToString.<br>tables.<br>excludeTables[] | **string**<br><p>List of tables that will be excluded to transfer</p> 
@@ -239,10 +242,11 @@ transformation.<br>transformers[].<br>tableSplitterTransformer.<br>tables.<br>ex
 transformation.<br>transformers[].<br>tableSplitterTransformer.<br>columns[] | **string**<br><p>Specify the columns in the tables to be partitioned.</p> 
 transformation.<br>transformers[].<br>tableSplitterTransformer.<br>splitter | **string**<br><p>Specify the split string to be used for merging components in a new table name.</p> 
 transformation.<br>transformers[].<br>filterRows | **object** <br>`transformation.transformers[]` includes only one of the fields `maskField`, `filterColumns`, `renameTables`, `replacePrimaryKey`, `convertToString`, `sharderTransformer`, `tableSplitterTransformer`, `filterRows`<br><br><p>This filter only applies to transfers with queues (Logbroker or Apache Kafka®) as a data source. When running a transfer, only the strings meeting the specified criteria remain in a changefeed.</p> 
-transformation.<br>transformers[].<br>filterRows.<br>tables | **object**<br><p>List of included and excluded tables</p> <p>Filter tables using lists of included and excluded tables.</p> 
+transformation.<br>transformers[].<br>filterRows.<br>tables | **object**<br><p>List of included and excluded tables.</p> <p>Filter tables using lists of included and excluded tables.</p> 
 transformation.<br>transformers[].<br>filterRows.<br>tables.<br>includeTables[] | **string**<br><p>List of tables that will be included to transfer</p> 
 transformation.<br>transformers[].<br>filterRows.<br>tables.<br>excludeTables[] | **string**<br><p>List of tables that will be excluded to transfer</p> 
-transformation.<br>transformers[].<br>filterRows.<br>filter | **string**<br><p>Filtering criterion. This can be comparison operators for numeric, string, and Boolean values, comparison to NULL, and checking whether a substring is part of a string. For more details see <a href="/docs/data-transfer/concepts/data-transformation#append-only-sources">documentation</a>.</p> 
+transformation.<br>transformers[].<br>filterRows.<br>filter | **string**<br><p>Filtering criterion. This can be comparison operators for numeric, string, and Boolean values, comparison to NULL, and checking whether a substring is part of a string. Details here: https://yandex.cloud/en-ru/docs/data-transfer/concepts/data-transformation#append-only-sources. Deprecated: Use filters instead.</p> 
+transformation.<br>transformers[].<br>filterRows.<br>filters[] | **string**<br><p>Data is transported if it satisfies at least one of filters. Consider that there is OR statement between filters. Each filter can be comparison operators for numeric, string, and Boolean values, comparison to NULL, and checking whether a substring is part of a string. Details in docs: https://yandex.cloud/en-ru/docs/data-transfer/concepts/data-transformation#append-only-sources.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

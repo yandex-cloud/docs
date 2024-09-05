@@ -50,6 +50,16 @@
 
 {% include [permission-denied](../../_includes/data-transfer/troubles/permission-denied.md) %}
 
+### Снижение скорости трансфера {#speed-degrade}
+
+**Проблема**:
+
+{% include [speed-degrade](../../_includes/data-transfer/speed-degrade.md) %}
+
+**Решение**:
+
+Используйте политику очистки `Drop` или `Truncate`.
+
 
 {% include [required-role](../../_includes/data-transfer/troubles/required-roles.md) %}
 

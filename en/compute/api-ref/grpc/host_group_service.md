@@ -375,7 +375,7 @@ Field | Description
 host_group_id | **string**<br>Required. ID of the host group to list instances for. To get the host group ID, use [HostGroupService.List](#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListHostGroupInstancesResponse.next_page_token](#ListHostGroupInstancesResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListHostGroupInstancesResponse.next_page_token](#ListHostGroupInstancesResponse) returned by a previous list request. The maximum string length in characters is 100.
-filter | **string**<br>Filter support is not currently implemented. Any filters are ignored. The maximum string length in characters is 1000.
+filter | **string**<br>A filter expression that filters resources listed in the response. The expression consists of one or more conditions united by `AND` operator: `<condition1> [AND <condition2> [<...> AND <conditionN>]]`. <br>Each condition has the form `<field> <operator> <value>`, where: <ol><li>`<field>` is the field name. Currently you can use filtering only on the limited number of fields. </li><li>`<operator>` is a logical operator, one of `=`, `!=`, `IN`, `NOT IN`. </li><li>`<value>` represents a value. </li></ol>String values should be written in double (`"`) or single (`'`) quotes. C-style escape sequences are supported (`\"` turns to `"`, `\'` to `'`, `\\` to backslash). Currently you can use filtering only on the [Host.id](#Host) field. To get the host ID, use [HostGroupService.ListHosts](#ListHosts) request. The maximum string length in characters is 1000.
 
 
 ### ListHostGroupInstancesResponse {#ListHostGroupInstancesResponse}
@@ -418,6 +418,7 @@ host_group_id | **string**<br>ID of the dedicated host group that the instance b
 host_id | **string**<br>ID of the dedicated host that the instance belongs to. 
 maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events <ul><li>`RESTART`: Restart instance to move it to another host during maintenance</li><li>`MIGRATE`: Use live migration to move instance to another host during maintenance</li></ul>
 maintenance_grace_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Time between notification via metadata service and maintenance 
+hardware_generation | **[HardwareGeneration](#HardwareGeneration)**<br>This feature set is inherited from the image/disk used as a boot one at the creation of the instance. 
 
 
 ### Resources {#Resources}
@@ -552,6 +553,26 @@ key | **string**<br>Affinity label or one of reserved values - 'yc.hostId', 'yc.
 op | enum **Operator**<br>Include or exclude action 
 values[] | **string**<br>Affinity value or host ID or host group ID 
 
+
+### HardwareGeneration {#HardwareGeneration}
+
+Field | Description
+--- | ---
+features | **oneof:** `legacy_features` or `generation2_features`<br>
+&nbsp;&nbsp;legacy_features | **[LegacyHardwareFeatures](#LegacyHardwareFeatures)**<br> 
+&nbsp;&nbsp;generation2_features | **[Generation2HardwareFeatures](#Generation2HardwareFeatures)**<br> 
+
+
+### LegacyHardwareFeatures {#LegacyHardwareFeatures}
+
+Field | Description
+--- | ---
+pci_topology | enum **PCITopology**<br> 
+
+
+### Generation2HardwareFeatures {#Generation2HardwareFeatures}
+
+Empty.
 
 ## ListHosts {#ListHosts}
 

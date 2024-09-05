@@ -143,7 +143,17 @@ A set of methods for managing Instance resources.
   "hostGroupId": "string",
   "hostId": "string",
   "maintenancePolicy": "string",
-  "maintenanceGracePeriod": "string"
+  "maintenanceGracePeriod": "string",
+  "hardwareGeneration": {
+
+    // `hardwareGeneration` includes only one of the fields `legacyFeatures`, `generation2Features`
+    "legacyFeatures": {
+      "pciTopology": "string"
+    },
+    "generation2Features": {},
+    // end of the list of possible fields`hardwareGeneration`
+
+  }
 }
 ```
  
@@ -242,6 +252,10 @@ hostGroupId | **string**<br><p>ID of the dedicated host group that the instance 
 hostId | **string**<br><p>ID of the dedicated host that the instance belongs to.</p> 
 maintenancePolicy | **string**<br><p>Behaviour on maintenance events</p> <ul> <li>RESTART: Restart instance to move it to another host during maintenance</li> <li>MIGRATE: Use live migration to move instance to another host during maintenance</li> </ul> 
 maintenanceGracePeriod | **string**<br><p>Time between notification via metadata service and maintenance</p> 
+hardwareGeneration | **object**<br><p>This feature set is inherited from the image/disk used as a boot one at the creation of the instance.</p> <p>A set of features, specific to a particular Compute hardware generation. They are not necessary supported by every host OS or distro, thus they are fixed to an image and are applied to all instances created with it as their boot disk image. These features significantly determine how the instance is created, thus cannot be changed after the fact.</p> 
+hardwareGeneration.<br>legacyFeatures | **object** <br>`hardwareGeneration` includes only one of the fields `legacyFeatures`, `generation2Features`<br><br><p>A first hardware generation, by default compatible with all legacy images. Allows switching to PCI_TOPOLOGY_V2 and back.</p> 
+hardwareGeneration.<br>legacyFeatures.<br>pciTopology | **string**
+hardwareGeneration.<br>generation2Features | **object** <br>`hardwareGeneration` includes only one of the fields `legacyFeatures`, `generation2Features`<br><br><p>A second hardware generation, which by default assumes PCI_TOPOLOGY_V2 and UEFI boot (with UEFI related features).</p> 
 
 ## Methods {#methods}
 Method | Description

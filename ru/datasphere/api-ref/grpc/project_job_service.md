@@ -63,6 +63,7 @@ cloud_instance_types[] | **[CloudInstanceType](#CloudInstanceType)**<br>VM speci
 extended_working_storage | **[ExtendedWorkingStorage](#ExtendedWorkingStorage)**<br>Extended working storage configuration. 
 arguments[] | **[Argument](#Argument)**<br>List of literal arguments. 
 output_datasets[] | **[OutputDatasetDesc](#OutputDatasetDesc)**<br>List of DataSets descriptions to create 
+graceful_shutdown_parameters | **[GracefulShutdownParameters](#GracefulShutdownParameters)**<br> 
 
 
 ### File {#File}
@@ -147,6 +148,14 @@ size_gb | **int64**<br>Size of dataset to create
 var | **string**<br>Var name to replace in cmd, like in FileDesc 
 
 
+### GracefulShutdownParameters {#GracefulShutdownParameters}
+
+Field | Description
+--- | ---
+timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br> 
+signal | **int64**<br>default 15 (SIGTERM) 
+
+
 ### Operation {#Operation}
 
 Field | Description
@@ -223,6 +232,7 @@ cloud_instance_types[] | **[CloudInstanceType](#CloudInstanceType1)**<br>VM spec
 extended_working_storage | **[ExtendedWorkingStorage](#ExtendedWorkingStorage1)**<br>Extended working storage configuration. 
 arguments[] | **[Argument](#Argument1)**<br>List of literal arguments. 
 output_datasets[] | **[OutputDatasetDesc](#OutputDatasetDesc1)**<br>List of DataSets descriptions to create 
+graceful_shutdown_parameters | **[GracefulShutdownParameters](#GracefulShutdownParameters1)**<br> 
 
 
 ### File {#File1}
@@ -305,6 +315,14 @@ description | **string**<br>Description to show in UI
 labels | **map<string,string>**<br> 
 size_gb | **int64**<br>Size of dataset to create 
 var | **string**<br>Var name to replace in cmd, like in FileDesc 
+
+
+### GracefulShutdownParameters {#GracefulShutdownParameters1}
+
+Field | Description
+--- | ---
+timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br> 
+signal | **int64**<br>default 15 (SIGTERM) 
 
 
 ### Operation {#Operation1}
@@ -425,6 +443,7 @@ cloud_instance_types[] | **[CloudInstanceType](#CloudInstanceType2)**<br>VM spec
 extended_working_storage | **[ExtendedWorkingStorage](#ExtendedWorkingStorage2)**<br>Extended working storage configuration. 
 arguments[] | **[Argument](#Argument2)**<br>List of literal arguments. 
 output_datasets[] | **[OutputDatasetDesc](#OutputDatasetDesc2)**<br>List of DataSets descriptions to create 
+graceful_shutdown_parameters | **[GracefulShutdownParameters](#GracefulShutdownParameters2)**<br> 
 
 
 ### FileDesc {#FileDesc2}
@@ -499,6 +518,14 @@ size_gb | **int64**<br>Size of dataset to create
 var | **string**<br>Var name to replace in cmd, like in FileDesc 
 
 
+### GracefulShutdownParameters {#GracefulShutdownParameters2}
+
+Field | Description
+--- | ---
+timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br> 
+signal | **int64**<br>default 15 (SIGTERM) 
+
+
 ### File {#File2}
 
 Field | Description
@@ -553,6 +580,7 @@ Field | Description
 --- | ---
 job_id | **string**<br>ID of the job. 
 reason | **string**<br>Optional cancellation reason. 
+graceful | **bool**<br>If the job is launched with graceful shutdown support, the shutdown will be performed gracefully 
 
 
 ## ReadStdLogs {#ReadStdLogs}
@@ -727,6 +755,7 @@ cloud_instance_types[] | **[CloudInstanceType](#CloudInstanceType3)**<br>VM spec
 extended_working_storage | **[ExtendedWorkingStorage](#ExtendedWorkingStorage3)**<br>Extended working storage configuration. 
 arguments[] | **[Argument](#Argument3)**<br>List of literal arguments. 
 output_datasets[] | **[OutputDatasetDesc](#OutputDatasetDesc3)**<br>List of DataSets descriptions to create 
+graceful_shutdown_parameters | **[GracefulShutdownParameters](#GracefulShutdownParameters3)**<br> 
 
 
 ### FileDesc {#FileDesc4}
@@ -801,6 +830,14 @@ size_gb | **int64**<br>Size of dataset to create
 var | **string**<br>Var name to replace in cmd, like in FileDesc 
 
 
+### GracefulShutdownParameters {#GracefulShutdownParameters3}
+
+Field | Description
+--- | ---
+timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br> 
+signal | **int64**<br>default 15 (SIGTERM) 
+
+
 ### File {#File4}
 
 Field | Description
@@ -862,6 +899,7 @@ cloud_instance_types[] | **[CloudInstanceType](#CloudInstanceType4)**<br>VM spec
 extended_working_storage | **[ExtendedWorkingStorage](#ExtendedWorkingStorage4)**<br>Extended working storage configuration. 
 arguments[] | **[Argument](#Argument4)**<br>List of literal arguments. 
 output_datasets[] | **[OutputDatasetDesc](#OutputDatasetDesc4)**<br>List of DataSets descriptions to create 
+graceful_shutdown_parameters | **[GracefulShutdownParameters](#GracefulShutdownParameters4)**<br> 
 
 
 ### FileDesc {#FileDesc5}
@@ -934,6 +972,14 @@ description | **string**<br>Description to show in UI
 labels | **map<string,string>**<br> 
 size_gb | **int64**<br>Size of dataset to create 
 var | **string**<br>Var name to replace in cmd, like in FileDesc 
+
+
+### GracefulShutdownParameters {#GracefulShutdownParameters4}
+
+Field | Description
+--- | ---
+timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br> 
+signal | **int64**<br>default 15 (SIGTERM) 
 
 
 ### File {#File5}

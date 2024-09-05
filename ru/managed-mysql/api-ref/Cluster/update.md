@@ -252,7 +252,8 @@ clusterId | <p>Required. ID of the cluster to update.</p> <p>To get this ID, mak
   "securityGroupIds": [
     "string"
   ],
-  "deletionProtection": true
+  "deletionProtection": true,
+  "networkId": "string"
 }
 ```
 
@@ -462,6 +463,7 @@ maintenanceWindow.<br>weeklyMaintenanceWindow.<br>day | **string**<br><p>Day of 
 maintenanceWindow.<br>weeklyMaintenanceWindow.<br>hour | **string** (int64)<br><p>Hour of the day in UTC (in ``HH`` format).</p> <p>Acceptable values are 1 to 24, inclusive.</p> 
 securityGroupIds[] | **string**<br><p>New list of security group IDs to apply to the cluster.</p> 
 deletionProtection | **boolean** (boolean)<br><p>This option prevents unintended deletion of the cluster.</p> 
+networkId | **string**<br><p>ID of the network to move the cluster to.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

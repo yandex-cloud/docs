@@ -11,8 +11,9 @@
 | Источник данных | Чтение  | Запись | Описание |
 | --- | :---: | :---: | --- |
 | [{{ objstorage-name }}](../storage/quickstart.md) | ![yes](../_assets/common/yes.svg) | ![yes](../_assets/common/yes.svg) | [Описание](./sources-and-sinks/object-storage-binding.md) |
-| [{{ mpg-full-name }}](../managed-postgresql/quickstart.md) | ![yes](../_assets/common/yes.svg) | ![no](../_assets/common/no.svg)  | [Описание](./sources-and-sinks/postgresql.md) |
 | [{{ mch-full-name }}](../managed-clickhouse/quickstart.md) | ![yes](../_assets/common/yes.svg) | ![no](../_assets/common/no.svg)  | [Описание](./sources-and-sinks/clickhouse.md) |
+| [{{ mpg-full-name }}](../managed-postgresql/quickstart.md) | ![yes](../_assets/common/yes.svg) | ![no](../_assets/common/no.svg)  | [Описание](./sources-and-sinks/postgresql.md) |
+| [{{ mmy-full-name }}](../managed-mysql/quickstart.md) | ![yes](../_assets/common/yes.svg) | ![no](../_assets/common/no.svg)  | [Описание](./sources-and-sinks/mysql.md) |
 | [{{ ydb-full-name }}](../ydb/quickstart.md) | ![yes](../_assets/common/yes.svg) | ![no](../_assets/common/no.svg)  | [Описание](./sources-and-sinks/ydb.md) |
 
 

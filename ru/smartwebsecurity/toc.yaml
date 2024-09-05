@@ -78,7 +78,13 @@ items:
       - name: >-
           Создание L7-балансировщика с защитой от DDoS на уровне L3-L4 модели
           OSI
-        href: tutorials/alb-with-ddos-protection.md
+        items:
+          - name: Обзор
+            href: tutorials/alb-with-ddos-protection/index.md
+          - name: Консоль управления, CLI
+            href: tutorials/alb-with-ddos-protection/console.md
+          - name: '{{ TF }}'
+            href: tutorials/alb-with-ddos-protection/terraform.md
   - name: Концепции
     expanded: true
     items:
@@ -112,6 +118,12 @@ items:
             href: api-ref/grpc/index.md
           - name: SecurityProfileService
             href: api-ref/grpc/security_profile_service.md
+          - name: AdvancedRateLimiterProfileService
+            href: api-ref/grpc/advanced_rate_limiter_profile_service.md
+          - name: RuleSetDescriptorService
+            href: api-ref/grpc/rule_set_descriptor_service.md
+          - name: WafProfileService
+            href: api-ref/grpc/waf_profile_service.md
           - name: OperationService
             href: api-ref/grpc/operation_service.md
       - name: REST (англ.)

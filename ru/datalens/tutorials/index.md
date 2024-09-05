@@ -33,6 +33,7 @@ description: "В разделе описаны сценарии использо
   * [Визуализация данных {{ yq-full-name }}](data-from-yandex-query-visualization.md)
   * [Визуализация данных {{ monitoring-full-name }}](data-from-monitoring-visualization.md)
   * [Визуализация данных из {{ ytsaurus-name }} CHYT](data-from-ch-over-yt.md)
+  * [Передача событий {{ postbox-full-name }} в {{ yds-full-name }} и их анализ с помощью {{ datalens-full-name }}](events-from-postbox-to-yds.md)
 
 * Функциональные
 

@@ -42,4 +42,5 @@ quantiles.<br>q100 | **number** (double)<br><p>100 percentile (maximum or minimu
 ## Methods {#methods}
 Method | Description
 --- | ---
+[calculateKpiValues](calculateKpiValues.md) | Returns a list of KPI values for tests matching the specified filter.
 [getTable](getTable.md) | Returns a report table for the specified test.

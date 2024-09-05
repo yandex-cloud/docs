@@ -34,7 +34,8 @@ POST https://{{ api-host-mdb }}/managed-greenplum/v1/clusters:restore
     "access": {
       "dataLens": true,
       "webSql": true,
-      "dataTransfer": true
+      "dataTransfer": true,
+      "yandexQuery": true
     },
     "zoneId": "string",
     "subnetId": "string",
@@ -74,6 +75,12 @@ POST https://{{ api-host-mdb }}/managed-greenplum/v1/clusters:restore
   "segmentInHost": "string",
   "restoreOnly": [
     "string"
+  ],
+  "masterHostGroupIds": [
+    "string"
+  ],
+  "segmentHostGroupIds": [
+    "string"
   ]
 }
 ```
@@ -98,6 +105,7 @@ config.<br>access | **object**<br><p>Access policy for external services.</p>
 config.<br>access.<br>dataLens | **boolean** (boolean)<br><p>Allows data export from the cluster to DataLens.</p> 
 config.<br>access.<br>webSql | **boolean** (boolean)<br><p>Allows SQL queries to the cluster databases from the management console.</p> 
 config.<br>access.<br>dataTransfer | **boolean** (boolean)<br><p>Allows access for DataTransfer.</p> 
+config.<br>access.<br>yandexQuery | **boolean** (boolean)<br><p>Allow access for YandexQuery.</p> 
 config.<br>zoneId | **string**<br><p>ID of the availability zone where the host resides.</p> <p>To get a list of available zones, use the <a href="/docs/compute/api-ref/Zone/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
 config.<br>subnetId | **string**<br><p>ID of the subnet that the host should belong to. This subnet should be a part of the network that the cluster belongs to. The ID of the network is set in the field <a href="/docs/managed-greenplum/api-ref/Cluster#representation">Cluster.networkId</a>.</p> <p>The maximum string length in characters is 50.</p> 
 config.<br>assignPublicIp | **boolean** (boolean)<br><p>Determines whether the host should get a public IP address on creation.</p> <p>After a host has been created, this setting cannot be changed.</p> <p>To remove an assigned public IP, or to assign a public IP to a host without one, recreate the host with ``assignPublicIp`` set as needed.</p> <p>Possible values:</p> <ul> <li>``false`` - do not assign a public IP to the master host.</li> <li>``true`` - assign a public IP to the master host.</li> </ul> 
@@ -122,6 +130,8 @@ maintenanceWindow.<br>weeklyMaintenanceWindow.<br>hour | **string** (int64)<br><
 segmentHostCount | **string** (int64)<br><p>Number of segment hosts</p> 
 segmentInHost | **string** (int64)<br><p>Number of segments on each host</p> 
 restoreOnly[] | **string**<br><p>List of databases and tables to restore</p> <p>The maximum number of elements is 50. The maximum string length in characters for each value is 256. Each value must match the regular expression ``[a-zA-Z0-9\*_]*(\/[a-zA-Z0-9\*_]*){0,2}``.</p> 
+masterHostGroupIds[] | **string**<br><p>Host groups hosting VMs of the master subcluster.</p> 
+segmentHostGroupIds[] | **string**<br><p>Host groups hosting VMs of the segment subcluster.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

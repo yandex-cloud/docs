@@ -8,6 +8,6 @@
 `DeleteSecret` | Удаление секрета
 `RotateSecret` | Ротация секрета
 `ScheduleVersionDestruction` | Распланирование уничтожения версии секрета
-`SetSecretAccessBindings` | Выбор привязок прав доступа для секрета
+`SetSecretAccessBindings` | Назначение прав доступа для секрета
 `UpdateSecret` | Изменение секрета
-`UpdateSecretAccessBindings` | Изменение привязок прав доступа для секрета
+`UpdateSecretAccessBindings` | Изменение прав доступа для секрета

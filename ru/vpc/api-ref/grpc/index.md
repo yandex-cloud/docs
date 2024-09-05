@@ -14,4 +14,5 @@ Service | Description
 [RouteTableService](./route_table_service.md) | A set of methods for managing RouteTable resources.
 [SecurityGroupService](./security_group_service.md) | A set of methods for managing SecurityGroup resources.
 [SubnetService](./subnet_service.md) | A set of methods for managing Subnet resources.
+[PrivateEndpointService](./private_endpoint_service.md) | A set of methods for managing PrivateEndpoint resources.
 [OperationService](./operation_service.md) | A set of methods for managing operations for asynchronous API requests.

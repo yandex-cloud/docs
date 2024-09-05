@@ -178,7 +178,8 @@ pageToken | <p>Opaque value identifying the endpoints page to be fetched. Should
             "jsonParser": {
               "dataSchema": {
 
-                // `endpoints[].settings.ydsSource.parser.jsonParser.dataSchema` includes only one of the fields `fields`, `jsonFields`
+                // `endpoints[].settings.ydsSource.parser.jsonParser.dataSchema` includes only one of the fields `jsonFields`, `fields`
+                "jsonFields": "string",
                 "fields": {
                   "fields": [
                     {
@@ -190,7 +191,6 @@ pageToken | <p>Opaque value identifying the endpoints page to be fetched. Should
                     }
                   ]
                 },
-                "jsonFields": "string",
                 // end of the list of possible fields`endpoints[].settings.ydsSource.parser.jsonParser.dataSchema`
 
               },
@@ -203,7 +203,8 @@ pageToken | <p>Opaque value identifying the endpoints page to be fetched. Should
             "tskvParser": {
               "dataSchema": {
 
-                // `endpoints[].settings.ydsSource.parser.tskvParser.dataSchema` includes only one of the fields `fields`, `jsonFields`
+                // `endpoints[].settings.ydsSource.parser.tskvParser.dataSchema` includes only one of the fields `jsonFields`, `fields`
+                "jsonFields": "string",
                 "fields": {
                   "fields": [
                     {
@@ -215,7 +216,6 @@ pageToken | <p>Opaque value identifying the endpoints page to be fetched. Should
                     }
                   ]
                 },
-                "jsonFields": "string",
                 // end of the list of possible fields`endpoints[].settings.ydsSource.parser.tskvParser.dataSchema`
 
               },
@@ -290,7 +290,8 @@ pageToken | <p>Opaque value identifying the endpoints page to be fetched. Should
             "jsonParser": {
               "dataSchema": {
 
-                // `endpoints[].settings.kafkaSource.parser.jsonParser.dataSchema` includes only one of the fields `fields`, `jsonFields`
+                // `endpoints[].settings.kafkaSource.parser.jsonParser.dataSchema` includes only one of the fields `jsonFields`, `fields`
+                "jsonFields": "string",
                 "fields": {
                   "fields": [
                     {
@@ -302,7 +303,6 @@ pageToken | <p>Opaque value identifying the endpoints page to be fetched. Should
                     }
                   ]
                 },
-                "jsonFields": "string",
                 // end of the list of possible fields`endpoints[].settings.kafkaSource.parser.jsonParser.dataSchema`
 
               },
@@ -315,7 +315,8 @@ pageToken | <p>Opaque value identifying the endpoints page to be fetched. Should
             "tskvParser": {
               "dataSchema": {
 
-                // `endpoints[].settings.kafkaSource.parser.tskvParser.dataSchema` includes only one of the fields `fields`, `jsonFields`
+                // `endpoints[].settings.kafkaSource.parser.tskvParser.dataSchema` includes only one of the fields `jsonFields`, `fields`
+                "jsonFields": "string",
                 "fields": {
                   "fields": [
                     {
@@ -327,7 +328,6 @@ pageToken | <p>Opaque value identifying the endpoints page to be fetched. Should
                     }
                   ]
                 },
-                "jsonFields": "string",
                 // end of the list of possible fields`endpoints[].settings.kafkaSource.parser.tskvParser.dataSchema`
 
               },
@@ -401,8 +401,7 @@ pageToken | <p>Opaque value identifying the endpoints page to be fetched. Should
               },
               "database": "string",
 
-              // `endpoints[].settings.clickhouseSource.connection.connectionOptions` includes only one of the fields `mdbClusterId`, `onPremise`
-              "mdbClusterId": "string",
+              // `endpoints[].settings.clickhouseSource.connection.connectionOptions` includes only one of the fields `onPremise`, `mdbClusterId`
               "onPremise": {
                 "shards": [
                   {
@@ -425,6 +424,7 @@ pageToken | <p>Opaque value identifying the endpoints page to be fetched. Should
 
                 }
               },
+              "mdbClusterId": "string",
               // end of the list of possible fields`endpoints[].settings.clickhouseSource.connection.connectionOptions`
 
             }
@@ -438,7 +438,8 @@ pageToken | <p>Opaque value identifying the endpoints page to be fetched. Should
           "subnetId": "string",
           "securityGroups": [
             "string"
-          ]
+          ],
+          "clickhouseClusterName": "string"
         },
         "mysqlTarget": {
           "connection": {
@@ -523,8 +524,7 @@ pageToken | <p>Opaque value identifying the endpoints page to be fetched. Should
               },
               "database": "string",
 
-              // `endpoints[].settings.clickhouseTarget.connection.connectionOptions` includes only one of the fields `mdbClusterId`, `onPremise`
-              "mdbClusterId": "string",
+              // `endpoints[].settings.clickhouseTarget.connection.connectionOptions` includes only one of the fields `onPremise`, `mdbClusterId`
               "onPremise": {
                 "shards": [
                   {
@@ -547,6 +547,7 @@ pageToken | <p>Opaque value identifying the endpoints page to be fetched. Should
 
                 }
               },
+              "mdbClusterId": "string",
               // end of the list of possible fields`endpoints[].settings.clickhouseTarget.connection.connectionOptions`
 
             }
@@ -853,14 +854,14 @@ endpoints[].<br>settings.<br>ydsSource.<br>supportedCodecs[] | **string**<br><p>
 endpoints[].<br>settings.<br>ydsSource.<br>parser | **object**<br><p>Data parsing rules</p> 
 endpoints[].<br>settings.<br>ydsSource.<br>parser.<br>jsonParser | **object** <br>`endpoints[].settings.ydsSource.parser` includes only one of the fields `jsonParser`, `auditTrailsV1Parser`, `cloudLoggingParser`, `tskvParser`<br>
 endpoints[].<br>settings.<br>ydsSource.<br>parser.<br>jsonParser.<br>dataSchema | **object**
-endpoints[].<br>settings.<br>ydsSource.<br>parser.<br>jsonParser.<br>dataSchema.<br>fields | **object** <br>`endpoints[].settings.ydsSource.parser.jsonParser.dataSchema` includes only one of the fields `fields`, `jsonFields`<br>
+endpoints[].<br>settings.<br>ydsSource.<br>parser.<br>jsonParser.<br>dataSchema.<br>jsonFields | **string** <br>`endpoints[].settings.ydsSource.parser.jsonParser.dataSchema` includes only one of the fields `jsonFields`, `fields`<br>
+endpoints[].<br>settings.<br>ydsSource.<br>parser.<br>jsonParser.<br>dataSchema.<br>fields | **object** <br>`endpoints[].settings.ydsSource.parser.jsonParser.dataSchema` includes only one of the fields `jsonFields`, `fields`<br>
 endpoints[].<br>settings.<br>ydsSource.<br>parser.<br>jsonParser.<br>dataSchema.<br>fields.<br>fields[] | **object**<br><p>Column schema</p> 
 endpoints[].<br>settings.<br>ydsSource.<br>parser.<br>jsonParser.<br>dataSchema.<br>fields.<br>fields[].<br>name | **string**
 endpoints[].<br>settings.<br>ydsSource.<br>parser.<br>jsonParser.<br>dataSchema.<br>fields.<br>fields[].<br>type | **string**
 endpoints[].<br>settings.<br>ydsSource.<br>parser.<br>jsonParser.<br>dataSchema.<br>fields.<br>fields[].<br>key | **boolean** (boolean)
 endpoints[].<br>settings.<br>ydsSource.<br>parser.<br>jsonParser.<br>dataSchema.<br>fields.<br>fields[].<br>required | **boolean** (boolean)
 endpoints[].<br>settings.<br>ydsSource.<br>parser.<br>jsonParser.<br>dataSchema.<br>fields.<br>fields[].<br>path | **string**
-endpoints[].<br>settings.<br>ydsSource.<br>parser.<br>jsonParser.<br>dataSchema.<br>jsonFields | **string** <br>`endpoints[].settings.ydsSource.parser.jsonParser.dataSchema` includes only one of the fields `fields`, `jsonFields`<br>
 endpoints[].<br>settings.<br>ydsSource.<br>parser.<br>jsonParser.<br>nullKeysAllowed | **boolean** (boolean)<br><p>Allow null keys, if no - null keys will be putted to unparsed data</p> 
 endpoints[].<br>settings.<br>ydsSource.<br>parser.<br>jsonParser.<br>addRestColumn | **boolean** (boolean)<br><p>Will add _rest column for all unknown fields</p> 
 endpoints[].<br>settings.<br>ydsSource.<br>parser.<br>jsonParser.<br>unescapeStringValues | **boolean** (boolean)<br><p>Unescape string values</p> 
@@ -868,14 +869,14 @@ endpoints[].<br>settings.<br>ydsSource.<br>parser.<br>auditTrailsV1Parser | **ob
 endpoints[].<br>settings.<br>ydsSource.<br>parser.<br>cloudLoggingParser | **object** <br>`endpoints[].settings.ydsSource.parser` includes only one of the fields `jsonParser`, `auditTrailsV1Parser`, `cloudLoggingParser`, `tskvParser`<br>
 endpoints[].<br>settings.<br>ydsSource.<br>parser.<br>tskvParser | **object** <br>`endpoints[].settings.ydsSource.parser` includes only one of the fields `jsonParser`, `auditTrailsV1Parser`, `cloudLoggingParser`, `tskvParser`<br>
 endpoints[].<br>settings.<br>ydsSource.<br>parser.<br>tskvParser.<br>dataSchema | **object**
-endpoints[].<br>settings.<br>ydsSource.<br>parser.<br>tskvParser.<br>dataSchema.<br>fields | **object** <br>`endpoints[].settings.ydsSource.parser.tskvParser.dataSchema` includes only one of the fields `fields`, `jsonFields`<br>
+endpoints[].<br>settings.<br>ydsSource.<br>parser.<br>tskvParser.<br>dataSchema.<br>jsonFields | **string** <br>`endpoints[].settings.ydsSource.parser.tskvParser.dataSchema` includes only one of the fields `jsonFields`, `fields`<br>
+endpoints[].<br>settings.<br>ydsSource.<br>parser.<br>tskvParser.<br>dataSchema.<br>fields | **object** <br>`endpoints[].settings.ydsSource.parser.tskvParser.dataSchema` includes only one of the fields `jsonFields`, `fields`<br>
 endpoints[].<br>settings.<br>ydsSource.<br>parser.<br>tskvParser.<br>dataSchema.<br>fields.<br>fields[] | **object**<br><p>Column schema</p> 
 endpoints[].<br>settings.<br>ydsSource.<br>parser.<br>tskvParser.<br>dataSchema.<br>fields.<br>fields[].<br>name | **string**
 endpoints[].<br>settings.<br>ydsSource.<br>parser.<br>tskvParser.<br>dataSchema.<br>fields.<br>fields[].<br>type | **string**
 endpoints[].<br>settings.<br>ydsSource.<br>parser.<br>tskvParser.<br>dataSchema.<br>fields.<br>fields[].<br>key | **boolean** (boolean)
 endpoints[].<br>settings.<br>ydsSource.<br>parser.<br>tskvParser.<br>dataSchema.<br>fields.<br>fields[].<br>required | **boolean** (boolean)
 endpoints[].<br>settings.<br>ydsSource.<br>parser.<br>tskvParser.<br>dataSchema.<br>fields.<br>fields[].<br>path | **string**
-endpoints[].<br>settings.<br>ydsSource.<br>parser.<br>tskvParser.<br>dataSchema.<br>jsonFields | **string** <br>`endpoints[].settings.ydsSource.parser.tskvParser.dataSchema` includes only one of the fields `fields`, `jsonFields`<br>
 endpoints[].<br>settings.<br>ydsSource.<br>parser.<br>tskvParser.<br>nullKeysAllowed | **boolean** (boolean)<br><p>Allow null keys, if no - null keys will be putted to unparsed data</p> 
 endpoints[].<br>settings.<br>ydsSource.<br>parser.<br>tskvParser.<br>addRestColumn | **boolean** (boolean)<br><p>Will add _rest column for all unknown fields</p> 
 endpoints[].<br>settings.<br>ydsSource.<br>parser.<br>tskvParser.<br>unescapeStringValues | **boolean** (boolean)<br><p>Unescape string values</p> 
@@ -914,14 +915,14 @@ endpoints[].<br>settings.<br>kafkaSource.<br>transformer.<br>serviceAccountId | 
 endpoints[].<br>settings.<br>kafkaSource.<br>parser | **object**<br><p>Data parsing rules</p> 
 endpoints[].<br>settings.<br>kafkaSource.<br>parser.<br>jsonParser | **object** <br>`endpoints[].settings.kafkaSource.parser` includes only one of the fields `jsonParser`, `auditTrailsV1Parser`, `cloudLoggingParser`, `tskvParser`<br>
 endpoints[].<br>settings.<br>kafkaSource.<br>parser.<br>jsonParser.<br>dataSchema | **object**
-endpoints[].<br>settings.<br>kafkaSource.<br>parser.<br>jsonParser.<br>dataSchema.<br>fields | **object** <br>`endpoints[].settings.kafkaSource.parser.jsonParser.dataSchema` includes only one of the fields `fields`, `jsonFields`<br>
+endpoints[].<br>settings.<br>kafkaSource.<br>parser.<br>jsonParser.<br>dataSchema.<br>jsonFields | **string** <br>`endpoints[].settings.kafkaSource.parser.jsonParser.dataSchema` includes only one of the fields `jsonFields`, `fields`<br>
+endpoints[].<br>settings.<br>kafkaSource.<br>parser.<br>jsonParser.<br>dataSchema.<br>fields | **object** <br>`endpoints[].settings.kafkaSource.parser.jsonParser.dataSchema` includes only one of the fields `jsonFields`, `fields`<br>
 endpoints[].<br>settings.<br>kafkaSource.<br>parser.<br>jsonParser.<br>dataSchema.<br>fields.<br>fields[] | **object**<br><p>Column schema</p> 
 endpoints[].<br>settings.<br>kafkaSource.<br>parser.<br>jsonParser.<br>dataSchema.<br>fields.<br>fields[].<br>name | **string**
 endpoints[].<br>settings.<br>kafkaSource.<br>parser.<br>jsonParser.<br>dataSchema.<br>fields.<br>fields[].<br>type | **string**
 endpoints[].<br>settings.<br>kafkaSource.<br>parser.<br>jsonParser.<br>dataSchema.<br>fields.<br>fields[].<br>key | **boolean** (boolean)
 endpoints[].<br>settings.<br>kafkaSource.<br>parser.<br>jsonParser.<br>dataSchema.<br>fields.<br>fields[].<br>required | **boolean** (boolean)
 endpoints[].<br>settings.<br>kafkaSource.<br>parser.<br>jsonParser.<br>dataSchema.<br>fields.<br>fields[].<br>path | **string**
-endpoints[].<br>settings.<br>kafkaSource.<br>parser.<br>jsonParser.<br>dataSchema.<br>jsonFields | **string** <br>`endpoints[].settings.kafkaSource.parser.jsonParser.dataSchema` includes only one of the fields `fields`, `jsonFields`<br>
 endpoints[].<br>settings.<br>kafkaSource.<br>parser.<br>jsonParser.<br>nullKeysAllowed | **boolean** (boolean)<br><p>Allow null keys, if no - null keys will be putted to unparsed data</p> 
 endpoints[].<br>settings.<br>kafkaSource.<br>parser.<br>jsonParser.<br>addRestColumn | **boolean** (boolean)<br><p>Will add _rest column for all unknown fields</p> 
 endpoints[].<br>settings.<br>kafkaSource.<br>parser.<br>jsonParser.<br>unescapeStringValues | **boolean** (boolean)<br><p>Unescape string values</p> 
@@ -929,14 +930,14 @@ endpoints[].<br>settings.<br>kafkaSource.<br>parser.<br>auditTrailsV1Parser | **
 endpoints[].<br>settings.<br>kafkaSource.<br>parser.<br>cloudLoggingParser | **object** <br>`endpoints[].settings.kafkaSource.parser` includes only one of the fields `jsonParser`, `auditTrailsV1Parser`, `cloudLoggingParser`, `tskvParser`<br>
 endpoints[].<br>settings.<br>kafkaSource.<br>parser.<br>tskvParser | **object** <br>`endpoints[].settings.kafkaSource.parser` includes only one of the fields `jsonParser`, `auditTrailsV1Parser`, `cloudLoggingParser`, `tskvParser`<br>
 endpoints[].<br>settings.<br>kafkaSource.<br>parser.<br>tskvParser.<br>dataSchema | **object**
-endpoints[].<br>settings.<br>kafkaSource.<br>parser.<br>tskvParser.<br>dataSchema.<br>fields | **object** <br>`endpoints[].settings.kafkaSource.parser.tskvParser.dataSchema` includes only one of the fields `fields`, `jsonFields`<br>
+endpoints[].<br>settings.<br>kafkaSource.<br>parser.<br>tskvParser.<br>dataSchema.<br>jsonFields | **string** <br>`endpoints[].settings.kafkaSource.parser.tskvParser.dataSchema` includes only one of the fields `jsonFields`, `fields`<br>
+endpoints[].<br>settings.<br>kafkaSource.<br>parser.<br>tskvParser.<br>dataSchema.<br>fields | **object** <br>`endpoints[].settings.kafkaSource.parser.tskvParser.dataSchema` includes only one of the fields `jsonFields`, `fields`<br>
 endpoints[].<br>settings.<br>kafkaSource.<br>parser.<br>tskvParser.<br>dataSchema.<br>fields.<br>fields[] | **object**<br><p>Column schema</p> 
 endpoints[].<br>settings.<br>kafkaSource.<br>parser.<br>tskvParser.<br>dataSchema.<br>fields.<br>fields[].<br>name | **string**
 endpoints[].<br>settings.<br>kafkaSource.<br>parser.<br>tskvParser.<br>dataSchema.<br>fields.<br>fields[].<br>type | **string**
 endpoints[].<br>settings.<br>kafkaSource.<br>parser.<br>tskvParser.<br>dataSchema.<br>fields.<br>fields[].<br>key | **boolean** (boolean)
 endpoints[].<br>settings.<br>kafkaSource.<br>parser.<br>tskvParser.<br>dataSchema.<br>fields.<br>fields[].<br>required | **boolean** (boolean)
 endpoints[].<br>settings.<br>kafkaSource.<br>parser.<br>tskvParser.<br>dataSchema.<br>fields.<br>fields[].<br>path | **string**
-endpoints[].<br>settings.<br>kafkaSource.<br>parser.<br>tskvParser.<br>dataSchema.<br>jsonFields | **string** <br>`endpoints[].settings.kafkaSource.parser.tskvParser.dataSchema` includes only one of the fields `fields`, `jsonFields`<br>
 endpoints[].<br>settings.<br>kafkaSource.<br>parser.<br>tskvParser.<br>nullKeysAllowed | **boolean** (boolean)<br><p>Allow null keys, if no - null keys will be putted to unparsed data</p> 
 endpoints[].<br>settings.<br>kafkaSource.<br>parser.<br>tskvParser.<br>addRestColumn | **boolean** (boolean)<br><p>Will add _rest column for all unknown fields</p> 
 endpoints[].<br>settings.<br>kafkaSource.<br>parser.<br>tskvParser.<br>unescapeStringValues | **boolean** (boolean)<br><p>Unescape string values</p> 
@@ -974,8 +975,7 @@ endpoints[].<br>settings.<br>clickhouseSource.<br>connection.<br>connectionOptio
 endpoints[].<br>settings.<br>clickhouseSource.<br>connection.<br>connectionOptions.<br>password | **object**<br>Password for user
 endpoints[].<br>settings.<br>clickhouseSource.<br>connection.<br>connectionOptions.<br>password.<br>raw | **string**<br><p>Raw secret value</p> 
 endpoints[].<br>settings.<br>clickhouseSource.<br>connection.<br>connectionOptions.<br>database | **string**<br><p>Database</p> 
-endpoints[].<br>settings.<br>clickhouseSource.<br>connection.<br>connectionOptions.<br>mdbClusterId | **string** <br>`endpoints[].settings.clickhouseSource.connection.connectionOptions` includes only one of the fields `mdbClusterId`, `onPremise`<br>
-endpoints[].<br>settings.<br>clickhouseSource.<br>connection.<br>connectionOptions.<br>onPremise | **object** <br>`endpoints[].settings.clickhouseSource.connection.connectionOptions` includes only one of the fields `mdbClusterId`, `onPremise`<br>
+endpoints[].<br>settings.<br>clickhouseSource.<br>connection.<br>connectionOptions.<br>onPremise | **object** <br>`endpoints[].settings.clickhouseSource.connection.connectionOptions` includes only one of the fields `onPremise`, `mdbClusterId`<br>
 endpoints[].<br>settings.<br>clickhouseSource.<br>connection.<br>connectionOptions.<br>onPremise.<br>shards[] | **object**
 endpoints[].<br>settings.<br>clickhouseSource.<br>connection.<br>connectionOptions.<br>onPremise.<br>shards[].<br>name | **string**
 endpoints[].<br>settings.<br>clickhouseSource.<br>connection.<br>connectionOptions.<br>onPremise.<br>shards[].<br>hosts[] | **string**
@@ -986,10 +986,12 @@ endpoints[].<br>settings.<br>clickhouseSource.<br>connection.<br>connectionOptio
 endpoints[].<br>settings.<br>clickhouseSource.<br>connection.<br>connectionOptions.<br>onPremise.<br>tlsMode.<br>disabled.<br>disabled | **object** <br>`endpoints[].settings.clickhouseSource.connection.connectionOptions.onPremise.tlsMode` includes only one of the fields `disabled`, `enabled`<br><br><p>Empty JSON object ``{}``.</p> 
 endpoints[].<br>settings.<br>clickhouseSource.<br>connection.<br>connectionOptions.<br>onPremise.<br>tlsMode.<br>enabled | **object** <br>`endpoints[].settings.clickhouseSource.connection.connectionOptions.onPremise.tlsMode` includes only one of the fields `disabled`, `enabled`<br>
 endpoints[].<br>settings.<br>clickhouseSource.<br>connection.<br>connectionOptions.<br>onPremise.<br>tlsMode.<br>enabled.<br>caCertificate | **string**<br><p>CA certificate</p> <p>X.509 certificate of the certificate authority which issued the server's certificate, in PEM format. When CA certificate is specified TLS is used to connect to the server.</p> 
+endpoints[].<br>settings.<br>clickhouseSource.<br>connection.<br>connectionOptions.<br>mdbClusterId | **string** <br>`endpoints[].settings.clickhouseSource.connection.connectionOptions` includes only one of the fields `onPremise`, `mdbClusterId`<br>
 endpoints[].<br>settings.<br>clickhouseSource.<br>includeTables[] | **string**<br><p>While list of tables for replication. If none or empty list is presented - will replicate all tables. Can contain * patterns.</p> 
 endpoints[].<br>settings.<br>clickhouseSource.<br>excludeTables[] | **string**<br><p>Exclude list of tables for replication. If none or empty list is presented - will replicate all tables. Can contain * patterns.</p> 
 endpoints[].<br>settings.<br>clickhouseSource.<br>subnetId | **string**
 endpoints[].<br>settings.<br>clickhouseSource.<br>securityGroups[] | **string**
+endpoints[].<br>settings.<br>clickhouseSource.<br>clickhouseClusterName | **string**<br><p>Name of the ClickHouse cluster. For Managed ClickHouse that is name of ShardGroup.</p> 
 endpoints[].<br>settings.<br>mysqlTarget | **object** <br>`endpoints[].settings` includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`<br>
 endpoints[].<br>settings.<br>mysqlTarget.<br>connection | **object**<br><p>Database connection settings</p> 
 endpoints[].<br>settings.<br>mysqlTarget.<br>connection.<br>mdbClusterId | **string** <br>`endpoints[].settings.mysqlTarget.connection` includes only one of the fields `mdbClusterId`, `onPremise`<br><br><p>Managed Service for MySQL cluster ID</p> 
@@ -1037,8 +1039,7 @@ endpoints[].<br>settings.<br>clickhouseTarget.<br>connection.<br>connectionOptio
 endpoints[].<br>settings.<br>clickhouseTarget.<br>connection.<br>connectionOptions.<br>password | **object**<br>Password for user
 endpoints[].<br>settings.<br>clickhouseTarget.<br>connection.<br>connectionOptions.<br>password.<br>raw | **string**<br><p>Raw secret value</p> 
 endpoints[].<br>settings.<br>clickhouseTarget.<br>connection.<br>connectionOptions.<br>database | **string**<br><p>Database</p> 
-endpoints[].<br>settings.<br>clickhouseTarget.<br>connection.<br>connectionOptions.<br>mdbClusterId | **string** <br>`endpoints[].settings.clickhouseTarget.connection.connectionOptions` includes only one of the fields `mdbClusterId`, `onPremise`<br>
-endpoints[].<br>settings.<br>clickhouseTarget.<br>connection.<br>connectionOptions.<br>onPremise | **object** <br>`endpoints[].settings.clickhouseTarget.connection.connectionOptions` includes only one of the fields `mdbClusterId`, `onPremise`<br>
+endpoints[].<br>settings.<br>clickhouseTarget.<br>connection.<br>connectionOptions.<br>onPremise | **object** <br>`endpoints[].settings.clickhouseTarget.connection.connectionOptions` includes only one of the fields `onPremise`, `mdbClusterId`<br>
 endpoints[].<br>settings.<br>clickhouseTarget.<br>connection.<br>connectionOptions.<br>onPremise.<br>shards[] | **object**
 endpoints[].<br>settings.<br>clickhouseTarget.<br>connection.<br>connectionOptions.<br>onPremise.<br>shards[].<br>name | **string**
 endpoints[].<br>settings.<br>clickhouseTarget.<br>connection.<br>connectionOptions.<br>onPremise.<br>shards[].<br>hosts[] | **string**
@@ -1049,6 +1050,7 @@ endpoints[].<br>settings.<br>clickhouseTarget.<br>connection.<br>connectionOptio
 endpoints[].<br>settings.<br>clickhouseTarget.<br>connection.<br>connectionOptions.<br>onPremise.<br>tlsMode.<br>disabled.<br>disabled | **object** <br>`endpoints[].settings.clickhouseTarget.connection.connectionOptions.onPremise.tlsMode` includes only one of the fields `disabled`, `enabled`<br><br><p>Empty JSON object ``{}``.</p> 
 endpoints[].<br>settings.<br>clickhouseTarget.<br>connection.<br>connectionOptions.<br>onPremise.<br>tlsMode.<br>enabled | **object** <br>`endpoints[].settings.clickhouseTarget.connection.connectionOptions.onPremise.tlsMode` includes only one of the fields `disabled`, `enabled`<br>
 endpoints[].<br>settings.<br>clickhouseTarget.<br>connection.<br>connectionOptions.<br>onPremise.<br>tlsMode.<br>enabled.<br>caCertificate | **string**<br><p>CA certificate</p> <p>X.509 certificate of the certificate authority which issued the server's certificate, in PEM format. When CA certificate is specified TLS is used to connect to the server.</p> 
+endpoints[].<br>settings.<br>clickhouseTarget.<br>connection.<br>connectionOptions.<br>mdbClusterId | **string** <br>`endpoints[].settings.clickhouseTarget.connection.connectionOptions` includes only one of the fields `onPremise`, `mdbClusterId`<br>
 endpoints[].<br>settings.<br>clickhouseTarget.<br>subnetId | **string**
 endpoints[].<br>settings.<br>clickhouseTarget.<br>altNames[] | **object**<br><p>Alternative table names in target</p> 
 endpoints[].<br>settings.<br>clickhouseTarget.<br>altNames[].<br>fromName | **string**<br><p>Source table name</p> 
@@ -1067,7 +1069,7 @@ endpoints[].<br>settings.<br>clickhouseTarget.<br>sharding.<br>transferId | **ob
 endpoints[].<br>settings.<br>clickhouseTarget.<br>sharding.<br>transferId.<br>transferId | **object** <br>`endpoints[].settings.clickhouseTarget.sharding` includes only one of the fields `columnValueHash`, `customMapping`, `transferId`, `roundRobin`<br><br><p>Empty JSON object ``{}``.</p> 
 endpoints[].<br>settings.<br>clickhouseTarget.<br>sharding.<br>roundRobin | **object** <br>`endpoints[].settings.clickhouseTarget.sharding` includes only one of the fields `columnValueHash`, `customMapping`, `transferId`, `roundRobin`<br><br><p>Empty JSON object ``{}``.</p> 
 endpoints[].<br>settings.<br>clickhouseTarget.<br>sharding.<br>roundRobin.<br>roundRobin | **object** <br>`endpoints[].settings.clickhouseTarget.sharding` includes only one of the fields `columnValueHash`, `customMapping`, `transferId`, `roundRobin`<br><br><p>Empty JSON object ``{}``.</p> 
-endpoints[].<br>settings.<br>clickhouseTarget.<br>clickhouseClusterName | **string**
+endpoints[].<br>settings.<br>clickhouseTarget.<br>clickhouseClusterName | **string**<br><p>Name of the ClickHouse cluster. For Managed ClickHouse that is name of ShardGroup.</p> 
 endpoints[].<br>settings.<br>clickhouseTarget.<br>securityGroups[] | **string**
 endpoints[].<br>settings.<br>ydbTarget | **object** <br>`endpoints[].settings` includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`<br>
 endpoints[].<br>settings.<br>ydbTarget.<br>database | **string**<br><p>Path in YDB where to store tables</p> 

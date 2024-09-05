@@ -58,7 +58,8 @@ filter | <p>A filter expression that filters clusters listed in the response. Th
           "nanos": "integer"
         },
         "access": {
-          "dataLens": true
+          "dataLens": true,
+          "webSql": true
         },
         "redis": {
           "effectiveConfig": {
@@ -434,6 +435,7 @@ clusters[].<br>config.<br>backupWindowStart.<br>seconds | **integer** (int32)<br
 clusters[].<br>config.<br>backupWindowStart.<br>nanos | **integer** (int32)<br><p>Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.</p> 
 clusters[].<br>config.<br>access | **object**<br>Access policy to DB
 clusters[].<br>config.<br>access.<br>dataLens | **boolean** (boolean)<br><p>Allow access for DataLens</p> 
+clusters[].<br>config.<br>access.<br>webSql | **boolean** (boolean)<br><p>Allow access for Web SQL.</p> 
 clusters[].<br>config.<br>redis | **object**<br>Unified configuration of a Redis cluster.
 clusters[].<br>config.<br>redis.<br>effectiveConfig | **object**<br><p>Effective settings for a Redis cluster (a combination of settings defined in ``userConfig`` and ``defaultConfig``).</p> <p>Fields and structure of ``RedisConfig`` reflects Redis configuration file parameters.</p> 
 clusters[].<br>config.<br>redis.<br>effectiveConfig.<br>maxmemoryPolicy | **string**<br><p>Redis key eviction policy for a dataset that reaches maximum memory, available to the host. Redis maxmemory setting depends on Managed Service for Redis <a href="/docs/managed-redis/concepts/instance-types">host class</a>.</p> <p>All policies are described in detail in <a href="https://redis.io/topics/lru-cache">Redis documentation</a>.</p> <ul> <li>VOLATILE_LRU: Try to remove less recently used (LRU) keys with ``expire set``.</li> <li>ALLKEYS_LRU: Remove less recently used (LRU) keys.</li> <li>VOLATILE_LFU: Try to remove least frequently used (LFU) keys with ``expire set``.</li> <li>ALLKEYS_LFU: Remove least frequently used (LFU) keys.</li> <li>VOLATILE_RANDOM: Try to remove keys with ``expire set`` randomly.</li> <li>ALLKEYS_RANDOM: Remove keys randomly.</li> <li>VOLATILE_TTL: Try to remove less recently used (LRU) keys with ``expire set`` and shorter TTL first.</li> <li>NOEVICTION: Return errors when memory limit was reached and commands could require more memory to be used.</li> </ul> 

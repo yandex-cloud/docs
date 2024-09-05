@@ -8,6 +8,6 @@ canonical: "{{ link-docs }}/tutorials/security/tls-termination-terraform"
 
 {% include [tls-termination-terraform](../../../_tutorials/security/tls-termination-terraform.md) %}
 
-## См. также {#see-also}
+#### См. также {#see-also}
 
-* [{#T}](console.md).
+* [{#T}](console.md)

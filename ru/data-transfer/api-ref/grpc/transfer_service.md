@@ -195,8 +195,9 @@ splitter | **string**<br>Specify the split string to be used for merging compone
 
 Field | Description
 --- | ---
-tables | **[TablesFilter](#TablesFilter1)**<br>List of included and excluded tables 
-filter | **string**<br>Filtering criterion. This can be comparison operators for numeric, string, and Boolean values, comparison to NULL, and checking whether a substring is part of a string. For more details see [documentation](/docs/data-transfer/concepts/data-transformation#append-only-sources). 
+tables | **[TablesFilter](#TablesFilter1)**<br>List of included and excluded tables. 
+filter | **string**<br>Filtering criterion. This can be comparison operators for numeric, string, and Boolean values, comparison to NULL, and checking whether a substring is part of a string. Details here: https://yandex.cloud/en-ru/docs/data-transfer/concepts/data-transformation#append-only-sources. Deprecated: Use filters instead. 
+filters[] | **string**<br>Data is transported if it satisfies at least one of filters. Consider that there is OR statement between filters. Each filter can be comparison operators for numeric, string, and Boolean values, comparison to NULL, and checking whether a substring is part of a string. Details in docs: https://yandex.cloud/en-ru/docs/data-transfer/concepts/data-transformation#append-only-sources. 
 
 
 ### Operation {#Operation}
@@ -389,8 +390,9 @@ splitter | **string**<br>Specify the split string to be used for merging compone
 
 Field | Description
 --- | ---
-tables | **[TablesFilter](#TablesFilter2)**<br>List of included and excluded tables 
-filter | **string**<br>Filtering criterion. This can be comparison operators for numeric, string, and Boolean values, comparison to NULL, and checking whether a substring is part of a string. For more details see [documentation](/docs/data-transfer/concepts/data-transformation#append-only-sources). 
+tables | **[TablesFilter](#TablesFilter2)**<br>List of included and excluded tables. 
+filter | **string**<br>Filtering criterion. This can be comparison operators for numeric, string, and Boolean values, comparison to NULL, and checking whether a substring is part of a string. Details here: https://yandex.cloud/en-ru/docs/data-transfer/concepts/data-transformation#append-only-sources. Deprecated: Use filters instead. 
+filters[] | **string**<br>Data is transported if it satisfies at least one of filters. Consider that there is OR statement between filters. Each filter can be comparison operators for numeric, string, and Boolean values, comparison to NULL, and checking whether a substring is part of a string. Details in docs: https://yandex.cloud/en-ru/docs/data-transfer/concepts/data-transformation#append-only-sources. 
 
 
 ### Operation {#Operation1}
@@ -697,9 +699,9 @@ unescape_string_values | **bool**<br>Unescape string values
 
 Field | Description
 --- | ---
-schema | **oneof:** `fields` or `json_fields`<br>
-&nbsp;&nbsp;fields | **[FieldList](#FieldList)**<br> 
+schema | **oneof:** `json_fields` or `fields`<br>
 &nbsp;&nbsp;json_fields | **string**<br> 
+&nbsp;&nbsp;fields | **[FieldList](#FieldList)**<br> 
 
 
 ### FieldList {#FieldList}
@@ -852,6 +854,7 @@ include_tables[] | **string**<br>While list of tables for replication. If none o
 exclude_tables[] | **string**<br>Exclude list of tables for replication. If none or empty list is presented - will replicate all tables. Can contain * patterns. 
 subnet_id | **string**<br> 
 security_groups[] | **string**<br> 
+clickhouse_cluster_name | **string**<br>Name of the ClickHouse cluster. For Managed ClickHouse that is name of ShardGroup. 
 
 
 ### ClickhouseConnection {#ClickhouseConnection}
@@ -866,9 +869,9 @@ connection | **oneof:** `connection_options`<br>
 
 Field | Description
 --- | ---
-address | **oneof:** `mdb_cluster_id` or `on_premise`<br>
-&nbsp;&nbsp;mdb_cluster_id | **string**<br> 
+address | **oneof:** `on_premise` or `mdb_cluster_id`<br>
 &nbsp;&nbsp;on_premise | **[OnPremiseClickhouse](#OnPremiseClickhouse)**<br> 
+&nbsp;&nbsp;mdb_cluster_id | **string**<br> 
 user | **string**<br> 
 password | **[Secret](#Secret1)**<br> 
 database | **string**<br>Database 
@@ -929,7 +932,7 @@ subnet_id | **string**<br>
 alt_names[] | **[AltName](#AltName)**<br>Alternative table names in target 
 cleanup_policy | enum **ClickhouseCleanupPolicy**<br> 
 sharding | **[ClickhouseSharding](#ClickhouseSharding)**<br> 
-clickhouse_cluster_name | **string**<br> 
+clickhouse_cluster_name | **string**<br>Name of the ClickHouse cluster. For Managed ClickHouse that is name of ShardGroup. 
 security_groups[] | **string**<br> 
 
 
@@ -1257,8 +1260,9 @@ splitter | **string**<br>Specify the split string to be used for merging compone
 
 Field | Description
 --- | ---
-tables | **[TablesFilter](#TablesFilter3)**<br>List of included and excluded tables 
-filter | **string**<br>Filtering criterion. This can be comparison operators for numeric, string, and Boolean values, comparison to NULL, and checking whether a substring is part of a string. For more details see [documentation](/docs/data-transfer/concepts/data-transformation#append-only-sources). 
+tables | **[TablesFilter](#TablesFilter3)**<br>List of included and excluded tables. 
+filter | **string**<br>Filtering criterion. This can be comparison operators for numeric, string, and Boolean values, comparison to NULL, and checking whether a substring is part of a string. Details here: https://yandex.cloud/en-ru/docs/data-transfer/concepts/data-transformation#append-only-sources. Deprecated: Use filters instead. 
+filters[] | **string**<br>Data is transported if it satisfies at least one of filters. Consider that there is OR statement between filters. Each filter can be comparison operators for numeric, string, and Boolean values, comparison to NULL, and checking whether a substring is part of a string. Details in docs: https://yandex.cloud/en-ru/docs/data-transfer/concepts/data-transformation#append-only-sources. 
 
 
 ## Get {#Get}
@@ -1510,9 +1514,9 @@ unescape_string_values | **bool**<br>Unescape string values
 
 Field | Description
 --- | ---
-schema | **oneof:** `fields` or `json_fields`<br>
-&nbsp;&nbsp;fields | **[FieldList](#FieldList1)**<br> 
+schema | **oneof:** `json_fields` or `fields`<br>
 &nbsp;&nbsp;json_fields | **string**<br> 
+&nbsp;&nbsp;fields | **[FieldList](#FieldList1)**<br> 
 
 
 ### FieldList {#FieldList1}
@@ -1665,6 +1669,7 @@ include_tables[] | **string**<br>While list of tables for replication. If none o
 exclude_tables[] | **string**<br>Exclude list of tables for replication. If none or empty list is presented - will replicate all tables. Can contain * patterns. 
 subnet_id | **string**<br> 
 security_groups[] | **string**<br> 
+clickhouse_cluster_name | **string**<br>Name of the ClickHouse cluster. For Managed ClickHouse that is name of ShardGroup. 
 
 
 ### ClickhouseConnection {#ClickhouseConnection1}
@@ -1679,9 +1684,9 @@ connection | **oneof:** `connection_options`<br>
 
 Field | Description
 --- | ---
-address | **oneof:** `mdb_cluster_id` or `on_premise`<br>
-&nbsp;&nbsp;mdb_cluster_id | **string**<br> 
+address | **oneof:** `on_premise` or `mdb_cluster_id`<br>
 &nbsp;&nbsp;on_premise | **[OnPremiseClickhouse](#OnPremiseClickhouse1)**<br> 
+&nbsp;&nbsp;mdb_cluster_id | **string**<br> 
 user | **string**<br> 
 password | **[Secret](#Secret2)**<br> 
 database | **string**<br>Database 
@@ -1742,7 +1747,7 @@ subnet_id | **string**<br>
 alt_names[] | **[AltName](#AltName1)**<br>Alternative table names in target 
 cleanup_policy | enum **ClickhouseCleanupPolicy**<br> 
 sharding | **[ClickhouseSharding](#ClickhouseSharding1)**<br> 
-clickhouse_cluster_name | **string**<br> 
+clickhouse_cluster_name | **string**<br>Name of the ClickHouse cluster. For Managed ClickHouse that is name of ShardGroup. 
 security_groups[] | **string**<br> 
 
 
@@ -2070,8 +2075,9 @@ splitter | **string**<br>Specify the split string to be used for merging compone
 
 Field | Description
 --- | ---
-tables | **[TablesFilter](#TablesFilter4)**<br>List of included and excluded tables 
-filter | **string**<br>Filtering criterion. This can be comparison operators for numeric, string, and Boolean values, comparison to NULL, and checking whether a substring is part of a string. For more details see [documentation](/docs/data-transfer/concepts/data-transformation#append-only-sources). 
+tables | **[TablesFilter](#TablesFilter4)**<br>List of included and excluded tables. 
+filter | **string**<br>Filtering criterion. This can be comparison operators for numeric, string, and Boolean values, comparison to NULL, and checking whether a substring is part of a string. Details here: https://yandex.cloud/en-ru/docs/data-transfer/concepts/data-transformation#append-only-sources. Deprecated: Use filters instead. 
+filters[] | **string**<br>Data is transported if it satisfies at least one of filters. Consider that there is OR statement between filters. Each filter can be comparison operators for numeric, string, and Boolean values, comparison to NULL, and checking whether a substring is part of a string. Details in docs: https://yandex.cloud/en-ru/docs/data-transfer/concepts/data-transformation#append-only-sources. 
 
 
 ## Deactivate {#Deactivate}
