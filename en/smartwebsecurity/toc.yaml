@@ -110,6 +110,12 @@ items:
             href: api-ref/grpc/index.md
           - name: SecurityProfileService
             href: api-ref/grpc/security_profile_service.md
+          - name: AdvancedRateLimiterProfileService
+            href: api-ref/grpc/advanced_rate_limiter_profile_service.md
+          - name: RuleSetDescriptorService
+            href: api-ref/grpc/rule_set_descriptor_service.md
+          - name: WafProfileService
+            href: api-ref/grpc/waf_profile_service.md
           - name: OperationService
             href: api-ref/grpc/operation_service.md
       - name: REST

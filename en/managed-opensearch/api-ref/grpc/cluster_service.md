@@ -608,6 +608,7 @@ security_group_ids[] | **string**<br>User security groups
 service_account_id | **string**<br>ID of the service account used to access Object Storage. 
 deletion_protection | **bool**<br>Determines whether the cluster is protected from being deleted. 
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow3)**<br>Cluster maintenance window. Should be defined by either one of the two options. 
+network_id | **string**<br>ID of the network to move the cluster to. The maximum string length in characters is 50.
 
 
 ### ConfigUpdateSpec {#ConfigUpdateSpec}

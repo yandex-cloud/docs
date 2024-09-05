@@ -55,7 +55,8 @@ A set of methods for managing tests.
     "error": "string",
     "imbalancePoint": {
       "at": "string",
-      "rps": "string"
+      "rps": "string",
+      "comment": "string"
     },
     "assignedAgentId": "string",
     "artifacts": {
@@ -102,6 +103,7 @@ summary.<br>error | **string**<br><p>Error message.</p>
 summary.<br>imbalancePoint | **object**<br><p>Detected imbalance point.</p> <p>Contains information about a state at the moment it has been <a href="/docs/load-testing/concepts/auto-stop">auto-stopped</a>.</p> <p>Empty if no auto-stop occured.</p> <p>Test imbalance point.</p> 
 summary.<br>imbalancePoint.<br>at | **string** (date-time)<br><p>Imbalance moment timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
 summary.<br>imbalancePoint.<br>rps | **string** (int64)<br><p>Imbalance moment RPS.</p> 
+summary.<br>imbalancePoint.<br>comment | **string**<br><p>Imbalance reason comment.</p> 
 summary.<br>assignedAgentId | **string**<br><p>ID of the agent that executed the test.</p> 
 summary.<br>artifacts | **object**<br><p>Test output artifacts.</p> <p>Link to the artifacts output target containing ``.log`` and other files collected during test execution.</p> <p>Variant-like structure for referencing files in different sources.</p> 
 summary.<br>artifacts.<br>objectStorage | **object**<br><p>Reference to a file stored in Object Storage.</p> 

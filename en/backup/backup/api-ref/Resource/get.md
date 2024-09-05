@@ -38,7 +38,8 @@ computeInstanceId | <p>Required. Compute Cloud instance ID.</p> <p>The maximum s
     "resourceId": "string",
     "isActive": true,
     "initStatus": "string",
-    "metadata": "string"
+    "metadata": "string",
+    "type": "string"
   }
 }
 ```
@@ -61,3 +62,4 @@ resource.<br>resourceId | **string**<br><p>Resource ID is used to identify Compu
 resource.<br>isActive | **boolean** (boolean)<br><p>Status ``is_active`` shows whether current Compute Cloud instance controls Cloud Backup resource. If status ``is_active`` is false it means Compute Cloud instance is not able to manipulate Cloud Backup resource.</p> 
 resource.<br>initStatus | **string**<br><p>Status of resource initialization in cloud backup service.</p> <ul> <li>REGISTERING: Registration of instance in cloud backups have started.</li> <li>REGISTRED: Instance is registered in cloud backups.</li> <li>FAILED_REGISTRATION: Instance registration failed.</li> <li>DELETED: Instance is deleted from cloud backup service.</li> </ul> 
 resource.<br>metadata | **string**<br><p>Metadata to provide details about instance registration process if status is FAILED_REGISTRATION or REGISTERING</p> 
+resource.<br>type | **string**<br><p>Type of resource. Could be compute VM or baremetal server.</p> <ul> <li>COMPUTE: Resource is Compute Cloud VM</li> <li>BMS: Resource is baremetal server</li> </ul> 

@@ -57,11 +57,23 @@ items:
       - name: Настройка отказоустойчивой архитектуры в {{ yandex-cloud }}
         href: tutorials/fault-tolerance.md
       - name: >-
-          Отказоустойчивый сайт с балансировкой нагрузки с помощью {{
+          Отказоустойчивый сайт с балансировкой нагрузки через {{
           network-load-balancer-name }}
-        href: tutorials/load-balancer-website.md
-      - name: Работа с группой ВМ с автомасштабированием
-        href: tutorials/vm-autoscale.md
+        items:
+          - name: Обзор
+            href: tutorials/load-balancer-website/index.md
+          - name: Консоль управления
+            href: tutorials/load-balancer-website/console.md
+          - name: '{{ TF }}'
+            href: tutorials/load-balancer-website/terraform.md
+      - name: Работа с группой ВМ с автоматическим масштабированием
+        items:
+          - name: Обзор
+            href: tutorials/vm-autoscale/index.md
+          - name: Консоль управления
+            href: tutorials/vm-autoscale/console.md
+          - name: '{{ TF }}'
+            href: tutorials/vm-autoscale/terraform.md
       - name: Обновление группы ВМ под нагрузкой
         href: tutorials/updating-under-load.md
       - name: Интеграция {{ dns-name }} и корпоративного сервиса DNS

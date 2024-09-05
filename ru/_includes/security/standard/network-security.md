@@ -324,7 +324,7 @@
 Возможные варианты организации исходящего доступа в интернет:
 * [Публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses). Адрес назначается ВМ по принципу one-to-one NAT.
 * [Egress NAT (NAT-шлюз)](../../../vpc/operations/create-nat-gateway.md). Включает доступ в интернет для подсети через общий пул публичных адресов {{ yandex-cloud }}. Не рекомендуется использовать Egress NAT для критичных взаимодействий, так как IP-адрес NAT-шлюза может использоваться несколькими клиентами одновременно. Следует учитывать эту особенность при моделировании угроз для инфраструктуры.
-* [NAT-инстанс](../../../tutorials/routing/nat-instance.md). Функцию NAT выполняет отдельная ВМ. Для создания такой ВМ можно использовать образ [NAT-инстанс]({{ link-cloud-marketplace }}/products/yc/nat-instance-ubuntu-18-04-lts) из {{ marketplace-name }}.
+* [NAT-инстанс](../../../tutorials/routing/nat-instance/index.md). Функцию NAT выполняет отдельная ВМ. Для создания такой ВМ можно использовать образ [NAT-инстанс]({{ link-cloud-marketplace }}/products/yc/nat-instance-ubuntu-18-04-lts) из {{ marketplace-name }}.
 
 **Сравнение способов доступа в интернет**:
 

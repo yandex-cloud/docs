@@ -117,6 +117,7 @@ disk_type_id | **string**<br>Type of the storage environment for the host. Possi
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
+web_sql | **bool**<br>Allow access for Web SQL. 
 
 
 ### DiskSizeAutoscaling {#DiskSizeAutoscaling}
@@ -247,6 +248,7 @@ disk_type_id | **string**<br>Type of the storage environment for the host. Possi
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
+web_sql | **bool**<br>Allow access for Web SQL. 
 
 
 ### DiskSizeAutoscaling {#DiskSizeAutoscaling1}
@@ -349,6 +351,7 @@ disk_type_id | **string**<br>Type of the storage environment for the host. Possi
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
+web_sql | **bool**<br>Allow access for Web SQL. 
 
 
 ### DiskSizeAutoscaling {#DiskSizeAutoscaling2}
@@ -499,6 +502,7 @@ maintenance_window | **[MaintenanceWindow](#MaintenanceWindow3)**<br>New mainten
 security_group_ids[] | **string**<br>User security groups 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 persistence_mode | **[Cluster.PersistenceMode](#Cluster3)**<br>Persistence mode 
+network_id | **string**<br>ID of the network to move the cluster to. The maximum string length in characters is 50.
 announce_hostnames | **bool**<br>Enable FQDN instead of ip 
 
 
@@ -533,6 +537,7 @@ disk_type_id | **string**<br>Type of the storage environment for the host. Possi
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
+web_sql | **bool**<br>Allow access for Web SQL. 
 
 
 ### DiskSizeAutoscaling {#DiskSizeAutoscaling3}
@@ -794,6 +799,7 @@ disk_type_id | **string**<br>Type of the storage environment for the host. Possi
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
+web_sql | **bool**<br>Allow access for Web SQL. 
 
 
 ### DiskSizeAutoscaling {#DiskSizeAutoscaling4}
@@ -940,6 +946,7 @@ disk_type_id | **string**<br>Type of the storage environment for the host. Possi
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
+web_sql | **bool**<br>Allow access for Web SQL. 
 
 
 ### DiskSizeAutoscaling {#DiskSizeAutoscaling5}
@@ -1089,6 +1096,7 @@ disk_type_id | **string**<br>Type of the storage environment for the host. Possi
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
+web_sql | **bool**<br>Allow access for Web SQL. 
 
 
 ### DiskSizeAutoscaling {#DiskSizeAutoscaling6}
@@ -1235,6 +1243,7 @@ disk_type_id | **string**<br>Type of the storage environment for the host. Possi
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
+web_sql | **bool**<br>Allow access for Web SQL. 
 
 
 ### DiskSizeAutoscaling {#DiskSizeAutoscaling7}
@@ -1337,6 +1346,7 @@ disk_type_id | **string**<br>Type of the storage environment for the host. Possi
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
+web_sql | **bool**<br>Allow access for Web SQL. 
 
 
 ### DiskSizeAutoscaling {#DiskSizeAutoscaling8}
@@ -1573,6 +1583,7 @@ disk_type_id | **string**<br>Type of the storage environment for the host. Possi
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
+web_sql | **bool**<br>Allow access for Web SQL. 
 
 
 ### DiskSizeAutoscaling {#DiskSizeAutoscaling9}
@@ -1721,6 +1732,7 @@ disk_type_id | **string**<br>Type of the storage environment for the host. Possi
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
+web_sql | **bool**<br>Allow access for Web SQL. 
 
 
 ### DiskSizeAutoscaling {#DiskSizeAutoscaling10}
@@ -2372,6 +2384,7 @@ disk_type_id | **string**<br>Type of the storage environment for the host. Possi
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
+web_sql | **bool**<br>Allow access for Web SQL. 
 
 
 ### DiskSizeAutoscaling {#DiskSizeAutoscaling11}
@@ -2518,6 +2531,7 @@ disk_type_id | **string**<br>Type of the storage environment for the host. Possi
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
+web_sql | **bool**<br>Allow access for Web SQL. 
 
 
 ### DiskSizeAutoscaling {#DiskSizeAutoscaling12}

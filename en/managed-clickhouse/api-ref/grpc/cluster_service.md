@@ -105,6 +105,7 @@ cloud_storage | **[CloudStorage](#CloudStorage)**<br>
 sql_database_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether database management through SQL commands is enabled. 
 sql_user_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether user management through SQL commands is enabled. 
 embedded_keeper | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether cluster should use embedded Keeper instead of Zookeeper. 
+backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retain period of automatically created backup in days 
 
 
 ### Clickhouse {#Clickhouse}
@@ -224,6 +225,9 @@ background_common_pool_size | **[google.protobuf.Int64Value](https://developers.
 default_database | **google.protobuf.StringValue**<br>The default database. <br>To get a list of cluster databases, see [Yandex Managed ClickHouse documentation](/docs/managed-clickhouse/operations/databases#list-db). 
 total_memory_profiler_step | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the memory size (in bytes) for a stack trace at every peak allocation step. Default value: **4194304**. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#total-memory-profiler-step). 
 total_memory_tracker_sample_probability | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**<br> 
+query_masking_rules[] | **[QueryMaskingRule](#QueryMaskingRule)**<br>Regexp-based rules, which will be applied to queries as well as all log messages before storing them in server logs, system.query_log, system.text_log, system.processes tables, and in logs sent to the client. That allows preventing sensitive data leakage from SQL queries (like names, emails, personal identifiers or credit card numbers) to logs. Change of these settings is applied with ClickHouse restart See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#query-masking-rules) The number of elements must be greater than 0.
+dictionaries_lazy_load | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Lazy loading of dictionaries. Default: true See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#dictionaries_lazy_load) 
+query_cache | **[QueryCache](#QueryCache)**<br>[Query cache](https://clickhouse.com/docs/en/operations/query-cache) configuration. Min version: 23.5 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#query_cache) 
 
 
 ### MergeTree {#MergeTree}
@@ -254,6 +258,10 @@ max_avg_part_size_for_too_many_parts | **[google.protobuf.Int64Value](https://de
 min_age_to_force_merge_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Merge parts if every part in the range is older than the value of min_age_to_force_merge_seconds. Default: 0 - disabled Min_version: 22.10 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#min_age_to_force_merge_seconds) The minimum value is 0.
 min_age_to_force_merge_on_partition_only | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether min_age_to_force_merge_seconds should be applied only on the entire partition and not on subset. Default: false Min_version: 22.11 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#min_age_to_force_merge_seconds) 
 merge_selecting_sleep_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sleep time for merge selecting when no part is selected. A lower setting triggers selecting tasks in background_schedule_pool frequently, which results in a large number of requests to ClickHouse Keeper in large-scale clusters. Default: 5000 Min_version: 21.10 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#merge_selecting_sleep_ms) Value must be greater than 0.
+merge_max_block_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of rows that are read from the merged parts into memory. Default: 8192 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#merge_max_block_size) Value must be greater than 0.
+check_sample_column_is_correct | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enables the check at table creation, that the data type of a column for sampling or sampling expression is correct. The data type must be one of unsigned [integer types](https://clickhouse.com/docs/en/sql-reference/data-types/int-uint): UInt8, UInt16, UInt32, UInt64. Default: true See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#check_sample_column_is_correct) 
+max_merge_selecting_sleep_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum sleep time for merge selecting, a lower setting will trigger selecting tasks in background_schedule_pool frequently which result in large amount of requests to zookeeper in large-scale clusters. Default: 60000 Min_version: 23.6 See in-depth description in [ClickHouse GitHub](https://github.com/ClickHouse/ClickHouse/blob/4add9db84859bff7410cf934a3904b0414e36e51/src/Storages/MergeTree/MergeTreeSettings.h#L71) The minimum value is 0.
+max_cleanup_delay_period | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum period to clean old queue logs, blocks hashes and parts. Default: 300 Min_version: 23.6 See in-depth description in [ClickHouse GitHub](https://github.com/ClickHouse/ClickHouse/blob/4add9db84859bff7410cf934a3904b0414e36e51/src/Storages/MergeTree/MergeTreeSettings.h#L142) The minimum value is 0.
 
 
 ### Kafka {#Kafka}
@@ -267,6 +275,8 @@ sasl_password | **string**<br>
 enable_ssl_certificate_verification | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
 max_poll_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> The minimum value is 0.
 session_timeout_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> The minimum value is 0.
+debug | enum **Debug**<br> 
+auto_offset_reset | enum **AutoOffsetReset**<br> 
 
 
 ### KafkaTopic {#KafkaTopic}
@@ -320,6 +330,15 @@ Field | Description
 --- | ---
 url | **string**<br>Required. URL of the source dictionary available over HTTP. 
 format | **string**<br>Required. The data format. Valid values are all formats supported by ClickHouse SQL dialect. 
+headers[] | **[Header](#Header)**<br>HTTP headers. 
+
+
+### Header {#Header}
+
+Field | Description
+--- | ---
+name | **string**<br>Required.  
+value | **string**<br>Required.  
 
 
 ### MysqlSource {#MysqlSource}
@@ -334,6 +353,8 @@ password | **string**<br>Password of the default user for replicas of the dictio
 replicas[] | **[Replica](#Replica)**<br>List of MySQL replicas of the database used as dictionary source. The number of elements must be greater than 0.
 where | **string**<br>Selection criteria for the data in the specified MySQL table. 
 invalidate_query | **string**<br>Query for checking the dictionary status, to pull only updated data. For more details, see [ClickHouse documentation on dictionaries](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/). 
+close_connection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Should the connection be closed after each request. 
+share_connection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Should a connection be shared for some requests. 
 
 
 ### Replica {#Replica}
@@ -353,11 +374,12 @@ Field | Description
 --- | ---
 db | **string**<br>Required. Name of the ClickHouse database. 
 table | **string**<br>Required. Name of the table in the specified database to be used as the dictionary source. 
-host | **string**<br>Required. ClickHouse host of the specified database. The maximum string length in characters is 253.
+host | **string**<br>ClickHouse host of the specified database. The maximum string length in characters is 253.
 port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
 user | **string**<br>Required. Name of the ClickHouse database user. 
 password | **string**<br>Password of the ClickHouse database user. 
 where | **string**<br>Selection criteria for the data in the specified ClickHouse table. 
+secure | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Use ssl for connection. 
 
 
 ### MongodbSource {#MongodbSource}
@@ -366,7 +388,7 @@ Field | Description
 --- | ---
 db | **string**<br>Required. Name of the MongoDB database. 
 collection | **string**<br>Required. Name of the collection in the specified database to be used as the dictionary source. 
-host | **string**<br>Required. MongoDB host of the specified database. The maximum string length in characters is 253.
+host | **string**<br>MongoDB host of the specified database. The maximum string length in characters is 253.
 port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
 user | **string**<br>Required. Name of the MongoDB database user. 
 password | **string**<br>Password of the MongoDB database user. 
@@ -430,6 +452,7 @@ Field | Description
 --- | ---
 type | enum **Type**<br>Required. Layout type for an external dictionary. <ul><li>`FLAT`: The entire dictionary is stored in memory in the form of flat arrays. Available for all dictionary sources.</li><li>`HASHED`: The entire dictionary is stored in memory in the form of a hash table. Available for all dictionary sources.</li><li>`COMPLEX_KEY_HASHED`: Similar to HASHED, to be used with composite keys. Available for all dictionary sources.</li><li>`RANGE_HASHED`: The entire dictionary is stored in memory in the form of a hash table, with an ordered array of ranges and their corresponding values. Available for all dictionary sources.</li><li>`CACHE`: The dictionary is stored in a cache with a set number of cells. Available for MySQL, ClickHouse and HTTP dictionary sources.</li><li>`COMPLEX_KEY_CACHE`: Similar to CACHE, to be used with composite keys. Available for MySQL, ClickHouse and HTTP dictionary sources.</li></ul>
 size_in_cells | **int64**<br>Number of cells in the cache. Rounded up to a power of two. Applicable only for CACHE and COMPLEX_KEY_CACHE layout types. 
+max_array_size | **int64**<br>Maximum dictionary key size. Applicable only for FLAT layout type. 
 
 
 ### Range {#Range}
@@ -446,6 +469,10 @@ Field | Description
 --- | ---
 name | **string**<br>Required. Name for the specified combination of settings for Graphite rollup. 
 patterns[] | **[Pattern](#Pattern)**<br>Pattern to use for the rollup. The number of elements must be greater than 0.
+path_column_name | **string**<br>The name of the column storing the metric name (Graphite sensor). Default: Path See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
+time_column_name | **string**<br>The name of the column storing the time of measuring the metric. Default: Time See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
+value_column_name | **string**<br>The name of the column storing the value of the metric at the time set in time_column_name. Default: Value See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
+version_column_name | **string**<br>The name of the column storing the version of the metric. Default: Timestamp See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
 
 
 ### Pattern {#Pattern}
@@ -463,6 +490,25 @@ Field | Description
 --- | ---
 age | **int64**<br>Minimum age of the data in seconds. The minimum value is 0.
 precision | **int64**<br>Precision of determining the age of the data, in seconds. Value must be greater than 0.
+
+
+### QueryMaskingRule {#QueryMaskingRule}
+
+Field | Description
+--- | ---
+name | **string**<br>Name for the rule. 
+regexp | **string**<br>Required. RE2 compatible regular expression. Required. 
+replace | **string**<br>Substitution string for sensitive data. Default: six asterisks 
+
+
+### QueryCache {#QueryCache}
+
+Field | Description
+--- | ---
+max_size_in_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum cache size in bytes. Default: 1073741824 (1 GiB) The minimum value is 0.
+max_entries | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum number of SELECT query results stored in the cache. Default: 1024 The minimum value is 0.
+max_entry_size_in_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size in bytes SELECT query results may have to be saved in the cache. Dafault: 1048576 (1 MiB) The minimum value is 0.
+max_entry_size_in_rows | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum number of rows SELECT query results may have to be saved in the cache. Default: 30000000 (30 mil) The minimum value is 0.
 
 
 ### Resources {#Resources}
@@ -572,6 +618,7 @@ cloud_storage | **[CloudStorage](#CloudStorage1)**<br>
 sql_database_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether database management through SQL commands is enabled. 
 sql_user_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether user management through SQL commands is enabled. 
 embedded_keeper | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether cluster should use embedded Keeper instead of Zookeeper. 
+backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retain period of automatically created backup in days 
 
 
 ### Clickhouse {#Clickhouse1}
@@ -691,6 +738,9 @@ background_common_pool_size | **[google.protobuf.Int64Value](https://developers.
 default_database | **google.protobuf.StringValue**<br>The default database. <br>To get a list of cluster databases, see [Yandex Managed ClickHouse documentation](/docs/managed-clickhouse/operations/databases#list-db). 
 total_memory_profiler_step | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the memory size (in bytes) for a stack trace at every peak allocation step. Default value: **4194304**. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#total-memory-profiler-step). 
 total_memory_tracker_sample_probability | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**<br> 
+query_masking_rules[] | **[QueryMaskingRule](#QueryMaskingRule1)**<br>Regexp-based rules, which will be applied to queries as well as all log messages before storing them in server logs, system.query_log, system.text_log, system.processes tables, and in logs sent to the client. That allows preventing sensitive data leakage from SQL queries (like names, emails, personal identifiers or credit card numbers) to logs. Change of these settings is applied with ClickHouse restart See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#query-masking-rules) The number of elements must be greater than 0.
+dictionaries_lazy_load | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Lazy loading of dictionaries. Default: true See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#dictionaries_lazy_load) 
+query_cache | **[QueryCache](#QueryCache1)**<br>[Query cache](https://clickhouse.com/docs/en/operations/query-cache) configuration. Min version: 23.5 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#query_cache) 
 
 
 ### MergeTree {#MergeTree1}
@@ -721,6 +771,10 @@ max_avg_part_size_for_too_many_parts | **[google.protobuf.Int64Value](https://de
 min_age_to_force_merge_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Merge parts if every part in the range is older than the value of min_age_to_force_merge_seconds. Default: 0 - disabled Min_version: 22.10 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#min_age_to_force_merge_seconds) The minimum value is 0.
 min_age_to_force_merge_on_partition_only | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether min_age_to_force_merge_seconds should be applied only on the entire partition and not on subset. Default: false Min_version: 22.11 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#min_age_to_force_merge_seconds) 
 merge_selecting_sleep_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sleep time for merge selecting when no part is selected. A lower setting triggers selecting tasks in background_schedule_pool frequently, which results in a large number of requests to ClickHouse Keeper in large-scale clusters. Default: 5000 Min_version: 21.10 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#merge_selecting_sleep_ms) Value must be greater than 0.
+merge_max_block_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of rows that are read from the merged parts into memory. Default: 8192 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#merge_max_block_size) Value must be greater than 0.
+check_sample_column_is_correct | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enables the check at table creation, that the data type of a column for sampling or sampling expression is correct. The data type must be one of unsigned [integer types](https://clickhouse.com/docs/en/sql-reference/data-types/int-uint): UInt8, UInt16, UInt32, UInt64. Default: true See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#check_sample_column_is_correct) 
+max_merge_selecting_sleep_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum sleep time for merge selecting, a lower setting will trigger selecting tasks in background_schedule_pool frequently which result in large amount of requests to zookeeper in large-scale clusters. Default: 60000 Min_version: 23.6 See in-depth description in [ClickHouse GitHub](https://github.com/ClickHouse/ClickHouse/blob/4add9db84859bff7410cf934a3904b0414e36e51/src/Storages/MergeTree/MergeTreeSettings.h#L71) The minimum value is 0.
+max_cleanup_delay_period | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum period to clean old queue logs, blocks hashes and parts. Default: 300 Min_version: 23.6 See in-depth description in [ClickHouse GitHub](https://github.com/ClickHouse/ClickHouse/blob/4add9db84859bff7410cf934a3904b0414e36e51/src/Storages/MergeTree/MergeTreeSettings.h#L142) The minimum value is 0.
 
 
 ### Kafka {#Kafka1}
@@ -734,6 +788,8 @@ sasl_password | **string**<br>
 enable_ssl_certificate_verification | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
 max_poll_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> The minimum value is 0.
 session_timeout_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> The minimum value is 0.
+debug | enum **Debug**<br> 
+auto_offset_reset | enum **AutoOffsetReset**<br> 
 
 
 ### KafkaTopic {#KafkaTopic1}
@@ -787,6 +843,15 @@ Field | Description
 --- | ---
 url | **string**<br>Required. URL of the source dictionary available over HTTP. 
 format | **string**<br>Required. The data format. Valid values are all formats supported by ClickHouse SQL dialect. 
+headers[] | **[Header](#Header1)**<br>HTTP headers. 
+
+
+### Header {#Header1}
+
+Field | Description
+--- | ---
+name | **string**<br>Required.  
+value | **string**<br>Required.  
 
 
 ### MysqlSource {#MysqlSource1}
@@ -801,6 +866,8 @@ password | **string**<br>Password of the default user for replicas of the dictio
 replicas[] | **[Replica](#Replica1)**<br>List of MySQL replicas of the database used as dictionary source. The number of elements must be greater than 0.
 where | **string**<br>Selection criteria for the data in the specified MySQL table. 
 invalidate_query | **string**<br>Query for checking the dictionary status, to pull only updated data. For more details, see [ClickHouse documentation on dictionaries](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/). 
+close_connection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Should the connection be closed after each request. 
+share_connection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Should a connection be shared for some requests. 
 
 
 ### Replica {#Replica1}
@@ -820,11 +887,12 @@ Field | Description
 --- | ---
 db | **string**<br>Required. Name of the ClickHouse database. 
 table | **string**<br>Required. Name of the table in the specified database to be used as the dictionary source. 
-host | **string**<br>Required. ClickHouse host of the specified database. The maximum string length in characters is 253.
+host | **string**<br>ClickHouse host of the specified database. The maximum string length in characters is 253.
 port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
 user | **string**<br>Required. Name of the ClickHouse database user. 
 password | **string**<br>Password of the ClickHouse database user. 
 where | **string**<br>Selection criteria for the data in the specified ClickHouse table. 
+secure | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Use ssl for connection. 
 
 
 ### MongodbSource {#MongodbSource1}
@@ -833,7 +901,7 @@ Field | Description
 --- | ---
 db | **string**<br>Required. Name of the MongoDB database. 
 collection | **string**<br>Required. Name of the collection in the specified database to be used as the dictionary source. 
-host | **string**<br>Required. MongoDB host of the specified database. The maximum string length in characters is 253.
+host | **string**<br>MongoDB host of the specified database. The maximum string length in characters is 253.
 port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
 user | **string**<br>Required. Name of the MongoDB database user. 
 password | **string**<br>Password of the MongoDB database user. 
@@ -897,6 +965,7 @@ Field | Description
 --- | ---
 type | enum **Type**<br>Required. Layout type for an external dictionary. <ul><li>`FLAT`: The entire dictionary is stored in memory in the form of flat arrays. Available for all dictionary sources.</li><li>`HASHED`: The entire dictionary is stored in memory in the form of a hash table. Available for all dictionary sources.</li><li>`COMPLEX_KEY_HASHED`: Similar to HASHED, to be used with composite keys. Available for all dictionary sources.</li><li>`RANGE_HASHED`: The entire dictionary is stored in memory in the form of a hash table, with an ordered array of ranges and their corresponding values. Available for all dictionary sources.</li><li>`CACHE`: The dictionary is stored in a cache with a set number of cells. Available for MySQL, ClickHouse and HTTP dictionary sources.</li><li>`COMPLEX_KEY_CACHE`: Similar to CACHE, to be used with composite keys. Available for MySQL, ClickHouse and HTTP dictionary sources.</li></ul>
 size_in_cells | **int64**<br>Number of cells in the cache. Rounded up to a power of two. Applicable only for CACHE and COMPLEX_KEY_CACHE layout types. 
+max_array_size | **int64**<br>Maximum dictionary key size. Applicable only for FLAT layout type. 
 
 
 ### Range {#Range1}
@@ -913,6 +982,10 @@ Field | Description
 --- | ---
 name | **string**<br>Required. Name for the specified combination of settings for Graphite rollup. 
 patterns[] | **[Pattern](#Pattern1)**<br>Pattern to use for the rollup. The number of elements must be greater than 0.
+path_column_name | **string**<br>The name of the column storing the metric name (Graphite sensor). Default: Path See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
+time_column_name | **string**<br>The name of the column storing the time of measuring the metric. Default: Time See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
+value_column_name | **string**<br>The name of the column storing the value of the metric at the time set in time_column_name. Default: Value See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
+version_column_name | **string**<br>The name of the column storing the version of the metric. Default: Timestamp See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
 
 
 ### Pattern {#Pattern1}
@@ -930,6 +1003,25 @@ Field | Description
 --- | ---
 age | **int64**<br>Minimum age of the data in seconds. The minimum value is 0.
 precision | **int64**<br>Precision of determining the age of the data, in seconds. Value must be greater than 0.
+
+
+### QueryMaskingRule {#QueryMaskingRule1}
+
+Field | Description
+--- | ---
+name | **string**<br>Name for the rule. 
+regexp | **string**<br>Required. RE2 compatible regular expression. Required. 
+replace | **string**<br>Substitution string for sensitive data. Default: six asterisks 
+
+
+### QueryCache {#QueryCache1}
+
+Field | Description
+--- | ---
+max_size_in_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum cache size in bytes. Default: 1073741824 (1 GiB) The minimum value is 0.
+max_entries | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum number of SELECT query results stored in the cache. Default: 1024 The minimum value is 0.
+max_entry_size_in_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size in bytes SELECT query results may have to be saved in the cache. Dafault: 1048576 (1 MiB) The minimum value is 0.
+max_entry_size_in_rows | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum number of rows SELECT query results may have to be saved in the cache. Default: 30000000 (30 mil) The minimum value is 0.
 
 
 ### Resources {#Resources1}
@@ -1015,6 +1107,7 @@ sql_database_management | **[google.protobuf.BoolValue](https://developers.googl
 sql_user_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether user management through SQL commands is enabled. 
 admin_password | **string**<br>Password for user 'admin' that has SQL user management access. 
 embedded_keeper | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether cluster should use embedded Keeper instead of Zookeeper 
+backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retain period of automatically created backup in days 
 
 
 ### Clickhouse {#Clickhouse2}
@@ -1125,6 +1218,9 @@ background_common_pool_size | **[google.protobuf.Int64Value](https://developers.
 default_database | **google.protobuf.StringValue**<br>The default database. <br>To get a list of cluster databases, see [Yandex Managed ClickHouse documentation](/docs/managed-clickhouse/operations/databases#list-db). 
 total_memory_profiler_step | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the memory size (in bytes) for a stack trace at every peak allocation step. Default value: **4194304**. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#total-memory-profiler-step). 
 total_memory_tracker_sample_probability | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**<br> 
+query_masking_rules[] | **[QueryMaskingRule](#QueryMaskingRule2)**<br>Regexp-based rules, which will be applied to queries as well as all log messages before storing them in server logs, system.query_log, system.text_log, system.processes tables, and in logs sent to the client. That allows preventing sensitive data leakage from SQL queries (like names, emails, personal identifiers or credit card numbers) to logs. Change of these settings is applied with ClickHouse restart See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#query-masking-rules) The number of elements must be greater than 0.
+dictionaries_lazy_load | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Lazy loading of dictionaries. Default: true See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#dictionaries_lazy_load) 
+query_cache | **[QueryCache](#QueryCache2)**<br>[Query cache](https://clickhouse.com/docs/en/operations/query-cache) configuration. Min version: 23.5 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#query_cache) 
 
 
 ### MergeTree {#MergeTree2}
@@ -1155,6 +1251,10 @@ max_avg_part_size_for_too_many_parts | **[google.protobuf.Int64Value](https://de
 min_age_to_force_merge_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Merge parts if every part in the range is older than the value of min_age_to_force_merge_seconds. Default: 0 - disabled Min_version: 22.10 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#min_age_to_force_merge_seconds) The minimum value is 0.
 min_age_to_force_merge_on_partition_only | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether min_age_to_force_merge_seconds should be applied only on the entire partition and not on subset. Default: false Min_version: 22.11 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#min_age_to_force_merge_seconds) 
 merge_selecting_sleep_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sleep time for merge selecting when no part is selected. A lower setting triggers selecting tasks in background_schedule_pool frequently, which results in a large number of requests to ClickHouse Keeper in large-scale clusters. Default: 5000 Min_version: 21.10 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#merge_selecting_sleep_ms) Value must be greater than 0.
+merge_max_block_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of rows that are read from the merged parts into memory. Default: 8192 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#merge_max_block_size) Value must be greater than 0.
+check_sample_column_is_correct | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enables the check at table creation, that the data type of a column for sampling or sampling expression is correct. The data type must be one of unsigned [integer types](https://clickhouse.com/docs/en/sql-reference/data-types/int-uint): UInt8, UInt16, UInt32, UInt64. Default: true See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#check_sample_column_is_correct) 
+max_merge_selecting_sleep_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum sleep time for merge selecting, a lower setting will trigger selecting tasks in background_schedule_pool frequently which result in large amount of requests to zookeeper in large-scale clusters. Default: 60000 Min_version: 23.6 See in-depth description in [ClickHouse GitHub](https://github.com/ClickHouse/ClickHouse/blob/4add9db84859bff7410cf934a3904b0414e36e51/src/Storages/MergeTree/MergeTreeSettings.h#L71) The minimum value is 0.
+max_cleanup_delay_period | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum period to clean old queue logs, blocks hashes and parts. Default: 300 Min_version: 23.6 See in-depth description in [ClickHouse GitHub](https://github.com/ClickHouse/ClickHouse/blob/4add9db84859bff7410cf934a3904b0414e36e51/src/Storages/MergeTree/MergeTreeSettings.h#L142) The minimum value is 0.
 
 
 ### Kafka {#Kafka2}
@@ -1168,6 +1268,8 @@ sasl_password | **string**<br>
 enable_ssl_certificate_verification | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
 max_poll_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> The minimum value is 0.
 session_timeout_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> The minimum value is 0.
+debug | enum **Debug**<br> 
+auto_offset_reset | enum **AutoOffsetReset**<br> 
 
 
 ### KafkaTopic {#KafkaTopic2}
@@ -1221,6 +1323,15 @@ Field | Description
 --- | ---
 url | **string**<br>Required. URL of the source dictionary available over HTTP. 
 format | **string**<br>Required. The data format. Valid values are all formats supported by ClickHouse SQL dialect. 
+headers[] | **[Header](#Header2)**<br>HTTP headers. 
+
+
+### Header {#Header2}
+
+Field | Description
+--- | ---
+name | **string**<br>Required.  
+value | **string**<br>Required.  
 
 
 ### MysqlSource {#MysqlSource2}
@@ -1235,6 +1346,8 @@ password | **string**<br>Password of the default user for replicas of the dictio
 replicas[] | **[Replica](#Replica2)**<br>List of MySQL replicas of the database used as dictionary source. The number of elements must be greater than 0.
 where | **string**<br>Selection criteria for the data in the specified MySQL table. 
 invalidate_query | **string**<br>Query for checking the dictionary status, to pull only updated data. For more details, see [ClickHouse documentation on dictionaries](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/). 
+close_connection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Should the connection be closed after each request. 
+share_connection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Should a connection be shared for some requests. 
 
 
 ### Replica {#Replica2}
@@ -1254,11 +1367,12 @@ Field | Description
 --- | ---
 db | **string**<br>Required. Name of the ClickHouse database. 
 table | **string**<br>Required. Name of the table in the specified database to be used as the dictionary source. 
-host | **string**<br>Required. ClickHouse host of the specified database. The maximum string length in characters is 253.
+host | **string**<br>ClickHouse host of the specified database. The maximum string length in characters is 253.
 port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
 user | **string**<br>Required. Name of the ClickHouse database user. 
 password | **string**<br>Password of the ClickHouse database user. 
 where | **string**<br>Selection criteria for the data in the specified ClickHouse table. 
+secure | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Use ssl for connection. 
 
 
 ### MongodbSource {#MongodbSource2}
@@ -1267,7 +1381,7 @@ Field | Description
 --- | ---
 db | **string**<br>Required. Name of the MongoDB database. 
 collection | **string**<br>Required. Name of the collection in the specified database to be used as the dictionary source. 
-host | **string**<br>Required. MongoDB host of the specified database. The maximum string length in characters is 253.
+host | **string**<br>MongoDB host of the specified database. The maximum string length in characters is 253.
 port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
 user | **string**<br>Required. Name of the MongoDB database user. 
 password | **string**<br>Password of the MongoDB database user. 
@@ -1331,6 +1445,7 @@ Field | Description
 --- | ---
 type | enum **Type**<br>Required. Layout type for an external dictionary. <ul><li>`FLAT`: The entire dictionary is stored in memory in the form of flat arrays. Available for all dictionary sources.</li><li>`HASHED`: The entire dictionary is stored in memory in the form of a hash table. Available for all dictionary sources.</li><li>`COMPLEX_KEY_HASHED`: Similar to HASHED, to be used with composite keys. Available for all dictionary sources.</li><li>`RANGE_HASHED`: The entire dictionary is stored in memory in the form of a hash table, with an ordered array of ranges and their corresponding values. Available for all dictionary sources.</li><li>`CACHE`: The dictionary is stored in a cache with a set number of cells. Available for MySQL, ClickHouse and HTTP dictionary sources.</li><li>`COMPLEX_KEY_CACHE`: Similar to CACHE, to be used with composite keys. Available for MySQL, ClickHouse and HTTP dictionary sources.</li></ul>
 size_in_cells | **int64**<br>Number of cells in the cache. Rounded up to a power of two. Applicable only for CACHE and COMPLEX_KEY_CACHE layout types. 
+max_array_size | **int64**<br>Maximum dictionary key size. Applicable only for FLAT layout type. 
 
 
 ### Range {#Range2}
@@ -1347,6 +1462,10 @@ Field | Description
 --- | ---
 name | **string**<br>Required. Name for the specified combination of settings for Graphite rollup. 
 patterns[] | **[Pattern](#Pattern2)**<br>Pattern to use for the rollup. The number of elements must be greater than 0.
+path_column_name | **string**<br>The name of the column storing the metric name (Graphite sensor). Default: Path See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
+time_column_name | **string**<br>The name of the column storing the time of measuring the metric. Default: Time See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
+value_column_name | **string**<br>The name of the column storing the value of the metric at the time set in time_column_name. Default: Value See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
+version_column_name | **string**<br>The name of the column storing the version of the metric. Default: Timestamp See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
 
 
 ### Pattern {#Pattern2}
@@ -1364,6 +1483,25 @@ Field | Description
 --- | ---
 age | **int64**<br>Minimum age of the data in seconds. The minimum value is 0.
 precision | **int64**<br>Precision of determining the age of the data, in seconds. Value must be greater than 0.
+
+
+### QueryMaskingRule {#QueryMaskingRule2}
+
+Field | Description
+--- | ---
+name | **string**<br>Name for the rule. 
+regexp | **string**<br>Required. RE2 compatible regular expression. Required. 
+replace | **string**<br>Substitution string for sensitive data. Default: six asterisks 
+
+
+### QueryCache {#QueryCache2}
+
+Field | Description
+--- | ---
+max_size_in_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum cache size in bytes. Default: 1073741824 (1 GiB) The minimum value is 0.
+max_entries | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum number of SELECT query results stored in the cache. Default: 1024 The minimum value is 0.
+max_entry_size_in_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size in bytes SELECT query results may have to be saved in the cache. Dafault: 1048576 (1 MiB) The minimum value is 0.
+max_entry_size_in_rows | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum number of rows SELECT query results may have to be saved in the cache. Default: 30000000 (30 mil) The minimum value is 0.
 
 
 ### Resources {#Resources2}
@@ -1538,6 +1676,13 @@ remote_filesystem_read_method | enum **RemoteFilesystemReadMethod**<br>Method of
 memory_overcommit_ratio_denominator | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>It represents soft memory limit in case when hard limit is reached on user level. This value is used to compute overcommit ratio for the query. Zero means skip the query. Default: 1GiB Min_version: 22.5 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#memory_overcommit_ratio_denominator) The minimum value is 0.
 memory_overcommit_ratio_denominator_for_user | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>It represents soft memory limit in case when hard limit is reached on global level. This value is used to compute overcommit ratio for the query. Zero means skip the query. Default: 1GiB Min_version: 22.5 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#memory_overcommit_ratio_denominator_for_user) The minimum value is 0.
 memory_usage_overcommit_max_wait_microseconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum time thread will wait for memory to be freed in the case of memory overcommit on a user level. If the timeout is reached and memory is not freed, an exception is thrown. Default: 5000000 Min_version: 22.5 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#memory_usage_overcommit_max_wait_microseconds) The minimum value is 0.
+log_query_threads | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Setting up query threads logging. Query threads log into the [system.query_thread_log](https://clickhouse.com/docs/en/operations/system-tables/query_thread_log) table. This setting has effect only when [log_queries](https://clickhouse.com/docs/en/operations/settings/settings#log-queries) is true. Queries threads run by ClickHouse with this setup are logged according to the rules in the [query_thread_log](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#server_configuration_parameters-query_thread_log) server configuration parameter. Default: true See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#log_query_threads) 
+max_insert_threads | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum number of threads to execute the INSERT SELECT query. Default: 0 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#max_insert_threads) The minimum value is 0.
+use_hedged_requests | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enables hedged requests logic for remote queries. It allows to establish many connections with different replicas for query. New connection is enabled in case existent connection(s) with replica(s) were not established within hedged_connection_timeout or no data was received within receive_data_timeout. Query uses the first connection which send non empty progress packet (or data packet, if allow_changing_replica_until_first_data_packet); other connections are cancelled. Queries with max_parallel_replicas > 1 are supported. Default: true See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#use_hedged_requests) 
+idle_connection_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Timeout to close idle TCP connections after specified number of milliseconds. Default: 360000 (3600 seconds) See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#idle_connection_timeout) The minimum value is 0.
+hedged_connection_timeout_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Connection timeout for establishing connection with replica for Hedged requests. Default: 50 See in-depth description in [ClickHouse GitHub](https://github.com/ClickHouse/ClickHouse/blob/f9558345e886876b9132d9c018e357f7fa9b22a3/src/Core/Settings.h#L64) The minimum value is 0.
+load_balancing | enum **LoadBalancing**<br>Specifies the algorithm of replicas selection that is used for distributed query processing, one of: random, nearest_hostname, in_order, first_or_random, round_robin. Default: random See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#load_balancing) 
+prefer_localhost_replica | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enables/disables preferable using the localhost replica when processing distributed queries. Default: true See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#prefer_localhost_replica) 
 compile | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>The setting is deprecated and has no effect. 
 min_count_to_compile | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The setting is deprecated and has no effect. 
 
@@ -1654,6 +1799,7 @@ cloud_storage | **[CloudStorage](#CloudStorage3)**<br>
 sql_database_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether database management through SQL commands is enabled. 
 sql_user_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether user management through SQL commands is enabled. 
 embedded_keeper | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether cluster should use embedded Keeper instead of Zookeeper. 
+backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retain period of automatically created backup in days 
 
 
 ### Clickhouse {#Clickhouse3}
@@ -1750,6 +1896,9 @@ background_common_pool_size | **[google.protobuf.Int64Value](https://developers.
 default_database | **google.protobuf.StringValue**<br>The default database. <br>To get a list of cluster databases, see [Yandex Managed ClickHouse documentation](/docs/managed-clickhouse/operations/databases#list-db). 
 total_memory_profiler_step | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the memory size (in bytes) for a stack trace at every peak allocation step. Default value: **4194304**. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#total-memory-profiler-step). 
 total_memory_tracker_sample_probability | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**<br> 
+query_masking_rules[] | **[QueryMaskingRule](#QueryMaskingRule3)**<br>Regexp-based rules, which will be applied to queries as well as all log messages before storing them in server logs, system.query_log, system.text_log, system.processes tables, and in logs sent to the client. That allows preventing sensitive data leakage from SQL queries (like names, emails, personal identifiers or credit card numbers) to logs. Change of these settings is applied with ClickHouse restart See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#query-masking-rules) The number of elements must be greater than 0.
+dictionaries_lazy_load | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Lazy loading of dictionaries. Default: true See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#dictionaries_lazy_load) 
+query_cache | **[QueryCache](#QueryCache3)**<br>[Query cache](https://clickhouse.com/docs/en/operations/query-cache) configuration. Min version: 23.5 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#query_cache) 
 
 
 ### MergeTree {#MergeTree3}
@@ -1780,6 +1929,10 @@ max_avg_part_size_for_too_many_parts | **[google.protobuf.Int64Value](https://de
 min_age_to_force_merge_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Merge parts if every part in the range is older than the value of min_age_to_force_merge_seconds. Default: 0 - disabled Min_version: 22.10 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#min_age_to_force_merge_seconds) The minimum value is 0.
 min_age_to_force_merge_on_partition_only | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether min_age_to_force_merge_seconds should be applied only on the entire partition and not on subset. Default: false Min_version: 22.11 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#min_age_to_force_merge_seconds) 
 merge_selecting_sleep_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sleep time for merge selecting when no part is selected. A lower setting triggers selecting tasks in background_schedule_pool frequently, which results in a large number of requests to ClickHouse Keeper in large-scale clusters. Default: 5000 Min_version: 21.10 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#merge_selecting_sleep_ms) Value must be greater than 0.
+merge_max_block_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of rows that are read from the merged parts into memory. Default: 8192 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#merge_max_block_size) Value must be greater than 0.
+check_sample_column_is_correct | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enables the check at table creation, that the data type of a column for sampling or sampling expression is correct. The data type must be one of unsigned [integer types](https://clickhouse.com/docs/en/sql-reference/data-types/int-uint): UInt8, UInt16, UInt32, UInt64. Default: true See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#check_sample_column_is_correct) 
+max_merge_selecting_sleep_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum sleep time for merge selecting, a lower setting will trigger selecting tasks in background_schedule_pool frequently which result in large amount of requests to zookeeper in large-scale clusters. Default: 60000 Min_version: 23.6 See in-depth description in [ClickHouse GitHub](https://github.com/ClickHouse/ClickHouse/blob/4add9db84859bff7410cf934a3904b0414e36e51/src/Storages/MergeTree/MergeTreeSettings.h#L71) The minimum value is 0.
+max_cleanup_delay_period | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum period to clean old queue logs, blocks hashes and parts. Default: 300 Min_version: 23.6 See in-depth description in [ClickHouse GitHub](https://github.com/ClickHouse/ClickHouse/blob/4add9db84859bff7410cf934a3904b0414e36e51/src/Storages/MergeTree/MergeTreeSettings.h#L142) The minimum value is 0.
 
 
 ### Kafka {#Kafka3}
@@ -1793,6 +1946,8 @@ sasl_password | **string**<br>
 enable_ssl_certificate_verification | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
 max_poll_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> The minimum value is 0.
 session_timeout_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> The minimum value is 0.
+debug | enum **Debug**<br> 
+auto_offset_reset | enum **AutoOffsetReset**<br> 
 
 
 ### KafkaTopic {#KafkaTopic3}
@@ -1846,6 +2001,15 @@ Field | Description
 --- | ---
 url | **string**<br>Required. URL of the source dictionary available over HTTP. 
 format | **string**<br>Required. The data format. Valid values are all formats supported by ClickHouse SQL dialect. 
+headers[] | **[Header](#Header3)**<br>HTTP headers. 
+
+
+### Header {#Header3}
+
+Field | Description
+--- | ---
+name | **string**<br>Required.  
+value | **string**<br>Required.  
 
 
 ### MysqlSource {#MysqlSource3}
@@ -1860,6 +2024,8 @@ password | **string**<br>Password of the default user for replicas of the dictio
 replicas[] | **[Replica](#Replica3)**<br>List of MySQL replicas of the database used as dictionary source. The number of elements must be greater than 0.
 where | **string**<br>Selection criteria for the data in the specified MySQL table. 
 invalidate_query | **string**<br>Query for checking the dictionary status, to pull only updated data. For more details, see [ClickHouse documentation on dictionaries](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/). 
+close_connection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Should the connection be closed after each request. 
+share_connection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Should a connection be shared for some requests. 
 
 
 ### Replica {#Replica3}
@@ -1879,11 +2045,12 @@ Field | Description
 --- | ---
 db | **string**<br>Required. Name of the ClickHouse database. 
 table | **string**<br>Required. Name of the table in the specified database to be used as the dictionary source. 
-host | **string**<br>Required. ClickHouse host of the specified database. The maximum string length in characters is 253.
+host | **string**<br>ClickHouse host of the specified database. The maximum string length in characters is 253.
 port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
 user | **string**<br>Required. Name of the ClickHouse database user. 
 password | **string**<br>Password of the ClickHouse database user. 
 where | **string**<br>Selection criteria for the data in the specified ClickHouse table. 
+secure | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Use ssl for connection. 
 
 
 ### MongodbSource {#MongodbSource3}
@@ -1892,7 +2059,7 @@ Field | Description
 --- | ---
 db | **string**<br>Required. Name of the MongoDB database. 
 collection | **string**<br>Required. Name of the collection in the specified database to be used as the dictionary source. 
-host | **string**<br>Required. MongoDB host of the specified database. The maximum string length in characters is 253.
+host | **string**<br>MongoDB host of the specified database. The maximum string length in characters is 253.
 port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
 user | **string**<br>Required. Name of the MongoDB database user. 
 password | **string**<br>Password of the MongoDB database user. 
@@ -1956,6 +2123,7 @@ Field | Description
 --- | ---
 type | enum **Type**<br>Required. Layout type for an external dictionary. <ul><li>`FLAT`: The entire dictionary is stored in memory in the form of flat arrays. Available for all dictionary sources.</li><li>`HASHED`: The entire dictionary is stored in memory in the form of a hash table. Available for all dictionary sources.</li><li>`COMPLEX_KEY_HASHED`: Similar to HASHED, to be used with composite keys. Available for all dictionary sources.</li><li>`RANGE_HASHED`: The entire dictionary is stored in memory in the form of a hash table, with an ordered array of ranges and their corresponding values. Available for all dictionary sources.</li><li>`CACHE`: The dictionary is stored in a cache with a set number of cells. Available for MySQL, ClickHouse and HTTP dictionary sources.</li><li>`COMPLEX_KEY_CACHE`: Similar to CACHE, to be used with composite keys. Available for MySQL, ClickHouse and HTTP dictionary sources.</li></ul>
 size_in_cells | **int64**<br>Number of cells in the cache. Rounded up to a power of two. Applicable only for CACHE and COMPLEX_KEY_CACHE layout types. 
+max_array_size | **int64**<br>Maximum dictionary key size. Applicable only for FLAT layout type. 
 
 
 ### Range {#Range3}
@@ -1972,6 +2140,10 @@ Field | Description
 --- | ---
 name | **string**<br>Required. Name for the specified combination of settings for Graphite rollup. 
 patterns[] | **[Pattern](#Pattern3)**<br>Pattern to use for the rollup. The number of elements must be greater than 0.
+path_column_name | **string**<br>The name of the column storing the metric name (Graphite sensor). Default: Path See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
+time_column_name | **string**<br>The name of the column storing the time of measuring the metric. Default: Time See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
+value_column_name | **string**<br>The name of the column storing the value of the metric at the time set in time_column_name. Default: Value See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
+version_column_name | **string**<br>The name of the column storing the version of the metric. Default: Timestamp See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
 
 
 ### Pattern {#Pattern3}
@@ -1989,6 +2161,25 @@ Field | Description
 --- | ---
 age | **int64**<br>Minimum age of the data in seconds. The minimum value is 0.
 precision | **int64**<br>Precision of determining the age of the data, in seconds. Value must be greater than 0.
+
+
+### QueryMaskingRule {#QueryMaskingRule3}
+
+Field | Description
+--- | ---
+name | **string**<br>Name for the rule. 
+regexp | **string**<br>Required. RE2 compatible regular expression. Required. 
+replace | **string**<br>Substitution string for sensitive data. Default: six asterisks 
+
+
+### QueryCache {#QueryCache3}
+
+Field | Description
+--- | ---
+max_size_in_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum cache size in bytes. Default: 1073741824 (1 GiB) The minimum value is 0.
+max_entries | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum number of SELECT query results stored in the cache. Default: 1024 The minimum value is 0.
+max_entry_size_in_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size in bytes SELECT query results may have to be saved in the cache. Dafault: 1048576 (1 MiB) The minimum value is 0.
+max_entry_size_in_rows | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum number of rows SELECT query results may have to be saved in the cache. Default: 30000000 (30 mil) The minimum value is 0.
 
 
 ### MaintenanceOperation {#MaintenanceOperation2}
@@ -2023,6 +2214,7 @@ service_account_id | **string**<br>ID of the service account used for access to 
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow3)**<br>New maintenance window settings for the cluster. 
 security_group_ids[] | **string**<br>User security groups 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
+network_id | **string**<br>ID of the network to move the cluster to. The maximum string length in characters is 50.
 
 
 ### ConfigSpec {#ConfigSpec1}
@@ -2039,6 +2231,7 @@ sql_database_management | **[google.protobuf.BoolValue](https://developers.googl
 sql_user_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether user management through SQL commands is enabled. 
 admin_password | **string**<br>Password for user 'admin' that has SQL user management access. 
 embedded_keeper | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether cluster should use embedded Keeper instead of Zookeeper 
+backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retain period of automatically created backup in days 
 
 
 ### Clickhouse {#Clickhouse4}
@@ -2149,6 +2342,9 @@ background_common_pool_size | **[google.protobuf.Int64Value](https://developers.
 default_database | **google.protobuf.StringValue**<br>The default database. <br>To get a list of cluster databases, see [Yandex Managed ClickHouse documentation](/docs/managed-clickhouse/operations/databases#list-db). 
 total_memory_profiler_step | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the memory size (in bytes) for a stack trace at every peak allocation step. Default value: **4194304**. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#total-memory-profiler-step). 
 total_memory_tracker_sample_probability | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**<br> 
+query_masking_rules[] | **[QueryMaskingRule](#QueryMaskingRule4)**<br>Regexp-based rules, which will be applied to queries as well as all log messages before storing them in server logs, system.query_log, system.text_log, system.processes tables, and in logs sent to the client. That allows preventing sensitive data leakage from SQL queries (like names, emails, personal identifiers or credit card numbers) to logs. Change of these settings is applied with ClickHouse restart See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#query-masking-rules) The number of elements must be greater than 0.
+dictionaries_lazy_load | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Lazy loading of dictionaries. Default: true See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#dictionaries_lazy_load) 
+query_cache | **[QueryCache](#QueryCache4)**<br>[Query cache](https://clickhouse.com/docs/en/operations/query-cache) configuration. Min version: 23.5 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#query_cache) 
 
 
 ### MergeTree {#MergeTree4}
@@ -2179,6 +2375,10 @@ max_avg_part_size_for_too_many_parts | **[google.protobuf.Int64Value](https://de
 min_age_to_force_merge_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Merge parts if every part in the range is older than the value of min_age_to_force_merge_seconds. Default: 0 - disabled Min_version: 22.10 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#min_age_to_force_merge_seconds) The minimum value is 0.
 min_age_to_force_merge_on_partition_only | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether min_age_to_force_merge_seconds should be applied only on the entire partition and not on subset. Default: false Min_version: 22.11 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#min_age_to_force_merge_seconds) 
 merge_selecting_sleep_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sleep time for merge selecting when no part is selected. A lower setting triggers selecting tasks in background_schedule_pool frequently, which results in a large number of requests to ClickHouse Keeper in large-scale clusters. Default: 5000 Min_version: 21.10 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#merge_selecting_sleep_ms) Value must be greater than 0.
+merge_max_block_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of rows that are read from the merged parts into memory. Default: 8192 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#merge_max_block_size) Value must be greater than 0.
+check_sample_column_is_correct | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enables the check at table creation, that the data type of a column for sampling or sampling expression is correct. The data type must be one of unsigned [integer types](https://clickhouse.com/docs/en/sql-reference/data-types/int-uint): UInt8, UInt16, UInt32, UInt64. Default: true See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#check_sample_column_is_correct) 
+max_merge_selecting_sleep_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum sleep time for merge selecting, a lower setting will trigger selecting tasks in background_schedule_pool frequently which result in large amount of requests to zookeeper in large-scale clusters. Default: 60000 Min_version: 23.6 See in-depth description in [ClickHouse GitHub](https://github.com/ClickHouse/ClickHouse/blob/4add9db84859bff7410cf934a3904b0414e36e51/src/Storages/MergeTree/MergeTreeSettings.h#L71) The minimum value is 0.
+max_cleanup_delay_period | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum period to clean old queue logs, blocks hashes and parts. Default: 300 Min_version: 23.6 See in-depth description in [ClickHouse GitHub](https://github.com/ClickHouse/ClickHouse/blob/4add9db84859bff7410cf934a3904b0414e36e51/src/Storages/MergeTree/MergeTreeSettings.h#L142) The minimum value is 0.
 
 
 ### Kafka {#Kafka4}
@@ -2192,6 +2392,8 @@ sasl_password | **string**<br>
 enable_ssl_certificate_verification | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
 max_poll_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> The minimum value is 0.
 session_timeout_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> The minimum value is 0.
+debug | enum **Debug**<br> 
+auto_offset_reset | enum **AutoOffsetReset**<br> 
 
 
 ### KafkaTopic {#KafkaTopic4}
@@ -2245,6 +2447,15 @@ Field | Description
 --- | ---
 url | **string**<br>Required. URL of the source dictionary available over HTTP. 
 format | **string**<br>Required. The data format. Valid values are all formats supported by ClickHouse SQL dialect. 
+headers[] | **[Header](#Header4)**<br>HTTP headers. 
+
+
+### Header {#Header4}
+
+Field | Description
+--- | ---
+name | **string**<br>Required.  
+value | **string**<br>Required.  
 
 
 ### MysqlSource {#MysqlSource4}
@@ -2259,6 +2470,8 @@ password | **string**<br>Password of the default user for replicas of the dictio
 replicas[] | **[Replica](#Replica4)**<br>List of MySQL replicas of the database used as dictionary source. The number of elements must be greater than 0.
 where | **string**<br>Selection criteria for the data in the specified MySQL table. 
 invalidate_query | **string**<br>Query for checking the dictionary status, to pull only updated data. For more details, see [ClickHouse documentation on dictionaries](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/). 
+close_connection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Should the connection be closed after each request. 
+share_connection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Should a connection be shared for some requests. 
 
 
 ### Replica {#Replica4}
@@ -2278,11 +2491,12 @@ Field | Description
 --- | ---
 db | **string**<br>Required. Name of the ClickHouse database. 
 table | **string**<br>Required. Name of the table in the specified database to be used as the dictionary source. 
-host | **string**<br>Required. ClickHouse host of the specified database. The maximum string length in characters is 253.
+host | **string**<br>ClickHouse host of the specified database. The maximum string length in characters is 253.
 port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
 user | **string**<br>Required. Name of the ClickHouse database user. 
 password | **string**<br>Password of the ClickHouse database user. 
 where | **string**<br>Selection criteria for the data in the specified ClickHouse table. 
+secure | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Use ssl for connection. 
 
 
 ### MongodbSource {#MongodbSource4}
@@ -2291,7 +2505,7 @@ Field | Description
 --- | ---
 db | **string**<br>Required. Name of the MongoDB database. 
 collection | **string**<br>Required. Name of the collection in the specified database to be used as the dictionary source. 
-host | **string**<br>Required. MongoDB host of the specified database. The maximum string length in characters is 253.
+host | **string**<br>MongoDB host of the specified database. The maximum string length in characters is 253.
 port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
 user | **string**<br>Required. Name of the MongoDB database user. 
 password | **string**<br>Password of the MongoDB database user. 
@@ -2355,6 +2569,7 @@ Field | Description
 --- | ---
 type | enum **Type**<br>Required. Layout type for an external dictionary. <ul><li>`FLAT`: The entire dictionary is stored in memory in the form of flat arrays. Available for all dictionary sources.</li><li>`HASHED`: The entire dictionary is stored in memory in the form of a hash table. Available for all dictionary sources.</li><li>`COMPLEX_KEY_HASHED`: Similar to HASHED, to be used with composite keys. Available for all dictionary sources.</li><li>`RANGE_HASHED`: The entire dictionary is stored in memory in the form of a hash table, with an ordered array of ranges and their corresponding values. Available for all dictionary sources.</li><li>`CACHE`: The dictionary is stored in a cache with a set number of cells. Available for MySQL, ClickHouse and HTTP dictionary sources.</li><li>`COMPLEX_KEY_CACHE`: Similar to CACHE, to be used with composite keys. Available for MySQL, ClickHouse and HTTP dictionary sources.</li></ul>
 size_in_cells | **int64**<br>Number of cells in the cache. Rounded up to a power of two. Applicable only for CACHE and COMPLEX_KEY_CACHE layout types. 
+max_array_size | **int64**<br>Maximum dictionary key size. Applicable only for FLAT layout type. 
 
 
 ### Range {#Range4}
@@ -2371,6 +2586,10 @@ Field | Description
 --- | ---
 name | **string**<br>Required. Name for the specified combination of settings for Graphite rollup. 
 patterns[] | **[Pattern](#Pattern4)**<br>Pattern to use for the rollup. The number of elements must be greater than 0.
+path_column_name | **string**<br>The name of the column storing the metric name (Graphite sensor). Default: Path See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
+time_column_name | **string**<br>The name of the column storing the time of measuring the metric. Default: Time See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
+value_column_name | **string**<br>The name of the column storing the value of the metric at the time set in time_column_name. Default: Value See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
+version_column_name | **string**<br>The name of the column storing the version of the metric. Default: Timestamp See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
 
 
 ### Pattern {#Pattern4}
@@ -2388,6 +2607,25 @@ Field | Description
 --- | ---
 age | **int64**<br>Minimum age of the data in seconds. The minimum value is 0.
 precision | **int64**<br>Precision of determining the age of the data, in seconds. Value must be greater than 0.
+
+
+### QueryMaskingRule {#QueryMaskingRule4}
+
+Field | Description
+--- | ---
+name | **string**<br>Name for the rule. 
+regexp | **string**<br>Required. RE2 compatible regular expression. Required. 
+replace | **string**<br>Substitution string for sensitive data. Default: six asterisks 
+
+
+### QueryCache {#QueryCache4}
+
+Field | Description
+--- | ---
+max_size_in_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum cache size in bytes. Default: 1073741824 (1 GiB) The minimum value is 0.
+max_entries | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum number of SELECT query results stored in the cache. Default: 1024 The minimum value is 0.
+max_entry_size_in_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size in bytes SELECT query results may have to be saved in the cache. Dafault: 1048576 (1 MiB) The minimum value is 0.
+max_entry_size_in_rows | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum number of rows SELECT query results may have to be saved in the cache. Default: 30000000 (30 mil) The minimum value is 0.
 
 
 ### Resources {#Resources3}
@@ -2488,6 +2726,7 @@ cloud_storage | **[CloudStorage](#CloudStorage4)**<br>
 sql_database_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether database management through SQL commands is enabled. 
 sql_user_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether user management through SQL commands is enabled. 
 embedded_keeper | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether cluster should use embedded Keeper instead of Zookeeper. 
+backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retain period of automatically created backup in days 
 
 
 ### Clickhouse {#Clickhouse5}
@@ -2584,6 +2823,9 @@ background_common_pool_size | **[google.protobuf.Int64Value](https://developers.
 default_database | **google.protobuf.StringValue**<br>The default database. <br>To get a list of cluster databases, see [Yandex Managed ClickHouse documentation](/docs/managed-clickhouse/operations/databases#list-db). 
 total_memory_profiler_step | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the memory size (in bytes) for a stack trace at every peak allocation step. Default value: **4194304**. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#total-memory-profiler-step). 
 total_memory_tracker_sample_probability | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**<br> 
+query_masking_rules[] | **[QueryMaskingRule](#QueryMaskingRule5)**<br>Regexp-based rules, which will be applied to queries as well as all log messages before storing them in server logs, system.query_log, system.text_log, system.processes tables, and in logs sent to the client. That allows preventing sensitive data leakage from SQL queries (like names, emails, personal identifiers or credit card numbers) to logs. Change of these settings is applied with ClickHouse restart See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#query-masking-rules) The number of elements must be greater than 0.
+dictionaries_lazy_load | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Lazy loading of dictionaries. Default: true See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#dictionaries_lazy_load) 
+query_cache | **[QueryCache](#QueryCache5)**<br>[Query cache](https://clickhouse.com/docs/en/operations/query-cache) configuration. Min version: 23.5 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#query_cache) 
 
 
 ### MergeTree {#MergeTree5}
@@ -2614,6 +2856,10 @@ max_avg_part_size_for_too_many_parts | **[google.protobuf.Int64Value](https://de
 min_age_to_force_merge_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Merge parts if every part in the range is older than the value of min_age_to_force_merge_seconds. Default: 0 - disabled Min_version: 22.10 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#min_age_to_force_merge_seconds) The minimum value is 0.
 min_age_to_force_merge_on_partition_only | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether min_age_to_force_merge_seconds should be applied only on the entire partition and not on subset. Default: false Min_version: 22.11 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#min_age_to_force_merge_seconds) 
 merge_selecting_sleep_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sleep time for merge selecting when no part is selected. A lower setting triggers selecting tasks in background_schedule_pool frequently, which results in a large number of requests to ClickHouse Keeper in large-scale clusters. Default: 5000 Min_version: 21.10 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#merge_selecting_sleep_ms) Value must be greater than 0.
+merge_max_block_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of rows that are read from the merged parts into memory. Default: 8192 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#merge_max_block_size) Value must be greater than 0.
+check_sample_column_is_correct | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enables the check at table creation, that the data type of a column for sampling or sampling expression is correct. The data type must be one of unsigned [integer types](https://clickhouse.com/docs/en/sql-reference/data-types/int-uint): UInt8, UInt16, UInt32, UInt64. Default: true See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#check_sample_column_is_correct) 
+max_merge_selecting_sleep_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum sleep time for merge selecting, a lower setting will trigger selecting tasks in background_schedule_pool frequently which result in large amount of requests to zookeeper in large-scale clusters. Default: 60000 Min_version: 23.6 See in-depth description in [ClickHouse GitHub](https://github.com/ClickHouse/ClickHouse/blob/4add9db84859bff7410cf934a3904b0414e36e51/src/Storages/MergeTree/MergeTreeSettings.h#L71) The minimum value is 0.
+max_cleanup_delay_period | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum period to clean old queue logs, blocks hashes and parts. Default: 300 Min_version: 23.6 See in-depth description in [ClickHouse GitHub](https://github.com/ClickHouse/ClickHouse/blob/4add9db84859bff7410cf934a3904b0414e36e51/src/Storages/MergeTree/MergeTreeSettings.h#L142) The minimum value is 0.
 
 
 ### Kafka {#Kafka5}
@@ -2627,6 +2873,8 @@ sasl_password | **string**<br>
 enable_ssl_certificate_verification | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
 max_poll_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> The minimum value is 0.
 session_timeout_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> The minimum value is 0.
+debug | enum **Debug**<br> 
+auto_offset_reset | enum **AutoOffsetReset**<br> 
 
 
 ### KafkaTopic {#KafkaTopic5}
@@ -2680,6 +2928,15 @@ Field | Description
 --- | ---
 url | **string**<br>Required. URL of the source dictionary available over HTTP. 
 format | **string**<br>Required. The data format. Valid values are all formats supported by ClickHouse SQL dialect. 
+headers[] | **[Header](#Header5)**<br>HTTP headers. 
+
+
+### Header {#Header5}
+
+Field | Description
+--- | ---
+name | **string**<br>Required.  
+value | **string**<br>Required.  
 
 
 ### MysqlSource {#MysqlSource5}
@@ -2694,6 +2951,8 @@ password | **string**<br>Password of the default user for replicas of the dictio
 replicas[] | **[Replica](#Replica5)**<br>List of MySQL replicas of the database used as dictionary source. The number of elements must be greater than 0.
 where | **string**<br>Selection criteria for the data in the specified MySQL table. 
 invalidate_query | **string**<br>Query for checking the dictionary status, to pull only updated data. For more details, see [ClickHouse documentation on dictionaries](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/). 
+close_connection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Should the connection be closed after each request. 
+share_connection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Should a connection be shared for some requests. 
 
 
 ### Replica {#Replica5}
@@ -2713,11 +2972,12 @@ Field | Description
 --- | ---
 db | **string**<br>Required. Name of the ClickHouse database. 
 table | **string**<br>Required. Name of the table in the specified database to be used as the dictionary source. 
-host | **string**<br>Required. ClickHouse host of the specified database. The maximum string length in characters is 253.
+host | **string**<br>ClickHouse host of the specified database. The maximum string length in characters is 253.
 port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
 user | **string**<br>Required. Name of the ClickHouse database user. 
 password | **string**<br>Password of the ClickHouse database user. 
 where | **string**<br>Selection criteria for the data in the specified ClickHouse table. 
+secure | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Use ssl for connection. 
 
 
 ### MongodbSource {#MongodbSource5}
@@ -2726,7 +2986,7 @@ Field | Description
 --- | ---
 db | **string**<br>Required. Name of the MongoDB database. 
 collection | **string**<br>Required. Name of the collection in the specified database to be used as the dictionary source. 
-host | **string**<br>Required. MongoDB host of the specified database. The maximum string length in characters is 253.
+host | **string**<br>MongoDB host of the specified database. The maximum string length in characters is 253.
 port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
 user | **string**<br>Required. Name of the MongoDB database user. 
 password | **string**<br>Password of the MongoDB database user. 
@@ -2790,6 +3050,7 @@ Field | Description
 --- | ---
 type | enum **Type**<br>Required. Layout type for an external dictionary. <ul><li>`FLAT`: The entire dictionary is stored in memory in the form of flat arrays. Available for all dictionary sources.</li><li>`HASHED`: The entire dictionary is stored in memory in the form of a hash table. Available for all dictionary sources.</li><li>`COMPLEX_KEY_HASHED`: Similar to HASHED, to be used with composite keys. Available for all dictionary sources.</li><li>`RANGE_HASHED`: The entire dictionary is stored in memory in the form of a hash table, with an ordered array of ranges and their corresponding values. Available for all dictionary sources.</li><li>`CACHE`: The dictionary is stored in a cache with a set number of cells. Available for MySQL, ClickHouse and HTTP dictionary sources.</li><li>`COMPLEX_KEY_CACHE`: Similar to CACHE, to be used with composite keys. Available for MySQL, ClickHouse and HTTP dictionary sources.</li></ul>
 size_in_cells | **int64**<br>Number of cells in the cache. Rounded up to a power of two. Applicable only for CACHE and COMPLEX_KEY_CACHE layout types. 
+max_array_size | **int64**<br>Maximum dictionary key size. Applicable only for FLAT layout type. 
 
 
 ### Range {#Range5}
@@ -2806,6 +3067,10 @@ Field | Description
 --- | ---
 name | **string**<br>Required. Name for the specified combination of settings for Graphite rollup. 
 patterns[] | **[Pattern](#Pattern5)**<br>Pattern to use for the rollup. The number of elements must be greater than 0.
+path_column_name | **string**<br>The name of the column storing the metric name (Graphite sensor). Default: Path See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
+time_column_name | **string**<br>The name of the column storing the time of measuring the metric. Default: Time See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
+value_column_name | **string**<br>The name of the column storing the value of the metric at the time set in time_column_name. Default: Value See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
+version_column_name | **string**<br>The name of the column storing the version of the metric. Default: Timestamp See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
 
 
 ### Pattern {#Pattern5}
@@ -2823,6 +3088,25 @@ Field | Description
 --- | ---
 age | **int64**<br>Minimum age of the data in seconds. The minimum value is 0.
 precision | **int64**<br>Precision of determining the age of the data, in seconds. Value must be greater than 0.
+
+
+### QueryMaskingRule {#QueryMaskingRule5}
+
+Field | Description
+--- | ---
+name | **string**<br>Name for the rule. 
+regexp | **string**<br>Required. RE2 compatible regular expression. Required. 
+replace | **string**<br>Substitution string for sensitive data. Default: six asterisks 
+
+
+### QueryCache {#QueryCache5}
+
+Field | Description
+--- | ---
+max_size_in_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum cache size in bytes. Default: 1073741824 (1 GiB) The minimum value is 0.
+max_entries | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum number of SELECT query results stored in the cache. Default: 1024 The minimum value is 0.
+max_entry_size_in_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size in bytes SELECT query results may have to be saved in the cache. Dafault: 1048576 (1 MiB) The minimum value is 0.
+max_entry_size_in_rows | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum number of rows SELECT query results may have to be saved in the cache. Default: 30000000 (30 mil) The minimum value is 0.
 
 
 ### MaintenanceOperation {#MaintenanceOperation3}
@@ -2958,6 +3242,7 @@ cloud_storage | **[CloudStorage](#CloudStorage4)**<br>
 sql_database_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether database management through SQL commands is enabled. 
 sql_user_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether user management through SQL commands is enabled. 
 embedded_keeper | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether cluster should use embedded Keeper instead of Zookeeper. 
+backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retain period of automatically created backup in days 
 
 
 ### Clickhouse {#Clickhouse6}
@@ -3077,6 +3362,9 @@ background_common_pool_size | **[google.protobuf.Int64Value](https://developers.
 default_database | **google.protobuf.StringValue**<br>The default database. <br>To get a list of cluster databases, see [Yandex Managed ClickHouse documentation](/docs/managed-clickhouse/operations/databases#list-db). 
 total_memory_profiler_step | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the memory size (in bytes) for a stack trace at every peak allocation step. Default value: **4194304**. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#total-memory-profiler-step). 
 total_memory_tracker_sample_probability | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**<br> 
+query_masking_rules[] | **[QueryMaskingRule](#QueryMaskingRule6)**<br>Regexp-based rules, which will be applied to queries as well as all log messages before storing them in server logs, system.query_log, system.text_log, system.processes tables, and in logs sent to the client. That allows preventing sensitive data leakage from SQL queries (like names, emails, personal identifiers or credit card numbers) to logs. Change of these settings is applied with ClickHouse restart See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#query-masking-rules) The number of elements must be greater than 0.
+dictionaries_lazy_load | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Lazy loading of dictionaries. Default: true See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#dictionaries_lazy_load) 
+query_cache | **[QueryCache](#QueryCache6)**<br>[Query cache](https://clickhouse.com/docs/en/operations/query-cache) configuration. Min version: 23.5 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#query_cache) 
 
 
 ### MergeTree {#MergeTree6}
@@ -3107,6 +3395,10 @@ max_avg_part_size_for_too_many_parts | **[google.protobuf.Int64Value](https://de
 min_age_to_force_merge_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Merge parts if every part in the range is older than the value of min_age_to_force_merge_seconds. Default: 0 - disabled Min_version: 22.10 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#min_age_to_force_merge_seconds) The minimum value is 0.
 min_age_to_force_merge_on_partition_only | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether min_age_to_force_merge_seconds should be applied only on the entire partition and not on subset. Default: false Min_version: 22.11 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#min_age_to_force_merge_seconds) 
 merge_selecting_sleep_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sleep time for merge selecting when no part is selected. A lower setting triggers selecting tasks in background_schedule_pool frequently, which results in a large number of requests to ClickHouse Keeper in large-scale clusters. Default: 5000 Min_version: 21.10 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#merge_selecting_sleep_ms) Value must be greater than 0.
+merge_max_block_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of rows that are read from the merged parts into memory. Default: 8192 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#merge_max_block_size) Value must be greater than 0.
+check_sample_column_is_correct | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enables the check at table creation, that the data type of a column for sampling or sampling expression is correct. The data type must be one of unsigned [integer types](https://clickhouse.com/docs/en/sql-reference/data-types/int-uint): UInt8, UInt16, UInt32, UInt64. Default: true See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#check_sample_column_is_correct) 
+max_merge_selecting_sleep_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum sleep time for merge selecting, a lower setting will trigger selecting tasks in background_schedule_pool frequently which result in large amount of requests to zookeeper in large-scale clusters. Default: 60000 Min_version: 23.6 See in-depth description in [ClickHouse GitHub](https://github.com/ClickHouse/ClickHouse/blob/4add9db84859bff7410cf934a3904b0414e36e51/src/Storages/MergeTree/MergeTreeSettings.h#L71) The minimum value is 0.
+max_cleanup_delay_period | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum period to clean old queue logs, blocks hashes and parts. Default: 300 Min_version: 23.6 See in-depth description in [ClickHouse GitHub](https://github.com/ClickHouse/ClickHouse/blob/4add9db84859bff7410cf934a3904b0414e36e51/src/Storages/MergeTree/MergeTreeSettings.h#L142) The minimum value is 0.
 
 
 ### Kafka {#Kafka6}
@@ -3120,6 +3412,8 @@ sasl_password | **string**<br>
 enable_ssl_certificate_verification | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
 max_poll_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> The minimum value is 0.
 session_timeout_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> The minimum value is 0.
+debug | enum **Debug**<br> 
+auto_offset_reset | enum **AutoOffsetReset**<br> 
 
 
 ### KafkaTopic {#KafkaTopic6}
@@ -3173,6 +3467,15 @@ Field | Description
 --- | ---
 url | **string**<br>Required. URL of the source dictionary available over HTTP. 
 format | **string**<br>Required. The data format. Valid values are all formats supported by ClickHouse SQL dialect. 
+headers[] | **[Header](#Header6)**<br>HTTP headers. 
+
+
+### Header {#Header6}
+
+Field | Description
+--- | ---
+name | **string**<br>Required.  
+value | **string**<br>Required.  
 
 
 ### MysqlSource {#MysqlSource6}
@@ -3187,6 +3490,8 @@ password | **string**<br>Password of the default user for replicas of the dictio
 replicas[] | **[Replica](#Replica6)**<br>List of MySQL replicas of the database used as dictionary source. The number of elements must be greater than 0.
 where | **string**<br>Selection criteria for the data in the specified MySQL table. 
 invalidate_query | **string**<br>Query for checking the dictionary status, to pull only updated data. For more details, see [ClickHouse documentation on dictionaries](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/). 
+close_connection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Should the connection be closed after each request. 
+share_connection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Should a connection be shared for some requests. 
 
 
 ### Replica {#Replica6}
@@ -3206,11 +3511,12 @@ Field | Description
 --- | ---
 db | **string**<br>Required. Name of the ClickHouse database. 
 table | **string**<br>Required. Name of the table in the specified database to be used as the dictionary source. 
-host | **string**<br>Required. ClickHouse host of the specified database. The maximum string length in characters is 253.
+host | **string**<br>ClickHouse host of the specified database. The maximum string length in characters is 253.
 port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
 user | **string**<br>Required. Name of the ClickHouse database user. 
 password | **string**<br>Password of the ClickHouse database user. 
 where | **string**<br>Selection criteria for the data in the specified ClickHouse table. 
+secure | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Use ssl for connection. 
 
 
 ### MongodbSource {#MongodbSource6}
@@ -3219,7 +3525,7 @@ Field | Description
 --- | ---
 db | **string**<br>Required. Name of the MongoDB database. 
 collection | **string**<br>Required. Name of the collection in the specified database to be used as the dictionary source. 
-host | **string**<br>Required. MongoDB host of the specified database. The maximum string length in characters is 253.
+host | **string**<br>MongoDB host of the specified database. The maximum string length in characters is 253.
 port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
 user | **string**<br>Required. Name of the MongoDB database user. 
 password | **string**<br>Password of the MongoDB database user. 
@@ -3283,6 +3589,7 @@ Field | Description
 --- | ---
 type | enum **Type**<br>Required. Layout type for an external dictionary. <ul><li>`FLAT`: The entire dictionary is stored in memory in the form of flat arrays. Available for all dictionary sources.</li><li>`HASHED`: The entire dictionary is stored in memory in the form of a hash table. Available for all dictionary sources.</li><li>`COMPLEX_KEY_HASHED`: Similar to HASHED, to be used with composite keys. Available for all dictionary sources.</li><li>`RANGE_HASHED`: The entire dictionary is stored in memory in the form of a hash table, with an ordered array of ranges and their corresponding values. Available for all dictionary sources.</li><li>`CACHE`: The dictionary is stored in a cache with a set number of cells. Available for MySQL, ClickHouse and HTTP dictionary sources.</li><li>`COMPLEX_KEY_CACHE`: Similar to CACHE, to be used with composite keys. Available for MySQL, ClickHouse and HTTP dictionary sources.</li></ul>
 size_in_cells | **int64**<br>Number of cells in the cache. Rounded up to a power of two. Applicable only for CACHE and COMPLEX_KEY_CACHE layout types. 
+max_array_size | **int64**<br>Maximum dictionary key size. Applicable only for FLAT layout type. 
 
 
 ### Range {#Range6}
@@ -3299,6 +3606,10 @@ Field | Description
 --- | ---
 name | **string**<br>Required. Name for the specified combination of settings for Graphite rollup. 
 patterns[] | **[Pattern](#Pattern6)**<br>Pattern to use for the rollup. The number of elements must be greater than 0.
+path_column_name | **string**<br>The name of the column storing the metric name (Graphite sensor). Default: Path See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
+time_column_name | **string**<br>The name of the column storing the time of measuring the metric. Default: Time See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
+value_column_name | **string**<br>The name of the column storing the value of the metric at the time set in time_column_name. Default: Value See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
+version_column_name | **string**<br>The name of the column storing the version of the metric. Default: Timestamp See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
 
 
 ### Pattern {#Pattern6}
@@ -3316,6 +3627,25 @@ Field | Description
 --- | ---
 age | **int64**<br>Minimum age of the data in seconds. The minimum value is 0.
 precision | **int64**<br>Precision of determining the age of the data, in seconds. Value must be greater than 0.
+
+
+### QueryMaskingRule {#QueryMaskingRule6}
+
+Field | Description
+--- | ---
+name | **string**<br>Name for the rule. 
+regexp | **string**<br>Required. RE2 compatible regular expression. Required. 
+replace | **string**<br>Substitution string for sensitive data. Default: six asterisks 
+
+
+### QueryCache {#QueryCache6}
+
+Field | Description
+--- | ---
+max_size_in_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum cache size in bytes. Default: 1073741824 (1 GiB) The minimum value is 0.
+max_entries | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum number of SELECT query results stored in the cache. Default: 1024 The minimum value is 0.
+max_entry_size_in_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size in bytes SELECT query results may have to be saved in the cache. Dafault: 1048576 (1 MiB) The minimum value is 0.
+max_entry_size_in_rows | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum number of rows SELECT query results may have to be saved in the cache. Default: 30000000 (30 mil) The minimum value is 0.
 
 
 ### Resources {#Resources4}
@@ -3441,6 +3771,7 @@ cloud_storage | **[CloudStorage](#CloudStorage5)**<br>
 sql_database_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether database management through SQL commands is enabled. 
 sql_user_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether user management through SQL commands is enabled. 
 embedded_keeper | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether cluster should use embedded Keeper instead of Zookeeper. 
+backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retain period of automatically created backup in days 
 
 
 ### Clickhouse {#Clickhouse7}
@@ -3560,6 +3891,9 @@ background_common_pool_size | **[google.protobuf.Int64Value](https://developers.
 default_database | **google.protobuf.StringValue**<br>The default database. <br>To get a list of cluster databases, see [Yandex Managed ClickHouse documentation](/docs/managed-clickhouse/operations/databases#list-db). 
 total_memory_profiler_step | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the memory size (in bytes) for a stack trace at every peak allocation step. Default value: **4194304**. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#total-memory-profiler-step). 
 total_memory_tracker_sample_probability | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**<br> 
+query_masking_rules[] | **[QueryMaskingRule](#QueryMaskingRule7)**<br>Regexp-based rules, which will be applied to queries as well as all log messages before storing them in server logs, system.query_log, system.text_log, system.processes tables, and in logs sent to the client. That allows preventing sensitive data leakage from SQL queries (like names, emails, personal identifiers or credit card numbers) to logs. Change of these settings is applied with ClickHouse restart See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#query-masking-rules) The number of elements must be greater than 0.
+dictionaries_lazy_load | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Lazy loading of dictionaries. Default: true See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#dictionaries_lazy_load) 
+query_cache | **[QueryCache](#QueryCache7)**<br>[Query cache](https://clickhouse.com/docs/en/operations/query-cache) configuration. Min version: 23.5 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#query_cache) 
 
 
 ### MergeTree {#MergeTree7}
@@ -3590,6 +3924,10 @@ max_avg_part_size_for_too_many_parts | **[google.protobuf.Int64Value](https://de
 min_age_to_force_merge_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Merge parts if every part in the range is older than the value of min_age_to_force_merge_seconds. Default: 0 - disabled Min_version: 22.10 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#min_age_to_force_merge_seconds) The minimum value is 0.
 min_age_to_force_merge_on_partition_only | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether min_age_to_force_merge_seconds should be applied only on the entire partition and not on subset. Default: false Min_version: 22.11 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#min_age_to_force_merge_seconds) 
 merge_selecting_sleep_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sleep time for merge selecting when no part is selected. A lower setting triggers selecting tasks in background_schedule_pool frequently, which results in a large number of requests to ClickHouse Keeper in large-scale clusters. Default: 5000 Min_version: 21.10 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#merge_selecting_sleep_ms) Value must be greater than 0.
+merge_max_block_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of rows that are read from the merged parts into memory. Default: 8192 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#merge_max_block_size) Value must be greater than 0.
+check_sample_column_is_correct | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enables the check at table creation, that the data type of a column for sampling or sampling expression is correct. The data type must be one of unsigned [integer types](https://clickhouse.com/docs/en/sql-reference/data-types/int-uint): UInt8, UInt16, UInt32, UInt64. Default: true See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#check_sample_column_is_correct) 
+max_merge_selecting_sleep_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum sleep time for merge selecting, a lower setting will trigger selecting tasks in background_schedule_pool frequently which result in large amount of requests to zookeeper in large-scale clusters. Default: 60000 Min_version: 23.6 See in-depth description in [ClickHouse GitHub](https://github.com/ClickHouse/ClickHouse/blob/4add9db84859bff7410cf934a3904b0414e36e51/src/Storages/MergeTree/MergeTreeSettings.h#L71) The minimum value is 0.
+max_cleanup_delay_period | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum period to clean old queue logs, blocks hashes and parts. Default: 300 Min_version: 23.6 See in-depth description in [ClickHouse GitHub](https://github.com/ClickHouse/ClickHouse/blob/4add9db84859bff7410cf934a3904b0414e36e51/src/Storages/MergeTree/MergeTreeSettings.h#L142) The minimum value is 0.
 
 
 ### Kafka {#Kafka7}
@@ -3603,6 +3941,8 @@ sasl_password | **string**<br>
 enable_ssl_certificate_verification | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
 max_poll_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> The minimum value is 0.
 session_timeout_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> The minimum value is 0.
+debug | enum **Debug**<br> 
+auto_offset_reset | enum **AutoOffsetReset**<br> 
 
 
 ### KafkaTopic {#KafkaTopic7}
@@ -3656,6 +3996,15 @@ Field | Description
 --- | ---
 url | **string**<br>Required. URL of the source dictionary available over HTTP. 
 format | **string**<br>Required. The data format. Valid values are all formats supported by ClickHouse SQL dialect. 
+headers[] | **[Header](#Header7)**<br>HTTP headers. 
+
+
+### Header {#Header7}
+
+Field | Description
+--- | ---
+name | **string**<br>Required.  
+value | **string**<br>Required.  
 
 
 ### MysqlSource {#MysqlSource7}
@@ -3670,6 +4019,8 @@ password | **string**<br>Password of the default user for replicas of the dictio
 replicas[] | **[Replica](#Replica7)**<br>List of MySQL replicas of the database used as dictionary source. The number of elements must be greater than 0.
 where | **string**<br>Selection criteria for the data in the specified MySQL table. 
 invalidate_query | **string**<br>Query for checking the dictionary status, to pull only updated data. For more details, see [ClickHouse documentation on dictionaries](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/). 
+close_connection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Should the connection be closed after each request. 
+share_connection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Should a connection be shared for some requests. 
 
 
 ### Replica {#Replica7}
@@ -3689,11 +4040,12 @@ Field | Description
 --- | ---
 db | **string**<br>Required. Name of the ClickHouse database. 
 table | **string**<br>Required. Name of the table in the specified database to be used as the dictionary source. 
-host | **string**<br>Required. ClickHouse host of the specified database. The maximum string length in characters is 253.
+host | **string**<br>ClickHouse host of the specified database. The maximum string length in characters is 253.
 port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
 user | **string**<br>Required. Name of the ClickHouse database user. 
 password | **string**<br>Password of the ClickHouse database user. 
 where | **string**<br>Selection criteria for the data in the specified ClickHouse table. 
+secure | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Use ssl for connection. 
 
 
 ### MongodbSource {#MongodbSource7}
@@ -3702,7 +4054,7 @@ Field | Description
 --- | ---
 db | **string**<br>Required. Name of the MongoDB database. 
 collection | **string**<br>Required. Name of the collection in the specified database to be used as the dictionary source. 
-host | **string**<br>Required. MongoDB host of the specified database. The maximum string length in characters is 253.
+host | **string**<br>MongoDB host of the specified database. The maximum string length in characters is 253.
 port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
 user | **string**<br>Required. Name of the MongoDB database user. 
 password | **string**<br>Password of the MongoDB database user. 
@@ -3766,6 +4118,7 @@ Field | Description
 --- | ---
 type | enum **Type**<br>Required. Layout type for an external dictionary. <ul><li>`FLAT`: The entire dictionary is stored in memory in the form of flat arrays. Available for all dictionary sources.</li><li>`HASHED`: The entire dictionary is stored in memory in the form of a hash table. Available for all dictionary sources.</li><li>`COMPLEX_KEY_HASHED`: Similar to HASHED, to be used with composite keys. Available for all dictionary sources.</li><li>`RANGE_HASHED`: The entire dictionary is stored in memory in the form of a hash table, with an ordered array of ranges and their corresponding values. Available for all dictionary sources.</li><li>`CACHE`: The dictionary is stored in a cache with a set number of cells. Available for MySQL, ClickHouse and HTTP dictionary sources.</li><li>`COMPLEX_KEY_CACHE`: Similar to CACHE, to be used with composite keys. Available for MySQL, ClickHouse and HTTP dictionary sources.</li></ul>
 size_in_cells | **int64**<br>Number of cells in the cache. Rounded up to a power of two. Applicable only for CACHE and COMPLEX_KEY_CACHE layout types. 
+max_array_size | **int64**<br>Maximum dictionary key size. Applicable only for FLAT layout type. 
 
 
 ### Range {#Range7}
@@ -3782,6 +4135,10 @@ Field | Description
 --- | ---
 name | **string**<br>Required. Name for the specified combination of settings for Graphite rollup. 
 patterns[] | **[Pattern](#Pattern7)**<br>Pattern to use for the rollup. The number of elements must be greater than 0.
+path_column_name | **string**<br>The name of the column storing the metric name (Graphite sensor). Default: Path See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
+time_column_name | **string**<br>The name of the column storing the time of measuring the metric. Default: Time See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
+value_column_name | **string**<br>The name of the column storing the value of the metric at the time set in time_column_name. Default: Value See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
+version_column_name | **string**<br>The name of the column storing the version of the metric. Default: Timestamp See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
 
 
 ### Pattern {#Pattern7}
@@ -3799,6 +4156,25 @@ Field | Description
 --- | ---
 age | **int64**<br>Minimum age of the data in seconds. The minimum value is 0.
 precision | **int64**<br>Precision of determining the age of the data, in seconds. Value must be greater than 0.
+
+
+### QueryMaskingRule {#QueryMaskingRule7}
+
+Field | Description
+--- | ---
+name | **string**<br>Name for the rule. 
+regexp | **string**<br>Required. RE2 compatible regular expression. Required. 
+replace | **string**<br>Substitution string for sensitive data. Default: six asterisks 
+
+
+### QueryCache {#QueryCache7}
+
+Field | Description
+--- | ---
+max_size_in_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum cache size in bytes. Default: 1073741824 (1 GiB) The minimum value is 0.
+max_entries | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum number of SELECT query results stored in the cache. Default: 1024 The minimum value is 0.
+max_entry_size_in_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size in bytes SELECT query results may have to be saved in the cache. Dafault: 1048576 (1 MiB) The minimum value is 0.
+max_entry_size_in_rows | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum number of rows SELECT query results may have to be saved in the cache. Default: 30000000 (30 mil) The minimum value is 0.
 
 
 ### Resources {#Resources5}
@@ -3927,6 +4303,7 @@ cloud_storage | **[CloudStorage](#CloudStorage6)**<br>
 sql_database_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether database management through SQL commands is enabled. 
 sql_user_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether user management through SQL commands is enabled. 
 embedded_keeper | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether cluster should use embedded Keeper instead of Zookeeper. 
+backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retain period of automatically created backup in days 
 
 
 ### Clickhouse {#Clickhouse8}
@@ -4046,6 +4423,9 @@ background_common_pool_size | **[google.protobuf.Int64Value](https://developers.
 default_database | **google.protobuf.StringValue**<br>The default database. <br>To get a list of cluster databases, see [Yandex Managed ClickHouse documentation](/docs/managed-clickhouse/operations/databases#list-db). 
 total_memory_profiler_step | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the memory size (in bytes) for a stack trace at every peak allocation step. Default value: **4194304**. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#total-memory-profiler-step). 
 total_memory_tracker_sample_probability | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**<br> 
+query_masking_rules[] | **[QueryMaskingRule](#QueryMaskingRule8)**<br>Regexp-based rules, which will be applied to queries as well as all log messages before storing them in server logs, system.query_log, system.text_log, system.processes tables, and in logs sent to the client. That allows preventing sensitive data leakage from SQL queries (like names, emails, personal identifiers or credit card numbers) to logs. Change of these settings is applied with ClickHouse restart See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#query-masking-rules) The number of elements must be greater than 0.
+dictionaries_lazy_load | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Lazy loading of dictionaries. Default: true See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#dictionaries_lazy_load) 
+query_cache | **[QueryCache](#QueryCache8)**<br>[Query cache](https://clickhouse.com/docs/en/operations/query-cache) configuration. Min version: 23.5 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#query_cache) 
 
 
 ### MergeTree {#MergeTree8}
@@ -4076,6 +4456,10 @@ max_avg_part_size_for_too_many_parts | **[google.protobuf.Int64Value](https://de
 min_age_to_force_merge_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Merge parts if every part in the range is older than the value of min_age_to_force_merge_seconds. Default: 0 - disabled Min_version: 22.10 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#min_age_to_force_merge_seconds) The minimum value is 0.
 min_age_to_force_merge_on_partition_only | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether min_age_to_force_merge_seconds should be applied only on the entire partition and not on subset. Default: false Min_version: 22.11 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#min_age_to_force_merge_seconds) 
 merge_selecting_sleep_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sleep time for merge selecting when no part is selected. A lower setting triggers selecting tasks in background_schedule_pool frequently, which results in a large number of requests to ClickHouse Keeper in large-scale clusters. Default: 5000 Min_version: 21.10 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#merge_selecting_sleep_ms) Value must be greater than 0.
+merge_max_block_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of rows that are read from the merged parts into memory. Default: 8192 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#merge_max_block_size) Value must be greater than 0.
+check_sample_column_is_correct | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enables the check at table creation, that the data type of a column for sampling or sampling expression is correct. The data type must be one of unsigned [integer types](https://clickhouse.com/docs/en/sql-reference/data-types/int-uint): UInt8, UInt16, UInt32, UInt64. Default: true See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#check_sample_column_is_correct) 
+max_merge_selecting_sleep_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum sleep time for merge selecting, a lower setting will trigger selecting tasks in background_schedule_pool frequently which result in large amount of requests to zookeeper in large-scale clusters. Default: 60000 Min_version: 23.6 See in-depth description in [ClickHouse GitHub](https://github.com/ClickHouse/ClickHouse/blob/4add9db84859bff7410cf934a3904b0414e36e51/src/Storages/MergeTree/MergeTreeSettings.h#L71) The minimum value is 0.
+max_cleanup_delay_period | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum period to clean old queue logs, blocks hashes and parts. Default: 300 Min_version: 23.6 See in-depth description in [ClickHouse GitHub](https://github.com/ClickHouse/ClickHouse/blob/4add9db84859bff7410cf934a3904b0414e36e51/src/Storages/MergeTree/MergeTreeSettings.h#L142) The minimum value is 0.
 
 
 ### Kafka {#Kafka8}
@@ -4089,6 +4473,8 @@ sasl_password | **string**<br>
 enable_ssl_certificate_verification | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
 max_poll_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> The minimum value is 0.
 session_timeout_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> The minimum value is 0.
+debug | enum **Debug**<br> 
+auto_offset_reset | enum **AutoOffsetReset**<br> 
 
 
 ### KafkaTopic {#KafkaTopic8}
@@ -4142,6 +4528,15 @@ Field | Description
 --- | ---
 url | **string**<br>Required. URL of the source dictionary available over HTTP. 
 format | **string**<br>Required. The data format. Valid values are all formats supported by ClickHouse SQL dialect. 
+headers[] | **[Header](#Header8)**<br>HTTP headers. 
+
+
+### Header {#Header8}
+
+Field | Description
+--- | ---
+name | **string**<br>Required.  
+value | **string**<br>Required.  
 
 
 ### MysqlSource {#MysqlSource8}
@@ -4156,6 +4551,8 @@ password | **string**<br>Password of the default user for replicas of the dictio
 replicas[] | **[Replica](#Replica8)**<br>List of MySQL replicas of the database used as dictionary source. The number of elements must be greater than 0.
 where | **string**<br>Selection criteria for the data in the specified MySQL table. 
 invalidate_query | **string**<br>Query for checking the dictionary status, to pull only updated data. For more details, see [ClickHouse documentation on dictionaries](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/). 
+close_connection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Should the connection be closed after each request. 
+share_connection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Should a connection be shared for some requests. 
 
 
 ### Replica {#Replica8}
@@ -4175,11 +4572,12 @@ Field | Description
 --- | ---
 db | **string**<br>Required. Name of the ClickHouse database. 
 table | **string**<br>Required. Name of the table in the specified database to be used as the dictionary source. 
-host | **string**<br>Required. ClickHouse host of the specified database. The maximum string length in characters is 253.
+host | **string**<br>ClickHouse host of the specified database. The maximum string length in characters is 253.
 port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
 user | **string**<br>Required. Name of the ClickHouse database user. 
 password | **string**<br>Password of the ClickHouse database user. 
 where | **string**<br>Selection criteria for the data in the specified ClickHouse table. 
+secure | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Use ssl for connection. 
 
 
 ### MongodbSource {#MongodbSource8}
@@ -4188,7 +4586,7 @@ Field | Description
 --- | ---
 db | **string**<br>Required. Name of the MongoDB database. 
 collection | **string**<br>Required. Name of the collection in the specified database to be used as the dictionary source. 
-host | **string**<br>Required. MongoDB host of the specified database. The maximum string length in characters is 253.
+host | **string**<br>MongoDB host of the specified database. The maximum string length in characters is 253.
 port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
 user | **string**<br>Required. Name of the MongoDB database user. 
 password | **string**<br>Password of the MongoDB database user. 
@@ -4252,6 +4650,7 @@ Field | Description
 --- | ---
 type | enum **Type**<br>Required. Layout type for an external dictionary. <ul><li>`FLAT`: The entire dictionary is stored in memory in the form of flat arrays. Available for all dictionary sources.</li><li>`HASHED`: The entire dictionary is stored in memory in the form of a hash table. Available for all dictionary sources.</li><li>`COMPLEX_KEY_HASHED`: Similar to HASHED, to be used with composite keys. Available for all dictionary sources.</li><li>`RANGE_HASHED`: The entire dictionary is stored in memory in the form of a hash table, with an ordered array of ranges and their corresponding values. Available for all dictionary sources.</li><li>`CACHE`: The dictionary is stored in a cache with a set number of cells. Available for MySQL, ClickHouse and HTTP dictionary sources.</li><li>`COMPLEX_KEY_CACHE`: Similar to CACHE, to be used with composite keys. Available for MySQL, ClickHouse and HTTP dictionary sources.</li></ul>
 size_in_cells | **int64**<br>Number of cells in the cache. Rounded up to a power of two. Applicable only for CACHE and COMPLEX_KEY_CACHE layout types. 
+max_array_size | **int64**<br>Maximum dictionary key size. Applicable only for FLAT layout type. 
 
 
 ### Range {#Range8}
@@ -4268,6 +4667,10 @@ Field | Description
 --- | ---
 name | **string**<br>Required. Name for the specified combination of settings for Graphite rollup. 
 patterns[] | **[Pattern](#Pattern8)**<br>Pattern to use for the rollup. The number of elements must be greater than 0.
+path_column_name | **string**<br>The name of the column storing the metric name (Graphite sensor). Default: Path See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
+time_column_name | **string**<br>The name of the column storing the time of measuring the metric. Default: Time See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
+value_column_name | **string**<br>The name of the column storing the value of the metric at the time set in time_column_name. Default: Value See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
+version_column_name | **string**<br>The name of the column storing the version of the metric. Default: Timestamp See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
 
 
 ### Pattern {#Pattern8}
@@ -4285,6 +4688,25 @@ Field | Description
 --- | ---
 age | **int64**<br>Minimum age of the data in seconds. The minimum value is 0.
 precision | **int64**<br>Precision of determining the age of the data, in seconds. Value must be greater than 0.
+
+
+### QueryMaskingRule {#QueryMaskingRule8}
+
+Field | Description
+--- | ---
+name | **string**<br>Name for the rule. 
+regexp | **string**<br>Required. RE2 compatible regular expression. Required. 
+replace | **string**<br>Substitution string for sensitive data. Default: six asterisks 
+
+
+### QueryCache {#QueryCache8}
+
+Field | Description
+--- | ---
+max_size_in_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum cache size in bytes. Default: 1073741824 (1 GiB) The minimum value is 0.
+max_entries | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum number of SELECT query results stored in the cache. Default: 1024 The minimum value is 0.
+max_entry_size_in_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size in bytes SELECT query results may have to be saved in the cache. Dafault: 1048576 (1 MiB) The minimum value is 0.
+max_entry_size_in_rows | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum number of rows SELECT query results may have to be saved in the cache. Default: 30000000 (30 mil) The minimum value is 0.
 
 
 ### Resources {#Resources6}
@@ -4433,6 +4855,7 @@ cloud_storage | **[CloudStorage](#CloudStorage7)**<br>
 sql_database_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether database management through SQL commands is enabled. 
 sql_user_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether user management through SQL commands is enabled. 
 embedded_keeper | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether cluster should use embedded Keeper instead of Zookeeper. 
+backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retain period of automatically created backup in days 
 
 
 ### Clickhouse {#Clickhouse9}
@@ -4552,6 +4975,9 @@ background_common_pool_size | **[google.protobuf.Int64Value](https://developers.
 default_database | **google.protobuf.StringValue**<br>The default database. <br>To get a list of cluster databases, see [Yandex Managed ClickHouse documentation](/docs/managed-clickhouse/operations/databases#list-db). 
 total_memory_profiler_step | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the memory size (in bytes) for a stack trace at every peak allocation step. Default value: **4194304**. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#total-memory-profiler-step). 
 total_memory_tracker_sample_probability | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**<br> 
+query_masking_rules[] | **[QueryMaskingRule](#QueryMaskingRule9)**<br>Regexp-based rules, which will be applied to queries as well as all log messages before storing them in server logs, system.query_log, system.text_log, system.processes tables, and in logs sent to the client. That allows preventing sensitive data leakage from SQL queries (like names, emails, personal identifiers or credit card numbers) to logs. Change of these settings is applied with ClickHouse restart See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#query-masking-rules) The number of elements must be greater than 0.
+dictionaries_lazy_load | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Lazy loading of dictionaries. Default: true See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#dictionaries_lazy_load) 
+query_cache | **[QueryCache](#QueryCache9)**<br>[Query cache](https://clickhouse.com/docs/en/operations/query-cache) configuration. Min version: 23.5 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#query_cache) 
 
 
 ### MergeTree {#MergeTree9}
@@ -4582,6 +5008,10 @@ max_avg_part_size_for_too_many_parts | **[google.protobuf.Int64Value](https://de
 min_age_to_force_merge_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Merge parts if every part in the range is older than the value of min_age_to_force_merge_seconds. Default: 0 - disabled Min_version: 22.10 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#min_age_to_force_merge_seconds) The minimum value is 0.
 min_age_to_force_merge_on_partition_only | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether min_age_to_force_merge_seconds should be applied only on the entire partition and not on subset. Default: false Min_version: 22.11 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#min_age_to_force_merge_seconds) 
 merge_selecting_sleep_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sleep time for merge selecting when no part is selected. A lower setting triggers selecting tasks in background_schedule_pool frequently, which results in a large number of requests to ClickHouse Keeper in large-scale clusters. Default: 5000 Min_version: 21.10 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#merge_selecting_sleep_ms) Value must be greater than 0.
+merge_max_block_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of rows that are read from the merged parts into memory. Default: 8192 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#merge_max_block_size) Value must be greater than 0.
+check_sample_column_is_correct | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enables the check at table creation, that the data type of a column for sampling or sampling expression is correct. The data type must be one of unsigned [integer types](https://clickhouse.com/docs/en/sql-reference/data-types/int-uint): UInt8, UInt16, UInt32, UInt64. Default: true See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#check_sample_column_is_correct) 
+max_merge_selecting_sleep_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum sleep time for merge selecting, a lower setting will trigger selecting tasks in background_schedule_pool frequently which result in large amount of requests to zookeeper in large-scale clusters. Default: 60000 Min_version: 23.6 See in-depth description in [ClickHouse GitHub](https://github.com/ClickHouse/ClickHouse/blob/4add9db84859bff7410cf934a3904b0414e36e51/src/Storages/MergeTree/MergeTreeSettings.h#L71) The minimum value is 0.
+max_cleanup_delay_period | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum period to clean old queue logs, blocks hashes and parts. Default: 300 Min_version: 23.6 See in-depth description in [ClickHouse GitHub](https://github.com/ClickHouse/ClickHouse/blob/4add9db84859bff7410cf934a3904b0414e36e51/src/Storages/MergeTree/MergeTreeSettings.h#L142) The minimum value is 0.
 
 
 ### Kafka {#Kafka9}
@@ -4595,6 +5025,8 @@ sasl_password | **string**<br>
 enable_ssl_certificate_verification | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
 max_poll_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> The minimum value is 0.
 session_timeout_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> The minimum value is 0.
+debug | enum **Debug**<br> 
+auto_offset_reset | enum **AutoOffsetReset**<br> 
 
 
 ### KafkaTopic {#KafkaTopic9}
@@ -4648,6 +5080,15 @@ Field | Description
 --- | ---
 url | **string**<br>Required. URL of the source dictionary available over HTTP. 
 format | **string**<br>Required. The data format. Valid values are all formats supported by ClickHouse SQL dialect. 
+headers[] | **[Header](#Header9)**<br>HTTP headers. 
+
+
+### Header {#Header9}
+
+Field | Description
+--- | ---
+name | **string**<br>Required.  
+value | **string**<br>Required.  
 
 
 ### MysqlSource {#MysqlSource9}
@@ -4662,6 +5103,8 @@ password | **string**<br>Password of the default user for replicas of the dictio
 replicas[] | **[Replica](#Replica9)**<br>List of MySQL replicas of the database used as dictionary source. The number of elements must be greater than 0.
 where | **string**<br>Selection criteria for the data in the specified MySQL table. 
 invalidate_query | **string**<br>Query for checking the dictionary status, to pull only updated data. For more details, see [ClickHouse documentation on dictionaries](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/). 
+close_connection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Should the connection be closed after each request. 
+share_connection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Should a connection be shared for some requests. 
 
 
 ### Replica {#Replica9}
@@ -4681,11 +5124,12 @@ Field | Description
 --- | ---
 db | **string**<br>Required. Name of the ClickHouse database. 
 table | **string**<br>Required. Name of the table in the specified database to be used as the dictionary source. 
-host | **string**<br>Required. ClickHouse host of the specified database. The maximum string length in characters is 253.
+host | **string**<br>ClickHouse host of the specified database. The maximum string length in characters is 253.
 port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
 user | **string**<br>Required. Name of the ClickHouse database user. 
 password | **string**<br>Password of the ClickHouse database user. 
 where | **string**<br>Selection criteria for the data in the specified ClickHouse table. 
+secure | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Use ssl for connection. 
 
 
 ### MongodbSource {#MongodbSource9}
@@ -4694,7 +5138,7 @@ Field | Description
 --- | ---
 db | **string**<br>Required. Name of the MongoDB database. 
 collection | **string**<br>Required. Name of the collection in the specified database to be used as the dictionary source. 
-host | **string**<br>Required. MongoDB host of the specified database. The maximum string length in characters is 253.
+host | **string**<br>MongoDB host of the specified database. The maximum string length in characters is 253.
 port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
 user | **string**<br>Required. Name of the MongoDB database user. 
 password | **string**<br>Password of the MongoDB database user. 
@@ -4758,6 +5202,7 @@ Field | Description
 --- | ---
 type | enum **Type**<br>Required. Layout type for an external dictionary. <ul><li>`FLAT`: The entire dictionary is stored in memory in the form of flat arrays. Available for all dictionary sources.</li><li>`HASHED`: The entire dictionary is stored in memory in the form of a hash table. Available for all dictionary sources.</li><li>`COMPLEX_KEY_HASHED`: Similar to HASHED, to be used with composite keys. Available for all dictionary sources.</li><li>`RANGE_HASHED`: The entire dictionary is stored in memory in the form of a hash table, with an ordered array of ranges and their corresponding values. Available for all dictionary sources.</li><li>`CACHE`: The dictionary is stored in a cache with a set number of cells. Available for MySQL, ClickHouse and HTTP dictionary sources.</li><li>`COMPLEX_KEY_CACHE`: Similar to CACHE, to be used with composite keys. Available for MySQL, ClickHouse and HTTP dictionary sources.</li></ul>
 size_in_cells | **int64**<br>Number of cells in the cache. Rounded up to a power of two. Applicable only for CACHE and COMPLEX_KEY_CACHE layout types. 
+max_array_size | **int64**<br>Maximum dictionary key size. Applicable only for FLAT layout type. 
 
 
 ### Range {#Range9}
@@ -4774,6 +5219,10 @@ Field | Description
 --- | ---
 name | **string**<br>Required. Name for the specified combination of settings for Graphite rollup. 
 patterns[] | **[Pattern](#Pattern9)**<br>Pattern to use for the rollup. The number of elements must be greater than 0.
+path_column_name | **string**<br>The name of the column storing the metric name (Graphite sensor). Default: Path See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
+time_column_name | **string**<br>The name of the column storing the time of measuring the metric. Default: Time See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
+value_column_name | **string**<br>The name of the column storing the value of the metric at the time set in time_column_name. Default: Value See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
+version_column_name | **string**<br>The name of the column storing the version of the metric. Default: Timestamp See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
 
 
 ### Pattern {#Pattern9}
@@ -4791,6 +5240,25 @@ Field | Description
 --- | ---
 age | **int64**<br>Minimum age of the data in seconds. The minimum value is 0.
 precision | **int64**<br>Precision of determining the age of the data, in seconds. Value must be greater than 0.
+
+
+### QueryMaskingRule {#QueryMaskingRule9}
+
+Field | Description
+--- | ---
+name | **string**<br>Name for the rule. 
+regexp | **string**<br>Required. RE2 compatible regular expression. Required. 
+replace | **string**<br>Substitution string for sensitive data. Default: six asterisks 
+
+
+### QueryCache {#QueryCache9}
+
+Field | Description
+--- | ---
+max_size_in_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum cache size in bytes. Default: 1073741824 (1 GiB) The minimum value is 0.
+max_entries | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum number of SELECT query results stored in the cache. Default: 1024 The minimum value is 0.
+max_entry_size_in_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size in bytes SELECT query results may have to be saved in the cache. Dafault: 1048576 (1 MiB) The minimum value is 0.
+max_entry_size_in_rows | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum number of rows SELECT query results may have to be saved in the cache. Default: 30000000 (30 mil) The minimum value is 0.
 
 
 ### MaintenanceWindow {#MaintenanceWindow7}
@@ -4907,6 +5375,7 @@ cloud_storage | **[CloudStorage](#CloudStorage8)**<br>
 sql_database_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether database management through SQL commands is enabled. 
 sql_user_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether user management through SQL commands is enabled. 
 embedded_keeper | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether cluster should use embedded Keeper instead of Zookeeper. 
+backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retain period of automatically created backup in days 
 
 
 ### Clickhouse {#Clickhouse10}
@@ -5026,6 +5495,9 @@ background_common_pool_size | **[google.protobuf.Int64Value](https://developers.
 default_database | **google.protobuf.StringValue**<br>The default database. <br>To get a list of cluster databases, see [Yandex Managed ClickHouse documentation](/docs/managed-clickhouse/operations/databases#list-db). 
 total_memory_profiler_step | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the memory size (in bytes) for a stack trace at every peak allocation step. Default value: **4194304**. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#total-memory-profiler-step). 
 total_memory_tracker_sample_probability | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**<br> 
+query_masking_rules[] | **[QueryMaskingRule](#QueryMaskingRule10)**<br>Regexp-based rules, which will be applied to queries as well as all log messages before storing them in server logs, system.query_log, system.text_log, system.processes tables, and in logs sent to the client. That allows preventing sensitive data leakage from SQL queries (like names, emails, personal identifiers or credit card numbers) to logs. Change of these settings is applied with ClickHouse restart See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#query-masking-rules) The number of elements must be greater than 0.
+dictionaries_lazy_load | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Lazy loading of dictionaries. Default: true See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#dictionaries_lazy_load) 
+query_cache | **[QueryCache](#QueryCache10)**<br>[Query cache](https://clickhouse.com/docs/en/operations/query-cache) configuration. Min version: 23.5 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#query_cache) 
 
 
 ### MergeTree {#MergeTree10}
@@ -5056,6 +5528,10 @@ max_avg_part_size_for_too_many_parts | **[google.protobuf.Int64Value](https://de
 min_age_to_force_merge_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Merge parts if every part in the range is older than the value of min_age_to_force_merge_seconds. Default: 0 - disabled Min_version: 22.10 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#min_age_to_force_merge_seconds) The minimum value is 0.
 min_age_to_force_merge_on_partition_only | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether min_age_to_force_merge_seconds should be applied only on the entire partition and not on subset. Default: false Min_version: 22.11 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#min_age_to_force_merge_seconds) 
 merge_selecting_sleep_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sleep time for merge selecting when no part is selected. A lower setting triggers selecting tasks in background_schedule_pool frequently, which results in a large number of requests to ClickHouse Keeper in large-scale clusters. Default: 5000 Min_version: 21.10 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#merge_selecting_sleep_ms) Value must be greater than 0.
+merge_max_block_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of rows that are read from the merged parts into memory. Default: 8192 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#merge_max_block_size) Value must be greater than 0.
+check_sample_column_is_correct | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enables the check at table creation, that the data type of a column for sampling or sampling expression is correct. The data type must be one of unsigned [integer types](https://clickhouse.com/docs/en/sql-reference/data-types/int-uint): UInt8, UInt16, UInt32, UInt64. Default: true See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#check_sample_column_is_correct) 
+max_merge_selecting_sleep_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum sleep time for merge selecting, a lower setting will trigger selecting tasks in background_schedule_pool frequently which result in large amount of requests to zookeeper in large-scale clusters. Default: 60000 Min_version: 23.6 See in-depth description in [ClickHouse GitHub](https://github.com/ClickHouse/ClickHouse/blob/4add9db84859bff7410cf934a3904b0414e36e51/src/Storages/MergeTree/MergeTreeSettings.h#L71) The minimum value is 0.
+max_cleanup_delay_period | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum period to clean old queue logs, blocks hashes and parts. Default: 300 Min_version: 23.6 See in-depth description in [ClickHouse GitHub](https://github.com/ClickHouse/ClickHouse/blob/4add9db84859bff7410cf934a3904b0414e36e51/src/Storages/MergeTree/MergeTreeSettings.h#L142) The minimum value is 0.
 
 
 ### Kafka {#Kafka10}
@@ -5069,6 +5545,8 @@ sasl_password | **string**<br>
 enable_ssl_certificate_verification | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
 max_poll_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> The minimum value is 0.
 session_timeout_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> The minimum value is 0.
+debug | enum **Debug**<br> 
+auto_offset_reset | enum **AutoOffsetReset**<br> 
 
 
 ### KafkaTopic {#KafkaTopic10}
@@ -5122,6 +5600,15 @@ Field | Description
 --- | ---
 url | **string**<br>Required. URL of the source dictionary available over HTTP. 
 format | **string**<br>Required. The data format. Valid values are all formats supported by ClickHouse SQL dialect. 
+headers[] | **[Header](#Header10)**<br>HTTP headers. 
+
+
+### Header {#Header10}
+
+Field | Description
+--- | ---
+name | **string**<br>Required.  
+value | **string**<br>Required.  
 
 
 ### MysqlSource {#MysqlSource10}
@@ -5136,6 +5623,8 @@ password | **string**<br>Password of the default user for replicas of the dictio
 replicas[] | **[Replica](#Replica10)**<br>List of MySQL replicas of the database used as dictionary source. The number of elements must be greater than 0.
 where | **string**<br>Selection criteria for the data in the specified MySQL table. 
 invalidate_query | **string**<br>Query for checking the dictionary status, to pull only updated data. For more details, see [ClickHouse documentation on dictionaries](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/). 
+close_connection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Should the connection be closed after each request. 
+share_connection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Should a connection be shared for some requests. 
 
 
 ### Replica {#Replica10}
@@ -5155,11 +5644,12 @@ Field | Description
 --- | ---
 db | **string**<br>Required. Name of the ClickHouse database. 
 table | **string**<br>Required. Name of the table in the specified database to be used as the dictionary source. 
-host | **string**<br>Required. ClickHouse host of the specified database. The maximum string length in characters is 253.
+host | **string**<br>ClickHouse host of the specified database. The maximum string length in characters is 253.
 port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
 user | **string**<br>Required. Name of the ClickHouse database user. 
 password | **string**<br>Password of the ClickHouse database user. 
 where | **string**<br>Selection criteria for the data in the specified ClickHouse table. 
+secure | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Use ssl for connection. 
 
 
 ### MongodbSource {#MongodbSource10}
@@ -5168,7 +5658,7 @@ Field | Description
 --- | ---
 db | **string**<br>Required. Name of the MongoDB database. 
 collection | **string**<br>Required. Name of the collection in the specified database to be used as the dictionary source. 
-host | **string**<br>Required. MongoDB host of the specified database. The maximum string length in characters is 253.
+host | **string**<br>MongoDB host of the specified database. The maximum string length in characters is 253.
 port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
 user | **string**<br>Required. Name of the MongoDB database user. 
 password | **string**<br>Password of the MongoDB database user. 
@@ -5232,6 +5722,7 @@ Field | Description
 --- | ---
 type | enum **Type**<br>Required. Layout type for an external dictionary. <ul><li>`FLAT`: The entire dictionary is stored in memory in the form of flat arrays. Available for all dictionary sources.</li><li>`HASHED`: The entire dictionary is stored in memory in the form of a hash table. Available for all dictionary sources.</li><li>`COMPLEX_KEY_HASHED`: Similar to HASHED, to be used with composite keys. Available for all dictionary sources.</li><li>`RANGE_HASHED`: The entire dictionary is stored in memory in the form of a hash table, with an ordered array of ranges and their corresponding values. Available for all dictionary sources.</li><li>`CACHE`: The dictionary is stored in a cache with a set number of cells. Available for MySQL, ClickHouse and HTTP dictionary sources.</li><li>`COMPLEX_KEY_CACHE`: Similar to CACHE, to be used with composite keys. Available for MySQL, ClickHouse and HTTP dictionary sources.</li></ul>
 size_in_cells | **int64**<br>Number of cells in the cache. Rounded up to a power of two. Applicable only for CACHE and COMPLEX_KEY_CACHE layout types. 
+max_array_size | **int64**<br>Maximum dictionary key size. Applicable only for FLAT layout type. 
 
 
 ### Range {#Range10}
@@ -5248,6 +5739,10 @@ Field | Description
 --- | ---
 name | **string**<br>Required. Name for the specified combination of settings for Graphite rollup. 
 patterns[] | **[Pattern](#Pattern10)**<br>Pattern to use for the rollup. The number of elements must be greater than 0.
+path_column_name | **string**<br>The name of the column storing the metric name (Graphite sensor). Default: Path See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
+time_column_name | **string**<br>The name of the column storing the time of measuring the metric. Default: Time See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
+value_column_name | **string**<br>The name of the column storing the value of the metric at the time set in time_column_name. Default: Value See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
+version_column_name | **string**<br>The name of the column storing the version of the metric. Default: Timestamp See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
 
 
 ### Pattern {#Pattern10}
@@ -5265,6 +5760,25 @@ Field | Description
 --- | ---
 age | **int64**<br>Minimum age of the data in seconds. The minimum value is 0.
 precision | **int64**<br>Precision of determining the age of the data, in seconds. Value must be greater than 0.
+
+
+### QueryMaskingRule {#QueryMaskingRule10}
+
+Field | Description
+--- | ---
+name | **string**<br>Name for the rule. 
+regexp | **string**<br>Required. RE2 compatible regular expression. Required. 
+replace | **string**<br>Substitution string for sensitive data. Default: six asterisks 
+
+
+### QueryCache {#QueryCache10}
+
+Field | Description
+--- | ---
+max_size_in_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum cache size in bytes. Default: 1073741824 (1 GiB) The minimum value is 0.
+max_entries | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum number of SELECT query results stored in the cache. Default: 1024 The minimum value is 0.
+max_entry_size_in_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size in bytes SELECT query results may have to be saved in the cache. Dafault: 1048576 (1 MiB) The minimum value is 0.
+max_entry_size_in_rows | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum number of rows SELECT query results may have to be saved in the cache. Default: 30000000 (30 mil) The minimum value is 0.
 
 
 ### Resources {#Resources8}
@@ -5348,6 +5862,7 @@ sql_database_management | **[google.protobuf.BoolValue](https://developers.googl
 sql_user_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether user management through SQL commands is enabled. 
 admin_password | **string**<br>Password for user 'admin' that has SQL user management access. 
 embedded_keeper | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether cluster should use embedded Keeper instead of Zookeeper 
+backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retain period of automatically created backup in days 
 
 
 ### Clickhouse {#Clickhouse11}
@@ -5458,6 +5973,9 @@ background_common_pool_size | **[google.protobuf.Int64Value](https://developers.
 default_database | **google.protobuf.StringValue**<br>The default database. <br>To get a list of cluster databases, see [Yandex Managed ClickHouse documentation](/docs/managed-clickhouse/operations/databases#list-db). 
 total_memory_profiler_step | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the memory size (in bytes) for a stack trace at every peak allocation step. Default value: **4194304**. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#total-memory-profiler-step). 
 total_memory_tracker_sample_probability | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**<br> 
+query_masking_rules[] | **[QueryMaskingRule](#QueryMaskingRule11)**<br>Regexp-based rules, which will be applied to queries as well as all log messages before storing them in server logs, system.query_log, system.text_log, system.processes tables, and in logs sent to the client. That allows preventing sensitive data leakage from SQL queries (like names, emails, personal identifiers or credit card numbers) to logs. Change of these settings is applied with ClickHouse restart See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#query-masking-rules) The number of elements must be greater than 0.
+dictionaries_lazy_load | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Lazy loading of dictionaries. Default: true See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#dictionaries_lazy_load) 
+query_cache | **[QueryCache](#QueryCache11)**<br>[Query cache](https://clickhouse.com/docs/en/operations/query-cache) configuration. Min version: 23.5 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#query_cache) 
 
 
 ### MergeTree {#MergeTree11}
@@ -5488,6 +6006,10 @@ max_avg_part_size_for_too_many_parts | **[google.protobuf.Int64Value](https://de
 min_age_to_force_merge_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Merge parts if every part in the range is older than the value of min_age_to_force_merge_seconds. Default: 0 - disabled Min_version: 22.10 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#min_age_to_force_merge_seconds) The minimum value is 0.
 min_age_to_force_merge_on_partition_only | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether min_age_to_force_merge_seconds should be applied only on the entire partition and not on subset. Default: false Min_version: 22.11 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#min_age_to_force_merge_seconds) 
 merge_selecting_sleep_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sleep time for merge selecting when no part is selected. A lower setting triggers selecting tasks in background_schedule_pool frequently, which results in a large number of requests to ClickHouse Keeper in large-scale clusters. Default: 5000 Min_version: 21.10 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#merge_selecting_sleep_ms) Value must be greater than 0.
+merge_max_block_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of rows that are read from the merged parts into memory. Default: 8192 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#merge_max_block_size) Value must be greater than 0.
+check_sample_column_is_correct | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enables the check at table creation, that the data type of a column for sampling or sampling expression is correct. The data type must be one of unsigned [integer types](https://clickhouse.com/docs/en/sql-reference/data-types/int-uint): UInt8, UInt16, UInt32, UInt64. Default: true See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#check_sample_column_is_correct) 
+max_merge_selecting_sleep_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum sleep time for merge selecting, a lower setting will trigger selecting tasks in background_schedule_pool frequently which result in large amount of requests to zookeeper in large-scale clusters. Default: 60000 Min_version: 23.6 See in-depth description in [ClickHouse GitHub](https://github.com/ClickHouse/ClickHouse/blob/4add9db84859bff7410cf934a3904b0414e36e51/src/Storages/MergeTree/MergeTreeSettings.h#L71) The minimum value is 0.
+max_cleanup_delay_period | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum period to clean old queue logs, blocks hashes and parts. Default: 300 Min_version: 23.6 See in-depth description in [ClickHouse GitHub](https://github.com/ClickHouse/ClickHouse/blob/4add9db84859bff7410cf934a3904b0414e36e51/src/Storages/MergeTree/MergeTreeSettings.h#L142) The minimum value is 0.
 
 
 ### Kafka {#Kafka11}
@@ -5501,6 +6023,8 @@ sasl_password | **string**<br>
 enable_ssl_certificate_verification | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
 max_poll_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> The minimum value is 0.
 session_timeout_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> The minimum value is 0.
+debug | enum **Debug**<br> 
+auto_offset_reset | enum **AutoOffsetReset**<br> 
 
 
 ### KafkaTopic {#KafkaTopic11}
@@ -5554,6 +6078,15 @@ Field | Description
 --- | ---
 url | **string**<br>Required. URL of the source dictionary available over HTTP. 
 format | **string**<br>Required. The data format. Valid values are all formats supported by ClickHouse SQL dialect. 
+headers[] | **[Header](#Header11)**<br>HTTP headers. 
+
+
+### Header {#Header11}
+
+Field | Description
+--- | ---
+name | **string**<br>Required.  
+value | **string**<br>Required.  
 
 
 ### MysqlSource {#MysqlSource11}
@@ -5568,6 +6101,8 @@ password | **string**<br>Password of the default user for replicas of the dictio
 replicas[] | **[Replica](#Replica11)**<br>List of MySQL replicas of the database used as dictionary source. The number of elements must be greater than 0.
 where | **string**<br>Selection criteria for the data in the specified MySQL table. 
 invalidate_query | **string**<br>Query for checking the dictionary status, to pull only updated data. For more details, see [ClickHouse documentation on dictionaries](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/). 
+close_connection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Should the connection be closed after each request. 
+share_connection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Should a connection be shared for some requests. 
 
 
 ### Replica {#Replica11}
@@ -5587,11 +6122,12 @@ Field | Description
 --- | ---
 db | **string**<br>Required. Name of the ClickHouse database. 
 table | **string**<br>Required. Name of the table in the specified database to be used as the dictionary source. 
-host | **string**<br>Required. ClickHouse host of the specified database. The maximum string length in characters is 253.
+host | **string**<br>ClickHouse host of the specified database. The maximum string length in characters is 253.
 port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
 user | **string**<br>Required. Name of the ClickHouse database user. 
 password | **string**<br>Password of the ClickHouse database user. 
 where | **string**<br>Selection criteria for the data in the specified ClickHouse table. 
+secure | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Use ssl for connection. 
 
 
 ### MongodbSource {#MongodbSource11}
@@ -5600,7 +6136,7 @@ Field | Description
 --- | ---
 db | **string**<br>Required. Name of the MongoDB database. 
 collection | **string**<br>Required. Name of the collection in the specified database to be used as the dictionary source. 
-host | **string**<br>Required. MongoDB host of the specified database. The maximum string length in characters is 253.
+host | **string**<br>MongoDB host of the specified database. The maximum string length in characters is 253.
 port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
 user | **string**<br>Required. Name of the MongoDB database user. 
 password | **string**<br>Password of the MongoDB database user. 
@@ -5664,6 +6200,7 @@ Field | Description
 --- | ---
 type | enum **Type**<br>Required. Layout type for an external dictionary. <ul><li>`FLAT`: The entire dictionary is stored in memory in the form of flat arrays. Available for all dictionary sources.</li><li>`HASHED`: The entire dictionary is stored in memory in the form of a hash table. Available for all dictionary sources.</li><li>`COMPLEX_KEY_HASHED`: Similar to HASHED, to be used with composite keys. Available for all dictionary sources.</li><li>`RANGE_HASHED`: The entire dictionary is stored in memory in the form of a hash table, with an ordered array of ranges and their corresponding values. Available for all dictionary sources.</li><li>`CACHE`: The dictionary is stored in a cache with a set number of cells. Available for MySQL, ClickHouse and HTTP dictionary sources.</li><li>`COMPLEX_KEY_CACHE`: Similar to CACHE, to be used with composite keys. Available for MySQL, ClickHouse and HTTP dictionary sources.</li></ul>
 size_in_cells | **int64**<br>Number of cells in the cache. Rounded up to a power of two. Applicable only for CACHE and COMPLEX_KEY_CACHE layout types. 
+max_array_size | **int64**<br>Maximum dictionary key size. Applicable only for FLAT layout type. 
 
 
 ### Range {#Range11}
@@ -5680,6 +6217,10 @@ Field | Description
 --- | ---
 name | **string**<br>Required. Name for the specified combination of settings for Graphite rollup. 
 patterns[] | **[Pattern](#Pattern11)**<br>Pattern to use for the rollup. The number of elements must be greater than 0.
+path_column_name | **string**<br>The name of the column storing the metric name (Graphite sensor). Default: Path See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
+time_column_name | **string**<br>The name of the column storing the time of measuring the metric. Default: Time See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
+value_column_name | **string**<br>The name of the column storing the value of the metric at the time set in time_column_name. Default: Value See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
+version_column_name | **string**<br>The name of the column storing the version of the metric. Default: Timestamp See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
 
 
 ### Pattern {#Pattern11}
@@ -5697,6 +6238,25 @@ Field | Description
 --- | ---
 age | **int64**<br>Minimum age of the data in seconds. The minimum value is 0.
 precision | **int64**<br>Precision of determining the age of the data, in seconds. Value must be greater than 0.
+
+
+### QueryMaskingRule {#QueryMaskingRule11}
+
+Field | Description
+--- | ---
+name | **string**<br>Name for the rule. 
+regexp | **string**<br>Required. RE2 compatible regular expression. Required. 
+replace | **string**<br>Substitution string for sensitive data. Default: six asterisks 
+
+
+### QueryCache {#QueryCache11}
+
+Field | Description
+--- | ---
+max_size_in_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum cache size in bytes. Default: 1073741824 (1 GiB) The minimum value is 0.
+max_entries | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum number of SELECT query results stored in the cache. Default: 1024 The minimum value is 0.
+max_entry_size_in_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size in bytes SELECT query results may have to be saved in the cache. Dafault: 1048576 (1 MiB) The minimum value is 0.
+max_entry_size_in_rows | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum number of rows SELECT query results may have to be saved in the cache. Default: 30000000 (30 mil) The minimum value is 0.
 
 
 ### Resources {#Resources9}
@@ -5788,6 +6348,7 @@ cloud_storage | **[CloudStorage](#CloudStorage10)**<br>
 sql_database_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether database management through SQL commands is enabled. 
 sql_user_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether user management through SQL commands is enabled. 
 embedded_keeper | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether cluster should use embedded Keeper instead of Zookeeper. 
+backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retain period of automatically created backup in days 
 
 
 ### Clickhouse {#Clickhouse12}
@@ -5884,6 +6445,9 @@ background_common_pool_size | **[google.protobuf.Int64Value](https://developers.
 default_database | **google.protobuf.StringValue**<br>The default database. <br>To get a list of cluster databases, see [Yandex Managed ClickHouse documentation](/docs/managed-clickhouse/operations/databases#list-db). 
 total_memory_profiler_step | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the memory size (in bytes) for a stack trace at every peak allocation step. Default value: **4194304**. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#total-memory-profiler-step). 
 total_memory_tracker_sample_probability | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**<br> 
+query_masking_rules[] | **[QueryMaskingRule](#QueryMaskingRule12)**<br>Regexp-based rules, which will be applied to queries as well as all log messages before storing them in server logs, system.query_log, system.text_log, system.processes tables, and in logs sent to the client. That allows preventing sensitive data leakage from SQL queries (like names, emails, personal identifiers or credit card numbers) to logs. Change of these settings is applied with ClickHouse restart See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#query-masking-rules) The number of elements must be greater than 0.
+dictionaries_lazy_load | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Lazy loading of dictionaries. Default: true See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#dictionaries_lazy_load) 
+query_cache | **[QueryCache](#QueryCache12)**<br>[Query cache](https://clickhouse.com/docs/en/operations/query-cache) configuration. Min version: 23.5 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#query_cache) 
 
 
 ### MergeTree {#MergeTree12}
@@ -5914,6 +6478,10 @@ max_avg_part_size_for_too_many_parts | **[google.protobuf.Int64Value](https://de
 min_age_to_force_merge_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Merge parts if every part in the range is older than the value of min_age_to_force_merge_seconds. Default: 0 - disabled Min_version: 22.10 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#min_age_to_force_merge_seconds) The minimum value is 0.
 min_age_to_force_merge_on_partition_only | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether min_age_to_force_merge_seconds should be applied only on the entire partition and not on subset. Default: false Min_version: 22.11 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#min_age_to_force_merge_seconds) 
 merge_selecting_sleep_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sleep time for merge selecting when no part is selected. A lower setting triggers selecting tasks in background_schedule_pool frequently, which results in a large number of requests to ClickHouse Keeper in large-scale clusters. Default: 5000 Min_version: 21.10 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#merge_selecting_sleep_ms) Value must be greater than 0.
+merge_max_block_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of rows that are read from the merged parts into memory. Default: 8192 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#merge_max_block_size) Value must be greater than 0.
+check_sample_column_is_correct | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enables the check at table creation, that the data type of a column for sampling or sampling expression is correct. The data type must be one of unsigned [integer types](https://clickhouse.com/docs/en/sql-reference/data-types/int-uint): UInt8, UInt16, UInt32, UInt64. Default: true See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#check_sample_column_is_correct) 
+max_merge_selecting_sleep_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum sleep time for merge selecting, a lower setting will trigger selecting tasks in background_schedule_pool frequently which result in large amount of requests to zookeeper in large-scale clusters. Default: 60000 Min_version: 23.6 See in-depth description in [ClickHouse GitHub](https://github.com/ClickHouse/ClickHouse/blob/4add9db84859bff7410cf934a3904b0414e36e51/src/Storages/MergeTree/MergeTreeSettings.h#L71) The minimum value is 0.
+max_cleanup_delay_period | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum period to clean old queue logs, blocks hashes and parts. Default: 300 Min_version: 23.6 See in-depth description in [ClickHouse GitHub](https://github.com/ClickHouse/ClickHouse/blob/4add9db84859bff7410cf934a3904b0414e36e51/src/Storages/MergeTree/MergeTreeSettings.h#L142) The minimum value is 0.
 
 
 ### Kafka {#Kafka12}
@@ -5927,6 +6495,8 @@ sasl_password | **string**<br>
 enable_ssl_certificate_verification | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
 max_poll_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> The minimum value is 0.
 session_timeout_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> The minimum value is 0.
+debug | enum **Debug**<br> 
+auto_offset_reset | enum **AutoOffsetReset**<br> 
 
 
 ### KafkaTopic {#KafkaTopic12}
@@ -5980,6 +6550,15 @@ Field | Description
 --- | ---
 url | **string**<br>Required. URL of the source dictionary available over HTTP. 
 format | **string**<br>Required. The data format. Valid values are all formats supported by ClickHouse SQL dialect. 
+headers[] | **[Header](#Header12)**<br>HTTP headers. 
+
+
+### Header {#Header12}
+
+Field | Description
+--- | ---
+name | **string**<br>Required.  
+value | **string**<br>Required.  
 
 
 ### MysqlSource {#MysqlSource12}
@@ -5994,6 +6573,8 @@ password | **string**<br>Password of the default user for replicas of the dictio
 replicas[] | **[Replica](#Replica12)**<br>List of MySQL replicas of the database used as dictionary source. The number of elements must be greater than 0.
 where | **string**<br>Selection criteria for the data in the specified MySQL table. 
 invalidate_query | **string**<br>Query for checking the dictionary status, to pull only updated data. For more details, see [ClickHouse documentation on dictionaries](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/). 
+close_connection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Should the connection be closed after each request. 
+share_connection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Should a connection be shared for some requests. 
 
 
 ### Replica {#Replica12}
@@ -6013,11 +6594,12 @@ Field | Description
 --- | ---
 db | **string**<br>Required. Name of the ClickHouse database. 
 table | **string**<br>Required. Name of the table in the specified database to be used as the dictionary source. 
-host | **string**<br>Required. ClickHouse host of the specified database. The maximum string length in characters is 253.
+host | **string**<br>ClickHouse host of the specified database. The maximum string length in characters is 253.
 port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
 user | **string**<br>Required. Name of the ClickHouse database user. 
 password | **string**<br>Password of the ClickHouse database user. 
 where | **string**<br>Selection criteria for the data in the specified ClickHouse table. 
+secure | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Use ssl for connection. 
 
 
 ### MongodbSource {#MongodbSource12}
@@ -6026,7 +6608,7 @@ Field | Description
 --- | ---
 db | **string**<br>Required. Name of the MongoDB database. 
 collection | **string**<br>Required. Name of the collection in the specified database to be used as the dictionary source. 
-host | **string**<br>Required. MongoDB host of the specified database. The maximum string length in characters is 253.
+host | **string**<br>MongoDB host of the specified database. The maximum string length in characters is 253.
 port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
 user | **string**<br>Required. Name of the MongoDB database user. 
 password | **string**<br>Password of the MongoDB database user. 
@@ -6090,6 +6672,7 @@ Field | Description
 --- | ---
 type | enum **Type**<br>Required. Layout type for an external dictionary. <ul><li>`FLAT`: The entire dictionary is stored in memory in the form of flat arrays. Available for all dictionary sources.</li><li>`HASHED`: The entire dictionary is stored in memory in the form of a hash table. Available for all dictionary sources.</li><li>`COMPLEX_KEY_HASHED`: Similar to HASHED, to be used with composite keys. Available for all dictionary sources.</li><li>`RANGE_HASHED`: The entire dictionary is stored in memory in the form of a hash table, with an ordered array of ranges and their corresponding values. Available for all dictionary sources.</li><li>`CACHE`: The dictionary is stored in a cache with a set number of cells. Available for MySQL, ClickHouse and HTTP dictionary sources.</li><li>`COMPLEX_KEY_CACHE`: Similar to CACHE, to be used with composite keys. Available for MySQL, ClickHouse and HTTP dictionary sources.</li></ul>
 size_in_cells | **int64**<br>Number of cells in the cache. Rounded up to a power of two. Applicable only for CACHE and COMPLEX_KEY_CACHE layout types. 
+max_array_size | **int64**<br>Maximum dictionary key size. Applicable only for FLAT layout type. 
 
 
 ### Range {#Range12}
@@ -6106,6 +6689,10 @@ Field | Description
 --- | ---
 name | **string**<br>Required. Name for the specified combination of settings for Graphite rollup. 
 patterns[] | **[Pattern](#Pattern12)**<br>Pattern to use for the rollup. The number of elements must be greater than 0.
+path_column_name | **string**<br>The name of the column storing the metric name (Graphite sensor). Default: Path See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
+time_column_name | **string**<br>The name of the column storing the time of measuring the metric. Default: Time See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
+value_column_name | **string**<br>The name of the column storing the value of the metric at the time set in time_column_name. Default: Value See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
+version_column_name | **string**<br>The name of the column storing the version of the metric. Default: Timestamp See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
 
 
 ### Pattern {#Pattern12}
@@ -6123,6 +6710,25 @@ Field | Description
 --- | ---
 age | **int64**<br>Minimum age of the data in seconds. The minimum value is 0.
 precision | **int64**<br>Precision of determining the age of the data, in seconds. Value must be greater than 0.
+
+
+### QueryMaskingRule {#QueryMaskingRule12}
+
+Field | Description
+--- | ---
+name | **string**<br>Name for the rule. 
+regexp | **string**<br>Required. RE2 compatible regular expression. Required. 
+replace | **string**<br>Substitution string for sensitive data. Default: six asterisks 
+
+
+### QueryCache {#QueryCache12}
+
+Field | Description
+--- | ---
+max_size_in_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum cache size in bytes. Default: 1073741824 (1 GiB) The minimum value is 0.
+max_entries | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum number of SELECT query results stored in the cache. Default: 1024 The minimum value is 0.
+max_entry_size_in_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size in bytes SELECT query results may have to be saved in the cache. Dafault: 1048576 (1 MiB) The minimum value is 0.
+max_entry_size_in_rows | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum number of rows SELECT query results may have to be saved in the cache. Default: 30000000 (30 mil) The minimum value is 0.
 
 
 ### MaintenanceWindow {#MaintenanceWindow9}
@@ -6242,6 +6848,7 @@ cloud_storage | **[CloudStorage](#CloudStorage10)**<br>
 sql_database_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether database management through SQL commands is enabled. 
 sql_user_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether user management through SQL commands is enabled. 
 embedded_keeper | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether cluster should use embedded Keeper instead of Zookeeper. 
+backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retain period of automatically created backup in days 
 
 
 ### Clickhouse {#Clickhouse13}
@@ -6361,6 +6968,9 @@ background_common_pool_size | **[google.protobuf.Int64Value](https://developers.
 default_database | **google.protobuf.StringValue**<br>The default database. <br>To get a list of cluster databases, see [Yandex Managed ClickHouse documentation](/docs/managed-clickhouse/operations/databases#list-db). 
 total_memory_profiler_step | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the memory size (in bytes) for a stack trace at every peak allocation step. Default value: **4194304**. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#total-memory-profiler-step). 
 total_memory_tracker_sample_probability | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**<br> 
+query_masking_rules[] | **[QueryMaskingRule](#QueryMaskingRule13)**<br>Regexp-based rules, which will be applied to queries as well as all log messages before storing them in server logs, system.query_log, system.text_log, system.processes tables, and in logs sent to the client. That allows preventing sensitive data leakage from SQL queries (like names, emails, personal identifiers or credit card numbers) to logs. Change of these settings is applied with ClickHouse restart See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#query-masking-rules) The number of elements must be greater than 0.
+dictionaries_lazy_load | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Lazy loading of dictionaries. Default: true See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#dictionaries_lazy_load) 
+query_cache | **[QueryCache](#QueryCache13)**<br>[Query cache](https://clickhouse.com/docs/en/operations/query-cache) configuration. Min version: 23.5 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#query_cache) 
 
 
 ### MergeTree {#MergeTree13}
@@ -6391,6 +7001,10 @@ max_avg_part_size_for_too_many_parts | **[google.protobuf.Int64Value](https://de
 min_age_to_force_merge_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Merge parts if every part in the range is older than the value of min_age_to_force_merge_seconds. Default: 0 - disabled Min_version: 22.10 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#min_age_to_force_merge_seconds) The minimum value is 0.
 min_age_to_force_merge_on_partition_only | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether min_age_to_force_merge_seconds should be applied only on the entire partition and not on subset. Default: false Min_version: 22.11 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#min_age_to_force_merge_seconds) 
 merge_selecting_sleep_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sleep time for merge selecting when no part is selected. A lower setting triggers selecting tasks in background_schedule_pool frequently, which results in a large number of requests to ClickHouse Keeper in large-scale clusters. Default: 5000 Min_version: 21.10 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#merge_selecting_sleep_ms) Value must be greater than 0.
+merge_max_block_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of rows that are read from the merged parts into memory. Default: 8192 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#merge_max_block_size) Value must be greater than 0.
+check_sample_column_is_correct | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enables the check at table creation, that the data type of a column for sampling or sampling expression is correct. The data type must be one of unsigned [integer types](https://clickhouse.com/docs/en/sql-reference/data-types/int-uint): UInt8, UInt16, UInt32, UInt64. Default: true See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#check_sample_column_is_correct) 
+max_merge_selecting_sleep_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum sleep time for merge selecting, a lower setting will trigger selecting tasks in background_schedule_pool frequently which result in large amount of requests to zookeeper in large-scale clusters. Default: 60000 Min_version: 23.6 See in-depth description in [ClickHouse GitHub](https://github.com/ClickHouse/ClickHouse/blob/4add9db84859bff7410cf934a3904b0414e36e51/src/Storages/MergeTree/MergeTreeSettings.h#L71) The minimum value is 0.
+max_cleanup_delay_period | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum period to clean old queue logs, blocks hashes and parts. Default: 300 Min_version: 23.6 See in-depth description in [ClickHouse GitHub](https://github.com/ClickHouse/ClickHouse/blob/4add9db84859bff7410cf934a3904b0414e36e51/src/Storages/MergeTree/MergeTreeSettings.h#L142) The minimum value is 0.
 
 
 ### Kafka {#Kafka13}
@@ -6404,6 +7018,8 @@ sasl_password | **string**<br>
 enable_ssl_certificate_verification | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
 max_poll_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> The minimum value is 0.
 session_timeout_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> The minimum value is 0.
+debug | enum **Debug**<br> 
+auto_offset_reset | enum **AutoOffsetReset**<br> 
 
 
 ### KafkaTopic {#KafkaTopic13}
@@ -6457,6 +7073,15 @@ Field | Description
 --- | ---
 url | **string**<br>Required. URL of the source dictionary available over HTTP. 
 format | **string**<br>Required. The data format. Valid values are all formats supported by ClickHouse SQL dialect. 
+headers[] | **[Header](#Header13)**<br>HTTP headers. 
+
+
+### Header {#Header13}
+
+Field | Description
+--- | ---
+name | **string**<br>Required.  
+value | **string**<br>Required.  
 
 
 ### MysqlSource {#MysqlSource13}
@@ -6471,6 +7096,8 @@ password | **string**<br>Password of the default user for replicas of the dictio
 replicas[] | **[Replica](#Replica13)**<br>List of MySQL replicas of the database used as dictionary source. The number of elements must be greater than 0.
 where | **string**<br>Selection criteria for the data in the specified MySQL table. 
 invalidate_query | **string**<br>Query for checking the dictionary status, to pull only updated data. For more details, see [ClickHouse documentation on dictionaries](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/). 
+close_connection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Should the connection be closed after each request. 
+share_connection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Should a connection be shared for some requests. 
 
 
 ### Replica {#Replica13}
@@ -6490,11 +7117,12 @@ Field | Description
 --- | ---
 db | **string**<br>Required. Name of the ClickHouse database. 
 table | **string**<br>Required. Name of the table in the specified database to be used as the dictionary source. 
-host | **string**<br>Required. ClickHouse host of the specified database. The maximum string length in characters is 253.
+host | **string**<br>ClickHouse host of the specified database. The maximum string length in characters is 253.
 port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
 user | **string**<br>Required. Name of the ClickHouse database user. 
 password | **string**<br>Password of the ClickHouse database user. 
 where | **string**<br>Selection criteria for the data in the specified ClickHouse table. 
+secure | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Use ssl for connection. 
 
 
 ### MongodbSource {#MongodbSource13}
@@ -6503,7 +7131,7 @@ Field | Description
 --- | ---
 db | **string**<br>Required. Name of the MongoDB database. 
 collection | **string**<br>Required. Name of the collection in the specified database to be used as the dictionary source. 
-host | **string**<br>Required. MongoDB host of the specified database. The maximum string length in characters is 253.
+host | **string**<br>MongoDB host of the specified database. The maximum string length in characters is 253.
 port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
 user | **string**<br>Required. Name of the MongoDB database user. 
 password | **string**<br>Password of the MongoDB database user. 
@@ -6567,6 +7195,7 @@ Field | Description
 --- | ---
 type | enum **Type**<br>Required. Layout type for an external dictionary. <ul><li>`FLAT`: The entire dictionary is stored in memory in the form of flat arrays. Available for all dictionary sources.</li><li>`HASHED`: The entire dictionary is stored in memory in the form of a hash table. Available for all dictionary sources.</li><li>`COMPLEX_KEY_HASHED`: Similar to HASHED, to be used with composite keys. Available for all dictionary sources.</li><li>`RANGE_HASHED`: The entire dictionary is stored in memory in the form of a hash table, with an ordered array of ranges and their corresponding values. Available for all dictionary sources.</li><li>`CACHE`: The dictionary is stored in a cache with a set number of cells. Available for MySQL, ClickHouse and HTTP dictionary sources.</li><li>`COMPLEX_KEY_CACHE`: Similar to CACHE, to be used with composite keys. Available for MySQL, ClickHouse and HTTP dictionary sources.</li></ul>
 size_in_cells | **int64**<br>Number of cells in the cache. Rounded up to a power of two. Applicable only for CACHE and COMPLEX_KEY_CACHE layout types. 
+max_array_size | **int64**<br>Maximum dictionary key size. Applicable only for FLAT layout type. 
 
 
 ### Range {#Range13}
@@ -6583,6 +7212,10 @@ Field | Description
 --- | ---
 name | **string**<br>Required. Name for the specified combination of settings for Graphite rollup. 
 patterns[] | **[Pattern](#Pattern13)**<br>Pattern to use for the rollup. The number of elements must be greater than 0.
+path_column_name | **string**<br>The name of the column storing the metric name (Graphite sensor). Default: Path See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
+time_column_name | **string**<br>The name of the column storing the time of measuring the metric. Default: Time See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
+value_column_name | **string**<br>The name of the column storing the value of the metric at the time set in time_column_name. Default: Value See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
+version_column_name | **string**<br>The name of the column storing the version of the metric. Default: Timestamp See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
 
 
 ### Pattern {#Pattern13}
@@ -6600,6 +7233,25 @@ Field | Description
 --- | ---
 age | **int64**<br>Minimum age of the data in seconds. The minimum value is 0.
 precision | **int64**<br>Precision of determining the age of the data, in seconds. Value must be greater than 0.
+
+
+### QueryMaskingRule {#QueryMaskingRule13}
+
+Field | Description
+--- | ---
+name | **string**<br>Name for the rule. 
+regexp | **string**<br>Required. RE2 compatible regular expression. Required. 
+replace | **string**<br>Substitution string for sensitive data. Default: six asterisks 
+
+
+### QueryCache {#QueryCache13}
+
+Field | Description
+--- | ---
+max_size_in_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum cache size in bytes. Default: 1073741824 (1 GiB) The minimum value is 0.
+max_entries | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum number of SELECT query results stored in the cache. Default: 1024 The minimum value is 0.
+max_entry_size_in_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size in bytes SELECT query results may have to be saved in the cache. Dafault: 1048576 (1 MiB) The minimum value is 0.
+max_entry_size_in_rows | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum number of rows SELECT query results may have to be saved in the cache. Default: 30000000 (30 mil) The minimum value is 0.
 
 
 ### Resources {#Resources10}
@@ -7149,6 +7801,9 @@ background_common_pool_size | **[google.protobuf.Int64Value](https://developers.
 default_database | **google.protobuf.StringValue**<br>The default database. <br>To get a list of cluster databases, see [Yandex Managed ClickHouse documentation](/docs/managed-clickhouse/operations/databases#list-db). 
 total_memory_profiler_step | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the memory size (in bytes) for a stack trace at every peak allocation step. Default value: **4194304**. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#total-memory-profiler-step). 
 total_memory_tracker_sample_probability | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**<br> 
+query_masking_rules[] | **[QueryMaskingRule](#QueryMaskingRule14)**<br>Regexp-based rules, which will be applied to queries as well as all log messages before storing them in server logs, system.query_log, system.text_log, system.processes tables, and in logs sent to the client. That allows preventing sensitive data leakage from SQL queries (like names, emails, personal identifiers or credit card numbers) to logs. Change of these settings is applied with ClickHouse restart See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#query-masking-rules) The number of elements must be greater than 0.
+dictionaries_lazy_load | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Lazy loading of dictionaries. Default: true See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#dictionaries_lazy_load) 
+query_cache | **[QueryCache](#QueryCache14)**<br>[Query cache](https://clickhouse.com/docs/en/operations/query-cache) configuration. Min version: 23.5 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#query_cache) 
 
 
 ### MergeTree {#MergeTree14}
@@ -7179,6 +7834,10 @@ max_avg_part_size_for_too_many_parts | **[google.protobuf.Int64Value](https://de
 min_age_to_force_merge_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Merge parts if every part in the range is older than the value of min_age_to_force_merge_seconds. Default: 0 - disabled Min_version: 22.10 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#min_age_to_force_merge_seconds) The minimum value is 0.
 min_age_to_force_merge_on_partition_only | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether min_age_to_force_merge_seconds should be applied only on the entire partition and not on subset. Default: false Min_version: 22.11 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#min_age_to_force_merge_seconds) 
 merge_selecting_sleep_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sleep time for merge selecting when no part is selected. A lower setting triggers selecting tasks in background_schedule_pool frequently, which results in a large number of requests to ClickHouse Keeper in large-scale clusters. Default: 5000 Min_version: 21.10 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#merge_selecting_sleep_ms) Value must be greater than 0.
+merge_max_block_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of rows that are read from the merged parts into memory. Default: 8192 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#merge_max_block_size) Value must be greater than 0.
+check_sample_column_is_correct | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enables the check at table creation, that the data type of a column for sampling or sampling expression is correct. The data type must be one of unsigned [integer types](https://clickhouse.com/docs/en/sql-reference/data-types/int-uint): UInt8, UInt16, UInt32, UInt64. Default: true See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#check_sample_column_is_correct) 
+max_merge_selecting_sleep_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum sleep time for merge selecting, a lower setting will trigger selecting tasks in background_schedule_pool frequently which result in large amount of requests to zookeeper in large-scale clusters. Default: 60000 Min_version: 23.6 See in-depth description in [ClickHouse GitHub](https://github.com/ClickHouse/ClickHouse/blob/4add9db84859bff7410cf934a3904b0414e36e51/src/Storages/MergeTree/MergeTreeSettings.h#L71) The minimum value is 0.
+max_cleanup_delay_period | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum period to clean old queue logs, blocks hashes and parts. Default: 300 Min_version: 23.6 See in-depth description in [ClickHouse GitHub](https://github.com/ClickHouse/ClickHouse/blob/4add9db84859bff7410cf934a3904b0414e36e51/src/Storages/MergeTree/MergeTreeSettings.h#L142) The minimum value is 0.
 
 
 ### Kafka {#Kafka14}
@@ -7192,6 +7851,8 @@ sasl_password | **string**<br>
 enable_ssl_certificate_verification | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
 max_poll_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> The minimum value is 0.
 session_timeout_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> The minimum value is 0.
+debug | enum **Debug**<br> 
+auto_offset_reset | enum **AutoOffsetReset**<br> 
 
 
 ### KafkaTopic {#KafkaTopic14}
@@ -7245,6 +7906,15 @@ Field | Description
 --- | ---
 url | **string**<br>Required. URL of the source dictionary available over HTTP. 
 format | **string**<br>Required. The data format. Valid values are all formats supported by ClickHouse SQL dialect. 
+headers[] | **[Header](#Header14)**<br>HTTP headers. 
+
+
+### Header {#Header14}
+
+Field | Description
+--- | ---
+name | **string**<br>Required.  
+value | **string**<br>Required.  
 
 
 ### MysqlSource {#MysqlSource14}
@@ -7259,6 +7929,8 @@ password | **string**<br>Password of the default user for replicas of the dictio
 replicas[] | **[Replica](#Replica14)**<br>List of MySQL replicas of the database used as dictionary source. The number of elements must be greater than 0.
 where | **string**<br>Selection criteria for the data in the specified MySQL table. 
 invalidate_query | **string**<br>Query for checking the dictionary status, to pull only updated data. For more details, see [ClickHouse documentation on dictionaries](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/). 
+close_connection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Should the connection be closed after each request. 
+share_connection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Should a connection be shared for some requests. 
 
 
 ### Replica {#Replica14}
@@ -7278,11 +7950,12 @@ Field | Description
 --- | ---
 db | **string**<br>Required. Name of the ClickHouse database. 
 table | **string**<br>Required. Name of the table in the specified database to be used as the dictionary source. 
-host | **string**<br>Required. ClickHouse host of the specified database. The maximum string length in characters is 253.
+host | **string**<br>ClickHouse host of the specified database. The maximum string length in characters is 253.
 port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
 user | **string**<br>Required. Name of the ClickHouse database user. 
 password | **string**<br>Password of the ClickHouse database user. 
 where | **string**<br>Selection criteria for the data in the specified ClickHouse table. 
+secure | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Use ssl for connection. 
 
 
 ### MongodbSource {#MongodbSource14}
@@ -7291,7 +7964,7 @@ Field | Description
 --- | ---
 db | **string**<br>Required. Name of the MongoDB database. 
 collection | **string**<br>Required. Name of the collection in the specified database to be used as the dictionary source. 
-host | **string**<br>Required. MongoDB host of the specified database. The maximum string length in characters is 253.
+host | **string**<br>MongoDB host of the specified database. The maximum string length in characters is 253.
 port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
 user | **string**<br>Required. Name of the MongoDB database user. 
 password | **string**<br>Password of the MongoDB database user. 
@@ -7355,6 +8028,7 @@ Field | Description
 --- | ---
 type | enum **Type**<br>Required. Layout type for an external dictionary. <ul><li>`FLAT`: The entire dictionary is stored in memory in the form of flat arrays. Available for all dictionary sources.</li><li>`HASHED`: The entire dictionary is stored in memory in the form of a hash table. Available for all dictionary sources.</li><li>`COMPLEX_KEY_HASHED`: Similar to HASHED, to be used with composite keys. Available for all dictionary sources.</li><li>`RANGE_HASHED`: The entire dictionary is stored in memory in the form of a hash table, with an ordered array of ranges and their corresponding values. Available for all dictionary sources.</li><li>`CACHE`: The dictionary is stored in a cache with a set number of cells. Available for MySQL, ClickHouse and HTTP dictionary sources.</li><li>`COMPLEX_KEY_CACHE`: Similar to CACHE, to be used with composite keys. Available for MySQL, ClickHouse and HTTP dictionary sources.</li></ul>
 size_in_cells | **int64**<br>Number of cells in the cache. Rounded up to a power of two. Applicable only for CACHE and COMPLEX_KEY_CACHE layout types. 
+max_array_size | **int64**<br>Maximum dictionary key size. Applicable only for FLAT layout type. 
 
 
 ### Range {#Range14}
@@ -7371,6 +8045,10 @@ Field | Description
 --- | ---
 name | **string**<br>Required. Name for the specified combination of settings for Graphite rollup. 
 patterns[] | **[Pattern](#Pattern14)**<br>Pattern to use for the rollup. The number of elements must be greater than 0.
+path_column_name | **string**<br>The name of the column storing the metric name (Graphite sensor). Default: Path See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
+time_column_name | **string**<br>The name of the column storing the time of measuring the metric. Default: Time See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
+value_column_name | **string**<br>The name of the column storing the value of the metric at the time set in time_column_name. Default: Value See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
+version_column_name | **string**<br>The name of the column storing the version of the metric. Default: Timestamp See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
 
 
 ### Pattern {#Pattern14}
@@ -7388,6 +8066,25 @@ Field | Description
 --- | ---
 age | **int64**<br>Minimum age of the data in seconds. The minimum value is 0.
 precision | **int64**<br>Precision of determining the age of the data, in seconds. Value must be greater than 0.
+
+
+### QueryMaskingRule {#QueryMaskingRule14}
+
+Field | Description
+--- | ---
+name | **string**<br>Name for the rule. 
+regexp | **string**<br>Required. RE2 compatible regular expression. Required. 
+replace | **string**<br>Substitution string for sensitive data. Default: six asterisks 
+
+
+### QueryCache {#QueryCache14}
+
+Field | Description
+--- | ---
+max_size_in_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum cache size in bytes. Default: 1073741824 (1 GiB) The minimum value is 0.
+max_entries | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum number of SELECT query results stored in the cache. Default: 1024 The minimum value is 0.
+max_entry_size_in_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size in bytes SELECT query results may have to be saved in the cache. Dafault: 1048576 (1 MiB) The minimum value is 0.
+max_entry_size_in_rows | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum number of rows SELECT query results may have to be saved in the cache. Default: 30000000 (30 mil) The minimum value is 0.
 
 
 ### Resources {#Resources12}
@@ -7526,6 +8223,9 @@ background_common_pool_size | **[google.protobuf.Int64Value](https://developers.
 default_database | **google.protobuf.StringValue**<br>The default database. <br>To get a list of cluster databases, see [Yandex Managed ClickHouse documentation](/docs/managed-clickhouse/operations/databases#list-db). 
 total_memory_profiler_step | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the memory size (in bytes) for a stack trace at every peak allocation step. Default value: **4194304**. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#total-memory-profiler-step). 
 total_memory_tracker_sample_probability | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**<br> 
+query_masking_rules[] | **[QueryMaskingRule](#QueryMaskingRule15)**<br>Regexp-based rules, which will be applied to queries as well as all log messages before storing them in server logs, system.query_log, system.text_log, system.processes tables, and in logs sent to the client. That allows preventing sensitive data leakage from SQL queries (like names, emails, personal identifiers or credit card numbers) to logs. Change of these settings is applied with ClickHouse restart See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#query-masking-rules) The number of elements must be greater than 0.
+dictionaries_lazy_load | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Lazy loading of dictionaries. Default: true See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#dictionaries_lazy_load) 
+query_cache | **[QueryCache](#QueryCache15)**<br>[Query cache](https://clickhouse.com/docs/en/operations/query-cache) configuration. Min version: 23.5 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#query_cache) 
 
 
 ### MergeTree {#MergeTree15}
@@ -7556,6 +8256,10 @@ max_avg_part_size_for_too_many_parts | **[google.protobuf.Int64Value](https://de
 min_age_to_force_merge_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Merge parts if every part in the range is older than the value of min_age_to_force_merge_seconds. Default: 0 - disabled Min_version: 22.10 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#min_age_to_force_merge_seconds) The minimum value is 0.
 min_age_to_force_merge_on_partition_only | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether min_age_to_force_merge_seconds should be applied only on the entire partition and not on subset. Default: false Min_version: 22.11 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#min_age_to_force_merge_seconds) 
 merge_selecting_sleep_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sleep time for merge selecting when no part is selected. A lower setting triggers selecting tasks in background_schedule_pool frequently, which results in a large number of requests to ClickHouse Keeper in large-scale clusters. Default: 5000 Min_version: 21.10 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#merge_selecting_sleep_ms) Value must be greater than 0.
+merge_max_block_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of rows that are read from the merged parts into memory. Default: 8192 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#merge_max_block_size) Value must be greater than 0.
+check_sample_column_is_correct | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enables the check at table creation, that the data type of a column for sampling or sampling expression is correct. The data type must be one of unsigned [integer types](https://clickhouse.com/docs/en/sql-reference/data-types/int-uint): UInt8, UInt16, UInt32, UInt64. Default: true See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#check_sample_column_is_correct) 
+max_merge_selecting_sleep_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum sleep time for merge selecting, a lower setting will trigger selecting tasks in background_schedule_pool frequently which result in large amount of requests to zookeeper in large-scale clusters. Default: 60000 Min_version: 23.6 See in-depth description in [ClickHouse GitHub](https://github.com/ClickHouse/ClickHouse/blob/4add9db84859bff7410cf934a3904b0414e36e51/src/Storages/MergeTree/MergeTreeSettings.h#L71) The minimum value is 0.
+max_cleanup_delay_period | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum period to clean old queue logs, blocks hashes and parts. Default: 300 Min_version: 23.6 See in-depth description in [ClickHouse GitHub](https://github.com/ClickHouse/ClickHouse/blob/4add9db84859bff7410cf934a3904b0414e36e51/src/Storages/MergeTree/MergeTreeSettings.h#L142) The minimum value is 0.
 
 
 ### Kafka {#Kafka15}
@@ -7569,6 +8273,8 @@ sasl_password | **string**<br>
 enable_ssl_certificate_verification | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
 max_poll_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> The minimum value is 0.
 session_timeout_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> The minimum value is 0.
+debug | enum **Debug**<br> 
+auto_offset_reset | enum **AutoOffsetReset**<br> 
 
 
 ### KafkaTopic {#KafkaTopic15}
@@ -7622,6 +8328,15 @@ Field | Description
 --- | ---
 url | **string**<br>Required. URL of the source dictionary available over HTTP. 
 format | **string**<br>Required. The data format. Valid values are all formats supported by ClickHouse SQL dialect. 
+headers[] | **[Header](#Header15)**<br>HTTP headers. 
+
+
+### Header {#Header15}
+
+Field | Description
+--- | ---
+name | **string**<br>Required.  
+value | **string**<br>Required.  
 
 
 ### MysqlSource {#MysqlSource15}
@@ -7636,6 +8351,8 @@ password | **string**<br>Password of the default user for replicas of the dictio
 replicas[] | **[Replica](#Replica15)**<br>List of MySQL replicas of the database used as dictionary source. The number of elements must be greater than 0.
 where | **string**<br>Selection criteria for the data in the specified MySQL table. 
 invalidate_query | **string**<br>Query for checking the dictionary status, to pull only updated data. For more details, see [ClickHouse documentation on dictionaries](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/). 
+close_connection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Should the connection be closed after each request. 
+share_connection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Should a connection be shared for some requests. 
 
 
 ### Replica {#Replica15}
@@ -7655,11 +8372,12 @@ Field | Description
 --- | ---
 db | **string**<br>Required. Name of the ClickHouse database. 
 table | **string**<br>Required. Name of the table in the specified database to be used as the dictionary source. 
-host | **string**<br>Required. ClickHouse host of the specified database. The maximum string length in characters is 253.
+host | **string**<br>ClickHouse host of the specified database. The maximum string length in characters is 253.
 port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
 user | **string**<br>Required. Name of the ClickHouse database user. 
 password | **string**<br>Password of the ClickHouse database user. 
 where | **string**<br>Selection criteria for the data in the specified ClickHouse table. 
+secure | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Use ssl for connection. 
 
 
 ### MongodbSource {#MongodbSource15}
@@ -7668,7 +8386,7 @@ Field | Description
 --- | ---
 db | **string**<br>Required. Name of the MongoDB database. 
 collection | **string**<br>Required. Name of the collection in the specified database to be used as the dictionary source. 
-host | **string**<br>Required. MongoDB host of the specified database. The maximum string length in characters is 253.
+host | **string**<br>MongoDB host of the specified database. The maximum string length in characters is 253.
 port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
 user | **string**<br>Required. Name of the MongoDB database user. 
 password | **string**<br>Password of the MongoDB database user. 
@@ -7732,6 +8450,7 @@ Field | Description
 --- | ---
 type | enum **Type**<br>Required. Layout type for an external dictionary. <ul><li>`FLAT`: The entire dictionary is stored in memory in the form of flat arrays. Available for all dictionary sources.</li><li>`HASHED`: The entire dictionary is stored in memory in the form of a hash table. Available for all dictionary sources.</li><li>`COMPLEX_KEY_HASHED`: Similar to HASHED, to be used with composite keys. Available for all dictionary sources.</li><li>`RANGE_HASHED`: The entire dictionary is stored in memory in the form of a hash table, with an ordered array of ranges and their corresponding values. Available for all dictionary sources.</li><li>`CACHE`: The dictionary is stored in a cache with a set number of cells. Available for MySQL, ClickHouse and HTTP dictionary sources.</li><li>`COMPLEX_KEY_CACHE`: Similar to CACHE, to be used with composite keys. Available for MySQL, ClickHouse and HTTP dictionary sources.</li></ul>
 size_in_cells | **int64**<br>Number of cells in the cache. Rounded up to a power of two. Applicable only for CACHE and COMPLEX_KEY_CACHE layout types. 
+max_array_size | **int64**<br>Maximum dictionary key size. Applicable only for FLAT layout type. 
 
 
 ### Range {#Range15}
@@ -7748,6 +8467,10 @@ Field | Description
 --- | ---
 name | **string**<br>Required. Name for the specified combination of settings for Graphite rollup. 
 patterns[] | **[Pattern](#Pattern15)**<br>Pattern to use for the rollup. The number of elements must be greater than 0.
+path_column_name | **string**<br>The name of the column storing the metric name (Graphite sensor). Default: Path See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
+time_column_name | **string**<br>The name of the column storing the time of measuring the metric. Default: Time See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
+value_column_name | **string**<br>The name of the column storing the value of the metric at the time set in time_column_name. Default: Value See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
+version_column_name | **string**<br>The name of the column storing the version of the metric. Default: Timestamp See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
 
 
 ### Pattern {#Pattern15}
@@ -7765,6 +8488,25 @@ Field | Description
 --- | ---
 age | **int64**<br>Minimum age of the data in seconds. The minimum value is 0.
 precision | **int64**<br>Precision of determining the age of the data, in seconds. Value must be greater than 0.
+
+
+### QueryMaskingRule {#QueryMaskingRule15}
+
+Field | Description
+--- | ---
+name | **string**<br>Name for the rule. 
+regexp | **string**<br>Required. RE2 compatible regular expression. Required. 
+replace | **string**<br>Substitution string for sensitive data. Default: six asterisks 
+
+
+### QueryCache {#QueryCache15}
+
+Field | Description
+--- | ---
+max_size_in_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum cache size in bytes. Default: 1073741824 (1 GiB) The minimum value is 0.
+max_entries | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum number of SELECT query results stored in the cache. Default: 1024 The minimum value is 0.
+max_entry_size_in_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size in bytes SELECT query results may have to be saved in the cache. Dafault: 1048576 (1 MiB) The minimum value is 0.
+max_entry_size_in_rows | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum number of rows SELECT query results may have to be saved in the cache. Default: 30000000 (30 mil) The minimum value is 0.
 
 
 ### Resources {#Resources13}
@@ -7883,6 +8625,9 @@ background_common_pool_size | **[google.protobuf.Int64Value](https://developers.
 default_database | **google.protobuf.StringValue**<br>The default database. <br>To get a list of cluster databases, see [Yandex Managed ClickHouse documentation](/docs/managed-clickhouse/operations/databases#list-db). 
 total_memory_profiler_step | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the memory size (in bytes) for a stack trace at every peak allocation step. Default value: **4194304**. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#total-memory-profiler-step). 
 total_memory_tracker_sample_probability | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**<br> 
+query_masking_rules[] | **[QueryMaskingRule](#QueryMaskingRule16)**<br>Regexp-based rules, which will be applied to queries as well as all log messages before storing them in server logs, system.query_log, system.text_log, system.processes tables, and in logs sent to the client. That allows preventing sensitive data leakage from SQL queries (like names, emails, personal identifiers or credit card numbers) to logs. Change of these settings is applied with ClickHouse restart See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#query-masking-rules) The number of elements must be greater than 0.
+dictionaries_lazy_load | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Lazy loading of dictionaries. Default: true See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#dictionaries_lazy_load) 
+query_cache | **[QueryCache](#QueryCache16)**<br>[Query cache](https://clickhouse.com/docs/en/operations/query-cache) configuration. Min version: 23.5 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#query_cache) 
 
 
 ### MergeTree {#MergeTree16}
@@ -7913,6 +8658,10 @@ max_avg_part_size_for_too_many_parts | **[google.protobuf.Int64Value](https://de
 min_age_to_force_merge_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Merge parts if every part in the range is older than the value of min_age_to_force_merge_seconds. Default: 0 - disabled Min_version: 22.10 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#min_age_to_force_merge_seconds) The minimum value is 0.
 min_age_to_force_merge_on_partition_only | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether min_age_to_force_merge_seconds should be applied only on the entire partition and not on subset. Default: false Min_version: 22.11 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#min_age_to_force_merge_seconds) 
 merge_selecting_sleep_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sleep time for merge selecting when no part is selected. A lower setting triggers selecting tasks in background_schedule_pool frequently, which results in a large number of requests to ClickHouse Keeper in large-scale clusters. Default: 5000 Min_version: 21.10 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#merge_selecting_sleep_ms) Value must be greater than 0.
+merge_max_block_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of rows that are read from the merged parts into memory. Default: 8192 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#merge_max_block_size) Value must be greater than 0.
+check_sample_column_is_correct | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enables the check at table creation, that the data type of a column for sampling or sampling expression is correct. The data type must be one of unsigned [integer types](https://clickhouse.com/docs/en/sql-reference/data-types/int-uint): UInt8, UInt16, UInt32, UInt64. Default: true See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#check_sample_column_is_correct) 
+max_merge_selecting_sleep_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum sleep time for merge selecting, a lower setting will trigger selecting tasks in background_schedule_pool frequently which result in large amount of requests to zookeeper in large-scale clusters. Default: 60000 Min_version: 23.6 See in-depth description in [ClickHouse GitHub](https://github.com/ClickHouse/ClickHouse/blob/4add9db84859bff7410cf934a3904b0414e36e51/src/Storages/MergeTree/MergeTreeSettings.h#L71) The minimum value is 0.
+max_cleanup_delay_period | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum period to clean old queue logs, blocks hashes and parts. Default: 300 Min_version: 23.6 See in-depth description in [ClickHouse GitHub](https://github.com/ClickHouse/ClickHouse/blob/4add9db84859bff7410cf934a3904b0414e36e51/src/Storages/MergeTree/MergeTreeSettings.h#L142) The minimum value is 0.
 
 
 ### Kafka {#Kafka16}
@@ -7926,6 +8675,8 @@ sasl_password | **string**<br>
 enable_ssl_certificate_verification | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
 max_poll_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> The minimum value is 0.
 session_timeout_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> The minimum value is 0.
+debug | enum **Debug**<br> 
+auto_offset_reset | enum **AutoOffsetReset**<br> 
 
 
 ### KafkaTopic {#KafkaTopic16}
@@ -7979,6 +8730,15 @@ Field | Description
 --- | ---
 url | **string**<br>Required. URL of the source dictionary available over HTTP. 
 format | **string**<br>Required. The data format. Valid values are all formats supported by ClickHouse SQL dialect. 
+headers[] | **[Header](#Header16)**<br>HTTP headers. 
+
+
+### Header {#Header16}
+
+Field | Description
+--- | ---
+name | **string**<br>Required.  
+value | **string**<br>Required.  
 
 
 ### MysqlSource {#MysqlSource16}
@@ -7993,6 +8753,8 @@ password | **string**<br>Password of the default user for replicas of the dictio
 replicas[] | **[Replica](#Replica16)**<br>List of MySQL replicas of the database used as dictionary source. The number of elements must be greater than 0.
 where | **string**<br>Selection criteria for the data in the specified MySQL table. 
 invalidate_query | **string**<br>Query for checking the dictionary status, to pull only updated data. For more details, see [ClickHouse documentation on dictionaries](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/). 
+close_connection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Should the connection be closed after each request. 
+share_connection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Should a connection be shared for some requests. 
 
 
 ### Replica {#Replica16}
@@ -8012,11 +8774,12 @@ Field | Description
 --- | ---
 db | **string**<br>Required. Name of the ClickHouse database. 
 table | **string**<br>Required. Name of the table in the specified database to be used as the dictionary source. 
-host | **string**<br>Required. ClickHouse host of the specified database. The maximum string length in characters is 253.
+host | **string**<br>ClickHouse host of the specified database. The maximum string length in characters is 253.
 port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
 user | **string**<br>Required. Name of the ClickHouse database user. 
 password | **string**<br>Password of the ClickHouse database user. 
 where | **string**<br>Selection criteria for the data in the specified ClickHouse table. 
+secure | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Use ssl for connection. 
 
 
 ### MongodbSource {#MongodbSource16}
@@ -8025,7 +8788,7 @@ Field | Description
 --- | ---
 db | **string**<br>Required. Name of the MongoDB database. 
 collection | **string**<br>Required. Name of the collection in the specified database to be used as the dictionary source. 
-host | **string**<br>Required. MongoDB host of the specified database. The maximum string length in characters is 253.
+host | **string**<br>MongoDB host of the specified database. The maximum string length in characters is 253.
 port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
 user | **string**<br>Required. Name of the MongoDB database user. 
 password | **string**<br>Password of the MongoDB database user. 
@@ -8089,6 +8852,7 @@ Field | Description
 --- | ---
 type | enum **Type**<br>Required. Layout type for an external dictionary. <ul><li>`FLAT`: The entire dictionary is stored in memory in the form of flat arrays. Available for all dictionary sources.</li><li>`HASHED`: The entire dictionary is stored in memory in the form of a hash table. Available for all dictionary sources.</li><li>`COMPLEX_KEY_HASHED`: Similar to HASHED, to be used with composite keys. Available for all dictionary sources.</li><li>`RANGE_HASHED`: The entire dictionary is stored in memory in the form of a hash table, with an ordered array of ranges and their corresponding values. Available for all dictionary sources.</li><li>`CACHE`: The dictionary is stored in a cache with a set number of cells. Available for MySQL, ClickHouse and HTTP dictionary sources.</li><li>`COMPLEX_KEY_CACHE`: Similar to CACHE, to be used with composite keys. Available for MySQL, ClickHouse and HTTP dictionary sources.</li></ul>
 size_in_cells | **int64**<br>Number of cells in the cache. Rounded up to a power of two. Applicable only for CACHE and COMPLEX_KEY_CACHE layout types. 
+max_array_size | **int64**<br>Maximum dictionary key size. Applicable only for FLAT layout type. 
 
 
 ### Range {#Range16}
@@ -8105,6 +8869,10 @@ Field | Description
 --- | ---
 name | **string**<br>Required. Name for the specified combination of settings for Graphite rollup. 
 patterns[] | **[Pattern](#Pattern16)**<br>Pattern to use for the rollup. The number of elements must be greater than 0.
+path_column_name | **string**<br>The name of the column storing the metric name (Graphite sensor). Default: Path See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
+time_column_name | **string**<br>The name of the column storing the time of measuring the metric. Default: Time See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
+value_column_name | **string**<br>The name of the column storing the value of the metric at the time set in time_column_name. Default: Value See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
+version_column_name | **string**<br>The name of the column storing the version of the metric. Default: Timestamp See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
 
 
 ### Pattern {#Pattern16}
@@ -8122,6 +8890,25 @@ Field | Description
 --- | ---
 age | **int64**<br>Minimum age of the data in seconds. The minimum value is 0.
 precision | **int64**<br>Precision of determining the age of the data, in seconds. Value must be greater than 0.
+
+
+### QueryMaskingRule {#QueryMaskingRule16}
+
+Field | Description
+--- | ---
+name | **string**<br>Name for the rule. 
+regexp | **string**<br>Required. RE2 compatible regular expression. Required. 
+replace | **string**<br>Substitution string for sensitive data. Default: six asterisks 
+
+
+### QueryCache {#QueryCache16}
+
+Field | Description
+--- | ---
+max_size_in_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum cache size in bytes. Default: 1073741824 (1 GiB) The minimum value is 0.
+max_entries | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum number of SELECT query results stored in the cache. Default: 1024 The minimum value is 0.
+max_entry_size_in_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size in bytes SELECT query results may have to be saved in the cache. Dafault: 1048576 (1 MiB) The minimum value is 0.
+max_entry_size_in_rows | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum number of rows SELECT query results may have to be saved in the cache. Default: 30000000 (30 mil) The minimum value is 0.
 
 
 ### Resources {#Resources14}
@@ -8272,6 +9059,9 @@ background_common_pool_size | **[google.protobuf.Int64Value](https://developers.
 default_database | **google.protobuf.StringValue**<br>The default database. <br>To get a list of cluster databases, see [Yandex Managed ClickHouse documentation](/docs/managed-clickhouse/operations/databases#list-db). 
 total_memory_profiler_step | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the memory size (in bytes) for a stack trace at every peak allocation step. Default value: **4194304**. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#total-memory-profiler-step). 
 total_memory_tracker_sample_probability | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**<br> 
+query_masking_rules[] | **[QueryMaskingRule](#QueryMaskingRule17)**<br>Regexp-based rules, which will be applied to queries as well as all log messages before storing them in server logs, system.query_log, system.text_log, system.processes tables, and in logs sent to the client. That allows preventing sensitive data leakage from SQL queries (like names, emails, personal identifiers or credit card numbers) to logs. Change of these settings is applied with ClickHouse restart See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#query-masking-rules) The number of elements must be greater than 0.
+dictionaries_lazy_load | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Lazy loading of dictionaries. Default: true See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#dictionaries_lazy_load) 
+query_cache | **[QueryCache](#QueryCache17)**<br>[Query cache](https://clickhouse.com/docs/en/operations/query-cache) configuration. Min version: 23.5 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#query_cache) 
 
 
 ### MergeTree {#MergeTree17}
@@ -8302,6 +9092,10 @@ max_avg_part_size_for_too_many_parts | **[google.protobuf.Int64Value](https://de
 min_age_to_force_merge_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Merge parts if every part in the range is older than the value of min_age_to_force_merge_seconds. Default: 0 - disabled Min_version: 22.10 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#min_age_to_force_merge_seconds) The minimum value is 0.
 min_age_to_force_merge_on_partition_only | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether min_age_to_force_merge_seconds should be applied only on the entire partition and not on subset. Default: false Min_version: 22.11 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#min_age_to_force_merge_seconds) 
 merge_selecting_sleep_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sleep time for merge selecting when no part is selected. A lower setting triggers selecting tasks in background_schedule_pool frequently, which results in a large number of requests to ClickHouse Keeper in large-scale clusters. Default: 5000 Min_version: 21.10 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#merge_selecting_sleep_ms) Value must be greater than 0.
+merge_max_block_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of rows that are read from the merged parts into memory. Default: 8192 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#merge_max_block_size) Value must be greater than 0.
+check_sample_column_is_correct | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enables the check at table creation, that the data type of a column for sampling or sampling expression is correct. The data type must be one of unsigned [integer types](https://clickhouse.com/docs/en/sql-reference/data-types/int-uint): UInt8, UInt16, UInt32, UInt64. Default: true See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#check_sample_column_is_correct) 
+max_merge_selecting_sleep_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum sleep time for merge selecting, a lower setting will trigger selecting tasks in background_schedule_pool frequently which result in large amount of requests to zookeeper in large-scale clusters. Default: 60000 Min_version: 23.6 See in-depth description in [ClickHouse GitHub](https://github.com/ClickHouse/ClickHouse/blob/4add9db84859bff7410cf934a3904b0414e36e51/src/Storages/MergeTree/MergeTreeSettings.h#L71) The minimum value is 0.
+max_cleanup_delay_period | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum period to clean old queue logs, blocks hashes and parts. Default: 300 Min_version: 23.6 See in-depth description in [ClickHouse GitHub](https://github.com/ClickHouse/ClickHouse/blob/4add9db84859bff7410cf934a3904b0414e36e51/src/Storages/MergeTree/MergeTreeSettings.h#L142) The minimum value is 0.
 
 
 ### Kafka {#Kafka17}
@@ -8315,6 +9109,8 @@ sasl_password | **string**<br>
 enable_ssl_certificate_verification | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
 max_poll_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> The minimum value is 0.
 session_timeout_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> The minimum value is 0.
+debug | enum **Debug**<br> 
+auto_offset_reset | enum **AutoOffsetReset**<br> 
 
 
 ### KafkaTopic {#KafkaTopic17}
@@ -8368,6 +9164,15 @@ Field | Description
 --- | ---
 url | **string**<br>Required. URL of the source dictionary available over HTTP. 
 format | **string**<br>Required. The data format. Valid values are all formats supported by ClickHouse SQL dialect. 
+headers[] | **[Header](#Header17)**<br>HTTP headers. 
+
+
+### Header {#Header17}
+
+Field | Description
+--- | ---
+name | **string**<br>Required.  
+value | **string**<br>Required.  
 
 
 ### MysqlSource {#MysqlSource17}
@@ -8382,6 +9187,8 @@ password | **string**<br>Password of the default user for replicas of the dictio
 replicas[] | **[Replica](#Replica17)**<br>List of MySQL replicas of the database used as dictionary source. The number of elements must be greater than 0.
 where | **string**<br>Selection criteria for the data in the specified MySQL table. 
 invalidate_query | **string**<br>Query for checking the dictionary status, to pull only updated data. For more details, see [ClickHouse documentation on dictionaries](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/). 
+close_connection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Should the connection be closed after each request. 
+share_connection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Should a connection be shared for some requests. 
 
 
 ### Replica {#Replica17}
@@ -8401,11 +9208,12 @@ Field | Description
 --- | ---
 db | **string**<br>Required. Name of the ClickHouse database. 
 table | **string**<br>Required. Name of the table in the specified database to be used as the dictionary source. 
-host | **string**<br>Required. ClickHouse host of the specified database. The maximum string length in characters is 253.
+host | **string**<br>ClickHouse host of the specified database. The maximum string length in characters is 253.
 port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
 user | **string**<br>Required. Name of the ClickHouse database user. 
 password | **string**<br>Password of the ClickHouse database user. 
 where | **string**<br>Selection criteria for the data in the specified ClickHouse table. 
+secure | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Use ssl for connection. 
 
 
 ### MongodbSource {#MongodbSource17}
@@ -8414,7 +9222,7 @@ Field | Description
 --- | ---
 db | **string**<br>Required. Name of the MongoDB database. 
 collection | **string**<br>Required. Name of the collection in the specified database to be used as the dictionary source. 
-host | **string**<br>Required. MongoDB host of the specified database. The maximum string length in characters is 253.
+host | **string**<br>MongoDB host of the specified database. The maximum string length in characters is 253.
 port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
 user | **string**<br>Required. Name of the MongoDB database user. 
 password | **string**<br>Password of the MongoDB database user. 
@@ -8478,6 +9286,7 @@ Field | Description
 --- | ---
 type | enum **Type**<br>Required. Layout type for an external dictionary. <ul><li>`FLAT`: The entire dictionary is stored in memory in the form of flat arrays. Available for all dictionary sources.</li><li>`HASHED`: The entire dictionary is stored in memory in the form of a hash table. Available for all dictionary sources.</li><li>`COMPLEX_KEY_HASHED`: Similar to HASHED, to be used with composite keys. Available for all dictionary sources.</li><li>`RANGE_HASHED`: The entire dictionary is stored in memory in the form of a hash table, with an ordered array of ranges and their corresponding values. Available for all dictionary sources.</li><li>`CACHE`: The dictionary is stored in a cache with a set number of cells. Available for MySQL, ClickHouse and HTTP dictionary sources.</li><li>`COMPLEX_KEY_CACHE`: Similar to CACHE, to be used with composite keys. Available for MySQL, ClickHouse and HTTP dictionary sources.</li></ul>
 size_in_cells | **int64**<br>Number of cells in the cache. Rounded up to a power of two. Applicable only for CACHE and COMPLEX_KEY_CACHE layout types. 
+max_array_size | **int64**<br>Maximum dictionary key size. Applicable only for FLAT layout type. 
 
 
 ### Range {#Range17}
@@ -8494,6 +9303,10 @@ Field | Description
 --- | ---
 name | **string**<br>Required. Name for the specified combination of settings for Graphite rollup. 
 patterns[] | **[Pattern](#Pattern17)**<br>Pattern to use for the rollup. The number of elements must be greater than 0.
+path_column_name | **string**<br>The name of the column storing the metric name (Graphite sensor). Default: Path See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
+time_column_name | **string**<br>The name of the column storing the time of measuring the metric. Default: Time See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
+value_column_name | **string**<br>The name of the column storing the value of the metric at the time set in time_column_name. Default: Value See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
+version_column_name | **string**<br>The name of the column storing the version of the metric. Default: Timestamp See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
 
 
 ### Pattern {#Pattern17}
@@ -8511,6 +9324,25 @@ Field | Description
 --- | ---
 age | **int64**<br>Minimum age of the data in seconds. The minimum value is 0.
 precision | **int64**<br>Precision of determining the age of the data, in seconds. Value must be greater than 0.
+
+
+### QueryMaskingRule {#QueryMaskingRule17}
+
+Field | Description
+--- | ---
+name | **string**<br>Name for the rule. 
+regexp | **string**<br>Required. RE2 compatible regular expression. Required. 
+replace | **string**<br>Substitution string for sensitive data. Default: six asterisks 
+
+
+### QueryCache {#QueryCache17}
+
+Field | Description
+--- | ---
+max_size_in_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum cache size in bytes. Default: 1073741824 (1 GiB) The minimum value is 0.
+max_entries | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum number of SELECT query results stored in the cache. Default: 1024 The minimum value is 0.
+max_entry_size_in_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size in bytes SELECT query results may have to be saved in the cache. Dafault: 1048576 (1 MiB) The minimum value is 0.
+max_entry_size_in_rows | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum number of rows SELECT query results may have to be saved in the cache. Default: 30000000 (30 mil) The minimum value is 0.
 
 
 ## UpdateShard {#UpdateShard}
@@ -8619,6 +9451,9 @@ background_common_pool_size | **[google.protobuf.Int64Value](https://developers.
 default_database | **google.protobuf.StringValue**<br>The default database. <br>To get a list of cluster databases, see [Yandex Managed ClickHouse documentation](/docs/managed-clickhouse/operations/databases#list-db). 
 total_memory_profiler_step | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the memory size (in bytes) for a stack trace at every peak allocation step. Default value: **4194304**. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#total-memory-profiler-step). 
 total_memory_tracker_sample_probability | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**<br> 
+query_masking_rules[] | **[QueryMaskingRule](#QueryMaskingRule18)**<br>Regexp-based rules, which will be applied to queries as well as all log messages before storing them in server logs, system.query_log, system.text_log, system.processes tables, and in logs sent to the client. That allows preventing sensitive data leakage from SQL queries (like names, emails, personal identifiers or credit card numbers) to logs. Change of these settings is applied with ClickHouse restart See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#query-masking-rules) The number of elements must be greater than 0.
+dictionaries_lazy_load | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Lazy loading of dictionaries. Default: true See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#dictionaries_lazy_load) 
+query_cache | **[QueryCache](#QueryCache18)**<br>[Query cache](https://clickhouse.com/docs/en/operations/query-cache) configuration. Min version: 23.5 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#query_cache) 
 
 
 ### MergeTree {#MergeTree18}
@@ -8649,6 +9484,10 @@ max_avg_part_size_for_too_many_parts | **[google.protobuf.Int64Value](https://de
 min_age_to_force_merge_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Merge parts if every part in the range is older than the value of min_age_to_force_merge_seconds. Default: 0 - disabled Min_version: 22.10 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#min_age_to_force_merge_seconds) The minimum value is 0.
 min_age_to_force_merge_on_partition_only | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether min_age_to_force_merge_seconds should be applied only on the entire partition and not on subset. Default: false Min_version: 22.11 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#min_age_to_force_merge_seconds) 
 merge_selecting_sleep_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sleep time for merge selecting when no part is selected. A lower setting triggers selecting tasks in background_schedule_pool frequently, which results in a large number of requests to ClickHouse Keeper in large-scale clusters. Default: 5000 Min_version: 21.10 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#merge_selecting_sleep_ms) Value must be greater than 0.
+merge_max_block_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of rows that are read from the merged parts into memory. Default: 8192 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#merge_max_block_size) Value must be greater than 0.
+check_sample_column_is_correct | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enables the check at table creation, that the data type of a column for sampling or sampling expression is correct. The data type must be one of unsigned [integer types](https://clickhouse.com/docs/en/sql-reference/data-types/int-uint): UInt8, UInt16, UInt32, UInt64. Default: true See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#check_sample_column_is_correct) 
+max_merge_selecting_sleep_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum sleep time for merge selecting, a lower setting will trigger selecting tasks in background_schedule_pool frequently which result in large amount of requests to zookeeper in large-scale clusters. Default: 60000 Min_version: 23.6 See in-depth description in [ClickHouse GitHub](https://github.com/ClickHouse/ClickHouse/blob/4add9db84859bff7410cf934a3904b0414e36e51/src/Storages/MergeTree/MergeTreeSettings.h#L71) The minimum value is 0.
+max_cleanup_delay_period | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum period to clean old queue logs, blocks hashes and parts. Default: 300 Min_version: 23.6 See in-depth description in [ClickHouse GitHub](https://github.com/ClickHouse/ClickHouse/blob/4add9db84859bff7410cf934a3904b0414e36e51/src/Storages/MergeTree/MergeTreeSettings.h#L142) The minimum value is 0.
 
 
 ### Kafka {#Kafka18}
@@ -8662,6 +9501,8 @@ sasl_password | **string**<br>
 enable_ssl_certificate_verification | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
 max_poll_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> The minimum value is 0.
 session_timeout_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> The minimum value is 0.
+debug | enum **Debug**<br> 
+auto_offset_reset | enum **AutoOffsetReset**<br> 
 
 
 ### KafkaTopic {#KafkaTopic18}
@@ -8715,6 +9556,15 @@ Field | Description
 --- | ---
 url | **string**<br>Required. URL of the source dictionary available over HTTP. 
 format | **string**<br>Required. The data format. Valid values are all formats supported by ClickHouse SQL dialect. 
+headers[] | **[Header](#Header18)**<br>HTTP headers. 
+
+
+### Header {#Header18}
+
+Field | Description
+--- | ---
+name | **string**<br>Required.  
+value | **string**<br>Required.  
 
 
 ### MysqlSource {#MysqlSource18}
@@ -8729,6 +9579,8 @@ password | **string**<br>Password of the default user for replicas of the dictio
 replicas[] | **[Replica](#Replica18)**<br>List of MySQL replicas of the database used as dictionary source. The number of elements must be greater than 0.
 where | **string**<br>Selection criteria for the data in the specified MySQL table. 
 invalidate_query | **string**<br>Query for checking the dictionary status, to pull only updated data. For more details, see [ClickHouse documentation on dictionaries](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/). 
+close_connection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Should the connection be closed after each request. 
+share_connection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Should a connection be shared for some requests. 
 
 
 ### Replica {#Replica18}
@@ -8748,11 +9600,12 @@ Field | Description
 --- | ---
 db | **string**<br>Required. Name of the ClickHouse database. 
 table | **string**<br>Required. Name of the table in the specified database to be used as the dictionary source. 
-host | **string**<br>Required. ClickHouse host of the specified database. The maximum string length in characters is 253.
+host | **string**<br>ClickHouse host of the specified database. The maximum string length in characters is 253.
 port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
 user | **string**<br>Required. Name of the ClickHouse database user. 
 password | **string**<br>Password of the ClickHouse database user. 
 where | **string**<br>Selection criteria for the data in the specified ClickHouse table. 
+secure | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Use ssl for connection. 
 
 
 ### MongodbSource {#MongodbSource18}
@@ -8761,7 +9614,7 @@ Field | Description
 --- | ---
 db | **string**<br>Required. Name of the MongoDB database. 
 collection | **string**<br>Required. Name of the collection in the specified database to be used as the dictionary source. 
-host | **string**<br>Required. MongoDB host of the specified database. The maximum string length in characters is 253.
+host | **string**<br>MongoDB host of the specified database. The maximum string length in characters is 253.
 port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
 user | **string**<br>Required. Name of the MongoDB database user. 
 password | **string**<br>Password of the MongoDB database user. 
@@ -8825,6 +9678,7 @@ Field | Description
 --- | ---
 type | enum **Type**<br>Required. Layout type for an external dictionary. <ul><li>`FLAT`: The entire dictionary is stored in memory in the form of flat arrays. Available for all dictionary sources.</li><li>`HASHED`: The entire dictionary is stored in memory in the form of a hash table. Available for all dictionary sources.</li><li>`COMPLEX_KEY_HASHED`: Similar to HASHED, to be used with composite keys. Available for all dictionary sources.</li><li>`RANGE_HASHED`: The entire dictionary is stored in memory in the form of a hash table, with an ordered array of ranges and their corresponding values. Available for all dictionary sources.</li><li>`CACHE`: The dictionary is stored in a cache with a set number of cells. Available for MySQL, ClickHouse and HTTP dictionary sources.</li><li>`COMPLEX_KEY_CACHE`: Similar to CACHE, to be used with composite keys. Available for MySQL, ClickHouse and HTTP dictionary sources.</li></ul>
 size_in_cells | **int64**<br>Number of cells in the cache. Rounded up to a power of two. Applicable only for CACHE and COMPLEX_KEY_CACHE layout types. 
+max_array_size | **int64**<br>Maximum dictionary key size. Applicable only for FLAT layout type. 
 
 
 ### Range {#Range18}
@@ -8841,6 +9695,10 @@ Field | Description
 --- | ---
 name | **string**<br>Required. Name for the specified combination of settings for Graphite rollup. 
 patterns[] | **[Pattern](#Pattern18)**<br>Pattern to use for the rollup. The number of elements must be greater than 0.
+path_column_name | **string**<br>The name of the column storing the metric name (Graphite sensor). Default: Path See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
+time_column_name | **string**<br>The name of the column storing the time of measuring the metric. Default: Time See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
+value_column_name | **string**<br>The name of the column storing the value of the metric at the time set in time_column_name. Default: Value See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
+version_column_name | **string**<br>The name of the column storing the version of the metric. Default: Timestamp See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
 
 
 ### Pattern {#Pattern18}
@@ -8858,6 +9716,25 @@ Field | Description
 --- | ---
 age | **int64**<br>Minimum age of the data in seconds. The minimum value is 0.
 precision | **int64**<br>Precision of determining the age of the data, in seconds. Value must be greater than 0.
+
+
+### QueryMaskingRule {#QueryMaskingRule18}
+
+Field | Description
+--- | ---
+name | **string**<br>Name for the rule. 
+regexp | **string**<br>Required. RE2 compatible regular expression. Required. 
+replace | **string**<br>Substitution string for sensitive data. Default: six asterisks 
+
+
+### QueryCache {#QueryCache18}
+
+Field | Description
+--- | ---
+max_size_in_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum cache size in bytes. Default: 1073741824 (1 GiB) The minimum value is 0.
+max_entries | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum number of SELECT query results stored in the cache. Default: 1024 The minimum value is 0.
+max_entry_size_in_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size in bytes SELECT query results may have to be saved in the cache. Dafault: 1048576 (1 MiB) The minimum value is 0.
+max_entry_size_in_rows | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum number of rows SELECT query results may have to be saved in the cache. Default: 30000000 (30 mil) The minimum value is 0.
 
 
 ### Resources {#Resources15}
@@ -8997,6 +9874,9 @@ background_common_pool_size | **[google.protobuf.Int64Value](https://developers.
 default_database | **google.protobuf.StringValue**<br>The default database. <br>To get a list of cluster databases, see [Yandex Managed ClickHouse documentation](/docs/managed-clickhouse/operations/databases#list-db). 
 total_memory_profiler_step | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the memory size (in bytes) for a stack trace at every peak allocation step. Default value: **4194304**. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#total-memory-profiler-step). 
 total_memory_tracker_sample_probability | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**<br> 
+query_masking_rules[] | **[QueryMaskingRule](#QueryMaskingRule19)**<br>Regexp-based rules, which will be applied to queries as well as all log messages before storing them in server logs, system.query_log, system.text_log, system.processes tables, and in logs sent to the client. That allows preventing sensitive data leakage from SQL queries (like names, emails, personal identifiers or credit card numbers) to logs. Change of these settings is applied with ClickHouse restart See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#query-masking-rules) The number of elements must be greater than 0.
+dictionaries_lazy_load | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Lazy loading of dictionaries. Default: true See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#dictionaries_lazy_load) 
+query_cache | **[QueryCache](#QueryCache19)**<br>[Query cache](https://clickhouse.com/docs/en/operations/query-cache) configuration. Min version: 23.5 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#query_cache) 
 
 
 ### MergeTree {#MergeTree19}
@@ -9027,6 +9907,10 @@ max_avg_part_size_for_too_many_parts | **[google.protobuf.Int64Value](https://de
 min_age_to_force_merge_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Merge parts if every part in the range is older than the value of min_age_to_force_merge_seconds. Default: 0 - disabled Min_version: 22.10 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#min_age_to_force_merge_seconds) The minimum value is 0.
 min_age_to_force_merge_on_partition_only | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether min_age_to_force_merge_seconds should be applied only on the entire partition and not on subset. Default: false Min_version: 22.11 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#min_age_to_force_merge_seconds) 
 merge_selecting_sleep_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sleep time for merge selecting when no part is selected. A lower setting triggers selecting tasks in background_schedule_pool frequently, which results in a large number of requests to ClickHouse Keeper in large-scale clusters. Default: 5000 Min_version: 21.10 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#merge_selecting_sleep_ms) Value must be greater than 0.
+merge_max_block_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of rows that are read from the merged parts into memory. Default: 8192 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#merge_max_block_size) Value must be greater than 0.
+check_sample_column_is_correct | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enables the check at table creation, that the data type of a column for sampling or sampling expression is correct. The data type must be one of unsigned [integer types](https://clickhouse.com/docs/en/sql-reference/data-types/int-uint): UInt8, UInt16, UInt32, UInt64. Default: true See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#check_sample_column_is_correct) 
+max_merge_selecting_sleep_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum sleep time for merge selecting, a lower setting will trigger selecting tasks in background_schedule_pool frequently which result in large amount of requests to zookeeper in large-scale clusters. Default: 60000 Min_version: 23.6 See in-depth description in [ClickHouse GitHub](https://github.com/ClickHouse/ClickHouse/blob/4add9db84859bff7410cf934a3904b0414e36e51/src/Storages/MergeTree/MergeTreeSettings.h#L71) The minimum value is 0.
+max_cleanup_delay_period | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum period to clean old queue logs, blocks hashes and parts. Default: 300 Min_version: 23.6 See in-depth description in [ClickHouse GitHub](https://github.com/ClickHouse/ClickHouse/blob/4add9db84859bff7410cf934a3904b0414e36e51/src/Storages/MergeTree/MergeTreeSettings.h#L142) The minimum value is 0.
 
 
 ### Kafka {#Kafka19}
@@ -9040,6 +9924,8 @@ sasl_password | **string**<br>
 enable_ssl_certificate_verification | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
 max_poll_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> The minimum value is 0.
 session_timeout_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> The minimum value is 0.
+debug | enum **Debug**<br> 
+auto_offset_reset | enum **AutoOffsetReset**<br> 
 
 
 ### KafkaTopic {#KafkaTopic19}
@@ -9093,6 +9979,15 @@ Field | Description
 --- | ---
 url | **string**<br>Required. URL of the source dictionary available over HTTP. 
 format | **string**<br>Required. The data format. Valid values are all formats supported by ClickHouse SQL dialect. 
+headers[] | **[Header](#Header19)**<br>HTTP headers. 
+
+
+### Header {#Header19}
+
+Field | Description
+--- | ---
+name | **string**<br>Required.  
+value | **string**<br>Required.  
 
 
 ### MysqlSource {#MysqlSource19}
@@ -9107,6 +10002,8 @@ password | **string**<br>Password of the default user for replicas of the dictio
 replicas[] | **[Replica](#Replica19)**<br>List of MySQL replicas of the database used as dictionary source. The number of elements must be greater than 0.
 where | **string**<br>Selection criteria for the data in the specified MySQL table. 
 invalidate_query | **string**<br>Query for checking the dictionary status, to pull only updated data. For more details, see [ClickHouse documentation on dictionaries](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/). 
+close_connection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Should the connection be closed after each request. 
+share_connection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Should a connection be shared for some requests. 
 
 
 ### Replica {#Replica19}
@@ -9126,11 +10023,12 @@ Field | Description
 --- | ---
 db | **string**<br>Required. Name of the ClickHouse database. 
 table | **string**<br>Required. Name of the table in the specified database to be used as the dictionary source. 
-host | **string**<br>Required. ClickHouse host of the specified database. The maximum string length in characters is 253.
+host | **string**<br>ClickHouse host of the specified database. The maximum string length in characters is 253.
 port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
 user | **string**<br>Required. Name of the ClickHouse database user. 
 password | **string**<br>Password of the ClickHouse database user. 
 where | **string**<br>Selection criteria for the data in the specified ClickHouse table. 
+secure | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Use ssl for connection. 
 
 
 ### MongodbSource {#MongodbSource19}
@@ -9139,7 +10037,7 @@ Field | Description
 --- | ---
 db | **string**<br>Required. Name of the MongoDB database. 
 collection | **string**<br>Required. Name of the collection in the specified database to be used as the dictionary source. 
-host | **string**<br>Required. MongoDB host of the specified database. The maximum string length in characters is 253.
+host | **string**<br>MongoDB host of the specified database. The maximum string length in characters is 253.
 port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
 user | **string**<br>Required. Name of the MongoDB database user. 
 password | **string**<br>Password of the MongoDB database user. 
@@ -9203,6 +10101,7 @@ Field | Description
 --- | ---
 type | enum **Type**<br>Required. Layout type for an external dictionary. <ul><li>`FLAT`: The entire dictionary is stored in memory in the form of flat arrays. Available for all dictionary sources.</li><li>`HASHED`: The entire dictionary is stored in memory in the form of a hash table. Available for all dictionary sources.</li><li>`COMPLEX_KEY_HASHED`: Similar to HASHED, to be used with composite keys. Available for all dictionary sources.</li><li>`RANGE_HASHED`: The entire dictionary is stored in memory in the form of a hash table, with an ordered array of ranges and their corresponding values. Available for all dictionary sources.</li><li>`CACHE`: The dictionary is stored in a cache with a set number of cells. Available for MySQL, ClickHouse and HTTP dictionary sources.</li><li>`COMPLEX_KEY_CACHE`: Similar to CACHE, to be used with composite keys. Available for MySQL, ClickHouse and HTTP dictionary sources.</li></ul>
 size_in_cells | **int64**<br>Number of cells in the cache. Rounded up to a power of two. Applicable only for CACHE and COMPLEX_KEY_CACHE layout types. 
+max_array_size | **int64**<br>Maximum dictionary key size. Applicable only for FLAT layout type. 
 
 
 ### Range {#Range19}
@@ -9219,6 +10118,10 @@ Field | Description
 --- | ---
 name | **string**<br>Required. Name for the specified combination of settings for Graphite rollup. 
 patterns[] | **[Pattern](#Pattern19)**<br>Pattern to use for the rollup. The number of elements must be greater than 0.
+path_column_name | **string**<br>The name of the column storing the metric name (Graphite sensor). Default: Path See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
+time_column_name | **string**<br>The name of the column storing the time of measuring the metric. Default: Time See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
+value_column_name | **string**<br>The name of the column storing the value of the metric at the time set in time_column_name. Default: Value See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
+version_column_name | **string**<br>The name of the column storing the version of the metric. Default: Timestamp See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
 
 
 ### Pattern {#Pattern19}
@@ -9236,6 +10139,25 @@ Field | Description
 --- | ---
 age | **int64**<br>Minimum age of the data in seconds. The minimum value is 0.
 precision | **int64**<br>Precision of determining the age of the data, in seconds. Value must be greater than 0.
+
+
+### QueryMaskingRule {#QueryMaskingRule19}
+
+Field | Description
+--- | ---
+name | **string**<br>Name for the rule. 
+regexp | **string**<br>Required. RE2 compatible regular expression. Required. 
+replace | **string**<br>Substitution string for sensitive data. Default: six asterisks 
+
+
+### QueryCache {#QueryCache19}
+
+Field | Description
+--- | ---
+max_size_in_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum cache size in bytes. Default: 1073741824 (1 GiB) The minimum value is 0.
+max_entries | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum number of SELECT query results stored in the cache. Default: 1024 The minimum value is 0.
+max_entry_size_in_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size in bytes SELECT query results may have to be saved in the cache. Dafault: 1048576 (1 MiB) The minimum value is 0.
+max_entry_size_in_rows | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum number of rows SELECT query results may have to be saved in the cache. Default: 30000000 (30 mil) The minimum value is 0.
 
 
 ## DeleteShard {#DeleteShard}
@@ -9597,6 +10519,7 @@ cloud_storage | **[CloudStorage](#CloudStorage11)**<br>
 sql_database_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether database management through SQL commands is enabled. 
 sql_user_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether user management through SQL commands is enabled. 
 embedded_keeper | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether cluster should use embedded Keeper instead of Zookeeper. 
+backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retain period of automatically created backup in days 
 
 
 ### Clickhouse {#Clickhouse20}
@@ -9716,6 +10639,9 @@ background_common_pool_size | **[google.protobuf.Int64Value](https://developers.
 default_database | **google.protobuf.StringValue**<br>The default database. <br>To get a list of cluster databases, see [Yandex Managed ClickHouse documentation](/docs/managed-clickhouse/operations/databases#list-db). 
 total_memory_profiler_step | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the memory size (in bytes) for a stack trace at every peak allocation step. Default value: **4194304**. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#total-memory-profiler-step). 
 total_memory_tracker_sample_probability | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**<br> 
+query_masking_rules[] | **[QueryMaskingRule](#QueryMaskingRule20)**<br>Regexp-based rules, which will be applied to queries as well as all log messages before storing them in server logs, system.query_log, system.text_log, system.processes tables, and in logs sent to the client. That allows preventing sensitive data leakage from SQL queries (like names, emails, personal identifiers or credit card numbers) to logs. Change of these settings is applied with ClickHouse restart See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#query-masking-rules) The number of elements must be greater than 0.
+dictionaries_lazy_load | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Lazy loading of dictionaries. Default: true See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#dictionaries_lazy_load) 
+query_cache | **[QueryCache](#QueryCache20)**<br>[Query cache](https://clickhouse.com/docs/en/operations/query-cache) configuration. Min version: 23.5 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#query_cache) 
 
 
 ### MergeTree {#MergeTree20}
@@ -9746,6 +10672,10 @@ max_avg_part_size_for_too_many_parts | **[google.protobuf.Int64Value](https://de
 min_age_to_force_merge_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Merge parts if every part in the range is older than the value of min_age_to_force_merge_seconds. Default: 0 - disabled Min_version: 22.10 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#min_age_to_force_merge_seconds) The minimum value is 0.
 min_age_to_force_merge_on_partition_only | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether min_age_to_force_merge_seconds should be applied only on the entire partition and not on subset. Default: false Min_version: 22.11 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#min_age_to_force_merge_seconds) 
 merge_selecting_sleep_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sleep time for merge selecting when no part is selected. A lower setting triggers selecting tasks in background_schedule_pool frequently, which results in a large number of requests to ClickHouse Keeper in large-scale clusters. Default: 5000 Min_version: 21.10 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#merge_selecting_sleep_ms) Value must be greater than 0.
+merge_max_block_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of rows that are read from the merged parts into memory. Default: 8192 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#merge_max_block_size) Value must be greater than 0.
+check_sample_column_is_correct | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enables the check at table creation, that the data type of a column for sampling or sampling expression is correct. The data type must be one of unsigned [integer types](https://clickhouse.com/docs/en/sql-reference/data-types/int-uint): UInt8, UInt16, UInt32, UInt64. Default: true See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#check_sample_column_is_correct) 
+max_merge_selecting_sleep_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum sleep time for merge selecting, a lower setting will trigger selecting tasks in background_schedule_pool frequently which result in large amount of requests to zookeeper in large-scale clusters. Default: 60000 Min_version: 23.6 See in-depth description in [ClickHouse GitHub](https://github.com/ClickHouse/ClickHouse/blob/4add9db84859bff7410cf934a3904b0414e36e51/src/Storages/MergeTree/MergeTreeSettings.h#L71) The minimum value is 0.
+max_cleanup_delay_period | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum period to clean old queue logs, blocks hashes and parts. Default: 300 Min_version: 23.6 See in-depth description in [ClickHouse GitHub](https://github.com/ClickHouse/ClickHouse/blob/4add9db84859bff7410cf934a3904b0414e36e51/src/Storages/MergeTree/MergeTreeSettings.h#L142) The minimum value is 0.
 
 
 ### Kafka {#Kafka20}
@@ -9759,6 +10689,8 @@ sasl_password | **string**<br>
 enable_ssl_certificate_verification | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
 max_poll_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> The minimum value is 0.
 session_timeout_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> The minimum value is 0.
+debug | enum **Debug**<br> 
+auto_offset_reset | enum **AutoOffsetReset**<br> 
 
 
 ### KafkaTopic {#KafkaTopic20}
@@ -9812,6 +10744,15 @@ Field | Description
 --- | ---
 url | **string**<br>Required. URL of the source dictionary available over HTTP. 
 format | **string**<br>Required. The data format. Valid values are all formats supported by ClickHouse SQL dialect. 
+headers[] | **[Header](#Header20)**<br>HTTP headers. 
+
+
+### Header {#Header20}
+
+Field | Description
+--- | ---
+name | **string**<br>Required.  
+value | **string**<br>Required.  
 
 
 ### MysqlSource {#MysqlSource20}
@@ -9826,6 +10767,8 @@ password | **string**<br>Password of the default user for replicas of the dictio
 replicas[] | **[Replica](#Replica20)**<br>List of MySQL replicas of the database used as dictionary source. The number of elements must be greater than 0.
 where | **string**<br>Selection criteria for the data in the specified MySQL table. 
 invalidate_query | **string**<br>Query for checking the dictionary status, to pull only updated data. For more details, see [ClickHouse documentation on dictionaries](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/). 
+close_connection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Should the connection be closed after each request. 
+share_connection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Should a connection be shared for some requests. 
 
 
 ### Replica {#Replica20}
@@ -9845,11 +10788,12 @@ Field | Description
 --- | ---
 db | **string**<br>Required. Name of the ClickHouse database. 
 table | **string**<br>Required. Name of the table in the specified database to be used as the dictionary source. 
-host | **string**<br>Required. ClickHouse host of the specified database. The maximum string length in characters is 253.
+host | **string**<br>ClickHouse host of the specified database. The maximum string length in characters is 253.
 port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
 user | **string**<br>Required. Name of the ClickHouse database user. 
 password | **string**<br>Password of the ClickHouse database user. 
 where | **string**<br>Selection criteria for the data in the specified ClickHouse table. 
+secure | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Use ssl for connection. 
 
 
 ### MongodbSource {#MongodbSource20}
@@ -9858,7 +10802,7 @@ Field | Description
 --- | ---
 db | **string**<br>Required. Name of the MongoDB database. 
 collection | **string**<br>Required. Name of the collection in the specified database to be used as the dictionary source. 
-host | **string**<br>Required. MongoDB host of the specified database. The maximum string length in characters is 253.
+host | **string**<br>MongoDB host of the specified database. The maximum string length in characters is 253.
 port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
 user | **string**<br>Required. Name of the MongoDB database user. 
 password | **string**<br>Password of the MongoDB database user. 
@@ -9922,6 +10866,7 @@ Field | Description
 --- | ---
 type | enum **Type**<br>Required. Layout type for an external dictionary. <ul><li>`FLAT`: The entire dictionary is stored in memory in the form of flat arrays. Available for all dictionary sources.</li><li>`HASHED`: The entire dictionary is stored in memory in the form of a hash table. Available for all dictionary sources.</li><li>`COMPLEX_KEY_HASHED`: Similar to HASHED, to be used with composite keys. Available for all dictionary sources.</li><li>`RANGE_HASHED`: The entire dictionary is stored in memory in the form of a hash table, with an ordered array of ranges and their corresponding values. Available for all dictionary sources.</li><li>`CACHE`: The dictionary is stored in a cache with a set number of cells. Available for MySQL, ClickHouse and HTTP dictionary sources.</li><li>`COMPLEX_KEY_CACHE`: Similar to CACHE, to be used with composite keys. Available for MySQL, ClickHouse and HTTP dictionary sources.</li></ul>
 size_in_cells | **int64**<br>Number of cells in the cache. Rounded up to a power of two. Applicable only for CACHE and COMPLEX_KEY_CACHE layout types. 
+max_array_size | **int64**<br>Maximum dictionary key size. Applicable only for FLAT layout type. 
 
 
 ### Range {#Range20}
@@ -9938,6 +10883,10 @@ Field | Description
 --- | ---
 name | **string**<br>Required. Name for the specified combination of settings for Graphite rollup. 
 patterns[] | **[Pattern](#Pattern20)**<br>Pattern to use for the rollup. The number of elements must be greater than 0.
+path_column_name | **string**<br>The name of the column storing the metric name (Graphite sensor). Default: Path See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
+time_column_name | **string**<br>The name of the column storing the time of measuring the metric. Default: Time See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
+value_column_name | **string**<br>The name of the column storing the value of the metric at the time set in time_column_name. Default: Value See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
+version_column_name | **string**<br>The name of the column storing the version of the metric. Default: Timestamp See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
 
 
 ### Pattern {#Pattern20}
@@ -9955,6 +10904,25 @@ Field | Description
 --- | ---
 age | **int64**<br>Minimum age of the data in seconds. The minimum value is 0.
 precision | **int64**<br>Precision of determining the age of the data, in seconds. Value must be greater than 0.
+
+
+### QueryMaskingRule {#QueryMaskingRule20}
+
+Field | Description
+--- | ---
+name | **string**<br>Name for the rule. 
+regexp | **string**<br>Required. RE2 compatible regular expression. Required. 
+replace | **string**<br>Substitution string for sensitive data. Default: six asterisks 
+
+
+### QueryCache {#QueryCache20}
+
+Field | Description
+--- | ---
+max_size_in_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum cache size in bytes. Default: 1073741824 (1 GiB) The minimum value is 0.
+max_entries | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum number of SELECT query results stored in the cache. Default: 1024 The minimum value is 0.
+max_entry_size_in_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size in bytes SELECT query results may have to be saved in the cache. Dafault: 1048576 (1 MiB) The minimum value is 0.
+max_entry_size_in_rows | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum number of rows SELECT query results may have to be saved in the cache. Default: 30000000 (30 mil) The minimum value is 0.
 
 
 ### Resources {#Resources16}
@@ -10083,6 +11051,7 @@ cloud_storage | **[CloudStorage](#CloudStorage12)**<br>
 sql_database_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether database management through SQL commands is enabled. 
 sql_user_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether user management through SQL commands is enabled. 
 embedded_keeper | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether cluster should use embedded Keeper instead of Zookeeper. 
+backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retain period of automatically created backup in days 
 
 
 ### Clickhouse {#Clickhouse21}
@@ -10202,6 +11171,9 @@ background_common_pool_size | **[google.protobuf.Int64Value](https://developers.
 default_database | **google.protobuf.StringValue**<br>The default database. <br>To get a list of cluster databases, see [Yandex Managed ClickHouse documentation](/docs/managed-clickhouse/operations/databases#list-db). 
 total_memory_profiler_step | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the memory size (in bytes) for a stack trace at every peak allocation step. Default value: **4194304**. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#total-memory-profiler-step). 
 total_memory_tracker_sample_probability | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**<br> 
+query_masking_rules[] | **[QueryMaskingRule](#QueryMaskingRule21)**<br>Regexp-based rules, which will be applied to queries as well as all log messages before storing them in server logs, system.query_log, system.text_log, system.processes tables, and in logs sent to the client. That allows preventing sensitive data leakage from SQL queries (like names, emails, personal identifiers or credit card numbers) to logs. Change of these settings is applied with ClickHouse restart See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#query-masking-rules) The number of elements must be greater than 0.
+dictionaries_lazy_load | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Lazy loading of dictionaries. Default: true See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#dictionaries_lazy_load) 
+query_cache | **[QueryCache](#QueryCache21)**<br>[Query cache](https://clickhouse.com/docs/en/operations/query-cache) configuration. Min version: 23.5 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#query_cache) 
 
 
 ### MergeTree {#MergeTree21}
@@ -10232,6 +11204,10 @@ max_avg_part_size_for_too_many_parts | **[google.protobuf.Int64Value](https://de
 min_age_to_force_merge_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Merge parts if every part in the range is older than the value of min_age_to_force_merge_seconds. Default: 0 - disabled Min_version: 22.10 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#min_age_to_force_merge_seconds) The minimum value is 0.
 min_age_to_force_merge_on_partition_only | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether min_age_to_force_merge_seconds should be applied only on the entire partition and not on subset. Default: false Min_version: 22.11 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#min_age_to_force_merge_seconds) 
 merge_selecting_sleep_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sleep time for merge selecting when no part is selected. A lower setting triggers selecting tasks in background_schedule_pool frequently, which results in a large number of requests to ClickHouse Keeper in large-scale clusters. Default: 5000 Min_version: 21.10 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#merge_selecting_sleep_ms) Value must be greater than 0.
+merge_max_block_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of rows that are read from the merged parts into memory. Default: 8192 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#merge_max_block_size) Value must be greater than 0.
+check_sample_column_is_correct | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enables the check at table creation, that the data type of a column for sampling or sampling expression is correct. The data type must be one of unsigned [integer types](https://clickhouse.com/docs/en/sql-reference/data-types/int-uint): UInt8, UInt16, UInt32, UInt64. Default: true See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#check_sample_column_is_correct) 
+max_merge_selecting_sleep_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum sleep time for merge selecting, a lower setting will trigger selecting tasks in background_schedule_pool frequently which result in large amount of requests to zookeeper in large-scale clusters. Default: 60000 Min_version: 23.6 See in-depth description in [ClickHouse GitHub](https://github.com/ClickHouse/ClickHouse/blob/4add9db84859bff7410cf934a3904b0414e36e51/src/Storages/MergeTree/MergeTreeSettings.h#L71) The minimum value is 0.
+max_cleanup_delay_period | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum period to clean old queue logs, blocks hashes and parts. Default: 300 Min_version: 23.6 See in-depth description in [ClickHouse GitHub](https://github.com/ClickHouse/ClickHouse/blob/4add9db84859bff7410cf934a3904b0414e36e51/src/Storages/MergeTree/MergeTreeSettings.h#L142) The minimum value is 0.
 
 
 ### Kafka {#Kafka21}
@@ -10245,6 +11221,8 @@ sasl_password | **string**<br>
 enable_ssl_certificate_verification | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
 max_poll_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> The minimum value is 0.
 session_timeout_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> The minimum value is 0.
+debug | enum **Debug**<br> 
+auto_offset_reset | enum **AutoOffsetReset**<br> 
 
 
 ### KafkaTopic {#KafkaTopic21}
@@ -10298,6 +11276,15 @@ Field | Description
 --- | ---
 url | **string**<br>Required. URL of the source dictionary available over HTTP. 
 format | **string**<br>Required. The data format. Valid values are all formats supported by ClickHouse SQL dialect. 
+headers[] | **[Header](#Header21)**<br>HTTP headers. 
+
+
+### Header {#Header21}
+
+Field | Description
+--- | ---
+name | **string**<br>Required.  
+value | **string**<br>Required.  
 
 
 ### MysqlSource {#MysqlSource21}
@@ -10312,6 +11299,8 @@ password | **string**<br>Password of the default user for replicas of the dictio
 replicas[] | **[Replica](#Replica21)**<br>List of MySQL replicas of the database used as dictionary source. The number of elements must be greater than 0.
 where | **string**<br>Selection criteria for the data in the specified MySQL table. 
 invalidate_query | **string**<br>Query for checking the dictionary status, to pull only updated data. For more details, see [ClickHouse documentation on dictionaries](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/). 
+close_connection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Should the connection be closed after each request. 
+share_connection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Should a connection be shared for some requests. 
 
 
 ### Replica {#Replica21}
@@ -10331,11 +11320,12 @@ Field | Description
 --- | ---
 db | **string**<br>Required. Name of the ClickHouse database. 
 table | **string**<br>Required. Name of the table in the specified database to be used as the dictionary source. 
-host | **string**<br>Required. ClickHouse host of the specified database. The maximum string length in characters is 253.
+host | **string**<br>ClickHouse host of the specified database. The maximum string length in characters is 253.
 port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
 user | **string**<br>Required. Name of the ClickHouse database user. 
 password | **string**<br>Password of the ClickHouse database user. 
 where | **string**<br>Selection criteria for the data in the specified ClickHouse table. 
+secure | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Use ssl for connection. 
 
 
 ### MongodbSource {#MongodbSource21}
@@ -10344,7 +11334,7 @@ Field | Description
 --- | ---
 db | **string**<br>Required. Name of the MongoDB database. 
 collection | **string**<br>Required. Name of the collection in the specified database to be used as the dictionary source. 
-host | **string**<br>Required. MongoDB host of the specified database. The maximum string length in characters is 253.
+host | **string**<br>MongoDB host of the specified database. The maximum string length in characters is 253.
 port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
 user | **string**<br>Required. Name of the MongoDB database user. 
 password | **string**<br>Password of the MongoDB database user. 
@@ -10408,6 +11398,7 @@ Field | Description
 --- | ---
 type | enum **Type**<br>Required. Layout type for an external dictionary. <ul><li>`FLAT`: The entire dictionary is stored in memory in the form of flat arrays. Available for all dictionary sources.</li><li>`HASHED`: The entire dictionary is stored in memory in the form of a hash table. Available for all dictionary sources.</li><li>`COMPLEX_KEY_HASHED`: Similar to HASHED, to be used with composite keys. Available for all dictionary sources.</li><li>`RANGE_HASHED`: The entire dictionary is stored in memory in the form of a hash table, with an ordered array of ranges and their corresponding values. Available for all dictionary sources.</li><li>`CACHE`: The dictionary is stored in a cache with a set number of cells. Available for MySQL, ClickHouse and HTTP dictionary sources.</li><li>`COMPLEX_KEY_CACHE`: Similar to CACHE, to be used with composite keys. Available for MySQL, ClickHouse and HTTP dictionary sources.</li></ul>
 size_in_cells | **int64**<br>Number of cells in the cache. Rounded up to a power of two. Applicable only for CACHE and COMPLEX_KEY_CACHE layout types. 
+max_array_size | **int64**<br>Maximum dictionary key size. Applicable only for FLAT layout type. 
 
 
 ### Range {#Range21}
@@ -10424,6 +11415,10 @@ Field | Description
 --- | ---
 name | **string**<br>Required. Name for the specified combination of settings for Graphite rollup. 
 patterns[] | **[Pattern](#Pattern21)**<br>Pattern to use for the rollup. The number of elements must be greater than 0.
+path_column_name | **string**<br>The name of the column storing the metric name (Graphite sensor). Default: Path See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
+time_column_name | **string**<br>The name of the column storing the time of measuring the metric. Default: Time See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
+value_column_name | **string**<br>The name of the column storing the value of the metric at the time set in time_column_name. Default: Value See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
+version_column_name | **string**<br>The name of the column storing the version of the metric. Default: Timestamp See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
 
 
 ### Pattern {#Pattern21}
@@ -10441,6 +11436,25 @@ Field | Description
 --- | ---
 age | **int64**<br>Minimum age of the data in seconds. The minimum value is 0.
 precision | **int64**<br>Precision of determining the age of the data, in seconds. Value must be greater than 0.
+
+
+### QueryMaskingRule {#QueryMaskingRule21}
+
+Field | Description
+--- | ---
+name | **string**<br>Name for the rule. 
+regexp | **string**<br>Required. RE2 compatible regular expression. Required. 
+replace | **string**<br>Substitution string for sensitive data. Default: six asterisks 
+
+
+### QueryCache {#QueryCache21}
+
+Field | Description
+--- | ---
+max_size_in_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum cache size in bytes. Default: 1073741824 (1 GiB) The minimum value is 0.
+max_entries | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum number of SELECT query results stored in the cache. Default: 1024 The minimum value is 0.
+max_entry_size_in_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size in bytes SELECT query results may have to be saved in the cache. Dafault: 1048576 (1 MiB) The minimum value is 0.
+max_entry_size_in_rows | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum number of rows SELECT query results may have to be saved in the cache. Default: 30000000 (30 mil) The minimum value is 0.
 
 
 ### Resources {#Resources17}
@@ -10567,6 +11581,7 @@ cloud_storage | **[CloudStorage](#CloudStorage13)**<br>
 sql_database_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether database management through SQL commands is enabled. 
 sql_user_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether user management through SQL commands is enabled. 
 embedded_keeper | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether cluster should use embedded Keeper instead of Zookeeper. 
+backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retain period of automatically created backup in days 
 
 
 ### Clickhouse {#Clickhouse22}
@@ -10686,6 +11701,9 @@ background_common_pool_size | **[google.protobuf.Int64Value](https://developers.
 default_database | **google.protobuf.StringValue**<br>The default database. <br>To get a list of cluster databases, see [Yandex Managed ClickHouse documentation](/docs/managed-clickhouse/operations/databases#list-db). 
 total_memory_profiler_step | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the memory size (in bytes) for a stack trace at every peak allocation step. Default value: **4194304**. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#total-memory-profiler-step). 
 total_memory_tracker_sample_probability | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**<br> 
+query_masking_rules[] | **[QueryMaskingRule](#QueryMaskingRule22)**<br>Regexp-based rules, which will be applied to queries as well as all log messages before storing them in server logs, system.query_log, system.text_log, system.processes tables, and in logs sent to the client. That allows preventing sensitive data leakage from SQL queries (like names, emails, personal identifiers or credit card numbers) to logs. Change of these settings is applied with ClickHouse restart See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#query-masking-rules) The number of elements must be greater than 0.
+dictionaries_lazy_load | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Lazy loading of dictionaries. Default: true See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#dictionaries_lazy_load) 
+query_cache | **[QueryCache](#QueryCache22)**<br>[Query cache](https://clickhouse.com/docs/en/operations/query-cache) configuration. Min version: 23.5 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#query_cache) 
 
 
 ### MergeTree {#MergeTree22}
@@ -10716,6 +11734,10 @@ max_avg_part_size_for_too_many_parts | **[google.protobuf.Int64Value](https://de
 min_age_to_force_merge_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Merge parts if every part in the range is older than the value of min_age_to_force_merge_seconds. Default: 0 - disabled Min_version: 22.10 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#min_age_to_force_merge_seconds) The minimum value is 0.
 min_age_to_force_merge_on_partition_only | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether min_age_to_force_merge_seconds should be applied only on the entire partition and not on subset. Default: false Min_version: 22.11 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#min_age_to_force_merge_seconds) 
 merge_selecting_sleep_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sleep time for merge selecting when no part is selected. A lower setting triggers selecting tasks in background_schedule_pool frequently, which results in a large number of requests to ClickHouse Keeper in large-scale clusters. Default: 5000 Min_version: 21.10 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#merge_selecting_sleep_ms) Value must be greater than 0.
+merge_max_block_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of rows that are read from the merged parts into memory. Default: 8192 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#merge_max_block_size) Value must be greater than 0.
+check_sample_column_is_correct | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enables the check at table creation, that the data type of a column for sampling or sampling expression is correct. The data type must be one of unsigned [integer types](https://clickhouse.com/docs/en/sql-reference/data-types/int-uint): UInt8, UInt16, UInt32, UInt64. Default: true See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#check_sample_column_is_correct) 
+max_merge_selecting_sleep_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum sleep time for merge selecting, a lower setting will trigger selecting tasks in background_schedule_pool frequently which result in large amount of requests to zookeeper in large-scale clusters. Default: 60000 Min_version: 23.6 See in-depth description in [ClickHouse GitHub](https://github.com/ClickHouse/ClickHouse/blob/4add9db84859bff7410cf934a3904b0414e36e51/src/Storages/MergeTree/MergeTreeSettings.h#L71) The minimum value is 0.
+max_cleanup_delay_period | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum period to clean old queue logs, blocks hashes and parts. Default: 300 Min_version: 23.6 See in-depth description in [ClickHouse GitHub](https://github.com/ClickHouse/ClickHouse/blob/4add9db84859bff7410cf934a3904b0414e36e51/src/Storages/MergeTree/MergeTreeSettings.h#L142) The minimum value is 0.
 
 
 ### Kafka {#Kafka22}
@@ -10729,6 +11751,8 @@ sasl_password | **string**<br>
 enable_ssl_certificate_verification | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
 max_poll_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> The minimum value is 0.
 session_timeout_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> The minimum value is 0.
+debug | enum **Debug**<br> 
+auto_offset_reset | enum **AutoOffsetReset**<br> 
 
 
 ### KafkaTopic {#KafkaTopic22}
@@ -10782,6 +11806,15 @@ Field | Description
 --- | ---
 url | **string**<br>Required. URL of the source dictionary available over HTTP. 
 format | **string**<br>Required. The data format. Valid values are all formats supported by ClickHouse SQL dialect. 
+headers[] | **[Header](#Header22)**<br>HTTP headers. 
+
+
+### Header {#Header22}
+
+Field | Description
+--- | ---
+name | **string**<br>Required.  
+value | **string**<br>Required.  
 
 
 ### MysqlSource {#MysqlSource22}
@@ -10796,6 +11829,8 @@ password | **string**<br>Password of the default user for replicas of the dictio
 replicas[] | **[Replica](#Replica22)**<br>List of MySQL replicas of the database used as dictionary source. The number of elements must be greater than 0.
 where | **string**<br>Selection criteria for the data in the specified MySQL table. 
 invalidate_query | **string**<br>Query for checking the dictionary status, to pull only updated data. For more details, see [ClickHouse documentation on dictionaries](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/). 
+close_connection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Should the connection be closed after each request. 
+share_connection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Should a connection be shared for some requests. 
 
 
 ### Replica {#Replica22}
@@ -10815,11 +11850,12 @@ Field | Description
 --- | ---
 db | **string**<br>Required. Name of the ClickHouse database. 
 table | **string**<br>Required. Name of the table in the specified database to be used as the dictionary source. 
-host | **string**<br>Required. ClickHouse host of the specified database. The maximum string length in characters is 253.
+host | **string**<br>ClickHouse host of the specified database. The maximum string length in characters is 253.
 port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
 user | **string**<br>Required. Name of the ClickHouse database user. 
 password | **string**<br>Password of the ClickHouse database user. 
 where | **string**<br>Selection criteria for the data in the specified ClickHouse table. 
+secure | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Use ssl for connection. 
 
 
 ### MongodbSource {#MongodbSource22}
@@ -10828,7 +11864,7 @@ Field | Description
 --- | ---
 db | **string**<br>Required. Name of the MongoDB database. 
 collection | **string**<br>Required. Name of the collection in the specified database to be used as the dictionary source. 
-host | **string**<br>Required. MongoDB host of the specified database. The maximum string length in characters is 253.
+host | **string**<br>MongoDB host of the specified database. The maximum string length in characters is 253.
 port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
 user | **string**<br>Required. Name of the MongoDB database user. 
 password | **string**<br>Password of the MongoDB database user. 
@@ -10892,6 +11928,7 @@ Field | Description
 --- | ---
 type | enum **Type**<br>Required. Layout type for an external dictionary. <ul><li>`FLAT`: The entire dictionary is stored in memory in the form of flat arrays. Available for all dictionary sources.</li><li>`HASHED`: The entire dictionary is stored in memory in the form of a hash table. Available for all dictionary sources.</li><li>`COMPLEX_KEY_HASHED`: Similar to HASHED, to be used with composite keys. Available for all dictionary sources.</li><li>`RANGE_HASHED`: The entire dictionary is stored in memory in the form of a hash table, with an ordered array of ranges and their corresponding values. Available for all dictionary sources.</li><li>`CACHE`: The dictionary is stored in a cache with a set number of cells. Available for MySQL, ClickHouse and HTTP dictionary sources.</li><li>`COMPLEX_KEY_CACHE`: Similar to CACHE, to be used with composite keys. Available for MySQL, ClickHouse and HTTP dictionary sources.</li></ul>
 size_in_cells | **int64**<br>Number of cells in the cache. Rounded up to a power of two. Applicable only for CACHE and COMPLEX_KEY_CACHE layout types. 
+max_array_size | **int64**<br>Maximum dictionary key size. Applicable only for FLAT layout type. 
 
 
 ### Range {#Range22}
@@ -10908,6 +11945,10 @@ Field | Description
 --- | ---
 name | **string**<br>Required. Name for the specified combination of settings for Graphite rollup. 
 patterns[] | **[Pattern](#Pattern22)**<br>Pattern to use for the rollup. The number of elements must be greater than 0.
+path_column_name | **string**<br>The name of the column storing the metric name (Graphite sensor). Default: Path See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
+time_column_name | **string**<br>The name of the column storing the time of measuring the metric. Default: Time See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
+value_column_name | **string**<br>The name of the column storing the value of the metric at the time set in time_column_name. Default: Value See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
+version_column_name | **string**<br>The name of the column storing the version of the metric. Default: Timestamp See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
 
 
 ### Pattern {#Pattern22}
@@ -10925,6 +11966,25 @@ Field | Description
 --- | ---
 age | **int64**<br>Minimum age of the data in seconds. The minimum value is 0.
 precision | **int64**<br>Precision of determining the age of the data, in seconds. Value must be greater than 0.
+
+
+### QueryMaskingRule {#QueryMaskingRule22}
+
+Field | Description
+--- | ---
+name | **string**<br>Name for the rule. 
+regexp | **string**<br>Required. RE2 compatible regular expression. Required. 
+replace | **string**<br>Substitution string for sensitive data. Default: six asterisks 
+
+
+### QueryCache {#QueryCache22}
+
+Field | Description
+--- | ---
+max_size_in_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum cache size in bytes. Default: 1073741824 (1 GiB) The minimum value is 0.
+max_entries | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum number of SELECT query results stored in the cache. Default: 1024 The minimum value is 0.
+max_entry_size_in_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size in bytes SELECT query results may have to be saved in the cache. Dafault: 1048576 (1 MiB) The minimum value is 0.
+max_entry_size_in_rows | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum number of rows SELECT query results may have to be saved in the cache. Default: 30000000 (30 mil) The minimum value is 0.
 
 
 ### Resources {#Resources18}

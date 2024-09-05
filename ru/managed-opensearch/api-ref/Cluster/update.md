@@ -70,7 +70,8 @@ clusterId | <p>Required. ID of the OpenSearch cluster resource to update. To get
     },
     // end of the list of possible fields`maintenanceWindow`
 
-  }
+  },
+  "networkId": "string"
 }
 ```
 
@@ -106,6 +107,7 @@ maintenanceWindow.<br>anytime | **object**<br>An any-time maintenance window. <b
 maintenanceWindow.<br>weeklyMaintenanceWindow | **object**<br>A weekly maintenance window. <br>`maintenanceWindow` includes only one of the fields `anytime`, `weeklyMaintenanceWindow`<br>
 maintenanceWindow.<br>weeklyMaintenanceWindow.<br>day | **string**<br><p>Day of the week.</p> <ul> <li>MON: Monday</li> <li>TUE: Tuesday</li> <li>WED: Wednesday</li> <li>THU: Thursday</li> <li>FRI: Friday</li> <li>SAT: Saturday</li> <li>SUN: Sunday</li> </ul> 
 maintenanceWindow.<br>weeklyMaintenanceWindow.<br>hour | **string** (int64)<br><p>Hour of the day in the UTC timezone.</p> <p>Acceptable values are 1 to 24, inclusive.</p> 
+networkId | **string**<br><p>ID of the network to move the cluster to.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

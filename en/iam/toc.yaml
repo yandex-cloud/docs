@@ -176,6 +176,10 @@ items:
             href: api-ref/grpc/certificate_service.md
           - name: FederationService
             href: api-ref/grpc/federation_service.md
+          - name: FederatedCredentialService
+            href: api-ref/grpc/federated_credential_service.md
+          - name: FederationService
+            href: api-ref/grpc/federation_service.md
           - name: OperationService
             href: api-ref/grpc/operation_service.md
       - name: REST
@@ -208,6 +212,8 @@ items:
                 href: api-ref/IamToken/create.md
               - name: createForServiceAccount
                 href: api-ref/IamToken/createForServiceAccount.md
+              - name: revoke
+                href: api-ref/IamToken/revoke.md
           - name: Key
             items:
               - name: Overview
@@ -266,10 +272,8 @@ items:
                 href: api-ref/ServiceControl/get.md
               - name: list
                 href: api-ref/ServiceControl/list.md
-              - name: pause
-                href: api-ref/ServiceControl/pause.md
-              - name: resume
-                href: api-ref/ServiceControl/resume.md
+              - name: resolveAgent
+                href: api-ref/ServiceControl/resolveAgent.md
           - name: UserAccount
             items:
               - name: Overview
@@ -340,6 +344,18 @@ items:
                 href: api-ref/Federation/listUserAccounts.md
               - name: update
                 href: api-ref/Federation/update.md
+          - name: FederatedCredential
+            items:
+              - name: Overview
+                href: api-ref/FederatedCredential/index.md
+              - name: create
+                href: api-ref/FederatedCredential/create.md
+              - name: delete
+                href: api-ref/FederatedCredential/delete.md
+              - name: get
+                href: api-ref/FederatedCredential/get.md
+              - name: list
+                href: api-ref/FederatedCredential/list.md
   - name: '{{ monitoring-name }} metrics'
     href: metrics.md
   - name: '{{ at-name }} events'

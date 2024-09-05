@@ -10,5 +10,6 @@ Resource | Description
 --- | ---
 [Agent](Agent/index.md) | A set of methods for managing Load Testing agents.
 [Config](Config/index.md) | A set of methods for managing test configurations.
+[RegressionDashboard](RegressionDashboard/index.md) | A set of methods for managing Load Testing Regression Dashboards.
 [Report](Report/index.md) | A set of methods for managing test reports.
 [Test](Test/index.md) | A set of methods for managing tests.

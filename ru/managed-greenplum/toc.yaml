@@ -226,6 +226,8 @@ items:
                 href: api-ref/Cluster/listOperations.md
               - name: listSegmentHosts
                 href: api-ref/Cluster/listSegmentHosts.md
+              - name: move
+                href: api-ref/Cluster/move.md
               - name: restore
                 href: api-ref/Cluster/restore.md
               - name: start

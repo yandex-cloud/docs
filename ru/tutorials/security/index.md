@@ -1,6 +1,6 @@
 # Руководства по безопасности
 
-* [Создание балансировщика с защитой от DDoS](alb-with-ddos-protection.md)
+* [Создание L7-балансировщика с защитой от DDoS](alb-with-ddos-protection/index.md)
 * [Терминирование TLS-соединений](tls-termination/index.md)
 * [Передача логов с виртуальной машины в {{ cloud-logging-full-name }}](vm-fluent-bit-logging.md)
 * [Запись логов балансировщика в {{ PG }}](logging.md)

@@ -289,7 +289,7 @@ Failed to pull image "{{ registry }}/***": rpc error: code = Unknown desc = Erro
 ```
 
 Есть несколько способов выдать доступ в интернет узлам кластера {{ managed-k8s-name }}:
-* Создайте и настройте [NAT-шлюз](../../vpc/operations/create-nat-gateway.md) или [NAT-инстанс](../../vpc/tutorials/nat-instance.md). В результате с помощью [статической маршрутизации](../../vpc/concepts/routing.md) трафик будет направлен через шлюз или отдельную [виртуальную машину](../../compute/concepts/vm.md) с функциями NAT.
+* Создайте и настройте [NAT-шлюз](../../vpc/operations/create-nat-gateway.md) или [NAT-инстанс](../../vpc/tutorials/nat-instance/index.md). В результате с помощью [статической маршрутизации](../../vpc/concepts/routing.md) трафик будет направлен через шлюз или отдельную [виртуальную машину](../../compute/concepts/vm.md) с функциями NAT.
 * [Назначьте публичный IP-адрес группе узлов {{ managed-k8s-name }}](../../managed-kubernetes/operations/node-group/node-group-update.md#update-settings).
 
 {% note info %}

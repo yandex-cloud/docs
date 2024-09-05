@@ -5,7 +5,9 @@ sourcePath: en/_api-ref-grpc/translate/api-ref/grpc/translation_service.md
 
 # Translate API v2, gRPC: TranslationService
 
-A set of methods for the Translate service.
+A set of methods for the Translate service. 
+
+Make sure you send your [authentication](/docs/translate/api-ref/authentication) credentials in the `Authorization` header of each request.
 
 | Call | Description |
 | --- | --- |

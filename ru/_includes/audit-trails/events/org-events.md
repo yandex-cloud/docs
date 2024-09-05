@@ -16,13 +16,13 @@
 `RejectInvitation` | Отказ от приглашения
 `ResendInvitation` | Повторная отправка приглашения
 `SetDefaultProfile` | Назначение профиля по умолчанию
-`SetGroupAccessBindings` | Назначение привязок прав доступа к группе пользователей
-`SetOrganizationAccessBindings` | Назначение привязок прав доступа к организации
+`SetGroupAccessBindings` | Назначение прав доступа к группе пользователей
+`SetOrganizationAccessBindings` | Назначение прав доступа к организации
 `UpdateGroup` | Изменение группы пользователей
-`UpdateGroupAccessBindings` | Изменение привязок прав доступа к группе пользователей
+`UpdateGroupAccessBindings` | Изменение прав доступа к группе пользователей
 `UpdateGroupMembers` | Изменение состава участников группы пользователей
 `UpdateOrganization` | Изменение организации
-`UpdateOrganizationAccessBindings` | Изменение привязок прав доступа к организации
+`UpdateOrganizationAccessBindings` | Изменение прав доступа к организации
 `UpdateOsLoginProfile` | Изменение профиля OS Login
 `UpdateOsLoginSettings` | Изменение настроек OS Login
 `UpdateSubscribers` | Изменение списка подписчиков

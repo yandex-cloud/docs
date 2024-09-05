@@ -367,7 +367,7 @@ instanceGroups[].<br>instanceTemplate.<br>secondaryDiskSpecs[].<br>diskSpec.<br>
 instanceGroups[].<br>instanceTemplate.<br>secondaryDiskSpecs[].<br>diskSpec.<br>snapshotId | **string** <br>`instanceGroups[].instanceTemplate.secondaryDiskSpecs[].diskSpec` includes only one of the fields `imageId`, `snapshotId`<br><br><p>ID of the snapshot that will be used for disk creation.</p> <p>The maximum string length in characters is 50.</p> 
 instanceGroups[].<br>instanceTemplate.<br>secondaryDiskSpecs[].<br>diskId | **string**<br><p>Set to use an existing disk. To set use variables.</p> <p>The maximum string length in characters is 128. Value must match the regular expression ``[-a-zA-Z0-9._{}]*``.</p> 
 instanceGroups[].<br>instanceTemplate.<br>secondaryDiskSpecs[].<br>name | **string**<br><p>When set can be later used to change DiskSpec of actual disk.</p> <p>The maximum string length in characters is 128.</p> 
-instanceGroups[].<br>instanceTemplate.<br>networkInterfaceSpecs[] | **object**<br><p>Required. Array of network interfaces that will be attached to the instance.</p> <p>Must contain exactly 1 element.</p> 
+instanceGroups[].<br>instanceTemplate.<br>networkInterfaceSpecs[] | **object**<br><p>Required. Array of network interfaces that will be attached to the instance.</p> 
 instanceGroups[].<br>instanceTemplate.<br>networkInterfaceSpecs[].<br>networkId | **string**<br><p>ID of the network.</p> 
 instanceGroups[].<br>instanceTemplate.<br>networkInterfaceSpecs[].<br>subnetIds[] | **string**<br><p>IDs of the subnets.</p> 
 instanceGroups[].<br>instanceTemplate.<br>networkInterfaceSpecs[].<br>primaryV4AddressSpec | **object**<br><p>Primary IPv4 address that is assigned to the instance for this network interface.</p> 

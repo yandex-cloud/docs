@@ -32,6 +32,7 @@ Field | Description
 folder_id | **string**<br>Required. Folder ID. The maximum string length in characters is 50.
 page_size | **int64**<br>Number of results per page. The maximum value is 1000.
 page_token | **string**<br>Token for the results page. The maximum string length in characters is 100.
+type | enum **ResourceType**<br>Type of resource. Could be compute VM or baremetal server. <ul><li>`COMPUTE`: Resource is Compute Cloud VM</li><li>`BMS`: Resource is baremetal server</li></ul>
 
 
 ### ListResourcesResponse {#ListResourcesResponse}
@@ -60,6 +61,7 @@ resource_id | **string**<br>Resource ID is used to identify Compute Cloud instan
 is_active | **bool**<br>Status `is_active` shows whether current Compute Cloud instance controls Cloud Backup resource. If status `is_active` is false it means Compute Cloud instance is not able to manipulate Cloud Backup resource. 
 init_status | enum **InitStatus**<br>Status of resource initialization in cloud backup service. <ul><li>`REGISTERING`: Registration of instance in cloud backups have started.</li><li>`REGISTRED`: Instance is registered in cloud backups.</li><li>`FAILED_REGISTRATION`: Instance registration failed.</li><li>`DELETED`: Instance is deleted from cloud backup service.</li></ul>
 metadata | **string**<br>Metadata to provide details about instance registration process if status is FAILED_REGISTRATION or REGISTERING 
+type | enum **ResourceType**<br>Type of resource. Could be compute VM or baremetal server. <ul><li>`COMPUTE`: Resource is Compute Cloud VM</li><li>`BMS`: Resource is baremetal server</li></ul>
 
 
 ## Get {#Get}
@@ -100,6 +102,7 @@ resource_id | **string**<br>Resource ID is used to identify Compute Cloud instan
 is_active | **bool**<br>Status `is_active` shows whether current Compute Cloud instance controls Cloud Backup resource. If status `is_active` is false it means Compute Cloud instance is not able to manipulate Cloud Backup resource. 
 init_status | enum **InitStatus**<br>Status of resource initialization in cloud backup service. <ul><li>`REGISTERING`: Registration of instance in cloud backups have started.</li><li>`REGISTRED`: Instance is registered in cloud backups.</li><li>`FAILED_REGISTRATION`: Instance registration failed.</li><li>`DELETED`: Instance is deleted from cloud backup service.</li></ul>
 metadata | **string**<br>Metadata to provide details about instance registration process if status is FAILED_REGISTRATION or REGISTERING 
+type | enum **ResourceType**<br>Type of resource. Could be compute VM or baremetal server. <ul><li>`COMPUTE`: Resource is Compute Cloud VM</li><li>`BMS`: Resource is baremetal server</li></ul>
 
 
 ## Delete {#Delete}

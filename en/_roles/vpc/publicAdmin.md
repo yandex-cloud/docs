@@ -22,4 +22,10 @@ The `vpc.publicAdmin` role allows you to manage NAT gateways, public IP addresse
 
 This role also includes the `vpc.viewer` permissions.
 
-You can assign a role for a cloud or folder. Important: If a network and subnet are in different folders, the `vpc.publicAdmin` role is checked for the folder where the network is located.
+You can assign a role for a cloud or folder.
+
+{% note warning %}
+
+If a network and subnet are in different folders, the `vpc.publicAdmin` role is checked for the folder where the network is located.
+
+{% endnote %}

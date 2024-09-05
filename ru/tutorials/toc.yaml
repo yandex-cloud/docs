@@ -5,8 +5,14 @@ items:
     items:
       - name: Все руководства
         href: security/index.md
-      - name: Создание балансировщика с защитой от DDoS
-        href: security/alb-with-ddos-protection.md
+      - name: Создание L7-балансировщика с защитой от DDoS
+        items:
+          - name: Обзор
+            href: security/alb-with-ddos-protection/index.md
+          - name: Консоль управления, CLI
+            href: security/alb-with-ddos-protection/console.md
+          - name: '{{ TF }}'
+            href: security/alb-with-ddos-protection/terraform.md
       - name: Терминирование TLS-соединений
         items:
           - name: Обзор
@@ -140,9 +146,15 @@ items:
           - name: Настройка отказоустойчивой архитектуры в {{ yandex-cloud }}
             href: infrastructure-management/fault-tolerance.md
           - name: >-
-              Отказоустойчивый сайт с балансировкой нагрузки с помощью {{
+              Отказоустойчивый сайт с балансировкой нагрузки через {{
               network-load-balancer-name }}
-            href: web/load-balancer-website.md
+            items:
+              - name: Обзор
+                href: web/load-balancer-website/index.md
+              - name: Консоль управления
+                href: web/load-balancer-website/console.md
+              - name: '{{ TF }}'
+                href: web/load-balancer-website/terraform.md
           - name: >-
               Отказоустойчивый сайт с балансировкой нагрузки с помощью {{
               alb-name }}
@@ -151,8 +163,14 @@ items:
               Интеграция L7-балансировщика с {{ cdn-name }} и {{ objstorage-name
               }}
             href: web/cdn-storage-integration.md
-          - name: Работа с группой ВМ с автомасштабированием
-            href: infrastructure-management/vm-autoscale.md
+          - name: Работа с группой ВМ с автоматическим масштабированием
+            items:
+              - name: Обзор
+                href: infrastructure-management/vm-autoscale/index.md
+              - name: Консоль управления, CLI и API
+                href: infrastructure-management/vm-autoscale/console.md
+              - name: '{{ TF }}'
+                href: infrastructure-management/vm-autoscale/terraform.md
           - name: Масштабирование группы ВМ по расписанию
             href: infrastructure-management/vm-scale-scheduled.md
           - name: >-
@@ -203,8 +221,14 @@ items:
             href: infrastructure-management/ntp.md
           - name: Настройки DHCP для работы с корпоративным DNS-сервером
             href: routing/dhcp-options.md
-          - name: Маршрутизация с помощью NAT-инстанса
-            href: routing/nat-instance.md
+          - name: Маршрутизация через NAT-инстанс
+            items:
+              - name: Обзор
+                href: routing/nat-instance/index.md
+              - name: Консоль управления
+                href: routing/nat-instance/console.md
+              - name: '{{ TF }}'
+                href: routing/nat-instance/terraform.md
           - name: Установка виртуального роутера Cisco CSR 1000v
             href: routing/cisco.md
           - name: Установка виртуального роутера Mikrotik CHR
@@ -800,6 +824,10 @@ items:
           Запуск контейнерного приложения в {{ serverless-containers-full-name
           }}
         href: serverless/deploy-app-container.md
+      - name: >-
+          Передача событий {{ postbox-full-name }} в {{ yds-full-name }} и их
+          анализ с помощью {{ datalens-full-name }}
+        href: serverless/events-from-postbox-to-yds.md
       - name: >-
           Использование {{ api-gw-full-name }} для настройки синтеза речи в {{
           speechkit-full-name }}

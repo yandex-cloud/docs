@@ -20,6 +20,7 @@ description: "Из статьи вы узнаете, как работать с 
 * [{#T}](edit-account.md).
 * [{#T}](leave-organization.md).
 * [{#T}](manage-groups.md).
+* [{#T}](subscribe-user-for-notifications.md).
 
 ## Управление федерациями {#manage-feds}
 

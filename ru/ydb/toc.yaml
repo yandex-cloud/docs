@@ -77,6 +77,10 @@ items:
           serverless-продуктов
         href: tutorials/ci-cd-serverless.md
       - name: >-
+          Передача событий {{ postbox-full-name }} в {{ yds-full-name }} и их
+          анализ с помощью {{ datalens-full-name }}
+        href: tutorials/events-from-postbox-to-yds.md
+      - name: >-
           Поставка данных из {{ mkf-full-name }} в {{ yds-name }} с помощью {{
           data-transfer-full-name }}
         href: tutorials/mkf-yds-stream.md

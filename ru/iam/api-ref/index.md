@@ -19,3 +19,4 @@ Resource | Description
 [AccessKey](AccessKey/index.md) | A set of methods for managing access keys.
 [Certificate](Certificate/index.md) | A set of methods for managing certificates.
 [Federation](Federation/index.md) | A set of methods for managing federations.
+[FederatedCredential](FederatedCredential/index.md) | A set of methods for managing federated credentials.

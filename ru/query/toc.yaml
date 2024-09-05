@@ -82,6 +82,8 @@ items:
             href: sources-and-sinks/data-streams-write.md
       - name: Работа с базами данных {{ mch-name }}
         href: sources-and-sinks/clickhouse.md
+      - name: Работа с базами данных {{ mmy-name }}
+        href: sources-and-sinks/mysql.md
       - name: Работа с базами данных {{ mpg-name }}
         href: sources-and-sinks/postgresql.md
       - name: Работа с базами данных {{ ydb-name }}

@@ -9,14 +9,15 @@ A set of methods for managing IAM tokens.
 
 | Call | Description |
 | --- | --- |
-| [Create](#Create) | Creates an IAM token for the specified identity. |
-| [CreateForServiceAccount](#CreateForServiceAccount) | Create iam token for service account. |
+| [Create](#Create) | Create an IAM token for the specified identity. |
+| [CreateForServiceAccount](#CreateForServiceAccount) | Create an IAM token for service account. |
+| [Revoke](#Revoke) | Revoke the IAM token. |
 
 ## Calls IamTokenService {#calls}
 
 ## Create {#Create}
 
-Creates an IAM token for the specified identity.
+Create an IAM token for the specified identity.
 
 **rpc Create ([CreateIamTokenRequest](#CreateIamTokenRequest)) returns ([CreateIamTokenResponse](#CreateIamTokenResponse))**
 
@@ -39,7 +40,7 @@ expires_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 
 ## CreateForServiceAccount {#CreateForServiceAccount}
 
-Create iam token for service account.
+Create an IAM token for service account.
 
 **rpc CreateForServiceAccount ([CreateIamTokenForServiceAccountRequest](#CreateIamTokenForServiceAccountRequest)) returns ([CreateIamTokenResponse](#CreateIamTokenResponse))**
 
@@ -56,5 +57,25 @@ Field | Description
 --- | ---
 iam_token | **string**<br>IAM token for the specified identity. <br>You should pass the token in the `Authorization` header for any further API requests. For example, `Authorization: Bearer `iam_token``. 
 expires_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>IAM token expiration time. 
+
+
+## Revoke {#Revoke}
+
+Revoke the IAM token.
+
+**rpc Revoke ([RevokeIamTokenRequest](#RevokeIamTokenRequest)) returns ([RevokeIamTokenResponse](#RevokeIamTokenResponse))**
+
+### RevokeIamTokenRequest {#RevokeIamTokenRequest}
+
+Field | Description
+--- | ---
+iam_token | **string**<br>Required.  
+
+
+### RevokeIamTokenResponse {#RevokeIamTokenResponse}
+
+Field | Description
+--- | ---
+subject_id | **string**<br> 
 
 

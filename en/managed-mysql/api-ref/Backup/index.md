@@ -35,5 +35,6 @@ status | **string**<br><p>Status of backup</p> <ul> <li>DONE: Backup is done</li
 ## Methods {#methods}
 Method | Description
 --- | ---
+[delete](delete.md) | Deletes the specified MySQL cluster backup.
 [get](get.md) | Retrieves information about the specified backup.
 [list](list.md) | Retrieves the list of backups in a folder.

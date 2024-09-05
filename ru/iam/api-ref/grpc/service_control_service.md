@@ -12,9 +12,8 @@ A set of methods for managing Service resources.
 | [Get](#Get) | Returns the Service information in the specified resource container. |
 | [List](#List) | Retrieves the list of Service in the specified resource container. |
 | [Enable](#Enable) | Enable a service in the specified resource container. |
-| [Resume](#Resume) | Resume a service in the specified resource container. |
-| [Pause](#Pause) | Pause a service in the specified resource container. |
 | [Disable](#Disable) | Disable a service in the specified resource container. |
+| [ResolveAgent](#ResolveAgent) | Resolve agent service account for the service in the specified resource container. |
 
 ## Calls ServiceControlService {#calls}
 
@@ -151,22 +150,22 @@ updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 status | enum **Status**<br>Current status of the service. <ul><li>`ENABLED`: The service is enabled.</li><li>`PAUSED`: The service is paused.</li><li>`DISABLED`: The service is disabled.</li><li>`ENABLING`: The service is being enabled.</li><li>`RESUMING`: The service is being resumed.</li><li>`PAUSING`: The service is being paused.</li><li>`DISABLING`: The service is being disabled.</li><li>`ERROR`: The service is in error state.</li></ul>
 
 
-## Resume {#Resume}
+## Disable {#Disable}
 
-Resume a service in the specified resource container.
+Disable a service in the specified resource container.
 
-**rpc Resume ([ResumeServiceRequest](#ResumeServiceRequest)) returns ([operation.Operation](#Operation1))**
+**rpc Disable ([DisableServiceRequest](#DisableServiceRequest)) returns ([operation.Operation](#Operation1))**
 
 Metadata and response of Operation:<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[ResumeServiceMetadata](#ResumeServiceMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[DisableServiceMetadata](#DisableServiceMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Service](#Service3)<br>
 
-### ResumeServiceRequest {#ResumeServiceRequest}
+### DisableServiceRequest {#DisableServiceRequest}
 
 Field | Description
 --- | ---
 service_id | **string**<br>Required. ID of the Service. The maximum string length in characters is 50.
-resource | **[Resource](#Resource3)**<br>Required. Resource container to resume a service in. <br>It is supported only resource-manager.cloud resource container now. 
+resource | **[Resource](#Resource3)**<br>Required. Resource container to disable a service in. <br>It is supported only resource-manager.cloud resource container now. 
 
 
 ### Resource {#Resource3}
@@ -187,13 +186,13 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 created_by | **string**<br>ID of the user or service account who initiated the operation. 
 modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
 done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[ResumeServiceMetadata](#ResumeServiceMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DisableServiceMetadata](#DisableServiceMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
 &nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Service](#Service3)>**<br>if operation finished successfully. 
 
 
-### ResumeServiceMetadata {#ResumeServiceMetadata}
+### DisableServiceMetadata {#DisableServiceMetadata}
 
 Field | Description
 --- | ---
@@ -211,23 +210,19 @@ updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 status | enum **Status**<br>Current status of the service. <ul><li>`ENABLED`: The service is enabled.</li><li>`PAUSED`: The service is paused.</li><li>`DISABLED`: The service is disabled.</li><li>`ENABLING`: The service is being enabled.</li><li>`RESUMING`: The service is being resumed.</li><li>`PAUSING`: The service is being paused.</li><li>`DISABLING`: The service is being disabled.</li><li>`ERROR`: The service is in error state.</li></ul>
 
 
-## Pause {#Pause}
+## ResolveAgent {#ResolveAgent}
 
-Pause a service in the specified resource container.
+Resolve agent service account for the service in the specified resource container.
 
-**rpc Pause ([PauseServiceRequest](#PauseServiceRequest)) returns ([operation.Operation](#Operation2))**
+**rpc ResolveAgent ([ResolveServiceAgentRequest](#ResolveServiceAgentRequest)) returns ([ServiceAgent](#ServiceAgent))**
 
-Metadata and response of Operation:<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[PauseServiceMetadata](#PauseServiceMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Service](#Service4)<br>
-
-### PauseServiceRequest {#PauseServiceRequest}
+### ResolveServiceAgentRequest {#ResolveServiceAgentRequest}
 
 Field | Description
 --- | ---
 service_id | **string**<br>Required. ID of the Service. The maximum string length in characters is 50.
-resource | **[Resource](#Resource4)**<br>Required. Resource container to pause a service in. <br>It is supported only resource-manager.cloud resource container now. 
-force | **bool**<br>Force pause. <br>It will pause service even if there is service resources that will be broke. 
+microservice_id | **string**<br>ID of the Microservice. The maximum string length in characters is 50.
+resource | **[Resource](#Resource4)**<br>Required. Resource container. 
 
 
 ### Resource {#Resource4}
@@ -238,97 +233,12 @@ id | **string**<br>Required. ID of the resource. The maximum string length in ch
 type | **string**<br>Required. The type of the resource, e.g. resource-manager.folder, billing.account, compute.snapshot, etc. The maximum string length in characters is 64.
 
 
-### Operation {#Operation2}
+### ServiceAgent {#ServiceAgent}
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the operation. 
-description | **string**<br>Description of the operation. 0-256 characters long. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
-created_by | **string**<br>ID of the user or service account who initiated the operation. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
-done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[PauseServiceMetadata](#PauseServiceMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
-result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Service](#Service4)>**<br>if operation finished successfully. 
-
-
-### PauseServiceMetadata {#PauseServiceMetadata}
-
-Field | Description
---- | ---
-service_id | **string**<br>ID of the Service. 
-resource | **[Resource](#Resource5)**<br>Resource container. 
-
-
-### Service {#Service4}
-
-Field | Description
---- | ---
+service_account_id | **string**<br>ID of the agent service account. 
 service_id | **string**<br>ID of the service. 
-resource | **[Resource](#Resource5)**<br>Resource that the service belongs to. 
-updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time of the last status update of the service. 
-status | enum **Status**<br>Current status of the service. <ul><li>`ENABLED`: The service is enabled.</li><li>`PAUSED`: The service is paused.</li><li>`DISABLED`: The service is disabled.</li><li>`ENABLING`: The service is being enabled.</li><li>`RESUMING`: The service is being resumed.</li><li>`PAUSING`: The service is being paused.</li><li>`DISABLING`: The service is being disabled.</li><li>`ERROR`: The service is in error state.</li></ul>
-
-
-## Disable {#Disable}
-
-Disable a service in the specified resource container.
-
-**rpc Disable ([DisableServiceRequest](#DisableServiceRequest)) returns ([operation.Operation](#Operation3))**
-
-Metadata and response of Operation:<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[DisableServiceMetadata](#DisableServiceMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Service](#Service5)<br>
-
-### DisableServiceRequest {#DisableServiceRequest}
-
-Field | Description
---- | ---
-service_id | **string**<br>Required. ID of the Service. The maximum string length in characters is 50.
-resource | **[Resource](#Resource5)**<br>Required. Resource container to disable a service in. <br>It is supported only resource-manager.cloud resource container now. 
-
-
-### Resource {#Resource5}
-
-Field | Description
---- | ---
-id | **string**<br>Required. ID of the resource. The maximum string length in characters is 50.
-type | **string**<br>Required. The type of the resource, e.g. resource-manager.folder, billing.account, compute.snapshot, etc. The maximum string length in characters is 64.
-
-
-### Operation {#Operation3}
-
-Field | Description
---- | ---
-id | **string**<br>ID of the operation. 
-description | **string**<br>Description of the operation. 0-256 characters long. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
-created_by | **string**<br>ID of the user or service account who initiated the operation. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
-done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DisableServiceMetadata](#DisableServiceMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
-result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Service](#Service5)>**<br>if operation finished successfully. 
-
-
-### DisableServiceMetadata {#DisableServiceMetadata}
-
-Field | Description
---- | ---
-service_id | **string**<br>ID of the Service. 
-resource | **[Resource](#Resource6)**<br>Resource container. 
-
-
-### Service {#Service5}
-
-Field | Description
---- | ---
-service_id | **string**<br>ID of the service. 
-resource | **[Resource](#Resource6)**<br>Resource that the service belongs to. 
-updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time of the last status update of the service. 
-status | enum **Status**<br>Current status of the service. <ul><li>`ENABLED`: The service is enabled.</li><li>`PAUSED`: The service is paused.</li><li>`DISABLED`: The service is disabled.</li><li>`ENABLING`: The service is being enabled.</li><li>`RESUMING`: The service is being resumed.</li><li>`PAUSING`: The service is being paused.</li><li>`DISABLING`: The service is being disabled.</li><li>`ERROR`: The service is in error state.</li></ul>
+microservice_id | **string**<br>ID of the microservice. 
 
 

@@ -29,6 +29,16 @@ A set of methods for managing Disk resources.
     "placementGroupId": "string",
     "placementGroupPartition": "string"
   },
+  "hardwareGeneration": {
+
+    // `hardwareGeneration` includes only one of the fields `legacyFeatures`, `generation2Features`
+    "legacyFeatures": {
+      "pciTopology": "string"
+    },
+    "generation2Features": {},
+    // end of the list of possible fields`hardwareGeneration`
+
+  },
 
   //  includes only one of the fields `sourceImageId`, `sourceSnapshotId`
   "sourceImageId": "string",
@@ -56,6 +66,10 @@ instanceIds[] | **string**<br><p>Array of instances to which the disk is attache
 diskPlacementPolicy | **object**<br>Placement policy configuration.
 diskPlacementPolicy.<br>placementGroupId | **string**<br><p>Placement group ID.</p> 
 diskPlacementPolicy.<br>placementGroupPartition | **string** (int64)
+hardwareGeneration | **object**<br>If specified, forces the same HardwareGeneration features to be applied to the instance created using this disk as a boot one. Otherwise the current default will be used.
+hardwareGeneration.<br>legacyFeatures | **object** <br>`hardwareGeneration` includes only one of the fields `legacyFeatures`, `generation2Features`<br><br><p>A first hardware generation, by default compatible with all legacy images. Allows switching to PCI_TOPOLOGY_V2 and back.</p> 
+hardwareGeneration.<br>legacyFeatures.<br>pciTopology | **string**
+hardwareGeneration.<br>generation2Features | **object** <br>`hardwareGeneration` includes only one of the fields `legacyFeatures`, `generation2Features`<br><br><p>A second hardware generation, which by default assumes PCI_TOPOLOGY_V2 and UEFI boot (with UEFI related features).</p> 
 sourceImageId | **string** <br> includes only one of the fields `sourceImageId`, `sourceSnapshotId`<br><br><p>ID of the image that was used for disk creation.</p> 
 sourceSnapshotId | **string** <br> includes only one of the fields `sourceImageId`, `sourceSnapshotId`<br><br><p>ID of the snapshot that was used for disk creation.</p> 
 

@@ -118,6 +118,8 @@ items:
             href: user/api-ref/grpc/agent_service.md
           - name: ConfigService
             href: user/api-ref/grpc/config_service.md
+          - name: RegressionDashboardService
+            href: user/api-ref/grpc/regression_dashboard_service.md
           - name: ReportService
             href: user/api-ref/grpc/report_service.md
           - name: TestService
@@ -154,10 +156,26 @@ items:
                 href: user/api-ref/Config/get.md
               - name: list
                 href: user/api-ref/Config/list.md
+          - name: RegressionDashboard
+            items:
+              - name: Overview
+                href: user/api-ref/RegressionDashboard/index.md
+              - name: create
+                href: user/api-ref/RegressionDashboard/create.md
+              - name: delete
+                href: user/api-ref/RegressionDashboard/delete.md
+              - name: get
+                href: user/api-ref/RegressionDashboard/get.md
+              - name: list
+                href: user/api-ref/RegressionDashboard/list.md
+              - name: update
+                href: user/api-ref/RegressionDashboard/update.md
           - name: Report
             items:
               - name: Overview
                 href: user/api-ref/Report/index.md
+              - name: calculateKpiValues
+                href: user/api-ref/Report/calculateKpiValues.md
               - name: getTable
                 href: user/api-ref/Report/getTable.md
           - name: Test

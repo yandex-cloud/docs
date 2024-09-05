@@ -161,6 +161,7 @@ Field | Description
 --- | ---
 at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Imbalance moment timestamp. 
 rps | **int64**<br>Imbalance moment RPS. 
+comment | **string**<br>Imbalance reason comment. 
 
 
 ### FilePointer {#FilePointer}
@@ -274,6 +275,7 @@ Field | Description
 --- | ---
 at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Imbalance moment timestamp. 
 rps | **int64**<br>Imbalance moment RPS. 
+comment | **string**<br>Imbalance reason comment. 
 
 
 ### FilePointer {#FilePointer1}
@@ -414,6 +416,7 @@ Field | Description
 --- | ---
 at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Imbalance moment timestamp. 
 rps | **int64**<br>Imbalance moment RPS. 
+comment | **string**<br>Imbalance reason comment. 
 
 
 ### FilePointer {#FilePointer2}
@@ -578,6 +581,7 @@ Field | Description
 --- | ---
 at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Imbalance moment timestamp. 
 rps | **int64**<br>Imbalance moment RPS. 
+comment | **string**<br>Imbalance reason comment. 
 
 
 ### FilePointer {#FilePointer3}
