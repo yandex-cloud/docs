@@ -44,6 +44,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the service account. The name is unique within the cloud. 3-63 characters long. 
 description | **string**<br>Description of the service account. 0-256 characters long. 
 labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
+last_authenticated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Timestamp for the last authentication of this service account. 
 
 
 ## List {#List}
@@ -80,6 +81,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the service account. The name is unique within the cloud. 3-63 characters long. 
 description | **string**<br>Description of the service account. 0-256 characters long. 
 labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
+last_authenticated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Timestamp for the last authentication of this service account. 
 
 
 ## Create {#Create}
@@ -135,6 +137,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the service account. The name is unique within the cloud. 3-63 characters long. 
 description | **string**<br>Description of the service account. 0-256 characters long. 
 labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
+last_authenticated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Timestamp for the last authentication of this service account. 
 
 
 ## Update {#Update}
@@ -191,6 +194,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the service account. The name is unique within the cloud. 3-63 characters long. 
 description | **string**<br>Description of the service account. 0-256 characters long. 
 labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
+last_authenticated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Timestamp for the last authentication of this service account. 
 
 
 ## Delete {#Delete}

@@ -98,6 +98,24 @@ filter | <p>A filter expression that filters resources listed in the response.</
           "readOnly": true,
           "mountPointPath": "string"
         }
+      ],
+      "mounts": [
+        {
+          "mountPointPath": "string",
+          "mode": "string",
+
+          // `revisions[].mounts[]` includes only one of the fields `objectStorage`, `ephemeralDiskSpec`
+          "objectStorage": {
+            "bucketId": "string",
+            "prefix": "string"
+          },
+          "ephemeralDiskSpec": {
+            "size": "string",
+            "blockSize": "string"
+          },
+          // end of the list of possible fields`revisions[].mounts[]`
+
+        }
       ]
     }
   ],
@@ -123,8 +141,8 @@ revisions[].<br>image.<br>args.<br>args[] | **string**<br><p>Arguments that will
 revisions[].<br>image.<br>environment | **object**<br><p>Additional environment for the container.</p> <p>Each key must match the regular expression ``[a-zA-Z][a-zA-Z0-9_]*``. The maximum string length in characters for each value is 4096.</p> 
 revisions[].<br>image.<br>workingDir | **string**<br><p>Override for the image's WORKDIR.</p> 
 revisions[].<br>resources | **object**<br><p>Resources allocated to the revision.</p> <p>Resources allocated to a revision.</p> 
-revisions[].<br>resources.<br>memory | **string** (int64)<br><p>Amount of memory available to the revision, specified in bytes, multiple of 128MB.</p> <p>Acceptable values are 134217728 to 4294967296, inclusive.</p> 
-revisions[].<br>resources.<br>cores | **string** (int64)<br><p>Number of cores available to the revision.</p> <p>Acceptable values are 0 to 2, inclusive.</p> 
+revisions[].<br>resources.<br>memory | **string** (int64)<br><p>Amount of memory available to the revision, specified in bytes, multiple of 128MB.</p> <p>Acceptable values are 134217728 to 8589934592, inclusive.</p> 
+revisions[].<br>resources.<br>cores | **string** (int64)<br><p>Number of cores available to the revision.</p> <p>Acceptable values are 0 to 4, inclusive.</p> 
 revisions[].<br>resources.<br>coreFraction | **string** (int64)<br><p>Specifies baseline performance for a core in percent, multiple of 5%. Should be 100% for cores &gt; 1.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
 revisions[].<br>executionTimeout | **string**<br><p>Timeout for the execution of the revision.</p> <p>If the timeout is exceeded, Serverless Containers responds with a 504 HTTP code.</p> 
 revisions[].<br>concurrency | **string** (int64)<br><p>The number of concurrent requests allowed per container instance.</p> 
@@ -148,9 +166,18 @@ revisions[].<br>logOptions.<br>disabled | **boolean** (boolean)<br><p>Is logging
 revisions[].<br>logOptions.<br>minLevel | **string**<br>Minimum log entry level.  See [LogLevel.Level] for details.<br><ul> <li> <p>TRACE: Trace log level.</p> <p>Possible use case: verbose logging of some business logic.</p> </li> <li> <p>DEBUG: Debug log level.</p> <p>Possible use case: debugging special cases in application logic.</p> </li> <li> <p>INFO: Info log level.</p> <p>Mostly used for information messages.</p> </li> <li> <p>WARN: Warn log level.</p> <p>May be used to alert about significant events.</p> </li> <li> <p>ERROR: Error log level.</p> <p>May be used to alert about errors in infrastructure, logic, etc.</p> </li> <li> <p>FATAL: Fatal log level.</p> <p>May be used to alert about unrecoverable failures and events.</p> </li> </ul> 
 revisions[].<br>logOptions.<br>logGroupId | **string** <br>`revisions[].logOptions` includes only one of the fields `logGroupId`, `folderId`<br><br><p>Entry should be written to log group resolved by ID.</p> <p>Value must match the regular expression ``([a-zA-Z][-a-zA-Z0-9_.]{0,63})?``.</p> 
 revisions[].<br>logOptions.<br>folderId | **string** <br>`revisions[].logOptions` includes only one of the fields `logGroupId`, `folderId`<br><br><p>Entry should be written to default log group for specified folder.</p> <p>Value must match the regular expression ``([a-zA-Z][-a-zA-Z0-9_.]{0,63})?``.</p> 
-revisions[].<br>storageMounts[] | **object**<br><p>S3 mounts to be used by the version.</p> 
+revisions[].<br>storageMounts[] | **object**<br><p>S3 mounts to be used by the revision.</p> 
 revisions[].<br>storageMounts[].<br>bucketId | **string**<br><p>Required. S3 bucket name for mounting.</p> <p>The string length in characters must be 3-63. Value must match the regular expression ``[-.0-9a-zA-Z]*``.</p> 
 revisions[].<br>storageMounts[].<br>prefix | **string**<br><p>S3 bucket prefix for mounting.</p> 
 revisions[].<br>storageMounts[].<br>readOnly | **boolean** (boolean)<br><p>Is mount read only.</p> 
 revisions[].<br>storageMounts[].<br>mountPointPath | **string**<br><p>Required. Mount point path inside the container for mounting.</p> <p>The string length in characters must be 1-300. Value must match the regular expression ``[-_0-9a-zA-Z/]*``.</p> 
+revisions[].<br>mounts[] | **object**<br><p>Mounts to be used by the revision.</p> 
+revisions[].<br>mounts[].<br>mountPointPath | **string**<br><p>Required. The absolute mount point path inside the container for mounting.</p> <p>The string length in characters must be 1-300. Value must match the regular expression ``[-_0-9a-zA-Z/]*``.</p> 
+revisions[].<br>mounts[].<br>mode | **string**<br>Mount's mode
+revisions[].<br>mounts[].<br>objectStorage | **object**<br>Object storage mounts <br>`revisions[].mounts[]` includes only one of the fields `objectStorage`, `ephemeralDiskSpec`<br>
+revisions[].<br>mounts[].<br>objectStorage.<br>bucketId | **string**<br><p>Required. ObjectStorage bucket name for mounting.</p> <p>The string length in characters must be 3-63. Value must match the regular expression ``[-.0-9a-zA-Z]*``.</p> 
+revisions[].<br>mounts[].<br>objectStorage.<br>prefix | **string**<br><p>ObjectStorage bucket prefix for mounting.</p> 
+revisions[].<br>mounts[].<br>ephemeralDiskSpec | **object**<br>Working disk (worker-local non-shared read-write NBS disk templates) <br>`revisions[].mounts[]` includes only one of the fields `objectStorage`, `ephemeralDiskSpec`<br>
+revisions[].<br>mounts[].<br>ephemeralDiskSpec.<br>size | **string** (int64)<br><p>The size of disk for mount in bytes</p> <p>Value must be greater than 0.</p> 
+revisions[].<br>mounts[].<br>ephemeralDiskSpec.<br>blockSize | **string** (int64)<br><p>Optional block size of disk for mount in bytes</p> 
 nextPageToken | **string**<br><p>Token for getting the next page of the list. If the number of results is greater than the specified <a href="/docs/serverless/containers/api-ref/Container/listRevisions#query_params">pageSize</a>, use ``nextPageToken`` as the value for the <a href="/docs/serverless/containers/api-ref/Container/listRevisions#query_params">pageToken</a> parameter in the next list request.</p> <p>Each subsequent page will have its own ``nextPageToken`` to continue paging through the results.</p> 

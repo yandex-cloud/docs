@@ -19,7 +19,8 @@ POST https://container-registry.{{ api-host }}/container-registry/v1/registries
 {
   "folderId": "string",
   "name": "string",
-  "labels": "object"
+  "labels": "object",
+  "secure": true
 }
 ```
 
@@ -29,6 +30,7 @@ Field | Description
 folderId | **string**<br><p>Required. ID of the folder to create a registry in.</p> <p>To get the folder ID, use a <a href="/docs/resource-manager/api-ref/Folder/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
 name | **string**<br><p>Name of the registry.</p> <p>There may be only one registry per folder.</p> <p>Value must match the regular expression ``\|[a-z][-a-z0-9]{1,61}[a-z0-9]``.</p> 
 labels | **object**<br><p>Resource labels as ``key:value`` pairs.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression ``[a-z][-_0-9a-z]*``. The maximum string length in characters for each value is 63. Each value must match the regular expression ``[-_0-9a-z]*``.</p> 
+secure | **boolean** (boolean)<br><p>If true, registry will be created with pre-setup scanning policy (on push and on schedule every 7 days)</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

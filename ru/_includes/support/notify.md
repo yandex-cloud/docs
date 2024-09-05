@@ -58,10 +58,11 @@
 
 Чтобы настроить способы получения уведомлений:
 
-1. Нажмите ![image](../../_assets/console-icons/gear.svg) **{{ ui-key.yacloud_components.settings.section_transports }}** в левом нижнем углу Консоли управления.
-1. Перейдите в раздел настройки уведомлений. Проверьте, какие каналы нотификаций настроены в блоке **{{ ui-key.yacloud_components.settings.section_transports }}**.
-1. Добавьте адрес электронной почты и номер телефона для получения уведомлений. Вы также можете настроить отправку сообщений в Telegram-бот.
-1. В блоке **{{ ui-key.yacloud_components.settings.section_settings }}** для разных типов уведомлений выберите каналы их получения:
+1. В левом нижнем углу [Консоли управления]({{ link-console-main }}) нажмите ![image](../../_assets/console-icons/gear.svg) **Настройки** и перейдите на вкладку **{{ ui-key.yacloud_components.settings.label_title_communications }}**.
+1. В блоке **{{ ui-key.yacloud_components.settings.section_transports }}** настройте каналы уведомления.
+
+    Вы можете получать уведомления по электронной почте, в SMS или через Telegram-бота.
+1. В блоке **{{ ui-key.yacloud_components.settings.section_settings }}** выберите типы отправляемых уведомлений и каналы получения для каждого типа:
     * ![image](../../_assets/console-icons/at.svg) — письмом на электронную почту;
     * ![image](../../_assets/console-icons/smartphone.svg) — SMS-сообщением;
-    * ![image](../../_assets/console-icons/paper-plane.svg) — сообщением в Telegram-бот;
+    * ![image](../../_assets/console-icons/logo-telegram.svg) — сообщением в Telegram-бот.

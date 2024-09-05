@@ -75,9 +75,9 @@
 --- | ---
 `CreateTrail` | Создание трейла
 `DeleteTrail` | Удаление трейла
-`SetTrailAccessBindings` | Назначение привязок прав доступа для трейла
+`SetTrailAccessBindings` | Назначение прав доступа для трейла
 `UpdateTrail` | Изменение трейла
-`UpdateTrailAccessBindings` | Изменение привязок прав доступа для трейла
+`UpdateTrailAccessBindings` | Изменение прав доступа для трейла
 
 ## {{ certificate-manager-full-name }} {#certificate-manager}
 
@@ -93,8 +93,8 @@
 --- | ---
 `CreateCloudApplication` | Создание приложения
 `DeleteCloudApplication` | Удаление приложения
-`SetApplicationAccessBindings` | Назначение привязок прав доступа для приложения
-`UpdateApplicationAccessBindings` | Изменение привязок прав доступа для приложения
+`SetApplicationAccessBindings` | Назначение прав доступа для приложения
+`UpdateApplicationAccessBindings` | Изменение прав доступа для приложения
 `UpdateCloudApplication` | Изменение приложения
 
 ## {{ backup-full-name }} {#backup}

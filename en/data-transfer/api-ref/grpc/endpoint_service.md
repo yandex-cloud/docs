@@ -247,9 +247,9 @@ unescape_string_values | **bool**<br>Unescape string values
 
 Field | Description
 --- | ---
-schema | **oneof:** `fields` or `json_fields`<br>
-&nbsp;&nbsp;fields | **[FieldList](#FieldList)**<br> 
+schema | **oneof:** `json_fields` or `fields`<br>
 &nbsp;&nbsp;json_fields | **string**<br> 
+&nbsp;&nbsp;fields | **[FieldList](#FieldList)**<br> 
 
 
 ### FieldList {#FieldList}
@@ -402,6 +402,7 @@ include_tables[] | **string**<br>While list of tables for replication. If none o
 exclude_tables[] | **string**<br>Exclude list of tables for replication. If none or empty list is presented - will replicate all tables. Can contain * patterns. 
 subnet_id | **string**<br> 
 security_groups[] | **string**<br> 
+clickhouse_cluster_name | **string**<br>Name of the ClickHouse cluster. For Managed ClickHouse that is name of ShardGroup. 
 
 
 ### ClickhouseConnection {#ClickhouseConnection}
@@ -416,9 +417,9 @@ connection | **oneof:** `connection_options`<br>
 
 Field | Description
 --- | ---
-address | **oneof:** `mdb_cluster_id` or `on_premise`<br>
-&nbsp;&nbsp;mdb_cluster_id | **string**<br> 
+address | **oneof:** `on_premise` or `mdb_cluster_id`<br>
 &nbsp;&nbsp;on_premise | **[OnPremiseClickhouse](#OnPremiseClickhouse)**<br> 
+&nbsp;&nbsp;mdb_cluster_id | **string**<br> 
 user | **string**<br> 
 password | **[Secret](#Secret1)**<br> 
 database | **string**<br>Database 
@@ -479,7 +480,7 @@ subnet_id | **string**<br>
 alt_names[] | **[AltName](#AltName)**<br>Alternative table names in target 
 cleanup_policy | enum **ClickhouseCleanupPolicy**<br> 
 sharding | **[ClickhouseSharding](#ClickhouseSharding)**<br> 
-clickhouse_cluster_name | **string**<br> 
+clickhouse_cluster_name | **string**<br>Name of the ClickHouse cluster. For Managed ClickHouse that is name of ShardGroup. 
 security_groups[] | **string**<br> 
 
 
@@ -892,9 +893,9 @@ unescape_string_values | **bool**<br>Unescape string values
 
 Field | Description
 --- | ---
-schema | **oneof:** `fields` or `json_fields`<br>
-&nbsp;&nbsp;fields | **[FieldList](#FieldList1)**<br> 
+schema | **oneof:** `json_fields` or `fields`<br>
 &nbsp;&nbsp;json_fields | **string**<br> 
+&nbsp;&nbsp;fields | **[FieldList](#FieldList1)**<br> 
 
 
 ### FieldList {#FieldList1}
@@ -1047,6 +1048,7 @@ include_tables[] | **string**<br>While list of tables for replication. If none o
 exclude_tables[] | **string**<br>Exclude list of tables for replication. If none or empty list is presented - will replicate all tables. Can contain * patterns. 
 subnet_id | **string**<br> 
 security_groups[] | **string**<br> 
+clickhouse_cluster_name | **string**<br>Name of the ClickHouse cluster. For Managed ClickHouse that is name of ShardGroup. 
 
 
 ### ClickhouseConnection {#ClickhouseConnection1}
@@ -1061,9 +1063,9 @@ connection | **oneof:** `connection_options`<br>
 
 Field | Description
 --- | ---
-address | **oneof:** `mdb_cluster_id` or `on_premise`<br>
-&nbsp;&nbsp;mdb_cluster_id | **string**<br> 
+address | **oneof:** `on_premise` or `mdb_cluster_id`<br>
 &nbsp;&nbsp;on_premise | **[OnPremiseClickhouse](#OnPremiseClickhouse1)**<br> 
+&nbsp;&nbsp;mdb_cluster_id | **string**<br> 
 user | **string**<br> 
 password | **[Secret](#Secret2)**<br> 
 database | **string**<br>Database 
@@ -1124,7 +1126,7 @@ subnet_id | **string**<br>
 alt_names[] | **[AltName](#AltName1)**<br>Alternative table names in target 
 cleanup_policy | enum **ClickhouseCleanupPolicy**<br> 
 sharding | **[ClickhouseSharding](#ClickhouseSharding1)**<br> 
-clickhouse_cluster_name | **string**<br> 
+clickhouse_cluster_name | **string**<br>Name of the ClickHouse cluster. For Managed ClickHouse that is name of ShardGroup. 
 security_groups[] | **string**<br> 
 
 
@@ -1519,9 +1521,9 @@ unescape_string_values | **bool**<br>Unescape string values
 
 Field | Description
 --- | ---
-schema | **oneof:** `fields` or `json_fields`<br>
-&nbsp;&nbsp;fields | **[FieldList](#FieldList2)**<br> 
+schema | **oneof:** `json_fields` or `fields`<br>
 &nbsp;&nbsp;json_fields | **string**<br> 
+&nbsp;&nbsp;fields | **[FieldList](#FieldList2)**<br> 
 
 
 ### FieldList {#FieldList2}
@@ -1674,6 +1676,7 @@ include_tables[] | **string**<br>While list of tables for replication. If none o
 exclude_tables[] | **string**<br>Exclude list of tables for replication. If none or empty list is presented - will replicate all tables. Can contain * patterns. 
 subnet_id | **string**<br> 
 security_groups[] | **string**<br> 
+clickhouse_cluster_name | **string**<br>Name of the ClickHouse cluster. For Managed ClickHouse that is name of ShardGroup. 
 
 
 ### ClickhouseConnection {#ClickhouseConnection2}
@@ -1688,9 +1691,9 @@ connection | **oneof:** `connection_options`<br>
 
 Field | Description
 --- | ---
-address | **oneof:** `mdb_cluster_id` or `on_premise`<br>
-&nbsp;&nbsp;mdb_cluster_id | **string**<br> 
+address | **oneof:** `on_premise` or `mdb_cluster_id`<br>
 &nbsp;&nbsp;on_premise | **[OnPremiseClickhouse](#OnPremiseClickhouse2)**<br> 
+&nbsp;&nbsp;mdb_cluster_id | **string**<br> 
 user | **string**<br> 
 password | **[Secret](#Secret3)**<br> 
 database | **string**<br>Database 
@@ -1751,7 +1754,7 @@ subnet_id | **string**<br>
 alt_names[] | **[AltName](#AltName2)**<br>Alternative table names in target 
 cleanup_policy | enum **ClickhouseCleanupPolicy**<br> 
 sharding | **[ClickhouseSharding](#ClickhouseSharding2)**<br> 
-clickhouse_cluster_name | **string**<br> 
+clickhouse_cluster_name | **string**<br>Name of the ClickHouse cluster. For Managed ClickHouse that is name of ShardGroup. 
 security_groups[] | **string**<br> 
 
 
@@ -2163,9 +2166,9 @@ unescape_string_values | **bool**<br>Unescape string values
 
 Field | Description
 --- | ---
-schema | **oneof:** `fields` or `json_fields`<br>
-&nbsp;&nbsp;fields | **[FieldList](#FieldList3)**<br> 
+schema | **oneof:** `json_fields` or `fields`<br>
 &nbsp;&nbsp;json_fields | **string**<br> 
+&nbsp;&nbsp;fields | **[FieldList](#FieldList3)**<br> 
 
 
 ### FieldList {#FieldList3}
@@ -2318,6 +2321,7 @@ include_tables[] | **string**<br>While list of tables for replication. If none o
 exclude_tables[] | **string**<br>Exclude list of tables for replication. If none or empty list is presented - will replicate all tables. Can contain * patterns. 
 subnet_id | **string**<br> 
 security_groups[] | **string**<br> 
+clickhouse_cluster_name | **string**<br>Name of the ClickHouse cluster. For Managed ClickHouse that is name of ShardGroup. 
 
 
 ### ClickhouseConnection {#ClickhouseConnection3}
@@ -2332,9 +2336,9 @@ connection | **oneof:** `connection_options`<br>
 
 Field | Description
 --- | ---
-address | **oneof:** `mdb_cluster_id` or `on_premise`<br>
-&nbsp;&nbsp;mdb_cluster_id | **string**<br> 
+address | **oneof:** `on_premise` or `mdb_cluster_id`<br>
 &nbsp;&nbsp;on_premise | **[OnPremiseClickhouse](#OnPremiseClickhouse3)**<br> 
+&nbsp;&nbsp;mdb_cluster_id | **string**<br> 
 user | **string**<br> 
 password | **[Secret](#Secret4)**<br> 
 database | **string**<br>Database 
@@ -2395,7 +2399,7 @@ subnet_id | **string**<br>
 alt_names[] | **[AltName](#AltName3)**<br>Alternative table names in target 
 cleanup_policy | enum **ClickhouseCleanupPolicy**<br> 
 sharding | **[ClickhouseSharding](#ClickhouseSharding3)**<br> 
-clickhouse_cluster_name | **string**<br> 
+clickhouse_cluster_name | **string**<br>Name of the ClickHouse cluster. For Managed ClickHouse that is name of ShardGroup. 
 security_groups[] | **string**<br> 
 
 

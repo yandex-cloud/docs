@@ -70,7 +70,8 @@ clusterId | <p>Required. ID of the ClickHouse cluster to update the external dic
     },
     "layout": {
       "type": "string",
-      "sizeInCells": "string"
+      "sizeInCells": "string",
+      "maxArraySize": "string"
     },
 
     // `externalDictionary` includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`
@@ -83,7 +84,13 @@ clusterId | <p>Required. ID of the ClickHouse cluster to update the external dic
 
     "httpSource": {
       "url": "string",
-      "format": "string"
+      "format": "string",
+      "headers": [
+        {
+          "name": "string",
+          "value": "string"
+        }
+      ]
     },
     "mysqlSource": {
       "db": "string",
@@ -101,7 +108,9 @@ clusterId | <p>Required. ID of the ClickHouse cluster to update the external dic
         }
       ],
       "where": "string",
-      "invalidateQuery": "string"
+      "invalidateQuery": "string",
+      "closeConnection": true,
+      "shareConnection": true
     },
     "clickhouseSource": {
       "db": "string",
@@ -110,7 +119,8 @@ clusterId | <p>Required. ID of the ClickHouse cluster to update the external dic
       "port": "string",
       "user": "string",
       "password": "string",
-      "where": "string"
+      "where": "string",
+      "secure": true
     },
     "mongodbSource": {
       "db": "string",
@@ -178,6 +188,7 @@ externalDictionary.<br>structure.<br>attributes[].<br>injective | **boolean** (b
 externalDictionary.<br>layout | **object**<br>Required. Layout for storing the dictionary in memory. For in-depth description, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_layout/).
 externalDictionary.<br>layout.<br>type | **string**<br><p>Required. Layout type for an external dictionary.</p> <ul> <li>FLAT: The entire dictionary is stored in memory in the form of flat arrays. Available for all dictionary sources.</li> <li>HASHED: The entire dictionary is stored in memory in the form of a hash table. Available for all dictionary sources.</li> <li>COMPLEX_KEY_HASHED: Similar to HASHED, to be used with composite keys. Available for all dictionary sources.</li> <li>RANGE_HASHED: The entire dictionary is stored in memory in the form of a hash table, with an ordered array of ranges and their corresponding values. Available for all dictionary sources.</li> <li>CACHE: The dictionary is stored in a cache with a set number of cells. Available for MySQL, ClickHouse and HTTP dictionary sources.</li> <li>COMPLEX_KEY_CACHE: Similar to CACHE, to be used with composite keys. Available for MySQL, ClickHouse and HTTP dictionary sources.</li> </ul> 
 externalDictionary.<br>layout.<br>sizeInCells | **string** (int64)<br><p>Number of cells in the cache. Rounded up to a power of two. Applicable only for CACHE and COMPLEX_KEY_CACHE layout types.</p> 
+externalDictionary.<br>layout.<br>maxArraySize | **string** (int64)<br><p>Maximum dictionary key size. Applicable only for FLAT layout type.</p> 
 externalDictionary.<br>fixedLifetime | **string** (int64) <br>`externalDictionary` includes only one of the fields `fixedLifetime`, `lifetimeRange`<br><br><p>Fixed interval between dictionary updates.</p> 
 externalDictionary.<br>lifetimeRange | **object**<br>Range of intervals between dictionary updates for ClickHouse to choose from. <br>`externalDictionary` includes only one of the fields `fixedLifetime`, `lifetimeRange`<br>
 externalDictionary.<br>lifetimeRange.<br>min | **string** (int64)<br><p>Minimum dictionary lifetime.</p> 
@@ -185,6 +196,9 @@ externalDictionary.<br>lifetimeRange.<br>max | **string** (int64)<br><p>Maximum 
 externalDictionary.<br>httpSource | **object**<br>HTTP source for the dictionary. <br>`externalDictionary` includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`<br>
 externalDictionary.<br>httpSource.<br>url | **string**<br><p>Required. URL of the source dictionary available over HTTP.</p> 
 externalDictionary.<br>httpSource.<br>format | **string**<br><p>Required. The data format. Valid values are all formats supported by ClickHouse SQL dialect.</p> 
+externalDictionary.<br>httpSource.<br>headers[] | **object**<br><p>HTTP headers.</p> 
+externalDictionary.<br>httpSource.<br>headers[].<br>name | **string**<br><p>Required.</p> 
+externalDictionary.<br>httpSource.<br>headers[].<br>value | **string**<br><p>Required.</p> 
 externalDictionary.<br>mysqlSource | **object**<br>MySQL source for the dictionary. <br>`externalDictionary` includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`<br>
 externalDictionary.<br>mysqlSource.<br>db | **string**<br><p>Required. Name of the MySQL database to connect to.</p> 
 externalDictionary.<br>mysqlSource.<br>table | **string**<br><p>Required. Name of the database table to use as a ClickHouse dictionary.</p> 
@@ -199,18 +213,21 @@ externalDictionary.<br>mysqlSource.<br>replicas[].<br>user | **string**<br><p>Na
 externalDictionary.<br>mysqlSource.<br>replicas[].<br>password | **string**<br><p>Password of the MySQL database user.</p> 
 externalDictionary.<br>mysqlSource.<br>where | **string**<br><p>Selection criteria for the data in the specified MySQL table.</p> 
 externalDictionary.<br>mysqlSource.<br>invalidateQuery | **string**<br><p>Query for checking the dictionary status, to pull only updated data. For more details, see <a href="https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/">ClickHouse documentation on dictionaries</a>.</p> 
+externalDictionary.<br>mysqlSource.<br>closeConnection | **boolean** (boolean)<br><p>Should the connection be closed after each request.</p> 
+externalDictionary.<br>mysqlSource.<br>shareConnection | **boolean** (boolean)<br><p>Should a connection be shared for some requests.</p> 
 externalDictionary.<br>clickhouseSource | **object**<br>ClickHouse source for the dictionary. <br>`externalDictionary` includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`<br>
 externalDictionary.<br>clickhouseSource.<br>db | **string**<br><p>Required. Name of the ClickHouse database.</p> 
 externalDictionary.<br>clickhouseSource.<br>table | **string**<br><p>Required. Name of the table in the specified database to be used as the dictionary source.</p> 
-externalDictionary.<br>clickhouseSource.<br>host | **string**<br><p>Required. ClickHouse host of the specified database.</p> <p>The maximum string length in characters is 253.</p> 
+externalDictionary.<br>clickhouseSource.<br>host | **string**<br><p>ClickHouse host of the specified database.</p> <p>The maximum string length in characters is 253.</p> 
 externalDictionary.<br>clickhouseSource.<br>port | **string** (int64)<br><p>Port to use when connecting to the host.</p> <p>Acceptable values are 0 to 65535, inclusive.</p> 
 externalDictionary.<br>clickhouseSource.<br>user | **string**<br><p>Required. Name of the ClickHouse database user.</p> 
 externalDictionary.<br>clickhouseSource.<br>password | **string**<br><p>Password of the ClickHouse database user.</p> 
 externalDictionary.<br>clickhouseSource.<br>where | **string**<br><p>Selection criteria for the data in the specified ClickHouse table.</p> 
+externalDictionary.<br>clickhouseSource.<br>secure | **boolean** (boolean)<br><p>Use ssl for connection.</p> 
 externalDictionary.<br>mongodbSource | **object**<br>MongoDB source for the dictionary. <br>`externalDictionary` includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`<br>
 externalDictionary.<br>mongodbSource.<br>db | **string**<br><p>Required. Name of the MongoDB database.</p> 
 externalDictionary.<br>mongodbSource.<br>collection | **string**<br><p>Required. Name of the collection in the specified database to be used as the dictionary source.</p> 
-externalDictionary.<br>mongodbSource.<br>host | **string**<br><p>Required. MongoDB host of the specified database.</p> <p>The maximum string length in characters is 253.</p> 
+externalDictionary.<br>mongodbSource.<br>host | **string**<br><p>MongoDB host of the specified database.</p> <p>The maximum string length in characters is 253.</p> 
 externalDictionary.<br>mongodbSource.<br>port | **string** (int64)<br><p>Port to use when connecting to the host.</p> <p>Acceptable values are 0 to 65535, inclusive.</p> 
 externalDictionary.<br>mongodbSource.<br>user | **string**<br><p>Required. Name of the MongoDB database user.</p> 
 externalDictionary.<br>mongodbSource.<br>password | **string**<br><p>Password of the MongoDB database user.</p> 

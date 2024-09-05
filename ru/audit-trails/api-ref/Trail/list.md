@@ -142,7 +142,42 @@ orderBy | <p>By which column the listing should be ordered and in which directio
         }
       },
       "statusErrorMessage": "string",
-      "cloudId": "string"
+      "cloudId": "string",
+      "filteringPolicy": {
+        "managementEventsFilter": {
+          "resourceScopes": [
+            {
+              "id": "string",
+              "type": "string"
+            }
+          ]
+        },
+        "dataEventsFilters": [
+          {
+            "service": "string",
+            "resourceScopes": [
+              {
+                "id": "string",
+                "type": "string"
+              }
+            ],
+
+            // `trails[].filteringPolicy.dataEventsFilters[]` includes only one of the fields `includedEvents`, `excludedEvents`
+            "includedEvents": {
+              "eventTypes": [
+                "string"
+              ]
+            },
+            "excludedEvents": {
+              "eventTypes": [
+                "string"
+              ]
+            },
+            // end of the list of possible fields`trails[].filteringPolicy.dataEventsFilters[]`
+
+          }
+        ]
+      }
     }
   ],
   "nextPageToken": "string"
@@ -171,7 +206,7 @@ trails[].<br>destination.<br>dataStream.<br>databaseId | **string**<br><p>ID of 
 trails[].<br>destination.<br>dataStream.<br>streamName | **string**<br><p>Name of the destination YDS</p> 
 trails[].<br>serviceAccountId | **string**<br><p>Service account ID of the trail</p> <p>The maximum string length in characters is 50.</p> 
 trails[].<br>status | **string**<br><p>Required. Status of the trail</p> <ul> <li>ACTIVE: The trail is active and Audit events are processed</li> <li>ERROR: The trail configuration has issues that are preventing Audit Trails from delivering events</li> <li>DELETED: The trail is being deleted</li> </ul> 
-trails[].<br>filter | **object**<br><p>Required. Filtering configuration of the trail</p> 
+trails[].<br>filter | **object**<br><p>Filtering configuration of the trail deprecated: use filtering_policy instead</p> 
 trails[].<br>filter.<br>pathFilter | **object**<br><p>Configuration of default events gathering for the trail If not specified, default events won't be gathered for the trail</p> 
 trails[].<br>filter.<br>pathFilter.<br>root | **object**<br><p>Required. Root element of the resource path filter for the trail Resource described in that filter node must contain the trail itself</p> 
 trails[].<br>filter.<br>pathFilter.<br>root.<br>anyFilter | **object**<br>Filter element with ANY type. If used, configures the trail to gather any events from the resource <br>`trails[].filter.pathFilter.root` includes only one of the fields `anyFilter`, `someFilter`<br>
@@ -179,7 +214,7 @@ trails[].<br>filter.<br>pathFilter.<br>root.<br>anyFilter.<br>resource | **objec
 trails[].<br>filter.<br>pathFilter.<br>root.<br>anyFilter.<br>resource.<br>id | **string**<br><p>Required. ID of the resource</p> <p>The maximum string length in characters is 64.</p> 
 trails[].<br>filter.<br>pathFilter.<br>root.<br>anyFilter.<br>resource.<br>type | **string**<br><p>Required. Type of the resource</p> <p>The maximum string length in characters is 50.</p> 
 trails[].<br>filter.<br>pathFilter.<br>root.<br>someFilter | **object**<br>Filter element with SOME type. If used, configures the trail to gather some of the events from the resource <br>`trails[].filter.pathFilter.root` includes only one of the fields `anyFilter`, `someFilter`<br>
-trails[].<br>filter.<br>pathFilter.<br>root.<br>someFilter.<br>resource | **object**<br><p>Required. Definition of the resource that contains</p> 
+trails[].<br>filter.<br>pathFilter.<br>root.<br>someFilter.<br>resource | **object**<br><p>Required. Definition of the resource that contains nested resources</p> 
 trails[].<br>filter.<br>pathFilter.<br>root.<br>someFilter.<br>resource.<br>id | **string**<br><p>Required. ID of the resource</p> <p>The maximum string length in characters is 64.</p> 
 trails[].<br>filter.<br>pathFilter.<br>root.<br>someFilter.<br>resource.<br>type | **string**<br><p>Required. Type of the resource</p> <p>The maximum string length in characters is 50.</p> 
 trails[].<br>filter.<br>pathFilter.<br>root.<br>someFilter.<br>filters[] | **object**<br><p>Required. Filters for the resources contained in the parent resource</p> <p>Must contain at least one element.</p> 
@@ -201,7 +236,7 @@ trails[].<br>filter.<br>eventFilter.<br>filters[].<br>pathFilter.<br>root.<br>an
 trails[].<br>filter.<br>eventFilter.<br>filters[].<br>pathFilter.<br>root.<br>anyFilter.<br>resource.<br>id | **string**<br><p>Required. ID of the resource</p> <p>The maximum string length in characters is 64.</p> 
 trails[].<br>filter.<br>eventFilter.<br>filters[].<br>pathFilter.<br>root.<br>anyFilter.<br>resource.<br>type | **string**<br><p>Required. Type of the resource</p> <p>The maximum string length in characters is 50.</p> 
 trails[].<br>filter.<br>eventFilter.<br>filters[].<br>pathFilter.<br>root.<br>someFilter | **object**<br>Filter element with SOME type. If used, configures the trail to gather some of the events from the resource <br>`trails[].filter.eventFilter.filters[].pathFilter.root` includes only one of the fields `anyFilter`, `someFilter`<br>
-trails[].<br>filter.<br>eventFilter.<br>filters[].<br>pathFilter.<br>root.<br>someFilter.<br>resource | **object**<br><p>Required. Definition of the resource that contains</p> 
+trails[].<br>filter.<br>eventFilter.<br>filters[].<br>pathFilter.<br>root.<br>someFilter.<br>resource | **object**<br><p>Required. Definition of the resource that contains nested resources</p> 
 trails[].<br>filter.<br>eventFilter.<br>filters[].<br>pathFilter.<br>root.<br>someFilter.<br>resource.<br>id | **string**<br><p>Required. ID of the resource</p> <p>The maximum string length in characters is 64.</p> 
 trails[].<br>filter.<br>eventFilter.<br>filters[].<br>pathFilter.<br>root.<br>someFilter.<br>resource.<br>type | **string**<br><p>Required. Type of the resource</p> <p>The maximum string length in characters is 50.</p> 
 trails[].<br>filter.<br>eventFilter.<br>filters[].<br>pathFilter.<br>root.<br>someFilter.<br>filters[] | **object**<br><p>Required. Filters for the resources contained in the parent resource</p> <p>Must contain at least one element.</p> 
@@ -212,4 +247,18 @@ trails[].<br>filter.<br>eventFilter.<br>filters[].<br>pathFilter.<br>root.<br>so
 trails[].<br>filter.<br>eventFilter.<br>filters[].<br>pathFilter.<br>root.<br>someFilter.<br>filters[].<br>someFilter | **object**<br>Filter element with SOME type. If used, configures the trail to gather some of the events from the resource <br>`trails[].filter.eventFilter.filters[].pathFilter.root.someFilter.filters[]` includes only one of the fields `anyFilter`, `someFilter`<br>
 trails[].<br>statusErrorMessage | **string**<br><p>Current error message of the trail. Empty in case if the trail is active</p> 
 trails[].<br>cloudId | **string**<br><p>Required. ID of the cloud that the trail belongs to</p> <p>The maximum string length in characters is 50.</p> 
+trails[].<br>filteringPolicy | **object**<br><p>Event filtering policy Describes which groups of events will be sent and which resources will be monitored</p> <p>Combination of policies describing event filtering process of the trail At least one filed must be filled</p> 
+trails[].<br>filteringPolicy.<br>managementEventsFilter | **object**<br><p>Singular filter describing gathering management events</p> <p>Policy for gathering management events</p> 
+trails[].<br>filteringPolicy.<br>managementEventsFilter.<br>resourceScopes[] | **object**<br><p>Required. A list of resources which will be monitored by the trail</p> <p>The number of elements must be in the range 1-1024.</p> 
+trails[].<br>filteringPolicy.<br>managementEventsFilter.<br>resourceScopes[].<br>id | **string**<br><p>Required. ID of the resource</p> <p>The maximum string length in characters is 64.</p> 
+trails[].<br>filteringPolicy.<br>managementEventsFilter.<br>resourceScopes[].<br>type | **string**<br><p>Required. Type of the resource</p> <p>The maximum string length in characters is 50.</p> 
+trails[].<br>filteringPolicy.<br>dataEventsFilters[] | **object**<br><p>List of filters describing gathering data events</p> <p>The number of elements must be less than 128.</p> 
+trails[].<br>filteringPolicy.<br>dataEventsFilters[].<br>service | **string**<br><p>Required. Name of the service whose events will be delivered</p> 
+trails[].<br>filteringPolicy.<br>dataEventsFilters[].<br>resourceScopes[] | **object**<br><p>Required. A list of resources which will be monitored by the trail</p> <p>The number of elements must be in the range 1-1024.</p> 
+trails[].<br>filteringPolicy.<br>dataEventsFilters[].<br>resourceScopes[].<br>id | **string**<br><p>Required. ID of the resource</p> <p>The maximum string length in characters is 64.</p> 
+trails[].<br>filteringPolicy.<br>dataEventsFilters[].<br>resourceScopes[].<br>type | **string**<br><p>Required. Type of the resource</p> <p>The maximum string length in characters is 50.</p> 
+trails[].<br>filteringPolicy.<br>dataEventsFilters[].<br>includedEvents | **object**<br>Explicitly excluded events of specified service New events of the service will be delivered by default <br>`trails[].filteringPolicy.dataEventsFilters[]` includes only one of the fields `includedEvents`, `excludedEvents`<br>
+trails[].<br>filteringPolicy.<br>dataEventsFilters[].<br>includedEvents.<br>eventTypes[] | **string**<br><p>Required. The number of elements must be in the range 1-1024.</p> 
+trails[].<br>filteringPolicy.<br>dataEventsFilters[].<br>excludedEvents | **object**<br>Explicitly included events of specified service New events of the service won't be delivered by default <br>`trails[].filteringPolicy.dataEventsFilters[]` includes only one of the fields `includedEvents`, `excludedEvents`<br>
+trails[].<br>filteringPolicy.<br>dataEventsFilters[].<br>excludedEvents.<br>eventTypes[] | **string**<br><p>Required. The number of elements must be in the range 1-1024.</p> 
 nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is greater than the specified <a href="/docs/audit-trails/api-ref/Trail/list#query_params">pageSize</a>, use the ``next_page_token`` as the value for the <a href="/docs/audit-trails/api-ref/Trail/list#query_params">pageToken</a> query parameter in the next list request. Each subsequent list request will have its own ``next_page_token`` to continue paging through the results.</p> 

@@ -40,6 +40,7 @@ started_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 source_shard_names[] | **string**<br>Shard names used as a source for backup. 
 size | **int64**<br>Size of backup in bytes 
 type | enum **BackupType**<br>How this backup was created (manual/automatic/etc...) <ul><li>`AUTOMATED`: Backup created by automated daily schedule</li><li>`MANUAL`: Backup created by user request</li></ul>
+journal_size | **int64**<br>Size of the journal associated with backup, in bytes 
 
 
 ## List {#List}
@@ -77,6 +78,7 @@ started_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 source_shard_names[] | **string**<br>Shard names used as a source for backup. 
 size | **int64**<br>Size of backup in bytes 
 type | enum **BackupType**<br>How this backup was created (manual/automatic/etc...) <ul><li>`AUTOMATED`: Backup created by automated daily schedule</li><li>`MANUAL`: Backup created by user request</li></ul>
+journal_size | **int64**<br>Size of the journal associated with backup, in bytes 
 
 
 ## Delete {#Delete}

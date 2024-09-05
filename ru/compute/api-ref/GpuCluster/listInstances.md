@@ -169,7 +169,17 @@ filter | <p>A filter expression that filters resources listed in the response. C
       "hostGroupId": "string",
       "hostId": "string",
       "maintenancePolicy": "string",
-      "maintenanceGracePeriod": "string"
+      "maintenanceGracePeriod": "string",
+      "hardwareGeneration": {
+
+        // `instances[].hardwareGeneration` includes only one of the fields `legacyFeatures`, `generation2Features`
+        "legacyFeatures": {
+          "pciTopology": "string"
+        },
+        "generation2Features": {},
+        // end of the list of possible fields`instances[].hardwareGeneration`
+
+      }
     }
   ],
   "nextPageToken": "string"
@@ -273,4 +283,8 @@ instances[].<br>hostGroupId | **string**<br><p>ID of the dedicated host group th
 instances[].<br>hostId | **string**<br><p>ID of the dedicated host that the instance belongs to.</p> 
 instances[].<br>maintenancePolicy | **string**<br><p>Behaviour on maintenance events</p> <ul> <li>RESTART: Restart instance to move it to another host during maintenance</li> <li>MIGRATE: Use live migration to move instance to another host during maintenance</li> </ul> 
 instances[].<br>maintenanceGracePeriod | **string**<br><p>Time between notification via metadata service and maintenance</p> 
+instances[].<br>hardwareGeneration | **object**<br><p>This feature set is inherited from the image/disk used as a boot one at the creation of the instance.</p> <p>A set of features, specific to a particular Compute hardware generation. They are not necessary supported by every host OS or distro, thus they are fixed to an image and are applied to all instances created with it as their boot disk image. These features significantly determine how the instance is created, thus cannot be changed after the fact.</p> 
+instances[].<br>hardwareGeneration.<br>legacyFeatures | **object** <br>`instances[].hardwareGeneration` includes only one of the fields `legacyFeatures`, `generation2Features`<br><br><p>A first hardware generation, by default compatible with all legacy images. Allows switching to PCI_TOPOLOGY_V2 and back.</p> 
+instances[].<br>hardwareGeneration.<br>legacyFeatures.<br>pciTopology | **string**
+instances[].<br>hardwareGeneration.<br>generation2Features | **object** <br>`instances[].hardwareGeneration` includes only one of the fields `legacyFeatures`, `generation2Features`<br><br><p>A second hardware generation, which by default assumes PCI_TOPOLOGY_V2 and UEFI boot (with UEFI related features).</p> 
 nextPageToken | **string**<br><p>Token for getting the next page of the list. If the number of results is greater than the specified <a href="/docs/compute/api-ref/GpuCluster/listInstances#query_params">pageSize</a>, use ``next_page_token`` as the value for the <a href="/docs/compute/api-ref/GpuCluster/listInstances#query_params">pageToken</a> parameter in the next list request.</p> <p>Each subsequent page will have its own ``next_page_token`` to continue paging through the results.</p> 

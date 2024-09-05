@@ -74,7 +74,11 @@ filter | <p>A filter expression that filters resources listed in the response. T
                 "maxAvgPartSizeForTooManyParts": "integer",
                 "minAgeToForceMergeSeconds": "integer",
                 "minAgeToForceMergeOnPartitionOnly": true,
-                "mergeSelectingSleepMs": "integer"
+                "mergeSelectingSleepMs": "integer",
+                "mergeMaxBlockSize": "integer",
+                "checkSampleColumnIsCorrect": true,
+                "maxMergeSelectingSleepMs": "integer",
+                "maxCleanupDelayPeriod": "integer"
               },
               "compression": [
                 {
@@ -132,7 +136,8 @@ filter | <p>A filter expression that filters resources listed in the response. T
                   },
                   "layout": {
                     "type": "string",
-                    "sizeInCells": "string"
+                    "sizeInCells": "string",
+                    "maxArraySize": "string"
                   },
 
                   // `clusters[].config.clickhouse.config.effectiveConfig.dictionaries[]` includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`
@@ -145,7 +150,13 @@ filter | <p>A filter expression that filters resources listed in the response. T
 
                   "httpSource": {
                     "url": "string",
-                    "format": "string"
+                    "format": "string",
+                    "headers": [
+                      {
+                        "name": "string",
+                        "value": "string"
+                      }
+                    ]
                   },
                   "mysqlSource": {
                     "db": "string",
@@ -163,7 +174,9 @@ filter | <p>A filter expression that filters resources listed in the response. T
                       }
                     ],
                     "where": "string",
-                    "invalidateQuery": "string"
+                    "invalidateQuery": "string",
+                    "closeConnection": true,
+                    "shareConnection": true
                   },
                   "clickhouseSource": {
                     "db": "string",
@@ -172,7 +185,8 @@ filter | <p>A filter expression that filters resources listed in the response. T
                     "port": "string",
                     "user": "string",
                     "password": "string",
-                    "where": "string"
+                    "where": "string",
+                    "secure": true
                   },
                   "mongodbSource": {
                     "db": "string",
@@ -211,7 +225,11 @@ filter | <p>A filter expression that filters resources listed in the response. T
                         }
                       ]
                     }
-                  ]
+                  ],
+                  "pathColumnName": "string",
+                  "timeColumnName": "string",
+                  "valueColumnName": "string",
+                  "versionColumnName": "string"
                 }
               ],
               "kafka": {
@@ -221,7 +239,9 @@ filter | <p>A filter expression that filters resources listed in the response. T
                 "saslPassword": "string",
                 "enableSslCertificateVerification": true,
                 "maxPollIntervalMs": "integer",
-                "sessionTimeoutMs": "integer"
+                "sessionTimeoutMs": "integer",
+                "debug": "string",
+                "autoOffsetReset": "string"
               },
               "kafkaTopics": [
                 {
@@ -233,7 +253,9 @@ filter | <p>A filter expression that filters resources listed in the response. T
                     "saslPassword": "string",
                     "enableSslCertificateVerification": true,
                     "maxPollIntervalMs": "integer",
-                    "sessionTimeoutMs": "integer"
+                    "sessionTimeoutMs": "integer",
+                    "debug": "string",
+                    "autoOffsetReset": "string"
                   }
                 }
               ],
@@ -299,7 +321,21 @@ filter | <p>A filter expression that filters resources listed in the response. T
               "backgroundCommonPoolSize": "integer",
               "defaultDatabase": "string",
               "totalMemoryProfilerStep": "integer",
-              "totalMemoryTrackerSampleProbability": "number"
+              "totalMemoryTrackerSampleProbability": "number",
+              "queryMaskingRules": [
+                {
+                  "name": "string",
+                  "regexp": "string",
+                  "replace": "string"
+                }
+              ],
+              "dictionariesLazyLoad": true,
+              "queryCache": {
+                "maxSizeInBytes": "integer",
+                "maxEntries": "integer",
+                "maxEntrySizeInBytes": "integer",
+                "maxEntrySizeInRows": "integer"
+              }
             },
             "userConfig": {
               "logLevel": "string",
@@ -327,7 +363,11 @@ filter | <p>A filter expression that filters resources listed in the response. T
                 "maxAvgPartSizeForTooManyParts": "integer",
                 "minAgeToForceMergeSeconds": "integer",
                 "minAgeToForceMergeOnPartitionOnly": true,
-                "mergeSelectingSleepMs": "integer"
+                "mergeSelectingSleepMs": "integer",
+                "mergeMaxBlockSize": "integer",
+                "checkSampleColumnIsCorrect": true,
+                "maxMergeSelectingSleepMs": "integer",
+                "maxCleanupDelayPeriod": "integer"
               },
               "compression": [
                 {
@@ -385,7 +425,8 @@ filter | <p>A filter expression that filters resources listed in the response. T
                   },
                   "layout": {
                     "type": "string",
-                    "sizeInCells": "string"
+                    "sizeInCells": "string",
+                    "maxArraySize": "string"
                   },
 
                   // `clusters[].config.clickhouse.config.userConfig.dictionaries[]` includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`
@@ -398,7 +439,13 @@ filter | <p>A filter expression that filters resources listed in the response. T
 
                   "httpSource": {
                     "url": "string",
-                    "format": "string"
+                    "format": "string",
+                    "headers": [
+                      {
+                        "name": "string",
+                        "value": "string"
+                      }
+                    ]
                   },
                   "mysqlSource": {
                     "db": "string",
@@ -416,7 +463,9 @@ filter | <p>A filter expression that filters resources listed in the response. T
                       }
                     ],
                     "where": "string",
-                    "invalidateQuery": "string"
+                    "invalidateQuery": "string",
+                    "closeConnection": true,
+                    "shareConnection": true
                   },
                   "clickhouseSource": {
                     "db": "string",
@@ -425,7 +474,8 @@ filter | <p>A filter expression that filters resources listed in the response. T
                     "port": "string",
                     "user": "string",
                     "password": "string",
-                    "where": "string"
+                    "where": "string",
+                    "secure": true
                   },
                   "mongodbSource": {
                     "db": "string",
@@ -464,7 +514,11 @@ filter | <p>A filter expression that filters resources listed in the response. T
                         }
                       ]
                     }
-                  ]
+                  ],
+                  "pathColumnName": "string",
+                  "timeColumnName": "string",
+                  "valueColumnName": "string",
+                  "versionColumnName": "string"
                 }
               ],
               "kafka": {
@@ -474,7 +528,9 @@ filter | <p>A filter expression that filters resources listed in the response. T
                 "saslPassword": "string",
                 "enableSslCertificateVerification": true,
                 "maxPollIntervalMs": "integer",
-                "sessionTimeoutMs": "integer"
+                "sessionTimeoutMs": "integer",
+                "debug": "string",
+                "autoOffsetReset": "string"
               },
               "kafkaTopics": [
                 {
@@ -486,7 +542,9 @@ filter | <p>A filter expression that filters resources listed in the response. T
                     "saslPassword": "string",
                     "enableSslCertificateVerification": true,
                     "maxPollIntervalMs": "integer",
-                    "sessionTimeoutMs": "integer"
+                    "sessionTimeoutMs": "integer",
+                    "debug": "string",
+                    "autoOffsetReset": "string"
                   }
                 }
               ],
@@ -552,7 +610,21 @@ filter | <p>A filter expression that filters resources listed in the response. T
               "backgroundCommonPoolSize": "integer",
               "defaultDatabase": "string",
               "totalMemoryProfilerStep": "integer",
-              "totalMemoryTrackerSampleProbability": "number"
+              "totalMemoryTrackerSampleProbability": "number",
+              "queryMaskingRules": [
+                {
+                  "name": "string",
+                  "regexp": "string",
+                  "replace": "string"
+                }
+              ],
+              "dictionariesLazyLoad": true,
+              "queryCache": {
+                "maxSizeInBytes": "integer",
+                "maxEntries": "integer",
+                "maxEntrySizeInBytes": "integer",
+                "maxEntrySizeInRows": "integer"
+              }
             },
             "defaultConfig": {
               "logLevel": "string",
@@ -580,7 +652,11 @@ filter | <p>A filter expression that filters resources listed in the response. T
                 "maxAvgPartSizeForTooManyParts": "integer",
                 "minAgeToForceMergeSeconds": "integer",
                 "minAgeToForceMergeOnPartitionOnly": true,
-                "mergeSelectingSleepMs": "integer"
+                "mergeSelectingSleepMs": "integer",
+                "mergeMaxBlockSize": "integer",
+                "checkSampleColumnIsCorrect": true,
+                "maxMergeSelectingSleepMs": "integer",
+                "maxCleanupDelayPeriod": "integer"
               },
               "compression": [
                 {
@@ -638,7 +714,8 @@ filter | <p>A filter expression that filters resources listed in the response. T
                   },
                   "layout": {
                     "type": "string",
-                    "sizeInCells": "string"
+                    "sizeInCells": "string",
+                    "maxArraySize": "string"
                   },
 
                   // `clusters[].config.clickhouse.config.defaultConfig.dictionaries[]` includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`
@@ -651,7 +728,13 @@ filter | <p>A filter expression that filters resources listed in the response. T
 
                   "httpSource": {
                     "url": "string",
-                    "format": "string"
+                    "format": "string",
+                    "headers": [
+                      {
+                        "name": "string",
+                        "value": "string"
+                      }
+                    ]
                   },
                   "mysqlSource": {
                     "db": "string",
@@ -669,7 +752,9 @@ filter | <p>A filter expression that filters resources listed in the response. T
                       }
                     ],
                     "where": "string",
-                    "invalidateQuery": "string"
+                    "invalidateQuery": "string",
+                    "closeConnection": true,
+                    "shareConnection": true
                   },
                   "clickhouseSource": {
                     "db": "string",
@@ -678,7 +763,8 @@ filter | <p>A filter expression that filters resources listed in the response. T
                     "port": "string",
                     "user": "string",
                     "password": "string",
-                    "where": "string"
+                    "where": "string",
+                    "secure": true
                   },
                   "mongodbSource": {
                     "db": "string",
@@ -717,7 +803,11 @@ filter | <p>A filter expression that filters resources listed in the response. T
                         }
                       ]
                     }
-                  ]
+                  ],
+                  "pathColumnName": "string",
+                  "timeColumnName": "string",
+                  "valueColumnName": "string",
+                  "versionColumnName": "string"
                 }
               ],
               "kafka": {
@@ -727,7 +817,9 @@ filter | <p>A filter expression that filters resources listed in the response. T
                 "saslPassword": "string",
                 "enableSslCertificateVerification": true,
                 "maxPollIntervalMs": "integer",
-                "sessionTimeoutMs": "integer"
+                "sessionTimeoutMs": "integer",
+                "debug": "string",
+                "autoOffsetReset": "string"
               },
               "kafkaTopics": [
                 {
@@ -739,7 +831,9 @@ filter | <p>A filter expression that filters resources listed in the response. T
                     "saslPassword": "string",
                     "enableSslCertificateVerification": true,
                     "maxPollIntervalMs": "integer",
-                    "sessionTimeoutMs": "integer"
+                    "sessionTimeoutMs": "integer",
+                    "debug": "string",
+                    "autoOffsetReset": "string"
                   }
                 }
               ],
@@ -805,7 +899,21 @@ filter | <p>A filter expression that filters resources listed in the response. T
               "backgroundCommonPoolSize": "integer",
               "defaultDatabase": "string",
               "totalMemoryProfilerStep": "integer",
-              "totalMemoryTrackerSampleProbability": "number"
+              "totalMemoryTrackerSampleProbability": "number",
+              "queryMaskingRules": [
+                {
+                  "name": "string",
+                  "regexp": "string",
+                  "replace": "string"
+                }
+              ],
+              "dictionariesLazyLoad": true,
+              "queryCache": {
+                "maxSizeInBytes": "integer",
+                "maxEntries": "integer",
+                "maxEntrySizeInBytes": "integer",
+                "maxEntrySizeInRows": "integer"
+              }
             }
           },
           "resources": {
@@ -844,7 +952,8 @@ filter | <p>A filter expression that filters resources listed in the response. T
         },
         "sqlDatabaseManagement": true,
         "sqlUserManagement": true,
-        "embeddedKeeper": true
+        "embeddedKeeper": true,
+        "backupRetainPeriodDays": "integer"
       },
       "networkId": "string",
       "health": "string",
@@ -921,6 +1030,10 @@ clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>mergeTre
 clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>mergeTree.<br>minAgeToForceMergeSeconds | **integer** (int64)<br><p>Merge parts if every part in the range is older than the value of min_age_to_force_merge_seconds. Default: 0 - disabled Min_version: 22.10 See in-depth description in <a href="https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#min_age_to_force_merge_seconds">ClickHouse documentation</a></p> <p>The minimum value is 0.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>mergeTree.<br>minAgeToForceMergeOnPartitionOnly | **boolean** (boolean)<br><p>Whether min_age_to_force_merge_seconds should be applied only on the entire partition and not on subset. Default: false Min_version: 22.11 See in-depth description in <a href="https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#min_age_to_force_merge_seconds">ClickHouse documentation</a></p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>mergeTree.<br>mergeSelectingSleepMs | **integer** (int64)<br><p>Sleep time for merge selecting when no part is selected. A lower setting triggers selecting tasks in background_schedule_pool frequently, which results in a large number of requests to ClickHouse Keeper in large-scale clusters. Default: 5000 Min_version: 21.10 See in-depth description in <a href="https://clickhouse.com/docs/en/operations/settings/settings#merge_selecting_sleep_ms">ClickHouse documentation</a></p> <p>Value must be greater than 0.</p> 
+clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>mergeTree.<br>mergeMaxBlockSize | **integer** (int64)<br><p>The number of rows that are read from the merged parts into memory. Default: 8192 See in-depth description in <a href="https://clickhouse.com/docs/en/operations/settings/settings#merge_max_block_size">ClickHouse documentation</a></p> <p>Value must be greater than 0.</p> 
+clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>mergeTree.<br>checkSampleColumnIsCorrect | **boolean** (boolean)<br><p>Enables the check at table creation, that the data type of a column for sampling or sampling expression is correct. The data type must be one of unsigned <a href="https://clickhouse.com/docs/en/sql-reference/data-types/int-uint">integer types</a>: UInt8, UInt16, UInt32, UInt64. Default: true See in-depth description in <a href="https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#check_sample_column_is_correct">ClickHouse documentation</a></p> 
+clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>mergeTree.<br>maxMergeSelectingSleepMs | **integer** (int64)<br><p>Maximum sleep time for merge selecting, a lower setting will trigger selecting tasks in background_schedule_pool frequently which result in large amount of requests to zookeeper in large-scale clusters. Default: 60000 Min_version: 23.6 See in-depth description in <a href="https://github.com/ClickHouse/ClickHouse/blob/4add9db84859bff7410cf934a3904b0414e36e51/src/Storages/MergeTree/MergeTreeSettings.h#L71">ClickHouse GitHub</a></p> <p>The minimum value is 0.</p> 
+clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>mergeTree.<br>maxCleanupDelayPeriod | **integer** (int64)<br><p>Maximum period to clean old queue logs, blocks hashes and parts. Default: 300 Min_version: 23.6 See in-depth description in <a href="https://github.com/ClickHouse/ClickHouse/blob/4add9db84859bff7410cf934a3904b0414e36e51/src/Storages/MergeTree/MergeTreeSettings.h#L142">ClickHouse GitHub</a></p> <p>The minimum value is 0.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>compression[] | **object**<br><p>Compression settings for the ClickHouse cluster. See in-depth description in <a href="https://clickhouse.com/docs/en/operations/server_settings/settings/#compression">ClickHouse documentation</a>.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>compression[].<br>method | **string**<br><p>Compression method to use for the specified combination of ``minPartSize`` and ``minPartSizeRatio``.</p> <ul> <li>LZ4: <a href="https://lz4.github.io/lz4/">LZ4 compression algorithm</a>.</li> <li>ZSTD: <a href="https://facebook.github.io/zstd/">Zstandard compression algorithm</a>.</li> </ul> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>compression[].<br>minPartSize | **string** (int64)<br><p>Minimum size of a part of a table.</p> <p>The minimum value is 1.</p> 
@@ -963,6 +1076,7 @@ clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>dictiona
 clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>dictionaries[].<br>layout | **object**<br>Required. Layout for storing the dictionary in memory. For in-depth description, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_layout/).
 clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>dictionaries[].<br>layout.<br>type | **string**<br><p>Required. Layout type for an external dictionary.</p> <ul> <li>FLAT: The entire dictionary is stored in memory in the form of flat arrays. Available for all dictionary sources.</li> <li>HASHED: The entire dictionary is stored in memory in the form of a hash table. Available for all dictionary sources.</li> <li>COMPLEX_KEY_HASHED: Similar to HASHED, to be used with composite keys. Available for all dictionary sources.</li> <li>RANGE_HASHED: The entire dictionary is stored in memory in the form of a hash table, with an ordered array of ranges and their corresponding values. Available for all dictionary sources.</li> <li>CACHE: The dictionary is stored in a cache with a set number of cells. Available for MySQL, ClickHouse and HTTP dictionary sources.</li> <li>COMPLEX_KEY_CACHE: Similar to CACHE, to be used with composite keys. Available for MySQL, ClickHouse and HTTP dictionary sources.</li> </ul> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>dictionaries[].<br>layout.<br>sizeInCells | **string** (int64)<br><p>Number of cells in the cache. Rounded up to a power of two. Applicable only for CACHE and COMPLEX_KEY_CACHE layout types.</p> 
+clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>dictionaries[].<br>layout.<br>maxArraySize | **string** (int64)<br><p>Maximum dictionary key size. Applicable only for FLAT layout type.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>dictionaries[].<br>fixedLifetime | **string** (int64) <br>`clusters[].config.clickhouse.config.effectiveConfig.dictionaries[]` includes only one of the fields `fixedLifetime`, `lifetimeRange`<br><br><p>Fixed interval between dictionary updates.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>dictionaries[].<br>lifetimeRange | **object**<br>Range of intervals between dictionary updates for ClickHouse to choose from. <br>`clusters[].config.clickhouse.config.effectiveConfig.dictionaries[]` includes only one of the fields `fixedLifetime`, `lifetimeRange`<br>
 clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>dictionaries[].<br>lifetimeRange.<br>min | **string** (int64)<br><p>Minimum dictionary lifetime.</p> 
@@ -970,6 +1084,9 @@ clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>dictiona
 clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>dictionaries[].<br>httpSource | **object**<br>HTTP source for the dictionary. <br>`clusters[].config.clickhouse.config.effectiveConfig.dictionaries[]` includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`<br>
 clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>dictionaries[].<br>httpSource.<br>url | **string**<br><p>Required. URL of the source dictionary available over HTTP.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>dictionaries[].<br>httpSource.<br>format | **string**<br><p>Required. The data format. Valid values are all formats supported by ClickHouse SQL dialect.</p> 
+clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>dictionaries[].<br>httpSource.<br>headers[] | **object**<br><p>HTTP headers.</p> 
+clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>dictionaries[].<br>httpSource.<br>headers[].<br>name | **string**<br><p>Required.</p> 
+clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>dictionaries[].<br>httpSource.<br>headers[].<br>value | **string**<br><p>Required.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>dictionaries[].<br>mysqlSource | **object**<br>MySQL source for the dictionary. <br>`clusters[].config.clickhouse.config.effectiveConfig.dictionaries[]` includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`<br>
 clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>dictionaries[].<br>mysqlSource.<br>db | **string**<br><p>Required. Name of the MySQL database to connect to.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>dictionaries[].<br>mysqlSource.<br>table | **string**<br><p>Required. Name of the database table to use as a ClickHouse dictionary.</p> 
@@ -984,18 +1101,21 @@ clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>dictiona
 clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>dictionaries[].<br>mysqlSource.<br>replicas[].<br>password | **string**<br><p>Password of the MySQL database user.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>dictionaries[].<br>mysqlSource.<br>where | **string**<br><p>Selection criteria for the data in the specified MySQL table.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>dictionaries[].<br>mysqlSource.<br>invalidateQuery | **string**<br><p>Query for checking the dictionary status, to pull only updated data. For more details, see <a href="https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/">ClickHouse documentation on dictionaries</a>.</p> 
+clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>dictionaries[].<br>mysqlSource.<br>closeConnection | **boolean** (boolean)<br><p>Should the connection be closed after each request.</p> 
+clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>dictionaries[].<br>mysqlSource.<br>shareConnection | **boolean** (boolean)<br><p>Should a connection be shared for some requests.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>dictionaries[].<br>clickhouseSource | **object**<br>ClickHouse source for the dictionary. <br>`clusters[].config.clickhouse.config.effectiveConfig.dictionaries[]` includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`<br>
 clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>dictionaries[].<br>clickhouseSource.<br>db | **string**<br><p>Required. Name of the ClickHouse database.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>dictionaries[].<br>clickhouseSource.<br>table | **string**<br><p>Required. Name of the table in the specified database to be used as the dictionary source.</p> 
-clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>dictionaries[].<br>clickhouseSource.<br>host | **string**<br><p>Required. ClickHouse host of the specified database.</p> <p>The maximum string length in characters is 253.</p> 
+clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>dictionaries[].<br>clickhouseSource.<br>host | **string**<br><p>ClickHouse host of the specified database.</p> <p>The maximum string length in characters is 253.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>dictionaries[].<br>clickhouseSource.<br>port | **string** (int64)<br><p>Port to use when connecting to the host.</p> <p>Acceptable values are 0 to 65535, inclusive.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>dictionaries[].<br>clickhouseSource.<br>user | **string**<br><p>Required. Name of the ClickHouse database user.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>dictionaries[].<br>clickhouseSource.<br>password | **string**<br><p>Password of the ClickHouse database user.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>dictionaries[].<br>clickhouseSource.<br>where | **string**<br><p>Selection criteria for the data in the specified ClickHouse table.</p> 
+clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>dictionaries[].<br>clickhouseSource.<br>secure | **boolean** (boolean)<br><p>Use ssl for connection.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>dictionaries[].<br>mongodbSource | **object**<br>MongoDB source for the dictionary. <br>`clusters[].config.clickhouse.config.effectiveConfig.dictionaries[]` includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`<br>
 clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>dictionaries[].<br>mongodbSource.<br>db | **string**<br><p>Required. Name of the MongoDB database.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>dictionaries[].<br>mongodbSource.<br>collection | **string**<br><p>Required. Name of the collection in the specified database to be used as the dictionary source.</p> 
-clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>dictionaries[].<br>mongodbSource.<br>host | **string**<br><p>Required. MongoDB host of the specified database.</p> <p>The maximum string length in characters is 253.</p> 
+clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>dictionaries[].<br>mongodbSource.<br>host | **string**<br><p>MongoDB host of the specified database.</p> <p>The maximum string length in characters is 253.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>dictionaries[].<br>mongodbSource.<br>port | **string** (int64)<br><p>Port to use when connecting to the host.</p> <p>Acceptable values are 0 to 65535, inclusive.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>dictionaries[].<br>mongodbSource.<br>user | **string**<br><p>Required. Name of the MongoDB database user.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>dictionaries[].<br>mongodbSource.<br>password | **string**<br><p>Password of the MongoDB database user.</p> 
@@ -1017,6 +1137,10 @@ clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>graphite
 clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>graphiteRollup[].<br>patterns[].<br>retention[] | **object**<br><p>Required. Age of data to use for thinning.</p> <p>Must contain at least one element.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>graphiteRollup[].<br>patterns[].<br>retention[].<br>age | **string** (int64)<br><p>Minimum age of the data in seconds.</p> <p>The minimum value is 0.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>graphiteRollup[].<br>patterns[].<br>retention[].<br>precision | **string** (int64)<br><p>Precision of determining the age of the data, in seconds.</p> <p>Value must be greater than 0.</p> 
+clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>graphiteRollup[].<br>pathColumnName | **string**<br><p>The name of the column storing the metric name (Graphite sensor). Default: Path See in-depth description in <a href="https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns">ClickHouse documentation</a></p> 
+clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>graphiteRollup[].<br>timeColumnName | **string**<br><p>The name of the column storing the time of measuring the metric. Default: Time See in-depth description in <a href="https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns">ClickHouse documentation</a></p> 
+clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>graphiteRollup[].<br>valueColumnName | **string**<br><p>The name of the column storing the value of the metric at the time set in time_column_name. Default: Value See in-depth description in <a href="https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns">ClickHouse documentation</a></p> 
+clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>graphiteRollup[].<br>versionColumnName | **string**<br><p>The name of the column storing the version of the metric. Default: Timestamp See in-depth description in <a href="https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns">ClickHouse documentation</a></p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>kafka | **object**
 clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>kafka.<br>securityProtocol | **string**
 clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>kafka.<br>saslMechanism | **string**
@@ -1025,6 +1149,8 @@ clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>kafka.<b
 clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>kafka.<br>enableSslCertificateVerification | **boolean** (boolean)
 clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>kafka.<br>maxPollIntervalMs | **integer** (int64)<br><p>The minimum value is 0.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>kafka.<br>sessionTimeoutMs | **integer** (int64)<br><p>The minimum value is 0.</p> 
+clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>kafka.<br>debug | **string**
+clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>kafka.<br>autoOffsetReset | **string**
 clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>kafkaTopics[] | **object**
 clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>kafkaTopics[].<br>name | **string**<br><p>Required.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>kafkaTopics[].<br>settings | **object**<br><p>Required.</p> 
@@ -1035,6 +1161,8 @@ clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>kafkaTop
 clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>kafkaTopics[].<br>settings.<br>enableSslCertificateVerification | **boolean** (boolean)
 clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>kafkaTopics[].<br>settings.<br>maxPollIntervalMs | **integer** (int64)<br><p>The minimum value is 0.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>kafkaTopics[].<br>settings.<br>sessionTimeoutMs | **integer** (int64)<br><p>The minimum value is 0.</p> 
+clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>kafkaTopics[].<br>settings.<br>debug | **string**
+clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>kafkaTopics[].<br>settings.<br>autoOffsetReset | **string**
 clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>rabbitmq | **object**
 clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>rabbitmq.<br>username | **string**<br><p><a href="https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/">RabbitMQ</a> username</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>rabbitmq.<br>password | **string**<br><p><a href="https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/">RabbitMQ</a> password</p> 
@@ -1097,6 +1225,16 @@ clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>backgrou
 clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>defaultDatabase | **string**<br><p>The default database.</p> <p>To get a list of cluster databases, see <a href="/docs/managed-clickhouse/operations/databases#list-db">Yandex Managed ClickHouse documentation</a>.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>totalMemoryProfilerStep | **integer** (int64)<br><p>Sets the memory size (in bytes) for a stack trace at every peak allocation step. Default value: <strong>4194304</strong>.</p> <p>More info see in <a href="https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#total-memory-profiler-step">ClickHouse documentation</a>.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>totalMemoryTrackerSampleProbability | **number** (double)
+clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>queryMaskingRules[] | **object**<br><p>Required. Regexp-based rules, which will be applied to queries as well as all log messages before storing them in server logs, system.query_log, system.text_log, system.processes tables, and in logs sent to the client. That allows preventing sensitive data leakage from SQL queries (like names, emails, personal identifiers or credit card numbers) to logs. Change of these settings is applied with ClickHouse restart See in-depth description in <a href="https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#query-masking-rules">ClickHouse documentation</a></p> <p>Must contain at least one element.</p> 
+clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>queryMaskingRules[].<br>name | **string**<br><p>Name for the rule.</p> 
+clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>queryMaskingRules[].<br>regexp | **string**<br><p>Required. RE2 compatible regular expression. Required.</p> 
+clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>queryMaskingRules[].<br>replace | **string**<br><p>Substitution string for sensitive data. Default: six asterisks</p> 
+clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>dictionariesLazyLoad | **boolean** (boolean)<br><p>Lazy loading of dictionaries. Default: true See in-depth description in <a href="https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#dictionaries_lazy_load">ClickHouse documentation</a></p> 
+clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>queryCache | **object**<br><p><a href="https://clickhouse.com/docs/en/operations/query-cache">Query cache</a> configuration. Min version: 23.5 See in-depth description in <a href="https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#query_cache">ClickHouse documentation</a></p> 
+clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>queryCache.<br>maxSizeInBytes | **integer** (int64)<br><p>The maximum cache size in bytes. Default: 1073741824 (1 GiB)</p> <p>The minimum value is 0.</p> 
+clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>queryCache.<br>maxEntries | **integer** (int64)<br><p>The maximum number of SELECT query results stored in the cache. Default: 1024</p> <p>The minimum value is 0.</p> 
+clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>queryCache.<br>maxEntrySizeInBytes | **integer** (int64)<br><p>The maximum size in bytes SELECT query results may have to be saved in the cache. Dafault: 1048576 (1 MiB)</p> <p>The minimum value is 0.</p> 
+clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>queryCache.<br>maxEntrySizeInRows | **integer** (int64)<br><p>The maximum number of rows SELECT query results may have to be saved in the cache. Default: 30000000 (30 mil)</p> <p>The minimum value is 0.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig | **object**<br><p>User-defined settings for a ClickHouse cluster.</p> <p>ClickHouse configuration options. Detailed description for each set of options is available in <a href="https://clickhouse.com/docs/en/operations/server_settings/settings/">ClickHouse documentation</a>.</p> <p>Any options not listed here are not supported.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>logLevel | **string**<br><p>Logging level for the ClickHouse cluster. Possible values: TRACE, DEBUG, INFORMATION, WARNING, ERROR.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>mergeTree | **object**<br><p>Settings for the MergeTree engine. See description in <a href="https://clickhouse.com/docs/en/operations/server_settings/settings/#merge_tree">ClickHouse documentation</a>.</p> <p>Options specific to the MergeTree table engine.</p> 
@@ -1124,6 +1262,10 @@ clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>mergeTree.<br
 clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>mergeTree.<br>minAgeToForceMergeSeconds | **integer** (int64)<br><p>Merge parts if every part in the range is older than the value of min_age_to_force_merge_seconds. Default: 0 - disabled Min_version: 22.10 See in-depth description in <a href="https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#min_age_to_force_merge_seconds">ClickHouse documentation</a></p> <p>The minimum value is 0.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>mergeTree.<br>minAgeToForceMergeOnPartitionOnly | **boolean** (boolean)<br><p>Whether min_age_to_force_merge_seconds should be applied only on the entire partition and not on subset. Default: false Min_version: 22.11 See in-depth description in <a href="https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#min_age_to_force_merge_seconds">ClickHouse documentation</a></p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>mergeTree.<br>mergeSelectingSleepMs | **integer** (int64)<br><p>Sleep time for merge selecting when no part is selected. A lower setting triggers selecting tasks in background_schedule_pool frequently, which results in a large number of requests to ClickHouse Keeper in large-scale clusters. Default: 5000 Min_version: 21.10 See in-depth description in <a href="https://clickhouse.com/docs/en/operations/settings/settings#merge_selecting_sleep_ms">ClickHouse documentation</a></p> <p>Value must be greater than 0.</p> 
+clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>mergeTree.<br>mergeMaxBlockSize | **integer** (int64)<br><p>The number of rows that are read from the merged parts into memory. Default: 8192 See in-depth description in <a href="https://clickhouse.com/docs/en/operations/settings/settings#merge_max_block_size">ClickHouse documentation</a></p> <p>Value must be greater than 0.</p> 
+clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>mergeTree.<br>checkSampleColumnIsCorrect | **boolean** (boolean)<br><p>Enables the check at table creation, that the data type of a column for sampling or sampling expression is correct. The data type must be one of unsigned <a href="https://clickhouse.com/docs/en/sql-reference/data-types/int-uint">integer types</a>: UInt8, UInt16, UInt32, UInt64. Default: true See in-depth description in <a href="https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#check_sample_column_is_correct">ClickHouse documentation</a></p> 
+clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>mergeTree.<br>maxMergeSelectingSleepMs | **integer** (int64)<br><p>Maximum sleep time for merge selecting, a lower setting will trigger selecting tasks in background_schedule_pool frequently which result in large amount of requests to zookeeper in large-scale clusters. Default: 60000 Min_version: 23.6 See in-depth description in <a href="https://github.com/ClickHouse/ClickHouse/blob/4add9db84859bff7410cf934a3904b0414e36e51/src/Storages/MergeTree/MergeTreeSettings.h#L71">ClickHouse GitHub</a></p> <p>The minimum value is 0.</p> 
+clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>mergeTree.<br>maxCleanupDelayPeriod | **integer** (int64)<br><p>Maximum period to clean old queue logs, blocks hashes and parts. Default: 300 Min_version: 23.6 See in-depth description in <a href="https://github.com/ClickHouse/ClickHouse/blob/4add9db84859bff7410cf934a3904b0414e36e51/src/Storages/MergeTree/MergeTreeSettings.h#L142">ClickHouse GitHub</a></p> <p>The minimum value is 0.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>compression[] | **object**<br><p>Compression settings for the ClickHouse cluster. See in-depth description in <a href="https://clickhouse.com/docs/en/operations/server_settings/settings/#compression">ClickHouse documentation</a>.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>compression[].<br>method | **string**<br><p>Compression method to use for the specified combination of ``minPartSize`` and ``minPartSizeRatio``.</p> <ul> <li>LZ4: <a href="https://lz4.github.io/lz4/">LZ4 compression algorithm</a>.</li> <li>ZSTD: <a href="https://facebook.github.io/zstd/">Zstandard compression algorithm</a>.</li> </ul> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>compression[].<br>minPartSize | **string** (int64)<br><p>Minimum size of a part of a table.</p> <p>The minimum value is 1.</p> 
@@ -1166,6 +1308,7 @@ clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>dictionaries[
 clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>dictionaries[].<br>layout | **object**<br>Required. Layout for storing the dictionary in memory. For in-depth description, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_layout/).
 clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>dictionaries[].<br>layout.<br>type | **string**<br><p>Required. Layout type for an external dictionary.</p> <ul> <li>FLAT: The entire dictionary is stored in memory in the form of flat arrays. Available for all dictionary sources.</li> <li>HASHED: The entire dictionary is stored in memory in the form of a hash table. Available for all dictionary sources.</li> <li>COMPLEX_KEY_HASHED: Similar to HASHED, to be used with composite keys. Available for all dictionary sources.</li> <li>RANGE_HASHED: The entire dictionary is stored in memory in the form of a hash table, with an ordered array of ranges and their corresponding values. Available for all dictionary sources.</li> <li>CACHE: The dictionary is stored in a cache with a set number of cells. Available for MySQL, ClickHouse and HTTP dictionary sources.</li> <li>COMPLEX_KEY_CACHE: Similar to CACHE, to be used with composite keys. Available for MySQL, ClickHouse and HTTP dictionary sources.</li> </ul> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>dictionaries[].<br>layout.<br>sizeInCells | **string** (int64)<br><p>Number of cells in the cache. Rounded up to a power of two. Applicable only for CACHE and COMPLEX_KEY_CACHE layout types.</p> 
+clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>dictionaries[].<br>layout.<br>maxArraySize | **string** (int64)<br><p>Maximum dictionary key size. Applicable only for FLAT layout type.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>dictionaries[].<br>fixedLifetime | **string** (int64) <br>`clusters[].config.clickhouse.config.userConfig.dictionaries[]` includes only one of the fields `fixedLifetime`, `lifetimeRange`<br><br><p>Fixed interval between dictionary updates.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>dictionaries[].<br>lifetimeRange | **object**<br>Range of intervals between dictionary updates for ClickHouse to choose from. <br>`clusters[].config.clickhouse.config.userConfig.dictionaries[]` includes only one of the fields `fixedLifetime`, `lifetimeRange`<br>
 clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>dictionaries[].<br>lifetimeRange.<br>min | **string** (int64)<br><p>Minimum dictionary lifetime.</p> 
@@ -1173,6 +1316,9 @@ clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>dictionaries[
 clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>dictionaries[].<br>httpSource | **object**<br>HTTP source for the dictionary. <br>`clusters[].config.clickhouse.config.userConfig.dictionaries[]` includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`<br>
 clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>dictionaries[].<br>httpSource.<br>url | **string**<br><p>Required. URL of the source dictionary available over HTTP.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>dictionaries[].<br>httpSource.<br>format | **string**<br><p>Required. The data format. Valid values are all formats supported by ClickHouse SQL dialect.</p> 
+clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>dictionaries[].<br>httpSource.<br>headers[] | **object**<br><p>HTTP headers.</p> 
+clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>dictionaries[].<br>httpSource.<br>headers[].<br>name | **string**<br><p>Required.</p> 
+clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>dictionaries[].<br>httpSource.<br>headers[].<br>value | **string**<br><p>Required.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>dictionaries[].<br>mysqlSource | **object**<br>MySQL source for the dictionary. <br>`clusters[].config.clickhouse.config.userConfig.dictionaries[]` includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`<br>
 clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>dictionaries[].<br>mysqlSource.<br>db | **string**<br><p>Required. Name of the MySQL database to connect to.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>dictionaries[].<br>mysqlSource.<br>table | **string**<br><p>Required. Name of the database table to use as a ClickHouse dictionary.</p> 
@@ -1187,18 +1333,21 @@ clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>dictionaries[
 clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>dictionaries[].<br>mysqlSource.<br>replicas[].<br>password | **string**<br><p>Password of the MySQL database user.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>dictionaries[].<br>mysqlSource.<br>where | **string**<br><p>Selection criteria for the data in the specified MySQL table.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>dictionaries[].<br>mysqlSource.<br>invalidateQuery | **string**<br><p>Query for checking the dictionary status, to pull only updated data. For more details, see <a href="https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/">ClickHouse documentation on dictionaries</a>.</p> 
+clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>dictionaries[].<br>mysqlSource.<br>closeConnection | **boolean** (boolean)<br><p>Should the connection be closed after each request.</p> 
+clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>dictionaries[].<br>mysqlSource.<br>shareConnection | **boolean** (boolean)<br><p>Should a connection be shared for some requests.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>dictionaries[].<br>clickhouseSource | **object**<br>ClickHouse source for the dictionary. <br>`clusters[].config.clickhouse.config.userConfig.dictionaries[]` includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`<br>
 clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>dictionaries[].<br>clickhouseSource.<br>db | **string**<br><p>Required. Name of the ClickHouse database.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>dictionaries[].<br>clickhouseSource.<br>table | **string**<br><p>Required. Name of the table in the specified database to be used as the dictionary source.</p> 
-clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>dictionaries[].<br>clickhouseSource.<br>host | **string**<br><p>Required. ClickHouse host of the specified database.</p> <p>The maximum string length in characters is 253.</p> 
+clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>dictionaries[].<br>clickhouseSource.<br>host | **string**<br><p>ClickHouse host of the specified database.</p> <p>The maximum string length in characters is 253.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>dictionaries[].<br>clickhouseSource.<br>port | **string** (int64)<br><p>Port to use when connecting to the host.</p> <p>Acceptable values are 0 to 65535, inclusive.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>dictionaries[].<br>clickhouseSource.<br>user | **string**<br><p>Required. Name of the ClickHouse database user.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>dictionaries[].<br>clickhouseSource.<br>password | **string**<br><p>Password of the ClickHouse database user.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>dictionaries[].<br>clickhouseSource.<br>where | **string**<br><p>Selection criteria for the data in the specified ClickHouse table.</p> 
+clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>dictionaries[].<br>clickhouseSource.<br>secure | **boolean** (boolean)<br><p>Use ssl for connection.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>dictionaries[].<br>mongodbSource | **object**<br>MongoDB source for the dictionary. <br>`clusters[].config.clickhouse.config.userConfig.dictionaries[]` includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`<br>
 clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>dictionaries[].<br>mongodbSource.<br>db | **string**<br><p>Required. Name of the MongoDB database.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>dictionaries[].<br>mongodbSource.<br>collection | **string**<br><p>Required. Name of the collection in the specified database to be used as the dictionary source.</p> 
-clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>dictionaries[].<br>mongodbSource.<br>host | **string**<br><p>Required. MongoDB host of the specified database.</p> <p>The maximum string length in characters is 253.</p> 
+clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>dictionaries[].<br>mongodbSource.<br>host | **string**<br><p>MongoDB host of the specified database.</p> <p>The maximum string length in characters is 253.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>dictionaries[].<br>mongodbSource.<br>port | **string** (int64)<br><p>Port to use when connecting to the host.</p> <p>Acceptable values are 0 to 65535, inclusive.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>dictionaries[].<br>mongodbSource.<br>user | **string**<br><p>Required. Name of the MongoDB database user.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>dictionaries[].<br>mongodbSource.<br>password | **string**<br><p>Password of the MongoDB database user.</p> 
@@ -1220,6 +1369,10 @@ clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>graphiteRollu
 clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>graphiteRollup[].<br>patterns[].<br>retention[] | **object**<br><p>Required. Age of data to use for thinning.</p> <p>Must contain at least one element.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>graphiteRollup[].<br>patterns[].<br>retention[].<br>age | **string** (int64)<br><p>Minimum age of the data in seconds.</p> <p>The minimum value is 0.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>graphiteRollup[].<br>patterns[].<br>retention[].<br>precision | **string** (int64)<br><p>Precision of determining the age of the data, in seconds.</p> <p>Value must be greater than 0.</p> 
+clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>graphiteRollup[].<br>pathColumnName | **string**<br><p>The name of the column storing the metric name (Graphite sensor). Default: Path See in-depth description in <a href="https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns">ClickHouse documentation</a></p> 
+clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>graphiteRollup[].<br>timeColumnName | **string**<br><p>The name of the column storing the time of measuring the metric. Default: Time See in-depth description in <a href="https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns">ClickHouse documentation</a></p> 
+clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>graphiteRollup[].<br>valueColumnName | **string**<br><p>The name of the column storing the value of the metric at the time set in time_column_name. Default: Value See in-depth description in <a href="https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns">ClickHouse documentation</a></p> 
+clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>graphiteRollup[].<br>versionColumnName | **string**<br><p>The name of the column storing the version of the metric. Default: Timestamp See in-depth description in <a href="https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns">ClickHouse documentation</a></p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>kafka | **object**
 clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>kafka.<br>securityProtocol | **string**
 clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>kafka.<br>saslMechanism | **string**
@@ -1228,6 +1381,8 @@ clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>kafka.<br>sas
 clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>kafka.<br>enableSslCertificateVerification | **boolean** (boolean)
 clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>kafka.<br>maxPollIntervalMs | **integer** (int64)<br><p>The minimum value is 0.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>kafka.<br>sessionTimeoutMs | **integer** (int64)<br><p>The minimum value is 0.</p> 
+clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>kafka.<br>debug | **string**
+clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>kafka.<br>autoOffsetReset | **string**
 clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>kafkaTopics[] | **object**
 clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>kafkaTopics[].<br>name | **string**<br><p>Required.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>kafkaTopics[].<br>settings | **object**<br><p>Required.</p> 
@@ -1238,6 +1393,8 @@ clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>kafkaTopics[]
 clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>kafkaTopics[].<br>settings.<br>enableSslCertificateVerification | **boolean** (boolean)
 clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>kafkaTopics[].<br>settings.<br>maxPollIntervalMs | **integer** (int64)<br><p>The minimum value is 0.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>kafkaTopics[].<br>settings.<br>sessionTimeoutMs | **integer** (int64)<br><p>The minimum value is 0.</p> 
+clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>kafkaTopics[].<br>settings.<br>debug | **string**
+clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>kafkaTopics[].<br>settings.<br>autoOffsetReset | **string**
 clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>rabbitmq | **object**
 clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>rabbitmq.<br>username | **string**<br><p><a href="https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/">RabbitMQ</a> username</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>rabbitmq.<br>password | **string**<br><p><a href="https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/">RabbitMQ</a> password</p> 
@@ -1300,6 +1457,16 @@ clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>backgroundCom
 clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>defaultDatabase | **string**<br><p>The default database.</p> <p>To get a list of cluster databases, see <a href="/docs/managed-clickhouse/operations/databases#list-db">Yandex Managed ClickHouse documentation</a>.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>totalMemoryProfilerStep | **integer** (int64)<br><p>Sets the memory size (in bytes) for a stack trace at every peak allocation step. Default value: <strong>4194304</strong>.</p> <p>More info see in <a href="https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#total-memory-profiler-step">ClickHouse documentation</a>.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>totalMemoryTrackerSampleProbability | **number** (double)
+clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>queryMaskingRules[] | **object**<br><p>Required. Regexp-based rules, which will be applied to queries as well as all log messages before storing them in server logs, system.query_log, system.text_log, system.processes tables, and in logs sent to the client. That allows preventing sensitive data leakage from SQL queries (like names, emails, personal identifiers or credit card numbers) to logs. Change of these settings is applied with ClickHouse restart See in-depth description in <a href="https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#query-masking-rules">ClickHouse documentation</a></p> <p>Must contain at least one element.</p> 
+clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>queryMaskingRules[].<br>name | **string**<br><p>Name for the rule.</p> 
+clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>queryMaskingRules[].<br>regexp | **string**<br><p>Required. RE2 compatible regular expression. Required.</p> 
+clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>queryMaskingRules[].<br>replace | **string**<br><p>Substitution string for sensitive data. Default: six asterisks</p> 
+clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>dictionariesLazyLoad | **boolean** (boolean)<br><p>Lazy loading of dictionaries. Default: true See in-depth description in <a href="https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#dictionaries_lazy_load">ClickHouse documentation</a></p> 
+clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>queryCache | **object**<br><p><a href="https://clickhouse.com/docs/en/operations/query-cache">Query cache</a> configuration. Min version: 23.5 See in-depth description in <a href="https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#query_cache">ClickHouse documentation</a></p> 
+clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>queryCache.<br>maxSizeInBytes | **integer** (int64)<br><p>The maximum cache size in bytes. Default: 1073741824 (1 GiB)</p> <p>The minimum value is 0.</p> 
+clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>queryCache.<br>maxEntries | **integer** (int64)<br><p>The maximum number of SELECT query results stored in the cache. Default: 1024</p> <p>The minimum value is 0.</p> 
+clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>queryCache.<br>maxEntrySizeInBytes | **integer** (int64)<br><p>The maximum size in bytes SELECT query results may have to be saved in the cache. Dafault: 1048576 (1 MiB)</p> <p>The minimum value is 0.</p> 
+clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>queryCache.<br>maxEntrySizeInRows | **integer** (int64)<br><p>The maximum number of rows SELECT query results may have to be saved in the cache. Default: 30000000 (30 mil)</p> <p>The minimum value is 0.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig | **object**<br><p>Default configuration for a ClickHouse cluster.</p> <p>ClickHouse configuration options. Detailed description for each set of options is available in <a href="https://clickhouse.com/docs/en/operations/server_settings/settings/">ClickHouse documentation</a>.</p> <p>Any options not listed here are not supported.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>logLevel | **string**<br><p>Logging level for the ClickHouse cluster. Possible values: TRACE, DEBUG, INFORMATION, WARNING, ERROR.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>mergeTree | **object**<br><p>Settings for the MergeTree engine. See description in <a href="https://clickhouse.com/docs/en/operations/server_settings/settings/#merge_tree">ClickHouse documentation</a>.</p> <p>Options specific to the MergeTree table engine.</p> 
@@ -1327,6 +1494,10 @@ clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>mergeTree.
 clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>mergeTree.<br>minAgeToForceMergeSeconds | **integer** (int64)<br><p>Merge parts if every part in the range is older than the value of min_age_to_force_merge_seconds. Default: 0 - disabled Min_version: 22.10 See in-depth description in <a href="https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#min_age_to_force_merge_seconds">ClickHouse documentation</a></p> <p>The minimum value is 0.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>mergeTree.<br>minAgeToForceMergeOnPartitionOnly | **boolean** (boolean)<br><p>Whether min_age_to_force_merge_seconds should be applied only on the entire partition and not on subset. Default: false Min_version: 22.11 See in-depth description in <a href="https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#min_age_to_force_merge_seconds">ClickHouse documentation</a></p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>mergeTree.<br>mergeSelectingSleepMs | **integer** (int64)<br><p>Sleep time for merge selecting when no part is selected. A lower setting triggers selecting tasks in background_schedule_pool frequently, which results in a large number of requests to ClickHouse Keeper in large-scale clusters. Default: 5000 Min_version: 21.10 See in-depth description in <a href="https://clickhouse.com/docs/en/operations/settings/settings#merge_selecting_sleep_ms">ClickHouse documentation</a></p> <p>Value must be greater than 0.</p> 
+clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>mergeTree.<br>mergeMaxBlockSize | **integer** (int64)<br><p>The number of rows that are read from the merged parts into memory. Default: 8192 See in-depth description in <a href="https://clickhouse.com/docs/en/operations/settings/settings#merge_max_block_size">ClickHouse documentation</a></p> <p>Value must be greater than 0.</p> 
+clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>mergeTree.<br>checkSampleColumnIsCorrect | **boolean** (boolean)<br><p>Enables the check at table creation, that the data type of a column for sampling or sampling expression is correct. The data type must be one of unsigned <a href="https://clickhouse.com/docs/en/sql-reference/data-types/int-uint">integer types</a>: UInt8, UInt16, UInt32, UInt64. Default: true See in-depth description in <a href="https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#check_sample_column_is_correct">ClickHouse documentation</a></p> 
+clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>mergeTree.<br>maxMergeSelectingSleepMs | **integer** (int64)<br><p>Maximum sleep time for merge selecting, a lower setting will trigger selecting tasks in background_schedule_pool frequently which result in large amount of requests to zookeeper in large-scale clusters. Default: 60000 Min_version: 23.6 See in-depth description in <a href="https://github.com/ClickHouse/ClickHouse/blob/4add9db84859bff7410cf934a3904b0414e36e51/src/Storages/MergeTree/MergeTreeSettings.h#L71">ClickHouse GitHub</a></p> <p>The minimum value is 0.</p> 
+clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>mergeTree.<br>maxCleanupDelayPeriod | **integer** (int64)<br><p>Maximum period to clean old queue logs, blocks hashes and parts. Default: 300 Min_version: 23.6 See in-depth description in <a href="https://github.com/ClickHouse/ClickHouse/blob/4add9db84859bff7410cf934a3904b0414e36e51/src/Storages/MergeTree/MergeTreeSettings.h#L142">ClickHouse GitHub</a></p> <p>The minimum value is 0.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>compression[] | **object**<br><p>Compression settings for the ClickHouse cluster. See in-depth description in <a href="https://clickhouse.com/docs/en/operations/server_settings/settings/#compression">ClickHouse documentation</a>.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>compression[].<br>method | **string**<br><p>Compression method to use for the specified combination of ``minPartSize`` and ``minPartSizeRatio``.</p> <ul> <li>LZ4: <a href="https://lz4.github.io/lz4/">LZ4 compression algorithm</a>.</li> <li>ZSTD: <a href="https://facebook.github.io/zstd/">Zstandard compression algorithm</a>.</li> </ul> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>compression[].<br>minPartSize | **string** (int64)<br><p>Minimum size of a part of a table.</p> <p>The minimum value is 1.</p> 
@@ -1369,6 +1540,7 @@ clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>dictionari
 clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>dictionaries[].<br>layout | **object**<br>Required. Layout for storing the dictionary in memory. For in-depth description, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_layout/).
 clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>dictionaries[].<br>layout.<br>type | **string**<br><p>Required. Layout type for an external dictionary.</p> <ul> <li>FLAT: The entire dictionary is stored in memory in the form of flat arrays. Available for all dictionary sources.</li> <li>HASHED: The entire dictionary is stored in memory in the form of a hash table. Available for all dictionary sources.</li> <li>COMPLEX_KEY_HASHED: Similar to HASHED, to be used with composite keys. Available for all dictionary sources.</li> <li>RANGE_HASHED: The entire dictionary is stored in memory in the form of a hash table, with an ordered array of ranges and their corresponding values. Available for all dictionary sources.</li> <li>CACHE: The dictionary is stored in a cache with a set number of cells. Available for MySQL, ClickHouse and HTTP dictionary sources.</li> <li>COMPLEX_KEY_CACHE: Similar to CACHE, to be used with composite keys. Available for MySQL, ClickHouse and HTTP dictionary sources.</li> </ul> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>dictionaries[].<br>layout.<br>sizeInCells | **string** (int64)<br><p>Number of cells in the cache. Rounded up to a power of two. Applicable only for CACHE and COMPLEX_KEY_CACHE layout types.</p> 
+clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>dictionaries[].<br>layout.<br>maxArraySize | **string** (int64)<br><p>Maximum dictionary key size. Applicable only for FLAT layout type.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>dictionaries[].<br>fixedLifetime | **string** (int64) <br>`clusters[].config.clickhouse.config.defaultConfig.dictionaries[]` includes only one of the fields `fixedLifetime`, `lifetimeRange`<br><br><p>Fixed interval between dictionary updates.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>dictionaries[].<br>lifetimeRange | **object**<br>Range of intervals between dictionary updates for ClickHouse to choose from. <br>`clusters[].config.clickhouse.config.defaultConfig.dictionaries[]` includes only one of the fields `fixedLifetime`, `lifetimeRange`<br>
 clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>dictionaries[].<br>lifetimeRange.<br>min | **string** (int64)<br><p>Minimum dictionary lifetime.</p> 
@@ -1376,6 +1548,9 @@ clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>dictionari
 clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>dictionaries[].<br>httpSource | **object**<br>HTTP source for the dictionary. <br>`clusters[].config.clickhouse.config.defaultConfig.dictionaries[]` includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`<br>
 clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>dictionaries[].<br>httpSource.<br>url | **string**<br><p>Required. URL of the source dictionary available over HTTP.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>dictionaries[].<br>httpSource.<br>format | **string**<br><p>Required. The data format. Valid values are all formats supported by ClickHouse SQL dialect.</p> 
+clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>dictionaries[].<br>httpSource.<br>headers[] | **object**<br><p>HTTP headers.</p> 
+clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>dictionaries[].<br>httpSource.<br>headers[].<br>name | **string**<br><p>Required.</p> 
+clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>dictionaries[].<br>httpSource.<br>headers[].<br>value | **string**<br><p>Required.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>dictionaries[].<br>mysqlSource | **object**<br>MySQL source for the dictionary. <br>`clusters[].config.clickhouse.config.defaultConfig.dictionaries[]` includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`<br>
 clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>dictionaries[].<br>mysqlSource.<br>db | **string**<br><p>Required. Name of the MySQL database to connect to.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>dictionaries[].<br>mysqlSource.<br>table | **string**<br><p>Required. Name of the database table to use as a ClickHouse dictionary.</p> 
@@ -1390,18 +1565,21 @@ clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>dictionari
 clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>dictionaries[].<br>mysqlSource.<br>replicas[].<br>password | **string**<br><p>Password of the MySQL database user.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>dictionaries[].<br>mysqlSource.<br>where | **string**<br><p>Selection criteria for the data in the specified MySQL table.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>dictionaries[].<br>mysqlSource.<br>invalidateQuery | **string**<br><p>Query for checking the dictionary status, to pull only updated data. For more details, see <a href="https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/">ClickHouse documentation on dictionaries</a>.</p> 
+clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>dictionaries[].<br>mysqlSource.<br>closeConnection | **boolean** (boolean)<br><p>Should the connection be closed after each request.</p> 
+clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>dictionaries[].<br>mysqlSource.<br>shareConnection | **boolean** (boolean)<br><p>Should a connection be shared for some requests.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>dictionaries[].<br>clickhouseSource | **object**<br>ClickHouse source for the dictionary. <br>`clusters[].config.clickhouse.config.defaultConfig.dictionaries[]` includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`<br>
 clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>dictionaries[].<br>clickhouseSource.<br>db | **string**<br><p>Required. Name of the ClickHouse database.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>dictionaries[].<br>clickhouseSource.<br>table | **string**<br><p>Required. Name of the table in the specified database to be used as the dictionary source.</p> 
-clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>dictionaries[].<br>clickhouseSource.<br>host | **string**<br><p>Required. ClickHouse host of the specified database.</p> <p>The maximum string length in characters is 253.</p> 
+clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>dictionaries[].<br>clickhouseSource.<br>host | **string**<br><p>ClickHouse host of the specified database.</p> <p>The maximum string length in characters is 253.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>dictionaries[].<br>clickhouseSource.<br>port | **string** (int64)<br><p>Port to use when connecting to the host.</p> <p>Acceptable values are 0 to 65535, inclusive.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>dictionaries[].<br>clickhouseSource.<br>user | **string**<br><p>Required. Name of the ClickHouse database user.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>dictionaries[].<br>clickhouseSource.<br>password | **string**<br><p>Password of the ClickHouse database user.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>dictionaries[].<br>clickhouseSource.<br>where | **string**<br><p>Selection criteria for the data in the specified ClickHouse table.</p> 
+clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>dictionaries[].<br>clickhouseSource.<br>secure | **boolean** (boolean)<br><p>Use ssl for connection.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>dictionaries[].<br>mongodbSource | **object**<br>MongoDB source for the dictionary. <br>`clusters[].config.clickhouse.config.defaultConfig.dictionaries[]` includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`<br>
 clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>dictionaries[].<br>mongodbSource.<br>db | **string**<br><p>Required. Name of the MongoDB database.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>dictionaries[].<br>mongodbSource.<br>collection | **string**<br><p>Required. Name of the collection in the specified database to be used as the dictionary source.</p> 
-clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>dictionaries[].<br>mongodbSource.<br>host | **string**<br><p>Required. MongoDB host of the specified database.</p> <p>The maximum string length in characters is 253.</p> 
+clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>dictionaries[].<br>mongodbSource.<br>host | **string**<br><p>MongoDB host of the specified database.</p> <p>The maximum string length in characters is 253.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>dictionaries[].<br>mongodbSource.<br>port | **string** (int64)<br><p>Port to use when connecting to the host.</p> <p>Acceptable values are 0 to 65535, inclusive.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>dictionaries[].<br>mongodbSource.<br>user | **string**<br><p>Required. Name of the MongoDB database user.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>dictionaries[].<br>mongodbSource.<br>password | **string**<br><p>Password of the MongoDB database user.</p> 
@@ -1423,6 +1601,10 @@ clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>graphiteRo
 clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>graphiteRollup[].<br>patterns[].<br>retention[] | **object**<br><p>Required. Age of data to use for thinning.</p> <p>Must contain at least one element.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>graphiteRollup[].<br>patterns[].<br>retention[].<br>age | **string** (int64)<br><p>Minimum age of the data in seconds.</p> <p>The minimum value is 0.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>graphiteRollup[].<br>patterns[].<br>retention[].<br>precision | **string** (int64)<br><p>Precision of determining the age of the data, in seconds.</p> <p>Value must be greater than 0.</p> 
+clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>graphiteRollup[].<br>pathColumnName | **string**<br><p>The name of the column storing the metric name (Graphite sensor). Default: Path See in-depth description in <a href="https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns">ClickHouse documentation</a></p> 
+clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>graphiteRollup[].<br>timeColumnName | **string**<br><p>The name of the column storing the time of measuring the metric. Default: Time See in-depth description in <a href="https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns">ClickHouse documentation</a></p> 
+clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>graphiteRollup[].<br>valueColumnName | **string**<br><p>The name of the column storing the value of the metric at the time set in time_column_name. Default: Value See in-depth description in <a href="https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns">ClickHouse documentation</a></p> 
+clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>graphiteRollup[].<br>versionColumnName | **string**<br><p>The name of the column storing the version of the metric. Default: Timestamp See in-depth description in <a href="https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns">ClickHouse documentation</a></p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>kafka | **object**
 clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>kafka.<br>securityProtocol | **string**
 clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>kafka.<br>saslMechanism | **string**
@@ -1431,6 +1613,8 @@ clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>kafka.<br>
 clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>kafka.<br>enableSslCertificateVerification | **boolean** (boolean)
 clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>kafka.<br>maxPollIntervalMs | **integer** (int64)<br><p>The minimum value is 0.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>kafka.<br>sessionTimeoutMs | **integer** (int64)<br><p>The minimum value is 0.</p> 
+clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>kafka.<br>debug | **string**
+clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>kafka.<br>autoOffsetReset | **string**
 clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>kafkaTopics[] | **object**
 clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>kafkaTopics[].<br>name | **string**<br><p>Required.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>kafkaTopics[].<br>settings | **object**<br><p>Required.</p> 
@@ -1441,6 +1625,8 @@ clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>kafkaTopic
 clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>kafkaTopics[].<br>settings.<br>enableSslCertificateVerification | **boolean** (boolean)
 clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>kafkaTopics[].<br>settings.<br>maxPollIntervalMs | **integer** (int64)<br><p>The minimum value is 0.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>kafkaTopics[].<br>settings.<br>sessionTimeoutMs | **integer** (int64)<br><p>The minimum value is 0.</p> 
+clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>kafkaTopics[].<br>settings.<br>debug | **string**
+clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>kafkaTopics[].<br>settings.<br>autoOffsetReset | **string**
 clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>rabbitmq | **object**
 clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>rabbitmq.<br>username | **string**<br><p><a href="https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/">RabbitMQ</a> username</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>rabbitmq.<br>password | **string**<br><p><a href="https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/">RabbitMQ</a> password</p> 
@@ -1503,6 +1689,16 @@ clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>background
 clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>defaultDatabase | **string**<br><p>The default database.</p> <p>To get a list of cluster databases, see <a href="/docs/managed-clickhouse/operations/databases#list-db">Yandex Managed ClickHouse documentation</a>.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>totalMemoryProfilerStep | **integer** (int64)<br><p>Sets the memory size (in bytes) for a stack trace at every peak allocation step. Default value: <strong>4194304</strong>.</p> <p>More info see in <a href="https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#total-memory-profiler-step">ClickHouse documentation</a>.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>totalMemoryTrackerSampleProbability | **number** (double)
+clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>queryMaskingRules[] | **object**<br><p>Required. Regexp-based rules, which will be applied to queries as well as all log messages before storing them in server logs, system.query_log, system.text_log, system.processes tables, and in logs sent to the client. That allows preventing sensitive data leakage from SQL queries (like names, emails, personal identifiers or credit card numbers) to logs. Change of these settings is applied with ClickHouse restart See in-depth description in <a href="https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#query-masking-rules">ClickHouse documentation</a></p> <p>Must contain at least one element.</p> 
+clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>queryMaskingRules[].<br>name | **string**<br><p>Name for the rule.</p> 
+clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>queryMaskingRules[].<br>regexp | **string**<br><p>Required. RE2 compatible regular expression. Required.</p> 
+clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>queryMaskingRules[].<br>replace | **string**<br><p>Substitution string for sensitive data. Default: six asterisks</p> 
+clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>dictionariesLazyLoad | **boolean** (boolean)<br><p>Lazy loading of dictionaries. Default: true See in-depth description in <a href="https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#dictionaries_lazy_load">ClickHouse documentation</a></p> 
+clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>queryCache | **object**<br><p><a href="https://clickhouse.com/docs/en/operations/query-cache">Query cache</a> configuration. Min version: 23.5 See in-depth description in <a href="https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#query_cache">ClickHouse documentation</a></p> 
+clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>queryCache.<br>maxSizeInBytes | **integer** (int64)<br><p>The maximum cache size in bytes. Default: 1073741824 (1 GiB)</p> <p>The minimum value is 0.</p> 
+clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>queryCache.<br>maxEntries | **integer** (int64)<br><p>The maximum number of SELECT query results stored in the cache. Default: 1024</p> <p>The minimum value is 0.</p> 
+clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>queryCache.<br>maxEntrySizeInBytes | **integer** (int64)<br><p>The maximum size in bytes SELECT query results may have to be saved in the cache. Dafault: 1048576 (1 MiB)</p> <p>The minimum value is 0.</p> 
+clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>queryCache.<br>maxEntrySizeInRows | **integer** (int64)<br><p>The maximum number of rows SELECT query results may have to be saved in the cache. Default: 30000000 (30 mil)</p> <p>The minimum value is 0.</p> 
 clusters[].<br>config.<br>clickhouse.<br>resources | **object**<br><p>Resources allocated to ClickHouse hosts.</p> 
 clusters[].<br>config.<br>clickhouse.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-clickhouse/concepts/instance-types">documentation</a></p> 
 clusters[].<br>config.<br>clickhouse.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
@@ -1533,6 +1729,7 @@ clusters[].<br>config.<br>cloudStorage.<br>preferNotToMerge | **boolean** (boole
 clusters[].<br>config.<br>sqlDatabaseManagement | **boolean** (boolean)<br><p>Whether database management through SQL commands is enabled.</p> 
 clusters[].<br>config.<br>sqlUserManagement | **boolean** (boolean)<br><p>Whether user management through SQL commands is enabled.</p> 
 clusters[].<br>config.<br>embeddedKeeper | **boolean** (boolean)<br><p>Whether cluster should use embedded Keeper instead of Zookeeper.</p> 
+clusters[].<br>config.<br>backupRetainPeriodDays | **integer** (int64)<br><p>Retain period of automatically created backup in days</p> 
 clusters[].<br>networkId | **string**<br><p>ID of the network that the cluster belongs to.</p> 
 clusters[].<br>health | **string**<br><p>Aggregated cluster health.</p> <ul> <li>HEALTH_UNKNOWN: State of the cluster is unknown (``health`` for every host in the cluster is UNKNOWN).</li> <li>ALIVE: Cluster is alive and well (``health`` for every host in the cluster is ALIVE).</li> <li>DEAD: Cluster is inoperable (``health`` for every host in the cluster is DEAD).</li> <li>DEGRADED: Cluster is working below capacity (``health`` for at least one host in the cluster is not ALIVE).</li> </ul> 
 clusters[].<br>status | **string**<br><p>Current state of the cluster.</p> <ul> <li>STATUS_UNKNOWN: Cluster state is unknown.</li> <li>CREATING: Cluster is being created.</li> <li>RUNNING: Cluster is running normally.</li> <li>ERROR: Cluster encountered a problem and cannot operate.</li> <li>UPDATING: Cluster is being updated.</li> <li>STOPPING: Cluster is stopping.</li> <li>STOPPED: Cluster stopped.</li> <li>STARTING: Cluster is starting.</li> </ul> 

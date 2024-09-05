@@ -9,5 +9,6 @@ A set of methods for managing IAM tokens.
 ## Methods {#methods}
 Method | Description
 --- | ---
-[create](create.md) | Creates an IAM token for the specified identity.
-[createForServiceAccount](createForServiceAccount.md) | Create iam token for service account.
+[create](create.md) | Create an IAM token for the specified identity.
+[createForServiceAccount](createForServiceAccount.md) | Create an IAM token for service account.
+[revoke](revoke.md) | Revoke the IAM token.

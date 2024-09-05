@@ -13,5 +13,4 @@ Method | Description
 [enable](enable.md) | Enable a service in the specified resource container.
 [get](get.md) | Returns the Service information in the specified resource container.
 [list](list.md) | Retrieves the list of Service in the specified resource container.
-[pause](pause.md) | Pause a service in the specified resource container.
-[resume](resume.md) | Resume a service in the specified resource container.
+[resolveAgent](resolveAgent.md) | Resolve agent service account for the service in the specified resource container.

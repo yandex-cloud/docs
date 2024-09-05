@@ -838,6 +838,7 @@ id | **oneof:** `folder_id`, `policy_id` or `compute_instance_id`<br>
 &nbsp;&nbsp;folder_id | **string**<br>Folder ID. 
 &nbsp;&nbsp;policy_id | **string**<br>Policy ID. 
 &nbsp;&nbsp;compute_instance_id | **string**<br>Compute Cloud instance ID. 
+show_processing | **bool**<br>If true, also returns applications that in the process of binding. 
 
 
 ### ListApplicationsResponse {#ListApplicationsResponse}
@@ -856,6 +857,7 @@ compute_instance_id | **string**<br>Compute Cloud instance ID.
 enabled | **bool**<br> 
 status | enum **Status**<br> <ul><li>`OK`: Application is applied and everything is OK.</li><li>`RUNNING`: Application is currently running.</li><li>`DISABLED`: Application is disabled.</li></ul>
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
+is_processing | **bool**<br>If true, then the policy is in in the process of binding to the instance. 
 
 
 ## Execute {#Execute}

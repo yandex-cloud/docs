@@ -91,6 +91,24 @@ POST https://serverless-functions.{{ api-host }}/functions/v1/versions
   },
   "tmpfsSize": "string",
   "concurrency": "string",
+  "mounts": [
+    {
+      "name": "string",
+      "mode": "string",
+
+      // `mounts[]` includes only one of the fields `objectStorage`, `ephemeralDiskSpec`
+      "objectStorage": {
+        "bucketId": "string",
+        "prefix": "string"
+      },
+      "ephemeralDiskSpec": {
+        "size": "string",
+        "blockSize": "string"
+      },
+      // end of the list of possible fields`mounts[]`
+
+    }
+  ],
 
   //  includes only one of the fields `package`, `content`, `versionId`
   "package": {
@@ -113,7 +131,7 @@ runtime | **string**<br><p>Required. Runtime environment for the version.</p>
 description | **string**<br><p>Description of the version</p> <p>The string length in characters must be 0-256.</p> 
 entrypoint | **string**<br><p>Required. Entrypoint of the version.</p> 
 resources | **object**<br>Required. Resources allocated to the version.
-resources.<br>memory | **string** (int64)<br><p>Amount of memory available to the version, specified in bytes, multiple of 128MB.</p> <p>Acceptable values are 134217728 to 4294967296, inclusive.</p> 
+resources.<br>memory | **string** (int64)<br><p>Amount of memory available to the version, specified in bytes, multiple of 128MB.</p> <p>Acceptable values are 134217728 to 8589934592, inclusive.</p> 
 executionTimeout | **string**<br><p>Required. Timeout for the execution of the version.</p> <p>If the timeout is exceeded, Cloud Functions responds with a 504 HTTP code.</p> 
 serviceAccountId | **string**<br><p>ID of the service account to associate with the version.</p> 
 environment | **object**<br><p>Environment settings for the version.</p> <p>Each key must match the regular expression ``[a-zA-Z][a-zA-Z0-9_]*``. The maximum string length in characters for each value is 4096.</p> 
@@ -152,6 +170,15 @@ asyncInvocationConfig.<br>failureTarget.<br>ymqTarget.<br>serviceAccountId | **s
 asyncInvocationConfig.<br>serviceAccountId | **string**<br><p>Service account which can invoke version</p> 
 tmpfsSize | **string** (int64)<br><p>Optional size of in-memory mounted /tmp directory in bytes. Available for versions with resources.memory greater or equal to 1024 MiB.</p> <p>0 or in range from 512 MiB to 3/4 of resources.memory.</p> 
 concurrency | **string** (int64)<br><p>The maximum number of requests processed by a function instance at the same time</p> <p>Acceptable values are 0 to 16, inclusive.</p> 
+mounts[] | **object**<br><p>Mounts to be used by the version.</p> 
+mounts[].<br>name | **string**<br><p>Required. Unique mount point name. Device will be mounted into /function/storage/<name></p> <p>The string length in characters must be 1-100. Value must match the regular expression ``[-_0-9a-zA-Z]*``.</p> 
+mounts[].<br>mode | **string**<br>Mount's mode
+mounts[].<br>objectStorage | **object**<br>Object storage mounts <br>`mounts[]` includes only one of the fields `objectStorage`, `ephemeralDiskSpec`<br>
+mounts[].<br>objectStorage.<br>bucketId | **string**<br><p>Required. ObjectStorage bucket name for mounting.</p> <p>The string length in characters must be 3-63. Value must match the regular expression ``[-.0-9a-zA-Z]*``.</p> 
+mounts[].<br>objectStorage.<br>prefix | **string**<br><p>ObjectStorage bucket prefix for mounting.</p> 
+mounts[].<br>ephemeralDiskSpec | **object**<br>Working disk (worker-local non-shared read-write NBS disk templates) <br>`mounts[]` includes only one of the fields `objectStorage`, `ephemeralDiskSpec`<br>
+mounts[].<br>ephemeralDiskSpec.<br>size | **string** (int64)<br><p>The size of disk for mount in bytes</p> <p>Value must be greater than 0.</p> 
+mounts[].<br>ephemeralDiskSpec.<br>blockSize | **string** (int64)<br><p>Optional block size of disk for mount in bytes</p> 
 package | **object**<br>Functions deployment package. <br> includes only one of the fields `package`, `content`, `versionId`<br>
 package.<br>bucketName | **string**<br><p>Required. Name of the bucket that stores the code for the version.</p> 
 package.<br>objectName | **string**<br><p>Required. Name of the object in the bucket that stores the code for the version.</p> 

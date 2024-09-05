@@ -54,6 +54,16 @@ pageToken | <p>Page token. To get the next page of results, set <a href="/docs/c
         "placementGroupId": "string",
         "placementGroupPartition": "string"
       },
+      "hardwareGeneration": {
+
+        // `disks[].hardwareGeneration` includes only one of the fields `legacyFeatures`, `generation2Features`
+        "legacyFeatures": {
+          "pciTopology": "string"
+        },
+        "generation2Features": {},
+        // end of the list of possible fields`disks[].hardwareGeneration`
+
+      },
 
       // `disks[]` includes only one of the fields `sourceImageId`, `sourceSnapshotId`
       "sourceImageId": "string",
@@ -86,6 +96,10 @@ disks[].<br>instanceIds[] | **string**<br><p>Array of instances to which the dis
 disks[].<br>diskPlacementPolicy | **object**<br>Placement policy configuration.
 disks[].<br>diskPlacementPolicy.<br>placementGroupId | **string**<br><p>Placement group ID.</p> 
 disks[].<br>diskPlacementPolicy.<br>placementGroupPartition | **string** (int64)
+disks[].<br>hardwareGeneration | **object**<br>If specified, forces the same HardwareGeneration features to be applied to the instance created using this disk as a boot one. Otherwise the current default will be used.
+disks[].<br>hardwareGeneration.<br>legacyFeatures | **object** <br>`disks[].hardwareGeneration` includes only one of the fields `legacyFeatures`, `generation2Features`<br><br><p>A first hardware generation, by default compatible with all legacy images. Allows switching to PCI_TOPOLOGY_V2 and back.</p> 
+disks[].<br>hardwareGeneration.<br>legacyFeatures.<br>pciTopology | **string**
+disks[].<br>hardwareGeneration.<br>generation2Features | **object** <br>`disks[].hardwareGeneration` includes only one of the fields `legacyFeatures`, `generation2Features`<br><br><p>A second hardware generation, which by default assumes PCI_TOPOLOGY_V2 and UEFI boot (with UEFI related features).</p> 
 disks[].<br>sourceImageId | **string** <br>`disks[]` includes only one of the fields `sourceImageId`, `sourceSnapshotId`<br><br><p>ID of the image that was used for disk creation.</p> 
 disks[].<br>sourceSnapshotId | **string** <br>`disks[]` includes only one of the fields `sourceImageId`, `sourceSnapshotId`<br><br><p>ID of the snapshot that was used for disk creation.</p> 
 nextPageToken | **string**<br><p>Token for getting the next page of the list. If the number of results is greater than the specified <a href="/docs/compute/api-ref/SnapshotSchedule/listDisks#query_params">pageSize</a>, use ``next_page_token`` as the value for the <a href="/docs/compute/api-ref/SnapshotSchedule/listDisks#query_params">pageToken</a> parameter in the next list request.</p> <p>Each subsequent page will have its own ``next_page_token`` to continue paging through the results.</p> 

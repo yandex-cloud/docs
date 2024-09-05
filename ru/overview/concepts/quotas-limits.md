@@ -114,6 +114,11 @@ description: "В сервисах {{ yandex-cloud }} могут действов
 
 
 
+### {{ video-full-name }} {#video}
+
+{% include [video-limits](../../_includes/video-limits.md) %}
+
+
 ### {{ compute-full-name }} {#compute}
 
 {% include [compute-limits.md](../../_includes/compute-limits.md) %}

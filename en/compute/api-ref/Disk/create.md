@@ -33,6 +33,16 @@ POST https://compute.{{ api-host }}/compute/v1/disks
   "snapshotScheduleIds": [
     "string"
   ],
+  "hardwareGeneration": {
+
+    // `hardwareGeneration` includes only one of the fields `legacyFeatures`, `generation2Features`
+    "legacyFeatures": {
+      "pciTopology": "string"
+    },
+    "generation2Features": {},
+    // end of the list of possible fields`hardwareGeneration`
+
+  },
 
   //  includes only one of the fields `imageId`, `snapshotId`
   "imageId": "string",
@@ -57,6 +67,10 @@ diskPlacementPolicy | **object**<br>Placement policy configuration.
 diskPlacementPolicy.<br>placementGroupId | **string**<br><p>Placement group ID.</p> 
 diskPlacementPolicy.<br>placementGroupPartition | **string** (int64)
 snapshotScheduleIds[] | **string**<br><p>List of IDs of the snapshot schedules to attach the disk to.</p> 
+hardwareGeneration | **object**<br>Specify the overrides to hardware_generation of a source disk, image or snapshot, or to the default values if the source does not define it.
+hardwareGeneration.<br>legacyFeatures | **object** <br>`hardwareGeneration` includes only one of the fields `legacyFeatures`, `generation2Features`<br><br><p>A first hardware generation, by default compatible with all legacy images. Allows switching to PCI_TOPOLOGY_V2 and back.</p> 
+hardwareGeneration.<br>legacyFeatures.<br>pciTopology | **string**
+hardwareGeneration.<br>generation2Features | **object** <br>`hardwareGeneration` includes only one of the fields `legacyFeatures`, `generation2Features`<br><br><p>A second hardware generation, which by default assumes PCI_TOPOLOGY_V2 and UEFI boot (with UEFI related features).</p> 
 imageId | **string** <br> includes only one of the fields `imageId`, `snapshotId`<br><br><p>ID of the image to create the disk from.</p> <p>The maximum string length in characters is 50.</p> 
 snapshotId | **string** <br> includes only one of the fields `imageId`, `snapshotId`<br><br><p>ID of the snapshot to restore the disk from.</p> <p>The maximum string length in characters is 50.</p> 
  

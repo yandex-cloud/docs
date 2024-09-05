@@ -16,6 +16,7 @@ Episode management service.
 | [Delete](#Delete) | Delete episode. |
 | [PerformAction](#PerformAction) | Perform an action on the episode. |
 | [GetPlayerURL](#GetPlayerURL) | Returns url to the player. |
+| [GetManifests](#GetManifests) | Returns manifest urls. |
 
 ## Calls EpisodeService {#calls}
 
@@ -441,5 +442,33 @@ Field | Description
 --- | ---
 player_url | **string**<br>Direct link to the video. 
 html | **string**<br>HTML embed code in Iframe format. 
+
+
+## GetManifests {#GetManifests}
+
+Returns manifest urls.
+
+**rpc GetManifests ([GetEpisodeManifestsRequest](#GetEpisodeManifestsRequest)) returns ([GetEpisodeManifestsResponse](#GetEpisodeManifestsResponse))**
+
+### GetEpisodeManifestsRequest {#GetEpisodeManifestsRequest}
+
+Field | Description
+--- | ---
+episode_id | **string**<br>ID of the episode. 
+
+
+### GetEpisodeManifestsResponse {#GetEpisodeManifestsResponse}
+
+Field | Description
+--- | ---
+manifests[] | **[Manifest](#Manifest)**<br> 
+
+
+### Manifest {#Manifest}
+
+Field | Description
+--- | ---
+url | **string**<br> 
+type | enum **ManifestType**<br> 
 
 

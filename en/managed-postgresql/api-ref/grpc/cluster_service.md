@@ -692,6 +692,7 @@ name | **string**<br>New name for the cluster. The maximum string length in char
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow3)**<br>New maintenance window settings for the cluster. 
 security_group_ids[] | **string**<br>User security groups 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
+network_id | **string**<br>ID of the network to move the cluster to. The maximum string length in characters is 50.
 
 
 ### ConfigSpec {#ConfigSpec1}

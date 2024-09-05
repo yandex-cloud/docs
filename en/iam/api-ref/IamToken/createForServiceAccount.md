@@ -4,7 +4,7 @@ sourcePath: en/_api-ref/iam/v1/api-ref/IamToken/createForServiceAccount.md
 ---
 
 # Identity and Access Management API, REST: IamToken.createForServiceAccount
-Create iam token for service account.
+Create an IAM token for service account.
  
 
  

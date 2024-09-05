@@ -20,6 +20,7 @@ Parameter | Description
 folderId | <p>Required. Folder ID.</p> <p>The maximum string length in characters is 50.</p> 
 pageSize | <p>Number of results per page.</p> <p>The maximum value is 1000.</p> 
 pageToken | <p>Token for the results page.</p> <p>The maximum string length in characters is 100.</p> 
+type | <p>Type of resource. Could be compute VM or baremetal server.</p> <ul> <li>COMPUTE: Resource is Compute Cloud VM</li> <li>BMS: Resource is baremetal server</li> </ul> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -41,7 +42,8 @@ pageToken | <p>Token for the results page.</p> <p>The maximum string length in c
       "resourceId": "string",
       "isActive": true,
       "initStatus": "string",
-      "metadata": "string"
+      "metadata": "string",
+      "type": "string"
     }
   ],
   "nextPageToken": "string"
@@ -66,4 +68,5 @@ resources[].<br>resourceId | **string**<br><p>Resource ID is used to identify Co
 resources[].<br>isActive | **boolean** (boolean)<br><p>Status ``is_active`` shows whether current Compute Cloud instance controls Cloud Backup resource. If status ``is_active`` is false it means Compute Cloud instance is not able to manipulate Cloud Backup resource.</p> 
 resources[].<br>initStatus | **string**<br><p>Status of resource initialization in cloud backup service.</p> <ul> <li>REGISTERING: Registration of instance in cloud backups have started.</li> <li>REGISTRED: Instance is registered in cloud backups.</li> <li>FAILED_REGISTRATION: Instance registration failed.</li> <li>DELETED: Instance is deleted from cloud backup service.</li> </ul> 
 resources[].<br>metadata | **string**<br><p>Metadata to provide details about instance registration process if status is FAILED_REGISTRATION or REGISTERING</p> 
+resources[].<br>type | **string**<br><p>Type of resource. Could be compute VM or baremetal server.</p> <ul> <li>COMPUTE: Resource is Compute Cloud VM</li> <li>BMS: Resource is baremetal server</li> </ul> 
 nextPageToken | **string**<br><p>Token for the next results page.</p> 

@@ -25,7 +25,7 @@ Parameter | Description
 --- | ---
 pageSize | <p>The maximum number of results per page to return. If the number of available results is larger than <a href="/docs/compute/api-ref/HostGroup/listInstances#query_params">pageSize</a>, the service returns a <a href="/docs/compute/api-ref/HostGroup/listInstances#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests.</p> <p>The maximum value is 1000.</p> 
 pageToken | <p>Page token. To get the next page of results, set <a href="/docs/compute/api-ref/HostGroup/listInstances#query_params">pageToken</a> to the <a href="/docs/compute/api-ref/HostGroup/listInstances#responses">nextPageToken</a> returned by a previous list request.</p> <p>The maximum string length in characters is 100.</p> 
-filter | <p>Filter support is not currently implemented. Any filters are ignored.</p> <p>The maximum string length in characters is 1000.</p> 
+filter | <p>A filter expression that filters resources listed in the response. The expression consists of one or more conditions united by ``AND`` operator: ``<condition1> [AND <condition2> [<...> AND <conditionN>]]``.</p> <p>Each condition has the form ``<field> <operator> <value>``, where:</p> <ol> <li>``<field>`` is the field name. Currently you can use filtering only on the limited number of fields.</li> <li>``<operator>`` is a logical operator, one of ``=``, ``!=``, ``IN``, ``NOT IN``.</li> <li>``<value>`` represents a value. String values should be written in double (``"``) or single (``'``) quotes. C-style escape sequences are supported (``\"`` turns to ``"``, ``\'`` to ``'``, ``\\`` to backslash). Currently you can use filtering only on the ``id`` field. To get the host ID, use <a href="/docs/compute/api-ref/HostGroup/listHosts">listHosts</a> request.</li> </ol> <p>The maximum string length in characters is 1000.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -169,7 +169,17 @@ filter | <p>Filter support is not currently implemented. Any filters are ignored
       "hostGroupId": "string",
       "hostId": "string",
       "maintenancePolicy": "string",
-      "maintenanceGracePeriod": "string"
+      "maintenanceGracePeriod": "string",
+      "hardwareGeneration": {
+
+        // `instances[].hardwareGeneration` includes only one of the fields `legacyFeatures`, `generation2Features`
+        "legacyFeatures": {
+          "pciTopology": "string"
+        },
+        "generation2Features": {},
+        // end of the list of possible fields`instances[].hardwareGeneration`
+
+      }
     }
   ],
   "nextPageToken": "string"
@@ -273,4 +283,8 @@ instances[].<br>hostGroupId | **string**<br><p>ID of the dedicated host group th
 instances[].<br>hostId | **string**<br><p>ID of the dedicated host that the instance belongs to.</p> 
 instances[].<br>maintenancePolicy | **string**<br><p>Behaviour on maintenance events</p> <ul> <li>RESTART: Restart instance to move it to another host during maintenance</li> <li>MIGRATE: Use live migration to move instance to another host during maintenance</li> </ul> 
 instances[].<br>maintenanceGracePeriod | **string**<br><p>Time between notification via metadata service and maintenance</p> 
+instances[].<br>hardwareGeneration | **object**<br><p>This feature set is inherited from the image/disk used as a boot one at the creation of the instance.</p> <p>A set of features, specific to a particular Compute hardware generation. They are not necessary supported by every host OS or distro, thus they are fixed to an image and are applied to all instances created with it as their boot disk image. These features significantly determine how the instance is created, thus cannot be changed after the fact.</p> 
+instances[].<br>hardwareGeneration.<br>legacyFeatures | **object** <br>`instances[].hardwareGeneration` includes only one of the fields `legacyFeatures`, `generation2Features`<br><br><p>A first hardware generation, by default compatible with all legacy images. Allows switching to PCI_TOPOLOGY_V2 and back.</p> 
+instances[].<br>hardwareGeneration.<br>legacyFeatures.<br>pciTopology | **string**
+instances[].<br>hardwareGeneration.<br>generation2Features | **object** <br>`instances[].hardwareGeneration` includes only one of the fields `legacyFeatures`, `generation2Features`<br><br><p>A second hardware generation, which by default assumes PCI_TOPOLOGY_V2 and UEFI boot (with UEFI related features).</p> 
 nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is more than <a href="/docs/compute/api-ref/HostGroup/listInstances#query_params">pageSize</a>, use <a href="/docs/compute/api-ref/HostGroup/listInstances#responses">nextPageToken</a> as the value for the <a href="/docs/compute/api-ref/HostGroup/listInstances#query_params">pageToken</a> query parameter in the next list request. Each subsequent list request will have its own <a href="/docs/compute/api-ref/HostGroup/listInstances#responses">nextPageToken</a> to continue paging through the results.</p> 

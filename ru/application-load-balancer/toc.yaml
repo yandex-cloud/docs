@@ -76,8 +76,14 @@ items:
         href: tutorials/index.md
       - name: Организация виртуального хостинга
         href: tutorials/virtual-hosting.md
-      - name: Создание балансировщика с защитой от DDoS
-        href: tutorials/alb-with-ddos-protection.md
+      - name: Создание L7-балансировщика с защитой от DDoS
+        items:
+          - name: Обзор
+            href: tutorials/alb-with-ddos-protection/index.md
+          - name: Консоль управления, CLI
+            href: tutorials/alb-with-ddos-protection/console.md
+          - name: '{{ TF }}'
+            href: tutorials/alb-with-ddos-protection/terraform.md
       - name: Интеграция L7-балансировщика с CDN и Object Storage
         href: tutorials/cdn-storage-integration.md
       - name: Сине-зеленое и канареечное развертывание версий сервиса

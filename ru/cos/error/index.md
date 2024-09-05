@@ -41,7 +41,7 @@ Sep 28 08:00:33 cl17bn514eluq62d****-**** yc-container-daemon[952]:
 {"level":"ERROR","ts":"2019-09-28T08:00:33.843Z","caller":"container/container.go:124","msg":"error pulling image: Error response from daemon: Get https://{{ registry }}/v2/: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)"}
 ```
 
-**Как исправить**: проверьте доступ к {{ container-registry-name }} командой: `nc -vz {{ registry }} 443`. Если доступа нет, [настройте NAT-инстанс](../../tutorials/routing/nat-instance.md) или назначьте публичный IP-адрес на виртуальные машины с {{ coi }}. Также можно [настроить NAT-шлюз](../../vpc/operations/create-nat-gateway.md) для подсети, в которой создаются ВМ.
+**Как исправить**: проверьте доступ к {{ container-registry-name }} командой: `nc -vz {{ registry }} 443`. Если доступа нет, [настройте NAT-инстанс](../../tutorials/routing/nat-instance/index.md) или назначьте публичный IP-адрес на виртуальные машины с {{ coi }}. Также можно [настроить NAT-шлюз](../../vpc/operations/create-nat-gateway.md) для подсети, в которой создаются ВМ.
 
 ## К ВМ не привязан сервисный аккаунт для доступа к {{ container-registry-name }} {#sa-for-registry}
 

@@ -462,6 +462,10 @@ items:
         href: tutorials/monitoring.md
       - name: Эмуляция множества IoT-устройств
         href: tutorials/iot-emulation.md
+      - name: >-
+          Передача событий {{ postbox-full-name }} в {{ yds-full-name }} и их
+          анализ с помощью {{ datalens-full-name }}
+        href: tutorials/events-from-postbox-to-yds.md
   - name: Правила тарификации
     href: pricing.md
   - name: Управление доступом

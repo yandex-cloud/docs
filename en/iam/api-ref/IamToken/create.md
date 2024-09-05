@@ -4,7 +4,7 @@ sourcePath: en/_api-ref/iam/v1/api-ref/IamToken/create.md
 ---
 
 # Identity and Access Management API, REST: IamToken.create
-Creates an IAM token for the specified identity.
+Create an IAM token for the specified identity.
  
 
  

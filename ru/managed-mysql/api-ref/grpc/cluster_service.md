@@ -517,6 +517,7 @@ name | **string**<br>New name of the cluster. The maximum string length in chara
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow3)**<br>Configuration of a maintenance window in an MySQL cluster. 
 security_group_ids[] | **string**<br>New list of security group IDs to apply to the cluster. 
 deletion_protection | **bool**<br>This option prevents unintended deletion of the cluster. 
+network_id | **string**<br>ID of the network to move the cluster to. The maximum string length in characters is 50.
 
 
 ### ConfigSpec {#ConfigSpec1}

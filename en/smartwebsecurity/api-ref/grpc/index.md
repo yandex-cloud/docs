@@ -9,4 +9,7 @@ See the interface definitions of the API on [GitHub](https://github.com/yandex-c
 Service | Description
 --- | ---
 [SecurityProfileService](./security_profile_service.md) | A set of methods for managing SecurityProfile resources.
+[AdvancedRateLimiterProfileService](./advanced_rate_limiter_profile_service.md) | A set of methods for managing AdvancedRateLimiterProfile resources.
+[RuleSetDescriptorService](./rule_set_descriptor_service.md) | A set of methods for managing RuleSetDescriptor resources.
+[WafProfileService](./waf_profile_service.md) | A set of methods for managing WafProfile resources.
 [OperationService](./operation_service.md) | A set of methods for managing operations for asynchronous API requests.

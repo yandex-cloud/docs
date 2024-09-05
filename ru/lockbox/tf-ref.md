@@ -9,7 +9,7 @@
 | **Ресурс {{ TF }}** | **Ресурс {{ yandex-cloud }}** |
 | --- | --- |
 | [yandex_lockbox_secret]({{ tf-provider-resources-link }}/lockbox_secret) | [Секрет](./concepts/secret.md#secret) |
-| [yandex_lockbox_secret_iam_binding]({{ tf-provider-resources-link }}/lockbox_secret_iam_binding) | [Привязка](../iam/concepts/access-control/index.md#access-bindings) прав доступа к секрету |
+| [yandex_lockbox_secret_iam_binding]({{ tf-provider-resources-link }}/lockbox_secret_iam_binding) | [Назначение](../iam/concepts/access-control/index.md#access-bindings) прав доступа к секрету |
 | [yandex_lockbox_secret_version]({{ tf-provider-resources-link }}/lockbox_secret_version) | [Версия секрета](./concepts/secret.md#version) |
 
 ## Источники данных {#data-sources}

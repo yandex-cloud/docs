@@ -10,6 +10,7 @@ Service | Description
 --- | ---
 [AgentService](./agent_service.md) | A set of methods for managing Load Testing agents.
 [ConfigService](./config_service.md) | A set of methods for managing test configurations.
+[RegressionDashboardService](./regression_dashboard_service.md) | A set of methods for managing Load Testing Regression Dashboards.
 [ReportService](./report_service.md) | A set of methods for managing test reports.
 [TestService](./test_service.md) | A set of methods for managing tests.
 [OperationService](./operation_service.md) | A set of methods for managing operations for asynchronous API requests.

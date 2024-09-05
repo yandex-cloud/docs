@@ -184,7 +184,8 @@ pageToken | <p>Opaque value identifying the transfers page to be fetched. Should
               "jsonParser": {
                 "dataSchema": {
 
-                  // `transfers[].source.settings.ydsSource.parser.jsonParser.dataSchema` includes only one of the fields `fields`, `jsonFields`
+                  // `transfers[].source.settings.ydsSource.parser.jsonParser.dataSchema` includes only one of the fields `jsonFields`, `fields`
+                  "jsonFields": "string",
                   "fields": {
                     "fields": [
                       {
@@ -196,7 +197,6 @@ pageToken | <p>Opaque value identifying the transfers page to be fetched. Should
                       }
                     ]
                   },
-                  "jsonFields": "string",
                   // end of the list of possible fields`transfers[].source.settings.ydsSource.parser.jsonParser.dataSchema`
 
                 },
@@ -209,7 +209,8 @@ pageToken | <p>Opaque value identifying the transfers page to be fetched. Should
               "tskvParser": {
                 "dataSchema": {
 
-                  // `transfers[].source.settings.ydsSource.parser.tskvParser.dataSchema` includes only one of the fields `fields`, `jsonFields`
+                  // `transfers[].source.settings.ydsSource.parser.tskvParser.dataSchema` includes only one of the fields `jsonFields`, `fields`
+                  "jsonFields": "string",
                   "fields": {
                     "fields": [
                       {
@@ -221,7 +222,6 @@ pageToken | <p>Opaque value identifying the transfers page to be fetched. Should
                       }
                     ]
                   },
-                  "jsonFields": "string",
                   // end of the list of possible fields`transfers[].source.settings.ydsSource.parser.tskvParser.dataSchema`
 
                 },
@@ -296,7 +296,8 @@ pageToken | <p>Opaque value identifying the transfers page to be fetched. Should
               "jsonParser": {
                 "dataSchema": {
 
-                  // `transfers[].source.settings.kafkaSource.parser.jsonParser.dataSchema` includes only one of the fields `fields`, `jsonFields`
+                  // `transfers[].source.settings.kafkaSource.parser.jsonParser.dataSchema` includes only one of the fields `jsonFields`, `fields`
+                  "jsonFields": "string",
                   "fields": {
                     "fields": [
                       {
@@ -308,7 +309,6 @@ pageToken | <p>Opaque value identifying the transfers page to be fetched. Should
                       }
                     ]
                   },
-                  "jsonFields": "string",
                   // end of the list of possible fields`transfers[].source.settings.kafkaSource.parser.jsonParser.dataSchema`
 
                 },
@@ -321,7 +321,8 @@ pageToken | <p>Opaque value identifying the transfers page to be fetched. Should
               "tskvParser": {
                 "dataSchema": {
 
-                  // `transfers[].source.settings.kafkaSource.parser.tskvParser.dataSchema` includes only one of the fields `fields`, `jsonFields`
+                  // `transfers[].source.settings.kafkaSource.parser.tskvParser.dataSchema` includes only one of the fields `jsonFields`, `fields`
+                  "jsonFields": "string",
                   "fields": {
                     "fields": [
                       {
@@ -333,7 +334,6 @@ pageToken | <p>Opaque value identifying the transfers page to be fetched. Should
                       }
                     ]
                   },
-                  "jsonFields": "string",
                   // end of the list of possible fields`transfers[].source.settings.kafkaSource.parser.tskvParser.dataSchema`
 
                 },
@@ -407,8 +407,7 @@ pageToken | <p>Opaque value identifying the transfers page to be fetched. Should
                 },
                 "database": "string",
 
-                // `transfers[].source.settings.clickhouseSource.connection.connectionOptions` includes only one of the fields `mdbClusterId`, `onPremise`
-                "mdbClusterId": "string",
+                // `transfers[].source.settings.clickhouseSource.connection.connectionOptions` includes only one of the fields `onPremise`, `mdbClusterId`
                 "onPremise": {
                   "shards": [
                     {
@@ -431,6 +430,7 @@ pageToken | <p>Opaque value identifying the transfers page to be fetched. Should
 
                   }
                 },
+                "mdbClusterId": "string",
                 // end of the list of possible fields`transfers[].source.settings.clickhouseSource.connection.connectionOptions`
 
               }
@@ -444,7 +444,8 @@ pageToken | <p>Opaque value identifying the transfers page to be fetched. Should
             "subnetId": "string",
             "securityGroups": [
               "string"
-            ]
+            ],
+            "clickhouseClusterName": "string"
           },
           "mysqlTarget": {
             "connection": {
@@ -529,8 +530,7 @@ pageToken | <p>Opaque value identifying the transfers page to be fetched. Should
                 },
                 "database": "string",
 
-                // `transfers[].source.settings.clickhouseTarget.connection.connectionOptions` includes only one of the fields `mdbClusterId`, `onPremise`
-                "mdbClusterId": "string",
+                // `transfers[].source.settings.clickhouseTarget.connection.connectionOptions` includes only one of the fields `onPremise`, `mdbClusterId`
                 "onPremise": {
                   "shards": [
                     {
@@ -553,6 +553,7 @@ pageToken | <p>Opaque value identifying the transfers page to be fetched. Should
 
                   }
                 },
+                "mdbClusterId": "string",
                 // end of the list of possible fields`transfers[].source.settings.clickhouseTarget.connection.connectionOptions`
 
               }
@@ -907,7 +908,8 @@ pageToken | <p>Opaque value identifying the transfers page to be fetched. Should
               "jsonParser": {
                 "dataSchema": {
 
-                  // `transfers[].target.settings.ydsSource.parser.jsonParser.dataSchema` includes only one of the fields `fields`, `jsonFields`
+                  // `transfers[].target.settings.ydsSource.parser.jsonParser.dataSchema` includes only one of the fields `jsonFields`, `fields`
+                  "jsonFields": "string",
                   "fields": {
                     "fields": [
                       {
@@ -919,7 +921,6 @@ pageToken | <p>Opaque value identifying the transfers page to be fetched. Should
                       }
                     ]
                   },
-                  "jsonFields": "string",
                   // end of the list of possible fields`transfers[].target.settings.ydsSource.parser.jsonParser.dataSchema`
 
                 },
@@ -932,7 +933,8 @@ pageToken | <p>Opaque value identifying the transfers page to be fetched. Should
               "tskvParser": {
                 "dataSchema": {
 
-                  // `transfers[].target.settings.ydsSource.parser.tskvParser.dataSchema` includes only one of the fields `fields`, `jsonFields`
+                  // `transfers[].target.settings.ydsSource.parser.tskvParser.dataSchema` includes only one of the fields `jsonFields`, `fields`
+                  "jsonFields": "string",
                   "fields": {
                     "fields": [
                       {
@@ -944,7 +946,6 @@ pageToken | <p>Opaque value identifying the transfers page to be fetched. Should
                       }
                     ]
                   },
-                  "jsonFields": "string",
                   // end of the list of possible fields`transfers[].target.settings.ydsSource.parser.tskvParser.dataSchema`
 
                 },
@@ -1019,7 +1020,8 @@ pageToken | <p>Opaque value identifying the transfers page to be fetched. Should
               "jsonParser": {
                 "dataSchema": {
 
-                  // `transfers[].target.settings.kafkaSource.parser.jsonParser.dataSchema` includes only one of the fields `fields`, `jsonFields`
+                  // `transfers[].target.settings.kafkaSource.parser.jsonParser.dataSchema` includes only one of the fields `jsonFields`, `fields`
+                  "jsonFields": "string",
                   "fields": {
                     "fields": [
                       {
@@ -1031,7 +1033,6 @@ pageToken | <p>Opaque value identifying the transfers page to be fetched. Should
                       }
                     ]
                   },
-                  "jsonFields": "string",
                   // end of the list of possible fields`transfers[].target.settings.kafkaSource.parser.jsonParser.dataSchema`
 
                 },
@@ -1044,7 +1045,8 @@ pageToken | <p>Opaque value identifying the transfers page to be fetched. Should
               "tskvParser": {
                 "dataSchema": {
 
-                  // `transfers[].target.settings.kafkaSource.parser.tskvParser.dataSchema` includes only one of the fields `fields`, `jsonFields`
+                  // `transfers[].target.settings.kafkaSource.parser.tskvParser.dataSchema` includes only one of the fields `jsonFields`, `fields`
+                  "jsonFields": "string",
                   "fields": {
                     "fields": [
                       {
@@ -1056,7 +1058,6 @@ pageToken | <p>Opaque value identifying the transfers page to be fetched. Should
                       }
                     ]
                   },
-                  "jsonFields": "string",
                   // end of the list of possible fields`transfers[].target.settings.kafkaSource.parser.tskvParser.dataSchema`
 
                 },
@@ -1130,8 +1131,7 @@ pageToken | <p>Opaque value identifying the transfers page to be fetched. Should
                 },
                 "database": "string",
 
-                // `transfers[].target.settings.clickhouseSource.connection.connectionOptions` includes only one of the fields `mdbClusterId`, `onPremise`
-                "mdbClusterId": "string",
+                // `transfers[].target.settings.clickhouseSource.connection.connectionOptions` includes only one of the fields `onPremise`, `mdbClusterId`
                 "onPremise": {
                   "shards": [
                     {
@@ -1154,6 +1154,7 @@ pageToken | <p>Opaque value identifying the transfers page to be fetched. Should
 
                   }
                 },
+                "mdbClusterId": "string",
                 // end of the list of possible fields`transfers[].target.settings.clickhouseSource.connection.connectionOptions`
 
               }
@@ -1167,7 +1168,8 @@ pageToken | <p>Opaque value identifying the transfers page to be fetched. Should
             "subnetId": "string",
             "securityGroups": [
               "string"
-            ]
+            ],
+            "clickhouseClusterName": "string"
           },
           "mysqlTarget": {
             "connection": {
@@ -1252,8 +1254,7 @@ pageToken | <p>Opaque value identifying the transfers page to be fetched. Should
                 },
                 "database": "string",
 
-                // `transfers[].target.settings.clickhouseTarget.connection.connectionOptions` includes only one of the fields `mdbClusterId`, `onPremise`
-                "mdbClusterId": "string",
+                // `transfers[].target.settings.clickhouseTarget.connection.connectionOptions` includes only one of the fields `onPremise`, `mdbClusterId`
                 "onPremise": {
                   "shards": [
                     {
@@ -1276,6 +1277,7 @@ pageToken | <p>Opaque value identifying the transfers page to be fetched. Should
 
                   }
                 },
+                "mdbClusterId": "string",
                 // end of the list of possible fields`transfers[].target.settings.clickhouseTarget.connection.connectionOptions`
 
               }
@@ -1624,7 +1626,10 @@ pageToken | <p>Opaque value identifying the transfers page to be fetched. Should
                   "string"
                 ]
               },
-              "filter": "string"
+              "filter": "string",
+              "filters": [
+                "string"
+              ]
             },
             // end of the list of possible fields`transfers[].transformation.transformers[]`
 
@@ -1737,14 +1742,14 @@ transfers[].<br>source.<br>settings.<br>ydsSource.<br>supportedCodecs[] | **stri
 transfers[].<br>source.<br>settings.<br>ydsSource.<br>parser | **object**<br><p>Data parsing rules</p> 
 transfers[].<br>source.<br>settings.<br>ydsSource.<br>parser.<br>jsonParser | **object** <br>`transfers[].source.settings.ydsSource.parser` includes only one of the fields `jsonParser`, `auditTrailsV1Parser`, `cloudLoggingParser`, `tskvParser`<br>
 transfers[].<br>source.<br>settings.<br>ydsSource.<br>parser.<br>jsonParser.<br>dataSchema | **object**
-transfers[].<br>source.<br>settings.<br>ydsSource.<br>parser.<br>jsonParser.<br>dataSchema.<br>fields | **object** <br>`transfers[].source.settings.ydsSource.parser.jsonParser.dataSchema` includes only one of the fields `fields`, `jsonFields`<br>
+transfers[].<br>source.<br>settings.<br>ydsSource.<br>parser.<br>jsonParser.<br>dataSchema.<br>jsonFields | **string** <br>`transfers[].source.settings.ydsSource.parser.jsonParser.dataSchema` includes only one of the fields `jsonFields`, `fields`<br>
+transfers[].<br>source.<br>settings.<br>ydsSource.<br>parser.<br>jsonParser.<br>dataSchema.<br>fields | **object** <br>`transfers[].source.settings.ydsSource.parser.jsonParser.dataSchema` includes only one of the fields `jsonFields`, `fields`<br>
 transfers[].<br>source.<br>settings.<br>ydsSource.<br>parser.<br>jsonParser.<br>dataSchema.<br>fields.<br>fields[] | **object**<br><p>Column schema</p> 
 transfers[].<br>source.<br>settings.<br>ydsSource.<br>parser.<br>jsonParser.<br>dataSchema.<br>fields.<br>fields[].<br>name | **string**
 transfers[].<br>source.<br>settings.<br>ydsSource.<br>parser.<br>jsonParser.<br>dataSchema.<br>fields.<br>fields[].<br>type | **string**
 transfers[].<br>source.<br>settings.<br>ydsSource.<br>parser.<br>jsonParser.<br>dataSchema.<br>fields.<br>fields[].<br>key | **boolean** (boolean)
 transfers[].<br>source.<br>settings.<br>ydsSource.<br>parser.<br>jsonParser.<br>dataSchema.<br>fields.<br>fields[].<br>required | **boolean** (boolean)
 transfers[].<br>source.<br>settings.<br>ydsSource.<br>parser.<br>jsonParser.<br>dataSchema.<br>fields.<br>fields[].<br>path | **string**
-transfers[].<br>source.<br>settings.<br>ydsSource.<br>parser.<br>jsonParser.<br>dataSchema.<br>jsonFields | **string** <br>`transfers[].source.settings.ydsSource.parser.jsonParser.dataSchema` includes only one of the fields `fields`, `jsonFields`<br>
 transfers[].<br>source.<br>settings.<br>ydsSource.<br>parser.<br>jsonParser.<br>nullKeysAllowed | **boolean** (boolean)<br><p>Allow null keys, if no - null keys will be putted to unparsed data</p> 
 transfers[].<br>source.<br>settings.<br>ydsSource.<br>parser.<br>jsonParser.<br>addRestColumn | **boolean** (boolean)<br><p>Will add _rest column for all unknown fields</p> 
 transfers[].<br>source.<br>settings.<br>ydsSource.<br>parser.<br>jsonParser.<br>unescapeStringValues | **boolean** (boolean)<br><p>Unescape string values</p> 
@@ -1752,14 +1757,14 @@ transfers[].<br>source.<br>settings.<br>ydsSource.<br>parser.<br>auditTrailsV1Pa
 transfers[].<br>source.<br>settings.<br>ydsSource.<br>parser.<br>cloudLoggingParser | **object** <br>`transfers[].source.settings.ydsSource.parser` includes only one of the fields `jsonParser`, `auditTrailsV1Parser`, `cloudLoggingParser`, `tskvParser`<br>
 transfers[].<br>source.<br>settings.<br>ydsSource.<br>parser.<br>tskvParser | **object** <br>`transfers[].source.settings.ydsSource.parser` includes only one of the fields `jsonParser`, `auditTrailsV1Parser`, `cloudLoggingParser`, `tskvParser`<br>
 transfers[].<br>source.<br>settings.<br>ydsSource.<br>parser.<br>tskvParser.<br>dataSchema | **object**
-transfers[].<br>source.<br>settings.<br>ydsSource.<br>parser.<br>tskvParser.<br>dataSchema.<br>fields | **object** <br>`transfers[].source.settings.ydsSource.parser.tskvParser.dataSchema` includes only one of the fields `fields`, `jsonFields`<br>
+transfers[].<br>source.<br>settings.<br>ydsSource.<br>parser.<br>tskvParser.<br>dataSchema.<br>jsonFields | **string** <br>`transfers[].source.settings.ydsSource.parser.tskvParser.dataSchema` includes only one of the fields `jsonFields`, `fields`<br>
+transfers[].<br>source.<br>settings.<br>ydsSource.<br>parser.<br>tskvParser.<br>dataSchema.<br>fields | **object** <br>`transfers[].source.settings.ydsSource.parser.tskvParser.dataSchema` includes only one of the fields `jsonFields`, `fields`<br>
 transfers[].<br>source.<br>settings.<br>ydsSource.<br>parser.<br>tskvParser.<br>dataSchema.<br>fields.<br>fields[] | **object**<br><p>Column schema</p> 
 transfers[].<br>source.<br>settings.<br>ydsSource.<br>parser.<br>tskvParser.<br>dataSchema.<br>fields.<br>fields[].<br>name | **string**
 transfers[].<br>source.<br>settings.<br>ydsSource.<br>parser.<br>tskvParser.<br>dataSchema.<br>fields.<br>fields[].<br>type | **string**
 transfers[].<br>source.<br>settings.<br>ydsSource.<br>parser.<br>tskvParser.<br>dataSchema.<br>fields.<br>fields[].<br>key | **boolean** (boolean)
 transfers[].<br>source.<br>settings.<br>ydsSource.<br>parser.<br>tskvParser.<br>dataSchema.<br>fields.<br>fields[].<br>required | **boolean** (boolean)
 transfers[].<br>source.<br>settings.<br>ydsSource.<br>parser.<br>tskvParser.<br>dataSchema.<br>fields.<br>fields[].<br>path | **string**
-transfers[].<br>source.<br>settings.<br>ydsSource.<br>parser.<br>tskvParser.<br>dataSchema.<br>jsonFields | **string** <br>`transfers[].source.settings.ydsSource.parser.tskvParser.dataSchema` includes only one of the fields `fields`, `jsonFields`<br>
 transfers[].<br>source.<br>settings.<br>ydsSource.<br>parser.<br>tskvParser.<br>nullKeysAllowed | **boolean** (boolean)<br><p>Allow null keys, if no - null keys will be putted to unparsed data</p> 
 transfers[].<br>source.<br>settings.<br>ydsSource.<br>parser.<br>tskvParser.<br>addRestColumn | **boolean** (boolean)<br><p>Will add _rest column for all unknown fields</p> 
 transfers[].<br>source.<br>settings.<br>ydsSource.<br>parser.<br>tskvParser.<br>unescapeStringValues | **boolean** (boolean)<br><p>Unescape string values</p> 
@@ -1798,14 +1803,14 @@ transfers[].<br>source.<br>settings.<br>kafkaSource.<br>transformer.<br>serviceA
 transfers[].<br>source.<br>settings.<br>kafkaSource.<br>parser | **object**<br><p>Data parsing rules</p> 
 transfers[].<br>source.<br>settings.<br>kafkaSource.<br>parser.<br>jsonParser | **object** <br>`transfers[].source.settings.kafkaSource.parser` includes only one of the fields `jsonParser`, `auditTrailsV1Parser`, `cloudLoggingParser`, `tskvParser`<br>
 transfers[].<br>source.<br>settings.<br>kafkaSource.<br>parser.<br>jsonParser.<br>dataSchema | **object**
-transfers[].<br>source.<br>settings.<br>kafkaSource.<br>parser.<br>jsonParser.<br>dataSchema.<br>fields | **object** <br>`transfers[].source.settings.kafkaSource.parser.jsonParser.dataSchema` includes only one of the fields `fields`, `jsonFields`<br>
+transfers[].<br>source.<br>settings.<br>kafkaSource.<br>parser.<br>jsonParser.<br>dataSchema.<br>jsonFields | **string** <br>`transfers[].source.settings.kafkaSource.parser.jsonParser.dataSchema` includes only one of the fields `jsonFields`, `fields`<br>
+transfers[].<br>source.<br>settings.<br>kafkaSource.<br>parser.<br>jsonParser.<br>dataSchema.<br>fields | **object** <br>`transfers[].source.settings.kafkaSource.parser.jsonParser.dataSchema` includes only one of the fields `jsonFields`, `fields`<br>
 transfers[].<br>source.<br>settings.<br>kafkaSource.<br>parser.<br>jsonParser.<br>dataSchema.<br>fields.<br>fields[] | **object**<br><p>Column schema</p> 
 transfers[].<br>source.<br>settings.<br>kafkaSource.<br>parser.<br>jsonParser.<br>dataSchema.<br>fields.<br>fields[].<br>name | **string**
 transfers[].<br>source.<br>settings.<br>kafkaSource.<br>parser.<br>jsonParser.<br>dataSchema.<br>fields.<br>fields[].<br>type | **string**
 transfers[].<br>source.<br>settings.<br>kafkaSource.<br>parser.<br>jsonParser.<br>dataSchema.<br>fields.<br>fields[].<br>key | **boolean** (boolean)
 transfers[].<br>source.<br>settings.<br>kafkaSource.<br>parser.<br>jsonParser.<br>dataSchema.<br>fields.<br>fields[].<br>required | **boolean** (boolean)
 transfers[].<br>source.<br>settings.<br>kafkaSource.<br>parser.<br>jsonParser.<br>dataSchema.<br>fields.<br>fields[].<br>path | **string**
-transfers[].<br>source.<br>settings.<br>kafkaSource.<br>parser.<br>jsonParser.<br>dataSchema.<br>jsonFields | **string** <br>`transfers[].source.settings.kafkaSource.parser.jsonParser.dataSchema` includes only one of the fields `fields`, `jsonFields`<br>
 transfers[].<br>source.<br>settings.<br>kafkaSource.<br>parser.<br>jsonParser.<br>nullKeysAllowed | **boolean** (boolean)<br><p>Allow null keys, if no - null keys will be putted to unparsed data</p> 
 transfers[].<br>source.<br>settings.<br>kafkaSource.<br>parser.<br>jsonParser.<br>addRestColumn | **boolean** (boolean)<br><p>Will add _rest column for all unknown fields</p> 
 transfers[].<br>source.<br>settings.<br>kafkaSource.<br>parser.<br>jsonParser.<br>unescapeStringValues | **boolean** (boolean)<br><p>Unescape string values</p> 
@@ -1813,14 +1818,14 @@ transfers[].<br>source.<br>settings.<br>kafkaSource.<br>parser.<br>auditTrailsV1
 transfers[].<br>source.<br>settings.<br>kafkaSource.<br>parser.<br>cloudLoggingParser | **object** <br>`transfers[].source.settings.kafkaSource.parser` includes only one of the fields `jsonParser`, `auditTrailsV1Parser`, `cloudLoggingParser`, `tskvParser`<br>
 transfers[].<br>source.<br>settings.<br>kafkaSource.<br>parser.<br>tskvParser | **object** <br>`transfers[].source.settings.kafkaSource.parser` includes only one of the fields `jsonParser`, `auditTrailsV1Parser`, `cloudLoggingParser`, `tskvParser`<br>
 transfers[].<br>source.<br>settings.<br>kafkaSource.<br>parser.<br>tskvParser.<br>dataSchema | **object**
-transfers[].<br>source.<br>settings.<br>kafkaSource.<br>parser.<br>tskvParser.<br>dataSchema.<br>fields | **object** <br>`transfers[].source.settings.kafkaSource.parser.tskvParser.dataSchema` includes only one of the fields `fields`, `jsonFields`<br>
+transfers[].<br>source.<br>settings.<br>kafkaSource.<br>parser.<br>tskvParser.<br>dataSchema.<br>jsonFields | **string** <br>`transfers[].source.settings.kafkaSource.parser.tskvParser.dataSchema` includes only one of the fields `jsonFields`, `fields`<br>
+transfers[].<br>source.<br>settings.<br>kafkaSource.<br>parser.<br>tskvParser.<br>dataSchema.<br>fields | **object** <br>`transfers[].source.settings.kafkaSource.parser.tskvParser.dataSchema` includes only one of the fields `jsonFields`, `fields`<br>
 transfers[].<br>source.<br>settings.<br>kafkaSource.<br>parser.<br>tskvParser.<br>dataSchema.<br>fields.<br>fields[] | **object**<br><p>Column schema</p> 
 transfers[].<br>source.<br>settings.<br>kafkaSource.<br>parser.<br>tskvParser.<br>dataSchema.<br>fields.<br>fields[].<br>name | **string**
 transfers[].<br>source.<br>settings.<br>kafkaSource.<br>parser.<br>tskvParser.<br>dataSchema.<br>fields.<br>fields[].<br>type | **string**
 transfers[].<br>source.<br>settings.<br>kafkaSource.<br>parser.<br>tskvParser.<br>dataSchema.<br>fields.<br>fields[].<br>key | **boolean** (boolean)
 transfers[].<br>source.<br>settings.<br>kafkaSource.<br>parser.<br>tskvParser.<br>dataSchema.<br>fields.<br>fields[].<br>required | **boolean** (boolean)
 transfers[].<br>source.<br>settings.<br>kafkaSource.<br>parser.<br>tskvParser.<br>dataSchema.<br>fields.<br>fields[].<br>path | **string**
-transfers[].<br>source.<br>settings.<br>kafkaSource.<br>parser.<br>tskvParser.<br>dataSchema.<br>jsonFields | **string** <br>`transfers[].source.settings.kafkaSource.parser.tskvParser.dataSchema` includes only one of the fields `fields`, `jsonFields`<br>
 transfers[].<br>source.<br>settings.<br>kafkaSource.<br>parser.<br>tskvParser.<br>nullKeysAllowed | **boolean** (boolean)<br><p>Allow null keys, if no - null keys will be putted to unparsed data</p> 
 transfers[].<br>source.<br>settings.<br>kafkaSource.<br>parser.<br>tskvParser.<br>addRestColumn | **boolean** (boolean)<br><p>Will add _rest column for all unknown fields</p> 
 transfers[].<br>source.<br>settings.<br>kafkaSource.<br>parser.<br>tskvParser.<br>unescapeStringValues | **boolean** (boolean)<br><p>Unescape string values</p> 
@@ -1858,8 +1863,7 @@ transfers[].<br>source.<br>settings.<br>clickhouseSource.<br>connection.<br>conn
 transfers[].<br>source.<br>settings.<br>clickhouseSource.<br>connection.<br>connectionOptions.<br>password | **object**<br>Password for user
 transfers[].<br>source.<br>settings.<br>clickhouseSource.<br>connection.<br>connectionOptions.<br>password.<br>raw | **string**<br><p>Raw secret value</p> 
 transfers[].<br>source.<br>settings.<br>clickhouseSource.<br>connection.<br>connectionOptions.<br>database | **string**<br><p>Database</p> 
-transfers[].<br>source.<br>settings.<br>clickhouseSource.<br>connection.<br>connectionOptions.<br>mdbClusterId | **string** <br>`transfers[].source.settings.clickhouseSource.connection.connectionOptions` includes only one of the fields `mdbClusterId`, `onPremise`<br>
-transfers[].<br>source.<br>settings.<br>clickhouseSource.<br>connection.<br>connectionOptions.<br>onPremise | **object** <br>`transfers[].source.settings.clickhouseSource.connection.connectionOptions` includes only one of the fields `mdbClusterId`, `onPremise`<br>
+transfers[].<br>source.<br>settings.<br>clickhouseSource.<br>connection.<br>connectionOptions.<br>onPremise | **object** <br>`transfers[].source.settings.clickhouseSource.connection.connectionOptions` includes only one of the fields `onPremise`, `mdbClusterId`<br>
 transfers[].<br>source.<br>settings.<br>clickhouseSource.<br>connection.<br>connectionOptions.<br>onPremise.<br>shards[] | **object**
 transfers[].<br>source.<br>settings.<br>clickhouseSource.<br>connection.<br>connectionOptions.<br>onPremise.<br>shards[].<br>name | **string**
 transfers[].<br>source.<br>settings.<br>clickhouseSource.<br>connection.<br>connectionOptions.<br>onPremise.<br>shards[].<br>hosts[] | **string**
@@ -1870,10 +1874,12 @@ transfers[].<br>source.<br>settings.<br>clickhouseSource.<br>connection.<br>conn
 transfers[].<br>source.<br>settings.<br>clickhouseSource.<br>connection.<br>connectionOptions.<br>onPremise.<br>tlsMode.<br>disabled.<br>disabled | **object** <br>`transfers[].source.settings.clickhouseSource.connection.connectionOptions.onPremise.tlsMode` includes only one of the fields `disabled`, `enabled`<br><br><p>Empty JSON object ``{}``.</p> 
 transfers[].<br>source.<br>settings.<br>clickhouseSource.<br>connection.<br>connectionOptions.<br>onPremise.<br>tlsMode.<br>enabled | **object** <br>`transfers[].source.settings.clickhouseSource.connection.connectionOptions.onPremise.tlsMode` includes only one of the fields `disabled`, `enabled`<br>
 transfers[].<br>source.<br>settings.<br>clickhouseSource.<br>connection.<br>connectionOptions.<br>onPremise.<br>tlsMode.<br>enabled.<br>caCertificate | **string**<br><p>CA certificate</p> <p>X.509 certificate of the certificate authority which issued the server's certificate, in PEM format. When CA certificate is specified TLS is used to connect to the server.</p> 
+transfers[].<br>source.<br>settings.<br>clickhouseSource.<br>connection.<br>connectionOptions.<br>mdbClusterId | **string** <br>`transfers[].source.settings.clickhouseSource.connection.connectionOptions` includes only one of the fields `onPremise`, `mdbClusterId`<br>
 transfers[].<br>source.<br>settings.<br>clickhouseSource.<br>includeTables[] | **string**<br><p>While list of tables for replication. If none or empty list is presented - will replicate all tables. Can contain * patterns.</p> 
 transfers[].<br>source.<br>settings.<br>clickhouseSource.<br>excludeTables[] | **string**<br><p>Exclude list of tables for replication. If none or empty list is presented - will replicate all tables. Can contain * patterns.</p> 
 transfers[].<br>source.<br>settings.<br>clickhouseSource.<br>subnetId | **string**
 transfers[].<br>source.<br>settings.<br>clickhouseSource.<br>securityGroups[] | **string**
+transfers[].<br>source.<br>settings.<br>clickhouseSource.<br>clickhouseClusterName | **string**<br><p>Name of the ClickHouse cluster. For Managed ClickHouse that is name of ShardGroup.</p> 
 transfers[].<br>source.<br>settings.<br>mysqlTarget | **object** <br>`transfers[].source.settings` includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`<br>
 transfers[].<br>source.<br>settings.<br>mysqlTarget.<br>connection | **object**<br><p>Database connection settings</p> 
 transfers[].<br>source.<br>settings.<br>mysqlTarget.<br>connection.<br>mdbClusterId | **string** <br>`transfers[].source.settings.mysqlTarget.connection` includes only one of the fields `mdbClusterId`, `onPremise`<br><br><p>Managed Service for MySQL cluster ID</p> 
@@ -1921,8 +1927,7 @@ transfers[].<br>source.<br>settings.<br>clickhouseTarget.<br>connection.<br>conn
 transfers[].<br>source.<br>settings.<br>clickhouseTarget.<br>connection.<br>connectionOptions.<br>password | **object**<br>Password for user
 transfers[].<br>source.<br>settings.<br>clickhouseTarget.<br>connection.<br>connectionOptions.<br>password.<br>raw | **string**<br><p>Raw secret value</p> 
 transfers[].<br>source.<br>settings.<br>clickhouseTarget.<br>connection.<br>connectionOptions.<br>database | **string**<br><p>Database</p> 
-transfers[].<br>source.<br>settings.<br>clickhouseTarget.<br>connection.<br>connectionOptions.<br>mdbClusterId | **string** <br>`transfers[].source.settings.clickhouseTarget.connection.connectionOptions` includes only one of the fields `mdbClusterId`, `onPremise`<br>
-transfers[].<br>source.<br>settings.<br>clickhouseTarget.<br>connection.<br>connectionOptions.<br>onPremise | **object** <br>`transfers[].source.settings.clickhouseTarget.connection.connectionOptions` includes only one of the fields `mdbClusterId`, `onPremise`<br>
+transfers[].<br>source.<br>settings.<br>clickhouseTarget.<br>connection.<br>connectionOptions.<br>onPremise | **object** <br>`transfers[].source.settings.clickhouseTarget.connection.connectionOptions` includes only one of the fields `onPremise`, `mdbClusterId`<br>
 transfers[].<br>source.<br>settings.<br>clickhouseTarget.<br>connection.<br>connectionOptions.<br>onPremise.<br>shards[] | **object**
 transfers[].<br>source.<br>settings.<br>clickhouseTarget.<br>connection.<br>connectionOptions.<br>onPremise.<br>shards[].<br>name | **string**
 transfers[].<br>source.<br>settings.<br>clickhouseTarget.<br>connection.<br>connectionOptions.<br>onPremise.<br>shards[].<br>hosts[] | **string**
@@ -1933,6 +1938,7 @@ transfers[].<br>source.<br>settings.<br>clickhouseTarget.<br>connection.<br>conn
 transfers[].<br>source.<br>settings.<br>clickhouseTarget.<br>connection.<br>connectionOptions.<br>onPremise.<br>tlsMode.<br>disabled.<br>disabled | **object** <br>`transfers[].source.settings.clickhouseTarget.connection.connectionOptions.onPremise.tlsMode` includes only one of the fields `disabled`, `enabled`<br><br><p>Empty JSON object ``{}``.</p> 
 transfers[].<br>source.<br>settings.<br>clickhouseTarget.<br>connection.<br>connectionOptions.<br>onPremise.<br>tlsMode.<br>enabled | **object** <br>`transfers[].source.settings.clickhouseTarget.connection.connectionOptions.onPremise.tlsMode` includes only one of the fields `disabled`, `enabled`<br>
 transfers[].<br>source.<br>settings.<br>clickhouseTarget.<br>connection.<br>connectionOptions.<br>onPremise.<br>tlsMode.<br>enabled.<br>caCertificate | **string**<br><p>CA certificate</p> <p>X.509 certificate of the certificate authority which issued the server's certificate, in PEM format. When CA certificate is specified TLS is used to connect to the server.</p> 
+transfers[].<br>source.<br>settings.<br>clickhouseTarget.<br>connection.<br>connectionOptions.<br>mdbClusterId | **string** <br>`transfers[].source.settings.clickhouseTarget.connection.connectionOptions` includes only one of the fields `onPremise`, `mdbClusterId`<br>
 transfers[].<br>source.<br>settings.<br>clickhouseTarget.<br>subnetId | **string**
 transfers[].<br>source.<br>settings.<br>clickhouseTarget.<br>altNames[] | **object**<br><p>Alternative table names in target</p> 
 transfers[].<br>source.<br>settings.<br>clickhouseTarget.<br>altNames[].<br>fromName | **string**<br><p>Source table name</p> 
@@ -1951,7 +1957,7 @@ transfers[].<br>source.<br>settings.<br>clickhouseTarget.<br>sharding.<br>transf
 transfers[].<br>source.<br>settings.<br>clickhouseTarget.<br>sharding.<br>transferId.<br>transferId | **object** <br>`transfers[].source.settings.clickhouseTarget.sharding` includes only one of the fields `columnValueHash`, `customMapping`, `transferId`, `roundRobin`<br><br><p>Empty JSON object ``{}``.</p> 
 transfers[].<br>source.<br>settings.<br>clickhouseTarget.<br>sharding.<br>roundRobin | **object** <br>`transfers[].source.settings.clickhouseTarget.sharding` includes only one of the fields `columnValueHash`, `customMapping`, `transferId`, `roundRobin`<br><br><p>Empty JSON object ``{}``.</p> 
 transfers[].<br>source.<br>settings.<br>clickhouseTarget.<br>sharding.<br>roundRobin.<br>roundRobin | **object** <br>`transfers[].source.settings.clickhouseTarget.sharding` includes only one of the fields `columnValueHash`, `customMapping`, `transferId`, `roundRobin`<br><br><p>Empty JSON object ``{}``.</p> 
-transfers[].<br>source.<br>settings.<br>clickhouseTarget.<br>clickhouseClusterName | **string**
+transfers[].<br>source.<br>settings.<br>clickhouseTarget.<br>clickhouseClusterName | **string**<br><p>Name of the ClickHouse cluster. For Managed ClickHouse that is name of ShardGroup.</p> 
 transfers[].<br>source.<br>settings.<br>clickhouseTarget.<br>securityGroups[] | **string**
 transfers[].<br>source.<br>settings.<br>ydbTarget | **object** <br>`transfers[].source.settings` includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`<br>
 transfers[].<br>source.<br>settings.<br>ydbTarget.<br>database | **string**<br><p>Path in YDB where to store tables</p> 
@@ -2128,14 +2134,14 @@ transfers[].<br>target.<br>settings.<br>ydsSource.<br>supportedCodecs[] | **stri
 transfers[].<br>target.<br>settings.<br>ydsSource.<br>parser | **object**<br><p>Data parsing rules</p> 
 transfers[].<br>target.<br>settings.<br>ydsSource.<br>parser.<br>jsonParser | **object** <br>`transfers[].target.settings.ydsSource.parser` includes only one of the fields `jsonParser`, `auditTrailsV1Parser`, `cloudLoggingParser`, `tskvParser`<br>
 transfers[].<br>target.<br>settings.<br>ydsSource.<br>parser.<br>jsonParser.<br>dataSchema | **object**
-transfers[].<br>target.<br>settings.<br>ydsSource.<br>parser.<br>jsonParser.<br>dataSchema.<br>fields | **object** <br>`transfers[].target.settings.ydsSource.parser.jsonParser.dataSchema` includes only one of the fields `fields`, `jsonFields`<br>
+transfers[].<br>target.<br>settings.<br>ydsSource.<br>parser.<br>jsonParser.<br>dataSchema.<br>jsonFields | **string** <br>`transfers[].target.settings.ydsSource.parser.jsonParser.dataSchema` includes only one of the fields `jsonFields`, `fields`<br>
+transfers[].<br>target.<br>settings.<br>ydsSource.<br>parser.<br>jsonParser.<br>dataSchema.<br>fields | **object** <br>`transfers[].target.settings.ydsSource.parser.jsonParser.dataSchema` includes only one of the fields `jsonFields`, `fields`<br>
 transfers[].<br>target.<br>settings.<br>ydsSource.<br>parser.<br>jsonParser.<br>dataSchema.<br>fields.<br>fields[] | **object**<br><p>Column schema</p> 
 transfers[].<br>target.<br>settings.<br>ydsSource.<br>parser.<br>jsonParser.<br>dataSchema.<br>fields.<br>fields[].<br>name | **string**
 transfers[].<br>target.<br>settings.<br>ydsSource.<br>parser.<br>jsonParser.<br>dataSchema.<br>fields.<br>fields[].<br>type | **string**
 transfers[].<br>target.<br>settings.<br>ydsSource.<br>parser.<br>jsonParser.<br>dataSchema.<br>fields.<br>fields[].<br>key | **boolean** (boolean)
 transfers[].<br>target.<br>settings.<br>ydsSource.<br>parser.<br>jsonParser.<br>dataSchema.<br>fields.<br>fields[].<br>required | **boolean** (boolean)
 transfers[].<br>target.<br>settings.<br>ydsSource.<br>parser.<br>jsonParser.<br>dataSchema.<br>fields.<br>fields[].<br>path | **string**
-transfers[].<br>target.<br>settings.<br>ydsSource.<br>parser.<br>jsonParser.<br>dataSchema.<br>jsonFields | **string** <br>`transfers[].target.settings.ydsSource.parser.jsonParser.dataSchema` includes only one of the fields `fields`, `jsonFields`<br>
 transfers[].<br>target.<br>settings.<br>ydsSource.<br>parser.<br>jsonParser.<br>nullKeysAllowed | **boolean** (boolean)<br><p>Allow null keys, if no - null keys will be putted to unparsed data</p> 
 transfers[].<br>target.<br>settings.<br>ydsSource.<br>parser.<br>jsonParser.<br>addRestColumn | **boolean** (boolean)<br><p>Will add _rest column for all unknown fields</p> 
 transfers[].<br>target.<br>settings.<br>ydsSource.<br>parser.<br>jsonParser.<br>unescapeStringValues | **boolean** (boolean)<br><p>Unescape string values</p> 
@@ -2143,14 +2149,14 @@ transfers[].<br>target.<br>settings.<br>ydsSource.<br>parser.<br>auditTrailsV1Pa
 transfers[].<br>target.<br>settings.<br>ydsSource.<br>parser.<br>cloudLoggingParser | **object** <br>`transfers[].target.settings.ydsSource.parser` includes only one of the fields `jsonParser`, `auditTrailsV1Parser`, `cloudLoggingParser`, `tskvParser`<br>
 transfers[].<br>target.<br>settings.<br>ydsSource.<br>parser.<br>tskvParser | **object** <br>`transfers[].target.settings.ydsSource.parser` includes only one of the fields `jsonParser`, `auditTrailsV1Parser`, `cloudLoggingParser`, `tskvParser`<br>
 transfers[].<br>target.<br>settings.<br>ydsSource.<br>parser.<br>tskvParser.<br>dataSchema | **object**
-transfers[].<br>target.<br>settings.<br>ydsSource.<br>parser.<br>tskvParser.<br>dataSchema.<br>fields | **object** <br>`transfers[].target.settings.ydsSource.parser.tskvParser.dataSchema` includes only one of the fields `fields`, `jsonFields`<br>
+transfers[].<br>target.<br>settings.<br>ydsSource.<br>parser.<br>tskvParser.<br>dataSchema.<br>jsonFields | **string** <br>`transfers[].target.settings.ydsSource.parser.tskvParser.dataSchema` includes only one of the fields `jsonFields`, `fields`<br>
+transfers[].<br>target.<br>settings.<br>ydsSource.<br>parser.<br>tskvParser.<br>dataSchema.<br>fields | **object** <br>`transfers[].target.settings.ydsSource.parser.tskvParser.dataSchema` includes only one of the fields `jsonFields`, `fields`<br>
 transfers[].<br>target.<br>settings.<br>ydsSource.<br>parser.<br>tskvParser.<br>dataSchema.<br>fields.<br>fields[] | **object**<br><p>Column schema</p> 
 transfers[].<br>target.<br>settings.<br>ydsSource.<br>parser.<br>tskvParser.<br>dataSchema.<br>fields.<br>fields[].<br>name | **string**
 transfers[].<br>target.<br>settings.<br>ydsSource.<br>parser.<br>tskvParser.<br>dataSchema.<br>fields.<br>fields[].<br>type | **string**
 transfers[].<br>target.<br>settings.<br>ydsSource.<br>parser.<br>tskvParser.<br>dataSchema.<br>fields.<br>fields[].<br>key | **boolean** (boolean)
 transfers[].<br>target.<br>settings.<br>ydsSource.<br>parser.<br>tskvParser.<br>dataSchema.<br>fields.<br>fields[].<br>required | **boolean** (boolean)
 transfers[].<br>target.<br>settings.<br>ydsSource.<br>parser.<br>tskvParser.<br>dataSchema.<br>fields.<br>fields[].<br>path | **string**
-transfers[].<br>target.<br>settings.<br>ydsSource.<br>parser.<br>tskvParser.<br>dataSchema.<br>jsonFields | **string** <br>`transfers[].target.settings.ydsSource.parser.tskvParser.dataSchema` includes only one of the fields `fields`, `jsonFields`<br>
 transfers[].<br>target.<br>settings.<br>ydsSource.<br>parser.<br>tskvParser.<br>nullKeysAllowed | **boolean** (boolean)<br><p>Allow null keys, if no - null keys will be putted to unparsed data</p> 
 transfers[].<br>target.<br>settings.<br>ydsSource.<br>parser.<br>tskvParser.<br>addRestColumn | **boolean** (boolean)<br><p>Will add _rest column for all unknown fields</p> 
 transfers[].<br>target.<br>settings.<br>ydsSource.<br>parser.<br>tskvParser.<br>unescapeStringValues | **boolean** (boolean)<br><p>Unescape string values</p> 
@@ -2189,14 +2195,14 @@ transfers[].<br>target.<br>settings.<br>kafkaSource.<br>transformer.<br>serviceA
 transfers[].<br>target.<br>settings.<br>kafkaSource.<br>parser | **object**<br><p>Data parsing rules</p> 
 transfers[].<br>target.<br>settings.<br>kafkaSource.<br>parser.<br>jsonParser | **object** <br>`transfers[].target.settings.kafkaSource.parser` includes only one of the fields `jsonParser`, `auditTrailsV1Parser`, `cloudLoggingParser`, `tskvParser`<br>
 transfers[].<br>target.<br>settings.<br>kafkaSource.<br>parser.<br>jsonParser.<br>dataSchema | **object**
-transfers[].<br>target.<br>settings.<br>kafkaSource.<br>parser.<br>jsonParser.<br>dataSchema.<br>fields | **object** <br>`transfers[].target.settings.kafkaSource.parser.jsonParser.dataSchema` includes only one of the fields `fields`, `jsonFields`<br>
+transfers[].<br>target.<br>settings.<br>kafkaSource.<br>parser.<br>jsonParser.<br>dataSchema.<br>jsonFields | **string** <br>`transfers[].target.settings.kafkaSource.parser.jsonParser.dataSchema` includes only one of the fields `jsonFields`, `fields`<br>
+transfers[].<br>target.<br>settings.<br>kafkaSource.<br>parser.<br>jsonParser.<br>dataSchema.<br>fields | **object** <br>`transfers[].target.settings.kafkaSource.parser.jsonParser.dataSchema` includes only one of the fields `jsonFields`, `fields`<br>
 transfers[].<br>target.<br>settings.<br>kafkaSource.<br>parser.<br>jsonParser.<br>dataSchema.<br>fields.<br>fields[] | **object**<br><p>Column schema</p> 
 transfers[].<br>target.<br>settings.<br>kafkaSource.<br>parser.<br>jsonParser.<br>dataSchema.<br>fields.<br>fields[].<br>name | **string**
 transfers[].<br>target.<br>settings.<br>kafkaSource.<br>parser.<br>jsonParser.<br>dataSchema.<br>fields.<br>fields[].<br>type | **string**
 transfers[].<br>target.<br>settings.<br>kafkaSource.<br>parser.<br>jsonParser.<br>dataSchema.<br>fields.<br>fields[].<br>key | **boolean** (boolean)
 transfers[].<br>target.<br>settings.<br>kafkaSource.<br>parser.<br>jsonParser.<br>dataSchema.<br>fields.<br>fields[].<br>required | **boolean** (boolean)
 transfers[].<br>target.<br>settings.<br>kafkaSource.<br>parser.<br>jsonParser.<br>dataSchema.<br>fields.<br>fields[].<br>path | **string**
-transfers[].<br>target.<br>settings.<br>kafkaSource.<br>parser.<br>jsonParser.<br>dataSchema.<br>jsonFields | **string** <br>`transfers[].target.settings.kafkaSource.parser.jsonParser.dataSchema` includes only one of the fields `fields`, `jsonFields`<br>
 transfers[].<br>target.<br>settings.<br>kafkaSource.<br>parser.<br>jsonParser.<br>nullKeysAllowed | **boolean** (boolean)<br><p>Allow null keys, if no - null keys will be putted to unparsed data</p> 
 transfers[].<br>target.<br>settings.<br>kafkaSource.<br>parser.<br>jsonParser.<br>addRestColumn | **boolean** (boolean)<br><p>Will add _rest column for all unknown fields</p> 
 transfers[].<br>target.<br>settings.<br>kafkaSource.<br>parser.<br>jsonParser.<br>unescapeStringValues | **boolean** (boolean)<br><p>Unescape string values</p> 
@@ -2204,14 +2210,14 @@ transfers[].<br>target.<br>settings.<br>kafkaSource.<br>parser.<br>auditTrailsV1
 transfers[].<br>target.<br>settings.<br>kafkaSource.<br>parser.<br>cloudLoggingParser | **object** <br>`transfers[].target.settings.kafkaSource.parser` includes only one of the fields `jsonParser`, `auditTrailsV1Parser`, `cloudLoggingParser`, `tskvParser`<br>
 transfers[].<br>target.<br>settings.<br>kafkaSource.<br>parser.<br>tskvParser | **object** <br>`transfers[].target.settings.kafkaSource.parser` includes only one of the fields `jsonParser`, `auditTrailsV1Parser`, `cloudLoggingParser`, `tskvParser`<br>
 transfers[].<br>target.<br>settings.<br>kafkaSource.<br>parser.<br>tskvParser.<br>dataSchema | **object**
-transfers[].<br>target.<br>settings.<br>kafkaSource.<br>parser.<br>tskvParser.<br>dataSchema.<br>fields | **object** <br>`transfers[].target.settings.kafkaSource.parser.tskvParser.dataSchema` includes only one of the fields `fields`, `jsonFields`<br>
+transfers[].<br>target.<br>settings.<br>kafkaSource.<br>parser.<br>tskvParser.<br>dataSchema.<br>jsonFields | **string** <br>`transfers[].target.settings.kafkaSource.parser.tskvParser.dataSchema` includes only one of the fields `jsonFields`, `fields`<br>
+transfers[].<br>target.<br>settings.<br>kafkaSource.<br>parser.<br>tskvParser.<br>dataSchema.<br>fields | **object** <br>`transfers[].target.settings.kafkaSource.parser.tskvParser.dataSchema` includes only one of the fields `jsonFields`, `fields`<br>
 transfers[].<br>target.<br>settings.<br>kafkaSource.<br>parser.<br>tskvParser.<br>dataSchema.<br>fields.<br>fields[] | **object**<br><p>Column schema</p> 
 transfers[].<br>target.<br>settings.<br>kafkaSource.<br>parser.<br>tskvParser.<br>dataSchema.<br>fields.<br>fields[].<br>name | **string**
 transfers[].<br>target.<br>settings.<br>kafkaSource.<br>parser.<br>tskvParser.<br>dataSchema.<br>fields.<br>fields[].<br>type | **string**
 transfers[].<br>target.<br>settings.<br>kafkaSource.<br>parser.<br>tskvParser.<br>dataSchema.<br>fields.<br>fields[].<br>key | **boolean** (boolean)
 transfers[].<br>target.<br>settings.<br>kafkaSource.<br>parser.<br>tskvParser.<br>dataSchema.<br>fields.<br>fields[].<br>required | **boolean** (boolean)
 transfers[].<br>target.<br>settings.<br>kafkaSource.<br>parser.<br>tskvParser.<br>dataSchema.<br>fields.<br>fields[].<br>path | **string**
-transfers[].<br>target.<br>settings.<br>kafkaSource.<br>parser.<br>tskvParser.<br>dataSchema.<br>jsonFields | **string** <br>`transfers[].target.settings.kafkaSource.parser.tskvParser.dataSchema` includes only one of the fields `fields`, `jsonFields`<br>
 transfers[].<br>target.<br>settings.<br>kafkaSource.<br>parser.<br>tskvParser.<br>nullKeysAllowed | **boolean** (boolean)<br><p>Allow null keys, if no - null keys will be putted to unparsed data</p> 
 transfers[].<br>target.<br>settings.<br>kafkaSource.<br>parser.<br>tskvParser.<br>addRestColumn | **boolean** (boolean)<br><p>Will add _rest column for all unknown fields</p> 
 transfers[].<br>target.<br>settings.<br>kafkaSource.<br>parser.<br>tskvParser.<br>unescapeStringValues | **boolean** (boolean)<br><p>Unescape string values</p> 
@@ -2249,8 +2255,7 @@ transfers[].<br>target.<br>settings.<br>clickhouseSource.<br>connection.<br>conn
 transfers[].<br>target.<br>settings.<br>clickhouseSource.<br>connection.<br>connectionOptions.<br>password | **object**<br>Password for user
 transfers[].<br>target.<br>settings.<br>clickhouseSource.<br>connection.<br>connectionOptions.<br>password.<br>raw | **string**<br><p>Raw secret value</p> 
 transfers[].<br>target.<br>settings.<br>clickhouseSource.<br>connection.<br>connectionOptions.<br>database | **string**<br><p>Database</p> 
-transfers[].<br>target.<br>settings.<br>clickhouseSource.<br>connection.<br>connectionOptions.<br>mdbClusterId | **string** <br>`transfers[].target.settings.clickhouseSource.connection.connectionOptions` includes only one of the fields `mdbClusterId`, `onPremise`<br>
-transfers[].<br>target.<br>settings.<br>clickhouseSource.<br>connection.<br>connectionOptions.<br>onPremise | **object** <br>`transfers[].target.settings.clickhouseSource.connection.connectionOptions` includes only one of the fields `mdbClusterId`, `onPremise`<br>
+transfers[].<br>target.<br>settings.<br>clickhouseSource.<br>connection.<br>connectionOptions.<br>onPremise | **object** <br>`transfers[].target.settings.clickhouseSource.connection.connectionOptions` includes only one of the fields `onPremise`, `mdbClusterId`<br>
 transfers[].<br>target.<br>settings.<br>clickhouseSource.<br>connection.<br>connectionOptions.<br>onPremise.<br>shards[] | **object**
 transfers[].<br>target.<br>settings.<br>clickhouseSource.<br>connection.<br>connectionOptions.<br>onPremise.<br>shards[].<br>name | **string**
 transfers[].<br>target.<br>settings.<br>clickhouseSource.<br>connection.<br>connectionOptions.<br>onPremise.<br>shards[].<br>hosts[] | **string**
@@ -2261,10 +2266,12 @@ transfers[].<br>target.<br>settings.<br>clickhouseSource.<br>connection.<br>conn
 transfers[].<br>target.<br>settings.<br>clickhouseSource.<br>connection.<br>connectionOptions.<br>onPremise.<br>tlsMode.<br>disabled.<br>disabled | **object** <br>`transfers[].target.settings.clickhouseSource.connection.connectionOptions.onPremise.tlsMode` includes only one of the fields `disabled`, `enabled`<br><br><p>Empty JSON object ``{}``.</p> 
 transfers[].<br>target.<br>settings.<br>clickhouseSource.<br>connection.<br>connectionOptions.<br>onPremise.<br>tlsMode.<br>enabled | **object** <br>`transfers[].target.settings.clickhouseSource.connection.connectionOptions.onPremise.tlsMode` includes only one of the fields `disabled`, `enabled`<br>
 transfers[].<br>target.<br>settings.<br>clickhouseSource.<br>connection.<br>connectionOptions.<br>onPremise.<br>tlsMode.<br>enabled.<br>caCertificate | **string**<br><p>CA certificate</p> <p>X.509 certificate of the certificate authority which issued the server's certificate, in PEM format. When CA certificate is specified TLS is used to connect to the server.</p> 
+transfers[].<br>target.<br>settings.<br>clickhouseSource.<br>connection.<br>connectionOptions.<br>mdbClusterId | **string** <br>`transfers[].target.settings.clickhouseSource.connection.connectionOptions` includes only one of the fields `onPremise`, `mdbClusterId`<br>
 transfers[].<br>target.<br>settings.<br>clickhouseSource.<br>includeTables[] | **string**<br><p>While list of tables for replication. If none or empty list is presented - will replicate all tables. Can contain * patterns.</p> 
 transfers[].<br>target.<br>settings.<br>clickhouseSource.<br>excludeTables[] | **string**<br><p>Exclude list of tables for replication. If none or empty list is presented - will replicate all tables. Can contain * patterns.</p> 
 transfers[].<br>target.<br>settings.<br>clickhouseSource.<br>subnetId | **string**
 transfers[].<br>target.<br>settings.<br>clickhouseSource.<br>securityGroups[] | **string**
+transfers[].<br>target.<br>settings.<br>clickhouseSource.<br>clickhouseClusterName | **string**<br><p>Name of the ClickHouse cluster. For Managed ClickHouse that is name of ShardGroup.</p> 
 transfers[].<br>target.<br>settings.<br>mysqlTarget | **object** <br>`transfers[].target.settings` includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`<br>
 transfers[].<br>target.<br>settings.<br>mysqlTarget.<br>connection | **object**<br><p>Database connection settings</p> 
 transfers[].<br>target.<br>settings.<br>mysqlTarget.<br>connection.<br>mdbClusterId | **string** <br>`transfers[].target.settings.mysqlTarget.connection` includes only one of the fields `mdbClusterId`, `onPremise`<br><br><p>Managed Service for MySQL cluster ID</p> 
@@ -2312,8 +2319,7 @@ transfers[].<br>target.<br>settings.<br>clickhouseTarget.<br>connection.<br>conn
 transfers[].<br>target.<br>settings.<br>clickhouseTarget.<br>connection.<br>connectionOptions.<br>password | **object**<br>Password for user
 transfers[].<br>target.<br>settings.<br>clickhouseTarget.<br>connection.<br>connectionOptions.<br>password.<br>raw | **string**<br><p>Raw secret value</p> 
 transfers[].<br>target.<br>settings.<br>clickhouseTarget.<br>connection.<br>connectionOptions.<br>database | **string**<br><p>Database</p> 
-transfers[].<br>target.<br>settings.<br>clickhouseTarget.<br>connection.<br>connectionOptions.<br>mdbClusterId | **string** <br>`transfers[].target.settings.clickhouseTarget.connection.connectionOptions` includes only one of the fields `mdbClusterId`, `onPremise`<br>
-transfers[].<br>target.<br>settings.<br>clickhouseTarget.<br>connection.<br>connectionOptions.<br>onPremise | **object** <br>`transfers[].target.settings.clickhouseTarget.connection.connectionOptions` includes only one of the fields `mdbClusterId`, `onPremise`<br>
+transfers[].<br>target.<br>settings.<br>clickhouseTarget.<br>connection.<br>connectionOptions.<br>onPremise | **object** <br>`transfers[].target.settings.clickhouseTarget.connection.connectionOptions` includes only one of the fields `onPremise`, `mdbClusterId`<br>
 transfers[].<br>target.<br>settings.<br>clickhouseTarget.<br>connection.<br>connectionOptions.<br>onPremise.<br>shards[] | **object**
 transfers[].<br>target.<br>settings.<br>clickhouseTarget.<br>connection.<br>connectionOptions.<br>onPremise.<br>shards[].<br>name | **string**
 transfers[].<br>target.<br>settings.<br>clickhouseTarget.<br>connection.<br>connectionOptions.<br>onPremise.<br>shards[].<br>hosts[] | **string**
@@ -2324,6 +2330,7 @@ transfers[].<br>target.<br>settings.<br>clickhouseTarget.<br>connection.<br>conn
 transfers[].<br>target.<br>settings.<br>clickhouseTarget.<br>connection.<br>connectionOptions.<br>onPremise.<br>tlsMode.<br>disabled.<br>disabled | **object** <br>`transfers[].target.settings.clickhouseTarget.connection.connectionOptions.onPremise.tlsMode` includes only one of the fields `disabled`, `enabled`<br><br><p>Empty JSON object ``{}``.</p> 
 transfers[].<br>target.<br>settings.<br>clickhouseTarget.<br>connection.<br>connectionOptions.<br>onPremise.<br>tlsMode.<br>enabled | **object** <br>`transfers[].target.settings.clickhouseTarget.connection.connectionOptions.onPremise.tlsMode` includes only one of the fields `disabled`, `enabled`<br>
 transfers[].<br>target.<br>settings.<br>clickhouseTarget.<br>connection.<br>connectionOptions.<br>onPremise.<br>tlsMode.<br>enabled.<br>caCertificate | **string**<br><p>CA certificate</p> <p>X.509 certificate of the certificate authority which issued the server's certificate, in PEM format. When CA certificate is specified TLS is used to connect to the server.</p> 
+transfers[].<br>target.<br>settings.<br>clickhouseTarget.<br>connection.<br>connectionOptions.<br>mdbClusterId | **string** <br>`transfers[].target.settings.clickhouseTarget.connection.connectionOptions` includes only one of the fields `onPremise`, `mdbClusterId`<br>
 transfers[].<br>target.<br>settings.<br>clickhouseTarget.<br>subnetId | **string**
 transfers[].<br>target.<br>settings.<br>clickhouseTarget.<br>altNames[] | **object**<br><p>Alternative table names in target</p> 
 transfers[].<br>target.<br>settings.<br>clickhouseTarget.<br>altNames[].<br>fromName | **string**<br><p>Source table name</p> 
@@ -2342,7 +2349,7 @@ transfers[].<br>target.<br>settings.<br>clickhouseTarget.<br>sharding.<br>transf
 transfers[].<br>target.<br>settings.<br>clickhouseTarget.<br>sharding.<br>transferId.<br>transferId | **object** <br>`transfers[].target.settings.clickhouseTarget.sharding` includes only one of the fields `columnValueHash`, `customMapping`, `transferId`, `roundRobin`<br><br><p>Empty JSON object ``{}``.</p> 
 transfers[].<br>target.<br>settings.<br>clickhouseTarget.<br>sharding.<br>roundRobin | **object** <br>`transfers[].target.settings.clickhouseTarget.sharding` includes only one of the fields `columnValueHash`, `customMapping`, `transferId`, `roundRobin`<br><br><p>Empty JSON object ``{}``.</p> 
 transfers[].<br>target.<br>settings.<br>clickhouseTarget.<br>sharding.<br>roundRobin.<br>roundRobin | **object** <br>`transfers[].target.settings.clickhouseTarget.sharding` includes only one of the fields `columnValueHash`, `customMapping`, `transferId`, `roundRobin`<br><br><p>Empty JSON object ``{}``.</p> 
-transfers[].<br>target.<br>settings.<br>clickhouseTarget.<br>clickhouseClusterName | **string**
+transfers[].<br>target.<br>settings.<br>clickhouseTarget.<br>clickhouseClusterName | **string**<br><p>Name of the ClickHouse cluster. For Managed ClickHouse that is name of ShardGroup.</p> 
 transfers[].<br>target.<br>settings.<br>clickhouseTarget.<br>securityGroups[] | **string**
 transfers[].<br>target.<br>settings.<br>ydbTarget | **object** <br>`transfers[].target.settings` includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`<br>
 transfers[].<br>target.<br>settings.<br>ydbTarget.<br>database | **string**<br><p>Path in YDB where to store tables</p> 
@@ -2468,7 +2475,7 @@ transfers[].<br>transformation.<br>transformers[].<br>replacePrimaryKey.<br>tabl
 transfers[].<br>transformation.<br>transformers[].<br>replacePrimaryKey.<br>tables.<br>includeTables[] | **string**<br><p>List of tables that will be included to transfer</p> 
 transfers[].<br>transformation.<br>transformers[].<br>replacePrimaryKey.<br>tables.<br>excludeTables[] | **string**<br><p>List of tables that will be excluded to transfer</p> 
 transfers[].<br>transformation.<br>transformers[].<br>replacePrimaryKey.<br>keys[] | **string**<br><p>List of columns to be used as primary keys</p> 
-transfers[].<br>transformation.<br>transformers[].<br>convertToString | **object** <br>`transfers[].transformation.transformers[]` includes only one of the fields `maskField`, `filterColumns`, `renameTables`, `replacePrimaryKey`, `convertToString`, `sharderTransformer`, `tableSplitterTransformer`, `filterRows`<br><br><p>Convert column values to strings. The values will be converted depending on the source type. Conversion rules are described in <a href="/docs/data-transfer/concepts/data-transformation#convert-to-string">documentation</a>.</p> 
+transfers[].<br>transformation.<br>transformers[].<br>convertToString | **object** <br>`transfers[].transformation.transformers[]` includes only one of the fields `maskField`, `filterColumns`, `renameTables`, `replacePrimaryKey`, `convertToString`, `sharderTransformer`, `tableSplitterTransformer`, `filterRows`<br><br><p>Convert column values to strings The values will be converted depending on the source type Conversion rules are described here: https://cloud.yandex.com/en/docs/data-transfer/concepts/data-transformation#convert-to-string</p> 
 transfers[].<br>transformation.<br>transformers[].<br>convertToString.<br>tables | **object**<br><p>List of included and excluded tables</p> <p>Filter tables using lists of included and excluded tables.</p> 
 transfers[].<br>transformation.<br>transformers[].<br>convertToString.<br>tables.<br>includeTables[] | **string**<br><p>List of tables that will be included to transfer</p> 
 transfers[].<br>transformation.<br>transformers[].<br>convertToString.<br>tables.<br>excludeTables[] | **string**<br><p>List of tables that will be excluded to transfer</p> 
@@ -2490,9 +2497,10 @@ transfers[].<br>transformation.<br>transformers[].<br>tableSplitterTransformer.<
 transfers[].<br>transformation.<br>transformers[].<br>tableSplitterTransformer.<br>columns[] | **string**<br><p>Specify the columns in the tables to be partitioned.</p> 
 transfers[].<br>transformation.<br>transformers[].<br>tableSplitterTransformer.<br>splitter | **string**<br><p>Specify the split string to be used for merging components in a new table name.</p> 
 transfers[].<br>transformation.<br>transformers[].<br>filterRows | **object** <br>`transfers[].transformation.transformers[]` includes only one of the fields `maskField`, `filterColumns`, `renameTables`, `replacePrimaryKey`, `convertToString`, `sharderTransformer`, `tableSplitterTransformer`, `filterRows`<br><br><p>This filter only applies to transfers with queues (Logbroker or Apache Kafka®) as a data source. When running a transfer, only the strings meeting the specified criteria remain in a changefeed.</p> 
-transfers[].<br>transformation.<br>transformers[].<br>filterRows.<br>tables | **object**<br><p>List of included and excluded tables</p> <p>Filter tables using lists of included and excluded tables.</p> 
+transfers[].<br>transformation.<br>transformers[].<br>filterRows.<br>tables | **object**<br><p>List of included and excluded tables.</p> <p>Filter tables using lists of included and excluded tables.</p> 
 transfers[].<br>transformation.<br>transformers[].<br>filterRows.<br>tables.<br>includeTables[] | **string**<br><p>List of tables that will be included to transfer</p> 
 transfers[].<br>transformation.<br>transformers[].<br>filterRows.<br>tables.<br>excludeTables[] | **string**<br><p>List of tables that will be excluded to transfer</p> 
-transfers[].<br>transformation.<br>transformers[].<br>filterRows.<br>filter | **string**<br><p>Filtering criterion. This can be comparison operators for numeric, string, and Boolean values, comparison to NULL, and checking whether a substring is part of a string. For more details see <a href="/docs/data-transfer/concepts/data-transformation#append-only-sources">documentation</a>.</p> 
+transfers[].<br>transformation.<br>transformers[].<br>filterRows.<br>filter | **string**<br><p>Filtering criterion. This can be comparison operators for numeric, string, and Boolean values, comparison to NULL, and checking whether a substring is part of a string. Details here: https://yandex.cloud/en-ru/docs/data-transfer/concepts/data-transformation#append-only-sources. Deprecated: Use filters instead.</p> 
+transfers[].<br>transformation.<br>transformers[].<br>filterRows.<br>filters[] | **string**<br><p>Data is transported if it satisfies at least one of filters. Consider that there is OR statement between filters. Each filter can be comparison operators for numeric, string, and Boolean values, comparison to NULL, and checking whether a substring is part of a string. Details in docs: https://yandex.cloud/en-ru/docs/data-transfer/concepts/data-transformation#append-only-sources.</p> 
 transfers[].<br>prestable | **boolean** (boolean)
 nextPageToken | **string**<br><p>Opaque value identifying the next transfers page. This field is empty if there are no more transfers in the folder. Otherwise it is non-empty and should be included in the subsequent ``ListTransfersRequest`` to fetch the next transfers page.</p> 

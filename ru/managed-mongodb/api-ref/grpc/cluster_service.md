@@ -88,7 +88,7 @@ link | **string**<br>Link to the monitoring system charts for the MongoDB cluste
 
 Field | Description
 --- | ---
-version | **string**<br>Version of MongoDB server software. Possible values: `3.6`, `4.0`, `4.2`, `4.4`, `4.4-enterprise`, `5.0`, `5.0-enterprise`, `6.0`, `6.0-enterprise`. 
+version | **string**<br>Version of MongoDB server software. Possible values: `3.6`, `4.0`, `4.2`, `4.4`, `4.4-enterprise`, `5.0`, `5.0-enterprise`, `6.0`, `6.0-enterprise`, `7.0`, `7.0-enterprise`. 
 feature_compatibility_version | **string**<br>MongoDB feature compatibility version. See usage details in [MongoDB documentation](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/). <br>Possible values: <ul><li>`3.6` - persist data compatibility for version 3.6. After setting this option the data will not be compatible with 3.4 or lower. </li><li>`4.0` - persist data compatibility for version 4.0. After setting this option the data will not be compatible with 3.6 or lower. </li><li>`4.2` - persist data compatibility for version 4.2. After setting this option the data will not be compatible with 4.0 or lower. </li><li>`4.4` - persist data compatibility for version 4.4. After setting this option the data will not be compatible with 4.2 or lower. </li><li>`5.0` - persist data compatibility for version 5.0. After setting this option the data will not be compatible with 5.0 or lower. </li><li>`6.0` - persist data compatibility for version 6.0. After setting this option the data will not be compatible with 6.0 or lower.</li></ul> 
 mongodb | **oneof:** `mongodb_3_6`, `mongodb_4_0`, `mongodb_4_2`, `mongodb_4_4`, `mongodb_5_0`, `mongodb_6_0`, `mongodb_4_4_enterprise`, `mongodb_5_0_enterprise` or `mongodb_6_0_enterprise`<br>Configuration for MongoDB servers in the cluster.
 &nbsp;&nbsp;mongodb_3_6 | **[Mongodb3_6](#Mongodb3_6)**<br>Configuration and resource allocation for a MongoDB 3.6 cluster. 
@@ -104,6 +104,7 @@ backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/go
 backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retain period of automatically created backup in days 
 performance_diagnostics | **[PerformanceDiagnosticsConfig](#PerformanceDiagnosticsConfig)**<br>Performance Diagnostic 
 access | **[Access](#Access)**<br>Access policy to DB 
+mongodb_config | **[Mongodb](#Mongodb)**<br>Configuration and resource allocation for a MongoDB Enterprise cluster. 
 
 
 ### Mongodb3_6 {#Mongodb3_6}
@@ -562,6 +563,53 @@ data_lens | **bool**<br>Allow access for DataLens.
 data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
+### Mongodb {#Mongodb}
+
+Field | Description
+--- | ---
+mongod | **[Mongod](#Mongod9)**<br>Configuration and resource allocation for mongod in a MongoDB cluster. 
+mongocfg | **[MongoCfg](#MongoCfg9)**<br>Configuration and resource allocation for mongocfg in a MongoDB cluster. 
+mongos | **[Mongos](#Mongos9)**<br>Configuration and resource allocation for mongos in a MongoDB cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra9)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB cluster. 
+
+
+### Mongod {#Mongod9}
+
+Field | Description
+--- | ---
+config | **`config.MongodConfigSet`**<br>Configuration for mongod hosts. 
+resources | **[Resources](#Resources1)**<br>Resources allocated to mongod hosts. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling1)**<br>Disk size autoscaling settings 
+
+
+### MongoCfg {#MongoCfg9}
+
+Field | Description
+--- | ---
+config | **`config.MongoCfgConfigSet`**<br>Configuration for mongocfg hosts. 
+resources | **[Resources](#Resources1)**<br>Resources allocated to mongocfg hosts. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling1)**<br>Disk size autoscaling settings 
+
+
+### Mongos {#Mongos9}
+
+Field | Description
+--- | ---
+config | **`config.MongosConfigSet`**<br>Configuration for mongos hosts. 
+resources | **[Resources](#Resources1)**<br>Resources allocated to mongos hosts. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling1)**<br>Disk size autoscaling settings 
+
+
+### MongoInfra {#MongoInfra9}
+
+Field | Description
+--- | ---
+config_mongos | **[config.MongosConfigSet](#MongosConfigSet)**<br> 
+config_mongocfg | **[config.MongoCfgConfigSet](#MongoCfgConfigSet)**<br> 
+resources | **[Resources](#Resources1)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling1)**<br>Disk size autoscaling settings 
+
+
 ### MaintenanceWindow {#MaintenanceWindow}
 
 Field | Description
@@ -651,7 +699,7 @@ link | **string**<br>Link to the monitoring system charts for the MongoDB cluste
 
 Field | Description
 --- | ---
-version | **string**<br>Version of MongoDB server software. Possible values: `3.6`, `4.0`, `4.2`, `4.4`, `4.4-enterprise`, `5.0`, `5.0-enterprise`, `6.0`, `6.0-enterprise`. 
+version | **string**<br>Version of MongoDB server software. Possible values: `3.6`, `4.0`, `4.2`, `4.4`, `4.4-enterprise`, `5.0`, `5.0-enterprise`, `6.0`, `6.0-enterprise`, `7.0`, `7.0-enterprise`. 
 feature_compatibility_version | **string**<br>MongoDB feature compatibility version. See usage details in [MongoDB documentation](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/). <br>Possible values: <ul><li>`3.6` - persist data compatibility for version 3.6. After setting this option the data will not be compatible with 3.4 or lower. </li><li>`4.0` - persist data compatibility for version 4.0. After setting this option the data will not be compatible with 3.6 or lower. </li><li>`4.2` - persist data compatibility for version 4.2. After setting this option the data will not be compatible with 4.0 or lower. </li><li>`4.4` - persist data compatibility for version 4.4. After setting this option the data will not be compatible with 4.2 or lower. </li><li>`5.0` - persist data compatibility for version 5.0. After setting this option the data will not be compatible with 5.0 or lower. </li><li>`6.0` - persist data compatibility for version 6.0. After setting this option the data will not be compatible with 6.0 or lower.</li></ul> 
 mongodb | **oneof:** `mongodb_3_6`, `mongodb_4_0`, `mongodb_4_2`, `mongodb_4_4`, `mongodb_5_0`, `mongodb_6_0`, `mongodb_4_4_enterprise`, `mongodb_5_0_enterprise` or `mongodb_6_0_enterprise`<br>Configuration for MongoDB servers in the cluster.
 &nbsp;&nbsp;mongodb_3_6 | **[Mongodb3_6](#Mongodb3_61)**<br>Configuration and resource allocation for a MongoDB 3.6 cluster. 
@@ -667,19 +715,20 @@ backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/go
 backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retain period of automatically created backup in days 
 performance_diagnostics | **[PerformanceDiagnosticsConfig](#PerformanceDiagnosticsConfig1)**<br>Performance Diagnostic 
 access | **[Access](#Access1)**<br>Access policy to DB 
+mongodb_config | **[Mongodb](#Mongodb1)**<br>Configuration and resource allocation for a MongoDB Enterprise cluster. 
 
 
 ### Mongodb3_6 {#Mongodb3_61}
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod9)**<br>Configuration and resource allocation for mongod in a MongoDB 3.6 cluster. 
-mongocfg | **[MongoCfg](#MongoCfg9)**<br>Configuration and resource allocation for mongocfg in a MongoDB 3.6 cluster. 
-mongos | **[Mongos](#Mongos9)**<br>Configuration and resource allocation for mongos in a MongoDB 3.6 cluster. 
-mongoinfra | **[MongoInfra](#MongoInfra9)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 3.6 cluster. 
+mongod | **[Mongod](#Mongod10)**<br>Configuration and resource allocation for mongod in a MongoDB 3.6 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg10)**<br>Configuration and resource allocation for mongocfg in a MongoDB 3.6 cluster. 
+mongos | **[Mongos](#Mongos10)**<br>Configuration and resource allocation for mongos in a MongoDB 3.6 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra10)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 3.6 cluster. 
 
 
-### Mongod {#Mongod9}
+### Mongod {#Mongod10}
 
 Field | Description
 --- | ---
@@ -688,7 +737,7 @@ resources | **[Resources](#Resources1)**<br>Resources allocated to MongoDB hosts
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling1)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg9}
+### MongoCfg {#MongoCfg10}
 
 Field | Description
 --- | ---
@@ -697,7 +746,7 @@ resources | **[Resources](#Resources1)**<br>Resources allocated to mongocfg host
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling1)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos9}
+### Mongos {#Mongos10}
 
 Field | Description
 --- | ---
@@ -706,7 +755,7 @@ resources | **[Resources](#Resources1)**<br>Resources allocated to mongos hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling1)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra9}
+### MongoInfra {#MongoInfra10}
 
 Field | Description
 --- | ---
@@ -738,13 +787,13 @@ disk_size_limit | **[google.protobuf.Int64Value](https://developers.google.com/p
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod10)**<br>Configuration and resource allocation for mongod in a MongoDB 4.0 cluster. 
-mongocfg | **[MongoCfg](#MongoCfg10)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.0 cluster. 
-mongos | **[Mongos](#Mongos10)**<br>Configuration and resource allocation for mongos in a MongoDB 4.0 cluster. 
-mongoinfra | **[MongoInfra](#MongoInfra10)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.0 cluster. 
+mongod | **[Mongod](#Mongod11)**<br>Configuration and resource allocation for mongod in a MongoDB 4.0 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg11)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.0 cluster. 
+mongos | **[Mongos](#Mongos11)**<br>Configuration and resource allocation for mongos in a MongoDB 4.0 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra11)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.0 cluster. 
 
 
-### Mongod {#Mongod10}
+### Mongod {#Mongod11}
 
 Field | Description
 --- | ---
@@ -753,7 +802,7 @@ resources | **[Resources](#Resources2)**<br>Resources allocated to mongod hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling2)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg10}
+### MongoCfg {#MongoCfg11}
 
 Field | Description
 --- | ---
@@ -762,7 +811,7 @@ resources | **[Resources](#Resources2)**<br>Resources allocated to mongocfg host
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling2)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos10}
+### Mongos {#Mongos11}
 
 Field | Description
 --- | ---
@@ -771,7 +820,7 @@ resources | **[Resources](#Resources2)**<br>Resources allocated to mongos hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling2)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra10}
+### MongoInfra {#MongoInfra11}
 
 Field | Description
 --- | ---
@@ -785,13 +834,13 @@ disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling2)**<br>Disk
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod11)**<br>Configuration and resource allocation for mongod in a MongoDB 4.2 cluster. 
-mongocfg | **[MongoCfg](#MongoCfg11)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.2 cluster. 
-mongos | **[Mongos](#Mongos11)**<br>Configuration and resource allocation for mongos in a MongoDB 4.2 cluster. 
-mongoinfra | **[MongoInfra](#MongoInfra11)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.2 cluster. 
+mongod | **[Mongod](#Mongod12)**<br>Configuration and resource allocation for mongod in a MongoDB 4.2 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg12)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.2 cluster. 
+mongos | **[Mongos](#Mongos12)**<br>Configuration and resource allocation for mongos in a MongoDB 4.2 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra12)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.2 cluster. 
 
 
-### Mongod {#Mongod11}
+### Mongod {#Mongod12}
 
 Field | Description
 --- | ---
@@ -800,7 +849,7 @@ resources | **[Resources](#Resources2)**<br>Resources allocated to mongod hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling2)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg11}
+### MongoCfg {#MongoCfg12}
 
 Field | Description
 --- | ---
@@ -809,7 +858,7 @@ resources | **[Resources](#Resources2)**<br>Resources allocated to mongocfg host
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling2)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos11}
+### Mongos {#Mongos12}
 
 Field | Description
 --- | ---
@@ -818,7 +867,7 @@ resources | **[Resources](#Resources2)**<br>Resources allocated to mongos hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling2)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra11}
+### MongoInfra {#MongoInfra12}
 
 Field | Description
 --- | ---
@@ -832,13 +881,13 @@ disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling2)**<br>Disk
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod12)**<br>Configuration and resource allocation for mongod in a MongoDB 4.4 cluster. 
-mongocfg | **[MongoCfg](#MongoCfg12)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.4 cluster. 
-mongos | **[Mongos](#Mongos12)**<br>Configuration and resource allocation for mongos in a MongoDB 4.4 cluster. 
-mongoinfra | **[MongoInfra](#MongoInfra12)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.4 cluster. 
+mongod | **[Mongod](#Mongod13)**<br>Configuration and resource allocation for mongod in a MongoDB 4.4 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg13)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.4 cluster. 
+mongos | **[Mongos](#Mongos13)**<br>Configuration and resource allocation for mongos in a MongoDB 4.4 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra13)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.4 cluster. 
 
 
-### Mongod {#Mongod12}
+### Mongod {#Mongod13}
 
 Field | Description
 --- | ---
@@ -847,7 +896,7 @@ resources | **[Resources](#Resources2)**<br>Resources allocated to mongod hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling2)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg12}
+### MongoCfg {#MongoCfg13}
 
 Field | Description
 --- | ---
@@ -856,7 +905,7 @@ resources | **[Resources](#Resources2)**<br>Resources allocated to mongocfg host
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling2)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos12}
+### Mongos {#Mongos13}
 
 Field | Description
 --- | ---
@@ -865,7 +914,7 @@ resources | **[Resources](#Resources2)**<br>Resources allocated to mongos hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling2)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra12}
+### MongoInfra {#MongoInfra13}
 
 Field | Description
 --- | ---
@@ -879,13 +928,13 @@ disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling2)**<br>Disk
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod13)**<br>Configuration and resource allocation for mongod in a MongoDB 5.0 cluster. 
-mongocfg | **[MongoCfg](#MongoCfg13)**<br>Configuration and resource allocation for mongocfg in a MongoDB 5.0 cluster. 
-mongos | **[Mongos](#Mongos13)**<br>Configuration and resource allocation for mongos in a MongoDB 5.0 cluster. 
-mongoinfra | **[MongoInfra](#MongoInfra13)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 5.0 cluster. 
+mongod | **[Mongod](#Mongod14)**<br>Configuration and resource allocation for mongod in a MongoDB 5.0 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg14)**<br>Configuration and resource allocation for mongocfg in a MongoDB 5.0 cluster. 
+mongos | **[Mongos](#Mongos14)**<br>Configuration and resource allocation for mongos in a MongoDB 5.0 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra14)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 5.0 cluster. 
 
 
-### Mongod {#Mongod13}
+### Mongod {#Mongod14}
 
 Field | Description
 --- | ---
@@ -894,7 +943,7 @@ resources | **[Resources](#Resources2)**<br>Resources allocated to mongod hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling2)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg13}
+### MongoCfg {#MongoCfg14}
 
 Field | Description
 --- | ---
@@ -903,7 +952,7 @@ resources | **[Resources](#Resources2)**<br>Resources allocated to mongocfg host
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling2)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos13}
+### Mongos {#Mongos14}
 
 Field | Description
 --- | ---
@@ -912,7 +961,7 @@ resources | **[Resources](#Resources2)**<br>Resources allocated to mongos hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling2)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra13}
+### MongoInfra {#MongoInfra14}
 
 Field | Description
 --- | ---
@@ -926,13 +975,13 @@ disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling2)**<br>Disk
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod14)**<br>Configuration and resource allocation for mongod in a MongoDB 6.0 cluster. 
-mongocfg | **[MongoCfg](#MongoCfg14)**<br>Configuration and resource allocation for mongocfg in a MongoDB 6.0 cluster. 
-mongos | **[Mongos](#Mongos14)**<br>Configuration and resource allocation for mongos in a MongoDB 6.0 cluster. 
-mongoinfra | **[MongoInfra](#MongoInfra14)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 6.0 cluster. 
+mongod | **[Mongod](#Mongod15)**<br>Configuration and resource allocation for mongod in a MongoDB 6.0 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg15)**<br>Configuration and resource allocation for mongocfg in a MongoDB 6.0 cluster. 
+mongos | **[Mongos](#Mongos15)**<br>Configuration and resource allocation for mongos in a MongoDB 6.0 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra15)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 6.0 cluster. 
 
 
-### Mongod {#Mongod14}
+### Mongod {#Mongod15}
 
 Field | Description
 --- | ---
@@ -941,7 +990,7 @@ resources | **[Resources](#Resources2)**<br>Resources allocated to mongod hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling2)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg14}
+### MongoCfg {#MongoCfg15}
 
 Field | Description
 --- | ---
@@ -950,7 +999,7 @@ resources | **[Resources](#Resources2)**<br>Resources allocated to mongocfg host
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling2)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos14}
+### Mongos {#Mongos15}
 
 Field | Description
 --- | ---
@@ -959,7 +1008,7 @@ resources | **[Resources](#Resources2)**<br>Resources allocated to mongos hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling2)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra14}
+### MongoInfra {#MongoInfra15}
 
 Field | Description
 --- | ---
@@ -973,13 +1022,13 @@ disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling2)**<br>Disk
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod15)**<br>Configuration and resource allocation for mongod in a MongoDB 4.4 cluster. 
-mongocfg | **[MongoCfg](#MongoCfg15)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.4 cluster. 
-mongos | **[Mongos](#Mongos15)**<br>Configuration and resource allocation for mongos in a MongoDB 4.4 cluster. 
-mongoinfra | **[MongoInfra](#MongoInfra15)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.4 cluster. 
+mongod | **[Mongod](#Mongod16)**<br>Configuration and resource allocation for mongod in a MongoDB 4.4 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg16)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.4 cluster. 
+mongos | **[Mongos](#Mongos16)**<br>Configuration and resource allocation for mongos in a MongoDB 4.4 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra16)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.4 cluster. 
 
 
-### Mongod {#Mongod15}
+### Mongod {#Mongod16}
 
 Field | Description
 --- | ---
@@ -988,7 +1037,7 @@ resources | **[Resources](#Resources2)**<br>Resources allocated to mongod hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling2)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg15}
+### MongoCfg {#MongoCfg16}
 
 Field | Description
 --- | ---
@@ -997,7 +1046,7 @@ resources | **[Resources](#Resources2)**<br>Resources allocated to mongocfg host
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling2)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos15}
+### Mongos {#Mongos16}
 
 Field | Description
 --- | ---
@@ -1006,7 +1055,7 @@ resources | **[Resources](#Resources2)**<br>Resources allocated to mongos hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling2)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra15}
+### MongoInfra {#MongoInfra16}
 
 Field | Description
 --- | ---
@@ -1020,13 +1069,13 @@ disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling2)**<br>Disk
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod16)**<br>Configuration and resource allocation for mongod in a MongoDB 5.0 cluster. 
-mongocfg | **[MongoCfg](#MongoCfg16)**<br>Configuration and resource allocation for mongocfg in a MongoDB 5.0 cluster. 
-mongos | **[Mongos](#Mongos16)**<br>Configuration and resource allocation for mongos in a MongoDB 5.0 cluster. 
-mongoinfra | **[MongoInfra](#MongoInfra16)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 5.0 cluster. 
+mongod | **[Mongod](#Mongod17)**<br>Configuration and resource allocation for mongod in a MongoDB 5.0 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg17)**<br>Configuration and resource allocation for mongocfg in a MongoDB 5.0 cluster. 
+mongos | **[Mongos](#Mongos17)**<br>Configuration and resource allocation for mongos in a MongoDB 5.0 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra17)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 5.0 cluster. 
 
 
-### Mongod {#Mongod16}
+### Mongod {#Mongod17}
 
 Field | Description
 --- | ---
@@ -1035,7 +1084,7 @@ resources | **[Resources](#Resources2)**<br>Resources allocated to mongod hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling2)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg16}
+### MongoCfg {#MongoCfg17}
 
 Field | Description
 --- | ---
@@ -1044,7 +1093,7 @@ resources | **[Resources](#Resources2)**<br>Resources allocated to mongocfg host
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling2)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos16}
+### Mongos {#Mongos17}
 
 Field | Description
 --- | ---
@@ -1053,7 +1102,7 @@ resources | **[Resources](#Resources2)**<br>Resources allocated to mongos hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling2)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra16}
+### MongoInfra {#MongoInfra17}
 
 Field | Description
 --- | ---
@@ -1067,13 +1116,13 @@ disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling2)**<br>Disk
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod17)**<br>Configuration and resource allocation for mongod in a MongoDB 6.0 cluster. 
-mongocfg | **[MongoCfg](#MongoCfg17)**<br>Configuration and resource allocation for mongocfg in a MongoDB 6.0 cluster. 
-mongos | **[Mongos](#Mongos17)**<br>Configuration and resource allocation for mongos in a MongoDB 6.0 cluster. 
-mongoinfra | **[MongoInfra](#MongoInfra17)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 6.0 cluster. 
+mongod | **[Mongod](#Mongod18)**<br>Configuration and resource allocation for mongod in a MongoDB 6.0 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg18)**<br>Configuration and resource allocation for mongocfg in a MongoDB 6.0 cluster. 
+mongos | **[Mongos](#Mongos18)**<br>Configuration and resource allocation for mongos in a MongoDB 6.0 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra18)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 6.0 cluster. 
 
 
-### Mongod {#Mongod17}
+### Mongod {#Mongod18}
 
 Field | Description
 --- | ---
@@ -1082,7 +1131,7 @@ resources | **[Resources](#Resources2)**<br>Resources allocated to mongod hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling2)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg17}
+### MongoCfg {#MongoCfg18}
 
 Field | Description
 --- | ---
@@ -1091,7 +1140,7 @@ resources | **[Resources](#Resources2)**<br>Resources allocated to mongocfg host
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling2)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos17}
+### Mongos {#Mongos18}
 
 Field | Description
 --- | ---
@@ -1100,7 +1149,7 @@ resources | **[Resources](#Resources2)**<br>Resources allocated to mongos hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling2)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra17}
+### MongoInfra {#MongoInfra18}
 
 Field | Description
 --- | ---
@@ -1123,6 +1172,53 @@ Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens. 
 data_transfer | **bool**<br>Allow access for DataTransfer. 
+
+
+### Mongodb {#Mongodb1}
+
+Field | Description
+--- | ---
+mongod | **[Mongod](#Mongod19)**<br>Configuration and resource allocation for mongod in a MongoDB cluster. 
+mongocfg | **[MongoCfg](#MongoCfg19)**<br>Configuration and resource allocation for mongocfg in a MongoDB cluster. 
+mongos | **[Mongos](#Mongos19)**<br>Configuration and resource allocation for mongos in a MongoDB cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra19)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB cluster. 
+
+
+### Mongod {#Mongod19}
+
+Field | Description
+--- | ---
+config | **`config.MongodConfigSet`**<br>Configuration for mongod hosts. 
+resources | **[Resources](#Resources2)**<br>Resources allocated to mongod hosts. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling2)**<br>Disk size autoscaling settings 
+
+
+### MongoCfg {#MongoCfg19}
+
+Field | Description
+--- | ---
+config | **`config.MongoCfgConfigSet`**<br>Configuration for mongocfg hosts. 
+resources | **[Resources](#Resources2)**<br>Resources allocated to mongocfg hosts. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling2)**<br>Disk size autoscaling settings 
+
+
+### Mongos {#Mongos19}
+
+Field | Description
+--- | ---
+config | **`config.MongosConfigSet`**<br>Configuration for mongos hosts. 
+resources | **[Resources](#Resources2)**<br>Resources allocated to mongos hosts. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling2)**<br>Disk size autoscaling settings 
+
+
+### MongoInfra {#MongoInfra19}
+
+Field | Description
+--- | ---
+config_mongos | **[config.MongosConfigSet](#MongosConfigSet)**<br> 
+config_mongocfg | **[config.MongoCfgConfigSet](#MongoCfgConfigSet)**<br> 
+resources | **[Resources](#Resources2)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling2)**<br>Disk size autoscaling settings 
 
 
 ### MaintenanceWindow {#MaintenanceWindow1}
@@ -1180,6 +1276,7 @@ host_specs[] | **[HostSpec](#HostSpec)**<br>Individual configurations for hosts 
 network_id | **string**<br>Required. ID of the network to create the cluster in. The maximum string length in characters is 50.
 security_group_ids[] | **string**<br>User security groups 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow2)**<br>Maintenance window settings for the cluster. 
 
 
 ### ConfigSpec {#ConfigSpec}
@@ -1202,19 +1299,20 @@ backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/go
 backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retain period of automatically created backup in days Acceptable values are 7 to 35, inclusive.
 performance_diagnostics | **[PerformanceDiagnosticsConfig](#PerformanceDiagnosticsConfig2)**<br>Performance Diagnosics configuration 
 access | **[Access](#Access2)**<br>Access policy to DB 
+mongodb | **[MongodbSpec](#MongodbSpec)**<br>Configuration and resource allocation for a MongoDB 7.0 Enterprise cluster. 
 
 
 ### MongodbSpec3_6 {#MongodbSpec3_6}
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod18)**<br>Configuration and resource allocation for mongod 3.6 hosts. 
-mongocfg | **[MongoCfg](#MongoCfg18)**<br>Configuration and resource allocation for mongocfg 3.6 hosts. 
-mongos | **[Mongos](#Mongos18)**<br>Configuration and resource allocation for mongos 3.6 hosts. 
-mongoinfra | **[MongoInfra](#MongoInfra18)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 3.6 hosts. 
+mongod | **[Mongod](#Mongod20)**<br>Configuration and resource allocation for mongod 3.6 hosts. 
+mongocfg | **[MongoCfg](#MongoCfg20)**<br>Configuration and resource allocation for mongocfg 3.6 hosts. 
+mongos | **[Mongos](#Mongos20)**<br>Configuration and resource allocation for mongos 3.6 hosts. 
+mongoinfra | **[MongoInfra](#MongoInfra20)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 3.6 hosts. 
 
 
-### Mongod {#Mongod18}
+### Mongod {#Mongod20}
 
 Field | Description
 --- | ---
@@ -1223,7 +1321,7 @@ resources | **[Resources](#Resources2)**<br>Resources allocated to each mongod h
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling2)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg18}
+### MongoCfg {#MongoCfg20}
 
 Field | Description
 --- | ---
@@ -1232,7 +1330,7 @@ resources | **[Resources](#Resources2)**<br>Resources allocated to each mongocfg
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling2)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos18}
+### Mongos {#Mongos20}
 
 Field | Description
 --- | ---
@@ -1241,7 +1339,7 @@ resources | **[Resources](#Resources2)**<br>Resources allocated to each mongos h
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling2)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra18}
+### MongoInfra {#MongoInfra20}
 
 Field | Description
 --- | ---
@@ -1273,13 +1371,13 @@ disk_size_limit | **[google.protobuf.Int64Value](https://developers.google.com/p
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod19)**<br>Configuration and resource allocation for mongod 4.0 hosts. 
-mongocfg | **[MongoCfg](#MongoCfg19)**<br>Configuration and resource allocation for mongocfg 4.0 hosts. 
-mongos | **[Mongos](#Mongos19)**<br>Configuration and resource allocation for mongos 4.0 hosts. 
-mongoinfra | **[MongoInfra](#MongoInfra19)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 4.0 hosts. 
+mongod | **[Mongod](#Mongod21)**<br>Configuration and resource allocation for mongod 4.0 hosts. 
+mongocfg | **[MongoCfg](#MongoCfg21)**<br>Configuration and resource allocation for mongocfg 4.0 hosts. 
+mongos | **[Mongos](#Mongos21)**<br>Configuration and resource allocation for mongos 4.0 hosts. 
+mongoinfra | **[MongoInfra](#MongoInfra21)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 4.0 hosts. 
 
 
-### Mongod {#Mongod19}
+### Mongod {#Mongod21}
 
 Field | Description
 --- | ---
@@ -1288,7 +1386,7 @@ resources | **[Resources](#Resources3)**<br>Resources allocated to each mongod h
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling3)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg19}
+### MongoCfg {#MongoCfg21}
 
 Field | Description
 --- | ---
@@ -1297,7 +1395,7 @@ resources | **[Resources](#Resources3)**<br>Resources allocated to each mongocfg
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling3)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos19}
+### Mongos {#Mongos21}
 
 Field | Description
 --- | ---
@@ -1306,7 +1404,7 @@ resources | **[Resources](#Resources3)**<br>Resources allocated to each mongos h
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling3)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra19}
+### MongoInfra {#MongoInfra21}
 
 Field | Description
 --- | ---
@@ -1320,13 +1418,13 @@ disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling3)**<br>Disk
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod20)**<br>Configuration and resource allocation for mongod 4.2 hosts. 
-mongocfg | **[MongoCfg](#MongoCfg20)**<br>Configuration and resource allocation for mongocfg 4.2 hosts. 
-mongos | **[Mongos](#Mongos20)**<br>Configuration and resource allocation for mongos 4.2 hosts. 
-mongoinfra | **[MongoInfra](#MongoInfra20)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 4.2 hosts. 
+mongod | **[Mongod](#Mongod22)**<br>Configuration and resource allocation for mongod 4.2 hosts. 
+mongocfg | **[MongoCfg](#MongoCfg22)**<br>Configuration and resource allocation for mongocfg 4.2 hosts. 
+mongos | **[Mongos](#Mongos22)**<br>Configuration and resource allocation for mongos 4.2 hosts. 
+mongoinfra | **[MongoInfra](#MongoInfra22)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 4.2 hosts. 
 
 
-### Mongod {#Mongod20}
+### Mongod {#Mongod22}
 
 Field | Description
 --- | ---
@@ -1335,7 +1433,7 @@ resources | **[Resources](#Resources3)**<br>Resources allocated to each mongod h
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling3)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg20}
+### MongoCfg {#MongoCfg22}
 
 Field | Description
 --- | ---
@@ -1344,7 +1442,7 @@ resources | **[Resources](#Resources3)**<br>Resources allocated to each mongocfg
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling3)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos20}
+### Mongos {#Mongos22}
 
 Field | Description
 --- | ---
@@ -1353,7 +1451,7 @@ resources | **[Resources](#Resources3)**<br>Resources allocated to each mongos h
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling3)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra20}
+### MongoInfra {#MongoInfra22}
 
 Field | Description
 --- | ---
@@ -1367,13 +1465,13 @@ disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling3)**<br>Disk
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod21)**<br>Configuration and resource allocation for mongod 4.4 hosts. 
-mongocfg | **[MongoCfg](#MongoCfg21)**<br>Configuration and resource allocation for mongocfg 4.4 hosts. 
-mongos | **[Mongos](#Mongos21)**<br>Configuration and resource allocation for mongos 4.4 hosts. 
-mongoinfra | **[MongoInfra](#MongoInfra21)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 4.4 hosts. 
+mongod | **[Mongod](#Mongod23)**<br>Configuration and resource allocation for mongod 4.4 hosts. 
+mongocfg | **[MongoCfg](#MongoCfg23)**<br>Configuration and resource allocation for mongocfg 4.4 hosts. 
+mongos | **[Mongos](#Mongos23)**<br>Configuration and resource allocation for mongos 4.4 hosts. 
+mongoinfra | **[MongoInfra](#MongoInfra23)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 4.4 hosts. 
 
 
-### Mongod {#Mongod21}
+### Mongod {#Mongod23}
 
 Field | Description
 --- | ---
@@ -1382,7 +1480,7 @@ resources | **[Resources](#Resources3)**<br>Resources allocated to each mongod h
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling3)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg21}
+### MongoCfg {#MongoCfg23}
 
 Field | Description
 --- | ---
@@ -1391,7 +1489,7 @@ resources | **[Resources](#Resources3)**<br>Resources allocated to each mongocfg
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling3)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos21}
+### Mongos {#Mongos23}
 
 Field | Description
 --- | ---
@@ -1400,7 +1498,7 @@ resources | **[Resources](#Resources3)**<br>Resources allocated to each mongos h
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling3)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra21}
+### MongoInfra {#MongoInfra23}
 
 Field | Description
 --- | ---
@@ -1414,13 +1512,13 @@ disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling3)**<br>Disk
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod22)**<br>Configuration and resource allocation for mongod 5.0 hosts. 
-mongocfg | **[MongoCfg](#MongoCfg22)**<br>Configuration and resource allocation for mongocfg 5.0 hosts. 
-mongos | **[Mongos](#Mongos22)**<br>Configuration and resource allocation for mongos 5.0 hosts. 
-mongoinfra | **[MongoInfra](#MongoInfra22)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 5.0 hosts. 
+mongod | **[Mongod](#Mongod24)**<br>Configuration and resource allocation for mongod 5.0 hosts. 
+mongocfg | **[MongoCfg](#MongoCfg24)**<br>Configuration and resource allocation for mongocfg 5.0 hosts. 
+mongos | **[Mongos](#Mongos24)**<br>Configuration and resource allocation for mongos 5.0 hosts. 
+mongoinfra | **[MongoInfra](#MongoInfra24)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 5.0 hosts. 
 
 
-### Mongod {#Mongod22}
+### Mongod {#Mongod24}
 
 Field | Description
 --- | ---
@@ -1429,7 +1527,7 @@ resources | **[Resources](#Resources3)**<br>Resources allocated to each mongod h
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling3)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg22}
+### MongoCfg {#MongoCfg24}
 
 Field | Description
 --- | ---
@@ -1438,7 +1536,7 @@ resources | **[Resources](#Resources3)**<br>Resources allocated to each mongocfg
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling3)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos22}
+### Mongos {#Mongos24}
 
 Field | Description
 --- | ---
@@ -1447,7 +1545,7 @@ resources | **[Resources](#Resources3)**<br>Resources allocated to each mongos h
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling3)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra22}
+### MongoInfra {#MongoInfra24}
 
 Field | Description
 --- | ---
@@ -1461,13 +1559,13 @@ disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling3)**<br>Disk
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod23)**<br>Configuration and resource allocation for mongod 6.0 hosts. 
-mongocfg | **[MongoCfg](#MongoCfg23)**<br>Configuration and resource allocation for mongocfg 6.0 hosts. 
-mongos | **[Mongos](#Mongos23)**<br>Configuration and resource allocation for mongos 6.0 hosts. 
-mongoinfra | **[MongoInfra](#MongoInfra23)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 6.0 hosts. 
+mongod | **[Mongod](#Mongod25)**<br>Configuration and resource allocation for mongod 6.0 hosts. 
+mongocfg | **[MongoCfg](#MongoCfg25)**<br>Configuration and resource allocation for mongocfg 6.0 hosts. 
+mongos | **[Mongos](#Mongos25)**<br>Configuration and resource allocation for mongos 6.0 hosts. 
+mongoinfra | **[MongoInfra](#MongoInfra25)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 6.0 hosts. 
 
 
-### Mongod {#Mongod23}
+### Mongod {#Mongod25}
 
 Field | Description
 --- | ---
@@ -1476,7 +1574,7 @@ resources | **[Resources](#Resources3)**<br>Resources allocated to each mongod h
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling3)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg23}
+### MongoCfg {#MongoCfg25}
 
 Field | Description
 --- | ---
@@ -1485,7 +1583,7 @@ resources | **[Resources](#Resources3)**<br>Resources allocated to each mongocfg
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling3)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos23}
+### Mongos {#Mongos25}
 
 Field | Description
 --- | ---
@@ -1494,7 +1592,7 @@ resources | **[Resources](#Resources3)**<br>Resources allocated to each mongos h
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling3)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra23}
+### MongoInfra {#MongoInfra25}
 
 Field | Description
 --- | ---
@@ -1508,13 +1606,13 @@ disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling3)**<br>Disk
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod24)**<br>Configuration and resource allocation for mongod 4.4 hosts. 
-mongocfg | **[MongoCfg](#MongoCfg24)**<br>Configuration and resource allocation for mongocfg 4.4 hosts. 
-mongos | **[Mongos](#Mongos24)**<br>Configuration and resource allocation for mongos 4.4 hosts. 
-mongoinfra | **[MongoInfra](#MongoInfra24)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 4.4 hosts. 
+mongod | **[Mongod](#Mongod26)**<br>Configuration and resource allocation for mongod 4.4 hosts. 
+mongocfg | **[MongoCfg](#MongoCfg26)**<br>Configuration and resource allocation for mongocfg 4.4 hosts. 
+mongos | **[Mongos](#Mongos26)**<br>Configuration and resource allocation for mongos 4.4 hosts. 
+mongoinfra | **[MongoInfra](#MongoInfra26)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 4.4 hosts. 
 
 
-### Mongod {#Mongod24}
+### Mongod {#Mongod26}
 
 Field | Description
 --- | ---
@@ -1523,7 +1621,7 @@ resources | **[Resources](#Resources3)**<br>Resources allocated to each mongod h
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling3)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg24}
+### MongoCfg {#MongoCfg26}
 
 Field | Description
 --- | ---
@@ -1532,7 +1630,7 @@ resources | **[Resources](#Resources3)**<br>Resources allocated to each mongocfg
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling3)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos24}
+### Mongos {#Mongos26}
 
 Field | Description
 --- | ---
@@ -1541,7 +1639,7 @@ resources | **[Resources](#Resources3)**<br>Resources allocated to each mongos h
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling3)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra24}
+### MongoInfra {#MongoInfra26}
 
 Field | Description
 --- | ---
@@ -1555,13 +1653,13 @@ disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling3)**<br>Disk
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod25)**<br>Configuration and resource allocation for mongod 5.0 hosts. 
-mongocfg | **[MongoCfg](#MongoCfg25)**<br>Configuration and resource allocation for mongocfg 5.0 hosts. 
-mongos | **[Mongos](#Mongos25)**<br>Configuration and resource allocation for mongos 5.0 hosts. 
-mongoinfra | **[MongoInfra](#MongoInfra25)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 5.0 hosts. 
+mongod | **[Mongod](#Mongod27)**<br>Configuration and resource allocation for mongod 5.0 hosts. 
+mongocfg | **[MongoCfg](#MongoCfg27)**<br>Configuration and resource allocation for mongocfg 5.0 hosts. 
+mongos | **[Mongos](#Mongos27)**<br>Configuration and resource allocation for mongos 5.0 hosts. 
+mongoinfra | **[MongoInfra](#MongoInfra27)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 5.0 hosts. 
 
 
-### Mongod {#Mongod25}
+### Mongod {#Mongod27}
 
 Field | Description
 --- | ---
@@ -1570,7 +1668,7 @@ resources | **[Resources](#Resources3)**<br>Resources allocated to each mongod h
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling3)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg25}
+### MongoCfg {#MongoCfg27}
 
 Field | Description
 --- | ---
@@ -1579,7 +1677,7 @@ resources | **[Resources](#Resources3)**<br>Resources allocated to each mongocfg
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling3)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos25}
+### Mongos {#Mongos27}
 
 Field | Description
 --- | ---
@@ -1588,7 +1686,7 @@ resources | **[Resources](#Resources3)**<br>Resources allocated to each mongos h
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling3)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra25}
+### MongoInfra {#MongoInfra27}
 
 Field | Description
 --- | ---
@@ -1602,13 +1700,13 @@ disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling3)**<br>Disk
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod26)**<br>Configuration and resource allocation for mongod 6.0 hosts. 
-mongocfg | **[MongoCfg](#MongoCfg26)**<br>Configuration and resource allocation for mongocfg 6.0 hosts. 
-mongos | **[Mongos](#Mongos26)**<br>Configuration and resource allocation for mongos 6.0 hosts. 
-mongoinfra | **[MongoInfra](#MongoInfra26)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 6.0 hosts. 
+mongod | **[Mongod](#Mongod28)**<br>Configuration and resource allocation for mongod 6.0 hosts. 
+mongocfg | **[MongoCfg](#MongoCfg28)**<br>Configuration and resource allocation for mongocfg 6.0 hosts. 
+mongos | **[Mongos](#Mongos28)**<br>Configuration and resource allocation for mongos 6.0 hosts. 
+mongoinfra | **[MongoInfra](#MongoInfra28)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 6.0 hosts. 
 
 
-### Mongod {#Mongod26}
+### Mongod {#Mongod28}
 
 Field | Description
 --- | ---
@@ -1617,7 +1715,7 @@ resources | **[Resources](#Resources3)**<br>Resources allocated to each mongod h
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling3)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg26}
+### MongoCfg {#MongoCfg28}
 
 Field | Description
 --- | ---
@@ -1626,7 +1724,7 @@ resources | **[Resources](#Resources3)**<br>Resources allocated to each mongocfg
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling3)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos26}
+### Mongos {#Mongos28}
 
 Field | Description
 --- | ---
@@ -1635,7 +1733,7 @@ resources | **[Resources](#Resources3)**<br>Resources allocated to each mongos h
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling3)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra26}
+### MongoInfra {#MongoInfra28}
 
 Field | Description
 --- | ---
@@ -1658,6 +1756,53 @@ Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens. 
 data_transfer | **bool**<br>Allow access for DataTransfer. 
+
+
+### MongodbSpec {#MongodbSpec}
+
+Field | Description
+--- | ---
+mongod | **[Mongod](#Mongod29)**<br>Configuration and resource allocation for mongod hosts. 
+mongocfg | **[MongoCfg](#MongoCfg29)**<br>Configuration and resource allocation for mongocfg hosts. 
+mongos | **[Mongos](#Mongos29)**<br>Configuration and resource allocation for mongos hosts. 
+mongoinfra | **[MongoInfra](#MongoInfra29)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) hosts. 
+
+
+### Mongod {#Mongod29}
+
+Field | Description
+--- | ---
+config | **`config.MongodConfig`**<br> 
+resources | **[Resources](#Resources3)**<br>Resources allocated to each mongod host. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling3)**<br>Disk size autoscaling settings 
+
+
+### MongoCfg {#MongoCfg29}
+
+Field | Description
+--- | ---
+config | **`config.MongoCfgConfig`**<br>Configuration for mongocfg hosts. 
+resources | **[Resources](#Resources3)**<br>Resources allocated to each mongocfg host. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling3)**<br>Disk size autoscaling settings 
+
+
+### Mongos {#Mongos29}
+
+Field | Description
+--- | ---
+config | **`config.MongosConfig`**<br>Configuration for mongos hosts. 
+resources | **[Resources](#Resources3)**<br>Resources allocated to each mongos host. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling3)**<br>Disk size autoscaling settings 
+
+
+### MongoInfra {#MongoInfra29}
+
+Field | Description
+--- | ---
+config_mongos | **[config.MongosConfig](#MongosConfig)**<br>Configuration for mongoinfra hosts. 
+config_mongocfg | **[config.MongoCfgConfig](#MongoCfgConfig)**<br> 
+resources | **[Resources](#Resources3)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling3)**<br>Disk size autoscaling settings 
 
 
 ### DatabaseSpec {#DatabaseSpec}
@@ -1697,6 +1842,27 @@ hidden | **[google.protobuf.BoolValue](https://developers.google.com/protocol-bu
 secondary_delay_secs | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of seconds "behind" the primary that this replica set member should "lag" 
 priority | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**<br>Priority of host for the election in replSet 
 tags | **map<string,string>**<br>Host tags 
+
+
+### MaintenanceWindow {#MaintenanceWindow2}
+
+Field | Description
+--- | ---
+policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow2)**<br>Maintenance operation can be scheduled anytime. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow2)**<br>Maintenance operation can be scheduled on a weekly basis. 
+
+
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow2}
+
+Empty.
+
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow2}
+
+Field | Description
+--- | ---
+day | enum **WeekDay**<br>Day of the week (in `DDD` format). 
+hour | **int64**<br>Hour of the day in UTC (in `HH` format). Acceptable values are 1 to 24, inclusive.
 
 
 ### Operation {#Operation}
@@ -1739,7 +1905,7 @@ network_id | **string**<br>ID of the network that the cluster belongs to.
 health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li></ul>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
 sharded | **bool**<br>Indicates current sharding status of the cluster. 
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow2)**<br>Maintenance window for the cluster. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow3)**<br>Maintenance window for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation2)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
@@ -1758,7 +1924,7 @@ link | **string**<br>Link to the monitoring system charts for the MongoDB cluste
 
 Field | Description
 --- | ---
-version | **string**<br>Version of MongoDB server software. Possible values: `3.6`, `4.0`, `4.2`, `4.4`, `4.4-enterprise`, `5.0`, `5.0-enterprise`, `6.0`, `6.0-enterprise`. 
+version | **string**<br>Version of MongoDB server software. Possible values: `3.6`, `4.0`, `4.2`, `4.4`, `4.4-enterprise`, `5.0`, `5.0-enterprise`, `6.0`, `6.0-enterprise`, `7.0`, `7.0-enterprise`. 
 feature_compatibility_version | **string**<br>MongoDB feature compatibility version. See usage details in [MongoDB documentation](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/). <br>Possible values: <ul><li>`3.6` - persist data compatibility for version 3.6. After setting this option the data will not be compatible with 3.4 or lower. </li><li>`4.0` - persist data compatibility for version 4.0. After setting this option the data will not be compatible with 3.6 or lower. </li><li>`4.2` - persist data compatibility for version 4.2. After setting this option the data will not be compatible with 4.0 or lower. </li><li>`4.4` - persist data compatibility for version 4.4. After setting this option the data will not be compatible with 4.2 or lower. </li><li>`5.0` - persist data compatibility for version 5.0. After setting this option the data will not be compatible with 5.0 or lower. </li><li>`6.0` - persist data compatibility for version 6.0. After setting this option the data will not be compatible with 6.0 or lower.</li></ul> 
 mongodb | **oneof:** `mongodb_3_6`, `mongodb_4_0`, `mongodb_4_2`, `mongodb_4_4`, `mongodb_5_0`, `mongodb_6_0`, `mongodb_4_4_enterprise`, `mongodb_5_0_enterprise` or `mongodb_6_0_enterprise`<br>Configuration for MongoDB servers in the cluster.
 &nbsp;&nbsp;mongodb_3_6 | **[Mongodb3_6](#Mongodb3_62)**<br>Configuration and resource allocation for a MongoDB 3.6 cluster. 
@@ -1774,19 +1940,20 @@ backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/go
 backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retain period of automatically created backup in days 
 performance_diagnostics | **[PerformanceDiagnosticsConfig](#PerformanceDiagnosticsConfig3)**<br>Performance Diagnostic 
 access | **[Access](#Access3)**<br>Access policy to DB 
+mongodb_config | **[Mongodb](#Mongodb2)**<br>Configuration and resource allocation for a MongoDB Enterprise cluster. 
 
 
 ### Mongodb3_6 {#Mongodb3_62}
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod27)**<br>Configuration and resource allocation for mongod in a MongoDB 3.6 cluster. 
-mongocfg | **[MongoCfg](#MongoCfg27)**<br>Configuration and resource allocation for mongocfg in a MongoDB 3.6 cluster. 
-mongos | **[Mongos](#Mongos27)**<br>Configuration and resource allocation for mongos in a MongoDB 3.6 cluster. 
-mongoinfra | **[MongoInfra](#MongoInfra27)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 3.6 cluster. 
+mongod | **[Mongod](#Mongod30)**<br>Configuration and resource allocation for mongod in a MongoDB 3.6 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg30)**<br>Configuration and resource allocation for mongocfg in a MongoDB 3.6 cluster. 
+mongos | **[Mongos](#Mongos30)**<br>Configuration and resource allocation for mongos in a MongoDB 3.6 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra30)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 3.6 cluster. 
 
 
-### Mongod {#Mongod27}
+### Mongod {#Mongod30}
 
 Field | Description
 --- | ---
@@ -1795,7 +1962,7 @@ resources | **[Resources](#Resources3)**<br>Resources allocated to MongoDB hosts
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling3)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg27}
+### MongoCfg {#MongoCfg30}
 
 Field | Description
 --- | ---
@@ -1804,7 +1971,7 @@ resources | **[Resources](#Resources3)**<br>Resources allocated to mongocfg host
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling3)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos27}
+### Mongos {#Mongos30}
 
 Field | Description
 --- | ---
@@ -1813,7 +1980,7 @@ resources | **[Resources](#Resources3)**<br>Resources allocated to mongos hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling3)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra27}
+### MongoInfra {#MongoInfra30}
 
 Field | Description
 --- | ---
@@ -1827,13 +1994,13 @@ disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling3)**<br>Disk
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod28)**<br>Configuration and resource allocation for mongod in a MongoDB 4.0 cluster. 
-mongocfg | **[MongoCfg](#MongoCfg28)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.0 cluster. 
-mongos | **[Mongos](#Mongos28)**<br>Configuration and resource allocation for mongos in a MongoDB 4.0 cluster. 
-mongoinfra | **[MongoInfra](#MongoInfra28)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.0 cluster. 
+mongod | **[Mongod](#Mongod31)**<br>Configuration and resource allocation for mongod in a MongoDB 4.0 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg31)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.0 cluster. 
+mongos | **[Mongos](#Mongos31)**<br>Configuration and resource allocation for mongos in a MongoDB 4.0 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra31)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.0 cluster. 
 
 
-### Mongod {#Mongod28}
+### Mongod {#Mongod31}
 
 Field | Description
 --- | ---
@@ -1842,7 +2009,7 @@ resources | **[Resources](#Resources3)**<br>Resources allocated to mongod hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling3)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg28}
+### MongoCfg {#MongoCfg31}
 
 Field | Description
 --- | ---
@@ -1851,7 +2018,7 @@ resources | **[Resources](#Resources3)**<br>Resources allocated to mongocfg host
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling3)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos28}
+### Mongos {#Mongos31}
 
 Field | Description
 --- | ---
@@ -1860,7 +2027,7 @@ resources | **[Resources](#Resources3)**<br>Resources allocated to mongos hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling3)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra28}
+### MongoInfra {#MongoInfra31}
 
 Field | Description
 --- | ---
@@ -1874,13 +2041,13 @@ disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling3)**<br>Disk
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod29)**<br>Configuration and resource allocation for mongod in a MongoDB 4.2 cluster. 
-mongocfg | **[MongoCfg](#MongoCfg29)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.2 cluster. 
-mongos | **[Mongos](#Mongos29)**<br>Configuration and resource allocation for mongos in a MongoDB 4.2 cluster. 
-mongoinfra | **[MongoInfra](#MongoInfra29)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.2 cluster. 
+mongod | **[Mongod](#Mongod32)**<br>Configuration and resource allocation for mongod in a MongoDB 4.2 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg32)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.2 cluster. 
+mongos | **[Mongos](#Mongos32)**<br>Configuration and resource allocation for mongos in a MongoDB 4.2 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra32)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.2 cluster. 
 
 
-### Mongod {#Mongod29}
+### Mongod {#Mongod32}
 
 Field | Description
 --- | ---
@@ -1889,7 +2056,7 @@ resources | **[Resources](#Resources3)**<br>Resources allocated to mongod hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling3)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg29}
+### MongoCfg {#MongoCfg32}
 
 Field | Description
 --- | ---
@@ -1898,7 +2065,7 @@ resources | **[Resources](#Resources3)**<br>Resources allocated to mongocfg host
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling3)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos29}
+### Mongos {#Mongos32}
 
 Field | Description
 --- | ---
@@ -1907,7 +2074,7 @@ resources | **[Resources](#Resources3)**<br>Resources allocated to mongos hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling3)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra29}
+### MongoInfra {#MongoInfra32}
 
 Field | Description
 --- | ---
@@ -1921,13 +2088,13 @@ disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling3)**<br>Disk
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod30)**<br>Configuration and resource allocation for mongod in a MongoDB 4.4 cluster. 
-mongocfg | **[MongoCfg](#MongoCfg30)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.4 cluster. 
-mongos | **[Mongos](#Mongos30)**<br>Configuration and resource allocation for mongos in a MongoDB 4.4 cluster. 
-mongoinfra | **[MongoInfra](#MongoInfra30)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.4 cluster. 
+mongod | **[Mongod](#Mongod33)**<br>Configuration and resource allocation for mongod in a MongoDB 4.4 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg33)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.4 cluster. 
+mongos | **[Mongos](#Mongos33)**<br>Configuration and resource allocation for mongos in a MongoDB 4.4 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra33)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.4 cluster. 
 
 
-### Mongod {#Mongod30}
+### Mongod {#Mongod33}
 
 Field | Description
 --- | ---
@@ -1936,7 +2103,7 @@ resources | **[Resources](#Resources3)**<br>Resources allocated to mongod hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling3)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg30}
+### MongoCfg {#MongoCfg33}
 
 Field | Description
 --- | ---
@@ -1945,7 +2112,7 @@ resources | **[Resources](#Resources3)**<br>Resources allocated to mongocfg host
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling3)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos30}
+### Mongos {#Mongos33}
 
 Field | Description
 --- | ---
@@ -1954,7 +2121,7 @@ resources | **[Resources](#Resources3)**<br>Resources allocated to mongos hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling3)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra30}
+### MongoInfra {#MongoInfra33}
 
 Field | Description
 --- | ---
@@ -1968,13 +2135,13 @@ disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling3)**<br>Disk
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod31)**<br>Configuration and resource allocation for mongod in a MongoDB 5.0 cluster. 
-mongocfg | **[MongoCfg](#MongoCfg31)**<br>Configuration and resource allocation for mongocfg in a MongoDB 5.0 cluster. 
-mongos | **[Mongos](#Mongos31)**<br>Configuration and resource allocation for mongos in a MongoDB 5.0 cluster. 
-mongoinfra | **[MongoInfra](#MongoInfra31)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 5.0 cluster. 
+mongod | **[Mongod](#Mongod34)**<br>Configuration and resource allocation for mongod in a MongoDB 5.0 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg34)**<br>Configuration and resource allocation for mongocfg in a MongoDB 5.0 cluster. 
+mongos | **[Mongos](#Mongos34)**<br>Configuration and resource allocation for mongos in a MongoDB 5.0 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra34)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 5.0 cluster. 
 
 
-### Mongod {#Mongod31}
+### Mongod {#Mongod34}
 
 Field | Description
 --- | ---
@@ -1983,7 +2150,7 @@ resources | **[Resources](#Resources3)**<br>Resources allocated to mongod hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling3)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg31}
+### MongoCfg {#MongoCfg34}
 
 Field | Description
 --- | ---
@@ -1992,7 +2159,7 @@ resources | **[Resources](#Resources3)**<br>Resources allocated to mongocfg host
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling3)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos31}
+### Mongos {#Mongos34}
 
 Field | Description
 --- | ---
@@ -2001,7 +2168,7 @@ resources | **[Resources](#Resources3)**<br>Resources allocated to mongos hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling3)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra31}
+### MongoInfra {#MongoInfra34}
 
 Field | Description
 --- | ---
@@ -2015,13 +2182,13 @@ disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling3)**<br>Disk
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod32)**<br>Configuration and resource allocation for mongod in a MongoDB 6.0 cluster. 
-mongocfg | **[MongoCfg](#MongoCfg32)**<br>Configuration and resource allocation for mongocfg in a MongoDB 6.0 cluster. 
-mongos | **[Mongos](#Mongos32)**<br>Configuration and resource allocation for mongos in a MongoDB 6.0 cluster. 
-mongoinfra | **[MongoInfra](#MongoInfra32)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 6.0 cluster. 
+mongod | **[Mongod](#Mongod35)**<br>Configuration and resource allocation for mongod in a MongoDB 6.0 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg35)**<br>Configuration and resource allocation for mongocfg in a MongoDB 6.0 cluster. 
+mongos | **[Mongos](#Mongos35)**<br>Configuration and resource allocation for mongos in a MongoDB 6.0 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra35)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 6.0 cluster. 
 
 
-### Mongod {#Mongod32}
+### Mongod {#Mongod35}
 
 Field | Description
 --- | ---
@@ -2030,7 +2197,7 @@ resources | **[Resources](#Resources3)**<br>Resources allocated to mongod hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling3)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg32}
+### MongoCfg {#MongoCfg35}
 
 Field | Description
 --- | ---
@@ -2039,7 +2206,7 @@ resources | **[Resources](#Resources3)**<br>Resources allocated to mongocfg host
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling3)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos32}
+### Mongos {#Mongos35}
 
 Field | Description
 --- | ---
@@ -2048,7 +2215,7 @@ resources | **[Resources](#Resources3)**<br>Resources allocated to mongos hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling3)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra32}
+### MongoInfra {#MongoInfra35}
 
 Field | Description
 --- | ---
@@ -2062,13 +2229,13 @@ disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling3)**<br>Disk
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod33)**<br>Configuration and resource allocation for mongod in a MongoDB 4.4 cluster. 
-mongocfg | **[MongoCfg](#MongoCfg33)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.4 cluster. 
-mongos | **[Mongos](#Mongos33)**<br>Configuration and resource allocation for mongos in a MongoDB 4.4 cluster. 
-mongoinfra | **[MongoInfra](#MongoInfra33)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.4 cluster. 
+mongod | **[Mongod](#Mongod36)**<br>Configuration and resource allocation for mongod in a MongoDB 4.4 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg36)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.4 cluster. 
+mongos | **[Mongos](#Mongos36)**<br>Configuration and resource allocation for mongos in a MongoDB 4.4 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra36)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.4 cluster. 
 
 
-### Mongod {#Mongod33}
+### Mongod {#Mongod36}
 
 Field | Description
 --- | ---
@@ -2077,7 +2244,7 @@ resources | **[Resources](#Resources3)**<br>Resources allocated to mongod hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling3)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg33}
+### MongoCfg {#MongoCfg36}
 
 Field | Description
 --- | ---
@@ -2086,7 +2253,7 @@ resources | **[Resources](#Resources3)**<br>Resources allocated to mongocfg host
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling3)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos33}
+### Mongos {#Mongos36}
 
 Field | Description
 --- | ---
@@ -2095,7 +2262,7 @@ resources | **[Resources](#Resources3)**<br>Resources allocated to mongos hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling3)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra33}
+### MongoInfra {#MongoInfra36}
 
 Field | Description
 --- | ---
@@ -2109,13 +2276,13 @@ disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling3)**<br>Disk
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod34)**<br>Configuration and resource allocation for mongod in a MongoDB 5.0 cluster. 
-mongocfg | **[MongoCfg](#MongoCfg34)**<br>Configuration and resource allocation for mongocfg in a MongoDB 5.0 cluster. 
-mongos | **[Mongos](#Mongos34)**<br>Configuration and resource allocation for mongos in a MongoDB 5.0 cluster. 
-mongoinfra | **[MongoInfra](#MongoInfra34)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 5.0 cluster. 
+mongod | **[Mongod](#Mongod37)**<br>Configuration and resource allocation for mongod in a MongoDB 5.0 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg37)**<br>Configuration and resource allocation for mongocfg in a MongoDB 5.0 cluster. 
+mongos | **[Mongos](#Mongos37)**<br>Configuration and resource allocation for mongos in a MongoDB 5.0 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra37)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 5.0 cluster. 
 
 
-### Mongod {#Mongod34}
+### Mongod {#Mongod37}
 
 Field | Description
 --- | ---
@@ -2124,7 +2291,7 @@ resources | **[Resources](#Resources3)**<br>Resources allocated to mongod hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling3)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg34}
+### MongoCfg {#MongoCfg37}
 
 Field | Description
 --- | ---
@@ -2133,7 +2300,7 @@ resources | **[Resources](#Resources3)**<br>Resources allocated to mongocfg host
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling3)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos34}
+### Mongos {#Mongos37}
 
 Field | Description
 --- | ---
@@ -2142,7 +2309,7 @@ resources | **[Resources](#Resources3)**<br>Resources allocated to mongos hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling3)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra34}
+### MongoInfra {#MongoInfra37}
 
 Field | Description
 --- | ---
@@ -2156,13 +2323,13 @@ disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling3)**<br>Disk
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod35)**<br>Configuration and resource allocation for mongod in a MongoDB 6.0 cluster. 
-mongocfg | **[MongoCfg](#MongoCfg35)**<br>Configuration and resource allocation for mongocfg in a MongoDB 6.0 cluster. 
-mongos | **[Mongos](#Mongos35)**<br>Configuration and resource allocation for mongos in a MongoDB 6.0 cluster. 
-mongoinfra | **[MongoInfra](#MongoInfra35)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 6.0 cluster. 
+mongod | **[Mongod](#Mongod38)**<br>Configuration and resource allocation for mongod in a MongoDB 6.0 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg38)**<br>Configuration and resource allocation for mongocfg in a MongoDB 6.0 cluster. 
+mongos | **[Mongos](#Mongos38)**<br>Configuration and resource allocation for mongos in a MongoDB 6.0 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra38)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 6.0 cluster. 
 
 
-### Mongod {#Mongod35}
+### Mongod {#Mongod38}
 
 Field | Description
 --- | ---
@@ -2171,7 +2338,7 @@ resources | **[Resources](#Resources3)**<br>Resources allocated to mongod hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling3)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg35}
+### MongoCfg {#MongoCfg38}
 
 Field | Description
 --- | ---
@@ -2180,7 +2347,7 @@ resources | **[Resources](#Resources3)**<br>Resources allocated to mongocfg host
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling3)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos35}
+### Mongos {#Mongos38}
 
 Field | Description
 --- | ---
@@ -2189,7 +2356,7 @@ resources | **[Resources](#Resources3)**<br>Resources allocated to mongos hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling3)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra35}
+### MongoInfra {#MongoInfra38}
 
 Field | Description
 --- | ---
@@ -2199,25 +2366,51 @@ resources | **[Resources](#Resources3)**<br>Resources allocated to mongoinfra (m
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling3)**<br>Disk size autoscaling settings 
 
 
-### MaintenanceWindow {#MaintenanceWindow2}
+### Mongodb {#Mongodb2}
 
 Field | Description
 --- | ---
-policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow2)**<br>Maintenance operation can be scheduled anytime. 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow2)**<br>Maintenance operation can be scheduled on a weekly basis. 
+mongod | **[Mongod](#Mongod39)**<br>Configuration and resource allocation for mongod in a MongoDB cluster. 
+mongocfg | **[MongoCfg](#MongoCfg39)**<br>Configuration and resource allocation for mongocfg in a MongoDB cluster. 
+mongos | **[Mongos](#Mongos39)**<br>Configuration and resource allocation for mongos in a MongoDB cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra39)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB cluster. 
 
 
-### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow2}
-
-Empty.
-
-### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow2}
+### Mongod {#Mongod39}
 
 Field | Description
 --- | ---
-day | enum **WeekDay**<br>Day of the week (in `DDD` format). 
-hour | **int64**<br>Hour of the day in UTC (in `HH` format). Acceptable values are 1 to 24, inclusive.
+config | **`config.MongodConfigSet`**<br>Configuration for mongod hosts. 
+resources | **[Resources](#Resources3)**<br>Resources allocated to mongod hosts. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling3)**<br>Disk size autoscaling settings 
+
+
+### MongoCfg {#MongoCfg39}
+
+Field | Description
+--- | ---
+config | **`config.MongoCfgConfigSet`**<br>Configuration for mongocfg hosts. 
+resources | **[Resources](#Resources3)**<br>Resources allocated to mongocfg hosts. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling3)**<br>Disk size autoscaling settings 
+
+
+### Mongos {#Mongos39}
+
+Field | Description
+--- | ---
+config | **`config.MongosConfigSet`**<br>Configuration for mongos hosts. 
+resources | **[Resources](#Resources3)**<br>Resources allocated to mongos hosts. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling3)**<br>Disk size autoscaling settings 
+
+
+### MongoInfra {#MongoInfra39}
+
+Field | Description
+--- | ---
+config_mongos | **[config.MongosConfigSet](#MongosConfigSet)**<br> 
+config_mongocfg | **[config.MongoCfgConfigSet](#MongoCfgConfigSet)**<br> 
+resources | **[Resources](#Resources3)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling3)**<br>Disk size autoscaling settings 
 
 
 ### MaintenanceOperation {#MaintenanceOperation2}
@@ -2251,6 +2444,7 @@ name | **string**<br>New name for the cluster. The maximum string length in char
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow3)**<br>New maintenance window settings for the cluster. 
 security_group_ids[] | **string**<br>User security groups 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
+network_id | **string**<br>ID of the network to move the cluster to. The maximum string length in characters is 50.
 
 
 ### ConfigSpec {#ConfigSpec1}
@@ -2273,19 +2467,20 @@ backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/go
 backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retain period of automatically created backup in days Acceptable values are 7 to 35, inclusive.
 performance_diagnostics | **[PerformanceDiagnosticsConfig](#PerformanceDiagnosticsConfig3)**<br>Performance Diagnosics configuration 
 access | **[Access](#Access3)**<br>Access policy to DB 
+mongodb | **[MongodbSpec](#MongodbSpec)**<br>Configuration and resource allocation for a MongoDB 7.0 Enterprise cluster. 
 
 
 ### MongodbSpec3_6 {#MongodbSpec3_61}
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod36)**<br>Configuration and resource allocation for mongod 3.6 hosts. 
-mongocfg | **[MongoCfg](#MongoCfg36)**<br>Configuration and resource allocation for mongocfg 3.6 hosts. 
-mongos | **[Mongos](#Mongos36)**<br>Configuration and resource allocation for mongos 3.6 hosts. 
-mongoinfra | **[MongoInfra](#MongoInfra36)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 3.6 hosts. 
+mongod | **[Mongod](#Mongod40)**<br>Configuration and resource allocation for mongod 3.6 hosts. 
+mongocfg | **[MongoCfg](#MongoCfg40)**<br>Configuration and resource allocation for mongocfg 3.6 hosts. 
+mongos | **[Mongos](#Mongos40)**<br>Configuration and resource allocation for mongos 3.6 hosts. 
+mongoinfra | **[MongoInfra](#MongoInfra40)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 3.6 hosts. 
 
 
-### Mongod {#Mongod36}
+### Mongod {#Mongod40}
 
 Field | Description
 --- | ---
@@ -2294,7 +2489,7 @@ resources | **[Resources](#Resources3)**<br>Resources allocated to each mongod h
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling3)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg36}
+### MongoCfg {#MongoCfg40}
 
 Field | Description
 --- | ---
@@ -2303,7 +2498,7 @@ resources | **[Resources](#Resources3)**<br>Resources allocated to each mongocfg
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling3)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos36}
+### Mongos {#Mongos40}
 
 Field | Description
 --- | ---
@@ -2312,7 +2507,7 @@ resources | **[Resources](#Resources3)**<br>Resources allocated to each mongos h
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling3)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra36}
+### MongoInfra {#MongoInfra40}
 
 Field | Description
 --- | ---
@@ -2344,13 +2539,13 @@ disk_size_limit | **[google.protobuf.Int64Value](https://developers.google.com/p
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod37)**<br>Configuration and resource allocation for mongod 4.0 hosts. 
-mongocfg | **[MongoCfg](#MongoCfg37)**<br>Configuration and resource allocation for mongocfg 4.0 hosts. 
-mongos | **[Mongos](#Mongos37)**<br>Configuration and resource allocation for mongos 4.0 hosts. 
-mongoinfra | **[MongoInfra](#MongoInfra37)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 4.0 hosts. 
+mongod | **[Mongod](#Mongod41)**<br>Configuration and resource allocation for mongod 4.0 hosts. 
+mongocfg | **[MongoCfg](#MongoCfg41)**<br>Configuration and resource allocation for mongocfg 4.0 hosts. 
+mongos | **[Mongos](#Mongos41)**<br>Configuration and resource allocation for mongos 4.0 hosts. 
+mongoinfra | **[MongoInfra](#MongoInfra41)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 4.0 hosts. 
 
 
-### Mongod {#Mongod37}
+### Mongod {#Mongod41}
 
 Field | Description
 --- | ---
@@ -2359,7 +2554,7 @@ resources | **[Resources](#Resources4)**<br>Resources allocated to each mongod h
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling4)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg37}
+### MongoCfg {#MongoCfg41}
 
 Field | Description
 --- | ---
@@ -2368,7 +2563,7 @@ resources | **[Resources](#Resources4)**<br>Resources allocated to each mongocfg
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling4)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos37}
+### Mongos {#Mongos41}
 
 Field | Description
 --- | ---
@@ -2377,7 +2572,7 @@ resources | **[Resources](#Resources4)**<br>Resources allocated to each mongos h
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling4)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra37}
+### MongoInfra {#MongoInfra41}
 
 Field | Description
 --- | ---
@@ -2391,13 +2586,13 @@ disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling4)**<br>Disk
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod38)**<br>Configuration and resource allocation for mongod 4.2 hosts. 
-mongocfg | **[MongoCfg](#MongoCfg38)**<br>Configuration and resource allocation for mongocfg 4.2 hosts. 
-mongos | **[Mongos](#Mongos38)**<br>Configuration and resource allocation for mongos 4.2 hosts. 
-mongoinfra | **[MongoInfra](#MongoInfra38)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 4.2 hosts. 
+mongod | **[Mongod](#Mongod42)**<br>Configuration and resource allocation for mongod 4.2 hosts. 
+mongocfg | **[MongoCfg](#MongoCfg42)**<br>Configuration and resource allocation for mongocfg 4.2 hosts. 
+mongos | **[Mongos](#Mongos42)**<br>Configuration and resource allocation for mongos 4.2 hosts. 
+mongoinfra | **[MongoInfra](#MongoInfra42)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 4.2 hosts. 
 
 
-### Mongod {#Mongod38}
+### Mongod {#Mongod42}
 
 Field | Description
 --- | ---
@@ -2406,7 +2601,7 @@ resources | **[Resources](#Resources4)**<br>Resources allocated to each mongod h
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling4)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg38}
+### MongoCfg {#MongoCfg42}
 
 Field | Description
 --- | ---
@@ -2415,7 +2610,7 @@ resources | **[Resources](#Resources4)**<br>Resources allocated to each mongocfg
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling4)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos38}
+### Mongos {#Mongos42}
 
 Field | Description
 --- | ---
@@ -2424,7 +2619,7 @@ resources | **[Resources](#Resources4)**<br>Resources allocated to each mongos h
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling4)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra38}
+### MongoInfra {#MongoInfra42}
 
 Field | Description
 --- | ---
@@ -2438,13 +2633,13 @@ disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling4)**<br>Disk
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod39)**<br>Configuration and resource allocation for mongod 4.4 hosts. 
-mongocfg | **[MongoCfg](#MongoCfg39)**<br>Configuration and resource allocation for mongocfg 4.4 hosts. 
-mongos | **[Mongos](#Mongos39)**<br>Configuration and resource allocation for mongos 4.4 hosts. 
-mongoinfra | **[MongoInfra](#MongoInfra39)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 4.4 hosts. 
+mongod | **[Mongod](#Mongod43)**<br>Configuration and resource allocation for mongod 4.4 hosts. 
+mongocfg | **[MongoCfg](#MongoCfg43)**<br>Configuration and resource allocation for mongocfg 4.4 hosts. 
+mongos | **[Mongos](#Mongos43)**<br>Configuration and resource allocation for mongos 4.4 hosts. 
+mongoinfra | **[MongoInfra](#MongoInfra43)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 4.4 hosts. 
 
 
-### Mongod {#Mongod39}
+### Mongod {#Mongod43}
 
 Field | Description
 --- | ---
@@ -2453,7 +2648,7 @@ resources | **[Resources](#Resources4)**<br>Resources allocated to each mongod h
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling4)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg39}
+### MongoCfg {#MongoCfg43}
 
 Field | Description
 --- | ---
@@ -2462,7 +2657,7 @@ resources | **[Resources](#Resources4)**<br>Resources allocated to each mongocfg
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling4)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos39}
+### Mongos {#Mongos43}
 
 Field | Description
 --- | ---
@@ -2471,7 +2666,7 @@ resources | **[Resources](#Resources4)**<br>Resources allocated to each mongos h
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling4)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra39}
+### MongoInfra {#MongoInfra43}
 
 Field | Description
 --- | ---
@@ -2485,13 +2680,13 @@ disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling4)**<br>Disk
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod40)**<br>Configuration and resource allocation for mongod 5.0 hosts. 
-mongocfg | **[MongoCfg](#MongoCfg40)**<br>Configuration and resource allocation for mongocfg 5.0 hosts. 
-mongos | **[Mongos](#Mongos40)**<br>Configuration and resource allocation for mongos 5.0 hosts. 
-mongoinfra | **[MongoInfra](#MongoInfra40)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 5.0 hosts. 
+mongod | **[Mongod](#Mongod44)**<br>Configuration and resource allocation for mongod 5.0 hosts. 
+mongocfg | **[MongoCfg](#MongoCfg44)**<br>Configuration and resource allocation for mongocfg 5.0 hosts. 
+mongos | **[Mongos](#Mongos44)**<br>Configuration and resource allocation for mongos 5.0 hosts. 
+mongoinfra | **[MongoInfra](#MongoInfra44)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 5.0 hosts. 
 
 
-### Mongod {#Mongod40}
+### Mongod {#Mongod44}
 
 Field | Description
 --- | ---
@@ -2500,7 +2695,7 @@ resources | **[Resources](#Resources4)**<br>Resources allocated to each mongod h
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling4)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg40}
+### MongoCfg {#MongoCfg44}
 
 Field | Description
 --- | ---
@@ -2509,7 +2704,7 @@ resources | **[Resources](#Resources4)**<br>Resources allocated to each mongocfg
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling4)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos40}
+### Mongos {#Mongos44}
 
 Field | Description
 --- | ---
@@ -2518,7 +2713,7 @@ resources | **[Resources](#Resources4)**<br>Resources allocated to each mongos h
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling4)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra40}
+### MongoInfra {#MongoInfra44}
 
 Field | Description
 --- | ---
@@ -2532,13 +2727,13 @@ disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling4)**<br>Disk
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod41)**<br>Configuration and resource allocation for mongod 6.0 hosts. 
-mongocfg | **[MongoCfg](#MongoCfg41)**<br>Configuration and resource allocation for mongocfg 6.0 hosts. 
-mongos | **[Mongos](#Mongos41)**<br>Configuration and resource allocation for mongos 6.0 hosts. 
-mongoinfra | **[MongoInfra](#MongoInfra41)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 6.0 hosts. 
+mongod | **[Mongod](#Mongod45)**<br>Configuration and resource allocation for mongod 6.0 hosts. 
+mongocfg | **[MongoCfg](#MongoCfg45)**<br>Configuration and resource allocation for mongocfg 6.0 hosts. 
+mongos | **[Mongos](#Mongos45)**<br>Configuration and resource allocation for mongos 6.0 hosts. 
+mongoinfra | **[MongoInfra](#MongoInfra45)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 6.0 hosts. 
 
 
-### Mongod {#Mongod41}
+### Mongod {#Mongod45}
 
 Field | Description
 --- | ---
@@ -2547,7 +2742,7 @@ resources | **[Resources](#Resources4)**<br>Resources allocated to each mongod h
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling4)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg41}
+### MongoCfg {#MongoCfg45}
 
 Field | Description
 --- | ---
@@ -2556,7 +2751,7 @@ resources | **[Resources](#Resources4)**<br>Resources allocated to each mongocfg
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling4)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos41}
+### Mongos {#Mongos45}
 
 Field | Description
 --- | ---
@@ -2565,7 +2760,7 @@ resources | **[Resources](#Resources4)**<br>Resources allocated to each mongos h
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling4)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra41}
+### MongoInfra {#MongoInfra45}
 
 Field | Description
 --- | ---
@@ -2579,13 +2774,13 @@ disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling4)**<br>Disk
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod42)**<br>Configuration and resource allocation for mongod 4.4 hosts. 
-mongocfg | **[MongoCfg](#MongoCfg42)**<br>Configuration and resource allocation for mongocfg 4.4 hosts. 
-mongos | **[Mongos](#Mongos42)**<br>Configuration and resource allocation for mongos 4.4 hosts. 
-mongoinfra | **[MongoInfra](#MongoInfra42)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 4.4 hosts. 
+mongod | **[Mongod](#Mongod46)**<br>Configuration and resource allocation for mongod 4.4 hosts. 
+mongocfg | **[MongoCfg](#MongoCfg46)**<br>Configuration and resource allocation for mongocfg 4.4 hosts. 
+mongos | **[Mongos](#Mongos46)**<br>Configuration and resource allocation for mongos 4.4 hosts. 
+mongoinfra | **[MongoInfra](#MongoInfra46)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 4.4 hosts. 
 
 
-### Mongod {#Mongod42}
+### Mongod {#Mongod46}
 
 Field | Description
 --- | ---
@@ -2594,7 +2789,7 @@ resources | **[Resources](#Resources4)**<br>Resources allocated to each mongod h
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling4)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg42}
+### MongoCfg {#MongoCfg46}
 
 Field | Description
 --- | ---
@@ -2603,7 +2798,7 @@ resources | **[Resources](#Resources4)**<br>Resources allocated to each mongocfg
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling4)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos42}
+### Mongos {#Mongos46}
 
 Field | Description
 --- | ---
@@ -2612,7 +2807,7 @@ resources | **[Resources](#Resources4)**<br>Resources allocated to each mongos h
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling4)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra42}
+### MongoInfra {#MongoInfra46}
 
 Field | Description
 --- | ---
@@ -2626,13 +2821,13 @@ disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling4)**<br>Disk
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod43)**<br>Configuration and resource allocation for mongod 5.0 hosts. 
-mongocfg | **[MongoCfg](#MongoCfg43)**<br>Configuration and resource allocation for mongocfg 5.0 hosts. 
-mongos | **[Mongos](#Mongos43)**<br>Configuration and resource allocation for mongos 5.0 hosts. 
-mongoinfra | **[MongoInfra](#MongoInfra43)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 5.0 hosts. 
+mongod | **[Mongod](#Mongod47)**<br>Configuration and resource allocation for mongod 5.0 hosts. 
+mongocfg | **[MongoCfg](#MongoCfg47)**<br>Configuration and resource allocation for mongocfg 5.0 hosts. 
+mongos | **[Mongos](#Mongos47)**<br>Configuration and resource allocation for mongos 5.0 hosts. 
+mongoinfra | **[MongoInfra](#MongoInfra47)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 5.0 hosts. 
 
 
-### Mongod {#Mongod43}
+### Mongod {#Mongod47}
 
 Field | Description
 --- | ---
@@ -2641,7 +2836,7 @@ resources | **[Resources](#Resources4)**<br>Resources allocated to each mongod h
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling4)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg43}
+### MongoCfg {#MongoCfg47}
 
 Field | Description
 --- | ---
@@ -2650,7 +2845,7 @@ resources | **[Resources](#Resources4)**<br>Resources allocated to each mongocfg
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling4)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos43}
+### Mongos {#Mongos47}
 
 Field | Description
 --- | ---
@@ -2659,7 +2854,7 @@ resources | **[Resources](#Resources4)**<br>Resources allocated to each mongos h
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling4)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra43}
+### MongoInfra {#MongoInfra47}
 
 Field | Description
 --- | ---
@@ -2673,13 +2868,13 @@ disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling4)**<br>Disk
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod44)**<br>Configuration and resource allocation for mongod 6.0 hosts. 
-mongocfg | **[MongoCfg](#MongoCfg44)**<br>Configuration and resource allocation for mongocfg 6.0 hosts. 
-mongos | **[Mongos](#Mongos44)**<br>Configuration and resource allocation for mongos 6.0 hosts. 
-mongoinfra | **[MongoInfra](#MongoInfra44)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 6.0 hosts. 
+mongod | **[Mongod](#Mongod48)**<br>Configuration and resource allocation for mongod 6.0 hosts. 
+mongocfg | **[MongoCfg](#MongoCfg48)**<br>Configuration and resource allocation for mongocfg 6.0 hosts. 
+mongos | **[Mongos](#Mongos48)**<br>Configuration and resource allocation for mongos 6.0 hosts. 
+mongoinfra | **[MongoInfra](#MongoInfra48)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 6.0 hosts. 
 
 
-### Mongod {#Mongod44}
+### Mongod {#Mongod48}
 
 Field | Description
 --- | ---
@@ -2688,7 +2883,7 @@ resources | **[Resources](#Resources4)**<br>Resources allocated to each mongod h
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling4)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg44}
+### MongoCfg {#MongoCfg48}
 
 Field | Description
 --- | ---
@@ -2697,7 +2892,7 @@ resources | **[Resources](#Resources4)**<br>Resources allocated to each mongocfg
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling4)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos44}
+### Mongos {#Mongos48}
 
 Field | Description
 --- | ---
@@ -2706,7 +2901,7 @@ resources | **[Resources](#Resources4)**<br>Resources allocated to each mongos h
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling4)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra44}
+### MongoInfra {#MongoInfra48}
 
 Field | Description
 --- | ---
@@ -2729,6 +2924,53 @@ Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens. 
 data_transfer | **bool**<br>Allow access for DataTransfer. 
+
+
+### MongodbSpec {#MongodbSpec1}
+
+Field | Description
+--- | ---
+mongod | **[Mongod](#Mongod49)**<br>Configuration and resource allocation for mongod hosts. 
+mongocfg | **[MongoCfg](#MongoCfg49)**<br>Configuration and resource allocation for mongocfg hosts. 
+mongos | **[Mongos](#Mongos49)**<br>Configuration and resource allocation for mongos hosts. 
+mongoinfra | **[MongoInfra](#MongoInfra49)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) hosts. 
+
+
+### Mongod {#Mongod49}
+
+Field | Description
+--- | ---
+config | **`config.MongodConfig`**<br> 
+resources | **[Resources](#Resources4)**<br>Resources allocated to each mongod host. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling4)**<br>Disk size autoscaling settings 
+
+
+### MongoCfg {#MongoCfg49}
+
+Field | Description
+--- | ---
+config | **`config.MongoCfgConfig`**<br>Configuration for mongocfg hosts. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to each mongocfg host. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling4)**<br>Disk size autoscaling settings 
+
+
+### Mongos {#Mongos49}
+
+Field | Description
+--- | ---
+config | **`config.MongosConfig`**<br>Configuration for mongos hosts. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to each mongos host. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling4)**<br>Disk size autoscaling settings 
+
+
+### MongoInfra {#MongoInfra49}
+
+Field | Description
+--- | ---
+config_mongos | **[config.MongosConfig](#MongosConfig)**<br>Configuration for mongoinfra hosts. 
+config_mongocfg | **[config.MongoCfgConfig](#MongoCfgConfig)**<br> 
+resources | **[Resources](#Resources4)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling4)**<br>Disk size autoscaling settings 
 
 
 ### MaintenanceWindow {#MaintenanceWindow3}
@@ -2811,7 +3053,7 @@ link | **string**<br>Link to the monitoring system charts for the MongoDB cluste
 
 Field | Description
 --- | ---
-version | **string**<br>Version of MongoDB server software. Possible values: `3.6`, `4.0`, `4.2`, `4.4`, `4.4-enterprise`, `5.0`, `5.0-enterprise`, `6.0`, `6.0-enterprise`. 
+version | **string**<br>Version of MongoDB server software. Possible values: `3.6`, `4.0`, `4.2`, `4.4`, `4.4-enterprise`, `5.0`, `5.0-enterprise`, `6.0`, `6.0-enterprise`, `7.0`, `7.0-enterprise`. 
 feature_compatibility_version | **string**<br>MongoDB feature compatibility version. See usage details in [MongoDB documentation](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/). <br>Possible values: <ul><li>`3.6` - persist data compatibility for version 3.6. After setting this option the data will not be compatible with 3.4 or lower. </li><li>`4.0` - persist data compatibility for version 4.0. After setting this option the data will not be compatible with 3.6 or lower. </li><li>`4.2` - persist data compatibility for version 4.2. After setting this option the data will not be compatible with 4.0 or lower. </li><li>`4.4` - persist data compatibility for version 4.4. After setting this option the data will not be compatible with 4.2 or lower. </li><li>`5.0` - persist data compatibility for version 5.0. After setting this option the data will not be compatible with 5.0 or lower. </li><li>`6.0` - persist data compatibility for version 6.0. After setting this option the data will not be compatible with 6.0 or lower.</li></ul> 
 mongodb | **oneof:** `mongodb_3_6`, `mongodb_4_0`, `mongodb_4_2`, `mongodb_4_4`, `mongodb_5_0`, `mongodb_6_0`, `mongodb_4_4_enterprise`, `mongodb_5_0_enterprise` or `mongodb_6_0_enterprise`<br>Configuration for MongoDB servers in the cluster.
 &nbsp;&nbsp;mongodb_3_6 | **[Mongodb3_6](#Mongodb3_63)**<br>Configuration and resource allocation for a MongoDB 3.6 cluster. 
@@ -2827,19 +3069,20 @@ backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/go
 backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retain period of automatically created backup in days 
 performance_diagnostics | **[PerformanceDiagnosticsConfig](#PerformanceDiagnosticsConfig4)**<br>Performance Diagnostic 
 access | **[Access](#Access4)**<br>Access policy to DB 
+mongodb_config | **[Mongodb](#Mongodb3)**<br>Configuration and resource allocation for a MongoDB Enterprise cluster. 
 
 
 ### Mongodb3_6 {#Mongodb3_63}
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod45)**<br>Configuration and resource allocation for mongod in a MongoDB 3.6 cluster. 
-mongocfg | **[MongoCfg](#MongoCfg45)**<br>Configuration and resource allocation for mongocfg in a MongoDB 3.6 cluster. 
-mongos | **[Mongos](#Mongos45)**<br>Configuration and resource allocation for mongos in a MongoDB 3.6 cluster. 
-mongoinfra | **[MongoInfra](#MongoInfra45)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 3.6 cluster. 
+mongod | **[Mongod](#Mongod50)**<br>Configuration and resource allocation for mongod in a MongoDB 3.6 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg50)**<br>Configuration and resource allocation for mongocfg in a MongoDB 3.6 cluster. 
+mongos | **[Mongos](#Mongos50)**<br>Configuration and resource allocation for mongos in a MongoDB 3.6 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra50)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 3.6 cluster. 
 
 
-### Mongod {#Mongod45}
+### Mongod {#Mongod50}
 
 Field | Description
 --- | ---
@@ -2848,7 +3091,7 @@ resources | **[Resources](#Resources4)**<br>Resources allocated to MongoDB hosts
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling4)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg45}
+### MongoCfg {#MongoCfg50}
 
 Field | Description
 --- | ---
@@ -2857,7 +3100,7 @@ resources | **[Resources](#Resources4)**<br>Resources allocated to mongocfg host
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling4)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos45}
+### Mongos {#Mongos50}
 
 Field | Description
 --- | ---
@@ -2866,7 +3109,7 @@ resources | **[Resources](#Resources4)**<br>Resources allocated to mongos hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling4)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra45}
+### MongoInfra {#MongoInfra50}
 
 Field | Description
 --- | ---
@@ -2880,13 +3123,13 @@ disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling4)**<br>Disk
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod46)**<br>Configuration and resource allocation for mongod in a MongoDB 4.0 cluster. 
-mongocfg | **[MongoCfg](#MongoCfg46)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.0 cluster. 
-mongos | **[Mongos](#Mongos46)**<br>Configuration and resource allocation for mongos in a MongoDB 4.0 cluster. 
-mongoinfra | **[MongoInfra](#MongoInfra46)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.0 cluster. 
+mongod | **[Mongod](#Mongod51)**<br>Configuration and resource allocation for mongod in a MongoDB 4.0 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg51)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.0 cluster. 
+mongos | **[Mongos](#Mongos51)**<br>Configuration and resource allocation for mongos in a MongoDB 4.0 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra51)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.0 cluster. 
 
 
-### Mongod {#Mongod46}
+### Mongod {#Mongod51}
 
 Field | Description
 --- | ---
@@ -2895,7 +3138,7 @@ resources | **[Resources](#Resources4)**<br>Resources allocated to mongod hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling4)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg46}
+### MongoCfg {#MongoCfg51}
 
 Field | Description
 --- | ---
@@ -2904,7 +3147,7 @@ resources | **[Resources](#Resources4)**<br>Resources allocated to mongocfg host
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling4)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos46}
+### Mongos {#Mongos51}
 
 Field | Description
 --- | ---
@@ -2913,7 +3156,7 @@ resources | **[Resources](#Resources4)**<br>Resources allocated to mongos hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling4)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra46}
+### MongoInfra {#MongoInfra51}
 
 Field | Description
 --- | ---
@@ -2927,13 +3170,13 @@ disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling4)**<br>Disk
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod47)**<br>Configuration and resource allocation for mongod in a MongoDB 4.2 cluster. 
-mongocfg | **[MongoCfg](#MongoCfg47)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.2 cluster. 
-mongos | **[Mongos](#Mongos47)**<br>Configuration and resource allocation for mongos in a MongoDB 4.2 cluster. 
-mongoinfra | **[MongoInfra](#MongoInfra47)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.2 cluster. 
+mongod | **[Mongod](#Mongod52)**<br>Configuration and resource allocation for mongod in a MongoDB 4.2 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg52)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.2 cluster. 
+mongos | **[Mongos](#Mongos52)**<br>Configuration and resource allocation for mongos in a MongoDB 4.2 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra52)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.2 cluster. 
 
 
-### Mongod {#Mongod47}
+### Mongod {#Mongod52}
 
 Field | Description
 --- | ---
@@ -2942,7 +3185,7 @@ resources | **[Resources](#Resources4)**<br>Resources allocated to mongod hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling4)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg47}
+### MongoCfg {#MongoCfg52}
 
 Field | Description
 --- | ---
@@ -2951,7 +3194,7 @@ resources | **[Resources](#Resources4)**<br>Resources allocated to mongocfg host
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling4)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos47}
+### Mongos {#Mongos52}
 
 Field | Description
 --- | ---
@@ -2960,7 +3203,7 @@ resources | **[Resources](#Resources4)**<br>Resources allocated to mongos hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling4)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra47}
+### MongoInfra {#MongoInfra52}
 
 Field | Description
 --- | ---
@@ -2974,13 +3217,13 @@ disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling4)**<br>Disk
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod48)**<br>Configuration and resource allocation for mongod in a MongoDB 4.4 cluster. 
-mongocfg | **[MongoCfg](#MongoCfg48)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.4 cluster. 
-mongos | **[Mongos](#Mongos48)**<br>Configuration and resource allocation for mongos in a MongoDB 4.4 cluster. 
-mongoinfra | **[MongoInfra](#MongoInfra48)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.4 cluster. 
+mongod | **[Mongod](#Mongod53)**<br>Configuration and resource allocation for mongod in a MongoDB 4.4 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg53)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.4 cluster. 
+mongos | **[Mongos](#Mongos53)**<br>Configuration and resource allocation for mongos in a MongoDB 4.4 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra53)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.4 cluster. 
 
 
-### Mongod {#Mongod48}
+### Mongod {#Mongod53}
 
 Field | Description
 --- | ---
@@ -2989,7 +3232,7 @@ resources | **[Resources](#Resources4)**<br>Resources allocated to mongod hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling4)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg48}
+### MongoCfg {#MongoCfg53}
 
 Field | Description
 --- | ---
@@ -2998,7 +3241,7 @@ resources | **[Resources](#Resources4)**<br>Resources allocated to mongocfg host
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling4)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos48}
+### Mongos {#Mongos53}
 
 Field | Description
 --- | ---
@@ -3007,7 +3250,7 @@ resources | **[Resources](#Resources4)**<br>Resources allocated to mongos hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling4)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra48}
+### MongoInfra {#MongoInfra53}
 
 Field | Description
 --- | ---
@@ -3021,13 +3264,13 @@ disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling4)**<br>Disk
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod49)**<br>Configuration and resource allocation for mongod in a MongoDB 5.0 cluster. 
-mongocfg | **[MongoCfg](#MongoCfg49)**<br>Configuration and resource allocation for mongocfg in a MongoDB 5.0 cluster. 
-mongos | **[Mongos](#Mongos49)**<br>Configuration and resource allocation for mongos in a MongoDB 5.0 cluster. 
-mongoinfra | **[MongoInfra](#MongoInfra49)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 5.0 cluster. 
+mongod | **[Mongod](#Mongod54)**<br>Configuration and resource allocation for mongod in a MongoDB 5.0 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg54)**<br>Configuration and resource allocation for mongocfg in a MongoDB 5.0 cluster. 
+mongos | **[Mongos](#Mongos54)**<br>Configuration and resource allocation for mongos in a MongoDB 5.0 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra54)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 5.0 cluster. 
 
 
-### Mongod {#Mongod49}
+### Mongod {#Mongod54}
 
 Field | Description
 --- | ---
@@ -3036,7 +3279,7 @@ resources | **[Resources](#Resources4)**<br>Resources allocated to mongod hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling4)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg49}
+### MongoCfg {#MongoCfg54}
 
 Field | Description
 --- | ---
@@ -3045,7 +3288,7 @@ resources | **[Resources](#Resources4)**<br>Resources allocated to mongocfg host
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling4)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos49}
+### Mongos {#Mongos54}
 
 Field | Description
 --- | ---
@@ -3054,7 +3297,7 @@ resources | **[Resources](#Resources4)**<br>Resources allocated to mongos hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling4)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra49}
+### MongoInfra {#MongoInfra54}
 
 Field | Description
 --- | ---
@@ -3068,13 +3311,13 @@ disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling4)**<br>Disk
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod50)**<br>Configuration and resource allocation for mongod in a MongoDB 6.0 cluster. 
-mongocfg | **[MongoCfg](#MongoCfg50)**<br>Configuration and resource allocation for mongocfg in a MongoDB 6.0 cluster. 
-mongos | **[Mongos](#Mongos50)**<br>Configuration and resource allocation for mongos in a MongoDB 6.0 cluster. 
-mongoinfra | **[MongoInfra](#MongoInfra50)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 6.0 cluster. 
+mongod | **[Mongod](#Mongod55)**<br>Configuration and resource allocation for mongod in a MongoDB 6.0 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg55)**<br>Configuration and resource allocation for mongocfg in a MongoDB 6.0 cluster. 
+mongos | **[Mongos](#Mongos55)**<br>Configuration and resource allocation for mongos in a MongoDB 6.0 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra55)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 6.0 cluster. 
 
 
-### Mongod {#Mongod50}
+### Mongod {#Mongod55}
 
 Field | Description
 --- | ---
@@ -3083,7 +3326,7 @@ resources | **[Resources](#Resources4)**<br>Resources allocated to mongod hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling4)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg50}
+### MongoCfg {#MongoCfg55}
 
 Field | Description
 --- | ---
@@ -3092,7 +3335,7 @@ resources | **[Resources](#Resources4)**<br>Resources allocated to mongocfg host
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling4)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos50}
+### Mongos {#Mongos55}
 
 Field | Description
 --- | ---
@@ -3101,7 +3344,7 @@ resources | **[Resources](#Resources4)**<br>Resources allocated to mongos hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling4)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra50}
+### MongoInfra {#MongoInfra55}
 
 Field | Description
 --- | ---
@@ -3115,13 +3358,13 @@ disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling4)**<br>Disk
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod51)**<br>Configuration and resource allocation for mongod in a MongoDB 4.4 cluster. 
-mongocfg | **[MongoCfg](#MongoCfg51)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.4 cluster. 
-mongos | **[Mongos](#Mongos51)**<br>Configuration and resource allocation for mongos in a MongoDB 4.4 cluster. 
-mongoinfra | **[MongoInfra](#MongoInfra51)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.4 cluster. 
+mongod | **[Mongod](#Mongod56)**<br>Configuration and resource allocation for mongod in a MongoDB 4.4 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg56)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.4 cluster. 
+mongos | **[Mongos](#Mongos56)**<br>Configuration and resource allocation for mongos in a MongoDB 4.4 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra56)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.4 cluster. 
 
 
-### Mongod {#Mongod51}
+### Mongod {#Mongod56}
 
 Field | Description
 --- | ---
@@ -3130,7 +3373,7 @@ resources | **[Resources](#Resources4)**<br>Resources allocated to mongod hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling4)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg51}
+### MongoCfg {#MongoCfg56}
 
 Field | Description
 --- | ---
@@ -3139,7 +3382,7 @@ resources | **[Resources](#Resources4)**<br>Resources allocated to mongocfg host
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling4)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos51}
+### Mongos {#Mongos56}
 
 Field | Description
 --- | ---
@@ -3148,7 +3391,7 @@ resources | **[Resources](#Resources4)**<br>Resources allocated to mongos hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling4)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra51}
+### MongoInfra {#MongoInfra56}
 
 Field | Description
 --- | ---
@@ -3162,13 +3405,13 @@ disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling4)**<br>Disk
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod52)**<br>Configuration and resource allocation for mongod in a MongoDB 5.0 cluster. 
-mongocfg | **[MongoCfg](#MongoCfg52)**<br>Configuration and resource allocation for mongocfg in a MongoDB 5.0 cluster. 
-mongos | **[Mongos](#Mongos52)**<br>Configuration and resource allocation for mongos in a MongoDB 5.0 cluster. 
-mongoinfra | **[MongoInfra](#MongoInfra52)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 5.0 cluster. 
+mongod | **[Mongod](#Mongod57)**<br>Configuration and resource allocation for mongod in a MongoDB 5.0 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg57)**<br>Configuration and resource allocation for mongocfg in a MongoDB 5.0 cluster. 
+mongos | **[Mongos](#Mongos57)**<br>Configuration and resource allocation for mongos in a MongoDB 5.0 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra57)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 5.0 cluster. 
 
 
-### Mongod {#Mongod52}
+### Mongod {#Mongod57}
 
 Field | Description
 --- | ---
@@ -3177,7 +3420,7 @@ resources | **[Resources](#Resources4)**<br>Resources allocated to mongod hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling4)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg52}
+### MongoCfg {#MongoCfg57}
 
 Field | Description
 --- | ---
@@ -3186,7 +3429,7 @@ resources | **[Resources](#Resources4)**<br>Resources allocated to mongocfg host
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling4)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos52}
+### Mongos {#Mongos57}
 
 Field | Description
 --- | ---
@@ -3195,7 +3438,7 @@ resources | **[Resources](#Resources4)**<br>Resources allocated to mongos hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling4)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra52}
+### MongoInfra {#MongoInfra57}
 
 Field | Description
 --- | ---
@@ -3209,13 +3452,13 @@ disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling4)**<br>Disk
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod53)**<br>Configuration and resource allocation for mongod in a MongoDB 6.0 cluster. 
-mongocfg | **[MongoCfg](#MongoCfg53)**<br>Configuration and resource allocation for mongocfg in a MongoDB 6.0 cluster. 
-mongos | **[Mongos](#Mongos53)**<br>Configuration and resource allocation for mongos in a MongoDB 6.0 cluster. 
-mongoinfra | **[MongoInfra](#MongoInfra53)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 6.0 cluster. 
+mongod | **[Mongod](#Mongod58)**<br>Configuration and resource allocation for mongod in a MongoDB 6.0 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg58)**<br>Configuration and resource allocation for mongocfg in a MongoDB 6.0 cluster. 
+mongos | **[Mongos](#Mongos58)**<br>Configuration and resource allocation for mongos in a MongoDB 6.0 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra58)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 6.0 cluster. 
 
 
-### Mongod {#Mongod53}
+### Mongod {#Mongod58}
 
 Field | Description
 --- | ---
@@ -3224,7 +3467,7 @@ resources | **[Resources](#Resources4)**<br>Resources allocated to mongod hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling4)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg53}
+### MongoCfg {#MongoCfg58}
 
 Field | Description
 --- | ---
@@ -3233,7 +3476,7 @@ resources | **[Resources](#Resources4)**<br>Resources allocated to mongocfg host
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling4)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos53}
+### Mongos {#Mongos58}
 
 Field | Description
 --- | ---
@@ -3242,12 +3485,59 @@ resources | **[Resources](#Resources4)**<br>Resources allocated to mongos hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling4)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra53}
+### MongoInfra {#MongoInfra58}
 
 Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet6_0_enterprise](#MongosConfigSet6_0_enterprise)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet6_0_enterprise](#MongoCfgConfigSet6_0_enterprise)**<br> 
+resources | **[Resources](#Resources4)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling4)**<br>Disk size autoscaling settings 
+
+
+### Mongodb {#Mongodb3}
+
+Field | Description
+--- | ---
+mongod | **[Mongod](#Mongod59)**<br>Configuration and resource allocation for mongod in a MongoDB cluster. 
+mongocfg | **[MongoCfg](#MongoCfg59)**<br>Configuration and resource allocation for mongocfg in a MongoDB cluster. 
+mongos | **[Mongos](#Mongos59)**<br>Configuration and resource allocation for mongos in a MongoDB cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra59)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB cluster. 
+
+
+### Mongod {#Mongod59}
+
+Field | Description
+--- | ---
+config | **`config.MongodConfigSet`**<br>Configuration for mongod hosts. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to mongod hosts. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling4)**<br>Disk size autoscaling settings 
+
+
+### MongoCfg {#MongoCfg59}
+
+Field | Description
+--- | ---
+config | **`config.MongoCfgConfigSet`**<br>Configuration for mongocfg hosts. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to mongocfg hosts. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling4)**<br>Disk size autoscaling settings 
+
+
+### Mongos {#Mongos59}
+
+Field | Description
+--- | ---
+config | **`config.MongosConfigSet`**<br>Configuration for mongos hosts. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to mongos hosts. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling4)**<br>Disk size autoscaling settings 
+
+
+### MongoInfra {#MongoInfra59}
+
+Field | Description
+--- | ---
+config_mongos | **[config.MongosConfigSet](#MongosConfigSet)**<br> 
+config_mongocfg | **[config.MongoCfgConfigSet](#MongoCfgConfigSet)**<br> 
 resources | **[Resources](#Resources4)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling4)**<br>Disk size autoscaling settings 
 
@@ -3376,7 +3666,7 @@ link | **string**<br>Link to the monitoring system charts for the MongoDB cluste
 
 Field | Description
 --- | ---
-version | **string**<br>Version of MongoDB server software. Possible values: `3.6`, `4.0`, `4.2`, `4.4`, `4.4-enterprise`, `5.0`, `5.0-enterprise`, `6.0`, `6.0-enterprise`. 
+version | **string**<br>Version of MongoDB server software. Possible values: `3.6`, `4.0`, `4.2`, `4.4`, `4.4-enterprise`, `5.0`, `5.0-enterprise`, `6.0`, `6.0-enterprise`, `7.0`, `7.0-enterprise`. 
 feature_compatibility_version | **string**<br>MongoDB feature compatibility version. See usage details in [MongoDB documentation](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/). <br>Possible values: <ul><li>`3.6` - persist data compatibility for version 3.6. After setting this option the data will not be compatible with 3.4 or lower. </li><li>`4.0` - persist data compatibility for version 4.0. After setting this option the data will not be compatible with 3.6 or lower. </li><li>`4.2` - persist data compatibility for version 4.2. After setting this option the data will not be compatible with 4.0 or lower. </li><li>`4.4` - persist data compatibility for version 4.4. After setting this option the data will not be compatible with 4.2 or lower. </li><li>`5.0` - persist data compatibility for version 5.0. After setting this option the data will not be compatible with 5.0 or lower. </li><li>`6.0` - persist data compatibility for version 6.0. After setting this option the data will not be compatible with 6.0 or lower.</li></ul> 
 mongodb | **oneof:** `mongodb_3_6`, `mongodb_4_0`, `mongodb_4_2`, `mongodb_4_4`, `mongodb_5_0`, `mongodb_6_0`, `mongodb_4_4_enterprise`, `mongodb_5_0_enterprise` or `mongodb_6_0_enterprise`<br>Configuration for MongoDB servers in the cluster.
 &nbsp;&nbsp;mongodb_3_6 | **[Mongodb3_6](#Mongodb3_64)**<br>Configuration and resource allocation for a MongoDB 3.6 cluster. 
@@ -3392,19 +3682,20 @@ backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/go
 backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retain period of automatically created backup in days 
 performance_diagnostics | **[PerformanceDiagnosticsConfig](#PerformanceDiagnosticsConfig4)**<br>Performance Diagnostic 
 access | **[Access](#Access4)**<br>Access policy to DB 
+mongodb_config | **[Mongodb](#Mongodb4)**<br>Configuration and resource allocation for a MongoDB Enterprise cluster. 
 
 
 ### Mongodb3_6 {#Mongodb3_64}
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod54)**<br>Configuration and resource allocation for mongod in a MongoDB 3.6 cluster. 
-mongocfg | **[MongoCfg](#MongoCfg54)**<br>Configuration and resource allocation for mongocfg in a MongoDB 3.6 cluster. 
-mongos | **[Mongos](#Mongos54)**<br>Configuration and resource allocation for mongos in a MongoDB 3.6 cluster. 
-mongoinfra | **[MongoInfra](#MongoInfra54)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 3.6 cluster. 
+mongod | **[Mongod](#Mongod60)**<br>Configuration and resource allocation for mongod in a MongoDB 3.6 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg60)**<br>Configuration and resource allocation for mongocfg in a MongoDB 3.6 cluster. 
+mongos | **[Mongos](#Mongos60)**<br>Configuration and resource allocation for mongos in a MongoDB 3.6 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra60)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 3.6 cluster. 
 
 
-### Mongod {#Mongod54}
+### Mongod {#Mongod60}
 
 Field | Description
 --- | ---
@@ -3413,7 +3704,7 @@ resources | **[Resources](#Resources4)**<br>Resources allocated to MongoDB hosts
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling4)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg54}
+### MongoCfg {#MongoCfg60}
 
 Field | Description
 --- | ---
@@ -3422,7 +3713,7 @@ resources | **[Resources](#Resources4)**<br>Resources allocated to mongocfg host
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling4)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos54}
+### Mongos {#Mongos60}
 
 Field | Description
 --- | ---
@@ -3431,7 +3722,7 @@ resources | **[Resources](#Resources4)**<br>Resources allocated to mongos hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling4)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra54}
+### MongoInfra {#MongoInfra60}
 
 Field | Description
 --- | ---
@@ -3463,13 +3754,13 @@ disk_size_limit | **[google.protobuf.Int64Value](https://developers.google.com/p
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod55)**<br>Configuration and resource allocation for mongod in a MongoDB 4.0 cluster. 
-mongocfg | **[MongoCfg](#MongoCfg55)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.0 cluster. 
-mongos | **[Mongos](#Mongos55)**<br>Configuration and resource allocation for mongos in a MongoDB 4.0 cluster. 
-mongoinfra | **[MongoInfra](#MongoInfra55)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.0 cluster. 
+mongod | **[Mongod](#Mongod61)**<br>Configuration and resource allocation for mongod in a MongoDB 4.0 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg61)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.0 cluster. 
+mongos | **[Mongos](#Mongos61)**<br>Configuration and resource allocation for mongos in a MongoDB 4.0 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra61)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.0 cluster. 
 
 
-### Mongod {#Mongod55}
+### Mongod {#Mongod61}
 
 Field | Description
 --- | ---
@@ -3478,7 +3769,7 @@ resources | **[Resources](#Resources5)**<br>Resources allocated to mongod hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling5)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg55}
+### MongoCfg {#MongoCfg61}
 
 Field | Description
 --- | ---
@@ -3487,7 +3778,7 @@ resources | **[Resources](#Resources5)**<br>Resources allocated to mongocfg host
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling5)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos55}
+### Mongos {#Mongos61}
 
 Field | Description
 --- | ---
@@ -3496,7 +3787,7 @@ resources | **[Resources](#Resources5)**<br>Resources allocated to mongos hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling5)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra55}
+### MongoInfra {#MongoInfra61}
 
 Field | Description
 --- | ---
@@ -3510,13 +3801,13 @@ disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling5)**<br>Disk
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod56)**<br>Configuration and resource allocation for mongod in a MongoDB 4.2 cluster. 
-mongocfg | **[MongoCfg](#MongoCfg56)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.2 cluster. 
-mongos | **[Mongos](#Mongos56)**<br>Configuration and resource allocation for mongos in a MongoDB 4.2 cluster. 
-mongoinfra | **[MongoInfra](#MongoInfra56)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.2 cluster. 
+mongod | **[Mongod](#Mongod62)**<br>Configuration and resource allocation for mongod in a MongoDB 4.2 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg62)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.2 cluster. 
+mongos | **[Mongos](#Mongos62)**<br>Configuration and resource allocation for mongos in a MongoDB 4.2 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra62)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.2 cluster. 
 
 
-### Mongod {#Mongod56}
+### Mongod {#Mongod62}
 
 Field | Description
 --- | ---
@@ -3525,7 +3816,7 @@ resources | **[Resources](#Resources5)**<br>Resources allocated to mongod hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling5)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg56}
+### MongoCfg {#MongoCfg62}
 
 Field | Description
 --- | ---
@@ -3534,7 +3825,7 @@ resources | **[Resources](#Resources5)**<br>Resources allocated to mongocfg host
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling5)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos56}
+### Mongos {#Mongos62}
 
 Field | Description
 --- | ---
@@ -3543,7 +3834,7 @@ resources | **[Resources](#Resources5)**<br>Resources allocated to mongos hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling5)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra56}
+### MongoInfra {#MongoInfra62}
 
 Field | Description
 --- | ---
@@ -3557,13 +3848,13 @@ disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling5)**<br>Disk
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod57)**<br>Configuration and resource allocation for mongod in a MongoDB 4.4 cluster. 
-mongocfg | **[MongoCfg](#MongoCfg57)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.4 cluster. 
-mongos | **[Mongos](#Mongos57)**<br>Configuration and resource allocation for mongos in a MongoDB 4.4 cluster. 
-mongoinfra | **[MongoInfra](#MongoInfra57)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.4 cluster. 
+mongod | **[Mongod](#Mongod63)**<br>Configuration and resource allocation for mongod in a MongoDB 4.4 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg63)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.4 cluster. 
+mongos | **[Mongos](#Mongos63)**<br>Configuration and resource allocation for mongos in a MongoDB 4.4 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra63)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.4 cluster. 
 
 
-### Mongod {#Mongod57}
+### Mongod {#Mongod63}
 
 Field | Description
 --- | ---
@@ -3572,7 +3863,7 @@ resources | **[Resources](#Resources5)**<br>Resources allocated to mongod hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling5)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg57}
+### MongoCfg {#MongoCfg63}
 
 Field | Description
 --- | ---
@@ -3581,7 +3872,7 @@ resources | **[Resources](#Resources5)**<br>Resources allocated to mongocfg host
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling5)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos57}
+### Mongos {#Mongos63}
 
 Field | Description
 --- | ---
@@ -3590,7 +3881,7 @@ resources | **[Resources](#Resources5)**<br>Resources allocated to mongos hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling5)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra57}
+### MongoInfra {#MongoInfra63}
 
 Field | Description
 --- | ---
@@ -3604,13 +3895,13 @@ disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling5)**<br>Disk
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod58)**<br>Configuration and resource allocation for mongod in a MongoDB 5.0 cluster. 
-mongocfg | **[MongoCfg](#MongoCfg58)**<br>Configuration and resource allocation for mongocfg in a MongoDB 5.0 cluster. 
-mongos | **[Mongos](#Mongos58)**<br>Configuration and resource allocation for mongos in a MongoDB 5.0 cluster. 
-mongoinfra | **[MongoInfra](#MongoInfra58)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 5.0 cluster. 
+mongod | **[Mongod](#Mongod64)**<br>Configuration and resource allocation for mongod in a MongoDB 5.0 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg64)**<br>Configuration and resource allocation for mongocfg in a MongoDB 5.0 cluster. 
+mongos | **[Mongos](#Mongos64)**<br>Configuration and resource allocation for mongos in a MongoDB 5.0 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra64)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 5.0 cluster. 
 
 
-### Mongod {#Mongod58}
+### Mongod {#Mongod64}
 
 Field | Description
 --- | ---
@@ -3619,7 +3910,7 @@ resources | **[Resources](#Resources5)**<br>Resources allocated to mongod hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling5)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg58}
+### MongoCfg {#MongoCfg64}
 
 Field | Description
 --- | ---
@@ -3628,7 +3919,7 @@ resources | **[Resources](#Resources5)**<br>Resources allocated to mongocfg host
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling5)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos58}
+### Mongos {#Mongos64}
 
 Field | Description
 --- | ---
@@ -3637,7 +3928,7 @@ resources | **[Resources](#Resources5)**<br>Resources allocated to mongos hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling5)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra58}
+### MongoInfra {#MongoInfra64}
 
 Field | Description
 --- | ---
@@ -3651,13 +3942,13 @@ disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling5)**<br>Disk
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod59)**<br>Configuration and resource allocation for mongod in a MongoDB 6.0 cluster. 
-mongocfg | **[MongoCfg](#MongoCfg59)**<br>Configuration and resource allocation for mongocfg in a MongoDB 6.0 cluster. 
-mongos | **[Mongos](#Mongos59)**<br>Configuration and resource allocation for mongos in a MongoDB 6.0 cluster. 
-mongoinfra | **[MongoInfra](#MongoInfra59)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 6.0 cluster. 
+mongod | **[Mongod](#Mongod65)**<br>Configuration and resource allocation for mongod in a MongoDB 6.0 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg65)**<br>Configuration and resource allocation for mongocfg in a MongoDB 6.0 cluster. 
+mongos | **[Mongos](#Mongos65)**<br>Configuration and resource allocation for mongos in a MongoDB 6.0 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra65)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 6.0 cluster. 
 
 
-### Mongod {#Mongod59}
+### Mongod {#Mongod65}
 
 Field | Description
 --- | ---
@@ -3666,7 +3957,7 @@ resources | **[Resources](#Resources5)**<br>Resources allocated to mongod hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling5)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg59}
+### MongoCfg {#MongoCfg65}
 
 Field | Description
 --- | ---
@@ -3675,7 +3966,7 @@ resources | **[Resources](#Resources5)**<br>Resources allocated to mongocfg host
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling5)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos59}
+### Mongos {#Mongos65}
 
 Field | Description
 --- | ---
@@ -3684,7 +3975,7 @@ resources | **[Resources](#Resources5)**<br>Resources allocated to mongos hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling5)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra59}
+### MongoInfra {#MongoInfra65}
 
 Field | Description
 --- | ---
@@ -3698,13 +3989,13 @@ disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling5)**<br>Disk
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod60)**<br>Configuration and resource allocation for mongod in a MongoDB 4.4 cluster. 
-mongocfg | **[MongoCfg](#MongoCfg60)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.4 cluster. 
-mongos | **[Mongos](#Mongos60)**<br>Configuration and resource allocation for mongos in a MongoDB 4.4 cluster. 
-mongoinfra | **[MongoInfra](#MongoInfra60)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.4 cluster. 
+mongod | **[Mongod](#Mongod66)**<br>Configuration and resource allocation for mongod in a MongoDB 4.4 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg66)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.4 cluster. 
+mongos | **[Mongos](#Mongos66)**<br>Configuration and resource allocation for mongos in a MongoDB 4.4 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra66)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.4 cluster. 
 
 
-### Mongod {#Mongod60}
+### Mongod {#Mongod66}
 
 Field | Description
 --- | ---
@@ -3713,7 +4004,7 @@ resources | **[Resources](#Resources5)**<br>Resources allocated to mongod hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling5)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg60}
+### MongoCfg {#MongoCfg66}
 
 Field | Description
 --- | ---
@@ -3722,7 +4013,7 @@ resources | **[Resources](#Resources5)**<br>Resources allocated to mongocfg host
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling5)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos60}
+### Mongos {#Mongos66}
 
 Field | Description
 --- | ---
@@ -3731,7 +4022,7 @@ resources | **[Resources](#Resources5)**<br>Resources allocated to mongos hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling5)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra60}
+### MongoInfra {#MongoInfra66}
 
 Field | Description
 --- | ---
@@ -3745,13 +4036,13 @@ disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling5)**<br>Disk
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod61)**<br>Configuration and resource allocation for mongod in a MongoDB 5.0 cluster. 
-mongocfg | **[MongoCfg](#MongoCfg61)**<br>Configuration and resource allocation for mongocfg in a MongoDB 5.0 cluster. 
-mongos | **[Mongos](#Mongos61)**<br>Configuration and resource allocation for mongos in a MongoDB 5.0 cluster. 
-mongoinfra | **[MongoInfra](#MongoInfra61)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 5.0 cluster. 
+mongod | **[Mongod](#Mongod67)**<br>Configuration and resource allocation for mongod in a MongoDB 5.0 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg67)**<br>Configuration and resource allocation for mongocfg in a MongoDB 5.0 cluster. 
+mongos | **[Mongos](#Mongos67)**<br>Configuration and resource allocation for mongos in a MongoDB 5.0 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra67)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 5.0 cluster. 
 
 
-### Mongod {#Mongod61}
+### Mongod {#Mongod67}
 
 Field | Description
 --- | ---
@@ -3760,7 +4051,7 @@ resources | **[Resources](#Resources5)**<br>Resources allocated to mongod hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling5)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg61}
+### MongoCfg {#MongoCfg67}
 
 Field | Description
 --- | ---
@@ -3769,7 +4060,7 @@ resources | **[Resources](#Resources5)**<br>Resources allocated to mongocfg host
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling5)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos61}
+### Mongos {#Mongos67}
 
 Field | Description
 --- | ---
@@ -3778,7 +4069,7 @@ resources | **[Resources](#Resources5)**<br>Resources allocated to mongos hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling5)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra61}
+### MongoInfra {#MongoInfra67}
 
 Field | Description
 --- | ---
@@ -3792,13 +4083,13 @@ disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling5)**<br>Disk
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod62)**<br>Configuration and resource allocation for mongod in a MongoDB 6.0 cluster. 
-mongocfg | **[MongoCfg](#MongoCfg62)**<br>Configuration and resource allocation for mongocfg in a MongoDB 6.0 cluster. 
-mongos | **[Mongos](#Mongos62)**<br>Configuration and resource allocation for mongos in a MongoDB 6.0 cluster. 
-mongoinfra | **[MongoInfra](#MongoInfra62)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 6.0 cluster. 
+mongod | **[Mongod](#Mongod68)**<br>Configuration and resource allocation for mongod in a MongoDB 6.0 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg68)**<br>Configuration and resource allocation for mongocfg in a MongoDB 6.0 cluster. 
+mongos | **[Mongos](#Mongos68)**<br>Configuration and resource allocation for mongos in a MongoDB 6.0 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra68)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 6.0 cluster. 
 
 
-### Mongod {#Mongod62}
+### Mongod {#Mongod68}
 
 Field | Description
 --- | ---
@@ -3807,7 +4098,7 @@ resources | **[Resources](#Resources5)**<br>Resources allocated to mongod hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling5)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg62}
+### MongoCfg {#MongoCfg68}
 
 Field | Description
 --- | ---
@@ -3816,7 +4107,7 @@ resources | **[Resources](#Resources5)**<br>Resources allocated to mongocfg host
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling5)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos62}
+### Mongos {#Mongos68}
 
 Field | Description
 --- | ---
@@ -3825,7 +4116,7 @@ resources | **[Resources](#Resources5)**<br>Resources allocated to mongos hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling5)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra62}
+### MongoInfra {#MongoInfra68}
 
 Field | Description
 --- | ---
@@ -3848,6 +4139,53 @@ Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens. 
 data_transfer | **bool**<br>Allow access for DataTransfer. 
+
+
+### Mongodb {#Mongodb4}
+
+Field | Description
+--- | ---
+mongod | **[Mongod](#Mongod69)**<br>Configuration and resource allocation for mongod in a MongoDB cluster. 
+mongocfg | **[MongoCfg](#MongoCfg69)**<br>Configuration and resource allocation for mongocfg in a MongoDB cluster. 
+mongos | **[Mongos](#Mongos69)**<br>Configuration and resource allocation for mongos in a MongoDB cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra69)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB cluster. 
+
+
+### Mongod {#Mongod69}
+
+Field | Description
+--- | ---
+config | **`config.MongodConfigSet`**<br>Configuration for mongod hosts. 
+resources | **[Resources](#Resources5)**<br>Resources allocated to mongod hosts. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling5)**<br>Disk size autoscaling settings 
+
+
+### MongoCfg {#MongoCfg69}
+
+Field | Description
+--- | ---
+config | **`config.MongoCfgConfigSet`**<br>Configuration for mongocfg hosts. 
+resources | **[Resources](#Resources5)**<br>Resources allocated to mongocfg hosts. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling5)**<br>Disk size autoscaling settings 
+
+
+### Mongos {#Mongos69}
+
+Field | Description
+--- | ---
+config | **`config.MongosConfigSet`**<br>Configuration for mongos hosts. 
+resources | **[Resources](#Resources5)**<br>Resources allocated to mongos hosts. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling5)**<br>Disk size autoscaling settings 
+
+
+### MongoInfra {#MongoInfra69}
+
+Field | Description
+--- | ---
+config_mongos | **[config.MongosConfigSet](#MongosConfigSet)**<br> 
+config_mongocfg | **[config.MongoCfgConfigSet](#MongoCfgConfigSet)**<br> 
+resources | **[Resources](#Resources5)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling5)**<br>Disk size autoscaling settings 
 
 
 ### MaintenanceWindow {#MaintenanceWindow4}
@@ -3955,7 +4293,7 @@ link | **string**<br>Link to the monitoring system charts for the MongoDB cluste
 
 Field | Description
 --- | ---
-version | **string**<br>Version of MongoDB server software. Possible values: `3.6`, `4.0`, `4.2`, `4.4`, `4.4-enterprise`, `5.0`, `5.0-enterprise`, `6.0`, `6.0-enterprise`. 
+version | **string**<br>Version of MongoDB server software. Possible values: `3.6`, `4.0`, `4.2`, `4.4`, `4.4-enterprise`, `5.0`, `5.0-enterprise`, `6.0`, `6.0-enterprise`, `7.0`, `7.0-enterprise`. 
 feature_compatibility_version | **string**<br>MongoDB feature compatibility version. See usage details in [MongoDB documentation](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/). <br>Possible values: <ul><li>`3.6` - persist data compatibility for version 3.6. After setting this option the data will not be compatible with 3.4 or lower. </li><li>`4.0` - persist data compatibility for version 4.0. After setting this option the data will not be compatible with 3.6 or lower. </li><li>`4.2` - persist data compatibility for version 4.2. After setting this option the data will not be compatible with 4.0 or lower. </li><li>`4.4` - persist data compatibility for version 4.4. After setting this option the data will not be compatible with 4.2 or lower. </li><li>`5.0` - persist data compatibility for version 5.0. After setting this option the data will not be compatible with 5.0 or lower. </li><li>`6.0` - persist data compatibility for version 6.0. After setting this option the data will not be compatible with 6.0 or lower.</li></ul> 
 mongodb | **oneof:** `mongodb_3_6`, `mongodb_4_0`, `mongodb_4_2`, `mongodb_4_4`, `mongodb_5_0`, `mongodb_6_0`, `mongodb_4_4_enterprise`, `mongodb_5_0_enterprise` or `mongodb_6_0_enterprise`<br>Configuration for MongoDB servers in the cluster.
 &nbsp;&nbsp;mongodb_3_6 | **[Mongodb3_6](#Mongodb3_65)**<br>Configuration and resource allocation for a MongoDB 3.6 cluster. 
@@ -3971,19 +4309,20 @@ backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/go
 backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retain period of automatically created backup in days 
 performance_diagnostics | **[PerformanceDiagnosticsConfig](#PerformanceDiagnosticsConfig5)**<br>Performance Diagnostic 
 access | **[Access](#Access5)**<br>Access policy to DB 
+mongodb_config | **[Mongodb](#Mongodb5)**<br>Configuration and resource allocation for a MongoDB Enterprise cluster. 
 
 
 ### Mongodb3_6 {#Mongodb3_65}
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod63)**<br>Configuration and resource allocation for mongod in a MongoDB 3.6 cluster. 
-mongocfg | **[MongoCfg](#MongoCfg63)**<br>Configuration and resource allocation for mongocfg in a MongoDB 3.6 cluster. 
-mongos | **[Mongos](#Mongos63)**<br>Configuration and resource allocation for mongos in a MongoDB 3.6 cluster. 
-mongoinfra | **[MongoInfra](#MongoInfra63)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 3.6 cluster. 
+mongod | **[Mongod](#Mongod70)**<br>Configuration and resource allocation for mongod in a MongoDB 3.6 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg70)**<br>Configuration and resource allocation for mongocfg in a MongoDB 3.6 cluster. 
+mongos | **[Mongos](#Mongos70)**<br>Configuration and resource allocation for mongos in a MongoDB 3.6 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra70)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 3.6 cluster. 
 
 
-### Mongod {#Mongod63}
+### Mongod {#Mongod70}
 
 Field | Description
 --- | ---
@@ -3992,7 +4331,7 @@ resources | **[Resources](#Resources5)**<br>Resources allocated to MongoDB hosts
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling5)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg63}
+### MongoCfg {#MongoCfg70}
 
 Field | Description
 --- | ---
@@ -4001,7 +4340,7 @@ resources | **[Resources](#Resources5)**<br>Resources allocated to mongocfg host
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling5)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos63}
+### Mongos {#Mongos70}
 
 Field | Description
 --- | ---
@@ -4010,7 +4349,7 @@ resources | **[Resources](#Resources5)**<br>Resources allocated to mongos hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling5)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra63}
+### MongoInfra {#MongoInfra70}
 
 Field | Description
 --- | ---
@@ -4042,13 +4381,13 @@ disk_size_limit | **[google.protobuf.Int64Value](https://developers.google.com/p
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod64)**<br>Configuration and resource allocation for mongod in a MongoDB 4.0 cluster. 
-mongocfg | **[MongoCfg](#MongoCfg64)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.0 cluster. 
-mongos | **[Mongos](#Mongos64)**<br>Configuration and resource allocation for mongos in a MongoDB 4.0 cluster. 
-mongoinfra | **[MongoInfra](#MongoInfra64)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.0 cluster. 
+mongod | **[Mongod](#Mongod71)**<br>Configuration and resource allocation for mongod in a MongoDB 4.0 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg71)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.0 cluster. 
+mongos | **[Mongos](#Mongos71)**<br>Configuration and resource allocation for mongos in a MongoDB 4.0 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra71)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.0 cluster. 
 
 
-### Mongod {#Mongod64}
+### Mongod {#Mongod71}
 
 Field | Description
 --- | ---
@@ -4057,7 +4396,7 @@ resources | **[Resources](#Resources6)**<br>Resources allocated to mongod hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling6)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg64}
+### MongoCfg {#MongoCfg71}
 
 Field | Description
 --- | ---
@@ -4066,7 +4405,7 @@ resources | **[Resources](#Resources6)**<br>Resources allocated to mongocfg host
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling6)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos64}
+### Mongos {#Mongos71}
 
 Field | Description
 --- | ---
@@ -4075,7 +4414,7 @@ resources | **[Resources](#Resources6)**<br>Resources allocated to mongos hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling6)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra64}
+### MongoInfra {#MongoInfra71}
 
 Field | Description
 --- | ---
@@ -4089,13 +4428,13 @@ disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling6)**<br>Disk
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod65)**<br>Configuration and resource allocation for mongod in a MongoDB 4.2 cluster. 
-mongocfg | **[MongoCfg](#MongoCfg65)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.2 cluster. 
-mongos | **[Mongos](#Mongos65)**<br>Configuration and resource allocation for mongos in a MongoDB 4.2 cluster. 
-mongoinfra | **[MongoInfra](#MongoInfra65)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.2 cluster. 
+mongod | **[Mongod](#Mongod72)**<br>Configuration and resource allocation for mongod in a MongoDB 4.2 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg72)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.2 cluster. 
+mongos | **[Mongos](#Mongos72)**<br>Configuration and resource allocation for mongos in a MongoDB 4.2 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra72)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.2 cluster. 
 
 
-### Mongod {#Mongod65}
+### Mongod {#Mongod72}
 
 Field | Description
 --- | ---
@@ -4104,7 +4443,7 @@ resources | **[Resources](#Resources6)**<br>Resources allocated to mongod hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling6)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg65}
+### MongoCfg {#MongoCfg72}
 
 Field | Description
 --- | ---
@@ -4113,7 +4452,7 @@ resources | **[Resources](#Resources6)**<br>Resources allocated to mongocfg host
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling6)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos65}
+### Mongos {#Mongos72}
 
 Field | Description
 --- | ---
@@ -4122,7 +4461,7 @@ resources | **[Resources](#Resources6)**<br>Resources allocated to mongos hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling6)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra65}
+### MongoInfra {#MongoInfra72}
 
 Field | Description
 --- | ---
@@ -4136,13 +4475,13 @@ disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling6)**<br>Disk
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod66)**<br>Configuration and resource allocation for mongod in a MongoDB 4.4 cluster. 
-mongocfg | **[MongoCfg](#MongoCfg66)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.4 cluster. 
-mongos | **[Mongos](#Mongos66)**<br>Configuration and resource allocation for mongos in a MongoDB 4.4 cluster. 
-mongoinfra | **[MongoInfra](#MongoInfra66)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.4 cluster. 
+mongod | **[Mongod](#Mongod73)**<br>Configuration and resource allocation for mongod in a MongoDB 4.4 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg73)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.4 cluster. 
+mongos | **[Mongos](#Mongos73)**<br>Configuration and resource allocation for mongos in a MongoDB 4.4 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra73)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.4 cluster. 
 
 
-### Mongod {#Mongod66}
+### Mongod {#Mongod73}
 
 Field | Description
 --- | ---
@@ -4151,7 +4490,7 @@ resources | **[Resources](#Resources6)**<br>Resources allocated to mongod hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling6)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg66}
+### MongoCfg {#MongoCfg73}
 
 Field | Description
 --- | ---
@@ -4160,7 +4499,7 @@ resources | **[Resources](#Resources6)**<br>Resources allocated to mongocfg host
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling6)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos66}
+### Mongos {#Mongos73}
 
 Field | Description
 --- | ---
@@ -4169,7 +4508,7 @@ resources | **[Resources](#Resources6)**<br>Resources allocated to mongos hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling6)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra66}
+### MongoInfra {#MongoInfra73}
 
 Field | Description
 --- | ---
@@ -4183,13 +4522,13 @@ disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling6)**<br>Disk
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod67)**<br>Configuration and resource allocation for mongod in a MongoDB 5.0 cluster. 
-mongocfg | **[MongoCfg](#MongoCfg67)**<br>Configuration and resource allocation for mongocfg in a MongoDB 5.0 cluster. 
-mongos | **[Mongos](#Mongos67)**<br>Configuration and resource allocation for mongos in a MongoDB 5.0 cluster. 
-mongoinfra | **[MongoInfra](#MongoInfra67)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 5.0 cluster. 
+mongod | **[Mongod](#Mongod74)**<br>Configuration and resource allocation for mongod in a MongoDB 5.0 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg74)**<br>Configuration and resource allocation for mongocfg in a MongoDB 5.0 cluster. 
+mongos | **[Mongos](#Mongos74)**<br>Configuration and resource allocation for mongos in a MongoDB 5.0 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra74)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 5.0 cluster. 
 
 
-### Mongod {#Mongod67}
+### Mongod {#Mongod74}
 
 Field | Description
 --- | ---
@@ -4198,7 +4537,7 @@ resources | **[Resources](#Resources6)**<br>Resources allocated to mongod hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling6)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg67}
+### MongoCfg {#MongoCfg74}
 
 Field | Description
 --- | ---
@@ -4207,7 +4546,7 @@ resources | **[Resources](#Resources6)**<br>Resources allocated to mongocfg host
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling6)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos67}
+### Mongos {#Mongos74}
 
 Field | Description
 --- | ---
@@ -4216,7 +4555,7 @@ resources | **[Resources](#Resources6)**<br>Resources allocated to mongos hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling6)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra67}
+### MongoInfra {#MongoInfra74}
 
 Field | Description
 --- | ---
@@ -4230,13 +4569,13 @@ disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling6)**<br>Disk
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod68)**<br>Configuration and resource allocation for mongod in a MongoDB 6.0 cluster. 
-mongocfg | **[MongoCfg](#MongoCfg68)**<br>Configuration and resource allocation for mongocfg in a MongoDB 6.0 cluster. 
-mongos | **[Mongos](#Mongos68)**<br>Configuration and resource allocation for mongos in a MongoDB 6.0 cluster. 
-mongoinfra | **[MongoInfra](#MongoInfra68)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 6.0 cluster. 
+mongod | **[Mongod](#Mongod75)**<br>Configuration and resource allocation for mongod in a MongoDB 6.0 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg75)**<br>Configuration and resource allocation for mongocfg in a MongoDB 6.0 cluster. 
+mongos | **[Mongos](#Mongos75)**<br>Configuration and resource allocation for mongos in a MongoDB 6.0 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra75)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 6.0 cluster. 
 
 
-### Mongod {#Mongod68}
+### Mongod {#Mongod75}
 
 Field | Description
 --- | ---
@@ -4245,7 +4584,7 @@ resources | **[Resources](#Resources6)**<br>Resources allocated to mongod hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling6)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg68}
+### MongoCfg {#MongoCfg75}
 
 Field | Description
 --- | ---
@@ -4254,7 +4593,7 @@ resources | **[Resources](#Resources6)**<br>Resources allocated to mongocfg host
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling6)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos68}
+### Mongos {#Mongos75}
 
 Field | Description
 --- | ---
@@ -4263,7 +4602,7 @@ resources | **[Resources](#Resources6)**<br>Resources allocated to mongos hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling6)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra68}
+### MongoInfra {#MongoInfra75}
 
 Field | Description
 --- | ---
@@ -4277,13 +4616,13 @@ disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling6)**<br>Disk
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod69)**<br>Configuration and resource allocation for mongod in a MongoDB 4.4 cluster. 
-mongocfg | **[MongoCfg](#MongoCfg69)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.4 cluster. 
-mongos | **[Mongos](#Mongos69)**<br>Configuration and resource allocation for mongos in a MongoDB 4.4 cluster. 
-mongoinfra | **[MongoInfra](#MongoInfra69)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.4 cluster. 
+mongod | **[Mongod](#Mongod76)**<br>Configuration and resource allocation for mongod in a MongoDB 4.4 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg76)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.4 cluster. 
+mongos | **[Mongos](#Mongos76)**<br>Configuration and resource allocation for mongos in a MongoDB 4.4 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra76)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.4 cluster. 
 
 
-### Mongod {#Mongod69}
+### Mongod {#Mongod76}
 
 Field | Description
 --- | ---
@@ -4292,7 +4631,7 @@ resources | **[Resources](#Resources6)**<br>Resources allocated to mongod hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling6)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg69}
+### MongoCfg {#MongoCfg76}
 
 Field | Description
 --- | ---
@@ -4301,7 +4640,7 @@ resources | **[Resources](#Resources6)**<br>Resources allocated to mongocfg host
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling6)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos69}
+### Mongos {#Mongos76}
 
 Field | Description
 --- | ---
@@ -4310,7 +4649,7 @@ resources | **[Resources](#Resources6)**<br>Resources allocated to mongos hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling6)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra69}
+### MongoInfra {#MongoInfra76}
 
 Field | Description
 --- | ---
@@ -4324,13 +4663,13 @@ disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling6)**<br>Disk
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod70)**<br>Configuration and resource allocation for mongod in a MongoDB 5.0 cluster. 
-mongocfg | **[MongoCfg](#MongoCfg70)**<br>Configuration and resource allocation for mongocfg in a MongoDB 5.0 cluster. 
-mongos | **[Mongos](#Mongos70)**<br>Configuration and resource allocation for mongos in a MongoDB 5.0 cluster. 
-mongoinfra | **[MongoInfra](#MongoInfra70)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 5.0 cluster. 
+mongod | **[Mongod](#Mongod77)**<br>Configuration and resource allocation for mongod in a MongoDB 5.0 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg77)**<br>Configuration and resource allocation for mongocfg in a MongoDB 5.0 cluster. 
+mongos | **[Mongos](#Mongos77)**<br>Configuration and resource allocation for mongos in a MongoDB 5.0 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra77)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 5.0 cluster. 
 
 
-### Mongod {#Mongod70}
+### Mongod {#Mongod77}
 
 Field | Description
 --- | ---
@@ -4339,7 +4678,7 @@ resources | **[Resources](#Resources6)**<br>Resources allocated to mongod hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling6)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg70}
+### MongoCfg {#MongoCfg77}
 
 Field | Description
 --- | ---
@@ -4348,7 +4687,7 @@ resources | **[Resources](#Resources6)**<br>Resources allocated to mongocfg host
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling6)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos70}
+### Mongos {#Mongos77}
 
 Field | Description
 --- | ---
@@ -4357,7 +4696,7 @@ resources | **[Resources](#Resources6)**<br>Resources allocated to mongos hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling6)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra70}
+### MongoInfra {#MongoInfra77}
 
 Field | Description
 --- | ---
@@ -4371,13 +4710,13 @@ disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling6)**<br>Disk
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod71)**<br>Configuration and resource allocation for mongod in a MongoDB 6.0 cluster. 
-mongocfg | **[MongoCfg](#MongoCfg71)**<br>Configuration and resource allocation for mongocfg in a MongoDB 6.0 cluster. 
-mongos | **[Mongos](#Mongos71)**<br>Configuration and resource allocation for mongos in a MongoDB 6.0 cluster. 
-mongoinfra | **[MongoInfra](#MongoInfra71)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 6.0 cluster. 
+mongod | **[Mongod](#Mongod78)**<br>Configuration and resource allocation for mongod in a MongoDB 6.0 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg78)**<br>Configuration and resource allocation for mongocfg in a MongoDB 6.0 cluster. 
+mongos | **[Mongos](#Mongos78)**<br>Configuration and resource allocation for mongos in a MongoDB 6.0 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra78)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 6.0 cluster. 
 
 
-### Mongod {#Mongod71}
+### Mongod {#Mongod78}
 
 Field | Description
 --- | ---
@@ -4386,7 +4725,7 @@ resources | **[Resources](#Resources6)**<br>Resources allocated to mongod hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling6)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg71}
+### MongoCfg {#MongoCfg78}
 
 Field | Description
 --- | ---
@@ -4395,7 +4734,7 @@ resources | **[Resources](#Resources6)**<br>Resources allocated to mongocfg host
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling6)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos71}
+### Mongos {#Mongos78}
 
 Field | Description
 --- | ---
@@ -4404,7 +4743,7 @@ resources | **[Resources](#Resources6)**<br>Resources allocated to mongos hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling6)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra71}
+### MongoInfra {#MongoInfra78}
 
 Field | Description
 --- | ---
@@ -4427,6 +4766,53 @@ Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens. 
 data_transfer | **bool**<br>Allow access for DataTransfer. 
+
+
+### Mongodb {#Mongodb5}
+
+Field | Description
+--- | ---
+mongod | **[Mongod](#Mongod79)**<br>Configuration and resource allocation for mongod in a MongoDB cluster. 
+mongocfg | **[MongoCfg](#MongoCfg79)**<br>Configuration and resource allocation for mongocfg in a MongoDB cluster. 
+mongos | **[Mongos](#Mongos79)**<br>Configuration and resource allocation for mongos in a MongoDB cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra79)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB cluster. 
+
+
+### Mongod {#Mongod79}
+
+Field | Description
+--- | ---
+config | **`config.MongodConfigSet`**<br>Configuration for mongod hosts. 
+resources | **[Resources](#Resources6)**<br>Resources allocated to mongod hosts. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling6)**<br>Disk size autoscaling settings 
+
+
+### MongoCfg {#MongoCfg79}
+
+Field | Description
+--- | ---
+config | **`config.MongoCfgConfigSet`**<br>Configuration for mongocfg hosts. 
+resources | **[Resources](#Resources6)**<br>Resources allocated to mongocfg hosts. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling6)**<br>Disk size autoscaling settings 
+
+
+### Mongos {#Mongos79}
+
+Field | Description
+--- | ---
+config | **`config.MongosConfigSet`**<br>Configuration for mongos hosts. 
+resources | **[Resources](#Resources6)**<br>Resources allocated to mongos hosts. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling6)**<br>Disk size autoscaling settings 
+
+
+### MongoInfra {#MongoInfra79}
+
+Field | Description
+--- | ---
+config_mongos | **[config.MongosConfigSet](#MongosConfigSet)**<br> 
+config_mongocfg | **[config.MongoCfgConfigSet](#MongoCfgConfigSet)**<br> 
+resources | **[Resources](#Resources6)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling6)**<br>Disk size autoscaling settings 
 
 
 ### MaintenanceWindow {#MaintenanceWindow5}
@@ -4537,7 +4923,7 @@ link | **string**<br>Link to the monitoring system charts for the MongoDB cluste
 
 Field | Description
 --- | ---
-version | **string**<br>Version of MongoDB server software. Possible values: `3.6`, `4.0`, `4.2`, `4.4`, `4.4-enterprise`, `5.0`, `5.0-enterprise`, `6.0`, `6.0-enterprise`. 
+version | **string**<br>Version of MongoDB server software. Possible values: `3.6`, `4.0`, `4.2`, `4.4`, `4.4-enterprise`, `5.0`, `5.0-enterprise`, `6.0`, `6.0-enterprise`, `7.0`, `7.0-enterprise`. 
 feature_compatibility_version | **string**<br>MongoDB feature compatibility version. See usage details in [MongoDB documentation](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/). <br>Possible values: <ul><li>`3.6` - persist data compatibility for version 3.6. After setting this option the data will not be compatible with 3.4 or lower. </li><li>`4.0` - persist data compatibility for version 4.0. After setting this option the data will not be compatible with 3.6 or lower. </li><li>`4.2` - persist data compatibility for version 4.2. After setting this option the data will not be compatible with 4.0 or lower. </li><li>`4.4` - persist data compatibility for version 4.4. After setting this option the data will not be compatible with 4.2 or lower. </li><li>`5.0` - persist data compatibility for version 5.0. After setting this option the data will not be compatible with 5.0 or lower. </li><li>`6.0` - persist data compatibility for version 6.0. After setting this option the data will not be compatible with 6.0 or lower.</li></ul> 
 mongodb | **oneof:** `mongodb_3_6`, `mongodb_4_0`, `mongodb_4_2`, `mongodb_4_4`, `mongodb_5_0`, `mongodb_6_0`, `mongodb_4_4_enterprise`, `mongodb_5_0_enterprise` or `mongodb_6_0_enterprise`<br>Configuration for MongoDB servers in the cluster.
 &nbsp;&nbsp;mongodb_3_6 | **[Mongodb3_6](#Mongodb3_66)**<br>Configuration and resource allocation for a MongoDB 3.6 cluster. 
@@ -4553,19 +4939,20 @@ backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/go
 backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retain period of automatically created backup in days 
 performance_diagnostics | **[PerformanceDiagnosticsConfig](#PerformanceDiagnosticsConfig6)**<br>Performance Diagnostic 
 access | **[Access](#Access6)**<br>Access policy to DB 
+mongodb_config | **[Mongodb](#Mongodb6)**<br>Configuration and resource allocation for a MongoDB Enterprise cluster. 
 
 
 ### Mongodb3_6 {#Mongodb3_66}
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod72)**<br>Configuration and resource allocation for mongod in a MongoDB 3.6 cluster. 
-mongocfg | **[MongoCfg](#MongoCfg72)**<br>Configuration and resource allocation for mongocfg in a MongoDB 3.6 cluster. 
-mongos | **[Mongos](#Mongos72)**<br>Configuration and resource allocation for mongos in a MongoDB 3.6 cluster. 
-mongoinfra | **[MongoInfra](#MongoInfra72)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 3.6 cluster. 
+mongod | **[Mongod](#Mongod80)**<br>Configuration and resource allocation for mongod in a MongoDB 3.6 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg80)**<br>Configuration and resource allocation for mongocfg in a MongoDB 3.6 cluster. 
+mongos | **[Mongos](#Mongos80)**<br>Configuration and resource allocation for mongos in a MongoDB 3.6 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra80)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 3.6 cluster. 
 
 
-### Mongod {#Mongod72}
+### Mongod {#Mongod80}
 
 Field | Description
 --- | ---
@@ -4574,7 +4961,7 @@ resources | **[Resources](#Resources6)**<br>Resources allocated to MongoDB hosts
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling6)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg72}
+### MongoCfg {#MongoCfg80}
 
 Field | Description
 --- | ---
@@ -4583,7 +4970,7 @@ resources | **[Resources](#Resources6)**<br>Resources allocated to mongocfg host
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling6)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos72}
+### Mongos {#Mongos80}
 
 Field | Description
 --- | ---
@@ -4592,7 +4979,7 @@ resources | **[Resources](#Resources6)**<br>Resources allocated to mongos hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling6)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra72}
+### MongoInfra {#MongoInfra80}
 
 Field | Description
 --- | ---
@@ -4624,13 +5011,13 @@ disk_size_limit | **[google.protobuf.Int64Value](https://developers.google.com/p
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod73)**<br>Configuration and resource allocation for mongod in a MongoDB 4.0 cluster. 
-mongocfg | **[MongoCfg](#MongoCfg73)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.0 cluster. 
-mongos | **[Mongos](#Mongos73)**<br>Configuration and resource allocation for mongos in a MongoDB 4.0 cluster. 
-mongoinfra | **[MongoInfra](#MongoInfra73)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.0 cluster. 
+mongod | **[Mongod](#Mongod81)**<br>Configuration and resource allocation for mongod in a MongoDB 4.0 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg81)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.0 cluster. 
+mongos | **[Mongos](#Mongos81)**<br>Configuration and resource allocation for mongos in a MongoDB 4.0 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra81)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.0 cluster. 
 
 
-### Mongod {#Mongod73}
+### Mongod {#Mongod81}
 
 Field | Description
 --- | ---
@@ -4639,7 +5026,7 @@ resources | **[Resources](#Resources7)**<br>Resources allocated to mongod hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling7)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg73}
+### MongoCfg {#MongoCfg81}
 
 Field | Description
 --- | ---
@@ -4648,7 +5035,7 @@ resources | **[Resources](#Resources7)**<br>Resources allocated to mongocfg host
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling7)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos73}
+### Mongos {#Mongos81}
 
 Field | Description
 --- | ---
@@ -4657,7 +5044,7 @@ resources | **[Resources](#Resources7)**<br>Resources allocated to mongos hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling7)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra73}
+### MongoInfra {#MongoInfra81}
 
 Field | Description
 --- | ---
@@ -4671,13 +5058,13 @@ disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling7)**<br>Disk
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod74)**<br>Configuration and resource allocation for mongod in a MongoDB 4.2 cluster. 
-mongocfg | **[MongoCfg](#MongoCfg74)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.2 cluster. 
-mongos | **[Mongos](#Mongos74)**<br>Configuration and resource allocation for mongos in a MongoDB 4.2 cluster. 
-mongoinfra | **[MongoInfra](#MongoInfra74)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.2 cluster. 
+mongod | **[Mongod](#Mongod82)**<br>Configuration and resource allocation for mongod in a MongoDB 4.2 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg82)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.2 cluster. 
+mongos | **[Mongos](#Mongos82)**<br>Configuration and resource allocation for mongos in a MongoDB 4.2 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra82)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.2 cluster. 
 
 
-### Mongod {#Mongod74}
+### Mongod {#Mongod82}
 
 Field | Description
 --- | ---
@@ -4686,7 +5073,7 @@ resources | **[Resources](#Resources7)**<br>Resources allocated to mongod hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling7)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg74}
+### MongoCfg {#MongoCfg82}
 
 Field | Description
 --- | ---
@@ -4695,7 +5082,7 @@ resources | **[Resources](#Resources7)**<br>Resources allocated to mongocfg host
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling7)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos74}
+### Mongos {#Mongos82}
 
 Field | Description
 --- | ---
@@ -4704,7 +5091,7 @@ resources | **[Resources](#Resources7)**<br>Resources allocated to mongos hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling7)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra74}
+### MongoInfra {#MongoInfra82}
 
 Field | Description
 --- | ---
@@ -4718,13 +5105,13 @@ disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling7)**<br>Disk
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod75)**<br>Configuration and resource allocation for mongod in a MongoDB 4.4 cluster. 
-mongocfg | **[MongoCfg](#MongoCfg75)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.4 cluster. 
-mongos | **[Mongos](#Mongos75)**<br>Configuration and resource allocation for mongos in a MongoDB 4.4 cluster. 
-mongoinfra | **[MongoInfra](#MongoInfra75)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.4 cluster. 
+mongod | **[Mongod](#Mongod83)**<br>Configuration and resource allocation for mongod in a MongoDB 4.4 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg83)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.4 cluster. 
+mongos | **[Mongos](#Mongos83)**<br>Configuration and resource allocation for mongos in a MongoDB 4.4 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra83)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.4 cluster. 
 
 
-### Mongod {#Mongod75}
+### Mongod {#Mongod83}
 
 Field | Description
 --- | ---
@@ -4733,7 +5120,7 @@ resources | **[Resources](#Resources7)**<br>Resources allocated to mongod hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling7)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg75}
+### MongoCfg {#MongoCfg83}
 
 Field | Description
 --- | ---
@@ -4742,7 +5129,7 @@ resources | **[Resources](#Resources7)**<br>Resources allocated to mongocfg host
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling7)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos75}
+### Mongos {#Mongos83}
 
 Field | Description
 --- | ---
@@ -4751,7 +5138,7 @@ resources | **[Resources](#Resources7)**<br>Resources allocated to mongos hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling7)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra75}
+### MongoInfra {#MongoInfra83}
 
 Field | Description
 --- | ---
@@ -4765,13 +5152,13 @@ disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling7)**<br>Disk
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod76)**<br>Configuration and resource allocation for mongod in a MongoDB 5.0 cluster. 
-mongocfg | **[MongoCfg](#MongoCfg76)**<br>Configuration and resource allocation for mongocfg in a MongoDB 5.0 cluster. 
-mongos | **[Mongos](#Mongos76)**<br>Configuration and resource allocation for mongos in a MongoDB 5.0 cluster. 
-mongoinfra | **[MongoInfra](#MongoInfra76)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 5.0 cluster. 
+mongod | **[Mongod](#Mongod84)**<br>Configuration and resource allocation for mongod in a MongoDB 5.0 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg84)**<br>Configuration and resource allocation for mongocfg in a MongoDB 5.0 cluster. 
+mongos | **[Mongos](#Mongos84)**<br>Configuration and resource allocation for mongos in a MongoDB 5.0 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra84)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 5.0 cluster. 
 
 
-### Mongod {#Mongod76}
+### Mongod {#Mongod84}
 
 Field | Description
 --- | ---
@@ -4780,7 +5167,7 @@ resources | **[Resources](#Resources7)**<br>Resources allocated to mongod hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling7)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg76}
+### MongoCfg {#MongoCfg84}
 
 Field | Description
 --- | ---
@@ -4789,7 +5176,7 @@ resources | **[Resources](#Resources7)**<br>Resources allocated to mongocfg host
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling7)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos76}
+### Mongos {#Mongos84}
 
 Field | Description
 --- | ---
@@ -4798,7 +5185,7 @@ resources | **[Resources](#Resources7)**<br>Resources allocated to mongos hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling7)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra76}
+### MongoInfra {#MongoInfra84}
 
 Field | Description
 --- | ---
@@ -4812,13 +5199,13 @@ disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling7)**<br>Disk
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod77)**<br>Configuration and resource allocation for mongod in a MongoDB 6.0 cluster. 
-mongocfg | **[MongoCfg](#MongoCfg77)**<br>Configuration and resource allocation for mongocfg in a MongoDB 6.0 cluster. 
-mongos | **[Mongos](#Mongos77)**<br>Configuration and resource allocation for mongos in a MongoDB 6.0 cluster. 
-mongoinfra | **[MongoInfra](#MongoInfra77)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 6.0 cluster. 
+mongod | **[Mongod](#Mongod85)**<br>Configuration and resource allocation for mongod in a MongoDB 6.0 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg85)**<br>Configuration and resource allocation for mongocfg in a MongoDB 6.0 cluster. 
+mongos | **[Mongos](#Mongos85)**<br>Configuration and resource allocation for mongos in a MongoDB 6.0 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra85)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 6.0 cluster. 
 
 
-### Mongod {#Mongod77}
+### Mongod {#Mongod85}
 
 Field | Description
 --- | ---
@@ -4827,7 +5214,7 @@ resources | **[Resources](#Resources7)**<br>Resources allocated to mongod hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling7)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg77}
+### MongoCfg {#MongoCfg85}
 
 Field | Description
 --- | ---
@@ -4836,7 +5223,7 @@ resources | **[Resources](#Resources7)**<br>Resources allocated to mongocfg host
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling7)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos77}
+### Mongos {#Mongos85}
 
 Field | Description
 --- | ---
@@ -4845,7 +5232,7 @@ resources | **[Resources](#Resources7)**<br>Resources allocated to mongos hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling7)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra77}
+### MongoInfra {#MongoInfra85}
 
 Field | Description
 --- | ---
@@ -4859,13 +5246,13 @@ disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling7)**<br>Disk
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod78)**<br>Configuration and resource allocation for mongod in a MongoDB 4.4 cluster. 
-mongocfg | **[MongoCfg](#MongoCfg78)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.4 cluster. 
-mongos | **[Mongos](#Mongos78)**<br>Configuration and resource allocation for mongos in a MongoDB 4.4 cluster. 
-mongoinfra | **[MongoInfra](#MongoInfra78)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.4 cluster. 
+mongod | **[Mongod](#Mongod86)**<br>Configuration and resource allocation for mongod in a MongoDB 4.4 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg86)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.4 cluster. 
+mongos | **[Mongos](#Mongos86)**<br>Configuration and resource allocation for mongos in a MongoDB 4.4 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra86)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.4 cluster. 
 
 
-### Mongod {#Mongod78}
+### Mongod {#Mongod86}
 
 Field | Description
 --- | ---
@@ -4874,7 +5261,7 @@ resources | **[Resources](#Resources7)**<br>Resources allocated to mongod hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling7)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg78}
+### MongoCfg {#MongoCfg86}
 
 Field | Description
 --- | ---
@@ -4883,7 +5270,7 @@ resources | **[Resources](#Resources7)**<br>Resources allocated to mongocfg host
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling7)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos78}
+### Mongos {#Mongos86}
 
 Field | Description
 --- | ---
@@ -4892,7 +5279,7 @@ resources | **[Resources](#Resources7)**<br>Resources allocated to mongos hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling7)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra78}
+### MongoInfra {#MongoInfra86}
 
 Field | Description
 --- | ---
@@ -4906,13 +5293,13 @@ disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling7)**<br>Disk
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod79)**<br>Configuration and resource allocation for mongod in a MongoDB 5.0 cluster. 
-mongocfg | **[MongoCfg](#MongoCfg79)**<br>Configuration and resource allocation for mongocfg in a MongoDB 5.0 cluster. 
-mongos | **[Mongos](#Mongos79)**<br>Configuration and resource allocation for mongos in a MongoDB 5.0 cluster. 
-mongoinfra | **[MongoInfra](#MongoInfra79)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 5.0 cluster. 
+mongod | **[Mongod](#Mongod87)**<br>Configuration and resource allocation for mongod in a MongoDB 5.0 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg87)**<br>Configuration and resource allocation for mongocfg in a MongoDB 5.0 cluster. 
+mongos | **[Mongos](#Mongos87)**<br>Configuration and resource allocation for mongos in a MongoDB 5.0 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra87)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 5.0 cluster. 
 
 
-### Mongod {#Mongod79}
+### Mongod {#Mongod87}
 
 Field | Description
 --- | ---
@@ -4921,7 +5308,7 @@ resources | **[Resources](#Resources7)**<br>Resources allocated to mongod hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling7)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg79}
+### MongoCfg {#MongoCfg87}
 
 Field | Description
 --- | ---
@@ -4930,7 +5317,7 @@ resources | **[Resources](#Resources7)**<br>Resources allocated to mongocfg host
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling7)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos79}
+### Mongos {#Mongos87}
 
 Field | Description
 --- | ---
@@ -4939,7 +5326,7 @@ resources | **[Resources](#Resources7)**<br>Resources allocated to mongos hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling7)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra79}
+### MongoInfra {#MongoInfra87}
 
 Field | Description
 --- | ---
@@ -4953,13 +5340,13 @@ disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling7)**<br>Disk
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod80)**<br>Configuration and resource allocation for mongod in a MongoDB 6.0 cluster. 
-mongocfg | **[MongoCfg](#MongoCfg80)**<br>Configuration and resource allocation for mongocfg in a MongoDB 6.0 cluster. 
-mongos | **[Mongos](#Mongos80)**<br>Configuration and resource allocation for mongos in a MongoDB 6.0 cluster. 
-mongoinfra | **[MongoInfra](#MongoInfra80)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 6.0 cluster. 
+mongod | **[Mongod](#Mongod88)**<br>Configuration and resource allocation for mongod in a MongoDB 6.0 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg88)**<br>Configuration and resource allocation for mongocfg in a MongoDB 6.0 cluster. 
+mongos | **[Mongos](#Mongos88)**<br>Configuration and resource allocation for mongos in a MongoDB 6.0 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra88)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 6.0 cluster. 
 
 
-### Mongod {#Mongod80}
+### Mongod {#Mongod88}
 
 Field | Description
 --- | ---
@@ -4968,7 +5355,7 @@ resources | **[Resources](#Resources7)**<br>Resources allocated to mongod hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling7)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg80}
+### MongoCfg {#MongoCfg88}
 
 Field | Description
 --- | ---
@@ -4977,7 +5364,7 @@ resources | **[Resources](#Resources7)**<br>Resources allocated to mongocfg host
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling7)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos80}
+### Mongos {#Mongos88}
 
 Field | Description
 --- | ---
@@ -4986,7 +5373,7 @@ resources | **[Resources](#Resources7)**<br>Resources allocated to mongos hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling7)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra80}
+### MongoInfra {#MongoInfra88}
 
 Field | Description
 --- | ---
@@ -5009,6 +5396,53 @@ Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens. 
 data_transfer | **bool**<br>Allow access for DataTransfer. 
+
+
+### Mongodb {#Mongodb6}
+
+Field | Description
+--- | ---
+mongod | **[Mongod](#Mongod89)**<br>Configuration and resource allocation for mongod in a MongoDB cluster. 
+mongocfg | **[MongoCfg](#MongoCfg89)**<br>Configuration and resource allocation for mongocfg in a MongoDB cluster. 
+mongos | **[Mongos](#Mongos89)**<br>Configuration and resource allocation for mongos in a MongoDB cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra89)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB cluster. 
+
+
+### Mongod {#Mongod89}
+
+Field | Description
+--- | ---
+config | **`config.MongodConfigSet`**<br>Configuration for mongod hosts. 
+resources | **[Resources](#Resources7)**<br>Resources allocated to mongod hosts. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling7)**<br>Disk size autoscaling settings 
+
+
+### MongoCfg {#MongoCfg89}
+
+Field | Description
+--- | ---
+config | **`config.MongoCfgConfigSet`**<br>Configuration for mongocfg hosts. 
+resources | **[Resources](#Resources7)**<br>Resources allocated to mongocfg hosts. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling7)**<br>Disk size autoscaling settings 
+
+
+### Mongos {#Mongos89}
+
+Field | Description
+--- | ---
+config | **`config.MongosConfigSet`**<br>Configuration for mongos hosts. 
+resources | **[Resources](#Resources7)**<br>Resources allocated to mongos hosts. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling7)**<br>Disk size autoscaling settings 
+
+
+### MongoInfra {#MongoInfra89}
+
+Field | Description
+--- | ---
+config_mongos | **[config.MongosConfigSet](#MongosConfigSet)**<br> 
+config_mongocfg | **[config.MongoCfgConfigSet](#MongoCfgConfigSet)**<br> 
+resources | **[Resources](#Resources7)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling7)**<br>Disk size autoscaling settings 
 
 
 ### MaintenanceWindow {#MaintenanceWindow6}
@@ -5116,7 +5550,7 @@ link | **string**<br>Link to the monitoring system charts for the MongoDB cluste
 
 Field | Description
 --- | ---
-version | **string**<br>Version of MongoDB server software. Possible values: `3.6`, `4.0`, `4.2`, `4.4`, `4.4-enterprise`, `5.0`, `5.0-enterprise`, `6.0`, `6.0-enterprise`. 
+version | **string**<br>Version of MongoDB server software. Possible values: `3.6`, `4.0`, `4.2`, `4.4`, `4.4-enterprise`, `5.0`, `5.0-enterprise`, `6.0`, `6.0-enterprise`, `7.0`, `7.0-enterprise`. 
 feature_compatibility_version | **string**<br>MongoDB feature compatibility version. See usage details in [MongoDB documentation](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/). <br>Possible values: <ul><li>`3.6` - persist data compatibility for version 3.6. After setting this option the data will not be compatible with 3.4 or lower. </li><li>`4.0` - persist data compatibility for version 4.0. After setting this option the data will not be compatible with 3.6 or lower. </li><li>`4.2` - persist data compatibility for version 4.2. After setting this option the data will not be compatible with 4.0 or lower. </li><li>`4.4` - persist data compatibility for version 4.4. After setting this option the data will not be compatible with 4.2 or lower. </li><li>`5.0` - persist data compatibility for version 5.0. After setting this option the data will not be compatible with 5.0 or lower. </li><li>`6.0` - persist data compatibility for version 6.0. After setting this option the data will not be compatible with 6.0 or lower.</li></ul> 
 mongodb | **oneof:** `mongodb_3_6`, `mongodb_4_0`, `mongodb_4_2`, `mongodb_4_4`, `mongodb_5_0`, `mongodb_6_0`, `mongodb_4_4_enterprise`, `mongodb_5_0_enterprise` or `mongodb_6_0_enterprise`<br>Configuration for MongoDB servers in the cluster.
 &nbsp;&nbsp;mongodb_3_6 | **[Mongodb3_6](#Mongodb3_67)**<br>Configuration and resource allocation for a MongoDB 3.6 cluster. 
@@ -5132,19 +5566,20 @@ backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/go
 backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retain period of automatically created backup in days 
 performance_diagnostics | **[PerformanceDiagnosticsConfig](#PerformanceDiagnosticsConfig7)**<br>Performance Diagnostic 
 access | **[Access](#Access7)**<br>Access policy to DB 
+mongodb_config | **[Mongodb](#Mongodb7)**<br>Configuration and resource allocation for a MongoDB Enterprise cluster. 
 
 
 ### Mongodb3_6 {#Mongodb3_67}
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod81)**<br>Configuration and resource allocation for mongod in a MongoDB 3.6 cluster. 
-mongocfg | **[MongoCfg](#MongoCfg81)**<br>Configuration and resource allocation for mongocfg in a MongoDB 3.6 cluster. 
-mongos | **[Mongos](#Mongos81)**<br>Configuration and resource allocation for mongos in a MongoDB 3.6 cluster. 
-mongoinfra | **[MongoInfra](#MongoInfra81)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 3.6 cluster. 
+mongod | **[Mongod](#Mongod90)**<br>Configuration and resource allocation for mongod in a MongoDB 3.6 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg90)**<br>Configuration and resource allocation for mongocfg in a MongoDB 3.6 cluster. 
+mongos | **[Mongos](#Mongos90)**<br>Configuration and resource allocation for mongos in a MongoDB 3.6 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra90)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 3.6 cluster. 
 
 
-### Mongod {#Mongod81}
+### Mongod {#Mongod90}
 
 Field | Description
 --- | ---
@@ -5153,7 +5588,7 @@ resources | **[Resources](#Resources7)**<br>Resources allocated to MongoDB hosts
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling7)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg81}
+### MongoCfg {#MongoCfg90}
 
 Field | Description
 --- | ---
@@ -5162,7 +5597,7 @@ resources | **[Resources](#Resources7)**<br>Resources allocated to mongocfg host
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling7)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos81}
+### Mongos {#Mongos90}
 
 Field | Description
 --- | ---
@@ -5171,7 +5606,7 @@ resources | **[Resources](#Resources7)**<br>Resources allocated to mongos hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling7)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra81}
+### MongoInfra {#MongoInfra90}
 
 Field | Description
 --- | ---
@@ -5203,13 +5638,13 @@ disk_size_limit | **[google.protobuf.Int64Value](https://developers.google.com/p
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod82)**<br>Configuration and resource allocation for mongod in a MongoDB 4.0 cluster. 
-mongocfg | **[MongoCfg](#MongoCfg82)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.0 cluster. 
-mongos | **[Mongos](#Mongos82)**<br>Configuration and resource allocation for mongos in a MongoDB 4.0 cluster. 
-mongoinfra | **[MongoInfra](#MongoInfra82)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.0 cluster. 
+mongod | **[Mongod](#Mongod91)**<br>Configuration and resource allocation for mongod in a MongoDB 4.0 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg91)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.0 cluster. 
+mongos | **[Mongos](#Mongos91)**<br>Configuration and resource allocation for mongos in a MongoDB 4.0 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra91)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.0 cluster. 
 
 
-### Mongod {#Mongod82}
+### Mongod {#Mongod91}
 
 Field | Description
 --- | ---
@@ -5218,7 +5653,7 @@ resources | **[Resources](#Resources8)**<br>Resources allocated to mongod hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling8)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg82}
+### MongoCfg {#MongoCfg91}
 
 Field | Description
 --- | ---
@@ -5227,7 +5662,7 @@ resources | **[Resources](#Resources8)**<br>Resources allocated to mongocfg host
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling8)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos82}
+### Mongos {#Mongos91}
 
 Field | Description
 --- | ---
@@ -5236,7 +5671,7 @@ resources | **[Resources](#Resources8)**<br>Resources allocated to mongos hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling8)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra82}
+### MongoInfra {#MongoInfra91}
 
 Field | Description
 --- | ---
@@ -5250,13 +5685,13 @@ disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling8)**<br>Disk
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod83)**<br>Configuration and resource allocation for mongod in a MongoDB 4.2 cluster. 
-mongocfg | **[MongoCfg](#MongoCfg83)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.2 cluster. 
-mongos | **[Mongos](#Mongos83)**<br>Configuration and resource allocation for mongos in a MongoDB 4.2 cluster. 
-mongoinfra | **[MongoInfra](#MongoInfra83)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.2 cluster. 
+mongod | **[Mongod](#Mongod92)**<br>Configuration and resource allocation for mongod in a MongoDB 4.2 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg92)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.2 cluster. 
+mongos | **[Mongos](#Mongos92)**<br>Configuration and resource allocation for mongos in a MongoDB 4.2 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra92)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.2 cluster. 
 
 
-### Mongod {#Mongod83}
+### Mongod {#Mongod92}
 
 Field | Description
 --- | ---
@@ -5265,7 +5700,7 @@ resources | **[Resources](#Resources8)**<br>Resources allocated to mongod hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling8)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg83}
+### MongoCfg {#MongoCfg92}
 
 Field | Description
 --- | ---
@@ -5274,7 +5709,7 @@ resources | **[Resources](#Resources8)**<br>Resources allocated to mongocfg host
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling8)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos83}
+### Mongos {#Mongos92}
 
 Field | Description
 --- | ---
@@ -5283,7 +5718,7 @@ resources | **[Resources](#Resources8)**<br>Resources allocated to mongos hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling8)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra83}
+### MongoInfra {#MongoInfra92}
 
 Field | Description
 --- | ---
@@ -5297,13 +5732,13 @@ disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling8)**<br>Disk
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod84)**<br>Configuration and resource allocation for mongod in a MongoDB 4.4 cluster. 
-mongocfg | **[MongoCfg](#MongoCfg84)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.4 cluster. 
-mongos | **[Mongos](#Mongos84)**<br>Configuration and resource allocation for mongos in a MongoDB 4.4 cluster. 
-mongoinfra | **[MongoInfra](#MongoInfra84)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.4 cluster. 
+mongod | **[Mongod](#Mongod93)**<br>Configuration and resource allocation for mongod in a MongoDB 4.4 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg93)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.4 cluster. 
+mongos | **[Mongos](#Mongos93)**<br>Configuration and resource allocation for mongos in a MongoDB 4.4 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra93)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.4 cluster. 
 
 
-### Mongod {#Mongod84}
+### Mongod {#Mongod93}
 
 Field | Description
 --- | ---
@@ -5312,7 +5747,7 @@ resources | **[Resources](#Resources8)**<br>Resources allocated to mongod hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling8)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg84}
+### MongoCfg {#MongoCfg93}
 
 Field | Description
 --- | ---
@@ -5321,7 +5756,7 @@ resources | **[Resources](#Resources8)**<br>Resources allocated to mongocfg host
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling8)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos84}
+### Mongos {#Mongos93}
 
 Field | Description
 --- | ---
@@ -5330,7 +5765,7 @@ resources | **[Resources](#Resources8)**<br>Resources allocated to mongos hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling8)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra84}
+### MongoInfra {#MongoInfra93}
 
 Field | Description
 --- | ---
@@ -5344,13 +5779,13 @@ disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling8)**<br>Disk
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod85)**<br>Configuration and resource allocation for mongod in a MongoDB 5.0 cluster. 
-mongocfg | **[MongoCfg](#MongoCfg85)**<br>Configuration and resource allocation for mongocfg in a MongoDB 5.0 cluster. 
-mongos | **[Mongos](#Mongos85)**<br>Configuration and resource allocation for mongos in a MongoDB 5.0 cluster. 
-mongoinfra | **[MongoInfra](#MongoInfra85)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 5.0 cluster. 
+mongod | **[Mongod](#Mongod94)**<br>Configuration and resource allocation for mongod in a MongoDB 5.0 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg94)**<br>Configuration and resource allocation for mongocfg in a MongoDB 5.0 cluster. 
+mongos | **[Mongos](#Mongos94)**<br>Configuration and resource allocation for mongos in a MongoDB 5.0 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra94)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 5.0 cluster. 
 
 
-### Mongod {#Mongod85}
+### Mongod {#Mongod94}
 
 Field | Description
 --- | ---
@@ -5359,7 +5794,7 @@ resources | **[Resources](#Resources8)**<br>Resources allocated to mongod hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling8)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg85}
+### MongoCfg {#MongoCfg94}
 
 Field | Description
 --- | ---
@@ -5368,7 +5803,7 @@ resources | **[Resources](#Resources8)**<br>Resources allocated to mongocfg host
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling8)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos85}
+### Mongos {#Mongos94}
 
 Field | Description
 --- | ---
@@ -5377,7 +5812,7 @@ resources | **[Resources](#Resources8)**<br>Resources allocated to mongos hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling8)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra85}
+### MongoInfra {#MongoInfra94}
 
 Field | Description
 --- | ---
@@ -5391,13 +5826,13 @@ disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling8)**<br>Disk
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod86)**<br>Configuration and resource allocation for mongod in a MongoDB 6.0 cluster. 
-mongocfg | **[MongoCfg](#MongoCfg86)**<br>Configuration and resource allocation for mongocfg in a MongoDB 6.0 cluster. 
-mongos | **[Mongos](#Mongos86)**<br>Configuration and resource allocation for mongos in a MongoDB 6.0 cluster. 
-mongoinfra | **[MongoInfra](#MongoInfra86)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 6.0 cluster. 
+mongod | **[Mongod](#Mongod95)**<br>Configuration and resource allocation for mongod in a MongoDB 6.0 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg95)**<br>Configuration and resource allocation for mongocfg in a MongoDB 6.0 cluster. 
+mongos | **[Mongos](#Mongos95)**<br>Configuration and resource allocation for mongos in a MongoDB 6.0 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra95)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 6.0 cluster. 
 
 
-### Mongod {#Mongod86}
+### Mongod {#Mongod95}
 
 Field | Description
 --- | ---
@@ -5406,7 +5841,7 @@ resources | **[Resources](#Resources8)**<br>Resources allocated to mongod hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling8)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg86}
+### MongoCfg {#MongoCfg95}
 
 Field | Description
 --- | ---
@@ -5415,7 +5850,7 @@ resources | **[Resources](#Resources8)**<br>Resources allocated to mongocfg host
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling8)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos86}
+### Mongos {#Mongos95}
 
 Field | Description
 --- | ---
@@ -5424,7 +5859,7 @@ resources | **[Resources](#Resources8)**<br>Resources allocated to mongos hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling8)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra86}
+### MongoInfra {#MongoInfra95}
 
 Field | Description
 --- | ---
@@ -5438,13 +5873,13 @@ disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling8)**<br>Disk
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod87)**<br>Configuration and resource allocation for mongod in a MongoDB 4.4 cluster. 
-mongocfg | **[MongoCfg](#MongoCfg87)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.4 cluster. 
-mongos | **[Mongos](#Mongos87)**<br>Configuration and resource allocation for mongos in a MongoDB 4.4 cluster. 
-mongoinfra | **[MongoInfra](#MongoInfra87)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.4 cluster. 
+mongod | **[Mongod](#Mongod96)**<br>Configuration and resource allocation for mongod in a MongoDB 4.4 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg96)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.4 cluster. 
+mongos | **[Mongos](#Mongos96)**<br>Configuration and resource allocation for mongos in a MongoDB 4.4 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra96)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.4 cluster. 
 
 
-### Mongod {#Mongod87}
+### Mongod {#Mongod96}
 
 Field | Description
 --- | ---
@@ -5453,7 +5888,7 @@ resources | **[Resources](#Resources8)**<br>Resources allocated to mongod hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling8)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg87}
+### MongoCfg {#MongoCfg96}
 
 Field | Description
 --- | ---
@@ -5462,7 +5897,7 @@ resources | **[Resources](#Resources8)**<br>Resources allocated to mongocfg host
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling8)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos87}
+### Mongos {#Mongos96}
 
 Field | Description
 --- | ---
@@ -5471,7 +5906,7 @@ resources | **[Resources](#Resources8)**<br>Resources allocated to mongos hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling8)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra87}
+### MongoInfra {#MongoInfra96}
 
 Field | Description
 --- | ---
@@ -5485,13 +5920,13 @@ disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling8)**<br>Disk
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod88)**<br>Configuration and resource allocation for mongod in a MongoDB 5.0 cluster. 
-mongocfg | **[MongoCfg](#MongoCfg88)**<br>Configuration and resource allocation for mongocfg in a MongoDB 5.0 cluster. 
-mongos | **[Mongos](#Mongos88)**<br>Configuration and resource allocation for mongos in a MongoDB 5.0 cluster. 
-mongoinfra | **[MongoInfra](#MongoInfra88)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 5.0 cluster. 
+mongod | **[Mongod](#Mongod97)**<br>Configuration and resource allocation for mongod in a MongoDB 5.0 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg97)**<br>Configuration and resource allocation for mongocfg in a MongoDB 5.0 cluster. 
+mongos | **[Mongos](#Mongos97)**<br>Configuration and resource allocation for mongos in a MongoDB 5.0 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra97)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 5.0 cluster. 
 
 
-### Mongod {#Mongod88}
+### Mongod {#Mongod97}
 
 Field | Description
 --- | ---
@@ -5500,7 +5935,7 @@ resources | **[Resources](#Resources8)**<br>Resources allocated to mongod hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling8)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg88}
+### MongoCfg {#MongoCfg97}
 
 Field | Description
 --- | ---
@@ -5509,7 +5944,7 @@ resources | **[Resources](#Resources8)**<br>Resources allocated to mongocfg host
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling8)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos88}
+### Mongos {#Mongos97}
 
 Field | Description
 --- | ---
@@ -5518,7 +5953,7 @@ resources | **[Resources](#Resources8)**<br>Resources allocated to mongos hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling8)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra88}
+### MongoInfra {#MongoInfra97}
 
 Field | Description
 --- | ---
@@ -5532,13 +5967,13 @@ disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling8)**<br>Disk
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod89)**<br>Configuration and resource allocation for mongod in a MongoDB 6.0 cluster. 
-mongocfg | **[MongoCfg](#MongoCfg89)**<br>Configuration and resource allocation for mongocfg in a MongoDB 6.0 cluster. 
-mongos | **[Mongos](#Mongos89)**<br>Configuration and resource allocation for mongos in a MongoDB 6.0 cluster. 
-mongoinfra | **[MongoInfra](#MongoInfra89)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 6.0 cluster. 
+mongod | **[Mongod](#Mongod98)**<br>Configuration and resource allocation for mongod in a MongoDB 6.0 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg98)**<br>Configuration and resource allocation for mongocfg in a MongoDB 6.0 cluster. 
+mongos | **[Mongos](#Mongos98)**<br>Configuration and resource allocation for mongos in a MongoDB 6.0 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra98)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 6.0 cluster. 
 
 
-### Mongod {#Mongod89}
+### Mongod {#Mongod98}
 
 Field | Description
 --- | ---
@@ -5547,7 +5982,7 @@ resources | **[Resources](#Resources8)**<br>Resources allocated to mongod hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling8)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg89}
+### MongoCfg {#MongoCfg98}
 
 Field | Description
 --- | ---
@@ -5556,7 +5991,7 @@ resources | **[Resources](#Resources8)**<br>Resources allocated to mongocfg host
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling8)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos89}
+### Mongos {#Mongos98}
 
 Field | Description
 --- | ---
@@ -5565,7 +6000,7 @@ resources | **[Resources](#Resources8)**<br>Resources allocated to mongos hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling8)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra89}
+### MongoInfra {#MongoInfra98}
 
 Field | Description
 --- | ---
@@ -5588,6 +6023,53 @@ Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens. 
 data_transfer | **bool**<br>Allow access for DataTransfer. 
+
+
+### Mongodb {#Mongodb7}
+
+Field | Description
+--- | ---
+mongod | **[Mongod](#Mongod99)**<br>Configuration and resource allocation for mongod in a MongoDB cluster. 
+mongocfg | **[MongoCfg](#MongoCfg99)**<br>Configuration and resource allocation for mongocfg in a MongoDB cluster. 
+mongos | **[Mongos](#Mongos99)**<br>Configuration and resource allocation for mongos in a MongoDB cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra99)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB cluster. 
+
+
+### Mongod {#Mongod99}
+
+Field | Description
+--- | ---
+config | **`config.MongodConfigSet`**<br>Configuration for mongod hosts. 
+resources | **[Resources](#Resources8)**<br>Resources allocated to mongod hosts. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling8)**<br>Disk size autoscaling settings 
+
+
+### MongoCfg {#MongoCfg99}
+
+Field | Description
+--- | ---
+config | **`config.MongoCfgConfigSet`**<br>Configuration for mongocfg hosts. 
+resources | **[Resources](#Resources8)**<br>Resources allocated to mongocfg hosts. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling8)**<br>Disk size autoscaling settings 
+
+
+### Mongos {#Mongos99}
+
+Field | Description
+--- | ---
+config | **`config.MongosConfigSet`**<br>Configuration for mongos hosts. 
+resources | **[Resources](#Resources8)**<br>Resources allocated to mongos hosts. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling8)**<br>Disk size autoscaling settings 
+
+
+### MongoInfra {#MongoInfra99}
+
+Field | Description
+--- | ---
+config_mongos | **[config.MongosConfigSet](#MongosConfigSet)**<br> 
+config_mongocfg | **[config.MongoCfgConfigSet](#MongoCfgConfigSet)**<br> 
+resources | **[Resources](#Resources8)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling8)**<br>Disk size autoscaling settings 
 
 
 ### MaintenanceWindow {#MaintenanceWindow7}
@@ -5645,6 +6127,7 @@ folder_id | **string**<br>Required. ID of the folder to create the MongoDB clust
 recovery_target_spec | **RecoveryTargetSpec**<br>Specification of the moment to which the MongoDB cluster should be restored. 
 security_group_ids[] | **string**<br>User security groups 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow8)**<br>Maintenance window settings for the cluster. 
 
 
 ### RecoveryTargetSpec {#RecoveryTargetSpec}
@@ -5674,19 +6157,20 @@ backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/go
 backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retain period of automatically created backup in days Acceptable values are 7 to 35, inclusive.
 performance_diagnostics | **[PerformanceDiagnosticsConfig](#PerformanceDiagnosticsConfig8)**<br>Performance Diagnosics configuration 
 access | **[Access](#Access8)**<br>Access policy to DB 
+mongodb | **[MongodbSpec](#MongodbSpec)**<br>Configuration and resource allocation for a MongoDB 7.0 Enterprise cluster. 
 
 
 ### MongodbSpec3_6 {#MongodbSpec3_62}
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod90)**<br>Configuration and resource allocation for mongod 3.6 hosts. 
-mongocfg | **[MongoCfg](#MongoCfg90)**<br>Configuration and resource allocation for mongocfg 3.6 hosts. 
-mongos | **[Mongos](#Mongos90)**<br>Configuration and resource allocation for mongos 3.6 hosts. 
-mongoinfra | **[MongoInfra](#MongoInfra90)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 3.6 hosts. 
+mongod | **[Mongod](#Mongod100)**<br>Configuration and resource allocation for mongod 3.6 hosts. 
+mongocfg | **[MongoCfg](#MongoCfg100)**<br>Configuration and resource allocation for mongocfg 3.6 hosts. 
+mongos | **[Mongos](#Mongos100)**<br>Configuration and resource allocation for mongos 3.6 hosts. 
+mongoinfra | **[MongoInfra](#MongoInfra100)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 3.6 hosts. 
 
 
-### Mongod {#Mongod90}
+### Mongod {#Mongod100}
 
 Field | Description
 --- | ---
@@ -5695,7 +6179,7 @@ resources | **[Resources](#Resources8)**<br>Resources allocated to each mongod h
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling8)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg90}
+### MongoCfg {#MongoCfg100}
 
 Field | Description
 --- | ---
@@ -5704,7 +6188,7 @@ resources | **[Resources](#Resources8)**<br>Resources allocated to each mongocfg
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling8)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos90}
+### Mongos {#Mongos100}
 
 Field | Description
 --- | ---
@@ -5713,7 +6197,7 @@ resources | **[Resources](#Resources8)**<br>Resources allocated to each mongos h
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling8)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra90}
+### MongoInfra {#MongoInfra100}
 
 Field | Description
 --- | ---
@@ -5745,13 +6229,13 @@ disk_size_limit | **[google.protobuf.Int64Value](https://developers.google.com/p
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod91)**<br>Configuration and resource allocation for mongod 4.0 hosts. 
-mongocfg | **[MongoCfg](#MongoCfg91)**<br>Configuration and resource allocation for mongocfg 4.0 hosts. 
-mongos | **[Mongos](#Mongos91)**<br>Configuration and resource allocation for mongos 4.0 hosts. 
-mongoinfra | **[MongoInfra](#MongoInfra91)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 4.0 hosts. 
+mongod | **[Mongod](#Mongod101)**<br>Configuration and resource allocation for mongod 4.0 hosts. 
+mongocfg | **[MongoCfg](#MongoCfg101)**<br>Configuration and resource allocation for mongocfg 4.0 hosts. 
+mongos | **[Mongos](#Mongos101)**<br>Configuration and resource allocation for mongos 4.0 hosts. 
+mongoinfra | **[MongoInfra](#MongoInfra101)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 4.0 hosts. 
 
 
-### Mongod {#Mongod91}
+### Mongod {#Mongod101}
 
 Field | Description
 --- | ---
@@ -5760,7 +6244,7 @@ resources | **[Resources](#Resources9)**<br>Resources allocated to each mongod h
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling9)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg91}
+### MongoCfg {#MongoCfg101}
 
 Field | Description
 --- | ---
@@ -5769,7 +6253,7 @@ resources | **[Resources](#Resources9)**<br>Resources allocated to each mongocfg
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling9)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos91}
+### Mongos {#Mongos101}
 
 Field | Description
 --- | ---
@@ -5778,7 +6262,7 @@ resources | **[Resources](#Resources9)**<br>Resources allocated to each mongos h
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling9)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra91}
+### MongoInfra {#MongoInfra101}
 
 Field | Description
 --- | ---
@@ -5792,13 +6276,13 @@ disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling9)**<br>Disk
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod92)**<br>Configuration and resource allocation for mongod 4.2 hosts. 
-mongocfg | **[MongoCfg](#MongoCfg92)**<br>Configuration and resource allocation for mongocfg 4.2 hosts. 
-mongos | **[Mongos](#Mongos92)**<br>Configuration and resource allocation for mongos 4.2 hosts. 
-mongoinfra | **[MongoInfra](#MongoInfra92)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 4.2 hosts. 
+mongod | **[Mongod](#Mongod102)**<br>Configuration and resource allocation for mongod 4.2 hosts. 
+mongocfg | **[MongoCfg](#MongoCfg102)**<br>Configuration and resource allocation for mongocfg 4.2 hosts. 
+mongos | **[Mongos](#Mongos102)**<br>Configuration and resource allocation for mongos 4.2 hosts. 
+mongoinfra | **[MongoInfra](#MongoInfra102)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 4.2 hosts. 
 
 
-### Mongod {#Mongod92}
+### Mongod {#Mongod102}
 
 Field | Description
 --- | ---
@@ -5807,7 +6291,7 @@ resources | **[Resources](#Resources9)**<br>Resources allocated to each mongod h
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling9)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg92}
+### MongoCfg {#MongoCfg102}
 
 Field | Description
 --- | ---
@@ -5816,7 +6300,7 @@ resources | **[Resources](#Resources9)**<br>Resources allocated to each mongocfg
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling9)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos92}
+### Mongos {#Mongos102}
 
 Field | Description
 --- | ---
@@ -5825,7 +6309,7 @@ resources | **[Resources](#Resources9)**<br>Resources allocated to each mongos h
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling9)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra92}
+### MongoInfra {#MongoInfra102}
 
 Field | Description
 --- | ---
@@ -5839,13 +6323,13 @@ disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling9)**<br>Disk
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod93)**<br>Configuration and resource allocation for mongod 4.4 hosts. 
-mongocfg | **[MongoCfg](#MongoCfg93)**<br>Configuration and resource allocation for mongocfg 4.4 hosts. 
-mongos | **[Mongos](#Mongos93)**<br>Configuration and resource allocation for mongos 4.4 hosts. 
-mongoinfra | **[MongoInfra](#MongoInfra93)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 4.4 hosts. 
+mongod | **[Mongod](#Mongod103)**<br>Configuration and resource allocation for mongod 4.4 hosts. 
+mongocfg | **[MongoCfg](#MongoCfg103)**<br>Configuration and resource allocation for mongocfg 4.4 hosts. 
+mongos | **[Mongos](#Mongos103)**<br>Configuration and resource allocation for mongos 4.4 hosts. 
+mongoinfra | **[MongoInfra](#MongoInfra103)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 4.4 hosts. 
 
 
-### Mongod {#Mongod93}
+### Mongod {#Mongod103}
 
 Field | Description
 --- | ---
@@ -5854,7 +6338,7 @@ resources | **[Resources](#Resources9)**<br>Resources allocated to each mongod h
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling9)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg93}
+### MongoCfg {#MongoCfg103}
 
 Field | Description
 --- | ---
@@ -5863,7 +6347,7 @@ resources | **[Resources](#Resources9)**<br>Resources allocated to each mongocfg
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling9)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos93}
+### Mongos {#Mongos103}
 
 Field | Description
 --- | ---
@@ -5872,7 +6356,7 @@ resources | **[Resources](#Resources9)**<br>Resources allocated to each mongos h
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling9)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra93}
+### MongoInfra {#MongoInfra103}
 
 Field | Description
 --- | ---
@@ -5886,13 +6370,13 @@ disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling9)**<br>Disk
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod94)**<br>Configuration and resource allocation for mongod 5.0 hosts. 
-mongocfg | **[MongoCfg](#MongoCfg94)**<br>Configuration and resource allocation for mongocfg 5.0 hosts. 
-mongos | **[Mongos](#Mongos94)**<br>Configuration and resource allocation for mongos 5.0 hosts. 
-mongoinfra | **[MongoInfra](#MongoInfra94)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 5.0 hosts. 
+mongod | **[Mongod](#Mongod104)**<br>Configuration and resource allocation for mongod 5.0 hosts. 
+mongocfg | **[MongoCfg](#MongoCfg104)**<br>Configuration and resource allocation for mongocfg 5.0 hosts. 
+mongos | **[Mongos](#Mongos104)**<br>Configuration and resource allocation for mongos 5.0 hosts. 
+mongoinfra | **[MongoInfra](#MongoInfra104)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 5.0 hosts. 
 
 
-### Mongod {#Mongod94}
+### Mongod {#Mongod104}
 
 Field | Description
 --- | ---
@@ -5901,7 +6385,7 @@ resources | **[Resources](#Resources9)**<br>Resources allocated to each mongod h
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling9)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg94}
+### MongoCfg {#MongoCfg104}
 
 Field | Description
 --- | ---
@@ -5910,7 +6394,7 @@ resources | **[Resources](#Resources9)**<br>Resources allocated to each mongocfg
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling9)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos94}
+### Mongos {#Mongos104}
 
 Field | Description
 --- | ---
@@ -5919,7 +6403,7 @@ resources | **[Resources](#Resources9)**<br>Resources allocated to each mongos h
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling9)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra94}
+### MongoInfra {#MongoInfra104}
 
 Field | Description
 --- | ---
@@ -5933,13 +6417,13 @@ disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling9)**<br>Disk
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod95)**<br>Configuration and resource allocation for mongod 6.0 hosts. 
-mongocfg | **[MongoCfg](#MongoCfg95)**<br>Configuration and resource allocation for mongocfg 6.0 hosts. 
-mongos | **[Mongos](#Mongos95)**<br>Configuration and resource allocation for mongos 6.0 hosts. 
-mongoinfra | **[MongoInfra](#MongoInfra95)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 6.0 hosts. 
+mongod | **[Mongod](#Mongod105)**<br>Configuration and resource allocation for mongod 6.0 hosts. 
+mongocfg | **[MongoCfg](#MongoCfg105)**<br>Configuration and resource allocation for mongocfg 6.0 hosts. 
+mongos | **[Mongos](#Mongos105)**<br>Configuration and resource allocation for mongos 6.0 hosts. 
+mongoinfra | **[MongoInfra](#MongoInfra105)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 6.0 hosts. 
 
 
-### Mongod {#Mongod95}
+### Mongod {#Mongod105}
 
 Field | Description
 --- | ---
@@ -5948,7 +6432,7 @@ resources | **[Resources](#Resources9)**<br>Resources allocated to each mongod h
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling9)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg95}
+### MongoCfg {#MongoCfg105}
 
 Field | Description
 --- | ---
@@ -5957,7 +6441,7 @@ resources | **[Resources](#Resources9)**<br>Resources allocated to each mongocfg
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling9)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos95}
+### Mongos {#Mongos105}
 
 Field | Description
 --- | ---
@@ -5966,7 +6450,7 @@ resources | **[Resources](#Resources9)**<br>Resources allocated to each mongos h
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling9)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra95}
+### MongoInfra {#MongoInfra105}
 
 Field | Description
 --- | ---
@@ -5980,13 +6464,13 @@ disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling9)**<br>Disk
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod96)**<br>Configuration and resource allocation for mongod 4.4 hosts. 
-mongocfg | **[MongoCfg](#MongoCfg96)**<br>Configuration and resource allocation for mongocfg 4.4 hosts. 
-mongos | **[Mongos](#Mongos96)**<br>Configuration and resource allocation for mongos 4.4 hosts. 
-mongoinfra | **[MongoInfra](#MongoInfra96)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 4.4 hosts. 
+mongod | **[Mongod](#Mongod106)**<br>Configuration and resource allocation for mongod 4.4 hosts. 
+mongocfg | **[MongoCfg](#MongoCfg106)**<br>Configuration and resource allocation for mongocfg 4.4 hosts. 
+mongos | **[Mongos](#Mongos106)**<br>Configuration and resource allocation for mongos 4.4 hosts. 
+mongoinfra | **[MongoInfra](#MongoInfra106)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 4.4 hosts. 
 
 
-### Mongod {#Mongod96}
+### Mongod {#Mongod106}
 
 Field | Description
 --- | ---
@@ -5995,7 +6479,7 @@ resources | **[Resources](#Resources9)**<br>Resources allocated to each mongod h
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling9)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg96}
+### MongoCfg {#MongoCfg106}
 
 Field | Description
 --- | ---
@@ -6004,7 +6488,7 @@ resources | **[Resources](#Resources9)**<br>Resources allocated to each mongocfg
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling9)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos96}
+### Mongos {#Mongos106}
 
 Field | Description
 --- | ---
@@ -6013,7 +6497,7 @@ resources | **[Resources](#Resources9)**<br>Resources allocated to each mongos h
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling9)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra96}
+### MongoInfra {#MongoInfra106}
 
 Field | Description
 --- | ---
@@ -6027,13 +6511,13 @@ disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling9)**<br>Disk
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod97)**<br>Configuration and resource allocation for mongod 5.0 hosts. 
-mongocfg | **[MongoCfg](#MongoCfg97)**<br>Configuration and resource allocation for mongocfg 5.0 hosts. 
-mongos | **[Mongos](#Mongos97)**<br>Configuration and resource allocation for mongos 5.0 hosts. 
-mongoinfra | **[MongoInfra](#MongoInfra97)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 5.0 hosts. 
+mongod | **[Mongod](#Mongod107)**<br>Configuration and resource allocation for mongod 5.0 hosts. 
+mongocfg | **[MongoCfg](#MongoCfg107)**<br>Configuration and resource allocation for mongocfg 5.0 hosts. 
+mongos | **[Mongos](#Mongos107)**<br>Configuration and resource allocation for mongos 5.0 hosts. 
+mongoinfra | **[MongoInfra](#MongoInfra107)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 5.0 hosts. 
 
 
-### Mongod {#Mongod97}
+### Mongod {#Mongod107}
 
 Field | Description
 --- | ---
@@ -6042,7 +6526,7 @@ resources | **[Resources](#Resources9)**<br>Resources allocated to each mongod h
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling9)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg97}
+### MongoCfg {#MongoCfg107}
 
 Field | Description
 --- | ---
@@ -6051,7 +6535,7 @@ resources | **[Resources](#Resources9)**<br>Resources allocated to each mongocfg
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling9)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos97}
+### Mongos {#Mongos107}
 
 Field | Description
 --- | ---
@@ -6060,7 +6544,7 @@ resources | **[Resources](#Resources9)**<br>Resources allocated to each mongos h
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling9)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra97}
+### MongoInfra {#MongoInfra107}
 
 Field | Description
 --- | ---
@@ -6074,13 +6558,13 @@ disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling9)**<br>Disk
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod98)**<br>Configuration and resource allocation for mongod 6.0 hosts. 
-mongocfg | **[MongoCfg](#MongoCfg98)**<br>Configuration and resource allocation for mongocfg 6.0 hosts. 
-mongos | **[Mongos](#Mongos98)**<br>Configuration and resource allocation for mongos 6.0 hosts. 
-mongoinfra | **[MongoInfra](#MongoInfra98)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 6.0 hosts. 
+mongod | **[Mongod](#Mongod108)**<br>Configuration and resource allocation for mongod 6.0 hosts. 
+mongocfg | **[MongoCfg](#MongoCfg108)**<br>Configuration and resource allocation for mongocfg 6.0 hosts. 
+mongos | **[Mongos](#Mongos108)**<br>Configuration and resource allocation for mongos 6.0 hosts. 
+mongoinfra | **[MongoInfra](#MongoInfra108)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 6.0 hosts. 
 
 
-### Mongod {#Mongod98}
+### Mongod {#Mongod108}
 
 Field | Description
 --- | ---
@@ -6089,7 +6573,7 @@ resources | **[Resources](#Resources9)**<br>Resources allocated to each mongod h
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling9)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg98}
+### MongoCfg {#MongoCfg108}
 
 Field | Description
 --- | ---
@@ -6098,7 +6582,7 @@ resources | **[Resources](#Resources9)**<br>Resources allocated to each mongocfg
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling9)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos98}
+### Mongos {#Mongos108}
 
 Field | Description
 --- | ---
@@ -6107,7 +6591,7 @@ resources | **[Resources](#Resources9)**<br>Resources allocated to each mongos h
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling9)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra98}
+### MongoInfra {#MongoInfra108}
 
 Field | Description
 --- | ---
@@ -6132,6 +6616,53 @@ data_lens | **bool**<br>Allow access for DataLens.
 data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
+### MongodbSpec {#MongodbSpec2}
+
+Field | Description
+--- | ---
+mongod | **[Mongod](#Mongod109)**<br>Configuration and resource allocation for mongod hosts. 
+mongocfg | **[MongoCfg](#MongoCfg109)**<br>Configuration and resource allocation for mongocfg hosts. 
+mongos | **[Mongos](#Mongos109)**<br>Configuration and resource allocation for mongos hosts. 
+mongoinfra | **[MongoInfra](#MongoInfra109)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) hosts. 
+
+
+### Mongod {#Mongod109}
+
+Field | Description
+--- | ---
+config | **`config.MongodConfig`**<br> 
+resources | **[Resources](#Resources9)**<br>Resources allocated to each mongod host. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling9)**<br>Disk size autoscaling settings 
+
+
+### MongoCfg {#MongoCfg109}
+
+Field | Description
+--- | ---
+config | **`config.MongoCfgConfig`**<br>Configuration for mongocfg hosts. 
+resources | **[Resources](#Resources9)**<br>Resources allocated to each mongocfg host. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling9)**<br>Disk size autoscaling settings 
+
+
+### Mongos {#Mongos109}
+
+Field | Description
+--- | ---
+config | **`config.MongosConfig`**<br>Configuration for mongos hosts. 
+resources | **[Resources](#Resources9)**<br>Resources allocated to each mongos host. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling9)**<br>Disk size autoscaling settings 
+
+
+### MongoInfra {#MongoInfra109}
+
+Field | Description
+--- | ---
+config_mongos | **[config.MongosConfig](#MongosConfig)**<br>Configuration for mongoinfra hosts. 
+config_mongocfg | **[config.MongoCfgConfig](#MongoCfgConfig)**<br> 
+resources | **[Resources](#Resources9)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling9)**<br>Disk size autoscaling settings 
+
+
 ### HostSpec {#HostSpec1}
 
 Field | Description
@@ -6145,6 +6676,27 @@ hidden | **[google.protobuf.BoolValue](https://developers.google.com/protocol-bu
 secondary_delay_secs | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of seconds "behind" the primary that this replica set member should "lag" 
 priority | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**<br>Priority of host for the election in replSet 
 tags | **map<string,string>**<br>Host tags 
+
+
+### MaintenanceWindow {#MaintenanceWindow8}
+
+Field | Description
+--- | ---
+policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow8)**<br>Maintenance operation can be scheduled anytime. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow8)**<br>Maintenance operation can be scheduled on a weekly basis. 
+
+
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow8}
+
+Empty.
+
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow8}
+
+Field | Description
+--- | ---
+day | enum **WeekDay**<br>Day of the week (in `DDD` format). 
+hour | **int64**<br>Hour of the day in UTC (in `HH` format). Acceptable values are 1 to 24, inclusive.
 
 
 ### Operation {#Operation7}
@@ -6188,7 +6740,7 @@ network_id | **string**<br>ID of the network that the cluster belongs to.
 health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li></ul>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
 sharded | **bool**<br>Indicates current sharding status of the cluster. 
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow8)**<br>Maintenance window for the cluster. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow9)**<br>Maintenance window for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation8)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
@@ -6207,7 +6759,7 @@ link | **string**<br>Link to the monitoring system charts for the MongoDB cluste
 
 Field | Description
 --- | ---
-version | **string**<br>Version of MongoDB server software. Possible values: `3.6`, `4.0`, `4.2`, `4.4`, `4.4-enterprise`, `5.0`, `5.0-enterprise`, `6.0`, `6.0-enterprise`. 
+version | **string**<br>Version of MongoDB server software. Possible values: `3.6`, `4.0`, `4.2`, `4.4`, `4.4-enterprise`, `5.0`, `5.0-enterprise`, `6.0`, `6.0-enterprise`, `7.0`, `7.0-enterprise`. 
 feature_compatibility_version | **string**<br>MongoDB feature compatibility version. See usage details in [MongoDB documentation](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/). <br>Possible values: <ul><li>`3.6` - persist data compatibility for version 3.6. After setting this option the data will not be compatible with 3.4 or lower. </li><li>`4.0` - persist data compatibility for version 4.0. After setting this option the data will not be compatible with 3.6 or lower. </li><li>`4.2` - persist data compatibility for version 4.2. After setting this option the data will not be compatible with 4.0 or lower. </li><li>`4.4` - persist data compatibility for version 4.4. After setting this option the data will not be compatible with 4.2 or lower. </li><li>`5.0` - persist data compatibility for version 5.0. After setting this option the data will not be compatible with 5.0 or lower. </li><li>`6.0` - persist data compatibility for version 6.0. After setting this option the data will not be compatible with 6.0 or lower.</li></ul> 
 mongodb | **oneof:** `mongodb_3_6`, `mongodb_4_0`, `mongodb_4_2`, `mongodb_4_4`, `mongodb_5_0`, `mongodb_6_0`, `mongodb_4_4_enterprise`, `mongodb_5_0_enterprise` or `mongodb_6_0_enterprise`<br>Configuration for MongoDB servers in the cluster.
 &nbsp;&nbsp;mongodb_3_6 | **[Mongodb3_6](#Mongodb3_68)**<br>Configuration and resource allocation for a MongoDB 3.6 cluster. 
@@ -6223,19 +6775,20 @@ backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/go
 backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retain period of automatically created backup in days 
 performance_diagnostics | **[PerformanceDiagnosticsConfig](#PerformanceDiagnosticsConfig9)**<br>Performance Diagnostic 
 access | **[Access](#Access9)**<br>Access policy to DB 
+mongodb_config | **[Mongodb](#Mongodb8)**<br>Configuration and resource allocation for a MongoDB Enterprise cluster. 
 
 
 ### Mongodb3_6 {#Mongodb3_68}
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod99)**<br>Configuration and resource allocation for mongod in a MongoDB 3.6 cluster. 
-mongocfg | **[MongoCfg](#MongoCfg99)**<br>Configuration and resource allocation for mongocfg in a MongoDB 3.6 cluster. 
-mongos | **[Mongos](#Mongos99)**<br>Configuration and resource allocation for mongos in a MongoDB 3.6 cluster. 
-mongoinfra | **[MongoInfra](#MongoInfra99)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 3.6 cluster. 
+mongod | **[Mongod](#Mongod110)**<br>Configuration and resource allocation for mongod in a MongoDB 3.6 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg110)**<br>Configuration and resource allocation for mongocfg in a MongoDB 3.6 cluster. 
+mongos | **[Mongos](#Mongos110)**<br>Configuration and resource allocation for mongos in a MongoDB 3.6 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra110)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 3.6 cluster. 
 
 
-### Mongod {#Mongod99}
+### Mongod {#Mongod110}
 
 Field | Description
 --- | ---
@@ -6244,7 +6797,7 @@ resources | **[Resources](#Resources9)**<br>Resources allocated to MongoDB hosts
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling9)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg99}
+### MongoCfg {#MongoCfg110}
 
 Field | Description
 --- | ---
@@ -6253,7 +6806,7 @@ resources | **[Resources](#Resources9)**<br>Resources allocated to mongocfg host
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling9)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos99}
+### Mongos {#Mongos110}
 
 Field | Description
 --- | ---
@@ -6262,7 +6815,7 @@ resources | **[Resources](#Resources9)**<br>Resources allocated to mongos hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling9)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra99}
+### MongoInfra {#MongoInfra110}
 
 Field | Description
 --- | ---
@@ -6276,13 +6829,13 @@ disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling9)**<br>Disk
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod100)**<br>Configuration and resource allocation for mongod in a MongoDB 4.0 cluster. 
-mongocfg | **[MongoCfg](#MongoCfg100)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.0 cluster. 
-mongos | **[Mongos](#Mongos100)**<br>Configuration and resource allocation for mongos in a MongoDB 4.0 cluster. 
-mongoinfra | **[MongoInfra](#MongoInfra100)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.0 cluster. 
+mongod | **[Mongod](#Mongod111)**<br>Configuration and resource allocation for mongod in a MongoDB 4.0 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg111)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.0 cluster. 
+mongos | **[Mongos](#Mongos111)**<br>Configuration and resource allocation for mongos in a MongoDB 4.0 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra111)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.0 cluster. 
 
 
-### Mongod {#Mongod100}
+### Mongod {#Mongod111}
 
 Field | Description
 --- | ---
@@ -6291,7 +6844,7 @@ resources | **[Resources](#Resources9)**<br>Resources allocated to mongod hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling9)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg100}
+### MongoCfg {#MongoCfg111}
 
 Field | Description
 --- | ---
@@ -6300,7 +6853,7 @@ resources | **[Resources](#Resources9)**<br>Resources allocated to mongocfg host
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling9)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos100}
+### Mongos {#Mongos111}
 
 Field | Description
 --- | ---
@@ -6309,7 +6862,7 @@ resources | **[Resources](#Resources9)**<br>Resources allocated to mongos hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling9)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra100}
+### MongoInfra {#MongoInfra111}
 
 Field | Description
 --- | ---
@@ -6323,13 +6876,13 @@ disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling9)**<br>Disk
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod101)**<br>Configuration and resource allocation for mongod in a MongoDB 4.2 cluster. 
-mongocfg | **[MongoCfg](#MongoCfg101)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.2 cluster. 
-mongos | **[Mongos](#Mongos101)**<br>Configuration and resource allocation for mongos in a MongoDB 4.2 cluster. 
-mongoinfra | **[MongoInfra](#MongoInfra101)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.2 cluster. 
+mongod | **[Mongod](#Mongod112)**<br>Configuration and resource allocation for mongod in a MongoDB 4.2 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg112)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.2 cluster. 
+mongos | **[Mongos](#Mongos112)**<br>Configuration and resource allocation for mongos in a MongoDB 4.2 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra112)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.2 cluster. 
 
 
-### Mongod {#Mongod101}
+### Mongod {#Mongod112}
 
 Field | Description
 --- | ---
@@ -6338,7 +6891,7 @@ resources | **[Resources](#Resources9)**<br>Resources allocated to mongod hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling9)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg101}
+### MongoCfg {#MongoCfg112}
 
 Field | Description
 --- | ---
@@ -6347,7 +6900,7 @@ resources | **[Resources](#Resources9)**<br>Resources allocated to mongocfg host
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling9)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos101}
+### Mongos {#Mongos112}
 
 Field | Description
 --- | ---
@@ -6356,7 +6909,7 @@ resources | **[Resources](#Resources9)**<br>Resources allocated to mongos hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling9)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra101}
+### MongoInfra {#MongoInfra112}
 
 Field | Description
 --- | ---
@@ -6370,13 +6923,13 @@ disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling9)**<br>Disk
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod102)**<br>Configuration and resource allocation for mongod in a MongoDB 4.4 cluster. 
-mongocfg | **[MongoCfg](#MongoCfg102)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.4 cluster. 
-mongos | **[Mongos](#Mongos102)**<br>Configuration and resource allocation for mongos in a MongoDB 4.4 cluster. 
-mongoinfra | **[MongoInfra](#MongoInfra102)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.4 cluster. 
+mongod | **[Mongod](#Mongod113)**<br>Configuration and resource allocation for mongod in a MongoDB 4.4 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg113)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.4 cluster. 
+mongos | **[Mongos](#Mongos113)**<br>Configuration and resource allocation for mongos in a MongoDB 4.4 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra113)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.4 cluster. 
 
 
-### Mongod {#Mongod102}
+### Mongod {#Mongod113}
 
 Field | Description
 --- | ---
@@ -6385,7 +6938,7 @@ resources | **[Resources](#Resources9)**<br>Resources allocated to mongod hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling9)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg102}
+### MongoCfg {#MongoCfg113}
 
 Field | Description
 --- | ---
@@ -6394,7 +6947,7 @@ resources | **[Resources](#Resources9)**<br>Resources allocated to mongocfg host
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling9)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos102}
+### Mongos {#Mongos113}
 
 Field | Description
 --- | ---
@@ -6403,7 +6956,7 @@ resources | **[Resources](#Resources9)**<br>Resources allocated to mongos hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling9)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra102}
+### MongoInfra {#MongoInfra113}
 
 Field | Description
 --- | ---
@@ -6417,13 +6970,13 @@ disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling9)**<br>Disk
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod103)**<br>Configuration and resource allocation for mongod in a MongoDB 5.0 cluster. 
-mongocfg | **[MongoCfg](#MongoCfg103)**<br>Configuration and resource allocation for mongocfg in a MongoDB 5.0 cluster. 
-mongos | **[Mongos](#Mongos103)**<br>Configuration and resource allocation for mongos in a MongoDB 5.0 cluster. 
-mongoinfra | **[MongoInfra](#MongoInfra103)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 5.0 cluster. 
+mongod | **[Mongod](#Mongod114)**<br>Configuration and resource allocation for mongod in a MongoDB 5.0 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg114)**<br>Configuration and resource allocation for mongocfg in a MongoDB 5.0 cluster. 
+mongos | **[Mongos](#Mongos114)**<br>Configuration and resource allocation for mongos in a MongoDB 5.0 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra114)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 5.0 cluster. 
 
 
-### Mongod {#Mongod103}
+### Mongod {#Mongod114}
 
 Field | Description
 --- | ---
@@ -6432,7 +6985,7 @@ resources | **[Resources](#Resources9)**<br>Resources allocated to mongod hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling9)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg103}
+### MongoCfg {#MongoCfg114}
 
 Field | Description
 --- | ---
@@ -6441,7 +6994,7 @@ resources | **[Resources](#Resources9)**<br>Resources allocated to mongocfg host
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling9)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos103}
+### Mongos {#Mongos114}
 
 Field | Description
 --- | ---
@@ -6450,7 +7003,7 @@ resources | **[Resources](#Resources9)**<br>Resources allocated to mongos hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling9)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra103}
+### MongoInfra {#MongoInfra114}
 
 Field | Description
 --- | ---
@@ -6464,13 +7017,13 @@ disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling9)**<br>Disk
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod104)**<br>Configuration and resource allocation for mongod in a MongoDB 6.0 cluster. 
-mongocfg | **[MongoCfg](#MongoCfg104)**<br>Configuration and resource allocation for mongocfg in a MongoDB 6.0 cluster. 
-mongos | **[Mongos](#Mongos104)**<br>Configuration and resource allocation for mongos in a MongoDB 6.0 cluster. 
-mongoinfra | **[MongoInfra](#MongoInfra104)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 6.0 cluster. 
+mongod | **[Mongod](#Mongod115)**<br>Configuration and resource allocation for mongod in a MongoDB 6.0 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg115)**<br>Configuration and resource allocation for mongocfg in a MongoDB 6.0 cluster. 
+mongos | **[Mongos](#Mongos115)**<br>Configuration and resource allocation for mongos in a MongoDB 6.0 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra115)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 6.0 cluster. 
 
 
-### Mongod {#Mongod104}
+### Mongod {#Mongod115}
 
 Field | Description
 --- | ---
@@ -6479,7 +7032,7 @@ resources | **[Resources](#Resources9)**<br>Resources allocated to mongod hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling9)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg104}
+### MongoCfg {#MongoCfg115}
 
 Field | Description
 --- | ---
@@ -6488,7 +7041,7 @@ resources | **[Resources](#Resources9)**<br>Resources allocated to mongocfg host
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling9)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos104}
+### Mongos {#Mongos115}
 
 Field | Description
 --- | ---
@@ -6497,7 +7050,7 @@ resources | **[Resources](#Resources9)**<br>Resources allocated to mongos hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling9)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra104}
+### MongoInfra {#MongoInfra115}
 
 Field | Description
 --- | ---
@@ -6511,13 +7064,13 @@ disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling9)**<br>Disk
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod105)**<br>Configuration and resource allocation for mongod in a MongoDB 4.4 cluster. 
-mongocfg | **[MongoCfg](#MongoCfg105)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.4 cluster. 
-mongos | **[Mongos](#Mongos105)**<br>Configuration and resource allocation for mongos in a MongoDB 4.4 cluster. 
-mongoinfra | **[MongoInfra](#MongoInfra105)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.4 cluster. 
+mongod | **[Mongod](#Mongod116)**<br>Configuration and resource allocation for mongod in a MongoDB 4.4 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg116)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.4 cluster. 
+mongos | **[Mongos](#Mongos116)**<br>Configuration and resource allocation for mongos in a MongoDB 4.4 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra116)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.4 cluster. 
 
 
-### Mongod {#Mongod105}
+### Mongod {#Mongod116}
 
 Field | Description
 --- | ---
@@ -6526,7 +7079,7 @@ resources | **[Resources](#Resources9)**<br>Resources allocated to mongod hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling9)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg105}
+### MongoCfg {#MongoCfg116}
 
 Field | Description
 --- | ---
@@ -6535,7 +7088,7 @@ resources | **[Resources](#Resources9)**<br>Resources allocated to mongocfg host
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling9)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos105}
+### Mongos {#Mongos116}
 
 Field | Description
 --- | ---
@@ -6544,7 +7097,7 @@ resources | **[Resources](#Resources9)**<br>Resources allocated to mongos hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling9)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra105}
+### MongoInfra {#MongoInfra116}
 
 Field | Description
 --- | ---
@@ -6558,13 +7111,13 @@ disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling9)**<br>Disk
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod106)**<br>Configuration and resource allocation for mongod in a MongoDB 5.0 cluster. 
-mongocfg | **[MongoCfg](#MongoCfg106)**<br>Configuration and resource allocation for mongocfg in a MongoDB 5.0 cluster. 
-mongos | **[Mongos](#Mongos106)**<br>Configuration and resource allocation for mongos in a MongoDB 5.0 cluster. 
-mongoinfra | **[MongoInfra](#MongoInfra106)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 5.0 cluster. 
+mongod | **[Mongod](#Mongod117)**<br>Configuration and resource allocation for mongod in a MongoDB 5.0 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg117)**<br>Configuration and resource allocation for mongocfg in a MongoDB 5.0 cluster. 
+mongos | **[Mongos](#Mongos117)**<br>Configuration and resource allocation for mongos in a MongoDB 5.0 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra117)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 5.0 cluster. 
 
 
-### Mongod {#Mongod106}
+### Mongod {#Mongod117}
 
 Field | Description
 --- | ---
@@ -6573,7 +7126,7 @@ resources | **[Resources](#Resources9)**<br>Resources allocated to mongod hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling9)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg106}
+### MongoCfg {#MongoCfg117}
 
 Field | Description
 --- | ---
@@ -6582,7 +7135,7 @@ resources | **[Resources](#Resources9)**<br>Resources allocated to mongocfg host
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling9)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos106}
+### Mongos {#Mongos117}
 
 Field | Description
 --- | ---
@@ -6591,7 +7144,7 @@ resources | **[Resources](#Resources9)**<br>Resources allocated to mongos hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling9)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra106}
+### MongoInfra {#MongoInfra117}
 
 Field | Description
 --- | ---
@@ -6605,13 +7158,13 @@ disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling9)**<br>Disk
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod107)**<br>Configuration and resource allocation for mongod in a MongoDB 6.0 cluster. 
-mongocfg | **[MongoCfg](#MongoCfg107)**<br>Configuration and resource allocation for mongocfg in a MongoDB 6.0 cluster. 
-mongos | **[Mongos](#Mongos107)**<br>Configuration and resource allocation for mongos in a MongoDB 6.0 cluster. 
-mongoinfra | **[MongoInfra](#MongoInfra107)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 6.0 cluster. 
+mongod | **[Mongod](#Mongod118)**<br>Configuration and resource allocation for mongod in a MongoDB 6.0 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg118)**<br>Configuration and resource allocation for mongocfg in a MongoDB 6.0 cluster. 
+mongos | **[Mongos](#Mongos118)**<br>Configuration and resource allocation for mongos in a MongoDB 6.0 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra118)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 6.0 cluster. 
 
 
-### Mongod {#Mongod107}
+### Mongod {#Mongod118}
 
 Field | Description
 --- | ---
@@ -6620,7 +7173,7 @@ resources | **[Resources](#Resources9)**<br>Resources allocated to mongod hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling9)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg107}
+### MongoCfg {#MongoCfg118}
 
 Field | Description
 --- | ---
@@ -6629,7 +7182,7 @@ resources | **[Resources](#Resources9)**<br>Resources allocated to mongocfg host
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling9)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos107}
+### Mongos {#Mongos118}
 
 Field | Description
 --- | ---
@@ -6638,7 +7191,7 @@ resources | **[Resources](#Resources9)**<br>Resources allocated to mongos hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling9)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra107}
+### MongoInfra {#MongoInfra118}
 
 Field | Description
 --- | ---
@@ -6648,25 +7201,51 @@ resources | **[Resources](#Resources9)**<br>Resources allocated to mongoinfra (m
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling9)**<br>Disk size autoscaling settings 
 
 
-### MaintenanceWindow {#MaintenanceWindow8}
+### Mongodb {#Mongodb8}
 
 Field | Description
 --- | ---
-policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow8)**<br>Maintenance operation can be scheduled anytime. 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow8)**<br>Maintenance operation can be scheduled on a weekly basis. 
+mongod | **[Mongod](#Mongod119)**<br>Configuration and resource allocation for mongod in a MongoDB cluster. 
+mongocfg | **[MongoCfg](#MongoCfg119)**<br>Configuration and resource allocation for mongocfg in a MongoDB cluster. 
+mongos | **[Mongos](#Mongos119)**<br>Configuration and resource allocation for mongos in a MongoDB cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra119)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB cluster. 
 
 
-### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow8}
-
-Empty.
-
-### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow8}
+### Mongod {#Mongod119}
 
 Field | Description
 --- | ---
-day | enum **WeekDay**<br>Day of the week (in `DDD` format). 
-hour | **int64**<br>Hour of the day in UTC (in `HH` format). Acceptable values are 1 to 24, inclusive.
+config | **`config.MongodConfigSet`**<br>Configuration for mongod hosts. 
+resources | **[Resources](#Resources9)**<br>Resources allocated to mongod hosts. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling9)**<br>Disk size autoscaling settings 
+
+
+### MongoCfg {#MongoCfg119}
+
+Field | Description
+--- | ---
+config | **`config.MongoCfgConfigSet`**<br>Configuration for mongocfg hosts. 
+resources | **[Resources](#Resources9)**<br>Resources allocated to mongocfg hosts. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling9)**<br>Disk size autoscaling settings 
+
+
+### Mongos {#Mongos119}
+
+Field | Description
+--- | ---
+config | **`config.MongosConfigSet`**<br>Configuration for mongos hosts. 
+resources | **[Resources](#Resources9)**<br>Resources allocated to mongos hosts. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling9)**<br>Disk size autoscaling settings 
+
+
+### MongoInfra {#MongoInfra119}
+
+Field | Description
+--- | ---
+config_mongos | **[config.MongosConfigSet](#MongosConfigSet)**<br> 
+config_mongocfg | **[config.MongoCfgConfigSet](#MongoCfgConfigSet)**<br> 
+resources | **[Resources](#Resources9)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling9)**<br>Disk size autoscaling settings 
 
 
 ### MaintenanceOperation {#MaintenanceOperation8}
@@ -6756,7 +7335,7 @@ link | **string**<br>Link to the monitoring system charts for the MongoDB cluste
 
 Field | Description
 --- | ---
-version | **string**<br>Version of MongoDB server software. Possible values: `3.6`, `4.0`, `4.2`, `4.4`, `4.4-enterprise`, `5.0`, `5.0-enterprise`, `6.0`, `6.0-enterprise`. 
+version | **string**<br>Version of MongoDB server software. Possible values: `3.6`, `4.0`, `4.2`, `4.4`, `4.4-enterprise`, `5.0`, `5.0-enterprise`, `6.0`, `6.0-enterprise`, `7.0`, `7.0-enterprise`. 
 feature_compatibility_version | **string**<br>MongoDB feature compatibility version. See usage details in [MongoDB documentation](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/). <br>Possible values: <ul><li>`3.6` - persist data compatibility for version 3.6. After setting this option the data will not be compatible with 3.4 or lower. </li><li>`4.0` - persist data compatibility for version 4.0. After setting this option the data will not be compatible with 3.6 or lower. </li><li>`4.2` - persist data compatibility for version 4.2. After setting this option the data will not be compatible with 4.0 or lower. </li><li>`4.4` - persist data compatibility for version 4.4. After setting this option the data will not be compatible with 4.2 or lower. </li><li>`5.0` - persist data compatibility for version 5.0. After setting this option the data will not be compatible with 5.0 or lower. </li><li>`6.0` - persist data compatibility for version 6.0. After setting this option the data will not be compatible with 6.0 or lower.</li></ul> 
 mongodb | **oneof:** `mongodb_3_6`, `mongodb_4_0`, `mongodb_4_2`, `mongodb_4_4`, `mongodb_5_0`, `mongodb_6_0`, `mongodb_4_4_enterprise`, `mongodb_5_0_enterprise` or `mongodb_6_0_enterprise`<br>Configuration for MongoDB servers in the cluster.
 &nbsp;&nbsp;mongodb_3_6 | **[Mongodb3_6](#Mongodb3_69)**<br>Configuration and resource allocation for a MongoDB 3.6 cluster. 
@@ -6772,19 +7351,20 @@ backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/go
 backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retain period of automatically created backup in days 
 performance_diagnostics | **[PerformanceDiagnosticsConfig](#PerformanceDiagnosticsConfig9)**<br>Performance Diagnostic 
 access | **[Access](#Access9)**<br>Access policy to DB 
+mongodb_config | **[Mongodb](#Mongodb9)**<br>Configuration and resource allocation for a MongoDB Enterprise cluster. 
 
 
 ### Mongodb3_6 {#Mongodb3_69}
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod108)**<br>Configuration and resource allocation for mongod in a MongoDB 3.6 cluster. 
-mongocfg | **[MongoCfg](#MongoCfg108)**<br>Configuration and resource allocation for mongocfg in a MongoDB 3.6 cluster. 
-mongos | **[Mongos](#Mongos108)**<br>Configuration and resource allocation for mongos in a MongoDB 3.6 cluster. 
-mongoinfra | **[MongoInfra](#MongoInfra108)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 3.6 cluster. 
+mongod | **[Mongod](#Mongod120)**<br>Configuration and resource allocation for mongod in a MongoDB 3.6 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg120)**<br>Configuration and resource allocation for mongocfg in a MongoDB 3.6 cluster. 
+mongos | **[Mongos](#Mongos120)**<br>Configuration and resource allocation for mongos in a MongoDB 3.6 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra120)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 3.6 cluster. 
 
 
-### Mongod {#Mongod108}
+### Mongod {#Mongod120}
 
 Field | Description
 --- | ---
@@ -6793,7 +7373,7 @@ resources | **[Resources](#Resources9)**<br>Resources allocated to MongoDB hosts
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling9)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg108}
+### MongoCfg {#MongoCfg120}
 
 Field | Description
 --- | ---
@@ -6802,7 +7382,7 @@ resources | **[Resources](#Resources9)**<br>Resources allocated to mongocfg host
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling9)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos108}
+### Mongos {#Mongos120}
 
 Field | Description
 --- | ---
@@ -6811,7 +7391,7 @@ resources | **[Resources](#Resources9)**<br>Resources allocated to mongos hosts.
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling9)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra108}
+### MongoInfra {#MongoInfra120}
 
 Field | Description
 --- | ---
@@ -6843,13 +7423,13 @@ disk_size_limit | **[google.protobuf.Int64Value](https://developers.google.com/p
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod109)**<br>Configuration and resource allocation for mongod in a MongoDB 4.0 cluster. 
-mongocfg | **[MongoCfg](#MongoCfg109)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.0 cluster. 
-mongos | **[Mongos](#Mongos109)**<br>Configuration and resource allocation for mongos in a MongoDB 4.0 cluster. 
-mongoinfra | **[MongoInfra](#MongoInfra109)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.0 cluster. 
+mongod | **[Mongod](#Mongod121)**<br>Configuration and resource allocation for mongod in a MongoDB 4.0 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg121)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.0 cluster. 
+mongos | **[Mongos](#Mongos121)**<br>Configuration and resource allocation for mongos in a MongoDB 4.0 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra121)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.0 cluster. 
 
 
-### Mongod {#Mongod109}
+### Mongod {#Mongod121}
 
 Field | Description
 --- | ---
@@ -6858,7 +7438,7 @@ resources | **[Resources](#Resources10)**<br>Resources allocated to mongod hosts
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling10)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg109}
+### MongoCfg {#MongoCfg121}
 
 Field | Description
 --- | ---
@@ -6867,7 +7447,7 @@ resources | **[Resources](#Resources10)**<br>Resources allocated to mongocfg hos
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling10)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos109}
+### Mongos {#Mongos121}
 
 Field | Description
 --- | ---
@@ -6876,7 +7456,7 @@ resources | **[Resources](#Resources10)**<br>Resources allocated to mongos hosts
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling10)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra109}
+### MongoInfra {#MongoInfra121}
 
 Field | Description
 --- | ---
@@ -6890,13 +7470,13 @@ disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling10)**<br>Dis
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod110)**<br>Configuration and resource allocation for mongod in a MongoDB 4.2 cluster. 
-mongocfg | **[MongoCfg](#MongoCfg110)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.2 cluster. 
-mongos | **[Mongos](#Mongos110)**<br>Configuration and resource allocation for mongos in a MongoDB 4.2 cluster. 
-mongoinfra | **[MongoInfra](#MongoInfra110)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.2 cluster. 
+mongod | **[Mongod](#Mongod122)**<br>Configuration and resource allocation for mongod in a MongoDB 4.2 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg122)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.2 cluster. 
+mongos | **[Mongos](#Mongos122)**<br>Configuration and resource allocation for mongos in a MongoDB 4.2 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra122)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.2 cluster. 
 
 
-### Mongod {#Mongod110}
+### Mongod {#Mongod122}
 
 Field | Description
 --- | ---
@@ -6905,7 +7485,7 @@ resources | **[Resources](#Resources10)**<br>Resources allocated to mongod hosts
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling10)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg110}
+### MongoCfg {#MongoCfg122}
 
 Field | Description
 --- | ---
@@ -6914,7 +7494,7 @@ resources | **[Resources](#Resources10)**<br>Resources allocated to mongocfg hos
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling10)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos110}
+### Mongos {#Mongos122}
 
 Field | Description
 --- | ---
@@ -6923,7 +7503,7 @@ resources | **[Resources](#Resources10)**<br>Resources allocated to mongos hosts
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling10)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra110}
+### MongoInfra {#MongoInfra122}
 
 Field | Description
 --- | ---
@@ -6937,13 +7517,13 @@ disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling10)**<br>Dis
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod111)**<br>Configuration and resource allocation for mongod in a MongoDB 4.4 cluster. 
-mongocfg | **[MongoCfg](#MongoCfg111)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.4 cluster. 
-mongos | **[Mongos](#Mongos111)**<br>Configuration and resource allocation for mongos in a MongoDB 4.4 cluster. 
-mongoinfra | **[MongoInfra](#MongoInfra111)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.4 cluster. 
+mongod | **[Mongod](#Mongod123)**<br>Configuration and resource allocation for mongod in a MongoDB 4.4 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg123)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.4 cluster. 
+mongos | **[Mongos](#Mongos123)**<br>Configuration and resource allocation for mongos in a MongoDB 4.4 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra123)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.4 cluster. 
 
 
-### Mongod {#Mongod111}
+### Mongod {#Mongod123}
 
 Field | Description
 --- | ---
@@ -6952,7 +7532,7 @@ resources | **[Resources](#Resources10)**<br>Resources allocated to mongod hosts
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling10)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg111}
+### MongoCfg {#MongoCfg123}
 
 Field | Description
 --- | ---
@@ -6961,7 +7541,7 @@ resources | **[Resources](#Resources10)**<br>Resources allocated to mongocfg hos
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling10)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos111}
+### Mongos {#Mongos123}
 
 Field | Description
 --- | ---
@@ -6970,7 +7550,7 @@ resources | **[Resources](#Resources10)**<br>Resources allocated to mongos hosts
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling10)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra111}
+### MongoInfra {#MongoInfra123}
 
 Field | Description
 --- | ---
@@ -6984,13 +7564,13 @@ disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling10)**<br>Dis
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod112)**<br>Configuration and resource allocation for mongod in a MongoDB 5.0 cluster. 
-mongocfg | **[MongoCfg](#MongoCfg112)**<br>Configuration and resource allocation for mongocfg in a MongoDB 5.0 cluster. 
-mongos | **[Mongos](#Mongos112)**<br>Configuration and resource allocation for mongos in a MongoDB 5.0 cluster. 
-mongoinfra | **[MongoInfra](#MongoInfra112)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 5.0 cluster. 
+mongod | **[Mongod](#Mongod124)**<br>Configuration and resource allocation for mongod in a MongoDB 5.0 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg124)**<br>Configuration and resource allocation for mongocfg in a MongoDB 5.0 cluster. 
+mongos | **[Mongos](#Mongos124)**<br>Configuration and resource allocation for mongos in a MongoDB 5.0 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra124)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 5.0 cluster. 
 
 
-### Mongod {#Mongod112}
+### Mongod {#Mongod124}
 
 Field | Description
 --- | ---
@@ -6999,7 +7579,7 @@ resources | **[Resources](#Resources10)**<br>Resources allocated to mongod hosts
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling10)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg112}
+### MongoCfg {#MongoCfg124}
 
 Field | Description
 --- | ---
@@ -7008,7 +7588,7 @@ resources | **[Resources](#Resources10)**<br>Resources allocated to mongocfg hos
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling10)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos112}
+### Mongos {#Mongos124}
 
 Field | Description
 --- | ---
@@ -7017,7 +7597,7 @@ resources | **[Resources](#Resources10)**<br>Resources allocated to mongos hosts
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling10)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra112}
+### MongoInfra {#MongoInfra124}
 
 Field | Description
 --- | ---
@@ -7031,13 +7611,13 @@ disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling10)**<br>Dis
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod113)**<br>Configuration and resource allocation for mongod in a MongoDB 6.0 cluster. 
-mongocfg | **[MongoCfg](#MongoCfg113)**<br>Configuration and resource allocation for mongocfg in a MongoDB 6.0 cluster. 
-mongos | **[Mongos](#Mongos113)**<br>Configuration and resource allocation for mongos in a MongoDB 6.0 cluster. 
-mongoinfra | **[MongoInfra](#MongoInfra113)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 6.0 cluster. 
+mongod | **[Mongod](#Mongod125)**<br>Configuration and resource allocation for mongod in a MongoDB 6.0 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg125)**<br>Configuration and resource allocation for mongocfg in a MongoDB 6.0 cluster. 
+mongos | **[Mongos](#Mongos125)**<br>Configuration and resource allocation for mongos in a MongoDB 6.0 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra125)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 6.0 cluster. 
 
 
-### Mongod {#Mongod113}
+### Mongod {#Mongod125}
 
 Field | Description
 --- | ---
@@ -7046,7 +7626,7 @@ resources | **[Resources](#Resources10)**<br>Resources allocated to mongod hosts
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling10)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg113}
+### MongoCfg {#MongoCfg125}
 
 Field | Description
 --- | ---
@@ -7055,7 +7635,7 @@ resources | **[Resources](#Resources10)**<br>Resources allocated to mongocfg hos
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling10)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos113}
+### Mongos {#Mongos125}
 
 Field | Description
 --- | ---
@@ -7064,7 +7644,7 @@ resources | **[Resources](#Resources10)**<br>Resources allocated to mongos hosts
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling10)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra113}
+### MongoInfra {#MongoInfra125}
 
 Field | Description
 --- | ---
@@ -7078,13 +7658,13 @@ disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling10)**<br>Dis
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod114)**<br>Configuration and resource allocation for mongod in a MongoDB 4.4 cluster. 
-mongocfg | **[MongoCfg](#MongoCfg114)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.4 cluster. 
-mongos | **[Mongos](#Mongos114)**<br>Configuration and resource allocation for mongos in a MongoDB 4.4 cluster. 
-mongoinfra | **[MongoInfra](#MongoInfra114)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.4 cluster. 
+mongod | **[Mongod](#Mongod126)**<br>Configuration and resource allocation for mongod in a MongoDB 4.4 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg126)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.4 cluster. 
+mongos | **[Mongos](#Mongos126)**<br>Configuration and resource allocation for mongos in a MongoDB 4.4 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra126)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.4 cluster. 
 
 
-### Mongod {#Mongod114}
+### Mongod {#Mongod126}
 
 Field | Description
 --- | ---
@@ -7093,7 +7673,7 @@ resources | **[Resources](#Resources10)**<br>Resources allocated to mongod hosts
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling10)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg114}
+### MongoCfg {#MongoCfg126}
 
 Field | Description
 --- | ---
@@ -7102,7 +7682,7 @@ resources | **[Resources](#Resources10)**<br>Resources allocated to mongocfg hos
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling10)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos114}
+### Mongos {#Mongos126}
 
 Field | Description
 --- | ---
@@ -7111,7 +7691,7 @@ resources | **[Resources](#Resources10)**<br>Resources allocated to mongos hosts
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling10)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra114}
+### MongoInfra {#MongoInfra126}
 
 Field | Description
 --- | ---
@@ -7125,13 +7705,13 @@ disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling10)**<br>Dis
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod115)**<br>Configuration and resource allocation for mongod in a MongoDB 5.0 cluster. 
-mongocfg | **[MongoCfg](#MongoCfg115)**<br>Configuration and resource allocation for mongocfg in a MongoDB 5.0 cluster. 
-mongos | **[Mongos](#Mongos115)**<br>Configuration and resource allocation for mongos in a MongoDB 5.0 cluster. 
-mongoinfra | **[MongoInfra](#MongoInfra115)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 5.0 cluster. 
+mongod | **[Mongod](#Mongod127)**<br>Configuration and resource allocation for mongod in a MongoDB 5.0 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg127)**<br>Configuration and resource allocation for mongocfg in a MongoDB 5.0 cluster. 
+mongos | **[Mongos](#Mongos127)**<br>Configuration and resource allocation for mongos in a MongoDB 5.0 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra127)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 5.0 cluster. 
 
 
-### Mongod {#Mongod115}
+### Mongod {#Mongod127}
 
 Field | Description
 --- | ---
@@ -7140,7 +7720,7 @@ resources | **[Resources](#Resources10)**<br>Resources allocated to mongod hosts
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling10)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg115}
+### MongoCfg {#MongoCfg127}
 
 Field | Description
 --- | ---
@@ -7149,7 +7729,7 @@ resources | **[Resources](#Resources10)**<br>Resources allocated to mongocfg hos
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling10)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos115}
+### Mongos {#Mongos127}
 
 Field | Description
 --- | ---
@@ -7158,7 +7738,7 @@ resources | **[Resources](#Resources10)**<br>Resources allocated to mongos hosts
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling10)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra115}
+### MongoInfra {#MongoInfra127}
 
 Field | Description
 --- | ---
@@ -7172,13 +7752,13 @@ disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling10)**<br>Dis
 
 Field | Description
 --- | ---
-mongod | **[Mongod](#Mongod116)**<br>Configuration and resource allocation for mongod in a MongoDB 6.0 cluster. 
-mongocfg | **[MongoCfg](#MongoCfg116)**<br>Configuration and resource allocation for mongocfg in a MongoDB 6.0 cluster. 
-mongos | **[Mongos](#Mongos116)**<br>Configuration and resource allocation for mongos in a MongoDB 6.0 cluster. 
-mongoinfra | **[MongoInfra](#MongoInfra116)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 6.0 cluster. 
+mongod | **[Mongod](#Mongod128)**<br>Configuration and resource allocation for mongod in a MongoDB 6.0 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg128)**<br>Configuration and resource allocation for mongocfg in a MongoDB 6.0 cluster. 
+mongos | **[Mongos](#Mongos128)**<br>Configuration and resource allocation for mongos in a MongoDB 6.0 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra128)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 6.0 cluster. 
 
 
-### Mongod {#Mongod116}
+### Mongod {#Mongod128}
 
 Field | Description
 --- | ---
@@ -7187,7 +7767,7 @@ resources | **[Resources](#Resources10)**<br>Resources allocated to mongod hosts
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling10)**<br>Disk size autoscaling settings 
 
 
-### MongoCfg {#MongoCfg116}
+### MongoCfg {#MongoCfg128}
 
 Field | Description
 --- | ---
@@ -7196,7 +7776,7 @@ resources | **[Resources](#Resources10)**<br>Resources allocated to mongocfg hos
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling10)**<br>Disk size autoscaling settings 
 
 
-### Mongos {#Mongos116}
+### Mongos {#Mongos128}
 
 Field | Description
 --- | ---
@@ -7205,7 +7785,7 @@ resources | **[Resources](#Resources10)**<br>Resources allocated to mongos hosts
 disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling10)**<br>Disk size autoscaling settings 
 
 
-### MongoInfra {#MongoInfra116}
+### MongoInfra {#MongoInfra128}
 
 Field | Description
 --- | ---
@@ -7228,6 +7808,53 @@ Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens. 
 data_transfer | **bool**<br>Allow access for DataTransfer. 
+
+
+### Mongodb {#Mongodb9}
+
+Field | Description
+--- | ---
+mongod | **[Mongod](#Mongod129)**<br>Configuration and resource allocation for mongod in a MongoDB cluster. 
+mongocfg | **[MongoCfg](#MongoCfg129)**<br>Configuration and resource allocation for mongocfg in a MongoDB cluster. 
+mongos | **[Mongos](#Mongos129)**<br>Configuration and resource allocation for mongos in a MongoDB cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra129)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB cluster. 
+
+
+### Mongod {#Mongod129}
+
+Field | Description
+--- | ---
+config | **`config.MongodConfigSet`**<br>Configuration for mongod hosts. 
+resources | **[Resources](#Resources10)**<br>Resources allocated to mongod hosts. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling10)**<br>Disk size autoscaling settings 
+
+
+### MongoCfg {#MongoCfg129}
+
+Field | Description
+--- | ---
+config | **`config.MongoCfgConfigSet`**<br>Configuration for mongocfg hosts. 
+resources | **[Resources](#Resources10)**<br>Resources allocated to mongocfg hosts. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling10)**<br>Disk size autoscaling settings 
+
+
+### Mongos {#Mongos129}
+
+Field | Description
+--- | ---
+config | **`config.MongosConfigSet`**<br>Configuration for mongos hosts. 
+resources | **[Resources](#Resources10)**<br>Resources allocated to mongos hosts. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling10)**<br>Disk size autoscaling settings 
+
+
+### MongoInfra {#MongoInfra129}
+
+Field | Description
+--- | ---
+config_mongos | **[config.MongosConfigSet](#MongosConfigSet)**<br> 
+config_mongocfg | **[config.MongoCfgConfigSet](#MongoCfgConfigSet)**<br> 
+resources | **[Resources](#Resources10)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling10)**<br>Disk size autoscaling settings 
 
 
 ### MaintenanceWindow {#MaintenanceWindow9}
@@ -7403,6 +8030,7 @@ started_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 source_shard_names[] | **string**<br>Shard names used as a source for backup. 
 size | **int64**<br>Size of backup in bytes 
 type | enum **BackupType**<br>How this backup was created (manual/automatic/etc...) <ul><li>`AUTOMATED`: Backup created by automated daily schedule</li><li>`MANUAL`: Backup created by user request</li></ul>
+journal_size | **int64**<br>Size of the journal associated with backup, in bytes 
 
 
 ## ListHosts {#ListHosts}
@@ -7642,27 +8270,27 @@ Metadata and response of Operation:<br>
 Field | Description
 --- | ---
 cluster_id | **string**<br>Required. ID of the MongoDB cluster to enable sharding for. The maximum string length in characters is 50.
-mongocfg | **[MongoCfg](#MongoCfg117)**<br>mongocfg specification for sharding. 
-mongos | **[Mongos](#Mongos117)**<br>mongos specification for sharding. 
+mongocfg | **[MongoCfg](#MongoCfg130)**<br>mongocfg specification for sharding. 
+mongos | **[Mongos](#Mongos130)**<br>mongos specification for sharding. 
 host_specs[] | **[HostSpec](#HostSpec)**<br>Configurations for mongos and mongocfg hosts. The number of elements must be greater than 0.
-mongoinfra | **[MongoInfra](#MongoInfra117)**<br>mongos specification for sharding. 
+mongoinfra | **[MongoInfra](#MongoInfra130)**<br>mongos specification for sharding. 
 
 
-### MongoCfg {#MongoCfg117}
+### MongoCfg {#MongoCfg130}
 
 Field | Description
 --- | ---
 resources | **[Resources](#Resources11)**<br>Required. Resources for mongocfg hosts. 
 
 
-### Mongos {#Mongos117}
+### Mongos {#Mongos130}
 
 Field | Description
 --- | ---
 resources | **[Resources](#Resources11)**<br>Required. Resources for mongos hosts. 
 
 
-### MongoInfra {#MongoInfra117}
+### MongoInfra {#MongoInfra130}
 
 Field | Description
 --- | ---

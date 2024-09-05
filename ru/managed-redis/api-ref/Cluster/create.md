@@ -36,7 +36,8 @@ POST https://{{ api-host-mdb }}/managed-redis/v1/clusters
       "nanos": "integer"
     },
     "access": {
-      "dataLens": true
+      "dataLens": true,
+      "webSql": true
     },
     "redis": {
       "maxmemoryPolicy": "string",
@@ -199,6 +200,7 @@ configSpec.<br>backupWindowStart.<br>seconds | **integer** (int32)<br><p>Seconds
 configSpec.<br>backupWindowStart.<br>nanos | **integer** (int32)<br><p>Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.</p> 
 configSpec.<br>access | **object**<br>Access policy to DB
 configSpec.<br>access.<br>dataLens | **boolean** (boolean)<br><p>Allow access for DataLens</p> 
+configSpec.<br>access.<br>webSql | **boolean** (boolean)<br><p>Allow access for Web SQL.</p> 
 configSpec.<br>redis | **object**<br>Unified configuration of a Redis cluster
 configSpec.<br>redis.<br>maxmemoryPolicy | **string**<br><p>Redis key eviction policy for a dataset that reaches maximum memory, available to the host. Redis maxmemory setting depends on Managed Service for Redis <a href="/docs/managed-redis/concepts/instance-types">host class</a>.</p> <p>All policies are described in detail in <a href="https://redis.io/topics/lru-cache">Redis documentation</a>.</p> <ul> <li>VOLATILE_LRU: Try to remove less recently used (LRU) keys with ``expire set``.</li> <li>ALLKEYS_LRU: Remove less recently used (LRU) keys.</li> <li>VOLATILE_LFU: Try to remove least frequently used (LFU) keys with ``expire set``.</li> <li>ALLKEYS_LFU: Remove least frequently used (LFU) keys.</li> <li>VOLATILE_RANDOM: Try to remove keys with ``expire set`` randomly.</li> <li>ALLKEYS_RANDOM: Remove keys randomly.</li> <li>VOLATILE_TTL: Try to remove less recently used (LRU) keys with ``expire set`` and shorter TTL first.</li> <li>NOEVICTION: Return errors when memory limit was reached and commands could require more memory to be used.</li> </ul> 
 configSpec.<br>redis.<br>timeout | **integer** (int64)<br><p>Time that Redis keeps the connection open while the client is idle. If no new command is sent during that time, the connection is closed.</p> 

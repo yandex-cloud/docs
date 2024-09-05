@@ -84,6 +84,7 @@ host_group_id | **string**<br>ID of the dedicated host group that the instance b
 host_id | **string**<br>ID of the dedicated host that the instance belongs to. 
 maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events <ul><li>`RESTART`: Restart instance to move it to another host during maintenance</li><li>`MIGRATE`: Use live migration to move instance to another host during maintenance</li></ul>
 maintenance_grace_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Time between notification via metadata service and maintenance 
+hardware_generation | **[HardwareGeneration](#HardwareGeneration)**<br>This feature set is inherited from the image/disk used as a boot one at the creation of the instance. 
 
 
 ### Resources {#Resources}
@@ -219,6 +220,26 @@ op | enum **Operator**<br>Include or exclude action
 values[] | **string**<br>Affinity value or host ID or host group ID 
 
 
+### HardwareGeneration {#HardwareGeneration}
+
+Field | Description
+--- | ---
+features | **oneof:** `legacy_features` or `generation2_features`<br>
+&nbsp;&nbsp;legacy_features | **[LegacyHardwareFeatures](#LegacyHardwareFeatures)**<br> 
+&nbsp;&nbsp;generation2_features | **[Generation2HardwareFeatures](#Generation2HardwareFeatures)**<br> 
+
+
+### LegacyHardwareFeatures {#LegacyHardwareFeatures}
+
+Field | Description
+--- | ---
+pci_topology | enum **PCITopology**<br> 
+
+
+### Generation2HardwareFeatures {#Generation2HardwareFeatures}
+
+Empty.
+
 ## List {#List}
 
 Retrieves the list of Instance resources in the specified folder.
@@ -276,6 +297,7 @@ host_group_id | **string**<br>ID of the dedicated host group that the instance b
 host_id | **string**<br>ID of the dedicated host that the instance belongs to. 
 maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events <ul><li>`RESTART`: Restart instance to move it to another host during maintenance</li><li>`MIGRATE`: Use live migration to move instance to another host during maintenance</li></ul>
 maintenance_grace_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Time between notification via metadata service and maintenance 
+hardware_generation | **[HardwareGeneration](#HardwareGeneration1)**<br>This feature set is inherited from the image/disk used as a boot one at the creation of the instance. 
 
 
 ### Resources {#Resources1}
@@ -411,6 +433,26 @@ op | enum **Operator**<br>Include or exclude action
 values[] | **string**<br>Affinity value or host ID or host group ID 
 
 
+### HardwareGeneration {#HardwareGeneration1}
+
+Field | Description
+--- | ---
+features | **oneof:** `legacy_features` or `generation2_features`<br>
+&nbsp;&nbsp;legacy_features | **[LegacyHardwareFeatures](#LegacyHardwareFeatures1)**<br> 
+&nbsp;&nbsp;generation2_features | **[Generation2HardwareFeatures](#Generation2HardwareFeatures1)**<br> 
+
+
+### LegacyHardwareFeatures {#LegacyHardwareFeatures1}
+
+Field | Description
+--- | ---
+pci_topology | enum **PCITopology**<br> 
+
+
+### Generation2HardwareFeatures {#Generation2HardwareFeatures1}
+
+Empty.
+
 ## Create {#Create}
 
 Creates an instance in the specified folder. Method starts an asynchronous operation that can be cancelled while it is in progress.
@@ -438,7 +480,7 @@ boot_disk_spec | **[AttachedDiskSpec](#AttachedDiskSpec)**<br>Required. Boot dis
 secondary_disk_specs[] | **[AttachedDiskSpec](#AttachedDiskSpec)**<br>Array of secondary disks to attach to the instance. The maximum number of elements is 3.
 local_disk_specs[] | **[AttachedLocalDiskSpec](#AttachedLocalDiskSpec)**<br>Array of local disks to attach to the instance. 
 filesystem_specs[] | **[AttachedFilesystemSpec](#AttachedFilesystemSpec)**<br>Array of filesystems to attach to the instance. <br>The filesystems must reside in the same availability zone as the instance. <br>To use the instance with an attached filesystem, the latter must be mounted. For details, see [documentation](/docs/compute/operations/filesystem/attach-to-vm). 
-network_interface_specs[] | **[NetworkInterfaceSpec](#NetworkInterfaceSpec)**<br>Network configuration for the instance. Specifies how the network interface is configured to interact with other services on the internal network and on the internet. Currently only one network interface is supported per instance. The number of elemets must be exactly 1.
+network_interface_specs[] | **[NetworkInterfaceSpec](#NetworkInterfaceSpec)**<br>Required. Network configuration for the instance. Specifies how the network interface is configured to interact with other services on the internal network and on the internet. 
 hostname | **string**<br>Host name for the instance. This field is used to generate the [yandex.cloud.compute.v1.Instance.fqdn](#Instance) value. The host name must be unique within the network and region. If not specified, the host name will be equal to [yandex.cloud.compute.v1.Instance.id](#Instance) of the instance and FQDN will be `<id>.auto.internal`. Otherwise FQDN will be `<hostname>.<region_id>.internal`. Value must match the regular expression ` \|[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy2)**<br>Scheduling policy configuration. 
 service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
@@ -661,6 +703,7 @@ host_group_id | **string**<br>ID of the dedicated host group that the instance b
 host_id | **string**<br>ID of the dedicated host that the instance belongs to. 
 maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events <ul><li>`RESTART`: Restart instance to move it to another host during maintenance</li><li>`MIGRATE`: Use live migration to move instance to another host during maintenance</li></ul>
 maintenance_grace_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Time between notification via metadata service and maintenance 
+hardware_generation | **[HardwareGeneration](#HardwareGeneration2)**<br>This feature set is inherited from the image/disk used as a boot one at the creation of the instance. 
 
 
 ### Resources {#Resources2}
@@ -739,6 +782,26 @@ dns_zone_id | **string**<br>DNS zone id for the record (optional, if not set, so
 ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is used.) 
 ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
 
+
+### HardwareGeneration {#HardwareGeneration2}
+
+Field | Description
+--- | ---
+features | **oneof:** `legacy_features` or `generation2_features`<br>
+&nbsp;&nbsp;legacy_features | **[LegacyHardwareFeatures](#LegacyHardwareFeatures2)**<br> 
+&nbsp;&nbsp;generation2_features | **[Generation2HardwareFeatures](#Generation2HardwareFeatures2)**<br> 
+
+
+### LegacyHardwareFeatures {#LegacyHardwareFeatures2}
+
+Field | Description
+--- | ---
+pci_topology | enum **PCITopology**<br> 
+
+
+### Generation2HardwareFeatures {#Generation2HardwareFeatures2}
+
+Empty.
 
 ## Update {#Update}
 
@@ -886,6 +949,7 @@ host_group_id | **string**<br>ID of the dedicated host group that the instance b
 host_id | **string**<br>ID of the dedicated host that the instance belongs to. 
 maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events <ul><li>`RESTART`: Restart instance to move it to another host during maintenance</li><li>`MIGRATE`: Use live migration to move instance to another host during maintenance</li></ul>
 maintenance_grace_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Time between notification via metadata service and maintenance 
+hardware_generation | **[HardwareGeneration](#HardwareGeneration3)**<br>This feature set is inherited from the image/disk used as a boot one at the creation of the instance. 
 
 
 ### Resources {#Resources3}
@@ -971,6 +1035,26 @@ Field | Description
 --- | ---
 gpu_cluster_id | **string**<br>Attach instance to specified GPU cluster. 
 
+
+### HardwareGeneration {#HardwareGeneration3}
+
+Field | Description
+--- | ---
+features | **oneof:** `legacy_features` or `generation2_features`<br>
+&nbsp;&nbsp;legacy_features | **[LegacyHardwareFeatures](#LegacyHardwareFeatures3)**<br> 
+&nbsp;&nbsp;generation2_features | **[Generation2HardwareFeatures](#Generation2HardwareFeatures3)**<br> 
+
+
+### LegacyHardwareFeatures {#LegacyHardwareFeatures3}
+
+Field | Description
+--- | ---
+pci_topology | enum **PCITopology**<br> 
+
+
+### Generation2HardwareFeatures {#Generation2HardwareFeatures3}
+
+Empty.
 
 ## Delete {#Delete}
 
@@ -1086,6 +1170,7 @@ host_group_id | **string**<br>ID of the dedicated host group that the instance b
 host_id | **string**<br>ID of the dedicated host that the instance belongs to. 
 maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events <ul><li>`RESTART`: Restart instance to move it to another host during maintenance</li><li>`MIGRATE`: Use live migration to move instance to another host during maintenance</li></ul>
 maintenance_grace_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Time between notification via metadata service and maintenance 
+hardware_generation | **[HardwareGeneration](#HardwareGeneration4)**<br>This feature set is inherited from the image/disk used as a boot one at the creation of the instance. 
 
 
 ### Resources {#Resources4}
@@ -1221,6 +1306,26 @@ op | enum **Operator**<br>Include or exclude action
 values[] | **string**<br>Affinity value or host ID or host group ID 
 
 
+### HardwareGeneration {#HardwareGeneration4}
+
+Field | Description
+--- | ---
+features | **oneof:** `legacy_features` or `generation2_features`<br>
+&nbsp;&nbsp;legacy_features | **[LegacyHardwareFeatures](#LegacyHardwareFeatures4)**<br> 
+&nbsp;&nbsp;generation2_features | **[Generation2HardwareFeatures](#Generation2HardwareFeatures4)**<br> 
+
+
+### LegacyHardwareFeatures {#LegacyHardwareFeatures4}
+
+Field | Description
+--- | ---
+pci_topology | enum **PCITopology**<br> 
+
+
+### Generation2HardwareFeatures {#Generation2HardwareFeatures4}
+
+Empty.
+
 ## GetSerialPortOutput {#GetSerialPortOutput}
 
 Returns the serial port output of the specified Instance resource.
@@ -1354,6 +1459,7 @@ host_group_id | **string**<br>ID of the dedicated host group that the instance b
 host_id | **string**<br>ID of the dedicated host that the instance belongs to. 
 maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events <ul><li>`RESTART`: Restart instance to move it to another host during maintenance</li><li>`MIGRATE`: Use live migration to move instance to another host during maintenance</li></ul>
 maintenance_grace_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Time between notification via metadata service and maintenance 
+hardware_generation | **[HardwareGeneration](#HardwareGeneration5)**<br>This feature set is inherited from the image/disk used as a boot one at the creation of the instance. 
 
 
 ### Resources {#Resources5}
@@ -1488,6 +1594,26 @@ key | **string**<br>Affinity label or one of reserved values - 'yc.hostId', 'yc.
 op | enum **Operator**<br>Include or exclude action 
 values[] | **string**<br>Affinity value or host ID or host group ID 
 
+
+### HardwareGeneration {#HardwareGeneration5}
+
+Field | Description
+--- | ---
+features | **oneof:** `legacy_features` or `generation2_features`<br>
+&nbsp;&nbsp;legacy_features | **[LegacyHardwareFeatures](#LegacyHardwareFeatures5)**<br> 
+&nbsp;&nbsp;generation2_features | **[Generation2HardwareFeatures](#Generation2HardwareFeatures5)**<br> 
+
+
+### LegacyHardwareFeatures {#LegacyHardwareFeatures5}
+
+Field | Description
+--- | ---
+pci_topology | enum **PCITopology**<br> 
+
+
+### Generation2HardwareFeatures {#Generation2HardwareFeatures5}
+
+Empty.
 
 ## Restart {#Restart}
 
@@ -1638,6 +1764,7 @@ host_group_id | **string**<br>ID of the dedicated host group that the instance b
 host_id | **string**<br>ID of the dedicated host that the instance belongs to. 
 maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events <ul><li>`RESTART`: Restart instance to move it to another host during maintenance</li><li>`MIGRATE`: Use live migration to move instance to another host during maintenance</li></ul>
 maintenance_grace_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Time between notification via metadata service and maintenance 
+hardware_generation | **[HardwareGeneration](#HardwareGeneration6)**<br>This feature set is inherited from the image/disk used as a boot one at the creation of the instance. 
 
 
 ### Resources {#Resources6}
@@ -1773,6 +1900,26 @@ op | enum **Operator**<br>Include or exclude action
 values[] | **string**<br>Affinity value or host ID or host group ID 
 
 
+### HardwareGeneration {#HardwareGeneration6}
+
+Field | Description
+--- | ---
+features | **oneof:** `legacy_features` or `generation2_features`<br>
+&nbsp;&nbsp;legacy_features | **[LegacyHardwareFeatures](#LegacyHardwareFeatures6)**<br> 
+&nbsp;&nbsp;generation2_features | **[Generation2HardwareFeatures](#Generation2HardwareFeatures6)**<br> 
+
+
+### LegacyHardwareFeatures {#LegacyHardwareFeatures6}
+
+Field | Description
+--- | ---
+pci_topology | enum **PCITopology**<br> 
+
+
+### Generation2HardwareFeatures {#Generation2HardwareFeatures6}
+
+Empty.
+
 ## DetachDisk {#DetachDisk}
 
 Detaches the disk from the instance.
@@ -1849,6 +1996,7 @@ host_group_id | **string**<br>ID of the dedicated host group that the instance b
 host_id | **string**<br>ID of the dedicated host that the instance belongs to. 
 maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events <ul><li>`RESTART`: Restart instance to move it to another host during maintenance</li><li>`MIGRATE`: Use live migration to move instance to another host during maintenance</li></ul>
 maintenance_grace_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Time between notification via metadata service and maintenance 
+hardware_generation | **[HardwareGeneration](#HardwareGeneration7)**<br>This feature set is inherited from the image/disk used as a boot one at the creation of the instance. 
 
 
 ### Resources {#Resources7}
@@ -1984,6 +2132,26 @@ op | enum **Operator**<br>Include or exclude action
 values[] | **string**<br>Affinity value or host ID or host group ID 
 
 
+### HardwareGeneration {#HardwareGeneration7}
+
+Field | Description
+--- | ---
+features | **oneof:** `legacy_features` or `generation2_features`<br>
+&nbsp;&nbsp;legacy_features | **[LegacyHardwareFeatures](#LegacyHardwareFeatures7)**<br> 
+&nbsp;&nbsp;generation2_features | **[Generation2HardwareFeatures](#Generation2HardwareFeatures7)**<br> 
+
+
+### LegacyHardwareFeatures {#LegacyHardwareFeatures7}
+
+Field | Description
+--- | ---
+pci_topology | enum **PCITopology**<br> 
+
+
+### Generation2HardwareFeatures {#Generation2HardwareFeatures7}
+
+Empty.
+
 ## AttachFilesystem {#AttachFilesystem}
 
 Attaches the filesystem to the instance. <br>The instance and the filesystem must reside in the same availability zone. <br>To use the instance with an attached filesystem, the latter must be mounted. For details, see [documentation](/docs/compute/operations/filesystem/attach-to-vm).
@@ -2067,6 +2235,7 @@ host_group_id | **string**<br>ID of the dedicated host group that the instance b
 host_id | **string**<br>ID of the dedicated host that the instance belongs to. 
 maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events <ul><li>`RESTART`: Restart instance to move it to another host during maintenance</li><li>`MIGRATE`: Use live migration to move instance to another host during maintenance</li></ul>
 maintenance_grace_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Time between notification via metadata service and maintenance 
+hardware_generation | **[HardwareGeneration](#HardwareGeneration8)**<br>This feature set is inherited from the image/disk used as a boot one at the creation of the instance. 
 
 
 ### Resources {#Resources8}
@@ -2202,6 +2371,26 @@ op | enum **Operator**<br>Include or exclude action
 values[] | **string**<br>Affinity value or host ID or host group ID 
 
 
+### HardwareGeneration {#HardwareGeneration8}
+
+Field | Description
+--- | ---
+features | **oneof:** `legacy_features` or `generation2_features`<br>
+&nbsp;&nbsp;legacy_features | **[LegacyHardwareFeatures](#LegacyHardwareFeatures8)**<br> 
+&nbsp;&nbsp;generation2_features | **[Generation2HardwareFeatures](#Generation2HardwareFeatures8)**<br> 
+
+
+### LegacyHardwareFeatures {#LegacyHardwareFeatures8}
+
+Field | Description
+--- | ---
+pci_topology | enum **PCITopology**<br> 
+
+
+### Generation2HardwareFeatures {#Generation2HardwareFeatures8}
+
+Empty.
+
 ## DetachFilesystem {#DetachFilesystem}
 
 Detaches the filesystem from the instance.
@@ -2278,6 +2467,7 @@ host_group_id | **string**<br>ID of the dedicated host group that the instance b
 host_id | **string**<br>ID of the dedicated host that the instance belongs to. 
 maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events <ul><li>`RESTART`: Restart instance to move it to another host during maintenance</li><li>`MIGRATE`: Use live migration to move instance to another host during maintenance</li></ul>
 maintenance_grace_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Time between notification via metadata service and maintenance 
+hardware_generation | **[HardwareGeneration](#HardwareGeneration9)**<br>This feature set is inherited from the image/disk used as a boot one at the creation of the instance. 
 
 
 ### Resources {#Resources9}
@@ -2413,6 +2603,26 @@ op | enum **Operator**<br>Include or exclude action
 values[] | **string**<br>Affinity value or host ID or host group ID 
 
 
+### HardwareGeneration {#HardwareGeneration9}
+
+Field | Description
+--- | ---
+features | **oneof:** `legacy_features` or `generation2_features`<br>
+&nbsp;&nbsp;legacy_features | **[LegacyHardwareFeatures](#LegacyHardwareFeatures9)**<br> 
+&nbsp;&nbsp;generation2_features | **[Generation2HardwareFeatures](#Generation2HardwareFeatures9)**<br> 
+
+
+### LegacyHardwareFeatures {#LegacyHardwareFeatures9}
+
+Field | Description
+--- | ---
+pci_topology | enum **PCITopology**<br> 
+
+
+### Generation2HardwareFeatures {#Generation2HardwareFeatures9}
+
+Empty.
+
 ## AttachNetworkInterface {#AttachNetworkInterface}
 
 Attaches the network-interface to the instance. <br>To attach a network-interface, the instance must have a `STOPPED` status ([Instance.status](#Instance10)). To check the instance status, make a [InstanceService.Get](#Get) request. To stop the running instance, make a [InstanceService.Stop](#Stop) request.
@@ -2518,6 +2728,7 @@ host_group_id | **string**<br>ID of the dedicated host group that the instance b
 host_id | **string**<br>ID of the dedicated host that the instance belongs to. 
 maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events <ul><li>`RESTART`: Restart instance to move it to another host during maintenance</li><li>`MIGRATE`: Use live migration to move instance to another host during maintenance</li></ul>
 maintenance_grace_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Time between notification via metadata service and maintenance 
+hardware_generation | **[HardwareGeneration](#HardwareGeneration10)**<br>This feature set is inherited from the image/disk used as a boot one at the creation of the instance. 
 
 
 ### Resources {#Resources10}
@@ -2653,6 +2864,26 @@ op | enum **Operator**<br>Include or exclude action
 values[] | **string**<br>Affinity value or host ID or host group ID 
 
 
+### HardwareGeneration {#HardwareGeneration10}
+
+Field | Description
+--- | ---
+features | **oneof:** `legacy_features` or `generation2_features`<br>
+&nbsp;&nbsp;legacy_features | **[LegacyHardwareFeatures](#LegacyHardwareFeatures10)**<br> 
+&nbsp;&nbsp;generation2_features | **[Generation2HardwareFeatures](#Generation2HardwareFeatures10)**<br> 
+
+
+### LegacyHardwareFeatures {#LegacyHardwareFeatures10}
+
+Field | Description
+--- | ---
+pci_topology | enum **PCITopology**<br> 
+
+
+### Generation2HardwareFeatures {#Generation2HardwareFeatures10}
+
+Empty.
+
 ## DetachNetworkInterface {#DetachNetworkInterface}
 
 Detaches the network-interface to the instance. <br>To Detach a network-interface, the instance must have a `STOPPED` status ([Instance.status](#Instance11)). To check the instance status, make a [InstanceService.Get](#Get) request. To stop the running instance, make a [InstanceService.Stop](#Stop) request.
@@ -2727,6 +2958,7 @@ host_group_id | **string**<br>ID of the dedicated host group that the instance b
 host_id | **string**<br>ID of the dedicated host that the instance belongs to. 
 maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events <ul><li>`RESTART`: Restart instance to move it to another host during maintenance</li><li>`MIGRATE`: Use live migration to move instance to another host during maintenance</li></ul>
 maintenance_grace_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Time between notification via metadata service and maintenance 
+hardware_generation | **[HardwareGeneration](#HardwareGeneration11)**<br>This feature set is inherited from the image/disk used as a boot one at the creation of the instance. 
 
 
 ### Resources {#Resources11}
@@ -2862,6 +3094,26 @@ op | enum **Operator**<br>Include or exclude action
 values[] | **string**<br>Affinity value or host ID or host group ID 
 
 
+### HardwareGeneration {#HardwareGeneration11}
+
+Field | Description
+--- | ---
+features | **oneof:** `legacy_features` or `generation2_features`<br>
+&nbsp;&nbsp;legacy_features | **[LegacyHardwareFeatures](#LegacyHardwareFeatures11)**<br> 
+&nbsp;&nbsp;generation2_features | **[Generation2HardwareFeatures](#Generation2HardwareFeatures11)**<br> 
+
+
+### LegacyHardwareFeatures {#LegacyHardwareFeatures11}
+
+Field | Description
+--- | ---
+pci_topology | enum **PCITopology**<br> 
+
+
+### Generation2HardwareFeatures {#Generation2HardwareFeatures11}
+
+Empty.
+
 ## AddOneToOneNat {#AddOneToOneNat}
 
 Enables One-to-one NAT on the network interface.
@@ -2956,6 +3208,7 @@ host_group_id | **string**<br>ID of the dedicated host group that the instance b
 host_id | **string**<br>ID of the dedicated host that the instance belongs to. 
 maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events <ul><li>`RESTART`: Restart instance to move it to another host during maintenance</li><li>`MIGRATE`: Use live migration to move instance to another host during maintenance</li></ul>
 maintenance_grace_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Time between notification via metadata service and maintenance 
+hardware_generation | **[HardwareGeneration](#HardwareGeneration12)**<br>This feature set is inherited from the image/disk used as a boot one at the creation of the instance. 
 
 
 ### Resources {#Resources12}
@@ -3091,6 +3344,26 @@ op | enum **Operator**<br>Include or exclude action
 values[] | **string**<br>Affinity value or host ID or host group ID 
 
 
+### HardwareGeneration {#HardwareGeneration12}
+
+Field | Description
+--- | ---
+features | **oneof:** `legacy_features` or `generation2_features`<br>
+&nbsp;&nbsp;legacy_features | **[LegacyHardwareFeatures](#LegacyHardwareFeatures12)**<br> 
+&nbsp;&nbsp;generation2_features | **[Generation2HardwareFeatures](#Generation2HardwareFeatures12)**<br> 
+
+
+### LegacyHardwareFeatures {#LegacyHardwareFeatures12}
+
+Field | Description
+--- | ---
+pci_topology | enum **PCITopology**<br> 
+
+
+### Generation2HardwareFeatures {#Generation2HardwareFeatures12}
+
+Empty.
+
 ## RemoveOneToOneNat {#RemoveOneToOneNat}
 
 Removes One-to-one NAT from the network interface.
@@ -3165,6 +3438,7 @@ host_group_id | **string**<br>ID of the dedicated host group that the instance b
 host_id | **string**<br>ID of the dedicated host that the instance belongs to. 
 maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events <ul><li>`RESTART`: Restart instance to move it to another host during maintenance</li><li>`MIGRATE`: Use live migration to move instance to another host during maintenance</li></ul>
 maintenance_grace_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Time between notification via metadata service and maintenance 
+hardware_generation | **[HardwareGeneration](#HardwareGeneration13)**<br>This feature set is inherited from the image/disk used as a boot one at the creation of the instance. 
 
 
 ### Resources {#Resources13}
@@ -3300,6 +3574,26 @@ op | enum **Operator**<br>Include or exclude action
 values[] | **string**<br>Affinity value or host ID or host group ID 
 
 
+### HardwareGeneration {#HardwareGeneration13}
+
+Field | Description
+--- | ---
+features | **oneof:** `legacy_features` or `generation2_features`<br>
+&nbsp;&nbsp;legacy_features | **[LegacyHardwareFeatures](#LegacyHardwareFeatures13)**<br> 
+&nbsp;&nbsp;generation2_features | **[Generation2HardwareFeatures](#Generation2HardwareFeatures13)**<br> 
+
+
+### LegacyHardwareFeatures {#LegacyHardwareFeatures13}
+
+Field | Description
+--- | ---
+pci_topology | enum **PCITopology**<br> 
+
+
+### Generation2HardwareFeatures {#Generation2HardwareFeatures13}
+
+Empty.
+
 ## UpdateNetworkInterface {#UpdateNetworkInterface}
 
 Updates the specified instance network interface.
@@ -3407,6 +3701,7 @@ host_group_id | **string**<br>ID of the dedicated host group that the instance b
 host_id | **string**<br>ID of the dedicated host that the instance belongs to. 
 maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events <ul><li>`RESTART`: Restart instance to move it to another host during maintenance</li><li>`MIGRATE`: Use live migration to move instance to another host during maintenance</li></ul>
 maintenance_grace_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Time between notification via metadata service and maintenance 
+hardware_generation | **[HardwareGeneration](#HardwareGeneration14)**<br>This feature set is inherited from the image/disk used as a boot one at the creation of the instance. 
 
 
 ### Resources {#Resources14}
@@ -3542,6 +3837,26 @@ op | enum **Operator**<br>Include or exclude action
 values[] | **string**<br>Affinity value or host ID or host group ID 
 
 
+### HardwareGeneration {#HardwareGeneration14}
+
+Field | Description
+--- | ---
+features | **oneof:** `legacy_features` or `generation2_features`<br>
+&nbsp;&nbsp;legacy_features | **[LegacyHardwareFeatures](#LegacyHardwareFeatures14)**<br> 
+&nbsp;&nbsp;generation2_features | **[Generation2HardwareFeatures](#Generation2HardwareFeatures14)**<br> 
+
+
+### LegacyHardwareFeatures {#LegacyHardwareFeatures14}
+
+Field | Description
+--- | ---
+pci_topology | enum **PCITopology**<br> 
+
+
+### Generation2HardwareFeatures {#Generation2HardwareFeatures14}
+
+Empty.
+
 ## ListOperations {#ListOperations}
 
 Lists operations for the specified instance.
@@ -3656,6 +3971,7 @@ host_group_id | **string**<br>ID of the dedicated host group that the instance b
 host_id | **string**<br>ID of the dedicated host that the instance belongs to. 
 maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events <ul><li>`RESTART`: Restart instance to move it to another host during maintenance</li><li>`MIGRATE`: Use live migration to move instance to another host during maintenance</li></ul>
 maintenance_grace_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Time between notification via metadata service and maintenance 
+hardware_generation | **[HardwareGeneration](#HardwareGeneration15)**<br>This feature set is inherited from the image/disk used as a boot one at the creation of the instance. 
 
 
 ### Resources {#Resources15}
@@ -3791,6 +4107,26 @@ op | enum **Operator**<br>Include or exclude action
 values[] | **string**<br>Affinity value or host ID or host group ID 
 
 
+### HardwareGeneration {#HardwareGeneration15}
+
+Field | Description
+--- | ---
+features | **oneof:** `legacy_features` or `generation2_features`<br>
+&nbsp;&nbsp;legacy_features | **[LegacyHardwareFeatures](#LegacyHardwareFeatures15)**<br> 
+&nbsp;&nbsp;generation2_features | **[Generation2HardwareFeatures](#Generation2HardwareFeatures15)**<br> 
+
+
+### LegacyHardwareFeatures {#LegacyHardwareFeatures15}
+
+Field | Description
+--- | ---
+pci_topology | enum **PCITopology**<br> 
+
+
+### Generation2HardwareFeatures {#Generation2HardwareFeatures15}
+
+Empty.
+
 ## Relocate {#Relocate}
 
 Moves the specified instance to another availability zone <br>Running instance will be restarted during this operation.
@@ -3924,6 +4260,7 @@ host_group_id | **string**<br>ID of the dedicated host group that the instance b
 host_id | **string**<br>ID of the dedicated host that the instance belongs to. 
 maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events <ul><li>`RESTART`: Restart instance to move it to another host during maintenance</li><li>`MIGRATE`: Use live migration to move instance to another host during maintenance</li></ul>
 maintenance_grace_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Time between notification via metadata service and maintenance 
+hardware_generation | **[HardwareGeneration](#HardwareGeneration16)**<br>This feature set is inherited from the image/disk used as a boot one at the creation of the instance. 
 
 
 ### Resources {#Resources16}
@@ -4058,6 +4395,26 @@ key | **string**<br>Affinity label or one of reserved values - 'yc.hostId', 'yc.
 op | enum **Operator**<br>Include or exclude action 
 values[] | **string**<br>Affinity value or host ID or host group ID 
 
+
+### HardwareGeneration {#HardwareGeneration16}
+
+Field | Description
+--- | ---
+features | **oneof:** `legacy_features` or `generation2_features`<br>
+&nbsp;&nbsp;legacy_features | **[LegacyHardwareFeatures](#LegacyHardwareFeatures16)**<br> 
+&nbsp;&nbsp;generation2_features | **[Generation2HardwareFeatures](#Generation2HardwareFeatures16)**<br> 
+
+
+### LegacyHardwareFeatures {#LegacyHardwareFeatures16}
+
+Field | Description
+--- | ---
+pci_topology | enum **PCITopology**<br> 
+
+
+### Generation2HardwareFeatures {#Generation2HardwareFeatures16}
+
+Empty.
 
 ## SimulateMaintenanceEvent {#SimulateMaintenanceEvent}
 
