@@ -33,7 +33,7 @@
 * ВМ для Hystax Acura Backup использует 8 ядер vCPU, 16 ГБ памяти и диск на 200 ГБ.
 * Вспомогательные ВМ Hystax Cloud Agent используют 2 ядра vCPU, 4 ГБ памяти и диск на 10 ГБ. Одна ВМ Hystax Cloud Agent может одновременно обслуживать до 6 реплицируемых дисков. В случае, если дисков больше 6, автоматически будут созданы дополнительные ВМ Hystax Cloud Agent.
 
-Подробные системные требования см. в [документации Hystax](https://cdn.hystax.com/Hystax/Documentation/Deployment-requirements.pdf).
+Подробные системные требования см. в [документации Hystax](https://xn--q1ach.xn--p1ai/cdn/TechDocs/Deployment-requirements.pdf).
 
 {% endnote %}
 
@@ -371,7 +371,7 @@ Hystax Acura Backup автоматически проверит доступ к 
 1. В блоке **Machines Groups** разверните группу ВМ, например `Default`.
 1. В списке ВМ справа нажмите кнопку ![image](../../_assets/console-icons/ellipsis.svg).
 1. В меню **Edit replication settings** настройте расписание репликации для группы ВМ по часам, дням, неделям или беспрерывную защиту, в разделе **Volume type** укажите тип диска для восстановления: `network-hdd`, `network-ssd` или `network-ssd-nonreplicated`. 
-1. В меню **Edit retention settings** укажите срок хранения резервных копий. Подробнее см. в [документации Hystax](https://hystax.com/documentation/dr/dr_overview.html#edit-replication-settings-schedule).
+1. В меню **Edit retention settings** укажите срок хранения резервных копий. Подробнее см. в [документации Hystax](https://xn--q1ach.xn--p1ai/documentation/disaster-recovery-and-cloud-backup/dr_overview.html#edit-replication-schedule).
 1. Выберите **Start Protection**.
 
 Начнется процесс репликации ВМ. Реплика ВМ будет включать в себя все данные исходной ВМ, поэтому репликация может занять продолжительное время (зависит от размера диска исходной ВМ). Статус репликации будет отображаться в столбце **Status** блока **Machines Groups**. После окончания процесса они будут переведены в статус `Protected`.
