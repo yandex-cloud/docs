@@ -56,7 +56,7 @@ Subject access depends on permissions [granted](../operations/cluster-accounts.m
 
 When working with the {{ mkf-msr }} API over an SSL connection, you need to configure the same client [SSL certificate](../operations/connect#get-ssl-cert) as for broker host connections.
 
-You also need to authorize API server requests using the `Authorization` [HTTP header](https://en.wikipedia.org/wiki/Basic_access_authentication). In this header, specify the [username and password of the {{ KF }} user](../operations/cluster-accounts#create-user).
+You also need to authorize API server requests using the `Authorization` [HTTP header](https://en.wikipedia.org/wiki/Basic_access_authentication). In this header, specify the [username and password of the {{ KF }} user](../operations/cluster-accounts#create-account).
 
 Access to schemas depends on the selected [topic management method](./topics.md#management) and the configured user roles:
 

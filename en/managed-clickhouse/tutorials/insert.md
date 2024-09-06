@@ -41,12 +41,12 @@ If small chunks of data are delivered from various sources, use one of the follo
 
 ### Asynchronous data inserts {#async-insert}
 
-If the [Async insert](../concepts/settings-list.md#setting-async-insert) setting is configured at the user level, all insert queries from this user first get to the in-memory buffer. Data from the buffer is flushed to a table if one of the following conditions is met:
+If the [Async insert](../concepts/settings-list.md#setting-async-insert) setting is configured for the user, all insert queries from this user first get to the RAM buffer. Data from the buffer is flushed to a table if one of the following conditions is met:
 
 * The buffer size has reached the [Async insert max data size](../concepts/settings-list.md#setting-async-insert-max-data-size) setting value.
 * The time set in the [Async insert busy timeout](../concepts/settings-list.md#setting-async-insert-busy-timeout) setting has passed since the first `INSERT` query run after flushing the data.
 
-To enable asynchronous data inserts, [set](../operations/update.md#change-clickhouse-config) the **Async insert** setting to `1`.
+To enable asynchronous data inserts, [set](../operations/change-query-level-settings.md#yandex-cloud-interfaces) the **Async insert** setting to `1`.
 
 Note that [row deduplication](https://clickhouse.com/docs/en/guides/developer/deduplication) is not available when using asynchronous inserts.
 
@@ -117,12 +117,12 @@ Result:
 ## Example of using a format schema when inserting data {#example}
 
 **The example was tested in the following environment:**
-- Virtual machine in {{ yandex-cloud }} running Ubuntu 20.04 LTS.
-- Bash: `5.0.16`.
-- clickhouse-client: `20.10.2.20`.
-- capnproto: `0.7.0`.
-- protobuf-compiler: `3.6.1`.
-- Python: `3.8.5`; pip3: `20.0.2`.
+- Virtual machine in {{ yandex-cloud }} running Ubuntu 20.04 LTS
+- Bash: `5.0.16`
+- clickhouse-client: `20.10.2.20`
+- capnproto: `0.7.0`
+- protobuf-compiler: `3.6.1`
+- Python: `3.8.5`; pip3: `20.0.2`
 
 Let's say a single-host {{ mch-name }} `chcluster` cluster is created with the `db1` database and you need to insert user data into the `db1.users` table. Let's assume that each user record contains the following information:
 - User `id`.

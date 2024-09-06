@@ -8,9 +8,13 @@ For more information, see [{#T}](../concepts/index.md).
 
 ## Creating a cluster {#create-cluster}
 
+To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the [{{ roles.mgp.editor }} role or higher](../security/index.md#roles-list). For information on assigning roles, see the [{{ iam-name }} documentation](../../iam/operations/roles/grant.md).
+
 {% list tabs group=instructions %}
 
 - Management console {#console}
+
+   To create a {{ mgp-name }} cluster:
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a database cluster.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
@@ -50,7 +54,7 @@ For more information, see [{#T}](../concepts/index.md).
       
       {% note info %}
 
-      This functionality is at the [Preview](../../overview/concepts/launch-stages.md) stage and is free of charge.
+      This feature is at the [Preview](../../overview/concepts/launch-stages.md) stage and is free of charge.
 
       {% endnote %}
 
@@ -104,7 +108,7 @@ For more information, see [{#T}](../concepts/index.md).
    1. Specify the parameters of segment hosts on the **{{ ui-key.yacloud.greenplum.section_resource-segment }}** tab. For the recommended configuration, see [Calculating the cluster configuration](calculate-specs.md#segment).
 
       * Number of segment hosts.
-      * [Number of segments per host](../concepts/index.md). The maximum value depends on host class.
+      * [Number of segments per host](../concepts/index.md). The maximum value of this parameter depends on the host class.
       * [Host class](../concepts/instance-types.md): Defines technical properties of the virtual machines on which the cluster segment hosts will be deployed.
       * Under **{{ ui-key.yacloud.mdb.forms.section_storage }}**:
          * Select the [disk type](../concepts/storage.md).
@@ -123,7 +127,7 @@ For more information, see [{#T}](../concepts/index.md).
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To create a cluster:
+   To create a {{ mgp-name }} cluster:
 
    
    1. Check whether the folder has any subnets for the cluster hosts:
@@ -153,10 +157,10 @@ For more information, see [{#T}](../concepts/index.md).
          --user-password=<user_password> \
          --master-config resource-id=<host_class>,`
                         `disk-size=<storage_size_GB>,`
-                        `disk-type=<disk_type> \
+                        `disk-type=<network-hdd|network-ssd|network-ssd-nonreplicated|local-ssd> \
          --segment-config resource-id=<host_class>,`
                         `disk-size=<storage_size_GB>,`
-                        `disk-type=<disk_type> \
+                        `disk-type=<network-ssd-nonreplicated|local-ssd> \
          --zone-id=<availability_zone> \
          --subnet-id=<subnet_ID> \
          --assign-public-ip=<public_access_to_hosts> \
@@ -183,8 +187,8 @@ For more information, see [{#T}](../concepts/index.md).
          * `resource-id`: [Host class](../concepts/instance-types.md).
          * `disk-size`: Storage size in GB.
          * `disk-type`: [Disk type](../concepts/storage.md):
-            * `network-hdd`
-            * `network-ssd`
+            * `network-hdd` (for master hosts only)
+            * `network-ssd` (for master hosts only)
             * `local-ssd`
             * `network-ssd-nonreplicated`
 
@@ -251,7 +255,7 @@ For more information, see [{#T}](../concepts/index.md).
    {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
 
-   To create a cluster:
+   To create a {{ mgp-name }} cluster:
 
    1. Using the command line, navigate to the folder that will contain the {{ TF }} configuration files with an infrastructure plan. Create the directory if it does not exist.
 
@@ -328,7 +332,7 @@ For more information, see [{#T}](../concepts/index.md).
       * `version`: {{ GP }} version.
       * `master_host_count`: Number of master hosts, 1 or 2.
       * `segment_host_count`: Number of segment hosts, between 2 and 32.
-      * `segment_in_host`: [Number of segments per host](../concepts/index.md). The maximum value depends on host class.
+      * `segment_in_host`: [Number of segments per host](../concepts/index.md). The maximum value of this parameter depends on the host class.
 
       Enabled cluster deletion protection will not prevent a manual connection with the purpose to delete database contents.
 
@@ -346,7 +350,7 @@ For more information, see [{#T}](../concepts/index.md).
 
 - API {#api}
 
-   To create a cluster, use the [create](../api-ref/Cluster/create.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Create](../api-ref/grpc/cluster_service.md#Create) gRPC API call and provide the following in the request:
+   To create a {{ mgp-name }} cluster, use the [create](../api-ref/Cluster/create.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Create](../api-ref/grpc/cluster_service.md#Create) gRPC API call and provide the following in the request:
 
    * ID of the folder where the cluster should be placed, in the `folderId` parameter.
    * Cluster name in the `name` parameter.
@@ -369,7 +373,7 @@ For more information, see [{#T}](../concepts/index.md).
    * Backup window settings in the `config.backupWindowStart` parameter.
    * Settings for access from [{{ datalens-full-name }}](../../datalens/concepts/index.md) in the `config.access.dataLens` parameter.
    * Settings for access from [{{ data-transfer-full-name }}](../../data-transfer/) in the `config.access.dataTransfer` parameter.
-   * [Maintenance window](../concepts/maintenance.md) settings (including for disabled clusters) in the `maintenanceWindow` parameter.
+   * [Maintenance](../concepts/maintenance.md) window settings (including for disabled clusters) in the `maintenanceWindow` parameter.
    * [DBMS settings](../concepts/settings-list.md#dbms-cluster-settings) in the `configSpec.greenplumConfig_<version>` parameter.
    * [Scheduled maintenance operations](../concepts/maintenance.md#regular-ops) settings in the `configSpec.backgroundActivities.analyzeAndVacuum` parameter.
    * Cluster deletion protection settings in the `deletionProtection` parameter.

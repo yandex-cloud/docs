@@ -92,6 +92,8 @@ default:
   cloud-logging-short-name: Cloud Logging
   cloud-logs-name: Cloud Logs
   cloud-notify-bot: YandexCloudNotify_bot
+  cloudml-full-name: Yandex Cloud ML Hybrid
+  cloudml-name: Cloud ML Hybrid
   cluster-id: cat0adul1fj0********
   cname-example: cl-msa87*****.edgecdn.ru
   coi: Container Optimized Image
@@ -1082,12 +1084,12 @@ default:
   sku|KZT|logging:
     ingested:
       traffic|pricingRate:
-        5|string: "116,38\_₸"
+        5|string: "116,35\_₸"
       traffic|string: Не тарифицируется
     storage:
       data|month|string: Не тарифицируется
       data|pricingRate:
-        720|month|string: "50,82\_₸"
+        720|month|string: "50,80\_₸"
   sku|KZT|mdb:
     cluster:
       clickhouse:
@@ -1455,14 +1457,15 @@ default:
         small|string: "44,00\_₸"
   sku|KZT|monitoring:
     point:
-      dgauge:
+      api:
         read|pricingRate:
           50|string: "21,00\_₸"
         read|string: "35,00\_₸"
+      dgauge:
         store|string: Не тарифицируется
-        write|pricingRate:
-          50|string: "28,00\_₸"
-        write|string: "49,00\_₸"
+      write|pricingRate:
+        50|string: "28,00\_₸"
+      write|string: "49,00\_₸"
     prometheus:
       point:
         remote_api:
@@ -2191,12 +2194,12 @@ default:
   sku|RUB|logging:
     ingested:
       traffic|pricingRate:
-        5|string: "23,2760\_₽"
+        5|string: "23,27\_₽"
       traffic|string: Не тарифицируется
     storage:
       data|month|string: Не тарифицируется
       data|pricingRate:
-        720|month|string: "10,1640\_₽"
+        720|month|string: "10,16\_₽"
   sku|RUB|mdb:
     cluster:
       clickhouse:
@@ -2564,14 +2567,15 @@ default:
         small|string: "8,80\_₽"
   sku|RUB|monitoring:
     point:
-      dgauge:
+      api:
         read|pricingRate:
           50|string: "4,20\_₽"
         read|string: "7,00\_₽"
+      dgauge:
         store|string: Не тарифицируется
-        write|pricingRate:
-          50|string: "5,60\_₽"
-        write|string: "9,80\_₽"
+      write|pricingRate:
+        50|string: "5,60\_₽"
+      write|string: "9,80\_₽"
     prometheus:
       point:
         remote_api:
@@ -3305,12 +3309,12 @@ default:
   sku|USD|logging:
     ingested:
       traffic|pricingRate:
-        5|string: "0,186208\_$"
+        5|string: "0,186160\_$"
       traffic|string: Не тарифицируется
     storage:
       data|month|string: Не тарифицируется
       data|pricingRate:
-        720|month|string: "0,081312\_$"
+        720|month|string: "0,081280\_$"
   sku|USD|mdb:
     cluster:
       clickhouse:
@@ -3598,8 +3602,15 @@ default:
     dataproc:
       v2:
         cpu:
+          c100|month|string: "0,691200\_$"
           c100|string: "0,000960\_$"
-          c50|string: "0,000480\_$"
+        ram|month|string: "0,172800\_$"
+        ram|string: "0,000240\_$"
+      v3:
+        cpu:
+          c100|month|string: "0,691200\_$"
+          c100|string: "0,000960\_$"
+        ram|month|string: "0,172800\_$"
         ram|string: "0,000240\_$"
     zk:
       clickhouse:
@@ -3656,14 +3667,15 @@ default:
         small|string: "0,070400\_$"
   sku|USD|monitoring:
     point:
-      dgauge:
+      api:
         read|pricingRate:
           50|string: "0,033600\_$"
         read|string: "0,056000\_$"
+      dgauge:
         store|string: Не тарифицируется
-        write|pricingRate:
-          50|string: "0,044800\_$"
-        write|string: "0,078400\_$"
+      write|pricingRate:
+        50|string: "0,044800\_$"
+      write|string: "0,078400\_$"
     prometheus:
       point:
         remote_api:
@@ -3675,10 +3687,8 @@ default:
   sku|USD|nbs:
     network-hdd:
       allocated|month|string: "0,023360\_$"
-      allocated|string: "0,000032\_$"
     network-nvme:
       allocated|month|string: "0,095280\_$"
-      allocated|string: "0,000132\_$"
     network-ssd-io-m3:
       allocated|month|string: "0,158400\_$"
     network-ssd-nonreplicated:
@@ -5249,6 +5259,7 @@ default:
           user-accounts: Пользовательские аккаунты
       cloud:
         button_delete: Удалить
+        button_save: Сохранить
         label_delete-now: Удалить сейчас
       forms:
         label_value: Значение
@@ -5569,6 +5580,7 @@ default:
     yacloud_portal:
       acl:
         common:
+          action_via-email: Добавить пользователя
           action_via-federation: Добавить федеративного пользователя
       common:
         action_add: Добавить
@@ -5587,6 +5599,7 @@ default:
       marketplace_v2:
         common:
           menu_ticket: Тикет заявки
+          page_title_roles: Управление доступом
         product:
           page_action_product-create: Добавить продукт
           tab_tariffs: Тариф
@@ -9090,6 +9103,8 @@ default:
                     Transfer:
                       data_objects:
                         title: Список объектов для переноса
+                      runtime:
+                        title: Среда выполнения
                       title: Параметры трансфера
                       transformation:
                         title: Трансформация данных

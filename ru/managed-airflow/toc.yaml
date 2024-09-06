@@ -48,7 +48,43 @@ items:
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
-  - name: Метрики {{ monitoring-name }}
+  - name: Справочник API
+    items:
+      - name: Аутентификация в API
+        href: api-ref/authentication.md
+      - name: gRPC (англ.)
+        items:
+          - name: Overview
+            href: api-ref/grpc/index.md
+          - name: ClusterService
+            href: api-ref/grpc/cluster_service.md
+          - name: OperationService
+            href: api-ref/grpc/operation_service.md
+      - name: REST (англ.)
+        items:
+          - name: Overview
+            href: api-ref/index.md
+          - name: Cluster
+            items:
+              - name: Overview
+                href: api-ref/Cluster/index.md
+              - name: create
+                href: api-ref/Cluster/create.md
+              - name: delete
+                href: api-ref/Cluster/delete.md
+              - name: get
+                href: api-ref/Cluster/get.md
+              - name: list
+                href: api-ref/Cluster/list.md
+              - name: listOperations
+                href: api-ref/Cluster/listOperations.md
+              - name: start
+                href: api-ref/Cluster/start.md
+              - name: stop
+                href: api-ref/Cluster/stop.md
+              - name: update
+                href: api-ref/Cluster/update.md
+  - name: Метрики {{ monitoring-full-name }}
     href: metrics.md
   - name: История изменений
     href: release-notes.md

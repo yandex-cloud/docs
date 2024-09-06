@@ -18,10 +18,10 @@ You need to create and configure [security groups](../../vpc/concepts/security-g
 1. [Create](../../vpc/operations/security-group-create.md) one or more security groups for service traffic of the {{ dataproc-name }} cluster.
 1. [Add rules](../../vpc/operations/security-group-add-rule.md):
    * One rule for inbound and another one for outbound service traffic:
-      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-any }}`
-      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`
+      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-any }}`.
+      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`.
       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**/**{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`
-      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}`
+      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}`.
    * A separate rule for outgoing HTTPS traffic. This will allow you to use [{{ objstorage-full-name }}](../../storage/) [buckets](../../storage/concepts/bucket.md), [UI Proxy](../concepts/interfaces.md), and [autoscaling](../concepts/autoscaling.md) of {{ dataproc-name }} clusters.
 
       You can set up this rule using one of the two methods:
@@ -30,27 +30,28 @@ You need to create and configure [security groups](../../vpc/concepts/security-g
 
       - To all addresses
 
-         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-https }}`
-         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`
-         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-https }}`.
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`.
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
          * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`
 
       - To the addresses used by {{ yandex-cloud }}
 
-         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-https }}`
-         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`
-         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-https }}`.
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`.
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
          * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**:
             * `84.201.181.26/32`: Getting the {{ dataproc-name }} cluster status, running jobs, UI Proxy.
             * `158.160.59.216/32`: Monitoring the {{ dataproc-name }} cluster state, autoscaling.
             * `213.180.193.243/32`: Access to {{ objstorage-name }}.
+            * `84.201.181.184/32`: {{ cloud-logging-name }} address.
 
       {% endlist %}
 
    * Rule that allows access to NTP servers for time syncing:
       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `123`
-      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_udp }}`
-      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
+      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_udp }}`.
+      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`
 
 If you plan to use multiple security groups for your {{ dataproc-name }} cluster, allow all traffic between these groups.
@@ -285,7 +286,6 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
       ```
 
       Where:
-
       * `hosts-count`: Minimum number of hosts (VMs) in the {{ dataproc-name }} subcluster. The minimum value is `1` and the maximum value is `32`.
       * `max-hosts-count`: Maximum number of hosts (VMs) in the {{ dataproc-name }} subcluster. The minimum value is `1` and the maximum value is `100`.
       * `preemptible`: Indicates if [preemptible VMs](../../compute/concepts/preemptible-vm.md) are used. It may take either the `true` or `false` value.
@@ -318,7 +318,6 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
       ```
 
       Where:
-
       * `URI`: Link to the initialization script in the `https://`, `http://`, `hdfs://`, or `s3a://` scheme.
       * (Optional) `timeout`: Script execution timeout, in seconds. If your initialization script runs longer than this time period, it will be terminated.
       * (Optional) `args`: Arguments separated by commas with which an initialization script must be executed.
@@ -330,7 +329,6 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
 
 
    To create a {{ dataproc-name }} cluster:
-
    1. Using the command line, navigate to the folder that will contain the {{ TF }} configuration files with an infrastructure plan. Create the directory if it does not exist.
 
    
@@ -514,7 +512,6 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
       * `decommission_timeout`: [Decommissioning timeout](../concepts/decommission.md) in seconds. The minimum value is `0` and the maximum value is `86400` (24 hours).
 
       For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/dataproc_cluster).
-
    1. Check that the {{ TF }} configuration files are correct:
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
@@ -566,7 +563,7 @@ After the {{ dataproc-name }} cluster's status changes to **Running**, you can [
 
 ## Create a {{ dataproc-name }} cluster copy {#duplicate}
 
-You can create a {{ dataproc-name }} cluster with the settings of another cluster created earlier. To do so, you need to import the configuration of the source {{ dataproc-name }} cluster to {{ TF }}. Thus you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing is a convenient option when the source {{ dataproc-name }} cluster has lots of settings (e.g., it is an HDFS cluster) and you need to create a similar one.
+You can create a {{ dataproc-name }} cluster with the settings of another one created earlier. To do so, you need to import the configuration of the source {{ dataproc-name }} cluster to {{ TF }}. Thus you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing is a convenient option when the source {{ dataproc-name }} cluster has lots of settings (e.g., it is an HDFS cluster) and you need to create a similar one.
 
 To create a {{ dataproc-name }} cluster copy:
 
@@ -638,7 +635,6 @@ To create a {{ dataproc-name }} cluster copy:
       ```
 
       If there are any errors in the configuration files, {{ TF }} will point them out.
-
    1. Create the required infrastructure:
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
@@ -656,7 +652,6 @@ To create a {{ dataproc-name }} cluster copy:
 - CLI {#cli}
 
    Create a {{ dataproc-name }} cluster to run Spark jobs without HDFS and data storage subclusters and set the test characteristics:
-
    * Cluster name: `my-dataproc`
    * Bucket name: `dataproc-bucket`
    * Availability zone: `{{ zone-id }}`
@@ -669,7 +664,6 @@ To create a {{ dataproc-name }} cluster copy:
       * Network SSD storage (`{{ disk-type-example }}`): 20 GB
       * Subnet: `{{ subnet-name }}`
       * Public access: Allowed
-
    * Security group: `{{ security-group }}`
    * Protection against accidental {{ dataproc-name }} cluster deletion: Enabled
 

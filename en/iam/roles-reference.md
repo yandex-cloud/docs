@@ -5,28 +5,13 @@ description: "The article provides a full reference and description of roles for
 
 # {{ yandex-cloud }} role reference
 
-
 ## Primitive roles {#primitive-roles}
 
 The chart below shows which primitive roles are available in {{ yandex-cloud }} and how they inherit each other's permissions. For example, the `{{ roles-editor }}` role includes all the permissions of the `{{ roles-viewer }}` role. You can find the description of each role under the chart.
 
 ![image](../_assets/iam/security/primitive-roles-hierarchy.svg)
 
-#### {{ roles-auditor }} {#auditor}
-
-{% include [auditor](../_roles/primitive-roles/auditor.md) %}
-
-#### {{ roles-viewer }} {#viewer}
-
-{% include [viewer](../_roles/primitive-roles/viewer.md) %}
-
-#### {{ roles-editor }} {#editor}
-
-{% include [editor](../_roles/primitive-roles/editor.md) %}
-
-#### {{ roles-admin }} {#admin}
-
-{% include [admin](../_roles/primitive-roles/admin.md) %}
+{% include [roles-primitive](../_includes/roles-primitive.md) %}
 
 
 ## Service roles {#auxiliary-roles}
@@ -340,9 +325,51 @@ For more information, see [{#T}](../logging/security/index.md).
 
 ## {{ marketplace-full-name }} {#marketplace-roles}
 
+### Partner roles {#marketplace-partner-roles}
+
 #### marketplace.meteringAgent {#marketplace-meteringagent}
 
 {% include [marketplace.meteringAgent](../_roles/marketplace/meteringAgent.md) %}
+
+#### license-manager.saasSubscriptionSupervisor {#license-manager-saasSubscriptionSupervisor}
+
+{% include [license-manager.saasSubscriptionSupervisor](../_roles/license-manager/saasSubscriptionSupervisor.md) %}
+
+#### marketplace.product.creator {#marketplace-product-creator}
+
+{% include [marketplace.product.creator](../_roles/marketplace/product/creator.md) %}
+
+#### marketplace.product.admin {#marketplace-product-admin}
+
+{% include [marketplace.product.admin](../_roles/marketplace/product/admin.md) %}
+
+#### marketplace.publishers.reportViewer {#marketplace-publishers-reportViewer}
+
+{% include [marketplace.publishers.reportViewer](../_roles/marketplace/publishers/reportViewer.md) %}
+
+#### marketplace.publishers.viewer {#marketplace-publishers-viewer}
+
+{% include [marketplace.publishers.viewer](../_roles/marketplace/publishers/viewer.md) %}
+
+#### marketplace.publishers.editor {#marketplace-publishers-editor}
+
+{% include [marketplace.publishers.editor](../_roles/marketplace/publishers/editor.md) %}
+
+#### marketplace.publishers.admin {#marketplace-publishers-admin}
+
+{% include [marketplace.publishers.admin](../_roles/marketplace/publishers/admin.md) %}
+
+#### marketplace.publishers.owner {#marketplace-publishers-owner}
+
+{% include [marketplace.publishers.owner](../_roles/marketplace/publishers/owner.md) %}
+
+#### marketplace.publishers.member {#marketplace-publishers-member}
+
+{% include [marketplace.publishers.member](../_roles/marketplace/publishers/member.md) %}
+
+
+
+### User roles {#marketplace-user-roles}
 
 #### license-manager.auditor {#license-manager-auditor}
 
@@ -1627,6 +1654,7 @@ For more information, see [{#T}](../vision/security/index.md).
 
 {% include [websql.admin](../_roles/websql/admin.md) %}
 
+For more information, see [{#T}](../websql/security/index.md).
 
 
 ## {{ wiki-full-name }} {#wiki-roles}

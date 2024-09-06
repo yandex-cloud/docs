@@ -45,7 +45,7 @@ items:
             href: archive/single-node-file-server/terraform.md
       - name: Configuring an SFTP server based on CentOS 7
         href: archive/backup-and-archive-to-sftp.md
-      - name: Backing up a VM with Hystax Acura Backup
+      - name: Creating a VM backup with Hystax Acura Backup
         href: infrastructure-management/hystax-backup.md
       - name: >-
           Backup to {{ objstorage-name }} using MSP360 Backup (CloudBerry
@@ -203,9 +203,9 @@ items:
           - name: Migrating DNS zones from Yandex 360 to {{ dns-name }}
             href: infrastructure-management/connect-migration.md
           - name: >-
-              Configuring {{ dns-name }} for access to managed database clusters
-              from other cloud networks
-            href: dataplatform/mdb-dns-peering.md
+              Configuring {{ dns-full-name }} for accessing {{ mch-full-name }}
+              clusters from other cloud networks
+            href: dataplatform/clickhouse-dns-peering.md
           - name: Integrating {{ dns-name }} and an enterprise DNS service
             href: infrastructure-management/dns-integration.md
           - name: Creating an ACME resolver webhook for responses to DNS01 checks
@@ -389,7 +389,7 @@ items:
       - name: Storing {{ AF }} connections and variables in {{ lockbox-full-name }}
         href: dataplatform/lockbox-and-airflow.md
       - name: Automating {{ yq-full-name }} tasks using {{ maf-name }}
-        href: dataplatform/yandex-query-automation.md
+        href: dataplatform/airflow-auto-tasks.md
       - name: >-
           Sending requests to the {{ yandex-cloud }} API via the {{ yandex-cloud
           }} Python SDK
@@ -434,6 +434,10 @@ items:
           Loading data from {{ objstorage-full-name }} to {{ mch-name }} using
           {{ data-transfer-full-name }}
         href: dataplatform/object-storage-to-clickhouse.md
+      - name: >-
+          Loading data from {{ ydb-full-name }} to {{ mch-full-name }} using {{
+          data-transfer-full-name }}
+        href: dataplatform/ydb-to-clickhouse.md
       - name: >-
           Migrating data with change of storage from {{ mos-name }} to {{
           mch-name }} using {{ data-transfer-full-name }}
@@ -692,7 +696,7 @@ items:
             href: datalens/data-from-yandex-query-visualization.md
           - name: Visualizing {{ monitoring-full-name }} data
             href: datalens/data-from-monitoring-visualization.md
-          - name: Visualizing {{ ytsaurus-name }}} CHYT data
+          - name: Visualizing data from {{ ytsaurus-name }}} CHYT
             href: datalens/data-from-ch-over-yt.md
       - name: Functional
         items:

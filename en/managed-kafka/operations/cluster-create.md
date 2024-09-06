@@ -14,19 +14,20 @@ A [{{ mkf-name }} cluster](../concepts/index.md) is one or more [broker hosts](.
 
 {% include [mkf-zk-hosts](../../_includes/mdb/mkf-zk-hosts.md) %}
 
-## Creating a cluster with {{ KF }} 3.5 or lower {#create-cluster}
+## Getting started {#before-you-begin}
 
-Prior to creating a cluster, calculate the [minimum storage size](../concepts/storage.md#minimal-storage-size) for topics.
+1. Calculate the [minimum storage size](../concepts/storage.md#minimal-storage-size) for topics.
+1. [Make sure](../../iam/operations/roles/get-assigned-roles.md) your account has the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and [{{ roles.mkf.editor }} role or higher](../security/index.md#roles-list).
 
 
 If you specify security group IDs when creating a {{ mkf-name }} cluster, you may also need to [configure security groups](connect/index.md#configuring-security-groups) to connect to the cluster.
 
 
+## Creating a cluster with {{ KF }} 3.5 or lower {#create-cluster}
+
 {% list tabs group=instructions %}
 
 - Management console {#console}
-
-   To create a {{ mkf-name }} cluster:
 
    1. In the [management console]({{ link-console-main }}), go to the appropriate [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
@@ -124,7 +125,7 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
         --subnet-ids <subnet_IDs> \
         --brokers-count <number_of_brokers_per_zone> \
         --resource-preset <host_class> \
-        --disk-type <disk_type> \
+        --disk-type <network-hdd|network-ssd|network-ssd-nonreplicated|local-ssd> \
         --disk-size <storage_size_in_GB> \
         --assign-public-ip <public_access> \
         --security-group-ids <list_of_security_group_IDs> \
@@ -151,7 +152,7 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
 
       {% endnote %}
 
-   1. To set up a [maintenance window](../concepts/maintenance.md) (for disabled {{ mkf-name }} clusters as well), provide the required value in the `--maintenance-window` parameter when creating your cluster:
+   1. To set up a [maintenance window](../concepts/maintenance.md) (including for disabled {{ mkf-name }} clusters), provide the required value in the `--maintenance-window` parameter when creating your cluster:
 
       ```bash
       {{ yc-mdb-kf }} cluster create \
@@ -279,7 +280,7 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
    * [Security group](../../vpc/concepts/security-groups.md) IDs in the `securityGroupIds` parameter.
 
 
-   * Settings for the [maintenance window](../concepts/maintenance.md) (for disabled {{ mkf-name }} clusters as well) in the `maintenanceWindow` parameter.
+   * [Maintenance window](../concepts/maintenance.md) settings (including for disabled {{ mkf-name }} clusters) in the `maintenanceWindow` parameter.
    * {{ mkf-name }} cluster deletion protection settings in the `deletionProtection` parameter.
 
       {% include [deletion-protection-limits](../../_includes/mdb/deletion-protection-limits-data.md) %}
@@ -300,12 +301,6 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
 {{ mkf-name }} clusters with {{ KF }} 3.6 or higher support [{{ kraft-name }}](../concepts/kraft.md) (abbreviated as {{ kraft-short-name }}). It is used instead of {{ ZK }} to store metadata.
 
 You can create a cluster with {{ kraft-short-name }} only using a specific configuration and not in all {{ yandex-cloud }} interfaces. That is why the cluster creation process is different for {{ KF }} 3.6 or higher.
-
-Prior to creating a cluster, calculate the [minimum storage size](../concepts/storage.md#minimal-storage-size) for topics.
-
-
-If you specify security group IDs when creating a {{ mkf-name }} cluster, you may also need to [configure security groups](connect/index.md#configuring-security-groups) to connect to the cluster.
-
 
 {% note warning %}
 
@@ -341,7 +336,7 @@ When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }}
          --zone-ids <availability_zones> \
          --brokers-count <number_of_brokers_per_zone> \
          --resource-preset <host_class> \
-         --disk-type <disk_type> \
+         --disk-type <network-hdd|network-ssd|network-ssd-nonreplicated|local-ssd> \
          --disk-size <storage_size_in_GB> \
          --assign-public-ip <public_access> \
          --security-group-ids <list_of_security_group_IDs> \
@@ -372,7 +367,7 @@ When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }}
 
       {% endnote %}
 
-   1. To set up a [maintenance window](../concepts/maintenance.md) (for disabled {{ mkf-name }} clusters as well), provide the required value in the `--maintenance-window` parameter when creating your cluster:
+   1. To set up a [maintenance window](../concepts/maintenance.md) (including for disabled {{ mkf-name }} clusters), provide the required value in the `--maintenance-window` parameter when creating your cluster:
 
       ```bash
       {{ yc-mdb-kf }} cluster create \
@@ -501,7 +496,7 @@ When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }}
    * [Security group](../../vpc/concepts/security-groups.md) IDs in the `securityGroupIds` parameter.
 
 
-   * Settings for the [maintenance window](../concepts/maintenance.md) (for disabled {{ mkf-name }} clusters as well) in the `maintenanceWindow` parameter.
+   * [Maintenance window](../concepts/maintenance.md) settings (including for disabled {{ mkf-name }} clusters) in the `maintenanceWindow` parameter.
    * {{ mkf-name }} cluster deletion protection settings in the `deletionProtection` parameter.
 
       {% include [deletion-protection-limits](../../_includes/mdb/deletion-protection-limits-data.md) %}
@@ -534,7 +529,7 @@ If there are no {{ ZK }} hosts, it means the cluster uses {{ kraft-short-name }}
 
 ## Creating a cluster copy {#duplicate}
 
-You can create an {{ KF }} cluster with the settings of another one created earlier. To do so, you need to import the configuration of the source {{ KF }} cluster to {{ TF }}. Thus you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing is a convenient option when the source {{ KF }} cluster has lots of settings and you need to create a similar one.
+You can create an {{ KF }} cluster with the settings of another one you previously created. To do so, you need to import the configuration of the source {{ KF }} cluster to {{ TF }}. This way, you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing a configuration is a good idea when the source {{ KF }} cluster has a lot of settings and you need to create a similar one.
 
 To create an {{ KF }} cluster copy:
 

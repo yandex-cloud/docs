@@ -2,6 +2,8 @@
 
 Возвращает политику доступа для заданного бакета.
 
+{% include [s3-api-intro-include](../../../../_includes/storage/s3-api-intro-include.md) %}
+
 ## Запрос {#request}
 
 ```bash

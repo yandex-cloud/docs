@@ -8,13 +8,15 @@
 
 {% note info %}
 
-У этого метода есть две версии. 
+У этого метода есть две версии:
 - `listObjectsV2` — актуальная версия, более удобная в использовании.
 - `listObjectsV1` — предыдущая версия.
 
 Для вызова обоих методов используется один и тот же `URL`, но он отличается query-параметром. Чтобы вызвать `listObjectsV2`, используйте параметр [`list-type=2`](#requestV2).
 
 {% endnote %}
+
+{% include [s3-api-intro-include](../../../../_includes/storage/s3-api-intro-include.md) %}
 
 ## listObjectsV2 {#listObjectsV2}
 

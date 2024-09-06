@@ -22,10 +22,14 @@ By default, {{ mpg-name }} sets the maximum number of connections to each {{ PG 
 
 ## Creating a cluster {#create-cluster}
 
+To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the [{{ roles.mpg.editor }} role or higher](../security/index.md#roles-list). For information on assigning roles, see the [{{ iam-name }} documentation](../../iam/operations/roles/grant.md).
+
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
+
+   To create a {{ mpg-name }} cluster:
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a DB cluster.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
@@ -130,7 +134,7 @@ By default, {{ mpg-name }} sets the maximum number of connections to each {{ PG 
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To create a cluster:
+   To create a {{ mpg-name }} cluster:
 
    
    1. Check whether the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) has any [subnets](../../vpc/concepts/network.md#subnet) for the cluster hosts:
@@ -163,7 +167,7 @@ By default, {{ mpg-name }} sets the maximum number of connections to each {{ PG 
         --user name=<username>,password=<user_password> \
         --database name=<DB_name>,owner=<DB_owner_name> \
         --disk-size <storage_size_in_GB> \
-        --disk-type <disk_type> \
+        --disk-type <network-hdd|network-ssd|network-ssd-nonreplicated|local-ssd> \
         --security-group-ids <list_of_security_group_IDs> \
         --connection-pooling-mode=<connection_pooler_mode> \
         --deletion-protection=<deletion_protection>
@@ -223,7 +227,7 @@ By default, {{ mpg-name }} sets the maximum number of connections to each {{ PG 
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-   To create a cluster:
+   To create a {{ mpg-name }} cluster:
    1. In the configuration file, describe the parameters of the resources you want to create:
       * DB cluster: Description of the cluster and its hosts
       * Database: Description of the cluster DB
@@ -336,7 +340,7 @@ By default, {{ mpg-name }} sets the maximum number of connections to each {{ PG 
 
 - API {#api}
 
-   To create a cluster, use the [create](../api-ref/Cluster/create.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Create](../api-ref/grpc/cluster_service.md#Create) gRPC API call and provide the following in the request:
+   To create a {{ mpg-name }} cluster, use the [create](../api-ref/Cluster/create.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Create](../api-ref/grpc/cluster_service.md#Create) gRPC API call and provide the following in the request:
    * ID of the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to host the cluster in the `folderId` parameter.
    * Cluster name in the `name` parameter.
    * Cluster environment in the `environment` parameter.
@@ -524,7 +528,7 @@ To create a {{ PG }} cluster copy:
    * Environment: `PRESTABLE`
    * Cloud ID: `{{ tf-cloud-id }}`
    * Folder ID: `{{ tf-folder-id }}`
-   * New network: `mynet`
+   * New network: `mynet`.
 
    
    * New security group: `pgsql-sg` allowing connections to the cluster from the internet via port `6432`.
@@ -607,3 +611,4 @@ To create a {{ PG }} cluster copy:
 
 
 {% include [connection-manager](../../_includes/mdb/connection-manager.md) %}
+

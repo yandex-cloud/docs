@@ -34,11 +34,18 @@
 1. Нажмите на имя нужного кластера и выберите вкладку ![Marketplace](../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
 1. В разделе **{{ ui-key.yacloud.marketplace-v2.label_available-products }}** выберите [ALB Ingress Controller](/marketplace/products/yc/alb-ingress-controller) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Задайте настройки приложения:
+
    * **Пространство имен** — выберите [пространство имен](../../managed-kubernetes/concepts/index.md#namespace) или создайте новое.
    * **Название приложения** — укажите название приложения.
    * **Идентификатор каталога** — укажите [идентификатор каталога](../../resource-manager/operations/folder/get-id.md).
    * **Идентификатор кластера** — укажите [идентификатор кластера](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-list.md).
    * **Ключ сервисного аккаунта** — вставьте содержимое файла `sa-key.json`.
+   * **Включить проверки работоспособности по умолчанию** — выберите опцию, чтобы в сети группы узлов установить ресурс [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) для проверок состояния приложений.
+
+      Ресурс добавляет поды с агентами мониторинга трафика на каждый узел. В результате изоляция узлов и пространств имен не влияет на мониторинг, поэтому информация о мониторинге трафика точная. DaemonSet добавляет или убирает агенты мониторинга в зависимости от того, увеличивается или уменьшается число узлов в кластере.
+
+      Если вам не нужны проверки работоспособности кластера или вы используете свои, опцию можно не включать. Подробнее о настройке проверок вручную см. в разделе [{#T}](../../managed-kubernetes/tutorials/custom-health-checks.md).
+
 1. Нажмите кнопку **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
 1. Дождитесь перехода приложения в статус `Deployed`.
 
@@ -69,9 +76,16 @@
      --create-namespace \
      --set folderId=<идентификатор_каталога> \
      --set clusterId=<идентификатор_кластера> \
+     --set enableDefaultHealthChecks=<true_или_false> \
      --set-file saKeySecretKey=sa-key.json \
      yc-alb-ingress-controller ./yc-alb-ingress-controller-chart/
    ```
+
+   Параметр `enableDefaultHealthChecks` включает проверки состояния приложений в кластере. Для этого Ingress-контроллер устанавливает ресурс [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) в сети группы узлов.
+
+   Ресурс добавляет поды с агентами мониторинга трафика на каждый узел. В результате изоляция узлов и пространств имен не влияет на мониторинг, поэтому информация о мониторинге трафика точная. DaemonSet добавляет или убирает агенты мониторинга в зависимости от того, увеличивается или уменьшается число узлов в кластере.
+
+   Если вам не нужны проверки работоспособности кластера или вы используете свои, опцию можно не включать. Подробнее о настройке проверок вручную см. в разделе [{#T}](../../managed-kubernetes/tutorials/custom-health-checks.md).
 
 ## Примеры использования {#examples}
 

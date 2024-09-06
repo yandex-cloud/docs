@@ -24,7 +24,7 @@ In all calculations, 1 GB = 2<sup>10</sup> MB = 2<sup>20</sup> KB = 2<sup>30</su
 
 ### Using computing resources {#rules-hosts-uptime}
 
-You are charged per hour of VM use.
+VM operation cost is charged per hour.
 
 The price of computing resources depends on the selected [approval rule](concepts/approval-rules.md) configuration.
 
@@ -51,39 +51,21 @@ Calculating the cost of computing resources:
 
 
 
-> 720 × (2 × $0.013440 + 8 × $0.003600) = $40.089600
-
-Where:
-
-* 720: Number of hours in 30 days.
-* 2: Number of vCPUs.
-* $0.013440: Cost of using a vCPU per hour.
-* 8: Amount of RAM (in GB).
-* $0.003600: Cost of using 1 GB of RAM per hour.
+{% include [usd-managed-gitlab-compute](../_pricing_examples/managed-gitlab/usd-managed-gitlab-compute.md) %}
 
 
 Calculation for storage and backup cost:
 
 
 
-> 30 × $0.104080 + 20 × 7 × $0.015360 = $5.272800
-
-Where:
-
-* 30: Storage size (in GB).
-* $0.104080: Cost of using 1 GB of storage per month.
-* 20: Size of each backup.
-* 7: Backup retention time.
-* $0.015360: Cost of storing 1 GB of backups.
+{% include [usd-managed-gitlab-storage](../_pricing_examples/managed-gitlab/usd-managed-gitlab-storage.md) %}
 
 
 Total instance cost calculation:
 
 
 
-> $40.089600 + $5.272800 = $45.362400
-
-Where $45.362400 is the cost of using the instance for 30 days.
+{% include [usd-managed-gitlab-instance](../_pricing_examples/managed-gitlab/usd-managed-gitlab-instance.md) %}
 
 
 ## Prices for the Russia region {#prices}

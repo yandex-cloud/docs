@@ -18,7 +18,7 @@ For an integration example, see [{#T}](../tutorials/using-python-sdk.md).
 
 {{ maf-short-name }} clusters with enabled impersonation have an automatically configured `yandexcloud_default` connection that all operators in the Airflow Yandex Provider use by default. To use it, create a DAG file without specifying the `yandex_conn_id` parameter. The operator will be authenticated using the IAM token of the service account attached to the cluster.
 
-For an integration example, see [{#T}](../tutorials/yandex-query-automation.md).
+For an integration example, see [{#T}](../tutorials/airflow-auto-tasks.md).
 
 ## Integration with {{ lockbox-name }} {#lockbox-integration}
 

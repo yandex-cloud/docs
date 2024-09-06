@@ -26,7 +26,7 @@ description: "This page provides a list of step-by-step guides for {{ mkf-name }
 
 - [Managing topics](cluster-topics.md)
 
-## {{ KF }} users {#users}
+## {{ KF }} users {#accounts}
 
 - [Managing users](cluster-accounts.md)
 

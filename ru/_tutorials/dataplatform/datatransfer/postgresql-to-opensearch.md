@@ -27,16 +27,16 @@
     1. Настройте группы безопасности для подключения к [кластеру-источнику {{ mpg-name }}](../../../managed-postgresql/operations/connect.md#configuring-security-groups) и [кластеру-приемнику {{ mos-name }}](../../../managed-opensearch/operations/connect#configuring-security-groups).
 
 - {{ TF }} {#tf}
-    
+
     1. {% include [terraform-install-without-setting](../../../_includes/mdb/terraform/install-without-setting.md) %}
     1. {% include [terraform-authentication](../../../_includes/mdb/terraform/authentication.md) %}
     1. {% include [terraform-setting](../../../_includes/mdb/terraform/setting.md) %}
     1. {% include [terraform-configure-provider](../../../_includes/mdb/terraform/configure-provider.md) %}
 
     1. Скачайте в ту же рабочую директорию файл конфигурации [postgresql-to-opensearch.tf](https://github.com/yandex-cloud-examples/yc-data-transfer-from-postgresql-to-opensearch/blob/main/postgresql-to-opensearch.tf).
-    
+
         В этом файле описаны:
-    
+
         * [сеть](../../../vpc/concepts/network.md#network);
         * [подсеть](../../../vpc/concepts/network.md#subnet);
         * [группа безопасности](../../../vpc/concepts/security-groups.md) для подключения к кластерам;
@@ -44,13 +44,16 @@
         * кластер-приемник {{ mos-name }};
         * эндпоинт для источника;
         * трансфер.
-    
+
     1. Укажите в файле `postgresql-to-opensearch.tf` значения переменных:
 
         * `folder_id` — [идентификатор каталога](../../../resource-manager/operations/folder/get-id.md);
         * `pg_password` — пароль пользователя {{ PG }};
         * `mos_version` — версия {{ OS }};
-        * `mos_password` — пароль пользователя {{ OS }}.
+        * `mos_password` — пароль пользователя {{ OS }};
+        * `profile_name` — имя вашего профиля в YC CLI.
+
+           {% include [cli-install](../../../_includes/cli-install.md) %}
 
     1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
@@ -94,7 +97,7 @@
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.password.title }}** — `<пароль_пользователя>`.
 
 1. Создайте эндпоинт для источника и трансфер:
-    
+
     {% list tabs group=instructions %}
 
     - Вручную {#manual}
@@ -109,7 +112,7 @@
 
       1. [Создайте трансфер](../../../data-transfer/operations/transfer.md#create) типа **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}_**, использующий созданные эндпоинты.
 
-      1. [Активируйте трансфер](../../../data-transfer/operations/transfer.md#activate) и дождитесь его перехода в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.
+      1. [Активируйте трансфер](../../../data-transfer/operations/transfer.md#activate).
 
     - {{ TF }} {#tf}
 
@@ -128,14 +131,15 @@
 
       1. Создайте необходимую инфраструктуру:
 
-            {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
+          {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
-      1. [Активируйте трансфер](../../../data-transfer/operations/transfer.md#activate) и дождитесь его перехода в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.      
+          Трансфер активируется автоматически после создания.
 
     {% endlist %}
 
 ## Проверьте работоспособность трансфера {#verify-transfer}
 
+1. Дождитесь перехода трансфера в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.
 1. Подключитесь к кластеру-приемнику с помощью [{{ OS }} Dashboards](../../../managed-opensearch/operations/connect.md#dashboards).
 1. Выберите общий тенант `Global`.
 1. Создайте новый шаблон индекса с именем `public.x_tab`:

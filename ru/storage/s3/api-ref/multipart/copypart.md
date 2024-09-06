@@ -9,6 +9,8 @@ description: "Метод copyPart в {{ objstorage-name }} API (S3) копиру
 
 Имеет такую же функциональность, как и [{#T}](uploadpart.md), только данные передаются не в теле запроса, а копируются из существующего объекта.
 
+{% include [s3-api-intro-include](../../../../_includes/storage/s3-api-intro-include.md) %}
+
 ## Запрос {#request}
 
 ```http

@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# {{ mrd-name }} pricing
+# {{ mrd-name }} pricing policy
 
 In this section, you can find {{ mrd-name }} pricing [rules](#rules) and [effective prices](#prices) for the service resources.
 
@@ -32,7 +32,7 @@ You pay for the following:
 
 * Storage allocated for DB clusters.
 
-   * Non-replicated SSD (`network-ssd-nonreplicated`) storage can only be ordered for Intel Cascade Lake and clusters with three or more hosts, in increments of 93 GB.
+   * Non-replicated SSD (`network-ssd-nonreplicated`) storage can only be ordered for clusters with three or more hosts running Intel Cascade Lake and Intel Ice Lake, in increments of 93 GB.
 
    * You can only order local SSD (`local-ssd`) storage for clusters with three or more hosts:
             * For **Intel Broadwell** and **Intel Cascade Lake**: In increments of 100 GB.
@@ -40,7 +40,7 @@ You pay for the following:
 
    For more information about platform-specific storage limitations, see [Disk types](./concepts/storage.md).
 
-* Space used by DB backups in excess of the storage requested for the cluster.
+* Size of DB backups in excess of the storage requested for the cluster.
 
    * Backups are stored free of charge as long as the combined size of the DB and all backups is smaller than the selected storage size.
    * The requested storage size is allocated for each host, so the number of hosts in the cluster does not affect the free backup size.
@@ -89,7 +89,7 @@ All prices below do not include VAT.
 
 {% note info %}
 
-Access to network SSD storage with three replicas is provided upon request. Contact [technical support]({{ link-console-support }}) or your account manager.
+Access to high-performance SSD storage is provided upon request. Contact [technical support]({{ link-console-support }}) or your account manager.
 
 {% endnote %}
 

@@ -1,3 +1,8 @@
+---
+title: "Справочник {{ TF }} для {{ mrd-full-name }}"
+description: "На этой странице приведен справочник ресурсов и источников данных провайдера {{ TF }}, которые поддерживаются для сервиса {{ mrd-name }}."
+---
+
 # Справочник {{ TF }} для {{ mrd-full-name }}
 
 {% include [terraform-ref-intro](../_includes/terraform-ref-intro.md) %}

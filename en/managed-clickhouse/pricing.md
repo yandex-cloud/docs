@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# {{ mch-short-name }} pricing
+# {{ mch-short-name }} pricing policy
 
 In this section, you can find {{ mch-name }} pricing [rules](#rules) and [effective prices](#prices) for the service resources.
 
@@ -42,7 +42,7 @@ In clusters with disabled [{{ CK }}](./concepts/replication.md#ck) support and w
 
 {% endnote %}
 
-The minimum billing unit is one minute (for example, 1.5 minutes of host operation cost the same as 2 minutes). You are not paying for the time when the DBMS or {{ ZK }} host is unable to perform its main functions.
+The minimum billing unit is one minute (for example, 1.5 minutes of host operation cost the same as 2 minutes). You do not pay for the time when the DBMS or {{ ZK }} host is unable to perform its main functions.
 
 ### Disk space usage {#rules-storage}
 
@@ -50,10 +50,10 @@ You pay for the following:
 
 * Storage allocated for DB clusters.
 
-* You can only order local SSD storage (`local-ssd`) for clusters with three or more hosts:
-   * For **Intel Broadwell** and **Intel Cascade Lake** in 100 GB increments.
-   * For **Intel Ice Lake**: In increments of {{ local-ssd-v3-step }}.
-* Non-replicated SSD (`network-ssd-nonreplicated`) storage can only be ordered for clusters with three or more hosts, in increments of 93 GB.
+   * You can only order local SSD storage (`local-ssd`) for clusters with three or more hosts:
+        * For **Intel Broadwell** and **Intel Cascade Lake**: In 100 GB increments.
+        * For **Intel Ice Lake**: In increments of {{ local-ssd-v3-step }}.
+   * Non-replicated SSD (`network-ssd-nonreplicated`) storage can only be ordered for clusters with three or more hosts, in increments of 93 GB.
 
 * Size of [local](concepts/storage.md#local-storage-features) and [network](concepts/storage.md) storage data backups:
 
@@ -67,7 +67,7 @@ You pay for the following:
 
    For example, if there are N free GB of space in the cluster, the first N GB of backups are stored free of charge.
 
-* The storage size used by cold data backups of a [hybrid storage](concepts/storage.md#hybrid-storage-features):
+* Size of [hybrid storage](concepts/storage.md#hybrid-storage-features) cold data backups:
 
    * Cold data backups are stored in the same {{ objstorage-name }} bucket as the data itself.
 
@@ -76,7 +76,6 @@ You pay for the following:
    * When performing automatic backups, {{ mch-short-name }} does not create a new copy but saves the data changed from the previous backup. It means the storage space used by automatic backups only increases in proportion to the volume of changes.
 
 The price covers one month of use based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
-
 
 ### Example of cluster cost calculation {#example}
 
@@ -90,49 +89,24 @@ Cost calculation for {{ CH }} hosts:
 
 
 
-> 3 × (2&nbsp;×&nbsp;$0.013760 + 8&nbsp;×&nbsp;$0.003760) = $0.172800
->
-> Total: $0.172800, cost of operation of {{ CH }} hosts per hour.
 
-Where:
-* 3 is the number of {{ CH }} hosts.
-* 2 is the number of vCPUs.
-* $0.013760: Cost of using 100% vCPU per hour.
-* 8 is the amount of RAM per {{ CH }} host (in GB).
-* $0.003760: Cost of using 1 GB of RAM at 100% vCPU per hour.
+{% include [usd-managed-clickhouse-ch](../_pricing_examples/managed-clickhouse/usd-managed-clickhouse-ch.md) %}
 
 
 Cost calculation for {{ ZK }} hosts:
 
 
 
-> 3 × (2&nbsp;×&nbsp;$0.005600 + 4&nbsp;×&nbsp;$0.002240) = $0.060480
->
-> Total: $0.060480, cost of operation of {{ ZK }} hosts per hour.
 
-Where:
-* 3 is the number of {{ ZK }} hosts.
-* 2 is the number of vCPUs.
-* $0.005600: Cost of using 50% vCPU per hour.
-* 4 is the amount of RAM per {{ ZK }} host (in GB).
-* $0.002240: Cost of using 1 GB of RAM at 50% vCPU per hour.
+{% include [usd-managed-clickhouse-zk](../_pricing_examples/managed-clickhouse/usd-managed-clickhouse-zk.md) %}
 
 
 Calculation for the storage cost and total cost:
 
 
 
-> 720 × ($0.172800 + $0.060480) + 100&nbsp;×&nbsp;$0.025600 = $170.521600
->
-> Total: $170.521600, cost of using the cluster for 30 days.
 
-Where:
-* 720: Number of hours in 30 days.
-* $0.172800: Cost of operation of {{ CH }} hosts per hour.
-* $0.060480: Cost of operation of {{ ZK }} hosts per hour.
-* 100: Amount of network HDD storage (in GB).
-* $0.025600: Cost of using 1 GB of network HDD storage per month.
-
+{% include [usd-managed-clickhouse-storage](../_pricing_examples/managed-clickhouse/usd-managed-clickhouse-storage.md) %}
 
 
 
@@ -140,7 +114,7 @@ Where:
 
 {% include [cvos](../_includes/mdb/cvos.md) %}
 
-{{ mch-name }} provides two kinds of CVoS: on vCPUs and RAM on the hosts you plan to use in DB clusters. In the management console, you can see potential savings from using a CVoS at the current resource usage. You can also forecast your monthly payments for the desired number of vCPUs and RAM.
+{{ mch-name }} provides two kinds of CVoS: on vCPUs and RAM on the hosts you plan to use in DB clusters. In the management console, you can see how much you can potentially save with CVoS at the current consumption level. You can also forecast your monthly payments for the required number of vCPUs and RAM.
 
 {% note info %}
 
@@ -166,6 +140,10 @@ All prices below do not include VAT.
 ### {{ CH }} host computing resources {#prices-clickhouse}
 
 
+{% include [Доступ к Compute Optimized по запросу](../_includes/mdb/note-compute-optimized-request.md) %}
+
+
+
 
 {% include [usd-host-ch.md](../_pricing/managed-clickhouse/usd-host-ch.md) %}
 
@@ -173,9 +151,13 @@ All prices below do not include VAT.
 ### {{ ZK }} host computing resources {#prices-zookeeper}
 
 
+{% include [Доступ к Compute Optimized по запросу](../_includes/mdb/note-compute-optimized-request.md) %}
+
+
+
 {% note info %}
 
-You can't order {{ ZK }} host resources using a CVoS.
+You cannot order {{ ZK }} host resources via CVoS.
 
 {% endnote %}
 

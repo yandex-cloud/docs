@@ -4,7 +4,7 @@ description: "To allow access to {{ mgp-name }} resources (DB clusters and hosts
 keywords:
   - access
   - configuring access
-  - access to {{ GP }}
+  - "access to {{ GP }}"
   - green plum
   - "{{ GP }}"
 ---
@@ -77,7 +77,9 @@ The chart below shows which roles are available in the service and how they inhe
 
 ## Roles required {#required-roles}
 
-To use the service, you need the `{{ roles.mgp.editor }}` [role](../../iam/concepts/access-control/roles.md) or higher for the folder where the cluster is created. The `{{ roles.mgp.viewer }}` role enables you only to view the list of clusters.
+To use the service, you need the [{{ roles.mgp.editor }} role](../../iam/concepts/access-control/roles.md) or higher for the folder to house the new cluster. The `{{ roles.mgp.viewer }}` role only enables you to view the list of clusters.
+
+To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the `{{ roles.mgp.editor }}` role or higher.
 
 You can always assign a role with more permissions. For instance, you can assign `{{ roles.mgp.admin }}` instead of `{{ roles.mgp.editor }}`.
 

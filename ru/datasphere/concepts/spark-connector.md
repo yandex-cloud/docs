@@ -53,3 +53,4 @@
 #### См. также {#see-also}
 
 * [Как создать, изменить и удалить коннектор Spark](../operations/data/spark-connectors.md).
+* [{#T}](../troubleshooting/troubles-with-spark.md)

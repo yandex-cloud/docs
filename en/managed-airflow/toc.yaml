@@ -29,7 +29,7 @@ items:
       - name: Automating {{ dataproc-name }} operations
         href: tutorials/data-proc-automation.md
       - name: Automating {{ yq-full-name }} tasks
-        href: tutorials/yandex-query-automation.md
+        href: tutorials/airflow-auto-tasks.md
       - name: >-
           Sending requests to the {{ yandex-cloud }} API via the {{ yandex-cloud
           }} Python SDK
@@ -48,6 +48,44 @@ items:
     href: security/index.md
   - name: Pricing policy
     href: pricing.md
+  - name: '{{ monitoring-name }} metrics'
+    href: metrics.md
+  - name: API reference
+    items:
+      - name: Authentication with the API
+        href: api-ref/authentication.md
+      - name: gRPC
+        items:
+          - name: Overview
+            href: api-ref/grpc/index.md
+          - name: ClusterService
+            href: api-ref/grpc/cluster_service.md
+          - name: OperationService
+            href: api-ref/grpc/operation_service.md
+      - name: REST
+        items:
+          - name: Overview
+            href: api-ref/index.md
+          - name: Cluster
+            items:
+              - name: Overview
+                href: api-ref/Cluster/index.md
+              - name: create
+                href: api-ref/Cluster/create.md
+              - name: delete
+                href: api-ref/Cluster/delete.md
+              - name: get
+                href: api-ref/Cluster/get.md
+              - name: list
+                href: api-ref/Cluster/list.md
+              - name: listOperations
+                href: api-ref/Cluster/listOperations.md
+              - name: start
+                href: api-ref/Cluster/start.md
+              - name: stop
+                href: api-ref/Cluster/stop.md
+              - name: update
+                href: api-ref/Cluster/update.md
   - name: Release notes
     href: release-notes.md
 base: en/managed-airflow

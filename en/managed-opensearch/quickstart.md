@@ -20,6 +20,7 @@ To get started with the service:
 
    {% include [create-folder](../_includes/create-folder.md) %}
 
+1. [Make sure](../iam/operations/roles/get-assigned-roles.md) your account has the [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) role and [{{ roles.mos.editor }} role or higher](security/index.md#roles-list) for creating a cluster.
 1. You can connect to an {{ OS }} cluster both from inside {{ yandex-cloud }} and from the internet:
 
    * To connect from inside {{ yandex-cloud }}, [create a Linux VM](../compute/quickstart/quick-create-linux.md) in the same network as the cluster.

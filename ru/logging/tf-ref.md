@@ -1,3 +1,8 @@
+---
+title: "Справочник {{ TF }} для {{ cloud-logging-full-name }}"
+description: "На этой странице приведен справочник ресурсов и источников данных провайдера {{ TF }}, которые поддерживаются для сервиса {{ cloud-logging-name }}."
+---
+
 # Справочник {{ TF }} для {{ cloud-logging-full-name }}
 
 {% include [terraform-ref-intro](../_includes/terraform-ref-intro.md) %}

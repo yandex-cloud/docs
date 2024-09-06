@@ -16,7 +16,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. [Create a {{ mkf-name }} cluster](../operations/cluster-create.md) in any suitable configuration.
 
-   * If the ksqlDB server is hosted on the internet, create a publicly accessible {{ mkf-name }} cluster.
+   * If the ksqlDB server is hosted on the internet, create a {{ mkf-name }} cluster with public access.
    
    * If the ksqlDB server is hosted in {{ yandex-cloud }}, create a {{ mkf-name }} cluster on the same [cloud network](../../vpc/concepts/network.md) as ksqlDB.
 
@@ -31,7 +31,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
    1. Service topic named `default_ksql_processing_log` for writing ksqlDB logs. The topic may have any settings.
    1. Data storage topic named `locations`. The topic may have any settings.
 
-1. [Create a user](../../managed-kafka/operations/cluster-accounts.md#create-user) named `ksql` and assign it the [ACCESS_ROLE_PRODUCER](../operations/cluster-accounts#grant-permission) and `ACCESS_ROLE_CONSUMER` roles for all topics.
+1. [Create a user](../../managed-kafka/operations/cluster-accounts.md#create-account) named `ksql` and assign it the [ACCESS_ROLE_PRODUCER](../operations/cluster-accounts.md#grant-permission) and `ACCESS_ROLE_CONSUMER` roles for all topics.
 
 1. Check that you can connect to the ksqlDB server.
 
@@ -93,6 +93,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 Processing data streams from {{ mkf-name }} depends on the data representation format in {{ KF }} messages.
 
 In the example, geodata is written to the {{ KF }} `locations` topic in JSON format:
+
 * `profileId`: Identifier.
 * `latitude`: Latitude.
 * `longitude`: Longitude.
@@ -110,6 +111,7 @@ Next, we are going to configure the fields of a ksqlDB data stream table.
 ## Create a table in ksqlDB to capture the data stream from the {{ KF }} topic {#create-kf-table}
 
 Create a table in ksqlDB for writing data from the {{ KF }} topic. The table structure matches the [format of the data](#explore-kf-data-format) from {{ mkf-name }}:
+
 1. Connect to the ksqlDB server.
 1. Run the `ksql` client with the command:
 

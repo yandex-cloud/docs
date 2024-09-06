@@ -125,7 +125,7 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
 
    {% include [user-name-and-password-limits](../../_includes/mdb/mch/note-info-user-name-and-pass-limits.md) %}
 
-   For more information about [quotas](../concepts/settings-list.md#quota-settings) and [user-level settings](../concepts/settings-list.md#user-level-settings), see [{#T}](../concepts/settings-list.md).
+   For more information about [quotas](../concepts/settings-list.md#quota-settings) and [query-level settings](../concepts/settings-list.md#user-level-settings), see [{#T}](../concepts/settings-list.md).
 
    To set multiple quotas, list them using the required number of `--quota` parameters in the command:
 
@@ -299,7 +299,7 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
 
    ```bash
    {{ yc-mdb-ch }} cluster update <cluster_name_or_ID> \
-    --admin-password <new_admin_password>
+     --admin-password <new_admin_password>
    ```
 
    {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}

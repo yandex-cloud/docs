@@ -27,6 +27,7 @@ To get started with the service:
 1. [Create a service account](../iam/operations/sa/create.md).
 1. [Assign the service account the `storage.viewer` role](../iam/operations/sa/assign-role-for-sa.md) for the folder or bucket.
 1. [Create a static access key](../iam/operations/sa/create-access-key.md) for the service account.
+1. [Make sure](../iam/operations/roles/get-assigned-roles.md) your account has the [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) role and [{{ roles.maf.editor }} role or higher](security/index.md#roles-list) for creating a cluster.
 
 
 ## Create a cluster {#cluster-create}

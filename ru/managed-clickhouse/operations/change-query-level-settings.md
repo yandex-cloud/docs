@@ -25,7 +25,7 @@
 
 {% list tabs group=instructions %}
 
-* SQL {#sql}
+- SQL {#sql}
 
    1. [Подключитесь](connect/clients.md) к БД в кластере.
    1. Выполните запрос:
@@ -50,7 +50,7 @@
 
 {% list tabs group=instructions %}
 
-* SQL {#sql}
+- SQL {#sql}
 
    1. [Подключитесь](connect/clients.md) к БД в кластере под учетной записью `admin`.
    1. Создайте пользователя:
@@ -79,7 +79,7 @@
 
 {% list tabs group=instructions %}
 
-* SQL {#sql}
+- SQL {#sql}
 
    1. [Подключитесь](connect/clients.md) к БД в кластере под учетной записью `admin`.
    1. Измените учетную запись пользователя:
@@ -100,7 +100,7 @@
 
 {% list tabs group=instructions %}
 
-* SQL {#sql}
+- SQL {#sql}
 
    1. [Подключитесь](connect/clients.md) к БД в кластере под учетной записью `admin`.
    1. Создайте профиль настроек:
@@ -133,7 +133,7 @@
 
 {% list tabs group=instructions %}
 
-* SQL {#sql}
+- SQL {#sql}
 
    1. [Подключитесь](connect/clients.md) к БД в кластере под учетной записью `admin`.
    1. Измените профиль настроек:
@@ -151,7 +151,7 @@
 
 {% list tabs group=instructions %}
 
-* SQL {#sql}
+- SQL {#sql}
 
    1. [Подключитесь](connect/clients.md) к БД в кластере.
    1. Выполните запрос:
@@ -180,7 +180,7 @@
 
 {% list tabs group=instructions %}
 
-* SQL {#sql}
+- SQL {#sql}
 
    1. [Установите зависимости](connect/clients.md#clickhouse-client), необходимые для подключения к БД.
    1. Посмотрите описание команды для подключения к БД:

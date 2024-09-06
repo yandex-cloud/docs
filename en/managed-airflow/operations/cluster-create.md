@@ -17,6 +17,7 @@ Every {{ maf-name }} cluster consists of a set of {{ AF }} components, each of w
 1. In the folder where you want to create a cluster, [create a service account](../../iam/operations/sa/create.md) with the `managed-airflow.integrationProvider` role.
 1. [Create a static access key](../../iam/operations/sa/create-access-key.md) for the service account.
 1. [Create a {{ objstorage-full-name }} bucket](../../storage/operations/buckets/create.md) to store [DAG files](../concepts/index.md#about-the-service).
+1. [Make sure](../../iam/operations/roles/get-assigned-roles.md) your account has the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the [{{ roles.maf.editor }} role or higher](../security/index.md#roles-list) for creating a cluster.
 
 ## Create a cluster {#create-cluster}
 
@@ -45,11 +46,11 @@ Every {{ maf-name }} cluster consists of a set of {{ AF }} components, each of w
          * One digit
          * One special character
 
-      {% note info %}
+         {% note info %}
 
-      Save the password locally or memorize it. The service does not show passwords after the registry is created.
+         Save the password locally or memorize it. The service does not show passwords after the registry is created.
 
-      {% endnote %}
+         {% endnote %}
 
       * Select the [previously created](#before-creating) service account with the `managed-airflow.integrationProvider` role.
 

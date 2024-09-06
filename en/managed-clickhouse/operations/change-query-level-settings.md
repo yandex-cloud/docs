@@ -1,9 +1,9 @@
-# Changing {{ CH }} settings at the user level
+# Changing {{ CH }} settings at the query level
 
-You can specify [{{ CH }} settings at the user level](https://clickhouse.com/docs/en/operations/settings/query-level) to flexibly configure databases in a {{ mch-name }} cluster. You can specify settings in several ways:
+You can specify [{{ CH }} settings at the query level](https://clickhouse.com/docs/en/operations/settings/query-level) to flexibly configure databases in a {{ mch-name }} cluster. You can specify settings in several ways:
 
 * Using the [{{ yandex-cloud }} interfaces](#yandex-cloud-interfaces). This way you can specify only the [{{ CH }} settings available in {{ yandex-cloud }}](../concepts/settings-list.md#user-level-settings).
-* Using SQL queries. This way you can specify any {{ CH }} settings at the user level. The method of specifying settings depends on their type:
+* Using SQL queries. This way you can specify any {{ CH }} settings at the query level. The method of specifying settings depends on their type:
 
    * [User settings](#user). In the `CREATE USER` and `ALTER USER` SQL queries, you can specify settings in the `SETTINGS` condition. Such settings will apply to the selected user only.
 
@@ -21,20 +21,20 @@ You can specify [{{ CH }} settings at the user level](https://clickhouse.com/doc
 
       You can also specify connection settings in different drivers for {{ CH }} or provide them as URL parameters when sending {{ CH }} HTTP API requests. For more information about these methods, see the [{{ CH }} documentation](https://clickhouse.com/docs/en/interfaces/overview).
 
-## Getting the list of {{ CH }} settings at the user level {#get-list}
+## Getting the list of {{ CH }} settings at the query level {#get-list}
 
 {% list tabs group=instructions %}
 
 - SQL {#sql}
 
-   1. [Connect](connect/clients.md) to the cluster.
+   1. [Connect](connect/clients.md) to the database in the cluster.
    1. Run the following query:
 
       ```sql
       SELECT name, description, value FROM system.settings;
       ```
 
-      The result contains names, descriptions, and values of {{ CH }} settings at the user level. The result displays values for the current session and the user who established that session.
+      The result contains names, descriptions, and values of {{ CH }} settings at the query level. The result displays values for the current session and the user who established that session.
 
 {% endlist %}
 
@@ -52,7 +52,7 @@ You can specify {{ CH }} settings when [adding a new user](#add-user) or [changi
 
 - SQL {#sql}
 
-   1. [Connect](connect/clients.md) to a cluster using the `admin` account.
+   1. [Connect](connect/clients.md) to the DB in the cluster using the `admin` account.
    1. Create a user:
 
       ```sql
@@ -81,7 +81,7 @@ You can specify {{ CH }} settings when [adding a new user](#add-user) or [changi
 
 - SQL {#sql}
 
-   1. [Connect](connect/clients.md) to a cluster using the `admin` account.
+   1. [Connect](connect/clients.md) to the DB in the cluster using the `admin` account.
    1. Update the user account.
 
       ```sql
@@ -102,7 +102,7 @@ You can specify {{ CH }} settings when [creating](#create-settings-profile) or [
 
 - SQL {#sql}
 
-   1. [Connect](connect/clients.md) to a cluster using the `admin` account.
+   1. [Connect](connect/clients.md) to the DB in the cluster using the `admin` account.
    1. Create a settings profile:
 
       ```sql
@@ -135,7 +135,7 @@ You can specify {{ CH }} settings when [creating](#create-settings-profile) or [
 
 - SQL {#sql}
 
-   1. [Connect](connect/clients.md) to a cluster using the `admin` account.
+   1. [Connect](connect/clients.md) to the DB in the cluster using the `admin` account.
    1. Update a settings profile:
 
       ```sql
@@ -153,7 +153,7 @@ You can specify {{ CH }} settings when [creating](#create-settings-profile) or [
 
 - SQL {#sql}
 
-   1. [Connect](connect/clients.md) to the cluster.
+   1. [Connect](connect/clients.md) to the database in the cluster.
    1. Run the following query:
 
       ```sql

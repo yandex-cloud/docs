@@ -1,3 +1,8 @@
+---
+title: "Справочник {{ TF }} для {{ managed-k8s-full-name }}"
+description: "На этой странице приведен справочник ресурсов и источников данных провайдера {{ TF }}, которые поддерживаются для сервиса {{ managed-k8s-name }}."
+---
+
 # Справочник {{ TF }} для {{ managed-k8s-full-name }}
 
 {% include [terraform-ref-intro](../_includes/terraform-ref-intro.md) %}

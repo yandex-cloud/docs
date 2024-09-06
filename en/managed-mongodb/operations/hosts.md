@@ -1,6 +1,6 @@
 # Managing {{ MG }} cluster hosts
 
-You can add and remove [cluster hosts](../concepts/index.md), resync the hosts, and [manage {{ MG }} settings](update.md) for individual clusters. To move cluster hosts to a different availability zone, read this [guide](host-migration.md).
+You can add and remove [cluster hosts](../concepts/index.md), resync the hosts, and [manage {{ MG }} settings](update.md) for individual clusters. To learn how to move your cluster hosts to a different availability zone, see [this guide](host-migration.md).
 
 ## Getting a list of cluster hosts {#list-hosts}
 
@@ -212,7 +212,7 @@ To enable security groups, [request access to this feature from technical suppor
 
 {% note warning %}
 
-If you cannot [connect](connect/index.md) to the added host, make sure that the {{ mmg-name }} cluster [security group](../concepts/network.md#security-groups) is configured correctly for the subnet where you placed the host.
+If you cannot [connect](connect/index.md) to the host you added, check that the {{ mmg-name }} cluster [security group](../concepts/network.md#security-groups) is configured correctly for the host's subnet.
 
 {% endnote %}
 
@@ -232,7 +232,7 @@ From a [sharded {{ mmg-name }} cluster](../operations/shards.md#enable), you may
    To remove a host from a {{ mmg-name }} cluster:
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
    1. Click the name of the {{ mmg-name }} cluster you need and select the **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}** tab.
-   1. Click the ![image](../../_assets/console-icons/ellipsis.svg) icon in the line of the necessary host and select **{{ ui-key.yacloud.common.delete }}**.
+   1. Click the ![image](../../_assets/console-icons/ellipsis.svg) icon in the required host row and select **{{ ui-key.yacloud.common.delete }}**.
    1. In the window that opens, check **Delete host** and click **{{ ui-key.yacloud.mdb.cluster.hosts.popup-confirm_button }}**.
 
 - CLI {#cli}
