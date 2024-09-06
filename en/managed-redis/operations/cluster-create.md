@@ -19,10 +19,26 @@ For more information about {{ mrd-name }} cluster structure, see [Resource relat
 
 ## Creating a cluster {#create-cluster}
 
+To create a {{ mrd-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the [{{ roles.mrd.editor }} role or higher](../security/index.md#roles-list). For information on assigning roles, see the [{{ iam-name }} documentation](../../iam/operations/roles/grant.md).
+
+{% note info %}
+
+The following restrictions apply when creating sharded clusters:
+
+* You can create a single-shard cluster using the CLI, {{ TF }}, or API.
+* You cannot create a cluster with two shards, but you can [add a shard](./shards.md#add) to an existing single-shard cluster.
+* You can create a cluster with three or more shards using the management console, CLI, {{ TF }}, or API.
+
+There are no restrictions for non-sharded clusters.
+
+{% endnote %}
+
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
+
+   To create a {{ mrd-name }} cluster:
 
    1. In the [management console]({{ link-console-main }}), go to the folder to create a DB cluster in.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
@@ -40,7 +56,7 @@ For more information about {{ mrd-name }} cluster structure, see [Resource relat
 
          {% note warning %}
 
-         You can only enable sharding when you create a new cluster. You cannot shard an existing non-sharded cluster or disable sharding for a cluster that it is enabled for.
+         You cannot disable sharding in a cluster where it is already enabled. You can create a non-sharded cluster and [enable sharding](./update.md#enable-sharding) later, if required.
 
          {% endnote %}
 
@@ -52,7 +68,9 @@ For more information about {{ mrd-name }} cluster structure, see [Resource relat
 
          {% endnote %}
 
-      * If required, enable the use of [FQDNs](../concepts/network.md#hostname) instead of IP addresses.
+      * If required, enable the [use of FQDNs instead of IP addresses](../concepts/network.md#fqdn-ip-setting).
+
+         {% include [fqdn-option-compatibility-note](../../_includes/mdb/mrd/connect/fqdn-option-compatibility-note.md) %}
 
       * Select the [data persistence](../concepts/replication.md#persistence) settings.
 
@@ -62,7 +80,7 @@ For more information about {{ mrd-name }} cluster structure, see [Resource relat
       * Specify the **{{ ui-key.yacloud.mdb.forms.resource_presets_field-type }}** of the VM to deploy hosts on.
       * Select **{{ ui-key.yacloud.mdb.forms.section_resource }}**.
 
-      
+  
       * Select the [disk type](../concepts/storage.md):
          * Either more flexible storage on network SSDs (`network-ssd`) or non-replicated SSDs (`network-ssd-nonreplicated`).
          * Or faster local SSD storage (`local-ssd`).
@@ -70,7 +88,6 @@ For more information about {{ mrd-name }} cluster structure, see [Resource relat
          {% include [storages-step-settings-no-hdd](../../_includes/mdb/settings-storages-no-hdd.md) %}
 
 
-        {% include [storages-type-no-change](../../_includes/mdb/storages-type-no-change.md) %}
 
 
       * Select the storage size. The available storage size is limited by [quotas and limits](../concepts/limits.md#mrd-limits).
@@ -115,7 +132,7 @@ For more information about {{ mrd-name }} cluster structure, see [Resource relat
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To create a cluster:
+   To create a {{ mrd-name }} cluster:
 
    
    1. Check whether the folder has any subnets for the cluster hosts:
@@ -155,10 +172,11 @@ For more information about {{ mrd-name }} cluster structure, see [Resource relat
         --enable-tls \
         --resource-preset <host_class> \
         --disk-size <storage_size_in_GB> \
-        --disk-type-id <disk_type> \
+        --disk-type-id <network-ssd|network-ssd-nonreplicated|local-ssd> \
         --password=<user_password> \
         --backup-window-start <time> \
-        --deletion-protection=<deletion_protection>
+        --deletion-protection=<deletion_protection> \
+        --announce-hostnames <use_of_FQDNs_instead_of_IP_addresses>
       ```
 
 
@@ -178,6 +196,10 @@ For more information about {{ mrd-name }} cluster structure, see [Resource relat
 
       * `--backup-window-start`: Backup start time in `HH:MM:SS` format.
       * `--deletion-protection`: Cluster deletion protection, `true` or `false`.
+
+      * `--announce-hostnames`: Allow [using FQDNs instead of IP addresses](../concepts/network.md#fqdn-ip-setting): `true` or `false`.
+
+         {% include [fqdn-option-compatibility-note](../../_includes/mdb/mrd/connect/fqdn-option-compatibility-note.md) %}
 
       You need to specify the `subnet-id` if the selected availability zone has two or more subnets.
 
@@ -199,7 +221,7 @@ For more information about {{ mrd-name }} cluster structure, see [Resource relat
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-   To create a cluster:
+   To create a {{ mrd-name }} cluster:
 
    1. In the configuration file, describe the parameters of the resources you want to create:
 
@@ -222,6 +244,7 @@ For more information about {{ mrd-name }} cluster structure, see [Resource relat
         security_group_ids  = [ "<list_of_security_group_IDs>" ]
         tls_enabled         = true
         deletion_protection = <deletion_protection>
+        announce_hostnames  = <use_FQDNs_instead_of_IP_addresses>
 
         config {
           password = "<password>"
@@ -258,6 +281,10 @@ For more information about {{ mrd-name }} cluster structure, see [Resource relat
       Where:
       * `environment`: Environment, `PRESTABLE` or `PRODUCTION`.
       * `deletion_protection`: Cluster deletion protection, `true` or `false`.
+      * `announce_hostnames`: Allow [using FQDNs instead of IP addresses or not](../concepts/network.md#fqdn-ip-setting): `true` or `false`.
+
+         {% include [fqdn-option-compatibility-note](../../_includes/mdb/mrd/connect/fqdn-option-compatibility-note.md) %}
+
       * `version`: {{ RD }} {{ versions.tf.str }}.
       * `host`: Host parameters:
          * `zone_id`: Availability zone.
@@ -294,6 +321,10 @@ For more information about {{ mrd-name }} cluster structure, see [Resource relat
    * Cluster name in the `name` parameter.
    * Security group IDs in the `securityGroupIds` parameter.
    * `tlsEnabled=true` flag for creating clusters with encrypted SSL support.
+   * The `announceHostnames` flag to enable or disable the [use of FQDNs instead of IP addresses](../concepts/network.md#fqdn-ip-setting): `true` or `false`.
+
+      {% include [fqdn-option-compatibility-note](../../_includes/mdb/mrd/connect/fqdn-option-compatibility-note.md) %}
+
    * Settings of public access to hosts in the `hostSpecs[].assignPublicIp` parameter.
    * Settings for access from [{{ data-transfer-full-name }}](../../data-transfer/index.yaml) in the `configSpec.access.dataTransfer` parameter.
 
@@ -398,15 +429,15 @@ To create a {{ RD }} cluster copy:
 
    Create a {{ mrd-name }} cluster with the following test characteristics:
 
-   * Name: `myredis`.
-   * Version: `{{ versions.cli.latest }}`.
+   * Name: `myredis`
+   * Version: `{{ versions.cli.latest }}`
    * Environment: `production`.
    * Network: `default`.
    * Single `{{ mrd-host-class }}` class host in the `b0rcctk2rvtr********` subnet in the `{{ region-id }}-a` availability zone and the security group with the `{{ security-group }}` ID with public access and a [host priority](../concepts/replication.md#master-failover) of `50`.
-   * SSL support: Enabled.
+   * SSL support: Enabled
    * Network SSD storage (`{{ disk-type-example }}`): 16 GB.
-   * Password: `user1user1`.
-   * Protection against accidental cluster deletion: Enabled.
+   * Password: `user1user1`
+   * Protection against accidental cluster deletion: Enabled
 
    Run the following command:
 
@@ -432,18 +463,18 @@ To create a {{ RD }} cluster copy:
 
    Create a {{ mrd-name }} cluster and a network for it with the following test characteristics:
 
-   * Name: `myredis`.
-   * Version: `{{ versions.tf.latest }}`.
+   * Name: `myredis`
+   * Version: `{{ versions.tf.latest }}`
    * Environment: `PRODUCTION`.
    * Cloud ID: `{{ tf-cloud-id }}`.
    * Folder ID: `{{ tf-folder-id }}`.
    * New network: `mynet`.
    * Single `{{ mrd-host-class }}` host in a new subnet named `mysubnet` in the `{{ region-id }}-a` availability zone with public access and a [host priority](../concepts/replication.md#master-failover) of `50`. The `mysubnet` subnet will have the `10.5.0.0/24` range.
    * In the new `redis-sg` security group allowing connections through port `{{ port-mrd-tls }}` from any addresses in the `mysubnet` subnet.
-   * SSL support: Enabled.
+   * SSL support: Enabled
    * Network SSD storage (`{{ disk-type-example }}`): 16 GB.
-   * Password: `user1user1`.
-   * Protection against accidental cluster deletion: Enabled.
+   * Password: `user1user1`
+   * Protection against accidental cluster deletion: Enabled
 
    The configuration file for this cluster is as follows:
 
@@ -504,7 +535,126 @@ To create a {{ RD }} cluster copy:
 
 {% endlist %}
 
-### Creating sharded clusters {#creating-a-sharded-cluster}
+### Creating a sharded cluster with a single shard {#creating-a-single-shard-sharded-cluster}
+
+{% list tabs group=instructions %}
+
+- CLI {#cli}
+
+   Create a [sharded](../concepts/sharding.md) {{ mrd-name }} cluster with the following test characteristics:
+
+   * Name: `myredis`
+   * Version: `{{ versions.cli.latest }}`
+   * Environment: `production`.
+   * Sharding: Enabled.
+   * SSL support: Enabled
+   * Protection against accidental cluster deletion: Enabled
+   * Network: `default`.
+   * Security group ID: `{{ security-group }}`.
+   * Host class: `{{ mrd-host-class }}`.
+   * Hosts: One host in the shard named `shard1` in the `b0rcctk2rvtr********` subnet in the `{{ region-id }}-a` availability zone with public access and a [host priority](../concepts/replication.md#master-failover) of `50`.
+   * Network SSD storage (`{{ disk-type-example }}`): 16 GB.
+   * Password: `user1user1`
+
+   Run the following command:
+
+   
+   ```bash
+   {{ yc-mdb-rd }} cluster create \
+     --name myredis \
+     --redis-version {{ versions.cli.latest }} \
+     --environment production \
+     --sharded \
+     --enable-tls \
+     --deletion-protection=true \
+     --network-name default \
+     --security-group-ids {{ security-group }} \
+     --resource-preset {{ mrd-host-class }} \
+     --host shard-name=shard1,subnet-id=b0rcctk2rvtr********,zone-id=ru-central1-a,assign-public-ip=true,replica-priority=50 \
+     --disk-type-id {{ disk-type-example }} \
+     --disk-size 16 \
+     --password user1user1
+   ```
+
+
+- {{ TF }} {#tf}
+
+   Create a [sharded](../concepts/sharding.md) {{ mrd-name }} cluster and a network for it with the following test characteristics:
+
+   * Name: `myredis`
+   * Version: `{{ versions.cli.latest }}`
+   * Environment: `PRODUCTION`.
+   * Sharding: Enabled.
+   * SSL support: Enabled
+   * Protection against accidental cluster deletion: Enabled
+   * Network: New network named `mynet` with a single subnet. This new subnet named `mysubnet` will have a range of `10.5.0.0/24`.
+   * Security group: New security group named `redis-sg` allowing connections on port `{{ port-mrd-tls }}` from any `mysubnet` addresses.
+   * Host class: `{{ mrd-host-class }}`.
+   * Hosts: One host in the shard named `shard1` in the `mysubnet` subnet in the `{{ region-id }}-a` availability zone with public access and a [host priority](../concepts/replication.md#master-failover) of `50`.
+   * Network SSD storage (`{{ disk-type-example }}`): 16 GB.
+   * Password: `user1user1`
+
+   The configuration file for this cluster is as follows:
+
+   
+   
+   ```hcl
+   resource "yandex_mdb_redis_cluster" "myredis" {
+     name                = "myredis"
+     environment         = "PRODUCTION"
+     sharded             = true
+     tls_enabled         = true
+     deletion_protection = true
+     network_id          = yandex_vpc_network.mynet.id
+     security_group_ids  = [yandex_vpc_security_group.redis-sg.id]
+
+     config {
+       version  = "{{ versions.tf.latest }}"
+       password = "user1user1"
+     }
+
+     resources {
+       resource_preset_id = "{{ mrd-host-class }}"
+       disk_type_id       = "{{ disk-type-example }}"
+       disk_size          = 16
+     }
+
+     host {
+       shard_name = "shard1"
+       subnet_id  = yandex_vpc_subnet.mysubnet.id
+       zone       = "ru-central1-a"
+       assign_public_ip = true
+       replica_priority = 50
+     }
+   }
+
+   resource "yandex_vpc_network" "mynet" { name = "mynet" }
+
+   resource "yandex_vpc_subnet" "mysubnet" {
+     name           = "mysubnet"
+     zone           = "{{ region-id }}-a"
+     network_id     = yandex_vpc_network.mynet.id
+     v4_cidr_blocks = ["10.5.0.0/24"]
+   }
+
+   resource "yandex_vpc_security_group" "redis-sg" {
+     name       = "redis-sg"
+     network_id = yandex_vpc_network.mynet.id
+
+     ingress {
+       description    = "Redis"
+       port           = {{ port-mrd-tls }}
+       protocol       = "TCP"
+       v4_cidr_blocks = ["10.5.0.0/24"]
+     }
+   }
+   ```
+
+
+
+{% endlist %}
+
+### Creating a sharded cluster with three shards {#creating-a-sharded-cluster}
 
 
 {% list tabs group=instructions %}
@@ -513,8 +663,8 @@ To create a {{ RD }} cluster copy:
 
    Create a [sharded](../concepts/sharding.md) {{ mrd-name }} cluster with the following test characteristics:
 
-   * Name: `myredis`.
-   * Version: `{{ versions.tf.latest }}`.
+   * Name: `myredis`
+   * Version: `{{ versions.tf.latest }}`
    * Environment: `PRODUCTION`.
    * Cloud ID: `{{ tf-cloud-id }}`.
    * Folder ID: `{{ tf-folder-id }}`.
@@ -526,8 +676,8 @@ To create a {{ RD }} cluster copy:
    * Three `{{ mrd-host-class }}` hosts, one in each subnet.
    * In the new `redis-sg` security group allowing connections through ports `{{ port-mrd }}` and `{{ port-mrd-sentinel }}` ([Redis Sentinel](./connect/index.md)) from any subnet address.
    * Network SSD storage (`{{ disk-type-example }}`): 16 GB.
-   * Password: `user1user1`.
-   * Protection against accidental cluster deletion: Enabled.
+   * Password: `user1user1`
+   * Protection against accidental cluster deletion: Enabled
 
    The configuration file for this cluster is as follows:
 

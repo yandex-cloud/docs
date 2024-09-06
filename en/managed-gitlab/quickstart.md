@@ -30,6 +30,8 @@ For more information about the differences between {{ mgl-name }} and the {{ GL 
 
      {% include [create-folder](../_includes/create-folder.md) %}
 
+  1. [Make sure](../iam/operations/roles/get-assigned-roles.md) your account has the [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) role and the [{{ roles.gitlab.editor }} role or higher](security/index.md#roles-list) for creating an instance.
+
 {% endlist %}
 
 ## Create an instance {#instance-create}
@@ -85,7 +87,7 @@ For more information about the differences between {{ mgl-name }} and the {{ GL 
    ssh -T git@<{{ GL }}_instance_domain>
    ```
 
-   For example:
+   Example:
 
    ```bash
    ssh -T git@example.gitlab.yandexcloud.net
@@ -132,7 +134,7 @@ To start working with a local copy of your repository using the account you crea
    git@<{{ GL }}_instance_domain>: Permission denied (publickey).
    fatal: Could not read from remote repository.
 
-   Please make sure you have the correct access rights
+   Please make sure you have the correct access permissions
    and the repository exists.
    ```
 

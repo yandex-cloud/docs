@@ -814,6 +814,8 @@ items:
     items:
       - name: Стилизация интерфейса
         href: settings/ui-customization.md
+      - name: Отключение навигации по папкам
+        href: settings/disable-folder-navigation.md
   - name: Marketplace
     items:
       - name: Обзор

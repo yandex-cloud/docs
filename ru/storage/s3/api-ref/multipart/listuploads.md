@@ -4,6 +4,7 @@
 
 Ответ не может содержать более 1000 элементов. Если загрузок больше, то {{ objstorage-name }} возвращает элемент `IsTruncated`, а также элементы `NextKeyMarker` и `NextUploadIdMarker`, которые необходимо использовать для параметров `key-marker` и `upload-id-marker` последующего запроса.
 
+{% include [s3-api-intro-include](../../../../_includes/storage/s3-api-intro-include.md) %}
 
 ## Запрос {#request}
 

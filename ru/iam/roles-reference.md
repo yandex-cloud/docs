@@ -326,9 +326,52 @@ description: "В статье приведен полный справочник
 
 ## {{ marketplace-full-name }} {#marketplace-roles}
 
+### Роли партнера {#marketplace-partner-roles}
+
 #### marketplace.meteringAgent {#marketplace-meteringagent}
 
 {% include [marketplace.meteringAgent](../_roles/marketplace/meteringAgent.md) %}
+
+#### license-manager.saasSubscriptionSupervisor {#license-manager-saasSubscriptionSupervisor}
+
+{% include [license-manager.saasSubscriptionSupervisor](../_roles/license-manager/saasSubscriptionSupervisor.md) %}
+
+#### marketplace.product.creator {#marketplace-product-creator}
+
+{% include [marketplace.product.creator](../_roles/marketplace/product/creator.md) %}
+
+#### marketplace.product.admin {#marketplace-product-admin}
+
+{% include [marketplace.product.admin](../_roles/marketplace/product/admin.md) %}
+
+#### marketplace.publishers.reportViewer {#marketplace-publishers-reportViewer}
+
+{% include [marketplace.publishers.reportViewer](../_roles/marketplace/publishers/reportViewer.md) %}
+
+#### marketplace.publishers.viewer {#marketplace-publishers-viewer}
+
+{% include [marketplace.publishers.viewer](../_roles/marketplace/publishers/viewer.md) %}
+
+#### marketplace.publishers.editor {#marketplace-publishers-editor}
+
+{% include [marketplace.publishers.editor](../_roles/marketplace/publishers/editor.md) %}
+
+#### marketplace.publishers.admin {#marketplace-publishers-admin}
+
+{% include [marketplace.publishers.admin](../_roles/marketplace/publishers/admin.md) %}
+
+#### marketplace.publishers.owner {#marketplace-publishers-owner}
+
+{% include [marketplace.publishers.owner](../_roles/marketplace/publishers/owner.md) %}
+
+#### marketplace.publishers.member {#marketplace-publishers-member}
+
+{% include [marketplace.publishers.member](../_roles/marketplace/publishers/member.md) %}
+
+Подробнее см. [{#T}](../marketplace/security/partners.md).
+
+
+### Роли пользователя {#marketplace-user-roles}
 
 #### license-manager.auditor {#license-manager-auditor}
 

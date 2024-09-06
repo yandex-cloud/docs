@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# {{ mgp-name }} pricing
+# {{ mgp-name }} pricing policy
 
 
 
@@ -33,7 +33,7 @@ There are different ways to calculate the cost depending on the [host type](../c
 
 * Standard hosts
 
-   The cost is calculated for each hour of operation of the host in accordance with the allocated computing resources.
+   Host operation cost is charged per hour based on what computing resources you allocate for it.
 
 * Dedicated hosts
 
@@ -41,7 +41,7 @@ There are different ways to calculate the cost depending on the [host type](../c
 
 You can find supported resource configurations in the [Host classes](../concepts/instance-types.md) section, and vCPU and RAM prices, in the [Prices](#prices) section.
 
-The minimum billing unit is one minute (for example, 1.5 minutes of host operation cost the same as 2 minutes). You are not paying for the time when the {{ GP }} host is unable to perform its main functions.
+The minimum billing unit is one minute (for example, 1.5 minutes of host operation cost the same as 2 minutes). You do not pay for the time when the {{ GP }} host is unable to perform its main functions.
 
 ### Disk space usage {#rules-storage}
 
@@ -77,53 +77,14 @@ The cost of using a cluster with the following parameters for 30 days:
 
 
 
-Cost calculation for standard hosts:
-
-> 3 × (8&nbsp;×&nbsp;$0.017231 + 32&nbsp;×&nbsp;$0.004564) = $0.851688
->
-> Total: $0.851688, cost per hour of operation of standard hosts.
-
-Where:
-* 3: Number of standard hosts.
-* 8: Number of vCPUs.
-* $0.017231: Cost of using 100% vCPU per hour.
-* 32: Amount of RAM per standard host (in GB).
-* $0.004564: Cost of using 1 GB of RAM at 100% vCPU per hour.
-
-Cost calculation for dedicated hosts:
-
-> 3 × (8&nbsp;×&nbsp;$0.009595 + 32&nbsp;×&nbsp;$0.002538) = $0.473928
->
-> Total: $0.473928, cost per hour of operation of dedicated hosts.
-
-Where:
-* 3: Number of dedicated hosts.
-* 8: Number of vCPUs.
-* $0.009595: Cost of using 100% vCPU per hour.
-* 32: Amount of RAM per dedicated host (in GB).
-* $0.002538: Cost of using 1 GB of RAM at 100% vCPU per hour.
-
-Calculation for the storage cost and total cost:
-
-> (720 × $0.851688 + 100 × $0.104080) + (720 × $0.473928 + 50 × $0.104080) = $970.0555
->
-> Total: $970.0555, cost of using the cluster for 30 days.
-
-Where:
-* 720: Number of hours in 30 days.
-* $0.851688: Cost per hour of operation of standard hosts.
-* 100: Amount of network HDD storage (in GB) for standard hosts.
-* $0.104080: Cost of using 1 GB of network HDD storage per month.
-* $0.473928: Cost per hour of operation of dedicated hosts.
-* 50: Amount of local SSD storage (in GB) for dedicated hosts.
-* $0.104080: Cost of using 1 GB of storage on local SSD disks per month.
+{% include [usd-managed-greenplum-standard](../../_pricing_examples/managed-greenplum/usd-managed-greenplum.md) %}
 
 
 ## Discount for committed volumes of services (CVoS) {#cvos}
 
 {% include [cvos](../../_includes/mdb/cvos.md) %}
 
-{{ mgp-name }} provides two types of CVoS: on vCPUs and RAM on the hosts you plan to use in DB clusters. In the management console, you can see potential savings from using a CVoS at the current resource usage. You can also forecast your monthly payments for the desired number of vCPUs and RAM.
+{{ mgp-name }} provides two types of CVoS: on vCPUs and on RAM for the hosts you are planning to use in your DB clusters. In the management console, you can see how much you can potentially save with CVoS at the current consumption level. You can also forecast your monthly payments for the required number of vCPUs and RAM.
 
 {% note info %}
 
@@ -141,7 +102,7 @@ All prices below do not include VAT.
 
 Host prices are [calculated in different ways](#rules-hosts-uptime) depending on the selected host type.
 
-The price of local SSD (`local-ssd`) storage also depends on the host type.
+The price of local SSD storage (`local-ssd`) also depends on the host type.
 
 {% include [pricing-month-term](../../_includes/mdb/pricing-month-term.md) %}
 
@@ -178,7 +139,7 @@ The cost calculation will be different depending on the [host configuration](../
 {% include [Access to Compute Optimized on request](../../_includes/mdb/note-compute-optimized-request.md) %}
 
 
-The usage cost includes two components: [the cost of {{ compute-full-name }} computing resources](../../compute/pricing.md#prices) and {{ mgp-name }} markup for using these resources.
+The cost is made up of two components: [the cost of {{ compute-full-name }} computing resources](../../compute/pricing.md#prices) and {{ mgp-name }} charges for these resources.
 
 
 

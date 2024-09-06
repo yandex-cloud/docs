@@ -51,7 +51,7 @@ To move a {{ mkf-name }} host to a different availability zone in an {{ KF }} cl
          --subnet-ids <subnet_ID>
       ```
 
-      If the new availability zone has only one subnet, the `--subnet-ids` parameter is optional.
+      If there is only one subnet in the new availability zone, you do not need to specify the `--subnet-ids` parameter.
 
    - {{ TF }} {#tf}
 
@@ -73,7 +73,7 @@ To move a {{ mkf-name }} host to a different availability zone in an {{ KF }} cl
          }
          ```
 
-         If the new availability zone has only one subnet, the `subnet_ids` parameter is optional.
+         If there is only one subnet in the new availability zone, you do not need to specify the `subnet_ids` parameter.
 
       1. Make sure the settings are correct.
 
@@ -104,15 +104,11 @@ To move a {{ mkf-name }} host to a different availability zone in an {{ KF }} cl
 
    To find out the FQDN, get a list of hosts in the cluster:
 
-   ```bash
-   {{ yc-mdb-kf }} cluster list-hosts <cluster_name_or_ID>
-   ```
-
-   The FQDN is specified in the command output under `NAME`.
+   {% include [list-hosts-quick](../../_includes/mdb/mkf/list-hosts-short.md) %}
 
 ### Migrating a single-host cluster with the help of auxiliary tools {#auxiliary-instruments}
 
-To move a {{ KF }} host to a different availability zone in a {{ mkf-name }} cluster:
+To move a {{ mkf-name }} host to a different availability zone in an {{ KF }} cluster:
 
 1. [Create a subnet](../../vpc/operations/subnet-create.md) in the availability zone to which you are migrating the cluster.
 1. If the cluster security group is set up for a subnet in the availability zone from which you are migrating the cluster, reconfigure the group for the new subnet. To do so, replace the source subnet CIDR with the new subnet CIDR in the security group rules.
@@ -120,17 +116,13 @@ To move a {{ KF }} host to a different availability zone in a {{ mkf-name }} clu
 1. Migrate data from the initial cluster to the new one using one of the following tools:
 
    * [MirrorMaker](../tutorials/kafka-connectors.md): You can use either the MirrorMaker connector embedded in {{ mkf-name }} or the MirrorMaker utility.
-   * [{{ data-transfer-name }}](../../data-transfer/tutorials/mkf-to-mkf.md).
+   * [{{ data-transfer-name }}](../../data-transfer/tutorials/mkf-to-mkf.md)​.
 
 1. To successfully connect to topics after the migration is complete, specify the FQDN of the new cluster's broker in your backend or client (e.g., in the code or graphical IDE). Delete the FQDN of the original cluster's broker in the initial availability zone.
 
    To find out the FQDN, get a list of hosts in the cluster:
 
-   ```bash
-   {{ yc-mdb-kf }} cluster list-hosts <cluster_name_or_ID>
-   ```
-
-   The FQDN is specified in the command output under `NAME`.
+   {% include [list-hosts-quick](../../_includes/mdb/mkf/list-hosts-short.md) %}
 
 1. [Delete the initial {{ mkf-name }} cluster](cluster-delete.md).
 
@@ -150,8 +142,21 @@ To move {{ KF }} hosts to a different availability zone in a cluster:
 
       1. In the [management console]({{ link-console-main }}), go to the appropriate folder.
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
-      1. Click the cluster name and select the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
-      1. Look up the list of availability zones.
+      1. Click the name of the cluster you need and select the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab. The **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_zone }}** column lists the availability zones for each host.
+
+   - CLI {#cli}
+
+      ```bash
+      {{ yc-mdb-kf }} cluster list-hosts <cluster_name_or_ID>
+      ```
+
+      The availability zone is specified in the command output, in the `ZONE ID` column.
+
+   - API {#api}
+
+      Use the [listHosts](../api-ref/Cluster/listHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/listHosts](../api-ref/grpc/cluster_service.md#ListHosts) gRPC API call and provide the cluster ID in the `clusterId` request parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+
+      The availability zone is specified in the response under `hosts[].zoneId` .
 
    {% endlist %}
 
@@ -266,7 +271,7 @@ To move {{ KF }} hosts to a different availability zone in a cluster:
       To edit the availability zones of a cluster and its {{ KF }} host, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
       * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-      * New set of availability zones in the `configSpec.zoneId` parameter. Their number must not become smaller.
+      * New set of availability zones in the `configSpec.zoneId` parameter. Their number must not decrease.
       * New set of subnets in the `subnetIds` parameter if these two conditions are met:
 
          * You are migrating {{ KF }} hosts to an availability zone where {{ ZK }} hosts were not previously placed.
@@ -284,11 +289,7 @@ To move {{ KF }} hosts to a different availability zone in a cluster:
 
    To find out the FQDN, get a list of hosts in the cluster:
 
-   ```bash
-   {{ yc-mdb-kf }} cluster list-hosts <cluster_name_or_ID>
-   ```
-
-   The FQDN is specified in the command output under `NAME`.
+   {% include [list-hosts-quick](../../_includes/mdb/mkf/list-hosts-short.md) %}
 
 ### Examples of migrating a multi-host cluster {#examples}
 
@@ -339,3 +340,5 @@ You need to migrate {{ KF }} hosts to the `{{ region-id }}-a`, `{{ region-id }}-
 No hosts initially reside in the `{{ region-id }}-d` zone, but there are multiple subnets, so you need to specify a subnet when performing the migration.
 
 {% include [migration-in-data-transfer](../../_includes/data-transfer/migration-in-data-transfer.md) %}
+
+For an example of data transfer using {{ data-transfer-name }}, see [this tutorial](../../data-transfer/tutorials/mkf-to-mkf.md).

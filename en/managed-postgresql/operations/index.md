@@ -35,6 +35,7 @@ description: "This page provides a list of step-by-step guides for {{ mpg-name }
 
 * [Managing extensions](./extensions/cluster-extensions.md)
 * [Using pg_cron](./extensions/pg_cron.md)
+* [Using pg_repack](./extensions/pg_repack.md)
 * [Using pgaudit](./extensions/pgaudit.md)
 * [Using pgcrypto](./extensions/pgcrypto.md)
 * [Using a Hunspell dictionary for full-text search](./extensions/hunspell.md)

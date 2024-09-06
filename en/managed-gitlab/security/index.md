@@ -50,11 +50,11 @@ You can assign a role for an organization, [cloud](../../resource-manager/concep
 
 ## Roles required {#required-roles}
 
-To use the service, you need the `{{ roles.gitlab.editor }}` [role](../../iam/concepts/access-control/roles.md) or higher for the folder where the projects are created. With the `{{ roles.gitlab.viewer }}` role, you can only view the list of projects and the contents of uploaded files.
+To use the service, you need the [{{ roles.gitlab.editor }} role](../../iam/concepts/access-control/roles.md) or higher to the folder where the projects are being created. With the `{{ roles.gitlab.viewer }}` role, you can only view the list of the projects and the contents of uploaded files.
+
+To create a {{ mgl-name }} instance, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the `{{ roles.gitlab.editor }}` role or higher.
 
 You can always assign a role with more permissions. For instance, you can assign `{{ roles.gitlab.admin }}` instead of `{{ roles.gitlab.editor }}`.
-
-To create a {{ GL }} instance, you also need the [`{{ roles-vpc-user }}`](../../vpc/security/index.md#vpc-user) role.
 
 
 ## What's next {#whats-next}

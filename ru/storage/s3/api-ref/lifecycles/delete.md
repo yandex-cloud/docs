@@ -2,6 +2,8 @@
 
 Удаляет конфигурацию жизненного цикла объектов в бакете из {{ objstorage-name }}.
 
+{% include [s3-api-intro-include](../../../../_includes/storage/s3-api-intro-include.md) %}
+
 ## Запрос {#request}
 
 ```http

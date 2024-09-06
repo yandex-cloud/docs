@@ -162,6 +162,8 @@ items:
           Загрузка данных в {{ ydb-full-name }} с помощью {{
           data-transfer-full-name }}
         href: tutorials/object-storage-to-ydb.md
+      - name: Обмен данными между {{ mch-full-name }} и {{ dataproc-full-name }}
+        href: tutorials/dp-mch-data-exchange.md
       - name: >-
           Загрузка данных из {{ ydb-full-name }} с помощью {{
           data-transfer-full-name }}

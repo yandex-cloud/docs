@@ -4,7 +4,7 @@ In a failover {{ mrd-name }} cluster with multiple hosts, you can switch the mas
 
 It takes several minutes on average to switch, and the cluster is available during that time.
 
-A [sharded cluster](../concepts/sharding.md) contains three or more master hosts: one per [shard](../concepts/sharding.md#redis-cluster-structure). Switching the master for a sharded cluster is done for each shard one by one.
+A [sharded cluster](../concepts/sharding.md) contains one or more master hosts: one per [shard](../concepts/sharding.md#redis-cluster-structure). Switching the master for a sharded cluster is done for each shard one by one.
 
 {% list tabs group=instructions %}
 

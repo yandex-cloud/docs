@@ -1,3 +1,8 @@
+---
+title: "Справочник {{ TF }} для {{ backup-full-name }}"
+description: "На этой странице приведен справочник ресурсов провайдера Terraform, которые поддерживаются для сервиса {{ backup-name }}."
+---
+
 # Справочник {{ TF }} для {{ backup-full-name }}
 
 {% include [terraform-ref-intro](../_includes/terraform-ref-intro.md) %}

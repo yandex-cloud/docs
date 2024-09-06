@@ -20,11 +20,13 @@ For more information, see [Resource relationships in the service](../concepts/in
 
 When creating a cluster, you need to specify individual parameters for each [host group](../concepts/host-roles.md).
 
+To create a {{ mos-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the [{{ roles.mos.editor }} role or higher](../security/index.md#roles-list). For information on assigning roles, see the [{{ iam-name }} documentation](../../iam/operations/roles/grant.md).
+
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-   To create a cluster:
+   To create a {{ mos-name }} cluster:
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a cluster.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
@@ -114,7 +116,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To create a cluster:
+   To create a {{ mos-name }} cluster:
 
    1. View a description of the create cluster CLI command:
 
@@ -146,7 +148,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
          --opensearch-node-group name=<name_of_{{ OS }}_host_group>,`
                                 `resource-preset-id=<host_class>,`
                                 `disk-size=<disk_size_in_bytes>,`
-                                `disk-type-id=<disk_type>,`
+                                `disk-type-id=<network-hdd|network-ssd|network-ssd-nonreplicated|local-ssd>,`
                                 `hosts-count=<number_of_hosts_per_group>,`
                                 `zone-ids=<availability_zones>,`
                                 `subnet-names=<subnet_names>,`
@@ -155,7 +157,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
          --dashboards-node-group name=<name_of_Dashboards_host_group>,`
                                 `resource-preset-id=<host_class>,`
                                 `disk-size=<disk_size_in_bytes>,`
-                                `disk-type-id=<disk_type>,`
+                                `disk-type-id=<network-ssd>,`
                                 `hosts-count=<number_of_hosts_per_group>,`
                                 `zone-ids=<availability_zones>,`
                                 `subnet-names=<subnet_names>,`
@@ -185,7 +187,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
       * `--data-transfer-access`: Access from [{{ data-transfer-full-name }}](../../data-transfer/index.yaml), `true` or `false`.
       * `--serverless-access`: Access from [{{ serverless-containers-full-name }}](../../serverless-containers/index.yaml), `true` or `false`.
       * `--plugins`: [{{ OS }} plugins](../concepts/plugins.md) you want to install in the cluster.
-      * `--advanced-params`: Additional cluster parameters. The possible values include:
+      * `--advanced-params`: Additional cluster parameters. The possible values are:
 
          * `max-clause-count`: Maximum allowed number of boolean clauses per query. See more in the [{{ OS }} documentation]({{ os.docs }}/query-dsl/compound/bool/).
          * `fielddata-cache-size`: Amount of JVM heap memory allocated for the fielddata data structure. You can specify either an absolute value or percentage, e.g., `512mb` or `50%`. For more details, see the [{{ OS }} documentation]({{ os.docs }}/install-and-configure/configuring-opensearch/index-settings/#cluster-level-index-settings).
@@ -297,7 +299,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
 
 - API {#api}
 
-   To create a cluster, use the [create](../api-ref/Cluster/create.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Create](../api-ref/grpc/cluster_service.md#Create) gRPC API call and provide the following in the request:
+   To create a {{ mos-name }} cluster, use the [create](../api-ref/Cluster/create.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Create](../api-ref/grpc/cluster_service.md#Create) gRPC API call and provide the following in the request:
 
    * ID of the folder where the cluster should be placed, in the `folderId` parameter.
    * Cluster name in the `name` parameter.
@@ -324,7 +326,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
 
 ## Creating a cluster copy {#duplicate}
 
-You can create an {{ OS }} cluster with the settings of another one created earlier. To do so, you need to import the configuration of the source {{ OS }} cluster to {{ TF }}. Thus you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing is a convenient option when the source {{ OS }} cluster has lots of settings and you need to create a similar one.
+You can create an {{ OS }} cluster with the settings of another one you previously created. To do so, you need to import the configuration of the source {{ OS }} cluster to {{ TF }}. This way, you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing a configuration is a good idea when the source {{ OS }} cluster has a lot of settings and you need to create a similar one.
 
 To create an {{ OS }} cluster copy:
 
@@ -339,9 +341,9 @@ To create an {{ OS }} cluster copy:
 
    1. In the same working directory, place a `.tf` file with the following contents:
 
-       ```hcl
-       resource "yandex_mdb_opensearch_cluster" "old" { }
-       ```
+      ```hcl
+      resource "yandex_mdb_opensearch_cluster" "old" { }
+      ```
 
    1. Write the ID of the initial {{ OS }} cluster to the environment variable:
 

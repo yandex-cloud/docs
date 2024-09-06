@@ -71,6 +71,14 @@ Users with the `{{ roles-admin }}` role can manage resource access rights, e.g.,
 
 This role includes the `{{ roles-editor }}` role.
 
+## Roles required {#required-roles}
+
+To use the service, you need the [{{ roles.maf.editor }} role](../../iam/concepts/access-control/roles.md) or higher for the folder to house the new cluster. The `{{ roles.maf.viewer }}` role enables you only to view the list of clusters.
+
+To create a {{ maf-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the `{{ roles.maf.editor }}` role or higher.
+
+You can always assign a role with more permissions. For instance, you can assign `{{ roles.maf.admin }}` instead of `{{ roles.maf.editor }}`.
+
 ## What's next {#whats-next}
 
 * [How to assign a role](../../iam/operations/roles/grant.md).

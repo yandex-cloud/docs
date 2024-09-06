@@ -135,7 +135,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 - Manually {#manual}
 
-    In the [{{ mch-name }} cluster settings](../../managed-clickhouse/operations/update.md#change-clickhouse-config), specify the username and password for {{ RMQ }} authentication in **{{ ui-key.yacloud.mdb.forms.section_settings }}** → **Rabbitmq**.
+    In the [{{ mch-name }} cluster settings](../../managed-clickhouse/operations/change-server-level-settings.md#yandex-cloud-interfaces), specify the username and password for {{ RMQ }} authentication in **{{ ui-key.yacloud.mdb.forms.section_settings }}** → **Rabbitmq**.
 
 - {{ TF }} {#tf}
 

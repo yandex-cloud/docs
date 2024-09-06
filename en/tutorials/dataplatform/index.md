@@ -31,7 +31,7 @@ description: "This page provides a list of tutorials for building a data platfor
 
 ## {{ AF }} {#airflow}
 
-* [{#T}](yandex-query-automation.md)
+* [{#T}](airflow-auto-tasks.md)
 * [{#T}](using-python-sdk-in-airflow.md)
 * [{#T}](lockbox-and-airflow.md)
 
@@ -50,6 +50,7 @@ description: "This page provides a list of tutorials for building a data platfor
 * [{#T}](mch-mch-resharding.md)
 * [{#T}](data-transfer-direct-to-mch.md)
 * [{#T}](object-storage-to-clickhouse.md)
+* [{#T}](ydb-to-clickhouse.md)
 
 ## {{ GP }} {#greenplum}
 
@@ -133,6 +134,7 @@ description: "This page provides a list of tutorials for building a data platfor
 * [{#T}](mmy-ydb-migration.md)
 * [{#T}](mpg-ydb-replication.md)
 * [{#T}](object-storage-to-ydb.md)
+* [{#T}](ydb-to-clickhouse.md)
 
 ## {{ dns-full-name }} {#dns}
 

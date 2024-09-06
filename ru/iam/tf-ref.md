@@ -1,3 +1,8 @@
+---
+title: "Справочник {{ TF }} для {{ iam-full-name }}"
+description: "На этой странице приведен справочник ресурсов и источников данных провайдера {{ TF }}, которые поддерживаются для сервиса {{ iam-name }}."
+---
+
 # Справочник {{ TF }} для {{ iam-full-name }}
 
 {% include [terraform-ref-intro](../_includes/terraform-ref-intro.md) %}

@@ -7,6 +7,11 @@ default:
   alb-name: Application Load Balancer
   all-mdb:
     max-databases: 1000
+  api-examples:
+    grpc:
+      tool: '[gRPCurl](https://github.com/fullstorydev/grpcurl)'
+    rest:
+      tool: '[cURL](https://curl.se/)'
   api-gw-full-name: Yandex API Gateway
   api-gw-name: API Gateway
   api-gw-short-name: API Gateway
@@ -1074,12 +1079,12 @@ default:
   sku|KZT|logging:
     ingested:
       traffic|pricingRate:
-        5|string: ₸116.38
+        5|string: ₸116.35
       traffic|string: Free
     storage:
       data|month|string: Free
       data|pricingRate:
-        720|month|string: ₸50.82
+        720|month|string: ₸50.80
   sku|KZT|mdb:
     cluster:
       clickhouse:
@@ -1447,14 +1452,15 @@ default:
         small|string: ₸44.00
   sku|KZT|monitoring:
     point:
-      dgauge:
+      api:
         read|pricingRate:
           50|string: ₸21.00
         read|string: ₸35.00
+      dgauge:
         store|string: Free
-        write|pricingRate:
-          50|string: ₸28.00
-        write|string: ₸49.00
+      write|pricingRate:
+        50|string: ₸28.00
+      write|string: ₸49.00
     prometheus:
       point:
         remote_api:
@@ -2183,12 +2189,12 @@ default:
   sku|RUB|logging:
     ingested:
       traffic|pricingRate:
-        5|string: ₽23.2760
+        5|string: ₽23.27
       traffic|string: Free
     storage:
       data|month|string: Free
       data|pricingRate:
-        720|month|string: ₽10.1640
+        720|month|string: ₽10.16
   sku|RUB|mdb:
     cluster:
       clickhouse:
@@ -2556,14 +2562,15 @@ default:
         small|string: ₽8.80
   sku|RUB|monitoring:
     point:
-      dgauge:
+      api:
         read|pricingRate:
           50|string: ₽4.20
         read|string: ₽7.00
+      dgauge:
         store|string: Free
-        write|pricingRate:
-          50|string: ₽5.60
-        write|string: ₽9.80
+      write|pricingRate:
+        50|string: ₽5.60
+      write|string: ₽9.80
     prometheus:
       point:
         remote_api:
@@ -3297,12 +3304,12 @@ default:
   sku|USD|logging:
     ingested:
       traffic|pricingRate:
-        5|string: $0.186208
+        5|string: $0.186160
       traffic|string: Free
     storage:
       data|month|string: Free
       data|pricingRate:
-        720|month|string: $0.081312
+        720|month|string: $0.081280
   sku|USD|mdb:
     cluster:
       clickhouse:
@@ -3590,8 +3597,15 @@ default:
     dataproc:
       v2:
         cpu:
+          c100|month|string: $0.691200
           c100|string: $0.000960
-          c50|string: $0.000480
+        ram|month|string: $0.172800
+        ram|string: $0.000240
+      v3:
+        cpu:
+          c100|month|string: $0.691200
+          c100|string: $0.000960
+        ram|month|string: $0.172800
         ram|string: $0.000240
     zk:
       clickhouse:
@@ -3648,14 +3662,15 @@ default:
         small|string: $0.070400
   sku|USD|monitoring:
     point:
-      dgauge:
+      api:
         read|pricingRate:
           50|string: $0.033600
         read|string: $0.056000
+      dgauge:
         store|string: Free
-        write|pricingRate:
-          50|string: $0.044800
-        write|string: $0.078400
+      write|pricingRate:
+        50|string: $0.044800
+      write|string: $0.078400
     prometheus:
       point:
         remote_api:
@@ -3667,10 +3682,8 @@ default:
   sku|USD|nbs:
     network-hdd:
       allocated|month|string: $0.023360
-      allocated|string: $0.000032
     network-nvme:
       allocated|month|string: $0.095280
-      allocated|string: $0.000132
     network-ssd-io-m3:
       allocated|month|string: $0.158400
     network-ssd-nonreplicated:
@@ -5239,6 +5252,7 @@ default:
           user-accounts: User accounts
       cloud:
         button_delete: Delete
+        button_save: Save
         label_delete-now: Delete now
       forms:
         label_value: Value
@@ -5559,6 +5573,7 @@ default:
     yacloud_portal:
       acl:
         common:
+          action_via-email: Add user
           action_via-federation: Add federated user
       common:
         action_add: Add
@@ -5577,6 +5592,7 @@ default:
       marketplace_v2:
         common:
           menu_ticket: Ticket
+          page_title_roles: Access management
         product:
           page_action_product-create: Add product
           tab_tariffs: Pricing plan
@@ -9078,6 +9094,8 @@ default:
                     Transfer:
                       data_objects:
                         title: List of objects for transfer
+                      runtime:
+                        title: Runtime environment
                       title: Transfer parameters
                       transformation:
                         title: Data transformation

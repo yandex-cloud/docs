@@ -145,10 +145,10 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
         --host zone-id=<availability_zone>,subnet-id=<subnet_ID>,assign-public-ip=<public_access>,type=<host_type> \
         --datanode-resource-preset <Data_node_host_class> \
         --datanode-disk-size <storage_size_GB> \
-        --datanode-disk-type <Data_node_disk_type> \
+        --datanode-disk-type <network-hdd|network-ssd|network-ssd-nonreplicated|local-ssd> \
         --masternode-resource-preset <Master_node_host_class> \
         --masternode-disk-size <Master_node_storage_size_GB> \
-        --masternode-disk-type <Master_node_disk_type> \
+        --masternode-disk-type <network-ssd> \
         --security-group-ids <list_of_security_group_IDs> \
         --version <{{ ES }}_version> \
         --edition <{{ ES }}_edition> \

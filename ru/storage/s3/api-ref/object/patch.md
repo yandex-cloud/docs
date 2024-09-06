@@ -8,6 +8,8 @@
 
 Допускается [одновременное изменение объекта](../../../concepts/object-patch.md#concurrent-patch) несколькими запросами.
 
+{% include [s3-api-intro-include](../../../../_includes/storage/s3-api-intro-include.md) %}
+
 ## Запрос {#request}
 
 ```http

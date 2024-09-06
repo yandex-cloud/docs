@@ -9,6 +9,8 @@ After creating a cluster, you can:
 
 * [Change the cluster name and description](#change-name-and-description).
 
+* [Configure the use of FQDNs instead of IP addresses](#configure-fqdn-ip-behavior).
+
 * [Change the host class](#change-resource-preset).
 
 
@@ -18,6 +20,8 @@ After creating a cluster, you can:
 * Configure [{{ RD }} servers](#change-redis-config) as described in the [{{ RD }} documentation](https://redis.io/documentation). For a list of supported settings, see [{#T}](../concepts/settings-list.md) and the [API reference](../api-ref/Cluster/update.md).
 
 * [Change additional cluster settings](#change-additional-settings).
+
+* [Enable sharding](#enable-sharding) in a non-sharded cluster.
 
 * [Move a cluster](#move-cluster) to another folder.
 
@@ -110,6 +114,95 @@ Learn more about other cluster updates:
    * New cluster name in the `name` parameter.
    * New cluster description in the `description` parameter.
    * List of fields to update (in this case, `name` and `description`) in the `updateMask` parameter.
+
+   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+
+{% endlist %}
+
+## Configuring the use of FQDNs instead of IP addresses {#configure-fqdn-ip-behavior}
+
+If the relevant setting is disabled (by default), {{ RD }} uses IP addresses as host addresses. If this setting is enabled, it will replace the host's IP address with its FQDN. For more information about this setting and its uses, see [{#T}](../concepts/network.md#fqdn-ip-setting).
+
+{% include [fqdn-option-compatibility-note](../../_includes/mdb/mrd/connect/fqdn-option-compatibility-note.md) %}
+
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+   To enable or disable the use of FQDNs instead of IP addresses:
+
+   1. In the [management console]({{ link-console-main }}), select the folder with the cluster you need.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+   1. Select the cluster you need.
+   1. At the top of the page, click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
+   1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, enable or disable **{{ ui-key.yacloud.redis.field_announce-hostnames }}**.
+   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
+
+- CLI {#cli}
+
+   {% include [cli-install](../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+   To enable or disable the use of FQDNs instead of IP addresses:
+
+   1. View a description of the update cluster CLI command:
+
+      ```bash
+      {{ yc-mdb-rd }} cluster update --help
+      ```
+
+   1. Provide the required value for the setting in the update cluster command:
+
+      ```bash
+      {{ yc-mdb-rd }} cluster update <cluster_name_or_ID> \
+        --announce-hostnames <use_of_FQDNs_instead_of_IP_addresses>
+      ```
+
+      Where `--announce-hostnames` is the setting that determines whether to use FQDNs instead of IP addresses or not: `true` or `false`.
+
+      You can get the cluster name and ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+
+- {{ TF }} {#tf}
+
+   To enable or disable the use of FQDNs instead of IP addresses:
+
+   1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+      For more information about how to create this file, see [Creating clusters](./cluster-create.md).
+
+   1. In the {{ mrd-name }} cluster description, change the `announce_hostnames` parameter value:
+
+      ```hcl
+      resource "yandex_mdb_redis_cluster" "<cluster_name>" {
+        name        = "<cluster_name>"
+        ...
+        announce_hostnames    = <use_of_FQDNs_instead_of_IP_addresses>
+        ...
+      }
+      ```
+
+      Where `announce_hostnames` is the setting that determines whether to use FQDNs instead of IP addresses or not: `true` or `false`.
+
+   1. Make sure the settings are correct.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+   1. Confirm updating the resources.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mrd }}).
+
+   {% include [Terraform timeouts](../../_includes/mdb/mrd/terraform/timeouts.md) %}
+
+- API {#api}
+
+   To enable or disable the use of FQDNs instead of IP addresses, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
+
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * The required `announceHostnames` value: `true` or `false`.
+   * List of fields to update (in this case, `announceHostnames`) in the `updateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -447,7 +540,7 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
 
    {% include [backup-window-start](../../_includes/mdb/cli/backup-window-start.md) %}
 
-   * `--maintenance-window`: Settings for the [maintenance window](../concepts/maintenance.md) (including those for disabled clusters), where `type` is the maintenance type:
+   * `--maintenance-window`: [Maintenance window](../concepts/maintenance.md) settings (including for disabled clusters), where `type` is the maintenance type:
 
       {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
@@ -469,6 +562,52 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
    * List of cluster configuration fields to update in the `updateMask` parameter.
 
    {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
+
+{% endlist %}
+
+## Enabling sharding {#enable-sharding}
+
+You can enable [sharding](../concepts/sharding.md) in a non-sharded cluster to make it a sharded one.
+
+{% note warning %}
+
+You cannot disable sharding in a cluster where it is already enabled.
+
+{% endnote %}
+
+{% list tabs group=instructions %}
+
+- CLI {#cli}
+
+   {% include [cli-install](../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+   To enable sharding:
+
+   1. View a description of the CLI command to enable sharding:
+
+      ```bash
+      {{ yc-mdb-rd }} cluster enable-sharding --help
+      ```
+
+   1. Run this command:
+
+      ```bash
+      {{ yc-mdb-rd }} cluster enable-sharding <cluster_ID>
+      ```
+
+      You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+
+   {% include [enable-sharding-shard-note](../../_includes/mdb/mrd/enable-sharding-shard-note.md) %}
+
+- API {#api}
+
+   To enable sharding, use the [enableSharding](../api-ref/Cluster/enableSharding.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/EnableSharding](../api-ref/grpc/cluster_service.md#EnableSharding) gRPC API call and provide the cluster ID in the `clusterId` (`cluster_id` for gRPC) request parameter.
+
+   You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+
+   {% include [enable-sharding-shard-note](../../_includes/mdb/mrd/enable-sharding-shard-note.md) %}
 
 {% endlist %}
 

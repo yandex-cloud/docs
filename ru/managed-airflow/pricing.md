@@ -1,7 +1,62 @@
+---
+editable: false
+---
+
 # Правила тарификации для {{ maf-name }}
 
 
 
-На стадии [Preview](../overview/concepts/launch-stages.md) использование {{ maf-name }} не тарифицируется.
+{% note warning %}
 
-За потребление других ресурсов {{ yandex-cloud }}, которые вы будете использовать в процессе работы с сервисом, будет взиматься плата в соответствии с их тарифами.
+{{ maf-name }} находится на стадии [Preview](../overview/concepts/launch-stages.md) и не тарифицируется.
+
+16 сентября 2024 года сервис переходит на стадию [General Availability](../overview/concepts/launch-stages.md), и за его использование будет взиматься плата в соответствии с приведенными ниже [правилами](#rules).
+
+За потребление других ресурсов {{ yandex-cloud }}, которые вы используете в процессе работы с сервисом, взимается плата в соответствии с их тарифами.
+
+{% endnote %}
+
+## Из чего складывается стоимость использования {{ maf-name }} {#rules}
+
+При работе с {{ maf-name }} вы оплачиваете:
+
+* вычислительные ресурсы компонентов кластера;
+* объем исходящего трафика.
+
+Стоимость начисляется за каждый час работы кластера. Минимальная единица тарификации — час (например, стоимость 1,5 часа работы кластера равна стоимости 2 часов).
+
+Использование {{ objstorage-full-name }} для [хранения DAG-файлов](operations/upload-dags.md) оплачивается по [правилам тарификации {{ objstorage-name }}](../storage/pricing.md).
+
+{% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
+
+## Цены для региона Россия {#prices}
+
+
+{% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
+
+
+
+Все цены указаны с включением НДС.
+
+
+
+{% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
+
+### Вычислительные ресурсы кластера {#prices-computing-resources}
+
+
+{% list tabs group=pricing %}
+
+- Цены в рублях {#prices-rub}
+
+  {% include [rub-prices](../_pricing/managed-airflow/rub.md) %}
+
+- Цены в тенге {#prices-kzt}
+
+  {% include [kzt-prices](../_pricing/managed-airflow/kzt.md) %}
+
+{% endlist %}
+
+
+
+{% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}

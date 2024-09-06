@@ -48,8 +48,6 @@
 
 {% include [insufficiency-resources](../../_includes/data-transfer/troubles/insufficiency-resources.md) %}
 
-{% include [permission-denied](../../_includes/data-transfer/troubles/permission-denied.md) %}
-
 ### Снижение скорости трансфера {#speed-degrade}
 
 **Проблема**:

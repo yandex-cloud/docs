@@ -13,6 +13,7 @@
 
 Если запрос завершился с ошибкой, то клиентское приложение должно быть готово повторить запрос.
 
+{% include [s3-api-intro-include](../../../../_includes/storage/s3-api-intro-include.md) %}
 
 ## Запрос {#request}
 

@@ -48,6 +48,8 @@ items:
             href: concepts/api-usage.md
           - name: Пробный период
             href: concepts/trial-period.md
+      - name: Управление доступом
+        href: security/partners.md
       - name: Справочник API
         items:
           - name: REST

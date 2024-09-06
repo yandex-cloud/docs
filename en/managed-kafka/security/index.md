@@ -71,7 +71,9 @@ The chart below shows which roles are available in the service and how they inhe
 
 ## Roles required {#required-roles}
 
-To use the service, you need the `{{ roles.mkf.editor }}` [role](../../iam/concepts/access-control/roles.md) or higher for the folder where the cluster is created. The `{{ roles.mkf.viewer }}` role enables you only to view the list of clusters.
+To use the service, you need the [{{ roles.mkf.editor }} role](../../iam/concepts/access-control/roles.md) or higher for the folder to house the new cluster. The `{{ roles.mkf.viewer }}` role enables you only to view the list of clusters.
+
+To create a {{ mkf-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the `{{ roles.mkf.editor }}` role or higher.
 
 You can always assign a role with more permissions. For instance, you can assign `{{ roles.mkf.admin }}` instead of `{{ roles.mkf.editor }}`.
 

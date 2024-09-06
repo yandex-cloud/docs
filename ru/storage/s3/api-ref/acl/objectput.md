@@ -8,6 +8,8 @@ ACL можно загрузить в виде XML-документа или с �
 
 {% endnote %}
 
+{% include [s3-api-intro-include](../../../../_includes/storage/s3-api-intro-include.md) %}
+
 ## Запрос {#request}
 
 ```http

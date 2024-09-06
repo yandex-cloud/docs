@@ -10,12 +10,6 @@ Available connection methods depend on whether the cluster [sharding](../../conc
 * [Connecting to a non-sharded cluster](./non-sharded.md).
 * [Connecting to a sharded cluster](./sharded.md).
 
-## Encryption support {#tls-support}
-
-Encrypted SSL connections are supported for {{ mrd-short-name }} clusters. To use SSL, enable **{{ ui-key.yacloud.redis.field_tls-support }}** when [creating a cluster](../cluster-create.md).
-
-When using SSL to connect to a cluster with encryption support, disable application FQDN matching and certificate verification. Otherwise, you will not be able to connect to the cluster since {{ RD }} returns the host IP instead of the host FQDN, which produces an error when verifying the host name.
-
 ## Accessing cluster hosts {#connect}
 
 You can connect to {{ mrd-name }} cluster hosts:
@@ -34,6 +28,22 @@ You can connect to {{ mrd-name }} cluster hosts:
    1. From this VM, connect to {{ RD }} using one of the sample connection strings.
 
 
+
+## Encryption support {#tls-support}
+
+Encrypted SSL connections are supported for {{ mrd-short-name }} clusters. To use SSL, enable **{{ ui-key.yacloud.redis.field_tls-support }}** when [creating a cluster](../cluster-create.md).
+
+By default, {{ RD }} uses host IP addresses, not their [FQDNs](../../concepts/network.md#hostname). This may [prevent connection to {{ RD }} hosts](../../concepts/network.md#fqdn-ip-setting) in clusters with TLS support. To be able to connect to hosts, do one of the following:
+
+* Enable the use of FQDNs instead of IP addresses to replace a host's IP address with its FQDN. You can enable this setting when [creating](../cluster-create.md) or [updating](../update.md#configure-fqdn-ip-behavior) a cluster.
+
+   This will allow the [{{ RD }} client](../../concepts/supported-clients.md) to connect to {{ RD }} hosts both from {{ yandex-cloud }} VMs and over the internet, as well as request verification of the host's FQDN against the certificate, if required.
+
+   {% include [fqdn-option-compatibility-note](../../../_includes/mdb/mrd/connect/fqdn-option-compatibility-note.md) %}
+
+* Disable verification of the host's FQDN against the certificate on the {{ RD }} client side.
+
+   This will enable you to connect to {{ RD }} hosts from {{ yandex-cloud }} VMs.
 
 
 ## Configuring security groups {#configuring-security-groups}
@@ -66,8 +76,8 @@ Security group settings for sharded and non-sharded clusters differ.
 
          To connect to a cluster using Sentinel, you must also create a rule enabling connections via port `{{ port-mrd }}` or `{{ port-mrd-tls }}`.
 
-   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`
-   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`.
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`.
    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}**: Security group assigned to the VM. If it is the same as the configured group, specify **{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}**.
 
 - Sharded cluster {#sharded}
@@ -76,9 +86,9 @@ Security group settings for sharded and non-sharded clusters differ.
 
    To do this, create the following rule for incoming traffic:
 
-   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-mrd }}` or only `{{ port-mrd-tls }}` for clusters with SSL encryption support
-   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`
-   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-mrd }}` or only `{{ port-mrd-tls }}` for clusters with SSL encryption support.
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`.
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`.
    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}**: If your cluster and VM are in the same security group, select `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}`. Otherwise, specify the VM security group.
 
 {% endlist %}
