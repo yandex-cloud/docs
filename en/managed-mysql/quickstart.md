@@ -12,11 +12,12 @@ To get started with the service:
 
 ## Getting started {#before-you-begin}
 
-1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or sign up if you are not signed up yet.
+1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or sign up if not signed up yet.
 1. If you do not have a [folder](../resource-manager/concepts/resources-hierarchy.md#folder) yet, create one:
 
    {% include [create-folder](../_includes/create-folder.md) %}
 
+1. [Make sure](../iam/operations/roles/get-assigned-roles.md) your account has the [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) role and [{{ roles.mmy.editor }} role or higher](security/index.md#roles-list) for creating a cluster.
 1. You can connect to DB [clusters](concepts/index.md) from both inside and outside {{ yandex-cloud }}:
    * To connect to a DB cluster from inside {{ yandex-cloud }}, create a [VM](../compute/concepts/vm.md) in the same [cloud network](../vpc/concepts/network.md#network) as the DB cluster (with [Linux](../compute/quickstart/quick-create-linux.md)).
    * To connect to the {{ mmy-name }} cluster from the internet, request public access to hosts when creating the cluster.
@@ -41,7 +42,7 @@ To get started with the service:
 1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
 1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
 1. Set the {{ mmy-name }} cluster parameters and click **{{ ui-key.yacloud.mdb.forms.button_create }}**. For more information, see [Creating clusters](operations/cluster-create.md).
-1. Wait until the {{ mmy-name }} cluster is ready: its status on the {{ mmy-name }} dashboard will change to **Running** and its state to **Alive**. This may take some time.
+1. Wait until the {{ mmy-name }} cluster is ready: its status on the {{ mmy-name }} dashboard will change to **Running**, and its state to **Alive**. This may take some time.
 
 ## Connect to the DB {#connect}
 

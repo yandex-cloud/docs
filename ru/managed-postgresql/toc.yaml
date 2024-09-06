@@ -160,6 +160,8 @@ items:
               Миграция данных из {{ mpg-name }} в {{ mos-name }} с помощью {{
               data-transfer-full-name }}
             href: tutorials/postgresql-to-opensearch.md
+          - name: Асинхронная репликация данных из {{ PG }} в {{ CH }}
+            href: tutorials/rdbms-to-clickhouse.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса

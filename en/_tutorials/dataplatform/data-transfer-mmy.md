@@ -81,7 +81,7 @@ The settings vary depending on the [topic management method](../../managed-kafka
 
       To track updates to more than one table, create a separate topic for each one.
 
-   1. [Create a user](../../managed-kafka/operations/cluster-accounts.md#create-user) named `kafka-user` with the `ACCESS_ROLE_CONSUMER` and `ACCESS_ROLE_PRODUCER` roles for the topics created. To include all such topics, put `cdc.*` in the topic name.
+   1. [Create a user](../../managed-kafka/operations/cluster-accounts.md#create-account) named `kafka-user` with the `ACCESS_ROLE_CONSUMER` and `ACCESS_ROLE_PRODUCER` roles for the created topics. To include all such topics, put `cdc.*` in the topic name.
 
 - Admin API {#api}
 

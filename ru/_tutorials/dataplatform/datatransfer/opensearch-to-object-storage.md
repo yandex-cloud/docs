@@ -30,16 +30,16 @@
     1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md#create-sa) с ролью `storage.editor`. Трансфер будет использовать его для доступа к бакету.
 
 - {{ TF }} {#tf}
-    
+
     1. {% include [terraform-install-without-setting](../../../_includes/mdb/terraform/install-without-setting.md) %}
     1. {% include [terraform-authentication](../../../_includes/mdb/terraform/authentication.md) %}
     1. {% include [terraform-setting](../../../_includes/mdb/terraform/setting.md) %}
     1. {% include [terraform-configure-provider](../../../_includes/mdb/terraform/configure-provider.md) %}
-    
+
     1. Скачайте в ту же рабочую директорию файл конфигурации [opensearch-to-object-storage.tf](https://github.com/yandex-cloud-examples/yc-data-transfer-from-opensearch-to-object-storage/blob/main/opensearch-to-object-storage.tf).
-    
+
         В этом файле описаны:
-    
+
         * [сеть](../../../vpc/concepts/network.md#network);
         * [подсеть](../../../vpc/concepts/network.md#subnet);
         * [группа безопасности](../../../vpc/concepts/security-groups.md) для подключения к кластеру {{ mos-name }};
@@ -48,28 +48,31 @@
         * бакет-приемник {{ objstorage-name }};
         * эндпоинты;
         * трансфер.
-    
+
     1. Укажите в файле `opensearch-to-object-storage.tf` параметры:
-    
+
         * `folder_id` — [идентификатор каталога](../../../resource-manager/operations/folder/get-id.md);
         * `mos_version` — версия {{ OS }};
         * `mos_password` — пароль пользователя-владельца кластера {{ OS }};
         * `bucket_name`— имя бакета в соответствии с [правилами именования](../../../storage/concepts/bucket.md#naming).
-    
+        * `profile_name` — имя вашего профиля в YC CLI.
+
+          {% include [cli-install](../../../_includes/cli-install.md) %}
+
     1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
-    
+
         ```bash
         terraform validate
         ```
 
         Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-    
+
     1. Создайте необходимую инфраструктуру:
-    
+
         {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
-    
+
         {% include [explore-resources](../../../_includes/mdb/terraform/explore-resources.md) %}
-    
+
 {% endlist %}
 
 ## Подготовьте тестовые данные {#prepare-data}
@@ -130,57 +133,60 @@
 
 ## Подготовьте и активируйте трансфер {#prepare-transfer}
 
-{% list tabs group=instructions %}
+1. [Создайте эндпоинт для приемника](../../../data-transfer/operations/endpoint/target/object-storage.md) типа `{{ objstorage-name }}` со следующими настройками:
 
-- Вручную {#manual}
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.bucket.title }}** — `<имя_созданного_ранее_бакета>`
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageConnectionSettings.service_account_id.title }}** — `<имя_созданного_ранее_сервисного_аккаунта>`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.output_format.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_JSON.title }}`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.output_encoding.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageCodecUI.UNCOMPRESSED }}`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageAdvancedSettings.bucket_layout.title }}** — `from_MOS`.
 
-    1. [Создайте эндпоинт для приемника](../../../data-transfer/operations/endpoint/target/object-storage.md) типа `{{ objstorage-name }}` со следующими настройками:
+1. [Создайте эндпоинт для источника](../../../data-transfer/operations/endpoint/source/opensearch.md#endpoint-settings) типа `{{ OS }}` со следующими настройками:
 
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.bucket.title }}** — `<имя_созданного_ранее_бакета>`
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageConnectionSettings.service_account_id.title }}** — `<имя_созданного_ранее_сервисного_аккаунта>`.
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.output_format.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_JSON.title }}`.
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.output_encoding.title }}** — `UNCOMPRESSED`.
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageAdvancedSettings.bucket_layout.title }}** — `from_MOS`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.connection_type.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnectionType.mdb_cluster_id.title }}`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnectionType.mdb_cluster_id.title }}** — выберите кластер {{ mos-name }} из списка.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.user.title }}** — `admin`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.password.title }}** — `<пароль_пользователя>`.
 
-    1. [Создайте эндпоинт для источника](../../../data-transfer/operations/endpoint/source/opensearch.md#endpoint-settings) типа `{{ OS }}` со следующими настройками:
-    
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.connection_type.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnectionType.mdb_cluster_id.title }}`.
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnectionType.mdb_cluster_id.title }}** — выберите кластер {{ mos-name }} из списка.
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.user.title }}** — `admin`.
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.password.title }}** — `<пароль_пользователя>`.
+1. Создайте трансфер:
 
-    1. [Создайте трансфер](../../../data-transfer/operations/transfer.md#create) типа **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}**, использующий созданные эндпоинты.
-    
-    1. [Активируйте трансфер](../../../data-transfer/operations/transfer.md#activate) и дождитесь его перехода в статус **_{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}_**.
+    {% list tabs group=instructions %}
 
-- {{ TF }} {#tf}
+    - Вручную {#manual}
 
-    1. Укажите в файле `opensearch-to-object-storage.tf` значения переменных:
+      1. [Создайте трансфер](../../../data-transfer/operations/transfer.md#create) типа **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}**, использующий созданные эндпоинты.
 
-        * `target_endpoint_id` — значение идентификатора эндпоинта для приемника;
-        * `source_endpoint_id` — значение идентификатора эндпоинта для источника;
-        * `transfer_enabled` — значение `1` для создания трансфера.
+      1. [Активируйте трансфер](../../../data-transfer/operations/transfer.md#activate).
 
-    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+    - {{ TF }} {#tf}
 
-        ```bash
-        terraform validate
-        ```
+      1. Укажите в файле `opensearch-to-object-storage.tf` значения переменных:
 
-        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+          * `target_endpoint_id` — значение идентификатора эндпоинта для приемника;
+          * `source_endpoint_id` — значение идентификатора эндпоинта для источника;
+          * `transfer_enabled` — значение `1` для создания трансфера.
 
-    1. Создайте необходимую инфраструктуру:
+      1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
-        {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
+          ```bash
+          terraform validate
+          ```
 
-    1. [Активируйте трансфер](../../../data-transfer/operations/transfer.md#activate) и дождитесь его перехода в статус **_{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}_**.
+          Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
-{% endlist %}
+      1. Создайте необходимую инфраструктуру:
+
+          {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
+
+          Трансфер активируется автоматически после создания.
+
+    {% endlist %}
 
 ## Проверьте работоспособность трансфера {#verify-transfer}
 
 Убедитесь, что данные перенеслись из кластера {{ mos-name }} в бакет {{ objstorage-name }}:
-    
+
+1. Дождитесь перехода трансфера в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится нужный бакет.
 1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
 1. Выберите бакет из списка.
@@ -206,6 +212,7 @@
 
 - {{ TF }} {#tf}
 
+    1. В [консоли управления]({{ link-console-main }}) удалите из созданного бакета папку `from_MOS`
     1. В терминале перейдите в директорию с планом инфраструктуры.
     1. Удалите конфигурационный файл `opensearch-to-object-storage.tf`.
     1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:

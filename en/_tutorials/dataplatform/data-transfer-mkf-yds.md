@@ -22,7 +22,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       1. [Create a {{ mkf-name }} source cluster](../../managed-kafka/operations/cluster-create.md) with any suitable configuration.
       1. [Create a {{ ydb-name }} database](../../ydb/operations/manage-databases.md) in any suitable configuration.
       1. [In the source cluster, create a topic](../../managed-kafka/operations/cluster-topics.md#create-topic) named `sensors`.
-      1. [In the source cluster, create a user](../../managed-kafka/operations/cluster-accounts.md#create-user) with the `ACCESS_ROLE_PRODUCER` and `ACCESS_ROLE_CONSUMER` permissions to the created topic.
+      1. [In the source cluster, create a user](../../managed-kafka/operations/cluster-accounts.md#create-account) with the `ACCESS_ROLE_PRODUCER` and `ACCESS_ROLE_CONSUMER` permissions for the created topic.
 
    - {{ TF }} {#tf}
 
@@ -135,7 +135,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
             | `cabin_temperature` | `UINT16` |
             | `fuel_level` | `UINT16` |
 
-         * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.json_fields.title }}`.
+         * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.json_fields.title }}`​.
 
             Create and upload the `json_schema.json` file in JSON format:
 

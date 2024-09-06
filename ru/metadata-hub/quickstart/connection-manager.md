@@ -2,7 +2,7 @@
 
 {% include notitle [preview](../../_includes/note-preview.md) %}
 
-Управляйте подключениями к базам данных {{ PG }}, {{ MY }} и {{ CH }} с {{ connection-manager-full-name }}.
+Управляйте подключениями к базам данных {{ PG }}, {{ MY }}, {{ CH }} и {{ RD }} с {{ connection-manager-full-name }}.
 
 ## Интеграция с сервисами управляемых баз данных {#mdb-integration}
 

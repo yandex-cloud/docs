@@ -17,8 +17,6 @@ After creating a cluster, you can:
 
 * [{#T}](#SQL-management)
 
-* [Configure the {{ CH }} servers](#change-clickhouse-config) according to the [{{ CH }} documentation]({{ ch.docs }}/operations/server-configuration-parameters/settings).
-
 * [Change additional cluster settings](#change-additional-settings).
 
 * [Move a cluster](#move-cluster) to another folder.
@@ -29,10 +27,16 @@ After creating a cluster, you can:
 
 * [Changing hybrid storage settings](#change-hybrid-storage).
 
-To move a cluster to a different availability zone, follow [this guide](host-migration.md). You will thus move the cluster hosts.
+Learn more about other cluster updates:
+
+* [Migrating a cluster to a different availability zone](host-migration.md).
+
+* [Configuring {{ CH }} servers](change-server-level-settings.md) according to the [{{ CH }} documentation]({{ ch.docs }}/operations/server-configuration-parameters/settings).
+
+* [Changing {{ CH }} settings at the query level](change-query-level-settings.md).
 
 
-## Change service account settings {#change-service-account}
+## Changing service account settings {#change-service-account}
 
 {% list tabs group=instructions %}
 
@@ -354,20 +358,6 @@ Once enabled, user and database management settings for SQL cannot be disabled.
 
 {% endlist %}
 
-## Changing {{ CH }} settings {#change-clickhouse-config}
-
-See below how to change the [{{ CH }} settings available in {{ yandex-cloud }}](../concepts/settings-list.md). If you want to change {{ CH }} settings not available in {{ yandex-cloud }} at the user level, see [{#T}](change-query-level-settings.md).
-
-Changing some [cluster-level settings](../concepts/settings-list.md#dbms-cluster-settings) will restart {{ CH }} servers on the cluster hosts.
-
-{% note info %}
-
-You cannot directly update the [Max server memory usage]({{ ch.docs }}/operations/server-configuration-parameters/settings/#max_server_memory_usage) value. {{ mch-name }} sets this value automatically depending on the amount of RAM available to {{ CH }} hosts. To change the setting's value, [change the class of {{ CH }} hosts](#change-resource-preset). For more information, see [Memory management](../concepts/memory-management.md).
-
-{% endnote %}
-
-{% include [change-clickhouse-settings](../../_includes/mdb/mch/change-clickhouse-settings.md) %}
-
 ## Changing additional cluster settings {#change-additional-settings}
 
 {% list tabs group=instructions %}
@@ -460,7 +450,7 @@ You cannot directly update the [Max server memory usage]({{ ch.docs }}/operation
       }
       ```
 
-   1. To allow access to the cluster from other services and [execution of SQL queries from the management console](web-sql-query.md) using {{ websql-full-name }}, change the values of the appropriate fields in the `access` section:
+   1. To enable cluster access from other services and [execution of SQL queries from the management console](web-sql-query.md) using {{ websql-full-name }}, change the values of the appropriate fields in the `access` section:
 
       
       ```hcl

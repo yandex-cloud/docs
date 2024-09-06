@@ -15,6 +15,7 @@ description: "Метод uploadPart в {{ objstorage-name }} API (S3) сохра
 
 Более подробную информацию читайте в разделе [{#T}](../multipart.md).
 
+{% include [s3-api-intro-include](../../../../_includes/storage/s3-api-intro-include.md) %}
 
 ## Запрос {#request}
 

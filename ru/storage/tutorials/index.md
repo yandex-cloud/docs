@@ -28,6 +28,7 @@ description: "На странице представлен список прак
 * [Резервное копирование в {{ objstorage-name }} с помощью Bacula](./backup-with-bacula.md)
 * [Резервное копирование в {{ objstorage-name }} с помощью Veritas Backup Exec](./object-storage-veritas.md)
 * [Резервное копирование кластера {{ managed-k8s-name }} в {{ objstorage-name }}](./kubernetes-backup.md)
+* [{#T}](./dp-mch-data-exchange.md)
 * [{#T}](./object-storage-to-postgresql.md)
 * [{#T}](./object-storage-to-greenplum.md)
 * [{#T}](./object-storage-to-clickhouse.md)

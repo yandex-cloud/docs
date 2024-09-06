@@ -17,7 +17,7 @@
 
 {% list tabs group=instructions %}
 
-* Вручную {#manual}
+- Вручную {#manual}
 
     1. [Создайте базу данных {{ ydb-name }}](../../../ydb/operations/manage-databases.md) `ydb1` любой подходящей конфигурации.
     1. [Создайте кластер {{ mch-name }}](../../../managed-clickhouse/operations/cluster-create.md) любой подходящей конфигурации с хостами в публичном доступе и следующими настройками:
@@ -29,7 +29,7 @@
 
     1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md#create-sa) с именем `ydb-account` и ролью `ydb.editor`. Трансфер будет использовать его для доступа к базе данных.
 
-* С помощью {{ TF }} {#tf}
+- С помощью {{ TF }} {#tf}
 
     1. {% include [terraform-install-without-setting](../../../_includes/mdb/terraform/install-without-setting.md) %}
     1. {% include [terraform-authentication](../../../_includes/mdb/terraform/authentication.md) %}
@@ -106,7 +106,7 @@
 
 {% list tabs group=instructions %}
 
-* Вручную {#manual}
+- Вручную {#manual}
 
     1. [Создайте эндпоинт для источника](../../../data-transfer/operations/endpoint/source/ydb.md#endpoint-settings) типа `{{ ydb-short-name }}` и укажите в нем параметры подключения к базе данных:
 
@@ -128,7 +128,7 @@
 
     1. [Активируйте трансфер](../../../data-transfer/operations/transfer.md#activate) и дождитесь его перехода в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
-* С помощью {{ TF }} {#tf}
+- С помощью {{ TF }} {#tf}
 
     1. Укажите в файле `ydb-to-clickhouse.tf` значение `1` для параметра `transfer_enabled`.
 
@@ -227,7 +227,7 @@
 
 {% list tabs group=instructions %}
 
-* Вручную {#manual}
+- Вручную {#manual}
 
     * [Удалите трансфер](../../../data-transfer/operations/transfer.md#delete).
     * [Удалите эндпоинты](../../../data-transfer/operations/endpoint/index.md#delete) для источника и приемника.
@@ -235,7 +235,7 @@
     * [Удалите кластер {{ mch-name }}](../../../managed-clickhouse/operations/cluster-delete.md).
     * [Удалите сервисный аккаунт](../../../iam/operations/sa/delete.md).
 
-* С помощью {{ TF }} {#tf}
+- С помощью {{ TF }} {#tf}
 
     1. В терминале перейдите в директорию с планом инфраструктуры.
     1. Удалите конфигурационный файл `ydb-to-clickhouse.tf`.

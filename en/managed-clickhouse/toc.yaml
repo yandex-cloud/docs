@@ -20,8 +20,12 @@ items:
             href: operations/cluster-create.md
           - name: Changing cluster settings
             href: operations/update.md
-          - name: Changing {{ CH }} settings at the user level
-            href: operations/change-query-level-settings.md
+          - name: Editing {{ CH }} settings
+            items:
+              - name: Server level
+                href: operations/change-server-level-settings.md
+              - name: Query level
+                href: operations/change-query-level-settings.md
           - name: Updating the {{ CH }} version
             href: operations/cluster-version-update.md
           - name: Stopping and starting a cluster
@@ -126,6 +130,10 @@ items:
           Loading data from {{ objstorage-full-name }} to {{ mch-name }} using
           {{ data-transfer-full-name }}
         href: tutorials/object-storage-to-clickhouse.md
+      - name: >-
+          Loading data from {{ ydb-full-name }} to {{ mch-name }} using {{
+          data-transfer-full-name }}
+        href: tutorials/ydb-to-clickhouse.md
   - name: Concepts
     items:
       - name: Resource relationships
@@ -134,7 +142,7 @@ items:
         items:
           - name: Active host classes
             href: concepts/instance-types.md
-          - name: Archives
+          - name: Archive
             items:
               - name: Before June 1, 2020
                 href: concepts/instance-types-archive/instance-types-01062020.md
@@ -174,7 +182,7 @@ items:
     items:
       - name: Current pricing policy
         href: pricing.md
-      - name: Archives
+      - name: Archive
         items:
           - name: Before January 1, 2019
             href: pricing-archive/pricing-01012019.md

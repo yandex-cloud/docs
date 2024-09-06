@@ -2,6 +2,8 @@
 
 Возвращает настройки бессрочной [блокировки](../../../concepts/object-lock.md), установленной на версию объекта.
 
+{% include [s3-api-intro-include](../../../../_includes/storage/s3-api-intro-include.md) %}
+
 ## Запрос {#request}
 
 ```

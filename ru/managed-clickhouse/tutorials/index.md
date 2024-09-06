@@ -21,6 +21,8 @@ description: "Различные сценарии использования {{ 
 * [Поставка данных из {{ mkf-name }} с помощью {{ data-transfer-full-name }}](mkf-to-mch-migration.md)
 * [Миграция данных из {{ yandex-direct }} с использованием {{ sf-full-name }}, {{ objstorage-full-name }} и {{ data-transfer-full-name }}](transfer-from-direct.md)
 * [{#T}](object-storage-to-clickhouse.md)
+* [{#T}](mysql-to-clickhouse.md)
+* [{#T}](rdbms-to-clickhouse.md)
 * [{#T}](opensearch-to-clickhouse.md)
 * [{#T}](ydb-to-clickhouse.md)
 

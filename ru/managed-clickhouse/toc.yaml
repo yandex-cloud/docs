@@ -134,6 +134,12 @@ items:
           помощью {{ data-transfer-full-name }}
         href: tutorials/object-storage-to-clickhouse.md
       - name: >-
+          Миграция базы данных из {{ MY }} в {{ CH }} с помощью {{
+          data-transfer-full-name }}
+        href: tutorials/mysql-to-clickhouse.md
+      - name: Асинхронная репликация данных из {{ PG }} в {{ CH }}
+        href: tutorials/rdbms-to-clickhouse.md
+      - name: >-
           Загрузка данных из {{ ydb-full-name }} в {{ mch-name }} с помощью {{
           data-transfer-full-name }}
         href: tutorials/ydb-to-clickhouse.md
@@ -157,6 +163,7 @@ items:
                 href: concepts/instance-types-archive/instance-types-20062023.md
           - name: Использование устаревших классов хостов
             href: concepts/using-deprecated-instances.md
+        href: concepts/instance-types.md
       - name: Сеть в {{ mch-name }}
         href: concepts/network.md
       - name: Квоты и лимиты
@@ -393,7 +400,7 @@ items:
                 href: api-ref/Operation/index.md
               - name: get
                 href: api-ref/Operation/get.md
-  - name: Метрики {{ monitoring-full-name }}
+  - name: Метрики {{ monitoring-name }}
     href: metrics.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md

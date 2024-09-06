@@ -37,13 +37,17 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
 ## Creating a cluster {#create-cluster}
 
+To create a {{ mch-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the [{{ roles.mch.editor }} role or higher](../security.md#roles-list). For information on assigning roles, see the [{{ iam-name }} documentation](../../iam/operations/roles/grant.md).
+
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
 
+   To create a {{ mch-name }} cluster:
+
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a DB cluster.
-         1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+      1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
    1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
    1. Enter a name for the cluster in the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field. It must be unique within the folder.
    1. Select the environment where you want to create the cluster (you cannot change the environment once the cluster is created):
@@ -74,7 +78,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
    1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**:
 
       * To create additional DB hosts, click **{{ ui-key.yacloud.mdb.forms.button_add-host }}**. After you add a second host, the **Configure ZooKeeper** button will appear. Change the {{ ZK }} settings in **{{ ui-key.yacloud.mdb.forms.section_zookeeper-resource }}**, **{{ ui-key.yacloud.mdb.forms.section_zookeeper-disk }}**, and **{{ ui-key.yacloud.mdb.forms.section_zookeeper-hosts }}**, if required.
-      * Set the parameters of DB hosts being created alongside the cluster. To change the added host, hover over the host line and click ![image](../../_assets/console-icons/pencil.svg).
+      * Specify the parameters of the DB hosts being created along with the cluster. To change the added host, hover over the host line and click ![image](../../_assets/console-icons/pencil.svg).
       * To connect to the host from the internet, enable the **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** setting.
 
    1. Under **{{ ui-key.yacloud.mdb.forms.section_settings }}**:
@@ -104,9 +108,9 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
          {% endnote %}
 
-      * Configure the [DBMS settings](../concepts/settings-list.md#dbms-cluster-settings), if required. You can specify them later.
+      * Configure the [DBMS settings](../concepts/settings-list.md#server-level-settings), if required. You can specify them later.
 
-         Using the {{ yandex-cloud }} interfaces, you can manage a limited number of settings. Using SQL queries, you can [apply {{ CH }} settings at the user level](change-query-level-settings.md).
+         Using the {{ yandex-cloud }} interfaces, you can manage a limited number of settings. Using SQL queries, you can [apply {{ CH }} settings at the query level](change-query-level-settings.md).
 
    
    1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select the cloud network to host the cluster and security groups for cluster network traffic. You may also need to [set up security groups](connect/index.md#configuring-security-groups) to connect to the cluster.
@@ -132,7 +136,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To create a cluster:
+   To create a {{ mch-name }} cluster:
 
    
    1. Check whether the folder has any subnets for the cluster hosts:
@@ -163,7 +167,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
              `subnet-id=<subnet_ID>,`
              `assign-public-ip=<public_access_to_host> \
         --clickhouse-resource-preset <host_class> \
-        --clickhouse-disk-type <disk_type> \
+        --clickhouse-disk-type <network-hdd|network-ssd|network-ssd-nonreplicated|local-ssd> \
         --clickhouse-disk-size <storage_size_in_GB> \
         --user name=<username>,password=<user_password> \
         --database name=<database_name> \
@@ -277,7 +281,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
       {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
-   To create a cluster:
+   To create a {{ mch-name }} cluster:
 
    1. Using the command line, navigate to the folder that will contain the {{ TF }} configuration files with an infrastructure plan. Create the directory if it does not exist.
 
@@ -303,6 +307,15 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
 
    1. Create a configuration file with a description of the cluster and its hosts.
+
+      * Database cluster: Description of the cluster and its hosts. Also as required here:
+         * Specify [DBMS settings](../concepts/settings-list.md). You can specify them later.
+
+            Using the {{ yandex-cloud }} interfaces, you can manage a limited number of settings. Using SQL queries, you can [apply {{ CH }} settings at the query level](change-query-level-settings.md).
+
+         * Enable deletion protection.
+
+            {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
       Example structure of a configuration file that describes a cluster with a single host:
 
@@ -357,7 +370,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
            ...
            access {
              data_lens    = <access_from_{{ datalens-name }}>
-             metrika      = <access_from_Yandex_Metrica_and_AppMetrica>
+             metrika      = <access_from_Metrica_and_AppMetrica>
              serverless   = <access_from_Cloud_Functions>
              yandex_query = <access_from_Yandex_Query>
              web_sql      = <SQL_query_execution_from_management console>
@@ -367,17 +380,17 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
          ```
 
 
-      Where:
+         Where:
 
-      * `data_lens`: Access from {{ datalens-name }}, `true` or `false`.
+         * `data_lens`: Access from {{ datalens-name }}, `true` or `false`.
 
-      
-      * `metrika`: Access from Yandex Metrica and AppMetrica, `true` or `false`.
-      * `serverless`: Access from {{ sf-name }}, `true` or `false`.
+         
+         * `metrika`: Access from Yandex Metrica and AppMetrica, `true` or `false`.
+         * `serverless`: Access from {{ sf-name }}, `true` or `false`.
 
 
-      * `yandex_query`: Access from {{ yq-full-name }}, `true` or `false`.
-      * `web_sql`: Execution of SQL queries from the management console, `true` or `false`.
+         * `yandex_query`: Access from {{ yq-full-name }}, `true` or `false`.
+         * `web_sql`: Execution of SQL queries from the management console, `true` or `false`.
 
       1. You can manager cluster users and databases via SQL.
 
@@ -404,7 +417,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
 - API {#api}
 
-   To create a cluster, use the [create](../api-ref/Cluster/create.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Create](../api-ref/grpc/cluster_service.md#Create) gRPC API call and provide the following in the request:
+   To create a {{ mch-name }} cluster, use the [create](../api-ref/Cluster/create.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Create](../api-ref/grpc/cluster_service.md#Create) gRPC API call and provide the following in the request:
    * ID of the folder where the cluster should be placed, in the `folderId` parameter.
    * Cluster name in the `name` parameter.
    * Cluster environment in the `environment` parameter.
@@ -683,5 +696,6 @@ To create a {{ CH }} cluster copy:
 
 {% endlist %}
 
+{% include [connection-manager](../../_includes/mdb/connection-manager.md) %}
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

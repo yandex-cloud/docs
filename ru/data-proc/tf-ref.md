@@ -1,3 +1,8 @@
+---
+title: "Справочник {{ TF }} для {{ dataproc-full-name }}"
+description: "На этой странице приведен справочник ресурсов и источников данных провайдера {{ TF }}, которые поддерживаются для сервиса {{ dataproc-name }}."
+---
+
 # Справочник {{ TF }} для {{ dataproc-full-name }}
 
 {% include [terraform-ref-intro](../_includes/terraform-ref-intro.md) %}

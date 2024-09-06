@@ -31,7 +31,7 @@
      1. Настройте параметры правила:
         * **{{ ui-key.yacloud.storage.bucket.policy.field_effect }}** — разрешить или запретить.
         * **{{ ui-key.yacloud.storage.bucket.policy.field_principal-type }}** — включить или исключить пользователей.
-        * **{{ ui-key.yacloud.storage.bucket.policy.field_user }}** — все пользователи или набор конкретных пользователей.
+        * **{{ ui-key.yacloud.storage.bucket.policy.field_user }}** — все пользователи или набор конкретных пользователей. Чтобы задать набор конкретных пользователей или сервисных аккаунтов, выберите их имена в выпадающем списке.
         * **{{ ui-key.yacloud.storage.bucket.policy.field_action }}**, для которого создается правило. Вы также можете выбрать опцию **Все действия**.
         * **{{ ui-key.yacloud.storage.bucket.policy.field_resource }}** — по умолчанию указан выбранный бакет. Чтобы добавить другие ресурсы в правило, нажмите кнопку **{{ ui-key.yacloud.storage.bucket.policy.button_add-resource }}**.
  

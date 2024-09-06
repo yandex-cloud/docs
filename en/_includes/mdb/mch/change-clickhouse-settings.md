@@ -7,7 +7,7 @@
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
    1. Select the cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
    1. Under **{{ ui-key.yacloud.mdb.forms.section_settings }}**, click **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}**.
-   1. Specify the [{{ CH }} settings](../../../managed-clickhouse/concepts/settings-list.md#dbms-cluster-settings).
+   1. Specify the [{{ CH }} settings](../../../managed-clickhouse/concepts/settings-list.md#server-level-settings).
    1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - CLI {#cli}

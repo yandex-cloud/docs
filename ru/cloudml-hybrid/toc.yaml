@@ -1,0 +1,11 @@
+title: '{{ cloudml-full-name }}'
+label:
+  title: RU
+  description: Сервис доступен только в регионе Россия.
+  theme: unknown
+  when: region == "kz"
+noIndex: true
+items:
+  - name: Правила тарификации
+    href: pricing.md
+base: ru/cloudml-hybrid

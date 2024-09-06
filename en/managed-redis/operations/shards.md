@@ -4,7 +4,9 @@ You can add and remove cluster shards, request a list of shards in the selected 
 
 {% note warning %}
 
-You can only manage shards in sharded clusters. Existing non-sharded clusters can't be sharded later. To create a sharded cluster, see [Creating clusters](cluster-create.md#create-cluster).
+You can only manage shards in sharded clusters.
+
+You can [create a sharded cluster](./cluster-create.md#create-cluster) or [enable sharding](./update.md#enable-sharding) in an existing non-sharded cluster.
 
 {% endnote %}
 
@@ -16,7 +18,7 @@ You can only manage shards in sharded clusters. Existing non-sharded clusters ca
 
    1. In the [management console]({{ link-console-main }}), select the folder with the cluster you need.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-   1. Click the name of the cluster and select the **{{ ui-key.yacloud.redis.cluster.switch_shards }}** tab.
+   1. Click the cluster name and select the **{{ ui-key.yacloud.redis.cluster.switch_shards }}** tab.
 
 - CLI {#cli}
 
@@ -174,7 +176,8 @@ To be able to place data in the new shard, start [rebalancing](#rebalance-cluste
 
 {% note alert %}
 
-All the shard hosts are deleted with the shard.
+* All the shard hosts are deleted with the shard.
+* If a cluster has two or three shards, use the CLI, {{ TF }}, or API to delete a shard.
 
 {% endnote %}
 

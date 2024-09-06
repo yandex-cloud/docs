@@ -50,6 +50,6 @@ description: "Various use cases for core infrastructure management systems in {{
 
 * [Configuring a local caching DNS resolver](../infrastructure-management/local-dns-cache.md)
 * [Migrating DNS zones from {{ yandex-360 }} to {{ dns-name }}](../infrastructure-management/connect-migration.md)
-* [{#T}](../dataplatform/mdb-dns-peering.md)
+* [{#T}](../dataplatform/clickhouse-dns-peering.md)
 * [{#T}](../infrastructure-management/dns-integration.md)
 * [Creating an ACME resolver webhook for responses to DNS01 checks](../infrastructure-management/cert-manager-webhook.md)

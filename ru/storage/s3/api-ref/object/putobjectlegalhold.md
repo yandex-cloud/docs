@@ -6,6 +6,8 @@
 
 Установить или снять блокировку могут пользователи с [ролью `storage.uploader`](../../../security/index.md). Проверить блокировку можно с помощью метода [getObjectLegalHold](getobjectlegalhold.md).
 
+{% include [s3-api-intro-include](../../../../_includes/storage/s3-api-intro-include.md) %}
+
 ## Запрос {#request}
 
 ```

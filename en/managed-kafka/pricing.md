@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# {{ mkf-name }} pricing
+# {{ mkf-name }} pricing policy
 
 In this section, you can find {{ mkf-name }} pricing [rules](#rules) and [effective prices](#prices) for the service resources.
 
@@ -33,7 +33,7 @@ The {{ mkf-name }} usage cost is based on:
 
 ### Using cluster hosts {#rules-hosts-uptime}
 
-The cost is calculated for each hour of operation of the host in accordance with the allocated computing resources. You can find supported resource configurations in the [Host classes](concepts/instance-types.md) section, and vCPU and RAM prices, in the [Prices](#prices) section.
+Host operation cost is charged per hour based on what computing resources you allocate for it. You can find supported resource configurations in the [Host classes](concepts/instance-types.md) section, and vCPU and RAM prices, in the [Prices](#prices) section.
 
 You can choose the host class for {{ KF }} broker hosts and {{ ZK }} hosts based on the expected replication load. The presence of {{ ZK }} hosts depends on the cluster configuration:
 
@@ -45,7 +45,7 @@ There are different ways to calculate the cost depending on the [host type](./co
 
 * Standard hosts
 
-   The cost is calculated for each hour of operation of the host in accordance with the allocated computing resources.
+   Host operation cost is charged per hour based on what computing resources you allocate for it.
 
 
 * Dedicated hosts
@@ -67,7 +67,6 @@ You pay for the storage allocated for DB clusters.
 
 The price covers one month of use based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
 
-
 ### Example of cluster cost calculation {#example}
 
 The cost of using a cluster with the following parameters for 30 days:
@@ -81,20 +80,22 @@ The cost of using a cluster with the following parameters for 30 days:
 
 
 
-{% include [usd-example-standard-hosts](../_pricing/managed-kafka/usd-example-standard-hosts.md) %}
+
+{% include [usd-hour](../_pricing_examples/managed-kafka/usd-hour.md) %}
 
 
 ## Discount for committed volumes of services (CVoS) {#cvos}
 
 {% include [cvos](../_includes/mdb/cvos.md) %}
 
-{{ mkf-name }} provides two types of CVoS: on vCPUs and RAM on the hosts you plan to use in DB clusters. In the management console, you can see potential savings from using a CVoS at the current resource usage. You can also forecast your monthly payments for the desired number of vCPUs and RAM.
+{{ mkf-name }} provides two types of CVoS: on vCPUs and RAM on the hosts you plan to use in DB clusters. In the management console, you can see how much you can potentially save with CVoS at the current consumption level. You can also forecast your monthly payments for the required number of vCPUs and RAM.
 
 {% note info %}
 
 CVoS discount is only available for certain types of resources. For non-supported resources, CVoS columns feature dashes under [Prices for the Russia region](#prices). Currently, you cannot order storage or web traffic this way.
 
 {% endnote %}
+
 
 ## Prices for the Russia region {#prices}
 
@@ -154,7 +155,7 @@ The price of fast local storage also depends on host type.
 
 {% note info %}
 
-You can't order {{ ZK }} host resources using a CVoS.
+You cannot order {{ ZK }} host resources via CVoS.
 
 {% endnote %}
 

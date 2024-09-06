@@ -11,5 +11,4 @@ description: "Из статьи вы узнаете, какие методы S3 
 [get](hosting/get.md) | Возвращает конфигурацию бакета для хостинга статических сайтов из {{ objstorage-name }}.
 [delete](hosting/delete.md) | Удаляет конфигурацию бакета для хостинга статических сайтов.
 
-
 {% include [the-s3-api-see-also-include](../../../_includes/storage/the-s3-api-see-also-include.md) %}

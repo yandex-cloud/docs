@@ -4,6 +4,7 @@
 
 Ответ не может содержать более 1000 элементов. Если в составной загрузке больше частей, то {{ objstorage-name }} возвращает маркер `IsTruncated` и элемент `NextPartNumberMarker`. Оставшиеся элементы можно получить последовательными запросами, в которых параметр `part-number-marker` равен `NextPartNumberMarker` из предыдущего запроса.
 
+{% include [s3-api-intro-include](../../../../_includes/storage/s3-api-intro-include.md) %}
 
 ## Запрос {#request}
 

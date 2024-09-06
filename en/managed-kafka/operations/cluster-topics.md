@@ -72,7 +72,7 @@ Prior to creating a topic, calculate the [minimum storage size](../concepts/stor
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
       For more information about how to create this file, see [Creating clusters](cluster-create.md).
-   1. Add the `yandex_mdb_kafka_topic` resource and [configure the topic](../concepts/settings-list.md#topic-settings) under `topic_config`, as required:
+   1. Add the `yandex_mdb_kafka_topic` resource and [configure the topic](../concepts/settings-list.md#topic-settings) under `topic_config` if required:
 
       ```hcl
       resource "yandex_mdb_kafka_topic" "<topic_name>" {
@@ -354,7 +354,7 @@ Using import, you can bring the existing cluster topics under {{ TF }} managemen
 ## Managing topics via the {{ KF }} Admin API {#admin-api}
 
 To manage topics via the {{ KF }} Admin API:
-1. [Create](cluster-accounts.md#create-user) an admin user with the `ACCESS_ROLE_ADMIN` role in the cluster.
+1. [Create](cluster-accounts.md#create-account) an admin user with the `ACCESS_ROLE_ADMIN` role in the cluster.
 1. Manage topics on behalf of this user by making requests to the {{ KF }} Admin API. Review your favorite programming language manual for information on working with the Admin API.
 
 For more information about using the Admin API and existing limitations, see [{#T}](../concepts/topics.md#management) and the [{{ KF }} documentation](https://kafka.apache.org/documentation/#adminapi).
