@@ -148,7 +148,7 @@ items:
   - name: Query
     href: query/index.yaml
   - name: '{{ cloudml-full-name }}'
-    href: cloudml-hybrid/index.yaml
+    href: cloudai-hybrid/index.yaml
     hidden: true
   - name: Консоль управления
     href: console/index.yaml

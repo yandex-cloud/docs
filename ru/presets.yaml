@@ -92,8 +92,8 @@ default:
   cloud-logging-short-name: Cloud Logging
   cloud-logs-name: Cloud Logs
   cloud-notify-bot: YandexCloudNotify_bot
-  cloudml-full-name: Yandex Cloud ML Hybrid
-  cloudml-name: Cloud ML Hybrid
+  cloudml-full-name: Yandex Cloud AI Hybrid
+  cloudml-name: Cloud AI Hybrid
   cluster-id: cat0adul1fj0********
   cname-example: cl-msa87*****.edgecdn.ru
   coi: Container Optimized Image
@@ -5236,6 +5236,8 @@ default:
         title_accounts: Платёжные аккаунты
       common:
         button_cron-1min: Каждую минуту
+        resource-acl:
+          button_assign-binding: Изменить роли
       component:
         iam-delete-folder-or-cloud-dialog:
           label_delete-now: Удалить сейчас
@@ -6850,6 +6852,7 @@ default:
             label_data-transfer_ru: Data Transfer
             label_datalens: DataLens
             label_dns: Cloud DNS
+            label_foundation-models: Foundation Models
             label_iot-core: IoT Core
             label_kms: Key Management Service
             label_load-balancer: Network Load Balancer
@@ -9845,6 +9848,10 @@ default:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/fluent-bit/fluent-bit
         tag: 2.1.7-3
+    yc_gatekeeper:
+      helmChart:
+        name: cr.yandex/yc-marketplace/gatekeeper
+        tag: 3.12.0
     yc_gateway-api:
       helmChart:
         name: >-

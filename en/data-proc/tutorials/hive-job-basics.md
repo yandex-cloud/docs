@@ -6,7 +6,7 @@ In this article, a simple example demonstrates how Hive is used in {{ dataproc-n
 
 ## Getting started {#before-you-begin}
 
-1. [Create a service account](../../iam/operations/sa/create.md) with the `dataproc.agent` role.
+1. [Create a service account](../../iam/operations/sa/create.md) with the `dataproc.agent` and `dataproc.provisioner` roles.
 
 1. {% include [tutorials-basic-before-buckets](../../_includes/data-proc/tutorials/basic-before-buckets.md) %}
 
@@ -16,7 +16,7 @@ In this article, a simple example demonstrates how Hive is used in {{ dataproc-n
       * `HDFS`
       * `SPARK`
       * `HIVE`
-   * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: Select the previously created service account with the `dataproc.agent` role.
+   * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: Select the service account you previously created.
    * **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}**: Select a bucket to hold the processing results.
 
 ## Create a Hive job {#create-job}

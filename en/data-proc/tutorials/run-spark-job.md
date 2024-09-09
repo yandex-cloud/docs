@@ -65,6 +65,7 @@ Prepare the infrastructure:
    1. [Create a service account](../../iam/operations/sa/create.md) named `data-proc-sa` with the following roles:
 
       * [dataproc.agent](../../data-proc/security/index.md#dataproc-agent)
+      * [dataproc.provisioner](../../data-proc/security/index.md#dataproc-provisioner)
       * [storage.admin](../../storage/security/index.md#storage-admin)
 
    1. [Create a {{ objstorage-full-name }} bucket](../../storage/operations/buckets/create.md) named `data-proc-bucket` with restricted access.
@@ -655,8 +656,8 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
    1. [Delete the {{ dataproc-name }} cluster](../operations/cluster-delete.md).
    1. If you reserved public static IP addresses for the clusters, release and [delete them](../../vpc/operations/address-delete.md).
    1. [Delete the subnet](../../vpc/operations/subnet-delete.md).
-   1. Delete the route table.
-   1. Delete the NAT gateway.
+   1. [Delete the route table](../../vpc/operations/delete-route-table.md).
+   1. [Delete the NAT gateway](../../vpc/operations/delete-nat-gateway.md).
    1. [Delete the network](../../vpc/operations/network-delete.md).
 
 - {{ TF }} {#tf}

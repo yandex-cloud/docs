@@ -54,6 +54,8 @@ items:
             href: operations/applications/filebeat-oss.md
           - name: Установка Fluent Bit
             href: operations/applications/fluentbit.md
+          - name: Установка Gatekeeper
+            href: operations/applications/gatekeeper.md
           - name: Установка Gateway API
             href: operations/applications/gateway-api.md
           - name: Установка {{ GL }} Agent

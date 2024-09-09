@@ -48,6 +48,8 @@ You can assign a role for an organization, [cloud](../../resource-manager/concep
 
 {% include [roles-primitive](../../_includes/roles-primitive.md) %}
 
+{% include [primitive-roles-footnote](../../_includes/primitive-roles-footnote.md) %}
+
 ## Roles required {#required-roles}
 
 To use the service, you need the [{{ roles.gitlab.editor }} role](../../iam/concepts/access-control/roles.md) or higher to the folder where the projects are being created. With the `{{ roles.gitlab.viewer }}` role, you can only view the list of the projects and the contents of uploaded files.

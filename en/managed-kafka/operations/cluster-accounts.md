@@ -219,7 +219,7 @@ Use the CLI, API, or {{ TF }} to create an admin user.
    To update user settings, use the [update](../api-ref/User/update.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/Update](../api-ref/grpc/user_service.md#Update) gRPC API call and provide the following in the request:
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * Username in the `userName` parameter. To find out the name, [get a list of users in the cluster](#list-accounts).
-   * In the `updateMask` parameter, a list of settings to update (in a single line, comma-separated). If you skip this parameter, the API method will reset any user settings that are not explicitly specified in the request to their default values.
+   * In the `updateMask` parameter, a list of settings to update (in a single line, comma-separated). If this parameter is omitted, the API method resets any user settings that are not explicitly specified in the request to their default values.
    * New set of permissions to topics (one or more `permissions` parameters, one for each topic).
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
@@ -249,7 +249,7 @@ Use the CLI, API, or {{ TF }} to create an admin user.
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To change the user password, run this command:
+   To change the user password, run the command:
 
    ```bash
    {{ yc-mdb-kf }} user update <username> \
@@ -480,7 +480,7 @@ If you revoke the `ACCESS_ROLE_ADMIN` role from the [admin user](../concepts/top
 
    When you update user permissions, the existing permissions are revoked and replaced with the new ones. This means the command must always include a complete list of permissions to be assigned to the user.
 
-   The `--permission` flag must include at least one topic-role pair, where:
+   The `--permission` flag must include at least one topic/role pair, where:
 
    * `topic`: Topic name.
    * `role`: User role, such as `producer`, `consumer`, or `admin`.

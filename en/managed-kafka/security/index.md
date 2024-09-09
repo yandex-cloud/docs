@@ -69,6 +69,8 @@ The chart below shows which roles are available in the service and how they inhe
 
 {% include [roles-primitive](../../_includes/roles-primitive.md) %}
 
+{% include [primitive-roles-footnote](../../_includes/primitive-roles-footnote.md) %}
+
 ## Roles required {#required-roles}
 
 To use the service, you need the [{{ roles.mkf.editor }} role](../../iam/concepts/access-control/roles.md) or higher for the folder to house the new cluster. The `{{ roles.mkf.viewer }}` role enables you only to view the list of clusters.

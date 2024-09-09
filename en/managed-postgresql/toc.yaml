@@ -2,7 +2,7 @@ title: Yandex Managed Service for PostgreSQL
 href: index.yaml
 label:
   title: KZ
-  description: The service is available in Kazakhstan.
+  description: This service is only available in the Kazakhstan region.
   theme: info
   when: region == "kz"
 items:
@@ -82,6 +82,10 @@ items:
         href: tutorials/index.md
       - name: Creating a {{ PG }} cluster for 1С
         href: tutorials/1c-postgresql.md
+      - name: >-
+          Creating a cluster of 1C:Enterprise Linux servers with a {{ mpg-name
+          }} cluster
+        href: tutorials/1c-postgresql-linux.md
       - name: Exporting databases to {{ dataproc-full-name }}
         href: tutorials/sqoop.md
       - name: Searching for cluster performance issues
@@ -112,6 +116,18 @@ items:
           Transferring data from {{ objstorage-full-name }} using {{
           data-transfer-full-name }}
         href: tutorials/object-storage-to-postgresql.md
+      - name: Creating a Joomla website with a PostgreSQL database
+        items:
+          - name: Overview
+            href: tutorials/joomla-postgresql/index.md
+          - name: Management console
+            href: tutorials/joomla-postgresql/console.md
+          - name: '{{ TF }}'
+            href: tutorials/joomla-postgresql/terraform.md
+      - name: Status monitoring of geographically distributed devices
+        href: tutorials/datalens.md
+      - name: Writing load balancer logs to {{ PG }}
+        href: tutorials/logging.md
       - name: Replication and migration
         items:
           - name: Logical {{ PG }} replication

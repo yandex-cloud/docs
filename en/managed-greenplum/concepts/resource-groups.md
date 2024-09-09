@@ -5,7 +5,7 @@ description: "In this tutorial, you will learn what resource groups are, what pa
 
 # Resource groups
 
-By using resource groups, the users with the `mdb_admin` role can set quotas for the following resources allocated for query processing:
+By using resource groups, users with the `mdb_admin` [role](cluster-users.md#mdb_admin) can set quotas for the following resources allocated for query processing:
 
 * CPU computing resources
 * Amount of RAM

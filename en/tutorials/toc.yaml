@@ -439,10 +439,6 @@ items:
           data-transfer-full-name }}
         href: dataplatform/ydb-to-clickhouse.md
       - name: >-
-          Migrating data with change of storage from {{ mos-name }} to {{
-          mch-name }} using {{ data-transfer-full-name }}
-        href: dataplatform/opensearch-to-clickhouse.md
-      - name: >-
           Configuring {{ dns-name }} for accessing {{ mch-name }} clusters from
           other cloud networks
         href: dataplatform/clickhouse-dns-peering.md
@@ -458,6 +454,8 @@ items:
           Using initialization scripts to configure GeeseFS in {{ dataproc-name
           }}
         href: dataplatform/data-proc-init-actions-geesefs.md
+      - name: Working with {{ KF }} topics using {{ dataproc-full-name }}
+        href: dataplatform/data-proc-and-kafka.md
       - name: Automating operations with {{ dataproc-name }} using {{ maf-name }}
         href: dataplatform/data-proc-and-airflow.md
       - name: >-
@@ -524,12 +522,22 @@ items:
           Migrating data from {{ mmy-full-name }} to {{ mgp-full-name }} using
           {{ data-transfer-full-name }}
         href: dataplatform/mmy-to-mgp.md
+      - name: Configuring index policy in {{ mos-full-name }}
+        href: dataplatform/opensearch-index-policy.md
       - name: Migrating data from {{ ES }} to {{ mos-name }}
         href: dataplatform/elasticsearch-to-opensearch.md
       - name: >-
           Migrating data from a third-party {{ OS }} cluster to {{ mos-name }}
           using {{ data-transfer-name }}
         href: dataplatform/mos-migration-from-standalone.md
+      - name: >-
+          Loading data from {{ mos-name }} to {{ objstorage-name }} using {{
+          data-transfer-name }}
+        href: dataplatform/opensearch-to-object-storage.md
+      - name: >-
+          Migrating data from {{ mos-full-name }} to {{ ydb-full-name }} using
+          {{ data-transfer-full-name }}
+        href: dataplatform/opensearch-to-ydb.md
       - name: Creating a {{ PG }} cluster for 1C:Enterprise
         href: dataplatform/1c-postgresql.md
       - name: '{{ mpg-name }} performance analysis and tuning'
@@ -602,6 +610,10 @@ items:
           Loading data from {{ objstorage-full-name }} to {{ ydb-full-name }}
           using {{ data-transfer-full-name }}
         href: dataplatform/object-storage-to-ydb.md
+      - name: >-
+          Loading data from {{ ydb-full-name }} to {{ objstorage-full-name }}
+          using {{ data-transfer-full-name }}
+        href: dataplatform/ydb-to-object-storage.md
   - name: Microsoft products in {{ yandex-cloud }}
     items:
       - name: All tutorials

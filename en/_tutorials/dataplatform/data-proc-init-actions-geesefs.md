@@ -15,7 +15,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Getting started {#before-you-begin}
 
-1. [Create a service account](../../iam/operations/sa/create.md) with the `dataproc.agent` role.
+1. [Create a service account](../../iam/operations/sa/create.md) with the `dataproc.agent` and `dataproc.provisioner` roles.
 
 1. [Create an {{ objstorage-full-name }} bucket](../../storage/operations/buckets/create.md).
 

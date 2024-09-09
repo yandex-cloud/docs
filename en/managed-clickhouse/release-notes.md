@@ -4,6 +4,12 @@ This section contains {{ mch-name }} release notes.
 
 {% include [Tags](../_includes/mdb/release-notes-tags.md) %}
 
+## July 2024 {#jule-2024}
+
+* New {{ CH }} version is now available: [24.6](https://clickhouse.com/docs/en/whats-new/changelog#-clickhouse-release-246-2024-07-01).
+* Now you can automatically convert non-replicated tables to [replicated](./concepts/replication.md#replicated-tables) ones when adding [{{ ZK }} hosts](./operations/zk-hosts.md). This greatly simplifies migration to a fault-tolerant configuration for single-host clusters.
+* Now you can delete [backups](./concepts/backup.md) manually.
+
 ## June 2024 {#june-2024}
 
 New {{ CH }} version is now available: [24.5](https://clickhouse.com/docs/en/whats-new/changelog#-clickhouse-release-245-2024-05-30).

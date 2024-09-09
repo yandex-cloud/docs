@@ -26,7 +26,7 @@ Prepare the infrastructure:
 
 - Manually {#manual}
 
-   1. [Create a service account](../../../iam/operations/sa/create.md) named `dataproc-s3-sa` and assign it the `dataproc.agent` and `storage.uploader` roles.
+   1. [Create a service account](../../../iam/operations/sa/create.md) named `dataproc-s3-sa` and assign the `dataproc.agent`, `dataproc.provisioner`, and `storage.uploader` roles to it.
    1. In {{ objstorage-full-name }}, [create a bucket](../../../storage/operations/buckets/create.md) named `dataproc-bucket`. Grant the `READ and WRITE` permission for this bucket to the service account.
    1. [Create a cloud network](../../../vpc/operations/network-create.md) named `dataproc-network`.
    1. In this network, [create a subnet](../../../vpc/operations/subnet-create.md) named `dataproc-subnet`.
@@ -288,8 +288,8 @@ Some resources are not free of charge. Delete the resources you no longer need t
 
       1. [{{ dataproc-name }} clusters](../../../data-proc/operations/cluster-delete.md)
       1. [{{ objstorage-name }} bucket](../../../storage/operations/buckets/delete.md)
-      1. Route table
-      1. NAT gateway
+      1. [Route table](../../../vpc/operations/delete-route-table.md)
+      1. [NAT gateway](../../../vpc/operations/delete-nat-gateway.md)
       1. [Security group](../../../vpc/operations/security-group-delete.md)
       1. [Subnet](../../../vpc/operations/subnet-delete.md)
       1. [Network](../../../vpc/operations/network-delete.md)

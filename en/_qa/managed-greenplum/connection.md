@@ -1,3 +1,7 @@
+#### Can I connect to the database as a superuser? {#super-user}
+
+No, you cannot. However, you can connect as an admin user with the `mdb_admin` role. The privileges it has matches those of the superuser. For more information, see [{#T}](../../managed-greenplum/concepts/cluster-users.md#mdb_admin).
+
 #### How can I access a running DB host? {#db-access}
 
 You can connect to {{ mgp-short-name }} databases using standard DBMS methods.
