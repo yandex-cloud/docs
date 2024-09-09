@@ -59,4 +59,42 @@ To learn more about working with distributed tables, see the [{{ CH }} documenta
 
    For more information about replication, {{ CK }}, and {{ ZK }}, see [Replication](replication.md).
 
+- Shard IDs in {{ yandex-cloud }} are different from their IDs in {{ CH }}.
+
+   * {{ mch-name }} clusters use shard names.
+   * {{ CH }} uses numeric IDs that match the alphabetic order of shard names in {{ mch-name }}, e.g., `A-shard`, `B-shard`, `shard10`, `shard100`.
+
+   Keep this in mind if your application accesses shards by their IDs when writing and reading distributed table data.
+
+   To learn how IDs in {{ yandex-cloud }} and {{ CH }} match, run this query:
+
+   ```sql
+   SELECT
+    substitution AS shard_name,
+    shardNum() AS shard_number
+   FROM cluster('{cluster}', system.macros)
+   WHERE macro = 'shard'
+   ORDER BY shard_name
+   ```
+
+   For example, in a cluster with the `shard1`, `shard2`, `shard3`, `shard4`, `shard100` shards, the matching will look as follows:
+
+   ```text
+   ┌─shard_name─┬─shard_number─┐
+   │ shard1     │            1 │
+   └────────────┴──────────────┘
+   ┌─shard_name─┬─shard_number─┐
+   │ shard100   │            2 │
+   └────────────┴──────────────┘
+   ┌─shard_name─┬─shard_number─┐
+   │ shard2     │            3 │
+   └────────────┴──────────────┘
+   ┌─shard_name─┬─shard_number─┐
+   │ shard3     │            4 │
+   └────────────┴──────────────┘
+   ┌─shard_name─┬─shard_number─┐
+   │ shard4     │            5 │
+   └────────────┴──────────────┘
+   ```
+
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

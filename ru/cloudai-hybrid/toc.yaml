@@ -8,4 +8,4 @@ noIndex: true
 items:
   - name: Правила тарификации
     href: pricing.md
-base: ru/cloudml-hybrid
+base: ru/cloudai-hybrid

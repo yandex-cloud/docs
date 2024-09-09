@@ -74,7 +74,7 @@ A low redistribution timeout value (less than two hours) may be insufficient to 
 
 ## Data redistribution monitoring {#redistribute-monitoring}
 
-To monitor data redistribution to the new segments, connect to the `postgres` database and execute the following statement on behalf of the user with the `mdb_admin` role:
+To monitor data redistribution across the new segments, connect to the `postgres` database and run the following query on behalf of the user with the `mdb_admin` [role](../../concepts/cluster-users.md#mdb_admin):
 
 ```sql
 SELECT dbname, fq_name, status, expansion_started, source_bytes FROM gpexpand.status_detail;

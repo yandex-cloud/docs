@@ -23,7 +23,14 @@ You can create other resources manually or using {{ TF }}.
 1. To import the data to the {{ objstorage-name }} bucket:
 
    1. [Create a bucket](../../../storage/operations/buckets/create.md) with restricted access.
-   1. [Create a service account](../../../iam/operations/sa/create.md).
+   1. [Create a service account](../../../iam/operations/sa/create.md) with the following roles:
+
+      * [dataproc.agent](../../../data-proc/security/index.md#dataproc-agent)
+      * [dataproc.provisioner](../../../data-proc/security/index.md#dataproc-provisioner)
+      * [{{ roles-monitoring-viewer }}](../../../monitoring/security/index.md#monitoring-viewer)​
+      * [storage.viewer](../../../storage/security/index.md#storage-viewer)
+      * [storage.uploader](../../../storage/security/index.md#storage-uploader)
+
    1. [Grant this service account](../../../storage/operations/buckets/edit-acl.md) read and write permissions for this bucket.
 
 1. [Create a {{ dataproc-name }} cluster](../../../data-proc/operations/cluster-create.md) in any suitable [configuration](../../../data-proc/concepts/instance-types.md).

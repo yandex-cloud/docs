@@ -80,7 +80,6 @@ Calculation for the storage cost and total cost:
 
 ## Prices for the Russia region {#prices}
 
-{% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 
 All prices below do not include VAT.
@@ -103,7 +102,7 @@ The prices for computing resources are the same for all types of hosts: mongod, 
 
 {% note info %}
 
-Access to high-performance SSD storage is provided upon request. Contact [technical support]({{ link-console-support }}) or your account manager.
+Access to ultra high-speed network storage with three replicas (SSD) is available upon request. Contact [technical support]({{ link-console-support }}) or your account manager.
 
 {% endnote %}
 

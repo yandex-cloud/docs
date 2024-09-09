@@ -25,7 +25,7 @@ Available connection types:
 The following is not available to databases and users:
 
 * System databases, e.g., `postgres`
-* System users, e.g., `mdb_admin`
+* System users, e.g., [mdb_admin](cluster-users.md#mdb_admin)
 * Special values, e.g., `all` or `sameuser`
 * [Regular expressions]({{ pg-docs }}/functions-matching.html#POSIX-SYNTAX-DETAILS)
 

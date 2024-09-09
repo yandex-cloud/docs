@@ -6,3 +6,5 @@ description: "Как получить логи моей работы в серв
 # Общие вопросы {{ foundation-models-full-name }}
 
 {% include [logs](../../_qa/logs.md) %}
+
+{% include [logs](../../_qa/demo-yagpt.md) %}

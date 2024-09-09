@@ -7,13 +7,67 @@ description: "На странице представлены релизы YC CLI
 
 ## Текущая версия {#latest-release}
 
+### Версия 0.133.0 (09.09.24) {#version0.133.0}
+
+#### Изменения в CLI {#cli}
+
+* Исправлена ошибка, приводившая к подмене реальных сообщений об ошибке текстом `ERROR: Failed to retrieve data`. Затронутые проблемой версии: 0.131.0–0.132.1.
+
+#### Изменения в сервисах {{ yandex-cloud }} {#services}
+
+##### {{ at-name }} {#audit-trails}
+
+* Команды для управления трейлами теперь используют поле `filtering_policy` вместо `filter`. Устаревшее поле все еще может быть доступно с помощью опции `--file` для описания запросов.
+
+##### {{ compute-name }} {#compute}
+
+* В командах `yc compute instance get`, `yc compute image get`, `yc compute disk get` и `yc compute snapshot get` добавлено отображение свойства `hardware_generation`.
+* В командах `yc compute image create`, `yc compute disk create` и `yc compute snapshot create` добавлены параметры `--hardware-generation-id` и `--hardware-features`.
+
+##### Сервисы управляемых баз данных {#managed-db}
+
+* Добавлена возможность изменить сеть кластера с помощью параметров `--network-id` и `--network-name` в следующих командах:
+  * `yc managed-mongodb cluster update`;
+  * `yc managed-clickhouse cluster update`;
+  * `yc managed-greenplum cluster update`;
+  * `yc managed-postgresql cluster update`;
+  * `yc managed-redis cluster update`;
+  * `yc managed-mysql cluster update`;
+  * `yc managed-kafka cluster update`;
+  * `yc managed-elasticsearch cluster update`;
+  * `yc managed-opensearch cluster update`.
+
+**{{ mch-name }}**
+
+* Добавлены команды `yc managed-clickhouse cluster [ clear-query-masking-rules | set-query-masking-rules ]` для работы с опцией `query_masking_rules` в {{ CH }}, позволяющей создавать правила для запросов с целью устранения утечки конфиденциальной информации.
+* Для команды `yc managed-clickhouse cluster add-external-dictionary` добавлены параметры:
+  * `--layout-max-array-size` — определение максимального количества ключей словаря.
+  * `--http-header` — добавление HTTP-заголовков у HTTP-источников внешних словарей.
+* Для команды `yc managed-clickhouse cluster add-external-dictionary --clickhouse-source` добавлен параметр `--secure` для включения SSL в соединениях.
+* Для команды `yc managed-clickhouse cluster add-external-dictionary --mysql-source` добавлены параметры:
+  * `--close-connection` — закрытие соединения после каждого запроса.
+  * `--share-connection` — возможность использования соединения несколькими запросами.
+
+**{{ mrd-name }}**
+
+* В команды `yc managed-redis cluster [ create | update | restore ]` добавлен параметр `--websql-access`, который позволяет установить в {{ RD }} доступ через {{ websql-name }}.
+
+**{{ mgp-name }}**
+
+* В команды `yc managed-greenplum cluster [ create | update | restore ]` добавлен параметр `--yandexquery-access`, разрешающий доступ к кластеру из сервиса {{ yq-full-name }}.
+* В команды `yc managed-greenplum cluster [ create | update ]` добавлены параметры `--analyze-and-vacuum`, `--query-killer-idle`, `--query-killer-idle-in-transaction` и `--query-killer-long-running`, позволяющие управлять фоновыми процессами {{ mgp-name }}.
+
+**{{ maf-name }}**
+
+* Добавлены команды для работы с сервисом {{ maf-name }}: `yc managed-airflow cluster [ get | list | delete | list-operations | start | stop | create | update ]`.
+
+## Предыдущие релизы {#previous-releases}
+
 ### Версия 0.132.1 (28.08.24) {#version0.132.1}
 
 #### Изменения в CLI {#cli}
 
 * Исправлены ошибки в документации флага `--help`.
-
-## Предыдущие релизы {#previous-releases}
 
 ### Версия 0.132.0 (26.08.24) {#version0.132.0}
 

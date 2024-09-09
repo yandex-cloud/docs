@@ -2,7 +2,7 @@ title: Yandex Managed Service for MySQL®
 href: index.yaml
 label:
   title: KZ
-  description: The service is available in Kazakhstan.
+  description: This service is only available in the Kazakhstan region.
   theme: info
   when: region == "kz"
 items:
@@ -112,6 +112,32 @@ items:
         href: tutorials/cdc-data-transfer.md
       - name: Delivering data to {{ mkf-full-name }} using Debezium
         href: tutorials/cdc-debezium.md
+      - name: WordPress website on a {{ MY }} database
+        href: tutorials/wordpress-mysql.md
+      - name: Building a 1C-Bitrix website
+        items:
+          - name: Overview
+            href: tutorials/bitrix-website/index.md
+          - name: Management console
+            href: tutorials/bitrix-website/console.md
+          - name: '{{ TF }}'
+            href: tutorials/bitrix-website/terraform.md
+      - name: 1C-Bitrix online store
+        items:
+          - name: Overview
+            href: tutorials/bitrix-shop/index.md
+          - name: Management console
+            href: tutorials/bitrix-shop/console.md
+          - name: '{{ TF }}'
+            href: tutorials/bitrix-shop/terraform.md
+      - name: OpenCart online store
+        items:
+          - name: Overview
+            href: tutorials/opencart/index.md
+          - name: Management console
+            href: tutorials/opencart/console.md
+          - name: '{{ TF }}'
+            href: tutorials/opencart/terraform.md
       - name: >-
           Migrating databases to {{ ydb-full-name }} using {{
           data-transfer-full-name }}

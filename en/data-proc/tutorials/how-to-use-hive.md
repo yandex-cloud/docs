@@ -6,7 +6,7 @@ You can run Hive jobs from the [{{ yandex-cloud }} CLI](#run-hive-job-cli) and d
 
 ## Getting started {#before-you-begin}
 
-1. [Create a service account](../../iam/operations/sa/create.md) with the `dataproc.agent` role.
+1. [Create a service account](../../iam/operations/sa/create.md) with the `dataproc.agent` and `dataproc.provisioner` roles.
 
 1. {% include [tutorials-basic-before-buckets](../../_includes/data-proc/tutorials/basic-before-buckets.md) %}
 
@@ -16,7 +16,7 @@ You can run Hive jobs from the [{{ yandex-cloud }} CLI](#run-hive-job-cli) and d
       * `HDFS`
       * `SPARK`
       * `HIVE`
-   * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: Select the previously created service account with the `dataproc.agent` role.
+   * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: Select the service account you previously created.
    * **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}**: Select a bucket to hold the processing results.
    * **{{ ui-key.yacloud.mdb.forms.field_assign-public-ip }}**: Select this option to grant access to hosts in all subclusters.
 

@@ -262,7 +262,7 @@ If the cluster already uses a service account to access objects from {{ objstora
 
       {% include [Deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
-   * `--data-transfer-access`: Access from [{{ data-transfer-full-name }}](../../data-transfer/index.yaml), `true` or `false`.
+
    * `--serverless-access`: Access from [{{ serverless-containers-full-name }}](../../serverless-containers/index.yaml), `true` or `false`.
 
 - {{ TF }} {#tf}

@@ -1,6 +1,6 @@
 # Managing resource groups
 
-You can manage cluster resource usage quotas using [resource groups](../concepts/resource-groups.md). To do this, [connect to the cluster](connect.md) as the user with the `mdb_admin` [role](../concepts/cluster-users.md).
+You can manage cluster resource usage quotas using [resource groups](../concepts/resource-groups.md). To do this, [connect to the cluster](connect.md) as the user with the `mdb_admin` [role](../concepts/cluster-users.md#mdb_admin).
 
 ## View information about resource groups {#info}
 

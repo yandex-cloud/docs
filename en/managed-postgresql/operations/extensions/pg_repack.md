@@ -5,9 +5,9 @@ description: "This guide describes how to install pg_repack and its client with 
 
 # Using pg_repack in {{ mpg-name }}
 
-{{ PG }} tables and indexes may get bloated. When running transactions that update data in tables and indexes, the older data is retained in case you need to roll back the transactions. This causes tables and indexes to bloat during bulk data updates. You can use the [pgstattuple](./cluster-extensions.md#postgresql) extension or the [pgsql-bloat-estimation](https://github.com/ioguix/pgsql-bloat-estimation) queries to estimate the amount of bloat.
+{{ PG }} tables and indexes may get bloated. When running transactions that update data in tables and indexes, its older version is retained in case you need to roll back the transactions. This causes tables and indexes to bloat during bulk data updates. You can use the [pgstattuple](./cluster-extensions.md#postgresql) extension or the [pgsql-bloat-estimation](https://github.com/ioguix/pgsql-bloat-estimation) queries to estimate the amount of bloat.
 
-Older data versions are not deleted automatically. To free up storage space and remove bloat, you can delete the data you no longer need using the built-in [VACUUM FULL]({{ pg-docs }}/sql-vacuum.html) or [CLUSTER]({{ pg-docs }}/sql-cluster.html) commands. However, these commands must obtain an exclusive lock on the processed tables, which may not be convenient or possible.
+Older data versions are not deleted automatically. To free up storage space and remove bloat, you can delete the data you no longer need using the built-in [VACUUM FULL]({{ pg-docs }}/sql-vacuum.html) or [CLUSTER]({{ pg-docs }}/sql-cluster.html) commands. However, these commands require an exclusive lock on the processed tables, which may not be convenient or possible.
 
 The [pg_repack](https://github.com/reorg/pg_repack) extension allows you to remove bloat in tables and indexes by repacking them. Unlike other methods, `pg_repack` works without holding an exclusive lock on the tables. For more information, see the [extension page](https://reorg.github.io/pg_repack/).
 
@@ -26,13 +26,13 @@ The [pg_repack](https://github.com/reorg/pg_repack) extension allows you to remo
 
    {% note warning %}
 
-   Other values for these settings may cause long-running commands to interrupt or idle transactions to terminate. If this happens, `pg_repack` may fail.
+   Other values for these settings may cause long-running commands to interrupt or idle transactions to terminate. If so, a `pg_repack` run may fail to complete correctly.
 
    {% endnote %}
 
 ## Installing the pg_repack client {#install-client}
 
-To use the extension, you need a client with the same name. The client must be installed on a host that can [connect to the {{ PG }} cluster](../connect.md).
+You need the same-name client to use the extension. The client must be installed on a host that can [connect to the {{ PG }} cluster](../connect.md).
 
 To install the client:
 
@@ -41,7 +41,7 @@ To install the client:
 
    {% note warning %}
 
-   The client and extension versions must match; otherwise, the connection will return this error:
+   The client and extension versions must match; otherwise, the connection will return the following error:
 
    ```text
    ERROR: pg_repack failed with error: program 'pg_repack ...' does not match database library 'pg_repack ...'
@@ -62,9 +62,9 @@ To install the client:
 
    1. Install the dependencies.
 
-      Select the `postgresql-server-dev-*` package version that matches the version of the {{ PG }} cluster you plan to connect to using the client. This will make your client more stable.
+      Select the `postgresql-server-dev-*` package version that matches the version of the {{ PG }} cluster you plan to connect to using the client. This will improve the stability of the client you built.
 
-      This example command installs such a package for {{ PG }} 16 together with other packages:
+      Here is an example of the command to install such a package for {{ PG }} 16 and other packages:
 
       ```bash
       sudo apt install git build-essential \
@@ -73,9 +73,9 @@ To install the client:
                        postgresql-server-dev-16
       ```
 
-   1. Clone the `pg_repack` Git repository by selecting the [relevant version tag](https://github.com/reorg/pg_repack/tags) and open the local directory where the repository resides.
+   1. Clone the `pg_repack` Git repository by selecting the [relevant version tag](https://github.com/reorg/pg_repack/tags) and open the local directory containing the repository.
 
-      Example command for the `ver_1.4.8` tag:
+      Example of the command for the `ver_1.4.8` tag:
 
       ```bash
       git clone https://github.com/reorg/pg_repack.git \
@@ -93,7 +93,7 @@ To install the client:
 
    1. Place the `pg_repack` executable file in any directory listed in the `PATH` environment variable for the current user.
 
-      Example command to move the file to `/usr/local/bin`:
+      Example of the command to move the file to `/usr/local/bin`:
 
       ```bash
       sudo install bin/pg_repack /usr/local/bin
@@ -117,7 +117,7 @@ To install the client:
 
 {% note tip %}
 
-Run `pg_repack` when the {{ PG }} cluster load is minimal: repacking database objects will put extra load on your cluster.
+Run `pg_repack` when the {{ PG }} cluster load is minimum: database object repacking adds extra load to the cluster.
 
 [Cluster and host state](../monitoring.md) data is available in the management console.
 
@@ -127,11 +127,11 @@ To run `pg_repack` and repack database objects:
 
 1. [Make sure the cluster has enough free storage space](../monitoring.md#monitoring-cluster): at least twice the total size of the tables and indexes to repack.
 
-   During a repack, `pg_repack` works with copies of tables and indexes, which requires additional storage space.
+   `pg_repack` works with copies of tables and indexes, which requires additional storage space for repacking.
 
 1. Run the `pg_repack` client with the required parameters.
 
-   Below are example commands to run the client with common parameter combinations. For a description of all supported parameters, see the [extension page](https://reorg.github.io/pg_repack/).
+   Below are examples of commands for running the client with common parameter combinations. For a description of all supported parameters, see the [extension page](https://reorg.github.io/pg_repack/).
 
    {% note tip %}
 
@@ -143,11 +143,11 @@ To run `pg_repack` and repack database objects:
 
    Run the command you need:
 
-   * Command to repack the specified database tables:
+   * Command to repack the specified tables in the database:
 
       {% list tabs group=connection %}
 
-      - Repack with a non-SSL connection {#without-ssl}
+      - Repacking with connection without SSL {#without-ssl}
 
          ```bash
          pg_repack -k -h c-<cluster_ID>.rw.{{ dns-zone }} -p 6432 \
@@ -156,7 +156,7 @@ To run `pg_repack` and repack database objects:
                    -t <table_name>
          ```
 
-      - Repack with an SSL connection {#with-ssl}
+      - Repacking with connection via SSL {#with-ssl}
 
          ```bash
          PGSSLMODE='verify-full' \
@@ -170,11 +170,11 @@ To run `pg_repack` and repack database objects:
 
       If you need to repack multiple tables, provide the required number of `-t` parameters, one for each table.
 
-   * Command to repack the specified database indexes:
+   * Command to repack the specified indexes in the database:
 
       {% list tabs group=connection %}
 
-      - Repack with a non-SSL connection {#without-ssl}
+      - Repacking with connection without SSL {#without-ssl}
 
          ```bash
          pg_repack -k -h c-<cluster_ID>.rw.{{ dns-zone }} -p 6432 \
@@ -183,7 +183,7 @@ To run `pg_repack` and repack database objects:
                    -i <index_name>
          ```
 
-      - Repack with an SSL connection {#with-ssl}
+      - Repacking with connection via SSL {#with-ssl}
 
          ```bash
          PGSSLMODE='verify-full' \
@@ -201,7 +201,7 @@ To run `pg_repack` and repack database objects:
 
       {% list tabs group=connection %}
 
-      - Repack with a non-SSL connection {#without-ssl}
+      - Repacking with connection without SSL {#without-ssl}
 
          ```bash
          pg_repack -k -h c-<cluster_ID>.rw.{{ dns-zone }} -p 6432 \
@@ -209,7 +209,7 @@ To run `pg_repack` and repack database objects:
                    -d <database_name>
          ```
 
-      - Repack with an SSL connection {#with-ssl}
+      - Repacking with connection via SSL {#with-ssl}
 
          ```bash
          PGSSLMODE='verify-full' \
@@ -228,7 +228,7 @@ The example was tested in the following environment:
 
 * {{ PG }} `16` cluster where:
 
-   * [Database](../databases.md#add-db) named `db1` is created with `user1` as its owner.
+   * A [database](../databases.md#add-db) named `db1` is created with `user1` as its owner.
    * `pg_repack` version `1.4.8` is [installed](#install-extension) in the `db1` database.
 
 * {{ yandex-cloud }} VM running Ubuntu 22.04 LTS where:
@@ -238,12 +238,12 @@ The example was tested in the following environment:
 
 {% endnote %}
 
-This example uses [pgbench]({{ pg-docs }}/pgbench.html), a load-testing tool for {{ PG }} which allows you to automate the following operations:
+This example uses [pgbench]({{ pg-docs }}/pgbench.html), a tool designed for {{ PG }} load testing which allows you to automate the following operations:
 
-* Creating test tables and indexes and populating the tables with test data.
+* Create test tables and indexes and populate the tables with test data.
 * Running multiple queries to test tables, including `INSERT` and `DELETE` queries that update the table contents.
 
-When a `pgbench` run is over, test tables and their relevant indexes become bloated as a result of a large number of queries. Also, `pgbench` runs the `VACUUM` command, which removes table and index bloat, at the beginning rather than the end of its operation. So we will use `pgbench` to create bloated tables and indexes to demonstrate how `pg_repack` works.
+After the`pgbench` operation is complete, test tables and their relevant indexes become bloated as a result of running a large number of queries. Also, `pgbench` runs the `VACUUM` command, which removes table and index bloat, at the beginning rather than the end of its operation. So we will use `pgbench` to create bloated tables and indexes to demonstrate how `pg_repack` works.
 
 To test `pg_repack` on the `pgbench` test tables and indexes:
 
@@ -325,7 +325,7 @@ To test `pg_repack` on the `pgbench` test tables and indexes:
 
    Wait for the `pgbench` run to complete. This may take several minutes.
 
-1. Once again, view the statistics for the `pgbench_*` tables and indexes:
+1. Recheck statistics for the `pgbench_*` tables and indexes:
 
    Non-zero values in the `dead_tuple_count` columns indicate table and index bloat. For test tables and indexes created by `pgbench`, the `pgbench_tellers` table will show the greatest bloating.
 
@@ -360,6 +360,6 @@ To test `pg_repack` on the `pgbench` test tables and indexes:
 
    Wait for the `pg_repack` run to complete. This may take several minutes.
 
-1. Once again, view the statistics for the `pgbench_*` tables and indexes:
+1. Recheck statistics for the `pgbench_*` tables and indexes:
 
-   The `dead_tuple_count` columns must show zero for all query results. This means there are no bloated tables or indexes, and `pg_repack` ran correctly.
+   The `dead_tuple_count` columns must show zero for all query results. This means there are no bloated tables or indexes and `pg_repack` did its job correctly.

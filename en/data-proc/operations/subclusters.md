@@ -98,7 +98,7 @@ The number of hosts in {{ dataproc-name }} clusters is limited by [quotas]({{ li
       ```
 
       Where:
-      * `--cluster-name`: Cluster name. You can get the cluster name with a [list of clusters in the folder](cluster-list.md#list).
+      * `--cluster-name`: Cluster name. You can retrieve the cluster name with a [list of clusters in the folder](cluster-list.md#list).
       * `--role`: Subcluster role (`datanode`, or `computenode`).
       * `--resource-preset`: [Host class](../concepts/instance-types.md).
       * `--disk-type`: [Storage type](../concepts/storage.md) (`network-ssd`, `network-hdd`, or `network-ssd-nonreplicated`).

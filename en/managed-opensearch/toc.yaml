@@ -2,7 +2,7 @@ title: '{{ mos-full-name }}'
 href: index.yaml
 label:
   title: KZ
-  description: The service is available in Kazakhstan.
+  description: This service is only available in the Kazakhstan region.
   theme: info
   when: region == "kz"
 items:
@@ -56,6 +56,8 @@ items:
             href: operations/monitoring.md
   - name: Tutorials
     items:
+      - name: Configuring index policy in {{ mos-name }}
+        href: tutorials/opensearch-index-policy.md
       - name: Migrating data from {{ ES }}
         href: tutorials/migration-to-opensearch.md
       - name: Uploading logs from {{ at-name }}
@@ -68,6 +70,18 @@ items:
           Migrating data from a third-party {{ OS }} cluster using {{
           data-transfer-full-name }}
         href: tutorials/migration-from-standalone.md
+      - name: >-
+          Loading data from {{ mos-name }} to {{ objstorage-name }} using {{
+          data-transfer-full-name }}
+        href: tutorials/opensearch-to-object-storage.md
+      - name: >-
+          Migrating data from {{ mos-name }} to {{ ydb-full-name }} using {{
+          data-transfer-full-name }}
+        href: tutorials/opensearch-to-ydb.md
+      - name: >-
+          Copying data from {{ mos-name }} to {{ mch-name }} using {{
+          data-transfer-full-name }}
+        href: tutorials/opensearch-to-clickhouse.md
   - name: Concepts
     items:
       - name: Resource relationships
@@ -76,6 +90,8 @@ items:
         href: concepts/host-roles.md
       - name: Indexes
         href: concepts/indexing.md
+      - name: Index policies
+        href: concepts/index-policy.md
       - name: Search using {{ OS }}
         href: concepts/searching.md
       - name: Host classes
