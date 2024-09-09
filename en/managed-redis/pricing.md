@@ -52,7 +52,7 @@ The price covers one month of use based on 720 hours per month. The minimum bill
 
 {% include [cvos](../_includes/mdb/cvos.md) %}
 
-{{ mrd-name }} provides two kinds of CVoS: on vCPUs and RAM on the hosts you plan to use in DB clusters. In the management console, you can see potential savings from using a CVoS at the current resource usage. You can also forecast your monthly payments for the desired number of vCPUs and RAM.
+{{ mrd-name }} provides two types of CVoS: on vCPUs and on RAM for the hosts you are planning to use in your DB clusters. In the management console, you can see how much you can potentially save with CVoS at the current consumption level. You can also forecast your monthly payments for the required number of vCPUs and RAM.
 
 {% note info %}
 
@@ -89,7 +89,7 @@ All prices below do not include VAT.
 
 {% note info %}
 
-Access to high-performance SSD storage is provided upon request. Contact [technical support]({{ link-console-support }}) or your account manager.
+Access to ultra high-speed network storage with three replicas (SSD) is available upon request. Contact [technical support]({{ link-console-support }}) or your account manager.
 
 {% endnote %}
 

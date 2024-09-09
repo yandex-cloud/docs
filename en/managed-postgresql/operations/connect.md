@@ -109,13 +109,13 @@ If, when the [master host is changed automatically](../concepts/replication.md#r
 
 ### Current master {#fqdn-master}
 
-Such FQDN as `c-<cluster_ID>.rw.{{ dns-zone }}` always points to the current cluster master host. You can request the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+Such FQDN as `c-<cluster_ID>.rw.{{ dns-zone }}` always points to the current cluster master host. You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 When connecting to this FQDN, both read and write operations are allowed.
 
 {% note info %}
 
-Connect using special master host FQDNs to make sure your cluster is available even after a master fail over.
+Only use the connection via specific master host FQDNs for the processes that can withstand database unavailability for 15 to 30 minutes. For example, when switching to the master, the application that uses the master host FQDN will continue attempts to run `write` requests on the replica for some time.
 
 {% endnote %}
 
@@ -132,7 +132,7 @@ psql "host=c-c9qash3nb1v9********.rw.{{ dns-zone }} \
 
 ### Most recent replica {#fqdn-replica}
 
-Such FQDN as `c-<cluster_ID>.ro.{{ dns-zone }}` points to the most recent [replica](../concepts/replication.md), i.e., the one most up-to-date with the master host. You can request the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+Such FQDN as `c-<cluster_ID>.ro.{{ dns-zone }}` points to the most recent [replica](../concepts/replication.md), i.e., the one most up-to-date with the master host. You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 **Specifics:**
 
@@ -170,7 +170,7 @@ To upgrade the library version used by the `psql` utility:
 
 {% include [ide-environments](../../_includes/mdb/mdb-ide-envs.md) %}
 
-You can only use graphical IDEs to connect to public cluster hosts using SSL certificates.
+You can only use graphical IDEs to connect to public cluster hosts using an SSL certificate.
 
 {% include [note-connection-ide](../../_includes/mdb/note-connection-ide.md) %}
 
@@ -231,7 +231,7 @@ You can only use graphical IDEs to connect to public cluster hosts using SSL cer
 
 The connection was tested for [{{ pgadmin }}](https://www.pgadmin.org) ver. 7.0 on Ubuntu 20.04.
 
-You can only use {{ pgadmin }} to connect to public cluster hosts [using SSL certificates](#get-ssl-cert).
+You can only use {{ pgadmin }} to connect to public cluster hosts [using an SSL certificate](#get-ssl-cert).
 
 Create a new server connection:
 

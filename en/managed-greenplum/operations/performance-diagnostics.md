@@ -19,7 +19,7 @@ Access to the `gpperfmon` database is granted on request. Contact [technical sup
 The `gpperfmon` database saves the statistics on the system queries and states. The `gpperfmon` database can be accessed by:
 
 * Admin user.
-* User with the `mdb_admin` role.
+* User with the `mdb_admin` [role](../concepts/cluster-users.md#mdb_admin).
 * User with the `gpperfmon` database privileges.
 
 The `gpperfmon` database contains the following information tables:

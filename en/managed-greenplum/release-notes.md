@@ -4,13 +4,17 @@ This section contains {{ mgp-name }} release notes.
 
 {% include [Tags](../_includes/mdb/release-notes-tags.md) %}
 
+## July 2024 {#jule-2024}
+
+* Enabled managing [PXF](./operations/external-tables.md) settings from the API and UI. You can now customize the import and export of data from other DBMSs, S3, and HDFS.
+
 ## June 2024 {#jun-2024}
 
 Now you can [create](operations/index.md#pxf) external S3, JDBC, HDFS, and Hive data sources for accessing external tables. {{ tag-con }}
 
 ## February 2024 {#feb-2024}
 
-Added the ability to partially [restore a cluster](./operations/cluster-backups.md#restore) from a backup: now you can specify a list of databases or tables to restore. This significantly reduces the time to restore and saves on cluster resources, especially when restoring small amounts of data.
+Added the ability to partially [restore a cluster](./operations/cluster-backups.md#restore) from a backup: now you can specify a list of databases or tables to restore. This greatly reduces the recovery time and saves cluster resources if restoring small amounts of data.
 
 ## January 2024 {#jan-2024}
 

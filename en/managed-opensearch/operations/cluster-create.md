@@ -7,7 +7,7 @@ keywords:
   - OpenSearch
 ---
 
-# Creating an {{ OS }} cluster
+# Creating a {{ OS }} cluster
 
 
 A {{ mos-name }} cluster is a group of multiple linked {{ OS }} and [dashboards]({{ os.docs }}/dashboards/index/) hosts. A cluster provides high search performance by distributing search and indexing tasks across all cluster hosts with the `DATA` role. To learn more about roles in the cluster, see [Host roles](../concepts/host-roles.md).
@@ -20,7 +20,7 @@ For more information, see [Resource relationships in the service](../concepts/in
 
 When creating a cluster, you need to specify individual parameters for each [host group](../concepts/host-roles.md).
 
-To create a {{ mos-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the [{{ roles.mos.editor }} role or higher](../security/index.md#roles-list). For information on assigning roles, see the [{{ iam-name }} documentation](../../iam/operations/roles/grant.md).
+To create a {{ mos-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the [{{ roles.mos.editor }} role or higher](../security/index.md#roles-list). For more information on assigning roles, see the [{{ iam-name }} documentation](../../iam/operations/roles/grant.md).
 
 {% list tabs group=instructions %}
 
@@ -184,7 +184,8 @@ To create a {{ mos-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
          Both enabled and disabled clusters undergo maintenance. Maintenance may involve such operations as applying patches or updating DBMS's.
 
       * `--read-admin-password`: `admin` user password. If you specify this parameter in the command, it will prompt you to enter a password.
-      * `--data-transfer-access`: Access from [{{ data-transfer-full-name }}](../../data-transfer/index.yaml), `true` or `false`.
+
+
       * `--serverless-access`: Access from [{{ serverless-containers-full-name }}](../../serverless-containers/index.yaml), `true` or `false`.
       * `--plugins`: [{{ OS }} plugins](../concepts/plugins.md) you want to install in the cluster.
       * `--advanced-params`: Additional cluster parameters. The possible values are:
@@ -405,7 +406,7 @@ To create an {{ OS }} cluster copy:
 
 - CLI {#cli}
 
-   Create a {{ mos-name }} cluster with the following test characteristics:
+   Create a {{ mos-name }} cluster with the following test specifications:
 
    * Name: `my-os-clstr`.
    * Description: `My OS cluster`.
@@ -487,7 +488,7 @@ To create an {{ OS }} cluster copy:
 
 - {{ TF }} {#tf}
 
-   Create a {{ mos-name }} cluster with the following test characteristics:
+   Create a {{ mos-name }} cluster with the following test specifications:
 
    * Name: `my-os-clstr`.
    * Environment: `PRODUCTION`.

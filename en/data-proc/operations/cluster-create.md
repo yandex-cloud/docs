@@ -1,11 +1,15 @@
 # Creating a {{ dataproc-name }} cluster
 
-To create a {{ dataproc-name }} cluster, the user must have the `dataproc.editor` [role](../../iam/concepts/access-control/roles.md) assigned. For more information, see the [role description](../security/index.md#roles-list).
+To create a {{ dataproc-name }} cluster, the user must have the following roles:
+
+* [dataproc.editor](../security/index.md#dataproc-editor): To create a cluster.
+* [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user): To use the cluster [network](../../vpc/concepts/network.md#network).
+* [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user): To create resources on behalf of the cluster [service account](../../iam/concepts/users/service-accounts.md).
 
 
 ## Configure a network {#setup-network}
 
-Configure internet access from the [subnet](../../vpc/concepts/network.md#subnet) to which the {{ dataproc-name }} [subcluster](../concepts/index.md#resources) with a master host will be connected, e.g., using a [NAT gateway](../../vpc/operations/create-nat-gateway.md). This will enable the {{ dataproc-name }} subcluster to interact with {{ yandex-cloud }} services or hosts in other [networks](../../vpc/concepts/network.md#network).
+Configure internet access from the [subnet](../../vpc/concepts/network.md#subnet) to which the {{ dataproc-name }} [subcluster](../concepts/index.md#resources) with a master host will be connected, e.g., using a [NAT gateway](../../vpc/operations/create-nat-gateway.md). This will enable the {{ dataproc-name }} subcluster to work with {{ yandex-cloud }} services or hosts in other networks.
 
 ## Configure security groups {#change-security-groups}
 
@@ -95,7 +99,10 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
       {% endnote %}
 
    1. Enter the public part of your SSH key in the **{{ ui-key.yacloud.mdb.forms.config_field_public-keys }}** field. For information about how to generate and use SSH keys, see the [{{ compute-full-name }} documentation](../../compute/operations/vm-connect/ssh.md).
-   1. Select or create a [service account](../../iam/concepts/users/service-accounts.md) to which you will grant access to the {{ dataproc-name }} cluster. Make sure to [assign](../security/index.md#grant-role) the `dataproc.agent` role to the service account of the {{ dataproc-name }} cluster.
+   1. Select or create a service account to grant {{ dataproc-name }} cluster access. Make sure to [assign](../../iam/operations/sa/assign-role-for-sa.md) the following roles to the {{ dataproc-name }} cluster service account:
+
+      {% include [sa-roles](../../_includes/data-proc/sa-roles.md) %}
+
    1. Select the availability zone for the {{ dataproc-name }} cluster.
    1. If required, configure the [properties of {{ dataproc-name }} cluster components, jobs, and the environment](../concepts/settings-list.md).
    1. If necessary, specify custom [initialization scripts](../concepts/init-action.md) for {{ dataproc-name }} cluster hosts. For each script, specify:
@@ -120,7 +127,7 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
    1. Enable **{{ ui-key.yacloud.mdb.forms.config_field_ui_proxy }}** to access the [web interfaces of {{ dataproc-name }} components](../concepts/interfaces.md).
    1. [{{ cloud-logging-full-name }}](../../logging/) stores {{ dataproc-name }} cluster logs. Select a log group from the list or [create a new one](../../logging/operations/create-group.md).
 
-      For the function to work, [assign](../../iam/operations/roles/grant.md) the `logging.writer` role to the service account of the {{ dataproc-name }} cluster. For more information, see the [{{ cloud-logging-name }} documentation](../../logging/security/index.md).
+      For the function to work, [assign](../../iam/operations/sa/assign-role-for-sa.md) the `logging.writer` role to the service account of the {{ dataproc-name }} cluster. For more information, see the [{{ cloud-logging-name }} documentation](../../logging/security/index.md).
    1. Configure {{ dataproc-name }} subclusters: maximum one subcluster with a master host (**Master**) and subclusters for data storage or processing.
 
       Roles of {{ dataproc-name }} subclusters for data storage and processing are different: you can deploy data storage components on data storage subclusters and computing components on data processing subclusters. You can use a [storage](../concepts/storage.md) on a {{ dataproc-name }} subcluster for data processing only to temporarily store the files being processed.
@@ -141,8 +148,6 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
          {% endnote %}
 
    1. In {{ dataproc-name }} subclusters for data processing, you can specify [autoscaling](../concepts/autoscaling.md) parameters.
-
-      {% include [note-info-service-account-roles](../../_includes/data-proc/service-account-roles.md) %}
 
       1. Under **{{ ui-key.yacloud.mdb.forms.label_create-subcluster }}**, click **{{ ui-key.yacloud.mdb.forms.button_configure }}**.
       1. In the **{{ ui-key.yacloud.mdb.forms.base_field_roles }}** field, select `COMPUTENODE`.
@@ -220,7 +225,10 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
       Where:
       * `--bucket`: Name of the bucket in {{ objstorage-name }} that will store job dependencies and results. The [service account](../../iam/concepts/users/service-accounts.md) of the {{ dataproc-name }} cluster must have `READ and WRITE` permissions for this bucket.
       * `--zone`: [Availability zone](../../overview/concepts/geo-scope.md) where the {{ dataproc-name }} cluster hosts will reside.
-      * `--service-account-name`: Name of the {{ dataproc-name }} cluster service account. Make sure to [assign](../security/index.md#grant-role) the `dataproc.agent` role to the service account of the {{ dataproc-name }} cluster.
+      * `--service-account-name`: Name of the {{ dataproc-name }} cluster service account. Make sure to [assign](../../iam/operations/sa/assign-role-for-sa.md) the following roles to the {{ dataproc-name }} cluster service account:
+
+         {% include [sa-roles](../../_includes/data-proc/sa-roles.md) %}
+
       * `--version`: [Image version](../concepts/environment.md).
 
          {% include [note-light-weight-cluster](../../_includes/data-proc/note-light-weight-cluster.md) %}
@@ -295,8 +303,6 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
       * `cpu-utilization-target`: Target CPU utilization level, in %. Use this setting to enable [scaling](../concepts/autoscaling.md) based on CPU utilization. Otherwise, `yarn.cluster.containersPending` will be used as a metric (based on the number of pending resources). The minimum value is `10` and the maximum value is `100`.
       * `autoscaling-decommission-timeout`: [Decommissioning timeout](../concepts/decommission.md) in seconds. The minimum value is `0` and the maximum value is `86400` (24 hours).
 
-      {% include [note-info-service-account-roles](../../_includes/data-proc/service-account-roles.md) %}
-
    1. To create a {{ dataproc-name }} subcluster residing on [groups of dedicated hosts](../../compute/concepts/dedicated-host.md), specify their IDs separated by commas in the `--host-group-ids` parameter:
 
       ```bash
@@ -364,15 +370,15 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
         description = "<service_account_description>"
       }
 
-      resource "yandex_resourcemanager_folder_iam_member" "dataproc" {
+      resource "yandex_resourcemanager_folder_iam_member" "dataproc-agent" {
         folder_id = "<folder_ID>"
         role      = "dataproc.agent"
         member    = "serviceAccount:${yandex_iam_service_account.data_proc_sa.id}"
       }
 
-      resource "yandex_resourcemanager_folder_iam_member" "bucket-creator" {
+      resource "yandex_resourcemanager_folder_iam_member" "dataproc-provisioner" {
         folder_id = "<folder_ID>"
-        role      = "dataproc.editor"
+        role      = "dataproc.provisioner"
         member    = "serviceAccount:${yandex_iam_service_account.data_proc_sa.id}"
       }
 
@@ -382,7 +388,7 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
 
       resource "yandex_storage_bucket" "data_bucket" {
         depends_on = [
-          yandex_resourcemanager_folder_iam_member.bucket-creator
+          yandex_resourcemanager_folder_iam_member.dataproc-provisioner
         ]
 
         bucket     = "<bucket_name>"
@@ -542,7 +548,10 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
       * Public part of the SSH key in the `configSpec.hadoop.sshPublicKeys` parameter.
       * Settings of the {{ dataproc-name }} subclusters in the `configSpec.subclustersSpec` parameter.
    * Availability zone of the {{ dataproc-name }} cluster in the `zoneId` parameter.
-   * ID of the {{ dataproc-name }} cluster's [service account](../../iam/concepts/users/service-accounts.md) in the `serviceAccountId` parameter.
+   * ID of the {{ dataproc-name }} cluster's [service account](../../iam/concepts/users/service-accounts.md) in the `serviceAccountId` parameter. Make sure to [assign](../../iam/operations/sa/assign-role-for-sa.md) the following roles to the service account:
+
+      {% include [sa-roles](../../_includes/data-proc/sa-roles.md) %}
+
    * Bucket name in the `bucket` parameter.
    * IDs of the {{ dataproc-name }} cluster's security groups in the `hostGroupIds` parameter.
    * {{ dataproc-name }} cluster deletion protection settings in the `deletionProtection` parameter.

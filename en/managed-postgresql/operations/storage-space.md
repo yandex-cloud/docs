@@ -31,7 +31,7 @@ To avoid issues with writing to the database, use one of the following methods:
       * **{{ ui-key.yacloud_monitoring.services.label_postgresql }}** service
       * {{ mpg-name }} cluster ID
 
-         You can get the cluster ID [with a list of clusters in the folder](../operations/cluster-list.md#list-clusters).
+         You can get the cluster ID with a [list of clusters in the folder](../operations/cluster-list.md#list-clusters).
 
       * `disk.free_bytes` label
 
@@ -40,7 +40,7 @@ To avoid issues with writing to the database, use one of the following methods:
       * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-type }}**: `{{ ui-key.yacloud_monitoring.alert-template.threshold-type.min }}` (minimum metric value for the period).
       * **{{ ui-key.yacloud_monitoring.alert.status_warn }}**: `90` (90% of storage size).
       * **{{ ui-key.yacloud_monitoring.alert.status_alarm }}**: `95` (95% of storage size).
-      * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-window }}**: Preferred period to update the metric value.
+      * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-window }}**: Preferred metric update period.
 
    1. Add the previously created notification channel.
 
@@ -49,7 +49,7 @@ To avoid issues with writing to the database, use one of the following methods:
 
 {% note alert %}
 
-Do not allow free disk space to drop to zero during the following actions. Otherwise, since the fail-safe is disabled, {{ PG }} will crash and the cluster will stop working.
+Do not allow free disk space to drop to zero during the following actions. Otherwise, since the fail-safe mechanism is disabled, {{ PG }} will crash and the cluster will stop operating.
 
 {% endnote %}
 
@@ -189,7 +189,7 @@ To disable the read-only mode:
 
          You can enable both rules, but the threshold for immediate increase should be higher than that for increase during the maintenance window.
 
-      1. In the **{{ ui-key.yacloud.mdb.cluster.field_diskSizeLimit }}** field, specify the maximum storage size that can be set if increasing storage size automatically.
+      1. In the **{{ ui-key.yacloud.mdb.cluster.field_diskSizeLimit }}** field, specify the maximum storage size that can be set when increasing the storage size automatically.
 
    1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 

@@ -54,8 +54,6 @@ items:
     items:
       - name: All tutorials
         href: tutorials/index.md
-      - name: Deploying the {{ KF }} web interface
-        href: tutorials/deploy-kafka-ui.md
       - name: Moving data from {{ KF }}
         items:
           - name: Setting up {{ KFC }} to work with {{ mkf-name }}
@@ -106,6 +104,10 @@ items:
             href: tutorials/send-data-to-mch.md
           - name: Delivering data to ksqlDB
             href: tutorials/use-ksqldb-with-mkf.md
+      - name: Deploying the {{ KF }} web interface
+        href: tutorials/deploy-kafka-ui.md
+      - name: Working with {{ KF }} topics using {{ dataproc-name }}
+        href: tutorials/data-proc.md
   - name: Concepts
     items:
       - name: Resource relationships

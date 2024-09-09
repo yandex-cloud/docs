@@ -2,7 +2,7 @@ title: Yandex Managed Service for ClickHouse®
 href: index.yaml
 label:
   title: KZ
-  description: The service is available in Kazakhstan.
+  description: This service is only available in the Kazakhstan region.
   theme: info
   when: region == "kz"
 items:
@@ -130,6 +130,10 @@ items:
           Loading data from {{ objstorage-full-name }} to {{ mch-name }} using
           {{ data-transfer-full-name }}
         href: tutorials/object-storage-to-clickhouse.md
+      - name: >-
+          Copying data from {{ mos-name }} to {{ mch-name }} using {{
+          data-transfer-full-name }}
+        href: tutorials/opensearch-to-clickhouse.md
       - name: >-
           Loading data from {{ ydb-full-name }} to {{ mch-name }} using {{
           data-transfer-full-name }}

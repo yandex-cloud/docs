@@ -66,6 +66,8 @@ The chart below shows which roles are available in the service and how they inhe
 
 {% include [mdb-admin](../../_roles/mdb/admin.md) %}
 
+When you create a {{ mgp-name }} cluster, an admin user with the `mdb_admin` role is created automatically. This role replaces the superuser when working with the database and is not similar to the `{{ roles-mdb-admin }}` role in {{ yandex-cloud }}. For more information, see [{#T}](../concepts/cluster-users.md).
+
 #### vpc.publicAdmin {#vpc-public-admin}
 
 {% include [vpc-publicadmin](../../_roles/vpc/publicAdmin.md) %}
@@ -75,9 +77,11 @@ The chart below shows which roles are available in the service and how they inhe
 
 {% include [roles-primitive](../../_includes/roles-primitive.md) %}
 
+{% include [primitive-roles-footnote](../../_includes/primitive-roles-footnote.md) %}
+
 ## Roles required {#required-roles}
 
-To use the service, you need the [{{ roles.mgp.editor }} role](../../iam/concepts/access-control/roles.md) or higher for the folder to house the new cluster. The `{{ roles.mgp.viewer }}` role only enables you to view the list of clusters.
+To use the service, you need the [{{ roles.mgp.editor }} role](../../iam/concepts/access-control/roles.md) or higher for the folder to house the new cluster. The `{{ roles.mgp.viewer }}` role enables you only to view the list of clusters.
 
 To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the `{{ roles.mgp.editor }}` role or higher.
 

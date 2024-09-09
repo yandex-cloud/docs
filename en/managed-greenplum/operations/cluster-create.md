@@ -8,7 +8,7 @@ For more information, see [{#T}](../concepts/index.md).
 
 ## Creating a cluster {#create-cluster}
 
-To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the [{{ roles.mgp.editor }} role or higher](../security/index.md#roles-list). For information on assigning roles, see the [{{ iam-name }} documentation](../../iam/operations/roles/grant.md).
+To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the [{{ roles.mgp.editor }} role or higher](../security/index.md#roles-list). For more information on assigning roles, see the [{{ iam-name }} documentation](../../iam/operations/roles/grant.md).
 
 {% list tabs group=instructions %}
 
@@ -65,7 +65,7 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
          {% note info %}
 
-         Such names as `admin`, `gpadmin`, `mdb_admin`, `mdb_replication`, `monitor`, `none`, `postgres`, `public`, and `repl` are reserved for {{ mgp-name }}. You cannot create users with these names.
+         Such names as `admin`, `gpadmin`, [mdb_admin](../concepts/cluster-users.md#mdb_admin), `mdb_replication`, `monitor`, `none`, `postgres`, `public`, and `repl` are reserved for {{ mgp-name }}. You cannot create users with these names.
 
          {% endnote %}
 
@@ -79,7 +79,8 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
          {% include [Maintenance window](../../_includes/mdb/console/maintenance-window-description.md) %}
 
       * {% include [Datalens access](../../_includes/mdb/console/datalens-access.md) %}
-      * {% include [DataTransfer access](../../_includes/mdb/console/datatransfer-access.md) %}
+
+
       * {% include [Deletion protection](../../_includes/mdb/console/deletion-protection.md) %}
 
          {% include [Deletion protection limits db](../../_includes/mdb/deletion-protection-limits-db.md) %}
@@ -199,7 +200,7 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
       * `--deletion-protection`: Cluster deletion protection, `true` or `false`.
 
 
-           {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
 
    1. To set a backup start time, provide the required value in `HH:MM:SS` format in `--backup-window-start`:
 
@@ -235,19 +236,21 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
       {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
-   1. To allow access from [{{ datalens-full-name }}](../../datalens/concepts/index.md) or [{{ data-transfer-full-name }}](../../data-transfer/), provide the `true` value in the corresponding parameters when creating a cluster:
+   1. To allow access from [{{ datalens-full-name }}](../../datalens/concepts/index.md), provide the `true` value in the relevant parameters when creating a cluster:
 
+
+      
       ```bash
       {{ yc-mdb-gp }} cluster create <cluster name> \
          ...
-         --datalens-access=<access_from_DataLens> \
-         --datatransfer-access=<access_from_Data_Transfer>
+         --datalens-access=<access_from_DataLens>
       ```
+
 
       Where:
 
       * `--datalens-access`: Access from {{ datalens-full-name }}, true or false.
-      * `--datatransfer-access`: Access from {{ data-transfer-full-name }}, true or false.
+
 
 - {{ TF }} {#tf}
 
@@ -384,9 +387,9 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
 ## Creating a cluster copy {#duplicate}
 
-You can create a {{ GP }} cluster with the settings of another one created earlier. To do so, you need to import the configuration of the source {{ GP }} cluster to {{ TF }}. Thus you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing is a convenient option when the source {{ GP }} cluster has lots of settings and you need to create a similar one.
+You can create an {{ GP }} cluster with the settings of another one you previously created. To do so, you need to import the configuration of the source {{ GP }} cluster to {{ TF }}. This way, you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing a configuration is a good idea when the source {{ GP }} cluster has a lot of settings and you need to create a similar one.
 
-To create a {{ GP }} cluster copy:
+To create an {{ GP }} cluster copy:
 
 {% list tabs group=instructions %}
 
@@ -463,7 +466,7 @@ To create a {{ GP }} cluster copy:
 
 - CLI {#cli}
 
-   Create a {{ mgp-name }} cluster with the following test characteristics:
+   Create a {{ mgp-name }} cluster with the following test specifications:
 
    
    * Name: `gp-cluster`

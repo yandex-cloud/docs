@@ -2,10 +2,6 @@
 
 You can use {{ mkf-name }} to transfer data between databases. Sources and targets can be {{ mkf-name }} clusters, third-party {{ KF }} clusters, or {{ yandex-cloud }} managed databases.
 
-## Working with the {{ KF }} web interface
-
-[{#T}](deploy-kafka-ui.md)
-
 ## Moving data from {{ KF }} {#moving-data}
 
 * [Configuring {{ KFC }} for {{ mkf-name }} clusters](./kafka-connect.md)
@@ -37,5 +33,13 @@ You can use {{ mkf-name }} to transfer data between databases. Sources and targe
 * [From {{ MY }} to {{ KF }} using Debezium](cdc/debezium-mmy.md)
 * [From {{ KF }} to {{ CH }}](send-data-to-mch.md)
 * [From {{ KF }} to ksqlDB](use-ksqldb-with-mkf.md)
+
+## Other {#other}
+
+* [{#T}](deploy-kafka-ui.md)
+
+
+* [{#T}](data-proc.md)
+
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

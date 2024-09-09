@@ -27,6 +27,10 @@ To authenticate in {{ objstorage-name }}, you can use one of the following appro
 
 1. When creating a cluster, specify a [service account](../../iam/operations/sa/create.md#create-sa). If the cluster is already created, add a service account using the **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** button in the management console.
 
+   Make sure to [assign](../../iam/operations/sa/assign-role-for-sa.md) the following roles to the service account:
+
+   {% include [sa-roles](../../_includes/data-proc/sa-roles.md) %}
+
 1. The service account must have access to the appropriate bucket. To do this, grant the service account privileges in the [bucket ACL](../../storage/concepts/acl), or the `storage.viewer` or `storage.editor` roles.
 
    For more information about these roles, see the [{{ objstorage-name }} documentation](../../storage/security/index.md).

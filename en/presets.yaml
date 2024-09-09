@@ -5229,6 +5229,8 @@ default:
         title_accounts: Billing accounts
       common:
         button_cron-1min: Every minute
+        resource-acl:
+          button_assign-binding: Edit roles
       component:
         iam-delete-folder-or-cloud-dialog:
           label_delete-now: Delete now
@@ -6841,6 +6843,7 @@ default:
             label_data-transfer_ru: Data Transfer
             label_datalens: DataLens
             label_dns: Cloud DNS
+            label_foundation-models: Foundation Models
             label_iot-core: IoT Core
             label_kms: Key Management Service
             label_load-balancer: Network Load Balancer
@@ -9838,6 +9841,10 @@ default:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/fluent-bit/fluent-bit
         tag: 2.1.7-3
+    yc_gatekeeper:
+      helmChart:
+        name: cr.yandex/yc-marketplace/gatekeeper
+        tag: 3.12.0
     yc_gateway-api:
       helmChart:
         name: >-

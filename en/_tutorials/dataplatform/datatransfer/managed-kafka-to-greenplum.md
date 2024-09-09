@@ -190,7 +190,7 @@ Create a file named `sample.json` with test data on your running instance:
 
 ## Test the transfer {#verify-transfer}
 
-Make sure the data from the topic in the source {{ mkf-name }} cluster is being moved to the {{ ydb-name }} database:
+Make sure the data from the topic in the source {{ mkf-name }} cluster is being moved to the {{ mgp-name }} database:
 
 1. Send data from the `sample.json` file to the {{ mkf-name }} `sensors` topic using `jq` and `kafkacat`:
 
