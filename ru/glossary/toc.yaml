@@ -103,6 +103,8 @@ items:
         href: ssh-keygen.md
   - name: Безопасность
     items:
+      - name: Control Plane и Data Plane
+        href: control-plane.md
       - name: DDoS
         href: ddos.md
       - name: IPsec

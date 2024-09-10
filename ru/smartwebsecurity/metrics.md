@@ -5,6 +5,6 @@ description: "На этой странице приведен справочни
 
 # Справочник метрик {{ monitoring-full-name }}
 
-В этом разделе описаны метрики {{ sws-name }}, поставляемые в [{{ monitoring-name }}](../monitoring/) сервисом [{{ alb-full-name }}](../application-load-balancer/).
+В этом разделе описаны метрики {{ sws-name }}. Все метрики {{ sws-name }} поставляются в [{{ monitoring-name }}](../monitoring/) сервисом [{{ alb-full-name }}](../application-load-balancer/).
 
 {% include [smartwebsecurity](../_includes/monitoring/metrics-ref/smartwebsecurity.md) %}

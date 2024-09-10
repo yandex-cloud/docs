@@ -1,6 +1,6 @@
 # Обновить рабочий стол
 
-Чтобы применить [изменения группы рабочих столов](../desktop-groups/update.md) к конкретному рабочему столу, обновите его. Рабочий будет остановлен и перезапущен после обновления.
+{% include [updating-group-disclaimer](../../../_includes/cloud-desktop/updating-group-disclaimer.md) %}
 
 {% list tabs group=instructions %}
 
@@ -13,3 +13,5 @@
   1. Подтвердите обновление.
 
 {% endlist %}
+
+После обновления рабочего стола [сбросьте пароль пользователя](password-reset.md).
