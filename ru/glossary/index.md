@@ -72,6 +72,7 @@
 
 ## Безопасность {#security}
 
+* [{#T}](control-plane.md)
 * [{#T}](sasl.md)
 * [{#T}](tls.md)
 * [{#T}](waf.md)

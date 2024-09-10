@@ -5065,6 +5065,8 @@ default:
         common:
           action_create-ticket: Create ticket
           label_ticket-type-critical: Critical issue
+          label_ticket-type-incident: Issue
+          label_ticket-type-question: Question
         filters:
           action_reset-filters: Reset filters
         list:
@@ -9401,7 +9403,7 @@ default:
         add-description: Add description
         advanced-settings: Advanced settings
         balance: Project balance
-        dataproc-cluster: Yandex Data Proc cluster
+        dataproc-cluster: Yandex Data&nbsp;Proc cluster
         dedicated-vm-inactivity-timeout: Stop inactive VM after
         name: Name
         security-group: Security group
@@ -9513,7 +9515,7 @@ default:
       projects:
         create-project: Create project
       resources:
-        dataProc: Yandex Data Proc
+        dataProc: Yandex Data&nbsp;Proc
         dataset: Dataset
         docker: Docker
         node: Node
@@ -9521,7 +9523,7 @@ default:
         secret: Secret
       restrictions:
         CHANGING_DISK_SIZE: Changing the size of project storage
-        DATAPROC_TEMPLATES: Yandex Data Proc templates
+        DATAPROC_TEMPLATES: Yandex Data&nbsp;Proc templates
         DEDICATED_INSTANCE_COUNT: Maximum number of VMs in the project
         JUPYTER_TOKEN: Connect external IDEs
         NODES_AND_ALIASES: Deploying models
@@ -9536,10 +9538,10 @@ default:
         community-resources: Community resources
         configurations: Configurations
       spark-connector:
-        create-cluster-in-dataproc: Create cluster in Yandex Data Proc
+        create-cluster-in-dataproc: Create cluster in Yandex Data&nbsp;Proc
         create-temporary-cluster:
           title: Create temporary cluster
-        dataproc-cluster: Yandex Data Proc cluster
+        dataproc-cluster: Yandex Data&nbsp;Proc cluster
         s3-settings: S3 settings
         select-cluster:
           title: Select cluster

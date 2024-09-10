@@ -23,6 +23,8 @@ Syntax:
 |`--description`|<b>`string`</b><br/>New description of the Kafka cluster.|
 |`--labels`|<b>`key=value[,key=value...]`</b><br/>New set of labels for the Kafka cluster as key-value pairs. Existing set of labels will be completely overwritten.|
 |`--security-group-ids`|<b>`value[,value]`</b><br/>A list of security groups for the Kafka cluster.|
+|`--network-id`|<b>`string`</b><br/>Network id.|
+|`--network-name`|<b>`string`</b><br/>Network name.|
 |`--subnet-ids`|<b>`value[,value]`</b><br/>A list of subnet ids for the Kafka cluster.|
 |`--deletion-protection`|Deletion Protection inhibits deletion of the cluster.|
 |`--datatransfer-access`|Allow access for DataTransfer|

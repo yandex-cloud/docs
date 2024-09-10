@@ -22,6 +22,8 @@ Syntax:
 |`--new-name`|<b>`string`</b><br/>New name for the ClickHouse cluster|
 |`--description`|<b>`string`</b><br/>New description for the ClickHouse cluster.|
 |`--labels`|<b>`key=value[,key=value...]`</b><br/>New set of labels for the ClickHouse cluster as key-value pairs. Existing set of labels will be completely overwritten.|
+|`--network-id`|<b>`string`</b><br/>Network id.|
+|`--network-name`|<b>`string`</b><br/>Network name.|
 |`--service-account`|<b>`string`</b><br/>New service account for the ClickHouse cluster.|
 |`--security-group-ids`|<b>`value[,value]`</b><br/>A list of security groups for the ClickHouse cluster.|
 |`--deletion-protection`|Deletion Protection inhibits deletion of the cluster.|

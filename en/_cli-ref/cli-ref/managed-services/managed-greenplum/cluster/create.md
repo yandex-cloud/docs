@@ -35,6 +35,7 @@ Syntax:
 |`--datalens-access`|Allow access for DataLens.|
 |`--websql-access`|Allow access for Web SQL.|
 |`--datatransfer-access`|Allow access for DataTransfer.|
+|`--yandexquery-access`|Allow access for Yandex Query.|
 |`--greenplum-version`|<b>`string`</b><br/>Version of Greenplum used in the cluster. Values: 6.19|
 |`--zone-id`|<b>`string`</b><br/>ID of the availability zone where the host resides.|
 |`--subnet-id`|<b>`string`</b><br/>ID of the subnet that the host should be created in.|
@@ -42,6 +43,10 @@ Syntax:
 |`--backup-retain-period-days`|<b>`int`</b><br/>Retention time in days of automated backups|
 |`--assign-public-ip`|Whether the host should get a public IP address.|
 |`--maintenance-window`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Maintenance window settings<br/><br/>Possible property names:<br/><ul> <li><code>type</code>:     Type of maintenance window, it can be anytime or weekly. A day and hour of window need to be specified with weekly window.</li> <li><code>hour</code>:     Hour of day in UTC time zone (1-24) for maintenance window if window type is weekly.</li> <li><code>day</code>:     Day of week for maintenance window if window type is weekly. One of MON, TUE, WED, THU, FRI, SAT, SUN. Values: 'mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'</li> </ul>|
+|`--analyze-and-vacuum`|<b>`ANALYZE`</b><br/>Configuration for ANALYZE and `VACUUM` background operations.<br/><br/>Possible property names:<br/><ul> <li><code>start_time</code>:     Time (HH:MM) in UTC time zone to start <code>ANALYZE</code> and <code>VACUUM</code> operations.</li> <li><code>analyze_timeout</code>:     Maximum duration of the <code>ANALYZE</code> operation, in seconds. The default value is <code>36000</code>. As soon as this period expires, the <code>ANALYZE</code> operation will be forced to terminate.</li> <li><code>vacuum_timeout</code>:     Maximum duration of the <code>VACUUM</code> operation, in seconds. The default value is <code>36000</code>. As soon as this period expires, the <code>VACUUM</code> operation will be forced to terminate.</li> </ul>|
+|`--query-killer-idle`|<b>`idle`</b><br/>Configuration of script that kills long running queries that are in idle state.<br/><br/>Possible property names:<br/><ul> <li><code>enable</code>:     Enables query killer for this type of queries.</li> <li><code>max_age</code>:     Maximum duration for this type of queries (in seconds).</li> <li><code>ignore_users</code>:     Ignore these users when considering queries to terminate</li> </ul>|
+|`--query-killer-idle-in-transaction`|<b>`idle`</b><br/>in transaction<br/>Configuration of script that kills long running queries that are in idle in transaction state.<br/><br/>Possible property names:<br/><ul> <li><code>enable</code>:     Enables query killer for this type of queries.</li> <li><code>max_age</code>:     Maximum duration for this type of queries (in seconds).</li> <li><code>ignore_users</code>:     Ignore these users when considering queries to terminate</li> </ul>|
+|`--query-killer-long-running`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Configuration of script that kills long running queries (in any state).<br/><br/>Possible property names:<br/><ul> <li><code>enable</code>:     Enables query killer for this type of queries.</li> <li><code>max_age</code>:     Maximum duration for this type of queries (in seconds).</li> <li><code>ignore_users</code>:     Ignore these users when considering queries to terminate</li> </ul>|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

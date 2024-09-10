@@ -15,9 +15,6 @@ links:
   - title: '{{ billing-name }}'
     description: Решения для {{ billing-name }}
     href: billing/
-  - title: Cloud Business
-    description: Решения для Cloud Business
-    href: business/
   - title: '{{ cdn-name }}'
     description: Решения для {{ cdn-name }}
     href: cdn/

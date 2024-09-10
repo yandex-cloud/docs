@@ -79,6 +79,21 @@
 
 1. Перезагрузите ядро: на верхней панели в окне проекта нажмите **Kernel** → **Restart Kernel**.
 
+### Установите сертификаты {#certificates}
+
+Установите сертификаты в локальное хранилище проекта:
+
+```bash
+#!:bash
+mkdir --parents /home/jupyter/datasphere/project/Yandex/
+
+wget "{{ crt-web-path-root }}" \
+     --output-document /home/jupyter/datasphere/project/Yandex/RootCA.crt
+
+wget "{{ crt-web-path-int }}" \
+     --output-document /home/jupyter/datasphere/project/Yandex/IntermediateCA.crt
+```
+
 ### Загрузите и преобразуйте данные {#load-and-transform}
 
 1. Создайте класс для работы с Геокодером:
@@ -117,17 +132,27 @@
 1. Подключитесь к демонстрационной БД {{ CH }}:
 
    ```py
-   from clickhouse_driver import Client as CHClient
-   ​
-   ch_client = CHClient(
-       'rc1a-ckg8nrosr2lim5iz.mdb.yandexcloud.net',
+   from clickhouse_driver import Client
+
+   ch_client = Client(
+       host='rc1a-ckg8nrosr2lim5iz.mdb.yandexcloud.net',
        user='samples_ro',
        password='MsgfcjEhJk',
        database='samples',
        port=9440,
        secure=True,
+       verify=True,
+       ca_certs='/home/jupyter/datasphere/project/Yandex/RootCA.crt'
    )
    ```
+
+1. Выполните проверку с помощью команды:
+
+   ```py
+   print(ch_client.execute('SELECT version()'))
+   ```
+
+   Если подключение установлено успешно, в терминале отобразится номер версии {{ CH }}.
 
 1. Выгрузите данные из таблицы с адресами магазинов в переменную `ch_data`:
 
