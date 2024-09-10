@@ -22,6 +22,8 @@ Syntax:
 |`--disk-name`|<b>`string`</b><br/>A source disk used to create the snapshot.|
 |`--description`|<b>`string`</b><br/>Specifies a textual description of the snapshot.|
 |`--labels`|<b>`key=value[,key=value...]`</b><br/>A list of label KEY=VALUE pairs to add. For example, to add two labels named 'foo' and 'bar', both with the value 'baz', use '--labels foo=baz,bar=baz'.|
+|`--hardware-generation-id`|<b>`string`</b><br/>Specify an instance hardware generation ID to override the inherited or default one.|
+|`--hardware-features`|<b>`key=value[,key=value...]`</b><br/>Specify features of the instance hardware generation to override. Use together with --hardware-generation-id. This is a list of KEY=VALUE pairs, for example '--hardware-features pci_topology=v2,other_feature=some-id'.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

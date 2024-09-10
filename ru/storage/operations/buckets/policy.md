@@ -23,8 +23,9 @@
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно настроить политику доступа для бакета.
   1. Выберите сервис **{{ objstorage-name }}**.
   1. Выберите бакет в списке.
-  1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_policy }}** в меню слева.
-  1. Нажмите кнопку ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.storage.bucket.policy.button_policy-edit }}**.
+  1. Перейдите на вкладку ![image](../../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}** в меню слева.
+  1. В верхней части экрана перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_policy }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.policy.button_policy-edit }}**.
   1. Введите идентификатор политики доступа.
   1. Настройте правило:
      1. Введите идентификатор правила.
@@ -41,11 +42,16 @@
  
           {% endnote %}
 
-     1. При необходимости добавьте условие для правила:
+     1. При необходимости добавьте [условие](../../s3/api-ref/policy/conditions.md) для правила:
         * Выберите **{{ ui-key.yacloud.storage.bucket.policy.field_key }}** из списка.
         * Выберите **{{ ui-key.yacloud.storage.bucket.policy.field_operator }}** из списка. Чтобы оператор действовал в существующих полях, выберите опцию **{{ ui-key.yacloud.storage.bucket.policy.label_if-exists }}**. Тогда, если поля не существует, условие будет считаться выполненным.
         * Введите **{{ ui-key.yacloud.storage.bucket.policy.field_value }}**.
         * Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.policy.button_add-value }}**, чтобы добавить дополнительное значение в условие.
+
+        {% include [conditions-combining-and](../../../_includes/storage/conditions-combining-and.md) %}
+
+        {% include [conditions-combining-or](../../../_includes/storage/conditions-combining-or.md) %}
+
   1. При необходимости добавьте правила и настройте их.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
@@ -97,6 +103,10 @@
        * `Action` — [действие](../../s3/api-ref/policy/actions.md), которое будет разрешено при срабатывании политики. Возможные значения: `s3:GetObject`, `s3:PutObject` и `*` если необходимо применять политику ко всем действиям.
        * `Resource` — ресурс, к которому будет применяться правило.
        * `Condition` — [условие](../../s3/api-ref/policy/conditions.md), которое будет проверяться. Необязательный параметр.
+
+         {% include [conditions-combining-and](../../../_includes/storage/conditions-combining-and.md) %}
+
+         {% include [conditions-combining-or](../../../_includes/storage/conditions-combining-or.md) %}
 
   1. Выполните команду:
 
@@ -174,6 +184,10 @@
        * `Action` — [действие](../../s3/api-ref/policy/actions.md), которое будет разрешено при срабатывании политики. Возможные значения: `s3:GetObject`, `s3:PutObject` и `*` если необходимо применять политику ко всем действиям.
        * `Resource` — ресурс, к которому будет применяться правило.
        * `Condition` — [условие](../../s3/api-ref/policy/conditions.md), которое будет проверяться. Необязательный параметр.
+
+         {% include [conditions-combining-and](../../../_includes/storage/conditions-combining-and.md) %}
+
+         {% include [conditions-combining-or](../../../_includes/storage/conditions-combining-or.md) %}
 
      Сохраните готовую конфигурацию в файле `policy.json`.
   1. Выполните команду:
@@ -269,6 +283,10 @@
        * `Action` — [действие](../../s3/api-ref/policy/actions.md), которое будет разрешено при срабатывании политики. Возможные значения: `s3:GetObject`, `s3:PutObject` и `*` если необходимо применять политику ко всем действиям.
        * `Resource` — ресурс, к которому будет применяться правило.
        * `Condition` — [условие](../../s3/api-ref/policy/conditions.md), которое будет проверяться. Необязательный параметр.
+
+         {% include [conditions-combining-and](../../../_includes/storage/conditions-combining-and.md) %}
+
+         {% include [conditions-combining-or](../../../_includes/storage/conditions-combining-or.md) %}
 
      Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/).
   1. Проверьте корректность конфигурационных файлов.

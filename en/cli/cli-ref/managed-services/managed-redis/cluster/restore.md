@@ -40,6 +40,7 @@ Syntax:
 |`--disk-type-id`|<b>`string`</b><br/>Disk type id (e.g., network-ssd).|
 |`--backup-window-start`|<b>`timeofday`</b><br/>Start time for the daily backup in UTC timezone. Format: HH:MM:SS|
 |`--datalens-access`|Allow access for DataLens|
+|`--websql-access`|Allow access for Web SQL|
 |`--labels`|<b>`key=value[,key=value...]`</b><br/>A list of label KEY=VALUE pairs to add. For example, to add two labels named 'foo' and 'bar', both with the value 'baz', use '--labels foo=baz,bar=baz'.|
 |`--folder-id`|<b>`string`</b><br/>ID of folder where restored cluster will be created.|
 |`--enable-tls`|Enables tls for Redis cluster.|

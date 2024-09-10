@@ -33,6 +33,8 @@ Syntax:
 |`--source-disk-id`|<b>`string`</b><br/>An ID of the source disk to create the image from.|
 |`--source-uri`|<b>`string`</b><br/>The full Yandex Object Storage URI where the disk image is stored.|
 |`--source-image-folder-id`|<b>`string`</b><br/>The folder ID against which all image and image family references will be resolved.|
+|`--hardware-generation-id`|<b>`string`</b><br/>Specify an instance hardware generation ID to override the inherited or default one.|
+|`--hardware-features`|<b>`key=value[,key=value...]`</b><br/>Specify features of the instance hardware generation to override. Use together with --hardware-generation-id. This is a list of KEY=VALUE pairs, for example '--hardware-features pci_topology=v2,other_feature=some-id'.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

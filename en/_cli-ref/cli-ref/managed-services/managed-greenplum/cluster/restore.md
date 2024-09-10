@@ -32,6 +32,7 @@ Syntax:
 |`--datalens-access`|Allow access for DataLens.|
 |`--websql-access`|Allow access for Web SQL.|
 |`--datatransfer-access`|Allow access for DataTransfer.|
+|`--yandexquery-access`|Allow access for Yandex Query.|
 |`--backup-window-start`|<b>`timeofday`</b><br/>Start time for the daily backup in UTC timezone. Format: HH:MM:SS|
 |`--zone-id`|<b>`string`</b><br/>Network name.|
 |`--subnet-id`|<b>`string`</b><br/>Name of the subnet. It must be specified if the selected availability zone includes two or more subnets.|

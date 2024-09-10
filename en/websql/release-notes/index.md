@@ -1,3 +1,8 @@
+---
+title: "{{ websql-full-name }} Release notes"
+description: "This section contains {{ websql-name }} release notes."
+---
+
 # {{ websql-full-name }} release notes: 2024
 
 ## July {#july}
@@ -22,7 +27,7 @@
 
 1. [{{ websql-name }}](/services/websql) is the first service integrated with [{{ metadata-hub-full-name }}](../../metadata-hub/index.yaml). All [connections](../concepts/index.md#connection) are stored in [{{ connection-manager-name }}](../../metadata-hub/concepts/connection-manager.md), but you can also manage ([create](../operations/create-connection.md), [delete](../operations/connect.md#delete-connection), and [edit](../operations/connect.md#change-connection-settings)) them from the {{ websql-name }} interface. All changes you make in {{ websql-name }} are displayed in {{ connection-manager-name }} and vice versa.
 
-1. You can now [publish saved](../operations/templates.md#publish-query) and [historical queries](../operations/history.md#publish-query). Once published, the query will be available to all folder users. This action cannot be undone — you can only delete the query you published. [Roles](../security/index.md#roles-list) allow you to manage user access to a published query: you can grant permissions for viewing and editing a query or managing its access permissions.
+1. You can now publish [saved](../operations/templates.md#publish-query) and [historical queries](../operations/history.md#publish-query). Once published, the query will be available to all folder users. This action cannot be undone — you can only delete the query you published. [Roles](../security/index.md#roles-list) allow you to manage user access to a published query: you can grant permissions for viewing and editing a query or managing its access permissions.
 
 1. The {{ websql-name }} interface now allows you to share links to various entities. For example, you can send a link to a connection, saved query you published, or page with access permissions for a published query to your colleague.
 
@@ -34,7 +39,7 @@ Improved user query storage mechanism: queries are now linked to the user's acco
 
 ### Improvements {#improvements-may}
 
-1. Updated the service favicon ![](../../_assets/websql/favicon.svg).
+1. Updated the service favicon: ![](../../_assets/websql/favicon.svg).
 
 ### Fixed issues {#fixes-may}
 

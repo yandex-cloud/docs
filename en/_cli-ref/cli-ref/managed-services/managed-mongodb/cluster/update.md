@@ -25,6 +25,8 @@ Syntax:
 |`--feature-compatibility-version`|<b>`string`</b><br/>When set, minimal DB version possible (can not be downgraded). Supported value: 5.0, 6.0, 7.0|
 |`--security-group-ids`|<b>`value[,value]`</b><br/>A list of security groups for the MongoDB cluster.|
 |`--deletion-protection`|Deletion Protection inhibits deletion of the cluster.|
+|`--network-id`|<b>`string`</b><br/>Network id.|
+|`--network-name`|<b>`string`</b><br/>Network name.|
 |`--mongodb-version`|<b>`string`</b><br/>Version of MongoDB used by the cluster. Supported value: 5.0, 6.0, 7.0|
 |`--backup-window-start`|<b>`timeofday`</b><br/>Start time for the daily backup in UTC timezone. Format: HH:MM:SS|
 |`--backup-retain-period-days`|<b>`int`</b><br/>Retain period of automatically created backup in days.|

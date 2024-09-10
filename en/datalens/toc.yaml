@@ -1,7 +1,7 @@
 title: Yandex DataLens
 href: index.yaml
 label:
-  title: To be announced soon
+  title: Coming soon
   description: The service will soon be available in Kazakhstan.
   theme: info
   when: region == "kz"
@@ -27,7 +27,7 @@ items:
         href: workbooks-collections/workbooks-collections-create.md
       - name: Migrating objects to workbooks
         href: workbooks-collections/migrations.md
-      - name: Access settings
+      - name: Configuring access
         href: workbooks-collections/security.md
   - name: Tutorials
     items:
@@ -46,8 +46,8 @@ items:
           - name: Analyzing public data on road accidents in Russia
             href: tutorials/data-from-csv-geo-visualization.md
           - name: >-
-              Analyzing sales and locations of pizzerias based on data from {{
-              CH }} DB and Marketplace
+              Analyzing sales and locations of pizzerias based on data from the
+              {{ CH }} database and Marketplace
             href: tutorials/data-from-ch-to-geolayers-visualization.md
           - name: >-
               Geocoding with the Yandex Maps API for data visualization in {{
@@ -78,7 +78,7 @@ items:
             href: tutorials/data-from-yandex-query-visualization.md
           - name: Visualizing {{ monitoring-full-name }} data
             href: tutorials/data-from-monitoring-visualization.md
-          - name: Visualizing data from {{ ytsaurus-name }} CHYT
+          - name: Visualizing {{ ytsaurus-name }} CHYT data
             href: tutorials/data-from-ch-over-yt.md
       - name: Functional
         items:
@@ -142,7 +142,7 @@ items:
             href: operations/connection/create-cloud-billing.md
           - name: Creating a {{ monitoring-full-name }} connection
             href: operations/connection/create-monitoring.md
-          - name: Creating a {{ datalens-short-name }} Usage Analytics connection
+          - name: Creating a connection to {{ datalens-short-name }} Usage Analytics
             href: operations/connection/create-usage-tracking.md
       - name: Partner connections
         items:
@@ -728,7 +728,7 @@ items:
         href: dashboard/link.md
       - name: Selectors
         href: dashboard/selector.md
-      - name: Filtering charts by charts
+      - name: Filtering charts by other charts
         href: dashboard/chart-chart-filtration.md
       - name: Dashboard settings
         href: dashboard/settings.md
@@ -788,7 +788,7 @@ items:
             href: operations/organizations/change-organization.md
       - name: Object access
         items:
-          - name: Permissions
+          - name: Access permissions
             href: security/manage-access.md
           - name: Granting and updating permissions
             href: operations/permission/grant.md
@@ -856,7 +856,7 @@ items:
         items:
           - name: All questions
             href: qa/index.md
-          - name: Permissions
+          - name: Access permissions
             href: qa/permissions.md
           - name: Billing and payment
             href: qa/pricing.md
@@ -874,7 +874,7 @@ items:
             href: qa/workbooks-collections.md
           - name: Other
             href: qa/other.md
-      - name: Backups
+      - name: Backup
         href: concepts/backup.md
       - name: Access denied
         hidden: true
@@ -1034,6 +1034,9 @@ items:
       - name: Failed to create <object_type>
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-DB_OPERATIONAL_ERROR.md
+      - name: Cannot update data
+        hidden: true
+        href: troubleshooting/errors/ERR-FILE-CANNOT_UPDATE_DATA.md
       - name: Object request error
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-US-BAD_REQUEST.md

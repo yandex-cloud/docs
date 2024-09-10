@@ -36,6 +36,8 @@ Aliases:
 	- [yc managed-clickhouse cluster list-operations](cluster/list-operations.md) — List operations for a ClickHouse cluster.
 	- [yc managed-clickhouse cluster clear-compression](cluster/clear-compression.md) — Clear compression settings for a ClickHouse cluster.
 	- [yc managed-clickhouse cluster set-compression](cluster/set-compression.md) — Set compression settings for a ClickHouse cluster.
+	- [yc managed-clickhouse cluster clear-query-masking-rules](cluster/clear-query-masking-rules.md) — Clear query masking rules settings for a ClickHouse cluster.
+	- [yc managed-clickhouse cluster set-query-masking-rules](cluster/set-query-masking-rules.md) — Set query masking rules settings for a ClickHouse cluster.
 	- [yc managed-clickhouse cluster list-external-dictionaries](cluster/list-external-dictionaries.md) — Retrieve a list of external dictionaries that belong to ClickHouse cluster.
 	- [yc managed-clickhouse cluster add-external-dictionary](cluster/add-external-dictionary.md) — Add an external dictionary to a ClickHouse cluster.
 	- [yc managed-clickhouse cluster remove-external-dictionary](cluster/remove-external-dictionary.md) — Remove an external dictionary from a ClickHouse cluster.

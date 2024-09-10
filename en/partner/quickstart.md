@@ -8,9 +8,16 @@ The partner program will enable you to:
 * Sell your solutions to new customers and boost demand among your current ones.
 * Deliver integrated projects by offering pro-level services.
 
-Becoming a partner is a multi-step process. To start it, click the **Apply** button on the [partner program page](https://yandex.cloud/ru/partners). This will open the {{ yandex-cloud }} partner [onboarding window]({{ link-cloud-partners }}welcome). Learn about the steps of getting the partner status and the partner program benefits and click **Let's get started!**.
+Becoming a partner is a multi-step process.
 
-## Step 1. Sign in {#step-1}
+## Step 1. Go to the onboarding page {#step-1}
+
+See the onboarding page for the procedure of getting the partner status:
+
+1. On [the partner program page](https://yandex.cloud/ru/partners), click [**Apply**]({{ link-cloud-partners }}welcome).
+1. Learn about the steps of getting the partner status and the partner program benefits and click **Let's get started!**.
+
+## Step 2. Sign in {#step-2}
 
 To sign in, you need a Yandex ID or SSO account in {{ yandex-cloud }}. You can sign in using any of these methods:
 
@@ -18,7 +25,7 @@ To sign in, you need a Yandex ID or SSO account in {{ yandex-cloud }}. You can s
 * Creating a new Yandex ID. The system will automatically create a {{ yandex-cloud }} organization for you.
 * Using SSO. Use this method if you have an [identity federation](../organization/concepts/add-federation.md) configured in {{ yandex-cloud }}. The organization in which the identity federation was created will be used to access the partner portal.
 
-## Step 2. Submit your partnership application {#step-2}
+## Step 3. Submit your partnership application {#step-3}
 
 In your [partnership application]({{ link-cloud-partners }}onboarding-new), provide your contact details and company information for initial verification.
 
@@ -34,18 +41,18 @@ In your [partnership application]({{ link-cloud-partners }}onboarding-new), prov
 
 1. Click **Send request**.
 
-## Step 3. Select the partnership type {#step-3}
+## Step 4. Select the partnership type {#step-4}
 
 1. Watch the information video about our {{ yandex-cloud }} partner program until the end.
 1. When done, you will be able to select the partnership type (you can select both options):
 
    * [Referral partner](program/referral.md): Refers clients to {{ yandex-cloud }} using a referral link for a 10% partner commission. All paperwork and project works are managed by {{ yandex-cloud }}.
 
-      {% note info %}
+     {% note info %}
 
-      To get your referral partnership application approved, [provide your bank account details](../billing/qa/billing-account.md#checking-account) in your billing account.
+     To get your referral partnership application approved, [provide your bank account details](../billing/qa/billing-account.md#checking-account) in your billing account.
 
-      {% endnote %}
+     {% endnote %}
 
    * [Direct partner](program/var.md): Implements integrated projects based on {{ yandex-cloud }} services: creates and maintains customer infrastructure, manages paperwork, develops the expertise and products of their own.
 
@@ -88,11 +95,11 @@ Billing account requirements: {#restrictions}
 
    {% endnote %}
 
-## Step 5. Get {{ yandex-cloud }} confirmation {#step-5}
+## Step 6. Get {{ yandex-cloud }} confirmation {#step-6}
 
 On the application confirmation page, you can view your application's details and follow its status. Please wait for the manager's feedback and approval of your application: this may take up to seven business days.
 
-## Step 6. Get your partner status {#step-6}
+## Step 7. Get your partner status {#step-7}
 
 If you meet the partner [requirements](https://yandex.ru/legal/cloud_partnership_requirements/), you will become the {{ yandex-cloud }} partner program member after you complete the above steps.
 

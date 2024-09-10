@@ -24,20 +24,20 @@ To create a Google Sheets connection:
 
    - Public spreadsheet
 
-      1. Click **+ Add file** and specify the link to the file. To do this, in the Google Sheets access settings, select `Anyone with the link` and copy the link to the sheet you need from the browser's address bar. If you copy the link from the Google Sheets sharing window, it will lead to the spreadsheet's first sheet.
-      1. Click **Add**. If the file contains multiple sheets, specify the ones you want to upload in the **Add sheets** window. You cannot select empty sheets. Enable the **Sheets** option to select all available sheets. Each sheet is uploaded to a separate table. Click **Add**.
-      1. The information about the added file and the uploaded data will be displayed at the center of the screen.
+     1. Click **+ Add file** and specify the link to the file. To do this, in the Google Sheets access settings, select `Anyone with the link` and copy the link to the sheet you need from your browser's address bar. If you copy the link from the Google Sheets sharing window, it will lead to the first sheet of the spreadsheet.
+     1. Click **Add**. If the file contains multiple sheets, specify the ones you want to upload in the **Add sheets** window. You cannot select empty sheets. Enable the **Sheets** option to select all available sheets. Each sheet is uploaded to a separate table. Click **Add**.
+     1. The information about the added file and the uploaded data will be displayed at the center of the screen.
 
    - Spreadsheet with restricted access
 
-      1. At the top of the screen, click **Log in with Google**.
-      1. Select the account to switch to the **{{ datalens-short-name }}** application.
-      1. Grant **{{ datalens-short-name }}** a permission to access your Google account. Click **Continue**.
-      1. Click **+ Add file** and specify the link to the file.
-      1. Click **Add**. If the file contains multiple sheets, specify the ones you want to upload in the **Add sheets** window. You cannot select empty sheets. Enable the **Sheets** option to select all available sheets. Each sheet is uploaded to a separate table. Click **Add**.
-      1. The information about the added file and the uploaded data will be displayed at the center of the screen.
+     1. At the top of the screen, click **Log in with Google**.
+     1. Select the account to switch to the **{{ datalens-short-name }}** application.
+     1. Grant **{{ datalens-short-name }}** a permission to access your Google account. Click **Continue**.
+     1. Click **+ Add file** and specify the link to the file.
+     1. Click **Add**. If the file contains multiple sheets, specify the ones you want to upload in the **Add sheets** window. You cannot select empty sheets. Enable the **Sheets** option to select all available sheets. Each sheet is uploaded to a separate table. Click **Add**.
+     1. The information about the added file and the uploaded data will be displayed at the center of the screen.
 
-      To log out of your Google account, click ![image](../../../_assets/console-icons/arrow-right-from-square.svg). Click **Sign out**. The sheets from the files with restricted access will no longer be displayed.
+     To sign out of your Google account, click ![image](../../../_assets/console-icons/arrow-right-from-square.svg). Click **Sign out**. The sheets from the files with restricted access will no longer be displayed.
 
    {% endlist %}
 
@@ -68,7 +68,7 @@ To quickly populate empty cells in a Google Sheets spreadsheet:
 2\. In the spreadsheet menu, select **Data** → **Create a filter**.
 3\. In the right-hand corner of the first column's top cell, click the filter icon.
 4\. Select **Clear** and then select **(Blanks)**.
-5\. In the column's top cell, enter the desired values, such as `0`, `unavailable`, `none`, or any other.
+5\. In the column's top cell, enter the appropriate value, e.g., `0`, `unavailable`, `none`, or any other.
 6\. Drag the cell down to fill all the empty cells in the column with the entered value.
 7\. Click the filter icon again and click **Select all**.
 8\. Repeat all the steps starting with Step 3 for the other columns in the spreadsheet.
@@ -87,5 +87,12 @@ When creating a connection to Google Sheets, keep in mind the following limitati
 
 * Maximum number of Google Sheets sheets per connection: 10. When creating a connection, all sheets will be loaded, but you can only select ten of them to work with at the same time.
 * Maximum size per sheet: 200 MB.
+
+  {% note info %}
+
+  Technically, you cannot check the size of an individual sheet in the connection. If the limit is exceeded, you will get a message saying the data could not be loaded.
+
+  {% endnote %}
+
 * Maximum number of columns per sheet: 300.
 * Minimum number of rows per table: 2. In a table with one row, you cannot specify column types because you cannot tell a header from a data row.

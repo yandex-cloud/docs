@@ -5072,6 +5072,8 @@ default:
         common:
           action_create-ticket: Создать обращение
           label_ticket-type-critical: Критичная проблема
+          label_ticket-type-incident: Проблема
+          label_ticket-type-question: Вопрос
         filters:
           action_reset-filters: Сбросить фильтры
         list:
@@ -9408,7 +9410,7 @@ default:
         add-description: Добавить описание
         advanced-settings: Расширенные настройки
         balance: Баланс проекта
-        dataproc-cluster: Кластер Yandex Data Proc
+        dataproc-cluster: Кластер Yandex Data&nbsp;Proc
         dedicated-vm-inactivity-timeout: Остановить простаивающую ВМ через
         name: Имя
         security-group: Группа безопасности
@@ -9491,7 +9493,7 @@ default:
       open-project:
         create-connector: Создать коннектор
         select-configuration: Конфигурации ВМ ноутбука
-        with-dataproc-cluster: Для кластера Yandex Data Proc
+        with-dataproc-cluster: Для кластера Yandex Data&nbsp;Proc
       project-page:
         change-project-disk-size: Изменить размер хранилища
         debugging-tools-key-value: Решение проблем
@@ -9520,7 +9522,7 @@ default:
       projects:
         create-project: Создать проект
       resources:
-        dataProc: Yandex Data Proc
+        dataProc: Yandex Data&nbsp;Proc
         dataset: Датасет
         docker: Docker-образ
         node: Нода
@@ -9528,7 +9530,7 @@ default:
         secret: Секрет
       restrictions:
         CHANGING_DISK_SIZE: Изменение размера хранилища проекта
-        DATAPROC_TEMPLATES: Шаблоны Yandex Data Proc
+        DATAPROC_TEMPLATES: Шаблоны Yandex Data&nbsp;Proc
         DEDICATED_INSTANCE_COUNT: Максимальное количество ВМ в проекте
         JUPYTER_TOKEN: Подключение внешних IDE
         NODES_AND_ALIASES: Развертывание эксплуатации моделей
@@ -9543,10 +9545,10 @@ default:
         community-resources: Ресурсы сообщества
         configurations: Конфигурации вычислительных ресурсов
       spark-connector:
-        create-cluster-in-dataproc: Создать кластер в Yandex Data Proc
+        create-cluster-in-dataproc: Создать кластер в Yandex Data&nbsp;Proc
         create-temporary-cluster:
           title: Создать временный кластер
-        dataproc-cluster: Кластер Yandex Data Proc
+        dataproc-cluster: Кластер Yandex Data&nbsp;Proc
         s3-settings: Настройки S3
         select-cluster:
           title: Выберите кластер
