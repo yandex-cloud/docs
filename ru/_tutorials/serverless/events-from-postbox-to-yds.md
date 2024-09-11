@@ -341,7 +341,7 @@
 
 ## Настройте визуализацию в {{ datalens-name }} {#datalens}
 
-Чтобы наблюдать за отправкой писем, настройте [подключение](../../datalens/concepts/connection.md), создайте [датасет](../../datalens/concepts/dataset/index.md), [чарты](../../datalens/concepts/chart/index.md) и [дашборд](../../datalens/concepts/dashboard.md).
+Чтобы наблюдать за отправкой писем, настройте [подключение](../../datalens/concepts/connection.md), создайте [датасет](../../datalens/dataset/index.md), [чарты](../../datalens/concepts/chart/index.md) и [дашборд](../../datalens/concepts/dashboard.md).
 
 
 ### Создайте подключение {#connection}

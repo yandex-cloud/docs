@@ -188,6 +188,10 @@ items:
         href: concepts/function-invoke.md
       - name: Асинхронный вызов функции
         href: concepts/function-invoke-async.md
+      - name: Долгоживущие функции
+        href: concepts/long-lived-functions.md
+      - name: Уведомления о завершении выполнения функции
+        href: concepts/termination-notifications.md
       - name: Сетевое взаимодействие
         href: concepts/networking.md
       - name: Среда выполнения

@@ -6,7 +6,7 @@
 Вы можете предоставить пользователю доступ к папке или к любому объекту сервиса:
 
 * [Подключение](../concepts/connection.md)
-* [Датасет](../concepts/dataset/index.md)
+* [Датасет](../dataset/index.md)
 * [Чарт](../concepts/chart/index.md)
 * [Дашборд](../concepts/dashboard.md)
 

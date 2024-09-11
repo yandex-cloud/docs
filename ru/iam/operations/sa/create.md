@@ -2,6 +2,14 @@
 
 Создайте [сервисный аккаунт](../../concepts/users/service-accounts.md), чтобы управлять ресурсами от имени другой учетной записи.
 
+{% note info %}
+
+Сервисный аккаунт создается внутри [каталога](../../../resource-manager/concepts/resources-hierarchy.md#folder). После создания сервисного аккаунта сменить каталог нельзя.
+
+{% include [sa-binding-roles](../../../_includes/iam/sa-binding-roles.md) %}
+
+{% endnote %}
+
 ## Создать сервисный аккаунт {#create-sa}
 
 {% list tabs group=instructions %}
@@ -126,7 +134,7 @@
 
 {% endlist %}
 
-#### Полезные ссылки {#see-also}
+#### См. также {#see-also}
 
 * [{#T}](assign-role-for-sa.md).
 * [{#T}](set-access-bindings.md).

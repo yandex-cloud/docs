@@ -35,7 +35,7 @@
 1. Нажмите **Развернуть** в открывшейся карточке товара. 
 1. Сохраните покупку в папке **Purchases**.
 1. Нажмите кнопку **Открыть**. 
-1. В открывшемся окне будет представлен набор объектов {{ datalens-short-name }}: [подключение](../../datalens/concepts/connection.md), [датасет](../../datalens/concepts/dataset/index.md), [чарт](../../datalens/concepts/chart/index.md) и [дашборд](../../datalens/concepts/dashboard.md). Нажмите желтую иконку дашборда в конце списка.
+1. В открывшемся окне будет представлен набор объектов {{ datalens-short-name }}: [подключение](../../datalens/concepts/connection.md), [датасет](../../datalens/dataset/index.md), [чарт](../../datalens/concepts/chart/index.md) и [дашборд](../../datalens/concepts/dashboard.md). Нажмите желтую иконку дашборда в конце списка.
    
    ![organization-list](../../_assets/datalens/solution-09/00-organization-list.png)
 

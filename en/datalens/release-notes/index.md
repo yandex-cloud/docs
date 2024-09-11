@@ -30,7 +30,7 @@ For a widget with multiple selectors, you can configure their order and layout. 
 
 You can now select multiple [dataset](../concepts/dataset/index.md) fields at once to delete, hide, or display them.
 
-![screenshot](../../_assets/datalens/dataset/dataset-fields-bulk-changes.svg)
+![screenshot](../../_assets/datalens/dataset/dataset-fields-bulk-changes.png)
 
 ## Fixes and improvements {#fixes}
 

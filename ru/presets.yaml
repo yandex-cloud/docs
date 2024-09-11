@@ -3,6 +3,7 @@ default:
   AB: Airbyte®
   adv-ddos-protection: Advanced Yandex DDoS Protection
   AF: Apache Airflow™
+  airflow-service-address: 10.248.0.0/13
   alb-full-name: Yandex Application Load Balancer
   alb-name: Application Load Balancer
   all-mdb:
@@ -64,6 +65,8 @@ default:
   brand-voice-premium: Brand Voice Premium
   brand-voice-premium-name: SpeechKit Brand Voice Premium
   ca-address: https://storage.yandexcloud.net/mqtt/rootCA.crt
+  ca-full-name: Yandex Code Assistant
+  ca-name: Code Assistant
   captcha-full-name: Yandex SmartCaptcha
   captcha-mobile-site: https://smartcaptcha.yandexcloud.net/webview
   captcha-name: SmartCaptcha
@@ -251,6 +254,8 @@ default:
   link-app-android: https://play.google.com/store/apps/details?id=ru.yandex.cloud
   link-app-ios: https://apps.apple.com/ru/app/yandex-cloud/id1515465314
   link-auth-logout: https://auth.yandex.cloud/logout
+  link-ca-vscode: >-
+    https://storage.yandexcloud.net/yandex-code-assistant/plugins/vscode/yandex-code-assist.vsix
   link-calc: https://yandex.cloud/ru/prices#calculator
   link-cloud-aup: https://yandex.ru/legal/cloud_aup/?lang=ru
   link-cloud-calculator: /prices#calculator
@@ -5312,8 +5317,7 @@ default:
           save: Сохранить
       alert-template:
         field:
-          evaluation-window:
-            hint: Значение должно быть больше 0.
+          evaluation-window-key-value: Окно вычисления
         threshold-status:
           alarm: Alarm
           warn: Warning

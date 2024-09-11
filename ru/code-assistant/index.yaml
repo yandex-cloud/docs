@@ -1,0 +1,33 @@
+title: Yandex Code Assistant
+description:
+  - >-
+    <i>Yandex Code Assistant находится на <a
+    href="/docs/overview/concepts/launch-stages">стадии Preview</a>.</i>
+  - >-
+    Code Assistant — это AI-помощник разработчика, с помощью которого вы можете
+    улучшить процесс написания кода и повысить производительность. В режиме
+    Smart autocompletion AI-помощник анализирует контекст кода и предлагает
+    наиболее вероятные и релевантные подсказки: функции, циклы, условия и другие
+    элементы.
+  - >-
+    Запросите доступ к Code Assistant на <a
+    href="/services/code-assistant">странице сервиса</a> или обратитесь к вашему
+    аккаунт-менеджеру.
+meta:
+  title: Yandex Code Assistant
+links:
+  - title: Начало работы
+    description: Установите плагин Code Assistant для Visual Studio Code
+    href: quickstart
+  - title: Концепции
+    description: Узнайте о функциональности сервиса
+    href: concepts/
+  - title: Квоты и лимиты
+    description: Технические и организационные ограничения сервиса
+    href: concepts/limits
+  - title: Управление доступом
+    description: Настройте права доступа для работы с сервисом
+    href: security/
+  - title: Правила тарификации
+    description: Цены и правила расчета стоимости услуг сервиса
+    href: pricing

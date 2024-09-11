@@ -237,7 +237,7 @@
 ## Проанализируйте данные с помощью {{ datalens-full-name }} {#datalens}
 
 1. [Подключите кластер {{ mch-name }} к {{ datalens-name }}](../../datalens/operations/connection/create-clickhouse.md).
-1. [Создайте датасет](../../datalens/operations/dataset/create.md) из таблицы `db1.v$google_top_rising_terms`. Для поля `score` выберите агрегацию по среднему значению.
+1. [Создайте датасет](../../datalens/dataset/create-dataset.md#create) из таблицы `db1.v$google_top_rising_terms`. Для поля `score` выберите агрегацию по среднему значению.
 1. [Создайте столбчатую диаграмму](../../datalens/visualization-ref/column-chart.md#create-diagram):
 
     1. В секцию **X** перетащите поле `country_name`.

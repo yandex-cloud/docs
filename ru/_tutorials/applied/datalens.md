@@ -499,7 +499,7 @@
 
 ## Настройте мониторинг в {{ datalens-name }} {#configure-datalens}
 
-Чтобы наблюдать за состоянием устройств, настройте [подключение](../../datalens/concepts/connection.md), создайте [датасет](../../datalens/concepts/dataset/index.md), [чарты](../../datalens/concepts/chart/index.md) и [дашборд](../../datalens/concepts/dashboard.md).
+Чтобы наблюдать за состоянием устройств, настройте [подключение](../../datalens/concepts/connection.md), создайте [датасет](../../datalens/dataset/index.md), [чарты](../../datalens/concepts/chart/index.md) и [дашборд](../../datalens/concepts/dashboard.md).
 
 ### Настройте подключение к {{ mpg-name }} {#connect-mpg}
 

@@ -10,46 +10,61 @@
 
 Описанная методика может также применяться для отправки метрик любых сторонних приложений, для которых существует [интеграция с Prometheus](https://prometheus.io/docs/instrumenting/exporters/).
 
-1. Установите [HAProxy](https://www.haproxy.org) и [HAProxy Exporter for Prometheus](https://github.com/prometheus/haproxy_exporter).
+1. Установите [HAProxy](https://www.haproxy.org).
 
-   1. Для установки HAProxy и HAProxy Exporter for Prometheus выполните следующую команду:
+   1. Для установки HAProxy выполните следующую команду:
 
       ```bash
-      sudo apt install haproxy prometheus-haproxy-exporter
+      sudo apt install haproxy
       ```
 
-   1. Убедитесь, что экспортер запущен и предоставляет метрики. Для этого выполните команду `curl http://localhost:9101/metrics`. Пример работы команды:
+   1. Чтобы реализовать интеграцию с {{ prometheus-name }}, настройте экспортер. Для этого добавьте раздел `frontend` в конфигурационный файл `haproxy.cfg`:
 
       ```bash
-      curl http://localhost:9101/metrics
-      # HELP go_gc_duration_seconds A summary of the GC invocation durations.
-      # TYPE go_gc_duration_seconds summary
-      go_gc_duration_seconds{quantile="0"} 0
-      go_gc_duration_seconds{quantile="0.25"} 0
-      go_gc_duration_seconds{quantile="0.5"} 0
-      go_gc_duration_seconds{quantile="0.75"} 0
-      go_gc_duration_seconds{quantile="1"} 0
-      go_gc_duration_seconds_sum 0
-      go_gc_duration_seconds_count 0
-      # HELP go_goroutines Number of goroutines that currently exist.
-      # TYPE go_goroutines gauge
-      go_goroutines 6
-      # HELP go_info Information about the Go environment.
-      # TYPE go_info gauge
-      go_info{version="go1.10.4"} 1
+      frontend stats
+          bind *:8404
+          http-request use-service prometheus-exporter if { path /metrics }
+          stats enable
+          stats uri /stats
+          stats refresh 10s
+      ```
+
+   1. Выполните перезапуск сервиса:
+
+      ```
+      sudo service haproxy restart
+      ```
+
+   1. Убедитесь, что экспортер запущен и предоставляет метрики. Для этого выполните команду `curl http://localhost:8404/metrics`. Пример работы команды:
+
+      ```bash
+      # HELP haproxy_process_nbthread Number of started threads (global.nbthread)
+      # TYPE haproxy_process_nbthread gauge
+      haproxy_process_nbthread 2
+      # HELP haproxy_process_nbproc Number of started worker processes (historical, always 1)
+      # TYPE haproxy_process_nbproc gauge
+      haproxy_process_nbproc 1
+      # HELP haproxy_process_relative_process_id Relative worker process number (1)
+      # TYPE haproxy_process_relative_process_id gauge
+      haproxy_process_relative_process_id 1
+      # HELP haproxy_process_uptime_seconds How long ago this worker process was started (seconds)
+      # TYPE haproxy_process_uptime_seconds gauge
+      haproxy_process_uptime_seconds 5
+      # HELP haproxy_process_pool_failures_total Number of failed pool allocations since this worker was started
+      # TYPE haproxy_process_pool_failures_total counter
+      haproxy_process_pool_failures_total 0
       ```
 
 1. Настройте сервисный аккаунт, от имени которого будут записываться метрики в {{ monitoring-full-name }}.
 
    1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) в каталоге, куда будут записываться метрики и [назначьте ему роль](../../../iam/operations/sa/assign-role-for-sa.md) `{{ roles-monitoring-editor }}`.
 
-   1. [Привяжите сервисный аккаунт](../../../compute/operations/vm-connect/auth-inside-vm.md#link-sa-with-instance) к виртуальной машине, на которой установлен {{unified-agent-short-name}}.
+   1. [Привяжите сервисный аккаунт](../../../compute/operations/vm-connect/auth-inside-vm.md#link-sa-with-instance) к виртуальной машине, на которой установлен {{ unified-agent-short-name }}.
 
-1. Установите и настройте {{unified-agent-full-name}}:
+1. Установите и настройте {{ unified-agent-full-name }}:
 
-   1. Создайте в домашнем каталоге файл **config.yml**.
+   1. Создайте в домашнем каталоге файл `config.yml`:
 
-       **config.yml:**
        ```yaml
         status:
           port: "16241"
@@ -77,12 +92,12 @@
 
         routes:
           - input:
-            plugin: metrics_pull
-            config:
-              url: http://localhost:9101/metrics
-              format:
-                prometheus: {}
-              namespace: haproxy
+              plugin: metrics_pull
+              config:
+                url: http://localhost:8404/metrics
+                format:
+                  prometheus: {}
+                namespace: haproxy
             channel:
               channel_ref:
                 name: cloud_monitoring
@@ -106,7 +121,7 @@
 
        Где `$FOLDER_ID` – идентификатор каталога, в который будут записываться метрики.
 
-   1. Установите {{unified-agent-short-name}} на свою виртуальную машину, выполнив в домашнем каталоге следующую команду:
+   1. Установите {{ unified-agent-short-name }} на свою виртуальную машину, выполнив в домашнем каталоге следующую команду:
 
       ```bash
       docker run \

@@ -9,6 +9,19 @@
 
 {% endnote %}
 
+
+## Релиз 02.09.2024 {#020924}
+
+* В стартовые ноутбуки добавлены примеры работы с моделью [{{ yandexart-name }}](../foundation-models/concepts/yandexart/index.md) и фундаментальными моделями с открытым кодом.
+* При работе с [{{ dataproc-full-name }}](../data-proc/) с помощью [коннектора Spark](concepts/spark-connector.md) добавлена возможность [синхронизации окружения](concepts/data-proc-operations.md#synchronization).
+* Исправлены ошибки и добавлены небольшие улучшения в работе сервиса.
+
+## Релиз 30.07.2024 {#300724}
+
+* Появилась возможность [создавать сообщества](operations/community/create.md) в разных [зонах доступности](../overview/concepts/geo-scope.md) — `{{ region-id }}-a` и `{{ region-id }}-b`.
+* К [нодам](concepts/deploy/index.md#node) теперь можно подключить дополнительный диск размером от 10 до 4096 ГБ.
+* Исправлены ошибки и добавлены небольшие улучшения в работе сервиса.
+
 ## Релиз 04.07.2024 {#040724}
 
 * У проектов {{ ml-platform-name }} появился новый тип ресурсов — [коннекторы Spark](concepts/spark-connector.md) для интеграции с [{{ dataproc-full-name }}](../data-proc/).

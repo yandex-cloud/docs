@@ -341,4 +341,3 @@ curl https://{{ api-host }}/endpoints
 }
 ```
 
-
