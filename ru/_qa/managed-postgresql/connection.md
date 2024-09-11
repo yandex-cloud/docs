@@ -46,6 +46,10 @@ mkdir $HOME\.postgresql; curl.exe -o $HOME\.postgresql\root.crt {{ crt-web-path 
 * [Получить SSL-сертификат](../../managed-postgresql/operations/connect.md#get-ssl-cert) и добавить его в приложение, которое вы используете для подключения.
 * [Отключить публичный доступ для хостов](../../managed-postgresql/operations/hosts.md#update) и подключаться к кластеру с виртуальной машины, расположенной в той же облачной сети.
 
+#### Можно ли подключиться к хостам кластера по SSH или получить на хостах права суперпользователя? {#connect-ssh}
+
+{% include [connect-via-ssh](../../_includes/mdb/connect-via-ssh.md) %}
+
 #### Сколько одновременных подключений к одному хосту доступно в {{ mpg-name }}? {#host-conn}
 
 Количество одновременных подключений задается на уровне кластера в [настройке **Max connections**](../../managed-postgresql/concepts/settings-list.md#setting-max-connections). По умолчанию установлено максимальное значение, которое задается формулой:

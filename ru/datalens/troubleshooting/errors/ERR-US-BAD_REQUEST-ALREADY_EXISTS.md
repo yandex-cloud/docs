@@ -6,7 +6,7 @@
 Объектами являются:
 
 * [подключения](../../concepts/connection.md);
-* [датасеты](../../concepts/dataset/index.md);
+* [датасеты](../../dataset/index.md);
 * [чарты](../../concepts/chart/index.md);
 * [дашборды](../../concepts/dashboard.md).
 

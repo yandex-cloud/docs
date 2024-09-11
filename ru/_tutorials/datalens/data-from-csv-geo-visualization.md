@@ -68,7 +68,7 @@
 
    ![image](../../_assets/datalens/solution-07/08-dataset.png)
 
-   Здесь есть возможность добавить [поля данных](../../datalens/concepts/dataset/data-model.md#field) и [вычисляемые поля](../../datalens/concepts/calculations/index.md), изменить тип данных поля, правила агрегации, переименовать поле.
+   Здесь есть возможность добавить [поля данных](../../datalens/dataset/data-model.md#field) и [вычисляемые поля](../../datalens/concepts/calculations/index.md), изменить тип данных поля, правила агрегации, переименовать поле.
 
    ![image](../../_assets/datalens/solution-07/09-rename.png)
 

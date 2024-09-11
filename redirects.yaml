@@ -1,0 +1,3 @@
+common:
+    - from: security/domains/checklist.md
+      to: security/domains/index.md

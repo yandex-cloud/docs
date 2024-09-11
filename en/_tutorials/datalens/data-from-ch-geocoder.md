@@ -183,7 +183,7 @@ Create a [secret](../../datasphere/concepts/secrets.md) to store the [Geocoder A
 ## Create a connection to the file in {{ datalens-short-name }} {#create-connection}
 
 1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
-1. In the left-hand panel, select ![image](../../_assets/datalens/connections.svg) **Connections** and click **Create connection**.
+1. In the left-hand panel, select ![image](../../_assets/console-icons/thunderbolt.svg) **Connections** and click **Create connection**.
 1. Under **Files and services**, select the **Files** connection.
 1. Click **Upload files** and select the `encoded_data.csv` file.
 

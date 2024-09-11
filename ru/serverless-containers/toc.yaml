@@ -154,6 +154,10 @@ items:
         href: concepts/container.md
       - name: Вызов контейнера
         href: concepts/invoke.md
+      - name: Долгоживущие контейнеры
+        href: concepts/long-lived-containers.md
+      - name: Уведомления о завершении выполнения контейнера
+        href: concepts/termination-notifications.md
       - name: Сетевое взаимодействие
         href: concepts/networking.md
       - name: Среда выполнения

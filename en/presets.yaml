@@ -5305,8 +5305,7 @@ default:
           save: Save
       alert-template:
         field:
-          evaluation-window:
-            hint: The value must be more than 0.
+          evaluation-window-key-value: Evaluation window
         threshold-status:
           alarm: Alarm
           warn: Warning

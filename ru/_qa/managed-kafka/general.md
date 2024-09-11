@@ -40,3 +40,7 @@
 {% include [throttling](../throttling.md) %}
 
 Чтобы увеличить максимальные значения IOPS и bandwidth и снизить вероятность троттлинга, [расширьте размер хранилища](../../managed-kafka/operations/storage-space.md#change-disk-size).
+
+#### Можно ли подключиться к хостам кластера по SSH или получить на хостах права суперпользователя? {#connect-ssh}
+
+{% include [connect-via-ssh](../../_includes/mdb/connect-via-ssh.md) %}

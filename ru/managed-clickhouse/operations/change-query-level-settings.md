@@ -40,7 +40,159 @@
 
 ## Задать настройки {{ CH }} через интерфейсы {{ yandex-cloud }} {#yandex-cloud-interfaces}
 
-{% include [change-clickhouse-settings](../../_includes/mdb/mch/change-clickhouse-settings.md) %}
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+   Чтобы задать настройки {{ CH }}:
+
+   1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+   1. Нажмите на имя нужного кластера, затем перейдите в раздел **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}**.
+   1. В строке с именем нужного пользователя нажмите кнопку ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}**.
+   1. В списке **{{ ui-key.yacloud.mdb.forms.section_additional }}** разверните **settings** и задайте [настройки {{ CH }}](../concepts/settings-list.md#user-level-settings).
+   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
+
+- CLI {#cli}
+
+   {% include [cli-install](../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+   Чтобы задать настройки {{ CH }}:
+
+   1. Посмотрите полный список настроек, установленных для пользователя:
+
+      ```bash
+      {{ yc-mdb-ch }} user get <имя_пользователя> <имя_или_идентификатор_кластера>
+      ```
+
+   1. Посмотрите описание команды CLI для изменения настроек пользователя:
+
+      ```bash
+      {{ yc-mdb-ch }} user update --help
+      ```
+
+   1. Установите нужные значения параметров:
+
+      ```bash
+      {{ yc-mdb-ch }} user update <имя_пользователя> <имя_или_идентификатор_кластера> \
+         --settings="<имя_параметра_1>=<значение_1>,<имя_параметра_2>=<значение_2>,..."
+      ```
+
+- {{ TF }} {#tf}
+
+   Чтобы задать настройки {{ CH }}:
+
+   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+      О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+
+   1. В описании пользователя кластера {{ mch-name }}, в блоке `settings`, измените значения параметров:
+
+      ```hcl
+      resource "yandex_mdb_clickhouse_cluster" "<имя_кластера>" {
+        ...
+        user {
+          name = <имя_пользователя>
+          ...
+          settings {
+            <имя_параметра1> = <значение1>
+            <имя_параметра2> = <значение2>
+            ...
+          }
+        }
+        ...
+      }
+      ```
+
+   1. Проверьте корректность настроек.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+   1. Подтвердите изменение ресурсов.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
+
+   {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+
+- REST API {#api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Воспользуйтесь методом [User.update](../api-ref/User/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+        {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
+
+        ```bash
+        curl \
+            --request PATCH \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>/users/<имя_пользователя>' \
+            --data '{
+                      "updateMask": "<перечень_изменяемых_настроек>",
+                      "settings": { <настройки_{{ CH }}> }
+                    }'
+        ```
+
+        Где:
+
+        * `updateMask` — перечень изменяемых параметров в одну строку через запятую.
+
+        * `settings` — нужные [настройки {{ CH }}](../concepts/settings-list.md#user-level-settings) с новыми значениями.
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters). Имя пользователя можно запросить со [списком пользователей в кластере](./cluster-users.md#list-users).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/User/update.md#responses).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Воспользуйтесь вызовом [UserService/Update](../api-ref/grpc/user_service.md#Update) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+        {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/user_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                  "cluster_id": "<идентификатор_кластера>",
+                  "user_name": "<имя_пользователя>",
+                  "update_mask": {
+                    "paths": [
+                      <перечень_изменяемых_настроек>
+                    ]
+                  },
+                  "settings": { <настройки_{{ CH }}> }
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.clickhouse.v1.UserService.Update
+        ```
+
+        Где:
+
+        * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
+
+        * `settings` — нужные [настройки {{ CH }}](../concepts/settings-list.md#user-level-settings) с новыми значениями.
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters). Имя пользователя можно запросить со [списком пользователей в кластере](./cluster-users.md#list-users).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/user_service.md#Operation1).
+
+{% endlist %}
 
 ## Задать настройки {{ CH }} в учетной записи пользователя {#user}
 

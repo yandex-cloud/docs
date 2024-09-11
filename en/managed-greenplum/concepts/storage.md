@@ -53,7 +53,7 @@ To monitor storage usage on cluster hosts, configure alerts in {{ monitoring-ful
    1. **{{ ui-key.yacloud.mdb.cluster.overview.section_additional }}**:
 
       * **{{ ui-key.yacloud_monitoring.service.field.function }}**: `{{ ui-key.yacloud_monitoring.alert.title_aggregation-min }}` (minimum metric value for the period).
-      * **{{ ui-key.yacloud_monitoring.alert-template.field.evaluation-window }}**: Preferred metric update period.
+      * **{{ ui-key.yacloud_monitoring.alert-template.field.evaluation-window-key-value }}**: Preferred metric update period.
 
    1. Add the previously created notification channel.
 
