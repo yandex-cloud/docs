@@ -5,6 +5,6 @@ description: "Из статьи вы узнаете, какие рекоменд
 
 # Все рекомендации
 
-* [{#T}](checklist.md)
 * [{#T}](iaas-checklist.md)
+* [{#T}](iam-checklist.md)
 * [{#T}](kubernetes.md)

@@ -27,7 +27,7 @@ links:
     href: concepts/connection
   - title: Датасет
     description: Опишите структуру данных, полученных из источника
-    href: concepts/dataset/
+    href: dataset/
   - title: Чарты
     description: Постройте визуализацию на основе данных датасета
     href: concepts/chart/

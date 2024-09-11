@@ -157,35 +157,17 @@ items:
   - name: Датасеты
     items:
       - name: Обзор
-        href: concepts/dataset/index.md
+        href: dataset/index.md
+      - name: Работа с датасетом
+        href: dataset/create-dataset.md
       - name: Модель данных
-        href: concepts/dataset/data-model.md
+        href: dataset/data-model.md
+      - name: Настройки датасета
+        href: dataset/settings.md
       - name: Типы данных
-        href: concepts/data-types.md
+        href: dataset/data-types.md
       - name: Соответствие типов данных
         href: dataset/types-lookup-table.md
-      - name: Настройки датасета
-        href: concepts/dataset/settings.md
-      - name: Пошаговые инструкции
-        items:
-          - name: Создание датасета
-            href: operations/dataset/create.md
-          - name: Объединение данных из нескольких таблиц
-            href: operations/dataset/join-data.md
-          - name: Создание поля данных
-            href: operations/dataset/create-field.md
-          - name: Создание вычисляемого поля данных
-            href: operations/dataset/create-calculated-field.md
-          - name: Создание фильтра по умолчанию для новых чартов
-            href: operations/dataset/create-filter.md
-          - name: Замена подключения в датасете
-            href: operations/dataset/replace-connection.md
-          - name: Обновление полей в датасете
-            href: operations/dataset/update-field.md
-          - name: Описание датасета через SQL-запрос к источнику
-            href: operations/dataset/add-data.md
-          - name: Добавление параметра в датасет
-            href: operations/dataset/add-parameter-dataset.md
   - name: Вычисляемые поля
     items:
       - name: Обзор

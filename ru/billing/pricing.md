@@ -74,6 +74,7 @@ editable: false
 * {{ preview-stage }} [{{ cloud-desktop-full-name }}](../cloud-desktop/pricing.md)
 * [{{ org-full-name }}](../organization/pricing.md)
 * {{ preview-stage }} [{{ video-full-name }}](../video/pricing.md)
+* {{ preview-stage }} [{{ ca-full-name }}](../code-assistant/pricing.md)
 * [{{ forms-full-name }}](../forms/pricing.md)
 * [{{ iam-full-name }}](../iam/pricing.md)
 * {{ preview-stage }} [{{ maf-full-name }}](../managed-airflow/pricing.md)

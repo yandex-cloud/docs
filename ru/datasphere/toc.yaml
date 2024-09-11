@@ -181,6 +181,8 @@ items:
             href: concepts/deploy/index.md
           - name: Проверки состояния и мониторинг
             href: concepts/deploy/monitoring.md
+          - name: Метрики нод
+            href: concepts/deploy/metrics.md
       - name: '{{ ds-jobs }}'
         items:
           - name: Задания

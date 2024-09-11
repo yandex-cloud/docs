@@ -35,6 +35,9 @@ links:
   - title: Квоты и лимиты
     description: Технические и организационные ограничения сервиса
     href: concepts/limits
+  - title: Учебник промтинга
+    description: Основы эффективного использования моделей
+    href: gpt-prompting-guide/about
   - title: Справочники API
     description: Узнайте об авторизации при работе с API
     href: api-ref/authentication

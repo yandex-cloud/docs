@@ -47,7 +47,7 @@ description: "В этой статье вы ознакомитесь с соде
 
 ✔ **Защита от DDoS**: при назначении публичных IP-адресов на ресурсы облака используйте [{{ ddos-protection-full-name }}](../../vpc/ddos-protection/index.md) (услуга L4-защиты от DDoS). Для защиты от DDoS на уровне L7 используйте сервис [{{ sws-name }}](../../smartwebsecurity/index.yaml).
 
-  ![](../../_assets/overview/solution-library-icon.svg) Ознакомьтесь с примером реализации [архитектуры и защиты базового интернет-сервиса](../../vpc/tutorials/web-service.md).
+  Ознакомьтесь с примером реализации [архитектуры и защиты базового интернет-сервиса](../../vpc/tutorials/web-service.md).
 
 Узнайте больше о безопасной настройке и эксплуатации сетей в [соответствующей секции](../standard/network-security.md) стандарта безопасности {{ yandex-cloud }}.
 

@@ -5,7 +5,7 @@
 
 Вы научитесь управлять визуализацией с помощью параметров:
 
-* создадите параметры на уровне датасета и на уровне чарта; 
+* создадите параметры на уровне датасета и на уровне чарта;
 * поработаете с формулами и визуализацией в чарте с помощью параметров;
 * поменяете значение параметра на дашборде с помощью селекторов с ручным вводом.
 
@@ -269,4 +269,4 @@
 * [{#T}](../../datalens/concepts/parameters.md)
 * [{#T}](../../datalens/operations/dashboard/add-parameters.md)
 * [{#T}](../../datalens/operations/chart/add-parameter-chart.md)
-* [{#T}](../../datalens/operations/dataset/add-parameter-dataset.md)
+* [{#T}](../../datalens/dataset/create-dataset.md#add-parameters)

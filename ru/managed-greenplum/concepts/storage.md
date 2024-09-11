@@ -53,7 +53,7 @@
     1. **{{ ui-key.yacloud.mdb.cluster.overview.section_additional }}**:
 
         * **{{ ui-key.yacloud_monitoring.service.field.function }}** — `{{ ui-key.yacloud_monitoring.alert.title_aggregation-min }}` (минимальное значение метрики за период).
-        * **{{ ui-key.yacloud_monitoring.alert-template.field.evaluation-window }}** — желаемый период, с которым будет обновляться значение метрики.
+        * **{{ ui-key.yacloud_monitoring.alert-template.field.evaluation-window-key-value }}** — желаемый период, с которым будет обновляться значение метрики.
 
     1. Добавьте созданный ранее канал уведомлений.
 

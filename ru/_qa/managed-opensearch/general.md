@@ -47,3 +47,7 @@
 {% include [throttling](../throttling.md) %}
 
 Чтобы увеличить максимальные значения IOPS и bandwidth и снизить вероятность троттлинга, расширьте размер хранилища или перейдите на более быстрый тип дисков путем [восстановления кластера](../../managed-opensearch/operations/cluster-backups.md#restore) из резервной копии.
+
+#### Можно ли подключиться к хостам кластера по SSH или получить на хостах права суперпользователя? {#connect-ssh}
+
+{% include [connect-via-ssh](../../_includes/mdb/connect-via-ssh.md) %}

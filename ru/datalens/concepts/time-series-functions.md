@@ -9,7 +9,7 @@
 Создайте датасет на основе таблицы **MS_SalesFullTable**:
 
 1. Для поля **Sales** выберите тип агрегации **Сумма**.
-1. Добавьте в датасет [вычисляемые поля](../../datalens/operations/dataset/create-calculated-field.md):
+1. Добавьте в датасет [вычисляемые поля](../dataset/create-dataset.md#create-fields):
 
    * `Month` с формулой `DATETRUNC([OrderDatetime], "month")`. Поле отображает округленное до месяца значение даты продажи.
    * `Sales last year` с формулой `AGO([Sales], [Month], "year", 1 BEFORE FILTER BY [OrderDatetime])`. Формула позволяет получить значение показателя **Sales** со смещением по измерению **Month** на один год. Аргумент `BEFORE FILTER BY` указывает, что функция вычисляется до применения в чарте фильтрации по полю **OrderDatetime**.

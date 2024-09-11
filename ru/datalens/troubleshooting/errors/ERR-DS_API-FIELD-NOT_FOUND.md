@@ -9,6 +9,6 @@
 
 Чтобы исправить ошибку:
 
-1. [Обновите поля](../../operations/dataset/update-field.md) в датасете.
-1. [Замените](../../operations/dataset/update-field.md#replace-field) или удалите поля с красной подсветкой.
+1. [Обновите поля](../../dataset/create-dataset.md#update-fields) в датасете.
+1. [Замените](../../dataset/create-dataset.md#replace-field) или удалите поля с красной подсветкой.
 1. Сохраните датасет.
