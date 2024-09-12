@@ -1,0 +1,1 @@
+All [organization](../../overview/roles-and-resources.md) [users](../../overview/roles-and-resources.md#users) can access {{ ca-name }}.

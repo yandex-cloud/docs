@@ -42,6 +42,8 @@ items:
             href: operations/resources/enable-segmentation.md
           - name: Включить экранирование источников
             href: operations/resources/enable-shielding.md
+          - name: Настроить перенаправление запросов
+            href: operations/resources/setup-http-rewrite.md
           - name: Настроить доступ по защищенному токену
             href: operations/resources/enable-secure-token.md
           - name: Управлять дополнительными настройками ресурса
@@ -106,6 +108,8 @@ items:
             href: concepts/slicing.md
           - name: Экранирование источников
             href: concepts/origins-shielding.md
+      - name: Перенаправление запросов
+        href: concepts/http-rewrite.md
       - name: Кеширование контента
         href: concepts/caching.md
       - name: Защищенные токены

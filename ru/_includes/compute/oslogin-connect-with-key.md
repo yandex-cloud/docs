@@ -1,4 +1,4 @@
-Подключиться к виртуальной машине с включенным доступом по OS Login можно с помощью пользовательского [SSH-ключа](../../glossary/ssh-keygen.md). Для этого [создайте](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) SSH-ключ, [добавьте](../../organization/operations/add-ssh.md) его в профиль пользователя организации в {{ org-full-name }} и укажите при подключении:
+Подключиться к виртуальной машине с включенным доступом по OS Login можно с помощью пользовательского [SSH-ключа](../../glossary/ssh-keygen.md). Для этого [создайте](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) SSH-ключ, [добавьте](../../organization/operations/add-ssh.md) его в профиль пользователя организации или сервисного аккаунта в {{ org-full-name }} и укажите при подключении:
 
 1. [Включите](../../organization/operations/os-login-access.md) доступ по OS Login на уровне организации.
 

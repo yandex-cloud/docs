@@ -5,7 +5,7 @@ description: "Следуя данной инструкции, вы сможет�
 
 # Подключиться к виртуальной машине по OS Login
 
-[OS Login](../../../organization/concepts/os-login.md) используется для предоставления пользователям доступа к ВМ по SSH c помощью {{ iam-short-name }}. Для доступа к ВМ, которая поддерживает OS Login на уровне операционной системы, [назначьте](../../../iam/operations/roles/grant.md) пользователю роль `compute.osLogin` или `compute.osAdminLogin`.
+[OS Login](../../../organization/concepts/os-login.md) используется для предоставления пользователям и [сервисным аккаунтам](../../../iam/concepts/users/service-accounts.md) доступа к ВМ по SSH c помощью {{ iam-short-name }}.
 
 ## Перед началом работы {#before-you-begin}
 
@@ -16,6 +16,8 @@ description: "Следуя данной инструкции, вы сможет�
 При необходимости [создайте](./os-login-create-vm.md) новую виртуальную машину с поддержкой OS Login или [настройте](./enable-os-login.md) доступ по OS Login для существующей ВМ.
 
 ## Подключиться к ВМ по OS Login c SSH-сертификатом через YC CLI {#connect-via-cli}
+
+{% include [os-login-yc-cli-roles-needed](../../../_includes/organization/os-login-yc-cli-roles-needed.md) %}
 
 {% include [oslogin-connect-with-cli](../../../_includes/compute/oslogin-connect-with-cli.md) %}
 
@@ -30,6 +32,8 @@ description: "Следуя данной инструкции, вы сможет�
 {% endnote %}
 
 ## Подключиться к ВМ по OS Login с SSH-ключом через YC CLI {#connect-via-key}
+
+{% include [os-login-yc-cli-roles-needed](../../../_includes/organization/os-login-yc-cli-roles-needed.md) %}
 
 {% include [oslogin-connect-with-key](../../../_includes/compute/oslogin-connect-with-key.md) %}
 
