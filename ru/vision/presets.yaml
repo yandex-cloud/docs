@@ -4,3 +4,4 @@ default:
   audience: external
   product: yandex-cloud
   api-host: api.cloud.yandex.net
+  link-console-billing: https://billing.yandex.cloud/accounts

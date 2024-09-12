@@ -458,6 +458,11 @@ items:
           Создание триггеров, которые вызывают функции для остановки ВМ и
           отправки уведомлений в Telegram
         href: tutorials/serverless-trigger-budget-queue-vm-tg.md
+      - name: >-
+          Загрузка данных из {{ yandex-direct }} в витрину {{ mch-full-name }} с
+          использованием {{ sf-full-name }}, {{ objstorage-full-name }} и {{
+          data-transfer-full-name }}
+        href: tutorials/data-transfer-direct-to-mch.md
       - name: Масштабирование группы ВМ по расписанию
         href: tutorials/vm-scale-scheduled.md
       - name: Мониторинг состояния географически распределенных устройств

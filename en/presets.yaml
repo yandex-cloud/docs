@@ -64,6 +64,8 @@ default:
   brand-voice-premium: Brand Voice Premium
   brand-voice-premium-name: SpeechKit Brand Voice Premium
   ca-address: https://storage.yandexcloud.net/mqtt/rootCA.crt
+  ca-full-name: Yandex Code Assistant
+  ca-name: Code Assistant
   captcha-full-name: Yandex SmartCaptcha
   captcha-mobile-site: https://smartcaptcha.yandexcloud.net/webview
   captcha-name: SmartCaptcha
@@ -250,6 +252,8 @@ default:
   link-app-android: https://play.google.com/store/apps/details?id=ru.yandex.cloud
   link-app-ios: https://apps.apple.com/ru/app/yandex-cloud/id1515465314
   link-auth-logout: https://auth.yandex.cloud/logout
+  link-ca-vscode: >-
+    https://storage.yandexcloud.net/yandex-code-assistant/plugins/vscode/yandex-code-assist.vsix
   link-calc: https://yandex.cloud/en/prices#calculator
   link-cloud-aup: https://yandex.ru/legal/cloud_aup/?lang=ru
   link-cloud-calculator: /prices#calculator
@@ -1115,10 +1119,12 @@ default:
         v3:
           cpu:
             c100|month|string: ₸6192.00
+            c100|number: '8.60'
             c100|string: ₸8.60
             c50|month|string: ₸2196.00
             c50|string: ₸3.05
           ram|month|string: ₸1692.00
+          ram|number: '2.35'
           ram|string: ₸2.35
       elasticsearch:
         v2:
@@ -1270,6 +1276,7 @@ default:
           ram|month|string: ₸1656.00
           ram|string: ₸2.30
       network-hdd:
+        ch|month|number: '16.00'
         ch|month|string: ₸16.00
         elasticsearch|month|string: ₸16.00
         greenplum|month|string: ₸16.00
@@ -1422,8 +1429,10 @@ default:
             c100|month|string: ₸3924.00
             c100|string: ₸5.45
             c50|month|string: ₸2520.00
+            c50|number: '3.50'
             c50|string: ₸3.50
           ram|month|string: ₸1008.00
+          ram|number: '1.40'
           ram|string: ₸1.40
       kafka:
         v2:
@@ -2225,10 +2234,12 @@ default:
         v3:
           cpu:
             c100|month|string: ₽1238.40
+            c100|number: '1.72'
             c100|string: ₽1.72
             c50|month|string: ₽439.20
             c50|string: ₽0.61
           ram|month|string: ₽338.40
+          ram|number: '0.47'
           ram|string: ₽0.47
       elasticsearch:
         v2:
@@ -2380,6 +2391,7 @@ default:
           ram|month|string: ₽331.20
           ram|string: ₽0.46
       network-hdd:
+        ch|month|number: '3.20'
         ch|month|string: ₽3.20
         elasticsearch|month|string: ₽3.20
         greenplum|month|string: ₽3.20
@@ -2532,8 +2544,10 @@ default:
             c100|month|string: ₽784.80
             c100|string: ₽1.09
             c50|month|string: ₽504.00
+            c50|number: '0.70'
             c50|string: ₽0.70
           ram|month|string: ₽201.60
+          ram|number: '0.28'
           ram|string: ₽0.28
       kafka:
         v2:
@@ -3340,10 +3354,12 @@ default:
         v3:
           cpu:
             c100|month|string: $9.907200
+            c100|number: '0.013760'
             c100|string: $0.013760
             c50|month|string: $3.513600
             c50|string: $0.004880
           ram|month|string: $2.707200
+          ram|number: '0.003760'
           ram|string: $0.003760
       elasticsearch:
         v2:
@@ -5930,6 +5946,9 @@ default:
         field_group-name: Group name
         field_origin: Origin domain name
         field_origin-state: Priority
+        field_rewrite-rule-body: Rewrite rule
+        field_rewrite-rule-flag: Flag
+        field_rewrite-rule-redirect: Redirecting requests
         field_secure-key: Secret key
         field_secure-key-enabled: Access via secure token
         field_secure-key-type: Limit access by IP address

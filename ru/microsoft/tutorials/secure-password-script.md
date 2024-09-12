@@ -227,6 +227,8 @@
       * `kms_key_id` — идентификатор [ключа шифрования {{ kms-name }}](../../kms/concepts/key.md). Указанный ключ {{ kms-name }} используется для шифрования секрета.
       * `entries` — содержимое секрета.
 
+      {% include [secret-version-tf-note](../../_includes/lockbox/secret-version-tf-note.md) %}
+
       {% note warning %}
 
       Для повышения безопасности пароль в конфигурационном файле лучше задавать через переменную окружения.

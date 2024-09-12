@@ -97,7 +97,7 @@ To create a private [DNS zone](../concepts/dns-zone.md):
       * `public`: Zone visibility, public or private. This is an optional parameter.
       * `private_networks`: IDs of the networks that have access to domain names within this zone. This is an optional parameter.
 
-      For more information about the `yandex_dns_zone` resource parameters, see the [provider documentation]({{ tf-provider-link }}/dns_zone).
+      For more information about the `yandex_dns_zone` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/dns_zone).
 
    1. Create resources:
 

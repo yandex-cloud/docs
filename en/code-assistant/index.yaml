@@ -1,0 +1,33 @@
+title: Yandex Code Assistant
+description:
+  - >-
+    <i>Yandex Code Assistant is at the <a
+    href="/docs/overview/concepts/launch-stages">Preview stage</a>.</i>
+  - >-
+    Code Assistant is an AI-driven developer assistant, with which you can
+    optimize the code writing process and increase your performance. The smart
+    autocompletion mode enables Code Assistant to analyze the code context and
+    come up with the most relevant suggestions for functions, cycles,
+    conditions, and more.
+  - >-
+    You can request access to Code Assistant on the <a
+    href="/services/code-assistant">relevant page</a> or by contacting your
+    account manager.
+meta:
+  title: Yandex Code Assistant
+links:
+  - title: Getting started
+    description: Install Code Assistant for Visual Studio Code
+    href: quickstart
+  - title: Concepts
+    description: Learn about the features
+    href: concepts/
+  - title: Quotas and limits
+    description: Technical and organizational restrictions
+    href: concepts/limits
+  - title: Access management
+    description: Set up access permissions to work with the service
+    href: security/
+  - title: Pricing policy
+    description: Service pricing and cost calculations
+    href: pricing

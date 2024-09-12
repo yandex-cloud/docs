@@ -20,6 +20,8 @@
 * [{#T}](batch-recognition-stt.md)
 * [{#T}](canary-release.md)
 * [{#T}](nodejs-cron-restart-vm.md)
+* [{#T}](serverless-trigger-budget-queue-vm-tg.md)
+* [{#T}](data-transfer-direct-to-mch.md)
 * [{#T}](vm-scale-scheduled.md)
 * [{#T}](datalens.md)
 * [{#T}](monitoring.md)

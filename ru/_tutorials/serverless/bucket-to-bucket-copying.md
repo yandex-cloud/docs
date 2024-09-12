@@ -339,6 +339,8 @@
      * `key` — название ключа.
      * `text_value` — значение ключа.
 
+     {% include [secret-version-tf-note](../../_includes/lockbox/secret-version-tf-note.md) %}
+
      Более подробную информацию о параметрах используемых ресурсов в {{ TF }} см. в документации провайдера:
 
      * [yandex_lockbox_secret]({{ tf-provider-resources-link }}/lockbox_secret);

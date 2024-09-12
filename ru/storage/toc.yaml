@@ -132,6 +132,8 @@ items:
           Миграция данных из {{ yds-full-name }} с помощью {{
           data-transfer-full-name }}
         href: tutorials/yds-obj-migration.md
+      - name: Использование гибридного хранилища в {{ mch-full-name }}
+        href: tutorials/clickhouse-hybrid-storage.md
       - name: >-
           Загрузка данных из {{ mos-full-name }} в {{ objstorage-full-name }} с
           помощью {{ data-transfer-full-name }}
@@ -174,6 +176,11 @@ items:
         href: tutorials/gatsby-static-website.md
       - name: Хранение статического ключа доступа в секрете {{ lockbox-name }}
         href: tutorials/static-key-in-lockbox.md
+      - name: >-
+          Загрузка данных из {{ yandex-direct }} в витрину {{ mch-full-name }} с
+          использованием {{ sf-full-name }}, {{ objstorage-full-name }} и {{
+          data-transfer-full-name }}
+        href: tutorials/data-transfer-direct-to-mch.md
       - name: Миграция данных из {{ ES }} в {{ mos-full-name }}
         href: tutorials/elasticsearch-to-opensearch.md
       - name: Загрузка состояний {{ TF }} в {{ objstorage-name }}
