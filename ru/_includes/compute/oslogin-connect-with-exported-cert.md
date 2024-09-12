@@ -1,4 +1,6 @@
-Подключиться к виртуальной машине с включенным доступом по OS Login можно с помощью стандартного [SSH](../../glossary/ssh-keygen.md)-клиента. Для этого [экспортируйте](../../compute/operations/vm-connect/os-login-export-certificate.md) сертификат OS Login на локальный компьютер и укажите этот сертификат при подключении:
+Подключиться к виртуальной машине с включенным доступом по OS Login можно с помощью стандартного [SSH](../../glossary/ssh-keygen.md)-клиента и экспортированного сертификата OS Login. Для этого [назначьте](../../iam/operations/roles/grant.md) пользователю или сервисному аккаунту, которому принадлежит сертификат, роль `compute.osLogin` или `compute.osAdminLogin`.
+
+Чтобы подключиться к ВМ по OS Login с помощью стандартного SSH-клиента [экспортируйте](../../compute/operations/vm-connect/os-login-export-certificate.md) сертификат OS Login на локальный компьютер и укажите этот сертификат при подключении:
 
 1. [Включите](../../organization/operations/os-login-access.md) доступ по OS Login на уровне организации.
 

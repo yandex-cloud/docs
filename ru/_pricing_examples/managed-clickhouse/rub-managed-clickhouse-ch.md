@@ -1,10 +1,10 @@
-  > 3 × (2&nbsp;×&nbsp;1,72&nbsp;₽ + 8&nbsp;×&nbsp;0,47&nbsp;₽) = 21,60&nbsp;₽
+  > 3 × (2&nbsp;×&nbsp;{{ sku|RUB|mdb.cluster.clickhouse.v3.cpu.c100|string }} + 8&nbsp;×&nbsp;{{ sku|RUB|mdb.cluster.clickhouse.v3.ram|string }}) = {% calc [currency=RUB] 3 × (2 × {{ sku|RUB|mdb.cluster.clickhouse.v3.cpu.c100|number }} + 8 × {{ sku|RUB|mdb.cluster.clickhouse.v3.ram|number }}) %}
   >
-  > Итого: 21,60&nbsp;₽ — стоимость часа работы хостов {{ CH }}.
+  > Итого: {% calc [currency=RUB] 3 × (2 × {{ sku|RUB|mdb.cluster.clickhouse.v3.cpu.c100|number }} + 8 × {{ sku|RUB|mdb.cluster.clickhouse.v3.ram|number }}) %} — стоимость часа работы хостов {{ CH }}.
   
   Где:
   * 3 — количество хостов {{ CH }}.
   * 2 — количество vCPU.
-  * 1,72&nbsp;₽ — стоимость часа использования 100% vCPU.
+  * {{ sku|RUB|mdb.cluster.clickhouse.v3.cpu.c100|string }} — стоимость часа использования 100% vCPU.
   * 8 — объем RAM одного хоста {{ CH }} (в гигабайтах).
-  * 0,47&nbsp;₽ — стоимость часа использования 1 ГБ RAM на 100% vCPU.
+  * {{ sku|RUB|mdb.cluster.clickhouse.v3.ram|string }} — стоимость часа использования 1 ГБ RAM на 100% vCPU.

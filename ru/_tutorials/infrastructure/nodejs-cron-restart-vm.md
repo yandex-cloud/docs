@@ -98,13 +98,18 @@
      ```
 
      Где:
+
      * `name` — имя секрета.
      * `key` — ключ секрета.
      * `text_value` — значение OAuth-токена, необходимого для авторизации функции.
 
+     {% include [secret-version-tf-note](../../_includes/lockbox/secret-version-tf-note.md) %}
+
      Более подробную информацию о параметрах используемых ресурсов в {{ TF }} см. в документации провайдера:
+
      * [yandex_lockbox_secret]({{ tf-provider-resources-link }}/lockbox_secret).
      * [yandex_lockbox_secret_version]({{ tf-provider-resources-link }}/lockbox_secret_version).
+
   1. Проверьте корректность конфигурационных файлов.
      1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
      1. Выполните проверку с помощью команды:

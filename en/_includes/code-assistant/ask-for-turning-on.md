@@ -1,0 +1,1 @@
+You can request access to {{ ca-name }} on [this page](/services/code-assistant) or by contacting your account manager.

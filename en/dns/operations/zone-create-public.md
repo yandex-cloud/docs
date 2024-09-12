@@ -88,7 +88,7 @@ To create a public [DNS zone](../concepts/dns-zone.md):
       * `zone`: Domain zone. The zone name must end with a dot. You cannot create public top-level domain (TLD) zones. To create a domain zone with non-Latin characters, use [Punycode](https://{{ lang }}.wikipedia.org/wiki/Punycode) encoding. This is a required parameter.
       * `public`: Zone visibility, public or private. This is an optional parameter.
 
-      For more information about the `yandex_dns_zone` resource parameters, see the [provider documentation]({{ tf-provider-link }}/dns_zone).
+      For more information about the `yandex_dns_zone` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/dns_zone).
 
    1. Create resources:
 

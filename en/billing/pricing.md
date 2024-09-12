@@ -17,6 +17,7 @@ The following services are always free of charge:
 * [Yandex Cloud Console](../console/pricing.md)
 * {{ preview-stage }} [{{ cloud-desktop-full-name }}](../cloud-desktop/pricing.md)
 * [{{ org-full-name }}](../organization/pricing.md)
+* {{ preview-stage }} [{{ ca-full-name }}](../code-assistant/pricing.md)
 * [{{ forms-full-name }}](../forms/pricing.md)
 * [{{ iam-full-name }}](../iam/pricing.md)
 * {{ preview-stage }} [{{ maf-full-name }}](../managed-airflow/pricing.md)

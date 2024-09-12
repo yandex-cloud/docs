@@ -1125,10 +1125,12 @@ default:
         v3:
           cpu:
             c100|month|string: "6\_192,00\_₸"
+            c100|number: 8,60
             c100|string: "8,60\_₸"
             c50|month|string: "2\_196,00\_₸"
             c50|string: "3,05\_₸"
           ram|month|string: "1\_692,00\_₸"
+          ram|number: 2,35
           ram|string: "2,35\_₸"
       elasticsearch:
         v2:
@@ -1280,6 +1282,7 @@ default:
           ram|month|string: "1\_656,00\_₸"
           ram|string: "2,30\_₸"
       network-hdd:
+        ch|month|number: 16,00
         ch|month|string: "16,00\_₸"
         elasticsearch|month|string: "16,00\_₸"
         greenplum|month|string: "16,00\_₸"
@@ -1432,8 +1435,10 @@ default:
             c100|month|string: "3\_924,00\_₸"
             c100|string: "5,45\_₸"
             c50|month|string: "2\_520,00\_₸"
+            c50|number: 3,50
             c50|string: "3,50\_₸"
           ram|month|string: "1\_008,00\_₸"
+          ram|number: 1,40
           ram|string: "1,40\_₸"
       kafka:
         v2:
@@ -2235,10 +2240,12 @@ default:
         v3:
           cpu:
             c100|month|string: "1\_238,40\_₽"
+            c100|number: 1,72
             c100|string: "1,72\_₽"
             c50|month|string: "439,20\_₽"
             c50|string: "0,61\_₽"
           ram|month|string: "338,40\_₽"
+          ram|number: 0,47
           ram|string: "0,47\_₽"
       elasticsearch:
         v2:
@@ -2390,6 +2397,7 @@ default:
           ram|month|string: "331,20\_₽"
           ram|string: "0,46\_₽"
       network-hdd:
+        ch|month|number: 3,20
         ch|month|string: "3,20\_₽"
         elasticsearch|month|string: "3,20\_₽"
         greenplum|month|string: "3,20\_₽"
@@ -2542,8 +2550,10 @@ default:
             c100|month|string: "784,80\_₽"
             c100|string: "1,09\_₽"
             c50|month|string: "504,00\_₽"
+            c50|number: 0,70
             c50|string: "0,70\_₽"
           ram|month|string: "201,60\_₽"
+          ram|number: 0,28
           ram|string: "0,28\_₽"
       kafka:
         v2:
@@ -3350,10 +3360,12 @@ default:
         v3:
           cpu:
             c100|month|string: "9,907200\_$"
+            c100|number: 0,013760
             c100|string: "0,013760\_$"
             c50|month|string: "3,513600\_$"
             c50|string: "0,004880\_$"
           ram|month|string: "2,707200\_$"
+          ram|number: 0,003760
           ram|string: "0,003760\_$"
       elasticsearch:
         v2:
@@ -5942,6 +5954,9 @@ default:
         field_group-name: Название группы
         field_origin: Доменное имя источника
         field_origin-state: Приоритет
+        field_rewrite-rule-body: Правило Rewrite
+        field_rewrite-rule-flag: Флаг
+        field_rewrite-rule-redirect: Перенаправление запросов
         field_secure-key: Секретный ключ
         field_secure-key-enabled: Доступ по защищённому токену
         field_secure-key-type: Ограничение доступа по IP-адресу
