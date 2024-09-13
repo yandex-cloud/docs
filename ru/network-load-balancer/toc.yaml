@@ -96,8 +96,6 @@ items:
         href: concepts/scenarios.md
       - name: Рекомендации по применению
         href: concepts/best-practices.md
-      - name: Мониторинг
-        href: concepts/monitoring.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Управление доступом
@@ -190,6 +188,8 @@ items:
         href: k8s-ref/service.md
       - name: NetworkPolicy
         href: k8s-ref/networkpolicy.md
+  - name: Метрики {{ monitoring-name }}
+    href: metrics.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md
   - name: Вопросы и ответы

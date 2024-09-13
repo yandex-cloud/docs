@@ -123,10 +123,10 @@ dpkg -l
 ls -la
 ```
 
-#### Смотри также {#see-also}
+#### См. также {#see-also}
 
-* [{#T}](index.md).
-* [{#T}](cli.md).
-* [{#T}](docker.md).
-* [{#T}](../../operations/projects/work-with-jobs.md).
-* [GitHub-репозиторий](https://github.com/yandex-cloud-examples/yc-datasphere-jobs-examples) с примерами для запуска заданий.
+* [{#T}](index.md)
+* [{#T}](cli.md)
+* [{#T}](docker.md)
+* [{#T}](../../operations/projects/work-with-jobs.md)
+* [GitHub-репозиторий](https://github.com/yandex-cloud-examples/yc-datasphere-jobs-examples) с примерами для запуска заданий

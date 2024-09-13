@@ -6,7 +6,9 @@ description: "Следуя данной инструкции, вы сможет�
 # Изменить организацию платежного аккаунта
 
 
-Чтобы изменить [организацию](../concepts/organization.md) платежного аккаунта, пользователь должен обладать ролью `billing.accounts.owner` на платежный аккаунт и `organization-manager.admin` на организацию. Для изменения организации:
+{% include [cloud-to-pin.md](../_includes/clouds-to-pin.md) %}
+
+Чтобы изменить [организацию](../concepts/organization.md) платежного аккаунта, пользователь должен обладать ролью [`billing.accounts.owner`](../security/index.md#billing-accounts-owner) на [платежный аккаунт](../security/index.md#set-role) и [`organization-manager.admin`](../../organization/security/index.md#organization-manager-admin) на [организацию](../../organization/security/index.md#add-role). Для изменения организации:
 
 {% list tabs group=instructions %}
 

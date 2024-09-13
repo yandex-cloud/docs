@@ -34,12 +34,10 @@
 
 1. {% include [Установка Helm](../../../_includes/managed-kubernetes/helm-install.md) %}
 1. {% include [Install and configure kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
-1. [Установите kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl) последней версии и [настройте его на работу с созданным кластером](../connect/index.md#kubectl-connect).
 
 1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с Chaos Mesh выполните команду:
 
    ```bash
-   export HELM_EXPERIMENTAL_OCI=1 && \
    helm pull oci://{{ mkt-k8s-key.yc_chaos-mesh.helmChart.name }} \
      --version {{ mkt-k8s-key.yc_chaos-mesh.helmChart.tag }} \
      --untar && \
@@ -48,6 +46,8 @@
      --create-namespace \
      chaos-mesh ./chaos-mesh/
    ```
+
+   {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 
 Актуальную версию Helm-чарта можно посмотреть на [странице приложения](/marketplace/products/yc/chaos-mesh#docker-images).
 

@@ -8,7 +8,7 @@
 1. Выберите [**Зону доступности**](../../../overview/concepts/geo-scope.md).
 1. Нажмите кнопку **{{ ui-key.yc-ui-datasphere.common.create }}**.
 
-#### Что дальше {#what-is-next}
+#### См. также {#see-also}
 
 * [{#T}](add-user.md)
 * [{#T}](link-channel.md)

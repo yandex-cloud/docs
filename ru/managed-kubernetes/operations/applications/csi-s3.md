@@ -44,7 +44,6 @@
 1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с CSI выполните команду:
 
    ```bash
-   export HELM_EXPERIMENTAL_OCI=1 && \
    helm pull oci://{{ mkt-k8s-key.yc_csi-s3.helmChart.name }} \
      --version {{ mkt-k8s-key.yc_csi-s3.helmChart.tag }} \
      --untar && \
@@ -52,8 +51,10 @@
      --namespace kube-system \
      --set secret.accessKey=<идентификатор_ключа> \
      --set secret.secretKey=<секретный_ключ> \
-     csi-s3 .
+     csi-s3 ./csi-s3/
    ```
+
+   {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 
 При установке приложения CSI обязательными являются параметры `secret.accessKey` и `secret.secretKey`. Вы можете не указывать остальные параметры, либо переопределить их в команде установки с помощью ключа `--set <имя_параметра>=<новое_значение>`.
 

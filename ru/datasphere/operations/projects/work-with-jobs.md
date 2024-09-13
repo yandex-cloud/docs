@@ -191,4 +191,4 @@ description: "Следуя данной инструкции, вы сможет�
 #### См. также {#see-also}
 
 * [{#T}](../../concepts/jobs/index.md)
-* [GitHub-репозиторий](https://github.com/yandex-cloud-examples/yc-datasphere-jobs-examples) с примерами для запуска заданий.
+* [GitHub-репозиторий](https://github.com/yandex-cloud-examples/yc-datasphere-jobs-examples) с примерами для запуска заданий

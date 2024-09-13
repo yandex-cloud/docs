@@ -40,7 +40,6 @@
 1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с Fluent Bit выполните команду:
 
    ```bash
-   export HELM_EXPERIMENTAL_OCI=1 && \
    cat sa-key.json | helm registry login {{ registry }} --username 'json_key' --password-stdin && \
    helm pull oci://{{ mkt-k8s-key.yc_fluent-bit.helmChart.name }} \
      --version {{ mkt-k8s-key.yc_fluent-bit.helmChart.tag }} \
@@ -51,10 +50,12 @@
      --set loggingGroupId=<идентификатор_лог-группы> \
      --set loggingFilter=<идентификатор_кластера> \
      --set-file auth.json=sa-key.json \
-     fluentbit ./fluent-bit-cloud-logging/
+     fluentbit ./fluent-bit/
    ```
 
    Эта команда также создаст новое пространство имен, необходимое для работы Fluent Bit.
+
+   {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 
 ## Примеры использования {#examples}
 

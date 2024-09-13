@@ -95,6 +95,11 @@
         -d "@<путь_к_файлу_с_телом_запроса>" \
         "https://{{ api-host-llm }}/foundationModels/v1/fewShotTextClassification"
       ```
+      {% note info %}
+      
+      Эндпоинт `https://{{ api-host-llm }}/foundationModels/v1/fewShotTextClassification` работает только с классификаторами по промту. Для [дообученных классификаторов](additionally-trained.md) используйте `https://{{ api-host-llm }}:443/foundationModels/v1/textClassification`.
+      
+      {% endnote %}
 
    {% endlist %}
 

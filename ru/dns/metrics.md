@@ -5,6 +5,6 @@ description: "На этой странице приведен справочни
 
 # Справочник метрик {{ monitoring-full-name }}
 
-В этом разделе описаны метрики зоны DNS, поставляемые в [{{ monitoring-name }}](../monitoring/).
+В этом разделе описаны метрики сервиса {{ dns-name }}, поставляемые в [{{ monitoring-name }}](../monitoring/).
 
 {% include [dns](../_includes/monitoring/metrics-ref/dns.md) %}

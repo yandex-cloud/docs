@@ -40,7 +40,6 @@
 1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с Falco выполните команду:
 
    ```bash
-   export HELM_EXPERIMENTAL_OCI=1 && \
    helm pull oci://{{ mkt-k8s-key.yc_falco.helmChart.name }} \
      --version {{ mkt-k8s-key.yc_falco.helmChart.tag }} \
      --untar && \
@@ -49,6 +48,8 @@
      --create-namespace \
      falco ./falco
    ```
+
+   {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 
 ## См. также {#see-also}
 

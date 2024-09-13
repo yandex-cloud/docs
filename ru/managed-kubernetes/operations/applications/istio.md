@@ -49,7 +49,6 @@ Istio обеспечивает:
 1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с Istio выполните команду:
 
    ```bash
-   export HELM_EXPERIMENTAL_OCI=1 && \
    helm pull oci://{{ mkt-k8s-key.yc_istio.helmChart.name }} \
      --version {{ mkt-k8s-key.yc_istio.helmChart.tag }} \
      --untar && \
@@ -58,6 +57,8 @@ Istio обеспечивает:
      --create-namespace \
    istio ./istio/
    ```
+
+   {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 
 ## См. также {#see-also}
 

@@ -240,6 +240,7 @@ Metadata and response of Operation:<br>
 Field | Description
 --- | ---
 folder_id | **string**<br>Required. ID of the folder to create a DesktopGroup in. <br>To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. The maximum string length in characters is 50.
+desktop_image_id | **string**<br>Required. An image used to create a desktop boot disk The maximum string length in characters is 50.
 name | **string**<br>Name of the DesktopGroup. The name must be unique within the folder. Value must match the regular expression ` [a-z]([-a-z0-9]{0,61}[a-z0-9]) `.
 description | **string**<br>Description of the DesktopGroup. The maximum string length in characters is 1024.
 resources_spec | **[ResourcesSpec](#ResourcesSpec2)**<br>Resource specification of the desktop group. 

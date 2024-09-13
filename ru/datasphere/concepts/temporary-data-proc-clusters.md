@@ -27,7 +27,7 @@
 
 Подробнее о работе с шаблонами {{ dataproc-name }} см. в [инструкции](../operations/data-proc-template.md).
 
-## См. также {#see-also}
+#### См. также {#see-also}
 
 * [{#T}](data-proc-template.md).
 * [{#T}](../tutorials/data-proc-integration.md).

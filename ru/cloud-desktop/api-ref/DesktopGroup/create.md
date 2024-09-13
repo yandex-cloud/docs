@@ -18,6 +18,7 @@ POST https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/desktopGroups
 ```json 
 {
   "folderId": "string",
+  "desktopImageId": "string",
   "name": "string",
   "description": "string",
   "resourcesSpec": {
@@ -38,6 +39,7 @@ POST https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/desktopGroups
 Field | Description
 --- | ---
 folderId | **string**<br><p>Required. ID of the folder to create a DesktopGroup in.</p> <p>To get a folder ID make a <a href="/docs/resource-manager/api-ref/Folder/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
+desktopImageId | **string**<br><p>Required. An image used to create a desktop boot disk</p> <p>The maximum string length in characters is 50.</p> 
 name | **string**<br><p>Name of the DesktopGroup. The name must be unique within the folder.</p> <p>Value must match the regular expression ``[a-z]([-a-z0-9]{0,61}[a-z0-9])``.</p> 
 description | **string**<br><p>Description of the DesktopGroup.</p> <p>The maximum string length in characters is 1024.</p> 
 resourcesSpec | **object**<br><p>Resource specification of the desktop group.</p> 

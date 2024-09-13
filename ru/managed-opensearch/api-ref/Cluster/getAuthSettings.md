@@ -31,7 +31,8 @@ clusterId | <p>Required. Required. ID of the OpenSearch cluster.</p> <p>The maxi
     "spEntityId": "string",
     "dashboardsUrl": "string",
     "rolesKey": "string",
-    "subjectKey": "string"
+    "subjectKey": "string",
+    "jwtDefaultExpirationTimeout": "integer"
   }
 }
 ```
@@ -47,3 +48,4 @@ saml.<br>spEntityId | **string**<br><p>Required. The entity ID of the service pr
 saml.<br>dashboardsUrl | **string**<br><p>Required. The OpenSearch Dashboards base URL.</p> <p>The maximum string length in characters is 250.</p> 
 saml.<br>rolesKey | **string**<br><p>Optional. The attribute in the SAML response where the roles are stored. If not configured, no roles are used.</p> <p>The maximum string length in characters is 250.</p> 
 saml.<br>subjectKey | **string**<br><p>Optional. The attribute in the SAML response where the subject is stored. If not configured, the NameID attribute is used.</p> <p>The maximum string length in characters is 250.</p> 
+saml.<br>jwtDefaultExpirationTimeout | **integer** (int64)<br><p>default jwt expiration timeout.</p> 

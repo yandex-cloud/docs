@@ -6,6 +6,12 @@ label:
   when: region == "kz"
 noIndex: true
 items:
+  - name: Функциональные характеристрики и архитектура
+    href: architecture.md
+  - name: Системные требования
+    href: system-requirements.md
+  - name: Начало работы
+    href: quickstart.md
   - name: Правила тарификации
     href: pricing.md
 base: ru/cloudai-hybrid

@@ -185,6 +185,7 @@ updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 completed_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
 compute_instance_id | **string**<br>Compute Cloud instance ID. 
 result_code | enum **Code**<br>Task result code. 
+error | **string**<br>Task error message if task finished with not OK code 
 
 
 ### Progress {#Progress}

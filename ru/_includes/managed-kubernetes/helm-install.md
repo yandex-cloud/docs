@@ -1,1 +1,1 @@
-[Установите менеджер пакетов Helm](https://helm.sh/ru/docs/intro/install/) версии не ниже 3.7.0.
+[Установите менеджер пакетов Helm](https://helm.sh/ru/docs/intro/install/) версии не ниже 3.8.0.

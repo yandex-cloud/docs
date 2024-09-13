@@ -69,7 +69,6 @@
 1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с Velero выполните команду:
 
    ```bash
-   export HELM_EXPERIMENTAL_OCI=1 && \
    helm pull oci://{{ mkt-k8s-key.yc_velero-yc-csi.helmChart.name }} \
         --version {{ mkt-k8s-key.yc_velero-yc-csi.helmChart.tag }} \
         --untar && \
@@ -80,6 +79,8 @@
         --set-file serviceaccountawskeyvalue=<путь_к_файлу_sa-key.json> \
         velero ./velero/
    ```
+
+   {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 
 ## См. также {#see-also}
 

@@ -19,6 +19,7 @@ Free tier applies to the following services:
 * [{{ dns-full-name }}](#dns)
 * [{{ sf-full-name }}](#sf)
 * [{{ cloud-logging-full-name }}](#logging)
+* [{{ postbox-full-name }}](#postbox)
 * [{{ compute-full-name }}](#compute)
 * [{{ container-registry-full-name }}](#cr)
 * [{{ dataproc-full-name }}](#dataproc)
@@ -77,6 +78,16 @@ After you spend the free amount of services, you will be charged at the applicab
 {% include [not-charged-logging.md](../../_includes/pricing/price-formula/not-charged-logging.md) %}
 
 After you spend the free amount of services, you will be charged at the applicable [rate](../../logging/pricing.md).
+
+{% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
+
+## {{ postbox-full-name }} {#postbox}
+
+[{{ postbox-full-name }}](../../postbox/quickstart.md) is a transaction email service.
+
+{% include [not-charged-postbox.md](../../_includes/pricing/price-formula/not-charged-postbox.md) %}
+
+After you spend the free amount of services, you will be charged at the applicable [rate](../../postbox/pricing.md).
 
 {% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
 

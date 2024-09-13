@@ -67,6 +67,8 @@ description: "Узнайте, как установить приложение I
       ingress-nginx ./ingress-nginx/
    ```
 
+   {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
+
 ## Примеры использования {#examples}
 
 * [{#T}](../create-load-balancer-with-ingress-nginx.md)
