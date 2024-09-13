@@ -56,7 +56,6 @@
 1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с {{ GLR }} выполните команду:
 
    ```bash
-   export HELM_EXPERIMENTAL_OCI=1 && \
    helm pull oci://{{ mkt-k8s-key.yc_gitlab-runner.helmChart.name }} \
      --version {{ mkt-k8s-key.yc_gitlab-runner.helmChart.tag }} \
      --untar && \
@@ -67,6 +66,8 @@
      --set runnerRegistrationToken=<ранее_полученный_токен> \
      gitlab-runner ./gitlab-runner/
    ```
+
+   {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 
 ## Примеры использования {#examples}
 

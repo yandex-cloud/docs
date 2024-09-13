@@ -2520,6 +2520,7 @@ sp_entity_id | **string**<br>Required. The entity ID of the service provider. Th
 dashboards_url | **string**<br>Required. The OpenSearch Dashboards base URL. The maximum string length in characters is 250.
 roles_key | **string**<br>Optional. The attribute in the SAML response where the roles are stored. If not configured, no roles are used. The maximum string length in characters is 250.
 subject_key | **string**<br>Optional. The attribute in the SAML response where the subject is stored. If not configured, the NameID attribute is used. The maximum string length in characters is 250.
+jwt_default_expiration_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>default jwt expiration timeout. 
 
 
 ## UpdateAuthSettings {#UpdateAuthSettings}
@@ -2558,6 +2559,7 @@ sp_entity_id | **string**<br>Required. The entity ID of the service provider. Th
 dashboards_url | **string**<br>Required. The OpenSearch Dashboards base URL. The maximum string length in characters is 250.
 roles_key | **string**<br>Optional. The attribute in the SAML response where the roles are stored. If not configured, no roles are used. The maximum string length in characters is 250.
 subject_key | **string**<br>Optional. The attribute in the SAML response where the subject is stored. If not configured, the NameID attribute is used. The maximum string length in characters is 250.
+jwt_default_expiration_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>default jwt expiration timeout. 
 
 
 ### Operation {#Operation16}

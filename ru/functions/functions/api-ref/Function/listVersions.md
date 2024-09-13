@@ -148,7 +148,7 @@ versions[].<br>resources.<br>memory | **string** (int64)<br><p>Amount of memory 
 versions[].<br>executionTimeout | **string**<br><p>Timeout for the execution of the version.</p> <p>If the timeout is exceeded, Cloud Functions responds with a 504 HTTP code.</p> 
 versions[].<br>serviceAccountId | **string**<br><p>ID of the service account associated with the version.</p> 
 versions[].<br>imageSize | **string** (int64)<br><p>Final size of the deployment package after unpacking.</p> 
-versions[].<br>status | **string**<br><p>Status of the version.</p> <ul> <li>CREATING: Version is being created.</li> <li>ACTIVE: Version is ready to use.</li> </ul> 
+versions[].<br>status | **string**<br><p>Status of the version.</p> <ul> <li>CREATING: Version is being created.</li> <li>ACTIVE: Version is ready to use.</li> <li>OBSOLETE: Version will be deleted soon.</li> <li>DELETING: Version is being deleted.</li> </ul> 
 versions[].<br>tags[] | **string**<br><p>Version tags. For details, see <a href="/docs/functions/concepts/function#tag">Version tag</a>.</p> 
 versions[].<br>environment | **object**<br><p>Environment settings for the version.</p> 
 versions[].<br>connectivity | **object**<br><p>Network access. If specified the version will be attached to specified network/subnet(s).</p> <p>Version connectivity specification.</p> 

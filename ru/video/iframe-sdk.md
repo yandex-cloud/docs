@@ -1,6 +1,6 @@
-# Справочник Cloud Video Player SDK для IFrame
+# Справочник SDK видеоплеера для IFrame
 
-Вы можете разместить [видеоплеер](./concepts/player.md) с контентом из {{ video-name }} на HTML-странице с помощью Cloud Video Player SDK для IFrame.
+Вы можете разместить [видеоплеер](./concepts/player.md) с контентом из {{ video-name }} на HTML-странице с помощью SDK видеоплеера для IFrame.
 
 Добавьте в код страницы [iframe](https://en.wikipedia.org/wiki/HTML_element#Frames)-контейнер:
 
@@ -14,7 +14,7 @@
 ></iframe>
 ```
 
-Где `{video_content_id}` — идентификатор видео-контента. Подробнее см. в [{#T}](./operations/video/get-link.md) и [{#T}](./operations/streams/get-link.md).
+{% include [video-content-id-desc](../_includes/video/video-content-id-desc.md) %}
 
 Код вставки содержит iframe-контейнер, в котором отображается плеер с указанным видео.
 

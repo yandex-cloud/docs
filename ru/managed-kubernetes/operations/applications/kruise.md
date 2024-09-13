@@ -30,7 +30,6 @@
 1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с Kruise выполните команду:
 
    ```bash
-   export HELM_EXPERIMENTAL_OCI=1 && \
    helm pull oci://{{ mkt-k8s-key.yc_kruise.helmChart.name }} \
       --version {{ mkt-k8s-key.yc_kruise.helmChart.tag }} \
       --untar && \
@@ -39,6 +38,8 @@
       --create-namespace \
       kruise ./kruise/
    ```
+
+   {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 
 Актуальную версию Helm-чарта можно посмотреть на [странице приложения](/marketplace/products/yc/kruise#docker-images).
 

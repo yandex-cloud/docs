@@ -84,7 +84,6 @@
 1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с HashiCorp Vault выполните команду:
 
    ```bash
-   export HELM_EXPERIMENTAL_OCI=1 && \
    cat <путь_к_файлу_с_авторизованным_ключом> | helm registry login cr.yandex --username 'json_key' --password-stdin && \
    helm pull oci://{{ registry }}/yc-marketplace/yandex-cloud/vault/chart/vault \
      --version 0.28.1+yckms \
@@ -97,7 +96,9 @@
      hashicorp ./vault/
    ```
 
-   Где:
+   {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
+
+   Параметры команды:
    * `<путь_к_файлу_с_авторизованным_ключом>` — путь к файлу `authorized-key.json`, [сохраненному ранее](#before-you-begin).
    * `<пространство_имен>` — новое пространство имен, которое будет создано для работы HashiCorp Vault.
    * `<идентификатор_ключа_KMS>` — [полученный ранее](#before-you-begin) идентификатор ключа {{ kms-name }}.

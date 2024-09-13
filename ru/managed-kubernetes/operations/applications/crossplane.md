@@ -39,7 +39,6 @@
 
    
    ```bash
-   export HELM_EXPERIMENTAL_OCI=1 && \
    helm pull oci://{{ mkt-k8s-key.yc_crossplane.helmChart.name }} \
      --version {{ mkt-k8s-key.yc_crossplane.helmChart.tag }} \
      --untar && \
@@ -50,6 +49,8 @@
      crossplane ./crossplane/
    ```
 
+
+   {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 
 ## Установка с помощью GitHub-репозитория Helm {#helm-repo-install}
 

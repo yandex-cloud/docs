@@ -12,6 +12,8 @@
   helm pull oci://{{ registry }}/<идентификатор_реестра>/<имя_Helm-чарта> --version <версия>
   ```
 
+  {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
+
   Результат выполнения команды:
 
   ```bash

@@ -49,7 +49,6 @@
 1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с {{ prometheus-name }} Operator выполните команду:
 
    ```bash
-   export HELM_EXPERIMENTAL_OCI=1 && \
    helm pull oci://{{ mkt-k8s-key.yc_prometheus-operator.helmChart.name }} \
      --version {{ mkt-k8s-key.yc_prometheus-operator.helmChart.tag }} \
      --untar && \
@@ -62,6 +61,8 @@
    ```
 
    Эта команда также создаст новое пространство имен для работы {{ prometheus-name }} Operator.
+
+   {% include [Support OCI](../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 
 1. Убедитесь, что поды {{ prometheus-name }} Operator перешли в состояние `Running`:
 

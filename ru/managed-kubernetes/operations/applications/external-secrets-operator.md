@@ -46,7 +46,6 @@ External Secrets Operator с поддержкой {{ lockbox-name }} позво�
 1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с приложением External Secrets Operator выполните команду:
 
    ```bash
-   export HELM_EXPERIMENTAL_OCI=1 && \
    helm pull oci://{{ mkt-k8s-key.yc_external-secrets.helmChart.name }} \
      --version {{ mkt-k8s-key.yc_external-secrets.helmChart.tag }} \
      --untar && \
@@ -58,6 +57,8 @@ External Secrets Operator с поддержкой {{ lockbox-name }} позво�
    ```
 
    Эта команда создаст новое пространство имен, необходимое для работы External Secrets Operator.
+
+   {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 
 ## Примеры использования {#examples}
 

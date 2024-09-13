@@ -57,6 +57,8 @@
      argo-cd ./argo-cd/
    ```
 
+   {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
+
 ## Примеры использования {#examples}
 
 * [{#T}](../../tutorials/marketplace/argo-cd.md).

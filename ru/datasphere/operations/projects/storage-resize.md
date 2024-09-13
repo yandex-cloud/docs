@@ -2,7 +2,7 @@
 
 {% note info %}
 
-Вы можете изменить размер хранилища проекта, если у вас есть роль `{{ roles-datasphere-project-admin }}` в проекте или роль `{{ roles-datasphere-communities-admin }}` в сообществе проекта.
+Вы можете изменить размер хранилища проекта, если у вас есть [роль](../../security/index.md) `{{ roles-datasphere-project-admin }}` в проекте или роль `{{ roles-datasphere-communities-admin }}` в сообществе проекта.
 
 Изменение размера хранилища проекта может быть [ограничено](../community/manage-community-config.md) в настройках сообщества.
 

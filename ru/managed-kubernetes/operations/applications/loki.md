@@ -61,7 +61,6 @@
 1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с Loki выполните команду:
 
     ```bash
-    export HELM_EXPERIMENTAL_OCI=1 && \
     helm pull oci://{{ mkt-k8s-key.yc_loki.helmChart.name }} \
       --version {{ mkt-k8s-key.yc_loki.helmChart.tag }} \
       --untar && \
@@ -73,6 +72,8 @@
       --set loki-distributed.serviceaccountawskeyvalue_generated.secretAccessKey=<секретный_ключ_сервисного_аккаунта> \
       loki ./loki/
     ```
+
+    {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 
 ## См. также {#see-also}
 

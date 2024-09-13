@@ -46,7 +46,6 @@
 1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с ExternalDNS выполните команду:
 
    ```bash
-   export HELM_EXPERIMENTAL_OCI=1 && \
    helm pull oci://{{ mkt-k8s-key.yc_externaldns.helmChart.name }} \
      --version {{ mkt-k8s-key.yc_externaldns.helmChart.tag }} \
      --untar && \
@@ -57,6 +56,8 @@
      --set-file config.auth.json=<путь_к_файлу_с_авторизованным_ключом_сервисного_аккаунта> \
      externaldns ./externaldns/
     ```
+
+    {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 
 ## Особенности работы {#features}
 
