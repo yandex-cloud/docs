@@ -53,7 +53,6 @@
 
    
    ```bash
-   export HELM_EXPERIMENTAL_OCI=1 && \
    helm pull oci://{{ mkt-k8s-key.yc_gateway-api.helmChart.name }} \
      --version {{ mkt-k8s-key.yc_gateway-api.helmChart.tag }} \
      --untar && \
@@ -71,6 +70,8 @@
 
 
    В команде укажите сеть и ее подсети, в которых нужно [располагать балансировщики](../../application-load-balancer/concepts/application-load-balancer.md#lb-location).
+
+   {% include [Support OCI](../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 
 ## Примеры использования {#examples}
 

@@ -285,7 +285,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to the version.
 execution_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for the execution of the version. <br>If the timeout is exceeded, Cloud Functions responds with a 504 HTTP code. 
 service_account_id | **string**<br>ID of the service account associated with the version. 
 image_size | **int64**<br>Final size of the deployment package after unpacking. 
-status | enum **Status**<br>Status of the version. <ul><li>`CREATING`: Version is being created.</li><li>`ACTIVE`: Version is ready to use.</li></ul>
+status | enum **Status**<br>Status of the version. <ul><li>`CREATING`: Version is being created.</li><li>`ACTIVE`: Version is ready to use.</li><li>`OBSOLETE`: Version will be deleted soon.</li><li>`DELETING`: Version is being deleted.</li></ul>
 tags[] | **string**<br>Version tags. For details, see [Version tag](/docs/functions/concepts/function#tag). 
 environment | **map<string,string>**<br>Environment settings for the version. 
 connectivity | **[Connectivity](#Connectivity)**<br>Network access. If specified the version will be attached to specified network/subnet(s). 
@@ -431,7 +431,7 @@ resources | **[Resources](#Resources1)**<br>Resources allocated to the version.
 execution_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for the execution of the version. <br>If the timeout is exceeded, Cloud Functions responds with a 504 HTTP code. 
 service_account_id | **string**<br>ID of the service account associated with the version. 
 image_size | **int64**<br>Final size of the deployment package after unpacking. 
-status | enum **Status**<br>Status of the version. <ul><li>`CREATING`: Version is being created.</li><li>`ACTIVE`: Version is ready to use.</li></ul>
+status | enum **Status**<br>Status of the version. <ul><li>`CREATING`: Version is being created.</li><li>`ACTIVE`: Version is ready to use.</li><li>`OBSOLETE`: Version will be deleted soon.</li><li>`DELETING`: Version is being deleted.</li></ul>
 tags[] | **string**<br>Version tags. For details, see [Version tag](/docs/functions/concepts/function#tag). 
 environment | **map<string,string>**<br>Environment settings for the version. 
 connectivity | **[Connectivity](#Connectivity1)**<br>Network access. If specified the version will be attached to specified network/subnet(s). 
@@ -578,7 +578,7 @@ resources | **[Resources](#Resources2)**<br>Resources allocated to the version.
 execution_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for the execution of the version. <br>If the timeout is exceeded, Cloud Functions responds with a 504 HTTP code. 
 service_account_id | **string**<br>ID of the service account associated with the version. 
 image_size | **int64**<br>Final size of the deployment package after unpacking. 
-status | enum **Status**<br>Status of the version. <ul><li>`CREATING`: Version is being created.</li><li>`ACTIVE`: Version is ready to use.</li></ul>
+status | enum **Status**<br>Status of the version. <ul><li>`CREATING`: Version is being created.</li><li>`ACTIVE`: Version is ready to use.</li><li>`OBSOLETE`: Version will be deleted soon.</li><li>`DELETING`: Version is being deleted.</li></ul>
 tags[] | **string**<br>Version tags. For details, see [Version tag](/docs/functions/concepts/function#tag). 
 environment | **map<string,string>**<br>Environment settings for the version. 
 connectivity | **[Connectivity](#Connectivity2)**<br>Network access. If specified the version will be attached to specified network/subnet(s). 
@@ -725,7 +725,7 @@ resources | **[Resources](#Resources3)**<br>Resources allocated to the version.
 execution_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for the execution of the version. <br>If the timeout is exceeded, Cloud Functions responds with a 504 HTTP code. 
 service_account_id | **string**<br>ID of the service account associated with the version. 
 image_size | **int64**<br>Final size of the deployment package after unpacking. 
-status | enum **Status**<br>Status of the version. <ul><li>`CREATING`: Version is being created.</li><li>`ACTIVE`: Version is ready to use.</li></ul>
+status | enum **Status**<br>Status of the version. <ul><li>`CREATING`: Version is being created.</li><li>`ACTIVE`: Version is ready to use.</li><li>`OBSOLETE`: Version will be deleted soon.</li><li>`DELETING`: Version is being deleted.</li></ul>
 tags[] | **string**<br>Version tags. For details, see [Version tag](/docs/functions/concepts/function#tag). 
 environment | **map<string,string>**<br>Environment settings for the version. 
 connectivity | **[Connectivity](#Connectivity3)**<br>Network access. If specified the version will be attached to specified network/subnet(s). 
@@ -884,7 +884,7 @@ resources | **[Resources](#Resources4)**<br>Resources allocated to the version.
 execution_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for the execution of the version. <br>If the timeout is exceeded, Cloud Functions responds with a 504 HTTP code. 
 service_account_id | **string**<br>ID of the service account associated with the version. 
 image_size | **int64**<br>Final size of the deployment package after unpacking. 
-status | enum **Status**<br>Status of the version. <ul><li>`CREATING`: Version is being created.</li><li>`ACTIVE`: Version is ready to use.</li></ul>
+status | enum **Status**<br>Status of the version. <ul><li>`CREATING`: Version is being created.</li><li>`ACTIVE`: Version is ready to use.</li><li>`OBSOLETE`: Version will be deleted soon.</li><li>`DELETING`: Version is being deleted.</li></ul>
 tags[] | **string**<br>Version tags. For details, see [Version tag](/docs/functions/concepts/function#tag). 
 environment | **map<string,string>**<br>Environment settings for the version. 
 connectivity | **[Connectivity](#Connectivity4)**<br>Network access. If specified the version will be attached to specified network/subnet(s). 
@@ -1043,7 +1043,7 @@ resources | **[Resources](#Resources5)**<br>Resources allocated to the version.
 execution_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for the execution of the version. <br>If the timeout is exceeded, Cloud Functions responds with a 504 HTTP code. 
 service_account_id | **string**<br>ID of the service account associated with the version. 
 image_size | **int64**<br>Final size of the deployment package after unpacking. 
-status | enum **Status**<br>Status of the version. <ul><li>`CREATING`: Version is being created.</li><li>`ACTIVE`: Version is ready to use.</li></ul>
+status | enum **Status**<br>Status of the version. <ul><li>`CREATING`: Version is being created.</li><li>`ACTIVE`: Version is ready to use.</li><li>`OBSOLETE`: Version will be deleted soon.</li><li>`DELETING`: Version is being deleted.</li></ul>
 tags[] | **string**<br>Version tags. For details, see [Version tag](/docs/functions/concepts/function#tag). 
 environment | **map<string,string>**<br>Environment settings for the version. 
 connectivity | **[Connectivity](#Connectivity5)**<br>Network access. If specified the version will be attached to specified network/subnet(s). 
@@ -1258,7 +1258,7 @@ resources | **[Resources](#Resources6)**<br>Resources allocated to the version.
 execution_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for the execution of the version. <br>If the timeout is exceeded, Cloud Functions responds with a 504 HTTP code. 
 service_account_id | **string**<br>ID of the service account associated with the version. 
 image_size | **int64**<br>Final size of the deployment package after unpacking. 
-status | enum **Status**<br>Status of the version. <ul><li>`CREATING`: Version is being created.</li><li>`ACTIVE`: Version is ready to use.</li></ul>
+status | enum **Status**<br>Status of the version. <ul><li>`CREATING`: Version is being created.</li><li>`ACTIVE`: Version is ready to use.</li><li>`OBSOLETE`: Version will be deleted soon.</li><li>`DELETING`: Version is being deleted.</li></ul>
 tags[] | **string**<br>Version tags. For details, see [Version tag](/docs/functions/concepts/function#tag). 
 environment | **map<string,string>**<br>Environment settings for the version. 
 connectivity | **[Connectivity](#Connectivity6)**<br>Network access. If specified the version will be attached to specified network/subnet(s). 
@@ -1432,7 +1432,7 @@ resources | **[Resources](#Resources7)**<br>Resources allocated to the version.
 execution_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for the execution of the version. <br>If the timeout is exceeded, Cloud Functions responds with a 504 HTTP code. 
 service_account_id | **string**<br>ID of the service account associated with the version. 
 image_size | **int64**<br>Final size of the deployment package after unpacking. 
-status | enum **Status**<br>Status of the version. <ul><li>`CREATING`: Version is being created.</li><li>`ACTIVE`: Version is ready to use.</li></ul>
+status | enum **Status**<br>Status of the version. <ul><li>`CREATING`: Version is being created.</li><li>`ACTIVE`: Version is ready to use.</li><li>`OBSOLETE`: Version will be deleted soon.</li><li>`DELETING`: Version is being deleted.</li></ul>
 tags[] | **string**<br>Version tags. For details, see [Version tag](/docs/functions/concepts/function#tag). 
 environment | **map<string,string>**<br>Environment settings for the version. 
 connectivity | **[Connectivity](#Connectivity7)**<br>Network access. If specified the version will be attached to specified network/subnet(s). 
@@ -1812,7 +1812,7 @@ resources | **[Resources](#Resources9)**<br>Resources allocated to the version.
 execution_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for the execution of the version. <br>If the timeout is exceeded, Cloud Functions responds with a 504 HTTP code. 
 service_account_id | **string**<br>ID of the service account associated with the version. 
 image_size | **int64**<br>Final size of the deployment package after unpacking. 
-status | enum **Status**<br>Status of the version. <ul><li>`CREATING`: Version is being created.</li><li>`ACTIVE`: Version is ready to use.</li></ul>
+status | enum **Status**<br>Status of the version. <ul><li>`CREATING`: Version is being created.</li><li>`ACTIVE`: Version is ready to use.</li><li>`OBSOLETE`: Version will be deleted soon.</li><li>`DELETING`: Version is being deleted.</li></ul>
 tags[] | **string**<br>Version tags. For details, see [Version tag](/docs/functions/concepts/function#tag). 
 environment | **map<string,string>**<br>Environment settings for the version. 
 connectivity | **[Connectivity](#Connectivity9)**<br>Network access. If specified the version will be attached to specified network/subnet(s). 
@@ -2015,7 +2015,7 @@ resources | **[Resources](#Resources10)**<br>Resources allocated to the version.
 execution_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for the execution of the version. <br>If the timeout is exceeded, Cloud Functions responds with a 504 HTTP code. 
 service_account_id | **string**<br>ID of the service account associated with the version. 
 image_size | **int64**<br>Final size of the deployment package after unpacking. 
-status | enum **Status**<br>Status of the version. <ul><li>`CREATING`: Version is being created.</li><li>`ACTIVE`: Version is ready to use.</li></ul>
+status | enum **Status**<br>Status of the version. <ul><li>`CREATING`: Version is being created.</li><li>`ACTIVE`: Version is ready to use.</li><li>`OBSOLETE`: Version will be deleted soon.</li><li>`DELETING`: Version is being deleted.</li></ul>
 tags[] | **string**<br>Version tags. For details, see [Version tag](/docs/functions/concepts/function#tag). 
 environment | **map<string,string>**<br>Environment settings for the version. 
 connectivity | **[Connectivity](#Connectivity10)**<br>Network access. If specified the version will be attached to specified network/subnet(s). 

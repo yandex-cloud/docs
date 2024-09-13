@@ -42,6 +42,12 @@
         -d "@<путь_к_файлу_с_телом_запроса>" \
         "https://{{ api-host-llm }}:443/foundationModels/v1/textClassification"
       ```
+
+      {% note info %}
+      
+      Эндпоинт `https://{{ api-host-llm }}:443/foundationModels/v1/textClassification` работает только с дообученными классификаторами. Для [классификаторов по промту](readymade.md) используйте `https://{{ api-host-llm }}/foundationModels/v1/fewShotTextClassification`.
+      
+      {% endnote %}      
   
       В ответе сервис вернет результаты классификации с определенными значениями вероятности (`confidence`) принадлежности текста запроса к каждому из классов:
   

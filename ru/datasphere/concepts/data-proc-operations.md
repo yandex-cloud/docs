@@ -33,7 +33,7 @@
 
 При работе с Python Spark через {{ ml-platform-name }} нет необходимости вручную переносить виртуальное окружение. В кластере {{ dataproc-name }} есть возможность изменить базовый состав PyPI пакетов с помощью виртуального окружения:
 
-1. Установите библиотеку `catboost `:
+1. Установите библиотеку `catboost`:
 
    ```python
    %pip install catboost
@@ -130,5 +130,5 @@ df
 
 ## См. также {#see-also}
 
-* [{#T}](../tutorials/data-proc-integration.md).
-* [{#T}](spark-connector.md).
+* [{#T}](../tutorials/data-proc-integration.md)
+* [{#T}](spark-connector.md)

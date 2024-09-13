@@ -81,8 +81,6 @@ items:
             href: operations/playlists/get-link.md
           - name: Удалить плейлист
             href: operations/playlists/delete.md
-      - name: Управление видеоплеером
-        href: operations/player-control.md
       - name: Добавить участника
         href: operations/add-member.md
   - name: Концепции
@@ -93,12 +91,60 @@ items:
         href: concepts/videos.md
       - name: Трансляции
         href: concepts/streams.md
-      - name: Видеоплеер
-        href: concepts/player.md
       - name: Плейлисты
         href: concepts/playlists.md
       - name: Квоты и лимиты
         href: concepts/limits.md
+  - name: Видеоплеер
+    expanded: true
+    items:
+      - name: Обзор
+        href: concepts/player.md
+      - name: Управление
+        href: operations/player-control.md
+      - name: Решение проблем
+        href: troubleshooting.md
+      - name: SDK
+        items:
+          - name: Обзор
+            href: sdk/index.md
+          - name: IFrame
+            href: iframe-sdk.md
+          - name: JavaScript
+            items:
+              - name: Начало работы
+                href: sdk/javascript/index.md
+              - name: Параметры инициализации плеера
+                href: sdk/javascript/initialization.md
+              - name: Методы плеера
+                href: sdk/javascript/player-methods.md
+              - name: Состояние плеера
+                href: sdk/javascript/player-state.md
+              - name: События плеера
+                href: sdk/javascript/player-events.md
+              - name: Справочник API
+                items:
+                  - name: Modules
+                    href: api-ref/javascript/modules.md
+                  - name: Enumerations
+                    items:
+                      - name: PlayerSdkEvents
+                        href: api-ref/javascript/enums/PlayerSdkEvents.md
+                      - name: PlayerSdkStatus
+                        href: api-ref/javascript/enums/PlayerSdkStatus.md
+                  - name: Interfaces
+                    items:
+                      - name: PlayerSdkApi
+                        href: api-ref/javascript/interfaces/PlayerSdkApi.md
+                      - name: PlayerSdkEventHandlers
+                        href: >-
+                          api-ref/javascript/interfaces/PlayerSdkEventHandlers.md
+                      - name: PlayerSdkInitConfig
+                        href: api-ref/javascript/interfaces/PlayerSdkInitConfig.md
+                      - name: PlayerSdkSourceParams
+                        href: api-ref/javascript/interfaces/PlayerSdkSourceParams.md
+                      - name: PlayerSdkState
+                        href: api-ref/javascript/interfaces/PlayerSdkState.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
@@ -125,12 +171,6 @@ items:
             href: api-ref/grpc/video_service.md
           - name: OperationService
             href: api-ref/grpc/operation_service.md
-  - name: Справочник Cloud Video Player SDK
-    items:
-      - name: IFrame
-        href: iframe-sdk.md
   - name: История изменений
     href: release-notes.md
-  - name: Решение проблем
-    href: troubleshooting.md
 base: ru/video

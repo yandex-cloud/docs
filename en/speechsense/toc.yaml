@@ -97,8 +97,12 @@ items:
         items:
           - name: Overview
             href: api-ref/grpc/index.md
+          - name: ProjectService
+            href: api-ref/grpc/project_service.md
           - name: TalkService
             href: api-ref/grpc/talk_service.md
+          - name: OperationService
+            href: api-ref/grpc/operation_service.md
   - name: '{{ at-name }} events'
     href: at-ref.md
   - name: Access management

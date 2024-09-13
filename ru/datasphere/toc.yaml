@@ -74,9 +74,6 @@ items:
             href: operations/projects/clear-outputs.md
           - name: Работа с Git
             href: operations/projects/work-with-git.md
-          - name: Запустить Docker-контейнер в отдельной ячейке
-            href: operations/user-images-cell.md
-            hidden: true
           - name: Настроить создание ноутбуков по шаблону
             href: operations/projects/templates.md
       - name: Работа с ресурсами

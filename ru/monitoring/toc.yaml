@@ -208,6 +208,8 @@ items:
         href: metrics-ref/cdn-ref.md
       - name: '{{ sf-name }}'
         href: metrics-ref/functions-ref.md
+      - name: '{{ cloud-logging-name }}'
+        href: metrics-ref/logging-ref.md
       - name: '{{ compute-name }}'
         href: metrics-ref/compute-ref.md
       - name: '{{ container-registry-name }}'
@@ -216,6 +218,8 @@ items:
         href: metrics-ref/data-proc-ref.md
       - name: '{{ data-transfer-name }}'
         href: metrics-ref/data-transfer-ref.md
+      - name: '{{ dns-name }}'
+        href: metrics-ref/dns-ref.md
       - name: '{{ iam-name }}'
         href: metrics-ref/iam-ref.md
       - name: '{{ iot-name }}'
@@ -250,6 +254,8 @@ items:
         href: metrics-ref/message-queue-ref.md
       - name: '{{ monitoring-name}}'
         href: metrics-ref/monitoring-ref.md
+      - name: '{{ network-load-balancer-name}}'
+        href: metrics-ref/network-load-balancer-ref.md
       - name: '{{ objstorage-name }}'
         href: metrics-ref/storage-ref.md
       - name: '{{ captcha-name}}'

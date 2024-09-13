@@ -32,4 +32,4 @@
 
 #### См. также {#see-also}
 
-* [Как подключиться к хранилищу S3 с помощью коннектора S3](../operations/data/s3-connectors.md).
+* [Как подключиться к хранилищу S3 с помощью коннектора S3](../operations/data/s3-connectors.md)

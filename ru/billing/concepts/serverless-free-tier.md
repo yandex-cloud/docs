@@ -19,6 +19,7 @@ Free tier распространяется на сервисы:
 * [{{ dns-full-name }}](#dns)
 * [{{ sf-full-name }}](#sf)
 * [{{ cloud-logging-full-name }}](#logging)
+* [{{ postbox-full-name }}](#postbox)
 * [{{ compute-full-name }}](#compute)
 * [{{ container-registry-full-name }}](#cr)
 * [{{ dataproc-full-name }}](#dataproc)
@@ -77,6 +78,16 @@ Free tier распространяется на сервисы:
 {% include [not-charged-logging.md](../../_includes/pricing/price-formula/not-charged-logging.md) %}
 
 После того, как вы израсходуете нетарифицируемый объем услуг, начнет взиматься плата в соответствии с [тарифами](../../logging/pricing.md).
+
+{% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
+
+## {{ postbox-full-name }} {#postbox}
+
+[{{ postbox-full-name }}](../../postbox/quickstart.md) — сервис отправки транзакционных почтовых сообщений.
+
+{% include [not-charged-postbox.md](../../_includes/pricing/price-formula/not-charged-postbox.md) %}
+
+После того, как вы израсходуете нетарифицируемый объем услуг, начнет взиматься плата в соответствии с [тарифами](../../postbox/pricing.md).
 
 {% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
 
