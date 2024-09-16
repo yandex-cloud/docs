@@ -42,6 +42,10 @@ items:
             href: operations/buckets/bucket-availability.md
           - name: Доступ в бакет с помощью {{ sts-name }}
             href: operations/buckets/create-sts-key.md
+          - name: >-
+              Доступ в бакет с помощью сервисного подключения из {{
+              vpc-short-name }}
+            href: operations/buckets/access-via-vpc.md
           - name: Управление версионированием бакета
             href: operations/buckets/versioning.md
           - name: Включение механизма логирования

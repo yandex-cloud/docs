@@ -114,6 +114,7 @@ If you did not find an answer to your question about using {{ yandex-cloud }} in
 
 * [{{ datalens-full-name }}](../datalens/qa/index.md)
 * [{{ tracker-full-name }}](../tracker/faq.md)
+* [{{ video-full-name }}](../video/troubleshooting.md)
 
 
 

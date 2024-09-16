@@ -10,7 +10,7 @@
     scrolling="no"
     allowfullscreen
     allow="autoplay; fullscreen; encrypted-media; accelerometer; gyroscope; picture-in-picture; clipboard-write; web-share; screen-wake-lock"
-    src="https://runtime.video.cloud.yandex.net/player/{video_content_id}?autoplay=1&mute=1"
+    src="https://runtime.video.cloud.yandex.net/player/...?autoplay=1&mute=1"
 ></iframe>
 ```
 
@@ -32,7 +32,7 @@
     scrolling="no"
     allowfullscreen
     allow="autoplay; fullscreen; encrypted-media; accelerometer; gyroscope; picture-in-picture; clipboard-write; web-share; screen-wake-lock"
-    src="https://runtime.video.cloud.yandex.net/player/{video_content_id}"
+    src="https://runtime.video.cloud.yandex.net/player/..."
 ></iframe>
 ```
 
@@ -46,7 +46,7 @@
         scrolling="no"
         allowfullscreen
         allow="autoplay; fullscreen; encrypted-media; accelerometer; gyroscope; picture-in-picture; clipboard-write; web-share; screen-wake-lock"
-        src="https://runtime.video.cloud.yandex.net/player/{video_content_id}?autoplay=1&mute=true"
+        src="https://runtime.video.cloud.yandex.net/player/...?autoplay=1&mute=true"
     ></iframe>
   </div>
 </div>
@@ -59,7 +59,7 @@
 К URL кода вставки после символа `?` добавьте пары `параметр=значение`, разделяя их символом `&`:
 
 ```http
-https://https://runtime.video.cloud.yandex.net/player/{video_content_id}?{param1=value1}&...&{paramN=valueN}
+https://runtime.video.cloud.yandex.net/player/...?{param1=value1}&...&{paramN=valueN}
 ```
 
 Список параметров и их значений приведен в таблице ниже. Если параметры не указаны, плеер загрузится с параметрами по умолчанию.

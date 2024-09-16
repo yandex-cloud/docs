@@ -31,6 +31,6 @@ description: "Следуя данной инструкции, вы сможет�
 
 - API {#api}
 
-  Воспользуйтесь вызовом gRPC API [VideoService/GetPlayerURL](../../api-ref/grpc/video_service.md#GetPlayerURL).
+  Воспользуйтесь вызовом gRPC API [VideoService/GetPlayerURL](../../api-ref/grpc/video_service.md#GetPlayerURL) или методом REST API [getPlayerURL](../../api-ref/Video/getPlayerURL.md) для ресурса [Video](../../api-ref/Video/index.md).
 
 {% endlist %}

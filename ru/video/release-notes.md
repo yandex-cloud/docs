@@ -5,6 +5,21 @@ description: "В разделе представлена история изме
 
 # История изменений в {{ video-full-name }}
 
+## Сентябрь 2024 {#sep-2024}
+
+* Поддержана загрузка субтитров для [видео](./concepts/videos.md).
+* Опубликован [SDK видеоплеера для JavaScript](./sdk/javascript/index.md).
+* Реализована поддержка [методов REST API](https://github.com/yandex-cloud/cloudapi/tree/master/yandex/cloud/video) для взаимодействия с сервисом, опубликован [справочник](./api-ref/).
+
+## Август 2024 {#aug-2024}
+
+* Реализована функциональность [плейлистов](./concepts/playlists.md).
+* Сервис доступен публично на [стадии Preview](../overview/concepts/launch-stages.md).
+
+## Июль 2024 {#jul-2024}
+
+* Добавлена возможность [одновременно загружать](./operations/video/upload.md#multiple) несколько видео.
+
 ## Апрель 2024 {#apr-2024}
 
 * Опубликован [справочник вызовов gRPC API](./api-ref/grpc/).

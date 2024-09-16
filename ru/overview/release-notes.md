@@ -51,6 +51,7 @@
 
 * [{{ at-full-name }}](../audit-trails/release-notes.md)
 * [{{ iam-full-name }}](../iam/release-notes.md)
+* [{{ captcha-full-name }}](../smartcaptcha/release-notes.md)
 
 ## Мониторинг и управление ресурсами {#resources-operations}
 

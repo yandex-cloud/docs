@@ -30,5 +30,5 @@ links:
     description: Цены и правила расчета стоимости услуг сервиса
     href: pricing
   - title: Справочник API (англ.)
-    description: Описание вызовов gRPC API
-    href: api-ref/grpc/
+    description: Описание методов HTTP API
+    href: api-ref/

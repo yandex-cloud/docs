@@ -27,5 +27,5 @@ links:
     description: Service pricing and cost calculations
     href: pricing
   - title: API reference
-    description: gRPC API call descriptions
-    href: api-ref/grpc/
+    description: HTTP API method descriptions
+    href: api-ref/
