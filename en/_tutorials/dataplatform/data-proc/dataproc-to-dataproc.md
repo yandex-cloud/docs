@@ -1,4 +1,4 @@
-To save data from a {{ dataproc-name }} cluster to a {{ objstorage-name }} bucket, use a separate [{{ metastore-name }}](../../../data-proc/concepts/metastore.md) cluster to store table metadata. This way you can access the saved data from a different {{ dataproc-name }} cluster that has access to the bucket and is connected to the same {{ metastore-name }} cluster.
+To save data from a [{{ dataproc-full-name }} cluster](../../../data-proc/concepts/index.md) to a [{{ objstorage-full-name }}](../../../storage/concepts/bucket.md), use a separate [{{ metastore-full-name }}](../../../metadata-hub/concepts/metastore.md) cluster to store table metadata. This way you can access the saved data from a different {{ dataproc-name }} cluster that has access to the bucket and is connected to the same {{ metastore-name }} cluster.
 
 To set up shared use of tables with two {{ dataproc-name }} clusters through {{ metastore-name }}:
 
@@ -85,7 +85,7 @@ Prepare the infrastructure:
 
 ## Connect {{ dataproc-name }} to {{ metastore-name }} {#connect}
 
-1. [Create a {{ metastore-name }} cluster](../../../data-proc/operations/metastore/cluster-create.md) in `dataproc-network`.
+1. [Create a {{ metastore-name }} cluster](../../../metadata-hub/operations/metastore/cluster-create.md) in `dataproc-network`.
 
 1. [Add](../../../data-proc/operations/cluster-update.md) the `spark:spark.hive.metastore.uris` property with the `thrift://<{{ metastore-name }}_cluster_IP_address>:{{ port-metastore }}` value to the {{ dataproc-name }} cluster settings.
 
@@ -191,7 +191,7 @@ Upload the `countries` table metadata to the `dataproc-target` cluster and make 
 
 Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 
-1. [Delete the {{ metastore-name }} cluster](../../../data-proc/operations/metastore/cluster-delete.md).
+1. [Delete the {{ metastore-name }} cluster](../../../metadata-hub/operations/metastore/cluster-delete.md).
 1. Delete other resources depending on how they were created:
 
    {% list tabs group=instructions %}

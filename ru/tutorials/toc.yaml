@@ -514,6 +514,10 @@ items:
       - name: Автоматизация работы с {{ dataproc-name }} с помощью {{ maf-name }}
         href: dataplatform/data-proc-and-airflow.md
       - name: >-
+          Совместная работа с таблицами {{ dataproc-name }} с использованием {{
+          metastore-name }}
+        href: dataplatform/dataproc-to-dataproc.md
+      - name: >-
           Перенос метаданных между кластерами {{ dataproc-name }} с помощью {{
           metastore-name }}
         href: dataplatform/metastore-import.md

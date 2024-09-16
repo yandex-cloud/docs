@@ -580,7 +580,11 @@ default:
       editor: managed-elasticsearch.editor
       viewer: managed-elasticsearch.viewer
     metastore:
+      admin: managed-metastore.admin
+      auditor: managed-metastore.auditor
+      editor: managed-metastore.editor
       integrationProvider: managed-metastore.integrationProvider
+      viewer: managed-metastore.viewer
     mgp:
       admin: managed-greenplum.admin
       editor: managed-greenplum.editor
@@ -6894,6 +6898,7 @@ default:
             label_managed-redis: Managed Service for&nbsp;Redis
             label_mdb: Managed Databases
             label_message-queue: Message Queue
+            label_metadata-hub: Yandex MetaData Hub
             label_monitoring: Monitoring
             label_postbox: Cloud Postbox
             label_products: Все сервисы
@@ -7322,8 +7327,6 @@ default:
             button_action-manage: Настроить
             button_action-remove: Удалить
             column_extensions: Расширения PostgreSQL
-          delete-dialog:
-            popup-confirm_button_delete: Удалить
           diagnostics:
             label_indexes: Предлагаемые индексы
             label_interval-first: Интервал 1

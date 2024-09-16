@@ -9,10 +9,12 @@ stage: preview
 items:
   - name: Начало работы
     items:
-      - name: Все инструкции
+      - name: Обзор
         href: quickstart/index.md
       - name: Connection Manager
         href: quickstart/connection-manager.md
+      - name: '{{ metastore-full-name }}'
+        href: quickstart/metastore.md
   - name: Пошаговые инструкции
     items:
       - name: Все инструкции
@@ -29,6 +31,26 @@ items:
             href: operations/delete-connection.md
           - name: Настроить права доступа к подключению
             href: operations/connection-access.md
+      - name: '{{ metastore-full-name }}'
+        items:
+          - name: Создание кластера {{ metastore-name }}
+            href: operations/metastore/cluster-create.md
+          - name: Подключение {{ dataproc-name }} к {{ metastore-name }}
+            href: operations/metastore/dataproc-connect.md
+          - name: Экспорт и импорт кластера {{ metastore-name }}
+            href: operations/metastore/export-and-import.md
+          - name: Удаление кластера {{ metastore-name }}
+            href: operations/metastore/cluster-delete.md
+  - name: Практические руководства
+    items:
+      - name: >-
+          Совместная работа с таблицами {{ dataproc-name }} с использованием {{
+          metastore-name }}
+        href: tutorials/sharing-tables.md
+      - name: >-
+          Перенос метаданных между кластерами {{ dataproc-name }} с помощью {{
+          metastore-name }}
+        href: tutorials/metastore-import.md
   - name: Концепции
     items:
       - name: О сервисе {{ metadata-hub-full-name }}
@@ -39,12 +61,26 @@ items:
             href: concepts/connection-manager.md
           - name: Секрет
             href: concepts/secret.md
+      - name: '{{ metastore-full-name }}'
+        items:
+          - name: Кластеры {{ metastore-name }}
+            href: concepts/metastore.md
+          - name: Имперсонация в {{ metastore-name }}
+            href: concepts/metastore-impersonation.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Управление доступом
-    href: security/index.md
+    items:
+      - name: Обзор
+        href: security/index.md
+      - name: Роли {{ connection-manager-name }}
+        href: security/connection-manager-roles.md
+      - name: Роли {{ metastore-name }}
+        href: security/metastore-roles.md
   - name: История изменений
     href: release-notes/index.md
   - name: Правила тарификации
     href: pricing.md
+  - name: Вопросы и ответы
+    href: qa/index.md
 base: ru/metadata-hub

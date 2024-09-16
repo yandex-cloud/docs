@@ -5,7 +5,6 @@ Subclusters of each {{ dataproc-name }} cluster reside in the same [cloud networ
 
 * The following describes how to migrate HDFS clusters.
 * For information on migrating [lightweight clusters](../../../data-proc/concepts/index.md#light-weight-clusters), follow the [tutorial](../../../data-proc/operations/migration-to-an-availability-zone.md).
-* {{ metastore-full-name }} cluster migration is not available. If you use such clusters located in the `{{ region-id }}-c` availability zone, the {{ yandex-cloud }} tech support will notify you once the relevant migration guide is available.
 
 {% include [zone-d-host-restrictions](../../../_includes/mdb/ru-central1-d-broadwell.md) %}
 

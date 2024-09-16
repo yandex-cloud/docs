@@ -68,7 +68,7 @@ You must configure security groups correctly for all subnets in which the {{ dat
 
 {% endnote %}
 
-You can set up security groups after creating a {{ dataproc-name }} cluster to [connect to {{ metastore-name }}](./metastore/dataproc-connect.md) or [{{ dataproc-name }} cluster hosts](connect.md) via the internet or an intermediate [VM](../../compute/concepts/vm.md).
+You can set up security groups after creating a {{ dataproc-name }} cluster to [connect to {{ metastore-name }}](../../metadata-hub/operations/metastore/dataproc-connect.md) or [{{ dataproc-name }} cluster hosts](connect.md) via the internet or an intermediate [VM](../../compute/concepts/vm.md).
 
 
 ## Create a {{ dataproc-name }} cluster {#create}
