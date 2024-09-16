@@ -9347,6 +9347,9 @@ default:
             Transformation:
               transformers:
                 array_item_label: Преобразование
+            Transformer:
+              convert_to_string:
+                title: Преобразовать значения в строки
     yc-ui-datasphere:
       alias:
         private: Приватный

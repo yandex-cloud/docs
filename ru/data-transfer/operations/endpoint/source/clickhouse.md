@@ -233,11 +233,14 @@ description: "Из статьи вы узнаете, как задать нас�
 
 * [Не добавляются новые таблицы](#no-new-tables)
 * [Не переносятся данные](#no-transfer)
+* [Неподдерживаемый диапазон дат](#date-range)
 
 См. полный список рекомендаций в разделе [Решение проблем](../../../troubleshooting/index.md).
 
 {% include [no-new-tables](../../../../_includes/data-transfer/troubles/no-new-tables.md) %}
 
 {% include [table-names](../../../../_includes/data-transfer/troubles/table-names.md) %}
+
+{% include [date-range](../../../../_includes/data-transfer/troubles/date-range.md) %}
 
 {% include [clickhouse-disclaimer](../../../../_includes/clickhouse-disclaimer.md) %}
