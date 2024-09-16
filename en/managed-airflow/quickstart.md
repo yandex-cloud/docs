@@ -5,8 +5,6 @@ description: "To start working with {{ maf-full-name }}, create a service cluste
 
 # Getting started with {{ maf-name }}
 
-{% include [note-preview](../_includes/note-preview-by-request.md) %}
-
 To get started with the service:
 
 1. [Create a cluster](#cluster-create).

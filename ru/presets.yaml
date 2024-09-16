@@ -699,6 +699,7 @@ default:
   tf-provider-k8s-cluster: https://terraform-provider.yandexcloud.net/Resources/kubernetes_cluster
   tf-provider-k8s-nodegroup: https://terraform-provider.yandexcloud.net/Resources/kubernetes_node_group
   tf-provider-link: https://terraform-provider.yandexcloud.net/
+  tf-provider-maf: https://terraform-provider.yandexcloud.net/Resources/airflow_cluster
   tf-provider-mch: https://terraform-provider.yandexcloud.net/Resources/mdb_clickhouse_cluster
   tf-provider-mes: >-
     https://terraform-provider.yandexcloud.net/Resources/mdb_elasticsearch_cluster

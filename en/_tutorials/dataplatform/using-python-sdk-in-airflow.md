@@ -12,13 +12,7 @@ To use the {{ yandex-cloud }} Python SDK to send requests to the {{ yandex-cloud
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
-{% note info %}
-
-{{ maf-name }} is at the [Preview](../../overview/concepts/launch-stages.md) stage. To get access, contact [tech support]({{ link-console-support }}) or your account manager.
-
-{% endnote %}
-
-## Prepare the infrastructure {#create-infrastracture}
+## Prepare the infrastructure {#create-infrastructure}
 
 1. [Create a service account](../../iam/operations/sa/create.md#create-sa) named `airflow-sa` with the following roles:
 

@@ -12,13 +12,7 @@
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
-{% note info %}
-
-Сервис {{ maf-name }} находится на стадии [Preview](../../overview/concepts/launch-stages.md). Чтобы получить доступ, обратитесь в [техническую поддержку]({{ link-console-support }}) или к вашему аккаунт-менеджеру.
-
-{% endnote %}
-
-## Подготовьте инфраструктуру {#create-infrastracture}
+## Подготовьте инфраструктуру {#create-infrastructure}
 
 1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md#create-sa) `airflow-sa` с ролями:
 
