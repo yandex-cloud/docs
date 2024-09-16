@@ -63,15 +63,7 @@ items:
           - name: MapReduce jobs
             href: operations/jobs-mapreduce.md
       - name: '{{ metastore-name }} clusters'
-        items:
-          - name: Creating a {{ metastore-name }} cluster
-            href: operations/metastore/cluster-create.md
-          - name: Connecting {{ dataproc-name }} to {{ metastore-name }}
-            href: operations/metastore/dataproc-connect.md
-          - name: Exporting and importing a {{ metastore-name }} cluster
-            href: operations/metastore/export-and-import.md
-          - name: Deleting a {{ metastore-name }} cluster
-            href: operations/metastore/cluster-delete.md
+        href: operations/metastore/cluster-create.md
       - name: Logs and monitoring
         items:
           - name: Working with logs

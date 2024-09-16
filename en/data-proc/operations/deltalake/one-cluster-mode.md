@@ -24,7 +24,7 @@ Set up the Spark jobs to avoid concurrent data modifications or use [multi-clust
    1. Create a folder named `warehouse` in the bucket.
    1. [Set the property](../../concepts/settings-list.md#change-properties) `spark.sql.warehouse.dir` to `s3a://<bucket_name>/warehouse/`.
 
-1. [Create](../metastore/cluster-create.md) a {{ metastore-full-name }} cluster and [connect](../metastore/dataproc-connect.md) it to your {{ dataproc-name }} cluster.
+1. [Create](../../../metadata-hub/operations/metastore/cluster-create.md) a {{ metastore-full-name }} cluster and [connect](../../../metadata-hub/operations/metastore/dataproc-connect.md) it to your {{ dataproc-name }} cluster.
 
 ## Set up the component properties to work with Delta Lake {#settings}
 

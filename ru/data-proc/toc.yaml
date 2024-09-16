@@ -63,15 +63,7 @@ items:
           - name: Задания MapReduce
             href: operations/jobs-mapreduce.md
       - name: Кластеры {{ metastore-name }}
-        items:
-          - name: Создание кластера {{ metastore-name }}
-            href: operations/metastore/cluster-create.md
-          - name: Подключение {{ dataproc-name }} к {{ metastore-name }}
-            href: operations/metastore/dataproc-connect.md
-          - name: Экспорт и импорт кластера {{ metastore-name }}
-            href: operations/metastore/export-and-import.md
-          - name: Удаление кластера {{ metastore-name }}
-            href: operations/metastore/cluster-delete.md
+        href: operations/metastore/cluster-create.md
       - name: Логи и мониторинг
         items:
           - name: Работа с логами
@@ -132,6 +124,16 @@ items:
                   Монтирование бакетов к файловой системе хостов {{
                   dataproc-name }}
                 href: tutorials/geesefs-init-actions.md
+          - name: '{{ metastore-full-name }}'
+            items:
+              - name: >-
+                  Совместная работа с таблицами с использованием {{
+                  metastore-name }}
+                href: tutorials/dataproc-to-dataproc.md
+              - name: >-
+                  Перенос метаданных между кластерами {{ dataproc-name }} с
+                  помощью {{ metastore-name }}
+                href: tutorials/metastore-import.md
           - name: Обмен данными с {{ mch-name }}
             href: tutorials/exchange-data-with-mch.md
           - name: Импорт данных из кластера {{ mmy-name }} с помощью Sqoop
@@ -144,16 +146,6 @@ items:
             href: tutorials/kafka.md
           - name: Автоматизация работы с помощью {{ maf-name }}
             href: tutorials/airflow-automation.md
-      - name: Работа с {{ metastore-name }}
-        items:
-          - name: >-
-              Совместная работа с таблицами с использованием {{ metastore-name
-              }}
-            href: tutorials/dataproc-to-dataproc.md
-          - name: >-
-              Перенос метаданных между кластерами {{ dataproc-name }} с помощью
-              {{ metastore-name }}
-            href: tutorials/metastore-import.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса
@@ -172,8 +164,6 @@ items:
         href: concepts/interfaces.md
       - name: Кластеры {{ metastore-full-name }}
         href: concepts/metastore.md
-      - name: Имперсонация в {{ metastore-name }}
-        href: concepts/metastore-impersonation.md
       - name: Задания в {{ dataproc-name }}
         href: concepts/jobs.md
       - name: Задания Spark

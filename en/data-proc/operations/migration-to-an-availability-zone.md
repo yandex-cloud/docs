@@ -4,7 +4,6 @@ Subclusters of each {{ dataproc-name }} cluster reside in the same [cloud networ
 
 * The following describes how to migrate [lightweight clusters](../concepts/index.md#light-weight-clusters).
 * For more information about migrating HDFS clusters, see [this guide](../tutorials/hdfs-cluster-migration.md).
-* {{ metastore-full-name }} cluster migration is not available. If you use such clusters located in the `{{ region-id }}-c` availability zone, the {{ yandex-cloud }} tech support will notify you once the relevant migration guide is available.
 
 To migrate a lightweight cluster to a different availability zone:
 

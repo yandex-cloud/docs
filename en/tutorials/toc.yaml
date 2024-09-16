@@ -458,6 +458,8 @@ items:
         href: dataplatform/data-proc-and-kafka.md
       - name: Automating operations with {{ dataproc-name }} using {{ maf-name }}
         href: dataplatform/data-proc-and-airflow.md
+      - name: Shared use of {{ dataproc-name }} tables through {{ metastore-name }}
+        href: dataplatform/dataproc-to-dataproc.md
       - name: >-
           Transferring metadata between {{ dataproc-name }} clusters using {{
           metastore-name }}

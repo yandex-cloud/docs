@@ -1,10 +1,17 @@
-# Scenarios for getting started with {{ metadata-hub-full-name }} services
+# Getting started with {{ metadata-hub-full-name }} services
 
 
 {% include notitle [preview](../../_includes/note-preview.md) %}
 
-Manage connections to databases using {{ connection-manager-full-name }}. You will be able to [create](../operations/create-connection.md), [view](../operations/view-connection.md), [modify](../operations/update-connection.md), [delete the connections](../operations/delete-connection.md) created for your databases, and [manage access to them](../operations/connection-access.md).
+{{ metadata-hub-full-name }} allows you to manage connections in {{ yandex-cloud }}. You can:
 
-Connections can be created:
-* [Automatically](connection-manager.md#mdb-integration): To clusters with managed databases in {{ yandex-cloud }}.
-* [Manually](connection-manager.md#database-connections): To user database installations or to clusters with managed databases in {{ yandex-cloud }}.
+* Create database connections and manage their settings.
+* Receive and store data exchange schemas and see their evolution.
+* Receive and visualize metadata on data storages and their connections.
+
+Begin working with {{ metadata-hub-name }} tools:
+
+* [{{ connection-manager-full-name }}](connection-manager.md). It allows you to manage connections to your databases. See more on {{ connection-manager-name }} functionalities in [Concepts](../concepts/connection-manager.md).
+
+* [{{ metastore-full-name }}](metastore.md). It allows you to manage data in applications that support integration with {{ metastore-name }}. See more on {{ metastore-name }} clusters in [Concepts](../concepts/metastore.md).
+

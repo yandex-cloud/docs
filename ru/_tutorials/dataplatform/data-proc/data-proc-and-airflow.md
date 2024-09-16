@@ -9,7 +9,7 @@
 
 При таком DAG кластер существует непродолжительное время. Так как стоимость ресурсов {{ dataproc-name }} [зависит от времени их использования](../../../data-proc/pricing.md), в кластере можно задействовать ресурсы повышенной мощности и быстро обработать большее количество данных за те же деньги.
 
-В этом DAG кластер {{ dataproc-name }} создается без сервиса Hive. Для хранения табличных метаданных в примере ниже используется [кластер {{ metastore-full-name }}](../../../data-proc/concepts/metastore.md). Сохраненные метаданные затем может использовать другой кластер {{ dataproc-name }}.
+В этом DAG кластер {{ dataproc-name }} создается без сервиса Hive. Для хранения табличных метаданных в примере ниже используется [кластер {{ metastore-full-name }}](../../../metadata-hub/concepts/metastore.md). Сохраненные метаданные затем может использовать другой кластер {{ dataproc-name }}.
 
 Чтобы автоматизировать работу с {{ dataproc-name }} с помощью {{ maf-name }}:
 
@@ -106,7 +106,7 @@
 
    {% endcut %}
 
-1. [Создайте кластер {{ metastore-name }}](../../../data-proc/operations/metastore/cluster-create.md) с параметрами:
+1. [Создайте кластер {{ metastore-name }}](../../../metadata-hub/operations/metastore/cluster-create.md) с параметрами:
 
    * **Сеть** — `dataproc-network`.
    * **Подсеть** — `dataproc-network-{{ region-id }}-a`.
@@ -344,7 +344,7 @@ DAG будет состоять из нескольких вершин, кото
 
 1. [Сервисный аккаунт](../../../iam/operations/sa/delete.md).
 1. [Бакеты {{ objstorage-name }}](../../../storage/operations/buckets/delete.md).
-1. [Кластер {{ metastore-name }}](../../../data-proc/operations/metastore/cluster-delete.md).
+1. [Кластер {{ metastore-name }}](../../../metadata-hub/operations/metastore/cluster-delete.md).
 1. [Кластер {{ maf-name }}](../../../managed-airflow/operations/cluster-delete.md).
 1. [Таблицу маршрутизации](../../../vpc/operations/delete-route-table.md).
 1. [NAT-шлюз](../../../vpc/operations/delete-nat-gateway.md).

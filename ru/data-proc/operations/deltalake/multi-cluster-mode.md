@@ -26,7 +26,7 @@
         1. Создайте в бакете каталог c именем `warehouse`.
         1. [Установите свойство](../../concepts/settings-list.md#change-properties) `spark.sql.warehouse.dir` в значение `s3a://<имя_бакета>/warehouse/`.
 
-    1. [Создайте кластер](../metastore/cluster-create.md) {{ metastore-full-name }} и [подключите](../metastore/dataproc-connect.md) его к кластеру {{ dataproc-name }}.
+    1. [Создайте кластер](../../../metadata-hub/operations/metastore/cluster-create.md) {{ metastore-full-name }} и [подключите](../../../metadata-hub/operations/metastore/dataproc-connect.md) его к кластеру {{ dataproc-name }}.
 
 1. Выдайте роль `lockbox.payloadViewer` сервисному аккаунту, который использовался при создании кластеров {{ dataproc-name }}. Это можно сделать:
 

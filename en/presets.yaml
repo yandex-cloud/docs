@@ -6884,6 +6884,7 @@ default:
             label_managed-redis: Managed Service for&nbsp;Redis
             label_mdb: Managed Databases
             label_message-queue: Message Queue
+            label_metadata-hub: Yandex MetaData Hub
             label_monitoring: Monitoring
             label_postbox: Cloud Postbox
             label_products: All services
@@ -7312,8 +7313,6 @@ default:
             button_action-manage: Manage
             button_action-remove: Delete
             column_extensions: PostgreSQL extensions
-          delete-dialog:
-            popup-confirm_button_delete: Delete
           diagnostics:
             label_indexes: Suggested indexes
             label_interval-first: Interval 1

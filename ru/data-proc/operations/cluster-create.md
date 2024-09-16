@@ -68,7 +68,7 @@
 
 {% endnote %}
 
-Вы можете настроить группы безопасности после создания кластера {{ dataproc-name }}, чтобы [подключиться к {{ metastore-name }}](./metastore/dataproc-connect.md) или [хостам кластера {{ dataproc-name }}](connect.md) через интернет или промежуточную [виртуальную машину](../../compute/concepts/vm.md).
+Вы можете настроить группы безопасности после создания кластера {{ dataproc-name }}, чтобы [подключиться к {{ metastore-name }}](../../metadata-hub/operations/metastore/dataproc-connect.md) или [хостам кластера {{ dataproc-name }}](connect.md) через интернет или промежуточную [виртуальную машину](../../compute/concepts/vm.md).
 
 
 ## Создайте кластер {{ dataproc-name }} {#create}
