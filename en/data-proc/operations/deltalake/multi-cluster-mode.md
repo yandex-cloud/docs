@@ -26,7 +26,7 @@ For more information about Delta Lake, see the [Delta Lake in {{ dataproc-name }
       1. Create a folder named `warehouse` in the bucket.
       1. [Set the `spark.sql.warehouse.dir` property](../../concepts/settings-list.md#change-properties) to `s3a://<bucket_name>/warehouse/`.
 
-   1. [Create a {{ metastore-full-name }} cluster](../metastore/cluster-create.md) and [connect](../metastore/dataproc-connect.md) it to your {{ dataproc-name }} cluster.
+   1. [Create a {{ metastore-full-name }} cluster](../../../metadata-hub/operations/metastore/cluster-create.md) and [connect](../../../metadata-hub/operations/metastore/dataproc-connect.md) it to your {{ dataproc-name }} cluster.
 
 1. Assign the `lockbox.payloadViewer` role to the service account you used to create the {{ dataproc-name }} clusters. You can do this:
 

@@ -40,13 +40,6 @@ description: "На странице представлен список поша
 * [{#T}](jobs-hive.md)
 * [{#T}](jobs-mapreduce.md)
 
-## Кластеры {{ metastore-full-name }}
-
-* [{#T}](./metastore/cluster-create.md)
-* [{#T}](./metastore/dataproc-connect.md)
-* [{#T}](./metastore/export-and-import.md)
-* [{#T}](./metastore/cluster-delete.md)
-
 ## Логи и мониторинг
 
 * [{#T}](logging.md)

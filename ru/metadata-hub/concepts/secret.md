@@ -8,4 +8,4 @@
 
 Секреты хранятся в сервисе [{{ lockbox-full-name }}](../../lockbox/index.yaml). Чтобы посмотреть, какие секреты хранят информацию о подключениях, выберите в вашем каталоге в списке сервисов **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**. На странице **{{ ui-key.yacloud.lockbox.label_section-secrets }}** будут перечислены секреты, имена которых совпадают с [идентификаторами подключений](../operations/update-connection.md#list-connections).  
 
-К версиям секрета можно настроить доступ дополнительно к доступу к самому секрету. Для этого нужно назначить роль `{{ roles-lockbox-admin }}` или `{{ roles-lockbox-payloadviewer }}`. Подробнее об управлении доступом читайте в разделе [Управление доступом {{ lockbox-full-name }} - Какие роли мне необходимы](../security/index.md#choosing-roles).
+К версиям секрета можно настроить доступ дополнительно к доступу к самому секрету. Для этого нужно назначить роль `{{ roles-lockbox-admin }}` или `{{ roles-lockbox-payloadviewer }}`. Подробнее об управлении доступом читайте в разделе [Управление доступом {{ lockbox-full-name }} - Какие роли мне необходимы](../security/connection-manager-roles.md#choosing-roles).

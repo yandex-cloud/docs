@@ -12,9 +12,9 @@ Disable deletion protection for the cluster if it is enabled.
 
 - Management console {#console}
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
    1. In the left-hand panel, select ![image](../../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**.
-   1. Click ![image](../../../_assets/console-icons/ellipsis.svg) for the required cluster and select **{{ ui-key.yacloud.mdb.cluster.overview.button_action-delete }}**.
-   1. In the window that opens, click **{{ ui-key.yacloud.mdb.cluster.delete-dialog.popup-confirm_button_delete }}**.
+   1. Click ![image](../../../_assets/console-icons/ellipsis.svg) for the required cluster and select ![image](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-delete }}**.
+   1. Confirm deleting the cluster.
 
 {% endlist %}

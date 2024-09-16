@@ -37,7 +37,7 @@ Before creating a VM:
 
 1. Go to the {{ yandex-cloud }} [management console]({{ link-console-main }}) and select the folder where you will perform the operations.
 
-1. Make sure that the selected folder contains a network with subnets in the `{{ region-id }}-a`, `{{ region-id }}-b`, and `{{ region-id }}-с` availability zones. To do this, select **{{ vpc-name }}** on the folder page. If the [subnets](../../vpc/operations/subnet-create.md) or [network](../../vpc/operations/network-create.md) you need are not listed, create them.
+1. Make sure that the selected folder contains a network with subnets in the `{{ region-id }}-a`, `{{ region-id }}-b`, and `{{ region-id }}-c` availability zones. To do this, select **{{ vpc-name }}** on the folder page. If the [subnets](../../vpc/operations/subnet-create.md) or [network](../../vpc/operations/network-create.md) you need are not listed, create them.
 
 ## Create security groups {#create-security-groups}
 
@@ -103,7 +103,7 @@ To create an instance group with the minimum configuration:
   1. Under **Basic parameters**:
      * Name the instance group like `alb-vm-group`.
      * Select a [service account](../../iam/concepts/users/service-accounts.md) from the list or create a new one. To be able to create, update, and delete group instances, assign the `editor` role to the service account.  In {{ ig-name }}, all operations are performed on behalf of a service account.
-  1. Under **Allocation**, select three availability zones (`{{ region-id }}-a`, `{{ region-id }}-b` and `{{ region-id }}-с`) to ensure fault tolerance of your hosting.
+  1. Under **Allocation**, select three availability zones (`{{ region-id }}-a`, `{{ region-id }}-b` and `{{ region-id }}-c`) to ensure fault tolerance of your hosting.
   1. Under **Instance template**, click **Define** and set up the configuration for a basic instance:
      * Under **Basic parameters**, enter the template **Description**:
      * Under **Image/boot disk selection**, go to the **{{ marketplace-name }}** tab, select the [LEMP](/marketplace/products/yc/lemp) product, and click **Use**.

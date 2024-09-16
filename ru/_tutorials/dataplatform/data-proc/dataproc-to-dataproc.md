@@ -1,4 +1,4 @@
-Вы можете сохранять данные из кластера {{ dataproc-name }} в бакет {{ objstorage-name }}, используя отдельный кластер [{{ metastore-name }}](../../../data-proc/concepts/metastore.md) для хранения метаданных таблиц. Это позволит затем работать с сохраненными данными другому кластеру {{ dataproc-name }}, имеющему доступ к бакету и подключенному к тому же кластеру {{ metastore-name }}.
+Вы можете сохранять данные из [кластера {{ dataproc-full-name }}](../../../data-proc/concepts/index.md) в [бакет {{ objstorage-full-name }}](../../../storage/concepts/bucket.md), используя отдельный [кластер {{ metastore-full-name }}](../../../metadata-hub/concepts/metastore.md) для хранения метаданных таблиц. Это позволит затем работать с сохраненными данными другому кластеру {{ dataproc-name }}, имеющему доступ к бакету и подключенному к тому же кластеру {{ metastore-name }}.
 
 Чтобы настроить совместное использование таблиц двумя кластерами {{ dataproc-name }} с помощью {{ metastore-name }}:
 
@@ -85,7 +85,7 @@
 
 ## Подключите {{ dataproc-name }} к {{ metastore-name }} {#connect}
 
-1. [Создайте кластер {{ metastore-name }}](../../../data-proc/operations/metastore/cluster-create.md) в сети `dataproc-network`.
+1. [Создайте кластер {{ metastore-name }}](../../../metadata-hub/operations/metastore/cluster-create.md) в сети `dataproc-network`.
 
 1. [Добавьте в настройки кластеров](../../../data-proc/operations/cluster-update.md) {{ dataproc-name }} свойство `spark:spark.hive.metastore.uris` со значением `thrift://<IP-адрес_кластера_{{ metastore-name }}>:{{ port-metastore }}`.
 
@@ -191,7 +191,7 @@
 
 Некоторые ресурсы платные. Удалите ресурсы, которые вы больше не будете использовать, чтобы не платить за них:
 
-1. [Удалите кластер {{ metastore-name }}](../../../data-proc/operations/metastore/cluster-delete.md).
+1. [Удалите кластер {{ metastore-name }}](../../../metadata-hub/operations/metastore/cluster-delete.md).
 1. Удалите остальные ресурсы в зависимости от способа их создания:
 
     {% list tabs group=instructions %}

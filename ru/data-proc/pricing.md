@@ -67,10 +67,6 @@ editable: false
 
 
 
-## Тарификация кластеров {{ metastore-full-name }}
-
-Функциональность находится на стадии [Preview](../overview/concepts/launch-stages.md) и не тарифицируется.
-
 ## Цены для региона Россия {#prices} 
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}

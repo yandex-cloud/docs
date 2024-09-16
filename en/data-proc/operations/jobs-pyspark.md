@@ -9,7 +9,7 @@ description: "In this tutorial, you will learn how to manage PySpark jobs in {{ 
 
 {% note info %}
 
-If the {{ dataproc-name }} cluster is [connected to the {{ metastore-name }} cluster](metastore/dataproc-connect.md), add the `spark:spark.sql.hive.metastore.sharedPrefixes` property with the `com.amazonaws,ru.yandex.cloud` value to the {{ dataproc-name }} cluster. Then your PySpark jobs will be successfully completed. You can set the property when [creating](cluster-create.md) or [modifying](cluster-update.md) the {{ dataproc-name }} cluster.
+If the {{ dataproc-name }} cluster is [connected to the {{ metastore-name }} cluster](../../metadata-hub/operations/metastore/dataproc-connect.md), add the `spark:spark.sql.hive.metastore.sharedPrefixes` property with the `com.amazonaws,ru.yandex.cloud` value to the {{ dataproc-name }} cluster. Then your PySpark jobs will be successfully completed. You can set the property when [creating](cluster-create.md) or [modifying](cluster-update.md) the {{ dataproc-name }} cluster.
 
 {% endnote %}
 

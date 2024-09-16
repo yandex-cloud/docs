@@ -1,6 +1,6 @@
 #### What clusters can I move to a different availability zone? {#new-availability-zone}
 
-You can move [light-weight clusters](../../data-proc/operations/migration-to-an-availability-zone.md) and [HDFS clusters](../../data-proc/tutorials/hdfs-cluster-migration.md). {{ metastore-full-name }} cluster migration is not available. If you use such clusters located in the `{{ region-id }}-c` availability zone, the {{ yandex-cloud }} tech support will notify you once the relevant migration guide is available.
+You can move [light-weight clusters](../../data-proc/operations/migration-to-an-availability-zone.md) and [HDFS clusters](../../data-proc/tutorials/hdfs-cluster-migration.md).
 
 #### What do I do if data on storage subcluster hosts is distributed unevenly? {#data-unevenly-distributed}
 
@@ -22,7 +22,7 @@ You can find cluster logs in its log group. To track the events of a cluster and
 
 {% include [throttling](../throttling.md) %}
 
-To increase the maximum IOPS and bandwidth values and make throttling less likely, consider switching to a different cluster with larger host storage or a faster disk type. You can transfer data to a new cluster, for example, using [{{ metastore-full-name }}](../../data-proc/concepts/metastore.md).
+To increase the maximum IOPS and bandwidth values and make throttling less likely, consider switching to a different cluster with larger host storage or a faster disk type. You can transfer data to a new cluster, for example, using [{{ metastore-full-name }}](../../metadata-hub/concepts/metastore.md).
 
 #### I get the `^M: bad interpreter` error when running the initialization script. How do I fix this? {#syntax-error}
 
@@ -58,22 +58,6 @@ To fix the error, do one of the following:
 * Create a subnet with CIDR that suits your cluster's configuration. Next, create a {{ dataproc-name }} cluster in the new subnet.
 
 For more information about subnet sizes, see the [{{ vpc-full-name }}](../../vpc/concepts/network.md#subnet) documentation.
-
-#### How do I fix the error I get when creating a database in {{ metastore-full-name }}? {#create-db-in-hive}
-
-The error occurs if you use the following syntax to create a database:
-
-```sql
-CREATE DATABASE IF NOT EXISTS <database_name>;
-```
-
-{{ metastore-name }} does not allow creating a database or table in Hive: they are stored in a [{{ objstorage-full-name }} bucket](../../storage/concepts/bucket.md) linked to a {{ dataproc-name }} cluster. To create a database, use the following syntax:
-
-```sql
-CREATE DATABASE IF NOT EXISTS <database_name> LOCATION <database_location>;
-```
-
-In the `LOCATION` parameter, specify the path to the bucket and the database in it in the following format: `s3a://<bucket_name>/<folder_name>/<database_name>`. Specifying a folder is optional; however, objects will load into a folder faster than into the bucket root.
 
 #### Why is my cluster's status `Unknown`? {#unknown}
 

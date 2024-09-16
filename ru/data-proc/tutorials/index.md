@@ -31,14 +31,11 @@ description: "Различные сценарии использования {{ 
 * [{#T}](./copy-files-from-object-storage.md)
 * [{#T}](./s3-dataproc-ch.md)
 * [{#T}](./geesefs-init-actions.md)
+* [{#T}](./dataproc-to-dataproc.md)
+* [{#T}](./metastore-import.md)
 * [{#T}](./exchange-data-with-mch.md)
 * [{#T}](./sqoop-mmy.md)
 * [{#T}](./sqoop-mpg.md)
 * [{#T}](./datasphere-integration.md)
 * [{#T}](./kafka.md)
 * [{#T}](./airflow-automation.md)
-
-## Работа с {{ metastore-name }} {#metastore}
-
-* [{#T}](./dataproc-to-dataproc.md)
-* [{#T}](./metastore-import.md)
