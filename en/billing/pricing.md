@@ -20,7 +20,6 @@ The following services are always free of charge:
 * {{ preview-stage }} [{{ ca-full-name }}](../code-assistant/pricing.md)
 * [{{ forms-full-name }}](../forms/pricing.md)
 * [{{ iam-full-name }}](../iam/pricing.md)
-* {{ preview-stage }} [{{ maf-full-name }}](../managed-airflow/pricing.md)
 * {{ preview-stage }} [{{ metadata-hub-full-name }}](../metadata-hub/pricing.md)
 * {{ preview-stage }} [{{ postbox-name }}](../postbox/pricing.md)
 * [{{ resmgr-full-name }}](../resource-manager/pricing.md)

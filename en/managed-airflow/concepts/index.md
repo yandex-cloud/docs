@@ -7,10 +7,6 @@ description: "{{ AF }} is an open-source platform that enables you to create, sc
 
 {{ maf-name }} helps you deploy and maintain clusters of [{{ AF }}](https://airflow.apache.org/) servers in the {{ yandex-cloud }} infrastructure.
 
-
-The service is at the [Preview](../../overview/concepts/launch-stages.md) stage.
-
-
 ## About {{ AF }} {#about-the-service}
 
 {{ AF }} is an open-source platform that enables you to create, schedule, and monitor batch-oriented _workflows_. A workflow defines job relationships and their execution sequence. It is presented as a directed acyclic graph (DAG). DAGs in {{ AF }} can be used for automation and scheduled runs of any processes, e.g., [data processing in {{ SPRK }}](../tutorials/data-proc-automation.md).

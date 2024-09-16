@@ -6,15 +6,9 @@ editable: false
 
 
 
-{% note warning %}
+In this section, you can find {{ maf-name }} pricing [rules](#rules) and [effective prices](#prices) for the service resources. Other {{ yandex-cloud }} resources you may use while using the service will be charged based on their pricing plans.
 
-{{ maf-name }} is at the [Preview](../overview/concepts/launch-stages.md) stage and is free of charge.
-
-On September 16, 2024, the service will enter the [General Availability](../overview/concepts/launch-stages.md) stage and its use will be charged according to the [rules](#rules) below.
-
-Other {{ yandex-cloud }} resources you may use while using the service will be charged based on their pricing plans.
-
-{% endnote %}
+{% include [use-calculator](../_includes/pricing/use-calculator.md) %}
 
 ## What goes into the cost of using {{ maf-name }} {#rules}
 
