@@ -212,6 +212,7 @@ description: "Из статьи вы узнаете, как задать нас�
 * [Ошибка трансфера при переносе представлений (VIEW)](#view)
 * [Ошибка добавления записи в таблицу по constraint](#constraint)
 * [Ошибка при переносе всех таблиц схемы](#schema)
+* [Невозможно создать объекты с участием функций расширения](#extension-functions)
 * [Низкая скорость трансфера](#low-speed)
 * [Не переносятся таблицы-наследники](#successor-tables)
 * [Не хватает слотов репликации в базе данных источника](#replication-slots)
@@ -236,6 +237,8 @@ description: "Из статьи вы узнаете, как задать нас�
 {% include [constraint](../../../../_includes/data-transfer/troubles/postgresql/constraint.md) %}
 
 {% include [schema](../../../../_includes/data-transfer/troubles/postgresql/schema.md) %}
+
+{% include [extension functions](../../../../_includes/data-transfer/troubles/postgresql/extension-functions.md) %}
 
 {% include [low-speed](../../../../_includes/data-transfer/troubles/postgresql/low-speed.md) %}
 

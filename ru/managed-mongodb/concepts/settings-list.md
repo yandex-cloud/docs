@@ -9,10 +9,6 @@
 * `max_incoming_connections` в gRPC или CLI;
 * `maxIncomingConnections` в REST API.
 
-Следующие настройки доступны только для Enterprise-версии кластера {{ mmg-name }}:
-
-* [Audit log](#setting-audit-log);
-* [Security](#setting-security).
 
 В шардированном кластере некоторые настройки доступны только для определенных [ролей хостов](sharding.md#shard-management).
 

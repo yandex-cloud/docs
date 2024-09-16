@@ -74,4 +74,6 @@ items:
     href: metrics.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md
+  - name: История изменений
+    href: release-notes.md
 base: ru/smartcaptcha

@@ -14,7 +14,7 @@ description: "На странице описаны методы, которые 
 Пример простого переключения контента:
 
 ```javascript
-player.setSource('https://runtime.video.cloud.yandex.net/player/{video_content_id}');
+player.setSource('https://runtime.video.cloud.yandex.net/player/...');
 ```
 
 {% include [video-content-id-desc](../../../_includes/video/video-content-id-desc.md) %}
@@ -23,7 +23,7 @@ player.setSource('https://runtime.video.cloud.yandex.net/player/{video_content_i
 
 ```javascript
 player.setSource({
-    source: 'https://runtime.video.cloud.yandex.net/player/{video_content_id}',
+    source: 'https://runtime.video.cloud.yandex.net/player/...',
     startPosition: 10,
     autoplay: false
 });

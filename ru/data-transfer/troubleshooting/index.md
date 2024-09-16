@@ -95,6 +95,8 @@
 
 {% include [table-names](../../_includes/data-transfer/troubles/table-names.md) %}
 
+{% include [date-range](../../_includes/data-transfer/troubles/date-range.md) %}
+
 ## {{ ES }} {#elasticsearch}
 
 
@@ -158,6 +160,8 @@
 {% include [constraint](../../_includes/data-transfer/troubles/postgresql/constraint.md) %}
 
 {% include [schema](../../_includes/data-transfer/troubles/postgresql/schema.md) %}
+
+{% include [extension functions](../../_includes/data-transfer/troubles/postgresql/extension-functions.md) %}
 
 {% include [low-speed](../../_includes/data-transfer/troubles/postgresql/low-speed.md) %}
 

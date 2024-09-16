@@ -7,7 +7,7 @@ Users with this role can:
 * View information about MongoDB databases.
 * View information about MongoDB [users](../../managed-mongodb/concepts/users-and-roles.md).
 * View information about MongoDB [backups](../../managed-mongodb/concepts/backup.md).
-* View information about MongoDB [alerts](../../monitoring/concepts/alerting/alert.md).
+* View information about MongoDB alerts.
 * View MongoDB cluster [logs](../../managed-mongodb/operations/cluster-logs.md).
 * View information about the results of MongoDB cluster performance diagnostics.
 * View information about [quotas](../../managed-mongodb/concepts/limits.md#mmg-quotas) of Managed Service for MongoDB.

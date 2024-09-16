@@ -1,1 +1,1 @@
-Где `{video_content_id}` — идентификатор видеоконтента. Подробнее см. в разделах [{#T}](../../video/operations/video/get-link.md) и [{#T}](../../video/operations/streams/get-link.md).
+Где `https://runtime.video.cloud.yandex.net/player/...` — ссылка на воспроизводимый контент, например `https://runtime.video.cloud.yandex.net/player/video/vplvmyqsxi7dlwndvb4y`. Подробнее см. в разделах [{#T}](../../video/operations/video/get-link.md) и [{#T}](../../video/operations/streams/get-link.md).

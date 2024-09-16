@@ -114,6 +114,7 @@ description: "Из статьи вы узнаете, какими материа
 
 * [{{ datalens-full-name }}](../datalens/qa/index.md)
 * [{{ tracker-full-name }}](../tracker/faq.md)
+* [{{ video-full-name }}](../video/troubleshooting.md)
 
 
 

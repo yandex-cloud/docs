@@ -32,7 +32,7 @@ description: "На странице описаны параметры, кото�
 Пример создания плеера:
 
 ```javascript
-var player = Ya.playerApi.init({ ..., source: 'https://runtime.video.cloud.yandex.net/player/{video_content_id}', ...});
+var player = Ya.playerApi.init({ ..., source: 'https://runtime.video.cloud.yandex.net/player/...', ...});
 ```
 
 {% include [video-content-id-desc](../../../_includes/video/video-content-id-desc.md) %}

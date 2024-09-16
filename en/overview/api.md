@@ -18,6 +18,7 @@ For more information, see [{{ yandex-cloud }} API concepts](../api-design-guide/
 | {{ backup-full-name }}                  | [gRPC](../backup/backup/api-ref/grpc/)<br>[REST](../backup/backup/api-ref/) |
 | {{ billing-name }}                      | [gRPC](../billing/api-ref/grpc/)<br>[REST](../billing/api-ref/) |
 | {{ cdn-full-name }}                     | [gRPC](../cdn/api-ref/grpc/)<br>[REST](../cdn/api-ref/) |
+| {{ video-full-name }} {{ preview-stage }} | [gRPC](../video/api-ref/grpc/)<br>[REST](../video/api-ref/) |
 | {{ compute-full-name }}                 | [gRPC](../compute/api-ref/grpc)<br>[REST](../compute/api-ref/) |
 | {{ dns-full-name }}                     | [gRPC](../dns/api-ref/grpc/)<br>[REST](../dns/api-ref/) |
 | {{ sf-full-name }}                      | [Functions gRPC](../functions/functions/api-ref/grpc/)<br>[Functions REST](../functions/functions/api-ref/)<br>[Triggers gRPC](../functions/triggers/api-ref/grpc/)<br>[Triggers REST](../functions/triggers/api-ref/) |

@@ -4,10 +4,14 @@
     
     1. Убедитесь, что мажорная версия {{ PG }} на приемнике не ниже версии на источнике.
      
-    1. [Включите те же расширения](../../../../managed-postgresql/operations/extensions/cluster-extensions.md) в базе приемника, что и в базе источника.
-    
-    1. Убедитесь, что на приемнике выбрана политика очистки `DROP таблиц трансфера`.
-    
+    1. При трансфере из {{ PG }} [включите те же расширения](../../../../managed-postgresql/operations/extensions/cluster-extensions.md) в базе приемника, что и в базе источника.
+
+        Если в базе источника расширения установлены в пользовательскую схему, и эти расширения используются в DDL переносимых объектов, то вручную создайте в приемнике DDL. В этих DDL обращение к функции должно быть без указания схемы. В политике очистки эндпоинта-приемника установите значение `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.TRUNCATE.title }}`, чтобы трансфер не удалил эти объекты.
+
+    1. Выберите политику очистки таблиц трансфера `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.DROP.title }}`.
+
+        Если вы вручную создали в приемнике DDL, используйте политику `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.TRUNCATE.title }}`. При политике `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.TRUNCATE.title }}` эти DDL не будут удалены.
+
     1. [Создайте пользователя](../../../../managed-postgresql/operations/cluster-users.md#adduser) с доступом к базе приемника.
     
     1. Выдайте созданному пользователю все привилегии на базу данных, схемы и переносимые таблицы:
