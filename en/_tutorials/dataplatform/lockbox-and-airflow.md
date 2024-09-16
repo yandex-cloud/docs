@@ -13,12 +13,6 @@ To use configuration data from a {{ lockbox-name }} secret in the graph:
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
-{% note info %}
-
-{{ maf-name }} is at the [Preview](../../overview/concepts/launch-stages.md) stage. To get access, contact [tech support]({{ link-console-support }}) or your account manager.
-
-{% endnote %}
-
 ## Prepare the infrastructure {#create-infrastracture}
 
 1. [Create a service account](../../iam/operations/sa/create.md#create-sa) named `airflow-sa` with the following roles:

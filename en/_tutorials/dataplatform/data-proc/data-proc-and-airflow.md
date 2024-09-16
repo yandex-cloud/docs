@@ -23,7 +23,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% note info %}
 
-{{ maf-name }} and {{ metastore-name }} are at the [Preview](../../../overview/concepts/launch-stages.md) stage. To get access, contact [technical support]({{ link-console-support }}) or your account manager.
+{{ metastore-name }} is at the [Preview](../../../overview/concepts/launch-stages.md) stage. To get access, contact [technical support]({{ link-console-support }}) or your account manager.
 
 {% endnote %}
 

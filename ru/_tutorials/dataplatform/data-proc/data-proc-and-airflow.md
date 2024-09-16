@@ -23,7 +23,7 @@
 
 {% note info %}
 
-Сервисы {{ maf-name }} и {{ metastore-name }} находятся на стадии [Preview](../../../overview/concepts/launch-stages.md). Чтобы получить доступ, обратитесь в [техническую поддержку]({{ link-console-support }}) или к вашему аккаунт-менеджеру.
+Сервис {{ metastore-name }} находится на стадии [Preview](../../../overview/concepts/launch-stages.md). Чтобы получить доступ, обратитесь в [техническую поддержку]({{ link-console-support }}) или к вашему аккаунт-менеджеру.
 
 {% endnote %}
 
