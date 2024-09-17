@@ -34,7 +34,17 @@ POST https://{{ api-host-lockbox }}/lockbox/v1/secrets
 
     }
   ],
-  "deletionProtection": true
+  "deletionProtection": true,
+  "passwordPayloadSpecification": {
+    "passwordKey": "string",
+    "length": "string",
+    "includeUppercase": true,
+    "includeLowercase": true,
+    "includeDigits": true,
+    "includePunctuation": true,
+    "includedPunctuation": "string",
+    "excludedPunctuation": "string"
+  }
 }
 ```
 
@@ -52,6 +62,15 @@ versionPayloadEntries[].<br>key | **string**<br><p>Required. Non-confidential ke
 versionPayloadEntries[].<br>textValue | **string** <br>`versionPayloadEntries[]` includes only one of the fields `textValue`, `binaryValue`<br><br><p>Use the field to set a text value.</p> <p>The maximum string length in characters is 65536.</p> 
 versionPayloadEntries[].<br>binaryValue | **string** (byte) <br>`versionPayloadEntries[]` includes only one of the fields `textValue`, `binaryValue`<br><br><p>Use the field to set a binary value.</p> <p>The maximum string length in characters is 65536.</p> 
 deletionProtection | **boolean** (boolean)<br><p>Flag that inhibits deletion of the secret.</p> 
+passwordPayloadSpecification | **object**
+passwordPayloadSpecification.<br>passwordKey | **string**<br><p>Required. key of the entry to store generated password value</p> <p>The maximum string length in characters is 256. Value must match the regular expression ``[-_./\\@0-9a-zA-Z]+``.</p> 
+passwordPayloadSpecification.<br>length | **string** (int64)<br><p>password length; by default, a reasonable length will be decided</p> <p>The maximum value is 256.</p> 
+passwordPayloadSpecification.<br>includeUppercase | **boolean** (boolean)<br><p>whether at least one A..Z character is included in the password, true by default</p> 
+passwordPayloadSpecification.<br>includeLowercase | **boolean** (boolean)<br><p>whether at least one a..z character is included in the password, true by default</p> 
+passwordPayloadSpecification.<br>includeDigits | **boolean** (boolean)<br><p>whether at least one 0..9 character is included in the password, true by default</p> 
+passwordPayloadSpecification.<br>includePunctuation | **boolean** (boolean)<br><p>whether at least one punctuation character is included in the password, true by default punctuation characters by default (there are 32): !"#$%&amp;'()*+,-./:;&lt;=&gt;?@[]^_`{\|}~ to customize the punctuation characters, see included_punctuation and excluded_punctuation below</p> 
+passwordPayloadSpecification.<br>includedPunctuation | **string**<br><p>If include_punctuation is true, one of these two fields (not both) may be used optionally to customize the punctuation: a string of specific punctuation characters to use (at most, all the 32)</p> <p>The maximum string length in characters is 32.</p> 
+passwordPayloadSpecification.<br>excludedPunctuation | **string**<br><p>a string of punctuation characters to exclude from the default (at most 31, it's not allowed to exclude all the 32)</p> <p>The maximum string length in characters is 31.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

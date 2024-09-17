@@ -46,7 +46,7 @@ Field | Description
 service_id | **string**<br>ID of the service. 
 resource | **[Resource](#Resource1)**<br>Resource that the service belongs to. 
 updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time of the last status update of the service. 
-status | enum **Status**<br>Current status of the service. <ul><li>`ENABLED`: The service is enabled.</li><li>`PAUSED`: The service is paused.</li><li>`DISABLED`: The service is disabled.</li><li>`ENABLING`: The service is being enabled.</li><li>`RESUMING`: The service is being resumed.</li><li>`PAUSING`: The service is being paused.</li><li>`DISABLING`: The service is being disabled.</li><li>`ERROR`: The service is in error state.</li></ul>
+status | enum **Status**<br>Current status of the service. <ul><li>`ENABLED`: The service is enabled.</li><li>`PAUSED`: The service is paused.</li><li>`DISABLED`: The service is disabled.</li><li>`ENABLING`: The service is being enabled.</li><li>`RESUMING`: The service is being resumed.</li><li>`PAUSING`: The service is being paused.</li><li>`DISABLING`: The service is being disabled.</li><li>`ERROR`: The service is in error state.</li><li>`DEFAULT`: The service could be auto enabled.</li></ul>
 
 
 ## List {#List}
@@ -87,7 +87,7 @@ Field | Description
 service_id | **string**<br>ID of the service. 
 resource | **[Resource](#Resource2)**<br>Resource that the service belongs to. 
 updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time of the last status update of the service. 
-status | enum **Status**<br>Current status of the service. <ul><li>`ENABLED`: The service is enabled.</li><li>`PAUSED`: The service is paused.</li><li>`DISABLED`: The service is disabled.</li><li>`ENABLING`: The service is being enabled.</li><li>`RESUMING`: The service is being resumed.</li><li>`PAUSING`: The service is being paused.</li><li>`DISABLING`: The service is being disabled.</li><li>`ERROR`: The service is in error state.</li></ul>
+status | enum **Status**<br>Current status of the service. <ul><li>`ENABLED`: The service is enabled.</li><li>`PAUSED`: The service is paused.</li><li>`DISABLED`: The service is disabled.</li><li>`ENABLING`: The service is being enabled.</li><li>`RESUMING`: The service is being resumed.</li><li>`PAUSING`: The service is being paused.</li><li>`DISABLING`: The service is being disabled.</li><li>`ERROR`: The service is in error state.</li><li>`DEFAULT`: The service could be auto enabled.</li></ul>
 
 
 ## Enable {#Enable}
@@ -147,7 +147,7 @@ Field | Description
 service_id | **string**<br>ID of the service. 
 resource | **[Resource](#Resource3)**<br>Resource that the service belongs to. 
 updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time of the last status update of the service. 
-status | enum **Status**<br>Current status of the service. <ul><li>`ENABLED`: The service is enabled.</li><li>`PAUSED`: The service is paused.</li><li>`DISABLED`: The service is disabled.</li><li>`ENABLING`: The service is being enabled.</li><li>`RESUMING`: The service is being resumed.</li><li>`PAUSING`: The service is being paused.</li><li>`DISABLING`: The service is being disabled.</li><li>`ERROR`: The service is in error state.</li></ul>
+status | enum **Status**<br>Current status of the service. <ul><li>`ENABLED`: The service is enabled.</li><li>`PAUSED`: The service is paused.</li><li>`DISABLED`: The service is disabled.</li><li>`ENABLING`: The service is being enabled.</li><li>`RESUMING`: The service is being resumed.</li><li>`PAUSING`: The service is being paused.</li><li>`DISABLING`: The service is being disabled.</li><li>`ERROR`: The service is in error state.</li><li>`DEFAULT`: The service could be auto enabled.</li></ul>
 
 
 ## Disable {#Disable}
@@ -207,7 +207,7 @@ Field | Description
 service_id | **string**<br>ID of the service. 
 resource | **[Resource](#Resource4)**<br>Resource that the service belongs to. 
 updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time of the last status update of the service. 
-status | enum **Status**<br>Current status of the service. <ul><li>`ENABLED`: The service is enabled.</li><li>`PAUSED`: The service is paused.</li><li>`DISABLED`: The service is disabled.</li><li>`ENABLING`: The service is being enabled.</li><li>`RESUMING`: The service is being resumed.</li><li>`PAUSING`: The service is being paused.</li><li>`DISABLING`: The service is being disabled.</li><li>`ERROR`: The service is in error state.</li></ul>
+status | enum **Status**<br>Current status of the service. <ul><li>`ENABLED`: The service is enabled.</li><li>`PAUSED`: The service is paused.</li><li>`DISABLED`: The service is disabled.</li><li>`ENABLING`: The service is being enabled.</li><li>`RESUMING`: The service is being resumed.</li><li>`PAUSING`: The service is being paused.</li><li>`DISABLING`: The service is being disabled.</li><li>`ERROR`: The service is in error state.</li><li>`DEFAULT`: The service could be auto enabled.</li></ul>
 
 
 ## ResolveAgent {#ResolveAgent}

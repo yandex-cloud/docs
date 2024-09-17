@@ -27,18 +27,37 @@ secretId | <p>Required. ID of the secret to update.</p> <p>The maximum string le
   "name": "string",
   "description": "string",
   "labels": "object",
-  "deletionProtection": true
+  "deletionProtection": true,
+  "passwordPayloadSpecification": {
+    "passwordKey": "string",
+    "length": "string",
+    "includeUppercase": true,
+    "includeLowercase": true,
+    "includeDigits": true,
+    "includePunctuation": true,
+    "includedPunctuation": "string",
+    "excludedPunctuation": "string"
+  }
 }
 ```
 
  
 Field | Description
 --- | ---
-updateMask | **string**<br><p>Required. Field mask that specifies which attributes of the secret are going to be updated.</p> <p>A comma-separated names off ALL fields to be updated. Only the specified fields will be changed. The others will be left untouched. If the field is specified in ``updateMask`` and no value for that field was sent in the request, the field's value will be reset to the default. The default value for most fields is null or 0.</p> <p>If ``updateMask`` is not sent in the request, all fields' values will be updated. Fields specified in the request will be updated to provided values. The rest of the fields will be reset to the default.</p> 
+updateMask | **string**<br>Required. Field mask that specifies which attributes of the secret are going to be updated.
 name | **string**<br><p>New name of the secret.</p> <p>The maximum string length in characters is 100.</p> 
 description | **string**<br><p>New description of the secret.</p> <p>The maximum string length in characters is 1024.</p> 
 labels | **object**<br><p>Custom labels for the secret as ``key:value`` pairs. Maximum 64 per key.</p> <p>No more than 64 per resource. The maximum string length in characters for each key is 63. Each key must match the regular expression ``[a-z][-_0-9a-z]*``. The maximum string length in characters for each value is 63. Each value must match the regular expression ``[-_0-9a-z]*``.</p> 
 deletionProtection | **boolean** (boolean)<br><p>Flag that inhibits deletion of the secret.</p> 
+passwordPayloadSpecification | **object**
+passwordPayloadSpecification.<br>passwordKey | **string**<br><p>Required. key of the entry to store generated password value</p> <p>The maximum string length in characters is 256. Value must match the regular expression ``[-_./\\@0-9a-zA-Z]+``.</p> 
+passwordPayloadSpecification.<br>length | **string** (int64)<br><p>password length; by default, a reasonable length will be decided</p> <p>The maximum value is 256.</p> 
+passwordPayloadSpecification.<br>includeUppercase | **boolean** (boolean)<br><p>whether at least one A..Z character is included in the password, true by default</p> 
+passwordPayloadSpecification.<br>includeLowercase | **boolean** (boolean)<br><p>whether at least one a..z character is included in the password, true by default</p> 
+passwordPayloadSpecification.<br>includeDigits | **boolean** (boolean)<br><p>whether at least one 0..9 character is included in the password, true by default</p> 
+passwordPayloadSpecification.<br>includePunctuation | **boolean** (boolean)<br><p>whether at least one punctuation character is included in the password, true by default punctuation characters by default (there are 32): !"#$%&amp;'()*+,-./:;&lt;=&gt;?@[]^_`{\|}~ to customize the punctuation characters, see included_punctuation and excluded_punctuation below</p> 
+passwordPayloadSpecification.<br>includedPunctuation | **string**<br><p>If include_punctuation is true, one of these two fields (not both) may be used optionally to customize the punctuation: a string of specific punctuation characters to use (at most, all the 32)</p> <p>The maximum string length in characters is 32.</p> 
+passwordPayloadSpecification.<br>excludedPunctuation | **string**<br><p>a string of punctuation characters to exclude from the default (at most 31, it's not allowed to exclude all the 32)</p> <p>The maximum string length in characters is 31.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

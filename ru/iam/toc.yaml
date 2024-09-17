@@ -162,6 +162,8 @@ items:
             href: api-ref/grpc/iam_token_service.md
           - name: KeyService
             href: api-ref/grpc/key_service.md
+          - name: RefreshTokenService
+            href: api-ref/grpc/refresh_token_service.md
           - name: RoleService
             href: api-ref/grpc/role_service.md
           - name: ServiceAccountService
@@ -232,6 +234,14 @@ items:
                 href: api-ref/Key/listOperations.md
               - name: update
                 href: api-ref/Key/update.md
+          - name: RefreshToken
+            items:
+              - name: Overview
+                href: api-ref/RefreshToken/index.md
+              - name: list
+                href: api-ref/RefreshToken/list.md
+              - name: revoke
+                href: api-ref/RefreshToken/revoke.md
           - name: Role
             items:
               - name: Overview
@@ -346,18 +356,6 @@ items:
                 href: api-ref/Federation/listUserAccounts.md
               - name: update
                 href: api-ref/Federation/update.md
-          - name: FederatedCredential
-            items:
-              - name: Overview
-                href: api-ref/FederatedCredential/index.md
-              - name: create
-                href: api-ref/FederatedCredential/create.md
-              - name: delete
-                href: api-ref/FederatedCredential/delete.md
-              - name: get
-                href: api-ref/FederatedCredential/get.md
-              - name: list
-                href: api-ref/FederatedCredential/list.md
   - name: Метрики {{ monitoring-name }}
     href: metrics.md
   - name: Аудитные логи {{ at-name }}

@@ -40,7 +40,10 @@ filter | <p>A filter expression that filters agents listed in the response.</p> 
       ],
       "currentJobId": "string",
       "agentVersionId": "string",
-      "labels": "object"
+      "labels": "object",
+      "logSettings": {
+        "cloudLogGroupId": "string"
+      }
     }
   ],
   "nextPageToken": "string"
@@ -61,4 +64,6 @@ agents[].<br>errors[] | **string**<br><p>List of errors reported by the agent.</
 agents[].<br>currentJobId | **string**<br><p>ID of the test that is currently being executed by the agent.</p> 
 agents[].<br>agentVersionId | **string**<br><p>Version of the agent.</p> 
 agents[].<br>labels | **object**<br><p>Agent labels as ``key:value`` pairs.</p> 
+agents[].<br>logSettings | **object**<br><p>Agent log settings</p> 
+agents[].<br>logSettings.<br>cloudLogGroupId | **string**<br><p>Id of Yandex Cloud log group to upload agent logs to</p> <p>The maximum string length in characters is 50.</p> 
 nextPageToken | **string**<br><p>Token for getting the next page of the list. If the number of results is greater than the specified <a href="/docs/load-testing/user/api-ref/Agent/list#query_params">pageSize</a>, use ``next_page_token`` as the value for the <a href="/docs/load-testing/user/api-ref/Agent/list#query_params">pageToken</a> parameter in the next list request.</p> <p>Each subsequent page will have its own ``next_page_token`` to continue paging through the results.</p> <p>The maximum string length in characters is 100.</p> 

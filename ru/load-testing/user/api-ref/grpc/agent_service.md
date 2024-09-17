@@ -37,6 +37,7 @@ description | **string**<br>Description of the agent. <br>A created compute inst
 compute_instance_params | **[agent.CreateComputeInstance](#CreateComputeInstance)**<br>Parameters for compute instance to be created. 
 agent_version | **string**<br>Version of the agent. <br>If not provided, the most recent agent version will be used. 
 labels | **map<string,string>**<br>Agent labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
+log_settings | **[agent.LogSettings](#LogSettings)**<br>Agent log settings 
 
 
 ### CreateComputeInstance {#CreateComputeInstance}
@@ -51,6 +52,13 @@ boot_disk_spec | **[compute.v1.AttachedDiskSpec](./agent/create_compute_instance
 network_interface_specs[] | **[compute.v1.NetworkInterfaceSpec](./agent/create_compute_instance#v1)**<br>Network configuration for the instance. Specifies how the network interface is configured to interact with other services on the internal network and on the internet. Currently only one network interface is supported per instance. The number of elemets must be exactly 1.
 service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
 platform_id | **string**<br>ID of the [Compute VM platform](docs/compute/concepts/vm-platforms) on which the agent will be created. Default value: "standard-v2" 
+
+
+### LogSettings {#LogSettings}
+
+Field | Description
+--- | ---
+cloud_log_group_id | **string**<br>Id of Yandex Cloud log group to upload agent logs to The maximum string length in characters is 50.
 
 
 ### Operation {#Operation}
@@ -90,6 +98,7 @@ errors[] | **string**<br>List of errors reported by the agent.
 current_job_id | **string**<br>ID of the test that is currently being executed by the agent. 
 agent_version_id | **string**<br>Version of the agent. 
 labels | **map<string,string>**<br>Agent labels as `key:value` pairs. 
+log_settings | **[agent.LogSettings](#LogSettings1)**<br>Agent log settings 
 
 
 ## Get {#Get}
@@ -119,6 +128,14 @@ errors[] | **string**<br>List of errors reported by the agent.
 current_job_id | **string**<br>ID of the test that is currently being executed by the agent. 
 agent_version_id | **string**<br>Version of the agent. 
 labels | **map<string,string>**<br>Agent labels as `key:value` pairs. 
+log_settings | **[agent.LogSettings](#LogSettings1)**<br>Agent log settings 
+
+
+### LogSettings {#LogSettings1}
+
+Field | Description
+--- | ---
+cloud_log_group_id | **string**<br>Id of Yandex Cloud log group to upload agent logs to The maximum string length in characters is 50.
 
 
 ## List {#List}
@@ -159,6 +176,14 @@ errors[] | **string**<br>List of errors reported by the agent.
 current_job_id | **string**<br>ID of the test that is currently being executed by the agent. 
 agent_version_id | **string**<br>Version of the agent. 
 labels | **map<string,string>**<br>Agent labels as `key:value` pairs. 
+log_settings | **[agent.LogSettings](#LogSettings2)**<br>Agent log settings 
+
+
+### LogSettings {#LogSettings2}
+
+Field | Description
+--- | ---
+cloud_log_group_id | **string**<br>Id of Yandex Cloud log group to upload agent logs to The maximum string length in characters is 50.
 
 
 ## Delete {#Delete}
@@ -274,5 +299,13 @@ errors[] | **string**<br>List of errors reported by the agent.
 current_job_id | **string**<br>ID of the test that is currently being executed by the agent. 
 agent_version_id | **string**<br>Version of the agent. 
 labels | **map<string,string>**<br>Agent labels as `key:value` pairs. 
+log_settings | **[agent.LogSettings](#LogSettings3)**<br>Agent log settings 
+
+
+### LogSettings {#LogSettings3}
+
+Field | Description
+--- | ---
+cloud_log_group_id | **string**<br>Id of Yandex Cloud log group to upload agent logs to The maximum string length in characters is 50.
 
 

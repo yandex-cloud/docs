@@ -37,7 +37,12 @@ clusterId | <p>Required. ID of the OpenSearch cluster to create the Dashboards t
     "subnetIds": [
       "string"
     ],
-    "assignPublicIp": true
+    "assignPublicIp": true,
+    "diskSizeAutoscaling": {
+      "plannedUsageThreshold": "string",
+      "emergencyUsageThreshold": "string",
+      "diskSizeLimit": "string"
+    }
   }
 }
 ```
@@ -55,6 +60,10 @@ nodeGroupSpec.<br>hostsCount | **string** (int64)<br><p>Number of hosts in the g
 nodeGroupSpec.<br>zoneIds[] | **string**<br><p>IDs of the availability zones the hosts belong to.</p> 
 nodeGroupSpec.<br>subnetIds[] | **string**<br><p>IDs of the subnets that the hosts belong to.</p> <p>The maximum number of elements is 10. The maximum string length in characters for each value is 50.</p> 
 nodeGroupSpec.<br>assignPublicIp | **boolean** (boolean)<br><p>Determines whether a public IP is assigned to the hosts in the group.</p> 
+nodeGroupSpec.<br>diskSizeAutoscaling | **object**<br><p>Disk size autoscaling settings</p> 
+nodeGroupSpec.<br>diskSizeAutoscaling.<br>plannedUsageThreshold | **string** (int64)<br><p>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+nodeGroupSpec.<br>diskSizeAutoscaling.<br>emergencyUsageThreshold | **string** (int64)<br><p>Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+nodeGroupSpec.<br>diskSizeAutoscaling.<br>diskSizeLimit | **string** (int64)<br><p>Limit on how large the storage for database instances can automatically grow, in bytes.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
