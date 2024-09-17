@@ -23,7 +23,8 @@ name | <p>Required. Activate specific provider by name.</p> <p>For more informat
  
 ```json 
 {
-  "folderId": "string"
+  "folderId": "string",
+  "skipDefaultPolicy": true
 }
 ```
 
@@ -31,6 +32,7 @@ name | <p>Required. Activate specific provider by name.</p> <p>For more informat
 Field | Description
 --- | ---
 folderId | **string**<br><p>Required. Activate provider for Folder iD.</p> <p>The maximum string length in characters is 50.</p> 
+skipDefaultPolicy | **boolean** (boolean)<br><p>Don't create default policies while activating the provider.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

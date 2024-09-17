@@ -30,6 +30,7 @@ Field | Description
 --- | ---
 folder_id | **string**<br>Required. Activate provider for Folder iD. The maximum string length in characters is 50.
 name | **string**<br>Required. Activate specific provider by name. <br>For more information, please see [activate-provider](/docs/backup/quickstart#activate-provider) 
+skip_default_policy | **bool**<br>Don't create default policies while activating the provider. 
 
 
 ### Operation {#Operation}

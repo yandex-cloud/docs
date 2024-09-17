@@ -35,17 +35,17 @@ POST https://billing.{{ api-host }}/billing/v1/customers:createResellerServedCus
  
 Field | Description
 --- | ---
-resellerId | **string**<br><p>Required. ID of the reseller that customer will be associated with.</p> <p>The maximum string length in characters is 50.</p> 
-name | **string**<br><p>Required. Name of the customer.</p> 
+resellerId | **string**<br><p>Required. ID of the reseller that customer will be associated with.</p> <p>Value must match either one of the two regular expressions: ``^([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\|[0-9a-f]{32})$`` or ``^[a-z][-a-zA-Z0-9.]{0,48}[a-zA-Z0-9]$``.</p> <p>The maximum string length in characters is 50.</p> 
+name | **string**<br><p>Required. Name of the customer.</p> <p>String length is not limited.</p> 
 person | **object**<br><p>Required. Person of the customer.</p> <p>Person of the customer. Contains legal information.</p> 
-person.<br>name | **string**<br><p>Name of the person.</p> 
-person.<br>longname | **string**<br><p>Long name of the person.</p> 
-person.<br>phone | **string**<br><p>Phone of the person.</p> 
-person.<br>email | **string**<br><p>Email of the person.</p> 
-person.<br>postCode | **string**<br><p>Post code of the person.</p> 
-person.<br>postAddress | **string**<br><p>Post address of the person.</p> 
-person.<br>legalAddress | **string**<br><p>Legal address of the person.</p> 
-person.<br>tin | **string**<br><p>Tax identification number of the person.</p> 
+person.<br>name | **string**<br><p>Optional. Name of the person.</p> <p>String length is not limited.</p> 
+person.<br>longname | **string**<br><p>Optional. Long name of the person.</p> <p>String length is not limited.</p> 
+person.<br>phone | **string**<br><p>Optional. Phone of the person.</p> <p>Must be a valid telephone number or a valid <a href="https://en.m.wikipedia.org/wiki/Phoneword">phoneword</a>.</p> 
+person.<br>email | **string**<br><p>Optional. Email of the person.</p> <p>Must be a valid <a href="https://en.wikipedia.org/wiki/Email_address">email address</a>.</p> 
+person.<br>postCode | **string**<br><p>Optional. Post code of the person.</p> <p>String length is not limited.</p> 
+person.<br>postAddress | **string**<br><p>Optional. Post address of the person.</p> <p>String length is not limited.</p> 
+person.<br>legalAddress | **string**<br><p>Optional. Legal address of the person.</p> <p>String length is not limited.</p> 
+person.<br>tin | **string**<br><p>Optional. Tax identification number of the person.</p> <p>String length is not limited.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

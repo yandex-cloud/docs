@@ -1,12 +1,12 @@
 default:
   versions:
     tf:
-      latest: '7.0'
-      str: 6.2 или 7.0
+      latest: '7.2'
+      str: '7.2'
     cli:
-      latest: '7.0'
-      previous: '6.2'
-      str: 6.2 или 7.0
+      latest: '7.2'
+      previous: '7.0'
+      str: '7.2'
     console:
-      latest: '7.0'
-      str: 6.2 и 7.0
+      latest: '7.2'
+      str: '7.2'

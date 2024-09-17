@@ -153,6 +153,8 @@ items:
     items:
       - name: Аутентификация в API
         href: api-ref/authentication.md
+      - name: Начало работы с API
+        href: api-ref/quickstart.md
       - name: gRPC (англ.)
         items:
           - name: Overview

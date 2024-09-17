@@ -72,14 +72,14 @@ person | **[CustomerPerson](#CustomerPerson)**<br>Required. Person of the custom
 
 Field | Description
 --- | ---
-name | **string**<br>Name of the person. 
-longname | **string**<br>Long name of the person. 
-phone | **string**<br>Phone of the person. 
-email | **string**<br>Email of the person. 
-post_code | **string**<br>Post code of the person. 
-post_address | **string**<br>Post address of the person. 
-legal_address | **string**<br>Legal address of the person. 
-tin | **string**<br>Tax identification number of the person. 
+name | **string**<br>Optional. Name of the person. <br>String length is not limited. 
+longname | **string**<br>Optional. Long name of the person. <br>String length is not limited. 
+phone | **string**<br>Optional. Phone of the person. <br>Must be a valid telephone number or a valid [phoneword](https://en.m.wikipedia.org/wiki/Phoneword). 
+email | **string**<br>Optional. Email of the person. <br>Must be a valid [email address](https://en.wikipedia.org/wiki/Email_address). 
+post_code | **string**<br>Optional. Post code of the person. <br>String length is not limited. 
+post_address | **string**<br>Optional. Post address of the person. <br>String length is not limited. 
+legal_address | **string**<br>Optional. Legal address of the person. <br>String length is not limited. 
+tin | **string**<br>Optional. Tax identification number of the person. <br>String length is not limited. 
 
 
 ### Operation {#Operation}
@@ -128,8 +128,8 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-reseller_id | **string**<br>Required. ID of the reseller that customer will be associated with. The maximum string length in characters is 50.
-name | **string**<br>Required. Name of the customer. 
+reseller_id | **string**<br>Required. ID of the reseller that customer will be associated with. <br>Value must match either one of the two regular expressions: `^([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}|[0-9a-f]{32})$` or `^[a-z][-a-zA-Z0-9.]{0,48}[a-zA-Z0-9]$`. The maximum string length in characters is 50.
+name | **string**<br>Required. Name of the customer. <br>String length is not limited. 
 person | **[CustomerPerson](#CustomerPerson1)**<br>Required. Person of the customer. 
 
 
@@ -137,14 +137,14 @@ person | **[CustomerPerson](#CustomerPerson1)**<br>Required. Person of the custo
 
 Field | Description
 --- | ---
-name | **string**<br>Name of the person. 
-longname | **string**<br>Long name of the person. 
-phone | **string**<br>Phone of the person. 
-email | **string**<br>Email of the person. 
-post_code | **string**<br>Post code of the person. 
-post_address | **string**<br>Post address of the person. 
-legal_address | **string**<br>Legal address of the person. 
-tin | **string**<br>Tax identification number of the person. 
+name | **string**<br>Optional. Name of the person. <br>String length is not limited. 
+longname | **string**<br>Optional. Long name of the person. <br>String length is not limited. 
+phone | **string**<br>Optional. Phone of the person. <br>Must be a valid telephone number or a valid [phoneword](https://en.m.wikipedia.org/wiki/Phoneword). 
+email | **string**<br>Optional. Email of the person. <br>Must be a valid [email address](https://en.wikipedia.org/wiki/Email_address). 
+post_code | **string**<br>Optional. Post code of the person. <br>String length is not limited. 
+post_address | **string**<br>Optional. Post address of the person. <br>String length is not limited. 
+legal_address | **string**<br>Optional. Legal address of the person. <br>String length is not limited. 
+tin | **string**<br>Optional. Tax identification number of the person. <br>String length is not limited. 
 
 
 ### Operation {#Operation1}

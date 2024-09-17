@@ -116,7 +116,10 @@ POST https://loadtesting.{{ api-host }}/loadtesting/api/v1/agent
     "platformId": "string"
   },
   "agentVersion": "string",
-  "labels": "object"
+  "labels": "object",
+  "logSettings": {
+    "cloudLogGroupId": "string"
+  }
 }
 ```
 
@@ -189,6 +192,8 @@ computeInstanceParams.<br>serviceAccountId | **string**<br><p>ID of the service 
 computeInstanceParams.<br>platformId | **string**<br><p>ID of the <a href="docs/compute/concepts/vm-platforms">Compute VM platform</a> on which the agent will be created. Default value: "standard-v2"</p> 
 agentVersion | **string**<br><p>Version of the agent.</p> <p>If not provided, the most recent agent version will be used.</p> 
 labels | **object**<br><p>Agent labels as ``key:value`` pairs.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression ``[a-z][-_0-9a-z]*``. The maximum string length in characters for each value is 63. Each value must match the regular expression ``[-_0-9a-z]*``.</p> 
+logSettings | **object**<br><p>Agent log settings</p> 
+logSettings.<br>cloudLogGroupId | **string**<br><p>Id of Yandex Cloud log group to upload agent logs to</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

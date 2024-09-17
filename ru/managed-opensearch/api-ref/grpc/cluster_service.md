@@ -113,6 +113,7 @@ zone_ids[] | **string**<br>IDs of the availability zones the hosts belong to.
 subnet_ids[] | **string**<br>IDs of the subnets that the hosts belong to. 
 assign_public_ip | **bool**<br>Determines whether a public IP is assigned to the hosts in the group. 
 roles[] | enum **GroupRole**<br>Roles of the host group. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling)**<br>Disk size autoscaling settings 
 
 
 ### Resources {#Resources}
@@ -122,6 +123,15 @@ Field | Description
 resource_preset_id | **string**<br>ID of the preset for computational resources allocated to a host. 
 disk_size | **int64**<br>Volume of the storage used by the host, in bytes. 
 disk_type_id | **string**<br>Type of the storage used by the host: `network-hdd`, `network-ssd` or `local-ssd`. 
+
+
+### DiskSizeAutoscaling {#DiskSizeAutoscaling}
+
+Field | Description
+--- | ---
+planned_usage_threshold | **int64**<br>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
+emergency_usage_threshold | **int64**<br>Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
+disk_size_limit | **int64**<br>Limit on how large the storage for database instances can automatically grow, in bytes. 
 
 
 ### Dashboards {#Dashboards}
@@ -141,6 +151,7 @@ hosts_count | **int64**<br>Number of hosts in the group.
 zone_ids[] | **string**<br>IDs of the availability zones the hosts belong to. 
 subnet_ids[] | **string**<br>IDs of the subnets that the hosts belong to. 
 assign_public_ip | **bool**<br>Determines whether a public IP is assigned to the hosts in the group. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling1)**<br>Disk size autoscaling settings 
 
 
 ### Access {#Access}
@@ -270,6 +281,7 @@ zone_ids[] | **string**<br>IDs of the availability zones the hosts belong to.
 subnet_ids[] | **string**<br>IDs of the subnets that the hosts belong to. 
 assign_public_ip | **bool**<br>Determines whether a public IP is assigned to the hosts in the group. 
 roles[] | enum **GroupRole**<br>Roles of the host group. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling1)**<br>Disk size autoscaling settings 
 
 
 ### Resources {#Resources1}
@@ -279,6 +291,15 @@ Field | Description
 resource_preset_id | **string**<br>ID of the preset for computational resources allocated to a host. 
 disk_size | **int64**<br>Volume of the storage used by the host, in bytes. 
 disk_type_id | **string**<br>Type of the storage used by the host: `network-hdd`, `network-ssd` or `local-ssd`. 
+
+
+### DiskSizeAutoscaling {#DiskSizeAutoscaling1}
+
+Field | Description
+--- | ---
+planned_usage_threshold | **int64**<br>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
+emergency_usage_threshold | **int64**<br>Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
+disk_size_limit | **int64**<br>Limit on how large the storage for database instances can automatically grow, in bytes. 
 
 
 ### Dashboards {#Dashboards1}
@@ -298,6 +319,7 @@ hosts_count | **int64**<br>Number of hosts in the group.
 zone_ids[] | **string**<br>IDs of the availability zones the hosts belong to. 
 subnet_ids[] | **string**<br>IDs of the subnets that the hosts belong to. 
 assign_public_ip | **bool**<br>Determines whether a public IP is assigned to the hosts in the group. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling2)**<br>Disk size autoscaling settings 
 
 
 ### Access {#Access1}
@@ -399,6 +421,7 @@ zone_ids[] | **string**<br>IDs of the availability zones the hosts belong to. Th
 subnet_ids[] | **string**<br>IDs of the subnets that the hosts belong to. The maximum number of elements is 10. The maximum string length in characters for each value is 50.
 assign_public_ip | **bool**<br>Determines whether a public IP is assigned to the hosts in the group. 
 roles[] | **[OpenSearch.GroupRole](#OpenSearch2)**<br>Roles of the hosts in the group. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling2)**<br>Disk size autoscaling settings 
 
 
 ### KeystoreSetting {#KeystoreSetting}
@@ -418,6 +441,15 @@ disk_size | **int64**<br>Volume of the storage used by the host, in bytes.
 disk_type_id | **string**<br>Type of the storage used by the host: `network-hdd`, `network-ssd` or `local-ssd`. 
 
 
+### DiskSizeAutoscaling {#DiskSizeAutoscaling2}
+
+Field | Description
+--- | ---
+planned_usage_threshold | **int64**<br>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
+emergency_usage_threshold | **int64**<br>Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
+disk_size_limit | **int64**<br>Limit on how large the storage for database instances can automatically grow, in bytes. 
+
+
 ### DashboardsCreateSpec {#DashboardsCreateSpec}
 
 Field | Description
@@ -435,6 +467,7 @@ hosts_count | **int64**<br>Number of hosts in the group. The minimum value is 1.
 zone_ids[] | **string**<br>IDs of the availability zones the hosts belong to. 
 subnet_ids[] | **string**<br>IDs of the subnets that the hosts belong to. The maximum number of elements is 10. The maximum string length in characters for each value is 50.
 assign_public_ip | **bool**<br>Determines whether a public IP is assigned to the hosts in the group. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling3)**<br>Disk size autoscaling settings 
 
 
 ### Access {#Access2}
@@ -553,6 +586,7 @@ zone_ids[] | **string**<br>IDs of the availability zones the hosts belong to.
 subnet_ids[] | **string**<br>IDs of the subnets that the hosts belong to. 
 assign_public_ip | **bool**<br>Determines whether a public IP is assigned to the hosts in the group. 
 roles[] | enum **GroupRole**<br>Roles of the host group. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling3)**<br>Disk size autoscaling settings 
 
 
 ### Dashboards {#Dashboards2}
@@ -572,6 +606,7 @@ hosts_count | **int64**<br>Number of hosts in the group.
 zone_ids[] | **string**<br>IDs of the availability zones the hosts belong to. 
 subnet_ids[] | **string**<br>IDs of the subnets that the hosts belong to. 
 assign_public_ip | **bool**<br>Determines whether a public IP is assigned to the hosts in the group. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling3)**<br>Disk size autoscaling settings 
 
 
 ### MaintenanceOperation {#MaintenanceOperation2}
@@ -761,6 +796,7 @@ zone_ids[] | **string**<br>IDs of the availability zones the hosts belong to.
 subnet_ids[] | **string**<br>IDs of the subnets that the hosts belong to. 
 assign_public_ip | **bool**<br>Determines whether a public IP is assigned to the hosts in the group. 
 roles[] | enum **GroupRole**<br>Roles of the host group. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling3)**<br>Disk size autoscaling settings 
 
 
 ### Resources {#Resources3}
@@ -770,6 +806,15 @@ Field | Description
 resource_preset_id | **string**<br>ID of the preset for computational resources allocated to a host. 
 disk_size | **int64**<br>Volume of the storage used by the host, in bytes. 
 disk_type_id | **string**<br>Type of the storage used by the host: `network-hdd`, `network-ssd` or `local-ssd`. 
+
+
+### DiskSizeAutoscaling {#DiskSizeAutoscaling3}
+
+Field | Description
+--- | ---
+planned_usage_threshold | **int64**<br>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
+emergency_usage_threshold | **int64**<br>Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
+disk_size_limit | **int64**<br>Limit on how large the storage for database instances can automatically grow, in bytes. 
 
 
 ### Dashboards {#Dashboards3}
@@ -789,6 +834,7 @@ hosts_count | **int64**<br>Number of hosts in the group.
 zone_ids[] | **string**<br>IDs of the availability zones the hosts belong to. 
 subnet_ids[] | **string**<br>IDs of the subnets that the hosts belong to. 
 assign_public_ip | **bool**<br>Determines whether a public IP is assigned to the hosts in the group. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling4)**<br>Disk size autoscaling settings 
 
 
 ### MaintenanceOperation {#MaintenanceOperation3}
@@ -945,6 +991,7 @@ zone_ids[] | **string**<br>IDs of the availability zones the hosts belong to.
 subnet_ids[] | **string**<br>IDs of the subnets that the hosts belong to. 
 assign_public_ip | **bool**<br>Determines whether a public IP is assigned to the hosts in the group. 
 roles[] | enum **GroupRole**<br>Roles of the host group. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling4)**<br>Disk size autoscaling settings 
 
 
 ### Resources {#Resources4}
@@ -954,6 +1001,15 @@ Field | Description
 resource_preset_id | **string**<br>ID of the preset for computational resources allocated to a host. 
 disk_size | **int64**<br>Volume of the storage used by the host, in bytes. 
 disk_type_id | **string**<br>Type of the storage used by the host: `network-hdd`, `network-ssd` or `local-ssd`. 
+
+
+### DiskSizeAutoscaling {#DiskSizeAutoscaling4}
+
+Field | Description
+--- | ---
+planned_usage_threshold | **int64**<br>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
+emergency_usage_threshold | **int64**<br>Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
+disk_size_limit | **int64**<br>Limit on how large the storage for database instances can automatically grow, in bytes. 
 
 
 ### Dashboards {#Dashboards4}
@@ -973,6 +1029,7 @@ hosts_count | **int64**<br>Number of hosts in the group.
 zone_ids[] | **string**<br>IDs of the availability zones the hosts belong to. 
 subnet_ids[] | **string**<br>IDs of the subnets that the hosts belong to. 
 assign_public_ip | **bool**<br>Determines whether a public IP is assigned to the hosts in the group. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling5)**<br>Disk size autoscaling settings 
 
 
 ### Access {#Access4}
@@ -1075,6 +1132,7 @@ zone_ids[] | **string**<br>IDs of the availability zones the hosts belong to. Th
 subnet_ids[] | **string**<br>IDs of the subnets that the hosts belong to. The maximum number of elements is 10. The maximum string length in characters for each value is 50.
 assign_public_ip | **bool**<br>Determines whether a public IP is assigned to the hosts in the group. 
 roles[] | **[OpenSearch.GroupRole](#OpenSearch5)**<br>Roles of the hosts in the group. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling5)**<br>Disk size autoscaling settings 
 
 
 ### KeystoreSetting {#KeystoreSetting2}
@@ -1094,6 +1152,15 @@ disk_size | **int64**<br>Volume of the storage used by the host, in bytes.
 disk_type_id | **string**<br>Type of the storage used by the host: `network-hdd`, `network-ssd` or `local-ssd`. 
 
 
+### DiskSizeAutoscaling {#DiskSizeAutoscaling5}
+
+Field | Description
+--- | ---
+planned_usage_threshold | **int64**<br>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
+emergency_usage_threshold | **int64**<br>Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
+disk_size_limit | **int64**<br>Limit on how large the storage for database instances can automatically grow, in bytes. 
+
+
 ### DashboardsCreateSpec {#DashboardsCreateSpec1}
 
 Field | Description
@@ -1111,6 +1178,7 @@ hosts_count | **int64**<br>Number of hosts in the group. The minimum value is 1.
 zone_ids[] | **string**<br>IDs of the availability zones the hosts belong to. 
 subnet_ids[] | **string**<br>IDs of the subnets that the hosts belong to. The maximum number of elements is 10. The maximum string length in characters for each value is 50.
 assign_public_ip | **bool**<br>Determines whether a public IP is assigned to the hosts in the group. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling6)**<br>Disk size autoscaling settings 
 
 
 ### Access {#Access5}
@@ -1230,6 +1298,7 @@ zone_ids[] | **string**<br>IDs of the availability zones the hosts belong to.
 subnet_ids[] | **string**<br>IDs of the subnets that the hosts belong to. 
 assign_public_ip | **bool**<br>Determines whether a public IP is assigned to the hosts in the group. 
 roles[] | enum **GroupRole**<br>Roles of the host group. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling6)**<br>Disk size autoscaling settings 
 
 
 ### Dashboards {#Dashboards5}
@@ -1249,6 +1318,7 @@ hosts_count | **int64**<br>Number of hosts in the group.
 zone_ids[] | **string**<br>IDs of the availability zones the hosts belong to. 
 subnet_ids[] | **string**<br>IDs of the subnets that the hosts belong to. 
 assign_public_ip | **bool**<br>Determines whether a public IP is assigned to the hosts in the group. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling6)**<br>Disk size autoscaling settings 
 
 
 ### MaintenanceOperation {#MaintenanceOperation5}
@@ -1368,6 +1438,7 @@ zone_ids[] | **string**<br>IDs of the availability zones the hosts belong to.
 subnet_ids[] | **string**<br>IDs of the subnets that the hosts belong to. 
 assign_public_ip | **bool**<br>Determines whether a public IP is assigned to the hosts in the group. 
 roles[] | enum **GroupRole**<br>Roles of the host group. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling6)**<br>Disk size autoscaling settings 
 
 
 ### Resources {#Resources6}
@@ -1377,6 +1448,15 @@ Field | Description
 resource_preset_id | **string**<br>ID of the preset for computational resources allocated to a host. 
 disk_size | **int64**<br>Volume of the storage used by the host, in bytes. 
 disk_type_id | **string**<br>Type of the storage used by the host: `network-hdd`, `network-ssd` or `local-ssd`. 
+
+
+### DiskSizeAutoscaling {#DiskSizeAutoscaling6}
+
+Field | Description
+--- | ---
+planned_usage_threshold | **int64**<br>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
+emergency_usage_threshold | **int64**<br>Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
+disk_size_limit | **int64**<br>Limit on how large the storage for database instances can automatically grow, in bytes. 
 
 
 ### Dashboards {#Dashboards6}
@@ -1396,6 +1476,7 @@ hosts_count | **int64**<br>Number of hosts in the group.
 zone_ids[] | **string**<br>IDs of the availability zones the hosts belong to. 
 subnet_ids[] | **string**<br>IDs of the subnets that the hosts belong to. 
 assign_public_ip | **bool**<br>Determines whether a public IP is assigned to the hosts in the group. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling7)**<br>Disk size autoscaling settings 
 
 
 ### Access {#Access6}
@@ -1582,6 +1663,7 @@ zone_ids[] | **string**<br>IDs of the availability zones the hosts belong to.
 subnet_ids[] | **string**<br>IDs of the subnets that the hosts belong to. 
 assign_public_ip | **bool**<br>Determines whether a public IP is assigned to the hosts in the group. 
 roles[] | enum **GroupRole**<br>Roles of the host group. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling7)**<br>Disk size autoscaling settings 
 
 
 ### Resources {#Resources7}
@@ -1591,6 +1673,15 @@ Field | Description
 resource_preset_id | **string**<br>ID of the preset for computational resources allocated to a host. 
 disk_size | **int64**<br>Volume of the storage used by the host, in bytes. 
 disk_type_id | **string**<br>Type of the storage used by the host: `network-hdd`, `network-ssd` or `local-ssd`. 
+
+
+### DiskSizeAutoscaling {#DiskSizeAutoscaling7}
+
+Field | Description
+--- | ---
+planned_usage_threshold | **int64**<br>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
+emergency_usage_threshold | **int64**<br>Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
+disk_size_limit | **int64**<br>Limit on how large the storage for database instances can automatically grow, in bytes. 
 
 
 ### Dashboards {#Dashboards7}
@@ -1610,6 +1701,7 @@ hosts_count | **int64**<br>Number of hosts in the group.
 zone_ids[] | **string**<br>IDs of the availability zones the hosts belong to. 
 subnet_ids[] | **string**<br>IDs of the subnets that the hosts belong to. 
 assign_public_ip | **bool**<br>Determines whether a public IP is assigned to the hosts in the group. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling8)**<br>Disk size autoscaling settings 
 
 
 ### Access {#Access7}
@@ -1755,6 +1847,7 @@ zone_ids[] | **string**<br>IDs of the availability zones the hosts belong to.
 subnet_ids[] | **string**<br>IDs of the subnets that the hosts belong to. 
 assign_public_ip | **bool**<br>Determines whether a public IP is assigned to the hosts in the group. 
 roles[] | enum **GroupRole**<br>Roles of the host group. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling8)**<br>Disk size autoscaling settings 
 
 
 ### Resources {#Resources8}
@@ -1764,6 +1857,15 @@ Field | Description
 resource_preset_id | **string**<br>ID of the preset for computational resources allocated to a host. 
 disk_size | **int64**<br>Volume of the storage used by the host, in bytes. 
 disk_type_id | **string**<br>Type of the storage used by the host: `network-hdd`, `network-ssd` or `local-ssd`. 
+
+
+### DiskSizeAutoscaling {#DiskSizeAutoscaling8}
+
+Field | Description
+--- | ---
+planned_usage_threshold | **int64**<br>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
+emergency_usage_threshold | **int64**<br>Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
+disk_size_limit | **int64**<br>Limit on how large the storage for database instances can automatically grow, in bytes. 
 
 
 ### Dashboards {#Dashboards8}
@@ -1783,6 +1885,7 @@ hosts_count | **int64**<br>Number of hosts in the group.
 zone_ids[] | **string**<br>IDs of the availability zones the hosts belong to. 
 subnet_ids[] | **string**<br>IDs of the subnets that the hosts belong to. 
 assign_public_ip | **bool**<br>Determines whether a public IP is assigned to the hosts in the group. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling9)**<br>Disk size autoscaling settings 
 
 
 ### Access {#Access8}
@@ -1928,6 +2031,7 @@ zone_ids[] | **string**<br>IDs of the availability zones the hosts belong to.
 subnet_ids[] | **string**<br>IDs of the subnets that the hosts belong to. 
 assign_public_ip | **bool**<br>Determines whether a public IP is assigned to the hosts in the group. 
 roles[] | enum **GroupRole**<br>Roles of the host group. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling9)**<br>Disk size autoscaling settings 
 
 
 ### Resources {#Resources9}
@@ -1937,6 +2041,15 @@ Field | Description
 resource_preset_id | **string**<br>ID of the preset for computational resources allocated to a host. 
 disk_size | **int64**<br>Volume of the storage used by the host, in bytes. 
 disk_type_id | **string**<br>Type of the storage used by the host: `network-hdd`, `network-ssd` or `local-ssd`. 
+
+
+### DiskSizeAutoscaling {#DiskSizeAutoscaling9}
+
+Field | Description
+--- | ---
+planned_usage_threshold | **int64**<br>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
+emergency_usage_threshold | **int64**<br>Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
+disk_size_limit | **int64**<br>Limit on how large the storage for database instances can automatically grow, in bytes. 
 
 
 ### Dashboards {#Dashboards9}
@@ -1956,6 +2069,7 @@ hosts_count | **int64**<br>Number of hosts in the group.
 zone_ids[] | **string**<br>IDs of the availability zones the hosts belong to. 
 subnet_ids[] | **string**<br>IDs of the subnets that the hosts belong to. 
 assign_public_ip | **bool**<br>Determines whether a public IP is assigned to the hosts in the group. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling10)**<br>Disk size autoscaling settings 
 
 
 ### Access {#Access9}
@@ -2306,6 +2420,7 @@ roles[] | **[OpenSearch.GroupRole](#OpenSearch10)**<br>Opensearch roles applicab
 zone_ids[] | **string**<br>IDs of the availability zones for hosts 
 subnet_ids[] | **string**<br>IDs of the subnets for hosts 
 assign_public_ip | **bool**<br>Whether the hosts should get a public IP address. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling10)**<br>Disk size autoscaling settings 
 
 
 ### Resources {#Resources11}
@@ -2315,6 +2430,15 @@ Field | Description
 resource_preset_id | **string**<br>ID of the preset for computational resources allocated to a host. 
 disk_size | **int64**<br>Volume of the storage used by the host, in bytes. 
 disk_type_id | **string**<br>Type of the storage used by the host: `network-hdd`, `network-ssd` or `local-ssd`. 
+
+
+### DiskSizeAutoscaling {#DiskSizeAutoscaling10}
+
+Field | Description
+--- | ---
+planned_usage_threshold | **int64**<br>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
+emergency_usage_threshold | **int64**<br>Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
+disk_size_limit | **int64**<br>Limit on how large the storage for database instances can automatically grow, in bytes. 
 
 
 ### Operation {#Operation12}
@@ -2454,6 +2578,7 @@ hosts_count | **int64**<br>Number of hosts in the group.
 zone_ids[] | **string**<br>IDs of the availability zones for hosts 
 subnet_ids[] | **string**<br>IDs of the subnets for hosts 
 assign_public_ip | **bool**<br>Whether the hosts should get a public IP address. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling11)**<br>Disk size autoscaling settings 
 
 
 ### Resources {#Resources12}
@@ -2463,6 +2588,15 @@ Field | Description
 resource_preset_id | **string**<br>ID of the preset for computational resources allocated to a host. 
 disk_size | **int64**<br>Volume of the storage used by the host, in bytes. 
 disk_type_id | **string**<br>Type of the storage used by the host: `network-hdd`, `network-ssd` or `local-ssd`. 
+
+
+### DiskSizeAutoscaling {#DiskSizeAutoscaling11}
+
+Field | Description
+--- | ---
+planned_usage_threshold | **int64**<br>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
+emergency_usage_threshold | **int64**<br>Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
+disk_size_limit | **int64**<br>Limit on how large the storage for database instances can automatically grow, in bytes. 
 
 
 ### Operation {#Operation15}

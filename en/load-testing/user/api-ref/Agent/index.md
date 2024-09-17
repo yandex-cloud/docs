@@ -19,7 +19,10 @@ A set of methods for managing Load Testing agents.
   ],
   "currentJobId": "string",
   "agentVersionId": "string",
-  "labels": "object"
+  "labels": "object",
+  "logSettings": {
+    "cloudLogGroupId": "string"
+  }
 }
 ```
  
@@ -35,6 +38,8 @@ errors[] | **string**<br><p>List of errors reported by the agent.</p>
 currentJobId | **string**<br><p>ID of the test that is currently being executed by the agent.</p> 
 agentVersionId | **string**<br><p>Version of the agent.</p> 
 labels | **object**<br><p>Agent labels as ``key:value`` pairs.</p> 
+logSettings | **object**<br><p>Agent log settings</p> 
+logSettings.<br>cloudLogGroupId | **string**<br><p>Id of Yandex Cloud log group to upload agent logs to</p> <p>The maximum string length in characters is 50.</p> 
 
 ## Methods {#methods}
 Method | Description

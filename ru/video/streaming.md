@@ -16,6 +16,8 @@ description: "Чтобы запустить видеотрансляцию {{ vi
 1. [Запустите трансляцию](#start-stream).
 1. [Проверьте доступность трансляции](#test).
 
+{% include [link-to-api-quickstart](../_includes/video/link-to-api-quickstart.md) %}
+
 ## Подготовьте облако к работе {#before-you-begin}
 
 {% include [before-you-begin](../_includes/video/before-you-begin.md) %}
