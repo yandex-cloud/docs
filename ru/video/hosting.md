@@ -14,6 +14,8 @@ description: "Следуя данной инструкции, вы сможет�
 1. [Опубликуйте видео](#publish-video).
 1. [Проверьте доступность видео](#test).
 
+{% include [link-to-api-quickstart](../_includes/video/link-to-api-quickstart.md) %}
+
 ## Подготовьте облако к работе {#before-you-begin}
 
 {% include [before-you-begin](../_includes/video/before-you-begin.md) %}

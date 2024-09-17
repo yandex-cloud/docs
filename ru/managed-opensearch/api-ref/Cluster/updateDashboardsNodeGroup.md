@@ -38,7 +38,12 @@ name | <p>Required. Name of the Dashboards type host group to be updated.</p> <p
     "subnetIds": [
       "string"
     ],
-    "assignPublicIp": true
+    "assignPublicIp": true,
+    "diskSizeAutoscaling": {
+      "plannedUsageThreshold": "string",
+      "emergencyUsageThreshold": "string",
+      "diskSizeLimit": "string"
+    }
   }
 }
 ```
@@ -56,6 +61,10 @@ nodeGroupSpec.<br>hostsCount | **string** (int64)<br><p>Number of hosts in the g
 nodeGroupSpec.<br>zoneIds[] | **string**<br><p>IDs of the availability zones for hosts</p> 
 nodeGroupSpec.<br>subnetIds[] | **string**<br><p>IDs of the subnets for hosts</p> 
 nodeGroupSpec.<br>assignPublicIp | **boolean** (boolean)<br><p>Whether the hosts should get a public IP address.</p> 
+nodeGroupSpec.<br>diskSizeAutoscaling | **object**<br><p>Disk size autoscaling settings</p> 
+nodeGroupSpec.<br>diskSizeAutoscaling.<br>plannedUsageThreshold | **string** (int64)<br><p>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+nodeGroupSpec.<br>diskSizeAutoscaling.<br>emergencyUsageThreshold | **string** (int64)<br><p>Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+nodeGroupSpec.<br>diskSizeAutoscaling.<br>diskSizeLimit | **string** (int64)<br><p>Limit on how large the storage for database instances can automatically grow, in bytes.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

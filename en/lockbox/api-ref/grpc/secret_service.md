@@ -54,6 +54,8 @@ kms_key_id | **string**<br>Optional ID of the KMS key will be used to encrypt an
 status | enum **Status**<br>Status of the secret. <ul><li>`CREATING`: The secret is being created.</li><li>`ACTIVE`: The secret is active and the secret payload can be accessed. <br>Can be set to INACTIVE using the [SecretService.Deactivate](#Deactivate) method.</li><li>`INACTIVE`: The secret is inactive and unusable. <br>Can be set to ACTIVE using the [SecretService.Deactivate](#Deactivate) method.</li></ul>
 current_version | **[Version](#Version)**<br>Current (i.e. the `latest`) version of the secret. 
 deletion_protection | **bool**<br>Flag that inhibits deletion of the secret. 
+payload_specification | **oneof:** `password_payload_specification`<br>
+&nbsp;&nbsp;password_payload_specification | **[PasswordPayloadSpecification](#PasswordPayloadSpecification)**<br> 
 
 
 ### Version {#Version}
@@ -67,6 +69,22 @@ destroy_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 description | **string**<br>Description of the version. 
 status | enum **Status**<br>Status of the secret. <ul><li>`ACTIVE`: The version is active and the secret payload can be accessed.</li><li>`SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed is specified in the [Version.destroy_at](#Version) field.</li><li>`DESTROYED`: The version is destroyed and cannot be recovered.</li></ul>
 payload_entry_keys[] | **string**<br>Keys of the entries contained in the version payload. 
+payload_specification | **oneof:** `password_payload_specification`<br>
+&nbsp;&nbsp;password_payload_specification | **[PasswordPayloadSpecification](#PasswordPayloadSpecification)**<br> 
+
+
+### PasswordPayloadSpecification {#PasswordPayloadSpecification}
+
+Field | Description
+--- | ---
+password_key | **string**<br>Required. key of the entry to store generated password value The maximum string length in characters is 256. Value must match the regular expression ` [-_./\\\\@0-9a-zA-Z]+ `.
+length | **int64**<br>password length; by default, a reasonable length will be decided The maximum value is 256.
+include_uppercase | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>whether at least one A..Z character is included in the password, true by default 
+include_lowercase | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>whether at least one a..z character is included in the password, true by default 
+include_digits | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>whether at least one 0..9 character is included in the password, true by default 
+include_punctuation | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>whether at least one punctuation character is included in the password, true by default punctuation characters by default (there are 32): !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~ to customize the punctuation characters, see included_punctuation and excluded_punctuation below 
+included_punctuation | **string**<br>If include_punctuation is true, one of these two fields (not both) may be used optionally to customize the punctuation: a string of specific punctuation characters to use (at most, all the 32) The maximum string length in characters is 32.
+excluded_punctuation | **string**<br>a string of punctuation characters to exclude from the default (at most 31, it's not allowed to exclude all the 32) The maximum string length in characters is 31.
 
 
 ## List {#List}
@@ -106,6 +124,8 @@ kms_key_id | **string**<br>Optional ID of the KMS key will be used to encrypt an
 status | enum **Status**<br>Status of the secret. <ul><li>`CREATING`: The secret is being created.</li><li>`ACTIVE`: The secret is active and the secret payload can be accessed. <br>Can be set to INACTIVE using the [SecretService.Deactivate](#Deactivate) method.</li><li>`INACTIVE`: The secret is inactive and unusable. <br>Can be set to ACTIVE using the [SecretService.Deactivate](#Deactivate) method.</li></ul>
 current_version | **[Version](#Version1)**<br>Current (i.e. the `latest`) version of the secret. 
 deletion_protection | **bool**<br>Flag that inhibits deletion of the secret. 
+payload_specification | **oneof:** `password_payload_specification`<br>
+&nbsp;&nbsp;password_payload_specification | **[PasswordPayloadSpecification](#PasswordPayloadSpecification1)**<br> 
 
 
 ### Version {#Version1}
@@ -119,6 +139,22 @@ destroy_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 description | **string**<br>Description of the version. 
 status | enum **Status**<br>Status of the secret. <ul><li>`ACTIVE`: The version is active and the secret payload can be accessed.</li><li>`SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed is specified in the [Version.destroy_at](#Version1) field.</li><li>`DESTROYED`: The version is destroyed and cannot be recovered.</li></ul>
 payload_entry_keys[] | **string**<br>Keys of the entries contained in the version payload. 
+payload_specification | **oneof:** `password_payload_specification`<br>
+&nbsp;&nbsp;password_payload_specification | **[PasswordPayloadSpecification](#PasswordPayloadSpecification1)**<br> 
+
+
+### PasswordPayloadSpecification {#PasswordPayloadSpecification1}
+
+Field | Description
+--- | ---
+password_key | **string**<br>Required. key of the entry to store generated password value The maximum string length in characters is 256. Value must match the regular expression ` [-_./\\\\@0-9a-zA-Z]+ `.
+length | **int64**<br>password length; by default, a reasonable length will be decided The maximum value is 256.
+include_uppercase | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>whether at least one A..Z character is included in the password, true by default 
+include_lowercase | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>whether at least one a..z character is included in the password, true by default 
+include_digits | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>whether at least one 0..9 character is included in the password, true by default 
+include_punctuation | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>whether at least one punctuation character is included in the password, true by default punctuation characters by default (there are 32): !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~ to customize the punctuation characters, see included_punctuation and excluded_punctuation below 
+included_punctuation | **string**<br>If include_punctuation is true, one of these two fields (not both) may be used optionally to customize the punctuation: a string of specific punctuation characters to use (at most, all the 32) The maximum string length in characters is 32.
+excluded_punctuation | **string**<br>a string of punctuation characters to exclude from the default (at most 31, it's not allowed to exclude all the 32) The maximum string length in characters is 31.
 
 
 ## Create {#Create}
@@ -143,6 +179,8 @@ kms_key_id | **string**<br>Optional ID of the KMS key will be used to encrypt an
 version_description | **string**<br>Description of the first version. The maximum string length in characters is 256.
 version_payload_entries[] | **[PayloadEntryChange](#PayloadEntryChange)**<br>Payload entries added to the first version. The maximum number of elements is 32.
 deletion_protection | **bool**<br>Flag that inhibits deletion of the secret. 
+payload_specification | **oneof:** `password_payload_specification`<br>
+&nbsp;&nbsp;password_payload_specification | **[PasswordPayloadSpecification](#PasswordPayloadSpecification2)**<br> 
 
 
 ### PayloadEntryChange {#PayloadEntryChange}
@@ -153,6 +191,20 @@ key | **string**<br>Required. Non-confidential key of the entry. The maximum str
 value | **oneof:** `text_value` or `binary_value`<br>Confidential value of the entry.
 &nbsp;&nbsp;text_value | **string**<br>Use the field to set a text value. The maximum string length in characters is 65536.
 &nbsp;&nbsp;binary_value | **bytes**<br>Use the field to set a binary value. The maximum string length in characters is 65536.
+
+
+### PasswordPayloadSpecification {#PasswordPayloadSpecification2}
+
+Field | Description
+--- | ---
+password_key | **string**<br>Required. key of the entry to store generated password value The maximum string length in characters is 256. Value must match the regular expression ` [-_./\\\\@0-9a-zA-Z]+ `.
+length | **int64**<br>password length; by default, a reasonable length will be decided The maximum value is 256.
+include_uppercase | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>whether at least one A..Z character is included in the password, true by default 
+include_lowercase | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>whether at least one a..z character is included in the password, true by default 
+include_digits | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>whether at least one 0..9 character is included in the password, true by default 
+include_punctuation | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>whether at least one punctuation character is included in the password, true by default punctuation characters by default (there are 32): !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~ to customize the punctuation characters, see included_punctuation and excluded_punctuation below 
+included_punctuation | **string**<br>If include_punctuation is true, one of these two fields (not both) may be used optionally to customize the punctuation: a string of specific punctuation characters to use (at most, all the 32) The maximum string length in characters is 32.
+excluded_punctuation | **string**<br>a string of punctuation characters to exclude from the default (at most 31, it's not allowed to exclude all the 32) The maximum string length in characters is 31.
 
 
 ### Operation {#Operation}
@@ -193,6 +245,8 @@ kms_key_id | **string**<br>Optional ID of the KMS key will be used to encrypt an
 status | enum **Status**<br>Status of the secret. <ul><li>`CREATING`: The secret is being created.</li><li>`ACTIVE`: The secret is active and the secret payload can be accessed. <br>Can be set to INACTIVE using the [SecretService.Deactivate](#Deactivate) method.</li><li>`INACTIVE`: The secret is inactive and unusable. <br>Can be set to ACTIVE using the [SecretService.Deactivate](#Deactivate) method.</li></ul>
 current_version | **[Version](#Version2)**<br>Current (i.e. the `latest`) version of the secret. 
 deletion_protection | **bool**<br>Flag that inhibits deletion of the secret. 
+payload_specification | **oneof:** `password_payload_specification`<br>
+&nbsp;&nbsp;password_payload_specification | **[PasswordPayloadSpecification](#PasswordPayloadSpecification3)**<br> 
 
 
 ### Version {#Version2}
@@ -206,6 +260,8 @@ destroy_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 description | **string**<br>Description of the version. 
 status | enum **Status**<br>Status of the secret. <ul><li>`ACTIVE`: The version is active and the secret payload can be accessed.</li><li>`SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed is specified in the [Version.destroy_at](#Version2) field.</li><li>`DESTROYED`: The version is destroyed and cannot be recovered.</li></ul>
 payload_entry_keys[] | **string**<br>Keys of the entries contained in the version payload. 
+payload_specification | **oneof:** `password_payload_specification`<br>
+&nbsp;&nbsp;password_payload_specification | **[PasswordPayloadSpecification](#PasswordPayloadSpecification3)**<br> 
 
 
 ## Update {#Update}
@@ -228,6 +284,22 @@ name | **string**<br>New name of the secret. The maximum string length in charac
 description | **string**<br>New description of the secret. The maximum string length in characters is 1024.
 labels | **map<string,string>**<br>Custom labels for the secret as `key:value` pairs. Maximum 64 per key. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 deletion_protection | **bool**<br>Flag that inhibits deletion of the secret. 
+payload_specification | **oneof:** `password_payload_specification`<br>
+&nbsp;&nbsp;password_payload_specification | **[PasswordPayloadSpecification](#PasswordPayloadSpecification3)**<br> 
+
+
+### PasswordPayloadSpecification {#PasswordPayloadSpecification3}
+
+Field | Description
+--- | ---
+password_key | **string**<br>Required. key of the entry to store generated password value The maximum string length in characters is 256. Value must match the regular expression ` [-_./\\\\@0-9a-zA-Z]+ `.
+length | **int64**<br>password length; by default, a reasonable length will be decided The maximum value is 256.
+include_uppercase | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>whether at least one A..Z character is included in the password, true by default 
+include_lowercase | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>whether at least one a..z character is included in the password, true by default 
+include_digits | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>whether at least one 0..9 character is included in the password, true by default 
+include_punctuation | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>whether at least one punctuation character is included in the password, true by default punctuation characters by default (there are 32): !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~ to customize the punctuation characters, see included_punctuation and excluded_punctuation below 
+included_punctuation | **string**<br>If include_punctuation is true, one of these two fields (not both) may be used optionally to customize the punctuation: a string of specific punctuation characters to use (at most, all the 32) The maximum string length in characters is 32.
+excluded_punctuation | **string**<br>a string of punctuation characters to exclude from the default (at most 31, it's not allowed to exclude all the 32) The maximum string length in characters is 31.
 
 
 ### Operation {#Operation1}
@@ -267,6 +339,8 @@ kms_key_id | **string**<br>Optional ID of the KMS key will be used to encrypt an
 status | enum **Status**<br>Status of the secret. <ul><li>`CREATING`: The secret is being created.</li><li>`ACTIVE`: The secret is active and the secret payload can be accessed. <br>Can be set to INACTIVE using the [SecretService.Deactivate](#Deactivate) method.</li><li>`INACTIVE`: The secret is inactive and unusable. <br>Can be set to ACTIVE using the [SecretService.Deactivate](#Deactivate) method.</li></ul>
 current_version | **[Version](#Version3)**<br>Current (i.e. the `latest`) version of the secret. 
 deletion_protection | **bool**<br>Flag that inhibits deletion of the secret. 
+payload_specification | **oneof:** `password_payload_specification`<br>
+&nbsp;&nbsp;password_payload_specification | **[PasswordPayloadSpecification](#PasswordPayloadSpecification4)**<br> 
 
 
 ### Version {#Version3}
@@ -280,6 +354,8 @@ destroy_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 description | **string**<br>Description of the version. 
 status | enum **Status**<br>Status of the secret. <ul><li>`ACTIVE`: The version is active and the secret payload can be accessed.</li><li>`SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed is specified in the [Version.destroy_at](#Version3) field.</li><li>`DESTROYED`: The version is destroyed and cannot be recovered.</li></ul>
 payload_entry_keys[] | **string**<br>Keys of the entries contained in the version payload. 
+payload_specification | **oneof:** `password_payload_specification`<br>
+&nbsp;&nbsp;password_payload_specification | **[PasswordPayloadSpecification](#PasswordPayloadSpecification4)**<br> 
 
 
 ## Delete {#Delete}
@@ -336,6 +412,8 @@ kms_key_id | **string**<br>Optional ID of the KMS key will be used to encrypt an
 status | enum **Status**<br>Status of the secret. <ul><li>`CREATING`: The secret is being created.</li><li>`ACTIVE`: The secret is active and the secret payload can be accessed. <br>Can be set to INACTIVE using the [SecretService.Deactivate](#Deactivate) method.</li><li>`INACTIVE`: The secret is inactive and unusable. <br>Can be set to ACTIVE using the [SecretService.Deactivate](#Deactivate) method.</li></ul>
 current_version | **[Version](#Version4)**<br>Current (i.e. the `latest`) version of the secret. 
 deletion_protection | **bool**<br>Flag that inhibits deletion of the secret. 
+payload_specification | **oneof:** `password_payload_specification`<br>
+&nbsp;&nbsp;password_payload_specification | **[PasswordPayloadSpecification](#PasswordPayloadSpecification4)**<br> 
 
 
 ### Version {#Version4}
@@ -349,6 +427,22 @@ destroy_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 description | **string**<br>Description of the version. 
 status | enum **Status**<br>Status of the secret. <ul><li>`ACTIVE`: The version is active and the secret payload can be accessed.</li><li>`SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed is specified in the [Version.destroy_at](#Version4) field.</li><li>`DESTROYED`: The version is destroyed and cannot be recovered.</li></ul>
 payload_entry_keys[] | **string**<br>Keys of the entries contained in the version payload. 
+payload_specification | **oneof:** `password_payload_specification`<br>
+&nbsp;&nbsp;password_payload_specification | **[PasswordPayloadSpecification](#PasswordPayloadSpecification4)**<br> 
+
+
+### PasswordPayloadSpecification {#PasswordPayloadSpecification4}
+
+Field | Description
+--- | ---
+password_key | **string**<br>Required. key of the entry to store generated password value The maximum string length in characters is 256. Value must match the regular expression ` [-_./\\\\@0-9a-zA-Z]+ `.
+length | **int64**<br>password length; by default, a reasonable length will be decided The maximum value is 256.
+include_uppercase | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>whether at least one A..Z character is included in the password, true by default 
+include_lowercase | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>whether at least one a..z character is included in the password, true by default 
+include_digits | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>whether at least one 0..9 character is included in the password, true by default 
+include_punctuation | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>whether at least one punctuation character is included in the password, true by default punctuation characters by default (there are 32): !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~ to customize the punctuation characters, see included_punctuation and excluded_punctuation below 
+included_punctuation | **string**<br>If include_punctuation is true, one of these two fields (not both) may be used optionally to customize the punctuation: a string of specific punctuation characters to use (at most, all the 32) The maximum string length in characters is 32.
+excluded_punctuation | **string**<br>a string of punctuation characters to exclude from the default (at most 31, it's not allowed to exclude all the 32) The maximum string length in characters is 31.
 
 
 ## Activate {#Activate}
@@ -405,6 +499,8 @@ kms_key_id | **string**<br>Optional ID of the KMS key will be used to encrypt an
 status | enum **Status**<br>Status of the secret. <ul><li>`CREATING`: The secret is being created.</li><li>`ACTIVE`: The secret is active and the secret payload can be accessed. <br>Can be set to INACTIVE using the [SecretService.Deactivate](#Deactivate) method.</li><li>`INACTIVE`: The secret is inactive and unusable. <br>Can be set to ACTIVE using the [SecretService.Deactivate](#Deactivate) method.</li></ul>
 current_version | **[Version](#Version5)**<br>Current (i.e. the `latest`) version of the secret. 
 deletion_protection | **bool**<br>Flag that inhibits deletion of the secret. 
+payload_specification | **oneof:** `password_payload_specification`<br>
+&nbsp;&nbsp;password_payload_specification | **[PasswordPayloadSpecification](#PasswordPayloadSpecification5)**<br> 
 
 
 ### Version {#Version5}
@@ -418,6 +514,22 @@ destroy_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 description | **string**<br>Description of the version. 
 status | enum **Status**<br>Status of the secret. <ul><li>`ACTIVE`: The version is active and the secret payload can be accessed.</li><li>`SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed is specified in the [Version.destroy_at](#Version5) field.</li><li>`DESTROYED`: The version is destroyed and cannot be recovered.</li></ul>
 payload_entry_keys[] | **string**<br>Keys of the entries contained in the version payload. 
+payload_specification | **oneof:** `password_payload_specification`<br>
+&nbsp;&nbsp;password_payload_specification | **[PasswordPayloadSpecification](#PasswordPayloadSpecification5)**<br> 
+
+
+### PasswordPayloadSpecification {#PasswordPayloadSpecification5}
+
+Field | Description
+--- | ---
+password_key | **string**<br>Required. key of the entry to store generated password value The maximum string length in characters is 256. Value must match the regular expression ` [-_./\\\\@0-9a-zA-Z]+ `.
+length | **int64**<br>password length; by default, a reasonable length will be decided The maximum value is 256.
+include_uppercase | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>whether at least one A..Z character is included in the password, true by default 
+include_lowercase | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>whether at least one a..z character is included in the password, true by default 
+include_digits | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>whether at least one 0..9 character is included in the password, true by default 
+include_punctuation | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>whether at least one punctuation character is included in the password, true by default punctuation characters by default (there are 32): !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~ to customize the punctuation characters, see included_punctuation and excluded_punctuation below 
+included_punctuation | **string**<br>If include_punctuation is true, one of these two fields (not both) may be used optionally to customize the punctuation: a string of specific punctuation characters to use (at most, all the 32) The maximum string length in characters is 32.
+excluded_punctuation | **string**<br>a string of punctuation characters to exclude from the default (at most 31, it's not allowed to exclude all the 32) The maximum string length in characters is 31.
 
 
 ## Deactivate {#Deactivate}
@@ -474,6 +586,8 @@ kms_key_id | **string**<br>Optional ID of the KMS key will be used to encrypt an
 status | enum **Status**<br>Status of the secret. <ul><li>`CREATING`: The secret is being created.</li><li>`ACTIVE`: The secret is active and the secret payload can be accessed. <br>Can be set to INACTIVE using the [SecretService.Deactivate](#Deactivate) method.</li><li>`INACTIVE`: The secret is inactive and unusable. <br>Can be set to ACTIVE using the [SecretService.Deactivate](#Deactivate) method.</li></ul>
 current_version | **[Version](#Version6)**<br>Current (i.e. the `latest`) version of the secret. 
 deletion_protection | **bool**<br>Flag that inhibits deletion of the secret. 
+payload_specification | **oneof:** `password_payload_specification`<br>
+&nbsp;&nbsp;password_payload_specification | **[PasswordPayloadSpecification](#PasswordPayloadSpecification6)**<br> 
 
 
 ### Version {#Version6}
@@ -487,6 +601,22 @@ destroy_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 description | **string**<br>Description of the version. 
 status | enum **Status**<br>Status of the secret. <ul><li>`ACTIVE`: The version is active and the secret payload can be accessed.</li><li>`SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed is specified in the [Version.destroy_at](#Version6) field.</li><li>`DESTROYED`: The version is destroyed and cannot be recovered.</li></ul>
 payload_entry_keys[] | **string**<br>Keys of the entries contained in the version payload. 
+payload_specification | **oneof:** `password_payload_specification`<br>
+&nbsp;&nbsp;password_payload_specification | **[PasswordPayloadSpecification](#PasswordPayloadSpecification6)**<br> 
+
+
+### PasswordPayloadSpecification {#PasswordPayloadSpecification6}
+
+Field | Description
+--- | ---
+password_key | **string**<br>Required. key of the entry to store generated password value The maximum string length in characters is 256. Value must match the regular expression ` [-_./\\\\@0-9a-zA-Z]+ `.
+length | **int64**<br>password length; by default, a reasonable length will be decided The maximum value is 256.
+include_uppercase | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>whether at least one A..Z character is included in the password, true by default 
+include_lowercase | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>whether at least one a..z character is included in the password, true by default 
+include_digits | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>whether at least one 0..9 character is included in the password, true by default 
+include_punctuation | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>whether at least one punctuation character is included in the password, true by default punctuation characters by default (there are 32): !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~ to customize the punctuation characters, see included_punctuation and excluded_punctuation below 
+included_punctuation | **string**<br>If include_punctuation is true, one of these two fields (not both) may be used optionally to customize the punctuation: a string of specific punctuation characters to use (at most, all the 32) The maximum string length in characters is 32.
+excluded_punctuation | **string**<br>a string of punctuation characters to exclude from the default (at most 31, it's not allowed to exclude all the 32) The maximum string length in characters is 31.
 
 
 ## ListVersions {#ListVersions}
@@ -523,6 +653,22 @@ destroy_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 description | **string**<br>Description of the version. 
 status | enum **Status**<br>Status of the secret. <ul><li>`ACTIVE`: The version is active and the secret payload can be accessed.</li><li>`SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed is specified in the [Version.destroy_at](#Version7) field.</li><li>`DESTROYED`: The version is destroyed and cannot be recovered.</li></ul>
 payload_entry_keys[] | **string**<br>Keys of the entries contained in the version payload. 
+payload_specification | **oneof:** `password_payload_specification`<br>
+&nbsp;&nbsp;password_payload_specification | **[PasswordPayloadSpecification](#PasswordPayloadSpecification7)**<br> 
+
+
+### PasswordPayloadSpecification {#PasswordPayloadSpecification7}
+
+Field | Description
+--- | ---
+password_key | **string**<br>Required. key of the entry to store generated password value The maximum string length in characters is 256. Value must match the regular expression ` [-_./\\\\@0-9a-zA-Z]+ `.
+length | **int64**<br>password length; by default, a reasonable length will be decided The maximum value is 256.
+include_uppercase | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>whether at least one A..Z character is included in the password, true by default 
+include_lowercase | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>whether at least one a..z character is included in the password, true by default 
+include_digits | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>whether at least one 0..9 character is included in the password, true by default 
+include_punctuation | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>whether at least one punctuation character is included in the password, true by default punctuation characters by default (there are 32): !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~ to customize the punctuation characters, see included_punctuation and excluded_punctuation below 
+included_punctuation | **string**<br>If include_punctuation is true, one of these two fields (not both) may be used optionally to customize the punctuation: a string of specific punctuation characters to use (at most, all the 32) The maximum string length in characters is 32.
+excluded_punctuation | **string**<br>a string of punctuation characters to exclude from the default (at most 31, it's not allowed to exclude all the 32) The maximum string length in characters is 31.
 
 
 ## AddVersion {#AddVersion}
@@ -590,6 +736,22 @@ destroy_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 description | **string**<br>Description of the version. 
 status | enum **Status**<br>Status of the secret. <ul><li>`ACTIVE`: The version is active and the secret payload can be accessed.</li><li>`SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed is specified in the [Version.destroy_at](#Version8) field.</li><li>`DESTROYED`: The version is destroyed and cannot be recovered.</li></ul>
 payload_entry_keys[] | **string**<br>Keys of the entries contained in the version payload. 
+payload_specification | **oneof:** `password_payload_specification`<br>
+&nbsp;&nbsp;password_payload_specification | **[PasswordPayloadSpecification](#PasswordPayloadSpecification8)**<br> 
+
+
+### PasswordPayloadSpecification {#PasswordPayloadSpecification8}
+
+Field | Description
+--- | ---
+password_key | **string**<br>Required. key of the entry to store generated password value The maximum string length in characters is 256. Value must match the regular expression ` [-_./\\\\@0-9a-zA-Z]+ `.
+length | **int64**<br>password length; by default, a reasonable length will be decided The maximum value is 256.
+include_uppercase | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>whether at least one A..Z character is included in the password, true by default 
+include_lowercase | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>whether at least one a..z character is included in the password, true by default 
+include_digits | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>whether at least one 0..9 character is included in the password, true by default 
+include_punctuation | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>whether at least one punctuation character is included in the password, true by default punctuation characters by default (there are 32): !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~ to customize the punctuation characters, see included_punctuation and excluded_punctuation below 
+included_punctuation | **string**<br>If include_punctuation is true, one of these two fields (not both) may be used optionally to customize the punctuation: a string of specific punctuation characters to use (at most, all the 32) The maximum string length in characters is 32.
+excluded_punctuation | **string**<br>a string of punctuation characters to exclude from the default (at most 31, it's not allowed to exclude all the 32) The maximum string length in characters is 31.
 
 
 ## ScheduleVersionDestruction {#ScheduleVersionDestruction}
@@ -647,6 +809,22 @@ destroy_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 description | **string**<br>Description of the version. 
 status | enum **Status**<br>Status of the secret. <ul><li>`ACTIVE`: The version is active and the secret payload can be accessed.</li><li>`SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed is specified in the [Version.destroy_at](#Version9) field.</li><li>`DESTROYED`: The version is destroyed and cannot be recovered.</li></ul>
 payload_entry_keys[] | **string**<br>Keys of the entries contained in the version payload. 
+payload_specification | **oneof:** `password_payload_specification`<br>
+&nbsp;&nbsp;password_payload_specification | **[PasswordPayloadSpecification](#PasswordPayloadSpecification9)**<br> 
+
+
+### PasswordPayloadSpecification {#PasswordPayloadSpecification9}
+
+Field | Description
+--- | ---
+password_key | **string**<br>Required. key of the entry to store generated password value The maximum string length in characters is 256. Value must match the regular expression ` [-_./\\\\@0-9a-zA-Z]+ `.
+length | **int64**<br>password length; by default, a reasonable length will be decided The maximum value is 256.
+include_uppercase | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>whether at least one A..Z character is included in the password, true by default 
+include_lowercase | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>whether at least one a..z character is included in the password, true by default 
+include_digits | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>whether at least one 0..9 character is included in the password, true by default 
+include_punctuation | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>whether at least one punctuation character is included in the password, true by default punctuation characters by default (there are 32): !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~ to customize the punctuation characters, see included_punctuation and excluded_punctuation below 
+included_punctuation | **string**<br>If include_punctuation is true, one of these two fields (not both) may be used optionally to customize the punctuation: a string of specific punctuation characters to use (at most, all the 32) The maximum string length in characters is 32.
+excluded_punctuation | **string**<br>a string of punctuation characters to exclude from the default (at most 31, it's not allowed to exclude all the 32) The maximum string length in characters is 31.
 
 
 ## CancelVersionDestruction {#CancelVersionDestruction}
@@ -702,6 +880,22 @@ destroy_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 description | **string**<br>Description of the version. 
 status | enum **Status**<br>Status of the secret. <ul><li>`ACTIVE`: The version is active and the secret payload can be accessed.</li><li>`SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed is specified in the [Version.destroy_at](#Version10) field.</li><li>`DESTROYED`: The version is destroyed and cannot be recovered.</li></ul>
 payload_entry_keys[] | **string**<br>Keys of the entries contained in the version payload. 
+payload_specification | **oneof:** `password_payload_specification`<br>
+&nbsp;&nbsp;password_payload_specification | **[PasswordPayloadSpecification](#PasswordPayloadSpecification10)**<br> 
+
+
+### PasswordPayloadSpecification {#PasswordPayloadSpecification10}
+
+Field | Description
+--- | ---
+password_key | **string**<br>Required. key of the entry to store generated password value The maximum string length in characters is 256. Value must match the regular expression ` [-_./\\\\@0-9a-zA-Z]+ `.
+length | **int64**<br>password length; by default, a reasonable length will be decided The maximum value is 256.
+include_uppercase | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>whether at least one A..Z character is included in the password, true by default 
+include_lowercase | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>whether at least one a..z character is included in the password, true by default 
+include_digits | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>whether at least one 0..9 character is included in the password, true by default 
+include_punctuation | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>whether at least one punctuation character is included in the password, true by default punctuation characters by default (there are 32): !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~ to customize the punctuation characters, see included_punctuation and excluded_punctuation below 
+included_punctuation | **string**<br>If include_punctuation is true, one of these two fields (not both) may be used optionally to customize the punctuation: a string of specific punctuation characters to use (at most, all the 32) The maximum string length in characters is 32.
+excluded_punctuation | **string**<br>a string of punctuation characters to exclude from the default (at most 31, it's not allowed to exclude all the 32) The maximum string length in characters is 31.
 
 
 ## ListOperations {#ListOperations}

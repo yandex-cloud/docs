@@ -40,14 +40,14 @@ resellerId | **string**<br><p>Required. Billing account ID of the reseller that 
 name | **string**<br><p>Required. Name of the customer.</p> 
 invitationEmail | **string**<br><p>Required. Customer email to send invitation to.</p> 
 person | **object**<br><p>Required. Person of the customer.</p> <p>Person of the customer. Contains legal information.</p> 
-person.<br>name | **string**<br><p>Name of the person.</p> 
-person.<br>longname | **string**<br><p>Long name of the person.</p> 
-person.<br>phone | **string**<br><p>Phone of the person.</p> 
-person.<br>email | **string**<br><p>Email of the person.</p> 
-person.<br>postCode | **string**<br><p>Post code of the person.</p> 
-person.<br>postAddress | **string**<br><p>Post address of the person.</p> 
-person.<br>legalAddress | **string**<br><p>Legal address of the person.</p> 
-person.<br>tin | **string**<br><p>Tax identification number of the person.</p> 
+person.<br>name | **string**<br><p>Optional. Name of the person.</p> <p>String length is not limited.</p> 
+person.<br>longname | **string**<br><p>Optional. Long name of the person.</p> <p>String length is not limited.</p> 
+person.<br>phone | **string**<br><p>Optional. Phone of the person.</p> <p>Must be a valid telephone number or a valid <a href="https://en.m.wikipedia.org/wiki/Phoneword">phoneword</a>.</p> 
+person.<br>email | **string**<br><p>Optional. Email of the person.</p> <p>Must be a valid <a href="https://en.wikipedia.org/wiki/Email_address">email address</a>.</p> 
+person.<br>postCode | **string**<br><p>Optional. Post code of the person.</p> <p>String length is not limited.</p> 
+person.<br>postAddress | **string**<br><p>Optional. Post address of the person.</p> <p>String length is not limited.</p> 
+person.<br>legalAddress | **string**<br><p>Optional. Legal address of the person.</p> <p>String length is not limited.</p> 
+person.<br>tin | **string**<br><p>Optional. Tax identification number of the person.</p> <p>String length is not limited.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

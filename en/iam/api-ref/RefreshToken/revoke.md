@@ -1,23 +1,46 @@
 ---
 editable: false
-sourcePath: en/_api-ref/iam/v1/api-ref/FederatedCredential/delete.md
+sourcePath: en/_api-ref/iam/v1/api-ref/RefreshToken/revoke.md
 ---
 
-# Identity and Access Management Workload Identity API, REST: FederatedCredential.delete
-Deletes the specified federated credential.
+# Identity and Access Management API, REST: RefreshToken.revoke
+Revoke Refresh Tokens. Several Refresh Tokens can be revoked by one request.
  
 
  
 ## HTTP request {#https-request}
 ```
-DELETE https://iam.{{ api-host }}/iam/v1/workload/federatedCredentials/{federatedCredentialId}
+POST https://iam.{{ api-host }}/iam/v1/refreshTokens:revoke
 ```
  
-## Path parameters {#path_params}
+## Body parameters {#body_params}
  
-Parameter | Description
+```json 
+{
+
+  //  includes only one of the fields `refreshTokenId`, `refreshToken`, `revokeFilter`
+  "refreshTokenId": "string",
+  "refreshToken": "string",
+  "revokeFilter": {
+    "clientId": "string",
+    "subjectId": "string",
+    "clientInstanceInfo": "string"
+  },
+  // end of the list of possible fields
+
+}
+```
+Revoke Refresh Token request.
+If none of the parameters refresh_token_id, refresh_token, or revoke_filter are provided, all Refresh Tokens for the current subject will be revoked.
+ 
+Field | Description
 --- | ---
-federatedCredentialId | <p>Required. ID of the federated credential key to delete. To get the federated credential ID, use a <a href="/docs/iam/api-ref/FederatedCredential/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
+refreshTokenId | **string** <br> includes only one of the fields `refreshTokenId`, `refreshToken`, `revokeFilter`<br><br><p>Identifier of the Refresh Token to be revoked.</p> <p>The maximum string length in characters is 50.</p> 
+refreshToken | **string** <br> includes only one of the fields `refreshTokenId`, `refreshToken`, `revokeFilter`<br><br><p>The Refresh Token to be revoked.</p> <p>The maximum string length in characters is 1000.</p> 
+revokeFilter | **object**<br>The filter for revoking Refresh Token <br> includes only one of the fields `refreshTokenId`, `refreshToken`, `revokeFilter`<br>
+revokeFilter.<br>clientId | **string**<br><p>The OAuth client identifier for which the Refresh Token was issued.</p> <p>The maximum string length in characters is 50.</p> 
+revokeFilter.<br>subjectId | **string**<br><p>The subject identifier for whom the Refresh Token was issued. If not specified, it defaults to the subject that made the request.</p> <p>The maximum string length in characters is 50.</p> 
+revokeFilter.<br>clientInstanceInfo | **string**<br><p>Information about the app for which the Refresh Token was issued.</p> <p>The maximum string length in characters is 1000.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

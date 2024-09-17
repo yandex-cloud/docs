@@ -46,7 +46,12 @@ A set of methods for managing OpenSearch clusters.
           "assignPublicIp": true,
           "roles": [
             "string"
-          ]
+          ],
+          "diskSizeAutoscaling": {
+            "plannedUsageThreshold": "string",
+            "emergencyUsageThreshold": "string",
+            "diskSizeLimit": "string"
+          }
         }
       ],
       "keystoreSettings": [
@@ -86,7 +91,12 @@ A set of methods for managing OpenSearch clusters.
           "subnetIds": [
             "string"
           ],
-          "assignPublicIp": true
+          "assignPublicIp": true,
+          "diskSizeAutoscaling": {
+            "plannedUsageThreshold": "string",
+            "emergencyUsageThreshold": "string",
+            "diskSizeLimit": "string"
+          }
         }
       ]
     },
@@ -151,6 +161,10 @@ config.<br>opensearch.<br>nodeGroups[].<br>zoneIds[] | **string**<br><p>IDs of t
 config.<br>opensearch.<br>nodeGroups[].<br>subnetIds[] | **string**<br><p>IDs of the subnets that the hosts belong to.</p> 
 config.<br>opensearch.<br>nodeGroups[].<br>assignPublicIp | **boolean** (boolean)<br><p>Determines whether a public IP is assigned to the hosts in the group.</p> 
 config.<br>opensearch.<br>nodeGroups[].<br>roles[] | **string**<br><p>Roles of the host group.</p> 
+config.<br>opensearch.<br>nodeGroups[].<br>diskSizeAutoscaling | **object**<br><p>Disk size autoscaling settings</p> 
+config.<br>opensearch.<br>nodeGroups[].<br>diskSizeAutoscaling.<br>plannedUsageThreshold | **string** (int64)<br><p>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+config.<br>opensearch.<br>nodeGroups[].<br>diskSizeAutoscaling.<br>emergencyUsageThreshold | **string** (int64)<br><p>Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+config.<br>opensearch.<br>nodeGroups[].<br>diskSizeAutoscaling.<br>diskSizeLimit | **string** (int64)<br><p>Limit on how large the storage for database instances can automatically grow, in bytes.</p> 
 config.<br>opensearch.<br>keystoreSettings[] | **string**<br><p>Keystore entries names.</p> 
 config.<br>opensearch.<br>opensearchConfigSet_2 | **object**
 config.<br>opensearch.<br>opensearchConfigSet_2.<br>effectiveConfig | **object**<br><p>Required.</p> 
@@ -176,6 +190,10 @@ config.<br>dashboards.<br>nodeGroups[].<br>hostsCount | **string** (int64)<br><p
 config.<br>dashboards.<br>nodeGroups[].<br>zoneIds[] | **string**<br><p>IDs of the availability zones the hosts belong to.</p> 
 config.<br>dashboards.<br>nodeGroups[].<br>subnetIds[] | **string**<br><p>IDs of the subnets that the hosts belong to.</p> 
 config.<br>dashboards.<br>nodeGroups[].<br>assignPublicIp | **boolean** (boolean)<br><p>Determines whether a public IP is assigned to the hosts in the group.</p> 
+config.<br>dashboards.<br>nodeGroups[].<br>diskSizeAutoscaling | **object**<br><p>Disk size autoscaling settings</p> 
+config.<br>dashboards.<br>nodeGroups[].<br>diskSizeAutoscaling.<br>plannedUsageThreshold | **string** (int64)<br><p>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+config.<br>dashboards.<br>nodeGroups[].<br>diskSizeAutoscaling.<br>emergencyUsageThreshold | **string** (int64)<br><p>Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+config.<br>dashboards.<br>nodeGroups[].<br>diskSizeAutoscaling.<br>diskSizeLimit | **string** (int64)<br><p>Limit on how large the storage for database instances can automatically grow, in bytes.</p> 
 config.<br>access | **object**<br><p>Access policy for external services.</p> <p>Access policy for external services.</p> 
 config.<br>access.<br>dataTransfer | **boolean** (boolean)<br><p>Determines whether the access to Data Transfer is allowed.</p> 
 config.<br>access.<br>serverless | **boolean** (boolean)<br><p>Determines whether the access to Serverless is allowed.</p> 
