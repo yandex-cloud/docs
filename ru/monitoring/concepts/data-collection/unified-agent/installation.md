@@ -92,29 +92,33 @@ description: "Из статьи вы узнаете, как установить
 
   {{ unified-agent-short-name }} распространяется в виде deb-пакета для операционных систем Ubuntu 14.04 или старше. Пакет содержит бинарный файл с агентом и пустой конфигурационный файл, расположенный в `/etc/yandex/unified_agent/config.yml`.
 
-  Чтобы скачать последнюю версию агента в виде deb-пакета выполните команду:
+  Чтобы установить {{ unified-agent-short-name }}:
 
-  ```bash
-  ubuntu_name="ubuntu-14.04-trusty" ua_version=$(curl -s https://{{ s3-storage-host }}/yc-unified-agent/latest-version) bash -c 'curl -s -O https://{{ s3-storage-host }}/yc-unified-agent/releases/${ua_version}/deb/${ubuntu_name}/yandex-unified-agent_${ua_version}_amd64.deb'
-  ```
+  1. Скачайте последнюю версию deb-пакета:
 
-  Поддерживаемые значения параметра `ubuntu_name`:
-  * `ubuntu-14.04-trusty`;
-  * `ubuntu-16.04-xenial`;
-  * `ubuntu-18.04-bionic`;
-  * `ubuntu-20.04-focal`;
-  * `ubuntu-22.04-jammy`, начиная с версии `23.03.02`.
+      ```bash
+      ubuntu_name="ubuntu-22.04-jammy" ua_version=$(curl -s https://{{ s3-storage-host }}/yc-unified-agent/latest-version) bash -c 'curl -s -O https://{{ s3-storage-host }}/yc-unified-agent/releases/${ua_version}/deb/${ubuntu_name}/yandex-unified-agent_${ua_version}_amd64.deb'
+      ```
 
-  Чтобы узнать все доступные версии агента выполните команду:
-  ```(bash)
-  curl -s https://{{ s3-storage-host }}/yc-unified-agent/all-versions
-  ```
+      Для `ubuntu_name` укажите версию операционной системы:
+        * `ubuntu-14.04-trusty`;
+        * `ubuntu-16.04-xenial`;
+        * `ubuntu-18.04-bionic`;
+        * `ubuntu-20.04-focal`;
+        * `ubuntu-22.04-jammy`, начиная с версии `23.03.02`.
 
-  Чтобы установить deb-пакет, выполните команду:
+      Также вы можете скачать определенную версию {{ unified-agent-short-name }}. Для этого посмотрите все доступные версии и укажите нужную вместо значения `latest-version`:
 
-  ```bash
-  sudo dpkg -i yandex-unified-agent_21.02.03_amd64.deb
-  ```
+      ```(bash)
+      curl -s https://{{ s3-storage-host }}/yc-unified-agent/all-versions
+      ```
+
+  1. Посмотрите версию deb-пакета с помощью команды `ls`.
+  1. Установите deb-пакет:
+
+      ```bash
+      sudo dpkg -i yandex-unified-agent_24.09.03_amd64.deb
+      ```
 
   Чтобы убедиться, что {{ unified-agent-short-name }} успешно установлен и запущен, выполните команду `systemctl status unified-agent`. Пример работы команды:
 
@@ -193,6 +197,8 @@ description: "Из статьи вы узнаете, как установить
   В файле конфигурации настроена отправка [базовых метрик виртуальной машины](./inputs.md#linux_metrics_input) и [метрик здоровья агента](./inputs.md#agent_metrics_input). Отправка метрик [тарифицируется](../../../pricing.md).
 
   Дополнительно можно [настроить](./configuration.md) поставку собственных метрик или [логов в {{ cloud-logging-name }}](./outputs.md#yc_logs_output).
+  
+  После разворачивания ВМ {{ unified-agent-short-name }} запустится автоматически и начнет передавать базовые метрики ВМ в сервис {{ monitoring-full-name }}.
   
   Обновление и поддержка агента выполняется самостоятельно.
   

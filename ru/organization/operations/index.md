@@ -19,8 +19,15 @@ description: "Из статьи вы узнаете, как работать с 
 * [{#T}](add-role.md).
 * [{#T}](edit-account.md).
 * [{#T}](leave-organization.md).
-* [{#T}](manage-groups.md).
 * [{#T}](subscribe-user-for-notifications.md).
+
+## Управление группами пользователей {#manage-groups}
+
+* [{#T}](create-group.md).
+* [{#T}](add-member-group.md).
+* [{#T}](edit-group.md).
+* [{#T}](access-manage-group.md).
+* [{#T}](access-group.md).
 
 ## Управление федерациями {#manage-feds}
 
