@@ -5517,7 +5517,9 @@ default:
           action_add-acl: Назначить роли
           action_add-member: Добавить участника
           action_create: Создать группу
+          action_delete-group: Удалить
           action_edit: Изменить
+          action_remove-user: Исключить из группы
           action_update-acl: Настроить доступ
           title_tab-access: Права доступа к группе
           title_tab-members: Участники

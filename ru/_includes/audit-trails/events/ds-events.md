@@ -2,6 +2,7 @@
 --- | ---
 `CancelJob` | Отмена задания
 `CloneJob` | Клонирование задания
+`CloseProject` | Закрытие проекта
 `CreateCommunity` | Создание сообщества
 `CreateJob` | Создание задания
 `CreateProject` | Создание проекта
@@ -10,6 +11,7 @@
 `DeleteJobData` | Удаление данных задания
 `DeleteProject` | Удаление проекта
 `ExecuteJob` | Запуск выполнения задания
+`OpenProject` | Открытие проекта
 `SetCommunityAccessBindings` | Назначение прав доступа для сообщества
 `SetProjectAccessBindings` | Назначение прав доступа для проекта
 `UpdateJobDataTtl` | Изменение времени жизни данных задания

@@ -1,6 +1,6 @@
 {% list tabs group=instructions %}
 
-* Интерфейс {{ org-name }} {#cloud-org}
+- Интерфейс {{ org-name }} {#cloud-org}
 
     1. [Войдите в аккаунт]({{ link-passport-login }}) администратора организации.
     1. Перейдите в сервис [{{org-full-name}}]({{ link-org-main }}).
@@ -11,7 +11,7 @@
     1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите необходимые роли.
     1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
-* CLI {#cli}
+- CLI {#cli}
 
     {% include [cli-install](../cli-install.md) %}
 
@@ -28,49 +28,36 @@
     1. Получите список групп пользователей вместе с идентификаторами этих групп:
 
         ```bash
-        yc organization-manager group list --organization-id <идентификатор_организации>
+        yc organization-manager group list \
+          --organization-id <идентификатор_организации>
         ```
 
     1. Получите [идентификатор пользователя](../../iam/operations/users/get.md), [сервисного аккаунта](../../iam/operations/sa/get-id.md) или группы пользователей, которым назначаете роль.
-    1. С помощью одной из команд ниже назначьте роль:
+    1. С помощью команды `yc organization-manager group add-access-binding` назначьте роль:
 
-        * Пользователю с аккаунтом на Яндексе:
+        ```bash
+        yc organization-manager group add-access-binding \
+          --id <идентификатор_группы> \
+          --role <роль> \
+          --user-account-id <идентификатор_пользователя> \
+          --federation-users <идентификатор_пользователя> \
+          --service-account-id <идентификатор_сервисного_аккаунта> \
+          --subject group: <идентификатор_группы>
+        ```
 
-            ```bash
-            yc organization-manager group add-access-binding \
-               --id <идентификатор_группы> \
-               --role <роль> \
-               --user-account-id <идентификатор_пользователя>
-            ```
+        Где:
 
-        * Федеративному пользователю:
+        * `--id` — идентификатор группы пользователей.
+        * `--role` — идентификатор роли.
 
-            ```bash
-            yc organization-manager group add-access-binding \
-               --id <идентификатор_группы> \
-               --role <роль> \
-               --subject federatedUser:<идентификатор_пользователя>
-            ```
+        Идентификатор объекта, которому назначается роль:
 
-        * Сервисному аккаунту:
+        * `--user-account-id` — идентификатор аккаунта на Яндексе.
+        * `--federation-users` — идентификатор федеративного пользователя.
+        * `--service-account-id` — идентификатор сервисного аккаунта.
+        * `--subject group` — идентификатор группы.
 
-            ```bash
-            yc organization-manager group add-access-binding \
-               --id <идентификатор_группы> \
-               --role <роль> \
-               --service-account-id <идентификатор_сервисного_аккаунта>
-            ```
-
-        * Группе пользователей:
-
-            ```bash
-            yc organization-manager group add-access-binding \
-               --id <идентификатор_группы> \
-               --role <роль> \
-               --subject group:<идентификатор_группы>
-            ```
-
-* API {#api}
+- API {#api}
 
    Воспользуйтесь методом [updateAccessBindings](../../organization/api-ref/Group/updateAccessBindings.md) для ресурса [Group](../../organization/api-ref/Group/index.md) или вызовом gRPC API [GroupService/UpdateAccessBindings](../../organization/api-ref/grpc/group_service.md#UpdateAccessBindings) и передайте в запросе:
 

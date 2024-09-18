@@ -11,7 +11,8 @@
 
 * [{{ mpg-full-name }}](../../managed-postgresql/operations/cluster-list.md);
 * [{{ mch-full-name }}](../../managed-clickhouse/operations/cluster-list.md);
-* [{{ mmy-full-name }}](../../managed-mysql/operations/cluster-list.md).
+* [{{ mmy-full-name }}](../../managed-mysql/operations/cluster-list.md);
+* [{{ mrd-full-name }}](../../managed-redis/operations/cluster-list.md).
 
 {% include notitle [connect-to-cluster](../../_includes/websql/connect-to-cluster.md) %}
 
