@@ -40,6 +40,8 @@ items:
             href: operations/connect/non-sharded.md
           - name: Подключение к шардированному кластеру
             href: operations/connect/sharded.md
+          - name: Запросы в {{ websql-full-name }}
+            href: operations/web-sql-query.md
       - name: Шардирование и отказоустойчивость
         items:
           - name: Управление шардами

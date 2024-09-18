@@ -10,6 +10,7 @@
 
 Ниже описаны события для сервисов:
 
+* [{{ certificate-manager-full-name }}](#certificate-manager)
 * [{{ dns-full-name }}](#dns)
 * [{{ compute-full-name }}](#compute)
 * [{{ iam-full-name }}](#iam)
@@ -23,6 +24,12 @@
 * [{{ sws-full-name }}](#sws)
 * [{{ wiki-full-name }}](#wiki)
 * [{{ websql-full-name }}](#websql)
+
+## {{ certificate-manager-full-name }} {#certificate-manager}
+
+Имя сервиса — `certificatemanager`.
+
+{% include [certificate-manager-events-dp](../../_includes/audit-trails/events/certificate-manager-events-dp.md) %}
 
 ## {{ dns-full-name }} {#dns}
 

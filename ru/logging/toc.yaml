@@ -60,6 +60,10 @@ items:
         href: tutorials/vm-fluent-bit-logging.md
       - name: Передача логов с COI в Cloud Logging
         href: tutorials/coi-fluent-bit-logging.md
+      - name: >-
+          Передача логов через HTTP-вход {{ unified-agent-short-name }} в {{
+          cloud-logging-name }}
+        href: tutorials/ua-http-logging.md
       - name: Репликация логов в {{ objstorage-name }} с помощью Fluent Bit
         href: tutorials/replicate-logs-to-storage.md
       - name: Репликация логов в {{ objstorage-name }} с помощью {{ yds-name }}

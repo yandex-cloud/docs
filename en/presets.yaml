@@ -5504,7 +5504,9 @@ default:
           action_add-acl: Assign roles
           action_add-member: Add member
           action_create: Create group
+          action_delete-group: Delete
           action_edit: Edit
+          action_remove-user: Remove from group
           action_update-acl: Configure access
           title_tab-access: Group access rights
           title_tab-members: Members

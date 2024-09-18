@@ -249,7 +249,7 @@
 
 ## Настройте сопоставление групп на стороне федерации {#org-mapping}
 
-1. [Создайте группу пользователей](../../../operations/manage-groups.md#create-group) `yc_demo_group` в [{{ org-full-name }}]({{ link-org-main }}) и [выдайте ей права](../../../operations/manage-groups.md#access) на просмотр ресурсов в облаке или отдельном каталоге (роль `viewer`).
+1. [Создайте группу пользователей](../../../operations/create-group.md) `yc_demo_group` в [{{ org-full-name }}]({{ link-org-main }}) и [выдайте ей права](../../../operations/access-group.md) на просмотр ресурсов в облаке или отдельном каталоге (роль `viewer`).
 1. На панели слева выберите раздел [{{ ui-key.yacloud_org.pages.federations }}]({{ link-org-federations }}) ![icon-federation](../../../../_assets/organization/icon-federation.svg).
 1. Выберите созданную ранее федерацию `demo-federation` и перейдите на вкладку **{{ ui-key.yacloud_org.form.group-mapping.note.tab-idp }}**.
 1. Включите сопоставление групп в поле **{{ ui-key.yacloud_org.form.group-mapping.field.idp }}**.
