@@ -254,6 +254,10 @@ default:
   link-app-android: https://play.google.com/store/apps/details?id=ru.yandex.cloud
   link-app-ios: https://apps.apple.com/ru/app/yandex-cloud/id1515465314
   link-auth-logout: https://auth.yandex.cloud/logout
+  link-ca-jb-2024-1: >-
+    https://storage.yandexcloud.net/yandex-code-assistant/plugins/jetbrains/yandex-code-assist.2024.1.zip
+  link-ca-jb-2024-2: >-
+    https://storage.yandexcloud.net/yandex-code-assistant/plugins/jetbrains/yandex-code-assist.2024.2.zip
   link-ca-vscode: >-
     https://storage.yandexcloud.net/yandex-code-assistant/plugins/vscode/yandex-code-assist.vsix
   link-calc: https://yandex.cloud/ru/prices#calculator
@@ -7373,6 +7377,8 @@ default:
             label_fixed-lifetime: фиксированный
             label_range-lifetime: переменный
           field_diskSizeLimit: Максимальный размер хранилища
+          field_emergencyUsageThreshold: Незамедлительно при заполненности более
+          field_plannedUsageThreshold: В окно обслуживания при заполненности более
           field_thresholds: Увеличивать размер
           hosts:
             action_add-host: Создать хост
@@ -9405,6 +9411,7 @@ default:
           value: Значение
         port: Порт
         prefix: Префикс
+        projects: Проекты
         projects-resources: Собственные
         resize: Изменить размер
         resources: Ресурсы
@@ -9917,7 +9924,7 @@ default:
     yc_loki:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/grafana/loki/chart/loki
-        tag: 1.1.2
+        tag: 1.2.0-7
     yc_metric-provider:
       helmChart:
         name: >-

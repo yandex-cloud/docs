@@ -30,7 +30,7 @@ items:
         href: tutorials/index.md
       - name: CAPTCHA in mobile apps
         items:
-          - name: Adding HTML code to enable {{ captcha-full-name }}
+          - name: Adding HTML code to work with {{ captcha-full-name }}
             href: tutorials/mobile-app/website.md
           - name: CAPTCHA in Android apps
             items:
@@ -48,6 +48,8 @@ items:
         href: concepts/domain-validation.md
       - name: Challenge types
         href: concepts/tasks.md
+      - name: Challenge options
+        href: concepts/captcha-variants.md
       - name: Widget connection methods
         href: concepts/widget-methods.md
       - name: CAPTCHA keys

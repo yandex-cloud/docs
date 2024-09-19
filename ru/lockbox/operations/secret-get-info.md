@@ -167,7 +167,7 @@ title: "Как получить информацию о секрете в {{ loc
        secret_id  = "<идентификатор_секрета>"
        version_id = "<идентификатор_версии>"
      }
-     
+
      output "my_secret_entries" {
        value = data.yandex_lockbox_secret_version.my_secret_version.entries
      }

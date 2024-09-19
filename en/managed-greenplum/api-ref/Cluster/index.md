@@ -419,8 +419,8 @@ networkId | **string**<br><p>ID of the cloud network that the cluster belongs to
 health | **string**<br><p>Aggregated cluster health.</p> <ul> <li>HEALTH_UNKNOWN: Health of the cluster is unknown (``health`` for every host in the cluster is UNKNOWN).</li> <li>ALIVE: Cluster is working normally (``health`` for every host in the cluster is ALIVE).</li> <li>DEAD: Cluster is inoperable (``health`` for every host in the cluster is DEAD).</li> <li>DEGRADED: Cluster is working below capacity (``health`` for at least one host in the cluster is not ALIVE).</li> <li>UNBALANCED: Cluster is working below capacity (``health`` for at least one host in the cluster is UNBALANCED).</li> </ul> 
 status | **string**<br><p>Current state of the cluster.</p> <ul> <li>STATUS_UNKNOWN: Cluster state is unknown.</li> <li>CREATING: Cluster is being created.</li> <li>RUNNING: Cluster is running normally.</li> <li>ERROR: Cluster has encountered a problem and cannot operate.</li> <li>UPDATING: Cluster is being updated.</li> <li>STOPPING: Cluster is stopping.</li> <li>STOPPED: Cluster has stopped.</li> <li>STARTING: Cluster is starting.</li> </ul> 
 maintenanceWindow | **object**<br><p>A Greenplum® cluster maintenance window. Should be defined by either one of the two options.</p> 
-maintenanceWindow.<br>anytime | **object** <br>`maintenanceWindow` includes only one of the fields `anytime`, `weeklyMaintenanceWindow`<br><br><p>An any-time maintenance window.</p> 
-maintenanceWindow.<br>weeklyMaintenanceWindow | **object** <br>`maintenanceWindow` includes only one of the fields `anytime`, `weeklyMaintenanceWindow`<br><br><p>A weekly maintenance window.</p> 
+maintenanceWindow.<br>anytime | **object**<br>An any-time maintenance window. <br>`maintenanceWindow` includes only one of the fields `anytime`, `weeklyMaintenanceWindow`<br>
+maintenanceWindow.<br>weeklyMaintenanceWindow | **object**<br>A weekly maintenance window. <br>`maintenanceWindow` includes only one of the fields `anytime`, `weeklyMaintenanceWindow`<br>
 maintenanceWindow.<br>weeklyMaintenanceWindow.<br>day | **string**<br><p>Day of the week.</p> <ul> <li>MON: Monday</li> <li>TUE: Tuesday</li> <li>WED: Wednesday</li> <li>THU: Thursday</li> <li>FRI: Friday</li> <li>SAT: Saturday</li> <li>SUN: Sunday</li> </ul> 
 maintenanceWindow.<br>weeklyMaintenanceWindow.<br>hour | **string** (int64)<br><p>Hour of the day in the UTC timezone.</p> <p>Acceptable values are 1 to 24, inclusive.</p> 
 plannedOperation | **object**<br><p>Maintenance operation planned at nearest <a href="/docs/managed-greenplum/api-ref/Cluster#representation">maintenanceWindow</a>.</p> 
@@ -431,7 +431,7 @@ userName | **string**<br><p>Owner user name.</p>
 deletionProtection | **boolean** (boolean)<br><p>Determines whether the cluster is protected from being deleted.</p> 
 hostGroupIds[] | **string**<br><p>Host groups hosting VMs of the cluster.</p> 
 clusterConfig | **object**<br><p>Greenplum® and Odyssey® configuration.</p> 
-clusterConfig.<br>pool | **object**
+clusterConfig.<br>pool | **object**<br>Odyssey® pool settings.
 clusterConfig.<br>pool.<br>effectiveConfig | **object**<br><p>Required. Effective settings for an Odyssey® pooler (a combination of settings defined in ``userConfig`` and ``defaultConfig``).</p> 
 clusterConfig.<br>pool.<br>effectiveConfig.<br>mode | **string**<br><p>Route server pool mode.</p> <ul> <li>SESSION: Assign server connection to a client until it disconnects. Default value.</li> <li>TRANSACTION: Assign server connection to a client for a transaction processing.</li> </ul> 
 clusterConfig.<br>pool.<br>effectiveConfig.<br>size | **integer** (int64)<br><p>The number of servers in the server pool. Clients are placed in a wait queue when all servers are busy.</p> <p>Set to zero to disable the limit.</p> 
@@ -444,7 +444,7 @@ clusterConfig.<br>pool.<br>defaultConfig | **object**<br><p>Default configuratio
 clusterConfig.<br>pool.<br>defaultConfig.<br>mode | **string**<br><p>Route server pool mode.</p> <ul> <li>SESSION: Assign server connection to a client until it disconnects. Default value.</li> <li>TRANSACTION: Assign server connection to a client for a transaction processing.</li> </ul> 
 clusterConfig.<br>pool.<br>defaultConfig.<br>size | **integer** (int64)<br><p>The number of servers in the server pool. Clients are placed in a wait queue when all servers are busy.</p> <p>Set to zero to disable the limit.</p> 
 clusterConfig.<br>pool.<br>defaultConfig.<br>clientIdleTimeout | **integer** (int64)<br><p>Server pool idle timeout, in seconds.</p> <p>A server connection closes after being idle for the specified time.</p> <p>Set to zero to disable the limit.</p> 
-clusterConfig.<br>backgroundActivities | **object**
+clusterConfig.<br>backgroundActivities | **object**<br>Managed Greenplum® background tasks configuration.
 clusterConfig.<br>backgroundActivities.<br>tableSizes | **object**<br><p>Enables scripts that collects tables sizes to ``*_sizes`` tables in ``mdb_toolkit`` schema.</p> 
 clusterConfig.<br>backgroundActivities.<br>tableSizes.<br>starts[] | **object**<br><p>The maximum number of elements is 4.</p> 
 clusterConfig.<br>backgroundActivities.<br>tableSizes.<br>starts[].<br>hours | **string** (int64)<br><p>Acceptable values are 0 to 23, inclusive.</p> 

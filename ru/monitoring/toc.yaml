@@ -252,13 +252,13 @@ items:
         href: metrics-ref/ydb-ref.md
       - name: '{{ message-queue-name }}'
         href: metrics-ref/message-queue-ref.md
-      - name: '{{ monitoring-name}}'
+      - name: '{{ monitoring-name }}'
         href: metrics-ref/monitoring-ref.md
       - name: '{{ network-load-balancer-name}}'
         href: metrics-ref/network-load-balancer-ref.md
       - name: '{{ objstorage-name }}'
         href: metrics-ref/storage-ref.md
-      - name: '{{ captcha-name}}'
+      - name: '{{ captcha-name }}'
         href: metrics-ref/captcha-ref.md
       - name: '{{ sws-name }}'
         href: metrics-ref/smartwebsecurity-ref.md

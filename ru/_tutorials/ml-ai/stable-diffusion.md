@@ -99,3 +99,8 @@
 ## Как удалить созданные ресурсы {#clear-out}
 
 Если вы больше не планируете работать с проектом `Stable Diffusion`, [удалите его](../../datasphere/operations/projects/delete.md#delete-project).
+
+#### См. также {#see-also}
+
+* [{#T}](../../datasphere/operations/data/models.md)
+* [{#T}](../../datasphere/tutorials/batch-code-execution.md)

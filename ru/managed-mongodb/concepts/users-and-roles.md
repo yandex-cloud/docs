@@ -16,7 +16,7 @@
 
 ### mdbDbAdmin {#mdbDbAdmin}
 
-Роль администратора базы данных. Предоставляет все права роли [readWrite](#readWrite), а также права, необходимые для администрирования базы данных:
+Роль администратора базы данных. Предоставляет права роли [readWrite](#readWrite), а также права, необходимые для администрирования базы данных:
 
   * [collMod](https://docs.mongodb.com/manual/reference/privilege-actions/#collMod)
   * [planCacheWrite](https://docs.mongodb.com/manual/reference/privilege-actions/#planCacheWrite)

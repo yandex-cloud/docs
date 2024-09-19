@@ -250,7 +250,7 @@ description: "Пошаговая инструкция по изменению г
               text: <данные_к_эндпоинту>
             receive:
               text: <данные_от_эндпоинта>
-      enable_proxy_protocol: true    
+      enable_proxy_protocol: true
   created_at: "2022-04-06T09:17:57.104324513Z"
   ```
 
@@ -488,7 +488,7 @@ description: "Пошаговая инструкция по изменению г
          --name=<имя_удаляемого_бэкенда>
        ```
 
-     * gRPC-бэкенд
+     * gRPC-бэкенд:
 
        ```bash
        yc alb backend-group delete-grpc-backend \
@@ -534,12 +534,12 @@ description: "Пошаговая инструкция по изменению г
          target_group_ids       = ["<идентификатор_целевой_группы>"]
          load_balancing_config {
            panic_threshold      = 90
-         }    
+         }
          healthcheck {
            timeout              = "10s"
            interval             = "2s"
            healthy_threshold    = 10
-           unhealthy_threshold  = 15 
+           unhealthy_threshold  = 15
            http_healthcheck {
              path               = "/"
            }

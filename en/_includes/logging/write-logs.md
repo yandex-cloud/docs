@@ -2,45 +2,45 @@
 
 - CLI {#cli}
 
-   {% include [cli-install](../cli-install.md) %}
+    {% include [cli-install](../cli-install.md) %}
 
-   {% include [default-catalogue](../default-catalogue.md) %}
+    {% include [default-catalogue](../default-catalogue.md) %}
 
-   To add records to a log group, run the command:
+    To add records to a log group, run this command:
 
-   
-   * Linux, macOS:
-      ```
-      yc logging write \
-        --group-name=default \
-        --message="My message" \
-        --level=INFO \
-        --json-payload='{"request_id": "1234"}'
-      ```
-   * Windows (cmd):
-      ```
-      yc logging write ^
-        --group-name=default ^
-        --message="My message" ^
-        --level=INFO ^
-        --json-payload="{"request_id": "1234"}"
-      ```
-   * Windows (PowerShell):
-      ```
-      yc logging write `
-        --group-name=default `
-        --message="My message" `
-        --level=INFO `
-        --json-payload='"{ \"request_id\": \"1234\" }"'
-      ```
+    
+    * Linux, MacOS:
+        ```bash
+        yc logging write \
+          --group-name=default \
+          --message="My message" \
+          --level=INFO \
+          --json-payload='{"request_id": "1234"}'
+        ```
+    * Windows (cmd):
+        ```cmd
+        yc logging write ^
+          --group-name=default ^
+          --message="My message" ^
+          --level=INFO ^
+          --json-payload="{"request_id": "1234"}"
+        ```
+    * Windows (PowerShell):
+        ```powershell
+        yc logging write `
+          --group-name=default `
+          --message="My message" `
+          --level=INFO `
+          --json-payload='"{ \"request_id\": \"1234\" }"'
+        ```
 
 
-      Where:
+        Where:
 
-      * `--group-name`: Name of the log group to add records to. If this parameter is not specified, records are added to the [default log group](../../logging/concepts/log-group.md) in the current folder. Instead of `--group-name`, you can specify `--group-id`, which is the group ID.
-      * `--message`: Message.
-      * `--level`: Logging level.
-      * `--json-payload`: Additional information in JSON format.
+        * `--group-name`: Name of the log group to add records to. If this parameter is not specified, records are added to the [default log group](../../logging/concepts/log-group.md) in the current folder. You can also specify `--group-id` instead of `--group-name`. 
+        * `--message`: Message.
+        * `--level`: Logging level.
+        * `--json-payload`: Additional information in JSON format.
 
    {% note info %}
 
@@ -50,6 +50,6 @@
 
 - API {#api}
 
-   To add records to the log group, use the [LogIngestionService/Write](../../logging/api-ref/grpc/log_ingestion_service.md#Write) gRPC API call.
+  To add records to the log group, use the [LogIngestionService/Write](../../logging/api-ref/grpc/log_ingestion_service.md#Write) gRPC API call.
 
 {% endlist %}

@@ -40,9 +40,9 @@ name | **string**<br><p>Sink name.</p>
 description | **string**<br><p>Sink description.</p> 
 labels | **object**<br><p>Sink labels.</p> 
 serviceAccountId | **string**<br><p>Logs will be written to the sink on behalf of this service account</p> 
-yds | **object** <br> includes only one of the fields `yds`, `s3`<br>
+yds | **object**<br>Yandex data stream <br> includes only one of the fields `yds`, `s3`<br>
 yds.<br>streamName | **string**<br><p>Fully qualified name of data stream</p> <p>The maximum string length in characters is 512.</p> 
-s3 | **object** <br> includes only one of the fields `yds`, `s3`<br>
+s3 | **object**<br>Object storage <br> includes only one of the fields `yds`, `s3`<br>
 s3.<br>bucket | **string**<br><p>Object storage bucket</p> <p>Value must match the regular expression ``[a-zA-Z0-9][-a-zA-Z0-9.]{2,62}``.</p> 
 s3.<br>prefix | **string**<br><p>Prefix to use for saved log object names</p> <p>The maximum string length in characters is 1024.</p> 
 

@@ -69,7 +69,7 @@ To create a digital signature key pair:
 
       Result:
 
-      ```bash
+      ```text
       id: abj9g2dil5sj********
       folder_id: b1gt6g8ht345********
       created_at: "2023-08-16T09:06:57Z"
@@ -119,18 +119,18 @@ To update a digital signature key pair:
       ```bash
       yc kms asymmetric-signature-key update \
         --id <key_pair_ID> \
-        --new-name <key_pair_new_name> \
+        --new-name <new_key_pair_name> \
         --deletion-protection
       ```
 
       Where:
       * `--id`: ID of the digital signature key pair.
       * `--new-name`: New name for the key pair.
-      * `--deletion-protection`: Flag to enable deletion protection. To disable the key pair's deletion protection, use the `--no-deletion-protection` flag.
+      * `--deletion-protection`: Flag to enable deletion protection. To disable the key pair deletion protection, use the `--no-deletion-protection` flag.
 
       Result:
 
-      ```bash
+      ```text
       id: abj9g2dil5sj********
       folder_id: b1gt6g8ht345********
       created_at: "2023-08-16T09:06:57Z"
@@ -184,7 +184,7 @@ To delete a digital signature key pair:
 
       Result:
 
-      ```bash
+      ```text
       done (1s)
       id: abj9g2dil5sj********
       folder_id: b1gt6g8ht345********
