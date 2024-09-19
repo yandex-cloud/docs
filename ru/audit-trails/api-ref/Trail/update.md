@@ -234,9 +234,9 @@ filteringPolicy.<br>dataEventsFilters[].<br>service | **string**<br><p>Required.
 filteringPolicy.<br>dataEventsFilters[].<br>resourceScopes[] | **object**<br><p>Required. A list of resources which will be monitored by the trail</p> <p>The number of elements must be in the range 1-1024.</p> 
 filteringPolicy.<br>dataEventsFilters[].<br>resourceScopes[].<br>id | **string**<br><p>Required. ID of the resource</p> <p>The maximum string length in characters is 64.</p> 
 filteringPolicy.<br>dataEventsFilters[].<br>resourceScopes[].<br>type | **string**<br><p>Required. Type of the resource</p> <p>The maximum string length in characters is 50.</p> 
-filteringPolicy.<br>dataEventsFilters[].<br>includedEvents | **object**<br>Explicitly excluded events of specified service New events of the service will be delivered by default <br>`filteringPolicy.dataEventsFilters[]` includes only one of the fields `includedEvents`, `excludedEvents`<br>
+filteringPolicy.<br>dataEventsFilters[].<br>includedEvents | **object**<br>Explicitly included events of specified service New events of the service won't be delivered by default <br>`filteringPolicy.dataEventsFilters[]` includes only one of the fields `includedEvents`, `excludedEvents`<br>
 filteringPolicy.<br>dataEventsFilters[].<br>includedEvents.<br>eventTypes[] | **string**<br><p>Required. The number of elements must be in the range 1-1024.</p> 
-filteringPolicy.<br>dataEventsFilters[].<br>excludedEvents | **object**<br>Explicitly included events of specified service New events of the service won't be delivered by default <br>`filteringPolicy.dataEventsFilters[]` includes only one of the fields `includedEvents`, `excludedEvents`<br>
+filteringPolicy.<br>dataEventsFilters[].<br>excludedEvents | **object**<br>Explicitly excluded events of specified service New events of the service will be delivered by default <br>`filteringPolicy.dataEventsFilters[]` includes only one of the fields `includedEvents`, `excludedEvents`<br>
 filteringPolicy.<br>dataEventsFilters[].<br>excludedEvents.<br>eventTypes[] | **string**<br><p>Required. The number of elements must be in the range 1-1024.</p> 
  
 ## Response {#responses}

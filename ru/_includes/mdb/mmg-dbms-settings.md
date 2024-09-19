@@ -67,7 +67,7 @@
 
     Подробнее см. в [документации {{ MG }}](https://mongodb.com/docs/manual/reference/parameters/#mongodb-parameter-param.enableFlowControl).
 
-  - **Min snapshot history window in seconds**{#setting-min-snapshot-history-window-in-seconds} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+  - **Min snapshot history window in seconds**{#setting-min-snapshot-history-window-in-seconds} {{ tag-all }}
 
     {% note info %}
 

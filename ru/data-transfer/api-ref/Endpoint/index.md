@@ -744,7 +744,7 @@ settings | **object**
 settings.<br>mysqlSource | **object** <br>`settings` includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`<br>
 settings.<br>mysqlSource.<br>connection | **object**<br><p>Database connection settings</p> 
 settings.<br>mysqlSource.<br>connection.<br>mdbClusterId | **string** <br>`settings.mysqlSource.connection` includes only one of the fields `mdbClusterId`, `onPremise`<br><br><p>Managed Service for MySQL cluster ID</p> 
-settings.<br>mysqlSource.<br>connection.<br>onPremise | **object** <br>`settings.mysqlSource.connection` includes only one of the fields `mdbClusterId`, `onPremise`<br>
+settings.<br>mysqlSource.<br>connection.<br>onPremise | **object**<br>Connection options for on-premise MySQL <br>`settings.mysqlSource.connection` includes only one of the fields `mdbClusterId`, `onPremise`<br>
 settings.<br>mysqlSource.<br>connection.<br>onPremise.<br>port | **string** (int64)<br><p>Database port</p> 
 settings.<br>mysqlSource.<br>connection.<br>onPremise.<br>subnetId | **string**<br><p>Network interface for endpoint. If none will assume public ipv4</p> 
 settings.<br>mysqlSource.<br>connection.<br>onPremise.<br>hosts[] | **string**
@@ -770,7 +770,7 @@ settings.<br>mysqlSource.<br>serviceDatabase | **string**<br><p>Database for ser
 settings.<br>postgresSource | **object** <br>`settings` includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`<br>
 settings.<br>postgresSource.<br>connection | **object**<br><p>Database connection settings</p> 
 settings.<br>postgresSource.<br>connection.<br>mdbClusterId | **string** <br>`settings.postgresSource.connection` includes only one of the fields `mdbClusterId`, `onPremise`<br><br><p>Managed Service for PostgreSQL cluster ID</p> 
-settings.<br>postgresSource.<br>connection.<br>onPremise | **object** <br>`settings.postgresSource.connection` includes only one of the fields `mdbClusterId`, `onPremise`<br>
+settings.<br>postgresSource.<br>connection.<br>onPremise | **object**<br>Connection options for on-premise PostgreSQL <br>`settings.postgresSource.connection` includes only one of the fields `mdbClusterId`, `onPremise`<br>
 settings.<br>postgresSource.<br>connection.<br>onPremise.<br>port | **string** (int64)<br><p>Will be used if the cluster ID is not specified.</p> 
 settings.<br>postgresSource.<br>connection.<br>onPremise.<br>subnetId | **string**<br><p>Network interface for endpoint. If none will assume public ipv4</p> 
 settings.<br>postgresSource.<br>connection.<br>onPremise.<br>hosts[] | **string**
@@ -858,7 +858,7 @@ settings.<br>ydsSource.<br>consumer | **string**<br><p>for important streams</p>
 settings.<br>kafkaSource | **object** <br>`settings` includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`<br>
 settings.<br>kafkaSource.<br>connection | **object**<br><p>Connection settings</p> 
 settings.<br>kafkaSource.<br>connection.<br>clusterId | **string** <br>`settings.kafkaSource.connection` includes only one of the fields `clusterId`, `onPremise`<br><br><p>Managed Service for Kafka cluster ID</p> 
-settings.<br>kafkaSource.<br>connection.<br>onPremise | **object** <br>`settings.kafkaSource.connection` includes only one of the fields `clusterId`, `onPremise`<br>
+settings.<br>kafkaSource.<br>connection.<br>onPremise | **object**<br>Connection options for on-premise Kafka <br>`settings.kafkaSource.connection` includes only one of the fields `clusterId`, `onPremise`<br>
 settings.<br>kafkaSource.<br>connection.<br>onPremise.<br>brokerUrls[] | **string**<br><p>Kafka broker URLs</p> 
 settings.<br>kafkaSource.<br>connection.<br>onPremise.<br>subnetId | **string**<br><p>Network interface for endpoint. If none will assume public ipv4</p> 
 settings.<br>kafkaSource.<br>connection.<br>onPremise.<br>tlsMode | **object**<br><p>TLS settings for broker connection. Disabled by default.</p> 
@@ -867,12 +867,12 @@ settings.<br>kafkaSource.<br>connection.<br>onPremise.<br>tlsMode.<br>disabled.<
 settings.<br>kafkaSource.<br>connection.<br>onPremise.<br>tlsMode.<br>enabled | **object** <br>`settings.kafkaSource.connection.onPremise.tlsMode` includes only one of the fields `disabled`, `enabled`<br>
 settings.<br>kafkaSource.<br>connection.<br>onPremise.<br>tlsMode.<br>enabled.<br>caCertificate | **string**<br><p>CA certificate</p> <p>X.509 certificate of the certificate authority which issued the server's certificate, in PEM format. When CA certificate is specified TLS is used to connect to the server.</p> 
 settings.<br>kafkaSource.<br>auth | **object**<br><p>Authentication settings</p> 
-settings.<br>kafkaSource.<br>auth.<br>sasl | **object** <br>`settings.kafkaSource.auth` includes only one of the fields `sasl`, `noAuth`<br>
+settings.<br>kafkaSource.<br>auth.<br>sasl | **object**<br>Authentication with SASL <br>`settings.kafkaSource.auth` includes only one of the fields `sasl`, `noAuth`<br>
 settings.<br>kafkaSource.<br>auth.<br>sasl.<br>user | **string**<br><p>User name</p> 
 settings.<br>kafkaSource.<br>auth.<br>sasl.<br>mechanism | **string**<br><p>SASL mechanism for authentication</p> 
 settings.<br>kafkaSource.<br>auth.<br>sasl.<br>password | **object**<br><p>Password for user</p> 
 settings.<br>kafkaSource.<br>auth.<br>sasl.<br>password.<br>raw | **string**<br><p>Raw secret value</p> 
-settings.<br>kafkaSource.<br>auth.<br>noAuth | **object** <br>`settings.kafkaSource.auth` includes only one of the fields `sasl`, `noAuth`<br><br><p>No authentication</p> 
+settings.<br>kafkaSource.<br>auth.<br>noAuth | **object**<br>No authentication <br>`settings.kafkaSource.auth` includes only one of the fields `sasl`, `noAuth`<br>
 settings.<br>kafkaSource.<br>securityGroups[] | **string**<br><p>Security groups</p> 
 settings.<br>kafkaSource.<br>topicName | **string**<br><p>Full source topic name Deprecated in favor of topic names</p> 
 settings.<br>kafkaSource.<br>transformer | **object**<br><p>Data transformation rules</p> 
@@ -916,7 +916,7 @@ settings.<br>mongoSource | **object** <br>`settings` includes only one of the fi
 settings.<br>mongoSource.<br>connection | **object**
 settings.<br>mongoSource.<br>connection.<br>connectionOptions | **object**
 settings.<br>mongoSource.<br>connection.<br>connectionOptions.<br>user | **string**<br><p>User name</p> 
-settings.<br>mongoSource.<br>connection.<br>connectionOptions.<br>password | **object**
+settings.<br>mongoSource.<br>connection.<br>connectionOptions.<br>password | **object**<br>Password for user
 settings.<br>mongoSource.<br>connection.<br>connectionOptions.<br>password.<br>raw | **string**<br><p>Raw secret value</p> 
 settings.<br>mongoSource.<br>connection.<br>connectionOptions.<br>authSource | **string**<br><p>Database name associated with the credentials</p> 
 settings.<br>mongoSource.<br>connection.<br>connectionOptions.<br>mdbClusterId | **string** <br>`settings.mongoSource.connection.connectionOptions` includes only one of the fields `mdbClusterId`, `onPremise`<br>
@@ -1072,14 +1072,14 @@ settings.<br>kafkaTarget.<br>auth.<br>sasl.<br>password.<br>raw | **string**<br>
 settings.<br>kafkaTarget.<br>auth.<br>noAuth | **object**<br>No authentication <br>`settings.kafkaTarget.auth` includes only one of the fields `sasl`, `noAuth`<br>
 settings.<br>kafkaTarget.<br>securityGroups[] | **string**<br><p>Security groups</p> 
 settings.<br>kafkaTarget.<br>topicSettings | **object**<br><p>Target topic settings</p> 
-settings.<br>kafkaTarget.<br>topicSettings.<br>topic | **object** <br>`settings.kafkaTarget.topicSettings` includes only one of the fields `topic`, `topicPrefix`<br>
+settings.<br>kafkaTarget.<br>topicSettings.<br>topic | **object**<br>Full topic name <br>`settings.kafkaTarget.topicSettings` includes only one of the fields `topic`, `topicPrefix`<br>
 settings.<br>kafkaTarget.<br>topicSettings.<br>topic.<br>topicName | **string**<br><p>Topic name</p> 
 settings.<br>kafkaTarget.<br>topicSettings.<br>topic.<br>saveTxOrder | **boolean** (boolean)<br><p>Save transactions order Not to split events queue into separate per-table queues.</p> 
 settings.<br>kafkaTarget.<br>topicSettings.<br>topicPrefix | **string** <br>`settings.kafkaTarget.topicSettings` includes only one of the fields `topic`, `topicPrefix`<br><br><p>Topic prefix</p> <p>Analogue of the Debezium setting database.server.name. Messages will be sent to topic with name &lt;topic_prefix&gt;.<schema>.&lt;table_name&gt;.</p> 
 settings.<br>kafkaTarget.<br>serializer | **object**<br><p>Data serialization format settings</p> <p>Data serialization format</p> 
-settings.<br>kafkaTarget.<br>serializer.<br>serializerAuto | **object** <br>`settings.kafkaTarget.serializer` includes only one of the fields `serializerAuto`, `serializerJson`, `serializerDebezium`<br>
-settings.<br>kafkaTarget.<br>serializer.<br>serializerJson | **object** <br>`settings.kafkaTarget.serializer` includes only one of the fields `serializerAuto`, `serializerJson`, `serializerDebezium`<br>
-settings.<br>kafkaTarget.<br>serializer.<br>serializerDebezium | **object** <br>`settings.kafkaTarget.serializer` includes only one of the fields `serializerAuto`, `serializerJson`, `serializerDebezium`<br>
+settings.<br>kafkaTarget.<br>serializer.<br>serializerAuto | **object**<br>Select the serialization format automatically <br>`settings.kafkaTarget.serializer` includes only one of the fields `serializerAuto`, `serializerJson`, `serializerDebezium`<br>
+settings.<br>kafkaTarget.<br>serializer.<br>serializerJson | **object**<br>Serialize data in json format <br>`settings.kafkaTarget.serializer` includes only one of the fields `serializerAuto`, `serializerJson`, `serializerDebezium`<br>
+settings.<br>kafkaTarget.<br>serializer.<br>serializerDebezium | **object**<br>Serialize data in debezium format <br>`settings.kafkaTarget.serializer` includes only one of the fields `serializerAuto`, `serializerJson`, `serializerDebezium`<br>
 settings.<br>kafkaTarget.<br>serializer.<br>serializerDebezium.<br>serializerParameters[] | **object**<br><p>Settings of sterilization parameters as key-value pairs</p> 
 settings.<br>kafkaTarget.<br>serializer.<br>serializerDebezium.<br>serializerParameters[].<br>key | **string**<br><p>Name of the serializer parameter</p> 
 settings.<br>kafkaTarget.<br>serializer.<br>serializerDebezium.<br>serializerParameters[].<br>value | **string**<br><p>Value of the serializer parameter</p> 

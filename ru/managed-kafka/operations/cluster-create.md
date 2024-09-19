@@ -56,6 +56,10 @@
      * Выберите объем хранилища, который будет использоваться для данных.
 
   
+  1. В блоке **{{ ui-key.yacloud.mdb.cluster.section_disk-scaling }}** задайте [пороги заполненности](../concepts/storage.md#auto-rescale) хранилища, при достижении которых его размер будет увеличиваться: 
+
+     {% include [autoscale-settings](../../_includes/mdb/mkf/autoscale-settings.md) %}
+     
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**:
      1. Выберите одну или несколько [зон доступности](../../overview/concepts/geo-scope.md), в которых нужно разместить брокеры {{ KF }}. Если создать кластер {{ mkf-name }} с одной зоной доступности, в дальнейшем увеличить количество зон и брокеров будет невозможно.
      1. Выберите [сеть](../../vpc/concepts/network.md#network).
@@ -716,7 +720,7 @@
     environment         = "PRODUCTION"
     name                = "mykf"
     network_id          = yandex_vpc_network.mynet.id
-    subnet_ids          = yandex_vpc_subnet.mysubnet.id
+    subnet_ids          = [ yandex_vpc_subnet.mysubnet.id ]
     security_group_ids  = [ yandex_vpc_security_group.mykf-sg.id ]
     deletion_protection = true
 

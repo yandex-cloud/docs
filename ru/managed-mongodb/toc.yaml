@@ -110,7 +110,7 @@ items:
         href: concepts/storage.md
       - name: Резервные копии
         href: concepts/backup.md
-      - name: Репликация
+      - name: Репликация и отказоустойчивость
         href: concepts/replication.md
       - name: Шардирование
         href: concepts/sharding.md

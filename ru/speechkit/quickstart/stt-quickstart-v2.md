@@ -1,13 +1,11 @@
 # Как распознать длинные аудиофайлы в {{ speechkit-name }}
 
-Сервис позволяет распознавать речь [различными способами](../stt/index.md#stt-ways). В примере ниже аудиофайл распознается с помощью [асинхронного распознавания](../stt/transcribation.md). В нем действуют ограничения:
+Сервис позволяет распознавать речь [различными способами](../stt/index.md#stt-ways). В примере аудиофайл распознается с помощью [асинхронного распознавания](../stt/transcribation.md). Асинхронное распознавание доступно в API v3 и API v2. Для асинхронного распознавания действуют ограничения:
 
 * максимальная длительность аудио — {{ stt-long-audioLength }};
 * максимальный размер файла — {{ stt-long-fileSize }}.
 
-Для асинхронного распознавания поддерживаются две версии API: v3 и v2. Ниже рассмотрено, как выполнить распознавание речи с помощью обеих версий.
-
-Для работы с API в примере ниже используется утилита [cURL](https://curl.se/). Если вы хотите использовать Python-скрипт для работы с API, обратитесь к [практическим руководствам](../tutorials/index.md#async-stt).
+Для работы с API в примере используется утилита [cURL](https://curl.se/). Если вы хотите использовать Python-скрипт для работы с API, обратитесь к [практическим руководствам](../tutorials/index.md#async-stt).
 
 ## Перед началом работы {#before-you-begin}
 
@@ -21,7 +19,7 @@
    {% endnote %}
 
 1. [Назначьте](../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту роли `storage.uploader` и `ai.speechkit-stt.user` на каталог, в котором вы ранее создали бакет.
-1. [Получите API-ключ](../../iam/operations/api-key/create.md) для созданного сервисного аккаунта.
+1. [Получите API-ключ](../../iam/operations/api-key/create.md) или [IAM-токен](../../iam/operations/iam-token/create-for-sa.md) для созданного сервисного аккаунта.
 1. Скачайте пример аудиофайла:
 
    * для API v3 — [файл WAV](https://{{ s3-storage-host }}/doc-files/speech.wav);
@@ -29,7 +27,17 @@
 
 ## Распознавание речи {#speech-recognition}
 
-{% include [async-recognition](../../_includes/speechkit/async-recognition.md) %}
+{% list tabs %}
+
+- API v3
+
+  {% include [async-recognition](../../_includes/speechkit/async-recognition-v3.md) %}
+
+- API v2
+
+  {% include [async-recognition](../../_includes/speechkit/async-recognition.md) %}
+
+{% endlist %}
 
 #### См. также {#what-is-next}
 

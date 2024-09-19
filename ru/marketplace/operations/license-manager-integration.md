@@ -75,3 +75,7 @@
         1. {% include [lmi-step-3](../../_includes/marketplace/lmi-step-3.md) %}
 
 {% endlist %}
+
+## Тестирование интеграции {#test}
+
+Примеры кода и тестовый сервер для проверки работы интеграции с {{ license-manager }} API доступны в [репозитории на GitHub](https://github.com/yandex-cloud-examples/yc-marketplace-api-usage-examples/blob/main/licensemanager/README.md).

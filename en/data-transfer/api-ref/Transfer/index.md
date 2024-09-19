@@ -2423,7 +2423,7 @@ transformation.<br>transformers[].<br>maskField.<br>tables.<br>includeTables[] |
 transformation.<br>transformers[].<br>maskField.<br>tables.<br>excludeTables[] | **string**<br><p>List of tables that will be excluded to transfer</p> 
 transformation.<br>transformers[].<br>maskField.<br>columns[] | **string**<br><p>Specify the name of the column for data masking (a regular expression).</p> 
 transformation.<br>transformers[].<br>maskField.<br>function | **object**<br><p>Mask function</p> <p>Mask function</p> 
-transformation.<br>transformers[].<br>maskField.<br>function.<br>maskFunctionHash | **object**<br><p>Hash data using HMAC</p> 
+transformation.<br>transformers[].<br>maskField.<br>function.<br>maskFunctionHash | **object**<br>Hash mask function
 transformation.<br>transformers[].<br>maskField.<br>function.<br>maskFunctionHash.<br>userDefinedSalt | **string**<br><p>This string will be used in the HMAC(sha256, salt) function applied to the column data.</p> 
 transformation.<br>transformers[].<br>filterColumns | **object** <br>`transformation.transformers[]` includes only one of the fields `maskField`, `filterColumns`, `renameTables`, `replacePrimaryKey`, `convertToString`, `sharderTransformer`, `tableSplitterTransformer`, `filterRows`<br><br><p>Set up a list of table columns to transfer</p> 
 transformation.<br>transformers[].<br>filterColumns.<br>tables | **object**<br><p>List of the tables to filter using lists of included and excluded tables.</p> <p>Filter tables using lists of included and excluded tables.</p> 

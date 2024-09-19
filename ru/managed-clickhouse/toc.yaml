@@ -256,6 +256,8 @@ items:
                 href: api-ref/Cluster/addHosts.md
               - name: addShard
                 href: api-ref/Cluster/addShard.md
+              - name: addShards
+                href: api-ref/Cluster/addShards.md
               - name: addZookeeper
                 href: api-ref/Cluster/addZookeeper.md
               - name: backup
@@ -276,6 +278,8 @@ items:
                 href: api-ref/Cluster/deleteShard.md
               - name: deleteShardGroup
                 href: api-ref/Cluster/deleteShardGroup.md
+              - name: deleteShards
+                href: api-ref/Cluster/deleteShards.md
               - name: get
                 href: api-ref/Cluster/get.md
               - name: getShard

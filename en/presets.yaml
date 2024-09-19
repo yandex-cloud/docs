@@ -7358,6 +7358,8 @@ default:
             label_fixed-lifetime: fixed
             label_range-lifetime: variable
           field_diskSizeLimit: Maximum storage size
+          field_emergencyUsageThreshold: Immediately when full at more than
+          field_plannedUsageThreshold: In the maintenance window when full at more than
           field_thresholds: Increase size
           hosts:
             action_add-host: Create host
@@ -9392,6 +9394,7 @@ default:
           value: Value
         port: Port
         prefix: Prefix
+        projects: Projects
         projects-resources: Project
         resize: Resize
         resources: Resources
@@ -9904,7 +9907,7 @@ default:
     yc_loki:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/grafana/loki/chart/loki
-        tag: 1.1.2
+        tag: 1.2.0-7
     yc_metric-provider:
       helmChart:
         name: >-

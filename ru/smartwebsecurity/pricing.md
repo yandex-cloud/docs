@@ -29,17 +29,17 @@ editable: false
 - Цены в рублях {#prices-rub}
 
   {% include [rub-requests](../_pricing/smartwebsecurity/rub-requests.md) %}
-  
+
   {% include [sum-cloud-account](../_includes/smartwebsecurity/sum-cloud-account.md) %}
-  
+
   {% include [rub-smartwebsecurity](../_pricing_examples/smartwebsecurity/rub-smartwebsecurity.md) %}
 
 - Цены в тенге {#prices-kzt}
 
   {% include [kzt-requests](../_pricing/smartwebsecurity/kzt-requests.md) %}
-  
+
   {% include [sum-cloud-account](../_includes/smartwebsecurity/sum-cloud-account.md) %}
-  
+
   {% include [kzt-smartwebsecurity](../_pricing_examples/smartwebsecurity/kzt-smartwebsecurity.md) %}
 
 {% endlist %}

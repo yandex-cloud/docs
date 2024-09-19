@@ -11,7 +11,7 @@
 {% list tabs group=instructions %}
 
 - CLI {#cli}
-     
+
   Команда зашифрует открытый текст, переданный в файле `--plaintext-file`, и запишет полученный шифртекст в файл `--ciphertext-file`.
 
   * `--id` —  идентификатор [ключа KMS](../concepts/key.md), должен быть указан один из флагов: `--id` или `--name`.
@@ -35,7 +35,7 @@
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
   {% include [terraform-encryption](../../_includes/kms/terraform-encryption.md) %}
-    
+
 - API {#api}
 
   Чтобы зашифровать данные, воспользуйтесь методом REST API [encrypt](../../kms/api-ref/SymmetricCrypto/encrypt.md) для ресурса [SymmetricCrypto](../../kms/api-ref/SymmetricCrypto/index.md) или вызовом gRPC API [SymmetricCryptoService/Encrypt](../../kms/api-ref/grpc/symmetric_crypto_service.md#Encrypt).
@@ -47,7 +47,7 @@
 - AWS Encryption SDK {#sdk-aws}
 
   {% include [aws-sdk](../../_includes/kms/aws-encypt.md) %}
-    
+
 - Google Tink {#google-tink}
 
   {% include [tink](../../_includes/kms/google-encypt.md) %}
@@ -87,12 +87,12 @@
 - AWS Encryption SDK {#sdk-aws}
 
   {% include [aws-sdk](../../_includes/kms/aws-encypt.md) %}
-    
+
 - Google Tink {#google-tink}
 
   {% include [tink](../../_includes/kms/google-encypt.md) %}
 
-    
+
 {% endlist %}
 
 
