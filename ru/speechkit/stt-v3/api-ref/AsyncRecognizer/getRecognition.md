@@ -290,7 +290,7 @@ audioCursors.<br>finalIndex | **string** (int64)<br><p>This is index of last fin
 audioCursors.<br>eouTimeMs | **string** (int64)<br><p>Estimated time of EOU. Cursor is updated after each new EOU is sent. For external classifier this equals to received_data_ms at the moment EOU event arrives. For internal classifier this is estimation of time. The time is not exact and has the same guarantees as word timings.</p> 
 responseWallTimeMs | **string** (int64)<br><p>Wall clock on server side. This is time when server wrote results to stream</p> 
 channelTag | **string**<br><p>Tag for distinguish audio channels.</p> 
-partial | **object**<br>Normalized text instead of raw one. <br> includes only one of the fields `partial`, `final`, `eouUpdate`, `finalRefinement`, `statusCode`, `classifierUpdate`, `speakerAnalysis`, `conversationAnalysis`<br>
+partial | **object**<br>Partial results, server will send them regularly after enough audio data was received from user. This are current text estimation from final_time_ms to partial_time_ms. Could change after new data will arrive. <br> includes only one of the fields `partial`, `final`, `eouUpdate`, `finalRefinement`, `statusCode`, `classifierUpdate`, `speakerAnalysis`, `conversationAnalysis`<br>
 partial.<br>alternatives[] | **object**<br><p>List of hypothesis for timeframes.</p> 
 partial.<br>alternatives[].<br>words[] | **object**<br><p>Words in time frame.</p> 
 partial.<br>alternatives[].<br>words[].<br>text | **string**<br><p>Word text.</p> 
@@ -304,7 +304,7 @@ partial.<br>alternatives[].<br>languages[] | **object**<br><p>Distribution over 
 partial.<br>alternatives[].<br>languages[].<br>languageCode | **string**<br><p>Language code in ISO 639-1 format.</p> 
 partial.<br>alternatives[].<br>languages[].<br>probability | **number** (double)<br><p>Estimation of language probability.</p> 
 partial.<br>channelTag | **string**
-final | **object**<br>Partial results, server will send them regularly after enough audio data was received from user. This are current text estimation from final_time_ms to partial_time_ms. Could change after new data will arrive. <br> includes only one of the fields `partial`, `final`, `eouUpdate`, `finalRefinement`, `statusCode`, `classifierUpdate`, `speakerAnalysis`, `conversationAnalysis`<br>
+final | **object**<br>Final results, the recognition is now fixed until final_time_ms. For now, final is sent only if the EOU event was triggered. This could be change in future releases. <br> includes only one of the fields `partial`, `final`, `eouUpdate`, `finalRefinement`, `statusCode`, `classifierUpdate`, `speakerAnalysis`, `conversationAnalysis`<br>
 final.<br>alternatives[] | **object**<br><p>List of hypothesis for timeframes.</p> 
 final.<br>alternatives[].<br>words[] | **object**<br><p>Words in time frame.</p> 
 final.<br>alternatives[].<br>words[].<br>text | **string**<br><p>Word text.</p> 
@@ -322,7 +322,7 @@ eouUpdate | **object**<br>After EOU classifier, send the message with final, sen
 eouUpdate.<br>timeMs | **string** (int64)<br><p>EOU estimated time.</p> 
 finalRefinement | **object**<br>For each final, if normalization is enabled, sent the normalized text (or some other advanced post-processing). Final normalization will introduce additional latency. <br> includes only one of the fields `partial`, `final`, `eouUpdate`, `finalRefinement`, `statusCode`, `classifierUpdate`, `speakerAnalysis`, `conversationAnalysis`<br>
 finalRefinement.<br>finalIndex | **string** (int64)<br><p>Index of final for which server sends additional information.</p> 
-finalRefinement.<br>normalizedText | **object**<br>Final results, the recognition is now fixed until final_time_ms. For now, final is sent only if the EOU event was triggered. This could be change in future releases.
+finalRefinement.<br>normalizedText | **object**<br>Normalized text instead of raw one.
 finalRefinement.<br>normalizedText.<br>alternatives[] | **object**<br><p>List of hypothesis for timeframes.</p> 
 finalRefinement.<br>normalizedText.<br>alternatives[].<br>words[] | **object**<br><p>Words in time frame.</p> 
 finalRefinement.<br>normalizedText.<br>alternatives[].<br>words[].<br>text | **string**<br><p>Word text.</p> 

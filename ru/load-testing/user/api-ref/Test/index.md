@@ -106,7 +106,7 @@ summary.<br>imbalancePoint.<br>rps | **string** (int64)<br><p>Imbalance moment R
 summary.<br>imbalancePoint.<br>comment | **string**<br><p>Imbalance reason comment.</p> 
 summary.<br>assignedAgentId | **string**<br><p>ID of the agent that executed the test.</p> 
 summary.<br>artifacts | **object**<br><p>Test output artifacts.</p> <p>Link to the artifacts output target containing ``.log`` and other files collected during test execution.</p> <p>Variant-like structure for referencing files in different sources.</p> 
-summary.<br>artifacts.<br>objectStorage | **object**<br><p>Reference to a file stored in Object Storage.</p> 
+summary.<br>artifacts.<br>objectStorage | **object**<br>Reference to a file in Object Storage.
 summary.<br>artifacts.<br>objectStorage.<br>bucket | **string**<br><p>Bucket name.</p> 
 summary.<br>artifacts.<br>objectStorage.<br>name | **string**<br><p>File name.</p> 
 folderId | **string**<br><p>ID of the folder that the test belongs to.</p> 

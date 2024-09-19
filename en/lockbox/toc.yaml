@@ -2,7 +2,7 @@ title: Yandex Lockbox
 href: index.yaml
 label:
   title: KZ
-  description: The service is available in Kazakhstan.
+  description: This service is only available in the Kazakhstan region.
   theme: info
   when: region == "kz"
 items:
@@ -12,9 +12,9 @@ items:
     items:
       - name: All guides
         href: operations/index.md
-      - name: Creating secrets
+      - name: New Secret
         href: operations/secret-create.md
-      - name: Updating secrets
+      - name: Updating a secret
         href: operations/secret-update.md
       - name: Configuring access to a secret
         href: operations/secret-access.md
@@ -24,7 +24,7 @@ items:
         href: operations/secret-delete.md
       - name: Deactivating and activating a secret
         href: operations/secret-activation-manage.md
-      - name: Managing secret versions
+      - name: Secret version management
         href: operations/secret-version-manage.md
       - name: Serverless
         items:
@@ -56,6 +56,8 @@ items:
         href: tutorials/gitlab-lockbox-integration.md
       - name: Storing a static access key in a {{ lockbox-name }} secret
         href: tutorials/static-key-in-lockbox.md
+      - name: Deploying a fault-tolerant architecture with preemptible VMs
+        href: tutorials/nodejs-cron-restart-vm.md
   - name: Quotas and limits
     href: concepts/limits.md
   - name: Access management

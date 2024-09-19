@@ -6,7 +6,9 @@
 
 * [получить список коннекторов](#list);
 * [получить детальную информацию о коннекторе](#get);
-* [создать коннектор](#create);
+* [создать коннектор](#create) нужного типа:
+    * [MirrorMaker](#settings-mm2);
+    * [S3 Sink](#settings-s3).
 * [изменить коннектор](#update);
 * [приостановить коннектор](#pause);
 * [возобновить работу коннектора](#resume);
@@ -127,9 +129,7 @@
         <псевдоним_кластера>.<тело_ключа>:<значение>
         ```
 
-    1. Выберите тип коннектора: [MirrorMaker](#settings-mm2) или [S3 Sink](#settings-s3).
-
-    1. Задайте конфигурацию выбранного коннектора.
+    1. Выберите тип коннектора — [MirrorMaker](#settings-mm2) или [S3 Sink](#settings-s3) — и задайте его конфигурацию.
 
         Подробнее о поддерживаемых типах коннекторов см. в разделе [{#T}](../concepts/connectors.md).
 
@@ -178,7 +178,6 @@
        * `egress` — если текущий кластер является кластером-источником.
        * `ingress` — если текущий кластер является кластером-приемником.
 
-
   Чтобы создать коннектор [S3 Sink](#settings-s3):
 
   1. Посмотрите описание команды CLI для создания коннектора:
@@ -208,13 +207,13 @@
 
 - {{ TF }} {#tf}
 
-    1. Ознакомьтесь со списком настроек коннекторов [Mirrormaker](#settings-mm2) и [S3 Sink](#settings-s3). 
+    1. Ознакомьтесь со списком настроек коннекторов [MirrorMaker](#settings-mm2) и [S3 Sink](#settings-s3).
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
         О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
-    1. Чтобы создать коннектор Mirrormaker, добавьте ресурс `yandex_mdb_kafka_connector` с блоком настроек `connector_config_mirrormaker`:
+    1. Чтобы создать коннектор MirrorMaker, добавьте ресурс `yandex_mdb_kafka_connector` с блоком настроек `connector_config_mirrormaker`:
 
         ```hcl
         resource "yandex_mdb_kafka_connector" "<имя_коннектора>" {
@@ -272,7 +271,7 @@
             }
           }
         }
-        ```   
+        ```
 
     1. Проверьте корректность настроек.
 
@@ -293,301 +292,9 @@
 
 {% endlist %}
 
-## Изменить коннектор {#update}
-
-{% list tabs group=instructions %}
-
-- Консоль управления {#console}
-
-    1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
-    1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
-    1. Выберите нужный кластер и перейдите на вкладку **{{ ui-key.yacloud.kafka.label_connectors }}**.
-    1. В строке с нужным коннектором нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud.kafka.button_edit-connector }}**.
-    1. Внесите необходимые изменения в свойства коннектора.
-    1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
-
-- CLI {#cli}
-
-    {% include [cli-install](../../_includes/cli-install.md) %}
-
-    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-
-    Чтобы изменить коннектор [MirrorMaker](#settings-mm2):
-
-    1. Посмотрите описание команды CLI для изменения коннектора:
-
-        ```bash
-        {{ yc-mdb-kf }} connector-mirrormaker update --help
-        ```
-
-    1. Запустите операцию, например, изменения лимита задач:
-
-        ```bash
-        {{ yc-mdb-kf }} connector-mirrormaker update <имя_коннектора> \
-           --cluster-name=<имя_кластера> \
-           --direction=<направление_коннектора> \
-           --tasks-max=<новый_лимит_задач>
-        ```
-
-        Где `--direction` — направление коннектора: `ingress` или `egres`.
-
-        Имя коннектора можно запросить со [списком коннекторов в кластере](#list), имя кластера — со [списком кластеров в каталоге](cluster-list.md#list-clusters).
-
-    Чтобы изменить коннектор [S3 Sink](#settings-s3):
-
-    1. Посмотрите описание команды CLI для изменения коннектора:
-
-        ```bash
-        {{ yc-mdb-kf }} connector-s3-sink update --help
-        ```
-
-    1. Запустите операцию, например, изменения лимита задач:
-
-        ```bash
-        {{ yc-mdb-kf }} connector-s3-sink update <имя_коннектора> \
-           --cluster-name=<имя_кластера> \
-           --tasks-max=<новый_лимит_задач>
-        ```
-
-        Имя коннектора можно запросить со [списком коннекторов в кластере](#list), имя кластера — со [списком кластеров в каталоге](cluster-list.md#list-clusters).
-
-- {{ TF }} {#tf}
-
-    1. Ознакомьтесь со списком настроек коннекторов [Mirrormaker](#settings-mm2) и [S3 Sink](#settings-s3).
-
-    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
-
-        О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
-
-    1. Измените значение параметров в описании ресурса `yandex_mdb_kafka_connector`:
-
-        * Для коннектора Mirrormaker:
-
-            ```hcl
-            resource "yandex_mdb_kafka_connector" "<имя_коннектора>" {
-              cluster_id = "<идентификатор_кластера>"
-              name       = "<имя_коннектора>"
-              tasks_max  = <лимит_задач>
-              properties = {
-                <дополнительные_свойства>
-              }
-              connector_config_mirrormaker {
-                topics             = "<шаблон_для_топиков>"
-                replication_factor = <фактор_репликации>
-                source_cluster {
-                  alias = "<префикс_для_обозначения_кластера>"
-                  external_cluster {
-                    bootstrap_servers           = "<список_FQDN_хостов-брокеров>"
-                    sasl_username               = "<имя_пользователя>"
-                    sasl_password               = "<пароль_пользователя>"
-                    sasl_mechanism              = "<механизм_шифрования>"
-                    security_protocol           = "<протокол_безопасности>"
-                    ssl-truststore-certificates = "<содержимое_PEM-сертификата>"
-                  }
-                }
-                target_cluster {
-                  alias = "<префикс_для_обозначения_кластера>"
-                  this_cluster {}
-                }
-              }
-            }
-            ```
-
-        * Для коннектора S3 Sink:
-
-            ```hcl
-            resource "yandex_mdb_kafka_connector" "<имя_S3_Sink_коннектора>" {
-              cluster_id = "<идентификатор_кластера>"
-              name       = "<имя_S3_Sink_коннектора>"
-              tasks_max  = <лимит_задач>
-              properties = {
-                <дополнительные_свойства>
-             }
-              connector_config_s3_sink {
-                topics                = "<шаблон_для_топиков>"
-                file_max_records      = <максимальное_количество_сообщений_в_файле>
-                s3_connection {
-                  bucket_name = "<имя_бакета>"
-                  external_s3 {
-                    endpoint          = "<эндпоинт_S3-совместимого_хранилища>"
-                    access_key_id     = "<идентификатор_AWS-совместимого_статического_ключа>"
-                    secret_access_key = "<содержимое_AWS-совместимого_статического_ключа>"
-                  }
-                }
-              }
-            }
-            ```   
-
-    1. Проверьте корректность настроек.
-
-       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
-
-    1. Подтвердите изменение ресурсов.
-
-       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_connect).
-
-- API {#api}
-
-    Чтобы изменить коннектор, воспользуйтесь методом REST API [update](../api-ref/Connector/update.md) для ресурса [Connector](../api-ref/Connector/index.md) или вызовом gRPC API [ConnectorService/Update](../api-ref/grpc/connector_service.md#Update) и передайте в запросе:
-
-    * Идентификатор кластера, в котором нужно изменить коннектор, в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
-    * Настройки коннектора в параметре `connectorSpec`.
-
-{% endlist %}
-
-## Приостановить коннектор {#pause}
-
-В процессе приостановки коннектора:
-
-* разрывается подключение к приемнику;
-* удаляются данные из служебных топиков коннектора.
-
-Чтобы приостановить коннектор:
-
-{% list tabs group=instructions %}
-
-- Консоль управления {#console}
-
-    1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
-    1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
-    1. Выберите нужный кластер и перейдите на вкладку **{{ ui-key.yacloud.kafka.label_connectors }}**.
-    1. Нажмите на значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) рядом с именем нужного коннектора и выберите пункт **{{ ui-key.yacloud.compute.groups.popup-confirm_button_pause }}**.
-
-- CLI {#cli}
-
-    {% include [cli-install](../../_includes/cli-install.md) %}
-
-    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-
-    Чтобы приостановить работу коннектора, выполните команду:
-
-    ```bash
-    {{ yc-mdb-kf }} connector pause <имя_коннектора> \
-       --cluster-name=<имя_кластера>
-    ```
-
-- API {#api}
-
-    Чтобы приостановить работу коннектора, воспользуйтесь методом REST API [pause](../api-ref/Connector/pause.md) для ресурса [Connector](../api-ref/Connector/index.md) или вызовом gRPC API [ConnectorService/Pause](../api-ref/grpc/connector_service.md#Pause) и передайте в запросе:
-
-    * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
-    * Имя коннектора в параметре `connectorName`. Чтобы узнать имя, [получите список коннекторов в кластере](#list-connectors).
-
-{% endlist %}
-
-## Возобновить работу коннектора {#resume}
-
-{% list tabs group=instructions %}
-
-- Консоль управления {#console}
-
-    1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
-    1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
-    1. Выберите нужный кластер и перейдите на вкладку **{{ ui-key.yacloud.kafka.label_connectors }}**.
-    1. Нажмите на значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) рядом с именем нужного коннектора и выберите пункт **{{ ui-key.yacloud.compute.groups.popup-confirm_button_resume }}**.
-
-- CLI {#cli}
-
-    {% include [cli-install](../../_includes/cli-install.md) %}
-
-    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-
-    Чтобы возобновить работу коннектора, выполните команду:
-
-    ```bash
-    {{ yc-mdb-kf }} connector resume <имя_коннектора> \
-       --cluster-name=<имя_кластера>
-    ```
-
-- API {#api}
-
-    Чтобы возобновить работу коннектора, воспользуйтесь методом REST API [resume](../api-ref/Connector/resume.md) для ресурса [Connector](../api-ref/Connector/index.md) или вызовом gRPC API [ConnectorService/Resume](../api-ref/grpc/connector_service.md#Resume) и передайте в запросе:
-
-    * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
-    * Имя коннектора в параметре `connectorName`. Чтобы узнать имя, [получите список коннекторов в кластере](#list-connectors).
-
-{% endlist %}
-
-## Импортировать коннектор в {{ TF }} {#import}
-
-С помощью импорта вы можете передать существующие коннекторы под управление {{ TF }}.
-
-{% list tabs group=instructions %}
-
-- {{ TF }} {#tf}
-
-    1. Укажите в конфигурационном файле {{ TF }} коннектор, который необходимо импортировать:
-
-        ```hcl
-        resource "yandex_mdb_kafka_cluster" "<имя_коннектора>" {} 
-        ```
-
-    1. Выполните команду для импорта коннектора:
-
-        ```hcl
-        terraform import yandex_mdb_kafka_connector.<имя_коннектора> <идентификатор_кластера>:<имя_коннектора>
-        ```
-
-        Подробнее об импорте коннекторов см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_connect#import).
-
-{% endlist %}
-
-## Удалить коннектор {#delete}
-
-{% list tabs group=instructions %}
-
-- Консоль управления {#console}
-
-    1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
-    1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
-    1. Выберите нужный кластер и перейдите на вкладку **{{ ui-key.yacloud.kafka.label_connectors }}**.
-    1. Нажмите на значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) рядом с именем нужного коннектора и выберите пункт **{{ ui-key.yacloud.common.delete }}**.
-    1. Нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
-
-- CLI {#cli}
-
-    {% include [cli-install](../../_includes/cli-install.md) %}
-
-    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-
-    Чтобы удалить коннектор, выполните команду:
-
-    ```bash
-    {{ yc-mdb-kf }} connector delete <имя_коннектора> \
-       --cluster-name <имя_кластера>
-    ```
-
-- {{ TF }} {#tf}
-
-    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
-
-        О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
-
-    1. Удалите ресурс `yandex_mdb_kafka_connector` с описанием нужного коннектора.
-    1. Проверьте корректность настроек.
-
-        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
-
-    1. Подтвердите изменение ресурсов.
-
-        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_connect).
-
-- API {#api}
-
-    Чтобы удалить коннектор, воспользуйтесь методом REST API [delete](../api-ref/Connector/delete.md) для ресурса [Connector](../api-ref/Connector/index.md) или вызовом gRPC API [ConnectorService/Delete](../api-ref/grpc/connector_service.md#Delete) и передайте в запросе:
-
-    * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
-    * Имя коннектора в параметре `connectorName`. Чтобы узнать имя, [получите список коннекторов в кластере](#list-connectors).
-
-{% endlist %}
-
-## Параметры коннекторов {#settings}
-
 ### MirrorMaker {#settings-mm2}
+
+Укажите параметры коннектора MirrorMaker:
 
 {% list tabs group=instructions %}
 
@@ -713,6 +420,8 @@
 
 ### S3 Sink {#settings-s3}
 
+Укажите параметры коннектора S3 Sink:
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
@@ -769,7 +478,7 @@
 
     * `--file-max-records` — максимальное количество записей, которое может быть записано в один файл, размещенный в S3-совместимом хранилище.
     * `--bucket-name` — имя бакета в S3-совместимом хранилище, в который будет производиться запись.
-    * `--storage-endpoint` — эндпоинт для доступа к хранилищу (его необходимо узнать у провайдера хранилища). Пример: `{{ s3-storage-host }}`. 
+    * `--storage-endpoint` — эндпоинт для доступа к хранилищу (его необходимо узнать у провайдера хранилища). Пример: `{{ s3-storage-host }}`.
     * `--region` — регион, в котором находится бакет S3-совместимого хранилища. Значение по умолчанию — `us-east-1`. [Список доступных регионов](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/regions/Regions.html).
 
     
@@ -807,5 +516,297 @@
             
             * **access_key_id**, **secret_access_key** — [идентификатор и содержимое AWS-совместимого ключа](../../iam/concepts/authorization/access-key.md).
 
+
+{% endlist %}
+
+## Изменить коннектор {#update}
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+    1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
+    1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+    1. Выберите нужный кластер и перейдите на вкладку **{{ ui-key.yacloud.kafka.label_connectors }}**.
+    1. В строке с нужным коннектором нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud.kafka.button_edit-connector }}**.
+    1. Внесите необходимые изменения в свойства коннектора.
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+
+- CLI {#cli}
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Чтобы изменить коннектор [MirrorMaker](#settings-mm2):
+
+    1. Посмотрите описание команды CLI для изменения коннектора:
+
+        ```bash
+        {{ yc-mdb-kf }} connector-mirrormaker update --help
+        ```
+
+    1. Запустите операцию, например, изменения лимита задач:
+
+        ```bash
+        {{ yc-mdb-kf }} connector-mirrormaker update <имя_коннектора> \
+           --cluster-name=<имя_кластера> \
+           --direction=<направление_коннектора> \
+           --tasks-max=<новый_лимит_задач>
+        ```
+
+        Где `--direction` — направление коннектора: `ingress` или `egres`.
+
+        Имя коннектора можно запросить со [списком коннекторов в кластере](#list), имя кластера — со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+    Чтобы изменить коннектор [S3 Sink](#settings-s3):
+
+    1. Посмотрите описание команды CLI для изменения коннектора:
+
+        ```bash
+        {{ yc-mdb-kf }} connector-s3-sink update --help
+        ```
+
+    1. Запустите операцию, например, изменения лимита задач:
+
+        ```bash
+        {{ yc-mdb-kf }} connector-s3-sink update <имя_коннектора> \
+           --cluster-name=<имя_кластера> \
+           --tasks-max=<новый_лимит_задач>
+        ```
+
+        Имя коннектора можно запросить со [списком коннекторов в кластере](#list), имя кластера — со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+- {{ TF }} {#tf}
+
+    1. Ознакомьтесь со списком настроек коннекторов [MirrorMaker](#settings-mm2) и [S3 Sink](#settings-s3).
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+
+    1. Измените значение параметров в описании ресурса `yandex_mdb_kafka_connector`:
+
+        * Для коннектора MirrorMaker:
+
+            ```hcl
+            resource "yandex_mdb_kafka_connector" "<имя_коннектора>" {
+              cluster_id = "<идентификатор_кластера>"
+              name       = "<имя_коннектора>"
+              tasks_max  = <лимит_задач>
+              properties = {
+                <дополнительные_свойства>
+              }
+              connector_config_mirrormaker {
+                topics             = "<шаблон_для_топиков>"
+                replication_factor = <фактор_репликации>
+                source_cluster {
+                  alias = "<префикс_для_обозначения_кластера>"
+                  external_cluster {
+                    bootstrap_servers           = "<список_FQDN_хостов-брокеров>"
+                    sasl_username               = "<имя_пользователя>"
+                    sasl_password               = "<пароль_пользователя>"
+                    sasl_mechanism              = "<механизм_шифрования>"
+                    security_protocol           = "<протокол_безопасности>"
+                    ssl-truststore-certificates = "<содержимое_PEM-сертификата>"
+                  }
+                }
+                target_cluster {
+                  alias = "<префикс_для_обозначения_кластера>"
+                  this_cluster {}
+                }
+              }
+            }
+            ```
+
+        * Для коннектора S3 Sink:
+
+            ```hcl
+            resource "yandex_mdb_kafka_connector" "<имя_S3_Sink_коннектора>" {
+              cluster_id = "<идентификатор_кластера>"
+              name       = "<имя_S3_Sink_коннектора>"
+              tasks_max  = <лимит_задач>
+              properties = {
+                <дополнительные_свойства>
+             }
+              connector_config_s3_sink {
+                topics                = "<шаблон_для_топиков>"
+                file_max_records      = <максимальное_количество_сообщений_в_файле>
+                s3_connection {
+                  bucket_name = "<имя_бакета>"
+                  external_s3 {
+                    endpoint          = "<эндпоинт_S3-совместимого_хранилища>"
+                    access_key_id     = "<идентификатор_AWS-совместимого_статического_ключа>"
+                    secret_access_key = "<содержимое_AWS-совместимого_статического_ключа>"
+                  }
+                }
+              }
+            }
+            ```
+
+    1. Проверьте корректность настроек.
+
+       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_connect).
+
+- API {#api}
+
+    Чтобы изменить коннектор, воспользуйтесь методом REST API [update](../api-ref/Connector/update.md) для ресурса [Connector](../api-ref/Connector/index.md) или вызовом gRPC API [ConnectorService/Update](../api-ref/grpc/connector_service.md#Update) и передайте в запросе:
+
+    * Идентификатор кластера, в котором нужно изменить коннектор, в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
+    * Настройки коннектора в параметре `connectorSpec`.
+
+{% endlist %}
+
+## Приостановить коннектор {#pause}
+
+В процессе приостановки коннектора:
+
+* разрывается подключение к приемнику;
+* удаляются данные из служебных топиков коннектора.
+
+Чтобы приостановить коннектор:
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+    1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
+    1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+    1. Выберите нужный кластер и перейдите на вкладку **{{ ui-key.yacloud.kafka.label_connectors }}**.
+    1. Нажмите на значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) рядом с именем нужного коннектора и выберите пункт **{{ ui-key.yacloud.compute.groups.popup-confirm_button_pause }}**.
+
+- CLI {#cli}
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Чтобы приостановить работу коннектора, выполните команду:
+
+    ```bash
+    {{ yc-mdb-kf }} connector pause <имя_коннектора> \
+       --cluster-name=<имя_кластера>
+    ```
+
+- API {#api}
+
+    Чтобы приостановить работу коннектора, воспользуйтесь методом REST API [pause](../api-ref/Connector/pause.md) для ресурса [Connector](../api-ref/Connector/index.md) или вызовом gRPC API [ConnectorService/Pause](../api-ref/grpc/connector_service.md#Pause) и передайте в запросе:
+
+    * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
+    * Имя коннектора в параметре `connectorName`. Чтобы узнать имя, [получите список коннекторов в кластере](#list-connectors).
+
+{% endlist %}
+
+## Возобновить работу коннектора {#resume}
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+    1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
+    1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+    1. Выберите нужный кластер и перейдите на вкладку **{{ ui-key.yacloud.kafka.label_connectors }}**.
+    1. Нажмите на значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) рядом с именем нужного коннектора и выберите пункт **{{ ui-key.yacloud.compute.groups.popup-confirm_button_resume }}**.
+
+- CLI {#cli}
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Чтобы возобновить работу коннектора, выполните команду:
+
+    ```bash
+    {{ yc-mdb-kf }} connector resume <имя_коннектора> \
+       --cluster-name=<имя_кластера>
+    ```
+
+- API {#api}
+
+    Чтобы возобновить работу коннектора, воспользуйтесь методом REST API [resume](../api-ref/Connector/resume.md) для ресурса [Connector](../api-ref/Connector/index.md) или вызовом gRPC API [ConnectorService/Resume](../api-ref/grpc/connector_service.md#Resume) и передайте в запросе:
+
+    * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
+    * Имя коннектора в параметре `connectorName`. Чтобы узнать имя, [получите список коннекторов в кластере](#list-connectors).
+
+{% endlist %}
+
+## Импортировать коннектор в {{ TF }} {#import}
+
+С помощью импорта вы можете передать существующие коннекторы под управление {{ TF }}.
+
+{% list tabs group=instructions %}
+
+- {{ TF }} {#tf}
+
+    1. Укажите в конфигурационном файле {{ TF }} коннектор, который необходимо импортировать:
+
+        ```hcl
+        resource "yandex_mdb_kafka_cluster" "<имя_коннектора>" {}
+        ```
+
+    1. Выполните команду для импорта коннектора:
+
+        ```hcl
+        terraform import yandex_mdb_kafka_connector.<имя_коннектора> <идентификатор_кластера>:<имя_коннектора>
+        ```
+
+        Подробнее об импорте коннекторов см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_connect#import).
+
+{% endlist %}
+
+## Удалить коннектор {#delete}
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+    1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
+    1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+    1. Выберите нужный кластер и перейдите на вкладку **{{ ui-key.yacloud.kafka.label_connectors }}**.
+    1. Нажмите на значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) рядом с именем нужного коннектора и выберите пункт **{{ ui-key.yacloud.common.delete }}**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
+
+- CLI {#cli}
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Чтобы удалить коннектор, выполните команду:
+
+    ```bash
+    {{ yc-mdb-kf }} connector delete <имя_коннектора> \
+       --cluster-name <имя_кластера>
+    ```
+
+- {{ TF }} {#tf}
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+
+    1. Удалите ресурс `yandex_mdb_kafka_connector` с описанием нужного коннектора.
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_connect).
+
+- API {#api}
+
+    Чтобы удалить коннектор, воспользуйтесь методом REST API [delete](../api-ref/Connector/delete.md) для ресурса [Connector](../api-ref/Connector/index.md) или вызовом gRPC API [ConnectorService/Delete](../api-ref/grpc/connector_service.md#Delete) и передайте в запросе:
+
+    * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
+    * Имя коннектора в параметре `connectorName`. Чтобы узнать имя, [получите список коннекторов в кластере](#list-connectors).
 
 {% endlist %}

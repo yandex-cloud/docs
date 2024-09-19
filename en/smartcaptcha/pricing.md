@@ -4,7 +4,7 @@ description: "This article describes the {{ captcha-name }} pricing policy."
 editable: false
 ---
 
-# {{ captcha-full-name }} pricing
+# {{ captcha-full-name }} pricing policy
 
 
 
@@ -12,11 +12,11 @@ editable: false
 
 ## What goes into the cost of using {{ captcha-full-name }} {#rules}
 
-You are charged for [{{ captcha-name }} API requests](./quickstart.md#check-answer) at `https://smartcaptcha.yandexcloud.net/validate`. You are only charged for [correct requests](concepts/validation.md#service-response) to which the API returns the `ok` status. These requests must meet the following conditions:
+You pay for [{{ captcha-name }} API requests](./quickstart.md#check-answer) at `https://smartcaptcha.yandexcloud.net/validate`. You only pay for [correct requests](concepts/validation.md#service-response) to which the API returns the `ok` status. These requests must meet the following conditions:
 
 * {{ captcha-name }} identifies a request as one sent by a human and not a bot.
-* The correct `secret` and `token` values are provided.
-* The unique `token` was issued no more than 10 minutes ago.
+* Correct `secret` and `token` values are provided.
+* The unique `token` was issued not more than 10 minutes ago.
 
 {% note info %}
 
@@ -42,5 +42,10 @@ Examples of {{ captcha-name }} usage cost calculation:
 
 
 
-{% include notitle [usd.md](../_pricing/smartcaptcha/usd.md) %}
+{% include [usd](../_pricing/smartcaptcha/usd.md) %}
+
+You pay for the actual number of requests.
+
+{% include [usd-smartcaptcha](../_pricing_examples/smartcaptcha/usd-smartcaptcha.md) %}
+
 

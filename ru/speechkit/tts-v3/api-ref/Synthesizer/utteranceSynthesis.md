@@ -109,7 +109,7 @@ hints[] | **object**<br><p>Optional hints for synthesis.</p>
 hints[].<br>voice | **string** <br>`hints[]` includes only one of the fields `voice`, `audioTemplate`, `speed`, `volume`, `role`, `pitchShift`, `duration`<br><br><p>Name of speaker to use.</p> 
 hints[].<br>audioTemplate | **object**<br>Template for synthesizing. <br>`hints[]` includes only one of the fields `voice`, `audioTemplate`, `speed`, `volume`, `role`, `pitchShift`, `duration`<br>
 hints[].<br>audioTemplate.<br>audio | **object**<br><p>Audio file.</p> 
-hints[].<br>audioTemplate.<br>audio.<br>audioSpec | **object**<br>Optional. Default: 22050 Hz, linear 16-bit signed little-endian PCM, with WAV header
+hints[].<br>audioTemplate.<br>audio.<br>audioSpec | **object**<br>Description of the audio format.
 hints[].<br>audioTemplate.<br>audio.<br>audioSpec.<br>rawAudio | **object**<br>The audio format specified in request parameters. <br>`hints[].audioTemplate.audio.audioSpec` includes only one of the fields `rawAudio`, `containerAudio`<br>
 hints[].<br>audioTemplate.<br>audio.<br>audioSpec.<br>rawAudio.<br>audioEncoding | **string**<br><p>Encoding type.</p> <ul> <li>LINEAR16_PCM: Audio bit depth 16-bit signed little-endian (Linear PCM).</li> </ul> 
 hints[].<br>audioTemplate.<br>audio.<br>audioSpec.<br>rawAudio.<br>sampleRateHertz | **string** (int64)<br><p>Sampling frequency of the signal.</p> 
@@ -132,7 +132,7 @@ hints[].<br>pitchShift | **number** (double) <br>`hints[]` includes only one of 
 hints[].<br>duration | **object**<br>Hint to limit both minimum and maximum audio duration. <br>`hints[]` includes only one of the fields `voice`, `audioTemplate`, `speed`, `volume`, `role`, `pitchShift`, `duration`<br>
 hints[].<br>duration.<br>policy | **string**<br><p>Type of duration constraint.</p> <ul> <li>EXACT_DURATION: Limit audio duration to exact value.</li> <li>MIN_DURATION: Limit the minimum audio duration.</li> <li>MAX_DURATION: Limit the maximum audio duration.</li> </ul> 
 hints[].<br>duration.<br>durationMs | **string** (int64)<br><p>Constraint on audio duration in milliseconds.</p> 
-outputAudioSpec | **object**<br>Description of the audio format.
+outputAudioSpec | **object**<br>Optional. Default: 22050 Hz, linear 16-bit signed little-endian PCM, with WAV header
 outputAudioSpec.<br>rawAudio | **object**<br>The audio format specified in request parameters. <br>`outputAudioSpec` includes only one of the fields `rawAudio`, `containerAudio`<br>
 outputAudioSpec.<br>rawAudio.<br>audioEncoding | **string**<br><p>Encoding type.</p> <ul> <li>LINEAR16_PCM: Audio bit depth 16-bit signed little-endian (Linear PCM).</li> </ul> 
 outputAudioSpec.<br>rawAudio.<br>sampleRateHertz | **string** (int64)<br><p>Sampling frequency of the signal.</p> 

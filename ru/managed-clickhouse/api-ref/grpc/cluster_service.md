@@ -33,8 +33,10 @@ A set of methods for managing ClickHouse clusters.
 | [GetShard](#GetShard) | Returns the specified shard. |
 | [ListShards](#ListShards) | Retrieves a list of shards that belong to the specified cluster. |
 | [AddShard](#AddShard) | Creates a new shard in the specified cluster. |
+| [AddShards](#AddShards) | Creates one or more shards in the specified cluster. |
 | [UpdateShard](#UpdateShard) | Modifies the specified shard. |
 | [DeleteShard](#DeleteShard) | Deletes the specified shard. |
+| [DeleteShards](#DeleteShards) | Deletes the specified shards (one or more). |
 | [GetShardGroup](#GetShardGroup) | Returns the specified shard group. |
 | [ListShardGroups](#ListShardGroups) | Retrieves a list of shard groups that belong to specified cluster. |
 | [CreateShardGroup](#CreateShardGroup) | Creates a new shard group in the specified cluster. |
@@ -9345,24 +9347,33 @@ max_entry_size_in_bytes | **[google.protobuf.Int64Value](https://developers.goog
 max_entry_size_in_rows | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum number of rows SELECT query results may have to be saved in the cache. Default: 30000000 (30 mil) The minimum value is 0.
 
 
-## UpdateShard {#UpdateShard}
+## AddShards {#AddShards}
 
-Modifies the specified shard.
+Creates one or more shards in the specified cluster.
 
-**rpc UpdateShard ([UpdateClusterShardRequest](#UpdateClusterShardRequest)) returns ([operation.Operation](#Operation16))**
+**rpc AddShards ([AddClusterShardsRequest](#AddClusterShardsRequest)) returns ([operation.Operation](#Operation16))**
 
 Metadata and response of Operation:<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateClusterShardMetadata](#UpdateClusterShardMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Shard](#Shard3)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[AddClusterShardsMetadata](#AddClusterShardsMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Shards](#Shards)<br>
 
-### UpdateClusterShardRequest {#UpdateClusterShardRequest}
+### AddClusterShardsRequest {#AddClusterShardsRequest}
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the ClickHouse cluster the shard belongs to. To get the cluster ID, use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
-shard_name | **string**<br>Required. Name of the shard to be updated. To get the name of a shard, use a [ClusterService.ListShards](#ListShards) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
-update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which attributes of the ClickHouse shard should be updated. 
-config_spec | **[ShardConfigSpec](#ShardConfigSpec)**<br>New configuration for the specified shard. 
+cluster_id | **string**<br>Required. ID of the ClickHouse cluster to add shards to. To get the ClickHouse cluster ID, use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
+shard_specs[] | **[ShardSpec](#ShardSpec)**<br>Properties of each shard to be created. If [ShardSpec.config_spec](#ShardSpec) is not specified for some shard, for this shard it defaults to the configuration of the first shard in the cluster. The number of elements must be greater than 0.
+host_specs[] | **[HostSpec](#HostSpec)**<br>Individual configurations for hosts that should be created for the shards. Two options are available: <ol><li>If `host_specs` is empty, each shard's number and configurations of hosts will </li></ol>be copied from those of the first shard in the cluster; <ol><li>Otherwise `host_specs` should contain at least one host per created shard.</li></ol> 
+copy_schema | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether to copy schema to hosts of the new shards. The schema is copied from hosts of an existing shard. 
+
+
+### ShardSpec {#ShardSpec}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the shard to be created. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+config_spec | **[ShardConfigSpec](#ShardConfigSpec)**<br>Configuration of the shard to be created. 
+shard_group_names[] | **string**<br>Shard groups that contain the shard. 
 
 
 ### ShardConfigSpec {#ShardConfigSpec1}
@@ -9746,6 +9757,17 @@ disk_size | **int64**<br>Volume of the storage available to a host, in bytes.
 disk_type_id | **string**<br>Type of the storage environment for the host. Possible values: <ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
 
 
+### HostSpec {#HostSpec5}
+
+Field | Description
+--- | ---
+zone_id | **string**<br>ID of the availability zone where the host resides. To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/grpc/zone_service#List) request. The maximum string length in characters is 50.
+type | **[Host.Type](#Host1)**<br>Required. Type of the host to be deployed. 
+subnet_id | **string**<br>ID of the subnet that the host should belong to. This subnet should be a part of the network that the cluster belongs to. The ID of the network is set in the [Cluster.network_id](#Cluster11) field. The maximum string length in characters is 50.
+assign_public_ip | **bool**<br>Whether the host should get a public IP address on creation. <br>After a host has been created, this setting cannot be changed. To remove an assigned public IP, or to assign a public IP to a host without one, recreate the host with `assign_public_ip` set as needed. <br>Possible values: <ul><li>false - don't assign a public IP to the host. </li><li>true - the host should have a public IP address.</li></ul> 
+shard_name | **string**<br>Name of the shard that the host is assigned to. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+
+
 ### Operation {#Operation16}
 
 Field | Description
@@ -9756,18 +9778,25 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 created_by | **string**<br>ID of the user or service account who initiated the operation. 
 modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
 done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateClusterShardMetadata](#UpdateClusterShardMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[AddClusterShardsMetadata](#AddClusterShardsMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Shard](#Shard3)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Shards](#Shards)>**<br>if operation finished successfully. 
 
 
-### UpdateClusterShardMetadata {#UpdateClusterShardMetadata}
+### AddClusterShardsMetadata {#AddClusterShardsMetadata}
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>ID of the cluster that contains the shard being updated. 
-shard_name | **string**<br>Name of the shard being updated. 
+cluster_id | **string**<br>ID of the cluster that the shards are being added to. 
+shard_names[] | **string**<br>Names of the shards being created. 
+
+
+### Shards {#Shards}
+
+Field | Description
+--- | ---
+shards[] | **[Shard](#Shard3)**<br> 
 
 
 ### Shard {#Shard3}
@@ -10160,413 +10189,40 @@ max_entry_size_in_bytes | **[google.protobuf.Int64Value](https://developers.goog
 max_entry_size_in_rows | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum number of rows SELECT query results may have to be saved in the cache. Default: 30000000 (30 mil) The minimum value is 0.
 
 
-## DeleteShard {#DeleteShard}
+## UpdateShard {#UpdateShard}
 
-Deletes the specified shard.
+Modifies the specified shard.
 
-**rpc DeleteShard ([DeleteClusterShardRequest](#DeleteClusterShardRequest)) returns ([operation.Operation](#Operation17))**
+**rpc UpdateShard ([UpdateClusterShardRequest](#UpdateClusterShardRequest)) returns ([operation.Operation](#Operation17))**
 
 Metadata and response of Operation:<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[DeleteClusterShardMetadata](#DeleteClusterShardMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateClusterShardMetadata](#UpdateClusterShardMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Shard](#Shard4)<br>
 
-### DeleteClusterShardRequest {#DeleteClusterShardRequest}
+### UpdateClusterShardRequest {#UpdateClusterShardRequest}
 
 Field | Description
 --- | ---
 cluster_id | **string**<br>Required. ID of the ClickHouse cluster the shard belongs to. To get the cluster ID, use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
-shard_name | **string**<br>Required. Name of the shard to be deleted. To get the name of a shard, use a [ClusterService.ListShards](#ListShards) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+shard_name | **string**<br>Required. Name of the shard to be updated. To get the name of a shard, use a [ClusterService.ListShards](#ListShards) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which attributes of the ClickHouse shard should be updated. 
+config_spec | **[ShardConfigSpec](#ShardConfigSpec)**<br>New configuration for the specified shard. 
 
 
-### Operation {#Operation17}
-
-Field | Description
---- | ---
-id | **string**<br>ID of the operation. 
-description | **string**<br>Description of the operation. 0-256 characters long. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
-created_by | **string**<br>ID of the user or service account who initiated the operation. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
-done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DeleteClusterShardMetadata](#DeleteClusterShardMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
-result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>if operation finished successfully. 
-
-
-### DeleteClusterShardMetadata {#DeleteClusterShardMetadata}
+### ShardConfigSpec {#ShardConfigSpec2}
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>ID of the cluster that contains the shard being deleted. 
-shard_name | **string**<br>Name of the shard being deleted. 
-
-
-## GetShardGroup {#GetShardGroup}
-
-Returns the specified shard group.
-
-**rpc GetShardGroup ([GetClusterShardGroupRequest](#GetClusterShardGroupRequest)) returns ([ShardGroup](#ShardGroup))**
-
-### GetClusterShardGroupRequest {#GetClusterShardGroupRequest}
-
-Field | Description
---- | ---
-cluster_id | **string**<br>Required. ID of the cluster that the shard group belongs to. <br>To get the cluster ID, make a [ClusterService.List](#List) request. The maximum string length in characters is 50.
-shard_group_name | **string**<br>Required. Name of the shard group to request information about. <br>To get the name of a shard group, make a [ClusterService.ListShardGroups](#ListShardGroups) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
-
-
-### ShardGroup {#ShardGroup}
-
-Field | Description
---- | ---
-name | **string**<br>Name of the shard group. 
-cluster_id | **string**<br>ID of the ClickHouse cluster that the shard group belongs to. 
-description | **string**<br>Description of the shard group. 0-256 characters long. 
-shard_names[] | **string**<br>List of shard names contained in the shard group. 
-
-
-## ListShardGroups {#ListShardGroups}
-
-Retrieves a list of shard groups that belong to specified cluster.
-
-**rpc ListShardGroups ([ListClusterShardGroupsRequest](#ListClusterShardGroupsRequest)) returns ([ListClusterShardGroupsResponse](#ListClusterShardGroupsResponse))**
-
-### ListClusterShardGroupsRequest {#ListClusterShardGroupsRequest}
-
-Field | Description
---- | ---
-cluster_id | **string**<br>Required. ID of the cluster that the shard group belongs to. <br>To get the cluster ID, make a [ClusterService.List](#List) request. The maximum string length in characters is 50.
-page_size | **int64**<br>The maximum number of results per page to return. <br>If the number of available results is larger than `page_size`, the service returns a [ListClusterShardGroupsResponse.next_page_token](#ListClusterShardGroupsResponse) that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 1000, inclusive.
-page_token | **string**<br>Page token. <br>To get the next page of results, set `page_token` to the [ListClusterShardGroupsResponse.next_page_token](#ListClusterShardGroupsResponse) returned by the previous list request. The maximum string length in characters is 100.
-
-
-### ListClusterShardGroupsResponse {#ListClusterShardGroupsResponse}
-
-Field | Description
---- | ---
-shard_groups[] | **[ShardGroup](#ShardGroup1)**<br>List of ClickHouse cluster's shard groups. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. <br>If the number of results is larger than [ListClusterShardGroupsRequest.page_size](#ListClusterShardGroupsRequest), use the `next_page_token` as the value for the [ListClusterShardGroupsRequest.page_token](#ListClusterShardGroupsRequest) parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
-
-
-### ShardGroup {#ShardGroup1}
-
-Field | Description
---- | ---
-name | **string**<br>Name of the shard group. 
-cluster_id | **string**<br>ID of the ClickHouse cluster that the shard group belongs to. 
-description | **string**<br>Description of the shard group. 0-256 characters long. 
-shard_names[] | **string**<br>List of shard names contained in the shard group. 
-
-
-## CreateShardGroup {#CreateShardGroup}
-
-Creates a new shard group in the specified cluster.
-
-**rpc CreateShardGroup ([CreateClusterShardGroupRequest](#CreateClusterShardGroupRequest)) returns ([operation.Operation](#Operation18))**
-
-Metadata and response of Operation:<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CreateClusterShardGroupMetadata](#CreateClusterShardGroupMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[ShardGroup](#ShardGroup2)<br>
-
-### CreateClusterShardGroupRequest {#CreateClusterShardGroupRequest}
-
-Field | Description
---- | ---
-cluster_id | **string**<br>Required. ID of the ClickHouse cluster to add a shard group to. <br>To get the cluster ID, make a [ClusterService.List](#List) request. The maximum string length in characters is 50.
-shard_group_name | **string**<br>Required. Name for the new shard group. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
-description | **string**<br>Description of the new shard group. 0-256 characters long. 
-shard_names[] | **string**<br>List of shard names that should be put into the new group. <br>To get the list, make a [ClusterService.ListShardGroups](#ListShardGroups) request. 
-
-
-### Operation {#Operation18}
-
-Field | Description
---- | ---
-id | **string**<br>ID of the operation. 
-description | **string**<br>Description of the operation. 0-256 characters long. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
-created_by | **string**<br>ID of the user or service account who initiated the operation. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
-done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateClusterShardGroupMetadata](#CreateClusterShardGroupMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
-result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[ShardGroup](#ShardGroup2)>**<br>if operation finished successfully. 
-
-
-### CreateClusterShardGroupMetadata {#CreateClusterShardGroupMetadata}
-
-Field | Description
---- | ---
-cluster_id | **string**<br>ID of the cluster to add a shard group to. 
-shard_group_name | **string**<br>Name of the shard group that is being added. 
-
-
-### ShardGroup {#ShardGroup2}
-
-Field | Description
---- | ---
-name | **string**<br>Name of the shard group. 
-cluster_id | **string**<br>ID of the ClickHouse cluster that the shard group belongs to. 
-description | **string**<br>Description of the shard group. 0-256 characters long. 
-shard_names[] | **string**<br>List of shard names contained in the shard group. 
-
-
-## UpdateShardGroup {#UpdateShardGroup}
-
-Updates the specified shard group.
-
-**rpc UpdateShardGroup ([UpdateClusterShardGroupRequest](#UpdateClusterShardGroupRequest)) returns ([operation.Operation](#Operation19))**
-
-Metadata and response of Operation:<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateClusterShardGroupMetadata](#UpdateClusterShardGroupMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[ShardGroup](#ShardGroup3)<br>
-
-### UpdateClusterShardGroupRequest {#UpdateClusterShardGroupRequest}
-
-Field | Description
---- | ---
-cluster_id | **string**<br>Required. ID of the ClickHouse cluster that contains the shard group to update. <br>To get the cluster ID, make a [ClusterService.List](#List) request. The maximum string length in characters is 50.
-shard_group_name | **string**<br>Required. Name of the shard group that should be updated. <br>To get the name, make a [ClusterService.ListShardGroups](#ListShardGroups) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
-update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br> 
-description | **string**<br>Updated description of the shard group. 0-256 characters long. 
-shard_names[] | **string**<br>Updated list of shard names that belongs to the shard group. 
-
-
-### Operation {#Operation19}
-
-Field | Description
---- | ---
-id | **string**<br>ID of the operation. 
-description | **string**<br>Description of the operation. 0-256 characters long. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
-created_by | **string**<br>ID of the user or service account who initiated the operation. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
-done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateClusterShardGroupMetadata](#UpdateClusterShardGroupMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
-result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[ShardGroup](#ShardGroup3)>**<br>if operation finished successfully. 
-
-
-### UpdateClusterShardGroupMetadata {#UpdateClusterShardGroupMetadata}
-
-Field | Description
---- | ---
-cluster_id | **string**<br>ID of the cluster that contains the shard group being updated. 
-shard_group_name | **string**<br>Name of the shard group that is being updated. 
-
-
-### ShardGroup {#ShardGroup3}
-
-Field | Description
---- | ---
-name | **string**<br>Name of the shard group. 
-cluster_id | **string**<br>ID of the ClickHouse cluster that the shard group belongs to. 
-description | **string**<br>Description of the shard group. 0-256 characters long. 
-shard_names[] | **string**<br>List of shard names contained in the shard group. 
-
-
-## DeleteShardGroup {#DeleteShardGroup}
-
-Deletes the specified shard group.
-
-**rpc DeleteShardGroup ([DeleteClusterShardGroupRequest](#DeleteClusterShardGroupRequest)) returns ([operation.Operation](#Operation20))**
-
-Metadata and response of Operation:<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[DeleteClusterShardGroupMetadata](#DeleteClusterShardGroupMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)<br>
-
-### DeleteClusterShardGroupRequest {#DeleteClusterShardGroupRequest}
-
-Field | Description
---- | ---
-cluster_id | **string**<br>Required. ID of the ClickHouse cluster that contains the shard group to delete. <br>To get the cluster ID, make a [ClusterService.List](#List) request. The maximum string length in characters is 50.
-shard_group_name | **string**<br>Required. Name of the shard group that should be deleted. <br>To get the name, make a [ClusterService.ListShardGroups](#ListShardGroups) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
-
-
-### Operation {#Operation20}
-
-Field | Description
---- | ---
-id | **string**<br>ID of the operation. 
-description | **string**<br>Description of the operation. 0-256 characters long. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
-created_by | **string**<br>ID of the user or service account who initiated the operation. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
-done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DeleteClusterShardGroupMetadata](#DeleteClusterShardGroupMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
-result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>if operation finished successfully. 
-
-
-### DeleteClusterShardGroupMetadata {#DeleteClusterShardGroupMetadata}
-
-Field | Description
---- | ---
-cluster_id | **string**<br>ID of the cluster that contains the shard group being deleted. 
-shard_group_name | **string**<br>Name of the shard group that is being deleted. 
-
-
-## ListExternalDictionaries {#ListExternalDictionaries}
-
-Retrieves a list of external dictionaries that belong to specified cluster.
-
-**rpc ListExternalDictionaries ([ListClusterExternalDictionariesRequest](#ListClusterExternalDictionariesRequest)) returns ([ListClusterExternalDictionariesResponse](#ListClusterExternalDictionariesResponse))**
-
-### ListClusterExternalDictionariesRequest {#ListClusterExternalDictionariesRequest}
-
-Field | Description
---- | ---
-cluster_id | **string**<br>Required. ID of the cluster that the external dictionaries belong to. The maximum string length in characters is 50.
-page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListClusterExternalDictionaryResponse.next_page_token] that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 1000, inclusive.
-page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListClusterExternalDictionaryResponse.next_page_token] returned by a previous list request. The maximum string length in characters is 100.
-
-
-### ListClusterExternalDictionariesResponse {#ListClusterExternalDictionariesResponse}
-
-Field | Description
---- | ---
-external_dictionaries[] | **[config.ClickhouseConfig.ExternalDictionary](#ClickhouseConfig20)**<br>List of ClickHouse Cluster external dictionaries. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListClusterExternalDictionaryRequest.page_size], use the `next_page_token` as the value for the [ListClusterExternalDictionaryRequest.page_token] parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
-
-
-## CreateExternalDictionary {#CreateExternalDictionary}
-
-Creates an external dictionary for the specified ClickHouse cluster.
-
-**rpc CreateExternalDictionary ([CreateClusterExternalDictionaryRequest](#CreateClusterExternalDictionaryRequest)) returns ([operation.Operation](#Operation21))**
-
-Metadata and response of Operation:<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CreateClusterExternalDictionaryMetadata](#CreateClusterExternalDictionaryMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster11)<br>
-
-### CreateClusterExternalDictionaryRequest {#CreateClusterExternalDictionaryRequest}
-
-Field | Description
---- | ---
-cluster_id | **string**<br>Required. ID of the ClickHouse cluster to create the external dictionary for. To get the cluster ID, use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
-external_dictionary | **[config.ClickhouseConfig.ExternalDictionary](#ClickhouseConfig20)**<br>Configuration of the external dictionary. 
-
-
-### Operation {#Operation21}
-
-Field | Description
---- | ---
-id | **string**<br>ID of the operation. 
-description | **string**<br>Description of the operation. 0-256 characters long. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
-created_by | **string**<br>ID of the user or service account who initiated the operation. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
-done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateClusterExternalDictionaryMetadata](#CreateClusterExternalDictionaryMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
-result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster11)>**<br>if operation finished successfully. 
-
-
-### CreateClusterExternalDictionaryMetadata {#CreateClusterExternalDictionaryMetadata}
-
-Field | Description
---- | ---
-cluster_id | **string**<br>ID of the cluster for which an external dictionary is being created. 
-
-
-### Cluster {#Cluster11}
-
-Field | Description
---- | ---
-id | **string**<br>ID of the ClickHouse cluster. This ID is assigned by MDB at creation time. 
-folder_id | **string**<br>ID of the folder that the ClickHouse cluster belongs to. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
-name | **string**<br>Name of the ClickHouse cluster. The name is unique within the folder. 1-63 characters long. 
-description | **string**<br>Description of the ClickHouse cluster. 0-256 characters long. 
-labels | **map<string,string>**<br>Custom labels for the ClickHouse cluster as `key:value` pairs. Maximum 64 per resource. 
-environment | enum **Environment**<br>Deployment environment of the ClickHouse cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li></ul>
-monitoring[] | **[Monitoring](#Monitoring11)**<br>Description of monitoring systems relevant to the ClickHouse cluster. 
-config | **[ClusterConfig](#ClusterConfig11)**<br>Configuration of the ClickHouse cluster. 
-network_id | **string**<br>ID of the network that the cluster belongs to. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host1) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host1) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host1) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host1) for at least one host in the cluster is not ALIVE).</li></ul>
-status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
-service_account_id | **string**<br>ID of the service account used for access to Object Storage. 
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow11)**<br>Maintenance window for the cluster. 
-planned_operation | **[MaintenanceOperation](#MaintenanceOperation11)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
-security_group_ids[] | **string**<br>User security groups 
-deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
-
-
-### Monitoring {#Monitoring11}
-
-Field | Description
---- | ---
-name | **string**<br>Name of the monitoring system. 
-description | **string**<br>Description of the monitoring system. 
-link | **string**<br>Link to the monitoring system charts for the ClickHouse cluster. 
-
-
-### ClusterConfig {#ClusterConfig11}
-
-Field | Description
---- | ---
-version | **string**<br>Version of the ClickHouse server software. 
-clickhouse | **[Clickhouse](#Clickhouse20)**<br>Configuration and resource allocation for ClickHouse hosts. 
-zookeeper | **[Zookeeper](#Zookeeper14)**<br>Configuration and resource allocation for ZooKeeper hosts. 
-backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
-access | **[Access](#Access11)**<br>Access policy for external services. 
-cloud_storage | **[CloudStorage](#CloudStorage11)**<br> 
-sql_database_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether database management through SQL commands is enabled. 
-sql_user_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether user management through SQL commands is enabled. 
-embedded_keeper | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether cluster should use embedded Keeper instead of Zookeeper. 
-backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retain period of automatically created backup in days 
+clickhouse | **[Clickhouse](#Clickhouse20)**<br>ClickHouse configuration for a shard. 
 
 
 ### Clickhouse {#Clickhouse20}
 
 Field | Description
 --- | ---
-config | **[config.ClickhouseConfigSet](#ClickhouseConfigSet15)**<br>Configuration settings of a ClickHouse server. 
-resources | **[Resources](#Resources16)**<br>Resources allocated to ClickHouse hosts. 
-
-
-### Zookeeper {#Zookeeper14}
-
-Field | Description
---- | ---
-resources | **[Resources](#Resources16)**<br>Resources allocated to ZooKeeper hosts. 
-
-
-### Access {#Access11}
-
-Field | Description
---- | ---
-data_lens | **bool**<br>Allow to export data from the cluster to DataLens. 
-web_sql | **bool**<br>Allow SQL queries to the cluster databases from the management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
-metrika | **bool**<br>Allow to import data from Yandex Metrica and AppMetrica to the cluster. <br>See [AppMetrica documentation](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
-serverless | **bool**<br>Allow access to cluster for Serverless. 
-data_transfer | **bool**<br>Allow access for DataTransfer 
-yandex_query | **bool**<br>Allow access for Query 
-
-
-### CloudStorage {#CloudStorage11}
-
-Field | Description
---- | ---
-enabled | **bool**<br>Whether to use Object Storage for storing ClickHouse data. 
-move_factor | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**<br> Acceptable values are 0 to 1, inclusive.
-data_cache_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
-data_cache_max_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
-prefer_not_to_merge | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
-
-
-### ClickhouseConfigSet {#ClickhouseConfigSet15}
-
-Field | Description
---- | ---
-effective_config | **[ClickhouseConfig](#ClickhouseConfig20)**<br>Required. Effective settings for a ClickHouse cluster (a combination of settings defined in `user_config` and `default_config`). 
-user_config | **[ClickhouseConfig](#ClickhouseConfig20)**<br>User-defined settings for a ClickHouse cluster. 
-default_config | **[ClickhouseConfig](#ClickhouseConfig20)**<br>Default configuration for a ClickHouse cluster. 
+config | **[config.ClickhouseConfig](#ClickhouseConfig20)**<br>ClickHouse settings for the shard. 
+resources | **[Resources](#Resources16)**<br>Computational resources for the shard. 
+weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Relative weight of the shard considered when writing data to the cluster. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/operations/table_engines/distributed/). 
 
 
 ### ClickhouseConfig {#ClickhouseConfig20}
@@ -10934,55 +10590,7 @@ disk_size | **int64**<br>Volume of the storage available to a host, in bytes.
 disk_type_id | **string**<br>Type of the storage environment for the host. Possible values: <ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
 
 
-### MaintenanceWindow {#MaintenanceWindow11}
-
-Field | Description
---- | ---
-policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow11)**<br>Maintenance operation can be scheduled anytime. 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow11)**<br>Maintenance operation can be scheduled on a weekly basis. 
-
-
-### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow11}
-
-Empty.
-
-### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow11}
-
-Field | Description
---- | ---
-day | enum **WeekDay**<br>Day of the week (in `DDD` format). 
-hour | **int64**<br>Hour of the day in UTC (in `HH` format). Acceptable values are 1 to 24, inclusive.
-
-
-### MaintenanceOperation {#MaintenanceOperation11}
-
-Field | Description
---- | ---
-info | **string**<br>Information about this maintenance operation. The maximum string length in characters is 256.
-delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time until which this maintenance operation is delayed. 
-
-
-## UpdateExternalDictionary {#UpdateExternalDictionary}
-
-Updates an external dictionary for the specified ClickHouse cluster.
-
-**rpc UpdateExternalDictionary ([UpdateClusterExternalDictionaryRequest](#UpdateClusterExternalDictionaryRequest)) returns ([operation.Operation](#Operation22))**
-
-Metadata and response of Operation:<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateClusterExternalDictionaryMetadata](#UpdateClusterExternalDictionaryMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster12)<br>
-
-### UpdateClusterExternalDictionaryRequest {#UpdateClusterExternalDictionaryRequest}
-
-Field | Description
---- | ---
-cluster_id | **string**<br>Required. ID of the ClickHouse cluster to update the external dictionary for. To get the cluster ID, use a [List](#List) request. The maximum string length in characters is 50.
-external_dictionary | **[config.ClickhouseConfig.ExternalDictionary](#ClickhouseConfig21)**<br>Configuration of the external dictionary. 
-update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which fields of the External Dictionary should be updated. 
-
-
-### Operation {#Operation22}
+### Operation {#Operation17}
 
 Field | Description
 --- | ---
@@ -10992,107 +10600,46 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 created_by | **string**<br>ID of the user or service account who initiated the operation. 
 modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
 done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateClusterExternalDictionaryMetadata](#UpdateClusterExternalDictionaryMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateClusterShardMetadata](#UpdateClusterShardMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster12)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Shard](#Shard4)>**<br>if operation finished successfully. 
 
 
-### UpdateClusterExternalDictionaryMetadata {#UpdateClusterExternalDictionaryMetadata}
-
-Field | Description
---- | ---
-cluster_id | **string**<br>ID of the cluster for which an external dictionary is being updated. 
-external_dictionary_name | **string**<br>Name of the external dictionary. 
-
-
-### Cluster {#Cluster12}
+### UpdateClusterShardMetadata {#UpdateClusterShardMetadata}
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the ClickHouse cluster. This ID is assigned by MDB at creation time. 
-folder_id | **string**<br>ID of the folder that the ClickHouse cluster belongs to. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
-name | **string**<br>Name of the ClickHouse cluster. The name is unique within the folder. 1-63 characters long. 
-description | **string**<br>Description of the ClickHouse cluster. 0-256 characters long. 
-labels | **map<string,string>**<br>Custom labels for the ClickHouse cluster as `key:value` pairs. Maximum 64 per resource. 
-environment | enum **Environment**<br>Deployment environment of the ClickHouse cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li></ul>
-monitoring[] | **[Monitoring](#Monitoring12)**<br>Description of monitoring systems relevant to the ClickHouse cluster. 
-config | **[ClusterConfig](#ClusterConfig12)**<br>Configuration of the ClickHouse cluster. 
-network_id | **string**<br>ID of the network that the cluster belongs to. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host1) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host1) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host1) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host1) for at least one host in the cluster is not ALIVE).</li></ul>
-status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
-service_account_id | **string**<br>ID of the service account used for access to Object Storage. 
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow12)**<br>Maintenance window for the cluster. 
-planned_operation | **[MaintenanceOperation](#MaintenanceOperation12)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
-security_group_ids[] | **string**<br>User security groups 
-deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
+cluster_id | **string**<br>ID of the cluster that contains the shard being updated. 
+shard_name | **string**<br>Name of the shard being updated. 
 
 
-### Monitoring {#Monitoring12}
+### Shard {#Shard4}
 
 Field | Description
 --- | ---
-name | **string**<br>Name of the monitoring system. 
-description | **string**<br>Description of the monitoring system. 
-link | **string**<br>Link to the monitoring system charts for the ClickHouse cluster. 
+name | **string**<br>Name of the shard. 
+cluster_id | **string**<br>ID of the cluster that the shard belongs to. 
+config | **[ShardConfig](#ShardConfig4)**<br>Configuration of the shard. 
 
 
-### ClusterConfig {#ClusterConfig12}
+### ShardConfig {#ShardConfig4}
 
 Field | Description
 --- | ---
-version | **string**<br>Version of the ClickHouse server software. 
-clickhouse | **[Clickhouse](#Clickhouse21)**<br>Configuration and resource allocation for ClickHouse hosts. 
-zookeeper | **[Zookeeper](#Zookeeper15)**<br>Configuration and resource allocation for ZooKeeper hosts. 
-backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
-access | **[Access](#Access12)**<br>Access policy for external services. 
-cloud_storage | **[CloudStorage](#CloudStorage12)**<br> 
-sql_database_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether database management through SQL commands is enabled. 
-sql_user_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether user management through SQL commands is enabled. 
-embedded_keeper | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether cluster should use embedded Keeper instead of Zookeeper. 
-backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retain period of automatically created backup in days 
+clickhouse | **[Clickhouse](#Clickhouse21)**<br>ClickHouse configuration for a shard. 
 
 
 ### Clickhouse {#Clickhouse21}
 
 Field | Description
 --- | ---
-config | **[config.ClickhouseConfigSet](#ClickhouseConfigSet16)**<br>Configuration settings of a ClickHouse server. 
-resources | **[Resources](#Resources17)**<br>Resources allocated to ClickHouse hosts. 
+config | **[config.ClickhouseConfigSet](#ClickhouseConfigSet15)**<br>ClickHouse settings for a shard. 
+resources | **[Resources](#Resources17)**<br>Computational resources for a shard. 
+weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Relative weight of a shard considered when writing data to the cluster. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/operations/table_engines/distributed/). 
 
 
-### Zookeeper {#Zookeeper15}
-
-Field | Description
---- | ---
-resources | **[Resources](#Resources17)**<br>Resources allocated to ZooKeeper hosts. 
-
-
-### Access {#Access12}
-
-Field | Description
---- | ---
-data_lens | **bool**<br>Allow to export data from the cluster to DataLens. 
-web_sql | **bool**<br>Allow SQL queries to the cluster databases from the management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
-metrika | **bool**<br>Allow to import data from Yandex Metrica and AppMetrica to the cluster. <br>See [AppMetrica documentation](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
-serverless | **bool**<br>Allow access to cluster for Serverless. 
-data_transfer | **bool**<br>Allow access for DataTransfer 
-yandex_query | **bool**<br>Allow access for Query 
-
-
-### CloudStorage {#CloudStorage12}
-
-Field | Description
---- | ---
-enabled | **bool**<br>Whether to use Object Storage for storing ClickHouse data. 
-move_factor | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**<br> Acceptable values are 0 to 1, inclusive.
-data_cache_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
-data_cache_max_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
-prefer_not_to_merge | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
-
-
-### ClickhouseConfigSet {#ClickhouseConfigSet16}
+### ClickhouseConfigSet {#ClickhouseConfigSet15}
 
 Field | Description
 --- | ---
@@ -11457,60 +11004,337 @@ max_entry_size_in_bytes | **[google.protobuf.Int64Value](https://developers.goog
 max_entry_size_in_rows | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum number of rows SELECT query results may have to be saved in the cache. Default: 30000000 (30 mil) The minimum value is 0.
 
 
-### Resources {#Resources17}
+## DeleteShard {#DeleteShard}
 
-Field | Description
---- | ---
-resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-clickhouse/concepts/instance-types) 
-disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
-disk_type_id | **string**<br>Type of the storage environment for the host. Possible values: <ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
+Deletes the specified shard.
 
-
-### MaintenanceWindow {#MaintenanceWindow12}
-
-Field | Description
---- | ---
-policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow12)**<br>Maintenance operation can be scheduled anytime. 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow12)**<br>Maintenance operation can be scheduled on a weekly basis. 
-
-
-### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow12}
-
-Empty.
-
-### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow12}
-
-Field | Description
---- | ---
-day | enum **WeekDay**<br>Day of the week (in `DDD` format). 
-hour | **int64**<br>Hour of the day in UTC (in `HH` format). Acceptable values are 1 to 24, inclusive.
-
-
-### MaintenanceOperation {#MaintenanceOperation12}
-
-Field | Description
---- | ---
-info | **string**<br>Information about this maintenance operation. The maximum string length in characters is 256.
-delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time until which this maintenance operation is delayed. 
-
-
-## DeleteExternalDictionary {#DeleteExternalDictionary}
-
-Deletes the specified external dictionary.
-
-**rpc DeleteExternalDictionary ([DeleteClusterExternalDictionaryRequest](#DeleteClusterExternalDictionaryRequest)) returns ([operation.Operation](#Operation23))**
+**rpc DeleteShard ([DeleteClusterShardRequest](#DeleteClusterShardRequest)) returns ([operation.Operation](#Operation18))**
 
 Metadata and response of Operation:<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[DeleteClusterExternalDictionaryMetadata](#DeleteClusterExternalDictionaryMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster13)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[DeleteClusterShardMetadata](#DeleteClusterShardMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)<br>
 
-### DeleteClusterExternalDictionaryRequest {#DeleteClusterExternalDictionaryRequest}
+### DeleteClusterShardRequest {#DeleteClusterShardRequest}
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the ClickHouse cluster to delete the external dictionary from. To get the cluster ID, use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
-external_dictionary_name | **string**<br>Name of the external dictionary to delete. 
+cluster_id | **string**<br>Required. ID of the ClickHouse cluster the shard belongs to. To get the cluster ID, use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
+shard_name | **string**<br>Required. Name of the shard to be deleted. To get the name of a shard, use a [ClusterService.ListShards](#ListShards) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+
+
+### Operation {#Operation18}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DeleteClusterShardMetadata](#DeleteClusterShardMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>if operation finished successfully. 
+
+
+### DeleteClusterShardMetadata {#DeleteClusterShardMetadata}
+
+Field | Description
+--- | ---
+cluster_id | **string**<br>ID of the cluster that contains the shard being deleted. 
+shard_name | **string**<br>Name of the shard being deleted. 
+
+
+## DeleteShards {#DeleteShards}
+
+Deletes the specified shards (one or more).
+
+**rpc DeleteShards ([DeleteClusterShardsRequest](#DeleteClusterShardsRequest)) returns ([operation.Operation](#Operation19))**
+
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[DeleteClusterShardsMetadata](#DeleteClusterShardsMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)<br>
+
+### DeleteClusterShardsRequest {#DeleteClusterShardsRequest}
+
+Field | Description
+--- | ---
+cluster_id | **string**<br>Required. ID of the ClickHouse cluster the shards belong to. To get the cluster ID, use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
+shard_names[] | **string**<br>Names of the shards to be deleted. To get the name of a shard, use a [ClusterService.ListShards](#ListShards) request. The number of elements must be greater than 0. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-zA-Z0-9_-]* `.
+
+
+### Operation {#Operation19}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DeleteClusterShardsMetadata](#DeleteClusterShardsMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>if operation finished successfully. 
+
+
+### DeleteClusterShardsMetadata {#DeleteClusterShardsMetadata}
+
+Field | Description
+--- | ---
+cluster_id | **string**<br>ID of the cluster that contains the shards being deleted. 
+shard_names[] | **string**<br>Names of the shards being deleted. 
+
+
+## GetShardGroup {#GetShardGroup}
+
+Returns the specified shard group.
+
+**rpc GetShardGroup ([GetClusterShardGroupRequest](#GetClusterShardGroupRequest)) returns ([ShardGroup](#ShardGroup))**
+
+### GetClusterShardGroupRequest {#GetClusterShardGroupRequest}
+
+Field | Description
+--- | ---
+cluster_id | **string**<br>Required. ID of the cluster that the shard group belongs to. <br>To get the cluster ID, make a [ClusterService.List](#List) request. The maximum string length in characters is 50.
+shard_group_name | **string**<br>Required. Name of the shard group to request information about. <br>To get the name of a shard group, make a [ClusterService.ListShardGroups](#ListShardGroups) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+
+
+### ShardGroup {#ShardGroup}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the shard group. 
+cluster_id | **string**<br>ID of the ClickHouse cluster that the shard group belongs to. 
+description | **string**<br>Description of the shard group. 0-256 characters long. 
+shard_names[] | **string**<br>List of shard names contained in the shard group. 
+
+
+## ListShardGroups {#ListShardGroups}
+
+Retrieves a list of shard groups that belong to specified cluster.
+
+**rpc ListShardGroups ([ListClusterShardGroupsRequest](#ListClusterShardGroupsRequest)) returns ([ListClusterShardGroupsResponse](#ListClusterShardGroupsResponse))**
+
+### ListClusterShardGroupsRequest {#ListClusterShardGroupsRequest}
+
+Field | Description
+--- | ---
+cluster_id | **string**<br>Required. ID of the cluster that the shard group belongs to. <br>To get the cluster ID, make a [ClusterService.List](#List) request. The maximum string length in characters is 50.
+page_size | **int64**<br>The maximum number of results per page to return. <br>If the number of available results is larger than `page_size`, the service returns a [ListClusterShardGroupsResponse.next_page_token](#ListClusterShardGroupsResponse) that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 1000, inclusive.
+page_token | **string**<br>Page token. <br>To get the next page of results, set `page_token` to the [ListClusterShardGroupsResponse.next_page_token](#ListClusterShardGroupsResponse) returned by the previous list request. The maximum string length in characters is 100.
+
+
+### ListClusterShardGroupsResponse {#ListClusterShardGroupsResponse}
+
+Field | Description
+--- | ---
+shard_groups[] | **[ShardGroup](#ShardGroup1)**<br>List of ClickHouse cluster's shard groups. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. <br>If the number of results is larger than [ListClusterShardGroupsRequest.page_size](#ListClusterShardGroupsRequest), use the `next_page_token` as the value for the [ListClusterShardGroupsRequest.page_token](#ListClusterShardGroupsRequest) parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+
+
+### ShardGroup {#ShardGroup1}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the shard group. 
+cluster_id | **string**<br>ID of the ClickHouse cluster that the shard group belongs to. 
+description | **string**<br>Description of the shard group. 0-256 characters long. 
+shard_names[] | **string**<br>List of shard names contained in the shard group. 
+
+
+## CreateShardGroup {#CreateShardGroup}
+
+Creates a new shard group in the specified cluster.
+
+**rpc CreateShardGroup ([CreateClusterShardGroupRequest](#CreateClusterShardGroupRequest)) returns ([operation.Operation](#Operation20))**
+
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CreateClusterShardGroupMetadata](#CreateClusterShardGroupMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[ShardGroup](#ShardGroup2)<br>
+
+### CreateClusterShardGroupRequest {#CreateClusterShardGroupRequest}
+
+Field | Description
+--- | ---
+cluster_id | **string**<br>Required. ID of the ClickHouse cluster to add a shard group to. <br>To get the cluster ID, make a [ClusterService.List](#List) request. The maximum string length in characters is 50.
+shard_group_name | **string**<br>Required. Name for the new shard group. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+description | **string**<br>Description of the new shard group. 0-256 characters long. 
+shard_names[] | **string**<br>List of shard names that should be put into the new group. <br>To get the list, make a [ClusterService.ListShardGroups](#ListShardGroups) request. 
+
+
+### Operation {#Operation20}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateClusterShardGroupMetadata](#CreateClusterShardGroupMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[ShardGroup](#ShardGroup2)>**<br>if operation finished successfully. 
+
+
+### CreateClusterShardGroupMetadata {#CreateClusterShardGroupMetadata}
+
+Field | Description
+--- | ---
+cluster_id | **string**<br>ID of the cluster to add a shard group to. 
+shard_group_name | **string**<br>Name of the shard group that is being added. 
+
+
+### ShardGroup {#ShardGroup2}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the shard group. 
+cluster_id | **string**<br>ID of the ClickHouse cluster that the shard group belongs to. 
+description | **string**<br>Description of the shard group. 0-256 characters long. 
+shard_names[] | **string**<br>List of shard names contained in the shard group. 
+
+
+## UpdateShardGroup {#UpdateShardGroup}
+
+Updates the specified shard group.
+
+**rpc UpdateShardGroup ([UpdateClusterShardGroupRequest](#UpdateClusterShardGroupRequest)) returns ([operation.Operation](#Operation21))**
+
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateClusterShardGroupMetadata](#UpdateClusterShardGroupMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[ShardGroup](#ShardGroup3)<br>
+
+### UpdateClusterShardGroupRequest {#UpdateClusterShardGroupRequest}
+
+Field | Description
+--- | ---
+cluster_id | **string**<br>Required. ID of the ClickHouse cluster that contains the shard group to update. <br>To get the cluster ID, make a [ClusterService.List](#List) request. The maximum string length in characters is 50.
+shard_group_name | **string**<br>Required. Name of the shard group that should be updated. <br>To get the name, make a [ClusterService.ListShardGroups](#ListShardGroups) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br> 
+description | **string**<br>Updated description of the shard group. 0-256 characters long. 
+shard_names[] | **string**<br>Updated list of shard names that belongs to the shard group. 
+
+
+### Operation {#Operation21}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateClusterShardGroupMetadata](#UpdateClusterShardGroupMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[ShardGroup](#ShardGroup3)>**<br>if operation finished successfully. 
+
+
+### UpdateClusterShardGroupMetadata {#UpdateClusterShardGroupMetadata}
+
+Field | Description
+--- | ---
+cluster_id | **string**<br>ID of the cluster that contains the shard group being updated. 
+shard_group_name | **string**<br>Name of the shard group that is being updated. 
+
+
+### ShardGroup {#ShardGroup3}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the shard group. 
+cluster_id | **string**<br>ID of the ClickHouse cluster that the shard group belongs to. 
+description | **string**<br>Description of the shard group. 0-256 characters long. 
+shard_names[] | **string**<br>List of shard names contained in the shard group. 
+
+
+## DeleteShardGroup {#DeleteShardGroup}
+
+Deletes the specified shard group.
+
+**rpc DeleteShardGroup ([DeleteClusterShardGroupRequest](#DeleteClusterShardGroupRequest)) returns ([operation.Operation](#Operation22))**
+
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[DeleteClusterShardGroupMetadata](#DeleteClusterShardGroupMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)<br>
+
+### DeleteClusterShardGroupRequest {#DeleteClusterShardGroupRequest}
+
+Field | Description
+--- | ---
+cluster_id | **string**<br>Required. ID of the ClickHouse cluster that contains the shard group to delete. <br>To get the cluster ID, make a [ClusterService.List](#List) request. The maximum string length in characters is 50.
+shard_group_name | **string**<br>Required. Name of the shard group that should be deleted. <br>To get the name, make a [ClusterService.ListShardGroups](#ListShardGroups) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+
+
+### Operation {#Operation22}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DeleteClusterShardGroupMetadata](#DeleteClusterShardGroupMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>if operation finished successfully. 
+
+
+### DeleteClusterShardGroupMetadata {#DeleteClusterShardGroupMetadata}
+
+Field | Description
+--- | ---
+cluster_id | **string**<br>ID of the cluster that contains the shard group being deleted. 
+shard_group_name | **string**<br>Name of the shard group that is being deleted. 
+
+
+## ListExternalDictionaries {#ListExternalDictionaries}
+
+Retrieves a list of external dictionaries that belong to specified cluster.
+
+**rpc ListExternalDictionaries ([ListClusterExternalDictionariesRequest](#ListClusterExternalDictionariesRequest)) returns ([ListClusterExternalDictionariesResponse](#ListClusterExternalDictionariesResponse))**
+
+### ListClusterExternalDictionariesRequest {#ListClusterExternalDictionariesRequest}
+
+Field | Description
+--- | ---
+cluster_id | **string**<br>Required. ID of the cluster that the external dictionaries belong to. The maximum string length in characters is 50.
+page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListClusterExternalDictionaryResponse.next_page_token] that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 1000, inclusive.
+page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListClusterExternalDictionaryResponse.next_page_token] returned by a previous list request. The maximum string length in characters is 100.
+
+
+### ListClusterExternalDictionariesResponse {#ListClusterExternalDictionariesResponse}
+
+Field | Description
+--- | ---
+external_dictionaries[] | **[config.ClickhouseConfig.ExternalDictionary](#ClickhouseConfig22)**<br>List of ClickHouse Cluster external dictionaries. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListClusterExternalDictionaryRequest.page_size], use the `next_page_token` as the value for the [ListClusterExternalDictionaryRequest.page_token] parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+
+
+## CreateExternalDictionary {#CreateExternalDictionary}
+
+Creates an external dictionary for the specified ClickHouse cluster.
+
+**rpc CreateExternalDictionary ([CreateClusterExternalDictionaryRequest](#CreateClusterExternalDictionaryRequest)) returns ([operation.Operation](#Operation23))**
+
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CreateClusterExternalDictionaryMetadata](#CreateClusterExternalDictionaryMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster11)<br>
+
+### CreateClusterExternalDictionaryRequest {#CreateClusterExternalDictionaryRequest}
+
+Field | Description
+--- | ---
+cluster_id | **string**<br>Required. ID of the ClickHouse cluster to create the external dictionary for. To get the cluster ID, use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
+external_dictionary | **[config.ClickhouseConfig.ExternalDictionary](#ClickhouseConfig22)**<br>Configuration of the external dictionary. 
 
 
 ### Operation {#Operation23}
@@ -11523,20 +11347,20 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 created_by | **string**<br>ID of the user or service account who initiated the operation. 
 modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
 done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DeleteClusterExternalDictionaryMetadata](#DeleteClusterExternalDictionaryMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateClusterExternalDictionaryMetadata](#CreateClusterExternalDictionaryMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster13)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster11)>**<br>if operation finished successfully. 
 
 
-### DeleteClusterExternalDictionaryMetadata {#DeleteClusterExternalDictionaryMetadata}
+### CreateClusterExternalDictionaryMetadata {#CreateClusterExternalDictionaryMetadata}
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>ID of the cluster where an external dictionary is being deleted. 
+cluster_id | **string**<br>ID of the cluster for which an external dictionary is being created. 
 
 
-### Cluster {#Cluster13}
+### Cluster {#Cluster11}
 
 Field | Description
 --- | ---
@@ -11547,19 +11371,19 @@ name | **string**<br>Name of the ClickHouse cluster. The name is unique within t
 description | **string**<br>Description of the ClickHouse cluster. 0-256 characters long. 
 labels | **map<string,string>**<br>Custom labels for the ClickHouse cluster as `key:value` pairs. Maximum 64 per resource. 
 environment | enum **Environment**<br>Deployment environment of the ClickHouse cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li></ul>
-monitoring[] | **[Monitoring](#Monitoring13)**<br>Description of monitoring systems relevant to the ClickHouse cluster. 
-config | **[ClusterConfig](#ClusterConfig13)**<br>Configuration of the ClickHouse cluster. 
+monitoring[] | **[Monitoring](#Monitoring11)**<br>Description of monitoring systems relevant to the ClickHouse cluster. 
+config | **[ClusterConfig](#ClusterConfig11)**<br>Configuration of the ClickHouse cluster. 
 network_id | **string**<br>ID of the network that the cluster belongs to. 
 health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host1) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host1) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host1) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host1) for at least one host in the cluster is not ALIVE).</li></ul>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
 service_account_id | **string**<br>ID of the service account used for access to Object Storage. 
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow13)**<br>Maintenance window for the cluster. 
-planned_operation | **[MaintenanceOperation](#MaintenanceOperation13)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow11)**<br>Maintenance window for the cluster. 
+planned_operation | **[MaintenanceOperation](#MaintenanceOperation11)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 
 
-### Monitoring {#Monitoring13}
+### Monitoring {#Monitoring11}
 
 Field | Description
 --- | ---
@@ -11568,16 +11392,16 @@ description | **string**<br>Description of the monitoring system.
 link | **string**<br>Link to the monitoring system charts for the ClickHouse cluster. 
 
 
-### ClusterConfig {#ClusterConfig13}
+### ClusterConfig {#ClusterConfig11}
 
 Field | Description
 --- | ---
 version | **string**<br>Version of the ClickHouse server software. 
 clickhouse | **[Clickhouse](#Clickhouse22)**<br>Configuration and resource allocation for ClickHouse hosts. 
-zookeeper | **[Zookeeper](#Zookeeper16)**<br>Configuration and resource allocation for ZooKeeper hosts. 
+zookeeper | **[Zookeeper](#Zookeeper14)**<br>Configuration and resource allocation for ZooKeeper hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
-access | **[Access](#Access13)**<br>Access policy for external services. 
-cloud_storage | **[CloudStorage](#CloudStorage13)**<br> 
+access | **[Access](#Access11)**<br>Access policy for external services. 
+cloud_storage | **[CloudStorage](#CloudStorage11)**<br> 
 sql_database_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether database management through SQL commands is enabled. 
 sql_user_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether user management through SQL commands is enabled. 
 embedded_keeper | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether cluster should use embedded Keeper instead of Zookeeper. 
@@ -11588,18 +11412,18 @@ backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.go
 
 Field | Description
 --- | ---
-config | **[config.ClickhouseConfigSet](#ClickhouseConfigSet17)**<br>Configuration settings of a ClickHouse server. 
-resources | **[Resources](#Resources18)**<br>Resources allocated to ClickHouse hosts. 
+config | **[config.ClickhouseConfigSet](#ClickhouseConfigSet16)**<br>Configuration settings of a ClickHouse server. 
+resources | **[Resources](#Resources17)**<br>Resources allocated to ClickHouse hosts. 
 
 
-### Zookeeper {#Zookeeper16}
+### Zookeeper {#Zookeeper14}
 
 Field | Description
 --- | ---
-resources | **[Resources](#Resources18)**<br>Resources allocated to ZooKeeper hosts. 
+resources | **[Resources](#Resources17)**<br>Resources allocated to ZooKeeper hosts. 
 
 
-### Access {#Access13}
+### Access {#Access11}
 
 Field | Description
 --- | ---
@@ -11611,7 +11435,7 @@ data_transfer | **bool**<br>Allow access for DataTransfer
 yandex_query | **bool**<br>Allow access for Query 
 
 
-### CloudStorage {#CloudStorage13}
+### CloudStorage {#CloudStorage11}
 
 Field | Description
 --- | ---
@@ -11622,7 +11446,7 @@ data_cache_max_size | **[google.protobuf.Int64Value](https://developers.google.c
 prefer_not_to_merge | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
 
 
-### ClickhouseConfigSet {#ClickhouseConfigSet17}
+### ClickhouseConfigSet {#ClickhouseConfigSet16}
 
 Field | Description
 --- | ---
@@ -11987,7 +11811,1069 @@ max_entry_size_in_bytes | **[google.protobuf.Int64Value](https://developers.goog
 max_entry_size_in_rows | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum number of rows SELECT query results may have to be saved in the cache. Default: 30000000 (30 mil) The minimum value is 0.
 
 
+### Resources {#Resources17}
+
+Field | Description
+--- | ---
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-clickhouse/concepts/instance-types) 
+disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
+disk_type_id | **string**<br>Type of the storage environment for the host. Possible values: <ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
+
+
+### MaintenanceWindow {#MaintenanceWindow11}
+
+Field | Description
+--- | ---
+policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow11)**<br>Maintenance operation can be scheduled anytime. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow11)**<br>Maintenance operation can be scheduled on a weekly basis. 
+
+
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow11}
+
+Empty.
+
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow11}
+
+Field | Description
+--- | ---
+day | enum **WeekDay**<br>Day of the week (in `DDD` format). 
+hour | **int64**<br>Hour of the day in UTC (in `HH` format). Acceptable values are 1 to 24, inclusive.
+
+
+### MaintenanceOperation {#MaintenanceOperation11}
+
+Field | Description
+--- | ---
+info | **string**<br>Information about this maintenance operation. The maximum string length in characters is 256.
+delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time until which this maintenance operation is delayed. 
+
+
+## UpdateExternalDictionary {#UpdateExternalDictionary}
+
+Updates an external dictionary for the specified ClickHouse cluster.
+
+**rpc UpdateExternalDictionary ([UpdateClusterExternalDictionaryRequest](#UpdateClusterExternalDictionaryRequest)) returns ([operation.Operation](#Operation24))**
+
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateClusterExternalDictionaryMetadata](#UpdateClusterExternalDictionaryMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster12)<br>
+
+### UpdateClusterExternalDictionaryRequest {#UpdateClusterExternalDictionaryRequest}
+
+Field | Description
+--- | ---
+cluster_id | **string**<br>Required. ID of the ClickHouse cluster to update the external dictionary for. To get the cluster ID, use a [List](#List) request. The maximum string length in characters is 50.
+external_dictionary | **[config.ClickhouseConfig.ExternalDictionary](#ClickhouseConfig23)**<br>Configuration of the external dictionary. 
+update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which fields of the External Dictionary should be updated. 
+
+
+### Operation {#Operation24}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateClusterExternalDictionaryMetadata](#UpdateClusterExternalDictionaryMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster12)>**<br>if operation finished successfully. 
+
+
+### UpdateClusterExternalDictionaryMetadata {#UpdateClusterExternalDictionaryMetadata}
+
+Field | Description
+--- | ---
+cluster_id | **string**<br>ID of the cluster for which an external dictionary is being updated. 
+external_dictionary_name | **string**<br>Name of the external dictionary. 
+
+
+### Cluster {#Cluster12}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the ClickHouse cluster. This ID is assigned by MDB at creation time. 
+folder_id | **string**<br>ID of the folder that the ClickHouse cluster belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
+name | **string**<br>Name of the ClickHouse cluster. The name is unique within the folder. 1-63 characters long. 
+description | **string**<br>Description of the ClickHouse cluster. 0-256 characters long. 
+labels | **map<string,string>**<br>Custom labels for the ClickHouse cluster as `key:value` pairs. Maximum 64 per resource. 
+environment | enum **Environment**<br>Deployment environment of the ClickHouse cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li></ul>
+monitoring[] | **[Monitoring](#Monitoring12)**<br>Description of monitoring systems relevant to the ClickHouse cluster. 
+config | **[ClusterConfig](#ClusterConfig12)**<br>Configuration of the ClickHouse cluster. 
+network_id | **string**<br>ID of the network that the cluster belongs to. 
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host1) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host1) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host1) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host1) for at least one host in the cluster is not ALIVE).</li></ul>
+status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
+service_account_id | **string**<br>ID of the service account used for access to Object Storage. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow12)**<br>Maintenance window for the cluster. 
+planned_operation | **[MaintenanceOperation](#MaintenanceOperation12)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
+security_group_ids[] | **string**<br>User security groups 
+deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
+
+
+### Monitoring {#Monitoring12}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the monitoring system. 
+description | **string**<br>Description of the monitoring system. 
+link | **string**<br>Link to the monitoring system charts for the ClickHouse cluster. 
+
+
+### ClusterConfig {#ClusterConfig12}
+
+Field | Description
+--- | ---
+version | **string**<br>Version of the ClickHouse server software. 
+clickhouse | **[Clickhouse](#Clickhouse23)**<br>Configuration and resource allocation for ClickHouse hosts. 
+zookeeper | **[Zookeeper](#Zookeeper15)**<br>Configuration and resource allocation for ZooKeeper hosts. 
+backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
+access | **[Access](#Access12)**<br>Access policy for external services. 
+cloud_storage | **[CloudStorage](#CloudStorage12)**<br> 
+sql_database_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether database management through SQL commands is enabled. 
+sql_user_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether user management through SQL commands is enabled. 
+embedded_keeper | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether cluster should use embedded Keeper instead of Zookeeper. 
+backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retain period of automatically created backup in days 
+
+
+### Clickhouse {#Clickhouse23}
+
+Field | Description
+--- | ---
+config | **[config.ClickhouseConfigSet](#ClickhouseConfigSet17)**<br>Configuration settings of a ClickHouse server. 
+resources | **[Resources](#Resources18)**<br>Resources allocated to ClickHouse hosts. 
+
+
+### Zookeeper {#Zookeeper15}
+
+Field | Description
+--- | ---
+resources | **[Resources](#Resources18)**<br>Resources allocated to ZooKeeper hosts. 
+
+
+### Access {#Access12}
+
+Field | Description
+--- | ---
+data_lens | **bool**<br>Allow to export data from the cluster to DataLens. 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
+metrika | **bool**<br>Allow to import data from Yandex Metrica and AppMetrica to the cluster. <br>See [AppMetrica documentation](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
+serverless | **bool**<br>Allow access to cluster for Serverless. 
+data_transfer | **bool**<br>Allow access for DataTransfer 
+yandex_query | **bool**<br>Allow access for Query 
+
+
+### CloudStorage {#CloudStorage12}
+
+Field | Description
+--- | ---
+enabled | **bool**<br>Whether to use Object Storage for storing ClickHouse data. 
+move_factor | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**<br> Acceptable values are 0 to 1, inclusive.
+data_cache_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
+data_cache_max_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+prefer_not_to_merge | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
+
+
+### ClickhouseConfigSet {#ClickhouseConfigSet17}
+
+Field | Description
+--- | ---
+effective_config | **[ClickhouseConfig](#ClickhouseConfig23)**<br>Required. Effective settings for a ClickHouse cluster (a combination of settings defined in `user_config` and `default_config`). 
+user_config | **[ClickhouseConfig](#ClickhouseConfig23)**<br>User-defined settings for a ClickHouse cluster. 
+default_config | **[ClickhouseConfig](#ClickhouseConfig23)**<br>Default configuration for a ClickHouse cluster. 
+
+
+### ClickhouseConfig {#ClickhouseConfig23}
+
+Field | Description
+--- | ---
+log_level | enum **LogLevel**<br>Logging level for the ClickHouse cluster. Possible values: TRACE, DEBUG, INFORMATION, WARNING, ERROR. 
+merge_tree | **[MergeTree](#MergeTree23)**<br>Settings for the MergeTree engine. See description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server_settings/settings/#merge_tree). 
+compression[] | **[Compression](#Compression23)**<br>Compression settings for the ClickHouse cluster. See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server_settings/settings/#compression). 
+dictionaries[] | **[ExternalDictionary](#ExternalDictionary23)**<br>Configuration of external dictionaries to be used by the ClickHouse cluster. See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts/). 
+graphite_rollup[] | **[GraphiteRollup](#GraphiteRollup23)**<br>Settings for thinning Graphite data. See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server_settings/settings/#server_settings-graphite_rollup). 
+kafka | **[Kafka](#Kafka23)**<br> 
+kafka_topics[] | **[KafkaTopic](#KafkaTopic23)**<br> 
+rabbitmq | **[Rabbitmq](#Rabbitmq23)**<br> 
+max_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of inbound connections. The minimum value is 10.
+max_concurrent_queries | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of simultaneously processed requests. The minimum value is 10.
+keep_alive_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Number of milliseconds that ClickHouse waits for incoming requests before closing the connection. 
+uncompressed_cache_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Cache size (in bytes) for uncompressed data used by MergeTree tables. 
+mark_cache_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Approximate size (in bytes) of the cache of "marks" used by MergeTree tables. Value must be greater than 0.
+max_table_size_to_drop | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum size of the table that can be deleted using a DROP query. 
+max_partition_size_to_drop | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum size of the partition that can be deleted using a DROP query. 
+builtin_dictionaries_reload_interval | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The setting is deprecated and has no effect. 
+timezone | **string**<br>The server's time zone to be used in DateTime fields conversions. Specified as an IANA identifier. 
+geobase_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enable or disable geobase. 
+geobase_uri | **string**<br>Address of the archive with the user geobase in Object Storage. 
+query_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that query_log can grow to before old data will be removed. If set to 0, automatic removal of query_log data based on size is disabled. 
+query_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that query_log records will be retained before removal. If set to 0, automatic removal of query_log data based on time is disabled. 
+query_thread_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether query_thread_log system table is enabled. 
+query_thread_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that query_thread_log can grow to before old data will be removed. If set to 0, automatic removal of query_thread_log data based on size is disabled. 
+query_thread_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that query_thread_log records will be retained before removal. If set to 0, automatic removal of query_thread_log data based on time is disabled. 
+part_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that part_log can grow to before old data will be removed. If set to 0, automatic removal of part_log data based on size is disabled. 
+part_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that part_log records will be retained before removal. If set to 0, automatic removal of part_log data based on time is disabled. 
+metric_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether metric_log system table is enabled. 
+metric_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that metric_log can grow to before old data will be removed. If set to 0, automatic removal of metric_log data based on size is disabled. 
+metric_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that metric_log records will be retained before removal. If set to 0, automatic removal of metric_log data based on time is disabled. 
+trace_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether trace_log system table is enabled. 
+trace_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that trace_log can grow to before old data will be removed. If set to 0, automatic removal of trace_log data based on size is disabled. 
+trace_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that trace_log records will be retained before removal. If set to 0, automatic removal of trace_log data based on time is disabled. 
+text_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether text_log system table is enabled. 
+text_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that text_log can grow to before old data will be removed. If set to 0, automatic removal of text_log data based on size is disabled. 
+text_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that text_log records will be retained before removal. If set to 0, automatic removal of text_log data based on time is disabled. 
+text_log_level | enum **LogLevel**<br>Logging level for text_log system table. Possible values: TRACE, DEBUG, INFORMATION, WARNING, ERROR. 
+opentelemetry_span_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enable or disable opentelemetry_span_log system table. Default value: false. 
+opentelemetry_span_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that opentelemetry_span_log can grow to before old data will be removed. If set to 0 (default), automatic removal of opentelemetry_span_log data based on size is disabled. The minimum value is 0.
+opentelemetry_span_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that opentelemetry_span_log records will be retained before removal. If set to 0, automatic removal of opentelemetry_span_log data based on time is disabled. The minimum value is 0.
+query_views_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enable or disable query_views_log system table. Default value: false. 
+query_views_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that query_views_log can grow to before old data will be removed. If set to 0 (default), automatic removal of query_views_log data based on size is disabled. The minimum value is 0.
+query_views_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that query_views_log records will be retained before removal. If set to 0, automatic removal of query_views_log data based on time is disabled. The minimum value is 0.
+asynchronous_metric_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enable or disable asynchronous_metric_log system table. Default value: false. 
+asynchronous_metric_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that asynchronous_metric_log can grow to before old data will be removed. If set to 0 (default), automatic removal of asynchronous_metric_log data based on size is disabled. The minimum value is 0.
+asynchronous_metric_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that asynchronous_metric_log records will be retained before removal. If set to 0, automatic removal of asynchronous_metric_log data based on time is disabled. The minimum value is 0.
+session_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enable or disable session_log system table. Default value: false. 
+session_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that session_log can grow to before old data will be removed. If set to 0 (default), automatic removal of session_log data based on size is disabled. The minimum value is 0.
+session_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that session_log records will be retained before removal. If set to 0, automatic removal of session_log data based on time is disabled. The minimum value is 0.
+zookeeper_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enable or disable zookeeper_log system table. Default value: false. 
+zookeeper_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that zookeeper_log can grow to before old data will be removed. If set to 0 (default), automatic removal of zookeeper_log data based on size is disabled. The minimum value is 0.
+zookeeper_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that zookeeper_log records will be retained before removal. If set to 0, automatic removal of zookeeper_log data based on time is disabled. The minimum value is 0.
+asynchronous_insert_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enable or disable asynchronous_insert_log system table. Default value: false. Minimal required ClickHouse version: 22.10. 
+asynchronous_insert_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that asynchronous_insert_log can grow to before old data will be removed. If set to 0 (default), automatic removal of asynchronous_insert_log data based on size is disabled. The minimum value is 0.
+asynchronous_insert_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that asynchronous_insert_log records will be retained before removal. If set to 0, automatic removal of asynchronous_insert_log data based on time is disabled. The minimum value is 0.
+background_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_merges_mutations_concurrency_ratio | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets a ratio between the number of threads and the number of background merges and mutations that can be executed concurrently. For example, if the ratio equals to 2 and background_pool_size is set to 16 then ClickHouse can execute 32 background merges concurrently. This is possible, because background operations could be suspended and postponed. This is needed to give small merges more execution priority. You can only increase this ratio at runtime. To lower it you have to restart the server. The same as for background_pool_size setting background_merges_mutations_concurrency_ratio could be applied from the default profile for backward compatibility. Default: 2 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#background_merges_mutations_concurrency_ratio) Value must be greater than 0.
+background_schedule_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_fetches_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the number of threads performing background fetches for tables with **ReplicatedMergeTree** engines. Default value: 8. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#background_fetches_pool_size). Value must be greater than 0.
+background_move_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_distributed_schedule_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_buffer_flush_schedule_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_message_broker_schedule_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_common_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum number of threads that will be used for performing a variety of operations (mostly garbage collection) for *MergeTree-engine tables in a background. Default: 8 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#background_common_pool_size) Value must be greater than 0.
+default_database | **google.protobuf.StringValue**<br>The default database. <br>To get a list of cluster databases, see [Yandex Managed ClickHouse documentation](/docs/managed-clickhouse/operations/databases#list-db). 
+total_memory_profiler_step | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the memory size (in bytes) for a stack trace at every peak allocation step. Default value: **4194304**. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#total-memory-profiler-step). 
+total_memory_tracker_sample_probability | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**<br> 
+query_masking_rules[] | **[QueryMaskingRule](#QueryMaskingRule23)**<br>Regexp-based rules, which will be applied to queries as well as all log messages before storing them in server logs, system.query_log, system.text_log, system.processes tables, and in logs sent to the client. That allows preventing sensitive data leakage from SQL queries (like names, emails, personal identifiers or credit card numbers) to logs. Change of these settings is applied with ClickHouse restart See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#query-masking-rules) The number of elements must be greater than 0.
+dictionaries_lazy_load | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Lazy loading of dictionaries. Default: true See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#dictionaries_lazy_load) 
+query_cache | **[QueryCache](#QueryCache23)**<br>[Query cache](https://clickhouse.com/docs/en/operations/query-cache) configuration. Min version: 23.5 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#query_cache) 
+
+
+### MergeTree {#MergeTree23}
+
+Field | Description
+--- | ---
+replicated_deduplication_window | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Number of blocks of hashes to keep in ZooKeeper. 
+replicated_deduplication_window_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Period of time to keep blocks of hashes for. 
+parts_to_delay_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If table contains at least that many active parts in single partition, artificially slow down insert into table. 
+parts_to_throw_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If more than this number active parts in single partition, throw 'Too many parts ...' exception. 
+inactive_parts_to_delay_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+inactive_parts_to_throw_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+max_replicated_merges_in_queue | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>How many tasks of merging and mutating parts are allowed simultaneously in ReplicatedMergeTree queue. 
+number_of_free_entries_in_pool_to_lower_max_size_of_merge | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If there is less than specified number of free entries in background pool (or replicated queue), start to lower maximum size of merge to process. 
+max_bytes_to_merge_at_min_space_in_pool | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum in total size of parts to merge, when there are minimum free threads in background pool (or entries in replication queue). 
+max_bytes_to_merge_at_max_space_in_pool | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+min_bytes_for_wide_part | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Minimum number of bytes in a data part that can be stored in **Wide** format. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree/#min_bytes_for_wide_part). 
+min_rows_for_wide_part | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Minimum number of rows in a data part that can be stored in **Wide** format. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree/#min_bytes_for_wide_part). 
+ttl_only_drop_parts | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enables or disables complete dropping of data parts where all rows are expired in MergeTree tables. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#ttl_only_drop_parts). 
+allow_remote_fs_zero_copy_replication | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
+merge_with_ttl_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+merge_with_recompression_ttl_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+max_parts_in_total | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+max_number_of_merges_with_ttl_in_pool | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+cleanup_delay_period | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+number_of_free_entries_in_pool_to_execute_mutation | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+max_avg_part_size_for_too_many_parts | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The 'too many parts' check according to 'parts_to_delay_insert' and 'parts_to_throw_insert' will be active only if the average part size (in the relevant partition) is not larger than the specified threshold. If it is larger than the specified threshold, the INSERTs will be neither delayed or rejected. This allows to have hundreds of terabytes in a single table on a single server if the parts are successfully merged to larger parts. This does not affect the thresholds on inactive parts or total parts. Default: 1 GiB Min version: 22.10 See in-depth description in [ClickHouse GitHub](https://github.com/ClickHouse/ClickHouse/blob/f9558345e886876b9132d9c018e357f7fa9b22a3/src/Storages/MergeTree/MergeTreeSettings.h#L80) The minimum value is 0.
+min_age_to_force_merge_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Merge parts if every part in the range is older than the value of min_age_to_force_merge_seconds. Default: 0 - disabled Min_version: 22.10 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#min_age_to_force_merge_seconds) The minimum value is 0.
+min_age_to_force_merge_on_partition_only | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether min_age_to_force_merge_seconds should be applied only on the entire partition and not on subset. Default: false Min_version: 22.11 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#min_age_to_force_merge_seconds) 
+merge_selecting_sleep_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sleep time for merge selecting when no part is selected. A lower setting triggers selecting tasks in background_schedule_pool frequently, which results in a large number of requests to ClickHouse Keeper in large-scale clusters. Default: 5000 Min_version: 21.10 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#merge_selecting_sleep_ms) Value must be greater than 0.
+merge_max_block_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of rows that are read from the merged parts into memory. Default: 8192 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#merge_max_block_size) Value must be greater than 0.
+check_sample_column_is_correct | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enables the check at table creation, that the data type of a column for sampling or sampling expression is correct. The data type must be one of unsigned [integer types](https://clickhouse.com/docs/en/sql-reference/data-types/int-uint): UInt8, UInt16, UInt32, UInt64. Default: true See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#check_sample_column_is_correct) 
+max_merge_selecting_sleep_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum sleep time for merge selecting, a lower setting will trigger selecting tasks in background_schedule_pool frequently which result in large amount of requests to zookeeper in large-scale clusters. Default: 60000 Min_version: 23.6 See in-depth description in [ClickHouse GitHub](https://github.com/ClickHouse/ClickHouse/blob/4add9db84859bff7410cf934a3904b0414e36e51/src/Storages/MergeTree/MergeTreeSettings.h#L71) The minimum value is 0.
+max_cleanup_delay_period | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum period to clean old queue logs, blocks hashes and parts. Default: 300 Min_version: 23.6 See in-depth description in [ClickHouse GitHub](https://github.com/ClickHouse/ClickHouse/blob/4add9db84859bff7410cf934a3904b0414e36e51/src/Storages/MergeTree/MergeTreeSettings.h#L142) The minimum value is 0.
+
+
+### Kafka {#Kafka23}
+
+Field | Description
+--- | ---
+security_protocol | enum **SecurityProtocol**<br> 
+sasl_mechanism | enum **SaslMechanism**<br> 
+sasl_username | **string**<br> 
+sasl_password | **string**<br> 
+enable_ssl_certificate_verification | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
+max_poll_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> The minimum value is 0.
+session_timeout_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> The minimum value is 0.
+debug | enum **Debug**<br> 
+auto_offset_reset | enum **AutoOffsetReset**<br> 
+
+
+### KafkaTopic {#KafkaTopic23}
+
+Field | Description
+--- | ---
+name | **string**<br>Required.  
+settings | **[Kafka](#Kafka23)**<br>Required.  
+
+
+### Rabbitmq {#Rabbitmq23}
+
+Field | Description
+--- | ---
+username | **string**<br>[RabbitMQ](https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/) username 
+password | **string**<br>[RabbitMQ](https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/) password 
+vhost | **string**<br>[RabbitMQ](https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/) virtual host 
+
+
+### Compression {#Compression23}
+
+Field | Description
+--- | ---
+method | enum **Method**<br>Compression method to use for the specified combination of `min_part_size` and `min_part_size_ratio`. <ul><li>`LZ4`: [LZ4 compression algorithm](https://lz4.github.io/lz4/).</li><li>`ZSTD`: [Zstandard compression algorithm](https://facebook.github.io/zstd/).</li></ul>
+min_part_size | **int64**<br>Minimum size of a part of a table. The minimum value is 1.
+min_part_size_ratio | **double**<br>Minimum ratio of a part relative to the size of all the data in the table. 
+level | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> The minimum value is 0.
+
+
+### ExternalDictionary {#ExternalDictionary23}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the external dictionary. 
+structure | **[Structure](#Structure23)**<br>Required. Set of attributes for the external dictionary. For in-depth description, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_structure/). 
+layout | **[Layout](#Layout23)**<br>Required. Layout for storing the dictionary in memory. For in-depth description, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_layout/). 
+lifetime | **oneof:** `fixed_lifetime` or `lifetime_range`<br>Setting for the period of time between dictionary updates. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/).
+&nbsp;&nbsp;fixed_lifetime | **int64**<br>Fixed interval between dictionary updates. 
+&nbsp;&nbsp;lifetime_range | **[Range](#Range23)**<br>Range of intervals between dictionary updates for ClickHouse to choose from. 
+source | **oneof:** `http_source`, `mysql_source`, `clickhouse_source`, `mongodb_source` or `postgresql_source`<br>Description of the source for the external dictionary.
+&nbsp;&nbsp;http_source | **[HttpSource](#HttpSource23)**<br>HTTP source for the dictionary. 
+&nbsp;&nbsp;mysql_source | **[MysqlSource](#MysqlSource23)**<br>MySQL source for the dictionary. 
+&nbsp;&nbsp;clickhouse_source | **[ClickhouseSource](#ClickhouseSource23)**<br>ClickHouse source for the dictionary. 
+&nbsp;&nbsp;mongodb_source | **[MongodbSource](#MongodbSource23)**<br>MongoDB source for the dictionary. 
+&nbsp;&nbsp;postgresql_source | **[PostgresqlSource](#PostgresqlSource23)**<br>PostgreSQL source for the dictionary. 
+
+
+### HttpSource {#HttpSource23}
+
+Field | Description
+--- | ---
+url | **string**<br>Required. URL of the source dictionary available over HTTP. 
+format | **string**<br>Required. The data format. Valid values are all formats supported by ClickHouse SQL dialect. 
+headers[] | **[Header](#Header23)**<br>HTTP headers. 
+
+
+### Header {#Header23}
+
+Field | Description
+--- | ---
+name | **string**<br>Required.  
+value | **string**<br>Required.  
+
+
+### MysqlSource {#MysqlSource23}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the MySQL database to connect to. 
+table | **string**<br>Required. Name of the database table to use as a ClickHouse dictionary. 
+port | **int64**<br>Default port to use when connecting to a replica of the dictionary source. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Name of the default user for replicas of the dictionary source. 
+password | **string**<br>Password of the default user for replicas of the dictionary source. 
+replicas[] | **[Replica](#Replica23)**<br>List of MySQL replicas of the database used as dictionary source. The number of elements must be greater than 0.
+where | **string**<br>Selection criteria for the data in the specified MySQL table. 
+invalidate_query | **string**<br>Query for checking the dictionary status, to pull only updated data. For more details, see [ClickHouse documentation on dictionaries](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/). 
+close_connection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Should the connection be closed after each request. 
+share_connection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Should a connection be shared for some requests. 
+
+
+### Replica {#Replica23}
+
+Field | Description
+--- | ---
+host | **string**<br>Required. MySQL host of the replica. The maximum string length in characters is 253.
+priority | **int64**<br>Required. The priority of the replica that ClickHouse takes into account when connecting. Replica with the highest priority should have this field set to the lowest number. Value must be greater than 0.
+port | **int64**<br>Port to use when connecting to the replica. If a port is not specified for a replica, ClickHouse uses the port specified for the source. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Name of the MySQL database user. 
+password | **string**<br>Password of the MySQL database user. 
+
+
+### ClickhouseSource {#ClickhouseSource23}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the ClickHouse database. 
+table | **string**<br>Required. Name of the table in the specified database to be used as the dictionary source. 
+host | **string**<br>ClickHouse host of the specified database. The maximum string length in characters is 253.
+port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Required. Name of the ClickHouse database user. 
+password | **string**<br>Password of the ClickHouse database user. 
+where | **string**<br>Selection criteria for the data in the specified ClickHouse table. 
+secure | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Use ssl for connection. 
+
+
+### MongodbSource {#MongodbSource23}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the MongoDB database. 
+collection | **string**<br>Required. Name of the collection in the specified database to be used as the dictionary source. 
+host | **string**<br>MongoDB host of the specified database. The maximum string length in characters is 253.
+port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Required. Name of the MongoDB database user. 
+password | **string**<br>Password of the MongoDB database user. 
+options | **string**<br> 
+
+
+### PostgresqlSource {#PostgresqlSource23}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the PostrgreSQL database. 
+table | **string**<br>Required. Name of the table in the specified database to be used as the dictionary source. 
+hosts[] | **string**<br>Name of the PostrgreSQL host The number of elements must be greater than 0.
+port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Required. Name of the PostrgreSQL database user. 
+password | **string**<br>Password of the PostrgreSQL database user. 
+invalidate_query | **string**<br>Query for checking the dictionary status, to pull only updated data. For more details, see [ClickHouse documentation on dictionaries](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/). 
+ssl_mode | enum **SslMode**<br>Mode of SSL TCP/IP connection to the PostgreSQL host. For more details, see [PostgreSQL documentation](https://www.postgresql.org/docs/current/libpq-ssl.html). <ul><li>`DISABLE`: Only try a non-SSL connection.</li><li>`ALLOW`: First try a non-SSL connection; if that fails, try an SSL connection.</li><li>`PREFER`: First try an SSL connection; if that fails, try a non-SSL connection.</li><li>`VERIFY_CA`: Only try an SSL connection, and verify that the server certificate is issued by a trusted certificate authority (CA).</li><li>`VERIFY_FULL`: Only try an SSL connection, verify that the server certificate is issued by a trusted CA and that the requested server host name matches that in the certificate.</li></ul>
+
+
+### Structure {#Structure23}
+
+Field | Description
+--- | ---
+id | **[Id](#Id23)**<br>Single numeric key column for the dictionary. 
+key | **[Key](#Key23)**<br>Composite key for the dictionary, containing of one or more key columns. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_structure/#composite-key). 
+range_min | **[Attribute](#Attribute23)**<br>Field holding the beginning of the range for dictionaries with `RANGE_HASHED` layout. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_layout/#range-hashed). 
+range_max | **[Attribute](#Attribute23)**<br>Field holding the end of the range for dictionaries with `RANGE_HASHED` layout. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_layout/#range-hashed). 
+attributes[] | **[Attribute](#Attribute23)**<br>Description of the fields available for database queries. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_structure/#attributes). The number of elements must be greater than 0.
+
+
+### Attribute {#Attribute23}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the column. 
+type | **string**<br>Required. Type of the column. 
+null_value | **string**<br>Default value for an element without data (for example, an empty string). 
+expression | **string**<br>Expression, describing the attribute, if applicable. 
+hierarchical | **bool**<br>Indication of hierarchy support. Default value: `false`. 
+injective | **bool**<br>Indication of injective mapping "id -> attribute". Default value: `false`. 
+
+
+### Id {#Id23}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the numeric key. 
+
+
+### Key {#Key23}
+
+Field | Description
+--- | ---
+attributes[] | **[Attribute](#Attribute23)**<br>Attributes of a complex key. The number of elements must be greater than 0.
+
+
+### Layout {#Layout23}
+
+Field | Description
+--- | ---
+type | enum **Type**<br>Required. Layout type for an external dictionary. <ul><li>`FLAT`: The entire dictionary is stored in memory in the form of flat arrays. Available for all dictionary sources.</li><li>`HASHED`: The entire dictionary is stored in memory in the form of a hash table. Available for all dictionary sources.</li><li>`COMPLEX_KEY_HASHED`: Similar to HASHED, to be used with composite keys. Available for all dictionary sources.</li><li>`RANGE_HASHED`: The entire dictionary is stored in memory in the form of a hash table, with an ordered array of ranges and their corresponding values. Available for all dictionary sources.</li><li>`CACHE`: The dictionary is stored in a cache with a set number of cells. Available for MySQL, ClickHouse and HTTP dictionary sources.</li><li>`COMPLEX_KEY_CACHE`: Similar to CACHE, to be used with composite keys. Available for MySQL, ClickHouse and HTTP dictionary sources.</li></ul>
+size_in_cells | **int64**<br>Number of cells in the cache. Rounded up to a power of two. Applicable only for CACHE and COMPLEX_KEY_CACHE layout types. 
+max_array_size | **int64**<br>Maximum dictionary key size. Applicable only for FLAT layout type. 
+
+
+### Range {#Range23}
+
+Field | Description
+--- | ---
+min | **int64**<br>Minimum dictionary lifetime. 
+max | **int64**<br>Maximum dictionary lifetime. 
+
+
+### GraphiteRollup {#GraphiteRollup23}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name for the specified combination of settings for Graphite rollup. 
+patterns[] | **[Pattern](#Pattern23)**<br>Pattern to use for the rollup. The number of elements must be greater than 0.
+path_column_name | **string**<br>The name of the column storing the metric name (Graphite sensor). Default: Path See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
+time_column_name | **string**<br>The name of the column storing the time of measuring the metric. Default: Time See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
+value_column_name | **string**<br>The name of the column storing the value of the metric at the time set in time_column_name. Default: Value See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
+version_column_name | **string**<br>The name of the column storing the version of the metric. Default: Timestamp See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
+
+
+### Pattern {#Pattern23}
+
+Field | Description
+--- | ---
+regexp | **string**<br>Pattern for metric names. 
+function | **string**<br>Required. Name of the aggregating function to apply to data of the age specified in `retention`. 
+retention[] | **[Retention](#Retention23)**<br>Age of data to use for thinning. The number of elements must be greater than 0.
+
+
+### Retention {#Retention23}
+
+Field | Description
+--- | ---
+age | **int64**<br>Minimum age of the data in seconds. The minimum value is 0.
+precision | **int64**<br>Precision of determining the age of the data, in seconds. Value must be greater than 0.
+
+
+### QueryMaskingRule {#QueryMaskingRule23}
+
+Field | Description
+--- | ---
+name | **string**<br>Name for the rule. 
+regexp | **string**<br>Required. RE2 compatible regular expression. Required. 
+replace | **string**<br>Substitution string for sensitive data. Default: six asterisks 
+
+
+### QueryCache {#QueryCache23}
+
+Field | Description
+--- | ---
+max_size_in_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum cache size in bytes. Default: 1073741824 (1 GiB) The minimum value is 0.
+max_entries | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum number of SELECT query results stored in the cache. Default: 1024 The minimum value is 0.
+max_entry_size_in_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size in bytes SELECT query results may have to be saved in the cache. Dafault: 1048576 (1 MiB) The minimum value is 0.
+max_entry_size_in_rows | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum number of rows SELECT query results may have to be saved in the cache. Default: 30000000 (30 mil) The minimum value is 0.
+
+
 ### Resources {#Resources18}
+
+Field | Description
+--- | ---
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-clickhouse/concepts/instance-types) 
+disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
+disk_type_id | **string**<br>Type of the storage environment for the host. Possible values: <ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
+
+
+### MaintenanceWindow {#MaintenanceWindow12}
+
+Field | Description
+--- | ---
+policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow12)**<br>Maintenance operation can be scheduled anytime. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow12)**<br>Maintenance operation can be scheduled on a weekly basis. 
+
+
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow12}
+
+Empty.
+
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow12}
+
+Field | Description
+--- | ---
+day | enum **WeekDay**<br>Day of the week (in `DDD` format). 
+hour | **int64**<br>Hour of the day in UTC (in `HH` format). Acceptable values are 1 to 24, inclusive.
+
+
+### MaintenanceOperation {#MaintenanceOperation12}
+
+Field | Description
+--- | ---
+info | **string**<br>Information about this maintenance operation. The maximum string length in characters is 256.
+delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time until which this maintenance operation is delayed. 
+
+
+## DeleteExternalDictionary {#DeleteExternalDictionary}
+
+Deletes the specified external dictionary.
+
+**rpc DeleteExternalDictionary ([DeleteClusterExternalDictionaryRequest](#DeleteClusterExternalDictionaryRequest)) returns ([operation.Operation](#Operation25))**
+
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[DeleteClusterExternalDictionaryMetadata](#DeleteClusterExternalDictionaryMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster13)<br>
+
+### DeleteClusterExternalDictionaryRequest {#DeleteClusterExternalDictionaryRequest}
+
+Field | Description
+--- | ---
+cluster_id | **string**<br>Required. ID of the ClickHouse cluster to delete the external dictionary from. To get the cluster ID, use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
+external_dictionary_name | **string**<br>Name of the external dictionary to delete. 
+
+
+### Operation {#Operation25}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DeleteClusterExternalDictionaryMetadata](#DeleteClusterExternalDictionaryMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster13)>**<br>if operation finished successfully. 
+
+
+### DeleteClusterExternalDictionaryMetadata {#DeleteClusterExternalDictionaryMetadata}
+
+Field | Description
+--- | ---
+cluster_id | **string**<br>ID of the cluster where an external dictionary is being deleted. 
+
+
+### Cluster {#Cluster13}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the ClickHouse cluster. This ID is assigned by MDB at creation time. 
+folder_id | **string**<br>ID of the folder that the ClickHouse cluster belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
+name | **string**<br>Name of the ClickHouse cluster. The name is unique within the folder. 1-63 characters long. 
+description | **string**<br>Description of the ClickHouse cluster. 0-256 characters long. 
+labels | **map<string,string>**<br>Custom labels for the ClickHouse cluster as `key:value` pairs. Maximum 64 per resource. 
+environment | enum **Environment**<br>Deployment environment of the ClickHouse cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li></ul>
+monitoring[] | **[Monitoring](#Monitoring13)**<br>Description of monitoring systems relevant to the ClickHouse cluster. 
+config | **[ClusterConfig](#ClusterConfig13)**<br>Configuration of the ClickHouse cluster. 
+network_id | **string**<br>ID of the network that the cluster belongs to. 
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host1) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host1) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host1) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host1) for at least one host in the cluster is not ALIVE).</li></ul>
+status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
+service_account_id | **string**<br>ID of the service account used for access to Object Storage. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow13)**<br>Maintenance window for the cluster. 
+planned_operation | **[MaintenanceOperation](#MaintenanceOperation13)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
+security_group_ids[] | **string**<br>User security groups 
+deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
+
+
+### Monitoring {#Monitoring13}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the monitoring system. 
+description | **string**<br>Description of the monitoring system. 
+link | **string**<br>Link to the monitoring system charts for the ClickHouse cluster. 
+
+
+### ClusterConfig {#ClusterConfig13}
+
+Field | Description
+--- | ---
+version | **string**<br>Version of the ClickHouse server software. 
+clickhouse | **[Clickhouse](#Clickhouse24)**<br>Configuration and resource allocation for ClickHouse hosts. 
+zookeeper | **[Zookeeper](#Zookeeper16)**<br>Configuration and resource allocation for ZooKeeper hosts. 
+backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
+access | **[Access](#Access13)**<br>Access policy for external services. 
+cloud_storage | **[CloudStorage](#CloudStorage13)**<br> 
+sql_database_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether database management through SQL commands is enabled. 
+sql_user_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether user management through SQL commands is enabled. 
+embedded_keeper | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether cluster should use embedded Keeper instead of Zookeeper. 
+backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retain period of automatically created backup in days 
+
+
+### Clickhouse {#Clickhouse24}
+
+Field | Description
+--- | ---
+config | **[config.ClickhouseConfigSet](#ClickhouseConfigSet18)**<br>Configuration settings of a ClickHouse server. 
+resources | **[Resources](#Resources19)**<br>Resources allocated to ClickHouse hosts. 
+
+
+### Zookeeper {#Zookeeper16}
+
+Field | Description
+--- | ---
+resources | **[Resources](#Resources19)**<br>Resources allocated to ZooKeeper hosts. 
+
+
+### Access {#Access13}
+
+Field | Description
+--- | ---
+data_lens | **bool**<br>Allow to export data from the cluster to DataLens. 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
+metrika | **bool**<br>Allow to import data from Yandex Metrica and AppMetrica to the cluster. <br>See [AppMetrica documentation](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
+serverless | **bool**<br>Allow access to cluster for Serverless. 
+data_transfer | **bool**<br>Allow access for DataTransfer 
+yandex_query | **bool**<br>Allow access for Query 
+
+
+### CloudStorage {#CloudStorage13}
+
+Field | Description
+--- | ---
+enabled | **bool**<br>Whether to use Object Storage for storing ClickHouse data. 
+move_factor | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**<br> Acceptable values are 0 to 1, inclusive.
+data_cache_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
+data_cache_max_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+prefer_not_to_merge | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
+
+
+### ClickhouseConfigSet {#ClickhouseConfigSet18}
+
+Field | Description
+--- | ---
+effective_config | **[ClickhouseConfig](#ClickhouseConfig24)**<br>Required. Effective settings for a ClickHouse cluster (a combination of settings defined in `user_config` and `default_config`). 
+user_config | **[ClickhouseConfig](#ClickhouseConfig24)**<br>User-defined settings for a ClickHouse cluster. 
+default_config | **[ClickhouseConfig](#ClickhouseConfig24)**<br>Default configuration for a ClickHouse cluster. 
+
+
+### ClickhouseConfig {#ClickhouseConfig24}
+
+Field | Description
+--- | ---
+log_level | enum **LogLevel**<br>Logging level for the ClickHouse cluster. Possible values: TRACE, DEBUG, INFORMATION, WARNING, ERROR. 
+merge_tree | **[MergeTree](#MergeTree24)**<br>Settings for the MergeTree engine. See description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server_settings/settings/#merge_tree). 
+compression[] | **[Compression](#Compression24)**<br>Compression settings for the ClickHouse cluster. See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server_settings/settings/#compression). 
+dictionaries[] | **[ExternalDictionary](#ExternalDictionary24)**<br>Configuration of external dictionaries to be used by the ClickHouse cluster. See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts/). 
+graphite_rollup[] | **[GraphiteRollup](#GraphiteRollup24)**<br>Settings for thinning Graphite data. See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server_settings/settings/#server_settings-graphite_rollup). 
+kafka | **[Kafka](#Kafka24)**<br> 
+kafka_topics[] | **[KafkaTopic](#KafkaTopic24)**<br> 
+rabbitmq | **[Rabbitmq](#Rabbitmq24)**<br> 
+max_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of inbound connections. The minimum value is 10.
+max_concurrent_queries | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of simultaneously processed requests. The minimum value is 10.
+keep_alive_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Number of milliseconds that ClickHouse waits for incoming requests before closing the connection. 
+uncompressed_cache_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Cache size (in bytes) for uncompressed data used by MergeTree tables. 
+mark_cache_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Approximate size (in bytes) of the cache of "marks" used by MergeTree tables. Value must be greater than 0.
+max_table_size_to_drop | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum size of the table that can be deleted using a DROP query. 
+max_partition_size_to_drop | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum size of the partition that can be deleted using a DROP query. 
+builtin_dictionaries_reload_interval | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The setting is deprecated and has no effect. 
+timezone | **string**<br>The server's time zone to be used in DateTime fields conversions. Specified as an IANA identifier. 
+geobase_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enable or disable geobase. 
+geobase_uri | **string**<br>Address of the archive with the user geobase in Object Storage. 
+query_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that query_log can grow to before old data will be removed. If set to 0, automatic removal of query_log data based on size is disabled. 
+query_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that query_log records will be retained before removal. If set to 0, automatic removal of query_log data based on time is disabled. 
+query_thread_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether query_thread_log system table is enabled. 
+query_thread_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that query_thread_log can grow to before old data will be removed. If set to 0, automatic removal of query_thread_log data based on size is disabled. 
+query_thread_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that query_thread_log records will be retained before removal. If set to 0, automatic removal of query_thread_log data based on time is disabled. 
+part_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that part_log can grow to before old data will be removed. If set to 0, automatic removal of part_log data based on size is disabled. 
+part_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that part_log records will be retained before removal. If set to 0, automatic removal of part_log data based on time is disabled. 
+metric_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether metric_log system table is enabled. 
+metric_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that metric_log can grow to before old data will be removed. If set to 0, automatic removal of metric_log data based on size is disabled. 
+metric_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that metric_log records will be retained before removal. If set to 0, automatic removal of metric_log data based on time is disabled. 
+trace_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether trace_log system table is enabled. 
+trace_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that trace_log can grow to before old data will be removed. If set to 0, automatic removal of trace_log data based on size is disabled. 
+trace_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that trace_log records will be retained before removal. If set to 0, automatic removal of trace_log data based on time is disabled. 
+text_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether text_log system table is enabled. 
+text_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that text_log can grow to before old data will be removed. If set to 0, automatic removal of text_log data based on size is disabled. 
+text_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that text_log records will be retained before removal. If set to 0, automatic removal of text_log data based on time is disabled. 
+text_log_level | enum **LogLevel**<br>Logging level for text_log system table. Possible values: TRACE, DEBUG, INFORMATION, WARNING, ERROR. 
+opentelemetry_span_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enable or disable opentelemetry_span_log system table. Default value: false. 
+opentelemetry_span_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that opentelemetry_span_log can grow to before old data will be removed. If set to 0 (default), automatic removal of opentelemetry_span_log data based on size is disabled. The minimum value is 0.
+opentelemetry_span_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that opentelemetry_span_log records will be retained before removal. If set to 0, automatic removal of opentelemetry_span_log data based on time is disabled. The minimum value is 0.
+query_views_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enable or disable query_views_log system table. Default value: false. 
+query_views_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that query_views_log can grow to before old data will be removed. If set to 0 (default), automatic removal of query_views_log data based on size is disabled. The minimum value is 0.
+query_views_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that query_views_log records will be retained before removal. If set to 0, automatic removal of query_views_log data based on time is disabled. The minimum value is 0.
+asynchronous_metric_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enable or disable asynchronous_metric_log system table. Default value: false. 
+asynchronous_metric_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that asynchronous_metric_log can grow to before old data will be removed. If set to 0 (default), automatic removal of asynchronous_metric_log data based on size is disabled. The minimum value is 0.
+asynchronous_metric_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that asynchronous_metric_log records will be retained before removal. If set to 0, automatic removal of asynchronous_metric_log data based on time is disabled. The minimum value is 0.
+session_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enable or disable session_log system table. Default value: false. 
+session_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that session_log can grow to before old data will be removed. If set to 0 (default), automatic removal of session_log data based on size is disabled. The minimum value is 0.
+session_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that session_log records will be retained before removal. If set to 0, automatic removal of session_log data based on time is disabled. The minimum value is 0.
+zookeeper_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enable or disable zookeeper_log system table. Default value: false. 
+zookeeper_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that zookeeper_log can grow to before old data will be removed. If set to 0 (default), automatic removal of zookeeper_log data based on size is disabled. The minimum value is 0.
+zookeeper_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that zookeeper_log records will be retained before removal. If set to 0, automatic removal of zookeeper_log data based on time is disabled. The minimum value is 0.
+asynchronous_insert_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enable or disable asynchronous_insert_log system table. Default value: false. Minimal required ClickHouse version: 22.10. 
+asynchronous_insert_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that asynchronous_insert_log can grow to before old data will be removed. If set to 0 (default), automatic removal of asynchronous_insert_log data based on size is disabled. The minimum value is 0.
+asynchronous_insert_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that asynchronous_insert_log records will be retained before removal. If set to 0, automatic removal of asynchronous_insert_log data based on time is disabled. The minimum value is 0.
+background_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_merges_mutations_concurrency_ratio | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets a ratio between the number of threads and the number of background merges and mutations that can be executed concurrently. For example, if the ratio equals to 2 and background_pool_size is set to 16 then ClickHouse can execute 32 background merges concurrently. This is possible, because background operations could be suspended and postponed. This is needed to give small merges more execution priority. You can only increase this ratio at runtime. To lower it you have to restart the server. The same as for background_pool_size setting background_merges_mutations_concurrency_ratio could be applied from the default profile for backward compatibility. Default: 2 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#background_merges_mutations_concurrency_ratio) Value must be greater than 0.
+background_schedule_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_fetches_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the number of threads performing background fetches for tables with **ReplicatedMergeTree** engines. Default value: 8. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#background_fetches_pool_size). Value must be greater than 0.
+background_move_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_distributed_schedule_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_buffer_flush_schedule_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_message_broker_schedule_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_common_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum number of threads that will be used for performing a variety of operations (mostly garbage collection) for *MergeTree-engine tables in a background. Default: 8 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#background_common_pool_size) Value must be greater than 0.
+default_database | **google.protobuf.StringValue**<br>The default database. <br>To get a list of cluster databases, see [Yandex Managed ClickHouse documentation](/docs/managed-clickhouse/operations/databases#list-db). 
+total_memory_profiler_step | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the memory size (in bytes) for a stack trace at every peak allocation step. Default value: **4194304**. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#total-memory-profiler-step). 
+total_memory_tracker_sample_probability | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**<br> 
+query_masking_rules[] | **[QueryMaskingRule](#QueryMaskingRule24)**<br>Regexp-based rules, which will be applied to queries as well as all log messages before storing them in server logs, system.query_log, system.text_log, system.processes tables, and in logs sent to the client. That allows preventing sensitive data leakage from SQL queries (like names, emails, personal identifiers or credit card numbers) to logs. Change of these settings is applied with ClickHouse restart See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#query-masking-rules) The number of elements must be greater than 0.
+dictionaries_lazy_load | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Lazy loading of dictionaries. Default: true See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#dictionaries_lazy_load) 
+query_cache | **[QueryCache](#QueryCache24)**<br>[Query cache](https://clickhouse.com/docs/en/operations/query-cache) configuration. Min version: 23.5 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#query_cache) 
+
+
+### MergeTree {#MergeTree24}
+
+Field | Description
+--- | ---
+replicated_deduplication_window | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Number of blocks of hashes to keep in ZooKeeper. 
+replicated_deduplication_window_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Period of time to keep blocks of hashes for. 
+parts_to_delay_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If table contains at least that many active parts in single partition, artificially slow down insert into table. 
+parts_to_throw_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If more than this number active parts in single partition, throw 'Too many parts ...' exception. 
+inactive_parts_to_delay_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+inactive_parts_to_throw_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+max_replicated_merges_in_queue | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>How many tasks of merging and mutating parts are allowed simultaneously in ReplicatedMergeTree queue. 
+number_of_free_entries_in_pool_to_lower_max_size_of_merge | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If there is less than specified number of free entries in background pool (or replicated queue), start to lower maximum size of merge to process. 
+max_bytes_to_merge_at_min_space_in_pool | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum in total size of parts to merge, when there are minimum free threads in background pool (or entries in replication queue). 
+max_bytes_to_merge_at_max_space_in_pool | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+min_bytes_for_wide_part | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Minimum number of bytes in a data part that can be stored in **Wide** format. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree/#min_bytes_for_wide_part). 
+min_rows_for_wide_part | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Minimum number of rows in a data part that can be stored in **Wide** format. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree/#min_bytes_for_wide_part). 
+ttl_only_drop_parts | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enables or disables complete dropping of data parts where all rows are expired in MergeTree tables. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#ttl_only_drop_parts). 
+allow_remote_fs_zero_copy_replication | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
+merge_with_ttl_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+merge_with_recompression_ttl_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+max_parts_in_total | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+max_number_of_merges_with_ttl_in_pool | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+cleanup_delay_period | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+number_of_free_entries_in_pool_to_execute_mutation | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+max_avg_part_size_for_too_many_parts | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The 'too many parts' check according to 'parts_to_delay_insert' and 'parts_to_throw_insert' will be active only if the average part size (in the relevant partition) is not larger than the specified threshold. If it is larger than the specified threshold, the INSERTs will be neither delayed or rejected. This allows to have hundreds of terabytes in a single table on a single server if the parts are successfully merged to larger parts. This does not affect the thresholds on inactive parts or total parts. Default: 1 GiB Min version: 22.10 See in-depth description in [ClickHouse GitHub](https://github.com/ClickHouse/ClickHouse/blob/f9558345e886876b9132d9c018e357f7fa9b22a3/src/Storages/MergeTree/MergeTreeSettings.h#L80) The minimum value is 0.
+min_age_to_force_merge_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Merge parts if every part in the range is older than the value of min_age_to_force_merge_seconds. Default: 0 - disabled Min_version: 22.10 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#min_age_to_force_merge_seconds) The minimum value is 0.
+min_age_to_force_merge_on_partition_only | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether min_age_to_force_merge_seconds should be applied only on the entire partition and not on subset. Default: false Min_version: 22.11 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#min_age_to_force_merge_seconds) 
+merge_selecting_sleep_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sleep time for merge selecting when no part is selected. A lower setting triggers selecting tasks in background_schedule_pool frequently, which results in a large number of requests to ClickHouse Keeper in large-scale clusters. Default: 5000 Min_version: 21.10 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#merge_selecting_sleep_ms) Value must be greater than 0.
+merge_max_block_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of rows that are read from the merged parts into memory. Default: 8192 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#merge_max_block_size) Value must be greater than 0.
+check_sample_column_is_correct | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enables the check at table creation, that the data type of a column for sampling or sampling expression is correct. The data type must be one of unsigned [integer types](https://clickhouse.com/docs/en/sql-reference/data-types/int-uint): UInt8, UInt16, UInt32, UInt64. Default: true See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#check_sample_column_is_correct) 
+max_merge_selecting_sleep_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum sleep time for merge selecting, a lower setting will trigger selecting tasks in background_schedule_pool frequently which result in large amount of requests to zookeeper in large-scale clusters. Default: 60000 Min_version: 23.6 See in-depth description in [ClickHouse GitHub](https://github.com/ClickHouse/ClickHouse/blob/4add9db84859bff7410cf934a3904b0414e36e51/src/Storages/MergeTree/MergeTreeSettings.h#L71) The minimum value is 0.
+max_cleanup_delay_period | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum period to clean old queue logs, blocks hashes and parts. Default: 300 Min_version: 23.6 See in-depth description in [ClickHouse GitHub](https://github.com/ClickHouse/ClickHouse/blob/4add9db84859bff7410cf934a3904b0414e36e51/src/Storages/MergeTree/MergeTreeSettings.h#L142) The minimum value is 0.
+
+
+### Kafka {#Kafka24}
+
+Field | Description
+--- | ---
+security_protocol | enum **SecurityProtocol**<br> 
+sasl_mechanism | enum **SaslMechanism**<br> 
+sasl_username | **string**<br> 
+sasl_password | **string**<br> 
+enable_ssl_certificate_verification | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
+max_poll_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> The minimum value is 0.
+session_timeout_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> The minimum value is 0.
+debug | enum **Debug**<br> 
+auto_offset_reset | enum **AutoOffsetReset**<br> 
+
+
+### KafkaTopic {#KafkaTopic24}
+
+Field | Description
+--- | ---
+name | **string**<br>Required.  
+settings | **[Kafka](#Kafka24)**<br>Required.  
+
+
+### Rabbitmq {#Rabbitmq24}
+
+Field | Description
+--- | ---
+username | **string**<br>[RabbitMQ](https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/) username 
+password | **string**<br>[RabbitMQ](https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/) password 
+vhost | **string**<br>[RabbitMQ](https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/) virtual host 
+
+
+### Compression {#Compression24}
+
+Field | Description
+--- | ---
+method | enum **Method**<br>Compression method to use for the specified combination of `min_part_size` and `min_part_size_ratio`. <ul><li>`LZ4`: [LZ4 compression algorithm](https://lz4.github.io/lz4/).</li><li>`ZSTD`: [Zstandard compression algorithm](https://facebook.github.io/zstd/).</li></ul>
+min_part_size | **int64**<br>Minimum size of a part of a table. The minimum value is 1.
+min_part_size_ratio | **double**<br>Minimum ratio of a part relative to the size of all the data in the table. 
+level | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> The minimum value is 0.
+
+
+### ExternalDictionary {#ExternalDictionary24}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the external dictionary. 
+structure | **[Structure](#Structure24)**<br>Required. Set of attributes for the external dictionary. For in-depth description, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_structure/). 
+layout | **[Layout](#Layout24)**<br>Required. Layout for storing the dictionary in memory. For in-depth description, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_layout/). 
+lifetime | **oneof:** `fixed_lifetime` or `lifetime_range`<br>Setting for the period of time between dictionary updates. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/).
+&nbsp;&nbsp;fixed_lifetime | **int64**<br>Fixed interval between dictionary updates. 
+&nbsp;&nbsp;lifetime_range | **[Range](#Range24)**<br>Range of intervals between dictionary updates for ClickHouse to choose from. 
+source | **oneof:** `http_source`, `mysql_source`, `clickhouse_source`, `mongodb_source` or `postgresql_source`<br>Description of the source for the external dictionary.
+&nbsp;&nbsp;http_source | **[HttpSource](#HttpSource24)**<br>HTTP source for the dictionary. 
+&nbsp;&nbsp;mysql_source | **[MysqlSource](#MysqlSource24)**<br>MySQL source for the dictionary. 
+&nbsp;&nbsp;clickhouse_source | **[ClickhouseSource](#ClickhouseSource24)**<br>ClickHouse source for the dictionary. 
+&nbsp;&nbsp;mongodb_source | **[MongodbSource](#MongodbSource24)**<br>MongoDB source for the dictionary. 
+&nbsp;&nbsp;postgresql_source | **[PostgresqlSource](#PostgresqlSource24)**<br>PostgreSQL source for the dictionary. 
+
+
+### HttpSource {#HttpSource24}
+
+Field | Description
+--- | ---
+url | **string**<br>Required. URL of the source dictionary available over HTTP. 
+format | **string**<br>Required. The data format. Valid values are all formats supported by ClickHouse SQL dialect. 
+headers[] | **[Header](#Header24)**<br>HTTP headers. 
+
+
+### Header {#Header24}
+
+Field | Description
+--- | ---
+name | **string**<br>Required.  
+value | **string**<br>Required.  
+
+
+### MysqlSource {#MysqlSource24}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the MySQL database to connect to. 
+table | **string**<br>Required. Name of the database table to use as a ClickHouse dictionary. 
+port | **int64**<br>Default port to use when connecting to a replica of the dictionary source. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Name of the default user for replicas of the dictionary source. 
+password | **string**<br>Password of the default user for replicas of the dictionary source. 
+replicas[] | **[Replica](#Replica24)**<br>List of MySQL replicas of the database used as dictionary source. The number of elements must be greater than 0.
+where | **string**<br>Selection criteria for the data in the specified MySQL table. 
+invalidate_query | **string**<br>Query for checking the dictionary status, to pull only updated data. For more details, see [ClickHouse documentation on dictionaries](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/). 
+close_connection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Should the connection be closed after each request. 
+share_connection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Should a connection be shared for some requests. 
+
+
+### Replica {#Replica24}
+
+Field | Description
+--- | ---
+host | **string**<br>Required. MySQL host of the replica. The maximum string length in characters is 253.
+priority | **int64**<br>Required. The priority of the replica that ClickHouse takes into account when connecting. Replica with the highest priority should have this field set to the lowest number. Value must be greater than 0.
+port | **int64**<br>Port to use when connecting to the replica. If a port is not specified for a replica, ClickHouse uses the port specified for the source. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Name of the MySQL database user. 
+password | **string**<br>Password of the MySQL database user. 
+
+
+### ClickhouseSource {#ClickhouseSource24}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the ClickHouse database. 
+table | **string**<br>Required. Name of the table in the specified database to be used as the dictionary source. 
+host | **string**<br>ClickHouse host of the specified database. The maximum string length in characters is 253.
+port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Required. Name of the ClickHouse database user. 
+password | **string**<br>Password of the ClickHouse database user. 
+where | **string**<br>Selection criteria for the data in the specified ClickHouse table. 
+secure | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Use ssl for connection. 
+
+
+### MongodbSource {#MongodbSource24}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the MongoDB database. 
+collection | **string**<br>Required. Name of the collection in the specified database to be used as the dictionary source. 
+host | **string**<br>MongoDB host of the specified database. The maximum string length in characters is 253.
+port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Required. Name of the MongoDB database user. 
+password | **string**<br>Password of the MongoDB database user. 
+options | **string**<br> 
+
+
+### PostgresqlSource {#PostgresqlSource24}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the PostrgreSQL database. 
+table | **string**<br>Required. Name of the table in the specified database to be used as the dictionary source. 
+hosts[] | **string**<br>Name of the PostrgreSQL host The number of elements must be greater than 0.
+port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Required. Name of the PostrgreSQL database user. 
+password | **string**<br>Password of the PostrgreSQL database user. 
+invalidate_query | **string**<br>Query for checking the dictionary status, to pull only updated data. For more details, see [ClickHouse documentation on dictionaries](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/). 
+ssl_mode | enum **SslMode**<br>Mode of SSL TCP/IP connection to the PostgreSQL host. For more details, see [PostgreSQL documentation](https://www.postgresql.org/docs/current/libpq-ssl.html). <ul><li>`DISABLE`: Only try a non-SSL connection.</li><li>`ALLOW`: First try a non-SSL connection; if that fails, try an SSL connection.</li><li>`PREFER`: First try an SSL connection; if that fails, try a non-SSL connection.</li><li>`VERIFY_CA`: Only try an SSL connection, and verify that the server certificate is issued by a trusted certificate authority (CA).</li><li>`VERIFY_FULL`: Only try an SSL connection, verify that the server certificate is issued by a trusted CA and that the requested server host name matches that in the certificate.</li></ul>
+
+
+### Structure {#Structure24}
+
+Field | Description
+--- | ---
+id | **[Id](#Id24)**<br>Single numeric key column for the dictionary. 
+key | **[Key](#Key24)**<br>Composite key for the dictionary, containing of one or more key columns. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_structure/#composite-key). 
+range_min | **[Attribute](#Attribute24)**<br>Field holding the beginning of the range for dictionaries with `RANGE_HASHED` layout. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_layout/#range-hashed). 
+range_max | **[Attribute](#Attribute24)**<br>Field holding the end of the range for dictionaries with `RANGE_HASHED` layout. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_layout/#range-hashed). 
+attributes[] | **[Attribute](#Attribute24)**<br>Description of the fields available for database queries. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_structure/#attributes). The number of elements must be greater than 0.
+
+
+### Attribute {#Attribute24}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the column. 
+type | **string**<br>Required. Type of the column. 
+null_value | **string**<br>Default value for an element without data (for example, an empty string). 
+expression | **string**<br>Expression, describing the attribute, if applicable. 
+hierarchical | **bool**<br>Indication of hierarchy support. Default value: `false`. 
+injective | **bool**<br>Indication of injective mapping "id -> attribute". Default value: `false`. 
+
+
+### Id {#Id24}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the numeric key. 
+
+
+### Key {#Key24}
+
+Field | Description
+--- | ---
+attributes[] | **[Attribute](#Attribute24)**<br>Attributes of a complex key. The number of elements must be greater than 0.
+
+
+### Layout {#Layout24}
+
+Field | Description
+--- | ---
+type | enum **Type**<br>Required. Layout type for an external dictionary. <ul><li>`FLAT`: The entire dictionary is stored in memory in the form of flat arrays. Available for all dictionary sources.</li><li>`HASHED`: The entire dictionary is stored in memory in the form of a hash table. Available for all dictionary sources.</li><li>`COMPLEX_KEY_HASHED`: Similar to HASHED, to be used with composite keys. Available for all dictionary sources.</li><li>`RANGE_HASHED`: The entire dictionary is stored in memory in the form of a hash table, with an ordered array of ranges and their corresponding values. Available for all dictionary sources.</li><li>`CACHE`: The dictionary is stored in a cache with a set number of cells. Available for MySQL, ClickHouse and HTTP dictionary sources.</li><li>`COMPLEX_KEY_CACHE`: Similar to CACHE, to be used with composite keys. Available for MySQL, ClickHouse and HTTP dictionary sources.</li></ul>
+size_in_cells | **int64**<br>Number of cells in the cache. Rounded up to a power of two. Applicable only for CACHE and COMPLEX_KEY_CACHE layout types. 
+max_array_size | **int64**<br>Maximum dictionary key size. Applicable only for FLAT layout type. 
+
+
+### Range {#Range24}
+
+Field | Description
+--- | ---
+min | **int64**<br>Minimum dictionary lifetime. 
+max | **int64**<br>Maximum dictionary lifetime. 
+
+
+### GraphiteRollup {#GraphiteRollup24}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name for the specified combination of settings for Graphite rollup. 
+patterns[] | **[Pattern](#Pattern24)**<br>Pattern to use for the rollup. The number of elements must be greater than 0.
+path_column_name | **string**<br>The name of the column storing the metric name (Graphite sensor). Default: Path See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
+time_column_name | **string**<br>The name of the column storing the time of measuring the metric. Default: Time See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
+value_column_name | **string**<br>The name of the column storing the value of the metric at the time set in time_column_name. Default: Value See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
+version_column_name | **string**<br>The name of the column storing the version of the metric. Default: Timestamp See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree#required-columns) 
+
+
+### Pattern {#Pattern24}
+
+Field | Description
+--- | ---
+regexp | **string**<br>Pattern for metric names. 
+function | **string**<br>Required. Name of the aggregating function to apply to data of the age specified in `retention`. 
+retention[] | **[Retention](#Retention24)**<br>Age of data to use for thinning. The number of elements must be greater than 0.
+
+
+### Retention {#Retention24}
+
+Field | Description
+--- | ---
+age | **int64**<br>Minimum age of the data in seconds. The minimum value is 0.
+precision | **int64**<br>Precision of determining the age of the data, in seconds. Value must be greater than 0.
+
+
+### QueryMaskingRule {#QueryMaskingRule24}
+
+Field | Description
+--- | ---
+name | **string**<br>Name for the rule. 
+regexp | **string**<br>Required. RE2 compatible regular expression. Required. 
+replace | **string**<br>Substitution string for sensitive data. Default: six asterisks 
+
+
+### QueryCache {#QueryCache24}
+
+Field | Description
+--- | ---
+max_size_in_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum cache size in bytes. Default: 1073741824 (1 GiB) The minimum value is 0.
+max_entries | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum number of SELECT query results stored in the cache. Default: 1024 The minimum value is 0.
+max_entry_size_in_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size in bytes SELECT query results may have to be saved in the cache. Dafault: 1048576 (1 MiB) The minimum value is 0.
+max_entry_size_in_rows | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum number of rows SELECT query results may have to be saved in the cache. Default: 30000000 (30 mil) The minimum value is 0.
+
+
+### Resources {#Resources19}
 
 Field | Description
 --- | ---

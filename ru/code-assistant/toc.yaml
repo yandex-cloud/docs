@@ -10,13 +10,13 @@ items:
   - name: Начало работы
     href: quickstart.md
   - name: Концепции
-    items:
-      - name: Обзор
-        href: concepts/index.md
-      - name: Квоты и лимиты
-        href: concepts/limits.md
+    href: concepts/index.md
+  - name: Квоты и лимиты
+    href: concepts/limits.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
+  - name: Вопросы и ответы
+    href: qa.md
 base: ru/code-assistant

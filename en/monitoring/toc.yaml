@@ -50,7 +50,7 @@ items:
         items:
           - name: Creating alerts
             href: operations/alert/create-alert.md
-          - name: Creating notification channels
+          - name: Creating a notification channel
             href: operations/alert/create-channel.md
           - name: Deleting alerts
             href: operations/alert/delete-alert.md
@@ -82,7 +82,7 @@ items:
         href: concepts/data-collection/unified-agent/delete.md
   - name: Concepts
     items:
-      - name: Overview
+      - name: Service overview
         href: concepts/index.md
       - name: Data model
         href: concepts/data-model.md
@@ -116,6 +116,10 @@ items:
         href: concepts/limits.md
   - name: Tutorials
     items:
+      - name: >-
+          Automatically scaling an instance group to process messages from a
+          queue
+        href: tutorials/autoscale-monitoring.md
       - name: Monitoring sensor readings and event notifications
         href: tutorials/monitoring.md
   - name: '{{ managed-prometheus-name }}'

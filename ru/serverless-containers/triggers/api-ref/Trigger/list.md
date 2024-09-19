@@ -542,7 +542,7 @@ triggers[].<br>rule.<br>timer.<br>invokeFunction | **object**<br>Instructions fo
 triggers[].<br>rule.<br>timer.<br>invokeFunction.<br>functionId | **string**<br><p>Required. ID of the function to invoke.</p> <p>The maximum string length in characters is 50.</p> 
 triggers[].<br>rule.<br>timer.<br>invokeFunction.<br>functionTag | **string**<br><p>Version tag of the function to execute.</p> 
 triggers[].<br>rule.<br>timer.<br>invokeFunction.<br>serviceAccountId | **string**<br><p>ID of the service account that should be used to invoke the function.</p> 
-triggers[].<br>rule.<br>timer.<br>invokeFunctionWithRetry | **object**<br>Instructions for invoking a function with retries as needed. <br>`triggers[].rule.timer` includes only one of the fields `invokeFunction`, `invokeFunctionWithRetry`, `invokeContainerWithRetry`, `gatewayWebsocketBroadcast`<br>
+triggers[].<br>rule.<br>timer.<br>invokeFunctionWithRetry | **object**<br>Instructions for invoking a function with retry. <br>`triggers[].rule.timer` includes only one of the fields `invokeFunction`, `invokeFunctionWithRetry`, `invokeContainerWithRetry`, `gatewayWebsocketBroadcast`<br>
 triggers[].<br>rule.<br>timer.<br>invokeFunctionWithRetry.<br>functionId | **string**<br><p>Required. ID of the function to invoke.</p> <p>The maximum string length in characters is 50.</p> 
 triggers[].<br>rule.<br>timer.<br>invokeFunctionWithRetry.<br>functionTag | **string**<br><p>Version tag of the function to execute.</p> 
 triggers[].<br>rule.<br>timer.<br>invokeFunctionWithRetry.<br>serviceAccountId | **string**<br><p>ID of the service account which has permission to invoke the function.</p> 
@@ -552,7 +552,7 @@ triggers[].<br>rule.<br>timer.<br>invokeFunctionWithRetry.<br>retrySettings.<br>
 triggers[].<br>rule.<br>timer.<br>invokeFunctionWithRetry.<br>deadLetterQueue | **object**<br><p>DLQ policy (no value means discarding a message).</p> 
 triggers[].<br>rule.<br>timer.<br>invokeFunctionWithRetry.<br>deadLetterQueue.<br>queueId | **string**<br><p>ID of the queue.</p> 
 triggers[].<br>rule.<br>timer.<br>invokeFunctionWithRetry.<br>deadLetterQueue.<br>serviceAccountId | **string**<br><p>Required. Service account which has write permission on the queue.</p> <p>The maximum string length in characters is 50.</p> 
-triggers[].<br>rule.<br>timer.<br>invokeContainerWithRetry | **object**<br>Instructions for invoking a container with retries as needed. <br>`triggers[].rule.timer` includes only one of the fields `invokeFunction`, `invokeFunctionWithRetry`, `invokeContainerWithRetry`, `gatewayWebsocketBroadcast`<br>
+triggers[].<br>rule.<br>timer.<br>invokeContainerWithRetry | **object**<br>Instructions for invoking a container with retry. <br>`triggers[].rule.timer` includes only one of the fields `invokeFunction`, `invokeFunctionWithRetry`, `invokeContainerWithRetry`, `gatewayWebsocketBroadcast`<br>
 triggers[].<br>rule.<br>timer.<br>invokeContainerWithRetry.<br>containerId | **string**<br><p>Required. ID of the container to invoke.</p> <p>The maximum string length in characters is 50.</p> 
 triggers[].<br>rule.<br>timer.<br>invokeContainerWithRetry.<br>path | **string**<br><p>Endpoint HTTP path to invoke.</p> 
 triggers[].<br>rule.<br>timer.<br>invokeContainerWithRetry.<br>serviceAccountId | **string**<br><p>ID of the service account which has permission to invoke the container.</p> 
@@ -569,7 +569,7 @@ triggers[].<br>rule.<br>timer.<br>gatewayWebsocketBroadcast.<br>serviceAccountId
 triggers[].<br>rule.<br>messageQueue | **object**<br>Rule for a message queue trigger. <br>`triggers[].rule` includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`<br>
 triggers[].<br>rule.<br>messageQueue.<br>queueId | **string**<br><p>Required. ID of the message queue in Message Queue.</p> 
 triggers[].<br>rule.<br>messageQueue.<br>serviceAccountId | **string**<br><p>Required. ID of the service account which has read access to the message queue.</p> <p>The maximum string length in characters is 50.</p> 
-triggers[].<br>rule.<br>messageQueue.<br>batchSettings | **object**<br>Batch settings for processing events.
+triggers[].<br>rule.<br>messageQueue.<br>batchSettings | **object**<br>Required. Batch settings for processing messages in the queue.
 triggers[].<br>rule.<br>messageQueue.<br>batchSettings.<br>size | **string** (int64)<br><p>Batch size. Trigger will send the batch of messages to the function when the number of messages in the queue reaches ``size``, or the ``cutoff`` time has passed.</p> <p>Acceptable values are 0 to 1000, inclusive.</p> 
 triggers[].<br>rule.<br>messageQueue.<br>batchSettings.<br>cutoff | **string**<br><p>Required. Maximum wait time. Trigger will send the batch of messages to the function when the number of messages in the queue reaches ``size``, or the ``cutoff`` time has passed.</p> 
 triggers[].<br>rule.<br>messageQueue.<br>visibilityTimeout | **string**<br><p>Queue visibility timeout override.</p> <p>The maximum value is 43200 seconds.</p> 
@@ -589,10 +589,10 @@ triggers[].<br>rule.<br>iotMessage | **object**<br>Rule for a IoT Core trigger. 
 triggers[].<br>rule.<br>iotMessage.<br>registryId | **string**<br><p>Required. ID of the IoT Core registry.</p> 
 triggers[].<br>rule.<br>iotMessage.<br>deviceId | **string**<br><p>ID of the IoT Core device in the registry.</p> 
 triggers[].<br>rule.<br>iotMessage.<br>mqttTopic | **string**<br><p>MQTT topic whose messages activate the trigger.</p> 
-triggers[].<br>rule.<br>iotMessage.<br>batchSettings | **object**<br>Required. Batch settings for processing messages in the queue.
+triggers[].<br>rule.<br>iotMessage.<br>batchSettings | **object**<br>Batch settings for processing events.
 triggers[].<br>rule.<br>iotMessage.<br>batchSettings.<br>size | **string** (int64)<br><p>Batch size. Trigger will send the batch of messages to the function when the number of messages in the queue reaches ``size``, or the ``cutoff`` time has passed.</p> <p>Acceptable values are 0 to 1000, inclusive.</p> 
 triggers[].<br>rule.<br>iotMessage.<br>batchSettings.<br>cutoff | **string**<br><p>Required. Maximum wait time. Trigger will send the batch of messages to the function when the number of messages in the queue reaches ``size``, or the ``cutoff`` time has passed.</p> 
-triggers[].<br>rule.<br>iotMessage.<br>invokeFunction | **object**<br>Instructions for invoking a function with retry. <br>`triggers[].rule.iotMessage` includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`<br>
+triggers[].<br>rule.<br>iotMessage.<br>invokeFunction | **object**<br>Instructions for invoking a function with retries as needed. <br>`triggers[].rule.iotMessage` includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`<br>
 triggers[].<br>rule.<br>iotMessage.<br>invokeFunction.<br>functionId | **string**<br><p>Required. ID of the function to invoke.</p> <p>The maximum string length in characters is 50.</p> 
 triggers[].<br>rule.<br>iotMessage.<br>invokeFunction.<br>functionTag | **string**<br><p>Version tag of the function to execute.</p> 
 triggers[].<br>rule.<br>iotMessage.<br>invokeFunction.<br>serviceAccountId | **string**<br><p>ID of the service account which has permission to invoke the function.</p> 
@@ -602,7 +602,7 @@ triggers[].<br>rule.<br>iotMessage.<br>invokeFunction.<br>retrySettings.<br>inte
 triggers[].<br>rule.<br>iotMessage.<br>invokeFunction.<br>deadLetterQueue | **object**<br><p>DLQ policy (no value means discarding a message).</p> 
 triggers[].<br>rule.<br>iotMessage.<br>invokeFunction.<br>deadLetterQueue.<br>queueId | **string**<br><p>ID of the queue.</p> 
 triggers[].<br>rule.<br>iotMessage.<br>invokeFunction.<br>deadLetterQueue.<br>serviceAccountId | **string**<br><p>Required. Service account which has write permission on the queue.</p> <p>The maximum string length in characters is 50.</p> 
-triggers[].<br>rule.<br>iotMessage.<br>invokeContainer | **object**<br>Instructions for invoking a container with retry. <br>`triggers[].rule.iotMessage` includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`<br>
+triggers[].<br>rule.<br>iotMessage.<br>invokeContainer | **object**<br>Instructions for invoking a container with retries as needed. <br>`triggers[].rule.iotMessage` includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`<br>
 triggers[].<br>rule.<br>iotMessage.<br>invokeContainer.<br>containerId | **string**<br><p>Required. ID of the container to invoke.</p> <p>The maximum string length in characters is 50.</p> 
 triggers[].<br>rule.<br>iotMessage.<br>invokeContainer.<br>path | **string**<br><p>Endpoint HTTP path to invoke.</p> 
 triggers[].<br>rule.<br>iotMessage.<br>invokeContainer.<br>serviceAccountId | **string**<br><p>ID of the service account which has permission to invoke the container.</p> 

@@ -1,6 +1,6 @@
 # Протокол {{ kraft-name }} в кластерах {{ mkf-name }}
 
-_[{{ kraft-name }}](https://docs.confluent.io/platform/current/kafka-metadata/kraft.html)_ (сокращенно {{ kraft-short-name }}) — протокол для решения задач консенсуса. Позволяет устранить зависимость {{ KF }} от {{ ZK }}, в результате метаданные хранятся на контроллерах {{ kraft-short-name }} вместо хостов {{ ZK }}.
+_[{{ kraft-name }}](https://docs.confluent.io/platform/current/kafka-metadata/kraft.html)_ (сокращенно {{ kraft-short-name }}) — протокол согласования, который позволяет хранить метаданные и управлять ими внутри {{ KF }}. {{ kraft-short-name }} устраняет зависимость {{ KF }} от внешнего сервиса синхронизации метаданных {{ ZK }}.
 
 {{ kraft-short-name }} поддержан в кластерах {{ mkf-name }} с версией {{ KF }} 3.6 и выше. [{{ ZK }} используется](index.md#zookeeper) только в более ранних версиях.
 

@@ -42,6 +42,8 @@ items:
         href: stt/speaker-labeling.md
       - name: Расширение модели распознавания речи
         href: stt/additional-training.md
+      - name: Загрузка данных для дообучения модели распознавания речи
+        href: stt/upload-data-for-training.md
       - name: Определение конца фразы
         href: stt/eou.md
   - name: Синтез речи

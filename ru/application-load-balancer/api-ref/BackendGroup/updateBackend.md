@@ -284,7 +284,7 @@ http.<br>healthchecks[].<br>tls.<br>sni | **string**<br><p>SNI string for TLS co
 http.<br>healthchecks[].<br>tls.<br>validationContext | **object**<br><p>Validation context for backend TLS connections.</p> <p>A TLS validation context resource.</p> 
 http.<br>healthchecks[].<br>tls.<br>validationContext.<br>trustedCaId | **string** <br>`http.healthchecks[].tls.validationContext` includes only one of the fields `trustedCaId`, `trustedCaBytes`<br>
 http.<br>healthchecks[].<br>tls.<br>validationContext.<br>trustedCaBytes | **string** <br>`http.healthchecks[].tls.validationContext` includes only one of the fields `trustedCaId`, `trustedCaBytes`<br><br><p>X.509 certificate contents in PEM format.</p> 
-http.<br>tls | **object**<br>Settings for TLS connections between load balancer nodes and backend targets.  If specified, the load balancer establishes TLS-encrypted TCP connections with targets and compares received certificates with the one specified in `validationContext`. If not specified, the load balancer establishes unencrypted TCP connections with targets.
+http.<br>tls | **object**<br>Settings for TLS connections between load balancer nodes and backend targets.  If specified, the load balancer establishes HTTPS (HTTP over TLS) connections with targets and compares received certificates with the one specified in `validationContext`. If not specified, the load balancer establishes unencrypted HTTP connections with targets.
 http.<br>tls.<br>sni | **string**<br><p>Server Name Indication (SNI) string for TLS connections.</p> 
 http.<br>tls.<br>validationContext | **object**<br><p>Validation context for TLS connections.</p> <p>A TLS validation context resource.</p> 
 http.<br>tls.<br>validationContext.<br>trustedCaId | **string** <br>`http.tls.validationContext` includes only one of the fields `trustedCaId`, `trustedCaBytes`<br>
@@ -332,7 +332,7 @@ grpc.<br>tls.<br>sni | **string**<br><p>Server Name Indication (SNI) string for 
 grpc.<br>tls.<br>validationContext | **object**<br><p>Validation context for TLS connections.</p> <p>A TLS validation context resource.</p> 
 grpc.<br>tls.<br>validationContext.<br>trustedCaId | **string** <br>`grpc.tls.validationContext` includes only one of the fields `trustedCaId`, `trustedCaBytes`<br>
 grpc.<br>tls.<br>validationContext.<br>trustedCaBytes | **string** <br>`grpc.tls.validationContext` includes only one of the fields `trustedCaId`, `trustedCaBytes`<br><br><p>X.509 certificate contents in PEM format.</p> 
-grpc.<br>targetGroups | **object**<br>Target groups that belong to the backend. For details about target groups, see [documentation](/docs/application-load-balancer/concepts/target-group).
+grpc.<br>targetGroups | **object**<br>Target groups that belong to the backend.
 grpc.<br>targetGroups.<br>targetGroupIds[] | **string**<br><p>Required. List of ID's of target groups that belong to the backend.</p> <p>To get the ID's of all available target groups, make a <a href="/docs/application-load-balancer/api-ref/TargetGroup/list">list</a> request.</p> <p>Must contain at least one element.</p> 
 stream | **object**<br>New settings for the stream (TCP) backend. <br> includes only one of the fields `http`, `grpc`, `stream`<br>
 stream.<br>name | **string**<br><p>Name of the backend.</p> <p>Value must match the regular expression ``[a-z][-a-z0-9]{1,61}[a-z0-9]``.</p> 
@@ -367,13 +367,13 @@ stream.<br>healthchecks[].<br>tls.<br>sni | **string**<br><p>SNI string for TLS 
 stream.<br>healthchecks[].<br>tls.<br>validationContext | **object**<br><p>Validation context for backend TLS connections.</p> <p>A TLS validation context resource.</p> 
 stream.<br>healthchecks[].<br>tls.<br>validationContext.<br>trustedCaId | **string** <br>`stream.healthchecks[].tls.validationContext` includes only one of the fields `trustedCaId`, `trustedCaBytes`<br>
 stream.<br>healthchecks[].<br>tls.<br>validationContext.<br>trustedCaBytes | **string** <br>`stream.healthchecks[].tls.validationContext` includes only one of the fields `trustedCaId`, `trustedCaBytes`<br><br><p>X.509 certificate contents in PEM format.</p> 
-stream.<br>tls | **object**<br>Settings for TLS connections between load balancer nodes and backend targets.  If specified, the load balancer establishes HTTPS (HTTP over TLS) connections with targets and compares received certificates with the one specified in `validationContext`. If not specified, the load balancer establishes unencrypted HTTP connections with targets.
+stream.<br>tls | **object**<br>Settings for TLS connections between load balancer nodes and backend targets.  If specified, the load balancer establishes TLS-encrypted TCP connections with targets and compares received certificates with the one specified in `validationContext`. If not specified, the load balancer establishes unencrypted TCP connections with targets.
 stream.<br>tls.<br>sni | **string**<br><p>Server Name Indication (SNI) string for TLS connections.</p> 
 stream.<br>tls.<br>validationContext | **object**<br><p>Validation context for TLS connections.</p> <p>A TLS validation context resource.</p> 
 stream.<br>tls.<br>validationContext.<br>trustedCaId | **string** <br>`stream.tls.validationContext` includes only one of the fields `trustedCaId`, `trustedCaBytes`<br>
 stream.<br>tls.<br>validationContext.<br>trustedCaBytes | **string** <br>`stream.tls.validationContext` includes only one of the fields `trustedCaId`, `trustedCaBytes`<br><br><p>X.509 certificate contents in PEM format.</p> 
 stream.<br>enableProxyProtocol | **boolean** (boolean)<br><p>If set, proxy protocol will be enabled for this backend.</p> 
-stream.<br>targetGroups | **object**<br>Target groups that belong to the backend.
+stream.<br>targetGroups | **object**<br>Target groups that belong to the backend. For details about target groups, see [documentation](/docs/application-load-balancer/concepts/target-group).
 stream.<br>targetGroups.<br>targetGroupIds[] | **string**<br><p>Required. List of ID's of target groups that belong to the backend.</p> <p>To get the ID's of all available target groups, make a <a href="/docs/application-load-balancer/api-ref/TargetGroup/list">list</a> request.</p> <p>Must contain at least one element.</p> 
  
 ## Response {#responses}

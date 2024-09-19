@@ -48,8 +48,6 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
                Required topics will be created automatically at the first change in the tracked tables of the source cluster. This solution can be useful to track changes in multiple tables but requires extra free space in cluster storage. For more information, see [{#T}](../../managed-kafka/concepts/storage.md).
 
-         {% endlist %}
-
    - {{ TF }} {#tf}
 
       1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}

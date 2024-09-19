@@ -157,7 +157,7 @@ monitoring[].<br>link | **string**<br><p>Link to the monitoring system charts fo
 config | **object**<br><p>Configuration of the Apache Kafka® cluster.</p> 
 config.<br>version | **string**<br><p>Version of Apache Kafka® used in the cluster. Possible values: ``2.1``, ``2.6``.</p> 
 config.<br>kafka | **object**<br><p>Configuration and resource allocation for Kafka brokers.</p> 
-config.<br>kafka.<br>resources | **object**
+config.<br>kafka.<br>resources | **object**<br>Resources allocated to Kafka brokers.
 config.<br>kafka.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory, etc.). All available presets are listed in the <a href="/docs/managed-kafka/concepts/instance-types">documentation</a>.</p> 
 config.<br>kafka.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes. Must be greater than 2 * partition segment size in bytes * partitions count, so each partition can have one active segment file and one closed segment file that can be deleted.</p> 
 config.<br>kafka.<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host.</p> 

@@ -11,24 +11,24 @@ To get the ID of the {{ cloud-logging-full-name }} [log group](../../logging/con
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder where the load balancer was created.
-   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-   1. Click the name of the load balancer you need.
-   1. Under **{{ ui-key.yacloud.alb.section_logs-settings }}**, click the log group name in the **{{ ui-key.yacloud.alb.label_log-group }}** field.
+  1. In the [management console]({{ link-console-main }}), select the folder where the load balancer was created.
+  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. Click the name of the load balancer you need.
+  1. Under **{{ ui-key.yacloud.alb.section_logs-settings }}**, click the log group name in the **{{ ui-key.yacloud.alb.label_log-group }}** field.
 
 - CLI {#cli}
 
-   {% include [cli-install](../../_includes/cli-install.md) %}
+  {% include [cli-install](../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   1. See the description of the CLI command to get information about the L7 load balancer:
+  1. View the description of the CLI command to get information about a L7 load balancer:
 
       ```bash
       yc alb load-balancer get --help
       ```
 
-   1. Run the command, specifying the name of the load balancer:
+  1. Run the command, specifying the name of the load balancer:
 
       ```bash
       yc alb load-balancer get <load_balancer_name>
@@ -36,7 +36,7 @@ To get the ID of the {{ cloud-logging-full-name }} [log group](../../logging/con
 
       Result:
 
-      ```bash
+      ```text
       id: a5d88ep483cm********
       name: test-balancer2
       folder_id: aoe197919j8e********
@@ -53,13 +53,13 @@ To get the ID of the {{ cloud-logging-full-name }} [log group](../../logging/con
         log_group_id: e23ujjda632o********
       ```
 
-      The ID of the {{ cloud-logging-name }} log group will be specified under `log_options` in the `log_group_id` field. Please note that the `log_group_id` field that follows the `subnet_id` field contains a different ID that refers to the outdated logging service.
+      The {{ cloud-logging-name }} log group ID will be specified in the `log_group_id` field under `log_options`. Please note that the `log_group_id` field that follows the `subnet_id` field contains a different ID that refers to the outdated logging service.
 
 - API {#api}
 
-   Use the [get](../api-ref/LoadBalancer/get.md) REST API method for the [LoadBalancer](../api-ref/LoadBalancer/index.md) resource or the [LoadBalancerService/Get](../api-ref/grpc/load_balancer_service.md#Get) gRPC API call.
+  Use the [get](../api-ref/LoadBalancer/get.md) REST API method for the [LoadBalancer](../api-ref/LoadBalancer/index.md) resource or the [LoadBalancerService/Get](../api-ref/grpc/load_balancer_service.md#Get) gRPC API call.
 
-   The ID of the {{ cloud-logging-name }} log group will be specified under `logOptions` in the `logGroupId` field. Please note that the `logGroupId` field that is outside the `logOptions` section contains a different ID that refers to the outdated logging service.
+  The {{ cloud-logging-name }} log group ID will be specified in the `logGroupId` field under `logOptions`. Note that the `logGroupId` field located outside `logOptions` contains a different ID that refers to the outdated logging service.
 
 {% endlist %}
 
@@ -69,37 +69,37 @@ If, when creating an L7 load balancer, you kept the **{{ ui-key.yacloud.alb.labe
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), go to the folder where the load balancer was created.
-   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
-   1. Save the ID of the log group named `default`.
+  1. In the [management console]({{ link-console-main }}), go to the folder where the load balancer was created.
+  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+  1. Save the ID of the log group named `default`.
 
 - CLI {#cli}
 
-   {% include [cli-install](../../_includes/cli-install.md) %}
+  {% include [cli-install](../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To get the ID of the default log group, run this command:
+  To get the ID of the default log group, run this command:
 
-   ```bash
-   yc logging group get \
-     --name=default \
-     --folder-id=<folder_ID>
-   ```
+  ```bash
+  yc logging group get \
+    --name=default \
+    --folder-id=<folder_ID>
+  ```
 
-   Where:
-   * `--name`: Name of the default log group: `default`.
-   * `--folder-id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) where the load balancer was created.
+  Where:
+  * `--name`: Name of the default log group, `default`.
+  * `--folder-id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) where the load balancer was created.
 
-   Result:
+  Result:
 
-   ```bash
-   id: e23qfbb01na0********
-   folder_id: b1gvgqhc5745********
-   cloud_id: b1g3clmedscm********
-   created_at: "2021-08-07T10:40:55.412Z"
-   name: default
-   description: Auto-created default group
-   ```
+  ```text
+  id: e23qfbb01na0********
+  folder_id: b1gvgqhc5745********
+  cloud_id: b1g3clmedscm********
+  created_at: "2021-08-07T10:40:55.412Z"
+  name: default
+  description: Auto-created default group
+  ```
 
 {% endlist %}

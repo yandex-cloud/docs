@@ -10,3 +10,4 @@ description: "Various {{ lockbox-full-name }} use cases in {{ yandex-cloud }}."
 * [{#T}](gitlab-lockbox-integration.md)
 * [{#T}](static-key-in-lockbox.md)
 * [{#T}](lockbox-and-airflow.md)
+* [{#T}](nodejs-cron-restart-vm.md)

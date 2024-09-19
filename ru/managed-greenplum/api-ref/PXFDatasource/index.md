@@ -105,12 +105,12 @@ sourcePath: en/_api-ref/mdb/greenplum/v1/api-ref/PXFDatasource/index.md
 Field | Description
 --- | ---
 name | **string**<br><p>Required. Data source name.</p> <p>The string length in characters must be 3-200. Value must match the regular expression ``^[^\\|/*?.,;"'<>]+$``.</p> 
-s3 | **object** <br> includes only one of the fields `s3`, `jdbc`, `hdfs`, `hive`<br>
+s3 | **object**<br>Settings of an external S3 data source. <br> includes only one of the fields `s3`, `jdbc`, `hdfs`, `hive`<br>
 s3.<br>accessKey | **string**<br><p>Public key to access S3 storage.</p> <p>The maximum string length in characters is 200.</p> 
 s3.<br>secretKey | **string**<br><p>Secret key to access S3 storage.</p> <p>The maximum string length in characters is 200.</p> 
 s3.<br>fastUpload | **boolean** (boolean)<br><p>Manages a fast upload of big files to S3 storage. In case of the ``false`` value, the PXF generates files on disk before sending them to the S3 storage. In case of the ``true`` value, the PXF generates files in RAM (the PXF writes to disc only if there is not enough RAM).</p> <p>The fast upload is enabled by default.</p> 
 s3.<br>endpoint | **string**<br><p>S3 storage address. The default value is ``storage.yandexcloud.net`` used for Yandex Object Storage.</p> <p>The maximum string length in characters is 200. Value must match the regular expression ``(((s3\|https?)://)?([a-z0-9]([a-z0-9-]*[a-z0-9])?[.])+[a-z]{2,})?``.</p> 
-jdbc | **object** <br> includes only one of the fields `s3`, `jdbc`, `hdfs`, `hive`<br>
+jdbc | **object**<br>Settings of an external JDBC data source. <br> includes only one of the fields `s3`, `jdbc`, `hdfs`, `hive`<br>
 jdbc.<br>driver | **string**<br><p>JDBC driver class in Java. The possible values are the following:</p> <ul> <li>``com.simba.athena.jdbc.Driver``</li> <li>``com.clickhouse.jdbc.ClickHouseDriver``</li> <li>``com.ibm.as400.access.AS400JDBCDriver``</li> <li>``com.microsoft.sqlserver.jdbc.SQLServerDriver``</li> <li>``com.mysql.cj.jdbc.Driver``</li> <li>``org.postgresql.Driver``</li> <li>``oracle.jdbc.driver.OracleDriver``</li> <li>``net.snowflake.client.jdbc.SnowflakeDriver``</li> <li>``io.trino.jdbc.TrinoDriver``</li> </ul> <p>The maximum string length in characters is 50.</p> 
 jdbc.<br>url | **string**<br><p>URL that the JDBC driver uses to connect to the database. Examples:</p> <ul> <li>``jdbc:mysql://mysqlhost:3306/testdb``: Local MySQL DB.</li> <li>``jdbc:postgresql://c-<cluster_id>.rw.mdb.yandexcloud.net:6432/db1``: Managed Service for PostgreSQL cluster. The address contains the special FQDN of the cluster's master.</li> <li>``jdbc:oracle:thin:@host.example:1521:orcl``: Oracle DB.</li> </ul> <p>The maximum string length in characters is 1000.</p> 
 jdbc.<br>user | **string**<br><p>Username of the DB owner.</p> <p>The maximum string length in characters is 200.</p> 
@@ -123,7 +123,7 @@ jdbc.<br>poolMaximumSize | **integer** (int64)<br><p>Maximum number of connectio
 jdbc.<br>poolConnectionTimeout | **integer** (int64)<br><p>Maximum amount of time, in milliseconds, after which an inactive connection is considered idle.</p> <p>The default value is ``30000``.</p> <p>Acceptable values are 5000 to 600000, inclusive.</p> 
 jdbc.<br>poolIdleTimeout | **integer** (int64)<br><p>Maximum amount of time, in milliseconds, after which an inactive connection is considered idle.</p> <p>The default value is ``30000``.</p> <p>Acceptable values are 5000 to 600000, inclusive.</p> 
 jdbc.<br>poolMinimumIdle | **integer** (int64)<br><p>Minimum number of idle connections maintained in the connection pool.</p> <p>The default value is ``0``.</p> <p>Acceptable values are 0 to 200, inclusive.</p> 
-hdfs | **object** <br> includes only one of the fields `s3`, `jdbc`, `hdfs`, `hive`<br>
+hdfs | **object**<br>Settings of an external HDFS data source. <br> includes only one of the fields `s3`, `jdbc`, `hdfs`, `hive`<br>
 hdfs.<br>core | **object**<br><p>Settings of the file system and security rules.</p> 
 hdfs.<br>core.<br>defaultFs | **string**<br><p>URI whose scheme and authority determine the file system implementation.</p> <p>The maximum string length in characters is 200.</p> 
 hdfs.<br>core.<br>securityAuthToLocal | **string**<br><p>Rules for mapping Kerberos principals to operating system user accounts.</p> <p>The maximum string length in characters is 1000.</p> 
@@ -151,7 +151,7 @@ hdfs.<br>yarn.<br>resourcemanagerHaAutoFailoverEnabled | **boolean** (boolean)<b
 hdfs.<br>yarn.<br>resourcemanagerHaAutoFailoverEmbedded | **boolean** (boolean)<br><p>Determines whether the embedded ActiveStandbyElector method should be used for the election of the active ResourceManager. If the current active ResourceManager has failed and does not respond, the ActiveStandbyElector method makes another ResourceManager active which then takes over.</p> 
 hdfs.<br>yarn.<br>resourcemanagerClusterId | **string**<br><p>Cluster ID. Specify it, so the ResourceManager service does not become active for a different cluster.</p> <p>The maximum string length in characters is 1000.</p> 
 hdfs.<br>yarn.<br>haRm | **object**<br><p>Highly available ResourceManager service.</p> <p>No more than 10000 per resource.</p> 
-hive | **object** <br> includes only one of the fields `s3`, `jdbc`, `hdfs`, `hive`<br>
+hive | **object**<br>Settings of an external Hive data source. <br> includes only one of the fields `s3`, `jdbc`, `hdfs`, `hive`<br>
 hive.<br>core | **object**<br><p>Settings of the file system and security rules.</p> 
 hive.<br>core.<br>defaultFs | **string**<br><p>URI whose scheme and authority determine the file system implementation.</p> <p>The maximum string length in characters is 200.</p> 
 hive.<br>core.<br>securityAuthToLocal | **string**<br><p>Rules for mapping Kerberos principals to operating system user accounts.</p> <p>The maximum string length in characters is 1000.</p> 

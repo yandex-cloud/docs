@@ -43,8 +43,8 @@ dvrSeconds | **string** (int64)<br><p>Enables episode DVR mode. DVR seconds dete
 visibilityStatus | **string**
 createdAt | **string** (date-time)<br><p>Time when episode was created.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
 updatedAt | **string** (date-time)<br><p>Time of last episode update.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
-publicAccess | **object** <br> includes only one of the fields `publicAccess`, `authSystemAccess`<br>
-authSystemAccess | **object** <br> includes only one of the fields `publicAccess`, `authSystemAccess`<br>
+publicAccess | **object**<br>Episode is available to everyone. <br> includes only one of the fields `publicAccess`, `authSystemAccess`<br>
+authSystemAccess | **object**<br>Checking access rights using the authorization system. <br> includes only one of the fields `publicAccess`, `authSystemAccess`<br>
 
 ## Methods {#methods}
 Method | Description
