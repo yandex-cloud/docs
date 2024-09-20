@@ -8,9 +8,9 @@ Assign roles to the service account:
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   * Assign the [`audit-trails.viewer` role](../../audit-trails/security/index.md#roles-list) to the cloud whose resources audit logs will be collected from:
+   * Assign the [`audit-trails.viewer` role](../../audit-trails/security/index.md#roles-list) for the cloud from whose resources you will collect audit logs:
 
-      ```
+      ```bash
       yc resource-manager cloud add-access-binding \
         --role audit-trails.viewer \
         --id <cloud_ID> \

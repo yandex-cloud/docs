@@ -1,0 +1,1 @@
+The `websql.executedQueries.auditor` role enables viewing the metadata of a published query from the history as well as information on [access permissions](../../../iam/concepts/access-control/index.md) assigned to it.

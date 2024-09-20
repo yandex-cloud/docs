@@ -6,6 +6,10 @@ editable: false
 
 # {{ kms-name }} pricing policy
 
+{% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
+
+{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
+
 The cost of using {{ kms-name }} is based on:
 
 * Number of active key versions: versions with the `Active` and `Scheduled For Destruction` statuses.

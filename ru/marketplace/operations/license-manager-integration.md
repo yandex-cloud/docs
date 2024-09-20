@@ -39,40 +39,44 @@
         1. {% include [lmi-step-3](../../_includes/marketplace/lmi-step-3.md) %}
 
 - SaaS {#saas}
+    
+    1. Создайте [сервисный аккаунт](../../iam/operations/sa/create.md), от имени которого будете проверять активность подписок, купленных пользователями, и привязывать такие подписки к сервису:
+        1. Авторизуйтесь в [кабинете партнера {{ marketplace-short-name }}]({{ link-cloud-partners }}).
+        1. Откройте раздел **{{ ui-key.yacloud_portal.portal.publisher-users }}**.
+        1. Нажмите **{{ ui-key.yacloud_portal.acl.common.action_via-federation }}**.
+        1. В открывшемся окне укажите [идентификатор сервисного аккаунта](../../iam/operations/sa/get-id.md) и нажмите **{{ ui-key.yacloud_portal.common.action_add }}**.
+        1. Найдите сервисный аккаунт в списке и нажмите ![image](../../_assets/marketplace/three_dots.png) → **{{ ui-key.yacloud_portal.common.action_change }}**.
+        1. В открывшемся окне нажмите **+ Добавить роль**, выберите `license-manager.saasSubscriptionSupervisor` и нажмите **Сохранить**.
+    
+    1. Аутентифицируйтесь в {{ license-manager }} API от имени сервисного аккаунта. Для аутентификации используйте [IAM-токен](../../iam/concepts/authorization/iam-token.md).
 
-    1. Создайте:
+    1. Создайте страницу, на которую нужно перенаправить пользователя во время привязки купленной им подписки к сервису.
 
-        * страницу, на которую нужно перенаправить пользователя. При перенаправлении пользователя в строке запроса, в параметре `token`, будет передаваться токен, сгенерированный {{ yandex-cloud }}. Токен действует 10 минут. За это время авторизуйте пользователя и присвойте ему уникальный идентификатор, который после нужно привязать к подписке.
-        * [сервисный аккаунт](../../iam/operations/sa/create.md). Чтобы от его имени уникальный идентификатор пользователя привязывался к подписке:
-            1. Авторизуйтесь в [кабинете партнера {{ marketplace-short-name }}]({{ link-cloud-partners }}).
-            1. Откройте раздел **{{ ui-key.yacloud_portal.portal.publisher-users }}**.
-            1. Нажмите **{{ ui-key.yacloud_portal.acl.common.action_via-federation }}**.
-            1. В открывшемся окне укажите [идентификатор сервисного аккаунта](../../iam/operations/sa/get-id.md) и нажмите **{{ ui-key.yacloud_portal.common.action_add }}**.
-            1. Найдите сервисный аккаунт в списке и нажмите ![image](../../_assets/marketplace/three_dots.png) → **{{ ui-key.yacloud_portal.common.action_change }}**.
-            1. В открывшемся окне нажмите **+ Добавить роль**, выберите `license-manager.saasSubscriptionSupervisor` и нажмите **Сохранить**.
-            1. Аутентифицируйтесь в {{ license-manager }} API от имени сервисного аккаунта. Для аутентификации используйте [IAM-токен](../../iam/concepts/authorization/iam-token.md).
+        При перенаправлении пользователя на такую страницу в строке запроса, в параметре `token`, передается JWT-токен (`instanceToken`), сгенерированный {{ yandex-cloud }}. JWT-токен действует 15 минут и содержит:
+        * идентификатор подписки, которую купил пользователь (`license_instance_id`);
+        * идентификатор шаблона подписки, который вы создали в кабинете партнера (`license_template_id`).
 
-    1. {% include [lmi-step-1](../../_includes/marketplace/lmi-step-1.md) %}
+    1. Пока действует JWT-токен, на созданной странице авторизуйте пользователя и присвойте ему уникальный идентификатор (`resourceId`). Уникальный идентификатор пользователя (`resourceId`) необходимо сгенерировать самостоятельно в коде продукта.
 
-    1. В коде вашего продукта реализуйте следующие шаги:
+    1. Привяжите уникальный идентификатор пользователя (`resourceId`) к купленной пользователем подписке (`license_instance_id`).
 
-        1. Получение уникального идентификатора пользователя, который нужно привязать к подписке.
+        Привязать идентификатор к подписке можно с помощью метода REST API [ensure](../license-manager/saas/api-ref/Lock/ensure.md) для ресурса [Lock](../license-manager/saas/api-ref/Lock/index.md) или вызова gRPC API [LockService/Ensure](../license-manager/saas/api-ref/grpc/lock_service.md#Ensure).
 
-        1. Привязка уникального идентификатора пользователя к подписке.
+        Передайте в запросе JWT-токен (`instanceToken`) и уникальный идентификатор пользователя (`resourceId`). В [ответе](../license-manager/saas/api-ref/Lock/ensure.md#responses) вы получите идентификатор привязки (`lock_id`) — он находится в параметре `metadata`. Если в ответе ошибка, значит, подписка не привязалась к сервису и нужно попросить пользователя заново пройти все шаги.
 
-            Привязать идентификатор к подписке можно с помощью метода REST API [ensure](../license-manager/saas/api-ref/Lock/ensure.md) для ресурса [Lock](../license-manager/saas/api-ref/Lock/index.md) или вызова gRPC API [LockService/Ensure](../license-manager/saas/api-ref/grpc/lock_service.md#Ensure).
+    1. Организуйте периодическую проверку того, что привязка подписки активна. Используйте для этого идентификатор привязки (`lock_id`), полученный на предыдущем шаге.
 
-        1. Периодическая проверка того, что привязка подписки активна.
+       Получить актуальную информацию о привязке подписки можно с помощью метода REST API [get](../license-manager/saas/api-ref/Lock/get.md) для ресурса [Lock](../license-manager/saas/api-ref/Lock/index.md) или вызова gRPC API [LockService/Get](../license-manager/saas/api-ref/grpc/lock_service.md#Get).
 
-            Получить актуальную информацию о привязке подписки можно с помощью метода REST API [get](../license-manager/saas/api-ref/Lock/get.md) для ресурса [Lock](../license-manager/saas/api-ref/Lock/index.md) или вызова gRPC API [LockService/Get](../license-manager/saas/api-ref/grpc/lock_service.md#Get).
+       В ответе должен возвращаться активный ресурс Lock, для которого `state = LOCKED`, а время окончания действия подписки `end_time` находится в будущем.
 
-            {% note info %}
+       {% note info %}
 
-            Учитывайте, что пользователь может отвязать один идентификатор от подписки и привязать к ней другой. Ваш код должен корректно обрабатывать такие случаи.
+       Учитывайте, что пользователь может отвязать одну подписку от сервиса и привязать к нему другую. Ваш код должен корректно обрабатывать такие случаи.
 
-            {% endnote %}
+       {% endnote %}
 
-        1. {% include [lmi-step-3](../../_includes/marketplace/lmi-step-3.md) %}
+    1. Организуйте бизнес-логику обработки подписок: учет потребления, ограничения по времени, количеству пользователей и т.п.
 
 {% endlist %}
 

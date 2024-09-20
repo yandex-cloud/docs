@@ -1616,6 +1616,14 @@ description: "В статье приведен полный справочник
 
 ## {{ websql-full-name }} {#websql-roles}
 
+#### websql.executedQueries.auditor {#websql-executedQueries-auditor}
+
+{% include [websql.executedQueries.auditor](../_roles/websql/executedQueries/auditor.md) %}
+
+#### websql.savedQueries.auditor {#websql-savedQueries-auditor}
+
+{% include [websql.savedQueries.auditor](../_roles/websql/savedQueries/auditor.md) %}
+
 #### websql.executedQueries.viewer {#websql-executedQueries-viewer}
 
 {% include [websql.executedQueries.viewer](../_roles/websql/executedQueries/viewer.md) %}
@@ -1639,6 +1647,10 @@ description: "В статье приведен полный справочник
 #### websql.savedQueries.admin {#websql-savedQueries-admin}
 
 {% include [websql.savedQueries.admin](../_roles/websql/savedQueries/admin.md) %}
+
+#### websql.auditor {#websql-auditor}
+
+{% include [websql.auditor](../_roles/websql/auditor.md) %}
 
 #### websql.viewer {#websql-viewer}
 
