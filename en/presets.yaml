@@ -373,6 +373,9 @@ default:
   mgp-name: Managed Service for Greenplum®
   mgp-short-name: Managed Service for Greenplum®
   microsoft-idp:
+    adfs-abbreviated: AD FS
+    adfs-full: Microsoft Active Directory Federation Services
+    adfs-short: Active Directory Federation Services
     azure-ad-legacy: Azure Active Directory
     entra-full: Microsoft Entra
     entra-id-full: Microsoft Entra ID
@@ -9031,6 +9034,9 @@ default:
               console:
                 form:
                   postgres:
+                    ConnmanConnection:
+                      connection_id:
+                        title: Connection ID
                     OnPremisePostgres:
                       ca_certificate:
                         title: CA certificate
@@ -9041,6 +9047,12 @@ default:
                       subnet_id:
                         title: Subnet ID
                     PostgresConnection:
+                      authorization_connman:
+                        title: Connection Manager
+                      authorization_plain:
+                        title: Self-managed
+                      authorization_type:
+                        title: Connection type
                       connection_type:
                         title: Installation type
                       database:
@@ -9758,6 +9770,7 @@ default:
       yq-connection:
         action_clickhouse: Managed Service for ClickHouse
         action_datastreams: Data Streams
+        action_greenplum: Managed Service for Greenplum
         action_monitoring: Monitoring
         action_mysql: Managed Service for MySQL
         action_object-storage: Object Storage

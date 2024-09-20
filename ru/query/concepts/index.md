@@ -1,6 +1,6 @@
 # Обзор {{ yq-full-name }}
 
-{{ yq-full-name }} – это сервис обработки данных, способный выполнять федеративные запросы к объектному хранилищу [{{ objstorage-full-name }}](../../storage/concepts/index.md), управляемым базам данных [{{ mpg-name }}](https://yandex.cloud/ru/services/managed-postgresql) и [{{ mch-name }}](https://yandex.cloud/ru/services/managed-clickhouse), а также потокам данных реального времени [{{ yds-full-name }}](../../data-streams/concepts/index.md). С помощью YQL, единого диалекта SQL, {{ yq-full-name }} позволяет агрегировать результаты выполнения запросов [между этими системами](../concepts/federated-processing.md).
+{{ yq-full-name }} – это сервис обработки данных, способный выполнять федеративные запросы к объектному хранилищу [{{ objstorage-full-name }}](../../storage/concepts/index.md), управляемым базам данных [{{ mch-name }}](https://yandex.cloud/ru/services/managed-clickhouse), [{{ mgp-name }}](https://yandex.cloud/ru/services/managed-greenplum), [{{ mmy-name }}](https://yandex.cloud/ru/services/managed-mysql), [{{ mpg-name }}](https://yandex.cloud/ru/services/managed-postgresql) и [{{ ydb-name }}](https://yandex.cloud/ru/services/ydb), а также потокам данных реального времени [{{ yds-full-name }}](../../data-streams/concepts/index.md). С помощью YQL, единого диалекта SQL, {{ yq-full-name }} позволяет агрегировать результаты выполнения запросов [между этими системами](../concepts/federated-processing.md).
 
 {{ yq-full-name }} является полностью управляемым облачным решением, это означает, что нет необходимости иметь запущенные сервера, на которых развернуто ПО. Все необходимые ресурсы для исполнения запросов выделяются в момент их запуска и освобождаются после завершения, а сами запросы начинают исполняться немедленно.
 
@@ -40,7 +40,7 @@
 
 ### Аналитическая обработка {#analytic}
 
-Аналитические запросы {{ yq-full-name }} могут получать данные из {{ objstorage-full-name }} в [форматах JSON, CSV/TSV, Parquet, сжатых различными алгоритмами](../sources-and-sinks/formats.md). Также аналитические запросы можно исполнять над управляемыми базами данных [{{ mpg-name }}](https://yandex.cloud/ru/services/managed-postgresql) и [{{ mch-name }}](https://yandex.cloud/ru/services/managed-clickhouse).
+Аналитические запросы {{ yq-full-name }} могут получать данные из {{ objstorage-full-name }} в [форматах JSON, CSV/TSV, Parquet, сжатых различными алгоритмами](../sources-and-sinks/formats.md). Также аналитические запросы можно исполнять над управляемыми базами данных [{{ mch-name }}](https://yandex.cloud/ru/services/managed-clickhouse), [{{ mgp-name }}](https://yandex.cloud/ru/services/managed-greenplum), [{{ mmy-name }}](https://yandex.cloud/ru/services/managed-mysql), [{{ mpg-name }}](https://yandex.cloud/ru/services/managed-postgresql) и [{{ ydb-name }}](https://yandex.cloud/ru/services/ydb).
 
 С помощью {{ yq-full-name }} можно выполнять межсервисную аналитику данных, объединяя в одном запросе обращения ко всем поддерживаемым источникам данных.
 

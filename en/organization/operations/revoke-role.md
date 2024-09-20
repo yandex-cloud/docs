@@ -1,32 +1,32 @@
-# Revoking a role from a user
+# Revoking a user's role 
 
-If you want to deny a user access to a resource, revoke the relevant roles for this resource and for resources that grant inherited access rights. For more information on access control in {{ yandex-cloud }}, please see the [{{ iam-full-name }}](../../iam/concepts/access-control/index.md) documentation.
+If you want to deny a user access to a resource, revoke the relevant roles for this resource and for resources that grant inherited access rights. For more information on access management in {{ yandex-cloud }}, see the [{{ iam-full-name }}](../../iam/concepts/access-control/index.md) documentation.
 
-The role can be revoked by a [user with the organization administrator role](add-org-admin.md) (`organization-manager.admin`) or organization owner role (`organization-manager.organizations.owner`).
+The role can be revoked by a user with the [`organization-manager.admin`](add-org-admin.md) or `organization-manager.organizations.owner` role.
 
 {% list tabs group=instructions %}
 
 - {{ org-name }} interface {#cloud-org}
 
-   1. [Log in]({{ link-passport }}) as the organization administrator or owner.
+  1. [Log in]({{ link-passport }}) as the organization administrator or owner.
 
-   1. Go to [{{ org-full-name }}]({{ link-org-main }}).
+  1. Go to [{{ org-full-name }}]({{ link-org-main }}).
+  
+  1. In the left-hand panel, select ![persons-lock](../../_assets/console-icons/persons-lock.svg) [{{ ui-key.yacloud_org.pages.acl }}]({{ link-org-acl }}).
 
-   1. In the left-hand panel, select ![persons-lock](../../_assets/console-icons/persons-lock.svg) [{{ ui-key.yacloud_org.pages.acl }}]({{ link-org-acl }}).
+  1. Select a user from the list or use the search bar at the top of the page.
+  
+  1. In the right-hand column, click ![icon-context-menu](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_org.entity.user.action.acl }}**.
+  
+  1. Click ![cross](../../_assets/console-icons/xmark.svg) next to a role to delete it.
 
-   1. Select a user from the list or use the search bar at the top of the page.
-
-   1. In the right-hand column, click ![icon-context-menu](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_org.entity.user.action.acl }}**.
-
-   1. Click ![cross](../../_assets/console-icons/xmark.svg) next to a role to delete it.
-
-   1. Click **{{ ui-key.yacloud.common.save }}**.
+  1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
-   {% include [cli-install](../../_includes/cli-install.md) %}
+  {% include [cli-install](../../_includes/cli-install.md) %}
 
-   1. View the roles and assignees for a resource:
+  1. View the roles and assignees for the resource:
 
       ```bash
       yc <service_name> <resource> list-access-bindings <resource_name_or_ID>
@@ -35,8 +35,8 @@ The role can be revoked by a [user with the organization administrator role](add
       Where:
 
       * `<service_name>`: Name of the service the resource belongs to, e.g., `organization-manager`.
-      * `<resource>`: Resource category. For an organization, `organization` is the category of importance.
-      * `<resource_name_or_ID>`: Name or ID of the resource. You can specify the resource name or ID. Refer to an organization by its [technical name](../operations/org-profile.md).
+      * `<resource>`: Resource category. For an organization, it is always `organization`.
+      * `<resource_name_or_ID>`: Resource name or ID. You can specify the resource name or ID. For an organization, use its [technical name](../operations/org-profile.md).
 
       For example, view the roles and assignees in an organization with the `bpf3crucp1v2********` ID:
 
@@ -46,7 +46,7 @@ The role can be revoked by a [user with the organization administrator role](add
 
       Result:
 
-      ```bash
+      ```text
       +------------------------------------------+--------------+----------------------+
       |                 ROLE ID                  | SUBJECT TYPE |      SUBJECT ID      |
       +------------------------------------------+--------------+----------------------+
@@ -55,7 +55,7 @@ The role can be revoked by a [user with the organization administrator role](add
       +------------------------------------------+--------------+----------------------+
       ```
 
-   1. To delete an access binding, run:
+  1. To delete an access binding, run:
 
       ```bash
       yc <service_name> <resource> remove-access-binding <resource_name_or_ID> \
@@ -65,8 +65,8 @@ The role can be revoked by a [user with the organization administrator role](add
 
       Where:
 
-      * `--role`: ID of the role to be revoked, e.g., `organization-manager.admin`.
-      * `<subject-type>`: [Subject](../../iam/concepts/access-control/index.md#subject) type to revoke a role from.
+      * `--role`: ID of the role to revoke, e.g., `organization-manager.admin`.
+      * `<subject_type>`: [Subject](../../iam/concepts/access-control/index.md#subject) type to revoke a role from.
       * `<subject_ID>`: Subject ID.
 
       For example, to revoke a role from a user with the `aje6o61dvog2********` ID:
@@ -79,17 +79,17 @@ The role can be revoked by a [user with the organization administrator role](add
 
 - API {#api}
 
-   1. View the roles and assignees for a resource using the `listAccessBindings` method. For example, to view the roles in the organization with the `bpf3crucp1v2********` ID:
+  1. View the roles and assignees for the resource using the `listAccessBindings` method. For example, to view the roles in the organization with the `bpf3crucp1v2********` ID:
 
       ```bash
       export ORGANIZATION_ID=bpf3crucp1v2********
-      export IAM_TOKEN=<IAM-token>
+      export IAM_TOKEN=<IAM_token>
       curl -H "Authorization: Bearer ${IAM_TOKEN}" "https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/${ORGANIZATION_ID}:listAccessBindings"
       ```
 
       Result:
 
-      ```bash
+      ```text
       {
       "accessBindings": [
       {
@@ -103,7 +103,7 @@ The role can be revoked by a [user with the organization administrator role](add
       }
       ```
 
-   1. Create the request body, e.g., in the `body.json` file. In the request body, specify which access binding to delete. For example, revoke the `organization-manager.admin` role from the `aje6o61dvog2********` user:
+  1. Create the request body, e.g., in the `body.json` file. In the request body, specify which access binding to delete. For example, revoke the `organization-manager.admin` role from the `aje6o61dvog2********` user:
 
       ```json
       {
@@ -120,11 +120,11 @@ The role can be revoked by a [user with the organization administrator role](add
       }
       ```
 
-   1. Revoke the role by deleting the specified access binding:
+  1. Revoke the role by deleting the specified access binding:
 
       ```bash
       export ORGANIZATION_ID=bpf3crucp1v2********
-      export IAM_TOKEN=<IAM-token>
+      export IAM_TOKEN=<IAM_token>
       curl -X POST \
         -H "Content-Type: application/json" \
         -H "Authorization: Bearer ${IAM_TOKEN}" \

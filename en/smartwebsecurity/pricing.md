@@ -6,7 +6,9 @@ editable: false
 
 
 
-To calculate the cost of using {{ sws-name }}, see the prices on this page.
+{% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
+
+{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
 ## What goes into the cost of using {{ sws-name }} {#rules}
 

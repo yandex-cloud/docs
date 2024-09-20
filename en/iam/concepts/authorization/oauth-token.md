@@ -9,13 +9,13 @@ OAuth tokens are not available for federated users and service accounts.
 
 ## OAuth token format {#oauth-token-format}
 
-The token always starts with the letter `y`, a random digit in the `0-3` range, and the `_` symbol. Other characters may include:
+The token always starts with a `y`, a random number in the `0-3` range, and an underscore (`_`). Other characters may include:
 
-* Latin letters
-* Numbers
-* Underscores `_` and hyphens `-`
+* Latin letters.
+* Numbers.
+* Underscores (`_`) and hyphens (`-`).
 
-Sample OAuth token: `y3_Vdheub7w9bIut67GHeL345gfb5GAnd3dZnf08FRbvjeUFvetYiohGvc`.
+For example, an OAuth token may look like this: `y3_Vdheub7w9bIut67GHeL345gfb5GAnd3dZnf08FRbvjeUFvetYiohGvc`.
 
 ## Lifetime {#lifetime}
 
@@ -31,7 +31,7 @@ If someone could have learned your OAuth token, revoke it and get a new one by f
 
 These services and utilities can request an IAM token automatically, so you can only specify an OAuth token for authentication:
 * [{{ yandex-cloud }} CLI](../../../cli/quickstart.md#initialize)
-* [{{ container-registry-full-name }}](../../../container-registry/operations/authentication.md#user-oauth)
+* [{{ container-registry-full-name }}](../../../container-registry/operations/authentication.md#user)
 * [{{ TF }}](../../../tutorials/infrastructure-management/terraform-quickstart.md)
 * [Packer](../../../tutorials/infrastructure-management/packer-quickstart.md)
 * [{{ GL }} CI](../../../tutorials/testing/ci-for-snapshots.md)
@@ -39,4 +39,4 @@ These services and utilities can request an IAM token automatically, so you can 
 
 #### See also {#see-also}
 
-* [Learn more about Yandex OAuth](https://yandex.com/dev/id/doc/dg/oauth/concepts/about.html).
+* Learn more about Yandex OAuth [here](https://yandex.com/dev/id/doc/dg/oauth/concepts/about.html).

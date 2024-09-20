@@ -36,8 +36,6 @@ items:
             href: operations/edit-account.md
           - name: Leaving an organization
             href: operations/leave-organization.md
-          - name: Managing user groups
-            href: operations/manage-groups.md
       - name: Managing identity federations
         items:
           - name: Overview
@@ -60,13 +58,13 @@ items:
         items:
           - name: Overview
             href: operations/security.md
-          - name: Making a user an organization administrator
+          - name: Assigning a user as organization administrator
             href: operations/add-org-admin.md
           - name: Assigning a role to a user
             href: operations/add-role.md
           - name: Assigning a role to a user group
             href: operations/groups-access-binding.md
-          - name: Revoking a role from a user
+          - name: Revoking a user's role
             href: operations/revoke-role.md
   - name: Tutorials
     items:
@@ -86,6 +84,8 @@ items:
             href: tutorials/federations/integration-keycloak.md
           - name: User group mapping
             items:
+              - name: User group mapping in {{ microsoft-idp.adfs-short }}
+                href: tutorials/federations/group-mapping/adfs.md
               - name: User group mapping in {{ microsoft-idp.entra-id-full }}
                 href: tutorials/federations/group-mapping/entra-id.md
               - name: User group mapping in Keycloak

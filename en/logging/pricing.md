@@ -6,6 +6,10 @@ editable: false
 
 # {{ cloud-logging-name }} pricing policy
 
+{% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
+
+{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
+
 ## What goes into the cost of using {{ cloud-logging-name }} {#rules}
 
 {{ cloud-logging-name }} charges you for the amount of data written and the time the data is stored.
