@@ -37,7 +37,7 @@ You can convert a dynamic public IP address to static. Static IP addresses do no
 For more information about IP address pricing, see the [{#T}](../pricing.md#prices-public-ip) section of the {{ vpc-name }} documentation.
 
 
-### Outgoing traffic from TCP port 25 {#port-25}
+### Outgoing traffic to TCP port 25 {#port-25}
 
 {% include [port-25.md](../../_includes/vpc/port-25.md) %}
 
