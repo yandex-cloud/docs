@@ -91,3 +91,4 @@
 * [{#T}](./concepts/profiles.md)
 * [{#T}](./operations/profile-create.md)
 * [Создать L7-балансировщик с профилем безопасности](./tutorials/balancer-with-sws-profile.md)
+* [Рекомендации по настройке {{ alb-name }}](concepts/index.md#alb-settings-recommendation)

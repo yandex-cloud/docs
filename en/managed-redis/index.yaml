@@ -15,7 +15,7 @@ description:
   - >-
     You can manage the service via the management console, the Yandex Cloud
     command-line interface (CLI), the API, or Terraform.
-  - "The Yandex Cloud infrastructure is <a href=\"/docs/security/conform\"> fully secure</a> in compliance with the following standards: <ul> <li>Russian Federal Law No. 152-FZ.</li> <li>Payment Card Industry Data Security Standard (PCI\_DSS).</li> <li>General Data Protection Regulation (GDPR).</li> <li>ISO 27001.</li> <li>ISO 27017.</li> <li>ISO 27018.</li> <li>GOST 57580.1-2017.</li> </ul>"
+  - "The Yandex Cloud infrastructure is <a href=\"/docs/security/conform\"> fully secure</a> in compliance with the following standards: <ul> <li>Russian Federal Law No. 152-FZ.</li> <li>Payment Card Industry Data Security Standard (PCI\_DSS).</li> <li>ISO 27001.</li> <li>ISO 27017.</li> <li>ISO 27018.</li> <li>GOST 57580.1-2017.</li> </ul>"
   - >-
     The service is subject to the <a
     href="https://yandex.com/legal/cloud_sla">Service Level Agreement</a>. The

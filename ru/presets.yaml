@@ -9050,6 +9050,9 @@ default:
               console:
                 form:
                   postgres:
+                    ConnmanConnection:
+                      connection_id:
+                        title: Идентификатор подключения
                     OnPremisePostgres:
                       ca_certificate:
                         title: Сертификат CA
@@ -9060,6 +9063,12 @@ default:
                       subnet_id:
                         title: Идентификатор подсети
                     PostgresConnection:
+                      authorization_connman:
+                        title: Connection Manager
+                      authorization_plain:
+                        title: Ручная настройка
+                      authorization_type:
+                        title: Тип подключения
                       connection_type:
                         title: Тип инсталляции
                       database:
@@ -9775,6 +9784,7 @@ default:
       yq-connection:
         action_clickhouse: Managed Service for ClickHouse
         action_datastreams: Data Streams
+        action_greenplum: Managed Service for Greenplum
         action_monitoring: Monitoring
         action_mysql: Managed Service for MySQL
         action_object-storage: Object Storage

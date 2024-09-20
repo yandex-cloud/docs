@@ -10,13 +10,15 @@ editable: false
 
 {% include [use-calculator](../_includes/pricing/use-calculator.md) %}
 
+{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
+
 ## What goes into the cost of using {{ captcha-full-name }} {#rules}
 
-You pay for [{{ captcha-name }} API requests](./quickstart.md#check-answer) at `https://smartcaptcha.yandexcloud.net/validate`. You only pay for [correct requests](concepts/validation.md#service-response) to which the API returns the `ok` status. These requests must meet the following conditions:
+You pay for [requests to the {{ captcha-name }} API](./quickstart.md#check-answer) made at `https://smartcaptcha.yandexcloud.net/validate`. You only pay for [correct requests](concepts/validation.md#service-response) to which the API returns the `ok` status. Correct requests satisfy the following conditions:
 
-* {{ captcha-name }} identifies a request as one sent by a human and not a bot.
-* Correct `secret` and `token` values are provided.
-* The unique `token` was issued not more than 10 minutes ago.
+* {{ captcha-name }} has identified the request as one sent by a human, not a bot.
+* Correct `secret` and `token` values were provided.
+* A unique `token` was issued not more than 10 minutes ago.
 
 {% note info %}
 
@@ -32,9 +34,9 @@ Examples of {{ captcha-name }} usage cost calculation:
 
 1. A backend developer has made a mistake and sent an incorrect `secret` or `token` in a response `/validate` request. The API will return an error in the `message` field. No fee will be charged.
 
-1. An intruder has passed the CAPTCHA test, obtained the `token`, and sent it 10 times during the first minute. The API will return the `ok` status only to the first request, and you will be charged for the first request only.
+1. An intruder has passed the CAPTCHA test, got a `token`, and sent it 10 times during the first minute. The API will return the `ok` status only to the first request, and you will be charged for the first request only.
 
-1. An intruder has passed the CAPTCHA test, obtained the `token`, and sent it 10 times after 10 minutes. The API will return the `failed` status to all requests. You will not be charged for any of them.
+1. An intruder has passed the CAPTCHA test, got a `token`, and sent it 10 times after 10 minutes. The API will return the `failed` status to all requests. You will not be charged for any of these.
 
 ## Prices for the Russia region {#prices}
 

@@ -6,6 +6,10 @@ editable: false
 
 # {{ alb-full-name }} pricing policy
 
+{% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
+
+{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
+
 ## What goes into the cost of using {{ alb-name }} {#rules}
 
 When using the {{ alb-name }} service, you pay for the actual use of computing resources of every active load balancer.

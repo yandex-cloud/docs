@@ -1,4 +1,4 @@
-| Event name | Description |
+Event name | Description
 --- | ---
 | `CreateContainer` | Creating a container |
 | `DeleteContainer` | Deleting a container |

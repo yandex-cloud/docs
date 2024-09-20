@@ -33,21 +33,43 @@
      * Выберите или создайте новую [serverless базу данных {{ ydb-name }}](../../ydb/) с [потоком данных](../../data-streams/concepts/index.md) {{ yds-full-name }}.
      * Выберите или создайте новый [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), от имени которого будет выполняться доступ к данным.
 
-   - {{ mpg-name }}
-
-      * **{{ ui-key.yql.yq-connection-form.cluster.input-label }}** — выберите существующий кластер {{ mpg-name }} или создайте новый.
-      * **{{ ui-key.yql.yq-connection-form.service-account.input-label }}** — выберите существующий [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) {{ mpg-name }} или создайте новый с [ролью](../../managed-postgresql/security/index.md#managed-postgresql-viewer) `{{ roles.mpg.viewer }}`, от имени которого будет выполняться подключение к кластерам `{{ mpg-name }}`.
-      * **{{ ui-key.yql.yq-connection-form.login.input-label }}**  — имя пользователя, которое будет использоваться для подключения к базам данных {{ PG }}.
-      * **{{ ui-key.yql.yq-connection-form.password.input-label }}**  — пароль пользователя, который будет использоваться для подключения к базам данных {{ PG }}.
-
-
    - {{ mch-name }}
 
       * **{{ ui-key.yql.yq-connection-form.cluster.input-label }}** — выберите существующий кластер {{ mch-name }} или создайте новый.
       * **{{ ui-key.yql.yq-connection-form.service-account.input-label }}** — выберите существующий [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) {{ mch-name }} или создайте новый с [ролью](../../managed-clickhouse/security.md#managed-clickhouse-viewer) `{{ roles.mch.viewer }}`, от имени которого будет выполняться подключение к кластерам `{{ mch-name }}`.
+      * **{{ ui-key.yql.yq-connection-info.database.label }}**  — выберите базу данных, которая будет использоваться при работе с кластером {{ CH }}.
       * **{{ ui-key.yql.yq-connection-form.login.input-label }}**  — имя пользователя, которое будет использоваться для подключения к базам данных {{ CH }}.
       * **{{ ui-key.yql.yq-connection-form.password.input-label }}**  — пароль пользователя, который будет использоваться для подключения к базам данных {{ CH }}.
 
+   - {{ mgp-name }}
+
+      * **{{ ui-key.yql.yq-connection-form.cluster.input-label }}** — выберите существующий кластер {{ mgp-name }} или создайте новый.
+      * **{{ ui-key.yql.yq-connection-form.service-account.input-label }}** — выберите существующий [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) {{ mgp-name }} или создайте новый с ролью [`{{ roles.mgp.viewer }}`](../../managed-greenplum/security/index.md#mgp-viewer), от имени которого будет выполняться подключение к кластерам `{{ mgp-name }}`.
+      * **{{ ui-key.yql.yq-connection-form.database.input-label }}**  — выберите базу данных, которая будет использоваться при работе с кластером {{ GP }}.
+      * **{{ ui-key.yql.yq-connection-form.schema.input-label }}**  — укажите [пространство имен](https://docs.vmware.com/en/VMware-Greenplum/7/greenplum-database/admin_guide-ddl-ddl-schema.html), которое будет использоваться при работе с базой данных {{ GP }}.
+      * **{{ ui-key.yql.yq-connection-form.login.input-label }}**  — имя пользователя, которое будет использоваться для подключения к базам данных {{ GP }}.
+      * **{{ ui-key.yql.yq-connection-form.password.input-label }}**  — пароль пользователя, который будет использоваться для подключения к базам данных {{ GP }}.
+
+   - {{ mmy-name }}
+
+      * **{{ ui-key.yql.yq-connection-form.cluster.input-label }}** — выберите существующий кластер {{ mmy-name }} или создайте новый.
+      * **{{ ui-key.yql.yq-connection-form.service-account.input-label }}** — выберите существующий [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) {{ mmy-name }} или создайте новый с ролью [`{{ roles.mmy.viewer }}`](../../managed-mysql/security/index.md#managed-mysql-viewer), от имени которого будет выполняться подключение к кластерам `{{ mmy-name }}`.
+      * **{{ ui-key.yql.yq-connection-form.database.input-label }}**  — выберите базу данных, которая будет использоваться при работе с кластером {{ MY }}.
+      * **{{ ui-key.yql.yq-connection-form.login.input-label }}**  — имя пользователя, которое будет использоваться для подключения к базам данных {{ MY }}.
+      * **{{ ui-key.yql.yq-connection-form.password.input-label }}**  — пароль пользователя, который будет использоваться для подключения к базам данных {{ MY }}.
+
+   - {{ mpg-name }}
+
+      * **{{ ui-key.yql.yq-connection-form.cluster.input-label }}** — выберите существующий кластер {{ mpg-name }} или создайте новый.
+      * **{{ ui-key.yql.yq-connection-form.service-account.input-label }}** — выберите существующий [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) {{ mpg-name }} или создайте новый с [ролью](../../managed-postgresql/security/index.md#managed-postgresql-viewer) `{{ roles.mpg.viewer }}`, от имени которого будет выполняться подключение к кластерам `{{ mpg-name }}`.
+      * **{{ ui-key.yql.yq-connection-form.database.input-label }}**  — выберите базу данных, которая будет использоваться при работе с кластером {{ PG }}.
+      * **{{ ui-key.yql.yq-connection-form.login.input-label }}**  — имя пользователя, которое будет использоваться для подключения к базам данных {{ PG }}.
+      * **{{ ui-key.yql.yq-connection-form.password.input-label }}**  — пароль пользователя, который будет использоваться для подключения к базам данных {{ PG }}.
+
+   - {{ ydb-name }}
+     
+      * **{{ ui-key.yql.yq-connection-form.cluster.input-label }}** — выберите существующую базу данных {{ ydb-name }} или создайте новую.
+      * **{{ ui-key.yql.yq-connection-form.service-account.input-label }}** — выберите [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) {{ ydb-name }}, от имени которого будет выполняться подключение к кластерам `{{ ydb-name }}` и аутентификация в базе данных.
 
    - {{ monitoring-short-name }}
 

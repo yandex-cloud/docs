@@ -6,6 +6,10 @@ editable: false
 
 # {{ lockbox-name }} pricing policy
 
+{% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
+
+{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
+
 The cost of using {{ lockbox-name }} is calculated based on:
 
 * Number of secret versions.
