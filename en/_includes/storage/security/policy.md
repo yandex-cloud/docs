@@ -40,7 +40,7 @@ Result
 
 Principal
 
-: Grantee of the requested permission. It can be an {{ iam-short-name }} user, [federated user](../../../iam/concepts/federations.md), [service account](../../../iam/concepts/users/service-accounts.md), anonymous user, or [user group](../../../organization/concepts/groups.md). You can [specify](../../../storage/operations/buckets/policy.md) a user group in the policy using the {{ yandex-cloud }} CLI, AWS CLI, {{ TF }}, and the API.
+: Grantee of the requested permission. It can be an {{ iam-short-name }} user, [federated user](../../../iam/concepts/federations.md), [service account](../../../iam/concepts/users/service-accounts.md) or anonymous user.
 
 Condition
 
