@@ -1,6 +1,6 @@
 # {{ managed-k8s-name }} tutorials
 
-You can use {{ managed-k8s-name }} to deploy, scale, and manage your containerized applications in the {{ yandex-cloud }} infrastructure.
+You can use {{ managed-k8s-name }} to deploy, scale, and manage your containerized applications in the {{ yandex-cloud }} infrastructure.
 
 ## Creating and setting up a project {#creating-project}
 
@@ -10,6 +10,7 @@ You can use {{ managed-k8s-name }} to deploy, scale, and manage your containe
 * [{#T}](driverless-gpu.md)
 * [{#T}](time-slicing-gpu.md)
 * [{#T}](migration-to-an-availability-zone.md)
+* [{#T}](terraform-modules.md)
 
 ## Setting up and testing scaling {#scaling}
 
@@ -33,6 +34,10 @@ To learn about installing the NGINX Ingress controller using {{ marketplace-full
 * [{#T}](container-registry.md)
 * [{#T}](sign-cr-with-cosign.md)
 
+## {{ mkf-name }} usage {#kafka}
+
+[{#T}](deploy-kafka-ui.md)
+
 ## Continuous integration with {{ GL }} {#gitlab}
 
 * [{#T}](gitlab-containers.md)
@@ -47,6 +52,7 @@ To learn about installing the NGINX Ingress controller using {{ marketplace-full
 * [{#T}](dns-autoscaler.md)
 * [{#T}](node-local-dns.md)
 * [{#T}](dnschallenge.md)
+* [{#T}](cert-manager-webhook.md)
 
 ## Backups {#backup}
 

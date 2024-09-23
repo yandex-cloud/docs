@@ -17,41 +17,41 @@ You can configure responses so that {{ objstorage-name }} returns one of the fol
 
 ## Request {#request}
 
-```
+```http
 POST /{bucket}?delete HTTP/2
 ```
 
 ### Path parameters {#path-parameters}
 
-| Parameter | Description |
+Parameter | Description
 ----- | -----
-| `bucket` | Bucket name. |
+`bucket` | Bucket name.
 
 
 ### Query parameters {#request-parameters}
 
-| Parameter | Description |
+Parameter | Description
 ----- | -----
-| `delete` | Flag indicating a delete operation. |
+`delete` | Flag indicating a delete operation.
 
 
 ### Headers {#request-headers}
 
-Use the appropriate [common headers](../common-request-headers.md) in requests.
+Use the appropriate [common headers](../common-request-headers.md) in your request.
 
 For this request, the `Content-MD5` and `Content-Length` headers are required.
 
 Moreover, if governance-mode [retention](../../../concepts/object-lock.md) is put on object versions in a versioned bucket, make sure to use the below-specified header to bypass retention and confirm deletion. Only users with the [`storage.admin` role](../../../security/index.md) can delete a retained object version. To check retention status, use the [getObjectRetention](getobjectretention.md) method.
 
-| Header | Description |
+Header | Description
 --- | ---
-| `X-Amz-Bypass-Governance-Retention` | Header that confirms bypassing of the governance retention. Enter `true`. |
+`X-Amz-Bypass-Governance-Retention` | Header that confirms bypassing of the governance retention. Set it to `true`.
 
 ### Data schema {#request-scheme}
 
 The list of keys to delete is passed in XML format.
 
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <Delete>
     <Quiet>true</Quiet>
@@ -62,12 +62,12 @@ The list of keys to delete is passed in XML format.
 </Delete>
 ```
 
-| Tag | Description |
+Tag | Description
 ----- | -----
-| `Delete` | Contains the response body.<br/><br/>Path: `/Delete`. |
-| `Quiet` | `<Quiet>true</Quiet>` enables <q>quiet</q> mode.<br/><br/>{{ objstorage-name }} will only include deletion errors in the response. If there are no errors, the query will not return the response body. If the specified object does not exist at the time of the query, `Deleted` will be returned.<br/><br/>If omitted, the default value is `false`.<br/><br/>Path: `/Delete/Quiet`. |
-| `Object` | Contains parameters for deleting an object.<br/><br/>Path: `/Delete/Object`. |
-| `Key` | Object key.<br/><br/>Path: `/Delete/Object/Key`. |
+`Delete` | It contains the response body.<br/><br/>Path: `/Delete`.
+`Quiet` | `<Quiet>true</Quiet>` sets the <q>quiet</q> mode.<br/><br/>{{ objstorage-name }} will only include deletion errors in the response. If there are no errors, the query will not return the response body. If the specified object does not exist at the time of the query, `Deleted` will be returned.><br/>If omitted, the default value is `false`.><br/>Path: `/Delete/Quiet`.
+`Object` | It contains object deletion parameters.<br/><br/>Path: `/Delete/Object`.
+`Key` | Object key.<br/><br/>Path: `/Delete/Object/Key`.
 
 
 
@@ -85,7 +85,7 @@ A successful response contains additional data in XML format with the schema des
 
 ### Data structure {#response-scheme}
 
-```
+```xml
 <DeleteResult>
   <Deleted>
     <Key>some/key.txt</Key>
@@ -98,13 +98,13 @@ A successful response contains additional data in XML format with the schema des
 </DeleteResult>
 ```
 
-| Tag | Description |
+Tag | Description
 ----- | -----
-| `DeleteResult` | Response body.<br/><br/>Path: `/DeleteResult`. |
-| `Deleted` | Successfully deleted object.<br/><br/>Missing if the request was set to `<Quiet>true</Quiet>`.<br/><br/>Path: `/DeleteResult/Deleted`. |
-| `Key` | Object key.<br/><br/>Path: `/DeleteResult/Deleted/Key` or `/DeleteResult/Error/Key` |
-| `Error` | Error deleting an object.<br/><br/>Path: `/DeleteResult/Error`. |
-| `Code` | Error code.<br/>Path: `/DeleteResult/Error/Code`. |
-| `Message` | Error description.<br/>Path: `/DeleteResult/Error/Message`. |
+`DeleteResult` | Response body.<br/><br/>Path: `/DeleteResult`.
+`Deleted` | Successfully deleted object.<br/><br/>Missing if the request was set to `<Quiet>true</Quiet>`.<br/><br/>Path: `/DeleteResult/Deleted`.
+`Key` | Object key.<br/><br/>Path: `/DeleteResult/Deleted/Key` or `/DeleteResult/Error/Key`.
+`Error` | Object deletion error.<br/><br/>Path: `/DeleteResult/Error`.
+`Code` | Error code.<br/>Path: `/DeleteResult/Error/Code`.
+`Message` | Error description.<br/>Path: `/DeleteResult/Error/Message`.
 
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

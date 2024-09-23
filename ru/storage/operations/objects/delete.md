@@ -35,7 +35,7 @@
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.storage.file.popup-confirm_button_delete }}**.
 
   В консоли управления информация о количестве объектов в бакете и занятом месте обновляется с задержкой в несколько минут.
-  
+
   {% include [work-with-multiple-objects](../../../_includes/storage/work-with-multiple-objects.md) %}
 
 - AWS CLI {#cli}
@@ -57,7 +57,7 @@
 
   Чтобы одновременно удалить список объектов, укажите ключи этих объектов в параметре `--delete`:
 
-  * **Bash:**
+  * **Bash**:
 
       ```bash
       aws s3api delete-objects \
@@ -66,7 +66,7 @@
         --delete '{"Objects":[{"Key":"<ключ_объекта_1>"},{"Key":"<ключ_объекта_2>"},...,{"Key":"<ключ_объекта_n>"}]}'
       ```
 
-  * **PowerShell:**
+  * **PowerShell**:
 
       ```powershell
       aws s3api delete-objects `
@@ -96,14 +96,14 @@
         {
             "Key": "<ключ_объекта_n>",
             "VersionId": "null"
-        } 
+        }
     ]
   }
   ```
 
   Указать объекты для удаления можно с помощью шаблона запроса в формате JMESPath. Для удаления объектов по шаблону выполните команду:
 
-  * **Bash:**
+  * **Bash**:
 
       ```bash
       aws s3api list-objects \
@@ -127,7 +127,7 @@
         --output text | xargs -I {} aws s3api delete-object --endpoint-url https://{{ s3-storage-host }} --bucket sample-bucket --key {}
       ```
 
-  * **PowerShell:**
+  * **PowerShell**:
 
       ```powershell
       Foreach($x in (aws s3api list-objects `
@@ -263,15 +263,15 @@
      * `ObjectLockMode` — [тип](../../concepts/object-lock.md#types) временной блокировки:
        * `GOVERNANCE` — временная управляемая блокировка. Удалить версию объекта может пользователь с ролью `storage.admin`.
        * `COMPLIANCE` — временная строгая блокировка. Удалить версию объекта нельзя.
-    
+
      * `ObjectLockRetainUntilDate` — дата и время окончания временной блокировки в любом из форматов, описанных в [стандарте HTTP](https://www.rfc-editor.org/rfc/rfc9110#name-date-time-formats). Например, `Mon, 12 Dec 2022 09:00:00 GMT`.
-    
+
      * `ObjectLockLegalHoldStatus` — статус [бессрочной блокировки](../../concepts/object-lock.md#types):
        * `ON` — включена. Удалить версию объекта нельзя. [Снять блокировку](edit-object-lock.md#remove-legal-hold) может пользователь с ролью `storage.uploader`.
        * `OFF` — выключена.
- 
+
      Если на версии объекта нет блокировки, эти поля не отобразятся, и версию объекта можно удалить по [инструкции по удалению версии без блокировки](#wo-object-lock).
- 
+
   1. Если установлена временная управляемая блокировка (`"ObjectLockMode": "GOVERNANCE"`) и у вас есть роль `storage.admin`, удалите версию объекта:
 
      ```bash

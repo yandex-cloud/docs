@@ -32,7 +32,7 @@ description: "На странице описаны параметры, кото�
 Пример создания плеера:
 
 ```javascript
-var player = Ya.playerApi.init({ ..., source: 'https://runtime.video.cloud.yandex.net/player/...', ...});
+var player = Ya.playerSdk.init({ ..., source: 'https://runtime.video.cloud.yandex.net/player/...', ...});
 ```
 
 {% include [video-content-id-desc](../../../_includes/video/video-content-id-desc.md) %}
@@ -48,7 +48,7 @@ var player = Ya.playerApi.init({ ..., source: 'https://runtime.video.cloud.yande
 Пример создания плеера с выключенным автовоспроизведением:
 
 ```javascript
-var player = Ya.playerApi.init({ ..., autoplay: false, ...});
+var player = Ya.playerSdk.init({ ..., autoplay: false, ...});
 ```
 
 #### muted {#muted}
@@ -60,7 +60,7 @@ var player = Ya.playerApi.init({ ..., autoplay: false, ...});
 Пример создания плеера с включенным звуком:
 
 ```javascript
-var player = Ya.playerApi.init({ ..., muted: false, ...});
+var player = Ya.playerSdk.init({ ..., muted: false, ...});
 ```
 
 #### volume {#volume}
@@ -72,7 +72,7 @@ var player = Ya.playerApi.init({ ..., muted: false, ...});
 Пример создания плеера со значением уровня звука `0.5`:
 
 ```javascript
-var player = Ya.playerApi.init({ ..., volume: 0.5, ...});
+var player = Ya.playerSdk.init({ ..., volume: 0.5, ...});
 ```
 
 #### startPosition {#startposition}
@@ -87,7 +87,7 @@ var player = Ya.playerApi.init({ ..., volume: 0.5, ...});
 Пример создания плеера со стартовой позицией `10` секунд:
 
 ```javascript
-var player = Ya.playerApi.init({ ..., startPosition: 10, ...});
+var player = Ya.playerSdk.init({ ..., startPosition: 10, ...});
 ```
 
 #### hiddenControls {#hiddencontrols}
@@ -103,25 +103,25 @@ var player = Ya.playerApi.init({ ..., startPosition: 10, ...});
 * скрыть кнопки воспроизведения/паузы и настроек c помощью передачи значения `hiddenControls` в строке:
 
     ```javascript
-    var player = Ya.playerApi.init({ ..., hiddenControls: 'play,settings', ...});
+    var player = Ya.playerSdk.init({ ..., hiddenControls: 'play,settings', ...});
     ```
 
 * скрыть кнопки воспроизведения/паузы и настроек c помощью передачи значения `hiddenControls` в массиве:
 
     ```javascript
-    var player = Ya.playerApi.init({ ..., hiddenControls: ['play','settings'], ...});
+    var player = Ya.playerSdk.init({ ..., hiddenControls: ['play','settings'], ...});
     ```
 
 * Скрыть все элементы интерфейса можно с помощью мета-элемента `*`:
 
     ```javascript
-    var player = Ya.playerApi.init({ ..., hiddenControls: '*', ...});
+    var player = Ya.playerSdk.init({ ..., hiddenControls: '*', ...});
     ```
 
 * Скрыть все элементы интерфейса, за исключением заданного, можно с помощью оператора `!`. Например, этот код скроет все элементы управления, кроме кнопки воспроизведения/паузы:
 
     ```javascript
-    var player = Ya.playerApi.init({ ..., hiddenControls: '*,!play', ...});
+    var player = Ya.playerSdk.init({ ..., hiddenControls: '*,!play', ...});
     ```
 
 Элементы интерфейса, которые можно скрыть:

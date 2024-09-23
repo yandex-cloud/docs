@@ -57,8 +57,8 @@ description: "Следуя данной инструкции, вы сможет�
       1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.apply }}**.
 
       Подробнее см. в документе [{#T}](../../iam/operations/sa/assign-role-for-sa.md).
-    
-      {% include [access-bucket-sa](../../_includes/storage/access-bucket-sa.md) %} 
+
+      {% include [access-bucket-sa](../../_includes/storage/access-bucket-sa.md) %}
 
   1. Создайте статический ключ доступа {#create-keys}
 
@@ -89,7 +89,7 @@ description: "Следуя данной инструкции, вы сможет�
     - Linux {#linux}
 
       1. В терминале выполните команду:
-    
+
           ```bash
           curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
           unzip awscliv2.zip
@@ -101,7 +101,7 @@ description: "Следуя данной инструкции, вы сможет�
     - macOS {#macos}
 
       1. В терминале выполните команду:
-    
+
           ```bash
           curl "https://awscli.amazonaws.com/AWSCLIV2.pkg" -o "AWSCLIV2.pkg"
           sudo installer -pkg AWSCLIV2.pkg -target /
@@ -138,7 +138,6 @@ description: "Следуя данной инструкции, вы сможет�
 
             Для работы с {{ objstorage-name }} всегда указывайте регион — `{{ region-id }}`. Другие значения региона могут привести к ошибке авторизации.
 
-     
 
           Значения остальных параметров оставьте без изменений.
 

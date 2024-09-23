@@ -174,7 +174,7 @@
           * В поле **{{ ui-key.yacloud.compute.instances.create.field_coi-image }}** нажмите **{{ ui-key.yacloud.component.image-field.button_custom-image }}** и введите `{{ registry }}/yc/demo/autoscaling-example-app:v1`.
           * Нажмите кнопку **{{ ui-key.yacloud.common.apply }}**.
         * В блоке **{{ ui-key.yacloud.compute.instances.create.section_disk }}**:
-          * Для загрузочного диска укажите **{{ ui-key.yacloud.compute.instances.create.column_disk-size }}** `30 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+          * Для загрузочного диска укажите **{{ ui-key.yacloud.compute.disk-form.field_size }}** `30 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
         * В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
           * В поле **{{ ui-key.yacloud.compute.instances.create.field_instance-group-network }}** выберите `for-load`.
         * В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}**:

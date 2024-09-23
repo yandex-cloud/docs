@@ -1474,6 +1474,10 @@ default:
         read|string: ₸35.00
       dgauge:
         store|string: Free
+      prometheus:
+        export|pricingRate:
+          50|string: ₸21.00
+        export|string: ₸35.00
       write|pricingRate:
         50|string: ₸28.00
       write|string: ₸49.00
@@ -2589,6 +2593,10 @@ default:
         read|string: ₽7.00
       dgauge:
         store|string: Free
+      prometheus:
+        export|pricingRate:
+          50|string: ₽4.20
+        export|string: ₽7.00
       write|pricingRate:
         50|string: ₽5.60
       write|string: ₽9.80
@@ -3691,6 +3699,10 @@ default:
         read|string: $0.056000
       dgauge:
         store|string: Free
+      prometheus:
+        export|pricingRate:
+          50|string: $0.033600
+        export|string: $0.056000
       write|pricingRate:
         50|string: $0.044800
       write|string: $0.078400
@@ -6497,7 +6509,6 @@ default:
             button_net_empty-create: Create a network
             button_show-all-marketplace-products: Show all Marketplace products
             button_show-all-os-products: Show all OS's
-            column_disk-size: Size
             field_access-advanced: Advanced
             field_coi-arguments: Command arguments
             field_coi-command: Command
@@ -6530,7 +6541,7 @@ default:
             section_base: General information
             section_coi: Docker container settings
             section_disk: Disks
-            section_image: Image/boot disk selection
+            section_image: Boot disk image
             section_monitoring: Monitoring
             section_network: Network settings
             section_placement: Placement

@@ -7,29 +7,29 @@ A CORS configuration is an XML file no larger than 64 KB. A configuration may no
 
 ## Request {#request}
 
-```
+```http
 PUT /{bucket}?cors HTTP/2
 ```
 
 ### Path parameters {#path-parameters}
 
-| Parameter | Description |
+Parameter | Description
 ----- | -----
-| `bucket` | Bucket name. |
+`bucket` | Bucket name.
 
 
 ### Query parameters {#request-params}
 
-| Parameter | Description |
+Parameter | Description
 ----- | -----
-| `cors` | Required parameter that indicates the type of operation. |
+`cors` | Required parameter that indicates the type of operation.
 
 
 ### Headers {#request-headers}
 
-Use the appropriate [common headers](../common-request-headers.md) in your requests.
+Use the appropriate [common headers](../common-request-headers.md) in your request.
 
-You must use the `Content-MD5` header.
+The `Content-MD5` header is required.
 
 ### Data schema {#request-scheme}
 

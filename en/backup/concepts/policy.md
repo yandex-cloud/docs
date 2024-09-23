@@ -6,9 +6,9 @@ By default, VMs in {{ backup-name }} are not linked to any backup policies. To s
 
 The backup policy specifies:
 
-* Backup frequency: By hour, day, week, or month. The time is provided for the [UTC](https://{{ lang }}.wikipedia.org/wiki/UTC±00:00) time zone.
+* Backup frequency: By hour, day, week, or month. All times are now [UTC±00:00](https://{{ lang }}.wikipedia.org/wiki/UTC±00:00).
 * Backup type: Full or incremental. For more information, see [{#T}](backup.md#types).
-* [Backups retention](#retention) settings.
+* Settings for [storing backups](#retention).
 
 {% include [policy-execute-time](../../_includes/backup/policy-execute-time.md) %}
 
@@ -26,7 +26,7 @@ If you make changes to the backup retention rules, by default they will take eff
 
 ## Backup policy specification {#specification}
 
-In {{ backup-name }}, you can [create](../operations/policy-vm/create.md) or [update](../operations/policy-vm/update.md) backup policies based on the specification in [JSON](https://en.wikipedia.org/wiki/JSON) format by using the {{ yandex-cloud }} [command line](../../cli/quickstart.md) or making an API request.
+In {{ backup-name }}, you can [create](../operations/policy-vm/create.md) or [update](../operations/policy-vm/update.md) backup policies based on a specification in [JSON](https://en.wikipedia.org/wiki/JSON) format by using the {{ yandex-cloud }} [command line](../../cli/quickstart.md) or making an API request.
 
 Full backup policy specification in {{ backup-name }}:
 

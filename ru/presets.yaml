@@ -1486,6 +1486,10 @@ default:
         read|string: "35,00\_₸"
       dgauge:
         store|string: Не тарифицируется
+      prometheus:
+        export|pricingRate:
+          50|string: "21,00\_₸"
+        export|string: "35,00\_₸"
       write|pricingRate:
         50|string: "28,00\_₸"
       write|string: "49,00\_₸"
@@ -2601,6 +2605,10 @@ default:
         read|string: "7,00\_₽"
       dgauge:
         store|string: Не тарифицируется
+      prometheus:
+        export|pricingRate:
+          50|string: "4,20\_₽"
+        export|string: "7,00\_₽"
       write|pricingRate:
         50|string: "5,60\_₽"
       write|string: "9,80\_₽"
@@ -3703,6 +3711,10 @@ default:
         read|string: "0,056000\_$"
       dgauge:
         store|string: Не тарифицируется
+      prometheus:
+        export|pricingRate:
+          50|string: "0,033600\_$"
+        export|string: "0,056000\_$"
       write|pricingRate:
         50|string: "0,044800\_$"
       write|string: "0,078400\_$"
@@ -6511,7 +6523,6 @@ default:
             button_net_empty-create: Создать сеть
             button_show-all-marketplace-products: Показать все продукты Marketplace
             button_show-all-os-products: Показать все операционные системы
-            column_disk-size: Размер
             field_access-advanced: Дополнительно
             field_coi-arguments: Аргументы команды
             field_coi-command: Команда
@@ -6546,7 +6557,7 @@ default:
             section_base: Общая информация
             section_coi: Настройка Docker-контейнера
             section_disk: Диски
-            section_image: Выбор образа/загрузочного диска
+            section_image: Образ загрузочного диска
             section_monitoring: Мониторинг
             section_network: Сетевые настройки
             section_placement: Размещение

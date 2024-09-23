@@ -1,9 +1,9 @@
 ---
-title: "Добавить расширение {{ yagpt-name }}"
-description: "Следуя данной инструкции, вы сможете добавить расширение {{ yagpt-name }} с помощью конструктора спецификации."
+title: "Добавить расширение {{ yagpt-full-name }}"
+description: "Следуя данной инструкции, вы сможете добавить расширение {{ yagpt-full-name }} с помощью конструктора спецификации."
 ---
 
-# Добавить расширение x-yc-apigateway-integration:http для интеграции с {{ yagpt-name }}
+# Добавить расширение x-yc-apigateway-integration:http для интеграции с {{ yagpt-full-name }}
 
 {% list tabs %}
 

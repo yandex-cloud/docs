@@ -4,21 +4,21 @@ Deletes a bucket object lifecycle configuration from {{ objstorage-name }}.
 
 ## Request {#request}
 
-```
+```http
 DELETE /{bucket}?lifecycle HTTP/2
 ```
 
 ### Path parameters {#path-parameters}
 
-| Parameter | Description |
+Parameter | Description
 ----- | -----
-| `bucket` | Bucket name. |
+`bucket` | Bucket name.
 
 ### Query parameters {#parameters}
 
-| Parameter | Description |
+Parameter | Description
 ----- | -----
-| `lifecycle` | Required parameter that indicates the type of operation. |
+`lifecycle` | Required parameter that indicates the type of operation.
 
 ### Headers {#request-headers}
 
@@ -35,6 +35,6 @@ Responses can only contain [common response headers](../common-response-headers.
 
 For a list of possible responses, see [{#T}](../response-codes.md).
 
-If there is no bucket object lifecycle configuration, {{ objstorage-name }} returns code 200.
+If there is no bucket object lifecycle configuration, {{ objstorage-name }} will return code 200.
 
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

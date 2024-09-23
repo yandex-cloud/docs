@@ -11,15 +11,15 @@ Use this method to check:
 
 ## Request {#request}
 
-```
+```http
 HEAD /{bucket} HTTP/2
 ```
 
 ### Path parameters {#path-parameters}
 
-| Parameter | Description |
+Parameter | Description
 ----- | -----
-| `bucket` | Bucket name. |
+`bucket` | Bucket name.
 
 
 ### Headers {#request-headers}

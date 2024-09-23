@@ -10,26 +10,26 @@ ACLs can be uploaded as XML documents or using special `X-Amz-Grant*` headers. D
 
 ## Request {#request}
 
-```
+```http
 PUT /{bucket}/{key}?acl HTTP/2
 ```
 
 ### Path parameters {#path-parameters}
 
-| Parameter | Description |
+Parameter | Description
 ----- | -----
-| `bucket` | Bucket name. |
-| `key` | Object key. ID for saving the object in {{ objstorage-name }}. |
+`bucket` | Bucket name.
+`key` | Object key. ID for saving the object in {{ objstorage-name }}.
 
 ### Query parameters {#request-params}
 
-| Parameter | Description |
+Parameter | Description
 ----- | -----
-| `acl` | Required parameter that indicates the type of operation. |
+`acl` | Required parameter that indicates the type of operation.
 
 ### Headers {#request-headers}
 
-Use the appropriate [common headers](../common-request-headers.md) in your requests.
+Use the appropriate [common headers](../common-request-headers.md) in your request.
 
 You can also use the headers listed below.
 

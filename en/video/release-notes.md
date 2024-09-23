@@ -1,3 +1,8 @@
+---
+title: "{{ video-full-name }} release notes"
+description: "This section contains {{ video-name }} release notes."
+---
+
 # {{ video-full-name }} release notes
 
 ## April 2024 {#apr-2024}
