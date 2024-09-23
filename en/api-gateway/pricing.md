@@ -8,9 +8,13 @@ editable: false
 
 
 
+{% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
+
+{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
+
 ## What goes into the cost of using {{ api-gw-name }} {#rules}
 
-In {{ api-gw-name }}, you are charged for the number of requests to the created API gateways and outgoing traffic.
+In {{ api-gw-name }}, you are charged for the number of requests to the created API gateways and outgoing traffic. 
 
 {% note warning %}
 
@@ -43,7 +47,7 @@ Cost per month = $0.96 × Number of millions of requests
 
 {% include [usd.md](../_pricing/api-gateway/usd.md) %}
 
-You pay for the actual number of calls.
+You pay for the actual number of invocations.
 
 > For example, given that 1,000,000 calls cost $0.960000, 10,000 calls in excess of the free amount will cost $0.009600.
 

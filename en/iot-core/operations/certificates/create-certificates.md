@@ -9,7 +9,7 @@ For devices to interact, you need X.509 certificates. If you do not have a certi
 
 To create a certificate, install OpenSSL and run the following command from the command line:
 
-```
+```bash
 openssl req -x509 \
   -newkey rsa:4096 \
   -keyout key.pem \

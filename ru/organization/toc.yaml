@@ -50,7 +50,7 @@ items:
             href: operations/edit-group.md
           - name: Настроить доступ к управлению группой
             href: operations/access-manage-group.md
-          - name: Настроить доступ группы к работе в Yandex Cloud
+          - name: Назначить права доступа группе
             href: operations/access-group.md
           - name: Удалить участников
             href: operations/delete-member-group.md

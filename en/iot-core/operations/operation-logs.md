@@ -8,21 +8,21 @@ All actions with {{ iot-name }} resources are logged as a list of operations. Ea
 
 - Management console {#console}
 
-   You can get a list of operations for a specific resource. The steps below describe how you can do this for a registry. The same steps apply to other service resources.
+  You can get a list of operations for a specific resource. The steps below describe how you can do this for a registry. The same steps apply to other service resources.
 
-   1. In the [management console]({{ link-console-main }}), open the folder with the registry.
-   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
-   1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.iot.label_registries }}**.
-   1. Select the registry.
-   1. Go to the ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** panel for the selected registry.
+  1. In the [management console]({{ link-console-main }}), open the folder the registry is in.
+  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+  1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.iot.label_registries }}**.
+  1. Select the registry.
+  1. Go to the ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** panel for the selected registry.
 
-      You will see a list of operations with the selected registry.
+     You will see a list of operations with the selected registry.
 
 - API {#api}
 
-   Use the `listOperations` REST API method for the relevant resource or the `<service>/ListOperations` gRPC API call.
+  Use the `listOperations` REST API method for the relevant resource or the gRPC API call `<service>/ListOperations`.
 
-   For example, for a registry, use either the [listOperations](../api-ref/Registry/listOperations.md) REST API method for the [Registry](../api-ref/Registry/index.md) resource or the [RegistryService/ListOperations](../api-ref/grpc/registry_service.md#ListOperations) gRPC API call.
+  For example, for a registry, use either the [listOperations](../api-ref/Registry/listOperations.md) REST API method for the [Registry](../api-ref/Registry/index.md) resource or the [RegistryService/ListOperations](../api-ref/grpc/registry_service.md#ListOperations) gRPC API call.
 
 {% endlist %}
 
@@ -32,9 +32,9 @@ All actions with {{ iot-name }} resources are logged as a list of operations. Ea
 1. Copy the ID of the operation.
 1. Get detailed information about the operation:
 
-   {% list tabs group=instructions %}
+    {% list tabs group=instructions %}
 
-   - CLI {#cli}
+    - CLI {#cli}
 
       {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -48,7 +48,7 @@ All actions with {{ iot-name }} resources are logged as a list of operations. Ea
 
       Result:
 
-      ```yaml
+      ```text
       id: areojeqlg1bh********
       description: Create device registry
       created_at: "2024-06-19T06:23:13.216Z"
@@ -69,11 +69,11 @@ All actions with {{ iot-name }} resources are logged as a list of operations. Ea
           folder_id: b1g681qpemb4********
       ```
 
-   - API {#api}
+    - API {#api}
 
       Use the [OperationService/Get](../api-ref/grpc/operation_service.md#Get) gRPC API call.
 
-   {% endlist %}
+    {% endlist %}
 
 #### See also {#see-also}
 

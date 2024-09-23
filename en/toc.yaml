@@ -92,6 +92,9 @@ items:
     href: managed-postgresql/index.yaml
   - name: Managed Service for Redis
     href: managed-redis/index.yaml
+  - name: Managed Service for Trino
+    href: managed-trino/index.yaml
+    hidden: true
   - name: Marketplace partner interface
     href: marketplace/index.yaml
   - name: Message Queue

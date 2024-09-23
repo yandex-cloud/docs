@@ -3,6 +3,8 @@
 1. Выберите сервисный аккаунт и нажмите на строку с его именем. При необходимости [создайте](../../iam/operations/sa/create.md) новый сервисный аккаунт.
 1. На панели сверху нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** и выберите пункт **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_api_key }}**.
 1. Задайте описание ключа, чтобы потом было проще найти его в консоли управления.
+1. (Опционально) Выберите **Область действия**.
+1. (Опционально) Укажите **Срок действия**.
 1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
 1. Сохраните идентификатор и секретный ключ.
 

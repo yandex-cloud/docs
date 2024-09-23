@@ -11,12 +11,12 @@ There are two authentication methods:
 
 You can use both X.509 certificates and passwords at the same time. Note that passwords have a higher priority than certificates. The table below describes different ways to use a certificate and password simultaneously during authentication.
 
-| Certificate | Password | Authentication |
+| Certificate | Password |  Authentication |
 |----|----|----|
 | Invalid | Invalid | Authentication fails. |
-| Invalid | Correct | Authentication is successful. |
-| Correct | Invalid | Authentication fails. |
-| Correct | Correct | Authentication using a username and password is successful. |
+| Invalid | Correct |  Authentication is successful. |
+| Correct | Invalid |  Authentication fails. |
+| Correct | Correct | Authentication using a username and password is successful.|
 | Correct, <br>but for a different device | Correct | Authentication is performed on behalf of the device, the ID of which is specified in the username. |
 
 
@@ -35,14 +35,14 @@ Each certificate must be unique. You can't add the same certificate to two diffe
 When authenticating with your username and password:
 * The username is the ID of the device or registry.
 * The password is a combination of characters that you specify. You can also generate your password via the YC CLI.
-   * Minimum password length is 14 characters.
-   * The password must contain 3 out of 4 groups of characters: lowercase Latin letters, uppercase Latin letters, numbers, and special characters.
+    * Minimum password length is 14 characters.
+    * The password must contain three groups of characters out of these four: lowercase Latin letters, uppercase Latin letters, numbers, and special characters.
 
 #### See also {#see-also}
 
-* [{#T}](../concepts/index.md).
-* [{#T}](../operations/certificates/create-certificates.md).
-* [{#T}](../operations/certificates/device-certificates.md).
-* [{#T}](../operations/certificates/registry-certificates.md).
-* [{#T}](../operations/password/device-password.md).
-* [{#T}](../operations/password/registry-password.md).
+* [{#T}](../concepts/index.md)
+* [{#T}](../operations/certificates/create-certificates.md)
+* [{#T}](../operations/certificates/device-certificates.md)
+* [{#T}](../operations/certificates/registry-certificates.md)
+* [{#T}](../operations/password/device-password.md)
+* [{#T}](../operations/password/registry-password.md)
