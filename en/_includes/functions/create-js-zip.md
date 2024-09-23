@@ -1,6 +1,6 @@
 1. Save the following code to a file named `index.js`:
 
-    ```
+    ```js
     exports.handler = async function (event, context) {
         let name = 'World';
         if (event.queryStringParameters && event.queryStringParameters.name) {
@@ -17,5 +17,4 @@
     };
     ```
 
-1. Add `index.js` to the `hello-js.zip` archive.
-
+1. Add the `index.js` file into the `hello-js.zip` ZIP archive.

@@ -12,8 +12,8 @@ description: "Follow this guide to configure and invoke a function asynchronousl
 {% list tabs group=instructions %}
 
 - Management console {#console}
-
-    1. In the [management console]({{ link-console-main }}), select the folder containing your function.
+    
+    1. In the [management console]({{ link-console-main }}), select the folder containing the function.
     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Select a function.
     1. Go to the **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}** tab.
@@ -40,10 +40,10 @@ description: "Follow this guide to configure and invoke a function asynchronousl
       --function-name=<function_name> \
       --runtime <runtime_environment> \
       --entrypoint <entry_point> \
-      --memory <RAM_amount> \
-      --execution-timeout <maximum_execution_time> \
+      --memory <RAM_size> \
+      --execution-timeout <execution_timeout> \
       --source-version-id <version_ID> \
-      --async-max-retries <number_of_retry_invocation_attempts> \
+      --async-max-retries <number_of_retries> \
       --async-service-account-id <service_account_ID> \
       --async-success-ymq-arn <message_queue> \
       --async-success-sa-id <service_account_ID> \
@@ -55,15 +55,15 @@ description: "Follow this guide to configure and invoke a function asynchronousl
 
     * `--function-name`: Function name.
     * `--runtime`: Runtime environment.
-    * `--entrypoint`: Entry point specified in the `<function_file_name>.<handler_name>` format.
+    * `--entrypoint`: Entry point in the following format: `<function_file_name>.<handler_name>`.
     * `--memory`: Amount of RAM.
-    * `--execution-timeout`: Maximum function execution time before the timeout is reached.
-    * `--source-version-id`: ID of the function version to copy the code of.
-    * `--async-max-retries`: Number of retry attempts to make before the invocation fails.
+    * `--execution-timeout`: Maximum function running time before the timeout is reached.
+    * `--source-version-id`: ID of the function version from which you want to copy the code.
+    * `--async-max-retries`: Number of retries before the invocation fails.
     * `--async-service-account-id`: ID of the service account with permissions to invoke the function.
-    * `--async-success-ymq-arn`: ARN of the destination queue in {{ message-queue-name }} for messages about successful function invocations. If the parameter is omitted, messages will not be sent.
+    * `--async-success-ymq-arn`: ARN of the destination queue in {{ message-queue-name }} for messages about successful function invocations. If you skip this parameter, no messages will be sent.
     * `--async-success-sa-id`: ID of the service account with permissions to write to the `async-success-ymq-arn` queue.
-    * `--async-failure-ymq-arn`: ARN of the destination queue in {{ message-queue-name }} for messages about failed function invocations. If the parameter is omitted, messages will not be sent.
+    * `--async-failure-ymq-arn`: ARN of the destination queue in {{ message-queue-name }} for messages about failed function invocations. If you skip this parameter, no messages will be sent.
     * `--async-failure-sa-id`: ID of the service account with permissions to write to the `async-failure-ymq-arn` queue.
 
 - {{ TF }} {#tf}
@@ -82,12 +82,12 @@ description: "Follow this guide to configure and invoke a function asynchronousl
        user_hash          = "<function_hash>"
        runtime            = "<runtime_environment>"
        entrypoint         = "<entry_point>"
-       memory             = "<RAM_amount>"
-       execution_timeout  = "<maximum_execution_time>"
+       memory             = "<RAM_size>"
+       execution_timeout  = "<execution_timeout>"
        service_account_id = "<service_account_ID>"
 
        async_invocation {
-         retries_count       = "<number_of_retry_invocation_attempts>"
+         retries_count       = "<number_of_retries>"
          service_account_id  = "<service_account_ID>"
          ymq_failure_target {
            service_account_id = "<service_account_ID>"
@@ -102,18 +102,18 @@ description: "Follow this guide to configure and invoke a function asynchronousl
      ```
 
      Where:
-
+     
      * `async_invocation`: Asynchronous invocation parameters:
-        * `retries_count`: Number of retry attempts to make before the invocation fails.
-        * `service_account_id`: Service account with permissions to invoke the function.
-        * `ymq_failure_target`: Parameters of the queue for failed invocations:
-           * `service_account_id`: Service account with permissions to write to the queue for failed asynchronous invocations.
-           * `arn`: ARN of the destination queue in {{ message-queue-name }} for messages about failed function invocations. If the parameter is omitted, messages will not be sent.
-        * `ymq_failure_target`: Parameters of the queue for successful invocations:
-           * `service_account_id`: Service account with permissions to write to the queue for successful asynchronous invocations.
-           * `arn`: ARN of the destination queue in {{ message-queue-name }} for messages about successful function invocations. If the parameter is omitted, messages will not be sent.
+       * `retries_count`: Number of retries before the invocation fails.
+       * `service_account_id`: Service account with permissions to invoke the function.
+       * `ymq_failure_target`: Parameters of the queue for failed invocations:
+         * `service_account_id`: Service account with permissions to write to the queue for failed asynchronous invocations.
+         * `arn`: ARN of the destination queue in {{ message-queue-name }} for messages about failed function invocations. If you skip this parameter, no messages will be sent.
+       * `ymq_success_target`: Parameters of the queue for successful invocations:
+         * `service_account_id`: Service account with permissions to write to the queue for successful asynchronous invocations.
+         * `arn`: ARN of the destination queue in {{ message-queue-name }} for messages about successful function invocations. If you skip this parameter, no messages will be sent.
 
-     For more information about the `yandex_function` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/function).
+     For more information about the `yandex_function` resource properties, see the [provider documentation]({{ tf-provider-resources-link }}/function).
 
   1. Apply the changes:
 

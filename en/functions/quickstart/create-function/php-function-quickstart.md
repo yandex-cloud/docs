@@ -13,7 +13,7 @@ Create and execute a [function](../../concepts/function.md) in PHP that welcomes
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a function.
     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
-    1. Name the function `php-function`.
+    1. Enter the function name: `php-function`.
     1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
@@ -24,13 +24,13 @@ Create and execute a [function](../../concepts/function.md) in PHP that welcomes
 
     To create a function, run the command:
 
-    ```
+    ```bash
     yc serverless function create --name=php-function
     ```
 
     Result:
 
-    ```
+    ```text
     id: b09bhaokchn9********
     folder_id: aoek49ghmknn********
     created_at: "2019-06-14T10:03:37.475Z"
@@ -42,12 +42,12 @@ Create and execute a [function](../../concepts/function.md) in PHP that welcomes
 
 - API {#api}
 
-    You can create a function using the [create](../../functions/api-ref/Function/create.md) API method.
+    You can create a function using the [create](../../functions/api-ref/Function/create.md).
 
 
 - {{ yandex-cloud }} Toolkit {#yc-toolkit}
 
-    You can create a function using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [JetBrains](https://www.jetbrains.com/) [IntelliJ platform](https://www.jetbrains.com/opensource/idea/).
+    You can create a list of function versions using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [JetBrains](https://www.jetbrains.com/) [IntelliJ platform](https://www.jetbrains.com/opensource/idea/).
 
 
 {% endlist %}
@@ -59,19 +59,19 @@ Create and execute a [function](../../concepts/function.md) in PHP that welcomes
 ### Prepare a ZIP archive with the function code {#create-zip}
 
 1. Save the following code to a file named `hello.php`:
-   ```php
-   <?php
+    ```php
+    <?php
 
-   function handler () {
-       $resp =  'Hello, World!';
-       return [
-           'statusCode' => 200,
-           'body' => json_encode($resp),
-       ];
-   }
-   ```
+    function handler () {
+        $resp =  'Hello, World!';
+        return [
+            'statusCode' => 200,
+            'body' => json_encode($resp),
+        ];
+    }
+    ```
 
-1. Add the `hello.php` file to the `hello-php.zip` archive.
+1. Add the `hello.php` file into the `hello-php.zip` archive.
 
 ### Create a function version {#create-version}
 
@@ -79,9 +79,9 @@ Create and execute a [function](../../concepts/function.md) in PHP that welcomes
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the folder containing your function.
+    1. In the [management console]({{ link-console-main }}), select the folder containing the function.
     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-    1. Select `php-function`.
+    1. Select the `php-function` function.
     1. Under **{{ ui-key.yacloud.serverless-functions.item.overview.label_title-latest-version }}**, click **{{ ui-key.yacloud.serverless-functions.item.overview.button_editor-create }}**.
     1. Select the `php8` runtime environment and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
     1. Set the version parameters:
@@ -101,7 +101,7 @@ Create and execute a [function](../../concepts/function.md) in PHP that welcomes
 
     To create a function version, run the command:
 
-    ```
+    ```bash
     yc serverless function version create \
       --function-name=php-function \
       --runtime php74 \
@@ -113,16 +113,16 @@ Create and execute a [function](../../concepts/function.md) in PHP that welcomes
 
     Where:
 
-    * `--function-name`: Name of the function you want to create a version of.
+    * `--function-name`: Name of the function whose version you want to create.
     * `--runtime`: Runtime environment.
-    * `--entrypoint`: Entry point specified in the `<function_file_name>.<handler_name>` format.
+    * `--entrypoint`: Entry point in the following format: `<function_file_name>.<handler_name>`.
     * `--memory`: Amount of RAM.
-    * `--execution-timeout`: Maximum function execution time before the timeout is reached.
+    * `--execution-timeout`: Maximum function running time before the timeout is reached.
     * `--source-path`: ZIP archive with the function code and required dependencies.
 
     Result:
 
-    ```
+    ```text
     done (1s)
     id: d4evvn8obisa********
     function_id: d4elpv8pft63********

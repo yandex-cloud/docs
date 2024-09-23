@@ -1,8 +1,5 @@
 title: Yandex Cloud Postbox
 description:
-  - >-
-    <em>Yandex Cloud Postbox is currently at the <a
-    href="/docs/overview/concepts/launch-stages">Preview stage</a></em>.
   - Yandex Cloud Postbox is a transactional email service.
 nav:
   title: Yandex Cloud Postbox

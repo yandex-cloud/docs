@@ -41,7 +41,7 @@ Example of input data:
 
 Returned string:
 
-```
+```text
 Message is Hello, number is 24
 ```
 
@@ -95,7 +95,7 @@ public class Handler {
 
     // here, the "name" parameter is obtained from the request body
     // if you do not provide it, an error will be thrown
-    var name = root.GetProperty("name").GetString();
+    var name = root.GetProperty("name").GetString(); 
     return new Response(200, $"Hello, {name}");
   }
 }
@@ -111,12 +111,12 @@ Example of input data (the POST method):
 
 The log will contain the following:
 
-```
+```text
 POST, { "name": "Anonymous" }
 ```
 
 Response returned:
 
-```
+```text
 Hello, Anonymous
 ```

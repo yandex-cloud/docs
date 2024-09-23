@@ -24,7 +24,7 @@
       yc iam api-key create --help
       ```
 
-  1. Выберите сервисный аккаунт, например `my-robot`:
+  1. Получите список сервисных аккаунтов в каталоге по умолчанию:
 
       ```bash
       yc iam service-account list
@@ -41,15 +41,21 @@
       +----------------------+------------------+-------------------------------+
       ```
 
-  1. Создайте API-ключ для сервисного аккаунта и запишите ответ в файл:
+  1. Создайте API-ключ для нужного сервисного аккаунта и запишите ответ в файл `api_key.yaml`:
 
       ```bash
-      yc iam api-key create --service-account-name <имя_сервисного_аккаунта> > api_key.yaml
+      yc iam api-key create \
+        --service-account-name <имя_сервисного_аккаунта> \
+        --scope <область_действия> \
+        --expires-at <дата_и_время> \
+        > api_key.yaml
       ```
 
       Где:
       
       * `--service-account-name` — имя сервисного аккаунта. Обязательный параметр.
+      * `--scope` — область действия ключа. Необязательный параметр.
+      * `--expires-at` — дата и время истечения срока действия ключа. Необязательный параметр.
       * `api_key.yaml` — файл, в который сохраняется ответ.
       
       В результате вы получите файл `api_key.yaml`, который содержит значение API-ключа в поле `secret`:
@@ -108,7 +114,11 @@
   curl -X POST \
     -H "Content-Type: application/json" \
     -H "Authorization: Bearer $IAM_TOKEN" \
-    -d "{ \"serviceAccountId\": \"$SERVICEACCOUNT_ID\" }" \
+    -d "{
+        \"serviceAccountId\": \"$SERVICEACCOUNT_ID\",
+        \"scope\": \"<область_действия>\",
+        \"expiresAt\": \"<дата_и_время>\"
+    }" \
     https://iam.{{ api-host }}/iam/v1/apiKeys
   ```
 
@@ -116,6 +126,8 @@
 
   * `SERVICEACCOUNT_ID` — [идентификатор](../sa/get-id.md) сервисного аккаунта. Обязательный параметр.
   * `IAM_TOKEN` — [IAM-токен](../../concepts/authorization/iam-token.md). Обязательный параметр.
+  * `scope` — область действия для [ключа с ограниченным доступом](../../concepts/authorization/api-key.md#scoped-api-keys). Необязательный параметр.
+  * `expiresAt` — дата и время истечения срока действия ключа с ограниченным доступом. Необязательный параметр.
 
   Также API-ключ можно создать с помощью вызова gRPC API [ApiKeyService/Create](../../api-ref/grpc/api_key_service.md#Create).
 

@@ -23,6 +23,8 @@
 
 ## Генерирование подписывающего ключа {#signing-key-gen}
 
+Чтобы сгенерировать подписывающий ключ, вам необходимо иметь статические ключи доступа к {{ objstorage-name }}. О том, как их получить, читайте в статье [Подготовка к работе](index.md#before-you-begin).
+
 {% include [generate-signing-key](../../_includes/storage/generate-signing-key.md) %}
 
 ## Подпись строки с помощью ключа {#signing}

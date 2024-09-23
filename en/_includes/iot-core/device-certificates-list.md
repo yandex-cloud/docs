@@ -11,29 +11,29 @@
 
 - CLI {#cli}
 
-   {% include [cli-install](../cli-install.md) %}
+  {% include [cli-install](../cli-install.md) %}
 
-   {% include [default-catalogue](../default-catalogue.md) %}
+  {% include [default-catalogue](../default-catalogue.md) %}
 
-   View the list of device certificates:
+  View the list of device certificates:
 
-   ```
-   yc iot device certificate list --device-name my-device
-   ```
+  ```bash
+  yc iot device certificate list --device-name my-device
+  ```
 
-   Result:
+  Result:
 
-   ```
-   +------------------------------------------+---------------------+
-   |               FINGERPRINT                |     CREATED AT      |
-   +------------------------------------------+---------------------+
-   | df3cc4f337eba01a264803d15b119e2d******** | 2019-05-29 17:14:36 |
-   | 65e5b050069da5ca5996a4a8a9251409******** | 2019-05-29 17:14:18 |
-   +------------------------------------------+---------------------+
-   ```
+  ```text
+  +------------------------------------------+---------------------+
+  |               FINGERPRINT                |     CREATED AT      |
+  +------------------------------------------+---------------------+
+  | df3cc4f337eba01a264803d15b119e2d******** | 2019-05-29 17:14:36 |
+  | 65e5b050069da5ca5996a4a8a9251409******** | 2019-05-29 17:14:18 |
+  +------------------------------------------+---------------------+
+  ```
 
 - API {#api}
 
-   To get a list of device certificates, use the [listCertificates](../../iot-core/api-ref/Device/listCertificates.md) REST API method for the [Device](../../iot-core/api-ref/Device/index.md) resource or the [DeviceService/ListCertificates](../../iot-core/api-ref/grpc/device_service.md#ListCertificates) gRPC API call.
+  To get a list of device certificates, use the [listCertificates](../../iot-core/api-ref/Device/listCertificates.md) REST API method for the [Device](../../iot-core/api-ref/Device/index.md) resource or the [DeviceService/ListCertificates](../../iot-core/api-ref/grpc/device_service.md#ListCertificates) gRPC API call.
 
 {% endlist %}

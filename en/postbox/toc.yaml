@@ -1,9 +1,8 @@
 title: Yandex Cloud Postbox
-stage: preview
 href: index.yaml
 label:
   title: RU
-  description: The service is only available in the Russia region.
+  description: This service is only available in the Russia region.
   theme: unknown
   when: region == "kz"
 items:
@@ -19,8 +18,10 @@ items:
         href: operations/check-domain.md
       - name: Creating a configuration
         href: operations/create-configuration.md
-      - name: Binding configuration to an address
+      - name: Linking a configuration to an address
         href: operations/bind-configuration.md
+      - name: Write logs
+        href: operations/logs-write.md
   - name: Concepts
     items:
       - name: Email delivery notifications

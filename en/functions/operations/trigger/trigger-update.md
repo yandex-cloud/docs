@@ -36,8 +36,8 @@ Your changes will apply within five minutes.
   1. Update the trigger parameters, e.g., rename it:
 
       ```bash
-      yc serverless trigger update <trigger_type> <trigger_name> \
-        --new-name <new_trigger_name>
+      yc serverless trigger update <trigger_type> <trigger_name> \ 
+        --new-name <new_trigger_name> 
       ```
 
       Result:
@@ -104,9 +104,9 @@ Your changes will apply within five minutes.
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-   You can check the trigger update using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
+  You can check whether the trigger has been updated using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
-    ```
+    ```bash
     yc serverless trigger get <trigger_ID>
     ```
 

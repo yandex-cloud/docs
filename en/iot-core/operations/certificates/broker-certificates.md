@@ -15,7 +15,7 @@ To start exchanging messages between broker clients, you must [log in](../../con
 - [Adding a certificate to a broker](broker-certificates.md#add-cert)
 - [Deleting a broker certificate](broker-certificates.md#delete-cert)
 
-To access a [broker](../../concepts/index.md#broker), use its unique ID or name. For information on retrieving the unique broker ID or name, see [{#T}](../broker/broker-list.md).
+To access a [broker](../../concepts/index.md#broker), use its unique ID or name. For info on how to get the unique broker ID or name, see [{#T}](../broker/broker-list.md).
 
 ## Getting a list of broker certificates {#broker-certificates-list}
 
@@ -48,47 +48,47 @@ To access a [broker](../../concepts/index.md#broker), use its unique ID or name.
 
 - CLI {#cli}
 
-   {% include [cli-install](../../../_includes/cli-install.md) %}
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+    
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+  Add a certificate to the broker:
 
-   Add a certificate to the broker:
+  ```bash
+  yc iot broker certificate add \
+    --broker-name my-broker \
+    --certificate-file broker-cert.pem
+  ```
 
-   ```
-   yc iot broker certificate add \
-     --broker-name my-broker \
-     --certificate-file broker-cert.pem
-   ```
-
-   Where:
-   * `--broker-name`: Broker name.
-   * `--certificate-file`: Path to the public part of the certificate.
-
-   Result:
-   ```
-   broker_id: b91ki3851h**********
-   fingerprint: 589ce1605...
-   certificate_data: |
-     -----BEGIN CERTIFICATE-----
-     MIIE/jCCAuagAw...
-     -----END CERTIFICATE-----
-   created_at: "2019-05-29T16:40:48.230Z"
-   ```
+  Where:
+  * `--broker-name`: Broker name.
+  * `--certificate-file`: Path to the public part of the certificate.
+  
+  Result:
+  ```text
+  broker_id: b91ki3851h**********
+  fingerprint: 589ce1605...
+  certificate_data: |
+    -----BEGIN CERTIFICATE-----
+    MIIE/jCCAuagAw...
+    -----END CERTIFICATE-----
+  created_at: "2019-05-29T16:40:48.230Z"
+  ```
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+  
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-   {% include [terraform-install](../../../_includes/terraform-install.md) %}
+  To add a certificate to a broker created using {{ TF }}:
 
-   To add a certificate to a broker created using {{ TF }}:
+  1. In the configuration file, describe the parameters of the resources you want to create:
 
-   1. In the configuration file, describe the parameters of the resources you want to create:
-
-      * `yandex_iot_core_broker`: Broker parameters:
-         * `name`: Broker name.
-         * `description`: Broker description.
-         * `certificates`: List of broker certificates for authorization using [certificates](../../concepts/authorization.md#certs).
+     * `yandex_iot_core_broker`: Broker parameters:
+       * `name`: Broker name.
+       * `description`: Broker description.
+       * `certificates`: List of broker certificates for authorization using [certificates](../../concepts/authorization.md#certs).
 
       Example broker description in the {{ TF }} configuration:
 
@@ -105,34 +105,34 @@ To access a [broker](../../concepts/index.md#broker), use its unique ID or name.
       }
       ```
 
-      For more information about the `yandex_iot_core_broker` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iot_core_broker).
-   1. In the command line, change to the folder where you edited the configuration file.
-   1. Make sure the configuration file is correct using this command:
+      For more information about the `yandex_iot_core_broker` parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/iot_core_broker).
+  1. In the command line, change to the folder where you edited the configuration file.
+  1. Make sure the configuration file is correct using this command:
 
       ```bash
       terraform validate
       ```
 
       If the configuration is correct, you will get this message:
-
+     
       ```bash
       Success! The configuration is valid.
       ```
 
-   1. Run this command:
+  1. Run this command:
 
       ```bash
       terraform plan
       ```
 
       The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
-   1. Apply the configuration changes:
+  1. Apply the configuration changes:
 
       ```bash
       terraform apply
       ```
 
-   1. Confirm the changes: type `yes` in the terminal and press **Enter**.
+  1. Confirm the changes: type `yes` into the terminal and click **Enter**.
 
       You can verify broker certificates in the [management console]({{ link-console-main }}) or using the following [CLI](../../../cli/quickstart.md) command:
 
@@ -142,7 +142,7 @@ To access a [broker](../../concepts/index.md#broker), use its unique ID or name.
 
 - API {#api}
 
-   To add a certificate to a broker, use the [addCertificate](../../broker/api-ref/Broker/addCertificate.md) REST API method for the [Broker](../../broker/api-ref/Broker/index.md) resource or the [BrokerService/AddCertificate](../../broker/api-ref/grpc/broker_service.md#AddCertificate) gRPC API call.
+  To add a certificate to a broker, use the [addCertificate](../../broker/api-ref/Broker/addCertificate.md) REST API method for the [Broker](../../broker/api-ref/Broker/index.md) resource or the [BrokerService/AddCertificate](../../broker/api-ref/grpc/broker_service.md#AddCertificate) gRPC API call.
 
 {% endlist %}
 
@@ -157,30 +157,30 @@ To access a [broker](../../concepts/index.md#broker), use its unique ID or name.
    1. In the left-hand panel, select **{{ ui-key.yacloud.iot.label_brokers }}**.
    1. Select the appropriate broker from the list.
    1. On the **{{ ui-key.yacloud.common.overview }}** page, go to the **{{ ui-key.yacloud.iot.label_certificates }}** section.
-   1. In the row with the certificate you need, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}** from the drop-down list.
+   1. In the line with the certificate you need, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}** from the drop-down list.
    1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI {#cli}
 
-   {% include [cli-install](../../../_includes/cli-install.md) %}
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+    
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+  1. Delete a broker certificate:
 
-   1. Delete a broker certificate:
-
-      ```
+      ```bash
       yc iot broker certificate delete --broker-name my-broker --fingerprint 0f...
       ```
 
-   1. Make sure the certificate was deleted:
+  1. Make sure the certificate was deleted:
 
-      ```
+      ```bash
       yc iot broker certificate list --broker-name my-broker
-      ```
+	    ```
 
-      Result:
-
-      ```
+	    Result:
+	  
+	    ```text
       +-------------+------------+
       | FINGERPRINT | CREATED AT |
       +-------------+------------+
@@ -189,13 +189,13 @@ To access a [broker](../../concepts/index.md#broker), use its unique ID or name.
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+  
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-   {% include [terraform-install](../../../_includes/terraform-install.md) %}
+  To delete a broker certificate created using {{ TF }}:
 
-   To delete a broker certificate created using {{ TF }}:
-
-   1. Open the {{ TF }} configuration file and delete the value of the certificate in the `certificates` block, in the fragment with the broker description. To remove all certificates, delete the entire `certificates` block.
+  1. Open the {{ TF }} configuration file and delete the value of the certificate in the `certificates` block, in the fragment with the broker description. To remove all certificates, delete the entire `certificates` block.
 
       Example broker description in the {{ TF }} configuration:
 
@@ -212,34 +212,34 @@ To access a [broker](../../concepts/index.md#broker), use its unique ID or name.
       }
       ```
 
-      For more information about the `yandex_iot_core_broker` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iot_core_broker).
-   1. In the command line, change to the folder where you edited the configuration file.
-   1. Make sure the configuration file is correct using this command:
+      For more information about the `yandex_iot_core_broker` parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/iot_core_broker).
+  1. In the command line, change to the folder where you edited the configuration file.
+  1. Make sure the configuration file is correct using this command:
 
       ```bash
       terraform validate
       ```
 
       If the configuration is correct, you will get this message:
-
+     
       ```bash
       Success! The configuration is valid.
       ```
 
-   1. Run this command:
+  1. Run this command:
 
       ```bash
       terraform plan
       ```
 
       The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
-   1. Apply the configuration changes:
+  1. Apply the configuration changes:
 
       ```bash
       terraform apply
       ```
 
-   1. Confirm the changes: type `yes` in the terminal and press **Enter**.
+  1. Confirm the changes: type `yes` into the terminal and click **Enter**.
 
       You can verify broker certificates in the [management console]({{ link-console-main }}) or using the following [CLI](../../../cli/quickstart.md) command:
 
@@ -249,6 +249,6 @@ To access a [broker](../../concepts/index.md#broker), use its unique ID or name.
 
 - API {#api}
 
-   To delete a broker certificate, use the [deleteCertificate](../../broker/api-ref/Broker/deleteCertificate.md) REST API method for the [Broker](../../broker/api-ref/Broker/index.md) resource or the [BrokerService/DeleteCertificate](../../broker/api-ref/grpc/broker_service.md#DeleteCertificate) gRPC API call.
+  To delete a broker certificate, use the [deleteCertificate](../../broker/api-ref/Broker/deleteCertificate.md) REST API method for the [Broker](../../broker/api-ref/Broker/index.md) resource or the [BrokerService/DeleteCertificate](../../broker/api-ref/grpc/broker_service.md#DeleteCertificate) gRPC API call.
 
 {% endlist %}

@@ -38,15 +38,15 @@ To get started with the service:
     1. (Optional) Disable [domain name validation](./concepts/domain-validation.md).
     1. Specify a list of sites where the CAPTCHA will be placed.
     1. Leave the **{{ ui-key.yacloud.smartcaptcha.label_section-style }}** as is.
+
+       ![screen02](../_assets/smartcaptcha/quickstart/screen02.png)
+
     1. Set up a default CAPTCHA:
        1. Select the [main challenge](./concepts/tasks.md#main-task) type.
        1. Select the [additional challenge](./concepts/tasks.md#additional-task) type.
        1. Select the `{{ ui-key.yacloud.smartcaptcha.value_complexity-medium }}` [level](./concepts/tasks.md#task-difficulty).
 
-       ![screen02](../_assets/smartcaptcha/quickstart/screen02.png)
-
     1. You can add [challenge options](concepts/captcha-variants.md) and configure incoming traffic rules to display different CAPTCHAs to different users. In this example, you will configure a single default CAPTCHA for all users.
-
     1. Click **{{ ui-key.yacloud.common.create }}**.
 
        ![screen03](../_assets/smartcaptcha/quickstart/screen03.png)
@@ -223,7 +223,7 @@ Example of the token validation function:
             {
                 "secret": SMARTCAPTCHA_SERVER_KEY,
                 "token": token,
-                "ip": "<user_IP_address>"  # Method for retrieving the IP address depends on your framework and proxy. 
+                "ip": "<user_IP_address>"  # Method for retrieving the IP address depends on your framework and proxy.                                   
                                                  # In Flask, for example, this can be `request.remote_addr`
             },
             timeout=1
@@ -233,7 +233,7 @@ Example of the token validation function:
             print(f"Allow access due to an error: code={resp.status_code}; message={server_output}", file=sys.stderr)
             return True
         return json.loads(server_output)["status"] == "ok"
-    token = "<token># For example, it can be `request.form["smart-token"]`
+    token = "<token>"  # For example, `request.form["smart-token"]`
     if check_captcha(token):
         print("Passed")
     else:

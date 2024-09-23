@@ -17,35 +17,35 @@ description: "Follow this guide to view roles assigned for resources."
 
 - CLI {#cli}
 
-   {% include [cli-install](../../../_includes/cli-install.md) %}
+  {% include [cli-install](../../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-   Run this command:
+  Run this command:
 
-   ```bash
-   yc container <resource> list-access-bindings <resource_name_or_ID>
-   ```
+  ```bash
+  yc container <resource> list-access-bindings <resource_name_or_ID>
+  ```
 
-   Where:
-   * `<resource>`: Resource type (`registry` or `repository`).
-   * `<resource_name_or_ID>`: Name or ID of the resource you want to view the assigned roles for.
+  Where:
+  * `<resource>`: `registry` or `repository` resource type.
+  * `<resource_name_or_ID>`: Name or ID of the resource you want to view the assigned roles for.
 
-   **Example**
+  **Example**
+  
+  ```bash
+  yc container registry list-access-bindings my-first-registry
+  ```
 
-   ```bash
-   yc container registry list-access-bindings my-first-registry
-   ```
-
-   Result:
-
-   ```bash
-   +--------------------------+---------------+----------------------+
-   |         ROLE ID          | SUBJECT TYPE  |      SUBJECT ID      |
-   +--------------------------+---------------+----------------------+
-   | container-registry.admin | federatedUser | ajekv7lpqpgu******** |
-   +--------------------------+---------------+----------------------+
-   ```
+  Result:
+  
+  ```bash
+  +--------------------------+---------------+----------------------+
+  |         ROLE ID          | SUBJECT TYPE  |      SUBJECT ID      |
+  +--------------------------+---------------+----------------------+
+  | container-registry.admin | federatedUser | ajekv7lpqpgu******** |
+  +--------------------------+---------------+----------------------+
+  ```
 
 - API {#api}
 
@@ -55,4 +55,4 @@ description: "Follow this guide to view roles assigned for resources."
 
 {% endlist %}
 
-Read more about role management in the {{ iam-full-name }} [documentation](../../../iam/concepts/index.md).
+You can read more about role management in the {{ iam-full-name }} [documentation](../../../iam/concepts/index.md).

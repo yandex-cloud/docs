@@ -1,6 +1,6 @@
 # Creating a function in Go
 
-Create and execute a [function](../../concepts/function.md) in Go that welcomes the user.
+Create and run a user welcome [function](../../concepts/function.md) in Go.
 
 {% include [function-before-begin](../../../_includes/functions/function-before-begin.md) %}
 
@@ -13,7 +13,7 @@ Create and execute a [function](../../concepts/function.md) in Go that welcomes 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a function.
     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
-    1. Name the function `go-function`.
+    1. Enter the function name: `go-function`.
     1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
@@ -24,13 +24,13 @@ Create and execute a [function](../../concepts/function.md) in Go that welcomes 
 
     To create a function, run the command:
 
-    ```
+    ```bash
     yc serverless function create --name=go-function
     ```
 
     Result:
 
-    ```
+    ```text
     id: b09bhaokchn9********
     folder_id: aoek49ghmknnp********
     created_at: "2023-08-16T19:01:37.475Z"
@@ -47,7 +47,7 @@ Create and execute a [function](../../concepts/function.md) in Go that welcomes 
 
 - {{ yandex-cloud }} Toolkit {#yc-toolkit}
 
-    You can create a function using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [JetBrains](https://www.jetbrains.com/) [IntelliJ platform](https://www.jetbrains.com/opensource/idea/).
+    You can create function using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [JetBrains](https://www.jetbrains.com/) [IntelliJ platform](https://www.jetbrains.com/opensource/idea/).
 
 
 {% endlist %}
@@ -59,26 +59,26 @@ Create and execute a [function](../../concepts/function.md) in Go that welcomes 
 ### Prepare a ZIP archive with the function code {#create-zip}
 
 1. Save the following code to a file named `hello.go`:
-   ```go
-   package main
+    ```go
+    package main
 
-   import (
-       "encoding/json"
-   )
+    import (
+        "encoding/json"
+    )
 
-   type JSONString string
+    type JSONString string
 
-   func (j JSONString) MarshalJSON() ([]byte, error) {
-       return []byte(j), nil
-   }
+    func (j JSONString) MarshalJSON() ([]byte, error) {
+        return []byte(j), nil
+    }
 
-   func Handler() ([]byte, error) {
-     s := `{"body": "Hello, World!"}`
-     return json.Marshal(JSONString(s))
-   }
-   ```
+    func Handler() ([]byte, error) {
+      s := `{"body": "Hello, World!"}`
+      return json.Marshal(JSONString(s))
+    }
+    ```
 
-1. Add the `hello.go` file to the `hello-go.zip` archive.
+1. Add the `hello.go` file into the `hello-go.zip` archive.
 
 ### Create a function version {#create-version}
 
@@ -86,9 +86,9 @@ Create and execute a [function](../../concepts/function.md) in Go that welcomes 
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the folder containing your function.
+    1. In the [management console]({{ link-console-main }}), select the folder containing the function.
     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-    1. Select `go-function`.
+    1. Select the `go-function` function.
     1. Under **{{ ui-key.yacloud.serverless-functions.item.overview.label_title-latest-version }}**, click **{{ ui-key.yacloud.serverless-functions.item.overview.button_editor-create }}**.
     1. Select the `golang119` runtime environment and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
     1. Set the version parameters:
@@ -109,7 +109,7 @@ Create and execute a [function](../../concepts/function.md) in Go that welcomes 
     To create a function version, run the command:
 
     
-    ```
+    ```bash
     yc serverless function version create \
       --function-name=go-function \
       --runtime golang119 \
@@ -118,21 +118,21 @@ Create and execute a [function](../../concepts/function.md) in Go that welcomes 
       --execution-timeout 3s \
       --source-path ./hello-go.zip
     ```
-  
+
 
     Where:
 
-    * `--function-name`: Name of the function you want to create a version of.
+    * `--function-name`: Name of the function whose version you want to create.
     * `--runtime`: Runtime environment.
-    * `--entrypoint`: Entry point specified in the `<function_file_name>.<handler_name>` format.
+    * `--entrypoint`: Entry point in the following format: `<function_file_name>.<handler_name>`.
     * `--memory`: Amount of RAM.
-    * `--execution-timeout`: Maximum function execution time before the timeout is reached.
+    * `--execution-timeout`: Maximum function running time before the timeout is reached.
     * `--source-path`: ZIP archive with the function code and required dependencies.
 
     Result:
 
     
-    ```
+    ```yaml
     done (1s)
     id: d4evvn8obisa********
     function_id: d4elpv8pft63********

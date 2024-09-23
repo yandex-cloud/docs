@@ -10,7 +10,7 @@ The process of installing dependencies has resource and execution time limits. F
 
 To deliver dependencies, configure them in the `pom.xml` file. No other actions, including project compilation, are required.
 
-To set the order of loading dependencies, upload a file named `classpath.txt` to the project root. This file must list the dependencies line by line in the required order.
+To set the loading order for dependencies, upload a file named `classpath.txt` to the project root. This file must list the dependencies line by line in the required order.
 
 {% note warning %}
 
@@ -22,7 +22,7 @@ Make sure the project archive root contains the `pom.xml` file.
 
 To configure dependencies manually, place the JAR archives of the required libraries in the project archive root. Example:
 
-```
+```text
 build.zip
 +--org
 +----package

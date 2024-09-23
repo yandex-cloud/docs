@@ -6,6 +6,10 @@ editable: false
 
 
 
+{% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
+
+{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
+
 ## What goes into the cost of using {{ sf-name }} {#rules}
 
 In {{ sf-name }}, you pay for the number of function calls, computing resources allocated for the function, downtime of [provisioned instances](concepts/function.md#provisioned-instances), and outgoing traffic.
@@ -57,7 +61,7 @@ However, if the function uses other {{ yandex-cloud }} resources, they are bille
 
 {% include [usd.md](../_pricing/functions/usd-invocations.md) %}
 
-You pay for the actual number of calls. For example, given that 1,000,000 calls cost $0.128000, 1,000 calls in excess of the free amount will cost $0.000128.
+You pay for the actual number of calls. For instance, 1,000 calls over the included number cost $0.000128 if 1,000,000 calls are $0.128000.
 
 
 ### Function execution time {#execution}

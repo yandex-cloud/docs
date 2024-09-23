@@ -429,6 +429,8 @@ default:
   MS: SQL Server
   ms:
     docs: https://docs.microsoft.com/ru-ru
+  mtr-full-name: Yandex Managed Service for Trino
+  mtr-name: Managed Service for Trino
   MY: MySQL
   my:
     docs: https://dev.mysql.com/doc
@@ -490,6 +492,7 @@ default:
   port-ssh: 22
   postbox-endpoint: https://postbox.cloud.yandex.net
   postbox-full-name: Yandex Cloud Postbox
+  postbox-host: postbox.cloud.yandex.net
   postbox-name: Yandex Cloud Postbox
   preview-stage: <code><b><small>Preview</small></b></code>
   price-per-hour-count-per-second: Цена указывается за 1 час использования. Тарификация посекундная.
@@ -716,6 +719,7 @@ default:
   tf-provider-mrd: https://terraform-provider.yandexcloud.net/Resources/mdb_redis_cluster
   tf-provider-resources-link: https://terraform-provider.yandexcloud.net/Resources
   TF-version: '0.90'
+  TR: Trino
   tracker-full-name: Yandex Tracker
   tracker-name: Tracker
   tracker-short-name: Tracker
@@ -6959,6 +6963,9 @@ default:
             button_action-delete: Удалить
             button_action-edit: Редактировать
             button_add: Создать сервисный аккаунт
+            column_date: Дата создания
+            column_last-auth: Дата последней аутентификации
+            column_name: Имя
             column_roles: Роли в каталоге
             popup-confirm_button_delete: Удалить
           switch_dashboard: Дашборд каталога
@@ -8305,6 +8312,7 @@ default:
           button_action-edit: Изменить
           label_document-endpoint: Document API эндпоинт
           label_endpoint: Эндпоинт
+          label_kinesis-endpoint: Kinesis API эндпоинт
           label_serverless-billing: Тарификация
           label_serverless-limits: Ограничения
           section_connection: Соединение

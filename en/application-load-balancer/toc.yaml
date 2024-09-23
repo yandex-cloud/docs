@@ -76,8 +76,14 @@ items:
         href: tutorials/index.md
       - name: Setting up virtual hosting
         href: tutorials/virtual-hosting.md
-      - name: Creating a load balancer with DDoS protection
-        href: tutorials/alb-with-ddos-protection.md
+      - name: Creating an L7 load balancer with DDoS protection
+        items:
+          - name: Summary
+            href: tutorials/alb-with-ddos-protection/index.md
+          - name: Management console, CLI
+            href: tutorials/alb-with-ddos-protection/console.md
+          - name: '{{ TF }}'
+            href: tutorials/alb-with-ddos-protection/terraform.md
       - name: Integrating an L7 load balancer with CDN and Object Storage
         href: tutorials/cdn-storage-integration.md
       - name: Blue-green and canary deployment of service versions

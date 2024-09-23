@@ -20,6 +20,7 @@
 * [{#T}](batch-recognition-stt.md)
 * [{#T}](canary-release.md)
 * [{#T}](nodejs-cron-restart-vm.md)
+* [{#T}](vm-scale-scheduled.md)
 * [{#T}](datalens.md)
 * [{#T}](monitoring.md)
 * [{#T}](iot-emulation.md)

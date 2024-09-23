@@ -9,129 +9,129 @@ A Docker image is an executable package that contains everything you need to run
 {% include [port-variable-note.md](../../_includes/serverless-containers/port-variable-note.md) %}
 
 To prepare a container's Docker image:
-1. [Create](../../container-registry/operations/registry/registry-create.md) a registry in {{ container-registry-full-name}}.
+1. [Create](../../container-registry/operations/registry/registry-create.md) the {{ container-registry-full-name}} registry.
 1. [Create and build](../../container-registry/operations/docker-image/docker-image-create.md) a Docker image based on [Dockerfile](https://docs.docker.com/engine/reference/builder/).
 1. [Push](../../container-registry/operations/docker-image/docker-image-push.md) the Docker image to the registry.
 
-### Application and Dockerfile examples {#examples}
+### App and Dockerfile examples {#examples}
 
 {% list tabs group=programming_language %}
 
 - Node.js {#node}
 
-   **index.js**
+    **index.js**
 
-   ```js
-   const express = require('express');
+    ```js
+    const express = require('express');
 
-   const app = express();
-   app.use(express.urlencoded({ extended: true }));
-   app.use(express.json());
+    const app = express();
+    app.use(express.urlencoded({ extended: true }));
+    app.use(express.json());
 
-   app.get("/hello", (req, res) => {
-       var ip = req.headers['x-forwarded-for']
-       console.log(`Request from ${ip}`);
-       return res.send("Hello!");
-   });
+    app.get("/hello", (req, res) => {
+        var ip = req.headers['x-forwarded-for']
+        console.log(`Request from ${ip}`);
+        return res.send("Hello!");
+    });
 
-   app.listen(process.env.PORT, () => {
-       console.log(`App listening at port ${process.env.PORT}`);
-   });
-   ```
+    app.listen(process.env.PORT, () => {
+        console.log(`App listening at port ${process.env.PORT}`);
+    });
+    ```
 
-   **Dockerfile**
+    **Dockerfile**
 
-   ```
-   FROM node:16-slim
+    ```dockerfile
+    FROM node:16-slim
 
-   WORKDIR /app
-   RUN npm install express
-   COPY ./index.js .
+    WORKDIR /app
+    RUN npm install express
+    COPY ./index.js .
 
-   CMD [ "node", "index.js" ]
-   ```
+    CMD [ "node", "index.js" ]
+    ```
 
 - Python {#python}
 
-   **index.py**
+    **index.py**
 
-   ```python
-   import os
-   from sanic import Sanic
-   from sanic.response import text
+    ```python
+    import os
+    from sanic import Sanic
+    from sanic.response import text
 
-   app = Sanic(__name__)
+    app = Sanic(__name__)
 
-   @app.after_server_start
-   async def after_server_start(app, loop):
-       print(f"App listening at port {os.environ['PORT']}")
+    @app.after_server_start
+    async def after_server_start(app, loop):
+        print(f"App listening at port {os.environ['PORT']}")
 
-   @app.route("/hello")
-   async def hello(request):
-       ip = request.headers["X-Forwarded-For"]
-       print(f"Request from {ip}")
-       return text("Hello!")
+    @app.route("/hello")
+    async def hello(request):
+        ip = request.headers["X-Forwarded-For"]
+        print(f"Request from {ip}")
+        return text("Hello!")
 
-   if __name__ == "__main__":
-       app.run(host='0.0.0.0', port=int(os.environ['PORT']), motd=False, access_log=False)
-   ```
+    if __name__ == "__main__":
+        app.run(host='0.0.0.0', port=int(os.environ['PORT']), motd=False, access_log=False)
+    ```
 
-   **Dockerfile**
+    **Dockerfile**
 
-   ```
-   FROM python:3.10-slim
+    ```dockerfile
+    FROM python:3.10-slim
 
-   WORKDIR /app
-   RUN pip install --no-cache-dir --prefer-binary sanic
-   COPY ./index.py .
+    WORKDIR /app
+    RUN pip install --no-cache-dir --prefer-binary sanic
+    COPY ./index.py .
 
-   CMD [ "python", "index.py" ]
-   ```
+    CMD [ "python", "index.py" ]
+    ```
 
 - Go {#go}
 
-   **index.go**
+    **index.go**
 
-   ```golang
-   package main
+    ```golang
+    package main
 
-   import (
-       "fmt"
-       "net/http"
-       "os"
-   )
+    import (
+        "fmt"
+        "net/http"
+        "os"
+    )
 
-   func main() {
-       portStr := os.Getenv("PORT")
-       fmt.Printf("App listening at port %s\n", portStr)
-       http.Handle("/hello", hwHandler{})
-       http.ListenAndServe(":"+portStr, nil)
-   }
+    func main() {
+        portStr := os.Getenv("PORT")
+        fmt.Printf("App listening at port %s\n", portStr)
+        http.Handle("/hello", hwHandler{})
+        http.ListenAndServe(":"+portStr, nil)
+    }
 
-   type hwHandler struct{}
+    type hwHandler struct{}
 
-   func (hwHandler) ServeHTTP(writer http.ResponseWriter, request *http.Request) {
-       ip := request.Header.Get("X-Forwarded-For")
-       fmt.Printf("Request from %s\n", ip)
-       writer.WriteHeader(200)
-       _, _ = writer.Write([]byte("Hello!"))
-   }
-   ```
+    func (hwHandler) ServeHTTP(writer http.ResponseWriter, request *http.Request) {
+        ip := request.Header.Get("X-Forwarded-For")
+        fmt.Printf("Request from %s\n", ip)
+        writer.WriteHeader(200)
+        _, _ = writer.Write([]byte("Hello!"))
+    }
+    ```
 
-   **Dockerfile**
+    **Dockerfile**
 
-   ```
-   FROM golang:latest AS build
+    ```dockerfile
+    FROM golang:latest AS build
 
-   WORKDIR /app
-   ADD index.go .
-   RUN GOARCH=amd64 go build -a -tags netgo -ldflags '-w -extldflags "-static"' -o server-app *.go
+    WORKDIR /app
+    ADD index.go .
+    RUN GOARCH=amd64 go build -a -tags netgo -ldflags '-w -extldflags "-static"' -o server-app *.go
 
-   FROM scratch
-   COPY --from=build /app/server-app /server-app
+    FROM scratch
+    COPY --from=build /app/server-app /server-app
 
-   ENTRYPOINT ["/server-app"]
-   ```
+    ENTRYPOINT ["/server-app"]
+    ```
 
 {% endlist %}
 
@@ -149,13 +149,13 @@ To prepare a container's Docker image:
 
 After creating the container, you will get the invocation link. Here is how you can [retrieve it](../operations/invoke.md#link). Make an HTTPS request by sending an [IAM token](../../iam/concepts/authorization/iam-token.md) in the `Authorization` header:
 
-```
+```bash
 curl -H "Authorization: Bearer $(yc iam create-token)" https://bba3fva6ka5g********.{{ serverless-containers-host }}/hello
 ```
 
 Result:
 
-```
+```text
 Hello!
 ```
 

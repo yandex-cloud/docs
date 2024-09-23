@@ -12,4 +12,5 @@ description: "Various {{ container-registry-full-name }} use cases in {{ yandex-
 * [{#T}](ci-cd-serverless.md)
 * [{#T}](image-storage.md)
 * [{#T}](vpc-cr-access.md)
+* [{#T}](fault-tolerance.md)
 * [{#T}](loadtesting-external-agent.md)

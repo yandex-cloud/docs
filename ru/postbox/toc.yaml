@@ -1,5 +1,4 @@
 title: Yandex Cloud Postbox
-stage: preview
 href: index.yaml
 label:
   title: RU
@@ -45,6 +44,62 @@ items:
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
+  - name: Справочник API
+    items:
+      - name: Аутентификация в API
+        href: api-ref/authentication.md
+      - name: Как пользоваться API
+        href: aws-compatible-api/index.md
+      - name: Подписывание запросов
+        href: aws-compatible-api/signing-requests.md
+      - name: REST
+        items:
+          - name: Все методы
+            href: aws-compatible-api/api-ref/index.md
+          - name: Отправка писем
+            href: aws-compatible-api/api-ref/send-email.md
+          - name: Адреса
+            items:
+              - name: Метод ListDomainIdentities
+                href: aws-compatible-api/api-ref/list-domain-identities.md
+              - name: Метод GetDomainIdentity
+                href: aws-compatible-api/api-ref/get-domain-identity.md
+              - name: Метод CreateDomainIdentity
+                href: aws-compatible-api/api-ref/create-domain-identity.md
+              - name: Метод PutDomainIdentityDkimAttributes
+                href: >-
+                  aws-compatible-api/api-ref/put-domain-identity-dkim-attributes.md
+              - name: Метод DeleteDomainIdentity
+                href: aws-compatible-api/api-ref/delete-domain-identity.md
+          - name: Конфигурации
+            items:
+              - name: Метод ListConfigurationSets
+                href: aws-compatible-api/api-ref/list-configuration-sets.md
+              - name: Метод GetConfigurationSet
+                href: aws-compatible-api/api-ref/get-configuration-sets.md
+              - name: Метод CreateConfigurationSet
+                href: aws-compatible-api/api-ref/create-configuration-set.md
+              - name: Метод PutDomainIdentityConfigurationSetAttributes
+                href: >-
+                  aws-compatible-api/api-ref/put-domain-identity-configuration-set-attributes.md
+              - name: Метод DeleteConfigurationSet
+                href: aws-compatible-api/api-ref/delete-configuration-set.md
+          - name: Подписки
+            items:
+              - name: Метод GetConfigurationSetEventDestinations
+                href: >-
+                  aws-compatible-api/api-ref/get-configuration-set-event-destinations.md
+              - name: Метод CreateConfigurationSetEventDestination
+                href: >-
+                  aws-compatible-api/api-ref/create-configuration-set-event-destinations.md
+              - name: Метод UpdateConfigurationSetEventDestination
+                href: >-
+                  aws-compatible-api/api-ref/update-configuration-set-event-destination.md
+              - name: Метод DeleteConfigurationSetEventDestination
+                href: >-
+                  aws-compatible-api/api-ref/delete-configuration-set-event-destination.md
+          - name: Заголовки запросов
+            href: aws-compatible-api/api-ref/request-headers.md
   - name: История изменений
     href: release-notes.md
 base: ru/postbox
