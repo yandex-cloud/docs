@@ -1,19 +1,19 @@
-# create method
+# Create method
 
 Creates a bucket.
 
 
 ## Request {#request}
 
-```
+```http
 PUT /{bucket} HTTP/2
 ```
 
 ### Path parameters {#path-parameters}
 
-| Parameter | Description |
+Parameter | Description
 ----- | -----
-| `bucket` | Bucket name.<br/><br/>When creating a bucket, follow the bucket [naming guidelines](../../../concepts/bucket.md#naming). |
+`bucket` | Bucket name.<br/><br/>When creating a bucket, follow the [naming conventions](../../../concepts/bucket.md#naming).
 
 ### Headers {#request-headers}
 Use [common request headers](../common-request-headers.md) in your requests.

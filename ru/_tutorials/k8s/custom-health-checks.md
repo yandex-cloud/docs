@@ -1,6 +1,6 @@
 # Проверка состояния приложений в кластере {{ managed-k8s-full-name }} с помощью Ingress-контроллера {{ alb-full-name }}
 
-Вы можете автоматически проверять работоспособность приложений, которые развернуты в кластере {{ managed-k8s-name }} с помощью [Ingress-контроллера {{ alb-name }}](../../application-load-balancer/tools/k8s-ingress-controller/index.md). 
+Вы можете автоматически проверять работоспособность приложений, которые развернуты в кластере {{ managed-k8s-name }} с помощью [Ingress-контроллера {{ alb-name }}](../../application-load-balancer/tools/k8s-ingress-controller/index.md).
 
 Ingress-контроллер, установленный в кластер, разворачивает [L7-балансировщик](../../application-load-balancer/concepts/application-load-balancer.md) со всеми необходимыми ресурсами {{ alb-name }}, основываясь на конфигурации созданных вами ресурсов [Ingress](../../managed-kubernetes/alb-ref/ingress.md) и [HttpBackendGroup](../../managed-kubernetes/alb-ref/http-backend-group.md).
 
@@ -148,7 +148,7 @@ Docker-образ будет создан из файла `app/Dockerfile` и б
 
 Соберите тестовое приложение из созданного Docker-образа и конфигурационного файла [app/testapp.yaml](https://github.com/yandex-cloud-examples/yc-mk8s-alb-ingress-health-checks/blob/main/app/testapp.yaml).
 
-Файл содержит описание {{ k8s }}-ресурсов: `Deployment` и `Service` типа `NodePort`. 
+Файл содержит описание {{ k8s }}-ресурсов: `Deployment` и `Service` типа `NodePort`.
 
 Ресурс `Service` содержит описание портов, через которые приложение будет доступно на узлах кластера:
 * `spec.ports.name: http` — порт для доступа к основной функциональности приложения. `80` на поде и `30080` на узле.

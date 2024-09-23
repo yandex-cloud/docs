@@ -1,30 +1,30 @@
 # objectGetAcl method
 
-Returns the access control list for an object.
+Returns an access control list for an object.
 
 ## Request {#request}
 
-```
+```http
 GET /{bucket}/{key}?acl HTTP/2
 ```
 
 ### Path parameters {#path-parameters}
 
-| Parameter | Description |
+Parameter | Description
 ----- | -----
-| `bucket` | Bucket name. |
-| `key` | Object key. |
+`bucket` | Bucket name.
+`key` | Object key.
 
 
 ### Query parameters {#request-params}
 
-| Parameter | Description |
+Parameter | Description
 ----- | -----
-| `acl` | Required parameter that indicates the type of operation. |
+`acl` | Required parameter that indicates the type of operation.
 
 ### Headers {#request-headers}
 
-Use the appropriate [common headers](../common-request-headers.md) in your requests.
+Use the appropriate [common headers](../common-request-headers.md) in your request.
 
 ## Response {#response}
 

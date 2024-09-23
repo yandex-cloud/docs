@@ -8,9 +8,9 @@ keywords:
   - gatsby сайт
 ---
 
-# Хостинг статического сайта на фреймворке Gatsby в {{ objstorage-full-name }} 
+# Хостинг статического сайта на фреймворке Gatsby в {{ objstorage-full-name }}
 
-С помощью этого руководства вы разместите свой статический сайт, созданный на фреймворке [Gatsby](https://www.gatsbyjs.com/docs), в сервисе {{ objstorage-name }} и настроите доступ к нему по HTTPS-протоколу. 
+С помощью этого руководства вы разместите свой статический сайт, созданный на фреймворке [Gatsby](https://www.gatsbyjs.com/docs), в сервисе {{ objstorage-name }} и настроите доступ к нему по HTTPS-протоколу.
 
 Чтобы создать и разместить статический сайт в {{ objstorage-name }}:
 
@@ -65,10 +65,10 @@ keywords:
 1. Проверьте, что сайт создан. Для этого выполните команду:
 
 	```
-	gatsby develop 
+	gatsby develop
 	```
 
-	Дождитесь выполнения команды и убедитесь, что сайт доступен по адресу: 
+	Дождитесь выполнения команды и убедитесь, что сайт доступен по адресу:
 
 	```
 	http://localhost:8000
@@ -111,7 +111,7 @@ keywords:
 
       Где:
 
-      * `--name` — имя бакета. Укажите зарегистрированное вами доменное имя, например `gatsbytest.ru`.        
+      * `--name` — имя бакета. Укажите зарегистрированное вами доменное имя, например `gatsbytest.ru`.
       * `--default-storage-class` — [класс хранилища](../../storage/concepts/storage-class.md). Доступные значения:
          * `standard` — стандартное хранилище;
          * `cold` — холодное хранилище;
@@ -124,7 +124,7 @@ keywords:
 - AWS CLI {#aws-cli}
 
    Если у вас еще нет интерфейса командной строки AWS CLI, [установите и сконфигурируйте его](../../storage/tools/aws-cli.md).
-    
+
    В терминале выполните команду, указав имя бакета и эндпоинт {{ objstorage-name }}:
 
    ```bash
@@ -133,14 +133,14 @@ keywords:
    ```
    Где:
 
-   * `--name` — имя бакета. Укажите зарегистрированное вами доменное имя, например `gatsbytest.ru`.        
+   * `--name` — имя бакета. Укажите зарегистрированное вами доменное имя, например `gatsbytest.ru`.
 
 - {{ TF }} {#tf}
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
   1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
-     
+
      ```
      terraform {
        required_providers {
@@ -234,9 +234,9 @@ keywords:
   1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
 
 - {{ yandex-cloud }} CLI {#cli}
-     
+
   1. Создайте файл с настройками хостинга в формате JSON. Например:
-     
+
      ```json
      {
        "index": "index.html",
@@ -246,16 +246,16 @@ keywords:
 
      Где:
 
-     * `index` — абсолютный путь к файлу главной страницы сайта. 
+     * `index` — абсолютный путь к файлу главной страницы сайта.
      * `error` — абсолютный путь к файлу, который будет отображаться пользователю при ошибках 4хх.
-  
+
   1. Выполните следующую команду:
 
      ```bash
      yc storage bucket update --name <имя_бакета> \
        --website-settings-from-file <путь_к_файлу>
      ```
-     
+
      Где:
      * `--name` — имя бакета, в данном примере `gatsbytest.ru`.
      * `--website-settings-from-file` — путь к файлу с настройками хостинга.
@@ -284,7 +284,7 @@ keywords:
 
   1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
 
-     
+
      ```hcl
      provider "yandex" {
        token     = "<OAuth>"
@@ -298,12 +298,12 @@ keywords:
        secret_key = "<секретный_ключ>"
        bucket     = "<имя_бакета>"
        acl        = "public-read"
-     
+
        website {
          index_document = "index.html"
          error_document = "404.html"
        }
-     
+
      }
      ```
 
@@ -326,7 +326,7 @@ keywords:
         terraform plan
         ```
 
-     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет. 
+     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Разверните облачные ресурсы.
 
@@ -335,7 +335,7 @@ keywords:
      ```
      terraform apply
      ```
-   
+
      1. Подтвердите создание ресурсов.
 
      После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
@@ -344,7 +344,7 @@ keywords:
 
   Чтобы настроить хостинг статического сайта, воспользуйтесь методом REST API [update](../../storage/api-ref/Bucket/update.md) для ресурса [Bucket](../../storage/api-ref/Bucket/index.md), вызовом gRPC API [BucketService/Update](../../storage/api-ref/grpc/bucket_service.md#Update) или методом S3 API [upload](../../storage/s3/api-ref/hosting/upload.md).
 
-{% endlist %} 
+{% endlist %}
 
 ### Привяжите доменное имя
 
@@ -365,7 +365,7 @@ keywords:
 
 ## Загрузите сайт в бакет {#upload-site}
 
-Чтобы собрать и загрузить рабочую версию сайта в бакет, воспользуйтесь консольной утилитой [AWS CLI](https://aws.amazon.com/ru/cli/) и специальным [плагином S3](https://www.gatsbyjs.com/plugins/gatsby-plugin-s3/?=S3) из набора встроенных плагинов Gatsby. 
+Чтобы собрать и загрузить рабочую версию сайта в бакет, воспользуйтесь консольной утилитой [AWS CLI](https://aws.amazon.com/ru/cli/) и специальным [плагином S3](https://www.gatsbyjs.com/plugins/gatsby-plugin-s3/?=S3) из набора встроенных плагинов Gatsby.
 
 ### Настройте AWS CLI
 
@@ -504,7 +504,7 @@ keywords:
 
          Где:
          * `domains` — список доменов, для которых нужно создать сертификат. В данном примере это `gatsbytest.ru`.
-         * `challenge_type` — [тип проверки прав на домен](../../certificate-manager/concepts/challenges.md), которую нужно [пройти](../../certificate-manager/operations/managed/cert-validate.md) владельцу домена. 
+         * `challenge_type` — [тип проверки прав на домен](../../certificate-manager/concepts/challenges.md), которую нужно [пройти](../../certificate-manager/operations/managed/cert-validate.md) владельцу домена.
 
       1. Создайте ресурсы:
 
@@ -625,7 +625,7 @@ keywords:
        1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_https }}**.
        1. В отобразившейся панели справа нажмите кнопку **{{ ui-key.yacloud.storage.bucket.https.button_empty-action }}**.
        1. В поле **{{ ui-key.yacloud.storage.bucket.https.field_source }}** выберите **{{ ui-key.yacloud.storage.bucket.https.value_method-certificate-manager }}**.
-       1. В поле **{{ ui-key.yacloud.storage.bucket.https.field_certificate }}** выберите сертификат в появившемся списке. 
+       1. В поле **{{ ui-key.yacloud.storage.bucket.https.field_certificate }}** выберите сертификат в появившемся списке.
        1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.https.button_save }}**.
 
    - {{ yandex-cloud }} CLI {#cli}
@@ -633,8 +633,8 @@ keywords:
       Выполните следующую команду:
 
       ```bash
-      yc storage bucket set-https --name <имя_бакета> --certificate-id <идентификатор_сертификата> 
-      ```  
+      yc storage bucket set-https --name <имя_бакета> --certificate-id <идентификатор_сертификата>
+      ```
 
       Где:
       * `--name` — имя бакета, в данном примере это `gatsbytest.ru`;
@@ -674,9 +674,9 @@ keywords:
         ```bash
         terraform validate
         ```
-     
+
         Если конфигурация является корректной, появится сообщение:
-     
+
         ```bash
         Success! The configuration is valid.
         ```
@@ -686,7 +686,7 @@ keywords:
         ```bash
         terraform plan
         ```
-  
+
         В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
 
      1. Примените изменения конфигурации:
@@ -694,7 +694,7 @@ keywords:
         ```bash
         terraform apply
         ```
-     
+
      1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
 
         Проверить выбранный сертификат можно в [консоли управления]({{ link-console-main }}).
@@ -707,11 +707,11 @@ keywords:
 
 1. Проверьте, что сайт теперь доступен по защищенному протоколу, перейдя по адресу:
 
-```
-https://<имя_бакета>
-```
+   ```
+   https://<имя_бакета>
+   ```
 
-Где `<имя_бакета>` — имя бакета, в примере это `gatsbytest.ru`
+   Где `<имя_бакета>` — имя бакета, в примере это `gatsbytest.ru`
 
 {% note info %}
 

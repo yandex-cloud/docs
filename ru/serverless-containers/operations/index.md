@@ -44,6 +44,7 @@ description: "Из статьи вы узнаете, как работать с 
 * [{#T}](./network-add.md)
 * [{#T}](./lockbox-secret-transmit.md)
 * [Смонтировать бакеты](./mount-bucket.md)
+* [Смонтировать эфемерный диск](./mount-ephemeral-disk.md)
 * [Добавить метку](./label-add.md)
 * [Изменить метку](./label-update.md)
 * [Удалить метку](./label-delete.md)

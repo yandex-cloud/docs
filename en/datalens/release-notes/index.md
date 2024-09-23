@@ -1,5 +1,5 @@
 ---
-title: "{{ datalens-full-name }} release notes for July 2024"
+title: "{{ datalens-full-name }} release notes: July 2024"
 description: "Check out {{ datalens-full-name }} release notes for July 2024."
 ---
 
@@ -21,7 +21,7 @@ You can configure additional control buttons for widgets with one or more select
 * **Apply button**: Applies the values of all selectors in the widget. The selector values are not applied until you click the button.
 * **Reset button**: Resets the values of all selectors in the widget to their defaults.
 
-For a widget with multiple selectors, you can configure their order and layout. You can set the width of each selector in pixels or as a percentage of the widget's total width. Specifying `100%` for each selector will create a vertical group. For more information, see [{#T}](../operations/dashboard/add-selector.md).
+For a widget with multiple selectors, you can configure their order and layout. You can set the width of each selector in pixels or as a percentage of the widget's total width. Putting `100%` for each selector will create a vertical group. For more information, see [{#T}](../operations/dashboard/add-selector.md).
 
 ![screenshot](../../_assets/datalens/dashboard/dashboard-group-selectors.svg)
 

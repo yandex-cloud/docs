@@ -5,27 +5,27 @@ Returns the configuration of static website hosting for a bucket.
 
 ## Request {#request}
 
-```
+```http
 GET /{bucket}?website HTTP/2
 ```
 
 ### Path parameters {#path-parameters}
 
-| Parameter | Description |
+Parameter | Description
 ----- | -----
-| `bucket` | Bucket name. |
+`bucket` | Bucket name.
 
 
 ### Query parameters {#request-params}
 
-| Parameter | Description |
+Parameter | Description
 ----- | -----
-| `website` | Required parameter that indicates the type of operation. |
+`website` | Required parameter that indicates the type of operation.
 
 
 ### Headers {#request-headers}
 
-Use the appropriate [common headers](../common-request-headers.md) in your requests.
+Use the appropriate [common headers](../common-request-headers.md) in your request.
 
 
 ## Response {#response}

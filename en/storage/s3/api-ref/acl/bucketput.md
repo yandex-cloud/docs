@@ -4,31 +4,31 @@ Uploads an access control list for a bucket.
 
 {% note info %}
 
-ACLs can be uploaded as XML documents or using special `X-Amz-Grant*` headers. Don't use XML documents and `X-Amz-Grant*` headers in the same request.
+An ACL can be uploaded as an XML document or using special `X-Amz-Grant*` headers. Do not use an XML document and `X-Amz-Grant*` headers in the same request.
 
 {% endnote %}
 
 ## Request {#request}
 
-```
+```http
 PUT /{bucket}?acl HTTP/2
 ```
 
 ### Path parameters {#path-parameters}
 
-| Parameter | Description |
+Parameter | Description
 ----- | -----
-| `bucket` | Bucket name. |
+`bucket` | Bucket name.
 
 ### Query parameters {#request-params}
 
-| Parameter | Description |
+Parameter | Description
 ----- | -----
-| `acl` | Required parameter that indicates the type of operation. |
+`acl` | Required parameter that indicates the type of operation.
 
 ### Headers {#request-headers}
 
-Use the appropriate [common headers](../common-request-headers.md) in your requests.
+Use the appropriate [common headers](../common-request-headers.md) in your request.
 
 You can also use the headers listed below.
 

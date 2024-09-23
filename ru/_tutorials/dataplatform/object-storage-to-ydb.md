@@ -105,8 +105,8 @@
     * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.RenameTablesTransformer.rename_tables.array_item_label }}** — `table1`.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.result_schema.title }}** — выберите `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageDataSchema.data_schema.title }}` и укажите имена полей и тип данных:
 
-        * `Id` : `Int64`;
-        * `Name` : `UTF8`.
+        * `Id`: `Int64`;
+        * `Name`: `UTF8`.
 
     Остальные параметры оставьте по умолчанию.
 

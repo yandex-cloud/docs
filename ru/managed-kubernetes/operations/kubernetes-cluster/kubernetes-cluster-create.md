@@ -238,7 +238,7 @@
 
 ### Создание зонального кластера {{ managed-k8s-name }} {#example-zonal-cluster}
 
-  Создайте кластер {{ managed-k8s-name }} и сеть для него с тестовыми характеристиками:
+ Создайте кластер {{ managed-k8s-name }} и сеть для него с тестовыми характеристиками:
 
   * Название — `k8s-zonal`.
   * Идентификатор [каталога](../../../resource-manager/concepts/resources-hierarchy.md#folder) — `{{ tf-folder-id }}`.
@@ -253,7 +253,7 @@
   * [Ключ шифрования](../../concepts/encryption.md) {{ kms-full-name }} — `kms-key`.
   * [Группа безопасности](../../../vpc/concepts/security-groups.md) — `k8s-public-services`. Она содержит [правила для подключения к сервисам из интернета](../connect/security-groups.md#rules-nodes).
 
-  Установите {{ TF }} (если он еще не установлен) и настройте провайдер по [инструкции](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), а затем примените конфигурационный файл:
+Установите {{ TF }} (если он еще не установлен) и настройте провайдер по [инструкции](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), а затем примените конфигурационный файл:
 
 {% list tabs group=instructions %}
 
@@ -389,7 +389,7 @@
 
 ### Создание регионального кластера {{ managed-k8s-name }} {#example-regional-cluster}
 
-  Создайте кластер {{ managed-k8s-name }} и сеть для него с тестовыми характеристиками:
+Создайте кластер {{ managed-k8s-name }} и сеть для него с тестовыми характеристиками:
 
   * Название — `k8s-regional`.
   * Идентификатор каталога — `{{ tf-folder-id }}`.
@@ -414,7 +414,7 @@
   * [Ключ шифрования](../../concepts/encryption.md) {{ kms-full-name }} — `kms-key`.
   * Группа безопасности — `regional-k8s-sg`. Она содержит [правила для служебного трафика](../connect/security-groups.md#rules-internal).
 
-  Установите {{ TF }} (если он еще не установлен) и настройте провайдер по [инструкции](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), а затем примените конфигурационный файл:
+Установите {{ TF }} (если он еще не установлен) и настройте провайдер по [инструкции](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), а затем примените конфигурационный файл:
 
 {% list tabs group=instructions %}
 

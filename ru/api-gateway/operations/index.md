@@ -56,4 +56,4 @@ description: "Из статьи вы узнаете, как работать с 
 * [{{ yds-name }}](spec-constructor/datastreams.md)
 * [{{ ydb-name }}](spec-constructor/ydb.md)
 * [{{ ml-platform-name }}](spec-constructor/datasphere.md)
-* [{{ yagpt-name }}](spec-constructor/yagpt.md)
+* [{{ yagpt-full-name }}](spec-constructor/yagpt.md)
