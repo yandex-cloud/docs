@@ -1,6 +1,6 @@
 # Request handler for a function in Python
 
-A _request handler_ is a method used to process each Python function call. When creating a function version, you should specify the entry point that consists of the file name and the request handler name, e.g., `main.handler`. The name of the handler file must contain no `.` before the extension, e.g., `.handler.py`.
+A _request handler_ is a method used to process each Python function call. When creating a function version, you should specify the entry point that consists of the file name and the request handler name, e.g., `main.handler`. The name of the handler file must not contain any `.` before the extension, e.g., `.handler.py`.
 
 {% note info %}
 
@@ -9,35 +9,35 @@ At any given time, a single function instance processes only one request. This a
 {% endnote %}
 
 When invoking the handler, the runtime provides the following arguments:
-1. Request body (`event` parameter):
-   * If the request body is a [JSON document](../../concepts/function-invoke.md#request), it will be converted to `dict` using the `json.loads` method.
-   * If a function was invoked with the `?integration=raw` request string parameter, the HTTP request body is provided to the function as is (unprocessed).
-1. [Invocation context](context.md) (`context` parameter).
+1. Request body (the `event` parameter):
+    * If the request body is a [JSON document](../../concepts/function-invoke.md#request), it will be converted to `dict` using the `json.loads` method.
+    * If a function was invoked with the `?integration=raw` request string parameter, the HTTP request body is provided to the function as is (unprocessed).
+1. [Invocation context](context.md) (the `context` parameter). 
 
-   The context contains the requred information about the function version. The structure of this object is described in [{#T}](context.md).
-
+    The context contains the requred information about the function version. The structure of this object is described in [{#T}](context.md).
+    
 ## Handler types {#type}
 
 A function can use both synchronous and asynchronous request handlers.
 
 ## Synchronous handler {#sync}
 
-To have the output returned, use the `return` statement or raise an exception using the `raise` statement. A synchronous function must return a result or throw an exception.
+To have the execution result returned, use the `return` statement or throw an exception using the `raise` statement. A synchronous function must return a result or throw an exception.
 
 ## Asynchronous handler {#async}
 
-A handler can be an `async def` asynchronous function. In this case you can use the following statements:
+A handler can be an `async def` asynchronous function. In this case, you can use the following statements: 
 * `return`: Returns the function response.
 * `raise`: Reports an error to the runtime environment.
 * `await`: Tracks the execution of asynchronous function invocations.
 
 {% note info %}
 
-The service only supports the `asyncio` library as a runtime environment for asynchronous functions.
+Only the `asyncio` library is supported as a runtime environment for asynchronous functions. 
 
 {% endnote %}
 
-For more information about development using `async/await`, see the [relevant documentation section](https://docs.python.org/3.7/library/asyncio.html).
+For more information about the development process using `async/await`, see the [relevant documentation section](https://docs.python.org/3.7/library/asyncio.html).
 
 ## Examples {#examples}
 
@@ -56,7 +56,7 @@ def handler(event, context):
             {
                 'event': event,
                 'context': context,
-            },
+            }, 
             default=vars,
         ),
     }
@@ -64,7 +64,7 @@ def handler(event, context):
 
 Function invocation example:
 
-```
+```bash
 curl --data '{"hello": "world"}' -H 'Content-Type: application/json' https://{{ sf-url }}/<function_ID>?param=one
 ```
 

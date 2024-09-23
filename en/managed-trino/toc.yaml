@@ -1,0 +1,13 @@
+title: '{{ mtr-full-name }}'
+href: index.yaml
+label:
+  title: RU
+  description: The service is only available in the Russia region.
+  theme: unknown
+  when: region == "kz"
+stage: preview
+noIndex: true
+items:
+  - name: Pricing policy
+    href: pricing.md
+base: en/managed-trino

@@ -14,7 +14,7 @@ items:
         href: operations/index.md
       - name: Creating an API gateway
         href: operations/api-gw-create.md
-      - name: Managing API gateways
+      - name: Managing an API gateway
         items:
           - name: Updating API gateways and their specifications
             href: operations/api-gw-update.md
@@ -70,7 +70,7 @@ items:
             href: operations/trigger/data-streams-trigger-create.md
           - name: Creating an email trigger
             href: operations/trigger/mail-trigger-create.md
-      - name: Managing triggers
+      - name: Managing a trigger
         items:
           - name: Updating a trigger
             href: operations/trigger/trigger-update.md
@@ -90,7 +90,7 @@ items:
             href: operations/spec-constructor/object-storage.md
           - name: '{{ serverless-containers-name }}'
             href: operations/spec-constructor/containers.md
-          - name: HTTP Access
+          - name: Access over HTTP
             href: operations/spec-constructor/http.md
           - name: '{{ message-queue-name }}'
             href: operations/spec-constructor/ymq.md
@@ -134,6 +134,10 @@ items:
         href: tutorials/jwt-authorizer-firebase.md
       - name: Canary release of a {{ sf-name }} function
         href: tutorials/canary-release.md
+      - name: >-
+          Using {{ api-gw-name }} to set up speech synthesis in {{
+          speechkit-full-name }}
+        href: tutorials/speechkit-integrarion-via-agi-gw.md
   - name: Concepts
     items:
       - name: Resource relationships
@@ -148,7 +152,7 @@ items:
             items:
               - name: Static response
                 href: concepts/extensions/dummy.md
-              - name: HTTP Access
+              - name: Access over HTTP
                 href: concepts/extensions/http.md
               - name: '{{ sf-name }}'
                 href: concepts/extensions/cloud-functions.md

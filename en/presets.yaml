@@ -93,6 +93,7 @@ default:
   cloud-logging-name: Cloud Logging
   cloud-logging-short-name: Cloud Logging
   cloud-logs-name: Cloud Logs
+  cloud-notify-bot: YandexCloudNotify_bot
   cluster-id: cat0adul1fj0********
   cname-example: cl-msa87*****.edgecdn.ru
   coi: Container Optimized Image
@@ -423,6 +424,8 @@ default:
   MS: SQL Server
   ms:
     docs: https://docs.microsoft.com/en-us
+  mtr-full-name: Yandex Managed Service for Trino
+  mtr-name: Managed Service for Trino
   MY: MySQL
   my:
     docs: https://dev.mysql.com/doc
@@ -704,6 +707,7 @@ default:
   tf-provider-mrd: https://terraform-provider.yandexcloud.net/Resources/mdb_redis_cluster
   tf-provider-resources-link: https://terraform-provider.yandexcloud.net/Resources
   TF-version: '0.90'
+  TR: Trino
   tracker-full-name: Yandex Tracker
   tracker-name: Tracker
   tracker-short-name: Tracker
@@ -6943,6 +6947,9 @@ default:
             button_action-delete: Delete
             button_action-edit: 'Edit '
             button_add: Create service account
+            column_date: Date created
+            column_last-auth: Date of last authentication
+            column_name: Name
             column_roles: Roles in folder
             popup-confirm_button_delete: Delete
           switch_dashboard: Folder dashboard
@@ -8289,6 +8296,7 @@ default:
           button_action-edit: Edit
           label_document-endpoint: Document API endpoint
           label_endpoint: Endpoint
+          label_kinesis-endpoint: Kinesis API endpoint
           label_serverless-billing: Pricing
           label_serverless-limits: Limits
           section_connection: Connection

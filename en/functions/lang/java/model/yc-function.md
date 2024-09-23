@@ -18,7 +18,7 @@ public class Handler implements YcFunction<Integer, String> {
 
 {% note warning %}
 
-Specify both values for `YcFunction` type parameters: the first one is for the input argument type, while the second one, for the return value type. For the `handle` method, make sure to provide the [invocation context](../context.md) as its second argument.
+Specify two values for `YcFunction` type parameters: the first one represents the input argument type, the second one, the return value type. For the `handle` method, make sure to provide the [invocation context](../context.md) as its second argument.
 
 {% endnote %}
 
@@ -40,7 +40,7 @@ public class Handler<T> implements YcFunction<T, Integer> {
 ```java
 import yandex.cloud.sdk.functions.YcFunction;
 import yandex.cloud.sdk.functions.Context;
-// YcFunction does not have both parameter types specified
+// YcFunction has neither parameter types specified
 public class Handler implements YcFunction {
   @Override
   public Object apply(Object i, Context c) {
@@ -67,7 +67,7 @@ To invoke the function, use the [{{ yandex-cloud }} CLI](../../../concepts/funct
 
 {% endnote %}
 
-`Handler.java`:
+`Handler.java` file:
 ```java
 import yandex.cloud.sdk.functions.YcFunction;
 import yandex.cloud.sdk.functions.Context;
@@ -91,13 +91,13 @@ public class Handler implements YcFunction<Integer, Boolean> {
 
 Example of input data:
 
-```
+```text
 41
 ```
 
 The log will contain the following:
 
-```
+```text
 Function name: <function_name>
 Function version: <function_version_ID>
 Service account token: <service_account_token>
@@ -105,6 +105,6 @@ Service account token: <service_account_token>
 
 Returned string:
 
-```
+```text
 false
 ```

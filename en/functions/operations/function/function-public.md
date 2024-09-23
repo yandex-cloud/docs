@@ -6,92 +6,92 @@ To allow any user to invoke a function without passing an authorization header, 
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder containing your function.
-   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-   1. Select the function you want to make public.
-   1. On the **{{ ui-key.yacloud.serverless-functions.item.overview.label_title }}** page, enable **{{ ui-key.yacloud.serverless-functions.item.overview.label_all-users-invoke }}**.
-
+    1. In the [management console]({{ link-console-main }}), go to the folder the function is in.
+    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. Select the function you want to make public.
+    1. On the **{{ ui-key.yacloud.serverless-functions.item.overview.label_title }}** page, enable **{{ ui-key.yacloud.serverless-functions.item.overview.label_all-users-invoke }}**.
+    
 - CLI {#cli}
 
-   {% include [cli-install](../../../_includes/cli-install.md) %}
+    {% include [cli-install](../../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-   To make a function public, run the command:
+    To make a function public, run the command:
+    
+    ```bash
+    yc serverless function allow-unauthenticated-invoke <function_name>
+    ```
 
-   ```
-   yc serverless function allow-unauthenticated-invoke <function_name>
-   ```
+    Result:
 
-   Result:
-
-   ```
-   done (1s)
-   ```
+    ```text
+    done (1s)
+    ```
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
-   {% include [terraform-install](../../../_includes/terraform-install.md) %}
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-   To make a function public:
+  To make a function public:
 
-   1. Describe the properties of the function access rights in a configuration file:
+  1. Describe the properties of the function access rights in a configuration file:
 
-      ```
-      resource "yandex_function_iam_binding" "function-iam" {
-        function_id = "<function_ID>"
-        role        = "{{ roles-functions-invoker }}"
-        members = [
-          "system:allUsers",
-        ]
-      }
-      ```
+     ```hcl
+     resource "yandex_function_iam_binding" "function-iam" {
+       function_id = "<function_ID>"
+       role        = "{{ roles-functions-invoker }}"
+       members = [
+         "system:allUsers",
+       ]
+     }
+     ```
 
-      Where:
+     Where:
 
-      * `function_id`: Function ID. To find out the function ID, [get a list of functions](function-list.md) in the folder.
-      * `role`: Role to be assigned.
-      * `members`: List of users to assign the role to.
+     * `function_id`: Function ID. To find out the function ID, [get a list of functions](function-list.md) in the folder.
+     * `role`: Role to assign.
+     * `members`: List of users to assign the role to.
 
-         To make a function public, assign the `{{ roles-functions-invoker }}` role to all unauthorized users (the `All users` [public group](../../../iam/concepts/access-control/public-group.md)).
+        To make a function public, assign the `{{ roles-functions-invoker }}` role to all unauthorized users ([`All users` public group](../../../iam/concepts/access-control/public-group.md)).
 
-      For more information about the parameters of the `yandex_function_iam_binding` resource, see the [provider documentation]({{ tf-provider-resources-link }}/function_iam_binding).
+     For more information about the `yandex_function_iam_binding` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/function_iam_binding).
 
-   1. Check the configuration using this command:
+  1. Check the configuration using this command:
 
-      ```bash
-      terraform validate
-      ```
+     ```bash
+     terraform validate
+     ```
 
-      If the configuration is correct, you will get this message:
+     If the configuration is correct, you will get this message:
 
-      ```text
-      Success! The configuration is valid.
-      ```
+     ```text
+     Success! The configuration is valid.
+     ```
 
-   1. Run this command:
+  1. Run this command:
 
-      ```bash
-      terraform plan
-      ```
+     ```bash
+     terraform plan
+     ```
 
-      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out. 
 
-   1. Apply the configuration changes:
+  1. Apply the configuration changes:
 
-      ```bash
-      terraform apply
-      ```
+     ```bash
+     terraform apply
+     ```
 
-   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+  1. Confirm the changes: type `yes` into the terminal and click **Enter**.
 
-      You can check that the function role has been assigned using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
+     You can check the assignment of the function role using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
-      ```bash
-      yc serverless function list-access-bindings <function_name>
-      ```
+     ```bash
+     yc serverless function list-access-bindings <function_name>
+     ```
 
 - API {#api}
 

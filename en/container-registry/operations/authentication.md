@@ -6,8 +6,8 @@ description: "Before you start using {{ container-registry-name }}, you need to 
 # Authentication in {{ container-registry-name }}
 
 Before you start using {{ container-registry-name }}, you need to [configure Docker](./configure-docker.md) and get authenticated to use the appropriate interface:
-* In the **Management console**, the minimum required [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) [role](../../iam/concepts/access-control/roles.md) is `viewer`.
-* In the **Docker CLI** or **{{ managed-k8s-full-name }}**, the minimum required role for the [registry](../concepts/registry.md) or [repository](../concepts/repository.md) is `container-registry.images.puller`.
+* In the **management console**, the minimum required [role](../../iam/concepts/access-control/roles.md) for a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) is `viewer`.
+* In the **Docker CLI** or **{{ managed-k8s-full-name }}**, the minimum required role for a [registry](../concepts/registry.md) or [repository](../concepts/repository.md) is `container-registry.images.puller`.
 
 Assign the required role to the {{ yandex-cloud }} user. Read about [authentication methods](#method) and choose the appropriate one.
 
@@ -18,69 +18,69 @@ For more information about roles, see [{#T}](../security/index.md).
 
 You can authenticate:
 
-* As a user:
-   * [Using an OAuth token](#user-oauth) (with a 12-month lifetime).
-   * [Using an {{ iam-full-name }} token](#user-iam) (with a {{ iam-token-lifetime }} lifetime or less).
+* [As a user](#user):
+  * Using an OAuth token (with a 12-month lifetime).
+  * Using an IAM token (with a {{ iam-token-lifetime }} lifetime or less).
 
 * [Using a Docker credential helper](#cred-helper).
 
 ## Authenticating as a user {#user}
 
-{% note warning %}
+{% list tabs group=registry_auth %}
 
-To get authenticated in {{ container-registry-name }} using the `docker login` command, [disable Docker credential helper](#ch-not-use). For more information, see [Troubleshooting in {{ container-registry-name }}](../error/index.md).
+- Using an OAuth token {#oauth-token}
 
-{% endnote %}
+  {% note info %}
 
-The authentication command looks like this:
+  {% include [oauth-token-lifetime](../../_includes/oauth-token-lifetime.md) %}
 
-```bash
-echo <token> | docker login \
-  --username <token_type> \
-  --password-stdin \
-  {{ registry }}
-```
+  {% endnote %}
 
-Where:
-* `--username`: Token type. The possible values are `oauth` or `iam`.
-* `<token>`: Token body.
-* `{{ registry }}`: The endpoint that Docker will access when working with the image registry. If it not specified, the request will be sent to [Docker Hub](https://hub.docker.com) as the default service.
+  1. If you do not have Docker yet, [install it](./configure-docker.md).
+  1. If you do not have an OAuth token yet, get one by following [this link]({{ link-cloud-oauth }}).
+  1. Run this command:
 
-### Authentication using an OAuth token {#user-oauth}
+     ```bash
+     echo <OAuth_token> | docker login \
+       --username oauth \
+       --password-stdin \
+      {{ registry }}
+     ```
 
-{% note info %}
+      Where:
+      * `<OAuth_token>`: Body of the previously obtained OAuth token.
+      * `--username`: Token type. `oauth` means that an OAuth token is used for authentication.
+      * `{{ registry }}`: The endpoint that Docker will access when working with the image registry. If it not specified, the request will be sent to [Docker Hub](https://hub.docker.com) as the default service.
 
-{% include [oauth-token-lifetime](../../_includes/oauth-token-lifetime.md) %}
+- Using an IAM token {#iam-token}
 
-{% endnote %}
+  {% note info %}
 
-1. If you do not have an OAuth token yet, get one by following [this link]({{ link-cloud-oauth }}).
-1. Run this command:
+  {% include [iam-token-note](../../_includes/iam/iam-token-note.md) %}
 
-   ```bash
-   echo <OAuth_token> | docker login \
-     --username oauth \
-     --password-stdin \
-     {{ registry }}
-   ```
+  {% endnote %}
 
-### Authentication using an {{ iam-name }} token {#user-iam}
+  1. If you do not have Docker yet, [install it](./configure-docker.md).
+  1. Get an [IAM token](../../iam/operations/iam-token/create.md).
+  1. Run this command:
 
-{% note info %}
+      ```bash
+      echo <IAM_token> | docker login \
+        --username iam \
+        --password-stdin \
+        {{ registry }}
+      ```
 
-{% include [iam-token-note](../../_includes/iam/iam-token-note.md) %}
+      Where:
+      * `<IAM_token>`: Body of the previously obtained IAM token.
+      * `--username`: Token type. `iam` means that an IAM token is used for authentication.
+      * `{{ registry }}`: The endpoint that Docker will access when working with the image registry. If it not specified, the request will be sent to [Docker Hub](https://hub.docker.com) as the default service.
 
-{% endnote %}
+{% endlist %}
 
-1. [Get an {{ iam-name }} token](../../iam/operations/iam-token/create.md).
-1. Run this command:
+When running the command, you may get this error message: `docker login is not supported with yc credential helper`.
 
-   ```bash
-   echo <IAM_token> | docker login \
-     --username iam \
-     --password-stdin \
-     {{ registry }}
-   ```
+In such a case, [disable Docker credential helper](#ch-not-use). For more information, see [Troubleshooting in {{ container-registry-name }}](../error/index.md).
 
 ## Authenticate using a Docker credential helper {#cred-helper}
 
@@ -110,13 +110,13 @@ The Docker Engine can keep user credentials in an external credentials store. Th
 
    {% note warning %}
 
-   Credential helper only works when using Docker without `sudo`. You can learn how to configure Docker to run under current user without `sudo` in the [official documentation](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user).
+   The credential helper only works if you use Docker without `sudo`. To learn how to configure Docker to run under the current user without `sudo`, see the [official documentation](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user).
 
    {% endnote %}
 
 1. Make sure that Docker is configured.
 
-   The `${HOME}/.docker/config.json` configuration file must include the following line:
+   The following line must appear in the `${HOME}/.docker/config.json` configuration file:
 
    ```json
    "{{ registry }}": "yc"
@@ -138,4 +138,4 @@ For more information about {{ yandex-cloud }} CLI profile management, see the [s
 
 #### Disabling a credential helper {#ch-not-use}
 
-To avoid using a credential helper for authentication, edit the `${HOME}/.docker/config.json` configuration file to remove the `{{ registry }}` domain line under `credHelpers`.
+To avoid using a credential helper for authentication, edit the `${HOME}/.docker/config.json` configuration file to delete the `{{ registry }}` domain line from the `credHelpers` section.

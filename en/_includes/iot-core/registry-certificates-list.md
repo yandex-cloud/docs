@@ -15,13 +15,13 @@
 
   Get a list of registry certificates:
 
-  ```
+  ```bash
   yc iot registry certificate list --registry-name my-registry
   ```
 
   Result:
 
-  ```
+  ```text
   +------------------------------------------+---------------------+
   |               FINGERPRINT                |     CREATED AT      |
   +------------------------------------------+---------------------+

@@ -22,7 +22,7 @@ items:
         href: operations/publish.md
       - name: Subscribing a device or registry to receive messages
         href: operations/subscribe.md
-      - name: Exporting messages to {{ yds-name}}
+      - name: Exporting messages to {{ yds-name }}
         href: operations/yds-export.md
       - name: Viewing the connection log
         href: operations/logs.md
@@ -114,7 +114,7 @@ items:
             href: concepts/topic/subtopic.md
           - name: Using topics
             href: concepts/topic/usage.md
-      - name: Backups
+      - name: Backup
         href: concepts/backup.md
       - name: Quotas and limits
         href: concepts/limits.md

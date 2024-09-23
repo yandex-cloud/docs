@@ -52,7 +52,7 @@ items:
             href: operations/function/function-info.md
           - name: Getting information about a function version
             href: operations/function/version-info.md
-      - name: Managing rights to access functions
+      - name: Managing permissions to access a function
         items:
           - name: Making a function public
             href: operations/function/function-public.md
@@ -78,7 +78,7 @@ items:
             href: operations/function/function-invoke-async.md
           - name: Authenticating when invoking a private function via HTTPS
             href: operations/function/auth.md
-      - name: Managing functions
+      - name: Managing a function
         items:
           - name: Updating a function
             items:
@@ -98,7 +98,7 @@ items:
             href: operations/function/environment-variables-add.md
           - name: Specifying a cloud network
             href: operations/function/network-add.md
-          - name: Transmitting {{ lockbox-full-name }} secrets
+          - name: Transferring {{ lockbox-full-name }} secrets
             href: operations/function/lockbox-secret-transmit.md
           - name: Allocating memory for the /tmp directory
             href: operations/function/allocate-memory-tmp.md
@@ -108,7 +108,7 @@ items:
             items:
               - name: Adding a tag
                 href: operations/function/tag-add.md
-              - name: Removing a tag
+              - name: Deleting a tag
                 href: operations/function/tag-delete.md
           - name: Managing labels
             items:
@@ -160,7 +160,7 @@ items:
             href: operations/trigger/data-streams-trigger-create.md
           - name: Creating an email trigger
             href: operations/trigger/mail-trigger-create.md
-      - name: Managing triggers
+      - name: Managing a trigger
         items:
           - name: Updating a trigger
             href: operations/trigger/trigger-update.md
@@ -230,7 +230,7 @@ items:
         href: concepts/dlq.md
       - name: Function logs
         href: concepts/logs.md
-      - name: Backups
+      - name: Backup
         href: concepts/backup.md
       - name: Quotas and limits
         href: concepts/limits.md
@@ -442,7 +442,7 @@ items:
         href: tutorials/regular-launch-datasphere.md
       - name: Interactive debugging of functions
         href: tutorials/serverless-live-debug.md
-      - name: Regular recognition of audio files in {{ objstorage-name }} buckets
+      - name: Regular recognition of audio files in an {{ objstorage-name }} bucket
         href: tutorials/batch-recognition-stt.md
       - name: Canary release of a {{ sf-name }} function
         href: tutorials/canary-release.md
@@ -452,6 +452,8 @@ items:
           Creating a trigger that invokes a function to stop VM instances and
           send a Telegram notification
         href: tutorials/serverless-trigger-budget-queue-vm-tg.md
+      - name: Scheduled scaling of instance groups
+        href: tutorials/vm-scale-scheduled.md
       - name: Status monitoring of geographically distributed devices
         href: tutorials/datalens.md
       - name: Monitoring sensor readings and event notifications

@@ -9,7 +9,7 @@ description: "Follow this guide to update a broker."
 
 You can change the [name](broker-update.md#update-name) and [description](broker-update.md#update-description) of a broker as well as [manage broker labels](broker-update.md#manage-label).
 
-To access a broker, use its unique ID or name. For information on retrieving the unique broker ID or name, see [{#T}](broker-list.md).
+To access a broker, use its unique ID or name. For info on how to get the unique broker ID or name, see [{#T}](broker-list.md).
 
 ## Updating the name of a broker {#update-name}
 
@@ -26,33 +26,33 @@ To access a broker, use its unique ID or name. For information on retrieving the
 
 - CLI {#cli}
 
-   {% include [cli-install](../../../_includes/cli-install.md) %}
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+    
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+  Update the name of a broker:
 
-   Update the name of a broker:
+  ```bash
+  yc iot broker update my-broker --new-name test-broker
+  ```
 
-   ```
-   yc iot broker update my-broker --new-name test-broker
-   ```
-
-   Result:
-   ```
-   id: b91ki3851h**********
-   folder_id: aoek49ghmk**********
-   created_at: "2019-05-28T11:29:42.420Z"
-   name: test-broker
-   ```
+  Result:
+  ```text
+  id: b91ki3851h**********
+  folder_id: aoek49ghmk**********
+  created_at: "2019-05-28T11:29:42.420Z"
+  name: test-broker
+  ```
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+  
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-   {% include [terraform-install](../../../_includes/terraform-install.md) %}
+  To update the name of a broker created using {{ TF }}:
 
-   To update the name of a broker created using {{ TF }}:
-
-   1. Open the {{ TF }} configuration file and edit the value of the `name` parameter in the fragment with the broker description.
+  1. Open the {{ TF }} configuration file and edit the value of the `name` parameter in the fragment with the broker description.
 
       Example broker description in the {{ TF }} configuration:
 
@@ -65,36 +65,36 @@ To access a broker, use its unique ID or name. For information on retrieving the
       }
       ```
 
-      For more information about the `yandex_iot_core_broker` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iot_core_broker).
-   1. In the command line, change to the folder where you edited the configuration file.
-   1. Make sure the configuration file is correct using this command:
+      For more information about the `yandex_iot_core_broker` parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iot_core_broker).
+  1. In the command line, change to the folder where you edited the configuration file.
+  1. Make sure the configuration file is correct using this command:
 
       ```bash
       terraform validate
       ```
 
       If the configuration is correct, you will get this message:
-
+     
       ```bash
       Success! The configuration is valid.
       ```
 
-   1. Run this command:
+  1. Run this command:
 
       ```bash
       terraform plan
       ```
 
       The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
-   1. Apply the configuration changes:
+  1. Apply the configuration changes:
 
       ```bash
       terraform apply
       ```
 
-   1. Confirm the changes: type `yes` in the terminal and press **Enter**.
+  1. Confirm the changes made: type `yes` into the terminal and press **Enter**.
 
-      You can verify the updated broker name in the [management console]({{ link-console-main }}) or using the following [CLI](../../../cli/quickstart.md) command:
+      You can check the updated broker name in the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/quickstart.md) command:
 
       ```bash
       yc iot broker list
@@ -102,7 +102,7 @@ To access a broker, use its unique ID or name. For information on retrieving the
 
 - API {#api}
 
-   To rename a broker, use the [update](../../broker/api-ref/Broker/update.md) REST API method for the [Broker](../../broker/api-ref/Broker/index.md) resource or the [BrokerService/Update](../../broker/api-ref/grpc/broker_service.md#Update) gRPC API call.
+  To rename a broker, use the [update](../../broker/api-ref/Broker/update.md) REST API method for the [Broker](../../broker/api-ref/Broker/index.md) resource or the [BrokerService/Update](../../broker/api-ref/grpc/broker_service.md#Update) gRPC API call.
 
 {% endlist %}
 
@@ -123,34 +123,34 @@ To access a broker, use its unique ID or name. For information on retrieving the
 
 - CLI {#cli}
 
-   {% include [cli-install](../../../_includes/cli-install.md) %}
+  {% include [cli-install](../../../_includes/cli-install.md) %}
 
-   Update the broker description:
+  Update the broker description:
 
-   ```
-   yc iot broker update my-broker --description "My test broker."
-   ```
+  ```bash
+  yc iot broker update my-broker --description "My test broker."
+  ```
 
-   Result:
-   ```
-   id: b91ki3851h**********
-   folder_id: aoek49ghmk**********
-   created_at: "2019-05-28T11:29:42.420Z"
-   name: my-broker
-   description: My test broker.
-   labels:
-     test_label: my_broker_label
-   ```
+  Result:
+  ```text
+  id: b91ki3851h**********
+  folder_id: aoek49ghmk**********
+  created_at: "2019-05-28T11:29:42.420Z"
+  name: my-broker
+  description: My test broker.
+  labels:
+    test_label: my_broker_label
+  ```
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+  
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-   {% include [terraform-install](../../../_includes/terraform-install.md) %}
+  To update the description of a broker created using {{ TF }}:
 
-   To update the description of a broker created using {{ TF }}:
-
-   1. Open the {{ TF }} configuration file and edit the value of the `description` parameter in the fragment with the broker description.
+  1. Open the {{ TF }} configuration file and edit the value of the `description` parameter in the fragment with the broker description.
 
       Example broker description in the {{ TF }} configuration:
 
@@ -163,36 +163,36 @@ To access a broker, use its unique ID or name. For information on retrieving the
       }
       ```
 
-      For more information about the `yandex_iot_core_broker` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iot_core_broker).
-   1. In the command line, change to the folder where you edited the configuration file.
-   1. Make sure the configuration file is correct using this command:
+      For more information about the `yandex_iot_core_broker` parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iot_core_broker).
+  1. In the command line, change to the folder where you edited the configuration file.
+  1. Make sure the configuration file is correct using this command:
 
       ```bash
       terraform validate
       ```
 
       If the configuration is correct, you will get this message:
-
+     
       ```bash
       Success! The configuration is valid.
       ```
 
-   1. Run this command:
+  1. Run this command:
 
       ```bash
       terraform plan
       ```
 
       The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
-   1. Apply the configuration changes:
+  1. Apply the configuration changes:
 
       ```bash
       terraform apply
       ```
 
-   1. Confirm the changes: type `yes` in the terminal and press **Enter**.
+  1. Confirm the changes made: type `yes` into the terminal and press **Enter**.
 
-      You can verify the updated broker description in the [management console]({{ link-console-main }}) or using the following [CLI](../../../cli/quickstart.md) command:
+      You can check the updated broker description in the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/quickstart.md) command:
 
       ```bash
       yc iot broker get <broker_name>
@@ -200,7 +200,7 @@ To access a broker, use its unique ID or name. For information on retrieving the
 
 - API {#api}
 
-   To update a broker description, use the [update](../../broker/api-ref/Broker/update.md) REST API method for the [Broker](../../broker/api-ref/Broker/index.md) resource or the [BrokerService/Update](../../broker/api-ref/grpc/broker_service.md#Update) gRPC API call.
+  To update a broker description, use the [update](../../broker/api-ref/Broker/update.md) REST API method for the [Broker](../../broker/api-ref/Broker/index.md) resource or the [BrokerService/Update](../../broker/api-ref/grpc/broker_service.md#Update) gRPC API call.
 
 {% endlist %}
 
@@ -227,40 +227,40 @@ You can perform the following actions with broker labels:
 
 - CLI {#cli}
 
-   {% include [cli-install](../../../_includes/cli-install.md) %}
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+    
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+  Add a label to a broker:
 
-   Add a label to a broker:
+  ```bash
+  yc iot broker add-labels my-broker --labels new_label=test_label
+  ```
 
-   ```
-   yc iot broker add-labels my-broker --labels new_label=test_label
-   ```
-
-   Result:
-   ```
-   id: b91ki3851h**********
-   folder_id: aoek49ghmk**********
-   created_at: "2019-05-28T11:29:42.420Z"
-   name: my-broker
-   labels:
-     new_label: test_label
-   ```
+  Result:
+  ```text
+  id: b91ki3851h**********
+  folder_id: aoek49ghmk**********
+  created_at: "2019-05-28T11:29:42.420Z"
+  name: my-broker
+  labels:
+    new_label: test_label
+  ```
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+  
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-   {% include [terraform-install](../../../_includes/terraform-install.md) %}
+  To add a label to a broker created using {{ TF }}:
 
-   To add a label to a broker created using {{ TF }}:
+  1. In the configuration file, describe the parameters of the resource to create:
 
-   1. In the configuration file, describe the parameters of the resource to create:
-
-      * `yandex_iot_core_broker`: Broker parameters:
-         * `name`: Broker name.
-         * `description`: Broker description.
-         * `labels`: Broker labels in `key:value` format.
+     * `yandex_iot_core_broker`: Broker parameters:
+       * `name`: Broker name.
+       * `description`: Broker description.
+       * `labels`: Broker labels in `key:value` format.
 
       Here is an example of the resource structure in the configuration file:
 
@@ -275,34 +275,34 @@ You can perform the following actions with broker labels:
       }
       ```
 
-      For more information about the `yandex_iot_core_broker` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iot_core_broker).
-   1. In the command line, change to the folder where you edited the configuration file.
-   1. Make sure the configuration file is correct using this command:
+      For more information about the `yandex_iot_core_broker` parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iot_core_broker).
+  1. In the command line, change to the folder where you edited the configuration file.
+  1. Make sure the configuration file is correct using this command:
 
       ```bash
       terraform validate
       ```
 
       If the configuration is correct, you will get this message:
-
+     
       ```bash
       Success! The configuration is valid.
       ```
 
-   1. Run this command:
+  1. Run this command:
 
       ```bash
       terraform plan
       ```
 
       The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
-   1. Apply the configuration changes:
+  1. Apply the configuration changes:
 
       ```bash
       terraform apply
       ```
 
-   1. Confirm the changes: type `yes` in the terminal and press **Enter**.
+  1. Confirm the changes made: type `yes` into the terminal and press **Enter**.
 
       You can verify broker labels using the following [CLI](../../../cli/quickstart.md) command:
 
@@ -312,11 +312,11 @@ You can perform the following actions with broker labels:
 
 - API {#api}
 
-   To add a label to a broker, use the [update](../../broker/api-ref/Broker/update.md) REST API method for the [Broker](../../broker/api-ref/Broker/index.md) resource or the [BrokerService/Update](../../broker/api-ref/grpc/broker_service.md#Update) gRPC API call.
+  To add a label to a broker, use the [update](../../broker/api-ref/Broker/update.md) REST API method for the [Broker](../../broker/api-ref/Broker/index.md) resource or the [BrokerService/Update](../../broker/api-ref/grpc/broker_service.md#Update) gRPC API call.
 
 {% endlist %}
 
-### Editing a label {#update-label}
+### Updating a label {#update-label}
 
 {% list tabs group=instructions %}
 
@@ -331,41 +331,41 @@ You can perform the following actions with broker labels:
 
 - CLI {#cli}
 
-   {% include [cli-install](../../../_includes/cli-install.md) %}
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+    
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+  Update a broker label:
 
-   Update a broker label:
+  {% note warning %}
 
-   {% note warning %}
+  The existing set of `labels` is completely overwritten by the one transmitted in the request.
 
-   The existing set of `labels` is completely overwritten by the one transmitted in the request.
+  {% endnote %}
 
-   {% endnote %}
+  ```bash
+  yc iot broker update my-broker --labels test_label=my_broker_label
+  ```
 
-   ```
-   yc iot broker update my-broker --labels test_label=my_broker_label
-   ```
-
-   Result:
-   ```
-   id: b91ki3851h**********
-   folder_id: aoek49ghmk**********
-   created_at: "2019-05-28T11:29:42.420Z"
-   name: my-broker
-   labels:
-     test_label: my_broker_label
-   ```
+  Result:
+  ```text
+  id: b91ki3851h**********
+  folder_id: aoek49ghmk**********
+  created_at: "2019-05-28T11:29:42.420Z"
+  name: my-broker
+  labels:
+    test_label: my_broker_label
+  ```
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+  
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-   {% include [terraform-install](../../../_includes/terraform-install.md) %}
+  To update the label of a broker created using {{ TF }}:
 
-   To update the label of a broker created using {{ TF }}:
-
-   1. Open the {{ TF }} configuration file and update the value of the label in the `labels` block, in the fragment with the broker description.
+  1. Open the {{ TF }} configuration file and update the label value in the `labels` section, in the fragment with the broker description.
 
       Example broker description in the {{ TF }} configuration:
 
@@ -380,34 +380,34 @@ You can perform the following actions with broker labels:
       }
       ```
 
-      For more information about the `yandex_iot_core_broker` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iot_core_broker).
-   1. In the command line, change to the folder where you edited the configuration file.
-   1. Make sure the configuration file is correct using this command:
+      For more information about the `yandex_iot_core_broker` parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iot_core_broker).
+  1. In the command line, change to the folder where you edited the configuration file.
+  1. Make sure the configuration file is correct using this command:
 
       ```bash
       terraform validate
       ```
 
       If the configuration is correct, you will get this message:
-
+     
       ```bash
       Success! The configuration is valid.
       ```
 
-   1. Run this command:
+  1. Run this command:
 
       ```bash
       terraform plan
       ```
 
       The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
-   1. Apply the configuration changes:
+  1. Apply the configuration changes:
 
       ```bash
       terraform apply
       ```
 
-   1. Confirm the changes: type `yes` in the terminal and press **Enter**.
+  1. Confirm the changes made: type `yes` into the terminal and press **Enter**.
 
       You can verify broker labels using the following [CLI](../../../cli/quickstart.md) command:
 
@@ -417,7 +417,7 @@ You can perform the following actions with broker labels:
 
 - API {#api}
 
-   To update a broker label, use the [update](../../broker/api-ref/Broker/update.md) REST API method for the [Broker](../../broker/api-ref/Broker/index.md) resource or the [BrokerService/Update](../../broker/api-ref/grpc/broker_service.md#Update) gRPC API call.
+  To update a broker label, use the [update](../../broker/api-ref/Broker/update.md) REST API method for the [Broker](../../broker/api-ref/Broker/index.md) resource or the [BrokerService/Update](../../broker/api-ref/grpc/broker_service.md#Update) gRPC API call.
 
 {% endlist %}
 
@@ -436,33 +436,33 @@ You can perform the following actions with broker labels:
 
 - CLI {#cli}
 
-   {% include [cli-install](../../../_includes/cli-install.md) %}
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+    
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+  Delete a broker label:
 
-   Delete a broker label:
+  ```bash
+  yc iot broker remove-labels my-broker --labels new_label
+  ```
 
-   ```
-   yc iot broker remove-labels my-broker --labels new_label
-   ```
-
-   Result:
-   ```
-   id: b91ki3851h**********
-   folder_id: aoek49ghmk**********
-   created_at: "2019-05-28T11:29:42.420Z"
-   name: my-broker
-   ```
+  Result:
+  ```text
+  id: b91ki3851h**********
+  folder_id: aoek49ghmk**********
+  created_at: "2019-05-28T11:29:42.420Z"
+  name: my-broker
+  ```
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+  
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-   {% include [terraform-install](../../../_includes/terraform-install.md) %}
+  To delete the label of a broker created using {{ TF }}:
 
-   To delete the label of a broker created using {{ TF }}:
-
-   1. Open the {{ TF }} configuration file and delete the value of the label in the `labels` block, in the fragment with the broker description. To remove all labels, delete the entire `labels` block.
+  1. Open the {{ TF }} configuration file and delete the value of the label in the `labels` section, in the fragment with the broker description. To delete all labels, delete the entire `labels` section.
 
       Example broker description in the {{ TF }} configuration:
 
@@ -477,34 +477,34 @@ You can perform the following actions with broker labels:
       }
       ```
 
-      For more information about the `yandex_iot_core_broker` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iot_core_broker).
-   1. In the command line, change to the folder where you edited the configuration file.
-   1. Make sure the configuration file is correct using this command:
+      For more information about the `yandex_iot_core_broker` parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iot_core_broker).
+  1. In the command line, change to the folder where you edited the configuration file.
+  1. Make sure the configuration file is correct using this command:
 
       ```bash
       terraform validate
       ```
 
       If the configuration is correct, you will get this message:
-
+     
       ```bash
       Success! The configuration is valid.
       ```
 
-   1. Run this command:
+  1. Run this command:
 
       ```bash
       terraform plan
       ```
 
       The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
-   1. Apply the configuration changes:
+  1. Apply the configuration changes:
 
       ```bash
       terraform apply
       ```
 
-   1. Confirm the changes: type `yes` in the terminal and press **Enter**.
+  1. Confirm the changes made: type `yes` into the terminal and press **Enter**.
 
       You can verify broker labels using the following [CLI](../../../cli/quickstart.md) command:
 
@@ -514,6 +514,6 @@ You can perform the following actions with broker labels:
 
 - API {#api}
 
-   To delete a broker label, use the [update](../../broker/api-ref/Broker/update.md) REST API method for the [Broker](../../broker/api-ref/Broker/index.md) resource or the [BrokerService/Update](../../broker/api-ref/grpc/broker_service.md#Update) gRPC API call.
+  To delete a broker label, use the [update](../../broker/api-ref/Broker/update.md) REST API method for the [Broker](../../broker/api-ref/Broker/index.md) resource or the [BrokerService/Update](../../broker/api-ref/grpc/broker_service.md#Update) gRPC API call.
 
 {% endlist %}

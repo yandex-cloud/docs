@@ -2,7 +2,7 @@
 
 You can define a Java handler by overriding the selected methods of the [HttpServlet](https://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServlet.html) class.
 
-{{ sf-name }} will automatically redirect each `HTTP` request to your handler depending on the `HTTP` method used to initiate the request. A `GET` request, for instance, will be redirected to your handler's `doGet` method, and a `POST` to `doPost`. For a redirect to be successful, these handler methods must exist, otherwise the function will return `HTTP method XXX is not supported by this URL` with code `405`.
+{{ sf-name }} will automatically redirect each `HTTP` request to your handler depending on the `HTTP` method used to initiate the request. A `GET` request, for instance, will be redirected to your handler's `doGet` method, and `POST`, to `doPost`. For a redirect to be successful, these handler methods must exist, otherwise the function will return `HTTP method XXX is not supported by this URL` with code `405`.
 
 ## Unsupported methods {#unsupported}
 
@@ -50,11 +50,11 @@ Do not use the `?integration=raw` parameter to invoke this function. If you do, 
 {{ sf-name }} [supports](../dependencies.md#maven) Maven, which is a dependency management system for `Java`.
 
 To create a function:
-1. Create a file named `Handler.java` in `/src/main/java/Handler.java` and a file named `pom.xml`.
-1. Add the `/src` folder and `pom.xml` to a ZIP archive.
+1. Create a file named `Handler.java` at `/src/main/java/Handler.java` and a file named `pom.xml`.
+1. Add the `/src` directory and the `pom.xml` file to a ZIP archive.
 1. [Upload](../../../operations/function/version-manage.md#func-version-create) the ZIP archive to {{ sf-name }}.
 
-`pom.xml`:
+`pom.xml` file:
 
 ```xml
 <project>
@@ -80,7 +80,7 @@ To create a function:
 </project>
 ```
 
-`Handler.java`:
+`Handler.java` file:
 ```java
 import java.io.IOException;
 
@@ -91,9 +91,9 @@ import javax.servlet.http.HttpServletResponse;
 public class Handler extends HttpServlet {
   @Override
   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    // by setting Content-Type to text/html, we let the browser render html code
+    // by setting the Content-Type to text/html, we let the browser render the HTML code
     response.setContentType("text/html");
-    // will display as a bold string when you invoke the function from a browser
+    // displayed in bold when the function is invoked from the browser
     response.getOutputStream().print("<b>Hello, world. In bold.</b>");
   }
 
@@ -101,13 +101,13 @@ public class Handler extends HttpServlet {
   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
     var name = request.getParameter("name");
     response.getWriter().println("Hello, " + name);
-    // you have to close printWriter returned by the getWriter method
+    // the printWriter class returned by the getWriter method, make sure it's closed
     response.getWriter().close();
   }
 }
 ```
 
-Sample requests:
+Request examples:
 
 `GET` method:
 
@@ -117,18 +117,18 @@ Sample requests:
 
 {% note info %}
 
-Running a `GET` request in a browser will display this string in bold, and the tags will disappear since you specified `Content-Type: text/html` in your handler's code.
+Running a `GET` request in a browser will display this string in bold without any tags because you had specified `Content-Type: text/html` in your handler's code.
 
 {% endnote %}
 
 `POST` method, `name=Anonymous` as your request parameter:
 
-```
+```text
 Hello, Anonymous
 ```
 
 `PUT` method:
 
-```
+```text
 HTTP method PUT is not supported by this URL
 ```

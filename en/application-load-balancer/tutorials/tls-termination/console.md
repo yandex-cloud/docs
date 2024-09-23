@@ -8,6 +8,6 @@ To create an infrastructure for [terminating TLS connections](index.md) using th
 
 {% include [tls-termination-console](../../../_tutorials/security/tls-termination-console.md) %}
 
-## See also {#see-also}
+#### See also {#see-also}
 
-* [{#T}](terraform.md).
+* [{#T}](terraform.md)

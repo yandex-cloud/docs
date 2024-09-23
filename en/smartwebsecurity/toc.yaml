@@ -2,7 +2,7 @@ title: Yandex Smart Web Security
 href: index.yaml
 label:
   title: RU
-  description: The service is only available in the Russia region.
+  description: This service is only available in the Russia region.
   theme: unknown
   when: region == "kz"
 items:
@@ -76,7 +76,13 @@ items:
       - name: Creating an L7 load balancer with a security profile
         href: tutorials/balancer-with-sws-profile.md
       - name: Creating an L7 load balancer with DDoS protection at OSI L3-L4
-        href: tutorials/alb-with-ddos-protection.md
+        items:
+          - name: Summary
+            href: tutorials/alb-with-ddos-protection/index.md
+          - name: Management console, CLI
+            href: tutorials/alb-with-ddos-protection/console.md
+          - name: '{{ TF }}'
+            href: tutorials/alb-with-ddos-protection/terraform.md
   - name: Concepts
     expanded: true
     items:
