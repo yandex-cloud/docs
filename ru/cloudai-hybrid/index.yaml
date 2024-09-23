@@ -16,7 +16,7 @@ links:
     href: architecture
   - title: Начало работы
     description: Как развернуть демонстрационный стенд {{ cloudml-name }}
-    href: quckstart
+    href: quickstart
   - title: Стоимость
     description: Моделях лицензирования {{ cloudml-name }}
     href: pricing

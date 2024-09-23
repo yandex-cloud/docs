@@ -45,7 +45,7 @@ description: "Из статьи вы узнаете, как скопироват
       ```
 
       Подробнее о команде `aws s3 cp` см. в документации [AWS CLI Command Reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/cp.html).
-  
+
 {% endlist %}
 
 ## Копирование всех объектов бакета в другой бакет {#copy-from-bucket-to-bucket}
@@ -70,7 +70,7 @@ description: "Из статьи вы узнаете, как скопироват
 
       Подробнее о команде `aws s3 cp` см. в документации [AWS CLI Command Reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/cp.html).
 
-  Все объекты будут скопированы из бакета-источника в бакет-приемник. 
+  Все объекты будут скопированы из бакета-источника в бакет-приемник.
 
   {% note info %}
 
@@ -121,7 +121,7 @@ description: "Из статьи вы узнаете, как скопироват
       * `--endpoint-url` — эндпоинт {{ objstorage-name }}.
       * `--profile` — имя профиля в [конфигурационном файле](../../tools/aws-cli.md#config-files) AWS CLI для организации, в которой находится бакет-источник.
       * `s3 cp` — команда для копирования объектов.
-      
+
       Чтобы скопировать все объекты бакета-источника, используйте параметр `--recursive`.
 
       Результат:

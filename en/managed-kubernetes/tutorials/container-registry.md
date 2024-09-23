@@ -25,8 +25,8 @@ To integrate {{ managed-k8s-name }} with {{ container-registry-name }}:
 
 ## Create service accounts {#create-sa}
 
-Create the following [service accounts](../../iam/operations/sa/create.md):
-* Service account for resources with the `k8s.clusters.agent` and `vpc.publicAdmin` [roles](../security/index.md#yc-api) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where the {{ managed-k8s-name }} cluster is created. This service account will be used to create the resources required for the {{ managed-k8s-name }} cluster.
+Create [service accounts](../../iam/operations/sa/create.md):
+* Service account for the resources with the `k8s.clusters.agent` and `vpc.publicAdmin` [roles](../security/index.md#yc-api) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where the {{ managed-k8s-name }} cluster is created. This service account will be used to create the resources required for the {{ managed-k8s-name }} cluster.
 * Service account for [{{ managed-k8s-name }} nodes](../concepts/index.md#node-group) with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#choosing-roles) role for the folder with the Docker image registry. {{ managed-k8s-name }} nodes will pull the required Docker images from the registry on behalf of this account.
 
 ### Create a service account for resources {#res-sa}
@@ -38,15 +38,15 @@ To create a service account for creating the resources required by the {{ manage
 
    - Bash {#bash}
 
-      ```bash
-      FOLDER_ID=$(yc config get folder-id)
-      ```
+     ```bash
+     FOLDER_ID=$(yc config get folder-id)
+     ```
 
    - PowerShell {#powershell}
 
-      ```shell script
-      $FOLDER_ID = yc config get folder-id
-      ```
+     ```shell script
+     $FOLDER_ID = yc config get folder-id
+     ```
 
    {% endlist %}
 
@@ -56,15 +56,15 @@ To create a service account for creating the resources required by the {{ manage
 
    - Bash {#bash}
 
-      ```bash
-      yc iam service-account create --name k8s-res-sa-$FOLDER_ID
-      ```
+     ```bash
+     yc iam service-account create --name k8s-res-sa-$FOLDER_ID
+     ```
 
    - PowerShell {#powershell}
 
-      ```shell script
-      yc iam service-account create --name k8s-res-sa-$FOLDER_ID
-      ```
+     ```shell script
+     yc iam service-account create --name k8s-res-sa-$FOLDER_ID
+     ```
 
    {% endlist %}
 
@@ -74,15 +74,15 @@ To create a service account for creating the resources required by the {{ manage
 
    - Bash {#bash}
 
-      ```bash
-      RES_SA_ID=$(yc iam service-account get --name k8s-res-sa-${FOLDER_ID} --format json | jq .id -r)
-      ```
+     ```bash
+     RES_SA_ID=$(yc iam service-account get --name k8s-res-sa-${FOLDER_ID} --format json | jq .id -r)
+     ```
 
    - PowerShell {#powershell}
 
-      ```shell script
-      $RES_SA_ID = (yc iam service-account get --name k8s-res-sa-$FOLDER_ID --format json | ConvertFrom-Json).id
-      ```
+     ```shell script
+     $RES_SA_ID = (yc iam service-account get --name k8s-res-sa-$FOLDER_ID --format json | ConvertFrom-Json).id
+     ```
 
    {% endlist %}
 
@@ -113,15 +113,15 @@ To create a service account to be used by {{ managed-k8s-name }} nodes to downlo
 
    - Bash {#bash}
 
-      ```bash
-      FOLDER_ID=$(yc config get folder-id)
-      ```
+     ```bash
+     FOLDER_ID=$(yc config get folder-id)
+     ```
 
    - PowerShell {#powershell}
 
-      ```shell script
-      $FOLDER_ID = yc config get folder-id
-      ```
+     ```shell script
+     $FOLDER_ID = yc config get folder-id
+     ```
 
    {% endlist %}
 
@@ -131,15 +131,15 @@ To create a service account to be used by {{ managed-k8s-name }} nodes to downlo
 
    - Bash {#bash}
 
-      ```bash
-      yc iam service-account create --name k8s-node-sa-$FOLDER_ID
-      ```
+     ```bash
+     yc iam service-account create --name k8s-node-sa-$FOLDER_ID
+     ```
 
    - PowerShell {#powershell}
 
-      ```shell script
-      yc iam service-account create --name k8s-node-sa-$FOLDER_ID
-      ```
+     ```shell script
+     yc iam service-account create --name k8s-node-sa-$FOLDER_ID
+     ```
 
    {% endlist %}
 
@@ -149,15 +149,15 @@ To create a service account to be used by {{ managed-k8s-name }} nodes to downlo
 
    - Bash {#bash}
 
-      ```bash
-      NODE_SA_ID=$(yc iam service-account get --name k8s-node-sa-${FOLDER_ID} --format json | jq .id -r)
-      ```
+     ```bash
+     NODE_SA_ID=$(yc iam service-account get --name k8s-node-sa-${FOLDER_ID} --format json | jq .id -r)
+     ```
 
    - PowerShell {#powershell}
 
-      ```shell script
-      $NODE_SA_ID = (yc iam service-account get --name k8s-node-sa-$FOLDER_ID --format json | ConvertFrom-Json).id
-      ```
+     ```shell script
+     $NODE_SA_ID = (yc iam service-account get --name k8s-node-sa-$FOLDER_ID --format json | ConvertFrom-Json).id
+     ```
 
    {% endlist %}
 
@@ -176,7 +176,7 @@ To create a service account to be used by {{ managed-k8s-name }} nodes to downlo
 
 {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
-## Prepare {{ k8s }} resources {#create-k8s-res}
+## Create {{ k8s }} resources {#create-k8s-res}
 
 {% include notitle [create-k8s-res](../../_includes/managed-kubernetes/create-k8s-res.md) %}
 
@@ -220,15 +220,15 @@ Build a Docker image and push it to the registry.
 
       - Bash {#bash}
 
-         ```bash
-         REGISTRY_ID=$(yc container registry get --name yc-auto-cr --format json | jq .id -r)
-         ```
+        ```bash
+        REGISTRY_ID=$(yc container registry get --name yc-auto-cr --format json | jq .id -r)
+        ```
 
       - PowerShell {#powershell}
 
-         ```shell script
-         $REGISTRY_ID = (yc container registry get --name yc-auto-cr --format json | ConvertFrom-Json).id
-         ```
+        ```shell script
+        $REGISTRY_ID = (yc container registry get --name yc-auto-cr --format json | ConvertFrom-Json).id
+        ```
 
       {% endlist %}
 
@@ -252,7 +252,7 @@ Build a Docker image and push it to the registry.
 
    Result:
 
-   ```bash
+   ```text
    +----------------------+---------------------+-----------------------------+-------+-----------------+
    |          ID          |       CREATED       |            NAME             | TAGS  | COMPRESSED SIZE |
    +----------------------+---------------------+-----------------------------+-------+-----------------+
@@ -319,15 +319,15 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
    - Delete the service account created for resources:
 
-      ```bash
-      yc iam service-account delete --id $RES_SA_ID
-      ```
+     ```bash
+     yc iam service-account delete --id $RES_SA_ID
+     ```
 
    - Delete the service account created for {{ managed-k8s-name }} nodes:
 
-      ```bash
-      yc iam service-account delete --id $NODE_SA_ID
-      ```
+     ```bash
+     yc iam service-account delete --id $NODE_SA_ID
+     ```
 
 1. Delete resources {{ container-registry-name }}.
    1. Find the name of the Docker image pushed to the registry:
@@ -336,15 +336,15 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
       - Bash {#bash}
 
-         ```bash
-         IMAGE_ID=$(yc container image list --format json | jq .[0].id -r)
-         ```
+        ```bash
+        IMAGE_ID=$(yc container image list --format json | jq .[0].id -r)
+        ```
 
       - PowerShell {#powershell}
 
-         ```shell script
-         $IMAGE_ID = (yc container image list --format json | ConvertFrom-Json).id
-         ```
+        ```shell script
+        $IMAGE_ID = (yc container image list --format json | ConvertFrom-Json).id
+        ```
 
       {% endlist %}
 
@@ -362,6 +362,6 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
 #### See also {#see-also}
 
-* [{#T}](../../container-registry/concepts/docker-image.md)
-* [{#T}](../../container-registry/operations/authentication.md)
-* [{#T}](../../container-registry/operations/index.md)
+* [{#T}](../../container-registry/concepts/docker-image.md).
+* [{#T}](../../container-registry/operations/authentication.md).
+* [{#T}](../../container-registry/operations/index.md).

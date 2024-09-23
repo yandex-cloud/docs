@@ -3,26 +3,26 @@
 Enables or pauses versioning of the bucket.
 
 Versioning can be set to one of two statuses:
-- `Enabled`: Turn on version management for objects in the bucket. All new objects added to the bucket get a unique version ID.
-- `Suspended`: Suspends version management for objects in the bucket. All new objects added to the bucket get `null` as the version ID.
+- `Enabled`: Turns on version management for objects in the bucket. All new objects added to the bucket will get a unique version ID.
+- `Suspended`: Suspends version management for objects in the bucket. All new objects added to the bucket will get `null` for version ID.
 
 ## Request {#request}
 
-```
+```http
 PUT /{bucket}?versioning HTTP/2
 ```
 
 ### Path parameters {#path-parameters}
 
-| Parameter | Description |
+Parameter | Description
 ----- | -----
-| `bucket` | Bucket name. |
+`bucket` | Bucket name.
 
 ### Query parameters {#request-params}
 
-| Parameter | Description |
+Parameter | Description
 ----- | -----
-| `versioning` | Required parameter that indicates the type of operation. |
+`versioning` | Required parameter that indicates the type of operation.
 
 ### Data schema {#request-scheme}
 
@@ -33,9 +33,9 @@ PUT /{bucket}?versioning HTTP/2
 </VersioningConfiguration>
 ```
 
-| Element | Description |
+Element | Description
 ----- | -----
-| `Status` | Status of the bucket versioning option.<br/><br/>Type: String<br/>Possible values: `Enabled \| Suspended` |
+`Status` | Bucket versioning status.<br/><br/>Type: String<br/>Possible values: `Enabled \| Suspended`
 
 ### Headers {#request-headers}
 Use only [common request headers](../common-request-headers.md) in your requests.

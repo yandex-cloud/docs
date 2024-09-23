@@ -10,29 +10,29 @@ description: "Следуя данной инструкции, вы сможет�
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
-  
+
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором расположен [ресурс](../../concepts/resource.md).
 
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
-  
+
   1. Нажмите на имя необходимого ресурса.
-  
+
   1. Перейдите на вкладку **{{ ui-key.yacloud.cdn.label_resource-content }}**.
-  
+
   1. В правом верхнем углу нажмите кнопку ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.cdn.button_resource-content-prefetch-cache }}**.
-  
+
   1. В поле **{{ ui-key.yacloud.cdn.label_resource-content-prefetch-cache-paths }}** укажите имена нужных файлов.
-  
+
   1. Нажмите кнопку **{{ ui-key.yacloud.cdn.button_resource-content-prefetch-cache }}**.
 
 - CLI {#cli}
-  
+
   {% include [include](../../../_includes/cli-install.md) %}
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
-  
+
   1. Посмотрите описание команды CLI для редактирования ресурсов:
-  
+
       ```bash
       yc cdn resource update --help
       ```
@@ -42,7 +42,7 @@ description: "Следуя данной инструкции, вы сможет�
       ```bash
       yc cdn resource list --format yaml
       ```
-  
+
       Результат:
 
       ```text
@@ -83,14 +83,14 @@ description: "Следуя данной инструкции, вы сможет�
         type: DONT_USE
         status: READY
       ```
-  
+
   1. Укажите через запятую без пробелов пути к файлам, которые хотите предзагрузить:
 
       ```bash
       yc cdn cache prefetch --resource-id <идентификатор_ресурса> \
         --path <пути_к_файлам>
       ```
-      
+
       Подробнее о команде `yc cdn cache prefetch` см. в [справочнике CLI](../../../cli/cli-ref/managed-services/cdn/cache/prefetch.md).
 
 - API {#api}

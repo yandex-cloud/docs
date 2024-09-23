@@ -70,14 +70,14 @@
         versioning: VERSIONING_DISABLED
         max_size: "53687091200"
         acl: {}
-        created_at: "2022-11-25T11:48:42.024638Z"     
+        created_at: "2022-11-25T11:48:42.024638Z"
         ```
 
   Чтобы удалить конфигурацию CORS, выполните команду:
 
   ```bash
   yc storage bucket update \
-    --name <имя_бакета> \    
+    --name <имя_бакета> \
     --remove-cors
   ```
 

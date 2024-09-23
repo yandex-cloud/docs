@@ -56,7 +56,7 @@ Prepare the keys for use with your {{ managed-k8s-name }} cluster node. To do th
      ssh-keygen -t ed25519
      ```
 
-     After you run the command, you will be asked to specify the names of files where the keys will be saved and enter the password for the private key. The default name is `id_ed25519`. Keys are created in the `C:\Users\<username>\.ssh\` folder.
+     After you run the command, you will be asked to specify the names of files where the keys will be saved and enter the password for the private key. The default name is `id_ed25519`. Keys are created in `C:\Users\<username>\.ssh\`.
 
      The public part of the key will be saved to a file named `<key name>.pub`.
 
@@ -64,7 +64,7 @@ Prepare the keys for use with your {{ managed-k8s-name }} cluster node. To do th
 
   Create keys using the PuTTY app:
   1. [Download](https://www.putty.org) and install PuTTY.
-  1. Make sure that the directory where you installed PuTTY is included in `PATH`:
+  1. Make sure the directory where you installed PuTTY is included in `PATH`:
      1. Right-click **My computer**. Click **Properties**.
      1. In the window that opens, select **Additional system parameters**, then **Environment variables** (located in the lower part of the window).
      1. Under **System variables**, find `PATH` and click **Edit**.
@@ -125,48 +125,48 @@ Example:
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-   1. Select the {{ managed-k8s-name }} cluster.
-   1. In the left-hand panel, select **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}**.
-   1. Click **{{ ui-key.yacloud.k8s.cluster.node-groups.button_create }}**.
-   1. Set the node group parameters.
-   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_access }}**, specify the information required to access the {{ managed-k8s-name }} node:
-      * Enter the username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
+  1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. Select the {{ managed-k8s-name }} cluster.
+  1. In the left-hand panel, select **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}**.
+  1. Click **{{ ui-key.yacloud.k8s.cluster.node-groups.button_create }}**.
+  1. Set the node group parameters.
+  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_access }}**, specify the information required to access the {{ managed-k8s-name }} node:
+      * Enter the username into the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
       * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the public key file.
-   1. Click **{{ ui-key.yacloud.common.create }}**.
+  1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
 
-   Metadata with credentials for connecting over SSH is provided to the {{ managed-k8s-name }} node group as `key=value` pairs.
+  Metadata with credentials for connecting over SSH is provided to the {{ managed-k8s-name }} node group as `key=value` pairs.
 
-   {% include [user-data](../../_includes/managed-kubernetes/user-data.md) %}
+  {% include [user-data](../../_includes/managed-kubernetes/user-data.md) %}
 
-   {% include [cli-install](../../_includes/cli-install.md) %}
+  {% include [cli-install](../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To create a {{ managed-k8s-name }} node group and provide user credentials for connecting over SSH, run the following command:
+  To create a {{ managed-k8s-name }} node group and provide user credentials for connecting over SSH, run the following command:
 
-   ```bash
-   yc managed-kubernetes node-group create \
-     --name <node_group_name> \
-     --cluster-name <cluster_name> \
-     --fixed-size <number_of_nodes_in_the_group> \
-     --network-interface security-group-ids=[<list_of_security_groups>],subnets=<subnet_name>,ipv4-address=nat \
-     --metadata-from-file ssh-keys=<path_to_file_with_credentials>
-   ```
+  ```bash
+  yc managed-kubernetes node-group create \
+    --name <node_group_name> \
+    --cluster-name <cluster_name> \
+    --fixed-size <node_number_in_group> \
+    --network-interface security-group-ids=[<list_of_security_groups>],subnets=<subnet_name>,ipv4-address=nat \
+    --metadata-from-file ssh-keys=<credentials_file_path>
+  ```
 
-   Where `--metadata-from-file` is the parameter to provide metadata to the node group as `key=value` pairs. In `ssh-keys`, specify the path to the file with credentials for connecting over SSH.
+  Where `--metadata-from-file` is the parameter to transfer metadata to the node group as `key=value` pairs. In `ssh-keys`, specify the path to the file with credentials for connecting over SSH.
 
 - {{ TF }} {#tf}
 
-   Metadata with credentials for connecting over SSH is provided to the {{ managed-k8s-name }} node group as `key=value` pairs.
+  Metadata with credentials for connecting over SSH is provided to the {{ managed-k8s-name }} node group as `key=value` pairs.
 
-   {% include [user-data](../../_includes/managed-kubernetes/user-data.md) %}
+  {% include [user-data](../../_includes/managed-kubernetes/user-data.md) %}
 
-   1. Create a {{ TF }} configuration file describing the {{ managed-k8s-name }} node group by following the steps described in [{#T}](./node-group/node-group-create.md).
+  1. Create a {{ TF }} configuration file describing the {{ managed-k8s-name }} node group by following the steps described in [{#T}](./node-group/node-group-create.md).
 
-   1. In the node group description, set the value of the `ssh-keys` metadata key for the `instance_template.metadata` parameter:
+  1. In the node group description, set the `ssh-keys` metadata key value for the `instance_template.metadata` parameter:
 
       ```hcl
       resource "yandex_kubernetes_node_group" "<node_group_name>" {
@@ -174,7 +174,7 @@ Example:
         ...
         instance_template {
           metadata = {
-            "ssh-keys" = file("<path_to_file_with_credentials>")
+            "ssh-keys" = file("<credentials_file_path>")
             ...
           }
           ...
@@ -183,37 +183,37 @@ Example:
       }
       ```
 
-   1. Make sure the configuration files are correct.
+  1. Make sure the configuration files are correct.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm updating the resources.
+  1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-k8s-nodegroup }}).
+  For more information, see the [{{ TF }} provider documentation]({{ tf-provider-k8s-nodegroup }}).
 
 - API {#api}
 
-   Metadata with credentials for connecting over SSH is provided to the {{ managed-k8s-name }} node group as `key=value` pairs.
+  Metadata with credentials for connecting over SSH is provided to the {{ managed-k8s-name }} node group as `key=value` pairs.
 
-   {% include [user-data](../../_includes/managed-kubernetes/user-data.md) %}
+  {% include [user-data](../../_includes/managed-kubernetes/user-data.md) %}
 
-   If you want to provide multiple credentials for connecting over SSH, convert the contents of the credentials file to a single line by separating the credentials from each other with a sequence of special CRLF (`\r\n`) characters. You cannot use multiline messages in an API request with a JSON body.
+  To provide multiple credentials for connecting over SSH, convert the contents of the credentials file to a single line by separating the credentials from each other with a sequence of special CRLF characters (`\r\n`). You cannot use multiline messages in an API request with a JSON body.
 
-   Example of converted credentials:
+  Example of converted credentials:
 
-   > ```text
-   > testuser1:ssh-ed25519 AAAAB3NzaC***********lP1ww testuser1\r\ntestuser2:ssh-ed25519 ONEMOREkey***********avEHw testuser2
-   > ```
+  > ```text
+  > testuser1:ssh-ed25519 AAAAB3NzaC***********lP1ww testuser1\r\ntestuser2:ssh-ed25519 ONEMOREkey***********avEHw testuser2
+  > ```
 
-   Use the [create](../api-ref/NodeGroup/create.md) REST API method for the [NodeGroup](../api-ref/NodeGroup/index.md) resource or the [NodeGroupService/Create](../api-ref/grpc/node_group_service.md#Create) gRPC API call.
+  Use the [create](../api-ref/NodeGroup/create.md) REST API method for the [NodeGroup](../api-ref/NodeGroup/index.md) resource or the [NodeGroupService/Create](../api-ref/grpc/node_group_service.md#Create) gRPC API call.
 
-   Credentials for connecting over SSH are provided in the `nodeTemplate.metadata` parameter in `ssh-keys`.
+  Credentials for connecting over SSH are provided in the `nodeTemplate.metadata` parameter in `ssh-keys`.
 
 {% endlist %}
 
-For more information about creating a {{ managed-k8s-name }} group of nodes and the provided parameters, see [{#T}](./node-group/node-group-create.md).
+For more information about creating a {{ managed-k8s-name }} node group and parameters to provide, see [{#T}](./node-group/node-group-create.md).
 
 ## Update node group keys {#node-add-metadata}
 
@@ -229,40 +229,40 @@ The credentials for connecting over SSH will be completely overwritten. You will
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-   1. Select the {{ managed-k8s-name }} cluster.
-   1. In the left-hand panel, select **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}**.
-   1. On the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** tab, select the node group in which you want to update the credentials.
-   1. In the top panel, click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
-   1. Open **{{ ui-key.yacloud.common.metadata }}**.
-   1. Replace the current value of `ssh-keys` with the contents of the credentials file.
-   1. Click **{{ ui-key.yacloud.common.save }}**.
+  1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. Select the {{ managed-k8s-name }} cluster.
+  1. In the left-hand panel, select **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}**.
+  1. On the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** tab, select the node group in which you want to update the credentials.
+  1. In the top panel, click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
+  1. Open **{{ ui-key.yacloud.common.metadata }}**.
+  1. Replace the current value of `ssh-keys` with the contents of the credentials file.
+  1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
-   1. View the description of the CLI command for adding and updating the {{ managed-k8s-name }} node group metadata:
+  1. View the description of the CLI command for adding and updating the {{ managed-k8s-name }} node group metadata:
 
       ```bash
       {{ yc-k8s }} node-group add-metadata --help
       ```
 
-   1. Run this command:
+  1. Run this command:
 
       ```bash
       {{ yc-k8s }} node-group add-metadata \
         --name <node_group_name> \
-        --metadata-from-file ssh-keys=<path_to_file_with_credentials>
+        --metadata-from-file ssh-keys=<credentials_file_path>
       ```
 
       You can request the name of a node group with a [list of node groups in the folder](./node-group/node-group-list.md#list).
 
 - {{ TF }} {#tf}
 
-   1. Open the {{ TF }} configuration file describing the {{ managed-k8s-name }} node group.
+  1. Open the {{ TF }} configuration file describing the {{ managed-k8s-name }} node group.
 
       For more information about creating this file, see [{#T}](./node-group/node-group-create.md).
 
-   1. In the node group description, change the value of the `ssh-keys` metadata key for the `instance_template.metadata` parameter:
+  1. In the node group description, change the value of the `ssh-keys` metadata key for the `instance_template.metadata` parameter:
 
       ```hcl
       resource "yandex_kubernetes_node_group" "<node_group_name>" {
@@ -270,7 +270,7 @@ The credentials for connecting over SSH will be completely overwritten. You will
         ...
         instance_template {
           metadata = {
-            "ssh-keys" = file("<path_to_file_with_credentials>")
+            "ssh-keys" = file("<credentials_file_path>")
             ...
           }
           ...
@@ -279,19 +279,19 @@ The credentials for connecting over SSH will be completely overwritten. You will
       }
       ```
 
-   1. Make sure the configuration files are correct.
+  1. Make sure the configuration files are correct.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm updating the resources.
+  1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-k8s-nodegroup }}).
+  For more information, see the [{{ TF }} provider documentation]({{ tf-provider-k8s-nodegroup }}).
 
 - API {#api}
 
-   1. If you want to provide multiple credentials for connecting over SSH, convert the contents of the credentials file to a single line by separating the credentials from each other with a sequence of special CRLF (`\r\n`) characters. You cannot use multiline messages in an API request with a JSON body.
+  1. To provide multiple credentials for connecting over SSH, convert the contents of the credentials file to a single line by separating the credentials from each other with a sequence of special CRLF characters (`\r\n`). You cannot use multiline messages in an API request with a JSON body.
 
       Example of converted credentials:
 
@@ -299,50 +299,50 @@ The credentials for connecting over SSH will be completely overwritten. You will
       > testuser1:ssh-ed25519 AAAAB3NzaC***********lP1ww testuser1\r\ntestuser2:ssh-ed25519 ONEMOREkey***********avEHw testuser2
       > ```
 
-   1. {% include [get-metadata-via-api](../../_includes/managed-kubernetes/get-metadata-via-api.md) %}
+  1. {% include [get-metadata-via-api](../../_includes/managed-kubernetes/get-metadata-via-api.md) %}
 
-   1. Use the [update](../api-ref/NodeGroup/update.md) REST API method for the [NodeGroup](../api-ref/NodeGroup/index.md) resource and include the following in the request:
+  1. Use the [update](../api-ref/NodeGroup/update.md) REST API method for the [NodeGroup](../api-ref/NodeGroup/index.md) resource and include the following in the request:
 
-      * ID of the node group in the `nodeGroupId` parameter.
+      * Node group ID in the `nodeGroupId` parameter.
 
-      * `updateMask` parameter with the `nodeTemplate.metadata` value.
+      * `updateMask` set to `nodeTemplate.metadata`.
 
-         {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+          {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
-      * `nodeTemplate.metadata` parameter that lists all existing node group metadata as `key=value` pairs without modification.
+      * `nodeTemplate.metadata` listing all existing node group metadata as `key=value` pairs without modification.
 
-         For `ssh-keys`, replace the current value with the created line with credentials.
+          For `ssh-keys`, replace the current value with the created line with credentials.
 
-         {% cut "Example of listing metadata in a parameter" %}
+          {% cut "Example of listing metadata in a parameter" %}
 
-         > * Existing metadata keys in a node group:
-         >
-         >    ```json
-         >    "nodeTemplate": {
-         >        "metadata": {
-         >            "ssh-keys": "<existing_credentials_in_one_line>",
-         >            "<existing_key_1>": "<existing_value_1>",
-         >            "<existing_key_2>": "<existing_value_2>"
-         >        },
-         >        ...
-         >    }
-         >    ```
-         >
-         > * Metadata keys to provide in an API request:
-         >
-         >    ```json
-         >    "nodeTemplate": {
-         >        "metadata": {
-         >            "ssh-keys": "<new_credentials_in_one_line>",
-         >            "<existing_key_1>": "<existing_value_1>",
-         >            "<existing_key_2>": "<existing_value_2>"
-         >        }
-         >    }
-         >    ```
+          > * Existing metadata keys in a node group:
+          >
+          >     ```json
+          >     "nodeTemplate": {
+          >         "metadata": {
+          >             "ssh-keys": "<existing_credentials_in_single_line>",
+          >             "<existing_key_1>": "<existing_value_1>",
+          >             "<existing_key_2>": "<existing_value_2>"
+          >         },
+          >         ...
+          >     }
+          >     ```
+          >
+          > * Metadata keys to provide in an API request:
+          >
+          >     ```json
+          >     "nodeTemplate": {
+          >         "metadata": {
+          >             "ssh-keys": "<new_credentials_in_single_line>",
+          >             "<existing_key_1>": "<existing_value_1>",
+          >             "<existing_key_2>": "<existing_value_2>"
+          >         }
+          >     }
+          >     ```
 
-         {% endcut %}
+          {% endcut %}
 
-         {% include [Alert API Updating Metadata](../../_includes/managed-kubernetes/metadata-updating-alert.md) %}
+          {% include [Alert API Updating Metadata](../../_includes/managed-kubernetes/metadata-updating-alert.md) %}
 
 {% endlist %}
 
@@ -373,7 +373,7 @@ To connect to a {{ managed-k8s-name }} cluster node, specify the [public IP addr
 
      Result:
 
-     ```bash
+     ```text
      +----------------------+----------------------+----------------+----------------------+---------------------+---------+------+
      |          ID          |      CLUSTER ID      |      NAME      |  INSTANCE GROUP ID   |     CREATED AT      | STATUS  | SIZE |
      +----------------------+----------------------+----------------+----------------------+---------------------+---------+------+
@@ -391,7 +391,7 @@ To connect to a {{ managed-k8s-name }} cluster node, specify the [public IP addr
 
      Result:
 
-     ```bash
+     ```text
      +----------------------+---------------------------+--------------------------+---------------+----------------+
      |     INSTANCE ID      |           NAME            |            IP            |    STATUS     | STATUS MESSAGE |
      +----------------------+---------------------------+--------------------------+---------------+----------------+
@@ -402,29 +402,29 @@ To connect to a {{ managed-k8s-name }} cluster node, specify the [public IP addr
 
 - kubectl CLI {#kubectl}
 
-   1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
+  1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
-   1. Run this command:
+  1. Run this command:
 
-      ```bash
-      kubectl get nodes -o wide
-      ```
+     ```bash
+     kubectl get nodes -o wide
+     ```
 
-      Result:
+     Result:
 
-      ```bash
-      NAME                       STATUS  ROLES   AGE  VERSION  INTERNAL-IP  EXTERNAL-IP     OS-IMAGE            KERNEL-VERSION     CONTAINER-RUNTIME
-      cl17i6943n92********-itif  Ready   <none>  31m  v1.13.3  10.0.0.27    84.201.145.251  Ubuntu 18.04.1 LTS  4.15.0-29-generic  docker://18.6.2
-      cl17i6943n92********-ovah  Ready   <none>  31m  v1.13.3  10.0.0.22    84.201.149.184  Ubuntu 18.04.1 LTS  4.15.0-29-generic  docker://18.6.2
-      ```
+     ```bash
+     NAME                       STATUS  ROLES   AGE  VERSION  INTERNAL-IP  EXTERNAL-IP     OS-IMAGE            KERNEL-VERSION     CONTAINER-RUNTIME
+     cl17i6943n92********-itif  Ready   <none>  31m  v1.13.3  10.0.0.27    84.201.145.251  Ubuntu 18.04.1 LTS  4.15.0-29-generic  docker://18.6.2
+     cl17i6943n92********-ovah  Ready   <none>  31m  v1.13.3  10.0.0.22    84.201.149.184  Ubuntu 18.04.1 LTS  4.15.0-29-generic  docker://18.6.2
+     ```
 
-      The public IP address is listed in the `EXTERNAL-IP` column.
+     The public IP address is listed in the `EXTERNAL-IP` column.
 
 {% endlist %}
 
 ## Connect to the node {#node-connect}
 
-You can connect to a {{ managed-k8s-name }} node over SSH once it starts (the status is `RUNNING`). You can use the `ssh` utility in Linux or macOS, or [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) in Windows.
+You can connect to a {{ managed-k8s-name }} node over SSH once it is started (with the `RUNNING` status). To do this, use `ssh` in Linux or macOS, or [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) in Windows.
 
 {% list tabs group=operating_system %}
 
@@ -433,7 +433,7 @@ You can connect to a {{ managed-k8s-name }} node over SSH once it starts (the st
   In the terminal, run the following command, specifying the username and [public IP address](#node-public-ip) of the node:
 
   ```bash
-  ssh <username>@<public_IP_address_of_node>
+  ssh <username>@<node_public_IP_address>
   ```
 
   If you provided SSH connection credentials when you [created the node group](#node-create) using the management console, use the username you specified in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
@@ -454,11 +454,11 @@ You can connect to a {{ managed-k8s-name }} node over SSH once it starts (the st
 
   In Windows, a connection is established using the PuTTY application.
   1. Run the Pageant application.
-     1. Right-click the Pageant icon in the task bar.
+     1. Right-click the pageant icon in the task bar.
      1. In the context menu, select **Add key**.
      1. Select a PuTTY-generated private key in `.ppk` format. If a password is set for the key, enter it.
   1. Run PuTTY.
-     1. In the **Host Name (or IP address)** field, enter the [public IP address](#node-public-ip) of the VM you want to connect to. Specify port `22` and **SSH** as the connection type.
+     1. In the **Host Name (or IP address)** field, enter the [public IP address](#node-public-ip) of the VM you want to connect to. Set the port to `22` and connection type to **SSH**.
 
         ![ssh_add_ip](../../_assets/compute/ssh-putty/ssh_add_ip.png)
 
@@ -478,17 +478,17 @@ You can connect to a {{ managed-k8s-name }} node over SSH once it starts (the st
 
         Click **Yes**. A terminal window will open prompting you to enter the username of the user on whose behalf the connection is being established.
 
-         Enter the username:
-         * If you provided SSH connection credentials when you [created the node group](#node-create) using the management console, enter the username you specified in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
-         * If you provided SSH connection credentials when you [created the node group](#node-create) using the CLI, {{ TF }}, API, or [updated the credentials](#node-add-metadata), enter the username that you [specified in the SSH connection credentials file](#key-format).
+        Enter the username:
+        * If you provided SSH connection credentials when you [created the node group](#node-create) using the management console, enter the username you specified in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
+        * If you provided SSH connection credentials when you [created the node group](#node-create) using the CLI, {{ TF }}, API, or [updated the credentials](#node-add-metadata), enter the username that you [specified in the SSH connection credentials file](#key-format).
 
-         Click **Enter**. If all the settings are correct, the connection with the server will be established.
+        Click **Enter**. If all the settings are correct, the connection with the server will be established.
 
-         ![ssh_login](../../_assets/compute/ssh-putty/ssh_login.png)
+        ![ssh_login](../../_assets/compute/ssh-putty/ssh_login.png)
 
-   If you saved the session profile in PuTTY, you can use Pageant to establish a connection in the future:
-   1. Right-click the Pageant icon in the task bar.
-   1. Select the **Saved sessions** menu item.
-   1. In the saved sessions list, select the session you need.
+  If you saved the session profile in PuTTY, you can use Pageant to establish a connection in the future:
+  1. Right-click the pageant icon in the task bar.
+  1. Select the **Saved sessions** menu item.
+  1. In the saved sessions list, select the session you need.
 
 {% endlist %}

@@ -7,15 +7,15 @@ description: "This page presents FAQ about {{ objstorage-name }}."
 
 #### What is {{ objstorage-full-name }}? {#qa-what-is}
 
-{{ objstorage-full-name }} is a universal scalable solution for data storage. It is the perfect choice both for high-load services that require reliable and fast access to data, and for projects with minimal requirements for storage infrastructure.
+{{ objstorage-full-name }} is a universal scalable solution for data storage. It is equally suited for high-load services requiring reliable and fast access to data and for projects with moderate storage infrastructure requirements.
 
 #### What can I do with {{ objstorage-full-name }}? {#qa-usecases}
 
 With {{ objstorage-name }}, you can:
-* Store your project files (website or server app) in {{ objstorage-name }} and make access to them either public or private. Files can be in any format.
-* Store large archive data (up to 5 TB per file) and make them available only to those you allow access to.
+* Store your project (website or server app) files in {{ objstorage-name }} with public or private access to them. The files can be of any format.
+* Store large archive data (up to 5 TB per file) and make them available based on access permissions.
 * Enable shared work with data inside a distributed organization.
-* Provide access to your data from any place on Earth where internet access is available.
+* Make your data accessible from anywhere in the world where there is internet.
 
 #### How do I get started with {{ objstorage-full-name }}? {#qa-quickstart}
 
@@ -23,7 +23,7 @@ To get started with {{ objstorage-name }}:
 1. Sign up for {{ yandex-cloud }}.
 1. Create a folder.
    At this step, you can already use {{ objstorage-name }} via the {{ yandex-cloud }} management console. You can create and delete buckets, as well as upload objects to and download them from buckets.
-1. Get static keys to use the {{ objstorage-name }} HTTP API or available SDKs and apps.
+1. Get static keys to use the {{ objstorage-name }} HTTP API or ready-made SDKs and apps.
 
 For more detailed instructions, see [{#T}](quickstart.md) and [{#T}](s3/index.md).
 
@@ -43,13 +43,13 @@ Use the feedback form in the [support center]({{ link-console-support }}).
 
 
 
-You can contact technical support in the management console under [Support]({{ link-console-support }}).
+You can contact technical support from the management console in the [Support]({{ link-console-support }}) section.
 
 
 
 #### How much data can I store? {#qa-storage-volume}
 
-Read the section [{#T}](concepts/limits.md).
+See [{#T}](concepts/limits.md).
 
 #### How can I delete multiple objects at a time? {#qa-delete-multiple-objects}
 
@@ -57,6 +57,7 @@ You can delete multiple objects via the {{ yandex-cloud }} management console or
 
 
 #### A service account cannot access a bucket, why is that? {#sa-bucket-access}
+
 
 Make sure the service account is assigned the [role](./security/#roles-list) that allows accessing the bucket.
 
@@ -71,7 +72,7 @@ yc kms symmetric-key add-access-binding \
 ```
 
 Where:
-* `--id`: {{ kms-short-name }} key ID.
+* `--id`: ID of the {{ kms-short-name }} key.
 * `--service-account-id`: Service account ID.
 
 
@@ -84,11 +85,11 @@ The data is saved in the form in which it was transmitted by the user.
 
 #### Does Yandex use {{ objstorage-name }} to store its own data? {#qa-usage-by-yandex}
 
-Yes. {{ objstorage-name }} is used in the Yandex infrastructure. Several Yandex services store their websites' static data in the storage.
+Yes. {{ objstorage-name }} is used in the Yandex infrastructure. A number of Yandex services store their websites' static data in {{ objstorage-name }}.
 
 
 
-#### What data consistency model does {{ objstorage-full-name }} use? {#qa-consistency}
+#### Which data consistency model does {{ objstorage-full-name }} use? {#qa-consistency}
 
 For overwritable (PUT) and removable (DELETE) objects, the strong consistency model is used.
 
@@ -153,7 +154,7 @@ To add your [domain](operations/hosting/own-domain.md) to a [bucket](concepts/bu
 
 #### Why did I lose access to the bucket after creating/updating an access policy? {#qa-lost-access}
 
-1. [Access policies](concepts/policy.md) treat objects within a bucket and the bucket itself as different resources. To apply an access policy rule to both the bucket and the objects within it, specify them separately, e.g., `samplebucket` and `samplebucket/*`.
+1. [Access policies](concepts/policy.md) treat objects within a bucket and the bucket itself as different resources. For an access policy rule to apply both to the bucket and the objects in it, specify them as separate resources, e.g., `samplebucket` and `samplebucket/*`.
 
 1. If a bucket policy with no rules is applied to the bucket, access is denied to all users. To disable request verification for a bucket policy, [delete](operations/buckets/policy.md#delete-policy) it.
 

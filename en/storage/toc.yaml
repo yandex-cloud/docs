@@ -72,7 +72,7 @@ items:
             href: operations/objects/link-for-download.md
           - name: Configuring an object lock
             href: operations/objects/edit-object-lock.md
-          - name: Delete a map item
+          - name: Deleting an object
             href: operations/objects/delete.md
           - name: Deleting all objects
             href: operations/objects/delete-all.md
@@ -84,7 +84,7 @@ items:
             href: operations/objects/tagging.md
           - name: Managing an object's custom metadata
             href: operations/objects/object-meta.md
-      - name: Static website hosting
+      - name: Hosting static websites
         items:
           - name: Hosting setup
             href: operations/hosting/setup.md
@@ -100,6 +100,10 @@ items:
         href: tutorials/index.md
       - name: Getting object query statistics with S3 Select
         href: tutorials/server-logs.md
+      - name: >-
+          Getting statistics for the requests to {{ objstorage-full-name }}
+          objects using {{ yq-full-name }}
+        href: tutorials/server-logs-yq.md
       - name: Getting website traffic statistics with S3 Select
         href: tutorials/user-agent-statistics.md
       - name: Getting statistics of the requests to objects using {{ yq-full-name }}
@@ -114,9 +118,7 @@ items:
         href: tutorials/blue-green-canary-deployment.md
       - name: Analyzing logs in DataLens
         href: tutorials/storage-logs-analysis.md
-      - name: >-
-          "Using initialization actions to configure GeeseFS in {{
-          dataproc-full-name }}"
+      - name: Mounting buckets to the file system of {{ dataproc-full-name }} hosts
         href: tutorials/data-proc-init-actions-geesefs.md
       - name: Connecting a bucket as a disk in Windows
         href: tutorials/s3-disk-connect.md
@@ -139,29 +141,33 @@ items:
       - name: Connecting to {{ objstorage-name }} from {{ vpc-short-name }}
         href: tutorials/storage-vpc-access.md
       - name: >-
-          Transferring data to {{ mpg-full-name }} using {{
-          data-transfer-full-name }}
+          Migrating data to {{ mpg-full-name }} using {{ data-transfer-full-name
+          }}
         href: tutorials/object-storage-to-postgresql.md
       - name: >-
-          Loading data to {{ mgp-full-name }} using {{ data-transfer-full-name
+          Uploading data to {{ mgp-full-name }} using {{ data-transfer-full-name
           }}
         href: tutorials/object-storage-to-greenplum.md
       - name: >-
-          Loading data to {{ mch-full-name }} using {{ data-transfer-full-name
+          Uploading data to {{ mch-full-name }} using {{ data-transfer-full-name
           }}
         href: tutorials/object-storage-to-clickhouse.md
       - name: >-
-          Loading data to {{ ydb-full-name }} using {{ data-transfer-full-name
+          Uploading data to {{ ydb-full-name }} using {{ data-transfer-full-name
           }}
         href: tutorials/object-storage-to-ydb.md
       - name: >-
-          Loading data from {{ ydb-full-name }} using {{ data-transfer-full-name
-          }}
+          Uploading data from {{ ydb-full-name }} using {{
+          data-transfer-full-name }}
         href: tutorials/ydb-to-object-storage.md
-      - name: Hosting a static Gatsby-based website in {{ objstorage-name }}
+      - name: Hosting a static Gatsby website in {{ objstorage-name }}
         href: tutorials/gatsby-static-website.md
       - name: Storing a static access key in a {{ lockbox-name }} secret
         href: tutorials/static-key-in-lockbox.md
+      - name: Uploading {{ TF }} states to {{ objstorage-name }}
+        href: tutorials/terraform-state-storage.md
+      - name: Locking {{ TF }} states using {{ ydb-name }}
+        href: tutorials/terraform-state-lock.md
       - name: Static website in {{ objstorage-full-name }}
         items:
           - name: Overview
@@ -182,7 +188,7 @@ items:
         href: tutorials/backup-with-bacula.md
       - name: Backup to {{ objstorage-name }} via Veritas Backup Exec
         href: tutorials/object-storage-veritas.md
-      - name: '{{ managed-k8s-name }} cluster backups to {{ objstorage-name }}'
+      - name: '{{ managed-k8s-name }} cluster backups in {{ objstorage-name }}'
         href: tutorials/kubernetes-backup.md
   - name: Concepts
     items:
@@ -190,7 +196,7 @@ items:
         href: concepts/index.md
       - name: Bucket
         href: concepts/bucket.md
-      - name: Map item
+      - name: Object
         href: concepts/object.md
       - name: Bucket versioning
         href: concepts/versioning.md
@@ -204,7 +210,7 @@ items:
         href: concepts/lifecycles.md
       - name: CORS
         href: concepts/cors.md
-      - name: Static website hosting
+      - name: Hosting static websites
         href: concepts/hosting.md
       - name: Pre-signed URLs
         href: concepts/pre-signed-urls.md
@@ -212,7 +218,7 @@ items:
         href: concepts/multipart.md
       - name: Access control lists (ACLs)
         href: concepts/acl.md
-      - name: Bucket Policy
+      - name: Bucket policy
         href: concepts/policy.md
       - name: Uploading files via an HTML form
         href: concepts/presigned-post-forms.md
@@ -220,7 +226,7 @@ items:
         href: concepts/storage-class.md
       - name: Bucket actions logging mechanism
         href: concepts/server-logs.md
-      - name: Backups
+      - name: Backup
         href: concepts/backup.md
       - name: TLS protocol
         href: concepts/tls.md
@@ -286,7 +292,7 @@ items:
         href: security/index.md
       - name: Access control lists (ACLs)
         href: security/acl.md
-      - name: Bucket Policy
+      - name: Bucket policy
         href: security/policy.md
       - name: Public access
         href: security/public-access.md

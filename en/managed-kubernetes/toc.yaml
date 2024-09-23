@@ -16,7 +16,7 @@ items:
         href: operations/index.md
       - name: Connecting to a node over SSH
         href: operations/node-connect-ssh.md
-      - name: Connecting to a node over {{ oslogin }}
+      - name: Connecting to a node via {{ oslogin }}
         href: operations/node-connect-oslogin.md
       - name: Updating {{ k8s }}
         href: operations/update-kubernetes.md
@@ -30,9 +30,9 @@ items:
             href: operations/connect/security-groups.md
           - name: Creating a static configuration file
             href: operations/connect/create-static-conf.md
-      - name: Installing applications from {{ marketplace-name }}
+      - name: Installing apps from {{ marketplace-name }}
         items:
-          - name: Basics of working with {{ marketplace-name }}
+          - name: Getting started with {{ marketplace-name }}
             href: operations/applications/marketplace.md
           - name: Installing Argo CD
             href: operations/applications/argo-cd.md
@@ -48,7 +48,7 @@ items:
             href: operations/applications/crossplane.md
           - name: Installing External Secrets Operator
             href: operations/applications/external-secrets-operator.md
-          - name: Installing ExternalDNS with the {{ dns-name }} plugin
+          - name: Installing ExternalDNS with a plugin for {{ dns-name }}
             href: operations/applications/externaldns.md
           - name: Installing Falco
             href: operations/applications/falco.md
@@ -58,7 +58,7 @@ items:
             href: operations/applications/fluentbit.md
           - name: Installing Gateway API
             href: operations/applications/gateway-api.md
-          - name: Installing {{ GL }} Agent
+          - name: Installing the {{ GL }} Agent
             href: operations/applications/gitlab-agent.md
           - name: Installing {{ GLR }}
             href: operations/applications/gitlab-runner.md
@@ -94,7 +94,7 @@ items:
             href: operations/applications/velero-yc-csi.md
       - name: Network scenarios
         items:
-          - name: Granting access to an app running in a {{k8s}} cluster
+          - name: Granting access to an app running in a {{ k8s }} cluster
             href: operations/create-load-balancer.md
           - name: Configuring the Calico network policy controller
             href: operations/calico.md
@@ -128,12 +128,12 @@ items:
             href: operations/kubernetes-cluster/kubernetes-cluster-operation-logs.md
           - name: Creating a {{ k8s }} cluster
             href: operations/kubernetes-cluster/kubernetes-cluster-create.md
-          - name: Editing a {{ k8s }} cluster
+          - name: Updating a {{ k8s }} cluster
             href: operations/kubernetes-cluster/kubernetes-cluster-update.md
           - name: Creating a namespace in a {{ k8s }} cluster
             href: >-
               operations/kubernetes-cluster/kubernetes-cluster-namespace-create.md
-          - name: Monitoring {{ k8s }} cluster state
+          - name: Monitoring cluster state {{ k8s }}
             href: operations/kubernetes-cluster/kubernetes-cluster-get-stats.md
           - name: Deleting a {{ k8s }} cluster
             href: operations/kubernetes-cluster/kubernetes-cluster-delete.md
@@ -171,6 +171,8 @@ items:
         href: tutorials/time-slicing-gpu.md
       - name: Migrating resources to a different availability zone
         href: tutorials/migration-to-an-availability-zone.md
+      - name: Using {{ yandex-cloud }} modules in {{ TF }}
+        href: tutorials/terraform-modules.md
       - name: Setting up and testing scaling
         items:
           - name: Horizontal application scaling in a cluster
@@ -186,8 +188,8 @@ items:
           - name: Installing an NGINX Ingress controller with Let's Encrypt®
             href: tutorials/ingress-cert-manager.md
           - name: >-
-              Installing an NGINX Ingress controller with a certificate from {{
-              certificate-manager-name }}
+              Installing an NGINX Ingress controller with a {{
+              certificate-manager-name }} certificate
             href: tutorials/nginx-ingress-certificate-manager.md
       - name: Using {{ container-registry-name }}
         items:
@@ -195,6 +197,10 @@ items:
             href: tutorials/container-registry.md
           - name: Signing and verifying {{ container-registry-name }} Docker images
             href: tutorials/sign-cr-with-cosign.md
+      - name: Using {{ mkf-name }}
+        items:
+          - name: Deploying the UI for {{ KF }}
+            href: tutorials/deploy-kafka-ui.md
       - name: Continuous integration with {{ GL }}
         items:
           - name: Continuous deployment of containerized applications using {{ GL }}
@@ -213,9 +219,11 @@ items:
             href: tutorials/node-local-dns.md
           - name: Checking DNS Challenge for Let's Encrypt® certificates
             href: tutorials/dnschallenge.md
-      - name: Backups
+          - name: Creating an ACME resolver webhook for responses to DNS01 checks
+            href: tutorials/cert-manager-webhook.md
+      - name: Backup
         items:
-          - name: Backups to {{ objstorage-name }}
+          - name: Backups in {{ objstorage-name }}
             href: tutorials/kubernetes-backup.md
           - name: Working with snapshots
             href: tutorials/pvc-snapshot-restore.md
@@ -244,8 +252,8 @@ items:
           - name: Logging settings for {{ alb-name }} Ingress controllers
             href: tutorials/alb-ingress-controller-log-options.md
           - name: >-
-              Checking health of applications in a cluster using the {{ alb-name
-              }} Ingress controller
+              Health checking your apps in a cluster using the {{ alb-name }}
+              Ingress controller
             href: tutorials/custom-health-checks.md
           - name: Using Jaeger to trace requests in {{ ydb-name }}
             href: tutorials/marketplace/jaeger-over-ydb.md
@@ -283,7 +291,7 @@ items:
             href: concepts/node-group/allocatable-resources.md
           - name: Node groups with GPUs
             href: concepts/node-group/node-group-gpu.md
-      - name: Network in {{ managed-k8s-name }}
+      - name: Networking in {{ managed-k8s-name }}
         href: concepts/network.md
       - name: Network settings and cluster policies
         href: concepts/network-policy.md
@@ -295,7 +303,7 @@ items:
         href: concepts/external-nodes.md
       - name: Quotas and limits
         href: concepts/limits.md
-      - name: Recommendations for using {{ managed-k8s-name }}
+      - name: '{{ managed-k8s-name }} usage recommendations'
         href: concepts/usage-recommendations.md
   - name: Access management
     href: security/index.md

@@ -35,7 +35,7 @@ description: "При создании дашборда в {{ datalens-full-name 
 
 #### Добавление таблиц {#ui-join}
 
-В интерфейсе создания датасета можно [объединять данные](../dataset/create-dataset.md#links), перетаскивая таблицы на рабочую область и настраивая связи между ними через [оператор JOIN](../dataset/data-model.md#source).  Пример объединения данных с помощью добавления таблиц смотрите в [сценарии](../../tutorials/datalens/data-from-ch-visualization.md#step2).  
+В интерфейсе создания датасета можно [объединять данные](../dataset/create-dataset.md#links), перетаскивая таблицы на рабочую область и настраивая связи между ними через [оператор JOIN](../dataset/data-model.md#source). Пример объединения данных с помощью добавления таблиц смотрите в [сценарии](../../tutorials/datalens/data-from-ch-visualization.md#step2).
 
 {% include [data-join-duplicate-fields-note](../../_includes/datalens/datalens-data-join-duplicate-fields-note.md) %}
 
@@ -246,6 +246,6 @@ description: "При создании дашборда в {{ datalens-full-name 
 
 ![image](../../_assets/datalens/concepts/joins/case-5-chart-opt-2.png)
 
-{% endcut %} 
+{% endcut %}
 
 

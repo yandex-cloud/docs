@@ -64,6 +64,8 @@ items:
         href: concepts/limits.md
       - name: Сравнение с Yandex Message Queue
         href: concepts/yds-ymq-comparison.md
+      - name: Транзакции с участием потоков данных и таблиц YDB
+        href: concepts/topic-table-transactions.md
   - name: Практические руководства
     items:
       - name: Ввод данных в системы хранения

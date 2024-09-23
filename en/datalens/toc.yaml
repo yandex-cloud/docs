@@ -72,7 +72,7 @@ items:
             href: tutorials/data-from-bitrix24-visualization.md
           - name: '{{ tracker-full-name }}: data export and visualization'
             href: tutorials/data-from-tracker.md
-          - name: 'Yandex Music podcasts: statistics'
+          - name: 'Yandex Music podcasts: Statistics'
             href: tutorials/data-from-podcasts.md
           - name: Visualizing {{ yq-full-name }} data
             href: tutorials/data-from-yandex-query-visualization.md

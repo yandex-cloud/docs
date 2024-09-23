@@ -33,15 +33,15 @@ To start writing logs, do the following:
 
 {{ objstorage-name }} uses the following format of the key for the log object:
 
-```
+```text
 <prefix>/YYYY-MM-DD-HH-MM-SS-<ID>
 ```
 
 Where:
 
-* `<prefix>`: [Prefix of the key](#key-prefix) for the log object. You can specify the prefix yourself when enabling logging.
+* `<prefix>`: [Prefix of the key](#key-prefix) of the log object. You can specify the prefix yourself when enabling logging.
 * `YYYY-MM-DD-HH-MM-SS`: Date and time of saving the log object in the target bucket (UTC format).
-* `<ID>`: Unique record ID that prevents the object from being overwritten.
+* `<identifier>`: Unique record ID that prevents overwriting the object.
 
 ### Prefix of the key {#key-prefix}
 

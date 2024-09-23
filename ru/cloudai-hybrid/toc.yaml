@@ -1,4 +1,5 @@
 title: '{{ cloudml-full-name }}'
+href: index.yaml
 label:
   title: RU
   description: Сервис доступен только в регионе Россия.
