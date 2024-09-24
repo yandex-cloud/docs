@@ -27,8 +27,8 @@ If you no longer need the resources you created, [delete them](#cleanup).
 The infrastructure support costs include:
 
 * Fee for two continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)):
-   * VM for the SFTP client.
-   * VM for the SFTP server.
+  * VM for the SFTP client.
+  * VM for the SFTP server.
 * Fee for using a dynamic or static external IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 
@@ -40,39 +40,39 @@ To create a VM:
 
 - Management console {#console}
 
-   1. On the folder page in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
-   1. In the **{{ ui-key.yacloud.common.name }}** field, enter the VM name: `sftp-server`.
-   1. Select an [availability zone](../../overview/concepts/geo-scope.md) to put your virtual machine in.
-   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**:
+  1. On the folder page in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
+  1. In the **{{ ui-key.yacloud.common.name }}** field, enter the VM name: `sftp-server`.
+  1. Select an [availability zone](../../overview/concepts/geo-scope.md) to put your virtual machine in.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**:
 
-      1. Go to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab.
-      1. Click **{{ ui-key.yacloud.compute.instances.create.button_show-all-marketplace-products }}**.
-      1. In the list of public images, find [CentOS 7](/marketplace/products/yc/centos-7) and select it.
+     1. Go to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab.
+     1. Click **{{ ui-key.yacloud.compute.instances.create.button_show-all-marketplace-products }}**.
+     1. In the list of public images, find [CentOS 7](/marketplace/products/yc/centos-7) and select it.
 
-   1. In the **{{ ui-key.yacloud.compute.instances.create.section_platform }}** section, select the following configuration:
+  1. In the **{{ ui-key.yacloud.compute.instances.create.section_platform }}** section, select the following configuration:
 
-      * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Cascade Lake`
-      * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `20%`
-      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`
-      * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `2 {{ ui-key.yacloud.common.units.label_gigabyte }}`
+     * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Cascade Lake`
+     * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `20%`
+     * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`
+     * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `2 {{ ui-key.yacloud.common.units.label_gigabyte }}`
 
-   1. In the **{{ ui-key.yacloud.compute.instances.create.section_network }}** section, select the network and subnet to connect the VM to. If you do not have a network or subnet yet, you can create them on the VM creation page.
+  1. In the **{{ ui-key.yacloud.compute.instances.create.section_network }}** section, select the network and subnet to connect the VM to. If you do not have a network or subnet yet, you can create them on the VM creation page.
+  
+  1. In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, leave the **{{ ui-key.yacloud.component.compute.network-select.switch_auto }}** value to assign a random external IP address from the {{ yandex-cloud }} pool. To ensure the external IP address does not change after the VM is stopped, [convert it to static](../../vpc/operations/set-static-ip.md).
+  
+  1. Specify the data required for accessing the VM:
 
-   1. In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, leave the **{{ ui-key.yacloud.component.compute.network-select.switch_auto }}** value to assign a random external IP address from the {{ yandex-cloud }} pool. To ensure the external IP address does not change after the VM is stopped, [convert it to static](../../vpc/operations/set-static-ip.md).
-
-   1. Specify the data required for accessing the VM:
-
-      * Enter the username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
-      * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the public key file. You need to create a key pair for the SSH connection yourself. See the [section on how to connect to VMs via SSH](../../compute/operations/vm-connect/ssh.md).
-
-      {% note alert %}
-
-      Once created, the VM will get an IP address and a host name (FQDN) for connections. If you selected the **{{ ui-key.yacloud.component.compute.network-select.switch_none }}** option in the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, you will not be able to access the VM from the internet.
-
-      {% endnote %}
-
-   1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
-
+     * Enter the username into the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
+     * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the public key file. You need to create a key pair for the SSH connection yourself. See the [section on how to connect to VMs via SSH](../../compute/operations/vm-connect/ssh.md).
+       
+     {% note alert %}
+     
+     Once created, the VM will get an IP address and a host name (FQDN) for connections. If you selected the **{{ ui-key.yacloud.component.compute.network-select.switch_none }}** option in the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, you will not be able to access the VM from the internet.
+    
+     {% endnote %}
+  
+  1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
+  
 {% endlist %}
 
 It may take a few minutes to create a VM.
@@ -103,7 +103,7 @@ SFTP server functionality is included in the standard SSH program that comes wit
 
    Where:
 
-   * `Match User fuser`: Indicates that all subsequent rows will be applied only when connecting the `fuser` user.
+   * `Match User fuser`: Means that all subsequent rows will be applied only when connecting the `fuser` user.
    * `ForceCommand internal-sftp`: Only connects the user in SFTP mode and disables access to the shell.
    * `PasswordAuthentication no`: Disables login and password-based access.
    * `ChrootDirectory /var/sftp`: Only allows user access to the `/var/sftp` directory.
@@ -112,9 +112,9 @@ SFTP server functionality is included in the standard SSH program that comes wit
 1. Save the file.
 1. Output the configuration file without commented or empty lines:
 
-   ```bash
-   sudo cat /etc/ssh/sshd_config | grep -v -e '^#' -e '^$'
-   ```
+    ```bash
+    sudo cat /etc/ssh/sshd_config | grep -v -e '^#' -e '^$'
+    ```
 
 1. Make sure the output of the previous command matches the following lines:
 
@@ -193,7 +193,7 @@ SFTP server functionality is included in the standard SSH program that comes wit
 
 On the SFTP server VM:
 
-1. Create an SFTP user, like `fuser`:
+1. Create an SFTP user, such as `fuser`:
 
    ```bash
    sudo useradd fuser
@@ -205,20 +205,20 @@ On the SFTP server VM:
    sudo passwd fuser
    ```
 
-1. Create SSH keys for the `fuser` user. Run the `ssh-keygen` command as `fuser`:
+1. Create SSH keys for the `fuser` user. For this, run the `ssh-keygen` command under `fuser`:
 
    ```bash
-   sudo runuser -l fuser -c 'ssh-keygen'
+   sudo runuser -l  fuser -c 'ssh-keygen'
    ```
 
    For the key generation process, see below. Leave the `passphrase` field blank.
 
    ```text
    Generating public/private rsa key pair.
-   Enter file in which to save the key (/home/fuser/.ssh/id_rsa):
+   Enter file in which to save the key (/home/fuser/.ssh/id_rsa): 
    Created directory '/home/fuser/.ssh'.
-   Enter passphrase (empty for no passphrase):
-   Enter same passphrase again:
+   Enter passphrase (empty for no passphrase): 
+   Enter same passphrase again: 
    Your identification has been saved in /home/fuser/.ssh/id_ed25519.
    Your public key has been saved in /home/fuser/.ssh/id_ed25519.pub.
    The key fingerprint is:
@@ -237,7 +237,7 @@ On the SFTP server VM:
    +----[SHA256]-----+
    ```
 
-1. Create a file to save the SFTP client's public SSH keys to. Set the required permissions:
+1. Create a file to save the SFTP client's public SSH keys to. Set the required permissions: 
 
    ```bash
    sudo touch /home/fuser/.ssh/authorized_keys
@@ -267,12 +267,12 @@ On the SFTP server VM:
 
 ## Create and configure a VM for the SFTP client {#create-vm-sftp-client}
 
-The process for creating a VM for the SFTP client is exactly the same as the one for the SFTP server.
+The process for creating a VM for the SFTP client is exactly the same as the one for the SFTP server. 
 
 1. Complete steps 1-9 of the [Create a VM for the SFTP server](#create-vm-sftp-server) section; this time, however, name your VM as `sftp-client`.
 
 1. [Log in to the SFTP client VM via SSH](../../compute/operations/vm-connect/ssh.md#vm-connect).
-1. Create an SSH key pair on the SFTP client. The process is similar to the one described for the `fuser` user in the [previous section](#create-sftp-user):
+1. Create an SSH key pair on the SFTP client. This is done in a similar way to what you did for the `fuser` user in the [previous section](#create-sftp-user):
 
    ```bash
    ssh-keygen
@@ -285,7 +285,7 @@ The process for creating a VM for the SFTP client is exactly the same as the one
    ```
 
 1. [Log in to the SFTP server VM via SSH](../../compute/operations/vm-connect/ssh.md#vm-connect).
-1. Open the `/home/fuser/.ssh/authorized_keys` file:
+1. Open the `/home/fuser/.ssh/authorized_keys` file: 
 
    ```bash
    sudo vi /home/fuser/.ssh/authorized_keys
@@ -296,7 +296,7 @@ The process for creating a VM for the SFTP client is exactly the same as the one
 1. Make sure the SFTP client VM is accessible from the SFTP server and vice versa:
 
    1. [Log in to the SFTP server VM via SSH](../../compute/operations/vm-connect/ssh.md#vm-connect).
-   1. Find the public or internal IP address of the SFTP client in the {{ yandex-cloud }} console under VM settings.
+   1. Find the public or internal IP address of the SFTP client in the {{ yandex-cloud }} console under VM settings. 
 
       {% note warning %}
 
@@ -307,13 +307,13 @@ The process for creating a VM for the SFTP client is exactly the same as the one
    1. Enter the following command in the SFTP server terminal and provide the appropriate value:
 
       ```bash
-      ping -c 3 <SFTP_client_IP_address>
+      ping -с 3 <SFTP_client_IP_address>
       ```
 
-   1. Make sure the packages are sent and received successfully:
+   1. Make sure the packages are sent and received successfully: 
 
       ```bash
-      ping -c 3 84.201.170.171
+      ping -с 3 84.201.170.171
       ```
 
       Result:
@@ -333,13 +333,13 @@ The process for creating a VM for the SFTP client is exactly the same as the one
 
 ## Make a backup of configuration files on the SFTP server {#backup}
 
-This guide describes how to back up configuration (`.conf`) files from the `/etc` folder.
+This guide describes how to back up configuration (`.conf`) files from the `/etc` folder. 
 
-Backup process:
+The backup process is as follows:
 
-1. Archive all the necessary configuration files.
+1. Archive all configuration files you need.
 1. Send the archive to the SFTP server.
-1. Delete the archive on the SFTP client.
+1. Delete the archive on the SFTP client. 
 
 To set up the backup process:
 
@@ -371,7 +371,7 @@ To set up the backup process:
 
    Result:
 
-   ```
+   ```text
    SFTP_USER=fuser
    SFTP_SERVER=10.128.0.5
    ```
@@ -384,8 +384,8 @@ To set up the backup process:
 
    Where:
 
-   * `sudo find /etc -type f -name *.conf -print0`: Search for all `.conf` files from the `/etc` directory.
-   * `sudo tar -czf backup.tar.gz --null -T -`: Move the configuration files to the `backup.tar.gz` archive.
+   * `sudo find /etc -type f -name *.conf -print0`: Searching for all `.conf` files from `/etc`.
+   * `sudo tar -czf backup.tar.gz --null -T -`: Moving the configuration files to the `backup.tar.gz` archive.
 
 1. Send the resulting archive to the SFTP server:
 
@@ -399,7 +399,7 @@ To set up the backup process:
    * `$SFTP_SERVER`: Variable that automatically takes the value of the SFTP server IP address.
    * `backup_$(hostname)_$(date "+%Y%m%d_%H%M%S").tar.gz`: Adds the name of the computer to the archive name and the date and time when the archive was created. This will help you navigate the list of backups on the server.
 
-     For example, the name of the archive on the server might look like this: `backup_ftp-server.{{ region-id }}.internal_20190803_180228.tar.gz`.
+     For example, the name of the archive on the server might look like this: `backup_ftp-server.{{ region-id }}.internal_20190803_180228.tar.gz`. 
 
    * `--insecure`: Disables SSL certificate verification by the SFTP server. In this case, the traffic within the SSH session is still encrypted.
    * `$SFTP_USER`: Variable that automatically takes the SFTP user value.
@@ -435,7 +435,7 @@ To make sure the backup is being created properly, run the backup, and find the 
 
 ## Set up a schedule for backups {#schedule}
 
-To create regular backups of your settings, you can use a built-in program called `crontab`.
+To create regular backups of your settings, you can use `crontab`, a built-in utility.
 
 1. [Log in to the SFTP client VM via SSH](../../compute/operations/vm-connect/ssh.md#vm-connect) and open the `crontab` file for editing:
 
@@ -445,7 +445,7 @@ To create regular backups of your settings, you can use a built-in program calle
 
 1. Add the following lines to run backups daily at 11:00 pm UTC:
 
-   ```
+   ```text
    SFTP_SERVER=<SFTP_server_IP_address>
    SFTP_USER='fuser'
 
@@ -463,11 +463,11 @@ To restore settings, do the following:
 1. Download the backup from the SFTP server to the SFTP client.
 1. Unpack the archive.
 1. Copy the configuration files from the archive to the system.
-1. Delete the archive.
+1. Delete the archive. 
 
 To restore the settings from the backup:
 
-1. On the SFTP server, in the `/var/sftp/backups` directory, select the backup from which you want to restore the configuration files. For example, let's assume this backup is `backup_ftp-server.{{ region-id }}.internal_20190803_180228.tar.gz`.
+1. On the SFTP server, in the `/var/sftp/backups` directory, select the backup from which you want to restore the configuration files. For example, let’s assume you select `backup_ftp-server.{{ region-id }}.internal_20190803_180228.tar.gz`.
 
 1. [Log in to the SFTP client VM via SSH](../../compute/operations/vm-connect/ssh.md#vm-connect).
 1. Set an environment variable for the backup file name:
@@ -488,10 +488,10 @@ To restore the settings from the backup:
    tar -xzf $SFTP_BACKUP
    ```
 
-1. Copy the configuration files from the archive to the system. Use `yes` in the command to avoid entering confirmation when overwriting files:
+1. Copy the configuration files from the archive to the system. Use `yes` when running the command to skip confirmation when overwriting files:
 
    ```bash
-   yes | sudo cp -rfp etc /
+   yes | sudo cp -rfp etc / 
    ```
 
 1. Delete the archive and unpacked content:
@@ -508,7 +508,7 @@ sftp $SFTP_USER@$SFTP_SERVER:/backups/$SFTP_BACKUP . && tar -xzf $SFTP_BACKUP &&
 ```
 
 ## Check whether the settings are restored correctly {#check-restore}
-
+  
 On the SFTP client VM:
 
 1. To make sure the configuration files from the archive successfully get into the file system, add a verification section to the command above:
@@ -517,7 +517,7 @@ On the SFTP client VM:
    sftp $SFTP_USER@$SFTP_SERVER:/backups/$SFTP_BACKUP . && tar -xzf $SFTP_BACKUP && echo "## this is from backup" >> etc/yum.conf && yes | sudo cp -rfp etc / && rm -rfd etc && rm -f $SFTP_BACKUP
    ```
 
-   The `echo "## this is from backup" >> etc/yum.conf` command writes the "## this is from backup" test phrase at the end of the `etc/yum.conf` file unpacked from the archive.
+   The `echo "## this is from backup" >> etc/yum.conf` command writes the _## this is from backup_ test phrase at the end of the `etc/yum.conf` file unpacked from the archive.
 
 1. After restoring the backup, run the following command:
 
@@ -535,5 +535,5 @@ On the SFTP client VM:
 
 If you no longer need the SFTP server and client:
 
-* [Delete the VMs](../../compute/operations/vm-control/vm-delete.md) for the SFTP client and server (in our example, they are named `sftp-server` and `sftp-client`).
+* [Delete the VMs](../../compute/operations/vm-control/vm-delete.md) for the SFTP client and server (in our example, `sftp-server` and `sftp-client`).
 * [Delete the static IP address](../../vpc/operations/address-delete.md) if you reserved one.

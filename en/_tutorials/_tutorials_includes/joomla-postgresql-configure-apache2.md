@@ -4,9 +4,9 @@
 
    - CentOS Stream
 
-      ```bash
-      sudo chown -R apache /var/www/html/
-      ```
+     ```bash
+     sudo chown -R apache /var/www/html/
+     ```
 
    {% endlist %}
 
@@ -16,26 +16,26 @@
 
    - CentOS Stream
 
-      ```bash
-      sudo nano /etc/httpd/conf.d/joomla.conf
-      ```
+     ```bash
+     sudo nano /etc/httpd/conf.d/joomla.conf
+     ```
 
-      Make the file look like:
+     Edit the file as follows:
 
-      ```
-      <VirtualHost *:80 [::]:80>
-        ServerAdmin webmaster@localhost
-        DocumentRoot /var/www/html/
+     ```xml
+     <VirtualHost *:80 [::]:80>
+       ServerAdmin webmaster@localhost
+       DocumentRoot /var/www/html/
 
-        <Directory /var/www/html/>
-          DirectoryIndex index.php index.html
-          DirectorySlash off
-          RewriteEngine on
-          RewriteBase /
-          AllowOverride all
-        </Directory>
-      </VirtualHost>
-      ```
+       <Directory /var/www/html/>
+         DirectoryIndex index.php index.html
+         DirectorySlash off
+         RewriteEngine on
+         RewriteBase /
+         AllowOverride all
+       </Directory>
+     </VirtualHost>
+     ```
 
    {% endlist %}
 
@@ -45,9 +45,9 @@
 
    - CentOS Stream
 
-      ```bash
-      sudo service httpd restart
-      ```
+     ```bash
+     sudo service httpd restart
+     ```
 
    {% endlist %}
 
@@ -57,9 +57,9 @@
 
    - CentOS Stream
 
-      ```bash
-      sudo restorecon -R /var/www/html
-      sudo setsebool -P httpd_can_network_connect 1
-      ```
+     ```bash
+     sudo restorecon -R /var/www/html
+     sudo setsebool -P httpd_can_network_connect 1
+     ```
 
    {% endlist %}

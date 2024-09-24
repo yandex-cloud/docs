@@ -1,5 +1,6 @@
 ---
-description: "To evaluate the quality of image, you can use the quality model of {{ vision-full-name }}. The service compares similar images and selects those with the best quality or filters out the images of lower quality, for example, to remove them from search results. Supported file formats for quality evaluation: JPEG, PNG, PDF."
+description: "To evaluate image quality, you can use the quality model offered by {{ vision-full-name }}. The service compares similar images and selects the best quality ones or filters out lower quality images, e.g., to exclude them from search results. Supported file formats for quality evaluation: JPEG, PNG, PDF."
+noIndex: true
 keywords:
   - image quality
   - photo quality detection
@@ -9,9 +10,9 @@ keywords:
 
 {% include [deprecation-warning](../../../_includes/vision/deprecation-warning.md) %}
 
-To evaluate the quality of an image, use the [Image Classification](../../concepts/classification/index.md).
+To evaluate the quality of an image, use [Image classification](../../concepts/classification/index.md).
 
-In the [batchAnalyze](../../vision/api-ref/Vision/batchAnalyze.md) method, set the `type` property to `Classification`, and in the configuration, specify the [quality](../../concepts/classification/supported-models.md#quality).
+In the [batchAnalyze](../../vision/api-ref/Vision/batchAnalyze.md) method, set the `type` property to `Classification`, and specify the [quality](../../concepts/classification/supported-models.md#quality) model in the configuration.
 
 ## Examples {#examples}
 
@@ -59,11 +60,11 @@ In the [batchAnalyze](../../vision/api-ref/Vision/batchAnalyze.md) method, set t
    Where:
 
    * `folderId`: [ID of any folder](../../../resource-manager/operations/folder/get-id.md) for which your account has the `{{ roles-vision-user }}` role or higher.
-   * `analyze_specs: content`: Image [encoded in Base64](../base64-encode.md).
+   * `analyze_specs: content`: [Base64 encoded](../base64-encode.md) image.
 
 1. {% include [send-request](../../../_includes/vision/send-request.md) %}
 
-   Where `IAM_TOKEN` is the IAM token received [before starting](#before-you-begin).
+   Where `IAM_TOKEN` is the IAM token you got [before you started](#before-you-begin).
 
    The response will contain the properties and the probability of matching them. You can use these properties to moderate the image:
 

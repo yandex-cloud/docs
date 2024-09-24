@@ -1,5 +1,5 @@
 ---
-title: "How to get started with speech recognition in {{ speechkit-full-name }}"
+title: "Getting started with speech recognition in {{ speechkit-full-name }}"
 description: "In this tutorial, you will learn how to get started with speech recognition in {{ speechkit-name }}."
 ---
 
@@ -15,7 +15,7 @@ For the recommended hardware configuration, see [{#T}](../system-requirements.md
 
 ## Installing and setting up the streaming speech recognition service {#installing}
 
-1. Place the `docker-compose.yaml` file you received from the SpeechKit team in a folder on your server
+1. Put the `docker-compose.yaml` file you got from the SpeechKit team in a folder on your server.
 
 1. Edit `docker-compose.yaml`: replace `N` with your number of CPU threads in the `CPU_THREADS_NUM: N` parameter.
 

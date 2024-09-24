@@ -33,6 +33,8 @@ items:
             href: operations/video/upload.md
           - name: Изменить видео
             href: operations/video/update.md
+          - name: Управлять субтитрами
+            href: operations/video/subtitles.md
           - name: Скачать видео
             href: operations/video/download.md
           - name: Опубликовать видео

@@ -1,12 +1,21 @@
-title: Yandex SpeechSense
+title: '{{ speechsense-full-name }}'
 description:
   - >-
-    Yandex SpeechSense — это сервис, который поможет вашему бизнесу организовать
-    аналитику контактных центров.
+    {{ speechsense-full-name }} — это сервис, который поможет вашему бизнесу
+    организовать аналитику контактных центров.
   - >-
-    В основе Yandex SpeechSense лежат ML-технологии Yandex Cloud. Yandex
-    SpeechKit распознает речь, соберет статистику диалога и определит ключевые
-    слова, а YandexGPT API поможет написать резюме.
+    В основе {{ speechsense-full-name }} лежат ML-технологии Yandex Cloud. {{
+    speechkit-full-name }} распознает речь, соберет статистику диалога и
+    определит ключевые слова, а {{ yagpt-full-name }} поможет написать резюме.
+  - >-
+    Для сервиса действует <a href="https://yandex.ru/legal/cloud_sla">соглашение
+    об уровне обслуживания</a>. Уровень обслуживания сервиса определен в
+    документе <a href="https://yandex.ru/legal/cloud_terms_speechsense">Уровень
+    обслуживания {{ speechsense-full-name }}</a>.
+  - >-
+    Правила использования сервиса определены в документе <a href
+    ="https://yandex.ru/legal/cloud_terms_speechsense">Условия использования
+    сервиса {{ speechsense-full-name }}</a>.
 meta:
   title: Yandex SpeechSense
 links:

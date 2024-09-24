@@ -10,67 +10,67 @@ Use a [service account](../../iam/concepts/users/service-accounts.md) to manage 
 
 You can also access {{ TF }} from your [Yandex account](../../iam/concepts/users/accounts.md#passport),, or a [federated account](../../iam/concepts/users/accounts.md#saml-federation), but this method is less secure. For more information, see the end of this section.
 
-1. If you do not have the {{ yandex-cloud }} command line interface, [install](../../cli/quickstart.md#install) it.
+1. If you do not have the {{ yandex-cloud }} command line interface, [install it](../../cli/quickstart.md#install).
 
 1. Set up the CLI profile to run operations on behalf of the service account:
 
-   {% list tabs group=instructions %}
+    {% list tabs group=instructions %}
 
-   - CLI {#cli}
+    - CLI {#cli}
 
       1. Create an [authorized key](../../iam/concepts/authorization/key.md) for your service account and save the file:
 
-         ```bash
-         yc iam key create \
-           --service-account-id <service_account_ID> \
-           --folder-name <name_of_folder_with_service_account> \
-           --output key.json
-         ```
+          ```bash
+          yc iam key create \
+            --service-account-id <service_account_ID> \
+            --folder-name <service_account_folder_name> \
+            --output key.json
+          ```
 
-         Where:
-         * `service-account-id`: ID of your service account.
-         * `folder-name`: Name of the folder the service account was created in.
-         * `output`: Name of the file with the authorized key.
+          Where:
+          * `service-account-id`: Service account ID.
+          * `folder-name`: Name of the folder in which the service account was created.
+          * `output`: Name of the file with the authorized key.
 
-         Result:
+          Result:
 
-         ```yaml
-         id: aje8nn871qo4********
-         service_account_id: ajehr0to1g8b********
-         created_at: "2022-09-14T09:11:43.479156798Z"
-         key_algorithm: RSA_2048
-         ```
+          ```text
+          id: aje8nn871qo4********
+          service_account_id: ajehr0to1g8b********
+          created_at: "2022-09-14T09:11:43.479156798Z"
+          key_algorithm: RSA_2048
+          ```
 
       1. Create a CLI profile to run operations on behalf of the service account. Name the profile:
 
-         ```bash
-         yc config profile create <profile_name>
-         ```
+          ```bash
+          yc config profile create <profile_name>
+          ```
 
-         Result:
+          Result:
 
-         ```text
-         Profile 'sa-terraform' created and activated
-         ```
+          ```text
+          Profile 'sa-terraform' created and activated
+          ```
 
       1. Set the profile configuration:
 
-         ```bash
-         yc config set service-account-key key.json
-         yc config set cloud-id <cloud_ID>
-         yc config set folder-id <folder_ID>
-         ```
+          ```bash
+          yc config set service-account-key key.json
+          yc config set cloud-id <cloud_ID>
+          yc config set folder-id <folder_ID>
+          ```
 
-         Where:
-         * `service-account-key`: File with the authorized key of the service account.
-         * `cloud-id`: [Cloud ID](../../resource-manager/operations/cloud/get-id.md).
-         * `folder-id`: [Folder ID](../../resource-manager/operations/folder/get-id.md).
+          Where:
+          * `service-account-key`: File with the service account authorized key.
+          * `cloud-id`: [Cloud ID](../../resource-manager/operations/cloud/get-id.md).
+          * `folder-id`: [Folder ID](../../resource-manager/operations/folder/get-id.md).
 
-   {% endlist %}
+    {% endlist %}
 
 1. Add the credentials to the environment variables:
 
-   {% include [terraform-token-variables](../../_includes/terraform-token-variables.md) %}
+    {% include [terraform-token-variables](../../_includes/terraform-token-variables.md) %}
 
 
 {% cut "Managing resources on behalf of a Yandex account or a federated account" %}

@@ -24,6 +24,7 @@
 | {{ sf-full-name }}                      | [Functions gRPC](../functions/functions/api-ref/grpc/)<br>[Functions REST](../functions/functions/api-ref/)<br>[Triggers gRPC](../functions/triggers/api-ref/grpc/)<br>[Triggers REST](../functions/triggers/api-ref/) |
 | {{ cloud-logging-full-name }}           | [gRPC](../logging/api-ref/grpc/)<br>[REST](../logging/api-ref/) |
 | {{ marketplace-full-name }}             | [gRPC](../marketplace/api-ref/grpc/)<br>[REST](../marketplace/api-ref/) |
+| {{ cns-full-name }}                     | [S3 REST](../notifications/api-ref/) |
 | {{ message-queue-full-name }}           | [HTTP API](../message-queue/api-ref/) |
 | {{ monitoring-full-name }}              | [gRPC](../monitoring/api-ref/api-ref-grpc/)<br>[REST](../monitoring/api-ref/) |
 | {{ network-load-balancer-full-name }}   | [gRPC](../api-ref/grpc/)<br>[REST](../api-ref/) |

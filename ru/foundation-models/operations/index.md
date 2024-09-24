@@ -10,7 +10,6 @@ description: "Страница содержит все инструкции дл
 * [{#T}](./yandexgpt/create-prompt.md)
 * [{#T}](./yandexgpt/create-chat.md)
 * [{#T}](./yandexgpt/async-request.md)
-* [{#T}](./yandexgpt/finetune.md)
 * [{#T}](./yandexgpt/disable-logging.md)
 
 ## Пошаговые инструкции для классификаторов на базе {{ yagpt-name }} {#classifiers}

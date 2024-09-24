@@ -5,8 +5,6 @@ description: "В сервисе {{ foundation-models-full-name  }} действ�
 
 # Квоты и лимиты в {{ foundation-models-full-name }}
 
-{% include notitle [preview-stage](../../_includes/foundation-models/yandexgpt/preview.md) %}
-
 В сервисе {{ yagpt-full-name }} действуют следующие ограничения:
 
 {% include [quotes-limits-def.md](../../_includes/quotes-limits-def-without-ui.md) %}

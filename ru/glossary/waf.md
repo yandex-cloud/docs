@@ -133,6 +133,6 @@ WAF могут быть аппаратными, программными и об
 1. [Nemesida WAF WEB](/marketplace/products/pentestit/nwaf-api-lk-st) — ВМ для настройки взаимодействия компонентов между собой, визуализации информации об атаках и управления обучением модуля Nemesida AI.
 1. [PT Application Firewall 3.7.3](/marketplace/products/pt/pt-application-firewall) — файрвол с удобным пользовательским интерфейсом и продвинутым логированием трафика веб-приложений.
 
-Образы виртуальных машин можно использовать самостоятельно либо воспользоваться услугой [Managed WAF](../security/standard/vulnerabilities.md#firewall) от {{ yandex-cloud }}.
+Образы виртуальных машин можно использовать самостоятельно либо воспользоваться услугой [Managed WAF](../security/standard/app-security.md#use-waf) от {{ yandex-cloud }}.
 
 Подробнее о том, какой продукт выбрать для защиты, читайте в статье [Защита от DDoS-атак и WAF в {{ yandex-cloud }}](/solutions/anti-ddos).

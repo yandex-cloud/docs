@@ -1,6 +1,5 @@
 title: Yandex Foundation Models
 href: index.yaml
-stage: preview
 label:
   title: RU
   description: This service is only available in Russia.
@@ -23,8 +22,6 @@ items:
             href: operations/yandexgpt/create-prompt.md
           - name: Sending a series of requests in chat mode
             href: operations/yandexgpt/create-chat.md
-          - name: Sending requests to fine-tuned models
-            href: operations/yandexgpt/finetune.md
           - name: Sending an asynchronous request
             href: operations/yandexgpt/async-request.md
           - name: Disabling request logging

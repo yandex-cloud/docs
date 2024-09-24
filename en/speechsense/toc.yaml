@@ -5,7 +5,6 @@ label:
   description: This service is only available in the Russia region.
   theme: unknown
   when: region == "kz"
-stage: preview
 items:
   - name: Getting started
     href: quickstart.md

@@ -1,13 +1,13 @@
 # Visualizing {{ objstorage-full-name }} data in {{ datalens-full-name }}
 
 
-{{ yq-full-name }} and {{ datalens-full-name }} integration allows you to visualize data stored in {{ objstorage-full-name }}. {{ datalens-short-name }} generates a YQL query, while {{ yq-full-name }} runs the query and returns the results, which are visualized using charts.
+By integrating {{ yq-full-name }} with {{ datalens-full-name }}, you can visualize data stored in {{ objstorage-full-name }}. {{ datalens-short-name }} generates a YQL query, while {{ yq-full-name }} runs the query and returns the results, which are visualized using charts.
 
 For the solution architecture, see below.
 
 ![datalens-architecture](../../_assets/datalens/data-lens-architecture.png)
 
-As an example, let's visualize how the time of day affects the number and average cost of New York City yellow taxi trips. The data was previously uploaded to {{ objstorage-full-name }} and stored in a public bucket named `yq-sample-data`, in the `nyc_taxi_csv` folder.
+As an example, let's visualize how the time of day affects the number and average cost of New York City yellow taxi trips. The data was pre-uploaded to a public {{ objstorage-full-name }} bucket named `yq-sample-data`, the `nyc_taxi_csv` folder.
 
 {% note info %}
 
@@ -43,7 +43,7 @@ To create a {{ datalens-short-name }} connection to {{ yq-full-name }}, you need
    ![select-yq](../../_assets/datalens/yandex-query-visualization/select-yq.png)
 
 1. In the left-hand panel, select ![study](../../_assets/console-icons/graduation-cap.svg) **{{ ui-key.yql.yq-navigation.tutorial.menu-text }}**.
-1. Click **{{ ui-key.yql.yq-tutorial.create-connection.button-label }}**. In the Create connection section, all parameter fields are pre-filled. Enter a description (optional) and click **{{ ui-key.yql.yq-connection-form.create.button-text }}**. This will take you to the data [binding](../../query/concepts/glossary.md#binding) creation screen.
+1. Click **{{ ui-key.yql.yq-tutorial.create-connection.button-label }}**. In the Create connection section, all parameter fields are pre-filled. Enter a description (optional) and click **{{ ui-key.yql.yq-connection-form.create.button-text }}**. This will take you to the screen for creating a data [binding](../../query/concepts/glossary.md#binding).
 1. Enter the data binding description (optional) and click **{{ ui-key.yql.yq-binding-form.binding-create.button-text }}**. Appropriate training resources will be created.
 
 ## Create a connection in {{ datalens-full-name }} {#create_connection_lens}
@@ -60,10 +60,10 @@ To create a {{ yq-full-name }} connection:
    * **Cache TTL in seconds**: Specify the cache time-to-live or leave the default value.
    * **Raw SQL level**: Select **Allow subqueries in datasets and queries from charts**.
 
-1. Click **Create connection**.
-1. Enter the `yq-connect` connection name and click **Create**.
+1. Click **Create connection**.
+1. Enter a connection name, e.g., `yq-connect`, and click **Create**.
 
-## Set up the dataset fields {#create_dataset}
+## Configure the dataset fields {#create_dataset}
 
 1. In the top-right corner of the page where you created the connection, click **Create dataset**.
 
@@ -72,9 +72,9 @@ To create a {{ yq-full-name }} connection:
 1. In the window that opens, enter the query text provided below and click **Create**.
 
    ```sql
-   SELECT
+   SELECT 
        *
-   FROM
+   FROM 
        bindings.`tutorial-analytics`
    ```
 
@@ -91,24 +91,24 @@ To create a {{ yq-full-name }} connection:
    1. In **Field name**, specify `hour_trip`.
    1. In the formula line, enter:
 
-      ```
+      ```sql
       HOUR([tpep_pickup_datetime])
       ```
 
-   1. Click **Create**. The new `hour_trip` field will appear in the dataset field list.
+   1. Click **Create**. The new `hour_trip` field will appear in the list of dataset fields.
 
 1. In the **Aggregation** column, select the `Average` aggregation type for the **total_amount** field.
 
    ![field-agg](../../_assets/datalens/yandex-query-visualization/field-agg.png)
 
-1. In the top-right corner, click **Save**. Enter the dataset name: `yellow-taxi-dataset`, and click **Create**.
+1. In the top-right corner, click **Save**. Enter the dataset name, `yellow-taxi-dataset`, and click **Create**.
 1. When the dataset is saved, click **Create chart** in the top-right corner.
 
    ![create-chart](../../_assets/datalens/yandex-query-visualization/create-chart.png)
 
 ## Configure visualization {#create_comdo_chart}
 
-To visualize and analyze the data, use a [combined](../../datalens/visualization-ref/combined-chart.md) [chart](../../datalens/concepts/chart/index.md).
+To visualize and analyze the data, use a [combined](../../datalens/concepts/chart/index.md) [chart](../../datalens/visualization-ref/combined-chart.md).
 
 1. For the visualization type, choose **Combined chart**.
 
@@ -120,28 +120,28 @@ To visualize and analyze the data, use a [combined](../../datalens/visualization
    ![select-layer-column](../../_assets/datalens/yandex-query-visualization/select-layer-column.png)
 
 1. Drag the `total_amount` measure to the **Y** section. You will see a bar chart in the visualization area.
-1. Add a layer. To do this, click ![plus](../../_assets/console-icons/plus.svg) to the right of the first layer's name.
+1. Add a layer. To do this, click the ![plus](../../_assets/console-icons/plus.svg) icon to the right of the first layer name.
 1. For the second layer, choose **Line chart**.
 
    ![select-layer-line](../../_assets/datalens/yandex-query-visualization/select-layer-line.png)
 
 1. Add a field to the chart:
 
-   1. In the left-hand panel, click ![plus](../../_assets/console-icons/plus.svg) and select **Field**.
+   1. At the top left, click ![plus](../../_assets/console-icons/plus.svg) and select **Field**.
 
       ![chart-add-field](../../_assets/datalens/yandex-query-visualization/chart-add-field.png)
 
    1. In the window that opens:
 
-      * In **Field name**, enter `count_trip`.
+      * Under **Field name**, enter `count_trip`.
       * In the formula line, enter `COUNT()`.
 
-         ![chart-field-create](../../_assets/datalens/yandex-query-visualization/chart-field-create.png)
+        ![chart-field-create](../../_assets/datalens/yandex-query-visualization/chart-field-create.png)
 
    1. Click **Create**.
 
-1. Drag the `count_trip` measure to the **Y2** section. You will see a line chart on top of the first chart in the visualization area.
-1. In the top-right corner, click **Save**. Enter the chart name: `yellow-taxi-combo-chart`, and click **Save**.
+1. Drag the new `count_trip` measure to the **Y2** section. You will see a line chart on top of the first chart in the visualization area.
+1. In the top-right corner, click **Save**. Enter `yellow-taxi-combo-chart` as the chart name and click **Save**.
 
 The chart you created shows how the time of day affects the number of trips (line chart) and the average trip cost (bar chart).
 

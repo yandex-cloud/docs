@@ -11,7 +11,7 @@ keywords:
 
 # Connecting to a cloud network using OpenVPN
 
-With TCP or UDP port tunnels and asymmetric encryption, you can create virtual networks. VPN can be used, for example, to:
+With TCP or UDP port tunnels and asymmetric encryption, you can create virtual networks. For example, you can use VPN to do the following:
 
 * Connect geographically remote networks.
 * Connect freelancers to the office network.
@@ -75,19 +75,19 @@ Create a VM to be the gateway for VPN connections:
 
       * Select the required network and subnet and assign a public IP address to the VM either by selecting it from the list or automatically.
 
-          Only use static public IP addresses [from the list](../../vpc/operations/get-static-ip.md) or [make](../../vpc/operations/set-static-ip.md) the IP address static. Dynamic IP addresses may change after the VM reboots and the connections will no longer work.
+          Either use static public IP addresses [from the list](../../vpc/operations/get-static-ip) or [convert](../../vpc/operations/set-static-ip) the VM IP address to static. Dynamic IP addresses may change after the VM reboots and the connections will no longer work.
 
       * If a list of **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** is available, select a [security group](../../vpc/concepts/security-groups.md). If you leave this field empty, the [default security group](../../vpc/concepts/security-groups.md#default-security-group) will be assigned.
 
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the information required to access the instance:
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the data for access to the VM:
 
-      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the SSH username, for example, `yc-user`.
+      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the SSH username, e.g., `yc-user`.
       * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the public key file.
 
           You will need to create a key pair for the SSH connection yourself; see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) for details.
 
   1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
-  1. A window will open informing you of the pricing type: BYOL (Bring Your Own License). Click **{{ ui-key.yacloud.common.create }}**.
+  1. A window will open informing you of the pricing type, which is BYOL (Bring Your Own License). Click **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 
@@ -110,20 +110,20 @@ Create a VM to be the gateway for VPN connections:
 ## Connect to the VPN {#test-vpn}
 
 In the admin panel, you can download [OpenVPN Connect](https://openvpn.net/vpn-client/) for Windows, Linux, MacOS, Android, iOS. You can also use [OpenSource clients](https://openvpn.net/source-code/) for connection.
-
-To check that a connection is established and working properly, connect to the VPN and run the `ping` command for the test VM internal address:
+ 
+To make sure the connection is established and working properly, connect to the VPN and run the `ping` command for the internal address of the test VM:
 
 {% list tabs group=operating_system %}
 
 - Linux {#linux}
 
-   1. Install the `openvpn` using package manager:
+   1. Install `openvpn` using the package manager:
 
       ```bash
       sudo apt update && sudo apt install openvpn
       ```
 
-   1. Allow auto-connect for the `test-user` user:
+   1. Allow automatic connection for the `test-user` user:
 
       * Log in to the admin panel at `https://<VM_public_IP_address>/admin/`.
       * Open the **User management** → **User permissions** tab.
@@ -137,15 +137,15 @@ To check that a connection is established and working properly, connect to the V
 
    1. Download a configuration profile:
 
-      * In the browser, open the user panel at `https://<VM_public_IP_address>/`.
-      * Log in using the `test-user` username and password.
-      * In the **Available Connection Profiles** section, click **Yourself (autologin profile)** and upload the `profile-1.ovpn` file.
+      * In your browser, open the user panel at `https://<VM_public_IP_address>/`.
+      * Sign in using the `test-user` username and password.
+      * In the **Available Connection Profiles** section, click **Yourself (autologin profile)** and download the `profile-1.ovpn` file.
       * You can also download a configuration file in the admin panel at `https://<<VM_public_IP_address>/admin/`.
 
    1. Upload the configuration file to a Linux machine:
 
       ```bash
-      scp profile-1.ovpn user@<IP_address>:~
+      scp profile-1.ovpn user@<IP address>:~
       ```
 
    1. Move the configuration file to the `/etc/openvpn` folder:
@@ -161,7 +161,7 @@ To check that a connection is established and working properly, connect to the V
       ```
 
    1. Close access to the file:
-
+ 
       ```bash
       sudo chown root:root /etc/openvpn/profile-1.conf
       sudo chmod 600 /etc/openvpn/profile-1.conf
@@ -174,8 +174,8 @@ To check that a connection is established and working properly, connect to the V
       ```
 
       Result:
-
-      ```
+   
+      ```text
       2022-04-05 15:35:49 DEPRECATED OPTION: --cipher set to 'AES-256-CBC' but missing in --data-ciphers (AES-256-GCM:AES-128-GCM). Future OpenVPN version will ignore --cipher for cipher negotiations. Add 'AES-256-CBC' to --data-ciphers or change --cipher 'AES-256-CBC' to --data-ciphers-fallback 'AES-256-CBC' to silence this warning.
       2022-04-05 15:35:49 OpenVPN 2.5.1 x86_64-pc-linux-gnu [SSL (OpenSSL)] [LZO] [LZ4] [EPOLL] [PKCS11] [MH/PKTINFO] [AEAD] built on May 14 2021
       2022-04-05 15:35:49 library versions: OpenSSL 1.1.1k  25 Mar 2021, LZO 2.10
@@ -191,10 +191,10 @@ To check that a connection is established and working properly, connect to the V
       2022-04-05 15:35:54 Initialization Sequence Completed
       ```
 
-   1. Test the network using the command `ping`:
+   1. Test the network using the `ping` command:
 
       ```bash
-      sudo ping <internal_IP_address_of_the_test_VM>
+      sudo ping <test_VM_internal_IP_address>
       ```
 
       If the command is executed, the VM can be accessed via OpenVPN.
@@ -205,33 +205,33 @@ To check that a connection is established and working properly, connect to the V
 
    1. Download the installation distribution:
 
-      * In the browser, open the user panel at `https://<VM_public_IP_address>/`.
-      * Log in using the `test-user` username and password.
+      * In your browser, open the user panel at `https://<VM_public_IP_address>/`.
+      * Sign in using the `test-user` username and password.
       * Download OpenVPN Connect version 2 or 3 by clicking the Windows icon.
 
    1. Install and run OpenVPN Connect.
 
    1. A VPN connection will turn on automatically if auto-login is enabled in the user profile.
 
-   1. A new configuration profile can be imported into the application. To do this, specify `https://<VM_public_IP_address>/` or select a profile file.
+   1. You can import a new configuration profile into the application. To do this, specify the `https://<VM_public_IP_address>/` URL or select a profile file.
 
-   1. Open the terminal and run the `ping <internal_IP_address_of_the_test_VM>` command. If the command is executed, the VM can be accessed via OpenVPN.
+   1. Open the terminal and run this command: `ping <internal_IP_address_of_test_VM>`. If the command is running, the VM can be accessed via VPN.
 
 - macOS {#macos}
 
    1. Download the installation distribution:
 
-      * In the browser, open the user panel at `https://<VM_public_IP_address>/`.
-      * Log in using the `test-user` username and password.
+      * In your browser, open the user panel at `https://<VM_public_IP_address>/`.
+      * Sign in using the `test-user` username and password.
       * Download OpenVPN Connect version 2 or 3 by clicking the Apple icon.
 
    1. Install and run OpenVPN Connect.
 
    1. A VPN connection will turn on automatically if auto-login is enabled in the user profile.
 
-   1. A new configuration profile can be imported into the application. To do this, specify `https://<<VM_public_IP_address>/` or select a profile file.
+   1. You can import a new configuration profile into the application. To do this, specify the `https://<<VM_public_IP_address>/` URL or select a profile file.
 
-   1. Open the terminal and run the `ping <internal_IP_address_of_the_test_VM>` command. If the command is executed, the VM can be accessed via OpenVPN.
+   1. Open the terminal and run this command: `ping <internal_IP_address_of_test_VM>`. If the command is running, the VM can be accessed via VPN.
 
 {% endlist %}
 
@@ -239,7 +239,7 @@ To check that a connection is established and working properly, connect to the V
 
 Delete the resources you no longer need to avoid paying for them:
 
-* [Delete](../../compute/operations/vm-control/vm-delete.md) the `vpn-server` VM and the test VM.
+* [Delete](../../compute/operations/vm-control/vm-delete.md) the VM called `vpn-server` and test VMs.
 * If you reserved a public static IP address, [delete it](../../vpc/operations/address-delete.md).
 
 #### See also {#see-also}

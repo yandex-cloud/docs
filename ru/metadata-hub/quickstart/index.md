@@ -1,6 +1,9 @@
+---
+title: "Как начать работу с {{ metadata-hub-full-name }}"
+description: " Из статьи вы узнаете, как создать первое подключение и как начать работать с реестром данных."
+---
+
 # Начало работы с сервисами {{ metadata-hub-full-name }}
-
-
 {% include notitle [preview](../../_includes/note-preview.md) %}
 
 {{ metadata-hub-full-name }} позволяет управлять данными в {{ yandex-cloud }}. Вы можете:
@@ -15,3 +18,4 @@
 
 * [{{ metastore-full-name }}](metastore.md). С его помощью вы можете управлять данными в приложениях, которые поддерживают интеграцию с {{ metastore-name }}. Подробнее о кластерах {{ metastore-name }} см. в [Концепциях](../concepts/metastore.md).
 
+* [{{ schema-registry-name }}](schema-registry.md). C его помощью вы сможете создать субъекты и схемы для управления, задавать параметры эволюции схем, добавлять референсы, сравнивать версии схем. Подробнее о реестре схем см. в [Концепциях](../concepts/schema-registry.md).

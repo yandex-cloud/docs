@@ -132,6 +132,8 @@ items:
             href: concepts/authorization/access-key.md
       - name: Федерации удостоверений
         href: concepts/federations.md
+      - name: Федерации сервисных аккаунтов
+        href: concepts/workload-identity.md
       - name: '{{ sts-name }}'
         href: concepts/authorization/sts.md
       - name: Квоты и лимиты

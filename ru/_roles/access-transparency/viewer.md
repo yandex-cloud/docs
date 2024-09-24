@@ -1,0 +1,1 @@
+Роль `access-transparency.viewer` позволяет просматривать информацию о ресурсах модуля Access Transparency.

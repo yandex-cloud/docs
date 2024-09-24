@@ -5,8 +5,6 @@ description: "{{ foundation-models-full-name }} has a number of quotas and limit
 
 # Quotas and limits in {{ foundation-models-full-name }}
 
-{% include notitle [preview-stage](../../_includes/foundation-models/yandexgpt/preview.md) %}
-
 {{ yagpt-full-name }} has the following limits:
 
 {% include [quotes-limits-def.md](../../_includes/quotes-limits-def-without-ui.md) %}

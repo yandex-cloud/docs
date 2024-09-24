@@ -16,3 +16,4 @@
 * [Canary release of a {{ sf-full-name }} function](canary-release.md)
 * [Interactive debugging of {{ sf-name }} functions](serverless-live-debug.md)
 * [{#T}](deploy-app-container.md)
+* [{#T}](speechkit-integrarion-via-agi-gw.md)

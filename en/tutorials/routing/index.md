@@ -16,3 +16,4 @@ description: "Various use cases for network infrastructure in {{ yandex-cloud }}
 * [{#T}](dataproc-nat-instance.md)
 * [{#T}](gre-over-ipsec.md)
 * [{#T}](./storage-vpc-access.md)
+* [{#T}](./vpc-cr-access.md)

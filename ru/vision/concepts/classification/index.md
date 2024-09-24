@@ -71,7 +71,7 @@ keywords:
 
 Сервис возвращает все признаки для выбранной модели, даже если вероятность для признака равна нулю.
 
-**Пример ответа:**
+**Пример ответа**:
 
 {% include [classification-quality-response](../../../_includes/vision/classification-quality-response.md) %}
 

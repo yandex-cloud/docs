@@ -2,11 +2,13 @@
 editable: false
 ---
 
-# {{ translate-name }} pricing
+# {{ translate-name }} pricing policy
 
 
 
 {% include [use-calculator](../_includes/pricing/use-calculator.md) %}
+
+{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 

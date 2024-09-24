@@ -1,0 +1,41 @@
+title: Yandex Security Deck
+description:
+  - >-
+    <em>Сервис Yandex Security Deck находится на <a
+    href="/docs/overview/concepts/launch-stages">стадии Preview</a></em>.
+  - >-
+    Yandex Security Deck — это комплексный сервис CNAPP, включающий в себя
+    модули Access Transparency, Контроль данных (DSPM), Диагностика доступов
+    (CIEM) и Портал соответствия требованиям.
+  - >-
+    Предоставляемые сервисом инструменты позволяют обнаруживать уязвимости,
+    отслеживать и защищать доступ к данным, а также контролировать соблюдение
+    нормативных актов и отраслевых стандартов.
+meta:
+  title: Yandex Security Deck
+  description: >-
+    Yandex Security Deck — это комплексный сервис CNAPP, включающий в себя
+    модули Access Transparency, Контроль данных (DSPM), Диагностику доступов
+    (CIEM) и Портал соответствия требованиям. Предоставляемые сервисом
+    инструменты позволяют обнаруживать уязвимости, отслеживать и защищать доступ
+    к данным, а также контролировать соблюдение нормативных актов и отраслевых
+    стандартов.
+links:
+  - title: Начало работы
+    description: Начало работы с сервисом Yandex Security Deck
+    href: quickstart-overview
+  - title: Пошаговые инструкции
+    description: Инструкции по выполнению рутинных операций
+    href: operations/
+  - title: Концепции
+    description: Узнайте про концепции и сущности сервиса
+    href: concepts/
+  - title: Квоты и лимиты
+    description: Технические и организационные ограничения сервиса
+    href: concepts/limits
+  - title: Управление доступом
+    description: Настройте права доступа для работы с сервисом
+    href: security/
+  - title: Правила тарификации
+    description: Цены и правила расчета стоимости услуг сервиса
+    href: pricing

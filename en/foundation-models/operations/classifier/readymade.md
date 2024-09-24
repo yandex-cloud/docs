@@ -1,6 +1,6 @@
 # Using prompt-based classifiers based on {{ yagpt-name }}
 
-{{ foundation-models-full-name }} provides {{ yagpt-name }}-based [prompt-based classifiers](../../concepts/classifier/index.md) of these two types: [Zero-shot](../../concepts/classifier/index.md#zero-shot) and [Few-shot](../../concepts/classifier/index.md#few-shot). To send a request to a prompt-based classifier, use the [fewShotClassify](../../text-classification/api-ref/TextClassification/fewShotClassify.md) Text Classification API method.
+{{ foundation-models-full-name }} provides {{ yagpt-name }} [prompt-based classifiers](../../concepts/classifier/index.md) of these two types: [Zero-shot](../../concepts/classifier/index.md#zero-shot) and [Few-shot](../../concepts/classifier/index.md#few-shot). To send a request to a prompt-based classifier, use the [fewShotClassify](../../text-classification/api-ref/TextClassification/fewShotClassify.md) Text Classification API method.
 
 ## Getting started {#before-begin}
 
@@ -12,9 +12,9 @@ To send a request to the classifier:
 
 1. Create a file with the request body, e.g., `body.json`:
 
-   {% list tabs group=classifier-models %}
+    {% list tabs group=classifier-models %}
 
-   - Zero-shot classifier {#zero-shot}
+    - Zero-shot classifier {#zero-shot}
 
       ```json
       {
@@ -24,20 +24,20 @@ To send a request to the classifier:
         "labels": [
           "culture",
           "technologies",
-          "sport"
+          "sports"
         ]
       }
       ```
 
       Where:
       * `modelUri`: [ID of the model](../../../foundation-models/concepts/classifier/models.md) that will be used to classify the message. The parameter contains {{ yandex-cloud }} [folder ID](../../../resource-manager/operations/folder/get-id.md).
-      * `text`: Message text.
+      * `text`: Text content of the message.
       * `taskDescription`: Text description of the task for the classifier.
       * `labels`: Array of classes.
 
-         {% include [labels-should-make-sense-notice](../../../_includes/foundation-models/classifier/labels-should-make-sense-notice.md) %}
+          {% include [labels-should-make-sense-notice](../../../_includes/foundation-models/classifier/labels-should-make-sense-notice.md) %}
 
-   - Few-shot classifier {#few-shot}
+    - Few-shot classifier {#few-shot}
 
       ```json
       {
@@ -51,7 +51,7 @@ To send a request to the classifier:
         ],
         "samples": [
           {
-            "text": "set the alarm",
+            "text": "set an alarm",
             "label": "alarm"
           },
           {
@@ -59,7 +59,7 @@ To send a request to the classifier:
             "label": "weather"
           },
           {
-            "text": "translate the phrase \"set the alarm\"",
+            "text": "translate the phrase \"set an alarm\"",
             "label": "translation"
           }
         ]
@@ -68,31 +68,41 @@ To send a request to the classifier:
 
       Where:
       * `modelUri`: [ID of the model](../../../foundation-models/concepts/classifier/models.md) that will be used to classify the message. The parameter contains {{ yandex-cloud }} [folder ID](../../../resource-manager/operations/folder/get-id.md).
-      * `text`: Message text.
+      * `text`: Text content of the message.
       * `taskDescription`: Text description of the task for the classifier.
       * `labels`: Array of classes.
 
-         {% include [labels-should-make-sense-notice](../../../_includes/foundation-models/classifier/labels-should-make-sense-notice.md) %}
+          {% include [labels-should-make-sense-notice](../../../_includes/foundation-models/classifier/labels-should-make-sense-notice.md) %}
 
       * `samples`: Array of sample requests for the classes specified in the `labels` field. Sample requests are provided as objects, each one containing one text request sample and the class to which such request should belong.
 
-   {% endlist %}
+    {% endlist %}
 
 1. Send a request to the classifier by running the following command:
 
-   ```bash
-   export IAM_TOKEN=<IAM_token>
-   curl -X POST \
-     -H "Authorization: Bearer ${IAM_TOKEN}" \
-     -d "@<path_to_file_with_request_body>" \
-     "https://{{ api-host-llm }}/foundationModels/v1/fewShotTextClassification"
-   ```
+   {% list tabs group=programming_language %}
 
-   In the response, the service will return classification results with certain `confidence` values for the probability of classifying the request text into each one of the classes:
+   - Bash {#bash}
+   
+     {% include [curl](../../../_includes/curl.md) %}
+     
+     {% include [bash-windows-note-single](../../../_includes/translate/bash-windows-note-single.md) %}
 
-   {% list tabs group=classifier-models %}
+      ```bash
+      export IAM_TOKEN=<IAM_token>
+      curl -X POST \
+        -H "Authorization: Bearer ${IAM_TOKEN}" \
+        -d "@<path_to_request_body_file>" \
+        "https://{{ api-host-llm }}/foundationModels/v1/fewShotTextClassification"
+      ```
 
-   - Zero-shot classifier {#zero-shot}
+   {% endlist %}
+
+    In the response, the service will return classification results with certain `confidence` values for the probability of classifying the request text into each one of the classes:
+
+    {% list tabs group=classifier-models %}
+
+    - Zero-shot classifier {#zero-shot}
 
       ```json
       {
@@ -106,7 +116,7 @@ To send a request to the classifier:
             "confidence": 0.0003487042267806828
           },
           {
-            "label": "sport",
+            "label": "sports",
             "confidence": 0.9996510744094849
           }
         ],
@@ -114,7 +124,7 @@ To send a request to the classifier:
       }
       ```
 
-   - Few-shot classifier {#few-shot}
+    - Few-shot classifier {#few-shot}
 
       ```json
       {
@@ -136,6 +146,6 @@ To send a request to the classifier:
       }
       ```
 
-   {% endlist %}
+    {% endlist %}
 
-   The sum of (`confidence`) values for all classes is always equal to `1`.
+    The sum of the `confidence` values for all classes is always equal to `1`.

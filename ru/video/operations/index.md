@@ -15,6 +15,7 @@ description: "Пошаговые инструкции по работе с се�
 
 * [{#T}](video/upload.md)
 * [{#T}](video/update.md)
+* [{#T}](video/subtitles.md)
 * [{#T}](video/download.md)
 * [{#T}](video/publish.md)
 * [{#T}](video/unpublish.md)

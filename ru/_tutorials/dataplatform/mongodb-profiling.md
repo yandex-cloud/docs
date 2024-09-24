@@ -3,7 +3,7 @@
 
 В этом руководстве вы узнаете:
 
-* как использовать [инструменты диагностики производительности](../../managed-mongodb/operations/tools.md) и [мониторинга](../../managed-mongodb/operations/monitoring.md) для диагностики производительности кластера {{ mmg-name }};
+* как использовать [инструменты диагностики производительности](../../managed-mongodb/operations/tools.md) и [мониторинга](../../managed-mongodb/operations/monitoring.md);
 * как устранять обнаруженные проблемы.
 
 Снижение производительности кластера {{ mmg-name }} чаще всего происходит по одной из следующих причин:
@@ -18,7 +18,7 @@
 ## Перед началом работы {#before-start}
 
 1. Установите на внешнем хосте, имеющем сетевой доступ к хосту {{ MG }} (см. [{#T}](../../managed-mongodb/operations/connect/index.md)), [утилиты](../../managed-mongodb/operations/tools.md#monitoring-tools) получения данных о производительности {{ MG }} `mongostat` и `mongotop`.
-1. Определите, для каких баз данных нужно выполнить поиск проблем.
+1. Определите, для каких баз данных нужно выявить проблемы.
 1. [Создайте пользователя](../../managed-mongodb/operations/cluster-users.md#adduser) {{ MG }} с ролью [`mdbMonitor`](../../managed-mongodb/concepts/users-and-roles.md#mdbMonitor) для этих баз. Это необходимо для использования утилит `mongostat` и `mongotop`.
 
 ## Диагностика дефицита ресурсов {#cpu-io-deficit}
@@ -108,9 +108,9 @@
 
 {% endnote %}
 
-Возможной оптимизацией запросов на чтение может быть использование частичного извлечения ([projection](https://docs.mongodb.com/manual/tutorial/project-fields-from-query-results/)). Во многих случаях доставать документ целиком не нужно, достаточно нескольких его полей.
+Чтобы оптимизировать запросы на чтение, используйте частичное извлечение ([projection](https://docs.mongodb.com/manual/tutorial/project-fields-from-query-results/)). Во многих случаях доставать документ целиком не нужно, достаточно нескольких его полей.
 
-Если не удается ни оптимизировать найденные запросы, ни отказаться от них, можно [поднять класс хостов](../../managed-mongodb/operations/update.md#change-resource-preset).
+Если не удается ни оптимизировать найденные запросы, ни отказаться от них, [поднимите класс хостов](../../managed-mongodb/operations/update.md#change-resource-preset).
 
 ## Диагностика наличия блокировок (locks) {#localize-locking-issues}
 
@@ -118,9 +118,9 @@
 
 {{ MG }} не предоставляет подробной информации по блокировкам. В частности, есть только косвенные способы узнать, чем заблокирован конкретный запрос:
 
-* Большие или растущие значения `db.serverStatus().metrics.operation.writeConflicts` могут говорить о высоком write contention на каких-то документах.
+* Обратите внимание на большие или растущие значения `db.serverStatus().metrics.operation.writeConflicts` — они могут говорить о высоком write contention на каких-то документах.
 
-* Большие или растущие значения на графике **Write conflicts per hosts** на странице [мониторинга кластера](../../managed-mongodb/operations/monitoring.md#cluster).
+* Изучите большие или растущие значения на графике **Write conflicts per hosts** на странице [мониторинга кластера](../../managed-mongodb/operations/monitoring.md#cluster).
 
 * В момент падения производительности внимательно изучите [список текущих запросов](../../managed-mongodb/operations/tools.md#list-running-queries):
 
@@ -172,7 +172,7 @@
 
 ## Диагностика недостатка дискового пространства {#disk-deficit}
 
-Если кластер демонстрирует низкую производительность в сочетании с малым объемом свободного дискового пространства, возможно, для одного или нескольких хостов кластера [активировался режим read-only](../../managed-mongodb/concepts/storage.md#manage-storage-space).
+Если кластер демонстрирует низкую производительность в сочетании с малым объемом свободного дискового пространства, возможно, для одного или нескольких хостов кластера [активировался режим <q>только чтение</q>](../../managed-mongodb/concepts/storage.md#manage-storage-space).
 
 Объем занятого пространства в хранилище отображается на странице [мониторинга кластера](../../managed-mongodb/operations/monitoring.md#cluster) на графиках **Disk space usage per host, top 5 hosts**.
 

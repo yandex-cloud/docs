@@ -43,7 +43,7 @@
 
    * (Опционально) В поле **{{ ui-key.yc-ui-talkanalytics.tags.words-between-key-value }}** укажите разрыв между словами во фразе-исключении, который допустим при поиске.
 
-1. **{{ ui-key.yc-ui-talkanalytics.tags.restrictions }}** — добавьте или удалите [ограничения](../../../speechsense/concepts/tags.md#tag-limitations).
+*  **{{ ui-key.yc-ui-talkanalytics.tags.restrictions }}** — добавьте или удалите [ограничения](../../../speechsense/concepts/tags.md#tag-limitations).
 
    Если выбрано ограничение **{{ ui-key.yc-ui-talkanalytics.tags.binding-events.silence-key-value }}**, задайте длительность паузы в секундах.
 
