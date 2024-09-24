@@ -15,6 +15,8 @@
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
+{% include [baremetal-note](../_includes/backup/baremetal-note.md) %}
+
 ## Подготовьте облако к работе {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials/_tutorials_includes/before-you-begin.md) %}

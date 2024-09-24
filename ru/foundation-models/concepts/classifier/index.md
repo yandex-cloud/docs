@@ -1,5 +1,8 @@
 # Классификаторы на базе {{ yagpt-name }}
 
+_Функциональность классификаторов на базе {{ yagpt-name }} находится на стадии [Preview](../../../overview/concepts/launch-stages.md)._
+
+
 {{ foundation-models-full-name }} позволяет классифицировать передаваемые в промтах текстовые запросы. Классификация в [моделях](./models.md) на базе {{ yagpt-name }} реализована в [{{ foundation-models-name }} Text Classification API](../../text-classification/api-ref/index.md).
 
 В {{ foundation-models-name }} доступна классификация трех типов:

@@ -1,0 +1,73 @@
+title: Yandex Cloud Notification Service
+href: index.yaml
+label:
+  title: RU
+  description: Сервис доступен только в регионе Россия.
+  theme: unknown
+  when: region == "kz"
+stage: preview
+items:
+  - name: Начало работы
+    expanded: true
+    items:
+      - name: Обзор
+        href: quickstart.md
+      - name: Начало работы с Push-уведомлениями
+        href: quickstart-push.md
+      - name: Начало работы с SMS
+        href: quickstart-sms.md
+  - name: Концепции
+    expanded: true
+    items:
+      - name: Обзор
+        href: concepts/index.md
+      - name: Push-уведомления
+        href: concepts/push.md
+      - name: SMS
+        href: concepts/sms.md
+      - name: Квоты и лимиты
+        href: concepts/limits.md
+  - name: Инструменты
+    expanded: true
+    items:
+      - name: AWS CLI
+        href: tools/aws-cli.md
+      - name: AWS SDK для Python (boto3)
+        href: tools/sdk-python.md
+  - name: Правила тарификации
+    href: pricing.md
+  - name: Справочник API
+    items:
+      - name: Обзор
+        href: api-ref/index.md
+      - name: Отправка запроса
+        href: api-ref/send-request.md
+      - name: Ошибки
+        href: api-ref/common-errors.md
+      - name: PlatformApplication
+        items:
+          - name: Create
+            href: api-ref/create-platform-application.md
+          - name: GetAttributes
+            href: api-ref/get-platform-application-attributes.md
+          - name: SetAttributes
+            href: api-ref/set-platform-application-attributes.md
+          - name: List
+            href: api-ref/list-platform-applications.md
+          - name: Delete
+            href: api-ref/delete-platform-application.md
+      - name: Endpoint
+        items:
+          - name: Create
+            href: api-ref/create-platform-endpoint.md
+          - name: GetAttributes
+            href: api-ref/get-endpoint-attributes.md
+          - name: SetAttributes
+            href: api-ref/set-endpoint-attributes.md
+          - name: List
+            href: api-ref/list-endpoints.md
+          - name: Delete
+            href: api-ref/delete-endpoint.md
+      - name: Publish
+        href: api-ref/publish.md
+base: ru/notifications

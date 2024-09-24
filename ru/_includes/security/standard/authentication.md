@@ -67,6 +67,12 @@
 * [Инструкция по настройке SAML федерации удостоверений](../../../organization/concepts/add-federation.md#federation-usage).
 * [Инструкция по настройке SAML федерации с KeyCloak](https://www.youtube.com/watch?v=m-oe7V9PvC4).
 
+##### 1.1.1 Настроено сопоставление групп пользователей в федерации удостоверений {#group-mapping}
+
+Для организаций, в которых много участников, одинаковые права доступа к ресурсам {{ yandex-cloud }} могут потребоваться сразу нескольким пользователям. В этом случае роли и доступы эффективнее выдавать не персонально, а для группы.
+
+Если вы используете группы пользователей в вашем поставщике удостоверений или собираетесь это сделать, [настройте сопоставление групп](../../../organization/operations/federation-group-mapping.md) пользователей между поставщиком удостоверений и {{ org-name }}. Пользователи в группах поставщика удостоверений будут иметь права доступа к ресурсам {{ yandex-cloud }} из сопоставленных групп в {{ org-name }}.
+
 #### 1.2 Учетные записи Яндекс ID используются только в исключительных случаях {#yandex-id-accounts}
 
 Наиболее правильный с точки зрения безопасности подход к управлению учетными записями — это использование федерации удостоверений (подробнее в рекомендации № 1.1). В связи с этим необходимо стремиться к тому, чтобы в списке пользователей вашей организации находились только федеративные пользователи (пользователи c атрибутом <q>FEDERATION ID</q>) и минимум учетных записей с Яндекс ID. Список допустимых исключений:
@@ -595,7 +601,7 @@ yc compute instance update <ID_виртуальной_машины> \
 **Инструкции и решения по выполнению:**
 
 * [Двухфакторная аутентификация — Яндекс ID](https://yandex.ru/support/id/authorization/twofa.html).
-* [KeyCloak — Creating other credentials](https://www.keycloak.org/docs/12.0/server_admin/#creating-other-credentials).
+* [KeyCloak — Creating other credentials](https://www.keycloak.org/docs/latest/server_admin/#creating-other-credentials).
 * [Configure Additional Authentication Methods for AD FS](https://learn.microsoft.com/ru-ru/windows-server/identity/ad-fs/operations/configure-additional-authentication-methods-for-ad-fs).
 
 #### 1.12 Привилегированные роли назначены только доверенным администраторам {#privileged-users}
@@ -1111,3 +1117,20 @@ yc compute instance update <ID_виртуальной_машины> \
 
 1. [Назначьте](../../../iam/operations/roles/grant.md) роль `{{ roles-auditor }}` пользователям, которые не нуждаются в доступе к данным.
 1. Удалите избыточные права аккаунта с помощью сервиса {{ iam-short-name }}.
+
+#### 1.24 Отслеживается дата последнего использования ключей доступа в {{ iam-full-name }} {#key-usage-control}
+
+{% include [key-has-last-used-data](../../iam/key-has-last-used-data.md) %}
+
+Подробнее см. в разделе [{#T}](../../../iam/concepts/users/service-accounts.md#sa-key).
+
+{% list tabs group=instructions %}
+
+- Проверка в консоли управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, которому принадлежит сервисный аккаунт с ключами доступа.
+  1. В верхней части экрана перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}**.
+  1. Нажмите на строку с именем нужного сервисного аккаунта.
+  1. Данные о времени последнего использования ключа доступны в таблице с информацией о ключах в поле **{{ ui-key.yacloud.iam.folder.service-account.overview.column_key_last-used-at }}**.
+
+{% endlist %}

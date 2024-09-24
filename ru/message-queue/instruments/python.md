@@ -2,15 +2,13 @@
 
 {% note warning %}
 
-Для работы с {{ message-queue-full-name }} из Python используется [boto3](https://aws.amazon.com/ru/sdk-for-python/) — комплект средств разработки для языка Python. Версии `boto3` выше 1.26.0 не поддерживаются.
+Для работы с {{ message-queue-full-name }} из Python используется [boto3](https://aws.amazon.com/ru/sdk-for-python/) — комплект средств разработки для языка Python.
 
 {% endnote %}
 
 ## Установка {#install}
 
 Для установки воспользуйтесь инструкциями в репозитории разработчика: [boto3](https://github.com/boto/boto3/blob/develop/README.rst#quick-start), [boto](https://github.com/boto/boto#installation).
-
-Для установки `boto3` версии 1.26.0 укажите `boto3==1.26.0` в файле `requirements.txt` и запустите `pip install -r requirements.txt`, либо используйте команду `pip install boto3==1.26.0`. Используйте команду `pip show boto3` чтобы проверить, какая версия установлена.
 
 ## Подготовка к работе {#prepare}
 

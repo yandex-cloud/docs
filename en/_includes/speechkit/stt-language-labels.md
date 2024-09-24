@@ -5,17 +5,17 @@ To configure automatic language detection, set the `language_code` parameter of 
 
 - Python 3 {#python}
 
-   ```python
-   	    language_restriction=stt_pb2.LanguageRestrictionOptions(
-           restriction_type=stt_pb2.LanguageRestrictionOptions.WHITELIST,
-           language_code=['auto']
-       )
-   ```
+    ```python
+	    language_restriction=stt_pb2.LanguageRestrictionOptions(
+            restriction_type=stt_pb2.LanguageRestrictionOptions.WHITELIST,
+            language_code=['auto']
+        )
+    ```
 
 {% endlist %}
 
 Language labels contain the language code and specify the probability of its correct detection:
-```
+```yaml
     language_code: "ru-RU" probability: 0.91582357883453369
 ```
 

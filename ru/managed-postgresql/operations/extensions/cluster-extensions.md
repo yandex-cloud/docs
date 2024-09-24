@@ -52,12 +52,56 @@
 
   Включенные расширения будут перечислены в списке `extensions`.
 
-- API {#api}
+- REST API {#api}
 
-  Чтобы получить список расширений для базы данных, воспользуйтесь методом REST API [get](../../api-ref/Database/get.md) для ресурса [Database](../../api-ref/Database/index.md) или вызовом gRPC API [DatabaseService/Get](../../api-ref/grpc/database_service.md#Get) и передайте в запросе:
-  
-  * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](../cluster-list.md#list-clusters).
-  * Имя базы данных в параметре `databaseName`.
+  1. [Получите IAM-токен для аутентификации в API](../../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+     {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
+
+  1. Воспользуйтесь методом [Database.get](../../api-ref/Database/get.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+     ```bash
+     curl \
+       --request GET \
+       --header "Authorization: Bearer $IAM_TOKEN" \
+       --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<идентификатор_кластера>/databases/<имя_БД>'
+     ```
+
+     Идентификатор кластера можно запросить со [списком кластеров в каталоге](../cluster-list.md#list-clusters), а имя БД — со [списком БД в кластере](../databases.md#list-db).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../../api-ref/Database/get.md#responses).
+
+     Список установленных расширений приведен в параметре `extensions` в выводе команды.
+
+- gRPC API {#grpc-api}
+
+  1. [Получите IAM-токен для аутентификации в API](../../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+     {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Воспользуйтесь вызовом [DatabaseService/Get](../../api-ref/grpc/database_service.md#Get) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+     ```bash
+     grpcurl \
+       -format json \
+       -import-path ~/cloudapi/ \
+       -import-path ~/cloudapi/third_party/googleapis/ \
+       -proto ~/cloudapi/yandex/cloud/mdb/postgresql/v1/database_service.proto \
+       -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+       -d '{
+             "cluster_id": "<идентификатор_кластера>",
+             "database_name": "<имя_БД>"
+           }' \
+       {{ api-host-mdb }}:{{ port-https }} \
+       yandex.cloud.mdb.postgresql.v1.DatabaseService.Get
+     ```
+
+     Идентификатор кластера можно запросить со [списком кластеров в каталоге](../cluster-list.md#list-clusters), а имя БД — со [списком БД в кластере](../databases.md#list-db).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../../api-ref/grpc/database_service.md#Database).
+
+     Список установленных расширений приведен в параметре `extensions` в выводе команды.
 
 {% endlist %}
 
@@ -121,16 +165,109 @@
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
-- API {#api}
+- REST API {#api}
 
-    Чтобы изменить список расширений для базы данных, воспользуйтесь методом REST API [update](../../api-ref/Database/update.md) для ресурса [Database](../../api-ref/Database/index.md) или вызовом gRPC API [DatabaseService/Update](../../api-ref/grpc/database_service.md#Update) и передайте в запросе:
+  1. [Получите IAM-токен для аутентификации в API](../../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-    * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](../cluster-list.md#list-clusters).
-    * Имя изменяемой базы данных в параметре `databaseName`. Чтобы узнать имя базы данных, [получите список баз данных в кластере](../databases.md#list-db).
-    * Один или несколько объектов с настройками расширений в параметре `extensions`.
-    * Список настроек базы данных, которые необходимо изменить (в данном случае — `extensions`), в параметре `updateMask`.
+     {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
 
-    {% include [Note API updateMask](../../../_includes/note-api-updatemask.md) %}
+  1. Воспользуйтесь методом [Database.update](../../api-ref/Database/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+     {% include [note-updatemask](../../../_includes/note-api-updatemask.md) %}
+
+     ```bash
+     curl \
+       --request PATCH \
+       --header "Authorization: Bearer $IAM_TOKEN" \
+       --header "Content-Type: application/json" \
+       --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<идентификатор_кластера>/databases/<имя_БД>' \
+       --data '{
+                 "updateMask": "extensions",
+                 "extensions": [
+                   {
+                     "name": "<имя_расширения>",
+                     "version": "<версия_расширения>"
+                   },
+                   { <аналогичный_набор_настроек_для_расширения_2> },
+                   { ... },
+                   { <аналогичный_набор_настроек_для_расширения_N> }
+                 ]
+               }'
+     ```
+
+     Где:
+
+     * `updateMask` — перечень изменяемых параметров в одну строку через запятую.
+
+       В данном случае передается только один параметр.
+
+     * `extensions` — массив расширений БД. Каждый объект соответствует отдельному расширению и имеет следующую структуру:
+
+       * `name` — имя расширения;
+       * `version` — версия расширения.
+
+       Указывайте имя и версию в соответствии со [списком поддерживаемых расширений и утилит {{ PG }}](#postgresql).
+
+     Идентификатор кластера можно запросить со [списком кластеров в каталоге](../cluster-list.md#list-clusters), а имя БД — со [списком БД в кластере](../databases.md#list-db).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../../api-ref/Database/update.md#responses).
+
+- gRPC API {#grpc-api}
+
+  1. [Получите IAM-токен для аутентификации в API](../../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+     {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Воспользуйтесь вызовом [DatabaseService/Update](../../api-ref/grpc/database_service.md#Update) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+     {% include [note-grpc-updatemask](../../../_includes/note-grpc-api-updatemask.md) %}
+
+     ```bash
+     grpcurl \
+       -format json \
+       -import-path ~/cloudapi/ \
+       -import-path ~/cloudapi/third_party/googleapis/ \
+       -proto ~/cloudapi/yandex/cloud/mdb/postgresql/v1/database_service.proto \
+       -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+       -d '{
+             "cluster_id": "<идентификатор_кластера>",
+             "database_name": "<имя_БД>",
+             "update_mask": {
+               "paths": [
+                 "extensions"
+               ]
+             },
+             "extensions": [
+               {
+                 "name": "<имя_расширения>",
+                 "version": "<версия_расширения>"
+               },
+               { <аналогичный_набор_настроек_для_расширения_2> },
+               { ... },
+               { <аналогичный_набор_настроек_для_расширения_N> }
+             ]
+           }' \
+       {{ api-host-mdb }}:{{ port-https }} \
+       yandex.cloud.mdb.postgresql.v1.DatabaseService.Update
+     ```
+
+     Где:
+
+     * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
+
+       В данном случае передается только один параметр.
+
+     * `extensions` — массив расширений БД. Один элемент массива содержит настройки для одного расширения и имеет следующую структуру:
+
+       * `name` — имя расширения;
+       * `version` — версия расширения.
+
+       Указывайте имя и версию в соответствии со [списком поддерживаемых расширений и утилит {{ PG }}](#postgresql).
+
+     Идентификатор кластера можно запросить со [списком кластеров в каталоге](../cluster-list.md#list-clusters), а имя БД — со [списком БД в кластере](../databases.md#list-db).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../../api-ref/grpc/database_service.md#Operation1).
 
 {% endlist %}
 

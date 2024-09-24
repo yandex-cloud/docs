@@ -198,7 +198,7 @@ items:
         items:
           - name: Configuring a local caching DNS resolver
             href: infrastructure-management/local-dns-cache.md
-          - name: Migrating DNS zones from Yandex 360 to {{ dns-name }}
+          - name: "Migrating DNS zones from Yandex\_360 to {{ dns-name }}"
             href: infrastructure-management/connect-migration.md
           - name: >-
               Configuring {{ dns-full-name }} for {{ mch-full-name }} cluster
@@ -282,7 +282,7 @@ items:
             href: web/flask.md
           - name: Hosting a static Gatsby website
             href: web/gatsby-static-website.md
-      - name: 1C
+      - name: 1С
         items:
           - name: 1C-Bitrix online store
             items:
@@ -293,8 +293,8 @@ items:
               - name: '{{ TF }}'
                 href: internet-store/bitrix-shop/terraform.md
           - name: >-
-              Creating a cluster of 1C:Enterprise Linux servers with a {{
-              mpg-name }} cluster
+              Creating a cluster of 1C:Enterprise Linux servers with {{ mpg-name
+              }}
             href: infrastructure-management/1c-postgresql-linux.md
       - name: Internet of Things (IoT)
         items:
@@ -466,7 +466,7 @@ items:
       - name: Shared use of {{ dataproc-name }} tables through {{ metastore-name }}
         href: dataplatform/dataproc-to-dataproc.md
       - name: >-
-          Transferring metadata between {{ dataproc-name }} clusters using {{
+          Transferring data between {{ dataproc-name }} clusters using {{
           metastore-name }}
         href: dataplatform/metastore-import.md
       - name: >-
@@ -546,6 +546,10 @@ items:
           Migrating data from {{ mos-full-name }} to {{ ydb-full-name }} using
           {{ data-transfer-full-name }}
         href: dataplatform/opensearch-to-ydb.md
+      - name: >-
+          Migrating data from {{ mpg-full-name }} to {{ mos-full-name }} using
+          {{ data-transfer-full-name }}
+        href: dataplatform/postgresql-to-opensearch.md
       - name: Creating a {{ PG }} cluster for 1C:Enterprise
         href: dataplatform/1c-postgresql.md
       - name: '{{ mpg-name }} performance analysis and tuning'
@@ -584,6 +588,10 @@ items:
           Migrating data from {{ mpg-name }} to {{ mmy-name }} using {{
           data-transfer-name }}
         href: dataplatform/mpg-to-mmy.md
+      - name: >-
+          Migrating data from {{ mpg-full-name }} to {{ mos-full-name }} using
+          {{ data-transfer-full-name }}
+        href: dataplatform/postgresql-to-opensearch.md
       - name: Migrating databases from {{ GP }} to {{ CH }}
         href: dataplatform/greenplum-to-clickhouse.md
       - name: Migrating databases from {{ GP }} to {{ PG }}
@@ -770,4 +778,8 @@ items:
         href: serverless/serverless-live-debug.md
       - name: Running a containerized app in {{ serverless-containers-full-name }}
         href: serverless/deploy-app-container.md
+      - name: >-
+          Using {{ api-gw-full-name }} to set up speech synthesis in {{
+          speechkit-full-name }}
+        href: serverless/speechkit-integrarion-via-agi-gw.md
 base: en/tutorials

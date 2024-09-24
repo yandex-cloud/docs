@@ -25,9 +25,9 @@ description: "Various use cases for core infrastructure management systems in {{
 
 * [Getting started with {{ TF }}](../infrastructure-management/terraform-quickstart.md)
 * [Terraform data sources](../infrastructure-management/terraform-data-sources.md)
-* [Uploading {{ TF }} statuses to {{ objstorage-name }}](../infrastructure-management/terraform-state-storage.md)
+* [Uploading {{ TF }} states to {{ objstorage-full-name }}](../infrastructure-management/terraform-state-storage.md)
 * [Getting started with Packer](../infrastructure-management/packer-quickstart.md)
-* [Building a VM image with a set of infrastructure tools using Packer](../infrastructure-management/packer-custom-image.md)
+* [Building a VM image with infrastructure tools using Packer](../infrastructure-management/packer-custom-image.md)
 * [Locking {{ TF }} states using {{ ydb-full-name }}](../infrastructure-management/terraform-state-lock.md)
 * [Using {{ yandex-cloud }} modules in {{ TF }}](../infrastructure-management/terraform-modules.md)
 * [Running a Docker image on a VM](../infrastructure-management/run-docker-on-vm/index.md)

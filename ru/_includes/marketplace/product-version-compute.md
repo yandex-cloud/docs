@@ -18,23 +18,19 @@
 
    * Задайте требования к конфигурации ВМ, необходимой для работы вашего программного продукта:
 
-      1. Нажмите справа на значок плюс.
+      1. Нажмите справа на значок ![image](../../_assets/console-icons/plus.svg).
 
       1. Выберите параметр:
-         * `Доля CPU`;
-         * `{{ ui-key.yacloud_portal.marketplace_v2.version.label_resource-spec_platforms }}`;
-         * `{{ ui-key.yacloud_portal.marketplace_v2.version.label_resource-spec_gpu }}`;
-         * `{{ ui-key.yacloud_portal.marketplace_v2.version.label_resource-spec_network }}`;
-         * `{{ ui-key.yacloud.common.resource-acl.label_bindings }}`.
-           Чтобы исключить параметр, нажмите ![image](../../_assets/console-icons/xmark.svg) рядом с названием. Параметры `{{ ui-key.yacloud_portal.marketplace_v2.version.label_resource-spec_cpu }}`, `{{ ui-key.yacloud_portal.marketplace_v2.version.label_resource-spec_memory }}`, `{{ ui-key.yacloud_portal.marketplace_v2.version.label_resource-spec_disk-size }}` являются обязательными, их исключить нельзя.
+         * `Доля CPU`
+         * `{{ ui-key.yacloud_portal.marketplace_v2.version.label_resource-spec_platforms }}`
+         * `{{ ui-key.yacloud_portal.marketplace_v2.version.label_resource-spec_gpu }}`
+         * `{{ ui-key.yacloud_portal.marketplace_v2.version.label_resource-spec_network }}`
+         * `{{ ui-key.yacloud.common.resource-acl.label_bindings }}`
 
-   * Для параметров:
-      * `{{ ui-key.yacloud_portal.marketplace_v2.version.label_resource-spec_platforms }}` — выберите все платформы, на которых может быть развернута ВМ.
-      * `{{ ui-key.yacloud.common.resource-acl.label_bindings }}` — выберите необходимые роли. Если вы укажете роль сервисного аккаунта, то при развертывании ВМ пользователю будет предложено привязать к ВМ сервисный аккаунт с этой ролью.
-      *  `{{ ui-key.yacloud_portal.marketplace_v2.version.label_resource-spec_network }}` — укажите максимально доступное число сетевых интерфейсов для ВМ на базе вашего продукта. По умолчанию предоставляется 1 сетевой интерфейс.
-   * Для остальных параметров в поле **{{ ui-key.yacloud_portal.common.min }}** укажите значение, при котором гарантируется работоспособность вашего ПО на разворачиваемой ВМ. Пользователь не сможет запустить ВМ с параметрами ниже указанных. При необходимости заполните поля:
-      * **{{ ui-key.yacloud_portal.common.max }}** — максимальное значение параметра. Пользователь не сможет запустить ВМ с параметрами выше указанных.
-      * **{{ ui-key.yacloud_portal.common.recommended }}** — оптимальное значение параметра для работы вашего ПО на ВМ.
+           {% include [version-remove-param](../../_includes/marketplace/version-remove-param.md) %}
+
+   * {% include [version-non-numeric-params](../../_includes/marketplace/version-non-numeric-params.md) %}
+   * {% include [version-numeric-params](../../_includes/marketplace/version-numeric-params.md) %}
 
 1. {% include [terms](terms.md) %}
 

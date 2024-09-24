@@ -6,19 +6,23 @@ editable: false
 
 
 
+{% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
+
+{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
+
 ## What goes into the cost of using {{ ml-platform-name }} {#rules}
 
 When using {{ ml-platform-name }}, you pay for the use of computing resources: the computation and instance running time is charged per second.
 
-### Pricing unit {#unit}
+### Billing unit {#unit}
 
-A pricing unit means a single billing unit. The number of billing units spent on calculations depends on:
-* Capacity of the computing resources being used.
-* Time spent on calculations.
+Pricing is based on a billing unit. The number of billing units spent on computation depends on:
+* Computing resource capacity.
+* Computation time.
 
-   The calculation time is rounded up to an integer number of seconds.
+  The computation time is rounded up to an integer of seconds.
 
-One billing unit equals the cost of using one CPU core for one second. The number of units depends on the computing resource configuration.
+One billing unit represents the cost of using one CPU core for one second. The number of units depends on the computing resource configuration.
 
 ### {{ ds-nb }} {#dedicated}
 
@@ -40,7 +44,7 @@ You pay for additional [node instance disks](#prices-storage) separately.
 
 The cost of computations in {{ dataproc-name }} clusters includes:
 * Computing resources of the selected {{ ml-platform-name }} configuration.
-* The entire lifetime of the {{ dataproc-name }} cluster according to the [{{ dataproc-full-name }} pricing policy](../data-proc/pricing.md).
+* The {{ dataproc-name }} cluster's full lifetime duration according to the [{{ dataproc-full-name }}](../data-proc/pricing.md) pricing policy.
 
 Learn more about [integration with {{ dataproc-name }}](concepts/data-proc.md).
 
@@ -50,7 +54,7 @@ Each {{ ml-platform-name }} project has a free-of-charge storage amount. If you 
 
 [Data storage inside datasets](#prices-storage) is charged separately.
 
-If you need to store large amounts of data, you can use {{ objstorage-full-name }}. In this case, data storage will be charged according to the [{{ objstorage-name }} pricing policy](../storage/pricing.md).
+If you need to store large amounts of data, you can use {{ objstorage-full-name }}. In which case you will pay for data storage according to the [{{ objstorage-name }} pricing policy](../storage/pricing.md).
 
 [Model storage](#prices-storage) is charged separately. Its pricing depends on the model size that is calculated in GB and rounded up to an integer.
 
@@ -84,8 +88,8 @@ The prices of the configurations are valid for computations in [{{ ds-nb }}](con
 
 Cost of using {{ ml-platform-name }} with the following parameters:
 
-* **Computing resources**: g1.1 configuration with 8 CPUs and 1 GPU.
-* **VM usage time**: 10 minutes.
+* **Computing resources**: g1.1 configuration with 8 CPUs and 1 GPU
+* **VM usage time**: 10 minutes
 
 The cost of using the service will be:
 
@@ -116,4 +120,5 @@ The cost of using {{ ds-inf }} will be:
 
 
 {% include [usd-datasphere-inference](../_pricing_examples/datasphere/usd-inference.md) %}
+
 

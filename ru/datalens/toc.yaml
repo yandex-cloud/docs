@@ -758,6 +758,12 @@ items:
             href: operations/dashboard/dash-settings.md
           - name: Порядок отображения виджетов на мобильном устройстве
             href: operations/dashboard/display-modes.md
+  - name: Отчеты
+    items:
+      - name: Обзор
+        href: reports/index.md
+      - name: Работа с отчетами
+        href: reports/report-operations.md
   - name: Управление доступом
     items:
       - name: Обзор

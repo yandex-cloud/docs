@@ -3,6 +3,8 @@ default:
   AB: Airbyte®
   adv-ddos-protection: Advanced Yandex DDoS Protection
   AF: Apache Airflow™
+  ai-studio-full-name: Yandex Cloud AI Studio
+  ai-studio-name: AI Studio
   airflow-service-address: 10.248.0.0/13
   alb-full-name: Yandex Application Load Balancer
   alb-name: Application Load Balancer
@@ -52,6 +54,8 @@ default:
   backup-full-name: Yandex Cloud Backup
   backup-name: Cloud Backup
   backup-short-name: Cloud Backup
+  baremetal-full-name: Yandex BareMetal
+  baremetal-name: BareMetal
   billing-docs-email: cloud_docs@support.yandex.ru
   billing-interface: Интерфейс Yandex Cloud Billing
   billing-name: Yandex Cloud Billing
@@ -95,10 +99,16 @@ default:
   cloud-logging-short-name: Cloud Logging
   cloud-logs-name: Cloud Logs
   cloud-notify-bot: YandexCloudNotify_bot
+  cloud-registry-full-name: Yandex Cloud Registry
+  cloud-registry-name: Cloud Registry
   cloudml-full-name: Yandex Cloud AI Hybrid
   cloudml-name: Cloud AI Hybrid
   cluster-id: cat0adul1fj0********
   cname-example: cl-msa87*****.edgecdn.ru
+  cns-full-name: Yandex Cloud Notification Service
+  cns-host: notifications.yandexcloud.net
+  cns-name: Cloud Notification Service
+  cns-short-name: CNS
   coi: Container Optimized Image
   compute-full-name: Yandex Compute Cloud
   compute-guest-agent-bucket: yandexcloud-guestagent-updater
@@ -169,6 +179,8 @@ default:
   dt-white-ip-list-uri: >-
     https://stat.ripe.net/widget/announced-prefixes#w.resource%3DAS200350%26w.min_peers_seeing%3D0
   emb-vector: 256
+  er-full-name: Yandex EventRouter
+  er-name: EventRouter
   ES: Elasticsearch
   external-ip-examples:
     '0': 84.201.155.117
@@ -297,6 +309,7 @@ default:
   link-pci-dss-ru: >-
     https://storage.yandexcloud.net/yc-compliance/certificates/YC_PCI_DSS_Guide.pdf
   link-saml: https://ru.wikipedia.org/wiki/SAML
+  link-sd-main: https://center.yandex.cloud/security/
   link-sla-greenplum: https://yandex.ru/legal/cloud_sla_greenplum/
   link-sla-kafka: https://yandex.ru/legal/cloud_sla_kfk/
   link-speechsense-main: https://speechsense.yandex.cloud/
@@ -395,6 +408,8 @@ default:
   ml-platform-name: DataSphere
   ml-platform-short-name: DataSphere
   ml-project-size: 10 ГБ
+  ml-sdk-full-name: Yandex Cloud ML SDK
+  ml-sdk-name: ML SDK
   mmg-backup-retention: 7
   mmg-backup-retention-max: 35
   mmg-backup-retention-min: 7
@@ -642,6 +657,9 @@ default:
   s3-storage-host-doc-files: storage.yandexcloud.net/doc-files
   s3-storage-host-mch: storage.yandexcloud.net/managed-clickhouse
   s3-web-host: website.yandexcloud.net
+  schema-registry-name: Schema Registry
+  sd-full-name: Yandex Security Deck
+  sd-name: Security Deck
   search-api: Search API
   search-api-full-name: Yandex Search API
   search-api-name: Search API
@@ -657,6 +675,8 @@ default:
   sf-name: Cloud Functions
   sf-short-name: Cloud Functions
   sf-url: functions.yandexcloud.net
+  si-full-name: Yandex Serverless Integrations
+  si-name: Serverless Integrations
   sk-hybrid-full-name: Yandex SpeechKit Hybrid
   sk-hybrid-name: SpeechKit Hybrid
   speechkit-full-name: Yandex SpeechKit
@@ -668,6 +688,7 @@ default:
   speechsense-name: SpeechSense
   SPRK: Apache Spark™
   storage-aws-cli-alias: ycs3
+  sts-full-name: Yandex Security Token Service
   sts-host: sts.yandexcloud.net
   sts-name: Security Token Service
   stt-long-audioLength: 4 часа
@@ -682,6 +703,8 @@ default:
   subnet-id: b0rcctk2rvtr********
   subnet-name: default-ru-central1-d
   support-center-name: Support Center
+  sw-full-name: Yandex Workflows
+  sw-name: Workflows
   sws-full-name: Yandex Smart Web Security
   sws-name: Smart Web Security
   t4-ice-lake: Intel Ice Lake with NVIDIA® Tesla® T4
@@ -5313,6 +5336,7 @@ default:
         label_product-ids: Идентификаторы продукта
         product-pricing-type_byol: BYOL
         product-pricing-type_free: Free
+        product-pricing-type_license: Subscription
         product-pricing-type_payg: PAYG
       notify-subs:
         label_inherited-subscribers: Подписчики по умолчанию
@@ -5508,6 +5532,7 @@ default:
     yacloud_org:
       actions:
         add: Добавить
+        exclude: Исключить
         save-changes: Сохранить
       common:
         resource-acl:
@@ -5593,7 +5618,16 @@ default:
         action:
           create: Создать
           save: Сохранить
+      iam-bindings:
+        subject:
+          action_revoke-all: Отозвать все
+          title_group: Группа
+          title_revoke-access-dialog: Отозвать доступ
+          value_role-source-filter_direct: Назначенные напрямую
+          value_role-source-filter_group: Назначенные через группу
       page:
+        acl-diagnostics:
+          action_select-subject: Выбрать субъект
         context:
           action:
             create: Создать новую организацию
@@ -5730,6 +5764,7 @@ default:
         label_access_rights-public: Для всех пользователей
         label_accessRights: Доступ
         label_allow-access: Разрешить доступ
+        label_subtitles: Субтитры
         label_title: Название
         label_visibility-status: Публичный доступ
         status_error: Error
@@ -5941,6 +5976,35 @@ default:
         value_retention-save-all: Хранить все копии
         value_retention-save-last-f: Только последнюю
         value_type-incremental: Инкрементальный
+      baremetal:
+        action_delete-server: Отказаться от аренды
+        action_destroy-raid: Разобрать RAID
+        action_disk-layout-settings: Настроить разделы диска
+        action_reboot-server: Перезапустить
+        action-create-subnetwork: Создать приватную подсеть
+        actions_add-partition: Добавить раздел
+        field_CIDR: CIDR
+        field_description: Описание
+        field_name: Имя
+        field_needed-public-ip: Публичный адрес
+        field_network-id: Виртуальный сетевой сегмент (VRF)
+        field_password: Пароль
+        field_server-count: Число серверов
+        field_server-lease-duration: Период аренды
+        field_server-user: Пользователь
+        field_ssh-public-key: Публичный SSH-ключ
+        label_networks: VRF
+        label_one-month-duration: 1 месяц
+        label_public-ip-auto: Автоматически
+        label_public-ip-no: Без адреса
+        label_subnetworks: Приватные подсети
+        title_routing-settings: Настройки для маршрутизации
+        title_section-lease-conditions: Условия аренды
+        title_section-server-config: Конфигурация
+        title_section-server-info: Информация о сервере
+        title_section-server-network-settings: Сетевые настройки
+        title_section-server-product: Образ
+        title_server-access: Доступ
       billing:
         account:
           dashboard-overview:
@@ -6220,6 +6284,7 @@ default:
           label_service-account: Сервисный аккаунт
           placeholder_filter-by-type: Тип аккаунта
         save: Сохранить
+        save-changes: Сохранить изменения
         section-base: Общая информация
         select: Выбрать
         start: Запустить
@@ -6367,6 +6432,7 @@ default:
         disk-form:
           field_size: Размер
           field_type: Тип
+          label_disk-encryption: Зашифрованный диск
         disk:
           overview:
             label_snapshot: Снимок
@@ -6958,6 +7024,7 @@ default:
               button_create_key: Создать авторизованный ключ
               button_create_service-account-key: Создать статический ключ доступа
               button_create-key-popup: Создать новый ключ
+              column_key_last-used-at: Дата последнего использования
               field_key-description: Описание
               label_id: Идентификатор
               label_title: Обзор
@@ -6999,6 +7066,8 @@ default:
         label_registries: Реестры
         label_yds-exports: Экспорт в Data Stream
       k8s:
+        access:
+          label_title: Управление доступом
         cluster:
           marketplace:
             button_install: Установить
@@ -7329,16 +7398,22 @@ default:
         label_stream: Поток данных
         label_title: Логирование
       marketplace-v2:
+        action_attach-license-compute: Привязать к виртуальной машине
+        action_attach-to-service: Привязать к сервису
+        action_create-vm: Создать виртуальную машину
         action_detach-subscription: Отвязать подписку
         action_disable-autorenewal: Отключить автопродление
         action_goto-partner-url: Привязать к сервису
         action_move: Переместить
         action_purchase-license: Купить подписку
         action_specify-vm: Привязать виртуальную машину
+        button_continue: Далее
         button_k8s-product-use: Перейти к установке
         button_use: Использовать
         label_available-products: Доступные для установки приложения
         label_licenses: Подписки
+        label_tariff-type: Тип тарификации
+        section_tariff-section: Способ тарификации
       mdb:
         cluster:
           backups:
@@ -7558,7 +7633,9 @@ default:
           host_column_subnetwork: Подсеть
           host_column_zone: Зона доступности
           label_autoscaling-activated: Автоматическое масштабирование
+          label_compute-subcluster: Compute
           label_create-subcluster: Добавить подкластер
+          label_data-subcluster: Data
           label_deletion-protection: Защита от удаления
           label_disk-size: Размер
           label_diskTypeId: Тип диска

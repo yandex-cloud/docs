@@ -10,7 +10,7 @@ The following information is stored for each Spark connector:
 
 * Unique resource ID.
 * Resource creator.
-* Date when the resource was created and last modified, in [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) format, e.g., `April 22, 2024, 13:21`.
+* Creation and last update date in [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) format, such as `April 22, 2024, 13:21`.
 * {{ dataproc-name }} cluster configuration.
 * Settings for connecting to S3.
 
@@ -30,17 +30,17 @@ Temporary {{ dataproc-name }} clusters are deployed on [{{ compute-full-name }} 
 
 You can calculate the total disk storage capacity required for different cluster configurations using this formula:
 
-```
+```text
 <number_of_Data_Proc_hosts> × 256 + 128
 ```
 
-| Cluster type | Number of hosts | Disk size | Host parameters |
+| Cluster type | Number of hosts | Disk size |  Host parameters   |
 |:------------:|:-----------------:|--------------|------------------- |
-| **XS** | 1 | 384 GB HDD | 4 vCPUs, 16 GB RAM |
-| **S** | 4 | 1152 GB SSD | 4 vCPUs, 16 GB RAM |
-| **M** | 8 | 2176 GB SSD | 16 vCPUs, 64 GB RAM |
-| **L** | 16 | 4224 GB SSD | 16 vCPUs, 64 GB RAM |
-| **XL** | 32 | 8320 GB SSD | 16 vCPUs, 64 GB RAM |
+|    **XS**    |         1         | 384 GB HDD   | 4 vCPUs, 16 GB RAM  |
+|    **S**     |         4         | 1152 GB SSD  | 4 vCPUs, 16 GB RAM  |
+|    **M**     |         8         | 2176 GB SSD  | 16 vCPUs, 64 GB RAM |
+|    **L**     |        16         | 4224 GB SSD  | 16 vCPUs, 64 GB RAM |
+|    **XL**    |        32         | 8320 GB SSD  | 16 vCPUs, 64 GB RAM |
 
 {% note tip %}
 
@@ -48,8 +48,7 @@ Before running a project with the Spark connector to create a temporary {{ datap
 
 {% endnote %}
 
-You will be charged additionally for running temporary clusters created based on {{ dataproc-name }} templates according to the [{{ dataproc-full-name }} pricing policy](../../data-proc/pricing.md).
-
+You will be charged extra for using temporary clusters created based on {{ dataproc-name }} templates according to the [{{ dataproc-full-name }} pricing policy](../../data-proc/pricing.md).
 
 #### See also {#see-also}
 

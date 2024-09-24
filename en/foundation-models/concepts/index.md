@@ -5,8 +5,6 @@ description: "{{ foundation-models-full-name }} is a service that provides acces
 
 # About {{ foundation-models-full-name }}
 
-{% include notitle [preview-stage](../../_includes/foundation-models/yandexgpt/preview.md) %}
-
 {{ foundation-models-full-name }} comprises several large generative neural networks and allows you to leverage their capabilities for your business development.
 
 The {{ yagpt-name }} neural network is geared to address various needs related to creating text content. {{ yagpt-full-name }} can generate product descriptions, articles, news stories, newsletters, blog posts, and many other things. The quality of the neural network's response depends directly on the accuracy of the instructions you provide. With a more specific prompt, you are more likely to get the result you expect.

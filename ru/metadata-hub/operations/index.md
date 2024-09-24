@@ -1,6 +1,6 @@
 ---
-title: "Как управлять подключениями. Пошаговые инструкции"
-description: "Пошаговые инструкции по работе с {{ metadata-hub-full-name }} в {{ yandex-cloud }}. Из статьи вы узнаете, как создавать, просматривать, изменять и удалять подключения."
+title: "Пошаговые инструкции"
+description: "Пошаговые инструкции по работе с {{ metadata-hub-full-name }} в {{ yandex-cloud }}. Из статьи вы узнаете, как работать с подключениями и реестром схем."
 ---
 
 # Все пошаговые инструкции
@@ -22,3 +22,19 @@ description: "Пошаговые инструкции по работе с {{ me
 * [{#T}](metastore/dataproc-connect.md)
 * [{#T}](metastore/export-and-import.md)
 * [{#T}](metastore/cluster-delete.md)
+
+
+## {{ schema-registry-name }} {#instructions-schema-registry}
+
+* Пространство имен:
+  * [{#T}](create-name-space.md)
+  * [{#T}](update-name-space.md)
+  * [{#T}](delete-name-space.md)
+* Схемы:
+  * [{#T}](create-subject.md)
+  * [{#T}](add-schema.md)
+  * [{#T}](delete-schema.md)
+  * [{#T}](compare-schemas.md)
+* Субъекты:
+  * [{#T}](update-subject.md)
+  * [{#T}](delete-subject.md)

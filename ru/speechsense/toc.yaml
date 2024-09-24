@@ -5,7 +5,6 @@ label:
   description: Сервис доступен только в регионе Россия.
   theme: unknown
   when: region == "kz"
-stage: preview
 items:
   - name: Начало работы
     href: quickstart.md

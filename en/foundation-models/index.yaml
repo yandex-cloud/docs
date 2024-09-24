@@ -7,13 +7,15 @@ description:
     web services. This service will be useful for everyone who seeks the ways to
     streamline their business with machine learning.
   - >-
-    For the Yandex Foundation Models pricing, see our <a
-    href="https://yandex.ru/legal/cloud_specialterms/?lang=ru#index__section_fk5_d4c_cgb">Special
-    Terms and Conditions</a> (available in Russian only).
-  - >-
     For terms of use, see the <a href
     ="https://yandex.com/legal/cloud_terms_yandex_foundation_models">Yandex
     Foundation Models Terms of Use</a>.
+  - >-
+    The service is subject to the <a
+    href="https://yandex.com/legal/cloud_sla">Service Level Agreement</a>. The
+    service level is defined in the <a
+    href="https://yandex.com/legal/cloud_sla_yandex_foundation_models/">Yandex
+    Foundation Models Service Level</a>.
 meta:
   title: Yandex Foundation Models
   description: >-

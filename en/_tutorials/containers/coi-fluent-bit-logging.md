@@ -14,7 +14,7 @@ To configure log transfer from a VM instance created from the {{ coi }} image:
 
 ## Create a log-generating application {#generate-logs}
 
-Create the `logs.py` file:
+Create a file named `logs.py`:
 
 ```py
 import logging
@@ -26,7 +26,7 @@ import uuid
 
 logger = logging.getLogger(__name__)
 
-# Setting log format.
+# Set the log format.
 formatter = logging.Formatter(
   '[req_id=%(req_id)s] [%(levelname)s] %(code)d %(message)s'
 )
@@ -36,10 +36,10 @@ handler.setFormatter(formatter)
 
 logger.addHandler(handler)
 
-# Configuring the default logging level (optional).
+# Configure the default logging level (optional).
 logger.setLevel(logging.DEBUG)
 
-# Generating URL-like values.
+# Generate URL-like values.
 PATHS = [
   '/',
   '/admin',
@@ -67,10 +67,10 @@ def fake_url():
 if __name__ == '__main__':
   while True:
     req_id = uuid.uuid4()
-    # Creating a pair including a code and URL value.
+    # Create a pair: code and URL value.
     path, code = fake_url()
     extra = {"code": code, "req_id": req_id}
-    # If the code is 200, write a log record with the Info level.
+    # If the code is 200, write to the log with the Info level.
     if code == 200:
       logger.info(
         'Path: %s',
@@ -84,11 +84,11 @@ if __name__ == '__main__':
         path,
         extra=extra,
       )
-    # To have multiple messages with the same request ID, in 30% of cases, write the second entry to the Debug log.
+    # To have multiple messages with the same request ID, in 30% of cases, write the second entry to the log with the Debug level.
     if random.random() > 0.7:
       logger.debug("some additional debug log record %f", random.random(), extra=extra)
 
-    # Wait one second to avoid log clutter.
+    # Wait for 1 second to avoid log cluttering.
     time.sleep(1)
 ```
 
@@ -96,37 +96,37 @@ if __name__ == '__main__':
 
 1. Create a file named Dockerfile and add the lines below:
 
-   ```
-   FROM python:3.10
+    ```dockerfile
+    FROM python:3.10
 
-   WORKDIR /usr/src/app
+    WORKDIR /usr/src/app
 
-   COPY logs.py .
+    COPY logs.py .
 
-   CMD [ "python", "./logs.py" ]
-   ```
+    CMD [ "python", "./logs.py" ]
+    ```
 
-   Dockerfile describes a [Docker image](../../container-registry/concepts/docker-image.md) that contains an application generating logs.
-1. Build a Docker image:
+    Dockerfile describes a [Docker image](../../container-registry/concepts/docker-image.md) that contains an application generating logs.
+1. Build the Docker image:
 
-   ```bash
-   docker build . \
-     -t {{ registry }}/<registry_ID>/coi:logs
-   ```
+    ```bash
+    docker build . \
+      -t {{ registry }}/<registry_ID>/coi:logs
+    ```
 
 1. [Log in](../../container-registry/operations/authentication.md) to the [registry](../../container-registry/concepts/registry.md) and upload a Docker image into it:
 
-   ```bash
-   docker push {{ registry }}/<registry_ID>/coi:logs
-   ```
+    ```bash
+    docker push {{ registry }}/<registry_ID>/coi:logs
+    ```
 
 ## Configure Fluent Bit {#fluent-bit}
 
-1. Create the `spec.yaml` file. It describes the specification of two containers: with an application that generates logs, and with a Fluent Bit agent.
+1. Create a file named `spec.yaml`. It describes the specification of two containers: with an application that generates logs, and with a Fluent Bit agent.
 
    Specify the following in the field:
-   * `image`: URL of a Docker image. To find it out, in the [management console]({{ link-console-main }}), go to the **{{ ui-key.yacloud.cr.image.section_overview }}** page and copy the value of the **{{ ui-key.yacloud.cr.image.label_tag }}** field.
-   * `YC_GROUP_ID`: ID of the [default log group](../../logging/concepts/log-group.md): `default`.
+   * `image`: Docker image URL. To find it out, in the [management console]({{ link-console-main }}), go to the **{{ ui-key.yacloud.cr.image.section_overview }}** page and copy the value of the **{{ ui-key.yacloud.cr.image.label_tag }}** field.
+   * `YC_GROUP_ID`: ID of the [default log group](../../logging/concepts/log-group.md) `default`.
 
    In the `fluentbit` section, the `image` field shows the image of a container with the Fluent Bit agent, current at the time of this documentation. For a list of all available images, follow the [link](https://github.com/yandex-cloud/fluent-bit-plugin-yandex/releases).
 
@@ -140,7 +140,7 @@ if __name__ == '__main__':
        depends_on:
          - fluentbit
        logging:
-         # Fluent Bit understands this log format.
+         # Fluent Bit understands logs in this format.
          driver: fluentd
          options:
            # Fluent Bit listens to logs on port 24224.
@@ -156,13 +156,13 @@ if __name__ == '__main__':
          - 24224:24224/udp
        restart: always
        environment:
-         YC_GROUP_ID: <log group ID>
+         YC_GROUP_ID: <log_group_ID>
        volumes:
          - /etc/fluentbit/fluentbit.conf:/fluent-bit/etc/fluent-bit.conf
          - /etc/fluentbit/parsers.conf:/fluent-bit/etc/parsers.conf
    ```
 
-1. Create the `user-data.yaml` file. It describes the container log reading rules. In the `users` section, change the username and SSH key as needed. Learn more about how to generate SSH keys [here](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+1. Create a file named `user-data.yaml`. It describes the container log reading rules. If required, change the username and SSH key in the `users` section. Learn more about how to generate SSH keys [here](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
 
    ```yaml
    #cloud-config
@@ -220,7 +220,7 @@ if __name__ == '__main__':
    The `INPUT` section displays where and how to retrieve logs. To work with Fluentd and Fluent Bit logs, the `forward` protocol is used. Fluent Bit listens to logs on port 24224.
 
    The `PARSER` section describes the `regex` parser. It sets a regular expression that processes entries:
-   * `req_id`: Unique ID of the request
+   * `req_id`: Unique request ID
    * `severity`: Logging level
    * `code`: HTTP response code
    * `text`: All remaining text
@@ -230,9 +230,9 @@ if __name__ == '__main__':
 ## Create a VM from the {{ coi }} {#create-vm}
 
 Specify the following in the field:
-* `--zone`: [Availability zone](../../overview/concepts/geo-scope.md), e.g., `{{ region-id }}-a`
-* `--subnet-name`: Name of the [subnet](../../vpc/concepts/network.md#subnet) in the indicated zone
-* `--service-account-name`: [Service account](../../iam/concepts/users/service-accounts.md) name
+* `--zone`: Select an [availability zone](../../overview/concepts/geo-scope.md), such as `{{ region-id }}-a`.
+* `--subnet-name`: Name of the [subnet](../../vpc/concepts/network.md#subnet) in the indicated zone.
+* `--service-account-name`: [Service account](../../iam/concepts/users/service-accounts.md) name.
 
 ```bash
 IMAGE_ID=$(yc compute image get-latest-from-family container-optimized-image --folder-id standard-images --format=json | jq -r .id)
@@ -252,27 +252,27 @@ yc compute instance create \
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), go to the folder with the `default` log group whose ID you specified in `spec.yaml`.
-   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
-   1. Select the `default` log group. The page that opens will show the log group records.
+  1. In the [management console]({{ link-console-main }}), go to the folder with the `default` log group whose ID you specified in the `spec.yaml` file.
+  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+  1. Select the `default` log group. The page that opens will show the log group records.
 
 - CLI {#cli}
 
-   {% include [cli-install](../../_includes/cli-install.md) %}
+  {% include [cli-install](../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To view records in the log group, run the command:
+  To view records in the log group, run the command:
 
-   ```bash
-   yc logging read --group-id=<log_group_ID>
-   ```
+  ```bash
+  yc logging read --group-id=<log_group_ID>
+  ```
 
-   Where `--group-id` is the ID of the `default` log group specified in `spec.yaml`.
+  `--group-id`: ID of the `default` log group specified in the `spec.yaml` file.
 
 - API {#api}
 
-   You can view the log group records using the [LogReadingService/Read](../../logging/api-ref/grpc/log_reading_service.md#Read) gRPC API call.
+  You can view the log group records using the [LogReadingService/Read](../../logging/api-ref/grpc/log_reading_service.md#Read) gRPC API call.
 
 {% endlist %}
 

@@ -1,9 +1,9 @@
-# Sharding collections {{ MG }}
+# Sharding {{ MG }} collections
 
 
 While sharding a {{ mmg-name }} cluster, the following service hosts are automatically created and [billed](../../managed-mongodb/pricing.md) separately from the main DBMS hosts:
-- either `MONGOS` and `MONGOCFG`,
-- or `MONGOINFRA`.
+- either `MONGOS` and `MONGOCFG`
+- or `MONGOINFRA`
 
 {% include [irreversible-sharding-note.md](../../_includes/mdb/irreversible-sharding-note.md) %}
 
@@ -17,75 +17,75 @@ You should use sharding for:
 * Collections with non-uniform contents. For example, data can be clearly classified as frequently queried and rarely queried.
 * Collections requiring high read and write speeds. Sharding helps distribute workloads among hosts to bypass technical limitations.
 
-For more information about the sharding concept, see [{#T}](../../managed-mongodb/concepts/sharding.md).
+For more information about sharding, see [{#T}](../../managed-mongodb/concepts/sharding.md).
 
 ## How to enable collection sharding {#enable}
 
 {% note warning %}
 
-Run all your sharding setup commands via the `mongosh` CLI from a user granted the [mdbShardingManager](../../managed-mongodb/concepts/users-and-roles.md#mdbShardingManager) role in the [admin](https://docs.mongodb.com/manual/reference/glossary/#term-admin-database) database.
+Run all your sharding setup commands via the `mongosh` CLI as a user with the [mdbShardingManager](../../managed-mongodb/concepts/users-and-roles.md#mdbShardingManager) role in the [admin](https://docs.mongodb.com/manual/reference/glossary/#term-admin-database) database.
 
 {% endnote %}
 
 1. [Enable sharding](../../managed-mongodb/operations/shards.md#enable) for the cluster.
-1. [Connect](../../managed-mongodb/operations/connect/index.md) to the `MONGOS` or `MONGOINFRA` host using the `mongosh` CLI and enable sharding:
+1. [Connect](../../managed-mongodb/operations/connect/index.md) to the `MONGOS` or `MONGOINFRA` host via the `mongosh` CLI and enable sharding:
 
-   ```
-   sh.enableSharding("<DB_name>")
+   ```text
+   sh.enableSharding("<db_name>")
    ```
 
    You can request the host type with a [list of hosts in the cluster](../../managed-mongodb/operations/hosts.md#list-hosts).
 
 1. Define an index for the sharded collection:
 
-   ```
-   db.getSiblingDB("<DB_name>").<collection_name>.createIndex( { "<index>": <index_type> } )
+   ```text
+   db.getSiblingDB("<db_name>").<collection_name>.createIndex( { "<index>": <index_type> } )
    ```
 
 1. Enable collection sharding:
 
-   ```
-   sh.shardCollection( "<DB_name>.<collection>", { "<index>": <index_type> } )
+   ```text
+   sh.shardCollection( "<db_name>.<collection>", { "<index>": <index_type> } )
    ```
 
    For a detailed description of the `shardCollection` command, see the [{{ MG }} documentation](https://docs.mongodb.com/manual/reference/method/sh.shardCollection/#definition).
 
-1. Modify applications that access your database to use **only** the `MONGOS` or `MONGOINFRA` hosts.
+1. Modify the applications accessing your database to use **only** the `MONGOS` or `MONGOINFRA` hosts.
 
 ### Sharding heterogeneous data {#brackets}
 
-If a collection includes documents with heterogeneous [data types](https://www.mongodb.com/docs/manual/reference/bson-types), we recommend sharding based on `_id` key values of a single type using [Type Bracketing](https://www.mongodb.com/docs/manual/reference/method/db.collection.find/#std-label-type-bracketing). This will make sharding and document search faster than for `_id` values of different types.
+If a collection includes documents with heterogeneous [data types](https://www.mongodb.com/docs/manual/reference/bson-types), we recommend sharding based on the `_id` key values of the same type using [Type Bracketing](https://www.mongodb.com/docs/manual/reference/method/db.collection.find/#std-label-type-bracketing). This will make sharding and document searching faster than with`_id` values of different types.
 
 ### Useful links {#links}
 
 You can learn how to solve issues related to sharding in the {{ MG }} documentation:
 
 * Sharding overview: [Sharding](https://docs.mongodb.com/manual/sharding/index.html).
-* Choosing a shard key and sharding strategies: [Shard Keys](https://docs.mongodb.com/manual/core/sharding-shard-key/).
+* About choosing a shard key and sharding strategies: [Shard Keys](https://docs.mongodb.com/manual/core/sharding-shard-key/).
 
 ## Example of sharding {#example}
 
-Let's say you already have a {{ mmg-name }} sharded cluster hosting the `billing` database. Your task is to enable sharding for the `payment` and `addresses` collections. In the example, the `payment` index hash and the value of the `addresses` field are used as the shard key.
+Let's say you already have a sharded {{ mmg-name }} cluster with a `billing` database. You need to enable sharding for the `payment` and `addresses` collections. In the example, the `payment` index hash and the `addresses` field value are used as the shard key.
 
 Sequence of operations:
 
 1. [Connect](../../managed-mongodb/operations/connect/index.md) to the `billing` database. Make sure that the user connecting to the database has the [mdbShardingManager](../../managed-mongodb/concepts/users-and-roles.md#mdbShardingManager) role in the [admin](https://docs.mongodb.com/manual/reference/glossary/#term-admin-database) database.
-1. Enable `billing` database sharding:
+1. Enable sharding for the `billing` database:
 
-   ```
+   ```text
    sh.enableSharding("billing")
    ```
 
 1. Define the index for the sharded collection:
 
-   ```
+   ```text
    db.payments.ensureIndex( { "_id": "hashed" } )
    ```
 
-1. Create the necessary number of shards in the [management console]({{ link-console-main }}).
+1. Create the required number of shards in the [management console]({{ link-console-main }}).
 1. Shard the collection based on its namespace:
-   ```
+   ```text
    sh.shardCollection( "billing.payments", { "_id": "hashed" } )
    ```
 
-Sharding is now enabled and configured. To make sure, try listing the available shards using the command `sh.status()`.
+Sharding is now enabled and configured. To check this, try listing the available shards using the `sh.status()` command.

@@ -8,7 +8,7 @@ There are two interfaces for {{ yagpt-full-name }} in {{ yandex-cloud }}. You ca
 
 {{ foundation-models-name }} Playground is a good option for introduction and testing: use it to send synchronous requests to {{ yagpt-full-name }} models. You can communicate with a model in these two formats:
 
-* In **Prompt mode**, you submit a ready-made prompt to the model and get the result. The model treats each new question as a stand-alone task without saving the context of the previous request. In this format, you can choose between the summary models, {{ gpt-lite }} and {{ gpt-pro }}, in the management console.
+* In **Prompt mode**, you submit a ready-made prompt to the model and get the result. The model treats each new question as a stand-alone task without saving the context of the previous request. In this format, you can choose between {{ gpt-lite }} and {{ gpt-pro }}, in the management console.
 
 * In **Chat mode**, you can chat with the model to update your instructions and elaborate on your previous inputs. The communication context is transmitted in every message and maintained throughout the current session until you explicitly start a new one. To work in chat mode, use the {{ gpt-pro }} model.
 

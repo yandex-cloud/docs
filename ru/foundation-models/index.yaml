@@ -7,13 +7,15 @@ description:
     веб-сервисах. Сервис будет полезен всем, кто ищет способы ускорить развитие
     бизнеса с технологиями машинного обучения.
   - >-
-    Сервис тарифицируется в соответствии с документом <a
-    href="https://yandex.ru/legal/cloud_specialterms/?lang=ru#index__section_fk5_d4c_cgb">Специальные
-    условия использования</a>.
-  - >-
     Правила использования сервиса определены в документе <a href
     ="https://yandex.ru/legal/cloud_terms_yandex_foundation_models">Условия
     использования сервиса Yandex Foundation Models</a>.
+  - >-
+    Для сервиса действует <a href="https://yandex.ru/legal/cloud_sla">соглашение
+    об уровне обслуживания</a>. Уровень обслуживания сервиса определен в
+    документе <a
+    href="https://yandex.ru/legal/cloud_sla_yandex_foundation_models/">Уровень
+    обслуживания Yandex Foundation Models</a>.
 meta:
   title: Yandex Foundation Models
   description: >-

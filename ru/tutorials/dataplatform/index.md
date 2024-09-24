@@ -106,6 +106,7 @@ description: "На странице представлен список прак
 * [{#T}](opensearch-to-ydb.md)
 * [{#T}](opensearch-to-clickhouse.md)
 * [{#T}](postgresql-to-opensearch.md)
+* [{#T}](opensearch-saml-keycloak.md)
 
 
 ## {{ PG }} {#postgresql}

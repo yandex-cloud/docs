@@ -32,6 +32,7 @@ Migration with data storage type changed.
 * [{{ MY }} to {{ GP }}](mmy-to-mgp.md)
 * [{{ ES }} to {{ OS }}](mes-to-mos.md)
 * [{{ OS }} to {{ ydb-short-name }}](opensearch-to-ydb.md)
+* [{{ PG }} to {{ OS }}](postgresql-to-opensearch.md)
 
 ## Change data capture {#cdc}
 
@@ -68,7 +69,7 @@ Data delivery is a process of delivering arbitrary data to target storage. It in
 * [{{ DS }} to {{ objstorage-name }}](yds-to-objstorage.md)
 * [{{ DS }} to {{ OS }}](trails-to-os.md)
 
-## Loading data to data marts {#upload-to-data-mart}
+## Uploading data to data marts {#upload-to-data-mart}
 
 Loading data to data marts is a process of transferring prepared data to storage for subsequent visualization. Sources are data storages used for massively parallel processing of data. Targets are data storages that can quickly deliver data.
 

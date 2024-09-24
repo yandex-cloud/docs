@@ -3,7 +3,7 @@ description:
   - >-
     Сервис Yandex Cloud Backup позволяет настроить автоматическое резервное
     копирование виртуальных машин сервиса <a href="/docs/compute">Yandex Compute
-    Cloud</a>.
+    Cloud</a>, а также серверов <a href="/docs/baremetal">Yandex BareMetal</a>.
 meta:
   title: Yandex Cloud Backup
   description: >-

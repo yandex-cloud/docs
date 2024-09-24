@@ -96,6 +96,10 @@ default:
   cloud-notify-bot: YandexCloudNotify_bot
   cluster-id: cat0adul1fj0********
   cname-example: cl-msa87*****.edgecdn.ru
+  cns-full-name: Yandex Cloud Notification Service
+  cns-host: notifications.yandexcloud.net
+  cns-name: Cloud Notification Service
+  cns-short-name: CNS
   coi: Container Optimized Image
   compute-full-name: Yandex Compute Cloud
   compute-guest-agent-bucket: yandexcloud-guestagent-updater
@@ -292,6 +296,7 @@ default:
   link-pci-dss-ru: >-
     https://storage.yandexcloud.net/yc-compliance/certificates/YC_PCI_DSS_Guide.pdf
   link-saml: https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language
+  link-sd-main: https://center.yandex.cloud/security/
   link-sla-greenplum: https://yandex.com/legal/cloud_sla_greenplum/
   link-sla-kafka: https://yandex.com/legal/cloud_sla_kfk/
   link-speechsense-main: https://speechsense.yandex.cloud/
@@ -631,6 +636,9 @@ default:
   s3-storage-host-doc-files: storage.yandexcloud.net/doc-files
   s3-storage-host-mch: storage.yandexcloud.net/managed-clickhouse
   s3-web-host: website.yandexcloud.net
+  schema-registry-name: Schema Registry
+  sd-full-name: Yandex Security Deck
+  sd-name: Security Deck
   search-api: Search API
   search-api-full-name: Yandex Search API
   search-api-name: Search API
@@ -657,6 +665,7 @@ default:
   speechsense-name: SpeechSense
   SPRK: Apache Spark™
   storage-aws-cli-alias: ycs3
+  sts-full-name: Yandex Security Token Service
   sts-host: sts.yandexcloud.net
   sts-name: Security Token Service
   stt-long-audioLength: 4 hours
@@ -5299,6 +5308,7 @@ default:
         label_product-ids: Product IDs
         product-pricing-type_byol: BYOL
         product-pricing-type_free: Free
+        product-pricing-type_license: Subscription
         product-pricing-type_payg: PAYG
       notify-subs:
         label_inherited-subscribers: Default subscribers
@@ -5494,6 +5504,7 @@ default:
     yacloud_org:
       actions:
         add: Add
+        exclude: Remove
         save-changes: Save
       common:
         resource-acl:
@@ -5579,7 +5590,16 @@ default:
         action:
           create: Create
           save: Save
+      iam-bindings:
+        subject:
+          action_revoke-all: Revoke all
+          title_group: Group
+          title_revoke-access-dialog: Revoke access
+          value_role-source-filter_direct: Directly appointed
+          value_role-source-filter_group: Assigned via group
       page:
+        acl-diagnostics:
+          action_select-subject: Select subject
         context:
           action:
             create: Create new organization
@@ -5716,6 +5736,7 @@ default:
         label_access_rights-public: All users
         label_accessRights: Access
         label_allow-access: Grant access
+        label_subtitles: Subtitles
         label_title: Name
         label_visibility-status: Public access
         status_error: Error
@@ -5927,6 +5948,35 @@ default:
         value_retention-save-all: Retain all backups
         value_retention-save-last-f: Only the last
         value_type-incremental: Incremental
+      baremetal:
+        action_delete-server: End lease
+        action_destroy-raid: Remove RAID
+        action_disk-layout-settings: Configure disk layout
+        action_reboot-server: Reboot
+        action-create-subnetwork: Create a private subnet
+        actions_add-partition: Add partition
+        field_CIDR: CIDR
+        field_description: Description
+        field_name: Name
+        field_needed-public-ip: Public address
+        field_network-id: Virtual network segment (VRF)
+        field_password: Password
+        field_server-count: Number of servers
+        field_server-lease-duration: Lease duration
+        field_server-user: User
+        field_ssh-public-key: Public SSH key
+        label_networks: VRF
+        label_one-month-duration: 1 month
+        label_public-ip-auto: Automatically
+        label_public-ip-no: No address
+        label_subnetworks: Private subnets
+        title_routing-settings: Routing settings
+        title_section-lease-conditions: Lease conditions
+        title_section-server-config: Configuration
+        title_section-server-info: Server information
+        title_section-server-network-settings: Network settings
+        title_section-server-product: Image
+        title_server-access: Access
       billing:
         account:
           dashboard-overview:
@@ -6206,6 +6256,7 @@ default:
           label_service-account: Service account
           placeholder_filter-by-type: Account type
         save: Save
+        save-changes: Save changes
         section-base: General information
         select: Select
         start: Start
@@ -6353,6 +6404,7 @@ default:
         disk-form:
           field_size: Size
           field_type: Type
+          label_disk-encryption: Encrypted disk
         disk:
           overview:
             label_snapshot: Snapshot
@@ -6942,6 +6994,7 @@ default:
               button_create_key: Create authorized key
               button_create_service-account-key: Create static access key
               button_create-key-popup: Create new key
+              column_key_last-used-at: Date of last use
               field_key-description: Description
               label_id: ID
               label_title: Overview
@@ -6983,6 +7036,8 @@ default:
         label_registries: Registries
         label_yds-exports: Export to Data Stream
       k8s:
+        access:
+          label_title: Access management
         cluster:
           marketplace:
             button_install: Install
@@ -7313,16 +7368,22 @@ default:
         label_stream: Stream
         label_title: Logging
       marketplace-v2:
+        action_attach-license-compute: Link to a virtual machine
+        action_attach-to-service: Link to a service
+        action_create-vm: Create a virtual machine
         action_detach-subscription: Unlink subscription
         action_disable-autorenewal: Disable autorenewal
         action_goto-partner-url: Link to service
         action_move: Move
         action_purchase-license: Purchase a subscription
         action_specify-vm: Link virtual machine
+        button_continue: Continue
         button_k8s-product-use: Go to install
         button_use: Use
         label_available-products: Application available for installation
         label_licenses: Subscriptions
+        label_tariff-type: Pricing type
+        section_tariff-section: Pricing method
       mdb:
         cluster:
           backups:
@@ -7542,7 +7603,9 @@ default:
           host_column_subnetwork: Subnet
           host_column_zone: Availability zone
           label_autoscaling-activated: Autoscaling
+          label_compute-subcluster: Compute
           label_create-subcluster: ' Add subcluster'
+          label_data-subcluster: Data
           label_deletion-protection: Deletion protection
           label_disk-size: Size
           label_diskTypeId: Disk type

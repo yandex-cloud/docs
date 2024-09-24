@@ -1,3 +1,8 @@
+---
+title: "Справочник событий уровня конфигурации {{ at-full-name }}"
+description: "В данном разделе приведены описания событий уровня конфигурации, собираемых в сервисах {{ yandex-cloud }}."
+---
+
 # Справочник событий уровня конфигурации
 
 Значение поля `event_type` (_тип события_) аудитного лога уровня конфигурации определяется сервисом-источником события.
@@ -22,6 +27,7 @@
 * [{{ cloud-logging-full-name }}](#cloud-logging)
 * [{{ marketplace-full-name }}](#marketplace)
 * [{{ org-full-name }}](#organization)
+* [{{ postbox-full-name }}](#postbox)
 * [{{ compute-full-name }}](#compute)
 * [{{ container-registry-full-name }}](#container-registry)
 * [{{ dataproc-full-name }}](#dataproc)
@@ -139,6 +145,12 @@
 Имя сервиса — `organizationmanager`.
 
 {% include [org-events](../../_includes/audit-trails/events/org-events.md) %}
+
+## {{ postbox-full-name }} {#postbox}
+
+Имя сервиса — `postbox`.
+
+{% include [postbox-events](../../_includes/audit-trails/events/postbox-events.md) %}
 
 ## {{ compute-full-name }} {#compute}
 

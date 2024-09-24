@@ -38,14 +38,14 @@ yandex.cloud.datasphere.v1.NodeService/Execute
 
 Where:
 
-* `<IAM_token>`: IAM token used for authentication.
-* `<folder_ID>`: ID of the folder where the project and node are created.
+* `<IAM_token>`: IAM token being used for authentication.
+* `<folder_ID>`: ID of the folder where the project and node were created.
 * `<node_ID>`: ID of the node.
-* `<input_variables>`: Object in which keys correspond to your input variables.
+* `<input_variables>`: Object where keys match input variables.
 
 In a successful response, the object is returned:
 
-```
+```json
 {
    "output": {
       <output_variables>
@@ -53,7 +53,7 @@ In a successful response, the object is returned:
 }
 ```
 
-`Output_variables`: Object in which keys correspond to output variables.
+Where `<output_variables>` is the object in which keys match output variables.
 
 ## Sample REST API request {#rest-query-example}
 
@@ -72,9 +72,9 @@ curl https://datasphere.{{ api-host }}/datasphere/v1/nodes/<node_ID>:execute \
 
 Where:
 
-* `<IAM_token>`: IAM token used for authentication.
-* `<folder_ID>`: ID of the folder where the project and node are created.
-* `<node_ID>`: ID of the node.
-* `<input_variables>`: Object in which keys correspond to your input variables.
+* `<IAM_token>`: IAM token being used for authentication.
+* `<folder_ID>`: ID of the folder where the project and node were created.
+* `<node_ID>`: Node ID.
+* `<input_variables>`: Object where keys match input variables.
 
 The response returns a JSON object with output variables.

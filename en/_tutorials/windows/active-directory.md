@@ -29,81 +29,81 @@ If you no longer need the infrastructure, [delete all the resources it uses](#cl
 ### Required paid resources {#paid-resources}
 
 The Active Directory installation cost includes:
-* Fee for continuously running [VMs](../../compute/concepts/vm.md) (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Fee for continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * Fee for using dynamic or static [public IP addresses](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
-* Cost of outgoing traffic from {{ yandex-cloud }} to the internet (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* Fee for outbound traffic from {{ yandex-cloud }} to the internet (see [{{ compute-name }} pricing](../../compute/pricing.md)).
 
 
 ## Create a cloud network and subnets {#create-network}
 
-Create a [cloud network](../../vpc/concepts/network.md#network) named `ad-network` with [subnets](../../vpc/concepts/network.md#subnet) in all the [availability zones](../../overview/concepts/geo-scope.md) where your VMs will be located.
+Create a [cloud network](../../vpc/concepts/network.md#network) named `ad-network` with [subnets](../../vpc/concepts/network.md#subnet) in all [availability zones](../../overview/concepts/geo-scope.md) where your VMs will be located.
 1. Create a cloud network:
 
    {% list tabs group=instructions %}
 
    - Management console {#console}
 
-      To create a cloud network:
-      1. Open the **{{ vpc-name }}** section of the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a cloud network.
-      1. Click **Create network**.
-      1. Enter the network name `ad-network`.
-      1. Click **Create network**.
+     To create a cloud network:
+     1. Open the **{{ vpc-name }}** section of the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a cloud network.
+     1. Click **Create network**.
+     1. Enter the network name: `ad-network`.
+     1. Click **Create network**.
 
    - CLI {#cli}
 
-      {% include [cli-install](../../_includes/cli-install.md) %}
+     {% include [cli-install](../../_includes/cli-install.md) %}
 
-      {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-      To create a cloud network, run the command:
+     To create a cloud network, run the command:
 
-      ```bash
-      yc vpc network create --name ad-network
-      ```
+     ```bash
+     yc vpc network create --name ad-network
+     ```
 
    {% endlist %}
 
-1. Create three `ad-network` subnets:
+1. Create three subnets in `ad-network`:
 
    {% list tabs group=instructions %}
 
    - Management console {#console}
 
-      To create a subnet:
-      1. Open the **{{ vpc-name }}** section in the folder to create a subnet in.
-      1. Click the name of the cloud network.
-      1. Click **Add subnet**.
-      1. Fill out the form: enter `ad-subnet-a` as the subnet name and select the `{{ region-id }}-a` availability zone from the drop-down list.
-      1. Enter the subnet CIDR: subnet IP and mask `10.1.0.0/16`.
-      1. Click **Create subnet**.
+       To create a subnet:
+       1. Open the **{{ vpc-name }}** section in the folder to create a subnet in.
+       1. Click the name of the cloud network.
+       1. Click **Add subnet**.
+       1. Fill out the form: enter `ad-subnet-a` as the subnet name and select the `{{ region-id }}-a` availability zone from the drop-down list.
+       1. Enter the subnet CIDR: IP address and `10.1.0.0/16` as subnet mask.
+       1. Click **Create subnet**.
 
-      Repeat the steps for two more subnets:
-      * Name: `ad-subnet-b`. Availability zone: `{{ region-id }}-b`. CIDR: `10.2.0.0/16`.
-      * Name: `ad-subnet-d`. Availability zone: `{{ region-id }}-d`. CIDR: `10.3.0.0/16`.
+       Repeat the steps for two more subnets:
+       * Name: `ad-subnet-b`: Availability zone: `{{ region-id }}-b`. CIDR: `10.2.0.0/16`.
+       * Name: `ad-subnet-d`. Availability zone: `{{ region-id }}-d`. CIDR: `10.3.0.0/16`.
 
    - CLI {#cli}
 
-      To create subnets, run the following commands:
+       To create subnets, run the following commands:
 
-      ```bash
-      yc vpc subnet create \
-        --name ad-subnet-a \
-        --zone {{ region-id }}-a \
-        --network-name ad-network \
-        --range 10.1.0.0/16
+       ```bash
+       yc vpc subnet create \
+         --name ad-subnet-a \
+         --zone {{ region-id }}-a \
+         --network-name ad-network \
+         --range 10.1.0.0/16
 
-      yc vpc subnet create \
-        --name ad-subnet-b \
-        --zone {{ region-id }}-b \
-        --network-name ad-network \
-        --range 10.2.0.0/16
+       yc vpc subnet create \
+         --name ad-subnet-b \
+         --zone {{ region-id }}-b \
+         --network-name ad-network \
+         --range 10.2.0.0/16
 
-      yc vpc subnet create \
-        --name ad-subnet-d \
-        --zone {{ region-id }}-d \
-        --network-name ad-network \
-        --range 10.3.0.0/16
-      ```
+       yc vpc subnet create \
+         --name ad-subnet-d \
+         --zone {{ region-id }}-d \
+         --network-name ad-network \
+         --range 10.3.0.0/16
+       ```
 
    {% endlist %}
 
@@ -120,7 +120,7 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
 
 The password must meet the [complexity requirements]({{ ms.docs }}/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#reference).
 
-Learn more about security best practices for Active Directory on the [official website]({{ ms.docs }}/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory).
+You can read more about the best practices for securing Active Directory on the [MS official website]({{ ms.docs }}/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory).
 
 ## Create a VM for Active Directory {#ad-vm}
 
@@ -130,50 +130,50 @@ Create two VMs for Active Directory domain controllers. These VMs will not have 
 
 - Management console {#console}
 
-   1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
-   1. In the **Name** field, enter the VM name: `ad-vm-a`.
-   1. Select the `{{ region-id }}-a` availability zone.
-   1. Under **Image/boot disk selection** → **{{ marketplace-name }}** click **Show more**. In the window that opens, select the [Windows Server 2022 Datacenter](/marketplace/products/yc/windows-server-2022-datacenter) image and click **Use**.
-   1. Under **Disks**, enter 50 GB as the boot [disk](../../compute/concepts/disk.md) size.
-   1. Under **Computing resources**:
-      * Select the [platform](../../compute/concepts/vm-platforms.md): **Intel Ice Lake**.
-      * Specify the required number of vCPUs and the amount of RAM:
-         * **vCPU**: 4
-         * **Guaranteed vCPU share**: 100%
-         * **RAM**: 8 GB
-   1. Under **Network settings**:
-      * Select the `ad-subnet-a` subnet.
-      * **Public address**: **No address**.
-      * **Internal address**: Select **Manual** and specify `10.1.0.3`.
-   1. Click **Create VM**.
+  1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
+  1. In the **Name** field, enter the VM name: `ad-vm-a`.
+  1. Select the `{{ region-id }}-a` availability zone.
+  1. Under **Image/boot disk selection** → **{{ marketplace-name }}** click **Show more**. In the window that opens, select the [Windows Server 2022 Datacenter](/marketplace/products/yc/windows-server-2022-datacenter) image and click **Use**.
+  1. Under **Disks**, enter 50 GB for the size of the boot [disk](../../compute/concepts/disk.md).
+  1. Under **Computing resources**:
+     * Select the [platform](../../compute/concepts/vm-platforms.md): **Intel Ice Lake**.
+     * Specify the required number of vCPUs and the amount of RAM:
+       * **vCPU**: 4.
+       * **Guaranteed vCPU share**: 100%
+       * **RAM**: 8 GB
+  1. Under **Network settings**:
+     * Select the `ad-subnet-a` subnet.
+     * **Public address**: **No address**.
+     * **Internal address**: Select **Manual** and specify `10.1.0.3`.
+  1. Click **Create VM**.
 
-   {% include [vm-reset-password-windows-operations](../../_includes/compute/reset-vm-password-windows-operations.md) %}
+  {% include [vm-reset-password-windows-operations](../../_includes/compute/reset-vm-password-windows-operations.md) %}
 
-   Repeat the steps for the `ad-vm-b` VM in the `{{ region-id }}-b` availability zone, connect it to the `ad-subnet-b` subnet, and manually specify the internal IP address `10.2.0.3`.
+  Repeat the steps for the `ad-vm-b` VM in the `{{ region-id }}-b` availability zone, connect it to the `ad-subnet-b` subnet, and manually specify the internal IP address: `10.2.0.3`.
 
 - CLI {#cli}
 
-   ```bash
-   yc compute instance create \
-     --name ad-vm-a \
-     --hostname ad-vm-a \
-     --memory 8 \
-     --cores 4 \
-     --zone {{ region-id }}-a \
-     --network-interface subnet-name=ad-subnet-a,ipv4-address=10.1.0.3 \
-     --create-boot-disk image-folder-id=standard-images,image-family=windows-2022-dc-gvlk \
-     --metadata-from-file user-data=setpass
+  ```bash
+  yc compute instance create \
+    --name ad-vm-a \
+    --hostname ad-vm-a \
+    --memory 8 \
+    --cores 4 \
+    --zone {{ region-id }}-a \
+    --network-interface subnet-name=ad-subnet-a,ipv4-address=10.1.0.3 \
+    --create-boot-disk image-folder-id=standard-images,image-family=windows-2022-dc-gvlk \
+    --metadata-from-file user-data=setpass
 
-   yc compute instance create \
-     --name ad-vm-b \
-     --hostname ad-vm-b \
-     --memory 8 \
-     --cores 4 \
-     --zone {{ region-id }}-b \
-     --network-interface subnet-name=ad-subnet-b,ipv4-address=10.2.0.3 \
-     --create-boot-disk image-folder-id=standard-images,image-family=windows-2022-dc-gvlk \
-     --metadata-from-file user-data=setpass
-   ```
+  yc compute instance create \
+    --name ad-vm-b \
+    --hostname ad-vm-b \
+    --memory 8 \
+    --cores 4 \
+    --zone {{ region-id }}-b \
+    --network-interface subnet-name=ad-subnet-b,ipv4-address=10.2.0.3 \
+    --create-boot-disk image-folder-id=standard-images,image-family=windows-2022-dc-gvlk \
+    --metadata-from-file user-data=setpass
+  ```
 
 {% endlist %}
 
@@ -185,42 +185,42 @@ A file server with internet access is used to configure VMs with Active Director
 
 - Management console {#console}
 
-   1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
-   1. In the **Name** field, enter the VM name: `jump-server-vm`.
-   1. Select the `{{ region-id }}-d` availability zone.
-   1. Under **Image/boot disk selection** → **{{ marketplace-name }}** click **Show more**. In the window that opens, select the [Windows Server 2022 Datacenter](/marketplace/products/yc/windows-server-2022-datacenter) image and click **Use**.
-   1. Under **Disks**, enter 50 GB for the size of the boot disk.
-   1. Under **Computing resources**:
-      * Select the platform: Intel Ice Lake.
-      * Specify the required number of vCPUs and the amount of RAM:
-         * **vCPU**: 2
-         * **Guaranteed vCPU share**: 100%
-         * **RAM**: 4 GB
-   1. Under **Network settings**, select `ad-subnet-d`. Under **Public address**, select **Automatically**.
-   1. Click **Create VM**.
+  1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
+  1. In the **Name** field, enter the VM name: `jump-server-vm`.
+  1. Select the `{{ region-id }}-d` availability zone.
+  1. Under **Image/boot disk selection** → **{{ marketplace-name }}** click **Show more**. In the window that opens, select the [Windows Server 2022 Datacenter](/marketplace/products/yc/windows-server-2022-datacenter) image and click **Use**.
+  1. Under **Disks**, enter 50 GB for the size of the boot disk.
+  1. Under **Computing resources**:
+     * Choose a platform: Intel Ice Lake.
+     * Specify the required number of vCPUs and the amount of RAM:
+       * **vCPU**: 2
+       * **Guaranteed vCPU share**: 100%
+       * **RAM**: 4 GB
+  1. Under **Network settings**, select `ad-subnet-d`. Under **Public address**, select **Automatically**.
+  1. Click **Create VM**.
 
-   {% include [vm-reset-password-windows-operations](../../_includes/compute/reset-vm-password-windows-operations.md) %}
+  {% include [vm-reset-password-windows-operations](../../_includes/compute/reset-vm-password-windows-operations.md) %}
 
 - CLI {#cli}
 
-   ```bash
-   yc compute instance create \
-     --name jump-server-vm \
-     --hostname jump-server-vm \
-     --memory 4 \
-     --cores 2 \
-     --zone {{ region-id }}-d \
-     --network-interface subnet-name=ad-subnet-d,nat-ip-version=ipv4 \
-     --create-boot-disk image-folder-id=standard-images,image-family=windows-2022-dc-gvlk \
-     --metadata-from-file user-data=setpass
-   ```
+  ```bash
+  yc compute instance create \
+    --name jump-server-vm \
+    --hostname jump-server-vm \
+    --memory 4 \
+    --cores 2 \
+    --zone {{ region-id }}-d \
+    --network-interface subnet-name=ad-subnet-d,nat-ip-version=ipv4 \
+    --create-boot-disk image-folder-id=standard-images,image-family=windows-2022-dc-gvlk \
+    --metadata-from-file user-data=setpass
+  ```
 
 {% endlist %}
 
 ## Install and configure Active Directory {#install-ad}
 
-VMs with Active Directory do not have internet access, so they should be configured from the `jump-server-vm` VM using [RDP](https://en.wikipedia.org/wiki/Remote_Desktop_Protocol).
-1. [Connect](../../compute/operations/vm-connect/rdp.md) to `jump-server-vm` using RDP. Enter `Administrator` as the username and then your password.
+Active Directory VMs do not have internet access. To configure them, use the `jump-server-vm` VM through [RDP](https://en.wikipedia.org/wiki/Remote_Desktop_Protocol).
+1. [Connect](../../compute/operations/vm-connect/rdp.md) to `jump-server-vm` through RDP. Use `Administrator` for username, and your password.
 1. Run RDP and connect to `ad-vm-a` using its local IP address, `Administrator` username and your password.
 1. Run PowerShell and set a static IP address:
 
@@ -251,7 +251,7 @@ VMs with Active Directory do not have internet access, so they should be configu
    Then enter the password and confirm it.
 
    Windows restarts automatically. Reconnect to `ad-vm-a` and launch PowerShell.
-1. Rename the default site `{{ region-id }}-a`:
+1. Rename the default site to `{{ region-id }}-a`:
 
    ```powershell
    Get-ADReplicationSite 'Default-First-Site-Name' | Rename-ADObject -NewName '{{ region-id }}-a'
@@ -295,8 +295,8 @@ VMs with Active Directory do not have internet access, so they should be configu
 
 ## Configure the second domain controller {#install-ad-2}
 
-1. Connect to `jump-server-vm` using RDP.
-1. With RDP, connect to `ad-vm-b` using its local IP address, the `Administrator` username, and your password.
+1. Connect to `jump-server-vm` through RDP.
+1. Using RDP, connect to `ad-vm-b` using its local IP address, the `Administrator` username, and your password.
 1. Assign Active Directory roles:
 
    ```powershell
@@ -334,7 +334,7 @@ VMs with Active Directory do not have internet access, so they should be configu
 
    Then enter the password and confirm it.
 
-   Windows restarts automatically. Reconnect to `ad-vm-b` and launch PowerShell.
+   Windows will restart automatically. Reconnect to `ad-vm-b` and launch PowerShell.
 1. Set the DNS redirect server:
 
    ```powershell
@@ -343,8 +343,8 @@ VMs with Active Directory do not have internet access, so they should be configu
 
 ## Test Active Directory {#test-ad}
 
-1. Connect to `jump-server-vm` using RDP.
-1. With RDP, connect to `ad-vm-b` using its local IP address, the `Administrator` username, and your password. Launch PowerShell.
+1. Connect to `jump-server-vm` through RDP.
+1. Using RDP, connect to `ad-vm-b` using its local IP address, the `Administrator` username, and your password. Launch PowerShell.
 1. Create a test user:
 
    ```powershell

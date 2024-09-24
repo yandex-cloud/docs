@@ -1,5 +1,6 @@
 ---
 description: "Image classification enables you to see whether an image matches a certain property (for instance, contains adult content). This can reduce the cost of manual moderation because you will be able to ban such images automatically."
+noIndex: true
 keywords:
   - image classification
   - classification for images
@@ -17,7 +18,7 @@ The list of properties the result is returned for depends on the selected model.
 
 ## Request format {#request-format}
 
-To use the classification feature, specify `CLASSIFICATION` in the feature type and provide the [model](supported-models.md) name:
+To use this feature, specify `CLASSIFICATION` in the feature type and provide the [model](supported-models.md) name:
 
 ```json
 {

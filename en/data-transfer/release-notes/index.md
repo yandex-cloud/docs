@@ -1,3 +1,8 @@
+---
+title: "{{ data-transfer-full-name }} release notes"
+description: "This section contains {{ data-transfer-name }} release notes."
+---
+
 # {{ data-transfer-name }} release notes
 
 - [July 2024](2407.md)

@@ -225,7 +225,7 @@
    ```python
    #!spark --cluster <имя_кластера>
    import random
-   
+
    def inside(p):
        x, y = random.random(), random.random()
        return x*x + y*y < 1

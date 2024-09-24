@@ -5,6 +5,8 @@ description: "Из статьи вы узнаете, как изменить п�
 
 # Изменить права доступа к группе рабочих столов
 
+{% include [access-options](../../../_includes/cloud-desktop/access-options.md) %}
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}

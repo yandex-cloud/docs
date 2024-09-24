@@ -8,7 +8,7 @@ label:
 items:
   - name: Available transfers
     href: transfer-matrix.md
-  - name: Getting started
+  - name: Get started
     href: quickstart.md
   - name: Step-by-step guides
     items:
@@ -132,7 +132,7 @@ items:
             href: tutorials/managed-mysql-to-mysql.md
           - name: '{{ MG }} cluster'
             href: tutorials/managed-mongodb.md
-          - name: Migrating a {{ MG }} cluster from 4.4 to 6.0
+          - name: Migrating {{ MG }} cluster from 4.4 to 6.0
             href: tutorials/mongodb-versions.md
           - name: '{{ CH }} cluster'
             href: tutorials/managed-clickhouse.md
@@ -164,6 +164,8 @@ items:
             href: tutorials/mes-to-mos.md
           - name: '{{ OS }} to {{ ydb-short-name }}'
             href: tutorials/opensearch-to-ydb.md
+          - name: '{{ PG }} to {{ OS }}'
+            href: tutorials/postgresql-to-opensearch.md
       - name: Change data capture and delivery to the queue
         items:
           - name: '{{ MY }} to {{ KF }}'
@@ -252,7 +254,7 @@ items:
         href: concepts/regular-incremental-copy.md
       - name: Parallel copy
         href: concepts/sharded.md
-      - name: Data transformations
+      - name: Data transformation
         href: concepts/data-transformation.md
       - name: Serialization
         href: concepts/serializer.md
@@ -262,7 +264,7 @@ items:
         href: concepts/delivery-configuration.md
       - name: Operations on transfers
         href: concepts/operations.md
-      - name: Network in {{ data-transfer-full-name }}
+      - name: Networking in {{ data-transfer-full-name }}
         href: concepts/network.md
       - name: Speed for copying data in {{ data-transfer-full-name }}
         href: concepts/copy-speed.md

@@ -10,8 +10,6 @@ editable: false
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
-{{ foundation-models-full-name }} находится на стадии [Preview](../overview/concepts/launch-stages.md). Сервис тарифицируется в соответствии с документом [Специальные условия использования](https://yandex.ru/legal/cloud_specialterms/?lang=ru#index__section_fk5_d4c_cgb). Детализация использования {{ yagpt-full-name }} доступна в {{ billing-name }} как использование ресурсов {{ foundation-models-full-name }}. 
-
 В [консоли управления]({{ link-console-main }}) новым пользователям без [платежного аккаунта](../billing/concepts/billing-account.md) для тестирования доступны запросы к моделям:
 
 * {{ yagpt-full-name }} — {{ gpt-freetier }} бесплатных запросов в час.
@@ -40,7 +38,7 @@ editable: false
 
 #### Дообученные модели {#rules-tuned-generating}
 
-Работа модели [краткого пересказа](./concepts/yandexgpt/models.md) тарифицируется по правилам {{ gpt-lite }}. Работа моделей, дообученных в {{ ml-platform-full-name }}, тарифицируется по правилам {{ gpt-pro }}.
+Работа моделей, дообученных в {{ ml-platform-full-name }}, тарифицируется по правилам {{ gpt-pro }}.
 
 ### Классификация текста {#rules-text-classifier}
 
@@ -180,7 +178,7 @@ editable: false
 * Количество токенов в ответе — 30.
 * Модель {{ gpt-pro }}, дообученная в {{ ml-platform-name }}.
 * Синхронный режим работы модели.
- 
+
 
 {% list tabs group=pricing %}
 

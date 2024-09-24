@@ -50,7 +50,7 @@
 
       {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}
 
-  1. [Выдайте разрешение](cluster-users.md#updateuser) на доступ к созданной базе данных нужным пользователям кластера.
+  1. [Назначьте роли](cluster-users.md#updateuser), разрешающие доступ к созданной базе данных, нужным пользователям кластера.
 
 - CLI {#cli}
 

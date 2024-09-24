@@ -1,0 +1,21 @@
+title: Yandex Security Deck
+description:
+  - >-
+    <em>The Yandex Security Deck Service is at the <a
+    href="/docs/overview/concepts/launch-stages">Preview stage</a></em>.
+  - >-
+    Yandex Security Deck is the first CNAPP platform and a complex service that
+    comprises the following modules: Access Transparency, Data Security Posture
+    Management (DSPM), Cloud Infrastructure Entitlement Management (CIEM), and
+    the Compliance Portal.
+  - >-
+    The tools provided by the service make it possible to detect
+    vulnerabilities, monitor and protect data access, as well as ensure
+    compliance with legal regulations and industry standards.
+links:
+  - title: Getting started
+    description: Learn how to get started with Yandex Security Deck
+    href: quickstart-overview
+  - title: Pricing policy
+    description: Service pricing and cost calculations
+    href: pricing

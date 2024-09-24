@@ -9,11 +9,11 @@ description: "Get a list of translation directions supported by the service."
 
 Get a list of translation directions supported by the service.
 
-When using the Translate API, provide your [authentication](/docs/translate/api-ref/authentication) credentials in the `Authorization` header.
+When using the Translate API, provide your [authentication](/docs/translate/api-ref/authentication) credentials in the `Authorization` header of each request.
 
 ## Request {#request}
 
-```
+```http
 POST https://translate.{{ api-host }}/translate/v1/languages
 ```
 
@@ -22,9 +22,9 @@ POST https://translate.{{ api-host }}/translate/v1/languages
 The maximum size of the POST request body is 30 KB.
 
 
-| Parameter | Description |
+Parameter | Description
 ----- | -----
-| `folderId` | Required parameter.<br/>The ID of your folder.<br/> |
+`folderId` | Required parameter.<br/>Your folder ID.<br/>
 
 
 ## Response {#response}

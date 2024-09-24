@@ -2,7 +2,7 @@ You can create a user and set the Administrator account password on a [VM](../..
 
 {% cut "init.ps file" %}
 
-```
+```cloudinit
 #ps1
 # ^^^ 'ps1' is only for cloudbase-init, some sort of sha-bang in linux
 
