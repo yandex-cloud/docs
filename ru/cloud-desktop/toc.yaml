@@ -53,6 +53,8 @@ items:
     items:
       - name: Рабочие столы и их группы
         href: concepts/desktops-and-groups.md
+      - name: Список управления доступом (ACL)
+        href: concepts/acl.md
       - name: Диски
         href: concepts/disks.md
       - name: Образы

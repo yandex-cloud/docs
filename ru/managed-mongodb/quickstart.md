@@ -64,6 +64,8 @@ description: "Следуя данной инструкции, вы сможет�
 
    {% include [default-connstring-old](../_includes/mdb/mmg/default-connstring-old.md) %}
 
+    О том, как получить FQDN хоста, см. [инструкцию](operations/connect/index.md#get-fqdn).
+
 ## Что дальше {#whats-next}
 
 * Изучите [концепции сервиса](concepts/index.md).

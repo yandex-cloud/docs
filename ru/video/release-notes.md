@@ -7,7 +7,7 @@ description: "В разделе представлена история изме
 
 ## Сентябрь 2024 {#sep-2024}
 
-* Поддержана загрузка субтитров для [видео](./concepts/videos.md).
+* Поддержана загрузка [субтитров](./concepts/videos.md#subtitles) для [видео](./concepts/videos.md).
 * Опубликован [SDK видеоплеера для JavaScript](./sdk/javascript/index.md).
 * Реализована поддержка [методов REST API](https://github.com/yandex-cloud/cloudapi/tree/master/yandex/cloud/video) для взаимодействия с сервисом, опубликован [справочник](./api-ref/).
 

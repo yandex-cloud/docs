@@ -15,6 +15,8 @@ items:
         href: quickstart/connection-manager.md
       - name: '{{ metastore-full-name }}'
         href: quickstart/metastore.md
+      - name: Schema Registry
+        href: quickstart/schema-registry.md
   - name: Пошаговые инструкции
     items:
       - name: Все инструкции
@@ -41,6 +43,32 @@ items:
             href: operations/metastore/export-and-import.md
           - name: Удаление кластера {{ metastore-name }}
             href: operations/metastore/cluster-delete.md
+      - name: Schema Registry
+        items:
+          - name: Пространство имен
+            items:
+              - name: Создание пространства имен
+                href: operations/create-name-space.md
+              - name: Изменение пространства имен
+                href: operations/update-name-space.md
+              - name: Удаление пространства имен
+                href: operations/delete-name-space.md
+          - name: Схемы
+            items:
+              - name: Загрузка схемы в новый субъект
+                href: operations/create-subject.md
+              - name: Добавление схемы в существующий субъект
+                href: operations/add-schema.md
+              - name: Удаление схемы
+                href: operations/delete-schema.md
+              - name: Сравнение схем
+                href: operations/compare-schemas.md
+          - name: Субъекты
+            items:
+              - name: Изменение субъекта
+                href: operations/update-subject.md
+              - name: Удаление субъекта
+                href: operations/delete-subject.md
   - name: Практические руководства
     items:
       - name: >-
@@ -67,6 +95,10 @@ items:
             href: concepts/metastore.md
           - name: Имперсонация в {{ metastore-name }}
             href: concepts/metastore-impersonation.md
+      - name: Schema Registry
+        items:
+          - name: Реестр схем
+            href: concepts/schema-registry.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Управление доступом
@@ -77,6 +109,14 @@ items:
         href: security/connection-manager-roles.md
       - name: Роли {{ metastore-name }}
         href: security/metastore-roles.md
+      - name: Роли {{ schema-registry-name }}
+        href: security/schema-registry-roles.md
+  - name: Справочник API
+    items:
+      - name: Аутентификация в API
+        href: api-ref/authentication.md
+      - name: Schema Registry
+        href: api-ref/schema-registry/index.md
   - name: История изменений
     href: release-notes/index.md
   - name: Правила тарификации

@@ -7,7 +7,7 @@ To ensure high availability, you can deploy multiple network VMs in different [a
 
 This tutorial describes a use case when the route-switcher module provides fault tolerance of a [NAT instance](/marketplace/products/yc/nat-instance-ubuntu-18-04-lts), a network VM with preset routing and IP address translation rules. NAT instances are used to provide internet access for VMs and other cloud resources hosted in {{ yandex-cloud }}.
 
-In the flow chart used in this example, a NAT instance called `NAT-A` is the main one for traffic to the internet and `NAT-B` is a standby NAT instance.
+In the flow chart used in this example, a NAT instance called `NAT-A` is the main VM instance for traffic to the internet, while `NAT-B` is a standby one.
 
 ![image](../../_assets/tutorials/route-switcher-scheme.svg)
 
@@ -28,14 +28,14 @@ If `NAT-A` fails, the route-switcher will switch outgoing traffic over to `NAT-B
 
 ![image](../../_assets/tutorials/route-switcher-failure-scheme.svg)
 
-As soon as `NAT-A` recovers, the route-switcher will reroute outgoing traffic through `NAT-B` by changing the `Next hop` value to the `NAT-A` instance internal IP address in the route table.
+As soon as `NAT-A` recovers, the route-switcher will reroute outgoing traffic through `NAT-A` by changing the `Next hop` value to the `NAT-A` instance internal IP address in the route table.
 
 This tutorial will help you create a test infrastructure that shows how the route-switcher module works. The solution has the following basic elements:
 
 * **nat-a**: Main NAT instance.
 * **nat-b**: Standby NAT instance.
-* **test-vm**: VM within the infrastructure's internal perimeter that internet access through the respective NAT instance is provided for.
-* **route-switcher-lb-...**: [Network load balancer](../../network-load-balancer/concepts/index.md) that is required for the route-switcher to run and is used to check if the NAT instances are available.
+* **test-vm**: VM within the infrastructure's internal perimeter that internet access through the respective NAT instance is provided for. 
+* **route-switcher-lb-...**: [Network load balancer](../../network-load-balancer/concepts/index.md) required for the route-switcher module to run and used to check if the NAT instances are available.
 * **route-switcher-...**: [Cloud function](../../functions/concepts/function.md) that switches outgoing traffic over to the standby NAT instance if the primary one is down.
 
 To deploy the test infrastructure and test the route-switcher:
@@ -47,7 +47,7 @@ To deploy the test infrastructure and test the route-switcher:
 1. [Test the solution for performance and fault tolerance](#test-solution).
 
 If you no longer need the resources you created, [delete them](#clear-out).
-
+ 
 ## Prepare your cloud {#prepare-cloud}
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
@@ -72,7 +72,7 @@ The infrastructure support cost includes:
 
    - Management console {#console}
 
-      1. In the [management console]({{ link-console-main }}), select the folder where you want to create your service account.
+      1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
       1. In the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab, click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
       1. Enter a name for the service account, e.g., `sa-terraform`.
       1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
@@ -87,11 +87,11 @@ The infrastructure support cost includes:
       yc iam service-account create --name sa-terraform
       ```
 
-      In this command, replace `name` with the name of the service account.
+      Where `name` is the service account name.
 
       Result:
 
-      ```yaml
+      ```text
       id: ajehr0to1g8b********
       folder_id: b1gv87ssvu49********
       created_at: "2023-06-20T09:03:11.665153755Z"
@@ -110,7 +110,7 @@ The infrastructure support cost includes:
 
    - Management console {#console}
 
-      1. On the [start page]({{ link-console-main }}) of the management console, select the folder.
+      1. On the management console [home page]({{ link-console-main }}), select the folder.
       1. Go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
       1. Find the `sa-terraform` service account in the list and click ![image](../../_assets/options.svg).
       1. Click **{{ ui-key.yacloud.common.resource-acl.button_assign-binding }}**.
@@ -154,7 +154,7 @@ The infrastructure support cost includes:
 
          Result:
 
-         ```bash
+         ```text
          id: aje8nn871qo4********
          service_account_id: ajehr0to1g8b********
          created_at: "2023-06-20T09:16:43.479156798Z"
@@ -168,7 +168,7 @@ The infrastructure support cost includes:
 
          Result:
 
-         ```bash
+         ```text
          Profile 'sa-terraform' created and activated
          ```
 
@@ -180,7 +180,7 @@ The infrastructure support cost includes:
 
          Where:
 
-         `service-account-key`: File with the authorized key of the service account.
+         `service-account-key`: File with the service account authorized key.
 
       1. Add the credentials to the environment variables:
 
@@ -188,7 +188,7 @@ The infrastructure support cost includes:
          export YC_TOKEN=$(yc iam create-token)
          ```
 
-   {% endlist %}
+    {% endlist %}
 
 ## Prepare an environment for deploying the resources {#setup-environment}
 
@@ -199,22 +199,22 @@ The infrastructure support cost includes:
    sudo apt install git
    ```
 
-1. Clone the `yandex-cloud-examples/yc-route-switcher` repository from GitHub and navigate to the folder:
+1. Clone the GitHub `yandex-cloud-examples/yc-route-switcher` repository and go to the script folder:
 
-   ```bash
-   git clone https://github.com/yandex-cloud-examples/yc-route-switcher.git
-   cd yc-route-switcher/examples
-   ```
+    ```bash
+    git clone https://github.com/yandex-cloud-examples/yc-route-switcher.git
+    cd yc-route-switcher/examples
+    ```
 
-1. Open the `terraform.tfvars` file, for example, using `nano`:
+1. Open the `terraform.tfvars` file, for example, using the `nano` editor:
 
-   ```bash
-   nano terraform.tfvars
-   ```
+    ```bash
+    nano terraform.tfvars
+    ```
 
 1. Edit the following:
 
-   1. String with the folder ID:
+   1. String with the folder ID:   
 
       ```text
       folder_id = "<folder_ID>"
@@ -223,11 +223,11 @@ The infrastructure support cost includes:
    1. The line with a list of allowed public IP addresses for `test-vm` access:
 
       ```text
-      trusted_ip_for_mgmt = ["<workstation_external_IP>/32"]
+      trusted_ip_for_mgmt = ["<workstation_external_IP_address>/32"]
       ```
 
       Where:
-      `<workstation_external_IP>` is your workstation's public IP address.
+      `<workstation_external_IP_address>` is your workstation public IP address. 
 
       To find out the external IP of your workstation, run:
 
@@ -237,13 +237,13 @@ The infrastructure support cost includes:
 
       Result:
 
-      ```bash
+      ```text
       192.240.24.87
       ```
 
 ## Deploy your resources {#create-resources}
 
-1. Initialize {{ TF }}:
+1. Initialize {{ TF }}: 
 
    ```bash
    terraform init
@@ -264,7 +264,7 @@ The infrastructure support cost includes:
 1. Create resources:
 
    ```bash
-   terraform apply
+   terraform apply 
    ```
 
 1. Wait until the resources are deployed and save the resulting command output: {#final-output}
@@ -288,21 +288,21 @@ The infrastructure support cost includes:
 
       1. In the [management console]({{ link-console-main }}), select the appropriate folder.
       1. Select **{{ network-load-balancer-name }}** and go to the `route-switcher-lb-...` network load balancer page.
-      1. Open the target group and make sure the targets have the `Healthy` status.
+      1. Open the target group and make sure the target resources are `Healthy`. 
 
    {% endlist %}
 
 1. Open the `route-switcher.tf` file, for example, using the `nano` editor:
 
-   ```bash
-   nano route-switcher.tf
-   ```
+    ```bash
+    nano route-switcher.tf
+    ```
 
-1. Change the `start_module` parameter value for the `route-switcher` to `true`.
+1. Change the value of the `start_module` parameter for the `route-switcher` module to `true`. 
 1. Run the module with the following command:
 
    ```bash
-   terraform apply
+   terraform apply 
    ```
 
    Within 5 minutes of resource deployment, the route-switcher module starts providing fault tolerance of outgoing traffic to the internet via the NAT instance.
@@ -316,23 +316,23 @@ The infrastructure support cost includes:
    {% list tabs group=instructions %}
 
    - Management console {#console}
-
+  
       1. In the [management console]({{ link-console-main }}), select the appropriate folder.
       1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-      1. Select `test-vm` from the list of VMs.
+      1. In the VM list, select `test-vm`.
       1. Go to the **{{ ui-key.yacloud.compute.instance.switch_console }}** tab.
       1. Wait for the operating system to start up completely.
 
    {% endlist %}
 
-1. Enter the `admin` username and password.
+1. Enter the `admin` username and password. 
    To find out the password, run the following command in your workstation's terraform scenario folder:
 
-   ```bash
-   terraform output test_vm_password
-   ```
+    ```bash
+    terraform output test_vm_password
+    ```
 
-1. Make sure that `test-vm` is connected to the internet via the public IP address of the `nat-a` instance. Run the following command in the serial console:
+1. Make sure `test-vm` is connected to the internet via the public IP address of the `nat-a` instance. Run the following command in the serial console:
 
    ```bash
    curl ifconfig.co
@@ -340,7 +340,7 @@ The infrastructure support cost includes:
 
    Compare the IP address with the `nat-a_public_ip_address` value from the [resulting output](#final-output).
 
-1. Enable outgoing traffic from the test VM to a resource on the internet with a `ping`:
+1. Enable outgoing traffic from the test VM to a resource on the internet using the `ping` command:
 
    ```bash
    ping ya.ru
@@ -368,7 +368,7 @@ The infrastructure support cost includes:
 
       1. In the [management console]({{ link-console-main }}), select the appropriate folder.
       1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-      1. Choose the `nat-a` instance in the list, click ![image](../../_assets/options.svg), and select **{{ ui-key.yacloud.common.stop }}**.
+      1. Select `nat-a` from the list, click ![image](../../_assets/options.svg) and select **{{ ui-key.yacloud.common.stop }}**.
       1. In the window that opens, click **{{ ui-key.yacloud.compute.instances.popup-confirm_button_stop }}**.
 
    - CLI {#cli}
@@ -391,9 +391,9 @@ The infrastructure support cost includes:
 
    {% endlist %}
 
-1. Monitor the loss of packets sent by a `ping`.
+1. Monitor the loss of packets sent by `ping`. 
    After the main NAT instance is disabled, there may be a traffic loss for 1 minute on average with subsequent traffic recovery.
-1. Make sure that internet access is now provided via the public IP address of the `nat-b` instance. Stop the `ping` and run the following command in the serial console:
+1. Make sure internet access is now provided via the public IP address of the `nat-b` instance. To do this, in the serial console, stop the `ping` command and run the following one:
 
    ```bash
    curl ifconfig.co
@@ -401,7 +401,7 @@ The infrastructure support cost includes:
 
    Compare the IP address with the `nat-b_public_ip_address` value from the [resulting output](#final-output).
 1. Check that the route-switcher has changed the `Next hop` value in the route table for the `demo` network and it now matches the internal IP address of the `nat-b` instance.
-1. Enable outgoing traffic from the test VM with a `ping`.
+1. Enable outgoing traffic from the test VM using the `ping` command.
 1. Run the main NAT instance by emulating system recovery:
 
    {% list tabs group=instructions %}
@@ -410,7 +410,7 @@ The infrastructure support cost includes:
 
       1. In the [management console]({{ link-console-main }}), select the appropriate folder.
       1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-      1. Choose the `nat-a` instance in the list, click ![image](../../_assets/options.svg), and select **{{ ui-key.yacloud.common.stop }}**.
+      1. Select `nat-a` from the list, click ![image](../../_assets/options.svg) and select **{{ ui-key.yacloud.common.stop }}**.
       1. In the window that opens, click **{{ ui-key.yacloud.compute.instances.popup-confirm_button_start }}**.
 
    - CLI {#cli}
@@ -433,8 +433,8 @@ The infrastructure support cost includes:
 
    {% endlist %}
 
-1. Monitor the `ping` utility output. While the NAT-A instance is being recovered, there may be no loss of sent packets.
-1. Make sure that internet access is provided via the public IP address of the `nat-a` instance again. Stop the `ping` and run the following command in the serial console:
+1. Monitor the `ping` utility output. While the NAT-A instance is being recovered, there may be no loss of sent packets. 
+1. Make sure internet access is provided via the public IP address of the `nat-a` instance again. To do this, in the serial console, stop the `ping` command and run the following one:
 
    ```bash
    curl ifconfig.co

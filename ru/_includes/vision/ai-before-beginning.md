@@ -6,7 +6,7 @@
 
   1. Получите IAM-токен для [аккаунта на Яндексе](../../iam/operations/iam-token/create.md) или [федеративного аккаунта](../../iam/operations/iam-token/create-for-federation.md).
   1. [Получите идентификатор каталога](../../resource-manager/operations/folder/get-id.md), на который у вашего аккаунта есть роль `{{ roles-vision-user }}` или выше.
-  1. При обращении к {{ vision-name }} через API в каждом запросе передавайте полученные параметры: 
+  1. При обращении к {{ vision-name }} через API в каждом запросе передавайте полученные параметры:
 
       * Для Vision API и Classifier API:
 
@@ -24,7 +24,7 @@
           * в заголовке `x-folder-id` указывайте идентификатор каталога.
 
           ```
-          Authorization: Bearer <IAM-токен> 
+          Authorization: Bearer <IAM-токен>
           x-folder-id <идентификатор_каталога>
           ```
 

@@ -58,6 +58,8 @@ items:
         href: operations/get-stats.md
   - name: Практические руководства
     items:
+      - name: Подключение сервера BareMetal к Cloud Backup
+        href: tutorials/backup-baremetal.md
       - name: Автоматическая привязка политики резервного копирования к ВМ
         items:
           - name: Обзор

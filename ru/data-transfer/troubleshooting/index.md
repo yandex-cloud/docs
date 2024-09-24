@@ -11,6 +11,7 @@
 * [{#T}](#elasticsearch)
 * [{#T}](#mongodb)
 * [{#T}](#mysql)
+* [{#T}](#object-storage)
 * [{#T}](#opensearch)
 * [{#T}](#postgresql)
 * [{#T}](#ydb)
@@ -138,6 +139,10 @@
 {% include [drop-table-error](../../_includes/data-transfer/troubles/drop-table-error.md) %}
 
 {% include [timezone-shift](../../_includes/data-transfer/troubles/mysql/timezone-shift.md) %}
+
+## {{ objstorage-name }} {#object-storage}
+
+{% include [update-not-supported](../../_includes/data-transfer/troubles/object-storage/update-not-supported.md) %}
 
 ## {{ OS }} {#opensearch}
 

@@ -24,6 +24,8 @@ items:
         href: operations/logs-write.md
   - name: Концепции
     items:
+      - name: Обзор
+        href: concepts/index.md
       - name: Уведомления о доставке писем
         href: concepts/notification.md
       - name: Термины и определения
@@ -100,6 +102,8 @@ items:
                   aws-compatible-api/api-ref/delete-configuration-set-event-destination.md
           - name: Заголовки запросов
             href: aws-compatible-api/api-ref/request-headers.md
+  - name: Аудитные логи {{ at-name }}
+    href: at-ref.md
   - name: История изменений
     href: release-notes.md
 base: ru/postbox

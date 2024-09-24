@@ -6,7 +6,9 @@ editable: false
 
 
 
-{{ foundation-models-full-name }} is at the [Preview](../overview/concepts/launch-stages.md) stage. The service is at the Preview stage and is billed according to the [Special Terms of Use](https://yandex.ru/legal/cloud_specialterms/?lang=en#index__section_fk5_d4c_cgb). You can find {{ yagpt-full-name }} usage details in {{ billing-name }} as {{ foundation-models-full-name }} resource usage.
+{% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
+
+{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
 In the [management console]({{ link-console-main }}), new users without a [billing account](../billing/concepts/billing-account.md) have access to models for testing:
 
@@ -15,7 +17,7 @@ In the [management console]({{ link-console-main }}), new users without a [billi
 
 ## What goes into the cost of using {{ foundation-models-full-name }} {#rules}
 
-### Pricing unit {#unit}
+### Billing unit {#unit}
 
 {{ foundation-models-name }} usage is detailed out in _billing units_. The cost of a billing unit is different for text generation and vectorization.
 
@@ -36,7 +38,7 @@ The use of tokenizer ([TokenizerService](./text-generation/api-ref/grpc/Tokenize
 
 #### Fine-tuned models {#rules-tuned-generating}
 
-The use of summary models is charged according to the {{ gpt-lite }} policy. The use of models fine-tuned in {{ ml-platform-full-name }} is charged according to the {{ gpt-pro }} policy.
+The use of models fine-tuned in {{ ml-platform-full-name }} is charged according to the {{ gpt-pro }} policy.
 
 ### Text classification {#rules-text-classifier}
 
@@ -110,7 +112,6 @@ Cost of using {{ yagpt-full-name }} for text generation with the following param
 * Number of response tokens: 30
 * Model: {{ gpt-pro }} fine-tuned in {{ ml-platform-name }}
 * Model working mode: Synchronous
-
 
 
 {% include [usd-generating-pro-ml](../_pricing_examples/foundation-models/usd-generating-pro-ml.md) %}

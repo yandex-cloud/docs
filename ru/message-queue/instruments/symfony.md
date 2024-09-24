@@ -38,8 +38,6 @@ PHP-фреймворк [Symfony](https://symfony.com/) содержит комп
    composer require symfony/amazon-sqs-messenger async-aws/sqs ^1.9
    ```
 
-   Важно использовать версию библиотеки `async-aws/sqs` не выше `^1.9`, так как она использует XML. Версия 2.0 использует JSON, который в данный момент несовместим с {{ message-queue-name }}.
-
 1. Создайте сообщение (Message) и обработчик (Handler):
 
     ```bash

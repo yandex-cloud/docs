@@ -1,5 +1,7 @@
 # Classifiers based on {{ yagpt-name }}
 
+_The classifiers based on {{ yagpt-name }} feature is at the [Preview](../../../overview/concepts/launch-stages.md) stage._
+
 {{ foundation-models-full-name }} allows classifying the text requests provided in prompts. Classification in {{ yagpt-name }}-based [models](./models.md) is implemented in the [{{ foundation-models-name }} Text Classification API](../../text-classification/api-ref/index.md).
 
 There are three types of classification available in {{ foundation-models-name }}:

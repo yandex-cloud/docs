@@ -43,6 +43,7 @@ description: "Следуя данной инструкции, вы сможет�
 
     {% include [image-characteristic](../_includes/video/image-characteristic.md) %}
 
+1. {% include [add-subtitles-optional](../_includes/video/add-subtitles-optional.md) %}
 1. Нажмите кнопку **{{ ui-key.yacloud_video.common.action_accept }}**.
 
 [Подробнее о видео](./concepts/videos.md)

@@ -131,7 +131,7 @@ items:
             href: operations/deploy/alias-api.md
       - name: '{{ ds-jobs }}'
         items:
-          - name: Authenticating in {{ ds-jobs }}
+          - name: Authentication in {{ ds-jobs }}
             href: operations/projects/authentication.md
           - name: Running a job in {{ ml-platform-name }} Jobs
             href: operations/projects/work-with-jobs.md
@@ -249,7 +249,7 @@ items:
             href: tutorials/s3-to-datasphere.md
           - name: Creating an MLFlow server for logging experiments and artifacts
             href: tutorials/mlflow-datasphere.md
-      - name: Use
+      - name: Usage
         items:
           - name: Deploying a service based on a Docker image
             href: tutorials/node-from-docker.md
@@ -259,11 +259,11 @@ items:
             href: tutorials/node-from-model.md
           - name: Deploying a gRPC service based on a Docker image
             href: tutorials/grpc-node.md
-          - name: Tuning a {{ yagpt-name }} model
+          - name: '{{ yagpt-name }} model tuning'
             href: tutorials/yagpt-tuning.md
           - name: Tuning classifiers based on {{ yagpt-name }}
             href: tutorials/yagpt-tuning-classifier.md
-          - name: Image generation using Stable Diffusion model
+          - name: Image generation using the Stable Diffusion model
             href: tutorials/stable-diffusion.md
       - name: Data analytics
         items:
@@ -419,6 +419,8 @@ items:
     items:
       - name: Problems with library installation
         href: qa/environment-problems.md
+      - name: Errors when using a Spark connector
+        href: troubleshooting/troubles-with-spark.md
       - name: FAQ
         href: qa/index.md
 base: en/datasphere

@@ -1,4 +1,4 @@
-# Data transformations
+# Data transformation
 
 Transformation is converting data using special transformer functions. These functions are executed on a data stream, applied to each data change item, and transform them. A transformer can be run at both the metadata and data levels.
 
@@ -18,7 +18,7 @@ Some transformers may have limitations and only apply to some source-target pair
 
 You can set rules for renaming tables by specifying the current names of the tables in the source and new names for these tables in the target.
 
-### Columns filter {#columns-filter}
+### Column filter {#columns-filter}
 
 You can set up a list of table columns to transfer:
 
@@ -34,10 +34,10 @@ You can hash data as follows:
 
 ### Splitting tables into subtables {#subtable-splitting}
 
-A transfer splits the `X` table into multiple tables (`X_1`, `X_2`, …, `X_n`) based on data. If a row was located in the `X` table before it was split, it is now in the `X_i` table, where `i` is determined by the column list and split string parameters.
+A transfer splits the `X` table into multiple tables (`X_1`, `X_2`, ..., `X_n`) based on data. If a row was located in the `X` table before it was split, it is now in the `X_i` table, where `i` is decided by the following: column list and split string. 
 
 > Example:
-> If the column list has two columns, `month of birth` and `gender`, specified and the split string states `@`, information about an employee whose name is John and who was born on February 11, 1984, from the `Employees` table will get to a new table named `Employees@February@male`.
+> If the column list features two columns – `month of birth` and `gender` – and the split string states `@`, the information about the employee John, born February 11, 1984, will get from the `Employees` table into the `Employees@February@male` table, which is the new table name.
 
 To partition tables:
 
@@ -53,11 +53,11 @@ To override primary keys, specify a list of included and excluded tables and a l
 
 To convert column values to string values, specify a list of included and excluded tables and a list of columns. The values will be converted depending on the source type:
 
-| Source type | Format |
+| Source type | Format                                            |
 |--------------|---------------------------------------------------|
-| Any | Serialized JSON format |
-| Date | String in `2006-01-02` format |
-| DateTime | String in `2006-01-02T15:04:05.999999999Z07:00` format |
+| Any          | Serialized JSON format                       |
+| Date         | String in `2006-01-02` format                          |
+| DateTime     | String in `2006-01-02T15:04:05.999999999Z07:00` format |
 
 ### Sharding {#shard}
 
@@ -70,17 +70,17 @@ This filter only applies to transfers using queues (such as {{ KF }}) as a data 
 1. List the tables to filter data in using lists of included and excluded tables.
 1. Set a filtering criterion. For the criterion, you can specify comparison operations for numeric, string, and Boolean values, comparison with NULL, and checking whether a substring is a part of a string and whether a value belongs to a set.
 
-Filtering criteria are specified by a set of rules separated by the `AND` keyword. The following operations are supported: `>`, `>=`, `<`, `<=`, `=`, `!=`, `~` (substring is part of a string), `!~` (substring is not part of a string), `IN` (value belongs to a set), `NOT IN` (value does not belong to a set). All columns listed in the filter must be present in the table you are filtering.
+Filtering criteria are determined by a set of rules separated by the `AND` keyword. Available operations `>`, `>=`, `<`, `<=`, `=`, `!=`, `~` (substring included into a string), `!~` (substring not included into a string), `IN` (value belongs to a set), `NOT IN` (value does not belong to a set). All columns listed in the filter must be present in the table you are filtering.
 
 Here is an example of a filter string:
-```
+```text
 aid > 0 AND id >= 10 AND f > 1000.1 AND f <= 1000.5 AND d != 3.14 AND i < 0 AND bi >= -9223372036854775808 AND biu <= 9223372036854775807 AND da > 1999-01-04 AND da <= 2000-03-04 AND ts > 2000-01-01T00:00:00 AND c != 'a' AND str ~ 'hello' AND t !~ 'bye-bye' AND nil = NULL AND val != NULL
 ```
 
-Filter supports single-level nesting (parentheses) and only with the `IN` and `NOT IN` operators.
+The filter supports single-level nesting (parentheses) and only with the `IN` and `NOT IN` operators.
 
 Here is an example of a filter string using the `IN` and `NOT IN` operators:
-```
+```sql
 i IN (3, 5, 7) AND str IN ('hello', 'hi') AND c NOT IN ('a', 'b', 'c')
 ```
 

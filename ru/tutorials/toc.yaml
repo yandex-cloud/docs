@@ -596,6 +596,10 @@ items:
           Миграция данных из {{ mpg-full-name }} в {{ mos-full-name }} с помощью
           {{ data-transfer-full-name }}
         href: dataplatform/postgresql-to-opensearch.md
+      - name: >-
+          Аутентификация в {{ OS }} Dashboards кластера {{ mos-full-name }} с
+          помощью {{ keycloak }}
+        href: dataplatform/opensearch-saml-keycloak.md
       - name: Создание кластера {{ PG }} для «1С:Предприятия»
         href: dataplatform/1c-postgresql.md
       - name: Анализ производительности и оптимизация {{ mpg-name }}

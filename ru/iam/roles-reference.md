@@ -783,6 +783,34 @@ description: "В статье приведен полный справочник
 
 {% include [iam.serviceAccounts.tokenCreator](../_roles/iam/serviceAccounts/tokenCreator.md) %}
 
+#### iam.serviceAccounts.federatedCredentialViewer {#iam-serviceAccounts-federatedCredentialViewer}
+
+{% include [iam.serviceAccounts.federatedCredentialViewer](../_roles/iam/serviceAccounts/federatedCredentialViewer.md) %}
+
+#### iam.serviceAccounts.federatedCredentialEditor {#iam-serviceAccounts-federatedCredentialEditor}
+
+{% include [iam.serviceAccounts.federatedCredentialEditor](../_roles/iam/serviceAccounts/federatedCredentialEditor.md) %}
+
+#### iam.workloadIdentityFederations.auditor {#iam-workloadIdentityFederations-auditor}
+
+{% include [iam.workloadIdentityFederations.auditor](../_roles/iam/workloadIdentityFederations/auditor.md) %}
+
+#### iam.workloadIdentityFederations.viewer {#iam-workloadIdentityFederations-viewer}
+
+{% include [iam.workloadIdentityFederations.viewer](../_roles/iam/workloadIdentityFederations/viewer.md) %}
+
+#### iam.workloadIdentityFederations.user {#iam-workloadIdentityFederations-user}
+
+{% include [iam.workloadIdentityFederations.user](../_roles/iam/workloadIdentityFederations/user.md) %}
+
+#### iam.workloadIdentityFederations.editor {#iam-workloadIdentityFederations-editor}
+
+{% include [iam.workloadIdentityFederations.editor](../_roles/iam/workloadIdentityFederations/editor.md) %}
+
+#### iam.workloadIdentityFederations.admin {#iam-workloadIdentityFederations-admin}
+
+{% include [iam.workloadIdentityFederations.admin](../_roles/iam/workloadIdentityFederations/admin.md) %}
+
 #### iam.auditor {#iam-auditor}
 
 {% include [iam.auditor](../_roles/iam/auditor.md) %}
@@ -1404,6 +1432,31 @@ description: "В статье приведен полный справочник
 {% include [searchapi-executor](../_roles/search-api/executor.md) %}
 
 Подробнее см. [{#T}](../search-api/security/index.md).
+
+
+## {{ sd-full-name }} {#security-deck-roles}
+
+#### dspm.inspector {#dspm-inspector}
+
+{% include [dspm.inspector](../_roles/dspm/inspector.md) %}
+
+#### dspm.auditor {#dspm-auditor}
+
+{% include [dspm.auditor](../_roles/dspm/auditor.md) %}
+
+#### dspm.viewer {#dspm-viewer}
+
+{% include [dspm.viewer](../_roles/dspm/viewer.md) %}
+
+#### dspm.editor {#dspm-editor}
+
+{% include [dspm.editor](../_roles/dspm/editor.md) %}
+
+#### dspm.admin {#dspm-admin}
+
+{% include [dspm.admin](../_roles/dspm/admin.md) %}
+
+Подробнее см. [{#T}](../security-deck/security/index.md).
 
 
 ## {{ serverless-containers-full-name }} {#serverless-containers-roles}

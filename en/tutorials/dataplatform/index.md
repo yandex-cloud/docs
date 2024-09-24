@@ -50,6 +50,7 @@ description: "This page provides a list of tutorials for building a data platfor
 * [{#T}](mch-mch-resharding.md)
 * [{#T}](data-transfer-direct-to-mch.md)
 * [{#T}](object-storage-to-clickhouse.md)
+* [{#T}](opensearch-to-clickhouse.md)
 * [{#T}](ydb-to-clickhouse.md)
 
 ## {{ GP }} {#greenplum}
@@ -103,6 +104,8 @@ description: "This page provides a list of tutorials for building a data platfor
 * [{#T}](mos-migration-from-standalone.md)
 * [{#T}](opensearch-to-object-storage.md)
 * [{#T}](opensearch-to-ydb.md)
+* [{#T}](opensearch-to-clickhouse.md)
+* [{#T}](postgresql-to-opensearch.md)
 
 
 ## {{ PG }} {#postgresql}
@@ -122,6 +125,7 @@ description: "This page provides a list of tutorials for building a data platfor
 * [{#T}](mpg-to-mmy.md)
 * [{#T}](mpg-to-yds.md)
 * [{#T}](rds-to-mpg.md)
+* [{#T}](postgresql-to-opensearch.md)
 
 
 ## {{ RD }} {#redis}

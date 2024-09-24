@@ -1,6 +1,6 @@
 ---
 title: "How to set up an {{ OS }} target endpoint in {{ data-transfer-full-name }}"
-description: "In this tutorial, you will learn how to set up an {{ OS }} target endpoint in {{ data-transfer-full-name }}."
+description: "In this article, you will learn how to set up an {{ OS }} target endpoint in {{ data-transfer-full-name }}."
 ---
 # Transferring data to an {{ OS }} target endpoint
 
@@ -17,12 +17,13 @@ description: "In this tutorial, you will learn how to set up an {{ OS }} target 
 ## Scenarios for transferring data to {{ OS }} {#scenarios}
 
 1. {% include [queue](../../../../_includes/data-transfer/scenario-captions/queue.md) %}
-   * [Delivering data from {{ DS }} to {{ OS }}](../../../tutorials/trails-to-os.md).
+    * [Delivering data from {{ DS }} to {{ OS }}](../../../tutorials/trails-to-os.md).
    * [Delivering data from {{ KF }} to {{ OS }}](../../../tutorials/mkf-to-mos.md).
 
 1. {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
-   * [Migrating an {{ OS }} cluster](../../../tutorials/os-to-mos.md).
-   * [Migration with change of storage from {{ ES }} to {{ OS }}](../../../tutorials/mes-to-mos.md).
+    * [Migrating an {{ OS }} cluster](../../../tutorials/os-to-mos.md).
+    * [Migration with change of storage from {{ ES }} to {{ OS }}](../../../tutorials/mes-to-mos.md).
+    * [Migration with change of storage from {{ PG }} to {{ OS }}](../../../tutorials/postgresql-to-opensearch.md).
 
 For a detailed description of possible {{ data-transfer-full-name }} data transfer scenarios, see [Tutorials](../../../tutorials/index.md).
 
@@ -32,15 +33,15 @@ Configure one of the supported data sources:
 
 * [{{ PG }}](../source/postgresql.md)
 * [{{ DS }}](../source/data-streams.md)
-* [{{ KF }}](../source/kafka.md)​
-* [{{ ES }}](../source/elasticsearch.md)​
-* [{{ OS }}](../source/opensearch.md)​
+* [{{ KF }}](../source/kafka.md)
+* [{{ ES }}](../source/elasticsearch.md)
+* [{{ OS }}](../source/opensearch.md)
 
 For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available transfers](../../../transfer-matrix.md).
 
 {% note info %}
 
-Data type limitation: if an `ip` (IP address) type record is transmitted from the source, it will be saved with the `text` type in the target.
+There is a data type restriction: if the sorurce sends an `ip` record (IP address), it will be saved as a `text` record in the target.
 
 {% endnote %}
 
@@ -72,7 +73,7 @@ Connection with the cluster ID specified in {{ yandex-cloud }}.
 
 - Management console {#console}
 
-   {% include [Managed OpenSearch](../../../../_includes/data-transfer/necessary-settings/ui/managed-opensearch.md) %}
+    {% include [Managed OpenSearch](../../../../_includes/data-transfer/necessary-settings/ui/managed-opensearch.md) %}
 
 {% endlist %}
 
@@ -85,7 +86,7 @@ Connecting to nodes with explicitly specified network addresses and ports.
 
 - Management console {#console}
 
-   {% include [On premise OpenSearch UI](../../../../_includes/data-transfer/necessary-settings/ui/on-premise-opensearch.md) %}
+    {% include [On premise OpenSearch UI](../../../../_includes/data-transfer/necessary-settings/ui/on-premise-opensearch.md) %}
 
 {% endlist %}
 
@@ -95,17 +96,17 @@ Connecting to nodes with explicitly specified network addresses and ports.
 
 - Management console {#console}
 
-   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchTarget.cleanup_policy.title }}**: Select a way to clean up data in the target database before the transfer:
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchTarget.cleanup_policy.title }}**: Select a way to clean up data in the target database before the transfer:
 
-      * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.DISABLED.title }}`: Select this option if you are only going to do replication without copying data.
+        * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.DISABLED.title }}`: Select this option if you are only going to do replication without copying data.
 
-      * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.DROP.title }}`: Completely delete the tables included in the transfer (default).
+        * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.DROP.title }}`: Completely delete the tables included in the transfer (default).
 
-         Use this option to always transfer the latest version of the table schema to the target database from the source whenever the transfer is activated.
+            Use this option to always transfer the latest version of the table schema to the target database from the source whenever the transfer is activated.
 
-   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchTarget.sanitize_doc_keys.title }}**: Use this option to automatically replace keys that are not valid for {{ OS }} in the target fields.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchTarget.sanitize_doc_keys.title }}**: Use this option to automatically replace keys that are not valid for {{ OS }} in the target fields.
 
-      {% include [sanitize-rules](../../../../_includes/data-transfer/necessary-settings/ui/es-os-sanitize-rules.md) %}
+        {% include [sanitize-rules](../../../../_includes/data-transfer/necessary-settings/ui/es-os-sanitize-rules.md) %}
 
 {% endlist %}
 
@@ -116,7 +117,7 @@ After configuring the data source and target, [create and start the transfer](..
 * [Transfer failure](#ambiguous-resolution-es)
 * [Document duplication on the target](#duplication)
 
-See a full list of recommendations in the [Troubleshooting](../../../troubleshooting/index.md) section.
+For more troubleshooting tips, see [Troubleshooting](../../../troubleshooting/index.md).
 
 {% include [ambiguous-object-resolution-os](../../../../_includes/data-transfer/troubles/elastic-opensearch/ambiguous-object-resolution-os.md) %}
 

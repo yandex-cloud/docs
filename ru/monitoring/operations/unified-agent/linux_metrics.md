@@ -1,12 +1,27 @@
 # Поставка системных метрик Linux
 
-Для поставки в {{ monitoring-full-name }} системных метрик виртуальных машин, работающих на Linux-совместимых операционных системах, используется вход [linux_metrics](../../concepts/data-collection/unified-agent/configuration.md#linux_metrics_input).
+Общие метрики виртуальной машины сервис {{ monitoring-full-name }} получает от сервиса {{ compute-full-name }}. Например, количество оперативной памяти, выделенной ВМ в момент запуска. Но как ВМ использует память, можно измерить только собирая данные внутри ВМ. Для сбора и передачи таких метрик предназначена утилита {{ unified-agent-full-name }}.
 
 {% note warning %}
 
 Поставка системных метрик виртуальных машин, работающих на Windows и macOS, запланирована в будущих релизах {{ unified-agent-full-name }}.
 
 {% endnote %}
+
+
+{% list tabs %}
+
+- VK
+
+  <iframe src="https://vk.com/video_ext.php?oid=-200452713&id=456239451&hash=71e48c070a2f8fc3" width="640" height="360" frameborder="0" allowfullscreen="1" allow="autoplay; encrypted-media; fullscreen; picture-in-picture"></iframe>
+
+- Youtube
+
+  @[youtube](https://youtu.be/9Z9ugkMnRcI)
+
+{% endlist %}
+
+
 
 Чтобы настроить {{ unified-agent-full-name }} для сбора системных метрик с виртуальной машины {{ yandex-cloud }}, выполните следующие шаги:
 

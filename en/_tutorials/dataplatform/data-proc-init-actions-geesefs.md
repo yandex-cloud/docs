@@ -1,9 +1,9 @@
-# Using initialization actions to configure GeeseFS in {{ dataproc-name }}
+# Mounting {{ objstorage-full-name }} buckets to the file system of {{ dataproc-full-name }} hosts
 
 
 In {{ dataproc-full-name }}, you can use [initialization actions](../../data-proc/concepts/init-action.md) to configure hosts.
 
-With them, you can automate the installation and set up of [GeeseFS](../../storage/tools/geesefs.md), the software that lets {{ dataproc-full-name }} cluster hosts to mount {{ objstorage-full-name }} buckets via [FUSE](https://en.wikipedia.org/wiki/Filesystem_in_Userspace).
+You can use them to automate the installation and setup of [GeeseFS](../../storage/tools/geesefs.md) – the software enabling {{ dataproc-full-name }} cluster hosts to mount {{ objstorage-full-name }} buckets via [FUSE](https://en.wikipedia.org/wiki/Filesystem_in_Userspace).
 
 To set up GeeseFS:
 
@@ -21,40 +21,40 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. Grant to the service account the read access for the bucket. For this, use one of the following methods:
 
-   * [Set up the bucket's ACL](../../storage/operations/buckets/edit-acl.md) and grant to the service account the `READ` access.
+    * [Set up the bucket's ACL](../../storage/operations/buckets/edit-acl.md) and grant the `READ` access to the service account.
 
-      The service account will get read access only for the specified bucket.
+        The service account will get read access only for the specified bucket.
 
-   * [Assign the service account](../../iam/operations/sa/assign-role-for-sa.md) the `storage.viewer` role.
+    * [Assign the service account](../../iam/operations/sa/assign-role-for-sa.md) the `storage.viewer` role.
 
-      The service account will get read access to all buckets in the folder.
+        The service account will get read access to all buckets in the folder.
 
 ## Prepare the initialization action {#prepare-init-scripts}
 
-1. Create a file for the initialization action named `geesefs_mount.sh` that accepts two positional arguments: the name of the {{ objstorage-full-name }} bucket and the directory in the host's file system where you mount it.
+1. Create the initialization action file named `geesefs_mount.sh` accepting two positional arguments: the name of the {{ objstorage-full-name }} bucket and the host's file system directory where you are going to mount it.
 
-   ```bash
-   #!/bin/bash
+    ```bash
+    #!/bin/bash
 
-   set -e
+    set -e
 
-   BUCKET=$1
-   MOUNT_POINT=$2
+    BUCKET=$1
+    MOUNT_POINT=$2
 
-   # Download GeeseFS
-   wget https://github.com/yandex-cloud/geesefs/releases/latest/download/geesefs-linux-amd64 -O /opt/geesefs
-   chmod a+rwx /opt/geesefs
-   mkdir -p "${MOUNT_POINT}"
+    # Downloading GeeseFS
+    wget https://github.com/yandex-cloud/geesefs/releases/latest/download/geesefs-linux-amd64 -O /opt/geesefs
+    chmod a+rwx /opt/geesefs
+    mkdir -p "${MOUNT_POINT}"
 
-   # Prepare the action run at each startup
-   BOOT_SCRIPT="/var/lib/cloud/scripts/per-boot/80-geesefs-mount.sh"
-   echo "#!/bin/bash" >> ${BOOT_SCRIPT}
-   echo "/opt/geesefs -o allow_other --iam ${BUCKET} ${MOUNT_POINT}" >> ${BOOT_SCRIPT}
-   chmod 755 ${BOOT_SCRIPT}
+    # Preparing a script to run on every boot
+    BOOT_SCRIPT="/var/lib/cloud/scripts/per-boot/80-geesefs-mount.sh"
+    echo "#!/bin/bash" >> ${BOOT_SCRIPT}
+    echo "/opt/geesefs -o allow_other --iam ${BUCKET} ${MOUNT_POINT}" >> ${BOOT_SCRIPT}
+    chmod 755 ${BOOT_SCRIPT}
 
-   # Run the action
-   ${BOOT_SCRIPT}
-   ```
+    # Running the script
+    ${BOOT_SCRIPT}
+    ```
 
 1. [Upload](../../storage/operations/objects/upload.md) the `geesefs_mount.sh` file to the previously created {{ objstorage-full-name }} bucket.
 
@@ -65,18 +65,18 @@ If you no longer need the resources you created, [delete them](#clear-out).
 * In the **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** field, select the service account you [previously created](#before-you-begin).
 * In the **{{ ui-key.yacloud.mdb.forms.config_field_initialization-action }}** field, click **{{ ui-key.yacloud.mdb.forms.button_add-initialization-action }}** and set the script parameters:
 
-   * In the **{{ ui-key.yacloud.mdb.forms.field_initialization-action-uri }}** field, specify the path to the script file in the bucket, such as:
+    * In the **{{ ui-key.yacloud.mdb.forms.field_initialization-action-uri }}** field, specify the path to the script file in the bucket, such as:
 
-      ```http
-      s3a://<bucket_name>/geesefs_mount.sh
-      ```
+        ```http
+        s3a://<bucket_name>/geesefs_mount.sh
+        ```
 
-   * In the **{{ ui-key.yacloud.mdb.forms.field_initialization-action-args }}** field, specify the name of the [previously created](#before-you-begin) bucket and `/mnt/test` as your mount point. Arguments are specified on separate lines:
+    * In the **{{ ui-key.yacloud.mdb.forms.field_initialization-action-args }}** field, specify the name of the [previously created](#before-you-begin) bucket and `/mnt/test` as your mount point. Arguments are specified on separate lines:
 
-      ```text
-      <bucket_name>
-      /mnt/test
-      ```
+        ```text
+        <bucket_name>
+        /mnt/test
+        ```
 
 * In the **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}** field, select the [previously created](#before-you-begin) bucket.
 
@@ -88,11 +88,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. To make sure that the bucket has been mounted successfully, run the command:
 
-   ```bash
-   ls /mnt/test/<bucket_name>
-   ```
+    ```bash
+    ls /mnt/test/<bucket_name>
+    ```
 
-   As a result, it will output the list of objects stored in the root folder of the bucket. In this case, the file name is `geesefs_mount.sh`.
+    As a result, it will output the list of objects stored in the root folder of the bucket. In this case, the file name `geesefs_mount.sh`.
 
 ## Delete the resources you created {#clear-out}
 
