@@ -6,9 +6,11 @@ editable: false
 
 
 
-In this section, you can find {{ mgp-name }} pricing [rules](#rules) and [effective prices](#prices) for the service resources.
+In this section, you can find the {{ mgp-name }} pricing [policy](#rules) and [effective prices](#prices) for its resources.
 
 {% include [use-calculator](../../_includes/pricing/use-calculator.md) %}
+
+{% include [link-to-price-list](../../_includes/pricing/link-to-price-list.md) %}
 
 {% include [currency-choice](../../_includes/pricing/currency-choice.md) %}
 
@@ -33,13 +35,13 @@ There are different ways to calculate the cost depending on the [host type](../c
 
 * Standard hosts
 
-   Host operation cost is charged per hour based on what computing resources you allocate for it.
+  Host operation cost is charged per hour based on what computing resources you allocate for it.
 
 * Dedicated hosts
 
-   The cost is made up of two components: [the cost of {{ compute-full-name }} computing resources](../../compute/pricing.md#prices) and {{ mgp-name }} charges for these resources.
+  The cost is made up of two components: [the cost of {{ compute-full-name }} computing resources](../../compute/pricing.md#prices) and {{ mgp-name }} charges for these resources.
 
-You can find supported resource configurations in the [Host classes](../concepts/instance-types.md) section, and vCPU and RAM prices, in the [Prices](#prices) section.
+You can the supported resource configurations in the [Host classes](../concepts/instance-types.md) section. For vCPU and RAM prices, see the [Prices](#prices) section.
 
 The minimum billing unit is one minute (for example, 1.5 minutes of host operation cost the same as 2 minutes). You do not pay for the time when the {{ GP }} host is unable to perform its main functions.
 
@@ -49,20 +51,20 @@ You pay for the following:
 
 * Storage allocated for clusters.
 
-   * You can only order local SSD storage (`local-ssd`) for clusters with two master hosts:
-      * For Intel Cascade Lake: In 100 GB increments.
-      * For Intel Ice Lake: In increments of {{ local-ssd-v3-step }}.
-   * You can only order storage on non-replicated SSDs (`network-ssd-nonreplicated`) in 93 GB increments for clusters with two master hosts.
+  * You can only order storage on local SSD disks (`local-ssd`) for clusters with two master hosts:
+    *For Intel Cascade Lake: In increments of 100 GB.
+    * For Intel Ice Lake: In increments of {{ local-ssd-v3-step }}.
+  * You can only order storage on non-replicated SSDs (`network-ssd-nonreplicated`) in 93 GB increments for clusters with two master hosts.
 
-   To pay less for storage, export [AO and AOCO tables](../tutorials/yezzey.md) from disks within the {{ mgp-name }} cluster to a cold storage in {{ objstorage-full-name }}. The data will be stored in a service bucket in a compressed and encrypted form, which is more cost-efficient. The cost of such storage is calculated based on the [{{ objstorage-name }} pricing policy](../../storage/pricing.md).
+  To pay less for storage, export [AO and AOCO tables](../tutorials/yezzey.md) from disks within the {{ mgp-name }} cluster to a cold storage in {{ objstorage-full-name }}. The data will be stored in a service bucket in a compressed and encrypted form, which is more cost-efficient. The cost of such storage is calculated based on the [{{ objstorage-name }} pricing policy](../../storage/pricing.md).
 
 * Space used by DB backups in excess of the storage amount specified for the cluster.
 
-   * Backups are stored free of charge as long as the combined size of the DB and all backups is smaller than the selected storage size.
+  * Backups are stored free of charge as long as the combined size of the DB and all backups is smaller than the selected storage size.
 
-   * When performing automatic backups, {{ mgp-name }} does not create a new copy but saves the data changed from the previous backup. It means the storage space used by automatic backups only increases in proportion to the volume of changes.
+  * When performing automatic backups, {{ mgp-name }} does not create a new copy but saves the data changed from the previous backup. It means the storage space used by automatic backups only increases in proportion to the volume of changes.
 
-   * The number of hosts in a cluster does not affect the storage volume and, consequently, the free volume of backups.
+  * The number of hosts in a cluster does not affect the storage volume and, consequently, the free volume of backups.
 
 The price covers one month of use based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
 
@@ -70,9 +72,9 @@ The price covers one month of use based on 720 hours per month. The minimum bill
 
 The cost of using a cluster with the following parameters for 30 days:
 
-* **Standard hosts**: 3 `s3-c8-m32` hosts: Intel Ice Lake, 8 × 100% vCPU, 32 GB RAM.
+* **Standard hosts**: Three hosts of the `s3-c8-m32` class: Intel Ice Lake, 8 × 100% vCPU, 32 GB RAM.
 * **Storage for standard hosts**: 100 GB of network HDD storage.
-* **Dedicated hosts**: 3 `s2.medium` hosts: Intel Cascade Lake, 8 × 100% vCPU, 32 GB RAM.
+* **Dedicated hosts**: Three hosts of the `s2.medium` class: Intel Cascade Lake, 8 × 100% vCPU, 32 GB RAM.
 * **Storage for dedicated hosts**: 50 GB of local SSD storage.
 
 
@@ -116,7 +118,7 @@ The price of local SSD storage (`local-ssd`) also depends on the host type.
 
 The cost calculation will be different depending on the [host configuration](../concepts/instance-types.md):
 
-* For hosts i2 and i3 (`io-optimized`), the cost is made up of the price for {{ mgp-name }} host computing resources (see the table below) and [the price for software-accelerated network use](../../compute/pricing.md#software-accelerated-network).
+* For hosts i2 and i3 (`io-optimized`), the cost is made up of the price for {{ mgp-name }} host computing resources (see the table below) and the [price for software-accelerated network use](../../compute/pricing.md#software-accelerated-network).
 * For hosts with other configurations, you only pay for their computing resources:
 
 **Costs per hour**
@@ -126,7 +128,7 @@ The cost calculation will be different depending on the [host configuration](../
 {% include [usd-hosts-standard-hour](../../_pricing/managed-greenplum/usd-hosts-standard-hour.md) %}
 
 
-**Costs per month**
+**Prices per month**
 
 
 

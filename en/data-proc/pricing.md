@@ -8,6 +8,10 @@ editable: false
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
 
+{% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
+
+{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
+
 ## What goes into the cost of using {{ dataproc-name }} {#rules}
 
 The total cost of using {{ dataproc-name }} includes:
@@ -22,9 +26,9 @@ The total cost of using {{ dataproc-name }} includes:
 
 ### Using computing resources {#rules-compute}
 
-The cost is charged per hour of host virtual machine time as part of {{ compute-name }} based on the [{{ compute-full-name }} computing resource pricing policy](../compute/pricing.md#prices) with a surcharge for using managed {{ dataproc-name }}.
+The cost is charged per hour of host virtual machine time as part of {{ compute-name }} based on the [{{ compute-full-name }}](../compute/pricing.md#prices) computing resource pricing policy with a surcharge for using managed {{ dataproc-name }}.
 
-For information about external IP address usage pricing, see [{#T}](../vpc/pricing.md) in the {{ vpc-full-name }} documentation.
+For information about external IP pricing, see [{#T}](../vpc/pricing.md) in the {{ vpc-full-name }} documentation.
 
 ### Disk space usage {#rules-storage}
 
@@ -40,11 +44,11 @@ Per-hour cost of using a cluster of two subclusters with the following parameter
 
 * First subcluster:
   * **Master host**: `m2.micro` class, Intel Cascade Lake, 2 × 100% vCPU, 16 GB RAM.
-  * **Master host storage**: 20 GB of `network-ssd`.
+  * **Master host storage**: 20 GB `network-ssd`.
 
 * Second subcluster:
   * **Data storage host**: `s2.micro` class, Intel Cascade Lake, 2 × 100% vCPU, 8 GB RAM.
-  * **Host storage**: 100 GB of `network-hdd`.
+  * **Host storage**: 100 GB `network-hdd`.
 
 The cost is calculated as follows:
 
@@ -58,11 +62,11 @@ The cost is calculated as follows:
 
   * First subcluster:
     * **Master host**: `m2.micro` class, Intel Cascade Lake, 2 × 100% vCPU, 16 GB RAM.
-    * **Master host storage**: 20 GB of `network-ssd`.
+    * **Master host storage**: 20 GB `network-ssd`.
 
   * Second subcluster:
     * **Data storage host**: `s2.micro` class, Intel Cascade Lake, 2 × 100% vCPU, 8 GB RAM.
-    * **Host storage**: 100 GB of `network-hdd`.
+    * **Host storage**: 100 GB `network-hdd`.
 
   The cost is calculated as follows:
 
@@ -70,6 +74,10 @@ The cost is calculated as follows:
 
 {% endlist %}
 
+
+## {{ metastore-full-name }} cluster pricing
+
+This feature is at the [Preview](../overview/concepts/launch-stages.md) stage and is free of charge.
 
 ## Prices for the Russia region {#prices}
 
@@ -93,7 +101,7 @@ All prices below do not include VAT.
 
 #### Dedicated hosts {#dedicated-hosts}
 
-The cost is made up of two components: [the cost of {{ compute-full-name }} computing resources](../compute/pricing.md#prices-dedicated-host) and {{ dataproc-name }} charges for these resources.
+The cost is made up of two components: [the cost of {{ compute-full-name }}](../compute/pricing.md#prices-dedicated-host) computing resources and {{ dataproc-name }} charges for these resources.
 
 
 

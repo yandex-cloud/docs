@@ -18,7 +18,7 @@ items:
             href: operations/cluster-list.md
           - name: Creating a cluster
             href: operations/cluster-create.md
-          - name: Changing cluster settings
+          - name: Updating cluster settings
             href: operations/update.md
           - name: Editing {{ CH }} settings
             items:
@@ -26,7 +26,7 @@ items:
                 href: operations/change-server-level-settings.md
               - name: Query level
                 href: operations/change-query-level-settings.md
-          - name: Updating the {{ CH }} version
+          - name: Upgrading the {{ CH }} version
             href: operations/cluster-version-update.md
           - name: Stopping and starting a cluster
             href: operations/cluster-stop.md
@@ -70,7 +70,7 @@ items:
             href: operations/format-schemas.md
           - name: Managing machine learning models
             href: operations/ml-models.md
-          - name: Configuring access to {{ objstorage-name }}
+          - name: Setting up access to {{ objstorage-name }}
             href: operations/s3-access.md
       - name: Sharding
         items:
@@ -100,15 +100,15 @@ items:
         href: tutorials/mch-mch-resharding.md
       - name: Using hybrid storage
         href: tutorials/hybrid-storage.md
-      - name: Fetching data from {{ mkf-name }}
+      - name: Getting data from {{ mkf-name }}
         href: tutorials/fetch-data-from-mkf.md
       - name: Fetching data from RabbitMQ
         href: tutorials/fetch-data-from-rabbitmq.md
       - name: Exchanging data with {{ dataproc-full-name }}
         href: tutorials/exchange-data-with-dp.md
       - name: >-
-          "Configuring {{ dns-full-name }} for accessing clusters from other
-          cloud networks"
+          "Configuring {{ dns-full-name }} for cluster access from other cloud
+          networks"
         href: tutorials/dns-peering.md
       - name: Analyzing {{ objstorage-full-name }} logs in {{ datalens-full-name }}
         href: tutorials/storage-logs-analysis.md
@@ -138,6 +138,10 @@ items:
           Loading data from {{ ydb-full-name }} to {{ mch-name }} using {{
           data-transfer-full-name }}
         href: tutorials/ydb-to-clickhouse.md
+      - name: >-
+          Copying data from {{ mos-name }} to {{ mch-name }} using {{
+          data-transfer-full-name }}
+        href: tutorials/opensearch-to-clickhouse.md
   - name: Concepts
     items:
       - name: Resource relationships
@@ -154,7 +158,7 @@ items:
                 href: concepts/instance-types-archive/instance-types-20062023.md
           - name: Using deprecated host classes
             href: concepts/using-deprecated-instances.md
-      - name: Network in {{ mch-name }}
+      - name: Networking in {{ mch-name }}
         href: concepts/network.md
       - name: Quotas and limits
         href: concepts/limits.md

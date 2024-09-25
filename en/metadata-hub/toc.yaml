@@ -59,8 +59,12 @@ items:
             href: concepts/connection-manager.md
           - name: Secret
             href: concepts/secret.md
-      - name: '{{ metastore-name }} clusters'
-        href: concepts/metastore.md
+      - name: '{{ metastore-full-name }}'
+        items:
+          - name: '{{ metastore-name }} clusters'
+            href: concepts/metastore.md
+          - name: Impersonation in {{ metastore-name }}
+            href: concepts/metastore-impersonation.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Access management

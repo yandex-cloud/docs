@@ -2,7 +2,7 @@ title: Yandex Data Proc
 href: index.yaml
 label:
   title: RU
-  description: The service is only available in the Russia region.
+  description: This service is only available in the Russia region.
   theme: unknown
   when: region == "kz"
 items:
@@ -82,6 +82,16 @@ items:
     items:
       - name: All tutorials
         href: tutorials/index.md
+      - name: Network settings and cluster maintenance
+        items:
+          - name: Configuring networks for {{ dataproc-name }}
+            href: tutorials/configure-network.md
+          - name: Migrating an HDFS cluster to a different availability zone
+            href: tutorials/hdfs-cluster-migration.md
+          - name: >-
+              Reconfiguring a network connection when recreating a {{
+              dataproc-name }} cluster
+            href: tutorials/reconnect-network.md
       - name: Working with jobs
         items:
           - name: Overview
@@ -100,42 +110,40 @@ items:
             href: tutorials/run-spark-job.md
           - name: Running jobs from a remote host
             href: tutorials/remote-run-job.md
-      - name: Configuring networks for {{ dataproc-name }}
-        href: tutorials/configure-network.md
-      - name: Migrating an HDFS cluster to a different availability zone
-        href: tutorials/hdfs-cluster-migration.md
-      - name: >-
-          Reconfiguring a network connection when recreating a {{ dataproc-name
-          }} cluster
-        href: tutorials/reconnect-network.md
-      - name: Using {{ objstorage-full-name }} in {{ dataproc-name }}
-        href: tutorials/copy-files-from-object-storage.md
-      - name: Exchanging data with {{ mch-full-name }}
-        href: tutorials/exchange-data-with-mch.md
-      - name: Importing data from {{ mmy-full-name }} clusters using Sqoop
-        href: tutorials/sqoop-mmy.md
-      - name: Importing data from {{ mpg-full-name }} clusters using Sqoop
-        href: tutorials/sqoop-mpg.md
-      - name: >-
-          Using initialization scripts to configure GeeseFS in {{ dataproc-name
-          }}
-        href: tutorials/geesefs-init-actions.md
-      - name: Integration with {{ ml-platform-full-name }}
-        href: tutorials/datasphere-integration.md
-      - name: Working with {{ KF }} topics using PySpark jobs
-        href: tutorials/kafka.md
-      - name: >-
-          Importing data from {{ objstorage-full-name }}, processing and
-          exporting it to {{ mch-full-name }}
-        href: tutorials/s3-dataproc-ch.md
-      - name: Automating operations using {{ maf-name }}
-        href: tutorials/airflow-automation.md
-      - name: Shared use of tables through {{ metastore-name }}
-        href: tutorials/dataproc-to-dataproc.md
-      - name: >-
-          Transferring metadata between {{ dataproc-name }} clusters using {{
-          metastore-name }}
-        href: tutorials/metastore-import.md
+      - name: Integrating {{ dataproc-name }} with other services
+        items:
+          - name: '{{ objstorage-name }}'
+            items:
+              - name: Using {{ objstorage-name }} in {{ dataproc-name }}
+                href: tutorials/copy-files-from-object-storage.md
+              - name: >-
+                  Importing data from {{ objstorage-name }}, processing and
+                  exporting it to {{ mch-name }}
+                href: tutorials/s3-dataproc-ch.md
+              - name: >-
+                  Mounting buckets to the file system of {{ dataproc-name }}
+                  hosts
+                href: tutorials/geesefs-init-actions.md
+          - name: Exchanging data with {{ mch-name }}
+            href: tutorials/exchange-data-with-mch.md
+          - name: Importing data from {{ mmy-name }} clusters using Sqoop
+            href: tutorials/sqoop-mmy.md
+          - name: Importing data from {{ mpg-name }} clusters using Sqoop
+            href: tutorials/sqoop-mpg.md
+          - name: Integration with {{ ml-platform-name }}
+            href: tutorials/datasphere-integration.md
+          - name: Working with {{ KF }} topics using PySpark jobs
+            href: tutorials/kafka.md
+          - name: Automating operations using {{ maf-name }}
+            href: tutorials/airflow-automation.md
+      - name: Working with {{ metastore-name }}
+        items:
+          - name: Shared use of tables through {{ metastore-name }}
+            href: tutorials/dataproc-to-dataproc.md
+          - name: >-
+              Transferring metadata between {{ dataproc-name }} clusters using
+              {{ metastore-name }}
+            href: tutorials/metastore-import.md
   - name: Concepts
     items:
       - name: Resource relationships

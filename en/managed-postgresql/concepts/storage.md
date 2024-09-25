@@ -2,20 +2,20 @@
 
 
 
-{{ mpg-name }} allows you to use network and local storage drives for database clusters. Network storage drives are based on network blocks, which are virtual disks in the {{ yandex-cloud }} infrastructure. Local disks are physically located in the database host servers.
+{{ mpg-name }} allows you to use network and local storage drives for database clusters. Network drives are based on network blocks, which are virtual disks in the {{ yandex-cloud }} infrastructure.Local disks are physically located on the database host servers.
 
 {% include [storage-type-nrd](../../_includes/mdb/mpg/storage-type.md) %}
 
 
-## Selecting disk type during cluster creation {#storage-type-selection}
+## Selecting the disk type during cluster creation {#storage-type-selection}
 
 The number of hosts you can create together with a {{ PG }} cluster depends on the selected disk type:
 
-* With local SSD (`local-ssd`) or non-replicated SSD (`network-ssd-nonreplicated`) storage, you can create a cluster with three or more hosts.
+* With local SSDs (`local-ssd`) or non-replicated SSDs (`network-ssd-nonreplicated`), you can create a cluster with three or more hosts.
 
-   This cluster will be fault-tolerant.
+    This cluster will be fault-tolerant.
 
-   Local SSD storage impacts the cost of a cluster: you are charged for it even if it is not running. For more information, see [Pricing policy](../pricing.md).
+    Local SSD storage has an effect on how much a cluster will cost: you pay for it even if it is stopped. For more information, see [Pricing policy](../pricing.md).
 
 * With network HDD (`network-hdd`) or network SSD (`network-ssd`) storage, you can add any number of hosts within the current quota.
 
@@ -23,9 +23,9 @@ For more information about limits on the number of hosts per cluster, see [Quota
 
 
 
-## Managing disk space {#manage-storage-space}
+## Disk space management {#manage-storage-space}
 
-When the storage is more than 97% full, the host automatically switches to read-only mode, while all DBs get `DEFAULT_TRANSACTION_READ_ONLY` set to `TRUE` through the `ALTER DATABASE` query.
+When the storage is more than 97% full, the host automatically switches to read-only mode. All DBs get the `DEFAULT_TRANSACTION_READ_ONLY = TRUE` setting through the `ALTER DATABASE` query.
 
 In this mode, the `INSERT`, `DELETE`, or `UPDATE` queries result in an error.
 
@@ -37,34 +37,27 @@ You can monitor storage utilization on cluster hosts [by setting up alerts in {{
 
 Use one of these methods:
 
-* [Increase the storage capacity](../operations/storage-space.md#change-disk-size) so that it exceeds the threshold value. {{ mpg-short-name }} will then disable read-only mode automatically.
+* [Increase the storage capacity](../operations/storage-space.md#change-disk-size) so that it exceeds the threshold value. {{ mpg-short-name }} Will then disable read-only mode automatically.
 
 * [Disable read-only mode manually](../operations/storage-space.md#read-only-solutions) and free up storage space by deleting some data.
 
-   {% note alert %}
+    {% note alert %}
 
-   When doing so, make sure the amount of free disk space never reaches zero. Otherwise, since the fail-safe is disabled, {{ PG }} will crash and the cluster will stop working.
+    When doing so, make sure the amount of free disk space never reaches zero. Otherwise, since the fail-safe mechanism is disabled, {{ PG }} will crash and the cluster will stop operating.
 
-   {% endnote %}
+    {% endnote %}
 
 ### Automatic increase of storage size {#auto-rescale}
 
-The storage size auto increase feature allows to avoid its overflowing and hosts entering read-only mode.
+Automatic storage size increase prevents situations where the disk runs out of free space and hosts switch to read-only mode. The storage size increases upon reaching the specified trigger threshold: a percentage of the total capacity. There are two thresholds:
 
-Storage size is increased upon reaching a preset threshold that is specified as a percentage of the total storage size. There are two thresholds:
+* Scheduled increase threshold. When reached, the storage size increases during the next [maintenance window](maintenance.md#maintenance-window).
+* Immediate increase threshold. When reached, the storage size increases immediately.
 
-* First threshold upon which the storage will be increased during the next [maintenance window](maintenance.md#maintenance-window).
-* Second threshold upon which the process of increasing the storage size will start right away.
-
-If both thresholds are set, make sure the second one is higher than the first one.
-
-During the storage size increase process, host clusters will be unavailable.
+You can use either one or both of these thresholds. If both thresholds are set, make sure the immediate increase threshold is higher than the scheduled one.
 
 {% include [storage-resize-steps](../../_includes/mdb/mpg/storage-resize-steps.md) %}
 
-You can set up automatic increase of storage size:
+You can configure automatic increase of the storage size when [creating](../operations/cluster-create.md) or [updating a cluster](../operations/storage-space.md#disk-size-autoscale). If the scheduled increase threshold is set, configure the maintenance window schedule.
 
-* [When creating a cluster](../operations/cluster-create.md).
-* [When updating a cluster](../operations/storage-space.md#disk-size-autoscale).
-
-{% include [storage-resize-maintenance](../../_includes/mdb/mpg/storage-resize-maintenance.md) %}
+{% include [warn-storage-resize](../../_includes/mdb/mpg/warn-storage-resize.md) %}

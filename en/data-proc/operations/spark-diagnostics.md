@@ -18,8 +18,8 @@ If the performance of a Spark application is low, run primary diagnostics:
 * [View the application details](./spark-monitoring.md#info) and check the status of jobs and the time when they actually started and completed on the **Event Timeline** chart.
 * [Check the resources allocated to the application](./spark-monitoring.md#resources):
 
-   * Make sure the application has enough executors and the available executors are not idle.
-   * Make sure the use of resources within a single executor is balanced.
+    * Make sure the application has enough executors and the available executors are not idle.
+    * Make sure the use of resources within a single executor is balanced.
 
 * [Check the SQL query execution plans](./spark-monitoring.md#sql) and the duration of individual tasks.
 * [Check the application logs](./spark-monitoring.md#logs) for warnings about failures.
@@ -38,7 +38,7 @@ When allocating executors, the YARN scheduler using the default settings does no
 
 To avoid this, enable an alternative algorithm for tracking resource availability during executor allocation by setting the following cluster-level [property](../concepts/settings-list.md):
 
-```
+```text
 capacity-scheduler:yarn.scheduler.capacity.resource-calculator=org.apache.hadoop.yarn.util.resource.DominantResourceCalculator
 ```
 
@@ -46,7 +46,7 @@ For more information about the YARN scheduler, see the [Hadoop documentation](ht
 
 ### Regular heartbeat errors when running jobs {#heartbeat-errors}
 
-When running Spark jobs, executors regularly send specific _heartbeat_ messages to the driver with their status and task progress. If the driver does not get any heartbeat messages from an executor during a certain interval, it considers this executor unhealthy and requests the YARN resource manager to forcibly terminate it. In this case, the driver logs will contain a message of the following type:
+When running Spark jobs, executors send regular _heartbeat_ messages to the driver informing it of executor status and task progress. If the driver does not get any heartbeat messages from an executor during a certain interval, it considers this executor unhealthy and requests the YARN resource manager to forcibly terminate it. In this case, the driver logs will contain a message of the following type:
 
 ```text
 23/02/23 20:22:09 WARN TaskSetManager: Lost task 28.0 in stage 13.0 (TID 242)

@@ -4,9 +4,11 @@ editable: false
 
 # {{ mch-short-name }} pricing policy
 
-In this section, you can find {{ mch-name }} pricing [rules](#rules) and [effective prices](#prices) for the service resources.
+In this section, you can find the {{ mch-name }} pricing [policy](#rules) and [effective prices](#prices) for its resources.
 
 {% include [use-calculator](../_includes/pricing/use-calculator.md) %}
+
+{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
@@ -32,9 +34,9 @@ The incoming traffic and the number of requests to the hybrid storage are free-o
 
 ### DB host usage {#rules-hosts-uptime}
 
-Host operation cost is charged per hour based on what computing resources you allocate for it. You can find supported resource configurations in the [Host classes](concepts/instance-types.md) section, and vCPU and RAM prices, in the [{#T}](#prices) section.
+Host operation cost is charged per hour based on what computing resources you allocate for it. You can find the supported resource configurations in the [Host classes](concepts/instance-types.md) section. For vCPU and RAM prices, see [{#T}](#prices).
 
-You can choose host class both for {{ CH }} and {{ ZK }} hosts (according to the expected replication load).
+You can choose a host class both for {{ CH }} and {{ ZK }} hosts (according to the expected replication load).
 
 {% note warning %}
 
@@ -51,21 +53,21 @@ You pay for the following:
 * Storage allocated for DB clusters.
 
    * You can only order local SSD storage (`local-ssd`) for clusters with three or more hosts:
-        * For **Intel Broadwell** and **Intel Cascade Lake**: In 100 GB increments.
+        * For **Intel Broadwell** and **Intel Cascade Lake**: In increments of 100 GB.
         * For **Intel Ice Lake**: In increments of {{ local-ssd-v3-step }}.
    * Non-replicated SSD (`network-ssd-nonreplicated`) storage can only be ordered for clusters with three or more hosts, in increments of 93 GB.
 
 * Size of [local](concepts/storage.md#local-storage-features) and [network](concepts/storage.md) storage data backups:
 
-   * Backups are stored free of charge as long as the combined size of the DB and all its backups is smaller than the selected storage size.
+    * Backups are stored free of charge as long as the combined size of the DB and all its backups is smaller than the selected storage size.
 
-   * If the combined size of the database and all backups exceeds the cluster storage size, you only pay for the portion in excess of the storage size.
+    * If the combined size of the database and all backups exceeds the cluster storage size, you only pay for the portion in excess of the storage size.
 
    * When performing automatic backups, {{ mch-short-name }} does not create a new copy but saves the data changed from the previous backup. It means the storage space used by automatic backups only increases in proportion to the volume of changes.
 
    * The number of hosts in a cluster does not affect the storage size and, consequently, the free volume of backups.
 
-   For example, if there are N free GB of space in the cluster, the first N GB of backups are stored free of charge.
+    For example, if there are N free GB of space in the cluster, the first N GB of backups are stored free of charge.
 
 * Size of [hybrid storage](concepts/storage.md#hybrid-storage-features) cold data backups:
 
@@ -81,8 +83,8 @@ The price covers one month of use based on 720 hours per month. The minimum bill
 
 The cost of using a cluster with the following parameters for 30 days:
 
-* **{{ CH }} hosts**: 3 `s3-c2-m8` hosts: Intel Ice Lake, 2 × 100% vCPU, 8 GB RAM.
-* **{{ ZK }} hosts** (created automatically): 3 `b3-c1-m4` hosts: Intel Ice Lake, 2 × 50% vCPU, 4 GB RAM.
+* **{{ CH }}** Hosts: Three hosts of the `s3-c2-m8` class: Intel Ice Lake, 2 × 100% vCPU, 8 GB RAM.
+* **{{ ZK }}** Hosts (created automatically): Three hosts of the `b3-c1-m4` class: Intel Ice Lake, 2 × 50% vCPU, 4 GB RAM.
 * **Storage**: 100 GB of network HDD storage.
 
 Cost calculation for {{ CH }} hosts:
@@ -114,11 +116,11 @@ Calculation for the storage cost and total cost:
 
 {% include [cvos](../_includes/mdb/cvos.md) %}
 
-{{ mch-name }} provides two kinds of CVoS: on vCPUs and RAM on the hosts you plan to use in DB clusters. In the management console, you can see how much you can potentially save with CVoS at the current consumption level. You can also forecast your monthly payments for the required number of vCPUs and RAM.
+{{ mch-name }} provides two types of CVoS: on vCPUs and on RAM for the hosts you are planning to use in your DB clusters. In the management console, you can see how much you can potentially save with CVoS at the current consumption level. You can also forecast your monthly payments for the required number of vCPUs and RAM.
 
 {% note info %}
 
-CVoS discount is only available for certain types of resources. For non-supported resources, CVoS columns feature dashes under [{#T}](#prices). Currently, you cannot order storage or web traffic this way.
+CVoS discount is only available for certain types of resources. A dash in the relevant [{#T}](#prices) section means that the resource is not supported. Currently, you cannot order storage or web traffic this way.
 
 {% endnote %}
 
@@ -137,7 +139,7 @@ All prices below do not include VAT.
 
 {% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
 
-### {{ CH }} host computing resources {#prices-clickhouse}
+### Computing resources of {{ CH }} hosts {#prices-clickhouse}
 
 
 {% include [Доступ к Compute Optimized по запросу](../_includes/mdb/note-compute-optimized-request.md) %}
@@ -148,7 +150,7 @@ All prices below do not include VAT.
 {% include [usd-host-ch.md](../_pricing/managed-clickhouse/usd-host-ch.md) %}
 
 
-### {{ ZK }} host computing resources {#prices-zookeeper}
+### Computing resources of {{ ZK }} hosts {#prices-zookeeper}
 
 
 {% include [Доступ к Compute Optimized по запросу](../_includes/mdb/note-compute-optimized-request.md) %}

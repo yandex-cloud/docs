@@ -2,7 +2,7 @@ title: Yandex Managed Service for Greenplum®
 href: index.yaml
 label:
   title: RU
-  description: The service is only available in the Russia region.
+  description: This service is only available in the Russia region.
   theme: unknown
   when: region == "kz"
 items:
@@ -20,7 +20,7 @@ items:
             href: operations/calculate-specs.md
           - name: Creating a cluster
             href: operations/cluster-create.md
-          - name: Changing cluster settings
+          - name: Updating cluster settings
             href: operations/update.md
           - name: Stopping and starting a cluster
             href: operations/cluster-stop.md
@@ -101,14 +101,14 @@ items:
       - name: Migrating databases to {{ mgp-name }}
         href: tutorials/data-migration.md
       - name: >-
-          Creating an external table from a table in a {{ objstorage-full-name
-          }} bucket using a configuration file
+          Creating an external table from a {{ objstorage-full-name }} bucket
+          table using a configuration file
         href: tutorials/config-server-for-s3.md
-      - name: Migrating a database from {{ GP }} to {{ PG }}
+      - name: Migrating databases from {{ GP }} to {{ PG }}
         href: tutorials/greenplum-to-postgresql.md
-      - name: Migrating a database from {{ GP }} to {{ CH }}
+      - name: Migrating databases from {{ GP }} to {{ CH }}
         href: tutorials/greenplum-to-clickhouse.md
-      - name: Migrating a database from {{ MY }} to {{ GP }}
+      - name: Migrating databases from {{ MY }} to {{ GP }}
         href: tutorials/mmy-to-mgp.md
       - name: >-
           Exporting {{ GP }} data to a cold storage in {{ objstorage-full-name
@@ -118,6 +118,10 @@ items:
           Loading data from {{ objstorage-full-name }} to {{ mgp-name }} using
           {{ data-transfer-full-name }}
         href: tutorials/object-storage-to-greenplum.md
+      - name: Delivering data using {{ data-transfer-name }}
+        items:
+          - name: Delivering data from {{ KF }} to {{ GP }}
+            href: tutorials/managed-kafka-to-greenplum.md
   - name: Concepts
     items:
       - name: Resource relationships

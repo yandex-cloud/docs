@@ -1,6 +1,9 @@
-# {{ mmy-full-name }} release notes
+---
+title: "{{ mmy-full-name }} release notes"
+description: "This section contains {{ mmy-name }} release notes."
+---
 
-This section contains {{ mmy-name }} release notes.
+# {{ mmy-full-name }} release notes
 
 {% include [Tags](../_includes/mdb/release-notes-tags.md) %}
 
@@ -24,11 +27,11 @@ This section contains {{ mmy-name }} release notes.
 * You can now [move a cluster](operations/update.md#move-cluster) to a different folder using {{ TF }}.
 * Added new DBMS settings:
 
-   * `Backup retain period days`
-   * [Lock wait timeout](./concepts/settings-list.md#setting-lock-wait-timeout)
-   * [Max prepared stmt count](./concepts/settings-list.md#setting-max-prepared-stmt-count)
-   * [Optimizer search depth](./concepts/settings-list.md#setting-optimizer-search-depth)
-   * [Optimizer switch](./concepts/settings-list.md#setting-optimizer-switch)
+  * `Backup retain period days`
+  * [Lock wait timeout](./concepts/settings-list.md#setting-lock-wait-timeout)
+  * [Max prepared stmt count](./concepts/settings-list.md#setting-max-prepared-stmt-count)
+  * [Optimizer search depth](./concepts/settings-list.md#setting-optimizer-search-depth)
+  * [Optimizer switch](./concepts/settings-list.md#setting-optimizer-switch)
 
 ## Q3 2022 {#q3-2022}
 
@@ -37,7 +40,7 @@ This section contains {{ mmy-name }} release notes.
 
 ## Q2 2022 {#q2-2022}
 
-* In the {{ TF }} configuration files, we removed the `database` and the `user` sections; instead, we added the `yandex_mdb_mysql_database` and the `yandex_mdb_mysql_user` resources. {{ tag-tf }}
+* Removed the `database` and `user` sections in the {{ TF }} configuration files and added the `yandex_mdb_mysql_database` and `yandex_mdb_mysql_user` resources instead. {{ tag-tf }}
 * Added the [Innodb compression level](concepts/settings-list.md#setting-innodb-compression-level) setting.
 * Accelerated the process of restoring replicas from a backup by using WAL-G with subsequent synchronization of data from the master host.
 * Fixed the display of long queries on the **{{ ui-key.yacloud.mysql.cluster.switch_diagnostics }}** tab. {{ tag-con }}

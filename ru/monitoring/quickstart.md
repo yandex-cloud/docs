@@ -11,19 +11,7 @@
 {% endnote %}
 
 
-{% list tabs %}
-
-- VK
-
-  <iframe src="https://vk.com/video_ext.php?oid=-200452713&id=456239454&hash=525f019554ae17fd" width="640" height="360" frameborder="0" allowfullscreen="1" allow="autoplay; encrypted-media; fullscreen; picture-in-picture"></iframe>
-
-- Youtube
-
-  @[youtube](https://youtu.be/TvLdfcPCOHw)
-
-{% endlist %}
-
-
+@[youtube](https://youtu.be/TvLdfcPCOHw)
 
 
 ## Создайте новый дашборд {#create-dashboard}
