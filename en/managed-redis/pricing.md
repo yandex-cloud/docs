@@ -4,9 +4,11 @@ editable: false
 
 # {{ mrd-name }} pricing policy
 
-In this section, you can find {{ mrd-name }} pricing [rules](#rules) and [effective prices](#prices) for the service resources.
+In this section, you can find the {{ mrd-name }} pricing [policy](#rules) and [effective prices](#prices) for its resources.
 
 {% include [use-calculator](../_includes/pricing/use-calculator.md) %}
+
+{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
@@ -22,7 +24,7 @@ The {{ mrd-name }} usage cost is based on:
 
 ### DB host usage {#rules-hosts-uptime}
 
-Host operation cost is charged per hour based on what computing resources you allocate for it. You can find supported resource configurations in the [Host classes](concepts/instance-types.md) section, and vCPU and RAM prices, in the [Prices](#prices) section.
+Host operation cost is charged per hour based on what computing resources you allocate for it. You can find the supported resource configurations in the [Host classes](concepts/instance-types.md) section. For the vCPU and RAM prices, see [Prices](#prices).
 
 The minimum billing unit is one minute (for example, 1.5 minutes of host operation cost the same as 2 minutes). You do not pay for the time when the {{ RD }} host is unable to perform its main functions.
 
@@ -32,18 +34,18 @@ You pay for the following:
 
 * Storage allocated for DB clusters.
 
-   * Non-replicated SSD (`network-ssd-nonreplicated`) storage can only be ordered for clusters with three or more hosts running Intel Cascade Lake and Intel Ice Lake, in increments of 93 GB.
+    * Non-replicated SSD (network-ssd-nonreplicated) storage can only be ordered for clusters with three or more hosts running Intel Cascade Lake and Intel Ice Lake, in increments of 93 GB.
 
-   * You can only order local SSD (`local-ssd`) storage for clusters with three or more hosts:
-            * For **Intel Broadwell** and **Intel Cascade Lake**: In increments of 100 GB.
-      * For **Intel Ice Lake**: In increments of {{ local-ssd-v3-step }}.
+    * You can only order local SSD storage (`local-ssd`) for clusters with three or more hosts:
+                * For **Intel Broadwell** and **Intel Cascade Lake**: In increments of 100 GB.
+        * For **Intel Ice Lake**: In increments of {{ local-ssd-v3-step }}.
 
-   For more information about platform-specific storage limitations, see [Disk types](./concepts/storage.md).
+    For more information about platform-specific storage limitations, see [Disk types](./concepts/storage.md).
 
 * Size of DB backups in excess of the storage requested for the cluster.
 
-   * Backups are stored free of charge as long as the combined size of the DB and all backups is smaller than the selected storage size.
-   * The requested storage size is allocated for each host, so the number of hosts in the cluster does not affect the free backup size.
+    * Backups are stored free of charge as long as the combined size of the DB and all backups is smaller than the selected storage size.
+    * The requested storage size is allocated for each host, so the number of hosts in the cluster does not affect the free backup size.
 
 The price covers one month of use based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
 
@@ -52,7 +54,7 @@ The price covers one month of use based on 720 hours per month. The minimum bill
 
 {% include [cvos](../_includes/mdb/cvos.md) %}
 
-{{ mrd-name }} provides two types of CVoS: on vCPUs and on RAM for the hosts you are planning to use in your DB clusters. In the management console, you can see how much you can potentially save with CVoS at the current consumption level. You can also forecast your monthly payments for the required number of vCPUs and RAM.
+{{ mrd-name }} Provides two types of CVoS: on vCPUs and on RAM for the hosts you are planning to use in your DB clusters. In the management console, you can see how much you can potentially save with CVoS at the current consumption level. You can also forecast your monthly payments for the required number of vCPUs and RAM.
 
 {% note info %}
 
@@ -89,7 +91,7 @@ All prices below do not include VAT.
 
 {% note info %}
 
-Access to ultra high-speed network storage with three replicas (SSD) is available upon request. Contact [technical support]({{ link-console-support }}) or your account manager.
+Access to ultra high-speed network storage with three replicas (SSD) is available upon request. Contact [support]({{ link-console-support }}) or your account manager.
 
 {% endnote %}
 

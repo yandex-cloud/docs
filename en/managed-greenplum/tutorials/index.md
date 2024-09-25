@@ -13,4 +13,8 @@ description: "Various {{ mgp-full-name }} use cases in {{ yandex-cloud }}."
 * [Exporting cluster data to a cold storage in {{ objstorage-full-name }}](yezzey.md)
 * [{#T}](object-storage-to-greenplum.md)
 
+## Delivering data using {{ data-transfer-name }} {#data-transfer}
+
+* [From {{ KF }} to {{ GP }}](managed-kafka-to-greenplum.md)
+
 To migrate cluster hosts to a different availability zone, [restore a cluster from a backup](../operations/cluster-backups.md#restore). When restoring the cluster, specify the appropriate availability zone.

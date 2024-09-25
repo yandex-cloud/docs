@@ -1,18 +1,7 @@
 # Создание алерта
 
 
-{% list tabs %}
-
-- VK
-
-  <iframe src="https://vk.com/video_ext.php?oid=-200452713&id=456239452&hash=8190c5e7fa700a45" width="640" height="360" frameborder="0" allowfullscreen="1" allow="autoplay; encrypted-media; fullscreen; picture-in-picture"></iframe>
-
-- Youtube
-
-  @[youtube](https://youtu.be/UJ0MxX4BqeM)
-
-{% endlist %}
-
+@[youtube](https://youtu.be/UJ0MxX4BqeM)
 
 
 1. На главной странице сервиса {{ monitoring-short-name }} нажмите **{{ ui-key.yacloud_monitoring.homepage.button_alerts-action }}**.

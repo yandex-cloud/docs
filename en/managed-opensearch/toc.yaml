@@ -26,9 +26,9 @@ items:
                 href: operations/saml-authentication.md
           - name: Updating parameters
             items:
-              - name: Changing cluster settings
+              - name: Updating cluster settings
                 href: operations/update.md
-              - name: Updating the {{ OS }} version
+              - name: Upgrading the {{ OS }} version
                 href: operations/cluster-version-update.md
               - name: Managing plugins
                 href: operations/plugins.md
@@ -56,7 +56,7 @@ items:
             href: operations/monitoring.md
   - name: Tutorials
     items:
-      - name: Configuring index policy in {{ mos-name }}
+      - name: Configuring an index policy in {{ mos-name }}
         href: tutorials/opensearch-index-policy.md
       - name: Migrating data from {{ ES }}
         href: tutorials/migration-to-opensearch.md
@@ -82,6 +82,10 @@ items:
           Copying data from {{ mos-name }} to {{ mch-name }} using {{
           data-transfer-full-name }}
         href: tutorials/opensearch-to-clickhouse.md
+      - name: >-
+          Migrating data from {{ mpg-name }} to {{ mos-name }} using {{
+          data-transfer-full-name }}
+        href: tutorials/postgresql-to-opensearch.md
   - name: Concepts
     items:
       - name: Resource relationships
@@ -92,11 +96,11 @@ items:
         href: concepts/indexing.md
       - name: Index policies
         href: concepts/index-policy.md
-      - name: Search using {{ OS }}
+      - name: Searching with {{ OS }}
         href: concepts/searching.md
       - name: Host classes
         href: concepts/instance-types.md
-      - name: Network in {{ mos-name }}
+      - name: Networking in {{ mos-name }}
         href: concepts/network.md
       - name: Quotas and limits
         href: concepts/limits.md

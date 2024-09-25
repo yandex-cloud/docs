@@ -1,12 +1,16 @@
-Download the [text.txt](https://{{ s3-storage-host }}/examples/text.txt) file and [upload it to the input data bucket](../../../storage/operations/objects/upload) for processing:
+Upload a file for processing:
 
-{% cut "text.txt" %}
+1. Copy and save the following to a file named `text.txt`:
 
-```text
-she sells sea shells on the sea shore
-the shells that she sells are sea shells I am sure
-so if she sells sea shells on the sea shore
-I am sure that the shells are sea shore shells
-```
+    {% cut "text.txt" %}
 
-{% endcut %}
+    ```text
+    she sells sea shells on the sea shore
+    the shells that she sells are sea shells I am sure
+    so if she sells sea shells on the sea shore
+    I am sure that the shells are sea shore shells
+    ```
+
+    {% endcut %}
+
+1. [Upload](../../../storage/operations/objects/upload) the `text.txt` file to the source data bucket.

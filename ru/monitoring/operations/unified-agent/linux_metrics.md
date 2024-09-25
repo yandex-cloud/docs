@@ -9,18 +9,7 @@
 {% endnote %}
 
 
-{% list tabs %}
-
-- VK
-
-  <iframe src="https://vk.com/video_ext.php?oid=-200452713&id=456239451&hash=71e48c070a2f8fc3" width="640" height="360" frameborder="0" allowfullscreen="1" allow="autoplay; encrypted-media; fullscreen; picture-in-picture"></iframe>
-
-- Youtube
-
-  @[youtube](https://youtu.be/9Z9ugkMnRcI)
-
-{% endlist %}
-
+@[youtube](https://youtu.be/9Z9ugkMnRcI)
 
 
 Чтобы настроить {{ unified-agent-full-name }} для сбора системных метрик с виртуальной машины {{ yandex-cloud }}, выполните следующие шаги:

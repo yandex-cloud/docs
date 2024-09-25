@@ -1,2 +1,5 @@
+{% note info %}
 
-The database name may contain Latin letters, numbers, and underscores. The maximum name length is 63 characters. You can't create a database named `default`.
+The DB name may contain Latin letters, numbers, and underscores. The name may be up to 63 characters long. You cannot create a database named `default`.
+
+{% endnote %}

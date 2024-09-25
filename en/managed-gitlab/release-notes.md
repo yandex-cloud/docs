@@ -1,6 +1,9 @@
-# {{ mgl-full-name }} release notes
+---
+title: "{{ mgl-full-name }} release notes"
+description: "This section contains {{ mgl-name }} release notes."
+---
 
-This section contains {{ mgl-name }} release notes.
+# {{ mgl-full-name }} release notes
 
 ## July 2024 {#jul-2024}
 
