@@ -18,7 +18,7 @@ items:
             href: operations/cluster-list.md
           - name: Creating a cluster
             href: operations/cluster-create.md
-          - name: Changing cluster settings
+          - name: Updating cluster settings
             href: operations/update.md
           - name: Stopping and starting a cluster
             href: operations/cluster-stop.md
@@ -82,9 +82,7 @@ items:
         href: tutorials/index.md
       - name: Creating a {{ PG }} cluster for 1С
         href: tutorials/1c-postgresql.md
-      - name: >-
-          Creating a cluster of 1C:Enterprise Linux servers with a {{ mpg-name
-          }} cluster
+      - name: Creating a cluster of 1C:Enterprise Linux servers with {{ mpg-name }}
         href: tutorials/1c-postgresql-linux.md
       - name: Exporting databases to {{ dataproc-full-name }}
         href: tutorials/sqoop.md
@@ -116,6 +114,8 @@ items:
           Transferring data from {{ objstorage-full-name }} using {{
           data-transfer-full-name }}
         href: tutorials/object-storage-to-postgresql.md
+      - name: Configuring a fault-tolerant architecture in {{ yandex-cloud }}
+        href: tutorials/fault-tolerance.md
       - name: Creating a Joomla website with a PostgreSQL database
         items:
           - name: Overview
@@ -137,8 +137,8 @@ items:
           - name: Migrating databases from {{ mpg-name }}
             href: tutorials/outbound-replication.md
           - name: >-
-              Creating an Amazon RDS logical replica for {{ PG }} in {{ mpg-name
-              }}
+              Creating a logical replica of Amazon RDS for {{ PG }} in {{
+              mpg-name }}
             href: operations/logical-replica-from-rds.md
           - name: >-
               Migrating databases from {{ mpg-full-name }} to {{
@@ -156,6 +156,10 @@ items:
               Migrating data from AWS RDS for {{ PG }} to {{ mpg-name }} using
               {{ data-transfer-full-name }}
             href: tutorials/rds-to-mpg.md
+          - name: >-
+              Migrating data from {{ mpg-name }} to {{ mos-name }} using {{
+              data-transfer-full-name }}
+            href: tutorials/postgresql-to-opensearch.md
   - name: Concepts
     items:
       - name: Resource relationships

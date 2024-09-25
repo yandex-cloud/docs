@@ -6,20 +6,7 @@ description: "{{ managed-prometheus-full-name }} — система монито
 # Обзор {{ managed-prometheus-full-name }}
 
 
-
-{% list tabs %}
-
-- VK
-
-  <iframe src="https://vk.com/video_ext.php?oid=-200452713&id=456239449&hash=9d880d845a117cfc" width="640" height="360" frameborder="0" allowfullscreen="1" allow="autoplay; encrypted-media; fullscreen; picture-in-picture"></iframe>
-
-- Youtube
-
-  @[youtube](https://youtu.be/EEI4LseR0tw)
-
-{% endlist %}
-
-
+@[youtube](https://youtu.be/EEI4LseR0tw)
 
 
 {{ managed-prometheus-full-name }} — система мониторинга, совместимая с [{{ prometheus-name }}](https://prometheus.io/docs/introduction/overview/). С помощью нее можно собирать, хранить и читать метрики из контейнеров, приложений и инфраструктуры. Система использует модель данных {{ prometheus-name }} и язык запросов [{{ promql-name }}](https://prometheus.io/docs/prometheus/latest/querying/basics/), что позволяет работать с уже существующими дашбордами в [{{ grafana-name }}](https://grafana.com/grafana/).

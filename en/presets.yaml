@@ -259,7 +259,6 @@ default:
   link-auth-logout: https://auth.yandex.cloud/logout
   link-ca-vscode: >-
     https://storage.yandexcloud.net/yandex-code-assistant/plugins/vscode/yandex-code-assist.vsix
-  link-calc: https://yandex.cloud/en/prices#calculator
   link-cloud-aup: https://yandex.ru/legal/cloud_aup/?lang=ru
   link-cloud-calculator: /prices#calculator
   link-cloud-communications: https://console.yandex.cloud/folders?openSettings=communications
@@ -586,6 +585,12 @@ default:
       admin: managed-elasticsearch.admin
       editor: managed-elasticsearch.editor
       viewer: managed-elasticsearch.viewer
+    metastore:
+      admin: managed-metastore.admin
+      auditor: managed-metastore.auditor
+      editor: managed-metastore.editor
+      integrationProvider: managed-metastore.integrationProvider
+      viewer: managed-metastore.viewer
     mgp:
       admin: managed-greenplum.admin
       editor: managed-greenplum.editor

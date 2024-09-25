@@ -1,6 +1,9 @@
-# {{ dataproc-full-name }} release notes
+---
+title: "{{ dataproc-full-name }} release notes"
+description: "This section contains {{ dataproc-name }} release notes."
+---
 
-This section contains {{ dataproc-name }} release notes.
+# {{ dataproc-full-name }} release notes
 
 {% include [Tags](../../_includes/mdb/release-notes-tags.md) %}
 
@@ -35,5 +38,5 @@ Creating [{{ metastore-name }}](../concepts/metastore.md) clusters is now availa
 * You can now create clusters on non-replicated network drives up to 8 TB. Non-replicated drives are much simpler than standard network SSD storage, which makes them perform several times faster.
 * Added the ability to [cancel a job](../operations/jobs-spark#cancel). {{ tag-con }} {{ tag-cli }}
 * Added the build number in [image version {{ dataproc-name }}](../concepts/environment.md).
-* Added the ability to pass the `packages`, `repositories`, and `exclude_packages` parameters for Spark and PySpark jobs. By using these parameters, you can download additional dependencies and packages from external repositories. {{ tag-con }} {{ tag-cli }}
+* Added the ability to provide the `packages`, `repositories`, and `exclude_packages` parameters for Spark and PySpark jobs. By using these parameters, you can download additional dependencies and packages from external repositories. {{ tag-con }} {{ tag-cli }}
 
