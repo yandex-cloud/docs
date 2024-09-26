@@ -34,7 +34,7 @@ description: "Следуя данной инструкции, вы сможет�
 
 - API {#api}
 
-  Воспользуйтесь вызовом gRPC API [VideoService/Update](../../api-ref/grpc/video_service.md#Update).
+  Воспользуйтесь методом REST API [update](../../api-ref/Video/update.md) для ресурса [Video](../../api-ref/Video/index.md) или вызовом gRPC API [VideoService/Update](../../api-ref/grpc/video_service.md#Update).
 
 {% endlist %}
 

@@ -66,6 +66,8 @@
    * Нажмите кнопку **{{ ui-key.yacloud.compute.groups.create.button_edit }}**.
 1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_deploy }}** укажите:
    * **{{ ui-key.yacloud.compute.groups.create.field_deploy-max-expansion }}** — на какое количество ВМ можно превышать размер группы.
+
+       {% include [max-expansion-notice](../../_includes/instance-groups/max-expansion-notice.md) %}
    * **{{ ui-key.yacloud.compute.groups.create.field_deploy-max-unavailable }}** — на какое количество ВМ можно уменьшать размер группы.
    * **{{ ui-key.yacloud.compute.groups.create.field_deploy-max-creating }}** — сколько ВМ можно одновременно создавать.
    * **{{ ui-key.yacloud.compute.groups.create.field_deploy-startup-duration }}** — время запуска, после которого ВМ начнет получать нагрузку.
