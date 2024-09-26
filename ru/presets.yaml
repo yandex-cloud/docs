@@ -6268,6 +6268,7 @@ default:
         operations-key-value: Операции
         operations:
           column_status: Статус
+          column_value_done: Завершена
         overview: Обзор
         password: Пароль
         remove: Удалить
@@ -7315,6 +7316,7 @@ default:
         button_create-regression-dashboard: Создать дашборд
         button_create-test: Создать тест
         button_duplicate-configuration: Дублировать конфигурацию
+        button_export-report: Экспортировать
         field_chart-name: Название графика
         field_config-file: Файл конфигурации
         field_export-bucket: Имя бакета
@@ -7326,6 +7328,10 @@ default:
         field_logging-group: Лог-группа
         field_overload-test-id: ID теста
         field_overload-token: Токен
+        field_report-export-bucket: Экспортировать в бакет
+        field_report-export-folder: Папка в бакете
+        field_report-export-format: Формат отчёта
+        field_report-export-time-interval: Временной интервал
         field_settings-type: Способ настройки
         field_test-data-type: Тип данных
         label_agents-list: Агенты
@@ -7334,6 +7340,8 @@ default:
         label_monitoring-report: Мониторинг
         label_quantiles: Квантили
         label_regressions-title: Регрессии
+        label_report-export-title: Экспорт отчёта
+        label_report-exports-history-title: История экспортов
         label_results-comparison-section-title: Сравнение результатов
         label_settings-type-config: Конфигурационный файл
         label_settings-type-form: Форма

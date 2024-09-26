@@ -20,6 +20,8 @@ items:
         href: operations/security-groups-target.md
       - name: Создать тест с данными из бакета
         href: operations/create-test-bucket.md
+      - name: Экспорт отчётов с результатами тестирования
+        href: operations/export-test-reports.md
       - name: Собрать пользовательские запросы с помощью Dispatcher
         href: operations/payload-dispatcher.md
       - name: Передать логи теста в {{ cloud-logging-name }}

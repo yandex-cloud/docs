@@ -6246,6 +6246,7 @@ default:
         operations-key-value: Operations
         operations:
           column_status: Status
+          column_value_done: Completed
         overview: Overview
         password: Password
         remove: Delete
@@ -7291,6 +7292,7 @@ default:
         button_create-regression-dashboard: Create dashboard
         button_create-test: Create test
         button_duplicate-configuration: Duplicate configuration
+        button_export-report: Export
         field_chart-name: Chart name
         field_config-file: Configuration file
         field_export-bucket: Bucket name
@@ -7302,6 +7304,10 @@ default:
         field_logging-group: Log group
         field_overload-test-id: Test ID
         field_overload-token: Token
+        field_report-export-bucket: Export to bucket
+        field_report-export-folder: Bucket folder
+        field_report-export-format: Report format
+        field_report-export-time-interval: Time interval
         field_settings-type: Configuration method
         field_test-data-type: Data type
         label_agents-list: Agents
@@ -7310,6 +7316,8 @@ default:
         label_monitoring-report: Monitoring
         label_quantiles: Quantiles
         label_regressions-title: Regressions
+        label_report-export-title: Report export
+        label_report-exports-history-title: Exports history
         label_results-comparison-section-title: Results comparison
         label_settings-type-config: Config
         label_settings-type-form: Form

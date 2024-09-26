@@ -50,7 +50,7 @@ description: "Следуя данной инструкции, вы сможет�
 
 - API {#api}
 
-  Воспользуйтесь вызовом gRPC API [StreamService/Create](../../api-ref/grpc/stream_service.md#Create).
+  Воспользуйтесь методом REST API [performAction](../../api-ref/Stream/performAction.md) для ресурса [Stream](../../api-ref/Stream/index.md) или вызовом gRPC API [StreamService/PerformAction](../../api-ref/grpc/stream_service.md#PerformAction).
 
 {% endlist %}
 
@@ -72,6 +72,6 @@ description: "Следуя данной инструкции, вы сможет�
 
 - API {#api}
 
-  Воспользуйтесь вызовом gRPC API [EpisodeService/GetPlayerURL](../../api-ref/grpc/episode_service.md#GetPlayerURL).
+  Воспользуйтесь методом REST API [getPlayerURL](../../api-ref/Episode/getPlayerURL.md) для ресурса [Episode](../../api-ref/Episode/index.md) или вызовом gRPC API [EpisodeService/GetPlayerURL](../../api-ref/grpc/episode_service.md#GetPlayerURL).
 
 {% endlist %}

@@ -16,6 +16,6 @@ description: "Следуя данной инструкции, вы сможет�
 
 - API {#api}
 
-  Воспользуйтесь вызовом gRPC API [StreamLineService/Delete](../../api-ref/grpc/stream_line_service.md#Delete).
+  Воспользуйтесь методом REST API [delete](../../api-ref/StreamLine/delete.md) для ресурса [StreamLine](../../api-ref/StreamLine/index.md) или вызовом gRPC API [StreamLineService/Delete](../../api-ref/grpc/stream_line_service.md#Delete).
 
 {% endlist %}
