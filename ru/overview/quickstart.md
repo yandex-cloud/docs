@@ -14,14 +14,14 @@ description: "С помощью этой статьи вы научитесь р
 
  {% list tabs group=customers %}
 
+   - Юридические лица, ИП или нерезидент РФ и РК {#businesses-entrepreneurs}
+
+      {% include [start-for-legal-entities](../_includes/billing/billing-account-create-legal-entities.md) %}
+
    - Физические лица {#individuals}
 
       {% include [start-for-individuals](../_includes/billing/billing-account-create-individual.md) %}
 
-   - Юридические лица, ИП или нерезидент РФ и РК {#businesses-entrepreneurs}
-
-      {% include [start-for-legal-entities](../_includes/billing/billing-account-create-legal-entities.md) %}
-      
    {% endlist %}
 
 ## Частые вопросы {#qa}

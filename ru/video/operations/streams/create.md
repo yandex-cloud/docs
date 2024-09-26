@@ -39,6 +39,6 @@ description: "Следуя данной инструкции, вы сможет�
 
 - API {#api}
 
-  Воспользуйтесь вызовом gRPC API [StreamService/Create](../../api-ref/grpc/stream_service.md#Create).
+  Воспользуйтесь методом REST API [create](../../api-ref/Stream/create.md) для ресурса [Stream](../../api-ref/Stream/index.md) или вызовом gRPC API [StreamService/Create](../../api-ref/grpc/stream_service.md#Create).
 
 {% endlist %}
