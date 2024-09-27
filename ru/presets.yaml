@@ -7326,6 +7326,7 @@ default:
         field_export-is-archive: Архивировать в zip
         field_load-generator: Генератор нагрузки
         field_logging-group: Лог-группа
+        field_name-filter: Фильтр по имени
         field_overload-test-id: ID теста
         field_overload-token: Токен
         field_report-export-bucket: Экспортировать в бакет
@@ -7334,6 +7335,12 @@ default:
         field_report-export-time-interval: Временной интервал
         field_settings-type: Способ настройки
         field_test-data-type: Тип данных
+        filter_label_tags: Фильтр по меткам
+        label_agent-by-filter-any-option: Любой подходящий
+        label_agent-by-filter-condition-option: Задать условия
+        label_agent-by-filter-selector: Первый освободившийся
+        label_agent-from-list-selector: Выбрать из списка
+        label_agents-count: Количество агентов
         label_agents-list: Агенты
         label_choose-from-bucket: Выбрать из бакета
         label_import-tests-from-overload: Импортировать тесты из Overload

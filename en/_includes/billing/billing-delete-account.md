@@ -5,6 +5,8 @@ To stop using the platform and delete your billing account:
 {% include [delete-account](delete-account.md) %}
 
 
+{% include [payment-refund](../../_includes/billing/payment-refund.md) %}
+
 #### See also {#see-also}
 
 * [Linking a cloud to another billing account](../../billing/operations/pin-cloud.md)

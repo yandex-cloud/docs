@@ -12,6 +12,7 @@ description: "Различные сценарии использования {{ 
 * [{#T}](mmy-to-mgp.md)
 * [Выгрузка данных кластера в холодное хранилище {{ objstorage-full-name }}](yezzey.md)
 * [{#T}](object-storage-to-greenplum.md)
+* [{#T}](./managed-kafka-to-greenplum.md)
 
 ## Поставка данных c помощью {{ data-transfer-name }} {#data-transfer}
 

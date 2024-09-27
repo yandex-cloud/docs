@@ -17,7 +17,7 @@ Below is a description of guidelines for working with {{ datalens-full-name }}:
 * Working with geodata
 
   * [Analyzing public data on road accidents in Russia](data-from-csv-geo-visualization.md)
-  * [Analyzing sales and locations of pizzerias based on data from {{ CH }} databases and Marketplace](data-from-ch-to-geolayers-visualization.md)
+  * [Analyzing sales and locations of pizzerias based on data from a {{ CH }} database and Marketplace](data-from-ch-to-geolayers-visualization.md)
   * [{#T}](data-from-ch-geocoder.md)
   * [{#T}](datalens.md)
 
@@ -29,10 +29,11 @@ Below is a description of guidelines for working with {{ datalens-full-name }}:
   * [AppMetrica: data export, post-processing, and visualization](data-from-appmetrica-yc-visualization.md)
   * [Bitrix24: direct connection](data-from-bitrix24-visualization.md)
   * [{{ tracker-full-name }}: data export and visualization](data-from-tracker.md)
-  * [Yandex Music podcasts: statistics](data-from-podcasts.md)
+  * [Yandex Music podcasts: Statistics](data-from-podcasts.md)
   * [Visualizing {{ yq-full-name }} data](data-from-yandex-query-visualization.md)
   * [Visualizing {{ monitoring-full-name }} data](data-from-monitoring-visualization.md)
   * [Visualizing {{ ytsaurus-name }} CHYT data](data-from-ch-over-yt.md)
+  * [Streaming {{ postbox-full-name }} events to {{ yds-full-name }} and analyzing them using {{ datalens-full-name }}](events-from-postbox-to-yds.md)
 
 * Functional
 

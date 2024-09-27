@@ -71,4 +71,4 @@ The cost of using {{ marketplace-full-name }} is the total cost of using {{ mark
 
 #### Can I withdraw money from my account? {#refund}
 
-To recover money you are not going to spend on {{ yandex-cloud }} services, [contact]({{ link-console-support }}) {{ support-center-name }} or send an email to [{{ link-support-mail }}](mailto:{{ link-support-mail }}).
+{% include [payment-refund](../../_includes/billing/payment-refund.md) %}

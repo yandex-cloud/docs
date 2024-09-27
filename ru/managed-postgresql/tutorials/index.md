@@ -32,7 +32,9 @@ description: "Различные сценарии использования {{ 
 * [{#T}](./mpg-to-mmy.md)
 * [{#T}](./mmy-to-mpg.md)
 * [{#T}](./rds-to-mpg.md)
+* [{#T}](./greenplum-to-postgresql.md)
 * [{#T}](./rdbms-to-clickhouse.md)
 * [{#T}](./postgresql-to-opensearch.md)
+
 
 О миграции хостов кластера {{ mpg-name }} в другую зону доступности читайте в [инструкции](../operations/host-migration.md).

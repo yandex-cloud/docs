@@ -13,7 +13,7 @@ For more information about {{ yandex-cloud }} pricing as well as pricing rules f
 ## Fees for individual services {#billable}
 
 
-Billable service costs are calculated based on the amount of consumed resources and the time for which they are used. Each service has its own calculation logic for consumed resources.
+Billable service costs are calculated based on the resources consumed and time used. Each service implements its own consumed resources calculation logic.
 
 * [{{ api-gw-full-name }}](../api-gateway/pricing.md)
 * [{{ alb-full-name }}](../application-load-balancer/pricing.md)
@@ -71,6 +71,7 @@ The following services are always free of charge:
 * [Yandex Cloud Console](../console/pricing.md)
 * {{ preview-stage }} [{{ cloud-desktop-full-name }}](../cloud-desktop/pricing.md)
 * [{{ org-full-name }}](../organization/pricing.md)
+* {{ preview-stage }} [{{ video-full-name }}](../video/pricing.md)
 * {{ preview-stage }} [{{ ca-full-name }}](../code-assistant/pricing.md)
 * [{{ forms-full-name }}](../forms/pricing.md)
 * [{{ iam-full-name }}](../iam/pricing.md)

@@ -134,6 +134,8 @@ items:
             href: operations/projects/work-with-jobs.md
           - name: Работа с заданиями из Visual Studio Code
             href: operations/projects/jobs-toolkit.md
+          - name: Использование результатов работы выполненных заданий
+            href: operations/projects/use-job-results.md
       - name: Совместный доступ
         items:
           - name: Опубликовать ноутбук

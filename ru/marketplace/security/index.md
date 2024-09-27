@@ -24,7 +24,7 @@ description: "Управление доступом пользователя в 
 #### license-manager.viewer {#license-manager-viewer}
 
 {% include [license-manager.viewer](../../_roles/license-manager/viewer.md) %}
-  
+
 #### license-manager.user {#license-manager-user}
 
 {% include [license-manager.user](../../_roles/license-manager/user.md) %}

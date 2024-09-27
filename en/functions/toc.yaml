@@ -226,7 +226,7 @@ items:
             href: concepts/trigger/data-streams-trigger.md
           - name: Email trigger
             href: concepts/trigger/mail-trigger.md
-      - name: Dead letter queue
+      - name: Dead-letter queue
         href: concepts/dlq.md
       - name: Function logs
         href: concepts/logs.md
@@ -460,6 +460,10 @@ items:
         href: tutorials/monitoring.md
       - name: Emulating multiple IoT devices
         href: tutorials/iot-emulation.md
+      - name: >-
+          Streaming {{ postbox-full-name }} events to {{ yds-full-name }} and
+          analyzing them using {{ datalens-full-name }}
+        href: tutorials/events-from-postbox-to-yds.md
   - name: Pricing policy
     href: pricing.md
   - name: Access management
