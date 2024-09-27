@@ -181,6 +181,10 @@ items:
       - name: Хранение статического ключа доступа в секрете {{ lockbox-name }}
         href: tutorials/static-key-in-lockbox.md
       - name: >-
+          Выгрузка данных {{ GP }} в холодное хранилище {{ objstorage-full-name
+          }}
+        href: tutorials/greenplum-yezzey.md
+      - name: >-
           Загрузка данных из {{ yandex-direct }} в витрину {{ mch-full-name }} с
           использованием {{ sf-full-name }}, {{ objstorage-full-name }} и {{
           data-transfer-full-name }}

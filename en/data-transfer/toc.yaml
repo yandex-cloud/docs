@@ -362,6 +362,8 @@ items:
     items:
       - name: All release notes
         href: release-notes/index.md
+      - name: August 2024
+        href: release-notes/2408.md
       - name: July 2024
         href: release-notes/2407.md
       - name: June 2024

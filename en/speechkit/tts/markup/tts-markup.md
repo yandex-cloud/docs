@@ -12,10 +12,10 @@ Pausing is available for testing in all languages the speech synthesis is suppor
 
 | Description | Special characters and tags |
 |---|---|
-| [Mark the stress](#a) | `+` |
-| [Set a pause between sentences explicitly](#pause) | `sil<[t]>`, where `t` is the pause duration in milliseconds. |
+| [Apply stress](#a) | `+` |
+| [Explicitly define a pause between sentences](#pause) | `sil<[t]>`, where `t` is the pause duration in milliseconds. |
 | [Set a pause depending on the context](#context-pause) | `<[small]>`. Acceptable values: `tiny`, `small`, `medium`, `large`, and `huge`. |
-| [Place emphasis](#accent) | `<[accented]>` or `**emphasized word**` |
+| [Place emphasis](#accent) | `<[accented]>` or `**accented word**` |
 | [Use phonetic pronunciation](#phoneme) | `[[ <word_phonemes_separated_by_spaces> ]]` |
 
 {% include [note-templates-markup](../../../_includes/speechkit/note-templates-markup.md) %}
@@ -38,7 +38,7 @@ If you contr+act malaria, you will have to spend a long time in a hospital.
 
 ### Set a pause between sentences explicitly {#pause}
 
-To set a pause between sentences explicitly, you can add a special tag, `sil<[t]>`, where `t` is the pause duration in milliseconds:
+To explicitly define a pause between sentences, you can add a special tag, `sil<[t]>`, where `t` is the pause duration in milliseconds:
 
 ```text
 Stop. sil<[300]> Think about it!
@@ -64,13 +64,13 @@ Frost and sun; <[medium]> a wonderful day!
 
 Currently, this feature works only for Russian.
 
-To place emphasis, you can use the `<[accented]>` tag or highlight a word like this: ``**accented**``. For example:
+To place emphasis on a word, you can prepend it with the `<[accented]>` tag. For example:
 
 ```text
-Convenient interfaces for workable <[solutions]>.
+Convenient interfaces to troubleshoot <[accented]> issues.
 ```
 
-or
+You can also use asterisks to place emphasis on one or more words (`**word**`). For example:
 
 ```text
 We are **forever** responsible for what we have tamed.

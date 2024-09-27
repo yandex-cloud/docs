@@ -42,3 +42,4 @@ description: "Следуя данной инструкции, вы сможет�
 #### См. также {#see-also}
 
 * [Использовать IAM-токен в Helm-чарте](../../../container-registry/operations/helm-chart/helm-chart-push.md)
+* [Отозвать IAM-токен](./revoke-iam-token.md)

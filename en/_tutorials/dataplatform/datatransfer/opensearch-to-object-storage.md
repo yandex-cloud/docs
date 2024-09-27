@@ -25,11 +25,12 @@ Prepare the infrastructure:
 
     1. [Get an SSL certificate](../../../managed-opensearch/operations/connect.md#ssl-certificate) to connect to the {{ mos-name }} cluster.
 
-    1. [Create a {{ objstorage-name }} bucket](../../../storage/operations/buckets/create.md).
+    1. [Create an {{ objstorage-name }} bucket](../../../storage/operations/buckets/create.md).
 
     1. [Create a service account](../../../iam/operations/sa/create.md#create-sa) with the `storage.editor` role. The transfer will use it to access the bucket.
 
 - {{ TF }} {#tf}
+
     1. {% include [terraform-install-without-setting](../../../_includes/mdb/terraform/install-without-setting.md) %}
     1. {% include [terraform-authentication](../../../_includes/mdb/terraform/authentication.md) %}
     1. {% include [terraform-setting](../../../_includes/mdb/terraform/setting.md) %}
@@ -54,6 +55,9 @@ Prepare the infrastructure:
         * `mos_version`: {{ OS }} version.
         * `mos_password`: User password of the {{ OS }} cluster owner.
         * `bucket_name`: Bucket name consistent with the [naming conventions](../../../storage/concepts/bucket.md#naming).
+        * `profile_name`: Your YC CLI profile name.
+
+          {% include [cli-install](../../../_includes/cli-install.md) %}
 
     1. Make sure the {{ TF }} configuration files are correct using this command:
 
@@ -129,56 +133,60 @@ Prepare the infrastructure:
 
 ## Prepare and activate the transfer {#prepare-transfer}
 
-{% list tabs group=instructions %}
+1. [Create a target endpoint](../../../data-transfer/operations/endpoint/target/object-storage.md) of the `{{ objstorage-name }}` type with the following settings:
 
-- Manually {#manual}
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.bucket.title }}**: `<name_of_previously_created_bucket>`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageConnectionSettings.service_account_id.title }}**: `<name_of_previously_created_service_account>`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.output_format.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_JSON.title }}`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.output_encoding.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageCodecUI.UNCOMPRESSED }}`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageAdvancedSettings.bucket_layout.title }}**: `from_MOS`.
 
-    1. [Create a target endpoint](../../../data-transfer/operations/endpoint/target/object-storage.md) of the `{{ objstorage-name }}` type with the following settings:
+1. [Create a source endpoint](../../../data-transfer/operations/endpoint/source/opensearch.md#endpoint-settings) of the `{{ OS }}` type with the following settings:
 
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.bucket.title }}**: `<name_of_previously_created_bucket>`.
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageConnectionSettings.service_account_id.title }}**: `<name_of_previously_created_service_account>`.
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.output_format.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_JSON.title }}`.
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.output_encoding.title }}**: `UNCOMPRESSED`.
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageAdvancedSettings.bucket_layout.title }}**: `from_MOS`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnectionType.mdb_cluster_id.title }}`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnectionType.mdb_cluster_id.title }}**: Select the {{ mos-name }} cluster from the list.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.user.title }}**: `admin`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.password.title }}**: `<user_password>`.
 
-    1. [Create a source endpoint](../../../data-transfer/operations/endpoint/source/opensearch.md#endpoint-settings) of the `{{ OS }}` type with the following settings:
+1. Create a transfer:
 
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnectionType.mdb_cluster_id.title }}`.
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnectionType.mdb_cluster_id.title }}**: Select the {{ mos-name }} cluster from the list.
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.user.title }}**: `admin`.
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.password.title }}**: `<user_password>`.
+    {% list tabs group=instructions %}
 
-    1. [Create a transfer](../../../data-transfer/operations/transfer.md#create) of the **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}** type that will use the created endpoints.
-    1. [Activate the transfer](../../../data-transfer/operations/transfer.md#activate) and wait for its status to change to **_{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}_**.
+    - Manually {#manual}
 
-- {{ TF }} {#tf}
+      1. [Create a transfer](../../../data-transfer/operations/transfer.md#create) of the **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}** type that will use the created endpoints.
 
-    1. In the `opensearch-to-object-storage.tf` file, specify the values of the following variables:
+      1. [Activate the transfer](../../../data-transfer/operations/transfer.md#activate).
 
-        * `target_endpoint_id`: ID of the target endpoint.
-        * `source_endpoint_id`: ID of the source endpoint.
-        * `transfer_enabled`: Put `1` to create a transfer.
+    - {{ TF }} {#tf}
 
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+      1. In the `opensearch-to-object-storage.tf` file, specify the values of the following variables:
 
-        ```bash
-        terraform validate
-        ```
+          * `target_endpoint_id`: ID of the target endpoint.
+          * `source_endpoint_id`: ID of the source endpoint.
+          * `transfer_enabled`: Put `1` to create a transfer.
 
-        If there are any errors in the configuration files, {{ TF }} will point them out.
+      1. Make sure the {{ TF }} configuration files are correct using this command:
 
-    1. Create the required infrastructure:
+          ```bash
+          terraform validate
+          ```
 
-        {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
+          If there are any errors in the configuration files, {{ TF }} will point them out.
 
-    1. [Activate the transfer](../../../data-transfer/operations/transfer.md#activate) and wait for its status to change to **_{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}_**.
+      1. Create the required infrastructure:
 
-{% endlist %}
+          {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
+
+          Once created, your transfer will be activated automatically.
+
+    {% endlist %}
 
 ## Test the transfer {#verify-transfer}
 
 Make sure the data has been transferred from the {{ mos-name }} cluster to the {{ objstorage-name }} bucket:
-    
+
+1. Wait for the transfer status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.
 1. In the [management console]({{ link-console-main }}), select the folder where the bucket is located.
 1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
 1. Select the bucket from the list.
@@ -204,6 +212,7 @@ Delete the other resources depending on how they were created:
 
 - {{ TF }} {#tf}
 
+    1. In the [management console]({{ link-console-main }}), delete the `from_MOS` folder from the created bucket.
     1. In the terminal window, go to the directory containing the infrastructure plan.
     1. Delete the `opensearch-to-object-storage.tf` configuration file.
     1. Make sure the {{ TF }} configuration files are correct using this command:

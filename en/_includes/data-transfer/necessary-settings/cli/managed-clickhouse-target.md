@@ -1,9 +1,10 @@
 * {% include [Field CLI Cluster ID](../../fields/common/cli/cluster-id.md) %}
+* `--cluster-name`: Shard group to transfer the data to. If this parameter is not set, data will go to all shards.
 * {% include [Field CLI Database](../../fields/common/cli/database.md) %}
 * {% include [Field CLI User](../../fields/common/cli/username.md) %}
 * {% include [Field CLI Security Group](../../fields/common/cli/security-group.md) %}
 
-   Make sure the specified security groups are [configured](../../../../managed-clickhouse/operations/connect/index.md#configuring-security-groups).
+    Make sure the specified security groups are [configured](../../../../managed-clickhouse/operations/connect/index.md#configuring-security-groups).
 
 
 * To set a user password to access the DB, use one of the following parameters:

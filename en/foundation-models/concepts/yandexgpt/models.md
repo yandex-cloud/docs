@@ -13,7 +13,7 @@ To [access](../../operations/yandexgpt/create-prompt.md) your model via the API,
 
 {% note info %}
 
-When updating models, {{ yagpt-name }} generations available in different branches (`/latest`, `/rc`, and `/deprecated`) may change.
+When updating models, {{ yagpt-name }} generations available in different branches (`/latest`, `/rc`, and `/deprecated` segments) may change.
 
 {% endnote %}
 
@@ -26,6 +26,6 @@ When updating models, {{ yagpt-name }} generations available in different branch
 
 Modified models share usage [quotas](../limits.md#quotas) with their basic models.
 
-## Fine-tuning capabilities {#tuning-abilities}
+## Tuning capabilities {#tuning-abilities}
 
 {% include [tuning-abilities](../../../_includes/foundation-models/yandexgpt/tuning-abilities.md) %}

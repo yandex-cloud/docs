@@ -713,3 +713,4 @@ yc iam create-token
 
 * [{#T}](../sa/set-access-bindings.md).
 * [{#T}](../sa/assign-role-for-sa.md).
+* [{#T}](./revoke-iam-token.md).

@@ -5,6 +5,12 @@ description: "This section contains {{ sf-name }} release notes."
 
 # {{ sf-full-name }} release notes
 
+## August 2024 {#august-2024}
+
+### Updates {#updates}
+
+* Added support for the [Kotlin](lang/kotlin/index.md) runtime environment.
+
 ## May – June 2024 {#may-june-2024}
 
 ### Updates {#updates}
@@ -24,14 +30,14 @@ description: "This section contains {{ sf-name }} release notes."
 ### Fixes and improvements {#fixes-improvements}
 
 * Fixed the `yandex_function_scaling_policy` import error in {{ TF }}.
-* Removed the [user network](concepts/networking#user-network) requirement to have a subnet in the `ru-central1-c` availability zone as [this zone has been discontinued](../overview/concepts/ru-central1-c-deprecation).
+* Removed the [user network](concepts/networking#user-network) requirement to have a subnet in the `ru-central1-c` availability zone because [this zone is discontinued](../overview/concepts/ru-central1-c-deprecation).
 
 ## March 2024 {#march-2024}
 
 ### Updates {#updates}
 
 * Added support for editing all trigger parameters in {{ TF }}.
-* Released [{{ objstorage-full-name }}](concepts/mounting.md) bucket mounting to a function for [general availability](../overview/concepts/launch-stages.md).
+* [{{ objstorage-full-name }} bucket mounting](concepts/mounting.md) to a function is now at the [general availability](../overview/concepts/launch-stages.md) stage.
 
 ### Fixes and improvements {#fixes-improvements}
 
@@ -41,7 +47,7 @@ description: "This section contains {{ sf-name }} release notes."
 
 ### Updates {#updates}
 
-* Added support for [mounting {{ objstorage-full-name }}](concepts/mounting.md) buckets to a function via the CLI and {{ TF }}.
+* Added support for [mounting {{ objstorage-full-name }} buckets](concepts/mounting.md) to a function via the CLI and {{ TF }}.
 * Added support for function logging settings in {{ TF }}.
 
 ### Fixes and improvements {#fixes-improvements}

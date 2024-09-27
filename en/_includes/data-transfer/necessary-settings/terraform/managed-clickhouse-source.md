@@ -1,4 +1,5 @@
 * {% include [Field Terraform Cluster ID](../../fields/clickhouse/terraform/cluster-id.md) %}
+* `clickhouse_cluster_name`: Shard group to transfer the data from. If this parameter is not set, data from all shards will be transferred.
 * {% include [Field Terraform Subnet ID](../../fields/clickhouse/terraform/subnet-id.md) %}
 * {% include [Field Terraform Security Group](../../fields/common/terraform/security-group-cluster-mdb.md) %}
 

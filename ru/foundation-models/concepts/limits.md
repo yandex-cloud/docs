@@ -1,6 +1,6 @@
 ---
 title: "Квоты и лимиты в {{ foundation-models-full-name }}"
-description: "В сервисе {{ foundation-models-full-name  }} действует ряд квот и лимитов. Более подробно об ограничениях в сервисах вы узнаете из этой статьи."
+description: "В сервисе {{ foundation-models-full-name }} действует ряд квот и лимитов. Более подробно об ограничениях в сервисах вы узнаете из этой статьи."
 ---
 
 # Квоты и лимиты в {{ foundation-models-full-name }}

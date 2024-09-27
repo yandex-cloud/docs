@@ -1,8 +1,9 @@
 ```bash
-curl -X POST \
-    -H "Authorization: Bearer <значение_IAM-токена>" \
-    -d @prompt.json \
-    https://llm.api.cloud.yandex.net:443/foundationModels/v1/imageGenerationAsync
+curl \
+  --request POST \
+  --header "Authorization: Bearer <значение_IAM-токена>" \
+  --data @prompt.json \
+  https://llm.api.cloud.yandex.net:443/foundationModels/v1/imageGenerationAsync
 ```
 
 Где:

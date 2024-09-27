@@ -64,6 +64,8 @@ items:
         href: concepts/index.md
       - name: Агент
         href: concepts/agent.md
+      - name: Выбор агента
+        href: concepts/agent-select.md
       - name: Генератор нагрузки
         href: concepts/load-generator.md
       - name: Профиль нагрузки

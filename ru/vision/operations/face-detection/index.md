@@ -65,7 +65,7 @@ noIndex: true
 
     ```bash
     vision_face_detection() {
-        curl -H "Authorization: Bearer `yc iam create-token`" \
+        curl --header "Authorization: Bearer `yc iam create-token`" \
         "https://vision.{{ api-host }}/vision/v1/batchAnalyze" \
         -d @<(cat << EOF
     {

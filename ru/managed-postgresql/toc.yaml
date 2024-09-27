@@ -156,6 +156,8 @@ items:
               Миграция данных из AWS RDS for {{ PG }} в {{ mpg-name }} с помощью
               {{ data-transfer-full-name }}
             href: tutorials/rds-to-mpg.md
+          - name: Миграция базы данных из {{ GP }} в {{ PG }}
+            href: tutorials/greenplum-to-postgresql.md
           - name: >-
               Миграция данных из {{ mpg-name }} в {{ mos-name }} с помощью {{
               data-transfer-full-name }}

@@ -37,7 +37,7 @@ JSON-схему рабочего процесса см. в [репозитори
 
 Имя поля | Тип | Обязательное | Значение по умолчанию | Описание
 --- | --- | --- | --- | ---
-`errorList` | `[]WorkflowError` | Да | `[]` | Список ошибок, для которых будут сделаны повторные попытки выполнения шага. Подробнее см. [{#T}](execution.md#errors).
+`errorList` | `WorkflowError[]` | Да | `[]` | Список ошибок, для которых будут сделаны повторные попытки выполнения шага. Подробнее см. [{#T}](execution.md#errors).
 `errorListMode` | `INCLUDE/EXCLUDE` | Нет | `INCLUDE` | Режим выбора ошибок. `INCLUDE` — делать повторные попытки для ошибок, указанных в `error_list`, `EXCLUDE` — делать повторные попытки для всех ошибок, кроме указанных в `error_list`.
 `initialDelay` | `Duration` | Нет | `1s` | Начальное значение задержки между попытками.
 `backoffRate` | `double` | Нет | `1.0` | Число, на которое умножается время между каждой последующей попыткой.
@@ -171,7 +171,7 @@ HTTP-запрос на указанный эндпоинт.
 `temperature` | `double` | Нет | `0` | Нет | Чем выше температура, тем более креативными и случайными будут ответы модели. Принимает значения от 0 (включительно) до 1 (включительно). 
 `maxTokens` | `int64` | Да | Нет | Нет | Максимальное число токенов генерации. Позволит ограничить ответ модели, если это необходимо.
 `json` | `string` | Нет | `""` | Да | Контекст для модели в виде JSON-строки. Подробнее см. описание поля `messages` в [документации {{ foundation-models-name }}](../../../foundation-models/operations/yandexgpt/create-prompt.md#request).
-`messages` | [][FoundationModelsCallGenerateMessage](#FoundationModelsCallGenerateMessage) | Нет | `""` | Нет | Контекст для модели в виде явного перечисления входных сообщений.
+`messages` | [FoundationModelsCallGenerateMessage](#FoundationModelsCallGenerateMessage)[] | Нет | `""` | Нет | Контекст для модели в виде явного перечисления входных сообщений.
 
 #### Объект [FoundationModelsCallGenerateMessage](#FoundationModelsCallGenerateMessage)
 

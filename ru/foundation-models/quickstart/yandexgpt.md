@@ -92,11 +92,12 @@
      ```bash
      export FOLDER_ID=<идентификатор_каталога>
      export IAM_TOKEN=<IAM-токен>
-     curl --request POST \
-       -H "Content-Type: application/json" \
-       -H "Authorization: Bearer ${IAM_TOKEN}" \
-       -H "x-folder-id: ${FOLDER_ID}" \
-       -d "@prompt.json" \
+     curl \
+       --request POST \
+       --header "Content-Type: application/json" \
+       --header "Authorization: Bearer ${IAM_TOKEN}" \
+       --header "x-folder-id: ${FOLDER_ID}" \
+       --data "@prompt.json" \
        "https://llm.{{ api-host }}/foundationModels/v1/completion"
      ```
 
