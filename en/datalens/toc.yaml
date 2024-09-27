@@ -80,6 +80,10 @@ items:
             href: tutorials/data-from-monitoring-visualization.md
           - name: Visualizing {{ ytsaurus-name }} CHYT data
             href: tutorials/data-from-ch-over-yt.md
+          - name: >-
+              Streaming {{ postbox-full-name }} events to {{ yds-full-name }}
+              and analyzing them using {{ datalens-full-name }}
+            href: tutorials/events-from-postbox-to-yds.md
       - name: Functional
         items:
           - name: Using parameters
@@ -810,6 +814,8 @@ items:
     items:
       - name: UI customization
         href: settings/ui-customization.md
+      - name: Disabling folder navigation
+        href: settings/disable-folder-navigation.md
   - name: Marketplace
     items:
       - name: Overview
@@ -832,20 +838,24 @@ items:
             href: pricing-archive/pricing23042024.md
   - name: Release notes
     items:
-      - name: July 2024
+      - name: August 2024
         href: release-notes/index.md
-      - name: June 2024
-        href: release-notes/2406.md
-      - name: May 2024
-        href: release-notes/2405.md
-      - name: April 2024
-        href: release-notes/2404.md
-      - name: March 2024
-        href: release-notes/2403.md
-      - name: February 2024
-        href: release-notes/2402.md
-      - name: January 2024
-        href: release-notes/2401.md
+      - name: Archive
+        items:
+          - name: July 2024
+            href: release-notes/2407.md
+          - name: June 2024
+            href: release-notes/2406.md
+          - name: May 2024
+            href: release-notes/2405.md
+          - name: April 2024
+            href: release-notes/2404.md
+          - name: March 2024
+            href: release-notes/2403.md
+          - name: February 2024
+            href: release-notes/2402.md
+          - name: January 2024
+            href: release-notes/2401.md
   - name: Troubleshooting
     items:
       - name: Optimization best practices

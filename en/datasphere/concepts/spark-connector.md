@@ -53,3 +53,4 @@ You will be charged extra for using temporary clusters created based on {{ datap
 #### See also {#see-also}
 
 * [How to create, modify, and delete a Spark connector](../operations/data/spark-connectors.md).
+* [{#T}](../troubleshooting/troubles-with-spark.md)

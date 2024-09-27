@@ -1,0 +1,1 @@
+To recover money you are not going to spend on {{ yandex-cloud }} services, [contact]({{ link-console-support }}) {{ support-center-name }} or send an email to [{{ link-support-mail }}](mailto:{{ link-support-mail }}).

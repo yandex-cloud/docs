@@ -66,8 +66,9 @@ description: "Следуя данной инструкции, вы сможет�
   1. Отправьте запрос к поисковой базе Яндекса. Для этого воспользуйтесь утилитой [cURL](https://curl.haxx.se):
 
       ```bash
-      curl -X GET \
-        -o result.xml \
+      curl \
+        --request GET \
+        --output result.xml \
         'https://yandex.ru/search/xml?folderid=b1gt6g8ht345********&apikey=your_service_account_API_key********&query=%3Ctable%3E&lr=11316&l10n=ru&sortby=rlv&filter=strict&groupby=attr%3Dd.mode%3Ddeep.groups-on-page%3D5.docs-in-group%3D3&maxpassages=3&page=4'
       ```
 
@@ -125,10 +126,11 @@ description: "Следуя данной инструкции, вы сможет�
   1. Отправьте запрос к поисковой базе Яндекса. Для этого воспользуйтесь утилитой [cURL](https://curl.haxx.se):
 
       ```bash
-      curl -X POST \
-        -H "Authorization: Api-Key <API-ключ>" \
-        -d "@body.xml" \
-        -o result.xml \
+      curl \
+        --request POST \
+        --header "Authorization: Api-Key <API-ключ>" \
+        --data "@body.xml" \
+        --output result.xml \
         'https://yandex.ru/search/xml?folderid=b1gt6g8ht345********&filter=strict&lr=11316&l10n=ru'
       ```
 
@@ -174,8 +176,9 @@ description: "Следуя данной инструкции, вы сможет�
   1. Отправьте запрос к поисковой базе картинок Яндекса. Для этого воспользуйтесь утилитой [cURL](https://curl.haxx.se):
 
       ```bash
-      curl -X GET \
-        -o result.xml \
+      curl \
+        --request GET \
+        --output result.xml \
         'https://yandex.ru/images-xml?folderid=b1gt6g8ht345********&apikey=your_service_account_API_key********&text=funny+cats&groupby=attr=ii.groups-on-page=3&p=2&fyandex=1&site=somepics.ru&itype=jpg&iorient=horizontal&isize=medium&icolor=color'
       ```
 

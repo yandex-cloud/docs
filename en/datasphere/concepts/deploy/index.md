@@ -30,7 +30,7 @@ With nodes from [models](../models/index.md), you can [deploy](../../operations/
 
 * [LightGBM](https://lightgbm.readthedocs.io)
 * [ONNX](https://onnx.ai/)
-* [Tensorflow.Keras](https://keras.io)
+* [TensorFlow.Keras](https://keras.io)
 * [TensorFlow](https://www.tensorflow.org)
 * [PyTorch](https://pytorch.org)
 * [XGBoost](https://lightgbm.readthedocs.io)
@@ -39,7 +39,7 @@ If you want to deploy a model that is not supported by the Triton server, you ca
 
 To [create a node](../../operations/deploy/node-create.md#from-model) from a model trained outside of {{ ml-platform-name }}, load the model from the file to a variable in the notebook and then [create](../../operations/data/models.md#create) a {{ ml-platform-name }} model from this variable.
 
-{{ ml-platform-name }} uses [Triton Inference Server](https://developer.nvidia.com/triton-inference-server) to deploy nodes from models. You can deploy multiple models saved to {{ ml-platform-name }} on a single node. {{ ml-platform-name }} itself will figure out the input and output parameters, ensure the model API operation, and then provide monitoring for both the node and the Triton server.
+{{ ml-platform-name }} uses [Triton Inference Server](https://developer.nvidia.com/triton-inference-server) to deploy nodes from models. You can deploy multiple models saved to {{ ml-platform-name }} on a single node. {{ ml-platform-name }} itself will define the input and output parameters, ensure the model API operation, and then provide monitoring for both the node and the Triton server.
 
 {% note info %}
 
@@ -49,7 +49,7 @@ When deploying PyTorch models, {{ ml-platform-name }} cannot automatically figur
 
 ### Node from a Docker image {#docker-node}
 
-Nodes deployed from a Docker image hosted in a container registry will run as a fully featured service. The Docker image does not necessarily have to contain a model trained in {{ ml-platform-name }}. You can create any image and place it in any registry that you find appropriate. To learn how to push a Docker image to a {{ container-registry-full-name }} registry, see [{#T}](../../../container-registry/operations/docker-image/docker-image-push.md).
+Nodes deployed from a Docker image hosted in a container registry will run as a fully featured service. The Docker image does not have to contain a model trained in {{ ml-platform-name }}. You can create any image and place it in any registry you find appropriate. To learn how to push a Docker image to a {{ container-registry-full-name }} registry, see [{#T}](../../../container-registry/operations/docker-image/docker-image-push.md).
 
 {% note info %}
 
@@ -66,8 +66,9 @@ To work with a node based on a large model or Docker image, you can connect an a
 A {{ ml-platform-name }} node can have one of the following statuses:
 
 * `Healthy`: Number of instances with the `Healthy` status in the node is equal to the minimum number of required instances.
-* `Unhealthy`: Number of instances with the `Healthy` status in the node is below the allowable minimum.
+* `Unhealthy`: Number of instances with the `Healthy` status in the node is below the allowed minimum.
 * `Created`: Node has just been created.
+* `Suspended`: Node is paused.
 * `Deleting`: Node is being deleted.
 
 ### Instance statuses {#instance-statuses}
@@ -78,10 +79,9 @@ Node instances can have one of the following statuses:
 * `Unhealthy`: There are issues with the instance and it has been excluded from balancing.
 * `Created`: VM has been created for the instance.
 * `Started`: Connection has been established with the instance's VM.
-* `Preparing`: Instance is under preparation for request processing.
+* `Preparing`: Instance is getting ready to process requests.
 * `Deleting`: Instance is being deleted.
-* `Undefined`: Initial state of the instance; VM not created yet.
-
+* `Undefined`: Initial state of the instance; VM is not created yet.
 
 ## Alias {#alias}
 

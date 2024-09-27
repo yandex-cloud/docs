@@ -133,6 +133,8 @@ items:
           Загрузка данных из {{ objstorage-full-name }} в {{ mch-name }} с
           помощью {{ data-transfer-full-name }}
         href: tutorials/object-storage-to-clickhouse.md
+      - name: Миграция базы данных из {{ GP }} в {{ CH }}
+        href: tutorials/greenplum-to-clickhouse.md
       - name: >-
           Миграция базы данных из {{ MY }} в {{ CH }} с помощью {{
           data-transfer-full-name }}
@@ -404,7 +406,7 @@ items:
                 href: api-ref/Operation/index.md
               - name: get
                 href: api-ref/Operation/get.md
-  - name: Метрики {{ monitoring-name }}
+  - name: Метрики {{ monitoring-full-name }}
     href: metrics.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md

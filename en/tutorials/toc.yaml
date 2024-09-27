@@ -782,4 +782,8 @@ items:
           Using {{ api-gw-full-name }} to set up speech synthesis in {{
           speechkit-full-name }}
         href: serverless/speechkit-integrarion-via-agi-gw.md
+      - name: >-
+          Streaming {{ postbox-full-name }} events to {{ yds-full-name }} and
+          analyzing them with {{ datalens-full-name }}
+        href: serverless/events-from-postbox-to-yds.md
 base: en/tutorials

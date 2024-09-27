@@ -7302,6 +7302,7 @@ default:
         field_export-is-archive: Archive in zip
         field_load-generator: Load generator
         field_logging-group: Log group
+        field_name-filter: Filter by name
         field_overload-test-id: Test ID
         field_overload-token: Token
         field_report-export-bucket: Export to bucket
@@ -7310,6 +7311,12 @@ default:
         field_report-export-time-interval: Time interval
         field_settings-type: Configuration method
         field_test-data-type: Data type
+        filter_label_tags: Filter labels
+        label_agent-by-filter-any-option: Any suitable agent
+        label_agent-by-filter-condition-option: Set conditions
+        label_agent-by-filter-selector: First released
+        label_agent-from-list-selector: Select from list
+        label_agents-count: Agent count
         label_agents-list: Agents
         label_choose-from-bucket: Select from bucket
         label_import-tests-from-overload: Import tests from Overload

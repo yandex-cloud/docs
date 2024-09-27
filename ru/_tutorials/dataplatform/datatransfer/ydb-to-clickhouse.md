@@ -85,7 +85,7 @@
     ```sql
     CREATE TABLE table1 (
         Id Int64,
-        Name Utf8, 
+        Name Utf8,
         PRIMARY KEY (Id)
     )
     ```

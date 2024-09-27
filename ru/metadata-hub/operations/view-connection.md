@@ -29,7 +29,7 @@ description: "Пошаговые инструкции по работе с {{ co
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
-  
+
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
   1. Выберите сервис **{{ metadata-hub-full-name }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **Connection manager** и нажмите на имя нужного подключения.
@@ -44,25 +44,25 @@ description: "Пошаговые инструкции по работе с {{ co
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
-  
+
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
   1. Выберите сервис **{{ metadata-hub-full-name }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **Connection manager** и нажмите на имя нужного подключения.
   1. На панели слева выберите ![image](../../_assets/console-icons/list-check.svg) **Операции**.
-  
+
      В списке операций вы можете просмотреть все операции выбранного подключения с момента его создания:
-  
+
      * `Create` — подключение создано;
      * `Update` — подключение изменено;
      * `Delete` — подключение удалено;
      * `Set access bindings` — назначены роли пользователям данного подключения;
      * `Update access bindings` — изменены роли пользователей данного подключения.
-     
+
      Вы также можете просмотреть технические операции:
-     
+
      * `Bump version` — обновлена версия секрета для подключений MDB;
      * `Update references` — обновлены ссылки на подключение;
      * `Update version references` — обновлены ссылки на версию подключения при создании или удалении бекапа кластера MDB;
      * `Delete version` — удалена версия подключения после удаления последнего бэкапа кластера MDB.
-       
+
 {% endlist %}

@@ -5,6 +5,16 @@ description: "This section contains {{ api-gw-name }} release notes."
 
 # {{ api-gw-full-name }} release notes
 
+## August 2024 {#august-2024}
+
+### Updates {#updates}
+
+* Added support for [integration with {{ yagpt-name }}](operations/spec-constructor/yagpt.md).
+* Added support for [integration with {{ sws-full-name }}](concepts/extensions/sws.md).
+* Added support for the following extensions:
+    * `x-yc-status-mapping`: [Response code replacement](concepts/extensions/status-mapping.md).
+    * `x-yc-schema-mapping`: [Transformation of response and request bodies](concepts/extensions/schema-mapping.md).
+
 ## July 2024 {#july-2024}
 
 ### Updates {#updates}
@@ -27,12 +37,12 @@ description: "This section contains {{ api-gw-name }} release notes."
 
 * Updates to the [x-yc-apigateway-authorizer:jwt](concepts/extensions/jwt-authorizer.md) extension:
     * Added an alternative name for the `scopes` parameter: `scp`.
-    * Added an option to select the array data type for one of the `scopes`/`scp` objects.
+    * Added the option of selecting the array data type for one of the `scopes`/`scp` objects.
 * Added support for automatically sending the result of invoking an integration to a [WebSocket connection](concepts/extensions/websocket.md) when running the `x-yc-apigateway-websocket-connect` operation.
 
 ### Fixes and improvements {#fixes-improvements}
 
-* Removed the [user network](concepts/networking#user-network) requirement to have a subnet in the `ru-central1-c` availability zone, since [this zone is discontinued](../overview/concepts/ru-central1-c-deprecation).
+* Removed the [user network](concepts/networking#user-network) requirement to have a subnet in the `ru-central1-c` availability zone because [this zone is discontinued](../overview/concepts/ru-central1-c-deprecation).
 
 ## March 2024 {#march-2024}
 

@@ -79,6 +79,7 @@ description: "Страница содержит все инструкции дл
 * [{#T}](projects/authentication.md)
 * [{#T}](projects/work-with-jobs.md)
 * [{#T}](projects/jobs-toolkit.md)
+* [{#T}](projects/use-job-results.md)
 
 ## Совместный доступ к ресурсам, проектам и результатам вычислений {#share}
 

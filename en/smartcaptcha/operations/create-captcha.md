@@ -21,6 +21,9 @@ When creating a CAPTCHA, you can:
   1. In the [management console]({{ link-console-main }}), select the folder.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartcaptcha }}**.
   1. Click **{{ ui-key.yacloud.smartcaptcha.button_captcha-settings-create }}**.
+
+     ![screen01](../../_assets/smartcaptcha/create-captcha/screen01.png)
+
   1. Specify the **{{ ui-key.yacloud.common.name }}** of the CAPTCHA you are creating:
 
       {% include [name-format](../../_includes/smartcaptcha/name-format.md) %}
@@ -39,6 +42,8 @@ When creating a CAPTCHA, you can:
       Under **{{ ui-key.yacloud.smartcaptcha.label_section-customization }}**, you can set custom properties for the challenge window and other elements through the form or style description in `JSON` format.
 
       All changes will be displayed in the preview window.
+
+     ![screen02](../../_assets/smartcaptcha/create-captcha/screen02.png)
 
   1. Configure the **Challenge options**. You can only specify the default CAPTCHA or add other [options](../concepts/captcha-variants.md) if you want to show different CAPTCHAs for different requests.
   
@@ -81,6 +86,8 @@ When creating a CAPTCHA, you can:
      1. Add other CAPTCHA options and rules for incoming traffic in a similar way.
 
   1. Click **{{ ui-key.yacloud.common.create }}**.
+   
+     ![screen03](../../_assets/smartcaptcha/create-captcha/screen03.png)
 
   The CAPTCHA will appear on the service page under **{{ ui-key.yacloud.smartcaptcha.label_captcha-settings-list }}**.
 

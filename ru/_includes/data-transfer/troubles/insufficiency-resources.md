@@ -9,7 +9,7 @@ errors detected on secondary workers: secondary worker #3 failed:
 pod instance restarted 5h41m39.092446028s ago
 ```
 
-**Решение:** 
+**Решение**:
 
 Если причиной ошибки `pod instance restarted` стала нехватка оперативной памяти (OOM) на ВМ трансфера, то возможны следующие решения:
 

@@ -19,11 +19,11 @@ In the [management console]({{ link-console-main }}), new users without a [billi
 
 ### Billing unit {#unit}
 
-{{ foundation-models-name }} usage is detailed out in _billing units_. The cost of a billing unit is different for text generation and vectorization.
+{{ foundation-models-name }} usage is detailed out in _billing units_. The cost of a billing unit is different for text [generation](./concepts/yandexgpt/index.md) and [vectorization](./concepts/embeddings.md).
 
 ### Text generation {#rules-generating}
 
-Text generation cost is based on the overall number of [prompt](concepts/index.md#working-mode) and response [tokens](concepts/yandexgpt/tokens.md) and depends on the {{ yagpt-full-name }} request parameters. Namely, the cost depends on these parameters:
+Text generation cost is based on the overall number of [prompt](concepts/index.md#working-mode) and response [tokens](concepts/yandexgpt/tokens.md) and depends on the {{ yagpt-full-name }} request parameters. Namely, the cost depends on the following:
 
 * [Model](concepts/yandexgpt/models.md) that gets a request.
 * Model [working mode](concepts/index.md#working-mode).
@@ -46,7 +46,7 @@ At the [Preview](../overview/concepts/launch-stages.md) stage, the use of classi
 
 ### Text vectorization {#rules-embedding}
 
-The cost of text vectorization (getting text embeddings) depends on the size of the text submitted for vectorization.
+The cost of text [vectorization](./concepts/embeddings.md) (getting text embeddings) depends on the size of the text submitted for vectorization.
 
 ### Image generation {#rules-image-generation}
 

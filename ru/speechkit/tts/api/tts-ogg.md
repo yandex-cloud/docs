@@ -24,10 +24,11 @@
   EOM
   export FOLDER_ID=<идентификатор_каталога>
   export IAM_TOKEN=<IAM-токен>
-  curl -X POST \
-    -H "Authorization: Bearer ${IAM_TOKEN}" \
+  curl \
+    --request POST \
+    --header "Authorization: Bearer ${IAM_TOKEN}" \
     --data-urlencode "text=${TEXT}" \
-    -d "lang=ru-RU&voice=filipp&folderId=${FOLDER_ID}" \
+    --data "lang=ru-RU&voice=filipp&folderId=${FOLDER_ID}" \
     "https://tts.{{ api-host }}/speech/v1/tts:synthesize" > speech.ogg
   ```
 

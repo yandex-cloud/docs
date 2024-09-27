@@ -366,13 +366,14 @@
 
           ```bash
           export IAM_TOKEN=<IAM-токен>
-          curl -X GET \
-              -H "Content-Type: application/json" \
-              -H "Authorization: Bearer ${IAM_TOKEN}" \
-              -H "x-folder-id: <идентификатор_каталога>" \
-              -H "x-data-logging-enabled: true" \
-              https://ocr.{{ api-host }}/ocr/v1/getRecognition?operationId=<идентификатор_операции> \
-              -o output.json
+          curl \
+            --request GET \
+            --header "Content-Type: application/json" \
+            --header "Authorization: Bearer ${IAM_TOKEN}" \
+            --header "x-folder-id: <идентификатор_каталога>" \
+            --header "x-data-logging-enabled: true" \
+            https://ocr.{{ api-host }}/ocr/v1/getRecognition?operationId=<идентификатор_операции> \
+            --output output.json
           ```
 
           Где:
