@@ -9,3 +9,5 @@ ingress.alb.yc.io/security-profile-id: <security_profile_ID>
 The profile contains a list of verification conditions and actions applied to incoming HTTP requests based on verification results.
 
 If you do not have a security profile, [create one](../../../smartwebsecurity/operations/profile-create.md).
+
+Annotation requires [{{ alb-name }} Ingress-controller service account](../../../application-load-balancer/tools/k8s-ingress-controller/service-account.md) to additionaly have `smart-web-security.editor` role.
