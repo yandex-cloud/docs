@@ -14,10 +14,10 @@
 * `<div id="captcha-container" class="smart-captcha" ...>` — элемент `div` с виджетом.
 * `value` — значение токена.
 
-Чтобы узнать результат проверки, отправьте POST-запрос на адрес `https://smartcaptcha.yandexcloud.net/validate`:
+Чтобы узнать результат проверки, отправьте GET-запрос на адрес `https://smartcaptcha.yandexcloud.net/validate`:
 
 ```HTML
-response = requests.post(
+response = requests.get(
 "https://smartcaptcha.yandexcloud.net/validate",
     {
     "secret": SMARTCAPTCHA_SERVER_KEY,
