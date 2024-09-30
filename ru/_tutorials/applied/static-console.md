@@ -62,8 +62,10 @@
 
       1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором расположен бакет.
       1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** и в открывшемся окне выберите созданный ранее бакет.
-      1. На вкладке **{{ ui-key.yacloud.storage.bucket.switch_files }}** на странице вашего бакета нажмите кнопку **{{ ui-key.yacloud.storage.bucket.button_upload }}**. В открывшемся окне выберите созданные файлы и подтвердите загрузку.
-      1. Откройте вкладку **{{ ui-key.yacloud.storage.bucket.switch_website }}** и в открывшемся окне:
+      1. На панели слева выберите **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
+      1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.button_upload }}**. В открывшемся окне выберите созданные файлы и подтвердите загрузку.
+      1. На панели слева выберите **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
+      1. На вкладке **{{ ui-key.yacloud.storage.bucket.switch_website }}**:
 
           1. Выберите `{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}`.
           1. В поле **{{ ui-key.yacloud.storage.bucket.website.field_index }}** укажите `index.html`.

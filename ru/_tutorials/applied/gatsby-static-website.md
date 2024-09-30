@@ -74,9 +74,9 @@ keywords:
 	http://localhost:8000
 	```
 
-## Создайте и настройте бакет {{ objstorage-name }} {#create-bucket}
+## Создайте и настройте бакет {{ objstorage-name }} {#create-storage-bucket}
 
-### Создайте бакет
+### Создайте бакет {#create-bucket}
 
 Чтобы разместить статический сайт в облаке, создайте бакет:
 
@@ -218,7 +218,7 @@ keywords:
 
 {% endlist %}
 
-### Настройте бакет
+### Настройте бакет {#configure-bucket}
 
 Чтобы настроить бакет на хостинг статического сайта:
 
@@ -227,10 +227,11 @@ keywords:
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в бакет, для которого хотите настроить хостинг.
-  1. Перейдите на вкладку ![website](../../_assets/console-icons/globe.svg) **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
-  1. В разделе **{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}**:
-      * в поле **{{ ui-key.yacloud.storage.bucket.website.field_index }}** укажите абсолютный путь к файлу главной страницы сайта. Для сайта из шаблона Gatsby укажите `index.html`;
-      * при желании в поле **{{ ui-key.yacloud.storage.bucket.website.field_error }}** укажите абсолютный путь к файлу, который будет отображаться при ошибках 4хх. Для сайта из шаблона Gatsby укажите `404.html`.
+  1. На панели слева выберите **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
+  1. На вкладке **{{ ui-key.yacloud.storage.bucket.switch_website }}**:
+      * Выберите `{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}`.
+      * В поле **{{ ui-key.yacloud.storage.bucket.website.field_index }}** укажите абсолютный путь к файлу главной страницы сайта. Для сайта из шаблона Gatsby укажите `index.html`.
+      * (Опционально) В поле **{{ ui-key.yacloud.storage.bucket.website.field_error }}** укажите абсолютный путь к файлу, который будет отображаться при ошибках 4хх. Для сайта из шаблона Gatsby укажите `404.html`.
   1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
 
 - {{ yandex-cloud }} CLI {#cli}
@@ -346,7 +347,7 @@ keywords:
 
 {% endlist %}
 
-### Привяжите доменное имя
+### Привяжите доменное имя {#add-domain-name}
 
 Создайте на [DNS-сервере](../../glossary/dns.md#dns-server) публичную [зону DNS](../../dns/concepts/dns-zone.md) и [ресурсную запись](../../dns/concepts/resource-record.md), которая связывает ваше доменное имя и бакет:
 
@@ -367,7 +368,7 @@ keywords:
 
 Чтобы собрать и загрузить рабочую версию сайта в бакет, воспользуйтесь консольной утилитой [AWS CLI](https://aws.amazon.com/ru/cli/) и специальным [плагином S3](https://www.gatsbyjs.com/plugins/gatsby-plugin-s3/?=S3) из набора встроенных плагинов Gatsby.
 
-### Настройте AWS CLI
+### Настройте AWS CLI {#configure-aws-cli}
 
 1. Для установки AWS CLI воспользуйтесь [инструкцией](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) на сайте производителя.
 1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md).
@@ -387,7 +388,7 @@ keywords:
 
 1. Значения остальных параметров оставьте без изменений.
 
-### Установите плагин S3
+### Установите плагин S3 {#install-s3-plugin}
 
 1. На локальной машине перейдите в папку сайта `gatsby-starter-blog` и выполните команду:
 
@@ -428,7 +429,7 @@ keywords:
    }
    ```
 
-### Загрузите сайт в бакет
+### Загрузите сайт в бакет {#upload-to-bucket}
 
 1. Скомпилируйте сайт, выполнив команду:
 
@@ -455,7 +456,7 @@ keywords:
 
 Чтобы настроить доступ к сайту по защищенному протоколу, получите сертификат безопасности и настройте HTTPS-доступ к бакету.
 
-### Получите сертификаты от Let's Encrypt®
+### Получите сертификаты от Let's Encrypt® {#get-certificate}
 
 1. Добавьте новый сертификат от Let's Encrypt®:
 
@@ -611,7 +612,7 @@ keywords:
 
 1. После успешного прохождения проверки прав на домен, статус проверки домена в блоке **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}** изменится на `Valid`, а сертификат будет выпущен и перейдет в статус `Issued`.
 
-### Настройте HTTPS-доступ к бакету
+### Настройте HTTPS-доступ к бакету {#configure-https-access}
 
 1. Добавьте сертификат в настройках HTTPS-доступа бакета:
 
@@ -622,8 +623,9 @@ keywords:
        1. В [консоли управления]({{ link-console-main }}) выберите каталог.
        1. Выберите сервис **{{ objstorage-name }}**.
        1. Нажмите на имя необходимого бакета, в данном примере это `gatsbytest.ru`.
+       1. На панели слева выберите **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
        1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_https }}**.
-       1. В отобразившейся панели справа нажмите кнопку **{{ ui-key.yacloud.storage.bucket.https.button_empty-action }}**.
+       1. Справа вверху нажмите **{{ ui-key.yacloud.storage.bucket.https.button_empty-action }}**.
        1. В поле **{{ ui-key.yacloud.storage.bucket.https.field_source }}** выберите **{{ ui-key.yacloud.storage.bucket.https.value_method-certificate-manager }}**.
        1. В поле **{{ ui-key.yacloud.storage.bucket.https.field_certificate }}** выберите сертификат в появившемся списке.
        1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.https.button_save }}**.

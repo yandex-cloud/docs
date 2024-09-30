@@ -1,6 +1,8 @@
 # getObjectLegalHold method
 
-Returns the settings of legal [hold](../../../concepts/object-lock.md) put on the object version.
+Returns the settings of the legal [hold](../../../concepts/object-lock.md) placed on the object version.
+
+{% include [s3-api-intro-include](../../../../_includes/storage/s3-api-intro-include.md) %}
 
 ## Request {#request}
 
@@ -10,21 +12,21 @@ GET /{bucket}/{key}?legal-hold&versionId={versionId} HTTP/2
 
 ### Path parameters {#path-parameters}
 
-| Parameter | Description |
+Parameter | Description
 ----- | -----
-| `bucket` | Bucket name. |
-| `key` | Object key. |
+`bucket` | Bucket name.
+`key` | Object key.
 
 ### Query parameters {#request-params}
 
-| Parameter | Description |
+Parameter | Description
 ----- | -----
-| `legal-hold` | Required parameter that indicates the type of operation. |
-| `versionId` | Object version ID. This is a required parameter. |
+`legal-hold` | Required parameter that indicates the type of operation.
+`versionId` | Object version ID. This is a required parameter.
 
 ### Headers {#request-headers}
 
-Use the appropriate [common headers](../common-request-headers.md) in requests.
+Use the appropriate [common headers](../common-request-headers.md) in your request.
 
 ## Response {#response}
 
@@ -45,8 +47,8 @@ For a list of possible responses, see [{#T}](../response-codes.md).
 </LegalHold>
 ```
 
-| Element | Description |
+Element | Description
 ----- | -----
-| `Status` | <p>Status of legal hold:</p><ul><li>`ON`: Enabled.</li><li>`OFF`: Disabled.</li></ul><p>Path: `LegalHold\Status`.</p> |
+`Status` | <p>Legal hold status:</p><ul><li>`ON`: Enabled.</li><li>`OFF`: Disabled.</li></ul><p>Path: `LegalHold\Status`.</p>
 
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

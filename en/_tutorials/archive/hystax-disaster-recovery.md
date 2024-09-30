@@ -8,7 +8,7 @@ Supported platforms:
 * Hypervisors.
 * Physical servers.
 
-To get started, create a VM with [Hystax Acura Disaster Recovery](/marketplace/products/hystax/hystax-acura-disaster-recovery) to manage replication and recovery. Continuous and periodic replication is performed by auxiliary Hystax Cloud Agent VMs. For a detailed description of the architecture, see the [Hystax documentation](https://hystax.com/documentation/dr/solution_description.html#architecture).
+To get started, create a VM with [Hystax Acura Disaster Recovery](/marketplace/products/hystax/hystax-acura-disaster-recovery) to manage replication and recovery. Continuous and periodic replication is performed by auxiliary Hystax Cloud Agent VMs. For a detailed description of the architecture, see the [Hystax documentation](https://xn--q1ach.xn--p1ai/documentation/disaster-recovery-and-cloud-backup/index.html#_2).
 
 To run Hystax Acura Disaster Recovery, perform the steps below:
 1. [Prepare your cloud](#before-begin).
@@ -256,13 +256,13 @@ VMs are created with a public dynamic IP. Since a VM with Hystax Acura may reboo
 1. By default, a Hystax Acura VM has a self-signed certificate installed.
 1. On the page that opens, fill out the following fields:
    * **Organization**: Name of your organization.
-   * **Admin user login**: Email address for logging in to Hystax Acura Control Panel.
-   * **Password**: Administrator password.
-   * **Confirm password**: Re-enter the administrator password.
+   * **Admin user login**: Email address for logging in to the admin panel.
+   * **Password**: Admin password.
+   * **Confirm password**: Re-enter the admin password.
 1. Click **Next**.
 1. Specify the {{ yandex-cloud }} connection settings:
-   * **Service Account id**: ID of your service account.
-   * **Key id**: ID of your service account authorized key.
+   * **Service account ID**: ID of the service account.
+   * **Key ID**: ID of the service account authorized key.
    * **Private Key**: Private part of your service account authorized key.
 
      {% note info %}
@@ -271,13 +271,13 @@ VMs are created with a public dynamic IP. Since a VM with Hystax Acura may reboo
 
      {% endnote %}
      
-   * **Default Folder id**: ID of your folder.
-   * **Zone**: Availability zone.
+   * **Default folder ID**: ID of your folder.
+   * **Availability zone**: Availability zone.
    * **Hystax Service Subnet**: ID of the subnet the `hystax-acura-vm` VM is connected to.
-   * **S3 Host**: `{{ s3-storage-host }}`.
-   * **S3 Port**: `443`.
-   * **Enable HTTPS**: Select the option to enable HTTPS connections.
-   * **Hystax Acura Control Panel Public IP**: Public IP address of the Hystax Acura VM. Replace the value in this field with the IP address obtained in step 1.
+   * **S3 host**: `{{ s3-storage-host }}`.
+   * **S3 port**: `443`.
+   * **Enable HTTPS**: Select this option to enable HTTPS connections.
+   * **Public IP address of the Hystax Acura management console**: Public IP address of the Hystax Acura VM. Replace the value in this field with the IP address obtained in Step 1.
 1. Click **Next**.
 
 Hystax Acura will automatically check whether it can access your cloud. If everything is correct, you can now log in to the Hystax control panel using your email address and password.
@@ -287,7 +287,7 @@ Hystax Acura will automatically check whether it can access your cloud. If every
 The agents will install on the VMs that will be recovered to {{ yandex-cloud }}. To download and install an agent:
 1. In the Hystax Acura control panel, click the Hystax logo in the top-left corner.
 1. Under **Machines Groups**, create a group of protected VMs, e.g, `Prod-Web`.
-1. Click the **Download agents** tab.
+1. Go to the **Download agent** tab.
 1. Choose one out of three types of agents depending on the OS:
    * VMware
    * Windows
@@ -301,14 +301,14 @@ The agents will install on the VMs that will be recovered to {{ yandex-cloud }}.
    - VMware {#vmware}
 
      1. In the drop-down list, select a group of VMs to set up agents for, e.g., `Prod-Web`.
-     1. Select **New VMware vSphere** and fill out the fields:
+     1. Select **New VMware vSphere** and fill in these fields:
         * **Platform Name**: Name of the platform.
         * **Endpoint**: Public IP address of the ESXi host.
-        * **Login**: User login (the user must have the administrator permissions).
+        * **Login**: User login. This user must have the admin permissions.
         * **Password**: Password.
 
         Click **Next**.
-     1. Click **Download Agent** and wait for the agent to download.
+     1. Click **Download agent** and wait for the download to complete.
      1. Unpack the downloaded OVA file with the agent on the ESXi host.
      1. Start the VMs with the agent.
 
@@ -316,7 +316,7 @@ The agents will install on the VMs that will be recovered to {{ yandex-cloud }}.
 
      1. In the drop-down list, select a group of VMs to set up agents for, e.g., `Prod-Web`.
      1. Click **Next**.
-     1. Click **Download Agent** and wait for the agent to download.
+     1. Click **Download agent** and wait for the download to complete.
      1. Unpack the archive and install the agent from `hwragent.msi` on the VMs you want to protect.
 
    - Linux {#linux}
@@ -339,10 +339,10 @@ Once the agent is installed on the VMs to protect, they will appear in the list 
 
 To enable VM replication:
 1. Open the Hystax Acura control panel. Click the Hystax logo.
-1. Under **Machines Groups**, deploy an instance group, e.g., `Prod-Web`.
+1. Under **Machines Groups**, deploy a VM group, e.g., `Prod-Web`.
 1. In the VM list on the right, click ![image](../../_assets/options.svg).
-1. Set up a replication schedule and an image lifecycle policy using the **Edit replication schedule** and **Edit retention policies** options. For more information, see the [Hystax documentation](https://hystax.com/documentation/dr/dr_overview.html#edit-replication-settings-schedule).
-1. Select **Start Protection**.
+1. Set up a replication schedule and snapshot retention period using the **Edit replication schedule** and **Edit retention policies** options. For more information, see the [Hystax documentation](https://xn--q1ach.xn--p1ai/documentation/disaster-recovery-and-cloud-backup/dr_overview.html#edit-retention-policies).
+1. Select **Enable protection**.
 
 VM replication will start. Once it is complete, the VMs will change their status to `Protected`.
 
@@ -436,23 +436,23 @@ The DR plan includes a VM description and the network settings. You can have a p
 
   To generate a DR plan automatically:
   1. Open the Hystax Acura control panel. Click the Hystax logo.
-  1. Check the VMs you need on the list, click **Bulk actions**, and select **Generate DR plan**. You can also generate a plan for an instance group by clicking ![image](../../_assets/options.svg) in the group header.
-  1. In the **Name** field, enter `Plan-1`.
-  1. Under **Subnets** on the right, specify the parameters of the previously created subnets: **Subned ID** and **CIDR**.
+  1. Select the VMs you need from the list, click **Bulk actions**, and select **Generate DR plan**. You can also generate a plan for a VM group by clicking ![image](../../_assets/options.svg) in the group header.
+  1. In the **Title** field, enter the name: `Plan-1`.
+  1. Under **Subnets** on the right, specify the parameters of the previously created subnets, i.e., their **Subned ID** and **CIDR**.
   1. Click **Save**.
 
 - Manually {#manual}
 
   To create a DR plan manually:
   1. Open the Hystax Acura control panel. Click the Hystax logo.
-  1. Click **Add DR Plan**.
-  1. In the **Name** field, enter `Plan-1`.
+  1. Click **Add DR plan**.
+  1. In the **Title** field, enter the name: `Plan-1`.
   1. Use one of the modes below:
      * `Basic`: Create a plan with standard settings.
      * `Expert`: Create a plan with flexible settings using JSON (see [detailed syntax description](https://hystax.com/documentation/dr/dr_overview.html#id2)).
   1. Add VMs by clicking ![image](../../_assets/options.svg). If required, specify an initialization ordering by using the **Move to another Rank** option.
-  1. If required, modify the parameters of the new VMs. To do this, in the **Flavor name** field, specify the following: `<platform>-<cpu>-<ram>-<core_fraction>`. For example, `2-8-16-100`.
-  1. Under **Subnets** on the right, specify the parameters of the previously created subnets: **Subned ID** and **CIDR**.
+  1. If required, modify the parameters of the new VMs. To do this, in the **Flavor name** field, specify the following: `<platform>-<cpu>-<ram>-<core_fraction>`. e.g., `2-8-16-100`.
+  1. Under **Subnets** on the right, specify the parameters of the previously created subnets, i.e., their **Subned ID** and **CIDR**.
   1. Click **Save**.
 
   {% note warning %}

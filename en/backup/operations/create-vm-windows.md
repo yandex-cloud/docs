@@ -33,7 +33,10 @@ You can back up {{ compute-name }} [VMs](../../compute/concepts/vm.md) with [sup
       1. In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
       1. Select a security group configured to work with {{ backup-name }}.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select the service account with the `backup.editor` role.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_additional }}**, enable the {{ backup-name }} connection option for your VM.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_additional }}**:
+
+      {% include [backup-enable](../../_includes/compute/backup-enable.md) %}
+
   1. Specify the other VM parameters as needed.
   1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
@@ -104,8 +107,8 @@ You can back up {{ compute-name }} [VMs](../../compute/concepts/vm.md) with [sup
 
         {% include [name-fqdn](../../_includes/compute/name-fqdn.md) %}
 
-      * `--zone`: [Availability zone](../../overview/concepts/geo-scope.md) that matches the selected subnet.
-      * `subnet-name`: Name for the selected [subnet](../../vpc/concepts/network.md#subnet).
+      * `--zone`: [Availability zone](../../overview/concepts/geo-scope.md) matching the selected subnet.
+      * `subnet-name`: Name of the selected [subnet](../../vpc/concepts/network.md#subnet).
       * `security-group-ids`: ID of the [security group](../../vpc/concepts/security-groups.md) configured to work with {{ backup-name }}.
       * `image-id`: OS [image ID](../../compute/concepts/image.md). See the [list of supported Windows-based operating systems](../concepts/vm-connection.md#windows).
       * `create-boot-disk`: Boot disk size.
@@ -115,7 +118,7 @@ You can back up {{ compute-name }} [VMs](../../compute/concepts/vm.md) with [sup
       * `--service-account-name`: Name of the [service account](../../iam/concepts/users/service-accounts.md) with the `backup.editor` role.
       * `--user-data`: Path to the previously created file with a script for installing the {{ backup-name }} agent on your VM.
 
-      In this example, a VM running on Windows Server 2022 is created:
+      In this example, we are creating a VM running Windows Server 2022:
 
       ```bash
       yc compute instance create \

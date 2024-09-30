@@ -1,79 +1,44 @@
-1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создана виртуальная машина.
+1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана ВМ.
 1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-1. Справа сверху нажмите **{{ ui-key.yacloud.compute.instances.button_create }}**.
-1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
-    * Введите имя и описание ВМ. Требования к имени:
-
-        {% include [name-format](../../name-format.md) %}
-
-        {% include [name-fqdn](../name-fqdn.md) %}
-
-    * Выберите [зону доступности](../../../overview/concepts/geo-scope.md), в которой будет находиться виртуальная машина.
-
-      
-      {% include [gpu-zones](../gpu-zones.md) %}
-      
-
-
+1. На панели слева выберите ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
+1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
 1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** на вкладке **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** выберите один из [GPU-ориентированных образов](/marketplace?search=gpu) и версию операционной системы.
 
     {% include [gpu-os](../gpu-os.md) %}
 
-1. (Опционально) В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** настройте загрузочный диск:
+1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
+1. (Опционально) В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** настройте загрузочный [диск](../../../compute/concepts/disk.md):
+
     * Выберите [тип диска](../../../compute/concepts/disk.md#disks_types).
-    * Укажите нужный размер диска.
+    * Задайте нужный размер диска.
+    * {% include [encryption-section-secondary](../encryption-section-secondary.md) %}
 
-    
-    * {% include [encryption-section-boot](../../../_includes/compute/encryption-section-boot.md) %}
+        Если вы создаете ВМ из существующего загрузочного диска, измените настройки этого диска на вкладке **{{ ui-key.yacloud.compute.instances.create.image_value_custom_new }}** в блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** вверху формы.
 
-
-
-1. (Опционально) В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** на вкладке **{{ ui-key.yacloud.compute.nfs.label_filesystems }}** подключите [файловое хранилище](../../../compute/concepts/filesystem.md):
-
-     * Нажмите **{{ ui-key.yacloud.compute.nfs.button_attach-filesystem-to-the-instance }}**.
-     * В открывшемся окне выберите файловое хранилище.
-     * Укажите имя устройства.
-     * Нажмите **{{ ui-key.yacloud.compute.nfs.button_attach-filesystem-to-the-instance }}**.
-
-
+1. {% include [section-storages-secondary-disk](section-storages-secondary-disk.md) %}
+1. {% include [section-storages-filesystem](section-storages-filesystem.md) %}
 1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
+
+    * Перейдите на вкладку **{{ ui-key.yacloud.component.compute.resources.label_tab-gpu }}**.
     * Выберите одну из [платформ](../../../compute/concepts/vm-platforms.md#gpu-platforms):
 
-      
-      * {{ v100-broadwell }}
-      * {{ v100-cascade-lake }}
-      * {{ a100-epyc }}
-      * {{ t4-ice-lake }}
-      
-      
-       
-    * Выберите [конфигурацию](../../../compute/concepts/gpus.md#config) виртуальной машины, указав необходимое количество [GPU](../../../glossary/gpu.md).
-    * При необходимости сделайте виртуальную машину [прерываемой](../../../compute/concepts/preemptible-vm.md).
+        * {{ v100-broadwell }}
+        * {{ v100-cascade-lake }}
+        * {{ a100-epyc }}
+        * {{ t4-ice-lake }}
 
+    * Выберите одну из предлагаемых конфигураций с необходимым количеством GPU, vCPU и объемом RAM.
 
-1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
+1. {% include [network-settings](section-network.md) %}
+1. {% include [section-access](section-access.md) %}
 
-    {% include [network-settings](../../../_includes/compute/network-settings.md) %}
+1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ:
 
-1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** укажите данные для доступа на виртуальную машину:
-    * (Опционально) Выберите или создайте [сервисный аккаунт](../../../iam/concepts/index.md#sa). Использование сервисного аккаунта позволяет гибко настраивать права доступа к ресурсам.
+    {% include [name-format](../../name-format.md) %}
 
-        Для ВМ с операционной системой на базе Linux:
-        * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя.
+    {% include [name-fqdn](../../compute/name-fqdn.md) %}
 
-          {% note alert %}
-
-          Не используйте логин `root` или другие имена, зарезервированные операционной системой. Для выполнения операций, требующих прав суперпользователя, используйте команду `sudo`.
-
-          {% endnote %}
-
-        * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** вставьте содержимое файла [открытого ключа](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
-
-        * (Опционально) При необходимости разрешите доступ к [серийной консоли](../../../compute/operations/index.md#serial-console).
-
-        {% include [vm-connect-linux](../../../_includes/vm-connect-linux.md) %}
-
-1. (Опционально) В блоке **{{ ui-key.yacloud.compute.instances.create.section_placement }}** выберите [группу размещения](../../../compute/concepts/placement-groups.md) ВМ.
-1. Нажмите **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
+1. {% include [section-additional](section-additional.md) %}
+1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
 Виртуальная машина появится в списке.

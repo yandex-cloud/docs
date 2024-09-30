@@ -2,6 +2,7 @@
 
 Deletes a static website hosting configuration for a bucket.
 
+{% include [s3-api-intro-include](../../../../_includes/storage/s3-api-intro-include.md) %}
 
 ## Request {#request}
 

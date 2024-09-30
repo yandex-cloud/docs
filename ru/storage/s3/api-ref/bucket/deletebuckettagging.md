@@ -1,6 +1,6 @@
 # Метод deleteBucketTagging
 
-Удаляет [метки](../../../concepts/tags.md) бакета. 
+Удаляет [метки](../../../concepts/tags.md) бакета.
 
 {% include [labels-tags](../../../../_includes/storage/labels-tags.md) %}
 

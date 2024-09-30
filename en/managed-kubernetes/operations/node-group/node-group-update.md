@@ -79,11 +79,11 @@ To learn how to change the [availability zone](../../../overview/concepts/geo-sc
     {% include [node-name](../../../_includes/managed-kubernetes/node-name.md) %}
 
   * `--template-labels`: Change [node group cloud labels](../../../resource-manager/concepts/labels.md) formatted as `<label_name>=<label_value>`. You can specify multiple labels separated by commas.
-  * `--latest-revision`: Get all available updates for the current [{{ managed-k8s-name }} master](../../concepts/index.md#master) version.
+  * `--latest-revision`: Get all available updates for the current [{{ managed-k8s-name }}](../../concepts/index.md#master) master version.
   * Scaling settings:
 
     * `--fixed-size`: Change fixed number of nodes in a {{ managed-k8s-name }} node group.
-    * `--auto-scale`: Change [automatic scaling settings of the {{ managed-k8s-name }} cluster](../../concepts/node-group/cluster-autoscaler.md):
+    * `--auto-scale`: Change [automatic scaling settings of the {{ managed-k8s-name }}](../../concepts/node-group/cluster-autoscaler.md) cluster:
 
       * `min`: Minimum number of nodes in the group.
       * `max`: Maximum number of nodes in the group.
@@ -305,7 +305,7 @@ Removing [taints](../../concepts/index.md#taints-tolerations) results in recreat
   To remove a taint from a node group, use the [update](../../api-ref/NodeGroup/update.md) method for the [NodeGroup](../../api-ref/NodeGroup/index.md) and provide the following in the request:
 
   * A new set of taints in the `nodeTaints` parameter. If you want to remove all taints, put `"nodeTaints": []` in the request.
-  * The updatable `nodeTaints` parameter in the `updateMask` parameter.
+  * `nodeTaints` parameter to update in the `updateMask` parameter.
 
   {% include [Note API updateMask](../../../_includes/note-api-updatemask.md) %}
 
@@ -381,7 +381,7 @@ You can perform the following actions with [cloud labels](../../../resource-mana
 
   {% note warning %}
 
-  The existing set of `labels` is completely overwritten by the one transmitted in the request.
+  The existing `labels` will be completely overwritten by the ones you provide in your request.
 
   {% endnote %}
 

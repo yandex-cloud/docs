@@ -91,9 +91,12 @@ services:
 
 
 ```bash
-time curl -0 -X POST "http://<server>:8080/foundationModels/v1/completion" \
-  -H "Content-Type: application/json; charset=utf-8" \
-  -H "Authorization: Bearer 0" \
+time curl \
+  --http1.0 \
+  --request POST \
+  "http://<server>:8080/foundationModels/v1/completion" \
+  --header "Content-Type: application/json; charset=utf-8" \
+  --header "Authorization: Bearer 0" \
   --data @- <<'EOF'
 {
   "modelUri": "gpt://0/general",

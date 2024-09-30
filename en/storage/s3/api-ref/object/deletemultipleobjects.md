@@ -13,7 +13,7 @@ You can configure responses so that {{ objstorage-name }} returns one of the fol
 - Statuses of all delete operations.
 - Only statuses with errors deleting objects. In this case, if no errors occurred, an empty response is returned.
 
-
+{% include [s3-api-intro-include](../../../../_includes/storage/s3-api-intro-include.md) %}
 
 ## Request {#request}
 

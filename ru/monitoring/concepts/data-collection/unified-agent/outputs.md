@@ -263,7 +263,7 @@ output:
           timestamp: # необязательный
             keys: ["ts", "timestamp", "instant"]
 
-          # Единицы изменения timestamp: seconds, milliseconds, microseconds
+          # Единицы измерения timestamp: seconds, milliseconds, microseconds
           unix_timestamp_format: seconds # необязательный
 
           # Ключи в JSON, соответствующие priority.

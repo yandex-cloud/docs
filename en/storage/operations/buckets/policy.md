@@ -31,7 +31,7 @@ To apply or edit a bucket access policy:
      1. Configure rule settings:
         * **{{ ui-key.yacloud.storage.bucket.policy.field_effect }}**: Allow or forbid.
         * **{{ ui-key.yacloud.storage.bucket.policy.field_principal-type }}**: Include or exclude users.
-        * **{{ ui-key.yacloud.storage.bucket.policy.field_user }}**: All users or specific users.
+        * **{{ ui-key.yacloud.storage.bucket.policy.field_user }}**: All users or specific users. To list specific users or service accounts, select their names in the drop-down list.
         * **{{ ui-key.yacloud.storage.bucket.policy.field_action }}** for which the rule is being created. You can also select the **All actions** option.
         * **{{ ui-key.yacloud.storage.bucket.policy.field_resource }}**: Selected bucket specified by default. To add other resources to the rule, click **{{ ui-key.yacloud.storage.bucket.policy.button_add-resource }}**.
 
@@ -85,7 +85,7 @@ To apply or edit a bucket access policy:
      * `Version`: Version of the bucket policy description. This is an optional parameter.
      * `Statement`: Bucket policy rules:
        * `Effect`: Deny or allow the requested action. Possible values: `Allow` and `Deny`.
-       * `Principal`: Requested permission subject ID. The possible grantees are a [user](../../../iam/operations/users/get.md), [service account](../../../iam/operations/sa/get-id.md), or [user group](../../../organization/operations/manage-groups.md). The possible values are `*` and `<subject_ID>`. This is an optional parameter.
+       * `Principal`: Requested permission subject ID. You can request permissions for a [user](../../../iam/operations/users/get.md), [service account](../../../iam/operations/sa/get-id.md), or [user group](../../../organization/operations/manage-groups.md). The possible values are `*` and `<subject_ID>`. This is an optional parameter.
 
          
          You can get the IDs in any of the following ways:
@@ -162,7 +162,7 @@ To apply or edit a bucket access policy:
      * `Version`: Version of the bucket policy description. This is an optional parameter.
      * `Statement`: Bucket policy rules:
        * `Effect`: Deny or allow the requested action. Possible values: `Allow` and `Deny`.
-       * `Principal`: Requested permission subject ID. The possible grantees are a [user](../../../iam/operations/users/get.md), [service account](../../../iam/operations/sa/get-id.md), or [user group](../../../organization/operations/manage-groups.md). The possible values are `*` and `<subject_ID>`. This is an optional parameter.
+       * `Principal`: Requested permission subject ID. You can request permissions for a [user](../../../iam/operations/users/get.md), [service account](../../../iam/operations/sa/get-id.md), or [user group](../../../organization/operations/manage-groups.md). The possible values are `*` and `<subject_ID>`. This is an optional parameter.
 
          
          You can get the IDs in any of the following ways:
@@ -257,7 +257,7 @@ To apply or edit a bucket access policy:
      * `Version`: Version of the bucket policy description. This is an optional parameter.
      * `Statement`: Bucket policy rules:
        * `Effect`: Deny or allow the requested action. Possible values: `Allow` and `Deny`.
-       * `Principal`: Requested permission subject ID. The possible grantees are a [user](../../../iam/operations/users/get.md), [service account](../../../iam/operations/sa/get-id.md), or [user group](../../../organization/operations/manage-groups.md). The possible values are `*` and `<subject_ID>`. This is an optional parameter.
+       * `Principal`: Requested permission subject ID. You can request permissions for a [user](../../../iam/operations/users/get.md), [service account](../../../iam/operations/sa/get-id.md), or [user group](../../../organization/operations/manage-groups.md). The possible values are `*` and `<subject_ID>`. This is an optional parameter.
 
          
          You can get the IDs in any of the following ways:
@@ -270,7 +270,7 @@ To apply or edit a bucket access policy:
        * `Resource`: Resource to apply the rule to.
        * `Condition`: [Condition](../../s3/api-ref/policy/conditions.md) to check. This is an optional parameter.
 
-     For more information about the resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
+     For more details about resources you can create using {{ TF }}, see [the provider documentation]({{ tf-provider-link }}/).
   1. Make sure the configuration files are correct.
      1. In the command line, go to the folder where you created the configuration file.
      1. Run a check using this command:
@@ -421,9 +421,9 @@ To delete a bucket policy:
         terraform apply
         ```
 
-     1. Type `yes` and click **Enter**.
+     1. Type `yes` and press **Enter**.
 
-     This will delete the bucket policy from the specified folder. You can check that the bucket policy is gone in the [management console]({{ link-console-main }}).
+     Afterwards, the bucket policy will be deleted from the specified folder. You can check the bucket policy's deletion using the [management console]({{ link-console-main }}).
 
 - API {#api}
 

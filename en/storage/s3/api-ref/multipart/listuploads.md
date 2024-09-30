@@ -4,6 +4,7 @@ Returns a list of current multipart uploads.
 
 The response may not contain more than 1,000 elements. If there are more uploads, {{ objstorage-name }} will return the `IsTruncated` element, as well as the `NextKeyMarker` and `NextUploadIdMarker` elements to use for the `key-marker` and `upload-id-marker` parameters of a subsequent request.
 
+{% include [s3-api-intro-include](../../../../_includes/storage/s3-api-intro-include.md) %}
 
 ## Request {#request}
 
@@ -23,8 +24,8 @@ Parameter | Description
 Parameter | Description
 ----- | -----
 `delimiter` | Delimiter character.<br/><br/>If this parameter is specified, {{ objstorage-name }} interprets the key as the path to the file with folder names separated by `delimiter`. The user will see a list of files and folders in the root of the bucket. Files will be output in the `Uploads` elements, and folders, in the `CommonPrefixes` elements.<br/><br/>If the request also specifies the `prefix` parameter, {{ objstorage-name }} will return the list of files and folders in the folder named `prefix`.
-`max-uploads` | Maximum number of uploads in a response.<br/><br/>By default, {{ objstorage-name }} outputs no more than 1,000 keys. Use this parameter if you need less than 1,000 keys in a single response.<br/><br/>If the keys that meet the selection criteria did not fit in the output, the response contains `<IsTruncated>true</IsTruncated>`.<br/><br/>To get all output objects if their number exceeds `max-keys`, run multiple requests to {{ objstorage-name }} with the `key-marker` parameter, where the `key-marker` of each request is equal to the value of the `NextKeyMarker` element in the previous response.
-`key-marker` | Key. The output begins with the key that follows the one specified in the parameter value.<br/><br/>Use it together with `upload-id-marker` for output filtering.<br/><br/>If `upload-id-marker` is specified, the output also contains `key-marker`.
+`max-uploads` | Maximum number of uploads in a response.<br/><br/>By default, {{ objstorage-name }} outputs no more than 1,000 keys. Use this parameter if you need less than 1,000 keys in a single response.<br/><br/>If the selection criteria are met by more keys than can fit into the output, the response contains `<IsTruncated>true</IsTruncated>`.<br/><br/>To get all output objects if their number exceeds `max-keys`, run multiple requests to {{ objstorage-name }} with the `key-marker` parameter, where the `key-marker` of each request is equal to the value of the `NextKeyMarker` element in the previous response.
+`key-marker` | Key. The output begins with the key that follows the one specified in the parameter value.<br/><br/>Use it along with `upload-id-marker` for output filtering.<br/><br/>If `upload-id-marker` is specified, the output also contains `key-marker`.
 `prefix` | String to start the key from.<br/><br/>{{ objstorage-name }} selects only those keys which start with `prefix`.
 `upload-id-marker` | Upload ID.<br/><br/>The first upload in the output is the one whose ID follows the upload specified in this parameter. The `key-marker` parameter is used in processing, i.e., the output includes uploads filtered by both `upload-id-marker` and `key-marker`.<br/><br/>If `key-marker` is not specified, `upload-id-marker` is ignored.
 `uploads` | Flag indicating the multipart upload operation.

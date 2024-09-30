@@ -2,6 +2,8 @@
 
 Returns the access policy for the specified bucket.
 
+{% include [s3-api-intro-include](../../../../_includes/storage/s3-api-intro-include.md) %}
+
 ## Request {#request}
 
 ```bash
@@ -10,19 +12,19 @@ GET /{bucket}?policy HTTP/2
 
 ### Path parameters {#path-parameters}
 
-| Parameter | Description |
+Parameter | Description
 ----- | -----
-| `bucket` | Bucket name. |
+`bucket` | Bucket name.
 
 ### Query parameters {#request-params}
 
-| Parameter | Description |
+Parameter | Description
 ----- | -----
-| `policy` | Required parameter that indicates the type of operation. |
+`policy` | Required parameter that indicates the type of operation.
 
 ### Headers {#request-headers}
 
-Use the appropriate [common headers](../common-request-headers.md) in your requests.
+Use the appropriate [common headers](../common-request-headers.md) in your request.
 
 ## Response {#response}
 

@@ -27,7 +27,7 @@ items:
             href: operations/channels/update.md
           - name: Deleting a channel
             href: operations/channels/delete.md
-      - name: Video
+      - name: Videos
         items:
           - name: Uploading a video
             href: operations/video/upload.md
@@ -37,6 +37,8 @@ items:
             href: operations/video/download.md
           - name: Publishing a video
             href: operations/video/publish.md
+          - name: Unpublishing a video
+            href: operations/video/unpublish.md
           - name: Getting an embed code or link
             href: operations/video/get-link.md
           - name: Adding a video to a playlist
@@ -87,7 +89,7 @@ items:
     items:
       - name: Overview
         href: concepts/index.md
-      - name: Video
+      - name: Videos
         href: concepts/videos.md
       - name: Broadcasts
         href: concepts/streams.md

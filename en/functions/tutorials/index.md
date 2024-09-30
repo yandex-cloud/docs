@@ -23,6 +23,5 @@
 * [{#T}](vm-scale-scheduled.md)
 * [{#T}](datalens.md)
 * [{#T}](monitoring.md)
-* [{#T}](iot-emulation.md)
 * [{#T}](./serverless-trigger-budget-queue-vm-tg.md)
 * [Streaming {{ postbox-full-name }} events to {{ yds-full-name }} and analyzing them using {{ datalens-full-name }}](./events-from-postbox-to-yds.md)

@@ -2,6 +2,8 @@
 
 Returns an access control list for an object.
 
+{% include [s3-api-intro-include](../../../../_includes/storage/s3-api-intro-include.md) %}
+
 ## Request {#request}
 
 ```http

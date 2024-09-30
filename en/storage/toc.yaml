@@ -157,6 +157,10 @@ items:
           }}
         href: tutorials/object-storage-to-ydb.md
       - name: >-
+          Exchanging data between {{ mch-full-name }} and {{ dataproc-full-name
+          }}
+        href: tutorials/dp-mch-data-exchange.md
+      - name: >-
           Uploading data from {{ ydb-full-name }} using {{
           data-transfer-full-name }}
         href: tutorials/ydb-to-object-storage.md
@@ -164,6 +168,8 @@ items:
         href: tutorials/gatsby-static-website.md
       - name: Storing a static access key in a {{ lockbox-name }} secret
         href: tutorials/static-key-in-lockbox.md
+      - name: Migrating data from {{ ES }} to {{ mos-full-name }}
+        href: tutorials/elasticsearch-to-opensearch.md
       - name: Uploading {{ TF }} states to {{ objstorage-name }}
         href: tutorials/terraform-state-storage.md
       - name: Locking {{ TF }} states using {{ ydb-name }}

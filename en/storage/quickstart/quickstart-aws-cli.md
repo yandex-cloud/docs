@@ -50,7 +50,7 @@ To get started with the AWS CLI:
 
       1. In the [management console]({{ link-console-main }}), select the cloud or folder.
       1. Go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
-      1. Click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
+      1. Click **{{ ui-key.yacloud.common.resource-acl.button_configure-access }}**.
       1. In the window that opens, select **{{ ui-key.yacloud_components.acl.label.service-accounts}}**.
       1. Select the required service account from the list or use the search.
       1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the role from the list or use the search bar.
@@ -218,7 +218,7 @@ Give consideration to the [special aspects](../tools/aws-cli.md#specifics) of us
   In the terminal, run the command below stating the bucket name, object key, and link lifetime in seconds:
 
   ```bash
-  aws s3 presign s3://<bucket_name>/<object_key> --expires-in <lifetime>
+  aws s3 presign s3://<bucket_name>/<object_key> --expires-in <life_time>
   ```
 
   You can share the received link or use it in your service to access the file.

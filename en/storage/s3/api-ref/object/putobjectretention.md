@@ -4,7 +4,9 @@ Puts [retention](../../../concepts/object-lock.md) on the object version or ena
 
 To be able to put locks on object versions, enable object lock in the bucket. For this, use the [putObjectLockConfiguration](../bucket/putobjectlockconfiguration.md) method.
 
-Only a user with the [`storage.admin` role](../../../security/index.md) can change a lock once it was set. For a [governance-mode](../../../concepts/object-lock.md#types) retention, use a header that confirms retention bypass (see [below](#request-headers)). You can only extend compliance-mode retention. To check retention status, use the [getObjectRetention](getobjectretention.md) method.
+Only a user with the [`storage.admin`](../../../security/index.md) role can change a lock once it was set. For a [governance-mode](../../../concepts/object-lock.md#types) retention, use a header that confirms retention bypass (see [below](#request-headers)). You can only extend compliance-mode retention. To check retention status, use the [getObjectRetention](getobjectretention.md) method.
+
+{% include [s3-api-intro-include](../../../../_includes/storage/s3-api-intro-include.md) %}
 
 ## Request {#request}
 
