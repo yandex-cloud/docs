@@ -31,7 +31,7 @@ description: "Различные сценарии использования {{ 
 * [{#T}](jenkins.md)
 * [{#T}](test-vms-creation-via-gitlab-ci.md)
 * [{#T}](hpc-on-preemptible.md)
-* [{#T}](single-node-file-server.md)
+* [{#T}](single-node-file-server/index.md)
 * [{#T}](backup-and-archive-to-sftp.md)
 * [{#T}](ha-regional-glusterfs.md)
 * [{#T}](ha-regional-glusterfs-high-performance.md)

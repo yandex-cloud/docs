@@ -2,6 +2,8 @@
 
 Removes encryption from the bucket. For more information about bucket encryption, see [{#T}](../../../concepts/encryption.md).
 
+{% include [s3-api-intro-include](../../../../_includes/storage/s3-api-intro-include.md) %}
+
 ## Request {#request}
 
 ```http

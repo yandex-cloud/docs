@@ -1,3 +1,8 @@
+---
+title: "{{ TF }} reference for {{ managed-k8s-full-name }}"
+description: "This page provides reference information on the {{ TF }} provider resources and data sources supported for {{ managed-k8s-name }}."
+---
+
 # {{ TF }} reference for {{ managed-k8s-full-name }}
 
 {% include [terraform-ref-intro](../_includes/terraform-ref-intro.md) %}
@@ -13,7 +18,7 @@ The following {{ TF }} provider resources are supported for {{ managed-k8s-name 
 
 ## {#data-sources} data sources
 
-{{ managed-k8s-name }} supports the following {{ TF }} data sources:
+{{ managed-k8s-name }} supports the following {{ TF }} provider data sources:
 
 | **{{ TF }} data source** | **Description** |
 | --- | --- |

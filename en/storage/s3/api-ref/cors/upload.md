@@ -4,6 +4,7 @@ Uploads a CORS configuration for a bucket. It replaces any existing configuratio
 
 A CORS configuration is an XML file no larger than 64 KB. A configuration may not contain more than 100 rules.
 
+{% include [s3-api-intro-include](../../../../_includes/storage/s3-api-intro-include.md) %}
 
 ## Request {#request}
 

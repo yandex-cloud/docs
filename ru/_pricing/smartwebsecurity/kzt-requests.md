@@ -6,4 +6,4 @@
 | От 10 до 100 включительно | {{ sku|KZT|sws.requests.v1|pricingRate.10|string }} |
 | От 100 до 1000 включительно | {{ sku|KZT|sws.requests.v1|pricingRate.100|string }} |
 | От 1000 до 10 000 включительно | {{ sku|KZT|sws.requests.v1|pricingRate.1000|string }} |
-| Более 10 000 включительно | {{ sku|KZT|sws.requests.v1|pricingRate.10000|string }} |
+| Более 10 000 | {{ sku|KZT|sws.requests.v1|pricingRate.10000|string }} |

@@ -134,7 +134,7 @@ items:
                 href: operations/vm-connect/os-login-create-vm.md
               - name: Настроить OS Login на существующей ВМ
                 href: operations/vm-connect/enable-os-login.md
-              - name: Экспортировать сертификат OS Login
+              - name: Экспортировать SSH-сертификат
                 href: operations/vm-connect/os-login-export-certificate.md
               - name: Подключиться к ВМ по OS Login
                 href: operations/vm-connect/os-login.md
@@ -451,7 +451,13 @@ items:
       - name: Высокопроизводительные вычисления (HPC) на прерываемых ВМ
         href: tutorials/hpc-on-preemptible.md
       - name: Однонодовый файловый сервер
-        href: tutorials/single-node-file-server.md
+        items:
+          - name: Обзор
+            href: tutorials/single-node-file-server/index.md
+          - name: Консоль управления
+            href: tutorials/single-node-file-server/console.md
+          - name: '{{ TF }}'
+            href: tutorials/single-node-file-server/terraform.md
       - name: Настройка SFTP-сервера на Centos 7
         href: tutorials/backup-and-archive-to-sftp.md
       - name: >-

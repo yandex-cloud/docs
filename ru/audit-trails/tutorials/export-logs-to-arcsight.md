@@ -94,7 +94,8 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в бакет, созданный ранее.
-  1. На панели слева выберите **{{ ui-key.yacloud.storage.bucket.switch_encryption }}**.
+  1. На панели слева выберите **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
+  1. Откройте вкладку **{{ ui-key.yacloud.storage.bucket.switch_encryption }}**.
   1. В поле **{{ ui-key.yacloud.storage.bucket.encryption.field_key }}** выберите ключ `arcsight-kms`.
   1. Нажмите **{{ ui-key.yacloud.storage.bucket.encryption.button_save }}**.
 

@@ -4,6 +4,8 @@ Returns bucket [labels](../../../concepts/tags.md).
 
 {% include [labels-tags](../../../../_includes/storage/labels-tags.md) %}
 
+{% include [s3-api-intro-include](../../../../_includes/storage/s3-api-intro-include.md) %}
+
 ## Request {#request}
 
 ```http
@@ -12,15 +14,15 @@ GET /{bucket}?tagging HTTP/2
 
 ### Path parameters {#path-parameters}
 
-| Parameter | Description |
+Parameter | Description
 --- | ---
-| `bucket` | Bucket name. |
+`bucket` | Bucket name.
 
 ### Query parameters {#request-params}
 
-| Parameter | Description |
+Parameter | Description
 --- | ---
-| `tagging` | Required parameter that indicates the type of operation. |
+`tagging` | Required parameter that indicates the type of operation.
 
 ### Headers {#request-headers}
 
@@ -52,12 +54,12 @@ A successful response contains additional data in XML format with the schema des
 </Tagging>
 ```
 
-| Element | Description |
+Element | Description
 --- | ---
-| `Tagging` | Root element. |
-| `TagSet` | Array of labels. |
-| `Tag` | Container for labels. |
-| `Key` | Label key.<br>Type: String. |
-| `Value` | Label value.<br>Type: String. |
+`Tagging` | Root element.
+`TagSet` | Array of labels.
+`Tag` | Container for labels.
+`Key` | Label key.<br>Type: String.
+`Value` | Label value.<br>Type: String.
 
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

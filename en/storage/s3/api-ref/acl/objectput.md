@@ -4,9 +4,11 @@ Uploads an access control list for an object.
 
 {% note info %}
 
-ACLs can be uploaded as XML documents or using special `X-Amz-Grant*` headers. Don't use XML documents and `X-Amz-Grant*` headers in the same request.
+ACLs can be uploaded as XML documents or using special `X-Amz-Grant*` headers. Do not use an XML document and `X-Amz-Grant*` headers in the same request.
 
 {% endnote %}
+
+{% include [s3-api-intro-include](../../../../_includes/storage/s3-api-intro-include.md) %}
 
 ## Request {#request}
 

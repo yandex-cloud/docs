@@ -2,6 +2,7 @@
 
 Returns an object from {{ objstorage-name }}.
 
+{% include [s3-api-intro-include](../../../../_includes/storage/s3-api-intro-include.md) %}
 
 ## Request {#request}
 
@@ -53,7 +54,7 @@ In addition to [common response headers](../common-response-headers.md), you can
 
 Header | Description
 ----- | -----
-`X-Amz-Meta-*` | Object user-defined metadata.
+`X-Amz-Meta-*` | User-defined object metadata.
 `X-Amz-Storage-Class` | Object [storage class](../../../concepts/storage-class.md).<br/>It takes either the `COLD` or `ICE` value if the object is in cold or ice storage, respectively.<br/><br/>If the object is in standard storage, there is no header.
 `X-Amz-Server-Side-Encryption` | Encryption algorithm used to encrypt the object. Returned if the object was loaded with enabled [encryption](../../../operations/buckets/encrypt.md).
 `X-Amz-Server-Side-Encryption-Aws-Kms-Key-Id` | ID of the [key {{ kms-short-name }}](../../../../kms/concepts/key.md). Returned if the object was loaded with enabled [encryption](../../../operations/buckets/encrypt.md).

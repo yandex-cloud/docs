@@ -9,7 +9,7 @@
     * [**{{ ui-key.yacloud.smart-web-security.overview.label_base-rule }}**](../../smartwebsecurity/concepts/rules.md#base-rules) — правило, которое по заданным условиям разрешает, запрещает или отправляет трафик в [{{ captcha-full-name }}](../../smartcaptcha/).
     * [**{{ ui-key.yacloud.smart-web-security.overview.label_smart-protection-rule }}**](../../smartwebsecurity/concepts/rules.md#smart-protection-rules) — правило, которое отправляет трафик на автоматический анализ с помощью алгоритмов машинного обучения и поведенческого анализа. Подозрительные запросы отправляются в {{ captcha-full-name }} для дополнительной верификации.
     * [**{{ ui-key.yacloud.smart-web-security.overview.label_waf-rule }}**](../../smartwebsecurity/concepts/rules.md#waf-rules) — правило, которое подключает набор правил из профиля WAF. Подозрительные запросы отправляются в {{ captcha-full-name }}.
-    
+
         Для правила WAF выберите или [создайте профиль WAF](../../smartwebsecurity/operations/waf-profile-create.md).
 1. Выберите [действие](../../smartwebsecurity/concepts/rules.md#rule-action):
     * Для базового правила: 

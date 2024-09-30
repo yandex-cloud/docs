@@ -150,7 +150,7 @@ Number of elements must be less than or equal to 1"}
 
 Ошибка возникает, если для одного обработчика Ingress-контроллера указаны разные сертификаты.
 
-**Решение:** исправьте и примените спецификации Ingress-контроллера таким образом, чтобы в описании каждого обработчика был указан только один сертификат.
+**Решение**: исправьте и примените спецификации Ingress-контроллера таким образом, чтобы в описании каждого обработчика был указан только один сертификат.
 
 #### Почему в кластере не работает разрешение имен DNS? {#not-resolve-dns}
 
@@ -272,13 +272,13 @@ Too many authentication failures
 Ошибки возникают [при подключении к узлу {{ managed-k8s-name }}](../../managed-kubernetes/operations/node-connect-ssh.md) в следующих ситуациях:
 * Публичный [SSH-ключ](../../glossary/ssh-keygen.md) не добавлен в метаданные группы узлов {{ managed-k8s-name }}.
 
-  **Решение:** [обновите ключи группы узлов {{ managed-k8s-name }}](../../managed-kubernetes/operations/node-connect-ssh.md#node-add-metadata).
+  **Решение**: [обновите ключи группы узлов {{ managed-k8s-name }}](../../managed-kubernetes/operations/node-connect-ssh.md#node-add-metadata).
 * Публичный SSH-ключ добавлен в метаданные группы узлов {{ managed-k8s-name }}, но неправильно.
 
-  **Решение:** [приведите файл с публичными ключами к необходимому формату](../../managed-kubernetes/operations/node-connect-ssh.md#key-format) и [обновите ключи группы узлов {{ managed-k8s-name }}](../../managed-kubernetes/operations/node-connect-ssh.md#node-add-metadata).
+  **Решение**: [приведите файл с публичными ключами к необходимому формату](../../managed-kubernetes/operations/node-connect-ssh.md#key-format) и [обновите ключи группы узлов {{ managed-k8s-name }}](../../managed-kubernetes/operations/node-connect-ssh.md#node-add-metadata).
 * Приватный SSH-ключ не добавлен в аутентификационный агент (ssh-agent).
 
-  **Решение:** добавьте приватный ключ с помощью команды `ssh-add <путь_к_файлу_приватного_ключа>`.
+  **Решение**: добавьте приватный ключ с помощью команды `ssh-add <путь_к_файлу_приватного_ключа>`.
 
 #### Как выдать доступ в интернет узлам кластера {{ managed-k8s-name }}? {#internet}
 

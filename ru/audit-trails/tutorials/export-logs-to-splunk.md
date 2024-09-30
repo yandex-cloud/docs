@@ -93,7 +93,8 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в бакет, для которого хотите настроить шифрование.
-  1. На панели слева выберите **{{ ui-key.yacloud.storage.bucket.switch_encryption }}**.
+  1. На панели слева выберите **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
+  1. Откройте вкладку **{{ ui-key.yacloud.storage.bucket.switch_encryption }}**.
   1. В поле **{{ ui-key.yacloud.storage.bucket.encryption.field_key }}** выберите ключ или создайте новый:
 
      {% include [storage-create-kms](../../storage/_includes_service/storage-create-kms.md) %}

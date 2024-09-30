@@ -1,6 +1,6 @@
 # Метод getBucketTagging
 
-Возвращает [метки](../../../concepts/tags.md) бакета. 
+Возвращает [метки](../../../concepts/tags.md) бакета.
 
 {% include [labels-tags](../../../../_includes/storage/labels-tags.md) %}
 

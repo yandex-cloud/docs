@@ -1,6 +1,8 @@
-# get method
+# Get method
 
 Returns the bucket object lifecycle configuration from {{ objstorage-name }}.
+
+{% include [s3-api-intro-include](../../../../_includes/storage/s3-api-intro-include.md) %}
 
 ## Request {#request}
 

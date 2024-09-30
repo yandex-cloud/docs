@@ -12,7 +12,7 @@ items:
     items:
       - name: All guides
         href: operations/index.md
-      - name: VMs in {{ backup-name }}
+      - name: VM in {{ backup-name }}
         items:
           - name: Creating and connecting a Linux VM
             href: operations/create-vm.md
@@ -24,7 +24,7 @@ items:
             href: operations/connect-vm-windows.md
           - name: Updating a VM connection to {{ backup-name }}
             href: operations/refresh-connection.md
-          - name: Deleting VMs from {{ backup-name }}
+          - name: Deleting a VM from {{ backup-name }}
             href: operations/delete-vm.md
       - name: Backup policies
         items:
@@ -34,6 +34,8 @@ items:
             href: operations/policy-vm/update.md
           - name: Linking a VM to a policy
             href: operations/policy-vm/attach-and-detach-vm.md
+          - name: Getting information about a policy
+            href: operations/policy-vm/get-info.md
           - name: Unlinking a VM from a policy
             href: operations/policy-vm/detach-vm.md
           - name: Deleting a policy
@@ -57,10 +59,16 @@ items:
   - name: Tutorials
     items:
       - name: Linking a backup policy to a VM automatically
-        href: tutorials/vm-with-backup-policy.md
+        items:
+          - name: Overview
+            href: tutorials/vm-with-backup-policy/index.md
+          - name: Management console, CLI, and API
+            href: tutorials/vm-with-backup-policy/console.md
+          - name: '{{ TF }}'
+            href: tutorials/vm-with-backup-policy/terraform.md
   - name: Concepts
     items:
-      - name: Overview
+      - name: Service overview
         href: concepts/index.md
       - name: Connecting a VM to the service
         href: concepts/vm-connection.md

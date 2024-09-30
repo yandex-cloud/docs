@@ -18,7 +18,7 @@
      Сохраните пароль локально или запомните его. Сервис не показывает пароли после создания.
 
      {% endnote %}
-     
+
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите:
 
       * [зону доступности](../../../overview/concepts/geo-scope) `{{ region-id }}-a`;

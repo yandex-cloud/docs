@@ -1,3 +1,8 @@
+---
+title: "{{ TF }} reference for {{ objstorage-full-name }}"
+description: "This page provides reference information on the Terraform provider resources supported for {{ network-load-balancer-name }}."
+---
+
 # {{ TF }} reference for {{ objstorage-full-name }}
 
 {% include [terraform-ref-intro](../_includes/terraform-ref-intro.md) %}

@@ -2,6 +2,8 @@
 
 Checks whether a [CORS request](../../../concepts/cors.md) to an object can be made.
 
+{% include [s3-api-intro-include](../../../../_includes/storage/s3-api-intro-include.md) %}
+
 ## Request {#request}
 
 ```http
@@ -23,7 +25,7 @@ Header | Description
 `Access-Control-Request-Method` | HTTP method that will be used to send the request to the resource.<br/><br/>Required.
 `Access-Control-Request-Headers` | List of headers to be sent in a subsequent request to the object. Headers are separated by commas.<br/><br/>Optional.
 
-You should also use the necessary [common request headers](../common-request-headers.md)
+Make sure to also use the required [common headers](../common-request-headers.md).
 
 ## Response {#response}
 
@@ -31,7 +33,7 @@ You should also use the necessary [common request headers](../common-request-hea
 
 In addition to [common response headers](../common-response-headers.md), responses may contain:
 
-Header | Description
+Header | Header
 --------- | --------
 `Access-Control-Allow-Origin` | Domain provided in the `Origin` header of the request.<br/><br/>If the [CORS configuration](../cors/upload.md#request-scheme) has its `AllowedOrigin` element set to `*`, then the `Access-Control-Allow-Origin` header value will also be `*`.<br/><br/>If access from the domain is denied, {{ objstorage-name }} will return error 403 and there will be no `Access-Control-*` headers present.
 `Access-Control-Max-Age` | Allowed response caching time (in seconds).

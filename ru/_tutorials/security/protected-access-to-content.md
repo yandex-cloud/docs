@@ -666,9 +666,10 @@
       1. В полях **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}** и **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}** выберите `{{ ui-key.yacloud.storage.bucket.settings.access_value_public }}`.
       1. Нажмите **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
       1. На странице со списком бакетов выберите созданный бакет.
-      1. В меню слева выберите ![website](../../_assets/console-icons/globe.svg) **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
-      1. Выберите раздел **{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}**.
-      1. В поле **{{ ui-key.yacloud.storage.bucket.website.field_index }}** укажите `index.html`.
+      1. На панели слева выберите **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
+      1. На вкладке **{{ ui-key.yacloud.storage.bucket.switch_website }}**:
+         * Выберите `{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}`.
+         * В поле **{{ ui-key.yacloud.storage.bucket.website.field_index }}** укажите `index.html`.
       1. Нажмите **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
 
     - {{ yandex-cloud }} CLI {#cli}

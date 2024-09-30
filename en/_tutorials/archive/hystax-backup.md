@@ -33,7 +33,7 @@ Note that both the Hystax Acura Backup infrastructure and all the recovered VMs 
 * A Hystax Acura Backup VM uses 8 vCPUs, 16 GB of RAM, and a 200-GB disk.
 * The auxiliary Hystax Cloud Agent VMs use 2 vCPU cores, 4 GB or RAM, and a 10-GB disk. A single Hystax Acura Cloud Agent VM can serve up to 6 replicated disks at the same time. If there are more than 6 disks, additional Hystax Acura Cloud Agent VMs are created automatically.
 
-For detailed system requirements, see the [Hystax documentation](https://cdn.hystax.com/Hystax/Documentation/Deployment-requirements.pdf).
+For detailed system requirements, see the [Hystax documentation](https://xn--q1ach.xn--p1ai/cdn/TechDocs/Deployment-requirements.pdf).
 
 {% endnote %}
 
@@ -89,7 +89,7 @@ Auxiliary Hystax Cloud Agent VMs are created automatically in the default securi
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder where you wish to create the bucket.
+  1. In the [management console]({{ link-console-main }}), select the folder where you want to create your bucket.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. On the bucket creation page:
@@ -99,9 +99,9 @@ Auxiliary Hystax Cloud Agent VMs are created automatically in the default securi
          {% include [storage-no-max-limit](../../storage/_includes_service/storage-no-max-limit.md) %}
 
       1. Select the type of [access](../../storage/concepts/bucket.md#bucket-access):
-          * **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}**: `{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}`
-          * **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}**: `{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}`
-          * **{{ ui-key.yacloud.storage.bucket.settings.field_access-config-read }}**: `{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}`
+          * **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}**: `{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}`.
+          * **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}**: `{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}`.
+          * **{{ ui-key.yacloud.storage.bucket.settings.field_access-config-read }}**: `{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}`.
       1. Select the [storage class](../../storage/concepts/storage-class.md): `{{ ui-key.yacloud.storage.bucket.settings.class_value_standard }}`.
       1. Click **{{ ui-key.yacloud.storage.buckets.create.button_create }}** to complete the operation.
   1. Save the bucket name. You will need it later.
@@ -126,7 +126,7 @@ Auxiliary Hystax Cloud Agent VMs are created automatically in the default securi
       1. In the left-hand panel, select ![img](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
       1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
       1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
-          * Enter the VM name, `hystax-acura-vm`, and description.
+          * Enter a name, e.g., `hystax-acura-vm`, and description for the VM.
           * Select an [availability zone](../../overview/concepts/geo-scope.md) to place your VM in.
 
             Save the availability zone ID. You will need it later.
@@ -371,7 +371,7 @@ To enable VM protection:
 1. Under **Machines Groups**, deploy an instance group, e.g., `Default`.
 1. In the VM list on the right, click ![image](../../_assets/console-icons/ellipsis.svg).
 1. In the** Edit replication settings** menu, set up a replication schedule for the instance group by hour, day, or week, or select continuous protection. Under **Volume type**, specify the drive type for VM recovery: `network-hdd`, `network-ssd`, or `network-ssd-nonreplicated`. 
-1. In the **Edit retention settings** menu, set the backup retention period. For more information, see the [Hystax documentation](https://hystax.com/documentation/dr/dr_overview.html#edit-replication-settings-schedule).
+1. In the **Edit retention settings** menu, set the backup retention period. For more information, see the [Hystax documentation](https://xn--q1ach.xn--p1ai/documentation/disaster-recovery-and-cloud-backup/dr_overview.html#edit-replication-schedule).
 1. Select **Start Protection**.
 
 VM replication will start. A VM replica will include all the data of the original VM. Therefore, replication can take a long time (depending on the original VM's disk size). The replication status will be displayed in the **Status** column under **Machines Groups**. Once it is complete, the VMs will change their status to `Protected`.
@@ -448,6 +448,6 @@ To stop paying for the resources you created:
 1. [Delete](../../compute/operations/vm-control/vm-delete.md) the Hystax Acura Backup VM.
 1. [Delete](../../compute/operations/vm-control/vm-delete.md) the auxiliary Hystax Cloud Agent VMs.
 1. [Delete](../../compute/operations/vm-control/vm-delete.md) the recovered VMs.
-1. [Delete](../../storage/operations/buckets/delete.md) the bucket.
+1. [Delete the bucket](../../storage/operations/buckets/delete.md).
 1. [Delete](../../iam/operations/sa/delete.md) the service account used for Hystax Acura Backup.
 1. [Delete](../../vpc/operations/address-delete.md) the public static IP you reserved.

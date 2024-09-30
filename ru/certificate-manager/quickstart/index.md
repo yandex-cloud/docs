@@ -42,8 +42,9 @@
 
         1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
         1. На вкладке **{{ ui-key.yacloud.storage.switch_buckets }}** нажмите на бакет с именем домена.
-        1. В панели слева выберите пункт **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
-        1. Выберите раздел **{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}** и укажите главную страницу сайта.
+        1. На панели слева выберите **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
+        1. Откройте вкладку **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
+        1. Выберите `{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}`. и укажите главную страницу сайта.
         1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.website.button_save }}** для завершения операции.
 
     {% endlist %}
@@ -146,8 +147,9 @@
     1. Войдите в [консоль управления]({{ link-console-main }}).
     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
     1. На вкладке **{{ ui-key.yacloud.storage.switch_buckets }}** нажмите на бакет с именем домена.
+    1. На панели слева выберите **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
     1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_https }}**.
-    1. В отобразившейся панели справа нажмите кнопку **{{ ui-key.yacloud.storage.bucket.https.button_action-configure }}**.
+    1. Справа вверху нажмите **{{ ui-key.yacloud.storage.bucket.https.button_action-configure }}**.
     1. В поле **{{ ui-key.yacloud.storage.bucket.https.field_source }}** выберите `{{ ui-key.yacloud.storage.bucket.https.value_method-certificate-manager }}`.
     1. В поле **{{ ui-key.yacloud.storage.bucket.https.field_certificate-manager }}** выберите сертификат в появившемся списке.
     1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.https.button_save }}**.

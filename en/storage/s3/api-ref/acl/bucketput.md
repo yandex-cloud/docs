@@ -8,6 +8,8 @@ An ACL can be uploaded as an XML document or using special `X-Amz-Grant*` header
 
 {% endnote %}
 
+{% include [s3-api-intro-include](../../../../_includes/storage/s3-api-intro-include.md) %}
+
 ## Request {#request}
 
 ```http

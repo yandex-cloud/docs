@@ -108,9 +108,10 @@
   1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.button_empty-create }}**.
   1. Укажите подготовленный ранее файл `index.html`.
   1. Нажмите кнопку **{{ ui-key.yacloud.storage.button_upload }}**.
-  1. На панели слева выберите вкладку **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
-  1. Выберите опцию **{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}**.
-  1. Укажите главную страницу сайта — `index.html`.
+  1. На панели слева выберите **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
+  1. На вкладке **{{ ui-key.yacloud.storage.bucket.switch_website }}**:
+        * Выберите `{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}`.
+        * Укажите главную страницу сайта — `index.html`.
   1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
 
 {% endlist %}

@@ -15,6 +15,7 @@ The size of each part, except the last one, should be at least 5 MB.
 
 For more information, see [{#T}](../multipart.md).
 
+{% include [s3-api-intro-include](../../../../_includes/storage/s3-api-intro-include.md) %}
 
 ## Request {#request}
 

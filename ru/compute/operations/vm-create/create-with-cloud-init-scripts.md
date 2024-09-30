@@ -27,7 +27,7 @@ description: "Следуя данной инструкции, вы сможет�
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
-  1. Задайте нужные параметры ВМ.
+  1. [Задайте](create-linux-vm.md) нужные параметры ВМ.
   1. Раскройте блок **{{ ui-key.yacloud.common.metadata }}** и в появившихся полях укажите:
 
       * **{{ ui-key.yacloud_billing.component.key-values-input.label_key }}** — `user-data`.

@@ -776,29 +776,30 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
 
 ## Создайте виртуальные машины {{ compute-name }} {#create-vms}
 
-Перед тем как приступать к созданию виртуальных машин, подготовьте [пару ключей](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) (открытый и закрытый) для доступа к ВМ по SSH.
-
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите ваш каталог.
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана ВМ.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
-      * В поле **{{ ui-key.yacloud.common.name }}** укажите имя `target-instance-1`.
-      * В поле **{{ ui-key.yacloud.compute.instances.create.field_zone }}** выберите `{{ region-id }}-b`.
-      * В поле **{{ ui-key.yacloud.component.label-set.label_labels }}** нажмите кнопку **{{ ui-key.yacloud.component.label-set.button_add-label }}** и введите `target-for-stop:true`. Нажмите **Enter**, чтобы сохранить метку.
-
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите [Ubuntu 22.04 LTS](/marketplace/products/yc/ubuntu-22-04-lts).
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
+  1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-b`.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**: 
+
       * В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** выберите созданную ранее подсеть `sample-subnet-{{ region-id }}-b`.
       * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** выберите `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
 
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** укажите данные для доступа к ВМ:
-      * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** укажите имя пользователя `yc-user`.
-      * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** вставьте содержимое созданного ранее [публичного ключа](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите **Неизменяемый ключ** и укажите данные для доступа к ВМ:
+
+      * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя, например, `yc-user`.
+      * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
+
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
+
+      * Укажите имя ВМ: `target-instance-1`.
+      * В поле **{{ ui-key.yacloud.component.label-set.label_labels }}** нажмите кнопку **{{ ui-key.yacloud.component.label-set.button_add-label }}** и введите `target-for-stop:true`. Нажмите **Enter**, чтобы сохранить метку.
 
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
