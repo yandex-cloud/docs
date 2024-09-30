@@ -1660,8 +1660,6 @@ default:
         fixed_consumption:
           v1|string: ₸15000.00
   sku|KZT|sws:
-    profile:
-      v1|string: ₸1250.00
     requests:
       v1|pricingRate:
         '0':
@@ -1672,8 +1670,6 @@ default:
         1000|string: ₸250.00
         10000|string: ₸125.00
       v1|string: Free
-    rule:
-      v1|string: ₸250.00
   sku|KZT|v1:
     commitment:
       selfcheckout:
@@ -2785,8 +2781,6 @@ default:
       fixed_consumption:
         v1|string: Free
   sku|RUB|sws:
-    profile:
-      v1|string: ₽250.00
     requests:
       v1|pricingRate:
         '0':
@@ -2797,8 +2791,6 @@ default:
         1000|string: ₽50.00
         10000|string: ₽25.00
       v1|string: Free
-    rule:
-      v1|string: ₽50.00
   sku|RUB|v1:
     commitment:
       selfcheckout:
@@ -3889,8 +3881,6 @@ default:
       fixed_consumption:
         v1|string: Free
   sku|USD|sws:
-    profile:
-      v1|string: $2.000000
     requests:
       v1|pricingRate:
         '0':
@@ -3901,8 +3891,6 @@ default:
         1000|string: $0.400000
         10000|string: $0.200000
       v1|string: Free
-    rule:
-      v1|string: $0.400000
   sku|USD|v1:
     commitment:
       selfcheckout:
@@ -6319,6 +6307,7 @@ default:
             field_preemptible: Preemptible
             label_sw-accelerated-net: Software accelerated network
             label_tab-custom: Custom
+            label_tab-gpu: GPU
             value_platform-tab-gpu: With GPU
         condition-column:
           condition_and: and
@@ -6411,6 +6400,8 @@ default:
           field_size: Size
           field_type: Type
           label_disk-encryption: Encrypted disk
+          label_disk-kms-key: KMS key
+          label_service-account: Service account
         disk:
           overview:
             label_snapshot: Snapshot
@@ -6536,6 +6527,7 @@ default:
             label_host: Internal FQDN
             label_network-interface: Network interface
             label_public-ipv4: Public IPv4 address
+            label_title: Overview
             popup-confirm_button_remove-one-to-one-nat: Delete
             section_monitoring: Monitoring
             section_network: Network
@@ -6562,6 +6554,7 @@ default:
             value_source-none: Empty
             value_source-snapshot: Snapshot
           create:
+            action_activate-backup: Connect
             button_create: Create VM
             button_create-subnetwork-new: Create subnet
             button_net_empty-create: Create a network
@@ -6589,6 +6582,7 @@ default:
             image_coi_label_empty-button: Configure
             image_value_coi: Container Solution
             image_value_custom: Custom image
+            image_value_custom_new: Custom
             image_value_marketplace: Marketplace
             image_value_os-products: Operating systems
             label_add-disk: Add disk
@@ -6816,6 +6810,7 @@ default:
         field_approval-rules-token: Gitlab token
         field_delete-untagged: Delete untagged images during maintenance
         field_domain: Domain
+        label_additional-section: Advanced settings
         label_admin-section: Administrator data
         label_configuration-section: Configuration
         title_backups: Backups
@@ -6825,7 +6820,7 @@ default:
         label_title: GPU clusters
       greenplum:
         action_expand-open: Expand cluster
-        action_expand-start: Save
+        action_expand-start: Expand
         cluster:
           perf-diag:
             label_action-terminate-query: Terminate query
@@ -7137,6 +7132,7 @@ default:
             label_runtime-CONTAINERD: containerd
             section_access: Access
             section_additional: Additional
+            section_allocation-policy: Location
             section_deploy: Allow when creating and updating
             section_disk: Storage
             section_gpu-settings: GPU settings
@@ -9940,7 +9936,7 @@ default:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/yc-alb-ingress/yc-alb-ingress-controller-chart
-        tag: v0.2.8
+        tag: v0.2.10
     yc_argo-cd:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/argo/chart/argo-cd

@@ -32,6 +32,9 @@
       * Первый и последний символ — не дефис.
 
    1. Задайте срок хранения автоматических резервных копий (в днях).
+   1. (Опционально) Включите [правила ревью кода](../../managed-gitlab/concepts/approval-rules.md). Для этого выберите подходящую конфигурацию правил ревью.
+
+      {% include [note-approval-rules-pricing](note-approval-rules-pricing.md) %}
 
 1. В блоке **{{ ui-key.yacloud.gitlab.label_admin-section }}** укажите:
    * **{{ ui-key.yacloud.gitlab.field_admin-email }}** — адрес электронной почты администратора инстанса {{ GL }}. На этот адрес придет письмо со ссылкой для создания пароля.

@@ -31,7 +31,8 @@ description: "Следуя данной инструкции, вы сможет�
 Для отправки вызовов gRPC можно воспользоваться утилитой [gRPCurl](https://github.com/fullstorydev/grpcurl).
 
 ```bash
-grpcurl -H "Authorization: Bearer <IAM-токен>" \
+grpcurl \
+  -H "Authorization: Bearer <IAM-токен>" \
   -d '{
   "folder_id": "<идентификатор_каталога>",
   "alias_name": "<имя_алиаса>",
@@ -63,11 +64,12 @@ yandex.cloud.datasphere.v1.NodeService/ExecuteAlias
 Для отправки REST-запросов можно воспользоваться утилитой [cURL](https://curl.se).
 
 ```bash
-curl -H "x-node-alias: datasphere.user.<имя_алиаса>" \
-   -H "Authorization: Bearer <IAM-токен>" \
-   -H "x-folder-id: <идентификатор_каталога>" \
-   -X <тип_запроса> \
-   -d '<входные_переменные>' \
+curl \
+   --header "x-node-alias: datasphere.user.<имя_алиаса>" \
+   --header "Authorization: Bearer <IAM-токен>" \
+   --header "x-folder-id: <идентификатор_каталога>" \
+   --request <тип_запроса> \
+   --data '<входные_переменные>' \
    https://node-api.datasphere.yandexcloud.net/
 ```
 

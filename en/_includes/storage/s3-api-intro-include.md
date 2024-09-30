@@ -1,0 +1,1 @@
+For more information on getting started with the API and the general request format, see [How to use the S3 API](../../storage/s3/index.md).

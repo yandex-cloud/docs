@@ -4,6 +4,7 @@ Aborts an upload and deletes all object parts that were saved from {{ objstorage
 
 We recommend that you [get a list of parts](listparts.md) after aborting the upload and, if it is not empty, resend the request. Abort requests should be sent until the list of the parts becomes empty.
 
+{% include [s3-api-intro-include](../../../../_includes/storage/s3-api-intro-include.md) %}
 
 ## Request {#request}
 

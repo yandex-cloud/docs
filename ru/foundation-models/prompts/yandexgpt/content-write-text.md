@@ -52,13 +52,16 @@
 
 - cURL {#curl}
 
-	```bash
-	curl -k -v -X POST
-     	-H "Authorization: Bearer <IAM-токен>"
-     	-d @prompt.json
-     	https://llm.{{ api-host }}/foundationModels/v1/completion
-	```
-	
+  ```bash
+  curl \
+      --insecure \
+      --verbose \
+      --request POST \
+      --header "Authorization: Bearer <IAM-токен>" \
+      --data @prompt.json \
+      https://llm.{{ api-host }}/foundationModels/v1/completion
+  ```
+
 	Где:
 
 	* `<IAM-токен>` — значение IAM-токена, полученного для вашего аккаунта.
@@ -140,13 +143,16 @@
 
 - cURL {#curl}
 
-	```bash
-	curl -k -v -X POST
-     	-H "Authorization: Bearer <IAM-токен>"
-     	-d @prompt.json
-     	https://llm.{{ api-host }}/foundationModels/v1/completion
-	```
-	
+  ```bash
+  curl \
+      --insecure \
+      --verbose \
+      --request POST \
+      --header "Authorization: Bearer <IAM-токен>" \
+      --data @prompt.json \
+      https://llm.{{ api-host }}/foundationModels/v1/completion
+  ```
+
 	Где:
 
 	* `<IAM-токен>` — значение IAM-токена, полученного для вашего аккаунта.

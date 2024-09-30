@@ -79,34 +79,39 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создана ВМ.
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана ВМ.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
-     * Введите имя `hystax-acura-vm` и описание ВМ.
-     * Выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
-
-   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}**:
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}**:
 
       * Перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}**.
       * Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_show-all-marketplace-products }}**.
       * В списке публичных образов выберите [Hystax Acura Live Cloud Migration to {{ yandex-cloud }}](/marketplace/products/hystax/hystax-acura-live-cloud-migration) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
 
-   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** укажите размер диска `200 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+  1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** укажите размер загрузочного [диска](../../compute/concepts/disk.md): `200 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** выберите конфигурацию с `8 vCPU` и `16 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**: 
 
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** укажите:
-     * **{{ ui-key.yacloud.component.compute.resources.field_cores }}** — `8`.
-     * **{{ ui-key.yacloud.component.compute.resources.field_memory }}** — `16 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
-     * Выберите в списке облачную сеть и [подсеть](../../vpc/concepts/network.md#subnet). Если подсети нет, нажмите кнопку **{{ ui-key.yacloud.component.vpc.network-select.button_create-subnetwork }}** и создайте ее.
+      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** укажите идентификатор подсети в зоне доступности создаваемой ВМ или выберите [облачную сеть](../../vpc/concepts/network.md#network) из списка.
 
-       Для этого в открывшемся окне выберите каталог, укажите имя подсети, выберите зону доступности и укажите CIDR. Затем нажмите кнопку **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
-     * Если доступен список **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}**, выберите [группу безопасности](../../vpc/concepts/security-groups.md#default-security-group), для которой ранее настраивали разрешения сетевого трафика. Если такого списка нет, для ВМ будет разрешен любой входящий и исходящий трафик.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** укажите данные для доступа на ВМ:
-     * Выберите сервисный аккаунт `hystax-acura-account`, созданный ранее.
-     * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя для доступа через [SSH](../../glossary/ssh-keygen.md), например, `yc-user`.
-     * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** вставьте [открытый ключ SSH](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+          * У каждой сети должна быть как минимум одна [подсеть](../../vpc/concepts/network.md#subnet). Если подсети нет, создайте ее, выбрав **{{ ui-key.yacloud.component.vpc.network-select.button_create-subnetwork }}**.
+          * Если сети нет, нажмите **{{ ui-key.yacloud.component.vpc.network-select.button_create-network }}** и создайте ее:
 
+              * В открывшемся окне укажите имя сети и выберите каталог, в котором она будет создана.
+              * (Опционально) Выберите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**, чтобы автоматически создать подсети во всех зонах доступности.
+              * Нажмите **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
+
+      * Если доступен список **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}**, выберите [группу безопасности](../../vpc/concepts/security-groups.md#default-security-group), для которой ранее настраивали разрешения сетевого трафика. Если такого списка нет, для ВМ будет разрешен любой входящий и исходящий трафик.
+
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите **Неизменяемый ключ** и укажите данные для доступа к ВМ:
+
+      * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя, например, `yc-user`.
+      * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
+
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ: `hystax-acura-vm`.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_additional }}** выберите сервисный аккаунт `hystax-acura-account`, созданный ранее.
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
 - CLI {#cli}
@@ -185,7 +190,7 @@
      {% include [hystax-auth-key-newlines](../_tutorials_includes/hystax-auth-key-newlines.md) %}
 
      {% endnote %}
-     
+
    * **ID каталога по умолчанию** — идентификатор вашего каталога.
    * **Зона доступности** — зона доступности, в которой находится ВМ `hystax-acura-vm`.
    * **Служебная подсеть Hystax** — идентификатор подсети, к которой подключена ВМ `hystax-acura-vm`.

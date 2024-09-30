@@ -20,6 +20,8 @@ You can also use headers to:
 
 The user must have permission to read the source object and write data to the resulting bucket.
 
+{% include [s3-api-intro-include](../../../../_includes/storage/s3-api-intro-include.md) %}
+
 ## Request {#request}
 
 ```http
@@ -56,11 +58,11 @@ Header | Description
 `X-Amz-Copy-Source-If-Modified-Since` | Object copying condition.<br/><br/>The object is copied if it has been modified since the specified time.<br/><br/>If the condition is not met, {{ objstorage-name }} returns the 412 error.<br/><br/>You can use it with the `X-Amz-Copy-Source-If-None-Match` header.
 `X-Amz-Server-Side-Encryption` | Default encryption algorithm used for new objects.
 `X-Amz-Server-Side-Encryption-Aws-Kms-Key-Id` | ID of the [{{ kms-short-name }}](../../../../kms/concepts/key.md) key used by default to encrypt new objects.
-`X-Amz-Storage-Class` | [Storage class](../../../concepts/storage-class.md) of the object.<br/><br/>It may have any of the following values:<ul><li>`STANDARD`: Standard storage.</li><li>`COLD`, `STANDARD_IA`, or `NEARLINE`: Cold storage.</li><li>`ICE` or `GLACIER`: Ice storage.</li></ul>If the header is not specified, the object is stored in the storage defined in the bucket settings.
-`X-Amz-Object-Lock-Mode` | <p>Type of [retention](../../../concepts/object-lock.md) put on the object (if the bucket is [versioned](../../../concepts/versioning.md) and object lock is enabled in it):</p><ul><li>`GOVERNANCE`: Object lock with a predefined manageable retention.</li><li>`COMPLIANCE`: Object lock with a predefined retention period with strict compliance.</li></ul><p>For an object version, you can use only retention (the `X-Amz-Object-Lock-Mode` and `X-Amz-Object-Lock-Retain-Until-Date` headers), only legal hold (`X-Amz-Object-Lock-Legal-Hold`), or both at the same time. For more information about their combined use, see [{#T}](../../../concepts/object-lock.md#types).</p>
+`X-Amz-Storage-Class` | Object [storage class](../../../concepts/storage-class.md).<br/><br/>It may have any of the following values:<ul><li>`STANDARD`: Standard storage.</li><li>`COLD`, `STANDARD_IA`, or `NEARLINE`: Cold storage.</li><li>`ICE` or `GLACIER`: Ice storage.</li></ul>If the header is not specified, the object is stored in the storage defined in the bucket settings.
+`X-Amz-Object-Lock-Mode` | <p>Type of [retention](../../../concepts/object-lock.md) put on the object (if the bucket is [versioned](../../../concepts/versioning.md) and object lock is enabled in it):</p><ul><li>`GOVERNANCE`: Object lock with governance-mode retention.</li><li>`COMPLIANCE`: Object lock with compliance-mode retention.</li></ul><p>For an object version, you can use only retention (`X-Amz-Object-Lock-Mode` and `X-Amz-Object-Lock-Retain-Until-Date` headers), only legal hold (`X-Amz-Object-Lock-Legal-Hold`), or both at the same time. For more information about their combined use, see [{#T}](../../../concepts/object-lock.md#types).</p>
 `X-Amz-Object-Lock-Retain-Until-Date` | Date and time of end of retention in any format described in the [HTTP standard](https://www.rfc-editor.org/rfc/rfc9110#name-date-time-formats), e.g., `Mon, 12 Dec 2022 09:00:00 GMT`. Specify it only with the `X-Amz-Object-Lock-Mode` header.
-`X-Amz-Object-Lock-Legal-Hold` | <p>Type of [legal hold](../../../concepts/object-lock.md) put on the object (if the bucket is [versioned](../../../concepts/versioning.md) and object lock is enabled in it):</p><ul><li>`ON`: Enabled.</li><li>`OFF`: Disabled.</li></ul><p>For an object version, you can use only retention (the `X-Amz-Object-Lock-Mode` and `X-Amz-Object-Lock-Retain-Until-Date` headers), only legal hold (`X-Amz-Object-Lock-Legal-Hold`), or both at the same time. For more information about their combined use, see [{#T}](../../../concepts/object-lock.md#types).</p>
-`X-Amz-Meta-*` | Custom object metadata.<br/><br/>{{ objstorage-name }} converts all headers starting with `X-Amz-Meta-` as per the following rule: `X-Amz-Meta-foo-bar_baz` → `X-Amz-Meta-Foo-Bar_baz`.<br/><br/>The maximum size of custom headers is 2 KB. The size of user-defined data is determined as the length of the UTF-8 encoded string. The header names and their values are included when calculating the size.<br/><br/>With `X-Amz-Metadata-Directive: COPY`, these headers are ignored.
+`X-Amz-Object-Lock-Legal-Hold` | <p>Type of [legal hold](../../../concepts/object-lock.md) put on the object (if the bucket is [versioned](../../../concepts/versioning.md) and object lock is enabled in it):</p><ul><li>`ON`: Enabled.</li><li>`OFF`: Disabled.</li></ul><p>For an object version, you can use only retention (`X-Amz-Object-Lock-Mode` and `X-Amz-Object-Lock-Retain-Until-Date` headers), only legal hold (`X-Amz-Object-Lock-Legal-Hold`), or both at the same time. For more information about their combined use, see [{#T}](../../../concepts/object-lock.md#types).</p>
+`X-Amz-Meta-*` | User-defined object metadata.<br/><br/>{{ objstorage-name }} converts all headers starting with `X-Amz-Meta-` according to the following rule: `X-Amz-Meta-foo-bar_baz` → `X-Amz-Meta-Foo-Bar_baz`.<br/><br/>The total size of user-defined headers must not exceed 2 KB. The size of user-defined data is determined as the length of the UTF-8 encoded string. The header names and their values are included when calculating the size.<br/><br/>With `X-Amz-Metadata-Directive: COPY`, these headers are ignored.
 
 
 
@@ -72,7 +74,7 @@ A response may contain [common response headers](../common-response-headers.md) 
 
 Header | Description
 ----- | -----
-`X-Amz-Storage-Class` | [Storage class](../../../concepts/storage-class.md) of the object.<br/><br/>It may have the following values:<ul><li>`STANDARD`: Standard storage.</li><li>`COLD`: Cold storage.</li><li>`ICE`: Ice storage.</li></ul>
+`X-Amz-Storage-Class` | Object [storage class](../../../concepts/storage-class.md).<br/><br/>It may have the following values:<ul><li>`STANDARD`: Standard storage.</li><li>`COLD`: Cold storage.</li><li>`ICE`: Ice storage.</li></ul>
 
 ### Response codes {#response-codes}
 
@@ -91,6 +93,6 @@ Element | Description
 ----- | -----
 `CopyObjectResult` | It contains response elements.<br/><br/>Path: `/CopyObjectResult`.
 `ETag` | `ETag` of the resulting object. Since metadata does not count when calculating `ETag`, the source and resulting object `ETag`s must match.><br/>Path: `/CopyObjectResult/ETag`.
-`LastModified` | Date and time of the object’s last update.<br/><br/>Path: `/CopyObjectResult/LastModified`.
+`LastModified` | Object’s last update date.<br/><br/>Path: `/CopyObjectResult/LastModified`.
 
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

@@ -1,1 +1,0 @@
-Для доступа к ВМ по OS Login через YC CLI [назначьте](../../iam/operations/roles/grant.md) пользователю или сервисному аккаунту, от имени которого выполняется команда YC CLI, роль `compute.osLogin` или `compute.osAdminLogin`, а также роль `compute.operator`.

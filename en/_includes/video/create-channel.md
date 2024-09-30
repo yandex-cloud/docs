@@ -5,4 +5,6 @@
     * (Optional) **{{ ui-key.yacloud_video.channels.label_description }}**.
 1. Click **{{ ui-key.yacloud_video.common.action_create }}**.
 
+Once the channel is created, you will find yourself inside it on the ![image](../../_assets/console-icons/circle-play.svg) **{{ ui-key.yacloud_video.videos.title_videos }}** tab.
+
 [Learn more about channels](../../video/concepts/index.md#channels)

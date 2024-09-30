@@ -3,6 +3,8 @@
 Returns metadata for all versions of objects in the bucket.
 You can also use request parameters as a selection criterion to return metadata about a subset of object versions.
 
+{% include [s3-api-intro-include](../../../../_includes/storage/s3-api-intro-include.md) %}
+
 ## Request {#request}
 
 ```http
@@ -17,15 +19,15 @@ Parameter | Description
 
 ### Query parameters {#parameters}
 
-All the parameters listed in the table are optional.
+All parameters listed in the table are optional.
 
 Parameter | Description
 ----- | -----
-`delimiter` | Delimiter character.<br/><br/>If this parameter is specified, {{ objstorage-name }} interprets the key as the path to the file with folders separated by the `delimiter` character. In response to the request, the user will get a list of files and folders in the bucket. The files will be output in the `Contents` elements, and folders, in `CommonPrefixes`.<br/><br/>If the request also specifies the `prefix` parameter, {{ objstorage-name }} will return the list of files and folders in the `prefix` folder.
+`delimiter` | Delimiter character.<br/><br/>If this parameter is specified, {{ objstorage-name }} interprets the key as the path to the file with folders separated by the `delimiter` character. In the response to the request, the user will get a list of files and folders in the bucket. Files will be output in the `Contents` elements, and folders in the `CommonPrefixes` elements.<br/><br/>If the request also specifies the `prefix` parameter, {{ objstorage-name }} will return the list of files and folders in the folder named `prefix`.
 `encoding-type` | Encoding of server response.<br/><br/>{{ objstorage-name }} can encode responses in the format requested by the client.<br/><br/>Possible values: `url`.
 `key-marker` | Key to start the output from.<br/><br/>In the resulting output, {{ objstorage-name }} will leave the keys starting from the one following `key-marker`.
-`max-keys` | Maximum number of elements in a response.<br/><br/>By default, {{ objstorage-name }} outputs no more than 1,000 `Contents` and `CommonPrefixes` elements. Use this parameter if you need less than 1,000 elements in a single response.<br/><br/>If the number of keys meeting the selection criteria is greater than the number that could fit in the output, the response contains `<IsTruncated>true</IsTruncated>`.<br/><br/>To get all output elements if their number exceeds `max-keys`, run multiple requests to {{ objstorage-name }} with the `key-marker` parameter, where `key-marker` and `version-id-marker` of each request is equal to the value of the `NextKeyMarker` and `NextVersionIdMarker` elements in the previous response.
-`prefix` | String to start the key from.<br/><br/>{{ objstorage-name }} selects only those keys which start with `prefix`.<br/><br/>You can use this parameter at the same time with `delimiter`. In this case, the output logic is the same as that specified in the `delimiter` parameter description.
+`max-keys` | Maximum number of elements in a response.<br/><br/>By default, {{ objstorage-name }} outputs no more than 1,000 `Contents` and `CommonPrefixes` elements. Use this parameter if you need less than 1,000 elements in a single response.<br/><br/>If the selection criteria are met by more keys than can fit into the output, the response contains `<IsTruncated>true</IsTruncated>`.<br/><br/>To get all output elements if their number exceeds `max-keys`, run multiple requests to {{ objstorage-name }} with the `key-marker` parameter, where `key-marker` and `version-id-marker` of each request is equal to the value of the `NextKeyMarker` and `NextVersionIdMarker` elements in the previous response.
+`prefix` | String to start the key from.<br/><br/>{{ objstorage-name }} selects only those keys which start with `prefix`.<br/><br/>You can use this parameter along with `delimiter`. In this case, the output logic is the same as that specified in the `delimiter` parameter description.
 `version-id-marker` | Object version to start the output from.<br/><br/>In the resulting output, {{ objstorage-name }} will leave the versions starting from the one following `version-id-marker`.
 
 ### Headers {#request-headers}

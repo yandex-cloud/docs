@@ -90,9 +90,10 @@
 
       ```bash
       export IAM_TOKEN=<IAM-токен>
-      curl -X POST \
-        -H "Authorization: Bearer ${IAM_TOKEN}" \
-        -d "@<путь_к_файлу_с_телом_запроса>" \
+      curl \
+        --request POST \
+        --header "Authorization: Bearer ${IAM_TOKEN}" \
+        --data "@<путь_к_файлу_с_телом_запроса>" \
         "https://{{ api-host-llm }}/foundationModels/v1/fewShotTextClassification"
       ```
       {% note info %}

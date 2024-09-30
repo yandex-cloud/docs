@@ -26,7 +26,8 @@ description: "Следуя данной инструкции, вы сможет�
 ## Пример вызова gRPC API {#grpc-call-example}
 
 ```bash
-grpcurl -H "Authorization: Bearer <IAM-токен>" \
+grpcurl \
+  -H "Authorization: Bearer <IAM-токен>" \
   -d '{
   "folder_id": "<идентификатор_каталога>",
   "node_id": "<идентификатор_ноды>",
@@ -61,9 +62,9 @@ yandex.cloud.datasphere.v1.NodeService/Execute
 
 ```bash
 curl https://datasphere.{{ api-host }}/datasphere/v1/nodes/<идентификатор_ноды>:execute \
-   -X POST \
-   -H "Authorization: Bearer <IAM-токен>"
-   -d '{
+   --request POST \
+   --header "Authorization: Bearer <IAM-токен>"
+   --data '{
       "folder_id": "<идентификатор_каталога>",
       "node_id": "<идентификатор_ноды>",
       "input": { <входные_переменные> }

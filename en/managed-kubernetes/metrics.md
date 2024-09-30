@@ -1,5 +1,6 @@
 ---
-noIndex: true
+title: "Reference for {{ managed-k8s-full-name }} metrics in {{ monitoring-full-name }}"
+description: "This page provides reference information on {{ managed-k8s-name }} metrics delivered to {{ monitoring-full-name }}."
 ---
 
 # {{ monitoring-full-name }} metric reference

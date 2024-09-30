@@ -38,7 +38,10 @@ You can back up {{ compute-name }} [VMs](../../compute/concepts/vm.md) with [sup
       1. In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
       1. Select a security group configured to work with {{ backup-name }}.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select the service account with the `backup.editor` role.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_additional }}**, enable the {{ backup-name }} connection option for your VM.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_additional }}**:
+
+      {% include [backup-enable](../../_includes/compute/backup-enable.md) %}
+
   1. Specify the other VM parameters as needed. For more information, see [Creating a VM from a public Linux image](../../compute/operations/vm-create/create-linux-vm).
   1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
@@ -104,7 +107,7 @@ You can back up {{ compute-name }} [VMs](../../compute/concepts/vm.md) with [sup
 
         {% include [name-fqdn](../../_includes/compute/name-fqdn.md) %}
 
-      * `--zone`: [Availability zone](../../overview/concepts/geo-scope.md) that matches the selected subnet.
+      * `--zone`: [Availability zone](../../overview/concepts/geo-scope.md) matching the selected subnet.
       * `subnet-name`: Name of the selected [subnet](../../vpc/concepts/network.md#subnet).
       * `security-group-ids`: ID of the [security group](../../vpc/concepts/security-groups.md) configured to work with {{ backup-name }}.
       * `image-id`: OS [image ID](../../compute/concepts/image.md). See the [list of supported Linux-based operating systems](../concepts/vm-connection.md#linux) for details.

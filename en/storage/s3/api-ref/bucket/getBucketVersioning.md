@@ -2,6 +2,8 @@
 
 Returns the bucket versioning status.
 
+{% include [s3-api-intro-include](../../../../_includes/storage/s3-api-intro-include.md) %}
+
 ## Request {#request}
 
 ```http

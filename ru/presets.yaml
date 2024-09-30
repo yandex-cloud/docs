@@ -1680,8 +1680,6 @@ default:
         fixed_consumption:
           v1|string: "15\_000,00\_₸"
   sku|KZT|sws:
-    profile:
-      v1|string: "1\_250,00\_₸"
     requests:
       v1|pricingRate:
         '0':
@@ -1692,8 +1690,6 @@ default:
         1000|string: "250,00\_₸"
         10000|string: "125,00\_₸"
       v1|string: Не тарифицируется
-    rule:
-      v1|string: "250,00\_₸"
   sku|KZT|v1:
     commitment:
       selfcheckout:
@@ -2805,8 +2801,6 @@ default:
       fixed_consumption:
         v1|string: Не тарифицируется
   sku|RUB|sws:
-    profile:
-      v1|string: "250,00\_₽"
     requests:
       v1|pricingRate:
         '0':
@@ -2817,8 +2811,6 @@ default:
         1000|string: "50,00\_₽"
         10000|string: "25,00\_₽"
       v1|string: Не тарифицируется
-    rule:
-      v1|string: "50,00\_₽"
   sku|RUB|v1:
     commitment:
       selfcheckout:
@@ -3909,8 +3901,6 @@ default:
       fixed_consumption:
         v1|string: Не тарифицируется
   sku|USD|sws:
-    profile:
-      v1|string: "2,000000\_$"
     requests:
       v1|pricingRate:
         '0':
@@ -3921,8 +3911,6 @@ default:
         1000|string: "0,400000\_$"
         10000|string: "0,200000\_$"
       v1|string: Не тарифицируется
-    rule:
-      v1|string: "0,400000\_$"
   sku|USD|v1:
     commitment:
       selfcheckout:
@@ -4810,7 +4798,7 @@ default:
         reset-button: Сбросить
         search-placeholder: Поиск по названию задачи
       ui_components_FilterExportMenu:
-        menu-item-export: Экспортировать
+        menu-item-export: Выгрузить
         title: Действия над фильтром
       ui_components_FormField_TimeTrackingBlock:
         field-comment-title: Комментарий
@@ -5583,7 +5571,7 @@ default:
           caption:
             federation: Федерация
             user: Пользователь
-            userId: ID
+            userId: Идентификатор
       form:
         acl:
           edit:
@@ -6341,6 +6329,7 @@ default:
             field_preemptible: Прерываемая
             label_sw-accelerated-net: Программно-ускоренная сеть
             label_tab-custom: Своя конфигурация
+            label_tab-gpu: GPU
             value_platform-tab-gpu: Есть GPU
         condition-column:
           condition_and: и
@@ -6433,6 +6422,8 @@ default:
           field_size: Размер
           field_type: Тип
           label_disk-encryption: Зашифрованный диск
+          label_disk-kms-key: Ключ KMS
+          label_service-account: Сервисный аккаунт
         disk:
           overview:
             label_snapshot: Снимок
@@ -6558,6 +6549,7 @@ default:
             label_host: Внутренний FQDN
             label_network-interface: Сетевой интерфейс
             label_public-ipv4: Публичный IPv4-адрес
+            label_title: Обзор
             popup-confirm_button_remove-one-to-one-nat: Удалить
             section_monitoring: Мониторинг
             section_network: Сеть
@@ -6584,6 +6576,7 @@ default:
             value_source-none: Пустой
             value_source-snapshot: Снимок
           create:
+            action_activate-backup: Подключить
             button_create: Создать ВМ
             button_create-subnetwork-new: Создать подсеть
             button_net_empty-create: Создать сеть
@@ -6613,6 +6606,7 @@ default:
             image_coi_label_empty-button: Настроить
             image_value_coi: Container Solution
             image_value_custom: Свой образ
+            image_value_custom_new: Пользовательский
             image_value_marketplace: Marketplace
             image_value_os-products: Операционные системы
             label_add-disk: Добавить диск
@@ -6840,6 +6834,7 @@ default:
         field_approval-rules-token: Gitlab токен
         field_delete-untagged: Удалять образы без тегов при обслуживании
         field_domain: Домен
+        label_additional-section: Дополнительные настройки
         label_admin-section: Данные администратора
         label_configuration-section: Конфигурация
         title_backups: Резервные копии
@@ -6849,7 +6844,7 @@ default:
         label_title: Кластеры GPU
       greenplum:
         action_expand-open: Расширить кластер
-        action_expand-start: Сохранить
+        action_expand-start: Расширить
         cluster:
           perf-diag:
             label_action-terminate-query: Прервать запрос
@@ -7161,6 +7156,7 @@ default:
             label_runtime-CONTAINERD: containerd
             section_access: Доступ
             section_additional: Дополнительно
+            section_allocation-policy: Расположение
             section_deploy: В процессе создания и обновления разрешено
             section_disk: Хранилище
             section_gpu-settings: Настройки GPU
@@ -9962,7 +9958,7 @@ default:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/yc-alb-ingress/yc-alb-ingress-controller-chart
-        tag: v0.2.8
+        tag: v0.2.10
     yc_argo-cd:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/argo/chart/argo-cd

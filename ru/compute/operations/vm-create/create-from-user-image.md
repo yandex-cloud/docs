@@ -23,87 +23,40 @@ description: "Следуя данной инструкции, вы сможет�
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана ВМ.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. Справа сверху нажмите **{{ ui-key.yacloud.compute.instances.button_create }}**.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
+  1. На панели слева выберите ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}**:
 
-      * Введите имя и описание ВМ. Требования к имени:
+      * Перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_custom_new }}**.
+      * Нажмите кнопку **{{ ui-key.yacloud.common.select }}** и в открывшемся окне выберите **{{ ui-key.yacloud.common.create-new }}**.
+      * В поле **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** выберите `{{ ui-key.yacloud.compute.instances.create-disk.value_source-image }}` и в списке ниже выберите нужный образ.
+      * (Опционально) В поле **{{ ui-key.yacloud.compute.field_additional }}** включите опцию **{{ ui-key.yacloud.compute.field_disk-autodelete }}**, если вы хотите автоматически удалять этот диск при удалении ВМ.
+      * Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.label_add-disk }}**.
 
-        {% include [name-format](../../../_includes/name-format.md) %}
+  1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
+  1. Добавьте [диск](../../concepts/disk.md):
 
-        {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
-
-      * Выберите [зону доступности](../../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
-
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите один из образов:
-
-      * Перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_custom }}** и нажмите **{{ ui-key.yacloud.common.select }}**.
-      * В открывшемся окне перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create-disk.value_source-image }}**.
-      * Выберите образ из списка и нажмите **{{ ui-key.yacloud.common.apply }}**. 
-
-  
-  1. {% include [encryption-section-boot](../../../_includes/compute/encryption-section-boot.md) %}
-
-
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** [добавьте диск](create-from-disks.md):
-
-      * Нажмите **{{ ui-key.yacloud.compute.instances.create.label_add-disk }}**.
-      * Введите имя диска.
+      * В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** нажмите кнопку **{{ ui-key.yacloud.compute.instances.create-disk.button_create }}**.
+      * В открывшемся окне выберите **{{ ui-key.yacloud.compute.instances.create-disk.value_source-disk }}** → `Создать новый`.
+      * В поле **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** выберите `{{ ui-key.yacloud.compute.instances.create-disk.value_source-image }}` и в списке ниже выберите нужный образ.
+      * Укажите имя диска.
       * Выберите [тип диска](../../concepts/disk.md#disks_types).
-      * Укажите нужный размер блока.
-      * Укажите нужный размер диска.
+      * Задайте нужные размер диска и размер блока.
+      * (Опционально) В поле **{{ ui-key.yacloud.compute.field_additional }}** включите опцию **{{ ui-key.yacloud.compute.field_disk-autodelete }}**, если вы хотите автоматически удалять этот диск при удалении ВМ.
+      * Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.label_add-disk }}**.
 
-      
-      * {% include [encryption-section-secondary](../../../_includes/compute/encryption-section-secondary.md) %}
+  1. {% include [encryption-section-secondary](../../../_includes/compute/encryption-section-secondary.md) %}
+  1. {% include [section-storages-filesystem](../../../_includes/compute/create/section-storages-filesystem.md) %}
+  1. {% include [section-platform](../../../_includes/compute/create/section-platform.md) %}
+  1. {% include [network-settings](../../../_includes/compute/create/section-network.md) %}
+  1. {% include [section-access](../../../_includes/compute/create/section-access.md) %}
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ:
 
+      {% include [name-format](../../../_includes/name-format.md) %}
 
-      * (Опционально) Включите опцию **{{ ui-key.yacloud.compute.field_disk-autodelete }}**, если нужно автоматически удалять диск при удалении ВМ, к которой он будет подключен.
-      * Выберите наполнение `{{ ui-key.yacloud.compute.instances.create-disk.value_source-image }}`.
-      * Выберите нужный образ.
-      * Нажмите **{{ ui-key.yacloud.compute.instances.create-disk.button_create }}**.
-
-  
-  1. (Опционально) В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** на вкладке **{{ ui-key.yacloud.compute.nfs.label_filesystems }}** подключите [файловое хранилище](../../concepts/filesystem.md):
-
-     * Нажмите **{{ ui-key.yacloud.compute.nfs.button_attach-filesystem-to-the-instance }}**.
-     * В открывшемся окне выберите файловое хранилище.
-     * Укажите имя устройства.
-     * Нажмите **{{ ui-key.yacloud.compute.nfs.button_attach-filesystem-to-the-instance }}**.
- 
-
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
-
-     * Выберите [платформу](../../concepts/vm-platforms.md).
-     * Укажите [гарантированную долю](../../../compute/concepts/performance-levels.md) и необходимое количество vCPU, а также объем RAM.
-     * При необходимости сделайте ВМ [прерываемой](../../concepts/preemptible-vm.md).
-     * (Опционально) Включите [программно-ускоренную сеть](../../concepts/software-accelerated-network.md).
-
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
-
-     {% include [network-settings](../../../_includes/compute/network-settings.md) %}
-
-  
-  1. {% include [backup-info](../../../_includes/compute/backup-info.md) %}
-
-
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** укажите данные для доступа на ВМ:
-
-     * (Опционально) Выберите или создайте [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md). Использование сервисного аккаунта позволяет гибко настраивать права доступа к ресурсам.
-     * (Опционально) [Включите доступ к ВМ по OS Login](../vm-connect/os-login.md). Опция доступна только для образов Linux.
-     * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя.
-
-       {% note alert %}
-
-       Не используйте логин `root` или другие имена, зарезервированные операционной системой. Для выполнения операций, требующих прав суперпользователя, используйте команду `sudo`.
-
-       {% endnote %}
-
-     * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** вставьте содержимое файла [открытого ключа](../../operations/vm-connect/ssh.md#creating-ssh-keys).
-     * Если требуется, разрешите доступ к [серийной консоли](../../operations/serial-console/index.md).
-
-     {% include [vm-connect-linux](../../../_includes/vm-connect-linux.md) %}
-
-  1. (Опционально) В блоке **{{ ui-key.yacloud.compute.instances.create.section_placement }}** выберите [группу размещения](../../concepts/placement-groups.md) ВМ.
-  1. Нажмите **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
+      {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
+  1. {% include [section-additional](../../../_includes/compute/create/section-additional.md) %}
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
   ВМ появится в списке. При создании ВМ назначаются [IP-адрес](../../../vpc/concepts/address.md) и [имя хоста](../../../vpc/concepts/address.md#fqdn) (FQDN).
 

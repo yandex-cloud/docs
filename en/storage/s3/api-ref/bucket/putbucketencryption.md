@@ -2,6 +2,8 @@
 
 Adds encryption to the bucket. By default, objects added to the bucket are encrypted with the specified [{{ kms-short-name }}](../../../../kms/concepts/key.md) key. For more information about bucket encryption, see [{#T}](../../../concepts/encryption.md).
 
+{% include [s3-api-intro-include](../../../../_includes/storage/s3-api-intro-include.md) %}
+
 ## Request {#request}
 
 ```http
@@ -50,6 +52,6 @@ Element | Description
 `KMSMasterKeyID` | [{{ kms-short-name }} key](../../../../kms/concepts/key.md) ID.<br/><br/>Path: `ServerSideEncryptionConfiguration\Rule\ApplyServerSideEncryptionByDefault\KMSMasterKeyID`.
 `Rule` | Encryption policy on the server side. <br/><br/>The encryption is defined with `KMSMasterKeyID` and `SSEAlgorithm`.<br/><br/>Path: `ServerSideEncryptionConfiguration\Rule`.
 `ServerSideEncryptionConfiguration` | Encryption configuration used for new objects in the bucket by default. <br/><br/>Path: `ServerSideEncryptionConfiguration`.
-`SSEAlgorithm` | Encryption algorithm. The only possible value is `aws:kms`.><br/>Path: `ServerSideEncryptionConfiguration\Rule\ApplyServerSideEncryptionByDefault\SSEAlgorithm`.
+`SSEAlgorithm` | Encryption algorithm. The only possible value is `aws:kms`.<br/><br/>Path: `ServerSideEncryptionConfiguration\Rule\ApplyServerSideEncryptionByDefault\SSEAlgorithm`.
 
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

@@ -51,11 +51,12 @@ description: "Следуя данной инструкции, вы научит�
      ```bash
      export FOLDER_ID=<идентификатор_каталога>
      export IAM_TOKEN=<IAM-токен>
-     curl --request POST \
-       -H "Content-Type: application/json" \
-       -H "Authorization: Bearer ${IAM_TOKEN}" \
-       -H "x-folder-id: ${FOLDER_ID}" \
-       -d "@<путь_до_файла_json>" \
+     curl \
+       --request POST \
+       --header "Content-Type: application/json" \
+       --header "Authorization: Bearer ${IAM_TOKEN}" \
+       --header "x-folder-id: ${FOLDER_ID}" \
+       --data "@<путь_до_файла_json>" \
        "https://llm.{{ api-host }}/foundationModels/v1/completionAsync"
      ```
   
@@ -83,8 +84,9 @@ description: "Следуя данной инструкции, вы научит�
   1. Отправьте запрос на получение результата операции:
   
       ```bash
-      curl -X GET \
-        -H "Authorization: Bearer ${IAM_TOKEN}" \
+      curl \
+        --request GET \
+        --header "Authorization: Bearer ${IAM_TOKEN}" \
         https://{{ api-host-operation }}/operations/<ID_операции>
       ```
   

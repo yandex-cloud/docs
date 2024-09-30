@@ -10,7 +10,7 @@ After connecting to {{ backup-name }}, [add](../operations/policy-vm/attach-and-
 
 {% include [vm-running](../../_includes/backup/vm-running.md) %}
 
-You can also link a policy to a virtual machine while creating it. Policy linking is performed asynchronously after you create and initialize a VM, as well as install and configure a backup agent. This may take up to 10-15 minutes. For more information, see [{#T}](../tutorials/vm-with-backup-policy.md).
+You can also link a policy to a virtual machine while creating it. Policy is linked asynchronously after you create and initialize a VM, as well as install and configure a backup agent. This may take up to 10-15 minutes. For more information, see [{#T}](../tutorials/vm-with-backup-policy/index.md).
 
 ## VM configuration requirements {#requirements}
 
@@ -53,7 +53,7 @@ The OS must be installed from a public image (a {{ marketplace-full-name }} prod
 
 {% endnote %}
 
-### Installing the agent on your own {#self-install}
+### Unaided installation {#self-install}
 
 You can install the {{ backup-name }} agent yourself:
 
@@ -62,13 +62,13 @@ You can install the {{ backup-name }} agent yourself:
 
 For a complete list of supported operating systems, see the [backup provider documentation](https://docs.cyberprotect.ru/ru-RU/CyberBackupCloud/21.06/user/#supported-operating-systems-and-environments.html).
 
-If you have issues while installing the agent, [contact]({{ link-console-support }}) support.
+If you have issues while installing the agent, [contact]({{ link-console-support }}) technical support.
 
 ## Service account {#sa}
 
 [Service account](../../iam/concepts/users/service-accounts.md) is a special account on behalf of which VM backups are created and uploaded to a {{ backup-name }} storage.
 
-When you create a VM for which you want to set up backups in {{ backup-name }}, you need to link to it a service account with the [`backup.editor` role](../security/index.md).
+When creating a VM you want to configure backups for in {{ backup-name }}, you need to link to it a service account with the [`backup.editor` role](../security/index.md).
 
 You can [assign the role](../../iam/operations/sa/assign-role-for-sa.md) to an existing service account or [create](../../iam/operations/sa/create.md) a service account with relevant roles.
 

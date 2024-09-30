@@ -7,6 +7,8 @@ When object lock is enabled, you can lock an object version so that it can't be 
 * When loading the object ([upload](../object/upload.md) method).
 * On object upload (the [putObjectRetention](../object/putobjectretention.md) and [putObjectLegalHold](../object/putobjectlegalhold.md) methods).
 
+{% include [s3-api-intro-include](../../../../_includes/storage/s3-api-intro-include.md) %}
+
 ## Request {#request}
 
 ```http
@@ -45,9 +47,9 @@ Element | Description
 `ObjectLockEnabled` | <p>Object lock status:</p><ul><li>`Enabled`: Object lock is enabled.</li></ul><p>If you do not specify this item, you will get the `InvalidRequest` error message, and object lock will not get enabled.</p><p>Path: `ObjectLockConfiguration\ObjectLockEnabled`.</p>
 `Rule` | <p>Lock settings.</p><p>Path: `ObjectLockConfiguration\Rule`.</p>
 `DefaultRetention` | <p>Default retention settings.</p><p>Path: `ObjectLockConfiguration\Rule\DefaultRetention`.</p>
-`Mode` | <p>Default retention [type](../../../concepts/object-lock.md#types):</p><ul><li>`GOVERNANCE`: Manageable predefined retention.</li><li>`COMPLIANCE`: Strict predefined retention.</li></ul><p>Path: `ObjectLockConfiguration\Rule\DefaultRetention\Mode`.</p>
-`Days` | <p>Retention period in days since the object version upload. It must be a positive integer. You cannot use it together with `Years`.</p><p>Path: `ObjectLockConfiguration\Rule\DefaultRetention\Days`.</p>
-`Years` | <p>Retention period in years since the object version upload. It must be a positive integer. You cannot use it together with `Days`.</p><p>Path: `ObjectLockConfiguration\Rule\DefaultRetention\Years`.</p>
+`Mode` | <p>Default retention [type](../../../concepts/object-lock.md#types):</p><ul><li>`GOVERNANCE`: Object lock with governance-mode retention.</li><li>`COMPLIANCE`: Object lock with compliance-mode retention.</li></ul><p>Path: `ObjectLockConfiguration\Rule\DefaultRetention\Mode`.</p>
+`Days` | <p>Retention period in days since the object version upload. It must be a positive integer. You cannot use it along with `Years`.</p><p>Path: `ObjectLockConfiguration\Rule\DefaultRetention\Days`.</p>
+`Years` | <p>Retention period in years since the object version upload. It must be a positive integer. You cannot use it along with `Days`.</p><p>Path: `ObjectLockConfiguration\Rule\DefaultRetention\Years`.</p>
 
 ## Response {#response}
 

@@ -177,7 +177,7 @@ Packer создаст и запустит виртуальную машину с
 Чтобы настроить [плагин](https://developer.hashicorp.com/packer/plugins/builders/yandex):
 
 1. Создайте файл `config.pkr.hcl` со следующим содержанием:
-    
+
     ```hcl
     packer {
       required_plugins {

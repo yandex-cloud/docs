@@ -7,12 +7,13 @@ When receiving the {{ objstorage-name }} request:
 - Combines the parts obtained during the upload in the order of their numbering to form a target object.
 - Deletes the upload ID, which means that any subsequent requests with that ID will return the `NoSuchUpload` error.
 
-When completing the upload, the client must provide the list of the parts it sent. The description of each part must contain the `ETag` the client gets in response to each uploaded part. See [{#T}](uploadpart.md).
+When completing the upload, the client must provide the list of the parts it sent. The description of each part must contain an `ETag` the client gets in response to each uploaded part. See [{#T}](uploadpart.md).
 
 The operation may take several minutes, depending on the object size and the number of parts.
 
 If the request failed, the client app must be ready to repeat the request.
 
+{% include [s3-api-intro-include](../../../../_includes/storage/s3-api-intro-include.md) %}
 
 ## Request {#request}
 

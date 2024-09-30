@@ -2,7 +2,7 @@ title: Yandex Cloud CDN
 href: index.yaml
 label:
   title: RU
-  description: The service is available in Russia only.
+  description: This service is only available in the Russia region.
   theme: unknown
   when: region == "kz"
 items:
@@ -12,6 +12,8 @@ items:
     items:
       - name: All guides
         href: operations/index.md
+      - name: Connecting to a {{ cdn-name }} provider
+        href: operations/enable-provider.md
       - name: Resources
         items:
           - name: Creating a resource
@@ -74,9 +76,11 @@ items:
         href: tutorials/cdn-storage-integration.md
       - name: Blue-green and canary deployment of service versions
         href: tutorials/blue-green-canary-deployment.md
+      - name: Providing secure access to content
+        href: tutorials/protected-access-to-content.md
   - name: Concepts
     items:
-      - name: Overview
+      - name: Service overview
         href: concepts/index.md
       - name: Resource
         href: concepts/resource.md

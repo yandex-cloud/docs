@@ -18,13 +18,13 @@ You can learn more in [Managing rules](../operations/#rules).
 
 ## Basic rules {#base-rules}
 
-_Basic rule_ is a rule that allows or denies traffic based on specified conditions. It is used for simple traffic filtering based on specific parameters.
+_Basic rule_ is a rule that allows, denies, or directs traffic to [{{ captcha-full-name }}](../../smartcaptcha/) based on specified conditions. It is used for simple traffic filtering based on specific parameters.
 
 Each [security profile](profiles.md) includes a _basic default rule_ with the lowest priority (`1000000`) that allows or denies all traffic.
 
 ## Smart Protection rules {#smart-protection-rules}
 
-_Smart Protection_ is a rule that sends traffic, based on specified conditions, for automatic analysis using machine learning and behavioral analysis algorithms. Depending on the selected [action](#rule-action), suspicious requests are sent to [{{ captcha-name }}](../../smartcaptcha/) for additional verification or get blocked.
+_Smart Protection_ is a rule that sends traffic, based on specified conditions, for automatic analysis using machine learning and behavioral analysis algorithms. Depending on the selected [action](#rule-action), suspicious requests are sent to {{ captcha-name }} for additional verification or get blocked.
 
 ## Web Application Firewall rules {#waf-rules}
 
@@ -57,3 +57,5 @@ Actions for Smart Protection and Web Application Firewall rules:
 * _API Protection_: Traffic is checked by ML models and behavioral analysis algorithms. Suspicious requests are denied.
 
 Advanced Rate Limiter rule action: _Block requests when exceeding the limit_. Requests above the specified limit over a period of time will be blocked. The requesting client will get error `429`.
+
+Requests that have been allowed by all rules and passed to the protected resource are called _legitimate_.

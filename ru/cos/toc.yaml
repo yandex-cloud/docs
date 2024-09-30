@@ -16,13 +16,13 @@ items:
         href: tutorials/index.md
       - name: Создать ВМ с {{ coi }}
         href: tutorials/vm-create.md
-      - name: '"Создать ВМ с {{ coi }} и дополнительным томом для Docker-контейнера"'
+      - name: Создать ВМ с {{ coi }} и дополнительным томом для Docker-контейнера
         href: tutorials/vm-create-with-second-disk.md
-      - name: '"Создать ВМ с {{ coi }} и несколькими Docker-контейнерами"'
+      - name: Создать ВМ с {{ coi }} и несколькими Docker-контейнерами
         href: tutorials/docker-compose.md
       - name: Создать группу ВМ с {{ coi }}
         href: tutorials/ig-create.md
-      - name: '"Создать группу ВМ с {{ coi }} и несколькими Docker-контейнерами"'
+      - name: Создать группу ВМ с {{ coi }} и несколькими Docker-контейнерами
         href: tutorials/ig-with-containers.md
       - name: Изменить ВМ с {{ coi }}
         href: tutorials/vm-update.md

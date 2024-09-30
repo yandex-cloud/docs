@@ -2,6 +2,7 @@
 
 Deletes an empty bucket. If the bucket is not empty, first delete all objects inside the bucket.
 
+{% include [s3-api-intro-include](../../../../_includes/storage/s3-api-intro-include.md) %}
 
 ## Request {#request}
 

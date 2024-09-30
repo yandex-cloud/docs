@@ -1,6 +1,6 @@
 ---
 title: "{{ objstorage-full-name }} tutorials"
-description: "This page presents a list of {{ objstorage-name }} tutorials."
+description: "This page will guide you through the {{ objstorage-name }} tutorials."
 ---
 
 # {{ objstorage-name }} tutorials
@@ -14,7 +14,7 @@ description: "This page presents a list of {{ objstorage-name }} tutorials."
 * [{#T}](./data-proc-init-actions-geesefs.md)
 * [Connecting a bucket as a disk in Windows](./s3-disk-connect.md)
 * [Automatically copying objects from one bucket to another](./bucket-to-bucket.md)
-* [Regular recognition of audio files in a bucket](./batch-recognition-stt.md)
+* [Regular recognition of audio files in buckets](./batch-recognition-stt.md)
 * [Generating a billing report with resource breakdown using S3 Select](./billing-resource-detailing.md)
 * [Migrating data from {{ yds-full-name }} using {{ data-transfer-full-name }}](./yds-obj-migration.md)
 * [Server-side encryption](./server-side-encryption.md)
@@ -28,10 +28,12 @@ description: "This page presents a list of {{ objstorage-name }} tutorials."
 * [Backup to {{ objstorage-name }} via Bacula](./backup-with-bacula.md)
 * [Backup to {{ objstorage-name }} via Veritas Backup Exec](./object-storage-veritas.md)
 * [{{ managed-k8s-name }} cluster backups in {{ objstorage-name }}](./kubernetes-backup.md)
+* [{#T}](./dp-mch-data-exchange.md)
 * [{#T}](./object-storage-to-postgresql.md)
 * [{#T}](./object-storage-to-greenplum.md)
 * [{#T}](./object-storage-to-clickhouse.md)
 * [{#T}](./object-storage-to-ydb.md)
+* [{#T}](./elasticsearch-to-opensearch.md)
 * [{#T}](./gatsby-static-website.md)
 * [{#T}](./static-key-in-lockbox.md)
 * [{#T}](./opensearch-to-object-storage.md)

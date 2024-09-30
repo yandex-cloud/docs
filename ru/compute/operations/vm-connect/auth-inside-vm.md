@@ -21,11 +21,11 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит ВМ.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), которому принадлежит ВМ.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. Нажмите на имя нужной ВМ.
   1. В правом верхнем углу страницы нажмите ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.compute.instance.overview.button_action-edit }}**.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите один из существующих сервисных аккаунтов или создайте новый.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_additional }}** выберите один из существующих сервисных аккаунтов или создайте новый.
   1. Нажмите **{{ ui-key.yacloud.compute.instance.edit.button_update }}**.
 
 - CLI {#cli}
@@ -52,11 +52,9 @@
 
 - Консоль управления {#console}
 
-  В консоли можно привязать сервисный аккаунт из того же [каталога](../../../resource-manager/concepts/resources-hierarchy.md#folder), где создается ВМ. Если сервисный аккаунт лежит в другом каталоге, воспользуйтесь CLI или API.
+  В консоли управления вы можете привязать к виртуальной машине сервисный аккаунт, расположенный в том же [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создается ВМ. Если сервисный аккаунт расположен в другом каталоге, воспользуйтесь CLI или API.
 
-  Чтобы привязать сервисный аккаунт, укажите его при [создании ВМ](../index.md#vm-create). Вы можете выбрать один из существующих сервисных аккаунтов или создать новый:
-
-  ![image](../../../_assets/compute/connect-sa.png)
+  Чтобы привязать сервисный аккаунт к ВМ, выберите его в блоке **{{ ui-key.yacloud.compute.instances.create.section_additional }}**  в поле **{{ ui-key.yacloud.compute.instances.create.field_service-account }}** при [создании ВМ](../index.md#vm-create). Вы можете выбрать один из существующих сервисных аккаунтов или создать новый.
 
 - CLI {#cli}
 
