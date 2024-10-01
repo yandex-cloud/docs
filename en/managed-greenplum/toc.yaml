@@ -152,6 +152,8 @@ items:
         href: concepts/external-tables.md
       - name: Managing connections
         href: concepts/pooling.md
+      - name: Expanding a cluster
+        href: concepts/expand.md
       - name: Maintenance
         href: concepts/maintenance.md
       - name: '{{ GP }} settings'
@@ -292,7 +294,7 @@ items:
         href: qa/general.md
       - name: Connection
         href: qa/connection.md
-      - name: Backups
+      - name: Backup
         href: qa/backup.md
       - name: Updating a cluster
         href: qa/update.md

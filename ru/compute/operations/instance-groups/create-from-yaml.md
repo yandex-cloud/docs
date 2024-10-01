@@ -16,7 +16,7 @@ description: "Следуя данной инструкции, вы сможет�
   {% include [default-catalogue.md](../../../_includes/default-catalogue.md) %}
 
   Выполните следующую команду:
-  
+
   ```bash
   {{ yc-compute-ig }} create --file specification.yaml
   ```
@@ -27,4 +27,4 @@ description: "Следуя данной инструкции, вы сможет�
 
   Используйте вызов [InstanceGroupService/CreateFromYaml](../../api-ref/grpc/instance_group_service.md#CreateFromYaml) gRPC API или метод [createFromYaml](../../api-ref/InstanceGroup/createFromYaml.md) ресурса `InstanceGroup` REST API.
 
-{% endlist %} 
+{% endlist %}

@@ -6,6 +6,10 @@ editable: false
 
 # {{ dns-name }} pricing policy
 
+{% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
+
+{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
+
 
 ## Prices for the Russia region {#prices}
 
@@ -26,19 +30,19 @@ You will be billed for:
 * Authoritative queries: Any requests for DNS records in a user's [public zones](concepts/dns-zone.md#public-zones) from the internet or {{ yandex-cloud }}.
 * Recursive queries: Queries from a {{ yandex-cloud }} VM for external domain names on the internet.
 
-   {% note tip %}
+  {% note tip %}
 
-   We recommend using [caching resolvers](tutorials/local-dns-cache.md), such as `systemd-resolved`, `dnsmasq`, or `unbound`. They can help you reduce the number of queries for external domain names, reducing costs.
+  We recommend using [caching resolvers](tutorials/local-dns-cache.md), such as `systemd-resolved`, `dnsmasq`, or `unbound`. They can help you reduce the number of queries for external domain names, reducing costs.
 
-   {% endnote %}
+  {% endnote %}
 
-You will not be billed for:
+You do not pay for:
 * Queries to [private](concepts/dns-zone.md#private-zones) and [service](concepts/dns-zone.md#service-zones) zones.
 
 **Starting December 6, 2021, the following is provided free of charge**:
 * The first one million (1,000,000) recursive queries from VMs each month.
 
-   Once you have used up this free amount, you will be charged according to your service plan.
+  Once you have used up this free amount, you will be charged according to your service plan.
 
    The unused balance of free services is reset at the end of the month.
 * Queries for domain names of {{ yandex-cloud }} services (such as `{{ api-host }}`) and those offered by Yandex (such as `mail.yandex.com`), both from VMs and the internet.

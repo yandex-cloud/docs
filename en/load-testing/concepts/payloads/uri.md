@@ -1,12 +1,12 @@
 # URI
 
-Type of test data used for describing HTTP `GET` requests. Allows you to set different headers for different requests and specify request tags. Used in Pandora and Phantom load generators.
+Type of test data used to describe HTTP `GET` requests. Allows you to set different headers for different requests and specify request tags. Used in Pandora and Phantom load generators.
 
 The test data type is specified when [creating a test](../../operations/create-test-bucket.md#create-test).
 
 Data format:
 
-```
+```text
 [Header_name: header_value]
 uri1
 uri2 tag
@@ -39,7 +39,7 @@ You can add headers anywhere in the file. They are applied to all URIs specified
        - "/sdfbv/swdfvs/ssfsf"
    ```
 
-   You can also list headers and endpoints in a separate text file. For this, in the YAML file, specify the `uri` type for the `ammo_type` parameter:
+   You can also list headers and endpoints in a separate text file. For this, in the YAML file, specify `uri` for the `ammo_type` parameter:
 
    - Configuration file:
 
@@ -56,7 +56,7 @@ You can add headers anywhere in the file. They are applied to all URIs specified
 
    - `ammo.txt` text file with headers and requests:
 
-   ```
+   ```http
    [Connection: close]
    [Host: target.example.com]
    [Cookie: None]
@@ -67,7 +67,7 @@ You can add headers anywhere in the file. They are applied to all URIs specified
    /buy/?rt=0&station_to=7&station_from=9
    ```
 
-   Headers in square brackets can override each other. Thus, in the example above, the last endpoint will be used with the `test `cookie, unlike the preceding ones which will be used without it.
+   Headers in square brackets can override each other. Thus, in the example above, the last endpoint will be used with the `test` cookie, unlike the preceding ones which will be used without it.
 
 - Pandora {#pandora}
 
@@ -114,7 +114,7 @@ You can add headers anywhere in the file. They are applied to all URIs specified
 
    You can also list headers and endpoints in a separate text file:
 
-   ```
+   ```yaml
    config_content:
       pools:
       - id: HTTP
@@ -123,7 +123,7 @@ You can add headers anywhere in the file. They are applied to all URIs specified
             file: ./ammo.uri
    ```
 
-   For this, in the YAML file, specify the `uri` type for the `type` parameter in the `ammo` section.
+   For this, in the YAML file, specify `uri` for the `type` parameter under `ammo`.
    When uploading a file with test data via the management console, this is done automatically.
 
 

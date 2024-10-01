@@ -5,19 +5,19 @@
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
-  
+
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать диск.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.switch_disks }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.disks.button_create }}**.
   1. Введите имя диска. Требования к имени:
-  
+
       {% include [name-format](../../../_includes/name-format.md) %}
-  
+
   1. Если требуется, добавьте произвольное описание диска.
   1. Выберите [зону доступности](../../../overview/concepts/geo-scope.md), в которой будет находиться диск.
   1. Выберите нужный тип диска: `{{ ui-key.yacloud.compute.value_disk-type-network-hdd }}`, `{{ ui-key.yacloud.compute.value_disk-type-network-ssd }}`, `{{ ui-key.yacloud.compute.value_disk-type-network-ssd-io-m3 }}` или `{{ ui-key.yacloud.compute.value_disk-type-network-ssd-nonreplicated }}`.
-      
+
 
   1. Выберите нужный размер блока (минимальный объем хранения информации на диске). По умолчанию размер блоков всех создаваемых дисков равен 4 КБ, однако для дисков больше 8 ТБ этого недостаточно.
   1. Укажите нужный размер диска. Максимальный размер диска зависит от заданного размера блока.
@@ -27,25 +27,25 @@
 
 
   1. Если требуется, выберите [расписание](../../concepts/snapshot-schedule.md), по которому для диска будут автоматически создаваться [снимки](../../concepts/snapshot.md), или создайте его. Подробнее о настройках расписания см. в [инструкции](../snapshot-control/create-schedule.md).
-  
+
      {% include [snapshot-disk-types](../../../_includes/compute/snapshot-disk-types.md) %}
 
      При создании диска для него можно выбрать только одно расписание снимков. Если требуется, после создания диска вы можете добавить к нему еще несколько расписаний по [инструкции](../disk-control/configure-schedule.md#add-schedule).
- 
+
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.disks.create.button_create }}**.
-  
+
 - CLI {#cli}
-  
+
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
-  
+
   1. Посмотрите описание команд CLI для создания дисков:
-  
+
       ```bash
       yc compute disk create --help
       ```
 
   1. Создайте диск в каталоге по умолчанию:
-  
+
       ```bash
       yc compute disk create \
         --name first-disk \
@@ -56,15 +56,15 @@
       Данная команда создаст диск размером 10 ГБ с именем `first-disk` и описанием `my first disk via yc`.
 
       Требования к имени диска:
-  
+
       {% include [name-format](../../../_includes/name-format.md) %}
-  
+
   1. Получите список дисков в каталоге по умолчанию:
-  
+
       {% include [compute-disk-list](../../../_includes/compute/disk-list.md) %}
-  
+
       Получите тот же список с большим количеством деталей в формате YAML:
-  
+
       ```bash
       yc compute disk list --format yaml
       ```

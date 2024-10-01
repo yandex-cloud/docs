@@ -106,7 +106,7 @@
 - API {#api}
 
   Воспользуйтесь методом REST API `listOperations` для соответствующего ресурса или вызовом gRPC API `<сервис>/ListOperations`.
-  
+
   Например, для виртуальной машины воспользуйтесь методом REST API [listOperations](../api-ref/Instance/listOperations.md) для ресурса [Instance](../api-ref/Instance/index.md) или вызовом gRPC API [InstanceService/ListOperations](../api-ref/grpc/instance_service.md#ListOperations).
 
 {% endlist %}

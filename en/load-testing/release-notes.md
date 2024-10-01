@@ -1,3 +1,8 @@
+---
+title: "{{ load-testing-full-name }} Release notes"
+description: "This section contains {{ load-testing-name }} release notes."
+---
+
 # {{ load-testing-full-name }} release notes
 
 ## Q2 2024 {#q2-2024}

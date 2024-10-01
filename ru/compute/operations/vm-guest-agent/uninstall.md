@@ -4,11 +4,11 @@
 1. Остановите службу Windows Server и удалите агент:
 
    {% list tabs group=programming_language %}
-   
+
    - PowerShell {#powershell}
-   
+
      1. Остановите службу `yc-guest-agent`:
-     
+
         ```powershell
         Stop-Service -Name "yc-guest-agent"
         ```
@@ -20,7 +20,7 @@
         ```
 
         Результат:
-        
+
         ```text
         Status   Name               DisplayName
         ------   ----               -----------
@@ -28,15 +28,15 @@
         ```
 
         Служба должна иметь статус `Stopped`.
-        
+
      1. Удалите агент:
-     
+
         ```powershell
         & "C:\Program Files\Yandex.Cloud\Guest Agent\guest-agent.exe" uninstall
         ```
 
         Результат:
-        
+
         ```text
         2023-03-16T14:47:00.248Z        INFO    uninstall windows service: yc-guest-agent       {"server": "windows"}
         ```

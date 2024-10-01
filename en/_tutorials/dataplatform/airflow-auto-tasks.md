@@ -344,7 +344,6 @@ All resources you create in the tutorial will belong to the same [cloud network]
 
   For more information about the `yc vpc route-table create` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/route-table/create.md).
 
-
 - API {#api}
 
   To create a route table, use the [create](../../vpc/api-ref/RouteTable/create.md) REST API method for the [RouteTable](../../vpc/api-ref/RouteTable/index.md) resource or the [RouteTableService/Create](../../vpc/api-ref/grpc/route_table_service.md#Create) gRPC API call.

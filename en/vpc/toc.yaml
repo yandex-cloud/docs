@@ -2,7 +2,7 @@ title: Yandex Virtual Private Cloud
 href: index.yaml
 label:
   title: KZ
-  description: The service is available in Kazakhstan.
+  description: This service is only available in the Kazakhstan region.
   theme: info
   when: region == "kz"
 items:
@@ -93,7 +93,7 @@ items:
             href: operations/security-group-delete.md
       - name: Enabling a software-accelerated network
         href: operations/enable-software-accelerated-network.md
-      - name: DDoS protection
+      - name: Protection against DDoS attacks
         items:
           - name: Enabling DDoS protection
             href: operations/enable-ddos-protection.md
@@ -109,6 +109,8 @@ items:
         href: tutorials/index.md
       - name: Architecture and protection of a basic internet service
         href: tutorials/web-service.md
+      - name: DHCP settings for working with a corporate DNS server
+        href: tutorials/dhcp-options.md
       - name: Routing through a NAT instance
         href: tutorials/nat-instance.md
       - name: Setting up network connectivity with IPsec gateways
@@ -135,6 +137,8 @@ items:
         href: tutorials/multi-folder-vpc.md
       - name: Setting up PT Application Firewall
         href: tutorials/pt-application-firewall.md
+      - name: Using {{ yandex-cloud }} modules in {{ TF }}
+        href: tutorials/terraform-modules.md
   - name: Concepts
     items:
       - name: Resource relationships
@@ -345,7 +349,7 @@ items:
             href: api-ref/grpc/private_endpoint_service.md
           - name: OperationService
             href: api-ref/grpc/operation_service.md
-  - name: '{{ at-name }} events'
+  - name: '{{ at-name }} audit logs'
     href: at-ref.md
   - name: Release notes
     href: release-notes.md

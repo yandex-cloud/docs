@@ -1,6 +1,6 @@
 ---
 title: "Getting started with {{ maf-full-name }}"
-description: "To start working with {{ maf-full-name }}, create a service cluster and open the {{ AF }} web interface."
+description: "To get started with {{ maf-full-name }}, create a service cluster and open the {{ AF }} web interface."
 ---
 
 # Getting started with {{ maf-name }}
@@ -21,11 +21,10 @@ To get started with the service:
 
    {% include [sg-ui-access](../_includes/mdb/maf/note-sg-ui-access.md) %}
 
-1. [Create a {{ objstorage-full-name }} bucket](../storage/operations/buckets/create.md) for storing {{ maf-name }} [DAG files](concepts/index.md#about-the-service).
+1. [Make sure](../iam/operations/roles/get-assigned-roles.md) your account has the [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) role and the [{{ roles.maf.editor }} role or higher](security/index.md#roles-list) for creating a cluster.
+1. [Create a {{ objstorage-full-name }}](../storage/operations/buckets/create.md) bucket for storing {{ maf-name }} [DAG files](concepts/index.md#about-the-service).
 1. [Create a service account](../iam/operations/sa/create.md).
-1. [Assign the service account the `storage.viewer` role](../iam/operations/sa/assign-role-for-sa.md) for the folder or bucket.
-1. [Create a static access key](../iam/operations/sa/create-access-key.md) for the service account.
-1. [Make sure](../iam/operations/roles/get-assigned-roles.md) your account has the [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) role and [{{ roles.maf.editor }} role or higher](security/index.md#roles-list) for creating a cluster.
+1. [Assign the service account](../iam/operations/sa/assign-role-for-sa.md) the `storage.viewer` role for a folder or bucket.
 
 
 ## Create a cluster {#cluster-create}

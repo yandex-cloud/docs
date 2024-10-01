@@ -6,29 +6,29 @@ The test data type is specified when [creating a test](../../operations/create-t
 
 Data format:
 
-```
+```json
 {"host": "example.com", "method": "GET", "uri": "/api/url1", "tag": "url1", "headers": {"User-agent": "Tank", "Connection": "close"}}
 {"host": "example.com", "method": "POST", "uri": "/api/url2", "tag": "url2", "headers": {"User-agent": "Tank", "Connection": "close"}, "body": "body_data"}
 ```
 
 Where:
 
-* `host`: Value of the `Host` header
-* `method`: HTTP request method
-* `uri`: Request URI
-* `tag`: Request tag to display in reports
-* `headers`: Request headers
-* `body`: POST request body; specified if `method=POST`
+* `host`: `Host` header value.
+* `method`: HTTP request method.
+* `uri`: Request URI.
+* `tag`: Request tag to display in reports.
+* `headers`: Request headers.
+* `body`: POST request body. It is specified only if `method=POST`.
 
-When passing a JSON structure in the `body` parameter, use the `\` character to escape quotation marks:
+When providing a JSON structure in the `body` parameter, use the `\` character to escape quotation marks:
 
-```
+```json
 {"host": "example.com", "method": "POST", "uri": "/api/url2", "tag": "url2", "headers": {"User-agent": "Tank", "Connection": "close"}, "body": "{\"data\": \"some_data\"}"}
 ```
 
 When configuring the Pandora load generator using a file, specify the `http/json` type in the `ammo` section:
 
-```
+```yaml
 config_content:
           pools:
            - id: HTTP

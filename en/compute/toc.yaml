@@ -8,7 +8,7 @@ label:
 items:
   - name: Getting started
     items:
-      - name: Overview
+      - name: Summary
         href: quickstart/index.md
       - name: Creating a Linux VM
         href: quickstart/quick-create-linux.md
@@ -18,7 +18,7 @@ items:
     items:
       - name: All guides
         href: operations/index.md
-      - name: Creating VMs
+      - name: Creating a virtual machine
         items:
           - name: Creating a Linux VM
             href: operations/vm-create/create-linux-vm.md
@@ -36,7 +36,7 @@ items:
             href: operations/vm-create/create-preemptible-vm.md
       - name: DSVM
         items:
-          - name: Overview
+          - name: Summary
             href: operations/dsvm/index.md
           - name: Creating a VM from a public DSVM image
             href: operations/dsvm/quickstart.md
@@ -78,7 +78,7 @@ items:
             href: operations/vm-info/get-info.md
           - name: Getting serial port's output
             href: operations/vm-info/get-serial-port-output.md
-      - name: Managing VMs
+      - name: Managing a VM
         items:
           - name: Stopping and starting a VM
             href: operations/vm-control/vm-stop-and-start.md
@@ -234,7 +234,7 @@ items:
             href: operations/image-create/create-from-snapshot.md
           - name: Creating an image from another custom image
             href: operations/image-create/create-from-image.md
-      - name: Managing images
+      - name: Managing an image
         items:
           - name: Getting a list of images
             href: operations/image-control/get-list.md
@@ -262,7 +262,7 @@ items:
             href: operations/filesystem/filesystem-access.md
           - name: Deleting a file storage
             href: operations/filesystem/delete.md
-      - name: Managing the serial console
+      - name: Managing a serial console
         items:
           - name: Getting started
             href: operations/serial-console/index.md
@@ -294,7 +294,7 @@ items:
             href: operations/instance-groups/create-with-fixed-ip.md
           - name: Creating an instance group connected to a file storage
             href: operations/instance-groups/create-with-filesystem.md
-          - name: Creating an instance group connected to {{ objstorage-name }}
+          - name: Creating a VM group connected to {{ objstorage-name }}
             href: operations/instance-groups/create-with-bucket.md
       - name: Getting information about instance groups
         items:
@@ -304,7 +304,7 @@ items:
             href: operations/instance-groups/get-info.md
           - name: Getting a list of instances in a group
             href: operations/instance-groups/get-list-instances.md
-      - name: Managing instance groups
+      - name: Managing a VM group
         items:
           - name: Editing an instance group
             href: operations/instance-groups/update.md
@@ -390,6 +390,8 @@ items:
         href: tutorials/autoscale-monitoring.md
       - name: Updating an instance group under load
         href: tutorials/updating-under-load.md
+      - name: Getting started with Packer
+        href: tutorials/packer-quickstart.md
       - name: Transferring logs from a VM instance to {{ cloud-logging-full-name }}
         href: tutorials/vm-fluent-bit-logging.md
       - name: Building a VM image with a set of infrastructure tools using Packer
@@ -404,9 +406,21 @@ items:
         href: tutorials/nodejs-cron-restart-vm.md
       - name: Assigning a domain name to a VM with a web server
         href: tutorials/bind-domain-vm.md
+      - name: Configuring a fault-tolerant architecture in {{ yandex-cloud }}
+        href: tutorials/fault-tolerance.md
+      - name: Routing through a NAT instance
+        href: tutorials/nat-instance.md
+      - name: >-
+          Creating a trigger for budgets that invokes a function to stop VM
+          instances
+        href: tutorials/serverless-trigger-budget-vm.md
+      - name: >-
+          Creating a trigger that invokes a function to stop VM instances and
+          send a Telegram notification
+        href: tutorials/serverless-trigger-budget-queue-vm-tg.md
       - name: OpenCart online store
         items:
-          - name: Overview
+          - name: Summary
             href: tutorials/opencart/index.md
           - name: Management console
             href: tutorials/opencart/console.md
@@ -442,7 +456,7 @@ items:
         href: concepts/index.md
       - name: Virtual machines
         items:
-          - name: Overview
+          - name: Summary
             href: concepts/vm.md
           - name: Platforms
             href: concepts/vm-platforms.md
@@ -470,7 +484,7 @@ items:
         href: concepts/gpus.md
       - name: Disks and file storages
         items:
-          - name: Overview
+          - name: Summary
             href: concepts/storage-overview.md
           - name: Disks
             href: concepts/disk.md
@@ -488,7 +502,7 @@ items:
         href: concepts/image.md
       - name: Instance groups
         items:
-          - name: Overview
+          - name: Summary
             href: concepts/instance-groups/index.md
           - name: Access
             href: concepts/instance-groups/access.md
@@ -500,7 +514,7 @@ items:
             href: concepts/instance-groups/variables-in-the-template.md
           - name: Policies
             items:
-              - name: Overview
+              - name: Summary
                 href: concepts/instance-groups/policies/index.md
               - name: Allocation policy
                 href: concepts/instance-groups/policies/allocation-policy.md
@@ -516,7 +530,7 @@ items:
             href: concepts/instance-groups/autohealing.md
           - name: Updating
             items:
-              - name: Overview
+              - name: Summary
                 href: concepts/instance-groups/deploy/index.md
               - name: Allocating instances across zones
                 href: concepts/instance-groups/deploy/zones.md
@@ -540,7 +554,7 @@ items:
         href: concepts/dedicated-host.md
       - name: Encryption
         href: concepts/encryption.md
-      - name: Backups
+      - name: Backup
         href: concepts/backups.md
       - name: Quotas and limits
         href: concepts/limits.md

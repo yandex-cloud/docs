@@ -38,11 +38,12 @@
 
             
      ```bash
-      curl --X POST "https://<идентификатор_пространства_имен>.schema-registry.yandexcloud.net/v1/namespace"\
-        -H "accept: application/json" \
-        -H "Authorization: <токен>" \
-        -H "Content-Type: application/json" \
-        -d "{
+      curl \
+        --request POST "https://<идентификатор_пространства_имен>.schema-registry.yandexcloud.net/v1/namespace"\
+        --header "accept: application/json" \
+        --header "Authorization: <токен>" \
+        --header "Content-Type: application/json" \
+        --data "{
          \ "schema": "{
              \"type": <тип>, 
              \"name": "<имя_схемы>, 

@@ -1,5 +1,6 @@
 # Создание кластера {{ GP }}
 
+
 [Кластер](../../glossary/cluster.md) {{ mgp-name }} состоит из хостов-мастеров, которые принимают запросы от клиента, и хостов-сегментов, обеспечивающих обработку и хранение данных.
 
 Доступные типы диска [зависят](../concepts/storage.md) от выбранного [класса хостов](../concepts/instance-types.md).
@@ -28,7 +29,7 @@
 
     
     1. (Опционально) Выберите группы [выделенных хостов](../../compute/concepts/dedicated-host.md), на которых будет размещен кластер.
-       
+
         {% include [Dedicated hosts note](../../_includes/mdb/mgp/note-dedicated-hosts.md) %}
 
     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network }}**:
@@ -81,6 +82,7 @@
         * {% include [Datalens access](../../_includes/mdb/console/datalens-access.md) %}
 
 
+
         * {% include [Deletion protection](../../_includes/mdb/console/deletion-protection.md) %}
 
             {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
@@ -116,7 +118,7 @@
 
              
              {% include [storages-step-settings](../../_includes/mdb/mgp/settings-storages.md) %}
-             
+
 
     1. При необходимости задайте [настройки СУБД уровня кластера](../concepts/settings-list.md#dbms-cluster-settings).
 
@@ -252,6 +254,7 @@
         * `--datalens-access` — доступ из {{ datalens-full-name }}: true или false.
 
 
+
 - {{ TF }} {#tf}
 
   
@@ -275,7 +278,6 @@
 
       ```hcl
       resource "yandex_vpc_network" "<имя_сети_в_{{ TF }}>" { name = "<имя_сети>" }
-  
       resource "yandex_vpc_subnet" "<имя_подсети_в_{{ TF }}>" {
         name           = "<имя_подсети>"
         zone           = "<зона_доступности>"
@@ -303,7 +305,6 @@
         master_host_count   = <количество_хостов_мастеров>
         segment_host_count  = <количество_хостов_сегментов>
         segment_in_host     = <количество_сегментов_на_хост>
-  
         master_subcluster {
           resources {
             resource_preset_id = "<класс_хоста>"
@@ -311,7 +312,6 @@
             disk_type_id       = "<тип_диска>"
           }
         }
-  
         segment_subcluster {
           resources {
             resource_preset_id = "<класс_хоста>"
@@ -375,6 +375,8 @@
     * Настройки публичного доступа в параметре `assignPublicIp`.
     * Настройки окна резервного копирования в параметре `config.backupWindowStart`.
     * Настройки доступа из [{{ datalens-full-name }}](../../datalens/concepts/index.md) в параметре `config.access.dataLens`.
+
+
     * Настройки доступа из [{{ data-transfer-full-name }}](../../data-transfer/) в параметре `config.access.dataTransfer`.
     * Настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров) в параметре `maintenanceWindow`.
     * [Настройки СУБД](../concepts/settings-list.md#dbms-cluster-settings) в параметре `configSpec.greenplumConfig_<версия>`.
