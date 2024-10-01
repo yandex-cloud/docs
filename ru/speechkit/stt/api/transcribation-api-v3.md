@@ -346,4 +346,352 @@ description: "Следуя данной инструкции, вы сможет�
 
       {% endcut %}
 
+- Node {#node}
+
+  1. [Получите ссылку на аудиофайл](../../../storage/operations/objects/link-for-download.md) в {{ objstorage-name }}.
+  2. Отправьте `post` запрос для распознания аудио файла.
+
+    ```js
+    const { data } = await axios.post(
+        "https://stt.api.cloud.yandex.net/stt/v3/recognizeFileAsync",
+        {
+          uri: "https://storage.yandexcloud.net/<название_бакета>/<путь_к_WAV-файлу_в_бакете>",
+          recognition_model: {
+            model: 'general',
+            audio_format: {
+              container_audio: {
+                container_audio_type: 'OGG_OPUS',
+              },
+            },
+            text_normalization: {
+              text_normalization: 'TEXT_NORMALIZATION_ENABLED',
+              literature_text: true,
+            },
+          },
+        },
+        {
+          headers: {
+            Authorization: `Api-key ${API_KEY}`,
+          },
+        },
+      );
+
+      return data;
+    ```
+    Где:
+    * `uri` — ссылка на аудиофайл в Object Storage. Пример ссылки: `https://storage.yandexcloud.net/speechkit/speech.wav`
+    * `model` — модель распознавания речи.
+    * `container_audio_type` — тип аудиоконтейнера. [Разрешенные типы можно посмотреть здесь](https://yandex.cloud/ru/docs/speechkit/stt-v3/api-ref/grpc/stt_service#ContainerAudio). Если вы укажите не правильно тип - будет ошибка.
+    * `API_KEY` - Апи ключ созданный в сервисном аккаунте. Он не ограничен по времени действия.
+    * `text_normalization` - настройки приведения к нормальну виду. Там много настроек, посмотрите их по [ссылке](https://yandex.cloud/ru/docs/speechkit/stt-v3/api-ref/grpc/stt_service#TextNormalizationOptions)
+    
+    Пример результата:
+
+    ```json
+    {
+       "id":"f8ddr61b30fk********",
+       "description":"STT v3 async recognition",
+       "createdAt":"2024-07-15T07:39:36Z",
+       "createdBy":"ajehumcuv38h********",
+       "modifiedAt":"2024-07-15T07:39:36Z",
+       "done":false,
+       "metadata":null
+    }
+    ```
+    Сохраните идентификатор (id) операции распознавания, полученный в ответе.
+    
+    Если вы получили такую ошибку:
+    ```js
+    data: {
+      error: 'unknown value "\\"OggOpus\\"" for enum speechkit.stt.v3.ContainerAudio.ContainerAudioType',
+      code: 3,
+      message: 'unknown value "\\"OggOpus\\"" for enum speechkit.stt.v3.ContainerAudio.ContainerAudioType',
+      details: []
+    }
+    ```
+    или такую:
+    ```js
+    error: {
+        grpcCode: 3,
+        httpCode: 400,
+        message: 'Error in session internal_id=d37c0b7-13777363-52e7c7aa-fb23280a&request_id=f8d134ap164oulub0pk&client_request_id=f8d134ap164oulub0pk&folder_id=1gr7659c2un3cargb0f: No RIFF found',
+        httpStatus: 'Bad Request',
+        details: []
+      }
+    ```
+    Это значит, что вы не верно указали `container_audio_type`, файл не сообветствует указанному типу.
+
+3. Подождите, пока закончится распознавание. Одна минута аудио распознается примерно за 10 секунд.
+4. [Запросите информацию](https://yandex.cloud/ru/docs/api-design-guide/concepts/operation#monitoring) об операции.
+    ```js
+    const { data } = await axios.get(
+        "https://operation.api.cloud.yandex.net/operations/<идентификатор_операции_распознавания>",
+        {
+          headers: {
+            Authorization: `Api-key ${API_KEY}`,
+          },
+        },
+      );
+      return data;
+    ```
+    Пример результата:
+    ```json
+    {
+       "done": true,
+       "id": "f8ddr61b30fk********",
+       "description": "STT v3 async recognition",
+       "createdAt": "2024-07-15T07:39:36Z",
+       "createdBy": "ajehumcuv38h********",
+       "modifiedAt": "2024-07-15T07:39:37Z"
+    }
+    ```
+    Если  `"done": true` значит файл распознан и можно делать запрос на получение результата.
+    
+5. Запрос реультата.
+    ```js
+    const { data } = await axios.get(
+        "https://stt.api.cloud.yandex.net:443/stt/v3/getRecognition?operation_id=<идентификатор_операции_распознавания>",
+        {
+          headers: {
+            Authorization: `Api-key ${API_KEY}`,
+          },
+        },
+      );
+      return JSON.parse('[' + data.replaceAll('}\n{', '},\n{') + ']');
+    ```
+    Результат будет не JSON, а строкой. Чтобы привести её в нормальный вид прогоняем результат через код написанный выше. Или напишите свой.
+    
+    {% cut "Пример результата" %}
+    ```json
+    {
+       "result": {
+          "sessionUuid": {
+             "uuid": "24935f24-2c1f62dc-8dd49006-********",
+             "userRequestId": "f8d2h7m07t4i********"
+          },
+          "audioCursors": {
+             "receivedDataMs": "7400",
+             "resetTimeMs": "0",
+             "partialTimeMs": "7400",
+             "finalTimeMs": "7400",
+             "finalIndex": "0",
+             "eouTimeMs": "0"
+          },
+          "responseWallTimeMs": "189",
+          "final": {
+             "alternatives": [
+                {
+                   "words": [
+                      {
+                         "text": "я",
+                         "startTimeMs": "459",
+                         "endTimeMs": "520"
+                      },
+                      {
+                         "text": "яндекс",
+                         "startTimeMs": "640",
+                         "endTimeMs": "1060"
+                      },
+                      {
+                         "text": "спичкит",
+                         "startTimeMs": "1120",
+                         "endTimeMs": "1959"
+                      },
+                      {
+                         "text": "я",
+                         "startTimeMs": "2480",
+                         "endTimeMs": "2520"
+                      },
+                      {
+                         "text": "могу",
+                         "startTimeMs": "2580",
+                         "endTimeMs": "2800"
+                      },
+                      {
+                         "text": "превратить",
+                         "startTimeMs": "2860",
+                         "endTimeMs": "3360"
+                      },
+                      {
+                         "text": "любой",
+                         "startTimeMs": "3439",
+                         "endTimeMs": "3709"
+                      },
+                      {
+                         "text": "текст",
+                         "startTimeMs": "3800",
+                         "endTimeMs": "4140"
+                      },
+                      {
+                         "text": "в",
+                         "startTimeMs": "4200",
+                         "endTimeMs": "4220"
+                      },
+                      {
+                         "text": "речь",
+                         "startTimeMs": "4279",
+                         "endTimeMs": "4740"
+                      },
+                      {
+                         "text": "теперь",
+                         "startTimeMs": "5140",
+                         "endTimeMs": "5759"
+                      },
+                      {
+                         "text": "и",
+                         "startTimeMs": "5859",
+                         "endTimeMs": "5900"
+                      },
+                      {
+                         "text": "вы",
+                         "startTimeMs": "5980",
+                         "endTimeMs": "6399"
+                      },
+                      {
+                         "text": "можете",
+                         "startTimeMs": "6660",
+                         "endTimeMs": "7180"
+                      }
+                   ],
+                   "text": "я яндекс спичкит я могу превратить любой текст в речь теперь и вы можете",
+                   "startTimeMs": "0",
+                   "endTimeMs": "7400",
+                   "confidence": 0,
+                   "languages": []
+                }
+             ],
+             "channelTag": "0"
+          },
+          "channelTag": "0"
+       }
+    }
+    {
+       "result": {
+          "sessionUuid": {
+             "uuid": "24935f24-2c1f62dc-8dd49006-********",
+             "userRequestId": "f8d2h7m07t4i********"
+          },
+          "audioCursors": {
+             "receivedDataMs": "7400",
+             "resetTimeMs": "0",
+             "partialTimeMs": "7400",
+             "finalTimeMs": "7400",
+             "finalIndex": "0",
+             "eouTimeMs": "0"
+          },
+          "responseWallTimeMs": "189",
+          "finalRefinement": {
+             "finalIndex": "0",
+             "normalizedText": {
+                "alternatives": [
+                   {
+                      "words": [
+                         {
+                            "text": "я",
+                            "startTimeMs": "459",
+                            "endTimeMs": "520"
+                         },
+                         {
+                            "text": "яндекс",
+                            "startTimeMs": "640",
+                            "endTimeMs": "1060"
+                         },
+                         {
+                            "text": "спичкит",
+                            "startTimeMs": "1120",
+                            "endTimeMs": "1959"
+                         },
+                         {
+                            "text": "я",
+                            "startTimeMs": "2480",
+                            "endTimeMs": "2520"
+                         },
+                         {
+                            "text": "могу",
+                            "startTimeMs": "2580",
+                            "endTimeMs": "2800"
+                         },
+                         {
+                            "text": "превратить",
+                            "startTimeMs": "2860",
+                            "endTimeMs": "3360"
+                         },
+                         {
+                            "text": "любой",
+                            "startTimeMs": "3439",
+                            "endTimeMs": "3709"
+                         },
+                         {
+                            "text": "текст",
+                            "startTimeMs": "3800",
+                            "endTimeMs": "4140"
+                         },
+                         {
+                            "text": "в",
+                            "startTimeMs": "4200",
+                            "endTimeMs": "4220"
+                         },
+                         {
+                            "text": "речь",
+                            "startTimeMs": "4279",
+                            "endTimeMs": "4740"
+                         },
+                         {
+                            "text": "теперь",
+                            "startTimeMs": "5140",
+                            "endTimeMs": "5759"
+                         },
+                         {
+                            "text": "и",
+                            "startTimeMs": "5859",
+                            "endTimeMs": "5900"
+                         },
+                         {
+                            "text": "вы",
+                            "startTimeMs": "5980",
+                            "endTimeMs": "6399"
+                         },
+                         {
+                            "text": "можете",
+                            "startTimeMs": "6660",
+                            "endTimeMs": "7180"
+                         }
+                      ],
+                      "text": "Я яндекс спичкит я могу превратить любой текст в речь теперь и вы можете",
+                      "startTimeMs": "0",
+                      "endTimeMs": "7400",
+                      "confidence": 0,
+                      "languages": []
+                   }
+                ],
+                "channelTag": "0"
+             }
+          },
+          "channelTag": "0"
+       }
+    }
+    {
+       "result": {
+          "sessionUuid": {
+             "uuid": "24935f24-2c1f62dc-8dd49006-********",
+             "userRequestId": "f8d2h7m07t4i********"
+          },
+          "audioCursors": {
+             "receivedDataMs": "7400",
+             "resetTimeMs": "0",
+             "partialTimeMs": "7400",
+             "finalTimeMs": "7400",
+             "finalIndex": "0",
+             "eouTimeMs": "7400"
+          },
+          "responseWallTimeMs": "190",
+          "eouUpdate": {
+             "timeMs": "7400"
+          },
+          "channelTag": "0"
+       }
+    }
+    ```
+    {% endcut %}
+
 {% endlist %}
