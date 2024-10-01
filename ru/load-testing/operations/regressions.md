@@ -122,6 +122,3 @@
 Чтобы добавить новый дашборд, на странице ![image](../../_assets/load-testing/regressions.svg) **{{ ui-key.yacloud.load-testing.label_regressions-title }}** нажмите кнопку **Создать дашборд** в правом верхнем углу страницы.
 
 Чтобы удалить дашборд, на странице ![image](../../_assets/load-testing/regressions.svg) **{{ ui-key.yacloud.load-testing.label_regressions-title }}** в списке дашбордов нажмите ![image](../../_assets/options.svg) напротив нужного дашборда и выберите опцию **{{ ui-key.yc-ui-datasphere.common.delete }}**.
-
-
-

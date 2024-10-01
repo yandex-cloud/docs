@@ -21,13 +21,7 @@ items:
   - name: Saving browser and server interactions to a HAR file
     href: create-har.md
   - name: Pricing policy
-    items:
-      - name: Current pricing policy
-        href: pricing.md
-      - name: Archive
-        items:
-          - name: Before October 1, 2023
-            href: pricing-archive/pricing01102023.md
+    href: pricing.md
   - name: FAQ
     href: qa.md
 base: en/support

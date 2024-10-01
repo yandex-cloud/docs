@@ -45,11 +45,12 @@
 Запрос:
 
 ```json
-curl -X 'POST' \
+curl \
+  --request 'POST' \
   'https://api.yandex-query.cloud.yandex.net/api/fq/v1/queries?project=b1gaue5b382m********' \
-  -H 'accept: application/json' \
-  -H 'Content-Type: application/json' \
-  -d '{
+  --header 'accept: application/json' \
+  --header 'Content-Type: application/json' \
+  --data '{
     "name": "Test query",
     "type": "ANALYTICS",
     "text": "select 1",

@@ -1,6 +1,6 @@
 In the `Primary network interface` and `Other network interfaces` configuration sections, specify the settings for the required number of network interfaces you want to create on this VM, as shown below. Interfaces are numbered starting from zero. This example shows how to set up three interfaces. You can add up to eight network interfaces to a single VM.
 
-```
+```yaml
 #cloud-config
 
 datasource:

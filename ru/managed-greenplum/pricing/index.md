@@ -4,8 +4,6 @@ editable: false
 
 # Правила тарификации для {{ mgp-name }}
 
-
-
 В этом разделе описаны [правила](#rules), по которым тарифицируется использование сервиса {{ mgp-name }}, и представлены [актуальные цены](#prices) на предоставляемые им ресурсы.
 
 {% include [use-calculator](../../_includes/pricing/use-calculator.md) %}
@@ -31,6 +29,7 @@ editable: false
 
 ### Использование хостов кластера {#rules-hosts-uptime}
 
+
 В зависимости от [типа хоста](../concepts/) стоимость вычисляется по-разному:
 
 * Стандартные хосты
@@ -40,6 +39,8 @@ editable: false
 * Выделенные хосты
 
   Стоимость начисляется из двух компонентов: [цены за вычислительные ресурсы {{ compute-full-name }}](../../compute/pricing.md#prices) и наценки {{ mgp-name }} на эти ресурсы.
+
+
 
 Поддерживаемые конфигурации ресурсов приведены в разделе [Классы хостов](../concepts/instance-types.md), цены за использование vCPU и RAM — в разделе [Цены](#prices).
 
@@ -51,9 +52,14 @@ editable: false
 
 * Объем хранилища, выделенный для кластеров.
 
+  
   * Хранилище на локальных SSD-дисках (`local-ssd`) можно заказывать только для кластеров с двумя хостами-мастерами:
+
     * для платформы Intel Cascade Lake — с шагом 100 ГБ;
     * для платформы Intel Ice Lake — с шагом {{ local-ssd-v3-step }}.
+
+
+
   * Хранилище на нереплицируемых SSD-дисках (`network-ssd-nonreplicated`) можно заказывать только для кластеров с двумя хостами-мастерами, с шагом 93 ГБ.
 
   Чтобы сэкономить, вы можете [выгрузить таблицы AO и AOCO](../tutorials/yezzey.md) с дисков кластера {{ mgp-name }} в холодное хранилище {{ objstorage-full-name }}. Данные будут храниться в служебном бакете в сжатом и зашифрованном виде, так хранить данные дешевле. Стоимость хранения рассчитывается по [правилам тарификации {{ objstorage-name }}](../../storage/pricing.md).
@@ -67,6 +73,7 @@ editable: false
   * Количество хостов кластера не влияет на объем хранилища и, соответственно, на бесплатный объем резервных копий.
 
 Цена указывается за 1 месяц использования и формируется из расчета 720 часов в месяц. Минимальная единица тарификации — 1 ГБ в минуту (например, стоимость хранения 1 ГБ в течение 1,5 минут равна стоимости хранения в течение 2 минут).
+
 
 ### Пример расчета стоимости кластера {#example}
 
@@ -106,30 +113,35 @@ editable: false
 
 ## Цены для региона Россия {#prices}
 
+
+
 {% include [pricing-diff-regions](../../_includes/pricing-diff-regions.md) %}
 
 
+
 Все цены указаны с включением НДС.
+
 
 
 Цены на хосты [вычисляются по-разному](#rules-hosts-uptime) в зависимости от выбранного типа хостов.
 
 От типа хостов также зависит цена на хранилище на локальных SSD-дисках (`local-ssd`).
 
+
 {% include [pricing-month-term](../../_includes/mdb/pricing-month-term.md) %}
 
 ### Вычислительные ресурсы хостов {#prices-hosts}
 
+
 #### Стандартные хосты {#standard-hosts}
 
-
 {% include [Доступ к Compute Optimized по запросу](../../_includes/mdb/note-compute-optimized-request.md) %}
-
 
 Стоимость вычисляется по-разному в зависимости от [конфигурации хостов](../concepts/instance-types.md):
 
 * Для хостов i2 и i3 (`io-optimized`) стоимость складывается из цены за вычислительные ресурсы хостов {{ mgp-name }} (см. таблицу ниже) и [цены за использование программно-ускоренной сети](../../compute/pricing.md#software-accelerated-network).
 * Для хостов других конфигураций оплачиваются только их вычислительные ресурсы:
+
 
 **Цены в час**
 
@@ -145,6 +157,7 @@ editable: false
   {% include [kzt-hosts-standard-hour](../../_pricing/managed-greenplum/kzt-hosts-standard-hour.md) %}
 
 {% endlist %}
+
 
 
 
@@ -165,11 +178,11 @@ editable: false
 
 
 
+
+
 #### Выделенные хосты {#dedicated-hosts}
 
-
 {% include [Доступ к Compute Optimized по запросу](../../_includes/mdb/note-compute-optimized-request.md) %}
-
 
 Стоимость начисляется из двух компонентов: [цены за вычислительные ресурсы {{ compute-full-name }}](../../compute/pricing.md#prices) и наценки {{ mgp-name }} на эти ресурсы.
 
@@ -188,12 +201,15 @@ editable: false
 
 
 
+
 ### Хранилище и резервные копии {#prices-storage}
 
 {% include [local-ssd для Ice Lake только по запросу](../../_includes/ice-lake-local-ssd-note.md) %}
 
 
 #### Стандартные хосты {#storage-standard}
+
+
 
 {% list tabs group=pricing %}
 
@@ -206,6 +222,9 @@ editable: false
   {% include [kzt-storage-standard](../../_pricing/managed-greenplum/kzt-storage-standard.md) %}
 
 {% endlist %}
+
+
+
 
 #### Выделенные хосты {#storage-dedicated}
 
@@ -225,17 +244,6 @@ editable: false
 
 
 
-Стоимость хранения данных в [холодном хранилище {{ objstorage-full-name }}](../tutorials/yezzey.md) рассчитывается по [правилам тарификации {{ objstorage-name }}](../../storage/pricing.md).
-
-Особенности тарификации хранилища резервных копий:
-
-* Хранение резервных копий не тарифицируется, пока суммарный объем БД и всех резервных копий меньше общего размера хранилища.
-
-* При [добавлении хоста-сегмента](../operations/hosts/cluster-expand.md#add-hosts) общая стоимость кластера возрастет, но расходы на хранение резервных копий сверх размера хранилища снизятся за счет увеличения общего размера хранилища.
-
-* {% include [backup-wal](../../_includes/mdb/mgp/backup-wal.md) %}
-
 {% include [egress-traffic-pricing](../../_includes/egress-traffic-pricing.md) %}
-
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

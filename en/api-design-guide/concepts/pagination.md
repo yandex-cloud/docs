@@ -4,9 +4,9 @@ Some API methods support _pagination_. Pagination is when a server returns resul
 
 To get the desired page with results, pass the following parameters in a request:
 
-- `page_token`: Token for the results page. The next page's token can be obtained from the `next_page_token` field when getting a list of resources (see the example below).
+- `page_token`: Result page token. You can get the next page token from the `next_page_token` field when retrieving a list of resources (see the example below).
 
-- `page_size`: Number of results per page. Possible values: from 0 to 1000. Default: 100.
+- `page_size`: Number of results per page. Possible values: from 0 to 1000. The default value is: 100.
 
 ## Examples {#examples}
 
@@ -43,7 +43,7 @@ gRPC description of the [List](https://github.com/yandex-cloud/cloudapi/blob/mas
 
 Sample REST request used to get a list of disks in the folder:
 
-```
+```http
 GET https://compute.{{ api-host }}/compute/v1/disks?folderId=a3s17h9sbq5asdgss12&pageToken=1acdeb26078146e6
 ```
 

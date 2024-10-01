@@ -1,5 +1,5 @@
 
-| Code | Value |
+| Code | Status |
 |---|---|
 | 0 | "Success" |
 | 1 | "Operation not permitted" |
@@ -134,4 +134,5 @@
 | 130 | "Owner died" |
 | 131 | "State not recoverable" |
 | 314 | "Jmeter java error" |
+| 777 | "Pandora discard overflow" |
 | 999 | "Pandora common error" |

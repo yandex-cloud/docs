@@ -9,11 +9,11 @@ You can specify [{{ CH }} settings at the query level](https://clickhouse.com/do
 
       To use this method, enable the **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}** option when [creating](cluster-create.md) or [updating](update.md#SQL-management) the cluster. After that, you will not be able to manage users using the {{ yandex-cloud }} interfaces; however, you cannot disable user management via SQL.
 
-   * [Settings at the profile level](#settings-profile). In {{ CH }}, the [settings profile]({{ ch.docs }}/operations/access-rights#settings-profiles-management) contains the values and limitations of these settings as well as the list of roles and users to whom the profile applies. You can specify {{ CH }} settings in the `CREATE SETTINGS PROFILE` and `ALTER SETTINGS PROFILE` SQL queries.
+   * [Settings at the profile level](#settings-profile). In {{ CH }}, the [settings profile]({{ ch.docs }}/operations/access-rights#settings-profiles-management) contains the values and limitations of these settings as well as the list of roles and users the profile applies to. {{ CH }} settings are provided in the `CREATE SETTINGS PROFILE` and `ALTER SETTINGS PROFILE` SQL queries.
 
       To use this method, enable the **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}** option when [creating](cluster-create.md) or [updating](update.md#SQL-management) the cluster.
 
-   * [Session settings](#session). During a session, you can specify {{ CH }} settings using the `SET` SQL query. This way you can specify settings in a cluster with any configuration, but they will apply to the current session only.
+   * [Session settings](#session). During a session, you can provide {{ CH }} settings using the `SET` SQL query. This way you can specify settings in a cluster with any configuration, but they will apply to the current session only.
 
       This method is not suitable for all SQL editors: in some of them, every query runs in a separate session. Check the characteristics of your SQL editor before configuring a session.
 
@@ -56,9 +56,9 @@ You can specify {{ CH }} settings when [adding a new user](#add-user) or [changi
    1. Create a user:
 
       ```sql
-      CREATE USER <user_name>
+      CREATE USER <username>
          IDENTIFIED WITH sha256_password BY '<user_password>'
-         SETTINGS <{{ CH }}_settings_list>;
+         SETTINGS <list_of_{{ CH }}_settings>;
       ```
 
       {% include [sql-user-name-and-password-limits](../../_includes/mdb/mch/note-sql-info-user-name-and-pass-limits.md) %}
@@ -66,7 +66,7 @@ You can specify {{ CH }} settings when [adding a new user](#add-user) or [changi
       Under `SETTINGS`, along with the setting value, you can specify its minimum and maximum value. Here is an example for the [idle_connection_timeout](https://clickhouse.com/docs/en/operations/settings/settings#idle_connection_timeout) setting:
 
       ```sql
-      CREATE USER <user_name>
+      CREATE USER <username>
          IDENTIFIED WITH sha256_password BY 'password'
          SETTINGS idle_connection_timeout = 60 MIN 5 MAX 120;
       ```
@@ -85,7 +85,7 @@ You can specify {{ CH }} settings when [adding a new user](#add-user) or [changi
    1. Update the user account.
 
       ```sql
-      ALTER USER <user_name> SETTINGS <{{ CH }}_settings_list>;
+      ALTER USER <username> SETTINGS <list_of_{{ CH }}_settings>;
       ```
 
       For more information on updating accounts, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/statements/alter/user).
@@ -107,7 +107,7 @@ You can specify {{ CH }} settings when [creating](#create-settings-profile) or [
 
       ```sql
       CREATE SETTINGS PROFILE <settings_profile_name>
-         SETTINGS <{{ CH }}_settings_list>;
+         SETTINGS <list_of_{{ CH }}_settings>;
       ```
 
       Under `SETTINGS`, along with the setting value, you can specify its minimum and maximum value. Here is an example for the [idle_connection_timeout](https://clickhouse.com/docs/en/operations/settings/settings#idle_connection_timeout) setting:
@@ -121,7 +121,7 @@ You can specify {{ CH }} settings when [creating](#create-settings-profile) or [
 
       ```sql
       CREATE SETTINGS PROFILE <settings_profile_name>
-         SETTINGS <{{ CH }}_settings_list>
+         SETTINGS <list_of_{{ CH }}_settings>
          TO <username>;
       ```
 
@@ -140,7 +140,7 @@ You can specify {{ CH }} settings when [creating](#create-settings-profile) or [
 
       ```sql
       ALTER SETTINGS PROFILE <settings_profile_name>
-         SETTINGS <{{ CH }}_settings_list>;
+         SETTINGS <list_of_{{ CH }}_settings>;
       ```
 
       In this query, you can specify the boundary values of settings and bind the profile to a user. For more information about changing settings profiles, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/statements/alter/settings-profile).
@@ -157,7 +157,7 @@ You can specify {{ CH }} settings when [creating](#create-settings-profile) or [
    1. Run the following query:
 
       ```sql
-      SET <username> SETTINGS <{{ CH }}_settings_list>;
+      SET <username> SETTINGS <list_of_{{ CH }}_settings>;
       ```
 
       The applied settings will be valid during the opened session only.
@@ -199,7 +199,7 @@ You can specify {{ CH }} settings when [creating](#create-settings-profile) or [
          ```bash
          clickhouse-client --host <FQDN_of_any_{{ CH }}_host> \
                            --user <username> \
-                           --database <database_name> \
+                           --database <db_name> \
                            --port 9000 \
                            --ask-password \
                            <flags_with_{{ CH }}_settings>
@@ -212,7 +212,7 @@ You can specify {{ CH }} settings when [creating](#create-settings-profile) or [
          clickhouse-client --host <FQDN_of_any_{{ CH }}_host> \
                            --secure \
                            --user <username> \
-                           --database <database_name> \
+                           --database <db_name> \
                            --port 9440 \
                            --ask-password \
                            <flags_with_{{ CH }}_settings>

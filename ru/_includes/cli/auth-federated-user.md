@@ -9,7 +9,7 @@
     yc init --federation-id=<идентификатор_федерации>
     ```
 
-   
+
 
 
 
@@ -50,7 +50,7 @@
 
    ```bash
    Do you want to configure a default {{ compute-full-name }} availability zone? [Y/n] Y
-   ```  
+   ```
 
    Если вы ввели `Y`, выберите зону доступности:
 
@@ -60,7 +60,7 @@
 
 
 1. Проверьте настройки вашего профиля CLI:
-   
+
    ```bash
    yc config list
    ```

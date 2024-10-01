@@ -29,7 +29,7 @@ description: "Для группы выделенных хостов {{ compute-n
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
-  
+
   1. Посмотрите описание команды CLI для назначения роли на группу выделенных хостов:
 
      ```bash

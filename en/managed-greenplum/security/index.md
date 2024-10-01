@@ -4,7 +4,7 @@ description: "To allow access to {{ mgp-name }} resources (DB clusters and hosts
 keywords:
   - access
   - configuring access
-  - "access to {{ GP }}"
+  - "{{ GP }} access"
   - green plum
   - "{{ GP }}"
 ---
@@ -20,7 +20,7 @@ In this section, you will learn:
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-Roles for a resource can be assigned by users who have the `mdb.admin`, `managed-greenplum.admin`, or one of the following roles for that resource:
+Roles for a resource can be assigned by users who have the `mdb.admin` role or one of the following roles for that resource:
 
 {% include [roles-list](../../_includes/iam/roles-list.md) %}
 

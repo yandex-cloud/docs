@@ -6,7 +6,7 @@ description: "In this tutorial, you will learn about using a network load balanc
 # Network load balancer use cases
 
 
-## Virtual machines {#nlb-vm}
+## VMs {#nlb-vm}
 
 Traffic coming to the load balancer is distributed in a certain way among the instances located in the target groups behind it.
 
@@ -14,7 +14,7 @@ If multiple traffic listeners are used on one load balancer, the traffic coming 
 
 For example, traffic coming to "Listener-1" will be sent to instances in target groups 1 and 2.
 
-For more granular traffic listening, instead of creating multiple listeners per load balancer, we recommend you to create a separate load balancer for each service.
+For more granular traffic listening, instead of creating multiple listeners per load balancer, we recommend creating a separate load balancer for each service.
 
 ## Instance group {#nlb-ig}
 
@@ -22,7 +22,7 @@ When creating an instance group, a target group for the network load balancer wi
 
 When adding or removing VMs from the group, the load balancer's target group will also reflect these changes.
 
-[Example](../../_tutorials/infrastructure/vm-autoscale.md) of deploying an instance group with automatic scaling and integration with a network load balancer.
+[Example](../tutorials/vm-autoscale.md) of deploying an instance group with automatic scaling and integration with a network load balancer.
 
 ## {{ managed-k8s-name }} cluster {#nlb-mk8s}
 

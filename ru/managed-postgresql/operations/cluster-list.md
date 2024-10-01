@@ -159,17 +159,27 @@ description: "Вы можете запросить детальную инфор
 
 {% endlist %}
 
-## Посмотреть список операций в кластере {#list-operations}
+## Посмотреть операции с кластерами {#list-operations}
 
-{% include [list-operations-about](../../_includes/mdb/list-operations-about.md) %}
+Все действия с кластерами {{ mpg-name }} сохраняются в виде списка операций. Каждой операции присваивается уникальный идентификатор.
+
+### Получить список операций {#get-operations}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-  1. Нажмите на имя нужного кластера.
-  1. Перейдите на вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_operations }}**.
+  Чтобы посмотреть операции со всеми кластерами {{ mpg-name }}, на панели слева выберите ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.postgresql.switch_operations }}**. В открывшемся списке также отображаются операции для ресурсов, которые были удалены.
+
+  Можно получить список операций для кластера:
+
+  1. В [консоли управления]({{ link-console-main }}) откройте каталог, в котором находится кластер.
+  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/cubes-3.svg) **{{ ui-key.yacloud.postgresql.switch_list }}**.
+  1. Выберите нужный кластер.
+  1. Перейдите на панель ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.postgresql.switch_operations }}** для выбранного кластера.
+
+     В открывшемся списке отображаются операции с выбранным кластером.
 
 - CLI {#cli}
 
@@ -177,13 +187,46 @@ description: "Вы можете запросить детальную инфор
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  Чтобы получить список операций, выполните команду:
+  Чтобы получить список операций для кластера {{ mpg-name }}, воспользуйтесь командой:
 
   ```bash
-  {{ yc-mdb-pg }} cluster list-operations <имя_или_идентификатор_кластера>
+  yc managed-postgresql cluster list-operations <имя_или_идентификатор_кластера>
   ```
 
-  Идентификатор и имя кластера можно запросить со [списком кластеров в каталоге](#list-clusters).
+  Результат:
+
+  ```text
+  +----------------------+---------------------+----------------------+---------------------+--------+--------------------------------+
+  |          ID          |     CREATED AT      |      CREATED BY      |     MODIFIED AT     | STATUS |          DESCRIPTION           |
+  +----------------------+---------------------+----------------------+---------------------+--------+--------------------------------+
+  | c5m7ll6pq3j8******** | 2024-08-08 19:05:42 | mdb-maintainer       | 2024-08-15 19:20:05 | DONE   | Modify PostgreSQL cluster      |
+  | c5mb0no66172******** | 2024-06-19 12:48:40 | mdb-maintainer       | 2024-06-26 12:50:14 | DONE   | Modify PostgreSQL cluster      |
+  | c5m6of9he7op******** | 2023-11-13 19:25:21 | ajeef73j5iq9******** | 2023-11-13 19:32:00 | DONE   | Create PostgreSQL cluster      |
+  +----------------------+---------------------+----------------------+---------------------+---- ---+--------------------------------+
+  ```
+
+  Идентификатор кластера можно получить со [списком кластеров в каталоге](#list-clusters).
+
+  По умолчанию информация об операциях выводится в текстовом формате. Чтобы получить более подробную информацию, укажите формат `yaml` или `json` для выводимых данных с помощью флага `--format`:
+
+  ```bash
+  yc managed-postgresql cluster list-operations c9qk2926qqu9******** --format yaml
+  ```
+
+  Результат:
+
+  ```text
+  - id: c9q2m9jrootm********
+    description: Create PostgreSQL cluster
+    created_at: "2024-08-06T06:38:13.724389Z"
+    created_by: ajej2i98kcjd********
+    modified_at: "2024-08-06T06:46:33.101402Z"
+    done: true
+    metadata:
+      '@type': type.googleapis.com/yandex.cloud.mdb.postgresql.v1.CreateClusterMetadata
+      cluster_id: c9qk2926qqu9********
+  ...
+  ```
 
 - REST API {#api}
 
@@ -232,3 +275,50 @@ description: "Вы можете запросить детальную инфор
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/cluster_service.md#ListClusterOperationsResponse).
 
 {% endlist %}
+
+### Получить подробную информацию об операции {#get-operations-info}
+
+1. [Получите список операций](#get-operations) для кластера.
+1. Скопируйте идентификатор нужной операции.
+1. Получите подробную информацию об операции:
+
+   {% list tabs group=instructions %}
+
+   - CLI {#cli}
+
+     {% include [cli-install](../../_includes/cli-install.md) %}
+
+     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+     Выполните команду:
+
+     ```bash
+     yc operation get <идентификатор_операции>
+     ```
+
+     Результат:
+
+     ```text
+     id: c9q2m9jrootm********
+     description: Create PostgreSQL cluster
+     created_at: "2024-08-06T06:38:13.724389Z"
+     created_by: ajej2i98kcjd********
+     modified_at: "2024-08-06T06:46:33.101402Z"
+     done: true
+     metadata:
+       '@type': type.googleapis.com/yandex.cloud.mdb.postgresql.v1.CreateClusterMetadata
+       cluster_id: c9qk2926qqu9********
+     response:
+       '@type': type.googleapis.com/yandex.cloud.mdb.postgresql.v1.Cluster
+     ...
+     ```
+
+   - API {#api}
+
+     Воспользуйтесь методом REST API [get](../api-ref/Cluster/get.md) для ресурса [Operation](../api-ref/Operation/index.md) или вызовом gRPC API [OperationService/Get](../api-ref/grpc/operation_service.md#Get) и передайте в запросе идентификатор операции.
+
+   {% endlist %}
+
+### См. также {#see-also}
+
+* [{#T}](../../api-design-guide/concepts/about-async.md)

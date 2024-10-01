@@ -12,13 +12,13 @@ Create a DSVM [VM](../../concepts/vm.md) using {{ compute-name }} from the {{ ya
 
 ## Connecting to VMs over SSH {#first-login}
 
-You can connect to a VM over SSH once it is started (i.e., has the `RUNNING` status). You can use the `ssh` utility in Linux or macOS, or [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) in Windows.
+You can connect to a VM over SSH once it is started (has the `RUNNING` status). To do this, use `ssh` in Linux or macOS, or [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) in Windows.
 
 Read more about SSH connections in the [Connecting to a VM](../../quickstart/quick-create-linux.md#connect-to-vm) section.
 
 When connected, in the welcome message, you will see the commands to activate the environment and run [Jupyter Notebook](http://jupyter.org/index.html) and [JupyterLab](https://jupyterlab.readthedocs.io/en/stable/):
 
-```
+```text
 #####################################################################
 Welcome to Yandex Data Science Virtual Machine
 Image Build: ...

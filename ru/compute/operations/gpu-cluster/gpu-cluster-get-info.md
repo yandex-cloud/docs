@@ -26,9 +26,9 @@ title: "Как получить информацию о кластере GPU в 
       ```bash
       yc compute gpu-cluster get --help
       ```
-      
+
   1. Получите информацию о кластере GPU, указав его имя или идентификатор:
-      
+
       ```bash
       yc compute gpu-cluster get <имя_кластера_GPU>
       ```

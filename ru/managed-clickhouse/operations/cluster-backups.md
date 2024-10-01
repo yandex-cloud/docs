@@ -71,7 +71,7 @@ description: "Вы можете создавать резервные копии
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
-  
+
   Чтобы восстановить из резервной копии существующий кластер:
   1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_backups }}**.
@@ -88,15 +88,15 @@ description: "Вы можете создавать резервные копии
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
 
   {{ mch-name }} запустит операцию создания кластера из резервной копии.
-  
+
 - CLI {#cli}
-  
+
   {% include [cli-install](../../_includes/cli-install.md) %}
-  
+
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-  
+
   Чтобы восстановить кластер из резервной копии:
-  
+
   1. Посмотрите описание команды CLI для восстановления кластера {{ CH }}:
 
       ```bash
@@ -194,7 +194,7 @@ description: "Вы можете создавать резервные копии
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
-  
+
   Чтобы получить список резервных копий кластера:
   1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_backups }}**.
@@ -213,17 +213,17 @@ description: "Вы можете создавать резервные копии
   * Время окончания создания резервной копии по UTC.
 
 - CLI {#cli}
-  
+
   {% include [cli-install](../../_includes/cli-install.md) %}
-  
+
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-  
+
   Чтобы получить список резервных копий кластеров {{ CH }}, доступных в каталоге по умолчанию, выполните команду:
-  
+
   ```bash
   {{ yc-mdb-ch }} backup list
   ```
-  
+
   ```text
   +--------------------------+---------------------+----------------------+---------------------+-------------+-------+-----------+
   |            ID            |     CREATED AT      |  SOURCE CLUSTER ID   |     STARTED AT      | SHARD NAMES | SIZE  |   TYPE    |
@@ -259,7 +259,7 @@ description: "Вы можете создавать резервные копии
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
-  
+
   Чтобы получить информацию о резервной копии существующего кластера:
   1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_backups }}**.
@@ -267,19 +267,19 @@ description: "Вы можете создавать резервные копии
   Чтобы получить информацию о резервной копии удаленного ранее кластера:
   1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.clickhouse.switch_backups }}**.
-  
+
 - CLI {#cli}
-  
+
   {% include [cli-install](../../_includes/cli-install.md) %}
-  
+
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-  
+
   Чтобы получить данные о резервной копии кластера {{ CH }}, выполните команду:
-  
+
   ```bash
   {{ yc-mdb-ch }} backup get <идентификатор_резервной_копии>
   ```
-  
+
   Идентификатор резервной копии можно получить со [списком резервных копий](#list-backups).
 
 - API {#api}
@@ -295,9 +295,9 @@ description: "Вы можете создавать резервные копии
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
-  
+
   В [консоли управления]({{ link-console-main }}) задать время начала резервного копирования можно при [создании](cluster-create.md) или [изменении кластера](update.md).
-  
+
 - CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
@@ -310,7 +310,7 @@ description: "Вы можете создавать резервные копии
   {{ yc-mdb-ch }} cluster update <имя_или_идентификатор_кластера> \
      --backup-window-start=<время_начала_резервного_копирования>
   ```
-  
+
   Идентификатор и имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 - API {#api}

@@ -12,13 +12,9 @@ keywords:
 
 Каждый [кластер](../../glossary/cluster.md) {{ maf-name }} состоит из набора компонентов {{ AF }}, каждый из которых может быть представлен в нескольких экземплярах. Экземпляры могут находиться в разных зонах доступности.
 
-## Перед созданием кластера {#before-creating}
+## Создать кластер {#create-cluster}
 
-1. В каталоге, в котором планируется создать кластер, [создайте сервисный аккаунт](../../iam/operations/sa/create.md) с ролью `managed-airflow.integrationProvider`.
-1. [Создайте бакет {{ objstorage-full-name }}](../../storage/operations/buckets/create.md), в котором будут храниться [DAG-файлы](../concepts/index.md#about-the-service).
-1. [Убедитесь](../../iam/operations/roles/get-assigned-roles.md), что у вашего аккаунта есть роль [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) и роль [{{ roles.maf.editor }} или выше](../security/index.md#roles-list) для создания кластера.
-
-## Создайте кластер {#create-cluster}
+Для создания кластера {{ maf-name }} нужна роль [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) и роль [{{ roles.maf.editor }} или выше](../security/index.md#roles-list). О том, как назначить роль, см. [документацию {{ iam-name }}](../../iam/operations/roles/grant.md).
 
 {% list tabs group=instructions %}
 
@@ -54,7 +50,9 @@ keywords:
 
            {% endnote %}
 
-        * Выберите [созданный ранее](#before-creating) сервисный аккаунт с ролью `managed-airflow.integrationProvider`.
+        * Выберите существующий сервисный аккаунт или создайте новый.
+
+           Сервисному аккаунту должна быть назначена [роль](../../iam/concepts/access-control/roles.md) `managed-airflow.integrationProvider`.
 
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите:
 
@@ -102,7 +100,9 @@ keywords:
 
       {% endnote %}
 
-  1. В блоке **{{ ui-key.yacloud.airflow.section_storage }}** задайте имя ранее созданного бакета, в котором будут храниться DAG-файлы.
+  1. В блоке **{{ ui-key.yacloud.airflow.section_storage }}** выберите существующий бакет или создайте новый. В этом бакете будут храниться DAG-файлы.
+
+      Сервисному аккаунту кластера должно быть [предоставлено разрешение](../../storage/operations/buckets/edit-acl.md) `READ` для этого бакета.
 
   1. (Опционально) В блоке **{{ ui-key.yacloud.mdb.forms.section_additional }}** включите защиту от удаления кластера.
 

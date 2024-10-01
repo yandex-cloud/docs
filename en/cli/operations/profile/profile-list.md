@@ -6,7 +6,7 @@ Use the profile name to access the profile. You can get the profile name from th
 
 To get a list of profiles, run the command:
 
-```
+```bash
 yc config profile list
 prod ACTIVE
 test
@@ -19,7 +19,7 @@ Use the profile name from the previous section to access the profile.
 Get the details of the profile named `prod`:
 
 
-```
+```bash
 yc config profile get prod
 token: AQAAAAAV6O...
 cloud-id: b1gvl...

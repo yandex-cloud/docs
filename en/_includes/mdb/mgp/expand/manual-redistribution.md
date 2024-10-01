@@ -1,0 +1,1 @@
+If data redistribution terminates upon reaching the timeout with some tables remaining unprocessed, you will need to [redistribute those tables manually](../../../../managed-greenplum/operations/hosts/cluster-expand.md#start-redistribute).

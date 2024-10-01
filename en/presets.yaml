@@ -2770,16 +2770,10 @@ default:
         standard|pricingRate:
           720|month|string: ₽2.01
   sku|RUB|support:
-    business:
-      fixed_consumption:
-        v1|string: Free
     organization:
       business:
         fixed_consumption:
           v1|string: ₽3000.00
-    standard:
-      fixed_consumption:
-        v1|string: Free
   sku|RUB|sws:
     requests:
       v1|pricingRate:
@@ -3870,16 +3864,10 @@ default:
         standard|pricingRate:
           720|month|string: $0.016080
   sku|USD|support:
-    business:
-      fixed_consumption:
-        v1|string: Free
     organization:
       business:
         fixed_consumption:
           v1|string: $24.000000
-    standard:
-      fixed_consumption:
-        v1|string: Free
   sku|USD|sws:
     requests:
       v1|pricingRate:
@@ -6182,6 +6170,7 @@ default:
             field_copy_schema: Copy data schema
         switch_backups: Backups
         switch_list: Clusters
+        switch_operations: Operations
         title_clickhouse: ClickHouse
         title_zookeeper: ZooKeeper
       common:
@@ -6813,6 +6802,7 @@ default:
         label_additional-section: Advanced settings
         label_admin-section: Administrator data
         label_configuration-section: Configuration
+        switch_instances: Instances
         title_backups: Backups
         title_migration: Migration
         title_omniauth: OmniAuth
@@ -7697,6 +7687,8 @@ default:
           switch_users: Users
         hosts:
           action_stepdown-host: Step down
+        switch_list: Clusters
+        switch_operations: Operations
       monitoring:
         button_open-in-monitoring: Open in Monitoring
       mysql:
@@ -7713,6 +7705,7 @@ default:
         field_backup_priority: Backup priority
         field_priority: Master priority
         switch_list: Clusters
+        switch_operations: Operations
       opensearch:
         auth:
           button_save: Save
@@ -7768,6 +7761,8 @@ default:
           dialog:
             button_choose: Save
         switch_backups: Backups
+        switch_list: Clusters
+        switch_operations: Operations
       redis:
         cluster:
           switch_logs: Logs
@@ -7776,6 +7771,8 @@ default:
         field_announce-hostnames: Use FQDN instead of IP addresses
         field_tls-support: TLS support
         switch_backups: Backups
+        switch_list: Clusters
+        switch_operations: Operations
       search-api:
         test-query:
           label_button-run-test: Run test

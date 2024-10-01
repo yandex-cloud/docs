@@ -22,6 +22,8 @@ items:
         href: operations/upload-dags.md
       - name: Удаление кластера
         href: operations/cluster-delete.md
+      - name: Просмотр операций с кластерами
+        href: operations/operation-logs.md
   - name: Практические руководства
     items:
       - name: Все руководства

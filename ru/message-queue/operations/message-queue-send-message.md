@@ -41,7 +41,8 @@ description: "Следуя данной инструкции, вы сможет�
    - cURL {#curl}
    
      ```bash
-     curl -X POST \
+     curl \
+       --request POST \
        --header 'Content-Type: application/x-www-form-urlencoded' \
        --data-urlencode 'Action=SendMessage' \
        --data-urlencode 'MessageBody=<текст_сообщения>' \

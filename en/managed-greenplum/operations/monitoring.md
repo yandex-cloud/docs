@@ -1,4 +1,4 @@
-# Monitoring the state of {{ GP }} clusters and hosts
+# Monitoring the state of a {{ GP }} cluster and hosts
 
 {% include [monitoring-introduction](../../_includes/mdb/monitoring-introduction.md) %}
 
@@ -14,52 +14,67 @@ To view detailed information about the {{ mgp-name }} cluster state:
 
 - Management console {#console}
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-   1. Click the cluster name and select the ![monitoring.svg](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}** tab.
-   1. {% include [open-in-yandex-monitoring](../../_includes/mdb/open-in-yandex-monitoring.md) %}
+    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Click the name of the cluster you need and select the ![monitoring.svg](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}** tab.
+    1. {% include [open-in-yandex-monitoring](../../_includes/mdb/open-in-yandex-monitoring.md) %}
 
-   The page displays the following charts:
+    The page displays the following charts:
 
-   * **Alive hosts**: Cluster host functionality.
+    * **Alive hosts**: Cluster host functionality.
 
-   * **Alive segments**: Primary and backup master as well as primary and mirror segment functionality.
+    * **Alive segments**: Primary and backup master as well as primary and mirror segment functionality.
 
-   * **Connections**: Number of DB connections in each state:
+    * **Connections**: Number of DB connections in each state:
 
-      * **Active**: Active.
-      * **Waiting**: Waiting.
-      * **Idle**: Idle.
-      * **Idle in transaction**: Idle in a transaction.
-      * **Aborted**: Terminated.
+        * **Active**: Active.
+        * **Waiting**: Waiting.
+        * **Idle**: Idle.
+        * **Idle in transaction**: Idle in a transaction.
+        * **Aborted**: Terminated.
 
-   * **Group resource cpu**: Processor core workload by process group:
+    * **Group resource cpu**: Processor core workload by process group:
 
-      * **admin_group**: In the administrative group.
-      * **default_group**: In the default group.
+        * **admin_group**: In the administrative group.
+        * **default_group**: In the default group.
 
-   * **Group resource memory**: Bytes of RAM used by process group:
+    * **Group resource memory**: Bytes of RAM used by process group:
 
-      * **admin_group**: In the administrative group.
-      * **default_group**: In the default group.
+        * **admin_group**: In the administrative group.
+        * **default_group**: In the default group.
 
-   * **Master**: Definition of the primary master host.
+    * **Master**: Definition of the primary master host.
 
-   * **Master replication lag**: Master replication delay (in bytes).
+    * **Master replication lag**: Master replication delay (in bytes).
 
-   * **Master replication state**: Master replication condition.
+    * **Master replication state**: Master replication condition.
 
-   * **Segment health**: Number of segments with various levels of performance:
+    * **Segment health**: Number of segments with various levels of performance:
 
-      * **total**: Everything.
-      * **not sync**: Unsynced.
-      * **down**: Unavailable.
-      * **not prefer role**: Non-preferred.
+        * **total**: Everything.
+        * **not sync**: Unsynced.
+        * **down**: Unavailable.
+        * **not prefer role**: Non-preferred.
 
-   * **Spill files count**: Number of temporary files.
+    * **Spill files count**: Number of temporary files.
 
-   * **Spill files size**: Total size of temporary files (in bytes).
+    * **Spill files size**: Total size of temporary files (in bytes).
 
-   * **Xid wraparound**: Using a [transaction ID sequence]({{ gp.docs.vmware }}/7/greenplum-database/admin_guide-intro-about_mvcc.html#transaction-id-wraparound) (as a percentage).
+    * **Xid wraparound**: Utilization of [sequence of transaction IDs]({{ gp.docs.vmware }}/7/greenplum-database/admin_guide-intro-about_mvcc.html#transaction-id-wraparound) (as a percentage).
+
+    * **Background activities**: Group of charts presenting information about background processes:
+
+        * **Tables vacuum age**: Number of custom tables that were [vacuumed](../concepts/maintenance.md#custom-table-vacuum) N days ago.
+        * **Tables analyze age**: Number of custom tables for which [statistics were collected](../concepts/maintenance.md#get-statistics) N days ago.
+        * **Expansion progress**: Progress of [data redistribution](../concepts/expand.md#redistribution) when expanding a cluster:
+
+            * **Tables**: Percentage of processed tables.
+            * **Bytes**: Percentage of redistributed data bytes.
+
+            {% note info %}
+
+            This chart will show the current progress, even if the data redistribution was started not as a [background process](../concepts/expand.md#setting-delay-redistribution).
+
+            {% endnote %}
 
 {% endlist %}
 
@@ -71,41 +86,41 @@ To view detailed information about the state of individual {{ mgp-name }} hosts:
 
 - Management console {#console}
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-   1. Click the cluster name and select the ![hosts.svg](../../_assets/console-icons/cube.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** → **{{ ui-key.yacloud.mdb.cluster.hosts.switch_monitoring }}** tab.
-   1. Select the host from the drop-down list.
+    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Click the name of the cluster you need and select the ![hosts.svg](../../_assets/console-icons/cube.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** → **{{ ui-key.yacloud.mdb.cluster.hosts.switch_monitoring }}** tab.
+    1. Select the host from the drop-down list.
 
-   This page displays charts showing the workload of an individual cluster host (master or segment):
+    This page displays charts showing the workload of an individual cluster host (master or segment):
 
-   * **CPU**: Load on processor cores. As the load goes up, the `Idle` value goes down.
-   * **Disk IOPS in progress**: Number of pending disk operations.
-   * **Disk io time**: Duration of disk operations.
-   * **Disk read and write**: Amount of data in disk operations (in bytes).
-   * **Disk read and write time**: Duration of disk reads and writes.
-   * **Disk usage**: Disk space usage (two charts are displayed, in bytes and %).
-   * **Memory usage**: Use of RAM, in bytes. At high loads, the `Free` value goes down, while the other values go up.
-   * **Network**: Amount of network traffic (in bytes).
+    * **CPU**: Load on processor cores. As the load goes up, the `Idle` value goes down.
+    * **Disk IOPS in progress**: Number of pending disk operations.
+    * **Disk io time**: Duration of disk operations.
+    * **Disk read and write**: Amount of data in disk operations (in bytes).
+    * **Disk read and write time**: Duration of disk reads and writes.
+    * **Disk usage**: Disk space usage (two charts are displayed, in bytes and %).
+    * **Memory usage**: Use of RAM, in bytes. At high loads, the `Free` value goes down, while the other values go up.
+    * **Network**: Amount of network traffic (in bytes).
 
 {% endlist %}
 
 
 ## Integration with {{ monitoring-full-name }} {#monitoring-integration}
 
-To configure [cluster](#monitoring-cluster) and [host](#monitoring-hosts) status metric alerts:
+To configure [cluster](#monitoring-cluster) and [host](#monitoring-hosts) state indicator alerts:
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder with the cluster you want to configure alerts for.
-   1. In the list of services, select ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
-   1. Under **{{ ui-key.yacloud_monitoring.dashboard.tab.service-dashboards }}**, select:
+  1. In the [management console]({{ link-console-main }}), select the folder with the cluster you want to configure alerts for.
+  1. In the list of services, select ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+  1. Under **{{ ui-key.yacloud_monitoring.dashboard.tab.service-dashboards }}**, select:
       * **{{ mgp-name }} — Cluster Overview** to configure cluster alerts.
       * **{{ mgp-name }} — Host Overview** to configure host alerts.
-   1. In the chart with metrics, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
-   1. If the chart shows multiple metrics, select a data query to generate a metric and click **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. You can learn more about the query language in the [{{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md).
-   1. Set the `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` and `{{ ui-key.yacloud_monitoring.alert.status_warn }}` thresholds for notifications.
-   1. Click **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
+  1. In the indicator chart, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
+  1. If the chart shows multiple indicators, select a data query to generate a metric and click **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**.  For more information about the query language, see the [{{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md).
+  1. Set the `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` and `{{ ui-key.yacloud_monitoring.alert.status_warn }}` thresholds for notifications.
+  1. Click **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
 
 {% endlist %}
 

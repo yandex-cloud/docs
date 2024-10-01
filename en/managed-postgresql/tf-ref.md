@@ -1,3 +1,8 @@
+---
+title: "{{ TF }} reference for {{ mpg-full-name }}"
+description: "This page provides reference information on the {{ TF }} provider resources and data sources supported for {{ mpg-name }}."
+---
+
 # {{ TF }} reference for {{ mpg-full-name }}
 
 {% include [terraform-ref-intro](../_includes/terraform-ref-intro.md) %}

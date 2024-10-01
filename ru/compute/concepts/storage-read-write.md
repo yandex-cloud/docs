@@ -45,9 +45,9 @@
 
 Для тестирования производительности сетевых дисков можно воспользоваться утилитой [fio](https://fio.readthedocs.io/en/latest/fio_doc.html):
 
-1. [Подключите](../operations/vm-control/vm-attach-disk.md) диск к ВМ. 
+1. [Подключите](../operations/vm-control/vm-attach-disk.md) диск к ВМ.
 1. Установите утилиту [fio](https://fio.readthedocs.io/en/latest/fio_doc.html) на ВМ:
-    
+
     Пример команды для ОС Ubuntu:
 
     ```bash

@@ -2790,16 +2790,10 @@ default:
         standard|pricingRate:
           720|month|string: "2,01\_₽"
   sku|RUB|support:
-    business:
-      fixed_consumption:
-        v1|string: Не тарифицируется
     organization:
       business:
         fixed_consumption:
           v1|string: "3\_000,00\_₽"
-    standard:
-      fixed_consumption:
-        v1|string: Не тарифицируется
   sku|RUB|sws:
     requests:
       v1|pricingRate:
@@ -3890,16 +3884,10 @@ default:
         standard|pricingRate:
           720|month|string: "0,016080\_$"
   sku|USD|support:
-    business:
-      fixed_consumption:
-        v1|string: Не тарифицируется
     organization:
       business:
         fixed_consumption:
           v1|string: "24,000000\_$"
-    standard:
-      fixed_consumption:
-        v1|string: Не тарифицируется
   sku|USD|sws:
     requests:
       v1|pricingRate:
@@ -6204,6 +6192,7 @@ default:
             field_copy_schema: Копировать схему данных
         switch_backups: Резервные копии
         switch_list: Кластеры
+        switch_operations: Операции
         title_clickhouse: ClickHouse
         title_zookeeper: ZooKeeper
       common:
@@ -6837,6 +6826,7 @@ default:
         label_additional-section: Дополнительные настройки
         label_admin-section: Данные администратора
         label_configuration-section: Конфигурация
+        switch_instances: Инстансы
         title_backups: Резервные копии
         title_migration: Миграция
         title_omniauth: OmniAuth
@@ -7721,6 +7711,8 @@ default:
           switch_users: Пользователи
         hosts:
           action_stepdown-host: Сменить мастер
+        switch_list: Кластеры
+        switch_operations: Операции
       monitoring:
         button_open-in-monitoring: Открыть в Monitoring
       mysql:
@@ -7737,6 +7729,7 @@ default:
         field_backup_priority: Приоритет cоздания бэкапа
         field_priority: Приоритет мастера
         switch_list: Кластеры
+        switch_operations: Операции
       opensearch:
         auth:
           button_save: Сохранить
@@ -7792,6 +7785,8 @@ default:
           dialog:
             button_choose: Сохранить
         switch_backups: Резервные копии
+        switch_list: Кластеры
+        switch_operations: Операции
       redis:
         cluster:
           switch_logs: Логи
@@ -7800,6 +7795,8 @@ default:
         field_announce-hostnames: Использовать FQDN вместо IP-адресов
         field_tls-support: Поддержка TLS
         switch_backups: Резервные копии
+        switch_list: Кластеры
+        switch_operations: Операции
       search-api:
         test-query:
           label_button-run-test: Запустить тест

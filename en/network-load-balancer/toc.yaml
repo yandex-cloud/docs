@@ -2,7 +2,7 @@ title: Yandex Network Load Balancer
 href: index.yaml
 label:
   title: KZ
-  description: The service is available in Kazakhstan.
+  description: This service is only available in the Kazakhstan region.
   theme: info
   when: region == "kz"
 items:
@@ -48,6 +48,24 @@ items:
             href: operations/target-group-delete.md
       - name: Viewing operations with the service's resources
         href: operations/operation-logs.md
+  - name: Tutorials
+    items:
+      - name: All tutorials
+        href: tutorials/index.md
+      - name: Architecture and protection of a basic internet service
+        href: tutorials/web-service.md
+      - name: Configuring a fault-tolerant architecture in {{ yandex-cloud }}
+        href: tutorials/fault-tolerance.md
+      - name: >-
+          Fault-tolerant website with load balancing using {{
+          network-load-balancer-name }}
+        href: tutorials/load-balancer-website.md
+      - name: Running instance groups with auto scaling
+        href: tutorials/vm-autoscale.md
+      - name: Updating an instance group under load
+        href: tutorials/updating-under-load.md
+      - name: Integrating {{ dns-name }} and a corporate DNS service
+        href: tutorials/dns-integration.md
   - name: Concepts
     items:
       - name: Overview
@@ -152,7 +170,7 @@ items:
                 href: api-ref/Operation/index.md
               - name: get
                 href: api-ref/Operation/get.md
-  - name: '{{ managed-k8s-name }} tool reference'
+  - name: Tool reference for {{ managed-k8s-name }}
     items:
       - name: Overview
         href: k8s-ref/index.md
@@ -160,7 +178,7 @@ items:
         href: k8s-ref/service.md
       - name: NetworkPolicy
         href: k8s-ref/networkpolicy.md
-  - name: '{{ at-name }} events'
+  - name: '{{ at-name }} audit logs'
     href: at-ref.md
   - name: FAQ
     href: qa/index.md

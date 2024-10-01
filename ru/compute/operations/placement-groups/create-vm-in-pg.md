@@ -39,7 +39,7 @@
        --placement-group-partition <номер_раздела>
      ```
 
-     Где: 
+     Где:
      * `--zone` — [зона доступности](../../../overview/concepts/geo-scope.md), в которой будет размещена ВМ.
      * `--name` — имя ВМ.
      * `--placement-group-name` — имя группы размещения.

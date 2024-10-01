@@ -82,9 +82,11 @@ items:
         href: tutorials/index.md
       - name: Creating a {{ PG }} cluster for 1С
         href: tutorials/1c-postgresql.md
-      - name: Creating a cluster of 1C:Enterprise Linux servers with {{ mpg-name }}
+      - name: >-
+          Creating a cluster of 1C:Enterprise Linux servers with a {{ mpg-name
+          }} cluster
         href: tutorials/1c-postgresql-linux.md
-      - name: Exporting databases to {{ dataproc-full-name }}
+      - name: Exporting a database to {{ dataproc-full-name }}
         href: tutorials/sqoop.md
       - name: Searching for cluster performance issues
         href: tutorials/performance-problems.md
@@ -111,7 +113,7 @@ items:
           data-transfer-full-name }}
         href: tutorials/mkf-to-mpg.md
       - name: >-
-          Transferring data from {{ objstorage-full-name }} using {{
+          Migrating data from {{ objstorage-full-name }} using {{
           data-transfer-full-name }}
         href: tutorials/object-storage-to-postgresql.md
       - name: Configuring a fault-tolerant architecture in {{ yandex-cloud }}
@@ -130,9 +132,9 @@ items:
         href: tutorials/logging.md
       - name: Replication and migration
         items:
-          - name: Logical {{ PG }} replication
+          - name: Logical replication {{ PG }}
             href: tutorials/replication-overview.md
-          - name: Migrating databases to {{ mpg-name }}
+          - name: Migrating a database to {{ mpg-name }}
             href: tutorials/data-migration.md
           - name: Migrating databases from {{ mpg-name }}
             href: tutorials/outbound-replication.md
@@ -160,6 +162,8 @@ items:
               Migrating data from {{ mpg-name }} to {{ mos-name }} using {{
               data-transfer-full-name }}
             href: tutorials/postgresql-to-opensearch.md
+          - name: Asynchronously replicating data from {{ PG }} to {{ CH }}
+            href: tutorials/rdbms-to-clickhouse.md
   - name: Concepts
     items:
       - name: Resource relationships
@@ -344,7 +348,7 @@ items:
                 href: api-ref/Operation/get.md
   - name: '{{ monitoring-name }} metrics'
     href: metrics.md
-  - name: '{{ at-name }} events'
+  - name: '{{ at-name }} audit logs'
     href: at-ref.md
   - name: Public materials
     href: public-talks.md

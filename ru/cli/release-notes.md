@@ -334,7 +334,7 @@ description: "На странице представлены релизы YC CLI
 
 ##### Сервисы управляемых баз данных {#managed-db}
 
-**{{ mgp-name }}** 
+**{{ mgp-name }}**
 
 * Добавлено дерево команд `yc managed-greenplum hba-rules` с командами `get`, `list`, `delete`, `create` и `update`.
 

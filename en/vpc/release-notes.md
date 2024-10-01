@@ -1,6 +1,9 @@
-# {{ vpc-full-name }} release notes
+---
+title: "{{ vpc-full-name }} release notes"
+description: "This section contains {{ vpc-name }} release notes."
+---
 
-This section contains {{ vpc-name }} release notes.
+# {{ vpc-full-name }} release notes
 
 ## Q2 2024 {#q2-2024}
 
