@@ -78,10 +78,10 @@ sourcePath: overlay/quickstart/document-api/aws-http.md
 
     ```bash
     curl \
-      -H 'X-Amz-Target: DynamoDB_20120810.CreateTable' \
-      -H "Authorization: Bearer $(yc iam create-token)" \
-      -H "Content-Type: application.json" \
-      -d @create.json $ENDPOINT
+      --header 'X-Amz-Target: DynamoDB_20120810.CreateTable' \
+      --header "Authorization: Bearer $(yc iam create-token)" \
+      --header "Content-Type: application.json" \
+      --data @create.json $ENDPOINT
     ```
 
     Подробнее о методе `CreateTable` читайте в [справочнике Document API](../../docapi/api-ref/actions/createTable.md).
@@ -113,10 +113,10 @@ sourcePath: overlay/quickstart/document-api/aws-http.md
 
     ```bash
     curl \
-      -H 'X-Amz-Target: DynamoDB_20120810.PutItem' \
-      -H "Authorization: Bearer $(yc iam create-token)" \
-      -H "Content-Type: application.json" \
-      -d @put.json $ENDPOINT
+      --header 'X-Amz-Target: DynamoDB_20120810.PutItem' \
+      --header "Authorization: Bearer $(yc iam create-token)" \
+      --header "Content-Type: application.json" \
+      --data @put.json $ENDPOINT
     ```
 
     Подробнее о методе `PutItem` читайте в [справочнике Document API](../../docapi/api-ref/actions/putItem.md).
@@ -133,10 +133,10 @@ sourcePath: overlay/quickstart/document-api/aws-http.md
 
     ```bash
     curl \
-      -H 'X-Amz-Target: DynamoDB_20120810.GetItem' \
-      -H "Authorization: Bearer $(yc iam create-token)" \
-      -H "Content-Type: application.json" \
-      -d '{"TableName": "test/pets", "Key": {"species":{"S":"cat"}, "name":{"S":"Tom"}}}' \
+      --header 'X-Amz-Target: DynamoDB_20120810.GetItem' \
+      --header "Authorization: Bearer $(yc iam create-token)" \
+      --header "Content-Type: application.json" \
+      --data '{"TableName": "test/pets", "Key": {"species":{"S":"cat"}, "name":{"S":"Tom"}}}' \
       $ENDPOINT
     ```
 

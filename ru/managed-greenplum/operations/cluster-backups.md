@@ -78,7 +78,7 @@
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
-  
+
     1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.switch_backups }}**.
     1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.mdb.cluster.backups.button_create }}**.
@@ -90,6 +90,7 @@
 {% include [backup-warning](../../_includes/mdb/backups/backup-create-warning.md) %}
 
 ## Восстановить кластер из резервной копии {#restore}
+
 
 Технология Point-in-Time Recovery (PITR) позволяет вернуть состояние кластера на любую из точек восстановления, созданных позже сохраненной резервной копии. Подробнее см. в разделе [Резервные копии](../concepts/backup.md).
 

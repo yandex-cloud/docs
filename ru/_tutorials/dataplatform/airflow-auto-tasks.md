@@ -184,7 +184,7 @@
   {% include [aws-cli-install](../../_includes/aws-cli-install.md) %}
 
   1. Создайте бакет, указав для него [уникальное имя](../../storage/concepts/bucket.md#naming):
-  
+
       ```bash
       aws --endpoint-url https://{{ s3-storage-host }} \
         s3 mb s3://<имя_бакета>

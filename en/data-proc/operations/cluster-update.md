@@ -17,97 +17,132 @@ To change {{ dataproc-name }} cluster settings:
 
 - Management console {#console}
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
-   1. Select the cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
+    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+    1. Select the cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
+    1. Change the name and description of the cluster in the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** and **{{ ui-key.yacloud.mdb.forms.base_field_description }}** fields.
+    1. Add or delete cluster [labels](../../resource-manager/concepts/labels.md) in the **{{ ui-key.yacloud.component.label-set.label_labels }}** field:
+    1. Update cluster settings:
 
-   
-   1. To edit the [log group](../../logging/concepts/log-group.md) that cluster logs are sent to, select a new log group from the list. If necessary, [create a new log group](../../logging/operations/create-group.md).
+        * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: [Service account](../../iam/concepts/users/service-accounts.md) to which you need to grant access to the {{ dataproc-full-name }} cluster.
 
-      For the function to work, [assign](../../iam/operations/roles/grant.md) the `logging.writer` role to the service account of the cluster. For more information, see the [{{ cloud-logging-full-name }} documentation](../../logging/security/index.md).
+            Select an existing service account or [create a new one](../../iam/operations/sa/create.md).
 
+        * **{{ ui-key.yacloud.mdb.forms.config_field_properties }}**: Cluster [component properties](../concepts/settings-list.md).
 
-   1. To update your cluster [component properties](../concepts/settings-list.md), enter the component key and its new value in the **{{ ui-key.yacloud.mdb.forms.config_field_properties }}** field.
+            Add, edit, or delete the required properties:
 
-   1. Change additional cluster settings:
+            {% note tip %}
 
-      **{{ ui-key.yacloud.mdb.forms.label_deletion-protection }}**: Manages cluster protection against accidental deletion by a user.
+            If you want a property to be included into a configuration file [relating to a specific component](../concepts/settings-list.md#available-properties), specify a [prefix](../concepts/settings-list.md) for the key.
 
-      Enabled protection will not prevent a manual connection to the cluster and deletion of data.
+            {% endnote %}
 
-   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
+        * **{{ ui-key.yacloud.mdb.forms.config_field_form-bucket-type }}**: [Bucket](../../storage/concepts/bucket.md) name selection format, **{{ ui-key.yacloud.forms.label_form-list }}** or **{{ ui-key.yacloud.forms.label_form-id }}**.
+
+        * **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}**: Name of the bucket that will be used by the cluster.
+
+            Depending on the format you selected, either pick a name from the list or specify it manually. You can request the name of the bucket with the [list of buckets in the folder](../../storage/operations/buckets/get-info.md#get-information).
+
+        * **{{ ui-key.yacloud.mdb.forms.field_security-group }}**: [Security groups](../concepts/network.md#security-groups) that will be used by the cluster.
+
+            Select one or more security groups. If the required security group is not in the list, [create it](../../vpc/operations/security-group-create.md).
+
+            {% note warning %}
+
+            Incorrect security group settings may cause {{ dataproc-full-name }} cluster performance issues. For more information on setting up security groups, see [Connecting to a cluster](./connect.md#configuring-security-groups).
+
+            {% endnote %}
+
+        * **{{ ui-key.yacloud.mdb.forms.config_field_ui_proxy }}**: Option that manages access to [component web interfaces](../concepts/interfaces.md) via [UI Proxy](./connect-interfaces.md#ui-proxy).
+
+            {% include [ui-proxy-sg-warning](../../_includes/data-proc/ui-proxy-sg-warning.md) %}
+
+        * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_log-group }}**: {{ cloud-logging-full-name }} [log group](../../logging/concepts/log-group.md) the cluster will send logs to.
+
+            Select the default log group or another existing log group. If the required log group is not in the list, [create it](../../logging/operations/create-group.md).
+
+            To enable the cluster to send logs, [assign](../../iam/operations/roles/grant.md) the `logging.writer` role to its service account. For more information, see the [{{ cloud-logging-full-name }} documentation](../../logging/security/index.md).
+
+    1. In the advanced cluster settings, select the required **{{ ui-key.yacloud.mdb.forms.label_deletion-protection }}** value.
+
+        This option manages cluster protection against accidental deletion by a user.
+
+        Enabled protection will not prevent a manual connection to the cluster and deletion of data.
+
+    1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - CLI {#cli}
 
-   {% include [cli-install](../../_includes/cli-install.md) %}
+    {% include [cli-install](../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   1. View a description of the update cluster CLI command:
+    1. View a description of the update cluster CLI command:
 
-      ```bash
-      {{ yc-dp }} cluster update --help
-      ```
+        ```bash
+        {{ yc-dp }} cluster update --help
+        ```
 
-   
-   1. To edit the [log group](../../logging/concepts/log-group.md) that cluster logs are sent to, provide the log group ID in the `--log-group-id` parameter:
+    
+    1. To edit the [log group](../../logging/concepts/log-group.md) the cluster logs go to, provide the log group ID in the `--log-group-id` parameter:
 
-      ```bash
-      {{ yc-dp }} cluster update <cluster_name_or_ID> \
-         --log-group-id=<log_group_ID>
-      ```
+        ```bash
+        {{ yc-dp }} cluster update <cluster_name_or_ID> \
+           --log-group-id=<log_group_ID>
+        ```
 
-      You can request the log group ID with a [list of log groups in the folder](../../logging/operations/list.md).
+        You can request the log group ID with a [list of log groups in the folder](../../logging/operations/list.md).
 
 
-   1. To protect a cluster from accidental deletion by a user of your cloud, set `--deletion-protection` to `true`:
+    1. To protect a cluster from accidental deletion by a user of your cloud, set the `--deletion-protection` parameter to `true`:
 
-      ```bash
-      {{ yc-dp }} cluster update <cluster_name_or_ID> \
-         --deletion-protection=true
-      ```
+        ```bash
+        {{ yc-dp }} cluster update <cluster_name_or_ID> \
+           --deletion-protection=true
+        ```
 
-      Enabled protection will not prevent a manual connection to the cluster and deletion of data.
+        Enabled protection will not prevent a manual connection to the cluster and deletion of data.
 
-   1. To update the [component properties](../concepts/settings-list.md), provide the required property values in the `--property` parameter:
+    1. To update [component properties](../concepts/settings-list.md), provide the required properties in the `--property` parameter:
 
-      ```bash
-      {{ yc-dp }} cluster update <cluster_name_or_ID> \
-         --property "<key_1_prefix>:<key_1>=<value>", "<key_2_prefix>:<key_2>=<value>", ...
-      ```
+        ```bash
+        {{ yc-dp }} cluster update <cluster_name_or_ID> \
+           --property "<key_1_prefix>:<key_1>=<value>", "<key_2_prefix>:<key_2>=<value>",..
+        ```
 
-      {% note warning %}
+        {% note warning %}
 
-      Using the `--property` parameter will reset any component properties that were not explicitly provided in the parameter to their defaults. To save the previously updated properties, list them in your request along with the properties you want to update.
+        Using the `--property` parameter will reset all component properties that were not explicitly provided in the parameter to their defaults. To save the previously updated properties, list them in your request along with the properties you want to update.
 
-      {% endnote %}
+        {% endnote %}
 
-   You can get the cluster ID and name with a [list of clusters in the folder](./cluster-list.md#list).
+    You can get the cluster ID and name with a [list of clusters in the folder](./cluster-list.md#list).
 
 - {{ TF }} {#tf}
 
-   1. Open the current {{ TF }} configuration file with an infrastructure plan.
+    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about how to create this file, see [Creating clusters](cluster-create.md).
+        For more information about creating this file, see [Creating clusters](cluster-create.md).
 
-   1. To activate cluster deletion protection and access to {{ dataproc-name }} [component web interfaces](../concepts/interfaces.md), update the values in the appropriate fields of the {{ dataproc-name }} cluster description:
+    1. To activate cluster deletion protection and access to {{ dataproc-name }} [component web interfaces](../concepts/interfaces.md), update the values in the appropriate fields of the {{ dataproc-name }} cluster description:
 
-      ```hcl
-      resource "yandex_dataproc_cluster" "data_cluster" {
-        ...
-        deletion_protection = true
-        ui_proxy            = true
-        ...
-      }
-      ```
+        ```hcl
+        resource "yandex_dataproc_cluster" "data_cluster" {
+          ...
+          deletion_protection = true
+          ui_proxy            = true
+          ...
+        }
+        ```
 
-   1. Make sure the settings are correct.
+    1. Make sure the settings are correct.
 
-      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm updating the resources.
+    1. Confirm updating the resources.
 
-      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/dataproc_cluster).
+    For more details about resources you can create using {{ TF }}, see [the provider documentation]({{ tf-provider-resources-link }}/dataproc_cluster).
 
 {% endlist %}

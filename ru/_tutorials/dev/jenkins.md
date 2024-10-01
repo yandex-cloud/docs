@@ -100,7 +100,7 @@ Jenkins будет получать изменения в конфигураци
 
     * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** выберите `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`, чтобы назначить виртуальной машине случайный внешний IP-адрес из пула {{ yandex-cloud }}, или выберите статический адрес из списка, если вы зарезервировали его заранее.
 
-1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите **Неизменяемый ключ** и укажите данные для доступа к ВМ:
+1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** укажите данные для доступа к ВМ:
 
     * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя, который будет создан на виртуальной машине, например `yc-user`.
 

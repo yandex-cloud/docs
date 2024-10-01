@@ -75,9 +75,10 @@
 Запрос:
 
 ```json
-curl -X 'GET' \
+curl \
+  --request 'GET' \
   'https://api.yandex-query.cloud.yandex.net/api/fq/v1/queries/cseugn35bc3r********?project=b1gaue5b382m********' \
-  -H 'accept: application/json'
+  --header 'accept: application/json'
 ```
 
 Ответ:

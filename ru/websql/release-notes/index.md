@@ -5,6 +5,26 @@ description: "В разделе представлена история изме
 
 # История изменений {{ websql-full-name }} в 2024 году
 
+## Сентябрь {#september}
+
+### Новые возможности {#new-features-september}
+
+1. Добавлена возможность [подключаться](../quickstart.md) к нешардированным кластерам {{ RD }}.
+
+1. Добавлены роли [`websql.auditor`](../security/index.md#websql-auditor), [`websql.executedQueries.auditor`](../security/index.md#websql-executedqueries-auditor) и [`websql.savedQueries.auditor`](../security/index.md#websql-savedqueries-auditor) для просмотра метаданных запросов и прав доступа к ним.
+
+### Улучшения {#improvements-september}
+
+1. Добавлен эксперимент отображения подключений как пользователей базы данных.
+
+1. Таблицы {{ PG }} теперь отображаются как объекты базы данных, даже если у пользователя нет доступа к этим таблицам.
+
+1. В списке объектов базы данных добавлено отображение пустых схем {{ PG }}.
+
+### Решенные проблемы {#fixes-september}
+
+Настроен таймаут для запросов к бэкенду — 25 секунд.
+
 ## Август {#august}
 
 ### Улучшения {#improvements-august}

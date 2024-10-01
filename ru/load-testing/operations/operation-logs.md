@@ -13,7 +13,7 @@
   1. На панели слева выберите ![image](../../_assets/operations.svg) **{{ ui-key.yacloud.common.operations-key-value }}**.
 
   В открывшемся списке также отображаются операции для ресурсов, которые были удалены.
-  
+
 {% endlist %}
 
 ## Получить подробную информацию об операции {#get-operations-info}

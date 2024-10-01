@@ -1,9 +1,9 @@
 ---
 title: "Code examples for connecting to an {{ KF }} cluster in {{ mkf-full-name }}"
-description: "Use these examples to connect to a database in an {{ KF }} cluster from your application code."
+description: "Use these examples to connect to a database in an {{ KF }} cluster from your app code."
 ---
 
-# Code examples for connecting to a {{ KF }} cluster
+# Code examples for connecting to an {{ KF }} cluster
 
 You can connect to public {{ KF }} cluster hosts only if you use an [SSL certificate](index.md#get-ssl-cert). The examples below assume that the `{{ crt-local-file }}` certificate is located in the directory:
 
@@ -20,11 +20,11 @@ Examples were tested in the following environment:
 
 * {{ yandex-cloud }} virtual machine running Ubuntu 20.04 LTS
 * Bash: `5.0.16`
-* Python: `3.8.2`, pip3: `20.0.2`.
-* Node.JS: `10.19.0`, npm: `6.14.4`.
-* OpenJDK: `11.0.8`, Maven: `3.6.3`.
-* Go: `1.13.8`.
-* mono-complete: `6.8.0.105`.
+* Python: `3.8.2`, pip3: `20.0.2`
+* Node.JS: `10.19.0`, npm: `6.14.4`
+* OpenJDK: `11.0.8`, Maven: `3.6.3`
+* Go: `1.13.8`
+* mono-complete: `6.8.0.105`
 
 ## C# {#csharp}
 
@@ -32,291 +32,291 @@ Before connecting:
 
 1. Install the dependencies:
 
-   ```bash
-   sudo apt-get update && \
-   sudo apt-get install -y apt-transport-https dotnet-sdk-6.0
-   ```
+    ```bash
+    sudo apt-get update && \
+    sudo apt-get install -y apt-transport-https dotnet-sdk-6.0
+    ```
 
 1. Create a directory for the project:
 
-   ```bash
-   cd ~/ && mkdir cs-project && cd cs-project && mkdir -p consumer producer && cd ~/cs-project
-   ```
+    ```bash
+    cd ~/ && mkdir cs-project && cd cs-project && mkdir -p consumer producer && cd ~/cs-project
+    ```
 
 1. Create a configuration file:
 
-   `App.csproj`
+    `App.csproj`
 
-   ```xml
-   <Project Sdk="Microsoft.NET.Sdk">
-     <PropertyGroup>
-       <OutputType>Exe</OutputType>
-       <TargetFramework>netcoreapp6.0</TargetFramework>
-     </PropertyGroup>
+    ```xml
+    <Project Sdk="Microsoft.NET.Sdk">
+      <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>netcoreapp6.0</TargetFramework>
+      </PropertyGroup>
 
-     <ItemGroup>
-       <PackageReference Include="Confluent.Kafka" Version="2.2.0" />
-     </ItemGroup>
-   </Project>
-   ```
+      <ItemGroup>
+        <PackageReference Include="Confluent.Kafka" Version="2.2.0" />
+      </ItemGroup>
+    </Project>
+    ```
 
 1. Copy `App.csproj` to the directories of the producer application and consumer application:
 
-   ```bash
-   cp App.csproj producer/App.csproj && cp App.csproj consumer/App.csproj
-   ```
+    ```bash
+    cp App.csproj producer/App.csproj && cp App.csproj consumer/App.csproj
+    ```
 
 {% list tabs group=connection %}
 
 - Connecting without SSL {#without-ssl}
 
-   1. Code example for delivering messages to a topic:
+    1. Code example for delivering messages to a topic:
 
-      `cs-project/producer/Program.cs`
+        `cs-project/producer/Program.cs`
 
-      ```csharp
-      using Confluent.Kafka;
-      using System;
-      using System.Collections.Generic;
+        ```csharp
+        using Confluent.Kafka;
+        using System;
+        using System.Collections.Generic;
 
-      namespace App
-      {
-          class Program
-          {
-              public static void Main(string[] args)
-              {
-                  int MSG_COUNT = 5;
+        namespace App
+        {
+            class Program
+            {
+                public static void Main(string[] args)
+                {
+                    int MSG_COUNT = 5;
 
-                  string HOST = "<FQDN_of_broker_host>:9092";
-                  string TOPIC = "<topic_name>";
-                  string USER = "<producer_username>";
-                  string PASS = "<producer_password>";
+                    string HOST = "<broker_host_FQDN>:9092";
+                    string TOPIC = "<topic_name>";
+                    string USER = "<producer_name>";
+                    string PASS = "<producer_password>";
 
-                  var producerConfig = new ProducerConfig(
-                      new Dictionary<string,string>{
-                          {"bootstrap.servers", HOST},
-                          {"security.protocol", "SASL_PLAINTEXT"},
-                          {"sasl.mechanism", "SCRAM-SHA-512"},
-                          {"sasl.username", USER},
-                          {"sasl.password", PASS}
-                      }
-                  );
+                    var producerConfig = new ProducerConfig(
+                        new Dictionary<string,string>{
+                            {"bootstrap.servers", HOST},
+                            {"security.protocol", "SASL_PLAINTEXT"},
+                            {"sasl.mechanism", "SCRAM-SHA-512"},
+                            {"sasl.username", USER},
+                            {"sasl.password", PASS}
+                        }
+                    );
 
-                  var producer = new ProducerBuilder<string, string>(producerConfig).Build();
+                    var producer = new ProducerBuilder<string, string>(producerConfig).Build();
 
-                  for(int i=0; i<MSG_COUNT; i++)
-                  {
-                      producer.Produce(TOPIC, new Message<string, string> { Key = "key", Value = "test message" },
-                      (deliveryReport) =>
-                      {
-                          if (deliveryReport.Error.Code != ErrorCode.NoError)
-                          {
-                              Console.WriteLine($"Failed to deliver message: {deliveryReport.Error.Reason}");
-                          }
-                          else
-                          {
-                          Console.WriteLine($"Produced message to: {deliveryReport.TopicPartitionOffset}");
-                          }
-                      });
-                  }
-                  producer.Flush(TimeSpan.FromSeconds(10));
-              }
-          }
-      }
-      ```
+                    for(int i=0; i<MSG_COUNT; i++)
+                    {
+                        producer.Produce(TOPIC, new Message<string, string> { Key = "key", Value = "test message" },
+                        (deliveryReport) =>
+                        {
+                            if (deliveryReport.Error.Code != ErrorCode.NoError)
+                            {
+                                Console.WriteLine($"Failed to deliver message: {deliveryReport.Error.Reason}");
+                            }
+                            else
+                            {
+                            Console.WriteLine($"Produced message to: {deliveryReport.TopicPartitionOffset}");
+                            }
+                        });
+                    }
+                    producer.Flush(TimeSpan.FromSeconds(10));
+                }
+            }
+        }
+        ```
 
-   1. Code example for getting messages from a topic:
+    1. Code example for getting messages from a topic:
 
-      `cs-project/consumer/Program.cs`
+        `cs-project/consumer/Program.cs`
 
-      ```csharp
-      using Confluent.Kafka;
-      using System;
-      using System.Collections.Generic;
+        ```csharp
+        using Confluent.Kafka;
+        using System;
+        using System.Collections.Generic;
 
-      namespace CCloud
-      {
-          class Program
-          {
-              public static void Main(string[] args)
-              {
-                  string HOST = "<FQDN_of_broker_host>:9092";
-                  string TOPIC = "<topic_name>";
-                  string USER = "<consumer_name>";
-                  string PASS = "<consumer_password>";
+        namespace CCloud
+        {
+            class Program
+            {
+                public static void Main(string[] args)
+                {
+                    string HOST = "<broker_host_FQDN>:9092";
+                    string TOPIC = "<topic_name>";
+                    string USER = "<consumer_name>";
+                    string PASS = "<consumer_password>";
 
-                  var consumerConfig = new ConsumerConfig(
-                      new Dictionary<string,string>{
-                          {"bootstrap.servers", HOST},
-                          {"security.protocol", "SASL_PLAINTEXT"},
-                          {"sasl.mechanism", "SCRAM-SHA-512"},
-                          {"sasl.username", USER},
-                          {"sasl.password", PASS},
-                          {"group.id", "demo"}
-                      }
-                  );
+                    var consumerConfig = new ConsumerConfig(
+                        new Dictionary<string,string>{
+                            {"bootstrap.servers", HOST},
+                            {"security.protocol", "SASL_PLAINTEXT"},
+                            {"sasl.mechanism", "SCRAM-SHA-512"},
+                            {"sasl.username", USER},
+                            {"sasl.password", PASS},
+                            {"group.id", "demo"}
+                        }
+                    );
 
-                  var consumer = new ConsumerBuilder<string, string>(consumerConfig).Build();
-                  consumer.Subscribe(TOPIC);
-                  try
-                  {
-                      while (true)
-                      {
-                          var cr = consumer.Consume();
-                          Console.WriteLine($"{cr.Message.Key}:{cr.Message.Value}");
-                      }
-                  }
-                  catch (OperationCanceledException)
-                  {
-                      // Ctrl-C was pressed.
-                  }
-                  finally
-                  {
-                      consumer.Close();
-                  }
-              }
-          }
-      }
-      ```
+                    var consumer = new ConsumerBuilder<string, string>(consumerConfig).Build();
+                    consumer.Subscribe(TOPIC);
+                    try
+                    {
+                        while (true)
+                        {
+                            var cr = consumer.Consume();
+                            Console.WriteLine($"{cr.Message.Key}:{cr.Message.Value}");
+                        }
+                    }
+                    catch (OperationCanceledException)
+                    {
+                        // Ctrl-C was pressed.
+                    }
+                    finally
+                    {
+                        consumer.Close();
+                    }
+                }
+            }
+        }
+        ```
 
-   1. Building and launching applications:
+    1. Building and launching applications:
 
-      ```bash
-      cd ~/cs-project/consumer && dotnet build && \
-      dotnet run bin/Debug/netcoreapp5.0/App.dll
-      ```
+        ```bash
+        cd ~/cs-project/consumer && dotnet build && \
+        dotnet run bin/Debug/netcoreapp5.0/App.dll
+        ```
 
-      ```bash
-      cd ~/cs-project/producer && dotnet build && \
-      dotnet run bin/Debug/netcoreapp5.0/App.dll
-      ```
+        ```bash
+        cd ~/cs-project/producer && dotnet build && \
+        dotnet run bin/Debug/netcoreapp5.0/App.dll
+        ```
 
 - Connecting via SSL {#with-ssl}
 
-   1. Code example for delivering messages to a topic:
+    1. Code example for delivering messages to a topic:
 
-      `cs-project/producer/Program.cs`
+        `cs-project/producer/Program.cs`
 
-      ```csharp
-      using Confluent.Kafka;
-      using System;
-      using System.Collections.Generic;
+        ```csharp
+        using Confluent.Kafka;
+        using System;
+        using System.Collections.Generic;
 
-      namespace App
-      {
-          class Program
-          {
-              public static void Main(string[] args)
-              {
-                  int MSG_COUNT = 5;
+        namespace App
+        {
+            class Program
+            {
+                public static void Main(string[] args)
+                {
+                    int MSG_COUNT = 5;
 
-                  string HOST = "<FQDN_of_broker_host>:9091";
-                  string TOPIC = "<topic_name>";
-                  string USER = "<producer_username>";
-                  string PASS = "<producer_password>";
-                  string CA_FILE = "{{ crt-local-dir }}{{ crt-local-file }}";
+                    string HOST = "<broker_host_FQDN>:9091";
+                    string TOPIC = "<topic_name>";
+                    string USER = "<producer_name>";
+                    string PASS = "<producer_password>";
+                    string CA_FILE = "{{ crt-local-dir }}{{ crt-local-file }}";
 
-                  var producerConfig = new ProducerConfig(
-                      new Dictionary<string,string>{
-                          {"bootstrap.servers", HOST},
-                          {"security.protocol", "SASL_SSL"},
-                          {"ssl.ca.location", CA_FILE},
-                          {"sasl.mechanism", "SCRAM-SHA-512"},
-                          {"sasl.username", USER},
-                          {"sasl.password", PASS}
-                      }
-                  );
+                    var producerConfig = new ProducerConfig(
+                        new Dictionary<string,string>{
+                            {"bootstrap.servers", HOST},
+                            {"security.protocol", "SASL_SSL"},
+                            {"ssl.ca.location", CA_FILE},
+                            {"sasl.mechanism", "SCRAM-SHA-512"},
+                            {"sasl.username", USER},
+                            {"sasl.password", PASS}
+                        }
+                    );
 
-                  var producer = new ProducerBuilder<string, string>(producerConfig).Build();
+                    var producer = new ProducerBuilder<string, string>(producerConfig).Build();
 
-                  for(int i=0; i<MSG_COUNT; i++)
-                  {
-                      producer.Produce(TOPIC, new Message<string, string> { Key = "key", Value = "test message" },
-                      (deliveryReport) =>
-                          {
-                              if (deliveryReport.Error.Code != ErrorCode.NoError)
-                              {
-                                  Console.WriteLine($"Failed to deliver message: {deliveryReport.Error.Reason}");
-                              }
-                              else
-                              {
-                                  Console.WriteLine($"Produced message to: {deliveryReport.TopicPartitionOffset}");
-                              }
-                      });
-                   }
-                   producer.Flush(TimeSpan.FromSeconds(10));
-              }
-          }
-      }
-      ```
+                    for(int i=0; i<MSG_COUNT; i++)
+                    {
+                        producer.Produce(TOPIC, new Message<string, string> { Key = "key", Value = "test message" },
+                        (deliveryReport) =>
+                            {
+                                if (deliveryReport.Error.Code != ErrorCode.NoError)
+                                {
+                                    Console.WriteLine($"Failed to deliver message: {deliveryReport.Error.Reason}");
+                                }
+                                else
+                                {
+                                    Console.WriteLine($"Produced message to: {deliveryReport.TopicPartitionOffset}");
+                                }
+                        });
+                     }
+                     producer.Flush(TimeSpan.FromSeconds(10));
+                }
+            }
+        }
+        ```
 
-   1. Code example for getting messages from a topic:
+    1. Code example for getting messages from a topic:
 
-      `cs-project/consumer/Program.cs`
+        `cs-project/consumer/Program.cs`
 
-      ```csharp
-      using Confluent.Kafka;
-      using System;
-      using System.Collections.Generic;
+        ```csharp
+        using Confluent.Kafka;
+        using System;
+        using System.Collections.Generic;
 
-      namespace CCloud
-      {
-          class Program
-          {
-              public static void Main(string[] args)
-              {
-                  string HOST = "<FQDN_of_broker_host>:9091";
-                  string TOPIC = "<topic_name>";
-                  string USER = "<consumer_name>";
-                  string PASS = "<consumer_password>";
-                  string CA_FILE = "{{ crt-local-dir }}{{ crt-local-file }}";
+        namespace CCloud
+        {
+            class Program
+            {
+                public static void Main(string[] args)
+                {
+                    string HOST = "<broker_host_FQDN>:9091";
+                    string TOPIC = "<topic_name>";
+                    string USER = "<consumer_name>";
+                    string PASS = "<consumer_password>";
+                    string CA_FILE = "{{ crt-local-dir }}{{ crt-local-file }}";
 
-                  var consumerConfig = new ConsumerConfig(
-                      new Dictionary<string,string>{
-                          {"bootstrap.servers", HOST},
-                          {"security.protocol", "SASL_SSL"},
-                          {"ssl.ca.location", CA_FILE},
-                          {"sasl.mechanism", "SCRAM-SHA-512"},
-                          {"sasl.username", USER},
-                          {"sasl.password", PASS},
-                          {"group.id", "demo"}
-                      }
-                  );
+                    var consumerConfig = new ConsumerConfig(
+                        new Dictionary<string,string>{
+                            {"bootstrap.servers", HOST},
+                            {"security.protocol", "SASL_SSL"},
+                            {"ssl.ca.location", CA_FILE},
+                            {"sasl.mechanism", "SCRAM-SHA-512"},
+                            {"sasl.username", USER},
+                            {"sasl.password", PASS},
+                            {"group.id", "demo"}
+                        }
+                    );
 
-                  var consumer = new ConsumerBuilder<string, string>(consumerConfig).Build();
-                  consumer.Subscribe(TOPIC);
-                  try
-                  {
-                      while (true)
-                      {
-                          var cr = consumer.Consume();
-                          Console.WriteLine($"{cr.Message.Key}:{cr.Message.Value}");
-                      }
-                  }
-                  catch (OperationCanceledException)
-                  {
-                      // Ctrl-C was pressed.
-                  }
-                  finally
-                  {
-                      consumer.Close();
-                  }
-              }
-          }
-      }
-      ```
+                    var consumer = new ConsumerBuilder<string, string>(consumerConfig).Build();
+                    consumer.Subscribe(TOPIC);
+                    try
+                    {
+                        while (true)
+                        {
+                            var cr = consumer.Consume();
+                            Console.WriteLine($"{cr.Message.Key}:{cr.Message.Value}");
+                        }
+                    }
+                    catch (OperationCanceledException)
+                    {
+                        // Ctrl-C was pressed.
+                    }
+                    finally
+                    {
+                        consumer.Close();
+                    }
+                }
+            }
+        }
+        ```
 
-   1. Building and launching applications:
+    1. Building and launching applications:
 
-      ```bash
-      cd ~/cs-project/consumer && dotnet build && \
-      dotnet run bin/Debug/netcoreapp6.0/App.dll
-      ```
+        ```bash
+        cd ~/cs-project/consumer && dotnet build && \
+        dotnet run bin/Debug/netcoreapp6.0/App.dll
+        ```
 
-      ```bash
-      cd ~/cs-project/producer && dotnet build && \
-      dotnet run bin/Debug/netcoreapp6.0/App.dll
-      ```
+        ```bash
+        cd ~/cs-project/producer && dotnet build && \
+        dotnet run bin/Debug/netcoreapp6.0/App.dll
+        ```
 
 {% endlist %}
 
@@ -332,409 +332,408 @@ Before connecting:
 
    ```bash
    sudo apt update && sudo apt install -y golang git && \
-   go get github.com/Shopify/sarama && \
-   go get github.com/xdg/scram
+   go mod init example && \
+   go get github.com/Shopify/sarama@v1.38.1 && \
+   go get github.com/xdg-go/scram@v1.1.2
    ```
 
 1. Create a directory for the project:
 
-   ```bash
-   cd ~/ && mkdir go-project && cd go-project && mkdir -p consumer producer
-   ```
+    ```bash
+    cd ~/ && mkdir go-project && cd go-project && mkdir -p consumer producer
+    ```
 
-1. Create the `scram.go` file with the code for running [SCRAM](https://github.com/xdg-go/scram). This code is the same for the producer application and consumer application:
+1. Create the `scram.go` file with the [SCRAM](https://github.com/xdg-go/scram) code, which is the same for the producer and consumer applications:
 
-   {% cut "scram.go" %}
+    {% cut "scram.go" %}
 
-   ```go
-   package main
+    ```go
+    package main
 
-   import (
-     "crypto/sha256"
-     "crypto/sha512"
-     "hash"
+    import (
+      "crypto/sha256"
+      "crypto/sha512"
+      "hash"
 
-     "github.com/xdg/scram"
-   )
+      "github.com/xdg-go/scram"
+    )
 
-   var SHA256 scram.HashGeneratorFcn = func() hash.Hash { return sha256.New() }
-   var SHA512 scram.HashGeneratorFcn = func() hash.Hash { return sha512.New() }
+    var SHA256 scram.HashGeneratorFcn = func() hash.Hash { return sha256.New() }
+    var SHA512 scram.HashGeneratorFcn = func() hash.Hash { return sha512.New() }
 
-   type XDGSCRAMClient struct {
-     *scram.Client
-     *scram.ClientConversation
-     scram.HashGeneratorFcn
-   }
+    type XDGSCRAMClient struct {
+      *scram.Client
+      *scram.ClientConversation
+      scram.HashGeneratorFcn
+    }
 
-   func (x *XDGSCRAMClient) Begin(userName, password, authzID string) (err error) {
-       x.Client, err = x.HashGeneratorFcn.NewClient(userName, password, authzID)
-       if err != nil {
-         return err
-       }
-       x.ClientConversation = x.Client.NewConversation()
-       return nil
-   }
+    func (x *XDGSCRAMClient) Begin(userName, password, authzID string) (err error) {
+        x.Client, err = x.HashGeneratorFcn.NewClient(userName, password, authzID)
+        if err != nil {
+          return err
+        }
+        x.ClientConversation = x.Client.NewConversation()
+        return nil
+    }
 
-   func (x *XDGSCRAMClient) Step(challenge string) (response string, err error) {
-       response, err = x.ClientConversation.Step(challenge)
-       return
-   }
+    func (x *XDGSCRAMClient) Step(challenge string) (response string, err error) {
+        response, err = x.ClientConversation.Step(challenge)
+        return
+    }
 
-   func (x *XDGSCRAMClient) Done() bool {
-       return x.ClientConversation.Done()
-   }
-   ```
+    func (x *XDGSCRAMClient) Done() bool {
+        return x.ClientConversation.Done()
+    }
+    ```
 
    {% endcut %}
 
-1. Copy `scram.go` to the directory of the producer application and the consumer application:
+1. Copy `scram.go` to the producer and consumer application directories:
 
-   ```bash
-   cp scram.go producer/scram.go && cp scram.go consumer/scram.go
-   ```
+    ```bash
+    cp scram.go producer/scram.go && cp scram.go consumer/scram.go
+    ```
 
 {% list tabs group=connection %}
 
 - Connecting without SSL {#without-ssl}
 
-   1. Code example for delivering a message to a topic:
+    1. Code example for delivering a message to a topic:
 
-      `producer/main.go`
+        `producer/main.go`
 
-      ```go
-      package main
+        ```go
+        package main
 
-      import (
-            "fmt"
-            "os"
-            "strings"
+        import (
+              "fmt"
+              "os"
+              "strings"
 
-            "github.com/Shopify/sarama"
-      )
+              "github.com/Shopify/sarama"
+        )
 
-      func main() {
-            brokers := "<FQDN_of_broker_host>:9092"
-            splitBrokers := strings.Split(brokers, ",")
-            conf := sarama.NewConfig()
-            conf.Producer.RequiredAcks = sarama.WaitForAll
-            conf.Producer.Return.Successes = true
-            conf.Version = sarama.V0_10_0_0
-            conf.ClientID = "sasl_scram_client"
-            conf.Net.SASL.Enable = true
-            conf.Net.SASL.Handshake = true
-            conf.Net.SASL.User = "<producer_name>"
-            conf.Net.SASL.Password = "<producer_password>"
-            conf.Net.SASL.SCRAMClientGeneratorFunc = func() sarama.SCRAMClient { return &XDGSCRAMClient{HashGeneratorFcn: SHA512} }
-            conf.Net.SASL.Mechanism = sarama.SASLMechanism(sarama.SASLTypeSCRAMSHA512)
+        func main() {
+              brokers := "<broker_host_FQDN>:9092"
+              splitBrokers := strings.Split(brokers, ",")
+              conf := sarama.NewConfig()
+              conf.Producer.RequiredAcks = sarama.WaitForAll
+              conf.Producer.Return.Successes = true
+              conf.Version = sarama.V0_10_0_0
+              conf.ClientID = "sasl_scram_client"
+              conf.Net.SASL.Enable = true
+              conf.Net.SASL.Handshake = true
+              conf.Net.SASL.User = "<producer_name>"
+              conf.Net.SASL.Password = "<producer_password>"
+              conf.Net.SASL.SCRAMClientGeneratorFunc = func() sarama.SCRAMClient { return &XDGSCRAMClient{HashGeneratorFcn: SHA512} }
+              conf.Net.SASL.Mechanism = sarama.SASLMechanism(sarama.SASLTypeSCRAMSHA512)
 
-            syncProducer, err := sarama.NewSyncProducer(splitBrokers, conf)
-            if err != nil {
-                  fmt.Println("Couldn't create producer: ", err.Error())
-                  os.Exit(0)
-            }
-            publish("test message", syncProducer)
-      }
-
-      func publish(message string, producer sarama.SyncProducer) {
-        // Publish sync
-        msg := &sarama.ProducerMessage {
-            Topic: "<topic_name>",
-            Value: sarama.StringEncoder(message),
-        }
-        p, o, err := producer.SendMessage(msg)
-        if err != nil {
-            fmt.Println("Error publish: ", err.Error())
+              syncProducer, err := sarama.NewSyncProducer(splitBrokers, conf)
+              if err != nil {
+                    fmt.Println("Couldn't create producer: ", err.Error())
+                    os.Exit(0)
+              }
+              publish("test message", syncProducer)
         }
 
-        fmt.Println("Partition: ", p)
-        fmt.Println("Offset: ", o)
-      }
-      ```
+        func publish(message string, producer sarama.SyncProducer) {
+          // Publish sync
+          msg := &sarama.ProducerMessage {
+              Topic: "<topic_name>",
+              Value: sarama.StringEncoder(message),
+          }
+          p, o, err := producer.SendMessage(msg)
+          if err != nil {
+              fmt.Println("Error publish: ", err.Error())
+          }
 
-   1. Code example for getting messages from a topic:
+          fmt.Println("Partition: ", p)
+          fmt.Println("Offset: ", o)
+        }
+        ```
 
-      `consumer/main.go`
+    1. Code example for getting messages from a topic:
 
-      ```go
-      package main
+        `consumer/main.go`
 
-      import (
-            "fmt"
-            "os"
-            "os/signal"
-            "strings"
+        ```go
+        package main
 
-            "github.com/Shopify/sarama"
-      )
+        import (
+              "fmt"
+              "os"
+              "os/signal"
+              "strings"
 
-      func main() {
-            brokers := "<FQDN_of_broker_host>:9092"
-            splitBrokers := strings.Split(brokers, ",")
-            conf := sarama.NewConfig()
-            conf.Producer.RequiredAcks = sarama.WaitForAll
-            conf.Version = sarama.V0_10_0_0
-            conf.Consumer.Return.Errors = true
-            conf.ClientID = "sasl_scram_client"
-            conf.Metadata.Full = true
-            conf.Net.SASL.Enable = true
-            conf.Net.SASL.User = "<consumer_name>"
-            conf.Net.SASL.Password = "<consumer_password>"
-            conf.Net.SASL.Handshake = true
-            conf.Net.SASL.SCRAMClientGeneratorFunc = func() sarama.SCRAMClient { return &XDGSCRAMClient{HashGeneratorFcn: SHA512} }
-            conf.Net.SASL.Mechanism = sarama.SASLMechanism(sarama.SASLTypeSCRAMSHA512)
+              "github.com/Shopify/sarama"
+        )
 
-            master, err := sarama.NewConsumer(splitBrokers, conf)
-            if err != nil {
-                    fmt.Println("Coulnd't create consumer: ", err.Error())
-                    os.Exit(1)
-            }
+        func main() {
+              brokers := "<broker_host_FQDN>:9092"
+              splitBrokers := strings.Split(brokers, ",")
+              conf := sarama.NewConfig()
+              conf.Producer.RequiredAcks = sarama.WaitForAll
+              conf.Version = sarama.V0_10_0_0
+              conf.Consumer.Return.Errors = true
+              conf.ClientID = "sasl_scram_client"
+              conf.Metadata.Full = true
+              conf.Net.SASL.Enable = true
+              conf.Net.SASL.User =  "<consumer_name>"
+              conf.Net.SASL.Password = "<consumer_password>"
+              conf.Net.SASL.Handshake = true
+              conf.Net.SASL.SCRAMClientGeneratorFunc = func() sarama.SCRAMClient { return &XDGSCRAMClient{HashGeneratorFcn: SHA512} }
+              conf.Net.SASL.Mechanism = sarama.SASLMechanism(sarama.SASLTypeSCRAMSHA512)
 
-            defer func() {
-                    if err := master.Close(); err != nil {
-                            panic(err)
-                    }
-            }()
+              master, err := sarama.NewConsumer(splitBrokers, conf)
+              if err != nil {
+                      fmt.Println("Coulnd't create consumer: ", err.Error())
+                      os.Exit(1)
+              }
 
-            topic := "<topic_name>"
+              defer func() {
+                      if err := master.Close(); err != nil {
+                              panic(err)
+                      }
+              }()
 
-            consumer, err := master.ConsumePartition(topic, 0, sarama.OffsetOldest)
-            if err != nil {
-                    panic(err)
-            }
+              topic := "<topic_name>"
 
-            signals := make(chan os.Signal, 1)
-            signal.Notify(signals, os.Interrupt)
+              consumer, err := master.ConsumePartition(topic, 0, sarama.OffsetOldest)
+              if err != nil {
+                      panic(err)
+              }
 
-            // Count the number of processed messages
-            msgCount := 0
+              signals := make(chan os.Signal, 1)
+              signal.Notify(signals, os.Interrupt)
 
-            // Get signal to finish
-            doneCh := make(chan struct{})
-            go func() {
-                    for {
-                            select {
-                            case err := <-consumer.Errors():
-                                    fmt.Println(err)
-                            case msg := <-consumer.Messages():
-                                    msgCount++
-                                    fmt.Println("Received messages", string(msg.Key), string(msg.Value))
-                            case <-signals:
-                                    fmt.Println("Interrupt is detected")
-                                    doneCh <- struct{}{}
-                            }
-                    }
-            }()
+              // Count the number of processed messages
+              msgCount := 0
 
-            <-doneCh
-            fmt.Println("Processed", msgCount, "messages")
-      }
-      ```
+              // Get signal to finish
+              doneCh := make(chan struct{})
+              go func() {
+                      for {
+                              select {
+                              case err := <-consumer.Errors():
+                                      fmt.Println(err)
+                              case msg := <-consumer.Messages():
+                                      msgCount++
+                                      fmt.Println("Received messages", string(msg.Key), string(msg.Value))
+                              case <-signals:
+                                      fmt.Println("Interrupt is detected")
+                                      doneCh <- struct{}{}
+                              }
+                      }
+              }()
 
-   1. Building applications:
+              <-doneCh
+              fmt.Println("Processed", msgCount, "messages")
+        }
+        ```
 
-      ```bash
-      cd ~/go-project/producer && go build && \
-      cd ~/go-project/consumer && go build
-      ```
+    1. Building applications:
 
-   1. Running applications:
+        ```bash
+        cd ~/go-project/producer && go build && \
+        cd ~/go-project/consumer && go build
+        ```
 
-      ```bash
-      ~/go-project/consumer/consumer
-      ```
+    1. Running applications:
 
-      ```bash
-      ~/go-project/producer/producer
-      ```
+        ```bash
+        ~/go-project/consumer/consumer
+        ```
+
+        ```bash
+        ~/go-project/producer/producer
+        ```
 
 - Connecting via SSL {#with-ssl}
 
-   1. Code example for delivering a message to a topic:
+    1. Code example for delivering a message to a topic:
 
-      `producer/main.go`
+        `producer/main.go`
 
-      ```go
-      package main
+        ```go
+        package main
 
-      import (
-            "fmt"
-            "crypto/tls"
-            "crypto/x509"
-            "io/ioutil"
-            "os"
-            "strings"
+        import (
+              "fmt"
+              "crypto/tls"
+              "crypto/x509"
+              "io/ioutil"
+              "os"
+              "strings"
 
-            "github.com/Shopify/sarama"
-      )
+              "github.com/Shopify/sarama"
+        )
 
-      func main() {
-            brokers := "<FQDN_of_broker_host>:9091"
-            splitBrokers := strings.Split(brokers, ",")
-            conf := sarama.NewConfig()
-            conf.Producer.RequiredAcks = sarama.WaitForAll
-            conf.Producer.Return.Successes = true
-            conf.Version = sarama.V0_10_0_0
-            conf.ClientID = "sasl_scram_client"
-            conf.Net.SASL.Enable = true
-            conf.Net.SASL.Handshake = true
-            conf.Net.SASL.User = "<producer_username>"
-            conf.Net.SASL.Password = "<producer_password>"
-            conf.Net.SASL.SCRAMClientGeneratorFunc = func() sarama.SCRAMClient { return &XDGSCRAMClient{HashGeneratorFcn: SHA512} }
-            conf.Net.SASL.Mechanism = sarama.SASLMechanism(sarama.SASLTypeSCRAMSHA512)
+        func main() {
+              brokers := "<broker_host_FQDN>:9091"
+              splitBrokers := strings.Split(brokers, ",")
+              conf := sarama.NewConfig()
+              conf.Producer.RequiredAcks = sarama.WaitForAll
+              conf.Producer.Return.Successes = true
+              conf.Version = sarama.V0_10_0_0
+              conf.ClientID = "sasl_scram_client"
+              conf.Net.SASL.Enable = true
+              conf.Net.SASL.Handshake = true
+              conf.Net.SASL.User = "<producer_name>"
+              conf.Net.SASL.Password = "<producer_password>"
+              conf.Net.SASL.SCRAMClientGeneratorFunc = func() sarama.SCRAMClient { return &XDGSCRAMClient{HashGeneratorFcn: SHA512} }
+              conf.Net.SASL.Mechanism = sarama.SASLMechanism(sarama.SASLTypeSCRAMSHA512)
 
-            certs := x509.NewCertPool()
-            pemPath := "{{ crt-local-dir }}{{ crt-local-file }}"
-            pemData, err := ioutil.ReadFile(pemPath)
-            if err != nil {
-                    fmt.Println("Couldn't load cert: ", err.Error())
-                // handle the error
-            }
-            certs.AppendCertsFromPEM(pemData)
+              certs := x509.NewCertPool()
+              pemPath := "{{ crt-local-dir }}{{ crt-local-file }}"
+              pemData, err := ioutil.ReadFile(pemPath)
+              if err != nil {
+                      fmt.Println("Couldn't load cert: ", err.Error())
+                  // Handle the error
+              }
+              certs.AppendCertsFromPEM(pemData)
 
-            conf.Net.TLS.Enable = true
-            conf.Net.TLS.Config = &tls.Config{
-              InsecureSkipVerify: true,
-              RootCAs: certs,
-            }
+              conf.Net.TLS.Enable = true
+              conf.Net.TLS.Config = &tls.Config{
+                RootCAs: certs,
+              }
 
-            syncProducer, err := sarama.NewSyncProducer(splitBrokers, conf)
-            if err != nil {
-                    fmt.Println("Couldn't create producer: ", err.Error())
-                    os.Exit(0)
-            }
-            publish("test message", syncProducer)
+              syncProducer, err := sarama.NewSyncProducer(splitBrokers, conf)
+              if err != nil {
+                      fmt.Println("Couldn't create producer: ", err.Error())
+                      os.Exit(0)
+              }
+              publish("test message", syncProducer)
 
-      }
-
-      func publish(message string, producer sarama.SyncProducer) {
-        // publish sync
-        msg := &sarama.ProducerMessage {
-            Topic: "<topic_name>",
-            Value: sarama.StringEncoder(message),
-        }
-        p, o, err := producer.SendMessage(msg)
-        if err != nil {
-            fmt.Println("Error publish: ", err.Error())
         }
 
-        fmt.Println("Partition: ", p)
-        fmt.Println("Offset: ", o)
-      }
-      ```
+        func publish(message string, producer sarama.SyncProducer) {
+          // publish sync
+          msg := &sarama.ProducerMessage {
+              Topic: "<topic_name>",
+              Value: sarama.StringEncoder(message),
+          }
+          p, o, err := producer.SendMessage(msg)
+          if err != nil {
+              fmt.Println("Error publish: ", err.Error())
+          }
 
-   1. Code example for getting messages from a topic:
+          fmt.Println("Partition: ", p)
+          fmt.Println("Offset: ", o)
+        }
+        ```
 
-      `consumer/main.go`
+    1. Code example for getting messages from a topic:
 
-      ```go
-      package main
+        `consumer/main.go`
 
-      import (
-            "fmt"
-            "crypto/tls"
-            "crypto/x509"
-            "io/ioutil"
-            "os"
-            "os/signal"
-            "strings"
+        ```go
+        package main
 
-            "github.com/Shopify/sarama"
-      )
+        import (
+              "fmt"
+              "crypto/tls"
+              "crypto/x509"
+              "io/ioutil"
+              "os"
+              "os/signal"
+              "strings"
 
-      func main() {
-            brokers := "<FQDN_of_broker_host>:9091"
-            splitBrokers := strings.Split(brokers, ",")
-            conf := sarama.NewConfig()
-            conf.Producer.RequiredAcks = sarama.WaitForAll
-            conf.Version = sarama.V0_10_0_0
-            conf.Consumer.Return.Errors = true
-            conf.ClientID = "sasl_scram_client"
-            conf.Metadata.Full = true
-            conf.Net.SASL.Enable = true
-            conf.Net.SASL.User = "<consumer_username>"
-            conf.Net.SASL.Password = "<consumer_password>"
-            conf.Net.SASL.Handshake = true
-            conf.Net.SASL.SCRAMClientGeneratorFunc = func() sarama.SCRAMClient { return &XDGSCRAMClient{HashGeneratorFcn: SHA512} }
-            conf.Net.SASL.Mechanism = sarama.SASLMechanism(sarama.SASLTypeSCRAMSHA512)
+              "github.com/Shopify/sarama"
+        )
 
-            certs := x509.NewCertPool()
-            pemPath := "{{ crt-local-dir }}{{ crt-local-file }}"
-            pemData, err := ioutil.ReadFile(pemPath)
-            if err != nil {
-                fmt.Println("Couldn't load cert: ", err.Error())
-                    // Handle the error
-            }
-            certs.AppendCertsFromPEM(pemData)
+        func main() {
+              brokers := "<broker_host_FQDN>:9091"
+              splitBrokers := strings.Split(brokers, ",")
+              conf := sarama.NewConfig()
+              conf.Producer.RequiredAcks = sarama.WaitForAll
+              conf.Version = sarama.V0_10_0_0
+              conf.Consumer.Return.Errors = true
+              conf.ClientID = "sasl_scram_client"
+              conf.Metadata.Full = true
+              conf.Net.SASL.Enable = true
+              conf.Net.SASL.User =  "<consumer_name>"
+              conf.Net.SASL.Password = "<consumer_password>"
+              conf.Net.SASL.Handshake = true
+              conf.Net.SASL.SCRAMClientGeneratorFunc = func() sarama.SCRAMClient { return &XDGSCRAMClient{HashGeneratorFcn: SHA512} }
+              conf.Net.SASL.Mechanism = sarama.SASLMechanism(sarama.SASLTypeSCRAMSHA512)
 
-            conf.Net.TLS.Enable = true
-            conf.Net.TLS.Config = &tls.Config{
-                      InsecureSkipVerify: true,
-                        RootCAs: certs,
-            }
+              certs := x509.NewCertPool()
+              pemPath := "{{ crt-local-dir }}{{ crt-local-file }}"
+              pemData, err := ioutil.ReadFile(pemPath)
+              if err != nil {
+                  fmt.Println("Couldn't load cert: ", err.Error())
+                      // Handle the error
+              }
+              certs.AppendCertsFromPEM(pemData)
 
-            master, err := sarama.NewConsumer(splitBrokers, conf)
-            if err != nil {
-                    fmt.Println("Coulnd't create consumer: ", err.Error())
-                    os.Exit(1)
-            }
+              conf.Net.TLS.Enable = true
+              conf.Net.TLS.Config = &tls.Config{
+                RootCAs: certs,
+              }
 
-            defer func() {
-                    if err := master.Close(); err != nil {
-                            panic(err)
-                    }
-            }()
+              master, err := sarama.NewConsumer(splitBrokers, conf)
+              if err != nil {
+                      fmt.Println("Coulnd't create consumer: ", err.Error())
+                      os.Exit(1)
+              }
 
-            topic := "<topic_name>"
+              defer func() {
+                      if err := master.Close(); err != nil {
+                              panic(err)
+                      }
+              }()
 
-            consumer, err := master.ConsumePartition(topic, 0, sarama.OffsetOldest)
-            if err != nil {
-                    panic(err)
-            }
+              topic := "<topic_name>"
 
-            signals := make(chan os.Signal, 1)
-            signal.Notify(signals, os.Interrupt)
+              consumer, err := master.ConsumePartition(topic, 0, sarama.OffsetOldest)
+              if err != nil {
+                      panic(err)
+              }
 
-            // Count the number of processed messages
-            msgCount := 0
+              signals := make(chan os.Signal, 1)
+              signal.Notify(signals, os.Interrupt)
 
-            // Get signal to finish
-            doneCh := make(chan struct{})
-            go func() {
-                    for {
-                            select {
-                            case err := <-consumer.Errors():
-                                    fmt.Println(err)
-                            case msg := <-consumer.Messages():
-                                    msgCount++
-                                    fmt.Println("Received messages", string(msg.Key), string(msg.Value))
-                            case <-signals:
-                                    fmt.Println("Interrupt is detected")
-                                    doneCh <- struct{}{}
-                            }
-                    }
-            }()
+              // Count the number of processed messages
+              msgCount := 0
 
-            <-doneCh
-            fmt.Println("Processed", msgCount, "messages")
-      }
-      ```
+              // Get signal to finish
+              doneCh := make(chan struct{})
+              go func() {
+                      for {
+                              select {
+                              case err := <-consumer.Errors():
+                                      fmt.Println(err)
+                              case msg := <-consumer.Messages():
+                                      msgCount++
+                                      fmt.Println("Received messages", string(msg.Key), string(msg.Value))
+                              case <-signals:
+                                      fmt.Println("Interrupt is detected")
+                                      doneCh <- struct{}{}
+                              }
+                      }
+              }()
 
-   1. Building applications:
+              <-doneCh
+              fmt.Println("Processed", msgCount, "messages")
+        }
+        ```
 
-      ```bash
-      cd ~/go-project/producer && go build && \
-      cd ~/go-project/consumer && go build
-      ```
+    1. Building applications:
 
-   1. Running applications:
+        ```bash
+        cd ~/go-project/producer && go build && \
+        cd ~/go-project/consumer && go build
+        ```
 
-      ```bash
-      ~/go-project/consumer/consumer
-      ```
+    1. Running applications:
 
-      ```bash
-      ~/go-project/producer/producer
-      ```
+        ```bash
+        ~/go-project/consumer/consumer
+        ```
+
+        ```bash
+        ~/go-project/producer/producer
+        ```
 
 {% endlist %}
 
@@ -846,17 +845,17 @@ Before connecting:
    - [jackson-databind](https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind)
    - [slf4j-simple](https://mvnrepository.com/artifact/org.slf4j/slf4j-simple)
 
-1. Copy `pom.xml` to the directories of the producer application and consumer application:
+1. Copy `pom.xml` to the producer and consumer application directories:
 
-   ```bash
-   cp pom.xml producer/pom.xml && cp pom.xml consumer/pom.xml
-   ```
+    ```bash
+    cp pom.xml producer/pom.xml && cp pom.xml consumer/pom.xml
+    ```
 
 {% list tabs group=connection %}
 
 - Connecting without SSL {#without-ssl}
 
-   1. Code example for delivering messages to a topic:
+  1. Code example for delivering messages to a topic:
 
       `producer/src/java/com/example/App.java`
 
@@ -876,7 +875,7 @@ Before connecting:
 
           String HOST = "<broker_FQDN>:9092";
           String TOPIC = "<topic_name>";
-          String USER = "<producer_username>";
+          String USER = "<producer_name>";
           String PASS = "<producer_password>";
 
           String jaasTemplate = "org.apache.kafka.common.security.scram.ScramLoginModule required username=\"%s\" password=\"%s\";";
@@ -910,7 +909,7 @@ Before connecting:
       }
       ```
 
-   1. Code example for getting messages from a topic:
+  1. Code example for getting messages from a topic:
 
       `consumer/src/java/com/example/App.java`
 
@@ -959,14 +958,14 @@ Before connecting:
       }
       ```
 
-   1. Building applications:
+  1. Building applications:
 
       ```bash
       cd ~/project/producer && mvn clean package && \
       cd ~/project/consumer && mvn clean package
       ```
 
-   1. Running applications:
+  1. Running applications:
 
       ```bash
       java -jar ~/project/producer/target/app-0.1.0-jar-with-dependencies.jar
@@ -978,15 +977,15 @@ Before connecting:
 
 - Connecting via SSL {#with-ssl}
 
-   1. Go to the folder where the Java certificate store will be located:
+  1. Go to the folder where the Java certificate store will be located:
 
-      ```bash
-      cd /etc/security
-      ```
+     ```bash
+     cd /etc/security
+     ```
 
-   1. {% include [keytool-importcert](../../../_includes/mdb/keytool-importcert.md) %}
+  1. {% include [keytool-importcert](../../../_includes/mdb/keytool-importcert.md) %}
 
-   1. Code example for delivering messages to a topic:
+  1. Code example for delivering messages to a topic:
 
       `producer/src/java/com/example/App.java`
 
@@ -1006,10 +1005,10 @@ Before connecting:
 
           String HOST = "<broker_FQDN>:9091";
           String TOPIC = "<topic_name>";
-          String USER = "<producer_username>";
+          String USER = "<producer_name>";
           String PASS = "<producer_password>";
           String TS_FILE = "/etc/security/ssl";
-          String TS_PASS = "<certificate_store_password>";
+          String TS_PASS = "<certificate_storage_password>";
 
           String jaasTemplate = "org.apache.kafka.common.security.scram.ScramLoginModule required username=\"%s\" password=\"%s\";";
           String jaasCfg = String.format(jaasTemplate, USER, PASS);
@@ -1044,7 +1043,7 @@ Before connecting:
       }
       ```
 
-   1. Code example for getting messages from a topic:
+  1. Code example for getting messages from a topic:
 
       `consumer/src/java/com/example/App.java`
 
@@ -1065,7 +1064,7 @@ Before connecting:
           String USER = "<consumer_name>";
           String PASS = "<consumer_password>";
           String TS_FILE = "/etc/security/ssl";
-          String TS_PASS = "<certificate_store_password>";
+          String TS_PASS = "<certificate_storage_password>";
 
           String jaasTemplate = "org.apache.kafka.common.security.scram.ScramLoginModule required username=\"%s\" password=\"%s\";";
           String jaasCfg = String.format(jaasTemplate, USER, PASS);
@@ -1097,14 +1096,14 @@ Before connecting:
       }
       ```
 
-   1. Building applications:
+  1. Building applications:
 
       ```bash
       cd ~/project/producer && mvn clean package && \
       cd ~/project/consumer && mvn clean package
       ```
 
-   1. Running applications:
+  1. Running applications:
 
       ```bash
       java -jar ~/project/producer/target/app-0.1.0-jar-with-dependencies.jar
@@ -1133,7 +1132,7 @@ npm install node-rdkafka
 
 - Connecting without SSL {#without-ssl}
 
-   1. Code example for delivering messages to a topic:
+  1. Code example for delivering messages to a topic:
 
       `producer.js`
 
@@ -1145,7 +1144,7 @@ npm install node-rdkafka
 
       const HOST = "<broker_FQDN>:9092";
       const TOPIC = "<topic_name>";
-      const USER = "<producer_username>";
+      const USER = "<producer_name>";
       const PASS = "<producer_password>";
 
       const producer = new Kafka.Producer({
@@ -1175,7 +1174,7 @@ npm install node-rdkafka
       });
       ```
 
-   1. Code example for getting messages from a topic:
+  1. Code example for getting messages from a topic:
 
       `consumer.js`
 
@@ -1216,7 +1215,7 @@ npm install node-rdkafka
       });
       ```
 
-   1. Running applications:
+  1. Running applications:
 
       ```bash
       node consumer.js
@@ -1228,7 +1227,7 @@ npm install node-rdkafka
 
 - Connecting via SSL {#with-ssl}
 
-   1. Code example for delivering messages to a topic:
+  1. Code example for delivering messages to a topic:
 
       `producer.js`
 
@@ -1240,7 +1239,7 @@ npm install node-rdkafka
 
       const HOST = "<broker_FQDN>:9091";
       const TOPIC = "<topic_name>";
-      const USER = "<producer_username>";
+      const USER = "<producer_name>";
       const PASS = "<producer_password>";
       const CA_FILE = "{{ crt-local-dir }}{{ crt-local-file }}";
 
@@ -1272,7 +1271,7 @@ npm install node-rdkafka
       });
       ```
 
-   1. Code example for getting messages from a topic:
+  1. Code example for getting messages from a topic:
 
       `consumer.js`
 
@@ -1315,7 +1314,7 @@ npm install node-rdkafka
       });
       ```
 
-   1. Running applications:
+  1. Running applications:
 
       ```bash
       node consumer.js
@@ -1344,47 +1343,47 @@ pip3 install kafka-python lz4 python-snappy crc32c
 
 - Connecting without SSL {#without-ssl}
 
-   1. Code example for delivering a message to a topic:
+  1. Code example for delivering a message to a topic:
 
-      `producer.py`
+     `producer.py`
 
-      ```python
-      from kafka import KafkaProducer
+     ```python
+     from kafka import KafkaProducer
 
-      producer = KafkaProducer(
-          bootstrap_servers='<FQDN_of_broker_host>:9092',
-          security_protocol="SASL_PLAINTEXT",
-          sasl_mechanism="SCRAM-SHA-512",
-          sasl_plain_username='<producer_name>',
-          sasl_plain_password='<producer_password>')
+     producer = KafkaProducer(
+         bootstrap_servers='<broker_host_FQDN>:9092',
+         security_protocol="SASL_PLAINTEXT",
+         sasl_mechanism="SCRAM-SHA-512",
+         sasl_plain_username='<producer_name>',
+         sasl_plain_password='<producer_password>')
 
-      producer.send('<topic_name>', b'test message', b'key')
-      producer.flush()
-      producer.close()
-      ```
+     producer.send('<topic_name>', b'test message', b'key')
+     producer.flush()
+     producer.close()
+     ```
 
-   1. Code example for getting messages from a topic:
+  1. Code example for getting messages from a topic:
 
-      `consumer.py`
+     `consumer.py`
 
-      ```python
-      from kafka import KafkaConsumer
+     ```python
+     from kafka import KafkaConsumer
 
-      consumer = KafkaConsumer(
-          '<topic_name>',
-          bootstrap_servers='<broker_FQDN>:9092',
-          security_protocol="SASL_PLAINTEXT",
-          sasl_mechanism="SCRAM-SHA-512",
-          sasl_plain_username='<consumer_name>',
-          sasl_plain_password='<consumer_password>')
+     consumer = KafkaConsumer(
+         '<topic_name>',
+         bootstrap_servers='<broker_FQDN>:9092',
+         security_protocol="SASL_PLAINTEXT",
+         sasl_mechanism="SCRAM-SHA-512",
+         sasl_plain_username='<consumer_name>',
+         sasl_plain_password='<consumer_password>')
 
-      print("ready")
+     print("ready")
 
-      for msg in consumer:
-          print(msg.key.decode("utf-8") + ":" + msg.value.decode("utf-8"))
-      ```
+     for msg in consumer:
+         print(msg.key.decode("utf-8") + ":" + msg.value.decode("utf-8"))
+     ```
 
-   1. Running applications:
+  1. Running applications:
 
       ```bash
       python3 producer.py
@@ -1396,7 +1395,7 @@ pip3 install kafka-python lz4 python-snappy crc32c
 
 - Connecting via SSL {#with-ssl}
 
-   1. Code example for delivering a message to a topic:
+  1. Code example for delivering a message to a topic:
 
       `producer.py`
 
@@ -1404,7 +1403,7 @@ pip3 install kafka-python lz4 python-snappy crc32c
       from kafka import KafkaProducer
 
       producer = KafkaProducer(
-          bootstrap_servers='<FQDN_of_broker_host>:9091',
+          bootstrap_servers='<broker_host_FQDN>:9091',
           security_protocol="SASL_SSL",
           sasl_mechanism="SCRAM-SHA-512",
           sasl_plain_username='<producer_name>',
@@ -1416,7 +1415,7 @@ pip3 install kafka-python lz4 python-snappy crc32c
       producer.close()
       ```
 
-   1. Code example for getting messages from a topic:
+  1. Code example for getting messages from a topic:
 
       `consumer.py`
 
@@ -1428,7 +1427,7 @@ pip3 install kafka-python lz4 python-snappy crc32c
           bootstrap_servers='<broker_FQDN>:9091',
           security_protocol="SASL_SSL",
           sasl_mechanism="SCRAM-SHA-512",
-          sasl_plain_username='<consumer_username>',
+          sasl_plain_username='<consumer_name>',
           sasl_plain_password='<consumer_password>',
           ssl_cafile="{{ crt-local-dir }}{{ crt-local-file }}")
 
@@ -1438,7 +1437,7 @@ pip3 install kafka-python lz4 python-snappy crc32c
           print(msg.key.decode("utf-8") + ":" + msg.value.decode("utf-8"))
       ```
 
-   1. Running applications:
+  1. Running applications:
 
       ```bash
       python3 consumer.py
@@ -1466,7 +1465,7 @@ pip install confluent_kafka
 
 - Connecting without SSL {#without-ssl}
 
-   1. Example code for delivering a message to a topic:
+  1. Code example for delivering a message to a topic:
 
       `producer.py`
 
@@ -1477,10 +1476,9 @@ pip install confluent_kafka
           print('Something went wrong: {}'.format(err))
 
       params = {
-          'bootstrap.servers': '<FQDN_of_broker_host>:9092',
+          'bootstrap.servers': '<broker_host_FQDN>:9092',
           'security.protocol': 'SASL_PLAINTEXT',
           'sasl.mechanism': 'SCRAM-SHA-512',
-          'sasl.username': '<producer_username>',
           'sasl.password': '<producer_password>',
           'error_cb': error_callback,
       }
@@ -1490,7 +1488,7 @@ pip install confluent_kafka
       p.flush(10)
       ```
 
-   1. Code example for getting messages from a topic:
+  1. Code example for getting messages from a topic:
 
       `consumer.py`
 
@@ -1501,7 +1499,7 @@ pip install confluent_kafka
           print('Something went wrong: {}'.format(err))
 
       params = {
-          'bootstrap.servers': '<FQDN_of_broker_host>:9092',
+          'bootstrap.servers': '<broker_host_FQDN>:9092',
           'security.protocol': 'SASL_PLAINTEXT',
           'sasl.mechanism': 'SCRAM-SHA-512',
           'sasl.username': '<consumer_name>',
@@ -1521,7 +1519,7 @@ pip install confluent_kafka
               print(val)
       ```
 
-   1. Running applications:
+  1. Running applications:
 
       ```bash
       python3 producer.py
@@ -1533,7 +1531,7 @@ pip install confluent_kafka
 
 - Connecting via SSL {#with-ssl}
 
-   1. Code example for delivering a message to a topic:
+  1. Code example for delivering a message to a topic:
 
       `producer.py`
 
@@ -1544,11 +1542,11 @@ pip install confluent_kafka
           print('Something went wrong: {}'.format(err))
 
       params = {
-          'bootstrap.servers': '<FQDN_of_broker_host>:9091',
+          'bootstrap.servers': '<broker_host_FQDN>:9091',
           'security.protocol': 'SASL_SSL',
           'ssl.ca.location': '{{ crt-local-dir }}{{ crt-local-file }}',
           'sasl.mechanism': 'SCRAM-SHA-512',
-          'sasl.username': '<producer_username>',
+          'sasl.username': '<producer_name>',
           'sasl.password': '<producer_password>',
           'error_cb': error_callback,
       }
@@ -1558,7 +1556,7 @@ pip install confluent_kafka
       p.flush(10)
       ```
 
-   1. Code example for getting messages from a topic:
+  1. Code example for getting messages from a topic:
 
       `consumer.py`
 
@@ -1569,7 +1567,7 @@ pip install confluent_kafka
           print('Something went wrong: {}'.format(err))
 
       params = {
-          'bootstrap.servers': '<FQDN_of_broker_host>:9091',
+          'bootstrap.servers': '<broker_host_FQDN>:9091',
           'security.protocol': 'SASL_SSL',
           'ssl.ca.location': '{{ crt-local-dir }}{{ crt-local-file }}',
           'sasl.mechanism': 'SCRAM-SHA-512',
@@ -1590,7 +1588,7 @@ pip install confluent_kafka
               print(val)
       ```
 
-   1. Running applications:
+  1. Running applications:
 
       ```bash
       python3 consumer.py

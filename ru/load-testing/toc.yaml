@@ -28,6 +28,8 @@ items:
         href: operations/logging.md
       - name: Создать и настроить дашборд регрессий
         href: operations/regressions.md
+      - name: Проверить превышение порогов метрик регрессий
+        href: operations/check-regression.md
       - name: Сохранить артефакты теста в {{ objstorage-name }}
         href: operations/save-artifacts.md
       - name: Посмотреть операции с ресурсами сервиса

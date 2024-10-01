@@ -6,11 +6,11 @@
 
 Чтобы создать ВМ и защитить конфиденциальную информацию в скрипте инициализации:
 
-1. [Создайте сервисный аккаунт](#create-account) 
-1. [Создайте ключ {{ kms-short-name }}](#create-key) 
-1. [Создайте секрет](#create-secret) 
-1. [Создайте ВМ](#create-vm) 
-1. [Авторизуйтесь в ОС Windows](#login-windows) 
+1. [Создайте сервисный аккаунт](#create-account)
+1. [Создайте ключ {{ kms-short-name }}](#create-key)
+1. [Создайте секрет](#create-secret)
+1. [Создайте ВМ](#create-vm)
+1. [Авторизуйтесь в ОС Windows](#login-windows)
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
@@ -91,7 +91,7 @@
      ```bash
      yc kms symmetric-key create \
        --name win-secret-key \
-       --default-algorithm aes-256 
+       --default-algorithm aes-256
      ```
 
      Где:
@@ -113,7 +113,7 @@
 
    {% endlist %}
 
-1. Назначьте сервисному аккаунту `win-secret-sa` [роль](../../iam/concepts/access-control/roles.md) `kms.keys.encrypterDercrypter`: 
+1. Назначьте сервисному аккаунту `win-secret-sa` [роль](../../iam/concepts/access-control/roles.md) `kms.keys.encrypterDercrypter`:
 
    {% list tabs group=instructions %}
 
@@ -185,12 +185,12 @@
          --kms-key-id <идентификатор_ключа> \
          --payload "[{'key': 'Administrator', 'text_value': '<пароль_администратора>'},{'key': 'user1', 'text_value': '<пароль_пользователя>'}]" \
          --cloud-id <идентификатор_облака> \
-         --folder-id <идентификатор_каталога> 
+         --folder-id <идентификатор_каталога>
       ```
 
       Где:
       * `--name` — имя секрета. Обязательный параметр.
-      * `--kms-key-id` — идентификатор ключа {{ kms-short-name }}. 
+      * `--kms-key-id` — идентификатор ключа {{ kms-short-name }}.
       * `--description` — описание секрета. Необязательный параметр.
       * `--payload` — содержимое секрета в виде массива формата YAML или JSON.
       * `--cloud-id` — [идентификатор облака](../../resource-manager/operations/cloud/get-id.md), в котором будет создан секрет.
@@ -212,11 +212,11 @@
         secret_id = yandex_lockbox_secret.win_secret.id
         entries {
           key        = "Administrator"
-          text_value = "<пароль_администратора>" 
+          text_value = "<пароль_администратора>"
         }
         entries {
           key        = "user1"
-          text_value = "<пароль_пользователя>" 
+          text_value = "<пароль_пользователя>"
         }
       }
       ```
@@ -245,7 +245,7 @@
 
 {% endlist %}
 
-1. Назначьте сервисному аккаунту `win-secret-sa` [роль](../../iam/concepts/access-control/roles.md) `lockbox.payloadViewer`: 
+1. Назначьте сервисному аккаунту `win-secret-sa` [роль](../../iam/concepts/access-control/roles.md) `lockbox.payloadViewer`:
 
    {% list tabs group=instructions %}
 
@@ -281,7 +281,7 @@
 
    ```text
    #ps1
-   
+
    # logging
    Start-Transcript -Path "$ENV:SystemDrive\provision2.txt" -IncludeInvocationHeader -Force
    "Bootstrap script started" | Write-Host
@@ -350,7 +350,7 @@
       1. Справа сверху нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}**.
       1. В открывшемся списке выберите **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
       1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
-         * Введите имя ВМ, например, `win-test`. 
+         * Введите имя ВМ, например, `win-test`.
          * Выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
       1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите [образ](../../compute/concepts/image.md) с ОС Windows.
       1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** укажите данные для доступа на ВМ:

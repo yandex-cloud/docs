@@ -4,8 +4,6 @@ editable: false
 
 # {{ mgp-name }} pricing policy
 
-
-
 In this section, you can find the {{ mgp-name }} pricing [policy](#rules) and [effective prices](#prices) for its resources.
 
 {% include [use-calculator](../../_includes/pricing/use-calculator.md) %}
@@ -31,6 +29,7 @@ The {{ mgp-name }} usage cost is based on:
 
 ### Using cluster hosts {#rules-hosts-uptime}
 
+
 There are different ways to calculate the cost depending on the [host type](../concepts/):
 
 * Standard hosts
@@ -40,6 +39,8 @@ There are different ways to calculate the cost depending on the [host type](../c
 * Dedicated hosts
 
   The cost is made up of two components: [the cost of {{ compute-full-name }} computing resources](../../compute/pricing.md#prices) and {{ mgp-name }} charges for these resources.
+
+
 
 You can the supported resource configurations in the [Host classes](../concepts/instance-types.md) section. For vCPU and RAM prices, see the [Prices](#prices) section.
 
@@ -51,9 +52,14 @@ You pay for the following:
 
 * Storage allocated for clusters.
 
+  
   * You can only order storage on local SSD disks (`local-ssd`) for clusters with two master hosts:
-    *For Intel Cascade Lake: In increments of 100 GB.
+
+    * For Intel Cascade Lake: In increments of 100 GB.
     * For Intel Ice Lake: In increments of {{ local-ssd-v3-step }}.
+
+
+
   * You can only order storage on non-replicated SSDs (`network-ssd-nonreplicated`) in 93 GB increments for clusters with two master hosts.
 
   To pay less for storage, export [AO and AOCO tables](../tutorials/yezzey.md) from disks within the {{ mgp-name }} cluster to a cold storage in {{ objstorage-full-name }}. The data will be stored in a service bucket in a compressed and encrypted form, which is more cost-efficient. The cost of such storage is calculated based on the [{{ objstorage-name }} pricing policy](../../storage/pricing.md).
@@ -67,6 +73,7 @@ You pay for the following:
   * The number of hosts in a cluster does not affect the storage volume and, consequently, the free volume of backups.
 
 The price covers one month of use based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
+
 
 ### Example of cluster cost calculation {#example}
 
@@ -96,32 +103,38 @@ CVoS discount is only available for certain types of resources. For non-supporte
 
 ## Prices for the Russia region {#prices}
 
+
+
 {% include [pricing-diff-regions](../../_includes/pricing-diff-regions.md) %}
 
 
+
 All prices below do not include VAT.
+
 
 
 Host prices are [calculated in different ways](#rules-hosts-uptime) depending on the selected host type.
 
 The price of local SSD storage (`local-ssd`) also depends on the host type.
 
+
 {% include [pricing-month-term](../../_includes/mdb/pricing-month-term.md) %}
 
 ### Host computing resources {#prices-hosts}
 
+
 #### Standard hosts {#standard-hosts}
 
-
 {% include [Access to Compute Optimized on request](../../_includes/mdb/note-compute-optimized-request.md) %}
-
 
 The cost calculation will be different depending on the [host configuration](../concepts/instance-types.md):
 
 * For hosts i2 and i3 (`io-optimized`), the cost is made up of the price for {{ mgp-name }} host computing resources (see the table below) and the [price for software-accelerated network use](../../compute/pricing.md#software-accelerated-network).
 * For hosts with other configurations, you only pay for their computing resources:
 
+
 **Costs per hour**
+
 
 
 
@@ -132,14 +145,14 @@ The cost calculation will be different depending on the [host configuration](../
 
 
 
+
 {% include [usd-hosts-standard-month](../../_pricing/managed-greenplum/usd-hosts-standard-month.md) %}
+
 
 
 #### Dedicated hosts {#dedicated-hosts}
 
-
 {% include [Access to Compute Optimized on request](../../_includes/mdb/note-compute-optimized-request.md) %}
-
 
 The cost is made up of two components: [the cost of {{ compute-full-name }} computing resources](../../compute/pricing.md#prices) and {{ mgp-name }} charges for these resources.
 
@@ -148,9 +161,13 @@ The cost is made up of two components: [the cost of {{ compute-full-name }} comp
 {% include [usd-hosts-dedicated](../../_pricing/managed-greenplum/usd-hosts-dedicated.md) %}
 
 
+
 ### Storage and backups {#prices-storage}
 
 {% include [local-ssd for Intel Ice Lake only on request](../../_includes/ice-lake-local-ssd-note.md) %}
+
+
+
 
 
 
@@ -169,17 +186,6 @@ The cost is made up of two components: [the cost of {{ compute-full-name }} comp
 {% endlist %}
 
 
-The cost of [cold storage in {{ objstorage-full-name }}](../tutorials/yezzey.md) is calculated based on the [{{ objstorage-name }} pricing policy](../../storage/pricing.md).
-
-Pricing for backup storage has the following specifics:
-
-* Backups are stored free of charge as long as the combined size of the database and all backups is less than the total storage size.
-
-* [Adding a segment host](../operations/hosts/cluster-expand.md#add-hosts) increases the total cost per cluster. However, expenses for storing backups beyond the storage size will decrease because the total storage will expand.
-
-* {% include [backup-wal](../../_includes/mdb/mgp/backup-wal.md) %}
-
 {% include [egress-traffic-pricing](../../_includes/egress-traffic-pricing.md) %}
-
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

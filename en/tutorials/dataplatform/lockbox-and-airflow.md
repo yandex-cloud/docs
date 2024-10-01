@@ -1,6 +1,5 @@
 ---
 noIndex: true
-
 ---
 
 # Storing {{ AF }} connections and variables in {{ lockbox-full-name }}

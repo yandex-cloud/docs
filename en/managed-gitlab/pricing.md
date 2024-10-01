@@ -1,6 +1,6 @@
 ---
 title: "{{ mgl-full-name }} pricing policy"
-description: "This article describes the {{ mgl-name }} pricing policy."
+description: "This article provides the {{ mgl-name }} pricing policy."
 editable: false
 ---
 
@@ -14,13 +14,13 @@ editable: false
 
 ## What goes into the cost of using {{ mgl-name }} {#rules}
 
-When running {{ mgl-name }}, you pay for:
+When using {{ mgl-name }}, you pay for:
 * Computing resources of your VM instance.
 * Data storage used by the instance.
 
 Other consumed resources to be additionally paid for:
 * The space used in {{ objstorage-full-name }} to store backups.
-* Size of outgoing traffic from {{ yandex-cloud }} to the internet.
+* Amount of outgoing traffic from {{ yandex-cloud }} to the internet.
 
 In all calculations, 1 GB = 2<sup>10</sup> MB = 2<sup>20</sup> KB = 2<sup>30</sup> bytes.
 

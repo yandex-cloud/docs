@@ -6,6 +6,10 @@ editable: false
 
 
 
+{% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
+
+{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
+
 A fee for the computing resources used by [agents](concepts/agent.md) is charged according to the [{{ compute-full-name }}](../compute/pricing.md) pricing policy.
 
 You are charged per second of usage. The monthly prices are based on 720 hours per month.

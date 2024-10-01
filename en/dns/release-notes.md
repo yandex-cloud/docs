@@ -1,10 +1,13 @@
-# {{ dns-full-name }} release notes
+---
+title: "{{ dns-full-name }} release notes"
+description: "This section contains {{ dns-name }} release notes."
+---
 
-This section contains {{ dns-name }} release notes.
+# {{ dns-full-name }} release notes
 
 ## Q2 2024 {#q2-2024}
 
-Connected National Domain Name System (NSDI) servers to {{ dns-name }}.
+Connected NSDI (National Domain Name System) servers to {{ dns-name }}.
 
 ## Q1 2024 {#q1-2024}
 

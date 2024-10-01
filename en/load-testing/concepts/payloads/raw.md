@@ -6,7 +6,7 @@ The test data type is specified when [creating a test](../../operations/create-t
 
 Data format:
 
-```
+```http
 73 good
 GET / HTTP/1.0
 Host: xxx.tanks.example.com
@@ -20,7 +20,7 @@ User-Agent: xxx (shell 1)
 
 When configuring the Pandora load generator using a YAML file, specify the `raw` type in the `ammo` section:
 
-```
+```yaml
 config_content:
    pools:
    - id: HTTP

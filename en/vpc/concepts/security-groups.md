@@ -13,9 +13,9 @@ Currently, you can only use IPv4 in {{ yandex-cloud }} networks. IPv6 is not sup
 
 {% endnote %}
 
-A *security group* (SG) is a resource that is created at the [cloud network](./network.md#network) level. Once created, a security group can be used in {{ yandex-cloud }} services to control network access to an object it applies to.
+A security group (SG) is a resource that is created at the [cloud network](./network.md#network) level. Once created, a security group can be used in {{ yandex-cloud }} services to control network access to an object it applies to.
 
-A *default security group* (DSG) is created automatically while creating a [new cloud network](./network.md#network). The default security group has the following properties:
+A default security group (DSG) is created automatically while creating a [new cloud network](./network.md#network). The default security group has the following properties:
 
 * It will allow any network traffic, both egress and ingress, in the new cloud network.
 * It applies to traffic passing through all subnets in the network where the DSG is created.
@@ -28,7 +28,7 @@ You can combine security groups by assigning up to five groups per object.
 
 Security groups are not designed to protect against DDoS attacks.
 
-To filter out large volumes of unsolicited network traffic, use [{{ ddos-protection-full-name }}](../ddos-protection/index.md).
+To filter out large amounts of unsolicited network traffic, use [{{ ddos-protection-full-name }}](../ddos-protection/index.md).
 
 {% endnote %}
 
@@ -62,7 +62,7 @@ For more information about using security groups in a specific {{ yandex-cloud }
 
 ## Security group structure {#security-groups-structure}
 
-A security group consists of a list of `rules`. A security group with no rules blocks any network traffic between objects it applies to. This happens because the list of security group rules always implicitly ends with the "prohibit all" rule.
+Security groups consist of a list of `rules`. A security group with no rules blocks any network traffic between objects it applies to. This happens because the list of security group rules always implicitly ends with the "prohibit all" rule.
 
 Security group rules for `ingress` and `egress` traffic are set separately. One group may have up to [50 rules](./limits.md#vpc-limits) in total for ingress and egress traffic.
 
@@ -74,19 +74,19 @@ Each rule in a security group has a fixed set of fields:
 
 | Parameter | Description |
 | --- | --- |
-| **Description** | Brief description of the rule. You can also describe metadata in this field. |
-| **Protocol** | Specifies the [network protocol](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml#protocol-numbers-1) to be used for this rule.<br> You can use the following protocols for security group rules:<ul><li>`TCP`</li><li>`UDP`</li><li>`ICMP`</li><li>`AH` (for IPsec connections)</li><li>`ESP` (for IPsec connections)</li><li>`GRE` (for tunnel connections)</li><li>`Any`: [Any network protocol](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml#protocol-numbers-1)</li></ul> |
-| **Port range** | Range of ports for the network protocol selected in the rule.<br> You can only specify a continuous port range. You cannot list arbitrary comma-separated ports. |
-| **Source** <br>For ingress traffic only | Traffic source IP addresses.<br>You can use the following methods to specify traffic source IPs:<ul><li>`CIDR`: List of traffic source IPv4 prefixes. You can set [up to 50 CIDR blocks](./limits.md#vpc-limits) per rule.</li><li>`Security group`: Name of an existing security group.</li><li>`Load balancer health checks`: Special rule that defines how to interact with [{{ network-load-balancer-name }} health check nodes](../../network-load-balancer/concepts/health-check.md#target-statuses).</li></ul> |
-| **Destination** <br>For egress traffic only | Traffic target IP addresses.<br>You can use the following methods to specify traffic target IPs:<ul><li>`CIDR`: List of traffic target IPv4 prefixes. You can set [up to 50 CIDR blocks](./limits.md#vpc-limits) per rule.</li><li>`Security group`: Name of an existing security group.</li><li>`Load balancer health checks`: Special rule that defines how to interact with [{{ network-load-balancer-name }} health check nodes](../../network-load-balancer/concepts/health-check.md#target-statuses).</li></ul> |
+| **Description** | Brief description of the rule. You can also describe metadata in this field.
+| **Protocol** | Specifies the [network protocol](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml#protocol-numbers-1) to be used for this rule.<br> You can use the following protocols for security group rules:<ul><li>`TCP`</li><li>`UDP`</li><li>`ICMP`</li><li>`AH` (for IPsec connections)</li><li>`ESP` (for IPsec connections)</li><li>`GRE` (for tunnel connections)</li><li>`Any`: [Any network protocol](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml#protocol-numbers-1)</li></ul>
+| **Port range** | Range of ports for the network protocol selected in the rule.<br> You can only specify a continuous port range. You cannot list arbitrary comma-separated ports.
+| **Source** <br>For incoming traffic only | Traffic source IP addresses.<br>You can specify traffic source IP addresses in one of the following ways:<ul><li>`CIDR`: List of traffic source IPv4 prefixes. You can set [up to 50 CIDR blocks](./limits.md#vpc-limits) per rule.</li><li>`Security group`: Name of an existing security group.</li><li>`Load balancer health checks`: Special rule that defines how to interact with the [{{ network-load-balancer-name }} health check nodes](../../network-load-balancer/concepts/health-check.md#target-statuses).</li></ul>
+| **Destination** <br>For outgoing traffic only | Traffic target IP addresses.<br>You can specify traffic target IP addresses in one of the following ways:<ul><li>`CIDR`: List of traffic target IPv4 prefixes. You can set [up to 50 CIDR blocks](./limits.md#vpc-limits) per rule.</li><li>`Security group`: Name of an existing SG.</li><li>`Load balancer health checks`: Special rule that defines how to interact with the [{{ network-load-balancer-name }} health check nodes](../../network-load-balancer/concepts/health-check.md#target-statuses).</li></ul>
 
 ### Self rule {#self-rule}
 
 A special security group named `Self` can act as a traffic source or target in a security group rule. It includes all IP addresses of objects this group will be applied to.
 
-For example, you can create a `vm_group_sg` security group and describe it as follows in {{ TF }}:
+For example, you can create a `vm_group_sg` security group and describe it in {{ TF }} as follows:
 
-```
+```hcl
 resource yandex_vpc_security_group vm_group_sg {
   ...  
   ingress {
@@ -111,13 +111,13 @@ Now, if you apply the `vm_group_sg` group to the network interfaces of two VMs c
 
 {% note alert %}
 
-Please note that the `Self` rule only applies to traffic passing directly through the VM network interface that the security group is applied to.
+Note that the `Self` rule only affects traffic going directly through the VM network interface that the security group is applied to.
 
-On VMs with public IPs, egress traffic to the internet that passes through this network interface in the [one-to-one NAT](./address.md#public-addresses) direction will not be subject to the `Self` rule.
+In the case of a VM with a public IP address, the `Self` rule does not apply to egress traffic to the internet that goes through this network interface in the [one-to-one NAT](./address.md#public-addresses) direction.
 
 {% endnote %}
 
-### Rule with a link to a security group {#reference-rule}
+### Rule with a link to a security group {#reference-rule} 
 
 Security group rules allow you to use other security groups in the **Source** or **Destination** field.
 
@@ -140,10 +140,10 @@ It is necessary to enable access from the DB cluster to a group of web servers t
 
 To do this, create two security groups:
 
-* `web-sg` for the web server group
-* `db-sg` for the {{ mpg-name }} cluster
+* `web-sg`: For the group of web servers
+* `db-sg`: For the {{ mpg-name }} cluster
 
-```
+```hcl
 resource "yandex_vpc_security_group" "web_sg" {
   name                = "web-sg"
   ...
@@ -212,8 +212,8 @@ Please keep in mind that you cannot apply security groups to a network load bala
 
 For consistent and reliable operation of network services, you must explicitly allow the following network traffic in the outgoing rules of security groups:
 
-* [VM metadata service](../../compute/concepts/vm-metadata.md) requests at the `169.254.169.254` IP address over HTTP `(tcp/80)`.
-* DNS requests towards the second IP address [in the subnet](./network.md#subnet) over DNS `(udp/53)`.
+* Requests to the [VM metadata service](../../compute/concepts/vm-metadata.md) at the `169.254.169.254` IP address over HTTP `(tcp/80)`.
+* Requests to the DNS service towards the second IP address [in the subnet](./network.md#subnet) over DNS `(udp/53)`.
 
 #### Security groups and {{ managed-k8s-name }} {#security-groups-and-k8s}
 
@@ -233,7 +233,7 @@ For proper operation of the [Ingress controller](https://kubernetes.io/docs/conc
 
 ### VM with a web server {#security-group-vm-web}
 
-```
+```hcl
 resource yandex_vpc_security_group vm_group_sg {
 ...
   ingress {
@@ -260,7 +260,7 @@ resource yandex_vpc_security_group vm_group_sg {
 
 ### VM behind a network load balancer {#security-group-vm-nlb}
 
-```
+```hcl
 resource yandex_vpc_security_group vm_group_sg {
 ...
   ingress {
@@ -298,9 +298,9 @@ In {{ yandex-cloud }}, you can work with security groups using:
 * [Management console]({{ link-console-main }}/folders/{folder-id}/vpc/security-groups/)
 * [Command line interface (CLI)](../../cli/cli-ref/managed-services/vpc/security-group/index.md)
 * {{ TF }}:
-   * [Security Group](https://terraform-provider.yandexcloud.net/Resources/vpc_security_group)
-   * [Security Group Rule](https://terraform-provider.yandexcloud.net/Resources/vpc_security_group_rule)
-   * [Default Security Group](https://terraform-provider.yandexcloud.net/Resources/vpc_default_security_group)
+  * [Security Group](https://terraform-provider.yandexcloud.net/Resources/vpc_security_group)
+  * [Security Group Rule](https://terraform-provider.yandexcloud.net/Resources/vpc_security_group_rule)
+  * [Default Security Group](https://terraform-provider.yandexcloud.net/Resources/vpc_default_security_group)
 
 ## Step-by-step guides for working with security groups {#security-group-howto}
 

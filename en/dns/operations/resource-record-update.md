@@ -11,73 +11,73 @@ You can update the value of a [resource record](../concepts/resource-record.md).
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select a folder to modify the DNS zone record in.
-   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
-   1. Select the zone from the list.
-   1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the record you need and select **{{ ui-key.yacloud.common.edit }}**.
-   1. Change the record TTL or value.
-   1. Click **{{ ui-key.yacloud.common.save }}**.
+  1. In the [management console]({{ link-console-main }}), select a folder to modify the DNS zone record in.
+  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
+  1. Select the zone from the list.
+  1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the record you need and select **{{ ui-key.yacloud.common.edit }}**.
+  1. Change the record TTL or value.
+  1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
-   {% include [include](../../_includes/cli-install.md) %}
+  {% include [include](../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To update a DNS zone:
+  To update a DNS zone:
 
-   1. View a description of the CLI update record command:
+  1. View a description of the CLI update record command:
 
-      ```
-      yc dns zone replace-records --help
-      ```
+     ```bash
+     yc dns zone replace-records --help
+     ```
 
-   1. Change the record value:
+  1. Change the record value:
 
-      ```
-      yc dns zone replace-records --name <zone_name> \
-      --record "<domain_name> 600 <record_type> <new_value>"
-      ```
+     ```bash
+     yc dns zone replace-records --name <zone_name> \
+     --record "<domain_name> 600 <record_type> <new_value>"
+     ```
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-install](../../_includes/terraform-install.md) %}
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-   To update a DNS record created using {{ TF }}:
+  To update a DNS record created using {{ TF }}:
 
-   1. Open the {{ TF }} configuration file and edit the fragment with the DNS record description.
+  1. Open the {{ TF }} configuration file and edit the fragment with the DNS record description.
 
-      {% cut "Example DNS record description in the {{ TF }} configuration" %}
+     {% cut "Example DNS record description in the {{ TF }} configuration" %}
 
-      ```hcl
-      ...
-      resource "yandex_dns_recordset" "rs1" {
-        zone_id = yandex_dns_zone.zone1.id
-        name    = "srv.example.com."
-        type    = "A"
-        ttl     = 200
-        data    = ["10.1.0.1"]
-      }
-      ...
-      ```
+     ```hcl
+     ...
+     resource "yandex_dns_recordset" "rs1" {
+       zone_id = yandex_dns_zone.zone1.id
+       name    = "srv.example.com."
+       type    = "A"
+       ttl     = 200
+       data    = ["10.1.0.1"]
+     }
+     ...
+     ```
 
-      {% endcut %}
+     {% endcut %}
 
-   1. Check the configuration using this command:
+  1. Check the configuration using this command:
 
-   1. Apply the changes:
+  1. Apply the changes:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      You can verify that the DNS record has been updated in the [management console]({{ link-console-main }}) or using the [CLI](../../cli/quickstart.md) command below:
+     You can check the DNS record update in the [management console]({{ link-console-main }}) or using the [CLI](../../cli/quickstart.md) command below:
 
-      ```bash
-      yc dns zone list-records <zone_name>
-      ```
+     ```bash
+     yc dns zone list-records <zone_name>
+     ```
 
 - API {#api}
 
-   To update a resource record, use the [updateRecordSets](../api-ref/DnsZone/updateRecordSets.md) REST API method for the [DnsZone](../api-ref/DnsZone/index.md) resource or the [DnsZoneService/UpdateRecordSets](../api-ref/grpc/dns_zone_service.md#UpdateRecordSets) gRPC API call.
+  To update a resource record, use the [updateRecordSets](../api-ref/DnsZone/updateRecordSets.md) REST API method for the [DnsZone](../api-ref/DnsZone/index.md) resource or the [DnsZoneService/UpdateRecordSets](../api-ref/grpc/dns_zone_service.md#UpdateRecordSets) gRPC API call.
 
 {% endlist %}
 

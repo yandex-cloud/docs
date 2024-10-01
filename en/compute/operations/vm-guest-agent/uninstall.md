@@ -7,38 +7,38 @@
 
    - PowerShell {#powershell}
 
-      1. Stop `yc-guest-agent`:
+     1. Stop the `yc-guest-agent` process:
 
-         ```powershell
-         Stop-Service -Name "yc-guest-agent"
-         ```
+        ```powershell
+        Stop-Service -Name "yc-guest-agent"
+        ```
 
-      1. Verify that the service has been stopped:
+     1. Verify that the service has been stopped:
 
-         ```powershell
-         Get-Service "yc-guest-agent"
-         ```
+        ```powershell
+        Get-Service "yc-guest-agent"
+        ```
 
-         Result:
+        Result:
 
-         ```
-         Status   Name               DisplayName
-         ------   ----               -----------
-         Stopped  yc-guest-agent     yc-guest-agent
-         ```
+        ```text
+        Status   Name               DisplayName
+        ------   ----               -----------
+        Stopped  yc-guest-agent     yc-guest-agent
+        ```
 
-         The service status must be `Stopped`.
+        The service status must be `Stopped`.
 
-      1. Delete the agent:
+     1. Delete the agent:
 
-         ```powershell
-         & "C:\Program Files\Yandex.Cloud\Guest Agent\guest-agent.exe" uninstall
-         ```
+        ```powershell
+        & "C:\Program Files\Yandex.Cloud\Guest Agent\guest-agent.exe" uninstall
+        ```
 
-         Result:
+        Result:
 
-         ```
-         2023-03-16T14:47:00.248Z        INFO    uninstall windows service: yc-guest-agent       {"server": "windows"}
-         ```
+        ```text
+        2023-03-16T14:47:00.248Z        INFO    uninstall windows service: yc-guest-agent       {"server": "windows"}
+        ```
 
    {% endlist %}

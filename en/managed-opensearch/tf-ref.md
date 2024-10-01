@@ -1,3 +1,8 @@
+---
+title: "{{ TF }} reference for {{ mos-full-name }}"
+description: "This page provides reference information on the {{ TF }} provider resources and data sources supported for {{ mos-name }}."
+---
+
 # {{ TF }} reference for {{ mos-full-name }}
 
 {% include [terraform-ref-intro](../_includes/terraform-ref-intro.md) %}

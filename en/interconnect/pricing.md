@@ -2,7 +2,6 @@
 
 
 
-{% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 The service is provided if technically feasible.
 

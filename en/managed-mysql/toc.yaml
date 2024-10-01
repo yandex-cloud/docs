@@ -28,7 +28,7 @@ items:
             href: operations/host-migration.md
           - name: Managing backups
             href: operations/cluster-backups.md
-          - name: Updating the {{ MY }} version
+          - name: Upgrading the {{ MY }} version
             href: operations/cluster-version-update.md
           - name: Deleting a cluster
             href: operations/cluster-delete.md
@@ -64,7 +64,7 @@ items:
         items:
           - name: Active host classes
             href: concepts/instance-types.md
-          - name: Archives
+          - name: Archive
             items:
               - name: Before June 1, 2020
                 href: concepts/instance-types-archive/instance-types-01062020.md
@@ -96,9 +96,9 @@ items:
         href: tutorials/index.md
       - name: '{{ mmy-name }} performance analysis and tuning'
         href: tutorials/profiling-mmy.md
-      - name: Exporting databases to {{ dataproc-full-name }}
+      - name: Exporting a database to {{ dataproc-full-name }}
         href: tutorials/sqoop.md
-      - name: Migrating databases from a third-party {{ MY }} cluster
+      - name: Migrating a database from a third-party {{ MY }} cluster
         href: tutorials/data-migration.md
       - name: Migrating databases from {{ mmy-name }} to {{ MY }}
         href: tutorials/mmy-to-mysql-migration.md
@@ -107,8 +107,8 @@ items:
           data-transfer-full-name }}
         href: tutorials/mkf-mmy-data-transfer.md
       - name: >-
-          "Delivering data to {{ mkf-full-name }} using {{
-          data-transfer-full-name }}"
+          Delivering data to {{ mkf-full-name }} using {{
+          data-transfer-full-name }}
         href: tutorials/cdc-data-transfer.md
       - name: Delivering data to {{ mkf-full-name }} using Debezium
         href: tutorials/cdc-debezium.md
@@ -142,14 +142,14 @@ items:
           Migrating databases to {{ ydb-full-name }} using {{
           data-transfer-full-name }}
         href: tutorials/mmy-ydb-migration.md
-      - name: Migrating databases from {{ mmy-name }} to {{ objstorage-full-name }}
+      - name: Migrating a database from {{ mmy-name }} to {{ objstorage-full-name }}
         href: tutorials/mmy-objs-migration.md
-      - name: Transferring data from {{ objstorage-full-name }} to {{ mmy-name }}
+      - name: Migrating data from {{ objstorage-full-name }} to {{ mmy-name }}
         href: tutorials/objs-mmy-migration.md
       - name: '{{ MY }} change data capture and delivery to {{ DS }}'
         href: tutorials/mmy-to-yds.md
       - name: >-
-          Migrating data from {{ mkf-full-name }} to {{ mmy-name }} using {{
+          Migrating data from {{ mpg-full-name }} to {{ mmy-name }} using {{
           data-transfer-full-name }}
         href: tutorials/mpg-to-mmy.md
       - name: >-
@@ -160,13 +160,17 @@ items:
           Migrating data from {{ mmy-name }} to {{ mgp-full-name }} using {{
           data-transfer-full-name }}
         href: tutorials/mmy-to-mgp.md
+      - name: >-
+          Migrating a database from {{ MY }} to {{ CH }} using {{
+          data-transfer-full-name }}
+        href: tutorials/mysql-to-clickhouse.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy
     items:
       - name: Current pricing policy
         href: pricing.md
-      - name: Archives
+      - name: Archive
         items:
           - name: Before February 1, 2020
             href: pricing-archive/pricing-01022020.md

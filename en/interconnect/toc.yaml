@@ -44,6 +44,10 @@ items:
         href: operations/priv-add.md
       - name: Adding a public connection to a direct or partner trunk
         href: operations/pub-add.md
+  - name: Tutorials
+    items:
+      - name: Integrating with a corporate DNS service
+        href: tutorials/dns-integration.md
   - name: Pricing policy
     href: pricing.md
   - name: Release notes

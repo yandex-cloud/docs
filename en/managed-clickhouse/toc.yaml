@@ -131,9 +131,11 @@ items:
           {{ data-transfer-full-name }}
         href: tutorials/object-storage-to-clickhouse.md
       - name: >-
-          Copying data from {{ mos-name }} to {{ mch-name }} using {{
+          Migrating a database from {{ MY }} to {{ CH }} using {{
           data-transfer-full-name }}
-        href: tutorials/opensearch-to-clickhouse.md
+        href: tutorials/mysql-to-clickhouse.md
+      - name: Asynchronously replicating data from {{ PG }} to {{ CH }}
+        href: tutorials/rdbms-to-clickhouse.md
       - name: >-
           Loading data from {{ ydb-full-name }} to {{ mch-name }} using {{
           data-transfer-full-name }}
@@ -158,6 +160,7 @@ items:
                 href: concepts/instance-types-archive/instance-types-20062023.md
           - name: Using deprecated host classes
             href: concepts/using-deprecated-instances.md
+        href: concepts/instance-types.md
       - name: Networking in {{ mch-name }}
         href: concepts/network.md
       - name: Quotas and limits
@@ -398,7 +401,7 @@ items:
                 href: api-ref/Operation/index.md
               - name: get
                 href: api-ref/Operation/get.md
-  - name: '{{ monitoring-full-name }} metrics'
+  - name: '{{ monitoring-name }} metrics'
     href: metrics.md
   - name: '{{ at-name }} events'
     href: at-ref.md

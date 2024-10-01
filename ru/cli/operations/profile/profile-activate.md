@@ -4,7 +4,7 @@
 
 {% include [profile-name](../../../_includes/cli-profile-name.md) %}
 
-1. Активируйте профиль с именем `test`: 
+1. Активируйте профиль с именем `test`:
 
     ```bash
     yc config profile activate test

@@ -4,22 +4,22 @@
 
 1. [Создайте образ](../image-create/create-from-disk.md) из загрузочного диска нужной виртуальной машины.
 1. Получите идентификатор образа загрузочного диска:
-   
+
    {% list tabs group=instructions %}
 
    - Консоль управления {#console}
-     
+
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится образ диска.
      1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
      1. На панели слева выберите ![image](../../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.compute.switch_images }}**.
      1. Скопируйте значение из столбца **{{ ui-key.yacloud.common.id }}** нужного образа.
 
    - CLI {#cli}
-     
+
      {% include [cli-install](../../../_includes/cli-install.md) %}
-     
+
      {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
-     
+
      Получите список образов дисков в каталоге по умолчанию:
 
      ```bash
@@ -37,9 +37,9 @@
      ```
 
    - API {#api}
-     
+
      Воспользуйтесь методом REST API [list](../../api-ref/Image/list.md) для ресурса [Image](../../api-ref/Image/index.md) или вызовом gRPC API [ImageService/List](../../api-ref/grpc/image_service.md#List).
-     
+
    {% endlist %}
 
 1. Получите идентификатор облака, в котором расположен каталог с образом:

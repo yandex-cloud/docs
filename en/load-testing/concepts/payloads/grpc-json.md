@@ -6,21 +6,21 @@ The test data type is specified when [creating a test](../../operations/create-t
 
 Data format:
 
-```
+```json
 {"tag": "/Add", "call": "api.Adder.Add", "metadata": {"Authorization": "Bearer $YC_TOKEN"}, "payload": {"x": 21, "y": 12}}
 {"tag": "/Add", "call": "api.Adder.Add", "metadata": {"Authorization": "Bearer $YC_TOKEN"}, "payload": {"x": 22, "y": 13}}
 {"tag": "/Add", "call": "api.Adder.Add", "metadata": {"Authorization": "Bearer $YC_TOKEN"}, "payload": {"x": 23, "y": 14}}
 ```
 Where:
-* `tag`: Request label used in the results display interface. It enables using different tags for requests to group and filter test results.
-* `call`: Service and its method being called.
-* `metadata`: It is used to send headers, e.g., `Authorization`.
-* `payload`: Request body.
+   * `tag`: Request label used in the result display interface. It enables using different tags for requests to group and filter test results.
+   * `call`: Service and its method being called.
+   * `metadata`: Used to send headers, e.g., `Authorization`.
+   * `payload`: Request body.
 
 
 When configuring the Pandora load generator using a YAML file, specify the `grpc/json` type in the `ammo` section:
 
-```
+```yaml
 pandora:
   enabled: true
   config_content:

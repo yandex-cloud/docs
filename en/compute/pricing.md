@@ -2,9 +2,11 @@
 editable: false
 ---
 
-# {{ compute-name }} pricing
+# {{ compute-name }} pricing policy
 
 {% include [use-calculator](../_includes/pricing/use-calculator.md) %}
+
+{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
@@ -12,14 +14,14 @@ editable: false
 
 The {{ compute-name }} usage cost is based on:
 * VM computing resources:
-   * Type and number of vCPUs
-   * Number of [GPUs](concepts/gpus.md)
-   * Amount of memory (RAM)
+  * Type and number of cores (vCPUs).
+  * Number of graphics processing units ([GPUs](concepts/gpus.md)).
+  * Amount of memory (RAM).
 * Operating systems
 * Type and size of storage:
-   * Disks
-   * Images
-   * Snapshots
+  * Disks
+  * Images
+  * Snapshots
 * Amount of outgoing traffic
 * Public IP address
 
@@ -31,7 +33,7 @@ The monthly prices are based on 720 hours per month.
 
 The cost of a VM depends on the allocated computing resources, operating system, and usage time. Attached disks and network usage are charged separately.
 
-The cost is calculated for the time of using the VM, from the moment it is started (when its status changes to `RUNNING`) until it is completely stopped. The time when the VM is stopped is not charged.
+The cost is calculated for the time of using the VM, from the moment it is started (when its status switches to `RUNNING`) until it is completely stopped. The time when the VM is stopped is not charged.
 
 The VM starts automatically once it is created.
 
@@ -47,61 +49,43 @@ The basic level of vCPU performance depends on the [platform](concepts/vm-platfo
 
 {{ price-per-hour-count-per-second }}
 
-
 #### Example of calculating the cost of computing resources {#instance-resources-example}
 
-Let's compare the cost of running VMs on the Intel Broadwell [platform](concepts/vm-platforms.md) with different [vCPU performance levels](concepts/performance-levels.md).
+Let's compare the cost of running VMs on the Intel Ice Lake [platform](concepts/vm-platforms.md) with different [vCPU performance levels](concepts/performance-levels.md).
 
 Two VMs were created running Linux OS:
-* With 2 x 5% vCPUs and 2 GB of RAM.
+* With 2 x 20% vCPUs and 2 GB of RAM.
 * With 2 x 100% vCPUs and 2 GB of RAM.
 
-Both VMs have been running for 30 days.
+Both VMs were running for 30 days.
 
-**VM cost with 5% vCPU**:
+**VM cost with 20% vCPU**:
 
 
 
-> 720 × (2 × $0.002480 + 2 × $0.003120) = $8.064000
->
-> Total: $8.064000, cost of using a VM with 2 × 5% vCPU and 2 GB of RAM for 30 days.
 
-Where:
-* 720: Number of hours in 30 days.
-* 2 is the number of 5% vCPUs.
-* $0.002480: Cost of using 5% vCPU per hour.
-* 2: Amount of RAM (in GB).
-* $0.003120: Cost of using 1 GB of RAM per hour.
+{% include [usd-compute-vm20](../_pricing_examples/compute/usd-vm20.md) %}
 
 
 **VM cost with 100% vCPU**:
 
 
 
-> 720 × (2 × $0.008960 + 2 × $0.003120) = $17.395200
->
-> Total: $17.395200, cost of using a VM with 2 × 100% vCPU and 2 GB of RAM for 30 days.
 
-Where:
-* 720: Number of hours in 30 days.
-* 2: Number of 100% vCPUs.
-* $0.008960: Cost of using 100% vCPU per hour.
-* 2: Amount of RAM (in GB).
-* $0.003120: Cost of using 1 GB of RAM per hour.
+{% include [usd-compute-vm100](../_pricing_examples/compute/usd-vm100.md) %}
 
 
-As you can see, the cost of the VM using 5% vCPU is half as much as that of the VM using 100% vCPU.
-
+As you can see, the cost of the VM using 20% vCPU is almost half as much as that of the VM using 100% vCPU.
 
 #### Operating systems {#instance-os}
 
-OS usage on a VM is also charged. The cost depends on the OS license and the amount of computing resources. The core usage type selected for the VM also matters.
+VM OS usage also comes at a charge. The cost depends on the OS license and the amount of computing resources. The core usage type selected for the VM also matters.
 
 {{ price-per-hour-count-per-second }}
 
 #### Using a Microsoft license {#license-microsoft}
 
-The rules for using Microsoft licenses are described in [{#T}](../microsoft/licensing.md).
+To learn how to use Microsoft licenses, see [{#T}](../microsoft/licensing.md).
 
 ### Storage usage (disks, snapshots, and images) {#disk}
 
@@ -146,12 +130,7 @@ An `intel-6338-c108-m704-n3200x6` dedicated host running for an hour is charged 
 
 
 
-| Resource | Cost per hour | Available | Total |
-| --- | --- | --- | ---: |
-| vCPU | $0.009462/vCPU | 108 vCPU | $1.021896 |
-| RAM | $0.002506/GB | 704 GB | $1.764224 |
-| Disk | $0.000098/GB | 19,200 GB | $1.881600 |
-| | | **Total** | **$4.667720** |
+{% include [usd-compute-dedicated-hosts](../_pricing_examples/compute/usd-dedicated-hosts.md) %}
 
 
 {% endcut %}
@@ -160,7 +139,7 @@ An `intel-6338-c108-m704-n3200x6` dedicated host running for an hour is charged 
 
 {% include [cvos](../_includes/mdb/cvos.md) %}
 
-{{ compute-name }} provides two types of CVoS: on vCPUs and RAM. In the management console, you can see potential savings from using a CVoS at the current resource usage. You can also forecast your monthly payments for the desired number of vCPUs and RAM.
+{{ compute-name }} provides two types of CVoS: on vCPUs and RAM. In the management console, you can see how much you can potentially save with CVoS at the current consumption level. You can also forecast your monthly payments for the required number of vCPUs and RAM.
 
 {% note info %}
 
@@ -219,7 +198,7 @@ CVoS adjusted price is only available for regular VMs.
 
 ### Computing resources of dedicated hosts {#prices-dedicated-host}
 
-The prices are specified for 1 vCPU, 1 GB of RAM, and 1 GB of local SSD storage. You pay for all the resources available on the dedicated host, regardless of whether you use them or not. For example, a host of the `intel-6338-c108-m704-n3200x6` [type](concepts/dedicated-host.md#host-types) has the following resources available: 108 vCPUs, 704 GB of RAM, and 19,200 GB of storage on local SSDs. For more information, refer to the example of cost calculation [above](#dedicated-hosts).
+The prices are specified for 1 vCPU, 1 GB of RAM, and 1 GB of local SSD storage. You pay for all the resources available on the dedicated host, regardless of whether you use them or not. For example, a host of the `intel-6338-c108-m704-n3200x6` [type](concepts/dedicated-host.md#host-types) has the following resources available: 108 vCPUs, 704 GB of RAM, and 19,200 GB of storage on local SSDs. See the example of cost calculation [above](#dedicated-hosts).
 
 
 

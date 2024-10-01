@@ -119,7 +119,7 @@
 
       * Если доступен список **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}**, выберите [группу безопасности](../../vpc/concepts/security-groups.md#default-security-group), для которой ранее настраивали разрешения сетевого трафика. Если такого списка нет, для ВМ будет разрешен любой входящий и исходящий трафик.
 
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите **Неизменяемый ключ** и укажите данные для доступа к ВМ:
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** укажите данные для доступа к ВМ:
 
       * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя, например, `yc-user`.
       * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}

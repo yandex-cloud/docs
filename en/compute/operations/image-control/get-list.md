@@ -11,23 +11,23 @@ To get a list of disk images:
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder where disk images are stored.
-   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-   1. In the left-hand panel, select ![image](../../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.compute.switch_images }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder where disk images are stored.
+  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. In the left-hand panel, select ![image](../../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.compute.switch_images }}**.
 
 - CLI {#cli}
 
-   {% include [cli-install](../../../_includes/cli-install.md) %}
+  {% include [cli-install](../../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-   1. View a description on the CLI command for managing disk images:
+  1. See the description of the CLI command for work with disk images:
 
       ```bash
       yc compute image --help
       ```
 
-   1. Get a list of all the disks in the default folder:
+  1. Get a list of all the disks in the default folder:
 
       ```bash
       yc compute image list
@@ -35,7 +35,7 @@ To get a list of disk images:
 
       Result:
 
-      ```bash
+      ```text
       +----------------------+-------------+--------+-------------+--------+
       |          ID          |    NAME     | FAMILY | PRODUCT IDS | STATUS |
       +----------------------+-------------+--------+-------------+--------+
@@ -45,6 +45,6 @@ To get a list of disk images:
 
 - API {#api}
 
-   Use the [list](../../api-ref/Image/list.md) REST API method for the [Image](../../api-ref/Image/index.md) resource or the [ImageService/List](../../api-ref/grpc/image_service.md#List) gRPC API call.
+  Use the [list](../../api-ref/Image/list.md) REST API method for the [Image](../../api-ref/Image/index.md) resource or the [ImageService/List](../../api-ref/grpc/image_service.md#List) gRPC API call.
 
 {% endlist %}

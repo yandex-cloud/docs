@@ -239,7 +239,7 @@
           * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** выберите `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
           * В поле **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** выберите созданную ранее группу безопасности `webserver-sg`.
 
-      1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите **Неизменяемый ключ** и укажите данные для доступа к ВМ:
+      1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** укажите данные для доступа к ВМ:
 
           * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** укажите имя пользователя `yc-user`.
           * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}

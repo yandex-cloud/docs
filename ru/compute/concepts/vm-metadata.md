@@ -19,7 +19,7 @@
 - Консоль управления {#console}
 
   Метаданные передаются в блоке **{{ ui-key.yacloud.common.metadata }}** в формате `Ключ:Значение`.
-  
+
   Например, чтобы создать в ОС виртуальной машины нескольких пользователей, добавьте ключ `user-data` и в его значении укажите конфигурацию:
 
   {% include [users-from-metadata-example](../../_includes/compute/users-from-metadata-example.md) %}
@@ -173,9 +173,9 @@
    ```
 
 1. Идентификационный документ можно получить в форматах [Google Compute Engine](../operations/vm-info/get-info.md#gce-metadata) и [Amazon EC2](../operations/vm-info/get-info.md#ec2-metadata). Выполните команду:
-   
+
    {% list tabs %}
-   
+
    - GCE
 
      ```bash
@@ -188,17 +188,17 @@
      curl http://169.254.169.254/latest/vendor/instance-identity/document
      ```
 
-   {% endlist %}   
+   {% endlist %}
 
-   Пример ответа: 
-   
+   Пример ответа:
+
    ```json
    {"instanceId":"fhmm5252k8vl********","productCodes":null,"imageId":"fd8evlqsgg4e********","productIds":["f2e3ia802lab********"],"createdAt":"2023-05-29T09:46:59Z","version":"2023-03-01"}
    ```
 
 {% note info %}
 
-Если ВМ была создана до 09.06.2023 и вы не можете получить идентификационный документ, остановите и снова запустите ВМ. 
+Если ВМ была создана до 09.06.2023 и вы не можете получить идентификационный документ, остановите и снова запустите ВМ.
 
 {% endnote %}
 
@@ -218,8 +218,8 @@
      ssh <IP-адрес_ВМ>
      ```
 
-  1. Получите RSA-подпись из метаданных ВМ и сохраните ее в файл `rsa2048`: 
-     
+  1. Получите RSA-подпись из метаданных ВМ и сохраните ее в файл `rsa2048`:
+
      * **GCE**:
 
        ```bash
@@ -267,7 +267,7 @@
      openssl smime -verify -in rsa2048 -inform PEM -certfile certificate -noverify | tee document
      ```
 
-     Если подпись верна, появится сообщение `Verification successful`. 
+     Если подпись верна, появится сообщение `Verification successful`.
 
 - DSA
 
@@ -277,8 +277,8 @@
      ssh <IP-адрес_ВМ>
      ```
 
-  1. Получите dsa2048-подпись из метаданных ВМ и сохраните ее в файл `dsa2048`: 
-   
+  1. Получите dsa2048-подпись из метаданных ВМ и сохраните ее в файл `dsa2048`:
+
      * **GCE**:
 
        ```bash
@@ -332,7 +332,7 @@
      openssl smime -verify -in dsa2048 -inform PEM -certfile certificate -noverify | tee document
      ```
 
-     Если подпись верна, появится сообщение `Verification successful`. 
+     Если подпись верна, появится сообщение `Verification successful`.
 
 - BASE64
 
@@ -342,8 +342,8 @@
      ssh <IP-адрес_ВМ>
      ```
 
-  1. Получите base64-подпись из метаданных ВМ и сохраните ее в файл `signature`: 
-   
+  1. Получите base64-подпись из метаданных ВМ и сохраните ее в файл `signature`:
+
      * **GCE**:
 
        ```bash
@@ -410,7 +410,7 @@
      openssl dgst -sha256 -verify key -signature signature document
      ```
 
-     Если подпись верна, появится сообщение `Verified OK`. 
+     Если подпись верна, появится сообщение `Verified OK`.
 
 {% endlist %}
 

@@ -6,7 +6,7 @@
 
     {% include [Install requirements](./connect/bash/install-requirements.md) %}
 
-    **Подключение напрямую к мастеру:**
+    **Подключение напрямую к мастеру**:
 
     Укажите FQDN хоста-мастера в нужном шарде:
 
@@ -21,7 +21,7 @@
 
     {% include [Install requirements SSL](./connect/bash/install-requirements-ssl.md) %}
 
-    **Подключение напрямую к мастеру:**
+    **Подключение напрямую к мастеру**:
 
     Укажите FQDN хоста-мастера в нужном шарде:
 
@@ -50,7 +50,7 @@ GET foo
 
 ### Go {#go}
 
-**Перед подключением установите зависимости:**
+**Перед подключением установите зависимости**:
 
 ```bash
 sudo apt update && sudo apt install --yes golang git && \
@@ -495,7 +495,7 @@ go get github.com/redis/go-redis/v9
 
 ### Python {#python}
 
-**Перед подключением установите зависимости:**
+**Перед подключением установите зависимости**:
 
 ```bash
 sudo apt update && sudo apt install -y python3 python3-pip python3-venv && \
