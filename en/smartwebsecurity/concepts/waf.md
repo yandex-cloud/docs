@@ -1,7 +1,5 @@
 # WAF profiles
 
-{% include [note-preview-waf](../../_includes/smartwebsecurity/note-preview-waf.md) %}
-
 {% include [realized-waf-glossary](../../_includes/smartwebsecurity/realized-waf-glossary.md) %}
 
 WAF analyzes a web app's incoming HTTP requests according to pre-configured rules. Based on the analysis results, certain [actions](rules.md#rule-action) are applied to HTTP requests.

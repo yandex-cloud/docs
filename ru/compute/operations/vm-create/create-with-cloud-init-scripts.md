@@ -32,7 +32,7 @@ description: "Следуя данной инструкции, вы сможет�
 
       * **{{ ui-key.yacloud_billing.component.key-values-input.label_key }}** — `user-data`.
       * **{{ ui-key.yacloud_billing.component.key-values-input.label_value }}** — конфигурация `cloud-config` в формате YAML. Примеры конфигурации для `user-data` см. в подразделе [Примеры](#examples).
-      
+
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
 - CLI {#cli}

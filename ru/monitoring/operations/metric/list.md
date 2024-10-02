@@ -10,9 +10,11 @@
 
 ```bash
 export IAM_TOKEN=CggaATEVAgA...
-curl -H "Content-Type: application/json" \
-        -H "Authorization: Bearer ${IAM_TOKEN}" \
-        -G 'https://monitoring.{{ api-host }}/monitoring/v2/metrics/?folderId=b1gucmd4tma1********&pageSize=200' --data-urlencode 'selectors={service="managed-clickhouse", resource_id="c9q5e2a9i24p********"}' >  output.json
+curl \
+  --header "Content-Type: application/json" \
+  --header "Authorization: Bearer ${IAM_TOKEN}" \
+  --get 'https://monitoring.{{ api-host }}/monitoring/v2/metrics/?folderId=b1gucmd4tma1********&pageSize=200' \
+  --data-urlencode 'selectors={service="managed-clickhouse", resource_id="c9q5e2a9i24p********"}' > output.json
 ```
 
 Пример ответа на запрос, который получает список метрик сервиса {{ mch-name }} для ресурса:

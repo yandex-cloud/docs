@@ -75,7 +75,7 @@
               output:
                 plugin: yc_metrics
                 config:
-                  url: https://monitoring.api.cloud.yandex.net/monitoring/v2/data/write
+                  url: https://{{ api-host-monitoring-1 }}/monitoring/v2/data/write
                   folder_id: "$FOLDER_ID"
                   iam:
                     jwt:

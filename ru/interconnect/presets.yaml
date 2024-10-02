@@ -1,0 +1,7 @@
+default:
+  region: ru
+  lang: ru
+  audience: external
+  product: yandex-cloud
+  api-host: api.cloud.yandex.net
+  s3-storage-host: storage.yandexcloud.net

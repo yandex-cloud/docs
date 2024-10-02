@@ -18,7 +18,7 @@ To work with {{ container-registry-name }}, internet access is required.
 Internet access can be provided through:
 
 * Assigning a [public IP address](../../vpc/concepts/address.md#public-addresses) to a VM.
-* [Configuring a VM as a NAT instance](../../tutorials/routing/nat-instance.md).
+* [Configuring a VM as a NAT instance](../../tutorials/routing/nat-instance/index.md).
 * [Setting up a NAT gateway](../../vpc/operations/create-nat-gateway.md).
 
 {{ container-registry-full-name }} supports [Docker Registry HTTP API V2](https://docs.docker.com/registry/spec/api/), which means you can run the commands available in the Docker CLI.

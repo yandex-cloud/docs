@@ -137,7 +137,7 @@
        Другие способы установки агента описаны в разделе [{#T}](../../concepts/data-collection/unified-agent/installation.md).
 
 
- 1. Убедитесь, что метрики поступают в {{ monitoring-full-name }}:
+1. Убедитесь, что метрики поступают в {{ monitoring-full-name }}:
 
     1. На [главной странице]({{ link-monitoring }}) сервиса {{ monitoring-full-name }} перейдите в раздел **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.explorer.title }}**.
 

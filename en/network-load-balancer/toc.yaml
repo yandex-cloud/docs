@@ -57,11 +57,23 @@ items:
       - name: Configuring a fault-tolerant architecture in {{ yandex-cloud }}
         href: tutorials/fault-tolerance.md
       - name: >-
-          Fault-tolerant website with load balancing using {{
+          Fault-tolerant website with load balancing via {{
           network-load-balancer-name }}
-        href: tutorials/load-balancer-website.md
-      - name: Running instance groups with auto scaling
-        href: tutorials/vm-autoscale.md
+        items:
+          - name: Overview
+            href: tutorials/load-balancer-website/index.md
+          - name: Management console
+            href: tutorials/load-balancer-website/console.md
+          - name: '{{ TF }}'
+            href: tutorials/load-balancer-website/terraform.md
+      - name: Running instance groups with autoscaling
+        items:
+          - name: Overview
+            href: tutorials/vm-autoscale/index.md
+          - name: Management console
+            href: tutorials/vm-autoscale/console.md
+          - name: '{{ TF }}'
+            href: tutorials/vm-autoscale/terraform.md
       - name: Updating an instance group under load
         href: tutorials/updating-under-load.md
       - name: Integrating {{ dns-name }} and a corporate DNS service
@@ -80,7 +92,7 @@ items:
         href: concepts/health-check.md
       - name: Implementation specifics
         href: concepts/specifics.md
-      - name: Use cases
+      - name: Use scenarios
         href: concepts/scenarios.md
       - name: Recommendations for use
         href: concepts/best-practices.md
@@ -178,7 +190,7 @@ items:
         href: k8s-ref/service.md
       - name: NetworkPolicy
         href: k8s-ref/networkpolicy.md
-  - name: '{{ at-name }} audit logs'
+  - name: '{{ at-name }} events'
     href: at-ref.md
   - name: FAQ
     href: qa/index.md

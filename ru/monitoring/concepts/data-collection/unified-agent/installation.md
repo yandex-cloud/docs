@@ -101,7 +101,7 @@ description: "Из статьи вы узнаете, как установить
   1. Скачайте последнюю версию deb-пакета:
 
       ```bash
-      ubuntu_name="ubuntu-22.04-jammy" ua_version=$(curl -s https://{{ s3-storage-host }}/yc-unified-agent/latest-version) bash -c 'curl -s -O https://{{ s3-storage-host }}/yc-unified-agent/releases/${ua_version}/deb/${ubuntu_name}/yandex-unified-agent_${ua_version}_amd64.deb'
+      ubuntu_name="ubuntu-22.04-jammy" ua_version=$(curl --silent https://{{ s3-storage-host }}/yc-unified-agent/latest-version) bash -c 'curl --silent --remote-name https://{{ s3-storage-host }}/yc-unified-agent/releases/${ua_version}/deb/${ubuntu_name}/yandex-unified-agent_${ua_version}_amd64.deb'
       ```
 
       Для `ubuntu_name` укажите версию операционной системы:
@@ -114,7 +114,7 @@ description: "Из статьи вы узнаете, как установить
       Также вы можете скачать определенную версию {{ unified-agent-short-name }}. Для этого посмотрите все доступные версии и укажите нужную вместо значения `latest-version`:
 
       ```(bash)
-      curl -s https://{{ s3-storage-host }}/yc-unified-agent/all-versions
+      curl --silent https://{{ s3-storage-host }}/yc-unified-agent/all-versions
       ```
 
   1. Посмотрите версию deb-пакета с помощью команды `ls`.
@@ -147,12 +147,12 @@ description: "Из статьи вы узнаете, как установить
   Чтобы скачать последнюю версию агента в виде бинарного файла, выполните команду:
 
   ```bash
-  ua_version=$(curl -s https://{{ s3-storage-host }}/yc-unified-agent/latest-version) bash -c 'curl -s -O https://{{ s3-storage-host }}/yc-unified-agent/releases/$ua_version/unified_agent && chmod +x ./unified_agent'
+  ua_version=$(curl --silent https://{{ s3-storage-host }}/yc-unified-agent/latest-version) bash -c 'curl --silent --remote-name https://{{ s3-storage-host }}/yc-unified-agent/releases/$ua_version/unified_agent && chmod +x ./unified_agent'
   ```
 
   Чтобы узнать все доступные версии агента выполните команду:
   ```(bash)
-  curl -s https://{{ s3-storage-host }}/yc-unified-agent/all-versions
+  curl --silent https://{{ s3-storage-host }}/yc-unified-agent/all-versions
   ```
 
   После скачивания исполняемого файла с агентом создайте конфигурационный файл, например, с настройками для [поставки системных метрик Linux](../../../operations/unified-agent/linux_metrics.md). Подробнее про конфигурацию агента читайте в разделе [{#T}](./configuration.md).

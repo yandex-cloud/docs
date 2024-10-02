@@ -53,10 +53,15 @@ To get started in {{ yandex-cloud }}:
    1. In the [management console]({{ link-console-main }}), select the folder for which your account has the `{{ roles-yagpt-user }}` role or higher.
    1. In the list of services, select **{{ foundation-models-name }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/dice-3.svg) **{{ ui-key.yacloud.yagpt.label_promt }}**.
+   
+      ![screen01](../../_assets/foundation-models/quickstart/yandexgpt/screen01.png)
+
+   1. In the **{{ ui-key.yacloud.yagpt.label_temperature-text }}** field, enter a value between `0` and `1` that determines the versatility of the model's response. With a higher value, you get less deterministic request result.
    1. Describe the request context under **{{ ui-key.yacloud.yagpt.label_instruction-text }}**.
    1. Describe your request to the model under **{{ ui-key.yacloud.yagpt.label_request-text }}**.
-   1. In the **{{ ui-key.yacloud.yagpt.label_temperature-text }}** field, enter a value between `0` and `1` that determines the versatility of the model's response. With a higher value, you get less deterministic request result.
    1. Click **{{ ui-key.yacloud.yagpt.label_button-instruct-submit }}**. The answer will be shown on the right part of the screen.
+
+      ![screen02](../../_assets/foundation-models/quickstart/yandexgpt/screen02.png)
 
 - API {#api}
 

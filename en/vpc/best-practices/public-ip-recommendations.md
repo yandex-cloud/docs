@@ -8,7 +8,7 @@ If your cloud resources need to exchange data with the internet and other extern
 
 #### Set up routing through a NAT instance {#nat-instance-routing}
 
-To enable access to the internet from specific IP addresses, [use a dedicated NAT instance](../../tutorials/routing/nat-instance.md) and register its address as static. This is suitable, for example, for setting up access policies or firewalls when interacting with partner companies. This way your VMs can use a shared internet access point via a fixed IP address as part of the access [network](../../vpc/concepts/network.md#network).
+To enable access to the internet from specific IP addresses, [use a dedicated NAT instance](../../tutorials/routing/nat-instance/index.md) and register its address as static. This is suitable, for example, for setting up access policies or firewalls when interacting with partner companies. This way your VMs can use a shared internet access point via a fixed IP address as part of the access [network](../../vpc/concepts/network.md#network).
 
 This model also lets you enable secure access to [{{ objstorage-full-name }}](../../storage/) without accessing the internet. To do this, set up an [access policy](../../storage/concepts/policy.md) for a [bucket](../../storage/concepts/bucket.md) by only adding your NAT instance's fixed IP address to the white list (see [sample settings](https://github.com/alex-vlasov-l1/nat-insatnce-terraform-example)).
 
@@ -18,13 +18,13 @@ To publish your applications, use [{{ network-load-balancer-full-name }}](../../
 
 #### Publish static files using {{ objstorage-name }} and {{ cdn-name }} {#publishing-static-files}
 
-To publish static files, use [{{ objstorage-name }}](../../storage/) along with [{{ cdn-full-name }}](../../cdn/). This will save the computing resources of your VMs and make their usage more cost-effective. You can also use a {{ cdn-full-name }} to speed up content delivery to users and make your services more reliable.
+To publish static files, use [{{ objstorage-name }}](../../storage/) in combination with [{{ cdn-full-name }}](../../cdn/). This will save your VMs' computing resources and boost their cost-effectiveness. {{ cdn-full-name }} also speeds up content delivery to users and makes your services more reliable.
 
 For more information, check:
-* [{#T}](../../storage/operations/hosting/setup.md)
+* [{#T}](../../storage/operations/hosting/setup.md).
 
 
-* [{#T}](../../tutorials/web/blue-green-canary-deployment.md)
+* [{#T}](../../tutorials/web/blue-green-canary-deployment.md).
 
 
 #### Use a site-to-site VPN {#site-to-site}
@@ -32,9 +32,10 @@ For more information, check:
 To set up networking between various sites and external clouds, use a site-to-site VPN. This will protect your applications against unauthorized access and make sure they cannot be accessed from outside. This also allows you to save on public IP addresses: you will only need a single public IP for a VPN connection.
 
 For more information, check:
-* [{#T}](../../tutorials/routing/ipsec/index.md)
+* [{#T}](../../tutorials/routing/ipsec/index.md).
 * [Setting up a VPN with the Azure cloud](https://github.com/yandex-cloud/yc-solution-library-for-azure/tree/main/Yandex-Azure%20VPN).
 * [Setting up a VPN with the AWS cloud](https://github.com/yandex-cloud/yc-solution-library-for-aws/tree/main/VPN/modules/vpn).
+
 
 
 #### Use {{ interconnect-full-name }} {#cic}

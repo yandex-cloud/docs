@@ -44,8 +44,8 @@ HTTP API сервиса совместим с [Amazon SNS API](https://docs.aws.
 ```bash
 export IAM_TOKEN=<IAM-токен>
 curl \
-  -H "Content-Type: application/x-www-form-urlencoded; charset=utf-8" \
-  -H "Authorization: Bearer ${IAM_TOKEN}" \
+  --header "Content-Type: application/x-www-form-urlencoded; charset=utf-8" \
+  --header "Authorization: Bearer ${IAM_TOKEN}" \
   --data-urlencode "Action=CreatePlatformApplication" \
   --data-urlencode "ResponseFormat=JSON" \
   --data-urlencode "FolderId=<идентификатор_каталога>" \
@@ -95,8 +95,8 @@ curl \
 ```bash
 export IAM_TOKEN=<IAM-токен>
 curl \
-  -H "Content-Type: application/x-www-form-urlencoded; charset=utf-8" \
-  -H "Authorization: Bearer ${IAM_TOKEN}" \
+  --header "Content-Type: application/x-www-form-urlencoded; charset=utf-8" \
+  --header "Authorization: Bearer ${IAM_TOKEN}" \
   --data-urlencode "Action=ListPlatformApplications" \
   --data-urlencode "ResponseFormat=JSON" \
   --data-urlencode "FolderId=<идентификатор_каталога>" \
@@ -116,8 +116,8 @@ curl \
 ```bash
 export IAM_TOKEN=<IAM-токен>
 curl \
-  -H "Content-Type: application/x-www-form-urlencoded; charset=utf-8" \
-  -H "Authorization: Bearer ${IAM_TOKEN}" \
+  --header "Content-Type: application/x-www-form-urlencoded; charset=utf-8" \
+  --header "Authorization: Bearer ${IAM_TOKEN}" \
   --data-urlencode "Action=CreatePlatformEndpoint" \
   --data-urlencode "ResponseFormat=JSON" \
   --data-urlencode "PlatformApplicationArn=<ARN_канала_уведомлений>" \
@@ -143,8 +143,8 @@ curl \
 ```bash
 export IAM_TOKEN=<IAM-токен>
 curl \
-  -H "Content-Type: application/x-www-form-urlencoded; charset=utf-8" \
-  -H "Authorization: Bearer ${IAM_TOKEN}" \
+  --header "Content-Type: application/x-www-form-urlencoded; charset=utf-8" \
+  --header "Authorization: Bearer ${IAM_TOKEN}" \
   --data-urlencode "Action=Publish" \
   --data-urlencode "ResponseFormat=JSON" \
   --data-urlencode "TargetArn=<идентификатор_эндпоинта>" \
@@ -166,8 +166,8 @@ curl \
 ```bash
 export IAM_TOKEN=<IAM-токен>
 curl \
-  -H "Content-Type: application/x-www-form-urlencoded; charset=utf-8" \
-  -H "Authorization: Bearer ${IAM_TOKEN}" \
+  --header "Content-Type: application/x-www-form-urlencoded; charset=utf-8" \
+  --header "Authorization: Bearer ${IAM_TOKEN}" \
   --data-urlencode "Action=Publish" \
   --data-urlencode "ResponseFormat=JSON" \
   --data-urlencode "TargetArn=<идентификатор_эндпоинта>" \

@@ -1,7 +1,5 @@
 # Как начать работать с профилем ARL
 
-{% include [note-preview-waf](../../_includes/smartwebsecurity/note-preview-arl.md) %}
-
 {% include [briefly-about-arl](../../_includes/smartwebsecurity/briefly-about-arl.md) %}
 
 Создайте первый [профиль ARL](../concepts/arl.md) и подключите его к имеющемуся [профилю безопасности](../concepts/profiles.md) {{ sws-full-name }}.

@@ -1,6 +1,6 @@
 ---
-title: "Configuring image access permissions"
-description: "You can assign or revoke access permissions for a {{ compute-name }} image."
+title: "Configuring access permissions for a {{ compute-name }} image"
+description: "Follow this guide to configure access permissions for an image."
 ---
 
 # Configuring image access permissions
@@ -17,7 +17,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
   1. Select **{{ ui-key.yacloud.compute.label_service }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.compute.images.label_title }}**.
   1. Select the image you need.
-  1. Go to ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
+  1. Go to the ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
   1. Click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
   1. In the window that opens, select the group, user, or service account to grant access to the image.
   1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the required [role](../../security/index.md#roles-list).
@@ -44,15 +44,15 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
   1. View the list of roles already assigned for the resource:
 
      ```bash
-     yc compute image list-access-bindings <image_name_or_ID>
+     yc compute image list-access-bindings <image_ID>
      ```
 
   1. Assign the role using the command:
 
-     * User:
+     * To a user:
 
        ```bash
-       yc compute image add-access-binding <image_name_or_ID> \
+       yc compute image add-access-binding <image_ID> \
          --user-account-id <user_ID> \
          --role <role>
        ```
@@ -62,10 +62,10 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
        * `--user-account-id`: [User ID](../../../iam/operations/users/get.md). To assign a role to all authenticated users, use the `--all-authenticated-users` flag.
        * `--role`: [Role](../../security/index.md#roles-list) to assign.
 
-     * Service account:
+     * To a service account:
 
        ```bash
-       yc compute image add-access-binding <image_name_or_ID> \
+       yc compute image add-access-binding <image_ID> \
          --service-account-id <service_account_ID> \
          --role <role>
        ```
@@ -74,6 +74,42 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
        * `--service-account-id`: [Service account ID](../../../iam/operations/sa/get-id.md).
        * `--role`: [Role](../../security/index.md#roles-list) to assign.
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  To assign a role for an image using {{ TF }}:
+
+  1. In the {{ TF }} configuration file, describe the parameters of the resources you want to create:
+
+      ```hcl
+      resource "yandex_compute_image_iam_binding" "sa-access" {
+        image_id = "<image_ID>"
+        role     = "<role>"
+        members  = ["<subject_type>:<subject_ID>","<subject_type>:<subject_ID>"]
+      }
+      ```
+
+      Where:
+
+      * `image_id`: Image ID.
+      * `role`: [Role](../../security/index.md#roles-list) to assign.
+      * `members`: List of types and IDs of [subjects](../../../iam/concepts/access-control/index.md#subject) getting the role. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
+
+      For more information about the `yandex_compute_image_iam_binding` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/compute_image_iam_binding).
+
+  1. Create resources:
+
+      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+      {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/) command:
+
+      ```bash
+      yc compute image list-access-bindings <image_ID>
+      ```
 
 - API {#api}
 
@@ -91,7 +127,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
   1. Select **{{ ui-key.yacloud.compute.label_service }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.compute.images.label_title }}**.
   1. Select the image you need.
-  1. Go to ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
+  1. Go to the ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
   1. Click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
   1. In the window that opens, select the group, user, or service account to grant access to the image.
   1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the required [role](../../security/index.md#roles-list).
@@ -111,7 +147,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
   1. Make sure the resource has no roles assigned that you would not want to lose:
 
      ```bash
-     yc compute image list-access-bindings <image_name_or_ID>
+     yc compute image list-access-bindings <image_ID>
      ```
 
   1. See the CLI command description for assigning roles for an image:
@@ -123,7 +159,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
   1. Assign roles:
 
      ```bash
-     yc compute image set-access-bindings <image_name_or_ID> \
+     yc compute image set-access-bindings <image_ID> \
        --access-binding role=<role>,subject=<subject_type>:<subject_ID> \
        --access-binding role=<role>,subject=<subject_type>:<subject_ID>
      ```
@@ -144,13 +180,55 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
        --access-binding role=editor,subject=serviceAccount:ajel6l0jcb9s********
      ```
 
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  To assign multiple roles for an image using {{ TF }}:
+
+  1. In the {{ TF }} configuration file, describe the parameters of the resources you want to create:
+
+      ```hcl
+      resource "yandex_compute_image_iam_binding" "role-1" {
+        image_id = "<image_ID>"
+        role     = "<role_1>"
+        members  = ["<subject_type>:<subject_ID>"]
+      }
+
+      resource "yandex_compute_image_iam_binding" "role-2" {
+        image_id = "<image_ID>"
+        role     = "<role_2>"
+        members  = ["<subject_type>:<subject_ID>"]
+      }
+      ```
+
+     Where:
+
+      * `image_id`: Image ID.
+      * `role`: [Role](../../security/index.md#roles-list) to assign.
+      * `members`: List of types and IDs of [subjects](../../../iam/concepts/access-control/index.md#subject) getting the role. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
+
+      For more information about the `yandex_compute_image_iam_binding` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/compute_image_iam_binding).
+
+  1. Create resources:
+
+      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+      You can check the updates using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/) command:
+
+      ```bash
+      yc compute image list-access-bindings <image_ID>
+      ```
+
 - API {#api}
 
   To assign roles for a resource, use the [setAccessBindings](../../api-ref/Image/setAccessBindings.md) REST API method for the [Image](../../api-ref/Image/index.md) resource or the [ImageService/SetAccessBindings](../../api-ref/grpc/image_service.md#SetAccessBindings) gRPC API call.
 
   {% note alert %}
 
-  The `setAccessBindings` method and the `ImageService/SetAccessBindings` call completely overwrite access permissions for the resource. All current resource roles will be deleted.
+  The `setAccessBindings` method and the `ImageService/SetAccessBindings` call completely rewrite the resource access permissions. All current resource roles will be deleted.
 
   {% endnote %}
 
@@ -166,7 +244,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
   1. Select **{{ ui-key.yacloud.compute.label_service }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.compute.images.label_title }}**.
   1. Select the image you need.
-  1. Go to ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
+  1. Go to the ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
   1. In the line with the user you need, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.common.resource-acl.button_assign-binding }}**.
   1. Next to the role, click ![image](../../../_assets/cross.svg).
   1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -186,13 +264,13 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
   1. View the roles and assignees for the resource:
 
      ```bash
-     yc compute image list-access-bindings <image_name_or_ID>
+     yc compute image list-access-bindings <image_ID>
      ```
 
-  1. To delete an access binding, run:
+  1. To revoke access permissions, run this command:
 
      ```bash
-     yc compute image remove-access-binding <image_name_or_ID> \
+     yc compute image remove-access-binding <image_ID> \
        --role=<role> \
        --subject=<subject_type>:<subject_ID> \
      ```
@@ -210,8 +288,37 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
        --subject userAccount:ajel6l0jcb9s********
      ```
 
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  To revoke a role assigned for a disk image using {{ TF }}:
+
+  1. Open the {{ TF }} configuration file and delete the fragment with the role description.
+
+      ```hcl
+      ...
+      resource "yandex_compute_image_iam_binding" "sa-access" {
+        image_id = "<image_ID>"
+        role     = "<role>"
+        members  = ["<subject_type>:<subject_ID>"]
+      }
+      ```
+
+  1. Apply the changes:
+
+      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+      You can check the updates using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
+
+      ```bash
+      yc compute image list-access-bindings <image_ID>
+      ```
+
 - API {#api}
 
-  To revoke a role, use the [updateAccessBindings](../../api-ref/Image/updateAccessBindings.md) REST API method for the [Image](../../api-ref/Image/index.md) resource or the [ImageService/UpdateAccessBindings](../../api-ref/grpc/image_service.md#UpdateAccessBindings) gRPC API call. In the request body, set the `action` property to `REMOVE` and specify the user type and ID in the `subject` property.
+  To revoke roles for a disk image, use the [updateAccessBindings](../../api-ref/Image/updateAccessBindings.md) REST API method for the [Image](../../api-ref/Image/index.md) resource or the [ImageService/UpdateAccessBindings](../../api-ref/grpc/image_service.md#UpdateAccessBindings) gRPC API call. In the request body, set the `action` property to `REMOVE` and specify the user type and ID in the `subject` property.
 
 {% endlist %}

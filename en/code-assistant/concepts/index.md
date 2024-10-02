@@ -27,4 +27,4 @@ The code analysis is running using the {{ yandex-cloud }} computing resources, w
 ## See also {#see-also}
 
 * [{#T}](../quickstart.md)
-
+* [Terms of Use of {{ ca-full-name }}](https://yandex.com/legal/cloud_terms_code_assistant/)

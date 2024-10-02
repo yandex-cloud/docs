@@ -17,8 +17,8 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
   1. In the [management console]({{ link-console-main }}), select the folder containing the dedicated host group.
   1. Select **{{ ui-key.yacloud.compute.label_service }}**.
   1. In the left-hand panel, select ![image](../../../_assets/horizontal-ellipsis.svg) → **{{ ui-key.yacloud.compute.switch_host-groups }}**.
-  1. Select the dedicated host group.
-  1. Go to ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
+  1. Select a dedicated host group.
+  1. Go to the ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
   1. Click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
   1. In the window that opens, select the group, user, or service account to grant access to the dedicated host group.
   1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the required [role](../../security/index.md#roles-list).
@@ -50,7 +50,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
   1. Assign the role using the command:
 
-     * User:
+     * To a user:
 
        ```bash
        yc compute host-group add-access-binding <dedicated_host_group_name_or_ID> \
@@ -63,7 +63,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
        * `--user-account-id`: [User ID](../../../iam/operations/users/get.md). To assign a role to all authenticated users, use the `--all-authenticated-users` flag.
        * `--role`: [Role](../../security/index.md#roles-list) to assign.
 
-     * Service account:
+     * To a service account:
 
        ```bash
        yc compute host-group add-access-binding <dedicated_host_group_name_or_ID> \
@@ -91,12 +91,12 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
   1. In the [management console]({{ link-console-main }}), select the folder containing the dedicated host group.
   1. Select **{{ ui-key.yacloud.compute.label_service }}**.
   1. In the left-hand panel, select ![image](../../../_assets/horizontal-ellipsis.svg) → **{{ ui-key.yacloud.compute.switch_host-groups }}**.
-  1. Select the dedicated host group.
-  1. Go to ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
+  1. Select a dedicated host group.
+  1. Go to the ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
   1. Click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
   1. In the window that opens, select the group, user, or service account to grant access to the dedicated host group.
   1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the required [role](../../security/index.md#roles-list).
-  1. Add another role by clicking ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}**.
+  1. To add another role, click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}**.
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
@@ -151,7 +151,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
   {% note alert %}
 
-  The `setAccessBindings` method and the `HostGroupService/SetAccessBindings` call completely overwrite access permissions for the resource. All current resource roles will be deleted.
+  The `setAccessBindings` method and the `HostGroupService/SetAccessBindings` call completely rewrite access permissions for the resource. All current resource roles will be deleted.
 
   {% endnote %}
 
@@ -166,8 +166,8 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
   1. In the [management console]({{ link-console-main }}), select the folder containing the dedicated host group.
   1. Select **{{ ui-key.yacloud.compute.label_service }}**.
   1. In the left-hand panel, select ![image](../../../_assets/horizontal-ellipsis.svg) → **{{ ui-key.yacloud.compute.switch_host-groups }}**.
-  1. Select the dedicated host group.
-  1. Go to ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
+  1. Select a dedicated host group.
+  1. Go to the ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
   1. In the line with the user you need, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.common.resource-acl.button_assign-binding }}**.
   1. Next to the role, click ![image](../../../_assets/cross.svg).
   1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -190,7 +190,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
      yc compute host-group list-access-bindings <dedicated_host_group_name_or_ID>
      ```
 
-  1. To delete an access binding, run:
+  1. To revoke access permissions, run this command:
 
      ```bash
      yc compute host-group remove-access-binding <dedicated_host_group_name_or_ID> \

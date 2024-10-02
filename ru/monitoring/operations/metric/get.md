@@ -35,11 +35,12 @@
 
     ```bash
     export IAM_TOKEN=CggaATEVAgA...
-    curl -X POST \
-        -H "Content-Type: application/json" \
-        -H "Authorization: Bearer ${IAM_TOKEN}" \
-        -d '@body.json' \
-        'https://monitoring.{{ api-host }}/monitoring/v2/data/read?folderId=b2ghmo15rmnl********' > output.json
+    curl \
+      --request POST \
+      --header "Content-Type: application/json" \
+      --header "Authorization: Bearer ${IAM_TOKEN}" \
+      --data '@body.json' \
+      'https://monitoring.{{ api-host }}/monitoring/v2/data/read?folderId=b2ghmo15rmnl********' > output.json
     ```
 
     Пример ответа на запрос:
