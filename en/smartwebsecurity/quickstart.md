@@ -61,8 +61,6 @@ To create a security profile:
    * [WAF profile](./concepts/waf.md) (for more information, see [{#T}](./quickstart/quickstart-waf.md)).
    * [ARL profile](./concepts/arl.md) (for more information, see [{#T}](./quickstart/quickstart-arl.md)).
 
-   {% include [note-preview-waf](../_includes/smartwebsecurity/note-preview-waf-arl.md) %}
-
 {% endlist %}
 
 ## Connect the security profile to the virtual host {#profile-connect}

@@ -16,12 +16,12 @@ To maintain continuous BGP connectivity, we recommend setting up policies for ro
 To set up BGP connectivity, each side must specify the BGP autonomous system number (ASN) in ASPlain format. The BGP ASN value for {{ yandex-cloud }} is fixed at **{{ cic-bgp-asn }}**.
 
 On client equipment, you are **allowed** to use the public BGP ASN (if available). On client equipment, you are **allowed** to use any value from the following [RFC 6996](https://datatracker.ietf.org/doc/rfc6996) ranges of private BGP ASNs:
-* `64512 - 65534`: For 2-byte BGP ASNs.
-* `4200000000 - 4294967294`: For 4-byte BGP ASNs.
+* `64512 - 65534`: For two-byte BGP ASNs.
+* `4200000000 - 4294967294`: For four-byte BGP ASNs.
 
 On client equipment, you are **not allowed** to use the following [RFC 5398](https://datatracker.ietf.org/doc/rfc5398) ranges of BGP ASNs:
-* `64496 – 64511`: For 2-byte BGP ASNs.
-* `65536 – 65551`: For 4-byte BGP ASNs.
+* `64496 – 64511`: For two-byte BGP ASNs.
+* `65536 – 65551`: For four-byte BGP ASNs.
 
 On client equipment, you are **not allowed** to include any BGP ASN from the above ranges in the BGP `AS_Path` attribute.
 
@@ -51,6 +51,6 @@ The BFD protocol is always enabled on the {{ yandex-cloud }} equipment side and 
 
 These values are fixed and cannot be changed manually.
 
-On their equipment, the client can configure an appropriate `timer` value when needed. When establishing a BFD session, these parameters will be aligned over BFD between the client and {{ yandex-cloud }} equipment.
+The client can configure the `timer` value on their equipment as needed. When establishing a BFD session, these parameters will be aligned over BFD between the client and {{ yandex-cloud }} equipment.
 
-We do not recommend setting any `multiplier` other than 3, as this might cause BFD performance issues.
+We do not recommend setting `multiplier` to anything other than 3, as this may cause BFD performance issues.

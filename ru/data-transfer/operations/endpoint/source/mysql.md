@@ -123,7 +123,7 @@ description: "Из статьи вы узнаете, как задать нас�
 
 - CLI {#cli}
 
-    *  Тип эндпоинта — `mysql-source`.
+    * Тип эндпоинта — `mysql-source`.
 
     {% include [On premise MySQL CLI](../../../../_includes/data-transfer/necessary-settings/cli/on-premise-mysql-source.md) %}
 

@@ -147,6 +147,8 @@ items:
             href: operations/node-group/node-group-create.md
           - name: Подключение к узлу по SSH
             href: operations/node-connect-ssh.md
+          - name: Подключение к узлу через {{ oslogin }}
+            href: operations/node-connect-oslogin.md
           - name: Настройка автомасштабирования
             href: operations/autoscale.md
           - name: Изменение группы узлов

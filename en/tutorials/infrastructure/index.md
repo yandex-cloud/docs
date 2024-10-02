@@ -10,10 +10,10 @@ description: "Various use cases for core infrastructure management systems in {{
 ## Fault tolerance and scaling {#fault-tolerance}
 
 * [Configuring a fault-tolerant architecture in {{ yandex-cloud }}](../infrastructure-management/fault-tolerance.md)
-* [Fault-tolerant website with load balancing using {{ network-load-balancer-full-name }}](../web/load-balancer-website.md)
+* [Fault-tolerant website with load balancing using {{ network-load-balancer-full-name }}](../web/load-balancer-website/index.md)
 * [Fault-tolerant website with load balancing using {{ alb-full-name }}](../web/application-load-balancer-website.md)
 * [Integrating an L7 load balancer with {{ cdn-full-name }} and {{ objstorage-full-name }}](../web/cdn-storage-integration.md)
-* [Running instance groups with auto-scaling](../infrastructure-management/vm-autoscale.md)
+* [Running instance groups with auto-scaling](../infrastructure-management/vm-autoscale/index.md)
 * [Scheduled scaling of instance groups](../infrastructure-management/vm-scale-scheduled.md)
 * [Automatically scaling an instance group to process messages from a queue in {{ message-queue-full-name }}](../infrastructure-management/autoscale-monitoring.md)
 * [Updating an instance group under load](../infrastructure-management/updating-under-load.md)
@@ -36,7 +36,7 @@ description: "Various use cases for core infrastructure management systems in {{
 
 * [Configuring clock synchronization using NTP](../infrastructure-management/ntp.md)
 * [DHCP settings for working with a corporate DNS server](../routing/dhcp-options.md)
-* [Routing through a NAT instance](../routing/nat-instance.md)
+* [Routing through a NAT instance](../routing/nat-instance/index.md)
 * [Installing a Cisco CSR 1000v virtual router](../routing/cisco.md)
 * [Installing a Mikrotik CHR virtual router](../routing/mikrotik.md)
 

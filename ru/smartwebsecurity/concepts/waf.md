@@ -1,7 +1,5 @@
 # Профили WAF
 
-{% include [note-preview-waf](../../_includes/smartwebsecurity/note-preview-waf.md) %}
-
 {% include [realized-waf-glossary](../../_includes/smartwebsecurity/realized-waf-glossary.md) %}
 
 WAF анализирует входящие HTTP-запросы к веб-приложению по предварительно настроенным правилам. На основе результатов анализа к HTTP-запросам применяются определенные [действия](rules.md#rule-action).

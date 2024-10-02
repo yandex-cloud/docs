@@ -6,3 +6,4 @@ default:
   api-host: api.cloud.yandex.net
   link-console-cloud: https://console.yandex.cloud/cloud
   link-console-billing: https://billing.yandex.cloud/accounts
+  s3-storage-host: storage.yandexcloud.net

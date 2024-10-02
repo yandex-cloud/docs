@@ -210,7 +210,7 @@ To learn how to change the [availability zone](../../../overview/concepts/geo-sc
 
 {% endlist %}
 
-Alternatively, you can grant internet access permission to {{ managed-k8s-name }} cluster nodes by creating and setting up a [NAT gateway](../../../vpc/operations/create-nat-gateway.md) or [NAT instance](../../../vpc/tutorials/nat-instance.md). As a result, through [static routing](../../../vpc/concepts/routing.md), traffic will be routed via the gateway or a separate VM instance with NAT features.
+Alternatively, you can grant internet access permission to {{ managed-k8s-name }} cluster nodes by creating and setting up a [NAT gateway](../../../vpc/operations/create-nat-gateway.md) or [NAT instance](../../../vpc/tutorials/nat-instance/index.md). As a result, through [static routing](../../../vpc/concepts/routing.md), traffic will be routed via the gateway or a separate VM instance with NAT features.
 
 {% note info %}
 

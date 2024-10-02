@@ -12,8 +12,6 @@ In a nutshell, the service checks the HTTP requests sent to the protected resour
 
 {% include [realized-arl-concept](../../_includes/smartwebsecurity/realized-arl-concept.md) %}
 
-{% include [note-preview-waf-arl](../../_includes/smartwebsecurity/note-preview-waf-arl.md) %}
-
 {{ sws-name }} logs are sent to [{{ cloud-logging-full-name }}](../../logging/).
 
 {{ sws-name }} metrics are sent to [{{ monitoring-full-name }}](../../monitoring/).

@@ -1,3 +1,8 @@
+---
+title: "{{ TF }} reference for {{ compute-full-name }}"
+description: "This page provides reference information on {{ TF }} provider resources and data sources supported for {{ compute-name }}."
+---
+
 # {{ TF }} reference for {{ compute-full-name }}
 
 
@@ -10,7 +15,7 @@ The following {{ TF }} provider resources are supported for {{ compute-name }}:
 | **{{ TF }} resource** | **{{ yandex-cloud }} resource** |
 | --- | --- |
 | [yandex_compute_disk]({{ tf-provider-resources-link }}/compute_disk) | [Disk](./concepts/disk.md) |
-| [yandex_compute_disk_iam_binding]({{ tf-provider-resources-link }}/compute_disk_iam_binding) | [Binding](../iam/concepts/access-control/index.md#access-bindings) access permissions to a disk |
+| [yandex_compute_disk_iam_binding]({{ tf-provider-resources-link }}/compute_disk_iam_binding)| [Binding](../iam/concepts/access-control/index.md#access-bindings) access permissions to a disk |
 | [yandex_compute_disk_placement_group]({{ tf-provider-resources-link }}/compute_disk_placement_group) | [Non-replicated disk placement group](./concepts/disk-placement-group.md) |
 | [yandex_compute_disk_placement_group_iam_binding]({{ tf-provider-resources-link }}/compute_disk_placement_group_iam_binding) | [Binding](../iam/concepts/access-control/index.md#access-bindings) access permissions for a non-replicated disk placement group |
 | [yandex_compute_filesystem]({{ tf-provider-resources-link }}/compute_filesystem) | [File storage](./concepts/filesystem.md) |

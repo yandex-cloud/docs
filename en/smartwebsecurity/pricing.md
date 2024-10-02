@@ -52,7 +52,7 @@ The following price will be effective as of October 1, 2024.
 
 #### Ready-made cost calculations for requests
 
-To estimate the approximate cost of requests, the table below shows the price calculations for a certain number of requests per month. The cost provided is for reference. The actual usage of {{ sws-name }} by your services will be calculated based on the actual number of requests.
+To estimate the approximate cost of requests, the table below shows the price calculations for a certain number of requests per month. This number does not include the free limit of 10,000 requests. The cost provided is for reference. The actual usage of {{ sws-name }} by your services will be calculated based on the actual number of requests.
 
 
 

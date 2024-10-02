@@ -29,4 +29,5 @@ LLM, которые применяются в {{ ca-name }}, дообучены 
 ## См. также {#see-also}
 
 * [{#T}](../quickstart.md)
+* [Условия использования сервиса {{ ca-full-name }}](https://yandex.ru/legal/cloud_terms_code_assistant/)
 

@@ -44,6 +44,13 @@ description: "This page provides a list of step-by-step guides for {{ vpc-name }
 - [{#T}](delete-route-table.md)
 - [{#T}](delete-nat-gateway.md)
 
+## Service connections {#private-endpoint}
+
+- [{#T}](private-endpoint-create.md)
+- [{#T}](private-endpoint-get-info.md)
+- [{#T}](private-endpoint-storage-policy.md)
+- [{#T}](private-endpoint-delete.md)
+
 ## Security groups {#security-groups}
 
 - [{#T}](security-group-create.md)

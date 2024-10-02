@@ -129,7 +129,7 @@ description: "Следуя данной инструкции, вы настро�
   1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите необходимые [роли](../../security/index.md#roles-list).
   1. Добавьте еще роль через кнопку **{{ ui-key.yacloud_components.acl.button.add-role }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.apply }}**.
-  
+
 - CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
@@ -234,7 +234,7 @@ description: "Следуя данной инструкции, вы настро�
   1. В строке нужного пользователя нажмите значок ![icon-context-menu](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.resource-acl.button_assign-binding }}**.
   1. Нажмите значок ![cross](../../../_assets/console-icons/xmark.svg) рядом с ролью, чтобы удалить ее.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
-  
+
 - CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}

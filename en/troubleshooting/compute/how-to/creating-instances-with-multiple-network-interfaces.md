@@ -6,7 +6,7 @@ You need to create a VM with more than one network interface.
 ## Solution {#case-resolution}
 To create a VM with multiple network interfaces, use images from the [Network infrastructure category](https://cloud.yandex.ru/marketplace?categories=network) in Yandex Cloud Marketplace. Images from this category allow you to create instances with multiple interfaces used to connect to different cloud networks.
 
-As an option, you can use the [NAT instance image](https://cloud.yandex.ru/marketplace/products/yc/nat-instance-ubuntu-18-04-lts) based on an LTS release of Ubuntu Linux. In the [documentation section](../../../tutorials/routing/nat-instance.md), you can find a scenario for setting up egress traffic routing on a VM instance based on this image.
+As an option, you can use the [NAT instance image](https://cloud.yandex.ru/marketplace/products/yc/nat-instance-ubuntu-18-04-lts) based on an LTS release of Ubuntu Linux. In the [documentation section](../../../tutorials/routing/nat-instance/index.md), you can find a scenario for setting up egress traffic routing on a VM instance based on this image.
 
 If you are familiar with to Cisco or Mikrotik solutions, you can use them as virtual routers: images for such products are also available in Yandex Cloud Marketplace, but you need to purchase a license to use them.
 You can find more details about these products here:

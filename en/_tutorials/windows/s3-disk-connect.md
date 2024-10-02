@@ -145,17 +145,16 @@ The cost for bucket support includes:
   1. Click **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
  
 - AWS CLI {#cli}
-  
+
   1. If you do not have the AWS CLI yet, [install and configure it](../../storage/tools/aws-cli.md).
   1. Enter the bucket name following the [naming conventions](../../storage/concepts/bucket.md#naming):
-  
+
      ```bash
      aws --endpoint-url https://{{ s3-storage-host }} \
        s3 mb s3://<bucket_name>
      ```
 
      Result:
-     
      ```text
      make_bucket: <bucket_name>
      ```
@@ -171,7 +170,7 @@ The cost for bucket support includes:
      {% include [terraform-sa-key](../../_includes/storage/terraform-sa-key.md) %}
 
   1. Add a section with bucket parameters to the configuration file and enter the bucket name following the [naming conventions](../../storage/concepts/bucket.md#naming):
-  
+
      ```hcl
      resource "yandex_storage_bucket" "<bucket_name>" {
        access_key = yandex_iam_service_account_static_access_key.sa-static-key.access_key
@@ -179,9 +178,9 @@ The cost for bucket support includes:
        bucket     = "<bucket_name>"
      }
      ```
-     
+
      For more information about the `yandex_storage_bucket` resource, see the {{ TF }} provider [documentation]({{ tf-provider-resources-link }}/storage_bucket).
-     
+
   1. Make sure the configuration files are correct.
 
      1. In the command line, go to the folder where you created the configuration file.
@@ -191,10 +190,10 @@ The cost for bucket support includes:
         terraform plan
         ```
 
-     If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out. 
+     If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
   1. Deploy cloud resources.
-  
+
      1. If the configuration does not contain any errors, run this command:
 
         ```bash
@@ -265,7 +264,7 @@ You can perform advanced connection setup if needed. To do this, type `y` at the
 
 ## Set up the mounting service {#mount-service}
 
-To mount the bucket at your desktop startup, set up mounting on behalf of the system service. 
+To mount the bucket at your desktop startup, set up mounting on behalf of the system service.
 
 1. In the `WinSW` utility folder, create a file named `WinSW-x64.xml` (`WinSW-x86.xml` if you have a 32-bit version of Windows) with the following contents:
    
@@ -313,5 +312,5 @@ You can also configure the service to be run by a system user (for more informat
 
 To stop paying for the resources you created:
 
-* [Delete the objects](../../storage/operations/objects/delete-all.md) from the bucket.
+* [Delete objects](../../storage/operations/objects/delete-all.md) from the bucket.
 * [Delete the bucket](../../storage/operations/buckets/delete.md).

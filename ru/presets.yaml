@@ -5101,12 +5101,8 @@ default:
       ticket:
         create:
           action_create-ticket: Создать обращение
-          field_access-type: Доступ
-          field_attachments: Вложения
-          field_message: Сообщение
           field_service: Сервис
           field_subject: Тема
-          field_ticket-type: Тип
           title_create-ticket-page: Новое обращение
       tickets:
         common:
@@ -5264,8 +5260,6 @@ default:
           users:
             button_add: Добавить пользователя
             button_remove-user: Удалить пользователя
-            button_tune-role: Настроить роли
-            popup-tune-role_add-button: Назначить роль
         accounts:
           column_cloud: Облака
           label_title: Список аккаунтов
@@ -6316,6 +6310,7 @@ default:
             field_memory: RAM
             field_platform: Платформа
             field_preemptible: Прерываемая
+            field_sw-accelerated-net: Программное ускорение сети
             label_sw-accelerated-net: Программно-ускоренная сеть
             label_tab-custom: Своя конфигурация
             label_tab-gpu: GPU

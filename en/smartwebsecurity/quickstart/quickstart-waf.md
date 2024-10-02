@@ -1,7 +1,5 @@
 # Getting started with a WAF profile
 
-{% include [note-preview-waf](../../_includes/smartwebsecurity/note-preview-waf.md) %}
-
 {% include [realized-waf-glossary](../../_includes/smartwebsecurity/realized-waf-glossary.md) %}
 
 Create your first [WAF profile](../concepts/waf.md) and connect it to an existing {{ sws-full-name }} [security profile](../concepts/profiles.md).

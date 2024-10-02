@@ -21,7 +21,7 @@ description: "In this tutorial, you will learn about {{ yandex-cloud }} security
 
 * **Secure remote administrator access (VPN)**: Set up a VPN connection between remote devices and {{ yandex-cloud }} using a solution from {{ marketplace-name }}. See the [setup guide](../../tutorials/routing/openvpn.md) for [OpenVPN](/marketplace/products/yc/openvpn-access-server) or deploy infrastructure on your own by following the [setup guide](../../tutorials/routing/remote-wireguard-vpn.md) for WireGuard VPN.
 * **Bastion host**: Create a bastion VM to access the infrastructure using control protocols (for example, SSH or RDP).
-* **Outbound access (NAT)**: Use a [NAT gateway](../../vpc/concepts/gateways.md#nat-gateway) to ensure secure outbound internet access. The gateway translates your IP addresses to a shared address pool. If internet access should be from your controlled IP address pool, use a [NAT instance](../../tutorials/routing/nat-instance.md#create-nat-instance) (a dedicated VM).
+* **Outbound access (NAT)**: Use a [NAT gateway](../../vpc/concepts/gateways.md#nat-gateway) to ensure secure outbound internet access. The gateway translates your IP addresses to a shared address pool. If internet access should be from your controlled IP address pool, use a [NAT instance](../../tutorials/routing/nat-instance/console.md#create-nat-instance) (a dedicated VM).
 * **DDoS protection**: When assigning public IP addresses to your cloud resources, use the [{{ ddos-protection-full-name }}](../../vpc/ddos-protection/index.md) service by clicking the button (L4 DDoS protection). If you need L7 DDoS protection, contact your account manager.
 
 ## Authentication and access control {#authentication}

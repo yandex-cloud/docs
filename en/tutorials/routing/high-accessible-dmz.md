@@ -1,4 +1,4 @@
-# Implementing a secure high-availability network infrastructure with a dedicated DMZ based on the Next-Generation Firewall
+# Implementing a secure high-availability network infrastructure with a dedicated DMZ based on the next-generation firewall
 
 
 Using this tutorial, you will deploy a high-availability fail-safe network infrastructure with a dedicated [DMZ](https://en.wikipedia.org/wiki/DMZ_(computing)) segment and comprehensive protection based on the [next-generation firewall](https://en.wikipedia.org/wiki/Next-generation_firewall). The infrastructure elements are hosted in two [availability zones](../../overview/concepts/geo-scope.md) and grouped by purpose into individual [folders](../../resource-manager/concepts/resources-hierarchy.md#folder). This solution enables you to publish generally available web resources, such as front-end applications, in a DMZ that is isolated from the internal infrastructure and ensures security and high availability of the entire perimeter.
@@ -14,7 +14,7 @@ The solution has the following basic segments (folders):
 * The **dmz** folder enables you to publish applications with public access from the internet.
 * The **app** and **database** folders can be used to host the business logic of applications (in this tutorial, no VMs are placed there).
 
-For more information, see the [project repository](https://github.com/yandex-cloud-examples/yc-dmz-with-high-available-ngfw/blob/main/README.md).
+For more information, see the [project repository](https://github.com/yandex-cloud-examples/yc-dmz-with-high-available-ngfw/blob/main/README.md). 
 
 To deploy a secure high-availability network infrastructure with a dedicated DMZ based on the Next-Generation Firewall:
 
@@ -56,32 +56,32 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
 
 {% cut "Amount of resources used by the tutorial" %}
 
-| Resource | Amount |
-| ----------- | ----------- |
-| Folders | 7 |
-| Instance groups | 1 |
-| Virtual machines | 6 |
-| VM instance vCPUs | 18 |
-| VM instance RAM | 30 GB |
-| Disks | 6 |
-| SSD size | 360 GB |
-| HDD size | 30 GB |
-| Cloud networks | 7 |
-| Subnets | 14 |
-| Route tables | 4 |
-| Security groups | 10 |
-| Static public IP addresses | 2 |
-| Public IP addresses | 2 |
-| Static routes | 17 |
-| Buckets | 1 |
-| Cloud functions | 1 |
-| Triggers for cloud functions | 1 |
-| Total RAM for all running functions | 128 MB |
-| Network load balancers (NLB) | 2 |
-| NLB target groups | 2 |
-| Application load balancers (ALB) | 1 |
-| ALB backend groups | 1 |
-| ALB target groups | 1 |
+   | Resource | Amount |
+   | ----------- | ----------- |
+   | Folders | 7 |
+   | Instance groups | 1 |
+   | VM instances | 6 |
+   | VM instance vCPUs | 18 |
+   | VM instance RAM | 30 GB |
+   | Disks | 6 |
+   | SSD size | 360 GB |
+   | HDD size | 30 GB |
+   | Cloud networks | 7 |
+   | Subnets | 14 |
+   | Route tables | 4 |
+   | Security groups | 10 |
+   | Static public IP addresses | 2 |
+   | Public IP addresses | 2 |
+   | Static routes | 17 |
+   | Buckets | 1 |
+   | Cloud functions | 1 |
+   | Triggers for cloud functions | 1 |
+   | Total RAM for all running functions | 128 MB |
+   | Network load balancers (NLB) | 2 |
+   | NLB target groups | 2 |
+   | Application load balancers (ALB) | 1 |
+   | ALB backend groups | 1 |
+   | ALB target groups | 1 |
 
 {% endcut %}
 
@@ -148,7 +148,7 @@ All the steps described below are completed in the Linux terminal.
 
          1. On the management console [home page]({{ link-console-main }}), select the cloud.
          1. Click the **Access bindings** tab.
-         1. Find the `sa-terraform` service account in the list and click ![image](../../_assets/options.svg).
+         1. Find the `sa-terraform` account in the list and click ![image](../../_assets/options.svg).
          1. Click **Edit roles**.
          1. Click **Add role** in the dialog box that opens and select the `admin` role. 
 
@@ -274,7 +274,7 @@ All the steps described below are completed in the Linux terminal.
 
 ## Deploy your resources {#create-resources}
 
-1. Clone the `yandex-cloud-examples/yc-dmz-with-high-available-ngfw` GitHub repository and go to the `yc-dmz-with-high-available-ngfw` folder:
+1. Clone the GitHub `yandex-cloud-examples/yc-dmz-with-high-available-ngfw` repository and go to the `yc-dmz-with-high-available-ngfw` folder:
     
     ```bash
     git clone https://github.com/yandex-cloud-examples/yc-dmz-with-high-available-ngfw.git
@@ -337,7 +337,7 @@ All the steps described below are completed in the Linux terminal.
 
          Where:
 
-         * `service-account-key`: File with the authorized key of the service account.
+         * `service-account-key`: File with the service account authorized key.
          * `cloud-id`: [Cloud ID](../../resource-manager/operations/cloud/get-id.md).
          * `folder-id`: [Folder ID](../../resource-manager/operations/folder/get-id.md).
 
@@ -409,7 +409,7 @@ As an example, this tutorial describes steps for configuring firewalls named FW-
 
 ### Connect to the control segment via a VPN {#connect-via-vpn}
 
-After deploying the infrastructure, the `mgmt` folder will contain a VM named `jump-vm` based on an Ubuntu image with the [WireGuard VPN](https://www.wireguard.com/) configured for a secure connection. Set up a VPN tunnel to `jump-vm` on your PC to access the `mgmt`, `dmz`, `app`, and `database` segment subnets.
+After deploying the infrastructure, the `mgmt` folder will contain a VM named `jump-vm` based on an Ubuntu image with the [WireGuard VPN](https://www.wireguard.com/) configured for a secure connection. Set up a VPN tunnel to `jump-vm` on your PC to access the `mgmt`, `dmz`, `app`, and `database` segment subnets.  
 
 To set up the VPN tunnel:
 
@@ -598,7 +598,7 @@ In the same way, set up the static NAT table for the FW-B gateway based on the t
    | 1 | public | FW-a-public-IP | TCP_8080 | FW-a-dmz-IP (Hide) | dmz-web-server | Original | FW-a |
    | 2 | public | FW-b-public-IP | TCP_8080 | FW-b-dmz-IP (Hide) | dmz-web-server | Original | FW-b |
 
-### Apply the security policy rules {#apply-policies}
+###  Apply the security policy rules {#apply-policies}
 
 1. Click **Install Policy** at the top left of the screen.
 1. In the dialog box that opens, click **Push & Install**.
@@ -630,7 +630,7 @@ Within 5 minutes, the route-switcher module starts providing fault tolerance of 
 1. Make sure the network infrastructure can be accessed from the outside by opening the following address in the browser:
     
     ```bash
-    http://<public_IP_address_of_ALB_load_balancer>
+    http://<Public_IP_address_of_ALB_load_balancer>
     ```
     If the system is accessible from the outside, you will see the `Welcome to nginx!` page.
 
@@ -638,7 +638,7 @@ Within 5 minutes, the route-switcher module starts providing fault tolerance of 
    
     ```bash
     cd ~/yc-dmz-with-high-available-ngfw
-    ssh -i pt_key.pem admin@<internal_IP_address_of_VM_in_DMZ_segment>
+    ssh -i pt_key.pem admin@<Internal_IP_address_of_VM_in_DMZ_segment>
     ```
 
 1. To check that there is access from the VM in the DMZ segment to a public resource on the internet, run this command:    
@@ -674,13 +674,13 @@ Within 5 minutes, the route-switcher module starts providing fault tolerance of 
 1. Enable incoming traffic to the application published in the DMZ segment by making the following request to the ALB public IP:
 
     ```bash
-    httping http://<public_IP_address_of_ALB_load_balancer>
+    httping http://<Public_IP_address_of_ALB_load_balancer>
     ```
 
 1. Open another terminal and connect to a VM in the DMZ segment over SSH:
     
     ```bash
-    ssh -i pt_key.pem admin@<internal_IP_address_of_VM_in_DMZ_segment>
+    ssh -i pt_key.pem admin@<Internal_IP_address_of_VM_in_DMZ_segment>
     ```
 
 1. Set a password for the `admin` user:
@@ -692,7 +692,7 @@ Within 5 minutes, the route-switcher module starts providing fault tolerance of 
 1. In the {{ yandex-cloud }} [management console]({{ link-console-main }}), change the parameters of this VM:
 
     1. In the list of services, select **{{ compute-name }}**.
-    1. Select the VM you need from the list, click ![options](../../_assets/options.svg) and select **Edit**.
+    1. In the list of VMs, choose the one you need, click ![options](../../_assets/options.svg), and select **Edit**.
     1. In the **Additional** column, select **Grant access to serial console**. 
       
 1. Connect to the VM serial console, enter the `admin` username and the password you set earlier.

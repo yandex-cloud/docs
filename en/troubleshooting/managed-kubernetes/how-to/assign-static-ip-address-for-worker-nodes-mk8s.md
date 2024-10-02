@@ -8,4 +8,4 @@ You can't set a static IP for a Kubernetes cluster or its nodes. When assigning 
 
 To assign a static public IP to your cluster nodes, use one of these options:
 - Host your cluster behind a [Load balancer with an external static IP](../../../managed-kubernetes/operations/create-load-balancer.md).
-- Set up egress traffic routing via a [NAT instance](../../../tutorials/routing/nat-instance.md) having a static external IP.
+- Set up egress traffic routing via a [NAT instance](../../../tutorials/routing/nat-instance/index.md) having a static external IP.

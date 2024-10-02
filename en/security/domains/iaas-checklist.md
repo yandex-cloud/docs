@@ -43,7 +43,7 @@ Learn more about vulnerability management in the [respective section](../standar
 
 ✔ **Secure remote access**: [Create](../../tutorials/routing/bastion.md) a bastion VM to access the infrastructure over control protocols, e.g., SSH or RDP.
 
-✔ **Outbound access (NAT)**: Use a [NAT gateway](../../vpc/concepts/gateways.md#nat-gateway) to ensure secure outbound internet access. The gateway translates your IP addresses to a shared address pool. If internet access should be from your controlled IP address pool, use a [NAT instance](../../tutorials/routing/nat-instance.md#create-nat-instance) (a dedicated VM).
+✔ **Outbound access (NAT)**: Use a [NAT gateway](../../vpc/concepts/gateways.md#nat-gateway) to ensure secure outbound internet access. The gateway translates your IP addresses to a shared address pool. If internet access should be from your controlled IP address pool, use a [NAT instance](../../tutorials/routing/nat-instance/console.md#create-nat-instance) (a dedicated VM).
 
 ✔ **DDoS protection**: When assigning public IP addresses to cloud resources, use [{{ ddos-protection-full-name }}](../../vpc/ddos-protection/index.md) (L4 DDoS protection). For L7 DDoS protection, use [{{ sws-name }}](../../smartwebsecurity/index.yaml).
 

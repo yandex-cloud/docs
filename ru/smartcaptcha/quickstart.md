@@ -110,17 +110,10 @@ description: "Следуя данной инструкции, вы сможет�
 </div>
 ```
 
-Для проверки токена нужно отправить POST-запрос на адрес `https://smartcaptcha.yandexcloud.net/validate`:
+Для проверки токена нужно отправить POST-запрос на адрес `https://smartcaptcha.yandexcloud.net/validate`, передав параметры в формате `x-www-form-urlencoded`:
 
-```HTML
-response = requests.post(
-"https://smartcaptcha.yandexcloud.net/validate",
-    {
-    "secret": SMARTCAPTCHA_SERVER_KEY,
-    "token": token,
-    "ip": "<IP-адрес_пользователя>"
-    }
-)
+```
+secret=<ключ_сервера>&token=<токен>&ip=<IP-адрес_пользователя>
 ```
 
 Где:

@@ -5079,12 +5079,8 @@ default:
       ticket:
         create:
           action_create-ticket: Create ticket
-          field_access-type: Access
-          field_attachments: Attachments
-          field_message: Message
           field_service: Service
           field_subject: Subject
-          field_ticket-type: Type
           title_create-ticket-page: New ticket
       tickets:
         common:
@@ -5242,8 +5238,6 @@ default:
           users:
             button_add: Add user
             button_remove-user: Remove user
-            button_tune-role: Configure roles
-            popup-tune-role_add-button: Assign role
         accounts:
           column_cloud: Clouds
           label_title: List of accounts
@@ -6294,6 +6288,7 @@ default:
             field_memory: RAM
             field_platform: Platform
             field_preemptible: Preemptible
+            field_sw-accelerated-net: Software network acceleration
             label_sw-accelerated-net: Software accelerated network
             label_tab-custom: Custom
             label_tab-gpu: GPU
