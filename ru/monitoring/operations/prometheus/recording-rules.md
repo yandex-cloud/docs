@@ -52,11 +52,12 @@ API представлен набором REST-ресурсов, которые 
     ```bash
     export IAM_TOKEN=<IAM-токен>
 
-    curl -X PUT \
-        -H "Content-Type: application/json" \
-        -H "Authorization: Bearer ${IAM_TOKEN}" \
-        -d "@body.json"  \
-        "https://monitoring.{{ api-host }}/prometheus/workspaces/<идентификатор_воркспейса>/extensions/v1/rules"
+    curl \
+      --request PUT \
+      --header "Content-Type: application/json" \
+      --header "Authorization: Bearer ${IAM_TOKEN}" \
+      --data "@body.json"  \
+      "https://monitoring.{{ api-host }}/prometheus/workspaces/<идентификатор_воркспейса>/extensions/v1/rules"
     ```
 
 В случае успешного запроса будет возвращен HTTP-код `204`, иначе — текст ошибки.
@@ -70,9 +71,10 @@ API представлен набором REST-ресурсов, которые 
 ```bash
 export IAM_TOKEN=<IAM-токен>
 
-curl -X GET \
-    -H "Authorization: Bearer ${IAM_TOKEN}" \
-    "https://monitoring.{{ api-host }}/prometheus/workspaces/<идентификатор_воркспейса>/extensions/v1/rules"
+curl \
+  --request GET \
+  --header "Authorization: Bearer ${IAM_TOKEN}" \
+  "https://monitoring.{{ api-host }}/prometheus/workspaces/<идентификатор_воркспейса>/extensions/v1/rules"
 ```
 
 Пример ответа:
@@ -92,9 +94,10 @@ curl -X GET \
 ```bash
 export IAM_TOKEN=<IAM-токен>
 
-curl -X GET \
-    -H "Authorization: Bearer ${IAM_TOKEN}" \
-    "https://monitoring.{{ api-host }}/prometheus/workspaces/<идентификатор_воркспейса>/extensions/v1/rules/recording-rules"
+curl \
+  --request GET \
+  --header "Authorization: Bearer ${IAM_TOKEN}" \
+  "https://monitoring.{{ api-host }}/prometheus/workspaces/<идентификатор_воркспейса>/extensions/v1/rules/recording-rules"
 ```
 
 Пример ответа:
@@ -115,9 +118,10 @@ curl -X GET \
 ```bash
 export IAM_TOKEN=<IAM-токен>
 
-curl -X GET \
-    -H "Authorization: Bearer ${IAM_TOKEN}" \
-    "https://monitoring.{{ api-host }}/prometheus/workspaces/<идентификатор_воркспейса>/extensions/v1/rules/recording-rules/snapshots"
+curl \
+  --request GET \
+  --header "Authorization: Bearer ${IAM_TOKEN}" \
+  "https://monitoring.{{ api-host }}/prometheus/workspaces/<идентификатор_воркспейса>/extensions/v1/rules/recording-rules/snapshots"
 ```
 
 Пример ответа:
@@ -153,9 +157,10 @@ curl -X GET \
 ```bash
 export IAM_TOKEN=<IAM-токен>
 
-curl -X DELETE \
-    -H "Authorization: Bearer ${IAM_TOKEN}" \
-    "https://monitoring.{{ api-host }}/prometheus/workspaces/<идентификатор_воркспейса>/extensions/v1/rules/recording-rules"
+curl \
+  --request DELETE \
+  --header "Authorization: Bearer ${IAM_TOKEN}" \
+  "https://monitoring.{{ api-host }}/prometheus/workspaces/<идентификатор_воркспейса>/extensions/v1/rules/recording-rules"
 ```
 
 {% include [trademark](../../../_includes/monitoring/trademark.md) %}

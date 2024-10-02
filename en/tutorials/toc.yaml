@@ -5,8 +5,14 @@ items:
     items:
       - name: All tutorials
         href: security/index.md
-      - name: Creating a load balancer with DDoS protection
-        href: security/alb-with-ddos-protection.md
+      - name: Creating an L7 load balancer with DDoS protection
+        items:
+          - name: Overview
+            href: security/alb-with-ddos-protection/index.md
+          - name: Management console, CLI
+            href: security/alb-with-ddos-protection/console.md
+          - name: '{{ TF }}'
+            href: security/alb-with-ddos-protection/terraform.md
       - name: Terminating TLS connections
         items:
           - name: Overview
@@ -27,6 +33,8 @@ items:
         href: security/static-key-in-lockbox.md
       - name: Service account with an OS Login profile for VM management via Ansible
         href: security/sa-oslogin-ansible.md
+      - name: Providing secure access to content in {{ cdn-name }}
+        href: security/protected-access-to-content.md
   - name: Storing and recovering data
     items:
       - name: All tutorials
@@ -64,7 +72,13 @@ items:
       - name: Deploying the GlusterFS parallel file system in high performance mode
         href: archive/ha-regional-glusterfs-high-performance.md
       - name: Linking a {{ backup-name }} policy to a VM automatically
-        href: archive/vm-with-backup-policy.md
+        items:
+          - name: Overview
+            href: archive/vm-with-backup-policy/index.md
+          - name: Management console, CLI, and API
+            href: archive/vm-with-backup-policy/console.md
+          - name: '{{ TF }}'
+            href: archive/vm-with-backup-policy/terraform.md
   - name: Development and testing
     items:
       - name: All tutorials
@@ -114,17 +128,29 @@ items:
           - name: Configuring a fault-tolerant architecture in {{ yandex-cloud }}
             href: infrastructure-management/fault-tolerance.md
           - name: >-
-              Fault-tolerant website with load balancing using {{
+              Fault-tolerant website with load balancing via {{
               network-load-balancer-name }}
-            href: web/load-balancer-website.md
+            items:
+              - name: Overview
+                href: web/load-balancer-website/index.md
+              - name: Management console
+                href: web/load-balancer-website/console.md
+              - name: '{{ TF }}'
+                href: web/load-balancer-website/terraform.md
           - name: Fault-tolerant website with load balancing using {{ alb-name }}
             href: web/application-load-balancer-website.md
           - name: >-
               Integrating an L7 load balancer with {{ cdn-name }} and {{
               objstorage-name }}
             href: web/cdn-storage-integration.md
-          - name: Running instance groups with auto scaling
-            href: infrastructure-management/vm-autoscale.md
+          - name: Running an instance group with autoscaling
+            items:
+              - name: Overview
+                href: infrastructure-management/vm-autoscale/index.md
+              - name: Management console, CLI, and API
+                href: infrastructure-management/vm-autoscale/console.md
+              - name: '{{ TF }}'
+                href: infrastructure-management/vm-autoscale/terraform.md
           - name: Scheduled scaling of instance groups
             href: infrastructure-management/vm-scale-scheduled.md
           - name: >-
@@ -174,7 +200,13 @@ items:
           - name: DHCP settings for working with a corporate DNS server
             href: routing/dhcp-options.md
           - name: Routing through a NAT instance
-            href: routing/nat-instance.md
+            items:
+              - name: Overview
+                href: routing/nat-instance/index.md
+              - name: Management console
+                href: routing/nat-instance/console.md
+              - name: '{{ TF }}'
+                href: routing/nat-instance/terraform.md
           - name: Installing a Cisco CSR 1000v virtual router
             href: routing/cisco.md
           - name: Installing a Mikrotik CHR virtual router
@@ -185,7 +217,7 @@ items:
             items:
               - name: Solution diagram
                 href: routing/ipsec/index.md
-              - name: Implementation on your own using {{ yandex-cloud }}
+              - name: Unaided implementation with {{ yandex-cloud }}
                 href: routing/ipsec/ipsec-vpn.md
               - name: SGW solution by the {{ yandex-cloud }} architect team
                 href: routing/ipsec/sgw.md

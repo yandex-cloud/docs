@@ -33,7 +33,7 @@ To achieve the maximum possible bandwidth, we recommend performing 4 MB reads an
 
 Disk or storage performance depends on its size: with more allocation units, you get higher IOPS and bandwidth values.
 
-For smaller HDDs, there is a performance boosting mechanism in place for them to operate on a par with 1 TB disks during peak load periods. By operating at the [basic performance level](../concepts/limits.md#compute-limits-disks) for 12 hours, a smaller HDD accumulates "credits for operations". These will be automatically spent when the load increases, e.g., when the VM starts. Such HDDs can be boosted for about 30 minutes a day. "Credits for operations" can be spent in one go or in small intervals. This feature is not available for HDD storages.
+For smaller HDDs, there is a performance boosting mechanism in place for them to operate on a par with 1 TB disks during peak load periods. By operating at the [basic performance level](../concepts/limits.md#compute-limits-disks) for 12 hours, a smaller HDD accumulates credits for operations. These will be automatically spent when the load increases, e.g., when the VM starts. Small HDDs can be boosted for about 30 minutes a day. Credits for operations can be spent either all at once or by small intervals. This feature is not available for HDD storages.
 
 ### Testing disk performance {#test-performance}
 
@@ -47,7 +47,6 @@ You can test the performance of your network disks with [fio](https://fio.readth
 
 1. [Attach](../operations/vm-control/vm-attach-disk.md) a disk to a VM instance.
 1. Install [fio](https://fio.readthedocs.io/en/latest/fio_doc.html) on your VM instance.
-
     Sample command for Ubuntu:
 
     ```bash

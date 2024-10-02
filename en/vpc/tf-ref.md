@@ -1,3 +1,8 @@
+---
+title: "{{ TF }} reference for {{ vpc-full-name }}"
+description: "This page provides reference information about the {{ TF }} provider resources and data sources supported for {{ vpc-name }}."
+---
+
 # {{ TF }} reference for {{ vpc-full-name }}
 
 {% include [terraform-ref-intro](../_includes/terraform-ref-intro.md) %}

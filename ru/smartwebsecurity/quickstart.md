@@ -61,8 +61,6 @@
   * [профиль WAF](./concepts/waf.md), подробнее см. [{#T}](./quickstart/quickstart-waf.md).
   * [профиль ARL](./concepts/arl.md), подробнее см. [{#T}](./quickstart/quickstart-arl.md).
 
-  {% include [note-preview-waf](../_includes/smartwebsecurity/note-preview-waf-arl.md) %}
-
 {% endlist %}
 
 ## Подключите профиль безопасности к виртуальному хосту {#profile-connect}

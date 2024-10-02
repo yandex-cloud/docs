@@ -1,7 +1,5 @@
 # Advanced Rate Limiter
 
-{% include [note-preview-waf](../../_includes/smartwebsecurity/note-preview-arl.md) %}
-
 {% include [briefly-about-arl](../../_includes/smartwebsecurity/briefly-about-arl.md) %}
 
 Преимущества и возможности ARL:

@@ -27,55 +27,42 @@ With secret version management, you can:
     1. Under **{{ ui-key.yacloud.lockbox.label_secret-versions-section }}**, click **{{ ui-key.yacloud.lockbox.button_add-version }}**.
     1. Add the following parameters:
         * (Optional) **{{ ui-key.yacloud.common.description }}**: Version description.
-        * **{{ ui-key.yacloud.lockbox.forms.label_key }}**: Non-secret name that identifies a value.
+        * **{{ ui-key.yacloud.lockbox.forms.label_key }}**: Non-secret name you will use to identify a value.
         * **{{ ui-key.yacloud.lockbox.forms.label_value }}**: Explicitly represented secret data.
-        You can create multiple key-value pairs per version. 
+        You can create multiple key-value pairs per version.
         
     1. Click **{{ ui-key.yacloud.lockbox.button_add-version }}**.
 
 - {{ TF }} {#tf}
 
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
   1. In the configuration file, describe the parameters of the resources you want to create:
 
-     
-     ```hcl
-     terraform {
-       required_providers {
-         yandex = {
-           source = "yandex-cloud/yandex"
-         }
-       }
-       required_version = ">= 0.13"
-     }
-     provider "yandex" {
-       zone = "{{ region-id }}-a"
-     }
+      ```hcl
+      resource "yandex_lockbox_secret_version_hashed" "my_version" {
+        secret_id    = "<secret_ID>"
 
-     resource "yandex_lockbox_secret_version" "my_version" {
-       secret_id = "<secret_ID>"
-       entries {
-         key        = "<secret_1_key>"
-         text_value = "<secret_1_value>"
-       }
-       entries {
-         key        = "<secret_2_key>"
-         text_value = "<secret_2_value>"
-       }
-     }
-     ```
+        key_1        = "<secret_1_key>"
+        text_value_1 = "<secret_1_value>"
 
+        key_2        = "<secret_2_key>"
+        text_value_2 = "<secret_2_value>"
+      }
+      ```
 
+      Where:
 
-     Where:
+      * `secret_id`: ID of the secret you are creating a version for.
+      * (Optional) `description`: Any comment on the secret version.
+      * `key_N`: Secret key. Non-secret name you will use to identify a value.
+      * `text_value_N`: Explicitly represented secret data.
 
-     * `secret_id`: ID of the secret you are creating a version for. This is a required parameter.
-     * `entries`: Section with secret parameters. For each secret, create a separate `entries` section. It may contain the following parameters:
-        * `key`: Secret key, which is a non-secret name that identifies a value. This is a required parameter.
-        * `text_value`: Explicitly represented secret data. This is a required parameter.
+      The `key_N/text_value_N` pairs are numbered sequentially from 1 to 10 (10 pairs are supported). If only one pair is required, use `key_1/text_value_1`.
 
-      For more information about the `yandex_lockbox_secret_version` resource in Terraform, see the [provider documentation]({{ tf-provider-resources-link }}/lockbox_secret_version).
+      {% include [secret-version-tf-note](../../_includes/lockbox/secret-version-tf-note.md) %}
 
   1. Create resources:
 
@@ -83,9 +70,9 @@ With secret version management, you can:
 
   This creates a new version of the specified secret. You can check the new version and its configuration using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
-    ```bash
-    yc lockbox secret list-versions <secret_ID>
-    ```
+  ```bash
+  yc lockbox secret list-versions <secret_ID>
+  ```
 
 - API {#api}
 
@@ -164,7 +151,7 @@ With secret version management, you can:
     1. Select **{{ ui-key.yacloud.lockbox.button_action-open-version-add-dialog }}**.
     1. Edit or add the following parameters:
         * (Optional) **{{ ui-key.yacloud.common.description }}**: Version description.
-        * **{{ ui-key.yacloud.lockbox.forms.label_key }}**: Non-secret name that identifies a value.
+        * **{{ ui-key.yacloud.lockbox.forms.label_key }}**: Non-secret name you will use to identify a value.
         * For a user secret, **{{ ui-key.yacloud.lockbox.forms.label_value }}**: Secret data in an explicit form.
         You can create multiple key-value pairs per version.
         * For a generated secret, you can change the key and the value parameters. To do this, click **Edit secret** and [specify new parameters](secret-update.md).
@@ -253,7 +240,7 @@ With secret version management, you can:
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. View a description of the CLI command to schedule version deletion:
+  1. See the description of the CLI command to schedule version deletion:
 
       ```bash
       yc lockbox secret schedule-version-destruction --help
@@ -276,6 +263,10 @@ With secret version management, you can:
       payload_entry_keys:
         - secret-key
       ```
+
+- {{ TF }} {#tf}
+
+  To schedule the removal of a version, remove the resource description for that version from the configuration file. You cannot use {{ TF }} to set time to deletion, it will be set by default: 7 days.
 
 - API {#api}
 

@@ -192,10 +192,11 @@ description: "Для выполнения операций через API в м�
 
   ```bash
   export IAM_TOKEN="<IAM-токен>"
-  curl -X POST \
-    -H 'Content-Type: application/json' \
-    -H "Authorization: Bearer $IAM_TOKEN" \
-    -d '{
+  curl \
+    --request POST \
+    --header 'Content-Type: application/json' \
+    --header "Authorization: Bearer $IAM_TOKEN" \
+    --data '{
       "name": "<имя_бакета>",
       "folderId": "<идентификатор_каталога>",
       "defaultStorageClass": "STANDARD",

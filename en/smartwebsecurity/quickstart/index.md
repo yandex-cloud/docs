@@ -8,8 +8,6 @@ In a nutshell, the service checks the HTTP requests sent to the protected resour
 
 {% include [realized-arl-concept](../../_includes/smartwebsecurity/realized-arl-concept.md) %}
 
-{% include [note-preview-waf-arl](../../_includes/smartwebsecurity/note-preview-waf-arl.md) %}
-
 Depending on the results of the check, the requests are routed to the virtual host, blocked, or sent to [{{ captcha-full-name }}](../../smartcaptcha/) for additional verification.
 
 To get started with the service:

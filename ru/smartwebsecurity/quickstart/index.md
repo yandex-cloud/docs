@@ -8,8 +8,6 @@
 
 {% include [realized-arl-concept](../../_includes/smartwebsecurity/realized-arl-concept.md) %}
 
-{% include [note-preview-waf-arl](../../_includes/smartwebsecurity/note-preview-waf-arl.md) %}
-
 В зависимости от результатов проверки запросы направляются к виртуальному хосту, блокируются или отправляются в сервис [{{ captcha-full-name }}](../../smartcaptcha/) для дополнительной верификации.
 
 Чтобы начать работу с сервисом:

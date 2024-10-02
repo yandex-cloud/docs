@@ -30,8 +30,6 @@ _Smart Protection_ is a rule that sends traffic, based on specified conditions, 
 
 Web Application Firewall rules engage a [WAF profile](waf.md) to analyze traffic for compliance with the [WAF basic rule sets](waf.md#rules-set). Depending on the selected [action](#rule-action), suspicious requests are sent to [{{ captcha-name }}](../../smartcaptcha/) for additional verification or get blocked.
 
-{% include [note-preview-waf](../../_includes/smartwebsecurity/note-preview-waf.md) %}
-
 You can use the following {{ captcha-name }} CAPTCHA options to verify requests compliant with the Smart Protection and Web Application Firewall rules:
 
 {% include [captcha-integration](../../_includes/smartwebsecurity/captcha-integration.md) %}
@@ -43,8 +41,6 @@ An [Advanced Rate Limiter](arl.md) rule calculates the number of requests receiv
 ARL rules allow you to set limits on either all traffic or its particular segments.
 
 Unlike Smart Protection and WAF rules, ARL rules are configured in an ARL profile.
-
-{% include [note-preview-arl](../../_includes/smartwebsecurity/note-preview-arl.md) %}
 
 ## Rule actions {#rule-action}
 

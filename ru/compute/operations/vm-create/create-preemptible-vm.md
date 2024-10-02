@@ -35,6 +35,7 @@
       * Выберите [платформу](../../../compute/concepts/vm-platforms.md).
       * Укажите [гарантированную долю](../../../compute/concepts/performance-levels.md) и необходимое количество vCPU, а также объем RAM.
       * В поле **{{ ui-key.yacloud.component.compute.resources.field_advanced }}** включите опцию **{{ ui-key.yacloud.component.compute.resources.field_preemptible }}**.
+      * (Опционально) Включите [программно-ускоренную сеть](../../concepts/software-accelerated-network.md).
   1. {% include [network-settings](../../../_includes/compute/create/section-network.md) %}
   1. {% include [section-access](../../../_includes/compute/create/section-access.md) %}
 

@@ -18,7 +18,7 @@ items:
     items:
       - name: All guides
         href: operations/index.md
-      - name: Creating a virtual machine
+      - name: Creating a VM
         items:
           - name: Creating a Linux VM
             href: operations/vm-create/create-linux-vm.md
@@ -380,8 +380,14 @@ items:
         href: tutorials/index.md
       - name: Configuring clock synchronization using NTP
         href: tutorials/ntp.md
-      - name: Running instance groups with auto scaling
-        href: tutorials/vm-autoscale.md
+      - name: Running an instance group with autoscaling
+        items:
+          - name: Overview
+            href: tutorials/vm-autoscale/index.md
+          - name: Management console
+            href: tutorials/vm-autoscale/console.md
+          - name: '{{ TF }}'
+            href: tutorials/vm-autoscale/terraform.md
       - name: Scheduled scaling of instance groups
         href: tutorials/vm-scale-scheduled.md
       - name: >-
@@ -394,7 +400,7 @@ items:
         href: tutorials/packer-quickstart.md
       - name: Transferring logs from a VM instance to {{ cloud-logging-full-name }}
         href: tutorials/vm-fluent-bit-logging.md
-      - name: Building a VM image with a set of infrastructure tools using Packer
+      - name: Building a VM image with infrastructure tools using Packer
         href: tutorials/packer-custom-image.md
       - name: Migrating to {{ yandex-cloud }} using Hystax Acura
         href: tutorials/hystax-migration.md
@@ -409,7 +415,13 @@ items:
       - name: Configuring a fault-tolerant architecture in {{ yandex-cloud }}
         href: tutorials/fault-tolerance.md
       - name: Routing through a NAT instance
-        href: tutorials/nat-instance.md
+        items:
+          - name: Overview
+            href: tutorials/nat-instance/index.md
+          - name: Management console
+            href: tutorials/nat-instance/console.md
+          - name: '{{ TF }}'
+            href: tutorials/nat-instance/terraform.md
       - name: >-
           Creating a trigger for budgets that invokes a function to stop VM
           instances
@@ -448,8 +460,14 @@ items:
         href: tutorials/ha-regional-glusterfs-high-performance.md
       - name: Backup to {{ objstorage-name }} via Bacula
         href: tutorials/backup-with-bacula.md
-      - name: Creating a load balancer with DDoS protection
-        href: tutorials/alb-with-ddos-protection.md
+      - name: Creating an L7 load balancer with DDoS protection
+        items:
+          - name: Overview
+            href: tutorials/alb-with-ddos-protection/index.md
+          - name: Management console, CLI
+            href: tutorials/alb-with-ddos-protection/console.md
+          - name: '{{ TF }}'
+            href: tutorials/alb-with-ddos-protection/terraform.md
   - name: Concepts
     items:
       - name: Relationship between resources

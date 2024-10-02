@@ -7,6 +7,76 @@ description: "На странице представлены релизы YC CLI
 
 ## Текущая версия {#latest-release}
 
+### Версия 0.134.0 (02.10.24) {#version0.134.0}
+
+#### Изменения в сервисах {{ yandex-cloud }} {#services}
+
+##### {{ org-name }} {#organization}
+
+* В вывод команды `yc organization-manager user list --organization-id` добавлено время последней аутентификации пользователя.
+
+##### {{ interconnect-name }} {#interconnect}
+
+* Добавлены команды `yc cic point-of-presence get` и `yc cic point-of-presence list` для чтения точек присутствия.
+* Добавлены команды `yc cic partner get` и `yc cic partner list` для чтения партнеров {{ interconnect-name }}.
+* Добавлены команды `yc cic trunk-connection get` и `yc cic trunk-connection list` для чтения транковых подключений.
+* Добавлены команды `yc cic private-connection get` и `yc cic private-connection list` для чтения приватных соединений.
+* Добавлены команды `yc cic public-connection get` и `yc cic public-connection list` для чтения публичных соединений.
+
+##### {{ si-name }} {#serverless-integrations}
+
+* Добавлена поддержка {{ er-full-name }}.
+
+##### {{ objstorage-name }} {#storage}
+
+* Добавлена базовая поддержка операций с объектами через S3 API:
+  * `yc storage s3api get-object` — получение объекта.
+  * `yc storage s3api put-object` — загрузка объекта.
+  * `yc storage s3api delete-object` — удаление объекта.
+
+##### {{ cloud-desktop-name }} {#cloud-desktop}
+
+* В команду `yc desktops group create` добавлен параметр `--image-id`, который позволяет передать идентификатор образа для группы рабочих столов. 
+
+##### {{ backup-name }} {#backup}
+
+* Добавлены следующие команды:
+  * `yc backup agent install` — для установки агента резервного копирования и подключения ВМ с установленным OS Login к {{ backup-name }}.
+  * `yc backup agent reinstall` — для повторной установки агента резервного копирования для ВМ с установленным OS Login.
+  * `yc backup agent debug-info` — для получения логов установки агента резервного копирования для ВМ с установленным OS Login.
+  * `yc backup provider activate` — для активации сервиса и подключения к провайдеру резервного копирования.
+
+* При выполнении команд теперь проверяется, активирован ли сервис {{ backup-name }} в каталоге.
+
+#### {{ iam-name }} {#iam}
+
+* Изменен заголовок в табличном выводе команды `yc iam service accounts list`.
+
+##### Сервисы управляемых баз данных {#managed-db}
+
+**{{ mgp-name }}**
+
+* В командах `yc managed-greenplum cluster create` и `yc managed-greenplum cluster restore` добавлена поддержка опций `--master-host-group-ids` и `--segment-host-group-ids` для указания, на какие группы выделенных хостов размещать хосты мастера и сегментов {{ GP }}.
+
+**{{ mrd-name }}**
+
+* Добавлена команда `yc managed-redis backup delete` для удаления бэкапов.
+* Изменена версия {{ RD }} по умолчанию на 7.2 в связи с окончанием поддержки 6.2 и 7.0.
+
+**{{ mkf-name }}**
+
+*  В командах `yc managed-kafka cluster create`, `yc managed-kafka cluster update`, `yc managed-kafka cluster grant-permission`, `yc managed-kafka cluster revoke-permission` расширен флаг `--permission`. Его значение задается в формате `key=value,...`, в качестве `key` теперь можно использовать `allow_host` — хост, с которого дейcтвует данное правило для пользователя.
+
+* Добавлен глобальный флаг `--jq`. Используется для фильтрации и преобразования вывода при помощи jq-выражений. Примеры:
+  * `yc iam role list --jq '.[].id'`
+  * `ID="instance_id" yc compute instance list --jq '.[] | select(.id == env.ID)'`
+
+**{{ maf-name }}**
+
+* Исправление ошибок и улучшения работы сервиса {{ maf-name }}.
+
+## Предыдущие релизы {#previous-releases}
+
 ### Версия 0.133.0 (09.09.24) {#version0.133.0}
 
 #### Изменения в CLI {#cli}
@@ -60,8 +130,6 @@ description: "На странице представлены релизы YC CLI
 **{{ maf-name }}**
 
 * Добавлены команды для работы с сервисом {{ maf-name }}: `yc managed-airflow cluster [ get | list | delete | list-operations | start | stop | create | update ]`.
-
-## Предыдущие релизы {#previous-releases}
 
 ### Версия 0.132.1 (28.08.24) {#version0.132.1}
 

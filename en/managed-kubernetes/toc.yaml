@@ -145,6 +145,8 @@ items:
             href: operations/node-group/node-group-create.md
           - name: Connecting to a node over SSH
             href: operations/node-connect-ssh.md
+          - name: Connecting to a node via {{ oslogin }}
+            href: operations/node-connect-oslogin.md
           - name: Configuring autoscaling
             href: operations/autoscale.md
           - name: Updating a node group

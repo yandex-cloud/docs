@@ -238,7 +238,7 @@ monitoring.{{ api-host }}:443 yandex.cloud.monitoring.v3.DashboardService.Update
 
 ```bash
 grpcurl -rpc-header "Authorization: Bearer <IAM-токен>" \
-    -d '{"dashboard_id": "<идентификатор_дашборда>", "etag": "1"}' \
+   -d '{"dashboard_id": "<идентификатор_дашборда>", "etag": "1"}' \
    -import-path ~/cloudapi/ \
    -import-path ~/cloudapi/third_party/googleapis/ \
    -proto ~/cloudapi/yandex/cloud/monitoring/v3/dashboard_service.proto \

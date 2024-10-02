@@ -17,4 +17,4 @@ description: "Various use cases for data storage and recovery in {{ yandex-cloud
 * [{{ managed-k8s-name }} cluster backups in {{ objstorage-name }}](kubernetes-backup.md)
 * [Deploying the GlusterFS parallel file system in high availability mode](ha-regional-glusterfs.md)
 * [Deploying the GlusterFS parallel file system in high performance mode](ha-regional-glusterfs-high-performance.md)
-* [{#T}](./vm-with-backup-policy.md)
+* [Linking a {{ backup-full-name }} policy to a VM automatically](vm-with-backup-policy/index.md)

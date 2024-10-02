@@ -22,7 +22,7 @@ When creating an instance group, a target group for the network load balancer wi
 
 When adding or removing VMs from the group, the load balancer's target group will also reflect these changes.
 
-[Example](../tutorials/vm-autoscale.md) of deploying an instance group with automatic scaling and integration with a network load balancer.
+[Example](../tutorials/vm-autoscale/index.md) of deploying an instance group with autoscaling and integration with a network load balancer.
 
 ## {{ managed-k8s-name }} cluster {#nlb-mk8s}
 

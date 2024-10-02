@@ -75,6 +75,18 @@ items:
             href: operations/delete-route-table.md
           - name: Deleting a NAT gateway
             href: operations/delete-nat-gateway.md
+      - name: Service connections
+        items:
+          - name: Creating a service connection
+            href: operations/private-endpoint-create.md
+          - name: Getting information about a service connection
+            href: operations/private-endpoint-get-info.md
+          - name: >-
+              Assigning an access policy in Object Storage for a service
+              connection
+            href: operations/private-endpoint-storage-policy.md
+          - name: Deleting a service connection
+            href: operations/private-endpoint-delete.md
       - name: Security groups
         items:
           - name: Creating a security group
@@ -112,12 +124,18 @@ items:
       - name: DHCP settings for working with a corporate DNS server
         href: tutorials/dhcp-options.md
       - name: Routing through a NAT instance
-        href: tutorials/nat-instance.md
+        items:
+          - name: Overview
+            href: tutorials/nat-instance/index.md
+          - name: Management console
+            href: tutorials/nat-instance/console.md
+          - name: '{{ TF }}'
+            href: tutorials/nat-instance/terraform.md
       - name: Setting up network connectivity with IPsec gateways
         items:
           - name: Solution diagram
             href: tutorials/ipsec/index.md
-          - name: Implementation on your own using {{ yandex-cloud }}
+          - name: Unaided implementation with {{ yandex-cloud }}
             href: tutorials/ipsec/ipsec-vpn.md
           - name: SGW solution by the {{ yandex-cloud }} architect team
             href: tutorials/ipsec/sgw.md
@@ -127,11 +145,15 @@ items:
         href: tutorials/mikrotik.md
       - name: Connecting to a cloud network using OpenVPN
         href: tutorials/openvpn.md
+      - name: >-
+          Configuring {{ dns-name }} for {{ mch-name }} cluster access from
+          other cloud networks
+        href: tutorials/clickhouse-dns-peering.md
       - name: Secure user access to cloud resources based on WireGuard VPN
         href: tutorials/remote-wireguard-vpn.md
       - name: Creating and configuring a UserGate gateway in proxy server mode
         href: tutorials/usergate-proxy.md
-      - name: Configuring networks for {{ dataproc-full-name }}
+      - name: Configuring a network for {{ dataproc-full-name }}
         href: tutorials/dataproc-nat-instance.md
       - name: Network between folders
         href: tutorials/multi-folder-vpc.md
@@ -155,6 +177,8 @@ items:
         href: concepts/security-groups.md
       - name: Gateways
         href: concepts/gateways.md
+      - name: Service connections
+        href: concepts/private-endpoint.md
       - name: Monitoring network connections
         href: concepts/monitoring-connections.md
       - name: Public IP address ranges
@@ -349,7 +373,7 @@ items:
             href: api-ref/grpc/private_endpoint_service.md
           - name: OperationService
             href: api-ref/grpc/operation_service.md
-  - name: '{{ at-name }} audit logs'
+  - name: '{{ at-name }} events'
     href: at-ref.md
   - name: Release notes
     href: release-notes.md

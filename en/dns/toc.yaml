@@ -72,6 +72,10 @@ items:
         href: tutorials/cert-manager-webhook.md
       - name: Assigning a domain name to a VM with a web server
         href: tutorials/bind-domain-vm.md
+      - name: >-
+          Configuring {{ dns-name }} for {{ mch-name }} cluster access from
+          other cloud networks
+        href: tutorials/clickhouse-dns-peering.md
       - name: Publishing game updates
         href: tutorials/prefetch.md
       - name: Terminating TLS connections
