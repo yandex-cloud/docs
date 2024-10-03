@@ -60,10 +60,9 @@ Common causes of errors include:
 
 To solve the connection issue, try providing the right private key using the `-i` flag:
 
-  ```bash
-  ssh -i <file_path/key_file_name>
-  <username>@<VM_public_IP_address>
-  ```
+```bash
+ssh -i <key_path/key_file_name> <username>@<VM_public_IP_address>
+```
 
 #### How do I set up an RDP/VNC connection to a Linux VM? {#set-rdp-vnc-to-linux}
 
