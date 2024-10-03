@@ -15,13 +15,13 @@ items:
     items:
       - name: Все рекомендации
         href: domains/index.md
-      - name: Чеклист
-        href: domains/checklist.md
       - name: Чеклист безопасности IaaS
         href: domains/iaas-checklist.md
+      - name: Чеклист безопасности аутентификации и авторизации
+        href: domains/iam-checklist.md
       - name: Безопасность Kubernetes
         href: domains/kubernetes.md
-  - name: Стандарт по защите облачной инфраструктуры 1.1
+  - name: Стандарт по защите облачной инфраструктуры 1.2
     items:
       - name: Все разделы на одной странице
         href: standard/all.md
@@ -37,14 +37,16 @@ items:
         href: standard/encryption.md
       - name: Сбор, мониторинг и анализ аудитных логов
         href: standard/audit-logs.md
-      - name: Управление уязвимостями
-        href: standard/vulnerabilities.md
       - name: Резервное копирование
         href: standard/backup.md
       - name: Физическая безопасность
         href: standard/physical-security.md
       - name: Защита приложений
         href: standard/app-security.md
+      - name: Безопасность {{ k8s }}
+        href: standard/kubernetes-security.md
+      - name: Версии
+        href: standard/versions.md
   - name: Практические руководства
     items:
       - name: ViPNet Coordinator в {{ yandex-cloud }}

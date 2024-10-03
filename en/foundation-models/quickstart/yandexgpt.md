@@ -1,7 +1,5 @@
 # Getting started with {{ yagpt-full-name }}
 
-{% include notitle [preview-stage](../../_includes/foundation-models/yandexgpt/preview.md) %}
-
 In this section, you will learn how to use the {{ yagpt-name }} neural network to generate text in [synchronous mode](../concepts/index.md#working-mode) without adding context. For other examples, see [Guides on how to use {{ yagpt-full-name }}](../operations/index.md#yandexgpt-api)
 
 The [management console]({{ link-console-main }}/link/foundation-models/yandexgpt) provides a quick and easy way for new users without a [billing account](../../billing/concepts/billing-account.md) to try out the model with {{ gpt-freetier }} free prompts per hour. To access the API and increase usage [quotas](../concepts/limits.md), [link](../../billing/operations/pin-cloud.md) your billing account to your cloud.
@@ -55,10 +53,15 @@ To get started in {{ yandex-cloud }}:
    1. In the [management console]({{ link-console-main }}), select the folder for which your account has the `{{ roles-yagpt-user }}` role or higher.
    1. In the list of services, select **{{ foundation-models-name }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/dice-3.svg) **{{ ui-key.yacloud.yagpt.label_promt }}**.
+   
+      ![screen01](../../_assets/foundation-models/quickstart/yandexgpt/screen01.png)
+
+   1. In the **{{ ui-key.yacloud.yagpt.label_temperature-text }}** field, enter a value between `0` and `1` that determines the versatility of the model's response. With a higher value, you get less deterministic request result.
    1. Describe the request context under **{{ ui-key.yacloud.yagpt.label_instruction-text }}**.
    1. Describe your request to the model under **{{ ui-key.yacloud.yagpt.label_request-text }}**.
-   1. In the **{{ ui-key.yacloud.yagpt.label_temperature-text }}** field, enter a value between `0` and `1` that determines the versatility of the model's response. With a higher value, you get less deterministic request result.
    1. Click **{{ ui-key.yacloud.yagpt.label_button-instruct-submit }}**. The answer will be shown on the right part of the screen.
+
+      ![screen02](../../_assets/foundation-models/quickstart/yandexgpt/screen02.png)
 
 - API {#api}
 

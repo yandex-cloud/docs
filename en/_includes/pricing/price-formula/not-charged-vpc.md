@@ -1,1 +1,3 @@
-The first 100 GB of outgoing traffic are provided free of charge every month.
+You get the following at no charge each month:
+* First 100 GB of outgoing traffic.
+* First 100 GB of outgoing traffic via the NAT gateway.

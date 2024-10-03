@@ -252,7 +252,7 @@ order | Направление и поле сортировки задач (то
     Ответ на запрос будет содержать список задач и заголовки:
     - `Link` — ссылки на первую и следующую страницы результатов:  
 
-       ```
+       ```text
        Link: <https://{{ host }}/v2/issues/_search?expand=&embed=&fields=&staleOk=false&scrollType=sorted&scrollTTLMillis=10000&perScroll=2000>; rel="first"
        Link: <https://{{ host }}/v2/issues/_search?expand=&embed=&fields=&staleOk=false&scrollTTLMillis=10000&scrollId=6554d4cbbda0de18********&scrollToken=dummy-token-you-dont-have-to-specify-it>; rel="next"
        ```
@@ -281,7 +281,7 @@ order | Направление и поле сортировки задач (то
       }
     }
     ```
-    
+
     На запрос будет получен ответ со следующей страницей списка задач и очередными значениями `X-Scroll-Id` и `X-Scroll-Token`, если страница не окажется последней. 
 
 1. Продолжайте отправлять запросы на получение следующей страницы результатов до тех пор, пока не получите все задачи из выдачи. 

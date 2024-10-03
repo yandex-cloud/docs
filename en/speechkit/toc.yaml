@@ -2,7 +2,7 @@ title: '{{ speechkit-full-name }}'
 href: index.yaml
 label:
   title: RU
-  description: The service is only available in the Russia region.
+  description: This service is only available in the Russia region.
   theme: unknown
   when: region == "kz"
 items:
@@ -14,7 +14,7 @@ items:
         href: quickstart/index.md
       - name: How to recognize short audio files in the API v1
         href: quickstart/stt-quickstart-v1.md
-      - name: How to recognize long audio files in the API v2
+      - name: How to recognize long audio files in the API v3 and v2
         href: quickstart/stt-quickstart-v2.md
       - name: How to synthesize speech in the API v1
         href: quickstart/tts-quickstart-v1.md
@@ -84,7 +84,7 @@ items:
         href: concepts/api.md
       - name: Authentication with the API
         href: concepts/auth.md
-      - name: Speech recognition
+      - name: Recognition
         items:
           - name: API v1
             items:
@@ -96,7 +96,7 @@ items:
                 href: stt/api/streaming-api.md
               - name: Asynchronous Recognition API
                 href: stt/api/transcribation-api.md
-          - name: API v3 gRPC
+          - name: gRPC API v3
             items:
               - name: Overview
                 href: stt-v3/api-ref/grpc/index.md
@@ -158,7 +158,11 @@ items:
         href: tutorials/index.md
       - name: Telegram bot for audio recognition and synthesis
         href: tutorials/recognizer-bot.md
-      - name: Speech recognition
+      - name: >-
+          Using {{ api-gw-full-name }} to set up speech synthesis in {{
+          speechkit-name }}
+        href: tutorials/speechkit-integrarion-via-agi-gw.md
+      - name: Recognition
         items:
           - name: Audio file streaming recognition, API v3
             href: stt/api/streaming-examples-v3.md
@@ -170,6 +174,8 @@ items:
             href: stt/api/streaming-examples.md
           - name: Synchronous recognition, API v1
             href: stt/api/request-examples.md
+          - name: Asynchronous recognition of WAV audio files, API v3
+            href: stt/api/transcribation-api-v3.md
           - name: Asynchronous recognition of LPCM format, API v2
             href: stt/api/transcribation-lpcm.md
           - name: Asynchronous recognition of OggOpus format, API v2

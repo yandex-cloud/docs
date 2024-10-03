@@ -1,6 +1,9 @@
-# История изменений в {{ mos-full-name }}
+---
+title: "История изменений в {{ mos-full-name }}"
+description: "В разделе представлена история изменений сервиса {{ mos-name }}."
+---
 
-В разделе представлена история изменений сервиса {{ mos-name }}.
+# История изменений в {{ mos-full-name }}
 
 {% include [Tags](../_includes/mdb/release-notes-tags.md) %}
 

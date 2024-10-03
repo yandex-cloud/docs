@@ -4,7 +4,9 @@ In {{ ml-platform-name }}, you can run jobs, i.e., computations on {{ ml-platfor
 
 Jobs are created and run in [projects](../project.md). However, they do not depend on project notebooks and running VMs.
 
-To [run a job](../../operations/projects/work-with-jobs.md), set up a Python virtual environment, install [{{ ds-cli }}](cli.md) using the `pip install datasphere` command and prepare a configuration file describing all the parameters for running the job. You can also [install](../../../cli/quickstart.md) and configure the [{{ yandex-cloud }} CLI](../../../cli/) to use it for authentication in {{ yandex-cloud }}.
+To use {{ ml-platform-name }} Jobs, [authenticate](../../operations/projects/authentication.md) as a user account.
+
+Before [running a job](../../operations/projects/work-with-jobs.md), set up a Python virtual environment, install [{{ ds-cli }}](cli.md) using the `pip install datasphere` command, and prepare a configuration file describing all the parameters for running the job. You can also [install](../../../cli/quickstart.md) and configure the [{{ yandex-cloud }} CLI](../../../cli/) to use it for authentication in {{ yandex-cloud }}.
 
 {% include [vscode-extension-info](../../../_includes/datasphere/vscode-extension-info.md) %}
 
@@ -40,7 +42,7 @@ desc: Program description
 
 # Entry point parameters to run computations
 cmd: >  # multi-line YAML string
-  python src/main.py
+  python3 src/main.py
     --params ${PARAMS}
     --features ${<connector_ID>}/features.tsv
     --validate ${CIFAR}/val.json
@@ -48,7 +50,7 @@ cmd: >  # multi-line YAML string
     --model ${MODEL}
     --epochs 5
 
-# Input data files
+# Input data diles
 inputs:
   - misc/logging.yaml  # File path relative to the job run directory on local computer
   - /usr/share/params.json: # Absolute file path on local computer is saved to the PARAMS variable
@@ -75,14 +77,13 @@ env:
   docker: <Docker_image_ID>  # Docker image available in the project {{ ml-platform-name }}
   # You can also specify a Docker image in an image registry
   # docker:
-  #   image: <image_path_in_registry>:<tag>  # E.g., <{{ registry }}/crtabcdef12345678900/myenv:0.1>
+  #   image: <image_path_in_registry>:<tag>  # For example, <{{ registry }}/crtabcdef12345678900/myenv:0.1>
                                               # For Docker Hub, it is enough to specify `<name>:<tag>`, e.g., `ubuntu:focal`
   #   username: <username>
-  #   password: <password> # in text format or {{ ml-platform-name }} secret name
-  #   # password:
-  #   #   secret-id: PASSWORD
+  #   password:
+  #     secret-id: PASSWORD  # {{ ml-platform-name }} secret ID
 
-  # Environmet dependency build method
+  # Environment dependency build method
   python: auto # Fully automated environment build
 
   # python: # Environment parameters are set manually. If no parameters are specified, their values will be determined from the current environment automatically
@@ -123,8 +124,8 @@ The job `config.yaml` file contains multiple sections.
 
    There are two ways to set up the environment for your Python projects:
 
-   * Allow {{ ml-platform-name }} to automatically identify all required dependencies, analyze the current environment on your local computer, and build and migrate the environment on its own. To enable this, set `python: auto` in the `env` section.
-   * You can specify the Python interpreter version and used libraries yourself directly in the configuration file or in a separate `requirements.txt` file. If you explicitly set at least one parameter, missing parameter values will be fetched from the current environment automatically.
+   * Allow {{ ml-platform-name }} to automatically identify all required dependencies, analyze the current environment on your local computer, and build and migrate the environment. To enable this option, set `python: auto` in the `env` section.
+   * You yourself can specify the Python interpreter version and the libraries you are going to use directly in the configuration file or a separate `requirements.txt` file. If you explicitly set at least one parameter, the missing ones will be fetched from the current environment automatically.
 
    {% note warning %}
 
@@ -138,7 +139,7 @@ The job `config.yaml` file contains multiple sections.
 
 1. The `cloud-instance-types` section defines the valid [computing resource configuration](../configurations.md) types the job can run on. Configurations are specified in order of priority, i.e., if resources are available, the job will use the first configuration to run. If there are no VMs with the first configuration available, the job will try to run on the second one, then the third, and so on.
 
-   For a single configuration, you may also use the old `cloud-instance-type` field, e.g., `cloud-instance-type: g1.1`; however, it is preferable to use the new one.
+   If you only have a single configuration, you may also use the old `cloud-instance-type` field, e.g., `cloud-instance-type: g1.1`; however, it is preferable to use the new one.
 
 1. The `working-storage` section defines the extended working directory parameters. By default, the working directory is created on the system disk. The directory's size is not guaranteed and is usually about 20 GB. If you need more space to complete the job, you can specify this explicitly. The extended working directory can range in size from 100 GB to 10 TB.
 

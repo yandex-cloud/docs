@@ -41,7 +41,7 @@
       ```bash
       yc iam service-account list
       ```
-      
+
       Результат:
 
       ```text

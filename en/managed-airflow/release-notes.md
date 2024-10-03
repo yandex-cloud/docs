@@ -1,8 +1,15 @@
+---
+title: "{{ maf-full-name }} release notes"
+description: "This section contains {{ maf-name }} release notes."
+---
+
 # {{ maf-full-name }} release notes
 
-This section contains {{ maf-name }} release notes.
-
 {% include [Tags](../_includes/mdb/release-notes-tags.md) %}
+
+## September 2024 {#sep-2024}
+
+On September 16, 2024, {{ maf-name }} has entered the [General Availability](../overview/concepts/launch-stages.md) stage and its use is now charged according to the [pricing policy](pricing.md).
 
 ## June 2024 {#jun-2024}
 
@@ -11,7 +18,7 @@ This section contains {{ maf-name }} release notes.
 
 ## May 2024 {#may-2024}
 
-* Now you can assign to a cluster a service account it will use to access other {{ yandex-cloud }} services, e.g., {{ cloud-logging-name }}, {{ monitoring-full-name }}, and {{ lockbox-full-name }}. It also enables the use of the full {{ yandex-cloud }} SDK functionality when writing DAG scripts with no need for additional authorization setup.
+Now you can assign to a cluster a service account it will use to access other {{ yandex-cloud }} services, e.g., {{ cloud-logging-name }}, {{ monitoring-full-name }}, and {{ lockbox-full-name }}. It also enables the use of the full {{ yandex-cloud }} SDK functionality when writing DAG scripts with no need for additional authorization setup.
 
 ## April 2024 {#apr-2024}
 

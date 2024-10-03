@@ -9,7 +9,7 @@
 
 With a DAG like this, a cluster's lifetime is short. Since the cost of {{ dataproc-name }} resources [depends on their usage time](../../../data-proc/pricing.md), you can use resources with higher capacity in the cluster and quickly handle a larger amount of data at no additional cost.
 
-In this DAG, a {{ dataproc-name }} cluster is created without using Hive. In the example below, a [{{ metastore-full-name }} cluster](../../../data-proc/concepts/metastore.md) is used for storing table metadata. The saved metadata can then be used by another {{ dataproc-name }} cluster.
+In this DAG, a {{ dataproc-name }} cluster is created without using Hive. In the example below, a [{{ metastore-full-name }} cluster](../../../metadata-hub/concepts/metastore.md) is used for storing table metadata. The saved metadata can then be used by another {{ dataproc-name }} cluster.
 
 To automate operations with {{ dataproc-name }} using {{ maf-name }}:
 
@@ -23,7 +23,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% note info %}
 
-{{ maf-name }} and {{ metastore-name }} are at the [Preview](../../../overview/concepts/launch-stages.md) stage. To get access, contact [technical support]({{ link-console-support }}) or your account manager.
+{{ metastore-name }} is at the [Preview](../../../overview/concepts/launch-stages.md) stage. To get access, contact [technical support]({{ link-console-support }}) or your account manager.
 
 {% endnote %}
 
@@ -106,7 +106,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    {% endcut %}
 
-1. [Create a {{ metastore-name }} cluster](../../../data-proc/operations/metastore/cluster-create.md) with the following parameters:
+1. [Create a {{ metastore-name }} cluster](../../../metadata-hub/operations/metastore/cluster-create.md) with the following parameters:
 
    * **Network**: `dataproc-network`
    * **Subnet**: `dataproc-network-{{ region-id }}-a`
@@ -345,7 +345,7 @@ Some resources are not free of charge. Delete the resources you no longer need t
 
 1. [Service account](../../../iam/operations/sa/delete.md)
 1. [{{ objstorage-name }} buckets](../../../storage/operations/buckets/delete.md)
-1. [{{ metastore-name }} cluster](../../../data-proc/operations/metastore/cluster-delete.md)
+1. [{{ metastore-name }} cluster](../../../metadata-hub/operations/metastore/cluster-delete.md)
 1. [{{ maf-name }} cluster](../../../managed-airflow/operations/cluster-delete.md)
 1. Route table
 1. NAT gateway

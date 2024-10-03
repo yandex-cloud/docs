@@ -13,12 +13,6 @@ To use configuration data from a {{ lockbox-name }} secret in the graph:
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
-{% note info %}
-
-{{ maf-name }} is at the [Preview](../../overview/concepts/launch-stages.md) stage. To get access, contact [tech support]({{ link-console-support }}) or your account manager.
-
-{% endnote %}
-
 ## Prepare the infrastructure {#create-infrastracture}
 
 1. [Create a service account](../../iam/operations/sa/create.md#create-sa) named `airflow-sa` with the following roles:
@@ -50,36 +44,35 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Create a {{ lockbox-full-name }} secret {#create-lockbox-secret}
 
-For the {{ AF }} cluster to work correctly, a secret in {{ lockbox-name }} must have a name in the `airflow/<secret_type>/<secret_ID>` format, where:
-* `<secret_type>`: Type of the stored secret. The following types are available:
-   * `connections`: Connections.
-   * `variables`: Variables.
-   * `config`: Configuration data.
-* `<secret_ID>`: ID that will be used to access the {{ lockbox-name }} secret in {{ AF }}.
+For the {{ AF }} cluster to work correctly, your {{ lockbox-name }} secret's name must have this format: `airflow/<secret_type>/<secret_ID>`, where:
+   * `<secret_type>`: Type of the stored secret. The following types are available:
+     * `connections`: Connections
+     * `variables`: Variables
+     * `config`: Configuration data
+   * `<secret_ID>`: ID that will be used to access the {{ lockbox-name }} secret in {{ AF }}.
 
-[Create a {{ lockbox-name }} secret](../../lockbox/operations/secret-create.md) with the following parameters:
+[Create a {{ lockbox-name }}](../../lockbox/operations/secret-create.md) secret with the following parameters:
 
-* **Name**: `airflow/connections/pg`
-* **Value**: Specify the following contents:
+   * **Name**: `airflow/connections/pg`
+   * **Value**: Specify the following contents:
+      ```json
+      {
+        "conn_type": "postgres",
+        "host": "<{{ PG }}_cluster_host_FQDN>",
+        "port": {{ port-mpg }},
+        "schema": "db1",
+        "login": "user1",
+        "password": "user1-password"
+      }
+      ```
 
-   ```
-   {
-     "conn_type": "postgres",
-     "host": "<{{ PG }}_cluster_host_FQDN>",
-     "port": {{ port-mpg }},
-     "schema": "db1",
-     "login": "user1",
-     "password": "user1-password"
-   }
-   ```
-
-   The secret will store the data to connect to the database in the {{ mpg-name }} cluster.
+      The secret will store the data to connect to the database in the {{ mpg-name }} cluster.
 
 For more information on how to get the FQDN of a {{ PG }} cluster host, see the [documentation](https://yandex.cloud/ru/docs/managed-postgresql/operations/connect#fqdn).
 
 ## Prepare the DAG file and run the graph {#dag}
 
-1. Create a local file named `test_lockbox_connection.py` and copy the following script into it:
+1. Create a local file named `test_lockbox_connection.py` and copy the following script to it:
 
    ```python
    from airflow import DAG
@@ -99,15 +92,15 @@ For more information on how to get the FQDN of a {{ PG }} cluster host, see the 
      )
    ```
 
-1. Upload the `test_lockbox_connection.py` DAG file to the bucket you created previously. This will automatically create a graph with the same name in the {{ AF }} web interface.
+1. Upload the `test_lockbox_connection.py` DAG file to the bucket you created earlier. This will automatically create a graph with the same name in the {{ AF }} web interface.
 
 1. [Open the {{ AF }} web interface](../../managed-airflow/operations/af-interfaces.md#web-gui).
 
-1. Make sure you can see the new graph named `test_lockbox_connection` in the **DAGs** section.
+1. Make sure a new graph named `test_lockbox_connection` has appeared in the **DAGs** section.
 
    It may take a few minutes to upload a DAG file from the bucket.
 
-1. To run the graph, click ![image](../../_assets/managed-airflow/trigger-dag.png =18x) in the line with its name.
+1. To run a graph, in the line with its name, click ![image](../../_assets/managed-airflow/trigger-dag.png =18x).
 
 ## Check the result {#check-result}
 
@@ -117,7 +110,7 @@ To check the result in the {{ AF }} web interface:
 1. Go to the **Graph** section.
 1. Select the **check_conn** job.
 1. Go to **Logs**.
-1. Make sure there is the `Rows affected: 1` string in the logs. This indicates the query was successful.
+1. Make sure the logs contain the `Rows affected: 1` string. This means the query was successful.
 
 ## Delete the resources you created {#clear-out}
 

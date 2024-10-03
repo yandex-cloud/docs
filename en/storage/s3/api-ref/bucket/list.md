@@ -4,9 +4,11 @@ Returns a list of buckets available to the user.
 
 {% include [sa-acl-bucket-list-note.md](../../../../_includes/storage/sa-acl-bucket-list-note.md) %}
 
+{% include [s3-api-intro-include](../../../../_includes/storage/s3-api-intro-include.md) %}
+
 ## Request {#request}
 
-```
+```http
 GET / HTTP/2
 ```
 
@@ -27,7 +29,7 @@ A successful response contains additional data in XML format with the schema des
 
 ### Data schema {#response-scheme}
 
-```
+```xml
 <ListAllMyBucketsResult>
   <Buckets>
     <Bucket>
@@ -39,12 +41,12 @@ A successful response contains additional data in XML format with the schema des
 </ListAllMyBucketsResult>
 ```
 
-| Element | Description |
+Element | Description
 ----- | -----
-| `Bucket` | Contains a bucket description.<br/><br/>Path: `/ListAllMyBucketsResult/Buckets/Bucket`. |
-| `Buckets` | Contains a list of buckets.<br/><br/>Path: `/ListAllMyBucketsResult/Buckets`. |
-| `CreationDate` | Bucket creation time in the format `yyyy-mm-ddThh:mm:ss.timezone`.<br/><br/>Path: `/ListAllMyBucketsResult/Buckets/Bucket/CreationDate`. |
-| `ListAllMyBucketsResult` | Root element of a response.<br/><br/>Path: `/ListAllMyBucketsResult`. |
-| `Name` | Bucket name.<br/><br/>Path: `/ListAllMyBucketsResult/Buckets/Bucket/Name`. |
+`Bucket` | Contains bucket description.<br/><br/>Path: `/ListAllMyBucketsResult/Buckets/Bucket`.
+`Buckets` | Contains a bucket list.<br/><br/>Path: `/ListAllMyBucketsResult/Buckets`.
+`CreationDate` | Bucket creation time in `yyyy-mm-ddThh:mm:ss.timezone` format.<br/><br/>Path: `/ListAllMyBucketsResult/Buckets/Bucket/CreationDate`.
+`ListAllMyBucketsResult` | Root element of response.<br/><br/>Path: `/ListAllMyBucketsResult`.
+`Name` | Bucket name.<br/><br/>Path: `/ListAllMyBucketsResult/Buckets/Bucket/Name`.
 
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

@@ -7,7 +7,7 @@
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
    1. Select the cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
    1. Under **{{ ui-key.yacloud.mdb.forms.section_settings }}**, click **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}**.
-   1. Specify the [{{ CH }} settings](../../../managed-clickhouse/concepts/settings-list.md#dbms-cluster-settings).
+   1. Specify the [{{ CH }} settings](../../../managed-clickhouse/concepts/settings-list.md#server-level-settings).
    1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - CLI {#cli}
@@ -34,7 +34,7 @@
 
       ```bash
       {{ yc-mdb-ch }} cluster update-config <cluster_name_or_ID> \
-         --set <name_of_parameter_1>=<value_1>,...
+         --set <parameter_1_name>=<value_1>,...
       ```
 
 - {{ TF }} {#tf}
@@ -43,7 +43,7 @@
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about how to create this file, see [Creating clusters](../../../managed-clickhouse/operations/cluster-create.md).
+      For more information about creating this file, see [Creating clusters](../../../managed-clickhouse/operations/cluster-create.md).
 
    1. In the {{ mch-name }} cluster description, under `clickhouse.config`, change the values of the following parameters:
 
@@ -73,7 +73,7 @@
             }
 
             rabbit_mq {
-              # Settings to get data from {{ RMQ }}
+              # Settings for getting data from {{ RMQ }}
               username = "<username>"
               password = "<password>"
             }
@@ -86,7 +86,7 @@
             }
 
             graphite_rollup {
-              # GraphiteMergeTree engine settings for decimation, aggregation, and averaging (rollup) of Graphite data.
+              # GraphiteMergeTree engine settings for thinning, aggregating, and averaging (rollup) Graphite data.
               ...
             }
           }

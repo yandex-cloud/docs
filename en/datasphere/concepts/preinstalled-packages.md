@@ -6,6 +6,12 @@ You have the option to select one of the standard DS Default images or to create
 
 By default, an image with Python 3.10 is used in {{ ml-platform-short-name }} projects. If you need Python 3.8, use this guide: [{#T}](../operations/projects/python-version.md).
 
+{% note tip %}
+
+If you encounter conflicts with dependencies when installing a new library, use the [Solving problems with dependencies](../qa/environment-problems.md) guide.
+
+{% endnote %}
+
 ## List of pre-installed packages {#preinstalled-packages}
 
 All images come with preinstalled NVIDIA-SMI 525.125.06, driver version 525.125.06, and CUDA version 12.0.
@@ -41,7 +47,7 @@ To upgrade a library to a specific version, run the following command in the not
 %pip install <library_name>==<version>
 ```
 
-Here is an example:
+For example:
 
 ```js
 %pip install tensorflow==2.3.1

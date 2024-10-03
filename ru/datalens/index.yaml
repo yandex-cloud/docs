@@ -22,18 +22,21 @@ links:
       Пройдите практические руководства с примерами использования сервиса
       DataLens
     href: tutorials/
-  - title: Подключение
+  - title: Подключения
     description: Подключитесь к различным источникам данных
     href: concepts/connection
-  - title: Датасет
+  - title: Датасеты
     description: Опишите структуру данных, полученных из источника
-    href: concepts/dataset/
+    href: dataset/
   - title: Чарты
     description: Постройте визуализацию на основе данных датасета
     href: concepts/chart/
-  - title: Дашборд
+  - title: Дашборды
     description: Соберите свои чарты на одной странице
     href: concepts/dashboard
+  - title: Отчеты
+    description: Подготовьте многостраничный документ для печати
+    href: reports/
   - title: Квоты и лимиты
     description: Технические и организационные ограничения сервиса
     href: concepts/limits

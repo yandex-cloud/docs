@@ -1,14 +1,16 @@
 # Building and managing Java function dependencies
 
-{{ sf-name }} supports two ways to manage dependencies for a Java function: automatic installation from the source code using `Maven` and adding dependencies manually to a project archive. However, you cannot configure dependencies using both methods at the same time.
+{{ sf-name }} supports two ways to manage Java function dependencies: automatic installation from the source code using Maven and adding dependencies manually to a project archive. However, you cannot configure dependencies using both methods at the same time.
 
-### Maven {#maven}
+The process of installing dependencies has resource and execution time limits. For more information, see [{#T}](../../concepts/limits.md). You can view the dependency installation log using the link that appears in the list of operations.
 
-[Maven](https://maven.apache.org/) is a system for managing dependencies in `Java`.
+## Maven {#maven}
 
-To deliver dependencies using `Maven`, just upload your own `Maven` project by configuring dependencies in `pom.xml`. No other actions, including project compilation, are required.
+[Maven](https://maven.apache.org/) is a system for managing dependencies in Java.
 
-If you want to set the order of loading dependencies, upload a file named `classpath.txt` to the project root. This file lists the dependencies one by one in the required order.
+To deliver dependencies, configure them in the `pom.xml` file. No other actions, including project compilation, are required.
+
+To set the loading order for dependencies, upload a file named `classpath.txt` to the project root. This file must list the dependencies line by line in the required order.
 
 {% note warning %}
 
@@ -16,11 +18,11 @@ Make sure the project archive root contains the `pom.xml` file.
 
 {% endnote %}
 
-### Manual delivery of dependencies {#man-del-of-dep}
+## Manual delivery of dependencies {#man-del-of-dep}
 
-To configure dependencies manually, place the `jar` archives of the necessary libraries in the root of the project archive. Example:
+To configure dependencies manually, place the JAR archives of the required libraries in the project archive root. Example:
 
-```
+```text
 build.zip
 +--org
 +----package
@@ -28,9 +30,7 @@ build.zip
 +--dependency.jar
 ```
 
-The process of installing dependencies has resource and execution time limits. For more information, see [{#T}](../../concepts/limits.md). You can view the dependency installation log using the link that appears in the list of operations.
-
-### Recommended versions of Java libraries {#recommended-libraries}
+## Recommended versions of Java libraries {#recommended-libraries}
 
 #|
 ||                  | **Java 11**       | **Java 17, Java 21** ||

@@ -340,7 +340,7 @@ instanceTemplate.<br>secondaryDiskSpecs[].<br>diskSpec.<br>imageId | **string** 
 instanceTemplate.<br>secondaryDiskSpecs[].<br>diskSpec.<br>snapshotId | **string** <br>`instanceTemplate.secondaryDiskSpecs[].diskSpec` includes only one of the fields `imageId`, `snapshotId`<br><br><p>ID of the snapshot that will be used for disk creation.</p> <p>The maximum string length in characters is 50.</p> 
 instanceTemplate.<br>secondaryDiskSpecs[].<br>diskId | **string**<br><p>Set to use an existing disk. To set use variables.</p> <p>The maximum string length in characters is 128. Value must match the regular expression ``[-a-zA-Z0-9._{}]*``.</p> 
 instanceTemplate.<br>secondaryDiskSpecs[].<br>name | **string**<br><p>When set can be later used to change DiskSpec of actual disk.</p> <p>The maximum string length in characters is 128.</p> 
-instanceTemplate.<br>networkInterfaceSpecs[] | **object**<br><p>Required. Array of network interfaces that will be attached to the instance.</p> <p>Must contain exactly 1 element.</p> 
+instanceTemplate.<br>networkInterfaceSpecs[] | **object**<br><p>Required. Array of network interfaces that will be attached to the instance.</p> 
 instanceTemplate.<br>networkInterfaceSpecs[].<br>networkId | **string**<br><p>ID of the network.</p> 
 instanceTemplate.<br>networkInterfaceSpecs[].<br>subnetIds[] | **string**<br><p>IDs of the subnets.</p> 
 instanceTemplate.<br>networkInterfaceSpecs[].<br>primaryV4AddressSpec | **object**<br><p>Primary IPv4 address that is assigned to the instance for this network interface.</p> 
@@ -397,7 +397,7 @@ instanceTemplate.<br>metadataOptions.<br>awsV1HttpEndpoint | **string**<br><p>En
 instanceTemplate.<br>metadataOptions.<br>gceHttpToken | **string**<br><p>Enabled access to IAM credentials with GCE flavored metadata</p> <ul> <li>ENABLED: Option is enabled</li> <li>DISABLED: Option is disabled</li> </ul> 
 instanceTemplate.<br>metadataOptions.<br>awsV1HttpToken | **string**<br><p>Enabled access to IAM credentials with AWS flavored metadata (IMDSv1)</p> <ul> <li>ENABLED: Option is enabled</li> <li>DISABLED: Option is disabled</li> </ul> 
 scalePolicy | **object**<br><p><a href="/docs/compute/concepts/instance-groups/scale">Scaling policy</a> of the instance group.</p> 
-scalePolicy.<br>testAutoScale | **object**
+scalePolicy.<br>testAutoScale | **object**<br>Test spec for [automatic scaling policy](/docs/compute/concepts/instance-groups/scale#auto-scale) of the instance group.
 scalePolicy.<br>testAutoScale.<br>minZoneSize | **string** (int64)<br><p>Lower limit for instance count in each zone.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
 scalePolicy.<br>testAutoScale.<br>maxSize | **string** (int64)<br><p>Upper limit for total instance count (across all zones). 0 means maximum limit = 100.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
 scalePolicy.<br>testAutoScale.<br>measurementDuration | **string**<br><p>Time in seconds allotted for averaging metrics. 1 minute by default.</p> <p>Acceptable values are 60 seconds to 600 seconds, inclusive.</p> 
@@ -415,9 +415,9 @@ scalePolicy.<br>testAutoScale.<br>customRules[].<br>target | **number** (double)
 scalePolicy.<br>testAutoScale.<br>customRules[].<br>folderId | **string**<br><p>Folder id of custom metric in Monitoring that should be used for scaling.</p> <p>The maximum string length in characters is 50.</p> 
 scalePolicy.<br>testAutoScale.<br>customRules[].<br>service | **string**<br><p>Service of custom metric in Monitoring that should be used for scaling.</p> <p>The maximum string length in characters is 200.</p> 
 scalePolicy.<br>testAutoScale.<br>autoScaleType | **string**<br><p>Autoscaling type.</p> <ul> <li>ZONAL: Scale each zone independently. This is the default.</li> <li>REGIONAL: Scale group as a whole.</li> </ul> 
-scalePolicy.<br>fixedScale | **object** <br>`scalePolicy` includes only one of the fields `fixedScale`, `autoScale`<br>
+scalePolicy.<br>fixedScale | **object**<br>[Manual scaling policy](/docs/compute/concepts/instance-groups/scale#fixed-policy) of the instance group. <br>`scalePolicy` includes only one of the fields `fixedScale`, `autoScale`<br>
 scalePolicy.<br>fixedScale.<br>size | **string** (int64)<br><p>Number of instances in the instance group.</p> <p>Acceptable values are 1 to 100, inclusive.</p> 
-scalePolicy.<br>autoScale | **object**<br>Test spec for [automatic scaling policy](/docs/compute/concepts/instance-groups/scale#auto-scale) of the instance group. <br>`scalePolicy` includes only one of the fields `fixedScale`, `autoScale`<br>
+scalePolicy.<br>autoScale | **object**<br>[Automatic scaling policy](/docs/compute/concepts/instance-groups/scale#auto-scale) of the instance group. <br>`scalePolicy` includes only one of the fields `fixedScale`, `autoScale`<br>
 scalePolicy.<br>autoScale.<br>minZoneSize | **string** (int64)<br><p>Lower limit for instance count in each zone.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
 scalePolicy.<br>autoScale.<br>maxSize | **string** (int64)<br><p>Upper limit for total instance count (across all zones). 0 means maximum limit = 100.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
 scalePolicy.<br>autoScale.<br>measurementDuration | **string**<br><p>Time in seconds allotted for averaging metrics. 1 minute by default.</p> <p>Acceptable values are 60 seconds to 600 seconds, inclusive.</p> 
@@ -468,9 +468,9 @@ healthChecksSpec.<br>healthCheckSpecs[].<br>interval | **string**<br><p>The inte
 healthChecksSpec.<br>healthCheckSpecs[].<br>timeout | **string**<br><p>Timeout for the managed instance to return a response for the health check. The default is 1 second.</p> <p>Acceptable values are 1 seconds to 60 seconds, inclusive.</p> 
 healthChecksSpec.<br>healthCheckSpecs[].<br>unhealthyThreshold | **string** (int64)<br><p>The number of failed health checks for the managed instance to be considered unhealthy. The default (0) is 2.</p> <p>Value must be one of 0, 2, 3, 4, 5, 6, 7, 8, 9 or 10.</p> 
 healthChecksSpec.<br>healthCheckSpecs[].<br>healthyThreshold | **string** (int64)<br><p>The number of successful health checks required in order for the managed instance to be considered healthy. The default (0) is 2.</p> <p>Value must be one of 0, 2, 3, 4, 5, 6, 7, 8, 9 or 10.</p> 
-healthChecksSpec.<br>healthCheckSpecs[].<br>tcpOptions | **object** <br>`healthChecksSpec.healthCheckSpecs[]` includes only one of the fields `tcpOptions`, `httpOptions`<br>
+healthChecksSpec.<br>healthCheckSpecs[].<br>tcpOptions | **object**<br>Configuration options for a TCP health check. <br>`healthChecksSpec.healthCheckSpecs[]` includes only one of the fields `tcpOptions`, `httpOptions`<br>
 healthChecksSpec.<br>healthCheckSpecs[].<br>tcpOptions.<br>port | **string** (int64)<br><p>Port to use for TCP health checks.</p> <p>Acceptable values are 1 to 65535, inclusive.</p> 
-healthChecksSpec.<br>healthCheckSpecs[].<br>httpOptions | **object** <br>`healthChecksSpec.healthCheckSpecs[]` includes only one of the fields `tcpOptions`, `httpOptions`<br>
+healthChecksSpec.<br>healthCheckSpecs[].<br>httpOptions | **object**<br>Configuration options for an HTTP health check. <br>`healthChecksSpec.healthCheckSpecs[]` includes only one of the fields `tcpOptions`, `httpOptions`<br>
 healthChecksSpec.<br>healthCheckSpecs[].<br>httpOptions.<br>port | **string** (int64)<br><p>Port to use for HTTP health checks.</p> <p>Acceptable values are 1 to 65535, inclusive.</p> 
 healthChecksSpec.<br>healthCheckSpecs[].<br>httpOptions.<br>path | **string**<br><p>URL path to set for health checking requests.</p> 
 healthChecksSpec.<br>maxCheckingHealthDuration | **string**<br><p>Timeout for waiting for the VM to become healthy. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds.</p> <p>The minimum value is 1 seconds.</p> 

@@ -1,6 +1,6 @@
 {% list tabs group=instructions %}
 
-* Консоль управления {#console}
+- Консоль управления {#console}
 
    Чтобы задать настройки {{ CH }}:
 
@@ -10,7 +10,7 @@
    1. Задайте [настройки {{ CH }}](../../../managed-clickhouse/concepts/settings-list.md#server-level-settings).
    1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
-* CLI {#cli}
+- CLI {#cli}
 
    {% include [cli-install](../../cli-install.md) %}
 
@@ -37,7 +37,7 @@
          --set <имя_параметра_1>=<значение_1>,...
       ```
 
-* {{ TF }} {#tf}
+- {{ TF }} {#tf}
 
    Чтобы задать настройки {{ CH }}:
 
@@ -113,7 +113,7 @@
 
    {% include [Terraform timeouts](terraform/timeouts.md) %}
 
-* API {#api}
+- API {#api}
 
    Чтобы задать настройки {{ CH }}, воспользуйтесь методом REST API [update](../../../managed-clickhouse/api-ref/Cluster/update.md) для ресурса [Cluster](../../../managed-clickhouse/api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../../../managed-clickhouse/api-ref/grpc/cluster_service.md#Update) и передайте в запросе:
 

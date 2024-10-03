@@ -10,7 +10,7 @@
 
    In the management console, this setting corresponds to **{{ ui-key.yacloud.kafka.label_topic-compression-type }}**.
 
-   Codec used for message compression:
+   Codecs used for message compression include:
 
    | Management console, {{ TF }}, and API | CLI | Description |
    | ---------------------------------- | -------------- | ------------------------------------------------------------------------------------------------ |
@@ -73,7 +73,7 @@
 
    This setting determines whether to pre-allocate space for log file segments.
 
-   By default, space for log file segments is allocated as logs become full (`false`).
+   By default, the space for the log file segments is allocated as logs become full (`false`).
 
    This is a global cluster-level setting. You can override it at the [topic level](#settings-topic-preallocate).
 
@@ -93,7 +93,7 @@
 
    For more information, see the [{{ KF }} documentation](https://kafka.apache.org/documentation/#brokerconfigs_log.retention.bytes).
 
-   See also the [Log retention ms](#settings-log-retention-ms) setting.
+   See the [Log retention ms](#settings-log-retention-ms) setting.
 
 * **Log retention hours** {{ tag-all }} {#settings-log-retention-hours}
 
@@ -129,11 +129,11 @@
 
    For more information, see the [{{ KF }} documentation](https://kafka.apache.org/documentation/#retention.ms).
 
-   See also the [Log retention bytes](#settings-log-retention-bytes) setting.
+   See the [Log retention bytes](#settings-log-retention-bytes) setting.
 
 * **Log segment bytes** {{ tag-all }} {#settings-log-segment-bytes}
 
-   Segment size for log files, in bytes.
+   This setting determines the segment size for log files, in bytes.
 
    Segment files are saved and cleared file-by-file. The smaller the specified segment size, the more files will be in the log, while the storage management will be more flexible.
 
@@ -145,9 +145,9 @@
 
 * **Message max bytes** {{ tag-all }} {#settings-message-max-bytes}
 
-   Producer's message maximum size (in bytes).
+   Message maximum size (in bytes) set by the producer.
 
-   The minimum value is `0` (unlimited size), and the default one is `1048588`. This setting value must not exceed the [Replica fetch max bytes](#settings-replica-fetch-max-bytes) value by more than 12 bytes.
+   The minimum value is `0` (no limit); default value: `1048588`. The setting value relates to the [Replica fetch max bytes](#settings-replica-fetch-max-bytes) value as follows: `replica.fetch.max.bytes >= message.max.bytes + 12`
 
    This is a global cluster-level setting.
 
@@ -161,7 +161,7 @@
 
    The minimum and default value is `1`.
 
-   See also a description of the [Num partitions](#settings-topic-num-partitions) topic-level setting.
+   See a description of the [Num partitions](#settings-topic-num-partitions) topic-level setting.
 
    For more information, see the [{{ KF }} documentation](http://kafka.apache.org/documentation/#brokerconfigs_num.partitions).
 
@@ -179,7 +179,7 @@
 
    Size of the buffer for messages exchanged by brokers (in bytes).
 
-   The minimum value is `0` (unlimited size) and the default one is `1048576`. This setting value must be at least 12 bytes larger than the **Message max bytes** setting value that is set at the cluster or topic level.
+   The minimum value is `0` (no limit); default value: `1048576`. The setting value relates to the **Message max bytes** value as follows: `message.max.bytes <= replica.fetch.max.bytes - 12`
 
    This is a global cluster-level setting.
 
@@ -202,7 +202,7 @@
 
 * **Socket receive buffer bytes** {{ tag-con }} {{ tag-tf }} {{ tag-api }}{#settings-socket-receive-buffer-bytes}
 
-   The socket receive buffer size (in bytes).
+   Socket receive buffer size (in bytes).
 
    The minimum and default value is `-1` (the OS settings are used), while the maximum one is `2147483647`.
 
@@ -210,7 +210,7 @@
 
 * **Socket send buffer bytes** {{ tag-con }} {{ tag-tf }} {{ tag-api }}{#settings-socket-send-buffer-bytes}
 
-   The send socket buffer size (in bytes).
+   Socket send buffer size (in bytes).
 
    The minimum and default value is `-1` (the OS settings are used), while the maximum one is `2147483647`.
 

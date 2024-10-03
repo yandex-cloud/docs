@@ -24,7 +24,7 @@
       <div id="captcha-container"></div>
       <input type="submit" />
     </form>
-    
+
     <script>
     const form = document.getElementById('form');
 
@@ -53,7 +53,7 @@
       <div id="captcha-container"></div>
       <input type="submit" onsubmit="handleSubmit()" />
     </form>
-    
+
     <script>
     const form = document.getElementById('form');
 
@@ -75,7 +75,7 @@
 
     function handleSubmit(event) {
       event.preventDefault();
-    
+
       if (!window.smartCaptcha) {
         return;
       }
@@ -84,7 +84,7 @@
     }
     </script>
     ```
-    
+
 ## Уведомление об обработке данных {#data-processing-notice}
 
 По умолчанию на странице с невидимой капчей появляется блок со ссылкой, которая ведет на документ [Уведомление об условиях обработки данных сервисом](https://yandex.ru/legal/smartcaptcha_notice/).
@@ -142,7 +142,7 @@ window.smartCaptcha.render('captcha-container', {
             document.querySelector('form').submit()
         }
       }
-      
+
       function handleSubmit(event) {
         if (!window.smartCaptcha) {
           return;

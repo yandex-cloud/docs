@@ -2,7 +2,7 @@ title: Yandex API Gateway
 href: index.yaml
 label:
   title: RU
-  description: The service is only available in the Russia region.
+  description: This service is only available in the Russia region.
   theme: unknown
   when: region == "kz"
 items:
@@ -14,7 +14,7 @@ items:
         href: operations/index.md
       - name: Creating an API gateway
         href: operations/api-gw-create.md
-      - name: Managing API gateways
+      - name: Managing an API gateway
         items:
           - name: Updating API gateways and their specifications
             href: operations/api-gw-update.md
@@ -70,7 +70,7 @@ items:
             href: operations/trigger/data-streams-trigger-create.md
           - name: Creating an email trigger
             href: operations/trigger/mail-trigger-create.md
-      - name: Managing triggers
+      - name: Managing a trigger
         items:
           - name: Updating a trigger
             href: operations/trigger/trigger-update.md
@@ -90,7 +90,7 @@ items:
             href: operations/spec-constructor/object-storage.md
           - name: '{{ serverless-containers-name }}'
             href: operations/spec-constructor/containers.md
-          - name: HTTP Access
+          - name: Access over HTTP
             href: operations/spec-constructor/http.md
           - name: '{{ message-queue-name }}'
             href: operations/spec-constructor/ymq.md
@@ -100,6 +100,8 @@ items:
             href: operations/spec-constructor/ydb.md
           - name: '{{ ml-platform-short-name }}'
             href: operations/spec-constructor/datasphere.md
+          - name: '{{ yagpt-name }}'
+            href: operations/spec-constructor/yagpt.md
       - name: Viewing operations with the service's resources
         href: operations/operation-logs.md
   - name: Tutorials
@@ -118,7 +120,7 @@ items:
         href: tutorials/api-gw-integration.md
       - name: Developing CRUD APIs for movie services
         href: tutorials/movies-database.md
-      - name: Working with an API gateway using the WebSocket protocol
+      - name: Working with an API gateway via WebSocket
         href: tutorials/api-gw-websocket.md
       - name: Building a CI/CD pipeline in {{ GL }} using serverless products
         href: tutorials/ci-cd-serverless.md
@@ -132,6 +134,10 @@ items:
         href: tutorials/jwt-authorizer-firebase.md
       - name: Canary release of a {{ sf-name }} function
         href: tutorials/canary-release.md
+      - name: >-
+          Using {{ api-gw-name }} to set up speech synthesis in {{
+          speechkit-full-name }}
+        href: tutorials/speechkit-integrarion-via-agi-gw.md
   - name: Concepts
     items:
       - name: Resource relationships
@@ -146,12 +152,14 @@ items:
             items:
               - name: Static response
                 href: concepts/extensions/dummy.md
-              - name: HTTP Access
+              - name: Access over HTTP
                 href: concepts/extensions/http.md
               - name: '{{ sf-name }}'
                 href: concepts/extensions/cloud-functions.md
               - name: '{{ serverless-containers-name }}'
                 href: concepts/extensions/containers.md
+              - name: '{{ sws-name }}'
+                href: concepts/extensions/sws.md
               - name: '{{ objstorage-name }}'
                 href: concepts/extensions/object-storage.md
               - name: '{{ ml-platform-short-name }}'
@@ -182,6 +190,10 @@ items:
             href: concepts/extensions/canary.md
           - name: Request rate limit
             href: concepts/extensions/rate-limit.md
+          - name: Response code replacement
+            href: concepts/extensions/status-mapping.md
+          - name: Transformation of response and request bodies
+            href: concepts/extensions/schema-mapping.md
       - name: Trigger
         items:
           - name: Overview

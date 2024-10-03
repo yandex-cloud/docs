@@ -44,6 +44,13 @@ description: "На странице представлен список поша
 - [{#T}](delete-route-table.md)
 - [{#T}](delete-nat-gateway.md)
 
+## Сервисные подключения {#private-endpoint}
+
+- [{#T}](private-endpoint-create.md)
+- [{#T}](private-endpoint-get-info.md)
+- [{#T}](private-endpoint-storage-policy.md)
+- [{#T}](private-endpoint-delete.md)
+
 ## Группы безопасности {#security-groups}
 
 - [{#T}](security-group-create.md)

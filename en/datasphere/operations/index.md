@@ -77,6 +77,7 @@ description: "The page contains all guides on working with {{ ml-platform-full-n
 
 ## {{ ds-jobs }} {#ds-jobs}
 
+* [{#T}](projects/authentication.md)
 * [{#T}](projects/work-with-jobs.md)
 * [{#T}](projects/jobs-toolkit.md)
 

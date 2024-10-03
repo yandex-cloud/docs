@@ -51,19 +51,19 @@ description: "Из статьи вы узнаете, как задать нас�
 
 - Консоль управления {#console}
 
-    {% include [Managed ClickHouse UI](../../../../_includes/data-transfer/necessary-settings/ui/managed-clickhouse.md) %}
+    {% include [Managed ClickHouse UI](../../../../_includes/data-transfer/necessary-settings/ui/managed-clickhouse-source.md) %}
 
 - CLI {#cli}
 
     * Тип эндпоинта — `clickhouse-source`.
 
-    {% include [Managed ClickHouse CLI](../../../../_includes/data-transfer/necessary-settings/cli/managed-clickhouse.md) %}
+    {% include [Managed ClickHouse CLI](../../../../_includes/data-transfer/necessary-settings/cli/managed-clickhouse-source.md) %}
 
 - {{ TF }} {#tf}
 
     * Тип эндпоинта — `clickhouse_source`.
 
-    {% include [Managed ClickHouse {{ TF }}](../../../../_includes/data-transfer/necessary-settings/terraform/managed-clickhouse.md) %}
+    {% include [Managed ClickHouse {{ TF }}](../../../../_includes/data-transfer/necessary-settings/terraform/managed-clickhouse-source.md) %}
 
     Пример структуры конфигурационного файла:
 
@@ -73,6 +73,7 @@ description: "Из статьи вы узнаете, как задать нас�
       name = "<имя_эндпоинта>"
       settings {
         clickhouse_source {
+          clickhouse_cluster_name="<группа_шардов>"
           security_groups = ["<список_идентификаторов_групп_безопасности>"]
           subnet_id       = "<идентификатор_подсети>"
           connection {
@@ -96,7 +97,7 @@ description: "Из статьи вы узнаете, как задать нас�
 
 - API {#api}
 
-    {% include [Managed ClickHouse API](../../../../_includes/data-transfer/necessary-settings/api/managed-clickhouse.md) %}
+    {% include [Managed ClickHouse API](../../../../_includes/data-transfer/necessary-settings/api/managed-clickhouse-source.md) %}
 
 {% endlist %}
 
@@ -114,13 +115,13 @@ description: "Из статьи вы узнаете, как задать нас�
 
     * Тип эндпоинта — `clickhouse-source`.
 
-    {% include [On premise ClickHouse CLI](../../../../_includes/data-transfer/necessary-settings/cli/on-premise-clickhouse.md) %}
+    {% include [On premise ClickHouse CLI](../../../../_includes/data-transfer/necessary-settings/cli/on-premise-clickhouse-source.md) %}
 
 - {{ TF }} {#tf}
 
     * Тип эндпоинта — `clickhouse_source`.
 
-    {% include [On premise ClickHouse {{ TF }}](../../../../_includes/data-transfer/necessary-settings/terraform/on-premise-clickhouse.md) %}
+    {% include [On premise ClickHouse {{ TF }}](../../../../_includes/data-transfer/necessary-settings/terraform/on-premise-clickhouse-source.md) %}
 
     Пример структуры конфигурационного файла:
 
@@ -130,6 +131,7 @@ description: "Из статьи вы узнаете, как задать нас�
       name = "<имя_эндпоинта>"
       settings {
         clickhouse_source {
+          clickhouse_cluster_name="<имя_кластера>"
           security_groups = ["<список_идентификаторов_групп_безопасности>"]
           subnet_id       = "<идентификатор_подсети>"
           connection {
@@ -165,7 +167,7 @@ description: "Из статьи вы узнаете, как задать нас�
 
 - API {#api}
 
-    {% include [On premise ClickHouse API](../../../../_includes/data-transfer/necessary-settings/api/on-premise-clickhouse.md) %}
+    {% include [On premise ClickHouse API](../../../../_includes/data-transfer/necessary-settings/api/on-premise-clickhouse-source.md) %}
 
 {% endlist %}
 
@@ -231,11 +233,14 @@ description: "Из статьи вы узнаете, как задать нас�
 
 * [Не добавляются новые таблицы](#no-new-tables)
 * [Не переносятся данные](#no-transfer)
+* [Неподдерживаемый диапазон дат](#date-range)
 
 См. полный список рекомендаций в разделе [Решение проблем](../../../troubleshooting/index.md).
 
 {% include [no-new-tables](../../../../_includes/data-transfer/troubles/no-new-tables.md) %}
 
 {% include [table-names](../../../../_includes/data-transfer/troubles/table-names.md) %}
+
+{% include [date-range](../../../../_includes/data-transfer/troubles/date-range.md) %}
 
 {% include [clickhouse-disclaimer](../../../../_includes/clickhouse-disclaimer.md) %}

@@ -33,7 +33,10 @@ You can back up {{ compute-name }} [VMs](../../compute/concepts/vm.md) with [sup
       1. In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
       1. Select a security group configured to work with {{ backup-name }}.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select the service account with the `backup.editor` role.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_additional }}**, enable the {{ backup-name }} connection option for your VM.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_additional }}**:
+
+      {% include [backup-enable](../../_includes/compute/backup-enable.md) %}
+
   1. Specify the other VM parameters as needed.
   1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
@@ -47,7 +50,7 @@ You can back up {{ compute-name }} [VMs](../../compute/concepts/vm.md) with [sup
 
       Result:
 
-      ```bash
+      ```text
       +----------------------+--------------------+------------------+--------+
       |          ID          |        NAME        |      LABELS      | STATUS |
       +----------------------+--------------------+------------------+--------+
@@ -69,12 +72,12 @@ You can back up {{ compute-name }} [VMs](../../compute/concepts/vm.md) with [sup
       |          ID          |           NAME            |      NETWORK ID      | ROUTE TABLE ID |       ZONE        |      RANGE      |
       +----------------------+---------------------------+----------------------+----------------+-------------------+-----------------+
       | b0c6n43f9lgh******** | default-{{ region-id }}-d     | enpe3m3fa00u******** |                | {{ region-id }}-d     | [10.***.0.0/24] |
-      | e2l2da8a20b3******** | default-{{ region-id }}-b     | enpe3m3fa00u******** |                | {{ region-id }}-b | [10.***.0.0/24] |
-      | e9bnlm18l70a******** | default-{{ region-id }}-a     | enpe3m3fa00u******** |                | {{ region-id }}-a | [10.***.0.0/24] |
+      | e2l2da8a20b3******** | default-{{ region-id }}-b     | enpe3m3fa00u******** |                | {{ region-id }}-b     | [10.***.0.0/24] |
+      | e9bnlm18l70a******** | default-{{ region-id }}-a     | enpe3m3fa00u******** |                | {{ region-id }}-a     | [10.***.0.0/24] |
       +----------------------+---------------------------+----------------------+----------------+-------------------+-----------------+
       ```
 
-  1. Create a file named `init.ps1` with a script for installing the {{ backup-name }} agent on your VM:
+  1. Create the `init.ps1` file with a script for installing the {{ backup-name }} agent on your VM:
 
       ```powershell
       #ps1_sysnative
@@ -95,27 +98,27 @@ You can back up {{ compute-name }} [VMs](../../compute/concepts/vm.md) with [sup
         --core-fraction 100 \
         --memory 4 \
         --service-account-name <service_account_name> \
-        --metadata-from-file user-data=<path_to_script_file>
+        --metadata-from-file user-data=<path_to_file_with_script>
       ```
 
       Where:
 
       * `--name`: VM name.
 
-         {% include [name-fqdn](../../_includes/compute/name-fqdn.md) %}
+        {% include [name-fqdn](../../_includes/compute/name-fqdn.md) %}
 
-      * `--zone`: [Availability zone](../../overview/concepts/geo-scope.md) that corresponds to the selected subnet.
+      * `--zone`: [Availability zone](../../overview/concepts/geo-scope.md) matching the selected subnet.
       * `subnet-name`: Name of the selected [subnet](../../vpc/concepts/network.md#subnet).
       * `security-group-ids`: ID of the [security group](../../vpc/concepts/security-groups.md) configured to work with {{ backup-name }}.
-      * `image-id`: OS [image](../../compute/concepts/image.md) ID. For more information, refer to the [list of supported Windows-based operating systems](../concepts/vm-connection.md#windows).
-      * `size`: Boot disk size.
+      * `image-id`: OS [image ID](../../compute/concepts/image.md). See the [list of supported Windows-based operating systems](../concepts/vm-connection.md#windows).
+      * `create-boot-disk`: Boot disk size.
       * `--cores`: [Number of vCPUs](../../compute/concepts/vm.md) in the VM.
       * `--core-fraction`: Guaranteed vCPU share in %.
       * `--memory`: VM [RAM size](../../compute/concepts/vm.md).
       * `--service-account-name`: Name of the [service account](../../iam/concepts/users/service-accounts.md) with the `backup.editor` role.
       * `--user-data`: Path to the previously created file with a script for installing the {{ backup-name }} agent on your VM.
 
-      In this example, a VM running on Windows Server 2022 is created:
+      In this example, we are creating a VM running Windows Server 2022:
 
       ```bash
       yc compute instance create \
@@ -132,7 +135,7 @@ You can back up {{ compute-name }} [VMs](../../compute/concepts/vm.md) with [sup
 
       Result:
 
-      ```bash
+      ```text
       done (46s)
       id: abcdho6nspdk********
       folder_id: wasdcjs6be29********
@@ -154,7 +157,7 @@ You can back up {{ compute-name }} [VMs](../../compute/concepts/vm.md) with [sup
 
 * [{#T}](connect-vm-windows.md)
 * [{#T}](connect-vm-linux.md)
-* [Attaching a VM to a backup policy](./policy-vm/update.md#update-vm-list)
+* [Linking a VM to a backup policy](./policy-vm/update.md#update-vm-list)
 * [{#T}](./backup-vm/recover.md)
 * [{#T}](./backup-vm/delete.md)
 * [{#T}](./policy-vm/create.md)

@@ -62,6 +62,6 @@ description: "Следуя данной инструкции, вы сможет�
 
 #### См. также {#see-also}
 
-* [{#T}](../../concepts/data-types.md#how-to-create-tree).
+* [{#T}](../../dataset/data-types.md#how-to-create-tree).
 
 {% include [clickhouse-disclaimer](../../../_includes/clickhouse-disclaimer.md) %}

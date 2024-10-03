@@ -10,6 +10,8 @@ editable: false
 
 {% include [use-calculator](../_includes/pricing/use-calculator.md) %}
 
+{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
+
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
 {% include [pricing-status.md](../_includes/mdb/pricing-status.md) %}
@@ -60,7 +62,7 @@ editable: false
 
 Стоимость использования кластера со следующими параметрами в течение 30 дней:
 
-* **Хосты {{ MG }}**: 3 хоста класса `s3-c2-m8`: Intel Ice Lake, 2 × 100% vCPU, 8 ГБ RAM в редакции `Community Edition`.
+* **Хосты {{ MG }}**: 3 хоста класса `s3-c2-m8`: Intel Ice Lake, 2 × 100% vCPU, 8 ГБ RAM.
 * **{{ ui-key.yacloud.mdb.forms.section_storage }}**: 100 ГБ на сетевых HDD-дисках.
 
 Расчет стоимости для хостов {{ MG }}:
@@ -100,12 +102,10 @@ editable: false
 
 ## Цены для региона Россия {#prices}
 
-
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 
-
-Все цены указаны с включением НДС.
+Все цены включают НДС.
 
 
 {% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}

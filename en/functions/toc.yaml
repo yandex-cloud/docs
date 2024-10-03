@@ -2,7 +2,7 @@ title: '{{ sf-full-name }}'
 href: index.yaml
 label:
   title: RU
-  description: The service is only available in the Russia region.
+  description: This service is only available in the Russia region.
   theme: unknown
   when: region == "kz"
 items:
@@ -52,7 +52,7 @@ items:
             href: operations/function/function-info.md
           - name: Getting information about a function version
             href: operations/function/version-info.md
-      - name: Managing rights to access functions
+      - name: Managing permissions to access a function
         items:
           - name: Making a function public
             href: operations/function/function-public.md
@@ -78,7 +78,7 @@ items:
             href: operations/function/function-invoke-async.md
           - name: Authenticating when invoking a private function via HTTPS
             href: operations/function/auth.md
-      - name: Managing functions
+      - name: Managing a function
         items:
           - name: Updating a function
             items:
@@ -98,7 +98,7 @@ items:
             href: operations/function/environment-variables-add.md
           - name: Specifying a cloud network
             href: operations/function/network-add.md
-          - name: Transmitting {{ lockbox-full-name }} secrets
+          - name: Transferring {{ lockbox-full-name }} secrets
             href: operations/function/lockbox-secret-transmit.md
           - name: Allocating memory for the /tmp directory
             href: operations/function/allocate-memory-tmp.md
@@ -108,7 +108,7 @@ items:
             items:
               - name: Adding a tag
                 href: operations/function/tag-add.md
-              - name: Removing a tag
+              - name: Deleting a tag
                 href: operations/function/tag-delete.md
           - name: Managing labels
             items:
@@ -160,7 +160,7 @@ items:
             href: operations/trigger/data-streams-trigger-create.md
           - name: Creating an email trigger
             href: operations/trigger/mail-trigger-create.md
-      - name: Managing triggers
+      - name: Managing a trigger
         items:
           - name: Updating a trigger
             href: operations/trigger/trigger-update.md
@@ -226,11 +226,11 @@ items:
             href: concepts/trigger/data-streams-trigger.md
           - name: Email trigger
             href: concepts/trigger/mail-trigger.md
-      - name: Dead letter queue
+      - name: Dead-letter queue
         href: concepts/dlq.md
       - name: Function logs
         href: concepts/logs.md
-      - name: Backups
+      - name: Backup
         href: concepts/backup.md
       - name: Quotas and limits
         href: concepts/limits.md
@@ -336,6 +336,30 @@ items:
         href: lang/java/errors.md
       - name: Using the SDK
         href: lang/java/sdk.md
+  - name: Developing in Kotlin
+    items:
+      - name: Overview
+        href: lang/kotlin/index.md
+      - name: Programming model
+        items:
+          - name: Overview
+            href: lang/kotlin/model/index.md
+          - name: Top-level function
+            href: lang/kotlin/model/top-level-function.md
+          - name: YcFunction interface
+            href: lang/kotlin/model/yc-function.md
+      - name: Managing dependencies
+        href: lang/kotlin/dependencies.md
+      - name: Request handler
+        href: lang/kotlin/handler.md
+      - name: Invocation context
+        href: lang/kotlin/context.md
+      - name: Logging
+        href: lang/kotlin/logging.md
+      - name: Handling errors
+        href: lang/kotlin/errors.md
+      - name: Using the SDK
+        href: lang/kotlin/sdk.md
   - name: Developing in R
     items:
       - name: Overview
@@ -386,8 +410,10 @@ items:
         href: tutorials/java-servlet-todo-list.md
       - name: Developing a skill for Alice and a website with authorization
         href: tutorials/alice-shareable-todolist.md
-      - name: Writing data from a device to Managed Service for PostgreSQL
+      - name: Writing data from a device to {{ mpg-short-name }}
         href: tutorials/data-recording.md
+      - name: Writing load balancer logs to {{ PG }}
+        href: tutorials/logging.md
       - name: Developing a Slack bot
         href: tutorials/slack-bot-serverless.md
       - name: Developing a Telegram bot
@@ -416,7 +442,7 @@ items:
         href: tutorials/regular-launch-datasphere.md
       - name: Interactive debugging of functions
         href: tutorials/serverless-live-debug.md
-      - name: Regular recognition of audio files in {{ objstorage-name }} buckets
+      - name: Regular recognition of audio files in an {{ objstorage-name }} bucket
         href: tutorials/batch-recognition-stt.md
       - name: Canary release of a {{ sf-name }} function
         href: tutorials/canary-release.md
@@ -426,6 +452,18 @@ items:
           Creating a trigger that invokes a function to stop VM instances and
           send a Telegram notification
         href: tutorials/serverless-trigger-budget-queue-vm-tg.md
+      - name: Scheduled scaling of instance groups
+        href: tutorials/vm-scale-scheduled.md
+      - name: Status monitoring of geographically distributed devices
+        href: tutorials/datalens.md
+      - name: Monitoring sensor readings and event notifications
+        href: tutorials/monitoring.md
+      - name: Emulating multiple IoT devices
+        href: tutorials/iot-emulation.md
+      - name: >-
+          Streaming {{ postbox-full-name }} events to {{ yds-full-name }} and
+          analyzing them using {{ datalens-full-name }}
+        href: tutorials/events-from-postbox-to-yds.md
   - name: Pricing policy
     href: pricing.md
   - name: Access management
@@ -548,6 +586,8 @@ items:
                 href: triggers/api-ref/Trigger/resume.md
               - name: update
                 href: triggers/api-ref/Trigger/update.md
+  - name: '{{ monitoring-name }} metrics'
+    href: metrics.md
   - name: '{{ at-name }} events'
     href: at-ref.md
   - name: Release notes

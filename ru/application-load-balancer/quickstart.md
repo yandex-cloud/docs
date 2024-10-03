@@ -1,7 +1,18 @@
 # Как начать работать с {{ alb-full-name }}
 
 
-С помощью этой инструкции вы создадите первый L7-балансировщик, подключите к нему целевую группу и настроите передачу трафика на бэкенд тестового приложения.
+{{ alb-full-name }} служит для распределения запросов по бэкендам ваших сетевых приложений и терминирования TLS-шифрования. {{ alb-name }} работает на 7-м уровне [модели OSI](https://ru.wikipedia.org/wiki/OSI_model) с протоколами HTTP и HTTPS.
+
+С помощью этой инструкции вы развернете инфраструктуру сервиса {{ alb-name }} и настроите передачу трафика на бэкенд тестового приложения.
+
+В инфраструктуру сервиса входят компоненты:
+
+* [Целевая группа](concepts/target-group.md).
+* [Группа бэкендов](concepts/backend-group.md).
+* [HTTP-роутер](concepts/http-router.md).
+* [L7-балансировщик](concepts/application-load-balancer.md).
+
+Ниже описано как создать каждый компонент по отдельности. Также вы можете [воспользоваться визардом](quickstart-wizard.md), чтобы создавать все компоненты на одной странице.
 
 ## Перед началом работы {#before-begin}
 
@@ -12,18 +23,7 @@
 
 ## Создайте ВМ и запустите на ней тестовый веб-сервер {#create-vm}
 
-1. [Создайте](../compute/operations/vm-create/create-linux-vm.md) виртуальную машину `test-vm1` в зоне доступности `{{ region-id }}-a`.
-1. [Подключитесь к ВМ](../compute/operations/vm-connect/ssh.md) и запустите на ней тестовый веб-сервер, который будет отвечать на запросы на порте `80`:
-
-    ```bash
-    sudo python3 -m http.server 80
-    ```
-
-1. Убедитесь, что веб-сервер возвращает список папок из каталога. В терминале вашего компьютера выполните:
-
-    ```bash
-    curl -v <публичный_IP-адрес_тестовой_ВМ>
-    ```
+{% include [create-web-server](../_includes/application-load-balancer/create-web-server.md) %}
 
 ## Создайте целевую группу {#create-target-group}
 
@@ -137,7 +137,7 @@
       ```bash
       yc alb virtual-host create test-virtual-host --http-router-name test-http-router
       ```
-  
+
   1. Добавьте маршрут:
 
       ```bash
@@ -163,10 +163,10 @@
   1. В меню слева выберите **{{ ui-key.yacloud.alb.label_load-balancers }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_load-balancer-create }}**.
   1. Введите имя балансировщика: `test-load-balancer`.
-  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите сеть, в подсетях которой будет размещаться узлы балансировщика.
-  1. В блоке **{{ ui-key.yacloud.alb.section_allocation-settings }}** выберите для узлов балансировщика подсети в разных [зонах доступности](../overview/concepts/geo-scope.md) и включите прием трафика в этих подсетях.
+  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите сеть, в подсети которой будет размещаться узел балансировщика.
+  1. В блоке **{{ ui-key.yacloud.alb.section_allocation-settings }}** выберите подсеть в одной [зоне доступности](../overview/concepts/geo-scope.md) и включите прием трафика в этой подсети.
 
-      Чтобы не создавать узел балансировщика в определенной зоне доступности, нажмите ![xmark](../_assets/console-icons/xmark.svg) в соответствующей строке.
+      Остальные зоны доступности удалите, нажав ![xmark](../_assets/console-icons/xmark.svg) в соответствующей строке.
 
 
   1. В блоке **{{ ui-key.yacloud.alb.label_listeners }}** нажмите кнопку **{{ ui-key.yacloud.alb.button_add-listener }}**. Задайте настройки обработчика:
@@ -203,9 +203,24 @@
 В терминале выполните следующую команду:
 
 ```bash
-curl -v <публичный_IP-адрес_балансировщика>:80
+curl --verbose <публичный_IP-адрес_балансировщика>:80
 ```
 
 В ответ должен вернуться HTTP-ответ с кодом `200` и список папок из каталога тестовой ВМ в HTML-разметке.
 
 После этого вы можете добавить другие виртуальные машины в целевую группу, создать новые бэкенды для вашего приложения и построить маршруты до их эндпоинтов.
+
+## Как удалить созданные ресурсы {#clear-out}
+
+Чтобы перестать платить за созданные ресурсы, удалите их в указанном порядке:
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. [Удалите](operations/application-load-balancer-delete.md) L7-балансировщик `test-load-balancer`.
+  1. [Удалите](operations/http-router-delete.md) HTTP-роутер `test-http-router`.
+  1. [Удалите](operations/backend-group-delete.md) группу бэкендов `test-backend-group`.
+  1. [Удалите](operations/target-group-delete.md) целевую группу `test-target-group`.
+   
+{% endlist %}

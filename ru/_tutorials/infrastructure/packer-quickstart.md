@@ -1,9 +1,9 @@
 # Начало работы с Packer
 
 
-Packer позволяет создавать [образы дисков виртуальных машин](../../compute/concepts/image.md) с заданными в конфигурационном файле параметрами. Руководство описывает создание образа диска с помощью Packer.
+[Packer](https://www.packer.io/) позволяет создавать [образы дисков виртуальных машин](../../compute/concepts/image.md) с заданными в конфигурационном файле параметрами. Руководство описывает создание образа диска в [{{ compute-full-name }}](../../compute/) с помощью Packer.
 
-Packer создаст и запустит виртуальную машину с ОС [Debian 11](/marketplace/products/yc/debian-11) из {{ marketplace-name }}, на которую будет установлен веб-сервер nginx. Затем ВМ будет удалена и будет создан образ ее загрузочного диска. После этого диск тоже будет удален.
+Packer создаст и запустит виртуальную машину с ОС [Debian 11](/marketplace/products/yc/debian-11) из {{ marketplace-name }}, на которую будет установлен веб-сервер [nginx](https://nginx.org/ru/). Затем ВМ будет удалена и будет создан образ ее загрузочного диска. После этого диск тоже будет удален.
 
 Чтобы создать образ:
 
@@ -15,9 +15,11 @@ Packer создаст и запустит виртуальную машину с
 
 Если созданный образ больше не нужен, [удалите его](#clear-out).
 
+
 ## Подготовьте облако к работе {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
+
 
 ### Настройте окружение и инфраструктуру {#prepare-environment}
 
@@ -36,55 +38,113 @@ Packer создаст и запустит виртуальную машину с
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость создания образа диска с помощью Packer входит:
+
 * плата за хранение созданных образов (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md#prices-storage));
 * плата за вычислительные ресурсы ВМ (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md#prices-instance-resources)).
 
 
 ## Установите и настройте Packer {#install-packer}
 
-{% note info %}
+{% note warning %}
 
 Для работы с {{ yandex-cloud }} требуется Packer версии не ниже 1.5.
 
+Избегайте установки Packer с помощью популярных пакетных менеджеров, например Homebrew или APT. В их репозиториях могут быть размещены устаревшие версии.
+
 {% endnote %}
+
+Вы можете установить Packer [из зеркала](#from-y-mirror) или [с сайта HashiCorp](#from-hashicorp-site).
+
 
 ### Из зеркала {#from-y-mirror}
 
-Вы можете скачать дистрибутив Packer для вашей платформы из [зеркала](https://hashicorp-releases.yandexcloud.net/packer/). После загрузки добавьте путь к папке, в которой находится исполняемый файл, в переменную `PATH`: 
-
-```bash
-export PATH=$PATH:/path/to/packer
-```
-
-{% cut "Пример установки Packer из зеркала" %}
+Установите дистрибутив Packer для вашей платформы из [зеркала](https://hashicorp-releases.yandexcloud.net/packer/):
 
 {% list tabs group=operating_system %}
 
-- Ubuntu {#ubuntu}
+- Linux {#linux}
 
-  1. Скачайте дистрибутив Packer из зеркала и распакуйте в директорию `packer`:
+  1. Скачайте дистрибутив Packer из [зеркала](https://hashicorp-releases.yandexcloud.net/packer/) и распакуйте в директорию `packer`:
 
       ```bash
       mkdir packer
-      wget https://hashicorp-releases.yandexcloud.net/packer/1.10.3/packer_1.10.3_linux_amd64.zip -P ~/packer
-      unzip ~/packer/packer_1.10.3_linux_amd64.zip -d ~/packer
+      wget https://hashicorp-releases.yandexcloud.net/packer/1.11.2/packer_1.11.2_linux_amd64.zip -P ~/packer
+      unzip ~/packer/packer_1.11.2_linux_amd64.zip -d ~/packer
       ```
 
-  1. Отредактируйте файл `~/.profile`:
+      В примере указана версия `1.11.2`, актуальную версию Packer см. в [зеркале](https://hashicorp-releases.yandexcloud.net/packer/).
 
-      1. Откройте файл:
+  1. Добавьте Packer в переменную `PATH`: 
+
+      1. Добавьте в файл `.profile` строку:
 
           ```bash
-          nano ~/.profile
-          ```
-
-      1. Добавьте в файл строку:
-
-          ```
           export PATH="$PATH:/home/<имя_пользователя>/packer"
           ```
 
-      1. Сохраните изменения: нажмите клавиши **Ctrl** + **X** (**Cmd** + **X**), затем **Y** (`Yes`).
+      1. Сохраните изменения.
+
+      1. Перезапустите оболочку:
+
+          ```bash
+          exec -l $SHELL
+          ```
+
+  1. Убедитесь, что Packer установлен:
+
+      ```bash
+      packer --version
+      ```
+
+      Результат:
+      
+      ```text
+      Packer v1.11.2
+      ```
+
+
+- Windows {#windows}
+
+  1. Создайте папку `packer`.
+  1. Скачайте дистрибутив Packer из [зеркала](https://hashicorp-releases.yandexcloud.net/packer/) и распакуйте в папку `packer`.
+  1. Добавьте папку `packer` в переменную `PATH`:
+
+      1. Нажмите кнопку **Пуск** и в строке поиска Windows введите **Изменение системных переменных среды**.
+      1. Справа снизу нажмите кнопку **Переменные среды...**.
+      1. В открывшемся окне найдите параметр `PATH` и нажмите **Изменить**.
+      1. Добавьте путь до папки `packer` в список.
+      1. Нажмите кнопку **ОК**.
+
+  1. Запустите новую сессию командной строки и убедитесь, что Packer установлен:
+
+      ```bash
+      packer --version
+      ```
+
+      Результат:
+      
+      ```text
+      Packer v1.11.2
+      ```
+
+- macOS {#macos}
+
+  1. Скачайте дистрибутив Packer из [зеркала](https://hashicorp-releases.yandexcloud.net/packer/) и распакуйте в директорию `packer`:
+
+      ```bash
+      mkdir packer
+      curl -L -o ~/packer/packer_1.11.2_darwin_amd64.zip https://hashicorp-releases.yandexcloud.net/packer/1.11.2/packer_1.11.2_darwin_amd64.zip
+      unzip ~/packer/packer_1.11.2_darwin_amd64.zip -d ~/packer
+      ```
+
+      В примере указана версия `1.11.2`, актуальную версию Packer см. в [зеркале](https://hashicorp-releases.yandexcloud.net/packer/).
+
+  1. Добавьте Packer в переменную `PATH`: 
+
+      ```bash
+      echo 'export PATH="$PATH:$HOME/<имя_пользователя>/packer"' >> ~/.bash_profile
+      source ~/.bash_profile
+      ```
 
   1. Перезапустите оболочку:
 
@@ -92,20 +152,32 @@ export PATH=$PATH:/path/to/packer
       exec -l $SHELL
       ```
 
+  1. Убедитесь, что Packer установлен:
+
+      ```bash
+      packer --version
+      ```
+
+      Результат:
+      
+      ```text
+      Packer v1.11.2
+      ```
+
 {% endlist %}
 
-{% endcut %}
 
 ### С сайта HashiCorp {#from-hashicorp-site}
 
 Скачайте и установите дистрибутив Packer по [инструкции на официальном сайте](https://www.packer.io/intro/getting-started/install.html#precompiled-binaries).
+
 
 ### Настройте плагин Yandex Compute Builder {#configure-plugin}
 
 Чтобы настроить [плагин](https://developer.hashicorp.com/packer/plugins/builders/yandex):
 
 1. Создайте файл `config.pkr.hcl` со следующим содержанием:
-    
+
     ```hcl
     packer {
       required_plugins {
@@ -116,7 +188,7 @@ export PATH=$PATH:/path/to/packer
       }
     }
     ```
-    
+
 1. Установите плагин:
 
     ```bash
@@ -131,10 +203,10 @@ export PATH=$PATH:/path/to/packer
 
 ## Подготовьте конфигурацию образа {#prepare-image-config}
 
-1. Подготовьте идентификатор каталога, выполнив команду `yc config list`.
-1. Подготовьте идентификатор подсети, выполнив команду `yc vpc subnet list`. 
+1. [Узнайте](../../resource-manager/operations/folder/get-id.md) идентификатор каталога.
+1. [Узнайте](../../vpc/operations/subnet-get-info.md) идентификатор подсети.
+1. Подготовьте идентификатор подсети, выполнив команду `yc vpc subnet list`.
 1. Создайте JSON-файл с любым именем, например, `image.json`. Запишите туда следующую конфигурацию:
-
 
     ```json
     {
@@ -174,7 +246,7 @@ export PATH=$PATH:/path/to/packer
 
     Где:
     * `token` — OAuth-токен для аккаунта на Яндексе или IAM-токен для федеративного аккаунта.
-    * `folder_id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id), в котором будет создана ВМ и ее образ.
+    * `folder_id` — идентификатор каталога, в котором будет создана ВМ и ее образ.
     * `subnet_id` — идентификатор подсети, в которой будет создана ВМ и ее образ.
 
 {% include [warning-provisioner-metadata](../../_includes/tutorials/infrastructure-management/warning-provisioner-metadata.md) %}
@@ -182,22 +254,60 @@ export PATH=$PATH:/path/to/packer
 Подробнее о параметрах конфигурации образа см. в [документации Yandex Compute Builder](https://www.packer.io/docs/builders/yandex).
 
 
-
 ## Создайте образ {#create-image}
 
-Запустите сборку образа с указанными в конфигурации параметрами:
+1. Запустите сборку образа с указанными в конфигурации параметрами:
 
-```
-packer build image.json
-```
+    ```bash
+    packer build image.json
+    ```
+
+1. Дождитесь завершения сборки:
+
+    ```bash
+    ...
+    ==> Wait completed after 2 minutes 43 seconds
+    ==> Builds finished. The artifacts of successful builds are:
+    --> yandex: A disk image was created: debian-11-nginx-2024-08-26t15-30-39z (id: fd82d63b9bgc********) with family name debian-web-server
+    ```
+
 
 ## Проверьте созданный образ {#check-image}
 
 Убедитесь, что образ создан:
 
-1. Перейдите в [консоль управления]({{ link-console-main }}).
-1. Выберите сервис **{{ compute-short-name }}**.
-1. Откройте раздел **Образы**. Убедитесь, что там появился новый образ диска.
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. Перейдите в [консоль управления]({{ link-console-main }}).
+  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. Откройте раздел ![image](../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.compute.switch_images }}**. Убедитесь, что там появился новый образ диска.
+
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  Выполните команду:
+
+  ```bash
+  yc compute image list
+  ```
+
+  Результат:
+
+  ```text
+  +----------------------+--------------------------------------+-------------------+----------------------+--------+
+  |          ID          |                 NAME                 |      FAMILY       |     PRODUCT IDS      | STATUS |
+  +----------------------+--------------------------------------+-------------------+----------------------+--------+
+  | fd82d63b9bgc******** | debian-11-nginx-2024-08-26t15-30-39z | debian-web-server | f2eerqfup7lg******** | READY  |
+  +----------------------+--------------------------------------+-------------------+----------------------+--------+
+  ```
+
+{% endlist %}
+
 
 ### Удалите созданные ресурсы {#clear-out}
 

@@ -60,13 +60,13 @@
   
   1. В поле **{{ ui-key.yacloud_org.entity.federation.field.issuer }}** скопируйте ссылку, указанную в поле **Идентификатор объекта** на странице **Сведения о поставщике услуг идентификации Google** в Google Workspace. Формат ссылки:
 
-      ```
+      ```text
       https://accounts.google.com/o/saml2?idpid=<идентификатор_SAML-приложения>
       ```
 
   1. В поле **{{ ui-key.yacloud_org.entity.federation.field.ssoUrl }}** скопируйте ссылку, указанную в поле **URL системы единого входа** на странице **Сведения о поставщике услуг идентификации Google** в Google Workspace. Формат ссылки:
 
-      ```
+      ```text
       https://accounts.google.com/o/saml2/idp?idpid=<идентификатор_SAML-приложения>
       ```
       {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
@@ -85,7 +85,7 @@
 
     1. Посмотрите описание команды создания федерации:
 
-        ```
+        ```bash
         yc organization-manager federation saml create --help
         ```
 
@@ -119,7 +119,7 @@
 
             Используйте ссылку, которая указана в поле **Идентификатор объекта** на странице **Сведения о поставщике услуг идентификации Google** в Google Workspace. Это ссылка в формате:
 
-            ```
+            ```text
             https://accounts.google.com/o/saml2?idpid=<идентификатор_SAML-приложения>
             ```
 
@@ -127,7 +127,7 @@
 
             Используйте ссылку, указанную в поле **URL Системы единого входа** на странице **Сведения о поставщике услуг идентификации Google** в Google Workspace. Формат ссылки:
 
-            ```
+            ```text
             https://accounts.google.com/o/saml2/idp?idpid=<идентификатор_SAML-приложения>
             ```
 
@@ -151,16 +151,16 @@
 
             Используйте ссылку, указанную в поле **Идентификатор объекта** на странице **Сведения о поставщике услуг идентификации Google** в Google Workspace. Формат ссылки:
 
-            ```
+            ```text
             https://accounts.google.com/o/saml2?idpid=<идентификатор_SAML-приложения>
             ```
-        
+
         * `sso_binding` — укажите тип привязки для Single Sign-on. Большинство поставщиков поддерживают тип привязки `POST`.
         * `sso_url` — URL-адрес страницы, на которую браузер должен перенаправить пользователя для аутентификации.
 
             Скопируйте сюда ссылку, указанную в поле **URL Системы единого входа** на странице **Сведения о поставщике услуг идентификации Google** в Google Workspace. Формат ссылки:
 
-            ```
+            ```text
             https://accounts.google.com/o/saml2/idp?idpid=<идентификатор_SAML-приложения>
             ```
 
@@ -179,7 +179,7 @@
 
      Пример структуры конфигурационного файла:
 
-     ```
+     ```hcl
      resource "yandex_organizationmanager_saml_federation" federation {
       name            = "my-federation"
       organization_id = "<идентификатор_организации>"
@@ -198,7 +198,7 @@
      1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
      1. Выполните проверку с помощью команды:
 
-        ```
+        ```bash
         $ terraform plan
         ```
 
@@ -208,7 +208,7 @@
 
      1. Если в конфигурации нет ошибок, выполните команду:
 
-        ```
+        ```bash
         $ terraform apply
         ```
 
@@ -252,14 +252,14 @@
 
             Используйте ссылку, указанную в поле **Идентификатор объекта** на странице **Сведения о поставщике услуг идентификации Google** в Google Workspace. Формат ссылки:
 
-            ```
+            ```text
             https://accounts.google.com/o/saml2?idpid=<идентификатор_SAML-приложения>
             ```
         * `ssoUrl` — URL-адрес страницы, на которую браузер должен перенаправить пользователя для аутентификации.
 
             Скопируйте сюда ссылку, указанную в поле **URL Системы единого входа** на странице **Сведения о поставщике услуг идентификации Google** в Google Workspace. Формат ссылки:
 
-            ```
+            ```text
             https://accounts.google.com/o/saml2/idp?idpid=<идентификатор_SAML-приложения>
             ```
 
@@ -305,13 +305,13 @@
 
   1. Посмотрите описание команды добавления сертификата:
 
-      ```
+      ```bash
       yc organization-manager federation saml certificate create --help
       ```
 
   1. Добавьте сертификат для федерации, указав путь к файлу сертификата:
 
-      ```
+      ```bash
       yc organization-manager federation saml certificate create --federation-id <ID_федерации> \
         --name "my-certificate" \
         --certificate-file certificate.pem
@@ -364,7 +364,7 @@
     * В полях **URL ACS** и **Идентификатор объекта** введите ACS URL, на который пользователи будут перенаправляться после аутентификации:
 
       
-      ```
+      ```text
       https://{{ auth-host }}/federations/<ID_федерации>
       ```
 
@@ -473,13 +473,13 @@
 
   1. Посмотрите описание команды добавления пользователей:
 
-      ```
+      ```bash
       yc organization-manager federation saml add-user-accounts --help
       ```
 
   1. Добавьте пользователей, перечислив их Name ID через запятую:
 
-      ```
+      ```bash
       yc organization-manager federation saml add-user-accounts --id <ID_федерации> \
         --name-ids=alice@example.com,bob@example.com,charlie@example.com
       ```
@@ -525,7 +525,7 @@
 
 1. Перейдите по URL для входа в консоль:
 
-   ```
+   ```text
    {{ link-console-main }}/federations/<ID_федерации>
    ```
 

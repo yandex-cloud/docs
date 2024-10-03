@@ -254,7 +254,7 @@
 
      Результат:
 
-     ```yaml
+     ```text
      id: b09bhaokchn9********
      folder_id: aoek49ghmknn********
      created_at: "2023-03-21T10:03:37.475Z"
@@ -291,7 +291,7 @@
 
      Результат:
 
-     ```yaml
+     ```text
      done (1s)
      id: d4e6qqlh53nu********
      function_id: d4emc80mnp5n********
@@ -452,7 +452,7 @@
 
      Результат:
 
-     ```yaml
+     ```text
      done (5s)
      id: d5d1ud9bli1e********
      folder_id: b1gc1t4cb638********

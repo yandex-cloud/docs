@@ -1,12 +1,16 @@
 ---
-title: "Pricing for {{ vision-name }}"
+title: "{{ vision-name }} pricing policy"
 description: "This article describes {{ vision-short-name }} pricing."
 editable: false
 ---
 
-# {{ vision-name }} pricing
+# {{ vision-name }} pricing policy
 
 
+
+{% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
+
+{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
 ## What goes into the cost of using {{ vision-short-name }} {#rules}
 
@@ -19,6 +23,8 @@ Each successful request for image recognition performed using any [recognition m
 * Only successful analysis attempts are chargeable. You will not be charged if the server returned an error or the request configuration was incorrect.
 
 ## Prices for the Russia region {#prices}
+
+{% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 
 

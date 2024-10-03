@@ -63,15 +63,7 @@ items:
           - name: Задания MapReduce
             href: operations/jobs-mapreduce.md
       - name: Кластеры {{ metastore-name }}
-        items:
-          - name: Создание кластера {{ metastore-name }}
-            href: operations/metastore/cluster-create.md
-          - name: Подключение {{ dataproc-name }} к {{ metastore-name }}
-            href: operations/metastore/dataproc-connect.md
-          - name: Экспорт и импорт кластера {{ metastore-name }}
-            href: operations/metastore/export-and-import.md
-          - name: Удаление кластера {{ metastore-name }}
-            href: operations/metastore/cluster-delete.md
+        href: operations/metastore/cluster-create.md
       - name: Логи и мониторинг
         items:
           - name: Работа с логами
@@ -90,6 +82,16 @@ items:
     items:
       - name: Все руководства
         href: tutorials/index.md
+      - name: Сетевые настройки и обслуживание кластера
+        items:
+          - name: Настройка сети для {{ dataproc-name }}
+            href: tutorials/configure-network.md
+          - name: Миграция кластера с HDFS в другую зону доступности
+            href: tutorials/hdfs-cluster-migration.md
+          - name: >-
+              Переключение сетевого соединения при пересоздании кластера {{
+              dataproc-name }}
+            href: tutorials/reconnect-network.md
       - name: Работа с заданиями
         items:
           - name: Обзор
@@ -108,42 +110,42 @@ items:
             href: tutorials/run-spark-job.md
           - name: Запуск заданий с удаленного хоста
             href: tutorials/remote-run-job.md
-      - name: Настройка сети для {{ dataproc-name }}
-        href: tutorials/configure-network.md
-      - name: Миграция кластера с HDFS в другую зону доступности
-        href: tutorials/hdfs-cluster-migration.md
-      - name: >-
-          Переключение сетевого соединения при пересоздании кластера {{
-          dataproc-name }}
-        href: tutorials/reconnect-network.md
-      - name: Использование {{ objstorage-full-name }} в {{ dataproc-name }}
-        href: tutorials/copy-files-from-object-storage.md
-      - name: Обмен данными с {{ mch-full-name }}
-        href: tutorials/exchange-data-with-mch.md
-      - name: Импорт данных из кластера {{ mmy-full-name }} с помощью Sqoop
-        href: tutorials/sqoop-mmy.md
-      - name: Импорт данных из кластера {{ mpg-full-name }} с помощью Sqoop
-        href: tutorials/sqoop-mpg.md
-      - name: >-
-          Использование скриптов инициализации для настройки GeeseFS в {{
-          dataproc-name }}
-        href: tutorials/geesefs-init-actions.md
-      - name: Интеграция с сервисом {{ ml-platform-full-name }}
-        href: tutorials/datasphere-integration.md
-      - name: Работа с топиками {{ KF }} с помощью PySpark-заданий
-        href: tutorials/kafka.md
-      - name: >-
-          Импорт данных из {{ objstorage-full-name }}, обработка и экспорт в {{
-          mch-full-name }}
-        href: tutorials/s3-dataproc-ch.md
-      - name: Автоматизация работы с помощью {{ maf-name }}
-        href: tutorials/airflow-automation.md
-      - name: Совместная работа с таблицами с использованием {{ metastore-name }}
-        href: tutorials/dataproc-to-dataproc.md
-      - name: >-
-          Перенос метаданных между кластерами {{ dataproc-name }} с помощью {{
-          metastore-name }}
-        href: tutorials/metastore-import.md
+      - name: Интеграция {{ dataproc-name }} с другими сервисами
+        items:
+          - name: '{{ objstorage-name }}'
+            items:
+              - name: Использование {{ objstorage-name }} в {{ dataproc-name }}
+                href: tutorials/copy-files-from-object-storage.md
+              - name: >-
+                  Импорт данных из {{ objstorage-name }}, обработка и экспорт в
+                  {{ mch-name }}
+                href: tutorials/s3-dataproc-ch.md
+              - name: >-
+                  Монтирование бакетов к файловой системе хостов {{
+                  dataproc-name }}
+                href: tutorials/geesefs-init-actions.md
+          - name: '{{ metastore-full-name }}'
+            items:
+              - name: >-
+                  Совместная работа с таблицами с использованием {{
+                  metastore-name }}
+                href: tutorials/dataproc-to-dataproc.md
+              - name: >-
+                  Перенос метаданных между кластерами {{ dataproc-name }} с
+                  помощью {{ metastore-name }}
+                href: tutorials/metastore-import.md
+          - name: Обмен данными с {{ mch-name }}
+            href: tutorials/exchange-data-with-mch.md
+          - name: Импорт данных из кластера {{ mmy-name }} с помощью Sqoop
+            href: tutorials/sqoop-mmy.md
+          - name: Импорт данных из кластера {{ mpg-name }} с помощью Sqoop
+            href: tutorials/sqoop-mpg.md
+          - name: Интеграция с сервисом {{ ml-platform-name }}
+            href: tutorials/datasphere-integration.md
+          - name: Работа с топиками {{ KF }} с помощью PySpark-заданий
+            href: tutorials/kafka.md
+          - name: Автоматизация работы с помощью {{ maf-name }}
+            href: tutorials/airflow-automation.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса

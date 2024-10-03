@@ -88,9 +88,10 @@
   1. Отправьте запрос нейросети с помощью метода [ImageGenerationAsync.generate](../image-generation/api-ref/ImageGenerationAsync/generate.md), выполнив команду:
 
      ```bash
-     curl --request POST \
-       -H "Authorization: Bearer <значение_IAM-токена>" \
-       -d "@prompt.json" \
+     curl \
+       --request POST \
+       --header "Authorization: Bearer <значение_IAM-токена>" \
+       --data "@prompt.json" \
        "https://llm.{{ api-host }}/foundationModels/v1/imageGenerationAsync"  
      ```
 
@@ -109,7 +110,11 @@
   1. Генерация изображения занимает некоторое время. Подождите 10 секунд и отправьте запрос, чтобы получить результат генерации. Если изображение готово, результат вернется в [кодировке Base64](https://en.wikipedia.org/wiki/Base64) и будет записан в файл `image.jpeg`.
   
      ```bash
-     curl -X GET -H "Authorization: Bearer <значение_IAM-токена>" https://llm.api.cloud.yandex.net:443/operations/<идентификатор_запроса> | jq -r '.response | .image' | base64 -d > image.jpeg
+     curl \
+       --request GET \
+       --header "Authorization: Bearer <значение_IAM-токена>" \
+       https://llm.api.cloud.yandex.net:443/operations/<идентификатор_запроса> | \
+       jq -r '.response | .image' | base64 -d > image.jpeg
      ```
 
      Где:

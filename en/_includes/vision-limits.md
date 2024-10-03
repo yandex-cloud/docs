@@ -11,6 +11,7 @@
 
 | Type of limit | Value |
 ----- | -----
+| Period for storing recognition results on the server | 3 days |
 | Maximum file size for the [OCR API](../vision/ocr/api-ref/index.md) | {{ ocr-max-filesize }} |
 | Maximum image size | 20 MP (length × width) |
 | Maximum number of pages in a PDF file when using the [OCR API in asynchronous mode](../vision/ocr/api-ref/TextRecognitionAsync/index.md) | 200 |

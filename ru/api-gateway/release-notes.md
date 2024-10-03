@@ -1,4 +1,19 @@
+---
+title: "История изменений в {{ api-gw-full-name }}"
+description: "В разделе представлена история изменений сервиса {{ api-gw-name }}."
+---
+
 # История изменений в {{ api-gw-full-name }}
+
+## Август 2024 {#august-2024}
+
+### Обновления {#updates}
+
+* Добавлена поддержка [интеграции с {{ yagpt-name }}](operations/spec-constructor/yagpt.md).
+* Добавлена поддержка [интеграции с {{ sws-full-name }}](concepts/extensions/sws.md).
+* Добавлена поддержка расширений:
+    * `x-yc-status-mapping` — [замена кода ответа](concepts/extensions/status-mapping.md);
+    * `x-yc-schema-mapping` — [преобразование тела ответа и запроса](concepts/extensions/schema-mapping.md).
 
 ## Июль 2024 {#july-2024}
 

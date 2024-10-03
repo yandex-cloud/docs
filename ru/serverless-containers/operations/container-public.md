@@ -19,13 +19,13 @@
 
     Чтобы сделать контейнер публичным, выполните команду:
 
-    ```
+    ```bash
     yc serverless container allow-unauthenticated-invoke <имя_контейнера>
     ```
 
     Результат:
 
-    ```
+    ```text
     done (1s)
     ```
 

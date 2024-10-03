@@ -5,6 +5,8 @@ description: "На странице представлен список поша
 
 # Пошаговые инструкции для {{ cdn-name }}
 
+* [{#T}](./enable-provider.md)
+
 ## Ресурсы {#resources}
 
 * [{#T}](resources/create-resource.md)
@@ -20,6 +22,7 @@ description: "На странице представлен список поша
 * [{#T}](resources/enable-compression.md)
 * [{#T}](resources/enable-segmentation.md)
 * [{#T}](resources/enable-shielding.md)
+* [{#T}](resources/setup-http-rewrite.md)
 * [{#T}](resources/enable-secure-token.md)
 * [{#T}](resources/configure-additions.md)
 * [{#T}](resources/disable-resource.md)

@@ -20,6 +20,7 @@ description: "Из статьи вы узнаете, как задать нас�
 1. {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
     * [Миграция кластера {{ CH }}](../../../tutorials/managed-clickhouse.md);
     * [Перераспределение данных по шардам](../../../tutorials/mch-mch-resharding.md).
+    * [{#T}](../../../tutorials/opensearch-to-clickhouse.md)
 
 1. {% include [queue](../../../../_includes/data-transfer/scenario-captions/queue.md) %}
     * [Поставка данных из {{ KF }} в {{ CH }}](../../../tutorials/mkf-to-mch.md);
@@ -56,6 +57,12 @@ description: "Из статьи вы узнаете, как задать нас�
 
 Полный список поддерживаемых источников и приемников в {{ data-transfer-full-name }} см. в разделе [Доступные трансферы](../../../transfer-matrix.md).
 
+{% note info %}
+
+В {{ CH }} есть ограничения на диапазон дат. Наличие в базе-источнике неподдерживаемых дат может привести к [ошибке](#date-range) и остановке трансфера.
+
+{% endnote %}
+
 ## Подготовка базы данных приемника {#prepare}
 
 {% include [prepare db](../../../../_includes/data-transfer/endpoints/targets/clickhouse-prepare.md) %}
@@ -83,19 +90,19 @@ description: "Из статьи вы узнаете, как задать нас�
 
 - Консоль управления {#console}
 
-    {% include [Managed ClickHouse UI](../../../../_includes/data-transfer/necessary-settings/ui/managed-clickhouse.md) %}
+    {% include [Managed ClickHouse UI](../../../../_includes/data-transfer/necessary-settings/ui/managed-clickhouse-target.md) %}
 
 - CLI {#cli}
 
     * Тип эндпоинта — `clickhouse-target`.
 
-    {% include [Managed ClickHouse CLI](../../../../_includes/data-transfer/necessary-settings/cli/managed-clickhouse.md) %}
+    {% include [Managed ClickHouse CLI](../../../../_includes/data-transfer/necessary-settings/cli/managed-clickhouse-target.md) %}
 
 - {{ TF }} {#tf}
 
     * Тип эндпоинта — `clickhouse_target`.
 
-    {% include [Managed ClickHouse Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/managed-clickhouse.md) %}
+    {% include [Managed ClickHouse Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/managed-clickhouse-target.md) %}
 
     Пример структуры конфигурационного файла:
 
@@ -105,6 +112,7 @@ description: "Из статьи вы узнаете, как задать нас�
       name = "<имя_эндпоинта>"
       settings {
         clickhouse_target {
+          clickhouse_cluster_name="<группа_шардов>"
           security_groups = ["<список_идентификаторов_групп_безопасности>"]
           subnet_id       = "<идентификатор_подсети>"
           connection {
@@ -128,7 +136,7 @@ description: "Из статьи вы узнаете, как задать нас�
 
 - API {#api}
 
-    {% include [Managed ClickHouse API](../../../../_includes/data-transfer/necessary-settings/api/managed-clickhouse.md) %}
+    {% include [Managed ClickHouse API](../../../../_includes/data-transfer/necessary-settings/api/managed-clickhouse-target.md) %}
 
 {% endlist %}
 
@@ -146,13 +154,13 @@ description: "Из статьи вы узнаете, как задать нас�
 
     * Тип эндпоинта — `clickhouse-target`.
 
-    {% include [Managed ClickHouse CLI](../../../../_includes/data-transfer/necessary-settings/cli/on-premise-clickhouse.md) %}
+    {% include [Managed ClickHouse CLI](../../../../_includes/data-transfer/necessary-settings/cli/on-premise-clickhouse-target.md) %}
 
 - {{ TF }} {#tf}
 
     * Тип эндпоинта — `clickhouse_target`.
 
-    {% include [On premise ClickHouse Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/on-premise-clickhouse.md) %}
+    {% include [On premise ClickHouse Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/on-premise-clickhouse-target.md) %}
 
     Пример структуры конфигурационного файла:
 
@@ -162,6 +170,7 @@ description: "Из статьи вы узнаете, как задать нас�
       name = "<имя_эндпоинта>"
       settings {
         clickhouse_target {
+          clickhouse_cluster_name="<имя_кластера>"
           security_groups = ["<список_идентификаторов_групп_безопасности>"]
           subnet_id       = "<идентификатор_подсети>"
           connection {
@@ -197,7 +206,7 @@ description: "Из статьи вы узнаете, как задать нас�
 
 - API {#api}
 
-    {% include [On premise ClickHouse API](../../../../_includes/data-transfer/necessary-settings/api/on-premise-clickhouse.md) %}
+    {% include [On premise ClickHouse API](../../../../_includes/data-transfer/necessary-settings/api/on-premise-clickhouse-target.md) %}
 
 {% endlist %}
 
@@ -216,8 +225,6 @@ description: "Из статьи вы узнаете, как задать нас�
     * {% include [flush_interval](../../../../_includes/data-transfer/fields/clickhouse/ui/flush-interval.md) %}
 
 - CLI {#cli}
-
-    * {% include [cluster-name](../../../../_includes/data-transfer/fields/clickhouse/cli/cluster-name.md) %}
 
     * {% include [alt-name](../../../../_includes/data-transfer/fields/clickhouse/cli/alt-name.md) %}
 
@@ -241,8 +248,6 @@ description: "Из статьи вы узнаете, как задать нас�
 
     * {% include [cleanup_policy](../../../../_includes/data-transfer/fields/clickhouse/terraform/cleanup-policy.md) %}
 
-    * {% include [clickhouse_cluster_name](../../../../_includes/data-transfer/fields/clickhouse/terraform/clickhouse-cluster-name.md) %}
-
     * {% include [alt_names](../../../../_includes/data-transfer/fields/clickhouse/terraform/alt-names.md) %}
 
     * Настройки [шардирования](../../../../managed-clickhouse/concepts/sharding.md) данных:
@@ -265,8 +270,6 @@ description: "Из статьи вы узнаете, как задать нас�
 
     * {% include [sharding](../../../../_includes/data-transfer/fields/clickhouse/api/sharding.md) %}
 
-    * {% include [clickhouseClusterName](../../../../_includes/data-transfer/fields/clickhouse/api/clickhouse-cluster-name.md) %}
-
 {% endlist %}
 
 После настройки источника и приемника данных [создайте и запустите трансфер](../../transfer.md#create).
@@ -275,11 +278,14 @@ description: "Из статьи вы узнаете, как задать нас�
 
 * [Не добавляются новые таблицы](#no-new-tables)
 * [Не переносятся данные](#no-transfer)
+* [Неподдерживаемый диапазон дат](#date-range)
 
 См. полный список рекомендаций в разделе [Решение проблем](../../../troubleshooting/index.md).
 
 {% include [no-new-tables](../../../../_includes/data-transfer/troubles/no-new-tables-mch.md) %}
 
 {% include [table-names](../../../../_includes/data-transfer/troubles/table-names.md) %}
+
+{% include [date-range](../../../../_includes/data-transfer/troubles/date-range.md) %}
 
 {% include [clickhouse-disclaimer](../../../../_includes/clickhouse-disclaimer.md) %}

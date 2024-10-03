@@ -19,7 +19,13 @@
 
 #### 5.1 Включен сервис {{ at-full-name }} на уровне организации {#audit-trails}
 
-Основным инструментом сбора логов уровня {{ yandex-cloud }} является сервис [{{ at-full-name }}](../../../audit-trails/concepts/index.md). Сервис позволяет собирать аудитные логи о происходящих с ресурсами {{ yandex-cloud }} событиях и загружать эти логи в бакет {{ objstorage-full-name }} или лог-группу {{ cloud-logging-name }} для дальнейшего анализа или экспорта. См. [инструкцию](../../../audit-trails/quickstart.md), как запустить сбор логов, а также [формат](../../../audit-trails/concepts/format.md) и [справочник](../../../audit-trails/concepts/events.md) событий.
+Основным инструментом сбора логов уровня {{ yandex-cloud }} является сервис [{{ at-full-name }}](../../../audit-trails/concepts/index.md). Сервис позволяет собирать аудитные логи о происходящих с ресурсами {{ yandex-cloud }} событиях и загружать эти логи в бакет {{ objstorage-full-name }} или лог-группу {{ cloud-logging-name }} для дальнейшего анализа или экспорта. См. [инструкцию](../../../audit-trails/quickstart.md), как запустить сбор логов.
+
+Аудитные логи {{ at-name }} могут содержать два разных типа событий: [события уровня конфигурации](../../../audit-trails/concepts/events.md) и [события уровня сервисов](../../../audit-trails/concepts/events-data-plane.md).
+
+К [событиям уровня конфигурации](../../../audit-trails/concepts/format.md) относятся действия, связанные с конфигурированием ресурсов {{ yandex-cloud }}, такие как создание, изменение или удаление компонентов инфраструктуры, пользователей или политик. К [событиям уровня сервисов](../../../audit-trails/concepts/format-data-plane.md) относятся изменения и действия, которые происходят с данными и ресурсами внутри сервисов {{ yandex-cloud }}. По умолчанию {{ at-name }} не регистрирует события уровня сервисов. [Включать](../../../audit-trails/quickstart.md#the-trail-creation) сбор аудитных логов уровня сервисов нужно отдельно для каждого из поддерживаемых сервисов.
+
+Подробнее см. в разделе [{#T}](../../../audit-trails/concepts/control-plane-vs-data-plane.md).
 
  Для сбора метрик, анализа некоторых событий уровня {{ yandex-cloud }} и настройки оповещений рекомендуется использовать сервис [{{ monitoring-full-name }}](../../../monitoring/).  С его помощью возможно отслеживать, например, резкое возрастание нагрузки на {{ compute-name }}, RPS сервиса {{ alb-name }}, значительные изменения в статистике событий сервиса {{ iam-name }}.
 
@@ -66,7 +72,8 @@
 Вы также можете анализировать аудит логи вручную, если у вас отсутствует SIEM система, одним из следующих образов (в порядке удобства):
 
 * [поиск](../../../audit-trails/tutorials/query.md) событий {{ yandex-cloud }} в {{ yq-full-name }};
-* [загрузка](../../../audit-trails/tutorials/logs-analysis.md) аудитных логов в {{ mch-full-name }} и визуализация данных в {{ datalens-full-name }};
+
+
 * [поиск](../../../audit-trails/tutorials/search-cloud-logging.md) событий {{ yandex-cloud }} в {{ cloud-logging-name }};
 * [поиск](../../../audit-trails/tutorials/search-bucket.md) событий {{ yandex-cloud }} в {{ objstorage-name }}.
 
@@ -152,5 +159,36 @@ C помощью {{ sf-full-name }} можно настроить оповеще
 - Ручная проверка {#manual}
 
   Выполните проверку вручную.
+
+{% endlist %}
+
+#### 5.8 Отслеживаются события уровня сервисов {#data-plane-events}
+
+[Аудитный лог событий уровня сервисов](../../../audit-trails/concepts/format-data-plane.md) — это запись о событиях, которые произошли с ресурсами {{ yandex-cloud }}, в форме JSON-объекта. Благодаря отслеживанию событий уровня сервисов вам будет проще собирать дополнительные события с облачных сервисов, что позволит эффективнее реагировать на инциденты безопасности в облаках. Кроме того, отслеживание событий уровня сервисов поможет обеспечить соответствие вашей облачной инфраструктуры нормативным правовым актам и отраслевым стандартам. Например, вы можете отслеживать получение сотрудниками доступа к конфиденциальным данным, хранящимся в [бакетах](../../../storage/concepts/bucket.md).
+
+{% list tabs group=instructions %}
+
+- Проверка в консоли управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором расположен [трейл](../../../audit-trails/concepts/trail.md).
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
+  1. Выберите нужный трейл.
+  1. Убедитесь, что на странице с информацией о трейле в блоке **{{ ui-key.yacloud.audit-trails.label_event-filter-section }}** указаны все сервисы, для которых вы хотите собирать логи уровня сервисов, и для каждого указанного сервиса задана нужная [область сбора](../../../audit-trails/concepts/trail.md#collecting-area) аудитных логов.
+
+      Список поддерживаемых сервисов:
+
+      * [{{ dns-full-name }}](#dns)
+      * [{{ compute-full-name }}](#compute)
+      * [{{ iam-full-name }}](#iam)
+      * [{{ kms-full-name }}](#kms)
+      * [{{ lockbox-full-name }}](#lockbox)
+      * [{{ mmg-full-name }}](#mmg)
+      * [{{ mmy-full-name }}](#mmy)
+      * [{{ mpg-full-name }}](#mpg)
+      * [{{ objstorage-full-name }}](#objstorage)
+      * [{{ speechsense-full-name }}](#speechsense)
+      * [{{ sws-full-name }}](#sws)
+      * [{{ wiki-full-name }}](#wiki)
+      * [{{ websql-full-name }}](#websql)
 
 {% endlist %}

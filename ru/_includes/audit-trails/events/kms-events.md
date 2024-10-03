@@ -10,14 +10,14 @@
 `DeleteSymmetricKey` | Удаление симметричного ключа
 `RotateSymmetricKey` | Ротация симметричного ключа
 `ScheduleSymmetricKeyVersionDestruction` | Назначение срока уничтожения версии симметричного ключа
-`SetAsymmetricEncryptionKeyAccessBindings` | Выбор привязок прав доступа для асимметричной ключевой пары шифрования
-`SetAsymmetricSignatureKeyAccessBindings` | Выбор привязок прав доступа для ключевой пары электронной подписи
+`SetAsymmetricEncryptionKeyAccessBindings` | Назначение прав доступа для асимметричной ключевой пары шифрования
+`SetAsymmetricSignatureKeyAccessBindings` | Назначение прав доступа для ключевой пары электронной подписи
 `SetPrimarySymmetricKeyVersion` | Выбор основной версии симметричного ключа
-`SetSymmetricKeyAccessBindings` | Выбор привязок прав доступа для симметричного ключа
+`SetSymmetricKeyAccessBindings` | Назначение прав доступа для симметричного ключа
 `UpdateAsymmetricEncryptionKey` | Изменение асимметричной ключевой пары шифрования
 `UpdateAsymmetricSignatureKey` | Изменение ключевой пары электронной подписи
 `UpdateSymmetricKey` | Изменение симметричного ключа
-`UpdateSymmetricKeyAccessBindings` | Изменение привязок прав доступа для симметричного ключа
-`UpdateAsymmetricEncryptionKeyAccessBindings` | Изменение привязок прав доступа для асимметричной ключевой пары шифрования
+`UpdateSymmetricKeyAccessBindings` | Изменение прав доступа для симметричного ключа
+`UpdateAsymmetricEncryptionKeyAccessBindings` | Изменение прав доступа для асимметричной ключевой пары шифрования
 `asymmetricencryption.CancelAsymmetricEncryptionKeyDeletion` | Отмена удаления асимметричной ключевой пары шифрования
 `asymmetricsignature.CancelAsymmetricSignatureKeyDeletion` | Отмена удаления ключевой пары электронной подписи

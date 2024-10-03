@@ -37,7 +37,7 @@ description: "Follow this guide to revoke the roles assigned to a function."
       ```
       done (1s)
       ```
-   * All authorized users (`{{ subjects-allAuthenticatedUsers }}` system group):
+   * All authorized users (the [All authenticated users](../../../iam/concepts/access-control/public-group.md) `public group`):
       ```
       yc serverless function remove-access-binding \
         --id <function_ID> \

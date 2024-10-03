@@ -11,9 +11,10 @@ description: "На странице представлен список поша
 - [Создание кластера](cluster-create.md)
 - [Изменение настроек кластера](cluster-update.md)
 - [{#T}](cluster-version-update.md)
+- [{#T}](storage-space.md)
 - [Остановка и запуск кластера](cluster-stop.md)
 - [Получение списка хостов кластера](cluster-hosts.md)
-- [{#T}](host-migration.md)
+- [Миграция хостов кластера в другую зону доступности](host-migration.md)
 - [Удаление кластера](cluster-delete.md)
 
 ## Подключение к кластеру {#connect}

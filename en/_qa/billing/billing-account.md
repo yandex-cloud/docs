@@ -39,11 +39,11 @@ You cannot change a billing account type once it is created, but you can [create
 
 {% include [change-payment-method](../../billing/_includes/change-payment-method.md) %}
 
-#### How can I change my payment details or the delivery address? {#change-email} 
+#### How can I change my payment details or the delivery address? {#change-email}
 
 {% include [change-address](../../billing/_includes/change-address.md) %}
 
-#### I received no email with instructions on what to do after creating a billing account with the {{ ui-key.yacloud_billing_account.cloud-billing-account.payment-type_label_invoice }} payment method. Why? {#account-notification} 
+#### I received no email with instructions on what to do after creating a billing account with the {{ ui-key.yacloud_billing_account.cloud-billing-account.payment-type_label_invoice }} payment method. Why? {#account-notification}
 
 It may take up to three business days to activate your billing account.
 If you did not receive an email within that period, send a request to: [{{ billing-docs-email }}](mailto:{{ billing-docs-email }}).
@@ -94,4 +94,11 @@ Yes, you can.
 
 {% include [account-in-organization](../../_includes/billing/pay-resouces-of-another-organization.md) %}
 
-For more information, refer to [Managing a billing account in an organization](../../billing/concepts/organization.md).
+See [Managing a billing account in an organization](../../billing/concepts/organization.md).
+
+#### How do I stop using the platform and delete my billing account? {#delete-account}
+
+
+Delete all [clouds](../../resource-manager/concepts/resources-hierarchy.md#cloud), [folders](../../resource-manager/concepts/resources-hierarchy.md#folder), and resources within them, pay off the existing arrears, and select **{{ ui-key.yacloud_billing.billing.account.dashboard.label_inactivation }}** on the billing account page in [**{{ billing-name }}**]({{ link-console-billing }}). For more information, see [{#T}](../../billing/operations/delete-account.md).
+
+

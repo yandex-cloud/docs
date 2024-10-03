@@ -31,7 +31,7 @@ OAuth-токен недоступен для федеративных польз
 
 Эти сервисы и утилиты могут запрашивать IAM-токен автоматически, поэтому для аутентификации можно указывать только OAuth-токен:
 * [{{ yandex-cloud }} CLI](../../../cli/quickstart.md#initialize)
-* [{{ container-registry-full-name }}](../../../container-registry/operations/authentication.md#user-oauth)
+* [{{ container-registry-full-name }}](../../../container-registry/operations/authentication.md#user)
 * [{{ TF }}](../../../tutorials/infrastructure-management/terraform-quickstart.md)
 * [Packer](../../../tutorials/infrastructure-management/packer-quickstart.md)
 * [{{ GL }} CI](../../../tutorials/testing/ci-for-snapshots.md)

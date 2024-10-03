@@ -57,7 +57,7 @@
 
      Результат:
 
-     ```yaml
+     ```text
      id: ajeab0cnib1p********
      folder_id: b0g12ga82bcv********
      created_at: "2022-03-15T09:44:35.989446Z"
@@ -141,7 +141,7 @@
 
      Результат:
 
-     ```yaml
+     ```text
      id: enpabce123hd********
      folder_id: b0g12ga82bcv********
      created_at: "2022-03-15T09:55:50.004472Z"
@@ -160,7 +160,7 @@
 
      Результат:
 
-     ```yaml
+     ```text
      id: e1lnabc23r1c********
      folder_id: b0g12ga82bcv********
      created_at: "2022-03-15T09:56:51.859345Z"
@@ -183,7 +183,7 @@
 
      Результат:
 
-     ```yaml
+     ```text
      id: b1csa2b3clid********
      folder_id: b0g12ga82bcv********
      created_at: "2022-03-15T09:57:48.934429Z"
@@ -258,7 +258,7 @@
 
        Результат:
 
-       ```yaml
+       ```text
        id: ajeab0cnib1p********
        ```
 
@@ -272,7 +272,7 @@
 
        Результат:
 
-       ```yaml
+       ```text
        id: enpabce123hd********
        ```
 
@@ -286,7 +286,7 @@
 
        Результат:
 
-       ```yaml
+       ```text
        id: e1lnabc23r1c********
        ```
 
@@ -300,7 +300,7 @@
 
        Результат:
 
-       ```yaml
+       ```text
        id: b1csa2b3clid********
        ```
 
@@ -314,7 +314,7 @@
 
      Результат:
 
-     ```yaml
+     ```text
      id: fd83n3uou8m0********
      ```
 
@@ -505,7 +505,7 @@
 
   Результат:
 
-  ```yaml
+  ```text
   id: a1s22pb0v5i4********
   folder_id: b1g9hv2loamq********
   created_at: "2022-04-06T14:56:54.253709098Z"
@@ -548,7 +548,7 @@
 
   Результат:
 
-  ```yaml
+  ```text
   id: cl1l0ljqbmkp********
   folder_id: b1g9hv2loamq********
   created_at: "2022-03-28T13:24:20.693Z"

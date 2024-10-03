@@ -54,6 +54,10 @@ items:
           Добавить публичное соединение в прямое или партнерское транковое
           подключение
         href: operations/pub-add.md
+  - name: Практические руководства
+    items:
+      - name: Интеграция с корпоративным сервисом DNS
+        href: tutorials/dns-integration.md
   - name: Правила тарификации
     href: pricing.md
   - name: История изменений

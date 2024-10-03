@@ -9,9 +9,11 @@ description: "Метод copyPart в {{ objstorage-name }} API (S3) копиру
 
 Имеет такую же функциональность, как и [{#T}](uploadpart.md), только данные передаются не в теле запроса, а копируются из существующего объекта.
 
+{% include [s3-api-intro-include](../../../../_includes/storage/s3-api-intro-include.md) %}
+
 ## Запрос {#request}
 
-```
+```http
 PUT /{bucket}/{key}?partNumber=PartNumber&uploadId=UploadId HTTP/2
 ```
 
@@ -76,7 +78,7 @@ PUT /{bucket}/{key}?partNumber=PartNumber&uploadId=UploadId HTTP/2
 
 ### Схема данных {#response-scheme}
 
-```
+```xml
 <CopyObjectResult>
    <LastModified>2019-02-15T14:32:00</LastModified>
    <ETag>"9bgh7535f2734ec974343yuc93985328"</ETag>

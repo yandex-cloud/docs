@@ -13,56 +13,44 @@ description: "Следуя данной инструкции, вы сможет�
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) откройте [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана ВМ.
-  1. Справа сверху нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана ВМ.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
 
-  1. В открывшемся списке выберите **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
-
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
-     * Введите имя ВМ. Требования к имени:
-
-        {% include [name-format](../../../_includes/name-format.md) %}
-
-     * Выберите [зону доступности](../../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите публичный [образ](../../concepts/image.md) с программным обеспечением, которое хотите использовать.
-  1. (Опционально) Если вы хотите добавить к ВМ дополнительные [диски](../../concepts/disk.md), [выберите их](../vm-create/create-from-disks.md) в блоке **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** на вкладке **{{ ui-key.yacloud.compute.instances.create.section_disk }}**.
+  1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
+  1. (Опционально) В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** настройте загрузочный [диск](../../concepts/disk.md):
 
-  
+      * Выберите [тип диска](../../concepts/disk.md#disks_types).
+      * Задайте нужный размер диска.
 
-  1. (Опционально) Если вы хотите подключить к ВМ дополнительные [файловые хранилища](../../concepts/filesystem.md), подключите их в блоке **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** на вкладке **{{ ui-key.yacloud.compute.nfs.label_filesystems }}**. Предварительно необходимо [создать](../filesystem/create.md) хранилища.
-
+  1. {% include [section-storages-secondary-disk](../../../_includes/compute/create/section-storages-secondary-disk.md) %}
+  1. {% include [section-storages-filesystem](../../../_includes/compute/create/section-storages-filesystem.md) %}
+  1. {% include [section-platform](../../../_includes/compute/create/section-platform.md) %}
 
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
-     * Выберите [платформу](../../concepts/vm-platforms.md).
-     * Укажите [гарантированную долю](../../concepts/performance-levels.md) и необходимое количество vCPU и объем RAM.
+      {% note info %}
 
-     {% note info %}
+      Каждый публичный образ имеет свои минимальные системные требования к ВМ. Например, для образа [{{ GL }}](/marketplace/products/yc/gitlab) из {{ marketplace-full-name }} требуется не меньше 4 виртуальных ядер и 8 ГБ оперативной памяти.
 
-     Каждый публичный образ имеет свои минимальные системные требования к ВМ. Например, для образа [{{ GL }}](/marketplace/products/yc/gitlab) из {{ marketplace-full-name }} требуется не меньше 4 виртуальных ядер и 8 ГБ оперативной памяти.
+      {% endnote %}
 
-     {% endnote %}
+  1. {% include [network-settings](../../../_includes/compute/create/section-network.md) %}
+  1. {% include [section-access](../../../_includes/compute/create/section-access.md) %}
 
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
+      {% note info %}
 
-     {% include [network-settings](../../../_includes/compute/network-settings.md) %}
+      Собственные SSH-ключи на ВМ с включенным доступом по OS Login передавайте через [метаданные](../../concepts/vm-metadata.md#how-to-send-metadata).
 
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** укажите данные для доступа на ВМ:
-     * (Опционально) Выберите или создайте [сервисный аккаунт](../../../iam/concepts/index.md#sa). Использование сервисного аккаунта позволяет гибко настраивать права доступа к ресурсам.
-     * (Опционально) [Включите доступ к ВМ по OS Login](../vm-connect/os-login.md). Опция доступна для образов Linux из [{{ marketplace-name }}](/marketplace), которые содержат `OS Login` в названии.
-     * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя.
-     * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** вставьте содержимое файла [публичного ключа](../vm-connect/ssh.md#creating-ssh-keys).
+      {% endnote %}
 
-       {% note info %}
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ:
 
-       Собственные SSH-ключи на ВМ с включенным доступом по OS Login передавайте через [метаданные](../../concepts/vm-metadata.md#how-to-send-metadata).
+      {% include [name-format](../../../_includes/name-format.md) %}
 
-       {% endnote %}
+      {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
 
-     * (Опционально) При необходимости в поле **{{ ui-key.yacloud.compute.instances.create.field_access-advanced }}** разрешите доступ к [серийной консоли](../index.md#serial-console).
-     * Если вы хотите добавить на ВМ одновременно нескольких пользователей с SSH-ключами, [задайте](../../concepts/vm-metadata.md#how-to-send-metadata) данные этих пользователей в блоке **{{ ui-key.yacloud.common.metadata }}**.
-
-     {% include [vm-connect-linux](../../../_includes/vm-connect-linux.md) %}
-
+  1. {% include [section-additional](../../../_includes/compute/create/section-additional.md) %}
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
   Создание ВМ занимает несколько минут. Когда ВМ перейдет в статус `RUNNING`, переходите к [настройке программного обеспечения](setup.md). Следить за статусами ВМ можно в списке ВМ каталога.

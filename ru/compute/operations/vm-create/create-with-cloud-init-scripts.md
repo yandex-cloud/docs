@@ -27,12 +27,12 @@ description: "Следуя данной инструкции, вы сможет�
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
-  1. Задайте нужные параметры ВМ.
+  1. [Задайте](create-linux-vm.md) нужные параметры ВМ.
   1. Раскройте блок **{{ ui-key.yacloud.common.metadata }}** и в появившихся полях укажите:
 
       * **{{ ui-key.yacloud_billing.component.key-values-input.label_key }}** — `user-data`.
       * **{{ ui-key.yacloud_billing.component.key-values-input.label_value }}** — конфигурация `cloud-config` в формате YAML. Примеры конфигурации для `user-data` см. в подразделе [Примеры](#examples).
-      
+
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
 - CLI {#cli}
@@ -346,4 +346,5 @@ description: "Следуя данной инструкции, вы сможет�
 * [Создание группы виртуальных машин с подключением к файловому хранилищу](../instance-groups/create-with-filesystem.md)
 * [Создание группы виртуальных машин с подключением к {{ objstorage-full-name }}](../instance-groups/create-with-bucket.md)
 * [Восстановление работоспособности сетевых интерфейсов ВМ](../../qa/troubleshooting.md#unable-to-connect-to-new-multi-interface-vm)
-* [{#T}](../../../tutorials/archive/vm-with-backup-policy.md)
+* [{#T}](../../../tutorials/archive/vm-with-backup-policy/index.md)
+* [Установка агента для сбора метрик и логов {{ unified-agent-short-name }}](../../../monitoring/concepts/data-collection/unified-agent/installation.md#setup)

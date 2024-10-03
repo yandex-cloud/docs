@@ -40,7 +40,6 @@ description: "Страница содержит все инструкции дл
 * [{#T}](projects/snippets.md)
 * [{#T}](projects/clear-outputs.md)
 * [{#T}](projects/work-with-git.md)
-* [{#T}](user-images-cell.md)
 * [{#T}](projects/templates.md)
 * [{#T}](projects/remote-connect.md)
 
@@ -80,6 +79,7 @@ description: "Страница содержит все инструкции дл
 * [{#T}](projects/authentication.md)
 * [{#T}](projects/work-with-jobs.md)
 * [{#T}](projects/jobs-toolkit.md)
+* [{#T}](projects/use-job-results.md)
 
 ## Совместный доступ к ресурсам, проектам и результатам вычислений {#share}
 

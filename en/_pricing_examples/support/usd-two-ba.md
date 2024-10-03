@@ -5,7 +5,7 @@ An organization with the Business service plan activated pays for resources from
 
 The fixed amount will only be paid by one of the accounts, e.g., Account 1.
 
-The support charge will be calculated as follows:
+The cost of support will be:
 
 * $24.00 + $400.00 * 0.05 = $44.00 for Account 1.
 * $80.00 * 0.05 = $4.00 for Account 2.

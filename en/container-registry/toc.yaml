@@ -2,7 +2,7 @@ title: Yandex Container Registry
 href: index.yaml
 label:
   title: KZ
-  description: The service is available in Kazakhstan.
+  description: This service is only available in the Kazakhstan region.
   theme: info
   when: region == "kz"
 items:
@@ -12,6 +12,8 @@ items:
     items:
       - name: All guides
         href: operations/index.md
+      - name: Installing and configuring Docker
+        href: operations/configure-docker.md
       - name: Authentication in {{ container-registry-name }}
         href: operations/authentication.md
       - name: Managing a Docker image
@@ -26,7 +28,7 @@ items:
             href: operations/docker-image/docker-image-pull.md
           - name: Deleting a Docker image from a registry
             href: operations/docker-image/docker-image-delete.md
-      - name: Managing Helm charts
+      - name: Managing a Helm chart
         items:
           - name: Getting information about available Helm charts
             href: operations/helm-chart/helm-chart-list.md
@@ -96,18 +98,25 @@ items:
             href: tutorials/run-docker-on-vm/terraform.md
       - name: Setting up automatic scanning of a Docker image
         href: tutorials/image-auto-scan.md
+        hidden: true
       - name: Signing and verifying Docker images in {{ managed-k8s-name }}
         href: tutorials/sign-with-cosign.md
       - name: >-
           Scanning vulnerabilities during continuous deployment of {{
           managed-k8s-name }} applications using {{ GL }}
         href: tutorials/cr-scanner-with-k8s-and-gitlab.md
+      - name: Continuous deployment of containerized applications using {{ GL }}
+        href: tutorials/gitlab-containers.md
       - name: Building a CI/CD pipeline in {{ GL }} using serverless products
         href: tutorials/ci-cd-serverless.md
       - name: Storing Docker images created in {{ mgl-full-name }} projects
         href: tutorials/image-storage.md
       - name: Connecting to {{ container-registry-name }} from {{ vpc-short-name }}
         href: tutorials/vpc-cr-access.md
+      - name: Configuring a fault-tolerant architecture in {{ yandex-cloud }}
+        href: tutorials/fault-tolerance.md
+      - name: Running external agents for load testing
+        href: tutorials/loadtesting-external-agent.md
   - name: Concepts
     items:
       - name: Overview
@@ -126,7 +135,7 @@ items:
         href: concepts/vulnerability-scanner.md
       - name: '{{ sf-name }} trigger'
         href: concepts/trigger.md
-      - name: Backups
+      - name: Backup
         href: concepts/backup.md
       - name: Quotas and limits
         href: concepts/limits.md

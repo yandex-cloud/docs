@@ -9,7 +9,7 @@ sourcePath: ru/tracker/api-ref/concepts/issues/delete-checklist-item.md
 
 Чтобы удалить пункт чеклиста из задачи, используйте HTTP-запрос с методом `DELETE`:
 
-```
+```http
 DELETE /{{ ver }}/issues/<ключ_или_идентификатор_задачи>/checklistItems/<идентификатор_пункта_чеклиста>
 Host: {{ host }}
 Authorization: OAuth <OAuth-токен>

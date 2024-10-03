@@ -127,15 +127,90 @@ description: "Из статьи вы узнаете, как изменить н�
 
       {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
 
-- API {#api}
+- REST API {#api}
 
-  Чтобы изменить класс хостов для кластера, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) и передайте в запросе:
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-  * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор кластера, [получите список кластеров в каталоге](./cluster-list.md#list-clusters).
-  * Идентификатор класса хоста в параметре `configSpec.resources.resourcePresetId`. Список поддерживаемых значений запрашивайте методом [list](../api-ref/ResourcePreset/list.md) для ресурсов `ResourcePreset`.
-  * Список настроек, которые необходимо изменить (в данном случае — `configSpec.resources.resourcePresetId`), в параметре `updateMask`.
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+  1. Воспользуйтесь методом [Cluster.update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+     {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
+
+     ```bash
+     curl \
+       --request PATCH \
+       --header "Authorization: Bearer $IAM_TOKEN" \
+       --header "Content-Type: application/json" \
+       --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<идентификатор_кластера>' \
+       --data '{
+                 "updateMask": "configSpec.resources.resourcePresetId",
+                 "configSpec": {
+                   "resources": {
+                     "resourcePresetId": "<класс_хостов>"
+                   }
+                 }
+               }'
+     ```
+
+     Где:
+
+     * `updateMask` — перечень изменяемых параметров в одну строку через запятую.
+
+       В данном случае передается только один параметр.
+
+     * `configSpec.resources.resourcePresetId` — новый [класс хостов](../concepts/instance-types.md).
+
+     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#responses).
+
+- gRPC API {#grpc-api}
+
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Воспользуйтесь вызовом [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+     {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+     ```bash
+     grpcurl \
+       -format json \
+       -import-path ~/cloudapi/ \
+       -import-path ~/cloudapi/third_party/googleapis/ \
+       -proto ~/cloudapi/yandex/cloud/mdb/postgresql/v1/cluster_service.proto \
+       -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+       -d '{
+             "cluster_id": "<идентификатор_кластера>",
+             "update_mask": {
+               "paths": [
+                 "config_spec.resources.resource_preset_id"
+               ]
+             },
+             "config_spec": {
+               "resources": {
+                 "resource_preset_id": "<класс_хостов>"
+               }
+             }
+           }' \
+       {{ api-host-mdb }}:{{ port-https }} \
+       yandex.cloud.mdb.postgresql.v1.ClusterService.Update
+     ```
+
+     Где:
+
+     * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
+
+       В данном случае передается только один параметр.
+
+     * `config_spec.resources.resource_preset_id` — новый [класс хостов](../concepts/instance-types.md).
+
+     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/cluster_service.md#Cluster3).
 
 {% endlist %}
 
@@ -226,19 +301,113 @@ description: "Из статьи вы узнаете, как изменить н�
 
         {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
 
-- API {#api}
+- REST API {#api}
 
-    Чтобы изменить настройки сервера {{ PG }}, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) и передайте в запросе:
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-    * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор кластера, [получите список кластеров в каталоге](./cluster-list.md#list-clusters).
-    * Нужные значения настроек в параметре `configSpec.postgresqlConfig_<версия_{{ PG }}>`.
-    * Список настроек, которые необходимо изменить, в параметре `updateMask`.
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+  1. Воспользуйтесь методом [Cluster.update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+     {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
+
+     ```bash
+     curl \
+       --request PATCH \
+       --header "Authorization: Bearer $IAM_TOKEN" \
+       --header "Content-Type: application/json" \
+       --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<идентификатор_кластера>' \
+       --data '{
+                 "updateMask": "configSpec.postgresqlConfig_<версия_{{ PG }}>.<настройка_1>,...,configSpec.postgresqlConfig_<версия_{{ PG }}>.<настройка_N>",
+                 "configSpec": {
+                   "postgresqlConfig_<версия_{{ PG }}>": {
+                     "<настройка_1>": "<значение_1>",
+                     "<настройка_2>": "<значение_2>",
+                     ...
+                     "<настройка_N>": "<значение_N>"
+                   }
+                 }
+               }'
+     ```
+
+     Где:
+
+     * `updateMask` — перечень изменяемых параметров в одну строку через запятую.
+
+       В данном случае перечислите все изменяемые настройки {{ PG }}.
+
+     * `configSpec.postgresqlConfig_<версия_{{ PG }}>` — набор настроек {{ PG }}. Укажите каждую настройку на отдельной строке через запятую.
+
+       Список версий {{ PG }}, доступных для параметра, см. в [описании метода](../api-ref/Cluster/update.md#body_params). Описание и возможные значения настроек см. в разделе [{#T}](../concepts/settings-list.md#dbms-cluster-settings).
+
+     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#responses).
+
+- gRPC API {#grpc-api}
+
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Воспользуйтесь вызовом [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+     {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+     ```bash
+     grpcurl \
+       -format json \
+       -import-path ~/cloudapi/ \
+       -import-path ~/cloudapi/third_party/googleapis/ \
+       -proto ~/cloudapi/yandex/cloud/mdb/postgresql/v1/cluster_service.proto \
+       -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+       -d '{
+             "cluster_id": "<идентификатор_кластера>",
+             "update_mask": {
+               "paths": [
+                 "config_spec.postgresql_config_<версия_{{ PG }}>.<настройка_1>",
+                 "config_spec.postgresql_config_<версия_{{ PG }}>.<настройка_2>",
+                 ...,
+                 "config_spec.postgresql_config_<версия_{{ PG }}>.<настройка_N>"
+               ]
+             },
+             "config_spec": {
+               "postgresql_config_<версия_{{ PG }}>": {
+                 "<настройка_1>": "<значение_1>",
+                 "<настройка_2>": "<значение_2>",
+                 ...
+                 "<настройка_N>": "<значение_N>"
+               }
+             }
+           }' \
+       {{ api-host-mdb }}:{{ port-https }} \
+       yandex.cloud.mdb.postgresql.v1.ClusterService.Update
+     ```
+
+     Где:
+
+     * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
+
+       В данном случае перечислите все изменяемые настройки {{ PG }}.
+
+     * `config_spec.postgresql_config_<версия_{{ PG }}>` — набор настроек {{ PG }}. Укажите каждую настройку на отдельной строке через запятую.
+
+       Список версий {{ PG }}, доступных для параметра, см. в [описании метода](../api-ref/grpc/cluster_service.md#ConfigSpec1). Описание и возможные значения настроек см. в разделе [{#T}](../concepts/settings-list.md#dbms-cluster-settings).
+
+     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/cluster_service.md#Cluster3).
 
 {% endlist %}
 
 ## Изменить дополнительные настройки кластера {#change-additional-settings}
+
+{% note warning %}
+
+Изменение дополнительных настроек приведет к перезапуску кластера. Исключением являются настройки окна обслуживания и защиты от удаления.
+
+{% endnote %}
 
 {% list tabs group=instructions %}
 
@@ -418,38 +587,243 @@ description: "Из статьи вы узнаете, как изменить н�
 
       {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
 
-- API {#api}
+- REST API {#api}
 
-    Чтобы изменить дополнительные настройки кластера, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) и передайте в запросе:
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-    * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор кластера, [получите список кластеров в каталоге](./cluster-list.md#list-clusters).
-    * Настройки доступа из других сервисов в параметре `configSpec.access`.
-    * Настройки окна резервного копирования в параметре `configSpec.backupWindowStart`.
-    * [Режим работы менеджера подключений](../concepts/pooling.md) в параметре `configSpec.poolerConfig.poolingMode`.
-    * Настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров) в параметре `maintenanceWindow`.
-    * Настройки защиты от удаления кластера, его баз данных и пользователей в параметре `deletionProtection`: `true` или `false`.
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-        По умолчанию при создании пользователей и БД значение параметра наследуется от кластера. Значение также можно задать вручную, подробнее см. в разделах [Управление пользователями](cluster-users.md) и [Управление БД](databases.md).
-        
+  1. Воспользуйтесь методом [Cluster.update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+     {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
+
+     
+     ```bash
+     curl \
+       --request PATCH \
+       --header "Authorization: Bearer $IAM_TOKEN" \
+       --header "Content-Type: application/json" \
+       --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<идентификатор_кластера>' \
+       --data '{
+                 "updateMask": "configSpec.poolerConfig,configSpec.backupWindowStart,configSpec.backupRetainPeriodDays,configSpec.access,configSpec.performanceDiagnostics.sessionsSamplingInterval,configSpec.performanceDiagnostics.statementsSamplingInterval,maintenanceWindow,deletionProtection",
+                 "configSpec": {
+                   "poolerConfig": {
+                     "poolingMode": "<режим_управления_соединениями>",
+                     "poolDiscard": <сброс_состояния_клиентов_после_каждой_транзакции:_true_или_false>
+                   },
+                   "backupWindowStart": {
+                     "hours": "<часы>",
+                     "minutes": "<минуты>",
+                     "seconds": "<секунды>",
+                     "nanos": "<наносекунды>"
+                   },
+                   "backupRetainPeriodDays": "<количество_дней>",
+                   "access": {
+                     "dataLens": <доступ_к_{{ datalens-name }}:_true_или_false>,
+                     "webSql": <доступ_к_{{ websql-name }}:_true_или_false>,
+                     "serverless": <доступ_к_Cloud_Functions:_true_или_false>,
+                     "dataTransfer": <доступ_к_Data_Transfer:_true_или_false>,
+                     "yandexQuery": <доступ_к_{{ yq-name }}:_true_или_false>
+                   },
+                   "performanceDiagnostics": {
+                     "enabled": <активация_сбора_статистики:_true_или_false>,
+                     "sessionsSamplingInterval": "<интервал_сбора_сессий>",
+                     "statementsSamplingInterval": "<интервал_сбора_запросов>"
+                   }
+                 },
+                 "maintenanceWindow": {
+                   "weeklyMaintenanceWindow": {
+                     "day": "<день_недели>",
+                     "hour": "<час>"
+                   }
+                 },
+                 "deletionProtection": <защита_от_удаления:_true_или_false>
+               }'
+     ```
+
+
+     Где:
+
+     * `updateMask` — перечень изменяемых параметров в одну строку через запятую.
+     * `configSpec` — настройки кластера:
+
+       * `poolerConfig` — настройки менеджера подключений:
+
+         * `poolingMode` — режим работы менеджера подключений. Возможные значения: `SESSION`, `TRANSACTION` и `STATEMENT`. Подробнее о каждом режиме читайте в разделе [{#T}](../concepts/pooling.md).
+         * `poolDiscard` — должны ли клиенты терять свое состояние после каждой транзакции. Соответствует параметру [server_reset_query_always](https://www.pgbouncer.org/config.html) для менеджера подключений [PgBouncer](https://www.pgbouncer.org/usage).
+
+       * `backupWindowStart` — настройки окна [резервного копирования](../concepts/backup.md).
+
+         В параметре укажите время, когда начинать резервное копирование. Возможные значения параметров:
+
+         * `hours` — от `0` до `23` часов;
+         * `minutes` — от `0` до `59` минут;
+         * `seconds` — от `0` до `59` секунд;
+         * `nanos` — от `0` до `999999999` наносекунд.
+
+       * `backupRetainPeriodDays` — сколько дней хранить резервную копию кластера. Возможные значения: от `7` до `60` дней.
+
+       
+       * `access` — настройки доступа кластера к следующим сервисам {{ yandex-cloud }}:
+
+         * `dataLens` — [{{ datalens-full-name }}](../../datalens/index.yaml);
+         * `webSql` — [{{ websql-full-name }}](../../websql/index.yaml);
+         * `serverless` — [{{ sf-full-name }}](../../functions/index.yaml);
+         * `dataTransfer` — [{{ data-transfer-full-name }}](../../data-transfer/index.yaml);
+         * `yandexQuery` — [{{ yq-full-name }}](../../query/index.yaml).
+
+
+       * `performanceDiagnostics` — настройки для [сбора статистики](performance-diagnostics.md#activate-stats-collector):
+
+         * `enabled` — активация сбора статистики.
+         * `sessionsSamplingInterval` — интервал сбора сессий. Возможные значения: от `1` до `86400` секунд.
+         * `statementsSamplingInterval` — интервал сбора запросов. Возможные значения: от `60` до `86400` секунд.
+
+     * `maintenanceWindow` — настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров). В `maintenanceWindow` передайте один из двух параметров:
+
+       * `anytime` — техническое обслуживание происходит в любое время.
+       * `weeklyMaintenanceWindow` — техническое обслуживание происходит раз в неделю, в указанное время:
+
+         * `day` — день недели в формате `DDD`;
+         * `hour` — час в формате `HH`. Возможные значения: от `1` до `24` часов.
+
+     * `deletionProtection` — защита от удаления кластера, его баз данных и пользователей.
+
+       По умолчанию при создании пользователей и БД значение параметра наследуется от кластера. Значение также можно задать вручную, подробнее см. в разделах [Управление пользователями](cluster-users.md) и [Управление БД](databases.md).
+
         Если параметр изменен на работающем кластере, новое значение унаследуют только пользователи и БД с защитой **Как у кластера**.
 
         {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-    * Список изменяемых полей конфигурации кластера в параметре `updateMask`.
+     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#responses).
 
-        
-    Чтобы разрешить доступ к кластеру из сервиса [{{ sf-full-name }}](../../functions/concepts/index.md), передайте значение `true` для параметра `configSpec.access.serverless`. Подробнее о настройке доступа см. в документации [{{ sf-name }}](../../functions/operations/database-connection.md).
+- gRPC API {#grpc-api}
 
-    Чтобы разрешить доступ к кластеру из сервиса [{{ yq-full-name }}](../../query/index.yaml), передайте значение `true` для параметра `configSpec.access.yandexQuery`. Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md) и предоставляется по запросу.
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Воспользуйтесь вызовом [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+     {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+     
+     ```bash
+     grpcurl \
+       -format json \
+       -import-path ~/cloudapi/ \
+       -import-path ~/cloudapi/third_party/googleapis/ \
+       -proto ~/cloudapi/yandex/cloud/mdb/postgresql/v1/cluster_service.proto \
+       -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+       -d '{
+             "cluster_id": "<идентификатор_кластера>",
+             "update_mask": {
+               "paths": [
+                 "config_spec.pooler_config",
+                 "config_spec.backup_window_start",
+                 "config_spec.backup_retain_period_days",
+                 "config_spec.access",
+                 "config_spec.performance_diagnostics.sessions_sampling_interval",
+                 "config_spec.performance_diagnostics.statements_sampling_interval",
+                 "maintenance_window",
+                 "deletion_protection"
+               ]
+             },
+             "config_spec": {
+               "pooler_config": {
+                 "pooling_mode": "<режим_управления_соединениями>",
+                 "pool_discard": <сброс_состояния_клиентов_после_каждой_транзакции:_true_или_false>
+               },
+               "backup_window_start": {
+                 "hours": "<часы>",
+                 "minutes": "<минуты>",
+                 "seconds": "<секунды>",
+                 "nanos": "<наносекунды>"
+               },
+               "backup_retain_period_days": "<количество_дней>",
+               "access": {
+                 "data_lens": <доступ_к_{{ datalens-name }}:_true_или_false>,
+                 "web_sql": <доступ_к_{{ websql-name }}:_true_или_false>,
+                 "serverless": <доступ_к_Cloud_Functions:_true_или_false>,
+                 "data_transfer": <доступ_к_Data_Transfer:_true_или_false>,
+                 "yandex_query": <доступ_к_{{ yq-name }}:_true_или_false>
+               },
+               "performance_diagnostics": {
+                 "enabled": <активация_сбора_статистики:_true_или_false>,
+                 "sessions_sampling_interval": "<интервал_сбора_сессий>",
+                 "statements_sampling_interval": "<интервал_сбора_запросов>"
+               }
+             },
+             "maintenance_window": {
+               "weekly_maintenance_window": {
+                 "day": "<день_недели>",
+                 "hour": "<час>"
+               }
+             },
+             "deletion_protection": <защита_от_удаления:_true_или_false>
+           }' \
+       {{ api-host-mdb }}:{{ port-https }} \
+       yandex.cloud.mdb.postgresql.v1.ClusterService.Update
+     ```
 
 
-    Чтобы активировать [сбор статистики](./performance-diagnostics.md#activate-stats-collector):
+     * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
+     * `config_spec` — настройки кластера:
 
-    {% include [Performance diagnostic API](../../_includes/mdb/mpg/performance-diagnostics-api.md) %}
+       * `pooler_config` — настройки менеджера подключений:
 
-    {% include [datatransfer access](../../_includes/mdb/api/datatransfer-access-create.md) %}
+         * `pooling_mode` — режим работы менеджера подключений. Возможные значения: `SESSION`, `TRANSACTION` и `STATEMENT`. Подробнее о каждом режиме читайте в разделе [{#T}](../concepts/pooling.md).
+         * `pool_discard` — должны ли клиенты терять свое состояние после каждой транзакции. Соответствует параметру [server_reset_query_always](https://www.pgbouncer.org/config.html) для менеджера подключений [PgBouncer](https://www.pgbouncer.org/usage).
+
+       * `backup_window_start` — настройки окна [резервного копирования](../concepts/backup.md).
+
+         В параметре укажите время, когда начинать резервное копирование. Возможные значения параметров:
+
+         * `hours` — от `0` до `23` часов;
+         * `minutes` — от `0` до `59` минут;
+         * `seconds` — от `0` до `59` секунд;
+         * `nanos` — от `0` до `999999999` наносекунд.
+
+       * `backup_retain_period_days` — сколько дней хранить резервную копию кластера. Возможные значения: от `7` до `60` дней.
+
+       
+       * `access` — настройки доступа кластера к следующим сервисам {{ yandex-cloud }}:
+
+         * `data_lens` — [{{ datalens-full-name }}](../../datalens/index.yaml);
+         * `web_sql` — [{{ websql-full-name }}](../../websql/index.yaml);
+         * `serverless` — [{{ sf-full-name }}](../../functions/index.yaml);
+         * `data_transfer` — [{{ data-transfer-full-name }}](../../data-transfer/index.yaml);
+         * `yandex_query` — [{{ yq-full-name }}](../../query/index.yaml).
+
+
+       * `performance_diagnostics` — настройки для [сбора статистики](performance-diagnostics.md#activate-stats-collector):
+
+         * `enabled` — активация сбора статистики.
+         * `sessions_sampling_interval` — интервал сбора сессий. Возможные значения: от `1` до `86400` секунд.
+         * `statements_sampling_interval` — интервал сбора запросов. Возможные значения: от `60` до `86400` секунд.
+
+     * `maintenance_window` — настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров). В `maintenance_window` передайте один из двух параметров:
+
+       * `anytime` — техническое обслуживание происходит в любое время.
+       * `weekly_maintenance_window` — техническое обслуживание происходит раз в неделю, в указанное время:
+
+         * `day` — день недели в формате `DDD`;
+         * `hour` — час в формате `HH`. Возможные значения: от `1` до `24` часов.
+
+     * `deletion_protection` — защита от удаления кластера, его баз данных и пользователей.
+
+       По умолчанию при создании пользователей и БД значение параметра наследуется от кластера. Значение также можно задать вручную, подробнее см. в разделах [Управление пользователями](cluster-users.md) и [Управление БД](databases.md).
+
+        Если параметр изменен на работающем кластере, новое значение унаследуют только пользователи и БД с защитой **Как у кластера**.
+
+        {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
+     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/cluster_service.md#Cluster3).
 
 {% endlist %}
 
@@ -521,12 +895,60 @@ description: "Из статьи вы узнаете, как изменить н�
 
         {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
 
-- API {#api}
+- REST API {#api}
 
-    Чтобы переключить хост-мастер, воспользуйтесь методом REST API [startFailover](../api-ref/Cluster/startFailover.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/StartFailover](../api-ref/grpc/cluster_service.md#StartFailover) и передайте в запросе:
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-    * Идентификатор кластера, в котором нужно переключить мастер, в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
-    * (Опционально) Имя хоста-реплики, которую нужно сделать мастером, в параметре `hostName`. Чтобы узнать имя, [получите список хостов в кластере](hosts.md#list).
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. Воспользуйтесь методом [Cluster.startFailover](../api-ref/Cluster/startFailover.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+     ```bash
+     curl \
+       --request POST \
+       --header "Authorization: Bearer $IAM_TOKEN" \
+       --header "Content-Type: application/json" \
+       --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<идентификатор_кластера>:startFailover' \
+       --data '{
+                 "hostName": "<FQDN_хоста>"
+               }'
+     ```
+
+     Где `hostName` — [FQDN реплики](connect.md#fqdn), которая становится мастером.
+
+     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/startFailover.md#responses).
+
+- gRPC API {#grpc-api}
+
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Воспользуйтесь вызовом [ClusterService/StartFailover](../api-ref/grpc/cluster_service.md#StartFailover) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+     ```bash
+     grpcurl \
+       -format json \
+       -import-path ~/cloudapi/ \
+       -import-path ~/cloudapi/third_party/googleapis/ \
+       -proto ~/cloudapi/yandex/cloud/mdb/postgresql/v1/cluster_service.proto \
+       -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+       -d '{
+             "cluster_id": "<идентификатор_кластера>",
+             "host_name": "<FQDN_хоста>"
+           }' \
+       {{ api-host-mdb }}:{{ port-https }} \
+       yandex.cloud.mdb.postgresql.v1.ClusterService.StartFailover
+     ```
+
+     Где `host_name` — [FQDN реплики](connect.md#fqdn), которая становится мастером.
+
+     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/cluster_service.md#Cluster10).
 
 {% endlist %}
 
@@ -565,12 +987,60 @@ description: "Из статьи вы узнаете, как изменить н�
 
         Идентификатор кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-- API {#api}
+- REST API {#api}
 
-    Чтобы переместить кластер, воспользуйтесь методом REST API [move](../api-ref/Cluster/move.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Move](../api-ref/grpc/cluster_service.md#Move) и передайте в запросе:
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-    * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
-    * Идентификатор каталога назначения в параметре `destinationFolderId`.
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. Воспользуйтесь методом [Cluster.move](../api-ref/Cluster/move.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+     ```bash
+     curl \
+       --request POST \
+       --header "Authorization: Bearer $IAM_TOKEN" \
+       --header "Content-Type: application/json" \
+       --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<идентификатор_кластера>:move' \
+       --data '{
+                 "destinationFolderId": "<идентификатор_каталога>"
+               }'
+     ```
+
+     Где `destinationFolderId` — идентификатор каталога, куда перемещается кластер. Идентификатор можно получить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md).
+
+     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/move.md#responses).
+
+- gRPC API {#grpc-api}
+
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Воспользуйтесь вызовом [ClusterService/Move](../api-ref/grpc/cluster_service.md#Move) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+     ```bash
+     grpcurl \
+       -format json \
+       -import-path ~/cloudapi/ \
+       -import-path ~/cloudapi/third_party/googleapis/ \
+       -proto ~/cloudapi/yandex/cloud/mdb/postgresql/v1/cluster_service.proto \
+       -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+       -d '{
+             "cluster_id": "<идентификатор_кластера>",
+             "destination_folder_id": "<идентификатор_каталога>"
+           }' \
+       {{ api-host-mdb }}:{{ port-https }} \
+       yandex.cloud.mdb.postgresql.v1.ClusterService.Move
+     ```
+
+     Где `destination_folder_id` — идентификатор каталога, куда перемещается кластер. Идентификатор можно получить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md).
+
+     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/cluster_service.md#Operation5).
 
 {% endlist %}
 
@@ -637,15 +1107,92 @@ description: "Из статьи вы узнаете, как изменить н�
 
       {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
 
-- API {#api}
+- REST API {#api}
 
-    Чтобы изменить список групп безопасности для кластера, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) и передайте в запросе:
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-    * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
-    * Список идентификаторов групп безопасности в параметре `securityGroupIds`.
-    * Список настроек, которые необходимо изменить (в данном случае — `securityGroupIds`), в параметре `updateMask`.
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+  1. Воспользуйтесь методом [Cluster.update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+     {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
+
+     ```bash
+     curl \
+       --request PATCH \
+       --header "Authorization: Bearer $IAM_TOKEN" \
+       --header "Content-Type: application/json" \
+       --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<идентификатор_кластера>' \
+       --data '{
+                 "updateMask": "securityGroupIds",
+                 "securityGroupIds": [
+                   "<идентификатор_группы_безопасности_1>",
+                   "<идентификатор_группы_безопасности_2>",
+                   ...
+                   "<идентификатор_группы_безопасности_N>"
+                 ]
+               }'
+     ```
+
+     Где:
+
+     * `updateMask` — перечень изменяемых параметров в одну строку через запятую.
+
+       В данном случае передается только один параметр.
+
+     * `securityGroupIds` — новый список [групп безопасности](../concepts/network.md#security-groups), представленный в виде элементов массива.
+
+     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#responses).
+
+- gRPC API {#grpc-api}
+
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Воспользуйтесь вызовом [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+     {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+     ```bash
+     grpcurl \
+       -format json \
+       -import-path ~/cloudapi/ \
+       -import-path ~/cloudapi/third_party/googleapis/ \
+       -proto ~/cloudapi/yandex/cloud/mdb/postgresql/v1/cluster_service.proto \
+       -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+       -d '{
+             "cluster_id": "<идентификатор_кластера>",
+             "update_mask": {
+               "paths": [
+                 "security_group_ids"
+               ]
+             },
+             "security_group_ids": [
+               "<идентификатор_группы_безопасности_1>",
+               "<идентификатор_группы_безопасности_2>",
+               ...
+               "<идентификатор_группы_безопасности_N>"
+             ]
+           }' \
+       {{ api-host-mdb }}:{{ port-https }} \
+       yandex.cloud.mdb.postgresql.v1.ClusterService.Update
+     ```
+
+     Где:
+
+     * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
+
+       В данном случае передается только один параметр.
+
+     * `security_group_ids` — новый список [групп безопасности](../concepts/network.md#security-groups), представленный в виде элементов массива.
+
+     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/cluster_service.md#Cluster3).
 
 {% endlist %}
 

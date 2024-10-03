@@ -65,7 +65,7 @@
 
     Результат:
 
-    ```
+    ```text
     done (5s)
     id: bba9vrtrjlld********
     container_id: bbanb9mvu1dl********
@@ -161,7 +161,7 @@
 - Node.js {#node}
 
     **index.js**
-    ```
+    ```js
     const winston = require('winston');
     const express = require('express');
 
@@ -184,7 +184,7 @@
     ```
 
     **Dockerfile**
-    ```
+    ```dockerfile
     FROM node:16-slim
 
     WORKDIR /app
@@ -197,7 +197,7 @@
 - Python {#python}
 
     **requirements.txt**
-    ```
+    ```text
     python-json-logger==2.0.4
     sanic==22.12.0
     ```
@@ -205,7 +205,7 @@
     **index.py**
 
       
-    ```
+    ```python
     import logging
     import os
 
@@ -241,10 +241,10 @@
     if __name__ == "__main__":
         app.run(host='0.0.0.0', port=int(os.environ['PORT']), motd=False, access_log=False)
     ```
-  
+
 
     **Dockerfile**
-    ```
+    ```dockerfile
     FROM python:3.10-slim
 
     WORKDIR /app
@@ -258,7 +258,7 @@
 - Go {#go}
 
     **index.go**
-    ```
+    ```go
     package main
 
     import (
@@ -294,7 +294,7 @@
     ```
 
     **Dockerfile**
-    ```
+    ```dockerfile
     FROM golang:latest AS build
 
     WORKDIR /app

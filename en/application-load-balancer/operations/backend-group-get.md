@@ -8,25 +8,25 @@ title: "How to get information about a backend group in {{ alb-full-name }}"
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder where the [backend group](../concepts/backend-group.md) is located.
-   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-   1. In the left-hand panel, select ![image](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
-   1. Select a backend group.
-   1. The **{{ ui-key.yacloud.common.overview }}** page will display detailed information about the group.
+  1. In the [management console]({{ link-console-main }}), select the folder where the [backend group](../concepts/backend-group.md) is located.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. In the left-hand panel, select ![image](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
+  1. Select a backend group.
+  1. The **{{ ui-key.yacloud.common.overview }}** page will display detailed information about the group.
 
 - CLI {#cli}
 
-   {% include [cli-install](../../_includes/cli-install.md) %}
+  {% include [cli-install](../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   1. View the description of the CLI command to get information about a [backend group](../concepts/backend-group.md):
+  1. View the description of the CLI command to get information about a [backend group](../concepts/backend-group.md):
 
       ```bash
       yc alb backend-group get --help
       ```
 
-   1. Get information about a backend group by specifying its name or ID:
+  1. Get information about a backend group by specifying its name or ID:
 
       ```bash
       yc alb backend-group get <backend_group_name>
@@ -34,7 +34,7 @@ title: "How to get information about a backend group in {{ alb-full-name }}"
 
       Result:
 
-      ```bash
+      ```text
       id: ds7maho6c4or********
       name: alb-bg
       folder_id: b1geoelk7fld********
@@ -57,13 +57,13 @@ title: "How to get information about a backend group in {{ alb-full-name }}"
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
-   {% include [terraform-install](../../_includes/terraform-install.md) %}
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-   To get information about a [backend group](../concepts/backend-group.md) using {{ TF }}:
+  To get information about a [backend group](../concepts/backend-group.md) using {{ TF }}:
 
-   1. Add the `data` and `output` sections to the {{ TF }} configuration file:
+  1. Add the `data` and `output` sections to the {{ TF }} configuration file:
 
       ```hcl
       data "yandex_alb_backend_group" "my_bg" {
@@ -77,13 +77,13 @@ title: "How to get information about a backend group in {{ alb-full-name }}"
 
       Where:
       * `data "yandex_alb_backend_group"`: Description of the backend group as a data source:
-         * `backend_group_id`: Backend group ID
+        * `backend_group_id`: Backend group ID.
       * `output "backend_group"`: Output variable that contains information about the connected HTTP backend:
-         * `value`: Returned value.
+        * `value`: Returned value.
 
       You can replace `http_backend` with any other parameter to get the information you need. For more information about the `yandex_alb_backend_group` data source parameters, see the [provider documentation]({{ tf-provider-datasources-link }}/datasource_alb_backend_group).
 
-   1. Create resources:
+  1. Create resources:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
@@ -121,6 +121,6 @@ title: "How to get information about a backend group in {{ alb-full-name }}"
 
 - API {#api}
 
-   To get detailed information about a [backend group](../concepts/backend-group.md), use the [get](../api-ref/BackendGroup/get.md) REST API method for the [BackendGroup](../api-ref/BackendGroup/index.md) resource or the [BackendGroupService/Get](../api-ref/grpc/backend_group_service.md#Get) gRPC API call.
+  To get detailed information about a [backend group](../concepts/backend-group.md), use the [get](../api-ref/BackendGroup/get.md) REST API method for the [BackendGroup](../api-ref/BackendGroup/index.md) resource or the [BackendGroupService/Get](../api-ref/grpc/backend_group_service.md#Get) gRPC API call.
 
 {% endlist %}

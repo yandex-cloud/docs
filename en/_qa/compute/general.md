@@ -13,9 +13,9 @@ It is easier to manage a cloud infrastructure so you can focus on your business 
 
 #### What can I do with a {{ yandex-cloud }} VM? {#what-can-i-do}
 
-* Use only those computing resources which are necessary to meet your needs. If you need expensive powerful systems, you don't have to buy them. You can create a VM in {{ yandex-cloud }} and use it whenever necessary.
-* Quickly [scale processing capacity](../../compute/tutorials/vm-autoscale.md) to meet your needs. You can start additional VMs during peak times and stop them when the load decreases.
-* Use your VMs to deploy applications that must [always be available](../../tutorials/infrastructure-management/fault-tolerance.md). You don't need to worry about guaranteeing server uptime: {{ yandex-cloud }} will keep it running smoothly. Focus on creating applications that work.
+* Use only the computing capacity you really need. You do not have to buy expensive powerful equipment whenever there is a task that requires it. Instead, you can create a {{ yandex-cloud }} VM and use it if and when required.
+* Quickly [scale the computing power](../../compute/tutorials/vm-autoscale/index.md) up or down as needed. You can start additional VMs during peak periods and stop them when the load drops.
+* Use VMs to deploy applications that must [always be available](../../tutorials/infrastructure-management/fault-tolerance.md). You do not need to worry about guaranteeing server uptime: {{ yandex-cloud }} will keep it running smoothly. Focus on creating applications that work.
 * [Configure backups](../../compute/tutorials/hystax-backup.md) to make it easier to restore your data in the event of loss.
 * Create and distribute VM [disk images](../../compute/concepts/image.md). You can use images to quickly deploy your software on other VMs.
 * Automate VM management using the API and scripts in the command line interface.
@@ -44,7 +44,7 @@ You can get the IP addresses, FQDNs, and other information in the management con
 
 For more information, see [{#T}](../../compute/concepts/network.md).
 
-[Use SSH](../../compute/operations/vm-connect/ssh.md) to connect to a Linux VM. Use RDP to connect to a Windows VM.
+[Use SSH](../../compute/operations/vm-connect/ssh.md) to connect to Linux VMs. Use RDP to connect to Windows VMs.
 
 #### How quickly can I change the performance of my information systems? {#scalability}
 
@@ -53,7 +53,6 @@ You can change the performance of your information system in one of the followin
 * If you frequently need new VMs with the same configuration, you can create a boot disk image and use it when creating VMs.
 
 #### Why is my VM slow? {#why-vm-slowly}
-
 
 Just like for any other servers, including physical ones, VM performance depends on the performance of:
 * CPU
@@ -68,7 +67,7 @@ General recommendations for improving VM performance:
 
    If the graphs show that the load on the vCPU is close to 100% for a long time or at the time the issue occurs, we recommend increasing the number of cores.
 1. Never use the swap file. It causes a significant drop in performance. The best solution is to expand the vRAM if there is not enough memory. With Linux, you can also use the `zram-config` utility.
-1. Use large network SSDs. The weak point of the system may be network drives. They are subject to the limits of IOPS and bandwidth, which depend on the disk type and size. For more information, see [{#T}](../../compute/concepts/limits.md#compute-limits-disks).
+1. Use large network SSDs. The weak point of the system may be network drives. They are subject to the limits of IOPS and bandwidth, which depend on the disk type and size. For more information, see the [{#T}](../../compute/concepts/limits.md#compute-limits-disks) documentation section.
 
    Keep in mind that disk performance also depends on the read and write request size. See [{#T}](../../compute/concepts/storage-read-write.md).
 
@@ -93,6 +92,6 @@ You can contact technical support in the [Support]({{ link-console-support }}) s
 
 {% include [logs](../../_qa/logs.md) %}
 
-#### How do I find out the cost? {#pricing}
+#### How do I learn about the cost? {#pricing}
 
-You can find the cost of using the service in [{#T}](../../compute/pricing.md). You can also use [our calculator]({{ link-cloud-calculator }}).
+You can lean how much the service will cost in [{#T}](../../compute/pricing.md). You can also use [our calculator]({{ link-cloud-calculator }}).

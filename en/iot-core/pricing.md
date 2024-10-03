@@ -8,11 +8,15 @@ editable: false
 
 
 
+{% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
+
+{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
+
 ## What goes into the cost of using {{ iot-name }} {#rules}
 
 In {{ iot-name }}, you are charged for the number of messages. The message count is rounded up using the following formula:
 
-```
+```text
 Message Count = Command Size / 1 KB
 ```
 
@@ -39,14 +43,15 @@ The [broker](concepts/index.md#broker) is at the [Preview](../overview/concepts/
 ### MQTT {#mqtt}
 
 List of commands charged under {{ iot-name }}:
-* `CONNECT`: Connect a client (device or registry) to the MQTT server of the service.
-* `PUBLISH`: Send a message from the client (device or registry) to the MQTT server of the service.
-* `SUBSCRIBE`: Subscribe the client (device or registry) to messages from the MQTT server of the service.
-* `PUBLISH`: Send a message from the MQTT server of the service to the client (device or registry).
-* `PINGREQ`: Check the connection from the client (device or registry) to the MQTT server of the service.
+* `CONNECT`: Connect a client (device or registry) to the service's MQTT server.
+* `PUBLISH`: Send a message from the client (device or registry) to the service's MQTT server.
+* `SUBSCRIBE`: Subscribe the client (device or registry) to messages from the service's MQTT server.
+* `PUBLISH`: Send a message from the service's MQTT server to the client (device or registry).
+* `PINGREQ`: Check the connection from the client (device or registry) to the service's MQTT server.
 
 ## Prices for the Russia region {#prices}
 
+{% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 ### Data volume {#volumes}
 

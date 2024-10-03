@@ -32,17 +32,7 @@ Folder notifications include information about the following resources:
 
 * Virtual machines (VM ID)
 * Virtual disks (disk ID)
-* Database clusters (cluster ID):
-
-  * {{ KF }}
-  * {{ CH }}
-  * {{ GP }}
-  * {{ k8s }}
-  * {{ MG }}
-  * {{ MY }}
-  * {{ OS }}
-  * {{ PG }}
-  * {{ RD }}
+* MDB clusters (cluster ID)
 
 Folder notifications are sent to both folder subscribers and parent cloud subscribers. Please note that it is not possible to identify the folder for some types of resources. Therefore, we recommend subscribing important recipients to cloud notifications.
 
@@ -68,10 +58,11 @@ If there is an event in the {{ yandex-cloud }} infrastructure that has resulted 
 
 To configure notification methods:
 
-1. Click ![image](../../_assets/console-icons/gear.svg) **{{ ui-key.yacloud_components.settings.section_transports }}** in the bottom-left corner of the management console.
-1. Go to the notification settings section. Check which notification channels are set under **{{ ui-key.yacloud_components.settings.section_transports }}**.
-1. Add an email address and a phone number for notifications. You can also set up notifications to a Telegram bot.
-1. Under **{{ ui-key.yacloud_components.settings.section_settings }}**, choose notification channels for different types of notifications:
-   * ![image](../../_assets/console-icons/at.svg): By email
-   * ![image](../../_assets/console-icons/smartphone.svg): By SMS
-   * ![image](../../_assets/console-icons/paper-plane.svg): By Telegram bot message
+1. In the bottom left corner of the [management console]({{ link-console-main }}), click ![image](../../_assets/console-icons/gear.svg) **Settings** and go to the **{{ ui-key.yacloud_components.settings.label_title_communications }}** tab.
+1. Under **{{ ui-key.yacloud_components.settings.section_transports }}**, configure notification channels.
+
+    You can receive notifications via email, text messages, or Telegram bot.
+1. Under **{{ ui-key.yacloud_components.settings.section_settings }}**, select the types of notifications to send and channels for receiving them:
+    * ![image](../../_assets/console-icons/at.svg): Email
+    * ![image](../../_assets/console-icons/smartphone.svg): Text message
+    * ![image](../../_assets/console-icons/logo-telegram.svg): Telegram bot message

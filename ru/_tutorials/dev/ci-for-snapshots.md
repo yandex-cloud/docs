@@ -36,21 +36,34 @@
 ## Создайте виртуальную машину для тестового приложения {#create-vm}
 
 Создайте ВМ, на которой будут установлены тестовое приложение, набор необходимых для его работы компонентов и веб-сервер:
-1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
-1. В поле **{{ ui-key.yacloud.common.name }}** введите имя ВМ: `ci-tutorial-test-app`.
-1. Выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
-1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** и выберите публичный образ [Ubuntu 18.04](/marketplace/products/yc/ubuntu-18-04-lts).
-1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** выберите следующую конфигурацию:
-   * **{{ ui-key.yacloud.component.compute.resources.field_platform }}** — `Intel Ice Lake`.
-   * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}** — `20%`.
-   * **{{ ui-key.yacloud.component.compute.resources.field_cores }}** — `2`.
-   * **{{ ui-key.yacloud.component.compute.resources.field_memory }}** — `1 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
-1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}** выберите, к какой подсети необходимо подключить ВМ при создании.
-1. Укажите данные для доступа на ВМ:
-   * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя.
-   * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** скопируйте содержимое файла открытого ключа.
 
-     Пару ключей для подключения по [SSH](../../glossary/ssh-keygen.md) необходимо [создать самостоятельно](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys). Для создания ключей используйте сторонние инструменты, например утилиты `ssh-keygen` в Linux и macOS или [PuTTYgen](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) в Windows.
+1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана ВМ.
+1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
+1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
+1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите публичный образ [Ubuntu 18.04](/marketplace/products/yc/ubuntu-18-04-lts).
+1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
+1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** перейдите на вкладку **{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}** и укажите параметры:
+
+    * **{{ ui-key.yacloud.component.compute.resources.field_platform }}** — `Intel Ice Lake`.
+    * **{{ ui-key.yacloud.component.compute.resources.field_cores }}** — `2`.
+    * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}** — `20%`.
+    * **{{ ui-key.yacloud.component.compute.resources.field_memory }}** — `1 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+
+1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}** выберите, к какой подсети необходимо подключить ВМ при создании.
+1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** укажите данные для доступа к ВМ:
+
+    * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя, который будет создан на виртуальной машине, например `yc-user`.
+
+      {% note alert %}
+
+      Не используйте логин `root` или другие имена, зарезервированные операционной системой. Для выполнения операций, требующих прав суперпользователя, используйте команду `sudo`.
+
+      {% endnote %}
+
+    * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
+
+1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ: `ci-tutorial-test-app`.
 1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
 Создание ВМ может занять несколько минут. Когда ВМ перейдет в статус `RUNNING`, вы можете перейти к ее настройке.
@@ -271,20 +284,34 @@
 ## Создайте виртуальную машину с {{ GL }} {#create-gitlab-vm}
 
 Один из способов настроить CI в {{ yandex-cloud }} — воспользоваться публичным образом с предустановленной системой {{ GL }}. В {{ GL }} входит набор инструментов для управления репозиториями Git и средства для настройки CI.
-1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
-1. В поле **{{ ui-key.yacloud.common.name }}** введите имя ВМ: `ci-tutorial-gitlab`.
-1. Выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
-1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** и выберите образ [{{ GL }}](/marketplace/products/yc/gitlab).
-1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** выберите следующую конфигурацию:
-   * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}** — `100%`.
-   * **{{ ui-key.yacloud.component.compute.resources.field_cores }}** — `2`.
-   * **{{ ui-key.yacloud.component.compute.resources.field_memory }}** — `2 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
-1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}** выберите, к какой подсети необходимо подключить ВМ при создании.
-1. Укажите данные для доступа на ВМ:
-   * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя.
-   * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** скопируйте содержимое файла открытого ключа.
 
-     Пару ключей для подключения по SSH необходимо [создать самостоятельно](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys). Для создания ключей используйте сторонние инструменты, например утилиты `ssh-keygen` в Linux и macOS или [PuTTYgen](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) в Windows.
+1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана ВМ.
+1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
+1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
+1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}**, нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_show-all-marketplace-products }}** и выберите образ [{{ GL }}](/marketplace/products/yc/gitlab).
+1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
+1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** перейдите на вкладку **{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}** и укажите параметры:
+
+    * **{{ ui-key.yacloud.component.compute.resources.field_platform }}** — `Intel Ice Lake`.
+    * **{{ ui-key.yacloud.component.compute.resources.field_cores }}** — `2`.
+    * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}** — `100%`.
+    * **{{ ui-key.yacloud.component.compute.resources.field_memory }}** — `2 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+
+1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}** выберите, к какой подсети необходимо подключить ВМ при создании.
+1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** укажите данные для доступа к ВМ:
+
+    * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя, который будет создан на виртуальной машине, например `yc-user`.
+
+      {% note alert %}
+
+      Не используйте логин `root` или другие имена, зарезервированные операционной системой. Для выполнения операций, требующих прав суперпользователя, используйте команду `sudo`.
+
+      {% endnote %}
+
+    * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
+
+1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ: `ci-tutorial-gitlab`.
 1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
 Создание ВМ может занять несколько минут. Когда ВМ перейдет в статус `RUNNING`, вы можете перейти к ее настройке.

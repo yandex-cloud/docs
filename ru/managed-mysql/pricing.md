@@ -10,6 +10,8 @@ editable: false
 
 {% include [use-calculator](../_includes/pricing/use-calculator.md) %}
 
+{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
+
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
 {% include [pricing-status.md](../_includes/mdb/pricing-status.md) %}
@@ -79,8 +81,8 @@ editable: false
 
 
 
-
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
+
 
 
 Все цены указаны с включением НДС.

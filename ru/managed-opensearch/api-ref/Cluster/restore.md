@@ -47,7 +47,12 @@ POST https://{{ api-host-mdb }}/managed-opensearch/v1/clusters:restore
           "assignPublicIp": true,
           "roles": [
             "string"
-          ]
+          ],
+          "diskSizeAutoscaling": {
+            "plannedUsageThreshold": "string",
+            "emergencyUsageThreshold": "string",
+            "diskSizeLimit": "string"
+          }
         }
       ],
       "keystoreSettings": [
@@ -78,7 +83,12 @@ POST https://{{ api-host-mdb }}/managed-opensearch/v1/clusters:restore
           "subnetIds": [
             "string"
           ],
-          "assignPublicIp": true
+          "assignPublicIp": true,
+          "diskSizeAutoscaling": {
+            "plannedUsageThreshold": "string",
+            "emergencyUsageThreshold": "string",
+            "diskSizeLimit": "string"
+          }
         }
       ]
     },
@@ -132,6 +142,10 @@ configSpec.<br>opensearchSpec.<br>nodeGroups[].<br>zoneIds[] | **string**<br><p>
 configSpec.<br>opensearchSpec.<br>nodeGroups[].<br>subnetIds[] | **string**<br><p>IDs of the subnets that the hosts belong to.</p> <p>The maximum number of elements is 10. The maximum string length in characters for each value is 50.</p> 
 configSpec.<br>opensearchSpec.<br>nodeGroups[].<br>assignPublicIp | **boolean** (boolean)<br><p>Determines whether a public IP is assigned to the hosts in the group.</p> 
 configSpec.<br>opensearchSpec.<br>nodeGroups[].<br>roles[] | **string**<br><p>Roles of the hosts in the group.</p> 
+configSpec.<br>opensearchSpec.<br>nodeGroups[].<br>diskSizeAutoscaling | **object**<br><p>Disk size autoscaling settings</p> 
+configSpec.<br>opensearchSpec.<br>nodeGroups[].<br>diskSizeAutoscaling.<br>plannedUsageThreshold | **string** (int64)<br><p>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+configSpec.<br>opensearchSpec.<br>nodeGroups[].<br>diskSizeAutoscaling.<br>emergencyUsageThreshold | **string** (int64)<br><p>Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+configSpec.<br>opensearchSpec.<br>nodeGroups[].<br>diskSizeAutoscaling.<br>diskSizeLimit | **string** (int64)<br><p>Limit on how large the storage for database instances can automatically grow, in bytes.</p> 
 configSpec.<br>opensearchSpec.<br>keystoreSettings[] | **object**<br><p>Initial cluster keystore settings.</p> 
 configSpec.<br>opensearchSpec.<br>keystoreSettings[].<br>name | **string**<br><p>Keystore entry name.</p> 
 configSpec.<br>opensearchSpec.<br>keystoreSettings[].<br>value | **string**<br><p>Keystore entry value.</p> 
@@ -150,6 +164,10 @@ configSpec.<br>dashboardsSpec.<br>nodeGroups[].<br>hostsCount | **string** (int6
 configSpec.<br>dashboardsSpec.<br>nodeGroups[].<br>zoneIds[] | **string**<br><p>IDs of the availability zones the hosts belong to.</p> 
 configSpec.<br>dashboardsSpec.<br>nodeGroups[].<br>subnetIds[] | **string**<br><p>IDs of the subnets that the hosts belong to.</p> <p>The maximum number of elements is 10. The maximum string length in characters for each value is 50.</p> 
 configSpec.<br>dashboardsSpec.<br>nodeGroups[].<br>assignPublicIp | **boolean** (boolean)<br><p>Determines whether a public IP is assigned to the hosts in the group.</p> 
+configSpec.<br>dashboardsSpec.<br>nodeGroups[].<br>diskSizeAutoscaling | **object**<br><p>Disk size autoscaling settings</p> 
+configSpec.<br>dashboardsSpec.<br>nodeGroups[].<br>diskSizeAutoscaling.<br>plannedUsageThreshold | **string** (int64)<br><p>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+configSpec.<br>dashboardsSpec.<br>nodeGroups[].<br>diskSizeAutoscaling.<br>emergencyUsageThreshold | **string** (int64)<br><p>Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+configSpec.<br>dashboardsSpec.<br>nodeGroups[].<br>diskSizeAutoscaling.<br>diskSizeLimit | **string** (int64)<br><p>Limit on how large the storage for database instances can automatically grow, in bytes.</p> 
 configSpec.<br>access | **object**<br><p>Access policy for external services.</p> <p>Access policy for external services.</p> 
 configSpec.<br>access.<br>dataTransfer | **boolean** (boolean)<br><p>Determines whether the access to Data Transfer is allowed.</p> 
 configSpec.<br>access.<br>serverless | **boolean** (boolean)<br><p>Determines whether the access to Serverless is allowed.</p> 

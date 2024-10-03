@@ -10,6 +10,8 @@ editable: false
 
 {% include [use-calculator](../_includes/pricing/use-calculator.md) %}
 
+{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
+
 ## Из чего складывается стоимость использования {{ captcha-full-name }} {#rules}
 
 Тарифицируются [запросы к API {{ captcha-name }}](./quickstart.md#check-answer) по адресу `https://smartcaptcha.yandexcloud.net/validate`. Тарифицируются только [корректные запросы](concepts/validation.md#service-response), на которые API вернул статус `ok`. Для этого запросы должны удовлетворять следующим условиям:
@@ -26,11 +28,11 @@ editable: false
 
 Примеры расчета стоимости использования {{ captcha-name }}:
 
-1. Пользователь прошел капчу, что привело к корректному запросу `/validate` с сервера - тарифицируется.
+1. Пользователь прошел капчу, что привело к корректному запросу `/validate` с сервера — тарифицируется.
 
-1. Пользователь отправил пустой или некорректный `token`, что привело к некорректному запросу `/validate` - не тарифицируется.
+1. Пользователь отправил пустой или некорректный `token`, что привело к некорректному запросу `/validate` — не тарифицируется.
 
-1. Разработчик бэкэнда допустил ошибку и отправил некорректный `secret` или `token` в ответном запросе `/validate`. API вернет ошибку в поле `message` - не тарифицируется.
+1. Разработчик бэкэнда допустил ошибку и отправил некорректный `secret` или `token` в ответном запросе `/validate`. API вернет ошибку в поле `message` — не тарифицируется.
 
 1. Злоумышленник прошел капчу и, получив `token`, отправил его 10 раз в течение первой минуты. API вернет статус `ok` только на первый запрос, и тарифицируется также только первый запрос.
 
@@ -38,21 +40,28 @@ editable: false
 
 ## Цены для региона Россия {#prices}
 
-
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
-
 
 
 {% list tabs group=pricing %}
 
 - Цены в рублях {#prices-rub}
 
-  {% include notitle [rub.md](../_pricing/smartcaptcha/rub.md) %}
+  {% include [rub](../_pricing/smartcaptcha/rub.md) %}
+
+  Оплачивается фактическое количество запросов.
+
+  {% include [rub-smartcaptcha](../_pricing_examples/smartcaptcha/rub-smartcaptcha.md) %}
 
 - Цены в тенге {#prices-kzt}
 
-  {% include notitle [kzt.md](../_pricing/smartcaptcha/kzt.md) %}
+  {% include [kzt](../_pricing/smartcaptcha/kzt.md) %}
+
+  Оплачивается фактическое количество запросов.
+
+  {% include [kzt-smartcaptcha](../_pricing_examples/smartcaptcha/kzt-smartcaptcha.md) %}
 
 {% endlist %}
+
 
 

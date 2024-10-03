@@ -2,11 +2,11 @@
 
 **Do not** use {{ dns-full-name }} directly for requesting external domain names.
 
-Instead, install and configure a local caching DNS resolver, such as `systemd-resolved`, `dnsmasq`, or `unbound`. This will speed up the execution of public DNS queries, reduce their number, and [save you money](../../dns/pricing.md#public-dns-requests).
+Instead, install and configure a local caching DNS resolver, e.g., `systemd-resolved`, `dnsmasq`, or `unbound`. This will speed up the execution of public DNS queries, reduce their number, and [save you money](../../dns/pricing.md#public-dns-requests).
 
-If Ubuntu 18.04 LTS or higher is installed on your VM, it already has the `systemd-resolved` service by default and no additional installation and setup is required. For more information, see [Test systemd-resolved performance](#test-resolver).
+If your VM runs Ubuntu 18.04 LTS or higher, it already has the `systemd-resolved` service by default, and no additional installation and setup actions are required. For more information, see [Test `systemd-resolved` performance](#test-resolver).
 
-If you are using an older version of Ubuntu, such as [16.04 LTS](/marketplace/products/yc/ubuntu-16-04-lts), you need to install a caching DNS resolver yourself. We recommend `dnsmasq` or `unbound`. For more information, see [Install an alternative resolver](#alternate-resolvers).
+If you are using an older version of Ubuntu, such as [16.04 LTS](/marketplace/products/yc/ubuntu-16-04-lts), you need to install a caching DNS resolver yourself. We recommend using `dnsmasq` or `unbound`. For more information, see [Install an alternative resolver](#alternate-resolvers).
 
 To configure a local caching DNS resolver:
 
@@ -39,7 +39,7 @@ The infrastructure support costs include:
 
 1. [Connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to the VM over SSH.
 
-1. Get the state of the `systemd-resolved` caching DNS resolver. To do this in Ubuntu version 18.04 or above, run this command:
+1. Find out the status of the `systemd-resolved` caching DNS resolver. To do this in Ubuntu version 18.04 or above, run this command:
 
    ```bash
    systemd-resolve --status
@@ -53,19 +53,19 @@ The infrastructure support costs include:
 
    Result:
 
-   ```bash
+   ```text
    <...>
    Link 2 (eth0)
    <...>
-   Current DNS Server: 192.168.6.2
-            DNS Servers: 192.168.6.2
+   Current DNS Server: 192.168.6.2         
+            DNS Servers: 192.168.6.2         
             DNS Domain: {{ region-id }}.internal
-                        auto.internal
+                        auto.internal 
    ```
 
    If the configuration is correct, the `Current DNS Server:` line in the command output will show the {{ dns-full-name }} server address, the second one in the virtual network. For example, `192.168.6.2` for a VM in the `192.168.6.0/24` subnet.
 
-1. Make sure that external DNS names are resolved by the `127.0.0.53#53` DNS server. To do this, use the `dig` utility:
+1. Make sure external DNS names are resolved successfully by the `127.0.0.53#53` DNS server. Do it by using the `dig` utility:
 
    ```bash
    dig example.com
@@ -103,7 +103,7 @@ Configuration parameters are given as an example. For information about how to s
       sudo apt-get install dnsmasq dnsutils -y
       ```
 
-   1. Edit the `/etc/dnsmasq.conf` configuration file by increasing the cache size to 1,000 and setting the caching resolver to only listen to local VM addresses.
+   1. Edit the `/etc/dnsmasq.conf` configuration file by increasing the cache size to 1,000 and restricting to the local VM the addresses listened by the caching resolver.
 
       1. Open the file:
 
@@ -120,7 +120,7 @@ Configuration parameters are given as an example. For information about how to s
          bind-interfaces
          ```
 
-   1. Restart `dnsmasq` to apply the new settings. Check that the `dnsmasq` service status changed to `active (running)` and there is a line saying `Started dnsmasq.service` at the end of the service log:
+   1. Restart `dnsmasq` to apply the new settings. Make sure `dnsmasq` gets the `active (running)` status and there is the `Started dnsmasq.service` line at the end of the service log:
 
       ```bash
       sudo systemctl restart dnsmasq.service
@@ -142,9 +142,9 @@ Configuration parameters are given as an example. For information about how to s
       Oct 28 22:39:58 <...> systemd[1]: Started dnsmasq - A lightweight DHCP and caching DNS server.
       ```
 
-      Also pay attention to the address in the `using nameserver <...>` line. The line should contain the {{ dns-full-name }} server address, the second one in the virtual network. For example, `192.168.6.2` for a VM in the `192.168.6.0/24` subnet.
-
-   1. Use `dig` to check that external DNS names are resolved successfully:
+      Also pay attention to the address in the `using nameserver <...>`. The line should contain the {{ dns-full-name }} server address, the second one in the virtual network. For example, `192.168.6.2` for a VM in the `192.168.6.0/24` subnet.
+      
+   1. Use `dig` to check that external DNS names are successfully resolved:
 
       ```bash
       dig example.com @127.0.0.1 | grep -B3 Query
@@ -163,7 +163,7 @@ Configuration parameters are given as an example. For information about how to s
    [unbound](https://unbound.docs.nlnetlabs.nl/en/latest/) is a validating, recursive, and caching DNS resolver. It focuses on fast performance, efficient resource consumption, and compliance with modern open standards.
 
    1. Install the `unbound` and `dnsutils` packages:
-
+      
       ```bash
       sudo apt-get update -y
       sudo apt-get install unbound dnsutils -y
@@ -196,7 +196,7 @@ Configuration parameters are given as an example. For information about how to s
                verbosity: 1
          ```
 
-   1. Start `unbound` to apply the new settings. Check that the `unbound` service status changed to `active (running)` and there is the `Started unbound.service` line at the end of the service log:
+   1. Run `unbound` to apply the new settings. Make sure `unbound` gets the `active (running)` status and there is the `Started unbound.service` line at the end of the service log:
 
       ```bash
       sudo systemctl start unbound.service
@@ -215,8 +215,8 @@ Configuration parameters are given as an example. For information about how to s
       Oct 29 00:21:06 <...> unbound[<...>]: ...done.
       Oct 29 00:23:21 <...> systemd[1]: Started unbound.service.
       ```
-
-   1. Use `dig` to check that external DNS names are resolved successfully:
+   
+   1. Use `dig` to check that external DNS names are successfully resolved:
 
       ```bash
       dig example.com @127.0.0.1 | grep -B3 Query
@@ -238,7 +238,7 @@ If you need to replace `systemd-resolved` with a different local caching DNS res
 
 1. Follow the guide in [Alternative resolvers](#alternate-resolvers) to install an alternative resolver.
 
-1. Edit the `/etc/systemd/resolved.conf` file to disable a stub resolver and set `127.0.0.1` as the DNS server address:
+1. Edit the `/etc/systemd/resolved.conf` file to disable the stub resolver and set `127.0.0.1` as the DNS server address:
 
    1. Open the file:
 
@@ -246,7 +246,7 @@ If you need to replace `systemd-resolved` with a different local caching DNS res
       sudo nano /etc/unbound/unbound.conf
       ```
 
-   1. Paste this text to the file after the `[Resolve]` line:
+   1. Paste the following text after the `[Resolve]` line:
 
       ```bash
       DNS=127.0.0.1
@@ -265,7 +265,7 @@ If you need to replace `systemd-resolved` with a different local caching DNS res
    systemctl restart systemd-resolved
    ```
 
-1. Check that `dig` now uses the `127.0.0.1#53` server instead of `127.0.0.53#53`:
+1. Make sure `dig` now uses the `127.0.0.1#53` server instead of `127.0.0.53#53`:
 
    ```bash
    dig example.com

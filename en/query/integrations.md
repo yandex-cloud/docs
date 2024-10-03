@@ -1,6 +1,6 @@
 # Integrations
 
-This section provides basic information about integrating {{ yq-full-name }} with various {{ yandex-cloud }} services and third party systems.
+This section provides the basic information about integrating {{ yq-full-name }} with various {{ yandex-cloud }} services and third party systems.
 
 ## Data sources {#data_sources}
 
@@ -78,8 +78,8 @@ This section provides basic information about integrating {{ yq-full-name }} wit
 
 | Environment | Support level | Instructions |
 | --- | :---: | --- |
-| [{{ AF }}](../managed-airflow/quickstart.md) | [DML](#note) | [Guide](./tutorials/airflow.md) |
-| [{{ maf-full-name }}](../managed-airflow/quickstart.md) | [DML](#note) | [Guide](./tutorials/airflow.md) |
+| [{{ AF }}](../managed-airflow/quickstart.md) | [DML](#note) | [Guide](./tutorials/airflow-auto-tasks.md) |
+| [{{ maf-full-name }}](../managed-airflow/quickstart.md) | [DML](#note) | [Guide](./tutorials/airflow-auto-tasks.md) |
 
 ## Note {#note}
 

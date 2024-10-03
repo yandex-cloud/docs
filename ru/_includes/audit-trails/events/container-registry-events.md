@@ -17,7 +17,7 @@
 `UpdateLifecyclePolicy` | Изменение политики автоматического удаления Docker-образов
 `UpdateRegistry` | Изменение реестра
 `UpdateScanPolicy` | Изменение политики сканирования
-`UpdateRegistryAccessBindings` | Изменение привязок прав доступа на реестр  
-`UpdateRepositoryAccessBindings` | Изменение привязок прав доступа на репозиторий
-`SetRegistryAccessBindings`  | Назначение привязок прав доступа на реестр
-`SetRepositoryAccessBindings` | Назначение привязок прав доступа на репозиторий
+`UpdateRegistryAccessBindings` | Изменение прав доступа на реестр  
+`UpdateRepositoryAccessBindings` | Изменение прав доступа на репозиторий
+`SetRegistryAccessBindings`  | Назначение прав доступа на реестр
+`SetRepositoryAccessBindings` | Назначение прав доступа на репозиторий

@@ -2,7 +2,7 @@ title: Yandex Cloud Marketplace
 href: index.yaml
 label:
   title: KZ
-  description: The service is available in Kazakhstan.
+  description: This service is available in the Kazakhstan region.
   theme: info
   when: region == "kz"
 items:
@@ -48,6 +48,8 @@ items:
             href: concepts/api-usage.md
           - name: Trial period
             href: concepts/trial-period.md
+      - name: Access management
+        href: security/partners.md
       - name: API reference
         items:
           - name: REST

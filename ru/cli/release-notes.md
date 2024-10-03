@@ -7,30 +7,198 @@ description: "На странице представлены релизы YC CLI
 
 ## Текущая версия {#latest-release}
 
-## Версия 0.131.1 (15.08.24) {#version0.131.1}
-### Изменения в CLI {#cli}
-* Исправлена проблема в обработке некоторых ошибок, из-за которой в тексте ошибки символ `_` заменялся на `-`.
+### Версия 0.134.0 (02.10.24) {#version0.134.0}
+
+#### Изменения в сервисах {{ yandex-cloud }} {#services}
+
+##### {{ org-name }} {#organization}
+
+* В вывод команды `yc organization-manager user list --organization-id` добавлено время последней аутентификации пользователя.
+
+##### {{ interconnect-name }} {#interconnect}
+
+* Добавлены команды `yc cic point-of-presence get` и `yc cic point-of-presence list` для чтения точек присутствия.
+* Добавлены команды `yc cic partner get` и `yc cic partner list` для чтения партнеров {{ interconnect-name }}.
+* Добавлены команды `yc cic trunk-connection get` и `yc cic trunk-connection list` для чтения транковых подключений.
+* Добавлены команды `yc cic private-connection get` и `yc cic private-connection list` для чтения приватных соединений.
+* Добавлены команды `yc cic public-connection get` и `yc cic public-connection list` для чтения публичных соединений.
+
+##### {{ si-name }} {#serverless-integrations}
+
+* Добавлена поддержка {{ er-full-name }}.
+
+##### {{ objstorage-name }} {#storage}
+
+* Добавлена базовая поддержка операций с объектами через S3 API:
+  * `yc storage s3api get-object` — получение объекта.
+  * `yc storage s3api put-object` — загрузка объекта.
+  * `yc storage s3api delete-object` — удаление объекта.
+
+##### {{ cloud-desktop-name }} {#cloud-desktop}
+
+* В команду `yc desktops group create` добавлен параметр `--image-id`, который позволяет передать идентификатор образа для группы рабочих столов. 
+
+##### {{ backup-name }} {#backup}
+
+* Добавлены следующие команды:
+  * `yc backup agent install` — для установки агента резервного копирования и подключения ВМ с установленным OS Login к {{ backup-name }}.
+  * `yc backup agent reinstall` — для повторной установки агента резервного копирования для ВМ с установленным OS Login.
+  * `yc backup agent debug-info` — для получения логов установки агента резервного копирования для ВМ с установленным OS Login.
+  * `yc backup provider activate` — для активации сервиса и подключения к провайдеру резервного копирования.
+
+* При выполнении команд теперь проверяется, активирован ли сервис {{ backup-name }} в каталоге.
+
+#### {{ iam-name }} {#iam}
+
+* Изменен заголовок в табличном выводе команды `yc iam service accounts list`.
+
+##### Сервисы управляемых баз данных {#managed-db}
+
+**{{ mgp-name }}**
+
+* В командах `yc managed-greenplum cluster create` и `yc managed-greenplum cluster restore` добавлена поддержка опций `--master-host-group-ids` и `--segment-host-group-ids` для указания, на какие группы выделенных хостов размещать хосты мастера и сегментов {{ GP }}.
+
+**{{ mrd-name }}**
+
+* Добавлена команда `yc managed-redis backup delete` для удаления бэкапов.
+* Изменена версия {{ RD }} по умолчанию на 7.2 в связи с окончанием поддержки 6.2 и 7.0.
+
+**{{ mkf-name }}**
+
+*  В командах `yc managed-kafka cluster create`, `yc managed-kafka cluster update`, `yc managed-kafka cluster grant-permission`, `yc managed-kafka cluster revoke-permission` расширен флаг `--permission`. Его значение задается в формате `key=value,...`, в качестве `key` теперь можно использовать `allow_host` — хост, с которого дейcтвует данное правило для пользователя.
+
+* Добавлен глобальный флаг `--jq`. Используется для фильтрации и преобразования вывода при помощи jq-выражений. Примеры:
+  * `yc iam role list --jq '.[].id'`
+  * `ID="instance_id" yc compute instance list --jq '.[] | select(.id == env.ID)'`
+
+**{{ maf-name }}**
+
+* Исправление ошибок и улучшения работы сервиса {{ maf-name }}.
 
 ## Предыдущие релизы {#previous-releases}
 
-### Версия 0.131.0 (14.08.24) {#version0.131.0}
-### Изменения в сервисах {{ yandex-cloud }} {#services}
+### Версия 0.133.0 (09.09.24) {#version0.133.0}
 
-#### {{ backup-name }} {#backup}
+#### Изменения в CLI {#cli}
+
+* Исправлена ошибка, приводившая к подмене реальных сообщений об ошибке текстом `ERROR: Failed to retrieve data`. Затронутые проблемой версии: 0.131.0–0.132.1.
+
+#### Изменения в сервисах {{ yandex-cloud }} {#services}
+
+##### {{ at-name }} {#audit-trails}
+
+* Команды для управления трейлами теперь используют поле `filtering_policy` вместо `filter`. Устаревшее поле все еще может быть доступно с помощью опции `--file` для описания запросов.
+
+##### {{ compute-name }} {#compute}
+
+* В командах `yc compute instance get`, `yc compute image get`, `yc compute disk get` и `yc compute snapshot get` добавлено отображение свойства `hardware_generation`.
+* В командах `yc compute image create`, `yc compute disk create` и `yc compute snapshot create` добавлены параметры `--hardware-generation-id` и `--hardware-features`.
+
+##### Сервисы управляемых баз данных {#managed-db}
+
+* Добавлена возможность изменить сеть кластера с помощью параметров `--network-id` и `--network-name` в следующих командах:
+  * `yc managed-mongodb cluster update`;
+  * `yc managed-clickhouse cluster update`;
+  * `yc managed-greenplum cluster update`;
+  * `yc managed-postgresql cluster update`;
+  * `yc managed-redis cluster update`;
+  * `yc managed-mysql cluster update`;
+  * `yc managed-kafka cluster update`;
+  * `yc managed-elasticsearch cluster update`;
+  * `yc managed-opensearch cluster update`.
+
+**{{ mch-name }}**
+
+* Добавлены команды `yc managed-clickhouse cluster [ clear-query-masking-rules | set-query-masking-rules ]` для работы с опцией `query_masking_rules` в {{ CH }}, позволяющей создавать правила для запросов с целью устранения утечки конфиденциальной информации.
+* Для команды `yc managed-clickhouse cluster add-external-dictionary` добавлены параметры:
+  * `--layout-max-array-size` — определение максимального количества ключей словаря.
+  * `--http-header` — добавление HTTP-заголовков у HTTP-источников внешних словарей.
+* Для команды `yc managed-clickhouse cluster add-external-dictionary --clickhouse-source` добавлен параметр `--secure` для включения SSL в соединениях.
+* Для команды `yc managed-clickhouse cluster add-external-dictionary --mysql-source` добавлены параметры:
+  * `--close-connection` — закрытие соединения после каждого запроса.
+  * `--share-connection` — возможность использования соединения несколькими запросами.
+
+**{{ mrd-name }}**
+
+* В команды `yc managed-redis cluster [ create | update | restore ]` добавлен параметр `--websql-access`, который позволяет установить в {{ RD }} доступ через {{ websql-name }}.
+
+**{{ mgp-name }}**
+
+* В команды `yc managed-greenplum cluster [ create | update | restore ]` добавлен параметр `--yandexquery-access`, разрешающий доступ к кластеру из сервиса {{ yq-full-name }}.
+* В команды `yc managed-greenplum cluster [ create | update ]` добавлены параметры `--analyze-and-vacuum`, `--query-killer-idle`, `--query-killer-idle-in-transaction` и `--query-killer-long-running`, позволяющие управлять фоновыми процессами {{ mgp-name }}.
+
+**{{ maf-name }}**
+
+* Добавлены команды для работы с сервисом {{ maf-name }}: `yc managed-airflow cluster [ get | list | delete | list-operations | start | stop | create | update ]`.
+
+### Версия 0.132.1 (28.08.24) {#version0.132.1}
+
+#### Изменения в CLI {#cli}
+
+* Исправлены ошибки в документации флага `--help`.
+
+### Версия 0.132.0 (26.08.24) {#version0.132.0}
+
+#### Изменения в сервисах {{ yandex-cloud }} {#services}
+
+##### {{ iam-name }} {#iam}
+
+* Добавлена команда `yc iam revoke-token` для отзыва скомпрометированных токенов.
+* Добавлена команда `yc iam api-key list-scopes` для получения списка областей действия, доступных при создании API-ключей.
+
+##### {{ sf-name }} {#cloud-functions}
+
+* В команду `yc serverless function version create` добавлен параметр `--mount` для указания монтируемых ресурсов, таких как бакеты {{ objstorage-name }} и эфемерные диски.
+* В команде `yc serverless function version create` параметр `--storage-mounts` помечен как `deprecated`.
+
+##### {{ serverless-containers-name }} {#serverless-containers}
+
+* В команду `yc serverless container revision deploy` добавлен параметр `--mount` для указания монтируемых ресурсов, таких как бакеты {{ objstorage-name }} и эфемерные диски.
+* В команде `yc serverless container revision deploy` параметр `--storage-mounts` помечен как `deprecated`.
+
+##### {{ backup-name }} {#backup}
+
+* Добавлен флаг `--type` в команду `backup vm list` для указания типа ресурсов, которые должны вернуться в списке.
+
+##### {{ vpc-name }} {#vpc}
+
+* Добавлена группа команд `yc vpc private-endpoint` для управления ресурсами VPC Private Endpoint.
+
+##### Сервисы управляемых баз данных {#managed-db}
+
+**{{ mmg-name }}**
+
+* В команды `yc managed-mongodb cluster create` и `yc managed-mongodb cluster update` добавлен параметр `--disk-size-autoscaling` для включения автоматического масштабирования диска.
+
+**{{ mrd-name }}**
+
+* В командах `yc managed-redis cluster create` и `yc managed-redis cluster update` для `--disk-size-autoscaling` изменены единицы измерения `disk-size-limit` с байт на гигабайты.
+
+### Версия 0.131.1 (15.08.24) {#version0.131.1}
+
+#### Изменения в CLI {#cli}
+
+* Исправлена проблема в обработке некоторых ошибок, из-за которой в тексте ошибки символ `_` заменялся на `-`.
+
+### Версия 0.131.0 (14.08.24) {#version0.131.0}
+
+#### Изменения в сервисах {{ yandex-cloud }} {#services}
+
+##### {{ backup-name }} {#backup}
 
 * Добавлена команда `backup policy execute` для создания резервной копии виртуальной машины согласно указанной политике резервного копирования.
 
-#### {{ iam-name }} {#iam}
+##### {{ iam-name }} {#iam}
 
 * В команды `add-access-binding` и `remove-access-binding` добавлена поддержка опции `--agent`.
 * Добавлено дерево команд `yc iam workload-identity` для управления федерацией удостоверений рабочей нагрузки.
 * Команды `yc iam service-account list` и `yc iam service-account get` теперь показывают время последней аутентификации сервисного аккаунта.
 
-#### {{ container-registry-name }} {#container-registry}
+##### {{ container-registry-name }} {#container-registry}
 
 * В команду `yc container registry create` добавлена опция `--secure` для создания реестра с настройками безопасности.
 
-#### Сервисы управляемых баз данных {#managed-db}
+##### Сервисы управляемых баз данных {#managed-db}
 
 **{{ mgp-name }}**
 
@@ -38,34 +206,33 @@ description: "На странице представлены релизы YC CLI
 
 ### Версия 0.130.0 (01.08.24) {#version0.130.0}
 
-### Изменения в сервисах {{ yandex-cloud }} {#services}
+#### Изменения в сервисах {{ yandex-cloud }} {#services}
 
-#### {{ data-transfer-name }}
+##### {{ data-transfer-name }}
 
 * В команду `yc datatransfer endpoint create clickhouse-source` добавлен флаг `--cluster-name`, позволяющий указать имя ClickHouse-кластера для переноса данных.
 
-#### {{ marketplace-name }}
+##### {{ marketplace-name }}
 
 * Добавлена команда `yc marketplace reset-password`, ошибочно не попавшая в прошлый релиз.
 
-#### {{ iam-name }} {#iam}
+##### {{ iam-name }} {#iam}
 
 * Из дерева команд `yc iam service-control` удалены команды `pause` и `resume`.
 
-#### {{compute-name }}
+##### {{ compute-name }}
 
 * В команду `yc compute host-group list-instances` добавлен флаг `--host-id`, позволяющий указать id хоста в группе хостов для листинга виртуальных машин.
 
-#### {{ load-testing-name }}
+##### {{ load-testing-name }}
 
 * В команду `yc loadtesting agent create` добавлена возможность ожидания подключения созданного агента к сервису {{ load-testing-name }}:
   * флаг `--wait-ready` — не завершать команду, пока агент не перейдет в статус `READY FOR TEST`;
   * параметр `--wait-ready-timeout` — максимальное время ожидания для `--wait-ready` (default: 5m).
 
-### Изменения в CLI {#cli}
+#### Изменения в CLI {#cli}
 
 * Протокол авторизации федеративных аккаунтов изменен на Authorization Code Flow с Proof Key for Code Exchange (PKCE).
-
 
 ### Версия 0.129.0 (16.07.24) {#version0.129.0}
 
@@ -184,7 +351,7 @@ description: "На странице представлены релизы YC CLI
 * В команду `yc loadtesting agent create` добавлен флаг `--platform-id` для создания виртуальной машины на указанной платформе.
 * В команду `yc loadtesting test create` добавлены параметры для управления выгрузкой артефактов агента в {{ objstorage-name }}:
   * `--artifacts-output-bucket` для указания имени бакета, в который будут выгружаться артефакты.
-  * `--artifacts-make-archive` для определения того, будут ли артефкаты выгружаться  одним архивом или по отдельности.
+  * `--artifacts-make-archive` для определения того, будут ли артефкаты выгружаться одним архивом или по отдельности.
   * `--artifacts` для указания конкретных файлов, которые будут выгружены.
 
 ##### {{ mos-name }} {#mos}
@@ -235,7 +402,7 @@ description: "На странице представлены релизы YC CLI
 
 ##### Сервисы управляемых баз данных {#managed-db}
 
-**{{ mgp-name }}** 
+**{{ mgp-name }}**
 
 * Добавлено дерево команд `yc managed-greenplum hba-rules` с командами `get`, `list`, `delete`, `create` и `update`.
 
@@ -370,7 +537,7 @@ description: "На странице представлены релизы YC CLI
 
 ##### {{ data-transfer-name }}
 
-- Для следующих команд добавлен  флаг `--file` для указания YAML-файла для конфигурации запроса:
+- Для следующих команд добавлен флаг `--file` для указания YAML-файла для конфигурации запроса:
   * `yc datatransfer transfer create`
   * `yc datatransfer transfer update`
   * `yc datatransfer endpoint create`
@@ -430,8 +597,8 @@ description: "На странице представлены релизы YC CLI
 
 ##### {{ objstorage-name }}
 
-* В команду `yc storage bucket update --lifecycle-rules/--lifecycle-rules-from-file` добавлена поддержка `andOperation` для объединения условий в `filter`.
-* В команду `yc storage bucket update` добавлена возможность изменения используемого ключа шифрования `--encryption key-id=foobarbaz123`, `--remove-encryption`.
+* В команду `yc storage bucket update` для параметров `--lifecycle-rules/` и `--lifecycle-rules-from-file` добавлена поддержка логического оператора `И` (`andOperation`) для объединения условий в фильтре объектов.
+* В команду `yc storage bucket update` добавлен параметр `--encryption key-id=<идентификатор_ключа>` для изменения используемого ключа шифрования, а также параметр `--remove-encryption` для отключения шифрования в бакете.
 
 ##### Сервисы управляемых баз данных {#managed-db}
 
@@ -673,8 +840,8 @@ description: "На странице представлены релизы YC CLI
 
 ##### {{ kms-name }} {#kms}
 
-*  В команды ассиметричного шифрования и подписи `yc kms asymmetric-encryption-crypto decrypt`, `yc kms asymmetric-signature-crypto sign` и `yc kms asymmetric-signature-crypto sign-hash` добавлены параметры `--inform` и `--outform` для указания формата входных и выходных данных.
-*  В командах подписи `yc kms asymmetric-signature-crypto sign` и `yc kms asymmetric-signature-crypto sign-hash` параметр `--signature-file`, указывающий на файл, в который надо сохранить полученное значение подписи, переименован в `--signature-output-file`.
+* В команды ассиметричного шифрования и подписи `yc kms asymmetric-encryption-crypto decrypt`, `yc kms asymmetric-signature-crypto sign` и `yc kms asymmetric-signature-crypto sign-hash` добавлены параметры `--inform` и `--outform` для указания формата входных и выходных данных.
+* В командах подписи `yc kms asymmetric-signature-crypto sign` и `yc kms asymmetric-signature-crypto sign-hash` параметр `--signature-file`, указывающий на файл, в который надо сохранить полученное значение подписи, переименован в `--signature-output-file`.
 
 ##### {{ managed-k8s-name }} {#k8s}
 
@@ -889,7 +1056,7 @@ description: "На странице представлены релизы YC CLI
 ##### {{ managed-k8s-name }} {#managed-kubernetes}
 
 В команды `yc managed-kubernetes cluster create` и `yc managed-kubernetes cluster update` добавлен параметр `--master-logging` для настройки логирования со следующими свойствами:
-  
+
 * `enabled` — флаг для отправки логов в {{ cloud-logging-name }}.
 * `log-group-id` — ID [лог-группы](../logging/concepts/log-group.md), в которую нужно отправлять логи.
 * `folder-id` — ID каталога, в который нужно отправлять логи. Логи будут отправляться в лог-группу каталога по умолчанию.
@@ -1123,12 +1290,12 @@ description: "На странице представлены релизы YC CLI
 ##### {{ api-gw-name }} {#api-gw}
 
 * В команду `yc serverless api-gateway add-domain` добавлены параметры:
-  
+
   * `--domain` — для указания FQDN подключаемого [домена](../certificate-manager/concepts/domains/index.md) из {{ certificate-manager-name }};
   * `--certificate-id` — для указания идентификатора сертификата из {{ certificate-manager-name }}.
 
   Параметр `--domain-id` считается устаревшим, вместо него рекомендуется использовать параметру `--domain` и `--certificate-id`.
-  
+
 * Добавлена группа команд `yc serverless api-gateway websocket` для работы с соединениями по протоколу WebSocket:
 
   * `yc serverless api-gateway websocket get` — получение информации о соединении;
@@ -1205,7 +1372,6 @@ description: "На странице представлены релизы YC CLI
   * `yc managed-greenplum cluster update` — позволяет изменять настройки уже созданных кластеров.
   * `yc managed-greenplum cluster update-config` — позволяет изменять параметры конфигурации уже созданных кластеров.
 
-* В команду `yc managed-greenplum create cluster` добавлен флаг `--datatransfer-access` для разрешения доступа из {{ data-transfer-name }}.
 
 
 
@@ -1430,26 +1596,16 @@ description: "На странице представлены релизы YC CLI
 * В команду `yc managed-clickhouse cluster restore` добавлен флаг `--folder-id` для указания каталога, в котором будет создан восстановленный кластер.
 
 * В команду `yc managed-clickhouse cluster update` добавлен флаг:
-  * `--datatransfer-access` — для разрешения доступа к кластеру из сервиса {{ data-transfer-name }}.
+
+
   * `--yandexquery-access` — для разрешения доступа к кластеру из сервиса {{ yq-full-name }}.
 
-**{{ mkf-name }}**
-
-* В команды `yc managed-kafka cluster [ create | update ]` добавлен флаг `--datatransfer-access` для разрешения доступа к кластеру из сервиса {{ data-transfer-name }}.
-
-**{{ mmg-name }}**
-
-* В команды `yc managed-mongodb cluster [ create | restore | update ]` добавлен флаг `--datatransfer-access` для разрешения доступа к кластеру из сервиса {{ data-transfer-name }}.
 
 **{{ mmy-name }}**
 
-* В команды `yc managed-mysql cluster [ create | restore | update ]` добавлен флаг `--datatransfer-access` для разрешения доступа к кластеру из сервиса {{ data-transfer-name }}.
 
 * В команду `yc managed-mysql cluster update` добавлен флаг `--performance-diagnostics`, позволяющий управлять настройками сервиса диагностики производительности.
 
-**{{ mpg-name }}**
-
-* В команды `yc managed-postgresql cluster [ create | restore | update ]` добавлен флаг `--datatransfer-access` для разрешения доступа к кластеру из сервиса {{ data-transfer-name }}.
 
 ### Версия 0.89.0 (23.03.22) {#version0.89.0}
 

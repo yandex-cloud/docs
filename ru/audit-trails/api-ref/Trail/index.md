@@ -120,7 +120,42 @@ A set of methods for managing trails.
     }
   },
   "statusErrorMessage": "string",
-  "cloudId": "string"
+  "cloudId": "string",
+  "filteringPolicy": {
+    "managementEventsFilter": {
+      "resourceScopes": [
+        {
+          "id": "string",
+          "type": "string"
+        }
+      ]
+    },
+    "dataEventsFilters": [
+      {
+        "service": "string",
+        "resourceScopes": [
+          {
+            "id": "string",
+            "type": "string"
+          }
+        ],
+
+        // `filteringPolicy.dataEventsFilters[]` includes only one of the fields `includedEvents`, `excludedEvents`
+        "includedEvents": {
+          "eventTypes": [
+            "string"
+          ]
+        },
+        "excludedEvents": {
+          "eventTypes": [
+            "string"
+          ]
+        },
+        // end of the list of possible fields`filteringPolicy.dataEventsFilters[]`
+
+      }
+    ]
+  }
 }
 ```
  
@@ -134,25 +169,25 @@ name | **string**<br><p>Name of the trail</p> <p>Value must match the regular ex
 description | **string**<br><p>Description of the trail</p> <p>The maximum string length in characters is 1024.</p> 
 labels | **object**<br><p>Custom labels of the trail as ``key:value`` pairs. Maximum 64 per key</p> <p>No more than 64 per resource. The maximum string length in characters for each key is 63. Each key must match the regular expression ``[a-z][-_0-9a-z]*``. The maximum string length in characters for each value is 63. Each value must match the regular expression ``[-_0-9a-z]*``.</p> 
 destination | **object**<br><p>Required. Destination configuration of the trail</p> 
-destination.<br>objectStorage | **object** <br>`destination` includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`<br>
+destination.<br>objectStorage | **object**<br>Configuration for event delivery to Object Storage  Uploaded objects will have prefix <trail_id>/ by default <br>`destination` includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`<br>
 destination.<br>objectStorage.<br>bucketId | **string**<br><p>Name of the destination bucket</p> <p>The string length in characters must be 3-63.</p> 
 destination.<br>objectStorage.<br>objectPrefix | **string**<br><p>Prefix for exported objects. Optional If specified, uploaded objects will have prefix &lt;object_prefix&gt;/&lt;trail_id&gt;/</p> 
-destination.<br>cloudLogging | **object** <br>`destination` includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`<br>
+destination.<br>cloudLogging | **object**<br>Configuration for event delivery to Cloud Logging <br>`destination` includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`<br>
 destination.<br>cloudLogging.<br>logGroupId | **string**<br><p>ID of the Cloud Logging destination group</p> <p>The maximum string length in characters is 64.</p> 
-destination.<br>dataStream | **object** <br>`destination` includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`<br>
+destination.<br>dataStream | **object**<br>Configuration for event delivery to YDS <br>`destination` includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`<br>
 destination.<br>dataStream.<br>databaseId | **string**<br><p>ID of the database hosting the destination YDS</p> 
 destination.<br>dataStream.<br>streamName | **string**<br><p>Name of the destination YDS</p> 
 serviceAccountId | **string**<br><p>Service account ID of the trail</p> <p>The maximum string length in characters is 50.</p> 
 status | **string**<br><p>Required. Status of the trail</p> <ul> <li>ACTIVE: The trail is active and Audit events are processed</li> <li>ERROR: The trail configuration has issues that are preventing Audit Trails from delivering events</li> <li>DELETED: The trail is being deleted</li> </ul> 
-filter | **object**<br><p>Required. Filtering configuration of the trail</p> 
+filter | **object**<br><p>Filtering configuration of the trail deprecated: use filtering_policy instead</p> 
 filter.<br>pathFilter | **object**<br><p>Configuration of default events gathering for the trail If not specified, default events won't be gathered for the trail</p> 
 filter.<br>pathFilter.<br>root | **object**<br><p>Required. Root element of the resource path filter for the trail Resource described in that filter node must contain the trail itself</p> 
-filter.<br>pathFilter.<br>root.<br>anyFilter | **object** <br>`filter.pathFilter.root` includes only one of the fields `anyFilter`, `someFilter`<br>
+filter.<br>pathFilter.<br>root.<br>anyFilter | **object**<br>Filter element with ANY type. If used, configures the trail to gather any events from the resource <br>`filter.pathFilter.root` includes only one of the fields `anyFilter`, `someFilter`<br>
 filter.<br>pathFilter.<br>root.<br>anyFilter.<br>resource | **object**<br><p>Required. Resource definition</p> 
 filter.<br>pathFilter.<br>root.<br>anyFilter.<br>resource.<br>id | **string**<br><p>Required. ID of the resource</p> <p>The maximum string length in characters is 64.</p> 
 filter.<br>pathFilter.<br>root.<br>anyFilter.<br>resource.<br>type | **string**<br><p>Required. Type of the resource</p> <p>The maximum string length in characters is 50.</p> 
-filter.<br>pathFilter.<br>root.<br>someFilter | **object** <br>`filter.pathFilter.root` includes only one of the fields `anyFilter`, `someFilter`<br>
-filter.<br>pathFilter.<br>root.<br>someFilter.<br>resource | **object**<br><p>Required. Definition of the resource that contains</p> 
+filter.<br>pathFilter.<br>root.<br>someFilter | **object**<br>Filter element with SOME type. If used, configures the trail to gather some of the events from the resource <br>`filter.pathFilter.root` includes only one of the fields `anyFilter`, `someFilter`<br>
+filter.<br>pathFilter.<br>root.<br>someFilter.<br>resource | **object**<br><p>Required. Definition of the resource that contains nested resources</p> 
 filter.<br>pathFilter.<br>root.<br>someFilter.<br>resource.<br>id | **string**<br><p>Required. ID of the resource</p> <p>The maximum string length in characters is 64.</p> 
 filter.<br>pathFilter.<br>root.<br>someFilter.<br>resource.<br>type | **string**<br><p>Required. Type of the resource</p> <p>The maximum string length in characters is 50.</p> 
 filter.<br>pathFilter.<br>root.<br>someFilter.<br>filters[] | **object**<br><p>Required. Filters for the resources contained in the parent resource</p> <p>Must contain at least one element.</p> 
@@ -174,7 +209,7 @@ filter.<br>eventFilter.<br>filters[].<br>pathFilter.<br>root.<br>anyFilter.<br>r
 filter.<br>eventFilter.<br>filters[].<br>pathFilter.<br>root.<br>anyFilter.<br>resource.<br>id | **string**<br><p>Required. ID of the resource</p> <p>The maximum string length in characters is 64.</p> 
 filter.<br>eventFilter.<br>filters[].<br>pathFilter.<br>root.<br>anyFilter.<br>resource.<br>type | **string**<br><p>Required. Type of the resource</p> <p>The maximum string length in characters is 50.</p> 
 filter.<br>eventFilter.<br>filters[].<br>pathFilter.<br>root.<br>someFilter | **object**<br>Filter element with SOME type. If used, configures the trail to gather some of the events from the resource <br>`filter.eventFilter.filters[].pathFilter.root` includes only one of the fields `anyFilter`, `someFilter`<br>
-filter.<br>eventFilter.<br>filters[].<br>pathFilter.<br>root.<br>someFilter.<br>resource | **object**<br><p>Required. Definition of the resource that contains</p> 
+filter.<br>eventFilter.<br>filters[].<br>pathFilter.<br>root.<br>someFilter.<br>resource | **object**<br><p>Required. Definition of the resource that contains nested resources</p> 
 filter.<br>eventFilter.<br>filters[].<br>pathFilter.<br>root.<br>someFilter.<br>resource.<br>id | **string**<br><p>Required. ID of the resource</p> <p>The maximum string length in characters is 64.</p> 
 filter.<br>eventFilter.<br>filters[].<br>pathFilter.<br>root.<br>someFilter.<br>resource.<br>type | **string**<br><p>Required. Type of the resource</p> <p>The maximum string length in characters is 50.</p> 
 filter.<br>eventFilter.<br>filters[].<br>pathFilter.<br>root.<br>someFilter.<br>filters[] | **object**<br><p>Required. Filters for the resources contained in the parent resource</p> <p>Must contain at least one element.</p> 
@@ -185,6 +220,20 @@ filter.<br>eventFilter.<br>filters[].<br>pathFilter.<br>root.<br>someFilter.<br>
 filter.<br>eventFilter.<br>filters[].<br>pathFilter.<br>root.<br>someFilter.<br>filters[].<br>someFilter | **object**<br>Filter element with SOME type. If used, configures the trail to gather some of the events from the resource <br>`filter.eventFilter.filters[].pathFilter.root.someFilter.filters[]` includes only one of the fields `anyFilter`, `someFilter`<br>
 statusErrorMessage | **string**<br><p>Current error message of the trail. Empty in case if the trail is active</p> 
 cloudId | **string**<br><p>Required. ID of the cloud that the trail belongs to</p> <p>The maximum string length in characters is 50.</p> 
+filteringPolicy | **object**<br><p>Event filtering policy Describes which groups of events will be sent and which resources will be monitored</p> <p>Combination of policies describing event filtering process of the trail At least one filed must be filled</p> 
+filteringPolicy.<br>managementEventsFilter | **object**<br><p>Singular filter describing gathering management events</p> <p>Policy for gathering management events</p> 
+filteringPolicy.<br>managementEventsFilter.<br>resourceScopes[] | **object**<br><p>Required. A list of resources which will be monitored by the trail</p> <p>The number of elements must be in the range 1-1024.</p> 
+filteringPolicy.<br>managementEventsFilter.<br>resourceScopes[].<br>id | **string**<br><p>Required. ID of the resource</p> <p>The maximum string length in characters is 64.</p> 
+filteringPolicy.<br>managementEventsFilter.<br>resourceScopes[].<br>type | **string**<br><p>Required. Type of the resource</p> <p>The maximum string length in characters is 50.</p> 
+filteringPolicy.<br>dataEventsFilters[] | **object**<br><p>List of filters describing gathering data events</p> <p>The number of elements must be less than 128.</p> 
+filteringPolicy.<br>dataEventsFilters[].<br>service | **string**<br><p>Required. Name of the service whose events will be delivered</p> 
+filteringPolicy.<br>dataEventsFilters[].<br>resourceScopes[] | **object**<br><p>Required. A list of resources which will be monitored by the trail</p> <p>The number of elements must be in the range 1-1024.</p> 
+filteringPolicy.<br>dataEventsFilters[].<br>resourceScopes[].<br>id | **string**<br><p>Required. ID of the resource</p> <p>The maximum string length in characters is 64.</p> 
+filteringPolicy.<br>dataEventsFilters[].<br>resourceScopes[].<br>type | **string**<br><p>Required. Type of the resource</p> <p>The maximum string length in characters is 50.</p> 
+filteringPolicy.<br>dataEventsFilters[].<br>includedEvents | **object**<br>Explicitly included events of specified service New events of the service won't be delivered by default <br>`filteringPolicy.dataEventsFilters[]` includes only one of the fields `includedEvents`, `excludedEvents`<br>
+filteringPolicy.<br>dataEventsFilters[].<br>includedEvents.<br>eventTypes[] | **string**<br><p>Required. The number of elements must be in the range 1-1024.</p> 
+filteringPolicy.<br>dataEventsFilters[].<br>excludedEvents | **object**<br>Explicitly excluded events of specified service New events of the service will be delivered by default <br>`filteringPolicy.dataEventsFilters[]` includes only one of the fields `includedEvents`, `excludedEvents`<br>
+filteringPolicy.<br>dataEventsFilters[].<br>excludedEvents.<br>eventTypes[] | **string**<br><p>Required. The number of elements must be in the range 1-1024.</p> 
 
 ## Methods {#methods}
 Method | Description

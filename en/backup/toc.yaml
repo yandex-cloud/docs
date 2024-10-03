@@ -2,7 +2,7 @@ title: Yandex Cloud Backup
 href: index.yaml
 label:
   title: RU
-  description: The service is only available in the Russia region.
+  description: This service is only available in the Russia region.
   theme: unknown
   when: region == "kz"
 items:
@@ -12,7 +12,7 @@ items:
     items:
       - name: All guides
         href: operations/index.md
-      - name: VMs in {{ backup-name }}
+      - name: VM in {{ backup-name }}
         items:
           - name: Creating and connecting a Linux VM
             href: operations/create-vm.md
@@ -24,7 +24,7 @@ items:
             href: operations/connect-vm-windows.md
           - name: Updating a VM connection to {{ backup-name }}
             href: operations/refresh-connection.md
-          - name: Deleting VMs from {{ backup-name }}
+          - name: Deleting a VM from {{ backup-name }}
             href: operations/delete-vm.md
       - name: Backup policies
         items:
@@ -34,6 +34,8 @@ items:
             href: operations/policy-vm/update.md
           - name: Linking a VM to a policy
             href: operations/policy-vm/attach-and-detach-vm.md
+          - name: Getting information about a policy
+            href: operations/policy-vm/get-info.md
           - name: Unlinking a VM from a policy
             href: operations/policy-vm/detach-vm.md
           - name: Deleting a policy
@@ -52,9 +54,21 @@ items:
             href: operations/backup-vm/delete.md
       - name: Viewing operations with the service's resources
         href: operations/operation-logs.md
+      - name: Viewing backup statistics
+        href: operations/get-stats.md
+  - name: Tutorials
+    items:
+      - name: Linking a backup policy to a VM automatically
+        items:
+          - name: Overview
+            href: tutorials/vm-with-backup-policy/index.md
+          - name: Management console, CLI, and API
+            href: tutorials/vm-with-backup-policy/console.md
+          - name: '{{ TF }}'
+            href: tutorials/vm-with-backup-policy/terraform.md
   - name: Concepts
     items:
-      - name: Overview
+      - name: Service overview
         href: concepts/index.md
       - name: Connecting a VM to the service
         href: concepts/vm-connection.md
@@ -70,7 +84,7 @@ items:
     items:
       - name: Current pricing policy
         href: pricing.md
-      - name: Archives
+      - name: Archive
         items:
           - name: Before April 1, 2024
             href: pricing-archive/pricing-20240401.md
@@ -158,6 +172,8 @@ items:
                 href: backup/api-ref/Resource/list.md
               - name: listTasks
                 href: backup/api-ref/Resource/listTasks.md
+  - name: '{{ monitoring-name }} metrics'
+    href: metrics.md
   - name: '{{ at-name }} events'
     href: at-ref.md
   - name: Release notes

@@ -11,6 +11,7 @@
 
 ## Перед началом работы {#before-you-begin}
 
+
 Подготовьте инфраструктуру:
 
 {% list tabs group=instructions %}
@@ -20,7 +21,7 @@
     1. [Создайте базу данных {{ ydb-name }}](../../../ydb/operations/manage-databases.md) любой подходящей конфигурации.
 
     1. [Создайте бакет {{ objstorage-name }}](../../../storage/operations/buckets/create.md).
-    
+
     1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md#create-sa) с ролями `storage.editor` и `ydb.editor`. Трансфер будет использовать его для доступа к базе данных и бакету.
 
 - С помощью {{ TF }} {#tf}
@@ -147,7 +148,7 @@
 ## Проверьте работоспособность трансфера {#verify-transfer}
 
 Убедитесь, что данные перенеслись из базы данных {{ ydb-name }} в бакет {{ objstorage-name }}:
-    
+
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится нужный бакет.
 1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
 1. Выберите бакет из списка.

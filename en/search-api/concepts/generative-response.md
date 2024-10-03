@@ -51,7 +51,7 @@ Each query seeking a generative response must contain a [JSON](https://en.wikipe
 
 * `messages`: A single search query or a search query with context in the form of chat messages exchanged with the model. It is specified as an array of objects, each one containing two elements:
    * `content`: Text of user query or the model's response (depending on the `role` value).
-   * `role`: Message sender's role. The possible values include:
+   * `role`: Message sender's role. The possible values are:
       * `user`: Means that the message is sent by the user, and the `content` field contains the user's query.
       * `assistant`: Means that the message is sent by the model, and the `content` field contains the model's response.
 

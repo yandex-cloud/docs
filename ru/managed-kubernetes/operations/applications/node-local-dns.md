@@ -1,6 +1,5 @@
 # Установка NodeLocal DNS
 
-
 [NodeLocal DNS](/marketplace/products/yc/node-local-dns) снижает нагрузку по [DNS-запросам](../../../glossary/dns.md) за счет запуска кеша на каждом [узле](../../concepts/index.md#node-group) в [кластере {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster). Это позволяет повысить производительность и отказоустойчивость кластера {{ managed-k8s-name }}.
 
 ## Перед началом работы {#before-you-begin}
@@ -41,20 +40,30 @@
 
 1. {% include [Установка Helm](../../../_includes/managed-kubernetes/helm-install.md) %}
 1. {% include [Install and configure kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
-1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с NodeLocal DNS выполните команду:
+1. Получите адрес для обращения к NodeLocal DNS Cache. Адрес понадобится для установки [Helm-чарта](https://helm.sh/docs/topics/charts/):
 
    ```bash
-   export HELM_EXPERIMENTAL_OCI=1 &&\
+   kubectl get svc kube-dns -n kube-system -o jsonpath={.spec.clusterIP}
+   ```
+
+   Команда отображает адрес `ClusterIP` сервиса `kube-dns` в пространстве имен `kube-system`. Сервис `kube-dns` устанавливается автоматически во время создания кластера, поэтому IP-адрес сервиса предопределен.
+
+   Запросы, отправленные из подов приложений по полученному адресу, маршрутизируются на [local DNS](https://github.com/kubernetes/enhancements/blob/master/keps/sig-network/1024-nodelocal-cache-dns/README.md#iptables-notrack) с помощью правил iptables.
+
+1. Для установки Helm-чарта с NodeLocal DNS выполните команду:
+
+   
+   ```bash
    helm pull oci://{{ mkt-k8s-key.yc_node-local-dns.helmChart.name }} \
      --version {{ mkt-k8s-key.yc_node-local-dns.helmChart.tag }} \
      --untar && \
-   KUBE_DNS_IP="$(kubectl get svc kube-dns -n kube-system -o jsonpath={.spec.clusterIP})" && \
    helm install \
      --set config.cilium=false \
-     --set config.clusterIp=$KUBE_DNS_IP \
-     node-local-dns ./chart/
+     --set config.clusterIp="<IP-адрес_kube-dns>" \
+     node-local-dns ./node-local-dns/
    ```
 
-   Где `KUBE_DNS_IP` — это адрес для обращения к NodeLocal DNS Cache. Запросы, отправленные из подов приложений по адресу `KUBE_DNS_IP`, маршрутизируются на [local DNS](https://github.com/kubernetes/enhancements/blob/master/keps/sig-network/1024-nodelocal-cache-dns/README.md#iptables-notrack) с помощью правил iptables.
+
+   {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 
 Подробнее о настройке локального кеширования DNS см. в разделе [{#T}](../../tutorials/node-local-dns.md).

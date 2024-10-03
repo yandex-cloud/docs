@@ -33,19 +33,19 @@
 
 {% list tabs group=residents %}
 
- - Резиденты Российской Федерации {#russia}
+- Резиденты Российской Федерации {#russia}
 
    Ресурсы {{ yandex-cloud }} можно оплачивать только в рублях (₽), вне зависимости от юридического статуса ([типа платежного аккаунта](../../billing/concepts/billing-account.md#ba-types)).
 
    {% include [rb payment](../../_includes/billing/rb-payment.md) %}
 
 
- - Резиденты Республики Казахстан {#kazakhstan}
+- Резиденты Республики Казахстан {#kazakhstan}
 
    Ресурсы {{ yandex-cloud }} можно оплачивать только в тенге (₸), вне зависимости от юридического статуса ([типа платежного аккаунта](../../billing/concepts/billing-account.md#ba-types)).
 
 
- - Нерезиденты Российской Федерации {#nonresidents}
+- Нерезиденты Российской Федерации {#nonresidents}
 
    Ресурсы {{ yandex-cloud }} можно оплачивать только в долларах США ($), вне зависимости от страны, в которой вы проживаете.
 
@@ -99,4 +99,4 @@
 
 #### Можно ли вывести деньги с баланса? {#refund}
 
-Чтобы вернуть денежные средства, которые не будут использованы для оплаты услуг {{ yandex-cloud }}, [обратитесь]({{ link-console-support }}) в {{ support-center-name }} или отправьте письмо на адрес [{{ link-support-mail }}](mailto:{{ link-support-mail }}).
+{% include [payment-refund](../../_includes/billing/payment-refund.md) %}

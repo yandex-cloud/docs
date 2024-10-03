@@ -11,6 +11,8 @@ A secret is a set of versions that store your data, such as API keys, passwords,
 
 You can set up access to secrets using [{{ iam-full-name }}](../../iam/index.yaml). The roles available for different use cases are described in the [{#T}](../security/index.md) section.
 
+A secret can be either active or deactivated. When a secret is active, it enables access to both its metadata and content (key-value pairs). When deactivated, it allows access only to its metadata, with the secret content being inaccessible.
+
 ## Secret type {#secret-type}
 
 {{ lockbox-full-name }} allows creating two types of secrets: generated secrets and user secrets.

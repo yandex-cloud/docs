@@ -2,6 +2,8 @@
 
 To add a software product for {{ managed-k8s-name }} in {{ marketplace-short-name }}, upload its packages to the {{ yandex-cloud }} [registry](../../container-registry/concepts/registry.md). This section will help you prepare your {{ marketplace-short-name }} product for {{ managed-k8s-full-name }}.
 
+For more information about setting up [subscription-based](license-manager-integration.md#managed-k8s) product access, see [Integration with the {{ license-manager }} API](../concepts/subscription.md).
+
 You can also create products for {{ compute-full-name }} to run on [Linux](create-image.md) operating systems by following the relevant guidelines.
 
 ## Hosting and naming images {#registry}
@@ -17,8 +19,8 @@ You can also create products for {{ compute-full-name }} to run on [Linux](creat
    Where:
 
    * `<registry-id>`: Publisher's registry ID.
-   * `<vendor-name>`: Name of the product vendor.
-   * `<product-name>`: Product name.
+   * `<vendor-name>`: Names of the product publisher.
+   * `<product-name>`: Product names.
    * `<chart>`: Helm chart name.
 
 * The names of the product's docker images should follow the format:
@@ -30,20 +32,20 @@ You can also create products for {{ compute-full-name }} to run on [Linux](creat
    Where:
 
    * `<registry-id>`: Publisher's registry ID.
-   * `<vendor-name>`: Name of the product vendor.
-   * `<product-name>`: Product name.
-   * `<component-name>`: Name of the product component being provided as a docker image.
-   * `<tag>`: Docker image tag. Don't use the `latest` tag.
+   * `<vendor-name>`: Names of the product publisher.
+   * `<product-name>`: Product names.
+   * `<component-name>`: Name of the product component provided as a docker image.
+   * `<tag>`: Docker image tag. Do not use the `latest` tag.
 
-During publication, all the images included in a product are moved from the publisher's registry to the public `yc-marketplace` registry. The entire product hierarchy defined by the publisher is maintained in the process.
+During publication, all the images that come with the product are moved from the publisher's registry to the public `yc-marketplace` registry. The whole product hierarchy defined by the publisher is maintained in the process.
 
 > For example, the `{{ registry }}/{{ tf-cloud-id }}/yandex-cloud/prometheus/pushgateway:1.0` image will be published as `{{ registry }}/yc-marketplace/yandex-cloud/prometheus/pushgateway:1.0`.
 
-For more information on working with the registry, see [{#T}](../../container-registry/operations/helm-chart/helm-chart-push.md) and [{#T}](../../container-registry/operations/docker-image/docker-image-push.md).
+For more information on using the registry, see [{#T}](../../container-registry/operations/helm-chart/helm-chart-push.md) and [{#T}](../../container-registry/operations/docker-image/docker-image-push.md).
 
 ## Helm chart specifics {#special-requirements}
 
-A Helm chart must contain a file called `values.yaml`, which will contain a list of all the docker images as parameters. The names of Docker images in the `values.yaml` file must start with the `.Values` prefix and point at images in the publisher's registry to make sure that the publication and subsequent installation of the product in the cluster is error-free.
+A Helm chart must contain a file named `values.yaml` listing all docker images presented as parameters. The names of Docker images in the `values.yaml` file must start with the `.Values` prefix and refer to images in the publisher's registry to ensure error-free publication and subsequent installation of the product in the user's cluster.
 
 Generic pod specification without parameters:
 
@@ -54,7 +56,7 @@ spec:
   - image: {{ registry }}/<registry-id>/<vendor-name>/<product-name>/<component-name>:<tag>
 ```
 
-A pod specification with the image name replaced by the YAML path variable described in `values.yaml`:
+Pod specification with image name replaced with the YAML path variable described in `values.yaml`:
 
 ```yaml
 # pod spec
@@ -90,7 +92,7 @@ The manifest uses YAML format and contains the following data:
      k8s_version: ">=1.18"
    ```
 
-1. `images`: Required field. Contains a list of metadata of the images included in the product. The values of image metadata variables are references in YAML Path format to variables from `values.yaml`. Entries can be in one of the following formats:
+1. `images`: Required field. It contains a list of metadata of the images included in the product. The values of image metadata variables are YAML Path format references to variables from `values.yaml`. Entries can be in one of the following formats:
 
    * Image name, registry address, and tag are described in separate fields:
 
@@ -146,355 +148,355 @@ The manifest uses YAML format and contains the following data:
 
 1. `user_values`: Optional parameter. It stands for a list of product variables the user can override while installing or modifying an already installed product via the {{ yandex-cloud }} management console. Each variable is described by the required fields below:
    * `name`: YAML Path of the variable from `values.yaml`.
-   * `title`: Short variable description, can be either in Russian or English. The value must start with a capital letter.
+   * `title`: Short name of the variable, either in Russian or English. The value must start with a capital letter.
 
-      ```yaml
-      user_values:
-      - name: app.port
-        title:
-          en: <title_in_English>
-          ru: <title_in_Russian>
-      ```
-   * `description`: Variable description, can be either in Russian or English. The value must start with a capital letter.
+     ```yaml
+     user_values:
+     - name: app.port
+       title:
+         en: <English_title>
+         ru: <Russian_title>
+     ```
+   * `description`: Variable description, either in Russian or English. The value must start with a capital letter.
 
       ```yaml
       user_values:
         - name: app.port
-          title: <Title>
+          title: <Header>
           description:
             en: <English_description>
-            ru: <Description_in_Russian>
+            ru: <Russian_description>
       ```
 
-   * `required` (optional): *Required* flag. The flag can be set for any variable type except `boolean_value`. The available values are `true` and `false`.
+   * `required` (optional): `Required` flag. The flag can be set for any variable type except `boolean_value`. The available values are `true` and `false`.
 
    * Variable type. Legal values:
       * `simple_disabled`. May contain a default value and the enable flag.
 
-         ```yaml
-         user_values:
-           - name: <name>
-             disabled: true
-             title: <Title>
-             string_value:
-               required: true
-               default_value: "simple_string_value"
-         ```
+        ```yaml
+        user_values:
+          - name: <name>
+            disabled: true
+            title: <Header>
+            string_value:
+              required: true
+              default_value: "simple_string_value"
+        ```
 
       * `integer_value`. May contain a default value and a range of valid values.
 
-         ```yaml
-         user_values:
-           - name: <name>
-             title: <Title>
-             description: <Description>
-             integer_value:
-               default_value: <default_integer>
-               required: true
-               restrictions:
-                 min: <integer_1>
-                 max: <integer_2>
-         ```
+        ```yaml
+        user_values:
+          - name: <name>
+            title: <Header>
+            description: <Description>
+            integer_value:
+              default_value: <default_integer>
+              required: true
+              restrictions:
+                min: <integer_1>
+                max: <integer_2>
+        ```
 
       * `boolean_value`. May contain a default value.
 
-         ```yaml
-         user_values:
-           - name: <name>
-             title: <Title>
-             description: <Description>
-             boolean_value:
-               default_value: true
-         ```
+        ```yaml
+        user_values:
+          - name: <name>
+            title: <Header>
+            description: <Description>
+            boolean_value:
+              default_value: true
+        ```
 
       * `string_selector_value`: String from a pre-defined list. May contain a default value and a list of valid values.
 
-         ```yaml
-         user_values:
-           - name: <name>
-             title: <Title>
-             description: <Description>
-             string_selector_value:
-               default_value: <value_1>
-               required: true
-               values:
-                 - <value_1>
-                 - <value_2>
-                 - <value_3>
-         ```
+        ```yaml
+        user_values:
+          - name: <name>
+            title: <Header>
+            description: <Description>
+            string_selector_value:
+              default_value: <value_1>
+              required: true
+              values:
+                - <value_1>
+                - <value_2>
+                - <value_3>
+        ```
 
       * `integer_selector_value`: Integer value from a pre-defined list. May contain a default value and a list of valid values.
 
-         ```yaml
-         user_values:
-           - name: <name>
-             title: <Title>
-             description: <Description>
-             integer_selector_value:
-               default_value: <integer_1>
-               required: true
-               values:
-                 - <integer_1>
-                 - <integer_2>
-                 - <integer_3>
-         ```
+        ```yaml
+        user_values:
+          - name: <name>
+            title: <Header>
+            description: <Description>
+            integer_selector_value:
+              default_value: <integer_1>
+              required: true
+              values:
+                - <integer_1>
+                - <integer_2>
+                - <integer_3>
+        ```
 
-      * `string_value`. May contain a flag and a *secret field*, as well as a value length limit.
+      * `string_value`: It may contain a flag and a *secret field*, as well as a value length limit.
 
-         ```yaml
-         user_values:
-           - name: <name>
-             title: <Title>
-             description: <Description>
-             string_value:
-               required: true
-               secret: true
-               length_restrictions:
-                 min: <min_row_length>
-                 max: <max_row_length>
-         ```
+        ```yaml
+        user_values:
+          - name: <name>
+            title: <Header>
+            description: <Description>
+            string_value:
+              required: true
+              secret: true
+              length_restrictions:
+                min: <min_row_length>
+                max: <max_row_length>
+        ```
 
-      * `cloudiddisabled`: [Cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) ID in {{ yandex-cloud }}. If you provide a parameter, the appropriate product field in the management console will not be available for editing and will be automatically pre-filled.
+      * `cloudiddisabled`: [Cloud ID](../../resource-manager/concepts/resources-hierarchy.md#cloud) in {{ yandex-cloud }}. If you provide a parameter, the appropriate product field in the management console will not be available for editing and will be automatically pre-filled.
 
-         ```yaml
-         user_values:
-           - name: <name>
-             title: <Title>
-             cloud_id_value:
-               required: true
-         ```
+        ```yaml
+        user_values:
+          - name: <name>
+            title: <Header>
+            cloud_id_value:
+              required: true
+        ```
 
-      * `cloudid`: Сloud ID in {{ yandex-cloud }}, which you can select from the management console.
+      * `cloudid`: Cloud ID in {{ yandex-cloud }} which you can select from the management console.
 
-         ```yaml
-         user_values:
-           - name: <name>
-             title: <Title>
-             cloud_id_value:
-               required: true
-         ```
+        ```yaml
+        user_values:
+          - name: <name>
+            title: <Header>
+            cloud_id_value:
+              required: true
+        ```
 
       * `folderid`: [Folder](../../resource-manager/concepts/resources-hierarchy.md#folder) ID.
 
-         ```yaml
-         user_values:
-           - name: <name>
-             title: <Title>
-             folder_id_value:
-               required: true
-         ```
+        ```yaml
+        user_values:
+          - name: <name>
+            title: <Header>
+            folder_id_value:
+              required: true
+        ```
 
       * `clusterid`: [{{ k8s }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) ID.
 
-         ```yaml
-         user_values:
-           - name: <name>
-             title: <Title>
-             cluster_id_value:
-               required: true
-         ```
+        ```yaml
+        user_values:
+          - name: <name>
+            title: <Header>
+            cluster_id_value:
+              required: true
+        ```
 
       * `networkid`: {{ vpc-full-name }} [network](../../vpc/concepts/network.md#network) ID.
 
-         ```yaml
-         user_values:
-           - name: <name>
-             title: <Title>
-             network_id_value:
-               required: true
-         ```
+        ```yaml
+        user_values:
+          - name: <name>
+            title: <Header>
+            network_id_value:
+              required: true
+        ```
 
       * `subnetid`: {{ vpc-name }} [subnet](../../vpc/concepts/network.md#subnet) ID.
 
-         ```yaml
-         user_values:
-           - name: <name>
-             title: <Title>
-             subnet_id_value:
-               required: true
-         ```
+        ```yaml
+        user_values:
+          - name: <name>
+            title: <Header>
+            subnet_id_value:
+              required: true
+        ```
 
       * `serviceaccountid`: [Service account](../../iam/concepts/users/service-accounts.md) ID.
 
-         ```yaml
-         user_values:
-           - name: <name>
-             title: <Title>
-             service_account_id_value:
-               required: true
-         ```
+        ```yaml
+        user_values:
+          - name: <name>
+            title: <Header>
+            service_account_id_value:
+              required: true
+        ```
 
       * `serviceaccountkey`: Service account's [authorized key](../../iam/concepts/authorization/key.md).
 
-         ```yaml
-         user_values:
-           - name: <name>
-             title: <Title>
-             service_account_key_value:
-               required: true
-         ```
+        ```yaml
+        user_values:
+          - name: <name>
+            title: <Header>
+            service_account_key_value:
+              required: true
+        ```
 
       * `service_account_aws_key_value`: Service account's [static key](../../iam/concepts/authorization/access-key.md) for access to {{ objstorage-name }}. It is delivered in JSON format.
 
-         ```yaml
-         user_values:
-           - name: <name>
-             title: <Title>
-             description: <Description>
-             service_account_aws_key_value:
-               required: true
-         ```
+        ```yaml
+        user_values:
+          - name: <name>
+            title: <Header>
+            description: <Description>
+            service_account_aws_key_value:
+              required: true
+        ```
 
-         To use the value of this field in a helm chart or transmit it in a file at manual installation, add the following code at the end of the `templates/_helpers.tpl` template:
+        To use the value of this field in a helm chart or transmit it in a file during manual installation, add the following code at the end of the `templates/_helpers.tpl` template:
 
-         {% note warning %}
+        {% note warning %}
 
-         Make sure to specify `_generated` after the `name` field value from the manifest.
+        Make sure to put `_generated` after the `name` field value from the manifest.
 
-         {% endnote %}
+        {% endnote %}
 
-         ```
-         {{- define "<chart_name>.access_key_id" -}}
-         not_var{{- if .Values.saAccessKeyFile -}}
-         {{- $key := .Values.saAccessKeyFile | fromJson -}}
-         {{- $key.access_key.key_id -}}
-         not_var{{- else }}
-         {{- .Values.<name_field_value_from_manifest>_generated.accessKeyID -}}
-         not_var{{- end }}
-         not_var{{- end }}
+        ```
+        {{- define "<chart_name>.access_key_id" -}}
+        not_var{{- if .Values.saAccessKeyFile -}}
+        {{- $key := .Values.saAccessKeyFile | fromJson -}}
+        {{- $key.access_key.key_id -}}
+        not_var{{- else }}
+        {{- .Values.<name_field_value_from_manifest>_generated.accessKeyID -}}
+        not_var{{- end }}
+        not_var{{- end }}
 
-         {{- define "<chart_name>.access_key_secret" -}}
-         not_var{{- if .Values.saAccessKeyFile -}}
-         {{- $key := .Values.saAccessKeyFile | fromJson -}}
-         {{- $key.secret -}}
-         not_var{{- else }}
-         {{- .Values.<name_field_value_from_manifest>_generated.secretAccessKey -}}
-         not_var{{- end }}
-         not_var{{- end }}
-         ```
+        {{- define "<chart_name>.access_key_secret" -}}
+        not_var{{- if .Values.saAccessKeyFile -}}
+        {{- $key := .Values.saAccessKeyFile | fromJson -}}
+        {{- $key.secret -}}
+        not_var{{- else }}
+        {{- .Values.<name_field_value_from_manifest>_generated.secretAccessKey -}}
+        not_var{{- end }}
+        not_var{{- end }}
+        ```
 
-         Example of using values in the `Secret` object template:
+        Example of using values in the `Secret` object template:
 
-         ```
-         apiVersion: v1
-         kind: Secret
-         metadata:
-           name: {{ include "mychart.fullname" . }}
-           labels:
-             {{- include "mychart.labels" . | nindent 4 }}
-         type: Opaque
-         data:
-           ACCESS_KEY_ID: {{ include "mychart.access_key_id" . | b64enc | quote }}
-           SECRET_ACCESS_KEY: {{ include "mychart.access_key_secret" . | b64enc | quote }}
-         ```
+        ```
+        apiVersion: v1
+        kind: Secret
+        metadata:
+          name: {{ include "mychart.fullname" . }}
+          labels:
+            {{- include "mychart.labels" . | nindent 4 }}
+        type: Opaque
+        data:
+          ACCESS_KEY_ID: {{ include "mychart.access_key_id" . | b64enc | quote }}
+          SECRET_ACCESS_KEY: {{ include "mychart.access_key_secret" . | b64enc | quote }}
+        ```
 
       * `ciliumvaluedisabled`: Use of the Cilium network policy provider. If you provide a parameter, the appropriate product field in the management console will not be available for editing and will be automatically pre-filled.
 
-         ```yaml
-         user_values:
-           - name: <name>
-             title: <Title>
-           cilium_value: {}
-         ```
+        ```yaml
+        user_values:
+          - name: <name>
+            title: <Header>
+          cilium_value: {}
+        ```
 
       * `ciliumvalue`: Use of the Cilium network policy provider.
 
-         ```yaml
-         user_values:
-           - name: <name>
-             title: <Title>
-           cilium_value: {}
-         ```
+        ```yaml
+        user_values:
+          - name: <name>
+            title: <Header>
+          cilium_value: {}
+        ```
 
-      * `kubednsclusteripvaluedisabled`: {{ k8s }} cluster IP address. If you provide a parameter, the appropriate product field in the management console will not be available for editing and will be automatically pre-filled.
+      * `kubednsclusteripvaluedisabled`: IP address of the {{ k8s }} cluster. If you provide a parameter, the appropriate product field in the management console will not be available for editing and will be automatically pre-filled.
 
-         ```yaml
-         user_values:
-           - name: <name>
-             title: <Title>
-           kube_dns_cluster_ip_value:
-               required: true
-         ```
+        ```yaml
+        user_values:
+          - name: <name>
+            title: <Header>
+          kube_dns_cluster_ip_value:
+            required: true
+        ```
 
-      * `kubednsclusteripvalue`: {{ k8s }} cluster IP address.
+      * `kubednsclusteripvalue`: IP address of the {{ k8s }} cluster.
 
-         ```yaml
-         user_values:
-           - name: <name>
-             title: <Title>
-           kube_dns_cluster_ip_value:
-               required: true
-         ```
+        ```yaml
+        user_values:
+          - name: <name>
+            title: <Header>
+          kube_dns_cluster_ip_value:
+            required: true
+        ```
 
       * `loggroupidvalue`: {{ cloud-logging-full-name }} [log group](../../logging/concepts/log-group.md) ID.
 
-         ```yaml
-         user_values:
-           - name: <name>
-             title: <Title>
-             log_group_id_value:
-               required: true
-         ```
+        ```yaml
+        user_values:
+          - name: <name>
+            title: <Header>
+          log_group_id_value:
+            required: true
+        ```
 
-      * `kmskeyidvalue`: [{{ kms-full-name }} key](../../kms/concepts/key.md) contents.
+      * `kmskeyidvalue`: [{{ kms-full-name }} key](../../kms/concepts/key.md) content.
 
-         ```yaml
-         user_values:
-           - name: <name>
-             title: <Title>
-           kms_key_id_value:
-               required: true
-         ```
+        ```yaml
+        user_values:
+          - name: <name>
+            title: <Header>
+          kms_key_id_value:
+            required: true
+        ```
 
       * `domainvalue`: Domain to host the {{ k8s }} cluster.
 
-         ```yaml
-         user_values:
-           - name: <name>
-             title: <Title>
-             domain_value:
-               required: true
-         ```
+        ```yaml
+        user_values:
+          - name: <name>
+            title: <Header>
+          domain_value:
+            required: true
+        ```
 
       * `iamapikeyvalue`: Service account's [API key](../../iam/concepts/authorization/api-key.md) value. It is delivered in JSON format.
 
-         ```yaml
-         user_values:
-           - name: <name>
-             title: <Title>
-           iam_api_key_value:
-               required: true
-         ```
+        ```yaml
+        user_values:
+          - name: <name>
+            title: <Header>
+          iam_api_key_value:
+            required: true
+        ```
 
       * `storagebucketvalue`: {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md).
 
-         ```yaml
-         user_values:
-           - name: <name>
-             title: <Title>
-           storage_bucket_value:
-               required: true
-         ```
+        ```yaml
+        user_values:
+          - name: <name>
+            title: <Header>
+          storage_bucket_value:
+            required: true
+        ```
 
       * `prometheusworkspaceidvalue`: {{ prometheus-name }} workspace name.
 
-         ```yaml
-         user_values:
-           - name: <name>
-             title: <Title>
-           prometheus_workspace_id_value:
-               required: false
-         ```
+        ```yaml
+        user_values:
+          - name: <name>
+            title: <Header>
+          prometheus_workspace_id_value:
+            required: false
+        ```
 
       * `licenseidvalue`: [Subscription](license-manager-integration.md) ID from the {{ license-manager }} API.
 
-         ```yaml
-         user_values:
-           - name: <name>
-             title: <Title>
-           license_id_value:
-               required: false
-         ```
+        ```yaml
+        user_values:
+          - name: <name>
+            title: <Header>
+          license_id_value:
+            required: false
+        ```
 
 The variable values specified by the user when installing the product in a {{ k8s }} cluster will override the values from the `values.yaml` file.
 

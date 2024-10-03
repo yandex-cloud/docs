@@ -133,6 +133,7 @@ clusterId | <p>Required. ID of the Apache Kafka® cluster to update.</p> <p>To g
     // end of the list of possible fields`maintenanceWindow`
 
   },
+  "networkId": "string",
   "subnetIds": [
     "string"
   ]
@@ -220,6 +221,7 @@ maintenanceWindow.<br>anytime | **object** <br>`maintenanceWindow` includes only
 maintenanceWindow.<br>weeklyMaintenanceWindow | **object** <br>`maintenanceWindow` includes only one of the fields `anytime`, `weeklyMaintenanceWindow`<br>
 maintenanceWindow.<br>weeklyMaintenanceWindow.<br>day | **string**
 maintenanceWindow.<br>weeklyMaintenanceWindow.<br>hour | **string** (int64)<br><p>Hour of the day in UTC.</p> <p>Acceptable values are 1 to 24, inclusive.</p> 
+networkId | **string**<br><p>ID of the network to move the cluster to.</p> <p>The maximum string length in characters is 50.</p> 
 subnetIds[] | **string**<br><p>IDs of subnets where the hosts are located or a new host is being created</p> 
  
 ## Response {#responses}

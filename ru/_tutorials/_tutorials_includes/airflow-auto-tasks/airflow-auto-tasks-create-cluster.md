@@ -18,7 +18,7 @@
      Сохраните пароль локально или запомните его. Сервис не показывает пароли после создания.
 
      {% endnote %}
-     
+
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите:
 
       * [зону доступности](../../../overview/concepts/geo-scope) `{{ region-id }}-a`;
@@ -34,10 +34,7 @@
       apache-airflow-providers-yandex>=3.10
       ```
 
-  1. В блоке **{{ ui-key.yacloud.airflow.section_storage }}**:
-
-      * Выберите созданный ранее бакет.
-      * Укажите статический ключ доступа сервисного аккаунта `airflow-sa` и идентификатор ключа.
+  1. В блоке **{{ ui-key.yacloud.airflow.section_storage }}** выберите созданный ранее бакет.
 
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 

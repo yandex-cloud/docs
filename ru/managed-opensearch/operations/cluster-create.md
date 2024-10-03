@@ -104,7 +104,7 @@ keywords:
 
           {% include [Superuser](../../_includes/mdb/mos/superuser.md) %}
 
-      1. При необходимости задайте дополнительные настройки кластера:
+      1. При необходимости измените дополнительные настройки кластера:
 
           {% include [Дополнительные настройки кластера](../../_includes/mdb/mos/extra-settings.md) %}
 
@@ -184,7 +184,8 @@ keywords:
           Операции по обслуживанию проводятся для включенных и выключенных кластеров. Во время обслуживания могут, например, применяться патчи или обновляться СУБД.
 
       * `--read-admin-password` — пароль пользователя `admin`. Если указать параметр в команде, после ее ввода будет предложено ввести пароль.
-      * `--data-transfer-access` — доступ из [{{ data-transfer-full-name }}](../../data-transfer/index.yaml): `true` или `false`.
+
+
       * `--serverless-access` — доступ из [{{ serverless-containers-full-name }}](../../serverless-containers/index.yaml): `true` или `false`.
       * `--plugins` — [плагины {{ OS }}](../concepts/plugins.md), которые нужно установить в кластер.
       * `--advanced-params` — дополнительные параметры кластера. Возможные значения:
@@ -260,6 +261,11 @@ keywords:
             }
           }
         }
+        maintenance_window {
+          type = <тип_технического_обслуживания>
+          day  = <день_недели>
+          hour = <час_дня>
+        }
       }
 
       resource "yandex_vpc_network" "<имя_сети>" { 
@@ -280,10 +286,14 @@ keywords:
       * `deletion_protection` — защита от удаления: `true` или `false`.
       * `assign_public_ip` — публичный доступ к хосту: `true` или `false`.
       * `roles` — роли хостов: `DATA` и `MANAGER`.
+      * `maintenance_window` — время [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров):
+          * `type` — тип технического обслуживания. Принимает значения:
+              * `ANYTIME` — в любое время.
+              * `WEEKLY` — по расписанию.
+          * `day` — день недели для типа `WEEKLY` в формате `DDD`. Например, `MON`.
+          * `hour` — час дня по UTC для типа `WEEKLY` в формате `HH`. Например, `21`.
 
       {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-db.md) %}
-
-      {% include [Maintenance window](../../_includes/mdb/mos/terraform/maintenance-window.md) %}
 
       Полный список доступных для изменения полей конфигурации кластера {{ mos-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mos }}).
 
@@ -500,6 +510,7 @@ keywords:
     * Количество хостов — `1`.
     * Публичный адрес — выделен.
     * Роли группы хостов — `DATA` и `MANAGER`.
+    * Время технического обслуживания — каждый понедельник с 13:00 до 14:00.
     * Имя сети — `mynet`.
     * Имя подсети — `mysubnet`.
     * Зона доступности — `{{ region-id }}-a`.
@@ -535,6 +546,11 @@ keywords:
             }
           }
         }
+      }
+      maintenance_window {
+        type = "WEEKLY"
+        day  = "MON"
+        hour = 14
       }
     }
 

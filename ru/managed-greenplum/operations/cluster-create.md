@@ -1,5 +1,6 @@
 # Создание кластера {{ GP }}
 
+
 [Кластер](../../glossary/cluster.md) {{ mgp-name }} состоит из хостов-мастеров, которые принимают запросы от клиента, и хостов-сегментов, обеспечивающих обработку и хранение данных.
 
 Доступные типы диска [зависят](../concepts/storage.md) от выбранного [класса хостов](../concepts/instance-types.md).
@@ -28,7 +29,7 @@
 
     
     1. (Опционально) Выберите группы [выделенных хостов](../../compute/concepts/dedicated-host.md), на которых будет размещен кластер.
-       
+
         {% include [Dedicated hosts note](../../_includes/mdb/mgp/note-dedicated-hosts.md) %}
 
     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network }}**:
@@ -61,7 +62,7 @@
 
     1. Укажите настройки пользователя-администратора. Это специальный пользователь, который необходим для управления кластером и не может быть удален. Подробнее см. в разделе [Пользователи и роли](../concepts/cluster-users.md).
 
-        * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** — может содержать латинские буквы, цифры, дефис и нижнее подчеркивание, но не может начинаться с дефиса. Длина от 1 до 32 символов.
+        * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** — может содержать латинские буквы, цифры, дефис и подчеркивание, но не может начинаться с дефиса. Длина от 1 до 32 символов.
 
             {% note info %}
 
@@ -79,7 +80,9 @@
             {% include [Maintenance window](../../_includes/mdb/console/maintenance-window-description.md) %}
 
         * {% include [Datalens access](../../_includes/mdb/console/datalens-access.md) %}
-        * {% include [DataTransfer access](../../_includes/mdb/console/datatransfer-access.md) %}
+
+
+
         * {% include [Deletion protection](../../_includes/mdb/console/deletion-protection.md) %}
 
             {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
@@ -115,7 +118,7 @@
 
              
              {% include [storages-step-settings](../../_includes/mdb/mgp/settings-storages.md) %}
-             
+
 
     1. При необходимости задайте [настройки СУБД уровня кластера](../concepts/settings-list.md#dbms-cluster-settings).
 
@@ -170,7 +173,7 @@
 
         {% note info %}
 
-        Имя кластера должно быть уникальным в каталоге. Оно может содержать латинские буквы, цифры, дефис и нижнее подчеркивание. Максимальная длина имени 63 символа.
+        Имя кластера должно быть уникальным в каталоге. Оно может содержать латинские буквы, цифры, дефис и подчеркивание. Максимальная длина имени 63 символа.
 
         {% endnote %}
 
@@ -181,7 +184,7 @@
             * `PRODUCTION` — для стабильных версий ваших приложений.
             * `PRESTABLE` — для тестирования. Prestable-окружение аналогично Production-окружению и на него также распространяется SLA, но при этом на нем раньше появляются новые функциональные возможности, улучшения и исправления ошибок. В Prestable-окружении вы можете протестировать совместимость новых версий с вашим приложением.
         * `--network-name` — [имя сети](../../vpc/concepts/network.md#network).
-        * `--user-name` — имя пользователя. Может содержать латинские буквы, цифры, дефис и нижнее подчеркивание, но должно начинаться с буквы, цифры или нижнего подчеркивания. Длина от 1 до 32 символов.
+        * `--user-name` — имя пользователя. Может содержать латинские буквы, цифры, дефис и подчеркивание, но должно начинаться с буквы, цифры или подчеркивания. Длина от 1 до 32 символов.
         * `--user-password` — пароль. Длина от 8 до 128 символов.
         * `--master-config` и `--segment-config` — конфигурация хостов-мастеров и хостов-сегментов:
             * `resource-id` — [класс хоста](../concepts/instance-types.md).
@@ -235,116 +238,118 @@
 
         {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
-    1. Чтобы разрешить доступ из [{{ datalens-full-name }}](../../datalens/concepts/index.md) или [{{ data-transfer-full-name }}](../../data-transfer/), передайте значение `true` в соответствующих параметрах при создании кластера:
+    1. Чтобы разрешить доступ из [{{ datalens-full-name }}](../../datalens/concepts/index.md), передайте значение `true` в соответствующих параметрах при создании кластера:
 
+
+        
         ```bash
         {{ yc-mdb-gp }} cluster create <имя_кластера> \
            ...
-           --datalens-access=<доступ_из_datalens> \
-           --datatransfer-access=<доступ_из_data_transfer>
+           --datalens-access=<доступ_из_DataLens>
         ```
+
 
         Где:
 
         * `--datalens-access` — доступ из {{ datalens-full-name }}: true или false.
-        * `--datatransfer-access` — доступ из {{ data-transfer-full-name }}: true или false.
-        
+
+
+
 - {{ TF }} {#tf}
 
-    {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+  
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
 
   Чтобы создать кластер {{ mgp-name }}:
 
-    1. В командной строке перейдите в каталог, в котором будут расположены конфигурационные файлы {{ TF }} с планом инфраструктуры. Если такой директории нет — создайте ее.
+  1. В командной строке перейдите в каталог, в котором будут расположены конфигурационные файлы {{ TF }} с планом инфраструктуры. Если такой директории нет — создайте ее.
 
-    
-    1. {% include [terraform-install](../../_includes/terraform-install.md) %}
-
-    2. Создайте конфигурационный файл с описанием [облачной сети](../../vpc/concepts/network.md#network) и [подсетей](../../vpc/concepts/network.md#subnet).
-
-       Кластер размещается в облачной сети. Если подходящая сеть у вас уже есть, описывать ее повторно не нужно.
-
-       Хосты кластера размещаются в подсетях выбранной облачной сети. Если подходящие подсети у вас уже есть, описывать их повторно не нужно.
-
-       Пример структуры конфигурационного файла, в котором описывается облачная сеть с одной подсетью:
-
-       ```hcl
-       resource "yandex_vpc_network" "<имя_сети_в_{{ TF }}>" { name = "<имя_сети>" }
   
-       resource "yandex_vpc_subnet" "<имя_подсети_в_{{ TF }}>" {
-         name           = "<имя_подсети>"
-         zone           = "<зона_доступности>"
-         network_id     = yandex_vpc_network.<имя_сети_в_{{ TF }}>.id
-         v4_cidr_blocks = ["<подсеть>"]
-       }
-       ```
+  1. {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  1. Создайте конфигурационный файл с описанием [облачной сети](../../vpc/concepts/network.md#network) и [подсетей](../../vpc/concepts/network.md#subnet).
+
+      Кластер размещается в облачной сети. Если подходящая сеть у вас уже есть, описывать ее повторно не нужно.
+
+      Хосты кластера размещаются в подсетях выбранной облачной сети. Если подходящие подсети у вас уже есть, описывать их повторно не нужно.
+
+      Пример структуры конфигурационного файла, в котором описывается облачная сеть с одной подсетью:
+
+      ```hcl
+      resource "yandex_vpc_network" "<имя_сети_в_{{ TF }}>" { name = "<имя_сети>" }
+      resource "yandex_vpc_subnet" "<имя_подсети_в_{{ TF }}>" {
+        name           = "<имя_подсети>"
+        zone           = "<зона_доступности>"
+        network_id     = yandex_vpc_network.<имя_сети_в_{{ TF }}>.id
+        v4_cidr_blocks = ["<подсеть>"]
+      }
+      ```
 
 
-    1. Создайте конфигурационный файл с описанием кластера и его хостов.
+  1. Создайте конфигурационный файл с описанием кластера и его хостов.
 
-       Пример структуры конфигурационного файла:
+      Пример структуры конфигурационного файла:
 
-       
-       ```hcl
-       resource "yandex_mdb_greenplum_cluster" "<имя_кластера_в_{{ TF }}>" {
-         name                = "<имя_кластера>"
-         environment         = "<окружение>"
-         network_id          = yandex_vpc_network.<имя_сети_в_{{ TF }}>.id
-         zone                = "<зона_доступности>"
-         subnet_id           = yandex_vpc_subnet.<имя_подсети_в_{{ TF }}>.id
-         assign_public_ip    = <публичный_доступ_к_хостам_кластера>
-         deletion_protection = <защита_от_удаления_кластера>
-         version             = "<версия_Greenplum>"
-         master_host_count   = <количество_хостов_мастеров>
-         segment_host_count  = <количество_хостов_сегментов>
-         segment_in_host     = <количество_сегментов_на_хост>
+      
+      ```hcl
+      resource "yandex_mdb_greenplum_cluster" "<имя_кластера_в_{{ TF }}>" {
+        name                = "<имя_кластера>"
+        environment         = "<окружение>"
+        network_id          = yandex_vpc_network.<имя_сети_в_{{ TF }}>.id
+        zone                = "<зона_доступности>"
+        subnet_id           = yandex_vpc_subnet.<имя_подсети_в_{{ TF }}>.id
+        assign_public_ip    = <публичный_доступ_к_хостам_кластера>
+        deletion_protection = <защита_от_удаления_кластера>
+        version             = "<версия_Greenplum>"
+        master_host_count   = <количество_хостов_мастеров>
+        segment_host_count  = <количество_хостов_сегментов>
+        segment_in_host     = <количество_сегментов_на_хост>
+        master_subcluster {
+          resources {
+            resource_preset_id = "<класс_хоста>"
+            disk_size          = <объем_хранилища_ГБ>
+            disk_type_id       = "<тип_диска>"
+          }
+        }
+        segment_subcluster {
+          resources {
+            resource_preset_id = "<класс_хоста>"
+            disk_size          = <объем_хранилища_ГБ>
+            disk_type_id       = "<тип_диска>"
+          }
+        }
+
+        user_name     = "<имя_пользователя>"
+        user_password = "<пароль>"
   
-         master_subcluster {
-           resources {
-             resource_preset_id = "<класс_хоста>"
-             disk_size          = <объем_хранилища_ГБ>
-             disk_type_id       = "<тип_диска>"
-           }
-         }
-  
-         segment_subcluster {
-           resources {
-             resource_preset_id = "<класс_хоста>"
-             disk_size          = <объем_хранилища_ГБ>
-             disk_type_id       = "<тип_диска>"
-           }
-         }
-
-         user_name     = "<имя_пользователя>"
-         user_password = "<пароль>"
-  
-         security_group_ids = ["<список_идентификаторов_групп_безопасности>"]
-       }
-       ```
+        security_group_ids = ["<список_идентификаторов_групп_безопасности>"]
+      }
+      ```
 
 
-       Где:
+      Где:
 
-       * `assign_public_ip` — публичный доступ к хостам кластера: true или false.
-       * `deletion_protection` — защита от удаления кластера: true или false.
-       * `version` — версия {{ GP }}.
-       * `master_host_count` — количество хостов-мастеров: 1 или 2.
-       * `segment_host_count` — количество хостов-сегментов: от 2 до 32.
-       * `segment_in_host` — [количество сегментов на хост](../concepts/index.md). Максимальное значение этого параметра зависит от класса хостов.
+      * `assign_public_ip` — публичный доступ к хостам кластера: true или false.
+      * `deletion_protection` — защита от удаления кластера: true или false.
+      * `version` — версия {{ GP }}.
+      * `master_host_count` — количество хостов-мастеров: 1 или 2.
+      * `segment_host_count` — количество хостов-сегментов: от 2 до 32.
+      * `segment_in_host` — [количество сегментов на хост](../concepts/index.md). Максимальное значение этого параметра зависит от класса хостов.
 
-       Включенная защита от удаления кластера не помешает подключиться вручную и удалить содержимое базы данных.
+      Включенная защита от удаления кластера не помешает подключиться вручную и удалить содержимое базы данных.
 
-       Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-mgp }}).
+      Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-mgp }}).
 
-    1. Проверьте корректность файлов конфигурации {{ TF }}:
+  1. Проверьте корректность файлов конфигурации {{ TF }}:
 
-       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Создайте кластер:
+  1. Создайте кластер:
 
-       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-       {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
+      {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
 
 - API {#api}
 
@@ -370,6 +375,8 @@
     * Настройки публичного доступа в параметре `assignPublicIp`.
     * Настройки окна резервного копирования в параметре `config.backupWindowStart`.
     * Настройки доступа из [{{ datalens-full-name }}](../../datalens/concepts/index.md) в параметре `config.access.dataLens`.
+
+
     * Настройки доступа из [{{ data-transfer-full-name }}](../../data-transfer/) в параметре `config.access.dataTransfer`.
     * Настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров) в параметре `maintenanceWindow`.
     * [Настройки СУБД](../concepts/settings-list.md#dbms-cluster-settings) в параметре `configSpec.greenplumConfig_<версия>`.

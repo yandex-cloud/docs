@@ -4,6 +4,10 @@ editable: false
 
 # Правила тарификации для {{ yagpt-full-name }}
 
+{% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
+
+{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
+
 {{ yagpt-full-name }} находится на стадии [Preview](../overview/concepts/launch-stages.md) и является частью сервиса {{ foundation-models-full-name }}. Сервис тарифицируется в соответствии с документом [Специальные условия использования](https://yandex.ru/legal/cloud_specialterms/?lang=ru#index__section_fk5_d4c_cgb). Детализация использования {{ yagpt-full-name }} доступна в {{ billing-name }} как использование ресурсов {{ foundation-models-full-name }}. 
 
 В [консоли управления]({{ link-console-main }}/link/yandexgpt) новым пользователям без [платежного аккаунта](../billing/concepts/billing-account.md) доступно {{ gpt-freetier }} бесплатных запросов в час.
@@ -44,18 +48,18 @@ editable: false
 
 > Стоимость использования {{ yagpt-name }} для векторизации текста со следующими параметрами:
 > * число токенов в запросе — 2000
-> 
+>
 > Расчет стоимости:
-> 
+>
 > 2000 × 1,0 × (0,01&nbsp;₽ / 1000) = 0,02&nbsp;₽
 >
 > Итого: 0,02&nbsp;₽.
- 
+
 Где:
 * 2000 — число токенов в запросе.
 * 1,0 — коэффициент использования векторизации текста.
-* 0,01&nbsp;₽ — стоимость обработки 1000 токенов. 
-* 0,01&nbsp;₽ / 1000 — стоимость обработки 1 токена. 
+* 0,01&nbsp;₽ — стоимость обработки 1000 токенов.
+* 0,01&nbsp;₽ / 1000 — стоимость обработки 1 токена.
 
 
 ## Цены {#prices}

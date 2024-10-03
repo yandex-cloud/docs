@@ -4,7 +4,9 @@ editable: false
 
 # Правила тарификации для {{ vpc-name }}
 
-Использование сервиса {{ vpc-name }} тарифицируется по правилам, описанным в этом разделе.
+{% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
+
+{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
@@ -23,9 +25,7 @@ editable: false
 
 
 
-
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
-
 
 
 ### {{ vpc-short-name }} {#vpc-prices}
@@ -99,11 +99,11 @@ editable: false
 
 ##### Исходящий трафик через NAT-шлюзы {#nat-gateway-egress-traffic}
 
-Тарифицируется объем исходящего через шлюз трафика, превышающего 100 ГБ в месяц. 
+Тарифицируется объем исходящего через шлюз трафика, превышающего 100 ГБ в месяц.
 
-Обратите внимание, что трафик, передаваемый через NAT-шлюз, тарифицируется отдельно от другого [исходящего трафика](#prices-traffic), но по тем же правилам. 
+Обратите внимание, что трафик, передаваемый через NAT-шлюз, тарифицируется отдельно от другого [исходящего трафика](#prices-traffic), но по тем же правилам.
 
-> Например: 
+> Например:
 >
 > Если за месяц вы передадите 110 ГБ исходящего трафика через NAT-шлюз и 5 ГБ исходящего трафика другими способами, вы оплачиваете 10 ГБ исходящего трафика через NAT-шлюз.
 >

@@ -29,10 +29,10 @@ If {{ data-transfer-name }} operation was disrupted during data transfer, try to
 
 | Issue source | Issue | Solution |
 |-----------------------|-------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Endpoint | Lack of network accessibility or endpoint access permissions | Check the source read operations using the following charts: [Maximum data transfer delay](../operations/monitoring.md#sinker.pusher.time.row_max_lag_sec), [Number of source events](../operations/monitoring.md#publisher.data.changeitems), and [Reads](../operations/monitoring.md#publisher.data.bytes).</br>Check the target write operations using the following charts: [Maximum data transfer delay](../operations/monitoring.md#sinker.pusher.time.row_max_lag_sec), [Number of source events](../operations/monitoring.md#publisher.data.changeitems), [Number of target events](../operations/monitoring.md#sinker.pusher.data.changeitems), and [Reads](../operations/monitoring.md#publisher.data.bytes).</br>If the data is being read and written, check the [restrictions on working with the DBMS](../operations/transfer.md).</br>Check the requirements for [preparing](../operations/prepare.md) and [configuring](../operations/index.md) the endpoint.</br>Look for a ready-made [solution to the problem](#common). |
-| Endpoint or transfer | Lack of physical resources for the transfer or endpoints | If the data is being read and written, check whether there are enough physical resources on the [CPU](../operations/monitoring.md#proc.cpu%7Cproc.guarantee.cpu) and [RAM](../operations/monitoring.md#proc.ram%7Cproc.guarantee.mem) charts.</br>Check out the recommendations for DBMS diagnostics. For example, [{{ MY }}](../../managed-mysql/operations/performance-diagnostics.md), [{{ MG }}](../../managed-mongodb/operations/performance-diagnostics.md), or [{{ PG }}](../../managed-postgresql/operations/performance-diagnostics.md). |
-| Data | Outdated data due to changes in the data schema | See the different data transfer scenarios in the [{{ data-transfer-name }} Tutorials](../tutorials/index.md) section. |
-| Data | Outdated data due to large data volume | Increase the number of workers for [parallel copying](../concepts/sharded.md) or [replication](../operations/transfer.md#create).</br>Split the tables into several transfers. |
+| Endpoint | Lack of network accessibility or endpoint access permissions | Check source reading using the following charts: [Maximum data transfer delay](../operations/monitoring.md#sinker.pusher.time.row_max_lag_sec), [Number of source events](../operations/monitoring.md#publisher.data.changeitems), and [Reads](../operations/monitoring.md#publisher.data.bytes).</br>Check writing to the target using the following charts: [Maximum data transfer delay](../operations/monitoring.md#sinker.pusher.time.row_max_lag_sec), [Number of source events](../operations/monitoring.md#publisher.data.changeitems), [Number of target events](../operations/monitoring.md#sinker.pusher.data.changeitems), and [Reads](../operations/monitoring.md#publisher.data.bytes).</br>If the data can be read and written, check if there are any [DBMS-related restrictions](../operations/transfer.md).</br>Check the requirements for [preparing](../operations/prepare.md) and [setting up](../operations/index.md) the endpoint.</br>Check our [suggested solutions](#common). |
+| Endpoint or transfer | Lack of physical resources for the transfer or endpoints | If the data can be read and written, check if there are enough physical resources on these charts: [CPU](../operations/monitoring.md#proc.cpu%7Cproc.guarantee.cpu) and [RAM](../operations/monitoring.md#proc.ram%7Cproc.guarantee.mem).</br>Read the guidelines for DBMS diagnostics. For example, [{{ MY }}](../../managed-mysql/operations/performance-diagnostics.md), [{{ MG }}](../../managed-mongodb/operations/performance-diagnostics.md), or [{{ PG }}](../../managed-postgresql/operations/performance-diagnostics.md). |
+| Data | Outdated data due to changes in the data schema | See the different data transfer scenarios in the [{{ data-transfer-name }} tutorials](../tutorials/index.md) section. |
+| Data | Outdated data due to large data volume | Allocate more workers for [parallel copying](../concepts/sharded.md) or [replication](../operations/transfer.md#create).</br>Split the tables into multiple transfers. |
 
 After solving the problem, depending on the status of the transfer, activate it or change the data transfer limits of the running transfer.
 
@@ -48,7 +48,15 @@ After solving the problem, depending on the status of the transfer, activate it 
 
 {% include [insufficiency-resources](../../_includes/data-transfer/troubles/insufficiency-resources.md) %}
 
-{% include [permission-denied](../../_includes/data-transfer/troubles/permission-denied.md) %}
+### Decrease in transfer speed {#speed-degrade}
+
+**Issue**:
+
+{% include [speed-degrade](../../_includes/data-transfer/speed-degrade.md) %}
+
+**Solution**:
+
+Use the `Drop` or `Truncate` cleanup policy.
 
 
 {% include [required-role](../../_includes/data-transfer/troubles/required-roles.md) %}
@@ -66,7 +74,7 @@ Error example:
 {"code": 13, "message": "internal"}
 ```
 
-**Solution**: Contact [technical support]({{ link-console-support }}) or your account manager and provide the `request_id`. If you are using `curl` for API calls, add the `-v` flag to facilitate error diagnostics.
+**Solution**: Contact [support]({{ link-console-support }}) or your account manager and provide the `request_id`. If you are using `curl` for API calls, add the `-v` flag to facilitate error diagnostics.
 
 ## Network {#network}
 
@@ -83,7 +91,7 @@ Error example:
 
 ## {{ CH }} {#clickhouse}
 
-{% include [no-new-tables](../../_includes/data-transfer/troubles/no-new-tables.md) %}
+{% include [no-new-tables](../../_includes/data-transfer/troubles/no-new-tables-mch.md) %}
 
 {% include [table-names](../../_includes/data-transfer/troubles/table-names.md) %}
 
@@ -110,6 +118,8 @@ Error example:
 {% include [cluster configuration](../../_includes/data-transfer/troubles/mongodb/cluster-configuration.md) %}
 
 {% include [history lost](../../_includes/data-transfer/troubles/mongodb/history-lost.md) %}
+
+{% include [cannot-get-delimiters](../../_includes/data-transfer/troubles/mongodb/cannot-get-delimiters.md) %}
 
 ## {{ MY }} {#mysql}
 
@@ -186,8 +196,8 @@ Error example:
 
 
 
-## How to report a problem {#support}
+## Who to report your problem to {#support}
 
-If you followed the tips provided but the problem persists, contact [technical support]({{ link-console-support }}).
+If you tried the above suggestions but the problem persists, contact [support]({{ link-console-support }}).
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

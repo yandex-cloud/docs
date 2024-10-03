@@ -11,7 +11,7 @@ sourcePath: ru/tracker/api-ref/concepts/queues/get-versions.md
 
 Для получения версий очереди используйте HTTP-запрос с методом `GET`.
 
-```
+```http
 GET /v2/queues/<ключ_или_идентификатор_очереди>/versions
 Host: {{ host }}
 Authorization: OAuth <OAuth-токен>

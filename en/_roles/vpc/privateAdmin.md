@@ -4,7 +4,7 @@ The `vpc.privateAdmin` role allows you to manage cloud networks, subnets, and ro
 
 * View the list of [cloud networks](../../vpc/concepts/network.md#network) and info on them, as well as create, modify, and delete them.
 * View the list of [subnets](../../vpc/concepts/network.md#subnet) and info on them, as well as create, modify, and delete them.
-* View the list of [route tables](../../vpc/concepts/static-routes.md#rt-vpc) and info on them, as well as create, modify, and delete them.
+* View the list of [route tables](../../vpc/concepts/routing.md#rt-vpc) and info on them, as well as create, modify, and delete them.
 * Link route tables to subnets.
 * View the list of [security groups](../../vpc/concepts/security-groups.md) and info on them, as well as create default security groups within cloud networks.
 * Configure [DHCP](../../vpc/concepts/dhcp-options.md) in subnets.

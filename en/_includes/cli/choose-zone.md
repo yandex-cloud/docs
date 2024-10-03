@@ -1,4 +1,4 @@
-```
+```text
 Which zone do you want to use as a profile default?
  [1] {{ region-id }}-a
  [2] {{ region-id }}-b

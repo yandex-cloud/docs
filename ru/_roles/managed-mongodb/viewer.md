@@ -8,7 +8,7 @@
 * просматривать информацию о [пользователях](../../managed-mongodb/concepts/users-and-roles.md) MongoDB;
 * просматривать информацию о [резервных копиях](../../managed-mongodb/concepts/backup.md) MongoDB;
 * просматривать информацию об алертах MongoDB;
-* просматривать логи работы кластеров MongoDB;
+* просматривать [логи](../../managed-mongodb/operations/cluster-logs.md) работы кластеров MongoDB;
 * просматривать информацию о результатах диагностики производительности кластеров MongoDB;
 * просматривать информацию о [квотах](../../managed-mongodb/concepts/limits.md#mmg-quotas) сервиса Managed Service for MongoDB;
 * просматривать информацию об операциях с ресурсами сервиса Managed Service for MongoDB.

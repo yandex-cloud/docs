@@ -33,7 +33,10 @@
       1. В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** выберите `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
       1. Выберите группу безопасности, настроенную для работы с {{ backup-name }}.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите сервисный аккаунт с ролью `backup.editor`.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_additional }}** включите опцию подключения ВМ к сервису {{ backup-name }}.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_additional }}**:
+
+      {% include [backup-enable](../../_includes/compute/backup-enable.md) %}
+
   1. Укажите другие необходимые параметры ВМ.
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
@@ -47,7 +50,7 @@
 
       Результат:
 
-      ```bash
+      ```text
       +----------------------+--------------------+------------------+--------+
       |          ID          |        NAME        |      LABELS      | STATUS |
       +----------------------+--------------------+------------------+--------+
@@ -132,7 +135,7 @@
 
       Результат:
 
-      ```bash
+      ```text
       done (46s)
       id: abcdho6nspdk********
       folder_id: wasdcjs6be29********

@@ -9,7 +9,7 @@ sourcePath: ru/tracker/api-ref/concepts/issues/delete-comment.md
 
 Чтобы удалить комментарий, используйте HTTP-запрос с методом `DELETE`:
 
-```
+```http
 DELETE /{{ ver }}/issues/<ключ_или_идентификатор_задачи>/comments/<идентификатор_комментария>
 Host: {{ host }}
 Authorization: OAuth <OAuth-токен>

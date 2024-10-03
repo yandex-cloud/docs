@@ -11,7 +11,7 @@ sourcePath: ru/tracker/api-ref/concepts/queues/create-version.md
 
 Чтобы создать версию очереди используйте HTTP-запрос с методом `POST`. Параметры запроса передаются в его теле в формате JSON.
 
-```
+```http
 POST /{{ ver }}/versions/
 Host: {{ host }}
 Authorization: OAuth <OAuth-токен>

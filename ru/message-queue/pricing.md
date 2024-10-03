@@ -8,6 +8,10 @@ editable: false
 
 
 
+{% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
+
+{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
+
 ## Из чего складывается стоимость использования Message Queue {#rules}
 
 В рамках сервиса {{ message-queue-name }} тарифицируется количество запросов к [стандартным очередям](concepts/queue.md#standard-queues) и [очередям FIFO](concepts/queue.md#fifo-queues), а также исходящий трафик.
@@ -18,9 +22,7 @@ editable: false
 
 ## Цены для региона Россия {#prices}
 
-
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
-
 
 ### Запросы к очередям {#requests-to-queues}
 

@@ -7,7 +7,7 @@ To create an API gateway:
       {% include [name-format](../../_includes/name-format.md) %}
 
    * `description`: API gateway description.
-   * `labels`: [Labels](../../resource-manager/concepts/labels.md) for the API gateway. Set a key-value pair.
+   * `labels`: [Labels](../../resource-manager/concepts/labels.md) for the API gateway. Specify a key-value pair.
    * `spec`: API gateway specification.
 
    Here is an example of the configuration file structure:
@@ -58,7 +58,7 @@ To create an API gateway:
 
    For more information about resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/api_gateway).
 
-1. Make sure the configuration files are valid.
+1. Make sure the configuration files are correct.
 
    1. In the command line, go to the directory where you created the configuration file.
    1. Run a check using this command:
@@ -79,7 +79,7 @@ To create an API gateway:
 
    1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
-      All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
+      All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}) or these [CLI](../../cli/quickstart.md) commands:
 
       ```
       yc serverless api-gateway get <API_gateway_name>

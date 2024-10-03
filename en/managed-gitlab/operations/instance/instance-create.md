@@ -7,6 +7,8 @@ description: "In this tutorial, you will learn how to create a {{ mgl-name }} in
 
 ## Creating a {{ GL }} instance {#create}
 
+To create a {{ mgl-name }} instance, you need the [{{ roles-vpc-user }}](../../../vpc/security/index.md#vpc-user) role and the [{{ roles.gitlab.editor }} role or higher](../../security/index.md#roles-list). For information on assigning roles, see the [{{ iam-name }} documentation](../../../iam/operations/roles/grant.md).
+
 {% list tabs group=instructions %}
 
 - Management console {#console}

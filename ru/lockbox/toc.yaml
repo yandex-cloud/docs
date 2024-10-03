@@ -60,6 +60,13 @@ items:
         href: tutorials/gitlab-lockbox-integration.md
       - name: Хранение статического ключа доступа в секрете {{ lockbox-name }}
         href: tutorials/static-key-in-lockbox.md
+      - name: >-
+          Загрузка данных из {{ yandex-direct }} в витрину {{ mch-full-name }} с
+          использованием {{ sf-full-name }}, {{ objstorage-full-name }} и {{
+          data-transfer-full-name }}
+        href: tutorials/data-transfer-direct-to-mch.md
+      - name: Развертывание отказоустойчивой архитектуры с прерываемыми ВМ
+        href: tutorials/nodejs-cron-restart-vm.md
   - name: Квоты и лимиты
     href: concepts/limits.md
   - name: Управление доступом
@@ -132,6 +139,8 @@ items:
     href: metrics.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md
+  - name: История изменений
+    href: release-notes.md
   - name: Вопросы и ответы
     href: qa/index.md
 base: ru/lockbox

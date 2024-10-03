@@ -14,7 +14,7 @@ Create a [timer](../concepts/trigger/timer.md) — a trigger that invokes a [{{ 
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you want to create your trigger.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a trigger.
 
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
 
@@ -31,7 +31,7 @@ Create a [timer](../concepts/trigger/timer.md) — a trigger that invokes a [{{ 
    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_timer }}**:
 
       * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_cron-expression }}** field, specify the function invocation schedule as a [cron expression](../concepts/trigger/timer.md#cron-expression).
-      * (Optional) In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_cron-payload }}** field, enter the message to be delivered to the function if the timer triggers in the `payload` field. The data type is a string up to 4,096 characters long.
+      * (Optional) In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_cron-payload }}** field, enter the message that will be sent to the function if the timer fires in the `payload` field. The data type is a string up to 4,096 characters long.
 
    1. {% include [container-settings](../../_includes/serverless-containers/container-settings.md) %}
 
@@ -39,7 +39,7 @@ Create a [timer](../concepts/trigger/timer.md) — a trigger that invokes a [{{ 
 
       {% include [repeat-request](../../_includes/serverless-containers/repeat-request.md) %}
 
-   1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the dead-letter queue and the service account with write permissions for this queue.
+   1. Optionally, under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the dead-letter queue and the service account with write permissions for this queue.
 
    1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
@@ -58,8 +58,8 @@ Create a [timer](../concepts/trigger/timer.md) — a trigger that invokes a [{{ 
      --payload <message> \
      --invoke-container-id <container_ID> \
      --invoke-container-service-account-id <service_account_ID> \
-     --retry-attempts 1 \
-     --retry-interval 10s \
+     --retry-attempts <number_of_retry_invocation_attempts> \
+     --retry-interval <interval_between_retry_attempts> \
      --dlq-queue-id <dead_letter_queue_ID> \
      --dlq-service-account-id <service_account_ID>
    ```
@@ -68,7 +68,7 @@ Create a [timer](../concepts/trigger/timer.md) — a trigger that invokes a [{{ 
 
    * `--name`: Timer name.
    * `--cron-expression`: Container invocation schedule specified as a [cron expression](../concepts/trigger/timer.md#cron-expression).
-   * `--payload`: Message to be delivered to the function if the timer triggers. The string length must not exceed 4,096 characters.
+   * `--payload`: Message that will be sent to the function if the timer fires. The string length must not exceed 4,096 characters.
 
    {% include [trigger-cli-param](../../_includes/serverless-containers/trigger-cli-param.md) %}
 
@@ -115,11 +115,11 @@ Create a [timer](../concepts/trigger/timer.md) — a trigger that invokes a [{{ 
           retry_interval     = <interval_between_retry_attempts>
         }
         timer {
-          cron_expression = "<cron_expression>"
+          cron_expression = "<cron expression>"
           payload         = "<message>"
         }
         dlq {
-          queue_id           = "<DLQ_ID>"
+          queue_id           = "<dead_letter_queue_ID>"
           service_account_id = "<service_account_ID>"
         }
       }
@@ -140,7 +140,7 @@ Create a [timer](../concepts/trigger/timer.md) — a trigger that invokes a [{{ 
       * `timer`: Trigger parameters:
 
          * `cron_expression`: Container invocation schedule specified as a [cron expression](../concepts/trigger/timer.md#cron-expression).
-         * `payload`: Message to deliver to the container if the timer gets triggered. The string length must not exceed 4,096 characters.
+         * `payload`: Message that will be sent to the container if the timer fires. The string length must not exceed 4,096 characters.
 
       {% include [tf-dlq-params](../../_includes/serverless-containers/tf-dlq-params.md) %}
 
@@ -150,7 +150,7 @@ Create a [timer](../concepts/trigger/timer.md) — a trigger that invokes a [{{ 
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
+      {% include [terraform-check-result](../../_tutorials/_tutorials_includes/terraform-check-result.md) %}
 
       ```bash
       yc serverless trigger list
@@ -168,4 +168,5 @@ Create a [timer](../concepts/trigger/timer.md) — a trigger that invokes a [{{ 
 
 ## See also {#see-also}
 
-* [Timer that invokes a {{ sf-name }} function](../../functions/operations/trigger/timer-create.md).
+* [{#T}](../../functions/operations/trigger/timer-create.md)
+* [{#T}](../../api-gateway/operations/trigger/timer-create.md)

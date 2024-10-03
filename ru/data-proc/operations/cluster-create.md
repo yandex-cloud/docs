@@ -68,7 +68,7 @@
 
 {% endnote %}
 
-Вы можете настроить группы безопасности после создания кластера {{ dataproc-name }}, чтобы [подключиться к {{ metastore-name }}](./metastore/dataproc-connect.md) или [хостам кластера {{ dataproc-name }}](connect.md) через интернет или промежуточную [виртуальную машину](../../compute/concepts/vm.md).
+Вы можете настроить группы безопасности после создания кластера {{ dataproc-name }}, чтобы [подключиться к {{ metastore-name }}](../../metadata-hub/operations/metastore/dataproc-connect.md) или [хостам кластера {{ dataproc-name }}](connect.md) через интернет или промежуточную [виртуальную машину](../../compute/concepts/vm.md).
 
 
 ## Создайте кластер {{ dataproc-name }} {#create}
@@ -83,63 +83,82 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать кластер {{ dataproc-name }}.
   1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите ![image](../../_assets/data-proc/data-proc.svg) **{{ ui-key.yacloud.iam.folder.dashboard.value_data-proc }}** в выпадающем списке.
-  1. Введите имя кластера {{ dataproc-name }} в поле **{{ ui-key.yacloud.mdb.forms.base_field_name }}**. Требования к имени:
-     * Должно быть уникальным в рамках каталога.
+  1. Укажите имя и при необходимости описание кластера {{ dataproc-name }}.
+
+     Требования к имени:
+
+     * должно быть уникальным в рамках каталога;
 
      {% include [name-format.md](../../_includes/name-format.md) %}
 
-  1. Выберите подходящую [версию образа](../concepts/environment.md) и сервисы, которые вы хотите использовать в кластере {{ dataproc-name }}.
+  1. Добавьте или удалите [метки](../../resource-manager/concepts/labels.md) кластера. Они позволяют разделить и сгруппировать ресурсы на логические группы.
+  1. Задайте следующие настройки кластера:
 
-     {% include [note-light-weight-cluster](../../_includes/data-proc/note-light-weight-cluster.md) %}
+     * [Версия образа](../concepts/environment.md) и сервисы, которые вы хотите использовать в кластере {{ dataproc-name }}.
 
-     {% note tip %}
+        {% include [note-light-weight-cluster](../../_includes/data-proc/note-light-weight-cluster.md) %}
 
-     Чтобы использовать самую свежую версию образа, укажите значение `2.0`.
+        {% note tip %}
 
-     {% endnote %}
+        Чтобы использовать самую свежую версию образа, укажите значение `2.0`.
 
-  1. Вставьте в поле **{{ ui-key.yacloud.mdb.forms.config_field_public-keys }}** публичную часть вашего [SSH-ключа](../../glossary/ssh-keygen.md). Как сгенерировать и использовать SSH-ключи, читайте в [документации {{ compute-full-name }}](../../compute/operations/vm-connect/ssh.md).
-  1. Выберите или создайте сервисный аккаунт, которому нужно разрешить доступ к кластеру {{ dataproc-name }}. Сервисному аккаунту кластера {{ dataproc-name }} должны быть [назначены роли](../../iam/operations/sa/assign-role-for-sa.md):
+        {% endnote %}
 
-     {% include [sa-roles](../../_includes/data-proc/sa-roles.md) %}
+     * Публичная часть [SSH-ключа](../../glossary/ssh-keygen.md) в поле **{{ ui-key.yacloud.mdb.forms.config_field_public-keys }}**. Как сгенерировать и использовать SSH-ключи, читайте в [документации {{ compute-full-name }}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
 
-  1. Выберите зону доступности для кластера {{ dataproc-name }}.
-  1. При необходимости задайте [свойства компонентов кластера {{ dataproc-name }}, заданий и среды окружения](../concepts/settings-list.md).
-  1. При необходимости укажите пользовательские [скрипты инициализации](../concepts/init-action.md) хостов кластера {{ dataproc-name }}. Для каждого скрипта укажите:
-     * **{{ ui-key.yacloud.mdb.forms.field_initialization-action-uri }}** — ссылка на скрипт инициализации в схеме `https://`, `http://`, `hdfs://` или `s3a://`.
-     * (Опционально) **{{ ui-key.yacloud.mdb.forms.field_initialization-action-timeout }}** — таймаут (в секундах) выполнения скрипта. Скрипт инициализации, выполняющийся дольше указанного времени, будет прерван.
-     * (Опционально) **{{ ui-key.yacloud.mdb.forms.field_initialization-action-args }}** — заключенные в квадратные скобки `[]` и разделенные запятыми аргументы, с которыми должен быть выполнен скрипт инициализации, например:
+     * Сервисный аккаунт, которому нужно разрешить доступ к кластеру {{ dataproc-name }}. Сервисному аккаунту кластера {{ dataproc-name }} должны быть [назначены роли](../../iam/operations/sa/assign-role-for-sa.md):
 
-       ```text
-       ["arg1","arg2",...,"argN"]
-       ```
+        {% include [sa-roles](../../_includes/data-proc/sa-roles.md) %}
 
-  1. Выберите имя бакета в {{ objstorage-name }}, в котором будут храниться зависимости заданий и результаты их выполнения.
-  1. Выберите сеть для кластера {{ dataproc-name }}.
-  1. Выберите группы безопасности, в которых имеются необходимые разрешения.
+     * Зона доступности для кластера {{ dataproc-name }}.
+     * (Опционально) [Свойства компонентов кластера](../concepts/settings-list.md).
+     * (Опционально) Пользовательские [скрипты инициализации](../concepts/init-action.md) хостов кластера. Для каждого скрипта укажите следующую информацию:
 
-     {% note warning %}
+        * URI-ссылка на скрипт инициализации в схеме `https://`, `http://`, `hdfs://` или `s3a://`.
+        * (Опционально) Таймаут выполнения скрипта (в секундах). Если скрипт инициализации выполняется дольше указанного времени, он будет прерван.
+        * (Опционально) Аргументы, заключенные в квадратные скобки и разделенные запятыми. С этими аргументами выполняется скрипт инициализации. Пример аргументов:
 
-     При создании кластера {{ dataproc-name }} проверяются настройки групп безопасности. Если функционирование кластера {{ dataproc-name }} с этими настройками невозможно, будет выведено предупреждение. Пример работающих настроек приведен [выше](#change-security-groups).
+          ```text
+          ["arg1","arg2",...,"argN"]
+          ```
 
-     {% endnote %}
+     * Формат, в котором будет указано имя [бакета {{ objstorage-full-name }}](../../storage/concepts/bucket.md): **{{ ui-key.yacloud.forms.label_form-list }}** или **{{ ui-key.yacloud.forms.label_form-id }}**.
+     * Бакет, который будет использоваться кластером.
 
-  1. Включите опцию **{{ ui-key.yacloud.mdb.forms.config_field_ui_proxy }}**, чтобы получить доступ к [веб-интерфейсам компонентов](../concepts/interfaces.md) {{ dataproc-name }}.
-  1. Логи кластера {{ dataproc-name }} сохраняются в сервисе [{{ cloud-logging-full-name }}](../../logging/). Выберите нужную лог-группу из списка или [создайте новую](../../logging/operations/create-group.md).
+        В зависимости от выбранного формата либо выберите из списка бакет с нужным именем, либо укажите имя бакета вручную. Его можно получить со [списком бакетов в каталоге](../../storage/operations/buckets/get-info.md#get-information).
 
-     Для работы этой функции [назначьте](../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту кластера {{ dataproc-name }} роль `logging.writer`. Подробнее см. в [документации {{ cloud-logging-name }}](../../logging/security/index.md).
-  1. Настройте подкластеры {{ dataproc-name }}: не больше одного подкластера с хостом-мастером (обозначается как **Мастер**), и подкластеры для хранения или обработки данных.
+     * Формат, в котором будет указана сеть для кластера {{ dataproc-name }}.
+     * Сеть для кластера.
+     * Группы безопасности, в которых имеются необходимые разрешения.
 
-     Роли подкластеров {{ dataproc-name }} для хранения и обработки данных различаются тем, что на подкластерах для хранения данных можно разворачивать компоненты для хранения, а для обработки — компоненты для вычислений. [Хранилище](../concepts/storage.md) на подкластере {{ dataproc-name }} для обработки данных предназначено только для временного хранения обрабатываемых файлов.
+        {% note warning %}
 
-     Для каждого подкластера {{ dataproc-name }}можно настроить:
-     * Количество хостов.
+        При создании кластера {{ dataproc-name }} проверяются настройки групп безопасности. Если функционирование кластера {{ dataproc-name }} с этими настройками невозможно, будет выведено предупреждение. Пример работающих настроек приведен [выше](#change-security-groups).
+
+        {% endnote %}
+
+     * [UI Proxy](./connect-interfaces.md#ui-proxy). Если опция **{{ ui-key.yacloud.mdb.forms.config_field_ui_proxy }}** включена, будут доступны [веб-интерфейсы компонентов](../concepts/interfaces.md) {{ dataproc-name }}.
+     * [Лог-группа](../../logging/concepts/log-group.md) {{ cloud-logging-full-name }}, в которую кластер будет отправлять логи.
+
+        Чтобы сохранять логи в лог-группе, [назначьте](../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту кластера [роль](../../logging/security/index.md#logging-writer) `logging.writer`.
+
+  1. Настройте подкластеры {{ dataproc-name }}. Доступны следующие виды:
+
+     * Подкластер с хостом-мастером, обозначается как `{{ ui-key.yacloud.mdb.forms.label_master-subcluster }}`. Может быть только один.
+     * Подкластеры для хранения данных, обзначаются как `{{ ui-key.yacloud.mdb.forms.label_data-subcluster }}`. На них разворачиваются компоненты для хранения.
+     * Подкластеры для обработки данных, обзначаются как `{{ ui-key.yacloud.mdb.forms.label_compute-subcluster }}`. На них разворачиваются компоненты для вычислений. [Хранилище](../concepts/storage.md) на таком подкластере предназначено только для временного хранения обрабатываемых файлов.
+
+     Для каждого подкластера {{ dataproc-name }} укажите:
+
+     * Имя подкластера.
+     * Количество хостов (хост-мастер может быть только один).
      * [Класс хостов](../concepts/instance-types.md) — платформа и вычислительные ресурсы, доступные хосту.
      * Размер и тип хранилища.
-     * Подсеть сети, в которой расположен кластер {{ dataproc-name }}.
+     * Подсеть.
 
-       В подсети для подкластера {{ dataproc-name }} с хостом-мастером нужно [настроить NAT-шлюз](../../vpc/operations/create-nat-gateway.md). Подробнее см. в разделе [{#T}](#setup-network).
-     * Для доступа к хостам подкластера {{ dataproc-name }} из интернета выберите опцию **{{ ui-key.yacloud.mdb.forms.field_assign-public-ip }}**. В этом случае подключаться к хостам подкластера {{ dataproc-name }} можно только с использованием SSL-соединения. Подробнее см. в разделе [{#T}](connect.md).
+        В подсети для подкластера {{ dataproc-name }} с хостом-мастером настройте NAT-шлюз. Подробнее см. в разделе [{#T}](#setup-network).
+
+     * Доступ к хостам подкластера {{ dataproc-name }} из интернета. Чтобы включить доступ, выберите опцию **{{ ui-key.yacloud.mdb.forms.field_assign-public-ip }}**. В этом случае подключаться к хостам подкластера {{ dataproc-name }} можно только с использованием SSL-соединения. Подробнее см. в разделе [{#T}](connect.md).
 
        {% note warning %}
 
@@ -147,18 +166,18 @@
 
        {% endnote %}
 
-  1. В подкластерах {{ dataproc-name }} для обработки данных можно задать параметры [автоматического масштабирования](../concepts/autoscaling.md).
+  1. (Опционально) Настройте [автоматическое масштабирование](../concepts/autoscaling.md) подкластеров для обработки данных:
 
-     1. В блоке **{{ ui-key.yacloud.mdb.forms.label_create-subcluster }}** нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_configure }}**.
-     1. В поле **{{ ui-key.yacloud.mdb.forms.base_field_roles }}** выберите `COMPUTENODE`.
-     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_scaling }}** включите настройку **{{ ui-key.yacloud.mdb.forms.label_autoscaling-activated }}**.
+     1. В настройках подкластера типа `{{ ui-key.yacloud.mdb.forms.label_compute-subcluster }}` включите настройку **{{ ui-key.yacloud.mdb.forms.label_autoscaling-activated }}**.
      1. Задайте параметры автоматического масштабирования.
      1. По умолчанию в качестве метрики для автоматического масштабирования используется `yarn.cluster.containersPending`. Чтобы включить масштабирование на основе загрузки CPU, выключите настройку **{{ ui-key.yacloud.compute.groups.create.field_default-utilization-target }}** и укажите целевой уровень загрузки CPU.
      1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_add-subcluster }}**.
-  1. При необходимости задайте дополнительные настройки кластера {{ dataproc-name }}:
-     **{{ ui-key.yacloud.mdb.forms.label_deletion-protection }}** — управляет защитой кластера {{ dataproc-name }} от непреднамеренного удаления пользователем.
+
+  1. (Опционально) Добавьте и настройте дополнительные подкластеры для хранения или обработки данных.
+  1. (Опционально) В дополнительных настройках включите защиту от непреднамеренного удаления кластера.
 
      Включенная защита не помешает подключиться к кластеру {{ dataproc-name }} вручную и удалить данные.
+
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_create }}**.
 
 - CLI {#cli}
@@ -218,7 +237,7 @@
 
      {% note info %}
 
-     Имя кластера {{ dataproc-name }} должно быть уникальным в рамках каталога. Может содержать латинские буквы, цифры, дефис и нижнее подчеркивание. Максимальная длина имени 63 символа.
+     Имя кластера {{ dataproc-name }} должно быть уникальным в рамках каталога. Может содержать латинские буквы, цифры, дефис и подчеркивание. Максимальная длина имени 63 символа.
 
      {% endnote %}
 
@@ -247,7 +266,7 @@
        * `resource-preset` — [класс хостов](../concepts/instance-types.md).
        * `disk-type` — [тип хранилища](../concepts/storage.md): `network-ssd`, `network-hdd` или `network-ssd-nonreplicated`.
        * `disk-size` — размер хранилища в гигабайтах.
-       * `subnet-name` — [имя подсети](../../vpc/concepts/network.md#subnet).
+       * `subnet-name` — имя подсети.
        * `hosts-count` — количество хостов подкластеров {{ dataproc-name }} для хранения или обработки данных. Минимальное значение — `1`, максимальное — `32`.
        * `assign-public-ip` — доступ к хостам подкластера {{ dataproc-name }} из интернета. Может принимать значения `true` или `false`. Если доступ включен, подключаться к кластеру {{ dataproc-name }} можно только с использованием SSL-соединения. Подробнее см. в разделе [{#T}](connect.md).
 

@@ -2,138 +2,259 @@
 
 You can expand a {{ mgp-name }} cluster by adding segment hosts to it. You need to add at least two hosts. You can also increase the [number of segments per host](../../concepts/index.md).
 
-When a cluster is being expanded, its data is automatically redistributed across new segments. This is done for each table in sequence during the timeout specified in the expansion settings. The table is not available for read and write operations during data redistribution.
+When a cluster is being expanded, its data is automatically redistributed evenly across all hosts in the cluster (including added hosts). For more information, see [{#T}](../../concepts/expand.md).
 
-The `gp_expand` utility is used to expand a cluster. For more information about the utility and its modes of operation, see the [{{ GP }} documentation]({{ gp.docs.vmware }}/6/greenplum-database/admin_guide-expand-expand-planning.html#planning-table-redistribution).
-
-## Add segment hosts {#add-hosts}
+## Expanding a cluster {#add-hosts}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-   1. Select a cluster and open the ![hosts-edit](../../_assets/../../_assets/console-icons/cube.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
-   1. Click **{{ ui-key.yacloud.greenplum.action_expand-open }}** in the top-right corner.
-   1. Specify cluster expansion settings:
+    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Select a cluster and open the ![hosts-edit](../../_assets/../../_assets/console-icons/cube.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
+    1. Click **{{ ui-key.yacloud.greenplum.action_expand-open }}** in the top-right corner.
+    1. Specify cluster expansion settings:
 
-      * **{{ ui-key.yacloud.greenplum.field_expand-segment-host-count }}**: Number of segment hosts to add. The minimum value is `2`.
-      * **{{ ui-key.yacloud.greenplum.field_expand-add-segments-per-host-count }}**: Number of segments being added per host. The maximum value depends on the host class.
-      * **{{ ui-key.yacloud.greenplum.field_expand-duration }}**: Timeout for data redistribution across the new segments, in seconds. For `0` (recommended value), the timeout will be selected automatically based on cluster configuration and the amount of data.
-   1. Click **{{ ui-key.yacloud.greenplum.action_expand-start }}**.
+        * **{{ ui-key.yacloud.greenplum.field_expand-segment-host-count }}**: Number of segment hosts to expand the cluster by.
+
+            {% include [mgp-expand-setting-host-count](../../../_includes/mdb/mgp/expand/setting-host-count.md) %}
+
+        * **{{ ui-key.yacloud.greenplum.field_expand-add-segments-per-host-count }}**: Number of segments added per host.
+
+            {% include [setting-segment-count](../../../_includes/mdb/mgp/expand/setting-segment-count.md) %}
+
+        * **{{ ui-key.yacloud.greenplum.field_expand-close-cluster }}**: [Closing the cluster for access](../../concepts/expand.md#setting-close-cluster).
+
+            If this setting is enabled, you cannot connect to the cluster and it receives no new user requests. This will accelerate cluster expansion.
+            
+            {% include [close-and-delay-warning](../../../_includes/mdb/mgp/expand/close-and-delay-warning.md) %}
+
+        * **{{ ui-key.yacloud.greenplum.field_expand-delay-redistribution }}**: [Using background data redistribution](../../concepts/expand.md#setting-delay-redistribution).
+
+            * If background mode is disabled, the redistribution process will be run once as soon as the cluster expansion preparation is over.
+
+                {% include [updating-long](../../../_includes/mdb/mgp/expand/updating-long.md) %}
+
+                {% note warning %}
+
+                {% include [manual-redistribution](../../../_includes/mdb/mgp/expand/manual-redistribution.md) %}
+
+                {% endnote %}
+
+            * If background mode is enabled, the redistribution process will be delayed. The process will run on a schedule as a [routine maintenance operation](../../concepts/maintenance.md#regular-ops).
+
+                {% include [updating-short](../../../_includes/mdb/mgp/expand/updating-short.md) %}
+
+        * **{{ ui-key.yacloud.greenplum.field_expand-duration }}**: [Timeout (in seconds), after which the data redistribution process will be interrupted](../../concepts/expand.md#setting-duration).
+
+            {% include [setting-expand-duration](../../../_includes/mdb/mgp/expand/setting-expand-duration.md) %}
+
+        * **{{ ui-key.yacloud.greenplum.field_expand-parallel }}**: [Number of threads that will be started during the data redistribution process](../../concepts/expand.md#setting-parallel).
+
+            {% include [setting-expand-parallel](../../../_includes/mdb/mgp/expand/setting-expand-parallel.md) %}
+
+    1. Click **{{ ui-key.yacloud.greenplum.action_expand-start }}**.
 
 - CLI {#cli}
 
-   {% include [cli-install](../../../_includes/cli-install.md) %}
+    {% include [cli-install](../../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-   To add segment hosts to a {{ GP }} cluster:
+    To expand a cluster:
 
-   1. View the description of the CLI cluster expand command:
+    1. View the description of the CLI cluster expand command:
 
-      ```bash
-      {{ yc-mdb-gp }} cluster expand --help
-      ```
+        ```bash
+        {{ yc-mdb-gp }} cluster expand --help
+        ```
 
-   1. Specify the cluster expansion parameters in the command:
+    1. To expand a cluster, run this command:
 
-      ```bash
-      {{ yc-mdb-gp }} cluster expand <cluster_name_or_ID> \
-         --segment-host-count <number_of_added_segment_hosts> \
-         --add-segments-per-host-count <number_of_segments_added_to_host> \
-         --duration-seconds <data_redistribution_timeout_in_seconds>
-      ```
+        ```bash
+        {{ yc-mdb-gp }} cluster expand <cluster_name_or_ID> \
+           --segment-host-count <number_of_added_segment_hosts> \
+           --add-segments-per-host-count <number_of_added_segments_per_host> \
+           --close-cluster <temporary_ban_on_connection_to_cluster> \
+           --delay-redistribution <background_data_redistribution> \
+           --duration-seconds <data_redistribution_timeout> \
+           --parallel <number_of_data_redistribution_threads>
+        ```
 
-      Where:
+        Where:
 
-      * `--segment-host-count`: Number of segment hosts to add. The minimum (default) value is `2`.
-      * `--add-segments-per-host-count`: Number of segments added per host. The maximum value depends on the host class. The default value is `0`.
-      * `--duration-seconds`: Timeout for data redistribution across the new segments, in seconds. For `0` (recommended value set by default), the timeout will be selected automatically based on cluster configuration and the amount of data.
+        * `--segment-host-count`: Number of segment hosts to expand the cluster by.
 
-      You can get the cluster ID and name with a [list of clusters in the folder](../cluster-list.md#list-clusters).
+            {% include [mgp-expand-setting-host-count](../../../_includes/mdb/mgp/expand/setting-host-count.md) %}
+
+        * `--add-segments-per-host-count`: Number of segments added per host.
+
+            {% include [setting-segment-count](../../../_includes/mdb/mgp/expand/setting-segment-count.md) %}
+
+        * `--close-cluster`: [Closing the cluster for access](../../concepts/expand.md#setting-close-cluster): `true` or `false`.
+
+            {% include [setting-close-cluster](../../../_includes/mdb/mgp/expand/setting-close-cluster.md) %}
+
+        * `--delay-redistribution`: [Using background data redistribution](../../concepts/expand.md#setting-delay-redistribution): `true` or `false`.
+
+            {% include [setting-delay-redistribution](../../../_includes/mdb/mgp/expand/setting-delay-redistribution.md) %}
+
+        * `--duration-seconds`: [Timeout (in seconds), after which the data redistribution process will be interrupted](../../concepts/expand.md#setting-duration).
+
+            {% include [setting-expand-duration](../../../_includes/mdb/mgp/expand/setting-expand-duration.md) %}
+
+        * `--parallel`: [Number of threads that will be started during the data redistribution process](../../concepts/expand.md#setting-parallel).
+
+            {% include [setting-expand-parallel](../../../_includes/mdb/mgp/expand/setting-expand-parallel.md) %}
+
+        You can get the cluster ID and name with a [list of clusters in the folder](../cluster-list.md#list-clusters).
 
 - API {#api}
 
-   To add segment hosts, use the [expand](../../api-ref/Cluster/expand.md) REST API method for the [Cluster](../../api-ref/Cluster/index.md) resource or the [ClusterService/Expand](../../api-ref/grpc/cluster_service.md#Expand) gRPC API call and provide the following in the request:
+    To expand a cluster, use the [expand](../../api-ref/Cluster/expand.md) REST API method for the [Cluster](../../api-ref/Cluster/index.md) resource or the [ClusterService/Expand](../../api-ref/grpc/cluster_service.md#Expand) gRPC API call and provide the following in the request:
 
-   * Cluster ID in the `clusterId` parameter.
-   * Number of segment hosts to add in `segmentHostCount`.
-   * Number of segments per host to add in `addSegmentsPerHostCount`.
-   * The data redistribution timeout (in seconds) in the `duration` parameter. For `0` (recommended value set by default), the timeout will be selected automatically based on cluster configuration and the amount of data.
+    * Cluster ID in the `clusterId` parameter.
 
-   You can get the cluster ID with a [list of clusters in the folder](../cluster-list.md#list-clusters).
+        You can get the cluster ID with a [list of clusters in the folder](../cluster-list.md#list-clusters).
+
+    * `segmentHostCount` parameter: Number of segment hosts to expand the cluster by.
+
+        {% include [mgp-expand-setting-host-count](../../../_includes/mdb/mgp/expand/setting-host-count.md) %}
+
+    * `addSegmentsPerHostCount` parameter: Number of segments added per host.
+
+        {% include [setting-segment-count](../../../_includes/mdb/mgp/expand/setting-segment-count.md) %}
+
+    * `closeCluster` parameter: [Closing the cluster for access](../../concepts/expand.md#setting-close-cluster): `true` or `false`.
+
+        {% include [setting-close-cluster](../../../_includes/mdb/mgp/expand/setting-close-cluster.md) %}
+
+    * `delayRedistribution` parameter: [Using background data redistribution](../../concepts/expand.md#setting-delay-redistribution): `true` or `false`.
+
+        {% include [setting-delay-redistribution](../../../_includes/mdb/mgp/expand/setting-delay-redistribution.md) %}
+
+    * `duration` parameter: [Timeout (in seconds), after which the data redistribution process will be interrupted](../../concepts/expand.md#setting-duration).
+
+        {% include [setting-expand-duration](../../../_includes/mdb/mgp/expand/setting-expand-duration.md) %}
+
+    * `parallel` parameter: [Number of threads that will be started during the data redistribution process](../../concepts/expand.md#setting-parallel).
+
+        {% include [setting-expand-parallel](../../../_includes/mdb/mgp/expand/setting-expand-parallel.md) %}
 
 {% endlist %}
 
-{% note warning %}
-
-A low redistribution timeout value (less than two hours) may be insufficient to redistribute the data of all cluster tables. In this case, [restart redistribution](#start-redistribute).
-
-{% endnote %}
-
 ## Data redistribution monitoring {#redistribute-monitoring}
 
-To monitor data redistribution to the new segments, connect to the `postgres` database and execute the following statement on behalf of the user with the `mdb_admin` role:
+There are several ways to monitor the [data redistribution process](../../concepts/expand.md#redistribution):
 
-```sql
-SELECT dbname, fq_name, status, expansion_started, source_bytes FROM gpexpand.status_detail;
-```
+* If the cluster is [closed from load](#setting-close-cluster) and [background data redistribution](#setting-delay-redistribution) is disabled, you can only track progress using {{ yandex-cloud }} monitoring tools.
 
-Result:
+    [Follow](../monitoring.md#monitoring-cluster) the **Expansion progress** chart on the **{{ ui-key.yacloud.mdb.cluster.switch_monitoring }}** tab of the cluster management page or look up the `gp_expand.*` [metrics](../../metrics.md#managed-greenplum-expand-metrics) using [{{ monitoring-full-name }}](../../../monitoring/concepts/index.md).
 
-```text
-  dbname   |               fq_name               |   status    |     expansion_started      | source_bytes
------------+-------------------------------------+-------------+----------------------------+-------------
- diskquota | diskquota_namespace.database_list   | NOT STARTED |                            |            0
- postgres  | public.rnd_nocomp_distrnd_ao_res3   | NOT STARTED |                            |  52558742480
- postgres  | public.rnd_nocomp_distrnd_ao1       | COMPLETED   | 2022-09-06 12:44:36.71759  |     13013536
- postgres  | public.rnd_nocomp_distrnd_ao_res2   | IN PROGRESS | 2022-09-06 13:03:29.231359 |  63070490912
-(4 rows)
-```
+* If the cluster is not closed from load, you can also run SQL queries to the `gpexpand` data schema objects.
 
-The current redistribution status will be specified in the `status` column.
+    {% include [gpexpand-schema-availability](../../../_includes/mdb/mgp/expand/gpexpand-schema-availability.md) %}
 
-## Table redistribution priority {#table-priority}
+    To track the progress of the data redistribution process using SQL queries:
 
-To specify the tables whose data should be redistributed first of all, increase their priority. To do this, connect to the `postgres` database and run the following query as the user with the `mdb_admin` role:
+    1. [Connect](../connect.md) to the `postgres` database as a user with the `mdb_admin` [role](../../concepts/cluster-users.md#mdb_admin).
+    1. Run a query to get the current status of the process:
 
-```sql
-UPDATE gpexpand.status_detail SET rank=1 WHERE fq_name IN (<table_list>);
-```
+        {% include [sql-redistribution-status](../../../_includes/mdb/mgp/expand/sql-redistribution-status.md) %}
 
-## Starting data redistribution {#start-redistribute}
+    The query result will contain [various information]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-system_catalogs-gp_expansion_tables.html) about the progress of the data redistribution process. The `status` column will indicate the current processing status of specific tables:
 
-`Unknown error: Partially Distributed Data` in cluster runtime logs means that some table data was not redistributed to all new segments. This may occur if the specified redistribution timeout expired before completing redistribution of data from all tables. To fix this error:
+    * `NOT STARTED`: Table data redistribution is scheduled, the table is in the redistribution queue.
 
-1. Find the tables that were redistributed partially:
+        If the cluster is not [closed from load](../../concepts/expand.md#setting-close-cluster), [you can influence the table priority](#table-priority) to change its position in the queue if needed.
 
-   ```sql
-   SELECT count(*) FROM gp_distribution_policy WHERE numsegments != <segment_count>;
-   ```
+    * `IN PROGRESS`: Table data redistribution is in progress.
+    * `COMPLETED`: Table data redistribution is completed.
+    * `NO LONGER EXISTS`: Table no longer exists.
 
-   Where `segment_count` is the total number of segments in all {{ GP }} cluster segment hosts.
+## Additional actions `resgroup`
 
-1. Start data redistribution:
+### Changing table redistribution priority {#table-priority}
 
-   * For ordinary tables:
+During the [cluster expansion preparation](../../concepts/expand.md#preparation) phase, each table is assigned a rank that affects its redistribution queue priority. The higher its rank, the higher the table's queue priority and, therefore, the faster its data redistribution will be completed.
 
-      ```sql
-      ALTER TABLE ONLY <table_name> EXPAND TABLE;
-      ```
+If you need to, you can change the rank for one or more tables provided the cluster is [not closed from load](../../concepts/expand.md#setting-close-cluster). To do this, you must modify the table in the `gpexpand` data schema.
 
-   * For partitioned tables:
+{% include [gpexpand-schema-availability](../../../_includes/mdb/mgp/expand/gpexpand-schema-availability.md) %}
 
-      ```sql
-      ALTER TABLE <table_name> SET WITH (REORGANIZE=true) <distribution_policy>;
-      ```
+To change the rank of redistributed tables:
 
-      Where `distribution_policy` is the {{ GP }} distribution policy.
+1. [Connect](../connect.md) to the `postgres` database as a user with the `mdb_admin` [role](../../concepts/cluster-users.md#mdb_admin).
 
-      To get the {{ GP }} distribution policy for the selected table's partition, call the embedded function:
+1. Run a query to get the current status of the data redistribution process:
 
-      ```sql
-      SELECT pg_get_table_distributedby(<partition_OID>) AS distribution_policy;
-      ```
+    {% include [sql-redistribution-status](../../../_includes/mdb/mgp/expand/sql-redistribution-status.md) %}
+
+    This will include full table names (`fq_name`) and their ranks (`rank`).
+
+1. Change the rank for one or more tables:
+
+    ```sql
+    UPDATE gpexpand.status_detail
+    SET rank=<required_rank>
+    WHERE fq_name IN (<list_of_full_table_names>);
+    ```
+
+    For more information, see the [{{ GP }}]({{ gp.docs.vmware }}/6/greenplum-database/admin_guide-expand-expand-redistribute.html#ranking-tables-for-redistribution) documentation.
+
+### Running data redistribution manually {#start-redistribute}
+
+If [background data redistribution](../../concepts/expand.md#setting-delay-redistribution) was not used during cluster expansion and the [data redistribution process timeout](../../concepts/expand.md#setting-duration) setting was not long enough, the process may end before data redistribution is over for all tables.
+
+This will leave some of the data distributed unevenly. As a result, the `Unknown error: Partially Distributed Data` error will occur in [cluster logs](../cluster-logs.md). To fix the error, run data redistribution manually:
+
+1. Learn the total number of segments in the cluster:
+
+    1. [Get detailed information about a cluster](../cluster-list.md#get-cluster).
+    1. Multiply the number of segments per host by the number of segment hosts.
+
+1. [Connect](../connect.md) to the database as a user with the `mdb_admin` [role](../../concepts/cluster-users.md#mdb_admin).
+
+1. Find tables with unevenly distributed data:
+
+    ```sql
+    SELECT *
+        FROM
+            (SELECT oid, relname FROM pg_class) pgc
+            JOIN
+            (SELECT localoid AS oid, numsegments FROM gp_distribution_policy) gpdp
+            USING (oid)
+        WHERE numsegments != <total_number_of_segments>;
+    ```
+
+    A list of tables will be displayed stating the following for each table:
+    * `oid`: Table ID.
+    * `relname`: Table name.
+    * `numsegment`: Number of segments storing the data.
+
+    For more information, see the {{ GP }} documentation on the [gp_distribution_policy]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-system_catalogs-gp_distribution_policy.html) table.
+
+1. Run data redistribution using the information you got earlier.
+
+    To redistribute data of an individual table, run the following request:
+
+    * For an ordinary table:
+
+        ```sql
+        ALTER TABLE ONLY <table_name> EXPAND TABLE;
+        ```
+
+    * For a partitioned table:
+
+        ```sql
+        ALTER TABLE <table_name>
+        SET WITH (REORGANIZE=true) <distribution_policy>;
+        ```
+
+        To learn the {{ GP }} distribution policy value for an individual table partition, run the following query:
+
+        ```sql
+        SELECT pg_get_table_distributedby(<partition_OID>) AS distribution_policy;
+        ```
 
 {% include [greenplum-trademark](../../../_includes/mdb/mgp/trademark.md) %}

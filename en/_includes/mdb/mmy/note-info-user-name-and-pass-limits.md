@@ -1,7 +1,9 @@
 {% note info %}
 
-A username may contain letters, numbers, hyphens, and underscores, but must start with a letter or an underscore. It can be between 1 and 32 characters long.
+The username may contain Latin letters, numbers, hyphens, and underscores but must begin with a letter, number, or underscore. It must be from 1 to 32 characters long.
 
-The password must be between 8 and 128 characters.
+
+The password must be from 8 to 128 characters long.
+
 
 {% endnote %}

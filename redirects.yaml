@@ -1,0 +1,15 @@
+common:
+    - from: data-proc/concepts/metastore.md
+      to: metadata-hub/concepts/metastore.md
+    - from: data-proc/concepts/metastore-impersonation.md
+      to: metadata-hub/concepts/metastore-impersonation.md
+    - from: data-proc/operations/metastore/cluster-create.md
+      to: metadata-hub/operations/metastore/cluster-create.md
+    - from: data-proc/operations/metastore/cluster-delete.md
+      to: metadata-hub/operations/metastore/cluster-delete.md
+    - from: data-proc/operations/metastore/dataproc-connect.md
+      to: metadata-hub/operations/metastore/dataproc-connect.md
+    - from: data-proc/operations/metastore/export-and-import.md
+      to: metadata-hub/operations/metastore/export-and-import.md
+    - from: security/domains/checklist.md
+      to: security/domains/index.md

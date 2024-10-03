@@ -61,7 +61,6 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the function. The name is unique within the folder. The string length in characters must be 3-63.
 description | **string**<br>Description of the function. The string length in characters must be 0-256.
 labels | **map<string,string>**<br>Function labels as `key:value` pairs. No more than 64 per resource.
-log_group_id | **string**<br>ID of the log group for the function. 
 http_invoke_url | **string**<br>URL that needs to be requested to invoke the function. 
 status | enum **Status**<br>Status of the function. <ul><li>`CREATING`: Function is being created.</li><li>`ACTIVE`: Function is ready to be invoked.</li><li>`DELETING`: Function is being deleted.</li><li>`ERROR`: Function failed.</li></ul>
 
@@ -100,7 +99,6 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the function. The name is unique within the folder. The string length in characters must be 3-63.
 description | **string**<br>Description of the function. The string length in characters must be 0-256.
 labels | **map<string,string>**<br>Function labels as `key:value` pairs. No more than 64 per resource.
-log_group_id | **string**<br>ID of the log group for the function. 
 http_invoke_url | **string**<br>URL that needs to be requested to invoke the function. 
 status | enum **Status**<br>Status of the function. <ul><li>`CREATING`: Function is being created.</li><li>`ACTIVE`: Function is ready to be invoked.</li><li>`DELETING`: Function is being deleted.</li><li>`ERROR`: Function failed.</li></ul>
 
@@ -122,7 +120,7 @@ Field | Description
 folder_id | **string**<br>Required. ID of the folder to create a function in. <br>To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. 
 name | **string**<br>Name of the function. The name must be unique within the folder. Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 description | **string**<br>Description of the function. The maximum string length in characters is 256.
-labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
+labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
 
 
 ### Operation {#Operation}
@@ -158,7 +156,6 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the function. The name is unique within the folder. The string length in characters must be 3-63.
 description | **string**<br>Description of the function. The string length in characters must be 0-256.
 labels | **map<string,string>**<br>Function labels as `key:value` pairs. No more than 64 per resource.
-log_group_id | **string**<br>ID of the log group for the function. 
 http_invoke_url | **string**<br>URL that needs to be requested to invoke the function. 
 status | enum **Status**<br>Status of the function. <ul><li>`CREATING`: Function is being created.</li><li>`ACTIVE`: Function is ready to be invoked.</li><li>`DELETING`: Function is being deleted.</li><li>`ERROR`: Function failed.</li></ul>
 
@@ -181,7 +178,7 @@ function_id | **string**<br>Required. ID of the function to update. <br>To get a
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which attributes of the function should be updated. 
 name | **string**<br>New name for the function. The name must be unique within the folder. Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 description | **string**<br>New description for the function. The maximum string length in characters is 256.
-labels | **map<string,string>**<br>Function labels as `key:value` pairs. <br>Existing set of labels is completely replaced by the provided set, so if you just want to add or remove a label, request the current set of labels with a [FunctionService.Get](#Get) request. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
+labels | **map<string,string>**<br>Function labels as `key:value` pairs. <br>Existing set of labels is completely replaced by the provided set, so if you just want to add or remove a label, request the current set of labels with a [FunctionService.Get](#Get) request. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
 
 
 ### Operation {#Operation1}
@@ -217,7 +214,6 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the function. The name is unique within the folder. The string length in characters must be 3-63.
 description | **string**<br>Description of the function. The string length in characters must be 0-256.
 labels | **map<string,string>**<br>Function labels as `key:value` pairs. No more than 64 per resource.
-log_group_id | **string**<br>ID of the log group for the function. 
 http_invoke_url | **string**<br>URL that needs to be requested to invoke the function. 
 status | enum **Status**<br>Status of the function. <ul><li>`CREATING`: Function is being created.</li><li>`ACTIVE`: Function is ready to be invoked.</li><li>`DELETING`: Function is being deleted.</li><li>`ERROR`: Function failed.</li></ul>
 
@@ -289,9 +285,8 @@ resources | **[Resources](#Resources)**<br>Resources allocated to the version.
 execution_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for the execution of the version. <br>If the timeout is exceeded, Cloud Functions responds with a 504 HTTP code. 
 service_account_id | **string**<br>ID of the service account associated with the version. 
 image_size | **int64**<br>Final size of the deployment package after unpacking. 
-status | enum **Status**<br>Status of the version. <ul><li>`CREATING`: Version is being created.</li><li>`ACTIVE`: Version is ready to use.</li></ul>
+status | enum **Status**<br>Status of the version. <ul><li>`CREATING`: Version is being created.</li><li>`ACTIVE`: Version is ready to use.</li><li>`OBSOLETE`: Version will be deleted soon.</li><li>`DELETING`: Version is being deleted.</li></ul>
 tags[] | **string**<br>Version tags. For details, see [Version tag](/docs/functions/concepts/function#tag). 
-log_group_id | **string**<br>ID of the log group for the version. 
 environment | **map<string,string>**<br>Environment settings for the version. 
 connectivity | **[Connectivity](#Connectivity)**<br>Network access. If specified the version will be attached to specified network/subnet(s). 
 named_service_accounts | **map<string,string>**<br>Additional service accounts to be used by the version. 
@@ -301,13 +296,14 @@ storage_mounts[] | **[StorageMount](#StorageMount)**<br>S3 mounts to be used by 
 async_invocation_config | **[AsyncInvocationConfig](#AsyncInvocationConfig)**<br>Config for asynchronous invocations of the version 
 tmpfs_size | **int64**<br>Optional size of in-memory mounted /tmp directory in bytes. 
 concurrency | **int64**<br>The maximum number of requests processed by a function instance at the same time Acceptable values are 0 to 16, inclusive.
+mounts[] | **[Mount](#Mount)**<br>Mounts to be used by the version. 
 
 
 ### Resources {#Resources}
 
 Field | Description
 --- | ---
-memory | **int64**<br>Amount of memory available to the version, specified in bytes, multiple of 128MB. Acceptable values are 134217728 to 4294967296, inclusive.
+memory | **int64**<br>Amount of memory available to the version, specified in bytes, multiple of 128MB. Acceptable values are 134217728 to 8589934592, inclusive.
 
 
 ### Connectivity {#Connectivity}
@@ -381,6 +377,33 @@ queue_arn | **string**<br>Required. Queue ARN
 service_account_id | **string**<br>Required. Service account which has write permission on the queue. The maximum string length in characters is 50.
 
 
+### Mount {#Mount}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Unique mount point name. Device will be mounted into /function/storage/<name> The string length in characters must be 1-100. Value must match the regular expression ` [-_0-9a-zA-Z]* `.
+mode | enum **Mode**<br>Mount's mode 
+target | **oneof:** `object_storage` or `ephemeral_disk_spec`<br>Target mount option
+&nbsp;&nbsp;object_storage | **[ObjectStorage](#ObjectStorage)**<br>Object storage mounts 
+&nbsp;&nbsp;ephemeral_disk_spec | **[DiskSpec](#DiskSpec)**<br>Working disk (worker-local non-shared read-write NBS disk templates) 
+
+
+### ObjectStorage {#ObjectStorage}
+
+Field | Description
+--- | ---
+bucket_id | **string**<br>Required. ObjectStorage bucket name for mounting. The string length in characters must be 3-63. Value must match the regular expression ` [-.0-9a-zA-Z]* `.
+prefix | **string**<br>ObjectStorage bucket prefix for mounting. 
+
+
+### DiskSpec {#DiskSpec}
+
+Field | Description
+--- | ---
+size | **int64**<br>The size of disk for mount in bytes Value must be greater than 0.
+block_size | **int64**<br>Optional block size of disk for mount in bytes 
+
+
 ## GetFunctionVersion {#GetFunctionVersion}
 
 Deprecated. Use [GetVersion](#GetVersion).
@@ -408,9 +431,8 @@ resources | **[Resources](#Resources1)**<br>Resources allocated to the version.
 execution_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for the execution of the version. <br>If the timeout is exceeded, Cloud Functions responds with a 504 HTTP code. 
 service_account_id | **string**<br>ID of the service account associated with the version. 
 image_size | **int64**<br>Final size of the deployment package after unpacking. 
-status | enum **Status**<br>Status of the version. <ul><li>`CREATING`: Version is being created.</li><li>`ACTIVE`: Version is ready to use.</li></ul>
+status | enum **Status**<br>Status of the version. <ul><li>`CREATING`: Version is being created.</li><li>`ACTIVE`: Version is ready to use.</li><li>`OBSOLETE`: Version will be deleted soon.</li><li>`DELETING`: Version is being deleted.</li></ul>
 tags[] | **string**<br>Version tags. For details, see [Version tag](/docs/functions/concepts/function#tag). 
-log_group_id | **string**<br>ID of the log group for the version. 
 environment | **map<string,string>**<br>Environment settings for the version. 
 connectivity | **[Connectivity](#Connectivity1)**<br>Network access. If specified the version will be attached to specified network/subnet(s). 
 named_service_accounts | **map<string,string>**<br>Additional service accounts to be used by the version. 
@@ -420,13 +442,14 @@ storage_mounts[] | **[StorageMount](#StorageMount1)**<br>S3 mounts to be used by
 async_invocation_config | **[AsyncInvocationConfig](#AsyncInvocationConfig1)**<br>Config for asynchronous invocations of the version 
 tmpfs_size | **int64**<br>Optional size of in-memory mounted /tmp directory in bytes. 
 concurrency | **int64**<br>The maximum number of requests processed by a function instance at the same time Acceptable values are 0 to 16, inclusive.
+mounts[] | **[Mount](#Mount1)**<br>Mounts to be used by the version. 
 
 
 ### Resources {#Resources1}
 
 Field | Description
 --- | ---
-memory | **int64**<br>Amount of memory available to the version, specified in bytes, multiple of 128MB. Acceptable values are 134217728 to 4294967296, inclusive.
+memory | **int64**<br>Amount of memory available to the version, specified in bytes, multiple of 128MB. Acceptable values are 134217728 to 8589934592, inclusive.
 
 
 ### Connectivity {#Connectivity1}
@@ -500,6 +523,33 @@ queue_arn | **string**<br>Required. Queue ARN
 service_account_id | **string**<br>Required. Service account which has write permission on the queue. The maximum string length in characters is 50.
 
 
+### Mount {#Mount1}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Unique mount point name. Device will be mounted into /function/storage/<name> The string length in characters must be 1-100. Value must match the regular expression ` [-_0-9a-zA-Z]* `.
+mode | enum **Mode**<br>Mount's mode 
+target | **oneof:** `object_storage` or `ephemeral_disk_spec`<br>Target mount option
+&nbsp;&nbsp;object_storage | **[ObjectStorage](#ObjectStorage1)**<br>Object storage mounts 
+&nbsp;&nbsp;ephemeral_disk_spec | **[DiskSpec](#DiskSpec1)**<br>Working disk (worker-local non-shared read-write NBS disk templates) 
+
+
+### ObjectStorage {#ObjectStorage1}
+
+Field | Description
+--- | ---
+bucket_id | **string**<br>Required. ObjectStorage bucket name for mounting. The string length in characters must be 3-63. Value must match the regular expression ` [-.0-9a-zA-Z]* `.
+prefix | **string**<br>ObjectStorage bucket prefix for mounting. 
+
+
+### DiskSpec {#DiskSpec1}
+
+Field | Description
+--- | ---
+size | **int64**<br>The size of disk for mount in bytes Value must be greater than 0.
+block_size | **int64**<br>Optional block size of disk for mount in bytes 
+
+
 ## GetVersionByTag {#GetVersionByTag}
 
 Returns all versions with the specified tag. <br>To get the list of all available versions, make a [ListVersions](#ListVersions) request.
@@ -528,9 +578,8 @@ resources | **[Resources](#Resources2)**<br>Resources allocated to the version.
 execution_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for the execution of the version. <br>If the timeout is exceeded, Cloud Functions responds with a 504 HTTP code. 
 service_account_id | **string**<br>ID of the service account associated with the version. 
 image_size | **int64**<br>Final size of the deployment package after unpacking. 
-status | enum **Status**<br>Status of the version. <ul><li>`CREATING`: Version is being created.</li><li>`ACTIVE`: Version is ready to use.</li></ul>
+status | enum **Status**<br>Status of the version. <ul><li>`CREATING`: Version is being created.</li><li>`ACTIVE`: Version is ready to use.</li><li>`OBSOLETE`: Version will be deleted soon.</li><li>`DELETING`: Version is being deleted.</li></ul>
 tags[] | **string**<br>Version tags. For details, see [Version tag](/docs/functions/concepts/function#tag). 
-log_group_id | **string**<br>ID of the log group for the version. 
 environment | **map<string,string>**<br>Environment settings for the version. 
 connectivity | **[Connectivity](#Connectivity2)**<br>Network access. If specified the version will be attached to specified network/subnet(s). 
 named_service_accounts | **map<string,string>**<br>Additional service accounts to be used by the version. 
@@ -540,13 +589,14 @@ storage_mounts[] | **[StorageMount](#StorageMount2)**<br>S3 mounts to be used by
 async_invocation_config | **[AsyncInvocationConfig](#AsyncInvocationConfig2)**<br>Config for asynchronous invocations of the version 
 tmpfs_size | **int64**<br>Optional size of in-memory mounted /tmp directory in bytes. 
 concurrency | **int64**<br>The maximum number of requests processed by a function instance at the same time Acceptable values are 0 to 16, inclusive.
+mounts[] | **[Mount](#Mount2)**<br>Mounts to be used by the version. 
 
 
 ### Resources {#Resources2}
 
 Field | Description
 --- | ---
-memory | **int64**<br>Amount of memory available to the version, specified in bytes, multiple of 128MB. Acceptable values are 134217728 to 4294967296, inclusive.
+memory | **int64**<br>Amount of memory available to the version, specified in bytes, multiple of 128MB. Acceptable values are 134217728 to 8589934592, inclusive.
 
 
 ### Connectivity {#Connectivity2}
@@ -620,6 +670,33 @@ queue_arn | **string**<br>Required. Queue ARN
 service_account_id | **string**<br>Required. Service account which has write permission on the queue. The maximum string length in characters is 50.
 
 
+### Mount {#Mount2}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Unique mount point name. Device will be mounted into /function/storage/<name> The string length in characters must be 1-100. Value must match the regular expression ` [-_0-9a-zA-Z]* `.
+mode | enum **Mode**<br>Mount's mode 
+target | **oneof:** `object_storage` or `ephemeral_disk_spec`<br>Target mount option
+&nbsp;&nbsp;object_storage | **[ObjectStorage](#ObjectStorage2)**<br>Object storage mounts 
+&nbsp;&nbsp;ephemeral_disk_spec | **[DiskSpec](#DiskSpec2)**<br>Working disk (worker-local non-shared read-write NBS disk templates) 
+
+
+### ObjectStorage {#ObjectStorage2}
+
+Field | Description
+--- | ---
+bucket_id | **string**<br>Required. ObjectStorage bucket name for mounting. The string length in characters must be 3-63. Value must match the regular expression ` [-.0-9a-zA-Z]* `.
+prefix | **string**<br>ObjectStorage bucket prefix for mounting. 
+
+
+### DiskSpec {#DiskSpec2}
+
+Field | Description
+--- | ---
+size | **int64**<br>The size of disk for mount in bytes Value must be greater than 0.
+block_size | **int64**<br>Optional block size of disk for mount in bytes 
+
+
 ## GetFunctionVersionByTag {#GetFunctionVersionByTag}
 
 Deprecated. Use [GetVersionByTag](#GetVersionByTag).
@@ -648,9 +725,8 @@ resources | **[Resources](#Resources3)**<br>Resources allocated to the version.
 execution_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for the execution of the version. <br>If the timeout is exceeded, Cloud Functions responds with a 504 HTTP code. 
 service_account_id | **string**<br>ID of the service account associated with the version. 
 image_size | **int64**<br>Final size of the deployment package after unpacking. 
-status | enum **Status**<br>Status of the version. <ul><li>`CREATING`: Version is being created.</li><li>`ACTIVE`: Version is ready to use.</li></ul>
+status | enum **Status**<br>Status of the version. <ul><li>`CREATING`: Version is being created.</li><li>`ACTIVE`: Version is ready to use.</li><li>`OBSOLETE`: Version will be deleted soon.</li><li>`DELETING`: Version is being deleted.</li></ul>
 tags[] | **string**<br>Version tags. For details, see [Version tag](/docs/functions/concepts/function#tag). 
-log_group_id | **string**<br>ID of the log group for the version. 
 environment | **map<string,string>**<br>Environment settings for the version. 
 connectivity | **[Connectivity](#Connectivity3)**<br>Network access. If specified the version will be attached to specified network/subnet(s). 
 named_service_accounts | **map<string,string>**<br>Additional service accounts to be used by the version. 
@@ -660,13 +736,14 @@ storage_mounts[] | **[StorageMount](#StorageMount3)**<br>S3 mounts to be used by
 async_invocation_config | **[AsyncInvocationConfig](#AsyncInvocationConfig3)**<br>Config for asynchronous invocations of the version 
 tmpfs_size | **int64**<br>Optional size of in-memory mounted /tmp directory in bytes. 
 concurrency | **int64**<br>The maximum number of requests processed by a function instance at the same time Acceptable values are 0 to 16, inclusive.
+mounts[] | **[Mount](#Mount3)**<br>Mounts to be used by the version. 
 
 
 ### Resources {#Resources3}
 
 Field | Description
 --- | ---
-memory | **int64**<br>Amount of memory available to the version, specified in bytes, multiple of 128MB. Acceptable values are 134217728 to 4294967296, inclusive.
+memory | **int64**<br>Amount of memory available to the version, specified in bytes, multiple of 128MB. Acceptable values are 134217728 to 8589934592, inclusive.
 
 
 ### Connectivity {#Connectivity3}
@@ -740,6 +817,33 @@ queue_arn | **string**<br>Required. Queue ARN
 service_account_id | **string**<br>Required. Service account which has write permission on the queue. The maximum string length in characters is 50.
 
 
+### Mount {#Mount3}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Unique mount point name. Device will be mounted into /function/storage/<name> The string length in characters must be 1-100. Value must match the regular expression ` [-_0-9a-zA-Z]* `.
+mode | enum **Mode**<br>Mount's mode 
+target | **oneof:** `object_storage` or `ephemeral_disk_spec`<br>Target mount option
+&nbsp;&nbsp;object_storage | **[ObjectStorage](#ObjectStorage3)**<br>Object storage mounts 
+&nbsp;&nbsp;ephemeral_disk_spec | **[DiskSpec](#DiskSpec3)**<br>Working disk (worker-local non-shared read-write NBS disk templates) 
+
+
+### ObjectStorage {#ObjectStorage3}
+
+Field | Description
+--- | ---
+bucket_id | **string**<br>Required. ObjectStorage bucket name for mounting. The string length in characters must be 3-63. Value must match the regular expression ` [-.0-9a-zA-Z]* `.
+prefix | **string**<br>ObjectStorage bucket prefix for mounting. 
+
+
+### DiskSpec {#DiskSpec3}
+
+Field | Description
+--- | ---
+size | **int64**<br>The size of disk for mount in bytes Value must be greater than 0.
+block_size | **int64**<br>Optional block size of disk for mount in bytes 
+
+
 ## ListVersions {#ListVersions}
 
 Retrieves the list of versions for the specified function, or of all function versions in the specified folder.
@@ -780,9 +884,8 @@ resources | **[Resources](#Resources4)**<br>Resources allocated to the version.
 execution_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for the execution of the version. <br>If the timeout is exceeded, Cloud Functions responds with a 504 HTTP code. 
 service_account_id | **string**<br>ID of the service account associated with the version. 
 image_size | **int64**<br>Final size of the deployment package after unpacking. 
-status | enum **Status**<br>Status of the version. <ul><li>`CREATING`: Version is being created.</li><li>`ACTIVE`: Version is ready to use.</li></ul>
+status | enum **Status**<br>Status of the version. <ul><li>`CREATING`: Version is being created.</li><li>`ACTIVE`: Version is ready to use.</li><li>`OBSOLETE`: Version will be deleted soon.</li><li>`DELETING`: Version is being deleted.</li></ul>
 tags[] | **string**<br>Version tags. For details, see [Version tag](/docs/functions/concepts/function#tag). 
-log_group_id | **string**<br>ID of the log group for the version. 
 environment | **map<string,string>**<br>Environment settings for the version. 
 connectivity | **[Connectivity](#Connectivity4)**<br>Network access. If specified the version will be attached to specified network/subnet(s). 
 named_service_accounts | **map<string,string>**<br>Additional service accounts to be used by the version. 
@@ -792,13 +895,14 @@ storage_mounts[] | **[StorageMount](#StorageMount4)**<br>S3 mounts to be used by
 async_invocation_config | **[AsyncInvocationConfig](#AsyncInvocationConfig4)**<br>Config for asynchronous invocations of the version 
 tmpfs_size | **int64**<br>Optional size of in-memory mounted /tmp directory in bytes. 
 concurrency | **int64**<br>The maximum number of requests processed by a function instance at the same time Acceptable values are 0 to 16, inclusive.
+mounts[] | **[Mount](#Mount4)**<br>Mounts to be used by the version. 
 
 
 ### Resources {#Resources4}
 
 Field | Description
 --- | ---
-memory | **int64**<br>Amount of memory available to the version, specified in bytes, multiple of 128MB. Acceptable values are 134217728 to 4294967296, inclusive.
+memory | **int64**<br>Amount of memory available to the version, specified in bytes, multiple of 128MB. Acceptable values are 134217728 to 8589934592, inclusive.
 
 
 ### Connectivity {#Connectivity4}
@@ -872,6 +976,33 @@ queue_arn | **string**<br>Required. Queue ARN
 service_account_id | **string**<br>Required. Service account which has write permission on the queue. The maximum string length in characters is 50.
 
 
+### Mount {#Mount4}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Unique mount point name. Device will be mounted into /function/storage/<name> The string length in characters must be 1-100. Value must match the regular expression ` [-_0-9a-zA-Z]* `.
+mode | enum **Mode**<br>Mount's mode 
+target | **oneof:** `object_storage` or `ephemeral_disk_spec`<br>Target mount option
+&nbsp;&nbsp;object_storage | **[ObjectStorage](#ObjectStorage4)**<br>Object storage mounts 
+&nbsp;&nbsp;ephemeral_disk_spec | **[DiskSpec](#DiskSpec4)**<br>Working disk (worker-local non-shared read-write NBS disk templates) 
+
+
+### ObjectStorage {#ObjectStorage4}
+
+Field | Description
+--- | ---
+bucket_id | **string**<br>Required. ObjectStorage bucket name for mounting. The string length in characters must be 3-63. Value must match the regular expression ` [-.0-9a-zA-Z]* `.
+prefix | **string**<br>ObjectStorage bucket prefix for mounting. 
+
+
+### DiskSpec {#DiskSpec4}
+
+Field | Description
+--- | ---
+size | **int64**<br>The size of disk for mount in bytes Value must be greater than 0.
+block_size | **int64**<br>Optional block size of disk for mount in bytes 
+
+
 ## ListFunctionVersions {#ListFunctionVersions}
 
 Deprecated. Use [ListVersions](#ListVersions).
@@ -912,9 +1043,8 @@ resources | **[Resources](#Resources5)**<br>Resources allocated to the version.
 execution_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for the execution of the version. <br>If the timeout is exceeded, Cloud Functions responds with a 504 HTTP code. 
 service_account_id | **string**<br>ID of the service account associated with the version. 
 image_size | **int64**<br>Final size of the deployment package after unpacking. 
-status | enum **Status**<br>Status of the version. <ul><li>`CREATING`: Version is being created.</li><li>`ACTIVE`: Version is ready to use.</li></ul>
+status | enum **Status**<br>Status of the version. <ul><li>`CREATING`: Version is being created.</li><li>`ACTIVE`: Version is ready to use.</li><li>`OBSOLETE`: Version will be deleted soon.</li><li>`DELETING`: Version is being deleted.</li></ul>
 tags[] | **string**<br>Version tags. For details, see [Version tag](/docs/functions/concepts/function#tag). 
-log_group_id | **string**<br>ID of the log group for the version. 
 environment | **map<string,string>**<br>Environment settings for the version. 
 connectivity | **[Connectivity](#Connectivity5)**<br>Network access. If specified the version will be attached to specified network/subnet(s). 
 named_service_accounts | **map<string,string>**<br>Additional service accounts to be used by the version. 
@@ -924,13 +1054,14 @@ storage_mounts[] | **[StorageMount](#StorageMount5)**<br>S3 mounts to be used by
 async_invocation_config | **[AsyncInvocationConfig](#AsyncInvocationConfig5)**<br>Config for asynchronous invocations of the version 
 tmpfs_size | **int64**<br>Optional size of in-memory mounted /tmp directory in bytes. 
 concurrency | **int64**<br>The maximum number of requests processed by a function instance at the same time Acceptable values are 0 to 16, inclusive.
+mounts[] | **[Mount](#Mount5)**<br>Mounts to be used by the version. 
 
 
 ### Resources {#Resources5}
 
 Field | Description
 --- | ---
-memory | **int64**<br>Amount of memory available to the version, specified in bytes, multiple of 128MB. Acceptable values are 134217728 to 4294967296, inclusive.
+memory | **int64**<br>Amount of memory available to the version, specified in bytes, multiple of 128MB. Acceptable values are 134217728 to 8589934592, inclusive.
 
 
 ### Connectivity {#Connectivity5}
@@ -1002,6 +1133,33 @@ Field | Description
 --- | ---
 queue_arn | **string**<br>Required. Queue ARN 
 service_account_id | **string**<br>Required. Service account which has write permission on the queue. The maximum string length in characters is 50.
+
+
+### Mount {#Mount5}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Unique mount point name. Device will be mounted into /function/storage/<name> The string length in characters must be 1-100. Value must match the regular expression ` [-_0-9a-zA-Z]* `.
+mode | enum **Mode**<br>Mount's mode 
+target | **oneof:** `object_storage` or `ephemeral_disk_spec`<br>Target mount option
+&nbsp;&nbsp;object_storage | **[ObjectStorage](#ObjectStorage5)**<br>Object storage mounts 
+&nbsp;&nbsp;ephemeral_disk_spec | **[DiskSpec](#DiskSpec5)**<br>Working disk (worker-local non-shared read-write NBS disk templates) 
+
+
+### ObjectStorage {#ObjectStorage5}
+
+Field | Description
+--- | ---
+bucket_id | **string**<br>Required. ObjectStorage bucket name for mounting. The string length in characters must be 3-63. Value must match the regular expression ` [-.0-9a-zA-Z]* `.
+prefix | **string**<br>ObjectStorage bucket prefix for mounting. 
+
+
+### DiskSpec {#DiskSpec5}
+
+Field | Description
+--- | ---
+size | **int64**<br>The size of disk for mount in bytes Value must be greater than 0.
+block_size | **int64**<br>Optional block size of disk for mount in bytes 
 
 
 ## DeleteVersion {#DeleteVersion}
@@ -1100,9 +1258,8 @@ resources | **[Resources](#Resources6)**<br>Resources allocated to the version.
 execution_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for the execution of the version. <br>If the timeout is exceeded, Cloud Functions responds with a 504 HTTP code. 
 service_account_id | **string**<br>ID of the service account associated with the version. 
 image_size | **int64**<br>Final size of the deployment package after unpacking. 
-status | enum **Status**<br>Status of the version. <ul><li>`CREATING`: Version is being created.</li><li>`ACTIVE`: Version is ready to use.</li></ul>
+status | enum **Status**<br>Status of the version. <ul><li>`CREATING`: Version is being created.</li><li>`ACTIVE`: Version is ready to use.</li><li>`OBSOLETE`: Version will be deleted soon.</li><li>`DELETING`: Version is being deleted.</li></ul>
 tags[] | **string**<br>Version tags. For details, see [Version tag](/docs/functions/concepts/function#tag). 
-log_group_id | **string**<br>ID of the log group for the version. 
 environment | **map<string,string>**<br>Environment settings for the version. 
 connectivity | **[Connectivity](#Connectivity6)**<br>Network access. If specified the version will be attached to specified network/subnet(s). 
 named_service_accounts | **map<string,string>**<br>Additional service accounts to be used by the version. 
@@ -1112,13 +1269,14 @@ storage_mounts[] | **[StorageMount](#StorageMount6)**<br>S3 mounts to be used by
 async_invocation_config | **[AsyncInvocationConfig](#AsyncInvocationConfig6)**<br>Config for asynchronous invocations of the version 
 tmpfs_size | **int64**<br>Optional size of in-memory mounted /tmp directory in bytes. 
 concurrency | **int64**<br>The maximum number of requests processed by a function instance at the same time Acceptable values are 0 to 16, inclusive.
+mounts[] | **[Mount](#Mount6)**<br>Mounts to be used by the version. 
 
 
 ### Resources {#Resources6}
 
 Field | Description
 --- | ---
-memory | **int64**<br>Amount of memory available to the version, specified in bytes, multiple of 128MB. Acceptable values are 134217728 to 4294967296, inclusive.
+memory | **int64**<br>Amount of memory available to the version, specified in bytes, multiple of 128MB. Acceptable values are 134217728 to 8589934592, inclusive.
 
 
 ### Connectivity {#Connectivity6}
@@ -1192,6 +1350,33 @@ queue_arn | **string**<br>Required. Queue ARN
 service_account_id | **string**<br>Required. Service account which has write permission on the queue. The maximum string length in characters is 50.
 
 
+### Mount {#Mount6}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Unique mount point name. Device will be mounted into /function/storage/<name> The string length in characters must be 1-100. Value must match the regular expression ` [-_0-9a-zA-Z]* `.
+mode | enum **Mode**<br>Mount's mode 
+target | **oneof:** `object_storage` or `ephemeral_disk_spec`<br>Target mount option
+&nbsp;&nbsp;object_storage | **[ObjectStorage](#ObjectStorage6)**<br>Object storage mounts 
+&nbsp;&nbsp;ephemeral_disk_spec | **[DiskSpec](#DiskSpec6)**<br>Working disk (worker-local non-shared read-write NBS disk templates) 
+
+
+### ObjectStorage {#ObjectStorage6}
+
+Field | Description
+--- | ---
+bucket_id | **string**<br>Required. ObjectStorage bucket name for mounting. The string length in characters must be 3-63. Value must match the regular expression ` [-.0-9a-zA-Z]* `.
+prefix | **string**<br>ObjectStorage bucket prefix for mounting. 
+
+
+### DiskSpec {#DiskSpec6}
+
+Field | Description
+--- | ---
+size | **int64**<br>The size of disk for mount in bytes Value must be greater than 0.
+block_size | **int64**<br>Optional block size of disk for mount in bytes 
+
+
 ## RemoveTag {#RemoveTag}
 
 Remove a tag from the specified version of a function.
@@ -1247,9 +1432,8 @@ resources | **[Resources](#Resources7)**<br>Resources allocated to the version.
 execution_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for the execution of the version. <br>If the timeout is exceeded, Cloud Functions responds with a 504 HTTP code. 
 service_account_id | **string**<br>ID of the service account associated with the version. 
 image_size | **int64**<br>Final size of the deployment package after unpacking. 
-status | enum **Status**<br>Status of the version. <ul><li>`CREATING`: Version is being created.</li><li>`ACTIVE`: Version is ready to use.</li></ul>
+status | enum **Status**<br>Status of the version. <ul><li>`CREATING`: Version is being created.</li><li>`ACTIVE`: Version is ready to use.</li><li>`OBSOLETE`: Version will be deleted soon.</li><li>`DELETING`: Version is being deleted.</li></ul>
 tags[] | **string**<br>Version tags. For details, see [Version tag](/docs/functions/concepts/function#tag). 
-log_group_id | **string**<br>ID of the log group for the version. 
 environment | **map<string,string>**<br>Environment settings for the version. 
 connectivity | **[Connectivity](#Connectivity7)**<br>Network access. If specified the version will be attached to specified network/subnet(s). 
 named_service_accounts | **map<string,string>**<br>Additional service accounts to be used by the version. 
@@ -1259,13 +1443,14 @@ storage_mounts[] | **[StorageMount](#StorageMount7)**<br>S3 mounts to be used by
 async_invocation_config | **[AsyncInvocationConfig](#AsyncInvocationConfig7)**<br>Config for asynchronous invocations of the version 
 tmpfs_size | **int64**<br>Optional size of in-memory mounted /tmp directory in bytes. 
 concurrency | **int64**<br>The maximum number of requests processed by a function instance at the same time Acceptable values are 0 to 16, inclusive.
+mounts[] | **[Mount](#Mount7)**<br>Mounts to be used by the version. 
 
 
 ### Resources {#Resources7}
 
 Field | Description
 --- | ---
-memory | **int64**<br>Amount of memory available to the version, specified in bytes, multiple of 128MB. Acceptable values are 134217728 to 4294967296, inclusive.
+memory | **int64**<br>Amount of memory available to the version, specified in bytes, multiple of 128MB. Acceptable values are 134217728 to 8589934592, inclusive.
 
 
 ### Connectivity {#Connectivity7}
@@ -1337,6 +1522,33 @@ Field | Description
 --- | ---
 queue_arn | **string**<br>Required. Queue ARN 
 service_account_id | **string**<br>Required. Service account which has write permission on the queue. The maximum string length in characters is 50.
+
+
+### Mount {#Mount7}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Unique mount point name. Device will be mounted into /function/storage/<name> The string length in characters must be 1-100. Value must match the regular expression ` [-_0-9a-zA-Z]* `.
+mode | enum **Mode**<br>Mount's mode 
+target | **oneof:** `object_storage` or `ephemeral_disk_spec`<br>Target mount option
+&nbsp;&nbsp;object_storage | **[ObjectStorage](#ObjectStorage7)**<br>Object storage mounts 
+&nbsp;&nbsp;ephemeral_disk_spec | **[DiskSpec](#DiskSpec7)**<br>Working disk (worker-local non-shared read-write NBS disk templates) 
+
+
+### ObjectStorage {#ObjectStorage7}
+
+Field | Description
+--- | ---
+bucket_id | **string**<br>Required. ObjectStorage bucket name for mounting. The string length in characters must be 3-63. Value must match the regular expression ` [-.0-9a-zA-Z]* `.
+prefix | **string**<br>ObjectStorage bucket prefix for mounting. 
+
+
+### DiskSpec {#DiskSpec7}
+
+Field | Description
+--- | ---
+size | **int64**<br>The size of disk for mount in bytes Value must be greater than 0.
+block_size | **int64**<br>Optional block size of disk for mount in bytes 
 
 
 ## ListTagHistory {#ListTagHistory}
@@ -1446,13 +1658,14 @@ storage_mounts[] | **[StorageMount](#StorageMount8)**<br>S3 mounts to be used by
 async_invocation_config | **[AsyncInvocationConfig](#AsyncInvocationConfig8)**<br>Config for asynchronous invocations of the version 
 tmpfs_size | **int64**<br>Optional size of in-memory mounted /tmp directory in bytes. Available for versions with resources.memory greater or equal to 1024 MiB. <br>0 or in range from 512 MiB to 3/4 of resources.memory. 
 concurrency | **int64**<br>The maximum number of requests processed by a function instance at the same time Acceptable values are 0 to 16, inclusive.
+mounts[] | **[Mount](#Mount8)**<br>Mounts to be used by the version. 
 
 
 ### Resources {#Resources8}
 
 Field | Description
 --- | ---
-memory | **int64**<br>Amount of memory available to the version, specified in bytes, multiple of 128MB. Acceptable values are 134217728 to 4294967296, inclusive.
+memory | **int64**<br>Amount of memory available to the version, specified in bytes, multiple of 128MB. Acceptable values are 134217728 to 8589934592, inclusive.
 
 
 ### Package {#Package}
@@ -1535,6 +1748,33 @@ queue_arn | **string**<br>Required. Queue ARN
 service_account_id | **string**<br>Required. Service account which has write permission on the queue. The maximum string length in characters is 50.
 
 
+### Mount {#Mount8}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Unique mount point name. Device will be mounted into /function/storage/<name> The string length in characters must be 1-100. Value must match the regular expression ` [-_0-9a-zA-Z]* `.
+mode | enum **Mode**<br>Mount's mode 
+target | **oneof:** `object_storage` or `ephemeral_disk_spec`<br>Target mount option
+&nbsp;&nbsp;object_storage | **[ObjectStorage](#ObjectStorage8)**<br>Object storage mounts 
+&nbsp;&nbsp;ephemeral_disk_spec | **[DiskSpec](#DiskSpec8)**<br>Working disk (worker-local non-shared read-write NBS disk templates) 
+
+
+### ObjectStorage {#ObjectStorage8}
+
+Field | Description
+--- | ---
+bucket_id | **string**<br>Required. ObjectStorage bucket name for mounting. The string length in characters must be 3-63. Value must match the regular expression ` [-.0-9a-zA-Z]* `.
+prefix | **string**<br>ObjectStorage bucket prefix for mounting. 
+
+
+### DiskSpec {#DiskSpec8}
+
+Field | Description
+--- | ---
+size | **int64**<br>The size of disk for mount in bytes Value must be greater than 0.
+block_size | **int64**<br>Optional block size of disk for mount in bytes 
+
+
 ### Operation {#Operation6}
 
 Field | Description
@@ -1572,9 +1812,8 @@ resources | **[Resources](#Resources9)**<br>Resources allocated to the version.
 execution_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for the execution of the version. <br>If the timeout is exceeded, Cloud Functions responds with a 504 HTTP code. 
 service_account_id | **string**<br>ID of the service account associated with the version. 
 image_size | **int64**<br>Final size of the deployment package after unpacking. 
-status | enum **Status**<br>Status of the version. <ul><li>`CREATING`: Version is being created.</li><li>`ACTIVE`: Version is ready to use.</li></ul>
+status | enum **Status**<br>Status of the version. <ul><li>`CREATING`: Version is being created.</li><li>`ACTIVE`: Version is ready to use.</li><li>`OBSOLETE`: Version will be deleted soon.</li><li>`DELETING`: Version is being deleted.</li></ul>
 tags[] | **string**<br>Version tags. For details, see [Version tag](/docs/functions/concepts/function#tag). 
-log_group_id | **string**<br>ID of the log group for the version. 
 environment | **map<string,string>**<br>Environment settings for the version. 
 connectivity | **[Connectivity](#Connectivity9)**<br>Network access. If specified the version will be attached to specified network/subnet(s). 
 named_service_accounts | **map<string,string>**<br>Additional service accounts to be used by the version. 
@@ -1584,6 +1823,7 @@ storage_mounts[] | **[StorageMount](#StorageMount9)**<br>S3 mounts to be used by
 async_invocation_config | **[AsyncInvocationConfig](#AsyncInvocationConfig9)**<br>Config for asynchronous invocations of the version 
 tmpfs_size | **int64**<br>Optional size of in-memory mounted /tmp directory in bytes. 
 concurrency | **int64**<br>The maximum number of requests processed by a function instance at the same time Acceptable values are 0 to 16, inclusive.
+mounts[] | **[Mount](#Mount9)**<br>Mounts to be used by the version. 
 
 
 ## CreateFunctionVersion {#CreateFunctionVersion}
@@ -1621,13 +1861,14 @@ storage_mounts[] | **[StorageMount](#StorageMount9)**<br>S3 mounts to be used by
 async_invocation_config | **[AsyncInvocationConfig](#AsyncInvocationConfig9)**<br>Config for asynchronous invocations of the version 
 tmpfs_size | **int64**<br>Optional size of in-memory mounted /tmp directory in bytes. Available for versions with resources.memory greater or equal to 1024 MiB. <br>0 or in range from 512 MiB to 3/4 of resources.memory. 
 concurrency | **int64**<br>The maximum number of requests processed by a function instance at the same time Acceptable values are 0 to 16, inclusive.
+mounts[] | **[Mount](#Mount9)**<br>Mounts to be used by the version. 
 
 
 ### Resources {#Resources9}
 
 Field | Description
 --- | ---
-memory | **int64**<br>Amount of memory available to the version, specified in bytes, multiple of 128MB. Acceptable values are 134217728 to 4294967296, inclusive.
+memory | **int64**<br>Amount of memory available to the version, specified in bytes, multiple of 128MB. Acceptable values are 134217728 to 8589934592, inclusive.
 
 
 ### Package {#Package1}
@@ -1710,6 +1951,33 @@ queue_arn | **string**<br>Required. Queue ARN
 service_account_id | **string**<br>Required. Service account which has write permission on the queue. The maximum string length in characters is 50.
 
 
+### Mount {#Mount9}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Unique mount point name. Device will be mounted into /function/storage/<name> The string length in characters must be 1-100. Value must match the regular expression ` [-_0-9a-zA-Z]* `.
+mode | enum **Mode**<br>Mount's mode 
+target | **oneof:** `object_storage` or `ephemeral_disk_spec`<br>Target mount option
+&nbsp;&nbsp;object_storage | **[ObjectStorage](#ObjectStorage9)**<br>Object storage mounts 
+&nbsp;&nbsp;ephemeral_disk_spec | **[DiskSpec](#DiskSpec9)**<br>Working disk (worker-local non-shared read-write NBS disk templates) 
+
+
+### ObjectStorage {#ObjectStorage9}
+
+Field | Description
+--- | ---
+bucket_id | **string**<br>Required. ObjectStorage bucket name for mounting. The string length in characters must be 3-63. Value must match the regular expression ` [-.0-9a-zA-Z]* `.
+prefix | **string**<br>ObjectStorage bucket prefix for mounting. 
+
+
+### DiskSpec {#DiskSpec9}
+
+Field | Description
+--- | ---
+size | **int64**<br>The size of disk for mount in bytes Value must be greater than 0.
+block_size | **int64**<br>Optional block size of disk for mount in bytes 
+
+
 ### Operation {#Operation7}
 
 Field | Description
@@ -1747,9 +2015,8 @@ resources | **[Resources](#Resources10)**<br>Resources allocated to the version.
 execution_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for the execution of the version. <br>If the timeout is exceeded, Cloud Functions responds with a 504 HTTP code. 
 service_account_id | **string**<br>ID of the service account associated with the version. 
 image_size | **int64**<br>Final size of the deployment package after unpacking. 
-status | enum **Status**<br>Status of the version. <ul><li>`CREATING`: Version is being created.</li><li>`ACTIVE`: Version is ready to use.</li></ul>
+status | enum **Status**<br>Status of the version. <ul><li>`CREATING`: Version is being created.</li><li>`ACTIVE`: Version is ready to use.</li><li>`OBSOLETE`: Version will be deleted soon.</li><li>`DELETING`: Version is being deleted.</li></ul>
 tags[] | **string**<br>Version tags. For details, see [Version tag](/docs/functions/concepts/function#tag). 
-log_group_id | **string**<br>ID of the log group for the version. 
 environment | **map<string,string>**<br>Environment settings for the version. 
 connectivity | **[Connectivity](#Connectivity10)**<br>Network access. If specified the version will be attached to specified network/subnet(s). 
 named_service_accounts | **map<string,string>**<br>Additional service accounts to be used by the version. 
@@ -1759,6 +2026,7 @@ storage_mounts[] | **[StorageMount](#StorageMount10)**<br>S3 mounts to be used b
 async_invocation_config | **[AsyncInvocationConfig](#AsyncInvocationConfig10)**<br>Config for asynchronous invocations of the version 
 tmpfs_size | **int64**<br>Optional size of in-memory mounted /tmp directory in bytes. 
 concurrency | **int64**<br>The maximum number of requests processed by a function instance at the same time Acceptable values are 0 to 16, inclusive.
+mounts[] | **[Mount](#Mount10)**<br>Mounts to be used by the version. 
 
 
 ## ListRuntimes {#ListRuntimes}

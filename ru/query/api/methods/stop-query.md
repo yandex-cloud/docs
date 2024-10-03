@@ -17,10 +17,11 @@
 Запрос:
 
 ```json
-curl -X 'POST' \
+curl \
+  --request 'POST' \
   'https://api.yandex-query.cloud.yandex.net/api/fq/v1/queries/cseugn35bc3r********/stop?project=b1gaue5b382m********' \
-  -H 'accept: */*' \
-  -d ''
+  --header 'accept: */*' \
+  --data ''
 ```
 
 Ответ: HTTP 204.

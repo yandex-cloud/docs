@@ -1,6 +1,8 @@
 # Создание продукта для {{ managed-k8s-name }}
 
-Чтобы добавить программный продукт для {{ managed-k8s-name }} в {{ marketplace-short-name }}, его пакеты необходимо загрузить в [реестр](../../container-registry/concepts/registry.md) {{ yandex-cloud }}. Этот раздел поможет подготовить продукт {{ marketplace-short-name }} для {{ managed-k8s-full-name }}. 
+Чтобы добавить программный продукт для {{ managed-k8s-name }} в {{ marketplace-short-name }}, его пакеты необходимо загрузить в [реестр](../../container-registry/concepts/registry.md) {{ yandex-cloud }}. Этот раздел поможет подготовить продукт {{ marketplace-short-name }} для {{ managed-k8s-full-name }}.
+
+Как настроить доступ к продукту по [подписке](../concepts/subscription.md), см. в разделе [Интеграция с {{ license-manager }} API](license-manager-integration.md#managed-k8s).
 
 Вы также можете создать продукты для {{ compute-full-name }} на базе ОС [Linux](create-image.md), воспользовавшись соответствующими рекомендациями.
 
@@ -12,7 +14,7 @@
 
    ```
    {{ registry }}/<registry-id>/<vendor-name>/<product-name>/<chart>
-   ``` 
+   ```
 
    Где:
 
@@ -25,8 +27,8 @@
 
    ```
    {{ registry }}/<registry-id>/<vendor-name>/<product-name>/<component-name>:<tag>
-   ``` 
-   
+   ```
+
    Где:
 
    * `<registry-id>` — идентификатор реестра издателя;
@@ -38,7 +40,7 @@
 Во время публикации все образы, входящие в продукт, из реестра издателя перемещаются в публично доступный реестр `yc-marketplace`. При этом вся иерархия продукта, определенная издателем, сохраняется.
 
 > Например, образ `{{ registry }}/{{ tf-cloud-id }}/yandex-cloud/prometheus/pushgateway:1.0` будет опубликован под именем `{{ registry }}/yc-marketplace/yandex-cloud/prometheus/pushgateway:1.0`.
- 
+
 Подробнее о работе с реестром см. в разделах [{#T}](../../container-registry/operations/helm-chart/helm-chart-push.md) и [{#T}](../../container-registry/operations/docker-image/docker-image-push.md).
 
 ## Особенности сборки helm chart {#special-requirements}
@@ -91,7 +93,7 @@ images:
    ```
 
 1. `images` — обязательное поле. Содержит список метаданных образов, входящих в продукт. Значения переменных параметров метаданных образа — это ссылки в формате YAML Path на переменные из файла `values.yaml`. Записи могут быть оформлены в одном из форматов:
-  
+
    * Имя образа, адрес реестра и тег описаны отдельными полями:
 
       ```yaml
@@ -111,14 +113,14 @@ images:
             tag: "<tag>"
       ```
 
-   * Имя образа и адрес реестра описаны в одном поле, тег — в другом: 
-   
+   * Имя образа и адрес реестра описаны в одном поле, тег — в другом:
+
       ```yaml
       images:
         - name_with_registry: images.app.config.image.name
           tag: images.app.config.image.tag
       ```
-   
+
       ```yaml
       # values.yaml
       images:
@@ -135,7 +137,7 @@ images:
       images:
         - full: images.app.image.name
       ```
-   
+
       ```yaml
       # values.yaml
       images:
@@ -147,7 +149,7 @@ images:
 1. `user_values` — необязательный параметр. Список переменных продукта, которые пользователь может переопределить во время установки или редактирования уже установленного продукта через консоль управления {{ yandex-cloud }}. Каждая переменная описывается обязательными полями:
    * `name` — YAML Path переменной из файла `values.yaml`;
    * `title` — краткое название переменной, может быть на русском и английском языке. Значение должно начинаться с заглавной буквы.
-   
+
      ```yaml
      user_values:
      - name: app.port
@@ -285,7 +287,7 @@ images:
         ```
 
       * `clusterid` — идентификатор [кластера {{ k8s }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster).
-  
+
         ```yaml
         user_values:
           - name: <название>
@@ -303,7 +305,7 @@ images:
             network_id_value:
               required: true
         ```
-      
+
       * `subnetid` — идентификатор [подсети](../../vpc/concepts/network.md#subnet) {{ vpc-name }}.
 
         ```yaml
@@ -334,8 +336,8 @@ images:
               required: true
         ```
 
-      * `service_account_aws_key_value` — [статический ключ](../../iam/concepts/authorization/access-key.md) сервисного аккаунта для доступа к {{ objstorage-name }}. Передается в формате JSON. 
-      
+      * `service_account_aws_key_value` — [статический ключ](../../iam/concepts/authorization/access-key.md) сервисного аккаунта для доступа к {{ objstorage-name }}. Передается в формате JSON.
+
         ```yaml
         user_values:
           - name: <название>
@@ -374,7 +376,7 @@ images:
         ```
 
         Пример использования значений в шаблоне объекта `Secret`:
-         
+
         ```
         apiVersion: v1
         kind: Secret
@@ -389,7 +391,7 @@ images:
         ```
 
       * `ciliumvaluedisabled` — использование провайдера сетевых политик Cilium. Если параметр был передан, соответствующее поле продукта в консоли управления будет недоступно для редактирования и автоматически предзаполнится.
-      
+
         ```yaml
         user_values:
           - name: <название>
@@ -398,7 +400,7 @@ images:
         ```
 
       * `ciliumvalue` — использование провайдера сетевых политик Cilium.
-      
+
         ```yaml
         user_values:
           - name: <название>
@@ -407,7 +409,7 @@ images:
         ```
 
       * `kubednsclusteripvaluedisabled` — IP-адрес кластера {{ k8s }}. Если параметр был передан, соответствующее поле продукта в консоли управления будет недоступно для редактирования и автоматически предзаполнится.
-      
+
         ```yaml
         user_values:
           - name: <название>
@@ -417,7 +419,7 @@ images:
         ```
 
       * `kubednsclusteripvalue` — IP-адрес кластера {{ k8s }}.
-      
+
         ```yaml
         user_values:
           - name: <название>
@@ -427,7 +429,7 @@ images:
         ```
 
       * `loggroupidvalue` — идентификатор [лог-группы](../../logging/concepts/log-group.md) {{ cloud-logging-full-name }}.
-      
+
         ```yaml
         user_values:
           - name: <название>
@@ -437,7 +439,7 @@ images:
         ```
 
       * `kmskeyidvalue` — содержимое [ключа {{ kms-full-name }}](../../kms/concepts/key.md).
-      
+
         ```yaml
         user_values:
           - name: <название>
@@ -447,7 +449,7 @@ images:
         ```
 
       * `domainvalue` — домен, в котором будет расположен кластер {{ k8s }}.
-      
+
         ```yaml
         user_values:
           - name: <название>
@@ -457,7 +459,7 @@ images:
         ```
 
       * `iamapikeyvalue` — значение [API-ключа](../../iam/concepts/authorization/api-key.md) сервисного аккаунта. Передается в формате JSON.
-      
+
         ```yaml
         user_values:
           - name: <название>
@@ -467,7 +469,7 @@ images:
         ```
 
       * `storagebucketvalue` — [бакет](../../storage/concepts/bucket.md) {{ objstorage-name }}.
-      
+
         ```yaml
         user_values:
           - name: <название>
@@ -477,7 +479,7 @@ images:
         ```
 
       * `prometheusworkspaceidvalue` — название рабочего пространства {{ prometheus-name }}.
-      
+
         ```yaml
         user_values:
           - name: <название>
@@ -487,7 +489,7 @@ images:
         ```
 
       * `licenseidvalue` — идентификатор [подписки](license-manager-integration.md) из {{ license-manager }} API.
-      
+
         ```yaml
         user_values:
           - name: <название>

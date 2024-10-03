@@ -6,6 +6,10 @@ editable: false
 
 
 
+{% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
+
+{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
+
 ## Тарифные планы {{ datalens-name }} {#effective-rules}
 
 В сервисе {{ datalens-full-name }} действуют тарифные планы, которые различаются набором предоставляемых услуг:
@@ -19,14 +23,16 @@ editable: false
 
 **Тарифный план**  | **Community** | **Business**
 ------------------ |---------------|---------------
-Интерактивные дашборды | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg)   
-Конструктор чартов | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg)   
-Модель данных и вычисления | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg)   
-Ролевая модель прав доступа | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg)   
-Аутентификация | Яндекс ID | Яндекс ID, корпоративные учетные записи / SSO¹
+Создание [чартов](./concepts/chart/index.md) и [дашбордов](./concepts/dashboard.md) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg)   
+[Описание модели данных](./dataset/data-model.md) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg)   
+[Аналитические вычисления и SQL](./concepts/calculations/index.md) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg)   
+[Ролевая модель прав доступа](./security/roles.md) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg)   
+[Аутентификация](./security/add-new-user.md) | Яндекс ID | Яндекс ID, корпоративные учетные записи / SSO¹
+[Конструктор отчетов](./reports/index.md) | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg)   
 [Стилизация интерфейса {{ datalens-name }}](./settings/ui-customization.md) | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg) 
-[Статистика использования сервиса {{ datalens-name }}](./operations/connection/create-usage-tracking.md) | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg) 
-[Безопасное встраивание непубличных объектов](./security/private-embedded-objects.md) | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg) 
+[Безопасное встраивание чартов и дашбордов](./security/private-embedded-objects.md) | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg) 
+[Контроль публикаций](./concepts/datalens-public.md#publication-disable) | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg)   
+Статистика использования сервиса {{ datalens-name }} | Общая ([Light](./operations/connection/create-usage-tracking.md#light-dash)) | Расширенная ([Detailed](./operations/connection/create-usage-tracking.md#detailed-dash)) 
 [SLA](https://yandex.ru/legal/cloud_sla_datalens) | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg)  
 Техническая поддержка | [Базовый тариф](../support/pricing.md#base) (если у пользователя не подключен [Бизнес](../support/pricing.md#business) или [Премиум](../support/pricing.md#premium)) | [Тариф Бизнес](../support/pricing.md#business) (распространяется только на {{ datalens-name }}) и повышенный приоритет в рассмотрении обращений относительно тарифа Community
 
@@ -48,8 +54,8 @@ editable: false
 
 Пользователь считается активным и учитывается при тарификации, если его действия привели к запросу данных из источника: например, он открыл или редактировал дашборд, чарт или датасет. Публичные ссылки на дашборды и чарты работают без аутентификации и при подсчете активных пользователей не учитываются. Узнать количество пользователей можно в [статистике использования {{ datalens-name }}](./operations/connection/create-usage-tracking.md).
 
-
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
+
 
 {% list tabs group=pricing %}
 

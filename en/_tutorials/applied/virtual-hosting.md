@@ -160,7 +160,7 @@ To create an instance group for `site-a.com`:
       * Choose a VM [platform](../../compute/concepts/vm-platforms.md).
       * Specify the required number of vCPUs and the amount of RAM.
 
-      The minimum configuration is enough for functional website testing:
+      This minimum configuration is enough for functional website testing:
       * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`
       * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `20%`
       * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`
@@ -355,7 +355,7 @@ To configure the DNS for `site-a.com`:
 1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
 1. Copy the IP address of the load balancer that you created.
 1. On the site of your DNS hosting provider, go to the DNS settings.
-1. Create or edit the A record for `site-a.com` so that it refers to the copied IP address:
+1. Create or edit the A record for `site-a.com` so that it points to the copied IP address:
 
    ```text
    site-a.com. A <L7_load_balancer_IP_address>

@@ -39,7 +39,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
                To track changes in multiple tables, create a separate topic with the `cdc` prefix for each of them.
 
-            1. [Create a user](../../managed-kafka/operations/cluster-accounts.md#create-user) with the `ACCESS_ROLE_CONSUMER` and `ACCESS_ROLE_PRODUCER` roles for the `cdc.sensors` topic. To include all created topics, specify `cdc.*` in the topic name.
+            1. [Create a user](../../managed-kafka/operations/cluster-accounts.md#create-account) with the `ACCESS_ROLE_CONSUMER` and `ACCESS_ROLE_PRODUCER` roles for the `cdc.sensors` topic. To include all created topics, specify `cdc.*` in the topic name.
 
          * If topics are managed using the Kafka Admin API:
 
@@ -47,8 +47,6 @@ If you no longer need the resources you created, [delete them](#clear-out).
             1. In addition to `ACCESS_ROLE_ADMIN`, assign the admin user the `ACCESS_ROLE_CONSUMER` and `ACCESS_ROLE_PRODUCER` roles for `cdc.*` topics whose names begin with the `cdc` prefix.
 
                Required topics will be created automatically at the first change in the tracked tables of the source cluster. This solution can be useful to track changes in multiple tables but requires extra free space in cluster storage. For more information, see [{#T}](../../managed-kafka/concepts/storage.md).
-
-         {% endlist %}
 
    - {{ TF }} {#tf}
 

@@ -1,9 +1,11 @@
-1. Storage utilization percentage to trigger a storage increase in the next [maintenance window](../../../managed-postgresql/concepts/maintenance.md#maintenance-window), in the `configSpec.diskSizeAutoscaling.plannedUsageThreshold` parameter.
+* Storage utilization percentage to trigger a storage increase in the next maintenance window, in the `configSpec.diskSizeAutoscaling.plannedUsageThreshold` parameter.
 
-   Use a value between `0` and `100`%. The default value is `0` (automatic expansion is disabled).
+    Use a value between `0` and `100`%. The default value is `0` (automatic increase is disabled).
 
-1. Storage utilization percentage to trigger an immediate storage increase, in the `configSpec.diskSizeAutoscaling.emergencyUsageThreshold` parameter.
+    If you set this parameter, configure the maintenance window schedule.
 
-   Use a value between `0` and `100`%. The default value is `0` (automatic expansion is disabled). If the value is greater than `0`, it cannot be less than the value provided in the `configSpec.diskSizeAutoscaling.plannedUsageThreshold` parameter.
+* Storage utilization percentage to trigger an immediate storage increase, in the `configSpec.diskSizeAutoscaling.emergencyUsageThreshold` parameter.
 
-1. Maximum storage size, in bytes, that can be set upon reaching one of the specified utilization percentages, in the `configSpec.diskSizeAutoscaling.diskSizeLimit` parameter.
+    Use a value between `0` and `100`%. The default value is `0` (automatic increase is disabled). This parameter value must be greater than or equal to `configSpec.diskSizeAutoscaling.plannedUsageThreshold`.
+
+* Maximum storage size, in bytes, that can be set when utilization reaches one of the specified percentages, in the `configSpec.diskSizeAutoscaling.diskSizeLimit` parameter.

@@ -1,13 +1,12 @@
 # Health checking your applications in a {{ managed-k8s-full-name }} cluster with the {{ alb-full-name }} Ingress controller
 
-
 You can use the [{{ alb-name }} Ingress controller](../../application-load-balancer/tools/k8s-ingress-controller/index.md) to automatically health check your applications deployed in a {{ managed-k8s-name }} cluster.
 
 The Ingress controller installed in the cluster deploys an [L7 load balancer](../../application-load-balancer/concepts/application-load-balancer.md) with all the required {{ alb-name }} resources based on the configuration of the [Ingress](../../managed-kubernetes/alb-ref/ingress.md) and [HttpBackendGroup](../../managed-kubernetes/alb-ref/http-backend-group.md) resources you created.
 
 The L7 load balancer automatically health checks the application in this cluster. Depending on the results, the L7 load balancer allows or denies external traffic to the backend ([Service](../../managed-kubernetes/alb-ref/service-for-ingress.md) resource). For more information, see [Health checks](../../application-load-balancer/concepts/backend-group.md#health-checks).
 
-By default, the {{ alb-name }} Ingress controller accepts health check requests from the L7 load balancer on TCP port `10501` and checks if the [kube-proxy](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/) pods work properly on each cluster node. If kube-proxy is healthy, then, even if an application in a particular pod does not respond, {{ k8s }} will redirect traffic to a different pod with that application or to a different node.
+By default, the {{ alb-name }} Ingress controller receives application health check requests from the L7 load balancer on TCP port `10501` and checks if the [kube-proxy](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/) pods work properly on each cluster node. If kube-proxy is healthy, then, even if an application in a particular pod does not respond, {{ k8s }} will redirect traffic to a different pod with that application or to a different node.
 
 In this tutorial, you will configure your own application health checks using the [HttpBackendGroup](../../managed-kubernetes/alb-ref/http-backend-group.md) resource parameters and open a dedicated port on cluster nodes for these checks in the `NodePort` type [Service](../../managed-kubernetes/alb-ref/service-for-ingress.md) resource parameters.
 
@@ -56,12 +55,12 @@ If you no longer need the resources you created, [delete them](#clear-out).
       * [Network](../../vpc/concepts/network.md#network).
       * [Subnet](../../vpc/concepts/network.md#subnet).
       * [Security groups](../../vpc/concepts/security-groups.md) required for the {{ managed-k8s-name }} cluster, node group, and the {{ alb-name }} load balancer.
-      * Service account required for the {{ k8s }} cluster to operate.
+      * Service account required for the {{ k8s }} cluster.
       * {{ k8s }} cluster.
       * {{ k8s }} node group.
-      * {{ container-registry-full-name }} registry.
+      * Registry in {{ container-registry-full-name }}.
 
-   1. In `k8s-custom-health-checks.tf`, specify:
+   1. Specify the following in the `k8s-custom-health-checks.tf` file:
 
       * `folder_id`: Cloud folder ID, same as in the provider settings.
       * `k8s_version`: {{ k8s }} version. Available versions are listed in [{#T}](../../managed-kubernetes/concepts/release-channels-and-updates.md).
@@ -123,7 +122,7 @@ To create a Docker image:
 1. In the environment variable, add the name of the Docker image to create:
 
    ```bash
-   export TEST_IMG=cr.yandex/<registry_ID>/example-app1:latest
+   export TEST_IMG={{ registry }}/<registry_ID>/example-app1:latest
    ```
 
 1. Build the Docker image:
@@ -152,12 +151,12 @@ Build a test application from the created Docker image and the [app/testapp.yaml
 The file contains the description of {{ k8s }} resources: `Deployment` and `Service` of the `NodePort` type.
 
 The `Service` resource contains the description of ports used to access the application on your cluster's nodes:
-* `spec.ports.name: http`: Port to access the main functionality of the application, `80` for pod and `30080` for node.
-* `spec.ports.name: health`: Port for application health checks, `8080` for pod and `30081` for node.
+* `spec.ports.name: http`: Port to access the main functionality of the application, `80` on the pod and `30080` on the host.
+* `spec.ports.name: health`: Port for application health checks, `8080` on the pod and `30081` on the host.
 
 To build a test application:
 
-1. Specify the value of the `TEST_IMG` environment variable under `spec.template.spec.containers.image` in the `app/testapp.yaml` file. To get this value, run:
+1. Specify the value of the `TEST_IMG` environment variable in the `spec.template.spec.containers.image` field in the `app/testapp.yaml` file. To get this value, run:
 
    ```bash
    printenv TEST_IMG
@@ -191,37 +190,37 @@ To build a test application:
 
    * Main functionality:
 
-      ```bash
-      curl -i http://<node_IP_address>:30080/test-path
-      ```
+     ```bash
+     curl -i http://<node_IP_address>:30080/test-path
+     ```
 
-      Result:
+     Result:
 
-      ```bash
-      HTTP/1.1 200 OK
-      Date: Thu, 18 Jul 2024 11:55:52 GMT
-      Content-Length: 10
-      Content-Type: text/plain; charset=utf-8
+     ```bash
+     HTTP/1.1 200 OK
+     Date: Thu, 18 Jul 2024 11:55:52 GMT
+     Content-Length: 10
+     Content-Type: text/plain; charset=utf-8
 
-      /test-path%
-      ```
+     /test-path%
+     ```
 
    * Application health check:
 
-      ```bash
-      curl -i http://<node_IP_address>:30081
-      ```
+     ```bash
+     curl -i http://<node_IP_address>:30081
+     ```
 
-      Result:
+     Result:
 
-      ```bash
-      HTTP/1.1 200 OK
-      Date: Thu, 18 Jul 2024 12:00:57 GMT
-      Content-Length: 2
-      Content-Type: text/plain; charset=utf-8
+     ```bash
+     HTTP/1.1 200 OK
+     Date: Thu, 18 Jul 2024 12:00:57 GMT
+     Content-Length: 2
+     Content-Type: text/plain; charset=utf-8
 
-      OK%
-      ```
+     OK%
+     ```
 
 ## Prepare an address for the L7 load balancer {#prepare-address}
 
@@ -302,7 +301,7 @@ To create resources:
 
    * `ingress.alb.yc.io/subnets`: List of IDs for the subnets hosting the {{ managed-k8s-name }} cluster.
    * `ingress.alb.yc.io/security-groups`: List of security group IDs for {{ alb-name }}.
-   * `ingress.alb.yc.io/external-ipv4-address`: Static public IP address you reserved previously.
+   * `ingress.alb.yc.io/external-ipv4-address`: Reserved static public IP address.
 
 1. In the same `ingress.yaml` file, specify the delegated domain in the `spec.rules.host` parameter.
 1. To create the `Ingress` and `HttpBackendGroup` resources, run the following command from the root of the repository directory:
@@ -334,8 +333,8 @@ To create resources:
    Result:
 
    ```bash
-   NAME       CLASS    HOSTS     ADDRESS      PORTS   AGE
-   alb-demo   <none>   <domain>  <IP_address> 80      15h
+   NAME       CLASS    HOSTS      ADDRESS        PORTS   AGE
+   alb-demo   <none>   <domain>   <IP_address>   80      15h
    ```
 
 1. Check that the deployed application is available via the L7 load balancer:
@@ -358,7 +357,7 @@ To create resources:
 
    {% include [check-sg-if-url-unavailable-lvl3](../../_includes/managed-kubernetes/security-groups/check-sg-if-url-unavailable-lvl3.md) %}
 
-1. Make sure the application health checks are working correctly:
+1. Make sure the app health checks are working correctly:
 
    {% list tabs group=instructions %}
 
@@ -380,7 +379,7 @@ Some resources are not free of charge. Delete the resources you no longer need t
 1. {{ alb-name }} [target group](../../application-load-balancer/operations/target-group-delete.md)
 1. {{ managed-k8s-name }} [node group](../../managed-kubernetes/operations/node-group/node-group-delete.md)
 1. {{ managed-k8s-name }} [cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md)
-1. {{ container-registry-name }} [registry](../../container-registry/operations/registry/registry-delete.md)
+1. [Registry](../../container-registry/operations/registry/registry-delete.md) in {{ container-registry-name }}
 1. {{ dns-name }} [public domain zone](../../dns/operations/zone-delete.md)
 1. {{ vpc-name }} [security groups](../../vpc/operations/security-group-delete.md)
 1. {{ vpc-name }} [static public IP address](../../vpc/operations/address-delete.md)

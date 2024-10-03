@@ -1,5 +1,9 @@
 # Создание алерта
 
+
+@[youtube](https://youtu.be/UJ0MxX4BqeM)
+
+
 1. На главной странице сервиса {{ monitoring-short-name }} нажмите **{{ ui-key.yacloud_monitoring.homepage.button_alerts-action }}**.
 1. Укажите основные параметры алерта:
 

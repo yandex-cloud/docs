@@ -1,14 +1,17 @@
 # Linking a cloud to a subaccount
 
-If the customer has previously used {{ yandex-cloud }} resources and has an existing [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), you can link this cloud to the partner subaccount. You should do this only after confirming the partnership; otherwise, the operation of your resources in the cloud may be suspended. Make sure the customer has [confirmed](../program/var-pin-client.md#confirm-partnership) willingness to cooperate and has the `Active` status on the partner portal.
+If the customer has previously used {{ yandex-cloud }} resources and has an existing [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), you can link this cloud to the partner subaccount. You should do this only after confirming the partnership; otherwise, the operation of your resources in the cloud may be suspended. Make sure the customer has [confirmed](../program/var-pin-client.md#confirm-partnership) they are willing to work with you and has the `Active` status on the partner portal.
 
 {% note alert %}
 
-A cloud not linked to the customer subaccount will not relate to the partner. The customer will pay for it separately to {{ yandex-cloud }}.
+A cloud not linked to the customer subaccount will not refer to the partner. The customer will pay for it separately to {{ yandex-cloud }}.
 
 {% endnote %}
 
-You can link a customer's cloud to a partner subaccount on the partner portal or using the management console.
+You can link a customer's cloud to a partner subaccount on the partner portal or using the management console. To create a link, you will need the following roles:
+
+* For the [billing account](../../billing/security/index.md#roles-list): `billing.accounts.owner`, `admin`, or `editor`.
+* For a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud): `resource-manager.clouds.owner`.
 
 {% list tabs group=instructions %}
 

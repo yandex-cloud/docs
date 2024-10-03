@@ -68,7 +68,7 @@ You can provide access to a source on an external network using one of the follo
 
 * By configuring a source to make it available from the internet.
 * Using [{{ interconnect-full-name }}](../../interconnect/index.yaml).
-* Using an intermediate VM configured to [route traffic to {{ vpc-name }}](../../vpc/concepts/static-routes.md).
+* Using an intermediate VM configured to [route traffic to {{ vpc-name }}](../../vpc/concepts/routing.md).
 
 If you need to migrate data between {{ yandex-cloud }} and a third-party cloud, allow incoming connections to the third-party cloud database from the internet from [IP addresses used by {{ data-transfer-name }}](https://stat.ripe.net/widget/announced-prefixes#w.resource%3DAS200350%26w.min_peers_seeing%3D0).
 

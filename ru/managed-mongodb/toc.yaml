@@ -104,15 +104,13 @@ items:
             href: concepts/using-deprecated-instances.md
       - name: Сеть в Managed Service for MongoDB
         href: concepts/network.md
-      - name: Редакции MongoDB
-        href: concepts/editions.md
       - name: Квоты и лимиты
         href: concepts/limits.md
       - name: Хранилище в Managed Service for MongoDB
         href: concepts/storage.md
       - name: Резервные копии
         href: concepts/backup.md
-      - name: Репликация
+      - name: Репликация и отказоустойчивость
         href: concepts/replication.md
       - name: Шардирование
         href: concepts/sharding.md

@@ -47,7 +47,6 @@ filter | <p>A filter expression that filters resources listed in the response.</
       "tags": [
         "string"
       ],
-      "logGroupId": "string",
       "environment": "object",
       "connectivity": {
         "networkId": "string",
@@ -109,7 +108,25 @@ filter | <p>A filter expression that filters resources listed in the response.</
         "serviceAccountId": "string"
       },
       "tmpfsSize": "string",
-      "concurrency": "string"
+      "concurrency": "string",
+      "mounts": [
+        {
+          "name": "string",
+          "mode": "string",
+
+          // `versions[].mounts[]` includes only one of the fields `objectStorage`, `ephemeralDiskSpec`
+          "objectStorage": {
+            "bucketId": "string",
+            "prefix": "string"
+          },
+          "ephemeralDiskSpec": {
+            "size": "string",
+            "blockSize": "string"
+          },
+          // end of the list of possible fields`versions[].mounts[]`
+
+        }
+      ]
     }
   ],
   "nextPageToken": "string"
@@ -127,13 +144,12 @@ versions[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp for t
 versions[].<br>runtime | **string**<br><p>ID of the runtime environment for the function.</p> <p>Supported environments and their identifiers are listed in the <a href="/docs/functions/concepts/runtime">Runtime environments</a>.</p> 
 versions[].<br>entrypoint | **string**<br><p>Entrypoint for the function: the name of the function to be called as the handler.</p> <p>Specified in the format ``<function file name>.<handler name>``, for example, ``index.myFunction``.</p> 
 versions[].<br>resources | **object**<br><p>Resources allocated to the version.</p> <p>Resources allocated to a version.</p> 
-versions[].<br>resources.<br>memory | **string** (int64)<br><p>Amount of memory available to the version, specified in bytes, multiple of 128MB.</p> <p>Acceptable values are 134217728 to 4294967296, inclusive.</p> 
+versions[].<br>resources.<br>memory | **string** (int64)<br><p>Amount of memory available to the version, specified in bytes, multiple of 128MB.</p> <p>Acceptable values are 134217728 to 8589934592, inclusive.</p> 
 versions[].<br>executionTimeout | **string**<br><p>Timeout for the execution of the version.</p> <p>If the timeout is exceeded, Cloud Functions responds with a 504 HTTP code.</p> 
 versions[].<br>serviceAccountId | **string**<br><p>ID of the service account associated with the version.</p> 
 versions[].<br>imageSize | **string** (int64)<br><p>Final size of the deployment package after unpacking.</p> 
-versions[].<br>status | **string**<br><p>Status of the version.</p> <ul> <li>CREATING: Version is being created.</li> <li>ACTIVE: Version is ready to use.</li> </ul> 
+versions[].<br>status | **string**<br><p>Status of the version.</p> <ul> <li>CREATING: Version is being created.</li> <li>ACTIVE: Version is ready to use.</li> <li>OBSOLETE: Version will be deleted soon.</li> <li>DELETING: Version is being deleted.</li> </ul> 
 versions[].<br>tags[] | **string**<br><p>Version tags. For details, see <a href="/docs/functions/concepts/function#tag">Version tag</a>.</p> 
-versions[].<br>logGroupId | **string**<br><p>ID of the log group for the version.</p> 
 versions[].<br>environment | **object**<br><p>Environment settings for the version.</p> 
 versions[].<br>connectivity | **object**<br><p>Network access. If specified the version will be attached to specified network/subnet(s).</p> <p>Version connectivity specification.</p> 
 versions[].<br>connectivity.<br>networkId | **string**<br><p>Network the version will have access to. It's essential to specify network with subnets in all availability zones.</p> 
@@ -169,4 +185,13 @@ versions[].<br>asyncInvocationConfig.<br>failureTarget.<br>ymqTarget.<br>service
 versions[].<br>asyncInvocationConfig.<br>serviceAccountId | **string**<br><p>Service account which can invoke version</p> 
 versions[].<br>tmpfsSize | **string** (int64)<br><p>Optional size of in-memory mounted /tmp directory in bytes.</p> 
 versions[].<br>concurrency | **string** (int64)<br><p>The maximum number of requests processed by a function instance at the same time</p> <p>Acceptable values are 0 to 16, inclusive.</p> 
+versions[].<br>mounts[] | **object**<br><p>Mounts to be used by the version.</p> 
+versions[].<br>mounts[].<br>name | **string**<br><p>Required. Unique mount point name. Device will be mounted into /function/storage/<name></p> <p>The string length in characters must be 1-100. Value must match the regular expression ``[-_0-9a-zA-Z]*``.</p> 
+versions[].<br>mounts[].<br>mode | **string**<br>Mount's mode
+versions[].<br>mounts[].<br>objectStorage | **object**<br>Object storage mounts <br>`versions[].mounts[]` includes only one of the fields `objectStorage`, `ephemeralDiskSpec`<br>
+versions[].<br>mounts[].<br>objectStorage.<br>bucketId | **string**<br><p>Required. ObjectStorage bucket name for mounting.</p> <p>The string length in characters must be 3-63. Value must match the regular expression ``[-.0-9a-zA-Z]*``.</p> 
+versions[].<br>mounts[].<br>objectStorage.<br>prefix | **string**<br><p>ObjectStorage bucket prefix for mounting.</p> 
+versions[].<br>mounts[].<br>ephemeralDiskSpec | **object**<br>Working disk (worker-local non-shared read-write NBS disk templates) <br>`versions[].mounts[]` includes only one of the fields `objectStorage`, `ephemeralDiskSpec`<br>
+versions[].<br>mounts[].<br>ephemeralDiskSpec.<br>size | **string** (int64)<br><p>The size of disk for mount in bytes</p> <p>Value must be greater than 0.</p> 
+versions[].<br>mounts[].<br>ephemeralDiskSpec.<br>blockSize | **string** (int64)<br><p>Optional block size of disk for mount in bytes</p> 
 nextPageToken | **string**<br><p>Token for getting the next page of the list. If the number of results is greater than the specified <a href="/docs/functions/functions/api-ref/Function/listVersions#query_params">pageSize</a>, use ``nextPageToken`` as the value for the <a href="/docs/functions/functions/api-ref/Function/listVersions#query_params">pageToken</a> parameter in the next list request.</p> <p>Each subsequent page will have its own ``nextPageToken`` to continue paging through the results.</p> 

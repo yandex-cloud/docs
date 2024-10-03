@@ -71,6 +71,7 @@ To see what changed in the {{ yandex-cloud }} services and tools, see the links 
 * [{{ datalens-full-name }}](../datalens/release-notes/index.md)
 * [{{ forms-full-name }}](../forms/release-notes/index.md)
 * [{{ tracker-full-name }}](../tracker/release-notes/index.md)
+* [{{ video-full-name }}](../video/release-notes.md)
 * [{{ wiki-full-name }}](../wiki/release-notes/index.md)
 
 ## {{ yandex-cloud }} tools {#working-tools}

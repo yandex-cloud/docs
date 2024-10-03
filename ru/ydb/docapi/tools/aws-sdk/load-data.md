@@ -435,7 +435,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/load-data.md
 
       Результат:
 
-      ```bash
+      ```text
       Загрузка сериалов в YDB. Пожалуйста, подождите...
       Добавлен сериал: The Office
       Добавлен сериал: IT Crowd
@@ -513,7 +513,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/load-data.md
       
       run_me if $PROGRAM_NAME == __FILE__
       ```
-  
+
   1. {% include [seriesdata](../../../_includes/seriesdata.md) %}
 
   1. Запустите программу:

@@ -5,4 +5,6 @@ description: "Следуя данному руководству, вы смож�
 
 # Дообучение модели {{ yagpt-name }}
 
+@[youtube](https://www.youtube.com/embed/hGrH0Shovtk?si=5SZGXtHxtRTMpzdY)
+
 {% include [yagpt-tuning](../../_tutorials/ml-ai/yagpt-tuning.md) %}

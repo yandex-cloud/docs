@@ -2,7 +2,7 @@ title: Yandex DataSphere
 href: index.yaml
 label:
   title: RU
-  description: The service is only available in the Russia region.
+  description: This service is only available in the Russia region.
   theme: unknown
   when: region == "kz"
 items:
@@ -131,6 +131,8 @@ items:
             href: operations/deploy/alias-api.md
       - name: '{{ ds-jobs }}'
         items:
+          - name: Authentication in {{ ds-jobs }}
+            href: operations/projects/authentication.md
           - name: Running a job in {{ ml-platform-name }} Jobs
             href: operations/projects/work-with-jobs.md
           - name: Working with Visual Studio Code jobs
@@ -166,7 +168,15 @@ items:
           - name: Available commands
             href: concepts/magic.md
           - name: Computing on Apache Spark™ clusters
-            href: concepts/data-proc.md
+            items:
+              - name: Ways to use Apache Spark™ clusters
+                href: concepts/data-proc.md
+              - name: Computing on Apache Spark™ clusters
+                href: concepts/data-proc-operations.md
+              - name: >-
+                  Specifics of working with temporary {{ dataproc-name }}
+                  clusters
+                href: concepts/temporary-data-proc-clusters.md
       - name: '{{ ds-inf }}'
         items:
           - name: Nodes and aliases
@@ -177,8 +187,6 @@ items:
         items:
           - name: Jobs
             href: concepts/jobs/index.md
-          - name: Authentication
-            href: concepts/jobs/authentication.md
           - name: DataSphere CLI
             href: concepts/jobs/cli.md
           - name: Docker images in jobs
@@ -241,7 +249,7 @@ items:
             href: tutorials/s3-to-datasphere.md
           - name: Creating an MLFlow server for logging experiments and artifacts
             href: tutorials/mlflow-datasphere.md
-      - name: Use
+      - name: Usage
         items:
           - name: Deploying a service based on a Docker image
             href: tutorials/node-from-docker.md
@@ -249,7 +257,9 @@ items:
             href: tutorials/node-from-docker-fast-api.md
           - name: Deploying a service based on an ONNX model
             href: tutorials/node-from-model.md
-          - name: Tuning a {{ yagpt-name }} model
+          - name: Deploying a gRPC service based on a Docker image
+            href: tutorials/grpc-node.md
+          - name: '{{ yagpt-name }} model tuning'
             href: tutorials/yagpt-tuning.md
           - name: Tuning classifiers based on {{ yagpt-name }}
             href: tutorials/yagpt-tuning-classifier.md
@@ -405,6 +415,12 @@ items:
     href: public-talks.md
   - name: Release notes
     href: release-notes.md
-  - name: FAQ
-    href: qa/index.md
+  - name: Troubleshooting
+    items:
+      - name: Problems with library installation
+        href: qa/environment-problems.md
+      - name: Errors when using a Spark connector
+        href: troubleshooting/troubles-with-spark.md
+      - name: FAQ
+        href: qa/index.md
 base: en/datasphere

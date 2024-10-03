@@ -74,9 +74,6 @@ items:
             href: operations/projects/clear-outputs.md
           - name: Работа с Git
             href: operations/projects/work-with-git.md
-          - name: Запустить Docker-контейнер в отдельной ячейке
-            href: operations/user-images-cell.md
-            hidden: true
           - name: Настроить создание ноутбуков по шаблону
             href: operations/projects/templates.md
       - name: Работа с ресурсами
@@ -137,6 +134,8 @@ items:
             href: operations/projects/work-with-jobs.md
           - name: Работа с заданиями из Visual Studio Code
             href: operations/projects/jobs-toolkit.md
+          - name: Использование результатов работы выполненных заданий
+            href: operations/projects/use-job-results.md
       - name: Совместный доступ
         items:
           - name: Опубликовать ноутбук
@@ -168,13 +167,21 @@ items:
           - name: Доступные команды
             href: concepts/magic.md
           - name: Вычисления на кластерах Apache Spark™
-            href: concepts/data-proc.md
+            items:
+              - name: Способы работы с кластерами Apache Spark™
+                href: concepts/data-proc.md
+              - name: Вычисления на кластерах Apache Spark™
+                href: concepts/data-proc-operations.md
+              - name: Особенности работы с временными кластерами {{ dataproc-name }}
+                href: concepts/temporary-data-proc-clusters.md
       - name: '{{ ds-inf }}'
         items:
           - name: Ноды и алиасы
             href: concepts/deploy/index.md
           - name: Проверки состояния и мониторинг
             href: concepts/deploy/monitoring.md
+          - name: Метрики нод
+            href: concepts/deploy/metrics.md
       - name: '{{ ds-jobs }}'
         items:
           - name: Задания
@@ -249,6 +256,8 @@ items:
             href: tutorials/node-from-docker-fast-api.md
           - name: Развертывание сервиса на основе модели ONNX
             href: tutorials/node-from-model.md
+          - name: Развертывание gRPC-сервиса на основе Docker-образа
+            href: tutorials/grpc-node.md
           - name: Дообучение модели {{ yagpt-name }}
             href: tutorials/yagpt-tuning.md
           - name: Дообучение классификаторов на базе {{ yagpt-name }}
@@ -407,6 +416,8 @@ items:
     items:
       - name: Проблемы с установкой библиотек
         href: qa/environment-problems.md
+      - name: Ошибки при работе коннектора Spark
+        href: troubleshooting/troubles-with-spark.md
       - name: Вопросы и ответы
         href: qa/index.md
 base: ru/datasphere

@@ -45,7 +45,7 @@
 
   Результат:
 
-  ```yaml
+  ```text
   - id: e6qj8hr2mfoj********
     description: Update secret
     created_at: "2024-03-27T02:47:03.482004186Z"
@@ -100,7 +100,7 @@
 
       Результат:
 
-      ```yaml
+      ```text
       id: e6qj8hr2mfoj********
       description: Update secret
       created_at: "2024-03-27T02:47:03.482Z"

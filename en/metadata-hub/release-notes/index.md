@@ -1,4 +1,21 @@
+---
+title: "{{ metadata-hub-full-name }} release notes"
+description: "This section contains {{ metadata-hub-name }} release notes."
+---
+
 # {{ metadata-hub-full-name }} release notes: 2024
+
+## August {#august}
+
+### New features {#new-features-august}
+
+1. Added support for custom {{ RD }} DB installation and [{{ mrd-name }}](../../managed-redis/concepts/index.md) cluster connections.
+
+## July {#july}
+
+### New features {#new-features-july}
+
+1. Added [{{ connection-manager-name }}](../concepts/connection-manager.md) integration with [{{ mch-short-name }}](../../managed-clickhouse). Connections for {{ mch-short-name }} clusters [will be created automatically](../quickstart/connection-manager.md).
 
 ## June {#june}
 

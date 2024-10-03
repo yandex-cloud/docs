@@ -1,1 +1,1 @@
-Migration: Moving data from one repository to another; it often suggests transferring a database to the cloud, from outdated local databases to managed cloud ones.
+Migration: Moving data from one storage to another. Migration often means migrating a database from obsolete local databases to managed cloud ones.

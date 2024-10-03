@@ -1,3 +1,8 @@
+---
+title: "Справочник событий уровня конфигурации {{ at-full-name }}"
+description: "В данном разделе приведены описания событий уровня конфигурации, собираемых в сервисах {{ yandex-cloud }}."
+---
+
 # Справочник событий уровня конфигурации
 
 Значение поля `event_type` (_тип события_) аудитного лога уровня конфигурации определяется сервисом-источником события.
@@ -22,6 +27,7 @@
 * [{{ cloud-logging-full-name }}](#cloud-logging)
 * [{{ marketplace-full-name }}](#marketplace)
 * [{{ org-full-name }}](#organization)
+* [{{ postbox-full-name }}](#postbox)
 * [{{ compute-full-name }}](#compute)
 * [{{ container-registry-full-name }}](#container-registry)
 * [{{ dataproc-full-name }}](#dataproc)
@@ -32,6 +38,7 @@
 * [{{ kms-full-name }}](#kms)
 * [{{ load-testing-full-name }}](#loadtesting)
 * [{{ lockbox-full-name }}](#lockbox)
+* [{{ maf-full-name }}](#managed-service-for-airflow)
 * [{{ mkf-full-name }}](#managed-service-for-kafka)
 * [{{ mch-full-name }}](#managed-service-for-clickhouse)
 * [{{ mgl-full-name }}](#managed-service-for-gitlab)
@@ -75,9 +82,9 @@
 --- | ---
 `CreateTrail` | Создание трейла
 `DeleteTrail` | Удаление трейла
-`SetTrailAccessBindings` | Назначение привязок прав доступа для трейла
+`SetTrailAccessBindings` | Назначение прав доступа для трейла
 `UpdateTrail` | Изменение трейла
-`UpdateTrailAccessBindings` | Изменение привязок прав доступа для трейла
+`UpdateTrailAccessBindings` | Изменение прав доступа для трейла
 
 ## {{ certificate-manager-full-name }} {#certificate-manager}
 
@@ -93,8 +100,8 @@
 --- | ---
 `CreateCloudApplication` | Создание приложения
 `DeleteCloudApplication` | Удаление приложения
-`SetApplicationAccessBindings` | Назначение привязок прав доступа для приложения
-`UpdateApplicationAccessBindings` | Изменение привязок прав доступа для приложения
+`SetApplicationAccessBindings` | Назначение прав доступа для приложения
+`UpdateApplicationAccessBindings` | Изменение прав доступа для приложения
 `UpdateCloudApplication` | Изменение приложения
 
 ## {{ backup-full-name }} {#backup}
@@ -138,6 +145,12 @@
 Имя сервиса — `organizationmanager`.
 
 {% include [org-events](../../_includes/audit-trails/events/org-events.md) %}
+
+## {{ postbox-full-name }} {#postbox}
+
+Имя сервиса — `postbox`.
+
+{% include [postbox-events](../../_includes/audit-trails/events/postbox-events.md) %}
 
 ## {{ compute-full-name }} {#compute}
 
@@ -198,6 +211,12 @@
 Имя сервиса — `lockbox`.
 
 {% include [lockbox-events](../../_includes/audit-trails/events/lockbox-events.md) %}
+
+## {{ maf-full-name }} {#managed-service-for-airflow}
+
+Имя сервиса — `airflow`.
+
+{% include [airflow-events](../../_includes/audit-trails/events/managed-airflow-events.md) %}
 
 ## {{ mkf-full-name }} {#managed-service-for-kafka}
 

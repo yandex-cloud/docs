@@ -53,7 +53,7 @@
 
   Результат:
 
-  ```yaml
+  ```text
   - id: b1g4jml98i8c********
     description: Update resource-manager.folder access bindings
     created_at: "2023-06-07T12:35:50.143Z"
@@ -110,7 +110,7 @@
 
       Результат:
 
-      ```yaml
+      ```text
       id: b1g4jml98i8c********
       description: Update resource-manager.folder access bindings
       created_at: "2023-06-07T12:35:50.143Z"

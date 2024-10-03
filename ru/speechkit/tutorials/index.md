@@ -6,6 +6,7 @@ description: "На странице представлен список прак
 # Практические руководства {{ speechkit-name }}
 
 * [{#T}](./recognizer-bot.md)
+* [{#T}](./speechkit-integrarion-via-agi-gw.md)
 
 ## Распознавание {#stt}
 

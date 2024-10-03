@@ -12,6 +12,8 @@ items:
     items:
       - name: Все инструкции
         href: operations/index.md
+      - name: Создать инфраструктуру {{ alb-name }} c помощью визарда
+        href: quickstart-wizard.md
       - name: Целевые группы
         items:
           - name: Создать целевую группу
@@ -74,8 +76,14 @@ items:
         href: tutorials/index.md
       - name: Организация виртуального хостинга
         href: tutorials/virtual-hosting.md
-      - name: Создание балансировщика с защитой от DDoS
-        href: tutorials/alb-with-ddos-protection.md
+      - name: Создание L7-балансировщика с защитой от DDoS
+        items:
+          - name: Обзор
+            href: tutorials/alb-with-ddos-protection/index.md
+          - name: Консоль управления, CLI
+            href: tutorials/alb-with-ddos-protection/console.md
+          - name: '{{ TF }}'
+            href: tutorials/alb-with-ddos-protection/terraform.md
       - name: Интеграция L7-балансировщика с CDN и Object Storage
         href: tutorials/cdn-storage-integration.md
       - name: Сине-зеленое и канареечное развертывание версий сервиса
@@ -100,6 +108,10 @@ items:
         href: tutorials/alb-ingress-controller.md
       - name: Настройки логирования для Ingress-контроллеров {{ alb-name }}
         href: tutorials/alb-ingress-controller-log-options.md
+      - name: >-
+          Отказоустойчивый сайт с балансировкой нагрузки с помощью {{ alb-name
+          }}
+        href: tutorials/application-load-balancer-website.md
       - name: >-
           Проверка состояния приложений в кластере {{ k8s }} с помощью
           Ingress-контроллера {{ alb-name }}

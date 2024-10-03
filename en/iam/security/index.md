@@ -79,9 +79,11 @@ For some services, you need a service account to perform operations, such as in 
 
 {% include [roles-primitive](../../_includes/roles-primitive.md) %}
 
+{% include [primitive-roles-footnote](../../_includes/primitive-roles-footnote.md) %}
+
 ## What roles do I need {#choosing-roles}
 
-The table below lists the roles needed to perform a particular action. You can always assign a role granting more permissions than the role specified. For example, you can assign the `editor` role instead of `viewer`.
+The table below lists the roles required to perform a particular action. You can always assign a role offering more permissions than the one specified. For example, you can assign the `editor` role instead of `viewer`.
 
 | Action | Methods | Required roles |
 ----- | ----- | -----
@@ -95,7 +97,7 @@ The table below lists the roles needed to perform a particular action. You can a
 | [Create](../operations/sa/create.md) service accounts in the folder | `create` | `iam.serviceAccounts.admin` for the folder |
 | [Update](../operations/sa/update.md) and [delete](../operations/sa/delete.md) service accounts | `update`, `delete` | `editor` for the service account |
 | Create and delete keys for a service account | `create`, `delete` | `iam.serviceAccounts.accessKeyAdmin`, `iam.serviceAccounts.apiKeyAdmin`, `iam.serviceAccounts.authorizedKeyAdmin`, and `iam.serviceAccounts.keyAdmin`<br/> for the service account |
-| **Managing resource access** | |
+| **Manage resource access** | |
 | [Add a new user to the cloud](../operations/users/create.md) | `setAccessBindings` | `admin` for the cloud |
 | [Make a new user the owner of the cloud](../operations/roles/grant.md) | `setAccessBindings`, `updateAccessBindings` | `resource-manager.clouds.owner` for the cloud |
 | [Grant a role](../operations/roles/grant.md), [revoke a role](../operations/roles/revoke.md), and view roles granted for the resource | `setAccessBindings`, `updateAccessBindings`, `listAccessBindings` | `admin` for the resource |

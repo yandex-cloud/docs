@@ -41,7 +41,6 @@ tag | <p>Version tag.</p> <p>To get the history of version tags make a <a href="
   "tags": [
     "string"
   ],
-  "logGroupId": "string",
   "environment": "object",
   "connectivity": {
     "networkId": "string",
@@ -103,7 +102,25 @@ tag | <p>Version tag.</p> <p>To get the history of version tags make a <a href="
     "serviceAccountId": "string"
   },
   "tmpfsSize": "string",
-  "concurrency": "string"
+  "concurrency": "string",
+  "mounts": [
+    {
+      "name": "string",
+      "mode": "string",
+
+      // `mounts[]` includes only one of the fields `objectStorage`, `ephemeralDiskSpec`
+      "objectStorage": {
+        "bucketId": "string",
+        "prefix": "string"
+      },
+      "ephemeralDiskSpec": {
+        "size": "string",
+        "blockSize": "string"
+      },
+      // end of the list of possible fields`mounts[]`
+
+    }
+  ]
 }
 ```
 Version of a function. For details about the concept, see [Function versions](/docs/functions/concepts/function#version).
@@ -117,13 +134,12 @@ createdAt | **string** (date-time)<br><p>Creation timestamp for the version.</p>
 runtime | **string**<br><p>ID of the runtime environment for the function.</p> <p>Supported environments and their identifiers are listed in the <a href="/docs/functions/concepts/runtime">Runtime environments</a>.</p> 
 entrypoint | **string**<br><p>Entrypoint for the function: the name of the function to be called as the handler.</p> <p>Specified in the format ``<function file name>.<handler name>``, for example, ``index.myFunction``.</p> 
 resources | **object**<br><p>Resources allocated to the version.</p> <p>Resources allocated to a version.</p> 
-resources.<br>memory | **string** (int64)<br><p>Amount of memory available to the version, specified in bytes, multiple of 128MB.</p> <p>Acceptable values are 134217728 to 4294967296, inclusive.</p> 
+resources.<br>memory | **string** (int64)<br><p>Amount of memory available to the version, specified in bytes, multiple of 128MB.</p> <p>Acceptable values are 134217728 to 8589934592, inclusive.</p> 
 executionTimeout | **string**<br><p>Timeout for the execution of the version.</p> <p>If the timeout is exceeded, Cloud Functions responds with a 504 HTTP code.</p> 
 serviceAccountId | **string**<br><p>ID of the service account associated with the version.</p> 
 imageSize | **string** (int64)<br><p>Final size of the deployment package after unpacking.</p> 
-status | **string**<br><p>Status of the version.</p> <ul> <li>CREATING: Version is being created.</li> <li>ACTIVE: Version is ready to use.</li> </ul> 
+status | **string**<br><p>Status of the version.</p> <ul> <li>CREATING: Version is being created.</li> <li>ACTIVE: Version is ready to use.</li> <li>OBSOLETE: Version will be deleted soon.</li> <li>DELETING: Version is being deleted.</li> </ul> 
 tags[] | **string**<br><p>Version tags. For details, see <a href="/docs/functions/concepts/function#tag">Version tag</a>.</p> 
-logGroupId | **string**<br><p>ID of the log group for the version.</p> 
 environment | **object**<br><p>Environment settings for the version.</p> 
 connectivity | **object**<br><p>Network access. If specified the version will be attached to specified network/subnet(s).</p> <p>Version connectivity specification.</p> 
 connectivity.<br>networkId | **string**<br><p>Network the version will have access to. It's essential to specify network with subnets in all availability zones.</p> 
@@ -159,3 +175,12 @@ asyncInvocationConfig.<br>failureTarget.<br>ymqTarget.<br>serviceAccountId | **s
 asyncInvocationConfig.<br>serviceAccountId | **string**<br><p>Service account which can invoke version</p> 
 tmpfsSize | **string** (int64)<br><p>Optional size of in-memory mounted /tmp directory in bytes.</p> 
 concurrency | **string** (int64)<br><p>The maximum number of requests processed by a function instance at the same time</p> <p>Acceptable values are 0 to 16, inclusive.</p> 
+mounts[] | **object**<br><p>Mounts to be used by the version.</p> 
+mounts[].<br>name | **string**<br><p>Required. Unique mount point name. Device will be mounted into /function/storage/<name></p> <p>The string length in characters must be 1-100. Value must match the regular expression ``[-_0-9a-zA-Z]*``.</p> 
+mounts[].<br>mode | **string**<br>Mount's mode
+mounts[].<br>objectStorage | **object**<br>Object storage mounts <br>`mounts[]` includes only one of the fields `objectStorage`, `ephemeralDiskSpec`<br>
+mounts[].<br>objectStorage.<br>bucketId | **string**<br><p>Required. ObjectStorage bucket name for mounting.</p> <p>The string length in characters must be 3-63. Value must match the regular expression ``[-.0-9a-zA-Z]*``.</p> 
+mounts[].<br>objectStorage.<br>prefix | **string**<br><p>ObjectStorage bucket prefix for mounting.</p> 
+mounts[].<br>ephemeralDiskSpec | **object**<br>Working disk (worker-local non-shared read-write NBS disk templates) <br>`mounts[]` includes only one of the fields `objectStorage`, `ephemeralDiskSpec`<br>
+mounts[].<br>ephemeralDiskSpec.<br>size | **string** (int64)<br><p>The size of disk for mount in bytes</p> <p>Value must be greater than 0.</p> 
+mounts[].<br>ephemeralDiskSpec.<br>blockSize | **string** (int64)<br><p>Optional block size of disk for mount in bytes</p> 

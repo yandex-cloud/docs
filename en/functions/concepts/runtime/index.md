@@ -1,11 +1,11 @@
 ---
 title: "Runtime environment. Overview"
-description: "The runtime environment is selected when creating a function. It provides additional libraries and environment variables that can be accessed from the function code. You can change the selected runtime environment by updating the function configuration."
+description: "You select the runtime environment when creating a function. It provides additional libraries and environment variables that can be accessed from the function code. You can change the selected runtime environment by updating the function configuration."
 ---
 
 # Runtime environment. Overview
 
-The runtime environment is selected when creating a function. It provides additional libraries and environment variables that can be accessed from the function code. You can change the selected runtime environment by updating the function configuration. A [preloaded runtime environment](./preload-runtime.md) is automatically updated in the function version settings to the latest minor version available in {{ sf-name }}. For more information about its update, see [{#T}](preload-runtime.md#update).
+You select the runtime environment when creating a function. It provides additional libraries and environment variables that can be accessed from the function code. You can change the selected runtime environment by updating the function configuration. A [preloaded runtime environment](./preload-runtime.md) is automatically updated in the function version settings to the latest minor version available in {{ sf-name }}. For more information about its update, see [{#T}](preload-runtime.md#update).
 
 Runtime environment characteristics:
 
@@ -52,6 +52,8 @@ Runtime environments available in {{ sf-name }}.
 | Java 11 | `java11` | No | No |
 | Java 17 | `java17` | No | No |
 | Java 21 | `java21` | No | Yes |
+| **Kotlin** |  |  |
+| Kotlin 2.0 | `kotlin20` | No | Yes |
 | **.NET Core** |  |  |
 | .NET Core 3.1 | `dotnetcore31` | No | No |
 | .NET Core 6 | `dotnet6` | No | No |

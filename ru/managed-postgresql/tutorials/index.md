@@ -17,6 +17,7 @@ description: "Различные сценарии использования {{ 
 * [{#T}](./mkf-to-mpg.md)
 * [{#T}](./object-storage-to-postgresql.md)
 * [{#T}](./container-connect.md)
+* [{#T}](fault-tolerance.md)
 * [{#T}](./joomla-postgresql/index.md)
 * [{#T}](./datalens.md)
 * [{#T}](logging.md)
@@ -31,5 +32,9 @@ description: "Различные сценарии использования {{ 
 * [{#T}](./mpg-to-mmy.md)
 * [{#T}](./mmy-to-mpg.md)
 * [{#T}](./rds-to-mpg.md)
+* [{#T}](./greenplum-to-postgresql.md)
+* [{#T}](./rdbms-to-clickhouse.md)
+* [{#T}](./postgresql-to-opensearch.md)
+
 
 О миграции хостов кластера {{ mpg-name }} в другую зону доступности читайте в [инструкции](../operations/host-migration.md).

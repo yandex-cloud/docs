@@ -67,7 +67,7 @@ description: "Из статьи вы узнаете, как можно пере�
 
           Результат:
 
-          ```yaml
+          ```text
           id: ds7pmslal3km********
           name: sample-alb1
           folder_id: b1gmit33ngp3********

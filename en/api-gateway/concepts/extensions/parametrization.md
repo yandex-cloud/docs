@@ -1,6 +1,6 @@
 # Specification parameterization
 
-With specification parameterization, you can modify the behavior of {{ api-gw-short-name }} by setting different values for individual variables rather than the entire specification. The `x-yc-apigateway:variables` extension is used for that.
+With specification parameterization, you can change the way {{ api-gw-short-name }} works by setting different values for individual variables rather than the entire specification. For that purpose, you can use `x-yc-apigateway:variables`.
 
 ## X-yc-apigateway:variables extension
 
@@ -16,13 +16,13 @@ The table below lists the `VariableObject` parameters.
 
 | Parameter | Type | Required | Description |
 -----------|-----------------------------------------|-----------------------|---------
-| `default` | `string`, `int`, `double`, `boolean` | Yes | Default variable value. It is used if the `enum` parameter is omitted. |
+| `default` | `string`, `int`, `double`, `boolean` | Yes | Default variable value. It is used if the `enum` parameter is skipped. |
 | `enum` | `string[]`, `int[]`, `double[]`, `boolean[]` | No | List of acceptable variable values. If it is not specified, the variable may take any value. |
 | `description` | `string` | No | Text description of the variable. |
 
-### Usage
+### How to use
 
-After you declare the variable, you can use a `${var.name}` statement in the specification below, where `name` is the name of the variable. If needed, {{ api-gw-short-name }} will replace the variable name with the value you set when creating or updating an API gateway.
+After you declare the variable, you can use a `${var.name}` statement in the specification below, where `name` is the name of the variable. {{ api-gw-short-name }} will replace the variable name with the value you set when creating or updating an API gateway, if required.
 
 ### Extension specification
 

@@ -19,18 +19,53 @@
 
     1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
     1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** на панели сверху.
+    1. Измените имя и описание кластера в полях **{{ ui-key.yacloud.mdb.forms.base_field_name }}** и **{{ ui-key.yacloud.mdb.forms.base_field_description }}**.
+    1. Добавьте или удалите [метки](../../resource-manager/concepts/labels.md) кластера в поле **{{ ui-key.yacloud.component.label-set.label_labels }}**.
+    1. Измените настройки кластера:
 
-    
-    1. Чтобы изменить [лог-группу](../../logging/concepts/log-group.md), в которую отправляются логи кластера, выберите новую лог-группу из списка. При необходимости [создайте новую лог-группу](../../logging/operations/create-group.md).
+        * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** — [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), которому нужно разрешить доступ к кластеру {{ dataproc-full-name }}.
 
-        Для работы этой функции [назначьте](../../iam/operations/roles/grant.md) сервисному аккаунту кластера роль `logging.writer`. Подробнее см. в [документации {{ cloud-logging-full-name }}](../../logging/security/index.md).
+            Выберите существующий сервисный аккаунт или [создайте новый](../../iam/operations/sa/create.md).
 
+        * **{{ ui-key.yacloud.mdb.forms.config_field_properties }}** — [свойства компонентов](../concepts/settings-list.md) кластера.
 
-    1. Чтобы изменить [свойства компонентов](../concepts/settings-list.md) кластера, укажите в поле **{{ ui-key.yacloud.mdb.forms.config_field_properties }}** ключ компонента и его новое значение.
+            Добавьте, измените или удалите нужные свойства.
 
-    1. Измените дополнительные настройки кластера:
+            {% note tip %}
 
-        **{{ ui-key.yacloud.mdb.forms.label_deletion-protection }}** — управляет защитой кластера от непреднамеренного удаления пользователем.
+            Если нужно, чтобы свойство было помещено в файл конфигурации, который [относится к определенному компоненту](../concepts/settings-list.md#available-properties), укажите [префикс](../concepts/settings-list.md) для ключа.
+
+            {% endnote %}
+
+        * **{{ ui-key.yacloud.mdb.forms.config_field_form-bucket-type }}** — формат, в котором будет указано имя [бакета](../../storage/concepts/bucket.md): **{{ ui-key.yacloud.forms.label_form-list }}** или **{{ ui-key.yacloud.forms.label_form-id }}**.
+
+        * **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}** — имя бакета, который будет использоваться кластером.
+
+            В зависимости от выбранного формата либо выберите из списка бакет с нужным именем, либо укажите имя бакета вручную. Имя бакета можно запросить со [списком бакетов в каталоге](../../storage/operations/buckets/get-info.md#get-information).
+
+        * **{{ ui-key.yacloud.mdb.forms.field_security-group }}** — [группы безопасности](../concepts/network.md#security-groups), которые будут использоваться кластером.
+
+            Выберите одну или несколько групп безопасности. Если нужной группы безопасности нет в списке — [создайте ее](../../vpc/operations/security-group-create.md).
+
+            {% note warning %}
+
+            Некорректные настройки групп безопасности могут препятствовать работе кластера {{ dataproc-full-name }}. Подробнее о настройке групп безопасности см. в разделе [Подключение к кластеру](./connect.md#configuring-security-groups).
+
+            {% endnote %}
+
+        * **{{ ui-key.yacloud.mdb.forms.config_field_ui_proxy }}** — опция, управляющая доступом к [веб-интерфейсам компонентов](../concepts/interfaces.md) через [UI Proxy](./connect-interfaces.md#ui-proxy).
+
+            {% include [ui-proxy-sg-warning](../../_includes/data-proc/ui-proxy-sg-warning.md) %}
+
+        * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_log-group }}** — [лог-группа](../../logging/concepts/log-group.md) {{ cloud-logging-full-name }}, в которую кластер будет отправлять логи.
+
+            Выберите лог-группу по умолчанию или другую существующую лог-группу. Если нужной лог-группы нет в списке — [создайте ее](../../logging/operations/create-group.md).
+
+            Чтобы кластер мог отправлять логи, [назначьте](../../iam/operations/roles/grant.md) сервисному аккаунту кластера роль `logging.writer`. Подробнее см. в [документации {{ cloud-logging-full-name }}](../../logging/security/index.md).
+
+    1. В дополнительных настройках кластера выберите нужное значение опции **{{ ui-key.yacloud.mdb.forms.label_deletion-protection }}**.
+
+        Эта опция управляет защитой кластера от непреднамеренного удаления пользователем.
 
         Включенная защита не помешает подключиться к кластеру вручную и удалить данные.
 

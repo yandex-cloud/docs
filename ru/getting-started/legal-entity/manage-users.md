@@ -43,7 +43,7 @@
   1. [Получите идентификатор пользователя](../../organization/operations/users-get.md).
   1. Назначьте роль с помощью команды:
 
-    ```
+    ```bash
     yc <SERVICE-NAME> <RESOURCE> add-access-binding <RESOURCE-NAME>|<RESOURCE-ID> \
       --role <ROLE-ID> \
       --subject userAccount:<USER-ACCOUNT-ID>
@@ -60,7 +60,7 @@
 
     Например, назначьте роль `viewer` на [облако](../../resource-manager/concepts/resources-hierarchy.md#folder) `mycloud`:
 
-    ```
+    ```bash
     $ yc resource-manager cloud add-access-binding mycloud \
       --role viewer \
       --subject userAccount:aje6o61dvog2h6g9a33s
@@ -90,7 +90,7 @@
       ]
     }
     ```
-    
+
   1. {% include [grant-role-folder-via-curl-step](../../_includes/iam/grant-role-folder-via-curl-step.md) %} 
   
 {% endlist %}

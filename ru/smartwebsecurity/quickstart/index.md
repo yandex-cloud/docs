@@ -8,11 +8,10 @@
 
 {% include [realized-arl-concept](../../_includes/smartwebsecurity/realized-arl-concept.md) %}
 
-{% include [note-preview-waf-arl](../../_includes/smartwebsecurity/note-preview-waf-arl.md) %}
-
 В зависимости от результатов проверки запросы направляются к виртуальному хосту, блокируются или отправляются в сервис [{{ captcha-full-name }}](../../smartcaptcha/) для дополнительной верификации.
 
 Чтобы начать работу с сервисом:
 * [Создайте профиль безопасности и подключите его к имеющемуся виртуальному хосту L7-балансировщика](../quickstart.md).
 * [Создайте профиль WAF и подключите его к имеющемуся профилю безопасности](quickstart-waf.md).
 * [Создайте профиль ARL и подключите его к имеющемуся профилю безопасности](quickstart-arl.md).
+* [Настройте L7-балансировщик для дополнительной защиты](../concepts/index.md#alb-settings-recommendation)

@@ -17,3 +17,4 @@ description: "Различные сценарии использования {{ 
 * [{#T}](serverless-live-debug.md)
 * [{#T}](jwt-authorizer-firebase.md)
 * [{#T}](canary-release.md)
+* [{#T}](speechkit-integrarion-via-agi-gw.md)

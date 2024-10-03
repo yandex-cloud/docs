@@ -330,11 +330,12 @@ description: "Следуя этим примерам, вы сможете под
 
 1. Установите зависимости:
 
-    ```bash
-    sudo apt update && sudo apt install -y golang git && \
-    go get github.com/Shopify/sarama && \
-    go get github.com/xdg/scram
-    ```
+   ```bash
+   sudo apt update && sudo apt install -y golang git && \
+   go mod init example && \
+   go get github.com/Shopify/sarama@v1.38.1 && \
+   go get github.com/xdg-go/scram@v1.1.2
+   ```
 
 1. Создайте директорию для проекта:
 
@@ -354,7 +355,7 @@ description: "Следуя этим примерам, вы сможете под
       "crypto/sha512"
       "hash"
 
-      "github.com/xdg/scram"
+      "github.com/xdg-go/scram"
     )
 
     var SHA256 scram.HashGeneratorFcn = func() hash.Hash { return sha256.New() }
@@ -592,8 +593,8 @@ description: "Следуя этим примерам, вы сможете под
               certs.AppendCertsFromPEM(pemData)
 
               conf.Net.TLS.Enable = true
+
               conf.Net.TLS.Config = &tls.Config{
-                InsecureSkipVerify: true,
                 RootCAs: certs,
               }
 
@@ -667,9 +668,9 @@ description: "Следуя этим примерам, вы сможете под
               certs.AppendCertsFromPEM(pemData)
 
               conf.Net.TLS.Enable = true
+
               conf.Net.TLS.Config = &tls.Config{
-                        InsecureSkipVerify: true,
-                          RootCAs: certs,
+                RootCAs: certs,
               }
 
               master, err := sarama.NewConsumer(splitBrokers, conf)
@@ -760,7 +761,7 @@ description: "Следуя этим примерам, вы сможете под
    cd ~/project
    ```
 
-1. Создайте конфигурационный файл для Maven:    
+1. Создайте конфигурационный файл для Maven:
 
    {% cut "pom.xml" %}
    ```xml
@@ -846,7 +847,7 @@ description: "Следуя этим примерам, вы сможете под
    - [jackson-databind](https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind);
    - [slf4j-simple](https://mvnrepository.com/artifact/org.slf4j/slf4j-simple).
 
- 1. Скопируйте `pom.xml` в директории приложения-производителя и приложения-потребителя:
+1. Скопируйте `pom.xml` в директории приложения-производителя и приложения-потребителя:
 
     ```bash
     cp pom.xml producer/pom.xml && cp pom.xml consumer/pom.xml

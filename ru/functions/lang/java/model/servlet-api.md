@@ -123,12 +123,12 @@ public class Handler extends HttpServlet {
 
 Метод `POST`, параметр запроса `name=Anonymous`:
 
-```
+```text
 Hello, Anonymous
 ```
 
 Метод `PUT`:
 
-```
+```text
 HTTP method PUT is not supported by this URL
 ```

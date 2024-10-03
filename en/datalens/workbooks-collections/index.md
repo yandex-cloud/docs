@@ -10,11 +10,11 @@ Workbooks and collections are a new way to store objects in {{ datalens-short-na
 
 * A **workbook** stores [connections](../concepts/connection.md), [datasets](../concepts/dataset/index.md), [charts](../concepts/chart/index.md), and [dashboards](../concepts/dashboard.md).
 
-   {% cut "Workbook" %}
+  {% cut "Workbook" %}
 
-   ![image](../../_assets/datalens/workbook.png =800x450)
+  ![image](../../_assets/datalens/workbook.png =800x450)
 
-   {% endcut %}
+  {% endcut %}
 
 * A **collection** is a container used for grouping workbooks and other collections.
 
@@ -26,11 +26,11 @@ Workbooks make it much easier to work with objects:
 * With them, you can set up permissions for [user groups](../../iam/operations/groups/create.md).
 * You can copy workbooks maintaining the integrity of internal links and making their copies independent of the original.
 
-   {% note info %}
+  {% note info %}
 
-   Copying workbooks with [file](../operations/connection/create-file.md) connections is not supported.
+  Copying workbooks with [file](../operations/connection/create-file.md) connections is not supported.
 
-   {% endnote %}
+  {% endnote %}
 
 * You can group workbooks into collections.
 
@@ -51,7 +51,7 @@ Only workbooks are available in new {{ datalens-short-name }} instances.
 
 To get started with workbooks:
 
-1. Go to the [service settings]({{ link-datalens-settings }}).
+1. Go to the [{{ datalens-short-name }} settings]({{ link-datalens-settings }}).
 1. Under **Workbooks**, click **Enable workbooks**.
 
    {% note info %}
@@ -60,7 +60,7 @@ To get started with workbooks:
 
    {% endnote %}
 
-To transfer any object from a folder to a workbook, perform [migration](./migrations.md).
+To transfer any object from a folder to a workbook, perform [migration](./migrations.md). If you are not going to use folder navigation anymore, you can [disable](../settings/disable-folder-navigation.md) it.
 
 
 

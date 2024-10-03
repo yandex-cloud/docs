@@ -1,6 +1,12 @@
 # Подключение к {{ objstorage-name }} из {{ vpc-name }}
 
 
+{% note tip %}
+
+Помимо решения, описанного в статье, доступ в {{ objstorage-name }} от ресурсов облачно сети без доступа в интернет также можно реализовать с помощью [сервисного подключения {{ vpc-short-name }}](../../vpc/concepts/private-endpoint.md). Подробнее см. на странице [Доступ в бакет с помощью сервисного подключения из {{ vpc-short-name }}](../../storage/operations/buckets/access-via-vpc.md).
+
+{% endnote %}
+
 Подключиться к [{{ objstorage-full-name }}](../../storage/) в {{ yandex-cloud }} можно через соответствующий [API Endpoint](../../api-design-guide/concepts/endpoints.md), FQDN которого потом преобразуется в публичный IP-адрес с помощью службы DNS.
 
 В статье описано, как развернуть в {{ yandex-cloud }} облачную инфраструктуру для организации доступа к {{ objstorage-name }} для ресурсов, которые размещены в [облачной сети](../../vpc/concepts/network.md#network) {{ vpc-short-name }} и не имеют публичных IP-адресов или выхода в интернет через [NAT-шлюз](../../vpc/concepts/gateways.md).
@@ -124,7 +130,7 @@ warp get \
     | Статические публичные IP-адреса | 4 |
     | Группы безопасности | 1 |
     | Зона DNS | 1 |
-    | Бакет | 1 |  
+    | Бакет | 1 |
     | Сервисный аккаунт | 2 |
     | Статический ключ для сервисного аккаунта | 1 |
 
@@ -231,7 +237,7 @@ warp get \
 
     Результат:
 
-    ```bash
+    ```text
     download: s3://<имя_бакета>/s3_test_file.txt to ./s3_test_file.txt
     ```
 

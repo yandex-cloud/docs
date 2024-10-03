@@ -2,7 +2,7 @@ title: Yandex Monitoring
 href: index.yaml
 label:
   title: KZ
-  description: The service is available in Kazakhstan.
+  description: This service is only available in the Kazakhstan region.
   theme: info
   when: region == "kz"
 items:
@@ -50,7 +50,7 @@ items:
         items:
           - name: Creating alerts
             href: operations/alert/create-alert.md
-          - name: Creating notification channels
+          - name: Creating a notification channel
             href: operations/alert/create-channel.md
           - name: Deleting alerts
             href: operations/alert/delete-alert.md
@@ -82,7 +82,7 @@ items:
         href: concepts/data-collection/unified-agent/delete.md
   - name: Concepts
     items:
-      - name: Overview
+      - name: Service overview
         href: concepts/index.md
       - name: Data model
         href: concepts/data-model.md
@@ -114,6 +114,14 @@ items:
         href: concepts/ttl.md
       - name: Quotas and limits
         href: concepts/limits.md
+  - name: Tutorials
+    items:
+      - name: >-
+          Automatically scaling an instance group to process messages from a
+          queue
+        href: tutorials/autoscale-monitoring.md
+      - name: Monitoring sensor readings and event notifications
+        href: tutorials/monitoring.md
   - name: '{{ managed-prometheus-name }}'
     items:
       - name: Overview
@@ -142,7 +150,7 @@ items:
     items:
       - name: Current pricing policy
         href: pricing.md
-      - name: Archives
+      - name: Archive
         items:
           - name: Policy before October 1, 2020
             href: pricing-archive/pricing-01102020.md
@@ -196,8 +204,12 @@ items:
         href: metrics-ref/at-ref.md
       - name: '{{ certificate-manager-name }}'
         href: metrics-ref/certificate-manager-ref.md
+      - name: '{{ backup-name }}'
+        href: metrics-ref/backup-ref.md
       - name: '{{ cdn-name }}'
         href: metrics-ref/cdn-ref.md
+      - name: '{{ sf-name }}'
+        href: metrics-ref/functions-ref.md
       - name: '{{ compute-name }}'
         href: metrics-ref/compute-ref.md
       - name: '{{ container-registry-name }}'
@@ -208,10 +220,14 @@ items:
         href: metrics-ref/data-transfer-ref.md
       - name: '{{ iam-name }}'
         href: metrics-ref/iam-ref.md
+      - name: '{{ iot-name }}'
+        href: metrics-ref/iot-core-ref.md
       - name: '{{ kms-name }}'
         href: metrics-ref/kms-ref.md
       - name: '{{ lockbox-name }}'
         href: metrics-ref/lockbox-ref.md
+      - name: '{{ maf-name }}'
+        href: metrics-ref/managed-airflow-ref.md
       - name: '{{ mkf-name }}'
         href: metrics-ref/managed-kafka-ref.md
       - name: '{{ mch-name }}'

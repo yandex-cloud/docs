@@ -9,7 +9,7 @@
 1. Click **{{ ui-key.yc-ui-datasphere.common.create }}**.
 1. In the **{{ ui-key.yc-ui-datasphere.secret.name }}** field, enter a name for the secret.
 
-   The name may contain uppercase and lowercase Latin letters, numbers, and hyphens. The first character must be a letter. The last character can't be a hyphen or underscore. The allowed length is 3 to 63 characters.
+   The name may contain uppercase and lowercase Latin letters, numbers, and hyphens. The first character must be a letter. The last character cannot be a hyphen or underscore. The allowed length is 3 to 63 characters.
 
 1. In the **{{ ui-key.yc-ui-datasphere.secret.content }}** field, enter a value to be stored in encrypted form.
 1. Click **{{ ui-key.yc-ui-datasphere.common.create }}**. This will display the created secret's info page.
@@ -18,7 +18,7 @@
 
 {% include [zones](../../../_includes/datasphere/zones.md) %}
 
-To share a secret in a community, you need to have the `Editor` role in the project, and `Developer`, in the community. To learn more about roles that apply in {{ ml-platform-name }}, see [{#T}](../../security/index.md).
+To share a secret in a community, you need the `Editor` role in the project and the `Developer` role in the community. To learn more about roles in {{ ml-platform-name }}, see [{#T}](../../security/index.md).
 
 1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
 1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, click ![secret](../../../_assets/console-icons/shield-check.svg)**{{ ui-key.yc-ui-datasphere.resources.secret }}**.
@@ -38,8 +38,8 @@ Once you create a secret, you can use it in project cells as an environment vari
 
    ```python
    import os
-   os.environ # Get a list of all environment variables
-   os.environ['<secret_name>'] # Reference the <secret_name> secret from environment variables
+   os.environ # Getting a list of all environment variables
+   os.environ['<secret_name>'] # Accessing <secret_name> from environment variables
    ```
 
 - Bash {#bash}
@@ -79,3 +79,5 @@ Once you create a secret, you can use it in project cells as an environment vari
 1. Click **{{ ui-key.yc-ui-datasphere.common.submit }}**.
 
 You will see a message saying that the secret has been deleted.
+
+{% include [deletion-time](../../../_includes/datasphere/deletion-time.md) %}

@@ -57,7 +57,7 @@
 
   Результат:
 
-  ```yaml
+  ```text
   - id: d5d6ja2j20tj********
     description: operation_update
     created_at: "2024-06-21T09:59:41.804Z"
@@ -100,7 +100,7 @@
 
       Результат:
 
-      ```yaml
+      ```text
         id: d5dphtf4p0tp********
         description: operation_create
         created_at: "2024-06-21T09:51:17.430Z"

@@ -1,9 +1,9 @@
 title: Yandex Managed Service for Greenplum®
 href: index.yaml
 label:
-  title: RU
-  description: Сервис доступен только в регионе Россия.
-  theme: unknown
+  title: KZ
+  description: Сервис доступен в регионе Казахстан.
+  theme: info
   when: region == "kz"
 items:
   - name: Начало работы
@@ -118,6 +118,10 @@ items:
           Загрузка данных из {{ objstorage-full-name }} в {{ mgp-name }} с
           помощью {{ data-transfer-full-name }}
         href: tutorials/object-storage-to-greenplum.md
+      - name: Поставка данных с помощью {{ data-transfer-name }}
+        items:
+          - name: Поставка из {{ KF }} в {{ GP }}
+            href: tutorials/managed-kafka-to-greenplum.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса
@@ -148,6 +152,8 @@ items:
         href: concepts/external-tables.md
       - name: Управление соединениями
         href: concepts/pooling.md
+      - name: Расширение кластера
+        href: concepts/expand.md
       - name: Техническое обслуживание
         href: concepts/maintenance.md
       - name: Настройки {{ GP }}
@@ -220,6 +226,8 @@ items:
                 href: api-ref/Cluster/listOperations.md
               - name: listSegmentHosts
                 href: api-ref/Cluster/listSegmentHosts.md
+              - name: move
+                href: api-ref/Cluster/move.md
               - name: restore
                 href: api-ref/Cluster/restore.md
               - name: start

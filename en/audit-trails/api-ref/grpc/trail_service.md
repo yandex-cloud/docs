@@ -48,9 +48,10 @@ labels | **map<string,string>**<br>Custom labels of the trail as `key:value` pai
 destination | **[Destination](#Destination)**<br>Required. Destination configuration of the trail 
 service_account_id | **string**<br>Service account ID of the trail The maximum string length in characters is 50.
 status | enum **Status**<br>Required. Status of the trail <ul><li>`ACTIVE`: The trail is active and Audit events are processed</li><li>`ERROR`: The trail configuration has issues that are preventing Audit Trails from delivering events</li><li>`DELETED`: The trail is being deleted</li></ul>
-filter | **[Filter](#Filter)**<br>Required. Filtering configuration of the trail 
+filter | **[Filter](#Filter)**<br>Filtering configuration of the trail deprecated: use filtering_policy instead 
 status_error_message | **string**<br>Current error message of the trail. Empty in case if the trail is active 
 cloud_id | **string**<br>Required. ID of the cloud that the trail belongs to The maximum string length in characters is 50.
+filtering_policy | **[FilteringPolicy](#FilteringPolicy)**<br>Event filtering policy Describes which groups of events will be sent and which resources will be monitored 
 
 
 ### Destination {#Destination}
@@ -122,7 +123,7 @@ resource | **[Resource](#Resource)**<br>Required. Resource definition
 
 Field | Description
 --- | ---
-resource | **[Resource](#Resource)**<br>Required. Definition of the resource that contains 
+resource | **[Resource](#Resource)**<br>Required. Definition of the resource that contains nested resources 
 filters[] | **[PathFilterElement](#PathFilterElement)**<br>Filters for the resources contained in the parent resource The number of elements must be greater than 0.
 
 
@@ -156,6 +157,39 @@ Field | Description
 --- | ---
 plane | enum **EventCategoryFilter**<br>Required. Plane of the gathered category <ul><li>`CONTROL_PLANE`: The events that are generated during the interaction with the service's resources</li><li>`DATA_PLANE`: Events that are generated during interaction with data within the service's resources</li></ul>
 type | enum **EventAccessTypeFilter**<br>Required. Type of the gathered category <ul><li>`WRITE`: Events for operations that do perform some modification</li><li>`READ`: Events for operations that do not perform any modifications</li></ul>
+
+
+### DataEventsFiltering {#DataEventsFiltering}
+
+Field | Description
+--- | ---
+service | **string**<br>Required. Name of the service whose events will be delivered 
+additional_rules | **oneof:** `included_events` or `excluded_events`<br>
+&nbsp;&nbsp;included_events | **[EventTypes](#EventTypes)**<br>Explicitly included events of specified service New events of the service won't be delivered by default 
+&nbsp;&nbsp;excluded_events | **[EventTypes](#EventTypes)**<br>Explicitly excluded events of specified service New events of the service will be delivered by default 
+resource_scopes[] | **[Resource](#Resource)**<br>A list of resources which will be monitored by the trail The number of elements must be in the range 1-1024.
+
+
+### EventTypes {#EventTypes}
+
+Field | Description
+--- | ---
+event_types[] | **string**<br> The number of elements must be in the range 1-1024.
+
+
+### ManagementEventsFiltering {#ManagementEventsFiltering}
+
+Field | Description
+--- | ---
+resource_scopes[] | **[Resource](#Resource)**<br>A list of resources which will be monitored by the trail The number of elements must be in the range 1-1024.
+
+
+### FilteringPolicy {#FilteringPolicy}
+
+Field | Description
+--- | ---
+management_events_filter | **[ManagementEventsFiltering](#ManagementEventsFiltering)**<br>Singular filter describing gathering management events 
+data_events_filters[] | **[DataEventsFiltering](#DataEventsFiltering)**<br>List of filters describing gathering data events The number of elements must be less than 128.
 
 
 ## List {#List}
@@ -197,9 +231,10 @@ labels | **map<string,string>**<br>Custom labels of the trail as `key:value` pai
 destination | **[Destination](#Destination1)**<br>Required. Destination configuration of the trail 
 service_account_id | **string**<br>Service account ID of the trail The maximum string length in characters is 50.
 status | enum **Status**<br>Required. Status of the trail <ul><li>`ACTIVE`: The trail is active and Audit events are processed</li><li>`ERROR`: The trail configuration has issues that are preventing Audit Trails from delivering events</li><li>`DELETED`: The trail is being deleted</li></ul>
-filter | **[Filter](#Filter1)**<br>Required. Filtering configuration of the trail 
+filter | **[Filter](#Filter1)**<br>Filtering configuration of the trail deprecated: use filtering_policy instead 
 status_error_message | **string**<br>Current error message of the trail. Empty in case if the trail is active 
 cloud_id | **string**<br>Required. ID of the cloud that the trail belongs to The maximum string length in characters is 50.
+filtering_policy | **[FilteringPolicy](#FilteringPolicy1)**<br>Event filtering policy Describes which groups of events will be sent and which resources will be monitored 
 
 
 ### Destination {#Destination1}
@@ -271,7 +306,7 @@ resource | **[Resource](#Resource1)**<br>Required. Resource definition
 
 Field | Description
 --- | ---
-resource | **[Resource](#Resource1)**<br>Required. Definition of the resource that contains 
+resource | **[Resource](#Resource1)**<br>Required. Definition of the resource that contains nested resources 
 filters[] | **[PathFilterElement](#PathFilterElement1)**<br>Filters for the resources contained in the parent resource The number of elements must be greater than 0.
 
 
@@ -307,6 +342,39 @@ plane | enum **EventCategoryFilter**<br>Required. Plane of the gathered category
 type | enum **EventAccessTypeFilter**<br>Required. Type of the gathered category <ul><li>`WRITE`: Events for operations that do perform some modification</li><li>`READ`: Events for operations that do not perform any modifications</li></ul>
 
 
+### DataEventsFiltering {#DataEventsFiltering1}
+
+Field | Description
+--- | ---
+service | **string**<br>Required. Name of the service whose events will be delivered 
+additional_rules | **oneof:** `included_events` or `excluded_events`<br>
+&nbsp;&nbsp;included_events | **[EventTypes](#EventTypes1)**<br>Explicitly included events of specified service New events of the service won't be delivered by default 
+&nbsp;&nbsp;excluded_events | **[EventTypes](#EventTypes1)**<br>Explicitly excluded events of specified service New events of the service will be delivered by default 
+resource_scopes[] | **[Resource](#Resource1)**<br>A list of resources which will be monitored by the trail The number of elements must be in the range 1-1024.
+
+
+### EventTypes {#EventTypes1}
+
+Field | Description
+--- | ---
+event_types[] | **string**<br> The number of elements must be in the range 1-1024.
+
+
+### ManagementEventsFiltering {#ManagementEventsFiltering1}
+
+Field | Description
+--- | ---
+resource_scopes[] | **[Resource](#Resource1)**<br>A list of resources which will be monitored by the trail The number of elements must be in the range 1-1024.
+
+
+### FilteringPolicy {#FilteringPolicy1}
+
+Field | Description
+--- | ---
+management_events_filter | **[ManagementEventsFiltering](#ManagementEventsFiltering1)**<br>Singular filter describing gathering management events 
+data_events_filters[] | **[DataEventsFiltering](#DataEventsFiltering1)**<br>List of filters describing gathering data events The number of elements must be less than 128.
+
+
 ## Create {#Create}
 
 Creates a trail in the specified folder.
@@ -327,7 +395,8 @@ description | **string**<br>Description of the trail. The maximum string length 
 labels | **map<string,string>**<br>Custom labels for the secret as `key:value` pairs. Maximum 64 per key. For example, `"type": "critical"` or `"source": "dictionary"`. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 destination | **[Trail.Destination](#Trail2)**<br>Required. Destination configuration for the trail 
 service_account_id | **string**<br>Required. Service account ID of the trail The maximum string length in characters is 50.
-filter | **[Trail.Filter](#Trail2)**<br>Required. Event filtering configuration of the trail 
+filter | **[Trail.Filter](#Trail2)**<br>Event filtering configuration of the trail deprecated: use filtering_policy instead 
+filtering_policy | **[Trail.FilteringPolicy](#Trail2)**<br>Event filtering policy of the trail 
 
 
 ### Operation {#Operation}
@@ -367,9 +436,10 @@ labels | **map<string,string>**<br>Custom labels of the trail as `key:value` pai
 destination | **[Destination](#Destination2)**<br>Required. Destination configuration of the trail 
 service_account_id | **string**<br>Service account ID of the trail The maximum string length in characters is 50.
 status | enum **Status**<br>Required. Status of the trail <ul><li>`ACTIVE`: The trail is active and Audit events are processed</li><li>`ERROR`: The trail configuration has issues that are preventing Audit Trails from delivering events</li><li>`DELETED`: The trail is being deleted</li></ul>
-filter | **[Filter](#Filter2)**<br>Required. Filtering configuration of the trail 
+filter | **[Filter](#Filter2)**<br>Filtering configuration of the trail deprecated: use filtering_policy instead 
 status_error_message | **string**<br>Current error message of the trail. Empty in case if the trail is active 
 cloud_id | **string**<br>Required. ID of the cloud that the trail belongs to The maximum string length in characters is 50.
+filtering_policy | **[FilteringPolicy](#FilteringPolicy2)**<br>Event filtering policy Describes which groups of events will be sent and which resources will be monitored 
 
 
 ### Destination {#Destination2}
@@ -441,7 +511,7 @@ resource | **[Resource](#Resource2)**<br>Required. Resource definition
 
 Field | Description
 --- | ---
-resource | **[Resource](#Resource2)**<br>Required. Definition of the resource that contains 
+resource | **[Resource](#Resource2)**<br>Required. Definition of the resource that contains nested resources 
 filters[] | **[PathFilterElement](#PathFilterElement2)**<br>Filters for the resources contained in the parent resource The number of elements must be greater than 0.
 
 
@@ -477,6 +547,39 @@ plane | enum **EventCategoryFilter**<br>Required. Plane of the gathered category
 type | enum **EventAccessTypeFilter**<br>Required. Type of the gathered category <ul><li>`WRITE`: Events for operations that do perform some modification</li><li>`READ`: Events for operations that do not perform any modifications</li></ul>
 
 
+### DataEventsFiltering {#DataEventsFiltering2}
+
+Field | Description
+--- | ---
+service | **string**<br>Required. Name of the service whose events will be delivered 
+additional_rules | **oneof:** `included_events` or `excluded_events`<br>
+&nbsp;&nbsp;included_events | **[EventTypes](#EventTypes2)**<br>Explicitly included events of specified service New events of the service won't be delivered by default 
+&nbsp;&nbsp;excluded_events | **[EventTypes](#EventTypes2)**<br>Explicitly excluded events of specified service New events of the service will be delivered by default 
+resource_scopes[] | **[Resource](#Resource2)**<br>A list of resources which will be monitored by the trail The number of elements must be in the range 1-1024.
+
+
+### EventTypes {#EventTypes2}
+
+Field | Description
+--- | ---
+event_types[] | **string**<br> The number of elements must be in the range 1-1024.
+
+
+### ManagementEventsFiltering {#ManagementEventsFiltering2}
+
+Field | Description
+--- | ---
+resource_scopes[] | **[Resource](#Resource2)**<br>A list of resources which will be monitored by the trail The number of elements must be in the range 1-1024.
+
+
+### FilteringPolicy {#FilteringPolicy2}
+
+Field | Description
+--- | ---
+management_events_filter | **[ManagementEventsFiltering](#ManagementEventsFiltering2)**<br>Singular filter describing gathering management events 
+data_events_filters[] | **[DataEventsFiltering](#DataEventsFiltering2)**<br>List of filters describing gathering data events The number of elements must be less than 128.
+
+
 ## Update {#Update}
 
 Updates the specified trail.
@@ -498,7 +601,8 @@ description | **string**<br>New description of the trail. The maximum string len
 labels | **map<string,string>**<br>New custom labels for the secret as `key:value` pairs. Maximum 64 per key. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 destination | **[Trail.Destination](#Trail3)**<br>New destination configuration for the trail 
 service_account_id | **string**<br>New service account ID of the trail The maximum string length in characters is 50.
-filter | **[Trail.Filter](#Trail3)**<br>New filtering configuration of the trail 
+filter | **[Trail.Filter](#Trail3)**<br>Updated filtering configuration of the trail deprecated: use filtering_policy instead 
+filtering_policy | **[Trail.FilteringPolicy](#Trail3)**<br>Updated event filtering policy 
 
 
 ### Operation {#Operation1}
@@ -538,9 +642,10 @@ labels | **map<string,string>**<br>Custom labels of the trail as `key:value` pai
 destination | **[Destination](#Destination3)**<br>Required. Destination configuration of the trail 
 service_account_id | **string**<br>Service account ID of the trail The maximum string length in characters is 50.
 status | enum **Status**<br>Required. Status of the trail <ul><li>`ACTIVE`: The trail is active and Audit events are processed</li><li>`ERROR`: The trail configuration has issues that are preventing Audit Trails from delivering events</li><li>`DELETED`: The trail is being deleted</li></ul>
-filter | **[Filter](#Filter3)**<br>Required. Filtering configuration of the trail 
+filter | **[Filter](#Filter3)**<br>Filtering configuration of the trail deprecated: use filtering_policy instead 
 status_error_message | **string**<br>Current error message of the trail. Empty in case if the trail is active 
 cloud_id | **string**<br>Required. ID of the cloud that the trail belongs to The maximum string length in characters is 50.
+filtering_policy | **[FilteringPolicy](#FilteringPolicy3)**<br>Event filtering policy Describes which groups of events will be sent and which resources will be monitored 
 
 
 ### Destination {#Destination3}
@@ -612,7 +717,7 @@ resource | **[Resource](#Resource3)**<br>Required. Resource definition
 
 Field | Description
 --- | ---
-resource | **[Resource](#Resource3)**<br>Required. Definition of the resource that contains 
+resource | **[Resource](#Resource3)**<br>Required. Definition of the resource that contains nested resources 
 filters[] | **[PathFilterElement](#PathFilterElement3)**<br>Filters for the resources contained in the parent resource The number of elements must be greater than 0.
 
 
@@ -646,6 +751,39 @@ Field | Description
 --- | ---
 plane | enum **EventCategoryFilter**<br>Required. Plane of the gathered category <ul><li>`CONTROL_PLANE`: The events that are generated during the interaction with the service's resources</li><li>`DATA_PLANE`: Events that are generated during interaction with data within the service's resources</li></ul>
 type | enum **EventAccessTypeFilter**<br>Required. Type of the gathered category <ul><li>`WRITE`: Events for operations that do perform some modification</li><li>`READ`: Events for operations that do not perform any modifications</li></ul>
+
+
+### DataEventsFiltering {#DataEventsFiltering3}
+
+Field | Description
+--- | ---
+service | **string**<br>Required. Name of the service whose events will be delivered 
+additional_rules | **oneof:** `included_events` or `excluded_events`<br>
+&nbsp;&nbsp;included_events | **[EventTypes](#EventTypes3)**<br>Explicitly included events of specified service New events of the service won't be delivered by default 
+&nbsp;&nbsp;excluded_events | **[EventTypes](#EventTypes3)**<br>Explicitly excluded events of specified service New events of the service will be delivered by default 
+resource_scopes[] | **[Resource](#Resource3)**<br>A list of resources which will be monitored by the trail The number of elements must be in the range 1-1024.
+
+
+### EventTypes {#EventTypes3}
+
+Field | Description
+--- | ---
+event_types[] | **string**<br> The number of elements must be in the range 1-1024.
+
+
+### ManagementEventsFiltering {#ManagementEventsFiltering3}
+
+Field | Description
+--- | ---
+resource_scopes[] | **[Resource](#Resource3)**<br>A list of resources which will be monitored by the trail The number of elements must be in the range 1-1024.
+
+
+### FilteringPolicy {#FilteringPolicy3}
+
+Field | Description
+--- | ---
+management_events_filter | **[ManagementEventsFiltering](#ManagementEventsFiltering3)**<br>Singular filter describing gathering management events 
+data_events_filters[] | **[DataEventsFiltering](#DataEventsFiltering3)**<br>List of filters describing gathering data events The number of elements must be less than 128.
 
 
 ## Delete {#Delete}

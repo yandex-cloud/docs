@@ -101,6 +101,7 @@ Field | Description
 folder_id | **string**<br>Required. ID of the folder to create a registry in. <br>To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. The maximum string length in characters is 50.
 name | **string**<br>Name of the registry. <br>There may be only one registry per folder. Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
+secure | **bool**<br>If true, registry will be created with pre-setup scanning policy (on push and on schedule every 7 days) 
 
 
 ### Operation {#Operation}

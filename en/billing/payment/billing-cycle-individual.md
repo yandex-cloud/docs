@@ -32,7 +32,7 @@ The diagram shows the cycle of debiting an individual's bank card, as well as su
 
    {% include [pay-by-card-note](../_includes/pay-by-card-note.md) %}
 
-1. Payment for used resources is verified:
+1. Verification of payment for consumed resources:
    - If the funds are debited from the bank card within one day, go back to step 4.
    - If your bank card balance is insufficient on the day when funds are to be debited and you failed to [top up](../operations/pay-the-bill.md) your personal account, the debit transaction will be repeated later. If the funds cannot be debited within one day, they may be debited from one of the bank cards linked to your Yandex account. <br/>If the funds cannot be debited from any of your bank cards, {{ yandex-cloud }} reserves the right to change the status of your billing account to [PAYMENT_REQUIRED](../concepts/billing-account-statuses.md). For more information, see step 10.
 
@@ -50,9 +50,10 @@ The diagram shows the cycle of debiting an individual's bank card, as well as su
 
    {% include [blocked-note](../_includes/blocked-note.md) %}
 
-#### See also
+#### See also {#see-also}
 
 - [Grant](../concepts/bonus-account.md)
 - [Billing threshold](../concepts/billing-threshold.md)
 - [Personal account](../concepts/personal-account.md)
 - [Billing account](../concepts/billing-account.md)
+- [How to deactivate a subscription](../qa/all.md#delete-account)

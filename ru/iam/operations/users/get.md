@@ -8,7 +8,6 @@
 
   {% include [users-info](../../../_includes/users-info.md) %}
 
-
 - CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
@@ -27,7 +26,7 @@
 
       Результат:
 
-      ```bash
+      ```text
       id: ajei8n5ahmfh********
       yandex_passport_user_account:
           login: just.mad.hatter
@@ -41,6 +40,5 @@
   Если вы знаете идентификатор пользователя, воспользуйтесь методом REST API [get](../../api-ref/UserAccount/get.md) для ресурса [UserAccount](../../api-ref/UserAccount/index.md) или вызовом gRPC API [UserAccountService/Get](../../api-ref/grpc/service_account_service.md#Get).
 
   Чтобы получить информацию о федеративных пользователях, воспользуйтесь методом REST API [listUserAccounts](../../../organization/api-ref/Federation/listUserAccounts) для ресурса [Federation](../../../organization/api-ref/Federation/) или вызовом gRPC API [FederationService/ListUserAccounts](../../../organization/api-ref/grpc/federation_service#ListUserAccounts). Чтобы получить информацию об определенном федеративном пользователе, примените фильтрацию по логину с помощью параметра `filter`.
-
 
 {% endlist %}

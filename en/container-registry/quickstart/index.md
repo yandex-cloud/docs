@@ -1,6 +1,6 @@
 # Getting started with {{ container-registry-name }}
 
-Use this guide to create your first [registry](../concepts/registry.md) and try your hand at managing [Docker images](../concepts/docker-image.md).
+Use this guide to create your first [registry](../concepts/registry.md) and try managing [Docker images](../concepts/docker-image.md).
 
 ## Getting started {#before-you-begin}
 
@@ -8,7 +8,7 @@ To create a registry, you will need a folder in {{ yandex-cloud }}. If you do no
 
 {% include [create-folder](../../_includes/create-folder.md) %}
 
-You will also need the [{{ yandex-cloud }} CLI](../../cli/quickstart.md) and [Docker](https://docs.docker.com/install/).
+To work with {{ container-registry-name }} and Docker images, [install the {{ yandex-cloud }} CLI](../../cli/operations/install-cli.md) and [configure](../operations/configure-docker.md) Docker.
 
 ## Creating a registry and performing basic operations on Docker images {#registry-create}
 
@@ -29,7 +29,7 @@ You will also need the [{{ yandex-cloud }} CLI](../../cli/quickstart.md) and [Do
    created_at: "2018-12-25T12:24:56.286Z"
    ```
 
-   You will use the `ID` received to access the created registry later.
+   You will use the received `ID` to access the created registry later.
 1. Authenticate in {{ container-registry-name }} using [Docker Credential helper](../operations/authentication.md#cred-helper):
    1. Configure Docker to use `docker-credential-yc`:
 
@@ -39,14 +39,14 @@ You will also need the [{{ yandex-cloud }} CLI](../../cli/quickstart.md) and [Do
 
       Result:
 
-      ```bash
+      ```text
       Credential helper is configured in '/home/<user>/.docker/config.json'
       ```
 
       During setup, information about the current user profile is saved.
    1. Make sure that Docker is configured.
 
-      The `/home/<user>/.docker/config.json` configuration file must include the following line:
+      In the `/home/<user>/.docker/config.json` configuration file, you should see the following line:
 
       ```json
       "{{ registry }}": "yc"
@@ -58,25 +58,25 @@ You will also need the [{{ yandex-cloud }} CLI](../../cli/quickstart.md) and [Do
    docker pull ubuntu
    ```
 
-1. Assign the pulled Docker image a tag in `{{ registry }}/<registry_ID>/<Docker_image_name>:<tag>` format:
+1. Assign the pulled Docker image a tag in this format: `{{ registry }}/<registry_ID>/<Docker_image_name>:<tag>`:
 
    ```bash
    docker tag ubuntu \
-   {{ registry }}/crpc9qeoft23********/ubuntu:hello
+   {{ registry }}/<registry_ID>/ubuntu:hello
    ```
 
 1. Push the Docker image to the repository {{ container-registry-name }}:
 
    ```bash
    docker push \
-   {{ registry }}/crpc9qeoft23********/ubuntu:hello
+   {{ registry }}/<registry_ID>/ubuntu:hello
    ```
 
 1. Run the Docker image:
 
    ```bash
    docker run \
-   {{ registry }}/crpc9qeoft23********/ubuntu:hello
+   {{ registry }}/<registry_ID>/ubuntu:hello
    ```
 
 #### See also {#see-also}

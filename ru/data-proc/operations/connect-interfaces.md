@@ -4,11 +4,7 @@
 
 ## UI Proxy {#ui-proxy}
 
-{% note warning %}
-
-Для использования UI Proxy может потребоваться дополнительная [настройка групп безопасности](connect.md#configuring-security-groups).
-
-{% endnote %}
+{% include [ui-proxy-sg-warning](../../_includes/data-proc/ui-proxy-sg-warning.md) %}
 
 ### Включить веб-интерфейсы компонентов {#ui-proxy-enable}
 
@@ -82,7 +78,7 @@
 
 ## Перенаправление портов {#routing}
 
-Чтобы получить доступ к сетевому интерфейсу компонента из интернета, [создайте](../../compute/operations/vm-create/create-linux-vm.md) промежуточную виртуальную машину в сервисе {{compute-full-name}}.
+Чтобы получить доступ к сетевому интерфейсу компонента из интернета, [создайте](../../compute/operations/vm-create/create-linux-vm.md) промежуточную виртуальную машину в сервисе {{ compute-full-name }}.
 
 Требования к промежуточной ВМ:
 

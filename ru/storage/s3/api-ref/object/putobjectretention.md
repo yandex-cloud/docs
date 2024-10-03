@@ -6,9 +6,11 @@
 
 Изменить установленную блокировку может только пользователь с [ролью `storage.admin`](../../../security/index.md). При изменении [управляемой блокировки](../../../concepts/object-lock.md#types) нужно использовать заголовок, подтверждающий обход блокировки (см. [ниже](#request-headers)). Строгую блокировку можно только продлить. Проверить блокировку можно с помощью метода [getObjectRetention](getobjectretention.md).
 
+{% include [s3-api-intro-include](../../../../_includes/storage/s3-api-intro-include.md) %}
+
 ## Запрос {#request}
 
-```
+```http
 PUT /{bucket}/{key}?retention&versionId={versionId} HTTP/2
 ```
 

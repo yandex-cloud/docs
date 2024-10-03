@@ -1,19 +1,19 @@
-# Disk types in {{ mkf-name }}
+# Storage in {{ mkf-name }}
 
 
-{{ mkf-name }} allows you to use network and local storage drives for database clusters. Network storage drives are based on network blocks, which are virtual disks in the {{ yandex-cloud }} infrastructure. Local disks are physically located on [broker servers](brokers.md).
+{{ mkf-name }} allows you to use network and local storage drives for database clusters. Network drives are based on network blocks, which are virtual disks in the {{ yandex-cloud }} infrastructure. Local disks are physically located on [broker servers](brokers.md).
 
 {% include [storage-type-nrd](../../_includes/mdb/mkf/storage-type.md) %}
 
 
-## Selecting disk type during cluster creation {#storage-type-selection}
+## Selecting the disk type during cluster creation {#storage-type-selection}
 
 
 The number of broker hosts that can be created along with an {{ KF }} cluster depends on the selected disk type:
 
-* With local SSD (`local-ssd`) or non-replicated SSD (`network-ssd-nonreplicated`) storage, you can create a cluster with three or more broker hosts.
+* With local SSDs (`local-ssd`) or non-replicated SSDs (`network-ssd-nonreplicated`), you can create a cluster with three or more broker hosts.
 
-   This cluster will be fail-safe only if it meets all [fault tolerance conditions](index.md#fault-tolerance).
+    This cluster will be fail-safe only if it meets all [fault tolerance conditions](index.md#fault-tolerance).
 
 * With network HDD (`network-hdd`) or network SSD (`network-ssd`) storage, you can add any number of broker hosts within the current quota.
 
@@ -27,7 +27,7 @@ In order to work, each [topic](topics.md#topics) requires space in broker host s
 
 {% note tip %}
 
-You can always [increase](../operations/cluster-update.md#change-disk-size) the storage size up to the current [quota]({{ link-console-quotas }}).
+You can always [increase](../operations/storage-space.md#change-disk-size) the storage size up to the current [quota]({{ link-console-quotas }}).
 
 {% endnote %}
 
@@ -43,6 +43,21 @@ At least two log segments are required for each replica of a topic partition. Yo
 * [At the topic level](../operations/cluster-topics.md#update-topic) using the [Segment bytes](settings-list.md#settings-topic-segment-bytes) setting.
 * Globally at the [cluster level](../operations/cluster-update.md#change-kafka-settings) using the [Log segment bytes](settings-list.md#settings-log-segment-bytes) setting.
 
-The minimum storage size for all topics is: `2 × maximum log segment size × number of partitions per cluster × replication factor`. If the cluster partitions are evenly distributed, you can divide the resulting value by the number of brokers to determine the required storage size per broker.
+Thus, the minimum storage size for all topics is: `2 × maximum log segment size × number of partitions in cluster × replication factor`. If the cluster partitions are evenly distributed, you can divide the resulting value by the number of brokers to determine the required storage size per broker.
 
 By default, the segment size is 1 GB.
+
+## Automatic increase of storage size {#auto-rescale}
+
+Automatic storage size increase prevents situations where the disk runs out of free space. The storage size increases upon reaching the specified trigger threshold: a percentage of the total capacity. There are two thresholds:
+
+* Scheduled increase threshold: When reached, the storage size increases during the next [maintenance window](maintenance.md#maintenance-window).
+* Immediate increase threshold: When reached, the storage size increases immediately.
+
+You can use either one or both thresholds. If you set both, make sure the immediate increase threshold is higher than the scheduled one.
+
+{% include [storage-resize-steps](../../_includes/mdb/mkf/storage-resize-steps.md) %}
+
+You can configure automatic increase of the storage size when [creating](../operations/cluster-create.md) or [updating a cluster](../operations/storage-space.md#disk-size-autoscale). If you set the scheduled increase threshold, you also need to configure the maintenance window schedule.
+
+{% include [warn-storage-resize](../../_includes/mdb/mpg/warn-storage-resize.md) %}

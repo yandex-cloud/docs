@@ -7,7 +7,7 @@ description: "Описан общий вид XML-структуры конфиг
 
 Общий вид ACL:
 
-```
+```xml
 <AccessControlPolicy>
   <Owner>
     <ID>8caede4d8w78r43d14f2e7fagrbf45c78ejc7c6cde********</ID>

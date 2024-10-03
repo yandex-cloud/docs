@@ -44,7 +44,7 @@
       | first-bucket     | b1gmit33ngp6******** | 0        | STANDARD              | 2022-12-16 13:58:18 |
       +------------------+----------------------+----------+-----------------------+---------------------+
       ```
-   
+
   1. Сохраните имя бакета (столбец `NAME`), размер которого нужно ограничить.
   1. Ограничьте максимальный размера бакета:
 
@@ -60,7 +60,7 @@
 
       Результат:
 
-      ```yaml
+      ```text
       name: first-bucket
       older_id: b1gmit33ngp6********
       default_storage_class: STANDARD
@@ -73,7 +73,7 @@
 - {{ TF }} {#tf}
 
   {% include [terraform-role](../../../_includes/storage/terraform-role.md) %}
- 
+
   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
   
@@ -107,9 +107,9 @@
      ```
      terraform validate
      ```
-     
+
      Если конфигурация является корректной, появится сообщение:
-     
+
      ```
      Success! The configuration is valid.
      ```
@@ -119,7 +119,7 @@
      ```
      terraform plan
      ```
-  
+
      В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Примените изменения конфигурации:
@@ -127,11 +127,11 @@
      ```
      terraform apply
      ```
-     
+
   1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
 
      Проверить изменение бакета можно в [консоли управления]({{ link-console-main }}).
-  
+
 - API {#api}
 
   Чтобы ограничить максимальный размер бакета, воспользуйтесь методом REST API [update](../../api-ref/Bucket/update.md) для ресурса [Bucket](../../api-ref/Bucket/index.md) или вызовом gRPC API [BucketService/Update](../../api-ref/grpc/bucket_service.md#Update).

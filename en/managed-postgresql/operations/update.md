@@ -449,7 +449,6 @@ You can change the DBMS settings of the hosts in your cluster.
 
    {% include [Performance diagnostic API](../../_includes/mdb/mpg/performance-diagnostics-api.md) %}
 
-   {% include [datatransfer access](../../_includes/mdb/api/datatransfer-access-create.md) %}
 
 {% endlist %}
 

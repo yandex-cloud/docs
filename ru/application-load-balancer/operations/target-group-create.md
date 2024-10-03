@@ -52,7 +52,7 @@ description: "Для создания целевой группы {{ alb-full-na
 
      Результат:
 
-      ```yaml
+      ```text
       id: a5d751meibht********
       name: <имя_целевой_группы>
       folder_id: aoerb349v3h4********
@@ -81,7 +81,7 @@ description: "Для создания целевой группы {{ alb-full-na
 
       Результат:
 
-      ```yaml
+      ```text
       id: ds7s2dld2usr********
       name: <имя_целевой_группы>
       folder_id: aoerb349v3h4********
@@ -176,3 +176,9 @@ description: "Для создания целевой группы {{ alb-full-na
   Воспользуйтесь методом REST API [create](../api-ref/TargetGroup/create.md) для ресурса [TargetGroup](../api-ref/TargetGroup/index.md) или вызовом gRPC API [TargetGroupService/Create](../api-ref/grpc/target_group_service.md#Create).
 
 {% endlist %}
+
+#### См. также {#see-also}
+
+* [{#T}](../tutorials/application-load-balancer-website.md)
+* [{#T}](../tutorials/logging.md)
+* [{#T}](../tutorials/alb-with-ddos-protection/console.md)

@@ -1,13 +1,13 @@
 ---
-title: "Configuring the {{ datalens-full-name }} service plan"
+title: "Configuring a {{ datalens-full-name }} service plan"
 description: "From this article, you will learn how to configure a service plan for {{ datalens-short-name }} by choosing a plan and adding a billing account."
 ---
 
-# Configuring the {{ datalens-short-name }} service plan
+# Configuring a {{ datalens-short-name }} service plan
 
 There are two [service plans](../pricing.md#service-plans) for {{ datalens-short-name }}: _Community_, which is free, and _Business_, for which you need to add a [billing account](../../billing/concepts/billing-account.md) for your organization.
 
- To [see](#info) which service plan you are currently using, as well as to [switch to another one](#change-service-plan) or [add a billing account](#add-billing-account), use the {{ datalens-short-name }} settings.
+To [see](#info) which service plan you are currently on, refer to {{ datalens-short-name }} settings. You can also [switch to another plan](#change-service-plan) or [add a billing account](#add-billing-account) from the same place.
 
 ## Viewing the service plan and billing account {#info}
 
@@ -34,6 +34,15 @@ To switch to a different service plan:
 1. Click **Confirm**.
 
 ## Adding a billing account {#add-billing-account}
+
+{% note info  %}
+
+To link a billing account, the user needs to following [roles](../security/roles.md#service-roles):
+
+* `billing.accounts.editor` or higher for a billing account.
+* `{{ roles-datalens-admin }}` for an organization with {{ datalens-short-name }} or roles including the `{{ roles-datalens-admin }}` permissions, such as `{{ roles-admin }}` or `{{ roles-organization-owner }}`.
+
+{% endnote %}
 
 To add a billing account:
 

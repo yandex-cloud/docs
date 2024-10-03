@@ -11,6 +11,8 @@ editable: false
 
 {% include [use-calculator](../_includes/pricing/use-calculator.md) %}
 
+{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
+
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
 {% include [pricing-status.md](../_includes/mdb/pricing-status.md) %}
@@ -37,9 +39,13 @@ editable: false
 
 * Размер хранилища, выделенный для кластеров БД.
 
+    
     * Хранилище на локальных SSD-дисках (`local-ssd`) можно заказывать только для кластеров с тремя хостами и более:
-                * для платформ Intel Broadwell и Intel Cascade Lake — с шагом 100 ГБ;
+        
+        * для платформ Intel Broadwell и Intel Cascade Lake — с шагом 100 ГБ;
         * для платформы Intel Ice Lake — с шагом {{ local-ssd-v3-step }}.
+
+
 
     * Хранилище на нереплицируемых SSD-дисках (`network-ssd-nonreplicated`) можно заказывать только для кластеров с тремя хостами и более, с шагом 93 ГБ.
 
@@ -76,8 +82,8 @@ editable: false
 
 
 
-
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
+
 
 
 Все цены указаны с включением НДС.

@@ -24,11 +24,11 @@ You can change the following parameters of a [{{ managed-k8s-name }} node group]
 * [IP address](../../../vpc/concepts/address.md) assignment method: internal only or both internal and external.
 * List of [security groups](../connect/security-groups.md).
 
-   {% note alert %}
+  {% note alert %}
 
-   Do not delete [security groups](../../../vpc/concepts/security-groups.md) attached to a running {{ managed-k8s-name }} node group as this may disrupt its operation and result in a loss of data.
+  Do not delete [security groups](../../../vpc/concepts/security-groups.md) attached to a running {{ managed-k8s-name }} node group as this may disrupt its operation and result in a loss of data.
 
-   {% endnote %}
+  {% endnote %}
 
 * [Computing resources](../../../compute/concepts/vm-platforms.md) and {{ managed-k8s-name }} node [disk](../../../compute/concepts/disk.md) size.
 * {{ managed-k8s-name }} node name template.
@@ -40,133 +40,133 @@ To learn how to change the [availability zone](../../../overview/concepts/geo-sc
 
 - Management console {#console}
 
-   To update a {{ managed-k8s-name }} node group:
-   1. Open **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}** in the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to update the {{ managed-k8s-name }} cluster.
-   1. Click the name of the {{ managed-k8s-name }} cluster.
-   1. Go to the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** tab.
-   1. Select the desired node group.
-   1. Click **{{ ui-key.yacloud.common.edit }}** in the top-right corner.
-   1. Change the required parameters in the window that opens.
-   1. Click **{{ ui-key.yacloud.common.save }}**.
+  To update a {{ managed-k8s-name }} node group:
+  1. Open **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}** in the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to update the {{ managed-k8s-name }} cluster.
+  1. Click the name of the {{ managed-k8s-name }} cluster.
+  1. Go to the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** tab.
+  1. Select the required node group.
+  1. Click **{{ ui-key.yacloud.common.edit }}** in the top-right corner.
+  1. Change the required parameters in the window that opens.
+  1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
-   Get detailed information about the command to edit the {{ managed-k8s-name }} node group:
+  Get detailed information about the command to edit the {{ managed-k8s-name }} node group:
 
-   ```bash
-   yc managed-kubernetes node-group update --help
-   ```
+  ```bash
+  yc managed-kubernetes node-group update --help
+  ```
 
-   Use the following flags to update the {{ managed-k8s-name }} node group:
+  Use the following flags to update the {{ managed-k8s-name }} node group:
 
-   * `--new-name`: Change the name.
-   * `--description`: Edit the description.
-   * `--service-account-id`, `--service-account-name`: Edit the [service account](../../../iam/concepts/index.md#sa) resource.
-   * `--node-service-account-id`, `--node-service-account-name`: Update the service account for {{ managed-k8s-name }} nodes.
-   * `--version`: Change the {{ k8s }} version.
-   * `--network-interface`: [Network](../../../vpc/concepts/network.md#network) settings:
+  * `--new-name`: Change name.
+  * `--description`: Change description.
+  * `--service-account-id`, `--service-account-name`: Change [service account](../../../iam/concepts/index.md#sa) for resources.
+  * `--node-service-account-id`, `--node-service-account-name`: Change service account for {{ managed-k8s-name }} nodes.
+  * `--version`: Change {{ k8s }} version.
+  * `--network-interface`: [Network](../../../vpc/concepts/network.md#network) settings:
 
-      {% include [network-interface](../../../_includes/managed-kubernetes/cli-network-interface.md) %}
+    {% include [network-interface](../../../_includes/managed-kubernetes/cli-network-interface.md) %}
 
-   * `--network-acceleration-type`: Type of [network acceleration](../../../compute/concepts/software-accelerated-network.md):
-      * `standard`: No acceleration.
-      * `software-accelerated`: Software-accelerated network.
+  * `--network-acceleration-type`: Change [network acceleration](../../../compute/concepts/software-accelerated-network.md) type:
+    * `standard`: No acceleration.
+    * `software-accelerated`: Software-accelerated network.
 
-         {% include [note-software-accelerated-network](../../../_includes/managed-kubernetes/note-software-accelerated-network.md) %}
+      {% include [note-software-accelerated-network](../../../_includes/managed-kubernetes/note-software-accelerated-network.md) %}
 
-   * `--node-name`: Update the node {{ managed-k8s-name }} name template. The name is unique if the template contains at least one of the following variables:
+  * `--node-name`: Change name template for {{ managed-k8s-name }} nodes. The name is unique if the template contains at least one of the following variables:
 
-      {% include [node-name](../../../_includes/managed-kubernetes/node-name.md) %}
+    {% include [node-name](../../../_includes/managed-kubernetes/node-name.md) %}
 
-   * `--template-labels`: Update [node group cloud labels](../../../resource-manager/concepts/labels.md) in `<label_name>=<label_value>` format. You can specify multiple labels separated by commas.
-   * `--latest-revision`: Get all available updates for the current [{{ managed-k8s-name }} master](../../concepts/index.md#master) version.
-   * Scaling settings:
+  * `--template-labels`: Change [node group cloud labels](../../../resource-manager/concepts/labels.md) formatted as `<label_name>=<label_value>`. You can specify multiple labels separated by commas.
+  * `--latest-revision`: Get all available updates for the current [{{ managed-k8s-name }}](../../concepts/index.md#master) master version.
+  * Scaling settings:
 
-      * `--fixed-size`: Changing the fixed number of nodes in the {{ managed-k8s-name }} node group.
-      * `--auto-scale`: Changing the [{{ managed-k8s-name }} cluster automatic scaling](../../concepts/node-group/cluster-autoscaler.md) settings:
+    * `--fixed-size`: Change fixed number of nodes in a {{ managed-k8s-name }} node group.
+    * `--auto-scale`: Change [automatic scaling settings of the {{ managed-k8s-name }}](../../concepts/node-group/cluster-autoscaler.md) cluster:
 
-         * `min`: Minimum number of nodes in the group.
-         * `max`: Maximum number of nodes in the group.
-         * `initial`: Initial number of nodes in the group.
+      * `min`: Minimum number of nodes in the group.
+      * `max`: Maximum number of nodes in the group.
+      * `initial`: Initial number of nodes in the group.
 
-      You cannot change the scaling type.
+    You cannot change the scaling type.
 
-   * `--auto-upgrade`: Manage automatic updates.
-   * Managing the maintenance window:
-      * `--anytime-maintenance-window`: Update at any time.
-      * `--daily-maintenance-window`: Update daily at the selected time.
-      * `--weekly-maintenance-window`: Update on selected days.
+  * `--auto-upgrade`: Manage automatic updates.
+  * Managing the maintenance window:
+    * `--anytime-maintenance-window`: Update at any time.
+    * `--daily-maintenance-window`: Update daily at the selected time.
+    * `--weekly-maintenance-window`: Update on selected days.
 
-   {% note warning %}
+  {% note warning %}
 
-   * The `user-data` metadata key is not supported for VM post-configuration or user data transmission.
-   * To manage SSH keys, [use the `ssh-keys` key](../../../compute/concepts/vm-metadata.md).
-   * For post-configuring nodes, use privileged DaemonSets. For example, [sysctl-tuner](https://github.com/elemir/yc-recipes/tree/master/sysctl-tuner).
+  * The `user-data` metadata key is not supported for VM post-configuration or user data transmission.
+  * To manage SSH keys, [use the `ssh-keys` key](../../../compute/concepts/vm-metadata.md).
+  * For post-configuring nodes, use privileged DaemonSets. For example, [sysctl-tuner](https://github.com/elemir/yc-recipes/tree/master/sysctl-tuner).
 
-   {% endnote %}
+  {% endnote %}
 
 - {{ TF }} {#tf}
 
-   To update a {{ managed-k8s-name }} node group:
-   1. Open the current {{ TF }} configuration file describing the {{ managed-k8s-name }} node group.
+  To update a {{ managed-k8s-name }} node group:
+  1. Open the current {{ TF }} configuration file describing the {{ managed-k8s-name }} node group.
 
-      For more information about creating this file, see [{#T}](node-group-create.md).
-   1. Edit the {{ managed-k8s-name }} node group description properties.
+     For more information about creating this file, see [{#T}](node-group-create.md).
+  1. Edit the {{ managed-k8s-name }} node group description properties.
 
-      * To change the scaling settings, make the following changes in the `scale_policy` block:
+     * To change the scaling settings, make the following changes in the `scale_policy` section:
 
-         * For fixed scaling, change the value of the `fixed_scale.size` parameter.
-         * For [automatic scaling](../../concepts/node-group/cluster-autoscaler.md), change the parameters in the `auto_scale` block:
+       * For fixed scaling, change the `fixed_scale.size` parameter.
+       * For [automatic scaling](../../concepts/node-group/cluster-autoscaler.md), change the `auto_scale` section parameters:
 
-            * `min`: Minimum number of nodes in the group.
-            * `max`: Maximum number of nodes in the group.
-            * `initial`: Initial number of nodes in the group.
+          * `min`: Minimum number of nodes in the group.
+          * `max`: Maximum number of nodes in the group.
+          * `initial`: Initial number of nodes in the group.
 
-         You cannot change the scaling type.
+       You cannot change the scaling type.
 
-      * To update the [node group cloud labels](../../../resource-manager/concepts/labels.md), add the `instance_template.labels` section:
+     * To update the [node group cloud labels](../../../resource-manager/concepts/labels.md), add the `instance_template.labels` section:
 
-         ```hcl
-         resource "yandex_kubernetes_node_group" "<node_group_name>" {
+       ```hcl
+       resource "yandex_kubernetes_node_group" "<node_group_name>" {
+         ...
+         instance_template {
            ...
-           instance_template {
-             ...
-             labels {
-               "<label_name>"="<label_value>"
-             }
+           labels {
+             "<label_name>"="<label_value>"
            }
          }
-         ```
+       }
+       ```
 
-      * To change the {{ managed-k8s-name }} node name template, update the `instance_template.name` parameter. The name is unique if the template contains at least one of the following variables:
+     * To change the {{ managed-k8s-name }} node name template, update the `instance_template.name` parameter. The name is unique if the template contains at least one of the following variables:
 
-         {% include [node-name](../../../_includes/managed-kubernetes/node-name.md) %}
+       {% include [node-name](../../../_includes/managed-kubernetes/node-name.md) %}
 
-      * To update [DNS records](../../../dns/concepts/resource-record.md):
+     * To update [DNS records](../../../dns/concepts/resource-record.md):
 
-         {% include [node-name](../../../_includes/managed-kubernetes/tf-node-name.md) %}
+       {% include [node-name](../../../_includes/managed-kubernetes/tf-node-name.md) %}
 
-   1. Make sure the configuration files are correct.
+  1. Make sure the configuration files are correct.
 
-      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
+     {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm updating the resources.
+  1. Confirm updating the resources.
 
-      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
+     {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
-      For more information, see the [{{ TF }} provider documentation]({{ tf-provider-k8s-nodegroup }}).
+     For more information, see the [{{ TF }} provider documentation]({{ tf-provider-k8s-nodegroup }}).
 
 - API {#api}
 
-   To update a [{{ managed-k8s-name }} node group's](../../concepts/index.md#node-group) properties, use the [update](../../api-ref/NodeGroup/update.md) method for the [NodeGroup](../../api-ref/NodeGroup) resource.
+  To update a [{{ managed-k8s-name }} node group's](../../concepts/index.md#node-group) properties, use the [update](../../api-ref/NodeGroup/update.md) method for the [NodeGroup](../../api-ref/NodeGroup) resource.
 
-   To update the [node group cloud labels](../../../resource-manager/concepts/labels.md), provide their values in the `nodeTemplate.labels` parameter.
+  To update the [node group cloud labels](../../../resource-manager/concepts/labels.md), provide their values in the `nodeTemplate.labels` parameter.
 
-   To update the {{ managed-k8s-name }} node name template, provide it in the `nodeTemplate.name` parameter. The name is unique if the template contains at least one of the following variables:
+  To update the {{ managed-k8s-name }} node name template, provide it in the `nodeTemplate.name` parameter. The name is unique if the template contains at least one of the following variables:
 
-   {% include [node-name](../../../_includes/managed-kubernetes/node-name.md) %}
+  {% include [node-name](../../../_includes/managed-kubernetes/node-name.md) %}
 
-   To update [DNS records](../../../dns/concepts/resource-record.md), provide their settings in the `nodeTemplate.v4AddressSpec.dnsRecordSpecs` parameter. In a DNS record's FQDN, you can use the `nodeTemplate.name` node name template with variables.
+  To update [DNS records](../../../dns/concepts/resource-record.md), provide their settings in the `nodeTemplate.v4AddressSpec.dnsRecordSpecs` parameter. In a DNS record's FQDN, you can use the `nodeTemplate.name` node name template with variables.
 
 {% endlist %}
 
@@ -176,45 +176,45 @@ To learn how to change the [availability zone](../../../overview/concepts/geo-sc
 
 - Management console {#console}
 
-   1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-   1. Click the VM name.
-   1. Under **{{ ui-key.yacloud.compute.instance.overview.section_network }}**, click ![options](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.compute.instance.overview.button_add-public-ip }}**.
-   1. Specify the appropriate settings and click **{{ ui-key.yacloud.component.compute.one-to-one-nat-form.button_submit }}**.
+  1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. Click the VM name.
+  1. Under **{{ ui-key.yacloud.compute.instance.overview.section_network }}**, click ![options](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.compute.instance.overview.button_add-public-ip }}**.
+  1. Specify the appropriate settings and click **{{ ui-key.yacloud.component.compute.one-to-one-nat-form.button_submit }}**.
 
 - CLI {#cli}
 
-   {% include [cli-install](../../../_includes/cli-install.md) %}
+  {% include [cli-install](../../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-   To enable access to [{{ managed-k8s-name }} nodes](../../concepts/index.md#node-group) from the internet:
-   1. Get detailed information about the command to edit the {{ managed-k8s-name }} node group:
+  To enable access to [{{ managed-k8s-name }} nodes](../../concepts/index.md#node-group) from the internet:
+  1. Get detailed information about the command to edit the {{ managed-k8s-name }} node group:
 
-      ```bash
-      {{ yc-k8s }} node-group update --help
-      ```
+     ```bash
+     {{ yc-k8s }} node-group update --help
+     ```
 
-   1. Run the node group update command with the `--network-interface` flag set:
+  1. Run the node group update command with the `--network-interface` flag set:
 
-      ```bash
-      {{ yc-k8s }} node-group update <node_group_ID_or_name> \
-      ...
-        --network-interface subnets=<name_of_node_group_subnet>, ipv4-address=nat
-      ```
+     ```bash
+     {{ yc-k8s }} node-group update <node_group_ID_or_name> \
+     ...
+       --network-interface subnets=<node_group_subnet_name>, ipv4-address=nat
+     ```
 
-      You can find out the names and IDs of {{ managed-k8s-name }} node groups from the [list of node groups in the folder](node-group-list.md#list).
+     You can find out the names and IDs of {{ managed-k8s-name }} node groups from the [list of node groups in the folder](node-group-list.md#list).
 
 - API {#api}
 
-   Use the [update](../../api-ref/NodeGroup/update.md) method for the [NodeGroup](../../api-ref/NodeGroup) resource.
+  Use the [update](../../api-ref/NodeGroup/update.md) method for the [NodeGroup](../../api-ref/NodeGroup) resource.
 
 {% endlist %}
 
-Alternatively, you can grant internet access permission to {{ managed-k8s-name }} cluster nodes by creating and setting up a [NAT gateway](../../../vpc/operations/create-nat-gateway.md) or [NAT instance](../../../vpc/tutorials/nat-instance.md). As a result, through [static routing](../../../vpc/concepts/static-routes.md), traffic will be routed via the gateway or a separate VM instance with NAT features.
+Alternatively, you can grant internet access permission to {{ managed-k8s-name }} cluster nodes by creating and setting up a [NAT gateway](../../../vpc/operations/create-nat-gateway.md) or [NAT instance](../../../vpc/tutorials/nat-instance/index.md). As a result, through [static routing](../../../vpc/concepts/routing.md), traffic will be routed via the gateway or a separate VM instance with NAT features.
 
 {% note info %}
 
-If you assigned public IP addresses to the cluster nodes and then configured the NAT gateway or NAT instance, internet access via the public IP addresses will be disabled. For more information, see the [{{ vpc-full-name }} documentation](../../../vpc/concepts/static-routes.md#internet-routes).
+If you assigned public IP addresses to the cluster nodes and then configured the NAT gateway or NAT instance, internet access via the public IP addresses will be disabled. For more information, see the [{{ vpc-full-name }} documentation](../../../vpc/concepts/routing.md#internet-routes).
 
 {% endnote %}
 
@@ -226,51 +226,51 @@ Adding [taints](../../concepts/index.md#taints-tolerations) results in recreatio
 
 - {{ TF }} {#tf}
 
-   To place a taint on a node group:
+  To place a taint on a node group:
 
-   1. Open the current {{ TF }} configuration file describing the {{ managed-k8s-name }} node group.
+  1. Open the current {{ TF }} configuration file describing the {{ managed-k8s-name }} node group.
 
-      For more information about creating this file, see [{#T}](node-group-create.md).
+     For more information about creating this file, see [{#T}](node-group-create.md).
 
-   1. Add the `node_taints` section to the node group description:
+  1. Add the `node_taints` section to the node group description:
 
-      ```hcl
-      resource "yandex_kubernetes_node_group" "<node_group_name>" {
-        ...
-        node_taints = [
-          "<key>=<value>:<taint effect>",
-          ...
-        ]
-        ...
-      }
-      ```
+     ```hcl
+     resource "yandex_kubernetes_node_group" "<node_group_name>" {
+       ...
+       node_taints = [
+         "<key>=<value>:<taint_effect>",
+         ...
+       ]
+       ...
+     }
+     ```
 
-      Specify a key and value. Select one of the available taint effects:
+     Specify a key and value. Select one of the available taint effects:
 
-      * `NoSchedule`: Prohibit running new pods on the group's nodes (it does not affect the running pods).
-      * `PreferNoSchedule`: Avoid running pods on the group's nodes if there are resources available for this purpose in other groups.
-      * `NoExecute`: Stop pods on the group's nodes, evict them to other groups, and prohibit running new pods.
+     * `NoSchedule`: Prohibit running new pods on the group's nodes (it does not affect the running ones).
+     * `PreferNoSchedule`: Avoid running pods on the group's nodes if there are resources available for this purpose in other groups.
+     * `NoExecute`: Stop pods on the group's nodes, evict them to other groups, and prohibit running new pods.
 
-      You can place multiple taints by specifying them separated by commas.
+     You can place multiple taints by specifying them separated by commas.
 
-   1. Make sure the configuration files are correct.
+  1. Make sure the configuration files are correct.
 
-      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
+     {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm updating the resources.
+  1. Confirm updating the resources.
 
-      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
+     {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
-      For more information, see the [{{ TF }} provider documentation]({{ tf-provider-k8s-nodegroup }}).
+     For more information, see the [{{ TF }} provider documentation]({{ tf-provider-k8s-nodegroup }}).
 
 - API {#api}
 
-   To place a taint on a node group, use the [update](../../api-ref/NodeGroup/update.md) method for the [NodeGroup](../../api-ref/NodeGroup/index.md) and provide the following in the request:
+  To place a taint on a node group, use the [update](../../api-ref/NodeGroup/update.md) method for the [NodeGroup](../../api-ref/NodeGroup/index.md) and provide the following in the request:
 
-   * Taints in the `nodeTaints` parameter.
-   * `nodeTaints` parameter to update in the `updateMask` parameter.
+  * Taints in the `nodeTaints` parameter.
+  * The updatable `nodeTaints` parameter in the `updateMask` parameter.
 
-   {% include [Note API updateMask](../../../_includes/note-api-updatemask.md) %}
+  {% include [Note API updateMask](../../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
@@ -282,32 +282,32 @@ Removing [taints](../../concepts/index.md#taints-tolerations) results in recreat
 
 - {{ TF }} {#tf}
 
-   To remove a taint from a node group:
+  To remove a taint from a node group:
 
-   1. Open the current {{ TF }} configuration file describing the {{ managed-k8s-name }} node group.
+  1. Open the current {{ TF }} configuration file describing the {{ managed-k8s-name }} node group.
 
-      For more information about creating this file, see [{#T}](node-group-create.md).
+     For more information about creating this file, see [{#T}](node-group-create.md).
 
-   1. In the node group description, remove the taints you no longer need under `node_taints`.
+  1. In the node group description, remove the taints you no longer need under `node_taints`.
 
-   1. Make sure the configuration files are correct.
+  1. Make sure the configuration files are correct.
 
-      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
+     {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm updating the resources.
+  1. Confirm updating the resources.
 
-      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
+     {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
-      For more information, see the [{{ TF }} provider documentation]({{ tf-provider-k8s-nodegroup }}).
+     For more information, see the [{{ TF }} provider documentation]({{ tf-provider-k8s-nodegroup }}).
 
 - API {#api}
 
-   To remove a taint from a node group, use the [update](../../api-ref/NodeGroup/update.md) method for the [NodeGroup](../../api-ref/NodeGroup/index.md) and provide the following in the request:
+  To remove a taint from a node group, use the [update](../../api-ref/NodeGroup/update.md) method for the [NodeGroup](../../api-ref/NodeGroup/index.md) and provide the following in the request:
 
-   * New set of taints in the `nodeTaints` parameter. If you want to remove all the taints, provide `"nodeTaints": []` in the request.
-   * `nodeTaints` parameter to update in the `updateMask` parameter.
+  * A new set of taints in the `nodeTaints` parameter. If you want to remove all taints, put `"nodeTaints": []` in the request.
+  * `nodeTaints` parameter to update in the `updateMask` parameter.
 
-   {% include [Note API updateMask](../../../_includes/note-api-updatemask.md) %}
+  {% include [Note API updateMask](../../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
@@ -324,50 +324,50 @@ You can perform the following actions with [cloud labels](../../../resource-mana
 
 - CLI {#cli}
 
-   {% include [cli-install](../../../_includes/cli-install.md) %}
+  {% include [cli-install](../../../_includes/cli-install.md) %}
 
-   Add a cloud label to a [{{ managed-k8s-name }} node group](../../concepts/index.md#node-group):
+  Add a cloud label to a [{{ managed-k8s-name }} node group](../../concepts/index.md#node-group):
 
-   ```bash
-   yc managed-kubernetes node-group add-labels my-node-group --labels new_label=test_label
-   ```
+  ```bash
+  yc managed-kubernetes node-group add-labels my-node-group --labels new_label=test_label
+  ```
 
-   Result:
+  Result:
 
-   ```text
-   done (28s)
-   id: catpl8c44kii********
-   cluster_id: catcsqidoos7********
-   ...
-   ```
+  ```text
+  done (28s)
+  id: catpl8c44kii********
+  cluster_id: catcsqidoos7********
+  ...
+  ```
 
 - {{ TF }} {#tf}
 
-   1. Open the current {{ TF }} configuration file describing the {{ managed-k8s-name }} node group.
+  1. Open the current {{ TF }} configuration file describing the {{ managed-k8s-name }} node group.
 
-      For more information about creating this file, see [{#T}](node-group-create.md).
-   1. Add the `labels` property to the {{ managed-k8s-name }} node group description:
+     For more information about creating this file, see [{#T}](node-group-create.md).
+  1. Add the `labels` parameter to the {{ managed-k8s-name }} node group description:
 
-      ```hcl
-      resource "yandex_kubernetes_node_group" "<node_group_name>" {
-        cluster_id = yandex_kubernetes_cluster.<cluster_name>.id
-        ...
-        labels = {
-          "<cloud_label>" = "<value>"
-        }
-        ...
-      }
-      ```
+     ```hcl
+     resource "yandex_kubernetes_node_group" "<node_group_name>" {
+       cluster_id = yandex_kubernetes_cluster.<cluster_name>.id
+       ...
+       labels = {
+         "<cloud_label>" = "<value>"
+       }
+       ...
+     }
+     ```
 
-   1. Make sure the configuration files are correct.
+  1. Make sure the configuration files are correct.
 
-      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
+     {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm updating the resources.
+  1. Confirm updating the resources.
 
-      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
+     {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-k8s-nodegroup }}).
+  For more information, see the [{{ TF }} provider documentation]({{ tf-provider-k8s-nodegroup }}).
 
 {% endlist %}
 
@@ -377,55 +377,55 @@ You can perform the following actions with [cloud labels](../../../resource-mana
 
 - CLI {#cli}
 
-   Update a cloud label of a {{ managed-k8s-name }} node group:
+  Update a cloud label of a {{ managed-k8s-name }} node group:
 
-   {% note warning %}
+  {% note warning %}
 
-   The existing set of `labels` is completely overwritten by the one transmitted in the request.
+  The existing `labels` will be completely overwritten by the ones you provide in your request.
 
-   {% endnote %}
+  {% endnote %}
 
-   ```bash
-   yc managed-kubernetes node-group update my-node-group --labels test_label=my_ng_label
-   ```
+  ```bash
+  yc managed-kubernetes node-group update my-node-group --labels test_label=my_ng_label
+  ```
 
-   Result:
+  Result:
 
-   ```text
-   done (3s)
-   id: catpl8c44kii********
-   cluster_id: catcsqidoos7********
-   ...
-   ```
+  ```text
+  done (3s)
+  id: catpl8c44kii********
+  cluster_id: catcsqidoos7********
+  ...
+  ```
 
 - {{ TF }} {#tf}
 
-   1. Open the current {{ TF }} configuration file describing the {{ managed-k8s-name }} node group.
+  1. Open the current {{ TF }} configuration file describing the {{ managed-k8s-name }} node group.
 
-      For more information about creating this file, see [{#T}](node-group-create.md).
-   1. Edit the `labels` property in the {{ managed-k8s-name }} node group description:
+     For more information about creating this file, see [{#T}](node-group-create.md).
+  1. Edit the `labels` property in the {{ managed-k8s-name }} node group description:
 
-      ```hcl
-      resource "yandex_kubernetes_node_group" "<node_group_name>" {
-        cluster_id = yandex_kubernetes_cluster.<cluster_name>.id
-        ...
-        labels = {
-          "<cloud_label>" = "<value>"
-          ...
-        }
-        ...
-      }
-      ```
+     ```hcl
+     resource "yandex_kubernetes_node_group" "<node_group_name>" {
+       cluster_id = yandex_kubernetes_cluster.<cluster_name>.id
+       ...
+       labels = {
+         "<cloud_label>" = "<value>"
+         ...
+       }
+       ...
+     }
+     ```
 
-   1. Make sure the configuration files are correct.
+  1. Make sure the configuration files are correct.
 
-      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
+     {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm updating the resources.
+  1. Confirm updating the resources.
 
-      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
+     {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-k8s-nodegroup }}).
+  For more information, see the [{{ TF }} provider documentation]({{ tf-provider-k8s-nodegroup }}).
 
 {% endlist %}
 
@@ -435,40 +435,40 @@ You can perform the following actions with [cloud labels](../../../resource-mana
 
 - CLI {#cli}
 
-   Delete a cloud label of a {{ managed-k8s-name }} node group:
+  Delete a cloud label of a {{ managed-k8s-name }} node group:
 
-   ```bash
-   yc managed-kubernetes node-group remove-labels my-node-group --labels test_label
-   ```
+  ```bash
+  yc managed-kubernetes node-group remove-labels my-node-group --labels test_label
+  ```
 
-   Result:
+  Result:
 
-   ```text
-   done (2s)
-   id: catpl8c44kii********
-   cluster_id: catcsqidoos7********
-   ...
-   ```
+  ```text
+  done (2s)
+  id: catpl8c44kii********
+  cluster_id: catcsqidoos7********
+  ...
+  ```
 
 - {{ TF }} {#tf}
 
-   1. Open the current {{ TF }} configuration file describing the {{ managed-k8s-name }} node group.
+  1. Open the current {{ TF }} configuration file describing the {{ managed-k8s-name }} node group.
 
-      For more information about creating this file, see [{#T}](node-group-create.md).
-   1. In the {{ managed-k8s-name }} node group description, delete the cloud labels you no longer need under `labels`.
-   1. Make sure the configuration files are correct.
+     For more information about creating this file, see [{#T}](node-group-create.md).
+  1. In the {{ managed-k8s-name }} node group description, delete the cloud labels you no longer need under `labels`.
+  1. Make sure the configuration files are correct.
 
-      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
+     {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm updating the resources.
+  1. Confirm updating the resources.
 
-      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
+     {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-k8s-nodegroup }}).
+  For more information, see the [{{ TF }} provider documentation]({{ tf-provider-k8s-nodegroup }}).
 
 {% endlist %}
 
-## Changing the connection method to nodes in a node group {#switch-node-connect-mode}
+## Changing the method of connecting to nodes in a node group {#switch-node-connect-mode}
 
 {% include [node-connect-mode-reconciling-warning](../../../_includes/managed-kubernetes/node-connect-mode-reconciling-warning.md) %}
 
@@ -476,56 +476,56 @@ You can perform the following actions with [cloud labels](../../../resource-mana
 
 - Management console {#console}
 
-   1. Open **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}** in the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to update the {{ managed-k8s-name }} cluster.
-   1. Click the name of the {{ managed-k8s-name }} cluster.
-   1. Go to the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** tab.
-   1. Select the required node group.
-   1. Click **{{ ui-key.yacloud.common.edit }}** in the top-right corner.
-   1. Change the settings for connection methods:
+    1. Open **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}** in the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to update the {{ managed-k8s-name }} cluster.
+    1. Click the name of the {{ managed-k8s-name }} cluster.
+    1. Go to the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** tab.
+    1. Select the required node group.
+    1. Click **{{ ui-key.yacloud.common.edit }}** in the top-right corner.
+    1. Change the connection method settings:
 
-      1. To enable or disable access to nodes via {{ oslogin }}, use the **{{ ui-key.yacloud.compute.instances.create.field_os-login-access-method }}** option.
+        1. To enable or disable access to nodes via {{ oslogin }}, use the **{{ ui-key.yacloud.compute.instances.create.field_os-login-access-method }}** option.
 
-         {% include [note-oslogin-ssh-warning](../../../_includes/managed-kubernetes/note-oslogin-ssh-warning.md) %}
+            {% include [note-oslogin-ssh-warning](../../../_includes/managed-kubernetes/note-oslogin-ssh-warning.md) %}
 
-         {% include [configure-connect-oslogin](../../../_includes/managed-kubernetes/configure-connect-oslogin.md) %}
+            {% include [configure-connect-oslogin](../../../_includes/managed-kubernetes/configure-connect-oslogin.md) %}
 
-      1. {% include [enable-ssh-access](../../../_includes/managed-kubernetes/enable-ssh-access.md) %}
+        1. {% include [enable-ssh-access](../../../_includes/managed-kubernetes/enable-ssh-access.md) %}
 
-         {% include [configure-connect-ssh](../../../_includes/managed-kubernetes/configure-connect-ssh.md) %}
+            {% include [configure-connect-ssh](../../../_includes/managed-kubernetes/configure-connect-ssh.md) %}
 
-      1. {% include [disable-ssh-access](../../../_includes/managed-kubernetes/disable-ssh-access.md) %}
+        1. {% include [disable-ssh-access](../../../_includes/managed-kubernetes/disable-ssh-access.md) %}
 
-   1. Click **{{ ui-key.yacloud.common.save }}**.
+    1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
-   1. {% include [configure-oslogin-access](../../../_includes/managed-kubernetes/configure-oslogin-access.md) %}
+    1. {% include [configure-oslogin-access](../../../_includes/managed-kubernetes/configure-oslogin-access.md) %}
 
-   1. {% include [enable-ssh-access](../../../_includes/managed-kubernetes/enable-ssh-access.md) %}
+    1. {% include [enable-ssh-access](../../../_includes/managed-kubernetes/enable-ssh-access.md) %}
 
-      {% include [configure-connect-ssh](../../../_includes/managed-kubernetes/configure-connect-ssh.md) %}
+        {% include [configure-connect-ssh](../../../_includes/managed-kubernetes/configure-connect-ssh.md) %}
 
-   1. {% include [disable-ssh-access](../../../_includes/managed-kubernetes/disable-ssh-access.md) %}
+    1. {% include [disable-ssh-access](../../../_includes/managed-kubernetes/disable-ssh-access.md) %}
 
 - {{ TF }} {#tf}
 
-   1. {% include [configure-oslogin-access](../../../_includes/managed-kubernetes/configure-oslogin-access.md) %}
+    1. {% include [configure-oslogin-access](../../../_includes/managed-kubernetes/configure-oslogin-access.md) %}
 
-   1. {% include [enable-ssh-access](../../../_includes/managed-kubernetes/enable-ssh-access.md) %}
+    1. {% include [enable-ssh-access](../../../_includes/managed-kubernetes/enable-ssh-access.md) %}
 
-      {% include [configure-connect-ssh](../../../_includes/managed-kubernetes/configure-connect-ssh.md) %}
+        {% include [configure-connect-ssh](../../../_includes/managed-kubernetes/configure-connect-ssh.md) %}
 
-   1. {% include [disable-ssh-access](../../../_includes/managed-kubernetes/disable-ssh-access.md) %}
+    1. {% include [disable-ssh-access](../../../_includes/managed-kubernetes/disable-ssh-access.md) %}
 
 - API {#api}
 
-   1. {% include [configure-oslogin-access](../../../_includes/managed-kubernetes/configure-oslogin-access.md) %}
+    1. {% include [configure-oslogin-access](../../../_includes/managed-kubernetes/configure-oslogin-access.md) %}
 
-   1. {% include [enable-ssh-access](../../../_includes/managed-kubernetes/enable-ssh-access.md) %}
+    1. {% include [enable-ssh-access](../../../_includes/managed-kubernetes/enable-ssh-access.md) %}
 
-      {% include [configure-connect-ssh](../../../_includes/managed-kubernetes/configure-connect-ssh.md) %}
+        {% include [configure-connect-ssh](../../../_includes/managed-kubernetes/configure-connect-ssh.md) %}
 
-   1. {% include [disable-ssh-access](../../../_includes/managed-kubernetes/disable-ssh-access.md) %}
+    1. {% include [disable-ssh-access](../../../_includes/managed-kubernetes/disable-ssh-access.md) %}
 
 {% endlist %}
 
@@ -535,7 +535,7 @@ You can perform the following actions with [cloud labels](../../../resource-mana
 
 {% include [node-group-metadata-warning](../../../_includes/managed-kubernetes/node-group-metadata-warning.md) %}
 
-After the metadata is changed, the node group status will temporarily change to `Reconciling`: all the nodes will be recreated for the changes to apply.
+After you change the metadata, the node group status will temporarily change to `Reconciling`: all the group's nodes will be recreated for the changes to take effect.
 
 {% endnote %}
 
@@ -543,140 +543,140 @@ After the metadata is changed, the node group status will temporarily change to 
 
 - Management console {#console}
 
-   1. Open **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}** in the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to update the {{ managed-k8s-name }} cluster.
-   1. Click the name of the {{ managed-k8s-name }} cluster.
-   1. Go to the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** tab.
-   1. Select the required node group.
-   1. Click **{{ ui-key.yacloud.common.edit }}** in the top-right corner.
-   1. Open the **{{ ui-key.yacloud.common.metadata }}** block and edit, add, or remove metadata for the nodes.
+    1. Open **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}** in the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to update the {{ managed-k8s-name }} cluster.
+    1. Click the name of the {{ managed-k8s-name }} cluster.
+    1. Go to the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** tab.
+    1. Select the required node group.
+    1. Click **{{ ui-key.yacloud.common.edit }}** in the top-right corner.
+    1. Open the **{{ ui-key.yacloud.common.metadata }}** block and edit, add, or remove metadata for the nodes.
 
-      To add metadata, click **{{ ui-key.yacloud.common.metadata-add-field }}**. Specify the key and value of each metadata element in a separate set of fields.
+        To add metadata, click **{{ ui-key.yacloud.common.metadata-add-field }}**. Specify the key and value for each metadata element in a separate set of fields.
 
-   1. Click **{{ ui-key.yacloud.common.save }}**.
+    1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
-   {% include [cli-install](../../../_includes/cli-install.md) %}
+    {% include [cli-install](../../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-   1. To add or modify metadata with a specific key:
+    1. To add or modify metadata with a specific key:
 
-      1. View the description of the CLI command for adding and updating the {{ managed-k8s-name }} node group metadata:
+        1. View the description of the CLI command for adding and updating the {{ managed-k8s-name }} node group metadata:
 
-         ```bash
-         {{ yc-k8s }} node-group add-metadata --help
-         ```
+            ```bash
+            {{ yc-k8s }} node-group add-metadata --help
+            ```
 
-      1. To add new metadata or modify it if it exists, run the following command:
+        1. To add new or modify existing metadata, run the following command:
 
-         ```bash
-         {{ yc-k8s }} node-group add-metadata \
-           --name <node_group_name> \
-           --metadata <key>=<value>
-         ```
+            ```bash
+            {{ yc-k8s }} node-group add-metadata \
+              --name <node_group_name> \
+              --metadata <key>=<value>
+            ```
 
-         You can request the name of a node group with a [list of node groups in the folder](./node-group-list.md#list).
+            You can request the name of a node group with a [list of node groups in the folder](./node-group-list.md#list).
 
-         You can request a list of existing metadata with [detailed information about the node group](./node-group-list.md#get).
+            You can request a list of existing metadata with [detailed information about the node group](./node-group-list.md#get).
 
-         {% note tip %}
+            {% note tip %}
 
-         Use the `--metadata-from-file` parameter instead of `--metadata` if you want to get the value from a file:
+            Use the `--metadata-from-file` parameter instead of `--metadata` to get a value from a file:
 
-         ```bash
-         --metadata-from-file <key>=<path_to_file_with_value>
-         ```
+            ```bash
+            --metadata-from-file <key>=<path_to_file_with_value>
+            ```
 
-         {% include [metadata-key-from-file](../../../_includes/managed-kubernetes/metadata-key-from-file.md) %}
+            {% include [metadata-key-from-file](../../../_includes/managed-kubernetes/metadata-key-from-file.md) %}
 
-         {% endnote %}
+            {% endnote %}
 
-   1. To delete metadata with a specific key:
+    1. To delete metadata with a specific key:
 
-      1. See the description of the CLI command to delete the {{ managed-k8s-name }} node group metadata:
+        1. See the description of the CLI command to delete the {{ managed-k8s-name }} node group metadata:
 
-         ```bash
-         {{ yc-k8s }} node-group remove-metadata --help
-         ```
+            ```bash
+            {{ yc-k8s }} node-group remove-metadata --help
+            ```
 
-      1. Delete existing metadata:
+        1. Delete existing metadata:
 
-         ```bash
-         {{ yc-k8s }} node-group remove-metadata \
-           --name <node_group_name> \
-           --keys <key>
-         ```
+            ```bash
+            {{ yc-k8s }} node-group remove-metadata \
+              --name <node_group_name> \
+              --keys <key>
+            ```
 
-         You can request the name of a node group with a [list of node groups in the folder](./node-group-list.md#list).
+            You can request the name of a node group with a [list of node groups in the folder](./node-group-list.md#list).
 
-         You can request a list of existing metadata with [detailed information about the node group](./node-group-list.md#get).
+            You can request a list of existing metadata with [detailed information about the node group](./node-group-list.md#get).
 
 - {{ TF }} {#tf}
 
-   1. Open the current {{ TF }} configuration file describing the {{ managed-k8s-name }} node group.
+    1. Open the current {{ TF }} configuration file describing the {{ managed-k8s-name }} node group.
 
-      For more information about creating this file, see [{#T}](./node-group-create.md).
+        For more information about creating this file, see [{#T}](./node-group-create.md).
 
-   1. To add, modify, or delete metadata with a specific key, modify the list of keys and values in the `instance_template.metadata` parameter. If there is no such parameter, add it.
+    1. To add, modify, or delete metadata with a specific key, edit the list of keys and values in the `instance_template.metadata` parameter. If there is no such parameter, add it.
 
-      ```hcl
-      resource "yandex_kubernetes_node_group" "<node_group_name>" {
-        cluster_id = yandex_kubernetes_cluster.<cluster_name>.id
-        ...
-        instance_template {
-          metadata = {
-            "<key>" = "<value>"
+        ```hcl
+        resource "yandex_kubernetes_node_group" "<node_group_name>" {
+          cluster_id = yandex_kubernetes_cluster.<cluster_name>.id
+          ...
+          instance_template {
+            metadata = {
+              "<key>" = "<value>"
+              ...
+            }
             ...
           }
           ...
         }
-        ...
-      }
-      ```
+        ```
 
-      {% note tip %}
+        {% note tip %}
 
-      Use the `file()` function if you want to get a value from a file:
+        Use the `file()` function to get a value from a file:
 
-      ```hcl
-      "<key>" = file("<path_to_file_with_value>")
-      ```
+        ```hcl
+        "<key>" = file("<path_to_file_with_value>")
+        ```
 
-      {% include [metadata-key-from-file](../../../_includes/managed-kubernetes/metadata-key-from-file.md) %}
+        {% include [metadata-key-from-file](../../../_includes/managed-kubernetes/metadata-key-from-file.md) %}
 
-      {% endnote %}
+        {% endnote %}
 
-   1. Make sure the configuration files are correct.
+    1. Make sure the configuration files are correct.
 
-      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
+        {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm updating the resources.
+    1. Confirm updating the resources.
 
-      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
+        {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-k8s-nodegroup }}).
+    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-k8s-nodegroup }}).
 
 - API {#api}
 
-   1. {% include [get-metadata-via-api](../../../_includes/managed-kubernetes/get-metadata-via-api.md) %}
+    1. {% include [get-metadata-via-api](../../../_includes/managed-kubernetes/get-metadata-via-api.md) %}
 
-   1. Use the [update](../../api-ref/NodeGroup/update.md) REST API method for the [NodeGroup](../../api-ref/NodeGroup/index.md) resource and include the following in the request:
+    1. Use the [update](../../api-ref/NodeGroup/update.md) REST API method for the [NodeGroup](../../api-ref/NodeGroup/index.md) resource and include the following in the request:
 
-      * ID of the node group in the `nodeGroupId` parameter.
+        * Node group ID in the `nodeGroupId` parameter.
 
-      * `updateMask` parameter with the `nodeTemplate.metadata` value.
+        * The `updateMask` parameter set to `nodeTemplate.metadata`.
 
-         {% include [Note API updateMask](../../../_includes/note-api-updatemask.md) %}
+            {% include [Note API updateMask](../../../_includes/note-api-updatemask.md) %}
 
-      * `nodeTemplate.metadata` parameter that lists the metadata of the node group.
+        * The `nodeTemplate.metadata` parameter listing the node group's metadata.
 
-         Make the required changes to the metadata list you received in the previous step: add, modify, or delete `key=value` pairs. Then provide the updated list in the `nodeTemplate.metadata` parameter.
+            Make the required changes to the metadata list you got in the previous step: add, modify, or delete `key=value` pairs. Then provide the updated list in the `nodeTemplate.metadata` parameter.
 
-         {% note alert %}
+            {% note alert %}
 
-         Metadata not listed in the `nodeTemplate.metadata` parameter will be deleted.
+            Metadata not listed in the `nodeTemplate.metadata` parameter will be deleted.
 
-         {% endnote %}
+            {% endnote %}
 
 {% endlist %}

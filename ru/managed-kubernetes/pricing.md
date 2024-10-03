@@ -6,6 +6,8 @@ editable: false
 
 {% include [use-calculator](../_includes/pricing/use-calculator.md) %}
 
+{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
+
 В рамках сервиса {{ managed-k8s-name }} тарифицируется использование [мастера](concepts/index.md#master) и исходящий трафик.
 
 Узлы тарифицируются по [правилам тарификации {{ compute-full-name }}](../compute/pricing.md).
@@ -15,9 +17,7 @@ editable: false
 
 
 
-
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
-
 
 
 ### Мастер {#master}

@@ -86,6 +86,8 @@ Users without the `resource-manager.clouds.owner` or `admin` role cannot assign 
 
 {% include [roles-primitive](../../_includes/roles-primitive.md) %}
 
+{% include [primitive-roles-footnote](../../_includes/primitive-roles-footnote.md) %}
+
 ## What roles do I need {#choosing-roles}
 
 **Example of key access control**
@@ -107,13 +109,13 @@ It is good practice to store {{ kms-short-name }} keys in a dedicated folder apa
 | [Creating](../operations/key.md#create) and [updating](../operations/key.md#update) a key | `create`, `update` | `kms.editor` for folder |
 | [Rotating a key](../operations/key.md#rotate) | `rotate` | `kms.editor` for key |
 | [Changing the primary version](../operations/version.md#make-primary) | `setPrimaryVersion` | `kms.admin` for key |
-| [Destroying keys](../operations/key.md#delete) and [versions](../operations/version.md#delete) | `delete`, `scheduleVersionDestruction`, `cancelVersionDestruction` | `kms.admin` for a key |
+| [Destroying keys](../operations/key.md#delete) and [versions](../operations/version.md#delete) | `delete`, `scheduleVersionDestruction`, `cancelVersionDestruction` | `kms.admin` for key |
 | [Granting a role](../../iam/operations/roles/grant.md), [revoking a role](../../iam/operations/roles/revoke.md) | `setAccessBindings`, `updateAccessBindings` | `kms.admin` for key |
 | Viewing roles granted for a key | `listAccessBindings` | `kms.auditor` for key |
 
 #### What's next {#what-is-next}
 
-* [How to use {{ yandex-cloud }} securely](../../iam/best-practices/using-iam-securely.md)
+* [Secure use of {{ yandex-cloud }}](../../iam/best-practices/using-iam-securely.md)
 * [How to assign a role](../../iam/operations/roles/grant.md).
 * [How to revoke a role](../../iam/operations/roles/revoke.md).
 * [Learn more about access management in {{ yandex-cloud }}](../../iam/concepts/access-control/index.md).

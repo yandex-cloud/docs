@@ -54,6 +54,8 @@ items:
             href: operations/applications/filebeat-oss.md
           - name: Установка Fluent Bit
             href: operations/applications/fluentbit.md
+          - name: Установка Gatekeeper
+            href: operations/applications/gatekeeper.md
           - name: Установка Gateway API
             href: operations/applications/gateway-api.md
           - name: Установка {{ GL }} Agent
@@ -145,6 +147,8 @@ items:
             href: operations/node-group/node-group-create.md
           - name: Подключение к узлу по SSH
             href: operations/node-connect-ssh.md
+          - name: Подключение к узлу через {{ oslogin }}
+            href: operations/node-connect-oslogin.md
           - name: Настройка автомасштабирования
             href: operations/autoscale.md
           - name: Изменение группы узлов
@@ -171,6 +175,8 @@ items:
         href: tutorials/time-slicing-gpu.md
       - name: Миграция ресурсов в другую зону доступности
         href: tutorials/migration-to-an-availability-zone.md
+      - name: Использование модулей {{ yandex-cloud }} в {{ TF }}
+        href: tutorials/terraform-modules.md
       - name: Настройка и тестирование масштабирования
         items:
           - name: Горизонтальное масштабирование приложения в кластере
@@ -197,6 +203,10 @@ items:
             href: tutorials/container-registry.md
           - name: Подпись и проверка Docker-образов {{ container-registry-name }}
             href: tutorials/sign-cr-with-cosign.md
+      - name: Использование {{ mkf-name }}
+        items:
+          - name: Развертывание веб-интерфейса {{ KF }}
+            href: tutorials/deploy-kafka-ui.md
       - name: Непрерывная интеграция с {{ GL }}
         items:
           - name: >-
@@ -217,6 +227,8 @@ items:
             href: tutorials/node-local-dns.md
           - name: Проверка DNS Challenge для сертификатов Let's Encrypt®
             href: tutorials/dnschallenge.md
+          - name: Создание веб-хука резолвера ACME для ответов на DNS01-проверки
+            href: tutorials/cert-manager-webhook.md
       - name: Резервное копирование
         items:
           - name: Резервное копирование в {{ objstorage-name }}

@@ -1,7 +1,6 @@
 # Проверка состояния приложений в кластере {{ managed-k8s-full-name }} с помощью Ingress-контроллера {{ alb-full-name }}
 
-
-Вы можете автоматически проверять работоспособность приложений, которые развернуты в кластере {{ managed-k8s-name }} с помощью [Ingress-контроллера {{ alb-name }}](../../application-load-balancer/tools/k8s-ingress-controller/index.md). 
+Вы можете автоматически проверять работоспособность приложений, которые развернуты в кластере {{ managed-k8s-name }} с помощью [Ingress-контроллера {{ alb-name }}](../../application-load-balancer/tools/k8s-ingress-controller/index.md).
 
 Ingress-контроллер, установленный в кластер, разворачивает [L7-балансировщик](../../application-load-balancer/concepts/application-load-balancer.md) со всеми необходимыми ресурсами {{ alb-name }}, основываясь на конфигурации созданных вами ресурсов [Ingress](../../managed-kubernetes/alb-ref/ingress.md) и [HttpBackendGroup](../../managed-kubernetes/alb-ref/http-backend-group.md).
 
@@ -29,7 +28,7 @@ L7-балансировщик автоматически проверяет ра
 
 {% list tabs group=instructions %}
 
-* Вручную {#manual}
+- Вручную {#manual}
 
    1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
 
@@ -43,7 +42,7 @@ L7-балансировщик автоматически проверяет ра
    1. {% include [k8s-ingress-controller-create-node-group](../../_includes/application-load-balancer/k8s-ingress-controller-create-node-group.md) %}
    1. [Создайте реестр](../../container-registry/operations/registry/registry-create.md) {{ container-registry-full-name }}.
 
-* {{ TF }} {#tf}
+- {{ TF }} {#tf}
 
    1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
    1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
@@ -149,7 +148,7 @@ Docker-образ будет создан из файла `app/Dockerfile` и б
 
 Соберите тестовое приложение из созданного Docker-образа и конфигурационного файла [app/testapp.yaml](https://github.com/yandex-cloud-examples/yc-mk8s-alb-ingress-health-checks/blob/main/app/testapp.yaml).
 
-Файл содержит описание {{ k8s }}-ресурсов: `Deployment` и `Service` типа `NodePort`. 
+Файл содержит описание {{ k8s }}-ресурсов: `Deployment` и `Service` типа `NodePort`.
 
 Ресурс `Service` содержит описание портов, через которые приложение будет доступно на узлах кластера:
 * `spec.ports.name: http` — порт для доступа к основной функциональности приложения. `80` на поде и `30080` на узле.
@@ -231,7 +230,7 @@ Docker-образ будет создан из файла `app/Dockerfile` и б
 
 {% list tabs group=instructions %}
 
-* Вручную {#manual}
+- Вручную {#manual}
 
    1. [Зарезервируйте статический публичный IP-адрес](../../vpc/operations/get-static-ip.md) для балансировщика {{ alb-name }}.
    1. [Зарегистрируйте публичную доменную зону и делегируйте домен](../../dns/operations/zone-create-public.md).
@@ -248,7 +247,7 @@ Docker-образ будет создан из файла `app/Dockerfile` и б
       <домен> has address <IP-адрес>
       ```
 
-* {{ TF }} {#tf}
+- {{ TF }} {#tf}
 
    1. Расположите файл конфигурации [address-for-k8s-health-checks.tf](https://github.com/yandex-cloud-examples/yc-mk8s-alb-ingress-health-checks/blob/main/terraform-manifests/address-for-k8s-health-checks.tf) в той же рабочей директории, где находится файл `k8s-custom-health-checks.tf`.
 

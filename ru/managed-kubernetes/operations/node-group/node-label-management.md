@@ -11,7 +11,7 @@
 1. Создайте [кластер {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster).
 
    Вы можете использовать уже работающий кластер {{ managed-k8s-name }} или [создать новый](../kubernetes-cluster/kubernetes-cluster-create.md).
-   
+
 1. Создайте группу узлов с {{ k8s }}-метками:
 
    {% list tabs group=instructions %}
@@ -80,7 +80,7 @@
 
      Результат:
 
-     ```bash
+     ```text
      done (2m19s)
      id: catkuapro07e********
      cluster_id: abcsk1s2f3fm********

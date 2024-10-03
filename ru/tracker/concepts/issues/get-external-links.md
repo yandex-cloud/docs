@@ -11,7 +11,7 @@ sourcePath: ru/tracker/api-ref/concepts/issues/get-external-links.md
 
 Чтобы получить список внешних связей задачи, используйте HTTP-запрос с методом `GET`. 
 
-```
+```http
 GET /{{ ver }}/issues/<ключ_или_идентификатор_задачи>/remotelinks
 Host: {{ host }}
 Authorization: OAuth <OAuth-токен>
@@ -72,7 +72,7 @@ Authorization: OAuth <OAuth-токен>
      ...
    ] 
     ```
-   
+
   {% cut "Параметры ответа" %}
 
   Параметр | Описание | Тип данных

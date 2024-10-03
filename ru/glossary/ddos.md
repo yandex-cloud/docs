@@ -92,7 +92,7 @@ DDoS-атаки — одна из главных угроз для интерн�
 
 1. Сервис для защиты приложений [{{ ddos-protection-full-name }}](/services/ddos-protection);
 
-1. L7-балансировщик с защитой от DDoS-атак [{{ alb-full-name }}](../application-load-balancer/tutorials/alb-with-ddos-protection.md).
+1. L7-балансировщик с защитой от DDoS-атак [{{ alb-full-name }}](../application-load-balancer/tutorials/alb-with-ddos-protection/index.md).
 
 1. Сервис для управления облачными сетями с возможностью защиты от DDoS-атак [{{ vpc-full-name }}](../vpc/ddos-protection/).
 

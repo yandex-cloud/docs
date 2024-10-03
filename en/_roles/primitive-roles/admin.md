@@ -1,7 +1,5 @@
-The `admin` role grants all permissions to manage the resource, including assigning roles to other users. You can assign any role except `resource-manager.clouds.owner`.
+The `admin` role enables assigning any roles, except for `resource-manager.clouds.owner` and `organization-manager.organizations.owner`, and provides permissions to manage any Yandex Cloud [resources](../../resource-manager/concepts/resources-hierarchy.md) (except for transferring [organization](../../organization/quickstart.md) ownership and removing an organization).
 
-The `admin` role includes all permissions granted by the `editor` role.
+Prior to assigning the `admin` role for an organization, [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), or [billing account](../../billing/concepts/billing-account.md), make sure to check out the information on protecting [privileged accounts](../../security/standard/all.md#privileged-users).
 
-For example, the `admin` role lets you perform the following operations:
-* Set permissions to the resource.
-* Change permissions to the resource.
+This role also includes the `editor` permissions.

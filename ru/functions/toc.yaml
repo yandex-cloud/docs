@@ -102,8 +102,12 @@ items:
             href: operations/function/lockbox-secret-transmit.md
           - name: Выделить память для директории /tmp
             href: operations/function/allocate-memory-tmp.md
-          - name: Смонтировать бакеты
-            href: operations/function/mount-bucket.md
+          - name: Смонтировать файловые системы
+            items:
+              - name: Смонтировать бакеты
+                href: operations/function/mount-bucket.md
+              - name: Смонтировать эфемерный диск
+                href: operations/function/mount-ephemeral-disk.md
           - name: Управлять тегами
             items:
               - name: Добавить тег
@@ -188,6 +192,10 @@ items:
         href: concepts/function-invoke.md
       - name: Асинхронный вызов функции
         href: concepts/function-invoke-async.md
+      - name: Долгоживущие функции
+        href: concepts/long-lived-functions.md
+      - name: Уведомления о завершении выполнения функции
+        href: concepts/termination-notifications.md
       - name: Сетевое взаимодействие
         href: concepts/networking.md
       - name: Среда выполнения
@@ -200,7 +208,7 @@ items:
             href: concepts/runtime/execution-context.md
           - name: Предзагружаемая среда выполнения
             href: concepts/runtime/preload-runtime.md
-      - name: Монтирование бакетов
+      - name: Монтирование файловых систем
         href: concepts/mounting.md
       - name: Сборщик
         href: concepts/builder.md
@@ -454,12 +462,23 @@ items:
           Создание триггеров, которые вызывают функции для остановки ВМ и
           отправки уведомлений в Telegram
         href: tutorials/serverless-trigger-budget-queue-vm-tg.md
+      - name: >-
+          Загрузка данных из {{ yandex-direct }} в витрину {{ mch-full-name }} с
+          использованием {{ sf-full-name }}, {{ objstorage-full-name }} и {{
+          data-transfer-full-name }}
+        href: tutorials/data-transfer-direct-to-mch.md
+      - name: Масштабирование группы ВМ по расписанию
+        href: tutorials/vm-scale-scheduled.md
       - name: Мониторинг состояния географически распределенных устройств
         href: tutorials/datalens.md
       - name: Мониторинг показаний датчиков и уведомления о событиях
         href: tutorials/monitoring.md
       - name: Эмуляция множества IoT-устройств
         href: tutorials/iot-emulation.md
+      - name: >-
+          Передача событий {{ postbox-full-name }} в {{ yds-full-name }} и их
+          анализ с помощью {{ datalens-full-name }}
+        href: tutorials/events-from-postbox-to-yds.md
   - name: Правила тарификации
     href: pricing.md
   - name: Управление доступом

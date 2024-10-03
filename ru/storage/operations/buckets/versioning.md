@@ -32,12 +32,12 @@ description: "Версионирование бакета — это возмо�
   1. Выполните следующую команду:
 
      ```bash
-     yc storage bucket update --name <имя_бакета> --versioning versioning-enabled 
-     ```  
-     
+     yc storage bucket update --name <имя_бакета> --versioning versioning-enabled
+     ```
+
      Результат:
 
-     ```bash
+     ```text
      name: my-bucket
      folder_id: csgeoelk7fl15********
      default_storage_class: STANDARD
@@ -65,7 +65,7 @@ description: "Версионирование бакета — это возмо�
   {% include [terraform-role](../../../_includes/storage/terraform-role.md) %}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
-  
+
   Получите [статические ключи доступа](../../../iam/operations/sa/create-access-key.md) — секретный ключ и идентификатор ключа, используемые для аутентификации в {{ objstorage-short-name }}.
 
   Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:

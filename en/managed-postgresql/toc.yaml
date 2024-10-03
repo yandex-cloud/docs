@@ -2,7 +2,7 @@ title: Yandex Managed Service for PostgreSQL
 href: index.yaml
 label:
   title: KZ
-  description: The service is available in Kazakhstan.
+  description: This service is only available in the Kazakhstan region.
   theme: info
   when: region == "kz"
 items:
@@ -18,7 +18,7 @@ items:
             href: operations/cluster-list.md
           - name: Creating a cluster
             href: operations/cluster-create.md
-          - name: Changing cluster settings
+          - name: Updating cluster settings
             href: operations/update.md
           - name: Stopping and starting a cluster
             href: operations/cluster-stop.md
@@ -58,6 +58,8 @@ items:
             href: operations/extensions/cluster-extensions.md
           - name: pg_cron
             href: operations/extensions/pg_cron.md
+          - name: pg_repack
+            href: operations/extensions/pg_repack.md
           - name: pgaudit
             href: operations/extensions/pgaudit.md
           - name: pgcrypto
@@ -78,10 +80,16 @@ items:
     items:
       - name: All tutorials
         href: tutorials/index.md
-      - name: Creating a {{ PG }} cluster for 1C
+      - name: Creating a {{ PG }} cluster for 1С
         href: tutorials/1c-postgresql.md
-      - name: Exporting databases to {{ dataproc-full-name }}
+      - name: >-
+          Creating a cluster of 1C:Enterprise Linux servers with a {{ mpg-name
+          }} cluster
+        href: tutorials/1c-postgresql-linux.md
+      - name: Exporting a database to {{ dataproc-full-name }}
         href: tutorials/sqoop.md
+      - name: Searching for cluster performance issues
+        href: tutorials/performance-problems.md
       - name: Performance analysis and tuning
         href: tutorials/profiling.md
       - name: >-
@@ -105,20 +113,34 @@ items:
           data-transfer-full-name }}
         href: tutorials/mkf-to-mpg.md
       - name: >-
-          Transferring data from {{ objstorage-full-name }} using {{
+          Migrating data from {{ objstorage-full-name }} using {{
           data-transfer-full-name }}
         href: tutorials/object-storage-to-postgresql.md
+      - name: Configuring a fault-tolerant architecture in {{ yandex-cloud }}
+        href: tutorials/fault-tolerance.md
+      - name: Creating a Joomla website with a PostgreSQL database
+        items:
+          - name: Overview
+            href: tutorials/joomla-postgresql/index.md
+          - name: Management console
+            href: tutorials/joomla-postgresql/console.md
+          - name: '{{ TF }}'
+            href: tutorials/joomla-postgresql/terraform.md
+      - name: Status monitoring of geographically distributed devices
+        href: tutorials/datalens.md
+      - name: Writing load balancer logs to {{ PG }}
+        href: tutorials/logging.md
       - name: Replication and migration
         items:
-          - name: Logical {{ PG }} replication
+          - name: Logical replication {{ PG }}
             href: tutorials/replication-overview.md
-          - name: Migrating databases to {{ mpg-name }}
+          - name: Migrating a database to {{ mpg-name }}
             href: tutorials/data-migration.md
           - name: Migrating databases from {{ mpg-name }}
             href: tutorials/outbound-replication.md
           - name: >-
-              Creating an Amazon RDS logical replica for {{ PG }} in {{ mpg-name
-              }}
+              Creating a logical replica of Amazon RDS for {{ PG }} in {{
+              mpg-name }}
             href: operations/logical-replica-from-rds.md
           - name: >-
               Migrating databases from {{ mpg-full-name }} to {{
@@ -136,6 +158,12 @@ items:
               Migrating data from AWS RDS for {{ PG }} to {{ mpg-name }} using
               {{ data-transfer-full-name }}
             href: tutorials/rds-to-mpg.md
+          - name: >-
+              Migrating data from {{ mpg-name }} to {{ mos-name }} using {{
+              data-transfer-full-name }}
+            href: tutorials/postgresql-to-opensearch.md
+          - name: Asynchronously replicating data from {{ PG }} to {{ CH }}
+            href: tutorials/rdbms-to-clickhouse.md
   - name: Concepts
     items:
       - name: Resource relationships
@@ -144,7 +172,7 @@ items:
         items:
           - name: Active host classes
             href: concepts/instance-types.md
-          - name: Archives
+          - name: Archive
             items:
               - name: Before June 1, 2020
                 href: concepts/instance-types-archive/instance-types-01062020.md
@@ -180,7 +208,7 @@ items:
     items:
       - name: Current pricing policy
         href: pricing.md
-      - name: Archives
+      - name: Archive
         items:
           - name: Before January 1, 2019
             href: pricing-archive/pricing-01012019.md

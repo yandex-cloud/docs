@@ -48,7 +48,7 @@
 
       Результат:
 
-      ```yaml
+      ```text
       id: areojeqlg1bh********
       description: Create device registry
       created_at: "2024-06-19T06:23:13.216Z"

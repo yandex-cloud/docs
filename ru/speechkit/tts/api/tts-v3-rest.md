@@ -34,10 +34,11 @@
     export FOLDER_ID=<идентификатор_каталога>
     export IAM_TOKEN=<IAM-токен>
 
-    curl -H "Authorization: Bearer $IAM_TOKEN" \
-         -H "x-folder-id: $FOLDER_ID" \
-         -d @request.json https://tts.{{ api-host }}:443/tts/v3/utteranceSynthesis |
-      jq -r  '.result.audioChunk.data' |
+    curl \
+      --header "Authorization: Bearer $IAM_TOKEN" \
+      --header "x-folder-id: $FOLDER_ID" \
+      --data @request.json https://tts.{{ api-host }}:443/tts/v3/utteranceSynthesis | \
+      jq -r  '.result.audioChunk.data' | \
       while read chunk; do base64 -d <<< "$chunk" >> audio.wav; done
     ```
 

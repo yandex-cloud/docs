@@ -22,7 +22,7 @@
 1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [Argo CD](/marketplace/products/yc/argo-cd) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Configure the application:
    * **Namespace**: Select a [namespace](../../concepts/index.md#namespace) for Argo CD or create a new one.
-   * **Application name**: Enter a name for the application.
+   * **Application name**: Specify the app name.
 1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
 1. Wait for the application to change its status to `Deployed`.
 1. Get the administrator password (`admin`):
@@ -45,7 +45,6 @@ To access the application via `localhost`:
 ## Installation using a Helm chart {#helm-install}
 
 1. {% include [helm-install](../../../_includes/managed-kubernetes/helm-install.md) %}
-1. {% include [Install and configure kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
 1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with Argo CD, run the following command:
 
    ```bash

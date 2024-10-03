@@ -16,11 +16,13 @@ A {{ MG }} cluster is one or more database hosts between which you can configure
 
 ## Creating a cluster {#create-cluster}
 
+To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the [{{ roles.mmg.editor }} role or higher](../security/index.md#roles-list). For information on assigning roles, see the [{{ iam-name }} documentation](../../iam/operations/roles/grant.md).
+
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-   To create a cluster:
+   To create a {{ mmg-name }} cluster:
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a DB cluster.
 
@@ -55,12 +57,12 @@ A {{ MG }} cluster is one or more database hosts between which you can configure
 
    1. Under **{{ ui-key.yacloud.mdb.forms.section_database }}**, specify the DB attributes:
 
-      * DB name
+      * DB name.
 
          {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}
 
       * Username
-      * User password; minimum 8 characters long
+      * User password. The password must be at least 8 characters long.
 
    
    1. Under **{{ ui-key.yacloud.mdb.forms.section_network }}**, select:
@@ -100,7 +102,7 @@ A {{ MG }} cluster is one or more database hosts between which you can configure
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To create a cluster:
+   To create a {{ mmg-name }} cluster:
 
    
    1. Check whether the folder has any subnets for the cluster hosts:
@@ -132,7 +134,7 @@ A {{ MG }} cluster is one or more database hosts between which you can configure
         --mongod-resource-preset <host_class> \
         --user name=<username>,password=<user_password> \
         --database name=<DB_name> \
-        --mongod-disk-type <disk_type> \
+        --mongod-disk-type <network-hdd|network-ssd|network-ssd-nonreplicated|local-ssd> \
         --mongod-disk-size <storage_size_GB> \
         --performance-diagnostics=<enable_diagnostics> \
         --deletion-protection=<deletion_protection>
@@ -175,7 +177,7 @@ A {{ MG }} cluster is one or more database hosts between which you can configure
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-   To create a cluster:
+   To create a {{ mmg-name }} cluster:
 
    1. In the configuration file, describe the parameters of the resources you want to create:
 
@@ -257,7 +259,7 @@ A {{ MG }} cluster is one or more database hosts between which you can configure
 
 
       * `deletion_protection`: Cluster deletion protection, `true` or `false`.
-      * `version`: {{ MG }} version, {{ versions.tf.str }}.
+      * `version`: {{ MG }} {{ versions.tf.str }}.
 
       {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}
 
@@ -265,7 +267,7 @@ A {{ MG }} cluster is one or more database hosts between which you can configure
 
       {% include [Maintenance window](../../_includes/mdb/mmg/terraform/maintenance-window.md) %}
 
-      For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-mmg }}).
+      For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-mmg }}).
 
    1. Make sure the settings are correct.
 
@@ -281,7 +283,7 @@ A {{ MG }} cluster is one or more database hosts between which you can configure
 
 - API {#api}
 
-   To create a cluster, use the [create](../api-ref/Cluster/create.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Create](../api-ref/grpc/cluster_service.md#Create) gRPC API call and provide the following in the request:
+   To create a {{ mmg-name }} cluster, use the [create](../api-ref/Cluster/create.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Create](../api-ref/grpc/cluster_service.md#Create) gRPC API call and provide the following in the request:
 
    * ID of the folder where the cluster should be placed, in the `folderId` parameter.
    * Cluster name in the `name` parameter.
@@ -315,9 +317,9 @@ If you specified security group IDs when creating a cluster, you may also need t
 
 ## Creating a cluster copy {#duplicate}
 
-You can create an {{ MG }} cluster with the settings of another cluster created earlier. To do so, you need to import the configuration of the source {{ MG }} cluster to {{ TF }}. Thus you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing is a convenient option when the source {{ MG }} cluster has lots of settings and you need to create a similar one.
+You can create a {{ MG }} cluster with the settings of another one created earlier. To do so, you need to import the configuration of the source {{ MG }} cluster to {{ TF }}. Thus you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing is a convenient option when the source {{ MG }} cluster has lots of settings and you need to create a similar one.
 
-To create an {{ MG }} cluster copy:
+To create a {{ MG }} cluster copy:
 
 {% list tabs group=instructions %}
 
@@ -438,15 +440,15 @@ To create an {{ MG }} cluster copy:
 
    * Name: `mymg`
    * Version: `{{ versions.tf.latest }}`
-   * Environment: `PRODUCTION`
-   * Cloud ID: `{{ tf-cloud-id }}`
+   * Environment: `PRODUCTION`.
+   * Cloud ID: `{{ tf-cloud-id }}`.
    * Folder ID: `{{ tf-folder-id }}`
-   * Network: `mynet`
+   * Network: `mynet`.
    * Host class: `{{ host-class }}`
    * Number of `host` blocks: 1
-   * Subnet: `mysubnet` Network settings:
+   * Subnet: `mysubnet`. Network settings:
 
-      * Availability zone: `{{ region-id }}-a`
+      * Availability zone: `{{ region-id }}-a`.
       * Range: `10.5.0.0/24`
 
    
@@ -545,10 +547,10 @@ Create a {{ mmg-name }} cluster and a network for it with multiple hosts:
 * One `MONGOD` host.
 * Three `MONGOINFRA` hosts.
 
-Cluster test characteristics:
+Cluster test specifications:
 
 * Name: `mymg`
-* Environment: `PRODUCTION`
+* Environment: `PRODUCTION`.
 * Protection against accidental cluster deletion: Enabled
 * Version: `{{ versions.tf.latest }}`
 * Database: `db1`
@@ -561,11 +563,11 @@ Cluster test characteristics:
 
 Network characteristics:
 
-* Network: `mynet`
+* Network: `mynet`.
 * Security group: `mymg-sg` with the `{{ security-group }}` ID. In {{ TF }}, a group is created with the rule allowing TCP connections to the cluster from the internet on port `{{ port-mmg }}`.
 
-* Subnet: `mysubnet`
-* Availability zone: `{{ region-id }}-a`
+* Subnet: `mysubnet`.
+* Availability zone: `{{ region-id }}-a`.
 * Range: `10.5.0.0/24` (only for {{ TF }})
 
 {% list tabs group=instructions %}
@@ -707,25 +709,25 @@ Create a {{ mmg-name }} cluster and a network for it with multiple hosts:
 * Two `MONGOS` hosts.
 * Three `MONGOCFG` hosts.
 
-Cluster test characteristics:
+Cluster test specifications:
 
 * Name: `mymg`
-* Environment: `PRODUCTION`
+* Environment: `PRODUCTION`.
 * Protection against accidental cluster deletion: Enabled
 * Version: `{{ versions.tf.latest }}`
 * Database: `db1`
 * User: `user1`
 * Password: `user1user1`
-* Host class: `{{ host-class }}`
+* Host class: `{{ host-class }}`.
 * Network SSD storage: `{{ disk-type-example }}`
 * Storage size: 10 GB
 
-Network characteristics:
+Network specifications:
 
-* Network: `mynet`
+* Network: `mynet`.
 * Security group: `mymg-sg` with the `{{ security-group }}` ID. In {{ TF }}, a group is created with the rule allowing TCP connections to the cluster from the internet on port `{{ port-mmg }}`.
-* Subnet: `mysubnet`
-* Availability zone: `{{ region-id }}-a`
+* Subnet: `mysubnet`.
+* Availability zone: `{{ region-id }}-a`.
 * Range: `10.5.0.0/24` (only for {{ TF }})
 
 {% list tabs group=instructions %}

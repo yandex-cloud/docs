@@ -1,10 +1,21 @@
-# Сценарии начала работы с сервисами {{ metadata-hub-full-name }}
+---
+title: "Как начать работу с {{ metadata-hub-full-name }}"
+description: " Из статьи вы узнаете, как создать первое подключение и как начать работать с реестром данных."
+---
 
-
+# Начало работы с сервисами {{ metadata-hub-full-name }}
 {% include notitle [preview](../../_includes/note-preview.md) %}
 
-Управляйте подключениями к базам данных с помощью {{ connection-manager-full-name }}. Вы сможете [создавать](../operations/create-connection.md), [просматривать](../operations/view-connection.md), [изменять](../operations/update-connection.md), [удалять подключения](../operations/delete-connection.md), созданные для ваших баз данных, и [управлять доступом к ним](../operations/connection-access.md).
+{{ metadata-hub-full-name }} позволяет управлять данными в {{ yandex-cloud }}. Вы можете:
 
-Подключения могут создаваться:
-  * [автоматически](connection-manager.md#mdb-integration) — к кластерам с управляемыми базами данных в {{ yandex-cloud }};
-  * [вручную](connection-manager.md#database-connections) — к пользовательским инсталляциям баз данных или к кластерам с управляемыми базами данных в {{ yandex-cloud }}.
+* создавать подключения к базам данных и управлять параметрами этих подключений;
+* получать и хранить схемы обмена данными, проверять эволюцию этих схем;
+* получать и визуализировать метаинформацию о хранилищах данных и связях между ними.
+
+Начните работу с инструментами {{ metadata-hub-name }}:
+
+* [{{ connection-manager-full-name }}](connection-manager.md). С его помощью вы можете управлять подключениями к своим базам данных. Подробнее о возможностях {{ connection-manager-name }} см. в [Концепциях](../concepts/connection-manager.md).
+
+* [{{ metastore-full-name }}](metastore.md). С его помощью вы можете управлять данными в приложениях, которые поддерживают интеграцию с {{ metastore-name }}. Подробнее о кластерах {{ metastore-name }} см. в [Концепциях](../concepts/metastore.md).
+
+* [{{ schema-registry-name }}](schema-registry.md). C его помощью вы сможете создать субъекты и схемы для управления, задавать параметры эволюции схем, добавлять референсы, сравнивать версии схем. Подробнее о реестре схем см. в [Концепциях](../concepts/schema-registry.md).

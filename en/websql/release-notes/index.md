@@ -1,17 +1,44 @@
+---
+title: "{{ websql-full-name }} release notes"
+description: "This section contains {{ websql-name }} release notes."
+---
+
 # {{ websql-full-name }} release notes: 2024
+
+## August {#august}
+
+### Improvements {#improvements-august}
+
+1. Added interfaces for [managing access permissions](../security/index.md) for completed and saved requests.
+
+1. Integrated cloud-based time settings.
+
+1. Added the modal window interface for contacting technical support.
+
+1. Now only the tables the user has access to are displayed in {{ PG }} databases.
+
+1. Added completed request statistics.
+
+### Fixed issues {#fixes-august}
+
+Fixed the filter workflow on the completed requests page.
 
 ## July {#july}
 
 ### Improvements {#improvements-july}
 
 1. Query history displays users who ran the queries.
+
 1. Enabled running queries without exporting the connection structure.
+
 1. Added support for long-running database queries.
+
 1. Added information about databases and certificates to the connection card.
 
 ### Fixed issues {#fixes-july}
 
 1. Fixed the error when running all DML queries in a {{ CH }} cluster.
+
 1. Fixed the query editor issue for Safari version 15.
 
 ## June {#june}
@@ -22,7 +49,7 @@
 
 1. [{{ websql-name }}](/services/websql) is the first service integrated with [{{ metadata-hub-full-name }}](../../metadata-hub/index.yaml). All [connections](../concepts/index.md#connection) are stored in [{{ connection-manager-name }}](../../metadata-hub/concepts/connection-manager.md), but you can also manage ([create](../operations/create-connection.md), [delete](../operations/connect.md#delete-connection), and [edit](../operations/connect.md#change-connection-settings)) them from the {{ websql-name }} interface. All changes you make in {{ websql-name }} are displayed in {{ connection-manager-name }} and vice versa.
 
-1. You can now [publish saved](../operations/templates.md#publish-query) and [historical queries](../operations/history.md#publish-query). Once published, the query will be available to all folder users. This action cannot be undone — you can only delete the query you published. [Roles](../security/index.md#roles-list) allow you to manage user access to a published query: you can grant permissions for viewing and editing a query or managing its access permissions.
+1. You can now publish [saved](../operations/templates.md#publish-query) and [historical queries](../operations/history.md#publish-query). Once published, the query will be available to all folder users. This action cannot be undone — you can only delete the query you published. [Roles](../security/index.md#roles-list) allow you to manage user access to a published query: you can grant permissions for viewing and editing a query or managing its access permissions.
 
 1. The {{ websql-name }} interface now allows you to share links to various entities. For example, you can send a link to a connection, saved query you published, or page with access permissions for a published query to your colleague.
 
@@ -34,17 +61,17 @@ Improved user query storage mechanism: queries are now linked to the user's acco
 
 ### Improvements {#improvements-may}
 
-1. Updated the service favicon ![](../../_assets/websql/favicon.svg).
+Updated the service favicon ![](../../_assets/websql/favicon.svg).
 
 ### Fixed issues {#fixes-may}
 
-1. Fixed the error occurring on connection to a database in which no tables or schemas (for {{ PG }}) were created.
+Fixed the error occurring on connection to a database in which no tables or schemas (for {{ PG }}) were created.
 
 ## April {#april}
 
 ### Fixed issues {#fixes-april}
 
-1. Fixed a bug that caused the interface to become unavailable when selecting a high-contrast theme in the management console.
+Fixed a bug that caused the interface to become unavailable when selecting a high-contrast theme in the management console.
 
 ## March {#mar}
 
@@ -52,7 +79,7 @@ Improved user query storage mechanism: queries are now linked to the user's acco
 
 1. Added viewing sequence information in {{ PG }} database [schemas](../operations/view-db-objects-info.md#view-schema).
 
-1. In the [query editor](../operations/query-executor.md), added role tips for {{ PG }} databases.
+1. In the [query editor](../operations/query-executor.md), added role tips for [{{ PG }}](https://www.postgresql.org/) databases.
 
 ## February {#feb}
 

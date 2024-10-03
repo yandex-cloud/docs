@@ -34,6 +34,8 @@ items:
             href: operations/policy-vm/update.md
           - name: Привязать ВМ к политике
             href: operations/policy-vm/attach-and-detach-vm.md
+          - name: Получить информацию о политике
+            href: operations/policy-vm/get-info.md
           - name: Отвязать ВМ от политики
             href: operations/policy-vm/detach-vm.md
           - name: Удалить политику
@@ -56,8 +58,16 @@ items:
         href: operations/get-stats.md
   - name: Практические руководства
     items:
+      - name: Подключение сервера BareMetal к Cloud Backup
+        href: tutorials/backup-baremetal.md
       - name: Автоматическая привязка политики резервного копирования к ВМ
-        href: tutorials/vm-with-backup-policy.md
+        items:
+          - name: Обзор
+            href: tutorials/vm-with-backup-policy/index.md
+          - name: Консоль управления, CLI, API
+            href: tutorials/vm-with-backup-policy/console.md
+          - name: '{{ TF }}'
+            href: tutorials/vm-with-backup-policy/terraform.md
   - name: Концепции
     items:
       - name: Обзор сервиса

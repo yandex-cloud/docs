@@ -1,7 +1,7 @@
 The `backup.admin` role allows you to manage backup policies and access to them, manage the connection of virtual machines to Cloud Backup, make backups, and restore VMs from existing backups.
 
 Users with this role can:
-* View info on [access bindings](../../iam/concepts/access-control/index.md#access-bindings) for backup policies and modify such bindings.
+* View info on [access permissions](../../iam/concepts/access-control/index.md) assigned for backup policies and modify such permissions.
 * View info on connected backup [providers](../../backup/concepts/index.md#providers), as well as connect providers available in Cloud Backup.
 * Create, modify, and delete backup policies, as well as link, unlink, and run them on virtual machines.
 * View info on [backup policies](../../backup/concepts/policy.md) and virtual machines linked to them.

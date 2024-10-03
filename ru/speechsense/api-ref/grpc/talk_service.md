@@ -415,6 +415,7 @@ interrupts_statistics | **`yandex.cloud.speechsense.v1.analysis.InterruptsStatis
 conversation_statistics | **`yandex.cloud.speechsense.v1.analysis.ConversationStatistics`**<br> 
 points | **`yandex.cloud.speechsense.v1.analysis.Points`**<br> 
 text_classifiers | **`yandex.cloud.speechsense.v1.analysis.TextClassifiers`**<br> 
+summarization | **`yandex.cloud.speechsense.v1.analysis.Summarization`**<br> 
 
 
 ### Field {#Field}
@@ -666,5 +667,29 @@ histograms[] | **[Histogram](#Histogram)**<br>Represents various histograms buil
 Field | Description
 --- | ---
 count_values[] | **int64**<br>histogram count values. For example: if len(count_values) = 2, it means that histogram is 50/50, if len(count_values) = 3 - [0] value represents first third, [1] - second third, [2] - last third, etc. 
+
+
+### Summarization {#Summarization}
+
+Field | Description
+--- | ---
+statements[] | **[SummarizationStatement](#SummarizationStatement)**<br> 
+
+
+### SummarizationStatement {#SummarizationStatement}
+
+Field | Description
+--- | ---
+field | **[SummarizationField](#SummarizationField)**<br> 
+response[] | **string**<br> 
+
+
+### SummarizationField {#SummarizationField}
+
+Field | Description
+--- | ---
+id | **string**<br> 
+name | **string**<br> 
+type | enum **SummarizationFieldType**<br> 
 
 

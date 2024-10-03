@@ -414,7 +414,7 @@
 
   1. Опишите шаблон для метаданных ВМ в отдельном файле `vm-init.tpl`:
 
-     ```
+     ```bash
      #cloud-config
 
      datasource:
@@ -437,7 +437,7 @@
  
      envsubst < vm-init.tpl > vm-config.txt
      ```
-  
+
   1. Создайте виртуальные машины:
 
      ```bash
@@ -465,10 +465,10 @@
        --network-interface subnet-name=default-{{ region-id }}-d,ipv4-address=auto,nat-ip-version=ipv4 \
        --metadata-from-file user-data=vm-config.txt
      ```
-  
+
   1. Сохраните публичные IP-адреса ВМ для дальнейшего использования:
 
-     ```
+     ```bash
      NET_VM_IP=$(yc compute instance get net-vm --format=json | jq -r '.network_interfaces[0].primary_v4_address.one_to_one_nat.address')
      DEV_VM_IP=$(yc compute instance get dev-vm --format=json | jq -r '.network_interfaces[0].primary_v4_address.one_to_one_nat.address')
      PROD_VM_IP=$(yc compute instance get prod-vm --format=json | jq -r '.network_interfaces[0].primary_v4_address.one_to_one_nat.address')
@@ -536,7 +536,7 @@
      resource "yandex_compute_disk" "boot-disk-3" {
        name     = "boot-disk-3"
        type     = "network-hdd"
-       zone     = "{{ region-id }}-c"
+       zone     = "{{ region-id }}-d"
        size     = "20"
        image_id = yandex_compute_image.vm_image.id
      }

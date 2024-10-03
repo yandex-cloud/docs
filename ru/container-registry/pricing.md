@@ -4,6 +4,10 @@ editable: false
 
 # Правила тарификации для {{ container-registry-name }}
 
+{% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
+
+{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
+
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
@@ -31,9 +35,7 @@ editable: false
 
 
 
-
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
-
 
 
 ### Хранение данных {#prices-storage}
@@ -58,7 +60,7 @@ editable: false
 
 Пример пропорционального расчета: пусть пользователь хранит 15 ГБ в течение 11 часов и 30 минут в месяце длиной 30 календарных дней. Общую цену хранения можно рассчитать по формуле:
 
-```
+```text
 Цена_хранения = Цена_за_ГБ_в_месяц * 15 * 12 / 24 / 30
 ```
 

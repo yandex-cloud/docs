@@ -363,7 +363,7 @@ instanceTemplate.<br>secondaryDiskSpecs[].<br>diskSpec.<br>imageId | **string** 
 instanceTemplate.<br>secondaryDiskSpecs[].<br>diskSpec.<br>snapshotId | **string** <br>`instanceTemplate.secondaryDiskSpecs[].diskSpec` includes only one of the fields `imageId`, `snapshotId`<br><br><p>ID of the snapshot that will be used for disk creation.</p> <p>The maximum string length in characters is 50.</p> 
 instanceTemplate.<br>secondaryDiskSpecs[].<br>diskId | **string**<br><p>Set to use an existing disk. To set use variables.</p> <p>The maximum string length in characters is 128. Value must match the regular expression ``[-a-zA-Z0-9._{}]*``.</p> 
 instanceTemplate.<br>secondaryDiskSpecs[].<br>name | **string**<br><p>When set can be later used to change DiskSpec of actual disk.</p> <p>The maximum string length in characters is 128.</p> 
-instanceTemplate.<br>networkInterfaceSpecs[] | **object**<br><p>Required. Array of network interfaces that will be attached to the instance.</p> <p>Must contain exactly 1 element.</p> 
+instanceTemplate.<br>networkInterfaceSpecs[] | **object**<br><p>Required. Array of network interfaces that will be attached to the instance.</p> 
 instanceTemplate.<br>networkInterfaceSpecs[].<br>networkId | **string**<br><p>ID of the network.</p> 
 instanceTemplate.<br>networkInterfaceSpecs[].<br>subnetIds[] | **string**<br><p>IDs of the subnets.</p> 
 instanceTemplate.<br>networkInterfaceSpecs[].<br>primaryV4AddressSpec | **object**<br><p>Primary IPv4 address that is assigned to the instance for this network interface.</p> 
@@ -420,7 +420,7 @@ instanceTemplate.<br>metadataOptions.<br>awsV1HttpEndpoint | **string**<br><p>En
 instanceTemplate.<br>metadataOptions.<br>gceHttpToken | **string**<br><p>Enabled access to IAM credentials with GCE flavored metadata</p> <ul> <li>ENABLED: Option is enabled</li> <li>DISABLED: Option is disabled</li> </ul> 
 instanceTemplate.<br>metadataOptions.<br>awsV1HttpToken | **string**<br><p>Enabled access to IAM credentials with AWS flavored metadata (IMDSv1)</p> <ul> <li>ENABLED: Option is enabled</li> <li>DISABLED: Option is disabled</li> </ul> 
 scalePolicy | **object**<br><p><a href="/docs/compute/concepts/instance-groups/scale">Scaling policy</a> of the instance group.</p> 
-scalePolicy.<br>testAutoScale | **object**<br>[Automatic scaling policy](/docs/compute/concepts/instance-groups/scale#auto-scale) of the instance group.
+scalePolicy.<br>testAutoScale | **object**<br>Test spec for [automatic scaling policy](/docs/compute/concepts/instance-groups/scale#auto-scale) of the instance group.
 scalePolicy.<br>testAutoScale.<br>minZoneSize | **string** (int64)<br><p>Lower limit for instance count in each zone.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
 scalePolicy.<br>testAutoScale.<br>maxSize | **string** (int64)<br><p>Upper limit for total instance count (across all zones). 0 means maximum limit = 100.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
 scalePolicy.<br>testAutoScale.<br>measurementDuration | **string**<br><p>Time in seconds allotted for averaging metrics. 1 minute by default.</p> <p>Acceptable values are 60 seconds to 600 seconds, inclusive.</p> 
@@ -440,7 +440,7 @@ scalePolicy.<br>testAutoScale.<br>customRules[].<br>service | **string**<br><p>S
 scalePolicy.<br>testAutoScale.<br>autoScaleType | **string**<br><p>Autoscaling type.</p> <ul> <li>ZONAL: Scale each zone independently. This is the default.</li> <li>REGIONAL: Scale group as a whole.</li> </ul> 
 scalePolicy.<br>fixedScale | **object**<br>[Manual scaling policy](/docs/compute/concepts/instance-groups/scale#fixed-policy) of the instance group. <br>`scalePolicy` includes only one of the fields `fixedScale`, `autoScale`<br>
 scalePolicy.<br>fixedScale.<br>size | **string** (int64)<br><p>Number of instances in the instance group.</p> <p>Acceptable values are 1 to 100, inclusive.</p> 
-scalePolicy.<br>autoScale | **object**<br>Test spec for [automatic scaling policy](/docs/compute/concepts/instance-groups/scale#auto-scale) of the instance group. <br>`scalePolicy` includes only one of the fields `fixedScale`, `autoScale`<br>
+scalePolicy.<br>autoScale | **object**<br>[Automatic scaling policy](/docs/compute/concepts/instance-groups/scale#auto-scale) of the instance group. <br>`scalePolicy` includes only one of the fields `fixedScale`, `autoScale`<br>
 scalePolicy.<br>autoScale.<br>minZoneSize | **string** (int64)<br><p>Lower limit for instance count in each zone.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
 scalePolicy.<br>autoScale.<br>maxSize | **string** (int64)<br><p>Upper limit for total instance count (across all zones). 0 means maximum limit = 100.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
 scalePolicy.<br>autoScale.<br>measurementDuration | **string**<br><p>Time in seconds allotted for averaging metrics. 1 minute by default.</p> <p>Acceptable values are 60 seconds to 600 seconds, inclusive.</p> 

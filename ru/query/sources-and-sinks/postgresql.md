@@ -106,7 +106,7 @@ SELECT * FROM <соединение>.<имя_таблицы>
 | `timestamp` | `Optional<Utf8>` | |
 | `bytea` | `Optional<String>` | |
 | `character` | `Optional<Utf8>` | [Правила сортировки](https://www.postgresql.org/docs/current/collation.html) по умолчанию, строка дополняется пробелами до требуемой длины. |
-| `character varying` | `Utf8` | [Правила сортировки](https://www.postgresql.org/docs/current/collation.html) по умолчанию. |
-| `text` | `Utf8` | [Правила сортировки](https://www.postgresql.org/docs/current/collation.html) по умолчанию. |
-| `json` | `Json` | |
+| `character varying` | `Optional<Utf8>` | [Правила сортировки](https://www.postgresql.org/docs/current/collation.html) по умолчанию. |
+| `text` | `Optional<Utf8>` | [Правила сортировки](https://www.postgresql.org/docs/current/collation.html) по умолчанию. |
+| `json` | `Optional<Json>` | |
 

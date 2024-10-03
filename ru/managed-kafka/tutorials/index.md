@@ -10,7 +10,7 @@
 
 ## Использование реестра схем формата данных с {{ mkf-name }} {#schema-registry}
 
-* [Обзор](./schema-registry-overview.md)
+* [{#T}](./schema-registry-overview.md)
 * [{#T}](./managed-schema-registry.md)
 * [{#T}](./confluent-schema-registry.md)
 
@@ -24,6 +24,7 @@
 * [Из {{ KF }} в {{ yds-name }}](mkf-yds-stream.md)
 * [Из {{ KF }} в {{ GP }}](managed-kafka-to-greenplum.md)
 * [Из {{ KF }} в {{ MG }}](mkf-to-mmg-migration.md)
+* [Из {{ MY }} в {{ KF }}](cdc/cdc-mmy.md)
 * [Из {{ KF }} в {{ MY }}](mkf-to-mmy-migration.md)
 * [Из {{ KF }} в {{ OS }}](mkf-to-mos-migration.md)
 

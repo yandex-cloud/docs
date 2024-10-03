@@ -1,6 +1,6 @@
 # Greedy parameters
 
-The [OpenAPI Specification 3.0](https://github.com/OAI/OpenAPI-Specification) only allows capturing a single URL segment. To capture multiple segments, add `+` after the parameter name: `/prefix/{param+}/suffix`.
+[OpenAPI Specification 3.0](https://github.com/OAI/OpenAPI-Specification) only allows capturing a single URL segment. To capture multiple segments, add `+` after the parameter name, such as `/prefix/{param+}/suffix`.
 
 For example, to capture `/static/js/main.js`, add `/static/{file+}` to the specification instead of `/static/{file}`.
 
@@ -8,7 +8,7 @@ Greedy parameters are compatible with all [x-yc-apigateway-integration](./index.
 
 ## Extension specification {#spec}
 
-Example specification:
+Specification example:
 
 ```yaml
 /static/{file+}:

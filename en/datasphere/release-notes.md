@@ -14,14 +14,14 @@ To keep up to date with the latest changes and updates, subscribe to our [{{ ml-
 * {{ ml-platform-name }} projects now have a new type of resources: [Spark connectors](concepts/spark-connector.md) for integration with [{{ dataproc-full-name }}](../data-proc/).
 * Improved [creating nodes](operations/deploy/node-create.md).
 * Improved [linking a billing account](operations/community/link-ba.md) to a community.
-* Fixed bugs and added minor improvements in service performance.
+* Fixed some bugs and added minor performance improvements.
 
 ## Release on 18/06/2024 {#180624}
 
 * Now you can [deploy node instances](operations/deploy/node-create.md) in different [availability zones](../overview/concepts/geo-scope.md): `{{ region-id }}-a` and `{{ region-id }}-b`.
 * Now you can [rerun](concepts/jobs/fork.md) jobs.
 * Python 3.7 is no longer supported.
-* Fixed bugs and added minor improvements in service performance.
+* Fixed some bugs and added minor performance improvements.
 
 ## Release on 03/04/2024 {#030424}
 
@@ -29,7 +29,7 @@ To keep up to date with the latest changes and updates, subscribe to our [{{ ml-
 1. Now you can use XGBoost and LightGBM models to deploy [nodes from models](concepts/deploy/index.md#models-node).
 1. Added delivering input variables in [fulfillment APIs](api-ref/overview.md#notebook).
 1. Improved [creating nodes](operations/deploy/node-create.md#from-docker) from Docker images.
-1. Fixed bugs and added minor improvements in service performance.
+1. Fixed some bugs and added minor performance improvements.
 
 ## Release on 27/03/2024 {#270324}
 
@@ -137,7 +137,7 @@ The Serverless mode is no longer supported.
 
 Greatly improved the Apache Spark™ cluster functionality:
 1. {{ ml-platform-name }} now has a new type of resources: [{{ dataproc-name }} templates](concepts/data-proc-template.md).
-1. You can now [configure a livy session](concepts/data-proc.md#sessions) when using {{ dataproc-name }} clusters.
+1. You can now [configure a livy session](concepts/data-proc.md#session) when using {{ dataproc-name }} clusters.
 1. {{ ml-platform-name }} now supports the [Spark SQL library](concepts/data-proc.md#sql).
 
 ## Release on 23/09/2022 {#230922}

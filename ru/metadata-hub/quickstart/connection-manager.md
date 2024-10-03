@@ -2,7 +2,7 @@
 
 {% include notitle [preview](../../_includes/note-preview.md) %}
 
-Управляйте подключениями к базам данных {{ PG }}, {{ MY }} и {{ CH }} с {{ connection-manager-full-name }}.
+Управляйте подключениями к базам данных {{ PG }}, {{ MY }}, {{ CH }} и {{ RD }} с {{ connection-manager-full-name }}.
 
 ## Интеграция с сервисами управляемых баз данных {#mdb-integration}
 
@@ -12,7 +12,7 @@
 1. Выберите сервис **{{ metadata-hub-full-name }}**.
 1. На панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **Connection manager**.
 
-В списке подключений вы можете просмотреть подключения, созданные для ваших кластеров, и [настроить доступ](../operations/connection-access.md) к ним. В списке [зависимостей](../operations/view-connection.md#dependencies) подключения вы сможете просмотреть, для каких кластеров управляемых баз данных используется это подключение. 
+В списке подключений вы можете просмотреть подключения, созданные для ваших кластеров, и [настроить доступ](../operations/connection-access.md) к ним. В списке [зависимостей](../operations/view-connection.md#dependencies) подключения вы сможете просмотреть, для каких кластеров управляемых баз данных используется это подключение.
 
 ## Управление подключениями к базам данных {#database-connections}
 

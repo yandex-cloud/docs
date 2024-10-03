@@ -10,7 +10,7 @@
 
     * Назначьте [роль `audit-trails.viewer`](../../audit-trails/security/index.md#roles-list) на облако, со всех ресурсов которого будут собираться аудитные логи:
 
-      ```
+      ```bash
       yc resource-manager cloud add-access-binding \
         --role audit-trails.viewer \
         --id <идентификатор_облака> \
@@ -25,7 +25,7 @@
 
     * Назначьте [роль `storage.uploader`](../../storage/security/index.md#storage-uploader) на каталог, в котором будет находиться трейл:
 
-      ```
+      ```bash
       yc resource-manager folder add-access-binding \
         --role storage.uploader \
         --id <идентификатор_каталога> \

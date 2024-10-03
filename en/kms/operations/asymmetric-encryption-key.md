@@ -13,7 +13,7 @@ You can use {{ kms-name }} to create, update, and destroy asymmetric encryption 
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to create your key pair in.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your key pair.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. In the left-hand panel, select ![image](../../_assets/kms/asymmetric-key.svg) **{{ ui-key.yacloud.kms.switch_asymmetric-keys }}**.
   1. In the top-right corner, click **{{ ui-key.yacloud.kms.asymmetric-keys.title_create }}**. In the window that opens:
@@ -57,7 +57,7 @@ You can use {{ kms-name }} to create, update, and destroy asymmetric encryption 
 
       Result:
 
-      ```bash
+      ```text
       id: abjfmo5enqlr********
       folder_id: b1gt6g8ht345********
       created_at: "2023-08-16T18:10:03Z"
@@ -109,18 +109,18 @@ After creating an encryption key pair, you can change its name, description, and
       ```bash
       yc kms asymmetric-encryption-key update \
         --id <key_pair_ID> \
-        --new-name <key_pair_new_name> \
+        --new-name <new_key_pair_name> \
         --deletion-protection
       ```
 
       Where:
       * `--id`: ID of the encryption key pair.
       * `--new-name`: New name for the key pair.
-      * `--deletion-protection`: Flag to enable deletion protection. To disable the key pair's deletion protection, use the `--no-deletion-protection` flag.
+      * `--deletion-protection`: Flag to enable deletion protection. To disable the key pair deletion protection, use the `--no-deletion-protection` flag.
 
       Result:
 
-      ```bash
+      ```text
       id: abjfmo5enqlr********
       folder_id: b1gt6g8ht345********
       created_at: "2023-08-16T18:10:03Z"
@@ -176,7 +176,7 @@ After creating an encryption key pair, you can change its name, description, and
 
       Result:
 
-      ```bash
+      ```text
       id: abjfmo5enqlr********
       folder_id: b1gt6g8ht345********
       created_at: "2023-08-16T18:10:03Z"

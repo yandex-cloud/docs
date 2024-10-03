@@ -10,27 +10,27 @@
    1. On the **{{ ui-key.yacloud.common.overview }}** page, go to the **{{ ui-key.yacloud.iot.label_aliases }}** section.
 
 - CLI {#cli}
+    
+    {% include [cli-install](../cli-install.md) %}
+    
+    {% include [default-catalogue](../default-catalogue.md) %}
+    
+    You can only get a list of aliases for all devices in the registry.
+    
+    Get a list of aliases for all devices in the registry:
+    
+    ```bash
+    yc iot registry list-device-topic-aliases my-registry
+    ```
 
-   {% include [cli-install](../cli-install.md) %}
+    Result:
 
-   {% include [default-catalogue](../default-catalogue.md) %}
-
-   You can only get a list of aliases for all devices in the registry.
-
-   Get a list of aliases for all devices in the registry:
-
-   ```
-   yc iot registry list-device-topic-aliases my-registry
-   ```
-
-   Result:
-
-   ```
-   +----------+----------------------------------------+----------------------+
-   |  ALIAS   |              TOPIC PREFIX              |      DEVICE ID       |
-   +----------+----------------------------------------+----------------------+
-   | commands | $devices/arenak5ciqss********/commands | arenak5ciqss******** |
-   +----------+----------------------------------------+----------------------+
+    ```text
+    +----------+----------------------------------------+----------------------+
+    |  ALIAS   |              TOPIC PREFIX              |      DEVICE ID       |
+    +----------+----------------------------------------+----------------------+
+    | commands | $devices/arenak5ciqss********/commands | arenak5ciqss******** |
+    +----------+----------------------------------------+----------------------+
    ```
 
 - API {#api}

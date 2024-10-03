@@ -21,7 +21,7 @@ You can assign a role for a [container](../concepts/container.md) via the YC CLI
 
 ## Which roles exist in the service {#roles-list}
 
-The list below shows all roles that are considered when verifying access rights in the {{ serverless-containers-name }} service.
+The list below shows all roles considered when verifying access permissions in {{ serverless-containers-name }}.
 
 ### Service roles {#service-roles}
 
@@ -48,3 +48,5 @@ The list below shows all roles that are considered when verifying access rights 
 ### Primitive roles {#primitive-roles}
 
 {% include [roles-primitive](../../_includes/roles-primitive.md) %}
+
+{% include [primitive-roles-footnote](../../_includes/primitive-roles-footnote.md) %}

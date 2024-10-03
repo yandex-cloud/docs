@@ -29,19 +29,19 @@
     * `ЧЧ:ММ:СС`. Например, `15:04:05`.
     * [RFC-3339](https://www.ietf.org/rfc/rfc3339.txt). Например: `2006-01-02T15:04:05Z`, `2h`, `3h30m ago`.
 
-    Для обращения к лог-группе используйте ее имя или уникальный идентификатор. Чтобы узнать их, [получите](../../logging/operations/list.md) список лог-групп в каталоге. Если имя или идентификатор не указаны, выводятся записи из [лог-группы по умолчанию](../../logging/concepts/log-group.md) текущего каталога. Флаги `--group-name` и `--group-id` можно опустить и указать сразу имя или идентификатор группы.    
+    Для обращения к лог-группе используйте ее имя или уникальный идентификатор. Чтобы узнать их, [получите](../../logging/operations/list.md) список лог-групп в каталоге. Если имя или идентификатор не указаны, выводятся записи из [лог-группы по умолчанию](../../logging/concepts/log-group.md) текущего каталога. Флаги `--group-name` и `--group-id` можно опустить и указать сразу имя или идентификатор группы.
 
     Ограничить количество выводимых записей можно с помощью флага `--limit`. Допустимые значения — от 1 до 1000.
 
     Чтобы посмотреть записи в формате JSON, выполните команду:
 
-    ```
+    ```bash
     yc logging read --group-name=default --format=json
     ```
 
     Результат:
 
-    ```
+    ```text
     [
       {
         "uid": "488ece3c-75b8-4d35-95ac-2b49********",
@@ -60,7 +60,7 @@
 
     Чтобы читать записи по мере их поступления, используйте флаг `--follow`:
 
-    ```
+    ```bash
     yc logging read --group-name=default --follow
     ```
 
@@ -68,10 +68,10 @@
 
 - API {#api}
 
-    Чтобы посмотреть записи в лог-группе, воспользуйтесь вызовом gRPC API [LogReadingService/Read](../../logging/api-ref/grpc/log_reading_service.md#Read).    
+    Чтобы посмотреть записи в лог-группе, воспользуйтесь вызовом gRPC API [LogReadingService/Read](../../logging/api-ref/grpc/log_reading_service.md#Read).
 
 - SDK {#sdk}
-  
+
     Читать записи в {{ cloud-logging-name }} можно с помощью {{ yandex-cloud }} SDK, реализованного для различных языков. Ниже приведены примеры использования Python SDK.
 
     **Локально**
@@ -92,7 +92,7 @@
 
       logs = cloud_logging_service.Read(read_request)
       return logs
-    
+
     pprint.pprint(handler())
     ```
 
@@ -105,13 +105,13 @@
     from yandex.cloud.logging.v1.log_reading_service_pb2 import ReadRequest
     from yandex.cloud.logging.v1.log_reading_service_pb2 import Criteria
     from yandex.cloud.logging.v1.log_reading_service_pb2_grpc import LogReadingServiceStub
-      
+
     def handler(event, context):
         cloud_logging_service = yandexcloud.SDK().client(LogReadingServiceStub)
         logs = {}
         criteria = Criteria(log_group_id='<id_log_группы>', resource_ids=['<id_ресурса>'])
         read_request = ReadRequest(criteria=criteria)
-      
+
         logs = cloud_logging_service.Read(read_request)
         return logs
     ```

@@ -60,21 +60,21 @@ description: "Следуя данной инструкции, вы сможет�
       * `--destination-zone-id` — идентификатор зоны доступности, в которую требуется перенести подсеть. Возможные значения:
 
           * `{{ region-id }}-a`;
-          * `{{ region-id }}-b`;       
+          * `{{ region-id }}-b`;
           * `{{ region-id }}-c`;
           * `{{ region-id }}-d`.
 
       Пример:
-    
-      ```
+
+      ```bash
       yc vpc subnet relocate \
         --id e9bcd5mq43cn******** \
         --destination-zone-id {{ region-id }}-d
       ```
 
       Результат:
-      
-      ```
+
+      ```bash
       id: e9bcd5mq43cn********
       folder_id: b1gt6g8ht345********
       created_at: "2023-10-06T10:30:06Z"
@@ -82,8 +82,8 @@ description: "Следуя данной инструкции, вы сможет�
       network_id: encb4ubvmief********
       zone_id: {{ region-id }}-d
       v4_cidr_blocks:
-        - 10.1.0.0/16   
-      dhcp_options: {}        
+        - 10.1.0.0/16
+      dhcp_options: {}
       ```
 
       Подробнее о команде `yc vpc subnet relocate` см. в [справочнике CLI](../../cli/cli-ref/managed-services/vpc/subnet/relocate.md).
@@ -97,7 +97,7 @@ description: "Следуя данной инструкции, вы сможет�
   Чтобы воспользоваться примером, установите [cURL](https://curl.haxx.se).
 
   1. [Получите](../../iam/operations/index.md#iam-tokens) IAM-токен, чтобы [аутентифицироваться](../api-ref/authentication.md) в API.
-  
+
   1. Сохраните полученный IAM-токен в переменную:
 
       ```bash
@@ -128,7 +128,7 @@ description: "Следуя данной инструкции, вы сможет�
       {% include [non-empty-subnet-relocate-notice](../../_includes/compute/subnet-relocate-novms-warning.md) %}
 
       Результат:
-        
+
       ```json
       {
         "done": true,

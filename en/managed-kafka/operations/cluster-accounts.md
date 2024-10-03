@@ -12,16 +12,56 @@ Users in {{ KF }}:
 * [Manage topics](cluster-topics.md#admin-api). For more information, see [{#T}](../concepts/topics.md).
 
 After [creating an {{ KF }} cluster](cluster-create.md), you can:
-* [{#T}](#create-user)
-* [{#T}](#update-password)
-* [{#T}](#update-account)
-* [{#T}](#grant-permission)
-* [{#T}](#revoke-permission)
-* [{#T}](#list-accounts)
-* [{#T}](#import-account)
-* [{#T}](#delete-account)
+* [Get a list of users in a cluster](#list-accounts)
+* [Create a user](#create-account)
+* [Change user settings](#update-account):
+   * [Change password](#update-password)
+   * [Grant permissions](#grant-permission)
+   * [Revoke permissions](#revoke-permission)
+* [Import a user to {{ TF }}](#import-account)
+* [Delete a user](#delete-account)
 
-## Creating a user {#create-user}
+## Getting a list of users in a cluster {#list-accounts}
+
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+   1. In the [management console]({{ link-console-main }}), go to the appropriate folder.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+   1. Click the cluster name and go to the **{{ ui-key.yacloud.mdb.cluster.switch_users }}** tab.
+
+- CLI {#cli}
+
+   {% include [cli-install](../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+   1. To get a list of users, run the following command:
+
+      ```bash
+      {{ yc-mdb-kf }} user list --cluster-name <cluster_name>
+      ```
+
+   1. To get detailed information for a specific user, run this command:
+
+      ```bash
+      {{ yc-mdb-kf }} user get <username> --cluster-name <cluster_name>
+      ```
+
+   To find out the cluster name, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+
+
+- API {#api}
+
+   To get a list of users, use the [list](../api-ref/User/list.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/List](../api-ref/grpc/user_service.md#List) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
+
+   To find out the cluster ID, [get a list of clusters in the folder](#list-clusters).
+
+
+{% endlist %}
+
+## Creating a user {#create-account}
 
 {% note info %}
 
@@ -42,7 +82,7 @@ Use the CLI, API, or {{ TF }} to create an admin user.
 
       {% include [user-name-and-password-limits](../../_includes/mdb/mkf/note-info-user-name-and-pass-limits.md) %}
 
-   1. [Grant permissions](#grant-permission) for relevant topics.
+   1. [Grant access permissions](#grant-permission) for the relevant topics.
    1. Click **{{ ui-key.yacloud.mdb.cluster.users.popup-button_add }}**.
 
 - CLI {#cli}
@@ -58,7 +98,7 @@ Use the CLI, API, or {{ TF }} to create an admin user.
       {{ yc-mdb-kf }} user create --help
       ```
 
-   1. Create a user with the `producer` role for the producer or `consumer` role for the consumer and grant permissions for relevant topics:
+   1. Create a user with the `producer` role for the producer or the `consumer` role for the consumer and grant access permissions for the relevant topics:
 
       ```bash
       {{ yc-mdb-kf }} user create <username> \
@@ -85,6 +125,8 @@ Use the CLI, API, or {{ TF }} to create an admin user.
 
    {% include [user-name-and-password-limits](../../_includes/mdb/mkf/note-info-user-name-and-pass-limits.md) %}
 
+   To find out the cluster name, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+
 - {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
@@ -103,7 +145,7 @@ Use the CLI, API, or {{ TF }} to create an admin user.
 
       {% include [user-name-and-password-limits](../../_includes/mdb/mkf/note-info-user-name-and-pass-limits.md) %}
 
-   1. [Grant permissions](#grant-permission) for relevant topics.
+   1. [Grant access permissions](#grant-permission) for the relevant topics.
    1. Make sure the settings are correct.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
@@ -124,9 +166,9 @@ Use the CLI, API, or {{ TF }} to create an admin user.
    * User settings in the `userSpec` parameter:
       * Username in the `name` parameter.
       * User password in the `password` parameter.
-      * Topic permissions (one or more `permissions` parameters, one for each topic):
+      * Topic access permissions (one or more `permissions` parameters, one for each topic):
          * Topic name in the `topicName` parameter. To find out the name, [get a list of cluster topics](cluster-topics.md#list-topics).
-         * Topic permissions in the `role` parameter: `ACCESS_ROLE_PRODUCER` for the producer or `ACCESS_ROLE_CONSUMER` for the consumer.
+         * Topic access permissions in the `role` parameter: `ACCESS_ROLE_PRODUCER` for the producer or `ACCESS_ROLE_CONSUMER` for the consumer.
 
    To create an [admin user](../concepts/topics.md#management) to manage topics in a cluster, provide the following values under `permission` in the `userSpec` parameter:
    * `topicName`: `*`
@@ -137,7 +179,57 @@ Use the CLI, API, or {{ TF }} to create an admin user.
 
 {% endlist %}
 
-## Changing a user password {#update-password}
+## Changing user settings {#update-account}
+
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+   1. In the [management console]({{ link-console-main }}), go to the appropriate folder.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+   1. Click the cluster name and go to the **{{ ui-key.yacloud.mdb.cluster.switch_users }}** tab.
+   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the appropriate user and select:
+
+      * **{{ ui-key.yacloud.mdb.cluster.users.button_action-password }}** to [enter another password](#update-password) for the user.
+      * **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}** to [grant](#grant-permission) or [revoke](#revoke-permission) topic access permissions.
+
+   1. Click **{{ ui-key.yacloud.mdb.cluster.users.popup-button_save }}**.
+
+- CLI {#cli}
+
+   {% include [cli-install](../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+   Using the CLI, you can [change a user's password](#update-password), [grant](#grant-permission) or [revoke](#revoke-permission) topic access permissions.
+
+- {{ TF }} {#tf}
+
+   1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
+
+   1. In the file, find the `yandex_mdb_kafka_user` resource for the required user and make the changes.
+
+      Using {{ TF }}, you can [change a user's password](#update-password), [grant](#grant-permission) or [revoke](#revoke-permission) topic access permissions.
+
+
+- API {#api}
+
+   To update user settings, use the [update](../api-ref/User/update.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/Update](../api-ref/grpc/user_service.md#Update) gRPC API call and provide the following in the request:
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * Username in the `userName` parameter. To find out the name, [get a list of users in the cluster](#list-accounts).
+   * In the `updateMask` parameter, a list of settings to update (in a single line, comma-separated). If this parameter is omitted, the API method resets any user settings that are not explicitly specified in the request to their default values.
+   * New set of permissions to topics (one or more `permissions` parameters, one for each topic).
+
+   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+
+   You can also use the `update` method to [change a user's password](#update-password), and the `grantPermission` and `revokePermission` methods, to [grant](#grant-permission) or [revoke](#revoke-permission) topic access permissions.
+
+
+{% endlist %}
+
+### Changing a user password {#update-password}
 
 {% list tabs group=instructions %}
 
@@ -166,6 +258,8 @@ Use the CLI, API, or {{ TF }} to create an admin user.
    ```
 
    {% include [password-limits](../../_includes/mdb/mkf/note-info-password-limits.md) %}
+
+   To find out the cluster name, [get a list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }} {#tf}
 
@@ -203,8 +297,8 @@ Use the CLI, API, or {{ TF }} to create an admin user.
    To update a user's password, use the [update](../api-ref/User/update.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/Update](../api-ref/grpc/user_service.md#Update) gRPC API call and provide the following in the request:
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * Username in the `userName` parameter. To find out the name, [get a list of users in the cluster](#list-accounts).
-   * Name of the `password` setting in the `updateMask` parameter. If this parameter is omitted, the API method resets any user settings that are not explicitly specified in the request to their default values.
    * New user password in the `password` parameter.
+   * Name of the `password` setting in the `updateMask` parameter.
 
       {% include [password-limits](../../_includes/mdb/mkf/note-info-password-limits.md) %}
 
@@ -213,71 +307,7 @@ Use the CLI, API, or {{ TF }} to create an admin user.
 
 {% endlist %}
 
-## Changing user settings {#update-account}
-
-{% list tabs group=instructions %}
-
-- Management console {#console}
-
-   1. In the [management console]({{ link-console-main }}), go to the appropriate folder.
-   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
-   1. Click the cluster name and go to the **{{ ui-key.yacloud.mdb.cluster.switch_users }}** tab.
-   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the appropriate user and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
-   1. [Grant](#grant-permission) or [revoke](#revoke-permission) permissions for topics, if necessary.
-   1. Click **{{ ui-key.yacloud.mdb.cluster.users.popup-button_save }}**.
-
-- CLI {#cli}
-
-   {% include [cli-install](../../_includes/cli-install.md) %}
-
-   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-
-   Using the CLI, you can [grant](#grant-permission) and [revoke](#revoke-permission) topic permissions.
-
-- {{ TF }} {#tf}
-
-   1. Open the current {{ TF }} configuration file with an infrastructure plan.
-
-      For more information about how to create this file, see [Creating clusters](cluster-create.md).
-   1. In the file, find the `yandex_mdb_kafka_user` resource for the required user.
-   1. Edit the `permission` section to [grant](#grant-permission) or [revoke](#revoke-permission) topic permissions:
-
-      ```hcl
-      resource "yandex_mdb_kafka_user" "<username>" {
-        cluster_id = "<cluster_ID>"
-        name       = "<username>"
-        password   = "<password>"
-        ...
-      }
-      ```
-
-   1. Make sure the settings are correct.
-
-      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
-
-   1. Confirm updating the resources.
-
-      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_kafka_cluster).
-
-   {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
-
-
-- API {#api}
-
-   To update user settings, use the [update](../api-ref/User/update.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/Update](../api-ref/grpc/user_service.md#Update) gRPC API call and provide the following in the request:
-   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-   * Username in the `userName` parameter. To find out the name, [get a list of users in the cluster](#list-accounts).
-   * In the `updateMask` parameter, a list of settings to update (in a single line, comma-separated). If this parameter is omitted, the API method resets any user settings that are not explicitly specified in the request to their default values.
-   * New set of permissions to topics (one or more `permissions` parameters, one for each topic).
-
-   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
-
-
-{% endlist %}
-
-## Granting user permissions {#grant-permission}
+### Granting user permissions {#grant-permission}
 
 {% include [mkf-deleted-topic-permissions-note](../../_includes/mdb/mkf-deleted-topic-permissions-note.md) %}
 
@@ -359,6 +389,8 @@ Use the CLI, API, or {{ TF }} to create an admin user.
 
       Along with access to the topic, users also gain access to data schema subjects. The availability of subjects depends on the specified roles and topics. For more information, see [{#T}](../concepts/managed-schema-registry.md#subjects).
 
+   To find out the cluster name, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+
 - {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
@@ -416,7 +448,7 @@ Use the CLI, API, or {{ TF }} to create an admin user.
 
 {% endlist %}
 
-## Revoking user permissions {#revoke-permission}
+### Revoking user permissions {#revoke-permission}
 
 If you revoke the `ACCESS_ROLE_ADMIN` role from the [admin user](../concepts/topics.md#management) in a cluster, you will no longer be able to manage topics. Do not revoke this role without first granting it to another user.
 
@@ -438,7 +470,7 @@ If you revoke the `ACCESS_ROLE_ADMIN` role from the [admin user](../concepts/top
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To revoke access permissions to certain topics, provide an updated list of `--permission` parameters:
+   To revoke access permissions for specific topics, provide an updated list of `--permission` parameters:
 
    ```bash
    {{ yc-mdb-kf }} user update <username> \
@@ -452,6 +484,8 @@ If you revoke the `ACCESS_ROLE_ADMIN` role from the [admin user](../concepts/top
 
    * `topic`: Topic name.
    * `role`: User role, such as `producer`, `consumer`, or `admin`.
+
+   To find out the cluster name, [get a list of clusters in the folder](cluster-list.md#list-clusters).
 
    To revoke all the permissions granted to the user, use the console or delete the user.
 
@@ -481,45 +515,6 @@ If you revoke the `ACCESS_ROLE_ADMIN` role from the [admin user](../concepts/top
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * Username in the `userName` parameter. To find out the name, [get a list of users in the cluster](#list-accounts).
    * The topic permission to be revoked in the `permission` parameter.
-
-
-{% endlist %}
-
-## Getting a list of users in a cluster {#list-accounts}
-
-{% list tabs group=instructions %}
-
-- Management console {#console}
-
-   1. In the [management console]({{ link-console-main }}), go to the appropriate folder.
-   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
-   1. Click the cluster name and go to the **{{ ui-key.yacloud.mdb.cluster.switch_users }}** tab.
-
-- CLI {#cli}
-
-   {% include [cli-install](../../_includes/cli-install.md) %}
-
-   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-
-   To get a list of users:
-   1. To get a list of users, run the following command:
-
-      ```bash
-      {{ yc-mdb-kf }} user list --cluster-name <cluster_name>
-      ```
-
-   1. To get detailed information for a specific user, run this command:
-
-      ```bash
-      {{ yc-mdb-kf }} user get <username> --cluster-name <cluster_name>
-      ```
-
-
-- API {#api}
-
-   To get a list of users, use the [list](../api-ref/User/list.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/List](../api-ref/grpc/user_service.md#List) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
-
-   To find out the cluster ID, [get a list of clusters in the folder](#list-clusters).
 
 
 {% endlist %}
@@ -573,6 +568,8 @@ If you delete the [admin user](../concepts/topics.md#management) with the `ACCES
    ```bash
    {{ yc-mdb-kf }} user delete <username> --cluster-name <cluster_name>
    ```
+
+   To find out the cluster name, [get a list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }} {#tf}
 

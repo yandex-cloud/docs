@@ -5,6 +5,10 @@ description: "Для создания дашборда в {{ monitoring-full-nam
 
 # Создание дашборда в {{ monitoring-name }}
 
+
+@[youtube](https://youtu.be/TvLdfcPCOHw)
+
+
 Для создания [дашборда](../../concepts/visualization/dashboard.md) выполните следующее:
 
 1. На главной странице сервиса нажмите **{{ ui-key.yacloud_monitoring.homepage.button_dashboards-action }}**.

@@ -11,31 +11,31 @@ You can stop a resource by disabling end-user access to the content. To do this:
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder where your resource is located.
+  1. In the [management console]({{ link-console-main }}), select the folder where your resource is located.
 
-   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
 
-   1. Click the resource name.
+  1. Click the resource name.
 
-   1. In the top-right corner, click ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
+  1. In the top-right corner, click ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
 
-   1. Under **{{ ui-key.yacloud.cdn.label_section-additional }}**, disable the **{{ ui-key.yacloud.cdn.label_access }}** option.
+  1. Under **{{ ui-key.yacloud.cdn.label_section-additional }}**, disable the **{{ ui-key.yacloud.cdn.label_access }}** option.
 
-   1. Click **{{ ui-key.yacloud.common.save }}**.
+  1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
-   {% include [include](../../../_includes/cli-install.md) %}
+  {% include [include](../../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-   1. View a description of the CLI update resource command:
+  1. View the description of the CLI update resource command:
 
       ```bash
       yc cdn resource update --help
       ```
 
-   1. Get a list of all resources in the default folder:
+  1. Get a list of all resources in the default folder:
 
       ```bash
       yc cdn resource list --format yaml
@@ -43,7 +43,7 @@ You can stop a resource by disabling end-user access to the content. To do this:
 
       Result:
 
-      ```bash
+      ```text
       id: s0me1dkfjq********
       folder_id: s0mef01der7p********
       cname: testexample.com
@@ -82,7 +82,7 @@ You can stop a resource by disabling end-user access to the content. To do this:
         status: READY
       ```
 
-   1. Disable end-user access to content by setting the `--active` flag to `false`:
+  1. Disable end-user access to content by setting the `--active` flag to `false`:
 
       ```bash
       yc cdn resource update <resource_ID> --active false
@@ -92,14 +92,14 @@ You can stop a resource by disabling end-user access to the content. To do this:
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-install](../../../_includes/terraform-install.md) %}
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-   1. Open the {{ TF }} configuration file and add or edit the `yandex_cdn_resource` section setting `active = false`.
+  1. Open the {{ TF }} configuration file and add or edit the `yandex_cdn_resource` section by setting `active = false`.
 
-      {% cut "An example of describing a CDN resource in the {{ TF }} configuration" %}
+     {% cut "An example of describing a CDN resource in the {{ TF }} configuration" %}
 
-      ```hcl
-      resource "yandex_cdn_resource" "my_resource" {
+     ```hcl
+     resource "yandex_cdn_resource" "my_resource" {
          cname               = "cdn1.yandex-example.ru"
          active              = false
          origin_protocol     = "https"
@@ -111,48 +111,48 @@ You can stop a resource by disabling end-user access to the content. To do this:
            ignore_cookie       = true
            ...
          }
-      }
-      ```
+     }
+     ```
 
-      {% endcut %}
+     {% endcut %}
 
-      For more information about `yandex_cdn_resource` parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/cdn_resource).
+      For more information about the `yandex_cdn_resource` parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/cdn_resource).
 
-   1. In the command line, go to the directory with the {{ TF }} configuration file.
+  1. In the command line, go to the folder with the {{ TF }} configuration file.
 
-   1. Check the configuration using this command:
-      ```
-      terraform validate
-      ```
+  1. Check the configuration using this command:
+     ```
+     terraform validate
+     ```
 
-      If the configuration is correct, you will get this message:
+     If the configuration is correct, you will get this message:
 
-      ```
-      Success! The configuration is valid.
-      ```
+     ```
+     Success! The configuration is valid.
+     ```
 
-   1. Run this command:
-      ```
-      terraform plan
-      ```
+  1. Run this command:
+     ```
+     terraform plan
+     ```
 
-      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
-   1. Apply the configuration changes:
-      ```
-      terraform apply
-      ```
+  1. Apply the configuration changes:
+     ```
+     terraform apply
+     ```
 
-   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-      You can check the changes to the CDN resource in the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/quickstart.md) command:
+     You can check the changes to the CDN resource in the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/quickstart.md) command:
 
-      ```
-      yc cdn resource list
-      ```
+     ```
+     yc cdn resource list
+     ```
 
 - API {#api}
 
-   Use the [update](../../api-ref/Resource/update.md) REST API method for the [Resource](../../api-ref/Resource/index.md) resource or the [ResourceService/Update](../../api-ref/grpc/resource_service.md#Update) gRPC API call.
+  Use the [update](../../api-ref/Resource/update.md) REST API method for the [Resource](../../api-ref/Resource/index.md) resource or the [ResourceService/Update](../../api-ref/grpc/resource_service.md#Update) gRPC API call.
 
 {% endlist %}

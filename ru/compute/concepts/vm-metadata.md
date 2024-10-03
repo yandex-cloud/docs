@@ -19,7 +19,7 @@
 - Консоль управления {#console}
 
   Метаданные передаются в блоке **{{ ui-key.yacloud.common.metadata }}** в формате `Ключ:Значение`.
-  
+
   Например, чтобы создать в ОС виртуальной машины нескольких пользователей, добавьте ключ `user-data` и в его значении укажите конфигурацию:
 
   {% include [users-from-metadata-example](../../_includes/compute/users-from-metadata-example.md) %}
@@ -129,6 +129,7 @@
 
   * `serial-port-enable` — флаг, включающий доступ к [серийной консоли](../operations/serial-console/index.md). `1` — включить, `0` (по умолчанию) — выключить.
   * `enable-oslogin` — флаг, включающий доступ через [OS Login](../operations/vm-connect/os-login.md). `true` — включить, `false` (по умолчанию) — выключить.
+  * `install-unified-agent` — флаг, устанавливающий агент для сбора метрик и логов [{{ unified-agent-short-name }}](../../monitoring/concepts/data-collection/unified-agent/installation.md#setup). `1` — установить, `0` (по умолчанию) — не устанавливать.
   * `user-data` — строка с пользовательскими метаданными, которые будут обработаны агентом [cloud-init](https://cloud-init.io), запущенным на ВМ.
 
     Cloud-init поддерживает разные [форматы](https://cloudinit.readthedocs.io/en/latest/topics/format.html) передачи метаданных, например [cloud-config](https://cloudinit.readthedocs.io/en/latest/topics/examples.html). В этом формате вы можете передать SSH-ключи и указать, какому пользователю принадлежит каждый ключ. Для этого укажите их в элементе `users/ssh-authorized-keys`:
@@ -172,9 +173,9 @@
    ```
 
 1. Идентификационный документ можно получить в форматах [Google Compute Engine](../operations/vm-info/get-info.md#gce-metadata) и [Amazon EC2](../operations/vm-info/get-info.md#ec2-metadata). Выполните команду:
-   
+
    {% list tabs %}
-   
+
    - GCE
 
      ```bash
@@ -186,18 +187,18 @@
      ```bash
      curl http://169.254.169.254/latest/vendor/instance-identity/document
      ```
-     
-   {% endlist %}   
 
-   Пример ответа: 
-   
-   ```
+   {% endlist %}
+
+   Пример ответа:
+
+   ```json
    {"instanceId":"fhmm5252k8vl********","productCodes":null,"imageId":"fd8evlqsgg4e********","productIds":["f2e3ia802lab********"],"createdAt":"2023-05-29T09:46:59Z","version":"2023-03-01"}
    ```
 
 {% note info %}
 
-Если ВМ была создана до 09.06.2023 и вы не можете получить идентификационный документ, остановите и снова запустите ВМ. 
+Если ВМ была создана до 09.06.2023 и вы не можете получить идентификационный документ, остановите и снова запустите ВМ.
 
 {% endnote %}
 
@@ -217,8 +218,8 @@
      ssh <IP-адрес_ВМ>
      ```
 
-  1. Получите RSA-подпись из метаданных ВМ и сохраните ее в файл `rsa2048`: 
-     
+  1. Получите RSA-подпись из метаданных ВМ и сохраните ее в файл `rsa2048`:
+
      * **GCE**:
 
        ```bash
@@ -230,12 +231,12 @@
        ```bash
        curl http://169.254.169.254/latest/vendor/instance-identity/rsa > rsa2048
        ```
-  
+
   1. Создайте файл `certificate` и добавьте в него публичный сертификат:
 
      
 
-     ```
+     ```text
      -----BEGIN CERTIFICATE-----
      MIIC4TCCAcmgAwIBAgIUP0zcGO1MeRwze8VdSMEt/OdBXoIwDQYJKoZIhvcNAQEL
      BQAwADAeFw0yMzA2MDcwNjU4MTBaFw0zMzA2MDQwNjU4MTBaMAAwggEiMA0GCSqG
@@ -255,7 +256,7 @@
      r9ZBjEa0oLFVV0pP5Tj4Gf1DDpuJ
      -----END CERTIFICATE-----
      ```
-     
+
 
 
 
@@ -266,7 +267,7 @@
      openssl smime -verify -in rsa2048 -inform PEM -certfile certificate -noverify | tee document
      ```
 
-     Если подпись верна, появится сообщение `Verification successful`. 
+     Если подпись верна, появится сообщение `Verification successful`.
 
 - DSA
 
@@ -276,8 +277,8 @@
      ssh <IP-адрес_ВМ>
      ```
 
-  1. Получите dsa2048-подпись из метаданных ВМ и сохраните ее в файл `dsa2048`: 
-   
+  1. Получите dsa2048-подпись из метаданных ВМ и сохраните ее в файл `dsa2048`:
+
      * **GCE**:
 
        ```bash
@@ -294,7 +295,7 @@
 
      
 
-     ```
+     ```text
      -----BEGIN CERTIFICATE-----
      MIIERjCCA+ugAwIBAgIULIUmuptqf9Pz7nMGMHeW+BPNneYwCwYJYIZIAWUDBAMC
      MAAwHhcNMjMwNjA3MDY1NjI0WhcNMzMwNjA0MDY1NjI0WjAAMIIDRjCCAjkGByqG
@@ -321,7 +322,7 @@
      LFFIJGlNWgIhAO0b749SY5+6UMEOLsxgvNzKKcv58BKADfBdJAXE6fRk
      -----END CERTIFICATE-----
      ```
-     
+
 
 
 
@@ -331,7 +332,7 @@
      openssl smime -verify -in dsa2048 -inform PEM -certfile certificate -noverify | tee document
      ```
 
-     Если подпись верна, появится сообщение `Verification successful`. 
+     Если подпись верна, появится сообщение `Verification successful`.
 
 - BASE64
 
@@ -341,8 +342,8 @@
      ssh <IP-адрес_ВМ>
      ```
 
-  1. Получите base64-подпись из метаданных ВМ и сохраните ее в файл `signature`: 
-   
+  1. Получите base64-подпись из метаданных ВМ и сохраните ее в файл `signature`:
+
      * **GCE**:
 
        ```bash
@@ -354,7 +355,7 @@
        ```bash
        curl http://169.254.169.254/latest/vendor/instance-identity/base64 | base64 -d >> signature
        ```
-  
+
   1. Получите идентификационный документ и сохраните его в файл `document`:
 
      * **GCE**:
@@ -373,7 +374,7 @@
 
      
 
-     ```
+     ```text
      -----BEGIN CERTIFICATE-----
      MIIC4TCCAcmgAwIBAgIUP0zcGO1MeRwze8VdSMEt/OdBXoIwDQYJKoZIhvcNAQEL
      BQAwADAeFw0yMzA2MDcwNjU4MTBaFw0zMzA2MDQwNjU4MTBaMAAwggEiMA0GCSqG
@@ -393,7 +394,7 @@
      r9ZBjEa0oLFVV0pP5Tj4Gf1DDpuJ
      -----END CERTIFICATE-----
      ```
-     
+
 
 
 
@@ -409,17 +410,17 @@
      openssl dgst -sha256 -verify key -signature signature document
      ```
 
-     Если подпись верна, появится сообщение `Verified OK`. 
+     Если подпись верна, появится сообщение `Verified OK`.
 
 {% endlist %}
 
 Сопоставьте идентификационный документ из метаданных ВМ с документом, сохраненным в файле:
 
-```
+```bash
 curl http://169.254.169.254/latest/vendor/instance-identity/document | openssl dgst -sha256
 ```
 
-```
+```bash
 openssl dgst -sha256 < document
 ```
 

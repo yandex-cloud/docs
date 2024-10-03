@@ -25,4 +25,5 @@ After the trigger is activated, it sends the following message to the container:
 
 ## See also {#see-also}
 
-* [Trigger for {{ objstorage-name }} that invokes a {{ sf-name }} function](../../../functions/concepts/trigger/os-trigger.md).
+* [{#T}](../../../functions/concepts/trigger/os-trigger.md)
+* [{#T}](../../../api-gateway/concepts/trigger/os-trigger.md)

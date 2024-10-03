@@ -1,3 +1,8 @@
+---
+title: "Справочник {{ TF }} для {{ alb-full-name }}"
+description: "На этой странице приведен справочник ресурсов и источников данных провайдера {{ TF }}, которые поддерживаются для сервиса {{ alb-name }}."
+---
+
 # Справочник {{ TF }} для {{ alb-full-name }}
 
 {% include [terraform-ref-intro](../_includes/terraform-ref-intro.md) %}

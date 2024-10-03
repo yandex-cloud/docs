@@ -9,8 +9,9 @@ description: "This page provides a list of step-by-step guides for {{ mkf-name }
 
 - [Information about existing clusters](cluster-list.md)
 - [Creating a cluster](cluster-create.md)
-- [Changing cluster settings](cluster-update.md)
+- [Updating cluster settings](cluster-update.md)
 - [{#T}](cluster-version-update.md)
+- [{#T}](storage-space.md)
 - [Stopping and starting a cluster](cluster-stop.md)
 - [Getting a list of cluster hosts](cluster-hosts.md)
 - [{#T}](host-migration.md)
@@ -26,7 +27,7 @@ description: "This page provides a list of step-by-step guides for {{ mkf-name }
 
 - [Managing topics](cluster-topics.md)
 
-## {{ KF }} users {#users}
+## {{ KF }} users {#accounts}
 
 - [Managing users](cluster-accounts.md)
 

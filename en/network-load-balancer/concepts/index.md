@@ -25,7 +25,7 @@ The structure of the network load balancer includes the following key components
 
 * [Traffic Listener](listener.md) accepts traffic on the balancer.
 * [Target Group](target-resources.md): Set of resources that receive traffic from the listener.
-* [Resource health checker for target groups](#nlb-hc) checks the availability of resources in the target group.
+* [Resource health checker for target groups](health-check.md) checks the availability of resources in the target group.
 
 You can create a network load balancer by specifying only its name. The other parameters are optional. An [external balancer](#nlb-types) is created by default. Traffic listeners and target groups can be created later and linked to the previously created network load balancer.
 

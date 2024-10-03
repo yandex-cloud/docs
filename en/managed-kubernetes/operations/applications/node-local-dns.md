@@ -1,6 +1,5 @@
 # Installing NodeLocal DNS
 
-
 [NodeLocal DNS](/marketplace/products/yc/node-local-dns) reduces the load from DNS requests by running a cache on every [node](../../concepts/index.md#node-group) in a [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster). This improves {{ managed-k8s-name }} cluster performance and fault tolerance.
 
 ## Getting started {#before-you-begin}
@@ -17,6 +16,16 @@
 1. Configure the application:
    * **Namespace**: Select the `kube-system` [namespace](../../concepts/index.md#namespace).
    * **Application name**: Specify the name for the application to be deployed in the {{ managed-k8s-name }} cluster.
+   * **Internal IP address of the kube-dns service**: Address for accessing NodeLocal DNS Cache. Requests sent from application pods to the address in the field are routed to [local DNS](https://github.com/kubernetes/enhancements/blob/master/keps/sig-network/1024-nodelocal-cache-dns/README.md#iptables-notrack) using the `iptables` rules.
+
+      The field contains the `ClusterIP` address of `kube-dns` in the `kube-system` namespace. You can get the value of the field using the following command:
+
+      ```bash
+      kubectl get svc kube-dns -n kube-system -o jsonpath={.spec.clusterIP}
+      ```
+
+      Since {{ yandex-cloud }} adds the `kube-dns` service when creating the cluster, the IP address of the service is pre-defined. Therefore, you cannot change it in the **kube-dns internal IP address** field.
+
    * **Work with Cilium**: Select this option if a cluster uses the [Cilium network policy controller](../../concepts/network-policy.md#cilium).
 1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
 1. Wait for the application to change its status to `Deployed`.
@@ -31,18 +40,29 @@ After installing NodeLocal DNS, use the following values:
 
 1. {% include [Install Helm](../../../_includes/managed-kubernetes/helm-install.md) %}
 1. {% include [Install and configure kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
-1. To install a [Helm chart](https://helm.sh/docs/topics/charts/), from NodeLocal DNS, run the following command:
+1. Get an address to access the NodeLocal DNS Cache. You will need the address to install the [Helm chart](https://helm.sh/docs/topics/charts/):
 
+   ```bash
+   kubectl get svc kube-dns -n kube-system -o jsonpath={.spec.clusterIP}
+   ```
+
+   The command dsplays the `ClusterIP` address of the `kube-dns` service in the `kube-system` namespace. `kube-dns` is installed automatically during cluster creation, so its IP address is pre-defined.
+
+   Requests sent from application pods to the address you get are routed to [local DNS](https://github.com/kubernetes/enhancements/blob/master/keps/sig-network/1024-nodelocal-cache-dns/README.md#iptables-notrack) based on the iptables rules.
+
+1. To install a Helm chart from NodeLocal DNS, run this command:
+
+   
    ```bash
    export HELM_EXPERIMENTAL_OCI=1 &&\
    helm pull oci://{{ mkt-k8s-key.yc_node-local-dns.helmChart.name }} \
      --version {{ mkt-k8s-key.yc_node-local-dns.helmChart.tag }} \
      --untar && \
-   KUBE_DNS_IP="$(kubectl get svc kube-dns -n kube-system -o jsonpath={.spec.clusterIP})" && \
    helm install \
      --set config.cilium=false \
-     --set config.clusterIp=$KUBE_DNS_IP \
-     node-local-dns ./chart/
+     --set config.clusterIp="<kube-dns_IP_address>" \
+     node-local-dns ./node-local-dns/
    ```
+
 
 For more information about local DNS caching, see [{#T}](../../tutorials/node-local-dns.md).

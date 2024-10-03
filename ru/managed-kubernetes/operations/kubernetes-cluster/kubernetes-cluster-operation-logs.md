@@ -50,7 +50,7 @@
 
   Результат:
 
-  ```yaml
+  ```text
   - id: cat5g6mqaccn********
     description: Update cluster
     created_at: "2024-05-14T18:40:02Z"
@@ -124,7 +124,7 @@
 
      Результат:
 
-     ```yaml
+     ```text
      id: cat5g6mqaccn********
      description: Update cluster
      created_at: "2024-05-14T18:40:02Z"

@@ -12,6 +12,8 @@ items:
     items:
       - name: Все инструкции
         href: operations/index.md
+      - name: Подключиться к провайдеру {{ cdn-name }}
+        href: operations/enable-provider.md
       - name: Ресурсы
         items:
           - name: Создать ресурс
@@ -40,6 +42,8 @@ items:
             href: operations/resources/enable-segmentation.md
           - name: Включить экранирование источников
             href: operations/resources/enable-shielding.md
+          - name: Настроить перенаправление запросов
+            href: operations/resources/setup-http-rewrite.md
           - name: Настроить доступ по защищенному токену
             href: operations/resources/enable-secure-token.md
           - name: Управлять дополнительными настройками ресурса
@@ -74,6 +78,8 @@ items:
         href: tutorials/cdn-storage-integration.md
       - name: Сине-зеленое и канареечное развертывание версий сервиса
         href: tutorials/blue-green-canary-deployment.md
+      - name: Организация защищенного доступа к контенту
+        href: tutorials/protected-access-to-content.md
   - name: Концепции
     items:
       - name: Обзор сервиса
@@ -102,6 +108,8 @@ items:
             href: concepts/slicing.md
           - name: Экранирование источников
             href: concepts/origins-shielding.md
+      - name: Перенаправление запросов
+        href: concepts/http-rewrite.md
       - name: Кеширование контента
         href: concepts/caching.md
       - name: Защищенные токены

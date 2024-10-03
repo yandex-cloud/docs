@@ -2,7 +2,7 @@ title: Yandex Application Load Balancer
 href: index.yaml
 label:
   title: KZ
-  description: The service is available in Kazakhstan.
+  description: This service is only available in the Kazakhstan region.
   theme: info
   when: region == "kz"
 items:
@@ -12,6 +12,8 @@ items:
     items:
       - name: All guides
         href: operations/index.md
+      - name: Creating {{ alb-name }} infrastructure through a wizard
+        href: quickstart-wizard.md
       - name: Target groups
         items:
           - name: Creating a target group
@@ -74,8 +76,14 @@ items:
         href: tutorials/index.md
       - name: Setting up virtual hosting
         href: tutorials/virtual-hosting.md
-      - name: Creating a load balancer with DDoS protection
-        href: tutorials/alb-with-ddos-protection.md
+      - name: Creating an L7 load balancer with DDoS protection
+        items:
+          - name: Summary
+            href: tutorials/alb-with-ddos-protection/index.md
+          - name: Management console, CLI
+            href: tutorials/alb-with-ddos-protection/console.md
+          - name: '{{ TF }}'
+            href: tutorials/alb-with-ddos-protection/terraform.md
       - name: Integrating an L7 load balancer with CDN and Object Storage
         href: tutorials/cdn-storage-integration.md
       - name: Blue-green and canary deployment of service versions
@@ -98,8 +106,10 @@ items:
         href: tutorials/alb-ingress-controller.md
       - name: Logging settings for {{ alb-name }} Ingress controllers
         href: tutorials/alb-ingress-controller-log-options.md
+      - name: Fault-tolerant website with load balancing using {{ alb-name }}
+        href: tutorials/application-load-balancer-website.md
       - name: >-
-          Health checking your applications in a {{ k8s }} cluster using the {{
+          Health checking your applications in a {{ k8s }} cluster with the {{
           alb-name }} Ingress controller
         href: tutorials/custom-health-checks.md
   - name: Concepts
@@ -116,6 +126,8 @@ items:
         href: concepts/target-group.md
       - name: Quotas and limits
         href: concepts/limits.md
+      - name: Tips for configuring health checks
+        href: concepts/best-practices.md
   - name: Tools for {{ managed-k8s-name }}
     items:
       - name: Overview

@@ -28,9 +28,9 @@ Create a [trigger for {{ yds-name }}](../../concepts/trigger/data-streams-trigge
 
       * Enter a name and description for the trigger.
       * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_data-streams }}`.
-      * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** field, select the `API gateway`.
+      * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_gateway-broadcast }}`.
 
-   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_data-streams }}**, select a data stream and a service account with rights to read data from and write data to it.
+   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_data-streams }}**, select a data stream and a service account with permissions to read data from the stream and write data to it.
 
    1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}**, specify:
 
@@ -77,7 +77,7 @@ Create a [trigger for {{ yds-name }}](../../concepts/trigger/data-streams-trigge
 
    * `--batch-cutoff`: Maximum wait time. This is an optional parameter. The values may range from 1 to 60 seconds. The default value is 1 second. The trigger groups messages for a period not exceeding `batch-cutoff` and sends them to WebSocket connections. The total amount of data transmitted to connections may exceed `batch-size` if the data is transmitted as a single message. Otherwise, the amount of data does not exceed `batch-size`.
 
-   * `--stream-service-account-id`: ID of the service account with rights to read from the data stream and write to it.
+   * `--stream-service-account-id`: ID of the service account with permissions to read from the data stream and write to it.
 
    {% include [trigger-cli-param](../../../_includes/api-gateway/trigger-cli-param.md) %}
 

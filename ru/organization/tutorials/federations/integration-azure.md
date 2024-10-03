@@ -88,13 +88,13 @@
 
   1. В поле **{{ ui-key.yacloud_org.entity.federation.field.issuer }}** вставьте ссылку, которая указана в поле **Идентификатор {{ microsoft-idp.entra-full }}** на странице **Вход на основе SAML** в {{ microsoft-idp.entra-id-short }}. Формат ссылки:
 
-      ```
+      ```text
       https://sts.windows.net/<идентификатор_SAML-приложения>/
       ```
 
   1. В поле **{{ ui-key.yacloud_org.entity.federation.field.ssoUrl }}** вставьте ссылку, которая указана в поле **URL-адрес входа** на странице **Вход на основе SAML** в {{ microsoft-idp.entra-id-short }}. Формат ссылки:
 
-      ```
+      ```text
       https://login.microsoftonline.com/<идентификатор_SAML-приложения>/saml2
       ```
 
@@ -116,7 +116,7 @@
 
     1. Посмотрите описание команды создания федерации:
 
-        ```
+        ```bash
         yc organization-manager federation saml create --help
         ```
 
@@ -149,7 +149,7 @@
         * `--issuer` — идентификатор IdP-сервера, на котором должна происходить аутентификация.
 
             Используйте ссылку, которая указана в поле **Идентификатор {{ microsoft-idp.entra-full }}** на странице **Вход на основе SAML** в {{ microsoft-idp.entra-id-short }}. Формат ссылки:
-            ```
+            ```text
             https://sts.windows.net/<идентификатор_SAML-приложения>/
             ```
 
@@ -157,7 +157,7 @@
 
             Используйте ссылку, которая указана в поле **URL-адрес входа** на странице **Вход на основе SAML** в {{ microsoft-idp.entra-id-short }}. Формат ссылки:
 
-            ```
+            ```text
             https://login.microsoftonline.com/<идентификатор_SAML-приложения>/saml2
             ```
 
@@ -181,16 +181,16 @@
 
             Используйте ссылку, которая указана в поле **Идентификатор {{ microsoft-idp.entra-full }}** на странице **Вход на основе SAML** в {{ microsoft-idp.entra-id-short }}. Формат ссылки:
 
-            ```
+            ```text
             https://sts.windows.net/<идентификатор_SAML-приложения>/
             ```
-        
+
         * `sso_binding` — укажите тип привязки для Single Sign-on. Большинство поставщиков поддерживают тип привязки `POST`.
         * `sso_url` — URL-адрес страницы, на которую браузер должен перенаправить пользователя для аутентификации.
 
             Используйте ссылку, которая указана в поле **URL-адрес входа** на странице **Вход на основе SAML** в {{ microsoft-idp.entra-id-short }}. Формат ссылки:
 
-            ```
+            ```text
             https://login.microsoftonline.com/<идентификатор_SAML-приложения>/saml2
             ```
 
@@ -209,7 +209,7 @@
 
      Пример структуры конфигурационного файла:
 
-     ```
+     ```hcl
      resource "yandex_organizationmanager_saml_federation" federation {
       name            = "my-federation"
       organization_id = "<идентификатор_организации>"
@@ -228,7 +228,7 @@
      1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
      1. Выполните проверку с помощью команды:
 
-        ```
+        ```bash
         terraform plan
         ```
 
@@ -238,7 +238,7 @@
 
      1. Если в конфигурации нет ошибок, выполните команду:
 
-        ```
+        ```bash
         terraform apply
         ```
 
@@ -282,7 +282,7 @@
 
             Используйте ссылку, которая указана в поле **Идентификатор {{ microsoft-idp.entra-full }}** на странице **Вход на основе SAML** в {{ microsoft-idp.entra-id-short }}. Формат ссылки:
 
-            ```
+            ```text
             https://sts.windows.net/<идентификатор_SAML-приложения>/
             ```
 
@@ -290,7 +290,7 @@
 
             Используйте ссылку, которая указана в поле **URL-адрес входа** на странице **Вход на основе SAML** в {{ microsoft-idp.entra-id-short }}. Формат ссылки:
 
-            ```
+            ```text
             https://login.microsoftonline.com/<идентификатор_SAML-приложения>/saml2
             ```
 
@@ -336,13 +336,13 @@
 
   1. Посмотрите описание команды добавления сертификата:
 
-      ```
+      ```bash
       yc organization-manager federation saml certificate create --help
       ```
 
   1. Добавьте сертификат для федерации, указав путь к файлу сертификата:
 
-      ```
+      ```bash
       yc organization-manager federation saml certificate create \
         --federation-id <ID_федерации> \
         --name "my-certificate" \
@@ -471,13 +471,13 @@
 
   1. Посмотрите описание команды добавления пользователей:
 
-      ```
+      ```bash
       yc organization-manager federation saml add-user-accounts --help
       ```
 
   1. Добавьте пользователей, перечислив их Name ID через запятую:
 
-      ```
+      ```bash
       yc organization-manager federation saml add-user-accounts --id <ID_федерации> \
         --name-ids=alice@example.com,bob@example.com,charlie@example.com
       ```
@@ -523,7 +523,7 @@
 
 1. Перейдите по URL для входа в консоль:
 
-   ```
+   ```text
    {{ link-console-main }}/federations/<ID_федерации>
    ```
 

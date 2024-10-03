@@ -26,3 +26,10 @@ description: "На странице приведены часто возника
   **Почему возникла ошибка**: для [IP-адреса](../../vpc/concepts/address.md), с которого идет запрос на скачивание Docker-образа, нет разрешения на скачивание (PULL).
 
   **Как исправить**: [добавьте](../operations/registry/registry-access.md) разрешающие правила для этого IP-адреса в настройках реестра или удалите все правила и повторите попытку.
+* `Error response from daemon: unauthorized: Authentication problem ; requestId = <идентификатор_запроса>`
+  
+  `unauthorized: Authentication problem ; requestId = <идентификатор_запроса>`
+
+  **Почему возникла ошибка**: вы пытаетесь загрузить (PULL) или отправить (PUSH) Docker-образ в {{ container-registry-name }}, но вы не аутентифицированы. Для выполнения операций с образами в {{ container-registry-name }} необходимо сначала аутентифицироваться.
+
+  **Как исправить**: [аутентифицируйтесь](../operations/authentication.md) в {{ container-registry-name }}.

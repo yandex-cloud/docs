@@ -96,7 +96,7 @@ description: "In this tutorial, you will learn how to update a backup policy in 
         retention:
           rules:
             - max_count: "10"
-          after_backup: true
+          before_backup: true
         scheduling:
           backup_sets:
             - time:

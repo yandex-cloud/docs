@@ -76,6 +76,20 @@ items:
           Построение пайплайна CI/CD в {{ GL }} с использованием
           serverless-продуктов
         href: tutorials/ci-cd-serverless.md
+      - name: >-
+          Передача событий {{ postbox-full-name }} в {{ yds-full-name }} и их
+          анализ с помощью {{ datalens-full-name }}
+        href: tutorials/events-from-postbox-to-yds.md
+      - name: >-
+          Поставка данных из {{ mkf-full-name }} в {{ yds-name }} с помощью {{
+          data-transfer-full-name }}
+        href: tutorials/mkf-yds-stream.md
+      - name: >-
+          Поставка данных из {{ mkf-full-name }} с помощью {{
+          data-transfer-full-name }}
+        href: tutorials/mkf-ydb-stream.md
+      - name: Блокировка состояний {{ TF }} с помощью {{ ydb-name }}
+        href: tutorials/terraform-state-lock.md
   - name: Концепции
     items:
       - name: Обзор
@@ -312,7 +326,7 @@ items:
         href: ./terraform/cdc.md
       - name: Создание вторичных индексов строковых таблиц
         href: ./terraform/row-tables-secondary-index.md
-      - name: Управление конфигурацией топиков {{ydb-short-name}}
+      - name: Управление конфигурацией топиков {{ ydb-short-name }}
         href: ./terraform/topic.md
   - name: Вопросы и ответы
     href: faq.md

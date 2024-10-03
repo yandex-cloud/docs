@@ -47,7 +47,7 @@
         GRANT ALL PRIVILEGES ON <имя_базы>.* TO '<имя_пользователя>'@'%';
         GRANT REPLICATION CLIENT, REPLICATION SLAVE ON *.* TO '<имя_пользователя>'@'%';
         ```
-    
+
     1. {% include [Таблицы без первичных ключей](../../primary-keys-mysql.md) %}
     
        {% note info %}

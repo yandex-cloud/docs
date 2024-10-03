@@ -29,7 +29,7 @@ description: "Для группы выделенных хостов {{ compute-n
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
-  
+
   1. Посмотрите описание команды CLI для назначения роли на группу выделенных хостов:
 
      ```bash
@@ -114,7 +114,7 @@ description: "Для группы выделенных хостов {{ compute-n
      ```bash
      yc compute host-group list-access-bindings <имя_или_идентификатор_группы_выделенных_хостов>
      ```
-  
+
   1. Посмотрите описание команды CLI для назначения ролей на группу выделенных хостов:
 
      ```bash
@@ -190,7 +190,7 @@ description: "Для группы выделенных хостов {{ compute-n
      yc compute host-group list-access-bindings <имя_или_идентификатор_группы_выделенных_хостов>
      ```
 
-  1. Чтобы удалить привязку прав доступа, выполните команду:
+  1. Чтобы отозвать права доступа, выполните команду:
 
      ```bash
      yc compute host-group remove-access-binding <имя_или_идентификатор_группы_выделенных_хостов> \

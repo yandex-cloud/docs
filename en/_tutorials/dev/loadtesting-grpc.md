@@ -1,7 +1,7 @@
 # Load testing a gRPC service
 
 
-You can use {{ load-testing-name }} for service load testing via [gRPC](https://grpc.io/docs/) with the [Pandora](../../load-testing/concepts/load-generator.md#pandora) [load generator](../../load-testing/concepts/load-generator.md).
+You can use {{ load-testing-name }} for service load testing via [gRPC](https://grpc.io/docs/) with the [Pandora](../../load-testing/concepts/load-generator.md) [load generator](../../load-testing/concepts/load-generator.md#pandora).
 
 To perform load testing:
 1. [Prepare your cloud](#before-begin).
@@ -28,7 +28,7 @@ At the [Preview](../../overview/concepts/launch-stages.md) stage, {{ load-testin
 
 ## Prepare a test target {#target-prepare}
 
-In this example, we will use a gRPC service with the `172.17.0.10` [internal IP address](../../vpc/concepts/address.md#internal-addresses) in the same [subnet](../../vpc/concepts/network.md#subnet) as the agent.
+In this example, we will be using a gRPC service with the `172.17.0.10` [internal IP address](../../vpc/concepts/address.md#internal-addresses) in the same [subnet](../../vpc/concepts/network.md#subnet) as where the agent will reside.
 
 To learn how to integrate the gRPC framework for different programming languages, see the [documentation](https://grpc.io/docs/languages/).
 1. Configure support for gRPC Server Reflection. To learn how to configure gRPC Server Reflection for different programming languages, see the [documentation](https://grpc.github.io/grpc/core/md_doc_server-reflection.html).
@@ -40,7 +40,7 @@ You can also use {{ load-testing-name }} for load testing of a service that is p
 
 For a public service, allow incoming HTTPS traffic on port `8080`.
 
-For a service whose subnet and security group differ from the agent's ones, [create](#security-group-setup) a rule for incoming HTTPS traffic on port `8080` in the security group where the test target is located.
+For a service whose subnet and security group is different from the agent's ones, [create](#security-group-setup) a rule for incoming HTTPS traffic on port `8080` in the security group where the test target is located.
 
 ## Prepare the infrastructure {#infrastructure-prepare}
 
@@ -89,7 +89,7 @@ For a service whose subnet and security group differ from the agent's ones, [cre
 
    Result:
 
-   ```bash
+   ```text
    api.Adder
    grpc.reflection.v1alpha.ServerReflection
    ```
@@ -107,7 +107,7 @@ For a service whose subnet and security group differ from the agent's ones, [cre
    Where:
    * `tag`: Request tag to display in reports.
    * `call`: Method being called.
-   * `payload`: Dictionary with call parameters being provided to the test target.
+   * `payload`: Dictionary with call parameters to provide to the test target.
 
    In our example, two thirds of requests will be tagged as `/Add` and one third, as `/Add2`.
 1. Save the payloads to a file named `data.json`.
@@ -118,74 +118,74 @@ For a service whose subnet and security group differ from the agent's ones, [cre
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
-   1. In the left-hand panel, select ![image](../../_assets/load-testing/test.svg) **{{ ui-key.yacloud.load-testing.label_tests-list }}**.
-   1. Click **{{ ui-key.yacloud.load-testing.button_create-test }}**.
-   1. On the test creation page:
-      1. In the **{{ ui-key.yacloud.load-testing.label_agents-list }}** field, select `agent-008` [you created earlier](#create-agent).
-      1. Under **Attached files**, click **Select files** and select the `data.json` file you saved earlier.
-      1. Under **{{ ui-key.yacloud.load-testing.label_test-settings }}**:
-         * In the **{{ ui-key.yacloud.load-testing.field_settings-type }}** field, select **{{ ui-key.yacloud.load-testing.label_settings-type-config }}**.
-         * In the configuration input field, specify the testing thread settings in `yaml` format:
+  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
+  1. In the left-hand panel, select ![image](../../_assets/load-testing/test.svg) **{{ ui-key.yacloud.load-testing.label_tests-list }}**.
+  1. Click **{{ ui-key.yacloud.load-testing.button_create-test }}**.
+  1. On the test creation page:
+     1. In the **{{ ui-key.yacloud.load-testing.label_agents-list }}** field, select `agent-008` you [previously created](#create-agent).
+     1. Under **Attached files**, click **Select files** and select the `data.json` file you saved before.
+     1. Under **{{ ui-key.yacloud.load-testing.label_test-settings }}**:
+        * In the **{{ ui-key.yacloud.load-testing.field_settings-type }}** field, select **{{ ui-key.yacloud.load-testing.label_settings-type-config }}**.
+        * In the configuration input field, specify the testing thread settings in `yaml` format:
 
-            ```yaml
-            pandora:
-              enabled: true
-              pandora_cmd: /usr/local/bin/pandora
-              package: yandextank.plugins.Pandora
-              config_content:
-                pools:
-                  - id: GRPC
-                    gun:
-                      type: grpc # Protocol.
-                      target: 172.17.0.10:8080 # Test target address.
-                      tls: false
-                    ammo:
-                      type: grpc/json
-                      file: data.json # the file name must be the same as the name of the attached file.
-                    result:
-                      type: phout
-                      destination: ./phout.log
-                    rps:
-                      - duration: 180s # Test duration.
-                        type: line # Load type.
-                        from: 1
-                        to: 1500
-                    startup:
-                      type: once
-                      times: 1500 # Number of threads.
-                log:
-                  level: debug
-                monitoring:
-                  expvar:
-                    enabled: true
-                    port: 1234
+          ```yaml
+          pandora:
+            enabled: true
+            pandora_cmd: /usr/local/bin/pandora
+            package: yandextank.plugins.Pandora
+            config_content:
+              pools:
+                - id: GRPC
+                  gun:
+                    type: grpc # Protocol.
+                    target: 172.17.0.10:8080 # Test target address.
+                    tls: false
+                  ammo:
+                    type: grpc/json
+                    file: data.json # The file name must be the same as the name of the attached file.
+                  result:
+                    type: phout
+                    destination: ./phout.log
+                  rps:
+                    - duration: 180s # Test duration.
+                      type: line # Load type.
+                      from: 1
+                      to: 1500
+                  startup:
+                    type: once
+                    times: 1500 # Number of threads
+              log:
+                level: debug
+              monitoring:
+                expvar:
+                  enabled: true
+                  port: 1234
+          autostop:
+            enabled: true
+            package: yandextank.plugins.Autostop
             autostop:
-              enabled: true
-              package: yandextank.plugins.Autostop
-              autostop:
-                 - limit (5m)
-            uploader:
-              api_address: loadtesting.{{ api-host }}:443
-              enabled: true
-              job_dsc: grpc test
-              job_name: '[pandora][config][grpc]'
-              package: yandextank.plugins.DataUploader
-              ver: '1.1'
-            core: {}
-            ```
+               - limit (5m)
+          uploader:
+            api_address: loadtesting.{{ api-host }}:443
+            enabled: true
+            job_dsc: grpc test
+            job_name: '[pandora][config][grpc]'
+            package: yandextank.plugins.DataUploader
+            ver: '1.1'
+          core: {}
+          ```
 
-            {% note tip %}
+          {% note tip %}
 
-            View a [sample configuration file](../../load-testing/concepts/testing-stream.md#config_example). You can also find sample configuration files in existing tests.
+          View a [sample configuration file](../../load-testing/concepts/testing-stream.md#config_example). You can also find sample configuration files in existing tests.
 
-            {% endnote %}
+          {% endnote %}
 
-      1. Click **{{ ui-key.yacloud.common.create }}**.
+     1. Click **{{ ui-key.yacloud.common.create }}**.
 
-   Once you do that, the configuration will pass checks, and the agent will start loading the gRPC service you are testing.
+    Once you do that, the configuration will pass checks, and the agent will start loading the gRPC service you are testing.
 
-   To see the testing progress, select the new test and go to the **{{ ui-key.yacloud.load-testing.label_test-report }}** tab.
+    To see the testing progress, select the new test and go to the **{{ ui-key.yacloud.load-testing.label_test-report }}** tab.
 
 {% endlist %}
 
@@ -194,5 +194,5 @@ For a service whose subnet and security group differ from the agent's ones, [cre
 Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
 1. [Delete the agent](../../compute/operations/vm-control/vm-delete.md).
-1. [Delete the route table](../../vpc/operations/delete-route-table.md).
-1. [Delete the NAT gateway](../../vpc/operations/delete-nat-gateway.md).
+1. Delete the [route table](../../vpc/operations/delete-route-table.md).
+1. Delete the [NAT gateway](../../vpc/operations/delete-nat-gateway.md).

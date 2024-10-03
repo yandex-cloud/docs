@@ -57,7 +57,7 @@
      ```bash
      yc vpc network create usergate-network
      ```
-     
+
      Результат:
        
      ```text
@@ -67,18 +67,18 @@
      name: usergate-network
      default_security_group_id: enpbsnnop4ak********
      ```
-     
+
      Подробнее о команде `yc vpc network create` см. в [справочнике CLI](../../cli/cli-ref/managed-services/vpc/network/create.md).
      
   1. Создайте подсеть `usergate-subnet-{{ region-id }}-a` в зоне доступности `{{ region-id }}-a`:
   
-     ```
+     ```bash
      yc vpc subnet create usergate-subnet-{{ region-id }}-a \
        --zone {{ region-id }}-a \
        --network-name usergate-network \
        --range 10.1.0.0/16
      ```
-   
+
      Результат:
     
      ```text
@@ -91,7 +91,7 @@
      v4_cidr_blocks:
      - 10.1.0.0/16
      ```
-     
+
      Подробнее о команде `yc vpc subnet create` см. в [справочнике CLI](../../cli/cli-ref/managed-services/vpc/subnet/create.md).
 
 - {{ TF }} {#tf}
@@ -190,7 +190,7 @@
     --rule direction=ingress,port=8001,protocol=tcp,v4-cidrs=[0.0.0.0/0] \
     --rule direction=ingress,port=8090,protocol=tcp,v4-cidrs=[0.0.0.0/0]
   ```
-  
+
   Результат:
   
   ```text
@@ -263,7 +263,7 @@
 
   1. Добавьте в конфигурационный файл параметры группы безопасности `usergate-sg`:
   
-     ```
+     ```hcl
      resource "yandex_vpc_security_group" "usergate-sg" {
        name       = "usergate-sg"
        network_id = "${yandex_vpc_network.usergate-network.id}"
@@ -305,7 +305,7 @@
        }
      }
      ```
-     
+
      Подробнее о ресурсе `yandex_vpc_security_group` см. в [документации]({{ tf-provider-resources-link }}/vpc_security_group) провайдера {{ TF }}.
      
   1. Проверьте корректность конфигурационных файлов.
@@ -360,7 +360,7 @@
 
   Результат:
 
-  ```bash
+  ```text
   id: e9b6un9gkso6********
   folder_id: b1g7gvsi89m3********
   created_at: "2022-06-08T17:52:42Z"
@@ -421,7 +421,7 @@
   1. [Создайте](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) пару ключей SSH.
   1. Получите идентификатор группы безопасности `usergate-sg`:
 
-     ```
+     ```bash
      yc vpc security-group get usergate-sg | grep "^id"
      ```
 
@@ -442,7 +442,7 @@
 
      Результат:
 
-     ```bash
+     ```text
      id: fhm2na1siftp********
      folder_id: b1g86q4m5vej********
      created_at: "2022-06-09T11:15:52Z"
@@ -482,7 +482,7 @@
   1. [Получите](../../compute/operations/images-with-pre-installed-software/get-list.md) идентификатор последней версии образа UserGate NGFW из списка публичных образов.
   1. Опишите в конфигурационном файле параметры ВМ `usergate-proxy`:
 
-     ```
+     ```hcl
      resource "yandex_compute_disk" "boot-disk" {
        name     = "boot-disk"
        type     = "network-hdd"

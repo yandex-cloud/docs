@@ -1,6 +1,6 @@
 # Transferring data between {{ dataproc-name }} clusters using {{ metastore-name }}
 
-You can transfer metadata between Hive-based {{ dataproc-name }} clusters. First, you need to export metadata from a cluster, then import it into a different one using [{{ metastore-name }}](../../../data-proc/concepts/metastore.md).
+You can transfer metadata between Hive-based [{{ dataproc-name }} clusters](../../../data-proc/concepts/index.md). First, you need to export metadata from a cluster, then import it into a different one using [{{ metastore-full-name }}](../../../metadata-hub/concepts/metastore.md).
 
 To transfer metadata between {{ dataproc-name }} clusters:
 
@@ -26,7 +26,7 @@ Prepare the infrastructure:
 
 - Manually {#manual}
 
-   1. [Create a service account](../../../iam/operations/sa/create.md) named `dataproc-s3-sa` and assign it the `dataproc.agent` and `storage.uploader` roles.
+   1. [Create a service account](../../../iam/operations/sa/create.md) named `dataproc-s3-sa` and assign the `dataproc.agent`, `dataproc.provisioner`, and `storage.uploader` roles to it.
    1. In {{ objstorage-full-name }}, [create a bucket](../../../storage/operations/buckets/create.md) named `dataproc-bucket`. Grant the `READ and WRITE` permission for this bucket to the service account.
    1. [Create a cloud network](../../../vpc/operations/network-create.md) named `dataproc-network`.
    1. In this network, [create a subnet](../../../vpc/operations/subnet-create.md) named `dataproc-subnet`.
@@ -229,7 +229,7 @@ To transfer data from one {{ dataproc-name }} cluster to another, back up the da
 ## Connect {{ dataproc-name }} to {{ metastore-name }} {#connect}
 
 1. [Create a static access key](../../../iam/operations/sa/create-access-key.md) for the `dataproc-s3-sa` service account. Save its ID and the secret key.
-1. [Create a {{ metastore-name }} cluster](../../../data-proc/operations/metastore/cluster-create.md) with the following parameters:
+1. [Create a {{ metastore-name }} cluster](../../../metadata-hub/operations/metastore/cluster-create.md) with the following parameters:
 
    * **{{ ui-key.yacloud.mdb.forms.label_network }}**: `dataproc-network`.
    * **{{ ui-key.yacloud.mdb.forms.network_field_subnetwork }}**: `dataproc-subnet`.
@@ -279,7 +279,7 @@ The metadata from the `dataproc-source` cluster was successfully imported into t
 
 Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 
-1. [Delete the {{ metastore-name }} cluster](../../../data-proc/operations/metastore/cluster-delete.md).
+1. [Delete the {{ metastore-name }} cluster](../../../metadata-hub/operations/metastore/cluster-delete.md).
 1. Delete other resources depending on how they were created:
 
    {% list tabs group=instructions %}
@@ -288,8 +288,8 @@ Some resources are not free of charge. Delete the resources you no longer need t
 
       1. [{{ dataproc-name }} clusters](../../../data-proc/operations/cluster-delete.md)
       1. [{{ objstorage-name }} bucket](../../../storage/operations/buckets/delete.md)
-      1. Route table
-      1. NAT gateway
+      1. [Route table](../../../vpc/operations/delete-route-table.md)
+      1. [NAT gateway](../../../vpc/operations/delete-nat-gateway.md)
       1. [Security group](../../../vpc/operations/security-group-delete.md)
       1. [Subnet](../../../vpc/operations/subnet-delete.md)
       1. [Network](../../../vpc/operations/network-delete.md)

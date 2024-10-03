@@ -36,26 +36,28 @@ Field | Description
 --- | ---
 id | **string**<br>ID of the security profile. 
 folder_id | **string**<br>ID of the folder that the security profile belongs to. 
-cloud_id | **string**<br>ID of the cloud that the security profile belongs to. 
 labels | **map<string,string>**<br>Labels as `` key:value `` pairs. Maximum of 64 per resource. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 name | **string**<br>Required. Name of the security profile. The name is unique within the folder. 1-50 characters long. The string length in characters must be 1-50. Value must match the regular expression ` [a-zA-Z0-9][a-zA-Z0-9-_.]* `.
 description | **string**<br>Optional description of the security profile. The maximum string length in characters is 512.
 default_action | enum **DefaultAction**<br>Required. Action to perform if none of rules matched. <ul><li>`ALLOW`: Pass request to service.</li><li>`DENY`: Deny request.</li></ul>
 security_rules[] | **[SecurityRule](#SecurityRule)**<br>List of security rules. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
+cloud_id | **string**<br>ID of the cloud that the security profile belongs to. 
 captcha_id | **string**<br>Captcha ID to use with this security profile. Set empty to use default. 
+advanced_rate_limiter_profile_id | **string**<br>Advanced rate limiter profile ID to use with this security profile. Set empty to use default. 
 
 
 ### SecurityRule {#SecurityRule}
 
 Field | Description
 --- | ---
-name | **string**<br>Required. Name of the rule. The name is unique within the folder. 1-50 characters long. The string length in characters must be 1-50. Value must match the regular expression ` [a-zA-Z0-9][a-zA-Z0-9-_.]* `.
+name | **string**<br>Required. Name of the rule. The name is unique within the security profile. 1-50 characters long. The string length in characters must be 1-50. Value must match the regular expression ` [a-zA-Z0-9][a-zA-Z0-9-_.]* `.
 priority | **int64**<br>Determines the priority for checking the incoming traffic. Enter an integer within the range of 1 and 999999. The rule priority must be unique within the entire security profile. A lower numeric value means a higher priority. The default_action has the lowest priority. Acceptable values are 1 to 999999, inclusive.
 dry_run | **bool**<br>This mode allows you to test your security profile or a single rule. For example, you can have the number of alarms for a specific rule displayed. Note: if this option is true, no real action affecting your traffic regarding this rule will be taken. 
-rule_specifier | **oneof:** `rule_condition` or `smart_protection`<br>
+rule_specifier | **oneof:** `rule_condition`, `smart_protection` or `waf`<br>
 &nbsp;&nbsp;rule_condition | **[RuleCondition](#RuleCondition)**<br>Rule actions, see [Rule actions](/docs/smartwebsecurity/concepts/rules#rule-action). 
 &nbsp;&nbsp;smart_protection | **[SmartProtection](#SmartProtection)**<br>Smart Protection rule, see [Smart Protection rules](/docs/smartwebsecurity/concepts/rules#smart-protection-rules). 
+&nbsp;&nbsp;waf | **[Waf](#Waf)**<br>Web Application Firewall (WAF) rule, see [WAF rules](/docs/smartwebsecurity/concepts/rules#waf-rules). 
 description | **string**<br>Optional description of the rule. 0-512 characters long. The maximum string length in characters is 512.
 
 
@@ -73,6 +75,15 @@ Field | Description
 --- | ---
 mode | enum **Mode**<br>Mode of protection. <ul><li>`FULL`: Full protection means that the traffic will be checked based on ML models and behavioral analysis, with suspicious requests being sent to SmartCaptcha.</li><li>`API`: API protection means checking the traffic based on ML models and behavioral analysis without sending suspicious requests to SmartCaptcha. The suspicious requests will be blocked.</li></ul>
 condition | **[Condition](#Condition)**<br>The condition for matching the rule. 
+
+
+### Waf {#Waf}
+
+Field | Description
+--- | ---
+mode | enum **Mode**<br>Mode of protection. <ul><li>`FULL`: Full protection means that the traffic will be checked based on ML models and behavioral analysis, with suspicious requests being sent to SmartCaptcha.</li><li>`API`: API protection means checking the traffic based on ML models and behavioral analysis without sending suspicious requests to SmartCaptcha. The suspicious requests will be blocked.</li></ul>
+condition | **[Condition](#Condition)**<br>The condition for matching the rule. 
+waf_profile_id | **string**<br>Required. ID of WAF profile to use in this rule. 
 
 
 ### Condition {#Condition}
@@ -187,26 +198,28 @@ Field | Description
 --- | ---
 id | **string**<br>ID of the security profile. 
 folder_id | **string**<br>ID of the folder that the security profile belongs to. 
-cloud_id | **string**<br>ID of the cloud that the security profile belongs to. 
 labels | **map<string,string>**<br>Labels as `` key:value `` pairs. Maximum of 64 per resource. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 name | **string**<br>Required. Name of the security profile. The name is unique within the folder. 1-50 characters long. The string length in characters must be 1-50. Value must match the regular expression ` [a-zA-Z0-9][a-zA-Z0-9-_.]* `.
 description | **string**<br>Optional description of the security profile. The maximum string length in characters is 512.
 default_action | enum **DefaultAction**<br>Required. Action to perform if none of rules matched. <ul><li>`ALLOW`: Pass request to service.</li><li>`DENY`: Deny request.</li></ul>
 security_rules[] | **[SecurityRule](#SecurityRule1)**<br>List of security rules. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
+cloud_id | **string**<br>ID of the cloud that the security profile belongs to. 
 captcha_id | **string**<br>Captcha ID to use with this security profile. Set empty to use default. 
+advanced_rate_limiter_profile_id | **string**<br>Advanced rate limiter profile ID to use with this security profile. Set empty to use default. 
 
 
 ### SecurityRule {#SecurityRule1}
 
 Field | Description
 --- | ---
-name | **string**<br>Required. Name of the rule. The name is unique within the folder. 1-50 characters long. The string length in characters must be 1-50. Value must match the regular expression ` [a-zA-Z0-9][a-zA-Z0-9-_.]* `.
+name | **string**<br>Required. Name of the rule. The name is unique within the security profile. 1-50 characters long. The string length in characters must be 1-50. Value must match the regular expression ` [a-zA-Z0-9][a-zA-Z0-9-_.]* `.
 priority | **int64**<br>Determines the priority for checking the incoming traffic. Enter an integer within the range of 1 and 999999. The rule priority must be unique within the entire security profile. A lower numeric value means a higher priority. The default_action has the lowest priority. Acceptable values are 1 to 999999, inclusive.
 dry_run | **bool**<br>This mode allows you to test your security profile or a single rule. For example, you can have the number of alarms for a specific rule displayed. Note: if this option is true, no real action affecting your traffic regarding this rule will be taken. 
-rule_specifier | **oneof:** `rule_condition` or `smart_protection`<br>
+rule_specifier | **oneof:** `rule_condition`, `smart_protection` or `waf`<br>
 &nbsp;&nbsp;rule_condition | **[RuleCondition](#RuleCondition1)**<br>Rule actions, see [Rule actions](/docs/smartwebsecurity/concepts/rules#rule-action). 
 &nbsp;&nbsp;smart_protection | **[SmartProtection](#SmartProtection1)**<br>Smart Protection rule, see [Smart Protection rules](/docs/smartwebsecurity/concepts/rules#smart-protection-rules). 
+&nbsp;&nbsp;waf | **[Waf](#Waf1)**<br>Web Application Firewall (WAF) rule, see [WAF rules](/docs/smartwebsecurity/concepts/rules#waf-rules). 
 description | **string**<br>Optional description of the rule. 0-512 characters long. The maximum string length in characters is 512.
 
 
@@ -224,6 +237,15 @@ Field | Description
 --- | ---
 mode | enum **Mode**<br>Mode of protection. <ul><li>`FULL`: Full protection means that the traffic will be checked based on ML models and behavioral analysis, with suspicious requests being sent to SmartCaptcha.</li><li>`API`: API protection means checking the traffic based on ML models and behavioral analysis without sending suspicious requests to SmartCaptcha. The suspicious requests will be blocked.</li></ul>
 condition | **[Condition](#Condition1)**<br>The condition for matching the rule. 
+
+
+### Waf {#Waf1}
+
+Field | Description
+--- | ---
+mode | enum **Mode**<br>Mode of protection. <ul><li>`FULL`: Full protection means that the traffic will be checked based on ML models and behavioral analysis, with suspicious requests being sent to SmartCaptcha.</li><li>`API`: API protection means checking the traffic based on ML models and behavioral analysis without sending suspicious requests to SmartCaptcha. The suspicious requests will be blocked.</li></ul>
+condition | **[Condition](#Condition1)**<br>The condition for matching the rule. 
+waf_profile_id | **string**<br>Required. ID of WAF profile to use in this rule. 
 
 
 ### Condition {#Condition1}
@@ -333,18 +355,20 @@ description | **string**<br>Optional description of the security profile.
 default_action | **[SecurityProfile.DefaultAction](#SecurityProfile2)**<br>Action to perform if none of rules matched. 
 security_rules[] | **[SecurityRule](#SecurityRule2)**<br>List of security rules. 
 captcha_id | **string**<br>Captcha ID to use with this security profile. Set empty to use default. 
+advanced_rate_limiter_profile_id | **string**<br>Advanced rate limiter profile ID to use with this security profile. Set empty to use default. 
 
 
 ### SecurityRule {#SecurityRule2}
 
 Field | Description
 --- | ---
-name | **string**<br>Required. Name of the rule. The name is unique within the folder. 1-50 characters long. The string length in characters must be 1-50. Value must match the regular expression ` [a-zA-Z0-9][a-zA-Z0-9-_.]* `.
+name | **string**<br>Required. Name of the rule. The name is unique within the security profile. 1-50 characters long. The string length in characters must be 1-50. Value must match the regular expression ` [a-zA-Z0-9][a-zA-Z0-9-_.]* `.
 priority | **int64**<br>Determines the priority for checking the incoming traffic. Enter an integer within the range of 1 and 999999. The rule priority must be unique within the entire security profile. A lower numeric value means a higher priority. The default_action has the lowest priority. Acceptable values are 1 to 999999, inclusive.
 dry_run | **bool**<br>This mode allows you to test your security profile or a single rule. For example, you can have the number of alarms for a specific rule displayed. Note: if this option is true, no real action affecting your traffic regarding this rule will be taken. 
-rule_specifier | **oneof:** `rule_condition` or `smart_protection`<br>
+rule_specifier | **oneof:** `rule_condition`, `smart_protection` or `waf`<br>
 &nbsp;&nbsp;rule_condition | **[RuleCondition](#RuleCondition2)**<br>Rule actions, see [Rule actions](/docs/smartwebsecurity/concepts/rules#rule-action). 
 &nbsp;&nbsp;smart_protection | **[SmartProtection](#SmartProtection2)**<br>Smart Protection rule, see [Smart Protection rules](/docs/smartwebsecurity/concepts/rules#smart-protection-rules). 
+&nbsp;&nbsp;waf | **[Waf](#Waf2)**<br>Web Application Firewall (WAF) rule, see [WAF rules](/docs/smartwebsecurity/concepts/rules#waf-rules). 
 description | **string**<br>Optional description of the rule. 0-512 characters long. The maximum string length in characters is 512.
 
 
@@ -362,6 +386,15 @@ Field | Description
 --- | ---
 mode | enum **Mode**<br>Mode of protection. <ul><li>`FULL`: Full protection means that the traffic will be checked based on ML models and behavioral analysis, with suspicious requests being sent to SmartCaptcha.</li><li>`API`: API protection means checking the traffic based on ML models and behavioral analysis without sending suspicious requests to SmartCaptcha. The suspicious requests will be blocked.</li></ul>
 condition | **[Condition](#Condition2)**<br>The condition for matching the rule. 
+
+
+### Waf {#Waf2}
+
+Field | Description
+--- | ---
+mode | enum **Mode**<br>Mode of protection. <ul><li>`FULL`: Full protection means that the traffic will be checked based on ML models and behavioral analysis, with suspicious requests being sent to SmartCaptcha.</li><li>`API`: API protection means checking the traffic based on ML models and behavioral analysis without sending suspicious requests to SmartCaptcha. The suspicious requests will be blocked.</li></ul>
+condition | **[Condition](#Condition2)**<br>The condition for matching the rule. 
+waf_profile_id | **string**<br>Required. ID of WAF profile to use in this rule. 
 
 
 ### Condition {#Condition2}
@@ -479,14 +512,15 @@ Field | Description
 --- | ---
 id | **string**<br>ID of the security profile. 
 folder_id | **string**<br>ID of the folder that the security profile belongs to. 
-cloud_id | **string**<br>ID of the cloud that the security profile belongs to. 
 labels | **map<string,string>**<br>Labels as `` key:value `` pairs. Maximum of 64 per resource. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 name | **string**<br>Required. Name of the security profile. The name is unique within the folder. 1-50 characters long. The string length in characters must be 1-50. Value must match the regular expression ` [a-zA-Z0-9][a-zA-Z0-9-_.]* `.
 description | **string**<br>Optional description of the security profile. The maximum string length in characters is 512.
 default_action | enum **DefaultAction**<br>Required. Action to perform if none of rules matched. <ul><li>`ALLOW`: Pass request to service.</li><li>`DENY`: Deny request.</li></ul>
 security_rules[] | **[SecurityRule](#SecurityRule3)**<br>List of security rules. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
+cloud_id | **string**<br>ID of the cloud that the security profile belongs to. 
 captcha_id | **string**<br>Captcha ID to use with this security profile. Set empty to use default. 
+advanced_rate_limiter_profile_id | **string**<br>Advanced rate limiter profile ID to use with this security profile. Set empty to use default. 
 
 
 ## Update {#Update}
@@ -511,18 +545,20 @@ description | **string**<br>Optional description of the security profile.
 default_action | **[SecurityProfile.DefaultAction](#SecurityProfile3)**<br>Action to perform if none of rules matched. 
 security_rules[] | **[SecurityRule](#SecurityRule3)**<br>List of security rules. 
 captcha_id | **string**<br>Captcha ID to use with this security profile. Set empty to use default. 
+advanced_rate_limiter_profile_id | **string**<br>Advanced rate limiter profile ID to use with this security profile. Set empty to use default. 
 
 
 ### SecurityRule {#SecurityRule3}
 
 Field | Description
 --- | ---
-name | **string**<br>Required. Name of the rule. The name is unique within the folder. 1-50 characters long. The string length in characters must be 1-50. Value must match the regular expression ` [a-zA-Z0-9][a-zA-Z0-9-_.]* `.
+name | **string**<br>Required. Name of the rule. The name is unique within the security profile. 1-50 characters long. The string length in characters must be 1-50. Value must match the regular expression ` [a-zA-Z0-9][a-zA-Z0-9-_.]* `.
 priority | **int64**<br>Determines the priority for checking the incoming traffic. Enter an integer within the range of 1 and 999999. The rule priority must be unique within the entire security profile. A lower numeric value means a higher priority. The default_action has the lowest priority. Acceptable values are 1 to 999999, inclusive.
 dry_run | **bool**<br>This mode allows you to test your security profile or a single rule. For example, you can have the number of alarms for a specific rule displayed. Note: if this option is true, no real action affecting your traffic regarding this rule will be taken. 
-rule_specifier | **oneof:** `rule_condition` or `smart_protection`<br>
+rule_specifier | **oneof:** `rule_condition`, `smart_protection` or `waf`<br>
 &nbsp;&nbsp;rule_condition | **[RuleCondition](#RuleCondition3)**<br>Rule actions, see [Rule actions](/docs/smartwebsecurity/concepts/rules#rule-action). 
 &nbsp;&nbsp;smart_protection | **[SmartProtection](#SmartProtection3)**<br>Smart Protection rule, see [Smart Protection rules](/docs/smartwebsecurity/concepts/rules#smart-protection-rules). 
+&nbsp;&nbsp;waf | **[Waf](#Waf3)**<br>Web Application Firewall (WAF) rule, see [WAF rules](/docs/smartwebsecurity/concepts/rules#waf-rules). 
 description | **string**<br>Optional description of the rule. 0-512 characters long. The maximum string length in characters is 512.
 
 
@@ -540,6 +576,15 @@ Field | Description
 --- | ---
 mode | enum **Mode**<br>Mode of protection. <ul><li>`FULL`: Full protection means that the traffic will be checked based on ML models and behavioral analysis, with suspicious requests being sent to SmartCaptcha.</li><li>`API`: API protection means checking the traffic based on ML models and behavioral analysis without sending suspicious requests to SmartCaptcha. The suspicious requests will be blocked.</li></ul>
 condition | **[Condition](#Condition3)**<br>The condition for matching the rule. 
+
+
+### Waf {#Waf3}
+
+Field | Description
+--- | ---
+mode | enum **Mode**<br>Mode of protection. <ul><li>`FULL`: Full protection means that the traffic will be checked based on ML models and behavioral analysis, with suspicious requests being sent to SmartCaptcha.</li><li>`API`: API protection means checking the traffic based on ML models and behavioral analysis without sending suspicious requests to SmartCaptcha. The suspicious requests will be blocked.</li></ul>
+condition | **[Condition](#Condition3)**<br>The condition for matching the rule. 
+waf_profile_id | **string**<br>Required. ID of WAF profile to use in this rule. 
 
 
 ### Condition {#Condition3}
@@ -657,14 +702,15 @@ Field | Description
 --- | ---
 id | **string**<br>ID of the security profile. 
 folder_id | **string**<br>ID of the folder that the security profile belongs to. 
-cloud_id | **string**<br>ID of the cloud that the security profile belongs to. 
 labels | **map<string,string>**<br>Labels as `` key:value `` pairs. Maximum of 64 per resource. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 name | **string**<br>Required. Name of the security profile. The name is unique within the folder. 1-50 characters long. The string length in characters must be 1-50. Value must match the regular expression ` [a-zA-Z0-9][a-zA-Z0-9-_.]* `.
 description | **string**<br>Optional description of the security profile. The maximum string length in characters is 512.
 default_action | enum **DefaultAction**<br>Required. Action to perform if none of rules matched. <ul><li>`ALLOW`: Pass request to service.</li><li>`DENY`: Deny request.</li></ul>
 security_rules[] | **[SecurityRule](#SecurityRule4)**<br>List of security rules. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
+cloud_id | **string**<br>ID of the cloud that the security profile belongs to. 
 captcha_id | **string**<br>Captcha ID to use with this security profile. Set empty to use default. 
+advanced_rate_limiter_profile_id | **string**<br>Advanced rate limiter profile ID to use with this security profile. Set empty to use default. 
 
 
 ## Delete {#Delete}

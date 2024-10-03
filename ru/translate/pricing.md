@@ -8,6 +8,8 @@ editable: false
 
 {% include [use-calculator](../_includes/pricing/use-calculator.md) %}
 
+{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
+
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
 ## Из чего складывается стоимость использования {{ translate-short-name }} {#rules}
@@ -21,9 +23,7 @@ editable: false
 
 ## Цены для региона Россия {#prices}
 
-
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
-
 
 ### Перевод и определение языка текста {#prices-translate-detect}
 

@@ -100,7 +100,7 @@ items:
             href: operations/spec-constructor/ydb.md
           - name: '{{ ml-platform-short-name }}'
             href: operations/spec-constructor/datasphere.md
-          - name: '{{ yagpt-name }}'
+          - name: '{{ yagpt-full-name }}'
             href: operations/spec-constructor/yagpt.md
       - name: Просмотр операций с ресурсами сервиса
         href: operations/operation-logs.md
@@ -138,6 +138,10 @@ items:
         href: tutorials/jwt-authorizer-firebase.md
       - name: Канареечный релиз функции {{ sf-name }}
         href: tutorials/canary-release.md
+      - name: >-
+          Использование {{ api-gw-name }} для настройки синтеза речи в {{
+          speechkit-full-name }}
+        href: tutorials/speechkit-integrarion-via-agi-gw.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса
@@ -158,6 +162,8 @@ items:
                 href: concepts/extensions/cloud-functions.md
               - name: '{{ serverless-containers-name }}'
                 href: concepts/extensions/containers.md
+              - name: '{{ sws-name }}'
+                href: concepts/extensions/sws.md
               - name: '{{ objstorage-name }}'
                 href: concepts/extensions/object-storage.md
               - name: '{{ ml-platform-short-name }}'

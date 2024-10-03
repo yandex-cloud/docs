@@ -164,6 +164,8 @@ items:
             href: tutorials/mes-to-mos.md
           - name: '{{ OS }} в {{ ydb-short-name }}'
             href: tutorials/opensearch-to-ydb.md
+          - name: '{{ PG }} в {{ OS }}'
+            href: tutorials/postgresql-to-opensearch.md
       - name: Захват изменений данных и поставка в очередь
         items:
           - name: '{{ MY }} в {{ KF }}'
@@ -228,6 +230,8 @@ items:
             href: tutorials/object-storage-to-ydb.md
           - name: '{{ ydb-short-name }} в {{ CH }}'
             href: tutorials/ydb-to-clickhouse.md
+          - name: '{{ OS }} в {{ CH }}'
+            href: tutorials/opensearch-to-clickhouse.md
       - name: Загрузка данных в {{ objstorage-name }}
         items:
           - name: '{{ MY }} в {{ objstorage-name }}'
@@ -358,6 +362,10 @@ items:
     items:
       - name: Все изменения
         href: release-notes/index.md
+      - name: Сентябрь 2024
+        href: release-notes/2409.md
+      - name: Август 2024
+        href: release-notes/2408.md
       - name: Июль 2024
         href: release-notes/2407.md
       - name: Июнь 2024

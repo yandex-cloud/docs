@@ -281,4 +281,11 @@ placement_policy:
 Тарифы на использование выделенных хостов описаны на странице [{#T}](../pricing.md#prices-dedicated-host).
 
 
+## См. также {#see-also}
+
+* [{#T}](../operations/dedicated-host/create-host-group.md)
+* [{#T}](../operations/dedicated-host/running-host-group-vms.md)
+* [{#T}](../operations/dedicated-host/running-host-vms.md)
+* [{#T}](../operations/dedicated-host/access.md)
+
 _Intel и Xeon являются товарными знаками корпорации Intel или ее подразделений._

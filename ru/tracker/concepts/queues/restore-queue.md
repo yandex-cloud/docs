@@ -20,7 +20,7 @@ sourcePath: ru/tracker/api-ref/concepts/queues/restore-queue.md
 
 Для восстановления удаленной очереди используйте HTTP-запрос с методом `POST`.
 
-```
+```http
 POST /v2/queues/<ключ_или_идентификатор_очереди>/_restore
 Host: {{ host }}
 Authorization: OAuth <OAuth-токен>

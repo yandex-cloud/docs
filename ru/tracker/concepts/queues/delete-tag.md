@@ -18,7 +18,7 @@ sourcePath: ru/tracker/api-ref/concepts/queues/delete-tag.md
 
 Чтобы удалить тег, используйте HTTP-запрос с методом `POST`. Параметры запроса передаются в его теле в формате JSON.
 
-```
+```http
 POST /{{ ver }}/queues/<ключ_или_идентификатор_очереди>/tags/_remove
 Host: {{ host }}
 Authorization: OAuth <OAuth-токен>

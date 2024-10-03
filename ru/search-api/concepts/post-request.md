@@ -31,7 +31,7 @@ https://yandex.<домен>/search/xml
 
 Значение API-ключа [передавайте](../operations/auth.md) в заголовке `Authorization` в формате:
 
-```
+```yaml
 Authorization: Api-Key <API-ключ>
 ```
 
@@ -82,7 +82,7 @@ Authorization: Api-Key <API-ключ>
 
 #### Группирующий тег <groupings> {#groupings}
 
-Группирующий тег `groupings` объединяет параметры группировки результатов. 
+Группирующий тег `groupings` объединяет параметры группировки результатов.
 
 ##### Группировка результатов groupby {#groupby}
 

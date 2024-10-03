@@ -10,35 +10,40 @@
 
 {% list tabs group=instructions %}
 
-
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создана ВМ.
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана ВМ.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_coi }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.image_coi_label_empty-button }}**.
   1. В открывшемся окне **{{ ui-key.yacloud.compute.instances.create.section_coi }}** задайте параметры, используя подсказки:
-     * (Опционально) Введите **{{ ui-key.yacloud.compute.instances.create.field_coi-name }}** Docker-контейнера, который будет запущен на ВМ. Требования к имени:
-       * Длина — от 3 до 63 символов.
-       * Может содержать буквы латинского алфавита, цифры и дефисы.
-       * Первый символ — буква. Последний символ — не дефис.
-     * Укажите [**{{ ui-key.yacloud.compute.instances.create.field_coi-image }}**](../concepts/docker-image.md), на основе которого будет запущен Docker-контейнер на ВМ. Вы можете сделать это одним из способов:
-       * Выбрать один из доступных образов. Для этого начните вводить часть имени образа в поисковой строке. Поиск образов осуществляется во всех доступных каталогах облака.
-       * Указать имя образа вручную. Для этого нажмите **{{ ui-key.yacloud.component.image-field.button_custom-image }}** и введите имя образа. Вы можете указать образ из сервиса {{ container-registry-name }} или любой публично доступной библиотеки Docker-образов (например, [Docker Hub](https://hub.docker.com)).
-     * (Опционально) В поле **{{ ui-key.yacloud.compute.instances.create.field_coi-command }}** укажите исполняемый файл, который будет запущен при старте Docker-контейнера.
-     * (Опционально) Задайте **{{ ui-key.yacloud.compute.instances.create.field_coi-arguments }}**.
-     * (Опционально) Задайте **{{ ui-key.yacloud.compute.instances.create.field_coi-env }}** в формате `ключ:значение`, доступные внутри Docker-контейнера.
-     * Выберите значение поля [**{{ ui-key.yacloud.compute.instances.create.field_coi-restart-policy }}**](../concepts/restart-policy.md) для Docker-контейнера:
-       * **{{ ui-key.yacloud.compute.instances.create.value_coi-restart-always }}** — всегда перезапускать Docker-контейнер при его остановке.
-       * **{{ ui-key.yacloud.compute.instances.create.value_coi-restart-never }}** — не перезапускать Docker-контейнер автоматически.
-       * **{{ ui-key.yacloud.compute.instances.create.value_coi-restart-on-failure }}** — перезапускать Docker-контейнер, только если он завершил работу с ненулевым кодом возврата.
-     * (Опционально) Включите **{{ ui-key.yacloud.compute.instances.create.field_coi-tty }}**, чтобы использовать командную оболочку внутри Docker-контейнера.
-     * (Опционально) Включите **{{ ui-key.yacloud.compute.instances.create.field_coi-stdin }}**, чтобы связать поток ввода с запущенным Docker-контейнером.
-     * (Опционально) Включите **{{ ui-key.yacloud.compute.instances.create.field_coi-privileged }}**, чтобы процессы Docker-контейнера получили доступ ко всем ресурсам ВМ.
-     Нажмите кнопку **{{ ui-key.yacloud.common.apply }}**.
-  1. Задайте остальные параметры ВМ по [инструкции](../../compute/operations/vm-create/create-linux-vm.md).
- 
+
+      * (Опционально) Введите **{{ ui-key.yacloud.compute.instances.create.field_coi-name }}** Docker-контейнера, который будет запущен на ВМ. Требования к имени:
+
+          {% include [name-format](../../_includes/name-format.md) %}
+
+      * Укажите [**{{ ui-key.yacloud.compute.instances.create.field_coi-image }}**](../concepts/docker-image.md), на основе которого будет запущен Docker-контейнер на ВМ. Вы можете сделать это одним из способов:
+
+          * Выбрать один из доступных образов. Для этого начните вводить часть имени образа в поисковой строке. Поиск образов осуществляется во всех доступных каталогах облака.
+          * Указать имя образа вручную. Для этого нажмите **{{ ui-key.yacloud.component.image-field.button_custom-image }}** и введите имя образа. Вы можете указать образ из сервиса {{ container-registry-name }} или любой публично доступной библиотеки Docker-образов (например, [Docker Hub](https://hub.docker.com)).
+
+      * (Опционально) В поле **{{ ui-key.yacloud.compute.instances.create.field_coi-command }}** укажите исполняемый файл, который будет запущен при старте Docker-контейнера.
+      * (Опционально) Задайте **{{ ui-key.yacloud.compute.instances.create.field_coi-arguments }}**.
+      * (Опционально) Задайте **{{ ui-key.yacloud.compute.instances.create.field_coi-env }}**, которые будут доступны внутри Docker-контейнера, в формате `ключ:значение`.
+      * Выберите значение поля [**{{ ui-key.yacloud.compute.instances.create.field_coi-restart-policy }}**](../concepts/restart-policy.md) для Docker-контейнера:
+
+          * `{{ ui-key.yacloud.compute.instances.create.value_coi-restart-always }}` — всегда перезапускать Docker-контейнер при его остановке.
+          * `{{ ui-key.yacloud.compute.instances.create.value_coi-restart-on-failure }}` — перезапускать Docker-контейнер, только если он завершил работу с ненулевым кодом возврата.
+          * `{{ ui-key.yacloud.compute.instances.create.value_coi-restart-never }}` — не перезапускать Docker-контейнер автоматически.
+
+      * (Опционально) Включите **{{ ui-key.yacloud.compute.instances.create.field_coi-tty }}**, чтобы использовать командную оболочку внутри Docker-контейнера.
+      * (Опционально) Включите **{{ ui-key.yacloud.compute.instances.create.field_coi-stdin }}**, чтобы связать поток ввода с запущенным Docker-контейнером.
+      * (Опционально) Включите **{{ ui-key.yacloud.compute.instances.create.field_coi-privileged }}**, чтобы процессы Docker-контейнера получили доступ ко всем ресурсам ВМ.
+
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.apply }}**.
+  1. Настройте остальные параметры ВМ по [инструкции](../../compute/operations/vm-create/create-linux-vm.md).
 
 - CLI с помощью флагов {#cli}
 

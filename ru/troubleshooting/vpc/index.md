@@ -1,4 +1,4 @@
-# Решения для VPC
+# Решения для {{ vpc-short-name }}
 
 {% include [how-to-index](how-to/index.md) %}
 

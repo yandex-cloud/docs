@@ -30,12 +30,12 @@
     
     {% endnote %}
     
-    ```
+    ```bash
     yc iot device update first --topic-aliases 'events=$devices/areqjd6un3af********/events,commands=$devices/areqjd6un3af********/commands'
     ```
-	
+
     Результат:
-    ```
+    ```text
     id: areqjd6un3af********
     registry_id: arenou2oj4ct********
     created_at: "2019-09-16T10:41:06.489Z"
@@ -78,7 +78,7 @@
       ```bash
       terraform validate
       ```
-     
+
       Если конфигурация является корректной, появится сообщение:
      
       ```bash
@@ -90,14 +90,14 @@
       ```bash
       terraform plan
       ```
-  
+
       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
   1. Примените изменения конфигурации:
 
       ```bash
       terraform apply
       ```
-     
+
   1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
       Проверить алиасы устройства можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../../cli/quickstart.md):

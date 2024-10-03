@@ -64,6 +64,8 @@ items:
         href: concepts/limits.md
       - name: Сравнение с Yandex Message Queue
         href: concepts/yds-ymq-comparison.md
+      - name: Транзакции с участием потоков данных и таблиц YDB
+        href: concepts/topic-table-transactions.md
   - name: Практические руководства
     items:
       - name: Ввод данных в системы хранения
@@ -90,6 +92,10 @@ items:
         href: tutorials/ydb-to-yds.md
       - name: Хранение статического ключа доступа в секрете {{ lockbox-name }}
         href: tutorials/static-key-in-lockbox.md
+      - name: >-
+          Передача событий {{ postbox-full-name }} в {{ yds-full-name }} и их
+          анализ с помощью {{ datalens-full-name }}
+        href: tutorials/events-from-postbox-to-yds.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

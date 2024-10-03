@@ -168,7 +168,7 @@
    1. В поле **{{ ui-key.yacloud.mdb.forms.config_field_zone }}** выберите `{{ region-id }}-a`.
    1. При необходимости в поле **{{ ui-key.yacloud.mdb.forms.config_field_properties }}** задайте свойства Hadoop и его компонентов, например:
 
-      ```
+      ```text
       hdfs:dfs.replication : 2
       hdfs:dfs.blocksize : 1073741824
       spark:spark.driver.cores : 1
@@ -227,13 +227,13 @@
    import random
 
    def inside(p):
-     x, y = random.random(), random.random()
-     return x*x + y*y < 1
-
+       x, y = random.random(), random.random()
+       return x*x + y*y < 1
+   
    NUM_SAMPLES = 1_000_000
-
+   
    count = sc.parallelize(range(0, NUM_SAMPLES)) \
-      .filter(inside).count()
+       .filter(inside).count()
    print("Pi is roughly %f" % (4.0 * count / NUM_SAMPLES))
    ```
 
@@ -256,7 +256,7 @@
 
 {% include [dataproc-s3-connector](../../_includes/datasphere/dataproc-s3-connector.md) %}
 
-Подробнее о запуске вычислений на кластерах {{ dataproc-name }} в {{ ml-platform-name }} см. [{#T}](../../datasphere/concepts/data-proc.md#session).
+Подробнее о запуске вычислений на кластерах {{ dataproc-name }} в {{ ml-platform-name }} см. в [концепции](../../datasphere/concepts/data-proc.md#existing-clusters).
 
 ## Удалите созданные ресурсы {#clear-out}
 

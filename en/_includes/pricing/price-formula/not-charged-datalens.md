@@ -1,0 +1,1 @@
+The Community plan is not charged.

@@ -57,7 +57,7 @@
 
   Результат:
 
-  ```yaml
+  ```text
   - id: d4e952nebqdb********
     description: Create session
     created_at: "2024-06-19T08:33:11.658Z"
@@ -103,7 +103,7 @@
 
       Результат:
 
-      ```yaml
+      ```text
         id: d4elh7hqnj7g********
         description: Create function
         created_at: "2024-06-19T08:33:04.513Z"

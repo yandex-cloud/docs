@@ -81,3 +81,5 @@ You can only delete a connector that is not available in the community.
 1. Click **{{ ui-key.yc-ui-datasphere.common.submit }}**.
 
 You will see a message saying that the connector has been deleted.
+
+{% include [deletion-time](../../../_includes/datasphere/deletion-time.md) %}

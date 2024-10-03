@@ -24,7 +24,8 @@ A set of methods for managing Greenplum® clusters.
     "access": {
       "dataLens": true,
       "webSql": true,
-      "dataTransfer": true
+      "dataTransfer": true,
+      "yandexQuery": true
     },
     "zoneId": "string",
     "subnetId": "string",
@@ -117,6 +118,29 @@ A set of methods for managing Greenplum® clusters.
         },
         "analyzeTimeout": "integer",
         "vacuumTimeout": "integer"
+      },
+      "queryKillerScripts": {
+        "idle": {
+          "enable": true,
+          "maxAge": "integer",
+          "ignoreUsers": [
+            "string"
+          ]
+        },
+        "idleInTransaction": {
+          "enable": true,
+          "maxAge": "integer",
+          "ignoreUsers": [
+            "string"
+          ]
+        },
+        "longRunning": {
+          "enable": true,
+          "maxAge": "integer",
+          "ignoreUsers": [
+            "string"
+          ]
+        }
       }
     },
     "pxfConfig": {
@@ -339,7 +363,13 @@ A set of methods for managing Greenplum® clusters.
   },
   "cloudStorage": {
     "enable": true
-  }
+  },
+  "masterHostGroupIds": [
+    "string"
+  ],
+  "segmentHostGroupIds": [
+    "string"
+  ]
 }
 ```
  
@@ -361,6 +391,7 @@ config.<br>access | **object**<br><p>Access policy for external services.</p>
 config.<br>access.<br>dataLens | **boolean** (boolean)<br><p>Allows data export from the cluster to DataLens.</p> 
 config.<br>access.<br>webSql | **boolean** (boolean)<br><p>Allows SQL queries to the cluster databases from the management console.</p> 
 config.<br>access.<br>dataTransfer | **boolean** (boolean)<br><p>Allows access for DataTransfer.</p> 
+config.<br>access.<br>yandexQuery | **boolean** (boolean)<br><p>Allow access for YandexQuery.</p> 
 config.<br>zoneId | **string**<br><p>ID of the availability zone the cluster belongs to. To get a list of available zones, use the <a href="/docs/compute/api-ref/Zone/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
 config.<br>subnetId | **string**<br><p>ID of the subnet the cluster belongs to. This subnet should be a part of the cloud network the cluster belongs to (see <a href="/docs/managed-greenplum/api-ref/Cluster#representation">Cluster.networkId</a>).</p> <p>The maximum string length in characters is 50.</p> 
 config.<br>assignPublicIp | **boolean** (boolean)<br><p>Determines whether the cluster has a public IP address.</p> <p>After the cluster has been created, this setting cannot be changed.</p> 
@@ -388,8 +419,8 @@ networkId | **string**<br><p>ID of the cloud network that the cluster belongs to
 health | **string**<br><p>Aggregated cluster health.</p> <ul> <li>HEALTH_UNKNOWN: Health of the cluster is unknown (``health`` for every host in the cluster is UNKNOWN).</li> <li>ALIVE: Cluster is working normally (``health`` for every host in the cluster is ALIVE).</li> <li>DEAD: Cluster is inoperable (``health`` for every host in the cluster is DEAD).</li> <li>DEGRADED: Cluster is working below capacity (``health`` for at least one host in the cluster is not ALIVE).</li> <li>UNBALANCED: Cluster is working below capacity (``health`` for at least one host in the cluster is UNBALANCED).</li> </ul> 
 status | **string**<br><p>Current state of the cluster.</p> <ul> <li>STATUS_UNKNOWN: Cluster state is unknown.</li> <li>CREATING: Cluster is being created.</li> <li>RUNNING: Cluster is running normally.</li> <li>ERROR: Cluster has encountered a problem and cannot operate.</li> <li>UPDATING: Cluster is being updated.</li> <li>STOPPING: Cluster is stopping.</li> <li>STOPPED: Cluster has stopped.</li> <li>STARTING: Cluster is starting.</li> </ul> 
 maintenanceWindow | **object**<br><p>A Greenplum® cluster maintenance window. Should be defined by either one of the two options.</p> 
-maintenanceWindow.<br>anytime | **object** <br>`maintenanceWindow` includes only one of the fields `anytime`, `weeklyMaintenanceWindow`<br><br><p>An any-time maintenance window.</p> 
-maintenanceWindow.<br>weeklyMaintenanceWindow | **object** <br>`maintenanceWindow` includes only one of the fields `anytime`, `weeklyMaintenanceWindow`<br><br><p>A weekly maintenance window.</p> 
+maintenanceWindow.<br>anytime | **object**<br>An any-time maintenance window. <br>`maintenanceWindow` includes only one of the fields `anytime`, `weeklyMaintenanceWindow`<br>
+maintenanceWindow.<br>weeklyMaintenanceWindow | **object**<br>A weekly maintenance window. <br>`maintenanceWindow` includes only one of the fields `anytime`, `weeklyMaintenanceWindow`<br>
 maintenanceWindow.<br>weeklyMaintenanceWindow.<br>day | **string**<br><p>Day of the week.</p> <ul> <li>MON: Monday</li> <li>TUE: Tuesday</li> <li>WED: Wednesday</li> <li>THU: Thursday</li> <li>FRI: Friday</li> <li>SAT: Saturday</li> <li>SUN: Sunday</li> </ul> 
 maintenanceWindow.<br>weeklyMaintenanceWindow.<br>hour | **string** (int64)<br><p>Hour of the day in the UTC timezone.</p> <p>Acceptable values are 1 to 24, inclusive.</p> 
 plannedOperation | **object**<br><p>Maintenance operation planned at nearest <a href="/docs/managed-greenplum/api-ref/Cluster#representation">maintenanceWindow</a>.</p> 
@@ -400,7 +431,7 @@ userName | **string**<br><p>Owner user name.</p>
 deletionProtection | **boolean** (boolean)<br><p>Determines whether the cluster is protected from being deleted.</p> 
 hostGroupIds[] | **string**<br><p>Host groups hosting VMs of the cluster.</p> 
 clusterConfig | **object**<br><p>Greenplum® and Odyssey® configuration.</p> 
-clusterConfig.<br>pool | **object**
+clusterConfig.<br>pool | **object**<br>Odyssey® pool settings.
 clusterConfig.<br>pool.<br>effectiveConfig | **object**<br><p>Required. Effective settings for an Odyssey® pooler (a combination of settings defined in ``userConfig`` and ``defaultConfig``).</p> 
 clusterConfig.<br>pool.<br>effectiveConfig.<br>mode | **string**<br><p>Route server pool mode.</p> <ul> <li>SESSION: Assign server connection to a client until it disconnects. Default value.</li> <li>TRANSACTION: Assign server connection to a client for a transaction processing.</li> </ul> 
 clusterConfig.<br>pool.<br>effectiveConfig.<br>size | **integer** (int64)<br><p>The number of servers in the server pool. Clients are placed in a wait queue when all servers are busy.</p> <p>Set to zero to disable the limit.</p> 
@@ -413,17 +444,30 @@ clusterConfig.<br>pool.<br>defaultConfig | **object**<br><p>Default configuratio
 clusterConfig.<br>pool.<br>defaultConfig.<br>mode | **string**<br><p>Route server pool mode.</p> <ul> <li>SESSION: Assign server connection to a client until it disconnects. Default value.</li> <li>TRANSACTION: Assign server connection to a client for a transaction processing.</li> </ul> 
 clusterConfig.<br>pool.<br>defaultConfig.<br>size | **integer** (int64)<br><p>The number of servers in the server pool. Clients are placed in a wait queue when all servers are busy.</p> <p>Set to zero to disable the limit.</p> 
 clusterConfig.<br>pool.<br>defaultConfig.<br>clientIdleTimeout | **integer** (int64)<br><p>Server pool idle timeout, in seconds.</p> <p>A server connection closes after being idle for the specified time.</p> <p>Set to zero to disable the limit.</p> 
-clusterConfig.<br>backgroundActivities | **object**
-clusterConfig.<br>backgroundActivities.<br>tableSizes | **object**
+clusterConfig.<br>backgroundActivities | **object**<br>Managed Greenplum® background tasks configuration.
+clusterConfig.<br>backgroundActivities.<br>tableSizes | **object**<br><p>Enables scripts that collects tables sizes to ``*_sizes`` tables in ``mdb_toolkit`` schema.</p> 
 clusterConfig.<br>backgroundActivities.<br>tableSizes.<br>starts[] | **object**<br><p>The maximum number of elements is 4.</p> 
 clusterConfig.<br>backgroundActivities.<br>tableSizes.<br>starts[].<br>hours | **string** (int64)<br><p>Acceptable values are 0 to 23, inclusive.</p> 
 clusterConfig.<br>backgroundActivities.<br>tableSizes.<br>starts[].<br>minutes | **string** (int64)<br><p>Acceptable values are 0 to 59, inclusive.</p> 
-clusterConfig.<br>backgroundActivities.<br>analyzeAndVacuum | **object**
+clusterConfig.<br>backgroundActivities.<br>analyzeAndVacuum | **object**<br><p>Configuration for ``ANALYZE`` and ``VACUUM`` operations.</p> 
 clusterConfig.<br>backgroundActivities.<br>analyzeAndVacuum.<br>start | **object**
 clusterConfig.<br>backgroundActivities.<br>analyzeAndVacuum.<br>start.<br>hours | **string** (int64)<br><p>Acceptable values are 0 to 23, inclusive.</p> 
 clusterConfig.<br>backgroundActivities.<br>analyzeAndVacuum.<br>start.<br>minutes | **string** (int64)<br><p>Acceptable values are 0 to 59, inclusive.</p> 
 clusterConfig.<br>backgroundActivities.<br>analyzeAndVacuum.<br>analyzeTimeout | **integer** (int64)<br><p>Maximum duration of the ``ANALYZE`` operation, in seconds. The default value is ``36000``. As soon as this period expires, the ``ANALYZE`` operation will be forced to terminate.</p> <p>Acceptable values are 7200 to 86399, inclusive.</p> 
 clusterConfig.<br>backgroundActivities.<br>analyzeAndVacuum.<br>vacuumTimeout | **integer** (int64)<br><p>Maximum duration of the ``VACUUM`` operation, in seconds. The default value is ``36000``. As soon as this period expires, the ``VACUUM`` operation will be forced to terminate.</p> <p>Acceptable values are 7200 to 86399, inclusive.</p> 
+clusterConfig.<br>backgroundActivities.<br>queryKillerScripts | **object**<br><p>Configuration for long running queries killer.</p> 
+clusterConfig.<br>backgroundActivities.<br>queryKillerScripts.<br>idle | **object**<br><p>Configuration of script that kills long running queries that are in ``idle`` state.</p> 
+clusterConfig.<br>backgroundActivities.<br>queryKillerScripts.<br>idle.<br>enable | **boolean** (boolean)
+clusterConfig.<br>backgroundActivities.<br>queryKillerScripts.<br>idle.<br>maxAge | **integer** (int64)<br><p>Maximum duration for this type of queries (in seconds).</p> <p>Acceptable values are 1 to 86400, inclusive.</p> 
+clusterConfig.<br>backgroundActivities.<br>queryKillerScripts.<br>idle.<br>ignoreUsers[] | **string**<br><p>Ignore these users when considering queries to terminate</p> 
+clusterConfig.<br>backgroundActivities.<br>queryKillerScripts.<br>idleInTransaction | **object**<br><p>Configuration of script that kills long running queries that are in ``idle in transaction`` state.</p> 
+clusterConfig.<br>backgroundActivities.<br>queryKillerScripts.<br>idleInTransaction.<br>enable | **boolean** (boolean)
+clusterConfig.<br>backgroundActivities.<br>queryKillerScripts.<br>idleInTransaction.<br>maxAge | **integer** (int64)<br><p>Maximum duration for this type of queries (in seconds).</p> <p>Acceptable values are 1 to 86400, inclusive.</p> 
+clusterConfig.<br>backgroundActivities.<br>queryKillerScripts.<br>idleInTransaction.<br>ignoreUsers[] | **string**<br><p>Ignore these users when considering queries to terminate</p> 
+clusterConfig.<br>backgroundActivities.<br>queryKillerScripts.<br>longRunning | **object**<br><p>Configuration of script that kills long running queries (in any state).</p> 
+clusterConfig.<br>backgroundActivities.<br>queryKillerScripts.<br>longRunning.<br>enable | **boolean** (boolean)
+clusterConfig.<br>backgroundActivities.<br>queryKillerScripts.<br>longRunning.<br>maxAge | **integer** (int64)<br><p>Maximum duration for this type of queries (in seconds).</p> <p>Acceptable values are 1 to 86400, inclusive.</p> 
+clusterConfig.<br>backgroundActivities.<br>queryKillerScripts.<br>longRunning.<br>ignoreUsers[] | **string**<br><p>Ignore these users when considering queries to terminate</p> 
 clusterConfig.<br>pxfConfig | **object**
 clusterConfig.<br>pxfConfig.<br>effectiveConfig | **object**<br><p>Required.</p> 
 clusterConfig.<br>pxfConfig.<br>effectiveConfig.<br>connectionTimeout | **integer** (int64)<br><p>Timeout for connection to the Apache Tomcat® server when making read requests.</p> <p>Specify values in seconds.</p> <p>Acceptable values are 5 to 600, inclusive.</p> 
@@ -615,6 +659,8 @@ clusterConfig.<br>greenplumConfigSet_6.<br>defaultConfig.<br>logStatement | **st
 clusterConfig.<br>greenplumConfigSet_6.<br>defaultConfig.<br>gpAddColumnInheritsTableSetting | **boolean** (boolean)<br><p>https://docs.vmware.com/en/VMware-Tanzu-Greenplum/6/greenplum-database/GUID-ref_guide-config_params-guc-list.html#gp_add_column_inherits_table_setting</p> 
 cloudStorage | **object**<br><p>Cloud storage settings</p> <p>Cloud Storage Settings</p> 
 cloudStorage.<br>enable | **boolean** (boolean)<br><p>enable Cloud Storage for cluster</p> 
+masterHostGroupIds[] | **string**<br><p>Host groups hosting VMs of the master subcluster.</p> 
+segmentHostGroupIds[] | **string**<br><p>Host groups hosting VMs of the segment subcluster.</p> 
 
 ## Methods {#methods}
 Method | Description
@@ -630,6 +676,7 @@ Method | Description
 [listMasterHosts](listMasterHosts.md) | Retrieves a list of master hosts for the specified cluster.
 [listOperations](listOperations.md) | Retrieves the list of Operation resources for the specified cluster.
 [listSegmentHosts](listSegmentHosts.md) | Retrieves a list of segment hosts for the specified cluster.
+[move](move.md) | Moves the specified Greenplum® cluster to the specified folder.
 [restore](restore.md) | Creates a new Greenplum® cluster using the specified backup.
 [start](start.md) | Starts the specified Greenplum® cluster.
 [stop](stop.md) | Stops the specified Greenplum® cluster.

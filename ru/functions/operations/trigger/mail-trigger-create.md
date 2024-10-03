@@ -160,7 +160,7 @@
          }
        }
        ```
- 
+
        Где:
  
        {% include [tf-function-params](../../../_includes/functions/tf-function-params.md) %}

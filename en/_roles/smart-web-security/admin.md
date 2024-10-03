@@ -1,7 +1,7 @@
 The `smart-web-security.admin` role allows you to use security profiles in Smart Web Security, manage them, and manage access to them.
 
 Users with this role can:
-* View info on access [bindings](../../iam/concepts/access-control/index.md#access-bindings) for security profiles and modify such bindings.
+* View info on [access permissions](../../iam/concepts/access-control/index.md) assigned for security profiles and modify such permissions.
 * View info on [security profiles](../../smartwebsecurity/concepts/profiles.md) in Smart Web Security, create, modify, and delete them, as well as use these security profiles in other Yandex Cloud services.
 * View the list of L7 load balancer [virtual hosts](../../application-load-balancer/concepts/http-router.md#virtual-host) in Yandex Application Load Balancer to which the security profile is connected.
 * View information on the relevant [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud).

@@ -39,7 +39,8 @@ clusterId | <p>Required. ID of the Greenplum® cluster resource to update. To ge
     "access": {
       "dataLens": true,
       "webSql": true,
-      "dataTransfer": true
+      "dataTransfer": true,
+      "yandexQuery": true
     },
     "zoneId": "string",
     "subnetId": "string",
@@ -60,6 +61,7 @@ clusterId | <p>Required. ID of the Greenplum® cluster resource to update. To ge
     }
   },
   "userPassword": "string",
+  "networkId": "string",
   "maintenanceWindow": {
 
     // `maintenanceWindow` includes only one of the fields `anytime`, `weeklyMaintenanceWindow`
@@ -97,6 +99,29 @@ clusterId | <p>Required. ID of the Greenplum® cluster resource to update. To ge
         },
         "analyzeTimeout": "integer",
         "vacuumTimeout": "integer"
+      },
+      "queryKillerScripts": {
+        "idle": {
+          "enable": true,
+          "maxAge": "integer",
+          "ignoreUsers": [
+            "string"
+          ]
+        },
+        "idleInTransaction": {
+          "enable": true,
+          "maxAge": "integer",
+          "ignoreUsers": [
+            "string"
+          ]
+        },
+        "longRunning": {
+          "enable": true,
+          "maxAge": "integer",
+          "ignoreUsers": [
+            "string"
+          ]
+        }
       }
     },
     "pxfConfig": {
@@ -196,6 +221,7 @@ config.<br>access | **object**<br><p>Access policy for external services.</p>
 config.<br>access.<br>dataLens | **boolean** (boolean)<br><p>Allows data export from the cluster to DataLens.</p> 
 config.<br>access.<br>webSql | **boolean** (boolean)<br><p>Allows SQL queries to the cluster databases from the management console.</p> 
 config.<br>access.<br>dataTransfer | **boolean** (boolean)<br><p>Allows access for DataTransfer.</p> 
+config.<br>access.<br>yandexQuery | **boolean** (boolean)<br><p>Allow access for YandexQuery.</p> 
 config.<br>zoneId | **string**<br><p>ID of the availability zone the cluster belongs to. To get a list of available zones, use the <a href="/docs/compute/api-ref/Zone/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
 config.<br>subnetId | **string**<br><p>ID of the subnet the cluster belongs to. This subnet should be a part of the cloud network the cluster belongs to (see <a href="/docs/managed-greenplum/api-ref/Cluster#representation">Cluster.networkId</a>).</p> <p>The maximum string length in characters is 50.</p> 
 config.<br>assignPublicIp | **boolean** (boolean)<br><p>Determines whether the cluster has a public IP address.</p> <p>After the cluster has been created, this setting cannot be changed.</p> 
@@ -210,6 +236,7 @@ segmentConfig.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the pr
 segmentConfig.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage used by the host, in bytes.</p> 
 segmentConfig.<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage used by the host: ``network-hdd``, ``network-ssd`` or ``local-ssd``.</p> 
 userPassword | **string**<br><p>Required. Owner user password.</p> <p>The string length in characters must be 8-128.</p> 
+networkId | **string**<br><p>ID of the network to move the cluster to.</p> <p>The maximum string length in characters is 50.</p> 
 maintenanceWindow | **object**<br><p>The Greenplum® cluster maintenance window. Should be defined by either one of the two options.</p> 
 maintenanceWindow.<br>anytime | **object**<br>An any-time maintenance window. <br>`maintenanceWindow` includes only one of the fields `anytime`, `weeklyMaintenanceWindow`<br>
 maintenanceWindow.<br>weeklyMaintenanceWindow | **object**<br>A weekly maintenance window. <br>`maintenanceWindow` includes only one of the fields `anytime`, `weeklyMaintenanceWindow`<br>
@@ -222,17 +249,30 @@ configSpec.<br>pool | **object**<br>Odyssey® pool settings.
 configSpec.<br>pool.<br>mode | **string**<br><p>Route server pool mode.</p> <ul> <li>SESSION: Assign server connection to a client until it disconnects. Default value.</li> <li>TRANSACTION: Assign server connection to a client for a transaction processing.</li> </ul> 
 configSpec.<br>pool.<br>size | **integer** (int64)<br><p>The number of servers in the server pool. Clients are placed in a wait queue when all servers are busy.</p> <p>Set to zero to disable the limit.</p> 
 configSpec.<br>pool.<br>clientIdleTimeout | **integer** (int64)<br><p>Server pool idle timeout, in seconds.</p> <p>A server connection closes after being idle for the specified time.</p> <p>Set to zero to disable the limit.</p> 
-configSpec.<br>backgroundActivities | **object**
-configSpec.<br>backgroundActivities.<br>tableSizes | **object**
+configSpec.<br>backgroundActivities | **object**<br>Managed Greenplum® background tasks configuration.
+configSpec.<br>backgroundActivities.<br>tableSizes | **object**<br><p>Enables scripts that collects tables sizes to ``*_sizes`` tables in ``mdb_toolkit`` schema.</p> 
 configSpec.<br>backgroundActivities.<br>tableSizes.<br>starts[] | **object**<br><p>The maximum number of elements is 4.</p> 
 configSpec.<br>backgroundActivities.<br>tableSizes.<br>starts[].<br>hours | **string** (int64)<br><p>Acceptable values are 0 to 23, inclusive.</p> 
 configSpec.<br>backgroundActivities.<br>tableSizes.<br>starts[].<br>minutes | **string** (int64)<br><p>Acceptable values are 0 to 59, inclusive.</p> 
-configSpec.<br>backgroundActivities.<br>analyzeAndVacuum | **object**
+configSpec.<br>backgroundActivities.<br>analyzeAndVacuum | **object**<br><p>Configuration for ``ANALYZE`` and ``VACUUM`` operations.</p> 
 configSpec.<br>backgroundActivities.<br>analyzeAndVacuum.<br>start | **object**
 configSpec.<br>backgroundActivities.<br>analyzeAndVacuum.<br>start.<br>hours | **string** (int64)<br><p>Acceptable values are 0 to 23, inclusive.</p> 
 configSpec.<br>backgroundActivities.<br>analyzeAndVacuum.<br>start.<br>minutes | **string** (int64)<br><p>Acceptable values are 0 to 59, inclusive.</p> 
 configSpec.<br>backgroundActivities.<br>analyzeAndVacuum.<br>analyzeTimeout | **integer** (int64)<br><p>Maximum duration of the ``ANALYZE`` operation, in seconds. The default value is ``36000``. As soon as this period expires, the ``ANALYZE`` operation will be forced to terminate.</p> <p>Acceptable values are 7200 to 86399, inclusive.</p> 
 configSpec.<br>backgroundActivities.<br>analyzeAndVacuum.<br>vacuumTimeout | **integer** (int64)<br><p>Maximum duration of the ``VACUUM`` operation, in seconds. The default value is ``36000``. As soon as this period expires, the ``VACUUM`` operation will be forced to terminate.</p> <p>Acceptable values are 7200 to 86399, inclusive.</p> 
+configSpec.<br>backgroundActivities.<br>queryKillerScripts | **object**<br><p>Configuration for long running queries killer.</p> 
+configSpec.<br>backgroundActivities.<br>queryKillerScripts.<br>idle | **object**<br><p>Configuration of script that kills long running queries that are in ``idle`` state.</p> 
+configSpec.<br>backgroundActivities.<br>queryKillerScripts.<br>idle.<br>enable | **boolean** (boolean)
+configSpec.<br>backgroundActivities.<br>queryKillerScripts.<br>idle.<br>maxAge | **integer** (int64)<br><p>Maximum duration for this type of queries (in seconds).</p> <p>Acceptable values are 1 to 86400, inclusive.</p> 
+configSpec.<br>backgroundActivities.<br>queryKillerScripts.<br>idle.<br>ignoreUsers[] | **string**<br><p>Ignore these users when considering queries to terminate</p> 
+configSpec.<br>backgroundActivities.<br>queryKillerScripts.<br>idleInTransaction | **object**<br><p>Configuration of script that kills long running queries that are in ``idle in transaction`` state.</p> 
+configSpec.<br>backgroundActivities.<br>queryKillerScripts.<br>idleInTransaction.<br>enable | **boolean** (boolean)
+configSpec.<br>backgroundActivities.<br>queryKillerScripts.<br>idleInTransaction.<br>maxAge | **integer** (int64)<br><p>Maximum duration for this type of queries (in seconds).</p> <p>Acceptable values are 1 to 86400, inclusive.</p> 
+configSpec.<br>backgroundActivities.<br>queryKillerScripts.<br>idleInTransaction.<br>ignoreUsers[] | **string**<br><p>Ignore these users when considering queries to terminate</p> 
+configSpec.<br>backgroundActivities.<br>queryKillerScripts.<br>longRunning | **object**<br><p>Configuration of script that kills long running queries (in any state).</p> 
+configSpec.<br>backgroundActivities.<br>queryKillerScripts.<br>longRunning.<br>enable | **boolean** (boolean)
+configSpec.<br>backgroundActivities.<br>queryKillerScripts.<br>longRunning.<br>maxAge | **integer** (int64)<br><p>Maximum duration for this type of queries (in seconds).</p> <p>Acceptable values are 1 to 86400, inclusive.</p> 
+configSpec.<br>backgroundActivities.<br>queryKillerScripts.<br>longRunning.<br>ignoreUsers[] | **string**<br><p>Ignore these users when considering queries to terminate</p> 
 configSpec.<br>pxfConfig | **object**
 configSpec.<br>pxfConfig.<br>connectionTimeout | **integer** (int64)<br><p>Timeout for connection to the Apache Tomcat® server when making read requests.</p> <p>Specify values in seconds.</p> <p>Acceptable values are 5 to 600, inclusive.</p> 
 configSpec.<br>pxfConfig.<br>uploadTimeout | **integer** (int64)<br><p>Timeout for connection to the Apache Tomcat® server when making write requests.</p> <p>Specify the values in seconds.</p> <p>Acceptable values are 5 to 600, inclusive.</p> 

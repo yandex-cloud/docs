@@ -4,7 +4,7 @@ For a container to be invoked only by users with the permission to do so, make t
 
 {% note info %}
 
-If all unauthorized users (the `allUsers` system group) of a cloud or folder are granted the permission to invoke a container, the container will be public regardless of the settings. [How to revoke a role](../../iam/operations/roles/revoke.md).
+If all unauthorized users (the `All users` [public group](../../iam/concepts/access-control/public-group.md)) of a cloud or folder are granted the permission to invoke a container, the container will be public regardless of its settings. See [how to revoke a role](../../iam/operations/roles/revoke.md) for more info.
 
 {% endnote %}
 
@@ -12,16 +12,16 @@ If all unauthorized users (the `allUsers` system group) of a cloud or folder are
 
 - CLI {#cli}
 
-   To make a container private, run this command:
+    To make a container private, run this command:
 
-   ```
-   yc serverless container deny-unauthenticated-invoke <container_name>
-   ```
+    ```bash
+    yc serverless container deny-unauthenticated-invoke <container_name>
+    ```
 
-   Result:
+    Result:
 
-   ```
-   done (1s)
-   ```
+    ```text
+    done (1s)
+    ```
 
 {% endlist %}

@@ -7,7 +7,7 @@ Users with this role can:
 * View the list of [cloud networks](../../vpc/concepts/network.md#network) and info on them, as well as set up external access to them.
 * View the list of [subnets](../../vpc/concepts/network.md#subnet) and info on them, as well as use them.
 * View the list of [cloud resource addresses](../../vpc/concepts/address.md) and the info on them.
-* View the list of [route tables](../../vpc/concepts/static-routes.md#rt-vpc) and the info on them.
+* View the list of [route tables](../../vpc/concepts/routing.md#rt-vpc) and the info on them.
 * View the list of [security groups](../../vpc/concepts/security-groups.md) and the info on them.
 * View information on [NAT gateways](../../vpc/concepts/gateways.md).
 * View the info on the used IP addresses, create [private](../../vpc/concepts/address.md#internal-addresses) and [public](../../vpc/concepts/address.md#public-addresses) addresses, and use them.

@@ -33,7 +33,7 @@
 
 1. В файле конфигурации после настроек провайдера добавьте:
 
-    ```
+    ```hcl
     data "yandex_compute_image" "my_image" {
       family = "ubuntu-2204-lts"
     }
@@ -68,13 +68,13 @@ terraform output
 
 Результат:
 
-```
+```text
 my_image_id = "fd8li2lvvfc6bdj4c787"
 ```
 
 Далее вы можете использовать полученный идентификатор для [создания ВМ](../../compute/operations/images-with-pre-installed-software/create.md), например:
 
-```
+```hcl
 resource "yandex_compute_disk" "boot-disk" {
   name     = "<имя_диска>"
   type     = "<тип_диска>"

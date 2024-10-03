@@ -113,10 +113,11 @@ export API_KEY=<API-ключ>
 - cURL {#curl}
 
   ```bash
-  curl -X POST \
-    -H "Authorization: Api-Key ${API_KEY}" \
-    -d "@<путь_к_файлу_с_телом_запроса>" \
-  "{{ link-yandex }}/search/xml/generative?folderid=${FOLDER_ID}"
+  curl \
+    --request POST \
+    --header "Authorization: Api-Key ${API_KEY}" \
+    --data "@<путь_к_файлу_с_телом_запроса>" \
+    "{{ link-yandex }}/search/xml/generative?folderid=${FOLDER_ID}"
   ```
 
 - Python 3 {#python}

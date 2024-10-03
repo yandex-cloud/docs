@@ -38,8 +38,6 @@ PHP-фреймворк [Symfony](https://symfony.com/) содержит комп
    composer require symfony/amazon-sqs-messenger async-aws/sqs ^1.9
    ```
 
-   Важно использовать версию библиотеки `async-aws/sqs` не выше `^1.9`, так как она использует XML. Версия 2.0 использует JSON, который в данный момент несовместим с {{ message-queue-name }}.
-
 1. Создайте сообщение (Message) и обработчик (Handler):
 
     ```bash
@@ -144,7 +142,7 @@ PHP-фреймворк [Symfony](https://symfony.com/) содержит комп
     ```text
     MESSENGER_TRANSPORT_DSN=sqs://message-queue.{{ api-host }}/b1gvlrnlei4l********/dj6000000000********/symfony-test?access_key=KEY&secret_key=SECRET&region={{ region-id }}
     ```
-    
+
     Часть `b1gvlrnlei4l********/dj6000000000********/symfony-test` нужно заменить на путь, скопированный в консоли {{ yandex-cloud }}.
 
     В параметрах `access_key=KEY` и `secret_key=SECRET` значения `KEY` и `SECRET` нужно заменить на значение статического ключа доступа к {{ message-queue-name }}.

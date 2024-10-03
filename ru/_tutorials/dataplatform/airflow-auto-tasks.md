@@ -6,9 +6,8 @@
 
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Создайте сервисный аккаунт](#create-service-account).
-1. [Создайте статический ключ доступа](#create-static-key).
 1. [Создайте облачную сеть и подсети](#create-network).
-1. [Создайте бакет в {{ objstorage-name }}](#create-bucket).
+1. [Подготовьте бакет в {{ objstorage-name }}](#bucket).
 1. [Настройте NAT для доступа в интернет](#nat-routing).
 1. [Создайте кластер {{ maf-name }}](#create-airflow-cluster).
 1. [Подготовьте DAG-файл и запустите граф](#dag).
@@ -75,53 +74,6 @@
   Чтобы создать сервисный аккаунт, воспользуйтесь методом [create](../../iam/api-ref/ServiceAccount/create.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/Create](../../iam/api-ref/grpc/service_account_service.md#Create).
 
   Чтобы назначить сервисному аккаунту роль `editor` на каталог, воспользуйтесь методом [setAccessBindings](../../iam/api-ref/ServiceAccount/setAccessBindings.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/SetAccessBindings](../../iam/api-ref/grpc/service_account_service.md#SetAccessBindings).
-
-{% endlist %}
-
-## Создайте статический ключ доступа {#create-static-key}
-
-[Создайте](../../iam/operations/sa/create-access-key.md) статический ключ доступа для сервисного аккаунта `airflow-sa`:
-
-{% list tabs group=instructions %}
-
-- Консоль управления {#console}
-
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится сервисный аккаунт `airflow-sa`.
-  1. В верхней части экрана перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}**.
-  1. Выберите сервисный аккаунт `airflow-sa`.
-  1. На панели сверху нажмите ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** и выберите **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_service-account-key }}**.
-  1. Задайте описание ключа и нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
-  1. Сохраните идентификатор ключа и секретный ключ — они понадобятся при создании [кластера](../../managed-airflow/concepts/index.md#cluster).
-
-      {% note alert %}
-
-      После закрытия диалога значение ключа будет недоступно.
-
-      {% endnote %}
-
-- {{ yandex-cloud }} CLI {#cli}
-
-  1. Выполните команду:
-
-      ```bash
-      yc iam access-key create --service-account-name airflow-sa
-      ```
-
-      Результат:
-
-      ```text
-      access_key:
-        id: aje6t3vsbj8l********
-        service_account_id: nfersamh4sjq********
-        created_at: "2018-11-22T14:37:51Z"
-        key_id: 0n8X6WY6S24N********
-      secret: JyTRFdqw8t1kh2-OJNz4JX5ZTz9Dj1rI********
-      ```
-  1. Сохраните идентификатор ключа и секретный ключ — они понадобятся при создании [кластера](../../managed-airflow/concepts/index.md#cluster).
-
-- API {#api}
-
-  Чтобы создать ключ доступа, воспользуйтесь методом REST API [create](../../iam/api-ref/AccessKey/create.md) для ресурса [AccessKey](../../iam/api-ref/AccessKey/index.md) или вызовом gRPC API [AccessKeyService/Create](../../iam/api-ref/grpc/access_key_service.md#Create).
 
 {% endlist %}
 
@@ -212,7 +164,9 @@
 
 {% endlist %}
 
-## Создайте бакет в {{ objstorage-name }} {#create-bucket}
+## Подготовьте бакет в {{ objstorage-name }} {#bucket}
+
+### Создайте бакет {#create-bucket}
 
 {% list tabs group=instructions %}
 
@@ -230,7 +184,7 @@
   {% include [aws-cli-install](../../_includes/aws-cli-install.md) %}
 
   1. Создайте бакет, указав для него [уникальное имя](../../storage/concepts/bucket.md#naming):
-  
+
       ```bash
       aws --endpoint-url https://{{ s3-storage-host }} \
         s3 mb s3://<имя_бакета>
@@ -256,6 +210,10 @@
   Чтобы создать бакет, воспользуйтесь методом REST API [create](../../storage/api-ref/Bucket/create.md) для ресурса [Bucket](../../storage/api-ref/Bucket/index.md), вызовом gRPC API [BucketService/Create](../../storage/api-ref/grpc/bucket_service.md#Create) или методом S3 API [create](../../storage/s3/api-ref/bucket/create.md).
 
 {% endlist %}
+
+### Настройте ACL для бакета {#configure-acl-bucket}
+
+{% include [aiflow-sa-bucket-acl](../../_includes/managed-airflow/aiflow-sa-bucket-acl.md) %}
 
 ## Настройте NAT для доступа в интернет {#nat-routing}
 
@@ -284,7 +242,7 @@
 
   Результат:
 
-  ```bash
+  ```text
   id: enpkq1sb7hed********
   folder_id: b1g681qpemb4********
   created_at: "2024-05-19T13:20:36Z"
@@ -331,7 +289,7 @@
 
   Результат:
 
-  ```bash
+  ```text
   id: enp4v8foko6s********
   folder_id: b1g681qpemb4********
   created_at: "2024-05-19T13:22:47Z"
@@ -375,7 +333,7 @@
 
   Результат:
 
-  ```bash
+  ```text
   id: e9b6n3jj3gh6********
   folder_id: b1g681qpemb4********
   created_at: "2024-05-19T13:24:58Z"
@@ -410,13 +368,12 @@
 
 {% include [airflow-auto-tasks-test](../_tutorials_includes/airflow-auto-tasks/airflow-auto-tasks-test.md) %}
 
-## Как удалить созданные ресурсы {#clear-out}
+## Удалите созданные ресурсы {#clear-out}
 
 Чтобы удалить инфраструктуру и перестать платить за созданные ресурсы:
 
 1. [Удалите](../../storage/operations/buckets/delete.md) бакет {{ objstorage-name }}.
-1. [Отвяжите](../../vpc/operations/subnet-update.md) таблицу маршрутизации от подсети.
-1. Удалите [таблицу маршрутизации](../../vpc/concepts/routing.md#rt-vm).
-1. Удалите [NAT-шлюз](../../vpc/concepts/gateways.md).
+1. [Отвяжите и удалите](../../vpc/operations/delete-route-table.md) таблицу маршрутизации.
+1. [Удалите](../../vpc/operations/delete-nat-gateway.md#delete-nat-gateway) NAT-шлюз.
 1. [Удалите](../../managed-airflow/operations/cluster-delete.md) кластер {{ AF }}.
 1. При необходимости удалите [подсети](../../vpc/operations/subnet-delete.md), [сеть](../../vpc/operations/network-delete.md) и [сервисный аккаунт](../../iam/operations/sa/delete.md).

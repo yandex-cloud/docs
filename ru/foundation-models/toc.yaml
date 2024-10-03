@@ -1,6 +1,5 @@
 title: Yandex Foundation Models
 href: index.yaml
-stage: preview
 label:
   title: RU
   description: Сервис доступен только в регионе Россия.
@@ -23,8 +22,6 @@ items:
             href: operations/yandexgpt/create-prompt.md
           - name: Отправить серию запросов в режиме чата
             href: operations/yandexgpt/create-chat.md
-          - name: Отправить запрос к дообученной модели
-            href: operations/yandexgpt/finetune.md
           - name: Отправить асинхронный запрос
             href: operations/yandexgpt/async-request.md
           - name: Отключить логирование запросов
@@ -225,6 +222,38 @@ items:
                 href: api-ref/v1alpha/grpc/TextGenerationAsyncService.md
               - name: OperationService
                 href: api-ref/v1alpha/grpc/operation_service.md
+  - name: '{{ ml-sdk-full-name }}'
+    href: sdk/index.md
+  - name: Как создавать промты
+    items:
+      - name: Обзор
+        href: gpt-prompting-guide/about.md
+      - name: Рекомендации по использованию {{ yagpt-name }}
+        href: gpt-prompting-guide/popular-problems-solving.md
+      - name: Введение в инжиниринг промтов
+        items:
+          - name: Параметры LLM
+            href: gpt-prompting-guide/introduction/llm-settings.md
+          - name: Основы промтинга
+            href: gpt-prompting-guide/introduction/basics.md
+          - name: Из чего состоит промт
+            href: gpt-prompting-guide/introduction/elements.md
+          - name: Общие советы для создания промтов
+            href: gpt-prompting-guide/introduction/general-tips.md
+          - name: Примеры промтов
+            href: gpt-prompting-guide/introduction/examples.md
+      - name: Техники
+        items:
+          - name: Обзор
+            href: gpt-prompting-guide/techniques/about.md
+          - name: Zero-shot
+            href: gpt-prompting-guide/techniques/zero-shot.md
+          - name: Few-shot
+            href: gpt-prompting-guide/techniques/few-shot.md
+          - name: Chain-of-Thought
+            href: gpt-prompting-guide/techniques/CoT.md
+          - name: Self-consistency
+            href: gpt-prompting-guide/techniques/self-consistency.md
   - name: Библиотека промтов {{ yagpt-full-name }}
     items:
       - name: Все промты

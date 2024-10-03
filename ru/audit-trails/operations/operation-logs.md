@@ -47,7 +47,7 @@
 
   Результат:
 
-  ```yaml
+  ```text
   - id: cnpne9jsof71********
     description: operation_update
     created_at: "2024-03-26T16:57:32.085739756Z"
@@ -96,7 +96,7 @@
 
       Результат:
 
-      ```yaml
+      ```text
       id: cnpne9jsof71********
       description: operation_update
       created_at: "2024-03-26T16:57:32.085Z"

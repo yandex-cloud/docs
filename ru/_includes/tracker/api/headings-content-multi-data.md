@@ -2,14 +2,14 @@
 
 - **Host**
         Адрес узла, предоставляющего API:
-    ```
+    ```http
     https://{{ host }}
     ```
 
 - **Authorization**
 
     OAuth-токен в формате `OAuth <OAuth-токен>`, например:
-    ```
+    ```http
     OAuth 0c4181a7c2cf4521964a72ff********
     ```
 - **X-Org-ID** или **X-Cloud-Org-ID**

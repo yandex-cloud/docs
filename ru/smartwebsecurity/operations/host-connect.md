@@ -27,11 +27,10 @@ description: "Следуя данной инструкции, вы сможет�
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите подключить [профиль безопасности](../concepts/profiles.md) к [виртуальному хосту](../../application-load-balancer/concepts/http-router.md#virtual-host) сервиса [{{ alb-full-name }}](../../application-load-balancer/).
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится нужный [профиль безопасности](../concepts/profiles.md).
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
-  1. Выберите профиль, который вы хотите подключить к хосту.
-  1. Нажмите кнопку ![plug](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.smart-web-security.overview.action_attach-to-host }}**.
-  1. В открывшемся окне выберите:
+  1. Выберите профиль безопасности, который вы хотите подключить к [виртуальному хосту](../../application-load-balancer/concepts/http-router.md#virtual-host) сервиса [{{ alb-full-name }}](../../application-load-balancer/).
+  1. Нажмите кнопку ![plug](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.smart-web-security.overview.action_attach-to-host }}** и в открывшемся окне выберите:
       * [**{{ ui-key.yacloud.smart-web-security.attach-dialog.label_balancer }}**](../../application-load-balancer/concepts/application-load-balancer.md).
       * [**{{ ui-key.yacloud.smart-web-security.attach-dialog.label_http-router }}**](../../application-load-balancer/concepts/http-router.md).
       * **{{ ui-key.yacloud.smart-web-security.attach-dialog.label_virtual-host }}**. Вы можете подключить профиль безопасности сразу к нескольким хостам.
@@ -58,7 +57,7 @@ description: "Следуя данной инструкции, вы сможет�
      ```
 
      Результат:
-     
+
      ```text
      +----------------------+-------------------+-------------+-------------+
      |          ID          |       NAME        | VHOST COUNT | ROUTE COUNT |
@@ -75,7 +74,7 @@ description: "Следуя данной инструкции, вы сможет�
 
      Результат:
 
-     ```yaml
+     ```text
      id: ds7e9te73uak********
      name: my-first-router
      folder_id: b1gt6g8ht345********
@@ -106,14 +105,14 @@ description: "Следуя данной инструкции, вы сможет�
      ```
 
      Где:
-     
+
      * `<имя_виртуального_хоста>` — имя виртуального хоста, полученное на предыдущем шаге.
      * `--http-router-name` — имя HTTP-роутера. Обязательный параметр. Вместо имени HTTP-роутера вы можете передать его идентификатор в параметре `--http-router-id`.
      * `--security-profile-id` — идентификатор профиля безопасности. Обязательный параметр.
 
      Результат:
 
-     ```yaml
+     ```text
      done (1s)
      name: test-virtual-host
      routes:

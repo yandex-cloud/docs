@@ -78,6 +78,16 @@ items:
           Миграция данных из {{ mos-name }} в {{ ydb-full-name }} с помощью {{
           data-transfer-full-name }}
         href: tutorials/opensearch-to-ydb.md
+      - name: >-
+          Копирование данных из {{ mos-name }} в {{ mch-name }} с помощью {{
+          data-transfer-full-name }}
+        href: tutorials/opensearch-to-clickhouse.md
+      - name: >-
+          Миграция данных из {{ mpg-name }} в {{ mos-name }} с помощью {{
+          data-transfer-full-name }}
+        href: tutorials/postgresql-to-opensearch.md
+      - name: Аутентификация в {{ OS }} Dashboards с помощью {{ keycloak }}
+        href: tutorials/saml-keycloak.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса

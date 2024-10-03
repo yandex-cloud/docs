@@ -30,7 +30,7 @@ Create a {{ mmg-name }} version 6.0 target cluster identical to the version 4.4 
       To connect to the cluster from the internet, enable public access to its hosts.
 
    
-   1. If using security groups in your cluster, make sure they are [configured correctly](../../../managed-mongodb/operations/connect/index.md#configuring-security-groups) and allow connecting to it.
+   1. If using security groups in your cluster, make sure they are [configured correctly](../../../managed-mongodb/operations/connect/index.md#configuring-security-groups) and allow connecting to the cluster.
 
 
    1. [Assign](../../../managed-mongodb/operations/cluster-users.md#updateuser) the `readWrite` role for the `db1` database to `user1`.
@@ -227,7 +227,7 @@ If the source database has sharded collections, [prepare the target database](..
 
 ## Test the transfer {#verify-transfer}
 
-1. [Connect to the `db1` database](../../../managed-mongodb/operations/connect/sharded.md) in the {{ mmg-name }} target cluster.
+1. [Connect to the `db1` database](../../../managed-mongodb/operations/connect/index.md) in the {{ mmg-name }} target cluster.
 
 1. Check whether the data collections have appeared in the `db1` database:
 

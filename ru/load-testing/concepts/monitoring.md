@@ -1,6 +1,6 @@
 # Мониторинг агентов тестирования
 
-Мониторинг позволяет собирать данные о состоянии агента тестирования (метрики) и отображать их на графиках. Сбор метрик выполняется с помощью плагина для агента сбора метрик [Telegraf](https://github.com/influxdata/telegraf) или плагина YCMonitoring. Графики мониторинга отображаются на вкладке **{{ ui-key.yacloud.load-testing.label_monitoring-report }}** для выбранного теста.
+Мониторинг позволяет собирать данные о состоянии цели и агента тестирования (метрики), а также отображать эти данные на графиках. Сбор метрик выполняется с помощью плагина для агента сбора метрик [Telegraf](https://github.com/influxdata/telegraf) или плагина YCMonitoring. Графики мониторинга отображаются на вкладке **{{ ui-key.yacloud.load-testing.label_monitoring-report }}** для выбранного теста.
 
 Включить мониторинг агента тестирования можно в настройках при [создании теста](../operations/create-test-bucket.md#create-test):
 
@@ -145,7 +145,7 @@
    panels:
      panel_name:
        ...
-   api_host: monitoring.api.cloud.yandex.net:443
+   api_host: {{ api-host-monitoring-1 }}:443
    token: LOADTESTING_YC_TOKEN
    timeout: 5s
    request_timeout: 10s
@@ -155,7 +155,7 @@
    ```
 
    Где:
-   * `api_host` — адрес API сервиса {{ monitoring-name }}, из которого собираются данные. Значение по умолчанию — `monitoring.api.cloud.yandex.net:443`.
+   * `api_host` — адрес API сервиса {{ monitoring-name }}, из которого собираются данные. Значение по умолчанию — `{{ api-host-monitoring-1 }}:443`.
    * `token` — путь к файлу [IAM-токена](../../iam/concepts/authorization/iam-token.md). Значение по умолчанию берется из переменной окружения `LOADTESTING_YC_TOKEN`.
    * `timeout` — таймаут окончания работы плагина при завершении нагрузочного теста. Значение по умолчанию — 5 секунд.
    * `request_timeout` — таймаут запроса в API сервиса {{ monitoring-name }}. Значение по умолчанию — 10 секунд.

@@ -2,7 +2,7 @@ title: Yandex Network Load Balancer
 href: index.yaml
 label:
   title: KZ
-  description: The service is available in Kazakhstan.
+  description: This service is only available in the Kazakhstan region.
   theme: info
   when: region == "kz"
 items:
@@ -48,6 +48,36 @@ items:
             href: operations/target-group-delete.md
       - name: Viewing operations with the service's resources
         href: operations/operation-logs.md
+  - name: Tutorials
+    items:
+      - name: All tutorials
+        href: tutorials/index.md
+      - name: Architecture and protection of a basic internet service
+        href: tutorials/web-service.md
+      - name: Configuring a fault-tolerant architecture in {{ yandex-cloud }}
+        href: tutorials/fault-tolerance.md
+      - name: >-
+          Fault-tolerant website with load balancing via {{
+          network-load-balancer-name }}
+        items:
+          - name: Overview
+            href: tutorials/load-balancer-website/index.md
+          - name: Management console
+            href: tutorials/load-balancer-website/console.md
+          - name: '{{ TF }}'
+            href: tutorials/load-balancer-website/terraform.md
+      - name: Running instance groups with autoscaling
+        items:
+          - name: Overview
+            href: tutorials/vm-autoscale/index.md
+          - name: Management console
+            href: tutorials/vm-autoscale/console.md
+          - name: '{{ TF }}'
+            href: tutorials/vm-autoscale/terraform.md
+      - name: Updating an instance group under load
+        href: tutorials/updating-under-load.md
+      - name: Integrating {{ dns-name }} and a corporate DNS service
+        href: tutorials/dns-integration.md
   - name: Concepts
     items:
       - name: Overview
@@ -62,7 +92,7 @@ items:
         href: concepts/health-check.md
       - name: Implementation specifics
         href: concepts/specifics.md
-      - name: Use cases
+      - name: Use scenarios
         href: concepts/scenarios.md
       - name: Recommendations for use
         href: concepts/best-practices.md
@@ -152,7 +182,7 @@ items:
                 href: api-ref/Operation/index.md
               - name: get
                 href: api-ref/Operation/get.md
-  - name: '{{ managed-k8s-name }} tool reference'
+  - name: Tool reference for {{ managed-k8s-name }}
     items:
       - name: Overview
         href: k8s-ref/index.md

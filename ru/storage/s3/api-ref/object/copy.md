@@ -16,13 +16,15 @@
 
 - Изменить класс хранилища объекта.
 - Добавить условия для копирования объекта.
-- Установить [блокировку](../../../concepts/object-lock.md) на объект (если бакет [версионируемый](../../../concepts/versioning.md) и механизм блокировок включен). 
+- Установить [блокировку](../../../concepts/object-lock.md) на объект (если бакет [версионируемый](../../../concepts/versioning.md) и механизм блокировок включен).
 
 Пользователь должен иметь разрешение на чтение исходного объекта и разрешение на запись в результирующий бакет.
 
+{% include [s3-api-intro-include](../../../../_includes/storage/s3-api-intro-include.md) %}
+
 ## Запрос {#request}
 
-```
+```http
 PUT /{bucket}/{key} HTTP/2
 ```
 
@@ -80,7 +82,7 @@ PUT /{bucket}/{key} HTTP/2
 
 ### Схема данных {#response-scheme}
 
-```
+```xml
 <CopyObjectResult>
    <LastModified>2019-02-15T14:32:00</LastModified>
    <ETag>"9bgh7535f2734ec974343yuc93985328"</ETag>

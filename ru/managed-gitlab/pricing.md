@@ -10,9 +10,11 @@ editable: false
 
 {% include [use-calculator](../_includes/pricing/use-calculator.md) %}
 
+{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
+
 ## Из чего складывается стоимость использования {{ mgl-name }} {#rules}
 
-При работе {{ mgl-name }} вы оплачиваете:
+При работе с {{ mgl-name }} вы оплачиваете:
 * Вычислительные ресурсы инстанса (виртуальной машины).
 * Объем хранилища (диск) данных инстанса.
 
@@ -100,9 +102,7 @@ editable: false
 
 ## Цены для региона Россия {#prices}
 
-
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
-
 
 
 Все цены указаны с включением НДС.

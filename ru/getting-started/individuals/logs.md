@@ -32,7 +32,7 @@
 
     Чтобы создать лог-группу, выполните команду:
 
-    ```
+    ```bash
     yc logging group create --name=group --retention-period=1h
     ```
 
@@ -41,7 +41,7 @@
 
     Результат:
 
-    ```
+    ```text
     done (1s)
     id: af3flf29t8**********
     folder_id: aoek6qrs8t**********

@@ -4,13 +4,7 @@
 
 In {{ GP }}, a user is a role that can log in to the database. To do this, it is granted the `LOGIN` [attribute](#attributes).
 
-You can manage cluster users using SQL commands run on behalf of the admin user with the `mdb_admin` role. The admin username and password are set when [creating](../operations/cluster-create.md#create-cluster) a cluster. For more information, see [{#T}](../operations/roles-and-users.md).
-
-To grant the admin user privileges to another user, assign the `mdb_admin` role to it:
-
-```sql
-GRANT mdb_admin TO <username>;
-```
+An admin user with the [mdb_admin](#mdb_admin) role has the maximum privileges among all users.
 
 ## Attributes {#attributes}
 
@@ -100,5 +94,36 @@ Do not use the `mdb_admin` role for routine tasks, because an incorrect command 
 |#
 
 For more information about privileges and how to manage them, see the [{{ GP }} documentation]({{ gp.docs.vmware }}/6/greenplum-database/admin_guide-roles_privs.html#managing-object-privileges).
+
+## The mdb_admin role instead of a superuser {#mdb_admin}
+
+In a {{ mgp-name }} cluster, superuser permissions are not granted. Instead, you can work with databases via an admin user with the `mdb_admin` role. Such user is created along with the cluster and allows you the following operations:
+
+* [Managing roles and users](../operations/roles-and-users.md).
+* [Managing resource groups](../operations/resource-groups.md).
+* [Managing client resources and user sessions](../operations/cluster-process.md) (a user with the `mdb_admin` role can access `mdb_toolkit` objects).
+* Accessing the [pg_stat_activity]({{ pg-docs }}/monitoring-stats.html#MONITORING-PG-STAT-ACTIVITY-VIEW) view and getting information from it.
+* Managing database objects of other users, such as tables. A user with the `mdb_admin` role owns objects of all users.
+* Using the connection slot reserved for `mdb_admin`.
+
+   If too many connections to a database are established, one more connection may cause an error. A user with the `mdb_admin` role avoids that situation, because it has a reserved connection slot.
+
+* Creating a database.
+* [Working with the PXF protocol](../operations/external-tables.md):
+
+   * Creating external data sources.
+   * Creating external tables.
+   * Accessing user credentials. This data is transmitted over PXF in an open format.
+
+* [Expanding the cluster](../operations/hosts/cluster-expand.md): Adding segment hosts to it and redistributing data between them via the `gp_expand` utility.
+* Connecting to the `gpperfmon` database and [diagnose cluster performance](../operations/performance-diagnostics.md).
+
+The admin's username and password are created [along with the cluster](../operations/cluster-create.md#create-cluster).
+
+If you want to grant the admin user privileges to another user, assign the `mdb_admin` role to that user:
+
+```sql
+GRANT mdb_admin TO <username>;
+```
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

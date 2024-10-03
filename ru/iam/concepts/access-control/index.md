@@ -19,7 +19,7 @@
 
 Управление доступом в {{ yandex-cloud }} построено на политике [Role Based Access Control](https://en.wikipedia.org/wiki/Role-based_access_control) (RBAC). Чтобы предоставить доступ к ресурсу, вы указываете, кому и какие [роли](roles.md) назначены на ресурс.
 
-Чтобы назначить роль, вы [выбираете ресурс](#resource), [выбираете роль](#role) и [описываете субъект](#subject), которому назначается роль. Таким образом вы [привязываете права доступа](#access-bindings) к ресурсу.
+Чтобы назначить роль, вы [выбираете ресурс](#resource), [выбираете роль](#role) и [описываете субъект](#subject), которому назначается роль. Таким образом вы [назначаете права доступа](#access-bindings) к ресурсу.
 
 Вы также можете назначить роль на родительский ресурс, от которого [наследуются права доступа](#inheritance), например назначить роль на каталог или облако.
 
@@ -49,39 +49,59 @@
 
 Роли назначаются субъектам. Существуют следующие типы субъектов:
 
-* `userAccount` — [аккаунт на Яндексе](../users/accounts.md#passport), добавленный в {{ yandex-cloud }}.
+* `userAccount` — [аккаунт на Яндексе](../users/accounts.md#passport), добавленный в {{ yandex-cloud }}:
 
-    Идентификатор субъекта — уникальный [идентификатор](../../../api-design-guide/concepts/resources-identification.md), [присвоенный](../../operations/users/get.md) пользователю.
+    Идентификатор субъекта: `userAccount:<идентификатор_пользователя>`.
 
-* `serviceAccount` — [сервисный аккаунт](../users/service-accounts.md), созданный в {{ yandex-cloud }}.
+    Где `<идентификатор_пользователя>` — уникальный [идентификатор](../../../api-design-guide/concepts/resources-identification.md), [присвоенный](../../operations/users/get.md) пользователю. Например: `userAccount:ajecpdmpr4pr********`.
 
-    Идентификатор субъекта — уникальный идентификатор, [присвоенный](../../operations/sa/get-id.md) сервисному аккаунту.
+* `serviceAccount` — [сервисный аккаунт](../users/service-accounts.md), созданный в {{ yandex-cloud }}:
+
+    Идентификатор субъекта: `serviceAccount:<идентификатор_сервисного_аккаунта>`.
+
+    Где `<идентификатор_сервисного_аккаунта>` — уникальный идентификатор, [присвоенный](../../operations/sa/get-id.md) сервисному аккаунту. Например: `serviceAccount:ajevnu4u2q3m********`.
 
     {% include [include](../../../_includes/sa-assign-role-note.md) %}
 
-* `federatedUser` — аккаунт пользователя [федерации удостоверений](../../../organization/concepts/add-federation.md), например из Active Directory.
+* `federatedUser` — аккаунт пользователя [федерации удостоверений](../../../organization/concepts/add-federation.md), например из Active Directory:
 
-    Идентификатор субъекта — уникальный идентификатор, [присвоенный](../../operations/users/get.md) пользователю.
+    Идентификатор субъекта: `federatedUser:<идентификатор_пользователя>`.
 
-* `group` — [группа пользователей](../../../organization/concepts/groups.md), созданная в [{{ org-full-name }}](../../../organization/).
+    Где `<идентификатор_пользователя>` — уникальный идентификатор, [присвоенный](../../operations/users/get.md) федеративному пользователю. Например: `federatedUser:aje7b4u65nb6********`.
 
-    Идентификатор субъекта — уникальный идентификатор, присвоенный группе пользователей.
+* `group` — группа пользователей [{{ org-full-name }}](../../../organization/):
 
-* `system` — [публичная группа](./public-group.md) или [системная группа](./system-group.md).
+    * [Группа пользователей](../../../organization/concepts/groups.md), созданная администратором организации:
 
-    Идентификатор субъекта:
+        Идентификатор субъекта: `group:<идентификатор_пользовательской_группы>`.
 
-    * `allAuthenticatedUsers` — для [публичной группы](./public-group.md#allAuthenticatedUsers) `All authenticated users`;
+        Где `<идентификатор_пользовательской_группы>` — уникальный идентификатор, присвоенный группе пользователей, созданной администратором организации. Например: `group:ajeser8mnc4c********`.
 
-    * `allUsers` — для [публичной группы](./public-group.md#allUsers) `All users`;
+    * [Системная группа](./system-group.md#allOrganizationUsers) `All users in organization X`:
 
-    * `group:organization:<идентификатор_организации>:users` — для [системной группы](./system-group.md#allOrganizationUsers) `All users in organization X`, где `<идентификатор_организации>` — уникальный идентификатор, присвоенный [организации](../../../organization/quickstart.md) `X`.
+        Идентификатор субъекта: `group:organization:<идентификатор_организации>:users`.
 
-    * `group:federation:<идентификатор_федерации>:users` — для [системной группы](./system-group.md#allFederationUsers) `All users in federation N`, где `<идентификатор_федерации>` — уникальный идентификатор, присвоенный [федерации удостоверений](../../../organization/concepts/add-federation.md) `N`.
+        Где `<идентификатор_организации>` — уникальный идентификатор, присвоенный [организации](../../../organization/quickstart.md) `X`. Например: `group:organization:bpfaidqca8vd********:users`.
 
-### Привязка прав доступа {#access-bindings}
+    * [Системная группа](./system-group.md#allFederationUsers) `All users in federation N`:
 
-Роли на ресурс назначаются в виде списка связей _роль-субъект_. Такие связи называются — _привязки прав доступа_ (access bindings). Вы можете добавлять и удалять эти связи, таким образом контролируя права доступа к ресурсу.
+        Идентификатор субъекта: `group:federation:<идентификатор_федерации>:users`.
+
+        Где `<идентификатор_федерации>` — уникальный идентификатор, присвоенный [федерации удостоверений](../../../organization/concepts/add-federation.md) `N`. Например: `group:federation:bpf8tpgggfoi********:users`.
+
+* `system` — [публичная группа](./public-group.md) пользователей:
+
+    * [Публичная группа](./public-group.md#allAuthenticatedUsers) пользователей `All authenticated users`:
+
+        Идентификатор субъекта: `system:allAuthenticatedUsers`.
+
+    * [Публичная группа](./public-group.md#allUsers) `All users`:
+
+        Идентификатор субъекта: `system:allUsers`.
+
+### Назначение прав доступа {#access-bindings}
+
+Роли на ресурс назначаются в виде списка связей _роль-субъект_. Такие связи называются — _назначенные права доступа_ (access bindings). Вы можете добавлять и удалять эти связи, таким образом контролируя права доступа к ресурсу.
 
 ![accessBindings.png](../../../_assets/accessBindings.png)
 

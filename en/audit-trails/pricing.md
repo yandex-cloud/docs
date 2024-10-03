@@ -6,12 +6,18 @@ editable: false
 
 # {{ at-full-name }} pricing policy
 
+{% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
+
+{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
+
 Delivered [data events](./concepts/events-data-plane.md) are billed.
 
 [Management events](./concepts/events.md) are currently not billed.
 
 
 ## Prices for the Russia region {#prices}
+
+{% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 
 
@@ -67,4 +73,3 @@ For example, delivering 17,000 data events will cost:
 
   
   {% include [usd-storage](../_pricing_examples/audit-trails/usd-storage.md) %}
-

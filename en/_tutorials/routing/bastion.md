@@ -21,10 +21,7 @@ To create a bastion host:
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
-
 ![](../../_assets/tutorials/bastion-yc.svg)
-
-
 
 ## Getting started {#before-you-begin}
 
@@ -55,19 +52,20 @@ Save the private key in a secure location, as you will not be able to connect to
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), go to the folder where you need to create a cloud network.
+   1. In the [management console]({{ link-console-main }}), go the folder where you want to create an infrastructure for your bastion host.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
    1. In the top-right corner, click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
    1. Enter the network name: `external-bastion-network`.
+   1. Disable the **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}** option.
    1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
    1. Create a subnet:
 
       1. At the top right, click **{{ ui-key.yacloud.vpc.network.overview.button_create_subnetwork }}**.
       1. Specify the subnet parameters:
 
-         1. **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}**: `bastion-external-segment`
-         1. **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}**: `{{ region-id }}-b`
-         1. **{{ ui-key.yacloud.vpc.subnetworks.create.field_ip }}**: `172.16.17.0/28`
+         * **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}**: `bastion-external-segment`
+         * **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}**: `{{ region-id }}-b`
+         * **{{ ui-key.yacloud.vpc.subnetworks.create.field_ip }}**: `172.16.17.0/28`
 
       1. Click **{{ ui-key.yacloud.vpc.subnetworks.create.button_create }}**.
 
@@ -79,18 +77,20 @@ Save the private key in a secure location, as you will not be able to connect to
 
 - Management console {#console}
 
+   1. In the [management console]({{ link-console-main }}), go the folder where you want to create an infrastructure for your bastion host.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
    1. In the top-right corner, click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
    1. Enter the network name: `internal-bastion-network`.
+   1. Disable the **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}** option.
    1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
    1. Create a subnet:
 
       1. At the top right, click **{{ ui-key.yacloud.vpc.network.overview.button_create_subnetwork }}**.
       1. Specify the subnet parameters:
 
-         1. **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}**: `bastion-internal-segment`
-         1. **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}**: `{{ region-id }}-b`
-         1. **{{ ui-key.yacloud.vpc.subnetworks.create.field_ip }}**: `172.16.16.0/24`
+         * **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}**: `bastion-internal-segment`
+         * **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}**: `{{ region-id }}-b`
+         * **{{ ui-key.yacloud.vpc.subnetworks.create.field_ip }}**: `172.16.16.0/24`
 
       1. Click **{{ ui-key.yacloud.vpc.subnetworks.create.button_create }}**.
 
@@ -106,15 +106,16 @@ Create a [security group](../../vpc/concepts/security-groups.md) and configure t
 
 - Management console {#console}
 
+   1. In the [management console]({{ link-console-main }}), go the folder where you want to create an infrastructure for your bastion host.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** and the `external-bastion-network` network.
-   1. In the left-hand panel, select ![image](../../_assets/vpc/security-group.svg) **{{ ui-key.yacloud.vpc.switch_security-groups }}**.
+   1. In the left-hand menu, select ![image](../../_assets/vpc/security-group.svg) **{{ ui-key.yacloud.vpc.network.switch_security-groups }}**.
    1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
    1. Enter the security group name: `secure-bastion-sg`.
    1. Under **{{ ui-key.yacloud.vpc.network.security-groups.forms.label_section-rules }}**, go to the **{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}** tab and click **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**.
    1. Specify the rule settings:
 
       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `22`
-      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `TCP`
+      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`
       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`
 
@@ -130,15 +131,16 @@ Create a security group and set up rules for incoming traffic from the bastion h
 
 - Management console {#console}
 
+   1. In the [management console]({{ link-console-main }}), go the folder where you want to create an infrastructure for your bastion host.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** and the `internal-bastion-network` network.
-   1. In the left-hand panel, select ![image](../../_assets/vpc/security-group.svg) **{{ ui-key.yacloud.vpc.switch_security-groups }}**.
+   1. In the left-hand menu, select ![image](../../_assets/vpc/security-group.svg) **{{ ui-key.yacloud.vpc.network.switch_security-groups }}**.
    1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
    1. Enter the security group name: `internal-bastion-sg`.
    1. Under **{{ ui-key.yacloud.vpc.network.security-groups.forms.label_section-rules }}**, go to the **{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}** tab and click **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**.
    1. Specify the rule settings:
 
       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `22`
-      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `TCP`
+      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`
       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `172.16.16.254/32`
 
@@ -147,7 +149,7 @@ Create a security group and set up rules for incoming traffic from the bastion h
    1. Specify the rule settings:
 
       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `22`
-      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `TCP`
+      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`
       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`
       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}`
 
@@ -163,8 +165,8 @@ The bastion host will need a static [public IP address](../../vpc/concepts/addre
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), go to the page of the folder where you want to reserve an IP address.
-   1. In the list of services, select **{{ vpc-name }}**.
+   1. In the [management console]({{ link-console-main }}), go the folder where you want to create an infrastructure for your bastion host.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
    1. In the left-hand panel, select ![image](../../_assets/vpc/ip-addresses.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}**.
    1. Click **{{ ui-key.yacloud.vpc.addresses.button_create }}**.
    1. In the window that opens, select the `{{ region-id }}-b` [availability zone](../../overview/concepts/geo-scope.md).
@@ -180,25 +182,34 @@ After you created the subnet and security group, proceed to create a virtual ser
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder to create the virtual machine in.
+   1. In the [management console]({{ link-console-main }}), go the folder where you want to create an infrastructure for your bastion host.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
    1. At the top right, click **{{ ui-key.yacloud.compute.instances.button_create }}**.
    1. Enter the VM name: `bastion-host`.
    1. Select the `{{ region-id }}-b` availability zone.
-   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, go to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab and select the **NAT instance powered by Ubuntu 22.04 LTS** product.
+   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**:
+
+      * In the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab, select the **NAT instance powered by Ubuntu 22.04 LTS** product.
+      * Click **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
+
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**, configure the first network interface:
 
       * **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}**: `bastion-external-segment`.
-      * **{{ ui-key.yacloud.component.compute.network-select.field_external }}**: Select from the list the [IP address](#get-static-ip) reserved earlier.
-      * **{{ ui-key.yacloud.component.compute.network-select.field_internal-ipv4 }}**: `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
+      * **{{ ui-key.yacloud.component.compute.network-select.field_external }}**: Click **{{ ui-key.yacloud.component.compute.network-select.switch_list }}** and select the [IP address reserved earlier](#get-static-ip).
       * **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}**: `secure-bastion-sg`.
 
    1. Click **{{ ui-key.yacloud.compute.instances.create.label_add-network-interface }}** and configure the second network interface:
 
       * **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}**: `bastion-internal-segment`
       * **{{ ui-key.yacloud.component.compute.network-select.field_external }}**: `{{ ui-key.yacloud.component.compute.network-select.switch_none }}`
-      * **{{ ui-key.yacloud.component.compute.network-select.field_internal-ipv4 }}**: `172.16.16.254`
       * **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}**: `internal-bastion-sg`
+      * Expand the **{{ ui-key.yacloud.component.compute.one-to-one-nat-form.field_advanced }}** section:
+
+         * In the **{{ ui-key.yacloud.component.internal-v4-address-field.field_internal-ipv4-address }}** field, select **{{ ui-key.yacloud.component.compute.network-select.switch_list }}**.
+         * Click **{{ ui-key.yacloud.component.internal-v4-address-field.button_internal-address-reserve }}**. In the window that opens:
+
+            * In the **{{ ui-key.yacloud.component.internal-v4-address-field.field_internal-ipv4-address }}** field, enter `172.16.16.254`.
+            * Click **{{ ui-key.yacloud.common.create }}**.
 
       {% note info %}
 
@@ -221,20 +232,20 @@ After you created the subnet and security group, proceed to create a virtual ser
 After you start your bastion host, try to connect to it via the SSH client:
 
 ```bash
-ssh -i ~/.ssh/<private_key> bastion@<public_IP_address_of_the_bastion_host>
+ssh -i ~/.ssh/<private_key_file_name> bastion@<public_IP_address_of_bastion_host>
 ```
 
 ## Add a virtual server to the internal segment of the bastion host {#add-virtual-server}
 
 To administer your servers, add a network interface to the internal network segment of the bastion host: `bastion-internal-segment`.
 
-If you already have a virtual machine, add a new network interface to it. If not, create a new machine to test your bastion host configuration:
+If you already have a virtual machine, [add](../../compute/operations/vm-control/attach-network-interface.md) another network interface to it. If not, create a new machine to test your bastion host configuration:
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder to create the virtual machine in.
+   1. In the [management console]({{ link-console-main }}), go the folder where you want to create an infrastructure for your bastion host.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
    1. At the top right, click **{{ ui-key.yacloud.compute.instances.button_create }}**.
    1. Enter the VM name: `test-vm`.
@@ -247,20 +258,24 @@ If you already have a virtual machine, add a new network interface to it. If not
       * **{{ ui-key.yacloud.component.compute.network-select.field_internal-ipv4 }}**: `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`
       * **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}**: `internal-bastion-sg`
 
-   1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, enter `test` for the username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
-   1. In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file.
+   1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**:
+
+      1. Disable the **{{ ui-key.yacloud.compute.instances.create.field_os-login-access-method }}** option.
+      1. In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the username: `test`.
+      1. In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file.
+
    1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
 {% endlist %}
 
 ## Connect to the created VM {#connect-to-instance}
 
-If connecting to the VM over SSH via a private IP address, you will use your bastion host as a jump host.
+If connecting to the VM over SSH via an internal IP address, you will use your bastion host as a jump host.
 
 To simplify and configure SSH access, add the `-J` (ProxyJump) parameter to the SSH command:
 
 ```bash
-ssh -i ~/.ssh/id_rsa -J bastion@<public_IP_address_of_the_bastion_host> test@<private_IP_address_of_the_virtual_server>
+ssh -i ~/.ssh/<private_key_file_name> -J bastion@<public_IP_address_of_bastion_host> test@<internal_IP_address_of_virtual_server>
 ```
 
 The SSH client will automatically connect to the internal server.
@@ -268,7 +283,7 @@ The SSH client will automatically connect to the internal server.
 You can use the `-J` flag in OpenSSH version 7.3 or higher. In earlier versions, `-J` is not available. In this case, the easiest and most secure way is to use standard I/O redirection (the `-W` flag) for connection forwarding through the bastion host, e.g.:
 
 ```bash
-ssh -i ~/.ssh/id_rsa -o ProxyCommand="ssh -W %h:%p bastion@<public_IP_address_of_the_bastion_host>" test@<private_IP_address_of_the_virtual_server>
+ssh -i ~/.ssh/<private_key_file_name> -o ProxyCommand="ssh -W %h:%p bastion@<public_IP_address_of_bastion_host>" test@<internal_IP_address_of_virtual_server>
 ```
 
 ## Additional connection options {#more-options}
@@ -333,7 +348,7 @@ ssh bastion@<public_IP_address_of_the_bastion_host> -L 3390:<IP_address_of_the_W
 For the Linux clients and servers, you can configure [SCP](https://en.wikipedia.org/wiki/Secure_copy_protocol) for secure file transfer through the bastion host to internal hosts and back. Do this using the same ProxyCommand and ProxyJump options specified in the SSH command line. For example:
 
 ```bash
-scp -o "ProxyJump bastion@<public_IP_address_of_the_bastion_host>" <file_name> bastion@<private_IP_address_of_the_virtual_server>:<file_path>
+scp -o "ProxyJump bastion@<public_IP_address_of_bastion_host>" <file_name> bastion@<internal_IP_address_of_virtual_server>:<file_path>
 ```
 
 If you are a Windows client user, one of the most popular SCP applications for Windows is [WinSCP](https://winscp.net). To transfer files via your bastion host to a remote Linux machine:

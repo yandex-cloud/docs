@@ -28,9 +28,12 @@ ZIP-архив через S3 бакет | 128 МБ
 **Другие ограничения** |
 Максимальный размер JSON-структуры [запроса](../functions/concepts/function-invoke.md#request) и [ответа](../functions/concepts/function-invoke.md#response) | 3,5 МБ
 Максимальный объем [временных файлов](../functions/concepts/runtime/environment-variables.md#files) | 512 МБ
-Максимальное время выполнения функции до [таймаута](../functions/operations/function/version-manage.md), включая начальную инициализацию при первом запуске | 10 минут
-Максимальный объем переменных окружения, включая их имена | 4 КБ
+Максимальное время выполнения функции до [таймаута](../functions/operations/function/version-manage.md), включая начальную инициализацию при первом запуске^1^ | 1 час
+Максимальный объем переменных окружения, включая их имена^2^ | 4 КБ
 Максимальное количество [триггеров](../functions/concepts/trigger/index.md) для одной [очереди сообщений](../message-queue/concepts/queue.md) | 1
+
+^1^ Таймаут больше 10 минут доступен только для [долгоживущих функций](../functions/concepts/long-lived-functions.md).
+^2^ Секреты {{ lockbox-short-name }} передаются через переменные окружения и также учитываются в этом лимите.
 
 #### Прочие ограничения {#functions-other-restrictions}
 

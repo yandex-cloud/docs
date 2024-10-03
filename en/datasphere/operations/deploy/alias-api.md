@@ -46,11 +46,11 @@ Where:
 * `<IAM_token>`: IAM token used for authentication.
 * `<folder_ID>`: ID of the folder where the project and the alias were created.
 * `<alias_name>`: Alias name.
-* `<input_variables>`: Object in `{"a":2,"b":3}` format in which the keys correspond to the input variables.
+* `<input_variables>`: Object in `{"a":2,"b":3}` format in which keys are mapped to input variables.
 
 In a successful response, the object is returned:
 
-```
+```json
 {
    "output": {
       <output_variables>
@@ -77,6 +77,6 @@ Where:
 * `<IAM_token>`: IAM token used for authentication.
 * `<folder_ID>`: ID of the folder where the project and the alias were created.
 * `<request_type>`: Type of the request to the alias.
-* `<input_variables>`: Object in `{"a":2,"b":3}` format in which the keys correspond to the input variables.
+* `<input_variables>`: Object in `{"a":2,"b":3}` format in which keys are mapped to input variables.
 
 The response returns a JSON object with output variables.

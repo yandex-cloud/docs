@@ -55,7 +55,7 @@ In this tutorial, you will create your first [dataset](concepts/dataset/index.md
 ## Create a stacked area chart {#create-area-chart}
 
 1. In the chart you created in the previous step, select **Stacked area chart** for the visualization type.
-1. Replace the product subcategories with the order date on the X-axis. To do this, drag the `OrderDate` field from **Dimensions** to the **X** section and hold it over the `ProductSubcategory` field until it turns red.
+1. Replace the product subcategories with the order date on the X-axis. To do this, drag the `OrderDate` field from **Dimensions** to the **X** section and hold it over the `ProductSubcategory` field until the latter turns red.
 1. Add the product category to the chart. To do this, drag the `ProductCategory` field from **Dimensions** to the **Colors** section.
 1. Display a week by week chart:
 
@@ -65,7 +65,7 @@ In this tutorial, you will create your first [dataset](concepts/dataset/index.md
 
 1. Save the chart:
 
-   1. In the top-right corner, click ![save-button](../_assets/console-icons/chevron-down.svg) → **Save as copy**.
+   1. In the upper-right corner, click ![save-button](../_assets/console-icons/chevron-down.svg) → **Save as copy**.
    1. In the window that opens, enter the **Sales by week** name for the new chart and click **Save**.
 
    ![create-chart-2](../_assets/datalens/quickstart/05-create-area-chart.png)
@@ -78,16 +78,16 @@ In this tutorial, you will create your first [dataset](concepts/dataset/index.md
 1. Change the point color based on the sales measure. To do this, drag the `Sales` field from **Measures** to the **Colors** section.
 1. Add the following fields to the **Tooltips** section:
 
-   * `ShopAddress`
-   * `ShopName`
-   * `Sales`
-   * `OrderCount`
+    * `ShopAddress`
+    * `ShopName`
+    * `Sales`
+    * `OrderCount`
 1. Save the chart:
 
-   1. In the top-right corner, click ![save-button](../_assets/console-icons/chevron-down.svg) → **Save as copy**.
-   1. In the window that opens, enter the **Sales map** name for the new chart and click **Save**.
+    1. In the upper-right corner, click ![save-button](../_assets/console-icons/chevron-down.svg) → **Save as copy**.
+    1. In the window that opens, enter the **Sales map** name for the new chart and click **Save**.
 
-   ![create-chart-3](../_assets/datalens/quickstart/06-create-map-chart.png)
+    ![create-chart-3](../_assets/datalens/quickstart/06-create-map-chart.png)
 
 ## Create a dashboard and add charts to it {#dashboard-create}
 

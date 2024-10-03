@@ -18,10 +18,10 @@ _Public IP addresses_ allow cloud resources to exchange data with the internet a
 
 {% note info %}
 
-A virtual machine can access the internet and you can access the VM via a public IP address only if there is no `0.0.0.0/0` default [static route](./static-routes.md) in its subnet. If a virtual machine is [behind a NAT instance](../../tutorials/routing/nat-instance.md), you can connect to it via an internal IP address using the NAT instance as a jump host:
+A virtual machine can access the internet and you can access the VM via a public IP address only if there is no `0.0.0.0/0` default [static route](./routing.md) in its subnet. If a virtual machine is [behind a NAT instance](../../tutorials/routing/nat-instance/index.md), you can connect to it via an internal IP address using the NAT instance as a jump host:
 
 ```bash
-ssh -J <NAT_instance_user_name>@<NAT_instance_public_IP_address> \
+ssh -J <NAT_instance_username>@<NAT_instance_public_IP_address> \
   <VM_user_name>@<VM_internal_IP_address>
 ```
 
@@ -34,10 +34,10 @@ You can convert a dynamic public IP address to static. Static IP addresses do no
 {% include notitle [note-public-ip-traffic.md](../../_includes/pricing/note-public-ip-traffic.md) %}
 
 
-For more information about IP address pricing, see the [{#T}](../pricing.md#prices-public-ip) section of the {{ vpc-name }} documentation.
+For more information about IP address pricing, see [{#T}](../pricing.md#prices-public-ip) in the {{ vpc-name }} documentation.
 
 
-### Outgoing traffic from TCP port 25 {#port-25}
+### Outgoing traffic to TCP port 25 {#port-25}
 
 {% include [port-25.md](../../_includes/vpc/port-25.md) %}
 

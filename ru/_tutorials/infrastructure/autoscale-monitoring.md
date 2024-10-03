@@ -155,7 +155,7 @@
 
      Результат:
 
-     ```bash
+     ```text
      id: enpabce123hd********
      folder_id: b0g12ga82bcv********
      created_at: "2021-10-04T16:28:15.905337847Z"
@@ -179,7 +179,7 @@
 
      Результат:
 
-     ```bash
+     ```text
      id: e1lnabc23r1c********
      folder_id: b0g12ga82bcv********
      created_at: "2021-10-04T16:29:12.450858436Z"
@@ -527,7 +527,7 @@
   1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_allocation }}** в поле **{{ ui-key.yacloud.compute.groups.create.field_zone }}** выберите`{{ region-id }}-a`.
   1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_instance }}** нажмите **{{ ui-key.yacloud.compute.groups.create.button_instance_empty-create }}** и в открывшемся окне:
   
-     1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_custom }}** и нажмите **{{ ui-key.yacloud.common.select }}**.
+     1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_custom_new }}** и нажмите **{{ ui-key.yacloud.common.select }}**.
      1. В открывшемся окне выберите созданный образ в качестве загрузочного диска:
      
         1. Перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create-disk.value_source-image }}**.

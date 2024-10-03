@@ -22,12 +22,7 @@ editable: false
 
 ## {{ marketplace-full-name }} {#marketplace}
 
-
-Во время пробного периода недоступны некоторые продукты, например:
-* Microsoft SQL Server
-* Windows Server Standard
-* Windows RDS
-
+Во время пробного периода использование платных продуктов {{ marketplace-full-name }} недоступно, но после перехода в платное потребление вы сможете использовать остаток стартового гранта для их оплаты.
 
 
 ## Квоты и лимиты сервисов {#quotes-and-limits}

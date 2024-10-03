@@ -80,13 +80,29 @@
 
 1. Отправьте запрос к классификатору, выполнив команду:
 
-    ```bash
-    export IAM_TOKEN=<IAM-токен>
-    curl -X POST \
-      -H "Authorization: Bearer ${IAM_TOKEN}" \
-      -d "@<путь_к_файлу_с_телом_запроса>" \
-      "https://{{ api-host-llm }}/foundationModels/v1/fewShotTextClassification"
-    ```
+   {% list tabs group=programming_language %}
+
+   - Bash {#bash}
+   
+     {% include [curl](../../../_includes/curl.md) %}
+     
+     {% include [bash-windows-note-single](../../../_includes/translate/bash-windows-note-single.md) %}
+
+      ```bash
+      export IAM_TOKEN=<IAM-токен>
+      curl \
+        --request POST \
+        --header "Authorization: Bearer ${IAM_TOKEN}" \
+        --data "@<путь_к_файлу_с_телом_запроса>" \
+        "https://{{ api-host-llm }}/foundationModels/v1/fewShotTextClassification"
+      ```
+      {% note info %}
+      
+      Эндпоинт `https://{{ api-host-llm }}/foundationModels/v1/fewShotTextClassification` работает только с классификаторами по промту. Для [дообученных классификаторов](additionally-trained.md) используйте `https://{{ api-host-llm }}:443/foundationModels/v1/textClassification`.
+      
+      {% endnote %}
+
+   {% endlist %}
 
     В ответе сервис вернет результаты классификации с определенными значениями вероятности (`confidence`) отнесения текста запроса к каждому из классов:
 

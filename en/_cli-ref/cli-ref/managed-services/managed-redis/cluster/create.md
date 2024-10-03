@@ -38,6 +38,7 @@ Syntax:
 |`--disk-type-id`|<b>`string`</b><br/>Disk type id (e.g., network-ssd).|
 |`--backup-window-start`|<b>`timeofday`</b><br/>Start time for the daily backup in UTC timezone. Format: HH:MM:SS|
 |`--datalens-access`|Allow access for DataLens|
+|`--websql-access`|Allow access for Web SQL|
 |`--labels`|<b>`key=value[,key=value...]`</b><br/>A list of label KEY=VALUE pairs to add. For example, to add two labels named 'foo' and 'bar', both with the value 'baz', use '--labels foo=baz,bar=baz'.|
 |`--sharded`|Enables sharding for Redis cluster.|
 |`--enable-tls`|Enables tls for Redis cluster.|
@@ -46,7 +47,7 @@ Syntax:
 |`--security-group-ids`|<b>`value[,value]`</b><br/>A list of security groups for the Redis cluster.|
 |`--deletion-protection`|Deletion Protection inhibits deletion of the cluster.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
-|`--disk-size-autoscaling`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Disk size autoscaling settings<br/><br/>Possible property names:<br/><ul> <li><code>disk-size-limit</code>:     Set disk size limit</li> <li><code>planned-usage-threshold</code>:     Planned usage threshold</li> <li><code>emergency-usage-threshold</code>:     Emergency usage threshold</li> </ul>|
+|`--disk-size-autoscaling`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Disk size autoscaling settings<br/><br/>Possible property names:<br/><ul> <li><code>disk-size-limit</code>:     Set disk size limit (GB)</li> <li><code>planned-usage-threshold</code>:     Planned usage threshold</li> <li><code>emergency-usage-threshold</code>:     Emergency usage threshold</li> </ul>|
 
 #### Global Flags
 

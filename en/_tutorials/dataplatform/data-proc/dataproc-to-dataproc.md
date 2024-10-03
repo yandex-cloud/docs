@@ -1,4 +1,4 @@
-To save data from a {{ dataproc-name }} cluster to a {{ objstorage-name }} bucket, use a separate [{{ metastore-name }}](../../../data-proc/concepts/metastore.md) cluster to store table metadata. This way you can access the saved data from a different {{ dataproc-name }} cluster that has access to the bucket and is connected to the same {{ metastore-name }} cluster.
+To save data from a [{{ dataproc-full-name }} cluster](../../../data-proc/concepts/index.md) to a [{{ objstorage-full-name }}](../../../storage/concepts/bucket.md), use a separate [{{ metastore-full-name }}](../../../metadata-hub/concepts/metastore.md) cluster to store table metadata. This way you can access the saved data from a different {{ dataproc-name }} cluster that has access to the bucket and is connected to the same {{ metastore-name }} cluster.
 
 To set up shared use of tables with two {{ dataproc-name }} clusters through {{ metastore-name }}:
 
@@ -18,7 +18,7 @@ Prepare the infrastructure:
 
 - Manually {#manual}
 
-   1. [Create a service account](../../../iam/operations/sa/create.md) named `dataproc-s3-sa` and assign it the `dataproc.agent` role.
+   1. [Create a service account](../../../iam/operations/sa/create.md) named `dataproc-s3-sa` and assign the `dataproc.agent` and `dataproc.provisioner` roles to it.
    1. {% include [basic-before-buckets](../../../_includes/data-proc/tutorials/basic-before-buckets.md) %}
    1. [Create a cloud network](../../../vpc/operations/network-create.md) named `dataproc-network`.
    1. [Create a subnet](../../../vpc/operations/subnet-create.md) in any availability zone in `dataproc-network`.
@@ -29,14 +29,14 @@ Prepare the infrastructure:
          * `SPARK`
          * `YARN`
       * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: `dataproc-sa`.
-      * **{{ ui-key.yacloud.mdb.forms.config_field_properties }}**: `spark:spark.sql.hive.metastore.sharedPrefixes` with the `com.amazonaws,ru.yandex.cloud` value. You need it to run PySpark jobs and integrate with {{ metastore-name }}.
+      * **{{ ui-key.yacloud.mdb.forms.config_field_properties }}**: `spark:spark.sql.hive.metastore.sharedPrefixes` with the `com.amazonaws,ru.yandex.cloud` value. Required for PySpark jobs and integration with {{ metastore-name }}.
       * **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}**: Bucket you created for output data.
       * **{{ ui-key.yacloud.mdb.forms.config_field_network }}**: `dataproc-network`.
 
    1. If the cloud network uses [security groups](../../../vpc/concepts/security-groups.md), [add](../../../vpc/operations/security-group-add-rule.md) the following rule for outgoing traffic to the {{ dataproc-name }} cluster security group:
 
       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-metastore }}`
-      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`)
+      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`
       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`
 
@@ -85,7 +85,7 @@ Prepare the infrastructure:
 
 ## Connect {{ dataproc-name }} to {{ metastore-name }} {#connect}
 
-1. [Create a {{ metastore-name }} cluster](../../../data-proc/operations/metastore/cluster-create.md) in `dataproc-network`.
+1. [Create a {{ metastore-name }} cluster](../../../metadata-hub/operations/metastore/cluster-create.md) in `dataproc-network`.
 
 1. [Add](../../../data-proc/operations/cluster-update.md) the `spark:spark.hive.metastore.uris` property with the `thrift://<{{ metastore-name }}_cluster_IP_address>:{{ port-metastore }}` value to the {{ dataproc-name }} cluster settings.
 
@@ -191,17 +191,20 @@ Upload the `countries` table metadata to the `dataproc-target` cluster and make 
 
 Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 
-1. [Delete the {{ metastore-name }} cluster](../../../data-proc/operations/metastore/cluster-delete.md).
+1. [Delete the {{ metastore-name }} cluster](../../../metadata-hub/operations/metastore/cluster-delete.md).
 1. Delete other resources depending on how they were created:
 
    {% list tabs group=instructions %}
 
    - Manually {#manual}
 
-      1. [{{ dataproc-name }} clusters](../../../data-proc/operations/cluster-delete.md)
-      1. [{{ objstorage-name }} buckets](../../../storage/operations/buckets/delete.md)
-      1. [Cloud network](../../../vpc/operations/network-delete.md)
-      1. [Service account](../../../iam/operations/sa/delete.md)
+      1. [{{ dataproc-name }} clusters](../../../data-proc/operations/cluster-delete.md).
+      1. [{{ objstorage-name }} buckets](../../../storage/operations/buckets/delete.md).
+      1. [Subnet](../../../vpc/operations/subnet-delete.md).
+      1. [Route table](../../../vpc/operations/delete-route-table.md).
+      1. [NAT gateway](../../../vpc/operations/delete-nat-gateway.md).
+      1. [Cloud network](../../../vpc/operations/network-delete.md).
+      1. [Service account](../../../iam/operations/sa/delete.md).
 
    - {{ TF }} {#tf}
 

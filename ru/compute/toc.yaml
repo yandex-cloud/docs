@@ -134,7 +134,7 @@ items:
                 href: operations/vm-connect/os-login-create-vm.md
               - name: Настроить OS Login на существующей ВМ
                 href: operations/vm-connect/enable-os-login.md
-              - name: Экспортировать сертификат OS Login
+              - name: Экспортировать SSH-сертификат
                 href: operations/vm-connect/os-login-export-certificate.md
               - name: Подключиться к ВМ по OS Login
                 href: operations/vm-connect/os-login.md
@@ -380,14 +380,22 @@ items:
         href: tutorials/index.md
       - name: Настройка синхронизации часов с помощью NTP
         href: tutorials/ntp.md
-      - name: Работа с группой ВМ с автомасштабированием
-        href: tutorials/vm-autoscale.md
+      - name: Работа с группой ВМ с автоматическим масштабированием
+        items:
+          - name: Обзор
+            href: tutorials/vm-autoscale/index.md
+          - name: Консоль управления
+            href: tutorials/vm-autoscale/console.md
+          - name: '{{ TF }}'
+            href: tutorials/vm-autoscale/terraform.md
       - name: Масштабирование группы ВМ по расписанию
         href: tutorials/vm-scale-scheduled.md
       - name: Автомасштабирование группы ВМ для обработки сообщений из очереди
         href: tutorials/autoscale-monitoring.md
       - name: Обновление группы ВМ под нагрузкой
         href: tutorials/updating-under-load.md
+      - name: Начало работы с Packer
+        href: tutorials/packer-quickstart.md
       - name: Передача логов с ВМ в {{ cloud-logging-full-name }}
         href: tutorials/vm-fluent-bit-logging.md
       - name: >-
@@ -404,6 +412,24 @@ items:
         href: tutorials/nodejs-cron-restart-vm.md
       - name: Привязка доменного имени к ВМ с веб-сервером
         href: tutorials/bind-domain-vm.md
+      - name: Настройка отказоустойчивой архитектуры в {{ yandex-cloud }}
+        href: tutorials/fault-tolerance.md
+      - name: Маршрутизация через NAT-инстанс
+        items:
+          - name: Обзор
+            href: tutorials/nat-instance/index.md
+          - name: Консоль управления
+            href: tutorials/nat-instance/console.md
+          - name: '{{ TF }}'
+            href: tutorials/nat-instance/terraform.md
+      - name: >-
+          Создание триггера для бюджетов, который вызывает функцию для остановки
+          ВМ
+        href: tutorials/serverless-trigger-budget-vm.md
+      - name: >-
+          Создание триггеров, которые вызывают функции для остановки ВМ и
+          отправки уведомлений в Telegram
+        href: tutorials/serverless-trigger-budget-queue-vm-tg.md
       - name: Интернет-магазин на платформе OpenCart
         items:
           - name: Обзор
@@ -425,7 +451,13 @@ items:
       - name: Высокопроизводительные вычисления (HPC) на прерываемых ВМ
         href: tutorials/hpc-on-preemptible.md
       - name: Однонодовый файловый сервер
-        href: tutorials/single-node-file-server.md
+        items:
+          - name: Обзор
+            href: tutorials/single-node-file-server/index.md
+          - name: Консоль управления
+            href: tutorials/single-node-file-server/console.md
+          - name: '{{ TF }}'
+            href: tutorials/single-node-file-server/terraform.md
       - name: Настройка SFTP-сервера на Centos 7
         href: tutorials/backup-and-archive-to-sftp.md
       - name: >-
@@ -438,8 +470,14 @@ items:
         href: tutorials/ha-regional-glusterfs-high-performance.md
       - name: Резервное копирование в {{ objstorage-name }} с помощью Bacula
         href: tutorials/backup-with-bacula.md
-      - name: Создание балансировщика с защитой от DDoS
-        href: tutorials/alb-with-ddos-protection.md
+      - name: Создание L7-балансировщика с защитой от DDoS
+        items:
+          - name: Обзор
+            href: tutorials/alb-with-ddos-protection/index.md
+          - name: Консоль управления, CLI
+            href: tutorials/alb-with-ddos-protection/console.md
+          - name: '{{ TF }}'
+            href: tutorials/alb-with-ddos-protection/terraform.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов

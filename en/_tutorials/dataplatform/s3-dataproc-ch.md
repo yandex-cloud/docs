@@ -14,7 +14,7 @@ Prepare the infrastructure:
 
 - Manually {#manual}
 
-   1. [Create a service account](../../iam/operations/sa/create.md) named `dataproc-s3-sa` and assign it the `dataproc.agent` role.
+   1. [Create a service account](../../iam/operations/sa/create.md) named `dataproc-s3-sa` and assign the `dataproc.agent` and `dataproc.provisioner` roles to it.
    1. {% include [basic-before-buckets](../../_includes/data-proc/tutorials/basic-before-buckets.md) %}
    1. [Create a cloud network](../../vpc/operations/network-create.md) named `dataproc-network`.
    1. [Create a subnet](../../vpc/operations/subnet-create.md) in any availability zone in `dataproc-network`.
@@ -245,11 +245,14 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
 - Manually {#manual}
 
-   1. [{{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-delete.md).
-   1. [{{ dataproc-name }} cluster](../../data-proc/operations/cluster-delete.md).
-   1. [{{ objstorage-name }} buckets](../../storage/operations/buckets/delete.md).
-   1. [Cloud network](../../vpc/operations/network-delete.md).
-   1. [Service account](../../iam/operations/sa/delete.md).
+   1. [{{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-delete.md)
+   1. [{{ dataproc-name }} cluster](../../data-proc/operations/cluster-delete.md)
+   1. [{{ objstorage-name }} buckets](../../storage/operations/buckets/delete.md)
+   1. [Subnet](../../vpc/operations/subnet-delete.md)
+   1. [Route table](../../vpc/operations/delete-route-table.md)
+   1. [NAT gateway](../../vpc/operations/delete-nat-gateway.md)
+   1. [Cloud network](../../vpc/operations/network-delete.md)
+   1. [Service account](../../iam/operations/sa/delete.md)
 
 - {{ TF }} {#tf}
 

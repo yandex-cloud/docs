@@ -2,17 +2,19 @@
 
 Removes encryption from the bucket. For more information about bucket encryption, see [{#T}](../../../concepts/encryption.md).
 
+{% include [s3-api-intro-include](../../../../_includes/storage/s3-api-intro-include.md) %}
+
 ## Request {#request}
 
-```
+```http
 DELETE /{bucket}?encryption HTTP/2
 ```
 
 ### Path parameters {#path-parameters}
 
-| Parameter | Description |
+Parameter | Description
 ----- | -----
-| `bucket` | Bucket name. |
+`bucket` | Bucket name.
 
 ### Headers {#request-headers}
 

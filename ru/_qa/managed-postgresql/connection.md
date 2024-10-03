@@ -18,11 +18,10 @@
 SSL-сертификат можно получить с помощью PowerShell:
 
 ```powershell
-mkdir $HOME\AppData\Roaming\postgresql; `
-curl.exe -o $HOME\AppData\Roaming\postgresql\root.crt {{ crt-web-path }}
+mkdir $HOME\.postgresql; curl.exe -o $HOME\.postgresql\root.crt {{ crt-web-path }}
 ```
 
-Сертификат будет доступен по пути `$HOME\AppData\Roaming\postgresql\root.crt`.
+Сертификат будет сохранен в файле `$HOME\.postgresql\root.crt`.
 
 Подробнее о получении сертификата и подключении к базе данных см. в [документации сервиса](../../managed-postgresql/operations/connect.md).
 
@@ -46,6 +45,10 @@ curl.exe -o $HOME\AppData\Roaming\postgresql\root.crt {{ crt-web-path }}
 
 * [Получить SSL-сертификат](../../managed-postgresql/operations/connect.md#get-ssl-cert) и добавить его в приложение, которое вы используете для подключения.
 * [Отключить публичный доступ для хостов](../../managed-postgresql/operations/hosts.md#update) и подключаться к кластеру с виртуальной машины, расположенной в той же облачной сети.
+
+#### Можно ли подключиться к хостам кластера по SSH или получить на хостах права суперпользователя? {#connect-ssh}
+
+{% include [connect-via-ssh](../../_includes/mdb/connect-via-ssh.md) %}
 
 #### Сколько одновременных подключений к одному хосту доступно в {{ mpg-name }}? {#host-conn}
 

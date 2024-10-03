@@ -2,11 +2,13 @@
 editable: false
 ---
 
-# {{ translate-name }} pricing
+# {{ translate-name }} pricing policy
 
 
 
 {% include [use-calculator](../_includes/pricing/use-calculator.md) %}
+
+{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
@@ -21,6 +23,7 @@ The cost of using {{ translate-full-name }} is calculated based on the total num
 
 ## Prices for the Russia region {#prices}
 
+{% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 ### Translation and language detection {#prices-translate-detect}
 

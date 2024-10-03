@@ -9,6 +9,8 @@ description: "A set of methods for the Yandex Translate service."
 
 A set of methods for the Yandex Translate service.
 
+When using the Translate API, provide your [authentication](/docs/translate/api-ref/authentication) credentials in the `Authorization` header.
+
 ## Methods {#methods}
 
 | Method | Description |

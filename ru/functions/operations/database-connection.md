@@ -69,7 +69,7 @@
 
     **package.json**
 
-    ```
+    ```json
     {
       "name": "my-app",
       "version": "1",

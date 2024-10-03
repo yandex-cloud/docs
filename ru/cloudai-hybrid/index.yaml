@@ -1,0 +1,22 @@
+title: '{{ cloudml-full-name }}'
+description:
+  - >-
+    {{ cloudml-full-name }} — это сервисы искусственного интеллекта {{
+    yandex-cloud }}, работающие внутри вашей инфраструктуры. В основе {{
+    cloudml-name }} лежат контейнеры Docker, которые  отлично подходят для
+    обеспечения требований к безопасности и управлению данными.
+meta:
+  title: '{{ cloudml-full-name }}'
+  description: >-
+    {{ cloudml-name }} — это сервисы искусственного интеллекта {{ yandex-cloud
+    }}, работающие внутри вашей инфраструктуры.
+links:
+  - title: Функциональные характеристрики
+    description: Архитектура и назначение {{ cloudml-name }}
+    href: architecture
+  - title: Начало работы
+    description: Как развернуть демонстрационный стенд {{ cloudml-name }}
+    href: quickstart
+  - title: Стоимость
+    description: Моделях лицензирования {{ cloudml-name }}
+    href: pricing

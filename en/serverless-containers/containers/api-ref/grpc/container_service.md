@@ -107,7 +107,7 @@ Field | Description
 folder_id | **string**<br>Required. ID of the folder to create a container in. <br>To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. 
 name | **string**<br>Name of the container. The name must be unique within the folder. Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 description | **string**<br>Description of the container. The maximum string length in characters is 256.
-labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
+labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
 
 
 ### Operation {#Operation}
@@ -165,7 +165,7 @@ container_id | **string**<br>Required. ID of the container to update. <br>To get
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which attributes of the container should be updated. 
 name | **string**<br>New name for the container. The name must be unique within the folder. Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 description | **string**<br>New description for the container. The maximum string length in characters is 256.
-labels | **map<string,string>**<br>Container labels as `key:value` pairs. <br>Existing set of labels is completely replaced by the provided set, so if you just want to add or remove a label, request the current set of labels with a [ContainerService.Get](#Get) request. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
+labels | **map<string,string>**<br>Container labels as `key:value` pairs. <br>Existing set of labels is completely replaced by the provided set, so if you just want to add or remove a label, request the current set of labels with a [ContainerService.Get](#Get) request. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
 
 
 ### Operation {#Operation1}
@@ -271,15 +271,16 @@ connectivity | **[Connectivity](#Connectivity)**<br>Network access. If specified
 provision_policy | **[ProvisionPolicy](#ProvisionPolicy)**<br>Policy for provisioning instances of the revision. <br>The policy is only applied when the revision is ACTIVE. 
 scaling_policy | **[ScalingPolicy](#ScalingPolicy)**<br>Policy for scaling instances of the revision. 
 log_options | **[LogOptions](#LogOptions)**<br>Options for logging from the container. 
-storage_mounts[] | **[StorageMount](#StorageMount)**<br>S3 mounts to be used by the version. 
+storage_mounts[] | **[StorageMount](#StorageMount)**<br>S3 mounts to be used by the revision. 
+mounts[] | **[Mount](#Mount)**<br>Mounts to be used by the revision. 
 
 
 ### Resources {#Resources}
 
 Field | Description
 --- | ---
-memory | **int64**<br>Amount of memory available to the revision, specified in bytes, multiple of 128MB. Acceptable values are 134217728 to 4294967296, inclusive.
-cores | **int64**<br>Number of cores available to the revision. Acceptable values are 0 to 2, inclusive.
+memory | **int64**<br>Amount of memory available to the revision, specified in bytes, multiple of 128MB. Acceptable values are 134217728 to 8589934592, inclusive.
+cores | **int64**<br>Number of cores available to the revision. Acceptable values are 0 to 4, inclusive.
 core_fraction | **int64**<br>Specifies baseline performance for a core in percent, multiple of 5%. Should be 100% for cores > 1. Acceptable values are 0 to 100, inclusive.
 
 
@@ -363,6 +364,33 @@ read_only | **bool**<br>Is mount read only.
 mount_point_path | **string**<br>Required. Mount point path inside the container for mounting. The string length in characters must be 1-300. Value must match the regular expression ` [-_0-9a-zA-Z/]* `.
 
 
+### Mount {#Mount}
+
+Field | Description
+--- | ---
+mount_point_path | **string**<br>Required. The absolute mount point path inside the container for mounting. The string length in characters must be 1-300. Value must match the regular expression ` [-_0-9a-zA-Z/]* `.
+mode | enum **Mode**<br>Mount's mode 
+target | **oneof:** `object_storage` or `ephemeral_disk_spec`<br>Target mount option
+&nbsp;&nbsp;object_storage | **[ObjectStorage](#ObjectStorage)**<br>Object storage mounts 
+&nbsp;&nbsp;ephemeral_disk_spec | **[DiskSpec](#DiskSpec)**<br>Working disk (worker-local non-shared read-write NBS disk templates) 
+
+
+### ObjectStorage {#ObjectStorage}
+
+Field | Description
+--- | ---
+bucket_id | **string**<br>Required. ObjectStorage bucket name for mounting. The string length in characters must be 3-63. Value must match the regular expression ` [-.0-9a-zA-Z]* `.
+prefix | **string**<br>ObjectStorage bucket prefix for mounting. 
+
+
+### DiskSpec {#DiskSpec}
+
+Field | Description
+--- | ---
+size | **int64**<br>The size of disk for mount in bytes Value must be greater than 0.
+block_size | **int64**<br>Optional block size of disk for mount in bytes 
+
+
 ### Operation {#Operation3}
 
 Field | Description
@@ -405,7 +433,8 @@ connectivity | **[Connectivity](#Connectivity1)**<br>Network access. If specifie
 provision_policy | **[ProvisionPolicy](#ProvisionPolicy1)**<br>Policy for provisioning instances of the revision. <br>The policy is only applied when the revision is ACTIVE. 
 scaling_policy | **[ScalingPolicy](#ScalingPolicy1)**<br>Policy for scaling instances of the revision. 
 log_options | **[LogOptions](#LogOptions1)**<br>Options for logging from the container. 
-storage_mounts[] | **[StorageMount](#StorageMount1)**<br>S3 mounts to be used by the version. 
+storage_mounts[] | **[StorageMount](#StorageMount1)**<br>S3 mounts to be used by the revision. 
+mounts[] | **[Mount](#Mount1)**<br>Mounts to be used by the revision. 
 
 
 ### Image {#Image}
@@ -508,7 +537,8 @@ connectivity | **[Connectivity](#Connectivity1)**<br>Network access. If specifie
 provision_policy | **[ProvisionPolicy](#ProvisionPolicy1)**<br>Policy for provisioning instances of the revision. <br>The policy is only applied when the revision is ACTIVE. 
 scaling_policy | **[ScalingPolicy](#ScalingPolicy1)**<br>Policy for scaling instances of the revision. 
 log_options | **[LogOptions](#LogOptions1)**<br>Options for logging from the container. 
-storage_mounts[] | **[StorageMount](#StorageMount1)**<br>S3 mounts to be used by the version. 
+storage_mounts[] | **[StorageMount](#StorageMount1)**<br>S3 mounts to be used by the revision. 
+mounts[] | **[Mount](#Mount1)**<br>Mounts to be used by the revision. 
 
 
 ### Image {#Image1}
@@ -541,8 +571,8 @@ args[] | **string**<br>Arguments that will override CMD of an image. <br>Argumen
 
 Field | Description
 --- | ---
-memory | **int64**<br>Amount of memory available to the revision, specified in bytes, multiple of 128MB. Acceptable values are 134217728 to 4294967296, inclusive.
-cores | **int64**<br>Number of cores available to the revision. Acceptable values are 0 to 2, inclusive.
+memory | **int64**<br>Amount of memory available to the revision, specified in bytes, multiple of 128MB. Acceptable values are 134217728 to 8589934592, inclusive.
+cores | **int64**<br>Number of cores available to the revision. Acceptable values are 0 to 4, inclusive.
 core_fraction | **int64**<br>Specifies baseline performance for a core in percent, multiple of 5%. Should be 100% for cores > 1. Acceptable values are 0 to 100, inclusive.
 
 
@@ -601,6 +631,33 @@ read_only | **bool**<br>Is mount read only.
 mount_point_path | **string**<br>Required. Mount point path inside the container for mounting. The string length in characters must be 1-300. Value must match the regular expression ` [-_0-9a-zA-Z/]* `.
 
 
+### Mount {#Mount1}
+
+Field | Description
+--- | ---
+mount_point_path | **string**<br>Required. The absolute mount point path inside the container for mounting. The string length in characters must be 1-300. Value must match the regular expression ` [-_0-9a-zA-Z/]* `.
+mode | enum **Mode**<br>Mount's mode 
+target | **oneof:** `object_storage` or `ephemeral_disk_spec`<br>Target mount option
+&nbsp;&nbsp;object_storage | **[ObjectStorage](#ObjectStorage1)**<br>Object storage mounts 
+&nbsp;&nbsp;ephemeral_disk_spec | **[DiskSpec](#DiskSpec1)**<br>Working disk (worker-local non-shared read-write NBS disk templates) 
+
+
+### ObjectStorage {#ObjectStorage1}
+
+Field | Description
+--- | ---
+bucket_id | **string**<br>Required. ObjectStorage bucket name for mounting. The string length in characters must be 3-63. Value must match the regular expression ` [-.0-9a-zA-Z]* `.
+prefix | **string**<br>ObjectStorage bucket prefix for mounting. 
+
+
+### DiskSpec {#DiskSpec1}
+
+Field | Description
+--- | ---
+size | **int64**<br>The size of disk for mount in bytes Value must be greater than 0.
+block_size | **int64**<br>Optional block size of disk for mount in bytes 
+
+
 ## ListRevisions {#ListRevisions}
 
 Retrieves the list of revisions for the specified container, or of all container revisions in the specified folder.
@@ -646,7 +703,8 @@ connectivity | **[Connectivity](#Connectivity2)**<br>Network access. If specifie
 provision_policy | **[ProvisionPolicy](#ProvisionPolicy2)**<br>Policy for provisioning instances of the revision. <br>The policy is only applied when the revision is ACTIVE. 
 scaling_policy | **[ScalingPolicy](#ScalingPolicy2)**<br>Policy for scaling instances of the revision. 
 log_options | **[LogOptions](#LogOptions2)**<br>Options for logging from the container. 
-storage_mounts[] | **[StorageMount](#StorageMount2)**<br>S3 mounts to be used by the version. 
+storage_mounts[] | **[StorageMount](#StorageMount2)**<br>S3 mounts to be used by the revision. 
+mounts[] | **[Mount](#Mount2)**<br>Mounts to be used by the revision. 
 
 
 ### Image {#Image2}
@@ -679,8 +737,8 @@ args[] | **string**<br>Arguments that will override CMD of an image. <br>Argumen
 
 Field | Description
 --- | ---
-memory | **int64**<br>Amount of memory available to the revision, specified in bytes, multiple of 128MB. Acceptable values are 134217728 to 4294967296, inclusive.
-cores | **int64**<br>Number of cores available to the revision. Acceptable values are 0 to 2, inclusive.
+memory | **int64**<br>Amount of memory available to the revision, specified in bytes, multiple of 128MB. Acceptable values are 134217728 to 8589934592, inclusive.
+cores | **int64**<br>Number of cores available to the revision. Acceptable values are 0 to 4, inclusive.
 core_fraction | **int64**<br>Specifies baseline performance for a core in percent, multiple of 5%. Should be 100% for cores > 1. Acceptable values are 0 to 100, inclusive.
 
 
@@ -737,6 +795,33 @@ bucket_id | **string**<br>Required. S3 bucket name for mounting. The string leng
 prefix | **string**<br>S3 bucket prefix for mounting. 
 read_only | **bool**<br>Is mount read only. 
 mount_point_path | **string**<br>Required. Mount point path inside the container for mounting. The string length in characters must be 1-300. Value must match the regular expression ` [-_0-9a-zA-Z/]* `.
+
+
+### Mount {#Mount2}
+
+Field | Description
+--- | ---
+mount_point_path | **string**<br>Required. The absolute mount point path inside the container for mounting. The string length in characters must be 1-300. Value must match the regular expression ` [-_0-9a-zA-Z/]* `.
+mode | enum **Mode**<br>Mount's mode 
+target | **oneof:** `object_storage` or `ephemeral_disk_spec`<br>Target mount option
+&nbsp;&nbsp;object_storage | **[ObjectStorage](#ObjectStorage2)**<br>Object storage mounts 
+&nbsp;&nbsp;ephemeral_disk_spec | **[DiskSpec](#DiskSpec2)**<br>Working disk (worker-local non-shared read-write NBS disk templates) 
+
+
+### ObjectStorage {#ObjectStorage2}
+
+Field | Description
+--- | ---
+bucket_id | **string**<br>Required. ObjectStorage bucket name for mounting. The string length in characters must be 3-63. Value must match the regular expression ` [-.0-9a-zA-Z]* `.
+prefix | **string**<br>ObjectStorage bucket prefix for mounting. 
+
+
+### DiskSpec {#DiskSpec2}
+
+Field | Description
+--- | ---
+size | **int64**<br>The size of disk for mount in bytes Value must be greater than 0.
+block_size | **int64**<br>Optional block size of disk for mount in bytes 
 
 
 ## ListOperations {#ListOperations}

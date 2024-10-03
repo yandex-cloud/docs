@@ -5,7 +5,6 @@ label:
   description: Сервис доступен только в регионе Россия.
   theme: unknown
   when: region == "kz"
-stage: preview
 items:
   - name: Начало работы
     href: quickstart.md
@@ -23,6 +22,8 @@ items:
             href: operations/data/search-data.md
           - name: Работа с диалогами
             href: operations/data/manage-dialogs.md
+          - name: Просмотр связанных диалогов
+            href: operations/data/related-dialogs.md
           - name: Работа с отчетами
             href: operations/data/manage-reports.md
       - name: Пространства
@@ -87,6 +88,8 @@ items:
             href: concepts/reports/evaluation-form.md
           - name: Детализация
             href: concepts/reports/details.md
+          - name: Нейропараметры
+            href: concepts/reports/neuro-parameters.md
       - name: Поддерживаемые форматы аудио
         href: concepts/formats.md
   - name: Справочник API
@@ -97,8 +100,12 @@ items:
         items:
           - name: Overview
             href: api-ref/grpc/index.md
+          - name: ProjectService
+            href: api-ref/grpc/project_service.md
           - name: TalkService
             href: api-ref/grpc/talk_service.md
+          - name: OperationService
+            href: api-ref/grpc/operation_service.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md
   - name: Управление доступом

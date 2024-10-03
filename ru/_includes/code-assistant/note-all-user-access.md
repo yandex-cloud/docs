@@ -1,0 +1,1 @@
+Доступ к {{ ca-name }} предоставляется всем [пользователям](../../overview/roles-and-resources.md#users), входящим в [организацию](../../overview/roles-and-resources.md).

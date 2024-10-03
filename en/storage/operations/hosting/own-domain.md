@@ -4,37 +4,43 @@ To publish a website, you can use your own domain, such as `example.com`.
 
 To support your own domain:
 
-1. [Create](../buckets/create.md) a bucket. Give it the same name as your domain, such as `example.com`.
+1. Create a [bucket](../buckets/create.md). Name it the same as your domain, e.g., `example.com`.
 
 1. {% include [setup-bucket.md](../../../_includes/storage/setup-bucket.md) %}
 
 1. On the DNS server, create a public [DNS zone](../../../dns/concepts/dns-zone.md) and a [resource record](../../../dns/concepts/resource-record.md) to link your domain name to the bucket:
 
-   {% list tabs group=instructions %}
+    {% list tabs group=instructions %}
 
-   - {{ dns-full-name }} {#dns}
+    - {{ dns-full-name }} {#dns}
+
+      {% note warning %}
+
+      {{ dns-name }} usage is chargeable; for more information, see [{#T}](../../../dns/pricing.md).
+
+      {% endnote %}
 
       1. In the [management console]({{ link-console-main }}), go to the bucket you want to use your own domain for.
-      1. Go to ![website](../../../_assets/console-icons/globe.svg) **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
+      1. Go to the ![website](../../../_assets/console-icons/globe.svg) **{{ ui-key.yacloud.storage.bucket.switch_website }}** tab.
       1. In **{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}**, under **{{ ui-key.yacloud.storage.bucket.website.title_connected-domains }}**, click **{{ ui-key.yacloud.component.dns-integration.button_add-domain }}**.
 
-         {% note info %}
+          {% note info %}
 
-         Only the domains created through this interface are displayed under **{{ ui-key.yacloud.storage.bucket.website.title_connected-domains }}**. If a record was created in [{{ dns-name }}](../../../dns/quickstart.md), it will not appear there.
+          Only the domains created through this interface are displayed under **{{ ui-key.yacloud.storage.bucket.website.title_connected-domains }}**. If a record was created in [{{ dns-name }}](../../../dns/quickstart.md), it will not appear there.
 
-         {% endnote %}
+          {% endnote %}
 
-      1. In the window that opens, click **{{ ui-key.yacloud.dns.button_zone-create }}** and select a domain zone that corresponds to the bucket name, such as `example.com`. Click **{{ ui-key.yacloud.common.create }}**.
+      1. In the window that opens, click **{{ ui-key.yacloud.dns.button_zone-create }}** and select the domain zone of the same name with the bucket, e.g., `example.com.`. Click **{{ ui-key.yacloud.common.create }}**.
       1. Open **{{ ui-key.yacloud.dns.label_additional-settings }}**.
       1. In the **{{ ui-key.yacloud.dns.label_form-ttl }}** field, specify the resource record time to live or select a value from the list.
       1. Click **{{ ui-key.yacloud.common.create }}**.
       1. Click **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
 
-      To get access to public zone domain names, delegate the domain. To do this, in your domain registrar's account, specify the server addresses: `ns1.{{ dns-ns-host-sld }}` and `ns2.{{ dns-ns-host-sld }}`.
+      To get access to public zone domain names, delegate the domain. To do this, specify these server addresses in your online account with domain registrar: `ns1.{{ dns-ns-host-sld }}` and `ns2.{{ dns-ns-host-sld }}`.
 
       It may take some time to delegate the domain and update the resource records.
 
-      You can also create a DNS zone and a resource record using {{ dns-name }} tools. For more information, see the [step-by-step guide for {{ dns-name }}](../../../dns/operations/).
+      You can also [create a DNS zone](../../../dns/operations/zone-create-public.md) and [resource record](../../../dns/operations/resource-record-create) using {{ dns-name }}.
 
       {% cut "Example of DNS zone and resource record parameters" %}
 
@@ -44,7 +50,7 @@ To support your own domain:
 
       Resource record parameters:
 
-      | Name | Type | TTL | Value |
+      | Name          | Type   | TTL | Data                      |
       |--------------|-------|-----|-------------------------------|
       | example.com. | ANAME | 600 | example.com.{{ s3-web-host }} |
 
@@ -52,7 +58,7 @@ To support your own domain:
 
       {% endcut %}
 
-   - Third-party DNS server {#third-party-dns-server}
+    - Third-party DNS server {#third-party-dns-server}
 
       Example of DNS zone parameters:
       * Zone: `example.com.`
@@ -68,15 +74,22 @@ To support your own domain:
 
       Updating the resource records may take some time.
 
-   {% endlist %}
+    {% endlist %}
 
 
 1. To make your website available over HTTPS:
 
-   1. {% include [create-cert.md](../../../_includes/storage/create-cert.md) %}
-   1. {% include [add-cert.md](../../../_includes/storage/add-cert.md) %}
+    1. {% include [create-cert.md](../../../_includes/storage/create-cert.md) %}
+       
+       {% note info %}
 
-   {% include [redirect-https](../../../_includes/storage/redirect-https.md) %}
+       {{ certificate-manager-name }} usage is free of charge; for more information, see [{#T}](../../../certificate-manager/pricing.md).
+       
+       {% endnote %}
+       
+    1. {% include [add-cert.md](../../../_includes/storage/add-cert.md) %}
+
+    {% include [redirect-https](../../../_includes/storage/redirect-https.md) %}
 
 
 {% include [objects-access.md](../../../_includes/storage/objects-access.md) %}

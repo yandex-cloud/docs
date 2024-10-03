@@ -20,6 +20,8 @@ items:
         href: operations/get-keys.md
       - name: Добавить виджет расширенным методом
         href: operations/advanced-method.md
+      - name: Проверить капчу
+        href: operations/validate-captcha.md
       - name: Посмотреть операции с капчей
         href: operations/operation-logs.md
   - name: Практические руководства
@@ -46,6 +48,8 @@ items:
         href: concepts/domain-validation.md
       - name: Типы заданий
         href: concepts/tasks.md
+      - name: Варианты заданий
+        href: concepts/captcha-variants.md
       - name: Методы подключения виджета
         href: concepts/widget-methods.md
       - name: Ключи капчи
@@ -70,4 +74,6 @@ items:
     href: metrics.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md
+  - name: История изменений
+    href: release-notes.md
 base: ru/smartcaptcha

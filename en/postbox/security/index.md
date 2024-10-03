@@ -7,7 +7,7 @@ description: "Access management in {{ postbox-full-name }}, a transactional emai
 
 {{ yandex-cloud }} users can only perform operations on resources that are allowed by the roles assigned to them. If the user has no roles assigned, all operations are forbidden.
 
-To allow access to {{ postbox-name }} resources, assign the required roles from the list below to the Yandex account, [service account](../../iam/concepts/users/service-accounts.md), [federated users](../../iam/concepts/federations.md), [user group](../../organization/operations/manage-groups.md), or [system group](../../iam/concepts/access-control/system-group.md). Currently, a role can only be assigned to a parent resource (folder or cloud). Roles are inherited by nested resources.
+To allow access to {{ postbox-name }} resources, assign the required roles from the list below to a Yandex account, [service account](../../iam/concepts/users/service-accounts.md), [federated users](../../iam/concepts/federations.md), [user group](../../organization/operations/manage-groups.md), [system group](../../iam/concepts/access-control/system-group.md), or [public group](../../iam/concepts/access-control/public-group.md). Currently, a role can only be assigned for a parent resource (folder or cloud). Roles are inherited by nested resources.
 
 {% note info %}
 
@@ -44,6 +44,8 @@ In {{ postbox-name }}, you can manage access using both service and primitive ro
 ### Primitive roles {#primitive-roles}
 
 {% include [roles-primitive](../../_includes/roles-primitive.md) %}
+
+{% include [primitive-roles-footnote](../../_includes/primitive-roles-footnote.md) %}
 
 ## See also {#see-also}
 

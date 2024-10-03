@@ -11,6 +11,9 @@
 {% endnote %}
 
 
+@[youtube](https://youtu.be/TvLdfcPCOHw)
+
+
 ## Создайте новый дашборд {#create-dashboard}
 
 1. На [главной странице]({{ link-monitoring }}) сервиса нажмите **{{ ui-key.yacloud_monitoring.homepage.button_dashboards-action }}**.

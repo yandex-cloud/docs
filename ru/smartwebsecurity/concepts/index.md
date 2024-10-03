@@ -12,11 +12,22 @@
 
 {% include [realized-arl-concept](../../_includes/smartwebsecurity/realized-arl-concept.md) %}
 
-{% include [note-preview-waf-arl](../../_includes/smartwebsecurity/note-preview-waf-arl.md) %}
-
 Логи {{ sws-name }} передаются в сервис [{{ cloud-logging-full-name }}](../../logging/).
 
 Метрики {{ sws-name }} передаются в сервис [{{ monitoring-full-name }}](../../monitoring/).
 
 Аудитные логи {{ sws-name }} передаются в сервис [{{ at-full-name }}](../../audit-trails/).
 
+## Рекомендации по настройке {{ alb-name }} {#alb-settings-recommendation}
+
+Для улучшения защиты ваших приложений от DDoS-атак следуйте дополнительным рекомендациям:
+
+* Настройте [автомасштабирование](../../application-load-balancer/concepts/application-load-balancer.md#lcu-scaling) — это позволяет динамически адаптироваться к увеличенной нагрузке и перераспределять трафик оптимальным образом.
+
+* Разместите ресурсные единицы в нескольких [зонах доступности](../../overview/concepts/geo-scope.md).
+
+* Используйте защищенный протокол HTTPS — [настройте обработчик](../../application-load-balancer/concepts/application-load-balancer.md#listener) для автоматического перенаправления запросов с HTTP на HTTPS.
+
+* Обеспечьте защиту на более низком уровне модели OSI — [включите](../tutorials/alb-with-ddos-protection/console.md) базовую защиту от DDoS-атак на уровнях L3-L4, что поможет предотвратить часть атак на более ранней стадии.
+
+Эти меры в дополнение к настройке {{ sws-name }} помогут повысить устойчивость ваших сервисов к потенциальным угрозам и обеспечат безопасную работу приложений.

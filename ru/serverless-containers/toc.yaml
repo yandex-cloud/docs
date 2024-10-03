@@ -84,8 +84,12 @@ items:
             href: operations/network-add.md
           - name: Передать секреты {{ lockbox-full-name }}
             href: operations/lockbox-secret-transmit.md
-          - name: Смонтировать бакеты
-            href: operations/mount-bucket.md
+          - name: Смонтировать файловые системы
+            items:
+              - name: Смонтировать бакеты
+                href: operations/mount-bucket.md
+              - name: Смонтировать эфемерный диск
+                href: operations/mount-ephemeral-disk.md
           - name: Управлять метками
             items:
               - name: Добавить метку
@@ -154,11 +158,15 @@ items:
         href: concepts/container.md
       - name: Вызов контейнера
         href: concepts/invoke.md
+      - name: Долгоживущие контейнеры
+        href: concepts/long-lived-containers.md
+      - name: Уведомления о завершении выполнения контейнера
+        href: concepts/termination-notifications.md
       - name: Сетевое взаимодействие
         href: concepts/networking.md
       - name: Среда выполнения
         href: concepts/runtime.md
-      - name: Монтирование бакетов
+      - name: Монтирование файловых систем
         href: concepts/mounting.md
       - name: Триггер
         items:

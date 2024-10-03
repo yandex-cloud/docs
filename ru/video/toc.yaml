@@ -1,0 +1,286 @@
+title: Yandex Cloud Video
+href: index.yaml
+label:
+  title: RU
+  description: Сервис доступен только в регионе Россия.
+  theme: unknown
+  when: region == "kz"
+stage: preview
+items:
+  - name: Начало работы
+    items:
+      - name: Обзор
+        href: quickstart-overview.md
+      - name: Хостинг видео
+        href: hosting.md
+      - name: Видеотрансляция
+        href: streaming.md
+  - name: Пошаговые инструкции
+    items:
+      - name: Все инструкции
+        href: operations/index.md
+      - name: Каналы
+        items:
+          - name: Создать канал
+            href: operations/channels/create.md
+          - name: Изменить канал
+            href: operations/channels/update.md
+          - name: Удалить канал
+            href: operations/channels/delete.md
+      - name: Видео
+        items:
+          - name: Загрузить видео
+            href: operations/video/upload.md
+          - name: Изменить видео
+            href: operations/video/update.md
+          - name: Управлять субтитрами
+            href: operations/video/subtitles.md
+          - name: Скачать видео
+            href: operations/video/download.md
+          - name: Опубликовать видео
+            href: operations/video/publish.md
+          - name: Снять видео с публикации
+            href: operations/video/unpublish.md
+          - name: Получить код вставки или ссылку
+            href: operations/video/get-link.md
+          - name: Добавить видео в плейлист
+            href: operations/video/add-to-playlist.md
+          - name: Получить статистику просмотров
+            href: operations/video/get-statistics.md
+          - name: Удалить видео
+            href: operations/video/delete.md
+      - name: Линии
+        items:
+          - name: Создать линию
+            href: operations/lines/create.md
+          - name: Изменить линию
+            href: operations/lines/update.md
+          - name: Удалить линию
+            href: operations/lines/delete.md
+      - name: Трансляции
+        items:
+          - name: Создать трансляцию
+            href: operations/streams/create.md
+          - name: Изменить трансляцию
+            href: operations/streams/update.md
+          - name: Получить адрес сервера и ключ трансляции
+            href: operations/streams/get-key.md
+          - name: Начать трансляцию
+            href: operations/streams/start.md
+          - name: Получить код вставки или ссылку
+            href: operations/streams/get-link.md
+          - name: Добавить завершенную трансляцию в плейлист
+            href: operations/streams/add-to-playlist.md
+          - name: Удалить трансляцию
+            href: operations/streams/delete.md
+      - name: Плейлисты
+        items:
+          - name: Создать плейлист
+            href: operations/playlists/create.md
+          - name: Изменить плейлист
+            href: operations/playlists/update.md
+          - name: Получить код вставки или ссылку
+            href: operations/playlists/get-link.md
+          - name: Удалить плейлист
+            href: operations/playlists/delete.md
+      - name: Добавить участника
+        href: operations/add-member.md
+  - name: Концепции
+    items:
+      - name: Обзор
+        href: concepts/index.md
+      - name: Видео
+        href: concepts/videos.md
+      - name: Трансляции
+        href: concepts/streams.md
+      - name: Плейлисты
+        href: concepts/playlists.md
+      - name: Квоты и лимиты
+        href: concepts/limits.md
+  - name: Видеоплеер
+    expanded: true
+    items:
+      - name: Обзор
+        href: concepts/player.md
+      - name: Управление
+        href: operations/player-control.md
+      - name: Решение проблем
+        href: troubleshooting.md
+      - name: SDK
+        items:
+          - name: Обзор
+            href: sdk/index.md
+          - name: IFrame
+            href: iframe-sdk.md
+          - name: JavaScript
+            items:
+              - name: Начало работы
+                href: sdk/javascript/index.md
+              - name: Параметры инициализации плеера
+                href: sdk/javascript/initialization.md
+              - name: Методы плеера
+                href: sdk/javascript/player-methods.md
+              - name: Состояние плеера
+                href: sdk/javascript/player-state.md
+              - name: События плеера
+                href: sdk/javascript/player-events.md
+              - name: Справочник API
+                items:
+                  - name: Modules
+                    href: api-ref/javascript/modules.md
+                  - name: Enumerations
+                    items:
+                      - name: PlayerSdkEvents
+                        href: api-ref/javascript/enums/PlayerSdkEvents.md
+                      - name: PlayerSdkStatus
+                        href: api-ref/javascript/enums/PlayerSdkStatus.md
+                  - name: Interfaces
+                    items:
+                      - name: PlayerSdkApi
+                        href: api-ref/javascript/interfaces/PlayerSdkApi.md
+                      - name: PlayerSdkEventHandlers
+                        href: >-
+                          api-ref/javascript/interfaces/PlayerSdkEventHandlers.md
+                      - name: PlayerSdkInitConfig
+                        href: api-ref/javascript/interfaces/PlayerSdkInitConfig.md
+                      - name: PlayerSdkSourceParams
+                        href: api-ref/javascript/interfaces/PlayerSdkSourceParams.md
+                      - name: PlayerSdkState
+                        href: api-ref/javascript/interfaces/PlayerSdkState.md
+  - name: Управление доступом
+    href: security/index.md
+  - name: Правила тарификации
+    href: pricing.md
+  - name: Справочник API
+    items:
+      - name: Аутентификация в API
+        href: api-ref/authentication.md
+      - name: Начало работы с API
+        href: api-ref/quickstart.md
+      - name: gRPC (англ.)
+        items:
+          - name: Overview
+            href: api-ref/grpc/index.md
+          - name: ChannelService
+            href: api-ref/grpc/channel_service.md
+          - name: EpisodeService
+            href: api-ref/grpc/episode_service.md
+          - name: StreamLineService
+            href: api-ref/grpc/stream_line_service.md
+          - name: StreamService
+            href: api-ref/grpc/stream_service.md
+          - name: ThumbnailService
+            href: api-ref/grpc/thumbnail_service.md
+          - name: VideoService
+            href: api-ref/grpc/video_service.md
+          - name: OperationService
+            href: api-ref/grpc/operation_service.md
+      - name: REST (англ.)
+        items:
+          - name: Overview
+            href: api-ref/index.md
+          - name: Channel
+            items:
+              - name: Overview
+                href: api-ref/Channel/index.md
+              - name: create
+                href: api-ref/Channel/create.md
+              - name: delete
+                href: api-ref/Channel/delete.md
+              - name: get
+                href: api-ref/Channel/get.md
+              - name: list
+                href: api-ref/Channel/list.md
+              - name: update
+                href: api-ref/Channel/update.md
+          - name: Episode
+            items:
+              - name: Overview
+                href: api-ref/Episode/index.md
+              - name: create
+                href: api-ref/Episode/create.md
+              - name: delete
+                href: api-ref/Episode/delete.md
+              - name: get
+                href: api-ref/Episode/get.md
+              - name: getManifests
+                href: api-ref/Episode/getManifests.md
+              - name: getPlayerURL
+                href: api-ref/Episode/getPlayerURL.md
+              - name: list
+                href: api-ref/Episode/list.md
+              - name: performAction
+                href: api-ref/Episode/performAction.md
+              - name: update
+                href: api-ref/Episode/update.md
+          - name: StreamLine
+            items:
+              - name: Overview
+                href: api-ref/StreamLine/index.md
+              - name: create
+                href: api-ref/StreamLine/create.md
+              - name: delete
+                href: api-ref/StreamLine/delete.md
+              - name: get
+                href: api-ref/StreamLine/get.md
+              - name: getStreamKey
+                href: api-ref/StreamLine/getStreamKey.md
+              - name: list
+                href: api-ref/StreamLine/list.md
+              - name: performAction
+                href: api-ref/StreamLine/performAction.md
+              - name: update
+                href: api-ref/StreamLine/update.md
+              - name: updateStreamKey
+                href: api-ref/StreamLine/updateStreamKey.md
+          - name: Stream
+            items:
+              - name: Overview
+                href: api-ref/Stream/index.md
+              - name: create
+                href: api-ref/Stream/create.md
+              - name: delete
+                href: api-ref/Stream/delete.md
+              - name: get
+                href: api-ref/Stream/get.md
+              - name: list
+                href: api-ref/Stream/list.md
+              - name: performAction
+                href: api-ref/Stream/performAction.md
+              - name: update
+                href: api-ref/Stream/update.md
+          - name: Thumbnail
+            items:
+              - name: Overview
+                href: api-ref/Thumbnail/index.md
+              - name: batchGenerateDownloadURLs
+                href: api-ref/Thumbnail/batchGenerateDownloadURLs.md
+              - name: create
+                href: api-ref/Thumbnail/create.md
+              - name: generateUploadURL
+                href: api-ref/Thumbnail/generateUploadURL.md
+              - name: list
+                href: api-ref/Thumbnail/list.md
+          - name: Video
+            items:
+              - name: Overview
+                href: api-ref/Video/index.md
+              - name: create
+                href: api-ref/Video/create.md
+              - name: delete
+                href: api-ref/Video/delete.md
+              - name: get
+                href: api-ref/Video/get.md
+              - name: getManifests
+                href: api-ref/Video/getManifests.md
+              - name: getPlayerURL
+                href: api-ref/Video/getPlayerURL.md
+              - name: list
+                href: api-ref/Video/list.md
+              - name: performAction
+                href: api-ref/Video/performAction.md
+              - name: update
+                href: api-ref/Video/update.md
+  - name: История изменений
+    href: release-notes.md
+base: ru/video

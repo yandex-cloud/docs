@@ -2,7 +2,7 @@ title: Yandex Identity and Access Management
 href: index.yaml
 label:
   title: KZ
-  description: The service is available in Kazakhstan.
+  description: This service is only available in the Kazakhstan region.
   theme: info
   when: region == "kz"
 items:
@@ -84,8 +84,12 @@ items:
             href: operations/authorized-key/delete.md
   - name: Tutorials
     items:
+      - name: All tutorials
+        href: tutorials/index.md
       - name: Storing a static access key in a {{ lockbox-name }} secret
         href: tutorials/static-key-in-lockbox.md
+      - name: Service account with an OS Login profile for VM management via Ansible
+        href: tutorials/sa-oslogin-ansible.md
   - name: Concepts
     items:
       - name: Overview
@@ -104,6 +108,8 @@ items:
             href: concepts/access-control/roles.md
           - name: System groups
             href: concepts/access-control/system-group.md
+          - name: Public groups
+            href: concepts/access-control/public-group.md
           - name: Resources that roles can be assigned for
             href: concepts/access-control/resources-with-access-control.md
       - name: Authorization and authentication
@@ -154,6 +160,8 @@ items:
             href: api-ref/grpc/iam_token_service.md
           - name: KeyService
             href: api-ref/grpc/key_service.md
+          - name: RefreshTokenService
+            href: api-ref/grpc/refresh_token_service.md
           - name: RoleService
             href: api-ref/grpc/role_service.md
           - name: ServiceAccountService
@@ -168,6 +176,10 @@ items:
             href: api-ref/grpc/access_key_service.md
           - name: CertificateService
             href: api-ref/grpc/certificate_service.md
+          - name: FederationService
+            href: api-ref/grpc/federation_service.md
+          - name: FederatedCredentialService
+            href: api-ref/grpc/federated_credential_service.md
           - name: FederationService
             href: api-ref/grpc/federation_service.md
           - name: OperationService
@@ -202,6 +214,8 @@ items:
                 href: api-ref/IamToken/create.md
               - name: createForServiceAccount
                 href: api-ref/IamToken/createForServiceAccount.md
+              - name: revoke
+                href: api-ref/IamToken/revoke.md
           - name: Key
             items:
               - name: Overview
@@ -218,6 +232,14 @@ items:
                 href: api-ref/Key/listOperations.md
               - name: update
                 href: api-ref/Key/update.md
+          - name: RefreshToken
+            items:
+              - name: Overview
+                href: api-ref/RefreshToken/index.md
+              - name: list
+                href: api-ref/RefreshToken/list.md
+              - name: revoke
+                href: api-ref/RefreshToken/revoke.md
           - name: Role
             items:
               - name: Overview
@@ -260,10 +282,8 @@ items:
                 href: api-ref/ServiceControl/get.md
               - name: list
                 href: api-ref/ServiceControl/list.md
-              - name: pause
-                href: api-ref/ServiceControl/pause.md
-              - name: resume
-                href: api-ref/ServiceControl/resume.md
+              - name: resolveAgent
+                href: api-ref/ServiceControl/resolveAgent.md
           - name: UserAccount
             items:
               - name: Overview

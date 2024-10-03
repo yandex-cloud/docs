@@ -6,7 +6,7 @@
 
     {% include [Install requirements](./connect/bash/install-requirements.md) %}
 
-    **Подключение напрямую к мастеру:**
+    **Подключение напрямую к мастеру**:
 
     Укажите FQDN хоста-мастера в нужном шарде:
 
@@ -21,7 +21,7 @@
 
     {% include [Install requirements SSL](./connect/bash/install-requirements-ssl.md) %}
 
-    **Подключение напрямую к мастеру:**
+    **Подключение напрямую к мастеру**:
 
     Укажите FQDN хоста-мастера в нужном шарде:
 
@@ -50,7 +50,13 @@ GET foo
 
 ### Go {#go}
 
-{% include [Install requirements](./connect/go/install-requirements.md) %}
+**Перед подключением установите зависимости**:
+
+```bash
+sudo apt update && sudo apt install --yes golang git && \
+go mod init github.com/go-redis/redis && \
+go get github.com/redis/go-redis/v9
+```
 
 {% list tabs group=connection %}
 
@@ -105,92 +111,97 @@ GET foo
     package main
 
     import (
-    	"context"
-    	"crypto/tls"
-    	"crypto/x509"
-    	"fmt"
-    	"github.com/go-redis/redis/v7"
-    	"io/ioutil"
-    	"net"
-    	"strings"
-    	"time"
+        "context"
+        "crypto/tls"
+        "crypto/x509"
+        "fmt"
+        "net"
+        "os"
+        "strings"
+        "time"
+
+        "github.com/redis/go-redis/v9"
     )
 
     func main() {
-    	caCert, err := ioutil.ReadFile("/home/<домашняя_директория>/.redis/{{ crt-local-file }}")
-    	if err != nil {
-    		panic(err)
-    	}
-    	caCertPool := x509.NewCertPool()
-    	caCertPool.AppendCertsFromPEM(caCert)
+        caCert, err := os.ReadFile("/home/<домашняя_директория>/.redis/YandexInternalRootCA.crt")
+        if err != nil {
+            panic(err)
+        }
+        caCertPool := x509.NewCertPool()
+        caCertPool.AppendCertsFromPEM(caCert)
 
-    	hostports := []string{
-    		"<FQDN_хоста-мастера_в_шарде_1>:{{ port-mrd-tls }}",
-    		...
-    		"<FQDN_хоста-мастера_в_шарде_N>:{{ port-mrd-tls }}",
-    	}
-    	options := redis.UniversalOptions{
-    		Addrs:        hostports,
-    		MaxRedirects: 1,
-    		Password:     "<пароль>",
-    		DB:           0,
-    		ReadOnly:     false,
-    		DialTimeout:  5 * time.Second,
-    		TLSConfig: &tls.Config{
-    			RootCAs:            caCertPool,
-    			InsecureSkipVerify: true,
-    			VerifyPeerCertificate: func(rawCerts [][]byte, verifiedChains [][]*x509.Certificate) error {
-    				certs := make([]*x509.Certificate, len(rawCerts))
-    				for i := 0; i < len(rawCerts); i++ {
-    					cert, err := x509.ParseCertificate(rawCerts[i])
-    					if err != nil {
-    						return fmt.Errorf("error parsing certificate: %+v", err)
-    					}
-    					certs[i] = cert
-    				}
+        hostports := []string{
+            "<FQDN_хоста-мастера_в_шарде_1>:6380",
+            ...
+            "<FQDN_хоста-мастера_в_шарде_N>:6380",
+        }
+        options := redis.UniversalOptions{
+            Addrs:        hostports,
+            MaxRedirects: 1,
+            Password:     "password",
+            DB:           0,
+            ReadOnly:     false,
+            DialTimeout:  5 * time.Second,
+            TLSConfig: &tls.Config{
+                RootCAs:            caCertPool,
+                ServerName: "c-<идентификатор_кластера>.rw.{{ dns-zone }}",
+                VerifyPeerCertificate: func(rawCerts [][]byte, verifiedChains [][]*x509.Certificate) error {
+                    certs := make([]*x509.Certificate, len(rawCerts))
+                    for i := 0; i < len(rawCerts); i++ {
+                        cert, err := x509.ParseCertificate(rawCerts[i])
+                        if err != nil {
+                            return fmt.Errorf("error parsing certificate: %+v", err)
+                        }
+                        certs[i] = cert
+                    }
 
-    				opts := x509.VerifyOptions{
-    					Roots:         caCertPool,
-    					CurrentTime:   time.Now(),
-    					DNSName:       "",
-    					Intermediates: x509.NewCertPool(),
-    				}
+                    opts := x509.VerifyOptions{
+                        Roots:         caCertPool,
+                        CurrentTime:   time.Now(),
+                        DNSName:       "",
+                        Intermediates: x509.NewCertPool(),
+                    }
 
-    				for i := range certs {
-    					if i == 0 {
-    						continue
-    					}
-    					opts.Intermediates.AddCert(certs[i])
-    				}
-    				_, err := certs[0].Verify(opts)
-    				return err
-    			},
-    		},
-    	}
-    	options.Dialer = func(ctx context.Context, network, addr string) (net.Conn, error) {
-    		parts := strings.Split(addr, ":")
-    		newAddr := addr
-    		if len(parts) > 1 && !strings.HasPrefix(parts[0], "[") {
-    			newAddr = "[" + strings.Join(parts[:len(parts)-1], ":") + "]:" + parts[len(parts)-1]
-    		}
+                    for i := range certs {
+                        if i == 0 {
+                            continue
+                        }
+                        opts.Intermediates.AddCert(certs[i])
+                    }
+                    _, err := certs[0].Verify(opts)
+                    return err
+                },
+            },
+        }
+        options.Dialer = func(ctx context.Context, network, addr string) (net.Conn, error) {
+            parts := strings.Split(addr, ":")
+            newAddr := addr
+            if len(parts) > 1 && !strings.HasPrefix(parts[0], "[") {
+                newAddr = "[" + strings.Join(parts[:len(parts)-1], ":") + "]:" + parts[len(parts)-1]
+            }
 
-    		netDialer := &net.Dialer{
-    			Timeout:   options.DialTimeout,
-    			KeepAlive: 5 * time.Minute,
-    		}
-    		return tls.DialWithDialer(netDialer, network, newAddr, options.TLSConfig)
-    	}
-    	client := redis.NewUniversalClient(&options)
-    	err = client.Set("foo", "bar", 0).Err()
-    	if err != nil {
-    		panic(err)
-    	}
+            netDialer := &net.Dialer{
+                Timeout:   options.DialTimeout,
+                KeepAlive: 5 * time.Minute,
+            }
+            return tls.DialWithDialer(netDialer, network, newAddr, options.TLSConfig)
+        }
 
-    	get := client.Get("foo")
-    	if get.Err() != nil {
-    		panic(err)
-    	}
-    	fmt.Println(get.String())
+        ctx := context.Background()
+
+        client := redis.NewUniversalClient(&options)
+        err = client.Set(ctx, "foo", "bar", 0).Err()
+        if err != nil {
+            panic(err)
+        }
+
+        get := client.Get(ctx, "foo")
+        err = get.Err()
+        if err != nil {
+            panic(err)
+        }
+        fmt.Println(get.String())
     }
     ```
 
@@ -484,7 +495,7 @@ GET foo
 
 ### Python {#python}
 
-**Перед подключением установите зависимости:**
+**Перед подключением установите зависимости**:
 
 ```bash
 sudo apt update && sudo apt install -y python3 python3-pip python3-venv && \

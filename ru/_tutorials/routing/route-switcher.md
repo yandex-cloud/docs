@@ -91,7 +91,7 @@
 
       Результат:
 
-      ```yaml
+      ```text
       id: ajehr0to1g8b********
       folder_id: b1gv87ssvu49********
       created_at: "2023-06-20T09:03:11.665153755Z"
@@ -154,7 +154,7 @@
 
          Результат:
 
-         ```bash
+         ```text
          id: aje8nn871qo4********
          service_account_id: ajehr0to1g8b********
          created_at: "2023-06-20T09:16:43.479156798Z"
@@ -168,7 +168,7 @@
 
          Результат:
 
-         ```bash
+         ```text
          Profile 'sa-terraform' created and activated
          ```
 
@@ -237,7 +237,7 @@
 
       Результат:
 
-      ```bash
+      ```text
       192.240.24.87
       ```
 

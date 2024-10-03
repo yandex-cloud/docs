@@ -45,11 +45,15 @@
 * [{{ api-gw-full-name }}](../api-gateway/release-notes.md)
 * [{{ sf-full-name }}](../functions/release-notes.md)
 * [{{ iot-full-name }}](../iot-core/release-notes.md)
+* [{{ postbox-full-name }}](../postbox/release-notes.md)
 
 ## Безопасность {#security}
 
 * [{{ at-full-name }}](../audit-trails/release-notes.md)
 * [{{ iam-full-name }}](../iam/release-notes.md)
+* [{{ certificate-manager-full-name }}](../certificate-manager/release-notes.md)
+* [{{ lockbox-full-name }}](../lockbox/release-notes.md)
+* [{{ captcha-full-name }}](../smartcaptcha/release-notes.md)
 
 ## Мониторинг и управление ресурсами {#resources-operations}
 
@@ -71,6 +75,7 @@
 * [{{ datalens-full-name }}](../datalens/release-notes/index.md)
 * [{{ forms-full-name }}](../forms/release-notes/index.md)
 * [{{ tracker-full-name }}](../tracker/release-notes/index.md)
+* [{{ video-full-name }}](../video/release-notes.md)
 * [{{ wiki-full-name }}](../wiki/release-notes/index.md)
 
 ## Инструменты {{ yandex-cloud }} {#working-tools}

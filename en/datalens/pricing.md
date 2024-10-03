@@ -6,6 +6,10 @@ editable: false
 
 
 
+{% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
+
+{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
+
 ## {{ datalens-name }} service plans {#effective-rules}
 
 {{ datalens-full-name }} features service plans offering different service packages:
@@ -47,6 +51,8 @@ If you change to the _Business_ plan, the price for the first month will be prop
 {% endnote %}
 
 A user is active and subject to billing if their actions have resulted in a query to a data source, e.g., they opened or edited a dashboard, chart, or dataset. Public URLs to dashboards and charts work without authentication and do not contribute to active user count. You can look up user count in [{{ datalens-name }} usage statistics](./operations/connection/create-usage-tracking.md).
+
+{% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 
 

@@ -41,13 +41,13 @@ For example, the `first-name.tsv`, `middle-name.tsv`, and `last-name.tsv` glossa
 
 If the pattern phrases suggest that the glossary terms may be in possessive case forms, you need to create a separate glossary file for each form. For example, files with names in the possessive case will contain the following entries:
 
-| first-name-possessive.tsv | middle-name-possessive.tsv | last-name-possessive.tsv |
+| first-name-ablative.tsv | middle-name-ablative.tsv | last-name-ablative.tsv |
 |---|---|---|
 | John<br>Tom<br>Peter<br>... <br> | Wendell<br>Sean<br>Larry<br>... <br> | Thompson's<br>Carter's<br>Smith's<br>... <br> |
 
 Then the `templates.tsv` file may contain entries like
 
-```
+```text
 Hello, are you {first-name=first-names.tsv}{middle-name=middle-names.tsv} {last-name=last-names.tsv}?
 Hello, can I talk to {first-name=first-names-ablative.tsv}{middle-name=middle-names-ablative.tsv} representative?
 ```
@@ -60,5 +60,5 @@ To send the tuning data to the {{ speechkit-name }} team, [contact]({{ link-cons
 ### Model availability dates {#commitments}
 
 
-Changes to a `general:rc` model are usually made over a period of 4 weeks as in any standard release roll-out cycle.
+Changes to the `general:rc` model are usually made over a period of four weeks as in any standard release roll-out cycle.
 

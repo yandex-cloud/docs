@@ -33,28 +33,27 @@
       ```
 
       Where:
-      * The `cat key.json` command writes the contents of the key file to the output stream.
-      * The `--password-stdin` flag allows the password to be read from the input stream.
+      * `cat key.json` writes the contents of the key file to the output stream.
+      * `--password-stdin` allows the password to be read from the input stream.
 
       Result:
 
       ```text
       Login succeeded
       ```
-
    {% include [disclaimer](../../../_includes/iam/authorized-keys-disclaimer.md) %}
 
 1. [Upload](../../../container-registry/operations/docker-image/docker-image-push.md) the Docker image to the container registry. To do this, run the cell with the code:
 
-   ```
-   #!:docker-publish <image_name>:<image_tag> {{ registry }}/<registry_path>:<tag>
+   ```text
+   #!:docker-publish <image_name>:<image_tag> {{ registry }}/<image_path>:<tag>
    ```
 
    * `<image_name>`: Image name in {{ ml-platform-name }}.
    * `<image_tag>`: Image tag in {{ ml-platform-name }}.
-   * `<registry_path>`: {{ container-registry-name }} registry path.
+   * `<image_path>`: {{ container-registry-name }} image path.
    * `<tag>`: Image [tag](../../../container-registry/concepts/docker-image.md#version).
 
-   During the uploading, specify the username and choose a secret with a password. For authorization in {{ container-registry-name }}, provide the `json_key` token type as username and enter the secret as password.
+   During the uploading, specify the username and choose a secret with a password. For authorization in {{ container-registry-name }}, provide the `json_key` token type as username and enter the secret instead of password.
 
-1. In the [node](../../concepts/deploy/index.md#node) creation form, specify the path to the image in `{{ registry }}/<registry_path>:<tag>` format.
+1. In the [node](../../concepts/deploy/index.md#node) creation form, specify the path to the image in this format: `{{ registry }}/<registry_address>:<tag>`.

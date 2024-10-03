@@ -8,7 +8,7 @@ An IAM token is a unique sequence of characters issued to a user after authentic
 
 To work with {{ TF }}, [add an IAM token to environment variables](../../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) or specify it in the [provider configuration file](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider):
 
-```
+```hcl
 provider "yandex" {
   token = "<IAM_token>"
 }

@@ -2,9 +2,11 @@
 editable: false
 ---
 
-# {{ managed-k8s-name }} pricing
+# {{ managed-k8s-name }} pricing policy
 
 {% include [use-calculator](../_includes/pricing/use-calculator.md) %}
+
+{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
 In {{ managed-k8s-name }}, you are charged for using [masters](concepts/index.md#master) and outgoing traffic.
 
@@ -15,6 +17,7 @@ Nodes are charged based on the [{{ compute-full-name }} pricing policy](../compu
 
 
 
+{% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 
 ### Master {#master}

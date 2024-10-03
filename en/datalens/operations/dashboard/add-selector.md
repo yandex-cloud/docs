@@ -26,7 +26,8 @@ To add a [selector](../../dashboard/selector.md) to a dashboard:
 
       * **Dataset**: Dataset with data for the selector. You can choose a dataset from the list of objects or provide a link. This is a required field.
       * **Field**: Dataset field with selector values. It can be a dimension or a measure (for more information, see [{#T}](../../concepts/dataset/data-model.md#field)). This is a required field.
-      * **Header**: Used to pick a selector when establishing a link with other widgets. The options puts you in control of how the title appears on the dashboard. By default, with this option enabled, the title text is substituted from the field title in the [dataset](../../concepts/dataset/index.md).
+      * **Header**: Used to pick a selector when establishing a link with other widgets. This option allows you to manage how the header appears on the dashboard. By default, with this option enabled, the header text is taken from the field title in the [dataset](../../concepts/dataset/index.md).
+      * **Header position**: Enables setting the header position, which can be either left (default) or top. It is not available for the **Checkbox** selector type.
       * **Inner title**: Allows specifying text inside a selector. For example, you can use it to display an operation inside a selector. Not available for the **Checkbox** selector type.
       * **Tooltip**: This option allows adding a text comment to the selector. By default, with this option enabled, the tooltip text is substituted from the field description in the dataset. You can change the tooltip text. When you change the dataset field description, the text is not automatically updated.
 
@@ -54,7 +55,8 @@ To add a [selector](../../dashboard/selector.md) to a dashboard:
 
          ![image](../../../_assets/datalens/selector-settings/field-name.png =650x)
 
-      * **Header**: Used to pick a selector when establishing a link with other widgets. The options puts you in control of how the title appears on the dashboard. This is a required field.
+      * **Header**: Used to pick a selector when establishing a link with other widgets. This option allows you to manage how the header appears on the dashboard. This is a required field.
+      * **Header position**: Enables setting the header position, which can be either left (default) or top. It is not available for the **Checkbox** selector type.
       * **Inner title**: Allows specifying text inside a selector. For example, you can use it to display an operation inside a selector. Not available for the **Checkbox** selector type.
       * **Tooltip**: This option allows adding a text comment to the selector. By default, with this option enabled, the tooltip text is substituted from the field description in the [dataset](../../concepts/dataset/index.md). You can change the tooltip text. When you change the dataset field description, the text is not automatically updated.
 

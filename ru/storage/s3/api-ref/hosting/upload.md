@@ -2,6 +2,8 @@
 
 Загружает конфигурацию хостинга статического сайта для бакета.
 
+{% include [s3-api-intro-include](../../../../_includes/storage/s3-api-intro-include.md) %}
+
 ## Запрос {#request}
 
 ```bash
@@ -104,7 +106,7 @@ PUT /{bucket}?website HTTP/2
   ```
 
   Возможные элементы:
-  
+
   Элемент | Описание
   ----- | -----
   `WebsiteConfiguration` | Заголовок верхнего уровня описания веб-сайта.

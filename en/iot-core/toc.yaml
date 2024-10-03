@@ -2,7 +2,7 @@ title: Yandex IoT Core
 href: index.yaml
 label:
   title: RU
-  description: The service is only available in the Russia region.
+  description: This service is only available in the Russia region.
   theme: unknown
   when: region == "kz"
 items:
@@ -22,7 +22,7 @@ items:
         href: operations/publish.md
       - name: Subscribing a device or registry to receive messages
         href: operations/subscribe.md
-      - name: Exporting messages to {{ yds-name}}
+      - name: Exporting messages to {{ yds-name }}
         href: operations/yds-export.md
       - name: Viewing the connection log
         href: operations/logs.md
@@ -114,7 +114,7 @@ items:
             href: concepts/topic/subtopic.md
           - name: Using topics
             href: concepts/topic/usage.md
-      - name: Backups
+      - name: Backup
         href: concepts/backup.md
       - name: Quotas and limits
         href: concepts/limits.md
@@ -136,8 +136,14 @@ items:
         href: tutorials/java.md
       - name: Writing data from a device to Managed Service for PostgreSQL
         href: tutorials/data-recording.md
+      - name: Status monitoring of geographically distributed devices
+        href: tutorials/datalens.md
+      - name: Monitoring sensor readings and event notifications
+        href: tutorials/monitoring.md
       - name: Testing message delivery
         href: tutorials/message-delivery-check.md
+      - name: Emulating multiple IoT devices
+        href: tutorials/iot-emulation.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy
@@ -298,6 +304,8 @@ items:
                 href: broker/api-ref/Broker/listPasswords.md
               - name: update
                 href: broker/api-ref/Broker/update.md
+  - name: '{{ monitoring-name }} metrics'
+    href: metrics.md
   - name: '{{ at-name }} events'
     href: at-ref.md
   - name: Release notes

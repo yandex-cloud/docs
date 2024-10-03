@@ -6,6 +6,8 @@ editable: false
 
 {% include [use-calculator](../_includes/pricing/use-calculator.md) %}
 
+{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
+
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
 ## Из чего складывается стоимость использования {{ compute-short-name }} {#rules}
@@ -47,49 +49,31 @@ editable: false
 
 {{ price-per-hour-count-per-second }}
 
-
 #### Пример расчета стоимости вычислительных ресурсов {#instance-resources-example}
 
-Сравним стоимость ВМ для [платформы](concepts/vm-platforms.md) Intel Broadwell c разным [уровнем производительности vCPU](concepts/performance-levels.md).
+Сравним стоимость ВМ для [платформы](concepts/vm-platforms.md) Intel Ice Lake c разным [уровнем производительности vCPU](concepts/performance-levels.md).
 
 Созданы две ВМ с операционной системой Linux:
-* 2 × 5% vCPU и 2 ГБ RAM.
+* 2 × 20% vCPU и 2 ГБ RAM.
 * 2 × 100% vCPU и 2 ГБ RAM.
 
 Обе ВМ работали в течение 30 дней.
 
-**Расчет стоимости для ВМ с 5% vCPU**:
+**Расчет стоимости для ВМ с 20% vCPU**:
 
 
 {% list tabs group=pricing %}
 
 - Расчет в рублях {#prices-rub}
 
-  > 720 × (2 × 0,3100 ₽ + 2 × 0,3900 ₽) = 1008,0000&nbsp;₽
-  >
-  > Итого: 1008,0000&nbsp;₽ — стоимость использования ВМ с 2 × 5% vCPU и 2 ГБ RAM в течение 30 дней.
-
-  Где:
-  * 720 — количество часов в 30 днях.
-  * 2 — количество ядер 5% vCPU.
-  * 0,3100&nbsp;₽ — стоимость часа использования 5% vCPU.
-  * 2 — объем RAM (в гигабайтах).
-  * 0,3900&nbsp;₽ — стоимость часа использования 1 ГБ RAM.
+  {% include [rub-compute-vm20](../_pricing_examples/compute/rub-vm20.md) %}
 
 - Расчет в тенге {#prices-kzt}
 
-  > 720 × (2 × 1,5500&nbsp;₸ + 2 × 1,9500&nbsp;₸) = 5040,0000&nbsp;₸
-  >
-  > Итого: 5040,0000&nbsp;₸ — стоимость использования ВМ с 2 × 5% vCPU и 2 ГБ RAM в течение 30 дней.
-
-  Где:
-  * 720 — количество часов в 30 днях.
-  * 2 — количество ядер 5% vCPU.
-  * 1,5500&nbsp;₸ — стоимость часа использования 5% vCPU.
-  * 2 — объем RAM (в гигабайтах).
-  * 1,9500&nbsp;₸ — стоимость часа использования 1 ГБ RAM.
+  {% include [kzt-compute-vm20](../_pricing_examples/compute/kzt-vm20.md) %}
 
 {% endlist %}
+
 
 
 
@@ -100,36 +84,18 @@ editable: false
 
 - Расчет в рублях {#prices-rub}
 
-  > 720 × (2 × 1,1200&nbsp;₽ + 2 × 0,3900&nbsp;₽) = 2174,4000&nbsp;₽
-  >
-  > Итого: 2174,4000&nbsp;₽ — стоимость использования ВМ с 2 × 100% vCPU и 2 ГБ RAM в течение 30 дней.
-
-  Где:
-  * 720 — количество часов в 30 днях.
-  * 2 — количество ядер 100% vCPU.
-  * 1,1200&nbsp;₽ — стоимость часа использования 100% vCPU.
-  * 2 — объем RAM (в гигабайтах).
-  * 0,3900&nbsp;₽ — стоимость часа использования 1 ГБ RAM.
+  {% include [rub-compute-vm100](../_pricing_examples/compute/rub-vm100.md) %}
 
 - Расчет в тенге {#prices-kzt}
 
-  > 720 × (2 × 5,6000&nbsp;₸ + 2 × 1,9500&nbsp;₸) = 10 872,0000&nbsp;₸
-  >
-  > Итого: 10 872,0000&nbsp;₸ — стоимость использования ВМ с 2 × 100% vCPU и 2 ГБ RAM в течение 30 дней.
-
-  Где:
-  * 720 — количество часов в 30 днях.
-  * 2 — количество ядер 100% vCPU.
-  * 5,6000&nbsp;₸ — стоимость часа использования 100% vCPU.
-  * 2 — объем RAM (в гигабайтах).
-  * 1,9500&nbsp;₸ — стоимость часа использования 1 ГБ RAM.
+  {% include [kzt-compute-vm100](../_pricing_examples/compute/kzt-vm100.md) %}
 
 {% endlist %}
 
 
 
-Таким образом, стоимость ВМ с 5% vCPU в два раза ниже стоимости ВМ со 100% vCPU.
 
+Таким образом, стоимость ВМ с 20% vCPU почти в два раза ниже стоимости ВМ со 100% vCPU.
 
 #### Операционные системы {#instance-os}
 
@@ -187,21 +153,11 @@ vCPU и память ВМ, запущенных на выделенном хос
 
 - Расчет в рублях {#prices-rub}
 
-  | Ресурс | Стоимость за час | Доступно | Итого |
-  | --- | --- | --- | ---: |
-  | vCPU | 1,1828 ₽/vCPU | 108 vCPU | 127,7424 ₽ |
-  | RAM | 0,3133 ₽/ГБ | 704 ГБ | 220,5632 ₽ |
-  | Диск | 0,0122 ₽/ГБ | 19&nbsp;200 ГБ | 234,2400 ₽ |
-  | | | **Итого** | **582,5456 ₽** |
+  {% include [rub-compute-dedicated-hosts](../_pricing_examples/compute/rub-dedicated-hosts.md) %}
 
 - Расчет в тенге {#prices-kzt}
 
-  | Ресурс | Стоимость за час | Доступно | Итого |
-  | --- | --- | --- | ---: |
-  | vCPU | 5,9139 ₸/vCPU | 108 vCPU | 638,7012 ₸ |
-  | RAM | 1,5665 ₸/ГБ | 704 ГБ | 1102,8160 ₸ |
-  | Диск | 0,0611 ₸/ГБ | 19&nbsp;200 ГБ | 1173,1200 ₸ |
-  | | | **Итого** | **2914,6372 ₸** |
+  {% include [kzt-compute-dedicated-hosts](../_pricing_examples/compute/kzt-dedicated-hosts.md) %}
 
 {% endlist %}
 
@@ -225,8 +181,8 @@ vCPU и память ВМ, запущенных на выделенном хос
 
 
 
-
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
+
 
 
 Все цены указаны с включением НДС.
@@ -234,7 +190,7 @@ vCPU и память ВМ, запущенных на выделенном хос
 
 
 
-Цена с (CVoS) доступна только для обычных ВМ. 
+Цена с (CVoS) доступна только для обычных ВМ.
 
 
 ### Вычислительные ресурсы ВМ {#prices-instance-resources}

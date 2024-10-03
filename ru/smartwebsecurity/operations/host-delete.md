@@ -9,11 +9,11 @@ description: "Следуя данной инструкции, вы сможет�
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите отключить [профиль безопасности](../concepts/profiles.md) от [виртуального хоста](../../application-load-balancer/concepts/http-router.md#virtual-host) сервиса [{{ alb-full-name }}](../../application-load-balancer/).
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится нужный [профиль безопасности](../concepts/profiles.md).
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
-  1. Выберите профиль, который вы хотите отключить от хоста.
+  1. Выберите профиль безопасности, который вы хотите отключить от [виртуального хоста](../../application-load-balancer/concepts/http-router.md#virtual-host) сервиса [{{ alb-full-name }}](../../application-load-balancer/).
   1. Перейдите на вкладку **{{ ui-key.yacloud.smart-web-security.overview.title_connected-to-the-hosts }}**.
-  1. Напротив хоста, от которого вы хотите отключить профиль, нажмите ![options](../../_assets/console-icons/ellipsis.svg) и выберите ![disconnect](../../_assets/console-icons/arrow-shape-left-from-line.svg) **{{ ui-key.yacloud.smart-web-security.overview.action_disconnect-host }}**.
+  1. В строке с нужным хостом нажмите ![options](../../_assets/console-icons/ellipsis.svg) и выберите ![disconnect](../../_assets/console-icons/arrow-shape-left-from-line.svg) **{{ ui-key.yacloud.smart-web-security.overview.action_disconnect-host }}**.
   1. Подтвердите отключение.
 
 - CLI {#cli}
@@ -29,7 +29,7 @@ description: "Следуя данной инструкции, вы сможет�
      ```
 
      Результат:
-     
+
      ```text
      +----------------------+-------------------+-------------+-------------+
      |          ID          |       NAME        | VHOST COUNT | ROUTE COUNT |
@@ -46,7 +46,7 @@ description: "Следуя данной инструкции, вы сможет�
 
      Результат:
 
-     ```yaml
+     ```text
      id: ds7e9te73uak********
      name: my-first-router
      folder_id: b1gt6g8ht345********
@@ -85,7 +85,7 @@ description: "Следуя данной инструкции, вы сможет�
 
      Результат:
 
-     ```yaml
+     ```text
      done (1s)
      name: test-virtual-host
      routes:

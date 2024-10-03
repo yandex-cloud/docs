@@ -22,41 +22,42 @@ The API is represented by REST resources located at `https://monitoring.{{ api-h
 
 1. Create an RFC 4648 [Base64](https://en.wikipedia.org/wiki/Base64) encoding of the file contents:
 
-```bash
-cat recording-rule.yaml
+    ```bash
+    cat recording-rule.yaml
 
-# groups:
-#   - name: example
-#     rules:
-#     - record: example
-#       expr: up
+    # groups:
+    #   - name: example
+    #     rules:
+    #     - record: example
+    #       expr: up
 
-base64 -i recording-rule.yaml
+    base64 -i recording-rule.yaml
 
-# Z3JvdXBzOgogIC0gbmFtZTogZXhhbXBsZQogICAgcnVsZXM6CiAgICAtIHJlY29yZDogZXhhbXBsZQogICAgICBleHByOiB1cA==
-```
+    # Z3JvdXBzOgogIC0gbmFtZTogZXhhbXBsZQogICAgcnVsZXM6CiAgICAtIHJlY29yZDogZXhhbXBsZQogICAgICBleHByOiB1cA==
+    ```
 
 1. Save the result as a JSON file:
 
-**body.json**
-```json
-{
-    "name": "recording-rules",
-    "content" : "Z3JvdXBzOgogIC0gbmFtZTogZXhhbXBsZQogICAgcnVsZXM6CiAgICAtIHJlY29yZDogZXhhbXBsZQogICAgICBleHByOiB1cA=="
-}
-```
+    **body.json**
+
+    ```json
+    {
+        "name": "recording-rules",
+        "content" : "Z3JvdXBzOgogIC0gbmFtZTogZXhhbXBsZQogICAgcnVsZXM6CiAgICAtIHJlY29yZDogZXhhbXBsZQogICAgICBleHByOiB1cA=="
+    }
+    ```
 
 1. Create or replace a recording rule file:
 
-```bash
-export IAM_TOKEN=<IAM_token>
+    ```bash
+    export IAM_TOKEN=<IAM_token>
 
-curl -X PUT \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer ${IAM_TOKEN}" \
-    -d "@body.json"  \
-    "https://monitoring.{{ api-host }}/prometheus/workspaces/<workspace_ID>/extensions/v1/rules"
-```
+    curl -X PUT \
+        -H "Content-Type: application/json" \
+        -H "Authorization: Bearer ${IAM_TOKEN}" \
+        -d "@body.json"  \
+        "https://monitoring.{{ api-host }}/prometheus/workspaces/<workspace_ID>/extensions/v1/rules"
+    ```
 
 If the request is successful, you will get the `204` HTTP code, if not, the error text.
 
@@ -107,7 +108,7 @@ Response example:
 
 ## Viewing file computation status {#get-calculation-state}
 
-You can get the computation status for any rule in all the file groups by using the `snapshots` REST resource. Each snapshot contains information about the status, error, rule name, and computation time.
+You can get the computation status for any rule in all file groups by using the `snapshots` REST resource. Each snapshot contains information about the status, error, rule name, and computation time.
 
 Run the following query:
 
@@ -139,7 +140,7 @@ Response example:
 
 Possible rule states:
 * `NOT_EVALUATED_YET`: File is uploaded but computation has not started yet.
-* `OK`: Rule successfully computed.
+* `OK`: Computation successful.
 * `LIMIT_EXCEEDED`: Number of time series returned by the rule exceeds the `limit` specified in the YAML file. For such rules, partial computation result is not saved.
 * `TIMEOUT`: Rule computation timed out.
 * `UNEXPECTED_RESULT_TYPE`: Unexpected computation result, e.g., a string.

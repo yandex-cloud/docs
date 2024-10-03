@@ -6,6 +6,10 @@ editable: false
 
 
 
+{% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
+
+{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
+
 Стоимость использования {{ data-transfer-name }} зависит от объема использованных вычислительных ресурсов и количества переданных строк данных трансферами, которые находятся на стадии [GA](../overview/concepts/launch-stages.md): 
 
 * [{{ PG }}](operations/endpoint/source/postgresql.md) ![arrow_right](../_assets/console-icons/arrow-right.svg) [{{ PG }}](operations/endpoint/target/postgresql.md);
@@ -68,7 +72,7 @@ editable: false
 
 ## Примеры расчета стоимости {#price-example}
 
-При расчете стоимости необходимо учитывать, что по умолчанию один [воркер](concepts/index.md#worker) использует 2 vCPU и 4 ГБ RAM. 
+При расчете стоимости необходимо учитывать, что по умолчанию один [воркер](concepts/index.md#worker) использует 2 vCPU и 4 ГБ RAM.
 
 ### Однократное копирование данных из {{ PG }} в {{ CH }} {#copy}
 
@@ -154,7 +158,7 @@ editable: false
 
   Стоимость передачи данных:
 
-  50 000 000 строк входят в объем бесплатного потребления и не тарифицируются. 
+  50 000 000 строк входят в объем бесплатного потребления и не тарифицируются.
 
   **Общая стоимость**:
 

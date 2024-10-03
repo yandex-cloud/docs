@@ -6,9 +6,9 @@ With the [{{ yandex-cloud }} {{ TF }} provider]({{ tf-docs-link }}), you can get
 
 Data sources are available as read only, which prevents any changes to external resources.
 
-Let's use {{ TF }} data sources to get the ID of an [Ubuntu 22.04 LTS](marketplace/products/yc/ubuntu-22-04-lts) image from {{ marketplace-name }}.
+Let's use {{ TF }} data sources to get an [Ubuntu 22.04 LTS](marketplace/products/yc/ubuntu-22-04-lts) image ID from {{ marketplace-name }}.
 
-To get the `Ubuntu 22.04 LTS` image ID using {{ TF }}:
+To get an `Ubuntu 22.04 LTS` image ID using {{ TF }}:
 
 1. [Prepare your cloud](#before-you-begin).
 1. [Install and configure {{ TF }}](#prepare-terraform).
@@ -23,40 +23,40 @@ To get the `Ubuntu 22.04 LTS` image ID using {{ TF }}:
 
 {% include notitle [terraform-prepare.md](../../_tutorials/infrastructure/terraform-prepare.md) %}
 
-## Describe the data source {#prepare-plan}
+## Describe a data source {#prepare-plan}
 
 {% note tip %}
 
-In the {{ TF }} code, a data source is declared using the `data` block.
+In the {{ TF }} code, data sources are defined using the `data` block.
 
 {% endnote %}
 
 1. In the configuration file, paste this code after the provider settings:
 
-   ```
-   data "yandex_compute_image" "my_image" {
-     family = "ubuntu-2204-lts"
-   }
+    ```hcl
+    data "yandex_compute_image" "my_image" {
+      family = "ubuntu-2204-lts"
+    }
 
-   output "my_image_id" {
-     value = data.yandex_compute_image.my_image.id
-   }
-   ```
+    output "my_image_id" {
+      value = data.yandex_compute_image.my_image.id
+    }
+    ```
 
-   Where:
+    Where:
 
-   * `data "yandex_compute_image"`: Describes the disk image as the data source:
-      * `family`: [Image family](../../compute/concepts/image.md#family).
-   * `output "resource_active"`: Output variable with information about the current image ID for the specified family:
-      * `value`: Returned value.
+    * `data "yandex_compute_image"`: Disk image description as a data source:
+        * `family`: [Image family](../../compute/concepts/image.md#family).
+    * `output "resource_active"`: Output variable with information about the current image ID for the specified family:
+        * `value`: Returned value.
 
-   For more information about the `yandex_compute_image` data source parameters, see the [provider documentation]({{ tf-provider-datasources-link }}/datasource_compute_snapshot).
+    For more information about the `yandex_compute_image` data source parameters, see the [provider documentation]({{ tf-provider-datasources-link }}/datasource_compute_image).
 
 1. Create resources:
 
-   {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}
+    {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-   {{ TF }} will create the required resources and display the output variable values in the terminal.
+    {{ TF }} will create the required resources and display the output variable values in the terminal.
 
 ## Check the result {#check}
 
@@ -68,13 +68,13 @@ terraform output
 
 Result:
 
-```
+```text
 my_image_id = "fd8li2lvvfc6bdj4c787"
 ```
 
 Then you can use this ID to [create a VM](../../compute/operations/images-with-pre-installed-software/create.md), e.g.:
 
-```
+```hcl
 resource "yandex_compute_disk" "boot-disk" {
   name     = "<disk_name>"
   type     = "<disk_type>"

@@ -36,8 +36,26 @@ items:
             href: operations/edit-account.md
           - name: Покинуть организацию
             href: operations/leave-organization.md
-          - name: Управление группами пользователей
+          - name: Подписать пользователя на уведомления
+            href: operations/subscribe-user-for-notifications.md
+      - name: Управление группами пользователей
+        items:
+          - name: Обзор
             href: operations/manage-groups.md
+          - name: Создать группу
+            href: operations/create-group.md
+          - name: Добавить участников
+            href: operations/add-member-group.md
+          - name: Редактировать группу
+            href: operations/edit-group.md
+          - name: Настроить доступ к управлению группой
+            href: operations/access-manage-group.md
+          - name: Назначить права доступа группе
+            href: operations/access-group.md
+          - name: Удалить участников
+            href: operations/delete-member-group.md
+          - name: Удалить группу
+            href: operations/delete-group.md
       - name: Управление федерациями удостоверений
         items:
           - name: Обзор
@@ -54,8 +72,6 @@ items:
             href: operations/os-login-profile-create.md
           - name: Добавить SSH-ключ
             href: operations/add-ssh.md
-      - name: Управление группами пользователей
-        href: operations/manage-groups.md
       - name: Управление доступом
         items:
           - name: Обзор
@@ -88,6 +104,10 @@ items:
             items:
               - name: >-
                   Сопоставление групп пользователей в {{
+                  microsoft-idp.adfs-short }}
+                href: tutorials/federations/group-mapping/adfs.md
+              - name: >-
+                  Сопоставление групп пользователей в {{
                   microsoft-idp.entra-id-full }}
                 href: tutorials/federations/group-mapping/entra-id.md
               - name: Сопоставление групп пользователей в Keycloak
@@ -116,6 +136,8 @@ items:
         href: diagnostics.md
       - name: Ошибки в федерациях, работающих по протоколу SAML 2.0
         href: saml-diagnostics.md
+      - name: Ошибки аутентификации с аккаунтом на Яндексе
+        href: yandex-id-diagnostics.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

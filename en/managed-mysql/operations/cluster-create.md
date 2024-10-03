@@ -3,7 +3,7 @@ title: "How to create a {{ MY }} cluster"
 description: "Follow this guide to create a {{ MY }} cluster with a single or multiple DB hosts."
 ---
 
-# Creating a {{ MY }} cluster
+# Creating an {{ MY }} cluster
 
 
 A {{ MY }} cluster consists of one or more database hosts. In multi-host clusters, [semi-synchronous replication](../concepts/replication.md) is configured automatically.
@@ -19,10 +19,14 @@ For more information about {{ mmy-name }} cluster structure, see [Resource relat
 
 ## Creating a cluster {#create-cluster}
 
+To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the [{{ roles.mmy.editor }} role or higher](../security/index.md#roles-list). For information on assigning roles, see the [{{ iam-name }} documentation](../../iam/operations/roles/grant.md).
+
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
+
+   To create a {{ mmy-name }} cluster:
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a DB cluster.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
@@ -123,14 +127,14 @@ For more information about {{ mmy-name }} cluster structure, see [Resource relat
         --host zone-id=<availability_zone>,`
           `subnet-id=<subnet_ID>,`
           `assign-public-ip=<public_access_to_host>,`
-          `priority=<priority_when_selecting_new_master_host>,`
+          `priority=<priority_for_electing_new_master_host>,`
           `backup-priority=<backup_priority> \
         --mysql-version <{{ MY }}_version> \
         --resource-preset <host_class> \
         --user name=<username>,password=<user_password> \
         --database name=<DB_name> \
         --disk-size <storage_size_GB> \
-        --disk-type <disk_type> \
+        --disk-type <network-hdd|network-ssd|network-ssd-nonreplicated|local-ssd> \
         --security-group-ids <list_of_security_group_IDs>
       ```
 
@@ -518,8 +522,8 @@ To create a {{ MY }} cluster copy:
    * Environment: `PRESTABLE`
    * Cloud ID: `{{ tf-cloud-id }}`
    * Folder ID: `{{ tf-folder-id }}`
-   * New network: `mynet`
-   * Number of `{{ host-class }}` hosts in the new `mysubnet` subnet, in the `{{ region-id }}-a` availability zone: 1. The `mysubnet` subnet will have a range of `10.5.0.0/24`.
+   * New network: `mynet`.
+   * `{{ host-class }}` host in the new `mysubnet` subnet, in the `{{ region-id }}-a` availability zone: 1. The `mysubnet` subnet will have a range of `10.5.0.0/24`.
 
    
    * New security group: `mysql-sg`, allowing {{ mmy-name }} cluster connections from the internet via port `{{ port-mmy }}`.
@@ -676,7 +680,7 @@ To create a {{ MY }} cluster copy:
    * Environment: `PRESTABLE`
    * Cloud ID: `{{ tf-cloud-id }}`
    * Folder ID: `{{ tf-folder-id }}`
-   * New network: `mynet`
+   * New network: `mynet`.
    * `{{ host-class }}` public hosts: 3
 
       One host will be added to each one of the new subnets:
@@ -794,3 +798,4 @@ To create a {{ MY }} cluster copy:
 
 
 {% include [connection-manager](../../_includes/mdb/connection-manager.md) %}
+

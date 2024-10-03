@@ -1,6 +1,6 @@
 ---
-title: "How to configure a {{ CH }} source endpoint in {{ data-transfer-full-name }}"
-description: "In this tutorial, you will learn how to set up a {{ CH }} source endpoint in {{ data-transfer-full-name }}."
+title: "How to set up a {{ CH }} source endpoint in {{ data-transfer-full-name }}"
+description: "In this tutorial, you will learn how to configure a {{ CH }} source endpointwhen creating or modifying it in {{ data-transfer-full-name }}."
 ---
 
 # Transferring data from a {{ CH }} source endpoint
@@ -9,10 +9,10 @@ description: "In this tutorial, you will learn how to set up a {{ CH }} source e
 
 1. [Explore possible data transfer scenarios](#scenarios).
 1. [Prepare the {{ CH }}](#prepare) database for the transfer.
-1. [Set up an endpoint source](#endpoint-settings) in {{ data-transfer-full-name }}.
+1. [Set up a source endpoint](#endpoint-settings) in {{ data-transfer-full-name }}.
 1. [Set up one of the supported data targets](#supported-targets).
 1. [Create](../../transfer.md#create) a transfer and [start](../../transfer.md#activate) it.
-1. [Perform required operations with the database](#db-actions) and [control the transfer](../../monitoring.md).
+1. [Perform the required operations with the database](#db-actions) and [see how the transfer is going](../../monitoring.md).
 1. In case of any issues, [use ready-made solutions](#troubleshooting) to resolve them.
 
 ## Scenarios for transferring data from {{ CH }} {#scenarios}
@@ -51,52 +51,53 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
 
 - Management console {#console}
 
-   {% include [Managed ClickHouse UI](../../../../_includes/data-transfer/necessary-settings/ui/managed-clickhouse.md) %}
+    {% include [Managed ClickHouse UI](../../../../_includes/data-transfer/necessary-settings/ui/managed-clickhouse-source.md) %}
 
 - CLI {#cli}
 
-   * Endpoint type: `clickhouse-source`.
+    * Endpoint type: `clickhouse-source`.
 
-   {% include [Managed ClickHouse CLI](../../../../_includes/data-transfer/necessary-settings/cli/managed-clickhouse.md) %}
+    {% include [Managed ClickHouse CLI](../../../../_includes/data-transfer/necessary-settings/cli/managed-clickhouse-source.md) %}
 
 - {{ TF }} {#tf}
 
-   * Endpoint type: `clickhouse_source`.
+    * Endpoint type: `clickhouse_source`.
 
-   {% include [Managed ClickHouse {{ TF }}](../../../../_includes/data-transfer/necessary-settings/terraform/managed-clickhouse.md) %}
+    {% include [Managed ClickHouse {{ TF }}](../../../../_includes/data-transfer/necessary-settings/terraform/managed-clickhouse-source.md) %}
 
-   Here is an example of the configuration file structure:
+    Here is an example of the configuration file structure:
 
-   
-   ```hcl
-   resource "yandex_datatransfer_endpoint" "<endpoint_name_in_{{ TF }}>" {
-     name = "<endpoint_name>"
-     settings {
-       clickhouse_source {
-         security_groups = ["<list_of_security_group_IDs>"]
-         subnet_id       = "<subnet_ID>"
-         connection {
-           connection_options {
-             mdb_cluster_id = "<cluster_ID>"
-             database       = "<migrated_database_name>"
-             user           = "<username_for_connection>"
-             password {
-               raw = "<user_password>"
-             }
-           }
-         }
-         <additional_endpoint_settings>
-       }
-     }
-   }
-   ```
+    
+    ```hcl
+    resource "yandex_datatransfer_endpoint" "<endpoint_name_in_{{ TF }}>" {
+      name = "<endpoint_name>"
+      settings {
+        clickhouse_source {
+          clickhouse_cluster_name="<shard_group>"
+          security_groups = ["<list_of_security_group_IDs>"]
+          subnet_id       = "<subnet_ID>"
+          connection {
+            connection_options {
+              mdb_cluster_id = "<cluster_ID>"
+              database       = "<name_of_database_to_migrate>"
+              user           = "<username_for_connection>"
+              password {
+                raw = "<user_password>"
+              }
+            }
+          }
+          <additional_endpoint_settings>
+        }
+      }
+    }
+    ```
 
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
 
 - API {#api}
 
-   {% include [Managed ClickHouse API](../../../../_includes/data-transfer/necessary-settings/api/managed-clickhouse.md) %}
+    {% include [Managed ClickHouse API](../../../../_includes/data-transfer/necessary-settings/api/managed-clickhouse-source.md) %}
 
 {% endlist %}
 
@@ -108,64 +109,65 @@ Connecting to the database with explicitly specified network addresses and ports
 
 - Management console {#console}
 
-   {% include [On premise ClickHouse UI](../../../../_includes/data-transfer/necessary-settings/ui/on-premise-clickhouse.md) %}
+    {% include [On premise ClickHouse UI](../../../../_includes/data-transfer/necessary-settings/ui/on-premise-clickhouse.md) %}
 
 - CLI {#cli}
 
-   * Endpoint type: `clickhouse-source`.
+    * Endpoint type: `clickhouse-source`.
 
-   {% include [On premise ClickHouse CLI](../../../../_includes/data-transfer/necessary-settings/cli/on-premise-clickhouse.md) %}
+    {% include [On premise ClickHouse CLI](../../../../_includes/data-transfer/necessary-settings/cli/on-premise-clickhouse-source.md) %}
 
 - {{ TF }} {#tf}
 
-   * Endpoint type: `clickhouse_source`.
+    * Endpoint type: `clickhouse_source`.
 
-   {% include [On premise ClickHouse {{ TF }}](../../../../_includes/data-transfer/necessary-settings/terraform/on-premise-clickhouse.md) %}
+    {% include [On premise ClickHouse {{ TF }}](../../../../_includes/data-transfer/necessary-settings/terraform/on-premise-clickhouse-source.md) %}
 
-   Here is an example of the configuration file structure:
+    Here is an example of the configuration file structure:
 
-   
-   ```hcl
-   resource "yandex_datatransfer_endpoint" "<endpoint_name_in_{{ TF }}>" {
-     name = "<endpoint_name>"
-     settings {
-       clickhouse_source {
-         security_groups = ["<list_of_security_group_IDs>"]
-         subnet_id       = "<subnet_ID>"
-         connection {
-           connection_options {
-             on_premise {
-               http_port   = "<port_for_HTTP_connections>"
-               native_port = "<port_for_connecting_to_native_interface>"
-               shards {
-                 name  = "<shard_name>"
-                 hosts = [ "list_of_IP_addresses_or_FQDN_hosts_of_the_shard" ]
-               }
-               tls_mode {
-                 enabled {
-                   ca_certificate = "<PEM_certificate>"
-                 }
-               }
-             }
-             database = "<migrated_database_name>"
-             user     = "<username_for_connection>"
-             password {
-               raw = "<user_password>"
-             }
-           }
-         }
-         <additional_endpoint_settings>
-       }
-     }
-   }
-   ```
+    
+    ```hcl
+    resource "yandex_datatransfer_endpoint" "<endpoint_name_in_{{ TF }}>" {
+      name = "<endpoint_name>"
+      settings {
+        clickhouse_source {
+          clickhouse_cluster_name="<cluster_name>"
+          security_groups = ["<list_of_security_group_IDs>"]
+          subnet_id       = "<subnet_ID>"
+          connection {
+            connection_options {
+              on_premise {
+                http_port   = "<HTTP_connection_port>"
+                native_port = "<port_for_native_interface_connection>"
+                shards {
+                  name  = "<shard_name>"
+                  hosts = [ “list of IP addresses and FQDNs of shard hosts" ]
+                }
+                tls_mode {
+                  enabled {
+                    ca_certificate = "<certificate_in_PEM_format>"
+                  }
+                }
+              }
+              database = "<name_of_database_to_migrate>"
+              user     = "<username_for_connection>"
+              password {
+                raw = "<user_password>"
+              }
+            }
+          }
+          <additional_endpoint_settings>
+        }
+      }
+    }
+    ```
 
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
+    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
 
 - API {#api}
 
-   {% include [On premise ClickHouse API](../../../../_includes/data-transfer/necessary-settings/api/on-premise-clickhouse.md) %}
+    {% include [On premise ClickHouse API](../../../../_includes/data-transfer/necessary-settings/api/on-premise-clickhouse-source.md) %}
 
 {% endlist %}
 
@@ -175,53 +177,45 @@ Connecting to the database with explicitly specified network addresses and ports
 
 - Management console {#console}
 
-   * {% include [include_tables](../../../../_includes/data-transfer/fields/clickhouse/ui/include-tables.md) %}
+    * {% include [include_tables](../../../../_includes/data-transfer/fields/clickhouse/ui/include-tables.md) %}
 
-      {% include [Description for Included tables](../../../../_includes/data-transfer/fields/description-included-tables.md) %}
+        {% include [Description for Included tables](../../../../_includes/data-transfer/fields/description-included-tables.md) %}
 
-   * {% include [exclude_tables](../../../../_includes/data-transfer/fields/clickhouse/ui/exclude-tables.md) %}
+    * {% include [exclude_tables](../../../../_includes/data-transfer/fields/clickhouse/ui/exclude-tables.md) %}
 
-   {% include [Description of table names](../../../../_includes/data-transfer/fields/clickhouse/description-table-name.md) %}
+    Included and excluded table names must meet the ID naming rules in {{ CH }}. For more information, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/syntax#syntax-identifiers). Escaping double quotes is not required.
 
-   Included and excluded table names must meet the ID naming rules in {{ CH }}. For more information, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/syntax#syntax-identifiers). Escaping double quotes is not required.
-
-   Leave the lists empty to transfer all the tables.
+    Leave the lists empty to transfer all the tables.
 
 - CLI {#cli}
 
-   * {% include [include-table](../../../../_includes/data-transfer/fields/clickhouse/cli/include-table.md) %}
+    * {% include [include-table](../../../../_includes/data-transfer/fields/clickhouse/cli/include-table.md) %}
 
-      {% include [Description for Included tables](../../../../_includes/data-transfer/fields/description-included-tables.md) %}
+        {% include [Description for Included tables](../../../../_includes/data-transfer/fields/description-included-tables.md) %}
 
-   * {% include [exclude-table](../../../../_includes/data-transfer/fields/clickhouse/cli/exclude-table.md) %}
+    * {% include [exclude-table](../../../../_includes/data-transfer/fields/clickhouse/cli/exclude-table.md) %}
 
-   {% include [Description of table names](../../../../_includes/data-transfer/fields/clickhouse/description-table-name.md) %}
-
-   If no lists are specified, data from all tables will be transferred.
+    If no lists are specified, data from all tables will be transferred.
 
 - {{ TF }} {#tf}
 
-   * {% include [include_tables](../../../../_includes/data-transfer/fields/clickhouse/terraform/include-tables.md) %}
+    * {% include [include_tables](../../../../_includes/data-transfer/fields/clickhouse/terraform/include-tables.md) %}
 
-      {% include [Description for Included tables](../../../../_includes/data-transfer/fields/description-included-tables.md) %}
+        {% include [Description for Included tables](../../../../_includes/data-transfer/fields/description-included-tables.md) %}
 
-   * {% include [exclude_tables](../../../../_includes/data-transfer/fields/clickhouse/terraform/exclude-tables.md) %}
+    * {% include [exclude_tables](../../../../_includes/data-transfer/fields/clickhouse/terraform/exclude-tables.md) %}
 
-   {% include [Description of table names](../../../../_includes/data-transfer/fields/clickhouse/description-table-name.md) %}
-
-   If no lists are specified, data from all tables will be transferred.
+    If no lists are specified, data from all tables will be transferred.
 
 - API {#api}
 
-   * {% include [includeTables](../../../../_includes/data-transfer/fields/clickhouse/api/include-tables.md) %}
+    * {% include [includeTables](../../../../_includes/data-transfer/fields/clickhouse/api/include-tables.md) %}
 
-      {% include [Description for Included tables](../../../../_includes/data-transfer/fields/description-included-tables.md) %}
+        {% include [Description for Included tables](../../../../_includes/data-transfer/fields/description-included-tables.md) %}
 
-   * {% include [excludeTables](../../../../_includes/data-transfer/fields/clickhouse/api/exclude-tables.md) %}
+    * {% include [excludeTables](../../../../_includes/data-transfer/fields/clickhouse/api/exclude-tables.md) %}
 
-   {% include [Description of table names](../../../../_includes/data-transfer/fields/clickhouse/description-table-name.md) %}
-
-   If no lists are specified, data from all tables will be transferred.
+    If no lists are specified, data from all tables will be transferred.
 
 {% endlist %}
 
@@ -229,7 +223,7 @@ Connecting to the database with explicitly specified network addresses and ports
 
 Configure the target endpoint:
 
-* [{{ CH }}](../target/clickhouse.md)​.
+* [{{ CH }}](../target/clickhouse.md)
 
 For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available Transfers](../../../transfer-matrix.md).
 
@@ -237,10 +231,10 @@ After configuring the data source and target, [create and start the transfer](..
 
 ## Troubleshooting data transfer issues {#troubleshooting}
 
-* [New tables are not added](#no-new-tables)
-* [Data is not transferred](#no-transfer)
+* [New tables cannot be added](#no-new-tables).
+* [Data cannot be transferred](#no-transfer)
 
-See a full list of recommendations in the [Troubleshooting](../../../troubleshooting/index.md) section.
+For more troubleshooting tips, see [Troubleshooting](../../../troubleshooting/index.md).
 
 {% include [no-new-tables](../../../../_includes/data-transfer/troubles/no-new-tables.md) %}
 

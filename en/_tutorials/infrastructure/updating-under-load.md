@@ -174,7 +174,7 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
             * In the **{{ ui-key.yacloud.compute.instances.create.field_coi-image }}** field, click **{{ ui-key.yacloud.component.image-field.button_custom-image }}** and type `{{ registry }}/yc/demo/autoscaling-example-app:v1`.
             * Click **{{ ui-key.yacloud.common.apply }}**.
          * Under **{{ ui-key.yacloud.compute.instances.create.section_disk }}**:
-            * For the boot disk, specify the **{{ ui-key.yacloud.compute.instances.create.column_disk-size }}** of `30 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+            * For the boot disk, specify the **{{ ui-key.yacloud.compute.disk-form.field_size }}** of `30 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
          * Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
             * In the **{{ ui-key.yacloud.compute.instances.create.field_instance-group-network }}** field, select `for-load`.
          * Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**:

@@ -14,7 +14,7 @@ items:
         href: quickstart/index.md
       - name: Как распознать короткие аудиофайлы в API v1
         href: quickstart/stt-quickstart-v1.md
-      - name: Как распознать длинные аудиофайлы в API v2
+      - name: Как распознать длинные аудиофайлы в API v3 и v2
         href: quickstart/stt-quickstart-v2.md
       - name: Как синтезировать речь в API v1
         href: quickstart/tts-quickstart-v1.md
@@ -42,6 +42,8 @@ items:
         href: stt/speaker-labeling.md
       - name: Расширение модели распознавания речи
         href: stt/additional-training.md
+      - name: Загрузка данных для дообучения модели распознавания речи
+        href: stt/upload-data-for-training.md
       - name: Определение конца фразы
         href: stt/eou.md
   - name: Синтез речи
@@ -158,6 +160,10 @@ items:
         href: tutorials/index.md
       - name: Telegram-бот для распознавания и синтеза аудио
         href: tutorials/recognizer-bot.md
+      - name: >-
+          Использование {{ api-gw-full-name }} для настройки синтеза речи в {{
+          speechkit-name }}
+        href: tutorials/speechkit-integrarion-via-agi-gw.md
       - name: Распознавание
         items:
           - name: Потоковое распознавание аудиофайла API v3

@@ -2,9 +2,9 @@
 title: "Создание кластера {{ AF }}"
 description: "Каждый кластер {{ maf-name }} состоит из набора компонентов {{ AF }}, каждый из которых может быть представлен в нескольких экземплярах. Экземпляры могут находиться в разных зонах доступности."
 keywords:
-  - создание кластера {{ AF }}
-  - кластер {{ AF }}
-  - {{ AF }}
+  - "создание кластера {{ AF }}"
+  - "кластер {{ AF }}"
+  - "{{ AF }}"
   - Airflow
 ---
 
@@ -12,14 +12,9 @@ keywords:
 
 Каждый [кластер](../../glossary/cluster.md) {{ maf-name }} состоит из набора компонентов {{ AF }}, каждый из которых может быть представлен в нескольких экземплярах. Экземпляры могут находиться в разных зонах доступности.
 
-## Перед созданием кластера {#before-creating}
+## Создать кластер {#create-cluster}
 
-1. В каталоге, в котором планируется создать кластер, [создайте сервисный аккаунт](../../iam/operations/sa/create.md) с ролью `managed-airflow.integrationProvider`.
-1. [Создайте статический ключ доступа](../../iam/operations/sa/create-access-key.md) для сервисного аккаунта.
-1. [Создайте бакет {{ objstorage-full-name }}](../../storage/operations/buckets/create.md), в котором будут храниться [DAG-файлы](../concepts/index.md#about-the-service).
-1. [Убедитесь](../../iam/operations/roles/get-assigned-roles.md), что у вашего аккаунта есть роль [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) и роль [{{ roles.maf.editor }} или выше](../security/index.md#roles-list) для создания кластера.
-
-## Создайте кластер {#create-cluster}
+Для создания кластера {{ maf-name }} нужна роль [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) и роль [{{ roles.maf.editor }} или выше](../security/index.md#roles-list). О том, как назначить роль, см. [документацию {{ iam-name }}](../../iam/operations/roles/grant.md).
 
 {% list tabs group=instructions %}
 
@@ -55,14 +50,19 @@ keywords:
 
            {% endnote %}
 
-        * Выберите [созданный ранее](#before-creating) сервисный аккаунт с ролью `managed-airflow.integrationProvider`.
+        * Выберите существующий сервисный аккаунт или создайте новый.
+
+           Сервисному аккаунту должна быть назначена [роль](../../iam/concepts/access-control/roles.md) `managed-airflow.integrationProvider`.
 
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите:
 
-      * [зоны доступности](../../overview/concepts/geo-scope) для размещения кластера;
-      * облачную сеть;
-      * подсеть в каждой из выбранных зон доступности;
-      * [группу безопасности](../../vpc/concepts/security-groups.md) для сетевого трафика кластера.
+      * [Зоны доступности](../../overview/concepts/geo-scope) для размещения кластера.
+      * Облачную сеть.
+      * Подсеть в каждой из выбранных зон доступности.
+
+        {{ yandex-cloud }} управляет компонентами кластера {{ maf-name }} в дополнительной служебной подсети. Убедитесь, что диапазон IP-адресов выбранных вами подсетей не пересекается с диапазоном адресов `{{ airflow-service-address }}` служебной подсети. Иначе возникнет ошибка при создании кластера.
+
+      * [Группу безопасности](../../vpc/concepts/security-groups.md) для сетевого трафика кластера.
 
         {% include [sg-ui-access](../../_includes/mdb/maf/note-sg-ui-access.md) %}
 
@@ -100,14 +100,21 @@ keywords:
 
       {% endnote %}
 
-  1. В блоке **{{ ui-key.yacloud.airflow.section_storage }}** задайте:
+  1. В блоке **{{ ui-key.yacloud.airflow.section_storage }}** выберите существующий бакет или создайте новый. В этом бакете будут храниться DAG-файлы.
 
-      * Имя ранее созданного бакета, в котором будут храниться DAG-файлы.
-      * Параметры статического ключа доступа для сервисного аккаунта.
+      Сервисному аккаунту кластера должно быть [предоставлено разрешение](../../storage/operations/buckets/edit-acl.md) `READ` для этого бакета.
 
   1. (Опционально) В блоке **{{ ui-key.yacloud.mdb.forms.section_additional }}** включите защиту от удаления кластера.
 
-  1. (Опционально) В блоке **{{ ui-key.yacloud.airflow.section_airflow-configuration }}** задайте [дополнительные свойства {{ AF }}](https://airflow.apache.org/docs/apache-airflow/2.2.4/configurations-ref.html), например: ключ — `api.maximum_page_limit`, значение — `150`. Заполните поля вручную или загрузите конфигурацию из файла (см. [пример конфигурационного файла](https://{{ s3-storage-host }}/doc-files/managed-airflow/airflow.cfg)).
+  1. (Опционально) В блоке **{{ ui-key.yacloud.airflow.section_airflow-configuration }}**:
+  
+      * Задайте [дополнительные свойства {{ AF }}](https://airflow.apache.org/docs/apache-airflow/2.2.4/configurations-ref.html), например: ключ — `api.maximum_page_limit`, значение — `150`.
+
+        Заполните поля вручную или загрузите конфигурацию из файла (см. [пример конфигурационного файла](https://{{ s3-storage-host }}/doc-files/managed-airflow/airflow.cfg)).
+
+      * Включите опцию **{{ ui-key.yacloud.airflow.field_lockbox }}**, чтобы использовать секреты в сервисе [{{ lockbox-full-name }}](../../lockbox/concepts/index.md) для [хранения конфигурационных данных, переменных и параметров подключений](../concepts/impersonation.md#lockbox-integration) {{ AF }}.
+
+        {% include [sa-roles-for-lockbox](../../_includes/managed-airflow/sa-roles-for-lockbox.md) %}
 
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 

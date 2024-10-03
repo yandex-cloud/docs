@@ -3,6 +3,10 @@ editable: false
 ---
 # Правила тарификации для {{ network-load-balancer-name }}
 
+{% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
+
+{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
+
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
 В рамках {{ network-load-balancer-full-name }} оплачиваются объем входящего и исходящего трафика, обработанного балансировщиком, и количество сетевых балансировщиков.
@@ -14,9 +18,7 @@ editable: false
 
 
 
-
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
-
 
 
 ### Входящий и исходящий трафик {#prices-traffic}

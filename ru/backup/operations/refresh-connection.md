@@ -27,7 +27,7 @@
           Если вы используете дистрибутив, отличный от Ubuntu, установите указанные утилиты с помощью команд вашего пакетного менеджера.
 
           {% endnote %}
-  
+
           ```bash
           sudo apt install jq
           sudo apt install gawk
@@ -68,9 +68,9 @@
           ```powershell
           . { iwr -useb https://storage.yandexcloud.net/backup-distributions/agent_reinit.ps1 } | iex
           ```
-     
+
           Результат:
-     
+
           ```text
           ...
           Backup agent reinit completed after 204 s!

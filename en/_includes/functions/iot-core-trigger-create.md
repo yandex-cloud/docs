@@ -68,13 +68,13 @@ The trigger must be in the same [cloud](../../resource-manager/concepts/resource
      --name <trigger_name> \
      --registry-id <registry_ID> \
      --device-id <device_ID> \
-     --mqtt-topic '$devices/<device_ID>/events' \
+     --mqtt-topic '<MQTT_topic>' \
      --batch-size <message_batch_size> \
      --batch-cutoff <maximum_wait_time> \
      --invoke-function-id <function_ID> \
      --invoke-function-service-account-id <service_account_ID> \
-     --retry-attempts 1 \
-     --retry-interval 10s \
+     --retry-attempts <number_of_retry_invocation_attempts> \
+     --retry-interval <interval_between_retry_attempts> \
      --dlq-queue-id <dead_letter_queue_ID> \
      --dlq-service-account-id <service_account_ID>
    ```
@@ -137,12 +137,12 @@ The trigger must be in the same [cloud](../../resource-manager/concepts/resource
         iot {
           registry_id  = "<registry_ID>"
           device_id    = "<device_ID>"
-          topic        = "<topic_ID>"
-          batch_cutoff = "<timeout>"
-          batch_size   = "<event_batch_size>"
+          topic        = "<MQTT_topic>"
+          batch_cutoff = "<maximum_timeout>"
+          batch_size   = "<message_batch_size>"
         }
         dlq {
-          queue_id           = "<queue_ID>"
+          queue_id           = "<dead_letter_queue_ID>"
           service_account_id = "<service_account_ID>"
         }
       }
@@ -156,9 +156,9 @@ The trigger must be in the same [cloud](../../resource-manager/concepts/resource
 
          * `registry-id`: [Registry ID](../../iot-core/operations/registry/registry-list.md).
          * `device-id`: [Device ID](../../iot-core/operations/device/device-list.md). If you are creating a trigger for a registry topic, you can omit this parameter.
-         * `topic`: ID of the [topic](../../iot-core/concepts/topic/) you want to create a trigger for. If no topic is set, the trigger fires for all registry or device topics.
-         * `batch_cutoff`: Maximum wait time. Acceptable values are from 1 to 60 seconds. The trigger groups messages for a period of time not exceeding the specified timeout and sends them to a function. At the same time, the number of messages does not exceed the specified `batch-size`.
-         * `batch_size`: Message batch size. Acceptable values are from 1 to 10.
+         * `topic`: MQTT topic you want to create a trigger for. This is an optional parameter. If this parameter is skipped, the trigger fires for all registry or device topics.
+         * `batch_cutoff`: Maximum wait time. This is an optional parameter. The values may range from 1 to 60 seconds. The default value is 1 second. The trigger groups messages for a period not exceeding `batch-cutoff` and sends them to a function. The number of messages cannot exceed `batch-size`.
+         * `batch-size`: Size of the message batch from MQTT topics. This is an optional parameter. The values may range from 1 to 10. The default value is 1.
 
       {% include [tf-dlq-params](../serverless-containers/tf-dlq-params.md) %}
 
@@ -168,10 +168,10 @@ The trigger must be in the same [cloud](../../resource-manager/concepts/resource
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
+      {% include [terraform-check-result](../../_tutorials/_tutorials_includes/terraform-check-result.md) %}
 
       ```bash
-      yc serverless trigger get <trigger_ID>
+      yc serverless trigger list
       ```
 
 - API {#api}
@@ -186,4 +186,5 @@ The trigger must be in the same [cloud](../../resource-manager/concepts/resource
 
 ## See also {#see-also}
 
-* [Trigger for {{ iot-name }} that sends messages from registry or device topics to a {{ serverless-containers-full-name }} container](../../serverless-containers/operations/iot-core-trigger-create.md).
+* [{#T}](../../serverless-containers/operations/iot-core-trigger-create.md)
+* [{#T}](../../api-gateway/operations/trigger/iot-core-trigger-create.md)

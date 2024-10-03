@@ -22,9 +22,11 @@ items:
             href: operations/cluster-update.md
           - name: Обновление версии {{ KF }}
             href: operations/cluster-version-update.md
+          - name: Управление дисковым пространством
+            href: operations/storage-space.md
           - name: Остановка и запуск кластера
             href: operations/cluster-stop.md
-          - name: Получение списка хостов кластера {{ KF }}
+          - name: Получение списка хостов кластера
             href: operations/cluster-hosts.md
           - name: Миграция хостов в другую зону доступности
             href: operations/host-migration.md
@@ -54,6 +56,8 @@ items:
     items:
       - name: Все руководства
         href: tutorials/index.md
+      - name: Развертывание веб-интерфейса {{ KF }}
+        href: tutorials/deploy-kafka-ui.md
       - name: Перемещение данных из {{ KF }}
         items:
           - name: Настройка {{ KFC }} для работы с {{ mkf-name }}
@@ -66,7 +70,7 @@ items:
             href: tutorials/mkf-to-mkf-transfer.md
       - name: Использование схем формата данных с {{ mkf-name }}
         items:
-          - name: Обзор
+          - name: Управление схемами данных в {{ mkf-name }}
             href: tutorials/schema-registry-overview.md
           - name: Работа с управляемым реестром схем формата данных
             href: tutorials/managed-schema-registry.md
@@ -90,6 +94,8 @@ items:
             href: tutorials/managed-kafka-to-greenplum.md
           - name: Поставка из {{ KF }} в {{ MG }}
             href: tutorials/mkf-to-mmg-migration.md
+          - name: Поставка из {{ MY }} в {{ KF }}
+            href: tutorials/cdc/cdc-mmy.md
           - name: Поставка из {{ KF }} в {{ MY }}
             href: tutorials/mkf-to-mmy-migration.md
           - name: Поставка из {{ KF }} в {{ OS }}
@@ -124,17 +130,17 @@ items:
         href: concepts/managed-schema-registry.md
       - name: Классы хостов
         href: concepts/instance-types.md
-      - name: Сеть в Managed Service for Apache Kafka®
+      - name: Сеть в {{ mkf-name }}
         href: concepts/network.md
       - name: Квоты и лимиты
         href: concepts/limits.md
-      - name: Типы дисков
+      - name: Хранилище в {{ mkf-name }}
         href: concepts/storage.md
       - name: Коннекторы
         href: concepts/connectors.md
       - name: Техническое обслуживание
         href: concepts/maintenance.md
-      - name: Настройки Apache Kafka®
+      - name: Настройки {{ KF }}
         href: concepts/settings-list.md
   - name: Управление доступом
     href: security/index.md

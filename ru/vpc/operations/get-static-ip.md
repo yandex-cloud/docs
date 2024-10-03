@@ -21,7 +21,7 @@
        * В поле **{{ ui-key.yacloud.vpc.addresses.popup-create_field_zone }}** выберите зону доступности, в которой нужно зарезервировать адрес.
        * (Опционально) В блоке **{{ ui-key.yacloud.vpc.addresses.popup-create_field_advanced }}** включите опции **{{ ui-key.yacloud.common.field_ddos-protection-provider }}** и **{{ ui-key.yacloud.vpc.addresses.popup-create_field_deletion-protection }}**.
    1. Нажмите **{{ ui-key.yacloud.vpc.addresses.popup-create_button_create }}**.
-  
+
 - CLI {#cli}
 
    {% include [include](../../_includes/cli-install.md) %}
@@ -42,7 +42,7 @@
 
       Результат:
 
-      ```bash
+      ```text
       id: e9b6un9gkso6********
       folder_id: b1g7gvsi89m3********
       created_at: "2021-01-19T17:52:42Z"
@@ -82,7 +82,7 @@
        }
      }
      ```
-     
+
      Более подробную информацию о параметрах ресурса `yandex_vpc_address` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/vpc_address).
 
   1. Создайте ресурсы:

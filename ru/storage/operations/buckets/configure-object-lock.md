@@ -21,7 +21,7 @@
 - AWS CLI {#cli}
 
   Если у вас еще нет AWS CLI, [установите и сконфигурируйте его](../../tools/aws-cli.md).
- 
+
   Выполните следующую команду:
 
   ```bash
@@ -30,9 +30,9 @@
     --object-lock-configuration ObjectLockEnabled=Enabled \
     --endpoint-url=https://{{ s3-storage-host }}
   ```
-     
+
   Где:
- 
+
   * `--bucket` — имя бакета.
   * `--object-lock-configuration` — настройки блокировок в бакете. Значение `ObjectLockEnabled=Enabled` включает механизм блокировок.
   * `--endpoint-url` — эндпоинт {{ objstorage-name }}.
@@ -71,7 +71,7 @@
 
     Результат:
 
-    ```bash
+    ```text
     name: my-bucket
     folder_id: b1geoelk2fld*********
     ...
@@ -113,38 +113,38 @@
        }
      }
      ```
-     
+
      Где:
- 
+
      * `ObjectLockEnabled` — статус механизма блокировок: `Enabled` — механизм включен.
-       
+ 
        {% note alert %}
- 
+
        Это обязательное поле. Если не указать его со значением `Enabled`, появится сообщение об ошибке `InvalidRequest`, а механизм блокировок не включится. См. также [Выключить возможность блокировок](#disable).
- 
+
        {% endnote %}
 
      * `Mode` — [тип](../../concepts/object-lock.md#types) блокировки:
- 
+
        * `GOVERNANCE` — временная управляемая блокировка.
        * `COMPLIANCE` — временная строгая блокировка.
- 
+
      * `Days` — срок блокировки в днях от момента загрузки версии объекта. Должен быть положительным целым числом. Нельзя указывать вместе с `Years`.
      * `Years` — срок блокировки в годах от момента загрузки версии объекта. Должен быть положительным целым числом. Нельзя указывать вместе с `Days`.
- 
+
      Готовую конфигурацию можно поместить в файл, например, `default-object-lock.json`.
- 
+
   1. Загрузите конфигурацию в бакет:
- 
+
      ```bash
      aws s3api put-object-lock-configuration \
        --bucket <имя_бакета> \
        --object-lock-configuration file://default-object-lock.json \
        --endpoint-url=https://{{ s3-storage-host }}
      ```
-     
+
      Где:
- 
+
      * `--bucket` — имя бакета.
      * `--object-lock-configuration` — настройки блокировок по умолчанию. В данном случае указаны в файле `default-object-lock.json`.
      * `--endpoint-url` — эндпоинт {{ objstorage-name }}.
@@ -184,10 +184,10 @@
 
     Результат:
 
-    ```bash
+    ```text
     name: my-bucket
     folder_id: b1geoelk2fld********
-    ... 
+    ...
     object_lock:
     status: OBJECT_LOCK_STATUS_ENABLED
     default_retention:
@@ -210,18 +210,18 @@
 - AWS CLI {#cli}
 
   Если у вас еще нет AWS CLI, [установите и сконфигурируйте его](../../tools/aws-cli.md).
- 
+
   Выполните следующую команду:
- 
+
   ```bash
   aws s3api put-object-lock-configuration \
     --bucket <имя_бакета> \
     --object-lock-configuration ObjectLockEnabled="" \
     --endpoint-url=https://{{ s3-storage-host }}
   ```
- 
+
   Где:
- 
+
   * `--bucket` — имя бакета.
   * `--object-lock-configuration` — настройки блокировок в бакете. Значение `ObjectLockEnabled=""` отключает механизм блокировок.
   * `--endpoint-url` — эндпоинт {{ objstorage-name }}.
@@ -262,7 +262,7 @@
 
     Результат:
 
-    ```bash
+    ```text
     name: my-bucket
     folder_id: b1geoelk2fld********
     ...

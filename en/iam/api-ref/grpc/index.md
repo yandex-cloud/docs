@@ -11,6 +11,7 @@ Service | Description
 [ApiKeyService](./api_key_service.md) | A set of methods for managing API keys.
 [IamTokenService](./iam_token_service.md) | A set of methods for managing IAM tokens.
 [KeyService](./key_service.md) | A set of methods for managing Key resources.
+[RefreshTokenService](./refresh_token_service.md) | A set of methods for managing Refresh Tokens.
 [RoleService](./role_service.md) | A set of methods for managing Role resources.
 [ServiceAccountService](./service_account_service.md) | A set of methods for managing ServiceAccount resources.
 [ServiceControlService](./service_control_service.md) | A set of methods for managing Service resources.
@@ -19,4 +20,6 @@ Service | Description
 [AccessKeyService](./access_key_service.md) | A set of methods for managing access keys.
 [CertificateService](./certificate_service.md) | A set of methods for managing certificates.
 [FederationService](./federation_service.md) | A set of methods for managing federations.
+[FederatedCredentialService](./federated_credential_service.md) | A set of methods for managing federated credentials.
+[FederationService](./federation_service.md) | A set of methods for managing OIDC workload identity federations.
 [OperationService](./operation_service.md) | A set of methods for managing operations for asynchronous API requests.

@@ -66,7 +66,7 @@ To use the service, you need the `editor` [role](../../iam/concepts/access-contr
 
 To create or edit an endpoint of a managed database, you need the service or primitive [`viewer` role](../../iam/roles-reference.md#viewer) assigned for the folder hosting a cluster of this managed database.
 
-You can always assign a role granting more permissions than the role specified. For example, assign the `admin` role instead of `editor`.
+You can always assign a role offering more permissions than the one specified. For example, assign the `admin` role instead of `editor`.
 
 ## What's next {#whats-next}
 

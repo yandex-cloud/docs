@@ -37,8 +37,8 @@ description | **string**<br><p>Description of the placement group.</p>
 labels | **object**<br><p>Resource labels as ``key:value`` pairs.</p> 
 zoneId | **string**<br><p>ID of the availability zone where the placement group resides.</p> 
 status | **string**<br>Current status of the placement group
-spreadPlacementStrategy | **object** <br> includes only one of the fields `spreadPlacementStrategy`, `partitionPlacementStrategy`<br>
-partitionPlacementStrategy | **object** <br> includes only one of the fields `spreadPlacementStrategy`, `partitionPlacementStrategy`<br>
+spreadPlacementStrategy | **object**<br>Distribute disks over distinct failure domains. <br> includes only one of the fields `spreadPlacementStrategy`, `partitionPlacementStrategy`<br>
+partitionPlacementStrategy | **object**<br>Distribute disks over partitions. <br> includes only one of the fields `spreadPlacementStrategy`, `partitionPlacementStrategy`<br>
 partitionPlacementStrategy.<br>partitions | **string** (int64)
 
 ## Methods {#methods}

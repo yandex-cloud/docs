@@ -7,19 +7,19 @@ Use this method to check:
 - Whether the bucket exists.
 - Whether the user has sufficient permissions to access the bucket.
 
-
+{% include [s3-api-intro-include](../../../../_includes/storage/s3-api-intro-include.md) %}
 
 ## Request {#request}
 
-```
+```http
 HEAD /{bucket} HTTP/2
 ```
 
 ### Path parameters {#path-parameters}
 
-| Parameter | Description |
+Parameter | Description
 ----- | -----
-| `bucket` | Bucket name. |
+`bucket` | Bucket name.
 
 
 ### Headers {#request-headers}

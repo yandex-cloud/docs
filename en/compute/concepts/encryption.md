@@ -16,7 +16,7 @@ You can encrypt the following types of disks:
 * Network SSD (`network-ssd`)
 * Network HDD (`network-hdd`)
 * Non-replicated SSD (`network-ssd-nonreplicated`)
-* High-performance SSD (`network-ssd-io-m3`)
+* Ultra high-speed network storage with three replicas (SSD) (`network-ssd-io-m3`).
 
 For more details, see [Disk types](disk.md#disks-types).
 

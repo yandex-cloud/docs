@@ -11,7 +11,7 @@ To create virtual machines or {{ k8s }} nodes with OS Login access, enable this 
 
 {% note info %}
 
-Images with OS Login support are available on [{{ marketplace-full-name }}](/marketplace) and have `OS Login` in their name.
+Images with OS Login support are available on [{{ marketplace-full-name }}](/marketplace) and have `OS Login` as part of their name.
 
 {% endnote %}
 
@@ -21,35 +21,35 @@ To enable OS Login access at the organization level:
 
 - {{ org-name }} interface {#console}
 
-   1. [Log in]({{ link-passport-login }}) as the organization administrator or owner.
-   1. Go to [{{ org-full-name }}]({{ link-org-main }}).
-   1. [Switch](./manage-organizations.md#switch-to-another-org) to an organization or federation of your choice as needed.
-   1. In the left-hand panel, select ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud_org.pages.oslogin.title }}**.
-   1. Enable the required access options:
+  1. [Log in]({{ link-passport-login }}) as the organization administrator or owner.
+  1. Go to [{{ org-full-name }}]({{ link-org-main }}).
+  1. [Switch](./manage-organizations.md#switch-to-another-org) to an organization or federation of your choice as needed.
+  1. In the left-hand panel, select ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud_org.pages.oslogin.title }}**.
+  1. Enable the required access options:
 
       * **{{ ui-key.yacloud_org.form.oslogin-settings.title_ssh-certificate-settings }}**.
-         The option allows you to connect to a VM or {{ k8s }} cluster node with an OS Login certificate [via the YC CLI](../../compute/operations/vm-connect/os-login.md#connect-via-cli) or a [standard SSH client](../../compute/operations/vm-connect/os-login.md#connect-via-exported-certificate).
+          The option allows you to connect to a VM or {{ k8s }} cluster node with an OS Login certificate [via the YC CLI](../../compute/operations/vm-connect/os-login.md#connect-via-cli) or a [standard SSH client](../../compute/operations/vm-connect/os-login.md#connect-via-exported-certificate).
 
       * **{{ ui-key.yacloud_org.form.oslogin-settings.title_user-ssh-key-settings }}**.
-         The option allows you to connect to a VM or {{ k8s }} cluster node via the YC CLI with an [SSH key](../../compute/operations/vm-connect/os-login.md#connect-via-key) stored in an organization user profile.
+          The option allows you to connect to a VM or {{ k8s }} cluster node via the YC CLI with an [SSH key](../../compute/operations/vm-connect/os-login.md#connect-via-key) stored in an organization user profile.
 
       * **{{ ui-key.yacloud_org.form.oslogin-settings.title_allow-edit-own-keys }}**.
-         The option is available if OS Login access with SSH keys is enabled.
-         It allows users to [upload](./add-ssh.md) public SSH keys to their profile to connect to VMs or {{ k8s }} cluster nodes on their own.
+          The option is available if OS Login access with SSH keys is enabled.
+          It allows users to upload public SSH keys to their profile to connect to VMs or {{ k8s }} cluster nodes on their own. To upload your own SSH keys, follow [this guide](./add-ssh.md).
 
 - CLI {#cli}
 
-   {% include [cli-install](../../_includes/cli-install.md) %}
+  {% include [cli-install](../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   1. View the description of the CLI command to enable OS Login access at the organization level:
+  1. View the description of the CLI command to enable OS Login access at the organization level:
 
       ```bash
       yc organization-manager oslogin update-settings --help
       ```
 
-   1. Get the ID of the required organization:
+  1. Get the ID of the required organization:
 
       ```bash
       yc organization-manager organization list
@@ -57,7 +57,7 @@ To enable OS Login access at the organization level:
 
       Result:
 
-      ```bash
+      ```text
       +----------------------+-------------------------+-------------------------+
       |          ID          |          NAME           |          TITLE          |
       +----------------------+-------------------------+-------------------------+
@@ -66,7 +66,7 @@ To enable OS Login access at the organization level:
       +----------------------+-------------------------+-------------------------+
       ```
 
-   1. Enable OS Login access for the selected organization:
+  1. Enable OS Login access for the selected organization:
 
       ```bash
       yc organization-manager oslogin update-settings \
@@ -79,21 +79,21 @@ To enable OS Login access at the organization level:
       Where:
 
       * `--organization-id`: Previously obtained organization ID.
-      * `--ssh-certificates-enabled`: Access via OS Login using SSH certificates. The option allows you to connect to a VM with an OS Login certificate [via the YC CLI](../../compute/operations/vm-connect/os-login.md#connect-via-cli) or a [standard SSH client](../../compute/operations/vm-connect/os-login.md#connect-via-exported-certificate).
+      * `--ssh-certificates-enabled`: Access via OS Login using SSH certificates. This option allows you to connect to a VM with an OS Login certificate [via the YC CLI](../../compute/operations/vm-connect/os-login.md#connect-via-cli) or a [standard SSH client](../../compute/operations/vm-connect/os-login.md#connect-via-exported-certificate).
 
-         To disable the option, provide the `false` value in the `--ssh-certificates-enabled=false` parameter.
+          To disable this option, provide the `false` value in the `--ssh-certificates-enabled=false` parameter.
 
       * `--ssh-user-keys-enabled`: Access via OS Login using SSH keys. The option allows you to connect to a VM via the YC CLI [with an SSH key](../../compute/operations/vm-connect/os-login.md#connect-via-key) stored in an organization user profile.
 
-         To disable the option, provide the `false` value in the `--ssh-user-keys-enabled=false` parameter.
+          To disable this option, provide the `false` value in the `--ssh-user-keys-enabled=false` parameter.
 
-      * `--allow-manage-own-keys`: Allow users to upload their own SSH keys. This option allows users to [upload](./add-ssh.md) public SSH keys to their profile to connect to VMs on their own. The option is available if OS Login access with SSH keys is enabled.
+      * `--allow-manage-own-keys`: Allow users to upload their own SSH keys. This option allows users to upload public SSH keys to their profile to connect to VMs on their own. To upload your own SSH keys, follow [this guide](./add-ssh.md). The option is available if OS Login access with SSH keys is enabled.
 
-         To disable the option, provide the `false` value in the `--allow-manage-own-keys=false` parameter.
+          To disable this option, provide the `false` value in the `--allow-manage-own-keys=false` parameter.
 
       Result:
 
-      ```bash
+      ```text
       user_ssh_key_settings:
         enabled: true
         allow_manage_own_keys: true
@@ -103,9 +103,9 @@ To enable OS Login access at the organization level:
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-install](../../_includes/terraform-install.md) %}
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-   1. In the configuration file, describe the parameters of the resources you want to create:
+  1. In the configuration file, describe the parameters of the resources you want to create:
 
       ```hcl
       resource "yandex_organizationmanager_os_login_settings" "my_os_login_settings" {
@@ -124,34 +124,34 @@ To enable OS Login access at the organization level:
 
       * `organization_id`: Organization ID. You can get the organization ID using the [YC CLI](../../cli/quickstart.md) `yc organization-manager organization list` command or in the [management console]({{ link-console-main }}).
 
-      * `ssh_certificate_settings`: Access via OS Login using SSH certificates. The option allows you to connect to a VM with an OS Login certificate [via the YC CLI](../../compute/operations/vm-connect/os-login.md#connect-via-cli) or a [standard SSH client](../../compute/operations/vm-connect/os-login.md#connect-via-exported-certificate). The `enabled` parameter may take the `true` (option enabled) and `false` (option disabled) values.
+      * `ssh_certificate_settings`: Access via OS Login using SSH certificates. This option allows you to connect to a VM with an OS Login certificate [via the YC CLI](../../compute/operations/vm-connect/os-login.md#connect-via-cli) or a [standard SSH client](../../compute/operations/vm-connect/os-login.md#connect-via-exported-certificate). The `enabled` parameter may take either the `true` (option enabled) or `false` (option disabled) values.
 
-      * `user_ssh_key_settings`: Parameter block for managing access with user SSH keys.
+      * `user_ssh_key_settings`: Section for managing access through user SSH keys.
 
-         * `enabled`: Access via OS Login using SSH keys. The option allows you to connect to a VM via the YC CLI [with an SSH key](../../compute/operations/vm-connect/os-login.md#connect-via-key) stored in an organization user profile. It may take the `true` (option enabled) and `false` (option disabled) values.
+          * `enabled`: Access via OS Login using SSH keys. This option allows you to connect to a VM via the YC CLI [with an SSH key](../../compute/operations/vm-connect/os-login.md#connect-via-key) stored in an organization user profile. It may take either the `true` (option enabled) or `false` (option disabled) values.
 
-         * `allow_manage_own_keys`: Allows users to upload their own SSH keys. This option allows users to [upload](./add-ssh.md) public SSH keys to their profile to connect to VMs on their own. The option is available if OS Login access with SSH keys is enabled. It may take the `true` (option enabled) and `false` (option disabled) values.
+          * `allow_manage_own_keys`: Allow users to upload their own SSH keys. This option allows users to upload public SSH keys to their profile to connect to VMs on their own. To upload your own SSH keys, follow [this guide](./add-ssh.md). The option is available if OS Login access with SSH keys is enabled. It may take either the `true` (option enabled) or `false` (option disabled) values.
 
-      For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/organizationmanager_os_login_settings).
+      For more information about the resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/organizationmanager_os_login_settings).
 
-   1. Make sure the configuration files are correct.
+  1. Make sure the configuration files are correct.
 
       1. In the command line, go to the folder where you created the configuration file.
       1. Run a check using this command:
 
-         ```bash
-         terraform plan
-         ```
+          ```bash
+          terraform plan
+          ```
 
       If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
-   1. Deploy cloud resources.
+  1. Deploy cloud resources.
 
       1. If the configuration does not contain any errors, run this command:
 
-         ```bash
-         terraform apply
-         ```
+          ```bash
+          terraform apply
+          ```
 
       1. Confirm that you want to create the resources.
 
@@ -163,7 +163,7 @@ To enable OS Login access at the organization level:
 
       Result:
 
-      ```bash
+      ```text
       user_ssh_key_settings:
         enabled: true
         allow_manage_own_keys: true
@@ -173,7 +173,7 @@ To enable OS Login access at the organization level:
 
 - API {#api}
 
-   Use the [updateSettings](../../organization/api-ref/OsLogin/updateSettings.md) REST API method for the [OsLogin](../../organization/api-ref/OsLogin/index.md) resource or the [OsLoginService/UpdateSettings](../../organization/api-ref/grpc/os_login_service.md#UpdateSettings) gRPC API call.
+  Use the [updateSettings](../../organization/api-ref/OsLogin/updateSettings.md) REST API method for the [OsLogin](../../organization/api-ref/OsLogin/index.md) resource or the [OsLoginService/UpdateSettings](../../organization/api-ref/grpc/os_login_service.md#UpdateSettings) gRPC API call.
 
 {% endlist %}
 
@@ -183,4 +183,4 @@ To enable OS Login access at the organization level:
 * [{#T}](../operations/add-ssh.md)
 * [{#T}](../../compute/operations/vm-connect/os-login.md)
 * [Connecting to a {{ k8s }} node via OS Login](../../managed-kubernetes/operations/node-connect-oslogin.md)
-* [Using a service account with an OS Login profile for VM management via Ansible](../../tutorials/security/sa-oslogin-ansible.md)
+* [Using a service account with an OS Login profile for VM management via Ansible](../tutorials/sa-oslogin-ansible.md)

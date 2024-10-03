@@ -1,19 +1,19 @@
-# Changing {{ CH }} settings at the user level
+# Changing {{ CH }} settings at the query level
 
-You can specify [{{ CH }} settings at the user level](https://clickhouse.com/docs/en/operations/settings/query-level) to flexibly configure databases in a {{ mch-name }} cluster. You can specify settings in several ways:
+You can specify [{{ CH }} settings at the query level](https://clickhouse.com/docs/en/operations/settings/query-level) to flexibly configure databases in a {{ mch-name }} cluster. You can specify settings in several ways:
 
 * Using the [{{ yandex-cloud }} interfaces](#yandex-cloud-interfaces). This way you can specify only the [{{ CH }} settings available in {{ yandex-cloud }}](../concepts/settings-list.md#user-level-settings).
-* Using SQL queries. This way you can specify any {{ CH }} settings at the user level. The method of specifying settings depends on their type:
+* Using SQL queries. This way you can specify any {{ CH }} settings at the query level. The method of specifying settings depends on their type:
 
    * [User settings](#user). In the `CREATE USER` and `ALTER USER` SQL queries, you can specify settings in the `SETTINGS` condition. Such settings will apply to the selected user only.
 
       To use this method, enable the **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}** option when [creating](cluster-create.md) or [updating](update.md#SQL-management) the cluster. After that, you will not be able to manage users using the {{ yandex-cloud }} interfaces; however, you cannot disable user management via SQL.
 
-   * [Settings at the profile level](#settings-profile). In {{ CH }}, the [settings profile]({{ ch.docs }}/operations/access-rights#settings-profiles-management) contains the values and limitations of these settings as well as the list of roles and users to whom the profile applies. You can specify {{ CH }} settings in the `CREATE SETTINGS PROFILE` and `ALTER SETTINGS PROFILE` SQL queries.
+   * [Settings at the profile level](#settings-profile). In {{ CH }}, the [settings profile]({{ ch.docs }}/operations/access-rights#settings-profiles-management) contains the values and limitations of these settings as well as the list of roles and users the profile applies to. {{ CH }} settings are provided in the `CREATE SETTINGS PROFILE` and `ALTER SETTINGS PROFILE` SQL queries.
 
       To use this method, enable the **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}** option when [creating](cluster-create.md) or [updating](update.md#SQL-management) the cluster.
 
-   * [Session settings](#session). During a session, you can specify {{ CH }} settings using the `SET` SQL query. This way you can specify settings in a cluster with any configuration, but they will apply to the current session only.
+   * [Session settings](#session). During a session, you can provide {{ CH }} settings using the `SET` SQL query. This way you can specify settings in a cluster with any configuration, but they will apply to the current session only.
 
       This method is not suitable for all SQL editors: in some of them, every query runs in a separate session. Check the characteristics of your SQL editor before configuring a session.
 
@@ -21,20 +21,20 @@ You can specify [{{ CH }} settings at the user level](https://clickhouse.com/doc
 
       You can also specify connection settings in different drivers for {{ CH }} or provide them as URL parameters when sending {{ CH }} HTTP API requests. For more information about these methods, see the [{{ CH }} documentation](https://clickhouse.com/docs/en/interfaces/overview).
 
-## Getting the list of {{ CH }} settings at the user level {#get-list}
+## Getting the list of {{ CH }} settings at the query level {#get-list}
 
 {% list tabs group=instructions %}
 
 - SQL {#sql}
 
-   1. [Connect](connect/clients.md) to the cluster.
+   1. [Connect](connect/clients.md) to the database in the cluster.
    1. Run the following query:
 
       ```sql
       SELECT name, description, value FROM system.settings;
       ```
 
-      The result contains names, descriptions, and values of {{ CH }} settings at the user level. The result displays values for the current session and the user who established that session.
+      The result contains names, descriptions, and values of {{ CH }} settings at the query level. The result displays values for the current session and the user who established that session.
 
 {% endlist %}
 
@@ -52,13 +52,13 @@ You can specify {{ CH }} settings when [adding a new user](#add-user) or [changi
 
 - SQL {#sql}
 
-   1. [Connect](connect/clients.md) to a cluster using the `admin` account.
+   1. [Connect](connect/clients.md) to the DB in the cluster using the `admin` account.
    1. Create a user:
 
       ```sql
-      CREATE USER <user_name>
+      CREATE USER <username>
          IDENTIFIED WITH sha256_password BY '<user_password>'
-         SETTINGS <{{ CH }}_settings_list>;
+         SETTINGS <list_of_{{ CH }}_settings>;
       ```
 
       {% include [sql-user-name-and-password-limits](../../_includes/mdb/mch/note-sql-info-user-name-and-pass-limits.md) %}
@@ -66,7 +66,7 @@ You can specify {{ CH }} settings when [adding a new user](#add-user) or [changi
       Under `SETTINGS`, along with the setting value, you can specify its minimum and maximum value. Here is an example for the [idle_connection_timeout](https://clickhouse.com/docs/en/operations/settings/settings#idle_connection_timeout) setting:
 
       ```sql
-      CREATE USER <user_name>
+      CREATE USER <username>
          IDENTIFIED WITH sha256_password BY 'password'
          SETTINGS idle_connection_timeout = 60 MIN 5 MAX 120;
       ```
@@ -81,11 +81,11 @@ You can specify {{ CH }} settings when [adding a new user](#add-user) or [changi
 
 - SQL {#sql}
 
-   1. [Connect](connect/clients.md) to a cluster using the `admin` account.
+   1. [Connect](connect/clients.md) to the DB in the cluster using the `admin` account.
    1. Update the user account.
 
       ```sql
-      ALTER USER <user_name> SETTINGS <{{ CH }}_settings_list>;
+      ALTER USER <username> SETTINGS <list_of_{{ CH }}_settings>;
       ```
 
       For more information on updating accounts, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/statements/alter/user).
@@ -102,12 +102,12 @@ You can specify {{ CH }} settings when [creating](#create-settings-profile) or [
 
 - SQL {#sql}
 
-   1. [Connect](connect/clients.md) to a cluster using the `admin` account.
+   1. [Connect](connect/clients.md) to the DB in the cluster using the `admin` account.
    1. Create a settings profile:
 
       ```sql
       CREATE SETTINGS PROFILE <settings_profile_name>
-         SETTINGS <{{ CH }}_settings_list>;
+         SETTINGS <list_of_{{ CH }}_settings>;
       ```
 
       Under `SETTINGS`, along with the setting value, you can specify its minimum and maximum value. Here is an example for the [idle_connection_timeout](https://clickhouse.com/docs/en/operations/settings/settings#idle_connection_timeout) setting:
@@ -121,7 +121,7 @@ You can specify {{ CH }} settings when [creating](#create-settings-profile) or [
 
       ```sql
       CREATE SETTINGS PROFILE <settings_profile_name>
-         SETTINGS <{{ CH }}_settings_list>
+         SETTINGS <list_of_{{ CH }}_settings>
          TO <username>;
       ```
 
@@ -135,12 +135,12 @@ You can specify {{ CH }} settings when [creating](#create-settings-profile) or [
 
 - SQL {#sql}
 
-   1. [Connect](connect/clients.md) to a cluster using the `admin` account.
+   1. [Connect](connect/clients.md) to the DB in the cluster using the `admin` account.
    1. Update a settings profile:
 
       ```sql
       ALTER SETTINGS PROFILE <settings_profile_name>
-         SETTINGS <{{ CH }}_settings_list>;
+         SETTINGS <list_of_{{ CH }}_settings>;
       ```
 
       In this query, you can specify the boundary values of settings and bind the profile to a user. For more information about changing settings profiles, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/statements/alter/settings-profile).
@@ -153,11 +153,11 @@ You can specify {{ CH }} settings when [creating](#create-settings-profile) or [
 
 - SQL {#sql}
 
-   1. [Connect](connect/clients.md) to the cluster.
+   1. [Connect](connect/clients.md) to the database in the cluster.
    1. Run the following query:
 
       ```sql
-      SET <username> SETTINGS <{{ CH }}_settings_list>;
+      SET <username> SETTINGS <list_of_{{ CH }}_settings>;
       ```
 
       The applied settings will be valid during the opened session only.
@@ -199,7 +199,7 @@ You can specify {{ CH }} settings when [creating](#create-settings-profile) or [
          ```bash
          clickhouse-client --host <FQDN_of_any_{{ CH }}_host> \
                            --user <username> \
-                           --database <database_name> \
+                           --database <db_name> \
                            --port 9000 \
                            --ask-password \
                            <flags_with_{{ CH }}_settings>
@@ -212,7 +212,7 @@ You can specify {{ CH }} settings when [creating](#create-settings-profile) or [
          clickhouse-client --host <FQDN_of_any_{{ CH }}_host> \
                            --secure \
                            --user <username> \
-                           --database <database_name> \
+                           --database <db_name> \
                            --port 9440 \
                            --ask-password \
                            <flags_with_{{ CH }}_settings>

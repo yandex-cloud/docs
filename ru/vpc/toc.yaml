@@ -75,6 +75,18 @@ items:
             href: operations/delete-route-table.md
           - name: Удалить NAT-шлюз
             href: operations/delete-nat-gateway.md
+      - name: Сервисные подключения
+        items:
+          - name: Создать сервисное подключение
+            href: operations/private-endpoint-create.md
+          - name: Получить информацию о сервисном подключении
+            href: operations/private-endpoint-get-info.md
+          - name: >-
+              Назначить политику доступа в Object Storage для сервисного
+              подключения
+            href: operations/private-endpoint-storage-policy.md
+          - name: Удалить сервисное подключение
+            href: operations/private-endpoint-delete.md
       - name: Группы безопасности
         items:
           - name: Создать группу безопасности
@@ -109,8 +121,16 @@ items:
         href: tutorials/index.md
       - name: Архитектура и защита базового интернет-сервиса
         href: tutorials/web-service.md
-      - name: Маршрутизация с помощью NAT-инстанса
-        href: tutorials/nat-instance.md
+      - name: Настройки DHCP для работы с корпоративным DNS-сервером
+        href: tutorials/dhcp-options.md
+      - name: Маршрутизация через NAT-инстанс
+        items:
+          - name: Обзор
+            href: tutorials/nat-instance/index.md
+          - name: Консоль управления
+            href: tutorials/nat-instance/console.md
+          - name: '{{ TF }}'
+            href: tutorials/nat-instance/terraform.md
       - name: Организация сетевой связности с помощью IPsec-шлюзов
         items:
           - name: Схема решения
@@ -126,6 +146,10 @@ items:
       - name: Соединение с облачной сетью при помощи OpenVPN
         href: tutorials/openvpn.md
       - name: >-
+          Настройка {{ dns-name }} для доступа к кластеру {{ mch-name }} из
+          других облачных сетей
+        href: tutorials/clickhouse-dns-peering.md
+      - name: >-
           Защищенный доступ пользователей к облачным ресурсам на основе
           WireGuard VPN
         href: tutorials/remote-wireguard-vpn.md
@@ -137,6 +161,8 @@ items:
         href: tutorials/multi-folder-vpc.md
       - name: Настройка PT Application Firewall
         href: tutorials/pt-application-firewall.md
+      - name: Использование модулей {{ yandex-cloud }} в {{ TF }}
+        href: tutorials/terraform-modules.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса
@@ -153,6 +179,8 @@ items:
         href: concepts/security-groups.md
       - name: Шлюзы
         href: concepts/gateways.md
+      - name: Сервисные подключения
+        href: concepts/private-endpoint.md
       - name: Мониторинг сетевых соединений
         href: concepts/monitoring-connections.md
       - name: Диапазоны публичных IP-адресов
@@ -343,6 +371,8 @@ items:
             href: api-ref/grpc/security_group_service.md
           - name: SubnetService
             href: api-ref/grpc/subnet_service.md
+          - name: PrivateEndpointService
+            href: api-ref/grpc/private_endpoint_service.md
           - name: OperationService
             href: api-ref/grpc/operation_service.md
   - name: Аудитные логи {{ at-name }}

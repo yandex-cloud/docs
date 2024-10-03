@@ -213,6 +213,9 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
    1. [Delete the bucket in {{ objstorage-name }}](../../../storage/operations/buckets/delete.md).
    1. [Delete the {{ mgp-name }} cluster](../../../managed-greenplum/operations/cluster-delete.md).
    1. [Delete the service account](../../../iam/operations/sa/delete.md).
+   1. [Delete the subnet](../../../vpc/operations/subnet-delete.md).
+   1. [Delete the route table](../../../vpc/operations/delete-route-table.md).
+   1. [Delete the NAT gateway](../../../vpc/operations/delete-nat-gateway.md).
    1. [Delete the cloud network](../../../vpc/operations/network-delete.md).
 
 

@@ -114,6 +114,8 @@ items:
           Перенос данных из {{ objstorage-full-name }} с использованием {{
           data-transfer-full-name }}
         href: tutorials/object-storage-to-postgresql.md
+      - name: Настройка отказоустойчивой архитектуры в {{ yandex-cloud }}
+        href: tutorials/fault-tolerance.md
       - name: Создание сайта на базе Joomla с базой данных PostgreSQL
         items:
           - name: Обзор
@@ -154,6 +156,14 @@ items:
               Миграция данных из AWS RDS for {{ PG }} в {{ mpg-name }} с помощью
               {{ data-transfer-full-name }}
             href: tutorials/rds-to-mpg.md
+          - name: Миграция базы данных из {{ GP }} в {{ PG }}
+            href: tutorials/greenplum-to-postgresql.md
+          - name: >-
+              Миграция данных из {{ mpg-name }} в {{ mos-name }} с помощью {{
+              data-transfer-full-name }}
+            href: tutorials/postgresql-to-opensearch.md
+          - name: Асинхронная репликация данных из {{ PG }} в {{ CH }}
+            href: tutorials/rdbms-to-clickhouse.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса

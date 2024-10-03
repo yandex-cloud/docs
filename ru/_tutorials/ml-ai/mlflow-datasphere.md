@@ -90,7 +90,7 @@
 
      Результат:
 
-     ```
+     ```text
      access_key:
        id: aje6t3vsbj8l********
        service_account_id: ajepg0mjt06s********
@@ -301,7 +301,7 @@
    [Install]
    WantedBy=multi-user.target
    ```
-   Где: 
+   Где:
 
    * `<имя_пользователя_ВМ>` — имя учетной записи пользователя ВМ;
    * `<имя_пользователя_БД>` — имя пользователя, указанное при создании кластера БД.
@@ -369,10 +369,10 @@
 
     ```python
     def eval_metrics(actual, pred):
-    rmse = np.sqrt(mean_squared_error(actual, pred))
-    mae = mean_absolute_error(actual, pred)
-    r2 = r2_score(actual, pred)
-    return rmse, mae, r2
+      rmse = np.sqrt(mean_squared_error(actual, pred))
+      mae = mean_absolute_error(actual, pred)
+      r2 = r2_score(actual, pred)
+      return rmse, mae, r2
     ```
 
 1. Подготовьте данные, обучите модель и зарегистрируйте ее в MLflow:

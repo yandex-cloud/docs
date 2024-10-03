@@ -102,6 +102,11 @@ description: "В сервисах {{ yandex-cloud }} могут действов
 {% include [logging-limits.md](../../_includes/logging/logging-limits.md) %}
 
 
+### {{ cns-full-name }} {#cns}
+
+{% include [cns-limits.md](../../_includes/cns-limits.md) %}
+
+
 ### {{ org-full-name }} {#organization}
 
 {% include [org-limits.md](../../_includes/organization/org-limits.md) %}
@@ -112,6 +117,11 @@ description: "В сервисах {{ yandex-cloud }} могут действов
 
 {% include [postbox-limits](../../_includes/postbox/postbox-limits.md) %}
 
+
+
+### {{ video-full-name }} {#video}
+
+{% include [video-limits](../../_includes/video-limits.md) %}
 
 
 ### {{ compute-full-name }} {#compute}

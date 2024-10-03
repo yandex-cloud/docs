@@ -53,7 +53,7 @@
       --gateway-websocket-broadcast-path <путь> \
       --gateway-websocket-broadcast-service-account-id <идентификатор_сервисного_аккаунта>
     ```
-  
+
     Где:
 
     * `--name` — имя триггера.

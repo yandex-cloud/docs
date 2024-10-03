@@ -6,18 +6,12 @@
 
 ## Перед началом работы {#before-begin}
 
-{% list tabs group=instructions %}
+Чтобы воспользоваться примерами запросов через API, установите:
 
-- API {#api}
+* [cURL](https://curl.haxx.se) для отправки API-запросов;
+* утилиту [jq](https://github.com/jqlang/jq) для работы с файлами JSON.
 
-  Чтобы воспользоваться примерами запросов через API, установите:
-  
-  * [cURL](https://curl.haxx.se) для отправки API-запросов;
-  * утилиту [jq](https://github.com/jqlang/jq) для работы с файлами JSON.
-
-  Получите данные для аутентификации в API, как описано на странице [{#T}](../../api-ref/authentication.md).
-
-{% endlist %}
+Получите данные для аутентификации в API, как описано на странице [{#T}](../../api-ref/authentication.md).
 
 ## Сгенерируйте изображение {#generate-text}
 
@@ -27,9 +21,11 @@
 
 {% endnote %}
 
-{% list tabs group=instructions %}
+{% list tabs group=programming_language %}
 
-- API {#api}
+- Bash {#bash}
+
+  {% include [bash-windows-note-single](../../../_includes/translate/bash-windows-note-single.md) %}
 
   1. Создайте файл с телом запроса (например, `prompt.json`):
 
@@ -57,30 +53,30 @@
   1. Отправьте запрос нейросети с помощью метода [ImageGenerationAsync.generate](../../image-generation/api-ref/ImageGenerationAsync/generate.md), выполнив команду:
 
      ```bash
-     curl --request POST \
-       -H "Authorization: Bearer <значение_IAM-токена>" \
-       -d "@prompt.json" \
-       "https://llm.{{ api-host }}/foundationModels/v1/imageGenerationAsync"  
+     curl \
+       --request POST \
+       --header "Authorization: Bearer <значение_IAM-токена>" \
+       --data "@prompt.json" \
+       "https://llm.{{ api-host }}/foundationModels/v1/imageGenerationAsync"
      ```
 
      Где:
- 
+
      * `<значение_IAM-токена>` — IAM-токен вашего аккаунта.
      * `prompt.json` — файл в формате JSON, содержащий параметры запроса.
-     
+
      В ответе сервис вернет объект Operation:
 
      ```json
-     {
-     "id":"fbveu1sntj**********","description":"","createdAt":null,"createdBy":"","modifiedAt":null,"done":false,"metadata":null}
+     {"id":"fbveu1sntj**********","description":"","createdAt":null,"createdBy":"","modifiedAt":null,"done":false,"metadata":null}
      ```
 
      Сохраните идентификатор (`id`) операции, полученный в ответе.
 
   1. Генерация изображения может занять от нескольких секунд до нескольких часов. Подождите некоторое время и отправьте запрос по адресу: `https://llm.api.cloud.yandex.net:443/operations/<идентификатор_операции>`, чтобы получить результат генерации. Если изображение готово, результат вернется в [кодировке Base64](https://ru.wikipedia.org/wiki/Base64) и будет записан в файл `image.jpeg`. 
-  
+
      ```bash
-     curl -X GET -H "Authorization: Bearer <значение_IAM-токена>" https://llm.api.cloud.yandex.net:443/operations/<идентификатор_операции> | jq -r '.response | .image' | base64 -d > image.jpeg
+     curl --request GET --header "Authorization: Bearer <значение_IAM-токена>" https://llm.api.cloud.yandex.net:443/operations/<идентификатор_операции> | jq -r '.response | .image' | base64 -d > image.jpeg
      ```
 
      Где:

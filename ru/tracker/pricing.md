@@ -7,6 +7,10 @@ description: "Стоимость использования {{ tracker-name }} �
 
 
 
+{% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
+
+{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
+
 {% note tip %}
 
 Небольшим командам платить за {{ tracker-name }} не придется: вы можете бесплатно подключить к {{ tracker-name }} до 5 сотрудников.
@@ -23,8 +27,8 @@ description: "Стоимость использования {{ tracker-name }} �
 
 ## Цены для региона Россия {#prices}
 
-
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
+
 
 {% list tabs group=pricing %}
 

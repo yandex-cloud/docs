@@ -15,13 +15,18 @@
 `DeleteKey` | Удаление пары ключей для сервисного аккаунта
 `DeleteServiceAccount` | Удаление сервисного аккаунта
 `DetectLeakedCredential` | Обнаружение секрета в открытом источнике
-`SetServiceAccountAccessBindings` | Назначение привязок прав доступа для сервисного аккаунта
+`SetServiceAccountAccessBindings` | Назначение прав доступа для сервисного аккаунта
 `UpdateAccessKey` | Обновление статического ключа
 `UpdateApiKey` | Обновление API-ключа
 `UpdateCertificate` | Обновление сертификата
 `UpdateFederation` | Обновление федерации
 `UpdateKey` | Обновление пары ключей
 `UpdateServiceAccount` | Обновление сервисного аккаунта
-`UpdateServiceAccountAccessBindings` | Изменение привязок прав доступа для сервисного аккаунта
+`UpdateServiceAccountAccessBindings` | Изменение прав доступа для сервисного аккаунта
+`workload.CreateFederatedCredential` | Создание [привязки](../../../iam/concepts/workload-identity.md#federated-credentials) в федерации сервисных аккаунтов
+`workload.DeleteFederatedCredential` | Удаление привязки из федерации сервисных аккаунтов
+`workload.oidc.CreateFederation` | Создание [федерации сервисных аккаунтов](../../../iam/concepts/workload-identity.md)
+`workload.oidc.DeleteFederation` | Удаление федерации сервисных аккаунтов
+`workload.oidc.UpdateFederation` | Изменение федерации сервисных аккаунтов
 
 \* Событие попадает в аудитный лог, только если [область сбора аудитных логов](../../../audit-trails/concepts/trail.md#collecting-area) трейла — `Организация`.

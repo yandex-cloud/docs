@@ -4,10 +4,11 @@
 
 Ответ не может содержать более 1000 элементов. Если загрузок больше, то {{ objstorage-name }} возвращает элемент `IsTruncated`, а также элементы `NextKeyMarker` и `NextUploadIdMarker`, которые необходимо использовать для параметров `key-marker` и `upload-id-marker` последующего запроса.
 
+{% include [s3-api-intro-include](../../../../_includes/storage/s3-api-intro-include.md) %}
 
 ## Запрос {#request}
 
-```
+```http
 GET /{bucket}?uploads HTTP/2
 ```
 
@@ -49,7 +50,7 @@ GET /{bucket}?uploads HTTP/2
 
 ### Схема данных {#response-scheme}
 
-```
+```xml
 <ListMultipartUploadsResult xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
   <Bucket>bucket</Bucket>
   <KeyMarker></KeyMarker>
@@ -109,7 +110,7 @@ GET /{bucket}?uploads HTTP/2
 `Bucket` | Бакет, к которому относится составная загрузка.<br/><br/>Путь: `/ListMultipartUploadsResult/Bucket`.
 `KeyMarker` | Ключ.<br/><br/>Выдача начинается с ключа, следующего за указанным в значении элемента.<br/><br/>Смотрите описание параметра запроса `key-marker`.<br/><br/>Путь: `/ListMultipartUploadsResult/KeyMarker`.
 `UploadIdMarker` | Идентификатор загрузки.<br/><br/>Выдача начнется с той загрузки, идентификатор которой следует за указанной в параметре.<br/><br/>Смотрите описание параметра запроса `upload-id-​marker`.<br/><br/>Путь: `/ListMultipartUploadsResult/UploadIdMarker`.
-`NextKeyMarker` | Ключ.<br/><br/>Если выдача не вместила все элементы, которые должен получить пользователь, то это значение необходимо использовать в параметре `key-marker` для последующих запросов.<br/><br/>Присутствует в случае, когда в ответ не поместился все элементы.<br/><br/>Путь: `/ListMultipartUploadsResult/NextKeyMarker`.
+`NextKeyMarker` | Ключ.<br/><br/>Если выдача не вместила все элементы, которые должен получить пользователь, то это значение необходимо использовать в параметре `key-marker` для последующих запросов.<br/><br/>Присутствует в случае, когда в ответ не поместились все элементы.<br/><br/>Путь: `/ListMultipartUploadsResult/NextKeyMarker`.
 `NextUploadIdMarker` | Идентификатор загрузки.<br/><br/>Если выдача не вместила все элементы, которые должен получить пользователь, то это значение необходимо использовать в параметре `upload-id-marker` для последующих запросов.<br/><br/>Присутствует в случае, когда в ответ не поместились все элементы.<br/><br/>Путь: `/ListMultipartUploadsResult/NextUploadMarker`.
 `Encoding-Type` | Кодировка, в которой {{ objstorage-name }} представляет ключ в XML-ответе.<br/><br/>Смотрите описание параметра запроса `encoding-type`.<br/><br/>Путь: `/ListMultipartUploadsResult/Encoding-Type`.
 `MaxUploads` | Максимальная длина списка для одного ответа.<br/><br/>Смотрите параметр запроса `max-uploads`.<br/><br/>Путь: `/ListMultipartUploadsResult/MaxUploads`.

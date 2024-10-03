@@ -187,21 +187,25 @@ You can change the computing power of hosts in a separate subcluster. It depends
 
 ## Changing the autoscaling rule for data processing subclusters {#change-autoscaling-rule}
 
-You can configure the [autoscaling](../concepts/autoscaling.md) rule in data processing subclusters:
+You can configure the [autoscaling](../concepts/autoscaling.md) rule in data processing subclusters.
 
 Make sure the cloud quota is sufficient to increase the VM resources. Open the [{{ ui-key.yacloud.iam.cloud.switch_quotas }}]({{ link-console-quotas }}) page for your cloud and check that the **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** section still has space available in the following lines:
 
-* **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-compute.hddDisks.size }}**.
-* **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-compute.ssdDisks.size }}**.
-* **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-compute.disks.count }}**.
-* **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-compute.instanceCores.count }}**.
-* **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-compute.instances.count }}**.
+* **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-compute.hddDisks.size }}**​
+* **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-compute.ssdDisks.size }}**​
+* **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-compute.disks.count }}**​
+* **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-compute.instanceCores.count }}**​
+* **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-compute.instances.count }}**​.
+
+To enable autoscaling, make sure the {{ dataproc-name }} cluster service account has the following [roles assigned](../../iam/operations/sa/assign-role-for-sa.md):
+
+{% include [sa-roles](../../_includes/data-proc/sa-roles.md) %}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-   {% include [note-info-service-account-roles](../../_includes/data-proc/service-account-roles.md) %}
+   To configure autoscaling for subclusters:
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
    1. Select a cluster and open the **{{ ui-key.yacloud.mdb.cluster.switch_subclusters }}** tab.
@@ -217,7 +221,7 @@ Make sure the cloud quota is sufficient to increase the VM resources. Open the [
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To set up [autoscaling](../concepts/autoscaling.md) for subclusters:
+   To configure autoscaling for subclusters:
 
    1. View a description of the CLI update subcluster command:
 
@@ -254,6 +258,8 @@ Make sure the cloud quota is sufficient to increase the VM resources. Open the [
       You can request a subcluster name or ID with a [list of cluster subclusters](#list-subclusters), and a cluster name with a [list of folder clusters](cluster-list.md#list).
 
 - {{ TF }} {#tf}
+
+   To configure autoscaling for subclusters:
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
