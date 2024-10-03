@@ -25,6 +25,13 @@ Syntax:
 	- [yc storage bucket get-https](bucket/get-https.md) — Shows bucket https settings
 	- [yc storage bucket set-https](bucket/set-https.md) — Sets bucket https settings
 	- [yc storage bucket delete-https](bucket/delete-https.md) — Deletes bucket https settings
+- [yc storage s3api](s3api/index.md) — [PREVIEW] An aws s3api-like interface for accessing Object Storage
+	- [yc storage s3api get-object](s3api/get-object.md) — Returns an object from Object Storage
+	- [yc storage s3api put-object](s3api/put-object.md) — Puts an object and its metadata to Object Storage
+	- [yc storage s3api delete-object](s3api/delete-object.md) — Deletes an object from Object Storage
+	- [yc storage s3api copy-object](s3api/copy-object.md) — Creates a copy of an object that is already stored in Object Storage
+	- [yc storage s3api head-object](s3api/head-object.md) — Returns object metadata from Object Storage
+	- [yc storage s3api delete-objects](s3api/delete-objects.md) — Deletes objects based on a list of keys passed in a request
 
 #### Global Flags
 
@@ -43,4 +50,5 @@ Syntax:
 |`--impersonate-service-account-id`|<b>`string`</b><br/>Set the ID of the service account to impersonate.|
 |`--no-browser`|Disable opening browser for authentication.|
 |`--format`|<b>`string`</b><br/>Set the output format: text (default), yaml, json, json-rest.|
+|`--jq`|<b>`string`</b><br/>Query to select values from the response using jq syntax|
 |`-h`,`--help`|Display help for the command.|

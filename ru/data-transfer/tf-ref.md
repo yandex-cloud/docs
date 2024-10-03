@@ -1,6 +1,6 @@
 ---
-title: "Справочник {{ TF }} для {{ data-transfer-full-name }}"
-description: "На этой странице приведен справочник ресурсов провайдера Terraform, которые поддерживаются для сервиса {{ data-transfer-name }}."
+title: Справочник {{ TF }} для {{ data-transfer-full-name }}
+description: На этой странице приведен справочник ресурсов провайдера Terraform, которые поддерживаются для сервиса {{ data-transfer-name }}.
 ---
 
 # Справочник {{ TF }} для {{ data-transfer-full-name }}

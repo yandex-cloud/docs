@@ -22,7 +22,6 @@ to ensure that the transfer works after the removal of the zone.
 
 ## Решение {#issue-resolution}
 
- 
 
 Хост кластера эндпоинта сейчас размещается в зоне доступности `ru-central1-c`, которая [выводится из эксплуатации](../../../overview/concepts/ru-central1-c-deprecation.md). Текст ошибки [сообщает](../../../data-transfer/operations/endpoint/migration-to-an-availability-zone.md), что необходимо [перенести эндпоинт в другую зону доступности](../../../managed-postgresql/operations/host-migration.md).
 

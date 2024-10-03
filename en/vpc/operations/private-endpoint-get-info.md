@@ -1,6 +1,6 @@
 ---
-title: "How to get information about a service connection in {{ vpc-full-name }}"
-description: "Follow this guide to get information about a service connection (Private Endpoint) in VPC." 
+title: How to get information about a service connection in {{ vpc-full-name }}
+description: Follow this guide to get information about a service connection (Private Endpoint) in VPC.
 ---
 
 # Getting information about a service connection

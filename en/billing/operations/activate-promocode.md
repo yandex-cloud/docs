@@ -1,6 +1,6 @@
 ---
-title: "How to activate a promo code in {{ billing-name }}"
-description: "Follow this guide to activate a promo code."
+title: How to activate a promo code in {{ billing-name }}
+description: Follow this guide to activate a promo code.
 ---
 
 # Activating a promo code

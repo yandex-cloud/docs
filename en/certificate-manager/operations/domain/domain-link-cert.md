@@ -1,6 +1,6 @@
 ---
-title: "How to link a certificate to a domain"
-description: "Follow this guide to link a certificate to a domain."
+title: How to link a certificate to a domain
+description: Follow this guide to link a certificate to a domain.
 ---
 
 # Link a certificate to a domain

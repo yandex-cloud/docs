@@ -1,6 +1,6 @@
 ---
-title: "Access management in {{ compute-full-name }}"
-description: "Access management in {{ compute-full-name }}, a service providing scalable computing capacities for creating and managing VM instances. This section describes the resources for which you can assign a role and the roles existing in the service."
+title: Access management in {{ compute-full-name }}
+description: Access management in {{ compute-full-name }}, a service providing scalable computing capacities for creating and managing VM instances. This section describes the resources for which you can assign a role and the roles existing in the service.
 ---
 
 # Access management in {{ compute-name }}

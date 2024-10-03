@@ -1,6 +1,6 @@
 ---
-title: "How to edit and delete a trigger"
-description: "Follow this guide to edit and delete a trigger."
+title: How to edit and delete a trigger
+description: Follow this guide to edit and delete a trigger.
 ---
 
 # Editing and deleting triggers

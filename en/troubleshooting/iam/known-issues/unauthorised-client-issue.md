@@ -1,7 +1,6 @@
 # Resolving Issues when creating OAuth tokens on behalf of Yandex ID accounts
 
 
-
 ## Issue description {#issue-description}
 
 * When trying to create an OAuth token on behalf of a Yandex ID user, you see the error message: `Forbidden to get tokens with these rights for this application`.

@@ -1,6 +1,6 @@
 ---
-title: "Conditions in {{ sws-full-name }}"
-description: "You can set up conditions for your security rules. For more information, read this article."
+title: Conditions in {{ sws-full-name }}
+description: You can set up conditions for your security rules. For more information, read this article.
 ---
 
 # Conditions

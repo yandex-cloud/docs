@@ -49,7 +49,12 @@ executionId | <p>Required. ID of the Workflow execution.</p>
         "errorCode": "string"
       },
       "status": "string",
-      "type": "string"
+      "type": "string",
+      "attempts": "string",
+      "lastError": {
+        "message": "string",
+        "errorCode": "string"
+      }
     }
   ]
 }
@@ -79,3 +84,7 @@ entries[].<br>error.<br>message | **string**<br><p>Error message of the Workflow
 entries[].<br>error.<br>errorCode | **string**<br><p>Error code of the Workflow step.</p> 
 entries[].<br>status | **string**<br><p>Status of the Workflow step.</p> <ul> <li>SCHEDULED: Step execution is being scheduled.</li> <li>STARTED: Step execution is started.</li> <li>COMPLETED: Step execution is completed.</li> <li>FAILED: Step execution is failed.</li> <li>CANCEL_REQUESTED: Step execution is requested to be cancelled.</li> <li>CANCELLED: Step execution is canceled.</li> </ul> 
 entries[].<br>type | **string**<br><p>Type of the Workflow step (for example, FunctionCall or HttpCall).</p> 
+entries[].<br>attempts | **string** (int64)<br><p>Number of attempts (including all retries of unsuccessful attempts). Value "1" means there were no retries.</p> 
+entries[].<br>lastError | **object**<br><p>Last received error details in case of retries.</p> 
+entries[].<br>lastError.<br>message | **string**<br><p>Error message of the Workflow step.</p> 
+entries[].<br>lastError.<br>errorCode | **string**<br><p>Error code of the Workflow step.</p> 

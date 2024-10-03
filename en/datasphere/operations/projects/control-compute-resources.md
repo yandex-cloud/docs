@@ -1,6 +1,6 @@
 ---
-title: "How to select computing resources"
-description: "Follow this guide to configure your computing resources."
+title: How to select computing resources
+description: Follow this guide to configure your computing resources.
 ---
 
 # Selecting computing resources

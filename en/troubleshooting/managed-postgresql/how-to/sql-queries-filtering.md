@@ -1,7 +1,6 @@
 # How to set up SQL query filtering
 
 
-
 ## Scenario description {#case-description}
 
 You need to set up SQL query filtering.

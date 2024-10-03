@@ -1,6 +1,6 @@
 ---
-title: "Параметры инициализации плеера Cloud Video Player в SDK для JavaScript"
-description: "На странице описаны параметры, которые можно использовать при инициализации видеоплеера Cloud Video Player в SDK для JavaScript."
+title: Параметры инициализации плеера Cloud Video Player в SDK для JavaScript
+description: На странице описаны параметры, которые можно использовать при инициализации видеоплеера Cloud Video Player в SDK для JavaScript.
 ---
 
 # Параметры инициализации плеера

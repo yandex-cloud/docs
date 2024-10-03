@@ -32,7 +32,7 @@
             * С публичным доступом к хостам с ролью `DATA`.
 
 
-        
+
         1. Для подключения к кластерам с локальной машины пользователя, настройте группы безопасности:
 
             * [{{ mkf-name }}](../../managed-kafka/operations/connect/index.md#configuring-security-groups).
@@ -44,7 +44,7 @@
         1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
         1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
 
-        
+
         1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
         1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 

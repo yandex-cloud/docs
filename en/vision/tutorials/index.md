@@ -1,6 +1,6 @@
 ---
-title: "{{ vision-full-name }} use cases"
-description: "Various {{ vision-full-name }} use cases in {{ yandex-cloud }}."
+title: '{{ vision-full-name }} use cases'
+description: Various {{ vision-full-name }} use cases in {{ yandex-cloud }}.
 ---
 
 # {{ vision-full-name }} tutorials

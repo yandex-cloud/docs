@@ -270,7 +270,7 @@ To set up a local DNS in a [{{ managed-k8s-name }} cluster](../concepts/index.md
 To test the local DNS, a `nettool` [pod](../concepts/index.md#pod) will be launched in your {{ managed-k8s-name }} cluster containing the `dnsutils` network utility suite.
 1. Launch the `nettool` pod:
 
-   
+
    ```bash
    kubectl run nettool --image {{ registry }}/yc/demo/network-multitool -- sleep infinity
    ```

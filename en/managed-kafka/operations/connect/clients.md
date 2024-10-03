@@ -1,6 +1,6 @@
 ---
-title: "Connecting to an {{ KF }} cluster in {{ mkf-full-name }}"
-description: "Follow this guide to connect to hosts in an {{ KF }} cluster using command line tools and Docker container."
+title: Connecting to an {{ KF }} cluster in {{ mkf-full-name }}
+description: Follow this guide to connect to hosts in an {{ KF }} cluster using command line tools and Docker container.
 ---
 
 # Connecting to an {{ KF }} cluster from applications

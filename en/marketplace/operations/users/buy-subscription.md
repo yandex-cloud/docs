@@ -1,5 +1,5 @@
 ---
-title: "How to buy a subscription on {{ marketplace-full-name }}"
+title: How to buy a subscription on {{ marketplace-full-name }}
 ---
 
 # Buying a subscription

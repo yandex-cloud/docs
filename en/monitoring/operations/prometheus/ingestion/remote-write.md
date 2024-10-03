@@ -1,6 +1,6 @@
 ---
-title: "How to write metrics via the Remote API"
-description: "Use this guide to write metrics via the Remote API."
+title: How to write metrics via the Remote API
+description: Use this guide to write metrics via the Remote API.
 ---
 
 # Writing metrics via the Remote API

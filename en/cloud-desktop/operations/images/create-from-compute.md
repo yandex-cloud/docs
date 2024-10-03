@@ -1,6 +1,6 @@
 ---
-title: "How to create an image from a {{ compute-full-name }} VM in {{ cloud-desktop-full-name }}"
-description: "This guide describes how you can create an image from a VM."
+title: How to create an image from a {{ compute-full-name }} VM in {{ cloud-desktop-full-name }}
+description: This guide describes how you can create an image from a VM.
 ---
 
 # Creating an image from a {{ compute-name }} VM

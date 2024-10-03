@@ -1,6 +1,6 @@
 ---
-title: "Creating row-based tables in a {{ ydb-short-name }} database"
-description: "This tutorial describes properties of the `yandex_ydb_table` resource for creating row-based tables in {{ ydb-short-name }}."
+title: Creating row-based tables in a {{ ydb-short-name }} database
+description: This tutorial describes properties of the `yandex_ydb_table` resource for creating row-based tables in {{ ydb-short-name }}.
 ---
 
 # Creating row-based tables in a database

@@ -1,6 +1,6 @@
 ---
-title: "How to get started with {{ mmg-full-name }}"
-description: "Follow this guide to create and set up a {{ MG }} cluster."
+title: How to get started with {{ mmg-full-name }}
+description: Follow this guide to create and set up a {{ MG }} cluster.
 ---
 
 # Getting started with {{ mmg-name }}

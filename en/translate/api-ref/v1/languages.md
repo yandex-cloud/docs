@@ -1,6 +1,6 @@
 ---
-title: "List of supported languages"
-description: "Get a list of translation directions supported by the service."
+title: List of supported languages
+description: Get a list of translation directions supported by the service.
 ---
 
 # List of supported languages

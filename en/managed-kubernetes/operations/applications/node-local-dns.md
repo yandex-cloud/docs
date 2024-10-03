@@ -52,7 +52,7 @@ After installing NodeLocal DNS, use the following values:
 
 1. To install a Helm chart from NodeLocal DNS, run this command:
 
-   
+
    ```bash
    export HELM_EXPERIMENTAL_OCI=1 &&\
    helm pull oci://{{ mkt-k8s-key.yc_node-local-dns.helmChart.name }} \

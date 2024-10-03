@@ -1,5 +1,5 @@
 ---
-title: "How to set up security groups for a {{ mgl-full-name }} instance"
+title: How to set up security groups for a {{ mgl-full-name }} instance
 ---
 
 # Setting up security groups and {{ mgl-name }} instance access restrictions

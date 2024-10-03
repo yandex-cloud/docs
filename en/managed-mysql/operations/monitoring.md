@@ -1,6 +1,6 @@
 ---
-title: "Monitoring the state of MySQL clusters and hosts"
-description: "Using monitoring tools in the management console, you can track the status of a {{ mmy-name }} cluster and its individual hosts. These tools display diagnostic information as charts."
+title: Monitoring the state of MySQL clusters and hosts
+description: Using monitoring tools in the management console, you can track the status of a {{ mmy-name }} cluster and its individual hosts. These tools display diagnostic information as charts.
 ---
 
 # Monitoring the state of {{ MY }} clusters and hosts

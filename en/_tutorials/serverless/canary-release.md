@@ -77,7 +77,7 @@ The cost of resources to support a web application includes:
 
 - {{ TF }} {#tf}
 
-   
+
    If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
 

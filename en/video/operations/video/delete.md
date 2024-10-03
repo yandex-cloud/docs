@@ -1,6 +1,6 @@
 ---
-title: "How to delete a video in {{ video-full-name }}"
-description: "Follow this guide to delete a {{ video-full-name }} video."
+title: How to delete a video in {{ video-full-name }}
+description: Follow this guide to delete a {{ video-full-name }} video.
 ---
 
 # Deleting a video

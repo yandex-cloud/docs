@@ -1,6 +1,6 @@
 ---
-title: "Access management in {{ monitoring-full-name }}"
-description: "Access management in {{ monitoring-full-name }}, a service for collecting and storing metrics and using them to build charts on dashboards. To grant access to {{ monitoring-full-name }} resources, assign relevant roles from the list to the user."
+title: Access management in {{ monitoring-full-name }}
+description: Access management in {{ monitoring-full-name }}, a service for collecting and storing metrics and using them to build charts on dashboards. To grant access to {{ monitoring-full-name }} resources, assign relevant roles from the list to the user.
 ---
 
 # Access management in {{ monitoring-name }}

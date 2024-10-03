@@ -1,6 +1,6 @@
 ---
-title: "Reading data from a stream in the AWS SDK"
-description: "Follow this guide to retrieve data from a stream in the AWS SDK."
+title: Reading data from a stream in the AWS SDK
+description: Follow this guide to retrieve data from a stream in the AWS SDK.
 ---
 
 # Reading data from a stream in the AWS SDK

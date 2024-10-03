@@ -1,6 +1,6 @@
 ---
-title: "Asynchronous WAV audio file recognition using the {{ speechkit-full-name }} API v3"
-description: "Follow this guide to use asynchronous WAV audio file recognition in the API v3."
+title: Asynchronous WAV audio file recognition using the {{ speechkit-full-name }} API v3
+description: Follow this guide to use asynchronous WAV audio file recognition in the API v3.
 ---
 
 # Asynchronous WAV audio file recognition using the API v3

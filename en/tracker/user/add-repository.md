@@ -1,6 +1,6 @@
 ---
-title: "Repository overview"
-description: "This article lists the repositories you can add to {{ tracker-full-name }}."
+title: Repository overview
+description: This article lists the repositories you can add to {{ tracker-full-name }}.
 ---
 
 # Overview

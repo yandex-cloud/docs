@@ -1,6 +1,6 @@
 ---
-title: "How to work with lists in {{ wiki-full-name }}"
-description: "In this tutorial, you will learn how to use lists in {{ wiki-name }}."
+title: How to work with lists in {{ wiki-full-name }}
+description: In this tutorial, you will learn how to use lists in {{ wiki-name }}.
 ---
 
 # Lists

@@ -1,7 +1,6 @@
 ---
-title: "Quotas and limits in {{ resmgr-full-name }}"
-description: "{{ resmgr-full-name }} has quotas for the number of clouds per organization and the number of folders per cloud. There are no limits defined for the service."
-
+title: Quotas and limits in {{ resmgr-full-name }}
+description: '{{ resmgr-full-name }} has quotas for the number of clouds per organization and the number of folders per cloud. There are no limits defined for the service.'
 editable: false
 ---
 

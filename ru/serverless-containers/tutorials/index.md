@@ -1,6 +1,6 @@
 ---
-title: "Практические руководства {{ serverless-containers-name }}"
-description: "На странице представлен список практических руководств {{ serverless-containers-name }}."
+title: Практические руководства {{ serverless-containers-name }}
+description: На странице представлен список практических руководств {{ serverless-containers-name }}.
 ---
 
 # Практические руководства {{ serverless-containers-name }}

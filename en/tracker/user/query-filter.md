@@ -1,6 +1,6 @@
 ---
-title: "Query language in {{ tracker-full-name }}"
-description: "This section describes the query language used in {{ tracker-full-name }}. Using the query language, you can search for issues by name, description, and comment, filter issues by multiple values of a single parameter, use comparison operations and logical operators in filters, set a function as a value to compare, and set the issue sorting order in filtering results."
+title: Query language in {{ tracker-full-name }}
+description: This section describes the query language used in {{ tracker-full-name }}. Using the query language, you can search for issues by name, description, and comment, filter issues by multiple values of a single parameter, use comparison operations and logical operators in filters, set a function as a value to compare, and set the issue sorting order in filtering results.
 ---
 
 # Query language in {{ tracker-name }}

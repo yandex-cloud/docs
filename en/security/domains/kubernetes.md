@@ -152,7 +152,7 @@ You must control two levels of file integrity in node groups:
 
 You can use, for example, [Osquery](https://osquery.io/) as an agent installed on the nodes using [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) and uses specific node folders mounted as a volume into the DaemonSet container (redirected file system).
 
- ![](../../_assets/overview/solution-library-icon.svg)A comprehensive solution in [Osquery and kubequery in K8s.](https://github.com/yandex-cloud-examples/yc-mk8s-osquery-kubequery)
+![](../../_assets/overview/solution-library-icon.svg)A comprehensive solution in [Osquery and kubequery in K8s.](https://github.com/yandex-cloud-examples/yc-mk8s-osquery-kubequery)
 
 #### Container files {#fim-container-files}
 

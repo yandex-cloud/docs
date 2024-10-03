@@ -1,6 +1,6 @@
 ---
-title: "How to delete a cloud network"
-description: "Follow this guide to delete a cloud network."
+title: How to delete a cloud network
+description: Follow this guide to delete a cloud network.
 ---
 
 # Deleting a cloud network

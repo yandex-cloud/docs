@@ -1,6 +1,6 @@
 ---
-title: "How to display CSV data as a table in {{ wiki-full-name }}"
-description: "Follow this guide to display CSV data as a table."
+title: How to display CSV data as a table in {{ wiki-full-name }}
+description: Follow this guide to display CSV data as a table.
 ---
 
 # Formatting CSV data

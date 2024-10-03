@@ -1,6 +1,6 @@
 ---
-title: "How to connect to a {{ cdn-full-name }} provider"
-description: "Follow this guide to connect to a {{ cdn-full-name }} provider." 
+title: How to connect to a {{ cdn-full-name }} provider
+description: Follow this guide to connect to a {{ cdn-full-name }} provider.
 ---
 
 # Connecting to a {{ cdn-name }} provider

@@ -1,6 +1,6 @@
 ---
-title: "How to move a VM to a target group in a new availability zone"
-description: "Follow this guide to move VMs behind an L7 load balancer to a target group in a new availability zone."
+title: How to move a VM to a target group in a new availability zone
+description: Follow this guide to move VMs behind an L7 load balancer to a target group in a new availability zone.
 ---
 
 # Moving a VM to a target group in a new availability zone

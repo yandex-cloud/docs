@@ -1,6 +1,6 @@
 ---
-title: "Monitoring the database status in Managed Service for YDB"
-description: "You can track the status of the Managed Service for YDB database with monitoring tools in the management console. These tools display diagnostic information as charts. You can also configure Yandex Monitoring alerts to monitor the DB status automatically."
+title: Monitoring the database status in Managed Service for YDB
+description: You can track the status of the Managed Service for YDB database with monitoring tools in the management console. These tools display diagnostic information as charts. You can also configure Yandex Monitoring alerts to monitor the DB status automatically.
 ---
 
 # Monitoring DB status

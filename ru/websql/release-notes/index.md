@@ -1,6 +1,6 @@
 ---
-title: "История изменений в {{ websql-full-name }}"
-description: "В разделе представлена история изменений сервиса {{ websql-name }}."
+title: История изменений в {{ websql-full-name }}
+description: В разделе представлена история изменений сервиса {{ websql-name }}.
 ---
 
 # История изменений {{ websql-full-name }} в 2024 году

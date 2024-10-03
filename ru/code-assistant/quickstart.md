@@ -1,6 +1,6 @@
 ---
-title: "Начало работы с {{ ca-full-name }}"
-description: "Установите плагин {{ ca-name }} для Visual Studio Code."
+title: Начало работы с {{ ca-full-name }}
+description: Установите плагин {{ ca-name }} для Visual Studio Code.
 ---
 
 # Как начать работать с {{ ca-full-name }}

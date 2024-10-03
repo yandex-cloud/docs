@@ -1,6 +1,6 @@
 ---
-title: "Как изменить сервер в {{ baremetal-full-name }}"
-description: "Следуя данной инструкции, вы сможете изменить имя или описание сервера в {{ baremetal-full-name }}."
+title: Как изменить сервер в {{ baremetal-full-name }}
+description: Следуя данной инструкции, вы сможете изменить имя или описание сервера в {{ baremetal-full-name }}.
 ---
 
 # Изменить сервер

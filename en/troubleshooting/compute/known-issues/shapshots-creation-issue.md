@@ -1,7 +1,6 @@
 # Fixing issues with creating disk snapshots
 
 
-
 ## Issue description {#issue-description}
 
 While working with VM snapshots in Compute Cloud, you encounter one or more of the following issues:

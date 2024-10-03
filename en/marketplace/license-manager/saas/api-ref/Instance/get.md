@@ -6,7 +6,7 @@ sourcePath: en/_api-ref/marketplace/licensemanager/saas/v1/license-manager/saas/
 # Yandex Cloud Marketplace License Manager for SaaS, REST: Instance.get
 Returns the specified subscription instance.
  
-To get the list of all available subscription instances, make a [List] request.
+
  
 ## HTTP request {#https-request}
 ```

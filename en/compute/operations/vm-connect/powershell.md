@@ -1,6 +1,6 @@
 ---
-title: "How to connect to a Windows VM via PowerShell"
-description: "This guide describes how you can connect to a Windows VM via PowerShell."
+title: How to connect to a Windows VM via PowerShell
+description: This guide describes how you can connect to a Windows VM via PowerShell.
 ---
 
 # Connecting to a Windows VM via PowerShell

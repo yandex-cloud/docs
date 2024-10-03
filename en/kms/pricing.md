@@ -1,6 +1,6 @@
 ---
-title: "{{ kms-full-name }} pricing policy"
-description: "This article provides the {{ kms-name }} pricing policy."
+title: '{{ kms-full-name }} pricing policy'
+description: This article provides the {{ kms-name }} pricing policy.
 editable: false
 ---
 

@@ -1,6 +1,6 @@
 ---
-title: "How to send a request in prompt mode to {{ yagpt-full-name }}"
-description: "Follow this guide to learn how to to use {{ yagpt-full-name }} in prompt mode."
+title: How to send a request in prompt mode to {{ yagpt-full-name }}
+description: Follow this guide to learn how to to use {{ yagpt-full-name }} in prompt mode.
 ---
 
 # Sending a request in prompt mode

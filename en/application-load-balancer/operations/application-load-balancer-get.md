@@ -1,5 +1,5 @@
 ---
-title: "How to get information about an L7 load balancer in {{ alb-full-name }}"
+title: How to get information about an L7 load balancer in {{ alb-full-name }}
 ---
 
 # Getting information about an L7 load balancer

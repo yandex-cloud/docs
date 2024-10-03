@@ -1,6 +1,6 @@
 ---
-title: "How to get an embed code or link to a video in {{ video-full-name }}"
-description: "Follow this guide to get an embed code or link to a video in {{ video-full-name }}."
+title: How to get an embed code or link to a video in {{ video-full-name }}
+description: Follow this guide to get an embed code or link to a video in {{ video-full-name }}.
 ---
 
 # Getting an embed code or link to a video

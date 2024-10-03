@@ -1,6 +1,6 @@
 ---
-title: "FAQ about {{ backup-full-name }}"
-description: "This page presents FAQ about {{ backup-name }}."
+title: FAQ about {{ backup-full-name }}
+description: This page presents FAQ about {{ backup-name }}.
 ---
 
 # All questions about {{ billing-name }}

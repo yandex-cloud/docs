@@ -2,7 +2,6 @@
 
 
 
-
 ## Issue description {#issue-description}
 
 Some custom fields from Bitrix24 are not supported

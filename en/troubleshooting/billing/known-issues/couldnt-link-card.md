@@ -1,7 +1,6 @@
 # Resolving an issue with linking a bank card to a billing account
 
 
-
 ## Issue description {#issue-description}
 
 * You cannot link a card via the Yandex Cloud mobile app

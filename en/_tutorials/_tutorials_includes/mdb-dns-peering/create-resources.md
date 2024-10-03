@@ -74,7 +74,7 @@
 
    To do this, create a configuration file called `vms.tf` describing the VMs.
 
-   
+
    You also need to [add the public parts of the SSH keys](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) to this file to be able to connect to VMs via SSH.
 
 
@@ -150,7 +150,7 @@
 
    {% endcut %}
 
-   
+
    For more information about creating a VM, see the [{{ compute-full-name }} documentation](../../../compute/operations/vm-create/create-linux-vm.md).
 
 

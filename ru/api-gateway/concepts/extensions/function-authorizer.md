@@ -1,6 +1,6 @@
 ---
-title: "Расширение x-yc-apigateway-authorizer:function для {{ api-gw-full-name }}"
-description: "Узнайте, для чего используется расширение x-yc-apigateway-authorizer:function, его спецификацию, а также ознакомьтесь с примером функции, которую вызывается с помощью расширения." 
+title: Расширение x-yc-apigateway-authorizer:function для {{ api-gw-full-name }}
+description: Узнайте, для чего используется расширение x-yc-apigateway-authorizer:function, его спецификацию, а также ознакомьтесь с примером функции, которую вызывается с помощью расширения.
 ---
 
 # Расширение x-yc-apigateway-authorizer:function

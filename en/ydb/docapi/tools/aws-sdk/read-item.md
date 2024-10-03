@@ -1,6 +1,6 @@
 ---
-title: "How to read a record from a {{ ydb-full-name }} table"
-description: "Follow this guide to read a record from a table."
+title: How to read a record from a {{ ydb-full-name }} table
+description: Follow this guide to read a record from a table.
 sourcePath: overlay/quickstart/document-api/aws-sdk/read-item.md
 ---
 # Reading a record

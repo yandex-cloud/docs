@@ -1,6 +1,6 @@
 ---
-title: "How to create authorized keys in {{ iam-full-name }}"
-description: "Follow this guide to create authorized keys."
+title: How to create authorized keys in {{ iam-full-name }}
+description: Follow this guide to create authorized keys.
 ---
 
 # Creating authorized keys

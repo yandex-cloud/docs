@@ -1,6 +1,6 @@
 ---
-title: "Как удалить линию в {{ video-full-name }}"
-description: "Следуя данной инструкции, вы сможете удалить линию {{ video-full-name }}."
+title: Как удалить линию в {{ video-full-name }}
+description: Следуя данной инструкции, вы сможете удалить линию {{ video-full-name }}.
 ---
 
 # Удалить линию

@@ -1,6 +1,6 @@
 ---
-title: "How to delete a resource record in {{ dns-full-name }}"
-description: "Follow this guide to delete a resource record."
+title: How to delete a resource record in {{ dns-full-name }}
+description: Follow this guide to delete a resource record.
 ---
 
 # Deleting a resource record

@@ -1,6 +1,6 @@
 ---
-title: "How to set up automatic pod resource management using {{ k8s-vpa }} in {{ managed-k8s-full-name }}"
-description: "Follow this guide to configure automatic management of pod resources using {{ k8s-vpa }}." 
+title: How to set up automatic pod resource management using {{ k8s-vpa }} in {{ managed-k8s-full-name }}
+description: Follow this guide to configure automatic management of pod resources using {{ k8s-vpa }}.
 ---
 
 # Vertical application scaling in a cluster

@@ -1,6 +1,6 @@
 ---
-title: "Processing CDC Debezium streams in {{ yq-full-name }}"
-description: "Follow this guide to process CDC Debezium streams."
+title: Processing CDC Debezium streams in {{ yq-full-name }}
+description: Follow this guide to process CDC Debezium streams.
 ---
 
 # Processing CDC Debezium streams

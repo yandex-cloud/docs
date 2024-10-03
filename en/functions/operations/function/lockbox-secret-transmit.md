@@ -1,6 +1,6 @@
 ---
-title: "How to transmit {{ lockbox-name }} secrets to a function"
-description: "This guide describes how you can transmit {{ lockbox-name }} secrets to a function."
+title: How to transmit {{ lockbox-name }} secrets to a function
+description: This guide describes how you can transmit {{ lockbox-name }} secrets to a function.
 ---
 
 # Transmitting {{ lockbox-name }} secrets to a function

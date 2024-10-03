@@ -1,6 +1,6 @@
 ---
-title: "Квоты и лимиты в {{ serverless-containers-full-name }}"
-description: "В {{ serverless-containers-full-name }} действует ряд квот и лимитов. Более подробно об ограничениях в сервисе вы узнаете из данной статьи."
+title: Квоты и лимиты в {{ serverless-containers-full-name }}
+description: В {{ serverless-containers-full-name }} действует ряд квот и лимитов. Более подробно об ограничениях в сервисе вы узнаете из данной статьи.
 editable: false
 ---
 

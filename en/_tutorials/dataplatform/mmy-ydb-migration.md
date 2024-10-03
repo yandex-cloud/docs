@@ -21,7 +21,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    1. [Create a {{ ydb-name }} database](../../ydb/operations/manage-databases.md) in any suitable configuration.
 
-   
+
    1. If using security groups, [configure them](../../managed-kafka/operations/connect/index.md#configuring-security-groups) to be able to connect to the cluster from the internet.
 
 

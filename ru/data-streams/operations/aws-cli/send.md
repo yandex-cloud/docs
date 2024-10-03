@@ -1,6 +1,6 @@
 ---
-title: "Инструкция по отправке данных из {{ ydb-full-name }} в поток в AWS CLI"
-description: "Из статьи вы узнаете, как отправить данные из {{ ydb-full-name }} в поток в AWS CLI."
+title: Инструкция по отправке данных из {{ ydb-full-name }} в поток в AWS CLI
+description: Из статьи вы узнаете, как отправить данные из {{ ydb-full-name }} в поток в AWS CLI.
 ---
 
 # Отправка данных в поток в AWS CLI

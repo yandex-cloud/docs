@@ -1,6 +1,6 @@
 ---
-title: "How to specify a cloud network to run a container in"
-description: "Use this guide to specify a cloud network to run a container in."
+title: How to specify a cloud network to run a container in
+description: Use this guide to specify a cloud network to run a container in.
 ---
 
 # Specifying a cloud network to run a container in

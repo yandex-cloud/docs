@@ -1,6 +1,6 @@
 ---
-title: "Как настроить публичный доступ к операциям с бакетом в {{ objstorage-full-name }}"
-description: "Следуя данной инструкции, вы сможете настроить публичный доступ к бакету в {{ objstorage-name }}."
+title: Как настроить публичный доступ к операциям с бакетом в {{ objstorage-full-name }}
+description: Следуя данной инструкции, вы сможете настроить публичный доступ к бакету в {{ objstorage-name }}.
 ---
 
 # Настройка публичного доступа к бакету
@@ -95,7 +95,7 @@ description: "Следуя данной инструкции, вы сможет�
 
   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
-  
+
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
 
@@ -243,7 +243,7 @@ description: "Следуя данной инструкции, вы сможет�
 
   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
-  
+
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
 

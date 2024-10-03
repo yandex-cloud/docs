@@ -1,6 +1,6 @@
 ---
-title: "{{ kms-name }}. Overview"
-description: "{{ kms-name }} is a service to create and manage encryption keys in {{ yandex-cloud }}. Modern encryption algorithms are public. Without access to keys, the knowledge of the ciphertext and encryption algorithm is not enough to decrypt data. Therefore, secure data storage means secure storage of encryption keys."
+title: '{{ kms-name }}. Overview'
+description: '{{ kms-name }} is a service to create and manage encryption keys in {{ yandex-cloud }}. Modern encryption algorithms are public. Without access to keys, the knowledge of the ciphertext and encryption algorithm is not enough to decrypt data. Therefore, secure data storage means secure storage of encryption keys.'
 ---
 
 # {{ kms-name }} overview

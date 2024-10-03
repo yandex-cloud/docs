@@ -1,6 +1,6 @@
 ---
-title: "Connecting to a {{ PG }} cluster in {{ mpg-full-name }}"
-description: "You can connect to {{ PG }} cluster hosts from the internet if you set up public access to the appropriate host and from {{ yandex-cloud }} VMs located in the same virtual network."
+title: Connecting to a {{ PG }} cluster in {{ mpg-full-name }}
+description: You can connect to {{ PG }} cluster hosts from the internet if you set up public access to the appropriate host and from {{ yandex-cloud }} VMs located in the same virtual network.
 ---
 
 # Connecting to a database in a {{ PG }} cluster

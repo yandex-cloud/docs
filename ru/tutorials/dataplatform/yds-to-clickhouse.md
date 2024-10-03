@@ -1,6 +1,6 @@
 ---
-title: "Сохранение потока данных {{ yds-full-name }} в {{ mch-full-name }}"
-description: "С помощью сервиса {{ data-transfer-name }} вы можете поставлять данные из потока {{ yds-name }} в сервис {{ mch-name }}."
+title: Сохранение потока данных {{ yds-full-name }} в {{ mch-full-name }}
+description: С помощью сервиса {{ data-transfer-name }} вы можете поставлять данные из потока {{ yds-name }} в сервис {{ mch-name }}.
 ---
 
 # Сохранение потока данных {{ yds-full-name }} в {{ mch-full-name }}

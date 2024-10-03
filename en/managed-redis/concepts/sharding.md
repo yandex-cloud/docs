@@ -1,6 +1,6 @@
 ---
-title: "Sharding in {{ RD }}"
-description: "Sharding in {{ mrd-name }} is implemented using {{ RD }} Cluster. {{ RD }} Cluster allows you to create a {{ RD }} installation with automatic data sharding between the hosts. Sharding allows you to distribute loads across database hosts, which helps bypass the resource restrictions of a single server. This is particularly important when you handle large amounts of data or run compute-intensive jobs."
+title: Sharding in {{ RD }}
+description: Sharding in {{ mrd-name }} is implemented using {{ RD }} Cluster. {{ RD }} Cluster allows you to create a {{ RD }} installation with automatic data sharding between the hosts. Sharding allows you to distribute loads across database hosts, which helps bypass the resource restrictions of a single server. This is particularly important when you handle large amounts of data or run compute-intensive jobs.
 ---
 
 # Sharding in {{ mrd-name }}

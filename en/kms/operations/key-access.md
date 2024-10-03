@@ -1,6 +1,6 @@
 ---
-title: "Configuring access permissions for a symmetric encryption key"
-description: "Follow this guide to assign roles for a symmetric encryption key."
+title: Configuring access permissions for a symmetric encryption key
+description: Follow this guide to assign roles for a symmetric encryption key.
 ---
 
 # Configuring access permissions for a symmetric encryption key

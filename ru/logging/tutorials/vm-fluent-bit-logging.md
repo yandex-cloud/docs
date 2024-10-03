@@ -1,5 +1,5 @@
 ---
-canonical: "{{ link-docs }}/tutorials/security/vm-fluent-bit-logging"
+canonical: '{{ link-docs }}/tutorials/security/vm-fluent-bit-logging'
 ---
 
 # Передача логов с ВМ в {{ cloud-logging-name }}

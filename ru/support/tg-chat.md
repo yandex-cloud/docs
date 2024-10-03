@@ -1,6 +1,6 @@
 ---
-title: "Чат с поддержкой в Telegram"
-description: "Эта инструкция поможет настроить чат с поддержкой в Telegram."
+title: Чат с поддержкой в Telegram
+description: Эта инструкция поможет настроить чат с поддержкой в Telegram.
 ---
 
 # Чат с поддержкой в Telegram

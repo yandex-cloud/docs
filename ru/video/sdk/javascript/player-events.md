@@ -1,6 +1,6 @@
 ---
-title: "События плеера Cloud Video Player в SDK для JavaScript"
-description: "На странице описаны возможные события видеоплеера Cloud Video Player, на которые можно подписаться в SDK для JavaScript."
+title: События плеера Cloud Video Player в SDK для JavaScript
+description: На странице описаны возможные события видеоплеера Cloud Video Player, на которые можно подписаться в SDK для JavaScript.
 ---
 
 # События плеера

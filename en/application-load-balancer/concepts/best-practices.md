@@ -1,6 +1,6 @@
 ---
-title: "Tips for configuring {{ alb-full-name }} health checks"
-description: "This page provides recommendations for configuring {{ alb-name }} health checks."
+title: Tips for configuring {{ alb-full-name }} health checks
+description: This page provides recommendations for configuring {{ alb-name }} health checks.
 ---
 
 # Tips for configuring {{ alb-full-name }} health checks

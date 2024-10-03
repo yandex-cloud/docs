@@ -1,6 +1,6 @@
 ---
-title: "Adding the {{ serverless-containers-full-name }} extension"
-description: "Follow this guide to add the {{ serverless-containers-full-name }} extension using the specification constructor."
+title: Adding the {{ serverless-containers-full-name }} extension
+description: Follow this guide to add the {{ serverless-containers-full-name }} extension using the specification constructor.
 ---
 
 # Adding the x-yc-apigateway-integration:serverless_containers extension

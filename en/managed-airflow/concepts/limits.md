@@ -1,7 +1,6 @@
 ---
-title: "Quotas and limits in {{ maf-name }}"
-description: "{{ yandex-cloud }} has some limits and quotas for the number of resources you can use. For more information about the limits, read this article."
-
+title: Quotas and limits in {{ maf-name }}
+description: '{{ yandex-cloud }} has some limits and quotas for the number of resources you can use. For more information about the limits, read this article.'
 editable: false
 ---
 

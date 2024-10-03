@@ -1,6 +1,6 @@
 ---
-title: "How to restore access to a VM in {{ compute-full-name }}"
-description: "Follow this guide to restore access to a VM."
+title: How to restore access to a VM in {{ compute-full-name }}
+description: Follow this guide to restore access to a VM.
 ---
 
 # Restoring access to a VM

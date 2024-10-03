@@ -1,6 +1,6 @@
 ---
-title: "Information about clusters in {{ mpg-short-name }}"
-description: "You can request detailed information about each {{ mpg-short-name }} cluster you created. To get a list of database clusters in a folder, go to the folder page and select {{ mpg-name }}."
+title: Information about clusters in {{ mpg-short-name }}
+description: You can request detailed information about each {{ mpg-short-name }} cluster you created. To get a list of database clusters in a folder, go to the folder page and select {{ mpg-name }}.
 ---
 
 # Getting information on existing {{ PG }} clusters

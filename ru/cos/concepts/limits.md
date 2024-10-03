@@ -1,6 +1,6 @@
 ---
-title: "Квоты и лимиты в {{ coi }}"
-description: "При работе с образом {{ coi }} учитываются ограничения {{ compute-name }} и {{ container-registry-name }}."
+title: Квоты и лимиты в {{ coi }}
+description: При работе с образом {{ coi }} учитываются ограничения {{ compute-name }} и {{ container-registry-name }}.
 ---
 
 # Квоты и лимиты

@@ -1,6 +1,6 @@
 ---
-title: "Cookie в {{ yandex-cloud }}"
-description: "Из статьи вы узнаете, какие cookie использует {{ yandex-cloud }}."
+title: Cookie в {{ yandex-cloud }}
+description: Из статьи вы узнаете, какие cookie использует {{ yandex-cloud }}.
 ---
 
 # Cookie

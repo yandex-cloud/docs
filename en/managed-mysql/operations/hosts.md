@@ -1,6 +1,6 @@
 ---
-title: "Managing {{ MY }} cluster hosts"
-description: "In this tutorial, you will learn how to manage {{ MY }} cluster hosts and their settings."
+title: Managing {{ MY }} cluster hosts
+description: In this tutorial, you will learn how to manage {{ MY }} cluster hosts and their settings.
 ---
 
 # Managing {{ MY }} cluster hosts
@@ -63,7 +63,7 @@ The number of hosts in {{ mmy-name }} clusters is limited by the CPU and RAM quo
    1. Click **{{ ui-key.yacloud.mdb.cluster.hosts.action_add-host }}**.
    1. Specify the host parameters:
 
-      
+
       * Availability zone.
       * Subnet (if the required subnet is not on the list, [create it](../../vpc/operations/subnet-create.md)).
 
@@ -98,7 +98,7 @@ The number of hosts in {{ mmy-name }} clusters is limited by the CPU and RAM quo
       +----------------------+-----------+-----------------------+---------------+------------------+
       ```
 
-      
+
       If the required subnet is not in the list, [create it](../../vpc/operations/subnet-create.md).
 
 

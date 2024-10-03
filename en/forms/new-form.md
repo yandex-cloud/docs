@@ -1,6 +1,6 @@
 ---
-title: "How to create forms in {{ forms-full-name }}"
-description: "In this tutorial, you will learn how to create forms in {{ forms-full-name }}."
+title: How to create forms in {{ forms-full-name }}
+description: In this tutorial, you will learn how to create forms in {{ forms-full-name }}.
 ---
 
 # Creating a form

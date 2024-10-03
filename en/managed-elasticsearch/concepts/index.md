@@ -1,6 +1,6 @@
 ---
-title: "Resource relationships in {{ mes-full-name }}"
-description: "{{ ES }} is a specialized distributed document storage system. When a document is added to {{ ES }}, it gets added to an index. Data from the indexed document becomes available for search and analysis. {{ mes-full-name }} helps you deploy and maintain {{ ES }} server clusters in the {{ yandex-cloud }} infrastructure."
+title: Resource relationships in {{ mes-full-name }}
+description: '{{ ES }} is a specialized distributed document storage system. When a document is added to {{ ES }}, it gets added to an index. Data from the indexed document becomes available for search and analysis. {{ mes-full-name }} helps you deploy and maintain {{ ES }} server clusters in the {{ yandex-cloud }} infrastructure.'
 ---
 
 # Resource relationships in {{ mes-name }}

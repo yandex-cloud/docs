@@ -1,6 +1,6 @@
 ---
-title: "Pre-configuration for connection to an {{ KF }} cluster in {{ mkf-full-name }}"
-description: "Follow this guide to prepare for connection to hosts in an {{ KF }} cluster."
+title: Pre-configuration for connection to an {{ KF }} cluster in {{ mkf-full-name }}
+description: Follow this guide to prepare for connection to hosts in an {{ KF }} cluster.
 ---
 
 # Pre-configuration for connection to an {{ KF }} cluster

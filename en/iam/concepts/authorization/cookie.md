@@ -1,6 +1,6 @@
 ---
-title: "Cookies in {{ yandex-cloud }}"
-description: "In this tutorial, you will learn which cookies {{ yandex-cloud }} uses."
+title: Cookies in {{ yandex-cloud }}
+description: In this tutorial, you will learn which cookies {{ yandex-cloud }} uses.
 ---
 
 # Cookie

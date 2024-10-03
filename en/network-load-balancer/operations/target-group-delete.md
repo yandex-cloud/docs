@@ -1,6 +1,6 @@
 ---
-title: "Deleting a target group in the load balancer"
-description: "Before deleting a target group, detach it from the network load balancer. You cannot restore a target group after it is deleted. Open the Load Balancer section in the folder you want to delete the target group from. In the menu that opens, click Delete."
+title: Deleting a target group in the load balancer
+description: Before deleting a target group, detach it from the network load balancer. You cannot restore a target group after it is deleted. Open the Load Balancer section in the folder you want to delete the target group from. In the menu that opens, click Delete.
 ---
 
 # Deleting a {{ network-load-balancer-name }} target group

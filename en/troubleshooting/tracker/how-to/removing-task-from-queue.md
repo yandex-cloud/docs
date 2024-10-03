@@ -1,7 +1,6 @@
 # How to remove a task from the queue
 
 
-
 ## Scenario description {#case-description}
 
 You need to delete a task from a queue.

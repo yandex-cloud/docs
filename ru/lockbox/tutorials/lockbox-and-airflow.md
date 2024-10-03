@@ -1,5 +1,5 @@
 ---
-canonical: "{{ link-docs }}/tutorials/dataplatform/lockbox-and-airflow"
+canonical: '{{ link-docs }}/tutorials/dataplatform/lockbox-and-airflow'
 ---
 
 # Хранение подключений и переменных {{ AF }} в {{ lockbox-full-name }}

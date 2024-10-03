@@ -1,6 +1,6 @@
 ---
-title: "Adding a rule to an ARL profile"
-description: "Follow this guide to add a rule to an ARL profile."
+title: Adding a rule to an ARL profile
+description: Follow this guide to add a rule to an ARL profile.
 ---
 
 # Adding a rule to an ARL profile

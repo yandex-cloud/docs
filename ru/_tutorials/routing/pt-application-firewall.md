@@ -60,7 +60,7 @@
 1. На ВМ `dvwa-server` установите [Docker](https://www.docker.com/):
 
    ```bash
-   curl -fsSL https://test.docker.com -o test-docker.sh
+   curl --fail --silent --show-error --location https://test.docker.com --output test-docker.sh
    sudo sh test-docker.sh
    ```
 

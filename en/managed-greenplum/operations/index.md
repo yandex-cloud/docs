@@ -1,6 +1,6 @@
 ---
-title: "Step-by-step guides for {{ mgp-full-name }}"
-description: "This page provides a list of step-by-step guides for {{ mpg-name }}."
+title: Step-by-step guides for {{ mgp-full-name }}
+description: This page provides a list of step-by-step guides for {{ mpg-name }}.
 ---
 
 # Step-by-step guides for {{ mgp-name }}

@@ -113,7 +113,7 @@
 
      {% cut "Пример назначения роли на каталог с помощью {{ TF }}" %}
 
-     
+
      ```hcl
      ...
      data "yandex_resourcemanager_folder" "project1" {
@@ -289,7 +289,7 @@
 
      {% cut "Пример назначения роли на каталог с помощью {{ TF }}" %}
 
-     
+
      ```hcl
      ...
      data "yandex_resourcemanager_folder" "project1" {

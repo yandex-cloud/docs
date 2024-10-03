@@ -1,6 +1,6 @@
 ---
-title: "Функциональные характеристики {{ cloudml-full-name }}"
-description: "Из статьи вы узнаете, из каких компонентов состоит сервис {{ cloudml-full-name }}." 
+title: Функциональные характеристики {{ cloudml-full-name }}
+description: Из статьи вы узнаете, из каких компонентов состоит сервис {{ cloudml-full-name }}.
 ---
 
 # Функциональные характеристики {{ cloudml-full-name }}

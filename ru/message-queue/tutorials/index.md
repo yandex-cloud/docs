@@ -1,6 +1,6 @@
 ---
-title: "Сценарии использования {{ message-queue-full-name }}"
-description: "Различные сценарии использования {{ message-queue-full-name }} в {{ yandex-cloud }}."
+title: Сценарии использования {{ message-queue-full-name }}
+description: Различные сценарии использования {{ message-queue-full-name }} в {{ yandex-cloud }}.
 ---
 
 # Практические руководства {{ message-queue-name }}

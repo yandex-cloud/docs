@@ -1,6 +1,6 @@
 ---
-title: "How to create a disk snapshot schedule in {{ compute-full-name }}"
-description: "Follow this guide to schedule a disk snapshot's creation in {{ compute-name }}."
+title: How to create a disk snapshot schedule in {{ compute-full-name }}
+description: Follow this guide to schedule a disk snapshot's creation in {{ compute-name }}.
 ---
 
 # Creating a disk snapshot schedule

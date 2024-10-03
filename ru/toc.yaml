@@ -173,3 +173,4 @@ items:
     href: troubleshooting/index.yaml
     hidden: true
 base: ru
+deepBase: 1

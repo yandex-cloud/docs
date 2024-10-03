@@ -1,6 +1,6 @@
 ---
-title: "How to delete a VM"
-description: "Follow this guide to delete a VM."
+title: How to delete a VM
+description: Follow this guide to delete a VM.
 ---
 
 # Deleting a VM

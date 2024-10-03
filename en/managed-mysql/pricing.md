@@ -1,6 +1,6 @@
 ---
-title: "{{ mmy-name }} pricing policy"
-description: "The cost of {{ mmy-name }} usage is calculated based on the disk type and storage size, computing resources allocated to cluster hosts, settings and number of backups, and amount of outgoing traffic from {{ yandex-cloud }} to the internet."
+title: '{{ mmy-name }} pricing policy'
+description: The cost of {{ mmy-name }} usage is calculated based on the disk type and storage size, computing resources allocated to cluster hosts, settings and number of backups, and amount of outgoing traffic from {{ yandex-cloud }} to the internet.
 editable: false
 ---
 
@@ -51,7 +51,7 @@ You pay for the following:
 * Storage allocated for DB clusters.
 
     * You can only order local SSD storage (`local-ssd`) for clusters with three or more hosts:
-                * For **Intel Broadwell** and **Intel Cascade Lake**: In increments of 100 GB.
+        * For **Intel Broadwell** and **Intel Cascade Lake**: In increments of 100 GB.
         * For **Intel Ice Lake**: In increments of {{ local-ssd-v3-step }}.
 
     * You can only order non-replicated SSD storage (`network-ssd-nonreplicated`) in 93 GB increments for clusters with three or more broker hosts.

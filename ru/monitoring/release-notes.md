@@ -1,6 +1,6 @@
 ---
-title: "История изменений в {{ monitoring-full-name }}"
-description: "В разделе представлена история изменений сервиса {{ monitoring-name }}."
+title: История изменений в {{ monitoring-full-name }}
+description: В разделе представлена история изменений сервиса {{ monitoring-name }}.
 ---
 
 # История изменений в {{ monitoring-full-name }}

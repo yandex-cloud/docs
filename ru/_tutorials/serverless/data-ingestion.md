@@ -106,7 +106,7 @@
 1. Отправьте данные в систему хранения:
 
     ```bash
-    curl -X POST -d 'test massage' https://<url>/<paths>
+    curl --request POST --data 'test massage' https://<url>/<paths>
     ```
 
     Где:

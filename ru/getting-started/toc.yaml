@@ -46,3 +46,4 @@ items:
       - name: Переход на платную версию
         href: free-trial/concepts/upgrade-to-paid.md
 base: ru/getting-started
+deepBase: 2

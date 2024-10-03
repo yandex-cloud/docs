@@ -1,6 +1,6 @@
 ---
-title: "{{ datalens-full-name }} release notes: August 2024"
-description: "Check out {{ datalens-full-name }} release notes for August 2024."
+title: '{{ datalens-full-name }} release notes: August 2024'
+description: Check out {{ datalens-full-name }} release notes for August 2024.
 ---
 
 # {{ datalens-full-name }} release notes: August 2024

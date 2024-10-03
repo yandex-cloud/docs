@@ -1,6 +1,6 @@
 ---
-title: "How to add parameters to a dataset"
-description: "Follow this guide to add a parameter to a dataset."
+title: How to add parameters to a dataset
+description: Follow this guide to add a parameter to a dataset.
 ---
 
 # Adding parameters to a dataset

@@ -1,6 +1,6 @@
 ---
-title: "How to purchase a committed volume of services (CVoS)"
-description: "Follow this guide to purchase a committed volume of services (CVoS)."
+title: How to purchase a committed volume of services (CVoS)
+description: Follow this guide to purchase a committed volume of services (CVoS).
 ---
 
 # Purchasing a committed volume of services (CVoS)

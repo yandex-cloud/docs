@@ -1,6 +1,6 @@
 ---
-title: "Updating the description of a function"
-description: "Follow this guide to update a function description."
+title: Updating the description of a function
+description: Follow this guide to update a function description.
 ---
 
 # Updating the description of a function

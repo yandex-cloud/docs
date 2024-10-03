@@ -1,6 +1,6 @@
 ---
-title: "Сценарии использования {{ mmy-full-name }}"
-description: "Различные сценарии использования {{ mmy-full-name }} в {{ yandex-cloud }}."
+title: Сценарии использования {{ mmy-full-name }}
+description: Различные сценарии использования {{ mmy-full-name }} в {{ yandex-cloud }}.
 ---
 
 # Практические руководства {{ mmy-name }}
@@ -22,6 +22,8 @@ description: "Различные сценарии использования {{ 
 * [{#T}](mmy-to-mpg.md)
 * [{#T}](mpg-to-mmy.md)
 * [{#T}](mmy-to-mgp.md)
+* [{#T}](sync-mysql.md)
 * [{#T}](mysql-to-clickhouse.md)
+
 
 О миграции хостов кластера {{ mmy-name }} в другую зону доступности читайте в [инструкции](../operations/host-migration.md).

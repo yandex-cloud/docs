@@ -1,6 +1,6 @@
 ---
-title: "How to create a profile in the {{ yandex-cloud }} CLI"
-description: "Follow this guide to create a profile in the CLI."
+title: How to create a profile in the {{ yandex-cloud }} CLI
+description: Follow this guide to create a profile in the CLI.
 ---
 
 # Creating a profile

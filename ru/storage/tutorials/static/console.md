@@ -1,5 +1,5 @@
 ---
-canonical: "{{ link-docs }}/tutorials/web/static/console"
+canonical: '{{ link-docs }}/tutorials/web/static/console'
 ---
 
 # Статический веб-сайт в {{ objstorage-full-name }} с помощью консоли управления

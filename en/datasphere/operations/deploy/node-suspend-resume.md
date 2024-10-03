@@ -1,6 +1,6 @@
 ---
-title: "How to stop or resume a node"
-description: "Follow this guide to stop or resume a node."
+title: How to stop or resume a node
+description: Follow this guide to stop or resume a node.
 ---
 
 # Stopping or resuming a node

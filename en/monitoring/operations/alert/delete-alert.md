@@ -1,6 +1,6 @@
 ---
-title: "How to delete alerts in {{ monitoring-full-name }}"
-description: "Follow this guide to delete an alert."
+title: How to delete alerts in {{ monitoring-full-name }}
+description: Follow this guide to delete an alert.
 ---
 
 # Deleting alerts

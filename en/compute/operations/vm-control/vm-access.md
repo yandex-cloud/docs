@@ -1,6 +1,6 @@
 ---
-title: "Configuring access permissions for a {{ compute-name }} VM"
-description: "Follow this guide to configure VM access permissions."
+title: Configuring access permissions for a {{ compute-name }} VM
+description: Follow this guide to configure VM access permissions.
 ---
 
 # Configuring VM access permissions

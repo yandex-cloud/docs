@@ -1,6 +1,6 @@
 ---
-title: "How to work with {{ cloud-logging-full-name }}"
-description: "In this article, you will learn how to work with {{ cloud-logging-full-name }} in {{ yandex-cloud }}."
+title: How to work with {{ cloud-logging-full-name }}
+description: In this article, you will learn how to work with {{ cloud-logging-full-name }} in {{ yandex-cloud }}.
 ---
 
 # Step-by-step guides for {{ cloud-logging-name }}

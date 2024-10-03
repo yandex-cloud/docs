@@ -1,6 +1,6 @@
 ---
-title: "Runtime environment. Overview"
-description: "You select the runtime environment when creating a function. It provides additional libraries and environment variables that can be accessed from the function code. You can change the selected runtime environment by updating the function configuration."
+title: Runtime environment. Overview
+description: You select the runtime environment when creating a function. It provides additional libraries and environment variables that can be accessed from the function code. You can change the selected runtime environment by updating the function configuration.
 ---
 
 # Runtime environment. Overview

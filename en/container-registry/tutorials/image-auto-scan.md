@@ -1,6 +1,6 @@
 ---
-title: "How to run automatic Docker image scans on push"
-description: "This guide describes how you can run automatic Docker image scans on push."
+title: How to run automatic Docker image scans on push
+description: This guide describes how you can run automatic Docker image scans on push.
 ---
 
 # Automatic Docker image scan on push

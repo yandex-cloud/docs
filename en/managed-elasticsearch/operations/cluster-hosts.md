@@ -1,6 +1,6 @@
 ---
-title: "Managing {{ ES }} hosts"
-description: "You can get a list of {{ ES }} cluster hosts and add or delete them. You can only manage hosts with the Data node role."
+title: Managing {{ ES }} hosts
+description: You can get a list of {{ ES }} cluster hosts and add or delete them. You can only manage hosts with the Data node role.
 keywords:
   - managing Elasticsearch hosts
   - Elasticsearch hosts

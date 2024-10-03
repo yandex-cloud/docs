@@ -1,6 +1,6 @@
 ---
-title: "How to delete a security group"
-description: "Follow this guide to delete a security group."
+title: How to delete a security group
+description: Follow this guide to delete a security group.
 ---
 
 # Delete a security group

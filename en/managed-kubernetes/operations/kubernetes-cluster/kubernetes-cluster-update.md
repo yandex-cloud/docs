@@ -1,6 +1,6 @@
 ---
-title: "How to update a {{ managed-k8s-name }} cluster"
-description: "Follow this guide to update a {{ managed-k8s-name }} cluster."
+title: How to update a {{ managed-k8s-name }} cluster
+description: Follow this guide to update a {{ managed-k8s-name }} cluster.
 ---
 
 # Updating a {{ managed-k8s-name }} cluster
@@ -126,7 +126,7 @@ To learn how to change a cluster's [availability zone](../../../overview/concept
 
 - API {#api}
 
-  To edit {{ managed-k8s-name }} cluster parameters, use the [update](../../api-ref/Cluster/update.md) method for the [Cluster](../../api-ref/Cluster/) resource.
+  To edit {{ managed-k8s-name }} cluster parameters, use the [update](../../managed-kubernetes/api-ref/Cluster/update.md) method for the [Cluster](../../managed-kubernetes/api-ref/Cluster/) resource.
 
   To edit the settings for sending logs to {{ cloud-logging-name }}, configure their `masterSpec.masterLogging` parameter values.
 

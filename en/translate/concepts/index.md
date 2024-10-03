@@ -1,6 +1,6 @@
 ---
-title: "{{ translate-full-name }} overview"
-description: "You can use {{ translate-name }} to integrate Yandex Translator algorithms with custom applications and web projects. {{ translate-full-name }} supports over 90 languages and can translate both individual words and complete texts. If you do not know the source language of a text, {{ translate-full-name }} will automatically detect it while translating. You can also use it to just detect the text language."
+title: '{{ translate-full-name }} overview'
+description: You can use {{ translate-name }} to integrate Yandex Translator algorithms with custom applications and web projects. {{ translate-full-name }} supports over 90 languages and can translate both individual words and complete texts. If you do not know the source language of a text, {{ translate-full-name }} will automatically detect it while translating. You can also use it to just detect the text language.
 ---
 
 # {{ translate-full-name }} overview

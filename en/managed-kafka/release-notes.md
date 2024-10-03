@@ -1,6 +1,6 @@
 ---
-title: "{{ mkf-full-name }} release notes"
-description: "This section contains {{ mkf-name }} release notes."
+title: '{{ mkf-full-name }} release notes'
+description: This section contains {{ mkf-name }} release notes.
 ---
 
 # {{ mkf-full-name }} release notes

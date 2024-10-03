@@ -38,7 +38,7 @@ You pay for the following:
 
 * Storage allocated for DB clusters.
 
-    
+
     * Non-replicated SSD (`network-ssd-nonreplicated`) storage can only be ordered for clusters with three or more hosts, in increments of 93 GB.
 
     * You can only order local SSD storage (`local-ssd`) for clusters with three or more hosts:

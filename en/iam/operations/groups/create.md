@@ -1,6 +1,6 @@
 ---
-title: "How to create a user group in {{ yandex-cloud }} and add users to it"
-description: "In this tutorial, you will learn how to create a user group and add users to it."
+title: How to create a user group in {{ yandex-cloud }} and add users to it
+description: In this tutorial, you will learn how to create a user group and add users to it.
 ---
 
 # Creating a user group

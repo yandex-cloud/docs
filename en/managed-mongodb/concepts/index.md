@@ -1,6 +1,6 @@
 ---
-title: "Resource relationships in {{ mmg-full-name }}"
-description: "The main entity used in {{ mmg-name }} is a database cluster. Each cluster consists of one or more database hosts, which are virtual machines with DBMS servers deployed on them. Cluster hosts may reside in different availability zones. A cluster with multiple hosts features automatic failover: one of the replica hosts becomes master if the current master host is down."
+title: Resource relationships in {{ mmg-full-name }}
+description: 'The main entity used in {{ mmg-name }} is a database cluster. Each cluster consists of one or more database hosts, which are virtual machines with DBMS servers deployed on them. Cluster hosts may reside in different availability zones. A cluster with multiple hosts features automatic failover: one of the replica hosts becomes master if the current master host is down.'
 ---
 
 # Resource relationships in {{ mmg-name }}

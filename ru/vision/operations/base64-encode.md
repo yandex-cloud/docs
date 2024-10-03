@@ -1,6 +1,6 @@
 ---
-title: "Кодирование файла в Base64 в {{ vision-full-name }}"
-description: "Следуя данной инструкции, вы сможете передать файл с изображением в {{ vision-short-name }} API." 
+title: Кодирование файла в Base64 в {{ vision-full-name }}
+description: Следуя данной инструкции, вы сможете передать файл с изображением в {{ vision-short-name }} API.
 ---
 
 # Кодирование файла в Base64

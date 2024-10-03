@@ -1,6 +1,6 @@
 ---
-title: "How to change a disk snapshot schedule in {{ compute-full-name }}"
-description: "Follow this guide to change a disk snapshot schedule in {{ compute-name }}."
+title: How to change a disk snapshot schedule in {{ compute-full-name }}
+description: Follow this guide to change a disk snapshot schedule in {{ compute-name }}.
 ---
 
 # Changing a disk snapshot schedule

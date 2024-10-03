@@ -1,6 +1,6 @@
 ---
-title: "Инструкция по скачиванию объекта из бакета {{ objstorage-full-name }}"
-description: "Из статьи вы узнаете, как скачать объект в {{ objstorage-full-name }}."
+title: Инструкция по скачиванию объекта из бакета {{ objstorage-full-name }}
+description: Из статьи вы узнаете, как скачать объект в {{ objstorage-full-name }}.
 ---
 
 # Скачивание объекта

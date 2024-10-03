@@ -1,6 +1,6 @@
 ---
-title: "Как добавить пользователя в {{ datalens-full-name }}"
-description: "Следуя данной инструкции, вы сможете добавить пользователя в {{ datalens-full-name }}." 
+title: Как добавить пользователя в {{ datalens-full-name }}
+description: Следуя данной инструкции, вы сможете добавить пользователя в {{ datalens-full-name }}.
 ---
 
 # Добавление пользователей в {{ datalens-short-name }}

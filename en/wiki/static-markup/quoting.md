@@ -1,6 +1,6 @@
 ---
-title: "How to work with quoting in {{ wiki-full-name }}"
-description: "In this tutorial, you will learn how to use text formatting in {{ wiki-name }}."
+title: How to work with quoting in {{ wiki-full-name }}
+description: In this tutorial, you will learn how to use text formatting in {{ wiki-name }}.
 ---
 
 # Quotes

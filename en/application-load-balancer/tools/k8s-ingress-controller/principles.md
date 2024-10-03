@@ -1,6 +1,6 @@
 ---
-title: "How the {{ alb-full-name }} Ingress controller works"
-description: "Learn about the {{ alb-name }} Ingress controller and the relationships between {{ alb-name }} and {{ k8s }} resources."
+title: How the {{ alb-full-name }} Ingress controller works
+description: Learn about the {{ alb-name }} Ingress controller and the relationships between {{ alb-name }} and {{ k8s }} resources.
 ---
 
 # {{ alb-name }} Ingress controller operation principles

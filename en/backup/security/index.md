@@ -1,6 +1,6 @@
 ---
-title: "Access management in {{ backup-full-name }} (S3)"
-description: "Access management in {{ backup-full-name }}, a service for backing up data in {{ yandex-cloud }}. This section describes the resources for which you can assign a role and the roles existing in the service."
+title: Access management in {{ backup-full-name }} (S3)
+description: Access management in {{ backup-full-name }}, a service for backing up data in {{ yandex-cloud }}. This section describes the resources for which you can assign a role and the roles existing in the service.
 ---
 
 # Access management in {{ backup-name }}

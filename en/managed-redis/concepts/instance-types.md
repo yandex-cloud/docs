@@ -1,6 +1,6 @@
 ---
-title: "{{ mrd-name }} host classes"
-description: "The host class determines the computing power allocated for each host in the Redis cluster. When you change the host class for a cluster, all existing hosts change accordingly. The amount of memory allocated to a host is also determined by the maxmemory configuration parameter for Redis hosts; the maximum amount of data is 75% of the available memory."
+title: '{{ mrd-name }} host classes'
+description: The host class determines the computing power allocated for each host in the Redis cluster. When you change the host class for a cluster, all existing hosts change accordingly. The amount of memory allocated to a host is also determined by the maxmemory configuration parameter for Redis hosts; the maximum amount of data is 75% of the available memory.
 ---
 
 # {{ RD }} host classes

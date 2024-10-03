@@ -1,6 +1,6 @@
 ---
-title: "Список релизов YC CLI"
-description: "На странице представлены релизы YC CLI, а также изменения в каждом из них."
+title: Список релизов YC CLI
+description: На странице представлены релизы YC CLI, а также изменения в каждом из них.
 ---
 
 # Релизы YC CLI
@@ -9,11 +9,33 @@ description: "На странице представлены релизы YC CLI
 
 ### Версия 0.134.0 (02.10.24) {#version0.134.0}
 
+#### Изменения в CLI {#cli}
+
+* Добавлен глобальный флаг `--jq`. Используется для фильтрации и преобразования вывода при помощи jq-выражений. Примеры:
+  * `yc iam role list --jq '.[].id'`
+  * `ID="instance_id" yc compute instance list --jq '.[] | select(.id == env.ID)'`
+
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
 
-##### {{ org-name }} {#organization}
+##### {{ objstorage-name }} {#storage}
 
-* В вывод команды `yc organization-manager user list --organization-id` добавлено время последней аутентификации пользователя.
+* Добавлена базовая поддержка операций с объектами через S3 API:
+  * `yc storage s3api get-object` — получение объекта из бакета.
+  * `yc storage s3api put-object` — загрузка объекта в бакет.
+  * `yc storage s3api delete-object` — удаление объекта.
+  * `yc storage s3api copy-object` — копирование существующего в бакете объекта.
+  * `yc storage s3api head-object` — получение метаданных объекта.
+  * `yc storage s3api delete-objects` — удаление группы объектов.
+
+  Чтобы работать с объектами, укажите в конфигурационном файле YC CLI `~/.config/yandex-cloud/config.yaml` эндпоинт {{ objstorage-name }}:
+
+  ```yaml
+  ...
+  profiles:
+    default:
+      ...
+      storage-endpoint: https://{{ s3-storage-host }}/
+  ```
 
 ##### {{ interconnect-name }} {#interconnect}
 
@@ -22,17 +44,6 @@ description: "На странице представлены релизы YC CLI
 * Добавлены команды `yc cic trunk-connection get` и `yc cic trunk-connection list` для чтения транковых подключений.
 * Добавлены команды `yc cic private-connection get` и `yc cic private-connection list` для чтения приватных соединений.
 * Добавлены команды `yc cic public-connection get` и `yc cic public-connection list` для чтения публичных соединений.
-
-##### {{ si-name }} {#serverless-integrations}
-
-* Добавлена поддержка {{ er-full-name }}.
-
-##### {{ objstorage-name }} {#storage}
-
-* Добавлена базовая поддержка операций с объектами через S3 API:
-  * `yc storage s3api get-object` — получение объекта.
-  * `yc storage s3api put-object` — загрузка объекта.
-  * `yc storage s3api delete-object` — удаление объекта.
 
 ##### {{ cloud-desktop-name }} {#cloud-desktop}
 
@@ -48,9 +59,17 @@ description: "На странице представлены релизы YC CLI
 
 * При выполнении команд теперь проверяется, активирован ли сервис {{ backup-name }} в каталоге.
 
-#### {{ iam-name }} {#iam}
+##### {{ si-name }} {#serverless-integrations}
+
+* Добавлена поддержка {{ er-full-name }}.
+
+##### {{ iam-name }} {#iam}
 
 * Изменен заголовок в табличном выводе команды `yc iam service accounts list`.
+
+##### {{ org-name }} {#organization}
+
+* В вывод команды `yc organization-manager user list --organization-id` добавлено время последней аутентификации пользователя.
 
 ##### Сервисы управляемых баз данных {#managed-db}
 
@@ -66,10 +85,6 @@ description: "На странице представлены релизы YC CLI
 **{{ mkf-name }}**
 
 *  В командах `yc managed-kafka cluster create`, `yc managed-kafka cluster update`, `yc managed-kafka cluster grant-permission`, `yc managed-kafka cluster revoke-permission` расширен флаг `--permission`. Его значение задается в формате `key=value,...`, в качестве `key` теперь можно использовать `allow_host` — хост, с которого дейcтвует данное правило для пользователя.
-
-* Добавлен глобальный флаг `--jq`. Используется для фильтрации и преобразования вывода при помощи jq-выражений. Примеры:
-  * `yc iam role list --jq '.[].id'`
-  * `ID="instance_id" yc compute instance list --jq '.[] | select(.id == env.ID)'`
 
 **{{ maf-name }}**
 

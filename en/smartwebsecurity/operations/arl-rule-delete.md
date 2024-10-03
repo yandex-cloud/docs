@@ -1,6 +1,6 @@
 ---
-title: "Deleting a rule from an ARL profile"
-description: "Follow this guide to delete a rule from an ARL profile."
+title: Deleting a rule from an ARL profile
+description: Follow this guide to delete a rule from an ARL profile.
 ---
 
 # Deleting a rule from an ARL profile

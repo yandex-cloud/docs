@@ -67,6 +67,6 @@ To delete a [node group](../../concepts/index.md#node-group), use its name or ID
 
 - API {#api}
 
-  To delete a node group, use the [delete](../../api-ref/NodeGroup/delete.md) method for the [NodeGroup](../../api-ref/NodeGroup/) resource.
+  To delete a node group, use the [delete](../../managed-kubernetes/api-ref/NodeGroup/delete.md) method for the [NodeGroup](../../managed-kubernetes/api-ref/NodeGroup/) resource.
 
 {% endlist %}

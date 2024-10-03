@@ -1,6 +1,6 @@
 ---
-title: "Authenticating in {{ yandex-cloud }} and managing {{ ydb-short-name }} databases using {{ TF }}"
-description: "Follow this guide to authenticate {{ TF }} in {{ yandex-cloud }} using a service account or a federated account."
+title: Authenticating in {{ yandex-cloud }} and managing {{ ydb-short-name }} databases using {{ TF }}
+description: Follow this guide to authenticate {{ TF }} in {{ yandex-cloud }} using a service account or a federated account.
 ---
 
 # Getting authentication credentials

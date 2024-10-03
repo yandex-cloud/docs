@@ -1,6 +1,6 @@
 ---
-title: "Detaching a target group from a network load balancer"
-description: "Follow this guide to detach a target group from a network load balancer."
+title: Detaching a target group from a network load balancer
+description: Follow this guide to detach a target group from a network load balancer.
 ---
 
 # Detaching a target group from a network load balancer

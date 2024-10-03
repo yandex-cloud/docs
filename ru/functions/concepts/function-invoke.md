@@ -116,13 +116,16 @@ module.exports.handler = async (event) => {
 
 Например, для запроса:
 
-```
-curl -XPOST -d "hello, world!" "https://{{ sf-url }}/<ID функции>?a=1&a=2&b=1"
+```bash
+curl \
+  --request POST \
+  --data "hello, world!" \
+  "https://{{ sf-url }}/<ID функции>?a=1&a=2&b=1"
 ```
 
 Результат будет выглядеть следующим образом: 
 
-```
+```text
 {
   "httpMethod": "POST",
   "headers": {

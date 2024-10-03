@@ -1,20 +1,20 @@
 ---
-title: "Как пользоваться API Amazon для работы с {{ postbox-name }}"
-description: "Из статьи вы узнаете, как подготовиться к работе с API {{ postbox-name }} и как выглядит запрос к API."
+title: Как пользоваться API Amazon для работы с {{ postbox-name }}
+description: Из статьи вы узнаете, как подготовиться к работе с API {{ postbox-name }} и как выглядит запрос к API.
 keywords:
-   - ses
-   - simple email service
-   - aws
-   - ses api
-   - aws api
-   - api
-   - api postbox
-   - aws api postbox
-   - postbox
-   - cloud postbox
-   - yandex cloud postbox
-   - апи ses
-   - апи aws
+  - ses
+  - simple email service
+  - aws
+  - ses api
+  - aws api
+  - api
+  - api postbox
+  - aws api postbox
+  - postbox
+  - cloud postbox
+  - yandex cloud postbox
+  - апи ses
+  - апи aws
 ---
 
 # Как пользоваться API Amazon для работы с {{ postbox-name }}

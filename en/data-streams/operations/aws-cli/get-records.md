@@ -1,6 +1,6 @@
 ---
-title: "Reading data from a stream in the AWS CLI"
-description: "Follow this guide to get data from a stream in the AWS CLI."
+title: Reading data from a stream in the AWS CLI
+description: Follow this guide to get data from a stream in the AWS CLI.
 ---
 
 # Reading data from a stream in the AWS CLI

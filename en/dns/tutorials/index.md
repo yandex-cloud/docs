@@ -1,6 +1,6 @@
 ---
-title: "{{ dns-full-name }} use cases"
-description: "Various {{ dns-full-name }} use cases in {{ yandex-cloud }}."
+title: '{{ dns-full-name }} use cases'
+description: Various {{ dns-full-name }} use cases in {{ yandex-cloud }}.
 ---
 
 # {{ dns-name }} tutorials

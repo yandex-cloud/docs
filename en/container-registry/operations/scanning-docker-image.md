@@ -1,6 +1,6 @@
 ---
-title: "How to scan a Docker image for vulnerabilities in {{ container-registry-full-name }}"
-description: "Follow this guide to scan a Docker image for vulnerabilities."
+title: How to scan a Docker image for vulnerabilities in {{ container-registry-full-name }}
+description: Follow this guide to scan a Docker image for vulnerabilities.
 ---
 
 # Scanning Docker images for vulnerabilities

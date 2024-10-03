@@ -1,6 +1,6 @@
 ---
-title: "How to delete an L7 load balancer in {{ alb-full-name }}"
-description: "Follow this guide to delete an L7 load balancer."
+title: How to delete an L7 load balancer in {{ alb-full-name }}
+description: Follow this guide to delete an L7 load balancer.
 ---
 
 # Deleting an L7 load balancer

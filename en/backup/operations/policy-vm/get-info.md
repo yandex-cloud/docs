@@ -1,6 +1,6 @@
 ---
-title: "How to get information about a backup policy"
-description: "In this tutorial, you will learn how to get information about a {{ backup-full-name }} backup policy."
+title: How to get information about a backup policy
+description: In this tutorial, you will learn how to get information about a {{ backup-full-name }} backup policy.
 ---
 
 # Getting information about a backup policy

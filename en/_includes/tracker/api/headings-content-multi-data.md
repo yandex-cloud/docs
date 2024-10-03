@@ -1,7 +1,7 @@
 {% cut "Headers" %}
 
 - **Host**
-      Address of the node that provides the API:
+   Address of the node that provides the API:
    ```
    https://{{ host }}
    ```

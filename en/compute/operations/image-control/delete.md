@@ -1,6 +1,6 @@
 ---
-title: "How to delete a disk image"
-description: "Follow this guide to delete a disk image."
+title: How to delete a disk image
+description: Follow this guide to delete a disk image.
 ---
 
 # Deleting a disk image

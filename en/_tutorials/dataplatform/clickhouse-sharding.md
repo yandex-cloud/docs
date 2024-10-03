@@ -57,7 +57,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       No shard groups are needed for [classic sharding](#shard-example).
 
-  
+
   1. If using security groups, [configure them](../../managed-clickhouse/operations/connect/index.md#configuring-security-groups) to be able to connect to the cluster from the internet.
 
 
@@ -224,7 +224,7 @@ To test your new distributed table named `tutorial.hits_v1_distributed`:
 
 1. Load the `hits_v1` test dataset:
 
-   
+
    ```bash
    curl https://{{ s3-storage-host }}/doc-files/managed-clickhouse/hits_v1.tsv.xz | unxz --threads=`nproc` > hits_v1.tsv
    ```

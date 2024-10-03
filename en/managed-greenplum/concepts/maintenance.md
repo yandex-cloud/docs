@@ -1,6 +1,6 @@
 ---
-title: "Maintenance in {{ mgp-full-name }}"
-description: "Maintenance in {{ mgp-name }} means automatic installation of DBMS updates and fixes for hosts (including disabled clusters), changing host class and storage size, and other maintenance activities."
+title: Maintenance in {{ mgp-full-name }}
+description: Maintenance in {{ mgp-name }} means automatic installation of DBMS updates and fixes for hosts (including disabled clusters), changing host class and storage size, and other maintenance activities.
 ---
 
 # Maintenance in {{ mgp-name }}

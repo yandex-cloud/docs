@@ -1,6 +1,6 @@
 ---
-title: "How to replace a connection in a dataset in {{ datalens-full-name }}"
-description: "Follow this guide to replace a connection in a dataset."
+title: How to replace a connection in a dataset in {{ datalens-full-name }}
+description: Follow this guide to replace a connection in a dataset.
 ---
 
 # Replacing a connection in a dataset

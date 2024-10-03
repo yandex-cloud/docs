@@ -1,7 +1,7 @@
 Для сервисного аккаунта процесс аутентификации изнутри виртуальной машины упрощен:
 1. [Привяжите сервисный аккаунт](../../compute/operations/vm-connect/auth-inside-vm.md#link-sa-with-instance) к виртуальной машине.
 1. Аутентифицируйтесь изнутри виртуальной машины:
-      1. [Подключитесь](../../compute/operations/vm-connect/ssh.md) к виртуальной машине по [SSH](../../glossary/ssh-keygen.md).
+   1. [Подключитесь](../../compute/operations/vm-connect/ssh.md) к виртуальной машине по [SSH](../../glossary/ssh-keygen.md).
    1. Создайте новый профиль:
 
       ```

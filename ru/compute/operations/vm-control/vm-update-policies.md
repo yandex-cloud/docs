@@ -136,7 +136,9 @@ ssh <имя_пользователя>@$VM_IP
 while true
 do 
   echo -n `date`" : "
-  curl -s -H Metadata-Flavor:Google http://metadata.google.internal/computeMetadata/v1/instance/maintenance-event
+  curl \
+    --silent \
+    --header Metadata-Flavor:Google http://metadata.google.internal/computeMetadata/v1/instance/maintenance-event
   echo
   sleep 1
 done

@@ -1,6 +1,6 @@
 ---
-title: "{{ sk-hybrid-name }} settings"
-description: "In this tutorial, you will learn how to set up {{ sk-hybrid-name }} components."
+title: '{{ sk-hybrid-name }} settings'
+description: In this tutorial, you will learn how to set up {{ sk-hybrid-name }} components.
 ---
 
 # {{ sk-hybrid-name }} service settings

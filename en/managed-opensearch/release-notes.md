@@ -1,6 +1,6 @@
 ---
-title: "{{ mos-full-name }} release notes"
-description: "This section contains {{ mos-name }} release notes."
+title: '{{ mos-full-name }} release notes'
+description: This section contains {{ mos-name }} release notes.
 ---
 
 # {{ mos-full-name }} release notes

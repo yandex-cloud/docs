@@ -1,6 +1,6 @@
 ---
-title: "{{ iam-full-name }} use cases"
-description: "Various use cases for {{ iam-full-name }} in {{ yandex-cloud }}."
+title: '{{ iam-full-name }} use cases'
+description: Various use cases for {{ iam-full-name }} in {{ yandex-cloud }}.
 ---
 
 # {{ iam-name }} tutorials

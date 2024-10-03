@@ -1,6 +1,6 @@
 ---
-title: "Как войти в {{ wiki-full-name }}"
-description: "Следуя данной инструкции, вы сможете войти в {{ wiki-full-name }}." 
+title: Как войти в {{ wiki-full-name }}
+description: Следуя данной инструкции, вы сможете войти в {{ wiki-full-name }}.
 ---
 
 # Как войти в {{ wiki-full-name }}

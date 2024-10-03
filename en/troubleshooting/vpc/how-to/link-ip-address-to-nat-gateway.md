@@ -1,7 +1,6 @@
 # How to assign a fixed IP address to a NAT gateway
 
 
-
 ## Scenario description {#case-description}
 
 You need to assign an IP address (or a pool of IP addresses) to your NAT gateway.

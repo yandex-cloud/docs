@@ -1,6 +1,6 @@
 ---
-title: "Getting information about a function"
-description: "Follow this guide to get information about a function."
+title: Getting information about a function
+description: Follow this guide to get information about a function.
 ---
 
 # Getting information about a function

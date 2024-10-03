@@ -1,6 +1,6 @@
 ---
-title: "How to set up SAML authentication"
-description: "Follow this guide to set up SAML authentication."
+title: How to set up SAML authentication
+description: Follow this guide to set up SAML authentication.
 ---
 
 # Configuring SAML authentication

@@ -1,6 +1,6 @@
 ---
-title: "How to delete a template of an issue or comment"
-description: "Follow this guide to delete a template of an issue or comment."
+title: How to delete a template of an issue or comment
+description: Follow this guide to delete a template of an issue or comment.
 ---
 
 # Deleting a template

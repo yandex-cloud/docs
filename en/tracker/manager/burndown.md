@@ -1,6 +1,6 @@
 ---
-title: "How to view the burndown chart"
-description: "Use this guide to view the burndown chart."
+title: How to view the burndown chart
+description: Use this guide to view the burndown chart.
 ---
 
 # Burndown charts

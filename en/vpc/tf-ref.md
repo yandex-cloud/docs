@@ -1,6 +1,6 @@
 ---
-title: "{{ TF }} reference for {{ vpc-full-name }}"
-description: "This page provides reference information about the {{ TF }} provider resources and data sources supported for {{ vpc-name }}."
+title: '{{ TF }} reference for {{ vpc-full-name }}'
+description: This page provides reference information about the {{ TF }} provider resources and data sources supported for {{ vpc-name }}.
 ---
 
 # {{ TF }} reference for {{ vpc-full-name }}

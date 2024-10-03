@@ -74,7 +74,7 @@
 
    Для этого создайте конфигурационный файл `vms.tf` с описанием ВМ.
 
-   
+
    В этот конфигурационный файл также [добавьте открытые части SSH-ключей](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys), чтобы можно было подключаться к ВМ по [SSH](../../../glossary/ssh-keygen.md).
 
 
@@ -150,7 +150,7 @@
 
    {% endcut %}
 
-   
+
    Подробнее процедура создания ВМ описана в [документации {{ compute-full-name }}](../../../compute/operations/vm-create/create-linux-vm.md).
 
 

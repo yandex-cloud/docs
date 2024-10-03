@@ -1,6 +1,6 @@
 ---
-title: "Quotas and limits in {{ serverless-containers-full-name }}"
-description: "{{ serverless-containers-full-name }} has quotas and limits. For more information about such restrictions, read this article."
+title: Quotas and limits in {{ serverless-containers-full-name }}
+description: '{{ serverless-containers-full-name }} has quotas and limits. For more information about such restrictions, read this article.'
 ---
 
 editable: false

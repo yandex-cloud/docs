@@ -1,6 +1,6 @@
 ---
-title: "{{ tracker-full-name }} pricing policy"
-description: "The cost of using {{ tracker-name }} is based on the number of users with full access to the service. You don't have to pay anything for {{ tracker-name }} if you only have a small team since {{ tracker-name }} is free of charge for up to five employees."
+title: '{{ tracker-full-name }} pricing policy'
+description: The cost of using {{ tracker-name }} is based on the number of users with full access to the service. You don't have to pay anything for {{ tracker-name }} if you only have a small team since {{ tracker-name }} is free of charge for up to five employees.
 ---
 
 # {{ tracker-full-name }} pricing

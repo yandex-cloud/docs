@@ -1,6 +1,6 @@
 ---
-title: "How to use shared templates in {{ tracker-full-name }}"
-description: "In this tutorial, you will learn how to use shared templates."
+title: How to use shared templates in {{ tracker-full-name }}
+description: In this tutorial, you will learn how to use shared templates.
 ---
 
 # Using shared templates

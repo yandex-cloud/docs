@@ -1,6 +1,6 @@
 ---
-title: "{{ MG }} user management in {{ mmg-full-name }}"
-description: "In this tutorial, you will learn how to add and remove users, as well as manage their individual settings in the {{ MG }} database management service."
+title: '{{ MG }} user management in {{ mmg-full-name }}'
+description: In this tutorial, you will learn how to add and remove users, as well as manage their individual settings in the {{ MG }} database management service.
 ---
 
 # Managing {{ MG }} users

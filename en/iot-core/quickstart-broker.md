@@ -1,6 +1,6 @@
 ---
-title: "Getting started with {{ iot-full-name }} brokers"
-description: "To start working with {{ iot-name }}, create an X.509 certificate and a broker. Then, set up message exchange."
+title: Getting started with {{ iot-full-name }} brokers
+description: To start working with {{ iot-name }}, create an X.509 certificate and a broker. Then, set up message exchange.
 ---
 
 # Getting started with {{ iot-name }} brokers

@@ -1,6 +1,6 @@
 ---
-title: "Reference for {{ mos-full-name }} metrics in {{ monitoring-full-name }}"
-description: "This page provides reference information on {{ mos-name }} metrics delivered to {{ monitoring-full-name }}."
+title: Reference for {{ mos-full-name }} metrics in {{ monitoring-full-name }}
+description: This page provides reference information on {{ mos-name }} metrics delivered to {{ monitoring-full-name }}.
 ---
 
 # {{ monitoring-full-name }} metric reference

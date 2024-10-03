@@ -1,6 +1,6 @@
 ---
-title: "{{ datalens-full-name }}. FAQ"
-description: "How do I get the logs of my activity in {{ datalens-full-name }}? Find the answer to this and other questions in this article."
+title: '{{ datalens-full-name }}. FAQ'
+description: How do I get the logs of my activity in {{ datalens-full-name }}? Find the answer to this and other questions in this article.
 ---
 
 # Questions and answers about {{ datalens-name }}

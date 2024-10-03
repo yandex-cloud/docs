@@ -1,6 +1,6 @@
 ---
-title: "How to view roles assigned to a container"
-description: "Use this guide to view roles assigned to a container."
+title: How to view roles assigned to a container
+description: Use this guide to view roles assigned to a container.
 ---
 
 # Viewing roles assigned to a container

@@ -1,5 +1,5 @@
 ---
-title: "How to get information about a GPU cluster in {{ compute-full-name }}"
+title: How to get information about a GPU cluster in {{ compute-full-name }}
 ---
 
 # Getting information about a GPU cluster

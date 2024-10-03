@@ -1,6 +1,6 @@
 ---
-title: "{{ message-queue-full-name }} pricing policy"
-description: "This article describes the {{ message-queue-name }} pricing policy."
+title: '{{ message-queue-full-name }} pricing policy'
+description: This article describes the {{ message-queue-name }} pricing policy.
 editable: false
 ---
 

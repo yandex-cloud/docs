@@ -1,5 +1,5 @@
 ---
-title: "{{ forms-full-name }} support"
+title: '{{ forms-full-name }} support'
 ---
 
 # {{ forms-name }} support

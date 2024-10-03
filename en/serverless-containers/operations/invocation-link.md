@@ -1,6 +1,6 @@
 ---
-title: "Getting an invocation link"
-description: "Follow this guide to get an invocation link."
+title: Getting an invocation link
+description: Follow this guide to get an invocation link.
 ---
 
 # Getting an invocation link

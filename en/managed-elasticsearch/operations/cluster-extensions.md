@@ -1,6 +1,6 @@
 ---
-title: "How to manage {{ ES }} extensions"
-description: "This guide describes how you can manage {{ ES }} extensions."
+title: How to manage {{ ES }} extensions
+description: This guide describes how you can manage {{ ES }} extensions.
 ---
 
 # Managing {{ ES }} extensions
@@ -68,7 +68,7 @@ All extensions must be in TXT format and added to a ZIP archive.
       * The extension version number is increased by one.
       * A new extension version is uploaded via the link in the `--uri` parameter and a new ID is assigned to it.
 
-   
+
    * `--uri`: [Link](../../storage/operations/objects/link-for-download.md) to a ZIP archive with {{ objstorage-full-name }} extension files. You can [configure](./s3-access.md) access to {{ objstorage-full-name }} using your service account.
 
 
@@ -86,7 +86,7 @@ All extensions must be in TXT format and added to a ZIP archive.
       * The extension version number is increased by one.
       * A new extension version is uploaded via the link in the `uri` parameter and a new ID is assigned to it.
 
-   
+
    * [Link](../../storage/operations/objects/link-for-download.md) to a ZIP archive with extension files in {{ objstorage-full-name }}, in the `uri` parameter. You can [configure](./s3-access.md) access to {{ objstorage-full-name }} using your service account.
 
 

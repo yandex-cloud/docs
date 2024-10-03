@@ -1,6 +1,6 @@
 ---
-title: "How to use {{ serverless-containers-full-name }}"
-description: "In this tutorial, you will learn how to use the {{ serverless-containers-full-name }} managed service in {{ yandex-cloud }}."
+title: How to use {{ serverless-containers-full-name }}
+description: In this tutorial, you will learn how to use the {{ serverless-containers-full-name }} managed service in {{ yandex-cloud }}.
 ---
 
 # All {{ serverless-containers-name }} guides

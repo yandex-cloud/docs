@@ -1,6 +1,6 @@
 ---
-title: "Deleting a WAF profile"
-description: "Follow this guide to delete a WAF profile."
+title: Deleting a WAF profile
+description: Follow this guide to delete a WAF profile.
 ---
 
 # Deleting a WAF profile

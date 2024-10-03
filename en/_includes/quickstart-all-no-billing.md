@@ -35,12 +35,13 @@
    * [{{ MY }}](../managed-mysql/quickstart.md).
    * [{{ RD }}](../managed-redis/quickstart.md).
    * [{{ PG }}](../managed-postgresql/quickstart.md).
+   
    * [{{ OS }}](../managed-opensearch/quickstart.md).
    * [{{ KF }}](../managed-kafka/quickstart.md).
    * [{{ GP }}](../managed-greenplum/quickstart.md).
    * [{{ ydb-name }}](../ydb/quickstart.md#create-db).
    * [Copy and replicate the data between databases using {{ data-transfer-name }}](../data-transfer/quickstart.md).
-   * Machine learning:
+* Machine learning:
    * [Convert text to speech and vice versa using {{ speechkit-name }}](../{{ speechkit-slug }}/quickstart/index.md).
    * [Translate text in {{ translate-name }}](../translate/quickstart.md).
    * [Analyze an image using computer vision in {{ vision-name }}](../vision/quickstart.md).

@@ -1,6 +1,6 @@
 ---
-title: "Writing to the execution log in {{ postbox-full-name }}"
-description: "Follow this guide to configure address logging."
+title: Writing to the execution log in {{ postbox-full-name }}
+description: Follow this guide to configure address logging.
 ---
 
 # Writing to the execution log in {{ postbox-name }}

@@ -1,6 +1,6 @@
 ---
-title: "Как настроить эндпоинт-приемник {{ yds-full-name }} в {{ data-transfer-full-name }}"
-description: "Из статьи вы узнаете, как задать настройки при создании или изменении эндпоинта-приемника {{ yds-full-name }} в {{ data-transfer-full-name }}."
+title: Как настроить эндпоинт-приемник {{ yds-full-name }} в {{ data-transfer-full-name }}
+description: Из статьи вы узнаете, как задать настройки при создании или изменении эндпоинта-приемника {{ yds-full-name }} в {{ data-transfer-full-name }}.
 ---
 # Передача данных в эндпоинт-приемник {{ yds-full-name }}
 

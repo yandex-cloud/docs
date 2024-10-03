@@ -1,6 +1,6 @@
 ---
-title: "{{ mpg-full-name }} release notes"
-description: "This section contains {{ mpg-name }} release notes."
+title: '{{ mpg-full-name }} release notes'
+description: This section contains {{ mpg-name }} release notes.
 ---
 
 # {{ mpg-full-name }} release notes

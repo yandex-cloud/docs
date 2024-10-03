@@ -1,6 +1,6 @@
 ---
-title: "How to view issue change history in {{ tracker-full-name }}"
-description: "In this tutorial, you will learn about viewing issue change history in {{ tracker-name }}."
+title: How to view issue change history in {{ tracker-full-name }}
+description: In this tutorial, you will learn about viewing issue change history in {{ tracker-name }}.
 ---
 
 # Viewing issue change history

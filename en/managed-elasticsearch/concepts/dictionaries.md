@@ -1,6 +1,6 @@
 ---
-title: "Dictionary support"
-description: "{{ mes-name }} has pre-installed Hunspell dictionaries for spell checking and word stemming. You can use them via the {{ ES }} API. The dictionaries are available for all supported editions and versions. For Hunspell dictionary use examples, see the {{ ES }} documentation."
+title: Dictionary support
+description: '{{ mes-name }} has pre-installed Hunspell dictionaries for spell checking and word stemming. You can use them via the {{ ES }} API. The dictionaries are available for all supported editions and versions. For Hunspell dictionary use examples, see the {{ ES }} documentation.'
 ---
 
 # Dictionary support

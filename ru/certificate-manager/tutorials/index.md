@@ -1,6 +1,6 @@
 ---
-title: "Практические руководства {{ certificate-manager-full-name }}"
-description: "Руководства использования {{ certificate-manager-full-name }} в {{ yandex-cloud }}."
+title: Практические руководства {{ certificate-manager-full-name }}
+description: Руководства использования {{ certificate-manager-full-name }} в {{ yandex-cloud }}.
 ---
 
 # Практические руководства {{ certificate-manager-name }}

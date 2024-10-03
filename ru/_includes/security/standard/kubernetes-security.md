@@ -188,7 +188,7 @@
 
 - Проверка через API {#api}
 
-  Чтобы получить список доступных версий, воспользуйтесь методом [list](../../../managed-kubernetes/api-ref/Version/list.md).
+  Чтобы получить список доступных версий, воспользуйтесь методом [list](../../../managed-kubernetes/managed-kubernetes/api-ref/Version/list.md).
 
 {% endlist %}
 

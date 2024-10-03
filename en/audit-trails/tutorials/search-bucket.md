@@ -1,6 +1,6 @@
 ---
-title: "How to search for {{ yandex-cloud }} events in {{ objstorage-full-name }}"
-description: "In this guide, you will learn how to search for {{ yandex-cloud }} events in {{ objstorage-name }}."
+title: How to search for {{ yandex-cloud }} events in {{ objstorage-full-name }}
+description: In this guide, you will learn how to search for {{ yandex-cloud }} events in {{ objstorage-name }}.
 ---
 
 # Searching for {{ yandex-cloud }} events in {{ objstorage-name }}
@@ -28,7 +28,7 @@ description: "In this guide, you will learn how to search for {{ yandex-cloud }}
 
 1. To find out who created, stopped, restarted, or deleted a VM instance, search by the `eventType` field across all files for the period with filtering by VM instance ID:
 
-   
+
    ```bash
    find <directory_path> -type f -exec cat {} \; | jq  '.[] | select((.event_type | test("yandex\\.cloud\\.audit\\.compute\\..*Instance")) and .details.instance_id == "<VM_instance_ID>") | .authentication'
    ```

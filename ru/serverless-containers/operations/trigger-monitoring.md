@@ -1,6 +1,6 @@
 ---
-title: "Просмотр графиков мониторинга в {{ serverless-containers-full-name }}"
-description: "Вы можете посмотреть график мониторинга в {{ serverless-containers-full-name }} с помощью консоли управления, для этого выберите сервис {{ serverless-containers-name }}, нажмите на триггер, графики мониторинга которого вы хотите посмотреть."
+title: Просмотр графиков мониторинга в {{ serverless-containers-full-name }}
+description: Вы можете посмотреть график мониторинга в {{ serverless-containers-full-name }} с помощью консоли управления, для этого выберите сервис {{ serverless-containers-name }}, нажмите на триггер, графики мониторинга которого вы хотите посмотреть.
 ---
 
 # Посмотреть графики мониторинга триггера в {{ serverless-containers-name }}
@@ -30,7 +30,7 @@ description: "Вы можете посмотреть график монитор
         * **Function access errors** — количество ошибок доступа при вызове контейнера.
         * **Function call errors** — количество ошибок при вызове контейнера.
      
-                  
+          
         * **DLQ access errors** — количество ошибок доступа при обращении к [Dead Letter Queue](../../serverless-containers/concepts/dlq.md).
         * **Send to DLQ errors** — количество ошибок при отправлении сообщений в Dead Letter Queue.
      

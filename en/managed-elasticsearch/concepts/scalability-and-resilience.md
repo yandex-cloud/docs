@@ -1,6 +1,6 @@
 ---
-title: "Sharding and replication in Elasticsearch"
-description: "You can use sharding to enable Elasticsearch clusters to scale as the amount of index data grows. With replication, you can improve cluster fault tolerance and index data protection."
+title: Sharding and replication in Elasticsearch
+description: You can use sharding to enable Elasticsearch clusters to scale as the amount of index data grows. With replication, you can improve cluster fault tolerance and index data protection.
 keywords:
   - Elasticsearch sharding
   - Elasticsearch replication

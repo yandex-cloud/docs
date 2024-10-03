@@ -34,7 +34,7 @@ To create a budget:
       1. Enter the budget name.
       1. Select **{{ ui-key.yacloud_billing.billing.account.budgets.label_type }}**.
       1. Set the **Budget amount**: 
-         
+
          * For the **{{ ui-key.yacloud_billing.billing.account.budgets.label_type-cost }}** or **{{ ui-key.yacloud_billing.billing.account.budgets.label_type-expense }}** type, specify the total usage cost.
          * For the **{{ ui-key.yacloud_billing.billing.account.budgets.label_type-balance }}** type, specify the account balance.
 

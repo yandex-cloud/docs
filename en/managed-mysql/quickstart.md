@@ -1,6 +1,6 @@
 ---
-title: "Getting started with {{ mmy-full-name }}"
-description: "Follow this guide to create a {{ MY }} cluster and connect to it."
+title: Getting started with {{ mmy-full-name }}
+description: Follow this guide to create a {{ MY }} cluster and connect to it.
 ---
 
 # Getting started with {{ mmy-name }}®

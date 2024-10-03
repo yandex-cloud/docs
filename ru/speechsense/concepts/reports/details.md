@@ -1,5 +1,5 @@
 ---
-title: "Отчет «Детализация» в {{ speechsense-name }}"
+title: Отчет «Детализация» в {{ speechsense-name }}
 ---
 
 # Отчет «Детализация» в {{ speechsense-name }}

@@ -1,6 +1,6 @@
 ---
-title: "How to delete a disk"
-description: "You can only delete a disk that is not attached to a virtual machine. Deleting a disk is an operation that cannot be canceled or reversed. You cannot restore a deleted disk. If you delete a disk, its snapshots are not deleted with it. Snapshots need to be deleted separately. To delete a disk from the management console, select the folder that hosts the disk, select the {{ compute-name }} service, on the Instances page, click Disks. In the line of the appropriate disk, click the select icon and then Delete."
+title: How to delete a disk
+description: You can only delete a disk that is not attached to a virtual machine. Deleting a disk is an operation that cannot be canceled or reversed. You cannot restore a deleted disk. If you delete a disk, its snapshots are not deleted with it. Snapshots need to be deleted separately. To delete a disk from the management console, select the folder that hosts the disk, select the {{ compute-name }} service, on the Instances page, click Disks. In the line of the appropriate disk, click the select icon and then Delete.
 ---
 
 # Deleting a disk

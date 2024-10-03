@@ -1,6 +1,6 @@
 ---
-title: "Device topics in {{ iot-full-name }}"
-description: "This page describes all device topics available in {{ iot-full-name }}."
+title: Device topics in {{ iot-full-name }}
+description: This page describes all device topics available in {{ iot-full-name }}.
 ---
 
 # Device topics

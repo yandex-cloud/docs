@@ -1,6 +1,6 @@
 ---
-title: "Getting started with {{ message-queue-full-name }} (message queues)"
-description: "In this tutorial, you will learn how to make basic actions with message queues in {{ message-queue-full-name }}. First of all, install the AWS CLI, a command line utility for working with {{ message-queue-name }}."
+title: Getting started with {{ message-queue-full-name }} (message queues)
+description: In this tutorial, you will learn how to make basic actions with message queues in {{ message-queue-full-name }}. First of all, install the AWS CLI, a command line utility for working with {{ message-queue-name }}.
 ---
 
 # Getting started with {{ message-queue-name }}

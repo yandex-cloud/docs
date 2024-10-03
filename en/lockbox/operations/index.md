@@ -1,6 +1,6 @@
 ---
-title: "How to work with {{ lockbox-full-name }}"
-description: "In this article, you will learn how to work with {{ lockbox-full-name }} in {{ yandex-cloud }}."
+title: How to work with {{ lockbox-full-name }}
+description: In this article, you will learn how to work with {{ lockbox-full-name }} in {{ yandex-cloud }}.
 ---
 
 # Step-by-step guides for {{ lockbox-name }}

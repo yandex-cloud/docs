@@ -1,6 +1,6 @@
 ---
-title: "Политики перезапуска Docker-контейнера"
-description: "В описании Docker-контейнера можно указать три политики запуска: Always, Never и OnFailure." 
+title: Политики перезапуска Docker-контейнера
+description: 'В описании Docker-контейнера можно указать три политики запуска: Always, Never и OnFailure.'
 ---
 
 # Политики перезапуска Docker-контейнера

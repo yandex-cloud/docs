@@ -1,6 +1,6 @@
 ---
-title: "Tutorial on collecting and delivering data to {{ ydb-full-name }} using Fluentd"
-description: "In this tutorial, you'll learn how to collect and deliver data to {{ ydb-full-name }} using Fluentd."
+title: Tutorial on collecting and delivering data to {{ ydb-full-name }} using Fluentd
+description: In this tutorial, you'll learn how to collect and deliver data to {{ ydb-full-name }} using Fluentd.
 ---
 
 # Fluentd

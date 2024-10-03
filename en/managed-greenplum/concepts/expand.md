@@ -1,6 +1,6 @@
 ---
-title: "Expanding a {{ GP }} cluster"
-description: "How does a cluster expand procedure work in {{ mgp-full-name }}."
+title: Expanding a {{ GP }} cluster
+description: How does a cluster expand procedure work in {{ mgp-full-name }}.
 ---
 
 # Expanding a {{ GP }} cluster

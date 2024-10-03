@@ -1,6 +1,6 @@
 ---
-title: "How to authenticate in {{ ds-jobs }}"
-description: "This article describes the authentication methods in {{ ds-jobs }}."
+title: How to authenticate in {{ ds-jobs }}
+description: This article describes the authentication methods in {{ ds-jobs }}.
 ---
 
 # Authentication in {{ ds-jobs }}

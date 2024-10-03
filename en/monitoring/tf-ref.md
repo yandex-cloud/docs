@@ -1,6 +1,6 @@
 ---
-title: "{{ TF }} reference for {{ monitoring-full-name }}"
-description: "This page provides reference information on the {{ TF }} provider resources and data sources supported for {{ monitoring-name }}."
+title: '{{ TF }} reference for {{ monitoring-full-name }}'
+description: This page provides reference information on the {{ TF }} provider resources and data sources supported for {{ monitoring-name }}.
 ---
 
 # {{ TF }} reference for {{ monitoring-full-name }}

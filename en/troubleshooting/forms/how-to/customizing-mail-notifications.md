@@ -1,7 +1,6 @@
 # Setting up email notifications
 
 
-
 ## Issue description {#case-description}
 
 You need to configure the contents of a notification to show arbitrary, rather than default, information.

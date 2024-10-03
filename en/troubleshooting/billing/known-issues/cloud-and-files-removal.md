@@ -1,7 +1,6 @@
 # Can resources be deleted in case of non-payment?
 
 
-
 ## Issue description {#issue-description}
 
 You need to find out when and why user files and clouds are deleted and how long they are stored.

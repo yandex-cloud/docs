@@ -1,6 +1,6 @@
 ---
-title: "Integrating {{ dns-full-name }} with {{ compute-full-name }}"
-description: "In this tutorial, you will learn how {{ dns-full-name }} is related to {{ compute-full-name }} resources."
+title: Integrating {{ dns-full-name }} with {{ compute-full-name }}
+description: In this tutorial, you will learn how {{ dns-full-name }} is related to {{ compute-full-name }} resources.
 ---
 
 # Integration with {{ compute-name }}

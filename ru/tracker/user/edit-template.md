@@ -1,6 +1,6 @@
 ---
-title: "Как изменить шаблон в {{ tracker-full-name }}"
-description: "Из статьи вы узнаете, как изменить шаблон в {{ tracker-name }}."
+title: Как изменить шаблон в {{ tracker-full-name }}
+description: Из статьи вы узнаете, как изменить шаблон в {{ tracker-name }}.
 ---
 
 # Изменить шаблон

@@ -1,6 +1,6 @@
 ---
-title: "Fault-tolerant website with load balancing via {{ network-load-balancer-full-name }}"
-description: "This tutorial describes how to set up a website with load balancing via {{ network-load-balancer-name }} between two availability zones with failure protection in one zone."
+title: Fault-tolerant website with load balancing via {{ network-load-balancer-full-name }}
+description: This tutorial describes how to set up a website with load balancing via {{ network-load-balancer-name }} between two availability zones with failure protection in one zone.
 ---
 
 {% include [load-balancer-website](../../../_tutorials/web/load-balancer-website.md) %}

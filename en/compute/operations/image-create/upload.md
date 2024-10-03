@@ -1,6 +1,6 @@
 ---
-title: "Uploading a disk image to the cloud"
-description: "This tutorial describes the procedure for uploading a Linux OS image file to an {{ objstorage-name }} storage as well as for creating an image from it and a virtual machine in {{ compute-name }}."
+title: Uploading a disk image to the cloud
+description: This tutorial describes the procedure for uploading a Linux OS image file to an {{ objstorage-name }} storage as well as for creating an image from it and a virtual machine in {{ compute-name }}.
 keywords:
   - upload image
   - upload disk image

@@ -1,10 +1,5 @@
 title: Yandex Tracker
 href: index.yaml
-label:
-  title: RU
-  description: The service is available in Russia only.
-  theme: unknown
-  when: region == "kz"
 items:
   - name: Getting started
     items:
@@ -882,3 +877,4 @@ items:
   - name: Support
     href: troubleshooting.md
 base: en/tracker
+deepBase: 2

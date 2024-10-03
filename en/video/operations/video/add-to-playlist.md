@@ -1,6 +1,6 @@
 ---
-title: "How to add a video to a playlist in {{ video-full-name }}"
-description: "Follow this guide to add a video to a playlist in {{ video-name }}."
+title: How to add a video to a playlist in {{ video-full-name }}
+description: Follow this guide to add a video to a playlist in {{ video-name }}.
 ---
 
 # Adding a video to a playlist

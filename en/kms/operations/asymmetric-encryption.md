@@ -1,6 +1,6 @@
 ---
-title: "How to encrypt and decrypt data in {{ kms-short-name }} using asymmetric encryption"
-description: "This guide describes how you can encrypt and decrypt data using asymmetric encryption."
+title: How to encrypt and decrypt data in {{ kms-short-name }} using asymmetric encryption
+description: This guide describes how you can encrypt and decrypt data using asymmetric encryption.
 ---
 
 # Asymmetric data encryption

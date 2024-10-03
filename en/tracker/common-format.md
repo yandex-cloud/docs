@@ -1,6 +1,6 @@
 ---
-title: "General request format in {{ tracker-full-name }}"
-description: "In this tutorial, you will learn about the general format of {{ api-name }} requests, their methods and headings, as well as the format of request body, text, and variables."
+title: General request format in {{ tracker-full-name }}
+description: In this tutorial, you will learn about the general format of {{ api-name }} requests, their methods and headings, as well as the format of request body, text, and variables.
 sourcePath: en/tracker/api-ref/common-format.md
 ---
 

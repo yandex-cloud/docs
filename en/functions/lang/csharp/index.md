@@ -1,6 +1,6 @@
 ---
-title: "Developing in CSharp in {{ sf-full-name }}. Overview"
-description: "With {{ sf-name }}, you can run applications written in C# (CSharp) for .NET Core. The service provides the .NET Core 3.1.417 runtime environment with C# 8.0 and Ubuntu 18.04."
+title: Developing in CSharp in {{ sf-full-name }}. Overview
+description: With {{ sf-name }}, you can run applications written in C# (CSharp) for .NET Core. The service provides the .NET Core 3.1.417 runtime environment with C# 8.0 and Ubuntu 18.04.
 ---
 
 # Developing in C#. Overview

@@ -8552,6 +8552,9 @@ default:
               console:
                 form:
                   common:
+                    AltName:
+                      to_name:
+                        title: Имя таблицы приёмника
                     CleanupPolicy:
                       DISABLED:
                         title: Не очищать

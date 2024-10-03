@@ -1,6 +1,6 @@
 ---
-title: "Как создать подключение к Snowflake в {{ datalens-full-name }}"
-description: "Следуя данной инструкции, вы сможете создать подключение к Snowflake." 
+title: Как создать подключение к Snowflake в {{ datalens-full-name }}
+description: Следуя данной инструкции, вы сможете создать подключение к Snowflake.
 ---
 
 # Создание подключения к Snowflake

@@ -1,12 +1,12 @@
 ---
-title: "Access to {{ mgp-name }}"
-description: "To allow access to {{ mgp-name }} resources (DB clusters and hosts, cluster backups, databases and their users), assign the user the appropriate roles for the folder, cloud, or organization containing these resources."
+title: Access to {{ mgp-name }}
+description: To allow access to {{ mgp-name }} resources (DB clusters and hosts, cluster backups, databases and their users), assign the user the appropriate roles for the folder, cloud, or organization containing these resources.
 keywords:
   - access
   - configuring access
-  - "{{ GP }} access"
+  - '{{ GP }} access'
   - green plum
-  - "{{ GP }}"
+  - '{{ GP }}'
 ---
 
 # Access management in {{ mgp-name }}

@@ -1,6 +1,6 @@
 ---
-title: "How to sign a file or artifact using Cosign"
-description: "Follow this guide to sign a file or artifact, or verify an electronic signature using the Cosign utility."
+title: How to sign a file or artifact using Cosign
+description: Follow this guide to sign a file or artifact, or verify an electronic signature using the Cosign utility.
 ---
 
 # Digitally signing files and artifacts using Cosign

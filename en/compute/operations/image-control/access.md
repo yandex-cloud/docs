@@ -1,6 +1,6 @@
 ---
-title: "Configuring access permissions for a {{ compute-name }} image"
-description: "Follow this guide to configure access permissions for an image."
+title: Configuring access permissions for a {{ compute-name }} image
+description: Follow this guide to configure access permissions for an image.
 ---
 
 # Configuring image access permissions

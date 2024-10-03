@@ -1,6 +1,6 @@
 ---
-title: "Вопросы и ответы про {{ monitoring-full-name }}"
-description: "На странице представлены вопросы и ответы про {{ monitoring-name }}."
+title: Вопросы и ответы про {{ monitoring-full-name }}
+description: На странице представлены вопросы и ответы про {{ monitoring-name }}.
 ---
 
 # Вопросы и ответы про {{ monitoring-name }}

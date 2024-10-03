@@ -1,6 +1,6 @@
 ---
-title: "How to read and write data in {{ ydb-full-name }}"
-description: "Follow this guide to read and write data."
+title: How to read and write data in {{ ydb-full-name }}
+description: Follow this guide to read and write data.
 ---
 
 # Reading and writing data

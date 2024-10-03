@@ -112,7 +112,7 @@
        yc managed-mysql host list --cluster-name <имя_кластера_{{ MY }}>
        ```
 
-       
+
        ```text
        +------------------------+----------------------+---------+--------+-------------------+-----------+
        |           NAME         |      CLUSTER ID      |  ROLE   | HEALTH |      ZONE ID      | PUBLIC IP |

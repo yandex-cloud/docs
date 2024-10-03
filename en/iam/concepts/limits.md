@@ -1,7 +1,6 @@
 ---
-title: "Quotas and limits in {{ iam-full-name }}"
-description: "{{ iam-full-name }} has quotas for the maximum number of groups in an organization, the number of subjects from an organization's groups, and the number of service accounts and keys per cloud. There are no limits defined for the service. For more information about the service restrictions, read this article."
-
+title: Quotas and limits in {{ iam-full-name }}
+description: '{{ iam-full-name }} has quotas for the maximum number of groups in an organization, the number of subjects from an organization''s groups, and the number of service accounts and keys per cloud. There are no limits defined for the service. For more information about the service restrictions, read this article.'
 editable: false
 ---
 

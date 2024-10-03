@@ -1,6 +1,6 @@
 ---
-title: "How to create a disk placement group in {{ compute-full-name }}"
-description: "Follow this guide to create a disk placement group."
+title: How to create a disk placement group in {{ compute-full-name }}
+description: Follow this guide to create a disk placement group.
 ---
 
 # Creating a disk placement group

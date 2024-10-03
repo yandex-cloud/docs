@@ -1,6 +1,6 @@
 ---
-title: "Квоты и лимиты в {{ ca-full-name }}"
-description: "В сервисе {{ ca-full-name }} не определены квоты и лимиты."
+title: Квоты и лимиты в {{ ca-full-name }}
+description: В сервисе {{ ca-full-name }} не определены квоты и лимиты.
 editable: false
 ---
 

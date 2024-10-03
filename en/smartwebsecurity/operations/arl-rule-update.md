@@ -1,6 +1,6 @@
 ---
-title: "Updating a rule in an ARL profile"
-description: "Follow this guide to update a rule in an ARL profile."
+title: Updating a rule in an ARL profile
+description: Follow this guide to update a rule in an ARL profile.
 ---
 
 # Updating a rule in an ARL profile

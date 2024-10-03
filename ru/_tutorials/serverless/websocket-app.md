@@ -86,21 +86,21 @@
      * [AWS CLI](https://aws.amazon.com/ru/cli/):
 
        ```bash
-       curl "https://awscli.amazonaws.com/AWSCLIV2.pkg" -o "AWSCLIV2.pkg"
+       curl "https://awscli.amazonaws.com/AWSCLIV2.pkg" --output "AWSCLIV2.pkg"
        sudo installer -pkg AWSCLIV2.pkg -target /
        ```
 
      * [YDB CLI](https://ydb.tech/ru/docs/reference/ydb-cli/install):
 
        ```bash
-       curl -sSL https://storage.yandexcloud.net/yandexcloud-ydb/install.sh | bash
+       curl --silent --show-error --location https://storage.yandexcloud.net/yandexcloud-ydb/install.sh | bash
        ```
 
      * [Node.js](https://nodejs.org/ru/) версии `16.16.0`:
 
        ```bash
        sudo apt-get install curl
-       curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash
+       curl --silent --location https://deb.nodesource.com/setup_16.x | sudo -E bash
        sudo apt-get install nodejs
        node -v
        npm -v
@@ -121,7 +121,7 @@
      * [Homebrew](https://brew.sh):
 
        ```bash
-       /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+       /bin/bash -c "$(curl --fail --silent --show-error --location https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
        ```
 
      * [WebStorm](https://www.jetbrains.com/ru-ru/webstorm/) или [IntelliJ IDEA Community Edition](https://www.jetbrains.com/ru-ru/idea/).
@@ -151,14 +151,14 @@
      * [AWS CLI](https://aws.amazon.com/ru/cli/):
 
        ```bash
-       curl "https://awscli.amazonaws.com/AWSCLIV2.pkg" -o "AWSCLIV2.pkg"
+       curl "https://awscli.amazonaws.com/AWSCLIV2.pkg" --output "AWSCLIV2.pkg"
        sudo installer -pkg AWSCLIV2.pkg -target /
        ```
 
      * [YDB CLI](https://ydb.tech/ru/docs/reference/ydb-cli/install):
 
        ```bash
-       curl -sSL https://storage.yandexcloud.net/yandexcloud-ydb/install.sh | bash
+       curl --silent --show-error --location https://storage.yandexcloud.net/yandexcloud-ydb/install.sh | bash
        ```
 
      * [Node.js](https://nodejs.org/ru/) версии `16.16.0`:

@@ -1,6 +1,6 @@
 ---
-title: "{{ TF }} reference for {{ api-gw-full-name }}"
-description: "This page provides reference information on the {{ TF }} provider resources and data sources supported for {{ api-gw-name }}."
+title: '{{ TF }} reference for {{ api-gw-full-name }}'
+description: This page provides reference information on the {{ TF }} provider resources and data sources supported for {{ api-gw-name }}.
 ---
 
 # {{ TF }} reference for {{ api-gw-full-name }}

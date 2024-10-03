@@ -1,6 +1,6 @@
 ---
-title: "How to receive update reports in {{ tracker-full-name }}"
-description: "In this tutorial, you will learn how to receive update reports."
+title: How to receive update reports in {{ tracker-full-name }}
+description: In this tutorial, you will learn how to receive update reports.
 ---
 
 # Receiving update reports

@@ -1,7 +1,6 @@
 # Resolving issues with deductions from a bank card
 
 
-
 ## Issue description {#issue-description}
 
 * An email has been received by the owner of the billing account notifying of an error in debiting funds from a bank card.

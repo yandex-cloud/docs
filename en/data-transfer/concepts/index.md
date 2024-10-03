@@ -1,6 +1,6 @@
 ---
-title: "Relationships between {{ data-transfer-full-name }} resources"
-description: "With {{ data-transfer-full-name }}, you can easily transfer data between databases. The service enables you to save time on migration, minimize downtime when switching to a new database, and maintain a database replica that is always up to date."
+title: Relationships between {{ data-transfer-full-name }} resources
+description: With {{ data-transfer-full-name }}, you can easily transfer data between databases. The service enables you to save time on migration, minimize downtime when switching to a new database, and maintain a database replica that is always up to date.
 ---
 
 # Resource relationships in {{ data-transfer-name }}

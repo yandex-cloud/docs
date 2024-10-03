@@ -1,6 +1,6 @@
 ---
-title: "How notifications and subscriptions work in {{ tracker-full-name }}"
-description: "In this tutorial, you will learn how notifications and subscriptions work in {{ tracker-name }}."
+title: How notifications and subscriptions work in {{ tracker-full-name }}
+description: In this tutorial, you will learn how notifications and subscriptions work in {{ tracker-name }}.
 ---
 
 # Notifications and subscriptions

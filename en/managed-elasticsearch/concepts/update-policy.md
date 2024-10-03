@@ -1,6 +1,6 @@
 ---
-title: "{{ ES }} versioning policy"
-description: "By updating to the latest versions, you get new features, revisions, and bug fixes. {{ mes-name }} always supports multiple {{ ES }} versions. Support for new versions is added as they are released. Each supported {{ ES }} version is tested thoroughly. This is why, when you update versions, the integrity and availability of your cluster data is not affected."
+title: '{{ ES }} versioning policy'
+description: By updating to the latest versions, you get new features, revisions, and bug fixes. {{ mes-name }} always supports multiple {{ ES }} versions. Support for new versions is added as they are released. Each supported {{ ES }} version is tested thoroughly. This is why, when you update versions, the integrity and availability of your cluster data is not affected.
 ---
 
 # {{ ES }} versioning policy

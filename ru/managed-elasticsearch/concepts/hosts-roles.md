@@ -1,6 +1,6 @@
 ---
-title: "Роли хостов {{ ES }}"
-description: "Каждый кластер управляемого сервиса {{ ES }} состоит из одного или нескольких хостов {{ ES }} с разными ролями Data node или Master node. "
+title: Роли хостов {{ ES }}
+description: 'Каждый кластер управляемого сервиса {{ ES }} состоит из одного или нескольких хостов {{ ES }} с разными ролями Data node или Master node. '
 keywords:
   - роли хостов Elasticsearch
   - Elasticsearch

@@ -1,6 +1,6 @@
 ---
-title: "Viewing Cloud DNS metrics"
-description: "Follow this guide to view zone and request metrics."
+title: Viewing Cloud DNS metrics
+description: Follow this guide to view zone and request metrics.
 ---
 
 # Viewing zone metrics

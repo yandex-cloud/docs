@@ -1,6 +1,6 @@
 ---
-title: "How to create a multi-dataset chart"
-description: "Follow this guide to create a multi-dataset chart."
+title: How to create a multi-dataset chart
+description: Follow this guide to create a multi-dataset chart.
 ---
 
 # Creating a multi-dataset chart

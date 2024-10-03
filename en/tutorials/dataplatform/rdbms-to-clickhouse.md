@@ -1,6 +1,6 @@
 ---
-title: "Asynchronously replicating data from {{ PG }} to {{ CH }}"
-description: "You can migrate a database from {{ PG }} to {{ CH }} using {{ data-transfer-full-name }}."
+title: Asynchronously replicating data from {{ PG }} to {{ CH }}
+description: You can migrate a database from {{ PG }} to {{ CH }} using {{ data-transfer-full-name }}.
 ---
 
 # Asynchronously replicating data from {{ PG }} to {{ CH }}

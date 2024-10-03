@@ -1,6 +1,6 @@
 ---
-title: "How to delete a Docker image from a {{ container-registry-full-name }} registry"
-description: "In this tutorial, you will learn how to delete a Docker image from a {{ container-registry-full-name }} registry."
+title: How to delete a Docker image from a {{ container-registry-full-name }} registry
+description: In this tutorial, you will learn how to delete a Docker image from a {{ container-registry-full-name }} registry.
 ---
 
 # Deleting a Docker image from a registry

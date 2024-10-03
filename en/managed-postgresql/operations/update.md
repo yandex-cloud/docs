@@ -1,6 +1,6 @@
 ---
-title: "How to change {{ PG }} cluster settings in {{ mpg-full-name }}"
-description: "In this tutorial, you will learn how to change settings for a {{ PG }} cluster."
+title: How to change {{ PG }} cluster settings in {{ mpg-full-name }}
+description: In this tutorial, you will learn how to change settings for a {{ PG }} cluster.
 ---
 
 # Updating {{ PG }} cluster settings
@@ -70,7 +70,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
    1. Request a list of available host classes (the `ZONE IDS` column specifies the availability zones where you can select the appropriate class):
 
-      
+
       ```bash
       {{ yc-mdb-pg }} resource-preset list
       ```
@@ -266,7 +266,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
    1. Run the following command with a list of settings to update:
 
-      
+
       ```bash
       {{ yc-mdb-pg }} cluster update <cluster_name_or_ID> \
           --backup-window-start <backup_start_time> \
@@ -298,7 +298,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
    * `--websql-access`: Enables you to [run SQL queries](web-sql-query.md) to cluster databases from the {{ yandex-cloud }} management console using {{ websql-full-name }}. The default value is `false`.
 
-   
+
    * `--serverless-access`: Enables cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md). The default value is `false`. For more information about setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md) documentation.
 
    * `--yandexquery-access`: Enables cluster access from [{{ yq-full-name }}](../../query/concepts/index.md). This feature is at the [Preview](../../overview/concepts/launch-stages.md) stage and available upon request.
@@ -439,7 +439,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
-      
+
    To allow cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md), set `true` for the `configSpec.access.serverless` parameter. For more information about setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md) documentation.
 
    To allow cluster access from [{{ yq-full-name }}](../../query/index.yaml), set `true` for the `configSpec.access.yandexQuery` parameter. This feature is at the [Preview](../../overview/concepts/launch-stages.md) stage and available upon request.

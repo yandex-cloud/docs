@@ -1,10 +1,5 @@
 title: Yandex Object Storage
 href: index.yaml
-label:
-  title: KZ
-  description: This service is only available in the Kazakhstan region.
-  theme: info
-  when: region == "kz"
 items:
   - name: Getting started
     items:
@@ -547,3 +542,4 @@ items:
   - name: FAQ
     href: qa.md
 base: en/storage
+deepBase: 2

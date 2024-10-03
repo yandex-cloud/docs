@@ -1,6 +1,6 @@
 ---
-title: "How to connect {{ dataproc-name }} to {{ metastore-name }}"
-description: "Follow this guide to connect {{ dataproc-name }} to {{ metastore-name }}."
+title: How to connect {{ dataproc-name }} to {{ metastore-name }}
+description: Follow this guide to connect {{ dataproc-name }} to {{ metastore-name }}.
 ---
 
 # Connecting {{ dataproc-name }} to {{ metastore-name }}

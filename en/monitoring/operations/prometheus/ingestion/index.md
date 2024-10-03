@@ -1,6 +1,6 @@
 ---
-title: "How to write metrics"
-description: "Follow this guide to write metrics."
+title: How to write metrics
+description: Follow this guide to write metrics.
 ---
 
 # Writing metrics

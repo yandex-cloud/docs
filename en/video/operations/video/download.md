@@ -1,6 +1,6 @@
 ---
-title: "How to download a video in {{ video-full-name }}"
-description: "Follow this guide to download videos from {{ video-full-name }}."
+title: How to download a video in {{ video-full-name }}
+description: Follow this guide to download videos from {{ video-full-name }}.
 ---
 
 # Downloading a video

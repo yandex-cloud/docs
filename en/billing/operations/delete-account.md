@@ -1,6 +1,6 @@
 ---
-title: "How to delete a billing account in {{ billing-name }}"
-description: "Follow this guide to delete a billing account."
+title: How to delete a billing account in {{ billing-name }}
+description: Follow this guide to delete a billing account.
 ---
 
 # Deleting a billing account

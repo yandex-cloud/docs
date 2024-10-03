@@ -1,6 +1,6 @@
 ---
-title: "Configuring permissions to access {{ compute-name }} file storage"
-description: "Follow this guide to configure file storage access permissions."
+title: Configuring permissions to access {{ compute-name }} file storage
+description: Follow this guide to configure file storage access permissions.
 ---
 
 # Configuring file storage access permissions

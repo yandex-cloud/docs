@@ -1,6 +1,6 @@
 ---
-title: "Как создать подключение к {{ prometheus-name }} в {{ datalens-full-name }}"
-description: "Следуя данной инструкции, вы сможете создать подключение к {{ prometheus-name }}." 
+title: Как создать подключение к {{ prometheus-name }} в {{ datalens-full-name }}
+description: Следуя данной инструкции, вы сможете создать подключение к {{ prometheus-name }}.
 ---
 
 # Создание подключения к {{ prometheus-name }}

@@ -1,7 +1,6 @@
 # Чарты
 
 
-
 {% include [show-top-100-values](../../_qa/datalens/show-top-100-values.md) %}
 
 {% include [create-labels-in-pie-chart](../../_qa/datalens/create-labels-in-pie-chart.md) %}
@@ -33,5 +32,5 @@
 {% include [rename-column](../../_qa/datalens/rename-column.md) %}
 
 {% include [null-setting-in-charts](../../_qa/datalens/null-setting-in-charts.md) %}
-
+
 

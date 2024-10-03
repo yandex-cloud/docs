@@ -1,7 +1,6 @@
 # Not all fields are displayed in datasets built on Yandex Metrica
 
 
-
 ## Issue description {#issue-description}
 
 Some fields are not displayed in datasets built on Yandex Metrica.

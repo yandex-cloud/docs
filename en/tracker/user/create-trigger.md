@@ -1,6 +1,6 @@
 ---
-title: "How to create a trigger in {{ tracker-name }}"
-description: "Follow this guide to create a trigger in {{ tracker-name }}."
+title: How to create a trigger in {{ tracker-name }}
+description: Follow this guide to create a trigger in {{ tracker-name }}.
 ---
 
 # Creating a trigger in {{ tracker-name }}

@@ -1,6 +1,6 @@
 ---
-title: "FAQ about {{ mpg-full-name }}"
-description: "This page presents FAQ about {{ mpg-short-name }}."
+title: FAQ about {{ mpg-full-name }}
+description: This page presents FAQ about {{ mpg-short-name }}.
 ---
 
 # FAQ about {{ mpg-short-name }}

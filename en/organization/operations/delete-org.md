@@ -1,6 +1,6 @@
 ---
-title: "Deleting an organization in {{ org-full-name }}"
-description: "In this tutorial, you will learn how to delete an organization in {{ org-name }}."
+title: Deleting an organization in {{ org-full-name }}
+description: In this tutorial, you will learn how to delete an organization in {{ org-name }}.
 ---
 
 # Deleting an organization

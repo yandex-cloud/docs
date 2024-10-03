@@ -1,6 +1,6 @@
 ---
-title: "How to get a list of log groups in {{ cloud-logging-full-name }}"
-description: "Follow this guide to get a list of log groups."
+title: How to get a list of log groups in {{ cloud-logging-full-name }}
+description: Follow this guide to get a list of log groups.
 ---
 
 # Getting a list of log groups

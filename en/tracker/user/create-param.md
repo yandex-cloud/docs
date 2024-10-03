@@ -1,6 +1,6 @@
 ---
-title: "How to add an issue field in {{ tracker-full-name }}"
-description: "In this tutorial, you will learn how to add an issue field in {{ tracker-name }}. The fields can be global or local. You can use preset fields or create custom ones."
+title: How to add an issue field in {{ tracker-full-name }}
+description: In this tutorial, you will learn how to add an issue field in {{ tracker-name }}. The fields can be global or local. You can use preset fields or create custom ones.
 ---
 
 # Adding an issue field

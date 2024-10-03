@@ -19,7 +19,7 @@ Syntax:
 |----|----|
 |`--cluster-id`|<b>`string`</b><br/>Kafka cluster id.|
 |`--cluster-name`|<b>`string`</b><br/>Kafka cluster name.|
-|`--permission`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Topic and access role to revoke from the user.<br/><br/>Possible property names:<br/><ul> <li><code>topic</code>:     Name of the topic that the permission grants access to. (required)</li> <li><code>role</code>:     Role in the topic. Possible values are: producer, consumer, admin. To grant multiple roles specify this property multiple times. (required)</li> </ul>|
+|`--permission`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Permission to revoke from the user.<br/><br/>Possible property names:<br/><ul> <li><code>topic</code>:     Name of the topic that the permission grants access to. (required)</li> <li><code>role</code>:     Role in the topic. Possible values are: producer, consumer, admin. To grant multiple roles specify this property multiple times. (required)</li> <li><code>allow_host</code>:     Host allowed to access from. To grant access for multiple hosts specify this property multiple times.</li> </ul>|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags
@@ -39,4 +39,5 @@ Syntax:
 |`--impersonate-service-account-id`|<b>`string`</b><br/>Set the ID of the service account to impersonate.|
 |`--no-browser`|Disable opening browser for authentication.|
 |`--format`|<b>`string`</b><br/>Set the output format: text (default), yaml, json, json-rest.|
+|`--jq`|<b>`string`</b><br/>Query to select values from the response using jq syntax|
 |`-h`,`--help`|Display help for the command.|

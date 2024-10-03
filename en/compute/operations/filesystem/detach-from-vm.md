@@ -1,6 +1,6 @@
 ---
-title: "How to detach a file storage from a VM in {{ compute-full-name }}"
-description: "Follow this guide to detach a file storage from a VM."
+title: How to detach a file storage from a VM in {{ compute-full-name }}
+description: Follow this guide to detach a file storage from a VM.
 ---
 
 # Detaching a file storage from a VM

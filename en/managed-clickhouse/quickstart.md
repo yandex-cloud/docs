@@ -1,6 +1,6 @@
 ---
-title: "Getting started with {{ mch-full-name }}"
-description: "In this tutorial, you will learn how to create a {{ CH }} cluster and connect to it."
+title: Getting started with {{ mch-full-name }}
+description: In this tutorial, you will learn how to create a {{ CH }} cluster and connect to it.
 ---
 
 # Getting started with {{ mch-name }}

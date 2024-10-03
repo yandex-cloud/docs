@@ -1,6 +1,6 @@
 ---
-title: "Quotas and limits in {{ search-api-full-name }}"
-description: "{{ search-api-full-name }} has quotas and limits. For more information about such restrictions, read this article."
+title: Quotas and limits in {{ search-api-full-name }}
+description: '{{ search-api-full-name }} has quotas and limits. For more information about such restrictions, read this article.'
 ---
 
 # Quotas and limits in {{ search-api-full-name }}

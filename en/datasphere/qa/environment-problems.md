@@ -1,6 +1,6 @@
 ---
-title: "{{ ml-platform-full-name }}. Solving problems with dependencies"
-description: "How to install libraries and fix the associated {{ ml-platform-full-name }} errors? Find the answer to this and other questions in this article."
+title: '{{ ml-platform-full-name }}. Solving problems with dependencies'
+description: How to install libraries and fix the associated {{ ml-platform-full-name }} errors? Find the answer to this and other questions in this article.
 ---
 
 # Solving problems with dependencies in {{ ml-platform-full-name }}

@@ -1,6 +1,6 @@
 ---
-title: "Getting started with {{ maf-full-name }}"
-description: "To get started with {{ maf-full-name }}, create a service cluster and open the {{ AF }} web interface."
+title: Getting started with {{ maf-full-name }}
+description: To get started with {{ maf-full-name }}, create a service cluster and open the {{ AF }} web interface.
 ---
 
 # Getting started with {{ maf-name }}

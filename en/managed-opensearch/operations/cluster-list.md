@@ -1,6 +1,6 @@
 ---
-title: "Information about existing {{ OS }} clusters"
-description: "You can request detailed information about each {{ OS }} cluster you created."
+title: Information about existing {{ OS }} clusters
+description: You can request detailed information about each {{ OS }} cluster you created.
 keywords:
   - Information about OpenSearch hosts
   - OpenSearch hosts

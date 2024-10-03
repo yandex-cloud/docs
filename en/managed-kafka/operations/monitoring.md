@@ -1,6 +1,6 @@
 ---
-title: "Monitoring the state of {{ KF }} clusters and hosts"
-description: "In this tutorial, you will learn how to monitor the state of {{ KF }} clusters and hosts."
+title: Monitoring the state of {{ KF }} clusters and hosts
+description: In this tutorial, you will learn how to monitor the state of {{ KF }} clusters and hosts.
 ---
 
 # Monitoring the state of {{ KF }} clusters and hosts

@@ -1,6 +1,6 @@
 ---
-title: "Как добавить алиас в {{ datalens-full-name }}"
-description: "Следуя данной инструкции, вы сможете добавить алиас для виджетов в {{ datalens-full-name }}." 
+title: Как добавить алиас в {{ datalens-full-name }}
+description: Следуя данной инструкции, вы сможете добавить алиас для виджетов в {{ datalens-full-name }}.
 ---
 
 # Создание алиаса

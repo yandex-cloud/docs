@@ -1,6 +1,6 @@
 ---
-title: "How to restore a queue"
-description: "This article describes how to restore queues."
+title: How to restore a queue
+description: This article describes how to restore queues.
 sourcePath: en/tracker/api-ref/concepts/queues/restore-queue.md
 ---
 

@@ -1,6 +1,6 @@
 ---
-title: "DHCP settings"
-description: "DHCP settings allow you to assign a domain name or DNS suffix, which will be allowed by the specified DNS server. If you specify DHCP settings for an existing subnet, they will be applied to VMs in this subnet after you reboot them. By using DHCP settings, you can use the same DNS and NTP servers in the subnet."
+title: DHCP settings
+description: DHCP settings allow you to assign a domain name or DNS suffix, which will be allowed by the specified DNS server. If you specify DHCP settings for an existing subnet, they will be applied to VMs in this subnet after you reboot them. By using DHCP settings, you can use the same DNS and NTP servers in the subnet.
 keywords:
   - dhcp
   - dhcp settings

@@ -1,6 +1,6 @@
 ---
-title: "Tutorials for {{ speechkit-full-name }}"
-description: "This page presents a list of tutorials for {{ speechkit-name }}."
+title: Tutorials for {{ speechkit-full-name }}
+description: This page presents a list of tutorials for {{ speechkit-name }}.
 ---
 
 # Tutorials for {{ speechkit-name }}

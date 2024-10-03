@@ -1,7 +1,6 @@
 # Resolving the project opening error
 
 
-
 ## Issue description {#issue-description}
 
 When trying to open a project, you see a white screen.

@@ -1,6 +1,6 @@
 ---
-title: "How to get issue field parameters in {{ tracker-full-name }}"
-description: "In this tutorial, you will learn about getting issue field parameters in {{ tracker-name }}."
+title: How to get issue field parameters in {{ tracker-full-name }}
+description: In this tutorial, you will learn about getting issue field parameters in {{ tracker-name }}.
 sourcePath: en/tracker/api-ref/concepts/issues/get-issue-fields.md
 ---
 

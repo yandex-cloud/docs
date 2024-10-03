@@ -1,6 +1,6 @@
 ---
-title: "How to link or unlink a VM to/from a backup policy"
-description: "In this article, you will learn how to link a {{ compute-name }} VM to or unlink it from a backup policy."
+title: How to link or unlink a VM to/from a backup policy
+description: In this article, you will learn how to link a {{ compute-name }} VM to or unlink it from a backup policy.
 ---
 
 # Linking a VM to a backup policy

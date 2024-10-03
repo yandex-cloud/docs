@@ -1,6 +1,6 @@
 ---
-title: "Deleting a container"
-description: "Follow this guide to delete a container."
+title: Deleting a container
+description: Follow this guide to delete a container.
 ---
 
 # Deleting a container

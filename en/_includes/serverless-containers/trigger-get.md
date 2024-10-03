@@ -21,7 +21,7 @@
 
     Result:
   
-    
+
     ```text
     id: a1sfe084v4h2********
     folder_id: b1g88tflrih2********

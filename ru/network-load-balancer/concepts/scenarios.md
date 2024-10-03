@@ -1,6 +1,6 @@
 ---
-title: "Как можно использовать сетевой балансировщик в {{ network-load-balancer-full-name }}"
-description: "Из статьи вы узнаете, как можно использовать сетевой балансировщик в {{ network-load-balancer-name }}."
+title: Как можно использовать сетевой балансировщик в {{ network-load-balancer-full-name }}
+description: Из статьи вы узнаете, как можно использовать сетевой балансировщик в {{ network-load-balancer-name }}.
 ---
 
 # Сценарии использования сетевого балансировщика

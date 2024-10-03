@@ -1,6 +1,6 @@
 ---
-title: "How to get a list of containers"
-description: "Use this guide to get a list of containers."
+title: How to get a list of containers
+description: Use this guide to get a list of containers.
 ---
 
 # Getting a list of containers

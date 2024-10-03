@@ -1,6 +1,6 @@
 ---
-title: "{{ vision-full-name }} release notes"
-description: "This page contains {{ vision-full-name }} release notes."
+title: '{{ vision-full-name }} release notes'
+description: This page contains {{ vision-full-name }} release notes.
 ---
 
 # {{ vision-full-name }} release notes

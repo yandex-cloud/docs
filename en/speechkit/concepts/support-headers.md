@@ -1,6 +1,6 @@
 ---
-title: "Diagnosing errors in {{ speechkit-full-name }}"
-description: "If something went wrong while sending API requests and you need help, contact technical support. The support team will solve your issue faster if you use advanced HTTP request and response headers."
+title: Diagnosing errors in {{ speechkit-full-name }}
+description: If something went wrong while sending API requests and you need help, contact technical support. The support team will solve your issue faster if you use advanced HTTP request and response headers.
 ---
 
 # Troubleshooting in {{ speechkit-full-name }}

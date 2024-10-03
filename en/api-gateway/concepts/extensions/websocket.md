@@ -1,6 +1,6 @@
 ---
-title: "WebSocket protocol support"
-description: "To connect to an API gateway through WebSocket, client applications need to send a GET request to the URI for which integrations are set up as per the OpenAPI specification."
+title: WebSocket protocol support
+description: To connect to an API gateway through WebSocket, client applications need to send a GET request to the URI for which integrations are set up as per the OpenAPI specification.
 ---
 
 # WebSocket protocol support

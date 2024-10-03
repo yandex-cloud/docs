@@ -1,6 +1,6 @@
 ---
-title: "How to view {{ cloud-desktop-full-name }} resource logs"
-description: "In this tutorial, you will learn how to view logs of desktops and desktop groups in {{ cloud-desktop-name }}."
+title: How to view {{ cloud-desktop-full-name }} resource logs
+description: In this tutorial, you will learn how to view logs of desktops and desktop groups in {{ cloud-desktop-name }}.
 ---
 
 # Viewing logs

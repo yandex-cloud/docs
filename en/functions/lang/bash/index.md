@@ -1,6 +1,6 @@
 ---
-title: "Developing in Bash in {{ sf-full-name }}. Overview"
-description: "With {{ sf-name }}, you can run applications written in Bash. The Bash runtime has the following utilities pre-installed: jq, {{ yandex-cloud }} CLI, and AWS CLI version 2."
+title: Developing in Bash in {{ sf-full-name }}. Overview
+description: 'With {{ sf-name }}, you can run applications written in Bash. The Bash runtime has the following utilities pre-installed: jq, {{ yandex-cloud }} CLI, and AWS CLI version 2.'
 ---
 
 # Developing in Bash. Overview

@@ -93,6 +93,8 @@ Aliases:
 	- [yc serverless network list-used](network/list-used.md) — List networks used in serverless resources in specified scope
 	- [yc serverless network list-connections](network/list-connections.md) — List serverless resources connected to any network from specified scope (network, folder or cloud)
 	- [yc serverless network trigger-used-cleanup](network/trigger-used-cleanup.md) — Force obsolete used network to start cleanup process as soon as possible
+- [yc serverless eventrouter](eventrouter/index.md) — Manage eventrouters
+	- [yc serverless eventrouter put-event](eventrouter/put-event.md) — Send event
 
 #### Global Flags
 
@@ -111,4 +113,5 @@ Aliases:
 |`--impersonate-service-account-id`|<b>`string`</b><br/>Set the ID of the service account to impersonate.|
 |`--no-browser`|Disable opening browser for authentication.|
 |`--format`|<b>`string`</b><br/>Set the output format: text (default), yaml, json, json-rest.|
+|`--jq`|<b>`string`</b><br/>Query to select values from the response using jq syntax|
 |`-h`,`--help`|Display help for the command.|

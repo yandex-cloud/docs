@@ -1,6 +1,6 @@
 ---
-title: "How to send a request to an alias in {{ ml-platform-full-name }}"
-description: "Follow this guide to send a request to an alias."
+title: How to send a request to an alias in {{ ml-platform-full-name }}
+description: Follow this guide to send a request to an alias.
 ---
 
 # Sending a request to an alias

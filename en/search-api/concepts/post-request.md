@@ -1,6 +1,6 @@
 ---
-title: "POST requests"
-description: "This article describes how to use POST requests."
+title: POST requests
+description: This article describes how to use POST requests.
 ---
 
 # POST requests

@@ -1,6 +1,6 @@
 ---
-title: "How do I use the {{ objstorage-name }} S3 API?"
-description: "In this article, you will learn how to get started with the API, what an {{ objstorage-name }} API request is, and how to use cross-domain requests."
+title: How do I use the {{ objstorage-name }} S3 API?
+description: In this article, you will learn how to get started with the API, what an {{ objstorage-name }} API request is, and how to use cross-domain requests.
 keywords:
   - s3
   - s3 storage

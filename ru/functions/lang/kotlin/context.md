@@ -1,5 +1,5 @@
 ---
-title: "Контекст вызова функции на Kotlin в {{ sf-full-name }}"
+title: Контекст вызова функции на Kotlin в {{ sf-full-name }}
 ---
 
 # Контекст вызова функции на Kotlin

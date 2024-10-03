@@ -1,5 +1,5 @@
 ---
-title: "What fine-tuned foundation models in {{ ml-platform-full-name }} are"
+title: What fine-tuned foundation models in {{ ml-platform-full-name }} are
 ---
 
 # Fine-tuned foundation models

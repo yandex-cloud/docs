@@ -1,5 +1,5 @@
 ---
-canonical: "{{ link-docs }}/tutorials/dataplatform/greenplum-to-clickhouse"
+canonical: '{{ link-docs }}/tutorials/dataplatform/greenplum-to-clickhouse'
 ---
 
 # Loading data from {{ GP }} to a {{ CH }} data mart

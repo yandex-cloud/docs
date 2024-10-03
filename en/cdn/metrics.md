@@ -1,6 +1,6 @@
 ---
-title: "Reference for {{ cdn-full-name }} metrics in {{ monitoring-full-name }}"
-description: "This page provides reference information on {{ cdn-name }} metrics delivered to {{ monitoring-full-name }}."
+title: Reference for {{ cdn-full-name }} metrics in {{ monitoring-full-name }}
+description: This page provides reference information on {{ cdn-name }} metrics delivered to {{ monitoring-full-name }}.
 ---
 
 # {{ monitoring-full-name }} metric reference

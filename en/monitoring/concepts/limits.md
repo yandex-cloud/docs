@@ -1,7 +1,6 @@
 ---
-title: "Quotas and limits in {{ monitoring-full-name }}"
-description: "{{ monitoring-full-name }} has limits and quotas for the number of alerts per cloud and the number of labels per metric (including mandatory ones). For more information about the service restrictions, read this article."
-
+title: Quotas and limits in {{ monitoring-full-name }}
+description: '{{ monitoring-full-name }} has limits and quotas for the number of alerts per cloud and the number of labels per metric (including mandatory ones). For more information about the service restrictions, read this article.'
 editable: false
 ---
 

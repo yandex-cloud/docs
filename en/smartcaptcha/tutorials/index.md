@@ -1,6 +1,6 @@
 ---
-title: "{{ captcha-full-name }} use cases"
-description: "Various {{ captcha-full-name }} use cases in {{ yandex-cloud }}."
+title: '{{ captcha-full-name }} use cases'
+description: Various {{ captcha-full-name }} use cases in {{ yandex-cloud }}.
 ---
 
 # {{ captcha-full-name }} tutorials

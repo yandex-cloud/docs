@@ -2,7 +2,7 @@
 
 - Консоль управления {#console}
 
-  
+
   @[youtube](https://www.youtube.com/watch?v=Z7J5OwC8oJM&list=PL1x4ET76A10bW1KU3twrdm7hH376z8G5R&index=3&pp=iAQB)
 
 

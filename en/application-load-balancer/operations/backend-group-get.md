@@ -1,5 +1,5 @@
 ---
-title: "How to get information about a backend group in {{ alb-full-name }}"
+title: How to get information about a backend group in {{ alb-full-name }}
 ---
 
 # Getting information about a backend group

@@ -1,6 +1,6 @@
 ---
-title: "Yandex Translate API v1"
-description: "A set of methods for the Yandex Translate service."
+title: Yandex Translate API v1
+description: A set of methods for the Yandex Translate service.
 ---
 
 # Yandex Translate API v1

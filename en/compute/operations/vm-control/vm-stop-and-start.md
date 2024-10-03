@@ -1,6 +1,6 @@
 ---
-title: "How to stop, start, or restart a VM"
-description: "The Stop command shuts down the VM. After the VM is shut down, its status changes to STOPPED. You can enable the VM at any time to continue working with it. The Start command starts a previously stopped VM. After the VM is started, its status changes to RUNNING and the operating system starts loading."
+title: How to stop, start, or restart a VM
+description: The Stop command shuts down the VM. After the VM is shut down, its status changes to STOPPED. You can enable the VM at any time to continue working with it. The Start command starts a previously stopped VM. After the VM is started, its status changes to RUNNING and the operating system starts loading.
 ---
 
 # Stopping, starting, or restarting a VM

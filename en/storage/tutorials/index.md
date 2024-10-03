@@ -1,6 +1,6 @@
 ---
-title: "{{ objstorage-full-name }} tutorials"
-description: "This page will guide you through the {{ objstorage-name }} tutorials."
+title: '{{ objstorage-full-name }} tutorials'
+description: This page will guide you through the {{ objstorage-name }} tutorials.
 ---
 
 # {{ objstorage-name }} tutorials

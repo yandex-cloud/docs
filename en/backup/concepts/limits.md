@@ -1,7 +1,6 @@
 ---
-title: "Quotas in {{ backup-full-name }}"
-description: "{{ backup-name }} has quotas on instances and total size of backups. For more information about the service restrictions, read this article."
-
+title: Quotas in {{ backup-full-name }}
+description: '{{ backup-name }} has quotas on instances and total size of backups. For more information about the service restrictions, read this article.'
 editable: false
 ---
 

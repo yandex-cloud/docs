@@ -23,7 +23,7 @@
   1. Выберите нужный размер блока.
   1. Задайте нужный размер диска.
 
-  
+
   1. {% include [encryption-section-without-sa](../../../_includes/compute/encryption-section-without-sa.md) %}
 
 

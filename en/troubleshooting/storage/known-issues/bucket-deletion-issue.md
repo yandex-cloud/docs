@@ -1,7 +1,6 @@
 # Resolving the "Bucket not empty" error when deleting a bucket from Object Storage
 
 
-
 ## Issue description {#issue-description}
 
 * When attempting to delete a bucket, you see this error: `Bucket is not empty`

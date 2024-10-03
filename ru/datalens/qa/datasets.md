@@ -1,7 +1,6 @@
 # Датасеты
 
 
-
 {% include [incorrectly-identified-date-field](../../_qa/datalens/incorrectly-identified-date-field.md) %}
 
 {% include [how-to-link-two-tables](../../_qa/datalens/linking-two-tables.md) %}
@@ -17,7 +16,6 @@
 {% include [get-geo](../../_qa/datalens/get-geo.md) %}
 
 {% include [qa-materialization-error](../../_qa/datalens/where-is-materialization.md) %}
-
 
 
 

@@ -63,7 +63,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 To test snapshots, a [PersistentVolumeClaim](../concepts/volume.md#persistent-volume) and [pod](../concepts/index.md#pod) are created to simulate the workload.
 1. Create a file named `01-pvc.yaml` with the `PersistentVolumeClaim` manifest:
 
-   
+
    ```yaml
    ---
    apiVersion: v1
@@ -188,7 +188,7 @@ When [restoring objects from the snapshot](https://kubernetes.io/docs/concepts/s
 To restore the snapshot:
 1. Create a file named `04-restore-snapshot.yaml` with a manifest of a new `PersistentVolumeClaim`:
 
-   
+
    ```yaml
    ---
    apiVersion: v1

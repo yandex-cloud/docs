@@ -1,6 +1,6 @@
 ---
-title: "Creating secondary indexes in {{ ydb-short-name }} row-based tables"
-description: "This tutorial describes properties of the `yandex_ydb_table_index` resource for creating secondary indexes in {{ ydb-short-name }} row-based tables."
+title: Creating secondary indexes in {{ ydb-short-name }} row-based tables
+description: This tutorial describes properties of the `yandex_ydb_table_index` resource for creating secondary indexes in {{ ydb-short-name }} row-based tables.
 ---
 
 # Creating secondary indexes in row-based tables

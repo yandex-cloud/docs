@@ -1,6 +1,6 @@
 ---
-title: "Как настроить эндпоинт-источник {{ yds-full-name }} в {{ data-transfer-full-name }}"
-description: "Следуя данной инструкции, вы сможете настроить эндпоинт-источник {{ yds-full-name }} в {{ data-transfer-full-name }}." 
+title: Как настроить эндпоинт-источник {{ yds-full-name }} в {{ data-transfer-full-name }}
+description: Следуя данной инструкции, вы сможете настроить эндпоинт-источник {{ yds-full-name }} в {{ data-transfer-full-name }}.
 ---
 
 # Передача данных из эндпоинта-источника {{ yds-full-name }}
@@ -61,12 +61,12 @@ description: "Следуя данной инструкции, вы сможет�
 
 - Консоль управления {#console}
 
-    
+
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSourceAdvancedSettings.transformer.title }}**:
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataTransformationOptions.cloud_function.title }}** — выберите одну из функций, созданных в сервисе {{ sf-name }}.
 
-            
+
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.service_account_id.title }}** — выберите или [создайте](../../../../iam/operations/sa/create.md) сервисный аккаунт, от имени которого будет запускаться функция обработки.
 
 

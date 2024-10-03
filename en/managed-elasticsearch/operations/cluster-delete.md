@@ -1,6 +1,6 @@
 ---
-title: "Deleting an Elasticsearch cluster"
-description: "You can delete an Elasticsearch cluster if you no longer need it. All data in the cluster will be deleted. In the management console, select the folder you want to delete a cluster from."
+title: Deleting an Elasticsearch cluster
+description: You can delete an Elasticsearch cluster if you no longer need it. All data in the cluster will be deleted. In the management console, select the folder you want to delete a cluster from.
 keywords:
   - deleting an Elasticsearch cluster
   - Elasticsearch cluster

@@ -1,6 +1,6 @@
 ---
-title: "Creating a device"
-description: "Follow this guide to create a device."
+title: Creating a device
+description: Follow this guide to create a device.
 ---
 
 # Creating a device

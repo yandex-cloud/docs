@@ -1,6 +1,6 @@
 ---
-title: "Интеграция {{ certificate-manager-full-name }} с сервисами {{ yandex-cloud }}"
-description: "Из статьи вы узнаете, в каких сервисах {{ yandex-cloud }} можно использовать сертификаты из {{ certificate-manager-name }}."
+title: Интеграция {{ certificate-manager-full-name }} с сервисами {{ yandex-cloud }}
+description: Из статьи вы узнаете, в каких сервисах {{ yandex-cloud }} можно использовать сертификаты из {{ certificate-manager-name }}.
 ---
 
 # Интеграция с сервисами {{ yandex-cloud }}

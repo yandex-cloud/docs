@@ -1,5 +1,5 @@
 ---
-canonical: "{{ link-docs }}/tutorials/dataplatform/data-transfer-mpg"
+canonical: '{{ link-docs }}/tutorials/dataplatform/data-transfer-mpg'
 ---
 
 # {{ PG }} change data capture and delivery to {{ KF }}

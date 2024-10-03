@@ -1,6 +1,6 @@
 ---
-title: "{{ TF }} reference for {{ cloud-logging-full-name }}"
-description: "This page provides reference information on the {{ TF }} provider resources and data sources supported for {{ cloud-logging-name }}."
+title: '{{ TF }} reference for {{ cloud-logging-full-name }}'
+description: This page provides reference information on the {{ TF }} provider resources and data sources supported for {{ cloud-logging-name }}.
 ---
 
 # {{ TF }} reference for {{ cloud-logging-full-name }}

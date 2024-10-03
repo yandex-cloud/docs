@@ -1,5 +1,5 @@
 ---
-canonical: "{{ link-docs }}/tutorials/infrastructure-management/dns-integration"
+canonical: '{{ link-docs }}/tutorials/infrastructure-management/dns-integration'
 ---
 
 # Интеграция {{ dns-name }} и корпоративного сервиса DNS

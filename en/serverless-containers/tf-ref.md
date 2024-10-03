@@ -1,6 +1,6 @@
 ---
-title: "{{ TF }} reference for {{ serverless-containers-full-name }}"
-description: "This page provides reference information on the {{ TF }} provider resources and data sources supported for {{ serverless-containers-name }}."
+title: '{{ TF }} reference for {{ serverless-containers-full-name }}'
+description: This page provides reference information on the {{ TF }} provider resources and data sources supported for {{ serverless-containers-name }}.
 ---
 
 # {{ TF }} reference for {{ serverless-containers-full-name }}

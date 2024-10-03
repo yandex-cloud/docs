@@ -1,6 +1,6 @@
 ---
-title: "How to import an image from another cloud or folder in {{ compute-full-name }}"
-description: "Follow this guide to import an image from another cloud or folder."
+title: How to import an image from another cloud or folder in {{ compute-full-name }}
+description: Follow this guide to import an image from another cloud or folder.
 ---
 
 # Importing an image from another cloud or folder

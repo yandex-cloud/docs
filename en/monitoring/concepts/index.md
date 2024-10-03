@@ -1,6 +1,6 @@
 ---
-title: "{{ monitoring-full-name }}. Overview"
-description: "The {{ monitoring-full-name }} service lets you collect and store metrics and display them as charts on dashboards. {{ monitoring-full-name }} automatically collects data on the status of your resources in {{ yandex-cloud }} and displays it on service dashboards. You can use the API to upload custom metrics."
+title: '{{ monitoring-full-name }}. Overview'
+description: The {{ monitoring-full-name }} service lets you collect and store metrics and display them as charts on dashboards. {{ monitoring-full-name }} automatically collects data on the status of your resources in {{ yandex-cloud }} and displays it on service dashboards. You can use the API to upload custom metrics.
 ---
 
 # {{ monitoring-name }} overview

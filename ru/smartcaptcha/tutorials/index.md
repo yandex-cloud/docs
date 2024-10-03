@@ -1,6 +1,6 @@
 ---
-title: "Сценарии использования {{ captcha-full-name }}"
-description: "Различные сценарии использования {{ captcha-full-name }} в {{ yandex-cloud }}."
+title: Сценарии использования {{ captcha-full-name }}
+description: Различные сценарии использования {{ captcha-full-name }} в {{ yandex-cloud }}.
 ---
 
 # Практические руководства {{ captcha-full-name }}

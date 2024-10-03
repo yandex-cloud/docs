@@ -1,6 +1,6 @@
 ---
-title: "Editing a bucket's ACL in {{ objstorage-full-name }}"
-description: "Apart from {{ iam-short-name }}, you can also use an access control list (ACL) to manage access to an {{ objstorage-name }} bucket."
+title: Editing a bucket's ACL in {{ objstorage-full-name }}
+description: Apart from {{ iam-short-name }}, you can also use an access control list (ACL) to manage access to an {{ objstorage-name }} bucket.
 ---
 
 # Editing a bucket's ACL
@@ -83,7 +83,7 @@ If an [ACL](../../concepts/acl.md) has already been set for a [bucket](../../con
 
   : 1. To grant ACL permissions to a {{ yandex-cloud }} user, service account, or user group, get their ID:
 
-        
+
         * [User](../../../iam/operations/users/get.md).
         * [Service account](../../../iam/operations/sa/get-id.md).
         * User group: Navigate to the [**{{ ui-key.yacloud_org.pages.groups }}**]({{ link-org-main }}groups) tab in the {{ org-name }} interface.
@@ -163,7 +163,7 @@ If an [ACL](../../concepts/acl.md) has already been set for a [bucket](../../con
 
   : 1. To grant ACL permissions to a {{ yandex-cloud }} user, service account, or user group, get their ID:
 
-        
+
         * [User](../../../iam/operations/users/get.md).
         * [Service account](../../../iam/operations/sa/get-id.md).
         * User group: Navigate to the [**{{ ui-key.yacloud_org.pages.groups }}**]({{ link-org-main }}groups) tab in the {{ org-name }} interface.
@@ -251,7 +251,7 @@ If an [ACL](../../concepts/acl.md) has already been set for a [bucket](../../con
 
        * `id`: ID of the user, service account, or user group. Used with the `CanonicalUser` type of permission grantee.
 
-         
+
          You can get the IDs in any of the following ways:
          * [User](../../../iam/operations/users/get.md).
          * [Service account](../../../iam/operations/sa/get-id.md).

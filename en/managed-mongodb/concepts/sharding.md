@@ -1,6 +1,6 @@
 ---
-title: "Sharding in MongoDB"
-description: "MongoDB supports sharding to handle large data and increase the DBMS throughput. Sharding is particularly useful when vertical scaling (upgrading server capacity) is either not cost-efficient or impossible. {{ mmg-name }} supports core data sharding strategies: hashed sharding (with a hash-based sharding key) and ranged sharding (by a shard key value range)."
+title: Sharding in MongoDB
+description: 'MongoDB supports sharding to handle large data and increase the DBMS throughput. Sharding is particularly useful when vertical scaling (upgrading server capacity) is either not cost-efficient or impossible. {{ mmg-name }} supports core data sharding strategies: hashed sharding (with a hash-based sharding key) and ranged sharding (by a shard key value range).'
 ---
 
 # Sharding in {{ mmg-name }}

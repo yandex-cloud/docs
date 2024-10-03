@@ -1,6 +1,6 @@
 ---
-title: "Network and DB clusters in {{ mos-full-name }}"
-description: "In this tutorial, you will learn about the basic network interface settings for an {{ OS }} cluster."
+title: Network and DB clusters in {{ mos-full-name }}
+description: In this tutorial, you will learn about the basic network interface settings for an {{ OS }} cluster.
 ---
 
 # Networking in {{ mos-name }}

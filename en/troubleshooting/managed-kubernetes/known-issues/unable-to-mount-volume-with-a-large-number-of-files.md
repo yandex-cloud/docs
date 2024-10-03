@@ -1,7 +1,6 @@
 # Resolving the "timed out waiting for the condition" error when mounting a volume with a large number of files
 
 
-
 ## Issue description {#issue-description}
 
 When launching a pod, you see this error:

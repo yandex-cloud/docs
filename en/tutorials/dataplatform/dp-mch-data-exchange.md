@@ -1,6 +1,6 @@
 ---
-title: "Exchanging data between {{ mch-full-name }} and {{ dataproc-full-name }}"
-description: "Using {{ dataproc-name }}, you can upload data from {{ mch-name }} to Spark DataFrame and export data from Spark DataFrame to {{ mch-name }}."
+title: Exchanging data between {{ mch-full-name }} and {{ dataproc-full-name }}
+description: Using {{ dataproc-name }}, you can upload data from {{ mch-name }} to Spark DataFrame and export data from Spark DataFrame to {{ mch-name }}.
 ---
 
 # Exchanging data between {{ mch-full-name }} and {{ dataproc-full-name }}

@@ -1,6 +1,6 @@
 ---
-title: "Getting started with {{ yandex-cloud }}"
-description: "In this article, you will learn how to get started with {{ yandex-cloud }}. Find out how to create Linux and Windows VMs, use {{ objstorage-name }} services for data storage (S3), set up a network and load balancers, manage access to resources, and create clusters in a variety of databases."
+title: Getting started with {{ yandex-cloud }}
+description: In this article, you will learn how to get started with {{ yandex-cloud }}. Find out how to create Linux and Windows VMs, use {{ objstorage-name }} services for data storage (S3), set up a network and load balancers, manage access to resources, and create clusters in a variety of databases.
 ---
 
 # Getting started with {{ yandex-cloud }}

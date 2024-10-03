@@ -1,6 +1,6 @@
 ---
-title: "{{ PG }} backups"
-description: "{{ mpg-short-name }} provides automatic and manual {{ PG }} database backups. Backups take up space in the storage allocated to the cluster. A backup is automatically created every day."
+title: '{{ PG }} backups'
+description: '{{ mpg-short-name }} provides automatic and manual {{ PG }} database backups. Backups take up space in the storage allocated to the cluster. A backup is automatically created every day.'
 keywords:
   - backup
   - database backup

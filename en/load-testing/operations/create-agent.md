@@ -1,6 +1,6 @@
 ---
-title: "How to create a test agent in {{ load-testing-full-name }}"
-description: "In this tutorial, you will learn how to create a test agent."
+title: How to create a test agent in {{ load-testing-full-name }}
+description: In this tutorial, you will learn how to create a test agent.
 ---
 
 # Creating a test agent

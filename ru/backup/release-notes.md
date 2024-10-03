@@ -1,6 +1,6 @@
 ---
-title: "История изменений в {{ backup-full-name }}"
-description: "В разделе представлена история изменений сервиса {{ backup-name }}."
+title: История изменений в {{ backup-full-name }}
+description: В разделе представлена история изменений сервиса {{ backup-name }}.
 ---
 
 # История изменений в {{ backup-full-name }}

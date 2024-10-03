@@ -1,6 +1,6 @@
 ---
-title: "Access management in {{ container-registry-full-name }}"
-description: "Access management in {{ container-registry-full-name }}, a service for Docker image storage and distribution. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required to perform a particular action."
+title: Access management in {{ container-registry-full-name }}
+description: Access management in {{ container-registry-full-name }}, a service for Docker image storage and distribution. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required to perform a particular action.
 ---
 
 # Access management in {{ container-registry-name }}

@@ -1,6 +1,6 @@
 ---
-title: "Migrating a {{ mgl-full-name }} instance to a different availability zone"
-description: "In this tutorial, you will learn how to migrate a {{ mgl-name }} instance to a different availability zone."
+title: Migrating a {{ mgl-full-name }} instance to a different availability zone
+description: In this tutorial, you will learn how to migrate a {{ mgl-name }} instance to a different availability zone.
 ---
 
 # Migrating a ru-central1-c instance to a different availability zone

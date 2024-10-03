@@ -1,6 +1,6 @@
 ---
-title: "How to get a list of virtual machine groups in {{ compute-full-name }}"
-description: "Follow this guide to get a list of instance groups."
+title: How to get a list of virtual machine groups in {{ compute-full-name }}
+description: Follow this guide to get a list of instance groups.
 ---
 
 # Get a list of instance groups

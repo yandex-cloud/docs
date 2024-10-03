@@ -1,6 +1,6 @@
 ---
-title: "Getting started with {{ video-full-name }} video broadcasts"
-description: "To start a {{ video-name }} video broadcast, create a line and configure OBS."
+title: Getting started with {{ video-full-name }} video broadcasts
+description: To start a {{ video-name }} video broadcast, create a line and configure OBS.
 ---
 
 # Getting started with video streaming in {{ video-full-name }}

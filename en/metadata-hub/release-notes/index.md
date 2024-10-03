@@ -1,6 +1,6 @@
 ---
-title: "{{ metadata-hub-full-name }} release notes"
-description: "This section contains {{ metadata-hub-name }} release notes."
+title: '{{ metadata-hub-full-name }} release notes'
+description: This section contains {{ metadata-hub-name }} release notes.
 ---
 
 # {{ metadata-hub-full-name }} release notes: 2024

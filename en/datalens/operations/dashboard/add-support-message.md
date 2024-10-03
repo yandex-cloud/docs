@@ -1,6 +1,6 @@
 ---
-title: "How to add information to a message displayed when contacting support in {{ datalens-full-name }}"
-description: "Follow this guide to add information to a message displayed when contacting support."
+title: How to add information to a message displayed when contacting support in {{ datalens-full-name }}
+description: Follow this guide to add information to a message displayed when contacting support.
 ---
 
 # Adding a message displayed when contacting support

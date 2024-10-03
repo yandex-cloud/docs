@@ -1,7 +1,6 @@
 # How to find out which email receives payment invoices
 
 
-
 ## Scenario description {#case-description}
 
 You need to determine which email address the invoices are sent to.
@@ -18,6 +17,6 @@ If the invoice does not arrive at the email address linked to the billing accoun
 When creating the request, provide the following information:
 
 1. The ID of the billing account for which you couldn't get an invoice.
-You can find it on the [page with billing account details]({{ link-console-billing }}).
+   You can find it on the [page with billing account details]({{ link-console-billing }}).
 2. The email address to which you expect the invoice to be delivered.
 3. Description of the problem

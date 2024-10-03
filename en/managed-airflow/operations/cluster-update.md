@@ -1,10 +1,10 @@
 ---
-title: "Updating an {{ AF }} cluster"
-description: "After creating a cluster, you can change its basic and advanced settings."
+title: Updating an {{ AF }} cluster
+description: After creating a cluster, you can change its basic and advanced settings.
 keywords:
-  - "Updating an {{ AF }} cluster"
-  - "{{ AF }} cluster"
-  - "{{ AF }}"
+  - Updating an {{ AF }} cluster
+  - '{{ AF }} cluster'
+  - '{{ AF }}'
   - Airflow
 ---
 

@@ -1,6 +1,6 @@
 ---
-title: "Как управлять заданиями MapReduce в {{ dataproc-full-name }}"
-description: "Из статьи вы узнаете, как управлять заданиями MapReduce в {{ dataproc-full-name }}."
+title: Как управлять заданиями MapReduce в {{ dataproc-full-name }}
+description: Из статьи вы узнаете, как управлять заданиями MapReduce в {{ dataproc-full-name }}.
 ---
 
 # Управление заданиями MapReduce

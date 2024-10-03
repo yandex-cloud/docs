@@ -1,6 +1,6 @@
 ---
-title: "Вопросы и ответы про {{ mmg-full-name }}"
-description: "На странице представлены вопросы и ответы про {{ mmg-short-name }}."
+title: Вопросы и ответы про {{ mmg-full-name }}
+description: На странице представлены вопросы и ответы про {{ mmg-short-name }}.
 ---
 
 # Вопросы и ответы про {{ mmg-short-name }}

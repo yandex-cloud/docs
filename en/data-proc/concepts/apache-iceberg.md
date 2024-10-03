@@ -1,6 +1,6 @@
 ---
-title: "{{ IBRG }} in {{ dataproc-full-name }}"
-description: "Below is the information about {{ IBRG }} and the compatibility table for different {{ IBRG }} and {{ dataproc-full-name }} versions."
+title: '{{ IBRG }} in {{ dataproc-full-name }}'
+description: Below is the information about {{ IBRG }} and the compatibility table for different {{ IBRG }} and {{ dataproc-full-name }} versions.
 ---
 
 # {{ IBRG }} in {{ dataproc-name }}

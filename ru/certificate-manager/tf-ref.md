@@ -1,6 +1,6 @@
 ---
-title: "Справочник {{ TF }} для {{ certificate-manager-full-name }}"
-description: "На этой странице приведен справочник ресурсов и источников данных провайдера {{ TF }}, которые поддерживаются для сервиса {{ certificate-manager-name }}."
+title: Справочник {{ TF }} для {{ certificate-manager-full-name }}
+description: На этой странице приведен справочник ресурсов и источников данных провайдера {{ TF }}, которые поддерживаются для сервиса {{ certificate-manager-name }}.
 ---
 
 # Справочник {{ TF }} для {{ certificate-manager-full-name }}

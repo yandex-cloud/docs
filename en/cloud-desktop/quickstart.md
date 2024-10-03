@@ -1,6 +1,6 @@
 ---
-title: "How to get started with {{ cloud-desktop-name }}"
-description: "This guide describes how you can create and set up a desktop group."
+title: How to get started with {{ cloud-desktop-name }}
+description: This guide describes how you can create and set up a desktop group.
 ---
 
 # Getting started with {{ cloud-desktop-name }}

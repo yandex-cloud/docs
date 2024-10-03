@@ -1,6 +1,6 @@
 ---
-title: "Tutorials for {{ ml-platform-full-name }}"
-description: "Various {{ ml-platform-full-name }} use cases: service deployment, web analytics, and integration with other {{ yandex-cloud }} services."
+title: Tutorials for {{ ml-platform-full-name }}
+description: 'Various {{ ml-platform-full-name }} use cases: service deployment, web analytics, and integration with other {{ yandex-cloud }} services.'
 ---
 
 # {{ ml-platform-full-name }} tutorials

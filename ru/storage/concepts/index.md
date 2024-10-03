@@ -1,6 +1,6 @@
 ---
-title: "Концепции {{ objstorage-full-name }}"
-description: "Из статьи вы узнаете, какие понятия используются в сервисе {{ objstorage-name }}." 
+title: Концепции {{ objstorage-full-name }}
+description: Из статьи вы узнаете, какие понятия используются в сервисе {{ objstorage-name }}.
 ---
 
 # Концепции {{ objstorage-name }}

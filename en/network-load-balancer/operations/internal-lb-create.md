@@ -1,6 +1,6 @@
 ---
-title: "How to create an internal network load balancer"
-description: "Follow this guide to create an internal network load balancer."
+title: How to create an internal network load balancer
+description: Follow this guide to create an internal network load balancer.
 ---
 
 # Create an internal network load balancer

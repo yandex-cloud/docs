@@ -1,6 +1,6 @@
 ---
-title: "Как удалить сертификат от Let's Encrypt в {{ certificate-manager-full-name }}"
-description: "Следуя данной инструкции, вы сможете удалить сертификат от Let's Encrypt."
+title: Как удалить сертификат от Let's Encrypt в {{ certificate-manager-full-name }}
+description: Следуя данной инструкции, вы сможете удалить сертификат от Let's Encrypt.
 ---
 
 # Удалить сертификат от Let's Encrypt

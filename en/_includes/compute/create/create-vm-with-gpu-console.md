@@ -10,7 +10,7 @@
 
    * Select an [availability zone](../../../overview/concepts/geo-scope.md) to place your virtual machine in.
 
-      
+
       {% include [gpu-zones](../gpu-zones.md) %}
 
 
@@ -39,7 +39,7 @@
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
    * Choose a [platform](../../../compute/concepts/vm-platforms.md#gpu-platforms):
 
-      
+
      * {{ v100-broadwell }}
      * {{ v100-cascade-lake }}
      * {{ a100-epyc }}

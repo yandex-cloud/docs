@@ -1,6 +1,6 @@
 ---
-title: "Switching to a different organization in {{ org-full-name }}"
-description: "In this tutorial, you will learn how to switch to a different organization in {{ org-name }}."
+title: Switching to a different organization in {{ org-full-name }}
+description: In this tutorial, you will learn how to switch to a different organization in {{ org-name }}.
 ---
 
 # Managing multiple organizations

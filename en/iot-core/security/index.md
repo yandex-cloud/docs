@@ -1,6 +1,6 @@
 ---
-title: "Access management in {{ iot-full-name }}"
-description: "Access management in the {{ iot-full-name }} cloud-based MQTT server This section describes the resources for which you can assign a role and the roles existing in the service."
+title: Access management in {{ iot-full-name }}
+description: Access management in the {{ iot-full-name }} cloud-based MQTT server This section describes the resources for which you can assign a role and the roles existing in the service.
 ---
 
 # Access management in {{ iot-name }}

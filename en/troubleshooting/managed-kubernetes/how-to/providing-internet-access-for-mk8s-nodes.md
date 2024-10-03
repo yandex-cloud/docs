@@ -1,7 +1,6 @@
 # Granting internet access to Kubernetes nodes
 
 
-
 ## Issue description {#case-description}
 
 When connecting to external addresses from nodes without internet access, you see this error:

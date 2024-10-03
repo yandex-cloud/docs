@@ -1,6 +1,6 @@
 ---
-title: "How to view service usage details in {{ billing-name }}"
-description: "Follow this guide to view service usage details."
+title: How to view service usage details in {{ billing-name }}
+description: Follow this guide to view service usage details.
 ---
 
 # View service usage details

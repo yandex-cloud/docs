@@ -1,6 +1,6 @@
 ---
-title: "Методы работы {{ ydb-full-name }} с HTTP API"
-description: "{{ ydb-full-name }} HTTP API предоставляет следующие методы работы. Работа с таблицами (CreateTable, DeleteTable, DescribeTable, ListTables). Работа с элементами (BatchGetItem, BatchWriteItem, DeleteItem, GetItem, PutItem, Query, Scan, TransactGetItems, TransactWriteItems, UpdateItem)."
+title: Методы работы {{ ydb-full-name }} с HTTP API
+description: '{{ ydb-full-name }} HTTP API предоставляет следующие методы работы. Работа с таблицами (CreateTable, DeleteTable, DescribeTable, ListTables). Работа с элементами (BatchGetItem, BatchWriteItem, DeleteItem, GetItem, PutItem, Query, Scan, TransactGetItems, TransactWriteItems, UpdateItem).'
 sourcePath: overlay/docapi/api-ref/index.md
 ---
 

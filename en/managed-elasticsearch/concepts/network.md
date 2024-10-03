@@ -1,6 +1,6 @@
 ---
-title: "Network in {{ mes-name }}"
-description: "When creating a new cluster, you can set a network for the cluster and subnets for each cluster host. You can also request public access to connect to the cluster hosts with the Data node role from outside {{ yandex-cloud }}."
+title: Network in {{ mes-name }}
+description: When creating a new cluster, you can set a network for the cluster and subnets for each cluster host. You can also request public access to connect to the cluster hosts with the Data node role from outside {{ yandex-cloud }}.
 ---
 
 # Networking in {{ mes-name }}

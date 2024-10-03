@@ -1,5 +1,5 @@
 ---
-canonical: "{{ link-docs }}/tutorials/dataplatform/yds-to-clickhouse"
+canonical: '{{ link-docs }}/tutorials/dataplatform/yds-to-clickhouse'
 ---
 
 # Поставка данных из очереди {{ DS }} в {{ CH }}

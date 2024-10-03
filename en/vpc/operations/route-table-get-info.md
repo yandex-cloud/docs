@@ -1,5 +1,5 @@
 ---
-title: "Getting information about a route table in {{ vpc-full-name }}"
+title: Getting information about a route table in {{ vpc-full-name }}
 ---
 
 # Getting information about a route table

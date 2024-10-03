@@ -1,6 +1,6 @@
 ---
-title: "Как удалить запись в {{ ydb-full-name }}"
-description: "Следуя данной инструкции, вы сможете удалить запись." 
+title: Как удалить запись в {{ ydb-full-name }}
+description: Следуя данной инструкции, вы сможете удалить запись.
 sourcePath: overlay/quickstart/document-api/aws-sdk/delete-item.md
 ---
 # Удаление записи

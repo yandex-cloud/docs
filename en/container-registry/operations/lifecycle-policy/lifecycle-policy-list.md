@@ -1,6 +1,6 @@
 ---
-title: "How to get information about lifecycle policies in {{ container-registry-full-name }}"
-description: "Follow this guide to get information about lifecycle policies."
+title: How to get information about lifecycle policies in {{ container-registry-full-name }}
+description: Follow this guide to get information about lifecycle policies.
 ---
 
 # Getting information about lifecycle policies

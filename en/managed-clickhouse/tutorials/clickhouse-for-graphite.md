@@ -1,5 +1,5 @@
 ---
-canonical: "{{ link-docs }}/tutorials/dataplatform/clickhouse-for-graphite"
+canonical: '{{ link-docs }}/tutorials/dataplatform/clickhouse-for-graphite'
 ---
 
 {% include [clickhouse-for-graphite](../../_tutorials/dataplatform/clickhouse-for-graphite.md) %}

@@ -1,5 +1,5 @@
 ---
-canonical: "{{ link-docs }}/tutorials/dataplatform/mch-mch-resharding"
+canonical: '{{ link-docs }}/tutorials/dataplatform/mch-mch-resharding'
 ---
 
 # Перешардирование данных в кластере {{ mch-name }}

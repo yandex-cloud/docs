@@ -1,6 +1,6 @@
 ---
-title: "How to check domain rights in {{ certificate-manager-full-name }}"
-description: "This guide describes how you can check domain rights."
+title: How to check domain rights in {{ certificate-manager-full-name }}
+description: This guide describes how you can check domain rights.
 ---
 
 # Checking domain rights

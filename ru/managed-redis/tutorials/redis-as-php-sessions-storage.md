@@ -1,5 +1,5 @@
 ---
-canonical: "{{ link-docs }}/tutorials/dataplatform/redis-as-php-sessions-storage"
+canonical: '{{ link-docs }}/tutorials/dataplatform/redis-as-php-sessions-storage'
 ---
 
 # Использование кластера {{ mrd-name }} в качестве хранилища сессий PHP

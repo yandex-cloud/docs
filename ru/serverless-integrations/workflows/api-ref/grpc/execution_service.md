@@ -170,6 +170,17 @@ output | **[HistoryEntryOutput](#HistoryEntryOutput)**<br>Result of the Workflow
 error | **[HistoryEntryError](#HistoryEntryError)**<br>Error details, in case Workflow step failed. 
 status | enum **Status**<br>Status of the Workflow step. <ul><li>`SCHEDULED`: Step execution is being scheduled.</li><li>`STARTED`: Step execution is started.</li><li>`COMPLETED`: Step execution is completed.</li><li>`FAILED`: Step execution is failed.</li><li>`CANCEL_REQUESTED`: Step execution is requested to be cancelled.</li><li>`CANCELLED`: Step execution is canceled.</li></ul>
 type | **string**<br>Type of the Workflow step (for example, FunctionCall or HttpCall). 
+attempts | **int64**<br>Number of attempts (including all retries of unsuccessful attempts). Value "1" means there were no retries. 
+last_error | **[HistoryEntryError](#HistoryEntryError)**<br>Last received error details in case of retries. 
+
+
+### FailedAttempt {#FailedAttempt}
+
+Field | Description
+--- | ---
+started_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Required. Start timestamp for the attempt. 
+duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Duration of the attempt. 
+error | **[HistoryEntryError](#HistoryEntryError)**<br>Error details. 
 
 
 ### HistoryEntryInput {#HistoryEntryInput}

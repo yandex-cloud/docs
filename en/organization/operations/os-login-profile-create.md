@@ -1,6 +1,6 @@
 ---
-title: "How to create an OS Login profile"
-description: "Follow this guide to create an OS Login profile."
+title: How to create an OS Login profile
+description: Follow this guide to create an OS Login profile.
 ---
 
 # Creating an OS Login profile

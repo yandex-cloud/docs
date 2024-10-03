@@ -1,6 +1,6 @@
 ---
-title: "Graphics accelerators (GPUs)"
-description: "GPU (Graphics Processing Unit) is a graphics processor that outperforms vCPU in terms of processing certain types of data. It can be used for complex computing. {{ compute-name }} provides graphics accelerators (GPUs) as part of graphics cards."
+title: Graphics accelerators (GPUs)
+description: GPU (Graphics Processing Unit) is a graphics processor that outperforms vCPU in terms of processing certain types of data. It can be used for complex computing. {{ compute-name }} provides graphics accelerators (GPUs) as part of graphics cards.
 ---
 
 # Graphics accelerators (GPUs)
@@ -84,7 +84,7 @@ The computing resources may have the following configurations:
 
 * {{ t4-ice-lake }} (`gpu-standard-v3-t4`):
 
-  
+
   | Number of GPUs | VRAM, GB | Number of vCPUs | RAM, GB |
   --- | --- | --- | ---
   | 1 | 16 | 4 | 16 |

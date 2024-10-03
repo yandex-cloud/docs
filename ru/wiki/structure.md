@@ -1,6 +1,6 @@
 ---
-title: "Структура {{ wiki-full-name }}"
-description: "Из статьи вы узнаете, какая структура страниц действует в {{ wiki-name }}."
+title: Структура {{ wiki-full-name }}
+description: Из статьи вы узнаете, какая структура страниц действует в {{ wiki-name }}.
 ---
 
 # Структура {{ wiki-full-name }}

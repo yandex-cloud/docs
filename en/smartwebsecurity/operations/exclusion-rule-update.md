@@ -1,6 +1,6 @@
 ---
-title: "Updating a WAF exclusion rule"
-description: "Follow this guide to update a WAF exclusion rule."
+title: Updating a WAF exclusion rule
+description: Follow this guide to update a WAF exclusion rule.
 ---
 
 # Updating a WAF exclusion rule

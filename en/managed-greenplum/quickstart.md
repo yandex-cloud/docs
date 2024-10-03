@@ -1,6 +1,6 @@
 ---
-title: "How to get started with {{ mgp-full-name }}"
-description: "Follow this guide to create and set up a {{ GP }} cluster."
+title: How to get started with {{ mgp-full-name }}
+description: Follow this guide to create and set up a {{ GP }} cluster.
 ---
 
 # Getting started with {{ mgp-short-name }}

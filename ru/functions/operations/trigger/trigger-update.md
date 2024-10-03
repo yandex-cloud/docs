@@ -42,7 +42,7 @@
 
       Результат:
 
-      
+
       ```text
       id: dd0gj5tsj2**********
       folder_id: aoek49ghmk**********

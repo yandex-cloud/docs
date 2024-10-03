@@ -1,6 +1,6 @@
 ---
-title: "{{ TF }} reference for {{ alb-full-name }}"
-description: "This page provides reference information about the {{ TF }} provider resources and data sources supported for {{ alb-name }}."
+title: '{{ TF }} reference for {{ alb-full-name }}'
+description: This page provides reference information about the {{ TF }} provider resources and data sources supported for {{ alb-name }}.
 ---
 
 # {{ TF }} reference for {{ alb-full-name }}

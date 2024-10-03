@@ -1,7 +1,6 @@
 # What services support tag-based billing
 
 
-
 ## Scenario description {#case-description}
 
 You need to find out which {{ yandex-cloud }} services offer tag-based billing.

@@ -1,6 +1,6 @@
 ---
-title: "Tutorial on switching over to a different cloud in {{ resmgr-full-name }}"
-description: "In this tutorial, you'll learn how to switch over to another cloud in {{ resmgr-full-name }}."
+title: Tutorial on switching over to a different cloud in {{ resmgr-full-name }}
+description: In this tutorial, you'll learn how to switch over to another cloud in {{ resmgr-full-name }}.
 ---
 
 # Switch clouds

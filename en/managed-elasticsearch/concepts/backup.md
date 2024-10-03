@@ -1,6 +1,6 @@
 ---
-title: "Backups in {{ mes-name }}"
-description: "{{ mes-short-name }} provides automatic and manual index backups."
+title: Backups in {{ mes-name }}
+description: '{{ mes-short-name }} provides automatic and manual index backups.'
 ---
 
 # Backups in {{ mes-name }}

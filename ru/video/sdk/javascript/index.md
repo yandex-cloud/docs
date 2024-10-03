@@ -1,6 +1,6 @@
 ---
-title: "Начало работы с JavaScript SDK для Cloud Video Player"
-description: "На странице приведены основные элементы управления видеоплеером Cloud Video Player с помощью SDK для JavaScript."
+title: Начало работы с JavaScript SDK для Cloud Video Player
+description: На странице приведены основные элементы управления видеоплеером Cloud Video Player с помощью SDK для JavaScript.
 ---
 
 # Начало работы с SDK видеоплеера для JavaScript

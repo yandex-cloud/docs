@@ -1,6 +1,6 @@
 ---
-title: "How to change project settings in {{ ml-platform-full-name }}"
-description: "Follow this guide to update your project settings."
+title: How to change project settings in {{ ml-platform-full-name }}
+description: Follow this guide to update your project settings.
 ---
 
 # Changing project settings

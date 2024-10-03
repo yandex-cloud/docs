@@ -1,6 +1,6 @@
 ---
-title: "Examples of using triggers in {{ tracker-full-name }}"
-description: "In this tutorial, you will learn about using triggers in {{ tracker-name }}."
+title: Examples of using triggers in {{ tracker-full-name }}
+description: In this tutorial, you will learn about using triggers in {{ tracker-name }}.
 ---
 
 # Trigger use cases in {{ tracker-name }}
@@ -152,7 +152,7 @@ You need to set up email integration if you want to send emails right from {{ tr
 
 1. [Set up an email address for the queue](queue-mail.md#section_gwv_hqb_hgb) to store issues created based on user requests.
 
-   
+
    If you cannot add an address for the queue, it means that your organization does not have a domain. You need a domain to create mailboxes and newsletters, for example, to add an email address for your queue. You can [add a domain in {{ ya-360 }}]({{ support-business-domain }}) free of charge.
 
 
@@ -214,7 +214,7 @@ You need to set up email integration if you want to send emails from {{ tracker-
 
 1. [Set up an email address for the queue](queue-mail.md#section_gwv_hqb_hgb) to store issues created based on user requests.
 
-   
+
    If you cannot add an address for the queue, it means that your organization does not have a domain. You need a domain to create mailboxes and newsletters, for example, to add an email address for your queue. You can [add a domain in {{ ya-360 }}]({{ support-business-domain }}) free of charge.
 
 
@@ -310,7 +310,7 @@ Let's set up a trigger that, whenever an issue is closed, will add a feedback fo
 
 1. Use the following code as the comment's text:
 
-   
+
    ```
    {{=<% %>=}}/iframe/(src="https://forms.yandex.ru/surveys/<form_ID>/?iframe=1&<question_ID>=<value>" frameborder=0 width=500)
    ```
@@ -329,7 +329,7 @@ Let's set up a trigger that, whenever an issue is closed, will add a feedback fo
 
    Here is an example of the code where the issue key is provided to a field of the form.
 
-   
+
    ```
    {{=<% %>=}}/iframe/(src="https://forms.yandex.ru/surveys/68***/?iframe=1&answer_short_text_584943=<%issue.key%>" frameborder=0 width=100% height=660px scrolling=no)
    ```

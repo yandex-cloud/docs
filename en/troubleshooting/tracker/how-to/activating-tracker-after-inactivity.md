@@ -2,7 +2,6 @@
 
 
 
-
 ## Issue description {#case-description}
 
 You need to enable Yandex Tracker after a period of inactivity.

@@ -133,7 +133,7 @@ Packer создаст и запустит виртуальную машину с
 
       ```bash
       mkdir packer
-      curl -L -o ~/packer/packer_1.11.2_darwin_amd64.zip https://hashicorp-releases.yandexcloud.net/packer/1.11.2/packer_1.11.2_darwin_amd64.zip
+      curl --location --output ~/packer/packer_1.11.2_darwin_amd64.zip https://hashicorp-releases.yandexcloud.net/packer/1.11.2/packer_1.11.2_darwin_amd64.zip
       unzip ~/packer/packer_1.11.2_darwin_amd64.zip -d ~/packer
       ```
 

@@ -1,6 +1,6 @@
 ---
-title: "Editing an object's ACL in {{ objstorage-full-name }}"
-description: "To manage an {{ objstorage-name }} bucket access, you can use an access control list, or ACL."
+title: Editing an object's ACL in {{ objstorage-full-name }}
+description: To manage an {{ objstorage-name }} bucket access, you can use an access control list, or ACL.
 ---
 
 # Editing an object's ACL
@@ -85,7 +85,7 @@ If an [ACL](../../concepts/acl.md) has been set for an object, it will be comple
 
   1. To grant ACL permissions to a {{ yandex-cloud }} user, service account, or user group, get their ID:
 
-      
+
       * [User](../../../iam/operations/users/get.md).
       * [Service account](../../../iam/operations/sa/get-id.md).
       * User group: Navigate to the [**{{ ui-key.yacloud_org.pages.groups }}**]({{ link-org-main }}groups) tab in the {{ org-name }} interface.
@@ -124,7 +124,7 @@ If an [ACL](../../concepts/acl.md) has been set for an object, it will be comple
 
   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
-  
+
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
 

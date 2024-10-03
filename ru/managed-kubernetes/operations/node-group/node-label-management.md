@@ -158,7 +158,7 @@
 
    - API {#api}
 
-     Чтобы создать группу узлов {{ managed-k8s-name }}, воспользуйтесь методом [create](../../api-ref/NodeGroup/create.md) для ресурса [NodeGroup](../../api-ref/NodeGroup/).
+     Чтобы создать группу узлов {{ managed-k8s-name }}, воспользуйтесь методом [create](../../managed-kubernetes/api-ref/NodeGroup/create.md) для ресурса [NodeGroup](../../managed-kubernetes/api-ref/NodeGroup/).
 
    {% endlist %}
 
@@ -221,7 +221,7 @@
 
    - API {#api}
 
-     Чтобы посмотреть информацию об узле {{ managed-k8s-name }}, воспользуйтесь методом [list](../../api-ref/NodeGroup/list.md) для ресурса [NodeGroup](../../api-ref/NodeGroup/).
+     Чтобы посмотреть информацию об узле {{ managed-k8s-name }}, воспользуйтесь методом [list](../../managed-kubernetes/api-ref/NodeGroup/list.md) для ресурса [NodeGroup](../../managed-kubernetes/api-ref/NodeGroup/).
 
    {% endlist %}
 
@@ -285,7 +285,7 @@
 
 - API {#api}
 
-  Чтобы назначить {{ k8s }}-метку на уже созданную группу узлов, воспользуйтесь методом [update](../../api-ref/NodeGroup/update.md) для ресурса [NodeGroup](../../api-ref/NodeGroup/index.md) и передайте в запросе:
+  Чтобы назначить {{ k8s }}-метку на уже созданную группу узлов, воспользуйтесь методом [update](../../managed-kubernetes/api-ref/NodeGroup/update.md) для ресурса [NodeGroup](../../managed-kubernetes/api-ref/NodeGroup/index.md) и передайте в запросе:
 
   * {{ k8s }}-метки в параметре `nodeLabels`.
   * Обновляемый параметр `nodeLabels` в параметре `updateMask`.
@@ -341,7 +341,7 @@
 
 - API {#api}
 
-  Чтобы снять {{ k8s }}-метку с группы узлов, воспользуйтесь методом [update](../../api-ref/NodeGroup/update.md) для ресурса [NodeGroup](../../api-ref/NodeGroup/index.md) и передайте в запросе:
+  Чтобы снять {{ k8s }}-метку с группы узлов, воспользуйтесь методом [update](../../managed-kubernetes/api-ref/NodeGroup/update.md) для ресурса [NodeGroup](../../managed-kubernetes/api-ref/NodeGroup/index.md) и передайте в запросе:
 
   * Новый набор {{ k8s }}-меток в параметре `nodeLabels`. Если вы хотите снять все метки, передайте в запросе `"nodeLabels": {}`.
   * Обновляемый параметр `nodeLabels` в параметре `updateMask`.

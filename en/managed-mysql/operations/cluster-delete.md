@@ -1,6 +1,6 @@
 ---
-title: "Deleting a {{ MY }} cluster"
-description: "After you delete a {{ MY }} cluster, its backups are kept for seven days for recovery purposes. To restore a deleted cluster from a backup you will need its ID; therefore, make sure the cluster ID is secure before deleting the cluster."
+title: Deleting a {{ MY }} cluster
+description: After you delete a {{ MY }} cluster, its backups are kept for seven days for recovery purposes. To restore a deleted cluster from a backup you will need its ID; therefore, make sure the cluster ID is secure before deleting the cluster.
 ---
 
 # Deleting a {{ MY }} cluster

@@ -1,6 +1,6 @@
 ---
-title: "Вопросы и ответы про {{ backup-full-name }}"
-description: "На странице представлены вопросы и ответы про {{ backup-name }}."
+title: Вопросы и ответы про {{ backup-full-name }}
+description: На странице представлены вопросы и ответы про {{ backup-name }}.
 ---
 
 # Все вопросы про сервис {{ billing-name }}

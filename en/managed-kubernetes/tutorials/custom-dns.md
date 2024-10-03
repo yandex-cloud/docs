@@ -1,6 +1,6 @@
 ---
-title: "How to integrate a {{ managed-k8s-full-name }} cluster into a private corporate DNS zone"
-description: "Follow this guide to integrate a {{ managed-k8s-full-name }} cluster into a private corporate DNS zone."
+title: How to integrate a {{ managed-k8s-full-name }} cluster into a private corporate DNS zone
+description: Follow this guide to integrate a {{ managed-k8s-full-name }} cluster into a private corporate DNS zone.
 ---
 
 # Integrating into a corporate DNS zone

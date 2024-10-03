@@ -1,6 +1,6 @@
 ---
-title: "What is Dead Letter Queue (DLQ)?"
-description: "The Dead Letter Queue (DLQ) is a queue for messages which could not be processed by a triggered function or container. A message is considered processed if its recipient function or container ran to completion without errors. Messages moved to the DLQ are stored there for further analysis."
+title: What is Dead Letter Queue (DLQ)?
+description: The Dead Letter Queue (DLQ) is a queue for messages which could not be processed by a triggered function or container. A message is considered processed if its recipient function or container ran to completion without errors. Messages moved to the DLQ are stored there for further analysis.
 ---
 
 # Dead Letter Queue in {{ sf-name }}

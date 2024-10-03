@@ -188,7 +188,7 @@
 1. Скачайте дистрибутив `Anaconda`:
 
    ```bash
-   curl -O https://repo.anaconda.com/archive/Anaconda3-2023.07-1-Linux-x86_64.sh
+   curl --remote-name https://repo.anaconda.com/archive/Anaconda3-2023.07-1-Linux-x86_64.sh
    ```
 
 1. Запустите установку:

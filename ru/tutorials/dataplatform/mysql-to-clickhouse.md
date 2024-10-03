@@ -1,6 +1,6 @@
 ---
-title: "Миграция базы данных из {{ MY }} в {{ CH }} с помощью {{ data-transfer-full-name }}"
-description: "С помощью сервиса {{ data-transfer-name }} вы можете перенести базу данных из кластера-источника {{ MY }} в {{ CH }}."
+title: Миграция базы данных из {{ MY }} в {{ CH }} с помощью {{ data-transfer-full-name }}
+description: С помощью сервиса {{ data-transfer-name }} вы можете перенести базу данных из кластера-источника {{ MY }} в {{ CH }}.
 ---
 
 # Миграция базы данных из {{ MY }} в {{ CH }} с помощью {{ data-transfer-full-name }}

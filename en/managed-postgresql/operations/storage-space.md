@@ -1,6 +1,6 @@
 ---
-title: "Managing disk space"
-description: "When the storage is more than 97% full, the host automatically switches to read-only mode. You can track storage usage, configure its automatic expansion, and disable the read-only mode."
+title: Managing disk space
+description: When the storage is more than 97% full, the host automatically switches to read-only mode. You can track storage usage, configure its automatic expansion, and disable the read-only mode.
 ---
 
 # Managing disk space

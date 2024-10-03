@@ -1,6 +1,6 @@
 ---
-title: "Инструкция по сбору и поставке данных {{ ydb-full-name }} с помощью Fluentd"
-description: "Из статьи вы узнаете, как собирать и поставлять данные {{ ydb-full-name }} с помощью Fluentd."
+title: Инструкция по сбору и поставке данных {{ ydb-full-name }} с помощью Fluentd
+description: Из статьи вы узнаете, как собирать и поставлять данные {{ ydb-full-name }} с помощью Fluentd.
 ---
 
 # Fluentd

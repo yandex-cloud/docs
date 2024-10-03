@@ -1,6 +1,6 @@
 ---
-title: "Resource relationships in {{ maf-full-name }}"
-description: "{{ AF }} is an open-source platform that enables you to create, schedule, and monitor batch-oriented workflows. {{ maf-full-name }} helps you deploy and maintain {{ AF }} server clusters in the {{ yandex-cloud }} infrastructure."
+title: Resource relationships in {{ maf-full-name }}
+description: '{{ AF }} is an open-source platform that enables you to create, schedule, and monitor batch-oriented workflows. {{ maf-full-name }} helps you deploy and maintain {{ AF }} server clusters in the {{ yandex-cloud }} infrastructure.'
 ---
 
 # Resource relationships in {{ maf-name }}

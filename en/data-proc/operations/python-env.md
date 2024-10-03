@@ -1,6 +1,6 @@
 ---
-title: "How to set up and use Python virtual environments in {{ dataproc-full-name }}"
-description: "Follow this guide to set up and use Python virtual environments."
+title: How to set up and use Python virtual environments in {{ dataproc-full-name }}
+description: Follow this guide to set up and use Python virtual environments.
 ---
 
 # Setting up and using Python virtual environments

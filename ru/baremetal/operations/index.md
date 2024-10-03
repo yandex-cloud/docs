@@ -1,6 +1,6 @@
 ---
-title: "Как работать с {{ baremetal-full-name }}. Пошаговые инструкции"
-description: "Из статьи вы узнаете, как работать с {{ baremetal-full-name }} в {{ yandex-cloud }}."
+title: Как работать с {{ baremetal-full-name }}. Пошаговые инструкции
+description: Из статьи вы узнаете, как работать с {{ baremetal-full-name }} в {{ yandex-cloud }}.
 ---
 
 # Пошаговые инструкции для сервиса {{ baremetal-full-name }}

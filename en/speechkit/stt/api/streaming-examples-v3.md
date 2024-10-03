@@ -1,6 +1,6 @@
 ---
-title: "Audio file streaming recognition using the API v3 in {{ speechkit-full-name }}"
-description: "Follow this guide to use streaming recognition of your audio files in the API v3."
+title: Audio file streaming recognition using the API v3 in {{ speechkit-full-name }}
+description: Follow this guide to use streaming recognition of your audio files in the API v3.
 ---
 
 # Audio file streaming recognition using the API v3

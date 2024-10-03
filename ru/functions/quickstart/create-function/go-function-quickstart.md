@@ -108,7 +108,7 @@
 
     Чтобы создать версию функции, выполните команду:
 
-    
+
     ```bash
     yc serverless function version create \
       --function-name=go-function \
@@ -131,7 +131,7 @@
 
     Результат:
 
-    
+
     ```yaml
     done (1s)
     id: d4evvn8obisa********

@@ -1,6 +1,6 @@
 ---
-title: "Access management in {{ vision-full-name }}"
-description: "Access management in {{ vision-full-name }}, a service for computer vision and image analysis. Permissions are granted when assigning a role. A role can be assigned for a folder or a cloud: all cloud permissions are inherited. To use the service, you need one of the following roles: editor, admin, or resource-manager.clouds.owner."
+title: Access management in {{ vision-full-name }}
+description: 'Access management in {{ vision-full-name }}, a service for computer vision and image analysis. Permissions are granted when assigning a role. A role can be assigned for a folder or a cloud: all cloud permissions are inherited. To use the service, you need one of the following roles: editor, admin, or resource-manager.clouds.owner.'
 ---
 
 # Access management in {{ vision-name }}

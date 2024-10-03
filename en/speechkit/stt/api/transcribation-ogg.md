@@ -1,6 +1,6 @@
 ---
-title: "Asynchronous OggOpus audio file recognition in {{ speechkit-full-name }}"
-description: "Follow this guide to use asynchronous OggOpus audio file recognition."
+title: Asynchronous OggOpus audio file recognition in {{ speechkit-full-name }}
+description: Follow this guide to use asynchronous OggOpus audio file recognition.
 ---
 
 # Asynchronous recognition of OggOpus audio files using the API v2

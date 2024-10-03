@@ -346,7 +346,7 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
       - [{{ mch-full-name }}](../../managed-clickhouse/operations/cluster-delete.md)​.
       - [{{ mkf-full-name }}](../../managed-kafka/operations/cluster-delete.md)​.
 
-   
+
    - If you reserved public static IP addresses for the clusters, release and [delete them](../../vpc/operations/address-delete.md).
 
 

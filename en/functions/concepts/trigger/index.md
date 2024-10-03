@@ -1,6 +1,6 @@
 ---
-title: "Triggers. Overview"
-description: "Triggers are criteria that automatically launch a function when met. Triggers let you automate your work with other {{ yandex-cloud }} services, such as Yandex Object Storage, Yandex Message Queue, and Yandex IoT Core."
+title: Triggers. Overview
+description: Triggers are criteria that automatically launch a function when met. Triggers let you automate your work with other {{ yandex-cloud }} services, such as Yandex Object Storage, Yandex Message Queue, and Yandex IoT Core.
 ---
 
 # Triggers in {{ sf-name }}. Overview

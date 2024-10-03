@@ -1,6 +1,6 @@
 ---
-title: "How to view statistics on queue issues in {{ tracker-full-name }}"
-description: "Follow this guide to view statistics on queue issues."
+title: How to view statistics on queue issues in {{ tracker-full-name }}
+description: Follow this guide to view statistics on queue issues.
 ---
 
 # Queue statistics

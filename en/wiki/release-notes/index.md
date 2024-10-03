@@ -1,6 +1,6 @@
 ---
-title: "{{ wiki-full-name }} release notes for February 2024"
-description: "Check out {{ wiki-full-name }} release notes for February 2024."
+title: '{{ wiki-full-name }} release notes for February 2024'
+description: Check out {{ wiki-full-name }} release notes for February 2024.
 ---
 
 # {{ wiki-full-name }} release notes: February 2024

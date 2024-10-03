@@ -1,6 +1,6 @@
 ---
-title: "How to improve translation accuracy in {{ translate-full-name }}"
-description: "In this article, you will learn how to improve translation accuracy."
+title: How to improve translation accuracy in {{ translate-full-name }}
+description: In this article, you will learn how to improve translation accuracy.
 ---
 
 # How to improve the accuracy of translations

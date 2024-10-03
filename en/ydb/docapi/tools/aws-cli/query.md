@@ -1,6 +1,6 @@
 ---
-title: "How to select data from a {{ ydb-full-name }} table"
-description: "Follow this guide to select data from a table."
+title: How to select data from a {{ ydb-full-name }} table
+description: Follow this guide to select data from a table.
 ---
 
 # Data selections

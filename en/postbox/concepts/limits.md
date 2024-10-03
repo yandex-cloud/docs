@@ -1,6 +1,6 @@
 ---
-title: "Quotas and limits in {{ postbox-full-name }}"
-description: "{{ postbox-full-name }} sets quotas on the maximum number of recipients and message size. For more information about such restrictions, read this article."
+title: Quotas and limits in {{ postbox-full-name }}
+description: '{{ postbox-full-name }} sets quotas on the maximum number of recipients and message size. For more information about such restrictions, read this article.'
 ---
 
 # Quotas and limits in {{ postbox-name }}

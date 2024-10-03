@@ -1,6 +1,6 @@
 ---
-title: "Как настроить эндпоинт-источник {{ metrika-endpoint }}"
-description: "Следуя данной инструкции, вы сможете настроить эндпоинт-источник {{ metrika-endpoint }}."
+title: Как настроить эндпоинт-источник {{ metrika-endpoint }}
+description: Следуя данной инструкции, вы сможете настроить эндпоинт-источник {{ metrika-endpoint }}.
 noIndex: true
 ---
 

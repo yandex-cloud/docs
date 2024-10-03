@@ -1,6 +1,6 @@
 ---
-title: "Log group in {{ cloud-logging-full-name }}"
-description: "A log group is a way of grouping logs of services and custom messages."
+title: Log group in {{ cloud-logging-full-name }}
+description: A log group is a way of grouping logs of services and custom messages.
 ---
 
 # Log group in {{ cloud-logging-name }}

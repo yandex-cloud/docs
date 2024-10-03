@@ -1,6 +1,6 @@
 ---
-title: "Updating a service account"
-description: "Follow this guide to update a service account."
+title: Updating a service account
+description: Follow this guide to update a service account.
 ---
 
 # Updating a service account

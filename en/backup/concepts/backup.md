@@ -1,6 +1,6 @@
 ---
-title: "Backups in {{ backup-full-name }}"
-description: "In this tutorial, you will learn about backups in {{ backup-name }}."
+title: Backups in {{ backup-full-name }}
+description: In this tutorial, you will learn about backups in {{ backup-name }}.
 ---
 
 # Backups

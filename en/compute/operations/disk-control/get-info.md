@@ -1,6 +1,6 @@
 ---
-title: "How to get information about a disk in {{ compute-full-name }}"
-description: "Follow this guide to get information about a disk."
+title: How to get information about a disk in {{ compute-full-name }}
+description: Follow this guide to get information about a disk.
 ---
 
 # Getting information about a disk

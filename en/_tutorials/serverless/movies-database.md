@@ -105,7 +105,7 @@ The cost of CRUD API resources includes:
          sudo docker run hello-world
          ```
 
-      
+
       * [{{ TF }}](https://www.terraform.io/) `1.0.8` or higher:
 
          ```bash
@@ -185,7 +185,7 @@ The cost of CRUD API resources includes:
          brew install --cask docker
          ```
 
-      
+
       * [{{ TF }}](https://www.terraform.io/) `1.0.8` or higher:
 
          ```bash

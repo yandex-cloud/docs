@@ -1,6 +1,6 @@
 ---
-title: "Deleting a backup"
-description: "In this tutorial, you will learn how to delete a VM backup in **{{ backup-name }}**."
+title: Deleting a backup
+description: In this tutorial, you will learn how to delete a VM backup in **{{ backup-name }}**.
 ---
 
 # Deleting a backup

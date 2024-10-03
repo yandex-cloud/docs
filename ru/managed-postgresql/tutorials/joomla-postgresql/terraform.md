@@ -1,5 +1,5 @@
 ---
-canonical: "{{ link-docs }}/tutorials/web/joomla-postgresql/terraform"
+canonical: '{{ link-docs }}/tutorials/web/joomla-postgresql/terraform'
 ---
 
 # Создание сайта на базе Joomla с базой данных {{ PG }} с помощью {{ TF }}

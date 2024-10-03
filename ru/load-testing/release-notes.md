@@ -1,6 +1,6 @@
 ---
-title: "История изменений в {{ load-testing-full-name }}"
-description: "В разделе представлена история изменений сервиса {{ load-testing-name }}."
+title: История изменений в {{ load-testing-full-name }}
+description: В разделе представлена история изменений сервиса {{ load-testing-name }}.
 ---
 
 # История изменений в {{ load-testing-full-name }}

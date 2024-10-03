@@ -41,3 +41,4 @@ items:
   - name: Правила тарификации
     href: pricing.md
 base: ru/baremetal
+deepBase: 2

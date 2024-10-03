@@ -63,3 +63,4 @@ items:
       - name: Equivalents for Microsoft Azure
         href: platform-comparison/azure.md
 base: en/overview
+deepBase: 2

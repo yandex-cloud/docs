@@ -22,7 +22,7 @@
 
     1. [Создайте кластер-приемник {{ mch-full-name }}](../../managed-clickhouse/operations/cluster-create.md#create-cluster) любой подходящей конфигурации с базой данных `db1`.
 
-    
+
     1. Если вы используете группы безопасности в кластерах, убедитесь, что они настроены правильно и допускают подключение к кластерам:
 
         * [{{ mch-name }}](../../managed-clickhouse/operations/connect/index.md#configuring-security-groups).
@@ -42,7 +42,7 @@
 
         * [сети](../../vpc/concepts/network.md#network) и [подсети](../../vpc/concepts/network.md#subnet) для размещения кластеров;
 
-        
+
         * [группы безопасности](../../vpc/concepts/security-groups.md) для подключения к кластерам;
 
 

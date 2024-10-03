@@ -1,6 +1,6 @@
 ---
-title: "Инструкция о том, как создать триггер для {{ container-registry-name }}, который вызывает функцию {{ sf-full-name }}"
-description: "Из статьи вы узнаете, как создать триггер для {{ container-registry-name }}, который вызывает функцию {{ sf-full-name }}."
+title: Инструкция о том, как создать триггер для {{ container-registry-name }}, который вызывает функцию {{ sf-full-name }}
+description: Из статьи вы узнаете, как создать триггер для {{ container-registry-name }}, который вызывает функцию {{ sf-full-name }}.
 ---
 # Создать триггер для {{ container-registry-name }}, который вызывает функцию {{ sf-name }}
 

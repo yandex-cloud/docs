@@ -1,7 +1,6 @@
 # How to enable SQL query logging
 
 
-
 ## Scenario description {#case-description}
 
 You need to enable SQL query logging.

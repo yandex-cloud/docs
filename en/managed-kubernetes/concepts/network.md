@@ -1,6 +1,6 @@
 ---
-title: "Network in {{ managed-k8s-full-name }}"
-description: "When creating a {{ k8s }} cluster, you can create a network and subnet for the master host, a range of IP addresses for your pods and services, and the node subnet mask."
+title: Network in {{ managed-k8s-full-name }}
+description: When creating a {{ k8s }} cluster, you can create a network and subnet for the master host, a range of IP addresses for your pods and services, and the node subnet mask.
 ---
 
 # Networking in {{ managed-k8s-name }}

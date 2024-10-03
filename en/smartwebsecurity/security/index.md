@@ -1,6 +1,6 @@
 ---
-title: "Access management in {{ sws-name }}"
-description: "This section describes the resources for which you can assign a role and the roles existing in the service."
+title: Access management in {{ sws-name }}
+description: This section describes the resources for which you can assign a role and the roles existing in the service.
 ---
 
 # Access management in {{ sws-name }}

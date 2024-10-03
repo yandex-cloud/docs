@@ -1,6 +1,6 @@
 ---
-title: "How to create a VM with OS Login"
-description: "Follow this guide to create a VM that can be accessed via OS Login."
+title: How to create a VM with OS Login
+description: Follow this guide to create a VM that can be accessed via OS Login.
 ---
 
 # Creating a VM with OS Login

@@ -1,6 +1,6 @@
 ---
-title: "Use cases for data storage and recovery in {{ yandex-cloud }}"
-description: "Various use cases for data storage and recovery in {{ yandex-cloud }}."
+title: Use cases for data storage and recovery in {{ yandex-cloud }}
+description: Various use cases for data storage and recovery in {{ yandex-cloud }}.
 ---
 
 # Storing and recovering data

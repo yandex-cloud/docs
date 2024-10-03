@@ -1,6 +1,6 @@
 ---
-title: "Troubleshooting in {{ video-full-name }}"
-description: "This article provides solutions for possible issues with {{ video-full-name }}."
+title: Troubleshooting in {{ video-full-name }}
+description: This article provides solutions for possible issues with {{ video-full-name }}.
 ---
 
 # Troubleshooting in {{ video-name }}

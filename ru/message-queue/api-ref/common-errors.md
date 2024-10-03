@@ -1,6 +1,6 @@
 ---
-title: "Какие ошибки могут возникнуть при работе с API {{ message-queue-full-name }}"
-description: "Из статьи вы узнаете, какие ошибки могут возникнуть при работе с API {{ message-queue-name }}."
+title: Какие ошибки могут возникнуть при работе с API {{ message-queue-full-name }}
+description: Из статьи вы узнаете, какие ошибки могут возникнуть при работе с API {{ message-queue-name }}.
 ---
 
 # Стандартные ошибки

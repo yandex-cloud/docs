@@ -1,7 +1,6 @@
 # Resolving issues with incorrect MIME-types of objects when uploading them to {{ objstorage-short-name }}
 
 
-
 ## Issue description {#issue-description}
 
 * You encounter errors when accessing objects uploaded to {{ objstorage-short-name }} (images are not displayed, scripts do not work).

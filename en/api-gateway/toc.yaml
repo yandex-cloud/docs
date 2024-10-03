@@ -1,10 +1,5 @@
 title: Yandex API Gateway
 href: index.yaml
-label:
-  title: RU
-  description: This service is only available in the Russia region.
-  theme: unknown
-  when: region == "kz"
 items:
   - name: Getting started
     href: quickstart/index.md
@@ -341,3 +336,4 @@ items:
   - name: FAQ
     href: qa/index.md
 base: en/api-gateway
+deepBase: 2

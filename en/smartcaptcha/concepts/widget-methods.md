@@ -1,6 +1,6 @@
 ---
-title: "{{ captcha-full-name }} widget installation methods"
-description: "You can use the automatic or advanced method to connect the {{ captcha-name }} widget. Depending on the connection method, different widget parameter transmission methods are used."
+title: '{{ captcha-full-name }} widget installation methods'
+description: You can use the automatic or advanced method to connect the {{ captcha-name }} widget. Depending on the connection method, different widget parameter transmission methods are used.
 ---
 
 # Widget installation methods {{ captcha-full-name }}

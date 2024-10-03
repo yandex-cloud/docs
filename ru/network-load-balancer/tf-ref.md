@@ -1,6 +1,6 @@
 ---
-title: "Справочник {{ TF }} для {{ network-load-balancer-full-name }}"
-description: "На этой странице приведен справочник ресурсов и источников данных провайдера {{ TF }}, которые поддерживаются для сервиса {{ network-load-balancer-name }}."
+title: Справочник {{ TF }} для {{ network-load-balancer-full-name }}
+description: На этой странице приведен справочник ресурсов и источников данных провайдера {{ TF }}, которые поддерживаются для сервиса {{ network-load-balancer-name }}.
 ---
 
 # Справочник {{ TF }} для {{ network-load-balancer-full-name }}

@@ -1,6 +1,6 @@
 ---
-title: "Setting up {{ IBRG }} in a {{ dataproc-name }} cluster"
-description: "How to set up and use {{ IBRG }} in a {{ dataproc-name }} cluster."
+title: Setting up {{ IBRG }} in a {{ dataproc-name }} cluster
+description: How to set up and use {{ IBRG }} in a {{ dataproc-name }} cluster.
 ---
 
 # Setting up {{ IBRG }} in a {{ dataproc-name }} cluster

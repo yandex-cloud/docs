@@ -1,6 +1,6 @@
 ---
-title: "Сценарии использования {{ alb-full-name }}"
-description: "Различные сценарии использования {{ alb-full-name }} в {{ yandex-cloud }}."
+title: Сценарии использования {{ alb-full-name }}
+description: Различные сценарии использования {{ alb-full-name }} в {{ yandex-cloud }}.
 ---
 
 # Практические руководства {{ alb-name }}

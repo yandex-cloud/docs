@@ -1,6 +1,6 @@
 ---
-title: "Connecting to an {{ OS }} cluster in {{ mos-full-name }}"
-description: "You can connect to {{ OS }} cluster hosts with the DATA role from the internet if you set up public access to the appropriate host and from {{ yandex-cloud }} VMs located in the same virtual network."
+title: Connecting to an {{ OS }} cluster in {{ mos-full-name }}
+description: You can connect to {{ OS }} cluster hosts with the DATA role from the internet if you set up public access to the appropriate host and from {{ yandex-cloud }} VMs located in the same virtual network.
 keywords:
   - connecting OpenSearch clusters
   - OpenSearch cluster

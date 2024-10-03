@@ -1,6 +1,6 @@
 ---
-title: "How to increase the size of a volume for the StatefulSet controller in {{ managed-k8s-full-name }}"
-description: "Follow this guide to increase the size of a volume for the StatefulSet controller."
+title: How to increase the size of a volume for the StatefulSet controller in {{ managed-k8s-full-name }}
+description: Follow this guide to increase the size of a volume for the StatefulSet controller.
 ---
 
 # Expanding a StatefulSet controller volume
@@ -18,7 +18,7 @@ To increase the size of a [volume](../../concepts/volume.md) for the StatefulSet
 
    {% cut "sts.yaml" %}
 
-   
+
    ```yaml
    apiVersion: apps/v1
    kind: StatefulSet
@@ -74,7 +74,7 @@ To increase the size of a [volume](../../concepts/volume.md) for the StatefulSet
 
    Result:
 
-   
+
    ```text
    NAME               READY  STATUS   RESTARTS  AGE
    pod/ubuntu-test-0  1/1    Running  0         90s
@@ -97,7 +97,7 @@ To increase the size of a [volume](../../concepts/volume.md) for the StatefulSet
 
    Result:
 
-   
+
    ```text
    +----------------------+--------------------------------------------------+------------+-------------------+--------+----------------------+-------------+
    |          ID          |                       NAME                       |    SIZE    |        ZONE       | STATUS |     INSTANCE IDS     | DESCRIPTION |
@@ -192,10 +192,11 @@ To increase the size of a [volume](../../concepts/volume.md) for the StatefulSet
 
    Result:
 
-   
+
    ```text
    NAME                                       CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS   CLAIM                               STORAGECLASS     REASON   AGE
    pvc-603ac129-fe56-400a-8481-feaa********   2Gi        RWO            Delete           Bound    default/pvc-dynamic-ubuntu-test-0   yc-network-hdd            11m
    pvc-a6fb0761-0771-483c-abfb-d4a8********   2Gi        RWO            Delete           Bound    default/pvc-dynamic-ubuntu-test-1   yc-network-hdd            11m
    pvc-f479c8aa-426a-4e43-9749-5e0f********   2Gi        RWO            Delete           Bound    default/pvc-dynamic-ubuntu-test-2   yc-network-hdd            11m
    ```
+

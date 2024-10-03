@@ -1,6 +1,6 @@
 ---
-title: "Security groups in {{ vpc-full-name }}"
-description: "With security groups, you can manage networking between cloud resources."
+title: Security groups in {{ vpc-full-name }}
+description: With security groups, you can manage networking between cloud resources.
 ---
 
 # Security groups

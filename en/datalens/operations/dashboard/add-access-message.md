@@ -1,6 +1,6 @@
 ---
-title: "How to add a message to be displayed in the event of a dashboard permission error in {{ datalens-full-name }}"
-description: "Follow this guide to add a message to be displayed if a dashboard permission error occurs."
+title: How to add a message to be displayed in the event of a dashboard permission error in {{ datalens-full-name }}
+description: Follow this guide to add a message to be displayed if a dashboard permission error occurs.
 ---
 
 # Adding an access error message

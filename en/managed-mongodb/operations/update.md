@@ -1,6 +1,6 @@
 ---
-title: "How to change {{ MG }} cluster settings in {{ mmg-full-name }}"
-description: "Follow this guide to change {{ MG }} cluster settings."
+title: How to change {{ MG }} cluster settings in {{ mmg-full-name }}
+description: Follow this guide to change {{ MG }} cluster settings.
 ---
 
 # Updating {{ MG }} cluster settings
@@ -62,7 +62,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
   1. Request a list of available host classes (the `ZONE IDS` column specifies the availability zones where you can select the appropriate class):
 
-     
+
      ```bash
      {{ yc-mdb-mg }} resource-preset list
 
@@ -360,7 +360,7 @@ You can change the DBMS settings of the hosts in your cluster.
     You can change the following settings:
 
     * `--backup-retain-period`: Automatic backup retention period, in days.
-      
+
       The `<retention_period>` parameter value must be in the range from {{ mmg-backup-retention-min }} to {{ mmg-backup-retention-max }} (the default value is {{ mmg-backup-retention }}). This feature is at the [Preview](../../overview/concepts/launch-stages.md) stage. For more information, see [Backups](../concepts/backup.md).
 
 

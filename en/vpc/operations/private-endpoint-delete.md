@@ -1,6 +1,6 @@
 ---
-title: "How to delete a service connection in {{ vpc-full-name }}"
-description: "Follow this guide to delete a service connection (Private Endpoint) in VPC." 
+title: How to delete a service connection in {{ vpc-full-name }}
+description: Follow this guide to delete a service connection (Private Endpoint) in VPC.
 ---
 
 # Deleting a service connection

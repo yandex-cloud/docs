@@ -117,15 +117,19 @@
       
       # Перемещение ВМ
 
-      curl -X POST "https://compute.{{ api-host }}/compute/v1/instances/{${instanceId}}:move" \
-      -H "Authorization: Bearer ${IAM_TOKEN}" \
-      -d '{ "destinationFolderId": "'"${destinationFolderId}"'" }'
+      curl \
+        --request POST \
+        --header "Authorization: Bearer ${IAM_TOKEN}" \
+        --data '{ "destinationFolderId": "'"${destinationFolderId}"'" }' \
+        "https://compute.{{ api-host }}/compute/v1/instances/{${instanceId}}:move"
       
       # Перемещение загрузочного диска
 
-      curl -X POST "https://compute.{{ api-host }}/compute/v1/disks/{${bootDiskId}}:move" \
-      -H "Authorization: Bearer ${IAM_TOKEN}" \
-      -d '{ "destinationFolderId": "'"${destinationFolderId}"'" }'
+      curl \
+        --request POST \
+        --header "Authorization: Bearer ${IAM_TOKEN}" \
+        --data '{ "destinationFolderId": "'"${destinationFolderId}"'" }' \
+        "https://compute.{{ api-host }}/compute/v1/disks/{${bootDiskId}}:move"
       ```
 
       Где:

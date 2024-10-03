@@ -1286,3 +1286,4 @@ items:
         href: partner/how-to/index.md
         hidden: true
 base: ru/troubleshooting
+deepBase: 2

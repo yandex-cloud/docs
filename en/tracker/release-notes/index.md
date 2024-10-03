@@ -1,6 +1,6 @@
 ---
-title: "{{ tracker-full-name }} release notes for March 2024"
-description: "Check out {{ tracker-full-name }} release notes for March 2024."
+title: '{{ tracker-full-name }} release notes for March 2024'
+description: Check out {{ tracker-full-name }} release notes for March 2024.
 ---
 
 # {{ tracker-full-name }} release notes: March 2024

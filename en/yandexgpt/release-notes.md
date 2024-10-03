@@ -1,6 +1,6 @@
 ---
-title: "{{ yagpt-full-name }} release notes"
-description: "This page contains {{ yagpt-full-name }} release notes."
+title: '{{ yagpt-full-name }} release notes'
+description: This page contains {{ yagpt-full-name }} release notes.
 ---
 
 # {{ yagpt-full-name }} release notes

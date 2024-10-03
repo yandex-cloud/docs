@@ -1,5 +1,5 @@
 ---
-canonical: "{{ link-docs }}/tutorials/web/static/terraform"
+canonical: '{{ link-docs }}/tutorials/web/static/terraform'
 ---
 
 # Статический веб-сайт в {{ objstorage-full-name }} с помощью {{ TF }}

@@ -1,6 +1,6 @@
 ---
-title: "Common errors when making requests to the {{ ydb-full-name }} API"
-description: "See below what errors may occur when making API requests."
+title: Common errors when making requests to the {{ ydb-full-name }} API
+description: See below what errors may occur when making API requests.
 ---
 
 # Common errors

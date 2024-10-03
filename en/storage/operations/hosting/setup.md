@@ -1,6 +1,6 @@
 ---
-title: "Setting up hosting in {{ objstorage-full-name }}"
-description: "Follow this guide to set up hosting."
+title: Setting up hosting in {{ objstorage-full-name }}
+description: Follow this guide to set up hosting.
 ---
 
 # Hosting setup
@@ -100,7 +100,7 @@ You can host your static website in {{ objstorage-name }}. A static website is b
 
   1. In the configuration file, describe the parameters of the resources you want to create:
 
-     
+
      ```hcl
      provider "yandex" {
        token     = "<OAuth>"
@@ -249,7 +249,7 @@ You can host your static website in {{ objstorage-name }}. A static website is b
 
   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
-  
+
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
 
@@ -421,7 +421,7 @@ Using routing rules, you can redirect requests based on the object name prefixes
 
   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
-  
+
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
 

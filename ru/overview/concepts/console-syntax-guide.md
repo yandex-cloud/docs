@@ -1,6 +1,6 @@
 ---
-title: "Работа с {{ yandex-cloud }} CLI и API в Microsoft Windows"
-description: "Сервисы {{ yandex-cloud }} предоставляют различные интерфейсы для решения ваших задач."
+title: Работа с {{ yandex-cloud }} CLI и API в Microsoft Windows
+description: Сервисы {{ yandex-cloud }} предоставляют различные интерфейсы для решения ваших задач.
 ---
 
 # Работа с {{ yandex-cloud }} CLI и API в Microsoft Windows

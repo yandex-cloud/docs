@@ -1,6 +1,6 @@
 ---
-title: "История изменений в {{ captcha-full-name }}"
-description: "В разделе представлена история изменений сервиса {{ captcha-name }}."
+title: История изменений в {{ captcha-full-name }}
+description: В разделе представлена история изменений сервиса {{ captcha-name }}.
 ---
 
 # История изменений в {{ captcha-full-name }}

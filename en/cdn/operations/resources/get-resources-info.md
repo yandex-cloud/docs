@@ -1,5 +1,5 @@
 ---
-title: "How to get information about a resource in {{ cdn-full-name }}"
+title: How to get information about a resource in {{ cdn-full-name }}
 ---
 
 # Getting information about a resource

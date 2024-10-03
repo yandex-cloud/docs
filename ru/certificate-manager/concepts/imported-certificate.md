@@ -1,5 +1,5 @@
 ---
-title: "Пользовательский сертификат в {{ certificate-manager-full-name }}"
+title: Пользовательский сертификат в {{ certificate-manager-full-name }}
 ---
 
 # Пользовательский сертификат

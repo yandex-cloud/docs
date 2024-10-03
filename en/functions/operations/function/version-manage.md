@@ -1,6 +1,6 @@
 ---
-title: "How to create a function version"
-description: "Follow this guide to create a function version."
+title: How to create a function version
+description: Follow this guide to create a function version.
 ---
 
 # Creating a function version
@@ -49,7 +49,7 @@ When creating a version, set the following parameters:
 
    To create a function version, run the command:
 
-   
+
    ```
    yc serverless function version create \
      --function-name=my-nodejs-function \
@@ -72,7 +72,7 @@ When creating a version, set the following parameters:
 
    Result:
 
-   
+
    ```
    done (1s)
    id: d4evvn8obisa********

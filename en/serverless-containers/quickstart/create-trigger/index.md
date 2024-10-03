@@ -1,6 +1,6 @@
 ---
-title: "Creating and running a trigger in {{ serverless-containers-full-name }}"
-description: "In this tutorial, you will learn how to create and run a trigger in {{ serverless-containers-full-name }}."
+title: Creating and running a trigger in {{ serverless-containers-full-name }}
+description: In this tutorial, you will learn how to create and run a trigger in {{ serverless-containers-full-name }}.
 ---
 
 # Creating and enabling a trigger in {{ serverless-containers-name }}

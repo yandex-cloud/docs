@@ -1,6 +1,6 @@
 ---
-title: "How to set up approval rules"
-description: "Follow this guide to set up approval rules."
+title: How to set up approval rules
+description: Follow this guide to set up approval rules.
 ---
 
 # Setting up approval rules

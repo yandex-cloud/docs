@@ -1,6 +1,6 @@
 ---
-title: "Questions and answers about {{ monitoring-full-name }}"
-description: "This page provides answers to questions about {{ monitoring-name }}."
+title: Questions and answers about {{ monitoring-full-name }}
+description: This page provides answers to questions about {{ monitoring-name }}.
 ---
 
 # Questions and answers about {{ monitoring-name }}

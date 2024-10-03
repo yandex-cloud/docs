@@ -1,6 +1,6 @@
 ---
-title: "Managing disk space"
-description: "You can monitor storage usage and increase its size either manually or automatically."
+title: Managing disk space
+description: You can monitor storage usage and increase its size either manually or automatically.
 ---
 
 # Managing disk space in a {{ mkf-name }} cluster

@@ -1,6 +1,6 @@
 ---
-title: "Creating a changefeed for a {{ ydb-full-name }} table using {{ TF }}"
-description: "Follow this guide to create a changefeed for a {{ ydb-full-name }} table or change its parameters."
+title: Creating a changefeed for a {{ ydb-full-name }} table using {{ TF }}
+description: Follow this guide to create a changefeed for a {{ ydb-full-name }} table or change its parameters.
 ---
 
 # Creating a changefeed for a table

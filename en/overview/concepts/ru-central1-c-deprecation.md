@@ -1,6 +1,6 @@
 ---
-title: "Discontinuation of the {{ region-id }}-c availability zone in {{ yandex-cloud }}"
-description: "{{ yandex-cloud }} plans to gradually discontinue the {{ region-id }}-c availability zone. Starting April 2022, quotas apply on the number of zonal resources, and new zonal features are no longer available for this zone."
+title: Discontinuation of the {{ region-id }}-c availability zone in {{ yandex-cloud }}
+description: '{{ yandex-cloud }} plans to gradually discontinue the {{ region-id }}-c availability zone. Starting April 2022, quotas apply on the number of zonal resources, and new zonal features are no longer available for this zone.'
 ---
 
 # Discontinuation of the {{ region-id }}-c availability zone

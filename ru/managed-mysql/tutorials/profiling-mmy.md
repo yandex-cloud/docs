@@ -1,5 +1,5 @@
 ---
-canonical: "{{ link-docs }}/tutorials/dataplatform/profiling-mmy"
+canonical: '{{ link-docs }}/tutorials/dataplatform/profiling-mmy'
 ---
 
 # Анализ производительности и оптимизация {{ mmy-name }}

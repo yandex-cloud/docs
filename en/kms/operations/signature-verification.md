@@ -1,6 +1,6 @@
 ---
-title: "How to create a digital signature"
-description: "Follow this guide to create a digital signature."
+title: How to create a digital signature
+description: Follow this guide to create a digital signature.
 ---
 
 # Digital signature and its verification based on data hash

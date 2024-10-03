@@ -1,7 +1,6 @@
 # How to create an internal Ingress controller
 
 
-
 ## Scenario description {#case-description}
 
 You need to create an internal Ingress controller.

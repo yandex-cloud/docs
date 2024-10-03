@@ -1,6 +1,6 @@
 ---
-title: "Сценарии использования {{ lockbox-full-name }}"
-description: "Различные сценарии использования {{ lockbox-full-name }} в {{ yandex-cloud }}."
+title: Сценарии использования {{ lockbox-full-name }}
+description: Различные сценарии использования {{ lockbox-full-name }} в {{ yandex-cloud }}.
 ---
 
 # Практические руководства {{ lockbox-name }}

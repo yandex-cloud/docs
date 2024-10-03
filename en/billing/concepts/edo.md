@@ -1,6 +1,6 @@
 ---
-title: "Electronic document management"
-description: "Electronic document management is used for the electronic exchange of documents that are signed with a qualified electronic signature (advanced e-signature). Electronic documents carry the same weight as their paper versions and are accepted by tax and judicial authorities over the internet. The EDM service can be used by businesses and individual entrepreneurs that are residents of Russia."
+title: Electronic document management
+description: Electronic document management is used for the electronic exchange of documents that are signed with a qualified electronic signature (advanced e-signature). Electronic documents carry the same weight as their paper versions and are accepted by tax and judicial authorities over the internet. The EDM service can be used by businesses and individual entrepreneurs that are residents of Russia.
 ---
 
 # Electronic document management

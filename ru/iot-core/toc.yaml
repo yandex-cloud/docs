@@ -1,10 +1,5 @@
 title: Yandex IoT Core
 href: index.yaml
-label:
-  title: RU
-  description: Сервис доступен только в регионе Россия.
-  theme: unknown
-  when: region == "kz"
 items:
   - name: Начало работы
     items:
@@ -313,3 +308,4 @@ items:
   - name: Вопросы и ответы
     href: qa/index.md
 base: ru/iot-core
+deepBase: 2

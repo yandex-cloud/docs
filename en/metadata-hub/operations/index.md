@@ -1,6 +1,6 @@
 ---
-title: "How to manage connections. Step-by-step guides"
-description: "Step-by-step guide on using {{ metadata-hub-full-name }} in {{ yandex-cloud }}. In this tutorial, you will learn how to create, view, modify, and delete connections."
+title: How to manage connections. Step-by-step guides
+description: Step-by-step guide on using {{ metadata-hub-full-name }} in {{ yandex-cloud }}. In this tutorial, you will learn how to create, view, modify, and delete connections.
 ---
 
 # All step-by-step guides
@@ -15,3 +15,4 @@ description: "Step-by-step guide on using {{ metadata-hub-full-name }} in {{ yan
 * [{#T}](update-connection.md)
 * [{#T}](delete-connection.md)
 * [{#T}](connection-access.md)
+

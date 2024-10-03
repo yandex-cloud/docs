@@ -1,6 +1,6 @@
 ---
-title: "Questions and answers about {{ dns-full-name }}"
-description: "This pages provides answers to questions about {{ dns-name }}."
+title: Questions and answers about {{ dns-full-name }}
+description: This pages provides answers to questions about {{ dns-name }}.
 ---
 
 # General questions about {{ dns-name }}

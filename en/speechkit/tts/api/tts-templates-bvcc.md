@@ -1,6 +1,6 @@
 ---
-title: "Pattern-based speech synthesis in {{ brand-voice-cc-name }}"
-description: "Follow this guide to run pattern-based speech synthesis in {{ brand-voice-cc-name }}."
+title: Pattern-based speech synthesis in {{ brand-voice-cc-name }}
+description: Follow this guide to run pattern-based speech synthesis in {{ brand-voice-cc-name }}.
 ---
 
 # Pattern-based speech synthesis in {{ brand-voice-cc-name }}

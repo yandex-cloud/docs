@@ -34,7 +34,7 @@ Using the CLI, {{ TF }}, and API, you can create multiple hosts in a cluster in 
    1. Click the cluster name and go to the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
    1. Click **{{ ui-key.yacloud.mdb.cluster.hosts.action_add-host }}**.
 
-   
+
    1. Specify the host parameters:
       * Availability zone.
       * Subnet (if the required subnet is not on the list, [create it](../../vpc/operations/subnet-create.md)).
@@ -51,7 +51,7 @@ Using the CLI, {{ TF }}, and API, you can create multiple hosts in a cluster in 
 
    To create one or more hosts:
 
-   
+
    1. Request a list of cluster subnets to select one for the new host:
 
       ```bash
@@ -86,7 +86,7 @@ Using the CLI, {{ TF }}, and API, you can create multiple hosts in a cluster in 
 
       The command for creating a single host looks like this:
 
-      
+
       ```bash
       {{ yc-mdb-ch }} hosts add \
         --cluster-name=<cluster_name> \
@@ -104,7 +104,7 @@ Using the CLI, {{ TF }}, and API, you can create multiple hosts in a cluster in 
 
       {{ mch-name }} will run the operation for creating hosts.
 
-      
+
       The subnet ID should be specified if the availability zone contains multiple subnets; otherwise, {{ mch-name }} will automatically select a single subnet. You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 

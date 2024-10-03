@@ -1,6 +1,6 @@
 ---
-title: "How to create security groups for a {{ k8s }} cluster in {{ managed-k8s-full-name }}"
-description: "Follow this guide to set up security groups."
+title: How to create security groups for a {{ k8s }} cluster in {{ managed-k8s-full-name }}
+description: Follow this guide to set up security groups.
 ---
 
 # Configuring security groups

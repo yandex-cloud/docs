@@ -1,10 +1,5 @@
 title: '{{ ydb-full-name }}'
 href: index.yaml
-label:
-  title: RU
-  description: Сервис доступен только в регионе Россия.
-  theme: unknown
-  when: region == "kz"
 items:
   - name: Начало работы
     href: quickstart.md
@@ -335,3 +330,4 @@ items:
   - name: Обучающие курсы
     href: training.md
 base: ru/ydb
+deepBase: 2

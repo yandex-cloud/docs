@@ -1,6 +1,6 @@
 ---
-title: "Инструкция по созданию подключения к Oracle Database в {{ datalens-full-name }}"
-description: "Из статьи вы узнаете, как подключиться к Oracle Database в {{ datalens-full-name }}."
+title: Инструкция по созданию подключения к Oracle Database в {{ datalens-full-name }}
+description: Из статьи вы узнаете, как подключиться к Oracle Database в {{ datalens-full-name }}.
 ---
 
 # Создание подключения к Oracle Database

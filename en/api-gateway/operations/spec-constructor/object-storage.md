@@ -1,6 +1,6 @@
 ---
-title: "Adding the {{ objstorage-full-name }} extension"
-description: "Follow this guide to add the {{ objstorage-full-name }} extension using the specification constructor."
+title: Adding the {{ objstorage-full-name }} extension
+description: Follow this guide to add the {{ objstorage-full-name }} extension using the specification constructor.
 ---
 
 # Adding the x-yc-apigateway-integration:object_storage extension

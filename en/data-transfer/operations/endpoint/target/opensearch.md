@@ -1,6 +1,6 @@
 ---
-title: "How to set up an {{ OS }} target endpoint in {{ data-transfer-full-name }}"
-description: "In this article, you will learn how to set up an {{ OS }} target endpoint in {{ data-transfer-full-name }}."
+title: How to set up an {{ OS }} target endpoint in {{ data-transfer-full-name }}
+description: In this article, you will learn how to set up an {{ OS }} target endpoint in {{ data-transfer-full-name }}.
 ---
 # Transferring data to an {{ OS }} target endpoint
 

@@ -1,6 +1,6 @@
 ---
-title: "How to import files"
-description: "This article describes how to import files."
+title: How to import files
+description: This article describes how to import files.
 sourcePath: en/tracker/api-ref/concepts/import/import-attachments.md
 ---
 

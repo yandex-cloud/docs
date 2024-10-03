@@ -1,5 +1,5 @@
 ---
-canonical: "{{ link-docs }}/tutorials/archive/vm-with-backup-policy/"
+canonical: '{{ link-docs }}/tutorials/archive/vm-with-backup-policy/'
 ---
 
 {% include [vm-with-backup-policy](../../../_tutorials/archive/vm-with-backup-policy.md) %}

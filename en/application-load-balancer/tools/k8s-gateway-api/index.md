@@ -1,6 +1,6 @@
 ---
-title: "Gateway API for {{ managed-k8s-name }}"
-description: "{{ alb-name }} provides the Gateway API as a tool to create and manage load balancers in {{ managed-k8s-full-name }} clusters."
+title: Gateway API for {{ managed-k8s-name }}
+description: '{{ alb-name }} provides the Gateway API as a tool to create and manage load balancers in {{ managed-k8s-full-name }} clusters.'
 ---
 
 # Gateway API for {{ managed-k8s-name }}

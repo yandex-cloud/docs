@@ -1,6 +1,6 @@
 ---
-title: "How to create a backend group in {{ alb-full-name }}"
-description: "Follow this guide to create a backend group."
+title: How to create a backend group in {{ alb-full-name }}
+description: Follow this guide to create a backend group.
 ---
 
 # Creating a backend group

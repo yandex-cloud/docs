@@ -1,6 +1,6 @@
 ---
-title: "Как создавать формы в {{ forms-full-name }}"
-description: "Из статьи вы узнаете, как создавать формы в {{ forms-full-name }}."
+title: Как создавать формы в {{ forms-full-name }}
+description: Из статьи вы узнаете, как создавать формы в {{ forms-full-name }}.
 ---
 
 # Создать форму

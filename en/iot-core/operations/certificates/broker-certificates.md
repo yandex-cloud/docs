@@ -1,6 +1,6 @@
 ---
-title: "How to work with broker certificates in {{ iot-full-name }}"
-description: "In this tutorial, you will learn how to get a list of broker certificates and add or delete a broker certificate in {{ iot-full-name }}."
+title: How to work with broker certificates in {{ iot-full-name }}
+description: In this tutorial, you will learn how to get a list of broker certificates and add or delete a broker certificate in {{ iot-full-name }}.
 ---
 
 # Managing broker certificates

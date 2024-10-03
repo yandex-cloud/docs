@@ -1,6 +1,6 @@
 ---
-title: "How to manage client processes and user sessions in {{ mgp-full-name }}"
-description: "Follow this guide to manage client processes and user sessions."
+title: How to manage client processes and user sessions in {{ mgp-full-name }}
+description: Follow this guide to manage client processes and user sessions.
 ---
 
 # Managing client processes and user sessions

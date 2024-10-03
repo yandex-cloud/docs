@@ -1,5 +1,5 @@
 ---
-canonical: "{{ link-docs }}/tutorials/dataplatform/using-python-sdk-in-airflow"
+canonical: '{{ link-docs }}/tutorials/dataplatform/using-python-sdk-in-airflow'
 ---
 
 # Отправка запросов к API {{ yandex-cloud }} через {{ yandex-cloud }} Python SDK

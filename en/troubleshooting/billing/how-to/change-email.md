@@ -1,7 +1,6 @@
 # How to change the email address
 
 
-
 ## Scenario description {#case-description}
 
 You need to change the email address for notification and document delivery.

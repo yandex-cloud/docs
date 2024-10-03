@@ -1,6 +1,6 @@
 ---
-title: "How to unpublish a video in {{ video-full-name }}"
-description: "Follow this guide to unpublish a video in {{ video-full-name }}."
+title: How to unpublish a video in {{ video-full-name }}
+description: Follow this guide to unpublish a video in {{ video-full-name }}.
 ---
 
 # Unpublishing a video

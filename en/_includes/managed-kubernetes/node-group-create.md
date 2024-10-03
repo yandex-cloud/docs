@@ -60,7 +60,7 @@ To create a [{{ managed-k8s-name }} node group](../../managed-kubernetes/concept
 
      {% include [security-groups-alert](security-groups-alert.md) %}
 
-   
+
    * Specify how {{ managed-k8s-name }} nodes should be distributed across the [availability zones](../../overview/concepts/geo-scope.md) and [networks](../../vpc/concepts/network.md#network).
    * (Optional) Click **{{ ui-key.yacloud.k8s.node-groups.create.label_add-location }}** and specify an additional availability zone and network to create {{ managed-k8s-name }} nodes in different zones.
 

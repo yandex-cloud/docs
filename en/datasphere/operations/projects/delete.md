@@ -1,6 +1,6 @@
 ---
-title: "How to delete a notebook or project in {{ ml-platform-full-name }}"
-description: "In this tutorial, you will learn how to delete a notebook or project in {{ ml-platform-name }}."
+title: How to delete a notebook or project in {{ ml-platform-full-name }}
+description: In this tutorial, you will learn how to delete a notebook or project in {{ ml-platform-name }}.
 ---
 
 # Deleting a notebook or project

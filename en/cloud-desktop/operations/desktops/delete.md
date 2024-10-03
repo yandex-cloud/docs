@@ -1,6 +1,6 @@
 ---
-title: "Tutorial on deleting a desktop in {{ cloud-desktop-full-name }}"
-description: "In this tutorial, you will learn how to delete a desktop in {{ cloud-desktop-full-name }}."
+title: Tutorial on deleting a desktop in {{ cloud-desktop-full-name }}
+description: In this tutorial, you will learn how to delete a desktop in {{ cloud-desktop-full-name }}.
 ---
 
 # Deleting a desktop

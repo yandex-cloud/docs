@@ -1,6 +1,6 @@
 ---
-title: "YAML specification of an instance group in {{ compute-full-name }}"
-description: "This tutorial describes an instance group specification in YAML format."
+title: YAML specification of an instance group in {{ compute-full-name }}
+description: This tutorial describes an instance group specification in YAML format.
 ---
 
 # Specification of an instance group in YAML format

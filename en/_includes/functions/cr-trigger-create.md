@@ -45,7 +45,7 @@ Create a [{{ container-registry-name }} trigger](../../functions/concepts/trigge
 
      {% include [repeat-request.md](repeat-request.md) %}
 
-  
+
   1. Optionally, under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the dead-letter queue and the service account with write permissions for this queue.
 
 

@@ -1,6 +1,6 @@
 ---
-title: "Создание и запуск триггера в {{ serverless-containers-full-name }}"
-description: "Из статьи вы узнаете, как создать и запустить триггер в {{ serverless-containers-full-name }}."
+title: Создание и запуск триггера в {{ serverless-containers-full-name }}
+description: Из статьи вы узнаете, как создать и запустить триггер в {{ serverless-containers-full-name }}.
 ---
 
 # Создание и запуск триггера в {{ serverless-containers-name }}

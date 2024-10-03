@@ -1,6 +1,6 @@
 ---
-title: "How to delete a {{ sws-full-name }} security profile"
-description: "Follow this guide to delete a {{ sws-full-name }} security profile."
+title: How to delete a {{ sws-full-name }} security profile
+description: Follow this guide to delete a {{ sws-full-name }} security profile.
 ---
 
 # Deleting a security profile

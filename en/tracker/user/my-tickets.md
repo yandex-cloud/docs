@@ -1,6 +1,6 @@
 ---
-title: "How to view a list of my issues in {{ tracker-full-name }}"
-description: "In this tutorial, you will learn how to view a list of your issues."
+title: How to view a list of my issues in {{ tracker-full-name }}
+description: In this tutorial, you will learn how to view a list of your issues.
 ---
 
 # My issues

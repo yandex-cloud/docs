@@ -1,6 +1,6 @@
 ---
-title: "Making a revision active"
-description: "Follow this guide to make a container revision active."
+title: Making a revision active
+description: Follow this guide to make a container revision active.
 ---
 
 # Making a revision active

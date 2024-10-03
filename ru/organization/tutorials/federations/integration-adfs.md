@@ -383,7 +383,7 @@ AD FS требует создавать _отношение доверия с п
 
    {% endcut %}
 
-   
+
    {% cut "Как получить ACS URL федерации" %}
 
    {% include [get-acs-url](../../../_includes/organization/get-acs-url.md) %}
@@ -391,7 +391,7 @@ AD FS требует создавать _отношение доверия с п
    {% endcut %}
 
 
-   
+
    ![image](../../../_assets/iam/federations/specify-console-sso-link.png)
 
    
@@ -451,7 +451,7 @@ AD FS требует создавать _отношение доверия с п
 
         В столбце **Outgoing Claim Type** выберите **Name ID**.
 
-    
+
     1. Чтобы пользователь мог обратиться в службу технической поддержки {{ yandex-cloud }} из [консоли управления]({{ link-console-support }}), добавьте адрес электронной почты (тип утверждения **E-Mail Address**) и имя пользователя (тип утверждения **Name**).
 
 

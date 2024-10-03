@@ -1,5 +1,5 @@
 ---
-title: "Backups in {{ serverless-containers-full-name }}"
+title: Backups in {{ serverless-containers-full-name }}
 ---
 
 # Backups in {{ serverless-containers-name }}

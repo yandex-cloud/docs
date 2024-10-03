@@ -2,7 +2,6 @@
 
 
 
-
 ## Issue description {#case-description}
 
 You need to obtain information on the number of checks used over a specific period.

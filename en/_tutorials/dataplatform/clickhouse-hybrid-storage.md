@@ -22,7 +22,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    1. [Create a {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-create.md):
 
-      
+
       * **{{ ui-key.yacloud.mdb.forms.label_diskTypeId }}**: Standard (`network-hdd`), fast (`network-ssd`), or non-replicated (`network-ssd-nonreplicated`) network disks.
 
 
@@ -35,7 +35,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 - {{ TF }} {#tf}
 
-   
+
    1. {% include [terraform-install](../../_includes/terraform-install.md) %}
 
 
@@ -53,7 +53,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       * Subnet.
 
-      
+
       * Default security group and rules required to connect to the cluster from the internet.
 
 
@@ -145,7 +145,7 @@ To learn more about configuring TTL, see the [{{ CH }} documentation]({{ ch.docs
 1. Disconnect from the database.
 1. Download the test dataset:
 
-   
+
    ```bash
    curl https://{{ s3-storage-host }}/doc-files/managed-clickhouse/hits_v1.tsv.xz | unxz --threads=`nproc` > hits_v1.tsv
    ```

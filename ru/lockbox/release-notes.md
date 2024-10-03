@@ -1,6 +1,6 @@
 ---
-title: "История изменений в {{ lockbox-full-name }}"
-description: "В разделе представлена история изменений сервиса {{ lockbox-name }}."
+title: История изменений в {{ lockbox-full-name }}
+description: В разделе представлена история изменений сервиса {{ lockbox-name }}.
 ---
 
 # История изменений в {{ lockbox-full-name }}

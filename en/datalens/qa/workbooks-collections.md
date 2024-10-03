@@ -1,6 +1,6 @@
 ---
-title: "Workbooks and collections"
-description: "This section includes answers to frequently asked user questions about workbooks and collections."
+title: Workbooks and collections
+description: This section includes answers to frequently asked user questions about workbooks and collections.
 ---
 
 # Workbooks and collections

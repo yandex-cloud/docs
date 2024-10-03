@@ -1,6 +1,6 @@
 ---
-title: "How to delete dashboards in {{ monitoring-full-name }}"
-description: "Follow this guide to delete a dashboard."
+title: How to delete dashboards in {{ monitoring-full-name }}
+description: Follow this guide to delete a dashboard.
 ---
 
 # Deleting dashboards

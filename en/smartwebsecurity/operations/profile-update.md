@@ -1,6 +1,6 @@
 ---
-title: "How to edit basic parameters of a {{ sws-full-name }} security profile"
-description: "Follow this guide to edit basic settings in a {{ sws-full-name }} security profile."
+title: How to edit basic parameters of a {{ sws-full-name }} security profile
+description: Follow this guide to edit basic settings in a {{ sws-full-name }} security profile.
 ---
 
 # Editing basic parameters in a security profile

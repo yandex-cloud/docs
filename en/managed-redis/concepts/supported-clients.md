@@ -1,6 +1,6 @@
 ---
-title: "Supported {{ RD }} DBMS clients"
-description: "{{ mrd-short-name }} guarantees operation only with certain {{ RD }} clients; however, you can use other clients without restrictions. The following clients are supported: redis Python package, jedis Java client, ioredis Node.js package, go-redis Go client, telnet, and redis-cli."
+title: Supported {{ RD }} DBMS clients
+description: '{{ mrd-short-name }} guarantees operation only with certain {{ RD }} clients; however, you can use other clients without restrictions. The following clients are supported: redis Python package, jedis Java client, ioredis Node.js package, go-redis Go client, telnet, and redis-cli.'
 keywords:
   - redis clients
   - clients redis

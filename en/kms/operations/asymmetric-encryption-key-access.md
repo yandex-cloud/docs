@@ -1,6 +1,6 @@
 ---
-title: "Configuring access permissions for an asymmetric encryption key pair"
-description: "Follow this guide to assign roles for an asymmetric encryption key pair."
+title: Configuring access permissions for an asymmetric encryption key pair
+description: Follow this guide to assign roles for an asymmetric encryption key pair.
 ---
 
 # Configuring access permissions for an asymmetric encryption key pair

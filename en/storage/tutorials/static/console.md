@@ -1,5 +1,5 @@
 ---
-canonical: "{{ link-docs }}/tutorials/web/static/console"
+canonical: '{{ link-docs }}/tutorials/web/static/console'
 ---
 
 # Static website in {{ objstorage-full-name }} using the management console

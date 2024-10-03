@@ -1,6 +1,6 @@
 ---
-title: "How to create a repository in {{ container-registry-full-name }}"
-description: "Follow this guide to create a repository."
+title: How to create a repository in {{ container-registry-full-name }}
+description: Follow this guide to create a repository.
 ---
 
 # Creating a repository

@@ -1,6 +1,6 @@
 ---
-title: "How to manage {{ ES }} plugins"
-description: "This guide describes how you can manage {{ ES }} plugins."
+title: How to manage {{ ES }} plugins
+description: This guide describes how you can manage {{ ES }} plugins.
 ---
 
 # Managing {{ ES }} plugins

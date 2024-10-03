@@ -13,7 +13,7 @@ Each commit to {{ GL }} is followed by:
 To set up the infrastructure required to store the source code, build the Docker image, and deploy your applications, follow these steps:
 1. [Prepare your cloud](#before-you-begin).
 
-   
+
    1. [Review the list of paid resources available](#paid-resources).
 
 

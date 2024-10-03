@@ -1,6 +1,6 @@
 ---
-title: "Billing threshold in {{ billing-name }}"
-description: "A billing threshold is a negative personal account balance. The billing threshold is how post-payment is implemented in {{ yandex-cloud }}."
+title: Billing threshold in {{ billing-name }}
+description: A billing threshold is a negative personal account balance. The billing threshold is how post-payment is implemented in {{ yandex-cloud }}.
 ---
 
 # Billing threshold

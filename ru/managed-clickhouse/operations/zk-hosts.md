@@ -222,7 +222,7 @@
        yc vpc subnet list
        ```
 
-       
+
        Если нужной подсети в списке нет, [создайте ее](../../vpc/operations/subnet-create.md).
 
 

@@ -1,6 +1,6 @@
 ---
-title: "How to delete a profile"
-description: "Follow this guide to delete a profile."
+title: How to delete a profile
+description: Follow this guide to delete a profile.
 ---
 
 # Deleting a profile

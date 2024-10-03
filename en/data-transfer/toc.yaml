@@ -1,10 +1,5 @@
 title: Yandex Data Transfer
 href: index.yaml
-label:
-  title: KZ
-  description: This service is only available in the Kazakhstan region.
-  theme: info
-  when: region == "kz"
 items:
   - name: Available transfers
     href: transfer-matrix.md
@@ -391,3 +386,4 @@ items:
           - name: August 2023
             href: release-notes/2308.md
 base: en/data-transfer
+deepBase: 2

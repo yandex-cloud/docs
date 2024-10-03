@@ -1,10 +1,5 @@
 title: Yandex Network Load Balancer
 href: index.yaml
-label:
-  title: KZ
-  description: This service is only available in the Kazakhstan region.
-  theme: info
-  when: region == "kz"
 items:
   - name: Getting started
     href: quickstart.md
@@ -195,3 +190,4 @@ items:
   - name: FAQ
     href: qa/index.md
 base: en/network-load-balancer
+deepBase: 2

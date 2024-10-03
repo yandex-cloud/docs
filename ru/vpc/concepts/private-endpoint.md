@@ -1,6 +1,6 @@
 ---
-title: "Сервисные подключения в {{ vpc-full-name }}"
-description: "Из статьи вы узнаете, какие сервисные подключения (Private Endpoins) используются в {{ vpc-full-name }}."
+title: Сервисные подключения в {{ vpc-full-name }}
+description: Из статьи вы узнаете, какие сервисные подключения (Private Endpoins) используются в {{ vpc-full-name }}.
 keywords:
   - сервисное подключение
   - private endpoint

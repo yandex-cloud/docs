@@ -1,5 +1,5 @@
 ---
-title: "How to link a subscription purchased on {{ marketplace-full-name }} to a resource, app, or service"
+title: How to link a subscription purchased on {{ marketplace-full-name }} to a resource, app, or service
 ---
 
 # Linking a subscription

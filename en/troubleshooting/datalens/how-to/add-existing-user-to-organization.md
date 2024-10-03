@@ -1,7 +1,6 @@
 # Adding an existing user to {{ datalens-short-name }} 
 
 
-
 ## Scenario description {#case-description}
 
 You need to add an existing Yandex ID user (with an email address in the `@yandex.ru` domain) to {{ datalens-short-name }}.

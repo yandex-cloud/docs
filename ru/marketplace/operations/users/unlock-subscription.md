@@ -1,5 +1,5 @@
 ---
-title: "Как отвязать купленную в {{ marketplace-full-name }} подписку"
+title: Как отвязать купленную в {{ marketplace-full-name }} подписку
 ---
 
 # Отвязка подписки

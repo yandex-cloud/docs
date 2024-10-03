@@ -1,6 +1,6 @@
 ---
-title: "Monitoring the state of Redis clusters and hosts"
-description: "Using monitoring tools in the management console, you can track the state of a {{ mrd-name }} cluster and its individual hosts. These tools display diagnostic information as charts."
+title: Monitoring the state of Redis clusters and hosts
+description: Using monitoring tools in the management console, you can track the state of a {{ mrd-name }} cluster and its individual hosts. These tools display diagnostic information as charts.
 ---
 
 # Monitoring the state of {{ RD }} clusters and hosts

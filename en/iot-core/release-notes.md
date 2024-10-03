@@ -1,6 +1,6 @@
 ---
-title: "{{ iot-full-name }} release notes"
-description: "This section contains {{ iot-name }} release notes."
+title: '{{ iot-full-name }} release notes'
+description: This section contains {{ iot-name }} release notes.
 ---
 
 # {{ iot-full-name }} release notes

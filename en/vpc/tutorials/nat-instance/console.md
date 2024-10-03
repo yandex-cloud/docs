@@ -1,5 +1,5 @@
 ---
-canonical: "{{ link-docs }}/tutorials/routing/nat-instance/console"
+canonical: '{{ link-docs }}/tutorials/routing/nat-instance/console'
 ---
 
 # Routing through a NAT instance using the management console

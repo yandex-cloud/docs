@@ -22,7 +22,7 @@
 
   {% list tabs group=payments %}
 
-  
+
   - Банковская карта {#card}
 
     Введите сумму платежа и нажмите кнопку **{{ ui-key.yacloud_billing.billing.account.dashboard-overview.popup-refill_button_individual-action }}**. Затем введите данные карты и нажмите кнопку **Оплатить**. К оплате принимаются банковские карты Мир, Visa и MasterCard.

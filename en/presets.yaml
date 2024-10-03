@@ -8528,6 +8528,9 @@ default:
               console:
                 form:
                   common:
+                    AltName:
+                      to_name:
+                        title: Target table name
                     CleanupPolicy:
                       DISABLED:
                         title: Don't cleanup

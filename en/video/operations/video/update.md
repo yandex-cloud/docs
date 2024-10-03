@@ -1,6 +1,6 @@
 ---
-title: "How to edit a video in {{ video-full-name }}"
-description: "Follow this guide to edit a video in {{ video-full-name }}."
+title: How to edit a video in {{ video-full-name }}
+description: Follow this guide to edit a video in {{ video-full-name }}.
 ---
 
 # Editing a video

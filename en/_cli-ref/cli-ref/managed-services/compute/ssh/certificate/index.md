@@ -20,8 +20,8 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--id`|<b>`string`</b><br/>Instance ID.|
-|`--name`|<b>`string`</b><br/>Instance name.|
+|`--id`|<b>`string`</b><br/>Target instance id|
+|`--name`|<b>`string`</b><br/>Target instance name|
 |`--login`|<b>`string`</b><br/>Specifies the user to log in as on the remote machine. If not specified the certificate is issued to a default OS Login profile.|
 |`--internal-address`|Connect to instance via internal address.|
 |`--public-address`|Connect to instance via public address.|
@@ -39,4 +39,5 @@ Syntax:
 |`--impersonate-service-account-id`|<b>`string`</b><br/>Set the ID of the service account to impersonate.|
 |`--no-browser`|Disable opening browser for authentication.|
 |`--format`|<b>`string`</b><br/>Set the output format: text (default), yaml, json, json-rest.|
+|`--jq`|<b>`string`</b><br/>Query to select values from the response using jq syntax|
 |`-h`,`--help`|Display help for the command.|

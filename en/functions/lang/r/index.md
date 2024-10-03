@@ -1,6 +1,6 @@
 ---
-title: "Developing in R in {{ sf-full-name }}. Overview"
-description: "With {{ sf-name }}, you can run applications written in R. The service provides the runtime environment with R 4.0.5 and Ubuntu 18.04."
+title: Developing in R in {{ sf-full-name }}. Overview
+description: With {{ sf-name }}, you can run applications written in R. The service provides the runtime environment with R 4.0.5 and Ubuntu 18.04.
 ---
 
 # Developing in R. Overview

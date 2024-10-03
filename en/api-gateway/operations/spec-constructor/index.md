@@ -1,6 +1,6 @@
 ---
-title: "{{ api-gw-full-name }} specification constructor guide"
-description: "In this tutorial, you will learn how to work with the {{ api-gw-full-name }} specification constructor in {{ yandex-cloud }}. You will learn how to add extensions to a specification using the constructor."
+title: '{{ api-gw-full-name }} specification constructor guide'
+description: In this tutorial, you will learn how to work with the {{ api-gw-full-name }} specification constructor in {{ yandex-cloud }}. You will learn how to add extensions to a specification using the constructor.
 ---
 
 # Specification constructor overview

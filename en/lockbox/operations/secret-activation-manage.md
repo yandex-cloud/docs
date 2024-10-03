@@ -1,6 +1,6 @@
 ---
-title: "How to deactivate and activate a secret in {{ lockbox-full-name }}"
-description: "In this tutorial, you will learn how to deactivate and activate a secret in {{ lockbox-full-name }}."
+title: How to deactivate and activate a secret in {{ lockbox-full-name }}
+description: In this tutorial, you will learn how to deactivate and activate a secret in {{ lockbox-full-name }}.
 ---
 
 # Deactivating and activating a secret

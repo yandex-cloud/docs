@@ -1,5 +1,5 @@
 ---
-canonical: "{{ link-docs }}/tutorials/testing/gitlab"
+canonical: '{{ link-docs }}/tutorials/testing/gitlab'
 ---
 
 # Testing applications with {{ GL }}

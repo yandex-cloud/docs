@@ -1,6 +1,6 @@
 ---
-title: "Automation and templates in {{ tracker-full-name }}"
-description: "You can automate your actions with issues in {{ tracker-name }} using triggers, auto actions, macros, and templates."
+title: Automation and templates in {{ tracker-full-name }}
+description: You can automate your actions with issues in {{ tracker-name }} using triggers, auto actions, macros, and templates.
 ---
 
 # Automation and templates

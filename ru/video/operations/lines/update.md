@@ -1,6 +1,6 @@
 ---
-title: "Как изменить линию в {{ video-full-name }}"
-description: "Следуя данной инструкции, вы сможете изменить линию {{ video-full-name }}."
+title: Как изменить линию в {{ video-full-name }}
+description: Следуя данной инструкции, вы сможете изменить линию {{ video-full-name }}.
 ---
 
 # Изменить линию

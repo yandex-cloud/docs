@@ -1,6 +1,6 @@
 ---
-title: "Adding the {{ ydb-full-name }} extension"
-description: "Follow this guide to add the {{ ydb-full-name }} extension using the specification constructor."
+title: Adding the {{ ydb-full-name }} extension
+description: Follow this guide to add the {{ ydb-full-name }} extension using the specification constructor.
 ---
 
 # Adding the x-yc-apigateway-integration:cloud_ydb extenison

@@ -1,6 +1,6 @@
 ---
-title: "How to delete a {{ k8s }} cluster"
-description: "Follow this guide to delete a {{ k8s }} cluster."
+title: How to delete a {{ k8s }} cluster
+description: Follow this guide to delete a {{ k8s }} cluster.
 ---
 
 # Deleting a {{ k8s }} cluster
@@ -59,6 +59,6 @@ description: "Follow this guide to delete a {{ k8s }} cluster."
 
 - API {#api}
 
-  To delete a {{ k8s }} cluster, use the [delete](../../api-ref/Cluster/delete.md) method for the [Cluster](../../api-ref/Cluster/) resource.
+  To delete a {{ k8s }} cluster, use the [delete](../../managed-kubernetes/api-ref/Cluster/delete.md) method for the [Cluster](../../managed-kubernetes/api-ref/Cluster/) resource.
 
 {% endlist %}

@@ -1,6 +1,6 @@
 ---
-title: "How to set up a secure network configuration in {{ yandex-cloud }}"
-description: "In this tutorial, you will learn how to set up a secure network configuration in {{ yandex-cloud }}."
+title: How to set up a secure network configuration in {{ yandex-cloud }}
+description: In this tutorial, you will learn how to set up a secure network configuration in {{ yandex-cloud }}.
 ---
 
 # Setting up a secure network configuration

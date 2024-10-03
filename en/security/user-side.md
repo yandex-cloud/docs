@@ -1,6 +1,6 @@
 ---
-title: "What security tools are available to cloud service users"
-description: "In this tutorial, you will learn about the security tools available to {{ yandex-cloud }} users."
+title: What security tools are available to cloud service users
+description: In this tutorial, you will learn about the security tools available to {{ yandex-cloud }} users.
 ---
 
 # Security tools available to cloud service users

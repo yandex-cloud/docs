@@ -1,6 +1,6 @@
 ---
-title: "Настройка {{ IBRG }} в кластере {{ dataproc-name }}"
-description: "Как настроить и использовать {{ IBRG }} в кластере {{ dataproc-name }}."
+title: Настройка {{ IBRG }} в кластере {{ dataproc-name }}
+description: Как настроить и использовать {{ IBRG }} в кластере {{ dataproc-name }}.
 ---
 
 # Настройка {{ IBRG }} в кластере {{ dataproc-name }}

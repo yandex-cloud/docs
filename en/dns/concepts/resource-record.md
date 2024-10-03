@@ -1,6 +1,6 @@
 ---
-title: "Resource records in {{ dns-full-name }}"
-description: "A resource record is the main unit of information in a DNS. Using resource records, you determine where to route queries that come to specific domain names."
+title: Resource records in {{ dns-full-name }}
+description: A resource record is the main unit of information in a DNS. Using resource records, you determine where to route queries that come to specific domain names.
 ---
 
 # Resource records

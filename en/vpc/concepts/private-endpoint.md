@@ -1,6 +1,6 @@
 ---
-title: "Service connections in {{ vpc-full-name }}"
-description: "In this tutorial, you will learn what service connections (Private Endpoints) are used in {{ vpc-full-name }}."
+title: Service connections in {{ vpc-full-name }}
+description: In this tutorial, you will learn what service connections (Private Endpoints) are used in {{ vpc-full-name }}.
 keywords:
   - service connection
   - private endpoint

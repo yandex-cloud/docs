@@ -1,6 +1,6 @@
 ---
-title: "How to create a {{ monitoring-name }} connection"
-description: "Follow this guide to create a {{ monitoring-name }} connection."
+title: How to create a {{ monitoring-name }} connection
+description: Follow this guide to create a {{ monitoring-name }} connection.
 ---
 
 # Creating a {{ monitoring-name }} connection

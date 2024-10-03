@@ -1,6 +1,6 @@
 ---
-title: "Moving an instance group to a different availability zone"
-description: "In this article, you will learn how to move a {{ compute-name }} instance group across availability zones."
+title: Moving an instance group to a different availability zone
+description: In this article, you will learn how to move a {{ compute-name }} instance group across availability zones.
 ---
 
 # Moving an instance group to a different availability zone

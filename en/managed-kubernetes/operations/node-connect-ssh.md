@@ -1,6 +1,6 @@
 ---
-title: "How to connect to a {{ k8s }} cluster node in {{ managed-k8s-full-name }}"
-description: "Follow this guide to connect to the node over SSH."
+title: How to connect to a {{ k8s }} cluster node in {{ managed-k8s-full-name }}
+description: Follow this guide to connect to the node over SSH.
 ---
 
 # Connecting to a node over SSH
@@ -207,7 +207,7 @@ Example:
   > testuser1:ssh-ed25519 AAAAB3NzaC***********lP1ww testuser1\r\ntestuser2:ssh-ed25519 ONEMOREkey***********avEHw testuser2
   > ```
 
-  Use the [create](../api-ref/NodeGroup/create.md) REST API method for the [NodeGroup](../api-ref/NodeGroup/index.md) resource or the [NodeGroupService/Create](../api-ref/grpc/node_group_service.md#Create) gRPC API call.
+  Use the [create](../managed-kubernetes/api-ref/NodeGroup/create.md) REST API method for the [NodeGroup](../managed-kubernetes/api-ref/NodeGroup/index.md) resource or the [NodeGroupService/Create](../managed-kubernetes/api-ref/grpc/node_group_service.md#Create) gRPC API call.
 
   Credentials for connecting over SSH are provided in the `nodeTemplate.metadata` parameter in `ssh-keys`.
 
@@ -301,7 +301,7 @@ The credentials for connecting over SSH will be completely overwritten. You will
 
   1. {% include [get-metadata-via-api](../../_includes/managed-kubernetes/get-metadata-via-api.md) %}
 
-  1. Use the [update](../api-ref/NodeGroup/update.md) REST API method for the [NodeGroup](../api-ref/NodeGroup/index.md) resource and include the following in the request:
+  1. Use the [update](../managed-kubernetes/api-ref/NodeGroup/update.md) REST API method for the [NodeGroup](../managed-kubernetes/api-ref/NodeGroup/index.md) resource and include the following in the request:
 
       * Node group ID in the `nodeGroupId` parameter.
 

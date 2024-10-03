@@ -20,7 +20,8 @@ fun handle(s: Int): Int = s
 * С помощью HTTPS-запроса с параметром [?integration=raw](../../../concepts/function-invoke.md#http):
 
    ```bash
-   curl -H "Authorization: Bearer <IAM-тoкен>" \
+   curl \
+        --header "Authorization: Bearer <IAM-тoкен>" \
         --data "<число>" \
         "https://functions.yandexcloud.net/<идентификатор_функции>?integration=raw"
    ```

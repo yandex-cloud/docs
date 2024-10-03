@@ -1,6 +1,6 @@
 ---
-title: "How do I get started with Yandex Cloud Console"
-description: "Follow this guide to set up the management console."
+title: How do I get started with Yandex Cloud Console
+description: Follow this guide to set up the management console.
 ---
 
 # How do I get started with Yandex Cloud Console?

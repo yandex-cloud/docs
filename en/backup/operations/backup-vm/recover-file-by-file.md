@@ -1,6 +1,6 @@
 ---
-title: "How to restore individual directories and files on a VM"
-description: "This guide describes how you can restore individual directories and files on a VM."
+title: How to restore individual directories and files on a VM
+description: This guide describes how you can restore individual directories and files on a VM.
 ---
 
 # Restoring individual directories and files on a VM

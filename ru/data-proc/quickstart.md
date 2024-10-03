@@ -1,6 +1,6 @@
 ---
-title: "Как начать работать с {{ dataproc-full-name }}"
-description: "Следуя данной инструкции, вы сможете создать и настроить кластер {{ dataproc-name }}."
+title: Как начать работать с {{ dataproc-full-name }}
+description: Следуя данной инструкции, вы сможете создать и настроить кластер {{ dataproc-name }}.
 ---
 
 # Как начать работать с {{ dataproc-name }}

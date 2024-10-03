@@ -1,6 +1,6 @@
 ---
-title: "{{ mgl-full-name }} use cases"
-description: "Various {{ mgl-full-name }} use cases in {{ yandex-cloud }}."
+title: '{{ mgl-full-name }} use cases'
+description: Various {{ mgl-full-name }} use cases in {{ yandex-cloud }}.
 ---
 
 # {{ mgl-name }} tutorials

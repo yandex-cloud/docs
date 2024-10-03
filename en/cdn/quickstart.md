@@ -1,6 +1,6 @@
 ---
-title: "How to get started with {{ cdn-full-name }}"
-description: "Follow this guide to create and set up a CDN resource."
+title: How to get started with {{ cdn-full-name }}
+description: Follow this guide to create and set up a CDN resource.
 ---
 
 # Getting started with {{ cdn-full-name }}

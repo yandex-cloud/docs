@@ -1,6 +1,6 @@
 ---
-title: "How to search for {{ yandex-cloud }} events in {{ cloud-logging-full-name }}"
-description: "In this guide, you will learn how to search for {{ yandex-cloud }} events in {{ cloud-logging-full-name }}."
+title: How to search for {{ yandex-cloud }} events in {{ cloud-logging-full-name }}
+description: In this guide, you will learn how to search for {{ yandex-cloud }} events in {{ cloud-logging-full-name }}.
 ---
 
 # Searching for {{ yandex-cloud }} events in {{ cloud-logging-name }}

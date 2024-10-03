@@ -1,6 +1,6 @@
 ---
-title: "Поставка данных из {{ mkf-full-name }} в {{ yds-full-name }} с помощью {{ data-transfer-full-name }}"
-description: "В поток данных {{ yds-name }} можно в реальном времени поставлять данные из топиков {{ KF }}."
+title: Поставка данных из {{ mkf-full-name }} в {{ yds-full-name }} с помощью {{ data-transfer-full-name }}
+description: В поток данных {{ yds-name }} можно в реальном времени поставлять данные из топиков {{ KF }}.
 ---
 
 # Поставка данных из {{ mkf-full-name }} в {{ yds-full-name }} с помощью {{ data-transfer-full-name }}

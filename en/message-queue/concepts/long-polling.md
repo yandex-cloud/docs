@@ -1,6 +1,6 @@
 ---
-title: "What is Long Polling?"
-description: "Long Polling is a technique implemented to optimize the use of {{ message-queue-full-name }} by reducing the number of ReceiveMessage requests sent to empty queues."
+title: What is Long Polling?
+description: Long Polling is a technique implemented to optimize the use of {{ message-queue-full-name }} by reducing the number of ReceiveMessage requests sent to empty queues.
 ---
 
 # Long Polling

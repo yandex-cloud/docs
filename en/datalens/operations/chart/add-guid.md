@@ -1,6 +1,6 @@
 ---
-title: "How to add an ID as a parameter in {{ datalens-full-name }}"
-description: "Follow this guide to add an ID as a parameter."
+title: How to add an ID as a parameter in {{ datalens-full-name }}
+description: Follow this guide to add an ID as a parameter.
 ---
 
 # Adding an ID as a parameter

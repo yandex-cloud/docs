@@ -315,8 +315,10 @@ x-yc-apigateway:
 Запрос для получения информации о сотруднике Иване Ивановом:
 
 ```bash
-curl -X GET -H "Authorization: Bearer `yc iam create-token`" \
-"https://d5d16gda7ell********.apigw.yandexcloud.net/staff?FirstName=Ivan&LastName=Ivanov"
+curl \
+  --request GET \
+  --header "Authorization: Bearer `yc iam create-token`" \
+  "https://d5d16gda7ell********.apigw.yandexcloud.net/staff?FirstName=Ivan&LastName=Ivanov"
 ```
 
 Где:

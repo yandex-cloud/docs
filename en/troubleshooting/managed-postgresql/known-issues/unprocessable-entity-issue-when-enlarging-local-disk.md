@@ -1,7 +1,6 @@
 # Resolving issues with updating configurations of clusters with local-ssd disks
 
 
-
 ## Issue description {#issue-description}
 
 When trying to increase the storage size or change the host class of a Managed Service for PostgreSQL cluster with `local-ssd` disks, you see one or more error messages:

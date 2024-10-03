@@ -1,6 +1,6 @@
 ---
-title: "{{ MG }} editions in {{ mmg-full-name }}"
-description: "In this tutorial, you will learn about {{ MG }} editions available to {{ yandex-cloud }} users."
+title: '{{ MG }} editions in {{ mmg-full-name }}'
+description: In this tutorial, you will learn about {{ MG }} editions available to {{ yandex-cloud }} users.
 ---
 
 # {{ MG }} editions

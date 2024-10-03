@@ -1,6 +1,6 @@
 ---
-title: "How to delete a disk snapshot"
-description: "Follow this guide to delete a disk snapshot."
+title: How to delete a disk snapshot
+description: Follow this guide to delete a disk snapshot.
 ---
 
 # Deleting a disk snapshot

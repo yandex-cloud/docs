@@ -1,5 +1,5 @@
 ---
-canonical: "{{ link-docs }}/tutorials/dataplatform/greenplum-to-postgresql"
+canonical: '{{ link-docs }}/tutorials/dataplatform/greenplum-to-postgresql'
 ---
 
 # Миграция базы данных из {{ GP }} в {{ PG }}

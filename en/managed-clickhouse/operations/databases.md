@@ -1,6 +1,6 @@
 ---
-title: "How to manage {{ CH }} cluster databases in {{ mch-full-name }}"
-description: "Follow this guide to manage {{ CH }} cluster databases."
+title: How to manage {{ CH }} cluster databases in {{ mch-full-name }}
+description: Follow this guide to manage {{ CH }} cluster databases.
 ---
 
 # Managing databases in {{ mch-name }}

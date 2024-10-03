@@ -1,6 +1,6 @@
 ---
-title: "Tutorial on how to get information about an {{ objstorage-full-name }} object"
-description: "In this tutorial, you will learn how to get information about an {{ objstorage-full-name }} object."
+title: Tutorial on how to get information about an {{ objstorage-full-name }} object
+description: In this tutorial, you will learn how to get information about an {{ objstorage-full-name }} object.
 ---
 
 # Getting information about an object

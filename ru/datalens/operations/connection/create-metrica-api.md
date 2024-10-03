@@ -1,6 +1,6 @@
 ---
-title: "Как создать подключение к Metrica в {{ datalens-full-name }}"
-description: "Следуя данной инструкции, вы сможете создать подключение к Metrica." 
+title: Как создать подключение к Metrica в {{ datalens-full-name }}
+description: Следуя данной инструкции, вы сможете создать подключение к Metrica.
 ---
 
 # Создание подключения к Metrica

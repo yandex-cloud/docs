@@ -1,6 +1,6 @@
 ---
-title: "How to create a group of virtual machines in {{ compute-full-name }} based on a YAML specification"
-description: "Follow this guide to create an instance group based on a YAML specification."
+title: How to create a group of virtual machines in {{ compute-full-name }} based on a YAML specification
+description: Follow this guide to create an instance group based on a YAML specification.
 ---
 
 # Create an instance group based on the specification in YAML format

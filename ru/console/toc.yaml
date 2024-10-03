@@ -1,13 +1,9 @@
 title: Yandex Cloud Console
 href: index.yaml
-label:
-  title: KZ
-  description: Сервис доступен в регионе Казахстан.
-  theme: info
-  when: region == "kz"
 items:
   - name: Начало работы
     href: quickstart.md
   - name: Правила тарификации
     href: pricing.md
 base: ru/console
+deepBase: 2

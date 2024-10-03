@@ -1,6 +1,6 @@
 ---
-title: "How to get started with {{ sf-full-name }}"
-description: "This guide describes how you can create and set up a function or trigger."
+title: How to get started with {{ sf-full-name }}
+description: This guide describes how you can create and set up a function or trigger.
 ---
 
 # Getting started with {{ sf-name }}

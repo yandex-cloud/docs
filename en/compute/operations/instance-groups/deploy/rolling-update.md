@@ -1,6 +1,6 @@
 ---
-title: "How to make incremental updates in {{ compute-full-name }}"
-description: "Follow this guide to start your terminal in the Windows serial console (SAC)."
+title: How to make incremental updates in {{ compute-full-name }}
+description: Follow this guide to start your terminal in the Windows serial console (SAC).
 ---
 
 # Incremental update

@@ -1,6 +1,6 @@
 ---
-title: "How to create a security group"
-description: "Follow this guide to create a security group."
+title: How to create a security group
+description: Follow this guide to create a security group.
 ---
 
 # Creating a security group
@@ -94,7 +94,7 @@ To create a new [security group](../concepts/security-groups.md):
 
       Here is an example of the configuration file structure:
 
-      
+
       ```
       provider "yandex" {
         token     = "<OAuth_or_service_account_static_key>"

@@ -1,6 +1,6 @@
 ---
-title: "{{ dns-full-name }} release notes"
-description: "This section contains {{ dns-name }} release notes."
+title: '{{ dns-full-name }} release notes'
+description: This section contains {{ dns-name }} release notes.
 ---
 
 # {{ dns-full-name }} release notes

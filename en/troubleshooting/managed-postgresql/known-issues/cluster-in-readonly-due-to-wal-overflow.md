@@ -1,7 +1,6 @@
 # Resolving the consequences of cluster storage overflow with WAL logs
 
 
-
 ## Issue description {#issue-description}
 
 You see one or more of the following issues in the operation of your Managed Services for PostgreSQL cluster:

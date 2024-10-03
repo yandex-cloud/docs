@@ -1,5 +1,5 @@
 ---
-description: "Disks are virtual counterparts of physical storage devices, such as SSDs and HDDs. Disk enable data storage and operate connected to virtual machines. Detaching a disk does not delete its data."
+description: Disks are virtual counterparts of physical storage devices, such as SSDs and HDDs. Disk enable data storage and operate connected to virtual machines. Detaching a disk does not delete its data.
 keywords:
   - disk
   - ssh

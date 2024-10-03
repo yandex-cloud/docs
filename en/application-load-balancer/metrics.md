@@ -1,6 +1,6 @@
 ---
-title: "Reference for {{ alb-full-name }} metrics in {{ monitoring-full-name }}"
-description: "This page provides reference information on {{ alb-name }} metrics delivered to {{ monitoring-full-name }}."
+title: Reference for {{ alb-full-name }} metrics in {{ monitoring-full-name }}
+description: This page provides reference information on {{ alb-name }} metrics delivered to {{ monitoring-full-name }}.
 ---
 
 # {{ monitoring-full-name }} metric reference

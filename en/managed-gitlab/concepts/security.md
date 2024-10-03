@@ -1,6 +1,6 @@
 ---
-title: "Security in {{ mgl-full-name }}"
-description: "In this tutorial, you will learn about security measures available in {{ mgl-name }}."
+title: Security in {{ mgl-full-name }}
+description: In this tutorial, you will learn about security measures available in {{ mgl-name }}.
 ---
 
 # Security in {{ mgl-name }}

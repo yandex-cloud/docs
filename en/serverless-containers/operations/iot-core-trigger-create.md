@@ -1,6 +1,6 @@
 ---
-title: "Creating a trigger that transmits messages to a {{ serverless-containers-name }} container from a {{ iot-full-name }} registry or device topic"
-description: "Create a trigger for an {{ iot-name }} device or registry topic to process message copies in a {{ serverless-containers-name }} container."
+title: Creating a trigger that transmits messages to a {{ serverless-containers-name }} container from a {{ iot-full-name }} registry or device topic
+description: Create a trigger for an {{ iot-name }} device or registry topic to process message copies in a {{ serverless-containers-name }} container.
 ---
 
 # Creating a trigger that will send messages to a {{ serverless-containers-name }} container from a {{ iot-full-name }} registry or device topic

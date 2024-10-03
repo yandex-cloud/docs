@@ -1,6 +1,6 @@
 ---
-title: "How to delete Let's Encrypt certificates in {{ certificate-manager-full-name }}"
-description: "Follow this guide to delete a Let's Encrypt certificate."
+title: How to delete Let's Encrypt certificates in {{ certificate-manager-full-name }}
+description: Follow this guide to delete a Let's Encrypt certificate.
 ---
 
 # Deleting a Let's Encrypt certificate

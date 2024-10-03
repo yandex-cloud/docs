@@ -1,5 +1,5 @@
 ---
-title: "How to get information about a secret in {{ lockbox-full-name }}"
+title: How to get information about a secret in {{ lockbox-full-name }}
 ---
 
 # Getting information about a secret, its contents, and access rights

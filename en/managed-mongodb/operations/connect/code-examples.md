@@ -1,6 +1,6 @@
 ---
-title: "Code examples for connecting to a {{ MG }} cluster in {{ mmg-full-name }}"
-description: "Use these examples to connect to a database in a {{ MG }} cluster from your app code."
+title: Code examples for connecting to a {{ MG }} cluster in {{ mmg-full-name }}
+description: Use these examples to connect to a database in a {{ MG }} cluster from your app code.
 ---
 
 # Code examples for connecting to a {{ MG }} cluster

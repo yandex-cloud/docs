@@ -1,7 +1,6 @@
 # How to set up project migration
 
 
-
 ## Scenario description {#case-description}
 
 You need to set up migration of projects from gitlab.com to {{ mgl-full-name }}.

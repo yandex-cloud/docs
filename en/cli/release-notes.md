@@ -1,6 +1,6 @@
 ---
-title: "YC CLI releases"
-description: "This page provides a list of YC CLI releases and updates rolled out in each of them."
+title: YC CLI releases
+description: This page provides a list of YC CLI releases and updates rolled out in each of them.
 ---
 
 # YC CLI Releases

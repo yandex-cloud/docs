@@ -1,6 +1,6 @@
 ---
-title: "Access management in {{ data-transfer-full-name }}"
-description: "Access management in {{ data-transfer-full-name }}, a service for data transfer between storages. This section describes the roles required to perform a particular action, the resources for which you can assign a role, and the roles existing in the service."
+title: Access management in {{ data-transfer-full-name }}
+description: Access management in {{ data-transfer-full-name }}, a service for data transfer between storages. This section describes the roles required to perform a particular action, the resources for which you can assign a role, and the roles existing in the service.
 ---
 
 # Access management in {{ data-transfer-name }}

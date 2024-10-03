@@ -1,5 +1,5 @@
 ---
-description: "A cloud network is similar to a traditional LAN in a data center. Cloud networks are created in folders and used for transmitting information between cloud resources and connecting resources to the internet."
+description: A cloud network is similar to a traditional LAN in a data center. Cloud networks are created in folders and used for transmitting information between cloud resources and connecting resources to the internet.
 keywords:
   - cloud network
   - cloud

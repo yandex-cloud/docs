@@ -1,6 +1,6 @@
 ---
-title: "Access management in {{ mgl-full-name }}"
-description: "Access management in {{ mgl-full-name }}, a web-based open-source DevOps lifecycle tool. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required to perform a particular action."
+title: Access management in {{ mgl-full-name }}
+description: Access management in {{ mgl-full-name }}, a web-based open-source DevOps lifecycle tool. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required to perform a particular action.
 ---
 
 # Access management in {{ mgl-name }}

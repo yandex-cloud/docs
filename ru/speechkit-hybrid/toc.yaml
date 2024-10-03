@@ -1,10 +1,5 @@
 title: Yandex SpeechKit Hybrid
 href: index.yaml
-label:
-  title: RU
-  description: Сервис доступен только в регионе Россия.
-  theme: unknown
-  when: region == "kz"
 noIndex: true
 items:
   - name: Системные требования
@@ -68,3 +63,4 @@ items:
     href: docs.md
     hidden: true
 base: ru/speechkit-hybrid
+deepBase: 2

@@ -1,7 +1,6 @@
 # Resolving errors when setting up TLS connections on VMs
 
 
-
 ## Issue description {#issue-description}
 
 * Errors occur when loading packages from remote repositories.

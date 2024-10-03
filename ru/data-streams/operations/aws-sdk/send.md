@@ -1,6 +1,6 @@
 ---
-title: "Инструкция по отправке данных из {{ ydb-short-name }} в поток в AWS SDK"
-description: "Из статьи вы узнаете, как отправить данные из {{ ydb-short-name }} в поток в AWS SDK."
+title: Инструкция по отправке данных из {{ ydb-short-name }} в поток в AWS SDK
+description: Из статьи вы узнаете, как отправить данные из {{ ydb-short-name }} в поток в AWS SDK.
 ---
 
 # Отправка данных в поток в AWS SDK

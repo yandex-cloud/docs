@@ -1,6 +1,6 @@
 ---
-title: "How to create a {{ sws-full-name }} security profile"
-description: "Follow this guide to create a {{ sws-full-name }} security profile."
+title: How to create a {{ sws-full-name }} security profile
+description: Follow this guide to create a {{ sws-full-name }} security profile.
 ---
 
 # Creating a security profile

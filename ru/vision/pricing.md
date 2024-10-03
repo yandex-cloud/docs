@@ -1,6 +1,6 @@
 ---
-title: "Правила тарификации для {{ vision-name }}"
-description: "В этой статье описаны правила тарификации {{ vision-short-name }}."
+title: Правила тарификации для {{ vision-name }}
+description: В этой статье описаны правила тарификации {{ vision-short-name }}.
 editable: false
 ---
 

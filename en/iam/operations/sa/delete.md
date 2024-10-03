@@ -1,6 +1,6 @@
 ---
-title: "How to delete a service account"
-description: "Follow this guide to delete a service account."
+title: How to delete a service account
+description: Follow this guide to delete a service account.
 ---
 
 # Deleting a service account

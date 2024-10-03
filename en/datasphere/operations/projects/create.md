@@ -1,6 +1,6 @@
 ---
-title: "How to create an empty project"
-description: "Follow this guide to create an empty project."
+title: How to create an empty project
+description: Follow this guide to create an empty project.
 ---
 
 # Creating an empty project

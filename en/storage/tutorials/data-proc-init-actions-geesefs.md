@@ -1,5 +1,5 @@
 ---
-canonical: "{{ link-docs }}/tutorials/dataplatform/data-proc-init-actions-geesefs"
+canonical: '{{ link-docs }}/tutorials/dataplatform/data-proc-init-actions-geesefs'
 ---
 
 # Mounting {{ objstorage-name }} buckets to the file system of {{ dataproc-full-name }} hosts

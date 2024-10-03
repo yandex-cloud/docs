@@ -1,6 +1,6 @@
 ---
-title: "Glossary. Billing"
-description: "All terms used in {{ yandex-cloud }} are provided in the Glossary for information purposes. The following terms are described: report, grant, usage details, agreement, billing threshold, account, reporting period, offer, penalties, billing account, payer, trial period, and more. If there is a conflict between the term definitions in the Agreement and those in the Glossary, the terms of the former shall prevail."
+title: Glossary. Billing
+description: 'All terms used in {{ yandex-cloud }} are provided in the Glossary for information purposes. The following terms are described: report, grant, usage details, agreement, billing threshold, account, reporting period, offer, penalties, billing account, payer, trial period, and more. If there is a conflict between the term definitions in the Agreement and those in the Glossary, the terms of the former shall prevail.'
 ---
 
 # Glossary

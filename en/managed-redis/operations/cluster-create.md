@@ -1,6 +1,6 @@
 ---
-title: "How to create a {{ RD }} cluster"
-description: "Follow this guide to create a {{ RD }} cluster with a single or multiple DB hosts."
+title: How to create a {{ RD }} cluster
+description: Follow this guide to create a {{ RD }} cluster with a single or multiple DB hosts.
 ---
 
 # Creating a {{ RD }} cluster
@@ -80,7 +80,7 @@ There are no restrictions for non-sharded clusters.
       * Specify the **{{ ui-key.yacloud.mdb.forms.resource_presets_field-type }}** of the VM to deploy hosts on.
       * Select **{{ ui-key.yacloud.mdb.forms.section_resource }}**.
 
-  
+
       * Select the [disk type](../concepts/storage.md):
          * Either more flexible storage on network SSDs (`network-ssd`) or non-replicated SSDs (`network-ssd-nonreplicated`).
          * Or faster local SSD storage (`local-ssd`).
@@ -92,7 +92,7 @@ There are no restrictions for non-sharded clusters.
 
       * Select the storage size. The available storage size is limited by [quotas and limits](../concepts/limits.md#mrd-limits).
 
-   
+
    1. Under **{{ ui-key.yacloud.mdb.forms.section_network }}**, select:
       * Cloud network for the cluster.
       * Security groups for the cluster network traffic. You may also need to [set up security groups](connect/index.md#configuring-security-groups) to connect to the cluster.
@@ -134,7 +134,7 @@ There are no restrictions for non-sharded clusters.
 
    To create a {{ mrd-name }} cluster:
 
-   
+
    1. Check whether the folder has any subnets for the cluster hosts:
 
       ```bash
@@ -158,7 +158,7 @@ There are no restrictions for non-sharded clusters.
 
    1. Specify the cluster parameters in the create command (only some of the supported flags are given in the example):
 
-      
+
       ```bash
       {{ yc-mdb-rd }} cluster create \
         --name <cluster_name> \
@@ -183,7 +183,7 @@ There are no restrictions for non-sharded clusters.
       Where:
       * `--environment`: `prestable` or `production`.
 
-      
+
       * `--host`: Host parameters:
          * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
          * `subnet-id`: [Subnet ID](../../vpc/concepts/network.md#subnet). Specify if two or more subnets are created in the selected availability zone.
@@ -227,15 +227,15 @@ There are no restrictions for non-sharded clusters.
 
       * Database cluster: Description of the cluster and its hosts. You can also configure [DBMS settings](../concepts/settings-list.md) here if necessary.
 
-      
+
       * Network: Description of the [cloud network](../../vpc/concepts/network.md#network) where the cluster will be hosted. If you already have a suitable network, you do not need to describe it again.
       * Subnets: [Subnets](../../vpc/concepts/network.md#network) to connect the cluster hosts to. If you already have suitable subnets, you do not need to describe them again.
 
 
       Sample configuration file structure for creating a non-sharded cluster with SSL support:
 
-      
-      
+
+
       ```hcl
       resource "yandex_mdb_redis_cluster" "<cluster_name>" {
         name                = "<cluster_name>"
@@ -441,7 +441,7 @@ To create a {{ RD }} cluster copy:
 
    Run the following command:
 
-   
+
    ```bash
    {{ yc-mdb-rd }} cluster create \
      --name myredis \
@@ -478,8 +478,8 @@ To create a {{ RD }} cluster copy:
 
    The configuration file for this cluster is as follows:
 
-   
-   
+
+
    ```hcl
    resource "yandex_mdb_redis_cluster" "myredis" {
      name                = "myredis"
@@ -558,7 +558,7 @@ To create a {{ RD }} cluster copy:
 
    Run the following command:
 
-   
+
    ```bash
    {{ yc-mdb-rd }} cluster create \
      --name myredis \
@@ -596,8 +596,8 @@ To create a {{ RD }} cluster copy:
 
    The configuration file for this cluster is as follows:
 
-   
-   
+
+
    ```hcl
    resource "yandex_mdb_redis_cluster" "myredis" {
      name                = "myredis"
@@ -681,8 +681,8 @@ To create a {{ RD }} cluster copy:
 
    The configuration file for this cluster is as follows:
 
-   
-   
+
+
    ```hcl
    resource "yandex_mdb_redis_cluster" "myredis" {
      name                = "myredis"

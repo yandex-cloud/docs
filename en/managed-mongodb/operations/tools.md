@@ -1,6 +1,6 @@
 ---
-title: "What performance analysis tools are available in {{ MG }}"
-description: "In this tutorial, you will learn about performance analysis tools available in {{ MG }}."
+title: What performance analysis tools are available in {{ MG }}
+description: In this tutorial, you will learn about performance analysis tools available in {{ MG }}.
 ---
 
 # Performance analysis tools

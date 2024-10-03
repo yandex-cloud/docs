@@ -1,6 +1,6 @@
 ---
-title: "Как импортировать комментарии"
-description: "В данной статье описаны особенности импорта комментариев."
+title: Как импортировать комментарии
+description: В данной статье описаны особенности импорта комментариев.
 sourcePath: ru/tracker/api-ref/concepts/import/import-comments.md
 ---
 

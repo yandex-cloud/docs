@@ -1,6 +1,6 @@
 ---
-title: "How to enable origin shielding in {{ cdn-full-name }}"
-description: "Follow this guide to enable origin shielding."
+title: How to enable origin shielding in {{ cdn-full-name }}
+description: Follow this guide to enable origin shielding.
 ---
 
 # Enabling origin shielding

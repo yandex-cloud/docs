@@ -1,6 +1,6 @@
 ---
-title: "How to set up rules"
-description: "Follow this guide to set up rules."
+title: How to set up rules
+description: Follow this guide to set up rules.
 ---
 
 # Configuring rules

@@ -1,5 +1,5 @@
 ---
-canonical: "{{ link-docs }}/tutorials/dataplatform/mysql-to-clickhouse"
+canonical: '{{ link-docs }}/tutorials/dataplatform/mysql-to-clickhouse'
 ---
 
 # Загрузка данных из {{ MY }} в витрину {{ CH }}

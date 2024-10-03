@@ -1,6 +1,6 @@
 ---
-title: "Deleting function scaling settings"
-description: "Follow this guide to delete function scaling settings."
+title: Deleting function scaling settings
+description: Follow this guide to delete function scaling settings.
 ---
 
 # Deleting function scaling settings

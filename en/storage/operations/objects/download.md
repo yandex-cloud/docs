@@ -1,6 +1,6 @@
 ---
-title: "How to download an object from a {{ objstorage-full-name }} bucket"
-description: "In this tutorial, you will learn how to download an object in {{ objstorage-full-name }}."
+title: How to download an object from a {{ objstorage-full-name }} bucket
+description: In this tutorial, you will learn how to download an object in {{ objstorage-full-name }}.
 ---
 
 # Downloading an object

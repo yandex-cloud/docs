@@ -1,6 +1,6 @@
 ---
-title: "How to delete an HTTP router"
-description: "Follow this guide to delete an HTTP router."
+title: How to delete an HTTP router
+description: Follow this guide to delete an HTTP router.
 ---
 
 # Deleting an HTTP router

@@ -1,5 +1,5 @@
 ---
-canonical: "{{ link-docs }}/tutorials/dataplatform/mysql-to-clickhouse"
+canonical: '{{ link-docs }}/tutorials/dataplatform/mysql-to-clickhouse'
 ---
 
 # Миграция базы данных из {{ MY }} в {{ CH }} с помощью {{ data-transfer-full-name }}

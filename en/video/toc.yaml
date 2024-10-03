@@ -1,10 +1,5 @@
 title: Yandex Cloud Video
 href: index.yaml
-label:
-  title: RU
-  description: This service is only available in the Russia region.
-  theme: unknown
-  when: region == "kz"
 stage: preview
 items:
   - name: Getting started
@@ -240,3 +235,4 @@ items:
   - name: Troubleshooting
     href: troubleshooting.md
 base: en/video
+deepBase: 2

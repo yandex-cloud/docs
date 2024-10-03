@@ -1,7 +1,6 @@
 # How to change the technical support service plan
 
 
-
 ## Issue description {#case-description}
 
 * You need to adjust your support service plan either by downgrading (for instance, from Business to Basic) or upgrading (for example, from Basic to Business).
@@ -24,6 +23,6 @@ If these actions did not help, [create a request for technical support]({{ link-
 When creating the request, make sure to specify:
 
 1. Billing account ID.
-You can find this ID on the [page with billing account details]({{ link-console-support }}).
+   You can find this ID on the [page with billing account details]({{ link-console-support }}).
 2. Desired service plan.
 3. Desired period of change to the specified support plan.

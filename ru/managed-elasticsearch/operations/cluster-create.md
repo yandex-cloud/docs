@@ -1,10 +1,10 @@
 ---
-title: "Создание кластера {{ ES }}"
-description: "Кластер управляемого сервиса {{ ES }} — это группа из нескольких связанных друг с другом хостов {{ ES }}. При создании кластера {{ ES }} отдельно указываются параметры для хостов, выполняющих роль Master node, и отдельно — для хостов, выполняющих роль Data node."
+title: Создание кластера {{ ES }}
+description: Кластер управляемого сервиса {{ ES }} — это группа из нескольких связанных друг с другом хостов {{ ES }}. При создании кластера {{ ES }} отдельно указываются параметры для хостов, выполняющих роль Master node, и отдельно — для хостов, выполняющих роль Data node.
 keywords:
-  - "создание кластера {{ ES }}"
-  - "кластер {{ ES }}"
-  - "{{ ES }}"
+  - создание кластера {{ ES }}
+  - кластер {{ ES }}
+  - '{{ ES }}'
 ---
 
 # Создание кластера {{ ES }}
@@ -49,11 +49,11 @@ keywords:
      1. Выберите из списка версию {{ ES }}.
      1. Выберите из списка [редакцию {{ ES }}](../concepts/es-editions.md).
 
-     
+
      1. Выберите сервисный аккаунт с ролью `storage.editor` из выпадающего списка или создайте новый, если вы планируете использовать данные из бакета {{ objstorage-name }} с [ограниченным доступом](../../storage/concepts/bucket#bucket-access). Подробнее о настройке сервисного аккаунта см. в разделе [Настройка доступа к {{ objstorage-name }}](s3-access.md).
 
 
-  
+
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите [облачную сеть](../../vpc/concepts/network.md#network) для размещения кластера {{ mes-name }} и [группы безопасности](../../vpc/concepts/security-groups.md) для сетевого трафика кластера. Может потребоваться дополнительная [настройка групп безопасности](cluster-connect.md#configuring-security-groups) для того, чтобы можно было подключаться к кластеру {{ mes-name }}.
 
 
@@ -124,7 +124,7 @@ keywords:
      yc vpc subnet list
      ```
 
-     
+
      Если ни одной подсети в каталоге нет, [создайте нужные подсети](../../vpc/operations/subnet-create.md) в сервисе [{{ vpc-full-name }}](../../vpc/).
 
 
@@ -136,7 +136,7 @@ keywords:
 
   1. Укажите параметры кластера {{ mes-name }} в команде создания (в примере приведены не все параметры):
 
-     
+
      ```bash
      {{ yc-mdb-es }} cluster create \
        --name <имя_кластера> \
@@ -190,7 +190,7 @@ keywords:
 
   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
-      
+    
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
 
@@ -204,8 +204,8 @@ keywords:
 
      Пример структуры конфигурационного файла:
 
-     
-     
+
+
      ```hcl
      resource "yandex_mdb_elasticsearch_cluster" "<имя_кластера>" {
        name                = "<имя_кластера>"
@@ -350,7 +350,7 @@ keywords:
 
   Выполните следующую команду:
 
-  
+
   ```bash
   {{ yc-mdb-es }} cluster create \
     --name my-es-clstr \
@@ -372,8 +372,8 @@ keywords:
 
   Создайте кластер {{ mes-name }}. Конфигурационный файл для кластера {{ mes-name }} выглядит так:
 
-  
-  
+
+
   ```hcl
   resource "yandex_mdb_elasticsearch_cluster" "my-es-clstr" {
     name                = "my-es-clstr"

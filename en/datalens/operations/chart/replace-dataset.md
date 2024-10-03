@@ -1,6 +1,6 @@
 ---
-title: "How to replace a dataset in a chart in {{ datalens-full-name }}"
-description: "Follow this guide to replace a dataset in a chart."
+title: How to replace a dataset in a chart in {{ datalens-full-name }}
+description: Follow this guide to replace a dataset in a chart.
 ---
 
 # Replacing a dataset in a chart

@@ -1,6 +1,6 @@
 ---
-title: "How to edit custom certificates in {{ certificate-manager-full-name }}"
-description: "Follow this guide to edit a custom certificate."
+title: How to edit custom certificates in {{ certificate-manager-full-name }}
+description: Follow this guide to edit a custom certificate.
 ---
 
 # Editing a custom certificate

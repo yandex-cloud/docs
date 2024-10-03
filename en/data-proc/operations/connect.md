@@ -1,6 +1,6 @@
 ---
-title: "How to connect to a {{ dataproc-full-name }} cluster"
-description: "Follow this guide to connect to a {{ dataproc-name }} cluster."
+title: How to connect to a {{ dataproc-full-name }} cluster
+description: Follow this guide to connect to a {{ dataproc-name }} cluster.
 ---
 
 # Connecting to a {{ dataproc-name }} cluster

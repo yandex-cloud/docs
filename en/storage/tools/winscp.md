@@ -1,6 +1,6 @@
 ---
-title: "What is WinSCP?"
-description: "WinSCP is a Windows graphical client for network storage. WinSCP treats {{ objstorage-name }} like a hierarchical file system."
+title: What is WinSCP?
+description: WinSCP is a Windows graphical client for network storage. WinSCP treats {{ objstorage-name }} like a hierarchical file system.
 keywords:
   - winscp
   - win scp

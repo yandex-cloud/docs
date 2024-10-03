@@ -25,6 +25,7 @@ Syntax:
 |`--format`|<b>`string`</b><br/>Set the output format: text (default), yaml, json, json-rest.|
 |`-h`,`--help`|Display help for the command.|
 |`--impersonate-service-account-id`|<b>`string`</b><br/>Set the ID of the service account to impersonate.|
+|`--jq`|<b>`string`</b><br/>Query to select values from the response using jq syntax|
 |`--no-browser`|Disable opening browser for authentication.|
 |`--no-user-output`|Disable printing user intended output to stderr.|
 |`--profile`|<b>`string`</b><br/>Set the custom configuration file.|

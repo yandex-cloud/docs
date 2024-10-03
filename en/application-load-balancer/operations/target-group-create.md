@@ -1,6 +1,6 @@
 ---
-title: "Creating a {{ alb-full-name }} target group"
-description: "To create a {{ alb-full-name }} target group, select the appropriate folder in the management console. In the list of services, select {{ alb-name }}. In the left-hand menu, select Target groups. Click **Create target group**. Enter the name of the target group. Select the VM. Click **Create**."
+title: Creating a {{ alb-full-name }} target group
+description: To create a {{ alb-full-name }} target group, select the appropriate folder in the management console. In the list of services, select {{ alb-name }}. In the left-hand menu, select Target groups. Click **Create target group**. Enter the name of the target group. Select the VM. Click **Create**.
 ---
 
 # Creating an {{ alb-name }} target group

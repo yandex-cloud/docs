@@ -1,6 +1,6 @@
 ---
-title: "Support chat in Telegram"
-description: "In this tutorial, you will set up a support chat in Telegram."
+title: Support chat in Telegram
+description: In this tutorial, you will set up a support chat in Telegram.
 ---
 
 # Support chat in Telegram

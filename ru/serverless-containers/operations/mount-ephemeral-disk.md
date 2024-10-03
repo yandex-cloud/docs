@@ -1,6 +1,6 @@
 ---
-title: "Как смонтировать эфемерный диск в контейнер {{ serverless-containers-full-name }}"
-description: "Следуя данной инструкции, вы сможете смонтировать эфемерный диск в контейнер {{ serverless-containers-name }}."
+title: Как смонтировать эфемерный диск в контейнер {{ serverless-containers-full-name }}
+description: Следуя данной инструкции, вы сможете смонтировать эфемерный диск в контейнер {{ serverless-containers-name }}.
 ---
 
 # Смонтировать эфемерный диск в контейнер

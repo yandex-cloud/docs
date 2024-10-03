@@ -1,7 +1,6 @@
 # Другое
 
 
-
 ### Я могу получить логи моей работы в сервисах? {#logs}
 
 Вы можете самостоятельно получить логи сервисов {{ yandex-cloud }} с помощью подключения к [{{ datalens-short-name }} Usage Analytics](../operations/connection/create-usage-tracking.md).
@@ -31,7 +30,6 @@
 {% include [object-id](../../_qa/datalens/object-id.md) %}
 
 {% include [network-error](../../_qa/datalens/network-error.md) %}
-
 
 
 

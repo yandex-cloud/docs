@@ -1,6 +1,6 @@
 ---
-title: "Configuring access permissions for a {{ compute-name }} GPU cluster."
-description: "Follow this guide to configure GPU cluster access permissions."
+title: Configuring access permissions for a {{ compute-name }} GPU cluster.
+description: Follow this guide to configure GPU cluster access permissions.
 ---
 
 # Configuring GPU cluster access permissions

@@ -1,6 +1,6 @@
 ---
-title: "Replication and fault tolerance in {{ RD }}"
-description: "{{ mrd-name }} uses native {{ RD }} replication and provides high availability of cluster data using {{ RD }} Sentinel."
+title: Replication and fault tolerance in {{ RD }}
+description: '{{ mrd-name }} uses native {{ RD }} replication and provides high availability of cluster data using {{ RD }} Sentinel.'
 keywords:
   - redis replication
   - redis

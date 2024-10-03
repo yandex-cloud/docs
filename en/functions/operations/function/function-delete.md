@@ -1,6 +1,6 @@
 ---
-title: "Deleting a function"
-description: "Follow this guide to delete a function."
+title: Deleting a function
+description: Follow this guide to delete a function.
 ---
 
 # Deleting a function

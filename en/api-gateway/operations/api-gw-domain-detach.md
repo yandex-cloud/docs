@@ -1,6 +1,6 @@
 ---
-title: "How to disconnect a domain from the {{ api-gw-full-name }} gateway"
-description: "In this tutorial, you will learn how to disconnect a domain from the {{ api-gw-full-name }} gateway."
+title: How to disconnect a domain from the {{ api-gw-full-name }} gateway
+description: In this tutorial, you will learn how to disconnect a domain from the {{ api-gw-full-name }} gateway.
 ---
 
 # Disconnecting a domain

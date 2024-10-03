@@ -1,10 +1,5 @@
 title: Yandex Managed Service for Redis
 href: index.yaml
-label:
-  title: KZ
-  description: Сервис доступен в регионе Казахстан.
-  theme: info
-  when: region == "kz"
 items:
   - name: Начало работы
     href: quickstart.md
@@ -134,6 +129,8 @@ items:
             items:
               - name: Overview
                 href: api-ref/Backup/index.md
+              - name: delete
+                href: api-ref/Backup/delete.md
               - name: get
                 href: api-ref/Backup/get.md
               - name: list
@@ -219,3 +216,4 @@ items:
   - name: Вопросы и ответы
     href: qa/general.md
 base: ru/managed-redis
+deepBase: 2

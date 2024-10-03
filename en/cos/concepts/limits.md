@@ -1,6 +1,6 @@
 ---
-title: "Quotas and limits in {{ coi }}"
-description: "When working with a {{ coi }}, the {{ compute-name }} and {{ container-registry-name }} limits are taken into account."
+title: Quotas and limits in {{ coi }}
+description: When working with a {{ coi }}, the {{ compute-name }} and {{ container-registry-name }} limits are taken into account.
 ---
 
 # Quotas and limits

@@ -1,6 +1,6 @@
 ---
-title: "How to delete static access keys in {{ iam-full-name }}"
-description: "In this tutorial, you will learn how to delete static access keys in {{ iam-full-name }} via the management console, CLI, and API."
+title: How to delete static access keys in {{ iam-full-name }}
+description: In this tutorial, you will learn how to delete static access keys in {{ iam-full-name }} via the management console, CLI, and API.
 ---
 
 # Deleting static access keys

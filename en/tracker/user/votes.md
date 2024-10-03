@@ -1,6 +1,6 @@
 ---
-title: "How to vote for an issue"
-description: "Follow this guide to vote for an issue."
+title: How to vote for an issue
+description: Follow this guide to vote for an issue.
 ---
 
 # Voting for an issue

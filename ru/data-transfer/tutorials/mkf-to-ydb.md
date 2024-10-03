@@ -1,5 +1,5 @@
 ---
-canonical: "{{ link-docs }}/tutorials/dataplatform/mkf-ydb-stream"
+canonical: '{{ link-docs }}/tutorials/dataplatform/mkf-ydb-stream'
 ---
 
 # Поставка данных из очереди {{ KF }} в {{ ydb-short-name }}

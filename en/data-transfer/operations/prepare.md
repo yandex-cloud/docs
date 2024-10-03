@@ -1,6 +1,6 @@
 ---
-title: "How to prepare for a transfer"
-description: "In this tutorial, you will learn how to prepare for a transfer."
+title: How to prepare for a transfer
+description: In this tutorial, you will learn how to prepare for a transfer.
 ---
 
 # Preparing for a transfer

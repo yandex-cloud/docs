@@ -1,6 +1,6 @@
 ---
-title: "How to delete a custom image"
-description: "Follow this guide to delete a custom image."
+title: How to delete a custom image
+description: Follow this guide to delete a custom image.
 ---
 
 # Deleting a custom image

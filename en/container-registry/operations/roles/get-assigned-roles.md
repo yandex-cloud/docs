@@ -1,6 +1,6 @@
 ---
-title: "How to view resource roles in {{ container-registry-full-name }}"
-description: "Follow this guide to view roles assigned for resources."
+title: How to view resource roles in {{ container-registry-full-name }}
+description: Follow this guide to view roles assigned for resources.
 ---
 
 # Viewing roles assigned for a resource

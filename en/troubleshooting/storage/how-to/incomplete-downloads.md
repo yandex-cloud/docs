@@ -1,7 +1,6 @@
 # Viewing and deleting incomplete uploads
 
 
-
 ## Issue description {#case-description}
 
 You need to view or delete incomplete uploads in the following situations:

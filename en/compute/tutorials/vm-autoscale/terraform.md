@@ -1,5 +1,5 @@
 ---
-canonical: "{{ link-docs }}/tutorials/infrastructure-management/vm-autoscale/terraform"
+canonical: '{{ link-docs }}/tutorials/infrastructure-management/vm-autoscale/terraform'
 ---
 
 # Running an instance group with autoscaling using {{ TF }}

@@ -52,7 +52,7 @@
 
 1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
-   
+
    Если вы выбрали способ оплаты **{{ ui-key.yacloud_billing.billing.account.create-new.payment-type_label_invoice }}** или если плательщик — нерезидент РФ и РК, вы получите письмо с описанием дальнейших действий на почту, указанную в аккаунте Яндекса или Яндекс 360. Активация платежного аккаунта может занять до трех рабочих дней.
 
 
@@ -60,6 +60,6 @@
    * Копию протокола или решения о назначении генерального директора.
    * Идентификатор [платежного аккаунта](../../billing/concepts/billing-account.md#billing-account-id) (billing account ID).
 
-   
+
    {% include [offices-and-foreign-companies](offices-and-foreign-companies.md) %}
 

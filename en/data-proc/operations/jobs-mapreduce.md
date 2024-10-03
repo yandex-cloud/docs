@@ -1,6 +1,6 @@
 ---
-title: "How to manage MapReduce jobs in {{ dataproc-full-name }}"
-description: "In this tutorial, you will learn how to manage MapReduce jobs in {{ dataproc-full-name }}."
+title: How to manage MapReduce jobs in {{ dataproc-full-name }}
+description: In this tutorial, you will learn how to manage MapReduce jobs in {{ dataproc-full-name }}.
 ---
 
 # Managing MapReduce jobs

@@ -1,6 +1,6 @@
 ---
-title: "{{ search-api-full-name }} pricing policy"
-description: "This article describes the {{ search-api-name }} pricing policy."
+title: '{{ search-api-full-name }} pricing policy'
+description: This article describes the {{ search-api-name }} pricing policy.
 editable: false
 ---
 

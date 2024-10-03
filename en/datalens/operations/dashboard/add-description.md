@@ -1,6 +1,6 @@
 ---
-title: "How to add a dashboard description in {{ datalens-full-name }}"
-description: "Follow this guide to add a description to a dashboard."
+title: How to add a dashboard description in {{ datalens-full-name }}
+description: Follow this guide to add a description to a dashboard.
 ---
 
 # Adding a description to a dashboard

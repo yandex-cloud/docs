@@ -1,6 +1,6 @@
 ---
-title: "Integrating {{ forms-full-name }} with other services"
-description: "In this tutorial, you will learn how {{ forms-full-name }} is related to other {{ yandex-cloud }} services, which actions you can set up in them while submitting a form, and which integration errors may occur."
+title: Integrating {{ forms-full-name }} with other services
+description: In this tutorial, you will learn how {{ forms-full-name }} is related to other {{ yandex-cloud }} services, which actions you can set up in them while submitting a form, and which integration errors may occur.
 ---
 
 # Integration with other services
@@ -68,7 +68,7 @@ To integrate your form with other services, you can configure one or more action
 
    - To [send an HTTP request](send-request.md), click ![](../_assets/forms/api-notification.png) **API** and select the request type.
 
-   
+
    {% note info %}
 
    Integration with {{ wiki-name }} and {{ tracker-name }} services is only available to users of [{{ forms-full-name }} for business](forms-for-org.md).

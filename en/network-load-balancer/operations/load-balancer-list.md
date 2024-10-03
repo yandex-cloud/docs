@@ -24,7 +24,7 @@ You can request detailed information about each network load balancer you create
 
    Result:
 
-   
+
    ```text
    +----------------------+-----------------------+-------------+----------+----------------+------------------------+--------+
    |          ID          |         NAME          |  REGION ID  |   TYPE   | LISTENER COUNT | ATTACHED TARGET GROUPS | STATUS |

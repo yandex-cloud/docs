@@ -1,6 +1,6 @@
 ---
-title: "Как изменить канал в {{ video-full-name }}"
-description: "Следуя данной инструкции, вы сможете изменить канал {{ video-full-name }}."
+title: Как изменить канал в {{ video-full-name }}
+description: Следуя данной инструкции, вы сможете изменить канал {{ video-full-name }}.
 ---
 
 # Изменить канал

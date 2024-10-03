@@ -1,6 +1,6 @@
 ---
-title: "Revoking roles assigned to a container"
-description: "Use this guide to revoke roles assigned to a container."
+title: Revoking roles assigned to a container
+description: Use this guide to revoke roles assigned to a container.
 ---
 
 # Revoking roles assigned to a container

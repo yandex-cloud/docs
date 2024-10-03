@@ -48,14 +48,14 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
 
        {% include [storages-type-no-change](../../_includes/mdb/storages-type-no-change.md) %}
 
-       
+
        {% include [storages-step-settings](../../_includes/mdb/settings-storages-no-broadwell.md) %}
 
 
        You cannot change the disk type for a {{ mkf-name }} cluster once you create it.
      * Select the storage size to use for data.
 
-  
+
   1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**:
      1. Select one or more [availability zones](../../overview/concepts/geo-scope.md) to host {{ KF }} brokers. If you create a {{ mkf-name }} cluster with one availability zone, you will not be able to increase the number of zones and brokers in the future.
      1. Select a [network](../../vpc/concepts/network.md#network).
@@ -77,14 +77,14 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
         When choosing the number of hosts, keep in mind that:
         * Replication is possible if there are at least two hosts per {{ mkf-name }} cluster.
 
-        
+
         * If you selected `local-ssd` or `network-ssd-nonreplicated` under **{{ ui-key.yacloud.mdb.forms.section_storage }}**, you need to add at least three hosts to the {{ mkf-name }} cluster.
 
 
         * To make your {{ mkf-name }} cluster fault-tolerant, you will need to meet [certain conditions](../concepts/index.md#fault-tolerance).
         * Adding more than one host to the {{ mkf-name }} cluster automatically adds three {{ ZK }} hosts.
 
-     
+
      1. Optionally, select groups of [dedicated hosts](../../compute/concepts/dedicated-host.md) to host the {{ mkf-name }} cluster.
 
         {% include [Dedicated hosts note](../../_includes/mdb/mkf/note-dedicated-hosts.md) %}
@@ -115,7 +115,7 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
 
   1. Specify the {{ mkf-name }} cluster parameters in the create command (the example below does not list all possible parameters):
 
-     
+
      ```bash
      {{ yc-mdb-kf }} cluster create \
         --name <cluster_name> \
@@ -181,7 +181,7 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
      {% include [warn-storage-resize](../../_includes/mdb/mpg/warn-storage-resize.md) %}
 
 
-  
+
   1. To create a {{ mkf-name }} cluster based on [dedicated host](../../compute/concepts/dedicated-host.md) groups, specify their IDs as a comma-separated list in the `--host-group-ids` parameter when creating the cluster:
 
      ```bash
@@ -209,8 +209,8 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
 
      Here is an example of the configuration file structure:
 
-     
-     
+
+
      ```hcl
      resource "yandex_mdb_kafka_cluster" "<cluster_name>" {
        environment         = "<environment>"
@@ -290,7 +290,7 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
   * {{ mkf-name }} cluster name in the `name` parameter.
   * {{ KF }} version ({{ versions.cli.str-without-latest }}) in the `configSpec.version` parameter.
 
-  
+
   * [Security group](../../vpc/concepts/security-groups.md) IDs in the `securityGroupIds` parameter.
 
 
@@ -302,7 +302,7 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
   To manage data schemas using [{{ mkf-msr }}](../concepts/managed-schema-registry.md), set the `configSpec.schemaRegistry` parameter to `true`. You cannot edit this setting after you create a {{ mkf-name }} cluster.
 
 
-  
+
   To create a {{ mkf-name }} cluster based on [dedicated host](../../compute/concepts/dedicated-host.md) groups, provide a list of their IDs in the `hostGroupIds` parameter.
 
   {% include [Dedicated hosts note](../../_includes/mdb/mkf/note-dedicated-hosts.md) %}
@@ -416,7 +416,7 @@ When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }}
      {% include [warn-storage-resize](../../_includes/mdb/mpg/warn-storage-resize.md) %}
 
 
-  
+
   1. To create a {{ mkf-name }} cluster based on [dedicated host](../../compute/concepts/dedicated-host.md) groups, specify their IDs as a comma-separated list in the `--host-group-ids` parameter when creating the cluster:
 
      ```bash
@@ -526,7 +526,7 @@ When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }}
   * Availability zones in the `configSpec.zoneId` parameter. You can specify either one or three availability zones.
   * Number of broker hosts in the `configSpec.brokersCount` parameter. If you specify one availability zone, set the number of brokers to three. In case of three availability zones, set the number of brokers to one.
 
-  
+
   * [Security group](../../vpc/concepts/security-groups.md) IDs in the `securityGroupIds` parameter.
 
 
@@ -538,7 +538,7 @@ When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }}
   To manage data schemas using [{{ mkf-msr }}](../concepts/managed-schema-registry.md), set the `configSpec.schemaRegistry` parameter to `true`. You cannot edit this setting after you create a {{ mkf-name }} cluster.
 
 
-  
+
   To create a {{ mkf-name }} cluster based on [dedicated host](../../compute/concepts/dedicated-host.md) groups, provide a list of their IDs in the `hostGroupIds` parameter.
 
   {% include [Dedicated hosts note](../../_includes/mdb/mkf/note-dedicated-hosts.md) %}
@@ -652,7 +652,7 @@ To create an {{ KF }} cluster copy:
 
   Create a {{ mkf-name }} cluster with the following test specifications:
 
-  
+
   * Name: `mykf`.
   * Environment: `production`.
   * {{ KF }} version: 3.5.
@@ -668,7 +668,7 @@ To create an {{ KF }} cluster copy:
 
   Run the following command:
 
-  
+
   ```bash
   {{ yc-mdb-kf }} cluster create \
      --name mykf \
@@ -697,7 +697,7 @@ To create an {{ KF }} cluster copy:
   * {{ KF }} version: 3.5.
   * New network: `mynet`, subnet: `mysubnet`.
 
-  
+
   * Security group: `mykf-sg` (allow ingress connections to the {{ mkf-name }} cluster on port `9091`).
 
 
@@ -709,8 +709,8 @@ To create an {{ KF }} cluster copy:
 
   The configuration file for this {{ mkf-name }} cluster is as follows:
 
-  
-  
+
+
   ```hcl
   resource "yandex_mdb_kafka_cluster" "mykf" {
     environment         = "PRODUCTION"

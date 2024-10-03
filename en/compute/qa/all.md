@@ -1,6 +1,6 @@
 ---
-title: "FAQ about {{ compute-full-name }}"
-description: "See this page for {{ compute-name }} FAQs."
+title: FAQ about {{ compute-full-name }}
+description: See this page for {{ compute-name }} FAQs.
 ---
 
 # FAQ about {{ compute-name }}

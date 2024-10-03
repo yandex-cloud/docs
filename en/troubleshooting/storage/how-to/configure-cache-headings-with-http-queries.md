@@ -1,7 +1,6 @@
 # How to configure cache-control headers for objects in a bucket during HTTP requests
 
 
-
 ## Scenario description {#case-description}
 
 You need to set up cache-control headers for objects in the bucket during HTTP requests.

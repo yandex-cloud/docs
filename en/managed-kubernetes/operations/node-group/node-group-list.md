@@ -34,7 +34,7 @@ Get a list of [node groups](../../concepts/index.md#node-group) in a {{ k8s }} c
 
 - API {#api}
 
-   To get the list of node groups in the default folder, use the [list](../../api-ref/NodeGroup/list.md) method for the [NodeGroup](../../api-ref/NodeGroup/) resource.
+   To get the list of node groups in the default folder, use the [list](../../managed-kubernetes/api-ref/NodeGroup/list.md) method for the [NodeGroup](../../managed-kubernetes/api-ref/NodeGroup/) resource.
 
 {% endlist %}
 
@@ -73,6 +73,6 @@ To access a node group, use the `ID` or `NAME` parameters from the [previous](no
 
 - API {#api}
 
-   You can get detailed information about a node group using the [get](../../api-ref/NodeGroup/get.md) method for the [NodeGroup](../../api-ref/NodeGroup/) resource.
+   You can get detailed information about a node group using the [get](../../managed-kubernetes/api-ref/NodeGroup/get.md) method for the [NodeGroup](../../managed-kubernetes/api-ref/NodeGroup/) resource.
 
 {% endlist %}

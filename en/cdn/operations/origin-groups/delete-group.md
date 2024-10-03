@@ -1,6 +1,6 @@
 ---
-title: "How to delete an origin group in {{ cdn-full-name }}"
-description: "In this tutorial, you will learn how to delete a {{ cdn-name }} origin group."
+title: How to delete an origin group in {{ cdn-full-name }}
+description: In this tutorial, you will learn how to delete a {{ cdn-name }} origin group.
 ---
 
 # Deleting an origin group

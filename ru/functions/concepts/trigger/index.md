@@ -1,6 +1,6 @@
 ---
-title: "Триггер. Обзор"
-description: "Триггер — условие, при выполнении которого автоматически запускается функция. Триггеры позволяют автоматизировать работу с другими сервисами {{ yandex-cloud }}, например, Yandex Object Storage, Yandex Message Queue и Yandex IoT Core."
+title: Триггер. Обзор
+description: Триггер — условие, при выполнении которого автоматически запускается функция. Триггеры позволяют автоматизировать работу с другими сервисами {{ yandex-cloud }}, например, Yandex Object Storage, Yandex Message Queue и Yandex IoT Core.
 ---
 
 # Триггеры в {{ sf-name }}. Обзор

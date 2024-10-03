@@ -21,7 +21,7 @@ For example, change the default folder:
    ```
 1. Make sure that the parameter changed:
 
-   
+
    ```
    yc config list
    token: AQAAAAAV6O...
@@ -49,7 +49,7 @@ For example, delete the default folder:
    ```
 1. Make sure that the parameter was deleted:
 
-   
+
    ```
    yc config list
    token: AQAAAAAV6O...

@@ -1,5 +1,5 @@
 ---
-canonical: "{{ link-docs }}/tutorials/dataplatform/ydb-mkf-replication"
+canonical: '{{ link-docs }}/tutorials/dataplatform/ydb-mkf-replication'
 ---
 
 # Поставка данных из {{ ydb-short-name }} в {{ mkf-full-name }}

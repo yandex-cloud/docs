@@ -1,6 +1,6 @@
 ---
-title: "Tutorial on using pgcrypto in {{ mpg-name }}"
-description: "In this tutorial, you will learn how to use pgcrypto in {{ mpg-name }}."
+title: Tutorial on using pgcrypto in {{ mpg-name }}
+description: In this tutorial, you will learn how to use pgcrypto in {{ mpg-name }}.
 ---
 
 # Using pgcrypto in {{ mpg-name }}

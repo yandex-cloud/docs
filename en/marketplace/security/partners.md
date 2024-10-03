@@ -1,6 +1,6 @@
 ---
-title: "Managing partner access in {{ marketplace-full-name }}"
-description: "Managing partner access in {{ marketplace-short-name }}. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required to perform a particular action."
+title: Managing partner access in {{ marketplace-full-name }}
+description: Managing partner access in {{ marketplace-short-name }}. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required to perform a particular action.
 ---
 
 # Managing partner access in {{ marketplace-short-name }}

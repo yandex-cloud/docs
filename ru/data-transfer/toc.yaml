@@ -1,10 +1,5 @@
 title: Yandex Data Transfer
 href: index.yaml
-label:
-  title: KZ
-  description: Сервис доступен в регионе Казахстан.
-  theme: info
-  when: region == "kz"
 items:
   - name: Доступные трансферы
     href: transfer-matrix.md
@@ -148,6 +143,12 @@ items:
         items:
           - name: '{{ KF }}'
             href: tutorials/mkf-to-mkf.md
+      - name: Синхронизация данных
+        items:
+          - name: >-
+              Синхронизация данных из стороннего кластера {{ MY }} в {{
+              mmy-full-name }}
+            href: tutorials/sync-mysql.md
       - name: Миграция со сменой типа хранения данных
         items:
           - name: '{{ MY }} в {{ ydb-short-name }}'
@@ -395,3 +396,4 @@ items:
   - name: Обучающие курсы
     href: training.md
 base: ru/data-transfer
+deepBase: 2

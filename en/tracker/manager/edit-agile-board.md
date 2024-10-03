@@ -1,6 +1,6 @@
 ---
-title: "How to edit or delete a board in {{ tracker-full-name }}"
-description: "In this tutorial, you will learn how to edit or delete a board in {{ tracker-name }}."
+title: How to edit or delete a board in {{ tracker-full-name }}
+description: In this tutorial, you will learn how to edit or delete a board in {{ tracker-name }}.
 ---
 
 # Editing or deleting a board

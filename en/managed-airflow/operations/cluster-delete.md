@@ -1,10 +1,10 @@
 ---
-title: "Deleting an {{ AF }} cluster"
-description: "You can delete an {{ AF }} cluster if you no longer need it."
+title: Deleting an {{ AF }} cluster
+description: You can delete an {{ AF }} cluster if you no longer need it.
 keywords:
   - Deleting an {{ AF }} cluster
-  - {{ AF }} cluster
-  - {{ AF}}
+  - '{{ AF }} cluster'
+  - '{{ AF}}'
   - Airflow
 ---
 

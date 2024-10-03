@@ -1,6 +1,6 @@
 ---
-title: "How to create a VM backup in {{ backup-full-name }}"
-description: "Follow this guide to create a backup of your VM."
+title: How to create a VM backup in {{ backup-full-name }}
+description: Follow this guide to create a backup of your VM.
 ---
 
 # Creating a VM backup

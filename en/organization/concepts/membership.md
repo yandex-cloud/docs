@@ -1,6 +1,6 @@
 ---
-title: "Organization membership"
-description: "Organization membership opens up access to services within the organization."
+title: Organization membership
+description: Organization membership opens up access to services within the organization.
 ---
 
 # Organization membership

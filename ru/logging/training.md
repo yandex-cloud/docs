@@ -1,6 +1,6 @@
 ---
-title: "Обучающие курсы по {{ cloud-logging-full-name }}"
-description: "В этом разделе собраны обучающие курсы по {{ cloud-logging-full-name }}."
+title: Обучающие курсы по {{ cloud-logging-full-name }}
+description: В этом разделе собраны обучающие курсы по {{ cloud-logging-full-name }}.
 ---
 
 # Обучающие курсы по {{ cloud-logging-full-name }}

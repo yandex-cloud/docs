@@ -1,6 +1,6 @@
 ---
-title: "How to connect to a {{ k8s }} cluster node via {{ oslogin }} in {{ managed-k8s-full-name }}"
-description: "Follow this guide to connect to a node via {{ oslogin }}."
+title: How to connect to a {{ k8s }} cluster node via {{ oslogin }} in {{ managed-k8s-full-name }}
+description: Follow this guide to connect to a node via {{ oslogin }}.
 ---
 
 # Connecting to a node via {{ oslogin }}
@@ -123,7 +123,7 @@ Set up your cluster node for connection:
 
       1. {% include [get-metadata-via-api](../../_includes/managed-kubernetes/get-metadata-via-api.md) %}
 
-      1. Use the [update](../api-ref/NodeGroup/update.md) API method and include the following in the request:
+      1. Use the [update](../managed-kubernetes/api-ref/NodeGroup/update.md) API method and include the following in the request:
 
           * Node group ID in the `nodeGroupId` parameter.
 

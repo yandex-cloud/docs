@@ -1,6 +1,6 @@
 ---
-title: "Как работать с Git в {{ ml-platform-full-name }}"
-description: "Из статьи вы узнаете, как работать с Git в {{ ml-platform-name }}."
+title: Как работать с Git в {{ ml-platform-full-name }}
+description: Из статьи вы узнаете, как работать с Git в {{ ml-platform-name }}.
 ---
 
 # Работа с Git

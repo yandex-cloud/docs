@@ -1,7 +1,6 @@
 # What is the format of closing documents in the Electronic Document Management system
 
 
-
 ## Scenario description {#case-description}
 
 You need to know the format in which closing documents are provided to Electronic Document Management.

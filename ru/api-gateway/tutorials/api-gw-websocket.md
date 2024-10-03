@@ -1,6 +1,6 @@
 ---
-title: "Работа с API-шлюзом {{ api-gw-full-name }} по протоколу WebSocket"
-description: "Узнайте, как работать с API-шлюзом {{ api-gw-name }} по протоколу WebSocket." 
+title: Работа с API-шлюзом {{ api-gw-full-name }} по протоколу WebSocket
+description: Узнайте, как работать с API-шлюзом {{ api-gw-name }} по протоколу WebSocket.
 ---
 
 # Работа с API-шлюзом по протоколу WebSocket

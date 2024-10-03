@@ -18,11 +18,9 @@ The {{ sws-name }} cost depends on the number of [legitimate](concepts/rules.md#
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
-### Requests {#requests}
-
 {% include [sum-cloud-account](../_includes/smartwebsecurity/sum-cloud-account.md) %}
 
-#### Requests processed by security profile rules {#requests-smart}
+### Requests processed by security profile rules {#requests-smart}
 
 
 
@@ -35,7 +33,7 @@ The {{ sws-name }} cost depends on the number of [legitimate](concepts/rules.md#
 {% endcut %}
 
 
-### WAF{#waf-arl-prices}
+### Requests processed by WAF rules {#requests-waf}
 
 {% note warning %}
 
@@ -43,14 +41,12 @@ The following price will be effective as of October 1, 2024.
 
 {% endnote %}
 
-#### Requests processed by WAF rules {#requests-waf}
-
 
 
 {% include [usd-requests](../_pricing/smartwebsecurity/usd-requests-waf.md) %}
 
 
-#### Ready-made cost calculations for requests
+### Ready-made cost calculations for requests
 
 To estimate the approximate cost of requests, the table below shows the price calculations for a certain number of requests per month. This number does not include the free limit of 10,000 requests. The cost provided is for reference. The actual usage of {{ sws-name }} by your services will be calculated based on the actual number of requests.
 

@@ -1,6 +1,6 @@
 ---
-title: "How to delete a subnet"
-description: "Follow this guide to delete a subnet."
+title: How to delete a subnet
+description: Follow this guide to delete a subnet.
 ---
 
 # Deleting a subnet

@@ -1,6 +1,6 @@
 ---
-title: "Website on Bitrix: Installation and setup using Terraform"
-description: "In this tutorial, you will learn how to deploy and set up a Bitrix website in the cloud using Terraform. 1C-Bitrix is a website and web project management system by 1C-Bitrix. It enables you to manage the structure and content of your site without any specialized programming or web design skills."
+title: 'Website on Bitrix: Installation and setup using Terraform'
+description: In this tutorial, you will learn how to deploy and set up a Bitrix website in the cloud using Terraform. 1C-Bitrix is a website and web project management system by 1C-Bitrix. It enables you to manage the structure and content of your site without any specialized programming or web design skills.
 ---
 
 # Building a 1C-Bitrix website using {{ TF }}

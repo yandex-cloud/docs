@@ -1,6 +1,6 @@
 ---
-title: "How to set up access to {{ objstorage-name }} from an {{ ES }} cluster"
-description: "Follow this guide to set up access to {{ objstorage-name }} from an {{ ES }} cluster."
+title: How to set up access to {{ objstorage-name }} from an {{ ES }} cluster
+description: Follow this guide to set up access to {{ objstorage-name }} from an {{ ES }} cluster.
 ---
 
 # Configuring access to {{ objstorage-name }} from a {{ ES }} cluster

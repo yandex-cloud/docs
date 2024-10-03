@@ -1,6 +1,6 @@
 ---
-title: "{{ lockbox-full-name }} pricing policy"
-description: "This article describes the {{ lockbox-name }} pricing policy."
+title: '{{ lockbox-full-name }} pricing policy'
+description: This article describes the {{ lockbox-name }} pricing policy.
 editable: false
 ---
 

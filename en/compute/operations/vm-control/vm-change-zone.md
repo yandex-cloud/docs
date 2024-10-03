@@ -1,6 +1,6 @@
 ---
-title: "How to move a VM to a different availability zone"
-description: "Follow this guide to move a VM to a different availability zone."
+title: How to move a VM to a different availability zone
+description: Follow this guide to move a VM to a different availability zone.
 ---
 
 # Moving a VM to a different availability zone

@@ -1,6 +1,6 @@
 ---
-title: "How to configure access"
-description: "In this tutorial, you will learn how to configure access to {{ forms-full-name }}."
+title: How to configure access
+description: In this tutorial, you will learn how to configure access to {{ forms-full-name }}.
 ---
 
 # Configuring access

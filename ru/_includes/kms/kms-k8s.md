@@ -68,7 +68,7 @@
 
 - API {#api}
 
-  Укажите ключ шифрования при [создании](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) кластера {{ managed-k8s-name }}. Для этого воспользуйтесь методом REST API [create](../../managed-kubernetes/api-ref/Cluster/create.md) для ресурса [Cluster](../../managed-kubernetes/api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Create](../../managed-kubernetes/api-ref/grpc/cluster_service.md#Create).
+  Укажите ключ шифрования при [создании](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) кластера {{ managed-k8s-name }}. Для этого воспользуйтесь методом REST API [create](../../managed-kubernetes/managed-kubernetes/api-ref/Cluster/create.md) для ресурса [Cluster](../../managed-kubernetes/managed-kubernetes/api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Create](../../managed-kubernetes/managed-kubernetes/api-ref/grpc/cluster_service.md#Create).
 
   Передайте идентификатор ключа в соответствующем параметре поля `kmsProvider`.
 

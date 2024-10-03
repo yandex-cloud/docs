@@ -1,6 +1,6 @@
 ---
-title: "Аутентификация в API {{ postbox-full-name }}"
-description: "Для выполнения операций через API {{ postbox-name }} получите статический ключ доступа."
+title: Аутентификация в API {{ postbox-full-name }}
+description: Для выполнения операций через API {{ postbox-name }} получите статический ключ доступа.
 ---
 
 # Аутентификация в API {{ postbox-name }}

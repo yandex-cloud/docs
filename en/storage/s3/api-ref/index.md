@@ -1,6 +1,6 @@
 ---
-title: "What S3 API methods can be used to manage {{ objstorage-full-name }}"
-description: "In this tutorial, you will learn about the S3 API methods you can use to manage {{ objstorage-full-name }}."
+title: What S3 API methods can be used to manage {{ objstorage-full-name }}
+description: In this tutorial, you will learn about the S3 API methods you can use to manage {{ objstorage-full-name }}.
 ---
 
 # All services and methods

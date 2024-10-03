@@ -383,7 +383,7 @@ Create a relying party trust for the federation you created in the cloud:
 
    {% endcut %}
 
-   
+
    {% cut "How to get the federation ACS URL" %}
 
    {% include [get-acs-url](../../../_includes/organization/get-acs-url.md) %}
@@ -391,7 +391,7 @@ Create a relying party trust for the federation you created in the cloud:
    {% endcut %}
 
 
-   
+
    ![image](../../../_assets/iam/federations/specify-console-sso-link.png)
 
 
@@ -451,7 +451,7 @@ To set up a mapping between the user data and Outgoing Claim Types:
 
       In the **Outgoing Claim Type** column, select **Name ID**.
 
-   
+
    1. For a user to be able to contact {{ yandex-cloud }} technical support from the [management console]({{ link-console-support }}), add the user's email address (the **E-Mail Address** claim type) or name (the **Name** claim type).
 
 

@@ -1,6 +1,6 @@
 ---
-title: "How to create an issue or comment template in {{ tracker-full-name }}"
-description: "In this tutorial, you will learn how to create an issue or comment template."
+title: How to create an issue or comment template in {{ tracker-full-name }}
+description: In this tutorial, you will learn how to create an issue or comment template.
 ---
 
 # Creating a template
