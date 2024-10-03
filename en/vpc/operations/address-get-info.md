@@ -1,5 +1,5 @@
 ---
-title: "How to get information about an IP address in {{ vpc-full-name }}"
+title: How to get information about an IP address in {{ vpc-full-name }}
 ---
 
 # Getting information about an IP address

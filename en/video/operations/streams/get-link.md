@@ -1,6 +1,6 @@
 ---
-title: "How to get an embed code or broadcast link in {{ video-full-name }}"
-description: "Follow this guide to get the {{ video-full-name }} embed code or link to the broadcast."
+title: How to get an embed code or broadcast link in {{ video-full-name }}
+description: Follow this guide to get the {{ video-full-name }} embed code or link to the broadcast.
 ---
 
 # Getting an embed code or link to a broadcast

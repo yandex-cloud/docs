@@ -1,6 +1,6 @@
 ---
-title: "Практические руководства {{ objstorage-full-name }}"
-description: "На странице представлен список практических руководств {{ objstorage-name }}."
+title: Практические руководства {{ objstorage-full-name }}
+description: На странице представлен список практических руководств {{ objstorage-name }}.
 ---
 
 # Практические руководства {{ objstorage-name }}
@@ -40,6 +40,7 @@ description: "На странице представлен список прак
 * [{#T}](./static-key-in-lockbox.md)
 * [{#T}](./opensearch-to-object-storage.md)
 * [{#T}](./ydb-to-object-storage.md)
+* [{#T}](./mmy-objs-migration.md)
 * [{#T}](./greenplum-yezzey.md)
 * [{#T}](./static-key-in-lockbox.md)
 * [{#T}](./terraform-state-storage.md)

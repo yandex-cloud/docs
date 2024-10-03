@@ -1,10 +1,5 @@
 title: '{{ serverless-containers-full-name }}'
 href: index.yaml
-label:
-  title: RU
-  description: Сервис доступен только в регионе Россия.
-  theme: unknown
-  when: region == "kz"
 items:
   - name: Сопоставление с другими сервисами {{ yandex-cloud }}
     href: service-comparison.md
@@ -315,3 +310,4 @@ items:
   - name: Вопросы и ответы
     href: qa/index.md
 base: ru/serverless-containers
+deepBase: 2

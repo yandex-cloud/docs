@@ -1,6 +1,6 @@
 ---
-title: "How to view a list of my pages in {{ wiki-full-name }}"
-description: "Follow this guide to view a list of your pages."
+title: How to view a list of my pages in {{ wiki-full-name }}
+description: Follow this guide to view a list of your pages.
 ---
 
 # Viewing a list of your pages

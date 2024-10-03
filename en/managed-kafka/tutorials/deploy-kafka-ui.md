@@ -1,5 +1,5 @@
 ---
-canonical: "{{ link-docs }}/tutorials/dataplatform/deploy-kafka-ui"
+canonical: '{{ link-docs }}/tutorials/dataplatform/deploy-kafka-ui'
 ---
 
 # Deploying the UI for {{ KF }}

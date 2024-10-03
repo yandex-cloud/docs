@@ -1,6 +1,6 @@
 ---
-title: "Data validation in {{ api-gw-full-name }}"
-description: "In this tutorial, you will learn about {{ api-gw-name }} extensions that allow you to define a validator for schemas described in the API gateway specification."
+title: Data validation in {{ api-gw-full-name }}
+description: In this tutorial, you will learn about {{ api-gw-name }} extensions that allow you to define a validator for schemas described in the API gateway specification.
 ---
 
 # Data validation

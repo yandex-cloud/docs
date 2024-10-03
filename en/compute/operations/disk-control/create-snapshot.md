@@ -1,6 +1,6 @@
 ---
-title: "How to create a disk snapshot"
-description: "Follow this guide to create a disk snapshot."
+title: How to create a disk snapshot
+description: Follow this guide to create a disk snapshot.
 ---
 
 # Creating a disk snapshot

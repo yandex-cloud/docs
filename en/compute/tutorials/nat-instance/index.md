@@ -1,5 +1,5 @@
 ---
-canonical: "{{ link-docs }}/tutorials/routing/nat-instance"
+canonical: '{{ link-docs }}/tutorials/routing/nat-instance'
 ---
 
 {% include [nat-instance](../../../_tutorials/routing/nat-instance.md) %}

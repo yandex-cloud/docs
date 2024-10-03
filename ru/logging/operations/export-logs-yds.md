@@ -1,6 +1,6 @@
 ---
-title: "Инструкция о том, как выгрузить логи из {{ cloud-logging-name }} в поток {{ yds-name }}"
-description: "Из статьи вы узнаете, как выгрузить логи из {{ cloud-logging-name }} в поток {{ yds-name }}."
+title: Инструкция о том, как выгрузить логи из {{ cloud-logging-name }} в поток {{ yds-name }}
+description: Из статьи вы узнаете, как выгрузить логи из {{ cloud-logging-name }} в поток {{ yds-name }}.
 ---
 
 # Выгрузить логи в {{ yds-name }}

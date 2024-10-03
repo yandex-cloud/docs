@@ -1,6 +1,6 @@
 ---
-title: "Creating dashboards in {{ monitoring-full-name }}"
-description: "To create a dashboard in {{ monitoring-full-name }}, open the service homepage and click Create dashboard. Add a widget to the dashboard. Click Heading under Add widget or click Add in the dashboard title and then select Heading. Enter the text for your heading in the input field. Select the heading size. Click Add. The heading widget is added to the dashboard. Click Save in the upper-right corner. Enter a name for the dashboard and click Save."
+title: Creating dashboards in {{ monitoring-full-name }}
+description: To create a dashboard in {{ monitoring-full-name }}, open the service homepage and click Create dashboard. Add a widget to the dashboard. Click Heading under Add widget or click Add in the dashboard title and then select Heading. Enter the text for your heading in the input field. Select the heading size. Click Add. The heading widget is added to the dashboard. Click Save in the upper-right corner. Enter a name for the dashboard and click Save.
 ---
 
 # Creating a dashboard in {{ monitoring-name }}

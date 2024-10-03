@@ -1,6 +1,6 @@
 ---
-title: "Как разместить свой продукт в {{ marketplace-full-name }}"
-description: "Следуя данной инструкции, вы сможете разместить свой продукт в {{ marketplace-full-name }}." 
+title: Как разместить свой продукт в {{ marketplace-full-name }}
+description: Следуя данной инструкции, вы сможете разместить свой продукт в {{ marketplace-full-name }}.
 ---
 
 # Как разместить свой продукт в {{ marketplace-full-name }}

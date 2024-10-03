@@ -1,10 +1,5 @@
 title: Yandex Object Storage
 href: index.yaml
-label:
-  title: KZ
-  description: Сервис доступен в регионе Казахстан.
-  theme: info
-  when: region == "kz"
 items:
   - name: Начало работы
     items:
@@ -180,6 +175,10 @@ items:
         href: tutorials/gatsby-static-website.md
       - name: Хранение статического ключа доступа в секрете {{ lockbox-name }}
         href: tutorials/static-key-in-lockbox.md
+      - name: >-
+          Миграция базы данных из {{ mmy-full-name }} в {{ objstorage-full-name
+          }}
+        href: tutorials/mmy-objs-migration.md
       - name: >-
           Выгрузка данных {{ GP }} в холодное хранилище {{ objstorage-full-name
           }}
@@ -576,3 +575,4 @@ items:
   - name: Обучающие курсы
     href: training.md
 base: ru/storage
+deepBase: 2

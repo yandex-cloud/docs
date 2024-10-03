@@ -1,6 +1,6 @@
 ---
-title: "How to delete a bucket"
-description: "Follow this guide to delete a bucket."
+title: How to delete a bucket
+description: Follow this guide to delete a bucket.
 ---
 
 # Deleting a bucket
@@ -142,7 +142,7 @@ To delete the bucket that [stores the logs](../../concepts/server-logs.md) of an
 
   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
-  
+
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
 

@@ -1,6 +1,6 @@
 ---
-title: "Restrictions in the current version of text recognition in {{ vision-full-name }}"
-description: "Text recognition currently works with a number of restrictions. Read this article to learn more about the restrictions."
+title: Restrictions in the current version of text recognition in {{ vision-full-name }}
+description: Text recognition currently works with a number of restrictions. Read this article to learn more about the restrictions.
 ---
 
 # Restrictions for the current version of text recognition

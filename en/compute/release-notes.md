@@ -1,6 +1,6 @@
 ---
-title: "{{ compute-full-name }} release notes"
-description: "This section contains {{ compute-name }} release notes."
+title: '{{ compute-full-name }} release notes'
+description: This section contains {{ compute-name }} release notes.
 ---
 
 # {{ compute-full-name }} release notes

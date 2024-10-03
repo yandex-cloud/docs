@@ -1,6 +1,6 @@
 ---
-title: "Шлюзы в {{ vpc-full-name }}"
-description: "Из статьи вы узнаете, какие шлюзы используются в сервисе {{ vpc-full-name }}."
+title: Шлюзы в {{ vpc-full-name }}
+description: Из статьи вы узнаете, какие шлюзы используются в сервисе {{ vpc-full-name }}.
 ---
 
 # Шлюзы

@@ -49,7 +49,7 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
          {% include [storages-type-no-change](../../_includes/mdb/storages-type-no-change.md) %}
 
-         
+
          {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
 
 
@@ -64,7 +64,7 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
       * Username
       * User password. The password must be at least 8 characters long.
 
-   
+
    1. Under **{{ ui-key.yacloud.mdb.forms.section_network }}**, select:
 
       * Cloud network for the cluster.
@@ -73,14 +73,14 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
    1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**, add the DB hosts created with the cluster:
 
-      
+
       * Click **{{ ui-key.yacloud.mdb.forms.button_add-host }}**.
       * Select the [availability zone](../../overview/concepts/geo-scope.md).
       * Select the [subnet](../../vpc/concepts/network.md#subnet) in the specified availability zone. If there is no subnet, create one.
       * If the host must be available outside {{ yandex-cloud }}, enable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**. You cannot change this setting after you create a host.
 
 
-      
+
       To ensure fault tolerance, you need at least 3 hosts for `local-ssd` and `network-ssd-nonreplicated` disk types. For more information, see [Storage](../concepts/storage.md).
 
 
@@ -104,7 +104,7 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
    To create a {{ mmg-name }} cluster:
 
-   
+
    1. Check whether the folder has any subnets for the cluster hosts:
 
       ```bash
@@ -122,7 +122,7 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
    1. Specify the cluster parameters in the create command (the example shows only some of the parameters):
 
-      
+
       ```bash
       {{ yc-mdb-mg }} cluster create \
         --name <cluster_name> \
@@ -147,7 +147,7 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
       * `--environment`: `prestable` or `production`.
 
-      
+
       * `--host`: Host parameters:
          * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
          * `subnet-id`: [Subnet ID](../../vpc/concepts/network.md#subnet). Specify if two or more subnets are created in the selected availability zone.
@@ -189,8 +189,8 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
       Here is an example of the configuration file structure:
 
-      
-      
+
+
       ```hcl
       resource "yandex_mdb_mongodb_cluster" "<cluster_name>" {
         name                = "<cluster_name>"
@@ -251,7 +251,7 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
       * `environment`: Environment, `PRESTABLE` or `PRODUCTION`.
 
-      
+
       * `host`: Host parameters:
          * `zone_id`: Availability zone.
          * `subnet_id`: ID of a subnet in the selected availability zone.
@@ -292,7 +292,7 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
    * Cluster configuration in the `configSpec` parameter.
    * Configuration of the cluster hosts in one or more `hostSpecs` parameters.
 
-   
+
    * [Security group](../concepts/network.md#security-groups) IDs in the `securityGroupIds` parameter.
 
 
@@ -403,7 +403,7 @@ To create a {{ MG }} cluster copy:
 
    Create a {{ mmg-name }} cluster with the following test characteristics:
 
-   
+
    * Name: `mymg`
    * Environment: `Production`
    * Network: `{{ network-name }}`
@@ -417,7 +417,7 @@ To create a {{ MG }} cluster copy:
 
    Run the following command:
 
-   
+
    ```bash
    {{ yc-mdb-mg }} cluster create \
      --name mymg \
@@ -451,7 +451,7 @@ To create a {{ MG }} cluster copy:
       * Availability zone: `{{ region-id }}-a`.
       * Range: `10.5.0.0/24`
 
-   
+
    * Security group: `mymg-sg`. The group rules allow TCP connections to the cluster from the internet via port `{{ port-mmg }}`.
 
 
@@ -464,8 +464,8 @@ To create a {{ MG }} cluster copy:
 
    Configuration file for a single-host cluster:
 
-   
-   
+
+
    ```hcl
    resource "yandex_mdb_mongodb_cluster" "mymg" {
      name                = "mymg"

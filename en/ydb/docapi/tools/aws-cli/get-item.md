@@ -1,6 +1,6 @@
 ---
-title: "How to read data from a {{ ydb-full-name }} table"
-description: "Follow this guide to read data from a table."
+title: How to read data from a {{ ydb-full-name }} table
+description: Follow this guide to read data from a table.
 ---
 
 # Reading data from a table

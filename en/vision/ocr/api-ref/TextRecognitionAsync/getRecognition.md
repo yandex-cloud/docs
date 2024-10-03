@@ -143,7 +143,7 @@ operationId | <p>Required. Operation ID of async recognition request.</p> <p>The
  
 Field | Description
 --- | ---
-textAnnotation | **object**<br><p>Recognized text blocks in this page or text from entities.</p> 
+textAnnotation | **object**<br><p>Recognized text blocks in page or text from entities.</p> 
 textAnnotation.<br>width | **string** (int64)<br><p>Page width in pixels.</p> 
 textAnnotation.<br>height | **string** (int64)<br><p>Page height in pixels.</p> 
 textAnnotation.<br>blocks[] | **object**<br><p>Recognized text blocks in this page.</p> 
@@ -170,7 +170,7 @@ textAnnotation.<br>blocks[].<br>lines[].<br>words[].<br>textSegments[].<br>lengt
 textAnnotation.<br>blocks[].<br>lines[].<br>textSegments[] | **object**<br><p>Line position from full_text string.</p> 
 textAnnotation.<br>blocks[].<br>lines[].<br>textSegments[].<br>startIndex | **string** (int64)<br><p>Start character position from full_text string.</p> 
 textAnnotation.<br>blocks[].<br>lines[].<br>textSegments[].<br>length | **string** (int64)<br><p>Text segment length.</p> 
-textAnnotation.<br>blocks[].<br>lines[].<br>orientation | **string**<br><p>Angle of rotate line</p> 
+textAnnotation.<br>blocks[].<br>lines[].<br>orientation | **string**<br><p>Angle of line rotation.</p> 
 textAnnotation.<br>blocks[].<br>languages[] | **object**<br><p>A list of detected languages</p> 
 textAnnotation.<br>blocks[].<br>languages[].<br>languageCode | **string**<br><p>Detected language code.</p> 
 textAnnotation.<br>blocks[].<br>textSegments[] | **object**<br><p>Block position from full_text string.</p> 
@@ -200,5 +200,5 @@ textAnnotation.<br>tables[].<br>cells[].<br>textSegments[] | **object**<br><p>Ta
 textAnnotation.<br>tables[].<br>cells[].<br>textSegments[].<br>startIndex | **string** (int64)<br><p>Start character position from full_text string.</p> 
 textAnnotation.<br>tables[].<br>cells[].<br>textSegments[].<br>length | **string** (int64)<br><p>Text segment length.</p> 
 textAnnotation.<br>fullText | **string**<br><p>Full text recognized from image.</p> 
-textAnnotation.<br>rotate | **string**<br><p>Angle of rotate image</p> 
+textAnnotation.<br>rotate | **string**<br><p>Angle of image rotation.</p> 
 page | **string** (int64)<br><p>Page number in PDF file.</p> 

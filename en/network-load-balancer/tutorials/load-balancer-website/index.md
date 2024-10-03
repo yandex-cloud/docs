@@ -1,5 +1,5 @@
 ---
-canonical: "{{ link-docs }}/tutorials/web/load-balancer-website"
+canonical: '{{ link-docs }}/tutorials/web/load-balancer-website'
 ---
 
 {% include [load-balancer-website](../../../_tutorials/web/load-balancer-website.md) %}

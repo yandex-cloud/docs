@@ -1,6 +1,6 @@
 ---
-title: "How to update a domain description"
-description: "Follow this guide to update a domain description."
+title: How to update a domain description
+description: Follow this guide to update a domain description.
 ---
 
 # Updating a domain description

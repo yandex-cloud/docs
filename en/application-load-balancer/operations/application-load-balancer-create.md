@@ -1,6 +1,6 @@
 ---
-title: "How to create an L7 load balancer in {{ alb-full-name }}"
-description: "Follow this guide to create an L7 load balancer."
+title: How to create an L7 load balancer in {{ alb-full-name }}
+description: Follow this guide to create an L7 load balancer.
 ---
 
 # Creating an L7 load balancer

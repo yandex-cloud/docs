@@ -1,6 +1,6 @@
 ---
-title: "How to manage data format schemas in {{ mch-name }}"
-description: "This guide describes how you can manage data format schemas in {{ mch-name }}."
+title: How to manage data format schemas in {{ mch-name }}
+description: This guide describes how you can manage data format schemas in {{ mch-name }}.
 ---
 
 # Managing data format schemas in {{ mch-name }}

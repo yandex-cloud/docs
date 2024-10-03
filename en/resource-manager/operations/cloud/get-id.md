@@ -1,6 +1,6 @@
 ---
-title: "How to get cloud IDs in {{ yandex-cloud }}"
-description: "In this tutorial, you will learn how to get a cloud ID in {{ yandex-cloud }}."
+title: How to get cloud IDs in {{ yandex-cloud }}
+description: In this tutorial, you will learn how to get a cloud ID in {{ yandex-cloud }}.
 ---
 
 # Retrieving a cloud ID

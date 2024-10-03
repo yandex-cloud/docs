@@ -1,6 +1,6 @@
 ---
-title: "Moving an instance group with a network load balancer to a different availability zone"
-description: "In this article, you will learn how to move a {{ compute-full-name }} instance group with a network load balancer across availability zones."
+title: Moving an instance group with a network load balancer to a different availability zone
+description: In this article, you will learn how to move a {{ compute-full-name }} instance group with a network load balancer across availability zones.
 ---
 
 # Moving an instance group with a network load balancer to a different availability zone

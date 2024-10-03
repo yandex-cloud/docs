@@ -1,6 +1,6 @@
 ---
-title: "Invoking a container in {{ serverless-containers-full-name }}"
-description: "You can invoke a container over HTTPS using a trigger or {{ api-gw-full-name }} extension."
+title: Invoking a container in {{ serverless-containers-full-name }}
+description: You can invoke a container over HTTPS using a trigger or {{ api-gw-full-name }} extension.
 ---
 
 # Invoking a container in {{ serverless-containers-name }}

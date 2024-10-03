@@ -1,6 +1,6 @@
 ---
-title: "{{ yds-full-name }} pricing policy"
-description: "This article describes the {{ yds-name }} pricing policy."
+title: '{{ yds-full-name }} pricing policy'
+description: This article describes the {{ yds-name }} pricing policy.
 editable: false
 ---
 

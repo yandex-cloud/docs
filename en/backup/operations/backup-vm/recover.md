@@ -1,6 +1,6 @@
 ---
-title: "How to restore a VM from a backup"
-description: "Use this guide to restore a VM from a backup."
+title: How to restore a VM from a backup
+description: Use this guide to restore a VM from a backup.
 ---
 
 # Restoring a VM from a backup

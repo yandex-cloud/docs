@@ -1,6 +1,6 @@
 ---
-title: "{{ metastore-full-name }} clusters"
-description: "You can create {{ metastore-full-name }} clusters in {{ metadata-hub-full-name }}."
+title: '{{ metastore-full-name }} clusters'
+description: You can create {{ metastore-full-name }} clusters in {{ metadata-hub-full-name }}.
 ---
 
 # {{ metastore-full-name }} clusters

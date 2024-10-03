@@ -1,6 +1,6 @@
 ---
-title: "Routing through a NAT instance"
-description: "In this tutorial, you will create a {{ compute-full-name }} VM and configure its internet connection through a NAT instance using static routing in {{ vpc-full-name }}."
+title: Routing through a NAT instance
+description: In this tutorial, you will create a {{ compute-full-name }} VM and configure its internet connection through a NAT instance using static routing in {{ vpc-full-name }}.
 ---
 
 {% include [nat-instance](../../../_tutorials/routing/nat-instance.md) %}

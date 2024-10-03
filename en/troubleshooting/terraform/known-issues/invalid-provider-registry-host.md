@@ -1,7 +1,6 @@
 # Troubleshooting the 'invalid provider registry host' error
 
 
-
 ## Issue description {#issue-description}
 
 When trying to run `terraform init`, you see this error:

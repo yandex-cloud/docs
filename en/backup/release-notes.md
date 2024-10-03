@@ -1,6 +1,6 @@
 ---
-title: "{{ backup-full-name }} release notes"
-description: "This section contains {{ backup-name }} release notes."
+title: '{{ backup-full-name }} release notes'
+description: This section contains {{ backup-name }} release notes.
 ---
 
 # {{ backup-full-name }} release notes

@@ -1,6 +1,6 @@
 ---
-title: "How to view my projects in {{ tracker-full-name }}"
-description: "Follow this guide to view a list of your projects."
+title: How to view my projects in {{ tracker-full-name }}
+description: Follow this guide to view a list of your projects.
 ---
 
 # My projects

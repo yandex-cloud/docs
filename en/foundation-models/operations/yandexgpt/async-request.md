@@ -1,6 +1,6 @@
 ---
-title: "How to send asynchronous requests to {{ yagpt-full-name }}"
-description: "Follow this guide to learn how to send asynchronous requests to models in {{ yagpt-full-name }}."
+title: How to send asynchronous requests to {{ yagpt-full-name }}
+description: Follow this guide to learn how to send asynchronous requests to models in {{ yagpt-full-name }}.
 ---
 
 # Sending an asynchronous request

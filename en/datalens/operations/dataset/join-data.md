@@ -1,6 +1,6 @@
 ---
-title: "How to combine data from multiple tables in {{ datalens-full-name }}"
-description: "Follow this guide to combine data from multiple tables."
+title: How to combine data from multiple tables in {{ datalens-full-name }}
+description: Follow this guide to combine data from multiple tables.
 ---
 
 # Combining data from multiple tables

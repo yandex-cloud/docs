@@ -1,6 +1,6 @@
 ---
-title: "{{ dataproc-full-name }} release notes"
-description: "This section contains {{ dataproc-name }} release notes."
+title: '{{ dataproc-full-name }} release notes'
+description: This section contains {{ dataproc-name }} release notes.
 ---
 
 # {{ dataproc-full-name }} release notes

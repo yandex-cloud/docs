@@ -83,7 +83,7 @@ To change {{ dataproc-name }} cluster settings:
         {{ yc-dp }} cluster update --help
         ```
 
-    
+
     1. To edit the [log group](../../logging/concepts/log-group.md) the cluster logs go to, provide the log group ID in the `--log-group-id` parameter:
 
         ```bash

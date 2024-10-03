@@ -1,6 +1,6 @@
 ---
-title: "Installing Ingress NGINX"
-description: "Learn how to install Ingress NGINX in a {{ managed-k8s-name }} cluster."
+title: Installing Ingress NGINX
+description: Learn how to install Ingress NGINX in a {{ managed-k8s-name }} cluster.
 ---
 
 # Installing Ingress NGINX

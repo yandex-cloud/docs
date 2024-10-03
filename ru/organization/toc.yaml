@@ -1,10 +1,5 @@
 title: Yandex Cloud Organization
 href: index.yaml
-label:
-  title: KZ
-  description: Сервис доступен в регионе Казахстан.
-  theme: info
-  when: region == "kz"
 items:
   - name: Начало работы
     href: quickstart.md
@@ -315,3 +310,4 @@ items:
   - name: Обучающие курсы
     href: training.md
 base: ru/organization
+deepBase: 2

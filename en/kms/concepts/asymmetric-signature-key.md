@@ -1,6 +1,6 @@
 ---
-title: "Asymmetric signature key pair in {{ kms-short-name }}"
-description: "This article describes the features of asymmetric signature key pairs in {{ kms-short-name }}."
+title: Asymmetric signature key pair in {{ kms-short-name }}
+description: This article describes the features of asymmetric signature key pairs in {{ kms-short-name }}.
 ---
 
 # Asymmetric signature key pair in {{ kms-short-name }}

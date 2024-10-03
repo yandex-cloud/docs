@@ -1,6 +1,6 @@
 ---
-title: "Approval rules in {{ mgl-name }}"
-description: "With {{ mgl-name }}, you can flexibly set up mandatory approval rules before any code can be added to the target branch of the project. This feature is an alternative to the Approval Rules Enterprise Edition tool built in {{ GL }} and is available regardless of the {{ GL }} version."
+title: Approval rules in {{ mgl-name }}
+description: With {{ mgl-name }}, you can flexibly set up mandatory approval rules before any code can be added to the target branch of the project. This feature is an alternative to the Approval Rules Enterprise Edition tool built in {{ GL }} and is available regardless of the {{ GL }} version.
 ---
 
 # Approval rules in {{ mgl-name }}

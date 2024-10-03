@@ -1,6 +1,6 @@
 ---
-title: "GET requests"
-description: "This article describes how to use GET requests."
+title: GET requests
+description: This article describes how to use GET requests.
 ---
 
 # GET requests

@@ -1,6 +1,6 @@
 ---
-title: "Adding the {{ yagpt-name }} extension"
-description: "Follow this guide to add the {{ yagpt-name }} extension using the specification constructor."
+title: Adding the {{ yagpt-name }} extension
+description: Follow this guide to add the {{ yagpt-name }} extension using the specification constructor.
 ---
 
 # Adding the x-yc-apigateway-integration:http extension for integration with {{ yagpt-name }}

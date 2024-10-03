@@ -93,7 +93,7 @@ The cost of resources includes:
 
    - {{ TF }} {#tf}
 
-     
+
      {% include [terraform-install](../../_includes/terraform-install.md) %}
 
 

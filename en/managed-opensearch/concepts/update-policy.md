@@ -1,6 +1,6 @@
 ---
-title: "What versioning policies {{ mos-full-name }} supports"
-description: "In this tutorial, you will learn about versioning policies supported by {{ mos-name }}."
+title: What versioning policies {{ mos-full-name }} supports
+description: In this tutorial, you will learn about versioning policies supported by {{ mos-name }}.
 ---
 
 # {{ OS }} versioning policy

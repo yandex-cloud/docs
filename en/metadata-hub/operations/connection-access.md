@@ -1,6 +1,6 @@
 ---
-title: "Configuring connection access permissions"
-description: "Follow this guide to configure connection access permissions."
+title: Configuring connection access permissions
+description: Follow this guide to configure connection access permissions.
 ---
 
 # Configuring connection access permissions

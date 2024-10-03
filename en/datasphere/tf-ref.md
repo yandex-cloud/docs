@@ -1,6 +1,6 @@
 ---
-title: "{{ TF }} reference for {{ ml-platform-full-name }}"
-description: "This page provides reference information on the {{ TF }} provider resources and data sources supported for {{ ml-platform-name }}."
+title: '{{ TF }} reference for {{ ml-platform-full-name }}'
+description: This page provides reference information on the {{ TF }} provider resources and data sources supported for {{ ml-platform-name }}.
 ---
 
 # {{ TF }} reference for {{ ml-platform-full-name }}

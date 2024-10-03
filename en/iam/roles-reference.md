@@ -1,6 +1,6 @@
 ---
-title: "{{ yandex-cloud }} role reference"
-description: "The article provides a full reference and description of roles for {{ yandex-cloud }} services."
+title: '{{ yandex-cloud }} role reference'
+description: The article provides a full reference and description of roles for {{ yandex-cloud }} services.
 ---
 
 # {{ yandex-cloud }} role reference

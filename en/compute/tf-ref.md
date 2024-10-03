@@ -1,6 +1,6 @@
 ---
-title: "{{ TF }} reference for {{ compute-full-name }}"
-description: "This page provides reference information on {{ TF }} provider resources and data sources supported for {{ compute-name }}."
+title: '{{ TF }} reference for {{ compute-full-name }}'
+description: This page provides reference information on {{ TF }} provider resources and data sources supported for {{ compute-name }}.
 ---
 
 # {{ TF }} reference for {{ compute-full-name }}

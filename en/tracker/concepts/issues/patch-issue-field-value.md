@@ -1,6 +1,6 @@
 ---
-title: "How to edit possible issue field values in {{ tracker-full-name }}"
-description: "In this tutorial, you will learn how to edit possible issue field values in {{ tracker-name }}."
+title: How to edit possible issue field values in {{ tracker-full-name }}
+description: In this tutorial, you will learn how to edit possible issue field values in {{ tracker-name }}.
 sourcePath: en/tracker/api-ref/concepts/issues/patch-issue-field-value.md
 ---
 

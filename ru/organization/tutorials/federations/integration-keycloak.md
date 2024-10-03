@@ -663,7 +663,7 @@
       
          {% endcut %}
 
-         
+
          {% cut "Как получить ACS URL федерации" %}
 
          {% include [get-acs-url](../../../_includes/organization/get-acs-url.md) %}
@@ -687,7 +687,7 @@
 
          {% endcut %}
 
-         
+
          {% cut "Как получить ACS URL федерации" %}
 
          {% include [get-acs-url](../../../_includes/organization/get-acs-url.md) %}
@@ -721,7 +721,7 @@
 
        {% endlist %}
 
-       
+
        {% cut "Как получить ACS URL федерации" %}
 
        {% include [get-acs-url](../../../_includes/organization/get-acs-url.md) %}

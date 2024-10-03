@@ -819,3 +819,4 @@ items:
           analyzing them with {{ datalens-full-name }}
         href: serverless/events-from-postbox-to-yds.md
 base: en/tutorials
+deepBase: 2

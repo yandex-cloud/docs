@@ -23,7 +23,7 @@ The disk size must be a multiple of 93 GB.
    1. Select the required block size.
    1. Specify the required disk size.
 
-   
+
    1. {% include [encryption-section-without-sa](../../../_includes/compute/encryption-section-without-sa.md) %}
 
 

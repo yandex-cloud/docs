@@ -1,5 +1,5 @@
 ---
-canonical: "{{ link-docs }}/tutorials/infrastructure-management/gitlab-containers"
+canonical: '{{ link-docs }}/tutorials/infrastructure-management/gitlab-containers'
 ---
 
 # Continuous deployment of containerized applications using {{ GL }}

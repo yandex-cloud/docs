@@ -1,6 +1,6 @@
 ---
-title: "{{ mgl-full-name }} pricing policy"
-description: "This article provides the {{ mgl-name }} pricing policy."
+title: '{{ mgl-full-name }} pricing policy'
+description: This article provides the {{ mgl-name }} pricing policy.
 editable: false
 ---
 

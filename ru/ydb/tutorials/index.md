@@ -1,6 +1,6 @@
 ---
-title: "Сценарии использования {{ ydb-full-name }}"
-description: "Различные сценарии использования {{ ydb-full-name }} в {{ yandex-cloud }}."
+title: Сценарии использования {{ ydb-full-name }}
+description: Различные сценарии использования {{ ydb-full-name }} в {{ yandex-cloud }}.
 ---
 
 # Практические руководства {{ ydb-name }}

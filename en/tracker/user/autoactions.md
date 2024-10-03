@@ -1,6 +1,6 @@
 ---
-title: "Auto actions"
-description: "An auto action is a set of actions on the queue's issues that is applied automatically at a given interval."
+title: Auto actions
+description: An auto action is a set of actions on the queue's issues that is applied automatically at a given interval.
 ---
 
 # Auto actions

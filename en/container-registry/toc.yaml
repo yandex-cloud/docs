@@ -1,10 +1,5 @@
 title: Yandex Container Registry
 href: index.yaml
-label:
-  title: KZ
-  description: This service is only available in the Kazakhstan region.
-  theme: info
-  when: region == "kz"
 items:
   - name: Getting started
     href: quickstart/index.md
@@ -288,3 +283,4 @@ items:
   - name: FAQ
     href: qa/index.md
 base: en/container-registry
+deepBase: 2

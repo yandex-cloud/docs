@@ -1,5 +1,5 @@
 ---
-canonical: "{{ link-docs }}/tutorials/dataplatform/fetch-data-from-mkf"
+canonical: '{{ link-docs }}/tutorials/dataplatform/fetch-data-from-mkf'
 ---
 
 # Data delivery in {{ mch-name }}

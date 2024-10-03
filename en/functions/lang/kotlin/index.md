@@ -1,6 +1,6 @@
 ---
-title: "Developing in Kotlin in {{ sf-full-name }}. Overview"
-description: "With {{ sf-name }}, you can run applications written in Kotlin. The service provides the runtime environment with Kotlin 2.0 and Ubuntu 22.04 LTS."
+title: Developing in Kotlin in {{ sf-full-name }}. Overview
+description: With {{ sf-name }}, you can run applications written in Kotlin. The service provides the runtime environment with Kotlin 2.0 and Ubuntu 22.04 LTS.
 ---
 
 # Developing in Kotlin: Overview

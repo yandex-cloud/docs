@@ -1,10 +1,5 @@
 title: Yandex Managed Service for PostgreSQL
 href: index.yaml
-label:
-  title: KZ
-  description: This service is only available in the Kazakhstan region.
-  theme: info
-  when: region == "kz"
 items:
   - name: Getting started
     href: quickstart.md
@@ -371,3 +366,4 @@ items:
       - name: All questions on one page
         href: qa/all.md
 base: en/managed-postgresql
+deepBase: 2

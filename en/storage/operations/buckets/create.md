@@ -1,6 +1,6 @@
 ---
-title: "How to create a bucket"
-description: "Follow this guide to create a bucket."
+title: How to create a bucket
+description: Follow this guide to create a bucket.
 ---
 
 # Creating a bucket

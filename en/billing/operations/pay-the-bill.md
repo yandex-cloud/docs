@@ -1,6 +1,6 @@
 ---
-title: "How to top up your personal account"
-description: "Follow this guide to top up your personal account."
+title: How to top up your personal account
+description: Follow this guide to top up your personal account.
 ---
 
 # Top up your personal account

@@ -1,6 +1,6 @@
 ---
-title: "Serverless and Dedicated operation modes in {{ ydb-short-name }}"
-description: "You can create {{ ydb-short-name }} databases in two modes: dedicated and serverless. Dedicated mode assumes that the resources for tablet instances and YQL queries are selected from the resources explicitly allocated to the compute database. In Serverless mode, the {{ ydb-short-name }} infrastructure determines the amount of computing resources to allocate to the user database."
+title: Serverless and Dedicated operation modes in {{ ydb-short-name }}
+description: 'You can create {{ ydb-short-name }} databases in two modes: dedicated and serverless. Dedicated mode assumes that the resources for tablet instances and YQL queries are selected from the resources explicitly allocated to the compute database. In Serverless mode, the {{ ydb-short-name }} infrastructure determines the amount of computing resources to allocate to the user database.'
 keywords:
   - ydb
   - serverless

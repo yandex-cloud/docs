@@ -24,7 +24,7 @@
 
     1. [Выдайте пользователю административные привилегии](../../../managed-mysql/concepts/settings-list#setting-administrative-privileges) `REPLICATION CLIENT` и `REPLICATION SLAVE`.
 
-    
+
     1. Настройте [группы безопасности](../../../managed-mysql/operations/connect.md#configure-security-groups) и убедитесь, что они допускают подключение к кластеру.
 
 

@@ -1,6 +1,6 @@
 ---
-title: "How to assign roles for a resource in {{ container-registry-full-name }}"
-description: "Follow this guide to assign roles for a resource."
+title: How to assign roles for a resource in {{ container-registry-full-name }}
+description: Follow this guide to assign roles for a resource.
 ---
 
 # Assigning a role for a resource

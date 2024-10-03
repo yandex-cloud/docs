@@ -1,6 +1,6 @@
 ---
-title: "How to get a user ID or email in {{ org-full-name }}"
-description: "Follow this guide to get user ID or email." 
+title: How to get a user ID or email in {{ org-full-name }}
+description: Follow this guide to get user ID or email.
 ---
 
 # Getting user ID or email

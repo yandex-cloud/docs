@@ -1,5 +1,5 @@
 ---
-canonical: "{{ link-docs }}/tutorials/dataplatform/data-transfer-mpg"
+canonical: '{{ link-docs }}/tutorials/dataplatform/data-transfer-mpg'
 ---
 
 # Захват изменений из {{ PG }} и поставка в {{ KF }}

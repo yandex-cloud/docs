@@ -1,6 +1,6 @@
 ---
-title: "How to get information about a registry access policy in {{ container-registry-full-name }}"
-description: "Follow this guide to get information about registry access policies."
+title: How to get information about a registry access policy in {{ container-registry-full-name }}
+description: Follow this guide to get information about registry access policies.
 ---
 
 # Getting information about a registry access policy

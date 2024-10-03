@@ -1,6 +1,6 @@
 ---
-title: "Managing {{ CH }} cluster users in {{ mch-full-name }}"
-description: "In this tutorial, you will learn how to manage {{ mch-name }} cluster users."
+title: Managing {{ CH }} cluster users in {{ mch-full-name }}
+description: In this tutorial, you will learn how to manage {{ mch-name }} cluster users.
 ---
 
 # Managing {{ CH }} users

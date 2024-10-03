@@ -33,7 +33,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
          * In the same availability zone as the source cluster.
          * To connect to the cluster from the user's local machine instead of the {{ yandex-cloud }} cloud network, enable public access to the cluster hosts.
 
-      
+
       1. To connect to the cluster from the user's local machine, configure security groups:
 
          * [{{ mkf-name }}](../../managed-kafka/operations/connect/index.md#configuring-security-groups)​.

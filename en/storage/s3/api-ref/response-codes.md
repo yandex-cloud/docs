@@ -1,6 +1,6 @@
 ---
-title: "Response and error codes. {{ objstorage-name }} API (S3)"
-description: "Here you will find the error and response codes in the {{ objstorage-name }} API (S3). Successful response: If there are no errors, {{ objstorage-name }} returns 2xx HTTP codes. The response code and body depend on the request and are given in the request descriptions. Error response: If there is an error, {{ objstorage-name }} returns a message with the relevant HTTP code and its additional description in XML format. The error codes and their meaning are described in detail."
+title: Response and error codes. {{ objstorage-name }} API (S3)
+description: 'Here you will find the error and response codes in the {{ objstorage-name }} API (S3). Successful response: If there are no errors, {{ objstorage-name }} returns 2xx HTTP codes. The response code and body depend on the request and are given in the request descriptions. Error response: If there is an error, {{ objstorage-name }} returns a message with the relevant HTTP code and its additional description in XML format. The error codes and their meaning are described in detail.'
 ---
 
 # Responses

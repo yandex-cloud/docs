@@ -1,6 +1,6 @@
 ---
-title: "How to subscribe a device or registry to receive messages using Mosquitto in {{ iot-full-name }}"
-description: "Follow this guide to subscribe a device or registry to receive messages using Mosquitto."
+title: How to subscribe a device or registry to receive messages using Mosquitto in {{ iot-full-name }}
+description: Follow this guide to subscribe a device or registry to receive messages using Mosquitto.
 ---
 
 # Subscribing a device or registry to receive messages using Mosquitto

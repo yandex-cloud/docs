@@ -1,6 +1,6 @@
 ---
-title: "How to update a registry in {{ container-registry-full-name }}"
-description: "Follow this guide to update a registry."
+title: How to update a registry in {{ container-registry-full-name }}
+description: Follow this guide to update a registry.
 ---
 
 # Updating a registry

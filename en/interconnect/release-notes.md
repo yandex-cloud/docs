@@ -1,6 +1,6 @@
 ---
-title: "{{ interconnect-full-name }} Release notes"
-description: "This section contains {{ interconnect-name }} release notes."
+title: '{{ interconnect-full-name }} Release notes'
+description: This section contains {{ interconnect-name }} release notes.
 ---
 
 # {{ interconnect-full-name }} release notes

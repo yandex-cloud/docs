@@ -1,6 +1,6 @@
 ---
-title: "How to delete a cluster in {{ mpg-full-name }}"
-description: "In this tutorial, you will learn how to delete a cluster in {{ mgp-name }}."
+title: How to delete a cluster in {{ mpg-full-name }}
+description: In this tutorial, you will learn how to delete a cluster in {{ mgp-name }}.
 ---
 
 # Deleting a {{ GP }} cluster

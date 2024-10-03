@@ -1,6 +1,6 @@
 ---
-title: "Configuring access permissions to a {{ objstorage-full-name }} bucket"
-description: "Follow this guide to assign a role for a bucket."
+title: Configuring access permissions to a {{ objstorage-full-name }} bucket
+description: Follow this guide to assign a role for a bucket.
 ---
 
 # Configuring access permissions to a bucket using {{ iam-name }}

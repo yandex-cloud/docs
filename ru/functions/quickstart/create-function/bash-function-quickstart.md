@@ -95,7 +95,7 @@
 
     Чтобы создать версию функции, выполните команду:
 
-    
+
     ```
     yc serverless function version create \
       --function-name=bash-function \
@@ -118,7 +118,7 @@
 
     Результат:
 
-    
+
     ```
     done (1s)
     id: d4evvn8obisa********

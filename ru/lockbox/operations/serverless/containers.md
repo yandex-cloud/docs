@@ -1,6 +1,6 @@
 ---
-title: "Как передать секрет в {{ serverless-containers-full-name }}"
-description: "Следуя данной инструкции, вы сможете передать секрет в {{ serverless-containers-full-name }}."
+title: Как передать секрет в {{ serverless-containers-full-name }}
+description: Следуя данной инструкции, вы сможете передать секрет в {{ serverless-containers-full-name }}.
 ---
 
 # Передать секрет в {{ serverless-containers-full-name }}

@@ -28,7 +28,7 @@
       * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** — `ch-user`.
       * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** — `<пароль_приемника>`.
 
-  
+
   1. Если вы используете группы безопасности в кластерах, убедитесь, что они настроены правильно и допускают подключение к кластерам:
 
      * [{{ mch-name }}](../../managed-clickhouse/operations/connect/index.md#configuring-security-groups).

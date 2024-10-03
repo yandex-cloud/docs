@@ -1,6 +1,6 @@
 ---
-title: "Configuring access to a secret"
-description: "Follow this guide to configure access to a secret."
+title: Configuring access to a secret
+description: Follow this guide to configure access to a secret.
 ---
 
 # Configuring access to a secret

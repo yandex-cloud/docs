@@ -1,6 +1,6 @@
 ---
-title: "Справочник {{ TF }} для {{ serverless-containers-full-name }}"
-description: "На этой странице приведен справочник ресурсов и источников данных провайдера {{ TF }}, которые поддерживаются для сервиса {{ serverless-containers-name }}."
+title: Справочник {{ TF }} для {{ serverless-containers-full-name }}
+description: На этой странице приведен справочник ресурсов и источников данных провайдера {{ TF }}, которые поддерживаются для сервиса {{ serverless-containers-name }}.
 ---
 
 # Справочник {{ TF }} для {{ serverless-containers-full-name }}

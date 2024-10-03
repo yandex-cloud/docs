@@ -1,6 +1,6 @@
 ---
-title: "Configuring public access to operations with a {{ objstorage-full-name }} bucket"
-description: "Follow this guide to configure public access to operations with a bucket."
+title: Configuring public access to operations with a {{ objstorage-full-name }} bucket
+description: Follow this guide to configure public access to operations with a bucket.
 ---
 
 # Configuring public access to a bucket
@@ -95,7 +95,7 @@ By default, buckets are created with restricted [access](../../concepts/bucket.m
 
   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
-  
+
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
 
@@ -243,7 +243,7 @@ If your bucket has access policies, you will also need to [configure](./policy.m
 
   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
-  
+
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
 

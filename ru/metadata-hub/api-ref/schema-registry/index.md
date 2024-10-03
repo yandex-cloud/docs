@@ -1,6 +1,6 @@
 ---
-title: "Справочник API {{ schema-registry-name }}"
-description: "Сервис {{ schema-registry-name }} реализует API Confluent Schema Registry"
+title: Справочник API {{ schema-registry-name }}
+description: Сервис {{ schema-registry-name }} реализует API Confluent Schema Registry
 ---
 
 # API {{ schema-registry-name }}

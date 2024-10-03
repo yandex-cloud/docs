@@ -1,6 +1,6 @@
 ---
-title: "История изменений в {{ certificate-manager-full-name }}"
-description: "В разделе представлена история изменений сервиса {{ certificate-manager-name }}."
+title: История изменений в {{ certificate-manager-full-name }}
+description: В разделе представлена история изменений сервиса {{ certificate-manager-name }}.
 ---
 
 # История изменений в {{ certificate-manager-full-name }}

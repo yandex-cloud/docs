@@ -1,6 +1,6 @@
 ---
-title: "How to get started with {{ sd-full-name }}"
-description: "This section describes the steps necessary to start using the {{ sd-name }} service and the tools it provides."
+title: How to get started with {{ sd-full-name }}
+description: This section describes the steps necessary to start using the {{ sd-name }} service and the tools it provides.
 ---
 
 # Getting started with {{ sd-full-name }}

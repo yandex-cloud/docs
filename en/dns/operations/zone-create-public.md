@@ -1,6 +1,6 @@
 ---
-title: "How to create a public zone in {{ dns-full-name }}"
-description: "Follow this guide to create a public DNS zone."
+title: How to create a public zone in {{ dns-full-name }}
+description: Follow this guide to create a public DNS zone.
 ---
 
 # Creating a public DNS zone

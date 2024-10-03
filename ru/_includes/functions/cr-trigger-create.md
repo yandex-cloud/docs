@@ -45,7 +45,7 @@
 
      {% include [repeat-request.md](repeat-request.md) %}
 
-  
+
   1. (Опционально) В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}** выберите очередь Dead Letter Queue и сервисный аккаунт с правами на запись в нее.
 
 

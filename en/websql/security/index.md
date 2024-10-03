@@ -1,6 +1,6 @@
 ---
-title: "Access management in {{ websql-name }}"
-description: "Access management in {{ websql-name }}, a service used to manage queries to managed database clusters. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required to perform a particular action."
+title: Access management in {{ websql-name }}
+description: Access management in {{ websql-name }}, a service used to manage queries to managed database clusters. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required to perform a particular action.
 ---
 
 # Access management in {{ websql-name }}

@@ -153,7 +153,7 @@
 
         {% endcut %}
 
-        
+
         {% cut "Как получить ACS URL федерации" %}
 
         {% include [get-acs-url](../../../../_includes/organization/get-acs-url.md) %}
@@ -168,7 +168,7 @@
         * **Valid Redirect URIs**;
         * **IDP Initiated SSO Relay State**.
     
-        
+
         {% cut "Как получить ACS URL федерации" %}
 
         {% include [get-acs-url](../../../../_includes/organization/get-acs-url.md) %}
@@ -228,7 +228,7 @@
     1. На панели слева выберите **Clients** и выберите ранее созданное приложение из списка.
     1. Перейдите на вкладку **Client scopes** и выберите из списка ACS URL с постфиксом `-dedicated`: `<ACS_URL>-dedicated`.
 
-        
+
         {% cut "Как получить ACS URL федерации" %}
 
         {% include [get-acs-url](../../../../_includes/organization/get-acs-url.md) %}

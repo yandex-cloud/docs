@@ -1,6 +1,6 @@
 ---
-title: "How to work with Git in {{ ml-platform-full-name }}"
-description: "In this tutorial, you will learn how to use Git in {{ ml-platform-name }}."
+title: How to work with Git in {{ ml-platform-full-name }}
+description: In this tutorial, you will learn how to use Git in {{ ml-platform-name }}.
 ---
 
 # Working with Git

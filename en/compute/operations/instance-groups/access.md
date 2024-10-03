@@ -1,6 +1,6 @@
 ---
-title: "Configuring instance group access permissions"
-description: "Follow this guide to configure instance group access permissions."
+title: Configuring instance group access permissions
+description: Follow this guide to configure instance group access permissions.
 ---
 
 # Configuring instance group access permissions

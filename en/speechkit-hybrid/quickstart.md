@@ -1,6 +1,6 @@
 ---
-title: "How to create a {{ sk-hybrid-name }} demo stand"
-description: "Using this guide, you can create applications for speech recognition and synthesis, as well as load testing utilities."
+title: How to create a {{ sk-hybrid-name }} demo stand
+description: Using this guide, you can create applications for speech recognition and synthesis, as well as load testing utilities.
 ---
 
 # Creating a {{ sk-hybrid-name }} demo stand

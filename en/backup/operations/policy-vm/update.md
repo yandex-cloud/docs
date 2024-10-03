@@ -1,6 +1,6 @@
 ---
-title: "How to update a backup policy in {{ backup-full-name }}"
-description: "In this tutorial, you will learn how to update a backup policy in {{ backup-name }}."
+title: How to update a backup policy in {{ backup-full-name }}
+description: In this tutorial, you will learn how to update a backup policy in {{ backup-name }}.
 ---
 
 # Updating a backup policy

@@ -1,5 +1,5 @@
 ---
-canonical: "{{ link-docs }}/tutorials/routing/nat-instance/terraform"
+canonical: '{{ link-docs }}/tutorials/routing/nat-instance/terraform'
 ---
 
 # Routing through a NAT instance using {{ TF }}

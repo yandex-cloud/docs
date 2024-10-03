@@ -1,6 +1,6 @@
 ---
-title: "{{ TF }} reference for {{ container-registry-full-name }}"
-description: "This page gives reference information about the {{ TF }} provider resources and data sources supported for {{ container-registry-name }}."
+title: '{{ TF }} reference for {{ container-registry-full-name }}'
+description: This page gives reference information about the {{ TF }} provider resources and data sources supported for {{ container-registry-name }}.
 ---
 
 # {{ TF }} reference for {{ container-registry-full-name }}

@@ -1,6 +1,6 @@
 ---
-title: "{{ api-gw-full-name }} release notes"
-description: "This section contains {{ api-gw-name }} release notes."
+title: '{{ api-gw-full-name }} release notes'
+description: This section contains {{ api-gw-name }} release notes.
 ---
 
 # {{ api-gw-full-name }} release notes

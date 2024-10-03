@@ -1,6 +1,6 @@
 ---
-title: "How to send messages to {{ iot-full-name }} resources"
-description: "Follow this guide to send messages to {{ iot-full-name }} resources."
+title: How to send messages to {{ iot-full-name }} resources
+description: Follow this guide to send messages to {{ iot-full-name }} resources.
 ---
 
 # Sending messages

@@ -1,6 +1,6 @@
 ---
-title: "{{ yandex-cloud }} security checklist"
-description: "In this tutorial, you will learn about {{ yandex-cloud }} security checklist components."
+title: '{{ yandex-cloud }} security checklist'
+description: In this tutorial, you will learn about {{ yandex-cloud }} security checklist components.
 ---
 
 # Security checklist

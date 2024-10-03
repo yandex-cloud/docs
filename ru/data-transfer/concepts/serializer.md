@@ -1,5 +1,5 @@
 ---
-title: "Сериализация в {{ data-transfer-full-name }}"
+title: Сериализация в {{ data-transfer-full-name }}
 ---
 
 # Сериализация

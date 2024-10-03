@@ -1,6 +1,6 @@
 ---
-title: "How to add a product from {{ marketplace-short-name }}"
-description: "This guide describes how you can add a product from {{ marketplace-short-name }}."
+title: How to add a product from {{ marketplace-short-name }}
+description: This guide describes how you can add a product from {{ marketplace-short-name }}.
 ---
 
 # Adding a product from {{ marketplace-short-name }}

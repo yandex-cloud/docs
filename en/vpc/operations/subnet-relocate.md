@@ -1,6 +1,6 @@
 ---
-title: "How to move a subnet to a different availability zone"
-description: "Follow this guide to move a subnet to a different availability zone."
+title: How to move a subnet to a different availability zone
+description: Follow this guide to move a subnet to a different availability zone.
 ---
 
 

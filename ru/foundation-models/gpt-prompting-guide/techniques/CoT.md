@@ -1,6 +1,6 @@
 ---
-title: "Техника работы с промтами Chain-of-Thought"
-description: "В статье содержатся примеры работы с разными видами промтинга техники Chain-of-Thought."
+title: Техника работы с промтами Chain-of-Thought
+description: В статье содержатся примеры работы с разными видами промтинга техники Chain-of-Thought.
 ---
 
 # Промтинг Chain-of-Thought (CoT)

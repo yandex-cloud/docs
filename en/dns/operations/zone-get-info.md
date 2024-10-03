@@ -1,5 +1,5 @@
 ---
-title: "How to get information about a DNS zone in {{ dns-full-name }}"
+title: How to get information about a DNS zone in {{ dns-full-name }}
 ---
 
 # Getting information about a DNS zone

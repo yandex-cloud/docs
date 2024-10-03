@@ -1,6 +1,6 @@
 ---
-title: "What conditions for triggering the {{ objstorage-full-name }} bucket access policy can be set up in the S3 API"
-description: "In this tutorial, you will learn what conditions for triggering the {{ objstorage-full-name }} bucket access policy can be set up in the S3 API."
+title: What conditions for triggering the {{ objstorage-full-name }} bucket access policy can be set up in the S3 API
+description: In this tutorial, you will learn what conditions for triggering the {{ objstorage-full-name }} bucket access policy can be set up in the S3 API.
 ---
 
 # Conditions

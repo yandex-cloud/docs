@@ -1,6 +1,6 @@
 ---
-title: "{{ datalens-full-name }} use cases"
-description: "This section describes use cases for {{ datalens-full-name }}. Visualizing data from a CSV file, creating and publishing a chart with a map of Moscow from a CSV file, analyzing a retail chain's sales performance based on a {{ CH }} DB, analyzing public data on road accidents in Russia."
+title: '{{ datalens-full-name }} use cases'
+description: This section describes use cases for {{ datalens-full-name }}. Visualizing data from a CSV file, creating and publishing a chart with a map of Moscow from a CSV file, analyzing a retail chain's sales performance based on a {{ CH }} DB, analyzing public data on road accidents in Russia.
 ---
 
 # {{ datalens-name }} tutorials

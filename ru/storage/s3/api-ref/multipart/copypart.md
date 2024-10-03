@@ -1,6 +1,6 @@
 ---
-title: "Метод copyPart. {{ objstorage-name }} API (S3)"
-description: "Метод copyPart в {{ objstorage-name }} API (S3) копирует часть объекта. Имеет такую же функциональность, как и Метод uploadPart, только данные передаются не в теле запроса, а копируются из существующего объекта."
+title: Метод copyPart. {{ objstorage-name }} API (S3)
+description: Метод copyPart в {{ objstorage-name }} API (S3) копирует часть объекта. Имеет такую же функциональность, как и Метод uploadPart, только данные передаются не в теле запроса, а копируются из существующего объекта.
 ---
 
 # Метод copyPart

@@ -1,6 +1,6 @@
 ---
-title: "How to get information about existing Docker images in {{ container-registry-full-name }}"
-description: "Follow this guide to get information about existing Docker images."
+title: How to get information about existing Docker images in {{ container-registry-full-name }}
+description: Follow this guide to get information about existing Docker images.
 ---
 
 # Getting information about existing Docker images

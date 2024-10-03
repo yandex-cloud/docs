@@ -80,7 +80,7 @@
 
 - Визард
   
-  
+
   {% include [datalens-workbooks-collections-select-note](../../../_includes/datalens/operations/datalens-workbooks-collections-select-note.md) %}
 
 

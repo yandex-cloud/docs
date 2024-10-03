@@ -1,6 +1,6 @@
 ---
-title: "Создание и изменение параметров выделенной базы данных {{ ydb-short-name }} в {{ yandex-cloud }}"
-description: "В инструкции описаны свойства ресурса yandex_ydb_database_dedicated для создания выделенной базы данных {{ ydb-short-name }} в {{ yandex-cloud }}."
+title: Создание и изменение параметров выделенной базы данных {{ ydb-short-name }} в {{ yandex-cloud }}
+description: В инструкции описаны свойства ресурса yandex_ydb_database_dedicated для создания выделенной базы данных {{ ydb-short-name }} в {{ yandex-cloud }}.
 ---
 
 

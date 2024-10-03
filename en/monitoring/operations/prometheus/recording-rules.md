@@ -1,6 +1,6 @@
 ---
-title: "How to use Prometheus recording rules"
-description: "In this tutorial, you will learn to create and edit Prometheus files that define recording rules."
+title: How to use Prometheus recording rules
+description: In this tutorial, you will learn to create and edit Prometheus files that define recording rules.
 ---
 
 # Recording rules

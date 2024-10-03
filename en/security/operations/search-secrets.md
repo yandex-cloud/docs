@@ -1,6 +1,6 @@
 ---
-title: "Scanning for {{ yandex-cloud }} secrets in public sources"
-description: "Follow this guide to check your repositories."
+title: Scanning for {{ yandex-cloud }} secrets in public sources
+description: Follow this guide to check your repositories.
 ---
 
 # Scanning for {{ yandex-cloud }} secrets in public sources

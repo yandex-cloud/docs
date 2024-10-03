@@ -1,5 +1,5 @@
 ---
-title: "Выделенный хост в {{ compute-full-name }}"
+title: Выделенный хост в {{ compute-full-name }}
 ---
 
 # Выделенный хост

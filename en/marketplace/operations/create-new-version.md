@@ -1,6 +1,6 @@
 ---
-title: "Creating a new product version in {{ marketplace-full-name }}"
-description: "Follow this guide to create a new product version."
+title: Creating a new product version in {{ marketplace-full-name }}
+description: Follow this guide to create a new product version.
 ---
 
 # Creating a new product version

@@ -1,5 +1,5 @@
 ---
-title: "Как купить подписку в {{ marketplace-full-name }}"
+title: Как купить подписку в {{ marketplace-full-name }}
 ---
 
 # Покупка подписки

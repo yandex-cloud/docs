@@ -1,5 +1,5 @@
 ---
-title: "How to get a list of DNS zones"
+title: How to get a list of DNS zones
 ---
 
 # Getting a list of DNS zones

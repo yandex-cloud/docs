@@ -1,7 +1,7 @@
 - {% include [Backup time](../../_includes/mdb/console/backup-time.md) %}
 
 - **{{ ui-key.yacloud.mdb.forms.backup-retain-period }}**{#setting-backup-saving}
-   
+
    Retention period for automatic backups. If an automatic backup expires, it is deleted. The default is {{ mmg-backup-retention }} days. This feature is at the [Preview stage](../../overview/concepts/launch-stages.md). For more information, see [Backups](../../managed-mongodb/concepts/backup.md).
 
 

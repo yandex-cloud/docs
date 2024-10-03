@@ -1,6 +1,6 @@
 ---
-title: "Transfers available in {{ data-transfer-name }}"
-description: "This section describes possible source and target combinations."
+title: Transfers available in {{ data-transfer-name }}
+description: This section describes possible source and target combinations.
 ---
 
 # Transfers available in {{ data-transfer-name }}

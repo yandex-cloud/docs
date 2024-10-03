@@ -1,6 +1,6 @@
 ---
-title: "Backups in {{ compute-full-name }}"
-description: "Backups of data in images, snapshots, and disks that are not attached to instances are stored securely and replicated within the {{ yandex-cloud }} infrastructure. To back up the data from disks attached to an instance, create snapshots of the disks on a regular basis."
+title: Backups in {{ compute-full-name }}
+description: Backups of data in images, snapshots, and disks that are not attached to instances are stored securely and replicated within the {{ yandex-cloud }} infrastructure. To back up the data from disks attached to an instance, create snapshots of the disks on a regular basis.
 keywords:
   - backup
   - database backup

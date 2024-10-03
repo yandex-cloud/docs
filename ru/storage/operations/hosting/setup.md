@@ -1,6 +1,6 @@
 ---
-title: "Настройка хостинга в {{ objstorage-full-name }}"
-description: "Следуя данной инструкции, вы сможете настроить хостинг." 
+title: Настройка хостинга в {{ objstorage-full-name }}
+description: Следуя данной инструкции, вы сможете настроить хостинг.
 ---
 
 # Настройка хостинга
@@ -101,7 +101,7 @@ description: "Следуя данной инструкции, вы сможет�
 
   1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
 
-     
+
      ```hcl
      provider "yandex" {
        token     = "<OAuth>"
@@ -250,7 +250,7 @@ description: "Следуя данной инструкции, вы сможет�
  
   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
-  
+
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
 
@@ -422,7 +422,7 @@ description: "Следуя данной инструкции, вы сможет�
  
   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
-    
+  
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
 

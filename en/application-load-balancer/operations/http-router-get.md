@@ -1,5 +1,5 @@
 ---
-title: "How to get information about an HTTP router in {{ alb-full-name }}"
+title: How to get information about an HTTP router in {{ alb-full-name }}
 ---
 
 # Getting information about an HTTP router

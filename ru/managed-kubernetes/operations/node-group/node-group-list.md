@@ -34,7 +34,7 @@
 
 - API {#api}
 
-  Чтобы получить список групп узлов в каталоге по умолчанию, воспользуйтесь методом [list](../../api-ref/NodeGroup/list.md) для ресурса [NodeGroup](../../api-ref/NodeGroup/).
+  Чтобы получить список групп узлов в каталоге по умолчанию, воспользуйтесь методом [list](../../managed-kubernetes/api-ref/NodeGroup/list.md) для ресурса [NodeGroup](../../managed-kubernetes/api-ref/NodeGroup/).
 
 {% endlist %}
 
@@ -73,6 +73,6 @@
 
 - API {#api}
 
-  Чтобы получить подробную информацию о группе узлов, воспользуйтесь методом [get](../../api-ref/NodeGroup/get.md) для ресурса [NodeGroup](../../api-ref/NodeGroup/).
+  Чтобы получить подробную информацию о группе узлов, воспользуйтесь методом [get](../../managed-kubernetes/api-ref/NodeGroup/get.md) для ресурса [NodeGroup](../../managed-kubernetes/api-ref/NodeGroup/).
 
 {% endlist %}

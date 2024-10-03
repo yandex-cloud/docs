@@ -1,6 +1,6 @@
 ---
-title: "How to receive and delete messages in {{ message-queue-full-name }}"
-description: "Follow this guide to receive and delete messages."
+title: How to receive and delete messages in {{ message-queue-full-name }}
+description: Follow this guide to receive and delete messages.
 ---
 
 # Receiving and deleting messages

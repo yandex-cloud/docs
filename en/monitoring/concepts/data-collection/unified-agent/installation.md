@@ -1,6 +1,6 @@
 ---
-title: "How to install and run {{ unified-agent-full-name }}"
-description: "In this tutorial, you will learn about installing and running {{ unified-agent-full-name }}."
+title: How to install and run {{ unified-agent-full-name }}
+description: In this tutorial, you will learn about installing and running {{ unified-agent-full-name }}.
 ---
 
 # Installing and running {{ unified-agent-full-name }}

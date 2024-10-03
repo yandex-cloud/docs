@@ -1,6 +1,6 @@
 ---
-title: "How to change {{ CH }} cluster settings in {{ mch-full-name }}"
-description: "Follow this guide to change {{ CH }} cluster settings."
+title: How to change {{ CH }} cluster settings in {{ mch-full-name }}
+description: Follow this guide to change {{ CH }} cluster settings.
 ---
 
 # Updating {{ CH }} cluster settings
@@ -97,7 +97,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
 
    1. Request a list of available host classes (the `ZONE IDS` column specifies the availability zones where you can select the appropriate class):
 
-      
+
       ```bash
       {{ yc-mdb-ch }} resource-preset list
 
@@ -388,7 +388,7 @@ Once enabled, user and database management settings for SQL cannot be disabled.
 
    1. Run the following command with a list of settings to update:
 
-      
+
       ```bash
       {{ yc-mdb-ch }} cluster update <cluster_name_or_ID> \
          --backup-window-start <backup_start_time> \
@@ -410,7 +410,7 @@ Once enabled, user and database management settings for SQL cannot be disabled.
 
    * `--datalens-access`: Enables access from {{ datalens-name }}. The default value is `false`. For more information about setting up a connection, see [Connecting from {{ datalens-name }}](datalens-connect.md).
 
-   
+
    * `--metrika-access`: Enables [data import from AppMetrica to your cluster](https://appmetrica.yandex.com/docs/common/cloud/about.html). The default value is `false`.
 
    * `--serverless-access`: Enables cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md). The default value is `false`. For more information about setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md) documentation.
@@ -452,7 +452,7 @@ Once enabled, user and database management settings for SQL cannot be disabled.
 
    1. To enable cluster access from other services and [execution of SQL queries from the management console](web-sql-query.md) using {{ websql-full-name }}, change the values of the appropriate fields in the `access` section:
 
-      
+
       ```hcl
       resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
         ...
@@ -472,7 +472,7 @@ Once enabled, user and database management settings for SQL cannot be disabled.
 
       * `data_lens`: Access from {{ datalens-name }}, `true` or `false`.
 
-      
+
       * `metrika`: Access from Yandex Metrica and AppMetrica, `true` or `false`.
       * `serverless`: Access from {{ sf-name }}, `true` or `false`.
 

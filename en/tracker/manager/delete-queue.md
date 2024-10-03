@@ -1,6 +1,6 @@
 ---
-title: "How to delete a queue in {{ tracker-name }}"
-description: "Follow this guide to delete a queue in {{ tracker-name }}."
+title: How to delete a queue in {{ tracker-name }}
+description: Follow this guide to delete a queue in {{ tracker-name }}.
 ---
 
 # Deleting a queue in {{ tracker-name }}

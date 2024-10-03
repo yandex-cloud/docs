@@ -1,6 +1,6 @@
 ---
-title: "How to create a VM with a custom script"
-description: "In this guide, you will use scripts in cloud-init to install additional software and complete the configuration of your VM while creating it."
+title: How to create a VM with a custom script
+description: In this guide, you will use scripts in cloud-init to install additional software and complete the configuration of your VM while creating it.
 ---
 
 # Creating a VM with a custom configuration script

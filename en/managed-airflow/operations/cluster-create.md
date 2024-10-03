@@ -1,10 +1,10 @@
 ---
-title: "Creating an {{ AF }} cluster"
-description: "Every {{ maf-name }} cluster consists of a set of {{ AF }} components, each of which can be represented in multiple instances. The instances may reside in different availability zones."
+title: Creating an {{ AF }} cluster
+description: Every {{ maf-name }} cluster consists of a set of {{ AF }} components, each of which can be represented in multiple instances. The instances may reside in different availability zones.
 keywords:
-  - "creating an {{ AF }} cluster"
-  - "{{ AF }} cluster"
-  - "{{ AF }}"
+  - creating an {{ AF }} cluster
+  - '{{ AF }} cluster'
+  - '{{ AF }}'
   - Airflow
 ---
 

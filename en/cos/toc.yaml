@@ -1,10 +1,5 @@
 title: Yandex Container Solution
 href: index.yaml
-label:
-  title: KZ
-  description: The service is available in Kazakhstan.
-  theme: info
-  when: region == "kz"
 items:
   - name: Comparison with other {{ yandex-cloud }} services
     href: service-comparison.md
@@ -61,3 +56,4 @@ items:
   - name: Troubleshooting
     href: error/index.md
 base: en/cos
+deepBase: 2

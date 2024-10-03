@@ -1,5 +1,5 @@
 ---
-title: "How to unlink a subscription purchased on {{ marketplace-full-name }}"
+title: How to unlink a subscription purchased on {{ marketplace-full-name }}
 ---
 
 # Unlinking a subscription

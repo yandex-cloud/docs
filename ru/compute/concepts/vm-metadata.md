@@ -179,7 +179,8 @@
    - GCE
 
      ```bash
-     curl -H Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/vendor/identity/document
+     curl \
+       --header Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/vendor/identity/document
      ```
 
    - EC2
@@ -223,7 +224,8 @@
      * **GCE**:
 
        ```bash
-       curl -H Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/vendor/identity/rsa > rsa2048
+       curl \
+         --header Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/vendor/identity/rsa > rsa2048
        ```
 
      * **EC2**:
@@ -234,7 +236,6 @@
 
   1. Создайте файл `certificate` и добавьте в него публичный сертификат:
 
-     
 
      ```text
      -----BEGIN CERTIFICATE-----
@@ -256,7 +257,6 @@
      r9ZBjEa0oLFVV0pP5Tj4Gf1DDpuJ
      -----END CERTIFICATE-----
      ```
-
 
 
 
@@ -282,7 +282,8 @@
      * **GCE**:
 
        ```bash
-       curl -H Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/vendor/identity/dsa > dsa2048
+       curl \
+         --header Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/vendor/identity/dsa > dsa2048
        ```
 
      * **EC2**:
@@ -293,7 +294,6 @@
 
   1. Создайте файл `certificate` и сохраните в него публичный сертификат:
 
-     
 
      ```text
      -----BEGIN CERTIFICATE-----
@@ -322,7 +322,6 @@
      LFFIJGlNWgIhAO0b749SY5+6UMEOLsxgvNzKKcv58BKADfBdJAXE6fRk
      -----END CERTIFICATE-----
      ```
-
 
 
 
@@ -347,7 +346,9 @@
      * **GCE**:
 
        ```bash
-       curl -H Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/vendor/identity/base64 | base64 -d >> signature
+       curl \
+         --header Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/vendor/identity/base64 | \
+         base64 -d >> signature
        ```
 
      * **EC2**:
@@ -361,7 +362,8 @@
      * **GCE**:
 
        ```bash
-       curl -H Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/vendor/identity/document > document
+       curl \
+         --header Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/vendor/identity/document > document
        ```
 
      * **EC2**:
@@ -372,7 +374,6 @@
 
   1. Создайте файл `certificate` и сохраните в него публичный сертификат:
 
-     
 
      ```text
      -----BEGIN CERTIFICATE-----
@@ -394,7 +395,6 @@
      r9ZBjEa0oLFVV0pP5Tj4Gf1DDpuJ
      -----END CERTIFICATE-----
      ```
-
 
 
 
@@ -417,7 +417,8 @@
 Сопоставьте идентификационный документ из метаданных ВМ с документом, сохраненным в файле:
 
 ```bash
-curl http://169.254.169.254/latest/vendor/instance-identity/document | openssl dgst -sha256
+curl http://169.254.169.254/latest/vendor/instance-identity/document | \
+openssl dgst -sha256
 ```
 
 ```bash

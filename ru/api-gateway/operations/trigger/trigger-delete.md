@@ -1,6 +1,6 @@
 ---
-title: "Инструкция о том, как удалить триггер в {{ api-gw-full-name }}"
-description: "Из статьи вы узнаете, как удалить триггер в {{ api-gw-full-name }}."
+title: Инструкция о том, как удалить триггер в {{ api-gw-full-name }}
+description: Из статьи вы узнаете, как удалить триггер в {{ api-gw-full-name }}.
 ---
 
 # Удалить триггер в {{ api-gw-full-name }}

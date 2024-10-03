@@ -2,10 +2,10 @@
 title: Стеки LAMP и LEMP
 description: LAMP- и LEMP-стеки — аббревиатуры для описания популярного набора технологий для разработки веб-сайтов.
 keywords:
-    - LAMP
-    - LAMP-стек
-    - LEMP
-    - LAMP и LEMP
+  - LAMP
+  - LAMP-стек
+  - LEMP
+  - LAMP и LEMP
 ---
 
 # Стеки LAMP и LEMP

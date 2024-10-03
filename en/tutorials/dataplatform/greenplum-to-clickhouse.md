@@ -1,6 +1,6 @@
 ---
-title: "Migrating a database from {{ GP }} to {{ CH }}"
-description: "You can migrate a database from {{ GP }} to {{ CH }} using {{ data-transfer-full-name }}."
+title: Migrating a database from {{ GP }} to {{ CH }}
+description: You can migrate a database from {{ GP }} to {{ CH }} using {{ data-transfer-full-name }}.
 ---
 
 # Migrating databases from {{ GP }} to {{ CH }}

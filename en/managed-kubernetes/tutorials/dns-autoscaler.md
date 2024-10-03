@@ -1,6 +1,6 @@
 ---
-title: "How to set up automatic DNS scaling by cluster size in {{ managed-k8s-full-name }}"
-description: "Follow this guide to set up automatic DNS scaling by cluster size in {{ managed-k8s-full-name }}."
+title: How to set up automatic DNS scaling by cluster size in {{ managed-k8s-full-name }}
+description: Follow this guide to set up automatic DNS scaling by cluster size in {{ managed-k8s-full-name }}.
 ---
 
 # Automatic DNS scaling by cluster size

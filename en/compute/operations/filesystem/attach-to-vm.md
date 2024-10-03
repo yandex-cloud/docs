@@ -1,6 +1,6 @@
 ---
-title: "Attaching a file storage to a VM"
-description: "Follow this guide to attach a file storage to a VM."
+title: Attaching a file storage to a VM
+description: Follow this guide to attach a file storage to a VM.
 ---
 
 # Attaching a file storage to a VM

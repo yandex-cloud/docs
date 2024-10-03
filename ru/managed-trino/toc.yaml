@@ -1,13 +1,9 @@
 title: '{{ mtr-full-name }}'
 href: index.yaml
-label:
-  title: RU
-  description: Сервис доступен только в регионе Россия.
-  theme: unknown
-  when: region == "kz"
 stage: preview
 noIndex: true
 items:
   - name: Правила тарификации
     href: pricing.md
 base: ru/managed-trino
+deepBase: 2

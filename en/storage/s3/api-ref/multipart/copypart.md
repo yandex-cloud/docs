@@ -1,6 +1,6 @@
 ---
-title: "copyPart method. {{ objstorage-name }} API (S3)"
-description: "The copyPart method in the {{ objstorage-name }} API (S3) copies part of an object. It provides the same functionality as the uploadPart method but data is copied from an existing object rather than transmitted in the request body."
+title: copyPart method. {{ objstorage-name }} API (S3)
+description: The copyPart method in the {{ objstorage-name }} API (S3) copies part of an object. It provides the same functionality as the uploadPart method but data is copied from an existing object rather than transmitted in the request body.
 ---
 
 # copyPart method

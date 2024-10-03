@@ -1,6 +1,6 @@
 ---
-title: "{{ iam-full-name }} overview"
-description: "The {{ iam-name }} (IAM) service controls access to resources and enables you to configure access rights. You determine who should have rights to a certain resource and what these rights are, while {{ iam-short-name }} grants access according to the assigned rights."
+title: '{{ iam-full-name }} overview'
+description: The {{ iam-name }} (IAM) service controls access to resources and enables you to configure access rights. You determine who should have rights to a certain resource and what these rights are, while {{ iam-short-name }} grants access according to the assigned rights.
 ---
 
 # {{ iam-full-name }} overview

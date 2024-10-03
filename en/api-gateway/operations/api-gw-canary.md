@@ -1,6 +1,6 @@
 ---
-title: "How to set up a canary release for an API gateway"
-description: "Follow this guide to set up a canary release for an API gateway."
+title: How to set up a canary release for an API gateway
+description: Follow this guide to set up a canary release for an API gateway.
 ---
 
 # Setting up a canary release

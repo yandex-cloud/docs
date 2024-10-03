@@ -22,7 +22,7 @@ The grant terms of use remain in effect when you upgrade:
 
 - Business account {#business}
 
-   
+
    The grant terms of use depend on the payment method you select when creating your billing account:
 
    | Payment method | Using the grant |

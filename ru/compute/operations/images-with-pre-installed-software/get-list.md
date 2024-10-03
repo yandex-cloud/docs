@@ -1,6 +1,6 @@
 ---
-title: "Как получить список публичных образов в {{ compute-full-name }}"
-description: "Следуя данной инструкции, вы сможете получить список публичных образов в {{ compute-full-name }}."
+title: Как получить список публичных образов в {{ compute-full-name }}
+description: Следуя данной инструкции, вы сможете получить список публичных образов в {{ compute-full-name }}.
 ---
 
 # Получить список публичных образов
@@ -40,7 +40,9 @@ description: "Следуя данной инструкции, вы сможет�
 
     ```bash
     export IAM_TOKEN=CggaATEVAgA...
-    curl -H "Authorization: Bearer ${IAM_TOKEN}" "https://compute.{{ api-host }}/compute/v1/images?folderId=standard-images&pageSize=1000" > output.json
+    curl \
+      --header "Authorization: Bearer ${IAM_TOKEN}" \
+      "https://compute.{{ api-host }}/compute/v1/images?folderId=standard-images&pageSize=1000" > output.json
     ```
 
 {% endlist %}

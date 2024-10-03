@@ -1,5 +1,5 @@
 ---
-canonical: "{{ link-docs }}/tutorials/dataplatform/data-transfer-mkf-mch"
+canonical: '{{ link-docs }}/tutorials/dataplatform/data-transfer-mkf-mch'
 ---
 
 # Поставка данных из очереди {{ KF }} в {{ CH }}

@@ -1,6 +1,6 @@
 ---
-title: "{{ mch-full-name }} use cases"
-description: "Various {{ mch-full-name }} use cases in {{ yandex-cloud }}."
+title: '{{ mch-full-name }} use cases'
+description: Various {{ mch-full-name }} use cases in {{ yandex-cloud }}.
 ---
 
 # {{ mch-name }} tutorials

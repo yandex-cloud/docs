@@ -1,6 +1,6 @@
 ---
-title: "How to create a VM from a custom image"
-description: "Use this guide to create a VM from a custom image."
+title: How to create a VM from a custom image
+description: Use this guide to create a VM from a custom image.
 ---
 
 # Creating a VM from a custom image
@@ -37,7 +37,7 @@ Make sure the image you upload has the `READY` status.
       * In the window that opens, go to the **{{ ui-key.yacloud.compute.instances.create-disk.value_source-image }}** tab.
       * Select an image from the list and click **{{ ui-key.yacloud.common.apply }}**.
 
-  
+
   1. {% include [encryption-section-boot](../../../_includes/compute/encryption-section-boot.md) %}
 
 
@@ -49,7 +49,7 @@ Make sure the image you upload has the `READY` status.
       * Specify the required block size.
       * Specify the required disk size.
 
-      
+
       * {% include [encryption-section-secondary](../../../_includes/compute/encryption-section-secondary.md) %}
 
 
@@ -58,7 +58,7 @@ Make sure the image you upload has the `READY` status.
       * Select the image you need.
       * Click **{{ ui-key.yacloud.compute.instances.create-disk.button_create }}**.
 
-  
+
   1. (Optional) Under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**, select the **{{ ui-key.yacloud.compute.nfs.label_filesystems }}** tab and attach the [file storage](../../concepts/filesystem.md):
 
      * Click **{{ ui-key.yacloud.compute.nfs.button_attach-filesystem-to-the-instance }}**.
@@ -78,7 +78,7 @@ Make sure the image you upload has the `READY` status.
 
      {% include [network-settings](../../../_includes/compute/network-settings.md) %}
 
-  
+
   1. {% include [backup-info](../../../_includes/compute/backup-info.md) %}
 
 

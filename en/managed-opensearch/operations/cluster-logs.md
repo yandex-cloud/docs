@@ -1,6 +1,6 @@
 ---
-title: "Viewing {{ OS }} cluster logs"
-description: "Yandex Managed Service for {{ OS }} allows you to get cluster logs for viewing and analyzing."
+title: Viewing {{ OS }} cluster logs
+description: Yandex Managed Service for {{ OS }} allows you to get cluster logs for viewing and analyzing.
 keywords:
   - OpenSearch logs
   - OpenSearch cluster logs

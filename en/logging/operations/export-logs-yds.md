@@ -1,6 +1,6 @@
 ---
-title: "How to export logs from {{ cloud-logging-name }} to a stream in {{ yds-name }}"
-description: "In this tutorial, you will learn how to export logs from {{ cloud-logging-name }} to a stream in {{ yds-name }}."
+title: How to export logs from {{ cloud-logging-name }} to a stream in {{ yds-name }}
+description: In this tutorial, you will learn how to export logs from {{ cloud-logging-name }} to a stream in {{ yds-name }}.
 ---
 
 # Exporting logs to {{ yds-name }}

@@ -1,6 +1,6 @@
 ---
-title: "{{ TF }} reference for {{ certificate-manager-full-name }}"
-description: "This page provides reference information on the {{ TF }} provider resources and data sources supported for {{ certificate-manager-name }}."
+title: '{{ TF }} reference for {{ certificate-manager-full-name }}'
+description: This page provides reference information on the {{ TF }} provider resources and data sources supported for {{ certificate-manager-name }}.
 ---
 
 # {{ TF }} reference for {{ certificate-manager-full-name }}

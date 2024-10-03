@@ -1,6 +1,6 @@
 ---
-title: "How to connect to a VM via OS Login"
-description: "Follow this guide to connect to a VM via OS Login."
+title: How to connect to a VM via OS Login
+description: Follow this guide to connect to a VM via OS Login.
 ---
 
 # Connecting to a virtual machine via OS Login

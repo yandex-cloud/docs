@@ -1,6 +1,6 @@
 ---
-title: "{{ TF }} reference for {{ mmy-full-name }}"
-description: "This page provides reference information on the {{ TF }} provider resources and data sources supported for {{ mmy-name }}."
+title: '{{ TF }} reference for {{ mmy-full-name }}'
+description: This page provides reference information on the {{ TF }} provider resources and data sources supported for {{ mmy-name }}.
 ---
 
 # {{ TF }} reference for {{ mmy-full-name }}

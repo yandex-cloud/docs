@@ -1,6 +1,6 @@
 ---
-title: "Joining {{ datalens-full-name }} data"
-description: "When creating a dashboard in {{ datalens-full-name }}, you might want to use a link that determines how a selector affects one or more charts and other selectors. You can use links to filter the values of selectors and charts. This article describes how to join data from different datasets to set up links between widgets."
+title: Joining {{ datalens-full-name }} data
+description: When creating a dashboard in {{ datalens-full-name }}, you might want to use a link that determines how a selector affects one or more charts and other selectors. You can use links to filter the values of selectors and charts. This article describes how to join data from different datasets to set up links between widgets.
 ---
 
 # Joining {{ datalens-full-name }} data

@@ -1,7 +1,6 @@
 # Fixing connection issues with Kosmos VM
 
 
-
 ## Issue description {#issue-description}
 
 * You cannot connect to a VM created based on a Kosmos VM image.

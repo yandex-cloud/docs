@@ -1,6 +1,6 @@
 ---
-title: "How to configure a {{ PG }} target endpoint in {{ data-transfer-full-name }}"
-description: "In this tutorial, you will learn how to set up a {{ PG }} target endpoint in {{ data-transfer-full-name }}."
+title: How to configure a {{ PG }} target endpoint in {{ data-transfer-full-name }}
+description: In this tutorial, you will learn how to set up a {{ PG }} target endpoint in {{ data-transfer-full-name }}.
 ---
 # Transferring data to a {{ PG }} target endpoint
 
@@ -92,7 +92,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
 
    Here is an example of the configuration file structure:
 
-   
+
    ```hcl
    resource "yandex_datatransfer_endpoint" "<endpoint_name_in_{{ TF }}>" {
      name = "<endpoint_name>"
@@ -145,7 +145,7 @@ For OnPremise, all fields are filled in manually.
 
    Here is an example of the configuration file structure:
 
-   
+
    ```hcl
    resource "yandex_datatransfer_endpoint" "<endpoint_name_in_{{ TF }}>" {
      name = "<endpoint_name>"

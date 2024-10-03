@@ -1,6 +1,6 @@
 ---
-title: "How to start a broadcast in {{ video-full-name }}"
-description: "Follow this guide to start a {{ video-full-name }} broadcast."
+title: How to start a broadcast in {{ video-full-name }}
+description: Follow this guide to start a {{ video-full-name }} broadcast.
 ---
 
 # Starting a broadcast

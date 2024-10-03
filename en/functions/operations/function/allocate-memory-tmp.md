@@ -1,6 +1,6 @@
 ---
-title: "Allocating memory for the /tmp directory"
-description: "In this tutorial, you will learn how to allocate some RAM within a function for the /tmp directory."
+title: Allocating memory for the /tmp directory
+description: In this tutorial, you will learn how to allocate some RAM within a function for the /tmp directory.
 ---
 
 # Allocating memory for the /tmp directory

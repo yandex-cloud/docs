@@ -1,6 +1,6 @@
 ---
-title: "Service Level Agreement (SLA) in {{ yandex-cloud }}"
-description: "The Service Level Agreement (SLA) defines the general terms and conditions for guaranteed availability and service levels in {{ yandex-cloud }} services."
+title: Service Level Agreement (SLA) in {{ yandex-cloud }}
+description: The Service Level Agreement (SLA) defines the general terms and conditions for guaranteed availability and service levels in {{ yandex-cloud }} services.
 ---
 # Service Level Agreement (SLA)
 

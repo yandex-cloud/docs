@@ -1,6 +1,6 @@
 ---
-title: "S3 Select query language syntax"
-description: "This article describes the syntax of the S3 Select query language."
+title: S3 Select query language syntax
+description: This article describes the syntax of the S3 Select query language.
 ---
 
 # S3 Select query language syntax

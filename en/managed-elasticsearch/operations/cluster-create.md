@@ -1,10 +1,10 @@
 ---
-title: "Creating an {{ ES }} cluster"
-description: "A cluster in Yandex Managed Service for {{ ES }} is a group of multiple interlinked {{ ES }} hosts. When creating an {{ ES }} cluster, specify parameters separately for the hosts with the Master node and the Data node roles."
+title: Creating an {{ ES }} cluster
+description: A cluster in Yandex Managed Service for {{ ES }} is a group of multiple interlinked {{ ES }} hosts. When creating an {{ ES }} cluster, specify parameters separately for the hosts with the Master node and the Data node roles.
 keywords:
-  - "Creating an {{ ES }} cluster"
-  - "{{ ES }} cluster"
-  - "{{ ES }}"
+  - Creating an {{ ES }} cluster
+  - '{{ ES }} cluster'
+  - '{{ ES }}'
 ---
 
 # Creating an {{ ES }} cluster
@@ -49,11 +49,11 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
      1. Select the {{ ES }} version from the list.
      1. Select the [{{ ES }} edition](../concepts/es-editions.md).
 
-     
+
      1. Select a service account with the `storage.editor` role from the drop-down list or create a new one if you plan to use data from an {{ objstorage-name }} bucket with [restricted access](../../storage/concepts/bucket#bucket-access). For more information about setting up service accounts, see [Configuring access to {{ objstorage-name }}](s3-access.md).
 
 
-  
+
   1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select the [cloud network](../../vpc/concepts/network.md#network) to host the {{ mes-name }} cluster and the [security group](../../vpc/concepts/security-groups.md) for cluster network traffic. You may also need to [set up security groups](cluster-connect.md#configuring-security-groups) to connect to the {{ mes-name }} cluster.
 
 
@@ -124,7 +124,7 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
      yc vpc subnet list
      ```
 
-     
+
      If there are no subnets in the folder, [create the required subnets](../../vpc/operations/subnet-create.md) in [{{ vpc-full-name }}](../../vpc/).
 
 
@@ -136,7 +136,7 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
 
   1. Specify the {{ mes-name }} cluster parameters in the create command (the example below does not list all possible parameters):
 
-     
+
      ```bash
      {{ yc-mdb-es }} cluster create \
        --name <cluster_name> \
@@ -190,7 +190,7 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
 
   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
-  
+
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
 
@@ -204,8 +204,8 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
 
      Here is an example of the configuration file structure:
 
-     
-     
+
+
      ```hcl
      resource "yandex_mdb_elasticsearch_cluster" "<cluster_name>" {
        name                = "<cluster_name>"
@@ -350,7 +350,7 @@ If you specified security group IDs when creating a {{ mes-name }} cluster, you 
 
   Run the following command:
 
-  
+
   ```bash
   {{ yc-mdb-es }} cluster create \
     --name my-es-clstr \
@@ -372,8 +372,8 @@ If you specified security group IDs when creating a {{ mes-name }} cluster, you 
 
   Create a {{ mes-name }} cluster. The configuration file for the {{ mes-name }} cluster is as follows:
 
-  
-  
+
+
   ```hcl
   resource "yandex_mdb_elasticsearch_cluster" "my-es-clstr" {
     name                = "my-es-clstr"

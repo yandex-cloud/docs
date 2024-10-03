@@ -1,6 +1,6 @@
 ---
-title: "Tutorials for {{ serverless-containers-name }}"
-description: "This page gives a list of tutorials for {{ serverless-containers-name }}."
+title: Tutorials for {{ serverless-containers-name }}
+description: This page gives a list of tutorials for {{ serverless-containers-name }}.
 ---
 
 # {{ serverless-containers-name }} tutorials

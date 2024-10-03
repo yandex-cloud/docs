@@ -1,6 +1,6 @@
 ---
-title: "Information about clusters in {{ mkf-name }}"
-description: "You can request detailed information about each {{ mkf-name }} cluster you created. To get a list of database clusters in a folder, go to the folder page and select {{ mkf-name }}."
+title: Information about clusters in {{ mkf-name }}
+description: You can request detailed information about each {{ mkf-name }} cluster you created. To get a list of database clusters in a folder, go to the folder page and select {{ mkf-name }}.
 ---
 
 # Information about existing clusters in {{ mkf-name }}

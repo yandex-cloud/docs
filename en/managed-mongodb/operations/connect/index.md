@@ -1,6 +1,6 @@
 ---
-title: "Pre-configuration for connection to a {{ MG }} cluster in {{ mmg-full-name }}"
-description: "Follow this guide to prepare for connection to a database in a {{ MG }} cluster."
+title: Pre-configuration for connection to a {{ MG }} cluster in {{ mmg-full-name }}
+description: Follow this guide to prepare for connection to a database in a {{ MG }} cluster.
 ---
 
 # Pre-configuration for connection to a {{ MG }} cluster

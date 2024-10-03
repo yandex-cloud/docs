@@ -1,6 +1,6 @@
 ---
-title: "Migrating a database from a third-party {{ RD }} cluster to {{ mrd-full-name }}"
-description: "For data migration, {{ RD }} uses a logical dump: a file with a sequence of commands to restore the state of databases in a cluster. There are several ways to create a dump. The following example will use redis-dump-go."
+title: Migrating a database from a third-party {{ RD }} cluster to {{ mrd-full-name }}
+description: 'For data migration, {{ RD }} uses a logical dump: a file with a sequence of commands to restore the state of databases in a cluster. There are several ways to create a dump. The following example will use redis-dump-go.'
 ---
 
 # Migrating a database from a third-party {{ RD }} cluster to {{ mrd-full-name }}

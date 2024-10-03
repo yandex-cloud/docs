@@ -1,5 +1,5 @@
 ---
-canonical: "{{ link-docs }}/tutorials/dataplatform/rdbms-to-clickhouse"
+canonical: '{{ link-docs }}/tutorials/dataplatform/rdbms-to-clickhouse'
 ---
 
 # Загрузка данных из {{ PG }} в витрину {{ CH }}

@@ -1,6 +1,6 @@
 ---
-title: "How to create an issue via email in {{ tracker-full-name }}"
-description: "In this tutorial, you will learn how to create an issue via email."
+title: How to create an issue via email in {{ tracker-full-name }}
+description: In this tutorial, you will learn how to create an issue via email.
 ---
 
 # Creating an issue via email

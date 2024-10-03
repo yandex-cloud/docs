@@ -1,6 +1,6 @@
 ---
-title: "Правила тарификации для {{ iot-full-name }}"
-description: "В статье содержатся правила тарификации сервиса {{ iot-name }}."
+title: Правила тарификации для {{ iot-full-name }}
+description: В статье содержатся правила тарификации сервиса {{ iot-name }}.
 editable: false
 ---
 

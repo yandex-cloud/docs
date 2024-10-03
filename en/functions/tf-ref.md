@@ -1,6 +1,6 @@
 ---
-title: "{{ TF }} reference for {{ sf-full-name }}"
-description: "This page gives reference information about the {{ TF }} provider resources and data sources supported for {{ sf-name }}."
+title: '{{ TF }} reference for {{ sf-full-name }}'
+description: This page gives reference information about the {{ TF }} provider resources and data sources supported for {{ sf-name }}.
 ---
 
 # {{ TF }} reference for {{ sf-full-name }}

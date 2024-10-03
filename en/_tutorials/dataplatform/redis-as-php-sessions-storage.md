@@ -18,7 +18,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 - Manually {#manual}
 
-   
+
    1. If you use {{ vpc-name }} security groups, [configure them](../../vpc/operations/security-group-add-rule.md). Add TCP settings to the security group to allow the following:
 
       * Incoming traffic on port `22` from any IP addresses for SSH.
@@ -30,7 +30,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    1. [Create a virtual machine with LAMP/LEMP](../../tutorials/web/lamp-lemp/console.md#create-vm) in {{ compute-full-name }} of any suitable configuration.
 
-      
+
       When creating a VM, select the security group that you set up earlier. To check the security settings, enter the VM's public IP address in the browser address bar: the default page of the web server should be displayed.
 
 

@@ -1,6 +1,6 @@
 ---
-title: "Handling secrets that are available in the public domain in {{ yandex-cloud }}"
-description: "In this tutorial, you will learn what you should do if your secrets leaked to the public domain."
+title: Handling secrets that are available in the public domain in {{ yandex-cloud }}
+description: In this tutorial, you will learn what you should do if your secrets leaked to the public domain.
 ---
 
 # Handling secrets that are available in the public domain

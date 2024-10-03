@@ -1,6 +1,6 @@
 ---
-title: "Demo Telegram Bot"
-description: "Следуя данной инструкции, вы сможете создать Telegram Bot."
+title: Demo Telegram Bot
+description: Следуя данной инструкции, вы сможете создать Telegram Bot.
 ---
 
 # Demo Telegram Bot

@@ -1,6 +1,6 @@
 ---
-title: "Questions and answers about {{ mgl-full-name }}"
-description: "This page provides answers to questions about {{ mgl-name }}."
+title: Questions and answers about {{ mgl-full-name }}
+description: This page provides answers to questions about {{ mgl-name }}.
 ---
 
 # General questions about {{ mgl-name }}

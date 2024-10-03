@@ -1,6 +1,6 @@
 ---
-title: "{{ interconnect-full-name }} terminology"
-description: "You can find the key {{ interconnect-full-name }} terms below."
+title: '{{ interconnect-full-name }} terminology'
+description: You can find the key {{ interconnect-full-name }} terms below.
 ---
 
 # {{ interconnect-name }} terminology

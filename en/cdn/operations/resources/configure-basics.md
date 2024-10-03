@@ -1,6 +1,6 @@
 ---
-title: "How to edit the basic settings of a resource in {{ cdn-full-name }}"
-description: "Follow this guide to update the basic resource settings."
+title: How to edit the basic settings of a resource in {{ cdn-full-name }}
+description: Follow this guide to update the basic resource settings.
 ---
 
 # Editing the basic settings of a resource

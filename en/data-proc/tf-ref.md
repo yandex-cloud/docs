@@ -1,6 +1,6 @@
 ---
-title: "{{ TF }} reference for {{ dataproc-full-name }}"
-description: "This page provides reference information on the {{ TF }} provider resources and data sources supported for {{ dataproc-name }}."
+title: '{{ TF }} reference for {{ dataproc-full-name }}'
+description: This page provides reference information on the {{ TF }} provider resources and data sources supported for {{ dataproc-name }}.
 ---
 
 # {{ TF }} reference for {{ dataproc-full-name }}

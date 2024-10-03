@@ -1,6 +1,6 @@
 ---
-title: "Deleting a rule from a security group"
-description: "Follow this guide to delete a rule from a security group."
+title: Deleting a rule from a security group
+description: Follow this guide to delete a rule from a security group.
 ---
 
 # Deleting a rule from a security group

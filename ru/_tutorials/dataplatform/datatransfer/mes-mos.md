@@ -15,7 +15,7 @@
 
 1. Подготовьте инфраструктуру:
 
-    
+
     1. [Создайте пользовательскую инсталляцию {{ ES }}]({{ links.es.docs }}/elasticsearch/reference/current/getting-started.html).
 
     1. [Обеспечьте доступ к кластеру из {{ yandex-cloud }}](../../../data-transfer/concepts/network.md#source-external).

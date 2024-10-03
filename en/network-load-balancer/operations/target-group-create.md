@@ -1,6 +1,6 @@
 ---
-title: "Creating a {{ network-load-balancer-name }} target group"
-description: "Follow this guide to create a {{ network-load-balancer-name }} target group."
+title: Creating a {{ network-load-balancer-name }} target group
+description: Follow this guide to create a {{ network-load-balancer-name }} target group.
 ---
 
 # Creating a {{ network-load-balancer-name }} target group

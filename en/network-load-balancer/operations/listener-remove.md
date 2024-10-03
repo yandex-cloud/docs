@@ -1,6 +1,6 @@
 ---
-title: "Deleting a listener"
-description: "Follow this guide to delete a listener."
+title: Deleting a listener
+description: Follow this guide to delete a listener.
 ---
 
 # Deleting a listener

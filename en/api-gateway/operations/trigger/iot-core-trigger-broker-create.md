@@ -1,6 +1,6 @@
 ---
-title: "Creating a trigger that sends messages to {{ api-gw-full-name }} WebSocket connections from an {{ iot-full-name }} broker topic"
-description: "Create a trigger for an {{ iot-name }} broker topic to send message copies to {{ api-gw-full-name }} WebSocket connections."
+title: Creating a trigger that sends messages to {{ api-gw-full-name }} WebSocket connections from an {{ iot-full-name }} broker topic
+description: Create a trigger for an {{ iot-name }} broker topic to send message copies to {{ api-gw-full-name }} WebSocket connections.
 ---
 
 # Creating a trigger that sends messages to WebSocket connections from an {{ iot-full-name }} broker

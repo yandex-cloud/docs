@@ -58,7 +58,7 @@
 1. Установите [Node.js](https://nodejs.org/en/download/package-manager/):
 
    ```bash
-   curl -fsSL https://deb.nodesource.com/setup_current.x | sudo -E bash - \
+   curl --fail --silent --show-error --location https://deb.nodesource.com/setup_current.x | sudo -E bash - \
    sudo apt-get install -y nodejs
    ```
 

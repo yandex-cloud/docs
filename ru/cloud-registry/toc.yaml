@@ -1,11 +1,6 @@
 title: Yandex Cloud Registry
 stage: preview
 href: index.yaml
-label:
-  title: RU
-  description: Сервис доступен только в регионе Россия.
-  theme: unknown
-  when: region == "kz"
 items:
   - name: Концепции
     items:
@@ -20,3 +15,4 @@ items:
   - name: Правила тарификации
     href: pricing.md
 base: ru/cloud-registry
+deepBase: 2

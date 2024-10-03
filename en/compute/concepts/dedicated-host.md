@@ -1,5 +1,5 @@
 ---
-title: "Dedicated hosts in {{ compute-full-name }}"
+title: Dedicated hosts in {{ compute-full-name }}
 ---
 
 # Dedicated hosts

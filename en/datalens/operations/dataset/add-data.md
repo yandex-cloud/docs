@@ -1,6 +1,6 @@
 ---
-title: "How to add data to a {{ datalens-full-name }} dataset via an SQL query"
-description: "In this tutorial, you will learn how to add data to a {{ datalens-full-name }} dataset using an SQL query."
+title: How to add data to a {{ datalens-full-name }} dataset via an SQL query
+description: In this tutorial, you will learn how to add data to a {{ datalens-full-name }} dataset using an SQL query.
 ---
 
 # Describing a dataset via a source SQL query

@@ -1,6 +1,6 @@
 ---
-title: "Placing products on {{ marketplace-full-name }}"
-description: "Follow this guide to place your product on {{ marketplace-full-name }}."
+title: Placing products on {{ marketplace-full-name }}
+description: Follow this guide to place your product on {{ marketplace-full-name }}.
 ---
 
 # Placing your product on {{ marketplace-full-name }}

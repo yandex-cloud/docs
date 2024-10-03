@@ -1,6 +1,6 @@
 ---
-title: "Какие квоты и лимиты действуют в {{ interconnect-full-name }}"
-description: "Из статьи вы узнаете, какие квоты и лимиты действуют в {{ interconnect-name }}."
+title: Какие квоты и лимиты действуют в {{ interconnect-full-name }}
+description: Из статьи вы узнаете, какие квоты и лимиты действуют в {{ interconnect-name }}.
 editable: false
 ---
 

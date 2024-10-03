@@ -1,6 +1,6 @@
 ---
-title: "How to change {{ RD }} cluster settings in {{ mrd-full-name }}"
-description: "In this tutorial, you will learn how to change settings for a {{ RD }} cluster."
+title: How to change {{ RD }} cluster settings in {{ mrd-full-name }}
+description: In this tutorial, you will learn how to change settings for a {{ RD }} cluster.
 ---
 
 # Updating {{ RD }} cluster settings
@@ -258,14 +258,14 @@ We recommend changing the host class only when the cluster has no active workloa
 
    1. Request a list of available host classes (the `ZONE IDS` column specifies the availability zones where you can select the appropriate class):
 
-      
+
       ```bash
       {{ yc-mdb-rd }} resource-preset list
       ```
 
       Result:
 
-      
+
       ```text
       +-------------+--------------------------------+----------+
       |     ID      |            ZONE IDS            |  MEMORY  |

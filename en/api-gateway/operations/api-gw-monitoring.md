@@ -1,6 +1,6 @@
 ---
-title: "Viewing monitoring charts in {{ api-gw-full-name }}"
-description: "You can view monitoring charts in {{ api-gw-full-name }} for such measures as the number of requests to the API gateway, number of errors accessing the API gateway, and the time of requests to the API gateway. To view the chart, click {{ api-gw-name }} in the folder with the API gateway you want to get details about. In the window that opens, select the API gateway that you want to view monitoring charts for."
+title: Viewing monitoring charts in {{ api-gw-full-name }}
+description: You can view monitoring charts in {{ api-gw-full-name }} for such measures as the number of requests to the API gateway, number of errors accessing the API gateway, and the time of requests to the API gateway. To view the chart, click {{ api-gw-name }} in the folder with the API gateway you want to get details about. In the window that opens, select the API gateway that you want to view monitoring charts for.
 ---
 
 # Viewing monitoring charts in {{ api-gw-name }}

@@ -1,5 +1,5 @@
 ---
-title: "Java function invocation context in {{ sf-full-name }}"
+title: Java function invocation context in {{ sf-full-name }}
 ---
 
 # Java function invocation context

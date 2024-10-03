@@ -1,5 +1,5 @@
 ---
-canonical: "{{ link-docs }}/tutorials/dataplatform/data-transfer-mkf-mmy"
+canonical: '{{ link-docs }}/tutorials/dataplatform/data-transfer-mkf-mmy'
 ---
 
 # Поставка данных из {{ mkf-full-name }} с помощью {{ data-transfer-full-name }}

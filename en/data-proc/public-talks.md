@@ -1,6 +1,6 @@
 ---
-title: "Public materials about {{ dataproc-name }}"
-description: "Videos of conferences and webinars on {{ dataproc-name }}."
+title: Public materials about {{ dataproc-name }}
+description: Videos of conferences and webinars on {{ dataproc-name }}.
 ---
 
 # Public materials about {{ dataproc-name }}

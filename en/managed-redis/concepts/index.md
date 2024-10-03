@@ -1,6 +1,6 @@
 ---
-title: "Resource relationships in {{ mrd-full-name }}"
-description: "{{ RD }} is a high-performance DBMS for storing key-value data that runs in RAM. {{ mrd-name }} allows you to easily create {{ RD }} host clusters with a high level of fault tolerance. The main entity used in {{ mrd-name }} is a database cluster."
+title: Resource relationships in {{ mrd-full-name }}
+description: '{{ RD }} is a high-performance DBMS for storing key-value data that runs in RAM. {{ mrd-name }} allows you to easily create {{ RD }} host clusters with a high level of fault tolerance. The main entity used in {{ mrd-name }} is a database cluster.'
 ---
 
 # Resource relationships in {{ mrd-name }}

@@ -1,6 +1,6 @@
 ---
-title: "Hosting a static Gatsby website"
-description: "Creating and hosting a static Gatsby website in {{ yandex-cloud }}"
+title: Hosting a static Gatsby website
+description: Creating and hosting a static Gatsby website in {{ yandex-cloud }}
 keywords:
   - gatsby
   - gatsby website hosting

@@ -1,6 +1,6 @@
 ---
-title: "How to send messages in {{ message-queue-full-name }}"
-description: "Follow this guide to send messages."
+title: How to send messages in {{ message-queue-full-name }}
+description: Follow this guide to send messages.
 ---
 
 # Sending messages

@@ -1,6 +1,6 @@
 ---
-title: "How to prefetch files to CDN servers in {{ cdn-full-name }}"
-description: "Use this guide to prefetch files to CDN servers."
+title: How to prefetch files to CDN servers in {{ cdn-full-name }}
+description: Use this guide to prefetch files to CDN servers.
 ---
 
 # Prefetching files to CDN servers

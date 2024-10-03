@@ -1,6 +1,6 @@
 ---
-title: "How to configure CORS for responses to clients in {{ cdn-full-name }}"
-description: "Follow this guide to configure CORS when sending responses to clients."
+title: How to configure CORS for responses to clients in {{ cdn-full-name }}
+description: Follow this guide to configure CORS when sending responses to clients.
 ---
 
 # Configuring CORS when responding to clients
@@ -104,7 +104,7 @@ To configure cross-domain requests with [CORS](../../concepts/cors.md) for the [
 
   1. In the configuration file, describe the parameters of the CDN resource to create:
 
-      
+
       ```hcl
       terraform {
         required_providers {

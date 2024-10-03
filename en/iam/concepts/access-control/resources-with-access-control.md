@@ -1,6 +1,6 @@
 ---
-title: "List of resources that you can assign roles for in {{ iam-full-name }}"
-description: "In this tutorial, you will learn for which {{ yandex-cloud }} resources you can assign roles."
+title: List of resources that you can assign roles for in {{ iam-full-name }}
+description: In this tutorial, you will learn for which {{ yandex-cloud }} resources you can assign roles.
 ---
 
 # List of resources that you can assign roles for

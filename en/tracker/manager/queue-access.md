@@ -1,6 +1,6 @@
 ---
-title: "How to set up access to a queue"
-description: "Follow this guide to set up access to a queue."
+title: How to set up access to a queue
+description: Follow this guide to set up access to a queue.
 ---
 
 # Queue access management page

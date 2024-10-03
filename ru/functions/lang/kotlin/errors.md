@@ -18,7 +18,8 @@ fun handle(request: IntArray): Int {
 Ситуация 1. При вызове функции пользователь передает массив чисел `[1, 22, 333]`:
 
 ```bash
-curl -H "Authorization: Bearer <IAM-тoкен>" \
+curl \
+     --header "Authorization: Bearer <IAM-тoкен>" \
      --data "[1, 22, 333]" \
      "https://functions.yandexcloud.net/<идентификатор_функции>?integration=raw"
 ```
@@ -28,7 +29,8 @@ curl -H "Authorization: Bearer <IAM-тoкен>" \
 Ситуация 2. Пользователь передает пустой массив:
 
 ```bash
-curl -H "Authorization: Bearer <IAM-тoкен>" \
+curl \
+     --header "Authorization: Bearer <IAM-тoкен>" \
      --data "[]" \
      "https://functions.yandexcloud.net/<идентификатор_функции>?integration=raw"
 ```
@@ -55,7 +57,8 @@ curl -H "Authorization: Bearer <IAM-тoкен>" \
 Ситуация 3. Вместо чисел передается строка, что приводит к ошибке десериализации:
 
 ```bash
-curl -H "Authorization: Bearer <IAM-тoкен>" \
+curl \
+     --header "Authorization: Bearer <IAM-тoкен>" \
      --data "notanarray" \
      "https://functions.yandexcloud.net/<идентификатор_функции>?integration=raw"
 ```

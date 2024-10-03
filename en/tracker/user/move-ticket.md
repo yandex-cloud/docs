@@ -1,6 +1,6 @@
 ---
-title: "How to move an issue to another queue in {{ tracker-name }}"
-description: "Follow this guide to move an issue to another queue in {{ tracker-name }}."
+title: How to move an issue to another queue in {{ tracker-name }}
+description: Follow this guide to move an issue to another queue in {{ tracker-name }}.
 ---
 
 # Move an issue to another queue {{ tracker-name }}

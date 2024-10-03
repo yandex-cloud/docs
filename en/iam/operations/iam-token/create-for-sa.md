@@ -1,6 +1,6 @@
 ---
-title: "How to get an IAM token for a service account in {{ iam-full-name }}"
-description: "Follow this guide to get an IAM token for a service account."
+title: How to get an IAM token for a service account in {{ iam-full-name }}
+description: Follow this guide to get an IAM token for a service account.
 ---
 
 # Getting an IAM token for a service account

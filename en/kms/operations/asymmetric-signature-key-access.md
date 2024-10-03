@@ -1,6 +1,6 @@
 ---
-title: "Configuring access permissions for a digital signature key pair"
-description: "Follow this guide to assign roles for an asymmetric digital signature key pair."
+title: Configuring access permissions for a digital signature key pair
+description: Follow this guide to assign roles for an asymmetric digital signature key pair.
 ---
 
 # Configuring access permissions for a digital signature key pair

@@ -1,6 +1,6 @@
 ---
-title: "Instructions for creating an Oracle Database connection in {{ datalens-full-name }}"
-description: "In this tutorial, you will learn how to connect to Oracle Database in {{ datalens-full-name }}."
+title: Instructions for creating an Oracle Database connection in {{ datalens-full-name }}
+description: In this tutorial, you will learn how to connect to Oracle Database in {{ datalens-full-name }}.
 ---
 
 # Creating an Oracle Database connection

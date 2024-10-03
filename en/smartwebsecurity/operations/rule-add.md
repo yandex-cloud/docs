@@ -1,6 +1,6 @@
 ---
-title: "How to add a rule to a {{ sws-full-name }} security profile"
-description: "Follow this guide to add a rule to a {{ sws-full-name }} security profile."
+title: How to add a rule to a {{ sws-full-name }} security profile
+description: Follow this guide to add a rule to a {{ sws-full-name }} security profile.
 ---
 
 # Adding a rule to a security profile

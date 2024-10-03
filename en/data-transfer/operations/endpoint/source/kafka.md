@@ -1,6 +1,6 @@
 ---
-title: "How to configure an {{ KF }} source endpoint in {{ data-transfer-full-name }}"
-description: "In this tutorial, you will learn how to set up an {{ KF }} source endpoint in {{ data-transfer-full-name }}."
+title: How to configure an {{ KF }} source endpoint in {{ data-transfer-full-name }}
+description: In this tutorial, you will learn how to set up an {{ KF }} source endpoint in {{ data-transfer-full-name }}.
 ---
 
 # Transferring data from an {{ KF }} source endpoint
@@ -27,7 +27,7 @@ description: "In this tutorial, you will learn how to set up an {{ KF }} source 
 
    * [{{ KF }} to {{ CH }}](../../../tutorials/mkf-to-mch.md).
    * [{{ KF }} to {{ PG }}](../../../tutorials/mkf-to-mpg.md).
-   * [{{ KF }} to {{ GP }}](../../../tutorials/managed-kafka-to-greenplum.md).
+   * [{{ KF }} to {{ GP }}](../../../tutorials/managed-kafka-to-greenplum.md).   
    * [{{ KF }} to {{ MG }}](../../../tutorials/mkf-to-mmg.md).
    * [{{ KF }} to {{ MY }}](../../../tutorials/mkf-to-mmy.md).
    * [{{ KF }} to {{ OS }}](../../../tutorials/mkf-to-mos.md).
@@ -73,7 +73,7 @@ Connection with the cluster ID specified in {{ yandex-cloud }}.
 
    Here is an example of the configuration file structure:
 
-   
+
    ```hcl
    resource "yandex_datatransfer_endpoint" "<endpoint_name_in_{{ TF }}>" {
      name = "<endpoint_name>"
@@ -120,7 +120,7 @@ Connection with the {{ KF }} cluster with explicitly specified network addresses
 
    Here is an example of the configuration file structure:
 
-   
+
    ```hcl
    resource "yandex_datatransfer_endpoint" "<endpoint_name_in_{{ TF }}>" {
      name = "<endpoint_name>"
@@ -162,12 +162,12 @@ Connection with the {{ KF }} cluster with explicitly specified network addresses
 
 - Management console {#console}
 
-   
+
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceAdvancedSettings.transformer.title }}**:
 
       * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataTransformationOptions.cloud_function.title }}**: Select one of the functions created in {{ sf-name }}.
 
-      
+
       * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataTransformationOptions.service_account_id.title }}**: Select or [create](../../../../iam/operations/sa/create.md) a service account that the processing function will start under.
 
 

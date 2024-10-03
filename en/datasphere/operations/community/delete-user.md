@@ -1,6 +1,6 @@
 ---
-title: "How to remove a user from a community"
-description: "In this tutorial, you will learn how to remove a user from a community in {{ ml-platform-name }}."
+title: How to remove a user from a community
+description: In this tutorial, you will learn how to remove a user from a community in {{ ml-platform-name }}.
 ---
 
 # Removing a user from a community

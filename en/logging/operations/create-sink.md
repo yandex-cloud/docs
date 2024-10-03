@@ -1,6 +1,6 @@
 ---
-title: "How to create a log sink in {{ cloud-logging-name }}"
-description: "In this guide, you will learn how to create a log sink in {{ cloud-logging-name }}."
+title: How to create a log sink in {{ cloud-logging-name }}
+description: In this guide, you will learn how to create a log sink in {{ cloud-logging-name }}.
 ---
 
 # Creating a log sink

@@ -1,6 +1,6 @@
 ---
-title: "How to get information about a public image in {{ compute-full-name }}"
-description: "Follow this guide to get information about a public image."
+title: How to get information about a public image in {{ compute-full-name }}
+description: Follow this guide to get information about a public image.
 ---
 
 # Getting information about a public image

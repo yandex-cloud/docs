@@ -1,6 +1,6 @@
 ---
-title: "How to configure resource caching in {{ cdn-full-name }}"
-description: "Follow this guide to configure resource caching."
+title: How to configure resource caching in {{ cdn-full-name }}
+description: Follow this guide to configure resource caching.
 ---
 
 # Configuring resource caching
@@ -125,7 +125,7 @@ To configure the [caching](../../concepts/caching.md) parameters of a [resource]
 
   1. In the configuration file, describe the parameters of the `yandex_cdn_resource` CDN resource you want to create:
 
-      
+
       ```hcl
       terraform {
         required_providers {

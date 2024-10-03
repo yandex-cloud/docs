@@ -1,10 +1,5 @@
 title: Yandex Cloud CDN
 href: index.yaml
-label:
-  title: RU
-  description: This service is only available in the Russia region.
-  theme: unknown
-  when: region == "kz"
 items:
   - name: Getting started
     href: quickstart.md
@@ -247,3 +242,4 @@ items:
   - name: Troubleshooting
     href: troubleshooting.md
 base: en/cdn
+deepBase: 2

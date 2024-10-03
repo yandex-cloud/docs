@@ -1,6 +1,6 @@
 ---
-title: "Removing a function version tag"
-description: "Follow this guide to remove a function version tag."
+title: Removing a function version tag
+description: Follow this guide to remove a function version tag.
 ---
 
 # Removing a function version tag

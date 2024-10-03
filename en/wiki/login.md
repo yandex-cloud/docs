@@ -1,6 +1,6 @@
 ---
-title: "How to log in to {{ wiki-full-name }}"
-description: "Follow this guide to log in to {{ wiki-full-name }}."
+title: How to log in to {{ wiki-full-name }}
+description: Follow this guide to log in to {{ wiki-full-name }}.
 ---
 
 # Logging in to {{ wiki-full-name }}

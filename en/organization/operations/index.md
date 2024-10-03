@@ -1,6 +1,6 @@
 ---
-title: "How to work with {{ org-full-name }}"
-description: "In this article, you will learn how to work with {{ org-full-name }} in {{ yandex-cloud }}."
+title: How to work with {{ org-full-name }}
+description: In this article, you will learn how to work with {{ org-full-name }} in {{ yandex-cloud }}.
 ---
 
 # Guides on using {{ org-full-name }}

@@ -1,6 +1,6 @@
 ---
-title: "How to move a disk to a different availability zone in {{ compute-full-name }}"
-description: "Follow this guide to move a disk to a different availability zone."
+title: How to move a disk to a different availability zone in {{ compute-full-name }}
+description: Follow this guide to move a disk to a different availability zone.
 ---
 
 # Moving a disk to a different availability zone

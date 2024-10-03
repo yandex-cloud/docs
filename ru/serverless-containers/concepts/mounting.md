@@ -1,6 +1,6 @@
 ---
-title: "Монтирование файловых систем в контейнер {{ serverless-containers-full-name }}"
-description: "Из статьи вы узнаете как монтировать файловые системы в контейнер {{ serverless-containers-name }}."
+title: Монтирование файловых систем в контейнер {{ serverless-containers-full-name }}
+description: Из статьи вы узнаете как монтировать файловые системы в контейнер {{ serverless-containers-name }}.
 ---
 
 # Монтирование файловых систем в контейнер

@@ -1,6 +1,6 @@
 ---
-title: "How to set up filtering of charts by other charts on the dashboard in {{ datalens-full-name }}"
-description: "Follow this guide to set up filtering of charts by other charts on the dashboard."
+title: How to set up filtering of charts by other charts on the dashboard in {{ datalens-full-name }}
+description: Follow this guide to set up filtering of charts by other charts on the dashboard.
 ---
 
 # Setting up filtering by charts

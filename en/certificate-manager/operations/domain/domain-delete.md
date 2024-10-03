@@ -1,6 +1,6 @@
 ---
-title: "How to delete a domain"
-description: "Follow this guide to delete a domain."
+title: How to delete a domain
+description: Follow this guide to delete a domain.
 ---
 
 # Deleting a domain

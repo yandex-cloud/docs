@@ -1,6 +1,6 @@
 ---
-title: "Quotas and limits in {{ ca-full-name }}"
-description: "{{ ca-full-name }} has no quotas or limits."
+title: Quotas and limits in {{ ca-full-name }}
+description: '{{ ca-full-name }} has no quotas or limits.'
 editable: false
 ---
 

@@ -1,6 +1,6 @@
 ---
-title: "Viewing CDN resource statistics"
-description: "Follow this guide to view the CDN resource statistics."
+title: Viewing CDN resource statistics
+description: Follow this guide to view the CDN resource statistics.
 ---
 
 # Viewing CDN resource statistics

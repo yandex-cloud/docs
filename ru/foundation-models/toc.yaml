@@ -1,10 +1,5 @@
 title: Yandex Foundation Models
 href: index.yaml
-label:
-  title: RU
-  description: Сервис доступен только в регионе Россия.
-  theme: unknown
-  when: region == "kz"
 items:
   - name: Начало работы
     items:
@@ -16,6 +11,8 @@ items:
     items:
       - name: Все инструкции
         href: operations/index.md
+      - name: Отключить логирование запросов
+        href: operations/disable-logging.md
       - name: '{{ yagpt-full-name }}'
         items:
           - name: Отправить запрос в промт-режиме
@@ -24,8 +21,6 @@ items:
             href: operations/yandexgpt/create-chat.md
           - name: Отправить асинхронный запрос
             href: operations/yandexgpt/async-request.md
-          - name: Отключить логирование запросов
-            href: operations/yandexgpt/disable-logging.md
       - name: Классификаторы на базе {{ yagpt-name }}
         items:
           - name: Использовать классификаторы по промту
@@ -351,3 +346,4 @@ items:
       - name: Коды ошибок
         href: troubleshooting/error-codes.md
 base: ru/foundation-models
+deepBase: 2

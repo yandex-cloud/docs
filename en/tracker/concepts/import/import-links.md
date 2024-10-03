@@ -1,6 +1,6 @@
 ---
-title: "How to import links"
-description: "This article describes how to import links."
+title: How to import links
+description: This article describes how to import links.
 sourcePath: en/tracker/api-ref/concepts/import/import-links.md
 ---
 

@@ -1,7 +1,6 @@
 # How to restore access to a billing account created via simplified registration in Yandex ID
 
 
-
 ## Issue description {#case-description}
 
 You need to gain access to a billing account that was created using [simplified registration in Yandex ID](https://yandex.ru/support/id/authorization/lite.html#lite__login-mail), but access to the account created in such a way in Yandex ID was lost.
@@ -19,7 +18,7 @@ You can also [create a new request for technical support](https://console.cloud.
 When creating the request, be sure to specify:
 
 1. Billing account ID.
-You can find this ID on the [page with billing account details]({{ link-console-support }}).
+   You can find this ID on the [page with billing account details]({{ link-console-support }}).
 2. The email address used for simplified registration in Yandex ID.
    We will use this email to find the details of the billing accounts linked to your account.
 3. A description of the actions you want to perform with the billing account, in arbitrary format.

@@ -1,10 +1,5 @@
 title: Yandex Network Load Balancer
 href: index.yaml
-label:
-  title: KZ
-  description: Сервис доступен в регионе Казахстан.
-  theme: info
-  when: region == "kz"
 items:
   - name: Начало работы
     href: quickstart.md
@@ -197,3 +192,4 @@ items:
   - name: Обучающие курсы
     href: training.md
 base: ru/network-load-balancer
+deepBase: 2

@@ -1,6 +1,6 @@
 ---
-title: "How to edit a playlist in {{ video-full-name }}"
-description: "Follow this guide to edit a playlist in {{ video-name }}."
+title: How to edit a playlist in {{ video-full-name }}
+description: Follow this guide to edit a playlist in {{ video-name }}.
 ---
 
 # Editing a playlist

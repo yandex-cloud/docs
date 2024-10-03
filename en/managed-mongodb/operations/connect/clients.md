@@ -1,6 +1,6 @@
 ---
-title: "Connecting to a {{ MG }} cluster in {{ mmg-full-name }}"
-description: "Follow this guide to connect to a database in a {{ MG }} cluster using command line tools, graphical IDEs, and Docker container."
+title: Connecting to a {{ MG }} cluster in {{ mmg-full-name }}
+description: Follow this guide to connect to a database in a {{ MG }} cluster using command line tools, graphical IDEs, and Docker container.
 ---
 
 # Connecting to a {{ MG }} cluster from applications

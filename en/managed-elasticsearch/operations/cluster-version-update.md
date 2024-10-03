@@ -1,6 +1,6 @@
 ---
-title: "How to update {{ ES }} versions and editions"
-description: "This guide describes how you can update {{ ES }} versions and editions."
+title: How to update {{ ES }} versions and editions
+description: This guide describes how you can update {{ ES }} versions and editions.
 ---
 
 # Updating the {{ ES }} version and edition

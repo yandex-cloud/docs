@@ -1,6 +1,6 @@
 ---
-title: "Роли для анализа данных Access Transparency в {{ sd-full-name }}"
-description: "На данной странице приведен список ролей, необходимых для анализа данных Access Transparency в сервисе {{ sd-name }}."
+title: Роли для анализа данных Access Transparency в {{ sd-full-name }}
+description: На данной странице приведен список ролей, необходимых для анализа данных Access Transparency в сервисе {{ sd-name }}.
 ---
 
 # Роли для анализа данных Access Transparency

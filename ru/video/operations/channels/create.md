@@ -1,6 +1,6 @@
 ---
-title: "Как создать канал в {{ video-full-name }}"
-description: "Следуя данной инструкции, вы сможете создать канал {{ video-full-name }}."
+title: Как создать канал в {{ video-full-name }}
+description: Следуя данной инструкции, вы сможете создать канал {{ video-full-name }}.
 ---
 
 # Создать канал

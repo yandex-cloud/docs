@@ -1,6 +1,6 @@
 ---
-title: "Access management in {{ ml-platform-full-name }}"
-description: "Access management in {{ ml-platform-full-name }}, a service that provides an ML development environment. To grant access to {{ ml-platform-name }} resources, assign the necessary roles from the list below to the user."
+title: Access management in {{ ml-platform-full-name }}
+description: Access management in {{ ml-platform-full-name }}, a service that provides an ML development environment. To grant access to {{ ml-platform-name }} resources, assign the necessary roles from the list below to the user.
 ---
 
 # Access management in {{ ml-platform-name }}

@@ -1,6 +1,6 @@
 ---
-title: "How to update an instance group in {{ compute-full-name }} based on a YAML specification"
-description: "Follow this guide to update an instance group based on a YAML specification."
+title: How to update an instance group in {{ compute-full-name }} based on a YAML specification
+description: Follow this guide to update an instance group based on a YAML specification.
 ---
 
 # Editing an instance group based on a YAML specification

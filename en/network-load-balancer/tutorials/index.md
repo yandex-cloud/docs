@@ -1,6 +1,6 @@
 ---
-title: "{{ network-load-balancer-full-name }} use cases"
-description: "Various {{ network-load-balancer-full-name }} use cases in {{ yandex-cloud }}."
+title: '{{ network-load-balancer-full-name }} use cases'
+description: Various {{ network-load-balancer-full-name }} use cases in {{ yandex-cloud }}.
 ---
 
 # {{ network-load-balancer-name }} tutorials

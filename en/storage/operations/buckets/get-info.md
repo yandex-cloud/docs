@@ -1,6 +1,6 @@
 ---
-title: "Getting bucket information and statistics"
-description: "Follow this guide to get bucket information and statistics."
+title: Getting bucket information and statistics
+description: Follow this guide to get bucket information and statistics.
 ---
 
 # Getting bucket information and statistics

@@ -121,7 +121,7 @@
 
   1. In the configuration file, describe the parameters of the resources you want to create:
 
-     
+
      ```hcl
      provider "yandex" {
        cloud_id  = "<cloud_ID>"

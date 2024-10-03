@@ -1,6 +1,6 @@
 ---
-title: "Use cases for core infrastructure management systems in {{ yandex-cloud }}"
-description: "Various use cases for core infrastructure management systems in {{ yandex-cloud }}."
+title: Use cases for core infrastructure management systems in {{ yandex-cloud }}
+description: Various use cases for core infrastructure management systems in {{ yandex-cloud }}.
 ---
 
 # Tutorials for working with basic infrastructure management systems

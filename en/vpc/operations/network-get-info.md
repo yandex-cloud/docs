@@ -1,6 +1,6 @@
 ---
-title: "How to get information about a cloud network in {{ vpc-full-name }}"
-description: "Follow this guide to get information about a cloud network."
+title: How to get information about a cloud network in {{ vpc-full-name }}
+description: Follow this guide to get information about a cloud network.
 ---
 
 # Getting information about a cloud network

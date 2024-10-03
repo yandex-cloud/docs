@@ -1,6 +1,6 @@
 ---
-title: "How to read metrics"
-description: "Follow this guide to read metrics."
+title: How to read metrics
+description: Follow this guide to read metrics.
 ---
 
 # Reading metrics

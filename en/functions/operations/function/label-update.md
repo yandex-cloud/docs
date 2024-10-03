@@ -1,6 +1,6 @@
 ---
-title: "Updating a function label"
-description: "Follow this guide to update a function label."
+title: Updating a function label
+description: Follow this guide to update a function label.
 ---
 
 # Updating a function label

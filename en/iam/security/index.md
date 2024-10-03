@@ -1,6 +1,6 @@
 ---
-title: "Access management in {{ iam-full-name }} ({{ iam-short-name }})"
-description: "Accesses in {{ iam-full-name }} ({{ iam-short-name }}), a service for identity and access management. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required to perform a particular action."
+title: Access management in {{ iam-full-name }} ({{ iam-short-name }})
+description: Accesses in {{ iam-full-name }} ({{ iam-short-name }}), a service for identity and access management. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required to perform a particular action.
 ---
 
 # Access management in {{ iam-name }}

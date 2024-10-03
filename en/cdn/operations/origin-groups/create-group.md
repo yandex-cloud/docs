@@ -1,6 +1,6 @@
 ---
-title: "How to create an origin group in {{ cdn-full-name }}"
-description: "Follow this guide to create an origin group."
+title: How to create an origin group in {{ cdn-full-name }}
+description: Follow this guide to create an origin group.
 ---
 
 # Creating an origin group

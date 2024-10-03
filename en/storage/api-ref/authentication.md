@@ -1,6 +1,6 @@
 ---
-title: "Authentication with the {{ objstorage-full-name }} API"
-description: "To perform operations through the API in {{ objstorage-full-name }}, a scalable data storage, get an IAM token for your account."
+title: Authentication with the {{ objstorage-full-name }} API
+description: To perform operations through the API in {{ objstorage-full-name }}, a scalable data storage, get an IAM token for your account.
 ---
 
 # Authentication with the {{ objstorage-name }} API

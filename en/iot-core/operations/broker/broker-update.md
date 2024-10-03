@@ -1,6 +1,6 @@
 ---
-title: "How to update a broker"
-description: "Follow this guide to update a broker."
+title: How to update a broker
+description: Follow this guide to update a broker.
 ---
 
 # Updating a broker

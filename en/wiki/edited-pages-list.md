@@ -1,6 +1,6 @@
 ---
-title: "How to view pages edited by me in {{ wiki-full-name }}"
-description: "Follow this guide to view pages edited by you."
+title: How to view pages edited by me in {{ wiki-full-name }}
+description: Follow this guide to view pages edited by you.
 ---
 
 # Viewing pages edited by me

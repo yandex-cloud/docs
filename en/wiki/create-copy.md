@@ -1,6 +1,6 @@
 ---
-title: "How to create a copy of any page in {{ wiki-full-name }}"
-description: "Follow this guide to create a copy of any page in {{ wiki-name }}."
+title: How to create a copy of any page in {{ wiki-full-name }}
+description: Follow this guide to create a copy of any page in {{ wiki-name }}.
 ---
 
 # Creating a copy of a page

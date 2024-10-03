@@ -1,6 +1,6 @@
 ---
-title: "Configuring {{ compute-name }} disk access permissions"
-description: "Follow this guide to configure disk access permissions."
+title: Configuring {{ compute-name }} disk access permissions
+description: Follow this guide to configure disk access permissions.
 ---
 
 # Configuring disk access permissions

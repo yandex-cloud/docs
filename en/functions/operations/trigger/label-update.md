@@ -1,6 +1,6 @@
 ---
-title: "Updating a trigger label in {{ sf-name }}"
-description: "Follow this guide to update a trigger label in {{ sf-name }}."
+title: Updating a trigger label in {{ sf-name }}
+description: Follow this guide to update a trigger label in {{ sf-name }}.
 ---
 
 # Updating a trigger label in {{ sf-name }}

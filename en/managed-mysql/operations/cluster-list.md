@@ -1,6 +1,6 @@
 ---
-title: "Information about clusters in {{ mmy-short-name }}"
-description: "You can request detailed information about each {{ mmy-short-name }} cluster you created. To get a list of database clusters in a folder, go to the folder page and select {{ mmy-name }}."
+title: Information about clusters in {{ mmy-short-name }}
+description: You can request detailed information about each {{ mmy-short-name }} cluster you created. To get a list of database clusters in a folder, go to the folder page and select {{ mmy-name }}.
 ---
 
 # Information about existing {{ MY }} clusters

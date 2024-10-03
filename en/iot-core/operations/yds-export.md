@@ -1,6 +1,6 @@
 ---
-title: "Exporting messages to {{ yds-name }}"
-description: "Follow this guide to export messages to {{ yds-name }}."
+title: Exporting messages to {{ yds-name }}
+description: Follow this guide to export messages to {{ yds-name }}.
 ---
 
 # Exporting messages to {{ yds-name }}

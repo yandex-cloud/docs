@@ -1,6 +1,6 @@
 ---
-title: "People"
-description: "In this block, you can specify an organization employee's name in {{ org-full-name }}. Employee names will be suggested to you as you type. For example, you can use this block in a form listing the employees enrolled for training."
+title: People
+description: In this block, you can specify an organization employee's name in {{ org-full-name }}. Employee names will be suggested to you as you type. For example, you can use this block in a form listing the employees enrolled for training.
 ---
 
 # People

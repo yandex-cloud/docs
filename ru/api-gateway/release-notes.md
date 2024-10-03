@@ -1,6 +1,6 @@
 ---
-title: "История изменений в {{ api-gw-full-name }}"
-description: "В разделе представлена история изменений сервиса {{ api-gw-name }}."
+title: История изменений в {{ api-gw-full-name }}
+description: В разделе представлена история изменений сервиса {{ api-gw-name }}.
 ---
 
 # История изменений в {{ api-gw-full-name }}

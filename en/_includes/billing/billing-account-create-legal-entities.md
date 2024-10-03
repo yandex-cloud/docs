@@ -30,7 +30,7 @@ To create a billing account:
 
 1. Click **{{ ui-key.yacloud.common.create }}**.
 
-   
+
    Further instructions will be emailed to you at the address specified in your Yandex or Yandex 360 account. It may take up to three business days to activate your billing account.
 
 

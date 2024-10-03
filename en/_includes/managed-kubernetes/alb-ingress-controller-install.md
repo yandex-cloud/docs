@@ -64,7 +64,7 @@ To balance the load and distribute traffic between {{ k8s }} applications, use a
 
 1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with the Ingress controller, run this command:
 
-   
+
    ```bash
    export HELM_EXPERIMENTAL_OCI=1 && \
    cat sa-key.json | helm registry login {{ registry }} --username 'json_key' --password-stdin && \

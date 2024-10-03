@@ -1,6 +1,6 @@
 ---
-title: "How to update a {{ CH }} cluster version in {{ mch-full-name }}"
-description: "Follow this guide to update a {{ CH }} cluster version."
+title: How to update a {{ CH }} cluster version in {{ mch-full-name }}
+description: Follow this guide to update a {{ CH }} cluster version.
 ---
 
 # Upgrading the {{ CH }} version

@@ -1,6 +1,6 @@
 ---
-title: "Preparing to connecting in {{ mrd-full-name }}"
-description: "Follow this guide to connect to a {{ RD }} cluster."
+title: Preparing to connecting in {{ mrd-full-name }}
+description: Follow this guide to connect to a {{ RD }} cluster.
 ---
 
 # Setting up a connection
@@ -22,7 +22,7 @@ You can connect to {{ mrd-name }} cluster hosts:
 
 * From {{ yandex-cloud }} virtual machines located in the same cloud network.
 
-   
+
    1. [Create a virtual machine](../../../compute/operations/vm-create/create-linux-vm.md) with a public IP in the same virtual network as the cluster.
    1. [Connect](../../../compute/operations/vm-connect/ssh.md) to the created VM via SSH.
    1. From this VM, connect to {{ RD }} using one of the sample connection strings.

@@ -1,6 +1,6 @@
 ---
-title: "How to create a {{ CH }} connection"
-description: "Follow this guide to create a {{ CH }} connection."
+title: How to create a {{ CH }} connection
+description: Follow this guide to create a {{ CH }} connection.
 ---
 
 # Creating a {{ CH }} connection

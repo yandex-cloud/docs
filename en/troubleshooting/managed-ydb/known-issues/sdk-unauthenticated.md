@@ -1,7 +1,6 @@
 # Resolving the "Unauthenticated" error
 
 
-
 ## Issue description {#issue-description}
 
 When trying to access {{ ydb-full-name }} from a local machine, you see the `Unauthenticated` error.

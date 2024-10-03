@@ -1,6 +1,6 @@
 ---
-title: "Инструкция по созданию подключения к {{ PG }} в {{ datalens-full-name }}"
-description: "Из статьи вы узнаете, как подключиться к {{ PG }} в {{ datalens-full-name }}."
+title: Инструкция по созданию подключения к {{ PG }} в {{ datalens-full-name }}
+description: Из статьи вы узнаете, как подключиться к {{ PG }} в {{ datalens-full-name }}.
 ---
 
 # Создание подключения к {{ PG }}

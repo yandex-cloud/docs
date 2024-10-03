@@ -1,7 +1,6 @@
 # Fixing the "Not enough resources" error on launching a virtual machine
 
 
-
 ## Issue description {#issue-description}
 
 * You see the `Not enough resources` error when trying to create or launch a VM instance.

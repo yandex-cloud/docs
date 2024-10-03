@@ -1,6 +1,6 @@
 ---
-title: "Managing MySQL user permissions"
-description: "You can manage MySQL user permissions at the level of an individual database by updating user privileges. Users can have different sets of privileges for different databases. To learn more about the privileges supported, see their respective descriptions."
+title: Managing MySQL user permissions
+description: You can manage MySQL user permissions at the level of an individual database by updating user privileges. Users can have different sets of privileges for different databases. To learn more about the privileges supported, see their respective descriptions.
 ---
 # Managing user permissions
 

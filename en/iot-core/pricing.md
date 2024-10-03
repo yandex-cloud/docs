@@ -1,6 +1,6 @@
 ---
-title: "{{ iot-full-name }} pricing policy"
-description: "This article describes the {{ iot-name }} pricing policy."
+title: '{{ iot-full-name }} pricing policy'
+description: This article describes the {{ iot-name }} pricing policy.
 editable: false
 ---
 

@@ -1,6 +1,6 @@
 ---
-title: "{{ cdn-full-name }} pricing policy"
-description: "This article describes the {{ cdn-full-name }} pricing policy."
+title: '{{ cdn-full-name }} pricing policy'
+description: This article describes the {{ cdn-full-name }} pricing policy.
 editable: false
 ---
 

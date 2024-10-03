@@ -161,8 +161,10 @@
 1. Сделайте запрос к эндпоинту:
 
     ```
-    curl -X GET -H "Authorization: Bearer ${IAM_TOKEN}" \
-    https://<идентификатор_шлюза>.apigw.yandexcloud.net/get/Anonymous
+    curl \
+      --request GET \
+      --header "Authorization: Bearer ${IAM_TOKEN}" \
+      https://<идентификатор_шлюза>.apigw.yandexcloud.net/get/Anonymous
     ```
 
     Результат:

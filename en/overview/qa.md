@@ -1,6 +1,6 @@
 ---
-title: "How to resolve issues with {{ yandex-cloud }}"
-description: "This article lists materials you can use to resolve issues with {{ yandex-cloud }}."
+title: How to resolve issues with {{ yandex-cloud }}
+description: This article lists materials you can use to resolve issues with {{ yandex-cloud }}.
 ---
 
 # Troubleshooting

@@ -1,6 +1,6 @@
 ---
-title: "Creating an {{ OS }} cluster"
-description: "A cluster in Yandex Managed Service for {{ OS }} is a group of multiple interlinked {{ OS }} hosts."
+title: Creating an {{ OS }} cluster
+description: A cluster in Yandex Managed Service for {{ OS }} is a group of multiple interlinked {{ OS }} hosts.
 keywords:
   - Creating an OpenSearch cluster
   - OpenSearch cluster
@@ -43,7 +43,7 @@ To create a {{ mos-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
       1. Select the {{ OS }} version.
       1. Select the [plugins](plugins.md#supported-plugins) you want to install in the cluster.
 
-  
+
   1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select the cloud network to host the cluster and security groups for cluster network traffic. You may also need to [set up security groups](connect.md#security-groups) to connect to the cluster.
 
 
@@ -67,7 +67,7 @@ To create a {{ mos-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
       1. Select the number of hosts to create.
 
-      
+
       1. Enable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** if you want to allow [connecting](connect.md) to hosts over the internet.
 
           {% note tip %}
@@ -90,7 +90,7 @@ To create a {{ mos-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
       1. Specify how hosts should be distributed across availability zones and subnets.
       1. Select the number of hosts to create.
 
-      
+
       1. Enable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** if you want to allow [connecting](connect.md) to hosts over the internet.
 
           {% include [mos-tip-public-dashboards](../../_includes/mdb/mos/public-dashboards.md) %}
@@ -321,7 +321,7 @@ To create a {{ mos-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
   * Settings for access from other services in the `configSpec.access` parameter.
   * Network ID in the `networkId` parameter.
 
-  
+
   * Security group IDs in the `securityGroupIds` parameter. You may also need to [set up security groups](connect.md#security-groups) to connect to the cluster.
   * ID of the [service account](../../iam/concepts/users/service-accounts.md) used for cluster operations in the `serviceAccountId` parameter.
 

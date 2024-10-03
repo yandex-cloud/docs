@@ -1,6 +1,6 @@
 ---
-title: "User access management in {{ marketplace-full-name }}"
-description: "User access management in {{ marketplace-short-name }}. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required to perform a particular action."
+title: User access management in {{ marketplace-full-name }}
+description: User access management in {{ marketplace-short-name }}. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required to perform a particular action.
 ---
 
 # User access management in {{ marketplace-short-name }}

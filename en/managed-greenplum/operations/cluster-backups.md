@@ -161,7 +161,7 @@ If you set the current time as the recovery time, the new cluster will match the
 
     1. Request the creation of a cluster from a backup:
 
-        
+
         ```bash
         {{ yc-mdb-gp }} cluster restore \
            --backup-id=<backup_ID> \
@@ -206,7 +206,7 @@ If you set the current time as the recovery time, the new cluster will match the
         * `--restore-only`: (Optional) Comma-separated list of DBs and tables to restore from the backup. Supported formats: `<DB>/<schema>/<table>`, `<DB>/<table>` and `<DB>`. You may use the `*` wildcard symbol as well. If you omit this parameter, the whole cluster will be restored.
         * `--zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
 
-        
+
         * `--subnet-id`: [Subnet ID](../../vpc/concepts/network.md#subnet). Specify if two or more subnets are created in the selected availability zone.
         * `--assign-public-ip`: Flag you set if the cluster needs access from the internet.
 

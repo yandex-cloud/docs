@@ -1,6 +1,6 @@
 ---
-title: "{{ objstorage-full-name }} release notes"
-description: "This section contains {{ objstorage-name }} release notes."
+title: '{{ objstorage-full-name }} release notes'
+description: This section contains {{ objstorage-name }} release notes.
 ---
 
 # {{ objstorage-full-name }} release notes

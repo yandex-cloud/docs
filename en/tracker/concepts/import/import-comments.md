@@ -1,6 +1,6 @@
 ---
-title: "How to import comments"
-description: "This article describes how to import comments."
+title: How to import comments
+description: This article describes how to import comments.
 sourcePath: en/tracker/api-ref/concepts/import/import-comments.md
 ---
 

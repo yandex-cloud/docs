@@ -1,5 +1,5 @@
 ---
-canonical: "{{ link-docs }}/tutorials/internet-store/bitrix-shop/console"
+canonical: '{{ link-docs }}/tutorials/internet-store/bitrix-shop/console'
 ---
 
 # Создание интернет-магазина на «1С-Битрикс: Управление сайтом» с помощью консоли управления

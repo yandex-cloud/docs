@@ -1,6 +1,6 @@
 ---
-title: "Как изменить сертификат от Let's Encrypt в {{ certificate-manager-full-name }}"
-description: "Следуя данной инструкции, вы сможете изменить сертификат от Let's Encrypt."
+title: Как изменить сертификат от Let's Encrypt в {{ certificate-manager-full-name }}
+description: Следуя данной инструкции, вы сможете изменить сертификат от Let's Encrypt.
 ---
 
 # Изменить сертификат от Let's Encrypt

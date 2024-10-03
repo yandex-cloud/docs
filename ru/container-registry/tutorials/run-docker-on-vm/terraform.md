@@ -1,5 +1,5 @@
 ---
-canonical: "{{ link-docs }}/tutorials/infrastructure-management/run-docker-on-vm/terraform"
+canonical: '{{ link-docs }}/tutorials/infrastructure-management/run-docker-on-vm/terraform'
 ---
 
 # Запуск Docker-образа на виртуальной машине с помощью {{ TF }}

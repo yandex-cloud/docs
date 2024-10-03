@@ -1,6 +1,6 @@
 ---
-title: "How to manage connections. Step-by-step guides"
-description: "Step-by-step guides on using {{ connection-manager-name }} in {{ yandex-cloud }}. In this tutorial, you will learn how to create connections."
+title: How to manage connections. Step-by-step guides
+description: Step-by-step guides on using {{ connection-manager-name }} in {{ yandex-cloud }}. In this tutorial, you will learn how to create connections.
 ---
 
 # Creating a connection

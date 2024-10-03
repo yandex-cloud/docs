@@ -1,10 +1,5 @@
 title: Yandex Managed Service for Kubernetes
 href: index.yaml
-label:
-  title: KZ
-  description: This service is only available in the Kazakhstan region.
-  theme: info
-  when: region == "kz"
 items:
   - name: Comparison with other {{ yandex-cloud }} services
     href: service-comparison.md
@@ -319,70 +314,96 @@ items:
     items:
       - name: Authentication with the API
         href: api-ref/authentication.md
-      - name: gRPC
+      - name: Managed Service for Kubernetes gRPC
         items:
           - name: Overview
-            href: api-ref/grpc/index.md
+            href: managed-kubernetes/api-ref/grpc/index.md
           - name: ClusterService
-            href: api-ref/grpc/cluster_service.md
+            href: managed-kubernetes/api-ref/grpc/cluster_service.md
           - name: NodeGroupService
-            href: api-ref/grpc/node_group_service.md
+            href: managed-kubernetes/api-ref/grpc/node_group_service.md
           - name: VersionService
-            href: api-ref/grpc/version_service.md
+            href: managed-kubernetes/api-ref/grpc/version_service.md
           - name: OperationService
-            href: api-ref/grpc/operation_service.md
-      - name: REST
+            href: managed-kubernetes/api-ref/grpc/operation_service.md
+      - name: Managed Service for Kubernetes REST
         items:
           - name: Overview
-            href: api-ref/index.md
+            href: managed-kubernetes/api-ref/index.md
           - name: Cluster
             items:
               - name: Overview
-                href: api-ref/Cluster/index.md
+                href: managed-kubernetes/api-ref/Cluster/index.md
               - name: create
-                href: api-ref/Cluster/create.md
+                href: managed-kubernetes/api-ref/Cluster/create.md
               - name: delete
-                href: api-ref/Cluster/delete.md
+                href: managed-kubernetes/api-ref/Cluster/delete.md
               - name: get
-                href: api-ref/Cluster/get.md
+                href: managed-kubernetes/api-ref/Cluster/get.md
               - name: list
-                href: api-ref/Cluster/list.md
+                href: managed-kubernetes/api-ref/Cluster/list.md
               - name: listNodeGroups
-                href: api-ref/Cluster/listNodeGroups.md
+                href: managed-kubernetes/api-ref/Cluster/listNodeGroups.md
               - name: listNodes
-                href: api-ref/Cluster/listNodes.md
+                href: managed-kubernetes/api-ref/Cluster/listNodes.md
               - name: listOperations
-                href: api-ref/Cluster/listOperations.md
+                href: managed-kubernetes/api-ref/Cluster/listOperations.md
               - name: start
-                href: api-ref/Cluster/start.md
+                href: managed-kubernetes/api-ref/Cluster/start.md
               - name: stop
-                href: api-ref/Cluster/stop.md
+                href: managed-kubernetes/api-ref/Cluster/stop.md
               - name: update
-                href: api-ref/Cluster/update.md
+                href: managed-kubernetes/api-ref/Cluster/update.md
           - name: NodeGroup
             items:
               - name: Overview
-                href: api-ref/NodeGroup/index.md
+                href: managed-kubernetes/api-ref/NodeGroup/index.md
               - name: create
-                href: api-ref/NodeGroup/create.md
+                href: managed-kubernetes/api-ref/NodeGroup/create.md
               - name: delete
-                href: api-ref/NodeGroup/delete.md
+                href: managed-kubernetes/api-ref/NodeGroup/delete.md
               - name: get
-                href: api-ref/NodeGroup/get.md
+                href: managed-kubernetes/api-ref/NodeGroup/get.md
               - name: list
-                href: api-ref/NodeGroup/list.md
+                href: managed-kubernetes/api-ref/NodeGroup/list.md
               - name: listNodes
-                href: api-ref/NodeGroup/listNodes.md
+                href: managed-kubernetes/api-ref/NodeGroup/listNodes.md
               - name: listOperations
-                href: api-ref/NodeGroup/listOperations.md
+                href: managed-kubernetes/api-ref/NodeGroup/listOperations.md
               - name: update
-                href: api-ref/NodeGroup/update.md
+                href: managed-kubernetes/api-ref/NodeGroup/update.md
           - name: Version
             items:
               - name: Overview
-                href: api-ref/Version/index.md
+                href: managed-kubernetes/api-ref/Version/index.md
               - name: list
-                href: api-ref/Version/list.md
+                href: managed-kubernetes/api-ref/Version/list.md
+      - name: Kubernetes Marketplace gRPC
+        items:
+          - name: Overview
+            href: kubernetes-marketplace/api-ref/grpc/index.md
+          - name: HelmReleaseService
+            href: kubernetes-marketplace/api-ref/grpc/helm_release_service.md
+          - name: OperationService
+            href: kubernetes-marketplace/api-ref/grpc/operation_service.md
+      - name: Kubernetes Marketplace REST
+        items:
+          - name: Overview
+            href: kubernetes-marketplace/api-ref/index.md
+          - name: HelmRelease
+            items:
+              - name: Overview
+                href: kubernetes-marketplace/api-ref/HelmRelease/index.md
+              - name: get
+                href: kubernetes-marketplace/api-ref/HelmRelease/get.md
+              - name: install
+                href: kubernetes-marketplace/api-ref/HelmRelease/install.md
+              - name: list
+                href: kubernetes-marketplace/api-ref/HelmRelease/list.md
+              - name: uninstall
+                href: kubernetes-marketplace/api-ref/HelmRelease/uninstall.md
+              - name: update
+                href: kubernetes-marketplace/api-ref/HelmRelease/update.md
   - name: '{{ monitoring-name }} metrics'
     href: metrics.md
   - name: '{{ at-name }} events'
@@ -440,3 +461,4 @@ items:
       - name: All questions on one page
         href: qa/all.md
 base: en/managed-kubernetes
+deepBase: 2

@@ -1,6 +1,6 @@
 ---
-title: "How to create a broker"
-description: "Follow this guide to create a broker."
+title: How to create a broker
+description: Follow this guide to create a broker.
 ---
 
 # Creating a broker

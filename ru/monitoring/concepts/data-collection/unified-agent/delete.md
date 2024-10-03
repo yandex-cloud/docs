@@ -1,6 +1,6 @@
 ---
-title: "Как удалить {{ unified-agent-full-name }}"
-description: "Из статьи вы узнаете, как удалить {{ unified-agent-full-name }}."
+title: Как удалить {{ unified-agent-full-name }}
+description: Из статьи вы узнаете, как удалить {{ unified-agent-full-name }}.
 ---
 
 # Удаление {{ unified-agent-full-name }}

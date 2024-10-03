@@ -1,6 +1,6 @@
 ---
-title: "How to create, update, and destroy digital signature key pairs"
-description: "This guide describes how you can create, update, and destroy digital signature key pairs."
+title: How to create, update, and destroy digital signature key pairs
+description: This guide describes how you can create, update, and destroy digital signature key pairs.
 ---
 
 # Managing digital signature key pairs

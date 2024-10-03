@@ -1,6 +1,6 @@
 ---
-title: "Configuring a {{ datalens-full-name }} service plan"
-description: "From this article, you will learn how to configure a service plan for {{ datalens-short-name }} by choosing a plan and adding a billing account."
+title: Configuring a {{ datalens-full-name }} service plan
+description: From this article, you will learn how to configure a service plan for {{ datalens-short-name }} by choosing a plan and adding a billing account.
 ---
 
 # Configuring a {{ datalens-short-name }} service plan

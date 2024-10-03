@@ -1,6 +1,6 @@
 ---
-title: "What S3 API methods can be used to manage {{ objstorage-full-name }} buckets"
-description: "In this tutorial, you will learn what S3 API methods can be used to manage buckets."
+title: What S3 API methods can be used to manage {{ objstorage-full-name }} buckets
+description: In this tutorial, you will learn what S3 API methods can be used to manage buckets.
 ---
 
 # All Bucket methods

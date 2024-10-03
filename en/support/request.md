@@ -1,6 +1,6 @@
 ---
-title: "Requesting data from {{ yandex-cloud }} support"
-description: "You can contact support to request {{ yandex-cloud }} log entries, your personal data, and details about critical security processes."
+title: Requesting data from {{ yandex-cloud }} support
+description: You can contact support to request {{ yandex-cloud }} log entries, your personal data, and details about critical security processes.
 ---
 
 # Data requests

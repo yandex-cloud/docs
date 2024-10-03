@@ -1,6 +1,6 @@
 ---
-title: "Getting started with video hosting in {{ video-full-name }}"
-description: "Follow this guide to upload your video to {{ video-full-name }} and publish it."
+title: Getting started with video hosting in {{ video-full-name }}
+description: Follow this guide to upload your video to {{ video-full-name }} and publish it.
 ---
 
 # Getting started with video hosting in {{ video-full-name }}

@@ -1,6 +1,6 @@
 ---
-title: "Working with VMs"
-description: "This tutorial describes how to work with a VM from a public image in {{ yandex-cloud }}. Find out how to perform operations, such as connecting to a VM using an SSH key pair, generating an SSH key pair on Linux/MacOS, Windows 7, 8, 10, connecting to a VM via OS Login, using SSL certificates, filtering network traffic, and installing updates."
+title: Working with VMs
+description: This tutorial describes how to work with a VM from a public image in {{ yandex-cloud }}. Find out how to perform operations, such as connecting to a VM using an SSH key pair, generating an SSH key pair on Linux/MacOS, Windows 7, 8, 10, connecting to a VM via OS Login, using SSL certificates, filtering network traffic, and installing updates.
 ---
 
 # Working with a VM from a public image

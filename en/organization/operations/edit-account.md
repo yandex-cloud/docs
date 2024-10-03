@@ -1,6 +1,6 @@
 ---
-title: "Deleting a user account in {{ org-full-name }}"
-description: "In this tutorial, you will learn how to delete user accounts in {{ org-name }}."
+title: Deleting a user account in {{ org-full-name }}
+description: In this tutorial, you will learn how to delete user accounts in {{ org-name }}.
 ---
 
 # Deleting a user account

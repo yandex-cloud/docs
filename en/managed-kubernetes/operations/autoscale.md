@@ -1,6 +1,6 @@
 ---
-title: "How to configure autoscaling for a {{ k8s }} cluster in {{ managed-k8s-full-name }}"
-description: "Follow this guide to configure autoscaling."
+title: How to configure autoscaling for a {{ k8s }} cluster in {{ managed-k8s-full-name }}
+description: Follow this guide to configure autoscaling.
 ---
 
 # Configuring autoscaling

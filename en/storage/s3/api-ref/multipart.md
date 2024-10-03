@@ -1,6 +1,6 @@
 ---
-title: "General procedure for a multipart upload of objects to a {{ objstorage-full-name }} bucket"
-description: "In this tutorial, you will learn about the steps for a multipart upload of objects to a bucket."
+title: General procedure for a multipart upload of objects to a {{ objstorage-full-name }} bucket
+description: In this tutorial, you will learn about the steps for a multipart upload of objects to a bucket.
 ---
 
 # General procedure for a multipart upload

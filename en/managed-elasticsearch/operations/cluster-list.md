@@ -1,6 +1,6 @@
 ---
-title: "Information about existing Elasticsearch clusters"
-description: "You can request detailed information about each {{ mes-name }} cluster you created."
+title: Information about existing Elasticsearch clusters
+description: You can request detailed information about each {{ mes-name }} cluster you created.
 keywords:
   - Information about Elasticsearch hosts
   - Elasticsearch hosts

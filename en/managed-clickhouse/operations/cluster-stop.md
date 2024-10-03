@@ -1,6 +1,6 @@
 ---
-title: "Stopping and starting a {{ CH }} cluster"
-description: "You can stop and restart a {{ CH }} DB cluster as needed. There is no charge while your cluster is idle: you continue to pay only for the storage size and backups."
+title: Stopping and starting a {{ CH }} cluster
+description: 'You can stop and restart a {{ CH }} DB cluster as needed. There is no charge while your cluster is idle: you continue to pay only for the storage size and backups.'
 ---
 
 # Stopping and starting a {{ CH }} cluster

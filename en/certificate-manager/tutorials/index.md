@@ -1,6 +1,6 @@
 ---
-title: "{{ certificate-manager-full-name }} tutorials"
-description: "Tutorials for using {{ certificate-manager-full-name }} in {{ yandex-cloud }}."
+title: '{{ certificate-manager-full-name }} tutorials'
+description: Tutorials for using {{ certificate-manager-full-name }} in {{ yandex-cloud }}.
 ---
 
 # {{ certificate-manager-name }} tutorials

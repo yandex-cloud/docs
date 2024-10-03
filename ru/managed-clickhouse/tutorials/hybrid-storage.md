@@ -1,5 +1,5 @@
 ---
-canonical: "{{ link-docs }}/tutorials/dataplatform/clickhouse-hybrid-storage"
+canonical: '{{ link-docs }}/tutorials/dataplatform/clickhouse-hybrid-storage'
 ---
 
 {% include [clickhouse-hybrid-storage](../../_tutorials/dataplatform/clickhouse-hybrid-storage.md) %}

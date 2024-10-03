@@ -1,6 +1,6 @@
 ---
-title: "How to create a {{ mgl-full-name }} instance"
-description: "In this tutorial, you will learn how to create a {{ mgl-name }} instance."
+title: How to create a {{ mgl-full-name }} instance
+description: In this tutorial, you will learn how to create a {{ mgl-name }} instance.
 ---
 
 # Creating and activating a {{ mgl-name }} instance

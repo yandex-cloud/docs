@@ -1,6 +1,6 @@
 ---
-title: "{{ alb-full-name }} release notes"
-description: "This section contains {{ alb-name }} release notes."
+title: '{{ alb-full-name }} release notes'
+description: This section contains {{ alb-name }} release notes.
 ---
 
 # {{ alb-full-name }} release notes

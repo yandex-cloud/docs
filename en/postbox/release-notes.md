@@ -1,6 +1,6 @@
 ---
-title: "{{ postbox-full-name }} release notes"
-description: "This section contains {{ postbox-name }} release notes."
+title: '{{ postbox-full-name }} release notes'
+description: This section contains {{ postbox-name }} release notes.
 ---
 
 # {{ postbox-full-name }} release notes

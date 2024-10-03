@@ -1,6 +1,6 @@
 ---
-title: "How to add data to a {{ CH }} cluster in {{ mch-full-name }}"
-description: "Follow this guide to add data to your {{ CH }} cluster."
+title: How to add data to a {{ CH }} cluster in {{ mch-full-name }}
+description: Follow this guide to add data to your {{ CH }} cluster.
 ---
 
 # Adding data to {{ CH }}

@@ -1,6 +1,6 @@
 ---
-title: "Stopping and starting an {{ OS }} cluster"
-description: "You can stop and restart an {{ OS }} cluster as needed. When stopped, a cluster retains all its data. The data will be available again as soon as you restart the cluster."
+title: Stopping and starting an {{ OS }} cluster
+description: You can stop and restart an {{ OS }} cluster as needed. When stopped, a cluster retains all its data. The data will be available again as soon as you restart the cluster.
 keywords:
   - Stopping OpenSearch
   - Starting OpenSearch

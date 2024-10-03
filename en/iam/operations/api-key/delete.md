@@ -1,6 +1,6 @@
 ---
-title: "Deleting API keys"
-description: "Follow this guide to delete an API key."
+title: Deleting API keys
+description: Follow this guide to delete an API key.
 ---
 
 # Deleting API keys

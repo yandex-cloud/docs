@@ -1,6 +1,6 @@
 ---
-title: "{{ websql-full-name }} release notes"
-description: "This section contains {{ websql-name }} release notes."
+title: '{{ websql-full-name }} release notes'
+description: This section contains {{ websql-name }} release notes.
 ---
 
 # {{ websql-full-name }} release notes: 2024

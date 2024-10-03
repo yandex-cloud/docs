@@ -1,6 +1,6 @@
 ---
-title: "How to create a pod with a statically provisioned volume in {{ managed-k8s-full-name }}"
-description: "Follow this guide to create a pod with a statically provisioned volume."
+title: How to create a pod with a statically provisioned volume in {{ managed-k8s-full-name }}
+description: Follow this guide to create a pod with a statically provisioned volume.
 ---
 
 # Static volume provisioning
@@ -54,7 +54,7 @@ You can use a {{ objstorage-full-name }} [bucket](../../../storage/concepts/buck
 
    Result:
 
-   
+
    ```text
    NAME                          PROVISIONER                    RECLAIMPOLICY  VOLUMEBINDINGMODE     ALLOWVOLUMEEXPANSION  AGE
    yc-network-hdd (default)      disk-csi-driver.mks.ycloud.io  Delete         WaitForFirstConsumer  true                  12d
@@ -81,7 +81,7 @@ You can use a {{ objstorage-full-name }} [bucket](../../../storage/concepts/buck
 
    To create a `PersistentVolume` from an existing cloud drive, enter its unique disk ID in the `volumeHandle` parameter.
 
-   
+
    {% note info %}
 
    If the `storageClassName` parameter is not specified, the default storage class (`yc-network-hdd`) is used. To change the default class, see [{#T}](manage-storage-class.md#sc-default).
@@ -92,7 +92,7 @@ You can use a {{ objstorage-full-name }} [bucket](../../../storage/concepts/buck
 
    To learn more about the `PersistentVolumeClaim` creation specification, see the [{{ k8s }} documentation](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-claim-v1/).
 
-   
+
    ```yaml
    apiVersion: v1
    kind: PersistentVolume

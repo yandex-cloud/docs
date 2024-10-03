@@ -1,6 +1,6 @@
 ---
-title: "Сценарии использования {{ iam-full-name }}"
-description: "Различные сценарии использования {{ iam-full-name }} в {{ yandex-cloud }}."
+title: Сценарии использования {{ iam-full-name }}
+description: Различные сценарии использования {{ iam-full-name }} в {{ yandex-cloud }}.
 ---
 
 # Практические руководства {{ iam-name }}

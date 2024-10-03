@@ -1,5 +1,5 @@
 ---
-title: "How to get information about a subnet in {{ vpc-full-name }}"
+title: How to get information about a subnet in {{ vpc-full-name }}
 ---
 
 # Getting information about a subnet

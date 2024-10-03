@@ -1,6 +1,6 @@
 ---
-title: "How to create a resource record in {{ dns-full-name }}"
-description: "Follow this guide to create a resource record."
+title: How to create a resource record in {{ dns-full-name }}
+description: Follow this guide to create a resource record.
 ---
 
 # Creating a resource record

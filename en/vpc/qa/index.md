@@ -1,6 +1,6 @@
 ---
-title: "Questions and answers about {{ vpc-full-name }}"
-description: "See this page for {{ vpc-name }} FAQs."
+title: Questions and answers about {{ vpc-full-name }}
+description: See this page for {{ vpc-name }} FAQs.
 ---
 
 # FAQ about {{ vpc-name }}

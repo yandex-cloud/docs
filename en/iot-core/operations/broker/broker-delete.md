@@ -1,6 +1,6 @@
 ---
-title: "How to delete a broker in {{ iot-full-name }}"
-description: "In this tutorial, you will learn how to delete a broker in {{ iot-full-name }}."
+title: How to delete a broker in {{ iot-full-name }}
+description: In this tutorial, you will learn how to delete a broker in {{ iot-full-name }}.
 ---
 
 # Deleting a broker

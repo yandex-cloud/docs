@@ -1,10 +1,5 @@
 title: Yandex Code Assistant
 href: index.yaml
-label:
-  title: RU
-  description: Сервис доступен только в регионе Россия.
-  theme: unknown
-  when: region == "kz"
 stage: preview
 items:
   - name: Начало работы
@@ -20,3 +15,4 @@ items:
   - name: Вопросы и ответы
     href: qa.md
 base: ru/code-assistant
+deepBase: 2

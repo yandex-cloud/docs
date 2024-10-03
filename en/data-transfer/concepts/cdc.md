@@ -1,6 +1,6 @@
 ---
-title: "Change data capture in {{ data-transfer-full-name }}"
-description: "Change data capture (CDC) lets you track changes in databases and deliver them to end users in real time."
+title: Change data capture in {{ data-transfer-full-name }}
+description: Change data capture (CDC) lets you track changes in databases and deliver them to end users in real time.
 ---
 
 # Change data capture

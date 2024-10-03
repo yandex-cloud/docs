@@ -1,5 +1,5 @@
 ---
-title: "Service plans in {{ marketplace-full-name }}"
+title: Service plans in {{ marketplace-full-name }}
 ---
 
 # Service plan

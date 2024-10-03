@@ -28,7 +28,7 @@
 
 - Вручную {#manual}
 
-   
+
    1. [Настройте группу безопасности](../../managed-kafka/operations/connect/index.md#configuring-security-groups) для кластера {{ mkf-name }} и ВМ так, чтобы к топикам можно было подключаться с ВМ в Облаке.
 
 
@@ -50,7 +50,7 @@
       * подсеть;
       * ВМ с Ubuntu 22.04;
 
-      
+
       * группа безопасности по умолчанию и правила, необходимые для подключения к кластеру и виртуальной машине из интернета;
 
 
@@ -379,7 +379,7 @@
 
    Удалите:
 
-   
+
    1. [Кластер](../../managed-kafka/operations/cluster-delete.md) {{ mkf-name }}.
    1. [Виртуальную машину](../../compute/operations/vm-control/vm-delete.md).
    1. [Группу узлов](../../managed-kubernetes/operations/node-group/node-group-delete.md) {{ managed-k8s-name }}.

@@ -1,5 +1,5 @@
 ---
-canonical: "{{ link-docs }}/tutorials/web/joomla-postgresql/console"
+canonical: '{{ link-docs }}/tutorials/web/joomla-postgresql/console'
 ---
 
 # Creating a Joomla website with a {{ PG }} database using the management console

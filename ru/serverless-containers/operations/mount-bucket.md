@@ -1,6 +1,6 @@
 ---
-title: "Как смонтировать бакеты в контейнер {{ serverless-containers-full-name }}"
-description: "Следуя данной инструкции, вы сможете смонтировать бакеты в контейнер {{ serverless-containers-name }}."
+title: Как смонтировать бакеты в контейнер {{ serverless-containers-full-name }}
+description: Следуя данной инструкции, вы сможете смонтировать бакеты в контейнер {{ serverless-containers-name }}.
 ---
 
 # Смонтировать бакеты в контейнер

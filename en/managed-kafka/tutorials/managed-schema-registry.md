@@ -1,5 +1,5 @@
 ---
-canonical: "{{ link-docs }}/tutorials/dataplatform/managed-schema-registry"
+canonical: '{{ link-docs }}/tutorials/dataplatform/managed-schema-registry'
 ---
 
 # Working with the managed schema registry

@@ -1,5 +1,5 @@
 ---
-title: "_Evaluation form_ report in {{ speechsense-name }}"
+title: _Evaluation form_ report in {{ speechsense-name }}
 ---
 
 # _Evaluation form_ report in {{ speechsense-name }}

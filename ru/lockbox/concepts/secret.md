@@ -1,6 +1,6 @@
 ---
-title: "Что такое секреты в {{ lockbox-full-name }}"
-description: "Из статьи вы узнаете, что такое секреты в {{ lockbox-full-name }} и из чего они состоят."
+title: Что такое секреты в {{ lockbox-full-name }}
+description: Из статьи вы узнаете, что такое секреты в {{ lockbox-full-name }} и из чего они состоят.
 ---
 
 # Секреты в {{ lockbox-full-name }}

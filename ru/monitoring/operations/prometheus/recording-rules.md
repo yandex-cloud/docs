@@ -1,6 +1,6 @@
 ---
-title: "Как использовать Prometheus recording rules"
-description: "Следуя данному руководству, вы сможете создавать и редактировать файлы Prometheus с правилами записи (recording rules)."
+title: Как использовать Prometheus recording rules
+description: Следуя данному руководству, вы сможете создавать и редактировать файлы Prometheus с правилами записи (recording rules).
 ---
 
 # Правила записи

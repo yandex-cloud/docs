@@ -1,6 +1,6 @@
 ---
-title: "Getting started with {{ video-full-name }}"
-description: "Get started with broadcasts or video hosting in {{ video-name }}."
+title: Getting started with {{ video-full-name }}
+description: Get started with broadcasts or video hosting in {{ video-name }}.
 ---
 
 # Getting started with {{ video-full-name }}

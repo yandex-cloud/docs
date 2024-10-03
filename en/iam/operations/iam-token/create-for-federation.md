@@ -1,6 +1,6 @@
 ---
-title: "How to get an IAM token for a federated account"
-description: "Follow this guide to get an IAM token for a federated account."
+title: How to get an IAM token for a federated account
+description: Follow this guide to get an IAM token for a federated account.
 ---
 
 # Getting an IAM token for a federated account

@@ -1,6 +1,6 @@
 ---
-title: "Changing the name of a function"
-description: "Follow this guide to update a function name."
+title: Changing the name of a function
+description: Follow this guide to update a function name.
 ---
 
 # Changing the name of a function

@@ -1,6 +1,6 @@
 ---
-title: "Viewing Elasticsearch cluster logs"
-description: "Yandex Managed Service for Elasticsearch allows you to get cluster logs for viewing and analyzing."
+title: Viewing Elasticsearch cluster logs
+description: Yandex Managed Service for Elasticsearch allows you to get cluster logs for viewing and analyzing.
 keywords:
   - Elasticsearch logs
   - Elasticsearch cluster logs

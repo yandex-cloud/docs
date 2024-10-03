@@ -1,6 +1,6 @@
 ---
-title: "{{ yandex-cloud }} {{ support-center-name }}"
-description: "Эта инструкция поможет начать работу с {{ yandex-cloud }} {{ support-center-name }} — найти решение возникших проблем, создать обращения в поддержку и просмотреть их, а также изменить тарифный план."
+title: '{{ yandex-cloud }} {{ support-center-name }}'
+description: Эта инструкция поможет начать работу с {{ yandex-cloud }} {{ support-center-name }} — найти решение возникших проблем, создать обращения в поддержку и просмотреть их, а также изменить тарифный план.
 ---
 
 # Работа с {{ support-center-name }}

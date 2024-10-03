@@ -1,5 +1,5 @@
 ---
-canonical: "{{ link-docs }}/tutorials/dataplatform/fetch-data-from-rabbitmq"
+canonical: '{{ link-docs }}/tutorials/dataplatform/fetch-data-from-rabbitmq'
 ---
 
 # Получение данных из {{ RMQ }} в {{ mch-name }}

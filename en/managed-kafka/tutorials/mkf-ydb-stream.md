@@ -1,5 +1,5 @@
 ---
-canonical: "{{ link-docs }}/tutorials/dataplatform/mkf-ydb-stream"
+canonical: '{{ link-docs }}/tutorials/dataplatform/mkf-ydb-stream'
 ---
 
 # Delivering data to {{ ydb-full-name }} using {{ data-transfer-full-name }}

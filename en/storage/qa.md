@@ -1,6 +1,6 @@
 ---
-title: "FAQ about {{ objstorage-full-name }}"
-description: "This page presents FAQ about {{ objstorage-name }}."
+title: FAQ about {{ objstorage-full-name }}
+description: This page presents FAQ about {{ objstorage-name }}.
 ---
 
 # FAQ about {{ objstorage-name }}

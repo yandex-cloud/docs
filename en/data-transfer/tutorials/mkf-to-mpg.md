@@ -1,5 +1,5 @@
 ---
-canonical: "{{ link-docs }}/tutorials/dataplatform/mkf-to-mpg"
+canonical: '{{ link-docs }}/tutorials/dataplatform/mkf-to-mpg'
 ---
 
 # Delivering data from an {{ KF }} queue to {{ PG }}

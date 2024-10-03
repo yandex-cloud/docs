@@ -1,6 +1,6 @@
 ---
-title: "{{ lockbox-full-name }} use cases"
-description: "Various {{ lockbox-full-name }} use cases in {{ yandex-cloud }}."
+title: '{{ lockbox-full-name }} use cases'
+description: Various {{ lockbox-full-name }} use cases in {{ yandex-cloud }}.
 ---
 
 # {{ lockbox-name }} tutorials

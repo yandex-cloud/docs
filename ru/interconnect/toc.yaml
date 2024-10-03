@@ -1,10 +1,5 @@
 title: Yandex Cloud Interconnect
 href: index.yaml
-label:
-  title: Скоро
-  description: Сервис в ближайшее время будет доступен в регионе Казахстан.
-  theme: info
-  when: region == "kz"
 items:
   - name: Концепции
     expanded: true
@@ -63,3 +58,4 @@ items:
   - name: История изменений
     href: release-notes.md
 base: ru/interconnect
+deepBase: 2

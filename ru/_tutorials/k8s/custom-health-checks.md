@@ -191,7 +191,7 @@ Docker-образ будет создан из файла `app/Dockerfile` и б
    * Основная функциональность:
 
      ```bash
-     curl -i http://<IP-адрес_узла>:30080/test-path
+     curl --include http://<IP-адрес_узла>:30080/test-path
      ```
 
      Результат:
@@ -208,7 +208,7 @@ Docker-образ будет создан из файла `app/Dockerfile` и б
    * Проверка состояния приложения:
 
      ```bash
-     curl -i http://<IP-адрес_узла>:30081
+     curl --include http://<IP-адрес_узла>:30081
      ```
 
      Результат:
@@ -253,7 +253,7 @@ Docker-образ будет создан из файла `app/Dockerfile` и б
 
       В файле `address-for-k8s-health-checks.tf` описаны:
 
-      
+
       * [статический публичный IP-адрес](../../vpc/concepts/address.md#public-addresses);
       * [публичная DNS-зона](../../dns/concepts/dns-zone.md#public-zones);
       * [A-запись](../../dns/concepts/resource-record.md#a) для этой зоны, чтобы привязать зарезервированный IP-адрес к делегированному домену.
@@ -340,7 +340,7 @@ Docker-образ будет создан из файла `app/Dockerfile` и б
 1. Проверьте доступность развернутого приложения через L7-балансировщик:
 
    ```bash
-   curl -i http://<домен>/test-path
+   curl --include http://<домен>/test-path
    ```
 
    Результат:

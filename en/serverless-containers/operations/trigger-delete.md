@@ -1,6 +1,6 @@
 ---
-title: "How to delete a trigger in {{ serverless-containers-full-name }}"
-description: "In this tutorial, you will learn how to delete a trigger in {{ serverless-containers-full-name }}."
+title: How to delete a trigger in {{ serverless-containers-full-name }}
+description: In this tutorial, you will learn how to delete a trigger in {{ serverless-containers-full-name }}.
 ---
 
 # Deleting a trigger in {{ serverless-containers-name }}

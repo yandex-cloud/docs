@@ -1,6 +1,6 @@
 ---
-title: "{{ yandex-cloud }} IaaS security checklist"
-description: "This article provides a checklist of measures for network, VM, and {{ objstorage-name }} security on the {{ yandex-cloud }} platform."
+title: '{{ yandex-cloud }} IaaS security checklist'
+description: This article provides a checklist of measures for network, VM, and {{ objstorage-name }} security on the {{ yandex-cloud }} platform.
 ---
 
 # IaaS security checklist

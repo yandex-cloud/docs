@@ -1,6 +1,6 @@
 ---
-title: "Rules for estimating the cost of topic operations in {{ ydb-full-name }}"
-description: "In this tutorial, you will learn how to calculate the cost of topic operations."
+title: Rules for estimating the cost of topic operations in {{ ydb-full-name }}
+description: In this tutorial, you will learn how to calculate the cost of topic operations.
 ---
 
 # Rules for estimating the cost of topic operations

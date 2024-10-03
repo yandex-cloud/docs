@@ -1,5 +1,5 @@
 ---
-canonical: "{{ link-docs }}/tutorials/internet-store/bitrix-shop/console"
+canonical: '{{ link-docs }}/tutorials/internet-store/bitrix-shop/console'
 ---
 
 # Creating an online store with 1C-Bitrix: Site Management using the management console

@@ -1,6 +1,6 @@
 ---
-title: "Сценарии использования {{ vpc-full-name }}"
-description: "Различные сценарии использования {{ vpc-full-name }} в {{ yandex-cloud }}."
+title: Сценарии использования {{ vpc-full-name }}
+description: Различные сценарии использования {{ vpc-full-name }} в {{ yandex-cloud }}.
 ---
 
 # Практические руководства {{ vpc-name }}

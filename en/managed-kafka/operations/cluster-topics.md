@@ -1,6 +1,6 @@
 ---
-title: "How to manage topics and {{ KF }} cluster partitions in {{ mkf-full-name }}"
-description: "Follow this guide to manage topics and partitions."
+title: How to manage topics and {{ KF }} cluster partitions in {{ mkf-full-name }}
+description: Follow this guide to manage topics and partitions.
 ---
 
 # Managing {{ KF }} topics

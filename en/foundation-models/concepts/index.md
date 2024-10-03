@@ -1,6 +1,6 @@
 ---
-title: "About {{ foundation-models-full-name }}"
-description: "{{ foundation-models-full-name }} is a service that provides access to the APIs of large neural networks that can generate high-quality texts and images. {{ yagpt-full-name }} can generate product descriptions, articles, news stories, newsletters, blog posts, and many other things. {{ yandexart-name }} can create an image by description. The quality of the neural network's response depends directly on the accuracy of the instructions you provide. With a more specific prompt, you are more likely to get the result you expect."
+title: About {{ foundation-models-full-name }}
+description: '{{ foundation-models-full-name }} is a service that provides access to the APIs of large neural networks that can generate high-quality texts and images. {{ yagpt-full-name }} can generate product descriptions, articles, news stories, newsletters, blog posts, and many other things. {{ yandexart-name }} can create an image by description. The quality of the neural network''s response depends directly on the accuracy of the instructions you provide. With a more specific prompt, you are more likely to get the result you expect.'
 ---
 
 # About {{ foundation-models-full-name }}

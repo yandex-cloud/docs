@@ -1,6 +1,6 @@
 ---
-title: "Access Transparency в {{ sd-full-name }}"
-description: "Access Transparency — это один из модулей сервиса {{ sd-name }}, представляющий собой автоматизированный инструмент для обеспечения прозрачности работы {{ yandex-cloud }}."
+title: Access Transparency в {{ sd-full-name }}
+description: Access Transparency — это один из модулей сервиса {{ sd-name }}, представляющий собой автоматизированный инструмент для обеспечения прозрачности работы {{ yandex-cloud }}.
 ---
 
 # Access Transparency

@@ -1,6 +1,6 @@
 ---
-title: "{{ TF }} reference for {{ backup-full-name }}"
-description: "This page provides reference information on the Terraform provider resources supported for {{ backup-name }}."
+title: '{{ TF }} reference for {{ backup-full-name }}'
+description: This page provides reference information on the Terraform provider resources supported for {{ backup-name }}.
 ---
 
 # {{ TF }} reference for {{ backup-full-name }}

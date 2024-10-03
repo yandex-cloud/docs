@@ -1,6 +1,6 @@
 ---
-title: "How to specify a cloud network to host an API gateway"
-description: "This guide describes how you can specify a cloud network that will host an API gateway."
+title: How to specify a cloud network to host an API gateway
+description: This guide describes how you can specify a cloud network that will host an API gateway.
 ---
 
 # Specifying a cloud network to host an API gateway

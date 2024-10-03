@@ -1,6 +1,6 @@
 ---
-title: "How to configure a {{ ydb-full-name }} source endpoint in {{ data-transfer-full-name }}"
-description: "In this tutorial, you will learn how to set up a {{ ydb-full-name }} source endpoint when creating or updating it in {{ data-transfer-full-name }}."
+title: How to configure a {{ ydb-full-name }} source endpoint in {{ data-transfer-full-name }}
+description: In this tutorial, you will learn how to set up a {{ ydb-full-name }} source endpoint when creating or updating it in {{ data-transfer-full-name }}.
 ---
 
 # Transferring data from an {{ ydb-name }} source endpoint

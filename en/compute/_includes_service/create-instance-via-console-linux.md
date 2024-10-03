@@ -14,7 +14,7 @@
    * Select the [disk type](../concepts/disk.md#disks_types).
    * Specify the required disk size.
 
-   
+
    * {% include [encryption-section-boot](../../_includes/compute/encryption-section-boot.md) %}
 
 
@@ -25,7 +25,7 @@
      * Specify the required block size.
      * Specify the required disk size.
 
-     
+
      * {% include [encryption-section-secondary](../../_includes/compute/encryption-section-secondary.md) %}
 
 

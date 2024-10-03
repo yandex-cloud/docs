@@ -1,6 +1,6 @@
 ---
-title: "Deleting a lifecycle policy"
-description: "Follow this guide to delete a lifecycle policy."
+title: Deleting a lifecycle policy
+description: Follow this guide to delete a lifecycle policy.
 ---
 
 # Deleting a lifecycle policy

@@ -1,6 +1,6 @@
 ---
-title: "Access management in {{ managed-k8s-name }}"
-description: "Access management in {{ managed-k8s-name }}, a service for running containerized applications. The section describes for which resources you can grant a role, which roles are used in the service, which roles are needed for service accounts of a {{ managed-k8s-name }} cluster, which roles you need to work with {{ managed-k8s-name }} from the {{ yandex-cloud }} management console."
+title: Access management in {{ managed-k8s-name }}
+description: Access management in {{ managed-k8s-name }}, a service for running containerized applications. The section describes for which resources you can grant a role, which roles are used in the service, which roles are needed for service accounts of a {{ managed-k8s-name }} cluster, which roles you need to work with {{ managed-k8s-name }} from the {{ yandex-cloud }} management console.
 ---
 
 # Access management in {{ managed-k8s-name }}

@@ -18,11 +18,9 @@ editable: false
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
-### Запросы {#requests}
-
 {% include [sum-cloud-account](../_includes/smartwebsecurity/sum-cloud-account.md) %}
 
-#### Запросы, обработанные правилами профиля безопасности {#requests-smart}
+### Запросы, обработанные правилами профиля безопасности {#requests-smart}
 
 
 {% list tabs group=pricing %}
@@ -51,15 +49,13 @@ editable: false
 
 
 
-### WAF{#waf-arl-prices}
+### Запросы, обработанные правилами WAF {#requests-waf}
 
 {% note warning %}
 
 Цены, указанные ниже, начнут действовать с 1 октября 2024 года.
 
 {% endnote %}
-
-### Запросы, обработанные правилами WAF {#requests-waf}
 
 
 {% list tabs group=pricing %}
@@ -88,7 +84,7 @@ editable: false
 
 
 
-#### Готовые расчеты стоимости запросов
+### Готовые расчеты стоимости запросов
 
 
 Чтобы оценить порядок стоимости запросов, в таблице ниже представлены расчеты цен за определенное количество запросов в месяц. В это количество не включен нетарифицируемый лимит — 10 000 запросов.

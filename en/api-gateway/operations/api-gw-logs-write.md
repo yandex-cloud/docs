@@ -1,6 +1,6 @@
 ---
-title: "Writing to the execution log in {{ api-gw-full-name }}"
-description: "Follow this guide to configure API gateway logging."
+title: Writing to the execution log in {{ api-gw-full-name }}
+description: Follow this guide to configure API gateway logging.
 ---
 
 # Writing to the execution log in {{ api-gw-name }}

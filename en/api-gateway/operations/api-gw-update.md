@@ -1,6 +1,6 @@
 ---
-title: "Updating an API gateway"
-description: "Follow this guide to update an API gateway."
+title: Updating an API gateway
+description: Follow this guide to update an API gateway.
 ---
 
 # Updating an API gateway

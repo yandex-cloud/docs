@@ -1,10 +1,5 @@
 title: Yandex SpeechSense
 href: index.yaml
-label:
-  title: RU
-  description: This service is only available in the Russia region.
-  theme: unknown
-  when: region == "kz"
 items:
   - name: Getting started
     href: quickstart.md
@@ -111,3 +106,4 @@ items:
   - name: FAQ
     href: qa/index.md
 base: en/speechsense
+deepBase: 2

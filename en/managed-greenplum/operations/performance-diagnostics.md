@@ -1,6 +1,6 @@
 ---
-title: "How to run performance diagnostics in {{ mpg-full-name }}"
-description: "Follow this guide to run performance diagnostics."
+title: How to run performance diagnostics in {{ mpg-full-name }}
+description: Follow this guide to run performance diagnostics.
 ---
 
 # Performance diagnostics

@@ -1,6 +1,6 @@
 ---
-title: "Using the SDK for Kotlin functions in {{ sf-full-name }}: Overview"
-description: "You can manage Kotlin functions in {{ sf-name }} using the SDK."
+title: 'Using the SDK for Kotlin functions in {{ sf-full-name }}: Overview'
+description: You can manage Kotlin functions in {{ sf-name }} using the SDK.
 ---
 
 # Using the SDK for Kotlin functions

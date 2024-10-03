@@ -1,6 +1,6 @@
 ---
-title: "How to configure a {{ ydb-name }} target endpoint in {{ data-transfer-full-name }}"
-description: "In this tutorial, you will learn how to set up a {{ ydb-name }} target endpoint in {{ data-transfer-full-name }}."
+title: How to configure a {{ ydb-name }} target endpoint in {{ data-transfer-full-name }}
+description: In this tutorial, you will learn how to set up a {{ ydb-name }} target endpoint in {{ data-transfer-full-name }}.
 ---
 # Transferring data to a {{ ydb-name }} target endpoint
 
@@ -104,7 +104,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbPartitionPolicy.time_column.title }}**: Split (_partition_) a table by the specified column's values. The column must be of the **time** type.
 
-            
+
             For more information about table partitioning, see the [{{ ydb-full-name }}](https://ydb.tech/en/docs/concepts/datamodel/table#partitioning) documentation.
 
 

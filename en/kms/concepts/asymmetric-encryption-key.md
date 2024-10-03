@@ -1,6 +1,6 @@
 ---
-title: "Asymmetric encryption key pair in {{ kms-short-name }}"
-description: "This guide describes the features of asymmetric encryption key pairs in {{ kms-short-name }}."
+title: Asymmetric encryption key pair in {{ kms-short-name }}
+description: This guide describes the features of asymmetric encryption key pairs in {{ kms-short-name }}.
 ---
 
 # Asymmetric encryption key pair in {{ kms-short-name }}

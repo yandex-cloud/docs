@@ -1,5 +1,5 @@
 ---
-title: "Go function invocation context in {{ sf-full-name }}"
+title: Go function invocation context in {{ sf-full-name }}
 ---
 
 # Go function invocation context

@@ -1,6 +1,6 @@
 ---
-title: "{{ load-testing-full-name }} Release notes"
-description: "This section contains {{ load-testing-name }} release notes."
+title: '{{ load-testing-full-name }} Release notes'
+description: This section contains {{ load-testing-name }} release notes.
 ---
 
 # {{ load-testing-full-name }} release notes

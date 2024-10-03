@@ -1,6 +1,6 @@
 ---
-title: "История изменений в сервисе {{ foundation-models-full-name }}"
-description: "На странице представлена история изменений в сервисе {{ foundation-models-full-name }}."
+title: История изменений в сервисе {{ foundation-models-full-name }}
+description: На странице представлена история изменений в сервисе {{ foundation-models-full-name }}.
 ---
 
 # История изменений в сервисе {{ foundation-models-full-name }}

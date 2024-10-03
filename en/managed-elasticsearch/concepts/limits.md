@@ -1,6 +1,6 @@
 ---
-title: "Quotas and limits in {{ mes-name }}"
-description: "{{ mes-name }} has limits and quotas for the number of clusters, total number of processor cores for all hosts, total amount of RAM for all hosts, and total storage for all clusters per cloud. For more information about such restrictions, read this article."
+title: Quotas and limits in {{ mes-name }}
+description: '{{ mes-name }} has limits and quotas for the number of clusters, total number of processor cores for all hosts, total amount of RAM for all hosts, and total storage for all clusters per cloud. For more information about such restrictions, read this article.'
 ---
 
 

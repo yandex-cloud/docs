@@ -159,3 +159,4 @@ items:
   - name: Management console
     href: console/index.yaml
 base: en
+deepBase: 1

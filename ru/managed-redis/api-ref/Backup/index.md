@@ -31,5 +31,6 @@ sourceShardNames[] | **string**<br><p>Shard names used as a source for backup.</
 ## Methods {#methods}
 Method | Description
 --- | ---
+[delete](delete.md) | Returns the list of available backups for the specified Redis cluster.
 [get](get.md) | Returns the specified Redis backup.
 [list](list.md) | Retrieves the list of Redis backups available for the specified folder.

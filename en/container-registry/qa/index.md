@@ -1,6 +1,6 @@
 ---
-title: "Questions and answers about {{ container-registry-full-name }}"
-description: "This page presents questions and answers about {{ container-registry-name }}."
+title: Questions and answers about {{ container-registry-full-name }}
+description: This page presents questions and answers about {{ container-registry-name }}.
 ---
 
 # FAQ about {{ container-registry-name }}

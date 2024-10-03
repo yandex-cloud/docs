@@ -1,5 +1,5 @@
 ---
-canonical: "{{ link-docs }}/tutorials/dataplatform/mongodb-versions"
+canonical: '{{ link-docs }}/tutorials/dataplatform/mongodb-versions'
 ---
 
 # Миграция кластера {{ mmg-full-name }} с версии 4.4 на 6.0

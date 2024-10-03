@@ -1,6 +1,6 @@
 ---
-title: "How to create a {{ metastore-full-name }} cluster"
-description: "Follow this guide to create a {{ metastore-full-name }} cluster."
+title: How to create a {{ metastore-full-name }} cluster
+description: Follow this guide to create a {{ metastore-full-name }} cluster.
 ---
 
 # Creating a {{ metastore-full-name }} cluster

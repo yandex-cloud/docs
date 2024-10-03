@@ -1,6 +1,6 @@
 ---
-title: "How to link a cloud to a billing account"
-description: "Follow this guide to link a cloud to a billing account."
+title: How to link a cloud to a billing account
+description: Follow this guide to link a cloud to a billing account.
 ---
 
 # Linking a cloud to a billing account

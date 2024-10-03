@@ -1,10 +1,5 @@
 title: Yandex Lockbox
 href: index.yaml
-label:
-  title: KZ
-  description: Сервис доступен в регионе Казахстан.
-  theme: info
-  when: region == "kz"
 items:
   - name: Начало работы
     href: quickstart.md
@@ -144,3 +139,4 @@ items:
   - name: Вопросы и ответы
     href: qa/index.md
 base: ru/lockbox
+deepBase: 2

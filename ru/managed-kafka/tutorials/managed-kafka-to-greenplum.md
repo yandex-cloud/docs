@@ -1,5 +1,5 @@
 ---
-canonical: "{{ link-docs }}/tutorials/dataplatform/managed-kafka-to-greenplum"
+canonical: '{{ link-docs }}/tutorials/dataplatform/managed-kafka-to-greenplum'
 ---
 
 # Поставка данных в {{ mgp-full-name }} с помощью {{ data-transfer-full-name }}

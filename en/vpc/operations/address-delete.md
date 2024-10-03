@@ -1,6 +1,6 @@
 ---
-title: "How to delete a static public IP address"
-description: "Follow this guide to delete a static public IP address."
+title: How to delete a static public IP address
+description: Follow this guide to delete a static public IP address.
 ---
 
 # Deleting a static public IP address

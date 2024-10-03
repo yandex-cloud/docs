@@ -1,14 +1,10 @@
 title: Yandex Security Deck
 stage: preview
 href: index.yaml
-label:
-  title: KZ
-  description: This service is available in the Kazakhstan region.
-  theme: info
-  when: region == "kz"
 items:
   - name: Getting started
     href: quickstart-overview.md
   - name: Pricing policy
     href: pricing.md
 base: en/security-deck
+deepBase: 2

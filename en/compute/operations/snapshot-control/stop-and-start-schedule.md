@@ -1,6 +1,6 @@
 ---
-title: "How to disable and enable a disk snapshot schedule in {{ compute-full-name }}"
-description: "Follow this guide to disable and enable a disk snapshot schedule in {{ compute-name }}."
+title: How to disable and enable a disk snapshot schedule in {{ compute-full-name }}
+description: Follow this guide to disable and enable a disk snapshot schedule in {{ compute-name }}.
 ---
 
 # Disabling and enabling a disk snapshot schedule

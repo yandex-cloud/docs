@@ -1,6 +1,6 @@
 ---
-title: "List of {{ yandex-cloud }} metric references"
-description: "The page contains a list of {{ yandex-cloud }} metric references, whose metrics are automatically collected in {{ monitoring-full-name }}."
+title: List of {{ yandex-cloud }} metric references
+description: The page contains a list of {{ yandex-cloud }} metric references, whose metrics are automatically collected in {{ monitoring-full-name }}.
 ---
 
 # {{ yandex-cloud }} metric references

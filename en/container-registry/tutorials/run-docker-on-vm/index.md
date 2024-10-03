@@ -1,5 +1,5 @@
 ---
-canonical: "{{ link-docs }}/tutorials/infrastructure-management/run-docker-on-vm/index"
+canonical: '{{ link-docs }}/tutorials/infrastructure-management/run-docker-on-vm/index'
 ---
 
 {% include [run-docker-on-vm](../../../_tutorials/infrastructure/run-docker-on-vm.md) %}

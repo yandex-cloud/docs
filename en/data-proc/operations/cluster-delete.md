@@ -1,6 +1,6 @@
 ---
-title: "Deleting a {{ dataproc-name }} cluster"
-description: "You can delete a {{ dataproc-name }} cluster along with all the data stored in it. Note that data backups are not created automatically: if you want to save data for cluster recovery or future use, you can do that, for example, using {{ objstorage-full-name }}."
+title: Deleting a {{ dataproc-name }} cluster
+description: 'You can delete a {{ dataproc-name }} cluster along with all the data stored in it. Note that data backups are not created automatically: if you want to save data for cluster recovery or future use, you can do that, for example, using {{ objstorage-full-name }}.'
 ---
 
 # Deleting a {{ dataproc-name }} cluster

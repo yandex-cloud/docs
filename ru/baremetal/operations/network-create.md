@@ -1,6 +1,6 @@
 ---
-title: "Как создать VRF в {{ baremetal-full-name }}"
-description: "Следуя данной инструкции, вы сможете создать виртуальный сегмент сети (VRF) в {{ baremetal-full-name }}."
+title: Как создать VRF в {{ baremetal-full-name }}
+description: Следуя данной инструкции, вы сможете создать виртуальный сегмент сети (VRF) в {{ baremetal-full-name }}.
 ---
 
 # Создать VRF

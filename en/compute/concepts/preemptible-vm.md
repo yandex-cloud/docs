@@ -1,5 +1,5 @@
 ---
-title: "Preemptible VMs in {{ compute-full-name }}"
+title: Preemptible VMs in {{ compute-full-name }}
 ---
 
 # Preemptible VMs

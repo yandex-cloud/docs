@@ -1,6 +1,6 @@
 ---
-title: "Quotas and limits in {{ foundation-models-full-name }}"
-description: "{{ foundation-models-full-name }} has quotas and limits. For more information about the service restrictions, read this article."
+title: Quotas and limits in {{ foundation-models-full-name }}
+description: '{{ foundation-models-full-name }} has quotas and limits. For more information about the service restrictions, read this article.'
 ---
 
 # Quotas and limits in {{ foundation-models-full-name }}

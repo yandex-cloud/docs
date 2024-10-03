@@ -657,7 +657,7 @@ A SAML application in Keycloak acts as an identity provider (IdP). To create and
 
          {% endcut %}
 
-         
+
          {% cut "How to get the federation ACS URL" %}
 
          {% include [get-acs-url](../../../_includes/organization/get-acs-url.md) %}
@@ -681,7 +681,7 @@ A SAML application in Keycloak acts as an identity provider (IdP). To create and
 
          {% endcut %}
 
-         
+
          {% cut "How to get the federation ACS URL" %}
 
          {% include [get-acs-url](../../../_includes/organization/get-acs-url.md) %}
@@ -715,7 +715,7 @@ A SAML application in Keycloak acts as an identity provider (IdP). To create and
 
       {% endlist %}
 
-      
+
       {% cut "How to get the federation ACS URL" %}
 
       {% include [get-acs-url](../../../_includes/organization/get-acs-url.md) %}

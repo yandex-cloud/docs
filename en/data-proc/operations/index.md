@@ -1,6 +1,6 @@
 ---
-title: "Step-by-step guides for {{ dataproc-full-name }}"
-description: "This page provides a list of step-by-step guides for {{ dataproc-name }}."
+title: Step-by-step guides for {{ dataproc-full-name }}
+description: This page provides a list of step-by-step guides for {{ dataproc-name }}.
 ---
 
 # Step-by-step guides for {{ dataproc-name }}

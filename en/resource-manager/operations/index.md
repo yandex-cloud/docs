@@ -1,6 +1,6 @@
 ---
-title: "Working with {{ resmgr-full-name }}. Step-by-step guide"
-description: "Step-by-step guide for managing a cloud using {{ resmgr-full-name }}. In this tutorial, you will learn how to manage clouds and folders (create and rename them, set up permissions, and more)."
+title: Working with {{ resmgr-full-name }}. Step-by-step guide
+description: Step-by-step guide for managing a cloud using {{ resmgr-full-name }}. In this tutorial, you will learn how to manage clouds and folders (create and rename them, set up permissions, and more).
 ---
 
 # Step-by-step guide for {{ resmgr-name }}

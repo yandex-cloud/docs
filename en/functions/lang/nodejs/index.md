@@ -1,6 +1,6 @@
 ---
-title: "Developing in Node.js in {{ sf-full-name }}. Overview"
-description: "With {{ sf-name }}, you can run applications written in Node.js. The service provides several runtime environments with different OS versions."
+title: Developing in Node.js in {{ sf-full-name }}. Overview
+description: With {{ sf-name }}, you can run applications written in Node.js. The service provides several runtime environments with different OS versions.
 ---
 
 # Developing in Node.js. Overview

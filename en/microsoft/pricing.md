@@ -1,6 +1,6 @@
 ---
-title: "Pricing policy for Microsoft products"
-description: "This article describes the pricing policy for Microsoft products."
+title: Pricing policy for Microsoft products
+description: This article describes the pricing policy for Microsoft products.
 ---
 
 # Pricing policy

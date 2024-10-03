@@ -1,6 +1,6 @@
 ---
-title: "Creating an API gateway"
-description: "Follow this guide to create an API gateway."
+title: Creating an API gateway
+description: Follow this guide to create an API gateway.
 ---
 
 # Creating an API gateway

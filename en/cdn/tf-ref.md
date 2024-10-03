@@ -1,6 +1,6 @@
 ---
-title: "{{ TF }} reference for {{ cdn-full-name }}"
-description: "This page provides reference information on the {{ TF }} provider resources and data sources supported for {{ cdn-name }}."
+title: '{{ TF }} reference for {{ cdn-full-name }}'
+description: This page provides reference information on the {{ TF }} provider resources and data sources supported for {{ cdn-name }}.
 ---
 
 # {{ TF }} reference for {{ cdn-full-name }}

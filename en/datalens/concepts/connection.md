@@ -12,7 +12,7 @@ The following connection types are available in {{ datalens-short-name }}:
    * [{{ CH }}](../operations/connection/create-clickhouse.md)
    * [{{ PG }}](../operations/connection/create-postgresql.md)
    * [{{ MY }}](../operations/connection/create-mysql.md)
-   * [{{ ydb-short-name }}](../operations/connection/create-ydb.md)
+   * [{{ ydb-short-name }}](../operations/connection/create-ydb.md)   
    * [{{ ytsaurus-name }} CHYT](../operations/connection/chyt/create-chyt.md)
    * [{{ GP }}](../operations/connection/create-greenplum.md)
    * [MS SQL Server](../operations/connection/create-mssql-server.md)
