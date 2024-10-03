@@ -1,6 +1,6 @@
 ---
-title: "Mounting a bucket to a container"
-description: "Follow this guide to mount a bucket to a container."
+title: Mounting a bucket to a container
+description: Follow this guide to mount a bucket to a container.
 ---
 
 # Mounting a bucket to a container

@@ -1,6 +1,6 @@
 ---
-title: "Searching with {{ OS }} in {{ mos-full-name }}"
-description: "{{ OS }} is a tool for searching and analyzing data using structured queries, full-text queries, and complex queries."
+title: Searching with {{ OS }} in {{ mos-full-name }}
+description: '{{ OS }} is a tool for searching and analyzing data using structured queries, full-text queries, and complex queries.'
 ---
 
 # Searching with {{ OS }}

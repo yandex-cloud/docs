@@ -1,6 +1,6 @@
 ---
-title: "Редактирование ACL объекта в {{ objstorage-full-name }}"
-description: "Для управления доступом к объекту в бакете {{ objstorage-name }} можно использовать список управления доступом (ACL)."
+title: Редактирование ACL объекта в {{ objstorage-full-name }}
+description: Для управления доступом к объекту в бакете {{ objstorage-name }} можно использовать список управления доступом (ACL).
 ---
 
 # Редактирование ACL объекта
@@ -85,7 +85,7 @@ description: "Для управления доступом к объекту в 
 
   1. Чтобы выдать разрешения ACL для пользователя {{ yandex-cloud }}, сервисного аккаунта или группы пользователей, получите их идентификатор:
 
-      
+
       * [Пользователь](../../../iam/operations/users/get.md).
       * [Сервисный аккаунт](../../../iam/operations/sa/get-id.md).
       * Группа пользователей — перейдите на вкладку [**{{ ui-key.yacloud_org.pages.groups }}**]({{ link-org-main }}groups) в интерфейсе {{ org-name }}.
@@ -124,7 +124,7 @@ description: "Для управления доступом к объекту в 
 
   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
-  
+
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
 

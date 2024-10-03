@@ -1,6 +1,6 @@
 ---
-title: "How to configure multi-tiered support in {{ tracker-full-name }}"
-description: "Follow this guide to configure multi-tiered support."
+title: How to configure multi-tiered support in {{ tracker-full-name }}
+description: Follow this guide to configure multi-tiered support.
 ---
 
 # Configuring multi-tiered support

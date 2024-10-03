@@ -1,6 +1,6 @@
 ---
-title: "Developing in Go in {{ sf-full-name }}. Overview"
-description: "With {{ sf-name }}, you can run applications written in Go. The service provides the runtime environment with different versions."
+title: Developing in Go in {{ sf-full-name }}. Overview
+description: With {{ sf-name }}, you can run applications written in Go. The service provides the runtime environment with different versions.
 ---
 
 # Developing in Go. Overview

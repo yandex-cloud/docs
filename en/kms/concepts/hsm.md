@@ -1,6 +1,6 @@
 ---
-title: "Hardware security module (HSM) in {{ kms-full-name }}"
-description: "In this tutorial, you will learn about the hardware security module, its implementation in {{ kms-name }}, and how you can use it."
+title: Hardware security module (HSM) in {{ kms-full-name }}
+description: In this tutorial, you will learn about the hardware security module, its implementation in {{ kms-name }}, and how you can use it.
 ---
 
 # Hardware security module (HSM)

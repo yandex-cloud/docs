@@ -1,6 +1,6 @@
 ---
-title: "Managing MongoDB backups"
-description: "You can create backups and restore clusters from existing MongoDB backups. The Point-in-Time Recovery (PITR) technology enables you to restore cluster state to any point in time starting with the moment a backup was created."
+title: Managing MongoDB backups
+description: You can create backups and restore clusters from existing MongoDB backups. The Point-in-Time Recovery (PITR) technology enables you to restore cluster state to any point in time starting with the moment a backup was created.
 ---
 
 # Managing backups in {{ mmg-name }}
@@ -105,7 +105,7 @@ When restored to the current state, the new cluster will match the state of:
 
   1. Run the command to create a new cluster from a backup (the example shows only some parameters):
 
-     
+
      ```bash
       {{ yc-mdb-mg }} cluster restore \
          --backup-id <backup_ID> \
@@ -128,7 +128,7 @@ When restored to the current state, the new cluster will match the state of:
       * `--recovery-target-timestamp`: Time point to restore the {{ MG }} cluster to, in [UNIX time](https://en.wikipedia.org/wiki/Unix_time) format. If you do not specify the parameter, the cluster will be restored to when the backup was completed.
       * `--environment`: Environment, `PRESTABLE` or `PRODUCTION`.
 
-      
+
       * `--mongod-disk-type`: Disk type, `network-hdd` or `network-ssd`.
 
 
@@ -313,7 +313,7 @@ Create a new {{ mmg-name }} cluster from a backup with the following test charac
 
   Run the following command:
 
-  
+
   ```bash
   {{ yc-mdb-mg }} cluster restore \
      --backup-id c9qlk4v13uq7********:... \

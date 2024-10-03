@@ -1,6 +1,6 @@
 ---
-title: "How to add a user SSH key"
-description: "Follow this guide to add SSH keys to a user profile, which will allow the user to connect to VMs and {{ k8s }} cluster nodes with configured access via OS Login."
+title: How to add a user SSH key
+description: Follow this guide to add SSH keys to a user profile, which will allow the user to connect to VMs and {{ k8s }} cluster nodes with configured access via OS Login.
 ---
 
 # Adding an SSH key

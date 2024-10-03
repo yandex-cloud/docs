@@ -1,6 +1,6 @@
 ---
-title: "Voice list for {{ speechkit-full-name }}"
-description: "In this tutorial, you will learn about voices available in {{ speechkit-name }}."
+title: Voice list for {{ speechkit-full-name }}
+description: In this tutorial, you will learn about voices available in {{ speechkit-name }}.
 ---
 
 # List of voices

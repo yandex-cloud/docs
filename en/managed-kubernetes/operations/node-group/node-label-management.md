@@ -158,7 +158,7 @@ You can add [{{ k8s }} labels](../../concepts/index.md#node-labels) to all {{ ma
 
    - API {#api}
 
-     To create a {{ managed-k8s-name }} node group, use the [create](../../api-ref/NodeGroup/create.md) method for the [NodeGroup](../../api-ref/NodeGroup/) resource.
+     To create a {{ managed-k8s-name }} node group, use the [create](../../managed-kubernetes/api-ref/NodeGroup/create.md) method for the [NodeGroup](../../managed-kubernetes/api-ref/NodeGroup/) resource.
 
    {% endlist %}
 
@@ -221,7 +221,7 @@ You can add [{{ k8s }} labels](../../concepts/index.md#node-labels) to all {{ ma
 
    - API {#api}
 
-     To view {{ managed-k8s-name }} node details, use the [list](../../api-ref/NodeGroup/list.md) method for the [NodeGroup](../../api-ref/NodeGroup/) resource.
+     To view {{ managed-k8s-name }} node details, use the [list](../../managed-kubernetes/api-ref/NodeGroup/list.md) method for the [NodeGroup](../../managed-kubernetes/api-ref/NodeGroup/) resource.
 
    {% endlist %}
 
@@ -285,7 +285,7 @@ Assigning {{ k8s }} labels does not result in recreation of a node group.
 
 - API {#api}
 
-  To assign a {{ k8s }} label to an existing node group, use the [update](../../api-ref/NodeGroup/update.md) method for the [NodeGroup](../../api-ref/NodeGroup/index.md) resource and provide the following in the request:
+  To assign a {{ k8s }} label to an existing node group, use the [update](../../managed-kubernetes/api-ref/NodeGroup/update.md) method for the [NodeGroup](../../managed-kubernetes/api-ref/NodeGroup/index.md) resource and provide the following in the request:
 
   * {{ k8s }} labels in the `nodeLabels` parameter.
   * `nodeLabels` parameter to update in the `updateMask` parameter.
@@ -341,7 +341,7 @@ Deleting {{ k8s }} labels does not result in recreation of a node group.
 
 - API {#api}
 
-  To remove a {{ k8s }} label from a node group, use the [update](../../api-ref/NodeGroup/update.md) method for the [NodeGroup](../../api-ref/NodeGroup/index.md) resource and provide the following in the request:
+  To remove a {{ k8s }} label from a node group, use the [update](../../managed-kubernetes/api-ref/NodeGroup/update.md) method for the [NodeGroup](../../managed-kubernetes/api-ref/NodeGroup/index.md) resource and provide the following in the request:
 
   * New list of {{ k8s }} labels in the `nodeLabels` parameter. If you want to remove all the labels, provide `"nodeLabels": {}` in your request.
   * `nodeLabels` parameter to update in the `updateMask` parameter.

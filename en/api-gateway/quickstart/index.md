@@ -1,6 +1,6 @@
 ---
-title: "Getting started with {{ api-gw-full-name }} (API gateways)"
-description: "Follow this guide to create and test different types of extensions. First, you will set up an API gateway for getting static responses and then add integration for invoking functions."
+title: Getting started with {{ api-gw-full-name }} (API gateways)
+description: Follow this guide to create and test different types of extensions. First, you will set up an API gateway for getting static responses and then add integration for invoking functions.
 ---
 
 # Getting started with {{ api-gw-name }}

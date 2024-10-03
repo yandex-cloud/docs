@@ -1,6 +1,6 @@
 ---
-title: "Managing bucket versioning in {{ objstorage-full-name }}"
-description: "Bucket versioning makes it possible to store object history through versions. In this article, you will learn how to manage versioning in {{ objstorage-name }}."
+title: Managing bucket versioning in {{ objstorage-full-name }}
+description: Bucket versioning makes it possible to store object history through versions. In this article, you will learn how to manage versioning in {{ objstorage-name }}.
 ---
 
 # Managing bucket versioning

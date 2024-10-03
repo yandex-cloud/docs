@@ -841,3 +841,4 @@ items:
           speechkit-full-name }}
         href: serverless/speechkit-integrarion-via-agi-gw.md
 base: ru/tutorials
+deepBase: 2

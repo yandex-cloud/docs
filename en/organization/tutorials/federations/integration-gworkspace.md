@@ -363,7 +363,7 @@ Once you have created a federation, complete the creation of the SAML applicatio
 
     * In the **ACS URL** and **Object ID** fields, enter the ACS URL to redirect users to after authentication:
 
-      
+
       ```text
       https://{{ auth-host }}/federations/<federation_ID>
       ```
@@ -376,7 +376,7 @@ Once you have created a federation, complete the creation of the SAML applicatio
 
       {% endcut %}
 
-      
+
       {% cut "How to get the federation ACS URL" %}
 
       {% include [get-acs-url](../../../_includes/organization/get-acs-url.md) %}
@@ -388,7 +388,7 @@ Once you have created a federation, complete the creation of the SAML applicatio
 
 1. Click **Continue**.
 
-    
+
     {% note tip %}
 
     To enable the user to contact {{ yandex-cloud }} technical support from the [management console]({{ link-console-support }}), in the **Mapping attributes** step, click **Add new mappings** and configure the provision of attributes:

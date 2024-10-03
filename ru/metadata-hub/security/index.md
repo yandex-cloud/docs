@@ -1,6 +1,6 @@
 ---
-title: "Управление доступом в {{ metadata-hub-full-name }}"
-description: "Управление доступом в сервисе {{ metadata-hub-full-name }}. В разделе описано, на какие ресурсы можно назначить роль, какие роли действуют в сервисе, какие роли необходимы для того или иного действия."
+title: Управление доступом в {{ metadata-hub-full-name }}
+description: Управление доступом в сервисе {{ metadata-hub-full-name }}. В разделе описано, на какие ресурсы можно назначить роль, какие роли действуют в сервисе, какие роли необходимы для того или иного действия.
 ---
 
 # Управление доступом в {{ metadata-hub-name }}
@@ -41,3 +41,4 @@ description: "Управление доступом в сервисе {{ metadat
 
 * [Подробнее об управлении доступом в {{ yandex-cloud }}](../../iam/concepts/access-control/index.md).
 * [Подробнее о наследовании ролей](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
+

@@ -1,6 +1,6 @@
 ---
-title: "Routing"
-description: "With static routing, you can route traffic from a subnet to the specified IP address ranges through the VMs specified as the next hop. Routing is based on route tables. Route tables are linked to a subnet and cannot contain duplicate prefixes."
+title: Routing
+description: With static routing, you can route traffic from a subnet to the specified IP address ranges through the VMs specified as the next hop. Routing is based on route tables. Route tables are linked to a subnet and cannot contain duplicate prefixes.
 keywords:
   - static routing
   - route table

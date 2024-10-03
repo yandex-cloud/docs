@@ -1,6 +1,6 @@
 ---
-title: "How to migrate to {{ tracker-full-name }} from other services"
-description: "Follow this guide to migrate to {{ tracker-full-name }} from other services."
+title: How to migrate to {{ tracker-full-name }} from other services
+description: Follow this guide to migrate to {{ tracker-full-name }} from other services.
 ---
 
 # Migrating to {{ tracker-name }} from other services

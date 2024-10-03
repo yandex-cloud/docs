@@ -1,6 +1,6 @@
 ---
-title: "Backing up Docker images"
-description: "Data in {{ container-registry-name }} is stored securely and replicated in the {{ yandex-cloud }} infrastructure. However, you can create backups of Docker images at any time. To back up your Docker images, follow the instructions in this article."
+title: Backing up Docker images
+description: Data in {{ container-registry-name }} is stored securely and replicated in the {{ yandex-cloud }} infrastructure. However, you can create backups of Docker images at any time. To back up your Docker images, follow the instructions in this article.
 ---
 
 # Backing up Docker images in {{ container-registry-name }}

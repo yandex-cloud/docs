@@ -1,6 +1,6 @@
 ---
-title: "Creating a table in the AWS CLI"
-description: "Follow this guide to create a table in the AWS CLI."
+title: Creating a table in the AWS CLI
+description: Follow this guide to create a table in the AWS CLI.
 ---
 
 # Creating a table in the AWS CLI

@@ -1,6 +1,6 @@
 ---
-title: "Как создать виртуальную машину с пользовательским скриптом"
-description: "Следуя данной инструкции, вы сможете использовать скрипты в cloud-init, чтобы установить дополнительное ПО и донастроить ВМ при ее создании."
+title: Как создать виртуальную машину с пользовательским скриптом
+description: Следуя данной инструкции, вы сможете использовать скрипты в cloud-init, чтобы установить дополнительное ПО и донастроить ВМ при ее создании.
 ---
 
 # Создать виртуальную машину с пользовательским скриптом конфигурации
@@ -215,8 +215,12 @@ description: "Следуя данной инструкции, вы сможет�
 
         # YC CLI
         echo "Installing Yandex Cloud CLI"
-        curl -sSL https://{{ s3-storage-host }}/yandexcloud-yc/install.sh | bash
-        VM_ID=$(curl -s http://169.254.169.254/latest/meta-data/instance-id)
+        curl \
+          --silent \
+          --show-error \
+          --location \
+          https://{{ s3-storage-host }}/yandexcloud-yc/install.sh | bash
+        VM_ID=$(curl --silent http://169.254.169.254/latest/meta-data/instance-id)
 
         # Save YC params
         echo "Saving YC params to the ~/.bashrc"
@@ -257,7 +261,12 @@ description: "Следуя данной инструкции, вы сможет�
 
         # Install Terraform
         echo "Installing Terraform"
-        sudo curl -sSL https://hashicorp-releases.yandexcloud.net/terraform/1.8.5/terraform_1.8.5_linux_amd64.zip -o /usr/local/etc/terraform.zip
+        sudo curl \
+          --silent \
+          --show-error \
+          --location \
+          https://hashicorp-releases.yandexcloud.net/terraform/1.8.5/terraform_1.8.5_linux_amd64.zip \
+          --output /usr/local/etc/terraform.zip
         sudo unzip /usr/local/etc/terraform.zip -d /usr/local/etc/
         sudo install -o root -g root -m 0755 /usr/local/etc/terraform /usr/local/bin/terraform
         sudo rm -rf /usr/local/etc/terraform /usr/local/etc/terraform.zip /usr/local/etc/LICENSE.txt
@@ -292,7 +301,12 @@ description: "Следуя данной инструкции, вы сможет�
 
         # Install kubectl
         echo "Installing kubectl"
-        sudo curl -sSL https://dl.k8s.io/release/v1.3.0/bin/linux/amd64/kubectl -o /usr/local/etc/kubectl
+        sudo curl \
+          --silent \
+          --show-error \
+          --location \
+          https://dl.k8s.io/release/v1.3.0/bin/linux/amd64/kubectl \
+          --output /usr/local/etc/kubectl
         sudo install -o root -g root -m 0755 /usr/local/etc/kubectl /usr/local/bin/kubectl
         sudo rm -rf /usr/local/etc/kubectl
       defer: true
@@ -326,7 +340,12 @@ description: "Следуя данной инструкции, вы сможет�
 
         # Install Helm
         echo "Installing Helm"
-        sudo curl -sSL https://get.helm.sh/helm-v3.15.2-linux-amd64.tar.gz -o /usr/local/etc/helm-v3.15.2-linux-amd64.tar.gz
+        sudo curl \
+          --silent \
+          --show-error \
+          --location \
+          https://get.helm.sh/helm-v3.15.2-linux-amd64.tar.gz \
+          --output /usr/local/etc/helm-v3.15.2-linux-amd64.tar.gz
         sudo tar xf /usr/local/etc/helm-v3.15.2-linux-amd64.tar.gz -C /usr/local/etc/
         sudo install -o root -g root -m 0755 /usr/local/etc/linux-amd64/helm /usr/local/bin/helm
         sudo rm -rf /usr/local/etc/helm-v3.15.2-linux-amd64.tar.gz /usr/local/etc/linux-amd64

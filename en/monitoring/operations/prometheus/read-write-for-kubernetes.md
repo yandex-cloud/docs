@@ -1,6 +1,6 @@
 ---
-title: "Reading and writing {{ k8s }} cluster metrics"
-description: "Follow this guide to learn how to read and write {{ k8s }} cluster metrics with the Prometheus Operator."
+title: Reading and writing {{ k8s }} cluster metrics
+description: Follow this guide to learn how to read and write {{ k8s }} cluster metrics with the Prometheus Operator.
 noIndex: true
 ---
 

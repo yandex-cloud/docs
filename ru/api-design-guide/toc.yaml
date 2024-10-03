@@ -1,10 +1,5 @@
 title: Концепции API Yandex Cloud
 href: index.yaml
-label:
-  title: KZ
-  description: Сервис доступен в регионе Казахстан.
-  theme: info
-  when: region == "kz"
 editable: false
 items:
   - name: Основные принципы
@@ -40,3 +35,4 @@ items:
       - name: Идемпотентность
         href: concepts/idempotency.md
 base: ru/api-design-guide
+deepBase: 2

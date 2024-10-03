@@ -1,6 +1,6 @@
 ---
-title: "Managing Elasticsearch backups (snapshots)"
-description: "Elasticsearch enables you to use the Elasticsearch snapshot mechanism to manage your data backups. To work with snapshots, use the Elasticsearch public API and a bucket in {{ objstorage-name }} to store them."
+title: Managing Elasticsearch backups (snapshots)
+description: Elasticsearch enables you to use the Elasticsearch snapshot mechanism to manage your data backups. To work with snapshots, use the Elasticsearch public API and a bucket in {{ objstorage-name }} to store them.
 keywords:
   - Elasticsearch backups
   - Elasticsearch snapshots
@@ -218,7 +218,7 @@ When creating a new cluster, set all required parameters.
 
     1. Request the creation of a cluster from a backup:
 
-        
+
         ```bash
         {{ yc-mdb-es }} cluster restore \
            --backup-id=<backup_ID> \
@@ -253,7 +253,7 @@ When creating a new cluster, set all required parameters.
 
             * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
 
-            
+
             * `subnet-name`: Name of the [subnet](../../vpc/concepts/network.md#subnet). Specify the name if two or more subnets are created in the selected availability zone.
             * `assign-public-ip`: Flag set if [public access](../concepts/network.md#public-access-to-a-host) is required for the host: `true` or `false`.
 
@@ -264,7 +264,7 @@ When creating a new cluster, set all required parameters.
         * `--datanode-disk-size`: Storage size in GB for hosts with the Data node role.
         * `--datanode-disk-type`: [Disk type](../concepts/storage.md) for hosts with the Data node role:
 
-            
+
             * `network-hdd`
             * `network-ssd`
             * `local-ssd`

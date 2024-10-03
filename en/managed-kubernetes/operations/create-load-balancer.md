@@ -1,5 +1,5 @@
 ---
-title: "Granting access to an app running in a {{ k8s }} cluster"
+title: Granting access to an app running in a {{ k8s }} cluster
 ---
 
 # Granting access to an app running in a {{ k8s }} cluster
@@ -13,7 +13,7 @@ To publish an app, use a`LoadBalancer` service. The following options are suppor
 
   The application will be available:
   * From {{ vpc-full-name }} [subnets](../../vpc/concepts/network.md#subnet).
-    * From the company's internal subnets connected to {{ yandex-cloud }} via [{{ interconnect-full-name }}](../../interconnect/index.yaml).
+  * From the company's internal subnets connected to {{ yandex-cloud }} via [{{ interconnect-full-name }}](../../interconnect/index.yaml).
   * Via VPN.
 
 When using an external load balancer, [you can specify](#advanced) a static [public IP address](../../vpc/concepts/address.md#public-addresses) in the `loadBalancerIP` field. You need to [reserve such an address in advance](../../vpc/operations/get-static-ip.md). When reserving a public IP address, you can enable [DDoS protection](../../vpc/ddos-protection/index.md).

@@ -24,7 +24,7 @@ Storing backups in {{ mos-name }}:
 
 * {% include [using-storage](../../_includes/mdb/backups/storage.md) %}
 
-   
+
    For more information, see the [{{ mos-name }} pricing policy](../pricing.md#rules-storage).
 
 

@@ -1,6 +1,6 @@
 ---
-title: "Preparing the environment in the AWS SDK in {{ yds-full-name }}"
-description: "Follow this guide to configure the environment for your programming language."
+title: Preparing the environment in the AWS SDK in {{ yds-full-name }}
+description: Follow this guide to configure the environment for your programming language.
 ---
 
 # Preparing the environment in the AWS SDK

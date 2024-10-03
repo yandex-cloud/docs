@@ -1,6 +1,6 @@
 ---
-title: "{{ forms-full-name }} prompt reference"
-description: "In this tutorial, you will learn which blocks of prompts you can use in {{ forms-name }}."
+title: '{{ forms-full-name }} prompt reference'
+description: In this tutorial, you will learn which blocks of prompts you can use in {{ forms-name }}.
 ---
 
 # Prompt reference

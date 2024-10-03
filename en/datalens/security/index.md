@@ -1,6 +1,6 @@
 ---
-title: "Managing access to {{ datalens-full-name }}"
-description: "In this tutorial, you will learn about {{ datalens-short-name }} access management."
+title: Managing access to {{ datalens-full-name }}
+description: In this tutorial, you will learn about {{ datalens-short-name }} access management.
 ---
 
 # Managing access to {{ datalens-short-name }}

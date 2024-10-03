@@ -113,7 +113,7 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
 
      {% cut "Example of assigning roles to a folder using {{ TF }}" %}
 
-     
+
      ```hcl
      ...
      data "yandex_resourcemanager_folder" "project1" {
@@ -289,7 +289,7 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
 
      {% cut "Example of assigning roles to a folder using {{ TF }}" %}
 
-     
+
      ```hcl
      ...
      data "yandex_resourcemanager_folder" "project1" {

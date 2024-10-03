@@ -1,6 +1,6 @@
 ---
-title: "Tutorials for building a data platform based on {{ yandex-cloud }}"
-description: "This page provides a list of tutorials for building a data platform based on {{ yandex-cloud }} using various DBMS."
+title: Tutorials for building a data platform based on {{ yandex-cloud }}
+description: This page provides a list of tutorials for building a data platform based on {{ yandex-cloud }} using various DBMS.
 ---
 
 # Building a data platform based on {{ yandex-cloud }}

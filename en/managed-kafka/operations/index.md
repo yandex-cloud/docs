@@ -1,6 +1,6 @@
 ---
-title: "Step-by-step guides for {{ mkf-full-name }}"
-description: "This page provides a list of step-by-step guides for {{ mkf-name }}."
+title: Step-by-step guides for {{ mkf-full-name }}
+description: This page provides a list of step-by-step guides for {{ mkf-name }}.
 ---
 
 # Step-by-step guides for {{ mkf-name }}

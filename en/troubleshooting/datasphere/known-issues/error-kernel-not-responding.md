@@ -1,7 +1,6 @@
 # Resolving the "KernelNotResponding: The kernel died unexpectedly" error
 
 
-
 ## Issue description {#issue-description}
 
 When working with CSV files, you see this error:

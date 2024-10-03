@@ -1,6 +1,6 @@
 ---
-title: "Configuring access to {{ objstorage-full-name }} from an {{ OS }} cluster"
-description: "In this tutorial, you will learn how to set up access to {{ objstorage-name }} storage to use it as an {{ OS }} snapshot repository."
+title: Configuring access to {{ objstorage-full-name }} from an {{ OS }} cluster
+description: In this tutorial, you will learn how to set up access to {{ objstorage-name }} storage to use it as an {{ OS }} snapshot repository.
 ---
 
 # Configuring access to {{ objstorage-name }} from an {{ OS }} cluster
@@ -29,7 +29,7 @@ To access {{ objstorage-name }} bucket data from a cluster:
 
 - Management console {#console}
 
-   
+
    1. In the [management console]({{ link-console-main }}), select the folder containing the bucket you need. If there is no such bucket, [create](../../storage/operations/buckets/create.md) one.
 
 

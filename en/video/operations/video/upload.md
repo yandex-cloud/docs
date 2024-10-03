@@ -1,6 +1,6 @@
 ---
-title: "How to upload a video to {{ video-full-name }}"
-description: "Follow this guide to upload a video to {{ video-full-name }}."
+title: How to upload a video to {{ video-full-name }}
+description: Follow this guide to upload a video to {{ video-full-name }}.
 ---
 
 # Uploading a video

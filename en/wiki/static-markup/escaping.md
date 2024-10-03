@@ -1,6 +1,6 @@
 ---
-title: "Escaping characters in {{ wiki-full-name }}"
-description: "In this tutorial, you will learn about the methods of escaping characters in your text."
+title: Escaping characters in {{ wiki-full-name }}
+description: In this tutorial, you will learn about the methods of escaping characters in your text.
 ---
 
 # Escaping characters

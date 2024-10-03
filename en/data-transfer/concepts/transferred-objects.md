@@ -1,6 +1,6 @@
 ---
-title: "What objects can be transferred"
-description: "With {{ data-transfer-full-name }}, you can easily transfer table data, empty objects, and views."
+title: What objects can be transferred
+description: With {{ data-transfer-full-name }}, you can easily transfer table data, empty objects, and views.
 ---
 # What objects can be transferred
 

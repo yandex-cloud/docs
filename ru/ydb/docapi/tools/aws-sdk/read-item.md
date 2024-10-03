@@ -1,6 +1,6 @@
 ---
-title: "Как прочитать запись из таблицы в {{ ydb-full-name }}"
-description: "Следуя данной инструкции, вы сможете прочитать запись из таблицы."
+title: Как прочитать запись из таблицы в {{ ydb-full-name }}
+description: Следуя данной инструкции, вы сможете прочитать запись из таблицы.
 sourcePath: overlay/quickstart/document-api/aws-sdk/read-item.md
 ---
 # Чтение записи

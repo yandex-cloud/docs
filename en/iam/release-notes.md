@@ -1,6 +1,6 @@
 ---
-title: "{{ iam-full-name }} release notes"
-description: "This section contains {{ iam-name }} release notes."
+title: '{{ iam-full-name }} release notes'
+description: This section contains {{ iam-name }} release notes.
 ---
 
 # {{ iam-full-name }} release notes

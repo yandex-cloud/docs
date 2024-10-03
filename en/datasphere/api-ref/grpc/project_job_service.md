@@ -62,8 +62,8 @@ attach_project_disk | **bool**<br>Should project disk be attached to VM.
 cloud_instance_types[] | **[CloudInstanceType](#CloudInstanceType)**<br>VM specification. The minimum number of elements is 1.
 extended_working_storage | **[ExtendedWorkingStorage](#ExtendedWorkingStorage)**<br>Extended working storage configuration. 
 arguments[] | **[Argument](#Argument)**<br>List of literal arguments. 
-output_datasets[] | **[OutputDatasetDesc](#OutputDatasetDesc)**<br>List of DataSets descriptions to create 
-graceful_shutdown_parameters | **[GracefulShutdownParameters](#GracefulShutdownParameters)**<br> 
+output_datasets[] | **[OutputDatasetDesc](#OutputDatasetDesc)**<br>List of DataSets descriptions to create. 
+graceful_shutdown_parameters | **[GracefulShutdownParameters](#GracefulShutdownParameters)**<br>Graceful shutdown settings. 
 
 
 ### File {#File}
@@ -231,8 +231,8 @@ attach_project_disk | **bool**<br>Should project disk be attached to VM.
 cloud_instance_types[] | **[CloudInstanceType](#CloudInstanceType1)**<br>VM specification. The minimum number of elements is 1.
 extended_working_storage | **[ExtendedWorkingStorage](#ExtendedWorkingStorage1)**<br>Extended working storage configuration. 
 arguments[] | **[Argument](#Argument1)**<br>List of literal arguments. 
-output_datasets[] | **[OutputDatasetDesc](#OutputDatasetDesc1)**<br>List of DataSets descriptions to create 
-graceful_shutdown_parameters | **[GracefulShutdownParameters](#GracefulShutdownParameters1)**<br> 
+output_datasets[] | **[OutputDatasetDesc](#OutputDatasetDesc1)**<br>List of DataSets descriptions to create. 
+graceful_shutdown_parameters | **[GracefulShutdownParameters](#GracefulShutdownParameters1)**<br>Graceful shutdown settings. 
 
 
 ### File {#File1}
@@ -413,7 +413,6 @@ id | **string**<br>ID of the job.
 name | **string**<br>Name of the job. 
 desc | **string**<br>Description of the job. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Create job timestamp. 
-started_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Start job timestamp. 
 finished_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Finish job timestamp. 
 status | enum **JobStatus**<br>Status of the job. 
 config | **string**<br>Config of the job, copied from configuration file. 
@@ -426,6 +425,12 @@ output_files[] | **[File](#File2)**<br>Output files of the job.
 log_files[] | **[File](#File2)**<br>Job log files. 
 diagnostic_files[] | **[File](#File2)**<br>Job diagnostics files. 
 data_size_bytes | **int64**<br>Job total data size. 
+started_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Start job timestamp. 
+status_details | **string**<br>Details. 
+actual_cloud_instance_type | **[CloudInstanceType](#CloudInstanceType2)**<br>Actual VM instance type, job is running on. 
+parent_job_id | **string**<br>Reference to the parent job. 
+file_errors[] | **[FileUploadError](#FileUploadError)**<br>Failed uploads. 
+output_datasets[] | **[OutputDataset](#OutputDataset)**<br>Created datasets. 
 
 
 ### JobParameters {#JobParameters2}
@@ -442,8 +447,8 @@ attach_project_disk | **bool**<br>Should project disk be attached to VM.
 cloud_instance_types[] | **[CloudInstanceType](#CloudInstanceType2)**<br>VM specification. The minimum number of elements is 1.
 extended_working_storage | **[ExtendedWorkingStorage](#ExtendedWorkingStorage2)**<br>Extended working storage configuration. 
 arguments[] | **[Argument](#Argument2)**<br>List of literal arguments. 
-output_datasets[] | **[OutputDatasetDesc](#OutputDatasetDesc2)**<br>List of DataSets descriptions to create 
-graceful_shutdown_parameters | **[GracefulShutdownParameters](#GracefulShutdownParameters2)**<br> 
+output_datasets[] | **[OutputDatasetDesc](#OutputDatasetDesc2)**<br>List of DataSets descriptions to create. 
+graceful_shutdown_parameters | **[GracefulShutdownParameters](#GracefulShutdownParameters2)**<br>Graceful shutdown settings. 
 
 
 ### FileDesc {#FileDesc2}
@@ -482,13 +487,6 @@ Field | Description
 --- | ---
 conda_yaml | **string**<br>Conda YAML. 
 local_modules[] | **[File](#File2)**<br>List of local modules descriptions. 
-
-
-### CloudInstanceType {#CloudInstanceType2}
-
-Field | Description
---- | ---
-name | **string**<br>Name of DataSphere VM configuration. 
 
 
 ### ExtendedWorkingStorage {#ExtendedWorkingStorage2}
@@ -536,12 +534,37 @@ size_bytes | **int64**<br>File size in bytes.
 compression_type | enum **FileCompressionType**<br>File compression info 
 
 
+### CloudInstanceType {#CloudInstanceType2}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of DataSphere VM configuration. 
+
+
+### FileUploadError {#FileUploadError}
+
+Field | Description
+--- | ---
+file_type | **oneof:** `output_file_desc` or `log_file_name`<br>
+&nbsp;&nbsp;output_file_desc | **[FileDesc](#FileDesc3)**<br> 
+&nbsp;&nbsp;log_file_name | **string**<br> 
+description | **string**<br> 
+
+
+### OutputDataset {#OutputDataset}
+
+Field | Description
+--- | ---
+desc | **[OutputDatasetDesc](#OutputDatasetDesc3)**<br>Dataset description 
+id | **string**<br>Id of created dataset 
+
+
 ### ExecuteProjectJobResponse {#ExecuteProjectJobResponse}
 
 Field | Description
 --- | ---
 output_files[] | **[StorageFile](#StorageFile2)**<br>Uploaded output files with URLs. 
-output_datasets[] | **[OutputDataset](#OutputDataset)**<br>Created datasets 
+output_datasets[] | **[OutputDataset](#OutputDataset1)**<br>Created datasets 
 result | **[JobResult](#JobResult)**<br>Result of the job. 
 
 
@@ -551,14 +574,6 @@ Field | Description
 --- | ---
 file | **[File](#File3)**<br> 
 url | **string**<br>File URL. 
-
-
-### OutputDataset {#OutputDataset}
-
-Field | Description
---- | ---
-desc | **[OutputDatasetDesc](#OutputDatasetDesc3)**<br>Dataset description 
-id | **string**<br>Id of created dataset 
 
 
 ### JobResult {#JobResult}
@@ -725,7 +740,6 @@ id | **string**<br>ID of the job.
 name | **string**<br>Name of the job. 
 desc | **string**<br>Description of the job. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Create job timestamp. 
-started_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Start job timestamp. 
 finished_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Finish job timestamp. 
 status | enum **JobStatus**<br>Status of the job. 
 config | **string**<br>Config of the job, copied from configuration file. 
@@ -738,6 +752,12 @@ output_files[] | **[File](#File4)**<br>Output files of the job.
 log_files[] | **[File](#File4)**<br>Job log files. 
 diagnostic_files[] | **[File](#File4)**<br>Job diagnostics files. 
 data_size_bytes | **int64**<br>Job total data size. 
+started_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Start job timestamp. 
+status_details | **string**<br>Details. 
+actual_cloud_instance_type | **[CloudInstanceType](#CloudInstanceType3)**<br>Actual VM instance type, job is running on. 
+parent_job_id | **string**<br>Reference to the parent job. 
+file_errors[] | **[FileUploadError](#FileUploadError1)**<br>Failed uploads. 
+output_datasets[] | **[OutputDataset](#OutputDataset1)**<br>Created datasets. 
 
 
 ### JobParameters {#JobParameters3}
@@ -754,8 +774,8 @@ attach_project_disk | **bool**<br>Should project disk be attached to VM.
 cloud_instance_types[] | **[CloudInstanceType](#CloudInstanceType3)**<br>VM specification. The minimum number of elements is 1.
 extended_working_storage | **[ExtendedWorkingStorage](#ExtendedWorkingStorage3)**<br>Extended working storage configuration. 
 arguments[] | **[Argument](#Argument3)**<br>List of literal arguments. 
-output_datasets[] | **[OutputDatasetDesc](#OutputDatasetDesc3)**<br>List of DataSets descriptions to create 
-graceful_shutdown_parameters | **[GracefulShutdownParameters](#GracefulShutdownParameters3)**<br> 
+output_datasets[] | **[OutputDatasetDesc](#OutputDatasetDesc3)**<br>List of DataSets descriptions to create. 
+graceful_shutdown_parameters | **[GracefulShutdownParameters](#GracefulShutdownParameters3)**<br>Graceful shutdown settings. 
 
 
 ### FileDesc {#FileDesc4}
@@ -794,13 +814,6 @@ Field | Description
 --- | ---
 conda_yaml | **string**<br>Conda YAML. 
 local_modules[] | **[File](#File4)**<br>List of local modules descriptions. 
-
-
-### CloudInstanceType {#CloudInstanceType3}
-
-Field | Description
---- | ---
-name | **string**<br>Name of DataSphere VM configuration. 
 
 
 ### ExtendedWorkingStorage {#ExtendedWorkingStorage3}
@@ -848,6 +861,31 @@ size_bytes | **int64**<br>File size in bytes.
 compression_type | enum **FileCompressionType**<br>File compression info 
 
 
+### CloudInstanceType {#CloudInstanceType3}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of DataSphere VM configuration. 
+
+
+### FileUploadError {#FileUploadError1}
+
+Field | Description
+--- | ---
+file_type | **oneof:** `output_file_desc` or `log_file_name`<br>
+&nbsp;&nbsp;output_file_desc | **[FileDesc](#FileDesc5)**<br> 
+&nbsp;&nbsp;log_file_name | **string**<br> 
+description | **string**<br> 
+
+
+### OutputDataset {#OutputDataset1}
+
+Field | Description
+--- | ---
+desc | **[OutputDatasetDesc](#OutputDatasetDesc4)**<br>Dataset description 
+id | **string**<br>Id of created dataset 
+
+
 ## Get {#Get}
 
 Returns job by id.
@@ -869,7 +907,6 @@ id | **string**<br>ID of the job.
 name | **string**<br>Name of the job. 
 desc | **string**<br>Description of the job. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Create job timestamp. 
-started_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Start job timestamp. 
 finished_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Finish job timestamp. 
 status | enum **JobStatus**<br>Status of the job. 
 config | **string**<br>Config of the job, copied from configuration file. 
@@ -882,6 +919,12 @@ output_files[] | **[File](#File5)**<br>Output files of the job.
 log_files[] | **[File](#File5)**<br>Job log files. 
 diagnostic_files[] | **[File](#File5)**<br>Job diagnostics files. 
 data_size_bytes | **int64**<br>Job total data size. 
+started_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Start job timestamp. 
+status_details | **string**<br>Details. 
+actual_cloud_instance_type | **[CloudInstanceType](#CloudInstanceType4)**<br>Actual VM instance type, job is running on. 
+parent_job_id | **string**<br>Reference to the parent job. 
+file_errors[] | **[FileUploadError](#FileUploadError2)**<br>Failed uploads. 
+output_datasets[] | **[OutputDataset](#OutputDataset2)**<br>Created datasets. 
 
 
 ### JobParameters {#JobParameters4}
@@ -898,8 +941,8 @@ attach_project_disk | **bool**<br>Should project disk be attached to VM.
 cloud_instance_types[] | **[CloudInstanceType](#CloudInstanceType4)**<br>VM specification. The minimum number of elements is 1.
 extended_working_storage | **[ExtendedWorkingStorage](#ExtendedWorkingStorage4)**<br>Extended working storage configuration. 
 arguments[] | **[Argument](#Argument4)**<br>List of literal arguments. 
-output_datasets[] | **[OutputDatasetDesc](#OutputDatasetDesc4)**<br>List of DataSets descriptions to create 
-graceful_shutdown_parameters | **[GracefulShutdownParameters](#GracefulShutdownParameters4)**<br> 
+output_datasets[] | **[OutputDatasetDesc](#OutputDatasetDesc4)**<br>List of DataSets descriptions to create. 
+graceful_shutdown_parameters | **[GracefulShutdownParameters](#GracefulShutdownParameters4)**<br>Graceful shutdown settings. 
 
 
 ### FileDesc {#FileDesc5}
@@ -938,13 +981,6 @@ Field | Description
 --- | ---
 conda_yaml | **string**<br>Conda YAML. 
 local_modules[] | **[File](#File5)**<br>List of local modules descriptions. 
-
-
-### CloudInstanceType {#CloudInstanceType4}
-
-Field | Description
---- | ---
-name | **string**<br>Name of DataSphere VM configuration. 
 
 
 ### ExtendedWorkingStorage {#ExtendedWorkingStorage4}
@@ -990,6 +1026,31 @@ desc | **[FileDesc](#FileDesc6)**<br>
 sha256 | **string**<br>SHA256 of the file. 
 size_bytes | **int64**<br>File size in bytes. 
 compression_type | enum **FileCompressionType**<br>File compression info 
+
+
+### CloudInstanceType {#CloudInstanceType4}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of DataSphere VM configuration. 
+
+
+### FileUploadError {#FileUploadError2}
+
+Field | Description
+--- | ---
+file_type | **oneof:** `output_file_desc` or `log_file_name`<br>
+&nbsp;&nbsp;output_file_desc | **[FileDesc](#FileDesc6)**<br> 
+&nbsp;&nbsp;log_file_name | **string**<br> 
+description | **string**<br> 
+
+
+### OutputDataset {#OutputDataset2}
+
+Field | Description
+--- | ---
+desc | **[OutputDatasetDesc](#OutputDatasetDesc5)**<br>Dataset description 
+id | **string**<br>Id of created dataset 
 
 
 ## Delete {#Delete}

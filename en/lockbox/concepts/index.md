@@ -1,6 +1,6 @@
 ---
-title: "{{ lockbox-full-name }}. Service overview"
-description: "A service for creating and storing secrets in the {{ yandex-cloud }} infrastructure"
+title: '{{ lockbox-full-name }}. Service overview'
+description: A service for creating and storing secrets in the {{ yandex-cloud }} infrastructure
 ---
 
 # {{ lockbox-full-name }} overview

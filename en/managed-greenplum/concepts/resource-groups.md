@@ -1,6 +1,6 @@
 ---
-title: "Resource groups in {{ mgp-full-name }}"
-description: "In this tutorial, you will learn what resource groups are, what parameters they have, and how memory is allocated between them."
+title: Resource groups in {{ mgp-full-name }}
+description: In this tutorial, you will learn what resource groups are, what parameters they have, and how memory is allocated between them.
 ---
 
 # Resource groups

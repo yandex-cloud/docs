@@ -1,5 +1,5 @@
 ---
-title: "How to move a subscription purchased on {{ marketplace-full-name }} to another folder"
+title: How to move a subscription purchased on {{ marketplace-full-name }} to another folder
 ---
 
 # Moving a subscription from one folder to another

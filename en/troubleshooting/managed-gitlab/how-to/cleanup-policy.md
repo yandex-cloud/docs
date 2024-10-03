@@ -1,7 +1,6 @@
 # How to set up a cleanup policy when running out of space
 
 
-
 ## Scenario description {#case-description}
 
 You need to set up cleanup.

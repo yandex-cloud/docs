@@ -1,7 +1,6 @@
 # How to change an internal IP address
 
 
-
 ## Scenario description {#case-description}
 
 You need to change the internal IP address of the VM instance.

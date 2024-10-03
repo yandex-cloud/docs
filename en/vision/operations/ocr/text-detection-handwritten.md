@@ -1,6 +1,6 @@
 ---
-title: "How to recognize handwriting in {{ vision-full-name }}. Step-by-step guide"
-description: "In this guide, you will learn how to recognize a combination of typed and handwritten text in Russian and English in {{ vision-full-name }}."
+title: How to recognize handwriting in {{ vision-full-name }}. Step-by-step guide
+description: In this guide, you will learn how to recognize a combination of typed and handwritten text in Russian and English in {{ vision-full-name }}.
 ---
 
 # Handwriting recognition

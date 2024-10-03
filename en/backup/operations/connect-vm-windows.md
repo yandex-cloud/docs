@@ -1,6 +1,6 @@
 ---
-title: "How to connect a Windows Server VM to {{ backup-full-name }}"
-description: "Follow this guide to connect a Windows Server VM to {{ backup-name }}."
+title: How to connect a Windows Server VM to {{ backup-full-name }}
+description: Follow this guide to connect a Windows Server VM to {{ backup-name }}.
 ---
 
 # Connecting a Windows Server VM to {{ backup-name }}

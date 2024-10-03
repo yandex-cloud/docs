@@ -1,6 +1,6 @@
 ---
-title: "How to update a resource record in {{ dns-full-name }}"
-description: "Follow this guide to update a resource record."
+title: How to update a resource record in {{ dns-full-name }}
+description: Follow this guide to update a resource record.
 ---
 
 # Updating a resource record

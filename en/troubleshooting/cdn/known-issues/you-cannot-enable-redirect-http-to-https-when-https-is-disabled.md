@@ -1,7 +1,6 @@
 # Fixing the "You cannot enable redirect HTTP to HTTPS when HTTPS is disabled" error
 
 
-
 ## Issue description {#issue-description}
 
 When trying to create a CDN resource, you see this error:

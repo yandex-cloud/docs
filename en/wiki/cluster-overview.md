@@ -1,6 +1,6 @@
 ---
-title: "How to view the structure of pages and sections in {{ wiki-full-name }}"
-description: "In this tutorial, you will learn how to view the structure of pages and sections in {{ wiki-name }}."
+title: How to view the structure of pages and sections in {{ wiki-full-name }}
+description: In this tutorial, you will learn how to view the structure of pages and sections in {{ wiki-name }}.
 ---
 
 # Viewing the page and cluster hierarchy

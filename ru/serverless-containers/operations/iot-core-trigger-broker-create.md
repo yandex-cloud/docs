@@ -1,6 +1,6 @@
 ---
-title: "Создать триггер, который передает сообщения в контейнер {{ serverless-containers-name }} из топика брокера {{ iot-full-name }}"
-description: "Создайте триггер для топика брокера {{ iot-name }} для обработки копии сообщений в контейнере {{ serverless-containers-name }}." 
+title: Создать триггер, который передает сообщения в контейнер {{ serverless-containers-name }} из топика брокера {{ iot-full-name }}
+description: Создайте триггер для топика брокера {{ iot-name }} для обработки копии сообщений в контейнере {{ serverless-containers-name }}.
 ---
 
 # Создать триггер, который передает сообщения в контейнер {{ serverless-containers-name }} из топика брокера {{ iot-full-name }}

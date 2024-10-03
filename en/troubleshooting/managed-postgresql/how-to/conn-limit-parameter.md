@@ -1,7 +1,6 @@
 # Understanding the Conn limit parameter
 
 
-
 ## Scenario description {#case-description}
 
 You need to understand how the `Conn limit` parameter works in {{ mpg-full-name }}.

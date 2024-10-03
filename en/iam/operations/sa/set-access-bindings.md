@@ -272,7 +272,7 @@ To assign a role for a service account, you need the `iam.serviceAccounts.admin`
 
     {% cut "Example of assigning multiple roles to a service account using {{ TF }}" %}
 
-    
+
     ```hcl
     ...
     resource "yandex_iam_service_account_iam_binding" "admin-account-iam" {

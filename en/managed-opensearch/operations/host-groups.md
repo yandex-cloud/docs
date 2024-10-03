@@ -1,6 +1,6 @@
 ---
-title: "Managing {{ OS }} host groups in {{ mos-full-name }}"
-description: "You can get a list of {{ OS }} cluster hosts and add, edit, or delete cluster host groups."
+title: Managing {{ OS }} host groups in {{ mos-full-name }}
+description: You can get a list of {{ OS }} cluster hosts and add, edit, or delete cluster host groups.
 keywords:
   - Managing OpenSearch host groups
   - OpenSearch host groups
@@ -87,7 +87,7 @@ To create a host group:
 
       * Number of hosts to create.
 
-      
+
       * Enable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** if you want to allow [connecting](connect.md) to hosts over the internet.
 
 
@@ -221,7 +221,7 @@ To create a host group:
    * List of availability zones in the `zoneIds` parameter.
    * List of subnets in the `subnetIds` parameter.
 
-   
+
    * Public access settings in the `assignPublicIp` parameter.
 
 
@@ -251,7 +251,7 @@ To create a host group:
 
          * Network HDD and SSD storage: In increments of 1 GB.
 
-         
+
          * Local SSD storage:
             * For **Intel Cascade Lake**: In increments of 100 GB.
             * For **Intel Ice Lake**: In increments of {{ local-ssd-v3-step }}.

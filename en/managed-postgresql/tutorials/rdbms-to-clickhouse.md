@@ -1,5 +1,5 @@
 ---
-canonical: "{{ link-docs }}/tutorials/dataplatform/rdbms-to-clickhouse"
+canonical: '{{ link-docs }}/tutorials/dataplatform/rdbms-to-clickhouse'
 ---
 
 # Asynchronously replicating data from {{ PG }} to {{ CH }}

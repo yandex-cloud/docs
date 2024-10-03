@@ -1,6 +1,6 @@
 ---
-title: "{{ TF }} reference for {{ kms-full-name }}"
-description: "This page gives reference information about the Terraform provider resources supported for {{ kms-name }}."
+title: '{{ TF }} reference for {{ kms-full-name }}'
+description: This page gives reference information about the Terraform provider resources supported for {{ kms-name }}.
 ---
 
 # {{ TF }} reference for {{ kms-full-name }}

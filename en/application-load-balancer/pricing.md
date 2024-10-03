@@ -1,6 +1,6 @@
 ---
-title: "{{ alb-full-name }} pricing policy"
-description: "This article describes the {{ alb-name }} pricing policy."
+title: '{{ alb-full-name }} pricing policy'
+description: This article describes the {{ alb-name }} pricing policy.
 editable: false
 ---
 
@@ -48,7 +48,7 @@ Calculating the cost per month (30 days) with the same hourly load:
 
 
 {% include [usd-alb-month](../_pricing_examples/application-load-balancer/usd-month.md) %}
- 
+
 
 
 ## Prices for the Russia region {#prices}
@@ -59,5 +59,5 @@ Calculating the cost per month (30 days) with the same hourly load:
 
 {% include [usd-lcu.md](../_pricing/application-load-balancer/usd-lcu.md) %}
 
- 
+
 

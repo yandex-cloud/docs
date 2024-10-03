@@ -1,6 +1,6 @@
 ---
-title: "Creating a function"
-description: "Follow this guide to create a function."
+title: Creating a function
+description: Follow this guide to create a function.
 ---
 
 # Creating a function
@@ -77,7 +77,7 @@ description: "Follow this guide to create a function."
 
       Here is an example of the configuration file structure:
 
-      
+
       ```
       provider "yandex" {
           token     = "<service_account_OAuth_token_or_static_key>"

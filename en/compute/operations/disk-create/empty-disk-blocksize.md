@@ -1,6 +1,6 @@
 ---
-title: "How to create an empty disk with a large block"
-description: "Use this guide to create an empty disk with a large block."
+title: How to create an empty disk with a large block
+description: Use this guide to create an empty disk with a large block.
 ---
 
 # Creating an empty disk with a large block

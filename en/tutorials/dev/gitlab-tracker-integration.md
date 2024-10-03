@@ -1,5 +1,5 @@
 ---
-canonical: "{{ link-docs }}/managed-gitlab/tutorials/tracker-integration"
+canonical: '{{ link-docs }}/managed-gitlab/tutorials/tracker-integration'
 ---
 
 # {{ GL }} integration with {{ tracker-full-name }}

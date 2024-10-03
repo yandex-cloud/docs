@@ -1,6 +1,6 @@
 ---
-title: "Методы API Amazon для {{ postbox-full-name }}"
-description: "Из статьи вы узнаете, какие методы API Amazon доступны для управления {{ postbox-name }}."
+title: Методы API Amazon для {{ postbox-full-name }}
+description: Из статьи вы узнаете, какие методы API Amazon доступны для управления {{ postbox-name }}.
 ---
 
 # Методы API Amazon для сервиса {{ postbox-name }}

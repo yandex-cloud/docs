@@ -10,7 +10,7 @@ To get authenticated using a [Yandex account](../../iam/concepts/users/accounts.
 
 1. To initialize CLI profile setup, run this command:
 
-   
+
    ```bash
    yc init
    ```
@@ -54,7 +54,7 @@ To get authenticated using a [Yandex account](../../iam/concepts/users/accounts.
 
    If you chose `Y`, select the availability zone:
 
-   
+
    {% include [include](choose-zone.md) %}
 
 
@@ -68,7 +68,7 @@ To get authenticated using a [Yandex account](../../iam/concepts/users/accounts.
 
    Result:
 
-   
+
    ```bash
    token: y0_AgA...wvs7N4
    cloud-id: b1g159pa15cd********

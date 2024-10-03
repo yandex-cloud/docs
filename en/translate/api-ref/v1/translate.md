@@ -1,6 +1,6 @@
 ---
-title: "How to translate text"
-description: "Translates the source text into the specified language."
+title: How to translate text
+description: Translates the source text into the specified language.
 ---
 
 # How to translate text

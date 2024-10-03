@@ -1,6 +1,6 @@
 ---
-title: "How to create an HTTP router for gRPC traffic in {{ alb-full-name }}"
-description: "Follow this guide to create an HTTP router for gRPC traffic."
+title: How to create an HTTP router for gRPC traffic in {{ alb-full-name }}
+description: Follow this guide to create an HTTP router for gRPC traffic.
 ---
 
 # Creating an HTTP router for gRPC traffic

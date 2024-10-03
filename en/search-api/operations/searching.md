@@ -1,6 +1,6 @@
 ---
-title: "How to search using {{ search-api-name }}"
-description: "Follow this guide to learn how to use {{ search-api-name }} to send search queries and get search results in XML format."
+title: How to search using {{ search-api-name }}
+description: Follow this guide to learn how to use {{ search-api-name }} to send search queries and get search results in XML format.
 ---
 
 # Performing search queries in {{ search-api-name }}

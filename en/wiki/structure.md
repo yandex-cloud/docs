@@ -1,6 +1,6 @@
 ---
-title: "{{ wiki-full-name }} structure"
-description: "In this tutorial, you will learn about the page structure in {{ wiki-name }}."
+title: '{{ wiki-full-name }} structure'
+description: In this tutorial, you will learn about the page structure in {{ wiki-name }}.
 ---
 
 # Structure of {{ wiki-full-name }}

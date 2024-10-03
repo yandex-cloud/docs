@@ -1,6 +1,6 @@
 ---
-title: "Лицензии Microsoft в {{ yandex-cloud }}"
-description: "Из этой статьи вы узнаете, как управлять лицензиями на продукты Microsoft в {{ yandex-cloud }}."
+title: Лицензии Microsoft в {{ yandex-cloud }}
+description: Из этой статьи вы узнаете, как управлять лицензиями на продукты Microsoft в {{ yandex-cloud }}.
 ---
 
 # Лицензии Microsoft в {{ yandex-cloud }}

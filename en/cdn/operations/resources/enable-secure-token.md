@@ -1,6 +1,6 @@
 ---
-title: "Setting up access via a secure token"
-description: "Follow this guide to set up access to a {{ cdn-name }} resource content based on time and IP address using secure tokens."
+title: Setting up access via a secure token
+description: Follow this guide to set up access to a {{ cdn-name }} resource content based on time and IP address using secure tokens.
 ---
 
 # Setting up access via a secure token

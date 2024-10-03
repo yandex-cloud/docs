@@ -1,6 +1,6 @@
 ---
-title: "All HTTP API methods in {{ yds-full-name }}"
-description: "See below what methods you can use in the {{ yds-full-name }} HTTP API."
+title: All HTTP API methods in {{ yds-full-name }}
+description: See below what methods you can use in the {{ yds-full-name }} HTTP API.
 ---
 
 # All methods

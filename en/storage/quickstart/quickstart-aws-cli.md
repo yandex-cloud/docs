@@ -1,6 +1,6 @@
 ---
-title: "Getting started with the AWS CLI"
-description: "Follow this guide to create a bucket and upload an object to it using the AWS CLI."
+title: Getting started with the AWS CLI
+description: Follow this guide to create a bucket and upload an object to it using the AWS CLI.
 ---
 
 # Getting started with the AWS CLI in {{ objstorage-full-name }}
@@ -141,7 +141,7 @@ To get started with the AWS CLI:
 
           Leave the other parameter values unchanged.
 
-          
+
           {% include [store-aws-key-in-lockbox](../../_includes/storage/store-aws-key-in-lockbox.md) %}
 
 

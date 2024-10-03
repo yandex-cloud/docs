@@ -1,6 +1,6 @@
 ---
-title: "Creating a registry"
-description: "Follow this guide to create a registry."
+title: Creating a registry
+description: Follow this guide to create a registry.
 ---
 
 # Creating a registry

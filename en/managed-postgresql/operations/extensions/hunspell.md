@@ -1,11 +1,11 @@
 ---
-title: "Hunspell dictionaries for full-text search in {{ mpg-name }}"
-description: "Learn how to get started with dictionaries in {{ mpg-name }}."
+title: Hunspell dictionaries for full-text search in {{ mpg-name }}
+description: Learn how to get started with dictionaries in {{ mpg-name }}.
 keywords:
-   - full-text search
-   - word normalization
-   - lexemes
-   - Hunspell
+  - full-text search
+  - word normalization
+  - lexemes
+  - Hunspell
 ---
 
 # Hunspell dictionaries for full-text search

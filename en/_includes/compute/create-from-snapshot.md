@@ -22,7 +22,7 @@
       * In the window that opens, go to the **{{ ui-key.yacloud.compute.instances.create-disk.value_source-snapshot }}** tab.
       * Select a disk snapshot from the list and click **{{ ui-key.yacloud.common.apply }}**.
 
-   
+
    1. {% include [encryption-section-boot](encryption-section-boot.md) %}
 
 
@@ -34,7 +34,7 @@
       * Specify the required block size.
       * Specify the required disk size.
 
-      
+
       * {% include [encryption-section-secondary](encryption-section-secondary.md) %}
 
 
@@ -42,7 +42,7 @@
       * Select `{{ ui-key.yacloud.compute.instances.create-disk.value_source-snapshot }}` as content.
       * Click **{{ ui-key.yacloud.compute.instances.create-disk.button_create }}**.
 
-   
+
    1. (Optional) Under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**, select the **{{ ui-key.yacloud.compute.nfs.label_filesystems }}** tab and attach the [file storage](../../compute/concepts/filesystem.md):
 
       * Click **{{ ui-key.yacloud.compute.nfs.button_attach-filesystem-to-the-instance }}**.
@@ -62,7 +62,7 @@
 
       {% include [network-settings](network-settings.md) %}
 
-   
+
    1. {% include [backup-info](backup-info.md) %}
 
 

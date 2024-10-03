@@ -284,7 +284,7 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
 
 - API {#api}
 
-   Use the [create](../../api-ref/NodeGroup/create.md) API method and include the following information in the request:
+   Use the [create](../../managed-kubernetes/api-ref/NodeGroup/create.md) API method and include the following information in the request:
    * [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) ID in the `clusterId` parameter. You can get it with a [list of {{ managed-k8s-name }} clusters in the folder](../kubernetes-cluster/kubernetes-cluster-list.md#list).
    * [{{ managed-k8s-name }} node group configuration](../../concepts/index.md#config) as `nodeTemplate`.
    * [Network acceleration type](../../../compute/concepts/software-accelerated-network.md) in the `nodeTemplate.networkSettings.type` parameter.

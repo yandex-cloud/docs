@@ -1,5 +1,5 @@
 ---
-canonical: "{{ link-docs }}/tutorials/dataplatform/mysql-to-clickhouse"
+canonical: '{{ link-docs }}/tutorials/dataplatform/mysql-to-clickhouse'
 ---
 
 # Loading data from {{ MY }} to a {{ CH }} data mart

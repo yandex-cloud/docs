@@ -1,6 +1,6 @@
 ---
-title: "How to update Let's Encrypt certificates in {{ certificate-manager-full-name }}"
-description: "Follow this guide to update a Let's Encrypt certificate."
+title: How to update Let's Encrypt certificates in {{ certificate-manager-full-name }}
+description: Follow this guide to update a Let's Encrypt certificate.
 ---
 
 # Editing a Let's Encrypt certificate

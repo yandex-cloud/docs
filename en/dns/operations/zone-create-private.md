@@ -1,6 +1,6 @@
 ---
-title: "How to create a private DNS zone in {{ dns-full-name }}"
-description: "Follow this guide to create a private DNS zone."
+title: How to create a private DNS zone in {{ dns-full-name }}
+description: Follow this guide to create a private DNS zone.
 ---
 
 # Creating a private DNS zone

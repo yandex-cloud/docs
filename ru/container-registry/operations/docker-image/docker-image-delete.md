@@ -1,6 +1,6 @@
 ---
-title: "Инструкция по удалению Docker-образ из реестра {{ container-registry-full-name }}"
-description: "Из статьи вы узнаете, как удалить Docker-образ из реестра {{ container-registry-full-name }}."
+title: Инструкция по удалению Docker-образ из реестра {{ container-registry-full-name }}
+description: Из статьи вы узнаете, как удалить Docker-образ из реестра {{ container-registry-full-name }}.
 ---
 
 # Удалить Docker-образ из реестра

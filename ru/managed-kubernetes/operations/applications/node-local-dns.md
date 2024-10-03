@@ -52,7 +52,7 @@
 
 1. Для установки Helm-чарта с NodeLocal DNS выполните команду:
 
-   
+
    ```bash
    helm pull oci://{{ mkt-k8s-key.yc_node-local-dns.helmChart.name }} \
      --version {{ mkt-k8s-key.yc_node-local-dns.helmChart.tag }} \

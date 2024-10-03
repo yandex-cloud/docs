@@ -1,6 +1,6 @@
 ---
-title: "Creating a backup policy"
-description: "In this tutorial, you will learn how to create a backup policy in **{{ backup-name }}**."
+title: Creating a backup policy
+description: In this tutorial, you will learn how to create a backup policy in **{{ backup-name }}**.
 ---
 
 # Creating a backup policy

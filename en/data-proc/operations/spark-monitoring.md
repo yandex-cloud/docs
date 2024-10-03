@@ -1,6 +1,6 @@
 ---
-title: "How to monitor the state of Spark applications in {{ dataproc-full-name }}"
-description: "Follow this guide to monitor the state of Spark applications."
+title: How to monitor the state of Spark applications in {{ dataproc-full-name }}
+description: Follow this guide to monitor the state of Spark applications.
 ---
 
 # Monitoring the state of Spark applications

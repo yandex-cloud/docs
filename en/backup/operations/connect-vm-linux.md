@@ -1,6 +1,6 @@
 ---
-title: "How to connect a Linux VM to {{ backup-full-name }}"
-description: "Follow this guide to connect a Linux VM to {{ backup-name }}."
+title: How to connect a Linux VM to {{ backup-full-name }}
+description: Follow this guide to connect a Linux VM to {{ backup-name }}.
 ---
 
 # Connecting a Linux VM to {{ backup-name }}

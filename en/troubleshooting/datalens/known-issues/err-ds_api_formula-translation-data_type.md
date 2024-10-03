@@ -1,7 +1,6 @@
 # Resolving the ERR.DS_API.FORMULA.TRANSLATION.DATA_TYPE error
 
 
-
 ## Issue description {#issue-description}
 
 When you connect directly to Yandex Metrica data from DataLens, you see this error message:

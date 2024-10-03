@@ -1,6 +1,6 @@
 ---
-title: "Questions and answers about {{ managed-k8s-full-name }}"
-description: "This page provides answers to questions about {{ managed-k8s-name }}."
+title: Questions and answers about {{ managed-k8s-full-name }}
+description: This page provides answers to questions about {{ managed-k8s-name }}.
 ---
 
 # Questions and answers about {{ managed-k8s-name }}

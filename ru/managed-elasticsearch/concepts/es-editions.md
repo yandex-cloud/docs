@@ -1,6 +1,6 @@
 ---
-title: "Редакции Elasticsearch"
-description: "Возможности, предоставляемые {{ mes-name }}, зависят от редакции {{ ES }}."
+title: Редакции Elasticsearch
+description: Возможности, предоставляемые {{ mes-name }}, зависят от редакции {{ ES }}.
 ---
 
 # Редакции {{ ES }}

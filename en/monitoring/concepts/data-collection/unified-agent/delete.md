@@ -1,6 +1,6 @@
 ---
-title: "How to delete {{ unified-agent-full-name }}"
-description: "In this tutorial, you will learn how to delete {{ unified-agent-full-name }}."
+title: How to delete {{ unified-agent-full-name }}
+description: In this tutorial, you will learn how to delete {{ unified-agent-full-name }}.
 ---
 
 # Deleting {{ unified-agent-full-name }}

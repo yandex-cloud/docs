@@ -1,6 +1,6 @@
 ---
-title: "Detecting the end of utterance in {{ speechkit-full-name }}"
-description: "Follow this guide to detect the end of an utterance."
+title: Detecting the end of utterance in {{ speechkit-full-name }}
+description: Follow this guide to detect the end of an utterance.
 ---
 
 # Detecting the end of utterance

@@ -30,6 +30,8 @@ Syntax:
 |`--segment-config`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Descriptions of segment config for Greenplum cluster.<br/><br/>Possible property names:<br/><ul> <li><code>resource-id</code>:     ID of the preset for computational resources available on the host.</li> <li><code>disk-size</code>:     Volume of the storage available on the host.</li> <li><code>disk-type</code>:     Type of the storage environment for the host.</li> </ul>|
 |`--labels`|<b>`key=value[,key=value...]`</b><br/>A list of label KEY=VALUE pairs to add. For example, to add two labels named 'foo' and 'bar', both with the value 'baz', use '--labels foo=baz,bar=baz'.|
 |`--host-group-ids`|<b>`value[,value]`</b><br/>A list of host groups for Greenplum cluster.|
+|`--master-host-group-ids`|<b>`value[,value]`</b><br/>A list of host groups for Greenplum master subcluster.|
+|`--segment-host-group-ids`|<b>`value[,value]`</b><br/>A list of host groups for Greenplum segment subcluster.|
 |`--security-group-ids`|<b>`value[,value]`</b><br/>A list of security groups for the Greenplum cluster.|
 |`--deletion-protection`|Deletion Protection inhibits deletion of the cluster.|
 |`--datalens-access`|Allow access for DataLens.|
@@ -66,4 +68,5 @@ Syntax:
 |`--impersonate-service-account-id`|<b>`string`</b><br/>Set the ID of the service account to impersonate.|
 |`--no-browser`|Disable opening browser for authentication.|
 |`--format`|<b>`string`</b><br/>Set the output format: text (default), yaml, json, json-rest.|
+|`--jq`|<b>`string`</b><br/>Query to select values from the response using jq syntax|
 |`-h`,`--help`|Display help for the command.|

@@ -1,6 +1,6 @@
 ---
-title: "Managing MySQL backups"
-description: "You can create backups and restore clusters from existing MySQL backups. The Point-in-Time Recovery (PITR) technology enables you to restore cluster state to any point in time starting with the moment a backup was created."
+title: Managing MySQL backups
+description: You can create backups and restore clusters from existing MySQL backups. The Point-in-Time Recovery (PITR) technology enables you to restore cluster state to any point in time starting with the moment a backup was created.
 ---
 
 # Managing backups in {{ mmy-name }}
@@ -205,7 +205,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
   1. Request the creation of a cluster from a backup:
 
-      
+
       ```bash
       {{ yc-mdb-my }} cluster restore \
          --backup-id=<backup_ID> \
@@ -237,7 +237,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
           * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
 
-          
+
           * `subnet-name`: [Subnet name](../../vpc/concepts/network.md#subnet). Specify if two or more subnets are created in the selected availability zone.
           * `assign-public-ip`: Flag used if [public access](../concepts/network.md#public-access-to-host) to the host is required, `true` or `false`.
 
@@ -246,10 +246,10 @@ For a new cluster, you should set all the parameters that are required at creati
       * `--disk-size`: Storage size in GB.
       * `--disk-type`: [Disk type](../concepts/storage.md):
 
-          
+
           * `network-hdd`
           * `network-ssd`
-                    * `local-ssd`
+          * `local-ssd`
           * `network-ssd-nonreplicated`
 
 

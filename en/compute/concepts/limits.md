@@ -1,7 +1,6 @@
 ---
-title: "Quotas and limits in {{ compute-full-name }}"
-description: "{{ compute-name }} has limits and quotas on virtual machines, as well as HDD and SSD storage. For more information about the service restrictions, read this article."
-
+title: Quotas and limits in {{ compute-full-name }}
+description: '{{ compute-name }} has limits and quotas on virtual machines, as well as HDD and SSD storage. For more information about the service restrictions, read this article.'
 editable: false
 ---
 

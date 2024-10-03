@@ -1,5 +1,5 @@
 ---
-canonical: "{{ link-docs }}/tutorials/dataplatform/lockbox-and-airflow"
+canonical: '{{ link-docs }}/tutorials/dataplatform/lockbox-and-airflow'
 ---
 
 # Storing {{ AF }} connections and variables in {{ lockbox-full-name }}

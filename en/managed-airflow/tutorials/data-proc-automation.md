@@ -1,6 +1,5 @@
 ---
 noIndex: true
-
 ---
 
 # Automating {{ dataproc-full-name }} operations

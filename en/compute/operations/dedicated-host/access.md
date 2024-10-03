@@ -1,6 +1,6 @@
 ---
-title: "Configuring dedicated host group access permissions"
-description: "You can assign or revoke access permissions for a group of dedicated {{ compute-name }} hosts."
+title: Configuring dedicated host group access permissions
+description: You can assign or revoke access permissions for a group of dedicated {{ compute-name }} hosts.
 ---
 
 # Configuring dedicated host group access permissions

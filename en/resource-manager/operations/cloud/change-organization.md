@@ -1,6 +1,6 @@
 ---
-title: "How to change an organization for a cloud in {{ resmgr-full-name }}"
-description: "In this tutorial, you will learn how to change an organization for a cloud in {{ resmgr-full-name }}."
+title: How to change an organization for a cloud in {{ resmgr-full-name }}
+description: In this tutorial, you will learn how to change an organization for a cloud in {{ resmgr-full-name }}.
 ---
 
 # Changing an organization for a cloud

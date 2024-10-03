@@ -59,7 +59,7 @@
 
     [Создайте](https://www.postgresql.org/docs/current/sql-createindex.html) или [обновите](https://www.postgresql.org/docs/current/sql-reindex.html) необходимые индексы.
 
-    
+
     {% note tip %}
 
     Чтобы визуализировать планы выполнения найденных запросов, используйте вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_explore }}** на странице управления кластером.

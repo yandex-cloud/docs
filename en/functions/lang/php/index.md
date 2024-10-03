@@ -1,6 +1,6 @@
 ---
-title: "Developing in PHP in {{ sf-full-name }}. Overview"
-description: "With {{ sf-name }}, you can run applications written in the PHP programming language. The service provides the runtime environments with PHP 7.4.3 and Ubuntu 18.04."
+title: Developing in PHP in {{ sf-full-name }}. Overview
+description: With {{ sf-name }}, you can run applications written in the PHP programming language. The service provides the runtime environments with PHP 7.4.3 and Ubuntu 18.04.
 ---
 
 # Developing in PHP. Overview

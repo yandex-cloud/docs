@@ -108,7 +108,7 @@ Create and run a user welcome [function](../../concepts/function.md) in Go.
 
     To create a function version, run the command:
 
-    
+
     ```bash
     yc serverless function version create \
       --function-name=go-function \
@@ -131,7 +131,7 @@ Create and run a user welcome [function](../../concepts/function.md) in Go.
 
     Result:
 
-    
+
     ```yaml
     done (1s)
     id: d4evvn8obisa********

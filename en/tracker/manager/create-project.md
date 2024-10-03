@@ -1,6 +1,6 @@
 ---
-title: "Managing projects in {{ tracker-full-name }}"
-description: "In this tutorial, you will learn how to manage projects in {{ tracker-name }}."
+title: Managing projects in {{ tracker-full-name }}
+description: In this tutorial, you will learn how to manage projects in {{ tracker-name }}.
 ---
 
 # Managing projects
@@ -35,7 +35,7 @@ To create a project:
    * **Status**: Specify the current stage of the project.
    * **Start date** and **End date**.
    * **Responsible**, **Clients**, and **Participants**: Start typing the name or login of the employee and select a relevant option from the list.
-   * **Tags**: Add or select the tags that would make it easier to find the project you need.
+   * **Tags**: Add or select the tags that would make it easier to find the project you need.   
 
 1. [Add](#add-tickets) issues to the project. You can add issues from the project page or from the issue page, as well as by using [bulk editing](bulk-change.md).
 

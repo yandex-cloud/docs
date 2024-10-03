@@ -1,6 +1,6 @@
 ---
-title: "История изменений в {{ tracker-full-name }} в июне 2024"
-description: "Ознакомьтесь с историей изменений в {{ tracker-full-name }} за июнь 2024."
+title: История изменений в {{ tracker-full-name }} в июне 2024
+description: Ознакомьтесь с историей изменений в {{ tracker-full-name }} за июнь 2024.
 ---
 
 # История изменений в {{ tracker-full-name }} в июне 2024

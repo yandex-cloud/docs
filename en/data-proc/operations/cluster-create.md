@@ -169,7 +169,7 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
 
   To create a {{ dataproc-name }} cluster:
 
-  
+
   1. Check whether the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) has any subnets for the {{ dataproc-name }} cluster hosts:
 
      ```bash
@@ -330,14 +330,14 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
 
 - {{ TF }} {#tf}
 
-  
+
   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
 
   To create a {{ dataproc-name }} cluster:
   1. Using the command line, navigate to the folder that will contain the {{ TF }} configuration files with an infrastructure plan. Create the directory if it does not exist.
 
-  
+
   1. {% include [terraform-install](../../_includes/terraform-install.md) %}
 
   1. Create a configuration file describing the cloud network and subnets.

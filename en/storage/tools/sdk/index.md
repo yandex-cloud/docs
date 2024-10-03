@@ -1,6 +1,6 @@
 ---
-title: "Development tools"
-description: "In this tutorial, you will learn which SDKs you can use to access the S3 API in {{ objstorage-name }}."
+title: Development tools
+description: In this tutorial, you will learn which SDKs you can use to access the S3 API in {{ objstorage-name }}.
 ---
 
 # Development tools

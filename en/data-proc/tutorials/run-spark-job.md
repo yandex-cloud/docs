@@ -1,5 +1,5 @@
 ---
-title: "Apache Spark and PySpark. Starting and managing applications"
+title: Apache Spark and PySpark. Starting and managing applications
 keywords:
   - apache spark
   - spark

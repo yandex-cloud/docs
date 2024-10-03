@@ -1,6 +1,6 @@
 ---
-title: "How to use Sqoop in {{ dataproc-full-name }}"
-description: "This guide describes how to use Sqoop."
+title: How to use Sqoop in {{ dataproc-full-name }}
+description: This guide describes how to use Sqoop.
 ---
 
 # Using Sqoop

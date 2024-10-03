@@ -1,6 +1,6 @@
 ---
-title: "How to specify a cloud network where the function will be executed"
-description: "This guide describes how you can specify a cloud network where the function will be executed."
+title: How to specify a cloud network where the function will be executed
+description: This guide describes how you can specify a cloud network where the function will be executed.
 ---
 
 # Specifying a cloud network where the function will be executed

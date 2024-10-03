@@ -1,6 +1,6 @@
 ---
-title: "Viewing container scaling settings"
-description: "Follow this guide to view container scaling settings."
+title: Viewing container scaling settings
+description: Follow this guide to view container scaling settings.
 ---
 
 # Viewing container scaling settings

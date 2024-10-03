@@ -272,7 +272,7 @@
 
      {% cut "Пример назначения нескольких ролей на сервисный аккаунт с помощью {{ TF }}" %}
 
-     
+
      ```hcl
      ...
      resource "yandex_iam_service_account_iam_binding" "admin-account-iam" {

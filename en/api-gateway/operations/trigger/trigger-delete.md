@@ -1,6 +1,6 @@
 ---
-title: "How to delete a trigger in {{ api-gw-full-name }}"
-description: "In this tutorial, you will learn how to delete a trigger in {{ api-gw-full-name }}."
+title: How to delete a trigger in {{ api-gw-full-name }}
+description: In this tutorial, you will learn how to delete a trigger in {{ api-gw-full-name }}.
 ---
 
 # Deleting a trigger in {{ api-gw-full-name }}

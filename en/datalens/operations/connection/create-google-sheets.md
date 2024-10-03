@@ -1,6 +1,6 @@
 ---
-title: "How to create a Google Sheets connection"
-description: "Follow this guide to create a Google Sheets connection."
+title: How to create a Google Sheets connection
+description: Follow this guide to create a Google Sheets connection.
 ---
 
 # Creating a Google Sheets connection

@@ -1,6 +1,6 @@
 ---
-title: "Setting up access in {{ datalens-full-name }} workbooks and collections"
-description: "You can grant users or user groups permissions to each workbook and collection. Permissions determine what you can do with a workbook or collection."
+title: Setting up access in {{ datalens-full-name }} workbooks and collections
+description: You can grant users or user groups permissions to each workbook and collection. Permissions determine what you can do with a workbook or collection.
 ---
 
 # Setting up access in workbooks and collections {{ datalens-short-name }}

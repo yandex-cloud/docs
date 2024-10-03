@@ -1,6 +1,6 @@
 ---
-title: "История изменений в {{ postbox-full-name }}"
-description: "В разделе представлена история изменений сервиса {{ postbox-name }}."
+title: История изменений в {{ postbox-full-name }}
+description: В разделе представлена история изменений сервиса {{ postbox-name }}.
 ---
 
 # История изменений в {{ postbox-full-name }}

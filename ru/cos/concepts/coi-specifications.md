@@ -1,6 +1,6 @@
 ---
-title: "Спецификации Docker-контейнера в {{ cos-full-name }}"
-description: "Описать конфигурацию запуска Docker-контейнера можно с помощью COI или Docker Compose спецификации." 
+title: Спецификации Docker-контейнера в {{ cos-full-name }}
+description: Описать конфигурацию запуска Docker-контейнера можно с помощью COI или Docker Compose спецификации.
 ---
 
 # Спецификации Docker-контейнера

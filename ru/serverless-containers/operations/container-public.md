@@ -61,9 +61,10 @@
   1. Выполните запрос, указав IAM-токен, путь к файлу `body.json` и идентификатор контейнера:
 
       ```bash
-      curl -X POST \
-          -H "Authorization: Bearer <IAM-токен>" \
-          -d "@<путь_к_файлу_body.json>" \
+      curl \
+          --request POST \
+          --header "Authorization: Bearer <IAM-токен>" \
+          --data "@<путь_к_файлу_body.json>" \
           https://serverless-containers.api.cloud.yandex.net/containers/v1/containers/<идентификатор_контейнера>:setAccessBindings
       ```
 
@@ -87,8 +88,9 @@
   1. Убедитесь, что роль назначена. Для этого выполните запрос, указав IAM-токен и идентификатор контейнера:
 
       ```bash
-      curl -X GET \
-          -H "Authorization: Bearer <IAM-токен>" \
+      curl \
+          --request GET \
+          --header "Authorization: Bearer <IAM-токен>" \
           https://serverless-containers.api.cloud.yandex.net/containers/v1/containers/<идентификатор_контейнера>:listAccessBindings
       ```
 

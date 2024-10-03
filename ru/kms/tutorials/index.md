@@ -1,6 +1,6 @@
 ---
-title: "Сценарии использования {{ kms-full-name }}"
-description: "Различные сценарии использования {{ kms-full-name }} в облаке {{ yandex-cloud }}. Шифрование данных, шифрование секретов в {{ managed-k8s-full-name }}, управление ключами {{ kms-short-name }} с HashiCorp {{ TF }}, шифрование секретов в Hashicorp {{ TF }}"
+title: Сценарии использования {{ kms-full-name }}
+description: Различные сценарии использования {{ kms-full-name }} в облаке {{ yandex-cloud }}. Шифрование данных, шифрование секретов в {{ managed-k8s-full-name }}, управление ключами {{ kms-short-name }} с HashiCorp {{ TF }}, шифрование секретов в Hashicorp {{ TF }}
 ---
 
 # Практические руководства {{ kms-full-name }}

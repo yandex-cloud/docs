@@ -1,6 +1,6 @@
 ---
-title: "Deleting an instance"
-description: "Follow this guide to delete an instance."
+title: Deleting an instance
+description: Follow this guide to delete an instance.
 ---
 
 # Deleting an instance

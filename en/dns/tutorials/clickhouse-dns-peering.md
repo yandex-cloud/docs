@@ -1,5 +1,5 @@
 ---
-canonical: "{{ link-docs }}/tutorials/dataplatform/clickhouse-dns-peering"
+canonical: '{{ link-docs }}/tutorials/dataplatform/clickhouse-dns-peering'
 ---
 
 # Configuring {{ dns-full-name }} for {{ mch-full-name }} cluster access from other cloud networks

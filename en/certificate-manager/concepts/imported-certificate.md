@@ -1,5 +1,5 @@
 ---
-title: "Custom certificates in {{ certificate-manager-full-name }}"
+title: Custom certificates in {{ certificate-manager-full-name }}
 ---
 
 # Custom certificate

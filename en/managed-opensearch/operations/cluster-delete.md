@@ -1,6 +1,6 @@
 ---
-title: "Deleting an {{ OS }} cluster"
-description: "You can delete an {{ OS }} cluster if you no longer need it. All data in the cluster will be deleted. In the management console, select the folder you want to delete a cluster from."
+title: Deleting an {{ OS }} cluster
+description: You can delete an {{ OS }} cluster if you no longer need it. All data in the cluster will be deleted. In the management console, select the folder you want to delete a cluster from.
 keywords:
   - Creating an OpenSearch cluster
   - OpenSearch cluster

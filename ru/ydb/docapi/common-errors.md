@@ -1,6 +1,6 @@
 ---
-title: "Общие ошибки при работе с Document API в {{ ydb-full-name }}"
-description: "На странице представлен список ошибок, которые являются общими для всех методов Document API." 
+title: Общие ошибки при работе с Document API в {{ ydb-full-name }}
+description: На странице представлен список ошибок, которые являются общими для всех методов Document API.
 sourcePath: overlay/docapi/api-ref/common-errors.md
 ---
 # Общие ошибки при работе с Document API

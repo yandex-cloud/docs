@@ -1,6 +1,6 @@
 ---
-title: "Authentication in {{ yq-full-name }} API"
-description: "Follow this guide to get authenticated in the API."
+title: Authentication in {{ yq-full-name }} API
+description: Follow this guide to get authenticated in the API.
 ---
 
 # Authentication in {{ yq-full-name }} API

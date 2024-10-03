@@ -1,6 +1,6 @@
 ---
-title: "Deleting an API gateway"
-description: "Follow this guide to delete an API gateway."
+title: Deleting an API gateway
+description: Follow this guide to delete an API gateway.
 ---
 
 # Deleting an API gateway

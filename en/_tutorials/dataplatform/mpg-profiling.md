@@ -59,7 +59,7 @@ There are several ways to optimize problematic queries:
 
     [Create](https://www.postgresql.org/docs/current/sql-createindex.html) or [update](https://www.postgresql.org/docs/current/sql-reindex.html) appropriate indexes.
 
-    
+
     {% note tip %}
 
     To visualize the execution plans of the available queries, use the **{{ ui-key.yacloud.postgresql.cluster.switch_explore }}** tab on the cluster management page.

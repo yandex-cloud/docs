@@ -1,6 +1,6 @@
 ---
-title: "Как подключиться к узлу кластера {{ k8s }} по SSH в {{ managed-k8s-full-name }}"
-description: "Следуя данной инструкции, вы сможете подключиться к узлу по SSH."
+title: Как подключиться к узлу кластера {{ k8s }} по SSH в {{ managed-k8s-full-name }}
+description: Следуя данной инструкции, вы сможете подключиться к узлу по SSH.
 ---
 
 # Подключение к узлу по SSH
@@ -207,7 +207,7 @@ description: "Следуя данной инструкции, вы сможет�
   > testuser1:ssh-ed25519 AAAAB3NzaC***********lP1ww testuser1\r\ntestuser2:ssh-ed25519 ONEMOREkey***********avEHw testuser2
   > ```
 
-  Воспользуйтесь методом REST API [create](../api-ref/NodeGroup/create.md) для ресурса [NodeGroup](../api-ref/NodeGroup/index.md) или вызовом gRPC API [NodeGroupService/Create](../api-ref/grpc/node_group_service.md#Create).
+  Воспользуйтесь методом REST API [create](../managed-kubernetes/api-ref/NodeGroup/create.md) для ресурса [NodeGroup](../managed-kubernetes/api-ref/NodeGroup/index.md) или вызовом gRPC API [NodeGroupService/Create](../managed-kubernetes/api-ref/grpc/node_group_service.md#Create).
 
   Реквизиты для подключения по SSH передаются в параметре `nodeTemplate.metadata` в ключе `ssh-keys`.
 
@@ -301,7 +301,7 @@ description: "Следуя данной инструкции, вы сможет�
 
   1. {% include [get-metadata-via-api](../../_includes/managed-kubernetes/get-metadata-via-api.md) %}
 
-  1. Воспользуйтесь методом REST API [update](../api-ref/NodeGroup/update.md) для ресурса [NodeGroup](../api-ref/NodeGroup/index.md) и передайте в запросе:
+  1. Воспользуйтесь методом REST API [update](../managed-kubernetes/api-ref/NodeGroup/update.md) для ресурса [NodeGroup](../managed-kubernetes/api-ref/NodeGroup/index.md) и передайте в запросе:
 
       * Идентификатор группы узлов в параметре `nodeGroupId`.
 

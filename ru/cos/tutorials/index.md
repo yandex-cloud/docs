@@ -1,6 +1,6 @@
 ---
-title: "Сценарии использования {{ coi }} в {{ cos-full-name }}"
-description: "Различные сценарии использования {{ coi }} в {{ yandex-cloud }}."
+title: Сценарии использования {{ coi }} в {{ cos-full-name }}
+description: Различные сценарии использования {{ coi }} в {{ yandex-cloud }}.
 ---
 
 # Все руководства

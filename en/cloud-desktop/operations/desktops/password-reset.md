@@ -1,6 +1,6 @@
 ---
-title: "Tutorial on resetting user password for a desktop in {{ cloud-desktop-full-name }}"
-description: "In this tutorial, you will learn how to reset a user password for a desktop in {{ cloud-desktop-full-name }}."
+title: Tutorial on resetting user password for a desktop in {{ cloud-desktop-full-name }}
+description: In this tutorial, you will learn how to reset a user password for a desktop in {{ cloud-desktop-full-name }}.
 ---
 
 # Resetting a desktop user's password

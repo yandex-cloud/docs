@@ -1,6 +1,6 @@
 ---
-title: "{{ monitoring-full-name }} pricing policy"
-description: "This article describes the {{ monitoring-name }} pricing policy."
+title: '{{ monitoring-full-name }} pricing policy'
+description: This article describes the {{ monitoring-name }} pricing policy.
 editable: false
 ---
 

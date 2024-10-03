@@ -1,6 +1,6 @@
 ---
-title: "How to send a request to a node in {{ ml-platform-full-name }}"
-description: "Follow this guide to send a request to a node."
+title: How to send a request to a node in {{ ml-platform-full-name }}
+description: Follow this guide to send a request to a node.
 ---
 
 # Sending requests to nodes

@@ -1,6 +1,6 @@
 ---
-title: "Справочник визуализаций в {{ datalens-full-name }}"
-description: "Из статьи вы узнаете, какие чарты доступны в {{ datalens-short-name }}." 
+title: Справочник визуализаций в {{ datalens-full-name }}
+description: Из статьи вы узнаете, какие чарты доступны в {{ datalens-short-name }}.
 ---
 
 # Справочник визуализаций

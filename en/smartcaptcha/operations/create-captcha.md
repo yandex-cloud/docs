@@ -1,6 +1,6 @@
 ---
-title: "How to create a CAPTCHA in {{ captcha-full-name }}"
-description: "Follow this guide to create a CAPTCHA."
+title: How to create a CAPTCHA in {{ captcha-full-name }}
+description: Follow this guide to create a CAPTCHA.
 ---
 
 # Creating a CAPTCHA

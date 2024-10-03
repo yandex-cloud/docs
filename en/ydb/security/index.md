@@ -1,6 +1,6 @@
 ---
-title: "Access management in {{ ydb-full-name }}"
-description: "Access management in the {{ ydb-full-name }} database creation and management service. To allow access to {{ ydb-short-name }} resources (databases and their users), assign appropriate roles from the list to the user."
+title: Access management in {{ ydb-full-name }}
+description: Access management in the {{ ydb-full-name }} database creation and management service. To allow access to {{ ydb-short-name }} resources (databases and their users), assign appropriate roles from the list to the user.
 sourcePath: overlay/security/start_auth.md
 ---
 

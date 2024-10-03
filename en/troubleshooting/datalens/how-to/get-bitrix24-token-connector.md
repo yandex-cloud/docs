@@ -1,7 +1,6 @@
 # Obtaining a token to connect to Bitrix24 database from DataLens
 
 
-
 ## Issue description {#case-description}
 
 * You need to obtain a token to set up a connection to a Bitrix24 database from DataLens.

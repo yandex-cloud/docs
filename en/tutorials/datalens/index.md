@@ -1,6 +1,6 @@
 ---
-title: "Tutorials for visualizing and analyzing data"
-description: "This page gives a list of tutorials for visualizing and analyzing data using {{ datalens-full-name }}."
+title: Tutorials for visualizing and analyzing data
+description: This page gives a list of tutorials for visualizing and analyzing data using {{ datalens-full-name }}.
 ---
 
 # Tutorials for visualizing and analyzing data

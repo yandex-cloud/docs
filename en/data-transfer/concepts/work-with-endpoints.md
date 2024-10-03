@@ -1,6 +1,6 @@
 ---
-title: "{{ data-transfer-full-name }} specifics for sources and targets"
-description: "{{ data-transfer-full-name }} considers the specifics of sources and targets when preparing a transfer and transferring data."
+title: '{{ data-transfer-full-name }} specifics for sources and targets'
+description: '{{ data-transfer-full-name }} considers the specifics of sources and targets when preparing a transfer and transferring data.'
 ---
 
 # Specifics of working with endpoints

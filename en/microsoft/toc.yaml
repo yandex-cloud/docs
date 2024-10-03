@@ -18,3 +18,4 @@ items:
   - name: Pricing policy
     href: pricing.md
 base: en/microsoft
+deepBase: 2

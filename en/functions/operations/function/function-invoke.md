@@ -1,6 +1,6 @@
 ---
-title: "How to invoke a function in {{ sf-full-name }}"
-description: "In this tutorial, you will learn how to invoke functions in {{ sf-full-name }}."
+title: How to invoke a function in {{ sf-full-name }}
+description: In this tutorial, you will learn how to invoke functions in {{ sf-full-name }}.
 ---
 
 # Invoking a function

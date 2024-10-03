@@ -1,6 +1,6 @@
 ---
-title: "Searching with {{ ES }}"
-description: "{{ ES }} acts both as a document storage and a tool for searching and analyzing data in documents."
+title: Searching with {{ ES }}
+description: '{{ ES }} acts both as a document storage and a tool for searching and analyzing data in documents.'
 ---
 
 # Searching with {{ ES }}

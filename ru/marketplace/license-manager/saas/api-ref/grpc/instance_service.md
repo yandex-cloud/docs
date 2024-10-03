@@ -15,7 +15,7 @@ A set of methods for managing subscription instances.
 
 ## Get {#Get}
 
-Returns the specified subscription instance. <br>To get the list of all available subscription instances, make a [List] request.
+Returns the specified subscription instance.
 
 **rpc Get ([GetInstanceRequest](#GetInstanceRequest)) returns ([licensemanager.v1.Instance](./instance_service#v1))**
 

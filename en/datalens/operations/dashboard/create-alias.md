@@ -1,6 +1,6 @@
 ---
-title: "How to add aliases in {{ datalens-full-name }}"
-description: "Follow this guide to add an alias for widgets in {{ datalens-full-name }}."
+title: How to add aliases in {{ datalens-full-name }}
+description: Follow this guide to add an alias for widgets in {{ datalens-full-name }}.
 ---
 
 # Creating an alias

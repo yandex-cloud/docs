@@ -1,6 +1,6 @@
 ---
-title: "Public materials about {{ message-queue-full-name }}"
-description: "This article lists public materials about {{ message-queue-name }}."
+title: Public materials about {{ message-queue-full-name }}
+description: This article lists public materials about {{ message-queue-name }}.
 ---
 
 # Public materials

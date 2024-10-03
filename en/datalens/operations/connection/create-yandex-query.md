@@ -1,6 +1,6 @@
 ---
-title: "How to create a {{ yq-full-name }} connection"
-description: "Follow this guide to create a {{ yq-full-name }} connection."
+title: How to create a {{ yq-full-name }} connection
+description: Follow this guide to create a {{ yq-full-name }} connection.
 ---
 
 # Creating a {{ yq-full-name }} connection

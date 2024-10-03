@@ -1,6 +1,6 @@
 ---
-title: "Использование SDK для функции на Kotlin в {{ sf-full-name }}. Обзор"
-description: "Вы можете управлять функцией {{ sf-name }} на Kotlin с помощью SDK."
+title: Использование SDK для функции на Kotlin в {{ sf-full-name }}. Обзор
+description: Вы можете управлять функцией {{ sf-name }} на Kotlin с помощью SDK.
 ---
 
 # Использование SDK для функции на Kotlin

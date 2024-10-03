@@ -1,6 +1,6 @@
 ---
-title: "How to encrypt objects in a {{ objstorage-full-name }} bucket"
-description: "Follow this guide to encrypt objects in a bucket."
+title: How to encrypt objects in a {{ objstorage-full-name }} bucket
+description: Follow this guide to encrypt objects in a bucket.
 ---
 
 # Bucket encryption
@@ -45,7 +45,7 @@ Data in {{ objstorage-short-name }} is encrypted using [envelope encryption](../
 
    1. In the configuration file, describe the parameters of the resources you want to create:
 
-      
+
       ```
       provider "yandex" {
         cloud_id                 = "<cloud_ID>"
@@ -144,7 +144,7 @@ Data in {{ objstorage-short-name }} is encrypted using [envelope encryption](../
 
    {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
-   
+
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
 

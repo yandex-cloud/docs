@@ -1,6 +1,6 @@
 ---
-title: "{{ speechkit-full-name }} pricing policy"
-description: "This article describes the {{ speechkit-full-name }} pricing policy."
+title: '{{ speechkit-full-name }} pricing policy'
+description: This article describes the {{ speechkit-full-name }} pricing policy.
 editable: false
 ---
 

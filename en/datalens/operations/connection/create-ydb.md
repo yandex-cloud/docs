@@ -1,6 +1,6 @@
 ---
-title: "How to create a {{ ydb-name }} connection"
-description: "Follow this guide to create a {{ ydb-name }} connection."
+title: How to create a {{ ydb-name }} connection
+description: Follow this guide to create a {{ ydb-name }} connection.
 ---
 
 # Creating a {{ ydb-name }} connection
@@ -22,7 +22,7 @@ To create a {{ ydb-name }} connection:
 
 1. Specify the connection parameters:
 
-   
+
    * **Cloud and folder**: Select the folder where your service account will be located.
    * **Service account**: Select an existing service account or create a new one.
    * **Database**: Select the database to connect or create a new one.

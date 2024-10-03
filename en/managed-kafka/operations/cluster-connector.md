@@ -733,7 +733,7 @@ Using import, you can bring the existing connectors under {{ TF }} management.
       * **{{ ui-key.yacloud.kafka.field_connector-endpoint }}**: Endpoint for storage access (to be requested from the storage provider)
       * (Optional) **{{ ui-key.yacloud.kafka.field_connector-region }}**: Region name. Default: `us-east-1`. [Available regions](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/regions/Regions.html).
 
-      
+
       * (Optional) **{{ ui-key.yacloud.kafka.field_connector-access-key-id }}**, **{{ ui-key.yacloud.kafka.field_connector-secret-access-key }}**: [ID and contents of the AWS compatible key](../../iam/concepts/authorization/access-key.md).
 
 
@@ -772,7 +772,7 @@ Using import, you can bring the existing connectors under {{ TF }} management.
    * `--storage-endpoint`: Endpoint for storage access (to find out from storage provider). Example: `{{ s3-storage-host }}`.
    * `--region`: Region where the bucket of S3-compatible storage is located. Default: `us-east-1`. [Available regions](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/regions/Regions.html).
 
-   
+
    * `--access-key-id`, `--secret-access-key`: [AWS-compatible key ID and contents](../../iam/concepts/authorization/access-key.md).
 
 
@@ -804,7 +804,7 @@ Using import, you can bring the existing connectors under {{ TF }} management.
          * **endpoint**: Endpoint for storage access (to find out from storage provider). Example: `{{ s3-storage-host }}`.
          * **region**: Region where the bucket of S3-compatible storage is located. Default: `us-east-1`. [Available regions](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/regions/Regions.html).
 
-         
+
          * **access_key_id**, **secret_access_key**: [AWS-compatible key ID and contents](../../iam/concepts/authorization/access-key.md).
 
 

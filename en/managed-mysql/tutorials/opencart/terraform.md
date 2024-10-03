@@ -1,5 +1,5 @@
 ---
-canonical: "{{ link-docs }}/tutorials/internet-store/opencart/terraform"
+canonical: '{{ link-docs }}/tutorials/internet-store/opencart/terraform'
 ---
 
 # Creating an OpenCart online store using {{ TF }}

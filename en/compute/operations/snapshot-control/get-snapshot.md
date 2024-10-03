@@ -1,5 +1,5 @@
 ---
-title: "How to get information about a disk snapshot in {{ compute-full-name }}"
+title: How to get information about a disk snapshot in {{ compute-full-name }}
 ---
 
 # Getting information about a disk snapshot

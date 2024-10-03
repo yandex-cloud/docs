@@ -1,6 +1,6 @@
 ---
-title: "{{ yds-full-name }} use cases"
-description: "Various {{ yds-full-name }} use cases in {{ yandex-cloud }}."
+title: '{{ yds-full-name }} use cases'
+description: Various {{ yds-full-name }} use cases in {{ yandex-cloud }}.
 ---
 
 # Step-by-step guides for {{ yds-name }}

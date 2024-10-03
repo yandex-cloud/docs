@@ -1,5 +1,5 @@
 ---
-canonical: "{{ link-docs }}/tutorials/internet-store/opencart/console"
+canonical: '{{ link-docs }}/tutorials/internet-store/opencart/console'
 ---
 
 # Создание интернет-магазина на платформе OpenCart с помощью консоли управления

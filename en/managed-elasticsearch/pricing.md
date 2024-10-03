@@ -1,6 +1,6 @@
 ---
-title: "Pricing policy for Managed Service for Elasticsearch"
-description: "In this section, you can find the {{ mes-name }} pricing policy and effective prices for its resources."
+title: Pricing policy for Managed Service for Elasticsearch
+description: In this section, you can find the {{ mes-name }} pricing policy and effective prices for its resources.
 editable: false
 ---
 

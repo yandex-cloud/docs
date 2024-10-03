@@ -1,6 +1,6 @@
 ---
-title: "How to create a secret"
-description: "Follow this guide to create a secret."
+title: How to create a secret
+description: Follow this guide to create a secret.
 ---
 
 # Creating secrets

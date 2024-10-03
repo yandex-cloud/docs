@@ -1,6 +1,6 @@
 ---
-title: "Методы плеера Cloud Video Player в SDK для JavaScript"
-description: "На странице описаны методы, которые можно использовать для управления видеоплеером Cloud Video Player в SDK для JavaScript."
+title: Методы плеера Cloud Video Player в SDK для JavaScript
+description: На странице описаны методы, которые можно использовать для управления видеоплеером Cloud Video Player в SDK для JavaScript.
 ---
 
 # Методы плеера

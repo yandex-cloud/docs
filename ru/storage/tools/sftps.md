@@ -44,7 +44,7 @@
      ssh-ed25519 AAAAB3Nz.....BdZoeQ==
      ```
 
-     
+
      Инструкцию по созданию пары SSH-ключей см. в [документации {{ compute-name }}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
 
 

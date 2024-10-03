@@ -1,6 +1,6 @@
 ---
-title: "How to create a service connection in {{ vpc-full-name }}"
-description: "Follow this guide to create a service connection (Private Endpoint) in VPC." 
+title: How to create a service connection in {{ vpc-full-name }}
+description: Follow this guide to create a service connection (Private Endpoint) in VPC.
 ---
 
 # Creating a service connection

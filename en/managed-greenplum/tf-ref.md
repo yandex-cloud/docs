@@ -1,6 +1,6 @@
 ---
-title: "{{ TF }} reference for {{ mgp-full-name }}"
-description: "This page provides reference information on the {{ TF }} provider resources and data sources supported for {{ mgp-name }}."
+title: '{{ TF }} reference for {{ mgp-full-name }}'
+description: This page provides reference information on the {{ TF }} provider resources and data sources supported for {{ mgp-name }}.
 ---
 
 # {{ TF }} reference for {{ mgp-full-name }}

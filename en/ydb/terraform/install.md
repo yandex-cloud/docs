@@ -1,6 +1,6 @@
 ---
-title: "Installing and configuring {{ TF }} and a provider for connection to {{ ydb-short-name }}"
-description: "This is a step-by-step guide for installing and configuring {{ TF }} and a {{ yandex-cloud }} provider."
+title: Installing and configuring {{ TF }} and a provider for connection to {{ ydb-short-name }}
+description: This is a step-by-step guide for installing and configuring {{ TF }} and a {{ yandex-cloud }} provider.
 ---
 
 # Installing and configuring {{ TF }} and a provider to connect to {{ ydb-short-name }}

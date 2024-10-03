@@ -1,6 +1,6 @@
 ---
-title: "Какие элементы HTML доступны в {{ wiki-full-name }}"
-description: "Из статьи вы узнаете, какие элементы HTML доступны в {{ wiki-name }}."
+title: Какие элементы HTML доступны в {{ wiki-full-name }}
+description: Из статьи вы узнаете, какие элементы HTML доступны в {{ wiki-name }}.
 ---
 
 # Элементы HTML

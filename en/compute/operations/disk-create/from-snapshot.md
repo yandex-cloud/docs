@@ -1,6 +1,6 @@
 ---
-title: "Recovering a disk from a snapshot"
-description: "Follow this guide to recover a disk from a snapshot."
+title: Recovering a disk from a snapshot
+description: Follow this guide to recover a disk from a snapshot.
 ---
 
 # Recovering a disk from a snapshot

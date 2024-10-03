@@ -1,6 +1,6 @@
 ---
-title: "How to delete a rule from a {{ sws-full-name }} security profile"
-description: "Follow this guide to delete a rule from a {{ sws-full-name }} security profile."
+title: How to delete a rule from a {{ sws-full-name }} security profile
+description: Follow this guide to delete a rule from a {{ sws-full-name }} security profile.
 ---
 
 # Deleting a rule from a security profile

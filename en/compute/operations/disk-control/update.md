@@ -1,6 +1,6 @@
 ---
-title: "How to update a disk in {{ compute-full-name }}"
-description: "Follow this guide to update a disk."
+title: How to update a disk in {{ compute-full-name }}
+description: Follow this guide to update a disk.
 ---
 
 # Updating a disk

@@ -1,6 +1,6 @@
 ---
-title: "How to create a line in {{ video-full-name }}"
-description: "Follow this guide to create a {{ video-full-name }} line."
+title: How to create a line in {{ video-full-name }}
+description: Follow this guide to create a {{ video-full-name }} line.
 ---
 
 # Creating a line

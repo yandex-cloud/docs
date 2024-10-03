@@ -1,6 +1,6 @@
 ---
-title: "Deleting a WAF exclusion rule"
-description: "Follow this guide to delete a WAF exclusion rule."
+title: Deleting a WAF exclusion rule
+description: Follow this guide to delete a WAF exclusion rule.
 ---
 
 # Deleting a WAF exclusion rule

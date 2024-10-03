@@ -1,6 +1,6 @@
 ---
-title: "How to edit an origin group in {{ cdn-full-name }}"
-description: "In this tutorial, you will learn how to edit a {{ cdn-name }} origin group."
+title: How to edit an origin group in {{ cdn-full-name }}
+description: In this tutorial, you will learn how to edit a {{ cdn-name }} origin group.
 ---
 
 # Editing an origin group

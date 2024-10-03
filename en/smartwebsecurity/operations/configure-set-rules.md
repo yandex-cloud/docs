@@ -1,6 +1,6 @@
 ---
-title: "Configuring a basic WAF rule set"
-description: "Follow this guide to configure a basic rule set for a WAF profile."
+title: Configuring a basic WAF rule set
+description: Follow this guide to configure a basic rule set for a WAF profile.
 ---
 
 # Configuring a basic WAF rule set

@@ -1,6 +1,6 @@
 ---
-title: "Как арендовать сервер в {{ baremetal-full-name }}"
-description: "Следуя данной инструкции, вы сможете арендовать сервер в {{ baremetal-full-name }}."
+title: Как арендовать сервер в {{ baremetal-full-name }}
+description: Следуя данной инструкции, вы сможете арендовать сервер в {{ baremetal-full-name }}.
 ---
 
 # Арендовать сервер

@@ -1,7 +1,6 @@
 # How to change the network or subnet for an MDB cluster
 
 
-
 ## Scenario description {#case-description}
 
 You need to change the cloud network or subnet for the MDB cluster.

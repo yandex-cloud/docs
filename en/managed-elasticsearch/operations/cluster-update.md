@@ -1,6 +1,6 @@
 ---
-title: "Changing Elasticsearch cluster settings"
-description: "After you create an Elasticsearch cluster, you can change host class settings, increase storage size, or change additional settings for the cluster."
+title: Changing Elasticsearch cluster settings
+description: After you create an Elasticsearch cluster, you can change host class settings, increase storage size, or change additional settings for the cluster.
 keywords:
   - Elasticsearch settings
   - Elasticsearch cluster settings

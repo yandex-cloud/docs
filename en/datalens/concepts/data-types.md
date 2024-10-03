@@ -1,6 +1,6 @@
 ---
-title: "{{ datalens-full-name }} data types"
-description: "{{ datalens-name }} uses multiple data sources whose fields may take different data types. To enhance data management, {{ datalens-name }} converts the source data types to its own ones. This optimizes data operations. You can change the field data type both in the dataset interface and in the wizard."
+title: '{{ datalens-full-name }} data types'
+description: '{{ datalens-name }} uses multiple data sources whose fields may take different data types. To enhance data management, {{ datalens-name }} converts the source data types to its own ones. This optimizes data operations. You can change the field data type both in the dataset interface and in the wizard.'
 ---
 
 # Data types {{ datalens-full-name }}

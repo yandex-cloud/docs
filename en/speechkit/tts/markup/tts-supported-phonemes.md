@@ -1,6 +1,6 @@
 ---
-title: "List of TTS supported phonemes"
-description: "TTS phonemes are only supported for Russian and Uzbek."
+title: List of TTS supported phonemes
+description: TTS phonemes are only supported for Russian and Uzbek.
 ---
 
 # List of TTS supported phonemes

@@ -1,6 +1,6 @@
 ---
-title: "How to search for information in {{ wiki-full-name }}"
-description: "Follow this guide to search for information in {{ wiki-full-name }}."
+title: How to search for information in {{ wiki-full-name }}
+description: Follow this guide to search for information in {{ wiki-full-name }}.
 ---
 
 # Searching by {{ wiki-name }}
@@ -18,7 +18,7 @@ To perform a search by text on {{ wiki-name }} pages:
    - **Page author**: Name or username of the {{ wiki-name }} page author.
    - **{{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-head.date_created }}** or **Updated**: Date when the page was created or last changed.
    - **Document type**: Search across {{ wiki-name }} documents of a specific type (page, table, or file).
-
+   
 
 1. Sort the search results: by relevance, last update, or creation date.
 

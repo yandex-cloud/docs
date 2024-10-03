@@ -1,6 +1,6 @@
 ---
-title: "Configuring access permissions for a {{ compute-name }} disk snapshot"
-description: "Follow this guide to configure disk snapshot access permissions."
+title: Configuring access permissions for a {{ compute-name }} disk snapshot
+description: Follow this guide to configure disk snapshot access permissions.
 ---
 
 # Configuring disk snapshot access permissions

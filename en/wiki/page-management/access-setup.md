@@ -12,7 +12,7 @@ To configure page permissions:
 
 1. In the top-right corner of the page, click ![](../../_assets/wiki/svg/actions-icon.svg) **Actions** and select ![](../../_assets/wiki/svg/access-setup.svg) **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_b-page-more-panel.settings }}** or click the button that specifies the page access mode (by default, **Available to all employees**).
 
-   
+
    {% note tip %}
 
    If you are an organization administrator and you cannot access the page, you can only request access from the page author.

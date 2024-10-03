@@ -1,7 +1,6 @@
 # Resolving the "Incorrect format expected an integer" error when creating an MX record
 
 
-
 ## Issue description {#issue-description}
 
 When creating an MX record, you see this error: `Incorrect format: expected an integer`.

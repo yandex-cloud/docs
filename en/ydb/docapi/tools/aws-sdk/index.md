@@ -1,6 +1,6 @@
 ---
-title: "Working with the AWS SDK. Overview"
-description: "This section describes how to use the AWS SDK to write simple programs that perform the following operations in YDB. Examples are given for several programming languages."
+title: Working with the AWS SDK. Overview
+description: This section describes how to use the AWS SDK to write simple programs that perform the following operations in YDB. Examples are given for several programming languages.
 sourcePath: overlay/quickstart/document-api/aws-sdk/index.md
 ---
 

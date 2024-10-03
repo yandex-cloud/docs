@@ -1,6 +1,6 @@
 ---
-title: "External cluster nodes"
-description: "This article describes the features of external cluster nodes."
+title: External cluster nodes
+description: This article describes the features of external cluster nodes.
 ---
 
 # External cluster nodes
@@ -18,7 +18,7 @@ Connecting external nodes is at the [Preview](../../overview/concepts/launch-sta
 To connect external nodes to a {{ managed-k8s-name }} cluster, the following requirements must be met:
 * L3 network connectivity between your servers' local network infrastructure and your {{ managed-k8s-name }} cluster's [cloud network](../../vpc/concepts/network.md#network). External nodes connect to a cluster [master](./index.md#master) via its {{ yandex-cloud }} cloud network internal IP address.
 
-  
+
   You can use the following methods to establish a private dedicated connection between your local network infrastructure and {{ yandex-cloud }}:
   * Via [{{ interconnect-full-name }}](../../interconnect/index.yaml).
   * Manually, via a VPN.

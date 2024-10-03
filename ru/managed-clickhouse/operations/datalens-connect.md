@@ -1,6 +1,6 @@
 ---
-title: "Инструкция по подключению к кластеру {{ CH }} из {{ datalens-name }}"
-description: "Из статьи вы узнаете, как подключиться к кластеру {{ CH }} из {{ datalens-name }}."
+title: Инструкция по подключению к кластеру {{ CH }} из {{ datalens-name }}
+description: Из статьи вы узнаете, как подключиться к кластеру {{ CH }} из {{ datalens-name }}.
 ---
 
 # Подключение к кластеру {{ CH }} из {{ datalens-name }}
@@ -37,7 +37,7 @@ description: "Из статьи вы узнаете, как подключить
 
      {% cut "У меня нет кнопки «{{ ui-key.yacloud.mdb.datalens.button-action_new-connection }}»" %}
 
-     
+
      Если вместо кнопки **{{ ui-key.yacloud.mdb.datalens.button-action_new-connection }}** вы видите сообщение «{{ ui-key.yacloud.mdb.datalens.label_activate-datalens-title }}», значит вы либо еще не активировали {{ datalens-name }}, либо подключили его в другом каталоге. Чтобы подключить кластер к экземпляру {{ datalens-name }} из другого каталога, воспользуйтесь [инструкцией](../../datalens/operations/connection/create-clickhouse.md) в документации {{ datalens-name }}.
 
 

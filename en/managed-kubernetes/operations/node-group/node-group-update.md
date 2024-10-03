@@ -1,6 +1,6 @@
 ---
-title: "How to update a {{ managed-k8s-name }} node group"
-description: "Follow this guide to update a {{ managed-k8s-name }} node group."
+title: How to update a {{ managed-k8s-name }} node group
+description: Follow this guide to update a {{ managed-k8s-name }} node group.
 ---
 
 # Updating a {{ managed-k8s-name }} node group
@@ -158,7 +158,7 @@ To learn how to change the [availability zone](../../../overview/concepts/geo-sc
 
 - API {#api}
 
-  To update a [{{ managed-k8s-name }} node group's](../../concepts/index.md#node-group) properties, use the [update](../../api-ref/NodeGroup/update.md) method for the [NodeGroup](../../api-ref/NodeGroup) resource.
+  To update a [{{ managed-k8s-name }} node group's](../../concepts/index.md#node-group) properties, use the [update](../../managed-kubernetes/api-ref/NodeGroup/update.md) method for the [NodeGroup](../../managed-kubernetes/api-ref/NodeGroup) resource.
 
   To update the [node group cloud labels](../../../resource-manager/concepts/labels.md), provide their values in the `nodeTemplate.labels` parameter.
 
@@ -206,7 +206,7 @@ To learn how to change the [availability zone](../../../overview/concepts/geo-sc
 
 - API {#api}
 
-  Use the [update](../../api-ref/NodeGroup/update.md) method for the [NodeGroup](../../api-ref/NodeGroup) resource.
+  Use the [update](../../managed-kubernetes/api-ref/NodeGroup/update.md) method for the [NodeGroup](../../managed-kubernetes/api-ref/NodeGroup) resource.
 
 {% endlist %}
 
@@ -265,7 +265,7 @@ Adding [taints](../../concepts/index.md#taints-tolerations) results in recreatio
 
 - API {#api}
 
-  To place a taint on a node group, use the [update](../../api-ref/NodeGroup/update.md) method for the [NodeGroup](../../api-ref/NodeGroup/index.md) and provide the following in the request:
+  To place a taint on a node group, use the [update](../../managed-kubernetes/api-ref/NodeGroup/update.md) method for the [NodeGroup](../../managed-kubernetes/api-ref/NodeGroup/index.md) and provide the following in the request:
 
   * Taints in the `nodeTaints` parameter.
   * The updatable `nodeTaints` parameter in the `updateMask` parameter.
@@ -302,7 +302,7 @@ Removing [taints](../../concepts/index.md#taints-tolerations) results in recreat
 
 - API {#api}
 
-  To remove a taint from a node group, use the [update](../../api-ref/NodeGroup/update.md) method for the [NodeGroup](../../api-ref/NodeGroup/index.md) and provide the following in the request:
+  To remove a taint from a node group, use the [update](../../managed-kubernetes/api-ref/NodeGroup/update.md) method for the [NodeGroup](../../managed-kubernetes/api-ref/NodeGroup/index.md) and provide the following in the request:
 
   * A new set of taints in the `nodeTaints` parameter. If you want to remove all taints, put `"nodeTaints": []` in the request.
   * `nodeTaints` parameter to update in the `updateMask` parameter.
@@ -661,7 +661,7 @@ After you change the metadata, the node group status will temporarily change to 
 
     1. {% include [get-metadata-via-api](../../../_includes/managed-kubernetes/get-metadata-via-api.md) %}
 
-    1. Use the [update](../../api-ref/NodeGroup/update.md) REST API method for the [NodeGroup](../../api-ref/NodeGroup/index.md) resource and include the following in the request:
+    1. Use the [update](../../managed-kubernetes/api-ref/NodeGroup/update.md) REST API method for the [NodeGroup](../../managed-kubernetes/api-ref/NodeGroup/index.md) resource and include the following in the request:
 
         * Node group ID in the `nodeGroupId` parameter.
 

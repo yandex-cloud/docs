@@ -1,6 +1,6 @@
 ---
-title: "Как создать кластер {{ metastore-full-name }}"
-description: "Следуя данной инструкции, вы сможете создать кластер {{ metastore-full-name }}."
+title: Как создать кластер {{ metastore-full-name }}
+description: Следуя данной инструкции, вы сможете создать кластер {{ metastore-full-name }}.
 ---
 
 # Создание кластера {{ metastore-full-name }}

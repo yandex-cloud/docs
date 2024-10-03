@@ -1,6 +1,6 @@
 ---
-title: "Configuring access permissions for a DNS zone in {{ dns-name }}"
-description: "Follow this guide to configure DNS zone access permissions."
+title: Configuring access permissions for a DNS zone in {{ dns-name }}
+description: Follow this guide to configure DNS zone access permissions.
 ---
 
 # Configuring DNS zone access permissions

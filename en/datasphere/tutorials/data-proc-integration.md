@@ -1,6 +1,6 @@
 ---
-title: "Computing on Apache Spark™ clusters in {{ ml-platform-full-name }}"
-description: "By following this tutorial, you can create a {{ dataproc-full-name }} cluster to use it for computations in {{ ml-platform-full-name }}."
+title: Computing on Apache Spark™ clusters in {{ ml-platform-full-name }}
+description: By following this tutorial, you can create a {{ dataproc-full-name }} cluster to use it for computations in {{ ml-platform-full-name }}.
 ---
 
 # Integrating with {{ dataproc-full-name }}

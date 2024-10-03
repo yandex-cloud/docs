@@ -1,6 +1,6 @@
 ---
-title: "How to create a bookmark on a page in {{ wiki-full-name }}"
-description: "Follow this guide to create a bookmark on a page."
+title: How to create a bookmark on a page in {{ wiki-full-name }}
+description: Follow this guide to create a bookmark on a page.
 ---
 
 # Bookmarks on pages

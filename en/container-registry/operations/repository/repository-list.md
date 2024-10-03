@@ -1,6 +1,6 @@
 ---
-title: "How to get information about existing repositories in {{ container-registry-full-name }}"
-description: "In this tutorial, you will learn how to get information about existing repositories in {{ container-registry-name }}."
+title: How to get information about existing repositories in {{ container-registry-full-name }}
+description: In this tutorial, you will learn how to get information about existing repositories in {{ container-registry-name }}.
 ---
 
 # Getting information about existing repositories

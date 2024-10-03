@@ -1,6 +1,6 @@
 ---
-title: "Managing PostgreSQL backups"
-description: "You can create backups and restore clusters from existing PostgreSQL backups. The Point-in-Time Recovery (PITR) technology enables you to restore cluster state to any point in time starting with the moment a backup was created."
+title: Managing PostgreSQL backups
+description: You can create backups and restore clusters from existing PostgreSQL backups. The Point-in-Time Recovery (PITR) technology enables you to restore cluster state to any point in time starting with the moment a backup was created.
 ---
 
 # Managing backups in {{ mpg-name }}
@@ -89,7 +89,7 @@ When restored to the current state, the new cluster will match the state of:
 
    1. Request the creation of a cluster from a backup:
 
-      
+
       ```bash
       {{ yc-mdb-pg }} cluster restore \
          --backup-id=<backup_ID> \
@@ -121,7 +121,7 @@ When restored to the current state, the new cluster will match the state of:
 
          * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
 
-         
+
          * `subnet-name`: [Subnet name](../../vpc/concepts/network.md#subnet). Specify if two or more subnets are created in the selected availability zone.
          * `assign-public-ip`: Flag to be set if [public access to the host](../concepts/network.md#public-access-to-a-host) is required, `true` or `false`.
 
@@ -130,7 +130,7 @@ When restored to the current state, the new cluster will match the state of:
       * `--disk-size`: Storage size in GB.
       * `--disk-type`: [Disk type](../concepts/storage.md):
 
-         
+
          * `network-hdd`
          * `network-ssd`
          * `local-ssd`

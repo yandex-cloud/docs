@@ -1,6 +1,6 @@
 ---
-title: "Как удалить канал в {{ video-full-name }}"
-description: "Следуя данной инструкции, вы сможете удалить канал {{ video-full-name }}."
+title: Как удалить канал в {{ video-full-name }}
+description: Следуя данной инструкции, вы сможете удалить канал {{ video-full-name }}.
 ---
 
 # Удалить канал

@@ -19,11 +19,11 @@ Prepare the infrastructure:
 
    1. [Create a {{ mgp-name }} cluster](../../../managed-greenplum/operations/cluster-create.md) with any suitable configuration.
 
-   
+
    1. In the cluster subnet, [set up a NAT gateway](../../../vpc/operations/create-nat-gateway.md) and [create a security group](../../../vpc/operations/security-group-create.md) allowing all incoming and outgoing traffic from all addresses.
 
 
-   
+
    1. [Create a virtual machine on Linux](../../../compute/operations/vm-create/create-linux-vm.md) in the same cloud network as the {{ mgp-name }} cluster.
 
 
@@ -33,7 +33,7 @@ Prepare the infrastructure:
       10.2010
       ```
 
-   
+
    1. [Create a static access key](../../../iam/operations/sa/create-access-key.md) for the service account.
 
 
@@ -95,7 +95,7 @@ Prepare the infrastructure:
 
       The command saves the static key ID and the static key you will need later to a file called `static-key.txt`.
 
-   
+
    1. Go to the [management console]({{ link-console-main }}) and [set up an NAT gateway](../../../vpc/operations/create-nat-gateway.md) for the subnet hosting your cluster.
 
 
@@ -207,7 +207,7 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
 - Manually {#manual}
 
-   
+
    1. [Delete the VM](../../../compute/operations/vm-control/vm-delete.md).
    1. If you reserved a public static IP address for the VM, [delete it](../../../vpc/operations/address-delete.md).
    1. [Delete the bucket in {{ objstorage-name }}](../../../storage/operations/buckets/delete.md).

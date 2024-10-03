@@ -1,6 +1,6 @@
 ---
-title: "История изменений в {{ serverless-containers-full-name }}"
-description: "В разделе представлена история изменений сервиса {{ serverless-containers-name }}."
+title: История изменений в {{ serverless-containers-full-name }}
+description: В разделе представлена история изменений сервиса {{ serverless-containers-name }}.
 ---
 
 # История изменений в {{ serverless-containers-full-name }}

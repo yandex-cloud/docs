@@ -1,6 +1,6 @@
 ---
-title: "How to create a connection to a file in {{ datalens-full-name }}"
-description: "Follow this guide to create a connection to a file."
+title: How to create a connection to a file in {{ datalens-full-name }}
+description: Follow this guide to create a connection to a file.
 ---
 
 # Creating a connection to a file

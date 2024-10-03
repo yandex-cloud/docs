@@ -1,6 +1,6 @@
 ---
-title: "Information about clusters in {{ mch-short-name }}"
-description: "You can request detailed information about each {{ mch-short-name }} cluster you created. To get a list of database clusters in a folder, go to the folder page and select {{ mch-name }}."
+title: Information about clusters in {{ mch-short-name }}
+description: You can request detailed information about each {{ mch-short-name }} cluster you created. To get a list of database clusters in a folder, go to the folder page and select {{ mch-name }}.
 ---
 
 # Information about existing {{ CH }} clusters
@@ -49,7 +49,7 @@ You can request detailed information about each {{ mch-short-name }} cluster you
           --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters?folderId=<folder_ID>'
       ```
 
-      
+
       You can request the folder ID with a [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
 
@@ -79,7 +79,7 @@ You can request detailed information about each {{ mch-short-name }} cluster you
           yandex.cloud.mdb.clickhouse.v1.ClusterService.List
       ```
 
-      
+
       You can request the folder ID with a [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
 

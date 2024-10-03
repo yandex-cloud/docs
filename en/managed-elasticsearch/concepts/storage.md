@@ -1,6 +1,6 @@
 ---
-title: "Elasticsearch disk types"
-description: "Elasticsearch allows you to use network and local storage drives for clusters. Network storage drives are based on network blocks, which are virtual disks in the {{ yandex-cloud }} infrastructure."
+title: Elasticsearch disk types
+description: Elasticsearch allows you to use network and local storage drives for clusters. Network storage drives are based on network blocks, which are virtual disks in the {{ yandex-cloud }} infrastructure.
 keywords:
   - Elasticsearch storage
   - Elasticsearch storage types

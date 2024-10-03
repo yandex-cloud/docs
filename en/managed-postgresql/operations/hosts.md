@@ -1,6 +1,6 @@
 ---
-title: "Managing {{ PG }} cluster hosts"
-description: "In this tutorial, you will learn how to manage {{ PG }} cluster hosts. You can add and delete cluster hosts and manage their settings via the management console, CLI, and API."
+title: Managing {{ PG }} cluster hosts
+description: In this tutorial, you will learn how to manage {{ PG }} cluster hosts. You can add and delete cluster hosts and manage their settings via the management console, CLI, and API.
 ---
 
 # Managing {{ PG }} cluster hosts
@@ -31,7 +31,7 @@ You can add and remove cluster hosts and manage their settings. For information 
 
    Result:
 
-   
+
    ```text
    +----------------------------+----------------------+---------+--------+--------------------+
    |            NAME            |      CLUSTER ID      |  ROLE   | HEALTH |      ZONE ID       |
@@ -65,7 +65,7 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
    1. Click the cluster name and go to the **{{ ui-key.yacloud.postgresql.cluster.switch_hosts }}** tab.
    1. Click **{{ ui-key.yacloud.mdb.cluster.hosts.action_add-host }}**.
 
-   
+
    1. Specify the host parameters:
       * Availability zone.
       * Subnet (if the required subnet is not on the list, [create it](../../vpc/operations/subnet-create.md)).
@@ -81,7 +81,7 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
 
    To create a host:
 
-   
+
    1. Request a list of cluster subnets to select one for the new host:
 
       ```bash
@@ -112,7 +112,7 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
 
    1. Run the add host command:
 
-      
+
       ```bash
       {{ yc-mdb-pg }} host add
         --cluster-name <cluster_name>
@@ -120,7 +120,7 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
       ```
 
 
-      
+
       The subnet ID should be specified if the availability zone contains multiple subnets; otherwise, {{ mpg-short-name }} will automatically select a single subnet. You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 

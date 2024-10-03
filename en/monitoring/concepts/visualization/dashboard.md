@@ -1,6 +1,6 @@
 ---
-title: "{{ monitoring-full-name }} dashboard"
-description: "Dashboards in {{ monitoring-full-name }} are sets of widgets, charts, text blocks, and titles. Metrics on dashboard charts are displayed for a specific interval that is shared by all charts. Parameters let you create interactive dashboards whose content changes depending on the user's choice. For example, a dashboard that shows aggregated information about the status of a VM can be parameterized using the VM ID."
+title: '{{ monitoring-full-name }} dashboard'
+description: Dashboards in {{ monitoring-full-name }} are sets of widgets, charts, text blocks, and titles. Metrics on dashboard charts are displayed for a specific interval that is shared by all charts. Parameters let you create interactive dashboards whose content changes depending on the user's choice. For example, a dashboard that shows aggregated information about the status of a VM can be parameterized using the VM ID.
 ---
 
 # Dashboards in {{ monitoring-name }}

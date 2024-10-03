@@ -1,6 +1,6 @@
 ---
-title: "Downloading reporting documents"
-description: "Learn how to download an archive with closing documents, request a reconciliation report, completion report, and electronic invoices."
+title: Downloading reporting documents
+description: Learn how to download an archive with closing documents, request a reconciliation report, completion report, and electronic invoices.
 ---
 
 # Viewing your expense history and downloading reporting documents in {{ billing-name }}

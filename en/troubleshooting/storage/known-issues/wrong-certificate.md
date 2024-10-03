@@ -1,7 +1,6 @@
 # Resolving certificate error
 
 
-
 ## Issue description {#issue-description}
 
 When using a bucket, you see the certificate error: `err_cert_common_name_invalid` or `ssl_error_bad_cert_domain`.

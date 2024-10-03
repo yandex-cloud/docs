@@ -1,5 +1,5 @@
 ---
-canonical: "{{ link-docs }}/tutorials/dataplatform/debezium-mmy"
+canonical: '{{ link-docs }}/tutorials/dataplatform/debezium-mmy'
 ---
 
 # Delivering data from {{ mmy-full-name }} using Debezium

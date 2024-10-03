@@ -1,6 +1,6 @@
 ---
-title: "UI customization in {{ datalens-full-name }}"
-description: "UI customization in {{ datalens-full-name }} allows you to adapt the {{ datalens-short-name }} user interface to your needs."
+title: UI customization in {{ datalens-full-name }}
+description: UI customization in {{ datalens-full-name }} allows you to adapt the {{ datalens-short-name }} user interface to your needs.
 ---
 
 # UI customization in {{ datalens-full-name }}

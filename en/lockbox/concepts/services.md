@@ -1,6 +1,6 @@
 ---
-title: "Integrating {{ lockbox-full-name }} with {{ yandex-cloud }} services"
-description: "In this tutorial, you will learn in which {{ yandex-cloud }} services you can use {{ lockbox-name }} secrets."
+title: Integrating {{ lockbox-full-name }} with {{ yandex-cloud }} services
+description: In this tutorial, you will learn in which {{ yandex-cloud }} services you can use {{ lockbox-name }} secrets.
 ---
 
 # Integration with {{ yandex-cloud }} services

@@ -1,6 +1,6 @@
 ---
-title: "Trunks in {{ interconnect-full-name }}"
-description: "In this article, you will learn what a trunk is used for and which features it has."
+title: Trunks in {{ interconnect-full-name }}
+description: In this article, you will learn what a trunk is used for and which features it has.
 ---
 
 # Trunk

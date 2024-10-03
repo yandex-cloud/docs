@@ -1,6 +1,6 @@
 ---
-title: "How to add parameters to a chart"
-description: "Follow this guide to add a parameter to a chart."
+title: How to add parameters to a chart
+description: Follow this guide to add a parameter to a chart.
 ---
 
 # Adding parameters to a chart

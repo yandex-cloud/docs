@@ -1,6 +1,6 @@
 ---
-title: "Как создать линию в {{ video-full-name }}"
-description: "Следуя данной инструкции, вы сможете создать линию {{ video-full-name }}."
+title: Как создать линию в {{ video-full-name }}
+description: Следуя данной инструкции, вы сможете создать линию {{ video-full-name }}.
 ---
 
 # Создать линию

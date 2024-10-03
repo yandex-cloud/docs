@@ -1,5 +1,5 @@
 ---
-title: "How to disable subscription auto-renewal on {{ marketplace-full-name }}"
+title: How to disable subscription auto-renewal on {{ marketplace-full-name }}
 ---
 
 # Disabling subscription auto-renewal

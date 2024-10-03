@@ -1,6 +1,6 @@
 ---
-title: "How to edit a broadcast in {{ video-full-name }}"
-description: "Follow this guide to edit a {{ video-full-name }} broadcast."
+title: How to edit a broadcast in {{ video-full-name }}
+description: Follow this guide to edit a {{ video-full-name }} broadcast.
 ---
 
 # Editing a broadcast

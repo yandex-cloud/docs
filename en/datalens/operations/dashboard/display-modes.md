@@ -1,6 +1,6 @@
 ---
-title: "How to set up widget display order on a mobile device in {{ datalens-full-name }}"
-description: "Follow this guide to set up widget display order on a mobile device."
+title: How to set up widget display order on a mobile device in {{ datalens-full-name }}
+description: Follow this guide to set up widget display order on a mobile device.
 ---
 
 # Widget display order on a mobile device

@@ -122,7 +122,7 @@
 
 - {{ TF }} {#tf}
 
-  
+
   Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
 
@@ -278,10 +278,10 @@
   Пример запроса с помощью cURL для метода REST API `create`:
 
   ```bash
-  curl -X POST \
-    -H 'Content-Type: application/json' \
-    -H "Authorization: Bearer <IAM-токен>" \
-    -d '{"serviceAccountId": "<идентификатор_сервисного_аккаунта>"}' \
+  curl --request POST \
+    --header 'Content-Type: application/json' \
+    --header "Authorization: Bearer <IAM-токен>" \
+    --data '{"serviceAccountId": "<идентификатор_сервисного_аккаунта>"}' \
     https://iam.{{ api-host }}/iam/v1/keys
   ```
 

@@ -1,6 +1,6 @@
 ---
-title: "Host header in CDN server requests to origins in {{ cdn-full-name }}"
-description: "This tutorial describes what Host headers are used for in CDN server requests to origins and how to configure them properly."
+title: Host header in CDN server requests to origins in {{ cdn-full-name }}
+description: This tutorial describes what Host headers are used for in CDN server requests to origins and how to configure them properly.
 ---
 
 # Host header in CDN server requests to origins

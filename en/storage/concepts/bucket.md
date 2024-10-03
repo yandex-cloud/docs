@@ -1,6 +1,6 @@
 ---
-title: "Bucket"
-description: "A bucket is an {{ objstorage-name }} storage unit allocated for user data. A bucket name is used as part of a URL to access data. Bucket names are unique across {{ yandex-cloud }}, i.e., you cannot create buckets with identical names even if the folders they reside in belong to different clouds. You should keep this in mind if you are going to create buckets automatically through the API."
+title: Bucket
+description: A bucket is an {{ objstorage-name }} storage unit allocated for user data. A bucket name is used as part of a URL to access data. Bucket names are unique across {{ yandex-cloud }}, i.e., you cannot create buckets with identical names even if the folders they reside in belong to different clouds. You should keep this in mind if you are going to create buckets automatically through the API.
 keywords:
   - what is a bucket
   - bucket

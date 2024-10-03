@@ -1,7 +1,6 @@
 # Unexpected receipt for an amount missing from the payment history arrived at the email linked to the billing account
 
 
-
 ## Issue description {#issue-description}
 
 * You got an electronic receipt at the email linked to the billing account. However, you cannot find information about a deduction for the specified amount in the payment history.

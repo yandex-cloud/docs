@@ -1,7 +1,6 @@
 # Resolving ERR.DS_API.REQUEST_TIMEOUT error
 
 
-
 ## Issue description {#issue-description}
 
 * Building the chart ends with the `ERR.DS_API.REQUEST_TIMEOUT` error after a long wait.

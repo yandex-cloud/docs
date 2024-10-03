@@ -1,6 +1,6 @@
 ---
-title: "Список голосов {{ speechkit-full-name }}"
-description: "Из статьи вы узнаете, какие голоса доступны в {{ speechkit-name }}."
+title: Список голосов {{ speechkit-full-name }}
+description: Из статьи вы узнаете, какие голоса доступны в {{ speechkit-name }}.
 ---
 
 # Список голосов

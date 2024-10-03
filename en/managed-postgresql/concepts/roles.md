@@ -1,6 +1,6 @@
 ---
-title: "Assigning {{ PG }} roles in {{ mpg-full-name }}"
-description: "With {{ mpg-name }}, you cannot access predefined roles, including the superuser role. Instead, this service provides you with special roles you can assign via the CLI or {{ yandex-cloud }} API."
+title: Assigning {{ PG }} roles in {{ mpg-full-name }}
+description: With {{ mpg-name }}, you cannot access predefined roles, including the superuser role. Instead, this service provides you with special roles you can assign via the CLI or {{ yandex-cloud }} API.
 ---
 
 # Assigning {{ PG }} roles

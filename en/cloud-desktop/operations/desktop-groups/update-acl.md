@@ -1,6 +1,6 @@
 ---
-title: "Tutorial on changing access rights for a desktop group in {{ cloud-desktop-full-name }}"
-description: "In this tutorial, you will learn how to change access rights for a desktop group in {{ cloud-desktop-full-name }}."
+title: Tutorial on changing access rights for a desktop group in {{ cloud-desktop-full-name }}
+description: In this tutorial, you will learn how to change access rights for a desktop group in {{ cloud-desktop-full-name }}.
 ---
 
 # Changing permissions to a desktop group

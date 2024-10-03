@@ -1,6 +1,6 @@
 ---
-title: "How to delete a broadcast in {{ video-full-name }}"
-description: "Follow this guide to delete a {{ video-full-name }} broadcast."
+title: How to delete a broadcast in {{ video-full-name }}
+description: Follow this guide to delete a {{ video-full-name }} broadcast.
 ---
 
 # Deleting a broadcast

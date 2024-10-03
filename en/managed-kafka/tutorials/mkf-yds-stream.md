@@ -1,5 +1,5 @@
 ---
-canonical: "{{ link-docs }}/tutorials/dataplatform/mkf-yds-stream"
+canonical: '{{ link-docs }}/tutorials/dataplatform/mkf-yds-stream'
 ---
 
 # Delivering data to {{ yds-full-name }} using {{ data-transfer-full-name }}

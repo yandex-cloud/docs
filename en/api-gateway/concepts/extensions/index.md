@@ -1,6 +1,6 @@
 ---
-title: "Extensions of the {{ api-gw-name }} specification. Overview"
-description: "The x-yc-apigateway extension allows you to set parent API gateway parameters whose values will be inherited by child extensions. The x-yc-apigateway-integration extension is the entry point for integrating the API gateway with other services."
+title: Extensions of the {{ api-gw-name }} specification. Overview
+description: The x-yc-apigateway extension allows you to set parent API gateway parameters whose values will be inherited by child extensions. The x-yc-apigateway-integration extension is the entry point for integrating the API gateway with other services.
 ---
 
 # {{ api-gw-name }} specification extensions. Overview

@@ -1,6 +1,6 @@
 ---
-title: "How to export logs from {{ cloud-logging-name }} to {{ objstorage-name }}"
-description: "In this tutorial, you will learn how to export logs from {{ cloud-logging-name }} to {{ objstorage-name }}."
+title: How to export logs from {{ cloud-logging-name }} to {{ objstorage-name }}
+description: In this tutorial, you will learn how to export logs from {{ cloud-logging-name }} to {{ objstorage-name }}.
 ---
 
 # Exporting logs to {{ objstorage-name }}

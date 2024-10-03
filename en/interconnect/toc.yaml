@@ -1,10 +1,5 @@
 title: Yandex Cloud Interconnect
 href: index.yaml
-label:
-  title: To be announced soon
-  description: The service will soon be available in Kazakhstan.
-  theme: info
-  when: region == "kz"
 items:
   - name: Concepts
     expanded: true
@@ -53,3 +48,4 @@ items:
   - name: Release notes
     href: release-notes.md
 base: en/interconnect
+deepBase: 2

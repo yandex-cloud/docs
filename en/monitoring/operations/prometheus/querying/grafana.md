@@ -1,6 +1,6 @@
 ---
-title: "How to read and visualize metrics with Grafana"
-description: "Use this guide to read and visualize metrics with Grafana."
+title: How to read and visualize metrics with Grafana
+description: Use this guide to read and visualize metrics with Grafana.
 ---
 
 # Reading and visualizing metrics with Grafana

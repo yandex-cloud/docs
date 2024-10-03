@@ -1,6 +1,6 @@
 ---
-title: "Viewing service usage details in {{ tracker-full-name }}"
-description: "Follow this guide to view service usage details."
+title: Viewing service usage details in {{ tracker-full-name }}
+description: Follow this guide to view service usage details.
 ---
 
 # Viewing service usage details

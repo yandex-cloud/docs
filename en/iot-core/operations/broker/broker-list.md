@@ -1,6 +1,6 @@
 ---
-title: "How to get information about a broker"
-description: "Follow this guide to get information about a broker."
+title: How to get information about a broker
+description: Follow this guide to get information about a broker.
 ---
 
 # Getting information about a broker

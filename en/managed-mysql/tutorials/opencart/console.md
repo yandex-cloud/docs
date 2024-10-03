@@ -1,5 +1,5 @@
 ---
-canonical: "{{ link-docs }}/tutorials/internet-store/opencart/console"
+canonical: '{{ link-docs }}/tutorials/internet-store/opencart/console'
 ---
 
 # Creating an OpenCart online store using the management console

@@ -1,5 +1,5 @@
 ---
-canonical: "{{ link-docs }}/tutorials/dataplatform/dp-mch-data-exchange"
+canonical: '{{ link-docs }}/tutorials/dataplatform/dp-mch-data-exchange'
 ---
 
 # Exchanging data with {{ mch-full-name }}

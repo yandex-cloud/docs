@@ -1,6 +1,6 @@
 ---
-title: "How to create products in the {{ marketplace-full-name }} partner dashboard"
-description: "Follow this guide to create a product in the {{ marketplace-full-name }} partner dashboard."
+title: How to create products in the {{ marketplace-full-name }} partner dashboard
+description: Follow this guide to create a product in the {{ marketplace-full-name }} partner dashboard.
 ---
 
 # Creating a product in the partner dashboard {{ marketplace-short-name }}

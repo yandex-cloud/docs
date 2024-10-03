@@ -1,6 +1,6 @@
 ---
-title: "FAQ about the {{ yandex-cloud }} partner program"
-description: "This page provides answers to questions about the {{ yandex-cloud }} partner program."
+title: FAQ about the {{ yandex-cloud }} partner program
+description: This page provides answers to questions about the {{ yandex-cloud }} partner program.
 ---
 
 # FAQ about the {{ yandex-cloud }} partner program

@@ -1,6 +1,6 @@
 ---
-title: "Access management in {{ metadata-hub-full-name }}"
-description: "Access management in {{ metadata-hub-full-name }}. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required to perform a particular action."
+title: Access management in {{ metadata-hub-full-name }}
+description: Access management in {{ metadata-hub-full-name }}. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required to perform a particular action.
 ---
 
 # Access management in {{ metadata-hub-name }}
@@ -41,3 +41,4 @@ You can use {{ metadata-hub-full-name }} roles (_service roles_) and {{ yandex-c
 
 * [Learn more about access management in {{ yandex-cloud }}](../../iam/concepts/access-control/index.md).
 * [Learn more about inheriting roles](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
+

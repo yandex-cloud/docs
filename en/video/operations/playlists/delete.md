@@ -1,6 +1,6 @@
 ---
-title: "How to delete a playlist in {{ video-full-name }}"
-description: "Follow this guide to delete a playlist in {{ video-name }}."
+title: How to delete a playlist in {{ video-full-name }}
+description: Follow this guide to delete a playlist in {{ video-name }}.
 ---
 
 # Deleting a playlist

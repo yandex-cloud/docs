@@ -1,6 +1,6 @@
 ---
-title: "CAPTCHA keys in {{ captcha-full-name }}"
-description: "In this article, you will learn what CAPTCHA client and server keys are and what they are used for."
+title: CAPTCHA keys in {{ captcha-full-name }}
+description: In this article, you will learn what CAPTCHA client and server keys are and what they are used for.
 ---
 
 # CAPTCHA keys

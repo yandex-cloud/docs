@@ -1,7 +1,6 @@
 ---
-title: "Quotas and limits in {{ alb-name }}"
-description: "{{ alb-name }} has limits and quotas on the maximum number of load balancers and HTTP routers per cloud. For more information about the service restrictions, read this article."
-
+title: Quotas and limits in {{ alb-name }}
+description: '{{ alb-name }} has limits and quotas on the maximum number of load balancers and HTTP routers per cloud. For more information about the service restrictions, read this article.'
 editable: false
 ---
 

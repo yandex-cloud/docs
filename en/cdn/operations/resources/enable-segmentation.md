@@ -1,6 +1,6 @@
 ---
-title: "How to enable file segmentation in {{ cdn-full-name }}"
-description: "Follow this guide to enable file segmentation."
+title: How to enable file segmentation in {{ cdn-full-name }}
+description: Follow this guide to enable file segmentation.
 ---
 
 # Enabling file segmentation
@@ -98,7 +98,7 @@ To enable [segmentation](../../concepts/slicing.md) of [resource](../../concepts
 
   1. In the configuration file, describe the parameters of the CDN resource to create:
 
-      
+
       ```hcl
       terraform {
         required_providers {

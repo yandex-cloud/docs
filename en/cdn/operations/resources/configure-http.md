@@ -1,6 +1,6 @@
 ---
-title: "How to configure HTTP methods in {{ cdn-full-name }}"
-description: "Follow this guide to configure HTTP methods."
+title: How to configure HTTP methods in {{ cdn-full-name }}
+description: Follow this guide to configure HTTP methods.
 ---
 
 # Configuring HTTP methods
@@ -99,7 +99,7 @@ To configure the allowed HTTP client requests methods for a resource:
 
   1. In the configuration file, describe the parameters of the CDN resource to create:
 
-      
+
       ```hcl
       terraform {
         required_providers {

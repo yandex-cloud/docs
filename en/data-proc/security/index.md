@@ -1,6 +1,6 @@
 ---
-title: "Access management in {{ dataproc-full-name }}"
-description: "Access management in the service for creation and management of Apache Hadoop® and Apache Spark™ clusters. To allow access to {{ dataproc-name }} resources (clusters and subclusters), assign the user the required roles from the list below."
+title: Access management in {{ dataproc-full-name }}
+description: Access management in the service for creation and management of Apache Hadoop® and Apache Spark™ clusters. To allow access to {{ dataproc-name }} resources (clusters and subclusters), assign the user the required roles from the list below.
 ---
 
 # Access management in {{ dataproc-name }}

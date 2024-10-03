@@ -1,6 +1,6 @@
 ---
-title: "Troubleshooting for {{ coi }} in {{ cos-full-name }}"
-description: "This guide describes how you can fix issues with a {{ coi }}."
+title: Troubleshooting for {{ coi }} in {{ cos-full-name }}
+description: This guide describes how you can fix issues with a {{ coi }}.
 ---
 
 # Troubleshooting

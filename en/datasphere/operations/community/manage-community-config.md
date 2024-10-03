@@ -1,6 +1,6 @@
 ---
-title: "How to manage community limits"
-description: "This guide describes how you can limit resources available across your community projects and {{ ml-platform-name }} features."
+title: How to manage community limits
+description: This guide describes how you can limit resources available across your community projects and {{ ml-platform-name }} features.
 ---
 
 # Managing community limits

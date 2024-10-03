@@ -1,6 +1,6 @@
 ---
-title: "How to edit a channel in {{ video-full-name }}"
-description: "Follow this guide to edit a {{ video-full-name }} channel."
+title: How to edit a channel in {{ video-full-name }}
+description: Follow this guide to edit a {{ video-full-name }} channel.
 ---
 
 # Editing a channel

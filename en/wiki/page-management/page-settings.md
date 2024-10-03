@@ -1,6 +1,6 @@
 ---
-title: "Actions with pages in {{ wiki-full-name }}"
-description: "Follow this guide to perform various actions with pages."
+title: Actions with pages in {{ wiki-full-name }}
+description: Follow this guide to perform various actions with pages.
 ---
 
 # Actions with {{ wiki-name }} pages

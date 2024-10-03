@@ -1,6 +1,6 @@
 ---
-title: "Настройка {{ mch-full-name }} для Graphite"
-description: "{{ mch-full-name }} можно использовать как хранилище данных для Graphite."
+title: Настройка {{ mch-full-name }} для Graphite
+description: '{{ mch-full-name }} можно использовать как хранилище данных для Graphite.'
 ---
 
 # Настройка {{ mch-full-name }} для Graphite

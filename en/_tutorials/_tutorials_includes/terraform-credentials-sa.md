@@ -154,7 +154,7 @@ You can also use {{ TF }} under your [Yandex account](../../iam/concepts/users/a
 
      1. Set the profile configuration:
 
-        
+
         ```bash
         yc config set service-account-key key.json
         yc config set cloud-id <cloud_ID>

@@ -1,10 +1,5 @@
 title: Yandex Cloud Postbox
 href: index.yaml
-label:
-  title: RU
-  description: This service is only available in the Russia region.
-  theme: unknown
-  when: region == "kz"
 items:
   - name: Getting started
     href: quickstart.md
@@ -47,3 +42,4 @@ items:
   - name: Release notes
     href: release-notes.md
 base: en/postbox
+deepBase: 2

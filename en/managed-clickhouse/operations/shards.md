@@ -40,7 +40,7 @@ The number of shards in {{ mch-name }} clusters is limited by the CPU and RAM qu
 
   Where:
 
-  
+
   * `<new_shard_name>`: Must be unique within the cluster.
 
     It may contain Latin letters, numbers, hyphens, and underscores. The maximum length is 63 characters.

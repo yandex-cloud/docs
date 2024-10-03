@@ -1,6 +1,6 @@
 ---
-title: "How to create an image from a disk in {{ compute-full-name }}"
-description: "Follow this guide to create an image from a disk."
+title: How to create an image from a disk in {{ compute-full-name }}
+description: Follow this guide to create an image from a disk.
 ---
 
 # Creating an image from a disk

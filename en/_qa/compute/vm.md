@@ -1,6 +1,6 @@
 ---
-title: "VM instances FAQ"
-description: "Answers to frequently asked questions about VM instances in the {{ yandex-cloud }} infrastructure. Technical characteristics, operations with instances. The VM configuration (memory, vCPU) that you can use."
+title: VM instances FAQ
+description: Answers to frequently asked questions about VM instances in the {{ yandex-cloud }} infrastructure. Technical characteristics, operations with instances. The VM configuration (memory, vCPU) that you can use.
 keywords:
   - vm
   - VM instances

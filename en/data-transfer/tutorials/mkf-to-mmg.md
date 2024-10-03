@@ -1,5 +1,5 @@
 ---
-canonical: "{{ link-docs }}/tutorials/dataplatform/data-transfer-mkf-mmg"
+canonical: '{{ link-docs }}/tutorials/dataplatform/data-transfer-mkf-mmg'
 ---
 
 # Delivering data from an {{ KF }} queue to {{ MG }}

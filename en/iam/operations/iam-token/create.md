@@ -1,6 +1,6 @@
 ---
-title: "How to get an IAM token for an account"
-description: "Follow this guide to get an IAM token for an account."
+title: How to get an IAM token for an account
+description: Follow this guide to get an IAM token for an account.
 ---
 
 # Getting an IAM token for a Yandex account

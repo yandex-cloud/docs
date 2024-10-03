@@ -1,6 +1,6 @@
 ---
-title: "Deleting a network load balancer"
-description: "Follow this guide to delete a network load balancer."
+title: Deleting a network load balancer
+description: Follow this guide to delete a network load balancer.
 ---
 
 # Deleting a network load balancer

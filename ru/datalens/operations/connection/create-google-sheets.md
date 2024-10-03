@@ -1,6 +1,6 @@
 ---
-title: "Как создать подключение к Google Sheets"
-description: "Следуя данной инструкции, вы сможете создать подключение к Google Sheets."
+title: Как создать подключение к Google Sheets
+description: Следуя данной инструкции, вы сможете создать подключение к Google Sheets.
 ---
 
 # Создание подключения к Google Sheets

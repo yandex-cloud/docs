@@ -1,6 +1,6 @@
 ---
-title: "How to set up an {{ ES }} source endpoint in {{ data-transfer-full-name }}"
-description: "In this tutorial, you will learn how to set up an {{ ES }} source endpoint in {{ data-transfer-full-name }}."
+title: How to set up an {{ ES }} source endpoint in {{ data-transfer-full-name }}
+description: In this tutorial, you will learn how to set up an {{ ES }} source endpoint in {{ data-transfer-full-name }}.
 ---
 
 # Transferring data from an {{ ES }} source endpoint

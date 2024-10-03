@@ -1,6 +1,6 @@
 ---
-title: "Triggers"
-description: "This article describes how to use triggers."
+title: Triggers
+description: This article describes how to use triggers.
 ---
 
 # Triggers

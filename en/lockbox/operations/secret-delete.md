@@ -1,6 +1,6 @@
 ---
-title: "How to delete a secret in {{ lockbox-full-name }}"
-description: "Follow this guide to delete a secret."
+title: How to delete a secret in {{ lockbox-full-name }}
+description: Follow this guide to delete a secret.
 ---
 
 # Deleting a secret

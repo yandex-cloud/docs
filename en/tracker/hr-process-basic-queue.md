@@ -1,6 +1,6 @@
 ---
-title: "How to create an HR management queue in {{ tracker-full-name }}"
-description: "Follow this guide to create an HR management queue."
+title: How to create an HR management queue in {{ tracker-full-name }}
+description: Follow this guide to create an HR management queue.
 ---
 
 # Creating an HR management queue

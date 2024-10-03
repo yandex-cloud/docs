@@ -1,10 +1,5 @@
 title: Yandex Cloud Billing
 href: index.yaml
-label:
-  title: KZ
-  description: The service is available in Kazakhstan.
-  theme: info
-  when: region == "kz"
 editable: false
 items:
   - name: Getting started
@@ -252,3 +247,4 @@ items:
               - name: list
                 href: api-ref/Sku/list.md
 base: en/billing
+deepBase: 2

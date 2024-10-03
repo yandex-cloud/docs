@@ -1,6 +1,6 @@
 ---
-title: "Authentication in {{ container-registry-full-name }}"
-description: "Before you start using {{ container-registry-name }}, you need to get authenticated for the appropriate interface."
+title: Authentication in {{ container-registry-full-name }}
+description: Before you start using {{ container-registry-name }}, you need to get authenticated for the appropriate interface.
 ---
 
 # Authentication in {{ container-registry-name }}

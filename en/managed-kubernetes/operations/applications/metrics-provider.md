@@ -59,7 +59,7 @@ The provider transforms the request to collect external metrics from a {{ manage
 1. {% include [install-kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
 1. Add the `metric-provider` repository:
 
-   
+
    ```bash
    export HELM_EXPERIMENTAL_OCI=1 && \
    cat sa-key.json | helm registry login {{ registry }} --username 'json_key' --password-stdin && \

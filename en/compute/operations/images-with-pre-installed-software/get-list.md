@@ -1,6 +1,6 @@
 ---
-title: "How to get a list of public images in {{ compute-full-name }}"
-description: "Follow this guide to get a list of public images in {{ compute-full-name }}."
+title: How to get a list of public images in {{ compute-full-name }}
+description: Follow this guide to get a list of public images in {{ compute-full-name }}.
 ---
 
 # Getting a list of public images

@@ -1,6 +1,6 @@
 ---
-title: "{{ metadata-hub-full-name }}. Ответы на вопросы"
-description: "Как исправить ошибку при создании БД в {{ metastore-name }}? Ответы на этот и другие вопросы в данной статье."
+title: '{{ metadata-hub-full-name }}. Ответы на вопросы'
+description: Как исправить ошибку при создании БД в {{ metastore-name }}? Ответы на этот и другие вопросы в данной статье.
 ---
 
 # Общие вопросы про {{ metadata-hub-name }}

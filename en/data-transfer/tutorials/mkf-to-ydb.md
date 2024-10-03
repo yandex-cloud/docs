@@ -1,5 +1,5 @@
 ---
-canonical: "{{ link-docs }}/tutorials/dataplatform/mkf-ydb-stream"
+canonical: '{{ link-docs }}/tutorials/dataplatform/mkf-ydb-stream'
 ---
 
 # Delivering data from an {{ KF }} queue to {{ ydb-short-name }}

@@ -1,6 +1,6 @@
 ---
-title: "Viewing monitoring charts in {{ api-gw-full-name }}"
-description: "You can view a monitoring chart in {{ api-gw-full-name }} using the management console. To do this, select {{ api-gw-full-name }} and click the trigger whose monitoring charts you want to view."
+title: Viewing monitoring charts in {{ api-gw-full-name }}
+description: You can view a monitoring chart in {{ api-gw-full-name }} using the management console. To do this, select {{ api-gw-full-name }} and click the trigger whose monitoring charts you want to view.
 ---
 
 # Viewing trigger monitoring charts in {{ api-gw-full-name }}

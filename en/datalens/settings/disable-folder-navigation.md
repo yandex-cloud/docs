@@ -1,6 +1,6 @@
 ---
-title: "Disabling folder navigation in {{ datalens-full-name }}"
-description: "You can disable folder navigation after you start organizing objects in workbooks and collections."
+title: Disabling folder navigation in {{ datalens-full-name }}
+description: You can disable folder navigation after you start organizing objects in workbooks and collections.
 ---
 
 # Disabling folder navigation

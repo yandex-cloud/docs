@@ -1,6 +1,6 @@
 ---
-title: "Как настроить эндпоинт-источник {{ objstorage-full-name }}"
-description: "Следуя данной инструкции, вы сможете настроить эндпоинт-источник {{ objstorage-full-name }}."
+title: Как настроить эндпоинт-источник {{ objstorage-full-name }}
+description: Следуя данной инструкции, вы сможете настроить эндпоинт-источник {{ objstorage-full-name }}.
 ---
 # Передача данных из эндпоинта-источника {{ objstorage-full-name }}
 

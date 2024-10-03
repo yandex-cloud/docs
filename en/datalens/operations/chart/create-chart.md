@@ -1,6 +1,6 @@
 ---
-title: "How to create a chart in {{ datalens-full-name }}"
-description: "Follow this guide to create a chart."
+title: How to create a chart in {{ datalens-full-name }}
+description: Follow this guide to create a chart.
 ---
 
 # Creating a chart

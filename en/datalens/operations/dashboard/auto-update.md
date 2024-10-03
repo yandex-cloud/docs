@@ -1,6 +1,6 @@
 ---
-title: "How to set up dashboard auto-update in {{ datalens-full-name }}"
-description: "Follow this guide to set up dashboard auto-update."
+title: How to set up dashboard auto-update in {{ datalens-full-name }}
+description: Follow this guide to set up dashboard auto-update.
 ---
 
 # Dashboard auto-update

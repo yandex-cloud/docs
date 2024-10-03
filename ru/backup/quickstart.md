@@ -143,7 +143,7 @@
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы хотите создать ВМ с подключением к {{ backup-name }}.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. На панели слева выберите ![image](../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.  
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите один из [образов](../compute/concepts/image.md) c [поддерживаемой операционной системой](./concepts/vm-connection.md#os), например [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts).
   1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
   1. В блоках **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** и **{{ ui-key.yacloud.compute.instances.create.section_platform }}** задайте желаемые параметры ВМ.

@@ -131,7 +131,7 @@ For information about roles available in {{ yandex-cloud }} and their associated
       * `organization_id`: Organization ID.
       * `role`: Role you want to assign. You can find the description of the roles in the {{ iam-full-name }} documentation in the [{{ yandex-cloud }} role reference](../../iam/roles-reference.md). For each role, you can only use one `yandex_organization manager_organization_iam_binding`.
       * `members`: Array of the IDs of users to assign the role to:
-                  * `userAccount:{user_id}`: User's Yandex account ID.
+         * `userAccount:{user_id}`: User's Yandex account ID.
          * `serviceAccount:{service_account_id}`: Service account ID.
          * `federatedUser:{federated_user_id}`: Federated user ID.
 

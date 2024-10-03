@@ -1,5 +1,5 @@
 ---
-canonical: "{{ link-docs }}/tutorials/dataplatform/kafka-connector"
+canonical: '{{ link-docs }}/tutorials/dataplatform/kafka-connector'
 ---
 
 # Migrating databases from a third-party {{ KF }} cluster

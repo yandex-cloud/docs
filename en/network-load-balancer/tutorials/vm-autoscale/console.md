@@ -1,5 +1,5 @@
 ---
-canonical: "{{ link-docs }}/tutorials/infrastructure-management/vm-autoscale/console"
+canonical: '{{ link-docs }}/tutorials/infrastructure-management/vm-autoscale/console'
 ---
 
 # Running a VM group with autoscaling using the management console, CLI, and API

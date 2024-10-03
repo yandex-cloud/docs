@@ -26,7 +26,6 @@
 
 - API {#api}
 
-  
   1. Установите [cURL](https://curl.haxx.se).
   1. [Авторизуйтесь](../api-ref/authentication.md) для выполнения операций в API.
   1. [В настройках созданного пространства имен](../operations/update-name-space.md) скопируйте его идентификатор.
@@ -36,7 +35,7 @@
       * `subject` — имя схемы для загрузки в указанный субъект;
       * `schemaType` — тип схемы: [Avro](https://avro.apache.org/), [JSON Schema](https://json-schema.org/) или [Protobuf](https://protobuf.dev/).
 
-            
+      
      ```bash
       curl \
         --request POST "https://<идентификатор_пространства_имен>.schema-registry.yandexcloud.net/v1/namespace"\
@@ -51,7 +50,7 @@
             }' \
         $<идентификатор_пространства_имен>/subjects/<имя_субъекта>/versions
         {"id":1}
-      ```     
+      ```
 {% endlist %}
 
 ## Что дальше {what-is-next}

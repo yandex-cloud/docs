@@ -1,6 +1,6 @@
 ---
-title: "Creating and editing parameters of a dedicated {{ ydb-short-name }} database in {{ yandex-cloud }}"
-description: "This tutorial describes properties of the `yandex_ydb_database_dedicated` resource for creating a dedicated {{ ydb-short-name }} database in {{ yandex-cloud }}."
+title: Creating and editing parameters of a dedicated {{ ydb-short-name }} database in {{ yandex-cloud }}
+description: This tutorial describes properties of the `yandex_ydb_database_dedicated` resource for creating a dedicated {{ ydb-short-name }} database in {{ yandex-cloud }}.
 ---
 
 

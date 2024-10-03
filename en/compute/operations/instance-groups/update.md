@@ -1,6 +1,6 @@
 ---
-title: "How to update a VM group in {{ compute-full-name }}"
-description: "Follow this guide to update an instance group."
+title: How to update a VM group in {{ compute-full-name }}
+description: Follow this guide to update an instance group.
 ---
 
 # Updating an instance group

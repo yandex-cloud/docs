@@ -1,6 +1,6 @@
 ---
-title: "How to create a notification channel in {{ monitoring-full-name }}"
-description: "Follow this guide to create a notification channel."
+title: How to create a notification channel in {{ monitoring-full-name }}
+description: Follow this guide to create a notification channel.
 ---
 
 # Creating a notification channel

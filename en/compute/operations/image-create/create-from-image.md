@@ -1,6 +1,6 @@
 ---
-title: "How to create an image from another custom image in {{ compute-full-name }}"
-description: "Follow this guide to create an image from another custom image."
+title: How to create an image from another custom image in {{ compute-full-name }}
+description: Follow this guide to create an image from another custom image.
 ---
 
 # Creating an image from another custom image

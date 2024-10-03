@@ -1,6 +1,6 @@
 ---
-title: "How to set up OS Login access on an existing VM"
-description: "Follow this guide to set up access to an existing VM via OS Login."
+title: How to set up OS Login access on an existing VM
+description: Follow this guide to set up access to an existing VM via OS Login.
 ---
 
 # Setting up OS Login access on an existing VM

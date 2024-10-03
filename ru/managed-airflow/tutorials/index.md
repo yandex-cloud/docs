@@ -1,6 +1,6 @@
 ---
-title: "Сценарии использования {{ maf-full-name }}"
-description: "Различные сценарии использования {{ maf-full-name }} в {{ yandex-cloud }}."
+title: Сценарии использования {{ maf-full-name }}
+description: Различные сценарии использования {{ maf-full-name }} в {{ yandex-cloud }}.
 ---
 
 # Практические руководства {{ maf-name }}

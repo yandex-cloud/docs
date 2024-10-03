@@ -1,6 +1,6 @@
 ---
-title: "Code examples for connecting to an {{ KF }} cluster in {{ mkf-full-name }}"
-description: "Use these examples to connect to a database in an {{ KF }} cluster from your app code."
+title: Code examples for connecting to an {{ KF }} cluster in {{ mkf-full-name }}
+description: Use these examples to connect to a database in an {{ KF }} cluster from your app code.
 ---
 
 # Code examples for connecting to an {{ KF }} cluster

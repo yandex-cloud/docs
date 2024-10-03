@@ -269,7 +269,7 @@ Apart from identity documents, the VM metadata service provides their cryptograp
 
   1. Create a `certificate` file and save a public certificate to it:
 
-     
+
      ```text
      -----BEGIN CERTIFICATE-----
      MIIERjCCA+ugAwIBAgIULIUmuptqf9Pz7nMGMHeW+BPNneYwCwYJYIZIAWUDBAMC
@@ -346,7 +346,7 @@ Apart from identity documents, the VM metadata service provides their cryptograp
 
   1. Create a `certificate` file and save a public certificate to it:
 
-     
+
      ```text
      -----BEGIN CERTIFICATE-----
      MIIC4TCCAcmgAwIBAgIUP0zcGO1MeRwze8VdSMEt/OdBXoIwDQYJKoZIhvcNAQEL

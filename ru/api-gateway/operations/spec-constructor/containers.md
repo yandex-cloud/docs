@@ -1,6 +1,6 @@
 ---
-title: "Добавить расширение {{ serverless-containers-full-name }}"
-description: "Следуя данной инструкции, вы сможете добавить расширение {{ serverless-containers-full-name }} с помощью конструктора спецификации."
+title: Добавить расширение {{ serverless-containers-full-name }}
+description: Следуя данной инструкции, вы сможете добавить расширение {{ serverless-containers-full-name }} с помощью конструктора спецификации.
 ---
 
 # Добавить расширение x-yc-apigateway-integration:serverless_containers

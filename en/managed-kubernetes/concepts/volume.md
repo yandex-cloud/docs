@@ -1,6 +1,6 @@
 ---
-title: "Volumes in {{ managed-k8s-full-name }}"
-description: "A volume is a storage for shared use of objects in different containers deployed within one or more pods. In the pod specification, users specify the volumes to contain the pod and the path for the containers to mount those volumes to."
+title: Volumes in {{ managed-k8s-full-name }}
+description: A volume is a storage for shared use of objects in different containers deployed within one or more pods. In the pod specification, users specify the volumes to contain the pod and the path for the containers to mount those volumes to.
 ---
 
 # Volumes

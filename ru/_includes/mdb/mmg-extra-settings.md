@@ -1,7 +1,7 @@
 - {% include [Backup time](../../_includes/mdb/console/backup-time.md) %}
 
 - **{{ ui-key.yacloud.mdb.forms.backup-retain-period }}**{#setting-backup-saving}
-  
+
   Время, в течение которого нужно хранить созданные автоматически резервные копии. Если для такой копии истекает срок хранения, то она удаляется. Значение по умолчанию — {{ mmg-backup-retention }} дней. Эта функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md). Подробнее см. в разделе [Резервные копии](../../managed-mongodb/concepts/backup.md).
 
 

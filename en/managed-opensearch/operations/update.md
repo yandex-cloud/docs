@@ -1,6 +1,6 @@
 ---
-title: "Changing {{ OS }} cluster settings"
-description: "After creating an {{ OS }} cluster, you can edit its service settings."
+title: Changing {{ OS }} cluster settings
+description: After creating an {{ OS }} cluster, you can edit its service settings.
 keywords:
   - OpenSearch settings
   - OpenSearch cluster settings

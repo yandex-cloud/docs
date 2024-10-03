@@ -1,6 +1,6 @@
 ---
-title: "Stopping and starting an Elasticsearch cluster"
-description: "You can stop and restart an Elasticsearch cluster as needed. When stopped, a cluster retains all its data. The data will be available again as soon as you restart the cluster."
+title: Stopping and starting an Elasticsearch cluster
+description: You can stop and restart an Elasticsearch cluster as needed. When stopped, a cluster retains all its data. The data will be available again as soon as you restart the cluster.
 keywords:
   - stopping Elasticsearch
   - starting Elasticsearch

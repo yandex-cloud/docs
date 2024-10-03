@@ -1,6 +1,6 @@
 ---
-title: "Состояния плеера Cloud Video Player в SDK для JavaScript"
-description: "На странице описаны возможные состояния, которые может принимать видеоплеер Cloud Video Player в SDK для JavaScript."
+title: Состояния плеера Cloud Video Player в SDK для JavaScript
+description: На странице описаны возможные состояния, которые может принимать видеоплеер Cloud Video Player в SDK для JavaScript.
 ---
 
 # Состояние плеера

@@ -1,7 +1,6 @@
 ---
-title: "Quotas and limits in {{ org-full-name }}"
-description: "{{ org-full-name }} has some quotas. Organizations, subjects, federations, groups, invitations, and certificates utilize your cloud quotas for all services. For more information about the service restrictions, read this article."
-
+title: Quotas and limits in {{ org-full-name }}
+description: '{{ org-full-name }} has some quotas. Organizations, subjects, federations, groups, invitations, and certificates utilize your cloud quotas for all services. For more information about the service restrictions, read this article.'
 editable: false
 ---
 

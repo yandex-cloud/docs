@@ -1,5 +1,5 @@
 ---
-canonical: "{{ link-docs }}/tutorials/web/prefetch"
+canonical: '{{ link-docs }}/tutorials/web/prefetch'
 ---
 
 {% include [prefetch](../../_tutorials/applied/prefetch.md) %}

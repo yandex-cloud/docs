@@ -1,6 +1,6 @@
 ---
-title: "Обзор API {{ ml-platform-name }}"
-description: "Управление ресурсами {{ ml-platform-full-name }} с помощью API. Основные методы для создания проекта, загрузки файлов и работы с ноутбуками."
+title: Обзор API {{ ml-platform-name }}
+description: Управление ресурсами {{ ml-platform-full-name }} с помощью API. Основные методы для создания проекта, загрузки файлов и работы с ноутбуками.
 ---
 
 # Обзор API {{ ml-platform-name }}

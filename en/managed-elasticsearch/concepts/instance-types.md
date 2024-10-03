@@ -1,6 +1,6 @@
 ---
-title: "Elasticsearch host classes"
-description: "The Elasticsearch host class determines the computing power allocated for each host with the specific role in the cluster. When you change the Elasticsearch host class for a role in the cluster, the configuration of all hosts with this role that were previously created in the cluster changes accordingly."
+title: Elasticsearch host classes
+description: The Elasticsearch host class determines the computing power allocated for each host with the specific role in the cluster. When you change the Elasticsearch host class for a role in the cluster, the configuration of all hosts with this role that were previously created in the cluster changes accordingly.
 keywords:
   - Elasticsearch host classes
   - Elasticsearch

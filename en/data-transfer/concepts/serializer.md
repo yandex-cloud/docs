@@ -1,5 +1,5 @@
 ---
-title: "Serialization in {{ data-transfer-full-name }}"
+title: Serialization in {{ data-transfer-full-name }}
 ---
 
 # Serialization

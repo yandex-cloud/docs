@@ -1,5 +1,5 @@
 ---
-title: "C# function invocation context in {{ sf-full-name }}"
+title: C# function invocation context in {{ sf-full-name }}
 ---
 
 # C# function invocation context

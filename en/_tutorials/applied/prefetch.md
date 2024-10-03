@@ -111,7 +111,7 @@ Create two buckets: one will store files and the other will store request logs f
 
      Here is an example of the configuration file structure:
 
-     
+
      ```hcl
      provider "yandex" {
        token     = "<OAuth_token>"

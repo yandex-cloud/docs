@@ -1,6 +1,6 @@
 ---
-title: "Service account for {{ alb-full-name }} tools for {{ managed-k8s-full-name }}"
-description: "In this tutorial, you will learn which roles a service account requires to use {{ alb-name }} tools for {{ managed-k8s-name }}."
+title: Service account for {{ alb-full-name }} tools for {{ managed-k8s-full-name }}
+description: In this tutorial, you will learn which roles a service account requires to use {{ alb-name }} tools for {{ managed-k8s-name }}.
 ---
 
 # Service account for {{ alb-name }} tools for {{ managed-k8s-name }}

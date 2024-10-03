@@ -1,6 +1,6 @@
 ---
-title: "How to delete a channel in {{ video-full-name }}"
-description: "Follow this guide to delete a {{ video-full-name }} channel."
+title: How to delete a channel in {{ video-full-name }}
+description: Follow this guide to delete a {{ video-full-name }} channel.
 ---
 
 # Deleting a channel

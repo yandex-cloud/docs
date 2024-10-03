@@ -1,6 +1,6 @@
 ---
-title: "How to configure a {{ yds-full-name }} target endpoint in {{ data-transfer-full-name }}"
-description: "In this tutorial, you will learn how to set up a {{ yds-full-name }} target endpoint in {{ data-transfer-full-name }}."
+title: How to configure a {{ yds-full-name }} target endpoint in {{ data-transfer-full-name }}
+description: In this tutorial, you will learn how to set up a {{ yds-full-name }} target endpoint in {{ data-transfer-full-name }}.
 ---
 # Transferring data to a {{ yds-full-name }} target endpoint
 

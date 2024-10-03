@@ -1,6 +1,6 @@
 ---
-title: "How to assign an access policy in {{ objstorage-short-name }} for a {{ vpc-full-name }} service connection"
-description: "Follow this guide to assign an access policy in {{ objstorage-short-name }} for a service connection." 
+title: How to assign an access policy in {{ objstorage-short-name }} for a {{ vpc-full-name }} service connection
+description: Follow this guide to assign an access policy in {{ objstorage-short-name }} for a service connection.
 ---
 
 # Assigning an access policy in {{ objstorage-short-name }} for a service connection

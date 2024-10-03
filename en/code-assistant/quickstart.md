@@ -1,6 +1,6 @@
 ---
-title: "Getting started with {{ ca-full-name }}"
-description: "Install the {{ ca-name }} plugin for Visual Studio Code."
+title: Getting started with {{ ca-full-name }}
+description: Install the {{ ca-name }} plugin for Visual Studio Code.
 ---
 
 # Getting started with {{ ca-full-name }}

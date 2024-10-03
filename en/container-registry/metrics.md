@@ -1,6 +1,6 @@
 ---
-title: "Reference for {{ container-registry-full-name }} metrics in {{ monitoring-full-name }}"
-description: "This page provides reference information on {{ container-registry-name }} metrics delivered to {{ monitoring-full-name }}."
+title: Reference for {{ container-registry-full-name }} metrics in {{ monitoring-full-name }}
+description: This page provides reference information on {{ container-registry-name }} metrics delivered to {{ monitoring-full-name }}.
 ---
 
 # {{ monitoring-full-name }} metric reference

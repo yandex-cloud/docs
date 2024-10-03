@@ -1,6 +1,6 @@
 ---
-title: "Getting started with {{ iot-full-name }} device registries"
-description: "To get started with {{ iot-name }}, create an X.509 certificate, registry, and device. Then, set up message exchange between the registry and the device."
+title: Getting started with {{ iot-full-name }} device registries
+description: To get started with {{ iot-name }}, create an X.509 certificate, registry, and device. Then, set up message exchange between the registry and the device.
 ---
 
 # Getting started with {{ iot-name }} device registries

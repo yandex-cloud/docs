@@ -116,7 +116,7 @@
 
 - {{ TF }} {#tf}
 
-    {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
   1. {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -419,7 +419,7 @@
 
   {% endcut %}
 
-  
+
   {% cut "Как получить ACS URL федерации" %}
 
   {% include [get-acs-url](../../_includes/organization/get-acs-url.md) %}

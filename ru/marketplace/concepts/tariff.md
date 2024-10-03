@@ -1,5 +1,5 @@
 ---
-title: "Тариф в {{ marketplace-full-name }}"
+title: Тариф в {{ marketplace-full-name }}
 ---
 
 # Тариф

@@ -1,6 +1,6 @@
 ---
-title: "Управление доступом к {{ datalens-full-name }}"
-description: "Из статьи вы узнаете, как регулируется доступ к сервису {{ datalens-short-name }}."
+title: Управление доступом к {{ datalens-full-name }}
+description: Из статьи вы узнаете, как регулируется доступ к сервису {{ datalens-short-name }}.
 ---
 
 # Управление доступом к {{ datalens-short-name }}

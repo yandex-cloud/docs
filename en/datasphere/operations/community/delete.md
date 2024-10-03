@@ -1,6 +1,6 @@
 ---
-title: "How to delete a community"
-description: "Follow this guide to delete a community."
+title: How to delete a community
+description: Follow this guide to delete a community.
 ---
 
 # Deleting a community

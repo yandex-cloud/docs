@@ -1,5 +1,5 @@
 ---
-canonical: "{{ link-docs }}/tutorials/dataplatform/data-transfer-mkf-mos"
+canonical: '{{ link-docs }}/tutorials/dataplatform/data-transfer-mkf-mos'
 ---
 
 # Delivering data from an {{ KF }} queue to {{ OS }}

@@ -1,6 +1,6 @@
 ---
-title: "Creating skills for Alice"
-description: "Example of creating a skill for Alice based on two programming languages: Python and Node.js As an example, we will create an Alice skill called <q>Parrot</q> that will repeat everything the user writes or says."
+title: Creating skills for Alice
+description: 'Example of creating a skill for Alice based on two programming languages: Python and Node.js As an example, we will create an Alice skill called <q>Parrot</q> that will repeat everything the user writes or says.'
 keywords:
   - creating skills for Alice
   - Alice's skill

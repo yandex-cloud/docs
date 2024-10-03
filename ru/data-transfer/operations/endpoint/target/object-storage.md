@@ -12,8 +12,7 @@
 ## Сценарии передачи данных в {{ objstorage-full-name }} {#scenarios}
 
 1. {% include [queue](../../../../_includes/data-transfer/scenario-captions/queue.md) %}
-    
-    * [Поставка данных из {{ DS }} в {{ objstorage-name }}](../../../tutorials/yds-to-objstorage.md).   
+    * [Поставка данных из {{ DS }} в {{ objstorage-name }}](../../../tutorials/yds-to-objstorage.md).
 
 1. {% include [data-mart](../../../../_includes/data-transfer/scenario-captions/storage.md) %}
     

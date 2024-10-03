@@ -1,6 +1,6 @@
 ---
-title: "How to use auxiliary utilities in {{ mgp-full-name }}"
-description: "This guide describes how to use auxiliary utilities."
+title: How to use auxiliary utilities in {{ mgp-full-name }}
+description: This guide describes how to use auxiliary utilities.
 ---
 
 # Auxiliary utilities

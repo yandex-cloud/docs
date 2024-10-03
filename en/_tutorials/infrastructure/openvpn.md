@@ -1,5 +1,5 @@
 ---
-title: "OpenVPN. Creating a VPN connection"
+title: OpenVPN. Creating a VPN connection
 keywords:
   - openvpn
   - openvpn setup

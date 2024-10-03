@@ -1,6 +1,6 @@
 ---
-title: "{{ sf-name }}. Service overview"
-description: "{{ sf-name }} lets you run your code in a serviceable environment as a function. The service allocates the resources required for the function to be executed. When you increase the number of function calls, the service automatically scales and creates additional instances of your function."
+title: '{{ sf-name }}. Service overview'
+description: '{{ sf-name }} lets you run your code in a serviceable environment as a function. The service allocates the resources required for the function to be executed. When you increase the number of function calls, the service automatically scales and creates additional instances of your function.'
 ---
 
 # {{ sf-name }} overview

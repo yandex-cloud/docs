@@ -161,7 +161,7 @@ The dataset will consist of a single source: the CSV file.
 
       {% note info %}
 
-      
+
       The example is based on ready-to-use data in coordinate format. 
 
 

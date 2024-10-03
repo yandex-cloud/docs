@@ -1,6 +1,6 @@
 ---
-title: "Test data in {{ load-testing-full-name }}"
-description: "In this tutorial, you will learn about the types of test data in {{ load-testing-full-name }} and where you can store them."
+title: Test data in {{ load-testing-full-name }}
+description: In this tutorial, you will learn about the types of test data in {{ load-testing-full-name }} and where you can store them.
 ---
 
 # Payload

@@ -1,6 +1,6 @@
 ---
-title: "Getting stream information"
-description: "Follow this guide to get information about a stream."
+title: Getting stream information
+description: Follow this guide to get information about a stream.
 ---
 
 # Getting stream information

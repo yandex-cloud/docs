@@ -1,5 +1,5 @@
 ---
-description: "To evaluate image quality, you can use the quality model offered by {{ vision-full-name }}. The service compares similar images and selects the best quality ones or filters out lower quality images, e.g., to exclude them from search results. Supported file formats for quality evaluation: JPEG, PNG, PDF."
+description: "To evaluate image quality, you can use the quality model offered by {{ vision-full-name }}. The service compares similar images\_and selects the best quality ones or filters out lower quality images, e.g., to exclude them from search results. Supported file formats for quality evaluation: JPEG, PNG, PDF."
 noIndex: true
 keywords:
   - image quality

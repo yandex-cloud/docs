@@ -1,6 +1,6 @@
 ---
-title: "Managing {{ CH }} backups"
-description: "You can create backups and restore clusters from existing {{ CH }} backups. When you restore a cluster from a backup, you create a new cluster with the backup data. If the cloud does not have sufficient resources to create such a cluster, you will not be able to restore your data from a backup."
+title: Managing {{ CH }} backups
+description: You can create backups and restore clusters from existing {{ CH }} backups. When you restore a cluster from a backup, you create a new cluster with the backup data. If the cloud does not have sufficient resources to create such a cluster, you will not be able to restore your data from a backup.
 ---
 
 # Managing backups in {{ mch-name }}
@@ -120,7 +120,7 @@ You can restore an individual [shard](../concepts/sharding.md) or the whole clus
 
    1. To restore an individual shard, pass the ID of a single backup:
 
-      
+
       ```bash
       {{ yc-mdb-ch }} cluster restore \
          --backup-id=<backup_ID> \
@@ -156,11 +156,11 @@ You can restore an individual [shard](../concepts/sharding.md) or the whole clus
       * `--disk-size`: Storage size in GB.
       * `--disk-type`: [Disk type](../concepts/storage.md):
 
-         
+
          * `network-hdd`
          * `network-ssd`
 
-         
+
          * `local-ssd`
          * `network-ssd-nonreplicated`
 

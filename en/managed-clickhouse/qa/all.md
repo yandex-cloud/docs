@@ -1,6 +1,6 @@
 ---
-title: "FAQ about {{ mch-full-name }}"
-description: "This page presents FAQ about {{ mch-short-name }}."
+title: FAQ about {{ mch-full-name }}
+description: This page presents FAQ about {{ mch-short-name }}.
 ---
 
 # FAQ about {{ mch-short-name }}

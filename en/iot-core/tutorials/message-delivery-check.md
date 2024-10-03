@@ -1,6 +1,6 @@
 ---
-title: "Testing message delivery in {{ iot-full-name }}"
-description: "Follow this guide to test message delivery to the MQTT server."
+title: Testing message delivery in {{ iot-full-name }}
+description: Follow this guide to test message delivery to the MQTT server.
 ---
 
 # Testing message delivery

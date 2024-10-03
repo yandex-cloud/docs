@@ -1,6 +1,6 @@
 ---
-title: "How to change the billing account organization"
-description: "Follow this guide to change your billing account organization."
+title: How to change the billing account organization
+description: Follow this guide to change your billing account organization.
 ---
 
 # Changing the billing account organization

@@ -1,6 +1,6 @@
 ---
-title: "Интеграция {{ lockbox-full-name }} с сервисами {{ yandex-cloud }}"
-description: "Из статьи вы узнаете, в каких сервисах {{ yandex-cloud }} можно использовать секреты {{ lockbox-name }}."
+title: Интеграция {{ lockbox-full-name }} с сервисами {{ yandex-cloud }}
+description: Из статьи вы узнаете, в каких сервисах {{ yandex-cloud }} можно использовать секреты {{ lockbox-name }}.
 ---
 
 # Интеграция с сервисами {{ yandex-cloud }}

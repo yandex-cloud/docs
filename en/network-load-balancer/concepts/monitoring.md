@@ -1,6 +1,6 @@
 ---
-title: "Monitoring in {{ network-load-balancer-full-name }}"
-description: "The network load balancer sends the processed_bytes and processed_packets metrics."
+title: Monitoring in {{ network-load-balancer-full-name }}
+description: The network load balancer sends the processed_bytes and processed_packets metrics.
 ---
 
 # Monitoring

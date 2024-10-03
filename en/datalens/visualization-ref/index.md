@@ -1,6 +1,6 @@
 ---
-title: "Visualization reference in {{ datalens-full-name }}"
-description: "In this tutorial, you will learn what types of charts are available in {{ datalens-short-name }}."
+title: Visualization reference in {{ datalens-full-name }}
+description: In this tutorial, you will learn what types of charts are available in {{ datalens-short-name }}.
 ---
 
 # Visualization reference

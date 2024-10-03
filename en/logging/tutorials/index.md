@@ -1,6 +1,6 @@
 ---
-title: "Use cases for {{ cloud-logging-full-name }}"
-description: "Various {{ cloud-logging-full-name }} use cases in {{ yandex-cloud }}."
+title: Use cases for {{ cloud-logging-full-name }}
+description: Various {{ cloud-logging-full-name }} use cases in {{ yandex-cloud }}.
 ---
 
 # {{ cloud-logging-name }} tutorials

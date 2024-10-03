@@ -1,6 +1,6 @@
 ---
-title: "How to change {{ GP }} cluster settings in {{ mgp-full-name }}"
-description: "Follow this guide to change {{ GP }} cluster settings."
+title: How to change {{ GP }} cluster settings in {{ mgp-full-name }}
+description: Follow this guide to change {{ GP }} cluster settings.
 ---
 
 # Updating {{ GP }} cluster settings
@@ -158,7 +158,7 @@ If you enabled public access to the cluster but cannot access it from the inter
 
          You cannot disable this option after you save your cluster settings.
 
-         
+
          {% note info %}
 
          This feature is at the [Preview](../../overview/concepts/launch-stages.md) stage and is free of charge.
@@ -189,7 +189,7 @@ If you enabled public access to the cluster but cannot access it from the inter
    1. Run the following command with a list of settings to update:
 
 
-      
+
       ```bash
       {{ yc-mdb-gp }} cluster update <cluster_name_or_ID> \
           --backup-window-start <backup_start_time> \
@@ -375,7 +375,7 @@ We recommend changing the host class only when the cluster has no active workloa
          {{ yc-mdb-gp }} resource-preset list segment
          ```
 
-      
+
       ```text
       +-------------+--------------------------------+--------------------------------+-------+----------+--------------------+---------------------+
       |     ID      |            ZONE IDS            |           DISK TYPES           | CORES |  MEMORY  | HOST COUNT DIVIDER | MAX SEGMENT IN HOST |

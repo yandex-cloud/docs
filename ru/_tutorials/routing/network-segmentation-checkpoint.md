@@ -226,7 +226,7 @@
    1. Скачайте файл `terraform_1.3.9_linux_amd64.zip` с официального сайта, выполнив команду:
 
       ```bash
-      curl -LO https://hashicorp-releases.yandexcloud.net/terraform/1.3.9/terraform_1.3.9_linux_amd64.zip
+      curl --location --remote-name https://hashicorp-releases.yandexcloud.net/terraform/1.3.9/terraform_1.3.9_linux_amd64.zip
       ```
 
    1. Установите утилиту `zip` и распакуйте zip-архив:

@@ -1,5 +1,5 @@
 ---
-canonical: "{{ link-docs }}/tutorials/security/tls-termination-console"
+canonical: '{{ link-docs }}/tutorials/security/tls-termination-console'
 ---
 
 # Terminating TLS connections using the management console

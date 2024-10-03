@@ -1,7 +1,6 @@
 # Resolving issues with network connection speed when accessing cloud resources
 
 
-
 ## Issue description {#issue-description}
 
 * Slow network subsystem performance on cloud resources.

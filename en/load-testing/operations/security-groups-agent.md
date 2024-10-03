@@ -1,6 +1,6 @@
 ---
-title: "How to configure test agent security groups"
-description: "This guide describes how you can configure test agent security groups."
+title: How to configure test agent security groups
+description: This guide describes how you can configure test agent security groups.
 ---
 
 # Configuring test agent security groups

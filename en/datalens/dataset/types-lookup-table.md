@@ -1,6 +1,6 @@
 ---
-title: "Data type mapping table"
-description: "When you create a dataset, {{ datalens-short-name }} converts the source data to its own type for streamlined data processing. This helps {{ datalens-short-name }} unify operations with data from different sources."
+title: Data type mapping table
+description: When you create a dataset, {{ datalens-short-name }} converts the source data to its own type for streamlined data processing. This helps {{ datalens-short-name }} unify operations with data from different sources.
 ---
 
 # Data type mapping table

@@ -1,6 +1,6 @@
 ---
-title: "Пошаговые инструкции для {{ cloud-desktop-full-name }}"
-description: "На странице представлен список пошаговых инструкций для {{ cloud-desktop-name }}."
+title: Пошаговые инструкции для {{ cloud-desktop-full-name }}
+description: На странице представлен список пошаговых инструкций для {{ cloud-desktop-name }}.
 ---
 
 # Пошаговые инструкции для {{ cloud-desktop-name }}

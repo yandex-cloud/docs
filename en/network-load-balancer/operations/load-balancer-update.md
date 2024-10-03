@@ -1,6 +1,6 @@
 ---
-title: "Changing network load balancer settings"
-description: "Follow this guide to change network load balancer settings."
+title: Changing network load balancer settings
+description: Follow this guide to change network load balancer settings.
 ---
 
 # Changing network load balancer settings

@@ -1,6 +1,6 @@
 ---
-title: "How to delete custom certificates in {{ certificate-manager-full-name }}"
-description: "Follow this guide to delete a custom certificate."
+title: How to delete custom certificates in {{ certificate-manager-full-name }}
+description: Follow this guide to delete a custom certificate.
 ---
 
 # Deleting a custom certificate

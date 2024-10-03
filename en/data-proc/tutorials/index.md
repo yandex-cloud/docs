@@ -1,6 +1,6 @@
 ---
-title: "Tutorials for {{ dataproc-full-name }}"
-description: "Various {{ dataproc-full-name }} use cases in {{ yandex-cloud }}."
+title: Tutorials for {{ dataproc-full-name }}
+description: Various {{ dataproc-full-name }} use cases in {{ yandex-cloud }}.
 ---
 
 # Tutorials for {{ dataproc-name }}

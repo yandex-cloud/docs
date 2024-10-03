@@ -115,8 +115,13 @@
   1. Получите {{ iam-name }}-токен из метаданных в формате Google Compute Engine:
 
      ```bash
-     curl -H Metadata-Flavor:Google http://169.254.169.254/computeMetadata/v1/instance/service-accounts/default/token
+     curl \
+       --header Metadata-Flavor:Google http://169.254.169.254/computeMetadata/v1/instance/service-accounts/default/token
+     ```
 
+     Результат:
+
+     ```
      {"access_token":"CggVAgAAA...","expires_in":39944,"token_type":"Bearer"}
      ```
 

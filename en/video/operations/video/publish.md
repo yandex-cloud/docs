@@ -1,6 +1,6 @@
 ---
-title: "How to publish a video in {{ video-full-name }}"
-description: "Follow this guide to publish a video uploaded to {{ video-full-name }} and check its availability."
+title: How to publish a video in {{ video-full-name }}
+description: Follow this guide to publish a video uploaded to {{ video-full-name }} and check its availability.
 ---
 
 # Publishing a video

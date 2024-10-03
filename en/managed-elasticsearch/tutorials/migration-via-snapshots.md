@@ -1,6 +1,6 @@
 ---
-title: "Migration to {{ mes-name }} using snapshots"
-description: "{{ mes-name }} clusters support the snapshot mechanism. This allows you to migrate data from another {{ ES }} cluster to them. For more information about snapshots, see the {{ ES }} documentation."
+title: Migration to {{ mes-name }} using snapshots
+description: '{{ mes-name }} clusters support the snapshot mechanism. This allows you to migrate data from another {{ ES }} cluster to them. For more information about snapshots, see the {{ ES }} documentation.'
 ---
 
 # Migrating to {{ mes-name }} using snapshots

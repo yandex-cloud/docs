@@ -1,6 +1,6 @@
 ---
-title: "Cloud computing. FAQ"
-description: "What is cloud computing used for? {{ yandex-cloud }} provides scalable cloud computing capacity: you can quickly create and start VMs on demand and stop them when the load decreases. By using cloud resources, you reduce your IT infrastructure costs because you pay only for actually consumed resources."
+title: Cloud computing. FAQ
+description: 'What is cloud computing used for? {{ yandex-cloud }} provides scalable cloud computing capacity: you can quickly create and start VMs on demand and stop them when the load decreases. By using cloud resources, you reduce your IT infrastructure costs because you pay only for actually consumed resources.'
 ---
 
 # General questions about {{ compute-name }}

@@ -1,7 +1,6 @@
 # Права доступа
 
 
-
 ### Как добавить пользователя и отправить ему ссылку на дашборд? {#how-add-user-send-ref}
 
 Чтобы другой пользователь мог открыть ваш дашборд, настройте доступ к {{ datalens-full-name }}:
@@ -30,5 +29,5 @@
 {% include [copy-into-folder](../../_qa/datalens/copy-into-folder.md) %}
 
 {% include [revoke-token.md](../../_qa/datalens/revoke-token.md) %}
-
+
 

@@ -1,6 +1,6 @@
 ---
-title: "История изменений в {{ video-full-name }}"
-description: "В разделе представлена история изменений сервиса {{ video-name }}."
+title: История изменений в {{ video-full-name }}
+description: В разделе представлена история изменений сервиса {{ video-name }}.
 ---
 
 # История изменений в {{ video-full-name }}

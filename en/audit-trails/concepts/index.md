@@ -1,6 +1,6 @@
 ---
-title: "{{ at-full-name }}. Overview"
-description: "{{ at-full-name }} lets you collect audit logs about {{ yandex-cloud }} resource events and upload them for further analysis and export."
+title: '{{ at-full-name }}. Overview'
+description: '{{ at-full-name }} lets you collect audit logs about {{ yandex-cloud }} resource events and upload them for further analysis and export.'
 ---
 
 # {{ at-full-name }} overview

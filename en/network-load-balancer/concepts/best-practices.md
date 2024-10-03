@@ -1,6 +1,6 @@
 ---
-title: "Recommendations for using {{ network-load-balancer-full-name }}"
-description: "This page provides recommendations for using {{ network-load-balancer-name }}."
+title: Recommendations for using {{ network-load-balancer-full-name }}
+description: This page provides recommendations for using {{ network-load-balancer-name }}.
 ---
 
 # Recommendations for use

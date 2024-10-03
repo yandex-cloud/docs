@@ -1,7 +1,6 @@
 # How to get an original of the contract
 
 
-
 ## Scenario description {#case-description}
 
 You need to obtain the original copy of your contract with Yandex Cloud, stamped and signed.

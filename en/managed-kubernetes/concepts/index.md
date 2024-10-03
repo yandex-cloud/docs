@@ -1,6 +1,6 @@
 ---
-title: "Resource relationships in {{ k8s }}"
-description: "The main entity {{ k8s }} operates is a {{ k8s }} cluster. {{ k8s }} clusters consist of a master and one or more node groups. The master is responsible for managing the {{ k8s }} cluster. Containerized user applications run on nodes."
+title: Resource relationships in {{ k8s }}
+description: The main entity {{ k8s }} operates is a {{ k8s }} cluster. {{ k8s }} clusters consist of a master and one or more node groups. The master is responsible for managing the {{ k8s }} cluster. Containerized user applications run on nodes.
 ---
 
 # Resource relationships in {{ managed-k8s-name }}
@@ -137,7 +137,7 @@ _Node labels_ is a mechanism for grouping nodes in {{ managed-k8s-name }}. There
 
 You can use both types of labels at the same time, e.g., when [creating a node group](../operations/node-group/node-group-create.md) in the CLI or {{ TF }}.
 
-You can use the [{{ managed-k8s-name }} API](../api-ref/index.md) and [{{ k8s }} API]({{ k8s-docs }}/concepts/overview/kubernetes-api) for {{ k8s }} label management. Things to consider:
+You can use the [{{ managed-k8s-name }} API](../managed-kubernetes/api-ref/index.md) and [{{ k8s }} API]({{ k8s-docs }}/concepts/overview/kubernetes-api) for {{ k8s }} label management. Things to consider:
 
 * {{ k8s }} labels added via the {{ k8s }} API may be lost because, when [updating or modifying a node group](../operations/node-group/node-group-update.md), some nodes are recreated with different names and some of the old ones are deleted.
 * If {{ k8s }} labels are created via the {{ managed-k8s-name }} API, you cannot delete them using the {{ k8s }} API. Otherwise, the labels will be restored once they are deleted.

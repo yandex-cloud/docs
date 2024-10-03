@@ -1,6 +1,6 @@
 ---
-title: "Working with an API gateway using WebSocket in {{ api-gw-full-name }}"
-description: "In this tutorial, you will learn how to with an API gateway using the WebSocket protocol in {{ api-gw-name }}."
+title: Working with an API gateway using WebSocket in {{ api-gw-full-name }}
+description: In this tutorial, you will learn how to with an API gateway using the WebSocket protocol in {{ api-gw-name }}.
 ---
 
 # Communicating with an API gateway using the WebSocket protocol

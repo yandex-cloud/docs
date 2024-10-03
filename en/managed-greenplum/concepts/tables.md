@@ -1,6 +1,6 @@
 ---
-title: "Types of data storage in a {{ GP }} cluster in {{ mgp-full-name }}"
-description: "{{ GP }} enables you to use two types of table data storage: heap storage and append-optimized storage."
+title: Types of data storage in a {{ GP }} cluster in {{ mgp-full-name }}
+description: '{{ GP }} enables you to use two types of table data storage: heap storage and append-optimized storage.'
 ---
 
 # Types of data storage in {{ GP }}

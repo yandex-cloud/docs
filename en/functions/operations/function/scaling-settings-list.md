@@ -1,6 +1,6 @@
 ---
-title: "Viewing function scaling settings"
-description: "Follow this guide to view function scaling settings."
+title: Viewing function scaling settings
+description: Follow this guide to view function scaling settings.
 ---
 
 # Viewing function scaling settings
@@ -34,7 +34,7 @@ description: "Follow this guide to view function scaling settings."
 
     Result:
 
-    
+
     ```text
     +----------------------+---------+----------------------+---------------------+-----------------------------+
     |     FUNCTION ID      |   TAG   | ZONE INSTANCES LIMIT | ZONE REQUESTS LIMIT | PROVISIONED INSTANCES COUNT |

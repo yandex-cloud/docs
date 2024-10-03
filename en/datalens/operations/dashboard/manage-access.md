@@ -1,6 +1,6 @@
 ---
-title: "How to configure permissions to a dashboard in {{ datalens-full-name }}"
-description: "Follow this guide to configure permissions to a dashboard."
+title: How to configure permissions to a dashboard in {{ datalens-full-name }}
+description: Follow this guide to configure permissions to a dashboard.
 ---
 
 # Managing dashboard access

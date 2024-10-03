@@ -1,6 +1,6 @@
 ---
-title: "Как импортировать связи"
-description: "В данной статье описаны особенности импорта связей."
+title: Как импортировать связи
+description: В данной статье описаны особенности импорта связей.
 sourcePath: ru/tracker/api-ref/concepts/import/import-links.md
 ---
 

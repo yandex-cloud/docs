@@ -1,5 +1,5 @@
 ---
-canonical: "{{ link-docs }}/tutorials/dataplatform/data-transfer-mpg"
+canonical: '{{ link-docs }}/tutorials/dataplatform/data-transfer-mpg'
 ---
 
 # Поставка данных из {{ mpg-full-name }} с помощью {{ data-transfer-full-name }}

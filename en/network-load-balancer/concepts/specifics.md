@@ -1,6 +1,6 @@
 ---
-title: "Implementation specifics"
-description: "In this tutorial, you will learn about the implementation of a network load balancer in {{ yandex-cloud }}: the operation algorithm of the external load balancer, handling of UDP traffic, traffic routing through the internal load balancer, etc."
+title: Implementation specifics
+description: 'In this tutorial, you will learn about the implementation of a network load balancer in {{ yandex-cloud }}: the operation algorithm of the external load balancer, handling of UDP traffic, traffic routing through the internal load balancer, etc.'
 ---
 
 # Implementation specifics

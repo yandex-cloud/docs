@@ -43,7 +43,7 @@ The following steps describe how to create a [cloud network](../vpc/concepts/net
 
 1. In the `my-yc-network` cloud network, create a subnet:
 
-   
+
    ```bash
    yc vpc subnet create \
      --name my-yc-subnet-a \
@@ -100,7 +100,7 @@ The following steps describe how to create a [cloud network](../vpc/concepts/net
    1. [Prepare](../compute/operations/vm-connect/ssh.md#creating-ssh-keys) a key pair (public and private keys) for SSH access to the VM.
    1. Create a Linux VM:
 
-      
+
       ```bash
       yc compute instance create \
         --name my-yc-instance \

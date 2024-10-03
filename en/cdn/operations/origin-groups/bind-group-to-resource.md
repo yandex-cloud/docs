@@ -143,7 +143,7 @@ To connect an [origin group](../../concepts/origins.md#groups) to a [resource](.
 
       Here is an example of the configuration file structure:
 
-      
+
       ```
       provider "yandex" {
         token     = "<OAuth_token>"

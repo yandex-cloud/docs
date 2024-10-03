@@ -1,6 +1,6 @@
 ---
-title: "Service accounts"
-description: "A service account is an account that can be used by a program to manage resources in {{ yandex-cloud }}."
+title: Service accounts
+description: A service account is an account that can be used by a program to manage resources in {{ yandex-cloud }}.
 ---
 
 # Service accounts

@@ -1,6 +1,6 @@
 ---
-title: "How to leave an organization in {{ org-full-name }}"
-description: "Follow this guide to leave an organization."
+title: How to leave an organization in {{ org-full-name }}
+description: Follow this guide to leave an organization.
 ---
 
 # Leaving an organization

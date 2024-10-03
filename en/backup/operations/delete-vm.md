@@ -1,6 +1,6 @@
 ---
-title: "How to delete a VM from {{ backup-full-name }}"
-description: "Follow this guide to delete a VM from {{ backup-name }}."
+title: How to delete a VM from {{ backup-full-name }}
+description: Follow this guide to delete a VM from {{ backup-name }}.
 ---
 
 # Deleting a VM from {{ backup-name }}

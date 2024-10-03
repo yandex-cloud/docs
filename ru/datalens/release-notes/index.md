@@ -1,6 +1,6 @@
 ---
-title: "История изменений в {{ datalens-full-name }} в августе 2024"
-description: "Ознакомьтесь с историей изменений в {{ datalens-full-name }} за август 2024."
+title: История изменений в {{ datalens-full-name }} в августе 2024
+description: Ознакомьтесь с историей изменений в {{ datalens-full-name }} за август 2024.
 ---
 
 # История изменений в {{ datalens-full-name }} в августе 2024

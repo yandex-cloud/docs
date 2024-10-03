@@ -1,6 +1,6 @@
 ---
-title: "Quotas and limits in {{ video-full-name }}"
-description: "{{ video-full-name }} has a number of quotas and limits. For more information about the service restrictions, read this article."
+title: Quotas and limits in {{ video-full-name }}
+description: '{{ video-full-name }} has a number of quotas and limits. For more information about the service restrictions, read this article.'
 editable: false
 ---
 

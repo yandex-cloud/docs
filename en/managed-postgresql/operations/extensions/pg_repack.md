@@ -1,6 +1,6 @@
 ---
-title: "How to use pg_repack in {{ mpg-name }}"
-description: "This guide describes how to install pg_repack and its client with an example of how to use the extension."
+title: How to use pg_repack in {{ mpg-name }}
+description: This guide describes how to install pg_repack and its client with an example of how to use the extension.
 ---
 
 # Using pg_repack in {{ mpg-name }}

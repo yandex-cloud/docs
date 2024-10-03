@@ -1,6 +1,6 @@
 ---
-title: "How to create a Linux VM with a connection to {{ backup-full-name }}"
-description: "Follow this guide to create a Linux VM with a connection to {{ backup-name }}."
+title: How to create a Linux VM with a connection to {{ backup-full-name }}
+description: Follow this guide to create a Linux VM with a connection to {{ backup-name }}.
 ---
 
 # Creating a Linux VM with a connection to {{ backup-name }}

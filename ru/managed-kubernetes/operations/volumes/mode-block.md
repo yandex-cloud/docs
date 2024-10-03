@@ -13,7 +13,7 @@
 
    Сохраните следующую спецификацию для создания объекта [PersistentVolumeClaim](dynamic-create-pv.md) в YAML-файл с названием `pvc-block.yaml`.
 
-   
+
    {% note info %}
 
    Если не указать параметр `storageClassName`, будет использован класс хранилищ по умолчанию: `yc-network-hdd`. Как изменить класс по умолчанию читайте в разделе [{#T}](manage-storage-class.md#sc-default).
@@ -24,7 +24,7 @@
 
    Подробнее о спецификации для создания объекта `PersistentVolumeClaim` читайте в [документации {{ k8s }}](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-claim-v1/).
 
-   
+
    ```yaml
    apiVersion: v1
    kind: PersistentVolumeClaim

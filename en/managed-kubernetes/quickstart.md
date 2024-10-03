@@ -1,6 +1,6 @@
 ---
-title: "Getting started with managed {{ k8s }}"
-description: "In this tutorial, you will create a {{ managed-k8s-name }} cluster and node group and learn how to manage them using kubectl, the {{ k8s }} command line interface. To get started, create a {{ managed-k8s-name }} cluster, add credentials to the kubectl configuration file, and create a node group."
+title: Getting started with managed {{ k8s }}
+description: In this tutorial, you will create a {{ managed-k8s-name }} cluster and node group and learn how to manage them using kubectl, the {{ k8s }} command line interface. To get started, create a {{ managed-k8s-name }} cluster, add credentials to the kubectl configuration file, and create a node group.
 ---
 
 # Getting started with {{ managed-k8s-name }}

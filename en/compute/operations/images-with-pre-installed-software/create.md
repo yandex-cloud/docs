@@ -1,6 +1,6 @@
 ---
-title: "How to create a VM from a public image in {{ compute-full-name }}"
-description: "Follow this guide to create a VM from a public image."
+title: How to create a VM from a public image in {{ compute-full-name }}
+description: Follow this guide to create a VM from a public image.
 ---
 
 # Creating a VM from a public image
@@ -26,7 +26,7 @@ To create a [VM](../../concepts/vm.md):
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select a public [image](../../concepts/image.md) with the software you want to use.
    1. (Optional) If you want to add more [disks](../../concepts/disk.md) to the VM, [select them](../vm-create/create-from-disks.md) under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** by clicking the **{{ ui-key.yacloud.compute.instances.create.section_disk }}** tab.
 
-   
+
    1. (Optional) If you want to add more [file stores](../../concepts/filesystem.md) to the VM, add them under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** by clicking the **{{ ui-key.yacloud.compute.nfs.label_filesystems }}** tab. [Create](../filesystem/create.md) the storages first.
 
 

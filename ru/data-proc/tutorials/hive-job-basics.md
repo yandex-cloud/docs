@@ -23,7 +23,7 @@
 
 1. В бакете для исходных данных [создайте папку](../../storage/operations/objects/upload.md) `cities` и загрузите в нее файл для обработки `cities.csv`:
 
-    
+
     {% cut "cities.csv" %}
 
     ```text

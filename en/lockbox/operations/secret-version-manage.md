@@ -1,6 +1,6 @@
 ---
-title: "How to manage secret versions in {{ lockbox-full-name }}"
-description: "Follow this guide to manage secret versions."
+title: How to manage secret versions in {{ lockbox-full-name }}
+description: Follow this guide to manage secret versions.
 ---
 
 # Secret version management

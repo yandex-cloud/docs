@@ -35,8 +35,11 @@
   **Пример запроса для REST API**
 
   ```bash
-  curl -X POST -H "Authorization: Bearer <IAM-токен>" \
-    -d '{"delete":["<имя_SSH-ключа>"]}' https://compute.{{ api-host }}/compute/v1/instances/<идентификатор_ВМ>/updateMetadata
+  curl \
+    --request POST \
+    --header "Authorization: Bearer <IAM-токен>" \
+    --data '{"delete":["<имя_SSH-ключа>"]}' \
+    https://compute.{{ api-host }}/compute/v1/instances/<идентификатор_ВМ>/updateMetadata
   ```
 
 {% endlist %}

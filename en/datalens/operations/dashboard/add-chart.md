@@ -1,6 +1,6 @@
 ---
-title: "How to add a chart to a dashboard in {{ datalens-full-name }}"
-description: "Follow this guide to add a chart to a dashboard."
+title: How to add a chart to a dashboard in {{ datalens-full-name }}
+description: Follow this guide to add a chart to a dashboard.
 ---
 
 # Adding a chart to a dashboard

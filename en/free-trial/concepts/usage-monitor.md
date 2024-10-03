@@ -1,6 +1,6 @@
 ---
-title: "Monitoring resource usage during the trial period"
-description: "You can use the grant to pay for {{ yandex-cloud }} services. The grant terms of use differ for individual and business accounts."
+title: Monitoring resource usage during the trial period
+description: You can use the grant to pay for {{ yandex-cloud }} services. The grant terms of use differ for individual and business accounts.
 ---
 
 # Monitoring resource usage during the trial period

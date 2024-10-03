@@ -1,6 +1,6 @@
 ---
-title: "Tutorial on uploading a certificate chain and private key to {{ certificate-manager-full-name }}"
-description: "In this tutorial, you'll learn how to upload a certificate chain and private key to {{ certificate-manager-full-name }} to use them for your own purposes."
+title: Tutorial on uploading a certificate chain and private key to {{ certificate-manager-full-name }}
+description: In this tutorial, you'll learn how to upload a certificate chain and private key to {{ certificate-manager-full-name }} to use them for your own purposes.
 ---
 
 

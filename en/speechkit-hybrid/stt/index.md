@@ -1,6 +1,6 @@
 ---
-title: "Getting started with speech recognition in {{ speechkit-full-name }}"
-description: "In this tutorial, you will learn how to get started with speech recognition in {{ speechkit-name }}."
+title: Getting started with speech recognition in {{ speechkit-full-name }}
+description: In this tutorial, you will learn how to get started with speech recognition in {{ speechkit-name }}.
 ---
 
 # Speech recognition

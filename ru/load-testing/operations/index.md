@@ -1,6 +1,6 @@
 ---
-title: "Инструкции по работе с {{ load-testing-full-name }}"
-description: "Из статьи вы узнаете, как работать с {{ load-testing-full-name }} в {{ yandex-cloud }}."
+title: Инструкции по работе с {{ load-testing-full-name }}
+description: Из статьи вы узнаете, как работать с {{ load-testing-full-name }} в {{ yandex-cloud }}.
 ---
 
 # Пошаговые инструкции для {{ load-testing-name }}

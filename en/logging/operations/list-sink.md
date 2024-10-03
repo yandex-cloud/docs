@@ -1,6 +1,6 @@
 ---
-title: "How to get a list of sinks in {{ cloud-logging-full-name }}"
-description: "Follow this guide to get a list of sinks."
+title: How to get a list of sinks in {{ cloud-logging-full-name }}
+description: Follow this guide to get a list of sinks.
 ---
 
 # Getting a list of sinks

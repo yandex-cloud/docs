@@ -1,7 +1,6 @@
 # Recovering access to a VM with a lost SSH key
 
 
-
 ## Issue description {#issue-description}
 
 * The SSH key used to connect to the VM instance is lost.

@@ -1,6 +1,6 @@
 ---
-title: "How to connect a {{ sws-full-name }} profile to a virtual host"
-description: "Follow this guide to connect a {{ sws-full-name }} profile to a virtual host."
+title: How to connect a {{ sws-full-name }} profile to a virtual host
+description: Follow this guide to connect a {{ sws-full-name }} profile to a virtual host.
 ---
 
 # Connecting a security profile to a virtual host

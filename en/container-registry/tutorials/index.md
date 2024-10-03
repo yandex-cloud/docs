@@ -1,6 +1,6 @@
 ---
-title: "{{ container-registry-full-name }} use cases"
-description: "Various {{ container-registry-full-name }} use cases in {{ yandex-cloud }}. Running a Docker image on a VM."
+title: '{{ container-registry-full-name }} use cases'
+description: Various {{ container-registry-full-name }} use cases in {{ yandex-cloud }}. Running a Docker image on a VM.
 ---
 
 # {{ container-registry-name }} tutorials

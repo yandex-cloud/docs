@@ -1,6 +1,6 @@
 ---
-title: "What S3 API methods can be used to manage bucket configurations for a static web hosting in {{ objstorage-full-name }}"
-description: "In this tutorial, you will learn what S3 API methods can be used to manage bucket configurations for a static web hosting."
+title: What S3 API methods can be used to manage bucket configurations for a static web hosting in {{ objstorage-full-name }}
+description: In this tutorial, you will learn what S3 API methods can be used to manage bucket configurations for a static web hosting.
 ---
 
 # All Static Website Hosting methods

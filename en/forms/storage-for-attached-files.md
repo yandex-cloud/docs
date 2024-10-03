@@ -1,6 +1,6 @@
 ---
-title: "How to save attached files from responses in {{ forms-full-name }} to a storage"
-description: "Follow this guide to save attached files from responses to a storage."
+title: How to save attached files from responses in {{ forms-full-name }} to a storage
+description: Follow this guide to save attached files from responses to a storage.
 ---
 
 # Saving attached files from responses to a storage

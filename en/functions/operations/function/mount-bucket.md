@@ -1,6 +1,6 @@
 ---
-title: "Mounting a bucket to a function"
-description: "Follow this guide to mount a bucket to a function."
+title: Mounting a bucket to a function
+description: Follow this guide to mount a bucket to a function.
 ---
 
 # Mounting a bucket to a function

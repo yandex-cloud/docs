@@ -1,6 +1,6 @@
 ---
-title: "How to add a broadcast to a playlist in {{ video-full-name }}"
-description: "Follow this guide to add a broadcast to a playlist in {{ video-name }}."
+title: How to add a broadcast to a playlist in {{ video-full-name }}
+description: Follow this guide to add a broadcast to a playlist in {{ video-name }}.
 ---
 
 # Adding a completed broadcast to a playlist

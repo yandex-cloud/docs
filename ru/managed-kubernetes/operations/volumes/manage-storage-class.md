@@ -42,7 +42,7 @@ _Класс хранилищ_ (`StorageClass`) предоставляет адм
 
    Подробнее про [формат спецификации для создания класса хранилищ](#sc-spec).
 
-   
+
    ```yaml
    kind: StorageClass
    apiVersion: storage.k8s.io/v1
@@ -61,7 +61,7 @@ _Класс хранилищ_ (`StorageClass`) предоставляет адм
 
 1. Выполните команду:
 
-   
+
    ```bash
    kubectl create -f my-sc-hdd.yaml
    ```
@@ -70,7 +70,7 @@ _Класс хранилищ_ (`StorageClass`) предоставляет адм
 
    Результат:
 
-   
+
    ```text
    storageclass.storage.k8s.io/my-sc-hdd created
    ```
@@ -85,7 +85,7 @@ _Класс хранилищ_ (`StorageClass`) предоставляет адм
 
    Результат:
 
-   
+
    ```text
    NAME                      PROVISIONER                    AGE
    my-sc-hdd                 disk-csi-driver.mks.ycloud.io  76s

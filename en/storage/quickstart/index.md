@@ -1,6 +1,6 @@
 ---
-title: "How to get started with {{ objstorage-full-name }}"
-description: "Follow this guide to create a bucket and upload an object to it."
+title: How to get started with {{ objstorage-full-name }}
+description: Follow this guide to create a bucket and upload an object to it.
 ---
 
 # Getting started with {{ objstorage-full-name }}

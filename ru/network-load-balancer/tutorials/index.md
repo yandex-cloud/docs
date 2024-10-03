@@ -1,6 +1,6 @@
 ---
-title: "Сценарии использования {{ network-load-balancer-full-name }}"
-description: "Различные сценарии использования {{ network-load-balancer-full-name }} в {{ yandex-cloud }}."
+title: Сценарии использования {{ network-load-balancer-full-name }}
+description: Различные сценарии использования {{ network-load-balancer-full-name }} в {{ yandex-cloud }}.
 ---
 
 # Практические руководства {{ network-load-balancer-name }}

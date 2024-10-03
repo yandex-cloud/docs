@@ -1,6 +1,6 @@
 ---
-title: "Operations on transfers in {{ data-transfer-full-name }}"
-description: "An operation is an action performed on a transfer that can be initiated by users, the transfer itself, or {{ yandex-cloud }} administrators."
+title: Operations on transfers in {{ data-transfer-full-name }}
+description: An operation is an action performed on a transfer that can be initiated by users, the transfer itself, or {{ yandex-cloud }} administrators.
 ---
 
 # Operations on transfers

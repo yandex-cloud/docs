@@ -1,6 +1,6 @@
 ---
-title: "Managing {{ OS }} backups (snapshots)"
-description: "{{ mos-name }} enables you to use the {{ OS }} snapshot mechanism to manage your data backups. To work with snapshots, use the {{ OS }} public API and a bucket in {{ objstorage-name }} to store them."
+title: Managing {{ OS }} backups (snapshots)
+description: '{{ mos-name }} enables you to use the {{ OS }} snapshot mechanism to manage your data backups. To work with snapshots, use the {{ OS }} public API and a bucket in {{ objstorage-name }} to store them.'
 keywords:
   - OpenSearch backups
   - OpenSearch snapshots

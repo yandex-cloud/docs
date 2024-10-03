@@ -1,6 +1,6 @@
 ---
-title: "How to update HTTP router parameters in {{ alb-full-name }}"
-description: "Follow this guide to update parameters of an HTTP router."
+title: How to update HTTP router parameters in {{ alb-full-name }}
+description: Follow this guide to update parameters of an HTTP router.
 ---
 
 # Updating HTTP router parameters
@@ -39,7 +39,7 @@ To update the HTTP router parameters:
 
       Result:
 
-      
+
       ```text
       id: a5dld80l32ed********
       name: new-http-router

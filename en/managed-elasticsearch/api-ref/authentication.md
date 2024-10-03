@@ -1,6 +1,6 @@
 ---
-title: "Authentication in the {{ mes-full-name }} API"
-description: "To perform operations via the API in {{ mes-full-name }}, a service for {{ ES }} cluster creation and management, get an IAM token for your account."
+title: Authentication in the {{ mes-full-name }} API
+description: To perform operations via the API in {{ mes-full-name }}, a service for {{ ES }} cluster creation and management, get an IAM token for your account.
 ---
 
 # Authentication in the {{ mes-name }} API

@@ -1,6 +1,6 @@
 ---
-title: "Reference for {{ dataproc-full-name }} metrics in {{ monitoring-full-name }}"
-description: "This pageprovides reference information on {{ dataproc-name }} metrics delivered to {{ monitoring-full-name }}."
+title: Reference for {{ dataproc-full-name }} metrics in {{ monitoring-full-name }}
+description: This pageprovides reference information on {{ dataproc-name }} metrics delivered to {{ monitoring-full-name }}.
 ---
 
 # {{ monitoring-full-name }} metric reference

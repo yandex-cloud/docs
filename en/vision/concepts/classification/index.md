@@ -1,5 +1,5 @@
 ---
-description: "Image classification enables you to see whether an image matches a certain property (for instance, contains adult content). This can reduce the cost of manual moderation because you will be able to ban such images automatically."
+description: Image classification enables you to see whether an image matches a certain property (for instance, contains adult content). This can reduce the cost of manual moderation because you will be able to ban such images automatically.
 noIndex: true
 keywords:
   - image classification

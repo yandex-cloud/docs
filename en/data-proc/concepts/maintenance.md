@@ -1,6 +1,6 @@
 ---
-title: "{{ dataproc-full-name }} maintenance"
-description: "In this tutorial, you will learn what {{ dataproc-name }} maintenance includes and how it is carried out."
+title: '{{ dataproc-full-name }} maintenance'
+description: In this tutorial, you will learn what {{ dataproc-name }} maintenance includes and how it is carried out.
 ---
 
 # {{ dataproc-name }} maintenance

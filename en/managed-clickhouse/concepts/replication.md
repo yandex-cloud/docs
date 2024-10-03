@@ -1,6 +1,6 @@
 ---
-title: "Replication in {{ mch-full-name }}"
-description: "In this tutorial, you will learn how cluster host replication works in {{ mch-full-name }}."
+title: Replication in {{ mch-full-name }}
+description: In this tutorial, you will learn how cluster host replication works in {{ mch-full-name }}.
 ---
 
 # Replication in {{ mch-name }}

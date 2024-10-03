@@ -29,9 +29,9 @@ POST https://ocr.{{ api-host }}/ocr/v1/recognizeTextAsync
  
 Field | Description
 --- | ---
-mimeType | **string**<br><p>Specifications of the (<a href="https://en.wikipedia.org/wiki/Media_type">MIME type</a>). Each specification contains the file to analyze and features to use for analysis. Restrictions:</p> <ul> <li>Supported file formats: ``JPEG``, ``PNG``, ``PDF``.</li> <li>Maximum file size: 20 MB.</li> <li>Image size should not exceed 20M pixels (length x width).</li> <li>The number of pages in a PDF file should not exceed 200 (each page counts as 1 request).</li> </ul> 
-languageCodes[] | **string**<br><p>List of the languages to recognize text. Specified in <a href="https://en.wikipedia.org/wiki/ISO_639-1">ISO 639-1</a> format (for example, ``ru``).</p> 
-model | **string**<br><p>Model to use for text detection.</p> <p>The maximum string length in characters is 50.</p> 
+mimeType | **string**<br><p>Specifications of the (<a href="https://en.wikipedia.org/wiki/Media_type">MIME type</a>). Each specification contains the file to analyze and features to use for analysis. Restrictions:</p> <ul> <li>Supported file formats: ``JPEG``, ``PNG``, ``PDF``.</li> <li>Maximum file size: see <a href="/docs/vision/concepts/limits">documentation</a>.</li> <li>Image size should not exceed 20M pixels (length x width).</li> <li>The number of pages in a PDF file should not exceed 1.</li> </ul> 
+languageCodes[] | **string**<br><p><a href="/docs/vision/concepts/ocr/supported-languages">List of the languages</a> to recognize text. Specified in <a href="https://en.wikipedia.org/wiki/ISO_639-1">ISO 639-1</a> format (for example, ``ru``).</p> 
+model | **string**<br><p><a href="/docs/vision/concepts/ocr/template-recognition#models">Model</a> to use for text detection.</p> <p>The maximum string length in characters is 50.</p> 
 content | **string** (byte)<br><p>Bytes with data</p> 
  
 ## Response {#responses}

@@ -1,6 +1,6 @@
 ---
-title: "How to start, restart, and stop a desktop in {{ cloud-desktop-full-name }}"
-description: "In this tutorial, you will learn how to start, restart, and stop a desktop in {{ cloud-desktop-name }}."
+title: How to start, restart, and stop a desktop in {{ cloud-desktop-full-name }}
+description: In this tutorial, you will learn how to start, restart, and stop a desktop in {{ cloud-desktop-name }}.
 ---
 
 # Starting, restarting, and stopping a desktop

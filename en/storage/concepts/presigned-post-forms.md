@@ -1,6 +1,10 @@
 ---
-
-__system: {"dislikeVariants": ["There is no answer to my question","The recommendations did not help","The content is out of line with the title","Other"]}
+__system:
+  dislikeVariants:
+    - There is no answer to my question
+    - The recommendations did not help
+    - The content is out of line with the title
+    - Other
 ---
 # Uploading a file via an HTML form
 

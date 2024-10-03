@@ -1,5 +1,5 @@
 ---
-canonical: "{{ link-docs }}/tutorials/dataplatform/greenplum-yezzey"
+canonical: '{{ link-docs }}/tutorials/dataplatform/greenplum-yezzey'
 ---
 
 # Выгрузка данных {{ GP }} в холодное хранилище {{ objstorage-full-name }}

@@ -1,6 +1,6 @@
 ---
-title: "{{ coi }} use cases in {{ cos-full-name }}"
-description: "Various use cases for {{ coi }} in {{ yandex-cloud }}."
+title: '{{ coi }} use cases in {{ cos-full-name }}'
+description: Various use cases for {{ coi }} in {{ yandex-cloud }}.
 ---
 
 # All tutorials

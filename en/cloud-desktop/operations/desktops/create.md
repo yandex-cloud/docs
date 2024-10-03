@@ -1,6 +1,6 @@
 ---
-title: "How to create a desktop"
-description: "This guide describes how you can create a desktop."
+title: How to create a desktop
+description: This guide describes how you can create a desktop.
 ---
 
 # Creating a desktop

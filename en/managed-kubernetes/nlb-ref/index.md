@@ -1,6 +1,6 @@
 ---
-title: "{{ network-load-balancer-full-name }} tool reference for {{ managed-k8s-full-name }}"
-description: "This page contains a reference of {{ network-load-balancer-name }} tools for {{ managed-k8s-name }}."
+title: '{{ network-load-balancer-full-name }} tool reference for {{ managed-k8s-full-name }}'
+description: This page contains a reference of {{ network-load-balancer-name }} tools for {{ managed-k8s-name }}.
 noIndex: true
 ---
 

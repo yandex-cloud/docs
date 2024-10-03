@@ -1,6 +1,6 @@
 ---
-title: "Moving a security group to a different folder"
-description: "Follow this guide to move a security group to a different folder."
+title: Moving a security group to a different folder
+description: Follow this guide to move a security group to a different folder.
 ---
 
 # Moving a security group to a different folder

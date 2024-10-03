@@ -1,6 +1,6 @@
 ---
-title: "Maintenance in {{ mmy-full-name }}"
-description: "Maintenance in {{ mmy-name }} means automatic installation of MySQL updates and fixes for your database hosts (including disabled clusters), changes to the host class and storage size, and other maintenance activities."
+title: Maintenance in {{ mmy-full-name }}
+description: Maintenance in {{ mmy-name }} means automatic installation of MySQL updates and fixes for your database hosts (including disabled clusters), changes to the host class and storage size, and other maintenance activities.
 ---
 
 # Maintenance in {{ mmy-name }}

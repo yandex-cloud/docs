@@ -1,6 +1,6 @@
 ---
-title: "Решение проблем в {{ container-registry-full-name }}"
-description: "На странице приведены часто возникающие ошибки и способы их решения." 
+title: Решение проблем в {{ container-registry-full-name }}
+description: На странице приведены часто возникающие ошибки и способы их решения.
 ---
 
 # Решение проблем в {{ container-registry-name }}

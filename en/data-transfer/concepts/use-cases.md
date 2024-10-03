@@ -1,6 +1,6 @@
 ---
-title: "What tasks {{ data-transfer-full-name }} is used for"
-description: "In this tutorial, you will learn about {{ data-transfer-full-name }} use cases."
+title: What tasks {{ data-transfer-full-name }} is used for
+description: In this tutorial, you will learn about {{ data-transfer-full-name }} use cases.
 ---
 
 # What tasks {{ data-transfer-full-name }} is used for

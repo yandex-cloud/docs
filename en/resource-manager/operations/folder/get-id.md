@@ -1,6 +1,6 @@
 ---
-title: "How to get a folder ID in {{ yandex-cloud }}"
-description: "In this tutorial, you will learn how to get a folder ID in {{ yandex-cloud }}."
+title: How to get a folder ID in {{ yandex-cloud }}
+description: In this tutorial, you will learn how to get a folder ID in {{ yandex-cloud }}.
 ---
 
 # Getting the folder ID

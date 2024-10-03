@@ -1,6 +1,6 @@
 ---
-title: "{{ RD }} backups"
-description: "{{ mrd-short-name }} provides automatic and manual {{ RD }} database backups. A backup of all cluster data (an RDB snapshot) is automatically created every day. You can set the backup start time when creating or updating a {{ RD }} cluster."
+title: '{{ RD }} backups'
+description: '{{ mrd-short-name }} provides automatic and manual {{ RD }} database backups. A backup of all cluster data (an RDB snapshot) is automatically created every day. You can set the backup start time when creating or updating a {{ RD }} cluster.'
 keywords:
   - backup
   - database backup

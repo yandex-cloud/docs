@@ -1,5 +1,5 @@
 ---
-canonical: "{{ link-docs }}/tutorials/dataplatform/mpg-to-objstorage"
+canonical: '{{ link-docs }}/tutorials/dataplatform/mpg-to-objstorage'
 ---
 
 # Миграция базы данных из {{ mpg-full-name }} в {{ objstorage-full-name }}

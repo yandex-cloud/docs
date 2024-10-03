@@ -1,6 +1,6 @@
 ---
-title: "How to add a hierarchy"
-description: "Follow this guide to add a hierarchy."
+title: How to add a hierarchy
+description: Follow this guide to add a hierarchy.
 ---
 
 # Adding a hierarchy

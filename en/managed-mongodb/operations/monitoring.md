@@ -1,6 +1,6 @@
 ---
-title: "How to view detailed information about a {{ mmg-name }} cluster state"
-description: "Follow this guide to view detailed information about a {{ mmg-name }} cluster state."
+title: How to view detailed information about a {{ mmg-name }} cluster state
+description: Follow this guide to view detailed information about a {{ mmg-name }} cluster state.
 ---
 
 # Monitoring the state of {{ MG }} clusters and hosts

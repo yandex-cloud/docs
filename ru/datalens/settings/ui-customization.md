@@ -1,6 +1,6 @@
 ---
-title: "Стилизация интерфейса в {{ datalens-full-name }}"
-description: "Стилизация интерфейса в {{ datalens-full-name }} позволяет настроить внешний вид интерфейса сервиса."
+title: Стилизация интерфейса в {{ datalens-full-name }}
+description: Стилизация интерфейса в {{ datalens-full-name }} позволяет настроить внешний вид интерфейса сервиса.
 ---
 
 # Стилизация интерфейса в {{ datalens-full-name }}

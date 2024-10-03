@@ -1,6 +1,6 @@
 ---
-title: "Кластеры {{ metastore-full-name }}"
-description: "В сервисе {{ metadata-hub-full-name }} вы можете создавать кластеры {{ metastore-full-name }}."
+title: Кластеры {{ metastore-full-name }}
+description: В сервисе {{ metadata-hub-full-name }} вы можете создавать кластеры {{ metastore-full-name }}.
 ---
 
 # Кластеры {{ metastore-full-name }}

@@ -1,6 +1,6 @@
 ---
-title: "How to connect external nodes to a {{ managed-k8s-name }} cluster"
-description: "Follow this guide to connect external nodes to a {{ managed-k8s-name }} cluster."
+title: How to connect external nodes to a {{ managed-k8s-name }} cluster
+description: Follow this guide to connect external nodes to a {{ managed-k8s-name }} cluster.
 ---
 
 # Connecting external nodes to the cluster

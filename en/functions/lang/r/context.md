@@ -1,5 +1,5 @@
 ---
-title: "R function invocation context in {{ sf-full-name }}"
+title: R function invocation context in {{ sf-full-name }}
 ---
 
 # R function invocation context

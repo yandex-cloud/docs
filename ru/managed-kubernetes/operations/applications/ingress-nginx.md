@@ -1,6 +1,6 @@
 ---
-title: "Установка Ingress NGINX"
-description: "Узнайте, как установить приложение Ingress NGINX в кластере {{ managed-k8s-name }}."
+title: Установка Ingress NGINX
+description: Узнайте, как установить приложение Ingress NGINX в кластере {{ managed-k8s-name }}.
 ---
 
 # Установка Ingress NGINX

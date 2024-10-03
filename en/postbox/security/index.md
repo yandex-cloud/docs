@@ -1,6 +1,6 @@
 ---
-title: "Access management in {{ postbox-full-name }}"
-description: "Access management in {{ postbox-full-name }}, a transactional email service. To grant access to {{ postbox-full-name }} resources, assign relevant roles from the list to the user."
+title: Access management in {{ postbox-full-name }}
+description: Access management in {{ postbox-full-name }}, a transactional email service. To grant access to {{ postbox-full-name }} resources, assign relevant roles from the list to the user.
 ---
 
 # Access management in {{ postbox-full-name }}

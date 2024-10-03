@@ -1,6 +1,6 @@
 ---
-title: "How to set up {{ tracker-full-name }} for a development team"
-description: "Follow this guide to set up {{ tracker-full-name }} for your development team."
+title: How to set up {{ tracker-full-name }} for a development team
+description: Follow this guide to set up {{ tracker-full-name }} for your development team.
 ---
 
 # Setting up {{ tracker-name }} for a development team

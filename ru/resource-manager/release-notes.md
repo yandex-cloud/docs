@@ -1,6 +1,6 @@
 ---
-title: "История изменений в {{ resmgr-full-name }}"
-description: "В разделе представлена история изменений сервиса {{ resmgr-name }}."
+title: История изменений в {{ resmgr-full-name }}
+description: В разделе представлена история изменений сервиса {{ resmgr-name }}.
 ---
 
 # История изменений в {{ resmgr-full-name }}

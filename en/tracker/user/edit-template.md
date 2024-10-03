@@ -1,6 +1,6 @@
 ---
-title: "How to update a template in {{ tracker-full-name }}"
-description: "In this tutorial, you will learn how to update a template in {{ tracker-name }}."
+title: How to update a template in {{ tracker-full-name }}
+description: In this tutorial, you will learn how to update a template in {{ tracker-name }}.
 ---
 
 # Editing a template

@@ -11,7 +11,7 @@
 
 - Консоль управления {#console}
 
-    1. На странице [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) убедитесь, что [платежный аккаунт](../../../billing/concepts/billing-account.md) находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md#create_billing_account) или попросите вашего администратора назначить вам роль `billing.accounts.member` на платежный аккаунт.
+  1. На странице [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) убедитесь, что [платежный аккаунт](../../../billing/concepts/billing-account.md) находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md#create_billing_account) или попросите вашего администратора назначить вам роль `billing.accounts.member` на платежный аккаунт.
   1. Перейдите в сервис [{{ org-full-name }}]({{ link-org-main }}).
   1. На панели слева выберите раздел ![cloud](../../../_assets/console-icons/cloud.svg) [{{ ui-key.yacloud_org.pages.raw_services }}]({{ link-org-main }}/services).
   1. В блоке **{{ ui-key.yacloud_org.page.services.service.console.title_ru }}** нажмите кнопку ![cloud](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_org.page.services.clouds.create }}**.

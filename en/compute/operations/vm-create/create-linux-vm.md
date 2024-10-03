@@ -1,6 +1,6 @@
 ---
-title: "Creating a Linux VM from a public image"
-description: "Use this tutorial to create a Linux VM."
+title: Creating a Linux VM from a public image
+description: Use this tutorial to create a Linux VM.
 ---
 
 # Creating a VM from a public Linux image

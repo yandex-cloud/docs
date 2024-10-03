@@ -1,5 +1,5 @@
 ---
-canonical: "{{ link-docs }}/tutorials/serverless/java-servlet-todo-list"
+canonical: '{{ link-docs }}/tutorials/serverless/java-servlet-todo-list'
 ---
 
 # Развертывание веб-приложения с использованием Java Servlet API

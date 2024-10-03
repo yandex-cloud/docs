@@ -1,6 +1,6 @@
 ---
-title: "Monitoring the state of {{ CH }} clusters and hosts"
-description: "In this tutorial, you will learn how to monitor the state of {{ CH }} clusters and their hosts."
+title: Monitoring the state of {{ CH }} clusters and hosts
+description: In this tutorial, you will learn how to monitor the state of {{ CH }} clusters and their hosts.
 ---
 
 # Monitoring the state of {{ CH }} clusters and hosts

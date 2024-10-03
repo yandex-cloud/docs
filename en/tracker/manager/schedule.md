@@ -1,6 +1,6 @@
 ---
-title: "How to set up work schedules"
-description: "Follow this guide to set up work schedules."
+title: How to set up work schedules
+description: Follow this guide to set up work schedules.
 ---
 
 # Work schedule

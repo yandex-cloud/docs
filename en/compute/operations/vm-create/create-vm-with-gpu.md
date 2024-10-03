@@ -1,6 +1,6 @@
 ---
-title: "How to create a VM with a GPU"
-description: "Use this guide to create a VM with a GPU."
+title: How to create a VM with a GPU
+description: Use this guide to create a VM with a GPU.
 ---
 
 # Creating a VM with a GPU

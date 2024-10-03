@@ -1,6 +1,6 @@
 ---
-title: "Setting up variables for API gateway specifications"
-description: "Follow this guide to set up variables for API gateway specifications."
+title: Setting up variables for API gateway specifications
+description: Follow this guide to set up variables for API gateway specifications.
 ---
 
 # Setting up variables

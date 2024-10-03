@@ -1,6 +1,6 @@
 ---
-title: "Deleting a trigger label in {{ sf-name }}"
-description: "Follow this guide to delete a trigger label in {{ sf-name }}."
+title: Deleting a trigger label in {{ sf-name }}
+description: Follow this guide to delete a trigger label in {{ sf-name }}.
 ---
 
 # Deleting a trigger label in {{ sf-name }}

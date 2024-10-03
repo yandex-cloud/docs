@@ -1,6 +1,6 @@
 ---
-title: "Синтез речи по шаблонам в {{ brand-voice-cc-name }}"
-description: "Следуя данной инструкции, вы сможете выполнить синтез речи по шаблонам в {{ brand-voice-cc-name }}."
+title: Синтез речи по шаблонам в {{ brand-voice-cc-name }}
+description: Следуя данной инструкции, вы сможете выполнить синтез речи по шаблонам в {{ brand-voice-cc-name }}.
 ---
 
 # Синтез речи по шаблонам в {{ brand-voice-cc-name }}

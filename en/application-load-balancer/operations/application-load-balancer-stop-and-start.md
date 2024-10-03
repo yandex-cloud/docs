@@ -1,6 +1,6 @@
 ---
-title: "How to stop and restart an L7 load balancer in {{ alb-full-name }}"
-description: "In this tutorial, you will learn how to stop and restart an L7 load balancer in {{ alb-name }}."
+title: How to stop and restart an L7 load balancer in {{ alb-full-name }}
+description: In this tutorial, you will learn how to stop and restart an L7 load balancer in {{ alb-name }}.
 ---
 
 # Stopping and restarting an L7 load balancer
@@ -43,7 +43,7 @@ To stop an L7 load balancer:
 
       Result:
 
-      
+
       ```bash
       - id: ds79cfnvmti3********
         name: test-load-balancer
@@ -132,7 +132,7 @@ To start a load balancer:
 
       Result:
 
-      
+
       ```bash
       - id: ds79cfnvmti3********
         name: test-load-balancer

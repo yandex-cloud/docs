@@ -1,6 +1,6 @@
 ---
-title: "How to delete a backend group"
-description: "Follow this guide to delete a backend group."
+title: How to delete a backend group
+description: Follow this guide to delete a backend group.
 ---
 
 # Deleting a backend group

@@ -1,6 +1,6 @@
 ---
-title: "Viewing function monitoring charts in {{ sf-full-name }}"
-description: "You can view a monitoring chart in {{ sf-full-name }} using the management console. To do this, select {{ sf-name }} and click the function to view monitoring charts for."
+title: Viewing function monitoring charts in {{ sf-full-name }}
+description: You can view a monitoring chart in {{ sf-full-name }} using the management console. To do this, select {{ sf-name }} and click the function to view monitoring charts for.
 ---
 
 # Viewing function monitoring charts

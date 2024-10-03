@@ -1,6 +1,6 @@
 ---
-title: "How to delete a user from a cloud in {{ iam-full-name }}"
-description: "Follow this guide to delete a user from your cloud."
+title: How to delete a user from a cloud in {{ iam-full-name }}
+description: Follow this guide to delete a user from your cloud.
 ---
 
 # Deleting a user from the cloud

@@ -1,7 +1,6 @@
 # Resolving issues with linking a phone number for SMS notifications to the billing account
 
 
-
 ## Issue description {#issue-description}
 
 You get an error when trying to link a phone number to a billing account.

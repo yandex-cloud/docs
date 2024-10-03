@@ -1,6 +1,6 @@
 ---
-title: "Creating a stream in the AWS SDK"
-description: "This guide describes how you can create a stream in the AWS SDK."
+title: Creating a stream in the AWS SDK
+description: This guide describes how you can create a stream in the AWS SDK.
 ---
 
 # Creating a stream in the AWS SDK

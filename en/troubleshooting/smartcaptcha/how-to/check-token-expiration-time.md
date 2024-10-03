@@ -1,7 +1,6 @@
 # What is the lifespan of the token returned by the check method in SmartCaptcha
 
 
-
 ## Scenario description {#case-description}
 
 What is the lifespan of the token returned by the [check method](https://captcha-api.yandex.ru/check) in {{ captcha-full-name }}?

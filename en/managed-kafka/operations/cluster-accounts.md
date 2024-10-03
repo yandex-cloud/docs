@@ -1,6 +1,6 @@
 ---
-title: "How to manage {{ KF }} cluster users in {{ mkf-full-name }}"
-description: "Follow this guide to manage {{ KF }} cluster users."
+title: How to manage {{ KF }} cluster users in {{ mkf-full-name }}
+description: Follow this guide to manage {{ KF }} cluster users.
 ---
 
 # Managing Apache Kafka® users

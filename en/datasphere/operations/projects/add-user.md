@@ -1,6 +1,6 @@
 ---
-title: "How to add users to a project"
-description: "Follow this guide to add a user to a project."
+title: How to add users to a project
+description: Follow this guide to add a user to a project.
 ---
 
 # Adding a user to a project

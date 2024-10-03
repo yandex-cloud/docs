@@ -1,6 +1,6 @@
 ---
-title: "Initial grant for individual and business accounts"
-description: "When you create your first billing account, you receive an initial grant. It can be given only once to an individual or legal entity provided that you have never purchased {{ yandex-cloud }} services or activated the trial period before."
+title: Initial grant for individual and business accounts
+description: When you create your first billing account, you receive an initial grant. It can be given only once to an individual or legal entity provided that you have never purchased {{ yandex-cloud }} services or activated the trial period before.
 ---
 
 # Initial grant for individual and business accounts

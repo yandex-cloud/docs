@@ -131,25 +131,34 @@ Metadata-Flavor: Google
 Узнать идентификатор ВМ изнутри ВМ:
 
 ```bash
-curl -H Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/id
+curl \
+  --header Metadata-Flavor:Google \
+  169.254.169.254/computeMetadata/v1/instance/id
 ```
 
 Получить метаданные в формате JSON:
 
 ```bash
-curl -H Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/?recursive=true
+curl \
+  --header Metadata-Flavor:Google \
+  169.254.169.254/computeMetadata/v1/instance/?recursive=true
 ```
 
 Получить метаданные в удобном для чтения формате. Воспользуйтесь утилитой [jq](https://stedolan.github.io/jq/):
 
 ```bash
-curl -H Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/?recursive=true | jq -r '.'
+curl \
+  --header Metadata-Flavor:Google \
+  169.254.169.254/computeMetadata/v1/instance/?recursive=true | \
+  jq -r '.'
 ```
 
 Получить [идентификационный документ](../../concepts/vm-metadata.md#identity-document):
 
 ```bash
-curl -H Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/vendor/identity/document
+curl \
+  --header Metadata-Flavor:Google \
+  169.254.169.254/computeMetadata/v1/instance/vendor/identity/document
 ```
 
 #### Список возвращаемых элементов {#list-of-returned-items}

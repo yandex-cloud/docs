@@ -1,6 +1,6 @@
 ---
-title: "How to delete created resources in {{ ydb-full-name }}"
-description: "Follow this guide to delete the resources you created."
+title: How to delete created resources in {{ ydb-full-name }}
+description: Follow this guide to delete the resources you created.
 ---
 
 # Deletе the resources you created

@@ -1,6 +1,6 @@
 ---
-title: "Справочник {{ TF }} для {{ container-registry-full-name }}"
-description: "На этой странице приведен справочник ресурсов и источников данных провайдера {{ TF }}, которые поддерживаются для сервиса {{ container-registry-name }}."
+title: Справочник {{ TF }} для {{ container-registry-full-name }}
+description: На этой странице приведен справочник ресурсов и источников данных провайдера {{ TF }}, которые поддерживаются для сервиса {{ container-registry-name }}.
 ---
 
 # Справочник {{ TF }} для {{ container-registry-full-name }}

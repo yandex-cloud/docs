@@ -1,6 +1,6 @@
 ---
-title: "Getting started with {{ lockbox-full-name }}"
-description: "In this tutorial, you will learn how to create secrets and get their contents using {{ lockbox-full-name }}, a service for storing secrets. A secret is a set of versions that store your data. A version contains sets of keys and values. A key is a non-secret name that identifies a value. The value is your secret data."
+title: Getting started with {{ lockbox-full-name }}
+description: In this tutorial, you will learn how to create secrets and get their contents using {{ lockbox-full-name }}, a service for storing secrets. A secret is a set of versions that store your data. A version contains sets of keys and values. A key is a non-secret name that identifies a value. The value is your secret data.
 ---
 
 # Getting started with {{ lockbox-name }}

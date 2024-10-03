@@ -1,6 +1,6 @@
 ---
-title: "How to get information about a NAT gateway in {{ vpc-full-name }}"
-description: "Follow this guide to get information about a NAT gateway."
+title: How to get information about a NAT gateway in {{ vpc-full-name }}
+description: Follow this guide to get information about a NAT gateway.
 ---
 
 # Getting information about a NAT gateway

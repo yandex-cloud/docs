@@ -1,6 +1,6 @@
 ---
-title: "Обмен данными между {{ mch-full-name }} и {{ dataproc-full-name }}"
-description: "С помощью {{ dataproc-name }} вы можете загрузить данные из {{ mch-name }} в Spark DataFrame и выгрузить данные из Spark DataFrame в {{ mch-name }}."
+title: Обмен данными между {{ mch-full-name }} и {{ dataproc-full-name }}
+description: С помощью {{ dataproc-name }} вы можете загрузить данные из {{ mch-name }} в Spark DataFrame и выгрузить данные из Spark DataFrame в {{ mch-name }}.
 ---
 
 # Обмен данными между {{ mch-full-name }} и {{ dataproc-full-name }}

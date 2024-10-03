@@ -1,7 +1,6 @@
 # Resolving issues with sending emails via SMTP from external IP addresses
 
 
-
 ## Issue description {#issue-description}
 
 * Recipients are not receiving emails sent from a mail server deployed on Yandex Cloud.

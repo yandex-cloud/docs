@@ -1,5 +1,5 @@
 ---
-canonical: "{{ link-docs }}/tutorials/archive/single-node-file-server/console"
+canonical: '{{ link-docs }}/tutorials/archive/single-node-file-server/console'
 ---
 
 # Однонодовый файловый сервер с помощью консоли управления

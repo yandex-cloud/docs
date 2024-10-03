@@ -103,7 +103,7 @@ Create and execute a [function](../../concepts/function.md) in Node.js that welc
 
     To create a function version, run the command:
 
-    
+
     ```
     yc serverless function version create \
       --function-name=nodejs-function \
@@ -126,7 +126,7 @@ Create and execute a [function](../../concepts/function.md) in Node.js that welc
 
     Result:
 
-    
+
     ```
     done (1s)
     id: d4evvn8obisa********

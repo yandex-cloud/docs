@@ -1,6 +1,6 @@
 ---
-title: "Интеграция {{ dns-full-name }} с {{ compute-full-name }}"
-description: "Из статьи вы узнаете, как {{ dns-full-name }} связан с ресурсами {{ compute-full-name }}." 
+title: Интеграция {{ dns-full-name }} с {{ compute-full-name }}
+description: Из статьи вы узнаете, как {{ dns-full-name }} связан с ресурсами {{ compute-full-name }}.
 ---
 
 # Интеграция с {{ compute-name }}

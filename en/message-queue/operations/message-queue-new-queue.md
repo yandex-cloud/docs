@@ -1,6 +1,6 @@
 ---
-title: "How to create a message queue in {{ message-queue-full-name }}"
-description: "Follow this guide to create a message queue."
+title: How to create a message queue in {{ message-queue-full-name }}
+description: Follow this guide to create a message queue.
 ---
 
 # Creating a new message queue

@@ -1,6 +1,6 @@
 ---
-title: "How to create a Yandex Metrica connection in {{ datalens-full-name }}"
-description: "Follow this guide to create a Yandex Metrica connection."
+title: How to create a Yandex Metrica connection in {{ datalens-full-name }}
+description: Follow this guide to create a Yandex Metrica connection.
 ---
 
 # Creating a Metrica connection

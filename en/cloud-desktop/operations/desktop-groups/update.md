@@ -1,6 +1,6 @@
 ---
-title: "Updating a desktop group"
-description: "Follow this guide to update a desktop group."
+title: Updating a desktop group
+description: Follow this guide to update a desktop group.
 ---
 
 # Updating a desktop group

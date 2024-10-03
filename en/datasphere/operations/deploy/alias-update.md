@@ -1,6 +1,6 @@
 ---
-title: "How to update aliases in {{ ml-platform-full-name }}"
-description: "Follow this guide to update an alias."
+title: How to update aliases in {{ ml-platform-full-name }}
+description: Follow this guide to update an alias.
 ---
 
 # Updating an alias

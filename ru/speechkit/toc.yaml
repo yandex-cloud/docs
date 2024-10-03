@@ -1,10 +1,5 @@
 title: '{{ speechkit-full-name }}'
 href: index.yaml
-label:
-  title: RU
-  description: Сервис доступен только в регионе Россия.
-  theme: unknown
-  when: region == "kz"
 items:
   - name: Обзор технологий {{ speechkit-name }}
     href: overview.md
@@ -233,3 +228,4 @@ items:
       - name: Все вопросы на одной странице
         href: qa/all.md
 base: ru/speechkit
+deepBase: 2

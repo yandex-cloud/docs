@@ -1,6 +1,6 @@
 ---
-title: "Какие методы S3 API доступны для управления {{ objstorage-full-name }}"
-description: "Из статьи вы узнаете, какие методы S3 API доступны для управления {{ objstorage-name }}."
+title: Какие методы S3 API доступны для управления {{ objstorage-full-name }}
+description: Из статьи вы узнаете, какие методы S3 API доступны для управления {{ objstorage-name }}.
 ---
 
 # Все сервисы и методы

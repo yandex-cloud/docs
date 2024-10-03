@@ -1,6 +1,6 @@
 ---
-title: "Step-by-step guides for {{ cloud-desktop-full-name }}"
-description: "This page provides a list of step-by-step guides for {{ cloud-desktop-name }}."
+title: Step-by-step guides for {{ cloud-desktop-full-name }}
+description: This page provides a list of step-by-step guides for {{ cloud-desktop-name }}.
 ---
 
 # Step-by-step guides for {{ cloud-desktop-name }}

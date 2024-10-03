@@ -1,6 +1,6 @@
 ---
-title: "Selecting data from all columns in {{ yq-full-name }}"
-description: "Follow this guide to select data from all columns."
+title: Selecting data from all columns in {{ yq-full-name }}
+description: Follow this guide to select data from all columns.
 ---
 
 # Selecting data from all columns

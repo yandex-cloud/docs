@@ -1,6 +1,6 @@
 ---
-title: "Synchronous recognition API in {{ speechkit-full-name }}"
-description: "Follow this guide to use the synchronous recognition API."
+title: Synchronous recognition API in {{ speechkit-full-name }}
+description: Follow this guide to use the synchronous recognition API.
 ---
 
 # Synchronous Recognition API

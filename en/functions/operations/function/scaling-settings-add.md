@@ -1,6 +1,6 @@
 ---
-title: "How to set up function scaling in {{ sf-full-name }}"
-description: "Follow this guide to configure function scaling settings."
+title: How to set up function scaling in {{ sf-full-name }}
+description: Follow this guide to configure function scaling settings.
 ---
 
 # Adding function scaling settings
@@ -44,7 +44,7 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
 
    To add scaling settings for a function, run the command:
 
-   
+
    ```
    yc serverless function set-scaling-policy \
      --id=<function_ID> \
@@ -65,7 +65,7 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
 
    Result:
 
-   
+
    ```
    function_id: d4eokpuol55h********
    tag: $latest
@@ -94,7 +94,7 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
 
       Here is an example of the configuration file structure:
 
-      
+
       ```
       provider "yandex" {
           token     = "<service_account_OAuth_token_or_static_key>"

@@ -1,6 +1,6 @@
 ---
-title: "How to create a direct partner trunk and a private connection in it in {{ interconnect-full-name }}"
-description: "Follow this guide to create a direct partner trunk and a private connection in it."
+title: How to create a direct partner trunk and a private connection in it in {{ interconnect-full-name }}
+description: Follow this guide to create a direct partner trunk and a private connection in it.
 ---
 
 # Creating a direct trunk and a private connection in it

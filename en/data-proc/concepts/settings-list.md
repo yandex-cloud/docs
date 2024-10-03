@@ -1,6 +1,6 @@
 ---
-title: "Component properties in {{ dataproc-full-name }}"
-description: "In this tutorial, you will learn what cluster component properties are, how they are stored, and what settings they have."
+title: Component properties in {{ dataproc-full-name }}
+description: In this tutorial, you will learn what cluster component properties are, how they are stored, and what settings they have.
 ---
 
 # Component properties

@@ -1,6 +1,6 @@
 ---
-title: "How to create a broadcast in {{ video-full-name }}"
-description: "Follow this guide to create a {{ video-full-name }} broadcast."
+title: How to create a broadcast in {{ video-full-name }}
+description: Follow this guide to create a {{ video-full-name }} broadcast.
 ---
 
 # Creating a broadcast

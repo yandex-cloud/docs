@@ -1,6 +1,6 @@
 ---
-title: "How {{ tracker-name }} works"
-description: "In this section, you will learn how {{ tracker-name }} works and how you can use {{ tracker-name }} to suit your workflow. Organizing your workflow in {{ tracker-name }} requires managing two crucial elements: issues and queues. Issues describe what needs to be done, while queues set the rules for working with issues."
+title: How {{ tracker-name }} works
+description: 'In this section, you will learn how {{ tracker-name }} works and how you can use {{ tracker-name }} to suit your workflow. Organizing your workflow in {{ tracker-name }} requires managing two crucial elements: issues and queues. Issues describe what needs to be done, while queues set the rules for working with issues.'
 ---
 
 # How {{ tracker-name }} works

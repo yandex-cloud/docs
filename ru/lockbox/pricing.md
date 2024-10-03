@@ -1,6 +1,6 @@
 ---
-title: "Правила тарификации для {{ lockbox-full-name }}"
-description: "В статье содержатся правила тарификации сервиса {{ lockbox-name }}."
+title: Правила тарификации для {{ lockbox-full-name }}
+description: В статье содержатся правила тарификации сервиса {{ lockbox-name }}.
 editable: false
 ---
 

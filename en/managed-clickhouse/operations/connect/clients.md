@@ -1,6 +1,6 @@
 ---
-title: "Connecting to a {{ CH }} cluster in {{ mch-full-name }}"
-description: "Follow this guide to connect to a database in a {{ CH }} cluster using command line tools, browser, graphical IDEs, and Docker container."
+title: Connecting to a {{ CH }} cluster in {{ mch-full-name }}
+description: Follow this guide to connect to a database in a {{ CH }} cluster using command line tools, browser, graphical IDEs, and Docker container.
 ---
 
 # Connecting to a {{ CH }} cluster from applications
@@ -263,7 +263,7 @@ To connect to a {{ mch-name }} cluster from a Docker container, add the followin
 
 - Connecting via SSL {#with-ssl}
 
-   
+
    ```bash
    # Connect the DEB repository.
    RUN apt-get update && \

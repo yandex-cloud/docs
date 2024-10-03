@@ -1,6 +1,6 @@
 ---
-title: "What is a VM image? Overview"
-description: "A VM image is a complete copy of the file system structure and data on a disk. Images can be used for distributing software, e.g., OS distributions or disks with pre-installed software."
+title: What is a VM image? Overview
+description: A VM image is a complete copy of the file system structure and data on a disk. Images can be used for distributing software, e.g., OS distributions or disks with pre-installed software.
 keywords:
   - vm
   - vm image

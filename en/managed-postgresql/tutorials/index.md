@@ -1,6 +1,6 @@
 ---
-title: "{{ mpg-full-name }} use cases"
-description: "Various {{ mpg-full-name }} use cases in {{ yandex-cloud }}."
+title: '{{ mpg-full-name }} use cases'
+description: Various {{ mpg-full-name }} use cases in {{ yandex-cloud }}.
 ---
 
 # {{ mpg-name }} tutorials

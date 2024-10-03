@@ -1,6 +1,6 @@
 ---
-title: "Managing replication slots in {{ mpg-full-name }}"
-description: "Follow this guide to create and set up a replication slot."
+title: Managing replication slots in {{ mpg-full-name }}
+description: Follow this guide to create and set up a replication slot.
 ---
 
 # Managing replication slots

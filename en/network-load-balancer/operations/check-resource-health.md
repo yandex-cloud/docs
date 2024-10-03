@@ -1,6 +1,6 @@
 ---
-title: "Checking target health statuses"
-description: "Follow this guide to run health checks for target resources."
+title: Checking target health statuses
+description: Follow this guide to run health checks for target resources.
 ---
 
 # Checking target health statuses

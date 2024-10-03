@@ -1,5 +1,5 @@
 ---
-canonical: "{{ link-docs }}/tutorials/security/tls-termination-console"
+canonical: '{{ link-docs }}/tutorials/security/tls-termination-console'
 ---
 
 # Терминирование TLS-соединений с помощью консоли управления

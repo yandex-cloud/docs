@@ -1,6 +1,6 @@
 ---
-name: "How to copy objects from a {{ objstorage-full-name }} bucket"
-description: "In this tutorial, you will learn how to copy objects from a bucket in {{ objstorage-full-name }}."
+name: How to copy objects from a {{ objstorage-full-name }} bucket
+description: In this tutorial, you will learn how to copy objects from a bucket in {{ objstorage-full-name }}.
 ---
 
 # Copying objects

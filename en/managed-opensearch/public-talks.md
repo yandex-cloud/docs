@@ -1,6 +1,6 @@
 ---
-title: "Public materials about {{ mos-full-name }}"
-description: "Videos of conferences and webinars on {{ mos-full-name }}."
+title: Public materials about {{ mos-full-name }}
+description: Videos of conferences and webinars on {{ mos-full-name }}.
 ---
 
 # Public materials about {{ mos-full-name }}

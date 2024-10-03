@@ -1,6 +1,6 @@
 ---
-title: "Introduction to {{ ydb-short-name }} via {{ TF }}"
-description: "This tutorial describes basic {{ TF }} CLI commands and gives the list of guides on how to use {{ ydb-short-name }} via {{ TF }}."
+title: Introduction to {{ ydb-short-name }} via {{ TF }}
+description: This tutorial describes basic {{ TF }} CLI commands and gives the list of guides on how to use {{ ydb-short-name }} via {{ TF }}.
 ---
 
 # Introduction to {{ ydb-short-name }} via {{ TF }}

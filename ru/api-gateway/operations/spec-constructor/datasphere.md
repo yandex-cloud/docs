@@ -1,6 +1,6 @@
 ---
-title: "Добавить расширение {{ ml-platform-full-name }}"
-description: "Следуя данной инструкции, вы сможете добавить расширение {{ ml-platform-full-name }} с помощью конструктора спецификации."
+title: Добавить расширение {{ ml-platform-full-name }}
+description: Следуя данной инструкции, вы сможете добавить расширение {{ ml-platform-full-name }} с помощью конструктора спецификации.
 ---
 
 # Добавить расширение x-yc-apigateway-integration:cloud_datasphere

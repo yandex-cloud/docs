@@ -1,5 +1,5 @@
 ---
-title: "Apache Spark и PySpark. Запуск и управление приложениями"
+title: Apache Spark и PySpark. Запуск и управление приложениями
 keywords:
   - apache spark
   - spark

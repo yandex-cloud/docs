@@ -1,6 +1,6 @@
 ---
-title: "How to configure a {{ yds-full-name }} source endpoint in {{ data-transfer-full-name }}"
-description: "Follow this guide to configure a {{ yds-full-name }} source endpoint in {{ data-transfer-full-name }}."
+title: How to configure a {{ yds-full-name }} source endpoint in {{ data-transfer-full-name }}
+description: Follow this guide to configure a {{ yds-full-name }} source endpoint in {{ data-transfer-full-name }}.
 ---
 
 # Transferring data from a {{ yds-full-name }} source endpoint
@@ -61,12 +61,12 @@ When [creating](../index.md#create) or [editing](../index.md#update) an endpoint
 
 - Management console {#console}
 
-   
+
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSourceAdvancedSettings.transformer.title }}**:
 
       * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataTransformationOptions.cloud_function.title }}**: Select one of the functions created in {{ sf-name }}.
 
-         
+
          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.service_account_id.title }}**: Select or [create](../../../../iam/operations/sa/create.md) a service account that the processing function will start under.
 
 

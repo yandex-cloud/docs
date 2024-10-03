@@ -1,6 +1,6 @@
 ---
-title: "Invoking a function asynchronously"
-description: "Follow this guide to configure and invoke a function asynchronously."
+title: Invoking a function asynchronously
+description: Follow this guide to configure and invoke a function asynchronously.
 ---
 
 # Invoking a function asynchronously

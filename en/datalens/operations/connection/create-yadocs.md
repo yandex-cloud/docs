@@ -1,6 +1,6 @@
 ---
-title: "How to create a connection to Yandex Documents"
-description: "Follow this guide to create a connection to Yandex Documents."
+title: How to create a connection to Yandex Documents
+description: Follow this guide to create a connection to Yandex Documents.
 ---
 
 # Creating a connection to Yandex Documents

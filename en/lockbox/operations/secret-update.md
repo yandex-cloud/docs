@@ -1,6 +1,6 @@
 ---
-title: "How to update a secret in {{ lockbox-full-name }}"
-description: "Follow this guide to update a secret."
+title: How to update a secret in {{ lockbox-full-name }}
+description: Follow this guide to update a secret.
 ---
 
 # Updating secrets

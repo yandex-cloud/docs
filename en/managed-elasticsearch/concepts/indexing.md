@@ -1,6 +1,6 @@
 ---
-title: "Elasticsearch indexes"
-description: "When saving a document to {{ ES }}, it is indexed and placed in a specific {{ ES }} index of the user's choice. This makes it available for search and analysis. One may think of an index as a data table in a traditional DBMS."
+title: Elasticsearch indexes
+description: When saving a document to {{ ES }}, it is indexed and placed in a specific {{ ES }} index of the user's choice. This makes it available for search and analysis. One may think of an index as a data table in a traditional DBMS.
 ---
 
 # Indexes

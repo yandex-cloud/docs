@@ -1,6 +1,6 @@
 ---
-title: "Use cases for network infrastructure in {{ yandex-cloud }}"
-description: "Various use cases for network infrastructure in {{ yandex-cloud }}."
+title: Use cases for network infrastructure in {{ yandex-cloud }}
+description: Various use cases for network infrastructure in {{ yandex-cloud }}.
 ---
 
 # Tutorials for working with network infrastructure in {{ yandex-cloud }}

@@ -1,6 +1,6 @@
 ---
-title: "Instructions for businesses on how to create a billing account in {{ yandex-cloud }}"
-description: "In this tutorial, you will learn how to create a billing account for a business in {{ yandex-cloud }}. Find the answers to FAQs about a billing account and paid consumption, the initial grant, and documents."
+title: Instructions for businesses on how to create a billing account in {{ yandex-cloud }}
+description: In this tutorial, you will learn how to create a billing account for a business in {{ yandex-cloud }}. Find the answers to FAQs about a billing account and paid consumption, the initial grant, and documents.
 ---
 
 # Getting started for businesses

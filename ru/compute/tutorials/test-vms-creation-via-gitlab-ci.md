@@ -1,5 +1,5 @@
 ---
-canonical: "{{ link-docs }}/tutorials/testing/ci-for-snapshots"
+canonical: '{{ link-docs }}/tutorials/testing/ci-for-snapshots'
 ---
 
 # Создание тестовых виртуальных машин через {{ GL }} CI

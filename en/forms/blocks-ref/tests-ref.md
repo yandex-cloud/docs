@@ -1,6 +1,6 @@
 ---
-title: "{{ forms-full-name }} tests and quizzes"
-description: "In this tutorial, you will learn which blocks of prompts are in the **Tests and quizzes** category."
+title: '{{ forms-full-name }} tests and quizzes'
+description: In this tutorial, you will learn which blocks of prompts are in the **Tests and quizzes** category.
 ---
 
 # Tests and quizzes

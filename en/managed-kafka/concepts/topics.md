@@ -1,6 +1,6 @@
 ---
-title: "What topics and partitions are available in {{ mkf-full-name }}"
-description: "In this tutorial, you will learn about topics and partitions available in {{ mkf-name }}."
+title: What topics and partitions are available in {{ mkf-full-name }}
+description: In this tutorial, you will learn about topics and partitions available in {{ mkf-name }}.
 ---
 
 # Topics and partitions

@@ -1,6 +1,6 @@
 ---
-title: "How to create a {{ GP }} connection in {{ datalens-full-name }}"
-description: "In this tutorial, you will learn how to connect to {{ GP }} in {{ datalens-full-name }}."
+title: How to create a {{ GP }} connection in {{ datalens-full-name }}
+description: In this tutorial, you will learn how to connect to {{ GP }} in {{ datalens-full-name }}.
 ---
 
 # Creating a {{ GP }} connection

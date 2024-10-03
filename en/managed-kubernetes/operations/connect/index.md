@@ -1,6 +1,6 @@
 ---
-title: "How to connect to a {{ k8s }} cluster in {{ managed-k8s-full-name }}"
-description: "Follow this guide to connect to a {{ k8s }} cluster in {{ managed-k8s-name }}."
+title: How to connect to a {{ k8s }} cluster in {{ managed-k8s-full-name }}
+description: Follow this guide to connect to a {{ k8s }} cluster in {{ managed-k8s-name }}.
 ---
 
 # Connection method overview

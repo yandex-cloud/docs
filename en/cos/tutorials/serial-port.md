@@ -1,6 +1,6 @@
 ---
-title: "Configuring data output from a Docker container to a serial port in {{ cos-full-name }}"
-description: "This guide describes how to create a VM from a {{ coi }} and set up a redirect of the application output stream to the VM's serial port."
+title: Configuring data output from a Docker container to a serial port in {{ cos-full-name }}
+description: This guide describes how to create a VM from a {{ coi }} and set up a redirect of the application output stream to the VM's serial port.
 ---
 
 # Configuring data output from a Docker container to a serial port

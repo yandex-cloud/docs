@@ -1,6 +1,6 @@
 ---
-title: "How to create a test with data from a bucket in {{ load-testing-full-name }}"
-description: "Follow this guide to create a test with data from a bucket."
+title: How to create a test with data from a bucket in {{ load-testing-full-name }}
+description: Follow this guide to create a test with data from a bucket.
 ---
 
 # Creating a test with data from a bucket

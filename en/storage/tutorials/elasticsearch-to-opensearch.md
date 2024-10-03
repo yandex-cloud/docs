@@ -1,5 +1,5 @@
 ---
-canonical: "{{ link-docs }}/tutorials/dataplatform/elasticsearch-to-opensearch"
+canonical: '{{ link-docs }}/tutorials/dataplatform/elasticsearch-to-opensearch'
 ---
 
 # Migrating data from {{ ES }} to {{ mos-full-name }}

@@ -1,7 +1,6 @@
 # Resolving the "Key cannot be used on the domain captcha-api.yandex.ru" error
 
 
-
 ## Issue description {#issue-description}
 
 When testing or setting up the captcha locally, you see this error:

@@ -1,6 +1,6 @@
 ---
-title: "Developing in Python in {{ sf-full-name }}. Overview"
-description: "With {{ sf-name }}, you can run applications written in Python. The service provides several runtime environments with different versions."
+title: Developing in Python in {{ sf-full-name }}. Overview
+description: With {{ sf-name }}, you can run applications written in Python. The service provides several runtime environments with different versions.
 ---
 
 # Developing in Python. Overview

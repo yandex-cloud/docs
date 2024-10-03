@@ -37,7 +37,7 @@
 1. {% include [Install and configure kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
 1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с Crossplane выполните команду:
 
-   
+
    ```bash
    helm pull oci://{{ mkt-k8s-key.yc_crossplane.helmChart.name }} \
      --version {{ mkt-k8s-key.yc_crossplane.helmChart.tag }} \

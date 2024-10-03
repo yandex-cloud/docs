@@ -1,6 +1,6 @@
 ---
-title: "Elasticsearch editions"
-description: "Features provided in {{ mes-name }} depend on the {{ ES }} edition."
+title: Elasticsearch editions
+description: Features provided in {{ mes-name }} depend on the {{ ES }} edition.
 ---
 
 # {{ ES }} editions

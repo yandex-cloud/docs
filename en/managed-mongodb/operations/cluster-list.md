@@ -1,6 +1,6 @@
 ---
-title: "Information about clusters in {{ mmg-short-name }}"
-description: "You can request detailed information about each {{ mmg-short-name }} cluster you created. To get a list of database clusters in a folder, go to the folder page and select {{ mmg-name }}."
+title: Information about clusters in {{ mmg-short-name }}
+description: You can request detailed information about each {{ mmg-short-name }} cluster you created. To get a list of database clusters in a folder, go to the folder page and select {{ mmg-name }}.
 ---
 
 # Information about existing {{ MG }} clusters

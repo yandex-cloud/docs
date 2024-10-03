@@ -1,6 +1,6 @@
 ---
-title: "Terms and definitions for {{ ydb-full-name }}"
-description: "This page defines terms and definitions for {{ ydb-name }}."
+title: Terms and definitions for {{ ydb-full-name }}
+description: This page defines terms and definitions for {{ ydb-name }}.
 sourcePath: overlay/public_talks.md
 ---
 

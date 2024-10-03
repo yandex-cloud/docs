@@ -1,6 +1,6 @@
 ---
-title: "{{ lockbox-full-name }}. Обзор сервиса"
-description: "Сервис для создания и хранения секретов в инфраструктуре Yandex Cloud"
+title: '{{ lockbox-full-name }}. Обзор сервиса'
+description: Сервис для создания и хранения секретов в инфраструктуре Yandex Cloud
 ---
 
 # Обзор сервиса {{ lockbox-full-name }}

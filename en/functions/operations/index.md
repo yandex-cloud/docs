@@ -1,6 +1,6 @@
 ---
-title: "How to work with {{ sf-full-name }}"
-description: "In this article, you will learn how to work with {{ sf-full-name }} in {{ yandex-cloud }}. Find out how to manage a function (create, modify, invoke, and delete a function) and a trigger (create a timer or trigger for {{ message-queue-name }}, {{ iot-full-name }}, {{ container-registry-name }})."
+title: How to work with {{ sf-full-name }}
+description: In this article, you will learn how to work with {{ sf-full-name }} in {{ yandex-cloud }}. Find out how to manage a function (create, modify, invoke, and delete a function) and a trigger (create a timer or trigger for {{ message-queue-name }}, {{ iot-full-name }}, {{ container-registry-name }}).
 ---
 
 # Step-by-step guides for {{ sf-name }}

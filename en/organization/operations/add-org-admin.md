@@ -1,6 +1,6 @@
 ---
-title: "How to assign a user as an organization administrator in {{ org-full-name }}"
-description: "By following this guide, you can assign a user as an organization administrator."
+title: How to assign a user as an organization administrator in {{ org-full-name }}
+description: By following this guide, you can assign a user as an organization administrator.
 ---
 
 # Making a user an organization administrator

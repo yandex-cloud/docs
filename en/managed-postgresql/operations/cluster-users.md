@@ -1,6 +1,6 @@
 ---
-title: "Managing {{ PG }} cluster users in {{ mpg-full-name }}"
-description: "In this tutorial, you will learn how to add and remove users, as well as manage their individual settings in the {{ PG }} database management service."
+title: Managing {{ PG }} cluster users in {{ mpg-full-name }}
+description: In this tutorial, you will learn how to add and remove users, as well as manage their individual settings in the {{ PG }} database management service.
 ---
 
 # Managing {{ PG }} users

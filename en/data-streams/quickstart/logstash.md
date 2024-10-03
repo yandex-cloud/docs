@@ -1,6 +1,6 @@
 ---
-title: "Tutorial on collecting and delivering data to {{ ydb-full-name }} using Logstash"
-description: "In this tutorial, you'll learn how to collect and deliver data to {{ ydb-full-name }} using Logstash."
+title: Tutorial on collecting and delivering data to {{ ydb-full-name }} using Logstash
+description: In this tutorial, you'll learn how to collect and deliver data to {{ ydb-full-name }} using Logstash.
 ---
 
 # Logstash

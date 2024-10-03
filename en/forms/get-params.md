@@ -1,6 +1,6 @@
 ---
-title: "GET parameters in {{ forms-full-name }}"
-description: "You can use GET parameters to add attributes to a form. GET parameters allow you to automatically fill in the fields of the form that you publish using a link or embed in a page using an iframe."
+title: GET parameters in {{ forms-full-name }}
+description: You can use GET parameters to add attributes to a form. GET parameters allow you to automatically fill in the fields of the form that you publish using a link or embed in a page using an iframe.
 ---
 
 # GET parameters

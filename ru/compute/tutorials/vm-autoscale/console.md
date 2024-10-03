@@ -1,5 +1,5 @@
 ---
-canonical: "{{ link-docs }}/tutorials/infrastructure-management/vm-autoscale/console"
+canonical: '{{ link-docs }}/tutorials/infrastructure-management/vm-autoscale/console'
 ---
 
 # Работа с группой виртуальных машин с автоматическим масштабированием с помощью консоли управления, CLI и API

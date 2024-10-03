@@ -1,6 +1,6 @@
 ---
-title: "{{ video-full-name }} release notes"
-description: "This section contains {{ video-name }} release notes."
+title: '{{ video-full-name }} release notes'
+description: This section contains {{ video-name }} release notes.
 ---
 
 # {{ video-full-name }} release notes

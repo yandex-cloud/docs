@@ -1,6 +1,6 @@
 ---
-title: "How to view roles assigned to an account in {{ iam-full-name }}"
-description: "Use this guide to view roles assigned to an account."
+title: How to view roles assigned to an account in {{ iam-full-name }}
+description: Use this guide to view roles assigned to an account.
 ---
 
 # Viewing assigned roles

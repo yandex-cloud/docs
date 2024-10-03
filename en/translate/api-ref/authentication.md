@@ -1,6 +1,6 @@
 ---
-title: "Authentication in the {{ translate-full-name }} API"
-description: "To run operations over the {{ translate-full-name }} API, issue an IAM token for your account. Use the resulting IAM token to access {{ yandex-cloud }} resources over the API in the following format: Authorization: Bearer <IAM-TOKEN>"
+title: Authentication in the {{ translate-full-name }} API
+description: 'To run operations over the {{ translate-full-name }} API, issue an IAM token for your account. Use the resulting IAM token to access {{ yandex-cloud }} resources over the API in the following format: Authorization: Bearer <IAM-TOKEN>'
 ---
 
 # Authentication in the API {{ translate-name }}

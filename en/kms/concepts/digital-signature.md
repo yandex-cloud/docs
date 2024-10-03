@@ -1,6 +1,6 @@
 ---
-title: "Digital signature in {{ kms-short-name }}"
-description: "This article describes the features of digital signatures in {{ kms-short-name }}."
+title: Digital signature in {{ kms-short-name }}
+description: This article describes the features of digital signatures in {{ kms-short-name }}.
 ---
 
 # Digital signature in {{ kms-short-name }}

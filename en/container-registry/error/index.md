@@ -1,6 +1,6 @@
 ---
-title: "Troubleshooting in {{ container-registry-full-name }}"
-description: "This page contains a list of common issues and their fixes."
+title: Troubleshooting in {{ container-registry-full-name }}
+description: This page contains a list of common issues and their fixes.
 ---
 
 # Troubleshooting in {{ container-registry-name }}

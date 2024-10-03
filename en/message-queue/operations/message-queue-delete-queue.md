@@ -1,6 +1,6 @@
 ---
-title: "How to delete a message queue in {{ message-queue-full-name }}"
-description: "Follow this guide to delete a message queue."
+title: How to delete a message queue in {{ message-queue-full-name }}
+description: Follow this guide to delete a message queue.
 ---
 
 # Deleting a message queue

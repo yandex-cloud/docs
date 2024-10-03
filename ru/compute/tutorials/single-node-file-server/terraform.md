@@ -1,5 +1,5 @@
 ---
-canonical: "{{ link-docs }}/tutorials/archive/single-node-file-server/terraform"
+canonical: '{{ link-docs }}/tutorials/archive/single-node-file-server/terraform'
 ---
 
 # Однонодовый файловый сервер с помощью {{ TF }}

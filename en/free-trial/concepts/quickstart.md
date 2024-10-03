@@ -1,6 +1,6 @@
 ---
-title: "Getting started"
-description: "The trial period is a one-time introductory offer for new clients. The trial period is available to you if you have not purchased {{ yandex-cloud }} services or activated the trial period before."
+title: Getting started
+description: The trial period is a one-time introductory offer for new clients. The trial period is available to you if you have not purchased {{ yandex-cloud }} services or activated the trial period before.
 ---
 
 # How to use the free trial

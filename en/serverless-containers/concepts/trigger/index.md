@@ -1,6 +1,6 @@
 ---
-title: "Triggers. Overview"
-description: "Triggers are the criteria that automatically invoke a container when met. Triggers allow you to automate your work with other {{ yandex-cloud }} services, such as {{ objstorage-full-name }}, {{ message-queue-full-name }}, and {{ iot-full-name }}."
+title: Triggers. Overview
+description: Triggers are the criteria that automatically invoke a container when met. Triggers allow you to automate your work with other {{ yandex-cloud }} services, such as {{ objstorage-full-name }}, {{ message-queue-full-name }}, and {{ iot-full-name }}.
 ---
 
 # Triggers in {{ serverless-containers-name }} Overview

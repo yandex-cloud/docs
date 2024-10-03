@@ -1,6 +1,6 @@
 ---
-title: "How to disconnect a security profile in {{ sws-full-name }} from a virtual host"
-description: "Follow this guide to disconnect a security profile in {{ sws-full-name }} from a virtual host."
+title: How to disconnect a security profile in {{ sws-full-name }} from a virtual host
+description: Follow this guide to disconnect a security profile in {{ sws-full-name }} from a virtual host.
 ---
 
 # Disconnecting a security profile from a virtual host

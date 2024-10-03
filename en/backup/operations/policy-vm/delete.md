@@ -1,6 +1,6 @@
 ---
-title: "Deleting a backup policy"
-description: "In this tutorial, you will learn how to delete a backup policy in **{{ backup-name }}**."
+title: Deleting a backup policy
+description: In this tutorial, you will learn how to delete a backup policy in **{{ backup-name }}**.
 ---
 
 # Deleting a backup policy

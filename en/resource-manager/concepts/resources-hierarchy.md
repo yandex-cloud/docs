@@ -1,6 +1,6 @@
 ---
-title: "{{ yandex-cloud }} resource hierarchy"
-description: "All {{ yandex-cloud }} resources, such as VMs, disks, or networks, are placed in folders. Each folder belongs to a single cloud, while clouds belong to organizations."
+title: '{{ yandex-cloud }} resource hierarchy'
+description: All {{ yandex-cloud }} resources, such as VMs, disks, or networks, are placed in folders. Each folder belongs to a single cloud, while clouds belong to organizations.
 ---
 
 # {{ yandex-cloud }} resource hierarchy

@@ -1,5 +1,5 @@
 ---
-canonical: "{{ link-docs }}/tutorials/dataplatform/ydb-mkf-replication"
+canonical: '{{ link-docs }}/tutorials/dataplatform/ydb-mkf-replication'
 ---
 
 # {{ ydb-short-name }} change data capture and delivery to {{ KF }}

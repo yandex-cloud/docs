@@ -1,6 +1,6 @@
 ---
-title: "X-yc-apigateway-authorizer:function extension for {{ api-gw-full-name }}"
-description: "On this page, you will learn what the x-yc-apigateway-authorizer:function extension is used for and what its specification includes. We will also invoke a sample function using this extension."
+title: X-yc-apigateway-authorizer:function extension for {{ api-gw-full-name }}
+description: On this page, you will learn what the x-yc-apigateway-authorizer:function extension is used for and what its specification includes. We will also invoke a sample function using this extension.
 ---
 
 # x-yc-apigateway-authorizer:function extension

@@ -1,6 +1,5 @@
 ---
 noIndex: true
-
 ---
 
 # Sending requests to the {{ yandex-cloud }} API via the {{ yandex-cloud }} Python SDK

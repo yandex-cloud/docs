@@ -1,6 +1,6 @@
 ---
-title: "How to create resources in {{ cdn-full-name }}"
-description: "Follow this guide to create a resource."
+title: How to create resources in {{ cdn-full-name }}
+description: Follow this guide to create a resource.
 ---
 
 # Creating a resource

@@ -61,7 +61,7 @@
    Подробнее о настройках зеркал см. в [документации](https://www.terraform.io/cli/config/config-file#explicit-installation-method-configuration).
 1. В начале конфигурационного файла `.tf` добавьте следующие блоки:
 
-   
+
    ```hcl
    terraform {
      required_providers {

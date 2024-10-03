@@ -1,6 +1,6 @@
 ---
-title: "Questions and answers about {{ cos-full-name }}"
-description: "This page provides answers to questions about {{ cos-name }}."
+title: Questions and answers about {{ cos-full-name }}
+description: This page provides answers to questions about {{ cos-name }}.
 ---
 
 # Questions and answers about {{ cos-name }}

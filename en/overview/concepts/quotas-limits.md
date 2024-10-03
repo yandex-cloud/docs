@@ -1,6 +1,6 @@
 ---
-title: "What are quotas and limits in {{ yandex-cloud }}"
-description: "{{ yandex-cloud }} services can be subject to quotas and limits. Quotas are organizational constraints that can be changed by technical support on request. Limits are technical constraints due to {{ yandex-cloud }} architecture. Limits cannot be changed."
+title: What are quotas and limits in {{ yandex-cloud }}
+description: '{{ yandex-cloud }} services can be subject to quotas and limits. Quotas are organizational constraints that can be changed by technical support on request. Limits are technical constraints due to {{ yandex-cloud }} architecture. Limits cannot be changed.'
 ---
 
 # {{ yandex-cloud }} service quotas and limits

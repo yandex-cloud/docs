@@ -1,6 +1,6 @@
 ---
-title: "How to edit an L7 load balancer in {{ alb-full-name }}"
-description: "Follow this guide to edit an L7 load balancer."
+title: How to edit an L7 load balancer in {{ alb-full-name }}
+description: Follow this guide to edit an L7 load balancer.
 ---
 
 # Editing an L7 load balancer
@@ -62,7 +62,7 @@ To update the parameters of an L7 load balancer:
 
      Result:
 
-     
+
      ```bash
      id: a5d88ep483cm********
      name: test-balancer2-updated

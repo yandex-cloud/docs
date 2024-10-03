@@ -1,6 +1,6 @@
 ---
-title: "How to add a {{ captcha-full-name }} widget"
-description: "Follow this guide to add a {{ captcha-name }} widget using the advanced method or as required."
+title: How to add a {{ captcha-full-name }} widget
+description: Follow this guide to add a {{ captcha-name }} widget using the advanced method or as required.
 ---
 
 # Add a {{ captcha-name }} widget

@@ -1,6 +1,6 @@
 ---
-title: "{{ sk-hybrid-name }} architecture"
-description: "In this tutorial, you will learn about the {{ sk-hybrid-name }} components."
+title: '{{ sk-hybrid-name }} architecture'
+description: In this tutorial, you will learn about the {{ sk-hybrid-name }} components.
 ---
 
 # {{ sk-hybrid-name }} architecture

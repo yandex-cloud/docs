@@ -1,6 +1,6 @@
 ---
-title: "Visualizing data from {{ tracker-short-name }}"
-description: "To visualize data from {{ tracker-short-name }}, set up regular export of data to external storage and visualize the required metrics and data using {{ datalens-short-name }} tools."
+title: Visualizing data from {{ tracker-short-name }}
+description: To visualize data from {{ tracker-short-name }}, set up regular export of data to external storage and visualize the required metrics and data using {{ datalens-short-name }} tools.
 ---
 
 # {{ tracker-full-name }}: data export and visualization
@@ -131,7 +131,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       * `CH_STATUSES_VIEW`: `v_tracker_statuses`
 1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 1. In the **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}** tab, click **{{ ui-key.yacloud.serverless-functions.item.testing.button_run-test }}**.
-1. The test result is a data import log:
+1. The test result is a data import log:   
    ```json
    {
        "statusCode": 200,

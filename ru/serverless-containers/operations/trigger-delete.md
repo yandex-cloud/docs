@@ -1,6 +1,6 @@
 ---
-title: "Инструкция о том, как удалить триггер в {{ serverless-containers-full-name }}"
-description: "Из статьи вы узнаете, как удалить триггер в {{ serverless-containers-full-name }}."
+title: Инструкция о том, как удалить триггер в {{ serverless-containers-full-name }}
+description: Из статьи вы узнаете, как удалить триггер в {{ serverless-containers-full-name }}.
 ---
 
 # Удалить триггер в {{ serverless-containers-name }}

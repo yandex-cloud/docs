@@ -1,7 +1,6 @@
 # Receiving receipts for bank card payments
 
 
-
 ## Scenario description {#case-description}
 
 You need to get a payment receipt after making a payment.

@@ -1,6 +1,6 @@
 ---
-title: "How to add a dashboard parameter to {{ monitoring-full-name }}"
-description: "In this tutorial, you will learn how to add a dashboard parameter to {{ monitoring-name }}."
+title: How to add a dashboard parameter to {{ monitoring-full-name }}
+description: In this tutorial, you will learn how to add a dashboard parameter to {{ monitoring-name }}.
 ---
 
 # Adding a dashboard parameter

@@ -1,6 +1,6 @@
 ---
-title: "How to move a NAT gateway to a different folder"
-description: "Use this guide to move a NAT gateway to a different folder."
+title: How to move a NAT gateway to a different folder
+description: Use this guide to move a NAT gateway to a different folder.
 ---
 
 # Moving a NAT gateway to a different folder

@@ -1,6 +1,6 @@
 ---
-title: "How to get a log group ID for an L7 load balancer in {{ alb-full-name }}"
-description: "Follow this guide to get the ID of a log group for an L7 balancer."
+title: How to get a log group ID for an L7 load balancer in {{ alb-full-name }}
+description: Follow this guide to get the ID of a log group for an L7 balancer.
 ---
 
 # Getting log group ID of an L7 load balancer

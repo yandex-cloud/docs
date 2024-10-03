@@ -1,6 +1,6 @@
 ---
-title: "Using the SDK for Java functions in {{ sf-full-name }}. Overview"
-description: "You can manage Java functions in {{ sf-name }} using the SDK."
+title: Using the SDK for Java functions in {{ sf-full-name }}. Overview
+description: You can manage Java functions in {{ sf-name }} using the SDK.
 ---
 
 # Using the SDK for Java functions

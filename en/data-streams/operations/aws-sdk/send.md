@@ -1,6 +1,6 @@
 ---
-title: "How to send data from {{ ydb-short-name }} to an AWS SDK stream"
-description: "In this tutorial, you will learn how to send data from {{ ydb-short-name }} to an AWS SDK stream."
+title: How to send data from {{ ydb-short-name }} to an AWS SDK stream
+description: In this tutorial, you will learn how to send data from {{ ydb-short-name }} to an AWS SDK stream.
 ---
 
 # Sending data to a stream in the AWS SDK

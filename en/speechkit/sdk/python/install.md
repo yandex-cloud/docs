@@ -1,6 +1,6 @@
 ---
-title: "Installing the Python SDK {{ speechkit-full-name }}"
-description: "Follow this guide to install the {{ speechkit-name }} Python SDK."
+title: Installing the Python SDK {{ speechkit-full-name }}
+description: Follow this guide to install the {{ speechkit-name }} Python SDK.
 ---
 
 # Installing the Python SDK {{ speechkit-name }}

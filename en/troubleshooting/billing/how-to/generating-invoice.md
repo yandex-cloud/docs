@@ -1,7 +1,6 @@
 # How to generate a payment invoice
 
 
-
 ## Issue description {#case-description}
 
 * You need to generate a payment invoice for the previous reporting period of your Yandex Cloud usage.
@@ -33,6 +32,6 @@ When creating the request, make sure to specify:
 
 
 1. The ID of the billing account or of the cloud for which you need to get a payment invoice or closing documents.
-You can find this ID on the [page with billing account details]({{ link-console-support }}).
+   You can find this ID on the [page with billing account details]({{ link-console-support }}).
 
 2. Detailed description of the task.

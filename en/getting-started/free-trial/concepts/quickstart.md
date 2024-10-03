@@ -1,6 +1,6 @@
 ---
-title: "How does the trial period work"
-description: "The trial period allows you to use {{ sf-full-name }} resources for free with some limitations. You pay for the resources you consume from the initial grant. After the end of the trial period, the resources will be retained but discontinued. To resume working with {{ yandex-cloud }}, you will need to fully upgrade to the paid version."
+title: How does the trial period work
+description: The trial period allows you to use {{ sf-full-name }} resources for free with some limitations. You pay for the resources you consume from the initial grant. After the end of the trial period, the resources will be retained but discontinued. To resume working with {{ yandex-cloud }}, you will need to fully upgrade to the paid version.
 ---
 
 # How does the trial period work

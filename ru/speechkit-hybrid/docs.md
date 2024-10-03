@@ -1,5 +1,5 @@
 ---
-title: "Документация сервиса {{ sk-hybrid-name }}"
+title: Документация сервиса {{ sk-hybrid-name }}
 noIndex: true
 ---
 

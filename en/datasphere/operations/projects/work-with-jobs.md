@@ -1,6 +1,6 @@
 ---
-title: "How to run jobs in {{ ml-platform-name }} Jobs"
-description: "Follow this guide to remotely run Python and bash scripts and executable binary files to run on a {{ ml-platform-name }} VM."
+title: How to run jobs in {{ ml-platform-name }} Jobs
+description: Follow this guide to remotely run Python and bash scripts and executable binary files to run on a {{ ml-platform-name }} VM.
 ---
 
 # Running jobs in {{ ml-platform-name }} Jobs

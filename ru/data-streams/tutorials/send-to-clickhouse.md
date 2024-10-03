@@ -1,5 +1,5 @@
 ---
-canonical: "{{ link-docs }}/tutorials/dataplatform/yds-to-clickhouse"
+canonical: '{{ link-docs }}/tutorials/dataplatform/yds-to-clickhouse'
 ---
 
 # Сохранение данных в {{ mch-full-name }}

@@ -1,6 +1,6 @@
 ---
-title: "Разработка на Bash в {{ sf-full-name }}. Обзор"
-description: "С помощью сервиса {{ sf-name }} вы можете запускать приложения, написанные на Bash. В среду выполнения Bash по умолчанию установлены утилиты jq, CLI {{ yandex-cloud }}, AWS CLI version 2."
+title: Разработка на Bash в {{ sf-full-name }}. Обзор
+description: С помощью сервиса {{ sf-name }} вы можете запускать приложения, написанные на Bash. В среду выполнения Bash по умолчанию установлены утилиты jq, CLI {{ yandex-cloud }}, AWS CLI version 2.
 ---
 
 # Разработка на Bash. Обзор

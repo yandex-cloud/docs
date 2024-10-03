@@ -1,6 +1,6 @@
 ---
-title: "How to create a VM from a set of disks"
-description: "Use this guide to create a VM from a set of existing disks."
+title: How to create a VM from a set of disks
+description: Use this guide to create a VM from a set of existing disks.
 ---
 
 # Creating a VM from a set of disks

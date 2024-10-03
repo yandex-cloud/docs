@@ -1,5 +1,5 @@
 ---
-canonical: "{{ link-docs }}/tutorials/dataplatform/greenplum-to-clickhouse"
+canonical: '{{ link-docs }}/tutorials/dataplatform/greenplum-to-clickhouse'
 ---
 
 # Загрузка данных из {{ GP }} в витрину {{ CH }}

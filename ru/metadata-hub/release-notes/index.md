@@ -1,6 +1,6 @@
 ---
-title: "История изменений в {{ metadata-hub-full-name }}"
-description: "В разделе представлена история изменений сервиса {{ metadata-hub-name }}."
+title: История изменений в {{ metadata-hub-full-name }}
+description: В разделе представлена история изменений сервиса {{ metadata-hub-name }}.
 ---
 
 # История изменений {{ metadata-hub-full-name }} в 2024 году

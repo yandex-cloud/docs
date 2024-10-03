@@ -1,6 +1,6 @@
 ---
-title: "How to create a playlist in {{ video-full-name }}"
-description: "Follow this guide to create a playlist in {{ video-name }}."
+title: How to create a playlist in {{ video-full-name }}
+description: Follow this guide to create a playlist in {{ video-name }}.
 ---
 
 # Creating a playlist

@@ -1,5 +1,5 @@
 ---
-title: "Контейнер в {{ serverless-containers-full-name }}"
+title: Контейнер в {{ serverless-containers-full-name }}
 ---
 
 # Контейнер

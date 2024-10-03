@@ -1,6 +1,6 @@
 ---
-title: "Getting information about a {{ cloud-logging-full-name }} sink"
-description: "Follow this guide to get information about a sink."
+title: Getting information about a {{ cloud-logging-full-name }} sink
+description: Follow this guide to get information about a sink.
 ---
 
 # Getting information about a sink

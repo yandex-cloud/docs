@@ -1,6 +1,6 @@
 ---
-title: "Инструкции по работе с {{ org-full-name }}"
-description: "Из статьи вы узнаете, как работать с {{ org-full-name }} в {{ yandex-cloud }}."
+title: Инструкции по работе с {{ org-full-name }}
+description: Из статьи вы узнаете, как работать с {{ org-full-name }} в {{ yandex-cloud }}.
 ---
 
 # Инструкции по работе с {{ org-full-name }}

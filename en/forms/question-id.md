@@ -69,7 +69,7 @@ Let's see how to get IDs using Yandex&#160;Browser:
    * Response ID: Find the `value` parameter value.
       ![](../_assets/forms/checkbox-code.png)
 
-   
+
    * For the <q>Drop-down list</q> question type, the code lists all available response options.
       ![](../_assets/forms/code-list.png)
 

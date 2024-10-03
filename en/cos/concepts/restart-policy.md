@@ -1,6 +1,6 @@
 ---
-title: "Policies for restarting a Docker container"
-description: "You can specify three Docker container restart policies in its description: Always, Never, and OnFailure."
+title: Policies for restarting a Docker container
+description: 'You can specify three Docker container restart policies in its description: Always, Never, and OnFailure.'
 ---
 
 # Policies for restarting a Docker container

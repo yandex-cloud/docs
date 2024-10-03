@@ -126,10 +126,10 @@
    FROM nvcr.io/nvidia/tritonserver:22.01-py3
 
    RUN mkdir -p /models/resnet152_640x640/1/model.savedmodel/ &&\
-     curl -L "https://tfhub.dev/tensorflow/faster_rcnn/resnet152_v1_640x640/1?tf-hub-format=compressed" |\
+     curl --location "https://tfhub.dev/tensorflow/faster_rcnn/resnet152_v1_640x640/1?tf-hub-format=compressed" |\
      tar -zxvC /models/resnet152_640x640/1/model.savedmodel/ &&\
      mkdir -p /models/inception_resnet_v2_640x640/1/model.savedmodel/ &&\
-     curl -L "https://tfhub.dev/tensorflow/faster_rcnn/inception_resnet_v2_640x640/1?tf-hub-format=compressed" |\
+     curl --location "https://tfhub.dev/tensorflow/faster_rcnn/inception_resnet_v2_640x640/1?tf-hub-format=compressed" |\
      tar -zxvC /models/inception_resnet_v2_640x640/1/model.savedmodel/
 
    ENTRYPOINT ["/opt/tritonserver/nvidia_entrypoint.sh",\

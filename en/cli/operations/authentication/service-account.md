@@ -1,6 +1,6 @@
 ---
-title: "How to authenticate in the {{ yandex-cloud }} CLI as a service account"
-description: "Follow this guide to get authenticated in the CLI as a service account."
+title: How to authenticate in the {{ yandex-cloud }} CLI as a service account
+description: Follow this guide to get authenticated in the CLI as a service account.
 ---
 
 # Authenticating as a service account

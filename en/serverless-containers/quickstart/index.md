@@ -1,6 +1,6 @@
 ---
-title: "How to get started with {{ serverless-containers-full-name }}"
-description: "Follow this guide to create and set up a container or trigger."
+title: How to get started with {{ serverless-containers-full-name }}
+description: Follow this guide to create and set up a container or trigger.
 ---
 
 # Getting started with {{ serverless-containers-name }}

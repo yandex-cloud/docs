@@ -8,7 +8,7 @@ To start using the client:
 
 1. From your OS command line, run:
 
-   
+
    ```
    pip install yandex_tracker_client
    ```
@@ -27,3 +27,4 @@ To start using the client:
 In the client, use the same data format as in the [{{ tracker-name }} API](../concepts/access.md).
 
 For more information about how the client works and its terms of use, see its page on GitHub: [https://github.com/yandex/yandex_tracker_client](https://github.com/yandex/yandex_tracker_client).
+

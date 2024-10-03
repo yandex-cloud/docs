@@ -1,6 +1,6 @@
 ---
-title: "How to create a network load balancer"
-description: "Follow this guide to create a network load balancer."
+title: How to create a network load balancer
+description: Follow this guide to create a network load balancer.
 ---
 
 # Creating a network load balancer

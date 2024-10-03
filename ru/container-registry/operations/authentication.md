@@ -1,6 +1,6 @@
 ---
-title: "Аутентифицироваться в {{ container-registry-full-name }}"
-description: "Перед началом работы с {{ container-registry-name }} необходимо аутентифицироваться для соответствующего интерфейса." 
+title: Аутентифицироваться в {{ container-registry-full-name }}
+description: Перед началом работы с {{ container-registry-name }} необходимо аутентифицироваться для соответствующего интерфейса.
 ---
 
 # Аутентифицироваться в {{ container-registry-name }}

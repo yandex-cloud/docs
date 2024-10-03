@@ -1,6 +1,6 @@
 ---
-title: "Possible errors when using federations in {{ org-full-name }}"
-description: "In this tutorial, you will learn about possible errors related to federations."
+title: Possible errors when using federations in {{ org-full-name }}
+description: In this tutorial, you will learn about possible errors related to federations.
 ---
 
 # Troubleshooting errors in federations

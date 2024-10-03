@@ -1,6 +1,6 @@
 ---
-title: "FAQ about {{ yandex-cloud }} technical support"
-description: "This page presents questions and answers about {{ yandex-cloud }} technical support."
+title: FAQ about {{ yandex-cloud }} technical support
+description: This page presents questions and answers about {{ yandex-cloud }} technical support.
 ---
 
 # FAQ about {{ yandex-cloud }} technical support
@@ -56,7 +56,7 @@ Technical support includes troubleshooting third-party software that is used in 
 - [Operating systems](https://yandex.cloud/en/marketplace?categories=os) on {{ yandex-cloud }} VM instances created from public images provided by {{ yandex-cloud }}.
 - Databases and cluster management systems created in:
    - [{{ mkf-full-name }}](../managed-kafka/index.yaml)
-   - [{{ mch-full-name }}](../managed-clickhouse/index.yaml)
+   - [{{ mch-full-name }}](../managed-clickhouse/index.yaml)   
    - [{{ mgp-full-name }}](../managed-greenplum/index.yaml)
    - [{{ managed-k8s-full-name }}](../managed-kubernetes/index.yaml)
    - [{{ mmg-full-name }}](../managed-mongodb/index.yaml)

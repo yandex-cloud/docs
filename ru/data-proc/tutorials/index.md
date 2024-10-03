@@ -1,6 +1,6 @@
 ---
-title: "Практические руководства {{ dataproc-full-name }}"
-description: "Различные сценарии использования {{ dataproc-full-name }} в {{ yandex-cloud }}."
+title: Практические руководства {{ dataproc-full-name }}
+description: Различные сценарии использования {{ dataproc-full-name }} в {{ yandex-cloud }}.
 ---
 
 # Практические руководства {{ dataproc-name }}

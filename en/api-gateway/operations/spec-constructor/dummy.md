@@ -1,6 +1,6 @@
 ---
-title: "Adding the Static Response extension"
-description: "Follow this guide to add the Static Response extension using the specification constructor."
+title: Adding the Static Response extension
+description: Follow this guide to add the Static Response extension using the specification constructor.
 ---
 
 # Adding the x-yc-apigateway-integration:dummy extension

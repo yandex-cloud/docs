@@ -228,10 +228,10 @@
    
        ```bash
        curl --request POST
-           -H "Content-Type: application/json"
-           -H "Authorization: Bearer <IAM-токен>"
-           -H "x-folder-id: <идентификатор_каталога>"
-           -d prompt.json
+           --header "Content-Type: application/json"
+           --header "Authorization: Bearer <IAM-токен>"
+           --header "x-folder-id: <идентификатор_каталога>"
+           --data prompt.json
            https://llm.{{ api-host }}/foundationModels/v1/completion
        ```
         

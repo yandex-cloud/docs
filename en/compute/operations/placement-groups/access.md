@@ -1,6 +1,6 @@
 ---
-title: "Configuring access permissions to a {{ compute-name }} VM placement group"
-description: "Follow this guide to configure access permissions to a {{ compute-name }} VM placement group."
+title: Configuring access permissions to a {{ compute-name }} VM placement group
+description: Follow this guide to configure access permissions to a {{ compute-name }} VM placement group.
 ---
 
 # Configuring VM placement group access permissions

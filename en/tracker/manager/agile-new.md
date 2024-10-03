@@ -1,5 +1,5 @@
 ---
-title: "Issue boards in {{ tracker-full-name }}"
+title: Issue boards in {{ tracker-full-name }}
 ---
 
 # Issue boards

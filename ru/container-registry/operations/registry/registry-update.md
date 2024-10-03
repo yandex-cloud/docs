@@ -1,6 +1,6 @@
 ---
-title: "Как изменить реестр в {{ container-registry-full-name }}"
-description: "Следуя данной инструкции, вы сможете изменить реестр." 
+title: Как изменить реестр в {{ container-registry-full-name }}
+description: Следуя данной инструкции, вы сможете изменить реестр.
 ---
 
 # Изменить реестр

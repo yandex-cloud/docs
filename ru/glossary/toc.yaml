@@ -118,3 +118,4 @@ items:
       - name: WAF
         href: waf.md
 base: ru/glossary
+deepBase: 2

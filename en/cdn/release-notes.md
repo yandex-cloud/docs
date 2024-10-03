@@ -1,6 +1,6 @@
 ---
-title: "{{ cdn-full-name }} release notes"
-description: "This section contains {{ cdn-name }} release notes."
+title: '{{ cdn-full-name }} release notes'
+description: This section contains {{ cdn-name }} release notes.
 ---
 
 # {{ cdn-full-name }} release notes

@@ -1,6 +1,6 @@
 ---
-title: "How to create, update, and destroy encryption key pairs"
-description: "This guide describes how you can create, update, and destroy encryption key pairs."
+title: How to create, update, and destroy encryption key pairs
+description: This guide describes how you can create, update, and destroy encryption key pairs.
 ---
 
 # Managing encryption key pairs

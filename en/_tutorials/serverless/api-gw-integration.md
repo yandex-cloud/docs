@@ -96,7 +96,7 @@ The cost of resources for the integration includes:
          sudo ./aws/install
          ```
 
-      
+
       * [{{ TF }}](https://www.terraform.io/) `1.0.8` or higher:
 
          ```bash
@@ -162,7 +162,7 @@ The cost of resources for the integration includes:
          sudo installer -pkg AWSCLIV2.pkg -target /
          ```
 
-      
+
       * [{{ TF }}](https://www.terraform.io/) `1.0.8` or higher:
 
          ```bash

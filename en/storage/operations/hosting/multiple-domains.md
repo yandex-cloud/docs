@@ -1,6 +1,6 @@
 ---
-title: "How to set up support of multiple domain names for a website"
-description: "Use this guide to set up support for multiple domain names for a website."
+title: How to set up support of multiple domain names for a website
+description: Use this guide to set up support for multiple domain names for a website.
 ---
 
 # Support for multiple website domain names

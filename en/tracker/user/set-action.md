@@ -1,6 +1,6 @@
 ---
-title: "How to set up a trigger action in {{ tracker-full-name }}"
-description: "In this tutorial, you will learn how to set up a trigger action."
+title: How to set up a trigger action in {{ tracker-full-name }}
+description: In this tutorial, you will learn how to set up a trigger action.
 ---
 
 # Configuring trigger actions

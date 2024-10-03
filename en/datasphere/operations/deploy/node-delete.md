@@ -1,6 +1,6 @@
 ---
-title: "How to delete a node"
-description: "Follow this guide to delete a node."
+title: How to delete a node
+description: Follow this guide to delete a node.
 ---
 
 # Deleting a node

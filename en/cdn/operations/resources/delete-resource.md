@@ -1,6 +1,6 @@
 ---
-title: "Deleting a resource"
-description: "Follow this guide to delete a resource."
+title: Deleting a resource
+description: Follow this guide to delete a resource.
 ---
 
 # Deleting a resource

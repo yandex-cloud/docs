@@ -1,6 +1,6 @@
 ---
-title: "How to set up a custom form for creating issues and embed it into the {{ tracker-name }} interface"
-description: "Follow this guide to set up a custom form for creating issues and embed it into the {{ tracker-name }} interface."
+title: How to set up a custom form for creating issues and embed it into the {{ tracker-name }} interface
+description: Follow this guide to set up a custom form for creating issues and embed it into the {{ tracker-name }} interface.
 ---
 
 # Using a form as a template for creating issues

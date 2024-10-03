@@ -1,6 +1,6 @@
 ---
-title: "Asynchronous function invocation in {{ sf-full-name }}"
-description: "When you create a new function version in {{ sf-full-name }}, you can set up asynchronous invocation to invoke the function without waiting for it to complete."
+title: Asynchronous function invocation in {{ sf-full-name }}
+description: When you create a new function version in {{ sf-full-name }}, you can set up asynchronous invocation to invoke the function without waiting for it to complete.
 ---
 
 # Asynchronous function invocation

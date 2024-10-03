@@ -1,6 +1,6 @@
 ---
-title: "Инструкция о том, как выгружать логи из {{ cloud-logging-name }} в {{ objstorage-name }}"
-description: "Из статьи вы узнаете, как выгружать логи из {{ cloud-logging-name }} в {{ objstorage-name }}."
+title: Инструкция о том, как выгружать логи из {{ cloud-logging-name }} в {{ objstorage-name }}
+description: Из статьи вы узнаете, как выгружать логи из {{ cloud-logging-name }} в {{ objstorage-name }}.
 ---
 
 # Выгрузить логи в {{ objstorage-name }}

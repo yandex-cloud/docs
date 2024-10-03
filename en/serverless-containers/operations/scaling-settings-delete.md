@@ -1,6 +1,6 @@
 ---
-title: "Deleting container scaling settings"
-description: "Follow this guide to delete container scaling settings."
+title: Deleting container scaling settings
+description: Follow this guide to delete container scaling settings.
 ---
 
 # Deleting container scaling settings

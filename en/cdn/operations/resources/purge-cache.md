@@ -1,6 +1,6 @@
 ---
-title: "How to purge the resource cache in {{ cdn-full-name }}"
-description: "Follow this guide to purge the resource cache."
+title: How to purge the resource cache in {{ cdn-full-name }}
+description: Follow this guide to purge the resource cache.
 ---
 
 # Purging the resource cache

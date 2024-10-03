@@ -1,5 +1,5 @@
 ---
-canonical: "{{ link-docs }}/tutorials/dataplatform/clickhouse-sharding"
+canonical: '{{ link-docs }}/tutorials/dataplatform/clickhouse-sharding'
 ---
 
 {% include [clickhouse-sharding](../../_tutorials/dataplatform/clickhouse-sharding.md) %}

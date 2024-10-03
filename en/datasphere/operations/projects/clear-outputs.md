@@ -1,6 +1,6 @@
 ---
-title: "How to clear notebook cell outputs in {{ ml-platform-full-name }}"
-description: "Follow this guide to clear a notebook's cell outputs."
+title: How to clear notebook cell outputs in {{ ml-platform-full-name }}
+description: Follow this guide to clear a notebook's cell outputs.
 ---
 
 # Clearing notebook cell outputs

@@ -1,6 +1,6 @@
 ---
-title: "{{ vision-name }} pricing policy"
-description: "This article describes {{ vision-short-name }} pricing."
+title: '{{ vision-name }} pricing policy'
+description: This article describes {{ vision-short-name }} pricing.
 editable: false
 ---
 

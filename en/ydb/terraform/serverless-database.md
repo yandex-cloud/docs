@@ -1,6 +1,6 @@
 ---
-title: "Creating and editing parameters of a serverless {{ ydb-full-name }} database"
-description: "Follow this guide to create or update parameters of a serverless {{ ydb-full-name }} database."
+title: Creating and editing parameters of a serverless {{ ydb-full-name }} database
+description: Follow this guide to create or update parameters of a serverless {{ ydb-full-name }} database.
 ---
 
 # Creating and editing parameters of a serverless database

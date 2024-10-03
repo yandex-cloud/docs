@@ -1,6 +1,6 @@
 ---
-title: "Access management in {{ dns-full-name }}"
-description: "Access management in the service for managing DNS zones and domain names of your resources: {{ dns-full-name }}. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required to perform a particular action."
+title: Access management in {{ dns-full-name }}
+description: 'Access management in the service for managing DNS zones and domain names of your resources: {{ dns-full-name }}. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required to perform a particular action.'
 ---
 
 # Access management in {{ dns-name }}

@@ -1,6 +1,6 @@
 ---
-title: "Adding the HTTP Access extension"
-description: "Follow this guide to add the HTTP Access extension using the specification constructor."
+title: Adding the HTTP Access extension
+description: Follow this guide to add the HTTP Access extension using the specification constructor.
 ---
 
 # Adding the x-yc-apigateway-integration:http extension

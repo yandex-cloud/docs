@@ -1,14 +1,11 @@
 # How to get closing documents
 
 
-
 ## Scenario description {#case-description}
 
 You need to receive closing documents (service provision report, account statement, invoice) for the last reporting period.
 
 ## Solution {#case-resolution}
-
-
 
 
 
@@ -20,5 +17,5 @@ If the reporting documents for the previous reporting period have not arrived in
 Provide the following information in the request:
 
 1. Billing account ID.
-You can find this ID on the [page with billing account details]({{ link-console-support }}).
+   You can find this ID on the [page with billing account details]({{ link-console-support }}).
 2. List of the reporting documents you would like to receive.

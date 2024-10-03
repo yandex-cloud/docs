@@ -1,6 +1,6 @@
 ---
-title: "How to configure an {{ objstorage-full-name }} source endpoint"
-description: "Follow this guide to configure an {{ objstorage-full-name }} source endpoint."
+title: How to configure an {{ objstorage-full-name }} source endpoint
+description: Follow this guide to configure an {{ objstorage-full-name }} source endpoint.
 ---
 # Transferring data from an {{ objstorage-full-name }} source endpoint
 

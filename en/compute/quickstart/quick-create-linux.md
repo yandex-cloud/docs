@@ -1,5 +1,5 @@
 ---
-title: "Creating a Linux VM"
+title: Creating a Linux VM
 description: "Create a Linux instance in the cloud using {{ compute-name }}. You can connect to a Linux instance over SSH\_using the console or\_the PuTTY program. To connect to the Linux instance, specify its public address."
 keywords:
   - linux

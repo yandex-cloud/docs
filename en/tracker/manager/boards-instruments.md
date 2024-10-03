@@ -1,6 +1,6 @@
 ---
-title: "Tools on boards with backlog and sprints in {{ tracker-full-name }}"
-description: "Boards with backlog and sprints feature the following: backlog, sprints, planning poker, and burndown chart."
+title: Tools on boards with backlog and sprints in {{ tracker-full-name }}
+description: 'Boards with backlog and sprints feature the following: backlog, sprints, planning poker, and burndown chart.'
 ---
 
 # Tools on boards with backlog and sprints

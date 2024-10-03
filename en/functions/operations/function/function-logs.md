@@ -1,6 +1,6 @@
 ---
-title: "Viewing the execution log in {{ sf-full-name }}"
-description: "You can view monitoring logs in {{ sf-full-name }} using the management console. To do this, select {{ sf-name }} and click the function whose execution log you want to view. In the window that opens, go to Logs and specify the time period. The default time period is one hour. Function execution logs are stored for three days. Time in the log is shown in UTC."
+title: Viewing the execution log in {{ sf-full-name }}
+description: You can view monitoring logs in {{ sf-full-name }} using the management console. To do this, select {{ sf-name }} and click the function whose execution log you want to view. In the window that opens, go to Logs and specify the time period. The default time period is one hour. Function execution logs are stored for three days. Time in the log is shown in UTC.
 ---
 
 # Viewing function logs

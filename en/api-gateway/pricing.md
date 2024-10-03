@@ -1,6 +1,6 @@
 ---
-title: "{{ api-gw-full-name }} pricing policy"
-description: "This article describes the {{ api-gw-name }} pricing policy."
+title: '{{ api-gw-full-name }} pricing policy'
+description: This article describes the {{ api-gw-name }} pricing policy.
 editable: false
 ---
 

@@ -1,6 +1,6 @@
 ---
-title: "How to create a file storage in {{ compute-full-name }}"
-description: "Follow this guide to create a file storage."
+title: How to create a file storage in {{ compute-full-name }}
+description: Follow this guide to create a file storage.
 ---
 
 # Creating a file storage

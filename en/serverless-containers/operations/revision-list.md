@@ -1,6 +1,6 @@
 ---
-title: "How to get a list of container revisions"
-description: "Use this guide to get a list of container revisions."
+title: How to get a list of container revisions
+description: Use this guide to get a list of container revisions.
 ---
 
 # Getting a list of container revisions

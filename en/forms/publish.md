@@ -16,7 +16,7 @@ As soon as a form is created, it becomes available via a direct link. To get a l
 
 1. Select the form and click **{{ ui-key.forms.common.blocks_share.button-share }}** above the list of questions.
 
-1. To copy the form address, click ![](../_assets/forms/icon-copy.png) in the **Link** field.
+1. To copy the form address, click ![](../_assets/forms/icon-copy.png) in the **Link** field.   
 
 1. To share the link on social media or in a messenger, click the icon next to the **Link** field.
 

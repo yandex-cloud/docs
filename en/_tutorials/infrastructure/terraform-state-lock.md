@@ -1,6 +1,6 @@
 ---
-title: "Locking {{ TF }} states"
-description: "When using {{ TF }} in the cloud, you need to ensure that multiple users cannot modify the infrastructure at the same time. This is what {{ TF }} state locking is used for."
+title: Locking {{ TF }} states
+description: When using {{ TF }} in the cloud, you need to ensure that multiple users cannot modify the infrastructure at the same time. This is what {{ TF }} state locking is used for.
 ---
 
 # Locking {{ TF }} states using {{ ydb-full-name }}

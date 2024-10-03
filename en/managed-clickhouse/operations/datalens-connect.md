@@ -1,6 +1,6 @@
 ---
-title: "How to connect to a {{ CH }} cluster from {{ datalens-name }}"
-description: "In this tutorial, you will learn how to connect to a {{ CH }} cluster from {{ datalens-name }}."
+title: How to connect to a {{ CH }} cluster from {{ datalens-name }}
+description: In this tutorial, you will learn how to connect to a {{ CH }} cluster from {{ datalens-name }}.
 ---
 
 # Connecting to a {{ CH }} cluster from {{ datalens-name }}
@@ -37,7 +37,7 @@ To enable {{ datalens-name }} to connect to your cluster and work with its data,
 
       {% cut "I have no "{{ ui-key.yacloud.mdb.datalens.button-action_new-connection }}" button" %}
 
-      
+
       If you see a message saying "{{ ui-key.yacloud.mdb.datalens.label_activate-datalens-title }}" instead of the **{{ ui-key.yacloud.mdb.datalens.button-action_new-connection }}** button, it means that you either did not activate {{ datalens-name }} or connected it in a different folder. To connect your cluster to a {{ datalens-name }} instance from another folder, follow the [guide](../../datalens/operations/connection/create-clickhouse.md) in the {{ datalens-name }} documentation.
 
 

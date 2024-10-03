@@ -1,6 +1,6 @@
 ---
-title: "How to upload data to a {{ ydb-full-name }} table"
-description: "Follow this guide to upload data to a table."
+title: How to upload data to a {{ ydb-full-name }} table
+description: Follow this guide to upload data to a table.
 sourcePath: overlay/quickstart/document-api/aws-sdk/load-data.md
 ---
 # Uploading data to a table

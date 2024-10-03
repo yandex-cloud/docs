@@ -1,6 +1,6 @@
 ---
-title: "How to collect user requests for load testing using {{ load-testing-full-name }}"
-description: "Follow this guide to collect user requests and use this data for load testing."
+title: How to collect user requests for load testing using {{ load-testing-full-name }}
+description: Follow this guide to collect user requests and use this data for load testing.
 ---
 
 # Preparing test data using the `dispatcher` tool

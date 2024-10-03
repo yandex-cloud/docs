@@ -1,6 +1,6 @@
 ---
-title: "Asynchronous recognition API v2 in {{ speechkit-full-name }}"
-description: "Follow this guide to learn how to use the asynchronous recognition API v2."
+title: Asynchronous recognition API v2 in {{ speechkit-full-name }}
+description: Follow this guide to learn how to use the asynchronous recognition API v2.
 ---
 
 # Asynchronous recognition API v2

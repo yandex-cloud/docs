@@ -1,6 +1,6 @@
 ---
-title: "Managing {{ RD }} backups"
-description: "You can create backups and restore clusters from existing {{ RD }} backups. When you restore a cluster from a backup, you create a new cluster with the backup data. If the cloud does not have sufficient resources to create such a cluster, you will not be able to restore your data from a backup."
+title: Managing {{ RD }} backups
+description: You can create backups and restore clusters from existing {{ RD }} backups. When you restore a cluster from a backup, you create a new cluster with the backup data. If the cloud does not have sufficient resources to create such a cluster, you will not be able to restore your data from a backup.
 ---
 
 # Managing backups in {{ mrd-name }}

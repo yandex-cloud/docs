@@ -1,6 +1,6 @@
 ---
-title: "How to create a namespace in a {{ k8s }} cluster in {{ managed-k8s-full-name }}"
-description: "Follow this guide to create a namespace in a {{ managed-k8s-name }} cluster."
+title: How to create a namespace in a {{ k8s }} cluster in {{ managed-k8s-full-name }}
+description: Follow this guide to create a namespace in a {{ managed-k8s-name }} cluster.
 ---
 
 # Creating a namespace in a {{ k8s }} cluster

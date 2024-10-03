@@ -1,6 +1,6 @@
 ---
-title: "How to import a page from a file in {{ wiki-full-name }}"
-description: "In this tutorial, you will learn about importing a page from a file in {{ wiki-name }}."
+title: How to import a page from a file in {{ wiki-full-name }}
+description: In this tutorial, you will learn about importing a page from a file in {{ wiki-name }}.
 ---
 
 # Importing a page from a file

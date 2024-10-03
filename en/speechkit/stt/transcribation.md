@@ -1,6 +1,6 @@
 ---
-title: "Asynchronous recognition with {{ speechkit-full-name }}"
-description: "Asynchronous recognition helps convert multi-channel audio files into text. Recognition results are saved on the {{ stt-long-resultsStorageTime }} server, after which you cannot get them."
+title: Asynchronous recognition with {{ speechkit-full-name }}
+description: Asynchronous recognition helps convert multi-channel audio files into text. Recognition results are saved on the {{ stt-long-resultsStorageTime }} server, after which you cannot get them.
 ---
 
 # Asynchronous recognition

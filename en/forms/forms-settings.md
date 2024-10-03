@@ -1,6 +1,6 @@
 ---
-title: "How to manage forms in {{ forms-full-name }}"
-description: "In this tutorial, you will learn how to manage forms in {{ forms-full-name }}."
+title: How to manage forms in {{ forms-full-name }}
+description: In this tutorial, you will learn how to manage forms in {{ forms-full-name }}.
 ---
 
 # Managing forms

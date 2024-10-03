@@ -1,5 +1,5 @@
 ---
-canonical: "{{ link-docs }}/tutorials/testing/server-logs-yq"
+canonical: '{{ link-docs }}/tutorials/testing/server-logs-yq'
 ---
 
 # Getting {{ objstorage-name }} object request statistics with {{ yq-full-name }}

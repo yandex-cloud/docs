@@ -1,6 +1,6 @@
 ---
-title: "{{ serverless-containers-full-name }} release notes"
-description: "This section contains {{ serverless-containers-name }} release notes."
+title: '{{ serverless-containers-full-name }} release notes'
+description: This section contains {{ serverless-containers-name }} release notes.
 ---
 
 # {{ serverless-containers-full-name }} release notes

@@ -1,6 +1,6 @@
 ---
-title: "How to disable resources in {{ cdn-full-name }}"
-description: "Follow this guide to disable a resource."
+title: How to disable resources in {{ cdn-full-name }}
+description: Follow this guide to disable a resource.
 ---
 
 # Disabling a resource

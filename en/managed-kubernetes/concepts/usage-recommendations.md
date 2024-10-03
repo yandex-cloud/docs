@@ -1,6 +1,6 @@
 ---
-title: "Recommendations for using {{ managed-k8s-full-name }}"
-description: "Follow these recommendations if your applications need high availability, fault tolerance, load scaling, and resource isolation."
+title: Recommendations for using {{ managed-k8s-full-name }}
+description: Follow these recommendations if your applications need high availability, fault tolerance, load scaling, and resource isolation.
 ---
 
 # Recommendations for using {{ managed-k8s-name }}

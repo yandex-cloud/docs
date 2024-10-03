@@ -1,5 +1,5 @@
 ---
-description: "MTU is the maximum size of a data packet, in bytes, that can be communicated over a network segment. Generally, MTU is 1500 bytes; however, MTUs may vary in different networks the packets are transmitted through."
+description: MTU is the maximum size of a data packet, in bytes, that can be communicated over a network segment. Generally, MTU is 1500 bytes; however, MTUs may vary in different networks the packets are transmitted through.
 keywords:
   - mtu
   - what is mtu

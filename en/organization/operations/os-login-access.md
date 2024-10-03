@@ -1,6 +1,6 @@
 ---
-title: "How to enable OS Login access in an organization"
-description: "Follow this guide to enable OS Login access to virtual machines and {{ k8s }} cluster nodes in an organization."
+title: How to enable OS Login access in an organization
+description: Follow this guide to enable OS Login access to virtual machines and {{ k8s }} cluster nodes in an organization.
 ---
 
 # Enabling access via OS Login

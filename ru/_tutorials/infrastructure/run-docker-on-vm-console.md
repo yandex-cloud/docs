@@ -211,7 +211,7 @@
           ```bash
           export IAM_TOKEN=CggaATEVAgA...
           export FAMILY=ubuntu-1804
-          curl -H "Authorization: Bearer ${IAM_TOKEN}" \
+          curl --header "Authorization: Bearer ${IAM_TOKEN}" \
             "https://compute.{{ api-host }}/compute/v1/images:latestByFamily?folderId=standard-images&family=${FAMILY}"
           ```
 
@@ -222,7 +222,7 @@
       ```bash
       export IAM_TOKEN=CggaATEVAgA...
       export FOLDER_ID=b1gvmob95yys********
-      curl -H "Authorization: Bearer ${IAM_TOKEN}" \
+      curl --header "Authorization: Bearer ${IAM_TOKEN}" \
         "https://vpc.{{ api-host }}/vpc/v1/subnets?folderId=${FOLDER_ID}"
       {
         "subnets": [
@@ -305,10 +305,10 @@
 
       ```bash
       export IAM_TOKEN=CggaATEVAgA...
-      curl -X POST \
-        -H "Content-Type: application/json" \
-        -H "Authorization: Bearer ${IAM_TOKEN}" \
-        -d '@body.json' \
+      curl --request POST \
+        --header "Content-Type: application/json" \
+        --header "Authorization: Bearer ${IAM_TOKEN}" \
+        --data '@body.json' \
         https://compute.{{ api-host }}/compute/v1/instances
       ```
 

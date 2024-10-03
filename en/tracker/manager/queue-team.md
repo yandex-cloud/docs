@@ -1,6 +1,6 @@
 ---
-title: "How to add a queue team"
-description: "Follow this guide to add a queue team."
+title: How to add a queue team
+description: Follow this guide to add a queue team.
 ---
 
 # Adding a queue team

@@ -1,6 +1,6 @@
 ---
-title: "How to delete a line in {{ video-full-name }}"
-description: "Follow this guide to delete a {{ video-full-name }} line."
+title: How to delete a line in {{ video-full-name }}
+description: Follow this guide to delete a {{ video-full-name }} line.
 ---
 
 # Deleting a line

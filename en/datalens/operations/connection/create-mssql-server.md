@@ -1,6 +1,6 @@
 ---
-title: "Instructions for creating a {{ MS }} connection in {{ datalens-full-name }}"
-description: "In this tutorial, you will learn how to connect to {{ MS }} Server in {{ datalens-full-name }}."
+title: Instructions for creating a {{ MS }} connection in {{ datalens-full-name }}
+description: In this tutorial, you will learn how to connect to {{ MS }} Server in {{ datalens-full-name }}.
 ---
 
 # Creating a {{ MS }} connection

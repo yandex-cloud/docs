@@ -1,5 +1,5 @@
 ---
-canonical: "{{ link-docs }}/tutorials/dataplatform/schema-registry-overview"
+canonical: '{{ link-docs }}/tutorials/dataplatform/schema-registry-overview'
 ---
 
 # Управление схемами данных в {{ mkf-short-name }}

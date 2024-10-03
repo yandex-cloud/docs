@@ -1,6 +1,6 @@
 ---
-title: "How to edit a backend group in {{ alb-full-name }}"
-description: "Step-by-step guide for editing a backend group."
+title: How to edit a backend group in {{ alb-full-name }}
+description: Step-by-step guide for editing a backend group.
 ---
 
 # Editing a backend group

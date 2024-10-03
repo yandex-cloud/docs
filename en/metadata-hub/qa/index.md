@@ -1,6 +1,6 @@
 ---
-title: "{{ metadata-hub-full-name }}. Questions and answers"
-description: "How to fix the error I get when creating a database in {{ metastore-name }}? Find the answers to these and other questions in this article."
+title: '{{ metadata-hub-full-name }}. Questions and answers'
+description: How to fix the error I get when creating a database in {{ metastore-name }}? Find the answers to these and other questions in this article.
 ---
 
 # General questions about {{ metadata-hub-name }}

@@ -1,6 +1,6 @@
 ---
-title: "How to invoke a container in {{ serverless-containers-full-name }}"
-description: "Follow this guide to invoke a container."
+title: How to invoke a container in {{ serverless-containers-full-name }}
+description: Follow this guide to invoke a container.
 ---
 
 # Invoking a container

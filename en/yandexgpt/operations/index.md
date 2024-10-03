@@ -1,6 +1,6 @@
 ---
-title: "{{ yagpt-full-name }} guides"
-description: "The page contains all guides for {{ yagpt-full-name }} in {{ yandex-cloud }}. How-to guides"
+title: '{{ yagpt-full-name }} guides'
+description: The page contains all guides for {{ yagpt-full-name }} in {{ yandex-cloud }}. How-to guides
 ---
 
 # Step-by-step guides for {{ yagpt-full-name }}

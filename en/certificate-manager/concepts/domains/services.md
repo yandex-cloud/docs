@@ -1,6 +1,6 @@
 ---
-title: "Integration of the domain management system with {{ yandex-cloud }} services"
-description: "You can use verified {{ certificate-manager-name }} domains in {{ api-gw-full-name }}."
+title: Integration of the domain management system with {{ yandex-cloud }} services
+description: You can use verified {{ certificate-manager-name }} domains in {{ api-gw-full-name }}.
 ---
 
 # Integration of the domain management system with {{ yandex-cloud }} services

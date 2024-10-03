@@ -1,6 +1,6 @@
 ---
-title: "How to get a list of supported languages in {{ translate-full-name }}"
-description: "In this tutorial, you will learn how to get a list of supported languages in {{ translate-name }}."
+title: How to get a list of supported languages in {{ translate-full-name }}
+description: In this tutorial, you will learn how to get a list of supported languages in {{ translate-name }}.
 ---
 
 # Getting a list of supported languages
