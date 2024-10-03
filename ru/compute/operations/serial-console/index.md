@@ -116,7 +116,7 @@
 1. Перезапустите SSH-сервер:
 
    ```bash
-   sudo systemctl restart ssh
+   sudo systemctl restart ssh*
    ```
 
 #### Создайте пароль для пользователя Linux {#create-pass}
