@@ -8,6 +8,10 @@ editable: false
 
 
 
+{% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
+
+{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
+
 {{ yds-name }} supports two pricing modes:
 
 * [Based on allocated resources](#rules): You pay a fixed hourly rate for the established throughput limit and message retention period and additionally for the number of units of actually written data.
@@ -57,7 +61,7 @@ The price is specified for one hour of using allocated resources:
 
 
 
-#### Data storage price with segment throughput limit of up to 1 MB/s {#up-to-1}
+#### Data storage with throughput limit per segment of up to 1 MB/s {#up-to-1}
 
 
 

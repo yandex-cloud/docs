@@ -25,6 +25,7 @@ description: Из статьи вы узнаете, какими материа�
 
 * [{{ api-gw-full-name }}](../api-gateway/qa/index.md)
 * [{{ backup-full-name }}](../backup/qa/troubleshooting.md)
+* [{{ cdn-full-name }}](../cdn/troubleshooting.md)
 * [{{ dns-full-name }}](../dns/qa/index.md)
 * [{{ cloud-logging-full-name }}](../logging/qa/index.md)
 * [{{ compute-full-name }}](../compute/qa/all.md)
@@ -42,6 +43,7 @@ description: Из статьи вы узнаете, какими материа�
 * [{{ datalens-full-name }}](../datalens/qa/index.md)
 * [{{ ml-platform-full-name }}](../datasphere/qa/index.md)
 * [{{ yq-full-name }}](../query/qa/index.md)
+* [{{ maf-full-name }}](../managed-airflow/qa/index.md)
 * [{{ mkf-full-name }}](../managed-kafka/qa/index.md)
 * [{{ mch-full-name }}](../managed-clickhouse/qa/all.md)
 * [{{ mgp-full-name }}](../managed-greenplum/qa/all.md)
@@ -52,6 +54,7 @@ description: Из статьи вы узнаете, какими материа�
 * [{{ mrd-full-name }}](../managed-redis/qa/general.md)
 * [{{ ydb-full-name }}](../ydb/faq.md)
 * [{{ message-queue-full-name }}](../message-queue/qa/index.md)
+* [{{ metadata-hub-full-name }}](../metadata-hub/qa/index.md)
 * [{{ monitoring-full-name }}](../monitoring/qa/all.md)
 * [{{ objstorage-full-name }}](../storage/qa.md)
 
@@ -86,6 +89,7 @@ description: Из статьи вы узнаете, какими материа�
 
 ### Инструменты разработчика {#developer-tools}
 
+* [{{ ca-full-name }}](../code-assistant/qa.md)
 * [{{ cos-full-name }}](../cos/qa/index.md)
 * [{{ mgl-full-name }}](../managed-gitlab/qa/index.md)
 

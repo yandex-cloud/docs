@@ -17,7 +17,7 @@ Below are the data formats and compression algorithms supported in {{ yq-full-na
 This format is based on [CSV](https://ru.wikipedia.org/wiki/CSV) format. Data is comma-separated and stored in columns with the first file line containing column names.
 
 Sample data:
-```
+```text
 Year,Manufacturer,Model,Price
 1997,Ford,E350,3000.00
 1999,Chevy,"Venture «Extended Edition»",4900.00
@@ -57,7 +57,7 @@ Query results:
 This format is based on [TSV](https://ru.wikipedia.org/wiki/TSV) format. Data is tab-separated (the `0x9` code) and stored in columns with the first file line containing column names.
 
 Sample data:
-```
+```text
 Year    Manufacturer    Model   Price
 1997    Ford    E350    3000.00
 1999    Chevy   "Venture «Extended Edition»"    4900.00
@@ -149,7 +149,7 @@ Query results:
 {% endcut %}
 
 #### Raw {#raw}
-This format allows reading raw data as is. The data read this way can be processed using [YQL](https://ydb.tech/en/docs/yql/reference/udf/list/string) tools by breaking it down into rows and columns.
+This format allows reading raw data as is. The data read this way can be processed using [YQL](https://ydb.tech/en/docs/yql/reference/udf/list/string) tools by splitting it into rows and columns.
 
 Use this format if the built-in features for parsing source data in {{ yq-full-name }} are insufficient.
 
@@ -171,7 +171,7 @@ WITH
 
 Query results:
 
-```
+```text
 Year,Manufacturer,Model,Price
 1997,Ford,E350,3000.00
 1999,Chevy,\"Venture «Extended Edition»\",4900.00
@@ -288,7 +288,7 @@ Where:
 |--|---|
 |`connection`| {{ objstorage-full-name }} connection name|
 |`folder/filename.csv`| Path to the file in the {{ objstorage-full-name }} bucket|
-|`SCHEMA`| Description of the file data schema|
+|`SCHEMA`| Data schema description in the file|
 
 ## Supported compression algorithms {#compression}
 
@@ -305,7 +305,7 @@ Where:
 |[Bzip2](https://ru.wikipedia.org/wiki/Bzip2)|bzip2|
 |[Xz](https://ru.wikipedia.org/wiki/XZ)|xz|
 
-Parquet file format supports its own internal compression algorithms. {{ yq-full-name }} allows reading data in parquet format using the following compression algorithms:
+The `parquet` file format supports its own internal compression algorithms. {{ yq-full-name }} enables reading data in `parquet` format using the following compression algorithms:
 
 |Compression format|Name in {{ yq-name }}|
 |--|--|

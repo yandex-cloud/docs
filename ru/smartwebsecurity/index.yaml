@@ -6,12 +6,6 @@ description:
     дополнительную защиту: <a href="/docs/smartwebsecurity/concepts/waf">Web
     Application Firewall (WAF)</a> и ограничитель запросов <a
     href="/docs/smartwebsecurity/concepts/arl">Advanced Rate Limiter (ARL)</a>.
-  - >-
-    Для сервиса действует <a href="https://yandex.ru/legal/cloud_sla">соглашение
-    об уровне обслуживания</a>. Уровень обслуживания сервиса определен в
-    документе <a
-    href="https://yandex.ru/legal/cloud_sla_smartwebsecurity">Уровень
-    обслуживания Yandex Smart Web Security</a>.
 meta:
   title: Yandex Smart Web Security
 links:

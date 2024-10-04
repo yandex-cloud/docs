@@ -33,10 +33,11 @@
 
    ```bash
    export API_KEY=<API-ключ_сервисного_аккаунта> && \
-   curl -k \
-        -H "Authorization: Api-Key ${API_KEY}" \
-        -d "@body.json"\
-        https://transcribe.{{ api-host }}/speech/stt/v2/longRunningRecognize
+   curl \
+     --insecure \
+     --header "Authorization: Api-Key ${API_KEY}" \
+     --data "@body.json"\
+     https://transcribe.{{ api-host }}/speech/stt/v2/longRunningRecognize
    ```
 
    Пример результата:
@@ -57,8 +58,10 @@
 1. Отправьте запрос на [получение информации об операции](../../api-design-guide/concepts/operation.md#monitoring):
 
    ```bash
-   curl -k -H "Authorization: Api-key ${API_KEY}" \
-      https://operation.{{ api-host }}/operations/<идентификатор_операции_распознавания>
+   curl \
+     --insecure \
+     --header "Authorization: Api-key ${API_KEY}" \
+     https://operation.{{ api-host }}/operations/<идентификатор_операции_распознавания>
    ```
 
    Пример результата:

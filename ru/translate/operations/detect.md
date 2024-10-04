@@ -30,11 +30,12 @@
     export FOLDER_ID=<идентификатор_каталога>
     export IAM_TOKEN=<IAM-токен>
     export TEXT="Hello, world"
-    curl -X POST \
-        -H "Content-Type: application/json" \
-        -H "Authorization: Bearer ${IAM_TOKEN}" \
-        -d "{\"folderId\": \"${FOLDER_ID}\", \"text\": \"${TEXT}\"}" \
-        "https://translate.{{ api-host }}/translate/v2/detect"
+    curl \
+      --request POST \
+      --header "Content-Type: application/json" \
+      --header "Authorization: Bearer ${IAM_TOKEN}" \
+      --data "{\"folderId\": \"${FOLDER_ID}\", \"text\": \"${TEXT}\"}" \
+      "https://translate.{{ api-host }}/translate/v2/detect"
     ```
 
     Где:
@@ -80,11 +81,12 @@
 
     ```bash
     export IAM_TOKEN=<IAM-токен>
-    curl -X POST \
-        -H "Content-Type: application/json" \
-        -H "Authorization: Bearer ${IAM_TOKEN}" \
-        -d '@body.json' \
-        "https://translate.{{ api-host }}/translate/v2/detect"
+    curl \
+      --request POST \
+      --header "Content-Type: application/json" \
+      --header "Authorization: Bearer ${IAM_TOKEN}" \
+      --data '@body.json' \
+      "https://translate.{{ api-host }}/translate/v2/detect"
 
     {
         "languageCode": "de"

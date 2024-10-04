@@ -1,6 +1,6 @@
 # Установка Ingress-контроллера {{ alb-name }}
 
-Для балансировки нагрузки и распределения трафика между приложениями {{ k8s }} используйте [Ingress-контроллер {{ alb-full-name }}](../../application-load-balancer/tools/k8s-ingress-controller/index.md). Он запускает балансировщик и необходимые вспомогательные ресурсы, когда пользователь создает ресурс `Ingress` в кластере {{ managed-k8s-name }}.
+Для балансировки нагрузки и распределения трафика между приложениями {{ k8s }} используйте [Ingress-контроллер {{ alb-full-name }}](../../application-load-balancer/tools/k8s-ingress-controller/index.md). Он запускает L7-балансировщик и необходимые вспомогательные ресурсы, когда пользователь создает ресурс `Ingress` в кластере {{ managed-k8s-name }}.
 
 ## Перед началом работы {#before-you-begin}
 
@@ -14,11 +14,12 @@
 
     {% include [sg-common-warning](./security-groups/sg-common-warning.md) %}
 
-1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md), необходимый для работы Ingress-контроллера, и [назначьте ему роли](../../iam/operations/sa/assign-role-for-sa.md):
-   * `alb.editor` — для создания необходимых ресурсов.
-   * `vpc.publicAdmin` — для управления [внешней связностью](../../vpc/security/index.md#roles-list).
-   * `certificate-manager.certificates.downloader` — для работы с сертификатами, зарегистрированными в сервисе [{{ certificate-manager-full-name }}](../../certificate-manager/).
-   * `compute.viewer` — для использования узлов кластера {{ managed-k8s-name }} в [целевых группах](../../application-load-balancer/concepts/target-group.md) балансировщика.
+1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md), необходимый для работы Ingress-контроллера, и [назначьте ему роли](../../iam/operations/sa/assign-role-for-sa.md) на каталог:
+   * [alb.editor](../../application-load-balancer/security/index.md#alb-editor) — для создания необходимых ресурсов {{ alb-name }}.
+   * [vpc.publicAdmin](../../vpc/security/index.md#vpc-public-admin) — для управления внешней сетевой связностью.
+   * [certificate-manager.certificates.downloader](../../certificate-manager/security/index.md#certificate-manager-certificates-downloader) — для работы с сертификатами, зарегистрированными в сервисе [{{ certificate-manager-full-name }}](../../certificate-manager/).
+   * [compute.viewer](../../compute/security/index.md#compute-viewer) — для использования узлов кластера {{ managed-k8s-name }} в [целевых группах](../../application-load-balancer/concepts/target-group.md) L7-балансировщика.
+   * [smart-web-security.editor](../../smartwebsecurity/security/index.md#smart-web-security-editor) — (опционально) для подключения к виртуальному хосту L7-балансировщика [профиля безопасности](../../smartwebsecurity/concepts/profiles.md) {{ sws-full-name }}.
 1. [Создайте авторизованный ключ доступа](../../iam/operations/authorized-key/create.md) для сервисного аккаунта в формате JSON и сохраните его в файл `sa-key.json`:
 
    ```bash

@@ -43,11 +43,12 @@ description: Следуя данной инструкции, вы научите
    ```bash
    export FOLDER_ID=<идентификатор_каталога>
    export IAM_TOKEN=<IAM-токен>
-   curl --request POST \
-     -H "Content-Type: application/json" \
-     -H "Authorization: Bearer ${IAM_TOKEN}" \
-     -H "x-folder-id: ${FOLDER_ID}" \
-     -d "@<путь_до_файла_json>" \
+   curl \
+     --request POST \
+     --header "Content-Type: application/json" \
+     --header "Authorization: Bearer ${IAM_TOKEN}" \
+     --header "x-folder-id: ${FOLDER_ID}" \
+     --data "@<путь_до_файла_json>" \
      "https://llm.{{ api-host }}/foundationModels/v1/completionAsync"
    ```
 
@@ -75,7 +76,8 @@ description: Следуя данной инструкции, вы научите
 1. Отправьте запрос на [получение информации об операции](../../api-design-guide/concepts/operation.md#monitoring):
 
    ```bash
-   curl -H "Authorization: Bearer ${IAM_TOKEN}" \
+   curl \
+     --header "Authorization: Bearer ${IAM_TOKEN}" \
      https://llm.{{ api-host }}/operations/<идентификатор_операции>
    ```
 

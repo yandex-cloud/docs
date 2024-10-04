@@ -49,10 +49,11 @@ POST https://translate.{{ api-host }}/translate/v1/languages
 ```httpget
 export FOLDER_ID=<идентификатор_каталога>
 export TOKEN=<IAM-токен>
-curl -X POST \
-     -H "Authorization: Bearer ${TOKEN}" \
-     -d "folderId=${FOLDER_ID}" \
-     "https://translate.{{ api-host }}/translate/v1/languages"
+curl \
+  --request POST \
+  --header "Authorization: Bearer ${TOKEN}" \
+  --data "folderId=${FOLDER_ID}" \
+  "https://translate.{{ api-host }}/translate/v1/languages"
 ```
 
 ### Пример ответа {#response-example}

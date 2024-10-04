@@ -9,7 +9,7 @@ To add a new record to the `Series` table:
 
 - Java {#java}
 
-   1. Create the `SeriesItemOps01` project:
+  1. Create the `SeriesItemOps01` project:
 
       ```bash
       mvn -B archetype:generate \
@@ -18,21 +18,21 @@ To add a new record to the `Series` table:
         -DartifactId=SeriesItemOps01
       ```
 
-      As a result of running the command, the `SeriesItemOps01` project folder is created in the current working folder with a structure of subfolders and the `pom.xml` project description file.
+      This command will create the `SeriesItemOps01` project folder in the current working folder, with a subfolder structure and the `pom.xml` project description file.
 
-   1. Go to the project folder:
+  1. Go to the project folder:
 
       ```bash
       cd SeriesItemOps01
       ```
 
-   1. Edit the project description in the `pom.xml` file, for example, using the nano editor:
+  1. Edit the project description in the `pom.xml` file, for example, using `nano`:
 
       ```bash
       nano pom.xml
       ```
 
-      Sample `pom.xml` file:
+      Example of the `pom.xml` file:
 
       ```xml
       <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -106,7 +106,7 @@ To add a new record to the `Series` table:
 
       Check the current versions of [junit](https://mvnrepository.com/artifact/junit/junit) and [aws-java-sdk-dynamodb](https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-dynamodb).
 
-   1. In the folder `src/main/java/com/mycompany/app/`, create the `SeriesItemOps01.java` file, for example, using the nano editor:
+  1. In the `src/main/java/com/mycompany/app/` folder, create the `SeriesItemOps01.java` file, for example, using `nano`:
 
       ```bash
       nano src/main/java/com/mycompany/app/SeriesItemOps01.java
@@ -116,7 +116,7 @@ To add a new record to the `Series` table:
 
       {% note warning %}
 
-      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      Replace `<Document_API_endpoint>` with the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -172,15 +172,15 @@ To add a new record to the `Series` table:
 
       This code adds a record with a primary key (`series_id` and `title`) and additional information in the `info` field. The primary key is required.
 
-   1. Build a project:
+  1. Build the project:
 
       ```bash
       mvn package
       ```
 
-      As a result of running the command, the `SeriesItemOps01.jar` file is generated in the folder `target/release/`.
+      This command will create the `SeriesItemOps01.jar` file in the `target/release/` folder.
 
-   1. Run the application:
+  1. Run the application:
 
       ```bash
       java -jar target/release/SeriesItemOps01.jar
@@ -196,8 +196,8 @@ To add a new record to the `Series` table:
 
 - Python {#python}
 
-   1. Create the `SeriesItemOps01.py` file, for example, using the nano editor:
-
+  1. Create the `SeriesItemOps01.py` file, for example, using `nano`:
+  
       ```bash
       nano SeriesItemOps01.py
       ```
@@ -206,7 +206,7 @@ To add a new record to the `Series` table:
 
       {% note warning %}
 
-      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      Replace `<Document_API_endpoint>` with the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -239,7 +239,7 @@ To add a new record to the `Series` table:
 
       This code adds a record with a primary key (`series_id` and `title`) and additional information in the `info` field. The primary key is required.
 
-   1. Run the program:
+  1. Run the program:
 
       ```bash
       python SeriesItemOps01.py
@@ -260,7 +260,7 @@ To add a new record to the `Series` table:
 
 - PHP {#php}
 
-   1. Create the `SeriesItemOps01.php` file, for example, using the nano editor:
+  1. Create the `SeriesItemOps01.php` file, for example, using `nano`:
 
       ```bash
       nano SeriesItemOps01.php
@@ -270,7 +270,7 @@ To add a new record to the `Series` table:
 
       {% note warning %}
 
-      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      Replace `<Document_API_endpoint>` with the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -329,7 +329,7 @@ To add a new record to the `Series` table:
 
       This code adds a record with a primary key (`series_id` and `title`) and the `info` attribute. The `info` attribute contains a JSON record with additional information about the movie. The primary key is required.
 
-   1. Run the program:
+  1. Run the program:
 
       ```bash
       php SeriesItemOps01.php
@@ -343,7 +343,7 @@ To add a new record to the `Series` table:
 
 - Node.js {#node}
 
-   1. Create the `SeriesItemOps01.js` file, for example, using the nano editor:
+  1. Create the `SeriesItemOps01.js` file, for example, using `nano`:
 
       ```bash
       nano SeriesItemOps01.js
@@ -353,7 +353,7 @@ To add a new record to the `Series` table:
 
       {% note warning %}
 
-      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      Replace `<Document_API_endpoint>` with the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -383,20 +383,20 @@ To add a new record to the `Series` table:
           })
       };
 
-      console.log("Adding new item...");
+      console.log("Adding new record...");
 
       dynamodb.send(new AWS.PutItemCommand(params))
           .then(data => {
               console.log("Series added:", JSON.stringify(data, null, 2));
           })
           .catch(err => {
-              console.error("Couldn't add item. JSON error:", JSON.stringify(err, null, 2));
+              console.error("Couldn't add record. JSON error:", JSON.stringify(err, null, 2));
           })
       ```
 
-      The primary key is required. This code adds a record that has a primary key (`series_id` and `title`) and attributes inside `info`. The `info` block stores JSON that provides additional information about the series.
-
-   1. Run the program:
+      The primary key is required. This code adds a record with a primary key (`series_id` and `title`) and attributes inside `info`. The `info` section stores JSON code with additional information about the series.
+  
+  1. Run the program:
 
       ```bash
       node SeriesItemOps01.js
@@ -404,14 +404,14 @@ To add a new record to the `Series` table:
 
       Result:
 
-      ```bash
+      ```text
       Adding new record...
       Series added: {}
       ```
 
 - Ruby {#ruby}
 
-   1. Create the `SeriesItemOps01.rb` file, for example, using the nano editor:
+  1. Create the `SeriesItemOps01.rb` file, for example, using `nano`:
 
       ```bash
       nano SeriesItemOps01.rb
@@ -421,7 +421,7 @@ To add a new record to the `Series` table:
 
       {% note warning %}
 
-      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      Replace `<Document_API_endpoint>` with the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -436,7 +436,7 @@ To add a new record to the `Series` table:
         puts "Error uploading series '#{table_item[:item][:title]} " \
           "(#{table_item[:item][:series_id]})': #{e.message}"
       end
-
+      
       def run_me
         region = '{{ region-id }}'
         table_name = 'Series'
@@ -464,15 +464,15 @@ To add a new record to the `Series` table:
           item: item
         }
 
-        puts "Uploading the series '#{item[:title]} (#{item[:series_id]})' " \
-          "to the table '#{table_name}'..."
+        puts "Uploading series '#{item[:title]} (#{item[:series_id]})' " \
+          "to table '#{table_name}'..."
         add_item_to_table(dynamodb_client, table_item)
       end
 
       run_me if $PROGRAM_NAME == __FILE__
       ```
 
-   1. Run the program:
+  1. Run the program:
 
       ```bash
       ruby SeriesItemOps01.rb

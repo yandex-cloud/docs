@@ -6,14 +6,15 @@
 
   ```bash
   export IAM_TOKEN=<IAM-токен>
-  curl -X POST \
-      -H "Content-Type: application/json" \
-      -H "Authorization: Bearer ${IAM_TOKEN}" \
-      -H "x-folder-id: <идентификатор_каталога>" \
-      -H "x-data-logging-enabled: true" \
-      -d "@body.json" \
-      https://ocr.{{ api-host }}/ocr/v1/recognizeText \
-      -o output.json
+  curl \
+    --request POST \
+    --header "Content-Type: application/json" \
+    --header "Authorization: Bearer ${IAM_TOKEN}" \
+    --header "x-folder-id: <идентификатор_каталога>" \
+    --header "x-data-logging-enabled: true" \
+    --data "@body.json" \
+    https://ocr.{{ api-host }}/ocr/v1/recognizeText \
+    --output output.json
   ```
 
   Где:

@@ -14,11 +14,11 @@ For more information about message visibility, see [Messages](../../concepts/mes
 
 ### Request parameters {#request-parameters}
 
-| Parameter | Type | Required parameter | Description |
+Parameter | Type | Required parameter | Description
 ----- | ----- | ----- | -----
-| `QueueUrl` | **string** | Yes | URL of the queue where the message is placed. |
-| `ReceiptHandle` | **string** | Yes | `ReceiptHandle` from the `ReceiveMessage` request. |
-| `VisibilityTimeout` | **integer** | Yes | New value of a [visibility timeout](../../concepts/visibility-timeout.md) for the queue, specified in seconds. Valid values: from 0 to 43200 seconds. Default: 30. |
+`QueueUrl` | **string** | Yes | URL of the queue where the message is placed.
+`ReceiptHandle` | **string** | Yes | `ReceiptHandle` parameter from the `ReceiveMessage` request.
+`VisibilityTimeout` | **integer** | Yes | New value of a [visibility timeout](../../concepts/visibility-timeout.md) for the queue, specified in seconds. Valid values: from 0 to 43200 seconds. The default value is: 30.
 
 ## Response {#response}
 
@@ -30,14 +30,14 @@ The response does not contain any fields.
 
 For a list of errors common for all methods, see [{#T}](../common-errors.md).
 
-| HTTP code | Error ID | Description |
+HTTP code | Error ID | Description
 ----- | ----- | -----
-| 400 | `MessageNotInflight` | The message is not being processed. |
-| 400 | `ReceiptHandleIsInvalid` | The specified `ReceiptHandle` is invalid. |
+400 | `MessageNotInflight` | The message is not being processed.
+400 | `ReceiptHandleIsInvalid` | The specified `ReceiptHandle` is invalid.
 
 ## Sample request {#request-example}
 
-```
+```text
 Action=ChangeMessageVisibility
 &Version=2012-11-05
 &QueueUrl=https://message-queue.{{ api-host }}/b1g8ad42m6he********/dj6000000000********/sample-queue

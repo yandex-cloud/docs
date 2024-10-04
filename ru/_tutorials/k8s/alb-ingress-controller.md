@@ -372,6 +372,8 @@ yc certificate-manager certificate list
        ingress.alb.yc.io/security-profile-id: <идентификатор_профиля_безопасности>
        ```
 
+       {% include [sws-editor-role](../../_includes/managed-kubernetes/alb-ref/sws-editor-role.md) %}
+
      * `ingress.alb.yc.io/use-regex` — поддержка регулярных выражений стандарта [RE2](https://github.com/google/re2/wiki/Syntax) при сопоставлении пути запроса. Если передана строка `true`, поддержка включена. Применимо только если для параметра `pathType` указано значение `Exact`.
 
      {% endcut %}
@@ -631,6 +633,8 @@ yc certificate-manager certificate list
        ```yaml
        ingress.alb.yc.io/security-profile-id: <идентификатор_профиля_безопасности>
        ```
+
+       {% include [sws-editor-role](../../_includes/managed-kubernetes/alb-ref/sws-editor-role.md) %}
 
      * `ingress.alb.yc.io/use-regex` — поддержка регулярных выражений стандарта [RE2](https://github.com/google/re2/wiki/Syntax) при сопоставлении пути запроса. Если передана строка `true`, поддержка включена. Применимо только если для параметра `pathType` указано значение `Exact`.
 
