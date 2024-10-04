@@ -1,6 +1,7 @@
 ```bash
 export IAM_TOKEN=<IAM-токен>
-curl --request POST \
+curl \
+  --request POST \
   --header "Content-Type: application/json" \
   --header "Authorization: Bearer ${IAM_TOKEN}" \
   --data '@<путь_до_файла_json>' \

@@ -19,7 +19,7 @@ description: В этой инструкции вы научитесь выпол
    {% list tabs group=instructions %}
 
    - AWS CLI {#cli}
-  
+
      ```bash
      aws sqs create-queue \
        --queue-name <имя_очереди> \
@@ -42,12 +42,12 @@ description: В этой инструкции вы научитесь выпол
      Сохраните полученный URL очереди, он понадобится позднее.
 
    - Консоль управления
-  
+
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать очередь.
      1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
      1. Нажмите кнопку **{{ ui-key.yacloud.ymq.queues.button_create }}**.
      1. Укажите имя очереди: `sample-queue`.
-  
+
         {% include [name](../_includes/message-queue/ymq-name.md) %}
 
      1. Выберите тип `{{ ui-key.yacloud.ymq.queue.form.type_switch_standard }}`. Не изменяйте другие настройки.
@@ -55,7 +55,7 @@ description: В этой инструкции вы научитесь выпол
      1. Откройте созданную очередь.
      1. На вкладке **{{ ui-key.yacloud.common.overview }}** в блоке **{{ ui-key.yacloud.ymq.queue.overview.section_base }}** скопируйте URL очереди, он понадобится позднее.
 
-  
+
    {% endlist %}
 
 1. Отправьте сообщение в созданную очередь, используя сохраненный ранее URL очереди:
@@ -78,7 +78,7 @@ description: В этой инструкции вы научитесь выпол
      * `--queue-url` — URL очереди, в которую будет отправлено сообщение.
 
      Результат:
-     
+
      ```json
      {
          "MD5OfMessageBody": "67e63db14341b5a696596634********",
@@ -93,7 +93,7 @@ description: В этой инструкции вы научитесь выпол
    {% list tabs group=instructions %}
 
    - AWS CLI {#cli}
-  
+
      ```bash
      aws sqs receive-message \
        --endpoint <эндпоинт> \
@@ -139,7 +139,7 @@ description: В этой инструкции вы научитесь выпол
    {% list tabs group=instructions %}
 
    - AWS CLI {#cli}
-  
+
      ```bash
      aws sqs delete-message \
        --endpoint <эндпоинт> \
@@ -159,7 +159,7 @@ description: В этой инструкции вы научитесь выпол
    {% list tabs group=instructions %}
 
    - AWS CLI {#cli}
-  
+
      ```bash
      aws sqs delete-queue \
        --endpoint <эндпоинт> \
@@ -172,7 +172,7 @@ description: В этой инструкции вы научитесь выпол
      * `--queue-url` — URL очереди, которую нужно удалить.
 
    - Консоль управления
-  
+
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит очередь.
      1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
      1. Нажмите значок ![image](../_assets/console-icons/ellipsis.svg) напротив нужной очереди и выберите **{{ ui-key.yacloud.common.delete }}**.

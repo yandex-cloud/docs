@@ -183,6 +183,12 @@ description: Из статьи вы узнаете, как задать наст
 
         Регулярные выражения для включенных и исключенных таблиц должны соответствовать правилам именования идентификаторов в {{ MY }}. Подробнее читайте в [документации {{ MY }}]({{ my.docs }}/refman/8.0/en/identifiers.html). Экранирование двойных кавычек не требуется.
 
+        {% note warning %}
+
+        Если имя включаемой или исключаемой таблицы совпадает с именем базы данных, для корректной работы фильтра укажите таблицу в формате `<имя_БД>.<имя_таблицы>`.
+
+        {% endnote %}
+
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.object_transfer_settings.title }}** — позволяет выбрать элементы схемы БД, которые будут перенесены в процессе активации или деактивации трансфера.
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.advanced_settings.title }}**:

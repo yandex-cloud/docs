@@ -6,26 +6,26 @@ Returns the URL of the specified queue. Specify the queue name to get its URL.
 
 ### Request parameters {#request-parameters}
 
-| Parameter | Type | Required parameter | Description |
+Parameter | Type | Required parameter | Description
 ----- | ----- | ----- | -----
-| `QueueName` | **string** | Yes | Queue name. The maximum length is 80 characters. You can use numbers, letters, underscores, and hyphens in the name. Case-sensitive. |
-| `QueueOwnerAWSAccountId` | **string** | No | This parameter is ignored. |
+`QueueName` | **string** | Yes | Queue name. The maximum length is 80 characters. You can use numbers, letters, underscores, and hyphens. Case-sensitive.
+`QueueOwnerAWSAccountId` | **string** | No | This parameter is ignored.
 
 ## Response {#response}
 
 ### Response fields {#response-parameters}
 
-| Field | Type | Description |
+Field | Type | Description
 ----- | ----- | -----
-| `QueueUrl` | **string** | URL of a queue. |
+`QueueUrl` | **string** | URL of a queue.
 
 ### GetQueueUrl errors {#errors}
 
 For a list of errors common for all methods, see [{#T}](../common-errors.md).
 
-| HTTP code | Error ID | Description |
+HTTP code | Error ID | Description
 ----- | ----- | -----
-| 400 | `NonExistentQueue` | The queue with the specified name doesn't exist. |
+400 | `NonExistentQueue` | The queue with the specified name doesn't exist.
 
 ## Sample request {#request-example}
 

@@ -102,7 +102,7 @@ Responses to requests with the `queue` parameter are sorted by issue key, and th
 >     "queue": "TREK",
 >     "assignee": "Empty()"
 >   },
->   "order":"+staus"
+>   "order":"+status"
 > }
 > ```
 

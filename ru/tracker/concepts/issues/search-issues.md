@@ -102,7 +102,7 @@ order | Направление и поле сортировки задач (то
 >     "queue": "TREK",
 >     "assignee": "Empty()"
 >   },
->   "order":"+staus"
+>   "order":"+status"
 > }
 > ```
 

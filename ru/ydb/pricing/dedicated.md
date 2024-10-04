@@ -111,7 +111,7 @@ editable: false
 - Цены в рублях {#prices-rub}
 
   {% include [rub-storage.md](../../_pricing/ydb/rub-storage.md) %}
-  
+
 - Цены в тенге {#prices-kzt}
 
   {% include [kzt-storage.md](../../_pricing/ydb/kzt-storage.md) %}

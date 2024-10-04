@@ -8098,6 +8098,8 @@ default:
           context_word-stress-title: Ударение
           context_word-title: Акцент на слове
         label_playground: SpeechKit Playground
+        label_speech-synthesis: Синтез речи
+        label_speech-to-text: Распознавание речи
         speech-synthesis:
           field_audio: Формат аудио
           field_language: Язык
@@ -8107,6 +8109,10 @@ default:
           field_voice: Голос
           label_button_playback: Синтезировать и воспроизвести
           label_synthesis-settings: Настройки синтеза
+        speech-to-text:
+          field_language: Язык
+          label_button_start-recognition: Распознать
+          label_language-auto: Автоматически
       storage:
         bucket:
           button_action-permissions: ACL объекта

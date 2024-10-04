@@ -58,15 +58,16 @@
    Создайте сервисный аккаунт с помощью метода REST API [create](../iam/api-ref/ServiceAccount/create.md) для ресурса [ServiceAccount](../iam/api-ref/ServiceAccount/index.md):
 
    ```bash
-   curl -X POST \
-      -H 'Content-Type: application/json' \
-      -H "Authorization: Bearer <IAM-токен>" \
-      -d '{
-            "folderId": "<идентификатор_каталога>",
-            "name": "<имя_сервисного_аккаунта>",
-            "description": "service account for api"
-      }' \
-      https://iam.{{ api-host }}/iam/v1/serviceAccounts
+   curl \
+     --request POST \
+     --header 'Content-Type: application/json' \
+     --header "Authorization: Bearer <IAM-токен>" \
+     --data '{
+       "folderId": "<идентификатор_каталога>",
+       "name": "<имя_сервисного_аккаунта>",
+       "description": "service account for api"
+     }' \
+     https://iam.{{ api-host }}/iam/v1/serviceAccounts
    ```
    Где:
    * `<IAM-токен>` — действующий токен авторизации;
@@ -108,21 +109,22 @@
    Назначьте сервисному аккаунту роль с помощью метода REST API [setAccessBindings](../iam/api-ref/ServiceAccount/setAccessBindings.md) для ресурса [ServiceAccount](../iam/api-ref/ServiceAccount/index.md):
 
    ```bash
-   curl -X POST \
-     -H "Content-Type: application/json" \
-     -H "Authorization: Bearer <IAM-токен>" \
-     -d '{
-            "accessBindingDeltas": [{
-               "action": "ADD",
-               "accessBinding": {
-                  "roleId": "<идентификатор_роли>",
-                  "subject": {
-                        "id": "<идентификатор_сервисного_аккаунта>",
-                        "type": "serviceAccount"
-                        }
-                  }
-               }
-            ]
+   curl \
+     --request POST \
+     --header "Content-Type: application/json" \
+     --header "Authorization: Bearer <IAM-токен>" \
+     --data '{
+       "accessBindingDeltas": [{
+         "action": "ADD",
+         "accessBinding": {
+           "roleId": "<идентификатор_роли>",
+           "subject": {
+             "id": "<идентификатор_сервисного_аккаунта>",
+             "type": "serviceAccount"
+             }
+           }
+         }
+       ]
       }' \
      https://resource-manager.{{ api-host }}/resource-manager/v1/folders/<идентификатор_каталога>:updateAccessBindings
    ```
@@ -194,11 +196,12 @@
    Создайте API-ключ с помощью метода REST API [create](../iam/api-ref/ApiKey/create.md) для ресурса [ApiKey](../iam/api-ref/ApiKey/index.md):
 
    ```bash
-   curl -X POST \
-      -H "Content-Type: application/json" \
-      -H "Authorization: Bearer <IAM-токен>" \
-      -d "{ \"serviceAccountId\": \"<идентификатор_сервисного_аккаунта>\" }" \
-      https://iam.{{ api-host }}/iam/v1/apiKeys
+   curl \
+     --request POST \
+     --header "Content-Type: application/json" \
+     --header "Authorization: Bearer <IAM-токен>" \
+     --data "{ \"serviceAccountId\": \"<идентификатор_сервисного_аккаунта>\" }" \
+     https://iam.{{ api-host }}/iam/v1/apiKeys
    ```
 
    Где:

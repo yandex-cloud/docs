@@ -28,8 +28,8 @@ items:
       - name: Developing a Slack bot
         href: tutorials/slack-bot-serverless.md
       - name: >-
-          Connecting to {{ ydb-short-name }} from {{ sf-full-name }} function in
-          Python
+          Connecting to {{ ydb-short-name }} from a {{ sf-full-name }} function
+          in Python
         href: tutorials/connect-from-cf.md
       - name: >-
           Connecting to a {{ ydb-short-name }} database from a {{ sf-full-name
@@ -69,6 +69,20 @@ items:
         href: tutorials/opensearch-to-ydb.md
       - name: Building a CI/CD pipeline in {{ GL }} using serverless products
         href: tutorials/ci-cd-serverless.md
+      - name: >-
+          Streaming {{ postbox-full-name }} events to {{ yds-full-name }} and
+          analyzing them using {{ datalens-full-name }}
+        href: tutorials/events-from-postbox-to-yds.md
+      - name: >-
+          Delivering data from {{ mkf-full-name }} to {{ yds-name }} using {{
+          data-transfer-full-name }}
+        href: tutorials/mkf-yds-stream.md
+      - name: >-
+          Delivering data from {{ mkf-full-name }} using {{
+          data-transfer-full-name }}
+        href: tutorials/mkf-ydb-stream.md
+      - name: Locking {{ TF }} states using {{ ydb-name }}
+        href: tutorials/terraform-state-lock.md
   - name: Concepts
     items:
       - name: Overview
@@ -127,7 +141,7 @@ items:
                 href: docapi/tools/aws-cli/update-item.md
               - name: Data selections
                 href: docapi/tools/aws-cli/query.md
-              - name: Deleting the resources you created
+              - name: Deletе the resources you created
                 href: docapi/tools/aws-cli/cleanup.md
           - name: Working with the AWS SDK
             items:
@@ -193,7 +207,7 @@ items:
                 href: docapi/api-ref/actions/updateTable.md
       - name: Common errors when working with the Document API
         href: docapi/common-errors.md
-  - name: '{{ yandex-cloud }} API Reference: {{ ydb-name }}'
+  - name: '{{ yandex-cloud }} API reference for {{ ydb-name }}'
     items:
       - name: Overview
         href: api-ref/overview.md
@@ -281,7 +295,7 @@ items:
                 href: api-ref/StorageType/list.md
   - name: '{{ monitoring-name }} metrics'
     href: metrics.md
-  - name: '{{ at-name }} events'
+  - name: '{{ at-name }} audit logs'
     href: at-ref.md
   - name: Working with YDB via {{ TF }}
     items:
@@ -289,9 +303,7 @@ items:
         href: ./terraform/intro.md
       - name: Getting authentication credentials
         href: ./terraform/credentials.md
-      - name: >-
-          Installing and configuring {{ TF }} and a provider for connection to
-          YDB
+      - name: Installing and configuring {{ TF }} and a provider to connect to YDB
         href: ./terraform/install.md
       - name: Creating configuration files and connecting to YDB
         href: ./terraform/configure.md

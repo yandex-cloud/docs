@@ -24,11 +24,12 @@ description: Из статьи вы узнаете, как получить сп
     ```bash
     export FOLDER_ID=<идентификатор_каталога>
     export IAM_TOKEN=<IAM-токен>
-    curl -X POST \
-        -H "Content-Type: application/json" \
-        -H "Authorization: Bearer ${IAM_TOKEN}" \
-        -d "{\"folderId\": \"${FOLDER_ID}\"}" \
-        "https://translate.{{ api-host }}/translate/v2/languages"
+    curl \
+      --request POST \
+      --header "Content-Type: application/json" \
+      --header "Authorization: Bearer ${IAM_TOKEN}" \
+      --data "{\"folderId\": \"${FOLDER_ID}\"}" \
+      "https://translate.{{ api-host }}/translate/v2/languages"
     ```
 
     Где:

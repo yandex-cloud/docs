@@ -16,13 +16,13 @@
    AWS Secret Access Key [****************w5lb]: <service_account_secret_key>
    ```
 
-1. Enter the `{{ region-id }}` default region name:
+1. Specify the `{{ region-id }}` default region name:
 
    ```bash
    Default region name [{{ region-id }}]: {{ region-id }}
    ```
 
-1. Specify `JSON` as the default format for output data:
+1. Specify `json` as the default format for output data:
 
    ```bash
    Default output format [None]: json
@@ -36,7 +36,7 @@
 
    Result:
 
-   ```bash
+   ```text
          Name                    Value             Type    Location
          ----                    -----             ----    --------
       profile                <not set>             None    None
