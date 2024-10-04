@@ -4,9 +4,13 @@ description: This article describes the {{ message-queue-name }} pricing policy.
 editable: false
 ---
 
-# {{ message-queue-name }} pricing
+# {{ message-queue-name }} pricing policy
 
 
+
+{% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
+
+{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
 ## What goes into the cost of using Yandex Message Queue {#rules}
 

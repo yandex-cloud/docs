@@ -1,8 +1,10 @@
-# Pricing policy for {{ ydb-name }} Serverless mode
+# Pricing policy for {{ ydb-name }} serverless mode
 
 
 
 {% include [use-calculator](../../_includes/pricing/use-calculator.md) %}
+
+{% include [link-to-price-list](../../_includes/pricing/link-to-price-list.md) %}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
@@ -18,14 +20,14 @@ When using {{ ydb-name }} in Serverless mode, you pay for the following:
 Other consumed resources to be additionally paid for:
 
 * Space used in {{ objstorage-full-name }} to store on-demand backups.
-* Egress traffic from {{ yandex-cloud }}.
+* Volume of outgoing traffic from {{ yandex-cloud }} to the internet.
 
 {% include [pricing-gb-size](../_includes/pricing/pricing-gb-size.md) %}
 
 ### Data operations and request units {#rules-ru}
 
 The serverless mode of {{ ydb-name }} supports multiple ways to work with data:
-* YQL is an SQL-like language for accessing relational tables, supported by the [SDK](https://ydb.tech/en/docs/reference/ydb-sdk/), [CLI](https://ydb.tech/en/docs/reference/ydb-cli/), and management console in {{ ydb-short-name }}.
+* YQL is an SQL-like language for accessing relational tables that is supported by the [SDK](https://ydb.tech/en/docs/reference/ydb-sdk/), [CLI](https://ydb.tech/en/docs/reference/ydb-cli/), and the {{ ydb-short-name }} management console.
 * Document API is the Amazon DynamoDB-compatible HTTP API. You can use this API to perform operations on document tables.
 
 You can also query the database through the special APIs available as stand-alone features in the {{ ydb-short-name }} SDK, CLI, or management console.
@@ -61,13 +63,13 @@ You can force a database backup, saving a copy to [{{ objstorage-name }}](../../
 
 {% note warning %}
 
-If you export data using the `ydb tools dump` utility, billing is based on the rates for the `ReadTable` operation.
+If you export data using `ydb tools dump`, billing is based on the `ReadTable` operation rates.
 
 {% endnote %}
 
 #### Example of calculating the cost of creating an on-demand backup {#example-of-cost-calculation-backup-storage}
 
-Let's calculate the cost of creating backups of 1 GB and 10 GB databases.
+Let's calculate the cost of creating backups of 1 GB and 10 GB databases.
 
 **Cost calculation for a 1 GB database**
 
@@ -88,23 +90,7 @@ Actual (on-demand) consumption of RUs per month will be:
 
 
 
-> 128 RUs × 1,024 × 10 = 1,310,720 RUs
-
-Where:
-
-* 128: Cost of request for 1 MB of data.
-* 1,024 × 10: Amount of data copied, in MB.
-
-The number of RUs spent (1,310,720) [exceeds 1,000,000](#prices), so the cost of creating a backup will be $0,171040 for 1,000,000 RUs.
-
-> (1,310,720 RUs - 1,000,000 RUs) / 1,000,000 × $0.171040 = $0.0531455488
->
-> Total: $0.053146, the cost of creating a 10 GB backup.
-
-Where:
-
-* 1,310,720 RUs is actual (on-demand) consumption of RUs per month.
-* $0.171040: Price per 1 million RUs.
+{% include [usd-storage](../../_pricing_examples/ydb/usd-storage.md) %}
 
 
 ### Recovery from a backup {#rules-backup-restore}
@@ -113,19 +99,19 @@ You can restore databases and individual tables from the backups stored in {{ ob
 
 {% note warning %}
 
-If you restore data using the `ydb tools restore` utility, billing is based on the cost of writing a row to the DB for each restored row.
+If you restore data using `ydb tools restore`, billing is based on the cost of writing a row to the DB for each restored row.
 
 {% endnote %}
 
 #### Example of calculating the cost of recovery from a backup {#example-of-cost-calculation-backup-restore}
 
-Let's calculate the cost of backup recovery for 1 GB and 10 GB databases.
+Let's calculate the cost of backup recovery for 1 GB and 1 GB databases.
 
 **Cost calculation for a 1 GB database**
 
 Actual (on-demand) consumption of RUs per month will be:
 
-> 0.5 RUs × 1,024 × 1,024 = 524,288 RUs
+> 0.5 RUS × 1,024 × 1,024 = 524,288 RUS
 
 Where:
 
@@ -140,23 +126,7 @@ Actual (on-demand) consumption of RUs per month will be:
 
 
 
-> 0.5 RUs × 1,024 × 1,024 × 10 = 5,242,880 RUs
-
-Where:
-
-* 0.5: Cost of request for 1 KB of data.
-* 1,024 × 1,024 × 10: Amount of data recovered, in KB.
-
-The number of RUs spent (5,242,880) [exceeds 1,000,000](#prices), so the cost of recovery from a backup will be $0.171040 for 1,000,000 RUs.
-
-> (5,242,880 RUs - 1,000,000 RUs)/ 1,000,000 × $0.171040 = $0.7257021952
->
-> Total: $0.725702, the cost of recovery from a backup of 10 GB of data.
-
-Where:
-
-* 5,242,880 RUs: Actual (on-demand) consumption of RUs per month.
-* $0.171040: Price per 1 million RUs.
+{% include [usd-restore](../../_pricing_examples/ydb/usd-restore.md) %}
 
 
 ## Prices for the Russia region {#prices}
@@ -169,3 +139,4 @@ Where:
 
 
 {% include [egress-traffic-pricing](../../_includes/egress-traffic-pricing.md) %}
+

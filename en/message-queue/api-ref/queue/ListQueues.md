@@ -6,9 +6,9 @@ Method for getting a list of queues in your folder. The maximum number of queues
 
 ### Request parameters {#request-parameters}
 
-| Parameter | Type | Required parameter | Description |
+Parameter | Type | Required parameter | Description
 ----- | ----- | ----- | -----
-| `QueueNamePrefix` | **string** | No | Prefix for filtering queue names. Case-sensitive. |
+`QueueNamePrefix` | **string** | No | Prefix for filtering queue names. Case-sensitive.
 
 ## Response {#response}
 
@@ -16,9 +16,9 @@ For a list of possible responses, see [{#T}](../common-errors.md).
 
 ### Successful response fields {#response-parameters}
 
-| Field | Type | Description |
+Field | Type | Description
 ----- | ----- | -----
-| `QueueUrl.N` | **array** | Array of queue URL strings. Up to 1000 entries. |
+`QueueUrl.N` | **array** | Array of queue URL strings. Up to 1000 entries.
 
 ### ListQueues errors {#errors}
 
@@ -26,7 +26,7 @@ The method does not return any specific errors. For a list of errors common for 
 
 ## Sample request {#request-example}
 
-```
+```text
 Action=ListQueues
 &Version=2012-11-05
 &QueueNamePrefix=test

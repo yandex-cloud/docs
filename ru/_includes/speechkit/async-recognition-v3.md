@@ -29,9 +29,10 @@
 
       ```bash
       export IAM_TOKEN=<IAM-токен_сервисного_аккаунта> && \
-      curl -k \
-           -H "Authorization: Bearer ${IAM_TOKEN}" \
-           -d @request.json https://stt.{{ api-host }}:443/stt/v3/recognizeFileAsync
+      curl \
+        --insecure \
+        --header "Authorization: Bearer ${IAM_TOKEN}" \
+        --data @request.json https://stt.{{ api-host }}:443/stt/v3/recognizeFileAsync
       ```
 
       Где `IAM_TOKEN` — IAM-токен сервисного аккаунта.
@@ -42,9 +43,10 @@
 
       ```bash
       export API_KEY=<API-ключ_сервисного_аккаунта> && \
-      curl -k \
-           -H "Authorization: Api-Key ${API_KEY}" \
-           -d @request.json https://stt.{{ api-host }}:443/stt/v3/recognizeFileAsync
+      curl \
+        --insecure \
+        --header "Authorization: Api-Key ${API_KEY}" \
+        --data @request.json https://stt.{{ api-host }}:443/stt/v3/recognizeFileAsync
       ```
 
     Пример результата:
@@ -69,19 +71,21 @@
     * С авторизацией через IAM-токен:
 
         ```bash
-        curl -k \
-             -X GET \
-             -H "Authorization: Bearer ${IAM_TOKEN}" \
-             https://operation.{{ api-host }}/operations/<идентификатор_операции_распознавания>
+        curl \
+          --insecure \
+          --request GET \
+          --header "Authorization: Bearer ${IAM_TOKEN}" \
+          https://operation.{{ api-host }}/operations/<идентификатор_операции_распознавания>
         ```
 
     * С авторизацией через API-ключ:
 
         ```bash
-        curl -k \
-             -X GET \
-             -H "Authorization: Api-key ${API_KEY}" \
-             https://operation.{{ api-host }}/operations/<идентификатор_операции_распознавания>
+        curl \
+          --insecure \
+          --request GET \
+          --header "Authorization: Api-key ${API_KEY}" \
+          https://operation.{{ api-host }}/operations/<идентификатор_операции_распознавания>
         ```
 
     Пример результата:
@@ -102,19 +106,21 @@
     * С авторизацией через IAM-токен:
 
         ```bash
-        curl -k \
-             -X GET \
-             -H "Authorization: Bearer ${IAM_TOKEN}" \
-             https://stt.{{ api-host }}:443/stt/v3/getRecognition?operation_id=<идентификатор_операции_распознавания>
+        curl \
+          --insecure \
+          --request GET \
+          --header "Authorization: Bearer ${IAM_TOKEN}" \
+          https://stt.{{ api-host }}:443/stt/v3/getRecognition?operation_id=<идентификатор_операции_распознавания>
         ```
 
     * С авторизацией через API-ключ:
 
         ```bash
-        curl -k \
-             -X GET \
-             -H "Authorization: Api-key ${API_KEY}" \
-             https://stt.{{ api-host }}:443/stt/v3/getRecognition?operation_id=<идентификатор_операции_распознавания>
+        curl \
+          --insecure \
+          --request GET \
+          --header "Authorization: Api-key ${API_KEY}" \
+          https://stt.{{ api-host }}:443/stt/v3/getRecognition?operation_id=<идентификатор_операции_распознавания>
         ```
 
     {% cut "Пример результата" %}

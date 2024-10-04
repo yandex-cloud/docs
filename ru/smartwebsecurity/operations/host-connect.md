@@ -21,6 +21,8 @@ description: Следуя данной инструкции, вы сможете
 
     О настройке Ingress-контроллера читайте в [документации {{ managed-k8s-full-name }}](../../managed-kubernetes/tutorials/alb-ingress-controller.md).
 
+    {% include [sws-editor-role](../../_includes/managed-kubernetes/alb-ref/sws-editor-role.md) %}
+
 Чтобы подключить профиль безопасности с помощью интерфейсов {{ yandex-cloud }}:
 
 {% list tabs group=instructions %}
@@ -33,6 +35,7 @@ description: Следуя данной инструкции, вы сможете
   1. Нажмите кнопку ![plug](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.smart-web-security.overview.action_attach-to-host }}** и в открывшемся окне выберите:
       * [**{{ ui-key.yacloud.smart-web-security.attach-dialog.label_balancer }}**](../../application-load-balancer/concepts/application-load-balancer.md).
       * [**{{ ui-key.yacloud.smart-web-security.attach-dialog.label_http-router }}**](../../application-load-balancer/concepts/http-router.md).
+
       * **{{ ui-key.yacloud.smart-web-security.attach-dialog.label_virtual-host }}**. Вы можете подключить профиль безопасности сразу к нескольким хостам.
 
         Чтобы подключить профиль к еще одному L7-балансировщику, нажмите кнопку **{{ ui-key.yacloud.smart-web-security.attach-dialog.action_add-balancer }}**.

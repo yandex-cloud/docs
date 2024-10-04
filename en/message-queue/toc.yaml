@@ -67,8 +67,18 @@ items:
         href: concepts/yds-ymq-comparison.md
   - name: Tutorials
     items:
+      - name: All tutorials
+        href: tutorials/index.md
       - name: Converting a video to a GIF in Python
         href: tutorials/video-converting-queue.md
+      - name: >-
+          Automatically scaling an instance group to process messages from a
+          queue
+        href: tutorials/autoscale-monitoring.md
+      - name: >-
+          Creating a trigger that invokes a function to stop VM instances and
+          send a Telegram notification
+        href: tutorials/serverless-trigger-budget-queue-vm-tg.md
       - name: Storing a static access key in a {{ lockbox-name }} secret
         href: tutorials/static-key-in-lockbox.md
   - name: Access management

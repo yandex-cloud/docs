@@ -3,16 +3,16 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
 ---
 # Searching and extracting data
 
-To search for data in the table, use the `query` method that passes the primary key of the desired item. For a complex key, only the partition key is required and the sort key is optional.
+To search for data in the table, use the `query` method that transmits the primary key of the relevant item. For a complex key, only the partition key is required and the sort key is optional.
 
 The primary key of the `Series` table is compound and consists of the following attributes:
 
 * `series_id`: Partition key (field type: number).
 * `title`: Sort key (field type: string).
 
-To find all series with the partition key 3, you need to provide this value in the `query` method. You can also limit a selection by series title, specifying a condition for the sort key. For example, you can find series with the partition key 3 whose title starts with a T.
+To find all series with the partition key equaling 3, you need to provide this value in the `query` method. You can also limit a selection by series title, specifying a condition for the sort key. For example, you can find series with the partition key 3 whose title starts with a T.
 
-In addition to `query`, you can use the `scan` method to extract all tabular data. The `scan` method reads each record and returns all the data in the table. You can use the filter to set criteria for the returned records but the filter is applied only after scanning the entire table.
+In addition to `query`, you can use the `scan` method to extract all tabular data. The `scan` method reads each record and returns all data in the table. You can use the filter to set criteria for the returned records but the filter is applied only after scanning the entire table.
 
 ## Search by partition key {#part-key-find}
 
@@ -22,7 +22,7 @@ To extract data using `query` from the `Series` table:
 
 - Java {#java}
 
-   1. Create the `SeriesQuery01` project:
+  1. Create the `SeriesQuery01` project:
 
       ```bash
       mvn -B archetype:generate \
@@ -31,15 +31,15 @@ To extract data using `query` from the `Series` table:
         -DartifactId=SeriesQuery01
       ```
 
-      As a result of running the command, the `SeriesQuery01` project folder is created in the current working folder, with a structure of subfolders and the `pom.xml` project description file.
-
-   1. Go to the project folder:
+      As a result of running the command, the system will create the `SeriesQuery01` project folder in the current working folder, with a subfolder structure and the `pom.xml` project description file.
+  
+  1. Go to the project folder:
 
       ```bash
       cd SeriesQuery01
       ```
 
-   1. Edit the project description in the `pom.xml` file, for example, using the nano editor:
+  1. Edit the project description in the `pom.xml` file, for example, using the `nano` editor:
 
       ```bash
       nano pom.xml
@@ -119,7 +119,7 @@ To extract data using `query` from the `Series` table:
 
       Check the current versions of [junit](https://mvnrepository.com/artifact/junit/junit) and [aws-java-sdk-dynamodb](https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-dynamodb).
 
-   1. In the folder `src/main/java/com/mycompany/app/`, create the `SeriesQuery01.java` file, for example, using the nano editor:
+  1. In the `src/main/java/com/mycompany/app/` folder, create the `SeriesQuery01.java` file, for example, using the `nano` editor:
 
       ```bash
       nano src/main/java/com/mycompany/app/SeriesQuery01.java
@@ -129,7 +129,7 @@ To extract data using `query` from the `Series` table:
 
       {% note warning %}
 
-      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      For `<Document_API_endpoint>`, provide the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -190,25 +190,25 @@ To extract data using `query` from the `Series` table:
       }
       ```
 
-      This code extracts from the `Series` table all the series with the partition key 3.
+      This code extracts from the `Series` table all series with the partition key 3.
 
       {% note info %}
 
-      `valueMap` is used for substituting values. This is necessary because you can't use literals directly in expressions, including `KeyConditionExpression`. The above code uses `:sd`.
+      `valueMap` is used for substituting values. This is required since you cannot use literals directly in expressions, including `KeyConditionExpression`. The above code uses `:sd`.
 
       {% endnote %}
 
       First, you create the `querySpec` object, which describes query parameters, and then provide this object to the `query` method.
 
-   1. Build a project:
+  1. Build a project:
 
       ```bash
       mvn package
       ```
 
-      As a result of running the command, the `SeriesQuery01.jar` file is generated in the folder `target/release/`.
+      As a result of running the command, the `SeriesQuery01.jar` file will be generated in the `target/release/` folder.
 
-   1. Run the application:
+  1. Run the application:
 
       ```bash
       java -jar target/release/SeriesQuery01.jar
@@ -225,7 +225,7 @@ To extract data using `query` from the `Series` table:
 
 - Python {#python}
 
-   1. Create the `SeriesQuery01.py` file, for example, using the nano editor:
+  1. Create the `SeriesQuery01.py` file, for example, using the `nano` editor:
 
       ```bash
       nano SeriesQuery01.py
@@ -235,7 +235,7 @@ To extract data using `query` from the `Series` table:
 
       {% note warning %}
 
-      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      For `<Document_API_endpoint>`, provide the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -260,11 +260,11 @@ To extract data using `query` from the `Series` table:
               print(serie['series_id'], ":", serie['title'])
       ```
 
-      This code extracts from the `Series` table all the series with the partition key 3.
+      This code extracts from the `Series` table all series with the partition key 3.
 
       The Boto 3 SDK creates the `ConditionExpression` parameter for you when you use the `Key` and `Attr` functions imported from `boto3.dynamodb.conditions`. You can also specify the value of `ConditionExpression` as a string.
 
-   1. Run the program:
+  1. Run the program:
 
       ```bash
       python SeriesQuery01.py
@@ -281,7 +281,7 @@ To extract data using `query` from the `Series` table:
 
 - PHP {#php}
 
-   1. Create the `SeriesQuery01.php` file, for example, using the nano editor:
+  1. Create the `SeriesQuery01.php` file, for example, using the `nano` editor:
 
       ```bash
       nano SeriesQuery01.php
@@ -291,7 +291,7 @@ To extract data using `query` from the `Series` table:
 
       {% note warning %}
 
-      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      For `<Document_API_endpoint>`, provide the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -341,22 +341,22 @@ To extract data using `query` from the `Series` table:
           }
 
       } catch (DynamoDbException $e) {
-          echo "Couldn't perform search:\n";
+          echo "Couldn't scan:\n";
           echo $e->getMessage() . "\n";
       }
 
       ?>
       ```
 
-      This code extracts from the `Series` table all the series with the partition key 3.
+      This code extracts from the `Series` table all series with the partition key 3.
 
       {% note info %}
 
-      `ExpressionAttributeValues` is used for substituting values. This is necessary because you can't use literals directly in expressions, including `KeyConditionExpression`. The above code uses `:sd`.
+      `ExpressionAttributeValues` is used for substituting values. This is required since you cannot use literals directly in expressions, including `KeyConditionExpression`. The above code uses `:sd`.
 
       {% endnote %}
 
-   1. Run the program:
+  1. Run the program:
 
       ```bash
       php SeriesQuery01.php
@@ -374,7 +374,7 @@ To extract data using `query` from the `Series` table:
 
 - Node.js {#node}
 
-   1. Create the `SeriesQuery01.js` file, for example, using the nano editor:
+  1. Create the `SeriesQuery01.js` file, for example, using the `nano` editor:
 
       ```bash
       nano SeriesQuery01.js
@@ -384,7 +384,7 @@ To extract data using `query` from the `Series` table:
 
       {% note warning %}
 
-      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      For `<Document_API_endpoint>`, provide the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -420,9 +420,9 @@ To extract data using `query` from the `Series` table:
           });
       ```
 
-      This code extracts from the `Series` table all the series with the partition key 3.
+      This code extracts from the `Series` table all series with the partition key 3.
 
-   1. Run the program:
+  1. Run the program:
 
       ```bash
       node SeriesQuery01.js
@@ -432,7 +432,7 @@ To extract data using `query` from the `Series` table:
 
       ```text
       Searching for movies with partition key 3.
-      Request completed successfully:
+      Query completed successfully:
       - 3: House of Cards
       - 3: The Office
       - 3: True Detective
@@ -440,7 +440,7 @@ To extract data using `query` from the `Series` table:
 
 - Ruby {#ruby}
 
-   1. Create the `SeriesQuery01.rb` file, for example, using the nano editor:
+  1. Create the `SeriesQuery01.rb` file, for example, using the `nano` editor:
 
       ```bash
       nano SeriesQuery01.rb
@@ -450,7 +450,7 @@ To extract data using `query` from the `Series` table:
 
       {% note warning %}
 
-      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      For `<Document_API_endpoint>`, provide the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -498,9 +498,9 @@ To extract data using `query` from the `Series` table:
       run_me if $PROGRAM_NAME == __FILE__
       ```
 
-      This code extracts from the `Series` table all the series with the partition key 3.
+      This code extracts from the `Series` table all series with the partition key 3.
 
-   1. Run the program:
+  1. Run the program:
 
       ```bash
       ruby SeriesQuery01.rb
@@ -520,13 +520,13 @@ To extract data using `query` from the `Series` table:
 
 ## Searching by partition and sort keys {#part-sort-key-find}
 
-To find a series with the partition key 3 and the title starting with a T in the `Series` table:
+To find a series with the partition key 3 and the title starting with a `T` in the `Series` table:
 
 {% list tabs group=programming_language %}
 
 - Java {#java}
 
-   1. Create the `SeriesQuery02` project:
+  1. Create the `SeriesQuery02` project:
 
       ```bash
       mvn -B archetype:generate \
@@ -535,15 +535,15 @@ To find a series with the partition key 3 and the title starting with a T in the
         -DartifactId=SeriesQuery02
       ```
 
-      As a result of running the command, the `SeriesQuery02` project folder is created in the current working folder, with a structure of subfolders and the `pom.xml` project description file.
+      As a result of running the command, the system will create the `SeriesQuery02` project folder in the current working folder, with a subfolder structure and the `pom.xml` project description file.
 
-   1. Go to the project folder:
+  1. Go to the project folder:
 
       ```bash
       cd SeriesQuery02
       ```
 
-   1. Edit the project description in the `pom.xml` file, for example, using the nano editor:
+  1. Edit the project description in the `pom.xml` file, for example, using the `nano` editor:
 
       ```bash
       nano pom.xml
@@ -623,7 +623,7 @@ To find a series with the partition key 3 and the title starting with a T in the
 
       Check the current versions of [junit](https://mvnrepository.com/artifact/junit/junit) and [aws-java-sdk-dynamodb](https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-dynamodb).
 
-   1. In the folder `src/main/java/com/mycompany/app/`, create the `SeriesQuery02.java` file, for example, using the nano editor:
+  1. In the `src/main/java/com/mycompany/app/` folder, create the `SeriesQuery02.java` file, for example, using the `nano` editor:
 
       ```bash
       nano src/main/java/com/mycompany/app/SeriesQuery02.java
@@ -633,7 +633,7 @@ To find a series with the partition key 3 and the title starting with a T in the
 
       {% note warning %}
 
-      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      For `<Document_API_endpoint>`, provide the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -678,7 +678,7 @@ To find a series with the partition key 3 and the title starting with a T in the
                   .withValueMap(valueMap);
 
               try {
-                  System.out.println("Series with id 3 and name beginning with T:");
+                  System.out.println("Series with id 3 and title starting with T:");
                   items = table.query(querySpec);
 
                   iterator = items.iterator();
@@ -697,15 +697,15 @@ To find a series with the partition key 3 and the title starting with a T in the
       }
       ```
 
-   1. Build a project:
+  1. Build a project:
 
       ```bash
       mvn package
       ```
 
-      As a result of running the command, the `SeriesQuery02.jar` file is generated in the folder `target/release/`.
+      As a result of running the command, the `SeriesQuery02.jar` file will be generated in the `target/release/` folder.
 
-   1. Run the application:
+  1. Run the application:
 
       ```bash
       java -jar target/release/SeriesQuery02.jar
@@ -721,7 +721,7 @@ To find a series with the partition key 3 and the title starting with a T in the
 
 - Python {#python}
 
-   1. Create the `SeriesQuery02.py` file, for example, using the nano editor:
+  1. Create the `SeriesQuery02.py` file, for example, using the `nano` editor:
 
       ```bash
       nano SeriesQuery02.py
@@ -731,7 +731,7 @@ To find a series with the partition key 3 and the title starting with a T in the
 
       {% note warning %}
 
-      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      For `<Document_API_endpoint>`, provide the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -762,7 +762,7 @@ To find a series with the partition key 3 and the title starting with a T in the
               pprint(serie['info'])
       ```
 
-   1. Run the program:
+  1. Run the program:
 
       ```bash
       python SeriesQuery02.py
@@ -778,7 +778,7 @@ To find a series with the partition key 3 and the title starting with a T in the
 
 - PHP {#php}
 
-   1. Create the `SeriesQuery02.php` file, for example, using the nano editor:
+  1. Create the `SeriesQuery02.php` file, for example, using the `nano` editor:
 
       ```bash
       nano SeriesQuery02.php
@@ -788,7 +788,7 @@ To find a series with the partition key 3 and the title starting with a T in the
 
       {% note warning %}
 
-      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      For `<Document_API_endpoint>`, provide the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -841,14 +841,14 @@ To find a series with the partition key 3 and the title starting with a T in the
           }
 
       } catch (DynamoDbException $e) {
-          echo "Couldn't perform search:\n";
+          echo "Couldn't scan:\n";
           echo $e->getMessage() . "\n";
       }
 
       ?>
       ```
 
-   1. Run the program:
+  1. Run the program:
 
       ```bash
       php SeriesQuery02.php
@@ -857,7 +857,7 @@ To find a series with the partition key 3 and the title starting with a T in the
       Result:
 
       ```text
-      Series with ID 3 and title starting with T:
+      Series with id 3 and title starting with T:
       Search completed.
       3: The Office
       3: True Detective
@@ -865,7 +865,7 @@ To find a series with the partition key 3 and the title starting with a T in the
 
 - Node.js {#node}
 
-   1. Create the `SeriesQuery02.js` file, for example, using the nano editor:
+  1. Create the `SeriesQuery02.js` file, for example, using the `nano` editor:
 
       ```bash
       nano SeriesQuery02.js
@@ -875,7 +875,7 @@ To find a series with the partition key 3 and the title starting with a T in the
 
       {% note warning %}
 
-      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      For `<Document_API_endpoint>`, provide the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -907,7 +907,7 @@ To find a series with the partition key 3 and the title starting with a T in the
 
       docClient.query(params, function(err, data) {
           if (err) {
-              console.log("Couldn't complete request. Error:", JSON.stringify(err, null, 2));
+              console.error("Couldn't complete request. Error:", JSON.stringify(err, null, 2));
           } else {
               console.log("Request completed successfully:");
               data.Items.forEach(function(item) {
@@ -917,7 +917,7 @@ To find a series with the partition key 3 and the title starting with a T in the
       });
       ```
 
-   1. Run the program:
+  1. Run the program:
 
       ```bash
       node SeriesQuery02.js
@@ -927,14 +927,14 @@ To find a series with the partition key 3 and the title starting with a T in the
 
       ```text
       Series with id 3 and title starting with T:
-      Request completed successfully:
+      Query completed successfully:
       - 3: The Office
       - 3: True Detective
       ```
 
 - Ruby {#ruby}
 
-   1. Create the `SeriesQuery02.rb` file, for example, using the nano editor:
+  1. Create the `SeriesQuery02.rb` file, for example, using the `nano` editor:
 
       ```bash
       nano SeriesQuery02.rb
@@ -944,7 +944,7 @@ To find a series with the partition key 3 and the title starting with a T in the
 
       {% note warning %}
 
-      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      For `<Document_API_endpoint>`, provide the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -956,7 +956,7 @@ To find a series with the partition key 3 and the title starting with a T in the
         if result.items.count.zero?
           puts 'No results found.'
         else
-          puts "#{result.items.count} items found:"
+          puts "#{result.items.count} records found:"
           result.items.each do |movie|
             puts "#{movie['title']} (#{movie['series_id'].to_i}) "
           end
@@ -993,7 +993,7 @@ To find a series with the partition key 3 and the title starting with a T in the
       run_me if $PROGRAM_NAME == __FILE__
       ```
 
-   1. Run the program:
+  1. Run the program:
 
       ```bash
       ruby SeriesQuery02.rb
@@ -1018,7 +1018,7 @@ To extract data using `scan` from the `Series` table:
 
 - Java {#java}
 
-   1. Create the `SeriesScan` project:
+  1. Create the `SeriesScan` project:
 
       ```bash
       mvn -B archetype:generate \
@@ -1027,15 +1027,15 @@ To extract data using `scan` from the `Series` table:
         -DartifactId=SeriesScan
       ```
 
-      As a result of running the command, the `SeriesScan` project folder is created in the current working folder, with a structure of subfolders and the `pom.xml` project description file.
+      As a result of running the command, the system will create the `SeriesScan` project folder in the current working folder, with a subfolder structure and the `pom.xml` project description file.
 
-   1. Go to the project folder:
+  1. Go to the project folder:
 
       ```bash
       cd SeriesScan
       ```
 
-   1. Edit the project description in the `pom.xml` file, for example, using the nano editor:
+  1. Edit the project description in the `pom.xml` file, for example, using the `nano` editor:
 
       ```bash
       nano pom.xml
@@ -1115,7 +1115,7 @@ To extract data using `scan` from the `Series` table:
 
       Check the current versions of [junit](https://mvnrepository.com/artifact/junit/junit) and [aws-java-sdk-dynamodb](https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-dynamodb).
 
-   1. In the folder `src/main/java/com/mycompany/app/`, create the `SeriesScan.java` file, for example, using the nano editor:
+  1. In the `src/main/java/com/mycompany/app/` folder, create the `SeriesScan.java` file, for example, using the `nano` editor:
 
       ```bash
       nano src/main/java/com/mycompany/app/SeriesScan.java
@@ -1125,7 +1125,7 @@ To extract data using `scan` from the `Series` table:
 
       {% note warning %}
 
-      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      For `<Document_API_endpoint>`, provide the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -1182,15 +1182,15 @@ To extract data using `scan` from the `Series` table:
 
       The above code scans the `Series` table and outputs series with the `series_id` attribute from 1 to 3. All other elements are discarded.
 
-   1. Build a project:
+  1. Build a project:
 
       ```bash
       mvn package
       ```
 
-      As a result of running the command, the `SeriesScan.jar` file is generated in the folder `target/release/`.
+      As a result of running the command, the `SeriesScan.jar` file will be generated in the `target/release/` folder.
 
-   1. Run the application:
+  1. Run the application:
 
       ```bash
       java -jar target/release/SeriesScan.jar
@@ -1208,7 +1208,7 @@ To extract data using `scan` from the `Series` table:
 
 - Python {#python}
 
-   1. Create the `SeriesScan.py` file, for example, using the nano editor:
+  1. Create the `SeriesScan.py` file, for example, using the `nano` editor:
 
       ```bash
       nano SeriesScan.py
@@ -1218,7 +1218,7 @@ To extract data using `scan` from the `Series` table:
 
       {% note warning %}
 
-      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      For `<Document_API_endpoint>`, provide the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -1261,9 +1261,9 @@ To extract data using `scan` from the `Series` table:
 
       To filter the found data, you can specify selection conditions in the optional `FilterExpression` parameter.
 
-      With every call, the `scan` method returns a subset of records called a page. Then the `LastEvaluatedKey` value in the response is passed to the `scan` method via the `ExclusiveStartKey` parameter. When the last page is returned, the `LastEvaluatedKey` value is not included in the response.
+      With every call, the `scan` method returns a subset of records, or page. Then, the `LastEvaluatedKey` value in the response is provided to the `scan` method through the `ExclusiveStartKey` parameter. When the last page is returned, the `LastEvaluatedKey` value is not included in the response.
 
-   1. Run the program:
+  1. Run the program:
 
       ```bash
       python SeriesScan.py
@@ -1292,7 +1292,7 @@ To extract data using `scan` from the `Series` table:
 
 - PHP {#php}
 
-   1. Create the `SeriesScan.php` file, for example, using the nano editor:
+  1. Create the `SeriesScan.php` file, for example, using the `nano` editor:
 
       ```bash
       nano SeriesScan.php
@@ -1302,7 +1302,7 @@ To extract data using `scan` from the `Series` table:
 
       {% note warning %}
 
-      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      For `<Document_API_endpoint>`, provide the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -1369,7 +1369,7 @@ To extract data using `scan` from the `Series` table:
 
       The above code scans the `Series` table and outputs series with the `series_id` attribute from 1 to 3. All other elements are discarded.
 
-   1. Run the program:
+  1. Run the program:
 
       ```bash
       php SeriesScan.php
@@ -1388,7 +1388,7 @@ To extract data using `scan` from the `Series` table:
 
 - Node.js {#node}
 
-   1. Create the `SeriesScan.js` file, for example, using the nano editor:
+  1. Create the `SeriesScan.js` file, for example, using the `nano` editor:
 
       ```bash
       nano SeriesScan.js
@@ -1398,7 +1398,7 @@ To extract data using `scan` from the `Series` table:
 
       {% note warning %}
 
-      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      For `<Document_API_endpoint>`, provide the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -1450,7 +1450,7 @@ To extract data using `scan` from the `Series` table:
 
       The above code scans the `Series` table and outputs series with the `series_id` attribute from 1 to 3. All other elements are discarded.
 
-   1. Run the program:
+  1. Run the program:
 
       ```bash
       node SeriesScan.js
@@ -1460,7 +1460,7 @@ To extract data using `scan` from the `Series` table:
 
       ```text
       Scanning the Series table
-      Scanning successful.
+      Scan successful.
       3:  House of Cards
       3:  The Office
       3:  True Detective
@@ -1472,7 +1472,7 @@ To extract data using `scan` from the `Series` table:
 
 - Ruby {#ruby}
 
-   1. Create the `SeriesScan.rb` file, for example, using the nano editor:
+  1. Create the `SeriesScan.rb` file, for example, using the `nano` editor:
 
       ```bash
       nano SeriesScan.rb
@@ -1482,7 +1482,7 @@ To extract data using `scan` from the `Series` table:
 
       {% note warning %}
 
-      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      For `<Document_API_endpoint>`, provide the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -1547,7 +1547,7 @@ To extract data using `scan` from the `Series` table:
 
       The above code scans the `Series` table and outputs series with the `series_id` attribute from 1 to 3. All other elements are discarded.
 
-   1. Run the program:
+  1. Run the program:
 
       ```bash
       ruby SeriesScan.rb

@@ -1,6 +1,10 @@
 # Example of using {{ message-queue-full-name }} in Python
 
-To work with {{ message-queue-full-name }} from Python, use [boto3](https://aws.amazon.com/sdk-for-python/), an SDK designed for Python. `boto3` versions higher than 1.26.0 are not supported.
+{% note warning %}
+
+To work with {{ message-queue-full-name }} from Python, use [boto3](https://aws.amazon.com/sdk-for-python/), an SDK designed for Python. `boto3` versions 1.26.0 and higher are not supported.
+
+{% endnote %}
 
 ## Installation {#install}
 

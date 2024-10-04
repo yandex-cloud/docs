@@ -10,10 +10,7 @@ editable: false
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
-В [консоли управления]({{ link-console-main }}) новым пользователям без [платежного аккаунта](../billing/concepts/billing-account.md) для тестирования доступны запросы к моделям:
-
-* {{ yagpt-full-name }} — {{ gpt-freetier }} бесплатных запросов в час.
-* {{ yandexart-name }} — {{ art-freetier }} бесплатных запросов в сутки.
+{% include [not-charged-foundation-models](../_includes/pricing/price-formula/not-charged-foundation-models.md) %}
 
 ## Из чего складывается стоимость использования {{ foundation-models-full-name }} {#rules}
 

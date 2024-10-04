@@ -318,6 +318,8 @@ annotations:
 
   Включает поддержку сервиса [{{ sws-full-name }}](../../../smartwebsecurity/concepts/index.md), который позволяет защититься от [DDoS-атак](../../../glossary/ddos.md) и ботов, а также задействовать [WAF](../../../smartwebsecurity/concepts/waf.md) и [ограничить нагрузку](../../../smartwebsecurity/concepts/arl.md) на защищаемый ресурс.
 
+  {% include [sws-editor-role](sws-editor-role.md) %}
+
   {% include [annot-description](annot-security-profile-id.md) %}
 
 * **ingress.alb.yc.io/use-regex** {#annot-use-regex}

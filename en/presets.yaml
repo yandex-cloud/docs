@@ -8074,6 +8074,8 @@ default:
           context_word-stress-title: Stress
           context_word-title: Emphasize word
         label_playground: SpeechKit Playground
+        label_speech-synthesis: Speech synthesis
+        label_speech-to-text: Speech recognition
         speech-synthesis:
           field_audio: Audio format
           field_language: Language
@@ -8083,6 +8085,10 @@ default:
           field_voice: Voice
           label_button_playback: Synthesize and playback
           label_synthesis-settings: Synthesis settings
+        speech-to-text:
+          field_language: Language
+          label_button_start-recognition: Start recognition
+          label_language-auto: Automatic
       storage:
         bucket:
           button_action-permissions: Object ACL
