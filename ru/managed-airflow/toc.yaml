@@ -7,10 +7,14 @@ items:
     items:
       - name: Все инструкции
         href: operations/index.md
+      - name: Информация об имеющихся кластерах
+        href: operations/cluster-list.md
       - name: Создание кластера
         href: operations/cluster-create.md
       - name: Изменение кластера
         href: operations/cluster-update.md
+      - name: Остановка и запуск кластера
+        href: operations/cluster-stop.md
       - name: Работа с интерфейсами {{ AF }}
         href: operations/af-interfaces.md
       - name: Загрузка DAG-файлов в кластер

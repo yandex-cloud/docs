@@ -1,3 +1,8 @@
+---
+title: Работа с механизмом логирования действий с бакетом в {{ objstorage-full-name }}
+description: Следуя данной инструкции, вы сможете работать с механизмом логирования действий с бакетом в {{ objstorage-name }}.
+---
+
 # Работа с механизмом логирования действий с бакетом
 
 
@@ -29,13 +34,13 @@
 
    - Консоль управления {#console}
 
-      1. В [консоли управления]({{ link-console-main }}) выберите каталог, где находится исходный бакет.
-      1. Выберите сервис **{{ objstorage-name }}**.
-      1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_server-logs }}**.
+      1. В [консоли управления]({{ link-console-main }}) в списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** и перейдите в бакет, для которого хотите настроить логирование.
+      1. На панели слева выберите ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
+      1. Выберите вкладку **{{ ui-key.yacloud.storage.bucket.switch_server-logs }}**.
       1. Включите опцию **{{ ui-key.yacloud.storage.server-logs.label_server-logs }}**.
       1. Выберите **{{ ui-key.yacloud.storage.server-logs.label_target-bucket }}**.
       1. В поле **{{ ui-key.yacloud.storage.server-logs.label_prefix }}** укажите префикс, с которым будут сохраняться логи.
-      1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+      1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
    - AWS CLI {#cli}
 
@@ -149,8 +154,9 @@
 
 - Консоль управления {#console}
 
-   1. В [консоли управления]({{ link-console-main }}) перейдите в исходный бакет.
-   1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_server-logs }}**.
+   1. В [консоли управления]({{ link-console-main }}) в списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** и перейдите в исходный бакет.
+   1. На панели слева выберите ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
+   1. Выберите вкладку **{{ ui-key.yacloud.storage.bucket.switch_server-logs }}**
    1. В списке **{{ ui-key.yacloud.storage.server-logs.label_target-bucket }}** содержится имя целевого бакета.
    1. В поле **{{ ui-key.yacloud.storage.server-logs.label_prefix }}** содержится префикс, с которым сохраняются логи.
 
@@ -239,8 +245,7 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, где находится целевой бакет с логами.
-  1. Выберите сервис **{{ objstorage-name }}**.
+  1. В [консоли управления]({{ link-console-main }}) в списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Выберите целевой бакет с логами.
   1. Перейдите в папку `logs/`.
   1. Напротив объекта с логами, который вы хотите скачать, нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.storage.file.button_download }}**.
@@ -269,11 +274,11 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, где находится исходный бакет.
-  1. Выберите сервис **{{ objstorage-name }}**.
-  1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_server-logs }}**.
+  1. В [консоли управления]({{ link-console-main }}) в списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** и перейдите в бакет, для которого хотите выключить логирование.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
+  1. Выберите вкладку **{{ ui-key.yacloud.storage.bucket.switch_server-logs }}**.
   1. Выключите опцию **{{ ui-key.yacloud.storage.server-logs.label_server-logs }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+  1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
 - AWS CLI {#cli}
 

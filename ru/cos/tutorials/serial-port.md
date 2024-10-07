@@ -48,7 +48,7 @@ description: Следуя данному руководству, вы сможе
     groups: sudo
     shell: /bin/bash
     sudo: 'ALL=(ALL) NOPASSWD:ALL'
-    ssh-authorized-keys:
+    ssh_authorized_keys:
     - <публичный_SSH-ключ_для_подключения_к_ВМ>
   ```
 

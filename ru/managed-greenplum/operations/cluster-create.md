@@ -168,7 +168,7 @@
            --subnet-id=<идентификатор_подсети> \
            --assign-public-ip=<публичный_доступ_к_хостам> \
            --security-group-ids=<список_идентификаторов_групп_безопасности> \
-           --deletion-protection=<защита_от_удаления_кластера>
+           --deletion-protection
         ```
 
         {% note info %}
@@ -199,7 +199,7 @@
         * `--subnet-id` — [идентификатор подсети](../../vpc/concepts/network.md#subnet). Необходимо указывать, если в выбранной зоне доступности создано 2 и больше подсетей.
         * `--assign-public-ip` — флаг, который указывается, если для хостов нужен [публичный доступ](../concepts/network.md#public-access-to-a-host): `true` или `false`.
         * `--security-group-ids` — список идентификаторов [групп безопасности](../../vpc/concepts/security-groups.md).
-        * `--deletion-protection` — защита от удаления кластера: `true` или `false`.
+        * `--deletion-protection` — защита от удаления кластера.
 
 
             {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
@@ -509,7 +509,7 @@
        --subnet-id={{ subnet-id }} \
        --assign-public-ip=true \
        --security-group-ids={{ security-group }} \
-       --deletion-protection=true
+       --deletion-protection
     ```
 
 

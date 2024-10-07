@@ -265,7 +265,7 @@ description: This section contains {{ at-name }} release notes.
 
   Event | Description
   --- | ---
-  `UpdateDomainAccessBindings` | Updating domain access bindings
+  `UpdateDomainAccessBindings` | Updating access permissions for a domain
 
   {% endcut %}
 
@@ -297,7 +297,7 @@ description: This section contains {{ at-name }} release notes.
 
   Event | Description
   --- | ---
-  `ChangeLogGroupAccessBindings` | Updating access bindings for a log group
+  `ChangeLogGroupAccessBindings` | Updating access permissions for a log group
   `CreateExport` | Creating a log export
   `CreateLogGroup` | Creating a log group
   `CreateSink` | Creating a log sink
@@ -305,14 +305,14 @@ description: This section contains {{ at-name }} release notes.
   `DeleteExport` | Deleting a log export
   `DeleteLogGroup` | Deleting a log group
   `DeleteSink` | Deleting a log sink
-  `SetExportAccessBindings` | Setting access bindings for a log export
-  `SetLogGroupAccessBindings` | Setting access bindings for a log group
-  `SetSinkAccessBindings` | Setting access bindings for a log sink
+  `SetExportAccessBindings` | Assigning access permissions for a log export
+  `SetLogGroupAccessBindings` | Assigning access permissions for a log group
+  `SetSinkAccessBindings` | Assigning access permissions for a log sink
   `UpdateExport` | Updating a log export
-  `UpdateExportAccessBindings` | Updating access bindings for a log export
-  `UpdateLogGroupAccessBindings` | Updating access bindings for a log group
+  `UpdateExportAccessBindings` | Updating access permissions for a log export
+  `UpdateLogGroupAccessBindings` | Updating access permissions for a log group
   `UpdateSink` | Updating a log sink
-  `UpdateSinkAccessBindings` | Updating access bindings for a log sink
+  `UpdateSinkAccessBindings` | Updating access permissions for a log sink
 
   {% endcut %}
 
@@ -448,7 +448,7 @@ description: This section contains {{ at-name }} release notes.
   Event | Description
   --- | ---
   `MoveCluster` | Moving a cluster
-  `UpdateDashboardsNodeGroup` | Updating a `Dashboards` host group
+  `UpdateDashboardsNodeGroup` | Updating a `Dashboards` type host group
 
   {% endcut %}
 
@@ -473,6 +473,6 @@ description: This section contains {{ at-name }} release notes.
   `RelocateSubnet` | Moving a cloud subnet to a different availability zone
 
   {% endcut %}
-* Fixed an error causing delays in event delivery when the trail was in the `Error` status.
+* Fixed an error that delayed event delivery with the trail in the `Error` status.
 
 * Modified the mechanism for delivering database management events and database user management events from {{ mpg-full-name }}, {{ mmy-full-name }}, and {{ mmg-full-name }}. Now they are considered [data events](./concepts/format-data-plane.md).

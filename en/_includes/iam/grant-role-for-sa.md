@@ -2,7 +2,7 @@ You can assign roles to a service account for any resources in any cloud if thes
 
 ## Assigning a role for a resource {#binding-role-resource}
 
-Сhild resources inherit access permissions from their parent resources. For example, if a service account gets a role for a cloud, it will also get the required permissions for all resources across the cloud's folders.
+Child resources inherit access permissions from their parent resources. For example, if a service account gets a role for a cloud, it will also get the required permissions for all resources across the cloud's folders.
 
 [Learn](../../iam/concepts/access-control/resources-with-access-control.md) which resources you can assign a role for.
 
@@ -13,11 +13,12 @@ To assign a role for a resource:
 - Management console {#console}
 
     You assign roles to a service account the same way as to a user account.
+    
     To assign a service account a role for a cloud or folder:
 
     1. In the [management console]({{ link-console-main }}), select the cloud or folder.
     1. Go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
-    1. Click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
+    1. Click **{{ ui-key.yacloud.common.resource-acl.button_configure-access }}**.
     1. In the window that opens, select **{{ ui-key.yacloud_components.acl.label.service-accounts}}**.
     1. Select the required service account from the list or use the search.
     1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the role from the list or use the search bar.
@@ -66,10 +67,10 @@ To assign a role for a resource:
 
      Where:
      * `folder_id`: [Folder ID](../../resource-manager/operations/folder/get-id.md). This is a required parameter.
-     * `role`: Role being assigned. You can find the description of the roles in the {{ iam-full-name }} documentation in the [{{ yandex-cloud }} role reference](../../iam/roles-reference.md). This is a required parameter.
+     * `role`: Role you want to assign. You can find the description of the roles in the {{ iam-full-name }} documentation in the [{{ yandex-cloud }} role reference](../../iam/roles-reference.md). This is a required parameter.
      * `member`: [ID](../../iam/operations/sa/get-id.md) of the service account getting the role. Specify it as `serviceAccount:<service_account_ID>`. This is a required parameter.
 
-     For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
+     For more details about resources you can create using {{ TF }}, see [the provider documentation]({{ tf-provider-link }}/).
 
   1. Make sure the configuration files are correct.
 
@@ -122,9 +123,9 @@ To grant a service account permissions to access an organization, you need the `
 
   1. In the **{{ ui-key.yacloud.common.resource-acl.placeholder_filter-by-type }}** filter, select `{{ ui-key.yacloud_components.acl.label.service-accounts}}`.
 
-  1. If the respective service account has at least one role, select it from the list or use the search bar. In the account line, click ![icon-context-menu](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_org.entity.user.action.acl }}**.
+  1. If the respective service account has at least one role, select it from the list or use the search bar. In the line with the account name, click ![icon-context-menu](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_org.entity.user.action.acl }}**.
 
-     If the service account is not on the list, click **{{ ui-key.yacloud_org.entity.user.action.acl }}** in the top-right corner. In the window that opens, go to **{{ ui-key.yacloud_components.acl.label.service-accounts }}** and select the appropriate account from the list or use the search bar.
+     If the service account is not on the list, click **{{ ui-key.yacloud_org.entity.user.action.acl }}** in the top-right corner. In the window that opens, go to **{{ ui-key.yacloud_components.acl.label.service-accounts}}** and select the appropriate account from the list or use the search bar.
 
   1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the role from the list or use the search bar.
   
@@ -232,10 +233,10 @@ To grant a service account permissions to access an organization, you need the `
 
      Where:
      * `organization_id`: [Organization ID](../../organization/operations/org-profile.md). This is a required parameter.
-     * `role`: Role being assigned. You can find the description of the roles in the {{ iam-full-name }} documentation in the [{{ yandex-cloud }} role reference](../../iam/roles-reference.md). For each role, you can only use one `yandex_organization manager_organization_iam_binding` resource. This is a required parameter.
+     * `role`: Role you want to assign. You can find the description of the roles in the {{ iam-full-name }} documentation in the [{{ yandex-cloud }} role reference](../../iam/roles-reference.md). For each role, you can only use one `yandex_organization manager_organization_iam_binding` resource. This is a required parameter.
      * `members`: [ID](../../iam/operations/sa/get-id.md) of the service account getting the role. Specify it as `serviceAccount:<service_account_ID>`. This is a required parameter.
 
-     For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
+     For more details about resources you can create using {{ TF }}, see [the provider documentation]({{ tf-provider-link }}/).
 
   1. Make sure the configuration files are correct.
     

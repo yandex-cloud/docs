@@ -1,3 +1,8 @@
+---
+title: Управление блокировками версий объектов (object lock) в бакете
+description: Следуя данной инструкции, вы сможете управлять блокировкой версий объектов в {{ objstorage-name }}.
+---
+
 # Управление блокировками версий объектов (object lock) в бакете
 
 В [версионируемых](versioning.md) бакетах можно настроить механизм _[блокировки версий объектов](../../concepts/object-lock.md)_ (object lock). Когда он включен, вы можете установить на версию объекта блокировку, то есть запрет на удаление или перезапись. Также для бакета можно настроить блокировки по умолчанию: они будут устанавливаться на все новые версии объектов.
@@ -17,6 +22,14 @@
 Чтобы включить возможность блокировок:
 
 {% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) в списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** и перейдите в бакет, для которого хотите настроить блокировку.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
+  1. Выберите вкладку **{{ ui-key.yacloud.storage.bucket.switch_object-lock }}**.
+  1. Чтобы включить возможность работать с блокировками, включите опцию **{{ ui-key.yacloud.storage.bucket.object-lock.field_object-lock-enabled }}**.
+  1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
 - AWS CLI {#cli}
 
@@ -94,6 +107,19 @@
 Чтобы настроить блокировки по умолчанию:
 
 {% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) в списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** и перейдите в бакет, для которого хотите настроить блокировку по умолчанию.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
+  1. Выберите вкладку **{{ ui-key.yacloud.storage.bucket.switch_object-lock }}**.
+  1. Чтобы включить или выключить возможность работать с блокировками, используйте опцию **{{ ui-key.yacloud.storage.bucket.object-lock.field_object-lock-enabled }}**.
+  1. Включите опцию **{{ ui-key.yacloud.storage.bucket.object-lock.field_rule-enabled }}**.
+  1. Выберите **{{ ui-key.yacloud.storage.bucket.object-lock.field_mode }}**:
+     * **{{ ui-key.yacloud.storage.bucket.object-lock.title-mode-governance }}** — пользователь с ролью `storage.admin` может обойти блокировку, изменить ее срок или снять ее.
+     * **{{ ui-key.yacloud.storage.bucket.object-lock.title-mode-compliance }}** — пользователь с ролью `storage.admin` может только продлить блокировку. Обойти, сократить или снять блокировку до ее окончания нельзя.
+  1. Установите **{{ ui-key.yacloud.storage.bucket.object-lock.field_retention-period }}** в днях или годах. Отсчитывается от момента, когда версия объекта загружена в бакет.
+  1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
 - AWS CLI {#cli}
 
@@ -206,6 +232,14 @@
 Чтобы выключить возможность блокировок:
 
 {% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) в списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** и перейдите в бакет, для которого хотите настроить блокировку.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
+  1. Выберите вкладку **{{ ui-key.yacloud.storage.bucket.switch_object-lock }}**.
+  1. Чтобы выключить возможность работать с блокировками, выключите опцию **{{ ui-key.yacloud.storage.bucket.object-lock.field_object-lock-enabled }}**.
+  1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
 - AWS CLI {#cli}
 

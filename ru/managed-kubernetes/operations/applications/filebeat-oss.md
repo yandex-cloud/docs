@@ -19,9 +19,11 @@
 
    ```bash
    wget "{{ crt-web-path }}" && \
-   curl --user <имя_пользователя>:<пароль> --cacert CA.pem \
+   curl \
+   --user <имя_пользователя>:<пароль> --cacert CA.pem \
    --request PUT https://<имя_хоста_с_ролью_DATA>:{{ port-mos }}/_cluster/settings \
-   -H "Content-Type: application/json" -d \
+   --header "Content-Type: application/json" \
+   --data \
    '{
    "persistent": {
      "compatibility": {

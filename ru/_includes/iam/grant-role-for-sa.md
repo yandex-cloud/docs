@@ -277,7 +277,8 @@
       ```bash
       export FOLDER_ID=b1gvmob95yys********
       export IAM_TOKEN=CggaATEVAgA...
-      curl -H "Authorization: Bearer ${IAM_TOKEN}" \
+      curl \
+        --header "Authorization: Bearer ${IAM_TOKEN}" \
         "https://iam.{{ api-host }}/iam/v1/serviceAccounts?folderId=${FOLDER_ID}"
       ```
 
@@ -302,8 +303,10 @@
 
       ```bash
       export IAM_TOKEN=CggaATEVAgA... 
-      curl -H "Authorization: Bearer ${IAM_TOKEN}" \
-	    -X GET "https://organization-manager.{{ api-host }}/organization-manager/v1/organizations"
+      curl \
+        --header "Authorization: Bearer ${IAM_TOKEN}" \
+        --request GET \
+        "https://organization-manager.{{ api-host }}/organization-manager/v1/organizations"
       ```
 
       Результат:
@@ -345,10 +348,12 @@
       ```bash
       export ORGANIZATION_ID=bpfaidqca8vd********
       export IAM_TOKEN=CggaATEVAgA...
-      curl -H "Content-Type: application/json" \
-        -H "Authorization: Bearer ${IAM_TOKEN}" \
-        -d '@body.json' \
-        -X POST "https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/${ORGANIZATION_ID}:updateAccessBindings"
+      curl \
+        --header "Content-Type: application/json" \
+        --header "Authorization: Bearer ${IAM_TOKEN}" \
+        --data '@body.json' \
+        --request POST \
+        "https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/${ORGANIZATION_ID}:updateAccessBindings"
       ```
 
 {% endlist %}

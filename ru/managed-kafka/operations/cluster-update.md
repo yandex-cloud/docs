@@ -456,7 +456,7 @@ description: Следуя данной инструкции, вы сможете
            --maintenance-window type=<тип_технического_обслуживания>,`
                                `day=<день_недели>,`
                                `hour=<час_дня> \
-           --deletion-protection=<защита_от_удаления> \
+           --deletion-protection \
            --schema-registry=<управление_схемами_данных>
         ```
 

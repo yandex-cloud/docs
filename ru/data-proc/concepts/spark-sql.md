@@ -158,7 +158,7 @@ chmod 555 /usr/local/bin/jq /usr/local/bin/yq
 MUSTLABEL=N
 if [ ! -z "$NAME_TO_LABEL" ]; then
   # Получение имени подкластера из метаданных виртуальной машины.
-  curl -H Metadata-Flavor:Google 'http://169.254.169.254/computeMetadata/v1/instance/?alt=json&recursive=true' -o /tmp/host-meta.json
+  curl --header Metadata-Flavor:Google 'http://169.254.169.254/computeMetadata/v1/instance/?alt=json&recursive=true' --output /tmp/host-meta.json
   jq -r .attributes.'"user-data"' /tmp/host-meta.json >/tmp/host-userdata.yaml
   subcid=`jq -r '.vendor.labels.subcluster_id' /tmp/host-meta.json`
   subname=`yq -r ".data.topology.subclusters.${subcid}.name" /tmp/host-userdata.yaml`

@@ -111,10 +111,11 @@
   ```bash
   export SERVICEACCOUNT_ID=<идентификатор_сервисного_аккаунта>
   export IAM_TOKEN=<токен>
-  curl -X POST \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer $IAM_TOKEN" \
-    -d "{
+  curl \
+    --request POST \
+    --header "Content-Type: application/json" \
+    --header "Authorization: Bearer $IAM_TOKEN" \
+    --data "{
         \"serviceAccountId\": \"$SERVICEACCOUNT_ID\",
         \"scope\": \"<область_действия>\",
         \"expiresAt\": \"<дата_и_время>\"
@@ -172,10 +173,11 @@
   ```bash
   export SERVICEACCOUNT_ID=<идентификатор_сервисного_аккаунта>
   export IAM_TOKEN=<IAM-токен>
-  curl -X POST \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer $IAM_TOKEN" \
-    -d "{
+  curl \
+    --request POST \
+    --header "Content-Type: application/json" \
+    --header "Authorization: Bearer $IAM_TOKEN" \
+    --data "{
         \"serviceAccountId\": \"$SERVICEACCOUNT_ID\",
         \"description\": \"this API-key is for my-robot\"
     }" \

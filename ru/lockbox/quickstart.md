@@ -102,14 +102,16 @@ description: В этой инструкции вы научитесь созда
         Также вы можете получить IAM-токен сервисного аккаунта изнутри [ВМ](../glossary/vm.md), к которой он привязан. Для этого выполните запрос в [сервис метаданных](../compute/operations/vm-info/get-info.md#request-examples). Пример с использованием утилиты [jq](https://stedolan.github.io/jq/):
         
         ```
-        export IAM_TOKEN=$(curl -H Metadata-Flavor:Google http://169.254.169.254/computeMetadata/v1/instance/service-accounts/default/token | jq -r .access_token)
+        export IAM_TOKEN=$(curl --header Metadata-Flavor:Google http://169.254.169.254/computeMetadata/v1/instance/service-accounts/default/token | jq -r .access_token)
         ```
 
     1. Выполните запрос:
 
         ```
-        curl -X GET -H "Authorization: Bearer ${IAM_TOKEN}" \
-        https://{{ api-host-lockbox-payload }}/lockbox/v1/secrets/<идентификатор_секрета>/payload
+        curl \
+          --request GET \
+          --header "Authorization: Bearer ${IAM_TOKEN}" \
+          https://{{ api-host-lockbox-payload }}/lockbox/v1/secrets/<идентификатор_секрета>/payload
         ```
 {% endlist %}
 

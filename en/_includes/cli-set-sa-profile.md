@@ -1,34 +1,59 @@
 Configure the CLI to work on behalf of a service account:
 
 1. {% include [cli-install](cli-install.md) %}
+1. {% include [default-catalogue](default-catalogue.md) %}
+1. Get a list of available service accounts in the default folder:
 
-1. Create an [authorized key](../iam/concepts/authorization/key.md) for your service account and save the file:
-
+    ```bash
+    yc iam service-accounts list
     ```
-    yc iam key create --service-account-name my-robot --output key.json
+
+    Result:
+
+    ```bash
+    +----------------------+----------+--------+
+    |          ID          |   NAME   | LABELS |
+    +----------------------+----------+--------+
+    | ajeb9l33h6mu******** | my-robot |        |
+    +----------------------+----------+--------+
     ```
 
-    If you see `ERROR: service account with name "my-robot" not found`, it means there is no service account with this name in the default folder. If the name is correct, run one of the following commands:
-    * Specify the folder with the service account using the `--folder-name` or `--folder-id` parameter:
+1. Create an [authorized key](../iam/concepts/authorization/key.md) for your service account and save it to the file:
 
-         ```
-         yc iam key create --folder-name my-folder --service-account-name my-robot --output key.json
-         ```
-    * Specify the service account [ID](../iam/operations/sa/get-id.md) using the `--service-account-id` parameter:
+    ```bash
+    yc iam key create --output <key_file_path> --service-account-name <service_account_name>
+    ```
 
-         ```
-         yc iam key create --service-account-id b1gnbfd11bq5******** --output key.json
-         ```
+    Where:
+
+    * `--output`: Path to the file for saving the authorized key in JSON format. This is a required parameter.
+    * `--service-account-name`: Service account name.
+
+     For example:
+
+     ```bash
+     yc iam key create --output key.json --service-account-name my-service-account
+     ```
+
+     Result:
+
+     ```bash
+     id: aje4lue48687********
+     service_account_id: ajeb9l33h6m********
+     created_at: "2024-08-01T11:58:52.313177213Z"
+     key_algorithm: RSA_2048
+     ```
+
+    For more information about the `yc iam key create` command, see the [CLI reference](../cli/cli-ref/managed-services/iam/service-account/create.md).
 
 1. Create a profile to execute operations on behalf of the service account:
 
-    ```
-    yc config profile create my-robot-profile
+    ```bash
+    yc config profile create <profile_name>
     ```
 
 1. Specify the authorized key of the service account in the profile configuration:
 
+    ```bash
+    yc config set service-account-key <key_file_path>
     ```
-    yc config set service-account-key key.json
-    ```
-

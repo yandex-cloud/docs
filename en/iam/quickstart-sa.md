@@ -1,6 +1,6 @@
 # Getting started with service accounts
 
-In {{ iam-short-name }}, you can create [_service accounts_](concepts/users/service-accounts.md). These are auxiliary accounts that your programs can use to perform operations in {{ yandex-cloud }}. Service accounts are free of charge. They allow you to flexibly manage access for your programs. For more information, see [{#T}](concepts/users/service-accounts.md).
+In {{ iam-short-name }}, you can create [_service accounts_](concepts/users/service-accounts.md). These are auxiliary accounts that your programs can use to perform operations in {{ yandex-cloud }}. Service accounts are free of charge and enable flexible access management for your programs. For more information, see [{#T}](concepts/users/service-accounts.md).
 
 This guide is intended for [cloud owners](../resource-manager/concepts/resources-hierarchy.md#owner) and users with the [administrator](./roles-reference.md#admin) role for a cloud or folder. Users with the [`editor`](./roles-reference.md#editor) role can also create service accounts, but they cannot assign roles, so they cannot allow a service account to perform operations in {{ yandex-cloud }}.
 
@@ -44,9 +44,9 @@ Other users can also use the service account you created. To allow them to do th
 
 {% endnote %}
 
-## Configure the CLI to work on behalf of a service account {#run-operation-from-sa}
+## Configure the CLI to work under a service account {#run-operation-from-sa}
 
-You can perform operations on behalf of a service account via the API, CLI, and other tools that support service account based authentication. You cannot log in to the management console using a service account.
+You can perform operations under a service account via the {{ yandex-cloud }} CLI, API, and other tools that support service account based authentication.
 
 {% include [cli-set-sa-profile](../_includes/cli-set-sa-profile.md) %}
 

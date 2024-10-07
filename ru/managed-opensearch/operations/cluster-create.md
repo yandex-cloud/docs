@@ -135,7 +135,7 @@ keywords:
          --network-name <имя_сети> \
          --security-group-ids <идентификаторы_групп_безопасности> \
          --service-account-name <имя_сервисного_аккаунта> \
-         --delete-protection <защита_от_удаления:_true_или_false> \
+         --delete-protection \
          --maintenance schedule=<тип_технического_обслуживания>,`
                       `weekday=<день_недели>,`
                       `hour=<час_дня> \
@@ -174,7 +174,7 @@ keywords:
 
       * `--service-account-name` — имя сервисного аккаунта для [доступа к {{ objstorage-full-name }}](s3-access.md) в качестве репозитория [снапшотов](../../glossary/snapshot.md) {{ OS }}. Подробнее о сервисных аккаунтах см. в [документации {{ iam-full-name }}](../../iam/concepts/users/service-accounts.md).
 
-      * `--delete-protection` — защита кластера от непреднамеренного удаления пользователем: `true` или `false`. Включенная защита от удаления кластера не помешает подключиться к нему вручную и удалить данные.
+      * `--delete-protection` — защита кластера от непреднамеренного удаления пользователем. Включенная защита от удаления кластера не помешает подключиться к нему вручную и удалить данные.
 
       * `--maintenance` — настройки времени технического обслуживания:
 
@@ -466,7 +466,7 @@ keywords:
        --network-name {{ network-name }} \
        --security-group-ids {{ security-group }} \
        --service-account-name os-account \
-       --delete-protection=false \
+       --delete-protection \
        --maintenance schedule=weekly,`
                     `weekday=mon,`
                     `hour=14 \

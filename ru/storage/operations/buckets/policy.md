@@ -1,3 +1,8 @@
+---
+title: Управление политикой доступа к бакету {{ objstorage-full-name }}
+description: Следуя данной инструкции, вы научитесь управлять политикой доступа к бакету в {{ objstorage-name }}.
+---
+
 # Управление политикой доступа (bucket policy)
 
 {% include [full-overview](../../../_includes/storage/security/full-overview.md) %}
@@ -20,11 +25,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно настроить политику доступа для бакета.
-  1. Выберите сервис **{{ objstorage-name }}**.
-  1. Выберите бакет в списке.
-  1. Перейдите на вкладку ![image](../../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}** в меню слева.
-  1. В верхней части экрана перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_policy }}**.
+  1. В [консоли управления]({{ link-console-main }}) в списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** и перейдите в бакет, в котором нужно настроить политику доступа.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}** и перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_policy }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.policy.button_policy-edit }}**.
   1. Введите идентификатор политики доступа.
   1. Настройте правило:
@@ -36,18 +38,18 @@
         * **{{ ui-key.yacloud.storage.bucket.policy.field_action }}**, для которого создается правило. Вы также можете выбрать опцию **Все действия**.
         * **{{ ui-key.yacloud.storage.bucket.policy.field_resource }}** — по умолчанию указан выбранный бакет. Чтобы добавить другие ресурсы в правило, нажмите кнопку **{{ ui-key.yacloud.storage.bucket.policy.button_add-resource }}**.
 
-          {% note info %}
+            {% note info %}
 
-          {% include [policy-bucket-objects](../../../_includes/storage/policy-bucket-objects.md) %}
+            {% include [policy-bucket-objects](../../../_includes/storage/policy-bucket-objects.md) %}
 
-          {% endnote %}
+            {% endnote %}
 
      1. При необходимости добавьте [условие](../../s3/api-ref/policy/conditions.md) для правила:
         * Выберите **{{ ui-key.yacloud.storage.bucket.policy.field_key }}** из списка.
         * Выберите **{{ ui-key.yacloud.storage.bucket.policy.field_operator }}** из списка. Чтобы оператор действовал в существующих полях, выберите опцию **{{ ui-key.yacloud.storage.bucket.policy.label_if-exists }}**. Тогда, если поля не существует, условие будет считаться выполненным.
         * Введите **{{ ui-key.yacloud.storage.bucket.policy.field_value }}**.
         * Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.policy.button_add-value }}**, чтобы добавить дополнительное значение в условие.
-
+        
         {% include [conditions-combining-and](../../../_includes/storage/conditions-combining-and.md) %}
 
         {% include [conditions-combining-or](../../../_includes/storage/conditions-combining-or.md) %}
@@ -327,10 +329,9 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно просмотреть политику доступа для бакета.
-  1. Выберите сервис **{{ objstorage-name }}**.
+  1. В [консоли управления]({{ link-console-main }}) в списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Выберите бакет в списке.
-  1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_policy }}** в меню слева.
+  1. В меню слева выберите **{{ ui-key.yacloud.storage.bucket.switch_security }}** и перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_policy }}**.
 
 - AWS CLI {#aws-cli}
 
@@ -368,10 +369,9 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно настроить политику доступа для бакета.
-  1. Выберите сервис **{{ objstorage-name }}**.
+  1. В [консоли управления]({{ link-console-main }}) в списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Выберите бакет в списке.
-  1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_policy }}** в меню слева.
+  1. В меню слева выберите **{{ ui-key.yacloud.storage.bucket.switch_security }}** и перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_policy }}**.
   1. Нажмите значок ![options](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.storage.bucket.policy.button_policy-delete }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
 

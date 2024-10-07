@@ -22,6 +22,8 @@ description: Следуя данной инструкции, вы сможете
 
 1. Добавьте на [DNS-сервере](../../../glossary/dns.md#dns-server) дополнительную [ресурсную запись](../../../dns/concepts/resource-record.md), которая связывает еще одно доменное имя, например `example.com`, и бакет:
 
+   {% include [storage-cloud-dns-domains](../../_includes_service/storage-cloud-dns-domains.md) %}
+
     {% list tabs group=instructions %}
 
     - {{ dns-full-name }} {#dns}

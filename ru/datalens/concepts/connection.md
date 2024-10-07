@@ -36,6 +36,7 @@ _Подключение_ содержит информацию о парамет
 
 * Партнерские подключения:
 
+  * [Экстрактор 1С](../operations/connection/create-extractor1c.md)
   * [Битрикс24](../operations/connection/create-bitrix24.md)
   * [Подкасты Аналитика](../operations/connection/create-podcasts.md)
 

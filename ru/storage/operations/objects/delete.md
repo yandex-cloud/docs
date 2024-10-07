@@ -1,5 +1,9 @@
-# Удаление объекта
+---
+title: Удаление объекта в {{ objstorage-full-name }}
+description: Следуя данной инструкции, вы сможете удалить объект в бакете в {{ objstorage-name }}.
+---
 
+# Удаление объекта
 
 ## Удалить объект или версию объекта без блокировки {#wo-object-lock}
 
@@ -19,10 +23,10 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-  1. Выберите сервис **{{ objstorage-name }}**.
-  1. Нажмите на имя необходимого бакета.
-  1. Чтобы удалить один объект, нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) справа от имени объекта и в появившемся меню нажмите **{{ ui-key.yacloud.storage.file.button_delete }}**.
+  1. В [консоли управления]({{ link-console-main }}) в списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** и перейдите в бакет, где хранится удаляемый объект.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
+  1. Чтобы видеть все версии объектов в списке, справа от поля поиска объекта в бакете, включите опцию **{{ ui-key.yacloud.storage.bucket.switch_file-versions }}**.
+  1. Чтобы удалить один объект, нажмите ![image](../../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud.storage.file.button_delete }}**.
 
      Чтобы выполнить это же действие с несколькими объектами, отметьте их в списке и нажмите кнопку **{{ ui-key.yacloud.common.delete }}** в нижней части экрана.
 
@@ -227,6 +231,15 @@
 Чтобы проверить, установлена ли блокировка, и удалить версию объекта при возможности:
 
 {% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. Если это возможно, [снимите блокировку](edit-object-lock.md) с объекта который вы хотите удалить.
+  1. [Удалите](#object-lock-w-object-lock) объект.
+  
+  В консоли управления информация о количестве объектов в бакете и занятом месте обновляется с задержкой в несколько минут.
+  
+  {% include [work-with-multiple-objects](../../../_includes/storage/work-with-multiple-objects.md) %}
 
 - AWS CLI {#cli}
 

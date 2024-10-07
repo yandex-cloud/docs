@@ -1,3 +1,8 @@
+---
+title: '{{ TF }} reference for {{ org-full-name }}'
+description: This page provides reference information about the {{ TF }} provider resources and data sources supported for {{ org-name }}.
+---
+
 # {{ TF }} reference for {{ org-full-name }}
 
 {% include [terraform-ref-intro](../_includes/terraform-ref-intro.md) %}
@@ -9,10 +14,10 @@ The following {{ TF }} provider resources are supported for {{ org-name }}:
 | **{{ TF }} resource** | **{{ yandex-cloud }} resource** |
 | --- | --- |
 | [yandex_organizationmanager_group]({{ tf-provider-resources-link }}/organizationmanager_group) | [User group](./concepts/groups.md) |
-| [yandex_organizationmanager_group_iam_member]({{ tf-provider-resources-link }}/organizationmanager_group_iam_member) | [Binding](../iam/concepts/access-control/index.md#access-bindings) access privileges to a user group |
+| [yandex_organizationmanager_group_iam_member]({{ tf-provider-resources-link }}/organizationmanager_group_iam_member) | [Assigning](../iam/concepts/access-control/index.md#access-bindings) user group access permissions |
 | [yandex_organizationmanager_group_membership]({{ tf-provider-resources-link }}/organizationmanager_group_membership) | Member of a user group |
-| [yandex_organizationmanager_organization_iam_binding]({{ tf-provider-resources-link }}/organizationmanager_organization_iam_binding) | [Binding](../iam/concepts/access-control/index.md#access-bindings) access privileges to an organization. It has a limit of 1,000 bindings per resource. <br>We recommend using `yandex_organizationmanager_organization_iam_member` instead of `yandex_organizationmanager_organization_iam_binding`. |
-| [yandex_organizationmanager_organization_iam_member]({{ tf-provider-resources-link }}/organizationmanager_organization_iam_member) | [Binding](../iam/concepts/access-control/index.md#access-bindings) access privileges to an organization |
+| [yandex_organizationmanager_organization_iam_binding]({{ tf-provider-resources-link }}/organizationmanager_organization_iam_binding) | [Assigning](../iam/concepts/access-control/index.md#access-bindings) access permissions for an organization. It has a limit of 1,000 bindings per resource. <br>We recommend using `yandex_organizationmanager_organization_iam_binding` instead of `yandex_organizationmanager_organization_iam_member`. |
+| [yandex_organizationmanager_organization_iam_member]({{ tf-provider-resources-link }}/organizationmanager_organization_iam_member) | [Assigning](../iam/concepts/access-control/index.md#access-bindings) access permissions for an organization. |
 | [yandex_organizationmanager_saml_federation]({{ tf-provider-resources-link }}/organizationmanager_saml_federation) | [SAML-compatible identity federation](./concepts/add-federation.md) |
 | [yandex_organizationmanager_saml_federation_user_account]({{ tf-provider-resources-link }}/organizationmanager_saml_federation_user_account) | [Federated user](./concepts/add-federation.md#saml-authentication) |
 

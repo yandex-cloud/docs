@@ -3,10 +3,11 @@
 Пример запроса:
 
 ```bash
-curl -X POST \
-  -H "Content-Type: application/json" \
-  -H "Authorization: Bearer <IAM-токен>" \
-  -d '@body.json' \
+curl \
+  --request POST \
+  --header "Content-Type: application/json" \
+  --header "Authorization: Bearer <IAM-токен>" \
+  --data '@body.json' \
   https://organization-manager.{{ api-host }}/organization-manager/v1/saml/federations
 ```
 

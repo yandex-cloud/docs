@@ -137,7 +137,7 @@
         --mongod-disk-type <network-hdd|network-ssd|network-ssd-nonreplicated|local-ssd> \
         --mongod-disk-size <размер_хранилища_ГБ> \
         --performance-diagnostics=<включить_диагностику> \
-        --deletion-protection=<защита_от_удаления>
+        --deletion-protection
       ```
 
       Идентификатор подсети `subnet-id` необходимо указывать, если в выбранной зоне доступности создано 2 и больше подсетей.
@@ -159,7 +159,7 @@
 
 
       * `--performance-diagnostics` — включить диагностику производительности кластера: `true` или `false`.
-      * `--deletion-protection` — защита от удаления кластера: `true` или `false`.
+      * `--deletion-protection` — защита от удаления кластера.
 
       {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}
 
@@ -430,7 +430,7 @@
     --mongod-disk-type {{ disk-type-example }} \
     --user name=user1,password=user1user1 \
     --database name=db1 \
-    --deletion-protection=true
+    --deletion-protection
   ```
 
 
@@ -580,7 +580,7 @@
   {{ yc-mdb-mg }} cluster create \
      --name mymg \
      --environment production \
-     --deletion-protection=true \
+     --deletion-protection \
      --mongodb-version {{ versions.cli.latest }} \
      --database name=db1 \
      --user name=user1,password=user1user1 \
@@ -740,7 +740,7 @@
   {{ yc-mdb-mg }} cluster create \
     --name mymg \
     --environment production \
-    --deletion-protection=true \
+    --deletion-protection \
     --mongodb-version {{ versions.cli.latest }} \
     --database name=db1 \
     --user name=user1,password=user1user1 \

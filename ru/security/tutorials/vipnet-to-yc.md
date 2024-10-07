@@ -261,7 +261,7 @@ VPN-туннель работает между двумя решениями ViP
           ```bash
           mkdir vipnet
           cd vipnet
-          curl -O <ссылка_на_загрузку_ViPNet_Coordinator_VA>
+          curl --remote-name <ссылка_на_загрузку_ViPNet_Coordinator_VA>
           ```
 
       1. Узнайте имя архива:
@@ -310,7 +310,7 @@ VPN-туннель работает между двумя решениями ViP
           ```powershell
           mkdir vipnet
           cd vipnet
-          curl.exe -O <ссылка_на_загрузку_ViPNet_Coordinator_VA>
+          curl.exe --remote-name <ссылка_на_загрузку_ViPNet_Coordinator_VA>
           ```
 
       1. Узнайте имя архива:
@@ -364,7 +364,7 @@ VPN-туннель работает между двумя решениями ViP
   1. Загрузите на USB-диск файл с ключами:
 
       ```bash
-      curl -O https://files.infotecs.ru/_dl/sess/vipnet_demokeys/vipnet_demokeys.zip
+      curl --remote-name https://files.infotecs.ru/_dl/sess/vipnet_demokeys/vipnet_demokeys.zip
       unzip vipnet_demokeys.zip
       cp Coordinator\ 4\ MOBILE/Coordinator\ 4\ MOBILE/abn_0004.dst <путь_к_корневой_директории_USB-диска>
       ```
@@ -389,7 +389,7 @@ VPN-туннель работает между двумя решениями ViP
   1. Загрузите на USB-диск файл с ключами:
    
       ```powershell
-      curl.exe -O https://files.infotecs.ru/_dl/sess/vipnet_demokeys/vipnet_demokeys.zip
+      curl.exe --remote-name https://files.infotecs.ru/_dl/sess/vipnet_demokeys/vipnet_demokeys.zip
       Expand-Archive vipnet_demokeys.zip
       Copy-Item -Path "<путь_к_директории_vipnet>\vipnet_demokeys\Coordinator 4 MOBILE\Coordinator 4 MOBILE\abn_0004.dst" -Destination <путь_к_корневой_директории_USB-диска>
       ```

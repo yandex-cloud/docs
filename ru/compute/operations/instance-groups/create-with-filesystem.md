@@ -114,7 +114,7 @@
                 - name: my-user
                   sudo: ALL=(ALL) NOPASSWD:ALL
                   shell: /bin/bash
-                  ssh-authorized-keys:
+                  ssh_authorized_keys:
                   - <публичный_SSH-ключ>
                 runcmd:
                 - mkdir /mnt/vfs0
@@ -208,7 +208,7 @@
               }
 
               metadata = {
-                user-data = "#cloud-config\n  datasource:\n   Ec2:\n    strict_id: false\n  ssh_pwauth: no\n  users:\n  - name: <имя_пользователя_ВМ>\n    sudo: ALL=(ALL) NOPASSWD:ALL\n    shell: /bin/bash\n    ssh-authorized-keys:\n    - <публичный_SSH-ключ>\n  runcmd:\n    - mkdir <точка_монтирования_на_ВМ>\n    - mount -t virtiofs <имя_устройства_ВМ> <точка_монтирования_на_ВМ>\n    - echo \"sample-fs <точка_монтирования_на_ВМ> virtiofs    rw    0   0\" | tee -a /etc/fstab"
+                user-data = "#cloud-config\n  datasource:\n   Ec2:\n    strict_id: false\n  ssh_pwauth: no\n  users:\n  - name: <имя_пользователя_ВМ>\n    sudo: ALL=(ALL) NOPASSWD:ALL\n    shell: /bin/bash\n    ssh_authorized_keys:\n    - <публичный_SSH-ключ>\n  runcmd:\n    - mkdir <точка_монтирования_на_ВМ>\n    - mount -t virtiofs <имя_устройства_ВМ> <точка_монтирования_на_ВМ>\n    - echo \"sample-fs <точка_монтирования_на_ВМ> virtiofs    rw    0   0\" | tee -a /etc/fstab"
               }
             }
 

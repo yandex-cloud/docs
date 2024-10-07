@@ -242,7 +242,7 @@ keywords:
        --maintenance schedule=<тип_технического_обслуживания>,`
                     `weekday=<день_недели>,`
                     `hour=<час_дня> \
-       --delete-protection=<true_или_false> \
+       --delete-protection \
        --data-transfer-access=<true_или_false> \
        --serverless-access=<true_или_false>
     ```
@@ -258,7 +258,7 @@ keywords:
 
             Возможные значения параметра `weekday`: `mon`, `tue`, `wed`, `thu`, `fry`, `sat`, `sun`. В параметре `hour` укажите, во сколько должно завершиться техническое обслуживание. Например, если указать `14`, техническое обслуживание будет проходить с 13:00 до 14:00 по UTC.
 
-    * `--delete-protection` — защита кластера от непреднамеренного удаления пользователем: `true` или `false`.
+    * `--delete-protection` — защита кластера от непреднамеренного удаления пользователем.
 
         {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
