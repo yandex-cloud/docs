@@ -1,5 +1,5 @@
 ---
-title: Как настроить публичный доступ к операциям с бакетом в {{ objstorage-full-name }}
+title: Настройка публичного доступа к бакету в {{ objstorage-full-name }}
 description: Следуя данной инструкции, вы сможете настроить публичный доступ к бакету в {{ objstorage-name }}.
 ---
 
@@ -19,10 +19,9 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-  1. Выберите сервис **{{ objstorage-name }}**.
-  1. Нажмите на имя нужного бакета.
-  1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
+  1. В [консоли управления]({{ link-console-main }}) в списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** и перейдите в бакет, для которого вы хотите настроить публичный доступ.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
+  1. Выберите вкладку **{{ ui-key.yacloud.storage.bucket.switch_general-settings }}**.
   1. Включите публичный доступ для нужных типов операций.
   1. Нажмите **{{ ui-key.yacloud.storage.bucket.settings.button_save }}**.
 
@@ -169,10 +168,9 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-  1. Выберите сервис **{{ objstorage-name }}**.
-  1. Нажмите на имя нужного бакета.
-  1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
+  1. В [консоли управления]({{ link-console-main }}) в списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** и перейдите в бакет, для которого вы хотите закрыть публичный доступ.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
+  1. Выберите вкладку **{{ ui-key.yacloud.storage.bucket.switch_general-settings }}**.
   1. Включите ограниченный доступ для нужных типов операций.
   1. Нажмите **{{ ui-key.yacloud.storage.bucket.settings.button_save }}**.
 

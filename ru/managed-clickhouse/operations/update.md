@@ -397,7 +397,7 @@ description: Следуя данной инструкции, вы сможете
            --serverless-access=<true_или_false> \
            --websql-access=<true_или_false> \
            --yandexquery-access=<true_или_false> \
-           --deletion-protection=<защита_от_удаления_кластера> \
+           --deletion-protection \
            --maintenance-window type=<тип_технического_обслуживания>,`
                                `day=<день_недели>,`
                                `hour=<час_дня>

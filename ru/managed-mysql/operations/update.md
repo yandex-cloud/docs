@@ -343,7 +343,7 @@ description: Из статьи вы узнаете, как изменить на
           --maintenance-window type=<тип_технического_обслуживания>,`
                               `day=<день_недели>,`
                               `hour=<час_дня> \
-          --deletion-protection=<защита_от_удаления> \
+          --deletion-protection \
           --performance-diagnostics enabled=true,`
                                    `sessions-sampling-interval=<интервал_сбора_сессий>,`
                                    `statements-sampling-interval=<интервал_сбора_запросов>

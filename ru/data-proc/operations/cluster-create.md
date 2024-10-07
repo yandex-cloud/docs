@@ -229,7 +229,7 @@
                     `subnet-name=<имя_подсети>,`
                     `hosts-count=<количество_хостов>,`
                     `assign-public-ip=<публичный_доступ_к_хосту_подкластера> \
-       --deletion-protection=<защита_от_удаления_кластера> \
+       --deletion-protection \
        --ui-proxy=<доступ_к_веб-интерфейсам_компонентов> \
        --log-group-id=<идентификатор_лог-группы> \
        --security-group-ids=<список_идентификаторов_групп_безопасности>
@@ -276,7 +276,7 @@
 
          {% endnote %}
 
-     * `--deletion-protection` — защита от удаления кластера {{ dataproc-name }}. Может принимать значения `true` или `false`.
+     * `--deletion-protection` — защита от удаления кластера {{ dataproc-name }}.
 
        {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
@@ -720,7 +720,7 @@
                   `subnet-name={{ subnet-name }},`
                   `assign-public-ip=true \
      --security-group-ids={{ security-group }} \
-     --deletion-protection=true
+     --deletion-protection
   ```
 
 {% endlist %}

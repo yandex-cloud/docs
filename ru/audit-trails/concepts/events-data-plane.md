@@ -66,6 +66,7 @@ description: В данном разделе приведены описания 
 
 {% include [lockbox-events-dp](../../_includes/audit-trails/events/lockbox-events-dp.md) %}
 
+
 ## {{ mmg-full-name }} {#mmg}
 
 Имя сервиса — `mdb.mongodb`.

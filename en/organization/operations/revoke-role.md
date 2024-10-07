@@ -55,7 +55,7 @@ The role can be revoked by a user with the [`organization-manager.admin`](add-or
       +------------------------------------------+--------------+----------------------+
       ```
 
-  1. To delete an access binding, run:
+  1. To delete access permissions, run this command:
 
       ```bash
       yc <service_name> <resource> remove-access-binding <resource_name_or_ID> \
@@ -103,7 +103,7 @@ The role can be revoked by a user with the [`organization-manager.admin`](add-or
       }
       ```
 
-  1. Create the request body, e.g., in the `body.json` file. In the request body, specify which access binding to delete. For example, revoke the `organization-manager.admin` role from the `aje6o61dvog2********` user:
+  1. Create the request body, e.g., in the `body.json` file. In the request body, specify access permissions to delete. For example, revoke the `organization-manager.admin` role from the `aje6o61dvog2********` user:
 
       ```json
       {
@@ -120,7 +120,7 @@ The role can be revoked by a user with the [`organization-manager.admin`](add-or
       }
       ```
 
-  1. Revoke the role by deleting the specified access binding:
+  1. Revoke a role by deleting the specified permissions:
 
       ```bash
       export ORGANIZATION_ID=bpf3crucp1v2********

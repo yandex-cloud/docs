@@ -164,7 +164,7 @@ description: Следуя данной инструкции, вы сможете
        --disk-type <network-hdd|network-ssd|network-ssd-nonreplicated|local-ssd> \
        --security-group-ids <список_идентификаторов_групп_безопасности> \
        --connection-pooling-mode=<режим_работы_менеджера_подключений> \
-       --deletion-protection=<защита_от_удаления>
+       --deletion-protection
      ```
 
 
@@ -180,7 +180,7 @@ description: Следуя данной инструкции, вы сможете
      * `assign-public-ip` — доступ к хосту из интернета: `true` или `false`.
 
 
-     * `deletion-protection` — защита от удаления кластера, его баз данных и пользователей: `true` или `false`.
+     * `deletion-protection` — защита от удаления кластера, его баз данных и пользователей.
 
        По умолчанию при создании пользователей и БД значение параметра наследуется от кластера. Значение также можно задать вручную, подробнее см. в разделах [Управление пользователями](cluster-users.md) и [Управление БД](databases.md).
 
@@ -749,7 +749,7 @@ description: Следуя данной инструкции, вы сможете
      --user name=user1,password=user1user1 \
      --database name=db1,owner=user1 \
      --security-group-ids {{ security-group }} \
-     --deletion-protection=true
+     --deletion-protection
   ```
 
 

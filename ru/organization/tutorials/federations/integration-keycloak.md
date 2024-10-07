@@ -608,12 +608,13 @@
   1. Отправьте запрос на добавление сертификата:
 
      ```bash
-     $ export IAM_TOKEN=CggaAT********
-     $ curl -X POST \
-         -H "Content-Type: application/json" \
-         -H "Authorization: Bearer ${IAM_TOKEN}" \
-         -d '@body.json' \
-         "https://organization-manager.{{ api-host }}/organization-manager/v1/saml/certificates"
+     export IAM_TOKEN=CggaAT********
+     curl \
+       --request POST \
+       --header "Content-Type: application/json" \
+       --header "Authorization: Bearer ${IAM_TOKEN}" \
+       --data '@body.json' \
+       "https://organization-manager.{{ api-host }}/organization-manager/v1/saml/certificates"
      ```
 
 {% endlist %}
@@ -854,10 +855,11 @@
   1. Отправьте запрос, указав в параметрах идентификатор федерации:
 
       ```bash
-      $ curl -X POST \
-        -H "Content-Type: application/json" \
-        -H "Authorization: Bearer <IAM-токен>" \
-        -d '@body.json' \
+      curl \
+        --request POST \
+        --header "Content-Type: application/json" \
+        --header "Authorization: Bearer <IAM-токен>" \
+        --data '@body.json' \
         https://organization-manager.{{ api-host }}/organization-manager/v1/saml/federations/<ID_федерации>:addUserAccounts
       ```
 

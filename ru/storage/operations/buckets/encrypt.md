@@ -1,5 +1,5 @@
 ---
-title: Как зашифровать объекты в бакете {{ objstorage-full-name }}
+title: Шифрование бакета в {{ objstorage-full-name }}
 description: Следуя данной инструкции, вы сможете зашифровать объекты в бакете.
 ---
 
@@ -27,13 +27,14 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   Чтобы добавить ключ {{ kms-short-name }}:
-  1. В [консоли управления]({{ link-console-main }}) перейдите в бакет, для которого хотите настроить шифрование.
-  1. В левой панели выберите **{{ ui-key.yacloud.storage.bucket.switch_encryption }}**.
+  1. В [консоли управления]({{ link-console-main }}) в списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** и перейдите в бакет, для которого хотите настроить шифрование.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
+  1. Выберите вкладку **{{ ui-key.yacloud.storage.bucket.switch_encryption }}**.
   1. В поле **{{ ui-key.yacloud.storage.bucket.encryption.field_key }}** выберите ключ или создайте новый:
 
      {% include [storage-create-kms](../../_includes_service/storage-create-kms.md) %}
 
-  1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.encryption.button_save }}**.
+  1. Нажмите **{{ ui-key.yacloud.storage.bucket.encryption.button_save }}**.
 
 - {{ TF }} {#tf}
 
@@ -135,10 +136,11 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   Чтобы убрать шифрование, удалите ключ {{ kms-short-name }}:
-  1. В [консоли управления]({{ link-console-main }}) перейдите в бакет, для которого хотите удалить шифрование.
-  1. В левой панели выберите **{{ ui-key.yacloud.storage.bucket.switch_encryption }}**.
+  1. В [консоли управления]({{ link-console-main }}) в списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** и перейдите в бакет, для которого хотите убрать шифрование.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
+  1. Выберите вкладку **{{ ui-key.yacloud.storage.bucket.switch_encryption }}**.
   1. В поле **{{ ui-key.yacloud.storage.bucket.encryption.field_key }}** выберите **{{ ui-key.yacloud.component.symmetric-key-select.label_no-symmetric-key }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.encryption.button_save }}**.
+  1. Нажмите **{{ ui-key.yacloud.storage.bucket.encryption.button_save }}**.
 
 - {{ TF }} {#tf}
 

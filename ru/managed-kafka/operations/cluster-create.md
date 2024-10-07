@@ -133,7 +133,7 @@
         --disk-size <размер_хранилища_ГБ> \
         --assign-public-ip <публичный_доступ> \
         --security-group-ids <список_идентификаторов_групп_безопасности> \
-        --deletion-protection <защита_от_удаления>
+        --deletion-protection
      ```
 
 
@@ -364,7 +364,7 @@
         --disk-size <размер_хранилища_ГБ> \
         --assign-public-ip <публичный_доступ> \
         --security-group-ids <список_идентификаторов_групп_безопасности> \
-        --deletion-protection <защита_от_удаления>
+        --deletion-protection
      ```
 
      Где:
@@ -687,7 +687,7 @@
      --disk-type {{ disk-type-example }} \
      --assign-public-ip \
      --security-group-ids {{ security-group }} \
-     --deletion-protection true
+     --deletion-protection
   ```
 
 

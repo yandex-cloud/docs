@@ -19,11 +19,11 @@ To select roles, look them up in the [role reference](../../roles-reference.md).
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select a cloud or folder.
+   1. In the [management console]({{ link-console-main }}), select the cloud or folder.
    1. Go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
-   1. Click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
+   1. Click **{{ ui-key.yacloud.common.resource-acl.button_configure-access }}**.
    1. Select the group, user, or service account you want to grant access to a cloud or folder.
-   1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the roles.
+   1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the required roles.
    1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
 
 - CLI {#cli}
@@ -40,7 +40,7 @@ To select roles, look them up in the [role reference](../../roles-reference.md).
       yc resource-manager <cloud_or_folder> add-access-binding --help
       ```
 
-      Specify `cloud` or `folder` as needed.
+      Specify `cloud` for a cloud or `folder` for a folder.
 
    1. Get a list of available clouds or folders with their IDs:
 
@@ -69,7 +69,7 @@ To select roles, look them up in the [role reference](../../roles-reference.md).
             --subject federatedUser:<user_ID>
          ```
 
-      * To a service account:
+      * Service account:
 
          ```bash
          yc resource-manager <cloud_or_folder> add-access-binding \
@@ -113,7 +113,7 @@ To select roles, look them up in the [role reference](../../roles-reference.md).
 
    Provide the following in the request:
 
-   * `ADD` in the `accessBindingDeltas[].action` parameter to add a role.
+   * `ADD` value in the `accessBindingDeltas[].action` parameter to add a role.
    * Role in the `accessBindingDeltas[].accessBinding.roleId` parameter.
    * ID of the subject you are assigning the role to in the `accessBindingDeltas[].accessBinding.subject.id` parameter.
    * Type of the subject you are assigning the role to in the `accessBindingDeltas[].accessBinding.subject.type` parameter.
@@ -135,7 +135,7 @@ To grant access permissions for an organization, you need the `{{ roles-organiza
    1. In the left-hand panel, select ![icon-acl](../../../_assets/console-icons/persons-lock.svg) [**{{ ui-key.yacloud_org.pages.acl }}**]({{ link-org-acl }}).
    1. Click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
    1. Select the group, user, or service account you want to grant access to an organization.
-   1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the roles.
+   1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the required roles.
    1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
 
 - CLI {#cli}
@@ -179,7 +179,7 @@ To grant access permissions for an organization, you need the `{{ roles-organiza
             --subject federatedUser:<user_ID>
          ```
 
-      * To a service account:
+      * Service account:
 
          ```bash
          yc organization-manager organization add-access-binding \
@@ -228,15 +228,15 @@ To grant access permissions for an organization, you need the `{{ roles-organiza
       Where:
 
       * `organization_id`: Organization ID. This is a required parameter.
-      * `role`: Role being assigned. For each role, you can only use one `yandex_organizationmanager_organization_iam_binding` resource. This is a required parameter.
+      * `role`: Role you want to assign. For each role, you can only use one `yandex_organizationmanager_organization_iam_binding` resource. This is a required parameter.
       * `members`: Users getting the role. Specify the following:
 
-         * `members = ["userAccount:<user_ID>"]` for a Yandex account user.
-         * `members = ["federatedUser:<user_ID>"]` for a federated user.
-         * `members = ["serviceAccount:<user_ID>"]` for a service account.
-         * `members = ["group:<user_ID>"]` for a user group.
-         * `members = ["system:group:organization:<organization_ID>:users"]` for all users of an [organization](../../../organization/quickstart.md).
-         * `members = ["system:group:federation:<federation_ID>:users"]` for all users of an [identity federation](../../../organization/concepts/add-federation.md).
+         * `members = ["userAccount:<user_ID>"]`: For a user with a Yandex account.
+         * `members = ["federatedUser:<user_ID>"]`: For a federated user.
+         * `members = ["serviceAccount:<user_ID>"]`: For a service account.
+         * `members = ["group:<user_ID>"]`: For a user group.
+         * `members = ["system:group:organization:<organization_ID>:users"]`: For all [organization](../../../organization/quickstart.md) users.
+         * `members = ["system:group:federation:<federation_ID>:users"]`: For all [identity federation](../../../organization/concepts/add-federation.md) users.
 
       For more information, see the [provider documentation]({{ tf-provider-link }}).
 
@@ -258,7 +258,7 @@ To grant access permissions for an organization, you need the `{{ roles-organiza
 
    To assign a role for the organization, use the [updateAccessBindings](../../../organization/api-ref/Organization/updateAccessBindings.md) REST API method for the [Organization](../../../organization/api-ref/Organization/index.md) resource or the [OrganizationService/UpdateAccessBindings](../../../organization/api-ref/grpc/organization_service.md#UpdateAccessBindings) gRPC API call and provide the following in the request:
 
-   * `ADD` in the `accessBindingDeltas[].action` parameter to add a role.
+   * `ADD` value in the `accessBindingDeltas[].action` parameter to add a role.
    * Role in the `accessBindingDeltas[].accessBinding.roleId` parameter.
    * ID of the subject you are assigning the role to in the `accessBindingDeltas[].accessBinding.subject.id` parameter.
    * Type of the subject you are assigning the role to in the `accessBindingDeltas[].accessBinding.subject.type` parameter.
@@ -277,9 +277,9 @@ You can assign a role not only for an organization, cloud, or folder but their c
 
    1. In the [management console]({{ link-console-main }}), select the folder the resource resides in.
    1. Open its page.
-   1. Go to the ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** section and click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
+   1. Go to ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** and click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
    1. Select the group, user, or service account you want to grant access to a resource.
-   1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the roles.
+   1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the required roles.
    1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
 
 - CLI {#cli}
@@ -329,7 +329,7 @@ You can assign a role not only for an organization, cloud, or folder but their c
             --subject federatedUser:<user_ID>
          ```
 
-      * To a service account:
+      * Service account:
 
          ```bash
          yc <service_name> <resource> add-access-binding \
@@ -369,7 +369,7 @@ You can assign a role not only for an organization, cloud, or folder but their c
 
    To assign a role for a resource, use the `updateAccessBindings` REST API method or gRPC API call for the resource and provide the following in the request:
 
-   * `ADD` in the `accessBindingDeltas[].action` parameter to add a role.
+   * `ADD` value in the `accessBindingDeltas[].action` parameter to add a role.
    * Role in the `accessBindingDeltas[].accessBinding.roleId` parameter.
    * ID of the subject you are assigning the role to in the `accessBindingDeltas[].accessBinding.subject.id` parameter.
    * Type of the subject you are assigning the role to in the `accessBindingDeltas[].accessBinding.subject.type` parameter.
@@ -384,9 +384,9 @@ You can assign a role not only for an organization, cloud, or folder but their c
 
    1. In the [management console]({{ link-console-main }}), select the folder the resource resides in.
    1. Open its page.
-   1. Go to the ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** section and click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
+   1. Go to ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** and click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
    1. Select the group, user, or service account you want to grant access to a resource.
-   1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the roles.
+   1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the required roles.
    1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
 
 - CLI {#cli}
@@ -444,7 +444,7 @@ You can assign a role not only for an organization, cloud, or folder but their c
             --access-binding role=<role>,subject=federatedUser:<user_ID>
          ```
 
-      * To a service account:
+      * Service account:
 
          ```bash
          yc <service_name> <resource> set-access-bindings \

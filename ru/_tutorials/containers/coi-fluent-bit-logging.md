@@ -211,7 +211,7 @@ if __name__ == '__main__':
        groups: sudo
        shell: /bin/bash
        sudo: 'ALL=(ALL) NOPASSWD:ALL'
-       ssh-authorized-keys:
+       ssh_authorized_keys:
          - ssh-ed25519 AAAA
    ```
 

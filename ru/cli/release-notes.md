@@ -7,6 +7,24 @@ description: На странице представлены релизы YC CLI,
 
 ## Текущая версия {#latest-release}
 
+### Версия 0.135.0 (07.10.24) {#version0.135.0}
+
+#### Изменения в сервисах {{ yandex-cloud }} {#services}
+##### {{ managed-k8s-name }} {#k8s}
+
+* Добавлены команды для работы с продуктами {{ marketplace-name }} в кластере {{ managed-k8s-name }}: 
+   * `yc managed-kubernetes marketplace helm-release install` — установка Helm-чарта продукта {{ marketplace-name }} в указанный кластер {{ managed-k8s-name }}.
+   * `yc managed-kubernetes marketplace helm-release update` — обновление версии Helm-чарта продукта {{ marketplace-name }}.
+   * `yc managed-kubernetes marketplace helm-release uninstall` — удаление версии Helm-чарта продукта {{ marketplace-name }}.
+   * `yc managed-kubernetes marketplace helm-release get` — получение информации о Helm-чарте продукта {{ marketplace-name }}.
+   * `yc managed-kubernetes marketplace helm-release list` — получение списка Helm-чартов {{ marketplace-name }}, установленных в кластере {{ managed-k8s-name }}.
+
+##### {{load-testing-name}}
+
+* В команду `yc loadtesting agent create` добавлены параметры `log-group-id` и `log-group-name` для указания целевой лог-группы для отправки логов агента нагрузочного тестирования.
+
+## Предыдущие релизы {#previous-releases}
+
 ### Версия 0.134.0 (02.10.24) {#version0.134.0}
 
 #### Изменения в CLI {#cli}
@@ -89,8 +107,6 @@ description: На странице представлены релизы YC CLI,
 **{{ maf-name }}**
 
 * Исправление ошибок и улучшения работы сервиса {{ maf-name }}.
-
-## Предыдущие релизы {#previous-releases}
 
 ### Версия 0.133.0 (09.09.24) {#version0.133.0}
 

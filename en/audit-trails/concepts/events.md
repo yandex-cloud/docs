@@ -71,13 +71,13 @@ Service name: `apploadbalancer`.
 
 Service name: `audittrails`.
 
-| Event name | Description |
+Event name | Description
 --- | ---
-| `CreateTrail` | Creating a trail |
-| `DeleteTrail` | Deleting a trail |
-| `SetTrailAccessBindings` | Setting access bindings for a trail |
-| `UpdateTrail` | Editing a trail |
-| `UpdateTrailAccessBindings` | Updating access bindings for a trail |
+`CreateTrail` | Creating a trail
+`DeleteTrail` | Deleting a trail
+`SetTrailAccessBindings` | Assigning access permissions for a trail
+`UpdateTrail` | Editing a trail
+`UpdateTrailAccessBindings` | Updating access permissions for a trail
 
 ## {{ certificate-manager-full-name }} {#certificate-manager}
 
@@ -89,13 +89,13 @@ Service name: `certificatemanager`.
 
 Service name: `cloudapps`.
 
-| Event name | Description |
+Event name | Description
 --- | ---
-| `CreateCloudApplication` | Creating an application |
-| `DeleteCloudApplication` | Deleting an application |
-| `SetApplicationAccessBindings` | Setting application access bindings |
-| `UpdateApplicationAccessBindings` | Updating application access bindings |
-| `UpdateCloudApplication` | Updating an application |
+`CreateCloudApplication` | Creating an application
+`DeleteCloudApplication` | Deleting an application
+`SetApplicationAccessBindings` | Assigning access permissions for an application
+`UpdateApplicationAccessBindings` | Updating access permissions for an application
+`UpdateCloudApplication` | Updating an application
 
 ## {{ backup-full-name }} {#backup}
 
@@ -135,7 +135,7 @@ Service name: `marketplace.licensemanager`.
 
 ## {{ org-full-name }} {#organization}
 
-The name of the service is `organizationmanager`.
+Service name: `organizationmanager`.
 
 {% include [org-events](../../_includes/audit-trails/events/org-events.md) %}
 

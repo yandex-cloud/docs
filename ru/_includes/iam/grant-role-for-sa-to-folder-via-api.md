@@ -8,7 +8,8 @@
     ```bash
     export FOLDER_ID=b1gvmob95yys********
     export IAM_TOKEN=CggaATEVAgA...
-    curl -H "Authorization: Bearer ${IAM_TOKEN}" \
+    curl \
+      --header "Authorization: Bearer ${IAM_TOKEN}" \
       "https://iam.{{ api-host }}/iam/v1/serviceAccounts?folderId=${FOLDER_ID}"
     ```
 

@@ -13,3 +13,7 @@ description: This section contains {{ iam-name }} release notes.
 * Added OAuth client authentication support by authenticating a service account token.
 * Added the option of using masked token ID for {{ at-name }} logs.
 * Improved the key rotation mechanism in [OpenID Connect](https://openid.net/).
+
+## Q2 2024 {#q2-2024}
+
+* Added the last used date info for service account access keys. You can find this info on the service account page in the [management console]({{ link-console-main }}) or in the `last_used_at` field when using the API to invoke access key management methods. {{ tag-api }} {{ tag-con }}

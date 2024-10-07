@@ -1,5 +1,5 @@
 ---
-title: Настройка прав доступа к бакету {{ objstorage-full-name }}
+title: Настройка прав доступа к бакету {{ objstorage-full-name }} с помощью {{ iam-name }}
 description: Следуя данной инструкции, вы сможете назначить роль на бакет.
 ---
 
@@ -13,8 +13,7 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-  1. Выберите сервис **{{ objstorage-name }}**.
+  1. В [консоли управления]({{ link-console-main }}) в списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Нажмите на имя бакета, к которому вы хотите выдать доступ.
   1. В меню слева выберите **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
   1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
