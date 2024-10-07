@@ -17,7 +17,7 @@ Number of [user networks](../../serverless-containers/concepts/networking.md##us
 Type of limit | Value
 ----- | -----
 Maximum size of the container image | 10 GB
-Maximum RAM per container instance | 4 GB
+Maximum RAM per container instance | 8 GB
 Maximum size of an HTTP request to the container, including HTTP headers and the request body | 3.5 MB
 Maximum size of the container HTTP response, including HTTP headers and the response body | 3.5 MB
 Maximum size of temporary files | 512 MB
