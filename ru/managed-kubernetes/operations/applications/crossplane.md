@@ -85,7 +85,7 @@
 1. Установите Crossplane CLI:
 
    ```bash
-   curl -sL https://raw.githubusercontent.com/crossplane/crossplane/master/install.sh | sh && \
+   curl --silent --location https://raw.githubusercontent.com/crossplane/crossplane/master/install.sh | sh && \
    sudo mv kubectl-crossplane $(dirname $(which kubectl))
    ```
 

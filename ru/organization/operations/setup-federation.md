@@ -313,12 +313,13 @@
   Пример cURL-запроса:
 
   ```bash
-  $ export IAM_TOKEN=CggaATEVAgA...
-  $ curl -X POST \
-      -H "Content-Type: application/json" \
-      -H "Authorization: Bearer ${IAM_TOKEN}" \
-      -d '@body.json' \
-      "https://organization-manager.{{ api-host }}/organization-manager/v1/saml/certificates"
+  export IAM_TOKEN=CggaATEVAgA...
+  curl \
+    --request POST \
+    --header "Content-Type: application/json" \
+    --header "Authorization: Bearer ${IAM_TOKEN}" \
+    --data '@body.json' \
+    "https://organization-manager.{{ api-host }}/organization-manager/v1/saml/certificates"
   ```
 
 {% endlist %}

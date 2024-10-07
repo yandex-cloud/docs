@@ -28,7 +28,7 @@
 
   Где:
   * `name:` — имя пользователя для [подключения](../../compute/operations/vm-connect/ssh.md) к ВМ по SSH.
-  * `ssh-authorized-keys:` — список публичных [SSH-ключей](../../glossary/ssh-keygen.md) для подключения пользователя к ВМ по SSH. Укажите как минимум один публичный SSH-ключ.
+  * `ssh_authorized_keys:` — список публичных [SSH-ключей](../../glossary/ssh-keygen.md) для подключения пользователя к ВМ по SSH. Укажите как минимум один публичный SSH-ключ.
 
 - CLI {#cli}
 

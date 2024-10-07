@@ -170,7 +170,8 @@
 
   1. Узнайте ID каталога с помощью метода REST API [list](../../api-ref/Folder/list.md):
       ```bash
-      curl -H "Authorization: Bearer <IAM-токен>" \
+      curl \
+        --header "Authorization: Bearer <IAM-токен>" \
         https://resource-manager.{{ api-host }}/resource-manager/v1/folders?cloudId=b1gg8sgd16g7********
       ```
 
@@ -191,7 +192,8 @@
       ```
   1. Узнайте ID пользователя по логину с помощью метода REST API [getByLogin](../../../iam/api-ref/YandexPassportUserAccount/getByLogin.md):
       ```bash
-      curl -H "Authorization: Bearer <IAM-токен>" \
+      curl \
+        --header "Authorization: Bearer <IAM-токен>" \
         https://iam.{{ api-host }}/iam/v1/yandexPassportUserAccounts:byLogin?login=test-user
       ```
 
@@ -209,10 +211,11 @@
   1. Назначьте пользователю роль `editor` на каталог `my-folder`. В свойстве `action` укажите `ADD`, а в свойстве `subject` - тип `userAccount` и ID пользователя:
 
       ```bash
-      curl -X POST \
-        -H 'Content-Type: application/json' \
-        -H "Authorization: Bearer <IAM-токен>" \
-        -d '{
+      curl \
+        --request POST \
+        --header 'Content-Type: application/json' \
+        --header "Authorization: Bearer <IAM-токен>" \
+        --data '{
         "accessBindingDeltas": [{
             "action": "ADD",
             "accessBinding": {
@@ -350,10 +353,11 @@
   Назначьте одному пользователю роль `editor`, а другому `viewer`:
 
   ```bash
-  curl -X POST \
-    -H 'Content-Type: application/json' \
-    -H "Authorization: Bearer <IAM-токен>" \
-    -d '{
+  curl \
+    --request POST \
+    --header 'Content-Type: application/json' \
+    --header "Authorization: Bearer <IAM-токен>" \
+    --data '{
     "accessBindingDeltas": [{
         "action": "ADD",
         "accessBinding": {
@@ -384,10 +388,11 @@
 
 
   ```bash
-  curl -X POST \
-    -H 'Content-Type: application/json' \
-    -H "Authorization: Bearer <IAM-токен>" \
-    -d '{
+  curl \
+    --request POST \
+    --header 'Content-Type: application/json' \
+    --header "Authorization: Bearer <IAM-токен>" \
+    --data '{
     "accessBindings": [{
         "roleId": "editor",
         "subject": { "id": "ajei8n54hmfh********", "type": "userAccount" }

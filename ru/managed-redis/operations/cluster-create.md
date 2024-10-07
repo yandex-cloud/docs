@@ -179,7 +179,7 @@ description: Следуя данной инструкции, вы сможете
         --disk-type-id <network-ssd|network-ssd-nonreplicated|local-ssd> \
         --password=<пароль_пользователя> \
         --backup-window-start <время> \
-        --deletion-protection=<защита_от_удаления> \
+        --deletion-protection \
         --announce-hostnames <использование_FQDN_вместо_IP-адресов>
       ```
 
@@ -201,7 +201,7 @@ description: Следуя данной инструкции, вы сможете
 
 
       * `--backup-window-start` — время начала резервного копирования в формате `ЧЧ:ММ:СС`.
-      * `--deletion-protection` — защита от удаления кластера: `true` или `false`.
+      * `--deletion-protection` — защита от удаления кластера.
 
       * `--announce-hostnames` — настройка, определяющая, [использовать ли FQDN вместо IP-адресов](../concepts/network.md#fqdn-ip-setting): `true` или `false`.
 
@@ -461,7 +461,7 @@ description: Следуя данной инструкции, вы сможете
     --disk-type-id {{ disk-type-example }} \
     --disk-size 16 \
     --password=user1user1 \
-    --deletion-protection=true
+    --deletion-protection
   ```
 
 
@@ -572,7 +572,7 @@ description: Следуя данной инструкции, вы сможете
     --environment production \
     --sharded \
     --enable-tls \
-    --deletion-protection=true \
+    --deletion-protection \
     --network-name default \
     --security-group-ids {{ security-group }} \
     --resource-preset {{ mrd-host-class }} \

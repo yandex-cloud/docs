@@ -200,7 +200,7 @@ description: Следуя данной инструкции, вы сможете
                                 `day=<день_недели>,`
                                 `hour=<час_дня> \
             --assign-public-ip=<публичный_доступ_к_кластеру> \
-            --deletion-protection=<защита_от_удаления_кластера>
+            --deletion-protection
         ```
 
 

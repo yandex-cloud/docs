@@ -36,7 +36,8 @@ keywords:
     Пример запроса:
 
     ```bash
-    curl -X GET \
+    curl \
+        --request GET \
         'https://c-<идентификатор_кластера>.airflow.yandexcloud.net/api/v1/dags' \
         --user 'admin:<пароль_пользователя_admin>' \
         --header 'Content-Type: application/json' \

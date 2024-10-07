@@ -1,6 +1,6 @@
 ---
 title: '{{ yandex-cloud }} IaaS security checklist'
-description: This article provides a checklist of measures for network, VM, and {{ objstorage-name }} security on the {{ yandex-cloud }} platform.
+description: This article presents a security checklist for a {{ yandex-cloud }} based network, VM, and {{ objstorage-name }}.
 ---
 
 # IaaS security checklist
@@ -36,8 +36,8 @@ Learn more about vulnerability management in the [respective section](../standar
 
 ✔ **Security groups**: Group resources and restrict network access using [security groups](../../vpc/operations/security-group-create.md). Security groups allow you to:
 
-* Set up access to your cloud infrastructure from trusted IP addresses only.
-* Restrict traffic by protocols and other parameters defined in the [rules](../../vpc/concepts/security-groups.md#security-groups-rules).
+  * Set up access to your cloud infrastructure from trusted IP addresses only.
+  * Restrict traffic by protocols and other parameters defined in the [rules](../../vpc/concepts/security-groups.md#security-groups-rules).
 
 ✔ **Web Application Firewall (WAF)**: WAF analyzes a web app's incoming HTTP requests according to pre-configured rules. Based on the analysis results, certain actions are applied to HTTP requests. [Configure a WAF profile](../../smartwebsecurity/quickstart/quickstart-waf.md) and connect it to your security profile in {{ sws-full-name }}.
 
@@ -47,18 +47,18 @@ Learn more about vulnerability management in the [respective section](../standar
 
 ✔ **DDoS protection**: When assigning public IP addresses to cloud resources, use [{{ ddos-protection-full-name }}](../../vpc/ddos-protection/index.md) (L4 DDoS protection). For L7 DDoS protection, use [{{ sws-name }}](../../smartwebsecurity/index.yaml).
 
-![](../../_assets/overview/solution-library-icon.svg) See the example of implementing the [architecture and protection of a basic internet service](../../vpc/tutorials/web-service.md).
+  ![](../../_assets/overview/solution-library-icon.svg) See the example of implementing the [architecture and protection of a basic internet service](../../vpc/tutorials/web-service.md).
 
 Learn more about secure network configuration and use in the [respective section](../standard/network-security.md) of the {{ yandex-cloud }} security standard.
 
-## Security {{ objstorage-name }} {#storage-security}
+## {{ objstorage-name }} security {#storage-security}
 
 ✔ **Encryption**: Enable [bucket encryption](../../storage/operations/buckets/encrypt.md) (server-side encryption) for protection against accidental or intentional publication of bucket contents.
 
 ✔ **Limiting access to your bucket**:
 
-* If possible, [disable](../../storage/operations/buckets/bucket-availability.md#close-public-access) public access. To grant access to a certain object, [generate](../../storage/operations/objects/link-for-download.md) a public link with a limited lifetime.
-* To flexibly configure access to a bucket, use IAM, Bucket Policy, or other mechanisms described in [{#T}](../../storage/security/overview.md). Use ACLs to configure access only as the last resort: if you grant public access to an object via an ACL, all other security checks will be ignored.
+   * If possible, [disable](../../storage/operations/buckets/bucket-availability.md#close-public-access) public access. To grant access to a specific object, [generate](../../storage/operations/objects/link-for-download.md) a public link with a limited lifetime.
+   * For flexible configuration of access to a bucket, use IAM, Bucket Policy, or other mechanisms described in [{#T}](../../storage/security/overview.md). Use ACLs to configure access only as the last resort: if you grant public access to an object via an ACL, all other security checks will be ignored.
 
 
 ✔ **Deletion protection**: [Configure](../../storage/operations/buckets/configure-object-lock.md) an object lock to protect your data against deletion.
@@ -70,6 +70,6 @@ Learn more about secure network configuration and use in the [respective section
 ✔ **Cross-Origin Resource Sharing (CORS)**: [Configure](../../storage/operations/buckets/cors.md) CORS in accordance with your company's security policies. If you are using the bucket to host a static website, [enable](../../storage/operations/hosting/certificate.md#cert-manager) HTTPS access using a {{ certificate-manager-name }} certificate.
 
 ✔ **Secure {{ objstorage-name }} configuration**:
-![](../../_assets/overview/solution-library-icon.svg) See the example of implementing a [secure {{ objstorage-name }} configuration in {{ TF }}](https://github.com/yandex-cloud-examples/yc-s3-secure-bucket).
+  ![](../../_assets/overview/solution-library-icon.svg) See the example of implementing a [secure {{ objstorage-name }} configuration in {{ TF }}](https://github.com/yandex-cloud-examples/yc-s3-secure-bucket).
 
 Learn more about secure {{ objstorage-name }} configuration and use in the [respective section](../standard/virtualenv-safe-config.md#objstorage) of the {{ yandex-cloud }} security standard.

@@ -84,7 +84,9 @@
       ```bash
       export ORGANIZATION_ID=bpf3crucp1v2********
       export IAM_TOKEN=<IAM-токен>
-      curl -H "Authorization: Bearer ${IAM_TOKEN}" "https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/${ORGANIZATION_ID}:listAccessBindings"
+      curl \
+        --header "Authorization: Bearer ${IAM_TOKEN}" \
+        "https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/${ORGANIZATION_ID}:listAccessBindings"
       ```
 
       Результат:
@@ -125,10 +127,12 @@
       ```bash
       export ORGANIZATION_ID=bpf3crucp1v2********
       export IAM_TOKEN=<IAM-токен>
-      curl -X POST \
-        -H "Content-Type: application/json" \
-        -H "Authorization: Bearer ${IAM_TOKEN}" \
-        -d '@body.json' \	"https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/${ORGANIZATION_ID}:updateAccessBindings"
+      curl \
+        --request POST \
+        --header "Content-Type: application/json" \
+        --header "Authorization: Bearer ${IAM_TOKEN}" \
+        --data '@body.json' \ 
+        "https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/${ORGANIZATION_ID}:updateAccessBindings"
       ```
 
 {% endlist %}

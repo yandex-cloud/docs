@@ -1,6 +1,6 @@
 ---
 title: Редактирование ACL бакета в {{ objstorage-full-name }}
-description: Для управления доступом к бакету {{ objstorage-name }}, помимо {{ iam-short-name }}, можно использовать список управления доступом (ACL).
+description: Следуя данной инструкции, вы сможете редактировать список управления доступом (ACL) бакета в {{ objstorage-name }}.
 ---
 
 # Редактирование ACL бакета
@@ -17,13 +17,9 @@ description: Для управления доступом к бакету {{ obj
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-  1. Выберите сервис **{{ objstorage-name }}**.
-  1. Чтобы отредактировать ACL, нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) справа от имени бакета и выберите **{{ ui-key.yacloud.storage.buckets.button_permissions }}**.
-
-     Также можно нажать на имя бакета и на открывшейся странице нажать кнопку **{{ ui-key.yacloud.storage.buckets.button_permissions }}**.
-
-  1. В появившемся окне **{{ ui-key.yacloud.component.acl-dialog.label_title }}** выдайте или отзовите необходимые разрешения.
+  1. В [консоли управления]({{ link-console-main }}) в списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Выберите нужный бакет и нажмите ![image](../../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud.storage.bucket.button_action-permissions }}**.
+  1. В окне **{{ ui-key.yacloud.component.acl-dialog.label_title }}** выдайте или отзовите необходимые разрешения.
 
       {% note info %}
 

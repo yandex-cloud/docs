@@ -1,6 +1,6 @@
 ---
-title: Инструкция по скачиванию объекта из бакета {{ objstorage-full-name }}
-description: Из статьи вы узнаете, как скачать объект в {{ objstorage-full-name }}.
+title: Скачивание объекта в {{ objstorage-full-name }}
+description: Следуя данной инструкции, вы сможете скачать объект из бакета в {{ objstorage-name }}.
 ---
 
 # Скачивание объекта
@@ -19,10 +19,9 @@ description: Из статьи вы узнаете, как скачать объ
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-  1. Выберите сервис **{{ objstorage-name }}**.
-  1. Выберите бакет, из которого вы хотите скачать объект.
-  1. Напротив объекта, который вы хотите скачать, нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.storage.file.button_download }}**.
+  1. В [консоли управления]({{ link-console-main }}) в списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** и перейдите в бакет, из которого вы хотите скачать объект.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}**, найдите в списке нужный объект.
+  1. Напротив объекта, который вы хотите скачать, нажмите ![image](../../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud.storage.file.button_download }}** или откройте объект и на панели сверху нажмите ![image](../../../_assets/console-icons/arrow-down-to-line.svg) **{{ ui-key.yacloud.storage.file.button_download }}**.
 
   {% note info %}
 

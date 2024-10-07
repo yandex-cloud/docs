@@ -1,6 +1,6 @@
 ---
 title: Настройка хостинга в {{ objstorage-full-name }}
-description: Следуя данной инструкции, вы сможете настроить хостинг.
+description: Следуя данной инструкции, вы сможете настроить хостинг статического сайта в {{ objstorage-name }}.
 ---
 
 # Настройка хостинга
@@ -20,13 +20,19 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в бакет, для которого хотите настроить хостинг.
+  1. В [консоли управления]({{ link-console-main }}) в списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** и перейдите в бакет, для которого хотите настроить хостинг.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_general-settings }}**.
   1. [Откройте](../buckets/bucket-availability.md) публичный доступ к операциям с бакетом.
-  1. Перейдите на вкладку ![website](../../../_assets/console-icons/globe.svg) **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
+  1. Нажмите **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
+  1. Выберите вкладку **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
   1. В разделе **{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}**:
-      * В поле **{{ ui-key.yacloud.storage.bucket.website.field_index }}** укажите абсолютный путь к файлу в бакете для главной страницы сайта, например `pages/index.html`.
-      * (Опционально) в поле **{{ ui-key.yacloud.storage.bucket.website.field_error }}** укажите абсолютный путь к файлу в бакете, который будет отображаться при ошибках 4xx, например `pages/error404.html`. По умолчанию {{ objstorage-name }} возвращает собственную страницу.
+      * в поле **{{ ui-key.yacloud.storage.bucket.website.field_index }}** укажите абсолютный путь к файлу в бакете для главной страницы сайта, например `pages/index.html`;
+      * (опционально) в поле **{{ ui-key.yacloud.storage.bucket.website.field_error }}** укажите абсолютный путь к файлу в бакете, который будет отображаться при ошибках 4xx, например `pages/error404.html`. По умолчанию {{ objstorage-name }} возвращает собственную страницу.
   1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
+
+  Проверить хостинг можно перейдя по ссылке в поле **{{ ui-key.yacloud.storage.bucket.website.field_link }}**.
+
 - {{ yandex-cloud }} CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
@@ -188,12 +194,12 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в бакет, для которого хотите настроить переадресацию.
-  1. [Откройте](../buckets/bucket-availability.md) публичный доступ к операциям с бакетом.
-  1. Перейдите на вкладку ![website](../../../_assets/console-icons/globe.svg) **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
+  1. В [консоли управления]({{ link-console-main }}) в списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** и перейдите в бакет, для которого хотите настроить переадресацию всех запросов.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
+  1. Выберите вкладку **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
   1. В разделе **{{ ui-key.yacloud.storage.bucket.website.switch_redirect }}** укажите:
-      * Доменное имя хоста, на который будут перенаправляться все запросы к бакету.
-      * (Опционально) Протокол, если указанный хост принимает запросы строго по определенному протоколу.
+      * **{{ ui-key.yacloud.storage.bucket.website.field_hostname }}** хоста, на который будут перенаправляться все запросы к бакету.
+      * (Опционально) **{{ ui-key.yacloud.storage.bucket.website.field_protocol }}**, если указанный хост принимает запросы строго по определенному протоколу.
   1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
 
 - {{ yandex-cloud }} CLI {#cli}
@@ -333,18 +339,18 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в бакет, для которого хотите настроить условную переадресацию запросов.
-  1. [Откройте](../buckets/bucket-availability.md) публичный доступ к операциям с бакетом.
-  1. Перейдите на вкладку ![website](../../../_assets/console-icons/globe.svg) **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
+  1. В [консоли управления]({{ link-console-main }}) в списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** и перейдите в бакет, для которого хотите настроить условную переадресацию запросов.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
+  1. Выберите вкладку **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
   1. В разделе **{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}** в блоке **{{ ui-key.yacloud.storage.bucket.website.title_redirect }}** нажмите кнопку **{{ ui-key.yacloud.storage.bucket.website.button_add-routing-rule }}**.
-  1. В блоке **{{ ui-key.yacloud.storage.bucket.website.label_routing-condition }}** укажите хотя бы одно условие переадресации:
+  1. В блоке **{{ ui-key.yacloud.storage.bucket.website.label_routing-condition }}** укажите как минимум одно условие переадресации:
       * **{{ ui-key.yacloud.storage.bucket.website.field_http-redirect-code }}** — HTTP-код, которым {{ objstorage-name }} должен был бы ответить на запрос без переадресации.
       * **{{ ui-key.yacloud.storage.bucket.website.select_condition_prefix }}** — начало ключа объекта в запросе. 
   1. В блоке **{{ ui-key.yacloud.storage.bucket.website.label_routing-redirect }}** задайте параметры переадресации:
-      * Протокол, по которому должен быть отправлен переадресованный запрос.
-      * Доменное имя хоста, на который должны перенаправляться запросы, удовлетворившие условию.
-      * Код ответа для определения типа редиректа.
-      * Замена ключа — **{{ ui-key.yacloud.storage.bucket.website.select_redirect_none }}**, **{{ ui-key.yacloud.storage.bucket.website.select_redirect_key }}** или **{{ ui-key.yacloud.storage.bucket.website.select_redirect_prefix }}**, указанное в условии.
+      * **{{ ui-key.yacloud.storage.bucket.website.field_protocol }}**, по которому должен быть отправлен переадресованный запрос.
+      * **{{ ui-key.yacloud.storage.bucket.website.field_host-name }}** хоста, на который должны перенаправляться запросы, удовлетворившие условию.
+      * **{{ ui-key.yacloud.storage.bucket.website.field_http-redirect-code }}** для определения типа редиректа.
+      * **{{ ui-key.yacloud.storage.bucket.website.field_redirect_change }}** — **{{ ui-key.yacloud.storage.bucket.website.select_redirect_none }}**, **{{ ui-key.yacloud.storage.bucket.website.select_redirect_key }}** или **{{ ui-key.yacloud.storage.bucket.website.select_redirect_prefix }}**, указанное в условии.
   1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
   
 - {{ yandex-cloud }} CLI {#cli}
@@ -472,7 +478,7 @@ description: Следуя данной инструкции, вы сможете
      * `website` — параметры веб-сайта:
        * `index_document` — абсолютный путь к файлу главной страницы сайта. Обязательный параметр.
        * `error_document` — абсолютный путь к файлу, который будет отображаться пользователю при ошибках 4xx. Необязательный параметр.
-       * `routing_rules` — правила переадресации запросов в формате JSON. В полях `Condition` и `Redirect` каждого правила должно быть хотя бы по одной паре <q>ключ — значение</q>. Подробнее о поддерживаемых полях см. в [схеме данных](../../s3/api-ref/hosting/upload.md#request-scheme) соответствующего метода [API](../../../glossary/rest-api.md) (вкладка **Для условной переадресации запросов**).
+       * `routing_rules` — правила переадресации запросов в формате JSON. В полях `Condition` и `Redirect` каждого правила должно быть как минимум по одной паре <q>ключ — значение</q>. Подробнее о поддерживаемых полях см. в [схеме данных](../../s3/api-ref/hosting/upload.md#request-scheme) соответствующего метода [API](../../../glossary/rest-api.md) (вкладка **Для условной переадресации запросов**).
 
      Более подробную информацию о параметрах ресурса `yandex_storage_bucket` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/storage_bucket#static-website-hosting).
 

@@ -157,10 +157,11 @@
 - API {#api}
 
   ```bash
-  curl -X POST \
-    -H 'Content-Type: application/json' \
-    -H "Authorization: Bearer <IAM-токен>" \
-    -d '{
+  curl \
+    --request POST \
+    --header 'Content-Type: application/json' \
+    --header "Authorization: Bearer <IAM-токен>" \
+    --data '{
         "serviceAccountId": "<идентификатор_сервисного_аккаунта>",
         "description": "this key is for my bucket"
     }' \

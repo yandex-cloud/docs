@@ -201,7 +201,7 @@ kubectl -n yandex-system create secret generic <имя_секрета> --from-fi
 
    ```bash
    sudo mkdir -p /home/kubernetes/bin
-   sudo curl -o /home/kubernetes/bin/maintainer https://{{ s3-storage-host }}/mk8s-maintainer/v1/maintainer
+   sudo curl --output /home/kubernetes/bin/maintainer https://{{ s3-storage-host }}/mk8s-maintainer/v1/maintainer
    sudo chmod +x /home/kubernetes/bin/maintainer
    sudo /home/kubernetes/bin/maintainer install
    ```

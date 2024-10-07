@@ -171,7 +171,7 @@ description: Следуя данной инструкции, вы сможете
        --backup-retain-period-days=<срок_хранения_копий> \
        --datalens-access=<true_или_false> \
        --websql-access=<true_или_false> \
-       --deletion-protection=<защита_от_удаления> \
+       --deletion-protection \
        --performance-diagnostics enabled=true,`
                                 `sessions-sampling-interval=<интервал_сбора_сессий>,`
                                 `statements-sampling-interval=<интервал_сбора_запросов>
@@ -183,7 +183,7 @@ description: Следуя данной инструкции, вы сможете
      * `backup-retain-period-days` — срок хранения автоматических резервных копий в днях.
      * `datalens-access` — разрешает доступ из {{ datalens-full-name }}. Значение по умолчанию — `false`. Подробнее о настройке подключения см в разделе [{#T}](datalens-connect.md).
      * `websql-access` — разрешает [выполнять SQL-запросы](web-sql-query.md) к базам данных кластера из консоли управления {{ yandex-cloud }} с помощью сервиса {{ websql-full-name }}. Значение по умолчанию — `false`.
-     * `deletion-protection` — защита от удаления кластера: `true` или `false`.
+     * `deletion-protection` — защита от удаления кластера.
      * `performance-diagnostics` — активация сбора статистики для [диагностики производительности кластера](performance-diagnostics.md). Допустимые значения параметров `sessions-sampling-interval` и `statements-sampling-interval` — от `1` до `86400` секунд.
 
      {% include [db-name-limits](../../_includes/mdb/mmy/note-info-db-name-limits.md) %}
@@ -503,7 +503,7 @@ description: Следуя данной инструкции, вы сможете
        --disk-size 20 \
        --user name=user1,password="user1user1" \
        --database name=db1 \
-       --deletion-protection=true
+       --deletion-protection
      ```
 
 

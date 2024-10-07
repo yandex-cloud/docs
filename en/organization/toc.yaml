@@ -25,12 +25,14 @@ items:
             href: operations/manage-users.md
           - name: Adding a user
             href: operations/add-account.md
-          - name: Getting the user ID or email
+          - name: Getting user ID or email
             href: operations/users-get.md
           - name: Deleting a user account
             href: operations/edit-account.md
           - name: Leaving an organization
             href: operations/leave-organization.md
+          - name: Subscribing a user to notifications
+            href: operations/subscribe-user-for-notifications.md
       - name: Managing identity federations
         items:
           - name: Overview

@@ -444,7 +444,7 @@ description: Из статьи вы узнаете, как изменить на
                                 `day=<день_недели>,`
                                 `hour=<час_дня> \
             --websql-access=<true_или_false> \
-            --deletion-protection=<защита_от_удаления> \
+            --deletion-protection \
             --connection-pooling-mode=<режим_работы_менеджера_подключений> \
             --serverless-access=<true_или_false> \
             --yandexquery-access=<доступ_через_{{ yq-name }}> \

@@ -176,7 +176,7 @@ description: Следуя данной инструкции, вы сможете
         --database name=<имя_базы_данных> \
         --security-group-ids <список_идентификаторов_групп_безопасности> \
         --websql-access=<true_или_false> \
-        --deletion-protection=<защита_от_удаления_кластера>
+        --deletion-protection
       ```
 
       Идентификатор подсети `subnet-id` необходимо указывать, если в выбранной зоне доступности создано 2 и больше подсетей.
@@ -198,7 +198,7 @@ description: Следуя данной инструкции, вы сможете
 
       * `--websql-access` — разрешает [выполнять SQL-запросы](web-sql-query.md) к базам данных кластера из консоли управления {{ yandex-cloud }} с помощью сервиса {{ websql-full-name }}. Значение по умолчанию — `false`.
 
-      * `--deletion-protection` — защита от удаления кластера: `true` или `false`.
+      * `--deletion-protection` — защита от удаления кластера.
 
       {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
@@ -593,7 +593,7 @@ description: Следуя данной инструкции, вы сможете
     --user name=user1,password=user1user1 \
     --database name=db1 \
     --security-group-ids {{ security-group }} \
-    --deletion-protection=true
+    --deletion-protection
   ```
 
 

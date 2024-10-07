@@ -8,7 +8,7 @@
 
 - Интерфейс {{ org-name }} {#cloud-org}
 
-  1. Перейдите в сервис [{{org-full-name}}]({{link-org-main}}).
+  1. Перейдите в сервис [{{ org-full-name }}]({{ link-org-main }}).
   
       Чтобы подписать пользователя на получение технических уведомлений, необходима [роль](../../iam/roles-reference.md#editor) `editor` или выше на организацию.
   1. На панели слева выберите ![pencil](../../_assets/console-icons/bell.svg) **{{ ui-key.yacloud_org.pages.notifications }}**.

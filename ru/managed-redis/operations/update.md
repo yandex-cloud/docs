@@ -535,7 +535,7 @@ description: Из статьи вы узнаете, как изменить на
                                 `day=<день_недели>,`
                                 `hour=<час_дня> \
             --websql-access=<true_или_false> \
-            --deletion-protection=<защита_от_удаления>
+            --deletion-protection
         ```
 
 

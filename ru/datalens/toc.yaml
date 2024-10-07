@@ -145,6 +145,8 @@ items:
             href: operations/connection/create-usage-tracking.md
       - name: Партнерские подключения
         items:
+          - name: Создание подключения к Экстрактору 1С
+            href: operations/connection/create-extractor1c.md
           - name: Создание подключения к Битрикс24
             href: operations/connection/create-bitrix24.md
           - name: Создание подключения к подкастам Яндекс Музыки
@@ -821,10 +823,12 @@ items:
             href: pricing-archive/pricing23042024.md
   - name: История изменений
     items:
-      - name: Август 2024
+      - name: Сентябрь 2024
         href: release-notes/index.md
       - name: Архив
         items:
+          - name: Август 2024
+            href: release-notes/2408.md
           - name: Июль 2024
             href: release-notes/2407.md
           - name: Июнь 2024

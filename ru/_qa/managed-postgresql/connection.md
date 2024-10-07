@@ -18,7 +18,7 @@
 SSL-сертификат можно получить с помощью PowerShell:
 
 ```powershell
-mkdir $HOME\.postgresql; curl.exe -o $HOME\.postgresql\root.crt {{ crt-web-path }}
+mkdir $HOME\.postgresql; curl.exe --output $HOME\.postgresql\root.crt {{ crt-web-path }}
 ```
 
 Сертификат будет сохранен в файле `$HOME\.postgresql\root.crt`.
@@ -31,7 +31,7 @@ mkdir $HOME\.postgresql; curl.exe -o $HOME\.postgresql\root.crt {{ crt-web-path 
 
    ```bash
    mkdir /mnt/c/temp && \
-   curl "{{ crt-web-path }}" -o /mnt/c/temp/CA.pem && \
+   curl "{{ crt-web-path }}" --output /mnt/c/temp/CA.pem && \
    openssl pkcs12 -export -out /mnt/c/temp/CA.pfx -nokeys -in /mnt/c/temp/CA.pem
    ```
 

@@ -17,7 +17,7 @@
 
 {% list tabs group=instructions %}
 
-* Консоль управления {#console}
+- Консоль управления {#console}
 
    1. В [консоли управления]({{ link-console-main }}) выберите нужное облако или каталог.
    1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
@@ -26,7 +26,7 @@
    1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите необходимые роли.
    1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.apply }}**.
 
-* CLI {#cli}
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -105,7 +105,7 @@
             --federation-users <идентификатор_федерации>
          ```
 
-* API {#api}
+- API {#api}
 
    Чтобы назначить роль на облако, воспользуйтесь методом REST API [updateAccessBindings](../../../resource-manager/api-ref/Cloud/updateAccessBindings.md) для ресурса [Cloud](../../../resource-manager/api-ref/Cloud/index.md) или вызовом gRPC API [CloudService/UpdateAccessBindings](../../../resource-manager/api-ref/grpc/cloud_service.md#UpdateAccessBindings).
 
@@ -126,7 +126,7 @@
 
 {% list tabs group=instructions %}
 
-* {{ org-name }} {#cloud-org}
+- {{ org-name }} {#cloud-org}
 
    Чтобы назначить роль на организацию:
 
@@ -138,7 +138,7 @@
    1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите необходимые роли.
    1. Нажмите **{{ ui-key.yacloud_components.acl.action.apply }}**.
 
-* CLI {#cli}
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -203,11 +203,11 @@
          yc organization-manager organization add-access-binding \
             --id <идентификатор_организации> \
             --role <роль> \
-            --federation-users <идентификатор_федерации> 
+            --federation-users <идентификатор_федерации>
          ```
 
 
-* {{ TF }} {#tf}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -255,7 +255,7 @@
       yc organization-manager organization list-access-bindings <имя_или_идентификатор_организации>
       ```
 
-* API {#api}
+- API {#api}
 
    Чтобы назначить роль на организацию, воспользуйтесь методом REST API [updateAccessBindings](../../../organization/api-ref/Organization/updateAccessBindings.md) для ресурса [Organization](../../../organization/api-ref/Organization/index.md) или вызовом gRPC API [OrganizationService/UpdateAccessBindings](../../../organization/api-ref/grpc/organization_service.md#UpdateAccessBindings) и передайте в запросе:
 
@@ -272,7 +272,7 @@
 
 {% list tabs group=instructions %}
 
-* Консоль управления {#console}
+- Консоль управления {#console}
 
    Чтобы назначить роль на ресурс:
 
@@ -283,7 +283,7 @@
    1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите необходимые роли.
    1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.apply }}**.
 
-* CLI {#cli}
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -366,7 +366,7 @@
             --federation-users <идентификатор_федерации>
          ```
 
-* API {#api}
+- API {#api}
 
    Чтобы назначить роль на ресурс, воспользуйтесь методом REST API или вызовом gRPC API `updateAccessBindings` для нужного ресурса и передайте в запросе:
 
@@ -381,7 +381,7 @@
 
 {% list tabs group=instructions %}
 
-* Консоль управления {#console}
+- Консоль управления {#console}
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится ресурс.
    1. Откройте его страницу.
@@ -390,7 +390,7 @@
    1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите необходимые роли.
    1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.apply }}**.
 
-* CLI {#cli}
+- CLI {#cli}
 
    {% include [set-access-bindings-cli](../../../_includes/iam/set-access-bindings-cli.md) %}
 
@@ -474,7 +474,7 @@
          ```bash
          yc <имя_сервиса> <ресурс> set-access-bindings \
             --id <идентификатор_ресурса> \
-            --access-binding role=<роль>,subject=system:group:federation:<идентификатор_федерации>:users 
+            --access-binding role=<роль>,subject=system:group:federation:<идентификатор_федерации>:users
          ```
 
       Для каждой роли передайте отдельный флаг `--access-binding`. Пример:
@@ -487,7 +487,7 @@
          --access-binding role=<роль3>,service-account-id=<идентификатор_сервисного_аккаунта>
       ```
 
-* API {#api}
+- API {#api}
 
    {% include [set-access-bindings-api](../../../_includes/iam/set-access-bindings-api.md) %}
 

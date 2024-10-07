@@ -100,7 +100,9 @@ description: Следуя данной инструкции, вы сможете
     ```bash
     export APIKEY_ID=ajeke74kbp5b********
     export IAM_TOKEN=CggaATEVAgA...
-    curl -X DELETE -H "Authorization: Bearer $IAM_TOKEN" \
+    curl \
+        --request DELETE \
+        --header "Authorization: Bearer $IAM_TOKEN" \
         https://iam.{{ api-host }}/iam/v1/apiKeys/$APIKEY_ID
     ```
    Также API-ключ можно удалить с помощью gRPC API [ApiKeyService/Delete](../../api-ref/grpc/api_key_service.md#Delete).

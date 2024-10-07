@@ -656,9 +656,10 @@ yc iam create-token
   Пример запроса с помощью cURL для метода REST API `create`:
 
   ```curl
-  curl -X POST \
-      -H 'Content-Type: application/json' \
-      -d '{"jwt": "<JWT-токен>"}' \
+  curl \
+      --request POST \
+      --header 'Content-Type: application/json' \
+      --data '{"jwt": "<JWT-токен>"}' \
       https://iam.{{ api-host }}/iam/v1/tokens
   ```
 

@@ -354,7 +354,7 @@ description: Следуя данной инструкции, вы сможете
                                `day=<день_недели>,`
                                `hour=<час_дня> \
           --performance-diagnostics=<включить_диагностику> \
-          --deletion-protection=<защита_от_удаления>
+          --deletion-protection
         ```
 
     Вы можете изменить следующие настройки:

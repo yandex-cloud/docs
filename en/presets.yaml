@@ -5279,6 +5279,8 @@ default:
         label_delete-now: Delete now
       forms:
         label_value: Value
+      labelset:
+        button_add-label: Add label
       marketplace:
         label_product-ids: Product IDs
         product-pricing-type_byol: BYOL
@@ -5298,11 +5300,19 @@ default:
       settings:
         button_add-empty-telegram: Set up
         button_submit: Confirm
+        field_email: Address
+        field_phone: Phone
         field_theme: Interface theme
         field_theme-contrast: Contrast
         label_alerting-name: Monitoring
+        label_billing-name: Billing
+        label_event-name: Events
         label_monitoring-name: Monitoring
+        label_promo_banner-name: Promo block
+        label_security-name: Security
+        label_tech-name: Maintenance work
         label_telegram: Telegram
+        label_telegram-link: Go to Telegram bot
         label_title_appearance: Appearance
         label_title_communications: Notifications
         label_title_region: Language and region
@@ -5310,6 +5320,7 @@ default:
         section_phone: Phone number settings
         section_settings: Notification settings
         section_transports: Notification methods
+        value_theme-system: System
       usermenu:
         label_login: Log in
     yacloud_monitoring:
@@ -8097,6 +8108,14 @@ default:
           button_upload: Upload
           cors:
             button_cors_empty-create: Configure
+            button_save: Save
+            column_allowed-header: Allowed Headers
+            column_allowed-method: Allowed Methods
+            column_allowed-origin: Allowed Origins
+            column_description: Description
+            column_expose-header: Expose Headers
+            column_max-age-seconds: MaxAgeSeconds
+            label_add-cors-settings: Add rule
           encryption:
             button_save: Save
             field_key: KMS Key
@@ -8106,12 +8125,14 @@ default:
             button_save: Save
             field_certificate: Certificate
             field_certificate-manager: Certificate
+            field_private-key: Secret key
             field_source: Source
             value_method-certificate-manager: Certificate Manager
             value_method-custom: Your certificate
           lifecycle:
             button_lifecycle_empty-create: Configure
             button_save: Save
+            column_storage_class: Storage class
             field_date: Trigger date
             field_days: Trigger time
             field_description: Description
@@ -8128,6 +8149,13 @@ default:
             value_date: Exact date
             value_days: Number of days
             value_expired-object-delete-marker: Deletion marker without noncurrent versions
+          object-lock:
+            field_mode: Default lock type
+            field_object-lock-enabled: Enable locks
+            field_retention-period: Default lock period
+            field_rule-enabled: Default locks for new versions
+            title-mode-compliance: Compliance
+            title-mode-governance: Governance
           policy:
             button_add-resource: Add resource
             button_add-value: Add value
@@ -8159,21 +8187,31 @@ default:
             label_size-limit-disabled: No limit
           switch_cors: CORS
           switch_encryption: Encryption
+          switch_file-versions: Show versions
           switch_files: Objects
+          switch_general-settings: General
           switch_https: HTTPS
           switch_lifecycle: Lifecycle
+          switch_object-lock: Object locks
           switch_policy: Access policy
           switch_security: Security
           switch_server-logs: Logging
           switch_settings: Settings
+          switch_versioning: Versioning
           switch_website: Website
+          versioning:
+            field_status: Status
           website:
             button_add-routing-rule: Add forwarding rule
             button_save: Save
             field_error: Error page
+            field_host-name: Domain name
+            field_hostname: Domain name
             field_http-redirect-code: Response code
             field_index: Home page
             field_link: Link
+            field_protocol: Protocol
+            field_redirect_change: Replace key
             label_routing-condition: Condition
             label_routing-redirect: Redirect
             select_condition_prefix: Key prefix
@@ -8193,11 +8231,14 @@ default:
             button_create: Create bucket
           label_title: Buckets
         button_upload: Upload
+        field_perm-object-lock-enabled: Legal hold
+        field_temp-object-lock-enabled: Retention
         file:
           action_file-restore: Restore
           button_delete: Delete
           button_download: Download
           button_generate: Get link
+          button_object-lock: Object lock
           button_permissions: Object ACL
           button_version-history: Version history
           label_lifetime: Lifetime
@@ -8207,6 +8248,7 @@ default:
           label_server-logs: Write logs
           label_target-bucket: Bucket for log storage
         switch_buckets: Buckets
+        title_object-lock: Object version lock
       vdi:
         button_acl: Configure ACL
         button_add-image: Add image

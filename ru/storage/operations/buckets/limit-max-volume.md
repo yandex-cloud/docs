@@ -1,3 +1,8 @@
+---
+title: Ограничение максимального размера бакета в {{ objstorage-full-name }}
+description: Следуя данной инструкции, вы сможете настроить максимальный размер бакета в {{ objstorage-name }}.
+---
+
 # Ограничение максимального размера бакета
 
 {{ objstorage-name }} позволяет ограничить максимальный размер бакета.
@@ -8,13 +13,13 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-  1. Выберите сервис **{{ objstorage-name }}**.
-  1. Нажмите на имя необходимого бакета.
-  1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
+  1. В [консоли управления]({{ link-console-main }}) в списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** и перейдите в бакет, максимальный размер которого вы хотите ограничить.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
+  1. Выберите вкладку **{{ ui-key.yacloud.storage.bucket.switch_general-settings }}**.
   1. Задайте значение поля **{{ ui-key.yacloud.storage.bucket.settings.field_size-limit }}**.
 
       {% include [storage-no-max-limit](../../_includes_service/storage-no-max-limit.md) %}
+      
   1. Нажмите **{{ ui-key.yacloud.storage.bucket.settings.button_save }}**.
 
 - {{ yandex-cloud }} CLI {#cli}

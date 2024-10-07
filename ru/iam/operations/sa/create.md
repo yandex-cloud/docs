@@ -121,15 +121,16 @@
 - API {#api}
 
   ```bash
-  curl -X POST \
-      -H 'Content-Type: application/json' \
-      -H "Authorization: Bearer <IAM-токен>" \
-      -d '{
-          "folderId": "b1gvmob95yys********",
-          "name": "my-robot",
-          "description": "this is my favorite service account"
-      }' \
-      https://iam.{{ api-host }}/iam/v1/serviceAccounts
+  curl \
+    --request POST \
+    --header 'Content-Type: application/json' \
+    --header "Authorization: Bearer <IAM-токен>" \
+    --data '{
+      "folderId": "b1gvmob95yys********",
+      "name": "my-robot",
+      "description": "this is my favorite service account"
+    }' \
+    https://iam.{{ api-host }}/iam/v1/serviceAccounts
   ```
 
 {% endlist %}
