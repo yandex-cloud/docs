@@ -29,6 +29,7 @@ ZIP-архив через S3 бакет | 128 МБ
 Максимальный размер JSON-структуры [запроса](../functions/concepts/function-invoke.md#request) и [ответа](../functions/concepts/function-invoke.md#response) | 3,5 МБ
 Максимальный объем [временных файлов](../functions/concepts/runtime/environment-variables.md#files) | 512 МБ
 Максимальное время выполнения функции до [таймаута](../functions/operations/function/version-manage.md), включая начальную инициализацию при первом запуске^1^ | 1 час
+Максимальный объем RAM для одной функции | 8 ГБ
 Максимальный объем переменных окружения, включая их имена^2^ | 4 КБ
 Максимальное количество триггеров для одной [очереди сообщений](../message-queue/concepts/queue.md) | 1
 Максимальный размер сообщения для триггера | 256 КБ
