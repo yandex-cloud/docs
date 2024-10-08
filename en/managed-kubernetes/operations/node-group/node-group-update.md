@@ -483,7 +483,7 @@ You can perform the following actions with [cloud labels](../../../resource-mana
     1. Click **{{ ui-key.yacloud.common.edit }}** in the top-right corner.
     1. Change the connection method settings:
 
-        1. To enable or disable access to nodes via {{ oslogin }}, use the **{{ ui-key.yacloud.compute.instances.create.field_os-login-access-method }}** option.
+        1. To enable or disable access to nodes via {{ oslogin }}, use the **{{ ui-key.yacloud.k8s.node-group.access-method.field_os-login-access-method }}** option.
 
             {% include [note-oslogin-ssh-warning](../../../_includes/managed-kubernetes/note-oslogin-ssh-warning.md) %}
 

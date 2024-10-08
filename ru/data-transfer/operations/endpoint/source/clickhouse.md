@@ -237,10 +237,10 @@ description: Из статьи вы узнаете, как задать наст
 
 См. полный список рекомендаций в разделе [Решение проблем](../../../troubleshooting/index.md).
 
-{% include [no-new-tables](../../../../_includes/data-transfer/troubles/no-new-tables.md) %}
+{% include [no-new-tables](../../../../_includes/data-transfer/troubles/clickhouse/no-new-tables.md) %}
 
-{% include [table-names](../../../../_includes/data-transfer/troubles/table-names.md) %}
+{% include [table-names](../../../../_includes/data-transfer/troubles/clickhouse/table-names.md) %}
 
-{% include [date-range](../../../../_includes/data-transfer/troubles/date-range.md) %}
+{% include [date-range](../../../../_includes/data-transfer/troubles/clickhouse/date-range.md) %}
 
 {% include [clickhouse-disclaimer](../../../../_includes/clickhouse-disclaimer.md) %}

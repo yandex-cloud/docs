@@ -50,7 +50,7 @@ description: Следуя данной инструкции, вы сможете
         1. Перейдите во вкладку **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}**.
         1. Выберите нужную группу узлов.
         1. Нажмите кнопку **{{ ui-key.yacloud.common.edit }}** в правом верхнем углу.
-        1. Выберите опцию **{{ ui-key.yacloud.compute.instances.create.field_os-login-access-method }}**.
+        1. Выберите опцию **{{ ui-key.yacloud.k8s.node-group.access-method.field_os-login-access-method }}**.
 
             {% include [note-oslogin-ssh-warning](../../_includes/managed-kubernetes/note-oslogin-ssh-warning.md) %}
 

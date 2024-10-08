@@ -48,6 +48,7 @@ Aliases:
 	- [yc managed-kubernetes node-group delete](node-group/delete.md) — Delete a node group.
 	- [yc managed-kubernetes node-group list-operations](node-group/list-operations.md) — List operations for the specified node group.
 	- [yc managed-kubernetes node-group list-nodes](node-group/list-nodes.md) — List nodes for the specified node group.
+- [yc managed-kubernetes marketplace](marketplace/index.md) — Manage Marketplace products.
 
 #### Global Flags
 

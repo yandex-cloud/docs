@@ -2,8 +2,8 @@ title: Yandex Managed Service for MongoDB
 description:
   - >-
     Сервис Managed Service for MongoDB помогает разворачивать и поддерживать
-    кластеры серверов <a href="https://www.mongodb.com/">MongoDB</a> 5.0 и 6.0
-    Community Edition в инфраструктуре Yandex Cloud. MongoDB — это
+    кластеры серверов <a href="https://www.mongodb.com/">MongoDB</a> 5.0, 6.0 и
+    7.0 Community Edition в инфраструктуре Yandex Cloud. MongoDB — это
     высокопроизводительная NoSQL СУБД с открытым исходным кодом.
   - >-
     Сервис Managed Service for MongoDB позволяет: <ul> <li>Не указывая схему
@@ -29,7 +29,7 @@ meta:
   title: Yandex Managed Service for MongoDB
   description: >-
     Сервис Managed Service for MongoDB помогает разворачивать и поддерживать
-    кластеры серверов MongoDB 5.0 и 6.0 в инфраструктуре Yandex Cloud.
+    кластеры серверов MongoDB 5.0, 6.0 и 7.0 в инфраструктуре Yandex Cloud.
 links:
   - title: Начало работы
     description: Создайте первый кластер баз данных

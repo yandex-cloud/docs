@@ -19,7 +19,7 @@
         ENGINE = ReplacingMergeTree
         ```
 
-1. [Создайте](../../../data-transfer/operations/transfer.md#create) отдельный трансфер типа _{{ dt-type-copy-repl }}_ и добавьте в список объектов для переноса только новые таблицы. При этом исходный трансфер типа _{{ dt-type-copy-repl}}_ можно не деактивировать. [Активируйте](../../../data-transfer/operations/transfer.md#activate) новый трансфер, а после перехода в статус {{ dt-status-repl }} [деактивируйте](../../../data-transfer/operations/transfer.md#deactivate) его.
+1. [Создайте](../../../../data-transfer/operations/transfer.md#create) отдельный трансфер типа _{{ dt-type-copy-repl }}_ и добавьте в список объектов для переноса только новые таблицы. При этом исходный трансфер типа _{{ dt-type-copy-repl}}_ можно не деактивировать. [Активируйте](../../../../data-transfer/operations/transfer.md#activate) новый трансфер, а после перехода в статус {{ dt-status-repl }} [деактивируйте](../../../../data-transfer/operations/transfer.md#deactivate) его.
 
    Чтобы добавить другие таблицы, замените ими список объектов для переноса в созданном отдельном трансфере, вновь активируйте его, а после перехода в статус {{ dt-status-repl }} деактивируйте.
 

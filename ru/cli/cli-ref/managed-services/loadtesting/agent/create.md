@@ -21,6 +21,8 @@ Syntax:
 |`--description`|<b>`string`</b><br/>A description of the load testing agent.|
 |`--agent-version`|<b>`string`</b><br/>A version of load testing agent to deploy.|
 |`--labels`|<b>`key=value[,key=value...]`</b><br/>A list of label KEY=VALUE pairs to add. For example, to add two labels named 'foo' and 'bar', both with the value 'baz', use '--labels foo=baz,bar=baz'.|
+|`--log-group-id`|<b>`string`</b><br/>ID of the log group to which the agent send logs.|
+|`--log-group-name`|<b>`string`</b><br/>Name of the log group to which the agent send logs.|
 |`--zone`|<b>`string`</b><br/>The zone of the instance to create.|
 |`--platform-id`|<b>`string`</b><br/>The Compute platform of virtual machine.|
 |`--metadata`|<b>`key=value[,key=value...]`</b><br/>Metadata to be made available to the guest operating system running on the instance.<br/>See for details https://yandex.cloud/ru/docs/compute/concepts/vm-metadata|
