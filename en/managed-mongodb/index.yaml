@@ -2,7 +2,7 @@ title: Yandex Managed Service for MongoDB
 description:
   - >-
     With Yandex Managed Service for MongoDB, you can deploy and maintain <a
-    href="https://www.mongodb.com/">MongoDB</a> 4.2, 4.4, and 5.0 server
+    href="https://www.mongodb.com/">MongoDB</a> 5.0, 6.0, and 7.0 server
     clusters in the Yandex Cloud infrastructure. MongoDB is a high-performance
     open-source NoSQL DBMS. Enterprise Edition is supported for versions 4.4 and
     5.0.
@@ -27,7 +27,7 @@ meta:
   title: Yandex Managed Service for MongoDB
   description: >-
     With Yandex Managed Service for MongoDB, you can deploy and maintain MongoDB
-    4.2, 4.4, and 5.0 server clusters in the Yandex Cloud infrastructure.
+    5.0, 6.0, and 7.0 server clusters in the Yandex Cloud infrastructure.
 links:
   - title: Getting started
     description: Create the first database cluster

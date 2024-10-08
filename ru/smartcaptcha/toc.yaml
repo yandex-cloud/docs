@@ -23,18 +23,16 @@ items:
     items:
       - name: Все руководства
         href: tutorials/index.md
-      - name: Капча в мобильном приложении
-        items:
-          - name: Размещение HTML-кода для работы {{ captcha-full-name }}
-            href: tutorials/mobile-app/website.md
-          - name: Капча в приложении на Android
-            items:
-              - name: Капча в приложении на Android
-                href: tutorials/mobile-app/android/quickstart-android.md
-              - name: Невидимая капча в приложении на Android
-                href: tutorials/mobile-app/android/invisible-captcha-android.md
-          - name: Капча в приложении на iOS
-            href: tutorials/mobile-app/ios/quickstart-ios.md
+      - name: Добавление HTML-страницы для работы {{ captcha-full-name }}
+        href: tutorials/mobile-app/website.md
+      - name: Капча в приложении Android
+        href: tutorials/mobile-app/android/quickstart-android.md
+      - name: Невидимая капча в приложении Android
+        href: tutorials/mobile-app/android/invisible-captcha-android.md
+      - name: Капча в приложении Android на Flutter
+        href: tutorials/mobile-app/android/quickstart-android-flutter.md
+      - name: Капча в приложении iOS
+        href: tutorials/mobile-app/ios/quickstart-ios.md
   - name: Концепции
     items:
       - name: Валидация пользователя

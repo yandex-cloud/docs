@@ -483,7 +483,7 @@ description: Следуя данной инструкции, вы сможете
     1. Нажмите кнопку **{{ ui-key.yacloud.common.edit }}** в правом верхнем углу.
     1. Измените настройки для способов подключения:
 
-        1. Чтобы включить или выключить доступ к узлам через {{ oslogin }}, используйте опцию **{{ ui-key.yacloud.compute.instances.create.field_os-login-access-method }}**.
+        1. Чтобы включить или выключить доступ к узлам через {{ oslogin }}, используйте опцию **{{ ui-key.yacloud.k8s.node-group.access-method.field_os-login-access-method }}**.
 
             {% include [note-oslogin-ssh-warning](../../../_includes/managed-kubernetes/note-oslogin-ssh-warning.md) %}
 

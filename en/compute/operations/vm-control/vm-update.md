@@ -152,7 +152,7 @@ To make sure users can [connect](../vm-connect/os-login.md) to the VM via [OS Lo
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
    1. In the left-hand panel, select ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}** and click the name of the VM you need.
    1. Click ![image](../../../_assets/pencil.svg) **{{ ui-key.yacloud.compute.instance.overview.button_action-edit }}**.
-   1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, enable the **{{ ui-key.yacloud.compute.instances.create.field_os-login-access-method }}** option.
+   1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, enable the **{{ ui-key.yacloud.compute.instance.access-method.field_os-login-access-method }}** option.
    1. Click **{{ ui-key.yacloud.compute.instance.edit.button_update }}**.
 
 - CLI {#cli}

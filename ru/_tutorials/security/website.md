@@ -1,6 +1,8 @@
-# Размещение HTML-кода для работы {{ captcha-full-name }}
+# Добавление HTML-страницы для работы {{ captcha-full-name }}
 
-Чтобы иметь возможность встраивать сервис [{{ captcha-name }}](../../smartcaptcha/) в Android или IOS-приложение через **WebView**, разместите данную HTML-страницу на хосте одного из ваших доменов:
+Вы можете встраивать [{{ captcha-name }}](../../smartcaptcha/) в приложения Android или iOS через WebView — компонент, позволяющий отображать веб-страницы внутри приложения (мини-браузер).
+
+Для этого разместите HTML-страницу с кодом капчи на вашем сервере и затем встройте ссылку на нее в приложении.
 
 {% cut "HTML-страница с кодом капчи" %}
 
@@ -124,9 +126,14 @@
 
 {% endcut %}
 
-Если вы не хотите самостоятельно размещать на хосте данную страницу, то можете воспользоваться готовой HTML-страницей `{{ captcha-mobile-site }}` с нашего сервера.
+Также вы можете добавить в приложение ссылку на HTML-страницу, размещенную на сервере {{ yandex-cloud }}.
 
-После размещения кода капчи можно использовать {{ captcha-name }} в следующих случаях:
+```
+{{ captcha-mobile-site }}
+```
+
+После этого вы сможете встраивать {{ captcha-name }} в свои мобильные приложения:
 * [{#T}](../../smartcaptcha/tutorials/mobile-app/android/quickstart-android.md).
 * [{#T}](../../smartcaptcha/tutorials/mobile-app/android/invisible-captcha-android.md).
+* [{#T}](../../smartcaptcha/tutorials/mobile-app/android/quickstart-android-flutter.md).
 * [{#T}](../../smartcaptcha/tutorials/mobile-app/ios/quickstart-ios.md).

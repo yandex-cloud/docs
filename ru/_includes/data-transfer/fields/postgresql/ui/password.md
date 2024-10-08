@@ -1,1 +1,1 @@
-**{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnection.password.title }}** — укажите пароль пользователя для доступа к базе данных.
+**{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.password.title }}** — укажите пароль пользователя для доступа к базе данных.

@@ -5997,16 +5997,7 @@ default:
             label_title: Детализация
             popup-csv_button_download: Скачать
             tab_product: По продуктам
-          reconciliation-reports:
-            action_download-with-facsimile: Скачать подписанный акт
-            action_download-without-facsimile: Скачать акт без подписи
-            action_request-report: Заказать акт сверки
-            action_request-report-short: Заказать
-            field_actions: Действия
-            value_completed: Готово
-          switch_acts: Отчётные документы
           switch_detail: Детализация
-          tab_reconciliation-reports-title: Акты сверки
         label_accounts: Аккаунты
         label_service: Биллинг
       cdn:
@@ -6530,6 +6521,8 @@ default:
           popup-upload_button_upload: Загрузить
           popup-upload_field_pooled: Оптимизировать для развертывания
         instance:
+          access-method:
+            field_os-login-access-method: Доступ через OS Login
           console:
             connect: Подключиться
           edit-network-interface:
@@ -6594,7 +6587,6 @@ default:
             field_instance-group-address: Публичный адрес
             field_instance-group-network: Сеть
             field_key: SSH-ключ
-            field_os-login-access-method: Доступ через OS Login
             field_security-groups: Группы безопасности
             field_serial-port-enable: Доступ к серийной консоли
             field_service-account: Сервисный аккаунт
@@ -7123,6 +7115,8 @@ default:
           button_create: Создать
           popup-add_field_name: Имя
         node-group:
+          access-method:
+            field_os-login-access-method: Доступ через OS Login
           overview:
             label_network-hdd: HDD
             label_network-ssd: SSD
@@ -8619,6 +8613,21 @@ default:
                         title: Имя
                       type:
                         title: Тип
+                    Connection:
+                      authorization_connman:
+                        title: Connection Manager
+                      authorization_plain:
+                        title: Ручная настройка
+                      authorization_type:
+                        title: Тип подключения
+                      connection_type:
+                        title: Тип инсталляции
+                      database:
+                        title: База данных
+                      password:
+                        title: Пароль
+                      user:
+                        title: Пользователь
                     ConvertRecordOptions:
                       add_rest_column:
                         title: Добавить неразмеченные столбцы
@@ -9214,22 +9223,8 @@ default:
                       subnet_id:
                         title: Идентификатор подсети
                     PostgresConnection:
-                      authorization_connman:
-                        title: Connection Manager
-                      authorization_plain:
-                        title: Ручная настройка
-                      authorization_type:
-                        title: Тип подключения
-                      connection_type:
-                        title: Тип инсталляции
-                      database:
-                        title: База данных
-                      password:
-                        title: Пароль
                       security_groups:
                         title: Группы безопасности
-                      user:
-                        title: Пользователь
                     PostgresConnectionType:
                       mdb_cluster_id:
                         title: Кластер Managed Service for PostgreSQL

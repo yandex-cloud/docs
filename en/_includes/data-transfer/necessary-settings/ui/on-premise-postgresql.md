@@ -9,11 +9,11 @@
 
    If the value in this field is specified for both endpoints, both subnets must be hosted in the same availability zone.
 
-* **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnection.database.title }}**: Specify the name of the database in the selected cluster.
+* **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.database.title }}**: Specify the name of the database in the selected cluster.
 
-* **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnection.user.title }}**: Specify the username that {{ data-transfer-name }} will use to connect to the database.
+* **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.user.title }}**: Specify the username that {{ data-transfer-name }} will use to connect to the database.
 
-* **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnection.password.title }}**: Enter the user's password to the database.
+* **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.password.title }}**: Enter the user's password to the database.
 
 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnection.security_groups.title }}**: Select the cloud network to host the endpoint and security groups for network traffic.
 

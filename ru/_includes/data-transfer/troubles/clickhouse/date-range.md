@@ -17,5 +17,5 @@ dateTime <имя_поля> must be between 1900-01-01 00:00:00 and 2262-04-11 23
 **Решение:** используйте один из вариантов:
 
 * Приведите все даты в базе-источнике к поддерживаемому в {{ CH }} диапазону.
-* В [параметрах эндпоинта-источника](../../../data-transfer/operations/endpoint/index.md#update) исключите таблицу с некорректными датами из трансфера.
-* В [параметрах трансфера](../../../data-transfer/operations/transfer.md#update) укажите трансформер [{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Transformer.convert_to_string.title}}](../../../data-transfer/concepts/data-transformation.md#convert-to-string). В этом случае при трансфере изменится тип поля.
+* В [параметрах эндпоинта-источника](../../../../data-transfer/operations/endpoint/index.md#update) исключите таблицу с некорректными датами из трансфера.
+* В [параметрах трансфера](../../../../data-transfer/operations/transfer.md#update) укажите трансформер [{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Transformer.convert_to_string.title}}](../../../../data-transfer/concepts/data-transformation.md#convert-to-string). В этом случае при трансфере изменится тип поля.
