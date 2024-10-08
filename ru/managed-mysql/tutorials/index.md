@@ -23,6 +23,7 @@ description: Различные сценарии использования {{ m
 * [{#T}](mpg-to-mmy.md)
 * [{#T}](mmy-to-mgp.md)
 * [{#T}](sync-mysql.md)
+* [{#T}](mmy-to-yds.md)
 * [{#T}](mysql-to-clickhouse.md)
 
 

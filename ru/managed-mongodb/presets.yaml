@@ -5,12 +5,12 @@ default:
   policy: keep
   versions:
     tf:
-      latest: '6.0'
-      str: 5.0, 6.0, 5.0-enterprise или 6.0-enterprise
+      latest: '7.0'
+      str: 5.0, 6.0 или 7.0
     cli:
-      latest: '6.0'
-      str: 5.0, 6.0, 5.0-enterprise или 6.0-enterprise
+      latest: '7.0'
+      str: 5.0, 6.0 или 7.0
     console:
-      latest: '6.0'
-      str: 5.0, 6.0, 5.0-enterprise и 6.0-enterprise
+      latest: '7.0'
+      str: 5.0, 6.0 и 7.0
   shell-link: https://www.mongodb.com/try/download/shell

@@ -67,7 +67,7 @@ To create a [{{ managed-k8s-name }} node group](../../managed-kubernetes/concept
 
 1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_access }}**, configure one of the methods of connecting to nodes in a {{ managed-k8s-name }} node group:
 
-   * To connect to nodes via {{ oslogin }}, select the **{{ ui-key.yacloud.compute.instances.create.field_os-login-access-method }}** option.
+   * To connect to nodes via {{ oslogin }}, select the **{{ ui-key.yacloud.k8s.node-group.access-method.field_os-login-access-method }}** option.
 
       If you select this option, you will be unable to specify SSH keys because these connection methods are mutually exclusive.
 

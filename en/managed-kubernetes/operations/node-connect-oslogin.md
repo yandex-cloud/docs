@@ -50,7 +50,7 @@ Set up your cluster node for connection:
         1. Go to the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** tab.
         1. Select the required node group.
         1. Click **{{ ui-key.yacloud.common.edit }}** in the top-right corner.
-        1. Select **{{ ui-key.yacloud.compute.instances.create.field_os-login-access-method }}**.
+        1. Select **{{ ui-key.yacloud.k8s.node-group.access-method.field_os-login-access-method }}**.
 
             {% include [note-oslogin-ssh-warning](../../_includes/managed-kubernetes/note-oslogin-ssh-warning.md) %}
 

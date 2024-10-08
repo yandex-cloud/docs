@@ -260,7 +260,7 @@ If you already have a virtual machine, [add](../../compute/operations/vm-control
 
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**:
 
-      1. Disable the **{{ ui-key.yacloud.compute.instances.create.field_os-login-access-method }}** option.
+      1. Disable the **{{ ui-key.yacloud.compute.instance.access-method.field_os-login-access-method }}** option.
       1. In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the username: `test`.
       1. In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file.
 

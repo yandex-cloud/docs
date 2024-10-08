@@ -5973,16 +5973,7 @@ default:
             label_title: Usage details
             popup-csv_button_download: Download
             tab_product: By product
-          reconciliation-reports:
-            action_download-with-facsimile: Download signed report
-            action_download-without-facsimile: Download unsigned report
-            action_request-report: Request reconciliation report
-            action_request-report-short: Request
-            field_actions: Actions
-            value_completed: Done
-          switch_acts: Reporting documents
           switch_detail: Usage details
-          tab_reconciliation-reports-title: Reconciliation reports
         label_accounts: Accounts
         label_service: Billing
       cdn:
@@ -6506,6 +6497,8 @@ default:
           popup-upload_button_upload: Upload
           popup-upload_field_pooled: Optimize for deployment
         instance:
+          access-method:
+            field_os-login-access-method: Access by OS Login
           console:
             connect: Connect
           edit-network-interface:
@@ -6568,7 +6561,6 @@ default:
             field_instance-group-address: Public address
             field_instance-group-network: Network
             field_key: SSH key
-            field_os-login-access-method: Access by OS Login
             field_security-groups: Security groups
             field_serial-port-enable: Access to serial console
             field_service-account: Service account
@@ -7097,6 +7089,8 @@ default:
           button_create: Create
           popup-add_field_name: Name
         node-group:
+          access-method:
+            field_os-login-access-method: Access by OS Login
           overview:
             label_network-hdd: HDD
             label_network-ssd: SSD
@@ -8593,6 +8587,21 @@ default:
                         title: Name
                       type:
                         title: Type
+                    Connection:
+                      authorization_connman:
+                        title: Connection Manager
+                      authorization_plain:
+                        title: Self-managed
+                      authorization_type:
+                        title: Connection type
+                      connection_type:
+                        title: Installation type
+                      database:
+                        title: Database
+                      password:
+                        title: Password
+                      user:
+                        title: User
                     ConvertRecordOptions:
                       add_rest_column:
                         title: Add a column for missing keys
@@ -9188,22 +9197,8 @@ default:
                       subnet_id:
                         title: Subnet ID
                     PostgresConnection:
-                      authorization_connman:
-                        title: Connection Manager
-                      authorization_plain:
-                        title: Self-managed
-                      authorization_type:
-                        title: Connection type
-                      connection_type:
-                        title: Installation type
-                      database:
-                        title: Database
-                      password:
-                        title: Password
                       security_groups:
                         title: Security groups
-                      user:
-                        title: User
                     PostgresConnectionType:
                       mdb_cluster_id:
                         title: Managed Service for PostgreSQL cluster

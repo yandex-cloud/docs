@@ -2,25 +2,41 @@ title: Yandex Smart Web Security
 description:
   - >-
     With Yandex Smart Web Security, you can protect your infrastructure from
-    DDoS attacks at the application level (L7).
+    DDoS and bot attacks at the application level (L7).
+  - null
+  - >-
+    WAF and ARL are at the <a
+    href="/docs/overview/concepts/launch-stages">Preview</a> stage.
 meta:
   title: Yandex Smart Web Security
 links:
   - title: Getting started
     description: Create your first security profile and connect it to the L7 load balancer
-    href: quickstart
+    href: quickstart/
   - title: Step-by-step guides
     description: How to perform routine operations
     href: operations/
   - title: Concepts
     description: Learn about L7 security profiles, basic rules, and smart protection rules
     href: concepts/
+  - title: WAF
+    description: Learn more about Web Application Firewall
+    href: concepts/waf
+  - title: ARL
+    description: Learn how Advanced Rate Limiter works
+    href: concepts/arl
+  - title: Tutorials
+    description: Leverage out-of-the-box use cases to protect your web apps
+    href: tutorials/balancer-with-sws-profile
   - title: Quotas and limits
-    description: Technical and organizational limitations of the service
+    description: Technical and organizational restrictions
     href: concepts/limits
   - title: Access management
-    description: Set up access rights to work with the service
+    description: Set up access permissions to work with the service
     href: security/
   - title: Pricing policy
     description: Service pricing and cost calculations
     href: pricing
+  - title: API reference
+    description: HTTP API method descriptions
+    href: api-ref/
