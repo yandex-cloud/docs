@@ -1,3 +1,7 @@
+---
+canonical: '{{ link-docs }}/tutorials/dataplatform/mch-mch-resharding'
+---
+
 # Data resharding in a {{ mch-name }} cluster
 
 {% include notitle [Data resharding MCH](../../_tutorials/dataplatform/datatransfer/mch-mch-resharding.md) %}

@@ -14,6 +14,8 @@ To upload a [video](./concepts/index.md#videos) to a service [channel](./concept
 1. [Publish your video](#publish-video).
 1. [Check if the video is available](#test).
 
+{% include [link-to-api-quickstart](../_includes/video/link-to-api-quickstart.md) %}
+
 ## Prepare your cloud {#before-you-begin}
 
 {% include [before-you-begin](../_includes/video/before-you-begin.md) %}
@@ -32,12 +34,12 @@ To upload a [video](./concepts/index.md#videos) to a service [channel](./concept
     {{ video-name }} [limits](./concepts/limits.md) the resolution of the videos you are publishing.
 
 1. **{{ ui-key.yacloud_video.videos.label_title }}** your video. The title will be displayed on all the resources hosting the video.
-1. In the **{{ ui-key.yacloud_video.videos.label_accessRights }}** field, define the access permissions for the video:
+1. In the **{{ ui-key.yacloud_video.videos.label_accessRights }}** field, set the access permissions for the video:
 
     * `{{ ui-key.yacloud_video.videos.label_access_rights-auth-system-access }}`: Video will be available to users authorized in your organization.
     * `{{ ui-key.yacloud_video.videos.label_access_rights-public }}`: Video will be publicly available.
 
-1. Optionally, to add a cover for your video, in the **{{ ui-key.yacloud_video.thumbnails.label_thumbnail }}** field, click ![upload](../_assets/console-icons/cloud-arrow-up-in.svg) **Select file** and choose a cover image.
+1. Optionally, to add a cover for a video, in the **{{ ui-key.yacloud_video.thumbnails.label_thumbnail }}** field, click ![upload](../_assets/console-icons/cloud-arrow-up-in.svg) **Select file** and choose a cover image.
 
     {% include [image-characteristic](../_includes/video/image-characteristic.md) %}
 

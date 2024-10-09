@@ -1,0 +1,1 @@
+You can set multiple values for each condition key at the same time. These values will be checked using the `OR` logic. This means the request must match any of the specified condition key values.

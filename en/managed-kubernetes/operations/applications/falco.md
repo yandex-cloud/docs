@@ -23,11 +23,11 @@ To use Falco, install [Kyverno](/marketplace/products/yc/kyverno) or another pro
 ## Installation using {{ marketplace-full-name }} {#marketplace-install}
 
 1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-1. Click the [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) name and select the ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
+1. Click the name of the [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) you need and select the ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
 1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [Falco](/marketplace/products/yc/falco) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Configure the application:
    * **Namespace**: Select or create a [namespace](../../concepts/index.md#namespace) for Falco.
-   * **Application name**: Enter a name for the application.
+   * **Application name**: Specify the app name.
 1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
 1. Wait for the application to change its status to `Deployed`.
 
@@ -40,7 +40,6 @@ To use Falco, install [Kyverno](/marketplace/products/yc/kyverno) or another pro
 1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with Falco, run the following command:
 
    ```bash
-   export HELM_EXPERIMENTAL_OCI=1 && \
    helm pull oci://{{ mkt-k8s-key.yc_falco.helmChart.name }} \
      --version {{ mkt-k8s-key.yc_falco.helmChart.tag }} \
      --untar && \
@@ -50,6 +49,8 @@ To use Falco, install [Kyverno](/marketplace/products/yc/kyverno) or another pro
      falco ./falco
    ```
 
+   {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
+
 ## See also {#see-also}
 
-* [Falco documentation](https://falco.org/docs/).
+* [Falco documentation](https://falco.org/docs/)

@@ -43,7 +43,7 @@ Free tier applies to the following services:
 
 ## {{ api-gw-full-name }} {#api-gw}
 
-[{{ api-gw-full-name }}](../../api-gateway/quickstart/) is a service for managing API gateways that supports [OpenAPI Specification 3.0](https://github.com/OAI/OpenAPI-Specification) and a set of extensions for interacting with other cloud services.
+[{{ api-gw-full-name }}](../../api-gateway/quickstart/) is an API gateway management service supporting [OpenAPI 3.0](https://github.com/OAI/OpenAPI-Specification) and extensions for compatibility with other cloud services.
 
 {% include [not-charged-gateway.md](../../_includes/pricing/price-formula/not-charged-gateway.md) %}
 
@@ -99,7 +99,7 @@ After you spend the free amount of services, you will be charged at the applicab
 
 ## {{ container-registry-full-name }} {#cr}
 
-[{{ container-registry-full-name }}](../../container-registry/quickstart/) is a Docker image storage and distribution service.
+[{{ container-registry-full-name }}](../../container-registry/quickstart/) is a service for storing and distributing Docker images.
 
 {% include [not-charged-cr.md](../../_includes/pricing/price-formula/not-charged-cr.md) %}
 
@@ -181,7 +181,7 @@ After you spend the free amount of services, you will be charged at the applicab
 
 ## {{ message-queue-full-name }} {#message-queue}
 
-[{{ message-queue-full-name }}](../../message-queue/quickstart.md) is a universal, scalable solution to enable messaging between applications. You can use popular tools to work with the service: the service API is compatible with the Amazon SQS API.
+[{{ message-queue-full-name }}](../../message-queue/quickstart.md) is a universal, scalable solution to enable messaging between applications. You can use well-known and familiar tools to work with {{ message-queue-name}}, since its API is compatible with the Amazon SQS API.
 
 {% include [not-charged-queue.md](../../_includes/pricing/price-formula/not-charged-queue.md) %}
 

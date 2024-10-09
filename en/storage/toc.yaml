@@ -29,7 +29,7 @@ items:
             href: operations/buckets/cors.md
           - name: Configuring access permissions using {{ iam-short-name }}
             href: operations/buckets/iam-access.md
-          - name: Editing a bucket ACL
+          - name: Editing a bucket's ACL
             href: operations/buckets/edit-acl.md
           - name: Access policy management
             href: operations/buckets/policy.md
@@ -37,6 +37,10 @@ items:
             href: operations/buckets/bucket-availability.md
           - name: Accessing a bucket using {{ sts-name }}
             href: operations/buckets/create-sts-key.md
+          - name: >-
+              Accessing a bucket using a service connection from {{
+              vpc-short-name }}
+            href: operations/buckets/access-via-vpc.md
           - name: Managing bucket versioning
             href: operations/buckets/versioning.md
           - name: Enabling logging
@@ -73,7 +77,7 @@ items:
             href: operations/objects/delete-all.md
           - name: Deleting a partially uploaded object
             href: operations/objects/deleting-multipart.md
-          - name: Editing an object ACL
+          - name: Editing an object's ACL
             href: operations/objects/edit-acl.md
           - name: Object label management
             href: operations/objects/tagging.md
@@ -96,12 +100,12 @@ items:
       - name: Getting object query statistics with S3 Select
         href: tutorials/server-logs.md
       - name: >-
-          Getting statistics for the requests to {{ objstorage-full-name }}
-          objects using {{ yq-full-name }}
+          Getting statistics of queries to {{ objstorage-full-name }} objects
+          using {{ yq-full-name }}
         href: tutorials/server-logs-yq.md
       - name: Getting website traffic statistics with S3 Select
         href: tutorials/user-agent-statistics.md
-      - name: Getting statistics of the requests to objects using {{ yq-full-name }}
+      - name: Getting statistics of queries to objects using {{ yq-full-name }}
         href: tutorials/server-logs-yq.md
       - name: Generating a billing report with resource break-down using S3 Select
         href: tutorials/billing-resource-detailing.md
@@ -121,6 +125,8 @@ items:
           Migrating data from {{ yds-full-name }} using {{
           data-transfer-full-name }}
         href: tutorials/yds-obj-migration.md
+      - name: Using hybrid storage in {{ mch-full-name }}
+        href: tutorials/clickhouse-hybrid-storage.md
       - name: >-
           Loading data from {{ mos-full-name }} to {{ objstorage-full-name }}
           using {{ data-transfer-full-name }}
@@ -163,6 +169,11 @@ items:
         href: tutorials/gatsby-static-website.md
       - name: Storing a static access key in a {{ lockbox-name }} secret
         href: tutorials/static-key-in-lockbox.md
+      - name: >-
+          Loading data from {{ yandex-direct }} to a {{ mch-full-name }} data
+          mart using {{ sf-full-name }}, {{ objstorage-full-name }}, and {{
+          data-transfer-full-name }}
+        href: tutorials/data-transfer-direct-to-mch.md
       - name: Migrating data from {{ ES }} to {{ mos-full-name }}
         href: tutorials/elasticsearch-to-opensearch.md
       - name: Uploading {{ TF }} states to {{ objstorage-name }}

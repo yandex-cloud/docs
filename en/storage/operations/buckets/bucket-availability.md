@@ -1,13 +1,13 @@
 ---
-title: Configuring public access to operations with a {{ objstorage-full-name }} bucket
-description: Follow this guide to configure public access to operations with a bucket.
+title: How to configure public access to bucket operations in {{ objstorage-full-name }}
+description: Follow this guide to configure public access to a bucket in {{ objstorage-name }}.
 ---
 
 # Configuring public access to a bucket
 
 {% include [full-overview](../../../_includes/storage/security/full-overview.md) %}
 
-By default, buckets are created with restricted [access](../../concepts/bucket.md#bucket-access). You can enable public access:
+By default, [buckets](../../concepts/bucket.md) are created with restricted [access](../../concepts/bucket.md#bucket-access). You can enable public access:
 
 {% include [storage-public-operations](../../_includes_service/storage-public-operations.md) %}
 
@@ -32,7 +32,7 @@ By default, buckets are created with restricted [access](../../concepts/bucket.m
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. View a description of the CLI command to update a bucket:
+  1. See the description of the CLI command to update a bucket:
 
       ```bash
       yc storage bucket update --help
@@ -182,7 +182,7 @@ If your bucket has access policies, you will also need to [configure](./policy.m
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. View a description of the CLI command to update a bucket:
+  1. See the description of the CLI command to update a bucket:
 
       ```bash
       yc storage bucket update --help
@@ -204,7 +204,7 @@ If your bucket has access policies, you will also need to [configure](./policy.m
       +------------------+----------------------+-------------+-----------------------+---------------------+
       ```
 
-   1. Using the `NAME` column, save the name of the bucket to which you need to disable public access.
+   1. Using the `NAME` column, save the name of the bucket to which you want to disable public access.
    1. Disable public access to operations with the bucket.
 
       ```bash
@@ -221,7 +221,7 @@ If your bucket has access policies, you will also need to [configure](./policy.m
       * `--public-list`: Flag to manage public access to view the list of bucket objects. To disable public access, set it to `false`.
       * `--public-config-read`: Flag to manage public access to read bucket configuration. To disable public access, set it to `false`.
 
-      `name`: Required parameter Other parameters are optional. By default, no public access to buckets is allowed.
+      `name`: Required parameter. Other parameters are optional. By default, no public access to buckets is allowed.
 
       Result:
 

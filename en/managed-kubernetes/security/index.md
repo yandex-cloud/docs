@@ -1,6 +1,6 @@
 ---
 title: Access management in {{ managed-k8s-name }}
-description: Access management in {{ managed-k8s-name }}, a service for running containerized applications. The section describes for which resources you can grant a role, which roles are used in the service, which roles are needed for service accounts of a {{ managed-k8s-name }} cluster, which roles you need to work with {{ managed-k8s-name }} from the {{ yandex-cloud }} management console.
+description: Access management in {{ managed-k8s-name }}, a containerized application management system. This section describes the resources for which you can assign a role, the roles existing in the service, the roles required for the {{ managed-k8s-name }} cluster service accounts, and the roles required to work with {{ managed-k8s-name }} from the {{ yandex-cloud }} management console.
 ---
 
 # Access management in {{ managed-k8s-name }}
@@ -9,7 +9,7 @@ In this section, you will learn:
 * [Which resources you can assign a role for](#resources).
 * [Which roles exist in the service](#roles-list).
 * [Which roles are required for managing {{ managed-k8s-name }}](#required-roles).
-* [What roles are required for {{ managed-k8s-name }} cluster service accounts](#sa-annotation).
+* [What roles are required for the {{ managed-k8s-name }} cluster service accounts](#sa-annotation).
 * [What roles are required to work with {{ managed-k8s-name }} via the {{ yandex-cloud }} management console](#ui-annotation).
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
@@ -56,14 +56,14 @@ To manage a {{ managed-k8s-name }} cluster and a node group without public acces
 
 To manage a {{ managed-k8s-name }} cluster and a node group with public access, you need the following roles:
 * `k8s.clusters.agent`
-* `{{ roles-vpc-public-admin }}`.
+* `{{ roles-vpc-public-admin }}`
 
 To manage a {{ managed-k8s-name }} cluster with a cloud network from a different folder, you will additionally need the following roles in this folder:
 * [{{ roles-vpc-private-admin }}](../../vpc/security/index.md#vpc-private-admin)
 * [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user)
 * [vpc.bridgeAdmin](../../vpc/security/index.md#vpc-bridge-admin)
 
-To create a {{ managed-k8s-name }} cluster with [tunnel mode](../concepts/network-policy.md#cilium), you only need the `k8s.tunnelClusters.agent` role.
+To manage a {{ managed-k8s-name }} cluster with [tunnel mode](../concepts/network-policy.md#cilium), you only need the `k8s.tunnelClusters.agent` role.
 
 #### k8s.viewer {#k8s-viewer}
 
@@ -99,6 +99,48 @@ To create a {{ managed-k8s-name }} cluster with [tunnel mode](../concepts/networ
 
 {% include notitle [roles-admin](../../_roles/primitive-roles/admin.md) %}
 
+{% note info %}
+
+With {{ k8s }} RBAC, you can provide users with granular access to the cluster namespaces.
+
+{% cut "Example" %}
+
+1. In your cluster, create a role to manage all resources in the specified namespace:
+
+    ```yaml
+    apiVersion: rbac.authorization.k8s.io/v1
+    kind: Role
+    metadata:
+      namespace: <namespace>
+      name: <role_name>
+    rules:
+    - apiGroups: [""]
+      resources: ["*"]
+      verbs: ["*"]
+
+1. Bind this role to a user account:
+
+    ```yaml
+    apiVersion: rbac.authorization.k8s.io/v1
+    kind: RoleBinding
+    metadata:
+      name: iam-user
+      namespace: <namespace>
+    roleRef:
+      apiGroup: rbac.authorization.k8s.io
+      kind: Role
+      name: <role_name>
+    subjects:
+    - kind: User
+      name: <account_name>
+    ```
+
+Check creating resources in the cluster. In other namespaces, the user will have no permissions to create or edit resources.
+
+{% endcut %}
+
+{% endnote %}
+
 ## Roles required for creating a {{ managed-k8s-name }} {#required-roles}
 
 When creating a {{ managed-k8s-name }} cluster and a node group, make sure that the [account](../../iam/concepts/users/accounts.md) used for creating the cluster has these [roles](../../iam/concepts/access-control/roles.md):
@@ -110,7 +152,7 @@ To create a {{ managed-k8s-name }} cluster and node group with public access, yo
 ## {{ managed-k8s-name }} cluster service accounts {#sa-annotation}
 
 When creating a cluster in {{ managed-k8s-name }}, specify two [service accounts](../../iam/concepts/users/service-accounts.md):
-* **Cluster service account**: On behalf of this service account, {{ managed-k8s-name }} manages cluster nodes, [subnets](../../vpc/concepts/network.md#subnet) for [pods](../concepts/index.md#pod) and [services](../concepts/index.md#service), [disks](../../compute/concepts/disk.md), [load balancers](../../network-load-balancer/concepts/index.md), encrypts and decrypts [secrets](../../lockbox/concepts/secret.md). The minimum recommended role for this account is `k8s.clusters.agent`.
+* **Cluster service account**: On behalf of this service account, {{ managed-k8s-name }} manages cluster nodes, [subnets](../../vpc/concepts/network.md#subnet) for [pods](../concepts/index.md#pod) and [services](../concepts/index.md#service), [disks](../../compute/concepts/disk.md), [load balancers](../../network-load-balancer/concepts/index.md), encrypts and decrypts [secrets](../../lockbox/concepts/secret.md). The minimum recommended role for such an account is `k8s.clusters.agent`.
 * **Node group service account**: On behalf of this service account, {{ managed-k8s-name }} cluster nodes are authenticated in [{{ container-registry-full-name }}](../../container-registry/concepts/index.md). To deploy applications in a {{ managed-k8s-name }} cluster using [Docker images](../../container-registry/concepts/docker-image.md) from {{ container-registry-name }}, grant to this account any [service role](../../container-registry/security/index.md#service-roles). If you use a different container registry, you can skip assigning roles to this service account.
 
 To manage a {{ managed-k8s-name }} cluster and node groups with public access, you will also need the `{{ roles-vpc-public-admin }}` role.
@@ -124,23 +166,23 @@ If you use a cloud network from a different folder in a {{ managed-k8s-name }} c
 
 To access {{ managed-k8s-name }} via the {{ yandex-cloud }} [management console]({{ link-console-main }}), the minimum required role is `k8s.viewer`.
 
-To get detailed information about a {{ managed-k8s-name }} cluster and node group, you will need the additional `k8s.cluster-api.viewer` role. This role corresponds to the `viewer` role in {{ k8s }} RBAC and grants permissions to a limited set of resources in the {{ k8s }} API, so the console's features are limited.
+To get detailed information about a {{ managed-k8s-name }} cluster and a node group, you will need the additional `k8s.cluster-api.viewer` role. This role corresponds to the `view` role in {{ k8s }} RBAC and grants access permissions to a limited pool of resources in the {{ k8s }} API, so the console will have a limited set of features.
 
 Users with the `k8s.cluster-api.cluster-admin` role have full access to the {{ managed-k8s-name }} cluster's {{ k8s }} API and can use all the management console features.
 
 To provide more granular access to the necessary resources, you can:
 * Configure additional permissions in {{ k8s }} RBAC for the appropriate users.
-* Expand the `view` and `edit` role in {{ k8s }} RBAC using [role aggregation](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#user-facing-roles). For example, you can allow all users with the `view` role in the {{ k8s }} API (including users with the `k8s.cluster-api.viewer` cloud role) to view information about nodes by adding the following role to the {{ managed-k8s-name }} cluster:
+* Use [role aggregation](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#user-facing-roles) to expand the `view` and `edit` roles in {{ k8s }} RBAC. For example, you can allow all users with the `view` role in the {{ k8s }} API (including users with the `k8s.cluster-api.viewer` cloud role) to view information about nodes by adding the following role to the {{ managed-k8s-name }} cluster:
 
-   ```yaml
-   apiVersion: rbac.authorization.k8s.io/v1
-   kind: ClusterRole
-   metadata:
-     name: view-extensions
-     labels:
-       rbac.authorization.k8s.io/aggregate-to-view: "true"
-   rules:
-   - apiGroups: [""]
-     resources: ["nodes"]
-     verbs: ["get", "list", "watch"]
-   ```
+  ```yaml
+  apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRole
+  metadata:
+    name: view-extensions
+    labels:
+      rbac.authorization.k8s.io/aggregate-to-view: "true"
+  rules:
+  - apiGroups: [""]
+    resources: ["nodes"]
+    verbs: ["get", "list", "watch"]
+  ```

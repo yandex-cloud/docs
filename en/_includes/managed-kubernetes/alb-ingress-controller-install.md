@@ -42,7 +42,7 @@ To balance the load and distribute traffic between {{ k8s }} applications, use a
    * **Service account key**: Paste the contents of the `sa-key.json` file.
    * **Enable default health checks**: Select this option to install the [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) resource in the node group network for application health checks.
 
-      The resource adds pods with traffic monitoring agents to each node. As a result, node and namespace isolation does not affect monitoring, which means you get accurate traffic monitoring info. DaemonSet adds or removes monitoring agents as the number of cluster nodes rises or declines.
+      As a result, node and namespace isolation does not affect monitoring, which means you get accurate traffic monitoring info. DaemonSet adds or removes monitoring agents as the number of cluster nodes goes up or down, respectively.
 
       You can omit this option if you do not need to run cluster health checks or if you are using your own checks. For more information on setting up health checks manually, see [{#T}](../../managed-kubernetes/tutorials/custom-health-checks.md).
 
@@ -66,7 +66,6 @@ To balance the load and distribute traffic between {{ k8s }} applications, use a
 
 
    ```bash
-   export HELM_EXPERIMENTAL_OCI=1 && \
    cat sa-key.json | helm registry login {{ registry }} --username 'json_key' --password-stdin && \
    helm pull oci://{{ mkt-k8s-key.yc_alb-ingress-controller.helmChart.name }} \
      --version {{ mkt-k8s-key.yc_alb-ingress-controller.helmChart.tag }} \
@@ -81,9 +80,11 @@ To balance the load and distribute traffic between {{ k8s }} applications, use a
      yc-alb-ingress-controller ./yc-alb-ingress-controller-chart/
    ```
 
-   The `enableDefaultHealthChecks` parameter enables health checks for applications in a cluster. To that end, the Ingress controller sets up the [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) resource in the node group network.
+   {% include [Support OCI](../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 
-   The resource adds pods with traffic monitoring agents to each node. As a result, node and namespace isolation does not affect monitoring, which means you get accurate traffic monitoring info. DaemonSet adds or removes monitoring agents as the number of cluster nodes rises or declines.
+   The `enableDefaultHealthChecks` parameter enables health checks for applications in a cluster. To that end, the Ingress controller installs the [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) resource in the node group network.
+
+   The resource adds pods with traffic monitoring agents to each node. As a result, node and namespace isolation does not affect monitoring, which means you get accurate traffic monitoring info. DaemonSet adds or removes monitoring agents as the number of cluster nodes goes up or down, respectively.
 
    You can omit this option if you do not need to run cluster health checks or if you are using your own checks. For more information on setting up health checks manually, see [{#T}](../../managed-kubernetes/tutorials/custom-health-checks.md).
 

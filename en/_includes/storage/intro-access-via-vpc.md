@@ -1,0 +1,1 @@
+To make {{ objstorage-name }} buckets accessible from {{ vpc-short-name }} cloud networks directly, use a [{{ vpc-short-name }} service connection](../../vpc/concepts/private-endpoint.md). With this connection, {{ objstorage-name }} is accessible via {{ vpc-short-name }} [internal IP addresses](../../vpc/concepts/address.md#internal-addresses), no Internet access needed.

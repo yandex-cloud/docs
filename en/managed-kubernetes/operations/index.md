@@ -30,6 +30,7 @@ description: In this article, you will learn how to work with the managed servic
 * [{#T}](applications/falco.md)
 * [{#T}](applications/filebeat-oss.md)
 * [{#T}](applications/fluentbit.md)
+* [{#T}](applications/gatekeeper.md)
 * [{#T}](applications/gateway-api.md)
 * [{#T}](applications/gitlab-agent.md)
 * [{#T}](applications/gitlab-runner.md)

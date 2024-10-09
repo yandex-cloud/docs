@@ -1,6 +1,6 @@
 # Disks
 
-In {{ cloud-desktop-name }}, _disks_ are virtual counterparts of physical storage devices, such as SSDs and HDDs.
+_Disks_ are virtual counterparts of physical storage devices, such as SSDs and HDDs.
 
 Disks are designed to store data and are attached to [desktops](desktops-and-groups.md) as [network block devices](https://en.wikipedia.org/wiki/Network_block_device). In case you stop a desktop, its data will be still there.
 
@@ -18,7 +18,7 @@ A boot disk contains OS files and desktop software components.
 
 You cannot edit the boot disk configuration after creating a desktop group.
 
-In case you update the desktop group [image](images.md), this will delete all data on the boot disk.
+Updating an [image](images.md), working disk size, vCPU, vCPU and RAM share will delete all data on the boot disk.
 
 ## Working disk {#working-disk}
 

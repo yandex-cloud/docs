@@ -27,7 +27,7 @@ The {{ objstorage-name }} usage cost is based on:
 
 ### Using storage {#rules-storage}
 
-Storage usage is measured in GB per month. The volume of data stored during a month is taken as the month's average based on granulated per-second data. The minimum billing unit is 1 hour of storing 1 MB of data.
+Storage usage is measured in GB per month. The volume of data stored during a month is taken as the month's average based on granulated per-second data. The minimum billing unit is **1 hour of storing 1 MB of data**.
 
 ### Performing operations with data {#rules-operations}
 

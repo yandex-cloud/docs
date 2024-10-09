@@ -1,7 +1,8 @@
-> 8 × $0.017760 = $0.142080
+> 8 × {{ sku|USD|alb.balancer.active|string }} = {% calc [currency=USD] 8 × {{ sku|USD|alb.balancer.active|number }} %}
 >
-> Total: $0.142080, cost of using a load balancer per hour.
+> Total: {% calc [currency=USD] 8 × {{ sku|USD|alb.balancer.active|number }} %}, cost of using a load balancer per hour.
 
 Where:
+
 * 8: Number of resource units.
-* $0.017760: Price per resource unit.
+* {{ sku|USD|alb.balancer.active|string }}: Price per resource unit.

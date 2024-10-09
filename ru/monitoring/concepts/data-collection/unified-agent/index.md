@@ -1,7 +1,18 @@
 # Агент для поставки метрик
 
 
-@[youtube](https://youtu.be/EY6c_6YYF10)
+{% list tabs %}
+
+- VK
+
+  <iframe src="https://vk.com/video_ext.php?oid=-200452713&id=456239453&hash=1cd0d8eb71fb0296" width="640" height="360" frameborder="0" allowfullscreen="1" allow="autoplay; encrypted-media; fullscreen; picture-in-picture"></iframe>
+
+- YouTube
+
+  @[youtube](https://youtu.be/EY6c_6YYF10)
+
+{% endlist %}
+
 
 
 {{ unified-agent-full-name }} — агент для поставки дополнительных метрик виртуальных машин и пользовательских приложений в сервис {{ monitoring-full-name }}.

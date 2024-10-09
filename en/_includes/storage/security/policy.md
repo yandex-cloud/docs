@@ -45,7 +45,13 @@ Principal
 
 Condition
 
-: Establishes the cases in which the rule will apply. For more information, see [Conditions](../../../storage/s3/api-ref/policy/conditions.md).
+: Establishes the cases in which the rule will apply.
+
+  If multiple conditions are specified simultaneously for a rule or multiple keys are specified simultaneously within a single condition, then such conditions and keys will apply with the `AND` logic.
+  
+  If multiple values are specified simultaneously for one condition key, such values will apply with the `OR` logic.
+  
+  For more information, see [Conditions](../../../storage/s3/api-ref/policy/conditions.md).
 
 ## Bucket access via the management console {#console-access}
 
