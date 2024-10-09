@@ -1,0 +1,1 @@
+You can set multiple conditions for a rule and specify multiple keys for each one. These conditions and their keys will be checked using the `AND` logic. This means the request must meet all the specified criteria at once.

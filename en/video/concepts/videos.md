@@ -58,3 +58,8 @@ The following viewing statistics are currently available:
     Each point on the heat map corresponds to a 30-second video fragment.
 
     On the heat map, the fact of video fragment playback is counted as a view regardless of playback duration. For example, if you start a video and stop it right away, a view will be counted for the first fragment of the video.
+
+## See also {#see-also}
+
+* [Getting started with video hosting](../hosting.md)
+* [Getting started with API](../api-ref/quickstart.md)

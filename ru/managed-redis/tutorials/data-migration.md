@@ -1,3 +1,7 @@
+---
+canonical: '{{ link-docs }}/tutorials/dataplatform/redis-data-migration'
+---
+
 # Миграция базы данных из стороннего кластера {{ RD }}
 
 

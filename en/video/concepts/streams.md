@@ -58,4 +58,9 @@ You can upload custom covers for your lines. A cover will be displayed in the {{
 
 ## Episodes {#episodes}
 
-To split a broadcast into multiple parts, use _episodes_ that are broadcast time intervals. For example, to only embed a part of your broadcast in a site, select it as an episode. The default episode is the entire broadcast.
+To split a broadcast into multiple parts, use _episodes_, i.e., time segments of the broadcast. For example, to embed only a portion of the broadcast on a site, make this portion into an episode. The default episode is the whole broadcast.
+
+## See also {#see-also}
+
+* [Getting started with video streaming](../streaming.md)
+* [Getting started with API](../api-ref/quickstart.md)

@@ -1,7 +1,8 @@
-> 8 × 11,10 ₸ = 88,80 ₸
+> 8 × {{ sku|KZT|alb.balancer.active|string }} = {% calc [currency=KZT] 8 × {{ sku|KZT|alb.balancer.active|number }} %}
 >
-> Итого: 88,80 ₸ — стоимость часа использования балансировщика.
+> Итого: {% calc [currency=KZT] 8 × {{ sku|KZT|alb.balancer.active|number }} %} — стоимость часа использования балансировщика.
 
 Где:
+
 * 8 — количество ресурсных единиц.
-* 11,10 ₸ — цена ресурсной единицы.
+* {{ sku|KZT|alb.balancer.active|string }} — цена ресурсной единицы.

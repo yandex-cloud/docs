@@ -1,7 +1,8 @@
-> 17,76 ₽ × 720 = 12 787,20 ₽
+> {% calc [currency=RUB] 8 × {{ sku|RUB|alb.balancer.active|number }} %} × 720 = {% calc [currency=RUB] 8 × {{ sku|RUB|alb.balancer.active|number }} × 720 %}
 >
-> Итого: 12 787,20 ₽ — стоимость использования балансировщика за месяц.
+> Итого: {% calc [currency=RUB] 8 × {{ sku|RUB|alb.balancer.active|number }} × 720 %} — стоимость использования балансировщика за месяц.
 
 Где:
-* 17,76 ₽ — стоимость часа использования балансировщика.
+
+* {% calc [currency=RUB] 8 × {{ sku|RUB|alb.balancer.active|number }} %} — стоимость часа использования балансировщика.
 * 720 — количество часов в месяц.

@@ -838,6 +838,7 @@ default:
       translate|string: "2\_461,00\_₸"
   sku|KZT|alb:
     balancer:
+      active|number: 11,10
       active|string: "11,10\_₸"
   sku|KZT|api-gateway:
     requests:
@@ -1953,6 +1954,7 @@ default:
       translate|string: "492,20\_₽"
   sku|RUB|alb:
     balancer:
+      active|number: 2,22
       active|string: "2,22\_₽"
   sku|RUB|api-gateway:
     requests:
@@ -3068,6 +3070,7 @@ default:
       translate|string: "3,937600\_$"
   sku|USD|alb:
     balancer:
+      active|number: 0,017760
       active|string: "0,017760\_$"
   sku|USD|api-gateway:
     requests:

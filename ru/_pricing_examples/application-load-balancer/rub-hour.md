@@ -1,7 +1,8 @@
-> 8 × 2,22 ₽ = 17,76 ₽
+> 8 × {{ sku|RUB|alb.balancer.active|string }} = {% calc [currency=RUB] 8 × {{ sku|RUB|alb.balancer.active|number }} %}
 >
-> Итого: 17,76 ₽ — стоимость часа использования балансировщика.
+> Итого: {% calc [currency=RUB] 8 × {{ sku|RUB|alb.balancer.active|number }} %} — стоимость часа использования балансировщика.
 
 Где:
+
 * 8 — количество ресурсных единиц.
-* 2,22 ₽ — цена ресурсной единицы.
+* {{ sku|RUB|alb.balancer.active|string }} — цена ресурсной единицы.

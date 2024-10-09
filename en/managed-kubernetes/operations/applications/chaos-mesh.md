@@ -15,17 +15,17 @@ Test failure scenarios on a test cluster first to make sure they do not affect t
 
 1. {% include [check-sg-prerequsites](../../../_includes/managed-kubernetes/security-groups/check-sg-prerequsites-lvl3.md) %}
 
-   {% include [sg-common-warning](../../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+    {% include [sg-common-warning](../../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
 ## Installation using {{ marketplace-full-name }} {#marketplace-install}
 
 1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-1. Click the [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) name and select the ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
+1. Click the name of the [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) you need and select the ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
 1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [Chaos Mesh](/marketplace/products/yc/chaos-mesh) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Configure the application:
 
    * **Namespace**: Select or create a [namespace](../../concepts/index.md#namespace) for Chaos Mesh.
-   * **Application name**: Enter a name for the application.
+   * **Application name**: Specify the app name.
 
 1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
 1. Wait for the application to change its status to `Deployed`.
@@ -34,12 +34,10 @@ Test failure scenarios on a test cluster first to make sure they do not affect t
 
 1. {% include [helm-install](../../../_includes/managed-kubernetes/helm-install.md) %}
 1. {% include [Install and configure kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
-1. [Install the latest version of kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl) and [configure it to work with the created cluster](../connect/index.md#kubectl-connect).
 
 1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with Chaos Mesh, run this command:
 
    ```bash
-   export HELM_EXPERIMENTAL_OCI=1 && \
    helm pull oci://{{ mkt-k8s-key.yc_chaos-mesh.helmChart.name }} \
      --version {{ mkt-k8s-key.yc_chaos-mesh.helmChart.tag }} \
      --untar && \
@@ -48,6 +46,8 @@ Test failure scenarios on a test cluster first to make sure they do not affect t
      --create-namespace \
      chaos-mesh ./chaos-mesh/
    ```
+
+   {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 
 You can check the current version of the Helm chart on the [application page](/marketplace/products/yc/chaos-mesh#docker-images).
 

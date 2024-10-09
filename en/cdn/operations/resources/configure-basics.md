@@ -27,26 +27,37 @@ To edit the basic settings of a [resource](../../concepts/resource.md):
 
       {% endnote %}
 
-      To configure a [TLS certificate](../../concepts/clients-to-servers-tls.md) for a CDN resource, in the **{{ ui-key.yacloud.cdn.label_certificate-type }}** field, select one of the options:
+      * To configure a [TLS certificate](../../concepts/clients-to-servers-tls.md) for a CDN resource, in the **{{ ui-key.yacloud.cdn.label_certificate-type }}** field, select one of the options:
 
-      * `{{ ui-key.yacloud.cdn.value_certificate-no }}`: Resource will only be available over HTTP.
+          * `{{ ui-key.yacloud.cdn.value_certificate-no }}`: Resource will only be available over HTTP.
 
 
-      * `{{ ui-key.yacloud.cdn.value_certificate-custom }}`: Select a certificate. The resource will be available over HTTP and HTTPS.
+          * `{{ ui-key.yacloud.cdn.value_certificate-custom }}`: Select a certificate. The resource will be available over HTTP and HTTPS.
 
-          {% include [lets-encrypt-over](../../../_includes/cdn/lets-encrypt-over.md) %}
+              {% include [lets-encrypt-over](../../../_includes/cdn/lets-encrypt-over.md) %}
 
-          {% include [certificate-usage](../../../_includes/cdn/certificate-usage.md) %}
+              {% include [certificate-usage](../../../_includes/cdn/certificate-usage.md) %}
 
-      For more information, see [{#T}](../../concepts/clients-to-servers-tls.md).
+          For more information, see [{#T}](../../concepts/clients-to-servers-tls.md).
 
-      To restrict access to resource content with [secure tokens](../../concepts/secure-tokens.md), enable **{{ ui-key.yacloud.cdn.field_secure-key-enabled }}**:
+      * To enable [request redirection](../../concepts/http-rewrite.md) on a CDN resource:
 
-      {% include [enable-secure-token](../../../_includes/cdn/enable-secure-token.md) %}
+          1. Enable **{{ ui-key.yacloud.cdn.field_rewrite-rule-redirect }}**.
+          1. In the **{{ ui-key.yacloud.cdn.field_rewrite-rule-body }}** field, set a rule, e.g., `/(.*) /new-folder/$1`.
 
-      {% include [enable-ip-policy](../../../_includes/cdn/enable-ip-policy.md) %}
+              {% include [rewrite-rule-description](../../../_includes/cdn/rewrite-rule-description.md) %}
 
-      For more information, see [{#T}](enable-secure-token.md).
+          1. In the **{{ ui-key.yacloud.cdn.field_rewrite-rule-flag }}** field, specify the required [flag](../../concepts/http-rewrite.md#flag):
+
+              {% include [rewrite-flag-list](../../../_includes/cdn/rewrite-flag-list.md) %}
+
+      * To restrict access to resource content with [secure tokens](../../concepts/secure-tokens.md), enable **{{ ui-key.yacloud.cdn.field_secure-key-enabled }}**:
+
+          {% include [enable-secure-token](../../../_includes/cdn/enable-secure-token.md) %}
+
+          {% include [enable-ip-policy](../../../_includes/cdn/enable-ip-policy.md) %}
+
+          For more information, see [{#T}](enable-secure-token.md).
 
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -118,6 +129,17 @@ To edit the basic settings of a [resource](../../concepts/resource.md):
 
       {% include [certificate-settings-cli](../../../_includes/cdn/certificate-settings-cli.md) %}
 
+      To enable [request redirection](../../concepts/http-rewrite.md) on a CDN resource, use these parameters:
+
+      * `--rewrite-body`: Rewrite rule, e.g., `--rewrite-body '/(.*) /new-folder/$1'`.
+
+          {% include [rewrite-rule-description](../../../_includes/cdn/rewrite-rule-description.md) %}
+      * `--rewrite-flag`: [Flag](../../concepts/http-rewrite.md#flag). The possible values are:
+
+          {% include [rewrite-flag-list](../../../_includes/cdn/rewrite-flag-list.md) %}
+
+      To disable [request redirection](../../concepts/http-rewrite.md) on a CDN resource, use the `--clear-rewrite` parameter.
+
       {% include [access-restrictions-cli](../../../_includes/cdn/access-restrictions-cli.md) %}
 
       To disable the IP-based access policy, use the `--clear-ip-address-acl` parameter.
@@ -159,9 +181,9 @@ To edit the basic settings of a [resource](../../concepts/resource.md):
      terraform apply
      ```
 
-  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+  1. Confirm the changes: type `yes` into the terminal and click **Enter**.
 
-     You can check the CDN resource update in the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/quickstart.md) command:
+     You can check the changes to the CDN resource in the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/quickstart.md) command:
 
      ```bash
      yc cdn resource list

@@ -37,6 +37,8 @@ items:
             href: operations/resources/enable-segmentation.md
           - name: Enabling origin shielding
             href: operations/resources/enable-shielding.md
+          - name: Configuring request redirection
+            href: operations/resources/setup-http-rewrite.md
           - name: Setting up access via a secure token
             href: operations/resources/enable-secure-token.md
           - name: Managing additional resource settings
@@ -101,6 +103,8 @@ items:
             href: concepts/slicing.md
           - name: Origin shielding
             href: concepts/origins-shielding.md
+      - name: Redirecting requests
+        href: concepts/http-rewrite.md
       - name: Content caching
         href: concepts/caching.md
       - name: Secure tokens

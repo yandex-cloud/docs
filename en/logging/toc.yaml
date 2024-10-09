@@ -19,7 +19,7 @@ items:
             href: operations/list.md
           - name: Getting information about a log group
             href: operations/get-group.md
-      - name: Managing log groups
+      - name: Managing a log group
         items:
           - name: Creating a log group
             href: operations/create-group.md
@@ -177,6 +177,8 @@ items:
                 href: api-ref/Sink/update.md
               - name: updateAccessBindings
                 href: api-ref/Sink/updateAccessBindings.md
+  - name: '{{ monitoring-name }} metrics'
+    href: metrics.md
   - name: '{{ at-name }} events'
     href: at-ref.md
   - name: FAQ

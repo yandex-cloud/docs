@@ -10,15 +10,17 @@ The method of working with billing accounts in {{ billing-name }} depends on whe
 
 ![](../../_assets/billing/organization.svg)
 
-For more information, refer to these sections:
+See:
 
 * [Linking a cloud](../operations/pin-cloud.md#bind-cloud-organization)
-* [Managing access](../security/index.md)
+* [Access management](../security/index.md)
 
 {% include [account-in-organization](../../_includes/billing/pay-resouces-of-another-organization.md) %}
+
+{% include [cloud-to-pin.md](../_includes/clouds-to-pin.md) %}
 
 ## Checking if your billing account is added to the organization {#check-organization}
 
 {% include [account-in-organization](../../_includes/billing/check-account-organization.md) %}
 
-If you have questions on how to manage billing accounts in an organization, [submit a request to our support team]({{ link-console-support }}).
+If you have questions on how to manage your billing account in an organization, [submit a request to our support team]({{ link-console-support }}).

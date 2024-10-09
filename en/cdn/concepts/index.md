@@ -4,7 +4,7 @@
 
 ### How CDN works
 
-1. You host your content in [origins](origins.md). As an origin, you can use your server with a domain name, a [{{ objstorage-name }} bucket](../../storage/concepts/bucket.md) or [{{ alb-name }} L7 load balancer](../../application-load-balancer/concepts/application-load-balancer.md).
+1. You keep your content in [origins](origins.md). As an origin, you can use your server with a domain name, an [{{ objstorage-name }}](../../storage/concepts/bucket.md) bucket, or an L7 [{{ alb-name }}](../../application-load-balancer/concepts/application-load-balancer.md).
 1. In {{ cdn-name }}, you create a [_resource_](resource.md) and specify in its settings the origins, domain names for content distribution, and other CDN settings.
 1. {{ cdn-name }} deploys CDN servers in many regions of the world and provides you with a domain name of the _CDN Load Balancer_ that accepts requests and passes them to the servers. You must link this name to the domain names that you use for content distribution using the CNAME type of DNS records.
 
@@ -32,6 +32,7 @@
 | [`Host` header](./servers-to-origins-host.md) | `Host` HTTP header in CDN server requests to origins. |
 | [Content segmentation](./slicing.md) | Storing large files on CDN servers in parts. |
 | [Origin shielding](./origins-shielding.md) | Using a shield server between CDN servers and origins to reduce origin load. |
+| [Redirecting requests](./http-rewrite.md) | Redirecting requests from a CDN resource to an origin using the rewrite rule. |
 | [Content caching](./caching.md) | Creating copies of files and storing them temporarily on CDN servers and/or on the client side. |
 | [Secure tokens](./secure-tokens.md) | Setting up access to files on CDN servers based on time and IP using secure tokens. |
 | [IP-based access policy](./ip-address-acl.md) | Configuring access to CDN resources using an allow or block policy. |

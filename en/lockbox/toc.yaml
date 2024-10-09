@@ -7,7 +7,7 @@ items:
     items:
       - name: All guides
         href: operations/index.md
-      - name: New Secret
+      - name: Creating secrets
         href: operations/secret-create.md
       - name: Updating a secret
         href: operations/secret-update.md
@@ -51,6 +51,11 @@ items:
         href: tutorials/gitlab-lockbox-integration.md
       - name: Storing a static access key in a {{ lockbox-name }} secret
         href: tutorials/static-key-in-lockbox.md
+      - name: >-
+          Loading data from {{ yandex-direct }} to a {{ mch-full-name }} data
+          mart using {{ sf-full-name }}, {{ objstorage-full-name }}, and {{
+          data-transfer-full-name }}
+        href: tutorials/data-transfer-direct-to-mch.md
       - name: Deploying a fault-tolerant architecture with preemptible VMs
         href: tutorials/nodejs-cron-restart-vm.md
   - name: Quotas and limits

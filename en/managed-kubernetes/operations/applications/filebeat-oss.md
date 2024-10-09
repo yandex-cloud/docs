@@ -13,14 +13,14 @@
 
 1. {% include [check-sg-prerequsites](../../../_includes/managed-kubernetes/security-groups/check-sg-prerequsites-lvl3.md) %}
 
-   {% include [sg-common-warning](../../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+    {% include [sg-common-warning](../../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
 1. Enable the compatibility mode to support the Filebeat OSS client in {{ OS }}. For this, run the following query:
 
    ```bash
    wget "{{ crt-web-path }}" && \
    curl --user <username>:<password> --cacert CA.pem \
-   --request PUT https://<DATA_host_name>:{{ port-mos }}/_cluster/settings \
+   --request PUT https://<name_of_host_with_DATA_role>:{{ port-mos }}/_cluster/settings \
    -H "Content-Type: application/json" -d \
    '{
    "persistent": {
@@ -32,7 +32,7 @@
    ```
 
    Where:
-   * `username`: {{ OS }} username.
+   * `<username>`: {{ OS }} user name.
    * `<password>`: {{ OS }} user password.
    * `<host_name>`: Name of the {{ mos-name }} host with the [DATA role](../../../managed-opensearch/concepts/host-roles.md#data), e.g., `rc1a-6khpaeo31lacqo21.mdb.yandexcloud.net`.
 
@@ -55,11 +55,11 @@
 ## Installation using {{ marketplace-full-name }} {#marketplace-install}
 
 1. Go to the [folder page]({{ link-console-main }}) and select **{{ managed-k8s-name }}**.
-1. Click the {{ managed-k8s-name }} cluster name and select the ![image](../../../_assets/marketplace.svg) **{{ marketplace-short-name }}** tab.
+1. Click the name of the {{ managed-k8s-name }} cluster you need and select the ![image](../../../_assets/marketplace.svg) **{{ marketplace-short-name }}** tab.
 1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [Filebeat OSS](/marketplace/products/yc/filebeat-oss) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Configure the application:
    * **Namespace**: Select a [namespace](../../concepts/index.md#namespace) or create a new one.
-   * **Application name**: Enter a name for the application, e.g., `filebeat-oss`.
+   * **Application name**: Specify the app name, e.g., `filebeat-oss`.
    * **{{ OS }} username**: Enter the username that Filebeat OSS will use to connect to the {{ mos-name }} cluster.
    * **{{ OS }} connection password**: Enter the user password for the {{ mos-name }} cluster.
    * **{{ OS }} FQDN**: Enter the URL and port for the {{ mos-name }} cluster host with the DATA role, e.g., `https://rc1a-6khpaeo31lacqo21.mdb.yandexcloud.net:9200`. For more information about connecting to a cluster, see the [service documentation](../../../managed-opensearch/operations/connect.md).
@@ -73,20 +73,22 @@
 1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with Filebeat OSS, run the following command:
 
    ```bash
-   export HELM_EXPERIMENTAL_OCI=1 && \
    helm pull oci://{{ mkt-k8s-key.yc_filebeat-oss.helmChart.name }} \
      --version {{ mkt-k8s-key.yc_filebeat-oss.helmChart.tag }} \
      --untar && \
    helm install \
      --namespace <namespace> \
      --create-namespace \
-     --set app.url='<URL_and_port_of_Managed_Service_for_{{ OS }}cluster_host_with_DATA_role>' \
-     --set app.username='<{{ OS }}_cluster_username>' \
+     --set app.url='<URL_and_port_for_Managed_Service_for_{{ OS }}_cluster_with_DATA_role>' \
+     --set app.username='<{{ OS }}_cluster_user_name>' \
      --set app.password='<{{ OS }}_cluster_user_password>' \
      filebeatoss ./filebeat-oss/
    ```
 
    This command will also create a new namespace required for Filebeat OSS.
+
+   {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
+
 1. Make sure the Filebeat OSS pod has changed its status to `Running`:
 
    ```bash
@@ -99,5 +101,5 @@
 
 ## See also {#see-also}
 
-* [{{ mos-name }} documentation](../../../managed-opensearch/).
-* [Filebeat documentation](https://www.elastic.co/guide/en/beats/filebeat/master/index.html).
+* [{{ mos-name }} documentation](../../../managed-opensearch/)
+* [Filebeat documentation](https://www.elastic.co/guide/en/beats/filebeat/master/index.html)

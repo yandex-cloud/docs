@@ -23,8 +23,9 @@ To apply or edit a bucket access policy:
   1. In the [management console]({{ link-console-main }}), select the folder where you need to configure a bucket access policy.
   1. Select **{{ objstorage-name }}**.
   1. Select a bucket from the list.
-  1. Click the **{{ ui-key.yacloud.storage.bucket.switch_policy }}** tab in the left-hand menu.
-  1. Click ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.storage.bucket.policy.button_policy-edit }}**.
+  1. Go to the ![image](../../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}** tab in the left-hand menu.
+  1. At the top of the screen, go to the **{{ ui-key.yacloud.storage.bucket.switch_policy }}** tab.
+  1. Click **{{ ui-key.yacloud.storage.bucket.policy.button_policy-edit }}**.
   1. Enter a bucket policy ID.
   1. Set up a rule:
      1. Enter a rule ID.
@@ -34,18 +35,23 @@ To apply or edit a bucket access policy:
         * **{{ ui-key.yacloud.storage.bucket.policy.field_user }}**: All users or specific users. To list specific users or service accounts, select their names in the drop-down list.
         * **{{ ui-key.yacloud.storage.bucket.policy.field_action }}** for which the rule is being created. You can also select the **All actions** option.
         * **{{ ui-key.yacloud.storage.bucket.policy.field_resource }}**: Selected bucket specified by default. To add other resources to the rule, click **{{ ui-key.yacloud.storage.bucket.policy.button_add-resource }}**.
-
+ 
           {% note info %}
-
+         
           {% include [policy-bucket-objects](../../../_includes/storage/policy-bucket-objects.md) %}
-
+ 
           {% endnote %}
 
-     1. Add conditions to the rule as required:
+     1. If required, add a [condition](../../s3/api-ref/policy/conditions.md) for the rule:
         * Choose **{{ ui-key.yacloud.storage.bucket.policy.field_key }}** from the list.
         * Choose **{{ ui-key.yacloud.storage.bucket.policy.field_operator }}** from the list. For the operator to apply to the existing fields, select **{{ ui-key.yacloud.storage.bucket.policy.label_if-exists }}**. This way, if a field does not exist, the conditions will be considered satisfied.
         * Enter **{{ ui-key.yacloud.storage.bucket.policy.field_value }}**.
         * Click **{{ ui-key.yacloud.storage.bucket.policy.button_add-value }}** to add another value to a condition.
+
+        {% include [conditions-combining-and](../../../_includes/storage/conditions-combining-and.md) %}
+
+        {% include [conditions-combining-or](../../../_includes/storage/conditions-combining-or.md) %}
+
   1. Add and configure rules as required.
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -55,12 +61,12 @@ To apply or edit a bucket access policy:
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. View a description of the CLI command to edit a bucket ACL:
+  1. See the description of the CLI command to edit a bucket ACL:
 
      ```bash
      yc storage bucket update --help
      ```
-
+  
   1. Describe your access policy configuration as a [data schema](../../s3/api-ref/policy/scheme.md) in JSON format:
 
      ```json
@@ -87,16 +93,20 @@ To apply or edit a bucket access policy:
        * `Effect`: Deny or allow the requested action. Possible values: `Allow` and `Deny`.
        * `Principal`: Requested permission subject ID. You can request permissions for a [user](../../../iam/operations/users/get.md), [service account](../../../iam/operations/sa/get-id.md), or [user group](../../../organization/operations/manage-groups.md). The possible values are `*` and `<subject_ID>`. This is an optional parameter.
 
-
+         
          You can get the IDs in any of the following ways:
          * [User](../../../iam/operations/users/get.md).
-         * [Service account](../../../iam/operations/sa/get-id.md).
+         * [Service account](../../../iam/operations/sa/get-id.md)
          * User group: Navigate to the [**{{ ui-key.yacloud_org.pages.groups }}**]({{ link-org-main }}groups) tab in the {{ org-name }} interface.
-
+  
 
        * `Action`: [Action](../../s3/api-ref/policy/actions.md) to allow when the policy is triggered. The possible values are `s3:GetObject`, `s3:PutObject`, and `*` (if you need to apply the policy to all actions).
        * `Resource`: Resource to apply the rule to.
        * `Condition`: [Condition](../../s3/api-ref/policy/conditions.md) to check. This is an optional parameter.
+
+         {% include [conditions-combining-and](../../../_includes/storage/conditions-combining-and.md) %}
+
+         {% include [conditions-combining-or](../../../_includes/storage/conditions-combining-or.md) %}
 
   1. Run this command:
 
@@ -164,16 +174,20 @@ To apply or edit a bucket access policy:
        * `Effect`: Deny or allow the requested action. Possible values: `Allow` and `Deny`.
        * `Principal`: Requested permission subject ID. You can request permissions for a [user](../../../iam/operations/users/get.md), [service account](../../../iam/operations/sa/get-id.md), or [user group](../../../organization/operations/manage-groups.md). The possible values are `*` and `<subject_ID>`. This is an optional parameter.
 
-
+         
          You can get the IDs in any of the following ways:
          * [User](../../../iam/operations/users/get.md).
-         * [Service account](../../../iam/operations/sa/get-id.md).
+         * [Service account](../../../iam/operations/sa/get-id.md)
          * User group: Navigate to the [**{{ ui-key.yacloud_org.pages.groups }}**]({{ link-org-main }}groups) tab in the {{ org-name }} interface.
-
+  
 
        * `Action`: [Action](../../s3/api-ref/policy/actions.md) to allow when the policy is triggered. The possible values are `s3:GetObject`, `s3:PutObject`, and `*` (if you need to apply the policy to all actions).
        * `Resource`: Resource to apply the rule to.
        * `Condition`: [Condition](../../s3/api-ref/policy/conditions.md) to check. This is an optional parameter.
+
+         {% include [conditions-combining-and](../../../_includes/storage/conditions-combining-and.md) %}
+
+         {% include [conditions-combining-or](../../../_includes/storage/conditions-combining-or.md) %}
 
      Once complete, save the configuration to a file named `policy.json`.
   1. Run this command:
@@ -248,10 +262,10 @@ To apply or edit a bucket access policy:
      Where:
 
      * `access_key`: Static access key ID.
-     * `secret_key`: Secret access key value.
+     * `secret_key`: Private access key value.
      * `bucket`: Bucket name. This is a required parameter.
      * `policy`: Policy name. This is a required parameter.
-
+     
      Policy settings:
 
      * `Version`: Version of the bucket policy description. This is an optional parameter.
@@ -259,18 +273,23 @@ To apply or edit a bucket access policy:
        * `Effect`: Deny or allow the requested action. Possible values: `Allow` and `Deny`.
        * `Principal`: Requested permission subject ID. You can request permissions for a [user](../../../iam/operations/users/get.md), [service account](../../../iam/operations/sa/get-id.md), or [user group](../../../organization/operations/manage-groups.md). The possible values are `*` and `<subject_ID>`. This is an optional parameter.
 
-
+         
          You can get the IDs in any of the following ways:
          * [User](../../../iam/operations/users/get.md).
-         * [Service account](../../../iam/operations/sa/get-id.md).
+         * [Service account](../../../iam/operations/sa/get-id.md)
          * User group: Navigate to the [**{{ ui-key.yacloud_org.pages.groups }}**]({{ link-org-main }}groups) tab in the {{ org-name }} interface.
-
+  
 
        * `Action`: [Action](../../s3/api-ref/policy/actions.md) to allow when the policy is triggered. The possible values are `s3:GetObject`, `s3:PutObject`, and `*` (if you need to apply the policy to all actions).
        * `Resource`: Resource to apply the rule to.
        * `Condition`: [Condition](../../s3/api-ref/policy/conditions.md) to check. This is an optional parameter.
 
-     For more details about resources you can create using {{ TF }}, see [the provider documentation]({{ tf-provider-link }}/).
+         {% include [conditions-combining-and](../../../_includes/storage/conditions-combining-and.md) %}
+
+         {% include [conditions-combining-or](../../../_includes/storage/conditions-combining-or.md) %}
+
+     For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
+
   1. Make sure the configuration files are correct.
      1. In the command line, go to the folder where you created the configuration file.
      1. Run a check using this command:
