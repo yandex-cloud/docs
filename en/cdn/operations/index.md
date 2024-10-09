@@ -22,6 +22,7 @@ description: This page provides a list of step-by-step guides for {{ cdn-name }}
 * [{#T}](resources/enable-compression.md)
 * [{#T}](resources/enable-segmentation.md)
 * [{#T}](resources/enable-shielding.md)
+* [{#T}](resources/setup-http-rewrite.md)
 * [{#T}](resources/enable-secure-token.md)
 * [{#T}](resources/configure-additions.md)
 * [{#T}](resources/disable-resource.md)

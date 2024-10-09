@@ -21,6 +21,7 @@ description: В данном разделе приведены описания 
 * [{{ iam-full-name }}](#iam)
 * [{{ kms-full-name }}](#kms)
 * [{{ lockbox-full-name }}](#lockbox)
+* [{{ mch-full-name }}](#mch)
 * [{{ mmg-full-name }}](#mmg)
 * [{{ mmy-full-name }}](#mmy)
 * [{{ mpg-full-name }}](#mpg)
@@ -65,6 +66,12 @@ description: В данном разделе приведены описания 
 Имя сервиса — `lockbox`.
 
 {% include [lockbox-events-dp](../../_includes/audit-trails/events/lockbox-events-dp.md) %}
+
+## {{ mch-full-name }} {#mch}
+
+Имя сервиса — `mdb.clickhouse`.
+
+{% include [mch-events-dp](../../_includes/audit-trails/events/mch-events-dp.md) %}
 
 
 ## {{ mmg-full-name }} {#mmg}

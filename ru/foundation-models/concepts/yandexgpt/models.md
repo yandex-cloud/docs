@@ -26,6 +26,8 @@
 
 Модифицированные модели делят [квоты](../limits.md#quotas) на использование со своими базовыми моделями.
 
+{% include [release-cycle](../../../_includes/foundation-models/release-cycle.md) %}
+
 ## Возможности дообучения {#tuning-abilities}
 
 {% include [tuning-abilities](../../../_includes/foundation-models/yandexgpt/tuning-abilities.md) %}

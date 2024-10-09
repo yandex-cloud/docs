@@ -10,5 +10,8 @@ items:
     href: quickstart.md
   - name: Правила тарификации
     href: pricing.md
+  - name: Документация "{{ cloudml-full-name }}"
+    href: docs.md
+    hidden: true
 base: ru/cloudai-hybrid
 deepBase: 2

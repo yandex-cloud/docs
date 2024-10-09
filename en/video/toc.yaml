@@ -76,8 +76,6 @@ items:
             href: operations/playlists/get-link.md
           - name: Deleting a playlist
             href: operations/playlists/delete.md
-      - name: Managing the video player
-        href: operations/player-control.md
       - name: Adding a member
         href: operations/add-member.md
   - name: Concepts
@@ -88,12 +86,60 @@ items:
         href: concepts/videos.md
       - name: Broadcasts
         href: concepts/streams.md
-      - name: Video Player
-        href: concepts/player.md
       - name: Playlists
         href: concepts/playlists.md
       - name: Quotas and limits
         href: concepts/limits.md
+  - name: Video Player
+    expanded: true
+    items:
+      - name: Overview
+        href: concepts/player.md
+      - name: Control
+        href: operations/player-control.md
+      - name: Troubleshooting
+        href: troubleshooting.md
+      - name: SDK
+        items:
+          - name: Overview
+            href: sdk/index.md
+          - name: IFrame
+            href: iframe-sdk.md
+          - name: JavaScript
+            items:
+              - name: Getting started
+                href: sdk/javascript/index.md
+              - name: Player initialization parameters
+                href: sdk/javascript/initialization.md
+              - name: Player methods
+                href: sdk/javascript/player-methods.md
+              - name: Player state
+                href: sdk/javascript/player-state.md
+              - name: Player events
+                href: sdk/javascript/player-events.md
+              - name: API reference
+                items:
+                  - name: Modules
+                    href: api-ref/javascript/modules.md
+                  - name: Enumerations
+                    items:
+                      - name: PlayerSdkEvents
+                        href: api-ref/javascript/enums/PlayerSdkEvents.md
+                      - name: PlayerSdkStatus
+                        href: api-ref/javascript/enums/PlayerSdkStatus.md
+                  - name: Interfaces
+                    items:
+                      - name: PlayerSdkApi
+                        href: api-ref/javascript/interfaces/PlayerSdkApi.md
+                      - name: PlayerSdkEventHandlers
+                        href: >-
+                          api-ref/javascript/interfaces/PlayerSdkEventHandlers.md
+                      - name: PlayerSdkInitConfig
+                        href: api-ref/javascript/interfaces/PlayerSdkInitConfig.md
+                      - name: PlayerSdkSourceParams
+                        href: api-ref/javascript/interfaces/PlayerSdkSourceParams.md
+                      - name: PlayerSdkState
+                        href: api-ref/javascript/interfaces/PlayerSdkState.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy
@@ -102,6 +148,8 @@ items:
     items:
       - name: Authentication with the API
         href: api-ref/authentication.md
+      - name: Getting started with the API
+        href: api-ref/quickstart.md
       - name: gRPC
         items:
           - name: Overview
@@ -226,13 +274,7 @@ items:
                 href: api-ref/Video/performAction.md
               - name: update
                 href: api-ref/Video/update.md
-  - name: Reference guide on Cloud Video Player SDK
-    items:
-      - name: IFrame
-        href: iframe-sdk.md
   - name: Release notes
     href: release-notes.md
-  - name: Troubleshooting
-    href: troubleshooting.md
 base: en/video
 deepBase: 2

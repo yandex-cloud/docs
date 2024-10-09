@@ -1,6 +1,6 @@
 ---
 title: '{{ objstorage-full-name }} tutorials'
-description: This page will guide you through the {{ objstorage-name }} tutorials.
+description: This page presents a list of {{ objstorage-name }} tutorials.
 ---
 
 # {{ objstorage-name }} tutorials
@@ -14,8 +14,9 @@ description: This page will guide you through the {{ objstorage-name }} tutorial
 * [{#T}](./data-proc-init-actions-geesefs.md)
 * [Connecting a bucket as a disk in Windows](./s3-disk-connect.md)
 * [Automatically copying objects from one bucket to another](./bucket-to-bucket.md)
-* [Regular recognition of audio files in buckets](./batch-recognition-stt.md)
+* [Regular recognition of audio files in a bucket](./batch-recognition-stt.md)
 * [Generating a billing report with resource breakdown using S3 Select](./billing-resource-detailing.md)
+* [{#T}](./clickhouse-hybrid-storage.md)
 * [Migrating data from {{ yds-full-name }} using {{ data-transfer-full-name }}](./yds-obj-migration.md)
 * [Server-side encryption](./server-side-encryption.md)
 * [Training a model in {{ ml-platform-full-name }} on data from {{ objstorage-name }}](./s3-to-datasphere.md)
@@ -33,6 +34,7 @@ description: This page will guide you through the {{ objstorage-name }} tutorial
 * [{#T}](./object-storage-to-greenplum.md)
 * [{#T}](./object-storage-to-clickhouse.md)
 * [{#T}](./object-storage-to-ydb.md)
+* [{#T}](./data-transfer-direct-to-mch.md)
 * [{#T}](./elasticsearch-to-opensearch.md)
 * [{#T}](./gatsby-static-website.md)
 * [{#T}](./static-key-in-lockbox.md)

@@ -2,7 +2,7 @@
 
 [Broadcasts](./streams.md) and [videos](./videos.md) are played in {{ video-name }} in an integrated _video player_.
 
-The support for [Cloud Video Player SDK for IFrame](../iframe-sdk.md) allows users to embed the video player to an HTML page. We are planning to add SDKs for iOS, Android, and JavaScript in future.
+You can use [SDKs](../sdk/index.md) to embed a video player into a website or application.
 
 ## Example of video player embedding on a page {#example}
 

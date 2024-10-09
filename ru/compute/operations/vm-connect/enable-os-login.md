@@ -49,6 +49,12 @@ description: Следуя данной инструкции, вы сможете
       curl https://{{ s3-storage-host }}/oslogin-configs/debian-11/config_oslogin.sh | bash
       ```
 
+    - AlmaLinux 9
+
+      ```bash
+      curl https://{{ s3-storage-host }}/oslogin-configs/almalinux-9/config_oslogin.sh | bash
+      ```
+
     {% endlist %}
 
 1. [Включите](../vm-control/vm-update.md#enable-oslogin-access) на виртуальной машине доступ по OS Login.
