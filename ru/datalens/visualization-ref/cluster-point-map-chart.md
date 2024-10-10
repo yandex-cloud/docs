@@ -19,7 +19,6 @@
 
 ![point-chart](../../_assets/datalens/visualization-ref/cluster-point-map/cluster-point-map.png)
 
-
 ## Секции в визарде {#wizard-sections}
 
 Ограничения:

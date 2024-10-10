@@ -14,7 +14,6 @@
 
 ![choropleth-map](../../_assets/datalens/visualization-ref/choropleth-map/choropleth-map.png)
 
-
 ## Секции в визарде {#wizard-sections}
 
 Секция<br/> в визарде| Описание

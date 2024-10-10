@@ -5,9 +5,11 @@ description: В данной статье описаны особенности 
 
 # POST-запросы
 
-{{ search-api-name }} позволяет выполнять поиск по поисковой базе Яндекса с заданным набором параметров и получать результат поиска в формате XML. Параметры поиска можно передавать в сервис в виде HTTP-запроса методом POST. {{ search-api-name }} формирует [ответ](./response.md) в виде документа в формате XML.
+{{ search-api-name }} позволяет выполнять запросы к поисковой базе Яндекса с заданным набором параметров. Параметры поиска можно передавать в сервис в виде HTTP-запроса методом POST. {{ search-api-name }} формирует ответ в виде документа в [формате XML](./response.md) или в [формате HTML](./html-response.md).
 
 {% include [text-search-intro](../../_includes/search-api/text-search-intro.md) %}
+
+## Формат запроса {#post-request-format}
 
 {% note warning %}
 
@@ -15,15 +17,31 @@ description: В данной статье описаны особенности 
 
 {% endnote %}
 
-## Формат запроса {#post-request-format}
+URL запроса к сервису {{ search-api-name }} различается в зависимости от того, в каком формате требуется получить результат: XML или HTML.
 
-```httpget
-https://yandex.<домен>/search/xml
-  ? [folderid=<идентификатор_каталога>]
-  & [filter=<тип_фильтрации>]
-  & [lr=<идентификатор_региона_поиска>]
-  & [l10n=<язык_уведомлений>]
-```
+{% list tabs group=search_api_request %}
+
+- XML {#xml}
+
+  ```httpget
+  https://yandex.<домен>/search/xml
+    ? [folderid=<идентификатор_каталога>]
+    & [filter=<тип_фильтрации>]
+    & [lr=<идентификатор_региона_поиска>]
+    & [l10n=<язык_уведомлений>]
+  ```
+
+- HTML {#html}
+
+  ```httpget
+  https://yandex.<домен>/search/xml/html
+    ? [folderid=<идентификатор_каталога>]
+    & [filter=<тип_фильтрации>]
+    & [lr=<идентификатор_региона_поиска>]
+    & [l10n=<язык_уведомлений>]
+  ```
+
+{% endlist %}
 
 ### Параметры запроса {#parameters}
 
@@ -96,11 +114,23 @@ Authorization: Api-Key <API-ключ>
 
 Приведенные ниже URL и тело запроса возвращают пятую страницу результатов поиска по запросу `<table>`. Результаты сортируются по времени редактирования документа в порядке от наиболее свежего к наиболее старому. Тип поиска — `{{ ui-key.yacloud.search-api.test-query.label_search_type-russian }}` (yandex.ru). Регион поиска — Новосибирская область. К результатам поиска применен семейный фильтр. Результаты группируются по домену. Каждая группа содержит три документа, а количество групп, возвращаемых на одной странице, равно десяти. Максимальное количество пассажей на один документ — два. Сервис возвращает XML-файл в кодировке UTF-8.
 
-URL запроса:
+URL запроса к сервису {{ search-api-name }} различается в зависимости от того, в каком формате требуется получить результат: XML или HTML.
 
-```httpget
-https://yandex.ru/search/xml?folderid=b1gt6g8ht345********&filter=strict&lr=11316&l10n=ru
-```
+{% list tabs group=search_api_request %}
+
+- XML {#xml}
+
+  ```httpget
+  https://yandex.ru/search/xml?folderid=b1gt6g8ht345********&filter=strict&lr=11316&l10n=ru
+  ```
+
+- HTML {#html}
+
+  ```httpget
+  https://yandex.ru/search/xml/html?folderid=b1gt6g8ht345********&filter=strict&lr=11316&l10n=ru
+  ```
+
+{% endlist %}
 
 Тело запроса:
 
@@ -120,4 +150,5 @@ https://yandex.ru/search/xml?folderid=b1gt6g8ht345********&filter=strict&lr=1131
 #### См. также {#see-also}
 
 * [{#T}](./response.md)
+* [{#T}](./html-response.md)
 * [{#T}](../operations/searching.md)

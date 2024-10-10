@@ -25,7 +25,7 @@ items:
         href: tutorials/index.md
       - name: CAPTCHA in mobile apps
         items:
-          - name: Adding HTML code to work with {{ captcha-full-name }}
+          - name: Embedding {{ captcha-full-name }} HTML code
             href: tutorials/mobile-app/website.md
           - name: CAPTCHA in Android apps
             items:
@@ -69,5 +69,7 @@ items:
     href: metrics.md
   - name: '{{ at-name }} events'
     href: at-ref.md
+  - name: Release notes
+    href: release-notes.md
 base: en/smartcaptcha
 deepBase: 2

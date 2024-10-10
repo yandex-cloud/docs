@@ -367,6 +367,7 @@ For more information, see [{#T}](../logging/security/index.md).
 
 {% include [marketplace.publishers.member](../_roles/marketplace/publishers/member.md) %}
 
+For more information, see [{#T}](../marketplace/security/partners.md).
 
 
 ### User roles {#marketplace-user-roles}
@@ -1400,6 +1401,7 @@ For more information, see [{#T}](../resource-manager/security/index.md).
 #### search-api.executor {#search-api-executor}
 
 {% include [searchapi-executor](../_roles/search-api/executor.md) %}
+
 
 For more information, see [{#T}](../search-api/security/index.md).
 

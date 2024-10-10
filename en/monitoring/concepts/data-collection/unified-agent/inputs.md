@@ -4,9 +4,9 @@ You can specify an input in the `routes`:`input` section. The common input descr
 
 ```yaml
 - input:
-    plugin: ... # plugin name
-    id: ... # (recommended) ID of the input, used in metrics and logs
-    flow_control: # session infrastructure settings
+    plugin: ... # Plugin name
+    id: ... # (Recommended) ID of the input, used in metrics and logs
+    flow_control: # Session infrastructure settings
     ...
 ```
 
@@ -41,10 +41,10 @@ Parameter descriptions:
       plugin: metrics_pull
       config:
         # Metric collection URL.
-        url: http://localhost:12345  # required
+        url: http://localhost:12345  # Required.
 
         # Format of received messages. Only the prometheus value is currently supported.
-        format:  # required
+        format:  # Required.
           # Incoming messages are in the prometheus format (https://github.com/prometheus/docs/blob/master/content/docs/instrumenting/exposition_formats.md).
           prometheus: {}
 
@@ -110,18 +110,18 @@ Parameter descriptions:
     # Statistics collection frequency.
     poll_period: 15s  # optional, the default value is 15 seconds
 
-    # Directory where procfs is mounted and counters will be taken from.
+    # Directory where procfs is mounted and counters are taken from.
     # If the agent is running in a Docker container, provide the host's /proc into the container using the -v parameter in order to monitor the host.
     proc_directory: "/proc"  # optional, the default value is "/proc"
 
-    # Directory where sysfs is mounted and counters will be taken from.
+    # Directory where sysfs is mounted and counters are taken from.
     # If the agent is running in a Docker container, provide the host's /sys into the container using the -v parameter in order to monitor the host.
     sys_directory: "/sys"  # optional, the default value is “/sys"
 
     # List of resources to collect statistics from.
-    # Key: One out of the following: `cpu`, `memory`, `network`, `storage`, `io`, `kernel`.
-    # Value: Level of detail, one out of the following: `basic`, `advanced`.
-    resources:  # optional
+    # Key: One of the `cpu`, `memory`, `network`, `storage`, `io`, and `kernel` values.
+    # Value: Level of detail, takes the `basic` or `advanced` value.
+    resources:  # Optional.
         cpu: advanced  # optional, the default value is `basic`
 
         memory: advanced  # optional, the default value is `basic`
@@ -133,7 +133,7 @@ Parameter descriptions:
         io: advanced  # optional, the default value is `basic`
 
         kernel: advanced  # optional, the default value is `basic`
-  ```
+```
 
 ## file_input {#file_input}
 
@@ -141,80 +141,85 @@ This input reads data from text files and `.zst` archives. Your OS must support 
 
 Rules for working with files:
 
-* File external rotation based on the "move (rename) – create new file" scheme is supported. In `multiline` mode, the lines prefixed with `multiline_start_prefix` will be treated as the beginning of a multiline. All subsequent lines not containing this prefix are joined to the multiline.
+* External rotation of a file using the "move (rename) – create new file" scheme. In `multiline` mode, lines with `multiline_start_prefix` will be considered the beginning of a multiline. All subsequent lines not containing this prefix are joined to the multiline.
 
-* For the data source, you can name a specific file or include the `multi_file` parameter by mask.
+* You can name a specific file or mask with the `multi_file` parameter as the data source.
   
-  The `filename` key equal to the file name without the path is added to the session metadata. To include the full file path to the metadata, use the `multi_add_full_path_to_meta` parameter.
+  The `filename` key (file name without path) is added to the session metadata. To write the full path to the file into the metadata, use the `multi_add_full_path_to_meta` parameter.
 
-* With the data file, you can perform only the operations of creating a new file, writing new data to the end of the file, and rotation.
-* Rotation means moving the file, the file’s inode staying the same.
-* The rotated file must remain unaltered for a certain period of time.
+* With the file for data writing, you can perform the operations of creating a file, writing new data to the end of the file, and rotation.
+* Rotation implies moving a file; the file's location in the structure (inode) remains the same.
+* The rotated file must remain unchanged for a certain time.
 
-When working with archives:
+Specifics of working with archives:
 
-* Archive format is detected automatically by the `.zst` extension or can be explicitly specified in the `file_format` parameter.
+* The archive format is detected automatically by the `.zst` extension or can be explicitly specified in the `file_format` parameter.
 * We recommend breaking the archive into frames.
-* The `read_only_newlines` parameter is incompatible with any operations on archives, so it is ignored.
-* To avoid CPU overconsumption and slowing down, we recommend enabling the `keep_open_file` parameter. Alternatively, you can set the `max_lines_in_record` parameter to a value commensurate with the size of each frame.
+* The `read_only_newlines` parameter is ignored because it is not supported when working with an archive.
+* To avoid CPU overconsumption and slowing down, we recommend enabling the `keep_open_file` parameter. Alternatively, you can set the `max_lines_in_record` parameter to the value commesuarable with the size of each frame.
 
-If `IN_Q_OVERFLOW` is detected when reading events, a relevant log entry will be made. Deleting, moving, or unmounting folders containing the reference file and rotated files will cause the agent to be terminated with an entry to the log.
+When working with files, information will be logged:
+
+* If the `IN_Q_OVERFLOW` event is detected while reading events.
+* {{ unified-agent-short-name }} stopping when deleting, moving, or unmounting folders containing the log file and rotated files.
 
 Parameter descriptions:
 
 ```yaml
-- input:
     plugin: file_input
         config:
 
-          # Path to the reference file
-          path: /path_to_file # required
+          # Path to the log file.
+          path: /path_to_file # Required.
 
-          # Path to the folder the file is moved to during rotation
-          out_directory: "" # optional, the default value is an empty string representing the folder containing the reference file
+          # Path to the folder the files are moved to during rotation.
+          out_directory: "" # optional, by default it is the reference file folder (empty string)
 
-          # Path to the folder where the auxiliary file of the current state (reading position, file name, inode, etc.) will be created
-          state_directory: /path_to_state # required
+          # Path to the folder where the auxiliary file of the current state (reading position, file name, inode, etc.) will be created.
+          state_directory: /path_to_state # Required.
 
-          # Skip existing lines on the first start
+          # Skip existing lines on the first start.
           read_only_new_lines: false # optional, the default value is false
 
-          # Maximum number of lines to be read simultaneously  
+          # Maximum number of lines to be read simultaneously.  
           max_lines_in_record: 100 # optional, the default value is 100
 
-          # Maximum line size; characters exceeding the limit will be ignored when reading, up to the line break character
+          # Maximum line size.
+          # When reading, all subsequent characters will be ignored up to the line break character.
           max_bytes_in_line: 1kb # optional, the default value is 1kb
 
-          # Minimum data block size for reading from the file. If data was not read during 100 milliseconds due to this limitation,
-          # the read operation will be completed. The parameter cannot be used when reading from a rotated file.
+          # Minimum data block size to read from the file.
+          # If no data has been read for 100 ms due to this limitation, a read will be performed. 
+          # The parameter cannot be used when reading from a rotated file.
           min_bytes_read: 1Mb # optional, the default value is 1kb
 
-          # Line break character
+          # Line break character.
           line_delimiter: "\n" # optional, the default value is "\n"
 
-          # Keeping the reference file always open. Otherwise, the file opens only when read and the required reading position is set
+          # Keeping the log file always open. Else, the file opens only when read and the required reading position is set.
           keep_open_file: false # optional, the default value is false
 
-          # Reference file format. The possible values are text, zstd, and auto. If set to auto, the file format will be identified by the extension
+          # Log file format. The possible values are text, zstd, and auto.
+          # If set to auto, the file format will be determined by its extension.
           file_format: auto # optional, the default value is auto
 
-          # Maximum frequency for resetting the internal buffer with dearchived data (in milliseconds).
-          # Small values result in efficient use of memory, but increase the load on the CPU
+          # Maximum frequency for resetting the internal buffer with unarchived data (in milliseconds).
+          # Small values result in efficient use of memory, but increase the load on the CPU.
           archive_shrink_period_ms: 1000 # optional, the default value is 1,000 (one second)
 
-          # Treating the path parameter as a mask used to search for files for processing
+          # Treating the path parameter as a search mask for the files that need processing.
           multi_file: false # optional, the default value is false
 
-          # In multi_file mode, the frequency of searching for new files falling under the mask
+          # How often to search for new files by mask in multi_file mode.
           discovery_period_ms: 1000 # optional, the default value is 1,000 (one second)
 
-          # Adding the full file path to the session metadata. If false, only the file name is added
+          # Adding full file path to the session metadata. If false, only the file name is added.
           multi_add_full_path_to_meta: false # optional, the default value is false
 
-          # Whether to calculate metrics for each input file in addition to aggregated metrics
+          # Determines whether to calculate metrics for each input file in addition to aggregated metrics.
           per_file_metrics: false # optional, the default value is false
 
-          # Processing multiline messages
+          # Processing multiline messages.
           multiline:
 
             # Enables multiline message processing.
@@ -225,16 +230,16 @@ Parameter descriptions:
 
             # Regular expression that determines the beginning of a multiline message.
             # All subsequent lines not matching the regular expression will be joined to the current message.
-            # The default value matches the beginning of the line in "2022-07-01 16:50:16,037 WARN" format.
-            multiline_start_prefix: "^(\\d\\d\\d\\d-\\d\\d-\\d\\d)\\s*(\\d\\d:\\d\\d:\\d\\d,\\d\\d\\d)\\s*(\\w*)" # optional
+            # The default value matches the line start, such as "2022-07-01 16:50:16,037 WARN".
+            multiline_start_prefix: "^(\\d\\d\\d\\d-\\d\\d-\\d\\d)\\s*(\\d\\d:\\d\\d:\\d\\d,\\d\\d\\d)\\s*(\\w*)" # Optional.
 
-            # To read log files, you can specify the group number matching the importance level.
+            # To read log files, you can specify the group number according to the importance level.
             # Not used if set to a value higher than the number of groups in the regular expression.
-            # Adds logging level to the message metadata.
-            # It can later on be considered during message processing and delivery to the agent’s output, e.g., as yc_logs output.
+            # Adding logging level to the message metadata.
+            # It can be subsequently considered during message processing and its delivery to the agent’s output, e.g., by the yc_logs output.
             log_priority_group: 3 # optional, the default value is 3
 
-            # Mapping the logging levels with values from the regular expression group
+            # Mapping the logging levels with values from the regular expression group.
             priority_resources: "RESOURCES"           # optional, the default value is "RESOURCES"
             priority_debug: "DEBUG"                   # optional, the default value is "DEBUG"
             priority_info: "INFO"                     # optional, the default value is "INFO"
@@ -244,4 +249,42 @@ Parameter descriptions:
             priority_critical_info: "CRITICAL_INFO"   # optional, the default value is "CRITICAL_INFO"
             priority_alert: "ALERT"                   # optional, the default value is "ALERT"
             priority_emerg: "EMERG"                   # optional, the default value is "EMERG"
+```
+
+## HTTP input { #http_input }
+
+HTTP input to provide logs to Unified Agent. Logs are sent in the body of an HTTP request to the specified address. The input supports configuring the server host and port, the path for the handler, capturing request headers, and adding session metadata.
+
+Parameter descriptions:
+
+```yaml
+- input:
+    plugin: http
+    config:
+      # Host to run the HTTP server on.
+      # By default, the HTTP server runs on all network interfaces.
+      host: null  # optional, the default value is null
+
+      # Port to run the HTTP server on.
+      port: 22132  # Required.
+
+      # Path the handler will be registered at.
+      path: '/write'  # optional, the default value is '/write'
+
+      # Names of HTTP request headers you need to save to the message metadata.
+      capture_request_headers: []  # optional, not set by default
+
+      # Set of Unified Agent session metadata in "key:value" format.
+      # For each endpoint (from the _endpoints_ parameter below) a separate session is created.
+      session_meta: # optional, not set by default
+        k: v
+
+      # Allows you to define multiple connection points with different parameters on one HTTP port.
+      # You can specify any configuration elements except host, port, and endpoints.
+      # If _endpoints_ is specified, the default connection point (/write) is not used.
+      # In this mode, you can only specify the host, port, and endpoints elements in the configuration.
+      endpoints:  # optional, the default value is []
+        - path: '/my_path'  # Required.
+          # Names of HTTP request headers you need to save to the message metadata.
+          capture_request_headers: [ ]  # optional, not set by default
 ```

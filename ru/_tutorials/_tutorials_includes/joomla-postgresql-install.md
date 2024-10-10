@@ -11,7 +11,7 @@
 
      ```bash
      sudo mkdir -p /var/www/html/
-     curl https://downloads.joomla.org/cms/joomla3/3-8-7/Joomla_3-8-7-Stable-Full_Package.tar.gz?format=gz -o Joomla_3-8-7-Stable-Full_Package.tar.gz -L
+     curl https://downloads.joomla.org/cms/joomla3/3-8-7/Joomla_3-8-7-Stable-Full_Package.tar.gz?format=gz --output Joomla_3-8-7-Stable-Full_Package.tar.gz --location
      sudo mv Joomla_3-8-7-Stable-Full_Package.tar.gz /var/www/html/
      (cd /var/www/html/ && sudo tar -zxvf Joomla_3-8-7-Stable-Full_Package.tar.gz)
      sudo rm /var/www/html/Joomla_3-8-7-Stable-Full_Package.tar.gz
