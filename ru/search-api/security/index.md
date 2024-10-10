@@ -23,6 +23,10 @@ description: Управление доступом в сервисе для по
 
 {% include [searchapi-executor](../../_roles/search-api/executor.md) %}
 
+#### search-api.webSearch.user {#search-api-webSearch-user}
+
+{% include [search-api-webSearch-user](../../_roles/search-api/webSearch/user.md) %}
+
 ### Примитивные роли {#primitive-roles}
 
 {% include [roles-primitive](../../_includes/roles-primitive.md) %}

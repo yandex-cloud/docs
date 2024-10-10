@@ -55,6 +55,10 @@ items:
         href: tutorials/vm-fluent-bit-logging.md
       - name: Transferring logs from COI to Cloud Logging
         href: tutorials/coi-fluent-bit-logging.md
+      - name: >-
+          Transferring logs through {{ unified-agent-short-name }} HTTP input to
+          {{ cloud-logging-name }}
+        href: tutorials/ua-http-logging.md
       - name: Replicating logs to {{ objstorage-name }} using Fluent Bit
         href: tutorials/replicate-logs-to-storage.md
       - name: Replicating logs to {{ objstorage-name }} using {{ yds-name }}

@@ -1,6 +1,6 @@
 After validating a request, {{ captcha-name }} assigns it an ID: a one-time token. You can use the token to retrieve the result of a user request validation from the service. The token is valid for five minutes. After this time expires, it becomes invalid and the user has to go through the validation process again.
 
-After validation, the token is inserted into the `<input type="hidden" name="smart-token" value="<token>" ...>` element on the user page, For example:
+After validation, the token is loaded into the `<input type="hidden" name="smart-token" value="<token>" ...>` element on the user's page. For example:
 
 ```HTML
 <div id="captcha-container" class="smart-captcha" ...>
@@ -11,13 +11,20 @@ After validation, the token is inserted into the `<input type="hidden" name="sma
 
 Where:
 
-* `<div id="captcha-container" class="smart-captcha" ...>`: `div` element with the widget.
+* `<div id="captcha-container" class="smart-captcha" ...>`: `div` element with a widget.
 * `value`: Token value.
 
-To retrieve a validation result, send a GET request containing the token to `https://smartcaptcha.yandexcloud.net/validate`:
+To find out the result of the validation, send a POST request to `https://smartcaptcha.yandexcloud.net/validate`:
 
-```TEXT
-https://smartcaptcha.yandexcloud.net/validate?secret=<server_key>&ip=<user_IP>&token=<token>
+```HTML
+response = requests.post(
+"https://smartcaptcha.yandexcloud.net/validate",
+    {
+    "secret": SMARTCAPTCHA_SERVER_KEY,
+    "token": token,
+    "ip": "<user_IP_address>"
+    }
+)
 ```
 
 Where:
@@ -26,55 +33,55 @@ Where:
 
 ## Service response {#service-response}
 
-In its response, the service will return a JSON object containing the `status` and the `message` fields. If the `status` field value is `ok`, the `host` field is added to a JSON object. It shows on what website the validation was passed. For example:
+In its response, the service will return a JSON object containing the `status` and `message` fields. If the `status` field value is `ok`, the `host` field is added to the JSON object. It shows on what website the validation was passed. For example:
 
 1. It is a human. User validation was passed on the `example.com` website:
 
-   ```json
-   {
-       "status": "ok",
-       "message": "",
-       "host": "example.com"
-   }
-   ```
+    ```json
+    {
+        "status": "ok",
+        "message": "",
+        "host": "example.com"
+    }
+    ```
 
-1. It is a human. User validation was passed on the `example.com` website through port `8080`:
+1. It is a human. User validation was passed on the `example.com` website via port `8080`:
 
-   ```json
-   {
-       "status": "ok",
-       "message": "",
-       "host": "example.com:8080"
-   }
-   ```
+    ```json
+    {
+        "status": "ok",
+        "message": "",
+        "host": "example.com:8080"
+    }
+    ```
 
 1. Empty `host` field. This may indicate that the cloud is blocked or an internal service failure occurred:
 
-   ```json
-   {
-       "status": "ok",
-       "message": "",
-       "host": ""
-   }
-   ```
+    ```json
+    {
+        "status": "ok",
+        "message": "",
+        "host": ""
+    }
+    ```
 
 1. It is a robot:
 
-   ```json
-   {
-       "status": "failed",
-       "message": ""
-   }
-   ```
+    ```json
+    {
+        "status": "failed",
+        "message": ""
+    }
+    ```
 
 1. Request with a fake or damaged token. It is a robot:
 
-   ```json
-   {
-       "status": "failed",
-       "message": "Token invalid or expired."
-   }
-   ```
+    ```json
+    {
+        "status": "failed",
+        "message": "Token invalid or expired."
+    }
+    ```
 
 ## Request errors {#errors}
 
@@ -82,24 +89,24 @@ If your request to `https://smartcaptcha.yandexcloud.net/validate` is incorrect,
 
 1. Request missing the server key:
 
-   ```JSON
-   {
-       "status": "failed",
-       "message": "Authentication failed. Secret has not provided."
-   }
-   ```
+    ```JSON
+    {
+        "status": "failed",
+        "message": "Authentication failed. Secret has not provided."
+    }
+    ```
 
 1. Request with a missing or damaged token:
 
-   ```JSON
-   {
-       "status": "failed",
-       "message": "Token invalid or expired."
-   }
-   ```
+    ```JSON
+    {
+        "status": "failed",
+        "message": "Token invalid or expired."
+    }
+    ```
 
 {% note info %}
 
-To avoid delays when processing user requests, we recommend processing HTTP errors (response codes other than 200) as the `"status": "ok"` server response.
+To avoid delays in user request processing, we recommend processing HTTP errors (response codes other than 200) as the `"status": "ok"` service response.
 
 {% endnote %}

@@ -23,6 +23,7 @@ In this section, you will learn:
 
 {% include [searchapi-executor](../../_roles/search-api/executor.md) %}
 
+
 ### Primitive roles {#primitive-roles}
 
 {% include [roles-primitive](../../_includes/roles-primitive.md) %}

@@ -1,7 +1,9 @@
 Проверьте доступность сервиса на хосте `alb-with-ddos.com`. Для этого выполните команду:
 
 ```bash
-curl -H "Host: alb-with-ddos.com" http://<IP-адрес_L7-балансировщика>
+curl \
+  --header "Host: alb-with-ddos.com" \
+  http://<IP-адрес_L7-балансировщика>
 ```
 
 Результат:

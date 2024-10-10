@@ -5,7 +5,7 @@ description: В данной статье описаны особенности 
 
 # GET-запросы
 
-{{ search-api-name }} позволяет выполнять поиск по поисковой базе Яндекса с заданным набором параметров и получать результат поиска в формате XML. Параметры поиска можно передавать в сервис в виде HTTP-запроса методом GET. {{ search-api-name }} формирует [ответ](./response.md) в виде документа в формате XML.
+{{ search-api-name }} позволяет выполнять запросы к поисковой базе Яндекса с заданным набором параметров. Параметры поиска можно передавать в сервис в виде HTTP-запроса методом GET. {{ search-api-name }} формирует ответ в виде документа в [формате XML](./response.md) или в [формате HTML](./html-response.md).
 
 {% include [text-search-intro](../../_includes/search-api/text-search-intro.md) %}
 
@@ -17,19 +17,43 @@ description: В данной статье описаны особенности 
 
 {% endnote %}
 
-```httpget
-https://yandex.<домен>/search/xml
-  ? [folderid=<идентификатор_каталога>]
-  & [apikey=<API-ключ>]
-  & [query=<текст_поискового_запроса>]
-  & [lr=<идентификатор_региона_поиска>]
-  & [l10n=<язык_уведомлений>]
-  & [sortby=<тип_сортировки>]
-  & [filter=<тип_фильтрации>]
-  & [maxpassages=<количество_пассажей>]
-  & [groupby=<параметры_группировки_результатов>]
-  & [page=<номер_страницы>]
-```
+URL запроса к сервису {{ search-api-name }} различается в зависимости от того, в каком формате требуется получить результат: XML или HTML.
+
+{% list tabs group=search_api_request %}
+
+- XML {#xml}
+
+  ```httpget
+  https://yandex.<домен>/search/xml
+    ? [folderid=<идентификатор_каталога>]
+    & [apikey=<API-ключ>]
+    & [query=<текст_поискового_запроса>]
+    & [lr=<идентификатор_региона_поиска>]
+    & [l10n=<язык_уведомлений>]
+    & [sortby=<тип_сортировки>]
+    & [filter=<тип_фильтрации>]
+    & [maxpassages=<количество_пассажей>]
+    & [groupby=<параметры_группировки_результатов>]
+    & [page=<номер_страницы>]
+  ```
+
+- HTML {#html}
+
+  ```httpget
+  https://yandex.<домен>/search/xml/html
+    ? [folderid=<идентификатор_каталога>]
+    & [apikey=<API-ключ>]
+    & [query=<текст_поискового_запроса>]
+    & [lr=<идентификатор_региона_поиска>]
+    & [l10n=<язык_уведомлений>]
+    & [sortby=<тип_сортировки>]
+    & [filter=<тип_фильтрации>]
+    & [maxpassages=<количество_пассажей>]
+    & [groupby=<параметры_группировки_результатов>]
+    & [page=<номер_страницы>]
+  ```
+
+{% endlist %}
 
 ### Параметры запроса {#parameters}
 
@@ -69,11 +93,26 @@ attr%3D<служебный_атрибут>.mode%3D<тип_группировки
 
 Следующий запрос возвращает пятую страницу результатов поиска по запросу `<table>`. Тип поиска — `{{ ui-key.yacloud.search-api.test-query.label_search_type-russian }}` (yandex.ru). Регион поиска — Новосибирская область. Язык уведомлений — русский. К результатам поиска применен семейный фильтр. Количество пассажей — три. Результаты группируются по домену и сортируются по релевантности. Каждая группа содержит три документа, а количество групп, возвращаемых на одной странице, равно пяти.
 
-```httpget
-https://yandex.ru/search/xml?folderid=b1gt6g8ht345********&apikey=your_service_account_API_key********&query=%3Ctable%3E&lr=11316&l10n=ru&sortby=rlv&filter=strict&groupby=attr%3Dd.mode%3Ddeep.groups-on-page%3D5.docs-in-group%3D3&maxpassages=3&page=4
-```
+URL запроса к сервису {{ search-api-name }} различается в зависимости от того, в каком формате требуется получить результат: XML или HTML.
+
+{% list tabs group=search_api_request %}
+
+- XML {#xml}
+
+  ```httpget
+  https://yandex.ru/search/xml?folderid=b1gt6g8ht345********&apikey=your_service_account_API_key********&query=%3Ctable%3E&lr=11316&l10n=ru&sortby=rlv&filter=strict&groupby=attr%3Dd.mode%3Ddeep.groups-on-page%3D5.docs-in-group%3D3&maxpassages=3&page=4
+  ```
+
+- HTML {#html}
+
+  ```httpget
+  https://yandex.ru/search/xml/html?folderid=b1gt6g8ht345********&apikey=your_service_account_API_key********&query=%3Ctable%3E&lr=11316&l10n=ru&sortby=rlv&filter=strict&groupby=attr%3Dd.mode%3Ddeep.groups-on-page%3D5.docs-in-group%3D3&maxpassages=3&page=4
+  ```
+
+{% endlist %}
 
 #### См. также {#see-also}
 
 * [{#T}](./response.md)
+* [{#T}](./html-response.md)
 * [{#T}](../operations/searching.md)

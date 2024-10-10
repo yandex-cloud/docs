@@ -1431,6 +1431,10 @@ description: В статье приведен полный справочник 
 
 {% include [searchapi-executor](../_roles/search-api/executor.md) %}
 
+#### search-api.webSearch.user {#search-api-webSearch-user}
+
+{% include [search-api-webSearch-user](../_roles/search-api/webSearch/user.md) %}
+
 Подробнее см. [{#T}](../search-api/security/index.md).
 
 
