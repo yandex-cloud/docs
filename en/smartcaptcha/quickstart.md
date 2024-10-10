@@ -76,7 +76,7 @@ With the client key, you can [add a {{ captcha-name }} widget](#add-widget) to y
 
 Add the widget automatically:
 
-1. Add the JS script to the user page. To do this, place the following code anywhere on the page, e.g., inside the `<head>` tag:
+1. Add the JS script to the user page. To do this, place the following code anywhere on the page (for example, inside the `<head>` tag):
 
     ```html
     <script src="https://smartcaptcha.yandexcloud.net/captcha.js" defer></script>
@@ -110,7 +110,20 @@ After the check, the user is given a unique token. The token is loaded to the `<
 </div>
 ```
 
-To validate the token, send a GET request to `https://smartcaptcha.yandexcloud.net/validate` with the following parameters:
+To validate the token, send a POST request to `https://smartcaptcha.yandexcloud.net/validate`:
+
+```HTML
+response = requests.post(
+"https://smartcaptcha.yandexcloud.net/validate",
+    {
+    "secret": SMARTCAPTCHA_SERVER_KEY,
+    "token": token,
+    "ip": "<user_IP_address>"
+    }
+)
+```
+
+Where:
 
 {% include [query-parameters](../_includes/smartcaptcha/query-parameters.md) %}
 
@@ -131,30 +144,54 @@ Example of the token validation function:
 
 
     function check_captcha(token, callback) {
+        const postData = querystring.stringify({
+            secret: SMARTCAPTCHA_SERVER_KEY,
+            token: token,
+            ip: '<user_IP_address>', // Method for retrieving the user IP address depends on your framework and proxy.
+        });
+    
         const options = {
             hostname: 'smartcaptcha.yandexcloud.net',
             port: 443,
-            path: '/validate?' + querystring.stringify({
-                secret: SMARTCAPTCHA_SERVER_KEY,
-                token: token,
-                ip: '<user_IP_address>', // Method for retrieving the user IP address depends on your framework and proxy.
-            }),
-            method: 'GET',
+            path: '/validate',
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'Content-Length': Buffer.byteLength(postData),
+            },
         };
+    
         const req = https.request(options, (res) => {
-            res.on('data', (content) => {
+            let content = '';
+    
+            res.on('data', (chunk) => {
+                content += chunk;
+            });
+    
+            res.on('end', () => {
                 if (res.statusCode !== 200) {
                     console.error(`Allow access due to an error: code=${res.statusCode}; message=${content}`);
                     callback(true);
                     return;
                 }
-                callback(JSON.parse(content).status === 'ok');
+    
+                try {
+                    const parsedContent = JSON.parse(content);
+                    callback(parsedContent.status === 'ok');
+                } catch (err) {
+                    console.error('Error parsing response: ', err);
+                    callback(true);
+                }
             });
         });
+    
         req.on('error', (error) => {
             console.error(error);
             callback(true);
         });
+    
+        // Write the POST data to the request body
+        req.write(postData);
         req.end();
     }
 
@@ -175,18 +212,19 @@ Example of the token validation function:
     define('SMARTCAPTCHA_SERVER_KEY', '<server_key>');
 
     function check_captcha($token) {
-        $ch = curl_init();
-        $args = http_build_query([
+        $ch = curl_init("https://smartcaptcha.yandexcloud.net/validate");
+        $args = [
             "secret" => SMARTCAPTCHA_SERVER_KEY,
             "token" => $token,
-            "ip" => $_SERVER['REMOTE_ADDR'], // You need to provide the user IP address.
-                                             // Method for retrieving the user IP depends on your proxy.
-        ]);
-        curl_setopt($ch, CURLOPT_URL, "https://smartcaptcha.yandexcloud.net/validate?$args");
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            "ip" => "<user_IP_address>", // You need to provide the user IP address.
+                        // Method for retrieving the user IP depends on your proxy.
+        ];
         curl_setopt($ch, CURLOPT_TIMEOUT, 1);
-
-        $server_output = curl_exec($ch);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($args));
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    
+        $server_output = curl_exec($ch); 
         $httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         curl_close($ch);
 
@@ -194,11 +232,12 @@ Example of the token validation function:
             echo "Allow access due to an error: code=$httpcode; message=$server_output\n";
             return true;
         }
+     
         $resp = json_decode($server_output);
         return $resp->status === "ok";
     }
 
-    $token = $_POST['smart-token'];
+    $token = "<token>"; //For example, $_POST['smart-token'];
     if (check_captcha($token)) {
         echo "Passed\n";
     } else {
@@ -213,27 +252,26 @@ Example of the token validation function:
     import sys
     import json
 
-
     SMARTCAPTCHA_SERVER_KEY = "<server_key>"
 
-
     def check_captcha(token):
-        resp = requests.get(
-            "https://smartcaptcha.yandexcloud.net/validate",
-            {
-                "secret": SMARTCAPTCHA_SERVER_KEY,
-                "token": token,
-                "ip": "<user_IP_address>"  # Method for retrieving the IP address depends on your framework and proxy.                                   
-                                                 # In Flask, for example, this can be `request.remote_addr`
-            },
-            timeout=1
+        resp = requests.post(
+           "https://smartcaptcha.yandexcloud.net/validate",
+           data={
+              "secret": SMARTCAPTCHA_SERVER_KEY,
+              "token": token,
+              "ip": "<user_IP_address>"   # Method for retrieving the IP address depends on your framework and proxy.
+                                                # In Flask, for example, this can be `request.remote_addr`
+           },
+           timeout=1
         )
         server_output = resp.content.decode()
         if resp.status_code != 200:
-            print(f"Allow access due to an error: code={resp.status_code}; message={server_output}", file=sys.stderr)
-            return True
+           print(f"Allow access due to an error: code={resp.status_code}; message={server_output}", file=sys.stderr)
+           return True
         return json.loads(server_output)["status"] == "ok"
-    token = "<token>"  # For example, `request.form["smart-token"]`
+
+    token = "<token>"  # For example, it can be `request.form["smart-token"]`
     if check_captcha(token):
         print("Passed")
     else:

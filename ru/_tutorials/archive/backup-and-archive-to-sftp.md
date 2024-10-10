@@ -397,7 +397,10 @@
 1. Перешлите полученный архив на SFTP-сервер:
 
    ```bash
-   curl -T backup.tar.gz sftp://$SFTP_SERVER/backups/backup_$(hostname)_$(date "+%Y%m%d_%H%M%S").tar.gz --insecure --user $SFTP_USER:
+   curl \
+     --upload-file backup.tar.gz sftp://$SFTP_SERVER/backups/backup_$(hostname)_$(date "+%Y%m%d_%H%M%S").tar.gz \
+     --insecure \
+     --user $SFTP_USER:
    ```
 
    Где:
@@ -421,7 +424,7 @@
 Все действия для создания резервной копии можно выполнить одной командой в терминале SFTP-клиента:
 
 ```bash
-sudo find /etc -type f -name *.conf -print0 | sudo tar -czf backup.tar.gz --null -T -&& curl -T backup.tar.gz sftp://$SFTP_SERVER/backups/backup_$(hostname)_$(date "+%Y%m%d_%H%M%S").tar.gz --insecure --user $SFTP_USER: && sudo rm -f backup.tar.gz
+sudo find /etc -type f -name *.conf -print0 | sudo tar -czf backup.tar.gz --null -T -&& curl --upload-file backup.tar.gz sftp://$SFTP_SERVER/backups/backup_$(hostname)_$(date "+%Y%m%d_%H%M%S").tar.gz --insecure --user $SFTP_USER: && sudo rm -f backup.tar.gz
 ```
 
 ## Проверьте работоспособность резервного копирования {#check-backup}
@@ -431,7 +434,7 @@ sudo find /etc -type f -name *.conf -print0 | sudo tar -czf backup.tar.gz --null
 1. [Зайдите по SSH](../../compute/operations/vm-connect/ssh.md#vm-connect) на виртуальную машину SFTP-клиента и запустите команду для резервного копирования:
 
    ```bash
-   sudo find /etc -type f -name *.conf -print0 | sudo tar -czf backup.tar.gz --null -T -&& curl -T backup.tar.gz sftp://$SFTP_SERVER/backups/backup_$(hostname)_$(date "+%Y%m%d_%H%M%S").tar.gz --insecure --user $SFTP_USER: && sudo rm -f backup.tar.gz
+   sudo find /etc -type f -name *.conf -print0 | sudo tar -czf backup.tar.gz --null -T -&& curl --upload-file backup.tar.gz sftp://$SFTP_SERVER/backups/backup_$(hostname)_$(date "+%Y%m%d_%H%M%S").tar.gz --insecure --user $SFTP_USER: && sudo rm -f backup.tar.gz
    ```
 
 1. [Зайдите по SSH](../../compute/operations/vm-connect/ssh.md#vm-connect) на виртуальную машину SFTP-сервера и убедитесь, что файл вида `backup_ftp-server.{{ region-id }}.internal_20190803_180228.tar.gz` появился в домашнем каталоге SFTP-пользователя. Для этого на SFTP-сервере запустите команду:
@@ -456,7 +459,7 @@ sudo find /etc -type f -name *.conf -print0 | sudo tar -czf backup.tar.gz --null
    SFTP_SERVER=<IP_адрес_SFTP_сервера>
    SFTP_USER='fuser'
 
-   0 23 * * * sudo find /etc -type f -name *.conf -print0 | sudo tar -czf backup.tar.gz --null -T -&& curl -T backup.tar.gz sftp://$SFTP_SERVER/backups/backup_$(hostname)_$(date "+\%Y\%m\%d_\%H\%M\%S").tar.gz --insecure --user $SFTP_USER: && sudo rm -f backup.tar.gz
+   0 23 * * * sudo find /etc -type f -name *.conf -print0 | sudo tar -czf backup.tar.gz --null -T -&& curl --upload-file backup.tar.gz sftp://$SFTP_SERVER/backups/backup_$(hostname)_$(date "+\%Y\%m\%d_\%H\%M\%S").tar.gz --insecure --user $SFTP_USER: && sudo rm -f backup.tar.gz
    ```
 
    * На виртуальной машине по умолчанию время UTC. Учитывайте разницу с вашим локальным временем при настройке расписания.

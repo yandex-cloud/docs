@@ -13,8 +13,10 @@ items:
         href: operations/auth.md
       - name: Запрос лимитов
         href: operations/request-limits.md
-      - name: Выполнение поисковых запросов
+      - name: Выполнение поисковых запросов в синхронном режиме
         href: operations/searching.md
+      - name: Выполнение поисковых запросов в отложенном режиме
+        href: operations/web-search.md
       - name: Мобильная выдача
         href: operations/mobile.md
   - name: Концепции
@@ -27,8 +29,10 @@ items:
             href: concepts/get-request.md
           - name: POST-запросы
             href: concepts/post-request.md
-          - name: Формат ответа
+          - name: XML-ответ
             href: concepts/response.md
+          - name: HTML-ответ
+            href: concepts/html-response.md
           - name: Генеративный ответ
             href: concepts/generative-response.md
       - name: Поиск по картинкам
@@ -37,12 +41,38 @@ items:
             href: concepts/pic-search.md
           - name: Формат ответа
             href: concepts/pic-response.md
+      - name: Отложенный режим
+        href: concepts/web-search.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
+  - name: Справочник API
+    items:
+      - name: Аутентификация в API v2
+        href: api-ref/authentication.md
+      - name: API v2
+        items:
+          - name: gRPC (англ.)
+            items:
+              - name: Overview
+                href: api-ref/grpc/index.md
+              - name: WebSearchAsyncService
+                href: api-ref/grpc/search_service.md
+              - name: OperationService
+                href: api-ref/grpc/operation_service.md
+          - name: REST (англ.)
+            items:
+              - name: Overview
+                href: api-ref/index.md
+              - name: WebSearchAsync
+                items:
+                  - name: Overview
+                    href: api-ref/WebSearchAsync/index.md
+                  - name: search
+                    href: api-ref/WebSearchAsync/search.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md
   - name: Приложения

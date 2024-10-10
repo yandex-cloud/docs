@@ -46,3 +46,7 @@ You are not allowed to push code to protected branches on this project.
 Дисковое пространство инстанса может быть переполнено. Для очистки дискового пространства и восстановления доступа к инстансу обратитесь в [техническую поддержку]({{ link-console-support }}).
 
 Подробнее о том, как снизить вероятность переполнения дискового пространства инстанса, см. в [инструкции](../../managed-gitlab/operations/instance/clean-up-disk-space.md).
+
+#### Почему резервные копии не создаются? {#backup-failed}
+
+Если создание [резервных копий](../../managed-gitlab/concepts/backup.md) завершается ошибкой (статус `Failed`), [настройте отдельную группу безопасности](../../managed-gitlab/operations/configure-security-group.md) и привяжите ее к инстансу {{ GL }}.

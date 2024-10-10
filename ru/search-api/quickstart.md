@@ -1,6 +1,6 @@
 # Как начать работать с {{ search-api-full-name }}
 
-Если вы уже пользовались сервисом [Яндекс.XML](https://yandex.ru/dev/xml/) и хотите настроить свою работу в {{ search-api-full-name }}, воспользуйтесь инструкцией [{#T}](operations/workaround.md).
+Если вы уже пользовались сервисом [Яндекс XML](https://ru.wikipedia.org/wiki/Яндекс_XML) и хотите настроить свою работу в {{ search-api-full-name }}, воспользуйтесь инструкцией [{#T}](operations/workaround.md).
 
 ## Перед началом работы {#before-you-begin}
 

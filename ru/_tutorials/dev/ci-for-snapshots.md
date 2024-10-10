@@ -365,7 +365,7 @@ Runner — это инструмент для выполнения задач, �
 1. Добавьте новый репозиторий в менеджер пакетов:
 
    ```bash
-   curl -L https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.deb.sh | sudo bash
+   curl --location https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.deb.sh | sudo bash
    ```
 
 1. Установите Runner, который будет выполнять скрипты вашего CI:

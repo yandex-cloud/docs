@@ -1,6 +1,6 @@
 Приложение [{{ unified-agent-full-name }}](../../monitoring/concepts/data-collection/unified-agent/) позволяет принимать и передавать логи пользовательских приложений в сервис [{{ cloud-logging-full-name }}](../../logging/).
 
-В этом руководстве вы настроите передачу логов из тестового Python-приложения. Приложение будет передавать логи в {{ unified-agent-short-name }} на [вход http](../../monitoring/concepts/data-collection/unified-agent/inputs#http_input). Полученные логи {{ unified-agent-short-name }} будет отправлять через выход [yc_logs](../../monitoring/concepts/data-collection/unified-agent/outputs#yc_logs_output) в {{ cloud-logging-name }} в лог-группу по умолчанию — `default`.
+В этом руководстве вы настроите передачу логов из тестового Python-приложения. Приложение будет передавать логи в {{ unified-agent-short-name }} на [вход http](../../monitoring/concepts/data-collection/unified-agent/inputs.md#http_input). Полученные логи {{ unified-agent-short-name }} будет отправлять через выход [yc_logs](../../monitoring/concepts/data-collection/unified-agent/outputs.md#yc_logs_output) в {{ cloud-logging-name }} в лог-группу по умолчанию — `default`.
 
 Чтобы настроить передачу логов:
 
@@ -28,7 +28,7 @@
 ### Создайте сервисный аккаунт {#sa-create}
 
 1. [Создайте](../../iam/operations/sa/create.md) сервисный аккаунт `sa-logger` в каталоге, куда будут записываться логи.
-1. [Назначьте](../../iam/operations/roles/grant.md) сервисному аккаунту [роль](../../logging/security/#logging-writer) `logging.writer`.
+1. [Назначьте](../../iam/operations/roles/grant.md) сервисному аккаунту [роль](../../logging/security/index.md#logging-writer) `logging.writer`.
 
 ### Создайте ВМ {#vm-create}
 

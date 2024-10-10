@@ -25,20 +25,20 @@
 
         ```bash
         curl \
-            -H 'Authorization: Bearer <отладочный_токен>' \
-            -H 'Accept-Language: en' \
-            -d '
-                {
-                  "method":"get",
-                  "params": {
-                    "SelectionCriteria": {},
-                    "FieldNames": [
-                      "Id",
-                      "Name"
-                    ]
-                  }
-                }' \
-            "https://api-sandbox.direct.yandex.com/json/v5/campaigns" | jq
+          --header 'Authorization: Bearer <отладочный_токен>' \
+          --header 'Accept-Language: en' \
+          --data '
+              {
+                "method":"get",
+                "params": {
+                  "SelectionCriteria": {},
+                  "FieldNames": [
+                    "Id",
+                    "Name"
+                  ]
+                }
+              }' \
+          "https://api-sandbox.direct.yandex.com/json/v5/campaigns" | jq
         ```
 
         {% endcut %}

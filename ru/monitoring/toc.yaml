@@ -135,6 +135,8 @@ items:
             href: operations/prometheus/querying/grafana.md
       - name: Правила записи
         href: operations/prometheus/recording-rules.md
+      - name: Правила алертинга
+        href: operations/prometheus/alerting-rules.md
       - name: Чтение и запись метрик кластера {{ k8s }}
         href: operations/prometheus/read-write-for-kubernetes.md
   - name: Управление доступом
