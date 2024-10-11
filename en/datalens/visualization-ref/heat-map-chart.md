@@ -11,12 +11,12 @@ A heat map helps find dependencies that can be hidden due to overlapping map poi
 
 ## Wizard sections {#wizard-sections}
 
-| Wizard<br/> section | Description |
+Wizard<br/> section| Description
 ----- | ----
-| Heat map (Geopoints) | Measure of the [Geopoint](../concepts/data-types.md#geopoint) type |
-| Colors | Dimension or measure. Affects the intensity of point fill. |
-| Layer filters | Dimension or measure. Used as a filter for the current layer. |
-| Filters | Dimension or measure. Used as a filter for the entire chart. |
+Heat map (Geopoints) | Measure of the [Geopoint](../dataset/data-types#geopoint) type
+Colors  | Dimension or measure. Affects the intensity of point fill.
+Layer filters | Dimension or measure. Used as a filter for the current layer.
+Filters | Dimension or measure. Used as a filter for the entire chart.
 
 ## Creating a heat map {#create-diagram}
 
@@ -27,10 +27,10 @@ A heat map helps find dependencies that can be hidden due to overlapping map poi
 1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
 1. In the left-hand panel, select ![chart](../../_assets/console-icons/chart-column.svg) **Charts**.
 1. Click **Create chart** → **Chart**.
-1. At the top left, click ![image](../../_assets/console-icons/circles-intersection.svg) **Select dataset** and specify the dataset to visualize. If you do not have a dataset, [create one](../operations/dataset/create.md).
+1. At the top left, click ![image](../../_assets/console-icons/circles-intersection.svg) **Select dataset** and specify the dataset to visualize. If you do not have a dataset, [create one](../dataset/create-dataset.md#create).
 1. Select the **Map** chart type.
 1. Select the **Heat map (Geopoints)** layer type.
-1. Drag a dimension of the [Geopoint](../concepts/data-types.md#geopoint) type from the dataset to the layer type selection section.
+1. Drag a dimension of the [Geopoint](../dataset/data-types.md#geopoint) type from the dataset to the layer type selection section.
 1. Change the weight of the points on the heat map. To do this, drag the measure to the **Colors** section.
 
 You can also:

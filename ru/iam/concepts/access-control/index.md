@@ -81,7 +81,7 @@
 
         Идентификатор субъекта: `group:organization:<идентификатор_организации>:users`.
 
-        Где `<идентификатор_организации>` — уникальный идентификатор, присвоенный [организации](../../../organization/quickstart.md) `X`. Например: `group:organization:bpfaidqca8vd********:users`.
+        Где `<идентификатор_организации>` — уникальный [идентификатор](../../../organization/operations/organization-get-id.md), присвоенный [организации](../../../organization/quickstart.md) `X`. Например: `group:organization:bpfaidqca8vd********:users`.
 
     * [Системная группа](./system-group.md#allFederationUsers) `All users in federation N`:
 

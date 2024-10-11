@@ -20,7 +20,7 @@ To create a BigQuery connection:
 
    * **Project ID**. Specify the ID of your project in Google Cloud.
    * **Service account private key**. Click **Attach file** and upload a file with your Google Cloud service account's authorized key for authentication. For more information on how to get a file with a key, see the [Google documentation](https://cloud.google.com/iam/docs/keys-create-delete).
-   * **Raw SQL level**: Enables you to use an ad-hoc SQL query to [generate a dataset](../../concepts/dataset/settings.md#sql-request-in-datatset).
+   * **Raw SQL level**: Enables you to use an ad-hoc SQL query to [generate a dataset](../../dataset/settings.md#sql-request-in-datatset).
    * **Cache TTL in seconds**: Specify the cache time-to-live or leave the default value. The recommended value is 300 seconds (5 minutes).
 
 1. (Optional) Make sure the connection works properly. To do this, click **Check connection**.

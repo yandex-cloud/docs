@@ -93,6 +93,8 @@ default:
   CK: ClickHouse® Keeper
   cloud-apps-full-name: Yandex Cloud Apps
   cloud-apps-name: Cloud Apps
+  cloud-center: Cloud Center
+  cloud-center-link: https://center.yandex.cloud
   cloud-desktop-full-name: Yandex Cloud Desktop
   cloud-desktop-name: Cloud Desktop
   cloud-logging-full-name: Yandex Cloud Logging
@@ -300,6 +302,7 @@ default:
   link-forms-b2b: https://forms.yandex.ru/cloud/admin
   link-monitoring: https://monitoring.yandex.cloud
   link-org-acl: https://org.yandex.cloud/acl
+  link-org-cloud-center: https://center.yandex.cloud/organization
   link-org-main: https://org.yandex.cloud/
   link-org-settings: https://org.yandex.cloud/settings
   link-org-users: https://org.yandex.cloud/users
@@ -480,10 +483,10 @@ default:
       pro: https://postgrespro.ru/docs
     versions:
       console:
-        str-1c: 12-1c, 13-1c, 14-1c и 15-1c
+        str-1c: 13-1c, 14-1c, 15-1c и 16-1c
       tf:
-        latest: '16'
-        str: 11, 11-1c, 12, 12-1c, 13, 13-1c, 14, 14-1c, 15, 15-1c или 16
+        latest: '17'
+        str: 13, 13-1c, 14, 14-1c, 15, 15-1c, 16, 16-1c и 17
   pgadmin: "pgAdmin\_4"
   port-any: 0-65535
   port-http: 80
@@ -5300,6 +5303,8 @@ default:
           service-accounts: Сервисные аккаунты
           title: Настройка прав доступа
           user-accounts: Пользовательские аккаунты
+      cloud-center:
+        action_more: Ещё
       cloud:
         button_delete: Удалить
         button_save: Сохранить
@@ -5520,21 +5525,33 @@ default:
         exclude: Исключить
         save-changes: Сохранить
       common:
-        resource-acl:
-          label_service-accounts: Сервисные аккаунты
+        columns:
+          column_id: Идентификатор
       component:
         form-file-upload:
+          field:
+            method: Способ
           method:
             manual: Текст
         subject-select-dialog:
           action_apply: Сохранить
           title_dialog: Добавление участников
+      dashboard:
+        notify:
+          placeholder_add-user-action: Добавить
+          title:
+            notify: Получатели уведомлений от организации
+        organization:
+          action:
+            delete-button: Удалить
+            edit-button: Редактировать
       entity:
         certificate:
           action:
             add: Добавить сертификат
         federation:
           field:
+            acsUrl: ACS URL
             autocreateUsers: Автоматически создавать пользователей
             caseInsensitiveNameIds: Регистронезависимые имена пользователей
             cookieMaxAge: Время жизни cookie
@@ -5549,6 +5566,7 @@ default:
           action_create: Создать группу
           action_delete-group: Удалить
           action_edit: Изменить
+          action_remove-acl: Отозвать права доступа
           action_remove-user: Исключить из группы
           action_update-acl: Настроить доступ
           title_tab-access: Права доступа к группе
@@ -5561,6 +5579,9 @@ default:
         oslogin-profile:
           action:
             create: Создать профиль
+        ssh-keys:
+          action:
+            add-key: Добавить ключ
         user:
           action:
             acl: Назначить роли
@@ -5576,6 +5597,9 @@ default:
             action:
               role:
                 add: Добавить роль
+        add-users:
+          action:
+            add: Добавить
         federation:
           action:
             create: Создать федерацию
@@ -5592,17 +5616,27 @@ default:
             iam-group: IAM-группы
             tab-idp: IdP-группы
         organization:
+          create:
+            action:
+              create: Создать организацию
           select:
             action:
+              create: Создать новую организацию
               enter: Войти
         oslogin-settings:
           title_allow-edit-own-keys: Разрешить членам организации управлять своими SSH-ключами
           title_ssh-certificate-settings: Доступ по OS Login при помощи SSH-сертификатов (рекомендуется)
           title_user-ssh-key-settings: Доступ по OS Login при помощи SSH-ключей
+        oslogin:
+          field_home-directory: Домашняя директория
+          field_shell: Оболочка по умолчанию
+          field_uid: Идентификатор (UID)
       forms:
         action:
           create: Создать
           save: Сохранить
+      groups:
+        action_create-group: Создать группу
       iam-bindings:
         subject:
           action_revoke-all: Отозвать все
@@ -5610,12 +5644,19 @@ default:
           title_revoke-access-dialog: Отозвать доступ
           value_role-source-filter_direct: Назначенные напрямую
           value_role-source-filter_group: Назначенные через группу
+      layout:
+        identity: Организация
       page:
         acl-diagnostics:
           action_select-subject: Выбрать субъект
         context:
           action:
             create: Создать новую организацию
+        federation:
+          link:
+            download-cert: Скачать сертификат
+          section:
+            certificates: Сертификаты
         services:
           clouds:
             create: Создать облако
@@ -5627,6 +5668,7 @@ default:
             edit: Редактировать данные
         user:
           title_tab-os-login: Профили OS Login
+          title_tab-ssh-keys: SSH-ключи
         users:
           action:
             add-federated-users: Добавить федеративных пользователей
@@ -6196,6 +6238,8 @@ default:
         switch_operations: Операции
         title_clickhouse: ClickHouse
         title_zookeeper: ZooKeeper
+      cloud-tree-list:
+        value_search-placeholder: Поиск
       common:
         add: Добавить
         all: Все
@@ -6258,7 +6302,6 @@ default:
           button_remove-bindings: Отозвать роли
           label_access-bindings: Права доступа
           label_bindings: Роли
-          label_inherited-bindings: Наследуемые роли
           label_service-account: Сервисный аккаунт
           placeholder_filter-by-type: Тип аккаунта
         save: Сохранить
@@ -6286,7 +6329,6 @@ default:
           update-dialog:
             button_add-role: Добавить роль
             button_select-subject: Выбрать пользователя
-            label_title: Настройка прав доступа
         certificates:
           button_empty-add: Добавить сертификат
         compute:

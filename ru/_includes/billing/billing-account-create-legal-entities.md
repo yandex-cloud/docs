@@ -2,7 +2,7 @@
 
 1. {% include [move-to-billing-step](../../billing/_includes/move-to-billing-step.md) %}
 
-1. Войдите в свой Яндекс ID или аккаунт в Яндекс 360. Если у вас еще нет аккаунта, [зарегистрируйтесь](https://yandex.ru/support/id/authorization/registration.html) и в сервисе [{{org-full-name}}]({{link-org-main}}) создайте [организацию](../../organization/quickstart.md), в которой вы будете работать. Если для входа на Яндекс вы используете профиль в социальной сети, [заведите логин и пароль](https://passport.yandex.ru/passport?mode=postregistration&create_login=1).
+1. Войдите в свой Яндекс ID или аккаунт в Яндекс 360. Если у вас еще нет аккаунта, [зарегистрируйтесь](https://yandex.ru/support/id/authorization/registration.html) и в сервисе [{{ org-full-name }}]({{ link-org-cloud-center }}) создайте [организацию](../../organization/quickstart.md), в которой вы будете работать. Если для входа на Яндекс вы используете профиль в социальной сети, [заведите логин и пароль](https://passport.yandex.ru/passport?mode=postregistration&create_login=1).
 
 1. На странице **{{ ui-key.yacloud_billing.billing.title_accounts }}** нажмите кнопку **Создать платёжный аккаунт**. Заполните данные:
 

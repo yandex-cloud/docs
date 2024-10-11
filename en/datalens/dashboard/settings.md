@@ -13,8 +13,8 @@ The following limitations apply to auto update:
 * Data is updated only for the tab opened in the browser.
 * Data is updated only for the current active tab, however:
 
-   * If the tab is not selected as the current tab, it is not considered active and the data is not updated.
-   * If the tab is selected as the current tab, but the browser is running in the background, the tab is considered active and the data is updated.
+  * If the tab is not selected as the current tab, it is not considered active and the data is not updated.
+  * If the tab is selected as the current tab, but the browser is running in the background, the tab is considered active and the data is updated.
 
 ## Description and message settings {#message-settings}
 
@@ -22,10 +22,10 @@ You can [add a description](../operations/dashboard/add-description.md) to a das
 
 You can also set up additional information messages:
 
-* Displayed when [contacting support](../operations/dashboard/add-support-message.md). In this case, if the user clicks ![image](../../_assets/console-icons/circle-question.svg) in the bottom-left corner and selects **Create request**, they will see an additional message in the **Information** window.
+* Displayed when [contacting support](../operations/dashboard/add-support-message.md). In this case, if the user clicks ![image](../../_assets/console-icons/circle-question.svg) in the bottom-left corner of the screen and selects **Create request**, they will see an additional message in the **Information** window.
 * Displayed if a [dashboard access error](../operations/dashboard/add-access-message.md) occurs. In this case, if the user has no dashboard view permission, they will see the saved message.
 
-   {% include [datalens-access-message-note](../../_includes/datalens/datalens-access-message-note.md) %}
+  {% include [datalens-access-message-note](../../_includes/datalens/datalens-access-message-note.md) %}
 
 ## Widget loading settings {#load-settings}
 
@@ -37,8 +37,23 @@ You can customize the loading speed of widgets on the dashboard. To do this, [co
 
 ## Display modes {#display-modes}
 
-{{ datalens-short-name }} allows you to display the dashboard in full-screen mode. This mode hides part of the interface elements and expands the widget area on the screen.
 
 By default, on the mobile version of the dashboard, {{ datalens-short-name }} displays the charts one after another using the following sorting rule: left-to-right, top-to-bottom. In the tab settings, you can change the order of displaying charts and selectors in the mobile version or mailing lists. For more information, see [{#T}](../operations/dashboard/display-modes.md).
+
+## Pinning widgets {#widget-fixation}
+
+You can pin (i.e. lock the position of) a widget in dedicated lock areas at the top of the dashboard. These areas stay locked as you scroll the page, and the widgets pinned on them keep their position.
+
+There are two lock areas available, one below the other. Their purposes are different:
+
+* Widgets pinned to the top area are always visible. This area has a fixed height. We recommend using it for your selectors.
+* The bottom area, with widgets pinned on it, can be collapsed and expanded as needed. If it contains widgets, you will see the ![image](../../_assets/console-icons/chevrons-up.svg) (hide) or ![image](../../_assets/console-icons/chevrons-down.svg) (show) icon to the right of this area. This area changes its height depending on the height of the widgets pinned on it.
+
+You can manage pinned widgets in dashboard edit mode as follows:
+
+* To pin a widget, click ![image](../../_assets/console-icons/ellipsis.svg) → ![image](../../_assets/console-icons/pin.svg) **Pin** or drag it to a lock area. By default, widgets are pinned to the top area. If a widget does not fit into the top area width and height wise, it gets pinned to the bottom area. Widgets are drag-and-droppable from one lock area to another.
+* To to unpin a widget, click ![image](../../_assets/console-icons/ellipsis.svg) → ![image](../../_assets/console-icons/pin-slash.svg) **Unpin** or drag it out of the lock area.
+* To to unpin all widgets, click ![image](../../_assets/console-icons/gear.svg) → ![image](../../_assets/console-icons/pin-slash.svg) **Unpin all** to the right of the lock area.
+* To customize the bottom lock area behavior as you open the dashboard, click ![image](../../_assets/console-icons/gear.svg) → ![image](../../_assets/console-icons/square.svg) **Hide by default** or ![image](../../_assets/console-icons/square-check.svg) **Hide by default** to the right of the lock area.
 
 

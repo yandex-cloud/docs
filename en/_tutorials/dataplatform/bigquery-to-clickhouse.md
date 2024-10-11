@@ -237,7 +237,7 @@ To migrate your database, create Google Cloud and {{ yandex-cloud }} resources.
 ## Use {{ datalens-full-name }} to analyze the data {#datalens}
 
 1. [Connect the {{ mch-name }} cluster to {{ datalens-name }}](../../datalens/operations/connection/create-clickhouse.md).
-1. [Create a dataset](../../datalens/operations/dataset/create.md) based on the `db1.v$google_top_rising_terms` view. For the `score` field, select the average aggregation.
+1. [Create a dataset](../../datalens/dataset/create-dataset.md) based on the `db1.v$google_top_rising_terms` view. For the `score` field, select the average aggregation.
 1. [Create a bar chart](../../datalens/visualization-ref/column-chart.md#create-diagram):
 
    1. Drag the `country_name` field to the **X** section.

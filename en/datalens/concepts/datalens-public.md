@@ -16,6 +16,8 @@ Before publishing data, make sure that:
   * [Snowflake](../operations/connection/create-snowflake.md)
   * [Metrica](../operations/connection/create-metrica-api.md)
   * [AppMetrica](../operations/connection/create-appmetrica.md)
+  * [{{ yandex-cloud }} Billing](../operations/connection/create-cloud-billing.md)
+  * [{{ datalens-short-name }} Usage Analytics](../operations/connection/create-usage-tracking.md)
 
     {% note info %}
 

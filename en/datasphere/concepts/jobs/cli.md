@@ -8,7 +8,7 @@ To install {{ ds-cli }}, in a [Python virtual environment](https://docs.python.o
 pip install datasphere
 ```
 
-As soon as the installation is complete, you can view help by running the `-h` flag command:
+As soon as the installation is complete, you can view help by running this command with the `-h` flag:
 
 ```bash
 datasphere -h
@@ -35,7 +35,7 @@ options:
 
 ## {{ ds-cli }} commands {#commands}
 
-You manage jobs using the `datasphere project job` section commands:
+You can manage jobs using the `datasphere project job` section commands:
 * [Running](#execute) and restoring a job session.
 * [Viewing](#list) job information.
 * [Canceling](#cancel) a job.
@@ -50,7 +50,7 @@ datasphere project job execute -p <project_ID> -c <configuration_file>
 
 Where:
 
-* `<project_ID>`: ID of the {{ ml-platform-name }} project in which you are going to run the job.
+* `<project_ID>`: ID of the {{ ml-platform-name }} project you will run the job in.
 * `<configuration_file>`: Path to the [job configuration file](index.md#config).
 
 Running a job locks the shell session until the job completes. The job code operation [logs](#logs) will be output to the standard `stdout` output and `stderr` error streams. The job execution system logs will be written to a separate file in the user's working directory.
@@ -74,12 +74,13 @@ datasphere project job list -p <project_ID>
 ```
 
 The response will return a table with the following fields:
-* job ID
-* name
-* description
-* status
-* job start and end date (if already completed)
-* name of the user who ran the job
+
+* Job ID.
+* Name.
+* Description.
+* Status.
+* Job start and end date (if already completed).
+* Name of the user who ran the job.
 
 To view information about a specific job, run the following command:
 
@@ -94,9 +95,9 @@ You can stop and cancel a job in two ways:
 1. If you have a shell session running with a job in progress, click **Ctrl** + **C**.
 1. If you want to stop a job that is not related with an active shell session, run the following command:
 
-```bash
-datasphere project job cancel --id <job_ID>
-```
+   ```bash
+   datasphere project job cancel --id <job_ID>
+   ```
 
 The running job will be stopped.
 
@@ -115,7 +116,7 @@ After running the job, you can find the following files in the user's working di
 * `system.log`: System log of the VM configuration and environment package installation.
 * `log.txt`: General {{ ds-cli }} log which records the progress of the job.
 * `docker_stats.tsv`: Log of the resources consumed by the [Docker image](../docker.md), such as utilized CPU power, read and write speeds, used RAM, and boot speed. You can also get this information by running the `docker stats` [command](https://docs.docker.com/reference/cli/docker/container/stats/).
-* `gpu_stats.tsv`: Log of the GPU utilization, which includes the number of cores, utilized power, and video memory.
+* `gpu_stats.tsv`: Log of GPU utilization, which includes the number of cores, utilized power, and video memory.
 
 To change the directory for storing logs, use the following command:
 

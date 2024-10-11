@@ -4,17 +4,17 @@ Maps are used for geoanalytics: displaying and analyzing business indicators on 
 
 You can use a map to display layers of different types:
 
-* Areas. A layer indicates entire areas or regions. Measure values are represented using colors or color shades. It's a good practice to add pop-up hints with area names or measures to a map.
-* Points. Points can be used to display individual objects like cities, stores, order pickup points, or customer addresses. Measure values can be indicated in two ways: through a point color and its size.
-* Lines. Lines are used to show links between objects in the area. For example, airline flights or cargo transportation routes.
-* Heatmap. Shows the density of points on a map. It is helpful when you need to display a large number of points and their concentration areas.
+* Areas A layer indicates entire areas or regions. Measure values are represented using colors or color shades. It is a good practice to add pop-up hints with area names or measures to a map.
+* Points Points can be used to display individual objects like cities, stores, order pickup points, or customer addresses. Measure values can be indicated in two ways: through a point color and its size.
+* Lines Lines are used to show links between objects in the area. For example, airline flights or cargo transportation routes.
+* Heat map shows the density of points on a map. It is helpful when you need to display a large number of points and their concentration areas.
 
 ![image](../../_assets/datalens/visualization-ref/map/map.png)
 
 
-To create maps, make sure the data source contains either [Geopoint](../concepts/data-types.md#geopoint) coordinates or [Geopolygon](../concepts/data-types.md#geopolygon) areas.
+To create maps, make sure the data source contains either [Geopoint](../dataset/data-types.md#geopoint) coordinates or [Geopolygon](../dataset/data-types.md#geopolygon) areas.
 
-You can place no more than 5 layers with any visualization type on a map. Layers in the **Map** chart are called geolayers.
+One map can contain a maximum of 5 layers with any type of visualization. Layers in the **Map** chart are called geolayers.
 
 _Geolayers_ visualize indicators using points or polygons on the map.
 

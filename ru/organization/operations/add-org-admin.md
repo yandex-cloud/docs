@@ -7,19 +7,17 @@ description: Следуя данной инструкции, вы сможете
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ org-name }} {#cloud-org}
+- Интерфейс {{ cloud-center }} {#cloud-center}
 
-  1. [Войдите в аккаунт]({{ link-passport }}) администратора или владельца организации.
-
-  1. Перейдите в сервис [{{ org-full-name }}]({{ link-org-main }}).
+  1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}) с учетной записью администратора или владельца организации.
   
-  1. На панели слева выберите раздел ![persons-lock](../../_assets/console-icons/persons-lock.svg) [{{ ui-key.yacloud_org.pages.acl }}]({{ link-org-acl }}).
+  1. На панели слева выберите ![persons-lock](../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud_org.pages.acl }}**.
 
   1. Справа сверху нажмите кнопку **{{ ui-key.yacloud_org.entity.user.action.acl }}**.
 
-  1. Выберите пользователя из списка или воспользуйтесь строкой поиска.
+  1. Выберите пользователя, которого хотите назначить администратором. При необходимости воспользуйтесь строкой поиска.
 
-  1. Нажмите **{{ ui-key.yacloud.component.acl.update-dialog.button_add-role }}** и выберите одну из [ролей](../../iam/concepts/access-control/roles.md):
+  1. Нажмите кнопку ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_org.form.acl.edit.action.role.add }}** и выберите одну из [ролей](../../iam/concepts/access-control/roles.md):
 
       * `organization-manager.admin`.
       * `organization-manager.organizations.owner`.
@@ -71,7 +69,7 @@ description: Следуя данной инструкции, вы сможете
 
       Где:
 
-      * `organization_id` — идентификатор организации.
+      * `organization_id` — [идентификатор](./organization-get-id.md) организации.
       * `role` — укажите одну из ролей: `organization-manager.admin` или `organization-manager.organizations.owner`. Для каждой роли можно использовать только один `yandex_organization manager_organization_iam_binding`.
       * `userAccount:<идентификатор_пользователя>` — идентификатор аккаунта пользователя на Яндексе.
 

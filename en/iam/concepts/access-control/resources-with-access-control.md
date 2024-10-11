@@ -1,151 +1,101 @@
 ---
-title: List of resources that you can assign roles for in {{ iam-full-name }}
-description: In this tutorial, you will learn for which {{ yandex-cloud }} resources you can assign roles.
+title: List of resources you can assign roles for in {{ iam-full-name }}
+description: In this tutorial, you will learn which {{ yandex-cloud }} resources you can assign roles for.
 ---
 
 # List of resources that you can assign roles for
 
 
-{{ yandex-cloud }} has various resources for which you can [assign](../../operations/roles/grant.md), [view](../../operations/roles/get-assigned-roles.md), and [revoke](../../operations/roles/revoke.md) roles. The list of such resources depends on the {{ yandex-cloud }} interface you use to assign a role.
+{{ yandex-cloud }} has various resources for which you can [assign](../../operations/roles/grant.md), [view](../../operations/roles/get-assigned-roles.md), and [revoke](../../operations/roles/revoke.md) roles.
 
 If you need to grant access to a resource that is not on the list, assign the role for the parent resource it [inherits](index.md#inheritance) permissions from. For example, [{{ mpg-full-name }} clusters](../../../managed-postgresql/concepts/index.md) inherit access permissions from their folder.
 
-## Resources for which you can assign roles in the management console {#console}
+The list of resources will vary depending on the {{ yandex-cloud }} interface used to assign a role.
 
-**{{ container-registry-name }}**
-* [Registry](../../../container-registry/operations/roles/grant.md)
+{% list tabs group=instructions %}
 
-**{{ compute-name }}**
+- Management console {#console}
 
-{% include notitle [compute-resources](../../../_includes/iam/resources-with-access-control/compute.md) %}
+  **{{ container-registry-name }}**
+  * [Registry](../../../container-registry/operations/roles/grant.md)
 
-**{{ iam-name }}**
-* [Service account](../../operations/sa/assign-role-for-sa.md)
+  **{{ compute-name }}**
 
-**{{ kms-name }}**
+  {% include notitle [compute-resources](../../../_includes/iam/resources-with-access-control/compute.md) %}
 
-{% include notitle [kms-resources](../../../_includes/iam/resources-with-access-control/kms.md) %}
+  **{{ iam-name }}**
+  * [Service account](../../operations/sa/assign-role-for-sa.md)
 
-**{{ ydb-name }}**
-* [YDB DBMS](../../../ydb/operations/manage-databases.md#add-access-binding)
+  **{{ kms-name }}**
 
-**{{ metadata-hub-full-name }}**
-* [Connection to managed databases](../../../metadata-hub/operations/connection-access.md) in {{ connection-manager-full-name }}
+  {% include notitle [kms-resources](../../../_includes/iam/resources-with-access-control/kms.md) %}
 
-**{{ objstorage-name }}**
-* [Bucket](../../../storage/operations/buckets/iam-access.md)
+  **{{ ydb-name }}**
+  * [YDB DBMS](../../../ydb/operations/manage-databases.md#add-access-binding)
 
-**{{ resmgr-name }}**
-* [Cloud](../../../resource-manager/operations/cloud/set-access-bindings.md)
-* [Folder](../../../resource-manager/operations/folder/set-access-bindings.md)
+  **{{ metadata-hub-full-name }}**
+  * [Connection to managed databases](../../../metadata-hub/operations/connection-access.md) in {{ connection-manager-full-name }}
 
-**{{ lockbox-name }}**
-* [Secret](../../../lockbox/operations/secret-access.md)
+  **{{ objstorage-name }}**
+  * [Bucket](../../../storage/operations/buckets/iam-access.md)
 
-## Resources for which you can assign roles via the YC CLI and {{ yandex-cloud }} API {#cli-api}
+  **{{ resmgr-name }}**
+  * [Cloud](../../../resource-manager/operations/cloud/set-access-bindings.md)
+  * [Folder](../../../resource-manager/operations/folder/set-access-bindings.md)
 
-**{{ api-gw-name }}**
-* [API gateway](../../../api-gateway/concepts/index.md)
+  **{{ lockbox-name }}**
+  * [Secret](../../../lockbox/operations/secret-access.md)
 
-**{{ at-name }}**
-* [Trail](../../../audit-trails/concepts/trail.md)
+- CLI {#cli}
 
-**{{ certificate-manager-name }}**
-* [Custom certificate](../../../certificate-manager/concepts/imported-certificate.md)
+  {% include notitle [cli-api](../../../_includes/iam/resources-with-access-control/cli-api.md) %}
 
-**{{ cloud-desktop-name }}**
-* [Desktop groups](../../../cloud-desktop/concepts/desktops-and-groups.md)
+- {{ TF }} {#tf}
 
-**{{ dns-name }}**
-* [DNS zone](../../../dns/operations/zone-access.md)
+  **{{ container-registry-name }}**
+  * [Registry](../../../container-registry/operations/roles/grant.md)
+  * [Repository](../../../container-registry/operations/roles/grant.md)
 
-**{{ sf-name }}**
-* [Function](../../../functions/operations/function/role-add.md)
+  **{{ ml-platform-name }}**
+  * [Project](../../../datasphere/security/index.md)
+  * [Community](../../../datasphere/security/index.md)
 
-**{{ cloud-logging-name }}**
+  **{{ dns-name }}**
+  * [DNS zone](../../../dns/operations/zone-access.md)
 
-{% include notitle [logging-resources](../../../_includes/iam/resources-with-access-control/logging.md) %}
+  **{{ sf-name }}**
+  * [Function](../../../functions/operations/function/role-add.md)
 
-**{{ org-name }}**
+  **{{ compute-name }}**
 
-{% include notitle [organization-resources](../../../_includes/iam/resources-with-access-control/organization.md) %}
+  {% include notitle [compute-resources-tf](../../../_includes/iam/resources-with-access-control/compute-tf.md) %}
 
-**{{ container-registry-name }}**
-* [Registry](../../../container-registry/operations/roles/grant.md)
-* [Repository](../../../container-registry/operations/roles/grant.md)
+  **{{ iam-name }}**
+  * [Service account](../../operations/sa/assign-role-for-sa.md)
 
-**{{ compute-name }}**
+  **{{ kms-name }}**
 
-{% include notitle [compute-resources](../../../_includes/iam/resources-with-access-control/compute.md) %}
+  {% include notitle [kms-resources](../../../_includes/iam/resources-with-access-control/kms.md) %}
 
-**{{ iam-name }}**
-* [Service account](../../operations/sa/assign-role-for-sa.md)
+  **{{ lockbox-name }}**
+  * [Secret](../../../lockbox/operations/secret-access.md)
 
-**{{ kms-name }}**
+  **{{ resmgr-name }}**
+  * [Cloud](../../../resource-manager/operations/cloud/set-access-bindings.md)
+  * [Folder](../../../resource-manager/operations/folder/set-access-bindings.md)
 
-{% include notitle [kms-resources](../../../_includes/iam/resources-with-access-control/kms.md) %}
+  **{{ serverless-containers-name }}**
+  * [Container](../../../serverless-containers/operations/role-add.md)
 
-**{{ ydb-name }}**
-* [YDB DBMS](../../../ydb/operations/manage-databases.md#add-access-binding)
-* YDB DBMS backup
+  **{{ ydb-name }}**
+  * [YDB DBMS](../../../ydb/security/index.md)
 
-**{{ resmgr-name }}**
-* [Cloud](../../../resource-manager/operations/cloud/set-access-bindings.md)
-* [Folder](../../../resource-manager/operations/folder/set-access-bindings.md)
+  **{{ org-name }}**
 
-**{{ serverless-containers-name }}**
-* [Container](../../../serverless-containers/operations/role-add.md)
+  {% include notitle [organization-resources](../../../_includes/iam/resources-with-access-control/organization.md) %}
 
-**{{ lockbox-name }}**
-* [Secret](../../../lockbox/operations/secret-access.md)
+- API {#api}
 
-## Resources for which you can assign roles using {{ TF }} {#terraform}
+  {% include notitle [cli-api](../../../_includes/iam/resources-with-access-control/cli-api.md) %}
 
-**{{ container-registry-name }}**
-* [Registry](../../../container-registry/operations/roles/grant.md)
-* [Repository](../../../container-registry/operations/roles/grant.md)
-
-**{{ ml-platform-name }}**
-* [Project](../../../datasphere/security/index.md)
-* [Community](../../../datasphere/security/index.md)
-
-**{{ dns-name }}**
-* [DNS zone](../../../dns/operations/zone-access.md)
-
-**{{ sf-name }}**
-* [Function](../../../functions/operations/function/role-add.md)
-
-**{{ compute-name }}**
-* [VM instance](../../../compute/operations/vm-control/vm-access.md)
-* [VM placement group](../../../compute/operations/placement-groups/access.md)
-* [Non-replicated disk placement group](../../../compute/operations/disk-placement-groups/access.md)
-* [VM disk](../../../compute/operations/disk-control/disk-access.md)
-* [GPU cluster](../../../compute/operations/gpu-cluster/access.md)
-* [Image](../../../compute/operations/image-control/access.md)
-* [Snapshot schedule](../../../compute/operations/snapshot-control/snapshot-schedule-access.md)
-* [Disk snapshot](../../../compute/operations/snapshot-control/snapshot-access.md)
-* [File storage](../../../compute/operations/filesystem/filesystem-access.md)
-
-**{{ iam-name }}**
-* [Service account](../../operations/sa/assign-role-for-sa.md)
-
-**{{ kms-name }}**
-
-{% include notitle [kms-resources](../../../_includes/iam/resources-with-access-control/kms.md) %}
-
-**{{ lockbox-name }}**
-* [Secret](../../../lockbox/operations/secret-access.md)
-
-**{{ resmgr-name }}**
-* [Cloud](../../../resource-manager/operations/cloud/set-access-bindings.md)
-* [Folder](../../../resource-manager/operations/folder/set-access-bindings.md)
-
-**{{ serverless-containers-name }}**
-* [Container](../../../serverless-containers/operations/role-add.md)
-
-**{{ ydb-name }}**
-* [YDB DBMS](../../../ydb/security/index.md)
-
-**{{ org-name }}**
-
-{% include notitle [organization-resources](../../../_includes/iam/resources-with-access-control/organization.md) %}
+{% endlist %}

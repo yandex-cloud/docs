@@ -4,4 +4,4 @@
 * **Username**: Specify the username for the {{ PG }} connection.
 * **Password**: Enter the password for the user.
 * **Cache TTL in seconds**: Specify the cache time-to-live or leave the default value. The recommended value is 300 seconds (5 minutes).
-* **Raw SQL level**: Enables you to use an ad-hoc SQL query to [generate a dataset](../../datalens/concepts/dataset/settings.md#sql-request-in-datatset).
+* **Raw SQL level**: Enables you to use an ad-hoc SQL query to [generate a dataset](../../datalens/dataset/settings.md#sql-request-in-datatset).

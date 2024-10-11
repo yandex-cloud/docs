@@ -22,6 +22,8 @@ Nodes are charged based on the [{{ compute-full-name }} pricing policy](../compu
 
 ### Master {#master}
 
+The monthly prices are based on 720 hours per month.
+
 
 
 

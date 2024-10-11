@@ -1,12 +1,14 @@
 {% list tabs group=instructions %}
 
-- Интерфейс {{ org-name }} {#cloud-org}
+- Интерфейс {{ cloud-center }} {#cloud-center}
 
-  1. [Войдите в аккаунт]({{ link-passport-login }}) администратора организации.
-  1. Перейдите в сервис [{{org-full-name}}]({{ link-org-main }}).
-  1. На панели слева выберите раздел **{{ ui-key.yacloud_org.pages.groups }}** ![icon-services](../../_assets/console-icons/persons.svg).
-  1. Выберите [группу](../../organization/concepts/groups.md) в списке и нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) напротив имени группы.
-  1. Нажмите **{{ ui-key.yacloud_org.entity.group.action_edit }}** и введите новое название или описание группы.
+  1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}) с учетной записью администратора или владельца организации.
+
+  1. На панели слева выберите ![groups](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud_org.pages.groups }}**.
+  
+  1. В строке с нужной [группой](../../organization/concepts/groups.md) нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud_org.entity.group.action_edit }}**.
+
+  1. Задайте новое название или описание группы.
 
       Название должно быть уникальным в организации и соответствовать требованиям:
 
@@ -43,7 +45,7 @@
         {% include [group-name-format](group-name-format.md) %}
 
       * `--new-name` — новое имя группы пользователей.
-      * `--organization-id` — идентификатор организации. Необязательный параметр.
+      * `--organization-id` — [идентификатор](../../organization/operations/organization-get-id.md) организации. Необязательный параметр.
       * `--description` — текстовое описание группы пользователей. Необязательный параметр.
 
 - {{ TF }} {#tf}
@@ -69,7 +71,7 @@
         {% include [group-name-format](group-name-format.md) %}
 
      * `description` — новое описание группы.
-     * `organization_id` — идентификатор организации, к которой принадлежит группа.
+     * `organization_id` — [идентификатор](../../organization/operations/organization-get-id.md) организации, к которой принадлежит группа.
   1. Создайте ресурсы:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

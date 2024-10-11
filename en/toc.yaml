@@ -121,7 +121,7 @@ items:
     href: search-api/index.yaml
   - name: Security in {{ yandex-cloud }}
     href: security/index.yaml
-  - name: Yandex Security Deck
+  - name: Security Deck
     href: security-deck/index.yaml
   - name: SmartCaptcha
     href: smartcaptcha/index.yaml

@@ -20,7 +20,7 @@ As consumption thresholds, you can use:
 
 You will need the following roles to manage costs:
 
-* `{{ roles-datasphere-project-editor }}` to view project limits.
-* `{{ roles-datasphere-project-admin }}` to set project limits.
+* `{{ roles-datasphere-project-editor }}`: To view project limits.
+* `{{ roles-datasphere-project-admin }}`: To set project limits.
 
-You can learn more about {{ ml-platform-name }} roles and access management in [{#T}](../security/index.md).
+For more information about roles and access management in {{ ml-platform-name }}, see [{#T}](../security/index.md).

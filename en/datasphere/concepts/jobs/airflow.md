@@ -43,7 +43,7 @@ def run():
 run()
 ```
 
-Job execution logs are displayed in the CLI and the web server interface. If there are any issues, the DAG operation will fail and the corresponding stack trace will appear in the logs.
+Job run logs are displayed in [{{ ds-cli }}](cli.md) and the web server interface. If there are any issues, the DAG operation will fail and the corresponding stack trace will appear in the logs.
 
 {% note info %}
 
@@ -57,7 +57,7 @@ A non-blocking call allows you to perform new calculations on your {{ AF }} clus
 
 #### Example {#example-fork-from-dag}
 
-Let's take a look at a DAG file with Airflow Sensor which inquires for job status every minute using the `get_job` function. When the job is completed, the last operator is run: `handle_job_result`:
+Let's take a look at a DAG file with Airflow Sensor which requests the job status every minute using the `get_job` function. When the job is completed, the last operator, `handle_job_result`, is run:
 
 ```python
 from typing import Optional
@@ -100,7 +100,6 @@ run()
 ```
 
 Add additional operators before or after the job run by integrating it with other systems or external storages.
-
 
 #### See also {#see-also}
 

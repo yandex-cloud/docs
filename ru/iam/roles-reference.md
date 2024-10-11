@@ -1435,10 +1435,44 @@ description: В статье приведен полный справочник 
 
 {% include [search-api-webSearch-user](../_roles/search-api/webSearch/user.md) %}
 
+#### search-api.auditor {#search-api-auditor}
+
+{% include [searchapi-auditor](../_roles/search-api/auditor.md) %}
+
+#### search-api.viewer {#search-api-viewer}
+
+{% include [searchapi-viewer](../_roles/search-api/viewer.md) %}
+
+#### search-api.editor {#search-api-editor}
+
+{% include [searchapi-editor](../_roles/search-api/editor.md) %}
+
+#### search-api.admin {#search-api-admin}
+
+{% include [searchapi-admin](../_roles/search-api/admin.md) %}
+
 Подробнее см. [{#T}](../search-api/security/index.md).
 
 
 ## {{ sd-full-name }} {#security-deck-roles}
+
+### Сервисные роли для анализа данных Access Transparency {#access-transparency-roles}
+
+#### access-transparency.viewer {#access-transparency-viewer}
+
+{% include [access-transparency.viewer](../_roles/access-transparency/viewer.md) %}
+
+#### access-transparency.editor {#access-transparency-editor}
+
+{% include [access-transparency.editor](../_roles/access-transparency/editor.md) %}
+
+#### access-transparency.admin {#access-transparency-admin}
+
+{% include [access-transparency.admin](../_roles/access-transparency/admin.md) %}
+
+Подробнее см. [Управление доступом в Access Transparency](../security-deck/security/access-transparency-roles.md).
+
+### Сервисные роли для контроля данных (DSPM) {#dspm-roles}
 
 #### dspm.inspector {#dspm-inspector}
 
@@ -1460,7 +1494,7 @@ description: В статье приведен полный справочник 
 
 {% include [dspm.admin](../_roles/dspm/admin.md) %}
 
-Подробнее см. [{#T}](../security-deck/security/index.md).
+Подробнее см. [Управление доступом в DSPM](../security-deck/security/dspm-roles.md).
 
 
 ## {{ serverless-containers-full-name }} {#serverless-containers-roles}

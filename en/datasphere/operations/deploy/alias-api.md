@@ -43,7 +43,7 @@ yandex.cloud.datasphere.v1.NodeService/ExecuteAlias
 
 Where:
 
-* `<IAM_token>`: IAM token used for authentication.
+* `<IAM_token>`: [IAM token](../../../iam/concepts/authorization/iam-token.md) being used for authentication.
 * `<folder_ID>`: ID of the folder where the project and the alias were created.
 * `<alias_name>`: Alias name.
 * `<input_variables>`: Object in `{"a":2,"b":3}` format in which keys are mapped to input variables.
@@ -74,7 +74,7 @@ curl -H "x-node-alias: datasphere.user.<alias_name>" \
 Where:
 
 * `<alias_name>`: Alias name.
-* `<IAM_token>`: IAM token used for authentication.
+* `<IAM_token>`: IAM token being used for authentication.
 * `<folder_ID>`: ID of the folder where the project and the alias were created.
 * `<request_type>`: Type of the request to the alias.
 * `<input_variables>`: Object in `{"a":2,"b":3}` format in which keys are mapped to input variables.

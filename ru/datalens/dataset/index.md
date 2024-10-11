@@ -9,6 +9,8 @@ _Датасет_ описывает набор данных и его струк
 
 
 
+{% include [datalens-dataset-timeout-note](../../_includes/datalens/datalens-dataset-timeout-note.md) %}
+
 ## Страница датасета {#dataset-page}
 
 Страница датасета состоит из нескольких вкладок:

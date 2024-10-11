@@ -87,7 +87,7 @@ description: Следуя данной инструкции, вы сможете
 
       * [Пользователь](../../../iam/operations/users/get.md).
       * [Сервисный аккаунт](../../../iam/operations/sa/get-id.md).
-      * Группа пользователей — перейдите на вкладку [**{{ ui-key.yacloud_org.pages.groups }}**]({{ link-org-main }}groups) в интерфейсе {{ org-name }}.
+      * Группа пользователей — перейдите на вкладку [**{{ ui-key.yacloud_org.pages.groups }}**]({{ link-org-cloud-center }}/groups) в интерфейсе {{ cloud-center }}.
 
 
   1. Выполните команду:

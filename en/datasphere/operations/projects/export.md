@@ -6,15 +6,15 @@ You can export a project as a ZIP archive. In this case, both the file with a no
 
 {% include [include](../../../_includes/datasphere/ui-before-begin.md) %}
 
-## Export a project {#export-project}
+## Exporting a project {#export-project}
 
 Make sure you've saved the changes. The last saved state is exported.
 
 1. In the top panel, click **File** and select **Export project as zip**.
 1. In the window that opens, click **Download**.
 
-   Wait for the ZIP archive with the project to download.
+    Wait for the ZIP archive with the project to download.
 
-## What's next {#what-is-next}
+#### See also {#see-also}
 
-- [{#T}](delete.md)
+* [{#T}](delete.md)

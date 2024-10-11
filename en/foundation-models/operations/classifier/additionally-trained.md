@@ -42,6 +42,12 @@ To send a request to the classifier:
         -d "@<path_to_request_body_file>" \
         "https://{{ api-host-llm }}:443/foundationModels/v1/textClassification"
       ```
+
+      {% note info %}
+      
+      The `https://{{ api-host-llm }}:443/foundationModels/v1/textClassification` endpoint works only with fine-tuned classifiers. For [prompt-based classifiers](readymade.md), use `https://{{ api-host-llm }}/foundationModels/v1/fewShotTextClassification`.
+      
+      {% endnote %}
   
       In the response, the service will return the classification results with the `confidence` values for the probability of classifying the request text into each class:
   

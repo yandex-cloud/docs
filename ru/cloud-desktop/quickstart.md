@@ -40,20 +40,26 @@ description: Следуя данной инструкции, вы сможете
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ org-name }} {#cloud-org}
+- Интерфейс {{ cloud-center }} {#cloud-center}
 
-  1. [Войдите в аккаунт]({{ link-passport-login }}) администратора организации.
-  1. Перейдите в сервис [{{ org-full-name }}]({{ link-org-main }}).
-  1. На панели слева выберите раздел **{{ ui-key.yacloud_org.pages.groups }}** ![persons](../_assets/console-icons/persons.svg).
-  1. В правом верхнем углу нажмите **{{ ui-key.yacloud_org.entity.group.action_create }}** и введите название для группы пользователей.
+  1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}) с учетной записью администратора или владельца организации.
+
+  1. На панели слева выберите ![groups](../_assets/console-icons/persons.svg) **{{ ui-key.yacloud_org.pages.groups }}**.
+
+  1. В правом верхнем углу страницы нажмите ![Circles3Plus](../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.entity.group.action_create }}**.
+
+  1. Задайте название и описание [группы](../organization/concepts/groups.md).
 
       Название должно быть уникальным в [организации](../overview/roles-and-resources.md) и соответствовать требованиям:
 
       {% include [group-name-format](../_includes/organization/group-name-format.md) %}
 
-  1. Нажмите **{{ ui-key.yacloud_org.entity.group.action_create }}**.
-  1. На открывшейся вкладке **{{ ui-key.yacloud_org.entity.group.title_tab-members }}** нажмите **{{ ui-key.yacloud_org.entity.group.action_add-member }}**.
-  1. В окне **{{ ui-key.yacloud_org.component.subject-select-dialog.title_dialog }}** выберите пользователей, для которых будет развернута группа рабочих столов.
+  1. Нажмите кнопку **{{ ui-key.yacloud_org.groups.action_create-group }}**.
+
+  1. На открывшейся странице перейдите на вкладку **{{ ui-key.yacloud_org.entity.group.title_tab-members }}** и нажмите кнопку **{{ ui-key.yacloud_org.entity.group.action_add-member }}**.
+
+  1. В открывшемся окне выберите пользователей, для которых будет развернута группа рабочих столов.
+
   1. Нажмите **{{ ui-key.yacloud_org.component.subject-select-dialog.action_apply }}**.
 
 {% endlist %}

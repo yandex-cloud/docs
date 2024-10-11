@@ -40,7 +40,6 @@ description: The page contains all guides on working with {{ ml-platform-full-na
 * [{#T}](projects/snippets.md)
 * [{#T}](projects/clear-outputs.md)
 * [{#T}](projects/work-with-git.md)
-* [{#T}](user-images-cell.md)
 * [{#T}](projects/templates.md)
 * [{#T}](projects/remote-connect.md)
 

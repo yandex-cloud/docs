@@ -6,21 +6,9 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ org-name }} {#cloud-org}
+- Интерфейс {{ cloud-center }} {#cloud-center}
 
-  1. [Войдите в аккаунт]({{ link-passport }}) администратора или владельца организации.
-
-  1. Перейдите в сервис [{{ org-full-name }}]({{ link-org-main }}).
-
-  1. На панели слева выберите раздел ![persons-lock](../../_assets/console-icons/persons-lock.svg) [{{ ui-key.yacloud_org.pages.acl }}]({{ link-org-acl }}).
-
-  1. Справа сверху нажмите кнопку **{{ ui-key.yacloud_org.entity.user.action.acl }}**.
-
-  1. Выберите пользователя из списка или воспользуйтесь строкой поиска.
-
-  1. Нажмите **{{ ui-key.yacloud.component.acl.update-dialog.button_add-role }}** и введите название роли или выберите роль в списке. Вы можете выбрать больше одной роли.
-
-  1. Нажмите **{{ ui-key.yacloud.common.save }}**.
+  {% include [assign-role-to-user](../../_includes/organization/assign-role-to-user.md) %}
 
 - CLI {#cli}
 
@@ -72,7 +60,7 @@
 
       Где:
 
-      * `organization_id` — идентификатор организации.
+      * `organization_id` — [идентификатор](./organization-get-id.md) организации.
       * `role` — роль, которую хотите назначить. Для каждой роли можно использовать только один `yandex_organization manager_organization_iam_binding`.
       * `members` — массив идентификаторов пользователей, которым будет назначена роль:
 

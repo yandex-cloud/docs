@@ -25,7 +25,7 @@ description: Следуя данной инструкции, вы сможете
 
 ## Создать слот репликации {#create}
 
-1. Задайте максимальный размер WAL при репликации в [настройке](../concepts/settings-list.md#setting-max-slot-wal-keep-size) `Max slot wal keep size`. Редактирование данной настройки доступно начиная с 13 версии {{ PG }}.
+1. Задайте максимальный размер WAL при репликации в [настройке](../concepts/settings-list.md#setting-max-slot-wal-keep-size) `Max slot wal keep size`.
 
     {% note warning %}
 

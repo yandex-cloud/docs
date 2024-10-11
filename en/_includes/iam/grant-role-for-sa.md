@@ -1,4 +1,4 @@
-You can assign roles to a service account for any resources in any cloud if these resources belong to the same organization as the service account. You can also assign roles to a service account for the organization.
+{% include [sa-binding-roles](sa-binding-roles.md) %}
 
 ## Assigning a role for a resource {#binding-role-resource}
 

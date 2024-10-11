@@ -52,7 +52,7 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
    ![image](../../_assets/datalens/solution-07/05-preview.png)
 
 1. In the top-right corner, click **Create connection**.
-1. Enter the `dtp_data` connection name and click **Create**.
+1. Enter a name for the `dtp_data` connection and click **Create**.
 
 This will create the file connection. The data will be shown in the same form as in the file. To use it, you need to create a dataset.
 
@@ -68,7 +68,7 @@ The dataset will consist of a single source: the CSV file.
 
    ![image](../../_assets/datalens/solution-07/08-dataset.png)
 
-   You can add [data fields](../../datalens/concepts/dataset/data-model.md#field) and [calculated fields](../../datalens/concepts/calculations/index.md), change the field data type and aggregation rules, and rename fields.
+   You can add [data fields](../../datalens/dataset/data-model.md#field) and [calculated fields](../../datalens/concepts/calculations/index.md), change the field data type and aggregation rules, and rename fields.
 
    ![image](../../_assets/datalens/solution-07/09-rename.png)
 
@@ -78,7 +78,7 @@ The dataset will consist of a single source: the CSV file.
    - Region name
    - Road code
    - Road name
-   - Road type
+   - Type of road
    - OKTMO code
    - Address
    - Accident type
@@ -87,8 +87,8 @@ The dataset will consist of a single source: the CSV file.
 
 1. The accident date and time are shown in the following fields:
 
-   - crash_date: Date in numeric format, e.g., `20190218`
-   - crash_time: Time, e.g., `19:34`
+   - crash_date: Numeric date in `20190218` format.
+   - crash_time: Time in `19:34` format.
 
    They will not be used in the dataset in this format. Click the visibility icon to hide them.
 
@@ -102,7 +102,7 @@ The dataset will consist of a single source: the CSV file.
 
    1. Specify the following data for it:
 
-      - **Field name**: Date and time
+      - **Field name**: Datetime
       - **Formula**: `DATETIME_PARSE(str([crash_date])+' '+str([crash_time]))`
 
       {% note tip %}
@@ -153,7 +153,7 @@ The dataset will consist of a single source: the CSV file.
       - **Field name**: Geopoint
       - **Formula**: `GEOPOINT([latitude],[longitude])`
 
-      where [latitude] and [longitude] are dataset fields.
+      Where [latitude] and [longitude] are dataset fields.
 
       ![image](../../_assets/datalens/solution-07/16-new-field-geopoint.png)
 
@@ -241,7 +241,7 @@ Proceed to creating the first [chart](../../datalens/concepts/chart/index.md).
 
    ![image](../../_assets/datalens/solution-07/25-save-heatmap.png)
 
-1. In the dialog box, name the chart **Heat map** and click **Save**.
+1. In the dialog box, specify the chart name, **Heat map**, and click **Save**.
 
 ## Step 4. Create your second chart: a bar chart {#step4}
 
@@ -269,7 +269,7 @@ Proceed to creating the first [chart](../../datalens/concepts/chart/index.md).
 
    1. Click **Save as** to save the chart.
 
-   1. In the window that opens, name the chart **Number of accidents by region** and save it.
+   1. In the window that opens, specify the chart name, **Number of accidents by region**, and save it.
 
 1. Analyze the death rate in accidents by region.
 
@@ -325,7 +325,7 @@ Let's see how the number of accidents and related deaths are distributed by week
 
 1. Analyze the number of accidents and death rate by hour of day.
 
-   1. Change grouping by date and time to **Date part** ⟶ **Hour**.
+   1. Change grouping by date and time by specifying: **Date part** ⟶ **Hour**.
 
       ![image](../../_assets/datalens/solution-07/42-choose-hour.png)
 
@@ -403,7 +403,7 @@ Let's see how the number of accidents and related deaths are distributed by week
 
    - Cause of accident
    - Accident type
-   - Road type
+   - Type of road
    - Road name
 
 1. You can drag and resize dashboard elements. Place the elements according to the screenshot or however is convenient for you and save the dashboard:
@@ -504,7 +504,7 @@ You need to add new fields to the previously created **Accidents** dataset.
 
 1. In the top-right corner, click **Save**.
 
-1. Name the chart **Map of regions** and click **Save** once again.
+1. Enter a chart name, **Map of regions**, and click **Save** once again.
 
 ## Step 12. Add a new chart to the dashboard {#step12}
 

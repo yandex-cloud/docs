@@ -1,12 +1,24 @@
 # OS Login
 
-OS Login is a convenient way to manage connections to [virtual machines](../../compute/concepts/vm.md) and {{ managed-k8s-full-name }} [cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) nodes over SSH with an SSH certificate via the YC CLI or a standard SSH client, as well as via the YC CLI with an SSH key previously added to the organization user profile in {{ org-full-name }}.
+OS Login is a convenient way to manage connections to [virtual machines](../../compute/concepts/vm.md) and {{ managed-k8s-full-name }} [cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) nodes over SSH with an SSH certificate via the YC CLI or a standard SSH client, as well as via the YC CLI with an SSH key previously added to the organization user or [service account](../../iam/concepts/users/service-accounts.md) profile in {{ org-full-name }}.
 
 The OS Login agent is based on the [Guest Agent for Google Compute Engine](https://github.com/GoogleCloudPlatform/guest-agent). To monitor the changes introduced by the {{ yandex-cloud }} team, see the project's repository on [GitHub](https://github.com/yandex-cloud/yandex-cloud-guest-agent).
 
 {% note info %}
 
-To connect to a virtual machine or {{ k8s }} node with OS Login access enabled, the user must have the `compute.osLogin` or `compute.osAdminLogin` role.
+Required roles:
+
+{% list tabs %}
+
+- Connecting via the YC CLI
+
+  To connect to a virtual machine or {{ k8s }} node with OS Login access enabled via the [YC CLI](../../cli/quickstart.md), the user or service account used to run the YC CLI command needs the `compute.osLogin` or `compute.osAdminLogin` role, as well as the `compute.operator` role.
+
+- Connecting via a standard SSH client
+
+  To connect to a virtual machine or {{ k8s }} node with OS Login access enabled via a standard SSH client, the user or service account used for connection needs the `compute.osLogin` or `compute.osAdminLogin` role.
+
+{% endlist %}
 
 {% endnote %}
 
@@ -14,7 +26,7 @@ OS Login links the virtual machine or {{ k8s }} node user account with an organi
 
 This way you can easily manage access to virtual machines and {{ k8s }} nodes by assigning appropriate roles to users. If you revoke the roles, the user will lose access to all virtual machines and {{ k8s }} nodes where OS Login access is enabled.
 
-Users or third-party tools, such as [{{ TF }}](https://www.terraform.io/) or [Ansible](https://www.ansible.com/), can use a standard SSH client to [connect](../../compute/operations/vm-connect/os-login.md#connect-via-exported-certificate) to a VM and {{ k8s }} nodes with OS Login access enabled using SSH certificates.
+Users or third-party tools, such as [{{ TF }}](https://www.terraform.io/) or [Ansible](https://www.ansible.com/), can use a standard SSH client to [connect](../../compute/operations/vm-connect/os-login.md#connect-via-exported-certificate) to a VM and {{ k8s }} nodes with OS Login access enabled using SSH certificates or SSH keys.
 
 To connect through a standard SSH client using an SSH certificate to a VM or {{ k8s }} node with OS Login access enabled, you must [export](../../compute/operations/vm-connect/os-login-export-certificate.md) the OS Login certificate and use it when connecting. The certificate is valid for one hour. After this time has elapsed, you will need to export a new certificate to connect to the VM or {{ k8s }} node.
 

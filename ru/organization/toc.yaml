@@ -13,6 +13,8 @@ items:
             href: operations/organizations-overview.md
           - name: Создать организацию
             href: operations/enable-org.md
+          - name: Получить идентификатор организации
+            href: operations/organization-get-id.md
           - name: Изменить данные организации
             href: operations/org-profile.md
           - name: Управление несколькими организациями

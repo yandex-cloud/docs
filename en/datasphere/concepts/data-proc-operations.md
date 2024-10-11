@@ -33,7 +33,7 @@ To learn more about using Spark connectors, see [this guide](../operations/data/
 
 When working with Python Spark via {{ ml-platform-name }}, there is no need to manually migrate the virtual environment. In a {{ dataproc-name }} cluster, you can change the basic composition of PyPI packages using a virtual environment:
 
-1. Install the `catboost ` library:
+1. Install the `catboost` library:
 
    ```python
    %pip install catboost
@@ -130,5 +130,5 @@ For more information about the SQL query syntax and how to use the Spark SQL lib
 
 ## See also {#see-also}
 
-* [{#T}](../tutorials/data-proc-integration.md).
-* [{#T}](spark-connector.md).
+* [{#T}](../tutorials/data-proc-integration.md)
+* [{#T}](spark-connector.md)

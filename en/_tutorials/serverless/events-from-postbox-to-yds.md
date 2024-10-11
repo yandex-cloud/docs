@@ -341,7 +341,7 @@ To create a function, you will need the function code and DB connection details.
 
 ## Configure visualization in {{ datalens-name }} {#datalens}
 
-To monitor the emails you send, set up a [connection](../../datalens/concepts/connection.md), create a [dataset](../../datalens/concepts/dataset/index.md), [charts](../../datalens/concepts/chart/index.md), and a [dashboard](../../datalens/concepts/dashboard.md).
+To monitor the emails you send, set up a [connection](../../datalens/concepts/connection.md), create a [dataset](../../datalens/dataset/index.md), [charts](../../datalens/concepts/chart/index.md), and a [dashboard](../../datalens/concepts/dashboard.md).
 
 
 ### Create a connection {#connection}

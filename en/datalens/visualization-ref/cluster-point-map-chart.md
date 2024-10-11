@@ -13,29 +13,29 @@ The behavior of points varies depending on the map scale:
 * When scaling down, points are clustered.
 * When scaling up, the distance between points increases and a cluster is automatically split into smaller clusters and/or individual points.
 
-If a map with the selected scale only contains a single point, it's not clustered. In this case, instead of a donut chart, you will see a point just like in a regular scatter chart.
+If a map with the selected scale only contains a single point, it's not clustered. In this case, instead of a donut chart, you will see a point just like in a regular point map.
 
 Clustering on a map improves visualization when there is a large number of points. For example, if you want to show the location of all stores in a city on a map with clustering, points on the map will not overlap.
 
 ![point-chart](../../_assets/datalens/visualization-ref/cluster-point-map/cluster-point-map.png)
 
 
-## Sections in the wizard {#wizard-sections}
+## Wizard sections {#wizard-sections}
 
 Limitations:
 
 * The **Point size**, **Tooltips**, and **Signatures** sections only apply to individual points.
 * You can only add a dimension to the **Color** section.
 
-| Wizard<br/> section | Description |
+Wizard<br/> section| Description
 ----- | ----
-| Points with clusters (Geopoints) | Measure with the type [Geopoint](../concepts/data-types#geopoint). |
-| Point size | Measure. Sets a point size depending on the measure value. |
-| Colors | Dimension. Sets cluster chart segmentation. |
-| Labels | Measure. Displayed as text on a point. When used, point size control is blocked. |
-| Tooltips | Dimension or measure. A tooltip that appears when you hover over a point. |
-| Layer filters | Dimension or measure. Used as a filter for the current layer. |
-| Filters | Dimension or measure. Used as a filter for the entire chart. |
+Points with clusters (Geopoints) | Measure of the [Geopoint](../dataset/data-types#geopoint) type
+Point size | Measure. Sets a point size depending on the measure value.
+Colors | Dimension. Sets cluster chart segmentation.
+Labels | Measure. Displayed as text on a point. When used, point size control is blocked.
+Tooltips | Dimension or measure. A tooltip that appears when you hover over a point.
+Layer filters | Dimension or measure. Used as a filter for the current layer.
+Filters | Dimension or measure. Used as a filter for the entire chart.
 
 ## Creating a point map with clusters {#create-diagram}
 
@@ -46,10 +46,10 @@ Limitations:
 1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
 1. In the left-hand panel, select ![chart](../../_assets/console-icons/chart-column.svg) **Charts**.
 1. Click **Create chart** → **Chart**.
-1. At the top left, click ![image](../../_assets/console-icons/circles-intersection.svg) **Select dataset** and specify the dataset to visualize. If you do not have a dataset, [create one](../operations/dataset/create.md).
+1. At the top left, click ![image](../../_assets/console-icons/circles-intersection.svg) **Select dataset** and specify the dataset to visualize. If you do not have a dataset, [create one](../dataset/create-dataset.md#create).
 1. Select the **Map** chart type.
 1. Select the **Points with clusters (Geopoints)** layer type.
-1. Drag a dimension with the [Geopoint](../concepts/data-types#geopoint) type from the dataset to the layer type selection section.
+1. Drag a dimension of the [Geopoint](../dataset/data-types#geopoint) type from the dataset to the layer type selection section.
 1. Set the size of the points displayed on the point map. Drag a measure to the **Point size** section or click ![image](../../_assets/console-icons/gear.svg) in the line with the section name.
 1. Color the points on the map. Drag a dimension to the **Color** section.
 1. Add tooltips to show the dimension and measure values when hovering over a point.
@@ -62,4 +62,4 @@ You can also:
 
 ## Recommendations {#recomendations}
 
-* Use color palettes corresponding to visualization aims and objectives.
+* Use color palettes corresponding to the goals and objectives of visualization.

@@ -32,7 +32,7 @@ The infrastructure deployment cost includes a fee for using [{{ ml-platform-name
 
 Get a key required to use the Geocoder API:
 
-1. Go to the [Developer Dashboard](https://developer.tech.yandex.com) and click **Connect APIs**.
+1. Go to the [Developer dashboard](https://developer.tech.yandex.com) and click **Connect APIs**.
 
    ![image](../../_assets/datalens/solution-geocoder/developer.png)
 
@@ -55,7 +55,7 @@ Create a [secret](../../datasphere/concepts/secrets.md) to store the [Geocoder A
 
 1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** on the project page, click ![secret](../../_assets/datasphere/jupyterlab/secret.svg)**{{ ui-key.yc-ui-datasphere.resources.secret }}**.
 1. Click **{{ ui-key.yc-ui-datasphere.common.create }}**.
-1. In the **{{ ui-key.yc-ui-datasphere.secret.name }}** field, enter the secret name: `API_KEY`.
+1. In the **{{ ui-key.yc-ui-datasphere.secret.name }}** field, enter the name for the secret: `API_KEY`.
 1. In the **{{ ui-key.yc-ui-datasphere.secret.content }}** field, enter the key value.
 1. Click **{{ ui-key.yc-ui-datasphere.common.create }}**. This will display the created secret's info page.
 
@@ -79,6 +79,21 @@ Create a [secret](../../datasphere/concepts/secrets.md) to store the [Geocoder A
 
 1. Restart the kernel by clicking **Kernel** → **Restart Kernel** in the top panel of the project window.
 
+### Install certificates {#certificates}
+
+Install certificates into the project's local storage:
+
+```bash
+#!:bash
+mkdir --parents /home/jupyter/datasphere/project/Yandex/
+
+wget "{{ crt-web-path-root }}" \
+     --output-document /home/jupyter/datasphere/project/Yandex/RootCA.crt
+
+wget "{{ crt-web-path-int }}" \
+     --output-document /home/jupyter/datasphere/project/Yandex/IntermediateCA.crt
+```
+
 ### Upload and convert your data {#load-and-transform}
 
 1. Create a class to work with the Geocoder API:
@@ -94,7 +109,7 @@ Create a [secret](../../datasphere/concepts/secrets.md) to store the [Geocoder A
 
        def adress_to_geopoint(self, address: str) -> str:
 
-           # Address conversion to DataLens format geo-coordinates
+           # Converting an address to geo-coordinates in DataLens format
 
            response = requests.get(self.geocoder_url, params={
                'apikey': self.api_key,
@@ -117,26 +132,36 @@ Create a [secret](../../datasphere/concepts/secrets.md) to store the [Geocoder A
 1. Connect to the {{ CH }} demo DB:
 
    ```py
-   from clickhouse_driver import Client as CHClient
-   ​
-   ch_client = CHClient(
-       'rc1a-ckg8nrosr2lim5iz.mdb.yandexcloud.net',
+   from clickhouse_driver import Client
+
+   ch_client = Client(
+       host='rc1a-ckg8nrosr2lim5iz.mdb.yandexcloud.net',
        user='samples_ro',
        password='MsgfcjEhJk',
        database='samples',
        port=9440,
        secure=True,
+       verify=True,
+       ca_certs='/home/jupyter/datasphere/project/Yandex/RootCA.crt'
    )
    ```
 
-1. Export data from the table with shop addresses to the `ch_data` variable:
+1. Run a check using this command:
+
+   ```py
+   print(ch_client.execute('SELECT version()'))
+   ```
+
+   If the connection is successful, the terminal will display the {{ CH }} version number.
+
+1. Export data from the table with shop addresses into the `ch_data` variable:
 
    ```py
    ch_data = ch_client.execute('SELECT ShopName, ShopAddress FROM MS_Shops')
    ch_data
    ```
 
-1. Convert the addresses from the `ShopAddress` column to geo-coordinates:
+1. Convert the addresses from the `ShopAddress` column into geo-coordinates:
 
    ```py
    import os
@@ -190,7 +215,7 @@ Create a [secret](../../datasphere/concepts/secrets.md) to store the [Geocoder A
    ![image](../../_assets/datalens/solution-geocoder/connection.png)
 
 1. In the top-right corner, click **Create connection**.
-1. Enter `geocoder_csv` as the connection name and click **Create**.
+1. Enter `geocoder_csv` for the connection name and click **Create**.
 
 ## Create a dataset based on the connection {#create-dataset}
 
@@ -206,7 +231,7 @@ Create a [secret](../../datasphere/concepts/secrets.md) to store the [Geocoder A
    ![image](../../_assets/datalens/solution-geocoder/dataset.png)
 
 1. In the top-right corner, click **Save**.
-1. Enter `geocoder_data` as the dataset name and click **Create**.
+1. Enter `geocoder_data` for the dataset name and click **Create**.
 
 ## Create a chart {#create-chart}
 

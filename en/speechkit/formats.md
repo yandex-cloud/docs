@@ -1,29 +1,26 @@
 ---
-title: Audio formats supported by {{ speechkit-full-name }}
+title: Supported audio formats in {{ speechkit-full-name }}
 description: '{{ speechkit-name }} recognizes and synthesizes audio in LPCM, OggOpus, and MP3 formats.'
 ---
 
 # Supported audio formats
 
-{{ speechkit-name }} allows you to recognize and synthesize the following audio formats:
-* LPCM
-* OggOpus
-* MP3
+{% include [audio-formats](../_includes/speechkit/audio-formats.md) %}
 
 #### LPCM {#lpcm}
 
-[Linear pulse-code modulation](https://en.wikipedia.org/wiki/Pulse-code_modulation) without a WAV header.
+[Linear pulse-code modulation](https://en.wikipedia.org/wiki/Pulse-code_modulation) with no WAV header.
 
 Audio features in this format:
 
 * Sampling frequency:
 
-   | API version | Acceptable values |
-   | --- | --- |
-   | [Speech synthesis API v1](tts/index.md) | 8, 16, or 48 kHz |
-   | [Speech synthesis API v3](tts-v3/api-ref/grpc/index.md) | Any value between 8 and 48 kHz |
-   | [Speech recognition API v2](stt/index.md) | 8, 16, or 48 kHz |
-   | [Speech recognition API v3](stt-v3/api-ref/grpc/index.md) | Any value between 8 and 48 kHz |
+  | API version | Acceptable values |
+  | --- | --- |
+  | [Speech synthesis API v1](tts/index.md) | 8, 16, or 48 kHz |
+  | [Speech synthesis API v3](tts-v3/api-ref/grpc/index.md) | Any value between 8 and 48 kHz |
+  | [Speech recognition API v2](stt/index.md) | 8, 16, or 48 kHz |
+  | [Speech recognition API v3](stt-v3/api-ref/grpc/index.md) | Any value between 8 and 48 kHz |
 
 * Bit depth: 16 bit.
 * Byte order: Reversed (little-endian).
@@ -47,3 +44,4 @@ For [MP3](https://en.wikipedia.org/wiki/MP3), data is encoded using the MPEG-1/2
 The MP3 format is not supported in the API v1 for [synchronous](./stt/api/request-api.md) recognition and API v2 for [streaming](./stt/api/streaming-api.md) recognition.
 
 {% endnote %}
+

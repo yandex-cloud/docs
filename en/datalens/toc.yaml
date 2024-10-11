@@ -48,7 +48,7 @@ items:
               Geocoding with the Yandex Maps API for data visualization in {{
               datalens-short-name }}
             href: tutorials/data-from-ch-geocoder.md
-          - name: Visualizing data using Heat Maps
+          - name: Visualizing data using heat maps
             hidden: true
             href: tutorials/data-on-heat-map-dashboard.md
           - name: Status monitoring of geographically distributed devices
@@ -152,35 +152,17 @@ items:
   - name: Datasets
     items:
       - name: Overview
-        href: concepts/dataset/index.md
+        href: dataset/index.md
+      - name: Working with dataset
+        href: dataset/create-dataset.md
       - name: Data model
-        href: concepts/dataset/data-model.md
+        href: dataset/data-model.md
+      - name: Dataset settings
+        href: dataset/settings.md
       - name: Data types
-        href: concepts/data-types.md
+        href: dataset/data-types.md
       - name: Data type mapping
         href: dataset/types-lookup-table.md
-      - name: Dataset settings
-        href: concepts/dataset/settings.md
-      - name: Step-by-step guides
-        items:
-          - name: Creating a dataset
-            href: operations/dataset/create.md
-          - name: Combining data from multiple tables
-            href: operations/dataset/join-data.md
-          - name: Creating a data field
-            href: operations/dataset/create-field.md
-          - name: Creating a calculated data field
-            href: operations/dataset/create-calculated-field.md
-          - name: Creating a default filter for new charts
-            href: operations/dataset/create-filter.md
-          - name: Replacing a connection in a dataset
-            href: operations/dataset/replace-connection.md
-          - name: Updating fields in datasets
-            href: operations/dataset/update-field.md
-          - name: Describing a dataset via a source SQL query
-            href: operations/dataset/add-data.md
-          - name: Adding parameters to a dataset
-            href: operations/dataset/add-parameter-dataset.md
   - name: Calculated fields
     items:
       - name: Overview

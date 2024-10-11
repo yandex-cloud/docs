@@ -19,7 +19,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ org-name }} {#cloud-org}
+- Интерфейс {{ cloud-center }} {#cloud-center}
 
   {% include [users-info](../../_includes/users-info.md) %}
 
@@ -41,7 +41,7 @@ description: Следуя данной инструкции, вы сможете
       yc organization-manager user list --organization-id <идентификатор_организации>
       ```
 
-      Где `organization-id` — идентификатор организации.
+      Где `organization-id` — [идентификатор организации](./organization-get-id.md).
 
       Результат:
 

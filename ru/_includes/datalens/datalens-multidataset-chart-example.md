@@ -9,7 +9,7 @@
      FROM samples.MS_Shops,
      (SELECT DISTINCT samples.MS_Shops.ShopID, samples.MS_Shops.ShopName, samples.MS_SalesFacts.ClientID
      FROM samples.MS_SalesFacts
-     INNER JOIN samples.MS_Shops 
+     INNER JOIN samples.MS_Shops
      ON samples.MS_Shops.ShopID=samples.MS_SalesFacts.ShopID) AS t2
      WHERE t2.ShopName=samples.MS_Shops.ShopName
      GROUP BY ShopName
@@ -20,7 +20,7 @@
      ```sql
      SELECT DISTINCT samples.MS_Shops.ShopName, COUNT(*) AS count_sales
      FROM samples.MS_SalesFacts
-     INNER JOIN samples.MS_Shops 
+     INNER JOIN samples.MS_Shops
      ON samples.MS_Shops.ShopID=samples.MS_SalesFacts.ShopID
      GROUP BY ShopName
      ```
@@ -40,7 +40,7 @@
 1. В открывшемся окне автоматически установится связь по полю `ShopName`. Нажмите **Сохранить**.
 
    ![image](../../_assets/datalens/concepts/multidataset-chart-3.png)
-   
+
 1. Перетащите показатель `count_sales` из датасета в секцию **Y**. Значения отобразятся по оси Y в виде второго графика.
 
    ![image](../../_assets/datalens/concepts/multidataset-chart-4.png)

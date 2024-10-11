@@ -11,6 +11,36 @@
 
       {% include [group-name-format](group-name-format.md) %}
 
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  1. See the description of the command for creating a {{ org-name }} user group:
+
+      ```bash
+      yc organization-manager group create --help
+      ```
+  
+  1. To create a user group in {{ org-name }}, run this command:
+
+      ```bash
+      yc organization-manager group create \
+        --name <group_name> \
+        --organization-id <organization_ID> \
+        --description <group_description>
+      ```
+
+      Where:
+
+      * `--name`: User group name. This is a required parameter. The name must be unique within the organization and satisfy the relevant requirements:
+
+        {% include [group-name-format](group-name-format.md) %}
+
+      * `--organization-id`: Organization ID. This is an optional parameter.
+      * `--description`: Text description of the user group. This is an optional parameter.
+
 - {{ TF }} {#tf}
 
   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
@@ -21,9 +51,9 @@
 
      ```hcl
      resource "yandex_organizationmanager_group" "my-group" {
-        name            = "<group_name>"
-        description     = "<group_description>"
-        organization_id = "<organization_ID>"
+       name            = "<group_name>"
+       description     = "<group_description>"
+       organization_id = "<organization_ID>"
      }
      ```
 
@@ -41,7 +71,12 @@
      {{ TF }} will create all the required resources. You can check the new resources and their configuration using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
 
      ```bash
-     yc organization-manager group list --organization-id=<organization_ID>
+     yc organization-manager group list \
+       --organization-id <organization_ID>
      ```
+
+- API {#api}
+
+    Use the [Group.create](../../organization/api-ref/Group/create.md) REST API method for the [Group](../../organization/api-ref/Group/index.md) resource or the [GroupService/Create](../../organization/api-ref/grpc/group_service.md#Create) gRPC API call.
 
 {% endlist %}

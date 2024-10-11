@@ -42,7 +42,7 @@ To send a request to the classifier:
       ```json
       {
         "modelUri": "cls://<folder_ID>/yandexgpt/latest",
-        "text": "translate into English \"what is the weather like in London?\"",
+        "text": "translate into Russian \"what's the weather like in London?\"",
         "task_description": "determine the intent type",
         "labels": [
           "translation",
@@ -95,6 +95,11 @@ To send a request to the classifier:
         -d "@<path_to_request_body_file>" \
         "https://{{ api-host-llm }}/foundationModels/v1/fewShotTextClassification"
       ```
+      {% note info %}
+      
+      The `https://{{ api-host-llm }}/foundationModels/v1/fewShotTextClassification` endpoint works only with prompt-based classifiers. For [fine-tuned](additionally-trained.md) classifiers, use `https://{{ api-host-llm }}:443/foundationModels/v1/textClassification`.
+      
+      {% endnote %}
 
    {% endlist %}
 

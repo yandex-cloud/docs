@@ -18,7 +18,7 @@
      upper(proposed_meta)
      FROM
    ```
-   
+
    {{ datalens-short-name }} может некорректно распознать поле `upper(proposed_meta)`, поэтому нужно задать для него алиас:
 
    ```sql

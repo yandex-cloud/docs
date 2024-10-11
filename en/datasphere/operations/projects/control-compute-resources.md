@@ -13,7 +13,7 @@ When you run the first computations, you can select a [configuration](../../conc
 
 You cannot change the configuration of computing resources while preserving the interpreter status. However, you can add another configuration to a project and run computations again.
 
-#### What's next {#what-is-next}
+#### See also {#see-also}
 
 * [{#T}](install-dependencies.md)
 * [{#T}](export.md)
