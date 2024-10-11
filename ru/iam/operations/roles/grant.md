@@ -124,19 +124,25 @@
 
 Чтобы выдать права доступа на организацию, вам нужна роль не ниже `{{ roles-organization-admin }}`. Подробнее о последовательности ролей см. в [документе {{ org-full-name }}](../../../organization/security/index.md#roles-list).
 
+Чтобы назначить роль на организацию:
+
 {% list tabs group=instructions %}
 
-- {{ org-name }} {#cloud-org}
+- Интерфейс {{ cloud-center }} {#cloud-center}
 
-   Чтобы назначить роль на организацию:
+  1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}) с учетной записью администратора или владельца организации.
 
-   1. [Войдите в аккаунт]({{ link-passport-login }}) администратора или владельца организации.
-   1. Перейдите в сервис [{{ org-full-name }}]({{ link-org-main }}).
-   1. На панели слева выберите ![icon-acl](../../../_assets/console-icons/persons-lock.svg) [**{{ ui-key.yacloud_org.pages.acl }}**]({{ link-org-acl }}).
-   1. Нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
-   1. Выберите группу, пользователя или сервисный аккаунт, которым нужно предоставить доступ к организации.
-   1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите необходимые роли.
-   1. Нажмите **{{ ui-key.yacloud_components.acl.action.apply }}**.
+  1. На панели слева выберите ![persons-lock](../../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud_org.pages.acl }}**.
+
+  1. Если у нужного пользователя, сервисного аккаунта или группы пользователей уже есть хотя бы одна роль, в строке с этим пользователем, сервисным аккаунтом или группой нажмите значок ![icon-context-menu](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud_org.entity.user.action.acl }}**.
+
+      Если нужного нужного пользователя, сервисного аккаунта или группы пользователей нет в списке, в правом верхнем углу страницы нажмите кнопку **{{ ui-key.yacloud_org.entity.user.action.acl }}**. В открывшемся окне выберите нужного пользователя, сервисный аккаунт или группу из списка. При необходимости воспользуйтесь строкой поиска.
+
+  1. Нажмите кнопку ![plus](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_org.form.acl.edit.action.role.add }}** и выберите [роль](../../../iam/concepts/access-control/roles.md), которую хотите назначить. Вы можете назначить несколько ролей.
+
+      Описание доступных ролей можно найти в [справочнике ролей {{ yandex-cloud }}](../../../iam/roles-reference.md).
+
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
@@ -228,7 +234,7 @@
 
       Где:
 
-      * `organization_id` — идентификатор организации. Обязательный параметр.
+      * `organization_id` — [идентификатор](../../../organization/operations/organization-get-id.md) организации. Обязательный параметр.
       * `role` — назначаемая роль. Для каждой роли можно использовать только один ресурс `yandex_organizationmanager_organization_iam_binding`. Обязательный параметр.
       * `members` — пользователи, которым назначается роль. Укажите:
 

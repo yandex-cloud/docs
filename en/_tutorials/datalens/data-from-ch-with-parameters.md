@@ -22,7 +22,7 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
 1. [Create a chart with a configurable visualization dimension](#create-chart-measure-select).
 1. [Create a dashboard](#create-dashboard).
 1. [Add charts to the dashboard](#add-charts-on-dashboard).
-1. [Add selectors to the dashboard](#add-selectors-to-dashboard).
+1. [Add selectors to the dashboard](#add-selectors-on-dashboard).
 
 
 ## Getting started {#before-you-begin}
@@ -106,10 +106,10 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
    1. On the left of the screen, click ![image](../../_assets/console-icons/plus.svg) under the dataset and select **Field**.
    1. In the **Field settings** window, enter:
 
-      * In the **Name** field: `Date`.
-      * In the formula field: `DATETRUNC([OrderDate], [scale])`. The order data will be rounded depending on the `scale` dataset parameter.
+      * In the **Name** field, `Date`.
+      * In the formula field, `DATETRUNC([OrderDate], [scale])`. The order date will be rounded depending on the value of the `scale` dataset parameter.
 
-         ![image](../../_assets/datalens/solution-parameters/chart-add-field.png)
+        ![image](../../_assets/datalens/solution-parameters/chart-add-field.png)
 
    1. Click **Create**.
    1. Drag the created **Date** field to the **X** section.
@@ -132,19 +132,19 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
    1. On the left of the screen, click ![image](../../_assets/console-icons/plus.svg) under the dataset and select **Field**.
    1. In the **Field settings** window, enter:
 
-      * In the **Name** field: `Field`.
+      * In the **Name** field, `Field`.
       * In the formula field:
 
-         ```
-         if(
-              [dimension] = 'Status', [ClientStatus],
-              [dimension] = 'Category', [ProductCategory],
-              [dimension] = 'Payment type', [PaymentType],
-              null
-            )
-         ```
+        ```
+        if(
+             [dimension] = 'Status', [ClientStatus],
+             [dimension] = 'Category', [ProductCategory],
+             [dimension] = 'Payment type', [PaymentType],
+             null
+           )
+        ```
 
-         The visualized dimension will changed depending on the dataset's `dimension` parameter.
+        The visualized dimensions will change depending on the value of the `dimension` dataset parameter.
 
    1. Click **Create**.
    1. Drag the created **Field** field to the **Y** section.
@@ -236,7 +236,7 @@ After you add a selector, unlink it from other selectors in this dashboard tab.
    1. At the top of the page, click **Add**.
    1. Choose **Selector**.
    1. Select **Manual input** as the source type.
-   1. Under **Field or parameter** name, enter `dimension`. The value from the selector will be passed to this dataset parameter.
+   1. Under **Field or parameter name**, enter `dimension`. The value from the selector will be provided to this dataset parameter.
    1. Choose **List** as your selector type.
    1. Click the input field next to the **Default value** parameter and add the values:
 
@@ -269,4 +269,4 @@ After you add a selector, unlink it from other selectors in this dashboard tab.
 * [{#T}](../../datalens/concepts/parameters.md)
 * [{#T}](../../datalens/operations/dashboard/add-parameters.md)
 * [{#T}](../../datalens/operations/chart/add-parameter-chart.md)
-* [{#T}](../../datalens/operations/dataset/add-parameter-dataset.md)
+* [{#T}](../../datalens/dataset/create-dataset.md#add-parameters)

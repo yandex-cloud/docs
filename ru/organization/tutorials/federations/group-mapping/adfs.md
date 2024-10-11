@@ -88,51 +88,65 @@ description: Как настроить сопоставление групп п�
 
 ## Создайте федерацию {{ org-full-name }} {#create-federation}
 
-1. Перейдите в сервис [{{ org-full-name }}]({{ link-org-main }}).
+{% list tabs group=instructions %}
 
-1. На панели слева выберите раздел [{{ ui-key.yacloud_org.pages.federations }}]({{ link-org-federations }}) ![icon-federation](../../../../_assets/organization/icon-federation.svg).
+- Интерфейс {{ cloud-center }} {#cloud-center}
 
-1. Нажмите кнопку **{{ ui-key.yacloud_org.form.federation.action.create }}**.
+  1. Перейдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
 
-1. Задайте имя федерации, например `demo-federation`. Имя должно быть уникальным в каталоге.
+  1. На панели слева выберите ![icon-federation](../../../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud_org.pages.federations }}**.
 
-1. При необходимости добавьте описание.
+  1. В правом верхнем углу страницы нажмите кнопку ![Circles3Plus](../../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.form.federation.action.create }}**. В открывшемся окне:
 
-1. В поле **{{ ui-key.yacloud_org.entity.federation.field.cookieMaxAge }}** укажите время, в течение которого браузер не будет требовать у пользователя повторной аутентификации.
+      1. Задайте имя федерации, например `demo-federation`. Имя должно быть уникальным в каталоге.
 
-1. В поле **{{ ui-key.yacloud_org.entity.federation.field.issuer }}** вставьте идентификатор сервиса федераций, [полученный при сборе данных о ферме {{ microsoft-idp.adfs-abbreviated }}](#get-adfs-info).
+      1. При необходимости добавьте описание.
 
-1. В выпадающем списке **{{ ui-key.yacloud_org.entity.federation.field.ssoBinding }}** выберите `POST`.
+      1. В поле **{{ ui-key.yacloud_org.entity.federation.field.cookieMaxAge }}** укажите время, в течение которого браузер не будет требовать у пользователя повторной аутентификации.
 
-1. В поле **{{ ui-key.yacloud_org.entity.federation.field.ssoUrl }}** вставьте эндпоинт сервиса федераций, полученный при сборе данных о ферме {{ microsoft-idp.adfs-abbreviated }}.
+      1. В поле **{{ ui-key.yacloud_org.entity.federation.field.issuer }}** вставьте идентификатор сервиса федераций, [полученный при сборе данных о ферме {{ microsoft-idp.adfs-abbreviated }}](#get-adfs-info).
 
-1. Включите опцию **{{ ui-key.yacloud_org.entity.federation.field.autocreateUsers }}**, чтобы автоматически добавлять пользователя в организацию после аутентификации. Если опция отключена, федеративных пользователей потребуется [добавить вручную](../../../operations/add-account.md#add-user-sso).
+      1. В выпадающем списке **{{ ui-key.yacloud_org.entity.federation.field.ssoBinding }}** выберите `POST`.
 
-    {% include [fed-users-note](../../../../_includes/organization/fed-users-note.md) %}
+      1. В поле **{{ ui-key.yacloud_org.entity.federation.field.ssoUrl }}** вставьте эндпоинт сервиса федераций, полученный при сборе данных о ферме {{ microsoft-idp.adfs-abbreviated }}.
 
-1. (Опционально) Чтобы все запросы аутентификации от {{ yandex-cloud }} содержали цифровую подпись, включите опцию **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}**.
+      1. Включите опцию **{{ ui-key.yacloud_org.entity.federation.field.autocreateUsers }}**, чтобы автоматически добавлять пользователя в организацию после аутентификации. Если опция отключена, федеративных пользователей потребуется [добавить вручную](../../../operations/add-account.md#add-user-sso).
 
-1. {% include [forceauthn-option-enable](../../../../_includes/organization/forceauthn-option-enable.md) %}
+          {% include [fed-users-note](../../../../_includes/organization/fed-users-note.md) %}
 
-1. Нажмите кнопку **{{ ui-key.yacloud_org.form.federation.create.action.create }}**.
+      1. (Опционально) Чтобы все запросы аутентификации от {{ yandex-cloud }} содержали цифровую подпись, включите опцию **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}**.
 
-1. Скачайте сертификат по ссылке в поле **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}**, если ранее вы включили соответствующую опцию.
+      1. {% include [forceauthn-option-enable](../../../../_includes/organization/forceauthn-option-enable.md) %}
 
-    Сертификат потребуется в дальнейшем при настройке отношения доверия {{ microsoft-idp.adfs-abbreviated }}.
+      1. Нажмите кнопку **{{ ui-key.yacloud_org.form.federation.create.action.create }}**.
+
+  1. Скачайте сертификат по ссылке в поле **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}**, если ранее вы включили соответствующую опцию.
+
+      Сертификат потребуется в дальнейшем при настройке отношения доверия {{ microsoft-idp.adfs-abbreviated }}.
+
+{% endlist %}
 
 ## Добавьте сертификат {{ microsoft-idp.adfs-abbreviated }} в федерацию {#add-certificate}
 
 Чтобы при аутентификации сервис {{ org-name }} мог проверить сертификат {{ microsoft-idp.adfs-abbreviated }}, добавьте сертификат в федерацию:
 
-1. Перейдите в сервис [{{ org-full-name }}]({{ link-org-main }}).
+{% list tabs group=instructions %}
 
-1. На панели слева выберите раздел [{{ ui-key.yacloud_org.pages.federations }}]({{ link-org-federations }}) ![icon-federation](../../../../_assets/organization/icon-federation.svg) и выберите федерацию, для которой нужно добавить сертификат — `demo-federation`.
+- Интерфейс {{ cloud-center }} {#cloud-center}
 
-1. Внизу страницы нажмите кнопку **{{ ui-key.yacloud_org.entity.certificate.action.add }}**.
+  1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
 
-1. Введите название сертификата и укажите путь к файлу `adfs_certificate.cer`, который был [сохранен ранее](#get-adfs-info).
+  1. На панели слева выберите ![VectorSquare](../../../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud_org.pages.federations }}**.
 
-1. Нажмите кнопку **{{ ui-key.yacloud_portal.common.action_add }}**.
+  1. Нажмите на строку с федерацией, для которой нужно добавить сертификат — `demo-federation`.
+
+  1. Внизу страницы в блоке **{{ ui-key.yacloud_org.page.federation.section.certificates }}** нажмите кнопку **{{ ui-key.yacloud_org.entity.certificate.action.add }}**.
+
+  1. Введите название сертификата и укажите путь к файлу `adfs_certificate.cer`, который был [сохранен ранее](#get-adfs-info).
+
+  1. Нажмите кнопку **{{ ui-key.yacloud_org.actions.add }}**.
+
+{% endlist %}
 
 {% note tip %}
 
@@ -404,18 +418,31 @@ description: Как настроить сопоставление групп п�
 
 ## Настройте сопоставление групп на стороне федерации {#org-mapping}
 
-1. Перейдите в сервис [{{ org-full-name }}]({{ link-org-main }}).
-1. [Создайте группу пользователей](../../../operations/create-group.md) `yc-demo-group` в [{{ org-full-name }}]({{ link-org-main }}) и [выдайте ей права](../../../operations/access-group.md) на просмотр ресурсов в облаке или отдельном каталоге (роль `viewer`).
-1. На панели слева выберите раздел [{{ ui-key.yacloud_org.pages.federations }}]({{ link-org-federations }}) ![icon-federation](../../../../_assets/organization/icon-federation.svg).
-1. Выберите [созданную ранее федерацию](#create-federation) `demo-federation` и перейдите на вкладку **{{ ui-key.yacloud_org.form.group-mapping.note.tab-idp }}**.
-1. Включите сопоставление групп в поле **{{ ui-key.yacloud_org.form.group-mapping.field.idp }}**.
-1. Нажмите кнопку **{{ ui-key.yacloud_org.form.group-mapping.create.add }}**.
-1. В поле **{{ ui-key.yacloud_org.form.group-mapping.note.group-name }}** введите идентификатор нужной группы, который передается в [утверждениях со стороны {{ microsoft-idp.adfs-abbreviated }}](#map-adfs-ldap).
+{% list tabs group=instructions %}
 
-    Если используется атрибут `Token-Groups - Unqualified Names`, то укажите в качестве идентификатора короткое имя группы — `adfs_group`.
+- Интерфейс {{ cloud-center }} {#cloud-center}
 
-1. В поле **{{ ui-key.yacloud_org.form.group-mapping.note.iam-group }}** выберите из списка имя группы в {{ org-full-name }} — `yc-demo-group`.
-1. Нажмите кнопку **{{ ui-key.yacloud_org.actions.save-changes }}**.
+  1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
+
+  1. [Создайте группу пользователей](../../../operations/create-group.md) `yc-demo-group` в {{ org-name }} и [выдайте ей права](../../../operations/access-group.md) на просмотр ресурсов в облаке или отдельном каталоге (роль `viewer`).
+
+  1. На панели слева выберите ![VectorSquare](../../../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud_org.pages.federations }}**.
+
+  1. Выберите [созданную ранее федерацию](#create-federation) `demo-federation` и перейдите на вкладку **{{ ui-key.yacloud_org.form.group-mapping.note.tab-idp }}**.
+
+  1. Включите опцию **{{ ui-key.yacloud_org.form.group-mapping.field.idp }}**.
+
+  1. Нажмите кнопку **{{ ui-key.yacloud_org.form.group-mapping.create.add }}**.
+
+  1. В поле **{{ ui-key.yacloud_org.form.group-mapping.note.group-name }}** введите идентификатор нужной группы, который передается в [утверждениях со стороны {{ microsoft-idp.adfs-abbreviated }}](#map-adfs-ldap).
+
+      Если используется атрибут `Token-Groups - Unqualified Names`, то укажите в качестве идентификатора короткое имя группы — `adfs_group`.
+
+  1. В поле **{{ ui-key.yacloud_org.form.group-mapping.note.iam-group }}** выберите из списка имя группы в {{ org-full-name }} — `yc-demo-group`.
+
+  1. Нажмите кнопку **{{ ui-key.yacloud_org.actions.save-changes }}**.
+
+{% endlist %}
 
 ## Проверьте работу аутентификации {#test-auth}
 

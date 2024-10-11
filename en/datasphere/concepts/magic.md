@@ -1,6 +1,6 @@
 # Available commands
 
-{{ ds-nb }} allows using IPython magic commands. You can use them to measure program runtime, run bash commands in separate cells, identify variable types, etc. The majority of standard commands from the [IPython documentation](https://ipython.readthedocs.io/en/stable/interactive/magics.html) is available in notebooks. For the restrictions and additions, see below.
+{{ ds-nb }} allows you to use IPython magic commands. You can use them to measure program runtime, run bash commands in separate cells, identify variable types, etc. The majority of standard commands from the [IPython documentation](https://ipython.readthedocs.io/en/stable/interactive/magics.html) is available in notebooks. For the restrictions and additions, see below.
 
 ## Running bash commands {#bash}
 
@@ -14,7 +14,7 @@ To run bash commands, put `bash` explicitly at the beginning of the cell:
 
 The following restrictions apply to using bash commands:
 * Background jobs, such as `sshd`, are not supported.
-* Launching `pip` is not supported; use the `%pip` format instead.
+* Running `pip` is not supported; use the `%pip` format instead.
 
 ## Disabled regular commands {#block}
 

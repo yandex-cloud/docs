@@ -20,7 +20,7 @@ The system stores the following information about each S3 connector:
 * Operating mode
 * Backend
 * Resource creator
-* Date when the resource was created and last modified, in [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) format, such as `July 18, 2022, 14:23`.
+* Creation and last update date in [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) format, such as `July 18, 2022, 14:23`
 
 ## Working with S3 connectors {#work}
 

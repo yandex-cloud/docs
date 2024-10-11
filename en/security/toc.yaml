@@ -15,10 +15,10 @@ items:
     items:
       - name: All recommendations
         href: domains/index.md
-      - name: Checklist
-        href: domains/checklist.md
       - name: IaaS security checklist
         href: domains/iaas-checklist.md
+      - name: Authentication and authorization security checklist
+        href: domains/iam-checklist.md
       - name: Kubernetes security
         href: domains/kubernetes.md
   - name: Standard for securing Yandex Cloud infrastructure 1.1
@@ -27,7 +27,7 @@ items:
         href: standard/all.md
       - name: Introduction
         href: standard/index.md
-      - name: Authentication and access control
+      - name: Authentication and access management
         href: standard/authentication.md
       - name: Network security
         href: standard/network-security.md
@@ -37,9 +37,9 @@ items:
         href: standard/encryption.md
       - name: Collecting, monitoring, and analyzing audit logs
         href: standard/audit-logs.md
-      - name: Vulnerability management
+      - name: Managing vulnerabilities
         href: standard/vulnerabilities.md
-      - name: Backups
+      - name: Backup
         href: standard/backup.md
       - name: Physical security
         href: standard/physical-security.md

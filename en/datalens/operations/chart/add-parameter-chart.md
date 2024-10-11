@@ -1,5 +1,5 @@
 ---
-title: How to add parameters to a chart
+title: How to add a parameter to a chart
 description: Follow this guide to add a parameter to a chart.
 ---
 
@@ -18,7 +18,7 @@ To add a [parameter](../../concepts/parameters.md) to a chart:
 {% include [datalens-workbooks-collections-select-note](../../../_includes/datalens/operations/datalens-workbooks-collections-select-note.md) %}
 
 
-1. In the left-hand panel, click ![image](../../../_assets/console-icons/chart-column.svg) **Charts** and select a chart to add a parameter for.
+1. In the left-hand panel, click ![image](../../../_assets/console-icons/chart-column.svg) **Charts** and select a chart to add a parameter to.
 1. On the left side of the screen above the list of dataset fields, click ![image](../../../_assets/console-icons/plus.svg) and select **Parameter**.
 1. In the **Add parameter** window, specify:
 
@@ -44,4 +44,4 @@ To reset the default parameter value to its original value from the dataset:
 1. In the **Edit parameter** window, click **Initial value**. The default parameter value will be reset to its original value from the dataset.
 1. Click **Save**.
 
-You can also create parameters [at the dataset level](../dataset/add-parameter-dataset.md).
+You can also create parameters [at the dataset level](../../dataset/create-dataset.md#add-parameters).

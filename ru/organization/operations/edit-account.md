@@ -21,15 +21,21 @@ description: Из этой статьи вы узнаете, как удалит
 
 Чтобы исключить пользователя из организации:
 
-1. [Войдите в аккаунт]({{link-passport-login}}) администратора или владельца организации.
+{% list tabs group=instructions %}
 
-1. Перейдите в сервис [{{org-full-name}}]({{link-org-main}}).
+- Интерфейс {{ cloud-center }} {#cloud-center}
 
-1. На панели слева выберите раздел [{{ ui-key.yacloud_org.pages.users }}]({{link-org-users}}) ![icon-users](../../_assets/console-icons/person.svg).
+  1. Перейдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}) с учетной записью администратора или владельца организации.
 
-1. Выберите сотрудника из списка или воспользуйтесь строкой поиска вверху страницы.
+  1. На панели слева выберите ![icon-users](../../_assets/console-icons/person.svg) **{{ ui-key.yacloud_org.pages.users }}**.
 
-1. В строке сотрудника нажмите значок ![icon-context-menu](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud_org.entity.user.action.remove }}**.
+  1. Выберите пользователя из списка или воспользуйтесь строкой поиска или фильтром вверху страницы.
+
+  1. В строке с нужным пользователем нажмите значок ![icon-context-menu](../../_assets/console-icons/ellipsis.svg) и выберите ![PersonXmark](../../_assets/console-icons/person-xmark.svg) **{{ ui-key.yacloud_org.entity.user.action.remove }}**.
+
+  1. В открывшемся окне подтвердите исключение пользователя из организации.
+
+{% endlist %}
 
 ## Удалить пользователя из организации {#delete-user}
 
@@ -37,12 +43,18 @@ description: Из этой статьи вы узнаете, как удалит
 
 Чтобы удалить пользователя из организации:
 
-1. [Войдите в аккаунт]({{link-passport-login}}) администратора или владельца организации.
+{% list tabs group=instructions %}
 
-1. Перейдите в сервис [{{org-full-name}}]({{link-org-main}}).
+- Интерфейс {{ cloud-center }} {#cloud-center}
 
-1. На панели слева выберите раздел [{{ ui-key.yacloud_org.pages.users }}]({{link-org-users}}) ![icon-users](../../_assets/console-icons/person.svg).
+  1. Перейдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}) с учетной записью администратора или владельца организации.
 
-1. Выберите сотрудника из списка или воспользуйтесь строкой поиска вверху страницы.
+  1. На панели слева выберите ![icon-users](../../_assets/console-icons/person.svg) **{{ ui-key.yacloud_org.pages.users }}**.
 
-1. В строке сотрудника нажмите значок ![icon-context-menu](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud_org.entity.user.action.delete }}**.
+  1. Выберите пользователя из списка или воспользуйтесь строкой поиска или фильтром вверху страницы.
+
+  1. В строке с нужным пользователем нажмите значок ![icon-context-menu](../../_assets/console-icons/ellipsis.svg) и выберите ![TrashBin](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud_org.entity.user.action.delete }}**.
+
+  1. В открывшемся окне подтвердите удаление пользователя из организации.
+
+{% endlist %}

@@ -6,17 +6,17 @@ A _notebook_ is an `*.ipynb` file that you work with in the [{{ jlab }}Lab](http
 
 ## Project storage {#storage}
 
-{{ ml-platform-name }} provides {{ ml-project-size }} of free storage for each project. You can increase the storage size, but this will result in additional charges. See the costs of expanding the main storage in [{#T}](../pricing.md).
+{{ ml-platform-name }} provides {{ ml-project-size }} of free storage for each project. You can increase the storage size, but this will result in additional charges. See the cost of expanding the main storage in [{#T}](../pricing.md).
 
-You can upload small amounts of data (up to 100 MB) to your {{ ml-platform-name }} project through the UI. If you want to upload larger amounts of data, use your network storage or databases. For large data, it is also handy to use [datasets](dataset.md).
+You can upload small amounts of data (up to 100 MB) to your {{ ml-platform-name }} project through the UI. If you want to upload larger amounts of data, use your network storage or databases. For large data volumes, you can also use [datasets](dataset.md).
 
 ## Configuring a project runtime environment {#environment}
 
-Projects are created with a preset development environment and pre-installed packages. {{ ml-platform-name }} provides several Docker images of the environment with a choice of Python versions and libraries. The **DS Default (Python 3.10)** image is used by default, but you can [select](../operations/projects/python-version.md) another standard image. For a list of all pre-installed packages, see [{#T}](preinstalled-packages.md). If you are missing a package, you can [install it](../operations/projects/install-dependencies.md) directly from the notebook cell or [build a Docker image](../operations/user-images.md).
+Projects you create will have a pre-configured development environment and [pre-installed packages](preinstalled-packages.md). {{ ml-platform-name }} provides several [Docker images](docker.md) of the environment with a choice of Python versions and libraries. The **DS Default (Python 3.10)** image is used by default, but you can [select](../operations/projects/python-version.md) another standard image. For a list of all pre-installed packages, see [{#T}](preinstalled-packages.md). If you are missing a package, you can [install it](../operations/projects/install-dependencies.md) directly from the notebook cell or [build a Docker image](../operations/user-images.md).
 
 ## {{ ds-nb }} {#mode}
 
-{{ ds-nb }} allows running computations on a VM as a local {{ jlab }}Lab notebook. {{ ds-nb }} provides the selected configuration for long-term use and assigns the VM to the project notebook until you forcibly return it to the pool of available VMs or until the timeout expires. By default, the VM is released if no computations are run in the project within three hours. You can change this value in the project settings.
+{{ ds-nb }} allows you to run computations on a VM as if you were running them on a local {{ jlab }}Lab notebook. {{ ds-nb }} provides the selected configuration for long-term use and assigns the VM to the project notebook until you forcibly return it to the pool of available VMs or until the timeout expires. By default, the VM is released if no computations are run in the project within three hours. You can change this value in the project settings.
 
 Cell code changes will be saved automatically. You can disable notebook autosaves in the {{ jlab }}Lab settings by selecting **Settings ⟶ Autosave Documents** in the top menu. If you want to save an interpreter state or output, you will need to do that yourself.
 
@@ -32,7 +32,7 @@ If you just close the console, the VM instance will keep running. To shut down t
 
 #### {{ jlab }}Lab extensions {#extensions}
 
-The following {{ jlab }}Lab extensions are available in {{ dd }} mode:
+The following {{ jlab }}Lab extensions are available:
 
 * {{ jlab }}Lab-latex
 * {{ jlab }}Lab-widgets ipywidgets

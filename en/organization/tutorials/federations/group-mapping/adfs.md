@@ -9,13 +9,13 @@ You can use [{{ microsoft-idp.adfs-short }}](https://learn.microsoft.com/ru-ru/w
 
 To configure mapping between user groups in {{ microsoft-idp.adfs-abbreviated }} and user groups in an [identity federation](../../../concepts/add-federation.md):
 
-1. [{#T}](#get-adfs-info)
-1. [{#T}](#create-federation)
-1. [{#T}](#add-certificate)
-1. [{#T}](#create-relying-party-trust)
-1. [{#T}](#adfs-mapping)
-1. [{#T}](#org-mapping)
-1. [{#T}](#test-auth)
+1. [{#T}](#get-adfs-info).
+1. [{#T}](#create-federation).
+1. [{#T}](#add-certificate).
+1. [{#T}](#create-relying-party-trust).
+1. [{#T}](#adfs-mapping).
+1. [{#T}](#org-mapping).
+1. [{#T}](#test-auth).
 
 ## Getting started {#before-you-begin}
 
@@ -405,7 +405,7 @@ To configure such a policy:
 ## Configure group mapping on the federation side {#org-mapping}
 
 1. Go to [{{ org-full-name }}]({{ link-org-main }}).
-1. [Create a user group](../../../operations/manage-groups.md#create-group) named `yc-demo-group` in [{{ org-full-name }}]({{ link-org-main }}) and [authorize it](../../../operations/manage-groups.md#access) to view resources in the cloud or a separate folder (the `viewer` role).
+1. [Create a user group](../../../operations/create-group.md) named `yc-demo-group` in [{{ org-full-name }}]({{ link-org-main }}) and [authorize it](../../../operations/access-group.md) to view resources in the cloud or a separate folder (the `viewer` role).
 1. In the left-hand panel, select [{{ ui-key.yacloud_org.pages.federations }}]({{ link-org-federations }}).
 1. Select `demo-federation` [you created previously](#create-federation) and navigate to the **{{ ui-key.yacloud_org.form.group-mapping.note.tab-idp }}** tab.
 1. Enable group mapping in the **{{ ui-key.yacloud_org.form.group-mapping.field.idp }}** field.

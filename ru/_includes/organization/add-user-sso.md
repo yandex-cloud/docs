@@ -2,15 +2,9 @@
 
 {% list tabs group=instructions %}
 
-- Консоль управления {#console}
+- Интерфейс {{ cloud-center }} {#cloud-center}
 
-    1. [Войдите в аккаунт]({{ link-passport-login }}) администратора организации.
-    1. Перейдите в сервис [{{ org-full-name }}]({{ link-org-main }}).
-    1. На панели слева выберите раздел [{{ ui-key.yacloud_org.pages.users }}]({{ link-org-users }}) ![icon-users](../../_assets/console-icons/person.svg).
-    1. В правом верхнем углу нажмите ![icon-users](../../_assets/console-icons/chevron-down.svg) → **{{ ui-key.yacloud_org.page.users.action.add-federated-users }}**.
-    1. Выберите федерацию, из которой необходимо добавить пользователей.
-    1. Перечислите Name ID пользователей, разделяя их переносами строк.
-    1. Нажмите **Добавить**. Пользователи будут подключены к организации.
+    {% include [add-users-to-fed](./add-users-to-fed.md) %}
 
 - CLI {#cli}
 

@@ -15,7 +15,7 @@ description: Из статьи вы узнаете, как получить сп
 
 ## Получить список поддерживаемых языков {#get-languages}
 
-Получите список поддерживаемых языков с помощью метода [listLanguages](../api-ref/Translation/listLanguages):
+Получите список [поддерживаемых языков](../concepts/supported-languages.md) с помощью метода [listLanguages](../api-ref/Translation/listLanguages):
 
 {% list tabs group=programming_language %}
 

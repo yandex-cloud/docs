@@ -18,14 +18,14 @@ links:
     description: Getting started with DataLens
     href: quickstart
   - title: Tutorials
-    description: Review the tutorials for examples of using DataLens
+    description: See the tutorials with DataLens usage examples
     href: tutorials/
   - title: Connection
     description: Connect to various data sources
     href: concepts/connection
   - title: Datasets
     description: Describe the structure of the data you got from the source
-    href: concepts/dataset/
+    href: dataset/
   - title: Charts
     description: Visualize your data based on the dataset
     href: concepts/chart/

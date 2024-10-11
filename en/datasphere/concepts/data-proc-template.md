@@ -11,7 +11,7 @@ The following information is stored about each template:
 * Resource name.
 * Resource creator.
 * Cluster configuration.
-* Template creation date in [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) format, e.g., `July 18, 2022, 14:23`.
+* Template creation date in [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) format, such as `July 18, 2022, 14:23`.
 
 You can view all {{ dataproc-name }} templates created in your project on the {{ dataproc-name }} resource page. It also provides a list of all {{ dataproc-name }} clusters available in the project. It contains both temporary clusters based on {{ dataproc-name }} templates and connected clusters deployed in [{{ dataproc-full-name }}](../../data-proc/). To view detailed information about a template or cluster, click it.
 
@@ -51,11 +51,11 @@ You will be charged extra for using temporary clusters created based on {{ datap
 
 {{ ml-platform-name }} creates a temporary {{ dataproc-name }} cluster once you open your project in the IDE.
 
-The created cluster appears in the list of available clusters on the {{ dataproc-name }} resource page. A temporary cluster can have one of the following statuses:
+The created cluster will appear in the list of available clusters on the {{ dataproc-name }} resource page. A temporary cluster can have one of the following statuses:
 * `STARTING`: The cluster is being created.
 * `UP`: The cluster has been created and is ready to run calculations.
 * `DOWN`: There have been issues while creating the cluster.
 
 #### See also {#see-also}
 
-* [How to create, activate, copy, and delete templates](../operations/data-proc-template.md)
+* [How to create, activate, copy, and delete a template](../operations/data-proc-template.md)

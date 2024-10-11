@@ -1,12 +1,17 @@
 {% list tabs group=instructions %}
 
-- Интерфейс {{ org-name }} {#cloud-org}
+- Интерфейс {{ cloud-center }} {#cloud-center}
 
-  1. Перейдите в сервис [{{ org-full-name }}]({{ link-org-main }}).
-  1. На панели слева выберите раздел **{{ ui-key.yacloud_org.pages.groups }}** ![icon-services](../../_assets/console-icons/persons.svg) и нажмите строку с названием [группы](../../organization/concepts/groups.md).
+  1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
+
+  1. На панели слева выберите ![groups](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud_org.pages.groups }}** и нажмите строку с названием [группы](../../organization/concepts/groups.md).
+  
   1. Перейдите на вкладку **{{ ui-key.yacloud_org.entity.group.title_tab-members }}**.
-  1. Нажмите **{{ ui-key.yacloud_org.entity.group.action_add-member }}**.
-  1. В окне **{{ ui-key.yacloud_org.component.subject-select-dialog.title_dialog }}** выберите пользователей из списка или воспользуйтесь поиском по пользователям. Также в группу можно добавлять [сервисные аккаунты](../../iam/concepts/users/service-accounts.md).
+  
+  1. Нажмите кнопку **{{ ui-key.yacloud_org.entity.group.action_add-member }}**.
+  
+  1. В открывшемся окне выберите нужных пользователей или [сервисные аккаунты](../../iam/concepts/users/service-accounts.md). При необходимости воспользуйтесь поиском.
+  
   1. Нажмите **{{ ui-key.yacloud_org.component.subject-select-dialog.action_apply }}**.
 
 - CLI {#cli}
@@ -33,7 +38,7 @@
       Где:
 
       * `--name` — имя группы пользователей. Обязательный параметр.
-      * `--organization-id` — идентификатор организации.
+      * `--organization-id` — [идентификатор](../../organization/operations/organization-get-id.md) организации.
       * `--subject-id` — идентификатор участника, которого добавляют в группу.
 
 - {{ TF }} {#tf}

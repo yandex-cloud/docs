@@ -8,6 +8,7 @@ description: Из статьи вы узнаете, как работать с {
 ## Управление организациями {#manage-orgs}
 
 * [{#T}](enable-org.md).
+* [{#T}](organization-get-id.md).
 * [{#T}](org-profile.md).
 * [{#T}](manage-organizations.md).
 * [{#T}](delete-org.md).

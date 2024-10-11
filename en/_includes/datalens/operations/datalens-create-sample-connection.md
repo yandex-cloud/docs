@@ -4,7 +4,7 @@
 
 
 1. Go to the [connections page]({{ link-datalens-main }}/connections).
-1. Click **Create connection**.
+1. Click **Create connection**.
 
 
 
@@ -19,10 +19,10 @@
       * Username: `samples_ro`.
       * Password: `MsgfcjEhJk`.
 
-   1. Enable **Allow subqueries in datasets and queries from charts**.
-   1. Check the connection and click **Create connection**.
-   1. Enter `Sample ClickHouse` as your connection name.
-   1. Click **Create**.
+    1. Enable **Allow subqueries in datasets and queries from charts**.
+    1. Check the connection and click **Create connection**.
+    1. Enter the connection name: `Sample ClickHouse`.
+    1. Click **Create**.
 
 
       ![create-connection](../../../_assets/datalens/sql-chart/create-sample-connection-sql-chart.png)

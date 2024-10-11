@@ -38,11 +38,11 @@ To add a hierarchy:
 
 ## Example of adding a hierarchy {#add-hierarchy-example}
 
-We will use a Moscow retail chain's demo {{ CH }} sales database as our data source. For an example of creating a connection and dataset, see [this guide](../../quickstart.md).
+We will use a Moscow retail chain's demo sales {{ CH }} database as our data source. For an example of creating a connection and dataset, see [this guide](../../quickstart.md).
 
 1. In the top-right corner of the dataset, click **Create chart**.
 1. Select the **Donut chart** visualization type.
-1. Add a sales measure to the chart. To do this, drag the **Sales** field from `Measures` to the **Measures** section.
+1. Add a sales measure to the chart. To do this, drag the `Sales` field from **Measures** to the **Measures** section.
 1. On the left side of the screen above the list of dataset fields, click ![image](../../../_assets/console-icons/plus.svg) and select **Hierarchy**.
 1. Enter `Products` as the hierarchy name and select the dimensions in the following sequence: `ProductCategory`, `ProductSubcategory`, `ProductBrand`, and `ProductName`.
 
@@ -56,12 +56,12 @@ We will use a Moscow retail chain's demo {{ CH }} sales database as our data sou
    1. In the top-right corner, click **Save**.
    1. In the window that opens, enter **Donut chart with hierarchy** as the chart name and click **Save**.
 
-Adding a hierarchy to the chart will allow you to switch between levels of detail: **ProductCategory** → **ProductSubcategory** → **ProductBrand** → **ProductName**.
+Adding the hierarchy to the chart will allow you to switch between levels of detail: **ProductCategory** → **ProductSubcategory** → **ProductBrand** → **ProductName**.
 
 You can see some examples of charts with a hierarchy on a [ready-made dashboad](https://datalens.yandex/9fms9uae7ip02?tab=MNb).
 
 #### See also {#see-also}
 
-* [{#T}](../../concepts/data-types.md#how-to-create-tree)
+* [{#T}](../../dataset/data-types.md#how-to-create-tree).
 
 {% include [clickhouse-disclaimer](../../../_includes/clickhouse-disclaimer.md) %}

@@ -25,22 +25,33 @@ Only users with the `organization-manager.admin` or `organization-manager.organi
 
 - CLI {#cli}
 
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
   1. See the description of the command to get information about an organization's users:
 
       ```bash
       yc organization-manager user list --help
       ```
 
-  1. Get user information by specifying the organization ID:
+  1. Using this command, get user-related information by specifying the organization ID:
+
+      ```bash
+      yc organization-manager user list --organization-id <organization_ID>
+      ```
+
+      Where `organization_id` is the organization ID.
+
+      Result:
 
       ```text
-      yc organization-manager user list --organization-id bof33m********
-      +----------------------+----------+------------------+-----------------------+
-      |          ID          | USERNAME |      EMAIL       |     FEDERATION ID     |
-      +----------------------+----------+------------------+-----------------------+
+      +----------------------+----------+--------------------------+-----------------------+
+      |          ID          | USERNAME |          EMAIL           |     FEDERATION ID     |
+      +----------------------+----------+--------------------------+-----------------------+
       | ajeebjmlsdk9******** | hatter   | hatter@{{yandex-domain}} | gyuiawudhiks********  |
       | bsdeoujmzsdk******** | alice    | alice@{{yandex-domain}}  |                       |
-      +----------------------+----------+------------------+-----------------------+
+      +----------------------+----------+--------------------------+-----------------------+
       ```
 
 - API {#api}

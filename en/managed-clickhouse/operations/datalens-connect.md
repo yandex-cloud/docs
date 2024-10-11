@@ -51,7 +51,7 @@ To enable {{ datalens-name }} to connect to your cluster and work with its data,
 
 Once the connection is created, you can:
 * [Update](#update-connector) or [delete](#delete-connector) the connection.
-* [Create datasets](../../datalens/concepts/dataset/index.md) with cluster data using the connection.
+* [Create datasets](../../datalens/dataset/index.md) with cluster data using the connection.
 * Visualize the datasets using [charts](../../datalens/concepts/chart/index.md) and [dashboards](../../datalens/concepts/dashboard.md).
 
 

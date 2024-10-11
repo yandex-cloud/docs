@@ -128,7 +128,7 @@ To create a key pair:
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
      * Enter the VM name, e.g., `mlflow-vm`.
-     * Select an availability zone `{{ region-id }}-a`.
+     * Select the `{{ region-id }}-a` availability zone.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select `Ubuntu 22.04`.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**, select the **{{ ui-key.yacloud.compute.instances.create.section_disk }}** tab and configure the boot disk:
      * **{{ ui-key.yacloud.compute.disk-form.field_type }}**: `{{ ui-key.yacloud.compute.value_disk-type-network-ssd }}`
@@ -171,7 +171,7 @@ To create a key pair:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder where you wish to create the bucket.
+  1. In the [management console]({{ link-console-main }}), select the folder you want to create a bucket in.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. At the top right, click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** field, enter a name for the bucket, e.g., `mlflow-bucket`.
@@ -369,10 +369,10 @@ The example uses a set of data to predict the quality of wine based on quantitat
 
     ```python
     def eval_metrics(actual, pred):
-    rmse = np.sqrt(mean_squared_error(actual, pred))
-    mae = mean_absolute_error(actual, pred)
-    r2 = r2_score(actual, pred)
-    return rmse, mae, r2
+      rmse = np.sqrt(mean_squared_error(actual, pred))
+      mae = mean_absolute_error(actual, pred)
+      r2 = r2_score(actual, pred)
+      return rmse, mae, r2
     ```
 
 1. Prepare data, train the model, and register it with MLflow:

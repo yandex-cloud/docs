@@ -1,13 +1,13 @@
 # Creating a Yandex Music podcast connection
 
+ Only users with permissions for a Yandex Music podcast can create connections and process podcast analytics. If you do not have access to any podcast, no data will be displayed on the dashboard.
+ 
+ You will get access after uploading a podcast to Yandex Music. The podcast is linked to the Yandex email address you specified when uploading it.
 
-{% note warning %}
+{% include [datalens-podcasts-restriction](../../../_includes/datalens/datalens-podcasts-restriction.md) %}
 
-Only users with permissions to a Yandex Music podcast can create connections and process podcast analytics. If you do not have access to any podcast, no data will be displayed on the dashboard.
+To create a connection to a Yandex Music podcast:
 
-You will get access after uploading a podcast to Yandex Music. The podcast is linked to the Yandex email address you specified when uploading it.
-
-{% endnote %}
 
 1. Open the page for [creating a new connection]({{ link-datalens-main }}/connections/new).
 1. Under **Partner connections**, select the **Podcasts Analytics** connection.

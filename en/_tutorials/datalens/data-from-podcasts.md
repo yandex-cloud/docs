@@ -1,8 +1,10 @@
-# Yandex Music podcasts: statistics
+# Yandex Music podcasts: Statistics
 
 
 A podcast from Yandex Music that you have access to will serve as your data source. 
 With podcast analytics, you can retrieve statistics and analyze podcast listening and subscriber data in Yandex Music. To work with podcast analytics, you must have access to one or more podcasts.
+
+{% include [datalens-podcasts-restriction](../../_includes/datalens/datalens-podcasts-restriction.md) %}
 
 To visualize and analyze the data, follow these steps:
 
@@ -86,14 +88,14 @@ Set up {{ datalens-short-name }} depending on your experience:
     
     ![image](../../_assets/datalens/solution-10/05-music-dashboard-example.png)
     
-   1. Each tab contains:     
+   1. Each tab contains:
     * Text widgets: Headers, comments, and hints.
     * Selectors: Filters by different dimensions that can be used to filter the contents of dashboards.
-    * Charts: Graphs, tables, and other visualizations.    
+    * Charts: Graphs, tables, and other visualizations.
  
     ![image](../../_assets/datalens/solution-10/06-dashboard-elements.png)
     
-You can edit it and add standard objects as you wish. For example, delete an unnecessary chart from the dashboard or add a new one, change an existing chart, or add a selector to the dashboard.    
+You can edit it and add standard objects as you wish. For example, delete an unnecessary chart from the dashboard or add a new one, change an existing chart, or add a selector to the dashboard.
 
 ## 2. Edit a dashboard and chart, and create new ones {#edit-dashboard-chart}
 
@@ -107,19 +109,19 @@ You can change the order of charts and selectors, increase or decrease their siz
 1. Click **Edit** in the top-right corner.
 1. Let's say you want to delete the **Listening platforms** chart. To do this, click ![image](../../_assets/console-icons/ellipsis.svg) in the top-right corner of the chart and select **Delete**.
             
-     ![image](../../_assets/datalens/solution-10/07-delete-chart.png)       
+     ![image](../../_assets/datalens/solution-10/07-delete-chart.png)
     
 1. Try to position the **Listener gender** and **Listener age** charts so that they fill in the empty space left after deleting the chart in the previous step. 
     1. Drag the chart by clicking it. Resize the chart using the triangle in the bottom-right corner.
     
-    ![image](../../_assets/datalens/solution-10/08-change-chart-size.png)  
+    ![image](../../_assets/datalens/solution-10/08-change-chart-size.png)
     
 1. Click **Add** and choose **Selector**.
     
     ![image](../../_assets/datalens/solution-10/09-add-selector.png)
     
     1. Select the dataset named **D02.Podcast subscribers**.
-    1. Select the **Country** field. This automatically fills in the **Title** with the name of the selected field.        
+    1. Select the **Country** field. This automatically fills in the **Title** with the name of the selected field.
     1. Activate the **Show next to the selector title** option.
     1. Click the **Show** checkbox next to the selector title.
     1. Enable the **Multiple choice** option.
@@ -186,9 +188,9 @@ Let's say we want to build a chart with the total number of times streams were l
    
    1. Click ![image](../../_assets/datalens/solution-10/19-data-icon.png =20x20) in the **Listening date** field under **Filters**.
         1. In the **Preset** list, select **Last 365 days** and click **Apply filter**.
-1. Click ![image](../../_assets/datalens/solution-10/19-data-icon.png =20x20) in the **Listening date** field under **Х**.
+1. Click ![image](../../_assets/datalens/solution-10/19-data-icon.png =20x20) in the **Listening date** field under **X**.
    1. In the **Grouping** list, select **Month** and click **Apply**.
-1. Add a dimension named **Episode** to the **Colors** section.   
+1. Add a dimension named **Episode** to the **Colors** section.
 1. If you have too many episodes, hide the legend at the bottom of the chart. To do this, click ![image](../../_assets/console-icons/gear.svg) ⟶ **Hide**, then **Apply**.
 
     ![image](../../_assets/datalens/solution-10/21-legend.png) 
@@ -263,7 +265,7 @@ You can grant a user, such as a partner or advertiser, access not to the entire 
 
 For a user to be able to request data on an episode via charts but not view or edit connection or dataset settings, [restrict shared access](#restrict-access). 
 
-Then, grant the user access to the objects: **Podcasts Analytics. Connection**, **D01. Podcast listens**, and **D02. Podcast subscribers**. Specify which podcast or episode you are granting access to.
+Then, grant the user access to these objects: **Podcasts Analytics. Connection**, **D01. Podcast listens**, and **D02. Podcast subscribers**. Specify which podcast or episode you want to grant access to.
 
 #### 3.2.1. Restrict shared access {#restrict-access}
 
@@ -313,7 +315,7 @@ Choose which data you want to restrict access to:
     1. Open **D01. Podcast listens**.
     1. In the **Episode** field menu, click **Permissions**.
     
-        ![image](../../_assets/datalens/solution-10/26-podcast-access-dataset.png)    
+        ![image](../../_assets/datalens/solution-10/26-podcast-access-dataset.png)
     
     1. In the **Configuring access permissions for a field** window, set a filter as shown in this example:
        `* : my-login@yandex.com`
@@ -362,7 +364,7 @@ To grant a user access to your {{ datalens-short-name }} instance:
            `'The most interesting podcast': partner-login@yandex.com`
            where:
             * `The most interesting podcast`: Podcast name.
-            * `partner-login@yandex.com`: Partner username.    
+            * `partner-login@yandex.com`: Partner username.
         
             ![image](../../_assets/datalens/solution-10/29-podcast-rls.png)
     
@@ -428,7 +430,7 @@ Data in {{ datalens-short-name }} is only available to users of a specific insta
     1. On the navigation page, find a chart, e.g., **C07. Starts and streams: Dynamics**, and open it.
     1. At the top of the chart interface, click ![image](../../_assets/console-icons/nodes-right.svg).
     1. In the public access settings window that opens, enable **Access via link**.
-    1. Confirm the publishing and click **Next**.        
+    1. Confirm the publishing and click **Next**.
     1. Copy the public link and click **Apply**.
 
 {% endlist %}
@@ -456,8 +458,8 @@ Using a Yandex account in Yandex Music and {{ datalens-short-name }} ensures hi
 
 {% endcut %}
 
-{% cut "I know for a fact that some of my friends have listened to the podcast but the statistics show a lower number. Why? " %}   
-   
+{% cut "I know for a fact that some of my friends have listened to the podcast but the statistics show a lower number. Why? " %}
+
   Data is updated daily at 13:00. If someone listens to a podcast after this time, the data will only appear in the statistics the next day. Playbacks of less than 1 second are not included in the statistics.
 
 {% endcut %} 
@@ -466,7 +468,7 @@ Using a Yandex account in Yandex Music and {{ datalens-short-name }} ensures hi
 
 New subscribers appear in the service instantly, while in the statistics only the next day. If a person subscribes to a podcast today, the number of subscribers in the statistics will increase tomorrow.
 
-{% endcut %}   
+{% endcut %}
 
 {% cut "Why are some of my podcast episodes not included in the statistics?" %}
 
@@ -476,23 +478,23 @@ The statistics only show episodes with a history of listens. The episode you can
 
 {% cut "Are editorial promos shown in the statistics?" %}
 
-Promo periods and titles are not displayed in the statistics separately, but a sharp increase in listens may indicate that the podcast was promoted.
+   Promo periods and titles are not displayed in the statistics separately, but a sharp increase in listens may indicate that the podcast was promoted.
 
-{% endcut %}   
+{% endcut %}
 
-{% cut "Can I edit a standard dashboard?" %}   
+{% cut "Can I edit a standard dashboard?" %}
 
 Yes, you can edit the dashboard and related objects.
 
-{% endcut %}  
+{% endcut %}
 
-{% cut "I deleted a dashboard accidentally. How do I restore it?" %}    
+{% cut "I deleted a dashboard accidentally. How do I restore it?" %}
 
 Re-create a connection and the dashboard will expand again.
 
-{% endcut %}  
+{% endcut %}
 
-{% cut "Why are chart settings so complicated?" %}      
+{% cut "Why are chart settings so complicated?" %}
 
 {{ datalens-short-name }} is a full-fledged data analysis and visualization tool. Use its rich set of settings to create different types of visualizations that meet a variety of user requirements.
 

@@ -91,7 +91,7 @@
 
   1. {% include [enable-os-login-serial-console-auth](../../../_includes/compute/enable-os-login-serial-console-auth.md) %}
 
-  1. [Экспортируйте](../vm-connect/os-login-export-certificate.md) сертификат OS Login, указав идентификатор вашей организации:
+  1. [Экспортируйте](../vm-connect/os-login-export-certificate.md) сертификат OS Login, указав [идентификатор](../../../organization/operations/organization-get-id.md) вашей организации:
 
       ```bash
       yc compute ssh certificate export \
@@ -104,8 +104,6 @@
       Identity: /home/myuser/.ssh/yc-organization-id-bpfaidqca8vd********-yid-orgusername
       Certificate: /home/myuser/.ssh/yc-organization-id-bpfaidqca8vd********-yid-orgusername-cert.pub
       ```
-
-      Получить идентификатор организации можно в [{{org-full-name}}]({{link-org-main}}) или c помощью команды CLI `yc organization-manager organization list`.
 
       Экспортированный сертификат действителен один час.
 
@@ -120,8 +118,8 @@
       Где:
       * `<путь_к_SSH-сертификату>` — путь к экспортированному SSH-сертификату, значение поля `Identity`.
       * `<идентификатор_ВМ>` — идентификатор виртуальной машины, к серийной консоли которой требуется подключиться.
-      * `<имя_пользователя_OS_Login>` — идентификатор пользователя OS Login в организации. Логин пользователя OS Login указан в конце имени экспортированного сертификата после идентификатора организации.
-          Также получить логин пользователя можно в [{{org-full-name}}]({{link-org-main}}) в профиле пользователя на вкладке **{{ ui-key.yacloud_org.page.user.title_tab-os-login }}**.
+      * `<имя_пользователя_OS_Login>` — идентификатор пользователя OS Login в организации. Логин пользователя OS Login указан в конце имени экспортированного сертификата после [идентификатора](../../../organization/operations/organization-get-id.md) организации.
+          Также получить логин пользователя можно в [{{ org-full-name }}]({{ link-org-cloud-center }}) в профиле пользователя на вкладке **{{ ui-key.yacloud_org.page.user.title_tab-os-login }}**.
 
       Пример для пользователя с логином `yid-orgusername` и ВМ с идентификатором `epd22a2tj3gd********`:
 

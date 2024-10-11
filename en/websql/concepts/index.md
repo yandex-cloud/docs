@@ -8,9 +8,10 @@ You can connect to managed database clusters from clouds and folders that belong
 
 {{ websql-full-name }} supports the following DB versions:
 
-* {{ PG }}: 12, 13, 14, 15, and 16
-* {{ MY }}: 5 and 8
-* {{ CH }}: 23 and 24
+* {{ PG }}: 12, 13, 14, 15, 16
+* {{ MY }}: 5, 8
+* {{ CH }}: 23, 24
+* {{ RD }} (non-sharded clusters only): 6.2, 7
 
 ## GUI {#user-interface}
 
@@ -25,7 +26,7 @@ In the {{ websql-full-name }} interface, the URL of the current page automatical
 > For example, while using {{ websql-full-name }}, you saved a query and want to share it with another user. To do this, go to the ![image](../../_assets/console-icons/floppy-disk.svg) **Saved queries** section, select the query you need, and copy its URL from the address bar.
 > The URL will look like this:
 > ```
-> https://websql.yandex.cloud/folders/<ID_of_your_folder>/saved-queries/<saved_query_ID>`
+> https://websql.yandex.cloud/folders/<your_folder_ID>/saved-queries/<saved_query_ID>`
 > ```
 > This link will take the user directly to the page with the saved query in {{ websql-full-name }}.
 
@@ -35,15 +36,15 @@ In {{ websql-full-name }}, you can create, use, and manage DB connections. In th
 * [Connections to {{ yandex-cloud }} clusters](../operations/create-connection.md#connect-cluster): Connections to databases in managed database clusters via the {{ yandex-cloud }} internal network. Such clusters do not necessarily have to be publicly available.
 * [External connections](../operations/create-connection.md#connect-db): Connections to public databases over the internet.
 
-**{{ yandex-cloud }} connections** automatically displays {{ PG }}, {{ CH }}, and {{ MY }} clusters from the current folder if the user has access to them. You can select a different folder in the bar above the **Connections** section. The list of clusters will update automatically.
+The **{{ yandex-cloud }} connections** subsection automatically displays {{ PG }}, {{ CH }}, {{ MY }}, and {{ RD }} clusters from the current folder if the user has access to them. You can select a different folder in the bar above the **Connections** section. The list of clusters will update automatically.
 
 Connections to databases within a single managed database cluster are grouped into an expandable list under the name of that cluster. You cannot change this name in {{ websql-full-name }} but you can update the cluster name in the managed database service. The ![image](../../_assets/console-icons/folder-tree.svg) [**Connections**]({{ websql-link }}) section will automatically show this update.
 
 External connections are not grouped together even if they share the same DB host address.
 
-{{ websql-full-name }} also supports integration with [{{ metadata-hub-full-name }}](../../metadata-hub/index.yaml) at the user folder level. Connections created in {{ websql-full-name}} automatically appear in {{ metadata-hub-full-name }} {{ connection-manager-name }} and vice versa.
+{{ websql-full-name }} also supports integration with [{{ metadata-hub-full-name }}](../../metadata-hub/index.yaml) at the user folder level. Connections created in {{ websql-full-name }} automatically appear in {{ metadata-hub-full-name }} {{ connection-manager-name }} and vice versa.
 
-You can also [edit connection settings](../operations/connect.md#change-connection-settings) and [delete connections you no longer need](../operations/connect.md#delete-connection). After you connect to a DB, you can [view schemas, tables, and views](../operations/view-db-objects-info.md) (`VIEW`). Tables and views within one connection are grouped together. Grouping of views is available if there is at least one view in the DB.
+You can also [edit connection settings](../operations/connect.md#change-connection-settings) and [delete connections you no longer need](../operations/connect.md#delete-connection). After you connect to a DB, you can [monitor schemas, tables, and views](../operations/view-db-objects-info.md) (`VIEW`). Tables and views within one connection are grouped together. Grouping of views is available if there is at least one view in the DB.
 
 ## Queries {#queries}
 

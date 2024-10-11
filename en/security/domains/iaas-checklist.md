@@ -47,7 +47,7 @@ Learn more about vulnerability management in the [respective section](../standar
 
 ✔ **DDoS protection**: When assigning public IP addresses to cloud resources, use [{{ ddos-protection-full-name }}](../../vpc/ddos-protection/index.md) (L4 DDoS protection). For L7 DDoS protection, use [{{ sws-name }}](../../smartwebsecurity/index.yaml).
 
-  ![](../../_assets/overview/solution-library-icon.svg) See the example of implementing the [architecture and protection of a basic internet service](../../vpc/tutorials/web-service.md).
+  See the example of implementing the [architecture and protection of a basic internet service](../../vpc/tutorials/web-service.md).
 
 Learn more about secure network configuration and use in the [respective section](../standard/network-security.md) of the {{ yandex-cloud }} security standard.
 

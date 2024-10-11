@@ -1,4 +1,4 @@
-# {{ org-name }} resources you can assign roles for
+# {{ org-name }} resources for which you can assign roles
 
-* [User group](../../../organization/operations/manage-groups.md#access-manage-group)
+* [User group](../../../organization/operations/access-manage-group.md)
 * [Organization](../../../organization/operations/security.md)

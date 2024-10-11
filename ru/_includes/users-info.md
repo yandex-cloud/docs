@@ -1,8 +1,11 @@
-1. Перейдите в сервис [{{org-full-name}}]({{link-org-main}}).
+1. Перейдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
 
-1. На панели слева выберите раздел [{{ ui-key.yacloud_org.pages.users }}]({{link-org-users}}) ![icon-users](../_assets/console-icons/person.svg). На странице отобразится:
+1. На панели слева выберите ![icon-users](../_assets/console-icons/person.svg) **{{ ui-key.yacloud_org.pages.users }}**. На странице отобразится список пользователей организации, содержащий:
 
-   * **{{ ui-key.yacloud_org.entity.user.caption.user }}** — логин пользователя и адрес электронной почты.
-   * **{{ ui-key.yacloud_org.entity.user.caption.userId }}** — идентификатор пользователя.
-   * **{{ ui-key.yacloud_org.entity.user.caption.federation }}** — идентификатор [федерации](../organization/concepts/add-federation.md).
-   * Кнопка ![image](../_assets/console-icons/ellipsis.svg) для настройки прав доступа.
+    * **{{ ui-key.yacloud_org.entity.user.caption.user }}** — логин пользователя и адрес электронной почты.
+    * **{{ ui-key.yacloud_org.entity.user.caption.userId }}** — идентификатор пользователя.
+    * **{{ ui-key.yacloud_org.entity.user.caption.federation }}** — идентификатор [федерации](../organization/concepts/add-federation.md).
+ 
+    При необходимости воспользуйтесь фильтром или поиском, чтобы найти нужного пользователя.
+
+ 1. Нажмите на строку с именем пользователя, чтобы просмотреть информацию о его профилях {{ oslogin }} и SSH-ключах.

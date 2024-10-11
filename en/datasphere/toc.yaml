@@ -69,9 +69,6 @@ items:
             href: operations/projects/clear-outputs.md
           - name: Working with Git
             href: operations/projects/work-with-git.md
-          - name: Running a Docker container in a separate cell
-            href: operations/user-images-cell.md
-            hidden: true
           - name: Setting up template-based notebook creation
             href: operations/projects/templates.md
       - name: Working with resources
@@ -178,6 +175,8 @@ items:
             href: concepts/deploy/index.md
           - name: Health checks and monitoring
             href: concepts/deploy/monitoring.md
+          - name: Node metrics
+            href: concepts/deploy/metrics.md
       - name: '{{ ds-jobs }}'
         items:
           - name: Jobs

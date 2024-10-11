@@ -782,6 +782,7 @@ For more information, see [{#T}](../data-transfer/security/index.md).
 
 {% include [iam.serviceAccounts.tokenCreator](../_roles/iam/serviceAccounts/tokenCreator.md) %}
 
+
 #### iam.auditor {#iam-auditor}
 
 {% include [iam.auditor](../_roles/iam/auditor.md) %}
@@ -1404,6 +1405,7 @@ For more information, see [{#T}](../resource-manager/security/index.md).
 
 
 For more information, see [{#T}](../search-api/security/index.md).
+
 
 
 ## {{ serverless-containers-full-name }} {#serverless-containers-roles}

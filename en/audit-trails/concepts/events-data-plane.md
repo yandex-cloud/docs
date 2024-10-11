@@ -10,6 +10,7 @@ The general value format is as follows:
 
 On this page, you will find events for the following services:
 
+* [{{ certificate-manager-full-name }}](#certificate-manager)
 * [{{ dns-full-name }}](#dns)
 * [{{ compute-full-name }}](#compute)
 * [{{ iam-full-name }}](#iam)
@@ -23,6 +24,12 @@ On this page, you will find events for the following services:
 * [{{ sws-full-name }}](#sws)
 * [{{ wiki-full-name }}](#wiki)
 * [{{ websql-full-name }}](#websql)
+
+## {{ certificate-manager-full-name }} {#certificate-manager}
+
+Service name: `certificatemanager`.
+
+{% include [certificate-manager-events-dp](../../_includes/audit-trails/events/certificate-manager-events-dp.md) %}
 
 ## {{ dns-full-name }} {#dns}
 

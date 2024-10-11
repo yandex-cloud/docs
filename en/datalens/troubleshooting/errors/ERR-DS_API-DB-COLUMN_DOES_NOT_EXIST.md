@@ -6,11 +6,11 @@ Nonexistent field used.
 
 Possible causes:
 
-* A new field was added to the data source but the dataset has not been updated. To update the dataset, click [Update fields](../../operations/dataset/update-field.md).
+* A new field was added to the data source but the dataset has not been updated. To update the dataset, click [Update fields](../../dataset/create-dataset.md#update-fields).
 
 * When building a dataset from a {{ CH }} connection, an SQL subquery is used. If this is the case, set an alias for the selected fields.
 
-   For example:
+   Example:
 
    ```sql
    SELECT DISTINCT

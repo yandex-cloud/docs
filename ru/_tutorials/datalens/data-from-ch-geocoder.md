@@ -124,7 +124,7 @@ wget "{{ crt-web-path-int }}" \
 
            lat, lon = result[0]['GeoObject']['Point']['pos'].split(' ')
            return self._to_datalens_format(lon, lat)
-       
+
        def _to_datalens_format(self, lon, lat):
            return f'[{lon},{lat}]'
     ```
@@ -196,7 +196,7 @@ wget "{{ crt-web-path-int }}" \
            delimiter=',',
            quotechar='"',
        )
-       csv_writer.writerows(encoded_data)  
+       csv_writer.writerows(encoded_data)
    ```
 
    На панели слева появится файл `encoded_data.csv`.

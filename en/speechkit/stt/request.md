@@ -14,6 +14,9 @@ The audio you send must meet the following requirements:
 
 If your file is larger, longer, or has more audio channels, use [asynchronous recognition](transcribation.md).
 
+{% include [audio-formats](../../_includes/speechkit/audio-formats.md) %}
+
+For more information about each format's special features, see [Supported audio formats](../../speechkit/formats.md).
 
 #### See also {#see-also}
 

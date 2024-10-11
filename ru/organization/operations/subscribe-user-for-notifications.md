@@ -6,18 +6,24 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ org-name }} {#cloud-org}
+- Интерфейс {{ cloud-center }} {#cloud-center}
 
-  1. Перейдите в сервис [{{ org-full-name }}]({{ link-org-main }}).
+  1. Войдите в сервис [{{ cloud-center }}]({{ cloud-center-link }}).
   
       Чтобы подписать пользователя на получение технических уведомлений, необходима [роль](../../iam/roles-reference.md#editor) `editor` или выше на организацию.
-  1. На панели слева выберите ![pencil](../../_assets/console-icons/bell.svg) **{{ ui-key.yacloud_org.pages.notifications }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**. В открывшемся окне:
 
-      1. Поместите курсор в поле для ввода и выберите пользователя, которого хотите подписать на получение уведомлений, или воспользуйтесь поиском.
+      Если у вас несколько организаций, вы можете [переключиться](./manage-organizations.md#switch-to-another-org) на нужную. Для этого в левом верхнем углу экрана рядом с названием текущей организации нажмите значок ![chevron-down](../../_assets/console-icons/chevron-down.svg) и выберите нужную организацию. В результате текущая организация изменится.
+  
+      На открывшейся главной странице сервиса {{ cloud-center }} приведены основные сведения о вашей организации.
+
+  1. Пролистайте страницу вниз до блока **{{ ui-key.yacloud_org.dashboard.notify.title.notify }}** и нажмите ![PersonPlus](../../_assets/console-icons/person-plus.svg) **{{ ui-key.yacloud_org.dashboard.notify.placeholder_add-user-action }}**. В открывшемся окне:
+
+      1. Выберите пользователя, которого хотите подписать на получение уведомлений, или воспользуйтесь поиском.
 
           Вы можете подписать на уведомления одновременно нескольких пользователей.
       1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
+
+  Добавленные пользователи появятся в блоке **{{ ui-key.yacloud_org.dashboard.notify.title.notify }}**.
 
 {% endlist %}
 
