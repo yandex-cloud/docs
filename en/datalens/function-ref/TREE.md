@@ -15,7 +15,7 @@ TREE( array )
 ```
 
 #### Description {#description}
-Converts the `array` expression to `Tree of strings` format. Can be used to create [tree hierarchies](../concepts/data-types.md#tree-hierarchy).
+Converts the `array` expression to `Tree of strings` format. Can be used to create [tree hierarchies](../dataset/data-types.md#tree-hierarchy).
 
 **Argument types:**
 - `array` — `Array of strings`

@@ -4,7 +4,7 @@
 
 {% list tabs group=instructions %}
 
-- {{ org-name }} {#cloud-org}
+- Интерфейс {{ cloud-center }} {#cloud-center}
 
   {% include [users-info](../../../_includes/users-info.md) %}
 

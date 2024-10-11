@@ -99,7 +99,7 @@ description: Следуя данной инструкции, вы научите
          Идентификаторы можно получить следующими способами:
          * [Пользователь](../../../iam/operations/users/get.md).
          * [Сервисный аккаунт](../../../iam/operations/sa/get-id.md).
-         * Группа пользователей — перейдите на вкладку [**{{ ui-key.yacloud_org.pages.groups }}**]({{ link-org-main }}groups) в интерфейсе {{ org-name }}.
+         * Группа пользователей — перейдите на вкладку [**{{ ui-key.yacloud_org.pages.groups }}**]({{ link-org-cloud-center }}/groups) в интерфейсе {{ cloud-center }}.
 
 
        * `Action` — [действие](../../s3/api-ref/policy/actions.md), которое будет разрешено при срабатывании политики. Возможные значения: `s3:GetObject`, `s3:PutObject` и `*` если необходимо применять политику ко всем действиям.
@@ -180,7 +180,7 @@ description: Следуя данной инструкции, вы научите
          Идентификаторы можно получить следующими способами:
          * [Пользователь](../../../iam/operations/users/get.md).
          * [Сервисный аккаунт](../../../iam/operations/sa/get-id.md).
-         * Группа пользователей — перейдите на вкладку [**{{ ui-key.yacloud_org.pages.groups }}**]({{ link-org-main }}groups) в интерфейсе {{ org-name }}.
+         * Группа пользователей — перейдите на вкладку [**{{ ui-key.yacloud_org.pages.groups }}**]({{ link-org-cloud-center }}/groups) в интерфейсе {{ cloud-center }}.
 
 
        * `Action` — [действие](../../s3/api-ref/policy/actions.md), которое будет разрешено при срабатывании политики. Возможные значения: `s3:GetObject`, `s3:PutObject` и `*` если необходимо применять политику ко всем действиям.
@@ -279,7 +279,7 @@ description: Следуя данной инструкции, вы научите
          Идентификаторы можно получить следующими способами:
          * [Пользователь](../../../iam/operations/users/get.md).
          * [Сервисный аккаунт](../../../iam/operations/sa/get-id.md).
-         * Группа пользователей — перейдите на вкладку [**{{ ui-key.yacloud_org.pages.groups }}**]({{ link-org-main }}groups) в интерфейсе {{ org-name }}.
+         * Группа пользователей — перейдите на вкладку [**{{ ui-key.yacloud_org.pages.groups }}**]({{ link-org-cloud-center }}/groups) в интерфейсе {{ cloud-center }}.
 
 
        * `Action` — [действие](../../s3/api-ref/policy/actions.md), которое будет разрешено при срабатывании политики. Возможные значения: `s3:GetObject`, `s3:PutObject` и `*` если необходимо применять политику ко всем действиям.

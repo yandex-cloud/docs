@@ -21,7 +21,7 @@ The **{{ ui-key.yc-ui-datasphere.node-page.request.server-response }}** section 
 
 {% endnote %}
 
-To send requests to nodes, you must have the `{{ roles-datasphere-user }}` or `{{ roles-datasphere-admin }}` role for the folder where the project and node were created.
+To send requests to nodes, you must have the `{{ roles-datasphere-user }}` or `{{ roles-datasphere-admin }}` [role](../../security/index.md) for the folder where the project and node were created.
 
 ## Sample gRPC API call {#grpc-call-example}
 
@@ -38,7 +38,7 @@ yandex.cloud.datasphere.v1.NodeService/Execute
 
 Where:
 
-* `<IAM_token>`: IAM token being used for authentication.
+* `<IAM_token>`: [IAM token](../../../iam/concepts/authorization/iam-token.md) being used for authentication.
 * `<folder_ID>`: ID of the folder where the project and node were created.
 * `<node_ID>`: ID of the node.
 * `<input_variables>`: Object where keys match input variables.

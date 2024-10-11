@@ -35,7 +35,7 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
 1. Click **Expand** in the product card that opens.
 1. Save your purchase in the **Purchases** folder.
 1. Click **Open**.
-1. The window that opens will display the following {{ datalens-short-name }} objects: [connection](../../datalens/concepts/connection.md), [dataset](../../datalens/concepts/dataset/index.md), [chart](../../datalens/concepts/chart/index.md), and [dashboard](../../datalens/concepts/dashboard.md). Click the yellow dashboard icon at the end of the list.
+1. The window that opens will display the following {{ datalens-short-name }} objects: [connection](../../datalens/concepts/connection.md), [dataset](../../datalens/dataset/index.md), [chart](../../datalens/concepts/chart/index.md), and [dashboard](../../datalens/concepts/dashboard.md). Click the yellow dashboard icon at the end of the list.
 
    ![organization-list](../../_assets/datalens/solution-09/00-organization-list.png)
 
@@ -55,8 +55,8 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
     1. In the window that opens, specify the connection parameters:
        * Connection type: **Specify manually**.
        * Host name: `rc1a-g1gicp3imcc0pnsg.{{ dns-zone }},rc1b-vbbl6tob599tr3oi.{{ dns-zone }},rc1d-qf1ven1igeihhbep.{{ dns-zone }}` (comma-separated).
-       * HTTP interface port: `8443` (default)
-       * Username: `datalens-marathon-2020-11-ro`
+       * HTTP interface port: `8443` (default).
+       * Username: `datalens-marathon-2020-11-ro`.
        * Password: `/4b+xBF6aSCgN9wKTevYGuDjxC9IO4Fa`
     1. Check the connection and click **Create connection**.
     1. Enter `DODO Con` for the connection name and click **Create**.
@@ -158,7 +158,7 @@ Wait for the connection to be saved.
 
 1. In the top-right corner, click ![save-button](../../_assets/console-icons/chevron-down.svg) → **Save as**. Name the chart as **The number of pizzerias** and click **Save**.
 
-## Step 7. Create a map chart {#step7}
+## Step 7. Create a map {#step7}
 
 1. Select **Map** for chart type.
 
@@ -215,7 +215,7 @@ Wait for the connection to be saved.
    1. In the top-right corner, click **Save**.
    1. Enter **DODO Dashboard** as the dashboard name and click **Create**.
 
-1. Choose Moscow in the selector. If the map focus remains at the same location when changing the city in the filter, refresh the page in your web browser. {{ datalens-name }} captures the map scale and location if you change them during the current session.
+1. Choose Moscow in the selector. If the map focus remains at the same location when changing the city in the filter, refresh the page in the web browser. {{ datalens-name }} captures the map scale and location if you change them during the current session.
 
     ![dashboard-pizza](../../_assets/datalens/solution-09/09-dashboard-pizza-moscow.png)
 
@@ -289,8 +289,8 @@ If the map focus remains at the same location when changing the city in the filt
 
 ## Optional {#additional}
 
-Here are some ideas you might want to work on by yourself:
+Here are a few tasks you may want to complete on your own:
 
-1. Adding a geolayer with businesses from the **Where to eat** category (restaurants and fast food chains in general, not only pizzerias).
-1. Adding the [Audience: interests and social demographics]({{ link-datalens-main }}/marketplace/f2eemc2dui59rn72h0ck) product from the Marketplace to display the city audience data on the map in a similar way.
-1. You can use the city of Voronezh as an example to study the free [geolayers by Geointellect]({{ link-datalens-main }}/marketplace/f2eu3edujf1jdmaihu7u). The demo set offers calculated indexes representing the location's business potential for fast food.
+1. Add a geolayer with companies in the **Where to eat** category (restaurants and fast food chains in general, not only pizzerias).
+1. Add [Audience: interests and social demographics]({{ link-datalens-main }}/marketplace/f2eemc2dui59rn72h0ck) from the Marketplace to be able to similarly display the city audience data on the map.
+1. Using Voronezh as an example, study the [Geointellect geolayers]({{ link-datalens-main }}/marketplace/f2eu3edujf1jdmaihu7u). You can use our demo set that contains calculated indexes for the business potential of fast food locations.

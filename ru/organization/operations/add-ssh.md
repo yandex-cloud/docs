@@ -13,15 +13,27 @@ description: Следуя данной инструкции, вы сможете
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ org-name }} {#console}
+- Интерфейс {{ cloud-center }} {#cloud-center}
 
-  1. [Войдите в аккаунт]({{ link-passport-login }}) администратора или владельца организации.
-  1. Перейдите в сервис [{{ org-full-name }}]({{ link-org-main }}).
-  1. При необходимости [переключитесь](./manage-organizations.md#switch-to-another-org) на нужную организацию или федерацию.
-  1. На панели слева выберите раздел ![icon-users](../../_assets/console-icons/person.svg) [{{ ui-key.yacloud_org.pages.users }}]({{ link-org-users }}) и выберите нужного пользователя.
-  1. Перейдите на вкладку **SSH-ключи** и нажмите кнопку **Добавить ключ**.
-  1. В открывшемся окне введите вручную или загрузите из файла открытый SSH-ключ.
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
+  1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}) с учетной записью администратора или владельца организации.
+
+      При необходимости [переключитесь](./manage-organizations.md#switch-to-another-org) на нужную организацию или федерацию.
+
+  1. На панели слева выберите ![icon-users](../../_assets/console-icons/person.svg) **{{ ui-key.yacloud_org.pages.users }}**.
+ 
+  1. В списке выберите пользователя, в профиль {{ oslogin }} которого вы хотите добавить SSH-ключ.
+  
+      При необходимости воспользуйтесь фильтром или поиском.
+
+  1. Перейдите на вкладку **{{ ui-key.yacloud_org.page.user.title_tab-ssh-keys }}** и нажмите кнопку **{{ ui-key.yacloud_org.entity.ssh-keys.action.add-key }}**. В открывшемся окне:
+  
+      1. Задайте имя для добавляемого SSH-ключа.
+
+      1. Введите вручную или загрузите из файла открытый SSH-ключ.
+
+      1. Задайте срок действия загружаемого ключа.
+
+      1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
 
 - CLI {#cli}
 
@@ -85,7 +97,7 @@ description: Следуя данной инструкции, вы сможете
 
       Где:
 
-      * `--organization-id` — полученный ранее идентификатор организации.
+      * `--organization-id` — полученный ранее [идентификатор](./organization-get-id.md) организации.
       * `--name` — имя загружаемого ключа.
       * `--subject-id` — полученный ранее идентификатор [пользователя](./users-get.md) или [сервисного аккаунта](../../iam/operations/sa/get-id.md), в профиль которого добавляется SSH-ключ.
       * `--data` — содержимое публичного SSH-ключа.
@@ -125,7 +137,7 @@ description: Следуя данной инструкции, вы сможете
 
       Где:
 
-      * `organization_id` — идентификатор организации. Получить идентификатор организации вы можете с помощью команды [YC CLI](../../cli/quickstart.md) `yc organization-manager organization list` или в [консоли управления]({{ link-console-main }}).
+      * `organization_id` — [идентификатор](./organization-get-id.md) организации.
       * `subject_id` — идентификатор [пользователя](./users-get.md) или [сервисного аккаунта](../../iam/operations/sa/get-id.md), в профиль которого добавляется SSH-ключ.
       * `data` — содержимое публичного SSH-ключа.
       * `name` — имя загружаемого ключа.

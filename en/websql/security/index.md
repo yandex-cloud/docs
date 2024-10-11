@@ -1,6 +1,6 @@
 ---
 title: Access management in {{ websql-name }}
-description: Access management in {{ websql-name }}, a service used to manage queries to managed database clusters. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required to perform a particular action.
+description: Access management in {{ websql-name }}, a service for working with queries to managed database clusters. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required to perform a particular action.
 ---
 
 # Access management in {{ websql-name }}
@@ -105,33 +105,36 @@ The role is assigned for a saved query you published.
 
 The table below lists the roles required to perform a particular action. You can always assign a role offering more permissions than the one specified. For example, you can assign the `editor` role instead of `viewer`.
 
-| Action | Required roles |
+Action | Required roles
 ----- | -----
-| **Viewing queries** |
-| Viewing connection information | `{{ roles-connection-manager-viewer }}` for an organization, cloud, folder, or connection |
-| Viewing information on {{ PG }} connections | `{{ roles.mpg.viewer }}` for an organization, cloud, or folder |
-| Viewing information on {{ MY }} connections | `{{ roles.mmy.viewer }}` for an organization, cloud, or folder |
-| Viewing information on {{ CH }} connections | `{{ roles.mch.viewer }}` for an organization, cloud, or folder |
-| Viewing published queries' metadata | `websql.auditor` for an organization, cloud, or folder |
-| Viewing published queries | `websql.viewer` for an organization, cloud, or folder |
-| **Viewing and running queries** |
-| Using a database connection | `{{ roles-connection-manager-user }}` for an organization, cloud, folder, or connection |
-| Viewing information on {{ PG }} connections | `{{ roles.mpg.viewer }}` for an organization, cloud, or folder |
-| Viewing information on {{ MY }} connections | `{{ roles.mmy.viewer }}` for an organization, cloud, or folder |
-| Viewing information on {{ CH }} connections | `{{ roles.mch.viewer }}` for an organization, cloud, or folder |
-| Making queries | `websql.user` for an organization, cloud, or folder |
-| **Viewing, running, and publishing queries** |
-| Using a database connection | `{{ roles-connection-manager-user }}` for an organization, cloud, folder, or connection |
-| Viewing information on {{ PG }} connections | `{{ roles.mpg.viewer }}` for an organization, cloud, or folder |
-| Viewing information on {{ MY }} connections | `{{ roles.mmy.viewer }}` for an organization, cloud, or folder |
-| Viewing information on {{ CH }} connections | `{{ roles.mch.viewer }}` for an organization, cloud, or folder |
-| Running, publishing, and editing queries | `websql.editor` for an organization, cloud, or folder |
-| **Managing queries** |
-| Using a database connection | `{{ roles-connection-manager-user }}` for an organization, cloud, folder, or connection |
-| Viewing information on {{ PG }} connections | `{{ roles.mpg.viewer }}` for an organization, cloud, or folder |
-| Viewing information on {{ MY }} connections | `{{ roles.mmy.viewer }}` for an organization, cloud, or folder |
-| Viewing information on {{ CH }} connections | `{{ roles.mch.viewer }}` for an organization, cloud, or folder |
-| Running, publishing, and editing queries and managing access permissions to them | `websql.admin` for an organization, cloud, or folder |
+**Viewing queries** |
+Viewing information on connections | `{{ roles-connection-manager-viewer }}` for an organization, cloud, folder, or connection
+Viewing information on {{ PG }} connections | `{{ roles.mpg.viewer }}` for an organization, cloud, or folder
+Viewing information on {{ MY }} connections | `{{ roles.mmy.viewer }}` for an organization, cloud, or folder
+Viewing information on {{ CH }} connections | `{{ roles.mch.viewer }}` for an organization, cloud, or folder
+Viewing information on {{ RD }} connections | `{{ roles.mrd.viewer }}` for an organization, cloud, or folder
+Viewing published queries | `websql.viewer` for an organization, cloud, or folder
+**Viewing and running queries** |
+Using a database connection | `{{ roles-connection-manager-user }}` for an organization, cloud, folder, or connection
+Viewing information on {{ PG }} connections | `{{ roles.mpg.viewer }}` for an organization, cloud, or folder
+Viewing information on {{ MY }} connections | `{{ roles.mmy.viewer }}` for an organization, cloud, or folder
+Viewing information on {{ CH }} connections | `{{ roles.mch.viewer }}` for an organization, cloud, or folder
+Viewing information on {{ RD }} connections | `{{ roles.mrd.viewer }}` for an organization, cloud, or folder
+Making queries | `websql.user` for an organization, cloud, or folder
+**Viewing, running, and publishing queries** |
+Using a database connection | `{{ roles-connection-manager-user }}` for an organization, cloud, folder, or connection
+Viewing information on {{ PG }} connections | `{{ roles.mpg.viewer }}` for an organization, cloud, or folder
+Viewing information on {{ MY }} connections | `{{ roles.mmy.viewer }}` for an organization, cloud, or folder
+Viewing information on {{ CH }} connections | `{{ roles.mch.viewer }}` for an organization, cloud, or folder
+Viewing information on {{ RD }} connections | `{{ roles.mrd.viewer }}` for an organization, cloud, or folder
+Running, publishing, and editing queries | `websql.editor` for an organization, cloud, or folder
+**Managing queries** |
+Using a database connection | `{{ roles-connection-manager-user }}` for an organization, cloud, folder, or connection
+Viewing information on {{ PG }} connections | `{{ roles.mpg.viewer }}` for an organization, cloud, or folder
+Viewing information on {{ MY }} connections | `{{ roles.mmy.viewer }}` for an organization, cloud, or folder
+Viewing information on {{ CH }} connections | `{{ roles.mch.viewer }}` for an organization, cloud, or folder
+Viewing information on {{ RD }} connections | `{{ roles.mrd.viewer }}` for an organization, cloud, or folder
+Running, publishing, and editing queries and managing access permissions to them | `websql.admin` for an organization, cloud, or folder
 
 ## What's next {#whats-next}
 

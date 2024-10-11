@@ -2,6 +2,7 @@ Event name | Description
 --- | ---
 `CancelJob` | Canceling a job
 `CloneJob` | Cloning a job
+`CloseProject` | Closing a project
 `CreateCommunity` | Creating a community
 `CreateJob` | Creating a job
 `CreateProject` | Creating a project
@@ -10,6 +11,7 @@ Event name | Description
 `DeleteJobData` | Deleting job data
 `DeleteProject` | Deleting a project
 `ExecuteJob` | Running a job
+`OpenProject` | Opening a project
 `SetCommunityAccessBindings` | Assigning access permissions for a community
 `SetProjectAccessBindings` | Assigning access permissions for a project
 `UpdateJobDataTtl` | Updating job data lifetime

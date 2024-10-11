@@ -9,7 +9,7 @@ To work with {{ dataproc-name }} clusters in {{ ml-platform-name }}, you can use
 * [Spark connector](data-proc-operations.md#spark-with-existing-cluster)
 * [Livy session](data-proc-operations.md#livy-sessions)
 
-If you have no existing {{ dataproc-full-name }} clusters or you need a cluster for a short time, use temporary {{ dataproc-name }} clusters. You can create them using the following:
+If you have no existing {{ dataproc-name }} clusters or you need a cluster for a short time, use temporary {{ dataproc-name }} clusters. You can create them using the following:
 
 * [Spark connector](temporary-data-proc-clusters.md#spark-with-temporary-cluster) (preferred)
 * [{{ dataproc-name }} template](temporary-data-proc-clusters.md#template)
@@ -20,7 +20,7 @@ Regardless of the deployment option, all {{ dataproc-name }} clusters are charge
 
 {% include [preferences](../../_includes/datasphere/settings-for-dataproc.md) %}
 
-## See also {#see-also}
+#### See also {#see-also}
 
 * [{#T}](data-proc-template.md)
 * [{#T}](../tutorials/data-proc-integration.md)

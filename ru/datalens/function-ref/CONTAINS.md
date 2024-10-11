@@ -31,6 +31,10 @@ CONTAINS("RU0891923", "RU") = TRUE
 ```
 
 ```
+CONTAINS("RU0891923", "") = TRUE
+```
+
+```
 CONTAINS("Lorem ipsum", "abc") = FALSE
 ```
 

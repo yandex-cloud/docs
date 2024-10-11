@@ -1,7 +1,7 @@
 # Bitrix24: direct connection
 
 
-You will create a connection to a demo Bitrix24 data source and get familiar with the dashboard and charts built by Bitrix24 based on {{ datalens-short-name }}. You will also learn to work with [datasets](../../datalens/concepts/dataset/index.md), [charts](../../datalens/concepts/chart/index.md), and [dashboards](../../datalens/concepts/dashboard.md).
+You will create a connection to a demo Bitrix24 data source and get familiar with the dashboard and charts built by Bitrix24 based on {{ datalens-short-name }}. You will also learn to work with [datasets](../../datalens/dataset/index.md), [charts](../../datalens/concepts/chart/index.md), and [dashboards](../../datalens/concepts/dashboard.md).
 
 To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-begin) and follow the steps below:
 
@@ -66,7 +66,7 @@ You can see a copy of the main dashboard. Feel free to edit the dashboard as you
 
 1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the top-right corner of the chart and select **Edit**.
 
-   {% cut "Editing charts" %}
+   {% cut "Editing the chart" %}
 
    ![image](../../_assets/datalens/solution-bitrix24/edit-chart.png)
 
@@ -112,11 +112,11 @@ You can see a copy of the main dashboard. Feel free to edit the dashboard as you
 
 ## Step 3. Review the connection and dataset. Create your dataset and chart {#create-dataset-and-chart}
 
-1. Review the contents of the **Bitrix24** folder. To do this, go back to the Bitrix24 folder: click ![folder](../../_assets/console-icons/folders.svg) and select **Bitrix24** in the navigation panel.
+1. Review the contents of the **Bitrix24** folder. To do this, go back to the Bitrix24 folder: click ![folder](../../_assets/console-icons/folders.svg) and select **Bitrix24** in the navigation bar.
 
    Apart from the dashboard, the folder contains two nested folders with:
 
-   * ![chart](../../_assets/datalens/solution-bitrix24/chart.svg): Charts that visualize information as charts and tables.
+   * ![chart](../../_assets/datalens/solution-bitrix24/chart.svg): Charts that visualize information as graphs and tables.
    * ![dataset](../../_assets/datalens/solution-bitrix24/dataset.svg): Dataset that describes a data model used to generate reports by lead.
 
 1. Go to the **Leads** folder and open the **Leads** dataset.
@@ -124,9 +124,9 @@ You can see a copy of the main dashboard. Feel free to edit the dashboard as you
    The **Fields** tab displays a list of fields from the table selected in the source. Pay attention to the following columns:
 
    * **Name**: Field name.
-   * **Type**: Field [data type](../../datalens/concepts/data-types.md).
+   * **Type**: Field [data type](../../datalens/dataset/data-types.md).
    * **Field source**: Field in the source table or a formula for [calculations](../../datalens/concepts/calculations/index.md) (marked with the ![formula-dataset](../../_assets/console-icons/function.svg) icon).
-   * **Aggregation**: [Data aggregation function](../../datalens/concepts/dataset/data-model.md#aggregation) if it is applied to the field.
+   * **Aggregation**: [Data aggregation function](../../datalens/dataset/data-model.md#aggregation) if it is applied to the field.
    <br>
 
    {% cut "Viewing the Fields tab" %}
@@ -158,7 +158,7 @@ To use the [Bitrix24](#create-connection-bitrix24) connection data, you can crea
 1. Select **Datasets** in the navigation panel on the left.
 1. Click **Create dataset** at the top right.
 1. Go to the **Sources** tab.
-1. Under **Connections**, click ![image](../../_assets/console-icons/plus.svg)**Add** and select the previously created Bitrix24 connection.
+1. Under **Connections**, click ![image](../../_assets/console-icons/plus.svg) **Add** and select the previously created Bitrix24 connection.
 1. Drag the **crm_activity** table to the workspace. Wait for the data to load.
 
    {% cut "Choosing a table" %}
@@ -195,7 +195,7 @@ To use the [Bitrix24](#create-connection-bitrix24) connection data, you can crea
 To visualize interaction by type, create a column chart.
 
 1. When the dataset is saved, click **Create chart** in the top-right corner.
-1. For the [visualization type](../../datalens/visualization-ref/index.md), choose **Column chart**.
+1. Select the **Bar chart** [visualization type](../../datalens/visualization-ref/index.md).
 1. Add the types of customer contacts on the chart. To do this, drag the `TYPE_NAME` field from **Dimensions** to the **X** section.
 1. Add the number of interactions of each type to the chart. To do this, drag the `ID_COUNT` field from **Measures** to the **Y** section.
 

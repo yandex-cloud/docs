@@ -5,7 +5,7 @@ description: When creating a dashboard in {{ datalens-full-name }}, you might wa
 
 # Joining {{ datalens-full-name }} data
 
-{{ datalens-full-name }} uses a [connection](connection.md) to retrieve data from a source (DB, CSV, Yandex Metrica, and so on). You can create datasets, charts, and selectors from the connection data. If the source has multiple tables, you can join them to build the required set of data. You can link data from different datasets at the chart level or through selector links.
+{{ datalens-full-name }} uses a [connection](connection.md) to retrieve data from a source (DB, CSV, Yandex Metrica, and so on). You can create datasets, charts, and selectors from the connection data. If the source has multiple tables, you can combine them to build the required set of data. You can link data from different datasets at the chart level or through selector links.
 
 ## Data joining methods {#data-join}
 
@@ -35,13 +35,13 @@ You cannot join data from different sources at a single dataset level.
 
 #### Adding tables {#ui-join}
 
-You can [join data](../operations/dataset/join-data.md) through the dataset creation interface by dragging tables to the workspace and configuring links between them using the [JOIN](dataset/data-model.md#source) operator. [This use case](../../tutorials/datalens/data-from-ch-visualization.md#step2) gives an example of joining data by adding tables.
+You can [join data](../dataset/create-dataset.md#links) through the dataset creation interface by dragging tables to the workspace and configuring links between them using the [JOIN](../dataset/data-model.md#source) operator. [This use case](../../tutorials/datalens/data-from-ch-visualization.md#step2) gives an example of joining data by adding tables.
 
 {% include [data-join-duplicate-fields-note](../../_includes/datalens/datalens-data-join-duplicate-fields-note.md) %}
 
 #### SQL query {#sql-join}
 
-In a dataset, you can add an [ad-hoc SQL query](dataset/settings.md#sql-request-in-datatset) to the data source. When accessing a data source, the query code is run as a subquery. You can use the query output as the final dataset or join it with other source tables via the interface.
+In a dataset, you can add an [ad-hoc SQL query](../dataset/settings.md#sql-request-in-datatset) to the data source. When accessing a data source, the query code is run as a subquery. You can use the output of the query as final dataset data or join it with other source tables via the interface.
 
 ### Chart level {#chart-join}
 
@@ -56,7 +56,7 @@ In a dataset, you can add an [ad-hoc SQL query](dataset/settings.md#sql-request-
 
 #### Multi-dataset charts {#datasets-chart}
 
-[Multi-dataset charts](chart/index.md#multi-dataset-charts) are charts visualizing data from different datasets. Queries for each dataset are processed independently of each other. For more information, see [{#T}](../operations/chart/create-multidataset-chart.md).
+[Multi-dataset charts](chart/index.md#multi-dataset-charts) are charts that visualize data from different datasets. Queries for each dataset are processed independently of each other. For more information, see [{#T}](../operations/chart/create-multidataset-chart.md).
 
 
 ### Selector link level {#selector-join}
@@ -71,18 +71,18 @@ Before creating a link, make sure the field used by the selector as a filter is 
 
 ## Optimizing data when joining tables {#join-optimization}
 
-In some charts based on a dataset with [joined tables](#ui-join), you can only use fields from a single table. In this case, {{ datalens-short-name }} optimizes a query to a source. The `JOIN` operator is not used, and the query returns data only from one table without filtering data based on others. This allows reducing the amount of requested data and the query execution time. However, data returned by an optimized query may differ from that you expect.
+In some charts based on a dataset with [joined tables](#ui-join), you can only use fields from a single table. In this case, {{ datalens-short-name }} optimizes a query to a source. No `JOIN` is used, and the query only returns data from one table without filtering data based on others. This allows reducing the amount of requested data and the query execution time. However, data returned by an optimized query may differ from that you expect.
 
 Optimization is used under the following conditions:
 
-* The **Optimize link** option is enabled in the [table link settings](../operations/dataset/join-data.md).
+* The **Optimize link** option is enabled in the [table link settings](../dataset/create-dataset.md#links).
 * A chart only uses fields of one of the joined tables.
 * There are no fields from the other tables in any of the chart sections.
 * Fields from the other tables are not used in the chart's calculated fields.
 
 {% note info %}
 
-Optimization will not work if a dataset is described using an [SQL query to the source](../operations/dataset/add-data.md).
+Optimization will not work if a dataset is described using an [SQL query to the source](../dataset/create-dataset.md#add-data).
 
 {% endnote %}
 
@@ -183,7 +183,7 @@ Optimization for RIGHT JOIN(https://en.wikipedia.org/wiki/Join_(SQL)#Right_outer
 A dataset is based on three tables:
 
 * The first table (`Departments`) is joined with the second table (`Employees`) using `INNER JOIN`.
-* The second table (`Employees`) is joined with the third table (`Bonuses`) using `INNER JOIN`.
+* The second table (`Employees`) is joined with the third table (`Bonuses`) using an `INNER JOIN`.
 
 ![image](../../_assets/datalens/concepts/joins/case-3-link.png)
 
@@ -205,7 +205,7 @@ Let's add to the chart only the fields from the first (`Departments`) and third 
 
 A dataset is based on three tables:
 
-* The first table (`Employees`) is joined with the second table (`Departments`) using `INNER JOIN`.
+* The first table (`Employees`) is joined with the second table (`Departments`) using an `INNER JOIN`.
 * The second table (`Employees`) is joined with the third table (`Bonuses`) using `INNER JOIN`.
 
 ![image](../../_assets/datalens/concepts/joins/case-4-link.png)

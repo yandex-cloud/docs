@@ -61,7 +61,7 @@ items:
         href: concepts/limits.md
   - name: Tutorials
     items:
-      - name: Tuning a {{ yagpt-name }} model
+      - name: '{{ yagpt-name }} model tuning'
         href: tutorials/yagpt-tuning.md
       - name: Tuning classifiers based on {{ yagpt-name }}
         href: tutorials/yagpt-tuning-classifier.md

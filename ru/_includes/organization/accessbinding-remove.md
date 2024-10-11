@@ -1,16 +1,23 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ org-name }} {#cloud-org}
+- Интерфейс {{ cloud-center }} {#cloud-center}
 
-    1. [Войдите в аккаунт]({{ link-passport-login }}) администратора организации.
-    1. Перейдите в сервис [{{org-full-name}}]({{ link-org-main }}).
-    1. На панели слева выберите раздел **{{ ui-key.yacloud_org.pages.groups }}** ![icon-services](../../_assets/console-icons/persons.svg) и нажмите строку с названием группы.
-    1. Перейдите на вкладку **{{ ui-key.yacloud_org.entity.group.title_tab-access }}**.
-    1. Выберите пользователя в списке и нажмите ![image](../../_assets/console-icons/ellipsis.svg) напротив имени пользователя.
-    1. Нажмите **{{ ui-key.yacloud_org.entity.group.action_update-acl }}**.
-    1. Нажмите ![image](../../_assets/console-icons/xmark.svg) напротив роли, которую хотите отозвать.
-    1. Нажмите **{{ ui-key.yacloud.common.save }}**.
+  1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}) с учетной записью администратора или владельца организации.
+
+  1. На панели слева выберите ![groups](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud_org.pages.groups }}** и нажмите строку с названием [группы](../../organization/concepts/groups.md).
+  
+  1. Перейдите на вкладку **{{ ui-key.yacloud_org.entity.group.title_tab-access }}**.
+
+  1. Чтобы отозвать определенные роли:
+
+      1. В строке с нужным пользователем, сервисным аккаунтом или группой нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud_org.entity.group.action_update-acl }}**.
+
+      1. Нажмите ![image](../../_assets/console-icons/xmark.svg) напротив ролей, которые вы хотите отозвать.
+
+      1. Нажмите **{{ ui-key.yacloud.common.save }}**.
+
+  1. Чтобы отозвать все роли, в строке с нужным пользователем, сервисным аккаунтом или группой нажмите ![image](../../_assets/console-icons/ellipsis.svg), выберите ![TrashBin](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud_org.entity.group.action_remove-acl }}** и подтвердите действие.
 
 - CLI {#cli}
 

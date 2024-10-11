@@ -1,11 +1,14 @@
 {% list tabs group=instructions %}
 
-- Интерфейс {{ org-name }} {#cloud-org}
+- Интерфейс {{ cloud-center }} {#cloud-center}
 
-  1. Перейдите в сервис [{{ org-full-name }}]({{ link-org-main }}).
-  1. На панели слева выберите раздел **{{ ui-key.yacloud_org.pages.groups }}** ![icon-services](../../_assets/console-icons/persons.svg).
-  1. Выберите нужную [группу](../../organization/concepts/groups.md) и нажмите ![image](../../_assets/console-icons/ellipsis.svg) -> ![image](../../_assets/console-icons/trash-bin.svg)**{{ ui-key.yacloud_org.entity.group.action_delete-group }}**.
-  1. В появившемся окне нажмите кнопку **{{ ui-key.yacloud_org.entity.group.action_delete-group }}**.
+  1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}) с учетной записью администратора или владельца организации.
+
+  1. На панели слева выберите ![groups](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud_org.pages.groups }}**.
+
+  1. В строке с нужной [группой](../../organization/concepts/groups.md) нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud_org.entity.group.action_delete-group }}**.
+
+  1. В открывшемся окне подтвердите удаление группы.
 
 - CLI {#cli}
 
@@ -30,7 +33,7 @@
       Где:
 
       * `--name` — имя группы пользователей. Обязательный параметр.
-      * `--organization-id` — идентификатор организации.
+      * `--organization-id` — [идентификатор](../../organization/operations/organization-get-id.md) организации.
 
 - {{ TF }} {#tf}
 
@@ -54,7 +57,7 @@
         {% include [group-name-format](group-name-format.md) %}
 
      * `description` — описание группы. Необязательный параметр.
-     * `organization_id` — идентификатор организации, к которой нужно присоединить группу.
+     * `organization_id` — [идентификатор](../../organization/operations/organization-get-id.md) организации, к которой нужно присоединить группу.
   1. Создайте ресурсы:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

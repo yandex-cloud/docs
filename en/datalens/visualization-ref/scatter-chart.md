@@ -10,13 +10,13 @@ You can also represent dependencies on a scatter chart using point sizes. The si
 
 {% cut "A slice of two rows from the source table" %}
 
-| Product | Category | Average order value | Number of orders | Discount |
+Product | Category | Average order value | Number of orders | Discount
 ----|----|----|----|-----|
-| Floor cleaner liquid | Household cleaners | 153.0 | 1 | 0 |
-| Multicooker with 40 modes | Home appliances | 3442.0 | 1 | 0 |
-| Liquid detergent for colored clothes | Household cleaners | 525.0 | 1 | 0 |
-| Carpet detergent | Household cleaners | 463.0 | 1 | 0 |
-| Lemon dishwashing liquid | Household cleaners | 362.0 | 1 | 0 |
+Floor cleaner liquid|	Household cleaners|	153.0 | 1 | 0 |
+Multicooker with 40 modes|	Home appliances |	3442.0 | 1 | 0 |
+Liquid detergent for colored clothes|	Household cleaners |	525.0 | 1 | 0 |
+Carpet detergent|	Household cleaners | 463.0 | 1 | 0 |
+Lemon dishwashing liquid|	Household cleaners| 362.0 | 1 | 0 |
 
 The dataset is built on [Sample ClickHouse](../quickstart.md) connection tables.
 
@@ -28,15 +28,15 @@ You can use a gradient in a chart by adding a measure to the **Color** section. 
 
 ## Wizard sections {#wizard-sections}
 
-| Wizard<br/> section | Description |
+Wizard<br/> section| Description
 ----- | ----
-| X | Dimension or measure. Sets the X-axis value. |
-| Y | Dimension or measure. Sets the Y-axis value. |
-| Points | Dimension. Specifies the number of points on the chart. |
-| Point size | Measure. Sets a point size depending on the measure value. |
-| Colors | Dimension or measure. Affects the color of points. |
-| Sorting | Dimension. Can only use a dimension from the X axis. Affects the sorting of the X axis. The sorting direction is marked with an icon next to the field: ![image](../../_assets/console-icons/bars-ascending-align-left.svg) for ascending or ![image](../../_assets/console-icons/bars-descending-align-left.svg) for descending. To change the sorting direction, click the icon. |
-| Filters | Dimension or measure. Used as a filter. |
+X | Dimension or measure. Sets the X-axis value.
+Y | Dimension or measure. Sets the Y-axis value.
+Points | Dimension. Specifies the number of points on the chart.
+Point size | Measure. Sets a point size depending on the measure value.
+Colors | Dimension or measure. Affects the color of points.
+Sorting | Dimension. You can only use a dimension from the X axis. Affects the sorting of the X axis. The sorting direction is marked with an icon next to the field: ![image](../../_assets/console-icons/bars-ascending-align-left.svg) for ascending or ![image](../../_assets/console-icons/bars-descending-align-left.svg) for descending. To change the sorting direction, click the icon.
+Filters | Dimension or measure. Used as a filter.
 
 ## Creating a scatter chart {#create-diagram}
 
@@ -49,26 +49,26 @@ To create a scatter chart:
 1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
 1. In the left-hand panel, select ![chart](../../_assets/console-icons/chart-column.svg) **Charts**.
 1. Click **Create chart** → **Chart**.
-1. At the top left, click ![image](../../_assets/console-icons/circles-intersection.svg) **Select dataset** and specify the dataset to visualize. If you do not have a dataset, [create one](../operations/dataset/create.md).
+1. At the top left, click ![image](../../_assets/console-icons/circles-intersection.svg) **Select dataset** and specify the dataset to visualize. If you do not have a dataset, [create one](../dataset/create-dataset.md#create).
 1. Select **Scatter chart** as the chart type.
 1. Drag a dimension from the dataset to the **X** section.
 1. Drag one or more measures from the dataset to the **Y** section. The values will be displayed as points at the intersection of the X and Y axes.
 
 You can also:
 
-1. Change the color of points:
+* Change the color of points:
 
-   1. Drag a dimension or measure to the **Colors** section.
-   1. Click ![](../../_assets/console-icons/gear.svg) and set new colors.
+  1. Drag a dimension or measure to the **Colors** section.
+  1. Click ![](../../_assets/console-icons/gear.svg) and set new colors.
 
-1. Resize points:
+* Resize points:
 
-   1. Drag the measure to the **Point size** section.
-   1. Click ![](../../_assets/console-icons/gear.svg) and set the minimum and maximum point sizes for the specified measure.
+  1. Drag the measure to the **Point size** section.
+  1. Click ![](../../_assets/console-icons/gear.svg) and set the minimum and maximum point sizes for the specified measure.
 
-1. Specify an additional dimension. To do this, drag a dimension to the **Points** section.
+* Specify an additional dimension. To do this, drag a dimension to the **Points** section.
 
-### Configuring the display of `null` values {#null-settings}
+### Configuring display of `null` values {#null-settings}
 
 {% include [datalens-chart-null-settings](../../_includes/datalens/datalens-chart-null-settings.md) %}
 

@@ -27,6 +27,22 @@ description: Управление доступом в сервисе для по
 
 {% include [search-api-webSearch-user](../../_roles/search-api/webSearch/user.md) %}
 
+#### search-api.auditor {#search-api-auditor}
+
+{% include [searchapi-auditor](../../_roles/search-api/auditor.md) %}
+
+#### search-api.viewer {#search-api-viewer}
+
+{% include [searchapi-viewer](../../_roles/search-api/viewer.md) %}
+
+#### search-api.editor {#search-api-editor}
+
+{% include [searchapi-editor](../../_roles/search-api/editor.md) %}
+
+#### search-api.admin {#search-api-admin}
+
+{% include [searchapi-admin](../../_roles/search-api/admin.md) %}
+
 ### Примитивные роли {#primitive-roles}
 
 {% include [roles-primitive](../../_includes/roles-primitive.md) %}

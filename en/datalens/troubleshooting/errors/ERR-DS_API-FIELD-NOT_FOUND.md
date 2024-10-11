@@ -9,6 +9,6 @@ This field could have been deleted from the dataset after the chart was created.
 
 To fix this error:
 
-1. [Update fields](../../operations/dataset/update-field.md) in a dataset.
-1.  [Change](../../operations/dataset/update-field.md#replace-field) or delete the fields highlighted in red.
+1. [Update fields](../../dataset/create-dataset.md#update-fields) in a dataset.
+1. [Change](../../dataset/create-dataset.md#replace-field) or delete the fields highlighted in red.
 1. Save the dataset.

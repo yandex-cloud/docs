@@ -4,7 +4,7 @@
 
 _[Communities](community.md)_ is a way to organize team work. Communities determine the scope of projects and resources in {{ ml-platform-name }}.
 
-You can create a community in one of the [availability zones](../../overview/concepts/geo-scope.md). All projects and resources created in the community will also be hosted in this availability zone. Once a community is created, you cannot move it to a different zone.
+You can create a community in one of the [availability zones](../../overview/concepts/geo-scope.md). All projects and resources created in the community will also be hosted in this availability zone. You can use a different availability zone only to host [nodes](./deploy/index.md#node). Once a community is created, you cannot move it to a different zone.
 
 _[Projects](project.md)_ are the main workspaces in {{ ml-platform-name }}. Projects store code, variables, installed software, and other information.
 
@@ -34,7 +34,7 @@ Exchanging resources between communities enables different teams of the same org
 
 {{ ml-platform-name }} communities, projects, and resources are only visible inside an [organization](../../organization/). You cannot exchange resources between organizations. You also cannot share a resource in a community that was created in a different availability zone.
 
-You can share the resources of the {{ ml-platform-name }} project in which you have at least the `Editor` role in any community of the organization in which you have at least the `Developer` role. You can open the access on the **{{ ui-key.yc-ui-datasphere.common.access }}** tab on the resource view page. For more information, see [{#T}](../security/index.md).
+You can share the resources of the {{ ml-platform-name }} project in which you have at least the `Editor` role in any organization community where you have the `Developer` role or higher. You can open the access on the **{{ ui-key.yc-ui-datasphere.common.access }}** tab on the resource view page. For more information, see [{#T}](../security/index.md).
 
 ## Relationships between {{ ml-platform-name }} resources and {{ yandex-cloud }} services {#ml-cloud-connection}
 

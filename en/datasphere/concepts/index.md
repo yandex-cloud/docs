@@ -2,7 +2,7 @@
 
 {{ ml-platform-full-name }} is a full-cycle ML development environment. {{ ml-platform-full-name }} offers powerful features to easily work with {{ yandex-cloud }} services.
 
-In {{ ml-platform-name }}, you can train models and perform computations in {{ ds-nb }}, run remote computations with the [{{ ds-jobs }}](jobs/index.md) jobs, deploy the trained models or any Docker images as a service in [{{ ds-inf }}](#deployment).
+In {{ ml-platform-name }}, you can [train models](./models/index.md) and perform computations in {{ ds-nb }}, run remote computations using [{{ ds-jobs }}](jobs/index.md) jobs, deploy the trained models or any [Docker images](docker.md) as a service in [{{ ds-inf }}](#deployment).
 
 ## {{ ml-platform-full-name }} advantages {#advantages}
 
@@ -10,7 +10,7 @@ In {{ ml-platform-name }}, you can train models and perform computations in {{ d
 
 You do not need to spend time creating and maintaining VMs: when you create a new [project](project.md), computing resources are automatically allocated for implementing it.
 
-The VM already has the pre-installed {{ jlab }}Lab development environment and packages for data analysis and machine learning (TensorFlow, Torch, Keras, NumPy, etc.) on it, and you can start using them immediately. You can find the full list of pre-installed packages [here](preinstalled-packages.md).
+The VM already has the pre-installed {{ jlab }}Lab development environment and packages for data analysis and machine learning (TensorFlow, Torch, Keras, NumPy, etc.) on it, and you can start using them immediately. For the full list of packages, see [{#T}](preinstalled-packages.md).
 
 If you are missing a package, you can [install it](../operations/projects/install-dependencies.md) right from a notebook or [build](../operations/user-images.md) a custom [Docker image](docker.md).
 
@@ -20,7 +20,7 @@ If you are missing a package, you can [install it](../operations/projects/instal
 
 ### Organizations and resource hierarchy {#organization}
 
-{{ ml-platform-name }} is not just a cloud: it allows all organization members to work in a shared space managed by [{{ org-full-name }}]({{ link-org-main }}). Resources you create depend on your projects but are not limited only to them. For more information about connections between {{ ml-platform-name }} resources, see [{#T}](resource-model.md).
+{{ ml-platform-name }} is not just a cloud: it allows all organization members to work in a shared space managed by [{{ org-full-name }}]({{ link-org-main }}). Resources you create depend on your projects but are not limited only to them. For more information about relationships between {{ ml-platform-name }} resources, see [{#T}](resource-model.md).
 
 ### Teamwork and cost management {#communities}
 

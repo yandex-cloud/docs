@@ -464,10 +464,10 @@ default:
       pro: https://postgrespro.com/docs
     versions:
       console:
-        str-1c: 11-1c, 12-1c, 13-1c, and 14-1c
+        str-1c: 13-1c, 14-1c, 15-1c, and 16-1c
       tf:
-        latest: '15'
-        str: 11, 11-1c, 12, 12-1c, 13, 13-1c, 14, 14-1c, or 15
+        latest: '17'
+        str: 13, 13-1c, 14, 14-1c, 15, 15-1c, 16, 16-1c, and 17
   pgadmin: "pgAdmin\_4"
   port-any: 0-65535
   port-http: 80
@@ -5276,6 +5276,8 @@ default:
           service-accounts: Service accounts
           title: Configuring access bindings
           user-accounts: User accounts
+      cloud-center:
+        action_more: More
       cloud:
         button_delete: Delete
         button_save: Save
@@ -5496,21 +5498,33 @@ default:
         exclude: Remove
         save-changes: Save
       common:
-        resource-acl:
-          label_service-accounts: Service accounts
+        columns:
+          column_id: Identifier
       component:
         form-file-upload:
+          field:
+            method: Method
           method:
             manual: Text
         subject-select-dialog:
           action_apply: Save
           title_dialog: Adding participants
+      dashboard:
+        notify:
+          placeholder_add-user-action: Add
+          title:
+            notify: Recipients of notifications from the organization
+        organization:
+          action:
+            delete-button: Delete
+            edit-button: Edit
       entity:
         certificate:
           action:
             add: Adding a certificate
         federation:
           field:
+            acsUrl: ACS URL
             autocreateUsers: Automatically create users
             caseInsensitiveNameIds: Case-insensitive user names
             cookieMaxAge: Cookie lifetime
@@ -5525,6 +5539,7 @@ default:
           action_create: Create group
           action_delete-group: Delete
           action_edit: Edit
+          action_remove-acl: Revoke access
           action_remove-user: Remove from group
           action_update-acl: Configure access
           title_tab-access: Group access rights
@@ -5537,6 +5552,9 @@ default:
         oslogin-profile:
           action:
             create: Create profile
+        ssh-keys:
+          action:
+            add-key: Add key
         user:
           action:
             acl: Assign bindings
@@ -5552,6 +5570,9 @@ default:
             action:
               role:
                 add: Add role
+        add-users:
+          action:
+            add: Add
         federation:
           action:
             create: Create federation
@@ -5568,17 +5589,27 @@ default:
             iam-group: IAM group
             tab-idp: IdP group
         organization:
+          create:
+            action:
+              create: Creating an organization
           select:
             action:
+              create: Create new organization
               enter: Log in
         oslogin-settings:
           title_allow-edit-own-keys: Allow members to use their own SSH keys
           title_ssh-certificate-settings: Access via OS Login using SSH certificates (recommended)
           title_user-ssh-key-settings: Access via OS Login using SSH keys
+        oslogin:
+          field_home-directory: Home directory
+          field_shell: Default shell
+          field_uid: ID (uid)
       forms:
         action:
           create: Create
           save: Save
+      groups:
+        action_create-group: Create group
       iam-bindings:
         subject:
           action_revoke-all: Revoke all
@@ -5586,12 +5617,19 @@ default:
           title_revoke-access-dialog: Revoke access
           value_role-source-filter_direct: Directly appointed
           value_role-source-filter_group: Assigned via group
+      layout:
+        identity: Organization
       page:
         acl-diagnostics:
           action_select-subject: Select subject
         context:
           action:
             create: Create new organization
+        federation:
+          link:
+            download-cert: Download certificate
+          section:
+            certificates: Certificates
         services:
           clouds:
             create: Create cloud
@@ -5603,6 +5641,7 @@ default:
             edit: Edit data
         user:
           title_tab-os-login: OS Login profiles
+          title_tab-ssh-keys: SSH keys
         users:
           action:
             add-federated-users: Add federated users
@@ -6172,6 +6211,8 @@ default:
         switch_operations: Operations
         title_clickhouse: ClickHouse
         title_zookeeper: ZooKeeper
+      cloud-tree-list:
+        value_search-placeholder: Search
       common:
         add: Add
         all: All
@@ -6234,7 +6275,6 @@ default:
           button_remove-bindings: Remove bindings
           label_access-bindings: Access bindings
           label_bindings: Roles
-          label_inherited-bindings: Inherited roles
           label_service-account: Service account
           placeholder_filter-by-type: Account type
         save: Save
@@ -6262,7 +6302,6 @@ default:
           update-dialog:
             button_add-role: Add role
             button_select-subject: Select subject
-            label_title: Configure permissions
         certificates:
           button_empty-add: Add certificate
         compute:

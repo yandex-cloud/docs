@@ -6,9 +6,10 @@ Once connected to a database, you will be able to view DB schemas, tables, and v
 
 {{ websql-full-name }} supports the following DB versions:
 
-* {{ PG }}: 12, 13, 14, 15, and 16
-* {{ MY }}: 5 and 8
-* {{ CH }}: 23 and 24
+* {{ PG }}: 12, 13, 14, 15, 16
+* {{ MY }}: 5, 8
+* {{ CH }}: 23, 24
+* {{ RD }} (non-sharded clusters only): 6.2, 7
 
 In this section, you will learn how to connect to:
 

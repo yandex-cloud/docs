@@ -33,37 +33,39 @@
 
 ## Создайте федерацию в организации {#create-federation}
 
+Чтобы создать федерацию:
+
 {% list tabs group=instructions %}
 
-- Консоль управления {#console}
+- Интерфейс {{ cloud-center }} {#cloud-center}
 
-  Чтобы создать федерацию:
+  1. Перейдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
 
-  1. Перейдите в сервис [{{ org-full-name }}]({{ link-org-main }}).
+  1. На панели слева выберите ![icon-federation](../../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud_org.pages.federations }}**.
 
-  1. На панели слева выберите раздел [{{ ui-key.yacloud_org.pages.federations }}]({{ link-org-federations }}) ![icon-federation](../../../_assets/console-icons/vector-square.svg).
+  1. В правом верхнем углу страницы нажмите кнопку ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.form.federation.action.create }}**. В открывшемся окне:
 
-  1. Нажмите кнопку **{{ ui-key.yacloud_org.form.federation.action.create }}**.
+      1. Задайте имя федерации. Имя должно быть уникальным в каталоге.
 
-  1. Задайте имя федерации. Имя должно быть уникальным в каталоге.
+      1. При необходимости добавьте описание.
 
-  1. При необходимости добавьте описание.
+      1. В поле **{{ ui-key.yacloud_org.entity.federation.field.cookieMaxAge }}** укажите время, в течение которого браузер не должен требовать у пользователя повторной аутентификации.
 
-  1. В поле **{{ ui-key.yacloud_org.entity.federation.field.cookieMaxAge }}** укажите время, в течение которого браузер не должен требовать у пользователя повторной аутентификации.
+      1. В поле **{{ ui-key.yacloud_org.entity.federation.field.issuer }}** укажите ссылку в формате `http://<ADFS>/adfs/services/trust`, где `<ADFS>` — это FQDN вашего AD FS сервера.
 
-  1. В поле **{{ ui-key.yacloud_org.entity.federation.field.issuer }}** укажите ссылку в формате `http://<ADFS>/adfs/services/trust`, где `<ADFS>` — это FQDN вашего AD FS сервера.
+      1. В поле **{{ ui-key.yacloud_org.entity.federation.field.ssoBinding }}** выберите **POST**.
 
-  1. В поле **{{ ui-key.yacloud_org.entity.federation.field.ssoBinding }}** выберите **POST**.
+      1. В поле **{{ ui-key.yacloud_org.entity.federation.field.ssoUrl }}** укажите ссылку в формате `https://<ADFS>/adfs/ls/`, где `<ADFS>` — это FQDN вашего AD FS сервера.
 
-  1. В поле **{{ ui-key.yacloud_org.entity.federation.field.ssoUrl }}** укажите ссылку в формате `https://<ADFS>/adfs/ls/`, где `<ADFS>` — это FQDN вашего AD FS сервера.
+          {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
 
-     {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
+      1. Включите опцию **{{ ui-key.yacloud_org.entity.federation.field.autocreateUsers }}**, чтобы аутентифицированный пользователь автоматически добавлялся в организацию. Если вы не включите эту опцию, федеративных пользователей потребуется [добавить вручную](../../operations/add-account.md#add-user-sso).
 
-  1. Включите опцию **{{ ui-key.yacloud_org.entity.federation.field.autocreateUsers }}**, чтобы аутентифицированный пользователь автоматически добавлялся в организацию. Если вы не включите эту опцию, федеративных пользователей потребуется [добавить вручную](../../operations/add-account.md#add-user-sso).
+          {% include [fed-users-note](../../../_includes/organization/fed-users-note.md) %}
 
-     {% include [fed-users-note](../../../_includes/organization/fed-users-note.md) %}
+      1. {% include [forceauthn-option-enable](../../../_includes/organization/forceauthn-option-enable.md) %}
 
-  1. {% include [forceauthn-option-enable](../../../_includes/organization/forceauthn-option-enable.md) %}
+      1. Нажмите кнопку **{{ ui-key.yacloud_org.form.federation.create.action.create }}**.
 
 - CLI {#cli}
 
@@ -93,7 +95,7 @@
         Где:
 
         * `--name` — имя федерации. Имя должно быть уникальным в каталоге.
-        * `--organization-id` — идентификатор организации. 
+        * `--organization-id` — [идентификатор](../../operations/organization-get-id.md) организации. 
         * `--auto-create-account-on-login` — флаг, который активирует автоматическое создание новых пользователей в облаке после аутентификации на IdP-сервере. 
         Опция упрощает процесс заведения пользователей, но созданный таким образом пользователь не сможет выполнять никаких операций с ресурсами в облаке. Исключение — те ресурсы, на которые назначены роли [публичной группе](../../../iam/concepts/access-control/public-group.md) `All users` или `All authenticated users`.
 
@@ -122,7 +124,7 @@
 
         * `name` — имя федерации. Имя должно быть уникальным в каталоге.
         * `description` — описание федерации.
-        * `organization_id` — идентификатор организации. 
+        * `organization_id` — [идентификатор](../../operations/organization-get-id.md) организации. 
         * `labels` — набор пар меток ключ/значение, которые присвоены федерации.
         * `issuer` — идентификатор IdP-сервера, на котором должна происходить аутентификация.
 
@@ -207,7 +209,7 @@
       Где:
 
       * `name` — имя федерации. Имя должно быть уникальным в каталоге.
-      * `organizationId` — идентификатор организации. 
+      * `organizationId` — [идентификатор](../../operations/organization-get-id.md) организации. 
       * `autoCreateAccountOnLogin` — флаг, который активирует автоматическое создание новых пользователей в облаке после аутентификации на IdP-сервере. 
         Опция упрощает процесс заведения пользователей, но созданный таким образом пользователь не сможет выполнять никаких операций с ресурсами в облаке. Исключение — те ресурсы, на которые назначены роли [публичной группе](../../../iam/concepts/access-control/public-group.md) `All users` или `All authenticated users`.
 
@@ -242,7 +244,7 @@ Get-AdfsRelyingPartyTrust -Name YC | Set-AdfsRelyingPartyTrust -AlwaysRequireAut
 
 {% endnote %}
 
-## Укажите сертификаты для федерации {#add-certificate}
+## Добавьте сертификаты в федерацию {#add-certificate}
 
 Когда поставщик удостоверений (IdP) сообщает {{ org-full-name }}, что пользователь прошел аутентификацию, он подписывает сообщение своим сертификатом. Чтобы сервис {{ org-name }} мог проверить этот сертификат, добавьте его в созданную федерацию.
 
@@ -272,22 +274,9 @@ Get-AdfsRelyingPartyTrust -Name YC | Set-AdfsRelyingPartyTrust -AlwaysRequireAut
 
 {% list tabs group=instructions %}
 
-- Консоль управления {#console}
+- Интерфейс {{ cloud-center }} {#cloud-center}
 
-  1. Перейдите в сервис [{{ org-full-name }}]({{ link-org-main }}).
-
-  1. На панели слева выберите раздел [{{ ui-key.yacloud_org.pages.federations }}]({{ link-org-federations }}) ![icon-federation](../../../_assets/console-icons/vector-square.svg).
-
-  1. Нажмите имя федерации, для которой нужно добавить сертификат.
-
-  1. Внизу страницы нажмите кнопку **{{ ui-key.yacloud_org.entity.certificate.action.add }}**.
-
-  1. Введите название и описание сертификата.
-
-  1. Выберите способ добавления сертификата:
-      * Чтобы добавить сертификат в виде файла, нажмите **{{ ui-key.yacloud_portal.component.file-input.button_choose }}** и укажите путь к нему.
-      * Чтобы вставить скопированное содержимое сертификата, выберите способ **{{ ui-key.yacloud_org.component.form-file-upload.method.manual }}** и вставьте содержимое.
-  1. Нажмите кнопку **{{ ui-key.yacloud_org.actions.add }}**.
+  {% include [add-cert-to-fed](../../../_includes/organization/add-cert-to-fed.md) %}
 
 - CLI {#cli}
 
@@ -521,21 +510,9 @@ AD FS требует создавать _отношение доверия с п
 
 {% list tabs group=instructions %}
 
-- Консоль управления {#console}
+- Интерфейс {{ cloud-center }} {#cloud-center}
 
-  1. [Войдите в аккаунт]({{ link-passport }}) администратора или владельца организации.
-
-  1. Перейдите в сервис [{{ org-full-name }}]({{ link-org-main }}).
-
-  1. На панели слева выберите раздел [{{ ui-key.yacloud_org.pages.users }}]({{ link-org-users }}) ![icon-users](../../../_assets/console-icons/person.svg).
-
-  1. В правом верхнем углу нажмите ![icon-users](../../../_assets/console-icons/chevron-down.svg) → **{{ ui-key.yacloud_org.page.users.action.add-federated-users }}**.
-
-  1. Выберите федерацию, из которой необходимо добавить пользователей.
-
-  1. Перечислите Name ID пользователей, разделяя их переносами строк.
-
-  1. Нажмите кнопку **{{ ui-key.yacloud_org.actions.add }}**. Пользователи будут подключены к организации.
+  {% include [add-users-to-fed](../../../_includes/organization/add-users-to-fed.md) %}
 
 - CLI {#cli}
 

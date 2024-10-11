@@ -33,6 +33,24 @@ items:
             href: operations/leave-organization.md
           - name: Subscribing a user to notifications
             href: operations/subscribe-user-for-notifications.md
+      - name: Managing user groups
+        items:
+          - name: Overview
+            href: operations/manage-groups.md
+          - name: Create group
+            href: operations/create-group.md
+          - name: Adding members
+            href: operations/add-member-group.md
+          - name: Editing a group
+            href: operations/edit-group.md
+          - name: Configuring access to manage a group
+            href: operations/access-manage-group.md
+          - name: Configuring group access to Yandex Cloud
+            href: operations/access-group.md
+          - name: Deleting members
+            href: operations/delete-member-group.md
+          - name: Delete a group
+            href: operations/delete-group.md
       - name: Managing identity federations
         items:
           - name: Overview
@@ -49,8 +67,6 @@ items:
             href: operations/os-login-profile-create.md
           - name: Adding an SSH key
             href: operations/add-ssh.md
-      - name: Managing user groups
-        href: operations/manage-groups.md
       - name: Access management
         items:
           - name: Overview
@@ -109,6 +125,8 @@ items:
         href: diagnostics.md
       - name: Errors in SAML 2.0 federations
         href: saml-diagnostics.md
+      - name: Authentication using a Yandex account
+        href: yandex-id-diagnostics.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

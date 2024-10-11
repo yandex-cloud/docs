@@ -50,7 +50,7 @@ To enable {{ datalens-name }} to connect to your cluster and work with its data,
 
 Once the connection is created, you can:
 * [Update](#update-connector) or [delete](#delete-connector) the connection.
-* [Create datasets](../../datalens/concepts/dataset/index.md) with cluster data using the connection.
+* [Create datasets](../../datalens/dataset/index.md) with cluster data using the connection.
 * Visualize the datasets using [charts](../../datalens/concepts/chart/index.md) and [dashboards](../../datalens/concepts/dashboard.md).
 
 ## Viewing a list of cluster connections {#connectors-list}
@@ -103,7 +103,7 @@ Once the connection is created, you can:
    1. Open the **Select in folder** tab.
    1. Select the cluster and its host from the drop-down lists or [create a new cluster](cluster-create.md) in the folder with {{ datalens-name }} by clicking **Create new**.
    1. Select the database and user from the drop-down lists.
-   1. Enter the password for the user. See also [{#T}](../../datalens/operations/connection/create-mysql.md) and [{#T}](../../datalens/concepts/dataset/settings.md#access-management) in the {{ datalens-name }} documentation.
+   1. Enter the password for the user. See also [{#T}](../../datalens/operations/connection/create-mysql.md) and [{#T}](../../datalens/dataset/create-dataset.md#access) in the {{ datalens-name }} documentation.
 
    If the cluster and {{ datalens-name }} are in different folders:
    1. Go to the **Specify manually** tab.
