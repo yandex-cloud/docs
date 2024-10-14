@@ -439,6 +439,7 @@ description: Из статьи вы узнаете, как изменить на
         ```bash
         {{ yc-mdb-pg }} cluster update <имя_или_идентификатор_кластера> \
             --backup-window-start <время_начала_резервного_копирования> \
+            --backup-retain-period-days=<срок_хранения_автоматических_резервных_копий_в_днях> \
             --datalens-access=<true_или_false> \
             --maintenance-window type=<тип_технического_обслуживания>,`
                                 `day=<день_недели>,`
@@ -458,6 +459,8 @@ description: Из статьи вы узнаете, как изменить на
     Вы можете изменить следующие настройки:
 
     {% include [backup-window-start](../../_includes/mdb/cli/backup-window-start.md) %}
+
+    * `--backup-retain-period-days` – срок хранения автоматических резервных копий (в днях).
 
     * `--datalens-access` — разрешает доступ из DataLens. Значение по умолчанию — `false`. Подробнее о настройке подключения см. в разделе [Подключение к кластеру из {{ datalens-name }}](datalens-connect.md).
 

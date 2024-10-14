@@ -13,7 +13,7 @@ On September 16, 2024, {{ maf-name }} has entered the [General Availability](../
 
 ## June 2024 {#jun-2024}
 
-* Now {{ AF }} job logs are stored in {{ objstorage-full-name }}. This addresses the issue of unavailable logs on disabled workers after autoscaling completion.
+* Now {{ AF }} job logs are stored in {{ objstorage-full-name }}. This addresses the issue of unavailable logs on disabled workers after autoscaling is over.
 * In {{ lockbox-full-name }}, you can now store the connections, variables, and configuration data used in DAG files. For more information, see [Storing connections and variables in {{ lockbox-full-name }}](tutorials/lockbox-secrets-in-maf-cluster.md).
 
 ## May 2024 {#may-2024}

@@ -79,8 +79,10 @@
 
             {% include [Maintenance window](../../_includes/mdb/console/maintenance-window-description.md) %}
 
+
         * {% include [Datalens access](../../_includes/mdb/console/datalens-access.md) %}
-            
+        * {% include [Query access](../../_includes/mdb/console/query-access.md) %}
+
 
 
         * {% include [Deletion protection](../../_includes/mdb/console/deletion-protection.md) %}
@@ -238,22 +240,22 @@
 
         {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
-    1. Чтобы разрешить доступ из [{{ datalens-full-name }}](../../datalens/concepts/index.md), передайте значение `true` в соответствующих параметрах при создании кластера:
 
-
+    1. Чтобы разрешить доступ к кластеру из разных сервисов, передайте значение `true` в соответствующих параметрах при создании кластера:
 
         ```bash
         {{ yc-mdb-gp }} cluster create <имя_кластера> \
            ...
-           --datalens-access=<доступ_из_DataLens>
+           --datalens-access=<доступ_из_{{ datalens-name }}> \
+           --yandexquery-access=<доступ_из_Yandex_Query>
         ```
 
+        Доступные сервисы:
 
-        Где:
+        * `--datalens-access` — [{{ datalens-full-name }}](../../datalens/concepts/index.md);
+        * `--yandexquery-access` — [{{ yq-full-name }}](../../query/concepts/index.md).
 
-        * `--datalens-access` — доступ из {{ datalens-full-name }}: true или false.
 
-        
 
 - {{ TF }} {#tf}
 
@@ -320,24 +322,39 @@
           }
         }
 
+        access {
+          data_lens    = <доступ_из_{{ datalens-name }}>
+          yandex_query = <доступ_из_Yandex_Query>
+        }
+
         user_name     = "<имя_пользователя>"
         user_password = "<пароль>"
-  
+
         security_group_ids = ["<список_идентификаторов_групп_безопасности>"]
       }
       ```
 
 
+
+
       Где:
 
-      * `assign_public_ip` — публичный доступ к хостам кластера: true или false.
-      * `deletion_protection` — защита от удаления кластера: true или false.
+      * `assign_public_ip` — публичный доступ к хостам кластера: `true` или `false`.
+      * `deletion_protection` — защита от удаления кластера: `true` или `false`.
+
+          Включенная защита от удаления кластера не помешает подключиться вручную и удалить содержимое базы данных.
+
       * `version` — версия {{ GP }}.
       * `master_host_count` — количество хостов-мастеров: 1 или 2.
       * `segment_host_count` — количество хостов-сегментов: от 2 до 32.
       * `segment_in_host` — [количество сегментов на хост](../concepts/index.md). Максимальное значение этого параметра зависит от класса хостов.
 
-      Включенная защита от удаления кластера не помешает подключиться вручную и удалить содержимое базы данных.
+
+      * `access.data_lens` — доступ к кластеру из сервиса [{{ datalens-full-name }}](../../datalens/concepts/index.md): `true` или `false`.
+
+      * `access.yandex_query` — доступ к кластеру из сервиса [{{ yq-full-name }}](../../query/concepts/index.md): `true` или `false`.
+
+
 
       Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-mgp }}).
 
@@ -372,16 +389,19 @@
 
     При необходимости передайте дополнительные настройки кластера:
 
-    * Настройки публичного доступа в параметре `assignPublicIp`.
-    * Настройки окна резервного копирования в параметре `config.backupWindowStart`.
-    * Настройки доступа из [{{ datalens-full-name }}](../../datalens/concepts/index.md) в параметре `config.access.dataLens`.
-        
+    * Публичный доступ в параметре `assignPublicIp`.
+    * Окно резервного копирования в параметре `config.backupWindowStart`.
 
-    * Настройки доступа из [{{ data-transfer-full-name }}](../../data-transfer/) в параметре `config.access.dataTransfer`.
-    * Настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров) в параметре `maintenanceWindow`.
+
+    * Доступ к кластеру из сервиса [{{ datalens-full-name }}](../../datalens/concepts/index.md) в параметре `config.access.dataLens`.
+    * Доступ к кластеру из сервиса [{{ yq-full-name }}](../../query/concepts/index.md) в параметре `config.access.yandexQuery`.
+
+
+
+    * Время [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров) в параметре `maintenanceWindow`.
     * [Настройки СУБД](../concepts/settings-list.md#dbms-cluster-settings) в параметре `configSpec.greenplumConfig_<версия>`.
-    * Настройки [регламентных операций технического обслуживания](../concepts/maintenance.md#regular-ops) в параметре `configSpec.backgroundActivities.analyzeAndVacuum`.
-    * Настройки защиты от удаления кластера в параметре `deletionProtection`.
+    * [Регламентные операции технического обслуживания](../concepts/maintenance.md#regular-ops) в параметре `configSpec.backgroundActivities.analyzeAndVacuum`.
+    * Защиту от удаления кластера в параметре `deletionProtection`.
 
         {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 

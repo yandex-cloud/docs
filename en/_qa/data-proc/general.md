@@ -1,8 +1,8 @@
-#### What clusters can I move to a different availability zone? {#new-availability-zone}
+#### Which clusters can be moved to a different availability zone? {#new-availability-zone}
 
-You can move [light-weight clusters](../../data-proc/operations/migration-to-an-availability-zone.md) and [HDFS clusters](../../data-proc/tutorials/hdfs-cluster-migration.md).
+You can move [light-weight clusters](../../data-proc/operations/migration-to-an-availability-zone.md) and [HDFS clusters](../../data-proc/tutorials/hdfs-cluster-migration.md). {{ metastore-full-name }} cluster migration is not available. If you use such clusters located in the `{{ region-id }}-c` availability zone, {{ yandex-cloud }} support will notify you once the relevant migration guide is available.
 
-#### What do I do if data on storage subcluster hosts is distributed unevenly? {#data-unevenly-distributed}
+#### What should I do if data on storage subcluster hosts is distributed unevenly? {#data-unevenly-distributed}
 
 [Connect](../../data-proc/operations/connect.md) to the cluster master host and run the command to rebalance the data:
 
@@ -10,7 +10,7 @@ You can move [light-weight clusters](../../data-proc/operations/migration-to-an-
 sudo -u hdfs hdfs balancer
 ```
 
-You can configure the load balancer parameters. For example, to change the maximum amount of data to transfer, add the `-D dfs.balancer.max-size-to-move=<data-size-in-bytes>` argument.
+You can configure the load balancer parameters. For example, to change the maximum amount of data to transfer, add the following argument: `-D dfs.balancer.max-size-to-move=<data-size-in-bytes>`.
 
 #### Where can I view {{ dataproc-name }} cluster logs? {#cluster-logs}
 
@@ -26,7 +26,7 @@ To increase the maximum IOPS and bandwidth values and make throttling less likel
 
 #### I get the `^M: bad interpreter` error when running the initialization script. How do I fix this? {#syntax-error}
 
-Since the script runtime environment is Linux (Ubuntu), scripts created in Windows may end with an error saying `^M: bad interpreter` due to using the `CR/LF` newline character (in Linux, it is `LF`). To fix the error, save the script file in Linux format. For more information, see [{#T}](../../data-proc/concepts/init-action.md#syntax-errors).
+The script runtime environment being Linux (Ubuntu), scripts created in Windows may terminate with the `^M: bad interpreter` error due to using the `CR/LF` new line character (`LF` in Linux). To fix the error, save the script file in Linux format. For more information, see [{#T}](../../data-proc/concepts/init-action.md#syntax-errors).
 
 #### When I run a PySpark job, I get an error related to `com/amazonaws/auth/AWSCredentialsProvider`. How do I fix this? {#sharedPrefixes-property}
 
@@ -59,6 +59,22 @@ To fix the error, do one of the following:
 
 For more information about subnet sizes, see the [{{ vpc-full-name }}](../../vpc/concepts/network.md#subnet) documentation.
 
+#### How do I fix the error I get when creating a database in {{ metastore-full-name }}? {#create-db-in-hive}
+
+The error occurs if you use the following syntax to create a database:
+
+```sql
+CREATE DATABASE IF NOT EXISTS <DB_name>;
+```
+
+{{ metastore-name }} does not allow creating a database or table in Hive: they are stored in a [{{ objstorage-full-name }}](../../storage/concepts/bucket.md) bucket linked to a {{ dataproc-name }} cluster. To create a database, use the following syntax:
+
+```sql
+CREATE DATABASE IF NOT EXISTS <DB_name> LOCATION <DB_location>;
+```
+
+In the `LOCATION` parameter, specify the path to the bucket and the database in it in the following format: `s3a://<bucket_name>/<folder_name>/<DB_name>`. Specifying a folder is optional; however, objects will load into a folder faster than into the bucket root.
+
 #### Why is my cluster's status `Unknown`? {#unknown}
 
 If your cluster's status changed from `Alive` to `Unknown`:
@@ -84,7 +100,7 @@ If your cluster's status changed from `Alive` to `Unknown`:
       --until 'YYYY-MM-DDThh:mm:ssZ'
    ```
 
-   Specify the period in the `--since` and `--until` parameters in `YYYY-MM-DDThh:mm:ssZ` format, e.g., `2020-08-10T12:00:00Z`. The time zone must be specified in UTC format.
+   In the `--since` and `--until` parameters, specify the period boundaries. Time format: `YYYY-MM-DDThh:mm:ssZ`. e.g.: `2020-08-10T12:00:00Z`. Use the UTC time zone.
 
    For more information, see [{#T}](../../data-proc/operations/logging.md).
 
@@ -98,9 +114,9 @@ In {{ yandex-cloud }}, the computing power depends on the host class. For their 
 
 #### How do I upgrade the image version in {{ dataproc-name }}? {#upgrade}
 
-The service has no built-in mechanism for updating [image versions](../../data-proc/concepts/environment.md). To update the version of your image, create a new cluster.
+The service has no built-in mechanism for updating [image versions](../../data-proc/concepts/environment.md). To update your image version, create a new cluster.
 
-To make sure the version you use is always up-to-date, [automate](../../data-proc/tutorials/airflow-automation.md) the creation and removal of temporary {{ dataproc-name }} clusters using {{ maf-full-name }}. To run jobs automatically, apart from {{ maf-name }} you can also [use](../../data-proc/tutorials/datasphere-integration.md) {{ ml-platform-full-name }}.
+To make sure the version you use is always up-to-date, [automate](../../data-proc/tutorials/airflow-automation.md) the creation and removal of temporary {{ dataproc-name }} clusters using {{ maf-full-name }}. To run jobs automatically, other than {{ maf-name }} you can also [use](../../data-proc/tutorials/datasphere-integration.md) {{ ml-platform-full-name }}.
 
 #### How do I run jobs? {#jobs}
 
@@ -111,3 +127,13 @@ There are several ways to do it:
 #### What security group limits are there? {#security-groups}
 
 You can create no more than five security groups per network. Each group may have a maximum of 50 rules. Learn more about [limits in {{ vpc-full-name }}](../../vpc/concepts/limits.md#vpc-limits).
+
+#### Can I get superuser permissions on hosts? {#connect-root}
+
+Yes. To switch to superuser, enter the following command after connecting to the host:
+
+   ```bash
+     sudo su
+   ```
+
+However, you do not have to switch to superuser: just use `sudo`.

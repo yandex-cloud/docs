@@ -8,7 +8,7 @@ description: Вы можете создавать резервные копии 
 
 Вы можете создавать [резервные копии](../concepts/backup.md) и восстанавливать кластеры из имеющихся резервных копий.
 
-Также {{ mpg-name }} ежедневно создает автоматическую резервную копию. Вы можете [задать время начала резервного копирования](#set-backup-window) и [установить срок хранения](update.md#change-additional-settings) для нее.
+Также {{ mpg-name }} ежедневно создает автоматическую резервную копию. Вы можете [задать время начала резервного копирования](#set-backup-window) и [установить срок хранения](#set-backup-retain) для нее.
 
 ## Восстановить кластер из резервной копии {#restore}
 
@@ -276,7 +276,7 @@ description: Вы можете создавать резервные копии 
 
      Где:
 
-     * `backupId` — идентификатор [резервной копии](../concepts/backup.md).
+     * `backupId` — идентификатор [резервной копии](../concepts/backup.md). Его можно запросить со [списком резервных копий](#list-backups).
      * `time` — момент времени, на который нужно восстановить состояние кластера {{ PG }}, в формате `yyyy-mm-ddThh:mm:ssZ`.
      * `folderId` — идентификатор каталога, где будет восстановлен кластер. Идентификатор можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md).
      * `name` — имя кластера.
@@ -346,7 +346,7 @@ description: Вы можете создавать резервные копии 
        yandex.cloud.mdb.postgresql.v1.ClusterService.Restore
      ```
 
-     * `backup_id` — идентификатор [резервной копии](../concepts/backup.md).
+     * `backup_id` — идентификатор [резервной копии](../concepts/backup.md). Его можно запросить со [списком резервных копий](#list-backups).
      * `time` — момент времени, на который нужно восстановить состояние кластера {{ PG }}, в формате `yyyy-mm-ddThh:mm:ssZ`.
      * `folder_id` — идентификатор каталога, где будет восстановлен кластер. Идентификатор можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md).
      * `name` — имя кластера.
@@ -521,8 +521,12 @@ description: Вы можете создавать резервные копии 
         curl \
            --request GET \
            --header "Authorization: Bearer $IAM_TOKEN" \
-           --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/backups'
+           --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/backups?folderId=<идентификатор_каталога>'
         ```
+
+
+        Идентификатор каталога можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md).
+
 
      1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Backup/list.md#responses).
 
@@ -831,6 +835,156 @@ description: Вы можете создавать резервные копии 
        * `minutes` — от `0` до `59` минут;
        * `seconds` — от `0` до `59` секунд;
        * `nanos` — от `0` до `999999999` наносекунд.
+
+     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/cluster_service.md#Cluster3).
+
+{% endlist %}
+
+## Задать срок хранения автоматических резервных копий {#set-backup-retain}
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  В [консоли управления]({{ link-console-main }}) задать срок хранения автоматических резервных копий можно при [создании](cluster-create.md) или [изменении кластера](update.md).
+
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  Чтобы задать срок хранения автоматических резервных копий, передайте нужное значение в аргументе `--backup-retain-period-days` команды изменения кластера:
+
+    ```bash
+    {{ yc-mdb-pg }} cluster update <имя_или_идентификатор_кластера> \
+       --backup-retain-period-days=<срок_хранения_в_днях>
+    ```
+
+  Допустимые значения: от `7` до `60`. Значение по умолчанию — `7`.
+
+  Идентификатор и имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+- {{ TF }} {#tf}
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+
+        Полный список доступных для изменения полей конфигурации кластера {{ mpg-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mpg }}).
+
+    1. Добавьте к описанию кластера {{ mpg-name }} блок `backup_retain_period_days` в секции `config`:
+
+        ```hcl
+          resource "yandex_mdb_postgresql_cluster" "<имя_кластера>" {
+            ...
+            config {
+              ...
+              backup_retain_period_days = <срок_хранения_в_днях>
+              }
+              ...
+            }
+            ...
+        ```
+
+       Где `backup_retain_period_days` — срок хранения автоматических резервных копий. 
+       
+       Допустимые значения: от `7` до `60`. Значение по умолчанию — `7`.
+
+  1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+        {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
+
+- REST API {#api}
+
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1.  Воспользуйтесь методом [Cluster.update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+       {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
+
+       ```bash
+       curl \
+         --request PATCH \
+         --header "Authorization: Bearer $IAM_TOKEN" \
+         --header "Content-Type: application/json" \
+         --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<идентификатор_кластера>' \
+         --data '{
+                   "updateMask": "configSpec.backupRetainPeriodDays",
+                   "configSpec": {
+                     "backupRetainPeriodDays": <срок_хранения_в_днях>
+                   }
+                 }'
+       ```
+
+       Где:
+
+       * `updateMask` — перечень изменяемых параметров в одну строку через запятую.
+
+         В данном случае передается только один параметр.
+
+       * `configSpec.backupRetainPeriodDays` — срок хранения автоматических резервных копий.
+ 
+         Допустимые значения — от `7` до `60`. Значение по умолчанию — `7`.
+
+       Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#responses).
+
+
+- gRPC API {#grpc-api}
+
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+  1. Воспользуйтесь вызовом [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+     {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+        ```bash
+        grpcurl \
+        -format json \
+        -import-path ~/cloudapi/ \
+        -import-path ~/cloudapi/third_party/googleapis/ \
+        -proto ~/cloudapi/yandex/cloud/mdb/postgresql/v1/cluster_service.proto \
+        -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+        -d '{
+                "cluster_id": "<идентификатор_кластера>",
+                "update_mask": {
+                "paths": [
+                    "config_spec.backup_retain_period_days"
+                ]
+                },
+                "config_spec": {
+                "backup_retain_period_days": <срок_хранения_в_днях>
+                }
+            }' \
+        {{ api-host-mdb }}:{{ port-https }} \
+        yandex.cloud.mdb.postgresql.v1.ClusterService.Update
+        ```
+
+     Где:
+
+     * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
+
+       В данном случае передается только один параметр.
+
+     * `config_spec.backup_retain_period_days` — срок хранения автоматических резервных копий.
+
+       Допустимые значения — от `7` до `60`. Значение по умолчанию — `7`.
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 

@@ -1,6 +1,6 @@
 ---
 title: How to set up a {{ CH }} source endpoint in {{ data-transfer-full-name }}
-description: In this tutorial, you will learn how to configure a {{ CH }} source endpointwhen creating or modifying it in {{ data-transfer-full-name }}.
+description: In this tutorial, you will learn how to configure a {{ CH }} source endpoint when creating or modifying it in {{ data-transfer-full-name }}.
 ---
 
 # Transferring data from a {{ CH }} source endpoint
@@ -22,7 +22,7 @@ description: In this tutorial, you will learn how to configure a {{ CH }} source
 * [Migrating a {{ CH }} cluster](../../../tutorials/managed-clickhouse.md).
 * [Redistributing data across shards](../../../tutorials/mch-mch-resharding.md).
 
-For a detailed description of possible {{ data-transfer-full-name }} data transfer scenarios, see [Tutorials](../../../tutorials/index.md).
+For a detailed description of possible {{ data-transfer-full-name }} scenarios, see [Tutorials](../../../tutorials/index.md).
 
 ## Preparing the source database {#prepare}
 
@@ -93,7 +93,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
     ```
 
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
+    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
 
 - API {#api}
 
@@ -225,19 +225,22 @@ Configure the target endpoint:
 
 * [{{ CH }}](../target/clickhouse.md)
 
-For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available Transfers](../../../transfer-matrix.md).
+For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available transfers](../../../transfer-matrix.md).
 
 After configuring the data source and target, [create and start the transfer](../../transfer.md#create).
 
 ## Troubleshooting data transfer issues {#troubleshooting}
 
-* [New tables cannot be added](#no-new-tables).
-* [Data cannot be transferred](#no-transfer)
+* [New tables are not added](#no-new-tables).
+* [Data is not transferred](#no-transfer).
+* [Unsupported date range](#date-range).
 
 For more troubleshooting tips, see [Troubleshooting](../../../troubleshooting/index.md).
 
 {% include [no-new-tables](../../../../_includes/data-transfer/troubles/no-new-tables.md) %}
 
 {% include [table-names](../../../../_includes/data-transfer/troubles/table-names.md) %}
+
+{% include [date-range](../../../../_includes/data-transfer/troubles/date-range.md) %}
 
 {% include [clickhouse-disclaimer](../../../../_includes/clickhouse-disclaimer.md) %}

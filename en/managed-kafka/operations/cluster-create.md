@@ -56,6 +56,10 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
      * Select the storage size to use for data.
 
 
+  1. Under **{{ ui-key.yacloud.mdb.cluster.section_disk-scaling }}**, set the storage [utilization thresholds](../concepts/storage.md#auto-rescale) that will trigger an increase in storage size when reached: 
+
+     {% include [autoscale-settings](../../_includes/mdb/mkf/autoscale-settings.md) %}
+     
   1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**:
      1. Select one or more [availability zones](../../overview/concepts/geo-scope.md) to host {{ KF }} brokers. If you create a {{ mkf-name }} cluster with one availability zone, you will not be able to increase the number of zones and brokers in the future.
      1. Select a [network](../../vpc/concepts/network.md#network).
@@ -299,11 +303,11 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
 
     {% include [deletion-protection-limits](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
-  To manage data schemas using [{{ mkf-msr }}](../concepts/managed-schema-registry.md), set the `configSpec.schemaRegistry` parameter to `true`. You cannot edit this setting after you create a {{ mkf-name }} cluster.
+  To manage data schemas using [{{ mkf-msr }}](../concepts/managed-schema-registry.md), set the `configSpec.schemaRegistry` parameter to `true`. You will not be able to edit this setting once you create a {{ mkf-name }} cluster.
 
 
 
-  To create a {{ mkf-name }} cluster based on [dedicated host](../../compute/concepts/dedicated-host.md) groups, provide a list of their IDs in the `hostGroupIds` parameter.
+  To create a {{ mkf-name }} cluster based on [dedicated host](../../compute/concepts/dedicated-host.md) groups, provide a list of host group IDs in the `hostGroupIds` parameter.
 
   {% include [Dedicated hosts note](../../_includes/mdb/mkf/note-dedicated-hosts.md) %}
 
@@ -535,11 +539,11 @@ When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }}
 
     {% include [deletion-protection-limits](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
-  To manage data schemas using [{{ mkf-msr }}](../concepts/managed-schema-registry.md), set the `configSpec.schemaRegistry` parameter to `true`. You cannot edit this setting after you create a {{ mkf-name }} cluster.
+  To manage data schemas using [{{ mkf-msr }}](../concepts/managed-schema-registry.md), set the `configSpec.schemaRegistry` parameter to `true`. You will not be able to edit this setting once you create a {{ mkf-name }} cluster.
 
 
 
-  To create a {{ mkf-name }} cluster based on [dedicated host](../../compute/concepts/dedicated-host.md) groups, provide a list of their IDs in the `hostGroupIds` parameter.
+  To create a {{ mkf-name }} cluster based on [dedicated host](../../compute/concepts/dedicated-host.md) groups, provide a list of host group IDs in the `hostGroupIds` parameter.
 
   {% include [Dedicated hosts note](../../_includes/mdb/mkf/note-dedicated-hosts.md) %}
 
@@ -558,7 +562,7 @@ To make sure that the created cluster is using the {{ kraft-short-name }} protoc
 
 * Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), go to the appropriate folder.
+  1. In the [management console]({{ link-console-main }}), go to the relevant folder.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
   1. Click the name of the cluster you created.
   1. In the left-hand panel, select **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
@@ -716,7 +720,7 @@ To create an {{ KF }} cluster copy:
     environment         = "PRODUCTION"
     name                = "mykf"
     network_id          = yandex_vpc_network.mynet.id
-    subnet_ids          = yandex_vpc_subnet.mysubnet.id
+    subnet_ids          = [ yandex_vpc_subnet.mysubnet.id ]
     security_group_ids  = [ yandex_vpc_security_group.mykf-sg.id ]
     deletion_protection = true
 

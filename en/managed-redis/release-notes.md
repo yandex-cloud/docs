@@ -7,9 +7,14 @@ description: This section contains {{ mrd-name }} release notes.
 
 {% include [Tags](../_includes/mdb/release-notes-tags.md) %}
 
+## September 2024 {#sep-2024}
+
+* A new {{ RD }} version is now available: 7.2. For more information about revisions, see the [{{ RD }}](https://raw.githubusercontent.com/redis/redis/7.2/00-RELEASENOTES) documentation.
+* {{ RD }} 6.2 and 7.0 are no longer supported. Clusters cannot be created in these versions. One month after the release of version 7.2, existing {{ RD }} 6.2 and 7.0 clusters will be automatically updated to version 7.2.
+
 ## February 2024 {#feb-2024}
 
-* [Sharding](./concepts/sharding.md) can now be enabled on existing clusters. {{ tag-cli }} {{ tag-tf }} {{ tag-api }}
+[Sharding](./concepts/sharding.md) can now be enabled on existing clusters. {{ tag-cli }} {{ tag-tf }} {{ tag-api }}
 
 ## Q1 2023 {#q1-2023}
 

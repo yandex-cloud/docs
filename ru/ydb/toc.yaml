@@ -72,6 +72,10 @@ items:
           serverless-продуктов
         href: tutorials/ci-cd-serverless.md
       - name: >-
+          Поставка данных из {{ mpg-full-name }} в {{ ydb-full-name }} с помощью
+          {{ data-transfer-full-name }}
+        href: tutorials/mpg-ydb-replication.md
+      - name: >-
           Передача событий {{ postbox-full-name }} в {{ yds-full-name }} и их
           анализ с помощью {{ datalens-full-name }}
         href: tutorials/events-from-postbox-to-yds.md

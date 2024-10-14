@@ -1,5 +1,5 @@
 ---
-title: How to configure a {{ PG }} target endpoint in {{ data-transfer-full-name }}
+title: How to set up a {{ PG }} target endpoint in {{ data-transfer-full-name }}
 description: In this tutorial, you will learn how to set up a {{ PG }} target endpoint in {{ data-transfer-full-name }}.
 ---
 # Transferring data to a {{ PG }} target endpoint
@@ -11,27 +11,27 @@ description: In this tutorial, you will learn how to set up a {{ PG }} target en
 1. [Prepare the {{ PG }}](#prepare) database for the transfer.
 1. [Configure the target endpoint](#endpoint-settings) in {{ data-transfer-full-name }}.
 1. [Create](../../transfer.md#create) a transfer and [start](../../transfer.md#activate) it.
-1. [Perform required operations with the database](../../../../_includes/data-transfer/endpoints/sources/pg-work-with-db.md) and [control the transfer](../../monitoring.md).
+1. [Perform the required operations with the database](../../../../_includes/data-transfer/endpoints/sources/pg-work-with-db.md) and [see how the transfer is going](../../monitoring.md).
 1. In case of any issues, [use ready-made solutions](#troubleshooting) to resolve them.
 
 ## Scenarios for transferring data to {{ PG }} {#scenarios}
 
 1. {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
 
-   * [Migrating the {{ PG }} cluster](../../../tutorials/managed-postgresql.md).
-   * [Migrating data from AWS RDS for {{ PG }}](../../../tutorials/rds-to-mpg.md).
-   * [Migration with the storage change from {{ MY }} to {{ PG }}](../../../tutorials/mmy-to-mpg.md).
+    * [Migrating a {{ PG }} cluster](../../../tutorials/managed-postgresql.md).
+    * [Migrating from AWS RDS for {{ PG }}](../../../tutorials/rds-to-mpg.md).
+    * [Migration with change of storage from {{ MY }} to {{ PG }}](../../../tutorials/mmy-to-mpg.md).
 
 1. {% include [queue](../../../../_includes/data-transfer/scenario-captions/queue.md) %}
 
-   * [Delivering data from {{ KF }} to {{ PG }}](../../../tutorials/mkf-to-mpg.md).
+    * [Delivering data from {{ KF }} to {{ PG }}](../../../tutorials/mkf-to-mpg.md).
 
 1. {% include [data-mart](../../../../_includes/data-transfer/scenario-captions/data-mart.md) %}
 
-   * [Loading data from {{ GP }} to {{ PG }}](../../../tutorials/greenplum-to-postgresql.md).
-   * [Loading data from {{ objstorage-name }} to {{ PG }}](../../../tutorials/object-storage-to-postgresql.md).
+    * [Loading data from {{ GP }} to {{ PG }}](../../../tutorials/greenplum-to-postgresql.md).
+    * [Loading data from {{ objstorage-name }} to {{ PG }}](../../../tutorials/object-storage-to-postgresql.md).
 
-For a detailed description of possible {{ data-transfer-full-name }} data transfer scenarios, see [Tutorials](../../../tutorials/index.md).
+For a detailed description of possible {{ data-transfer-full-name }} scenarios, see [Tutorials](../../../tutorials/index.md).
 
 ## Configuring the data source {#supported-sources}
 
@@ -47,7 +47,7 @@ Configure one of the supported data sources:
 * [{{ ydb-name }}](../source/ydb.md)
 * [Oracle](../source/oracle.md).
 
-For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available Transfers](../../../transfer-matrix.md).
+For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available transfers](../../../transfer-matrix.md).
 
 ## Preparing the target database {#prepare}
 
@@ -55,7 +55,7 @@ For a complete list of supported sources and targets in {{ data-transfer-full-na
 
 ## Configuring the {{ PG }} target endpoint {#endpoint-settings}
 
-When [creating](../index.md#create) or [editing](../index.md#update) an endpoint, you can define:
+When [creating](../index.md#create) or [updating](../index.md#update) an endpoint, you can define:
 
 * [{{ mpg-full-name }} cluster](#managed-service) connection or [custom installation](#on-premise) settings, including those based on {{ compute-full-name }} VMs. These are required parameters.
 * [Additional parameters](#additional-settings).
@@ -76,48 +76,48 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
 
 - Management console {#console}
 
-   {% include [Managed Postgresql](../../../../_includes/data-transfer/necessary-settings/ui/managed-postgresql.md) %}
+    {% include [Managed Postgresql](../../../../_includes/data-transfer/necessary-settings/ui/managed-postgresql.md) %}
 
 - CLI {#cli}
 
-   * Endpoint type: `postgres-target`.
+    * Endpoint type: `postgres-target`.
 
-   {% include [Managed PostgreSQL CLI](../../../../_includes/data-transfer/necessary-settings/cli/managed-postgresql.md) %}
+    {% include [Managed PostgreSQL CLI](../../../../_includes/data-transfer/necessary-settings/cli/managed-postgresql.md) %}
 
 - {{ TF }} {#tf}
 
-   * Endpoint type: `postgres_target`.
+    * Endpoint type: `postgres_target`.
 
-   {% include [Managed PostgreSQL Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/managed-postgresql.md) %}
+    {% include [Managed PostgreSQL Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/managed-postgresql.md) %}
 
-   Here is an example of the configuration file structure:
-
-
-   ```hcl
-   resource "yandex_datatransfer_endpoint" "<endpoint_name_in_{{ TF }}>" {
-     name = "<endpoint_name>"
-     settings {
-       postgres_target {
-         security_groups = ["<list_of_security_group_IDs>"]
-         connection {
-           mdb_cluster_id = "<cluster_ID>"
-         }
-         database = "<migrated_database_name>"
-         user     = "<username_for_connection>"
-         password {
-           raw = "<user_password>"
-         }
-       }
-     }
-   }
-   ```
+    Here is an example of the configuration file structure:
 
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
+    ```hcl
+    resource "yandex_datatransfer_endpoint" "<endpoint_name_in_{{ TF }}>" {
+      name = "<endpoint_name>"
+      settings {
+        postgres_target {
+          security_groups = ["<list_of_security_group_IDs>"]
+          connection {
+            mdb_cluster_id = "<cluster_ID>"
+          }
+          database = "<name_of_database_to_migrate>"
+          user     = "<username_for_connection>"
+          password {
+            raw = "<user_password>"
+          }
+        }
+      }
+    }
+    ```
+
+
+    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
 
 - API {#api}
 
-   {% include [Managed PostgreSQL API](../../../../_includes/data-transfer/necessary-settings/api/managed-postgresql.md) %}
+    {% include [Managed PostgreSQL API](../../../../_includes/data-transfer/necessary-settings/api/managed-postgresql.md) %}
 
 {% endlist %}
 
@@ -129,51 +129,51 @@ For OnPremise, all fields are filled in manually.
 
 - Management console {#console}
 
-   {% include [On premise Postgresql](../../../../_includes/data-transfer/necessary-settings/ui/on-premise-postgresql.md) %}
+    {% include [On premise Postgresql](../../../../_includes/data-transfer/necessary-settings/ui/on-premise-postgresql.md) %}
 
 - CLI {#cli}
 
-   * Endpoint type: `postgres-target`.
+    * Endpoint type: `postgres-target`.
 
-   {% include [On premise PostgreSQL CLI](../../../../_includes/data-transfer/necessary-settings/cli/on-premise-postgresql.md) %}
+    {% include [On premise PostgreSQL CLI](../../../../_includes/data-transfer/necessary-settings/cli/on-premise-postgresql.md) %}
 
 - {{ TF }} {#tf}
 
-   * Endpoint type: `postgres_target`.
+    * Endpoint type: `postgres_target`.
 
-   {% include [On premise PostgreSQL Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/on-premise-postgresql.md) %}
+    {% include [On premise PostgreSQL Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/on-premise-postgresql.md) %}
 
-   Here is an example of the configuration file structure:
+    Here is an example of the configuration file structure:
 
 
-   ```hcl
-   resource "yandex_datatransfer_endpoint" "<endpoint_name_in_{{ TF }}>" {
-     name = "<endpoint_name>"
-     settings {
-       postgres_target {
-         security_groups = ["<list_of_security_group_IDs>"]
-         connection {
-           on_premise {
-             hosts = ["<list_of_hosts>"]
-             port  = <port_for_connection>
-           }
-         }
-         database = "<migrated_database_name>"
-         user     = "<username_for_connection>"
-         password {
-           raw = "<user_password>"
-         }
-       }
-     }
-   }
-   ```
+    ```hcl
+    resource "yandex_datatransfer_endpoint" "<endpoint_name_in_{{ TF }}>" {
+      name = "<endpoint_name>"
+      settings {
+        postgres_target {
+          security_groups = ["<list_of_security_group_IDs>"]
+          connection {
+            on_premise {
+              hosts = ["<list_of_hosts>"]
+              port  = <pot_for_connection>
+            }
+          }
+          database = "<name_of_database_to_migrate>"
+          user     = "<username_for_connection>"
+          password {
+            raw = "<user_password>"
+          }
+        }
+      }
+    }
+    ```
 
 
     For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
 
 - API {#api}
 
-   {% include [On premise PostgreSQL API](../../../../_includes/data-transfer/necessary-settings/api/on-premise-postgresql.md) %}
+    {% include [On premise PostgreSQL API](../../../../_includes/data-transfer/necessary-settings/api/on-premise-postgresql.md) %}
 
 {% endlist %}
 
@@ -183,17 +183,17 @@ For OnPremise, all fields are filled in manually.
 
 - Management console {#console}
 
-   * {% include [cleanup_policy](../../../../_includes/data-transfer/fields/postgresql/ui/cleanup_policy.md) %}
+    * {% include [cleanup_policy](../../../../_includes/data-transfer/fields/postgresql/ui/cleanup_policy.md) %}
 
-   * {% include [save_tx_boundaries](../../../../_includes/data-transfer/fields/postgresql/ui/save_tx_boundaries.md) %}
+    * {% include [save_tx_boundaries](../../../../_includes/data-transfer/fields/postgresql/ui/save_tx_boundaries.md) %}
 
 - {{ TF }} {#tf}
 
-   {% include [cleanup_policy](../../../../_includes/data-transfer/fields/postgresql/terraform/cleanup-policy.md) %}
+    {% include [cleanup_policy](../../../../_includes/data-transfer/fields/postgresql/terraform/cleanup-policy.md) %}
 
 - API {#api}
 
-   {% include [cleanupPolicy](../../../../_includes/data-transfer/fields/postgresql/api/cleanup-policy.md) %}
+    {% include [cleanupPolicy](../../../../_includes/data-transfer/fields/postgresql/api/cleanup-policy.md) %}
 
 {% endlist %}
 
@@ -212,6 +212,7 @@ Known issues when using a {{ PG }} endpoint:
 * [VIEW transfer error](#view).
 * [Error when adding a table entry by constraint](#constraint).
 * [Error when migrating all schema tables](#schema).
+* [Unable to create objects involving extension functions](#extension-functions).
 * [Low transfer speed](#low-speed).
 * [Unable to transfer child tables](#successor-tables).
 * [Insufficient replication slots in a source database](#replication-slots).
@@ -222,10 +223,10 @@ Known issues when using a {{ PG }} endpoint:
 * [Cannot create a replication slot at the activation step](#lock-replication).
 * [Excessive WAL size increase](#excessive-wal).
 * [Error when replicating from an external source](#external-replication).
-* [Error when transfering tables without primary keys](#primary-keys).
+* [Error when transferring tables without primary keys](#primary-keys).
 * [Error when dropping a table under the Drop cleanup policy](#drop-table-error).
 
-See a full list of recommendations in the [Troubleshooting](../../../troubleshooting/index.md) section.
+For more troubleshooting tips, see the [Troubleshooting](../../../troubleshooting/index.md) section.
 
 {% include [master-trans-stop](../../../../_includes/data-transfer/troubles/postgresql/master-trans-stop.md) %}
 
@@ -236,6 +237,8 @@ See a full list of recommendations in the [Troubleshooting](../../../troubleshoo
 {% include [constraint](../../../../_includes/data-transfer/troubles/postgresql/constraint.md) %}
 
 {% include [schema](../../../../_includes/data-transfer/troubles/postgresql/schema.md) %}
+
+{% include [extension functions](../../../../_includes/data-transfer/troubles/postgresql/extension-functions.md) %}
 
 {% include [low-speed](../../../../_includes/data-transfer/troubles/postgresql/low-speed.md) %}
 

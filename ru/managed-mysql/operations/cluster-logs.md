@@ -51,10 +51,11 @@
         * {% include [logs output format](../../_includes/cli/logs/format.md) %}
         * `--service-type` — тип сервиса, для которого требуется вывести записи (`mysql-error`, `mysql-general`, `mysql-slow-query` или `mysql-audit`).
         * `--columns` — список колонок для вывода информации:
+
             * `hostname` — [имя хоста](hosts.md#list-hosts).
             * `id` — идентификатор запроса.
             * `message` — сообщение, которое выводит сервис.
-            * `status` — статус сообщения, например, `Note` или `Warning`.
+            * `status` — статус сообщения, например `Note` или `Warning`.
 
             {% note info %}
 
@@ -70,17 +71,107 @@
 
     Имя и идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-- API {#api}
+- REST API {#api}
 
-    Чтобы получить лог кластера, воспользуйтесь методом REST API [listLogs](../api-ref/Cluster/listLogs.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/ListLogs](../api-ref/grpc/cluster_service.md#ListLogs) и передайте в запросе:
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-    * Идентификатор кластера в параметре `clusterId`.
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-        Чтобы узнать идентификатор кластера, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
+    1. Воспользуйтесь методом [Cluster.listLogs](../api-ref/Cluster/listLogs.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
-    * Тип логов в параметре `serviceType`:
+        ```bash
+        curl \
+            --request GET \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --url 'https://{{ api-host-mdb }}/managed-mysql/v1/clusters/<идентификатор_кластера>:logs' \
+            --url-query serviceType=<тип_сервиса> \
+            --url-query columnFilter=<список_колонок> \
+            --url-query fromTime=<левая_граница_временного_диапазона> \
+            --url-query toTime=<правая_граница_временного_диапазона>
+        ```
 
-        {% include [Log types](../../_includes/mdb/mmy/log-types.md) %}
+        Где:
+
+        * `serviceType` — тип сервиса, логи которого нужно получить:
+
+            {% include [Log types](../../_includes/mdb/mmy/log-types.md) %}
+
+        * `columnFilter` — список колонок для вывода информации:
+
+            * `hostname` — [имя хоста](hosts.md#list);
+            * `id` — идентификатор запроса;
+            * `message` — сообщение, которое выводит сервис;
+            * `status` — статус сообщения, например `Note` или `Warning`;
+            * `raw` — информация по всем колонкам в необработанном виде.
+
+            {% note info %}
+
+            В примере приведены только основные колонки. Список выводимых колонок зависит от выбранного типа сервиса `serviceType`.
+
+            {% endnote %}
+
+        * `fromTime` — левая граница временного диапазона в формате [RFC-3339](https://www.ietf.org/rfc/rfc3339.html). Пример: `2024-09-18T15:04:05Z`.
+        * `toTime` — правая граница временного диапазона, формат аналогичен `fromTime`.
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/listLogs.md#responses).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+    1. Воспользуйтесь вызовом [ClusterService/ListLogs](../api-ref/grpc/cluster_service.md#ListLogs) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/mdb/mysql/v1/cluster_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d '{
+                "cluster_id": "<идентификатор_кластера>",
+                "service_type": "<тип_сервиса>",
+                "column_filter": [
+                  "<колонка_1>", "<колонка_2>", ..., "<колонка_N>"
+                ],
+                "from_time": "<левая_граница_временного_диапазона>",
+                "to_time": "<правая_граница_временного_диапазона>"
+              }' \
+          {{ api-host-mdb }}:{{ port-https }} \
+          yandex.cloud.mdb.mysql.v1.ClusterService.ListLogs
+        ```
+
+        Где:
+
+        * `service_type` — тип сервиса, логи которого нужно получить:
+
+            {% include [Log types](../../_includes/mdb/mmy/log-types.md) %}
+
+        * `column_filter` — список колонок для вывода информации:
+
+            * `hostname` — [имя хоста](hosts.md#list);
+            * `id` — идентификатор запроса;
+            * `message` — сообщение, которое выводит сервис;
+            * `status` — статус сообщения, например `Note` или `Warning`;
+            * `raw` — информация по всем колонкам в необработанном виде.
+
+            {% note info %}
+
+            В примере приведены только основные колонки. Список выводимых колонок зависит от выбранного типа сервиса `service_type`.
+
+            {% endnote %}
+
+        * `from_time` — левая граница временного диапазона в формате [RFC-3339](https://www.ietf.org/rfc/rfc3339.html). Пример: `2024-09-18T15:04:05Z`.
+        * `to_time` — правая граница временного диапазона, формат аналогичен `from_time`.
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/cluster_service.md#ListClusterLogsResponse).
 
 {% endlist %}
 
@@ -104,16 +195,103 @@
 
     Имя и идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-- API {#api}
+- REST API {#api}
 
-    Чтобы получить поток логов кластера, воспользуйтесь методом REST API [streamLogs](../api-ref/Cluster/streamLogs.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/StreamLogs](../api-ref/grpc/cluster_service.md#StreamLogs) и передайте в запросе:
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-    * Идентификатор кластера в параметре `clusterId`.
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-        Чтобы узнать идентификатор кластера, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
+    1. Воспользуйтесь методом [Cluster.streamLogs](../api-ref/Cluster/streamLogs.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
-    * Тип логов в параметре `serviceType`:
+        ```bash
+        curl \
+            --request GET \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --url 'https://{{ api-host-mdb }}/managed-mysql/v1/clusters/<идентификатор_кластера>:stream_logs' \
+            --url-query serviceType=<тип_сервиса> \
+            --url-query columnFilter=<список_колонок>
+        ```
 
-        {% include [Log types](../../_includes/mdb/mmy/log-types.md) %}
+        Где:
+
+        * `serviceType` — тип сервиса, логи которого нужно получить:
+
+            {% include [Log types](../../_includes/mdb/mmy/log-types.md) %}
+
+        * `columnFilter` — список колонок для вывода информации:
+
+            * `hostname` — [имя хоста](hosts.md#list-hosts).
+            * `id` — идентификатор запроса.
+            * `message` — сообщение, которое выводит сервис.
+            * `status` — статус сообщения, например `Note` или `Warning`.
+            * `raw` — информация по всем колонкам в необработанном виде.
+
+            {% note info %}
+
+            В примере приведены только основные колонки. Список выводимых колонок зависит от выбранного типа сервиса `serviceType`.
+
+            {% endnote %}
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/streamLogs.md#responses).
+
+        Команда не завершается после отправки. Новые логи отображаются в выводе команды в режиме реального времени.
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+    1. Воспользуйтесь вызовом [ClusterService/StreamLogs](../api-ref/grpc/cluster_service.md#StreamLogs) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/mysql/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                  "cluster_id": "<идентификатор_кластера>",
+                  "service_type": "<тип_сервиса>",
+                  "column_filter": [
+                    "<колонка_1>", "<колонка_2>", ..., "<колонка_N>"
+                  ]
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.mysql.v1.ClusterService.StreamLogs
+        ```
+
+        Где:
+
+        * `service_type` — тип сервиса, логи которого нужно получить:
+
+            {% include [Log types](../../_includes/mdb/mmy/log-types.md) %}
+
+        * `column_filter` — список колонок для вывода информации:
+
+            * `hostname` — [имя хоста](hosts.md#list-hosts).
+            * `id` — идентификатор запроса.
+            * `message` — сообщение, которое выводит сервис.
+            * `status` — статус сообщения, например `Note` или `Warning`.
+            * `raw` — информация по всем колонкам в необработанном виде.
+
+            {% note info %}
+
+            В примере приведены только основные колонки. Список выводимых колонок зависит от выбранного типа сервиса `service_type`.
+
+            {% endnote %}
+
+        * `from_time` — левая граница временного диапазона в формате [RFC-3339](https://www.ietf.org/rfc/rfc3339.html). Пример: `2024-09-18T15:04:05Z`.
+        * `to_time` — правая граница временного диапазона, формат аналогичен `from_time`.
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/cluster_service.md#StreamLogRecord).
+
+        Команда не завершается после отправки. Новые логи отображаются в выводе команды в режиме реального времени.
 
 {% endlist %}

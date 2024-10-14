@@ -24,16 +24,16 @@ With {{ connection-manager-full-name }} service roles, you can view non-secret c
 {% include [connection-manager.user](../../_roles/connection-manager/user.md) %}
 
 
-## What roles do I need {#choosing-roles}
+## Roles required {#choosing-roles}
 
-The table below lists the roles required to perform a particular action. You can always assign a role offering more permissions than the one specified. For example, you can assign the `editor` role instead of `viewer`.
+The table below lists the roles required to perform a particular action. You can always assign a role offering more permissions than the one specified. For example, you can assign `editor` instead of `viewer`.
 
-| Action | Required roles |
+| Action                                                      | Required roles                     |
 |---------------------------------------------------------------|--------------------------------------|
-| Getting information about connections | `connection-manager.viewer` |
-| Getting a list of connections | `connection-manager.viewer` |
-| Creating a connection | `connection-manager.editor` |
-| Editing a connection | `connection-manager.editor` |
-| Deleting a connection | `connection-manager.editor` |
-| Setting connection access permissions | `connection-manager.admin` |
-| Changing connection access permissions | `connection-manager.admin` |
+| Getting information about connections                            | `connection-manager.viewer`          |
+| Getting a list of connections                                   | `connection-manager.viewer`          | 
+| Creating a connection                                           | `connection-manager.editor`          | 
+| Editing a connection                                          | `connection-manager.editor`          |
+| Deleting a connection                                           | `connection-manager.editor`          |
+| Setting connection access permissions                        | `connection-manager.admin`           |
+| Changing connection access permissions                          | `connection-manager.admin`           |

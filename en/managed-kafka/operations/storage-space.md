@@ -55,7 +55,7 @@ When the [storage](../concepts/storage.md) is more than 97% full, the host autom
     To increase the cluster storage size:
 
     1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
-    1. In the appropriate cluster row, click ![image](../../_assets/console-icons/ellipsis.svg)and select. ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
+    1. In the cluster row, click ![image](../../_assets/console-icons/ellipsis.svg), then select ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
     1. Edit the settings in the **{{ ui-key.yacloud.mdb.forms.section_storage }}** section.
 
         You cannot change the disk type for an {{ KF }} cluster once you create it.
@@ -94,7 +94,7 @@ When the [storage](../concepts/storage.md) is more than 97% full, the host autom
 
         If no size units are specified, gigabytes are used.
 
-    You cannot change the disk type for a {{ KF }} cluster once you create it.
+    You cannot change the disk type for an {{ KF }} cluster once you create it.
 
 * {{ TF }} {#tf}
 
@@ -164,6 +164,14 @@ To prevent the cluster disk space from running out, set up [automatic storage in
 
 
 {% list tabs group=instructions %}
+
+* Management console {#console}
+
+    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+    1. In the cluster row, click ![image](../../_assets/console-icons/ellipsis.svg), then select **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
+    1. Under **{{ ui-key.yacloud.mdb.cluster.section_disk-scaling }}**, set the storage [utilization thresholds](../concepts/storage.md#auto-rescale) that will trigger an increase in storage size when reached: 
+    
+        {% include [autoscale-settings](../../_includes/mdb/mkf/autoscale-settings.md) %}
 
 * CLI {#cli}
 

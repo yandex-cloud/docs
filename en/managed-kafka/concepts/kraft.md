@@ -1,8 +1,8 @@
 # {{ kraft-name }} protocol in {{ mkf-name }} clusters
 
-_[{{ kraft-name }}](https://docs.confluent.io/platform/current/kafka-metadata/kraft.html)_ (abbreviated as {{ kraft-short-name }}) is a protocol designed to address consensus issues. It makes {{ KF }} independent of {{ ZK }} so that metadata is stored on {{ kraft-short-name }} controllers rather than {{ ZK }} hosts.
+_[{{ kraft-name }}](https://docs.confluent.io/platform/current/kafka-metadata/kraft.html)_ (short name: {{ kraft-short-name }}) is an approval protocol allowing you to store metadata and manage it in {{ KF }}. {{ kraft-short-name }} makes {{ KF }} independent of the external metadata synchronization service, {{ ZK }}.
 
-{{ kraft-short-name }} is supported by {{ mkf-name }} clusters with {{ KF }} 3.6 or higher. [{{ ZK }} is used](index.md#zookeeper) only in earlier versions.
+{{ kraft-short-name }} is supported by {{ mkf-name }} clusters with {{ KF }} 3.6 or higher. [{{ ZK }} is used](index.md#zookeeper) only in older versions.
 
 Reasons for replacing {{ ZK }} with {{ kraft-short-name }}:
 
@@ -15,7 +15,7 @@ Reasons for replacing {{ ZK }} with {{ kraft-short-name }}:
 
 ## {{ kraft-name }} pros and cons {#pros-and-cons}
 
-{{ kraft-short-name }} advantages stem from {{ KF }} no longer depending on the {{ ZK }} external system.
+{{ kraft-short-name }} advantages stem from the fact that {{ KF }} no longer depends on the {{ ZK }} external system:
 
 * You do not need to pay extra for {{ ZK }} hosts.
 * There is a single mechanism in place for information security instead of multiple ones.

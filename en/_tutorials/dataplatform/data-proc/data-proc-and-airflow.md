@@ -120,7 +120,6 @@ If you no longer need the resources you created, [delete them](#clear-out).
    * **Subnet**: `dataproc-network-{{ region-id }}-a`
    * **Security group**: Default group in `dataproc-network`
    * **Bucket name**: `airflow-bucket`
-   * **Key ID** and **secret key**: Belong to the static access key
 
 ## Prepare a PySpark job {#prepare-a-job}
 
@@ -147,9 +146,9 @@ For a PySpark job, we will use a Python script that creates a table and is store
    StructField('Population', IntegerType(), True)])
 
    # Creating a dataframe
-   df = spark.createDataFrame([(''Australia', 'Canberra', 7686850, 19731984), ('Austria', 'Vienna', 83855, 7700000)], schema)
+   df = spark.createDataFrame([('Australia', 'Canberra', 7686850, 19731984), ('Austria', 'Vienna', 83855, 7700000)], schema)
 
-   # Writing the dataframe to a bucket as the countries table
+   # Writing the dataframe to a bucket as a _countries_ table
    df.write.mode("overwrite").option("path","s3a://output-bucket/countries").saveAsTable("countries")
    ```
 
@@ -260,7 +259,7 @@ To prepare a DAG:
            catchup=False
    ) as ingest_dag:
 
-       # Step 1: creating a {{ dataproc-name }} cluster
+       # Step 1: Creating a {{ dataproc-name }} cluster
        create_spark_cluster = DataprocCreateClusterOperator(
            task_id='dp-cluster-create-task',
            folder_id=YC_DP_FOLDER_ID,
@@ -280,8 +279,8 @@ To prepare a DAG:
            computenode_disk_type='network-ssd',
            computenode_disk_size=200,
            computenode_count=2,
-           computenode_max_hosts_count=5,  # The number of subclusters for handling data will be automatically scaled up if the load is high.
-           services=['YARN', 'SPARK'],     # A lightweight cluster is created.
+           computenode_max_hosts_count=5,  # The number of data handling subclusters will be automatically scaled up if the load is high.
+           services=['YARN', 'SPARK'],     # A lightweight cluster is being created.
            datanode_count=0,               # Without data storage subclusters.
            properties={                    # With a reference to a remote {{ metastore-name }} cluster.
                'spark:spark.hive.metastore.uris': f'thrift://{YC_DP_METASTORE_URI}:9083',
@@ -291,7 +290,7 @@ To prepare a DAG:
            dag=ingest_dag
        )
 
-       # Step 2: running a PySpark job
+       # Step 2: Running a PySpark job
        poke_spark_processing = DataprocCreatePysparkJobOperator(
            task_id='dp-cluster-pyspark-task',
            main_python_file_uri=f's3a://{YC_SOURCE_BUCKET}/scripts/create-table.py',
@@ -299,7 +298,7 @@ To prepare a DAG:
            dag=ingest_dag
        )
 
-       # Step 3: deleting the {{ dataproc-name }} cluster
+       # Step 3: Deleting a {{ dataproc-name }} cluster
        delete_spark_cluster = DataprocDeleteClusterOperator(
            task_id='dp-cluster-delete-task',
            trigger_rule=TriggerRule.ALL_DONE,
@@ -330,7 +329,7 @@ To prepare a DAG:
 
    It may take a few minutes to upload a DAG file from the bucket.
 
-1. To run the DAG, click ![image](../../../_assets/managed-airflow/trigger-dag.png =18x) in the line with its name.
+1. To run a DAG, click ![image](../../../_assets/managed-airflow/trigger-dag.png =18x) in the line with its name.
 
 ## Check the result {#check-out}
 
@@ -347,8 +346,8 @@ Some resources are not free of charge. Delete the resources you no longer need t
 1. [{{ objstorage-name }} buckets](../../../storage/operations/buckets/delete.md)
 1. [{{ metastore-name }} cluster](../../../metadata-hub/operations/metastore/cluster-delete.md)
 1. [{{ maf-name }} cluster](../../../managed-airflow/operations/cluster-delete.md)
-1. Route table
-1. NAT gateway
+1. [Route table](../../../vpc/operations/delete-route-table.md)
+1. [NAT gateway](../../../vpc/operations/delete-nat-gateway.md)
 1. [Security group](../../../vpc/operations/security-group-delete.md)
 1. [Cloud subnets](../../../vpc/operations/subnet-delete.md) created in `dataproc-network` by default
 1. [Cloud network](../../../vpc/operations/network-delete.md)

@@ -176,13 +176,17 @@ items:
       - name: Хранение статического ключа доступа в секрете {{ lockbox-name }}
         href: tutorials/static-key-in-lockbox.md
       - name: >-
-          Миграция данных из {{ objstorage-full-name }} в {{ mmy-full-name }} с
-          помощью {{ data-transfer-full-name }}
-        href: tutorials/objs-mmy-migration.md
+          Импорт данных из {{ mpg-full-name }} в {{ dataproc-full-name }} с
+          помощью Sqoop
+        href: tutorials/sqoop-mpg.md
       - name: >-
           Импорт данных из {{ mmy-full-name }} в {{ dataproc-full-name }} с
           помощью Sqoop
         href: tutorials/sqoop-mmy.md
+      - name: >-
+          Миграция данных из {{ objstorage-full-name }} в {{ mmy-full-name }} с
+          помощью {{ data-transfer-full-name }}
+        href: tutorials/objs-mmy-migration.md
       - name: >-
           Миграция базы данных из {{ mmy-full-name }} в {{ objstorage-full-name
           }}

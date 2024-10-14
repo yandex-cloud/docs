@@ -1,3 +1,3 @@
-Security groups follow the _All traffic that is not allowed is prohibited_ principle. To connect to a cluster, security groups must include rules allowing traffic from certain ports, IP addresses, or other security groups.
+[Security groups](../../vpc/concepts/security-groups.md) follow the _All traffic that is not allowed is prohibited_ principle. To connect to a cluster, security groups must include rules allowing traffic from certain ports, IP addresses, or other security groups.
 
 For example, let's assume a VM in {{ yandex-cloud }} is used to access the cluster. In this case, if only the 10.133.0.0/24 subnet is specified in the incoming traffic rules for the security group, while the VM is in the 10.128.0.0/16 subnet, the VM will not be able to connect to the cluster. A VM from the 10.133.0.0/24 subnet will not be able to connect either, in case it tries to access a port that is not specified in the security group rules.

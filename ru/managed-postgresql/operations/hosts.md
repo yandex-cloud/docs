@@ -232,7 +232,7 @@ description: Из статьи вы узнаете, как управлять х
                    {
                      "zoneId": "<зона_доступности>",
                      "subnetId": "<идентификатор_подсети>",
-                     "assignPublicIp": <защита_от_удаления:_true_или_false>,
+                     "assignPublicIp": <публичный_адрес_хоста:_true_или_false>,
                      "replicationSource": "<FQDN_хоста>",
                      "priority": "<приоритет_хоста>",
                      "configSpec": {
@@ -285,7 +285,7 @@ description: Из статьи вы узнаете, как управлять х
                {
                  "zone_id": "<зона_доступности>",
                  "subnet_id": "<идентификатор_подсети>",
-                 "assign_public_ip": <защита_от_удаления:_true_или_false>,
+                 "assign_public_ip": <публичный_адрес_хоста:_true_или_false>,
                  "replication_source": "<FQDN_хоста>",
                  "priority": "<приоритет_хоста>",
                  "config_spec": {
@@ -426,7 +426,7 @@ description: Из статьи вы узнаете, как управлять х
                    {
                      "updateMask": "assignPublicIp,replicationSource,priority,configSpec.postgresqlConfig_<версия_{{ PG }}>",
                      "hostName": "<FQDN_хоста>",
-                     "assignPublicIp": <защита_от_удаления:_true_или_false>,
+                     "assignPublicIp": <публичный_адрес_хоста:_true_или_false>,
                      "replicationSource": "<FQDN_хоста>",
                      "priority": "<приоритет_хоста>",
                      "configSpec": {
@@ -488,7 +488,7 @@ description: Из статьи вы узнаете, как управлять х
                      ]
                  },
                  "host_name": "<FQDN_хоста>",
-                 "assign_public_ip": <защита_от_удаления:_true_или_false>,
+                 "assign_public_ip": <публичный_адрес_хоста:_true_или_false>,
                  "replication_source": "<FQDN_хоста>",
                  "priority": "<приоритет_хоста>",
                  "config_spec": {
@@ -506,11 +506,11 @@ description: Из статьи вы узнаете, как управлять х
      Где `update_host_specs` — массив изменяемых хостов. Один элемент массива содержит настройки для одного хоста и имеет следующую структуру:
 
      * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
-     * `hostName` — [FQDN изменяемого хоста](connect.md#fqdn).
-     * `assignPublicIp` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
-     * `replicationSource` — источник репликации для хоста для [ручного управления потоками репликации](../concepts/replication.md#replication-manual). В параметре укажите FQDN хоста, который будет источником репликации.
+     * `host_name` — [FQDN изменяемого хоста](connect.md#fqdn).
+     * `assign_public_ip` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
+     * `replication_source` — источник репликации для хоста для [ручного управления потоками репликации](../concepts/replication.md#replication-manual). В параметре укажите FQDN хоста, который будет источником репликации.
      * `priority` — приоритет хоста среди всех хостов.
-     * `configSpec.postgresqlConfig_<версия_{{ PG }}>` — набор настроек {{ PG }}. Укажите каждую настройку на отдельной строке через запятую.
+     * `config_spec.postgresql_config_<версия_{{ PG }}>` — набор настроек {{ PG }}. Укажите каждую настройку на отдельной строке через запятую.
 
        Список версий {{ PG }}, доступных для параметра, см. в [описании метода](../api-ref/grpc/cluster_service.md#ConfigHostSpec3). Описание и возможные значения настроек см. в разделе [{#T}](../concepts/settings-list.md).
 

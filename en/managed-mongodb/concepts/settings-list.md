@@ -4,19 +4,15 @@ When [creating](../operations/cluster-create.md) or [editing](../operations/upda
 
 The label next to the setting name helps determine which interface is used to set the value of this setting: the management console, CLI, API, or API.
 
-Depending on the selected interface, the same setting may be represented in a different way. For example, **Max incoming connections** in the management console is:
+Depending on the selected interface, the same setting will be represented differently. For example, **Max incoming connections** in the management console is the same as:
 
-* `max_incoming_connections` in gRPC or CLI.
-* `maxIncomingConnections` in the REST API.
+* `max_incoming_connections` in gRPC or the CLI
+* `maxIncomingConnections` in the REST API
 
-The following settings are only available for the {{ mmg-name }} cluster Enterprise edition.
-
-* [Audit log](#setting-audit-log).
-* [Security](#setting-security).
 
 In a sharded cluster, some settings are only available to certain [host roles](sharding.md#shard-management).
 
-## Settings dependency on the host class {#settings-instance-dependent}
+## How settings depend on the host class {#settings-instance-dependent}
 
 The values of some {{ MG }} settings can be automatically adjusted when you change the host class:
 

@@ -45,11 +45,13 @@ To see what changed in the {{ yandex-cloud }} services and tools, see the links 
 * [{{ api-gw-full-name }}](../api-gateway/release-notes.md)
 * [{{ sf-full-name }}](../functions/release-notes.md)
 * [{{ iot-full-name }}](../iot-core/release-notes.md)
+* [{{ postbox-full-name }}](../postbox/release-notes.md)
 
 ## Security {#security}
 
 * [{{ at-full-name }}](../audit-trails/release-notes.md)
 * [{{ iam-full-name }}](../iam/release-notes.md)
+* [{{ captcha-full-name }}](../smartcaptcha/release-notes.md)
 
 ## Resource monitoring and management {#resources-operations}
 

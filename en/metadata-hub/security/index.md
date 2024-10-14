@@ -10,7 +10,7 @@ description: Access management in {{ metadata-hub-full-name }}. This section des
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-Roles for a resource can be assigned by users who have the `connection-manager.admin` or one of the following roles for that resource:
+Roles for a resource can be assigned by users who have the `connection-manager.admin` role or one of the following roles for that resource:
 
 {% include [roles-list](../../_includes/iam/roles-list.md) %}
 
@@ -20,16 +20,16 @@ You can assign a role for an [organization](../../organization/quickstart.md), [
 
 You can assign a role for a connection in the management console.
 
-## Roles existing in {{ metadata-hub-name }} {#roles-list}
+## Which roles exist in {{ metadata-hub-name }} {#roles-list}
 
-You can use {{ metadata-hub-full-name }} roles (_service roles_) and {{ yandex-cloud }} roles (_primitive roles_) to manage access permissions.
+You can use {{ metadata-hub-name }} roles (_service roles_) and {{ yandex-cloud }} roles (_primitive roles_) to manage access permissions.
 
 ### Service roles {#service-roles}
 
-{{ yandex-cloud }} supports individual role lists for each service included in {{ metadata-hub-name }}. Read more in the relevant sections:
+{{ yandex-cloud }} supports a separate list of roles for each service in {{ metadata-hub-name }}. For more information, see:
 
-* [Roles for managing connections using {{ connection-manager-name }}](connection-manager-roles.md).
-* [Roles for working with metadata in a {{ metastore-name }} cluster](metastore-roles.md).
+* [Roles to manage connections using {{ connection-manager-name }}](connection-manager-roles.md).
+* [Roles to manage metadata in a {{ metastore-full-name }} cluster](metastore-roles.md).
 
 ### Primitive roles {#primitive-roles}
 

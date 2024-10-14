@@ -15,14 +15,14 @@ To automate handling of data format schemas, a _data format schema registry_ is 
 
 1. A producer transmits data format schemas to the registry. The following data schema formats are supported:
 
-   * [Avro](https://avro.apache.org/)
-   * [JSON Schema](https://json-schema.org/)
-   * [Protobuf](https://protobuf.dev/)
+    * [Avro](https://avro.apache.org/)
+    * [JSON Schema](https://json-schema.org/)
+    * [Protobuf](https://protobuf.dev/)
 
-   When a schema is placed in the registry:
+    When a schema is placed in the registry:
 
-   * It is assigned a unique version number.
-   * The schema and its version are saved in an {{ KF }} service topic.
+    * It is assigned a unique version number.
+    * The schema and its version are saved in an {{ KF }} service topic.
 
 1. When sending a message, a producer specifies the version number of the desired schema.
 1. Upon receiving a message, a consumer extracts the version number of the data format schema in it.
@@ -32,9 +32,9 @@ To automate handling of data format schemas, a _data format schema registry_ is 
 
 {{ mkf-name }} clusters already have a built-in {{ mkf-msr }} data format schema registry. The registry is deployed on each cluster broker host and is accessible via HTTPS on port 443.
 
-The [Karapace](https://github.com/Aiven-Open/karapace) open-source tool is used as a {{ mkf-msr }} implementation. API is compatible with the [Confluent Schema Registry API](https://docs.confluent.io/platform/current/schema-registry/develop/api.html) with only minor exceptions. To run API requests, you need [authentication](#msr-auth).
+The [Karapace](https://github.com/Aiven-Open/karapace) open-source tool is used as a {{ mkf-msr }} implementation. The Karapace API is compatible with the [Confluent Schema Registry API](https://docs.confluent.io/platform/current/schema-registry/develop/api.html) with only minor exceptions. To run API requests, you need [authentication](#msr-auth).
 
-Schema information is posted to a [service topic](./topics.md#service-topics) called `__schema_registry`. You cannot use regular tools to write data to this topic.
+Schema information is posted to a [service topic](./topics.md#service-topics) named `__schema_registry`. You cannot use regular tools to write data to this topic.
 
 To enable management, activate the option when [creating](../operations/cluster-create.md) or [updating](../operations/cluster-update.md#change-additional-settings) a cluster.
 
@@ -44,13 +44,13 @@ To work with {{ mkf-msr }}, you need an advanced [security group configuration](
 
 ## {{ mkf-msr }} subjects {#subjects}
 
-The schemas use _[subjects](https://docs.confluent.io/platform/current/schema-registry/develop/api.html#subjects)_, i.e., names they are registered under. To write and read schemas, {{ KF }} uses the `<topic_name>-key` or the `<topic_name>-value` subjects, depending on what the schema is being registered for: key or value. The subject specifies the topic to publish messages in.
+The schemas use _[subjects](https://docs.confluent.io/platform/current/schema-registry/develop/api.html#subjects)_, i.e., names they are registered under. To write and read schemas {{ KF }} uses the `<topic_name>-key` or `<topic_name>-value` subjects depending on whether the schema is registered for a key or a value. The subject specifies the topic to publish messages to.
 
 Subject access depends on permissions [granted](../operations/cluster-accounts.md#grant-permission) to the {{ KF }} user:
 
-* The `ACCESS_ROLE_CONSUMER` or `ACCESS_ROLE_PRODUCER` role for a specific topic allows the user to manage the `<topic_name>-key`, `<topic_name>-value`, and `<topic_name>` subjects.
-* The `ACCESS_ROLE_CONSUMER` or `ACCESS_ROLE_PRODUCER` role for a `<prefix>*` topic allows the user to manage subjects of the same `<prefix>*` type. Topic and subject names start with the same prefix.
-* The `ACCESS_ROLE_ADMIN` role allows the user to manage all subjects in an {{ mkf-name }} cluster.
+* The `ACCESS_ROLE_CONSUMER` or `ACCESS_ROLE_PRODUCER` role for a specific topic allows the user to manage these subjects: `<topic_name>-key`, `<topic_name>-value` or `<topic_name>`.
+* The `ACCESS_ROLE_CONSUMER` or `ACCESS_ROLE_PRODUCER` role for the `<prefix>*` topic allows the user to manage subjects of the same format: `<prefix>*`. Topic and subject names start with the same prefix.
+* The `ACCESS_ROLE_ADMIN` role allows the user to manage all subjects in a {{ mkf-name }} cluster.
 
 ## Authorization in {{ mkf-msr }} {#msr-auth}
 
@@ -60,17 +60,17 @@ You also need to authorize API server requests using the `Authorization` [HTTP h
 
 Access to schemas depends on the selected [topic management method](./topics.md#management) and the configured user roles:
 
-1. If a cluster uses managed topics:
+1. When using managed topics:
 
-   * A user with the `ACCESS_ROLE_PRODUCER` role for a topic can perform any operations with subjects associated with that topic.
-   * A user with the `ACCESS_ROLE_CONSUMER` role for a topic can perform read operations with subjects associated with the topic.
+    * A user with the `ACCESS_ROLE_PRODUCER` role for a topic can perform any operations with subjects associated with that topic.
+    * A user with the `ACCESS_ROLE_CONSUMER` role for a topic can perform read operations with subjects associated with the topic.
 
-   For more information on available subjects, see [{#T}](#subjects).
+    For more information on available subjects, see [{#T}](#subjects).
 
-1. If a cluster uses unmanaged topics:
+1. When using unmanaged topics:
 
-   * The above points mentioned for a cluster with managed topics also apply.
-   * In addition, a user with the `ACCESS_ROLE_ADMIN` role for a topic has access to any operations with subjects related to the topic. This user can be granted access to any topics.
+    * The above points mentioned for a cluster with managed topics also apply.
+    * In addition, a user with the `ACCESS_ROLE_ADMIN` role for a topic has access to any operations with subjects related to the topic. This user can be granted access to any topics.
 
 For more information about roles, see [User management](../operations/cluster-accounts.md).
 

@@ -3,6 +3,7 @@ default:
   AB: Airbyte®
   adv-ddos-protection: Advanced Yandex DDoS Protection
   AF: Apache Airflow™
+  airflow-service-address: 10.248.0.0/13
   alb-full-name: Yandex Application Load Balancer
   alb-name: Application Load Balancer
   all-mdb:
@@ -239,7 +240,7 @@ default:
   k8s-hpa: Horizontal Pod Autoscaler
   k8s-versions-rapid: 1.27, 1.28, 1.29, 1.30
   k8s-versions-regular: 1.27, 1.28, 1.29, 1.30
-  k8s-versions-stable: 1.27, 1.28, 1.29
+  k8s-versions-stable: 1.27, 1.28, 1.29, 1.30
   k8s-vpa: Vertical Pod Autoscaler
   keycloak: Keycloak
   KF: Apache Kafka®
@@ -709,6 +710,7 @@ default:
   tf-provider-k8s-cluster: https://terraform-provider.yandexcloud.net/Resources/kubernetes_cluster
   tf-provider-k8s-nodegroup: https://terraform-provider.yandexcloud.net/Resources/kubernetes_node_group
   tf-provider-link: https://terraform-provider.yandexcloud.net/
+  tf-provider-maf: https://terraform-provider.yandexcloud.net/Resources/airflow_cluster
   tf-provider-mch: https://terraform-provider.yandexcloud.net/Resources/mdb_clickhouse_cluster
   tf-provider-mes: >-
     https://terraform-provider.yandexcloud.net/Resources/mdb_elasticsearch_cluster
@@ -3521,6 +3523,7 @@ default:
           ram|month|string: $2.649600
           ram|string: $0.003680
       network-hdd:
+        ch|month|number: '0.025600'
         ch|month|string: $0.025600
         elasticsearch|month|string: $0.025600
         greenplum|month|string: $0.025600
@@ -3672,8 +3675,10 @@ default:
             c100|month|string: $6.278400
             c100|string: $0.008720
             c50|month|string: $4.032000
+            c50|number: '0.005600'
             c50|string: $0.005600
           ram|month|string: $1.612800
+          ram|number: '0.002240'
           ram|string: $0.002240
       kafka:
         v2:
@@ -6967,6 +6972,7 @@ default:
             label_datalens: DataLens
             label_dns: Cloud DNS
             label_foundation-models: Foundation Models
+            label_iam: Identity and Access Management
             label_iot-core: IoT Core
             label_kms: Key Management Service
             label_load-balancer: Network Load Balancer
@@ -7406,6 +7412,7 @@ default:
         column_header-level: Level
         column_header-message: Message
         column_header-time: Time
+        field_logging: Write logs
         label_destination: Destination
         label_export: Export logs
         label_groups: Groups
@@ -10016,7 +10023,7 @@ default:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/yc-alb-ingress/yc-alb-ingress-controller-chart
-        tag: v0.2.10
+        tag: v0.2.11
     yc_argo-cd:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/argo/chart/argo-cd
@@ -10067,7 +10074,7 @@ default:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/gateway-api/gateway-api-helm/gateway-api
-        tag: 0.4.30
+        tag: 0.4.31
     yc_gitlab-agent:
       helmChart:
         name: >-
