@@ -303,36 +303,46 @@ items:
         href: prompts/yandexart/index.md
       - name: Маркетинг
         items:
-          - name: Реклама сумки
-            href: prompts/yandexart/marketing-accessory.md
-          - name: Реклама еды для собак
-            href: prompts/yandexart/marketing-food.md
-          - name: Идеи дизайна чайника
-            href: prompts/yandexart/marketing-pot.md
-      - name: Иллюстрации для книг и презентаций
+          - name: Изображение для подарочных сертификатов
+            href: prompts/yandexart/marketing-gift-certificate.md
+          - name: Продвижение в социальных сетях
+            href: prompts/yandexart/marketing-social.md
+          - name: Иллюстрация для материалов
+            href: prompts/yandexart/marketing-statue.md
+          - name: Визуальный образ компании
+            href: prompts/yandexart/marketing-visual-key.md
+      - name: Контент
         items:
-          - name: Город будущего
-            href: prompts/yandexart/illustrations-city.md
-          - name: Изображение интерьера
-            href: prompts/yandexart/illustrations-interior.md
-          - name: Изображение природы
-            href: prompts/yandexart/illustrations-nature.md
-      - name: Изображения для социальных сетей
+          - name: Замена стоковых фотографий
+            href: prompts/yandexart/illustration-photo-stock.md
+          - name: Иллюстрация для статьи
+            href: prompts/yandexart/illustrations-article.md
+          - name: Иллюстрация для книги
+            href: prompts/yandexart/illustrations-book.md
+      - name: Бренд-дизайн
         items:
-          - name: Иллюстрация для детей
-            href: prompts/yandexart/social-network-animation.md
-          - name: Изображение мыши-путешественницы
-            href: prompts/yandexart/social-network-cheese.md
-          - name: Изображение электроники
-            href: prompts/yandexart/social-network-electronics.md
-          - name: Обложка для поста
-            href: prompts/yandexart/social-network-spring.md
-      - name: Логотипы и иконки
+          - name: Иконки в фирменном стиле
+            href: prompts/yandexart/brand-design-branded-icons.md
+          - name: Корпоративный мерч
+            href: prompts/yandexart/brand-design-corporate-merch.md
+          - name: Маскот компании
+            href: prompts/yandexart/brand-design-mascot.md
+      - name: Генерация идей
         items:
-          - name: Логотип с птицей
-            href: prompts/yandexart/logo-bird.md
-          - name: Иконка с банком
-            href: prompts/yandexart/logo-bank.md
+          - name: Дизайн кольца
+            href: prompts/yandexart/ideas-ring.md
+          - name: Вымышленные предметы
+            href: prompts/yandexart/ideas-samovar.md
+          - name: Персонаж для игры
+            href: prompts/yandexart/ideas-character.md
+      - name: Интерьерный и архитектурный дизайн
+        items:
+          - name: Предметы декора
+            href: prompts/yandexart/architectural-design-decor.md
+          - name: Концепция экстерьера здания
+            href: prompts/yandexart/architectural-design-exterior.md
+          - name: Дизайн-проект офиса
+            href: prompts/yandexart/architectural-design-office.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

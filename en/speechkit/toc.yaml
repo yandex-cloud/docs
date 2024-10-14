@@ -37,6 +37,8 @@ items:
         href: stt/speaker-labeling.md
       - name: Extending a speech recognition model
         href: stt/additional-training.md
+      - name: Uploading fine-tuning data for a speech recognition model
+        href: stt/upload-data-for-training.md
       - name: Detecting the end of utterance
         href: stt/eou.md
   - name: Speech synthesis

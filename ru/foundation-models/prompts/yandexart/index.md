@@ -4,24 +4,31 @@
 
 ## Маркетинг {#marketing}
 
-* [{#T}](marketing-accessory.md)
-* [{#T}](marketing-food.md)
-* [{#T}](marketing-pot.md)
+* [{#T}](marketing-gift-certificate.md)
+* [{#T}](marketing-social.md)
+* [{#T}](marketing-statue.md)
+* [{#T}](marketing-visual-key.md)
 
 ## Контент {#content}
 
-* [{#T}](illustrations-city.md)
-* [{#T}](illustrations-interior.md)
-* [{#T}](illustrations-nature.md)
+* [{#T}](illustrations-article.md)
+* [{#T}](illustrations-book.md)
+* [{#T}](illustration-photo-stock.md)
 
-## Социальные сети {#social-network}
+## Бренд-дизайн {#brand-design}
 
-* [{#T}](social-network-animation.md)
-* [{#T}](social-network-electronics.md)
-* [{#T}](social-network-cheese.md)
-* [{#T}](social-network-spring.md)
+* [{#T}](brand-design-branded-icons.md)
+* [{#T}](brand-design-corporate-merch.md)
+* [{#T}](brand-design-mascot.md)
 
-## Логотипы и иконки {#logo}
+## Генерация идей {#ideas}
 
-* [{#T}](logo-bird.md)
-* [{#T}](logo-bank.md)
+* [{#T}](ideas-ring.md)
+* [{#T}](ideas-samovar.md)
+* [{#T}](ideas-character.md)
+
+## Интерьерный и архитектурный дизайн {#architectural-design}
+
+* [{#T}](architectural-design-decor.md)
+* [{#T}](architectural-design-exterior.md)
+* [{#T}](architectural-design-office.md)

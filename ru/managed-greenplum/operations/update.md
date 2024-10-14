@@ -148,8 +148,10 @@ description: Следуя данной инструкции, вы сможете
 
             {% include [Maintenance window](../../_includes/mdb/console/maintenance-window-description.md) %}
 
+
         * {% include [Datalens access](../../_includes/mdb/console/datalens-access.md) %}
-            
+        * {% include [Query access](../../_includes/mdb/console/query-access.md) %}
+
 
 
         * {% include [Deletion protection](../../_includes/mdb/console/deletion-protection.md) %}
@@ -191,11 +193,11 @@ description: Следуя данной инструкции, вы сможете
     1. Выполните команду, передав список настроек, которые хотите изменить:
 
 
-
         ```bash
         {{ yc-mdb-gp }} cluster update <имя_или_идентификатор_кластера> \
             --backup-window-start <время_начала_резервного_копирования> \
-            --datalens-access=<доступ_из_DataLens> \
+            --datalens-access=<доступ_из_{{ datalens-name }}> \
+            --yandexquery-access=<доступ_из_Yandex_Query> \
             --maintenance-window type=<тип_технического_обслуживания>,`
                                 `day=<день_недели>,`
                                 `hour=<час_дня> \
@@ -204,12 +206,17 @@ description: Следуя данной инструкции, вы сможете
         ```
 
 
+
+
     Вы можете изменить следующие настройки:
 
     {% include [backup-window-start](../../_includes/mdb/cli/backup-window-start.md) %}
 
-    * `--datalens-access` — разрешает доступ из [{{ datalens-full-name }}](../../datalens/concepts/index.md). Значение по умолчанию — `false`.
-        
+
+    * `--datalens-access` — доступ к кластеру из сервиса [{{ datalens-full-name }}](../../datalens/concepts/index.md): `true` или `false`.
+
+    * `--yandexquery-access` — доступ к кластеру из сервиса [{{ yq-full-name }}](../../query/concepts/index.md): `true` или `false`.
+
 
 
     * `--maintenance-window` — настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров), где `type` — тип технического обслуживания:
@@ -229,13 +236,17 @@ description: Следуя данной инструкции, вы сможете
     Чтобы изменить дополнительные настройки кластера, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) и передайте в запросе:
 
     * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
-    * Настройки публичного доступа в параметре `config.assignPublicIp`.
-    * Настройки окна резервного копирования в параметре `config.backupWindowStart`.
-    * Настройки доступа из [{{ datalens-full-name }}](../../datalens/concepts/index.md) в параметре `config.access.dataLens`.
-        
+    * Публичный доступ в параметре `config.assignPublicIp`.
+    * Окно резервного копирования в параметре `config.backupWindowStart`.
 
-    * Настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров) в параметре `maintenanceWindow`.
-    * Настройки защиты от удаления кластера в параметре `deletionProtection`.
+
+    * Доступ к кластеру из сервиса [{{ datalens-full-name }}](../../datalens/concepts/index.md) в параметре `config.access.dataLens`.
+    * Доступ к кластеру из сервиса [{{ yq-full-name }}](../../query/concepts/index.md) в параметре `config.access.yandexQuery`.
+
+
+
+    * Время [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров) в параметре `maintenanceWindow`.
+    * Защиту от удаления кластера в параметре `deletionProtection`.
 
         {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 

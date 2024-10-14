@@ -6,7 +6,7 @@ editable: false
 
 
 
-In this section, you can find the {{ mmg-name }} pricing [policy](#rules) and [effective prices](#prices) for its resources.
+This section presents {{ mmg-name }} pricing [rules](#rules) and [effective prices](#prices) for its resources.
 
 {% include [use-calculator](../_includes/pricing/use-calculator.md) %}
 
@@ -28,7 +28,7 @@ The {{ mmg-name }} usage cost is based on:
 
 ### DB host usage {#rules-hosts-uptime}
 
-Host operation cost is charged per hour based on what computing resources you allocate for it. You can find the supported resource configurations in the [Host classes](concepts/instance-types.md) section. For the vCPU and RAM prices, see [Prices](#prices).
+Host operation cost is charged per hour based on what computing resources you allocate for it. The supported resource configurations are described in the [Host classes](concepts/instance-types.md) section, and vCPU and RAM prices, in the [Prices](#prices) section.
 
 The minimum billing unit is one minute (for example, 1.5 minutes of host operation cost the same as 2 minutes). You do not pay for the time when the {{ MG }} host is unable to perform its main functions.
 
@@ -62,7 +62,7 @@ The price covers one month of use based on 720 hours per month.  The minimum bil
 
 The cost of using a cluster with the following parameters for 30 days:
 
-* **{{ MG }}** Hosts: Three hosts of the `s3-c2-m8` class: Intel Ice Lake, 2 × 100% vCPU, 8 GB RAM.
+* **{{ MG }}** hosts: Three `s3-c2-m8` hosts: Intel Ice Lake, 2 × 100% vCPU, 8 GB RAM.
 * **{{ ui-key.yacloud.mdb.forms.section_storage }}**: 100 GB of network HDD storage.
 
 Cost calculation for {{ MG }} hosts:

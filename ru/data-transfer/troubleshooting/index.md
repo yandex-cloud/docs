@@ -100,6 +100,8 @@
 
 {% include [pod-restarted](../../_includes/data-transfer/troubles/clickhouse/pod-restarted.md) %}
 
+{% include [max-partitions](../../_includes/data-transfer/troubles/clickhouse/max-partitions.md) %}
+
 ## {{ ES }} {#elasticsearch}
 
 

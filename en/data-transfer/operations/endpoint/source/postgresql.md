@@ -48,7 +48,7 @@ For a detailed description of possible {{ data-transfer-full-name }} scenarios, 
 
 When [creating](../index.md#create) or [updating](../index.md#update) an endpoint, you can define:
 
-* [{{ mpg-full-name }}](#managed-service) connection or [custom installation](#on-premise) settings, including those based on {{ compute-full-name }} VMs. These are required parameters.
+* [{{ mpg-full-name }} cluster](#managed-service) connection or [custom installation](#on-premise) settings, including those based on {{ compute-full-name }} VMs. These are required parameters.
 * [Additional parameters](#additional-settings).
 
 Before you get started, check the [Service specifics for {{ PG }} sources and targets](../../../concepts/work-with-endpoints.md#postgresql).
@@ -203,11 +203,11 @@ For OnPremise, all fields are filled in manually.
     
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.advanced_settings.title }}**:
 
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSourceAdvancedSettings.slot_byte_lag_limit.title }}**: Maximum size of Write-Ahead Log kept in replication slot. If exceeded, the replication process is stopped and the replication slot is deleted. The default value is 50 GB. This setting does not prevent disk overflow in the source database. You can only use it for {{ PG }} version below 13, and we recommend [monitoring the WAL slot value](../../prepare.md#source-pg) in the source database.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSourceAdvancedSettings.slot_byte_lag_limit.title }}**: Maximum size of write-ahead log kept in the replication slot. If exceeded, the replication process is stopped and the replication slot is deleted. The default value is 50 GB. This setting does not prevent disk overflow in the source database. You can only use it for {{ PG }} version below 13, and we recommend [monitoring the WAL slot value](../../prepare.md#source-pg) in the source database.
           
             {% note warning %}
 
-            The **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSourceAdvancedSettings.slot_byte_lag_limit.title }}** setting does not guarantee replication slot deletion when its threshold value is reached, particularly if there are issues with the transfer or connectivity between the transfer and the source cluster. For additional tips, see [Preparing the source database](#wal-setup-recommendation).  
+            The **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSourceAdvancedSettings.slot_byte_lag_limit.title }}** setting does not guarantee replication slot deletion when its threshold value is reached, particularly if there are issues with the transfer or connectivity between the transfer and the source cluster. For additional tips, see [Preparing the source database](#wal-setup-recommendation).
 
             {% endnote %}
 
@@ -233,14 +233,14 @@ For OnPremise, all fields are filled in manually.
 
     * `--exclude-table`: List of excluded tables. Data from the listed tables will not be transferred.
 
-      The lists include the name of the schema (description of DB contents, structure, and integrity constraints) and the table name. Both lists support expressions in the following format:
+      The lists include the name of the schema that describes the DB contents, structure, and integrity constraints, as well as the table name. Both lists support expressions in the following format:
 
         * `<schema_name>.<table_name>`: Full table name.
         * `<schema_name>.*`: All tables in the specified schema.
 
         {% include [transfer custom types PGSQL](../../../../_includes/data-transfer/custom-types-pgsql.md) %}
 
-    * `--slot-lag-limit`: Maximum size of write-ahead log kept by the replication slot. If exceeded, the replication process is stopped and the replication slot is deleted. The default value is 50 GB.
+    * `--slot-lag-limit`: Maximum size of write-ahead log kept in the replication slot. If exceeded, the replication process is stopped and the replication slot is deleted. The default value is 50 GB.
 
     * `--service-schema`: Name of the DB schema for service tables.
 
@@ -257,14 +257,14 @@ For OnPremise, all fields are filled in manually.
 
     * `exclude_tables`: List of excluded tables. Data from the listed tables will not be transferred.
 
-      The lists include the name of the schema (description of DB contents, structure, and integrity constraints) and the table name. Both lists support expressions in the following format:
+      The lists include the name of the schema that describes the DB contents, structure, and integrity constraints, as well as the table name. Both lists support expressions in the following format:
 
       * `<schema_name>.<table_name>`: Full table name.
       * `<schema_name>.*`: All tables in the specified schema.
 
       {% include [transfer custom types PGSQL](../../../../_includes/data-transfer/custom-types-pgsql.md) %}
 
-    * `slot_gigabyte_lag_limit`: Maximum size of Write-Ahead Log kept in replication slot. If exceeded, the replication process is stopped and the replication slot is deleted. The default value is 50 GB.
+    * `slot_gigabyte_lag_limit`: Maximum size of write-ahead log kept in the replication slot. If exceeded, the replication process is stopped and the replication slot is deleted. The default value is 50 GB.
 
     * `service_schema`: Name of the DB schema for service tables.
 
@@ -303,14 +303,14 @@ For OnPremise, all fields are filled in manually.
 
     * `excludeTables`: List of excluded tables. Data from the listed tables will not be transferred.
 
-      The lists include the name of the schema (description of DB contents, structure, and integrity constraints) and the table name. Both lists support expressions in the following format:
+      The lists include the name of the schema that describes the DB contents, structure, and integrity constraints, as well as the table name. Both lists support expressions in the following format:
 
         * `<schema_name>.<table_name>`: Full table name.
         * `<schema_name>.*`: All tables in the specified schema.
 
         {% include [transfer custom types PGSQL](../../../../_includes/data-transfer/custom-types-pgsql.md) %}
 
-    * `slotByteLagLimit`: Maximum size of write-ahead log kept by the replication slot. If exceeded, the replication process is stopped and the replication slot is deleted. The default value is 50 GB.
+    * `slotByteLagLimit`: Maximum size of write-ahead log kept in the replication slot. If exceeded, the replication process is stopped and the replication slot is deleted. The default value is 50 GB.
 
     * `serviceSchema`: Name of the DB schema for service tables.
 
@@ -338,7 +338,7 @@ During a transfer, the database schema is transferred from the source to the tar
 
     At the final stage, it is assumed that when the transfer is deactivated, there is no writing load on the source. You can ensure this by switching to <q>read-only</q> mode. At this stage, the database schema on the target is brought to a state where it will be consistent with the schema on the source.
 
-    It's recommended to include resource-intensive operations like index migration in the final stage of migration. Migrating indexes at the beginning of the transfer can slow it down.
+    It is recommended to include resource-intensive operations, e.g., index migration, in the final stage of migration. Migrating indexes at the beginning of the transfer can slow it down.
 
 To transfer the schema at both the initial and final stages, one uses the [`pg_dump`](https://www.postgresql.org/docs/current/app-pgdump.html) utility.
 
@@ -365,7 +365,7 @@ Configure one of the supported data targets:
 * [{{ ES }}](../target/elasticsearch.md)
 * [{{ OS }}](../target/opensearch.md)
 
-For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available Transfers](../../../transfer-matrix.md).
+For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available transfers](../../../transfer-matrix.md).
 
 After configuring the data source and target, [create and start the transfer](../../transfer.md#create).
 
@@ -382,6 +382,7 @@ Known issues when using a {{ PG }} endpoint:
 * [VIEW transfer error](#view).
 * [Error when adding a table entry by constraint](#constraint).
 * [Error when migrating all schema tables](#schema).
+* [Unable to create objects involving extension functions](#extension-functions).
 * [Low transfer speed](#low-speed).
 * [Unable to transfer child tables](#successor-tables).
 * [Insufficient replication slots in a source database](#replication-slots).
@@ -406,6 +407,8 @@ For more troubleshooting tips, see the [Troubleshooting](../../../troubleshootin
 {% include [constraint](../../../../_includes/data-transfer/troubles/postgresql/constraint.md) %}
 
 {% include [schema](../../../../_includes/data-transfer/troubles/postgresql/schema.md) %}
+
+{% include [extension functions](../../../../_includes/data-transfer/troubles/postgresql/extension-functions.md) %}
 
 {% include [low-speed](../../../../_includes/data-transfer/troubles/postgresql/low-speed.md) %}
 

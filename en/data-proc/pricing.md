@@ -75,10 +75,6 @@ The cost is calculated as follows:
 {% endlist %}
 
 
-## {{ metastore-full-name }} cluster pricing
-
-This feature is at the [Preview](../overview/concepts/launch-stages.md) stage and is free of charge.
-
 ## Prices for the Russia region {#prices}
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}

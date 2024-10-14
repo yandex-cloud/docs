@@ -18,7 +18,7 @@ You interact with database clusters in {{ mrd-short-name }} the same way you int
 
 #### What part of database management and maintenance is {{ mrd-short-name }} responsible for? {#services}
 
-When creating clusters, {{ mrd-short-name }} allocates resources, installs the DBMS, and creates databases.
+When you create clusters, {{ mrd-short-name }} allocates resources, installs the DBMS, and creates databases.
 
 For the created and running databases, {{ mrd-short-name }} automatically creates backups and applies fixes and updates to the DBMS.
 
@@ -43,21 +43,21 @@ A _database cluster_ is one or more database hosts between which replication can
 
 {{ mrd-short-name }} is available to any registered {{ yandex-cloud }} user.
 
-To create a database cluster in {{ mrd-short-name }}, you must define its characteristics:
+To create a database cluster in {{ mrd-short-name }}, you need to define its parameters:
 
-- [Host class](../../managed-redis/concepts/instance-types.md) (performance characteristics, such as CPUs, memory, etc.).
+- [Host class](../../managed-redis/concepts/instance-types.md) (performance characteristics, such as CPUs, RAM, etc.).
 - [Disk type](../../managed-redis/concepts/storage.md) and size (reserved in full when creating a cluster).
 - Network your cluster will be connected to.
 - Number of hosts for the cluster and the availability zone for each host.
 
 For more information, see [Getting started](../../managed-redis/quickstart.md).
 
-#### How many DB hosts can a cluster contain? {#how-many-hosts}
+#### How many database hosts can there be in one cluster? {#how-many-hosts}
 
 The minimum number of hosts per cluster depends on the following:
 * Selected [platform and host class](../../managed-redis/concepts/instance-types.md).
 * Selected [disk type](../../managed-redis/concepts/storage.md).
-* Whether you enabled [sharding](../../managed-redis/concepts/sharding.md) when [creating](../../managed-redis/operations/cluster-create.md) a cluster.
+*  Whether you enabled [sharding](../../managed-redis/concepts/sharding.md) when [creating](../../managed-redis/operations/cluster-create.md) a cluster.
 
 The maximum number of hosts in a cluster is only limited by the requested computing resources and the size of the storage for the cluster.
 
@@ -75,7 +75,7 @@ For more information on MDB technical and organizational limitations, see [Quota
 
 #### How are DB clusters maintained? {#service-window}
 
-Maintenance in {{ mrd-short-name }} implies:
+In {{ mrd-short-name }}, maintenance implies:
 
 - Automatic installation of DBMS updates and revisions for DB hosts (including disabled clusters).
 - Changes to the host class and storage size.
@@ -106,8 +106,8 @@ In {{ mrd-short-name }}, the usage cost is calculated based on the following par
 
 - Selected host class.
 - Size of the storage reserved for the database host.
-- Size of the database cluster backups. Backup space in the amount of the reserved storage is free of charge. Backup storage that exceeds this size is charged at [special rates](../../managed-redis/pricing.md).
-- Number of hours of database host operation. Partial hours are rounded to an integer value. You can find the cost per hour of operation for each host class in [Pricing policy](../../managed-redis/pricing.md).
+- Size of the database cluster backups. Backup size equal to the storage size is free of charge. Backup storage that exceeds this size is charged at [special rates](../../managed-redis/pricing.md).
+- Number of hours of database host operation. Partial hours are rounded to an integer value. You can find the cost per hour data for each host class in the [Pricing policy](../../managed-redis/pricing.md) section.
 
 #### How can I change the computing resources and storage size for a database cluster? {#resources-change}
 
@@ -121,13 +121,13 @@ This error occurs when adding a host to the {{ mrd-name }} cluster with the `b2.
 
 Clusters with the `b2.medium` or `b3-c1-m4` host class may contain only one host per cluster or [shard](../../managed-redis/concepts/sharding.md). If you want to save a host class, after changing the class, you can add the host with the configuration you need and delete the previous host. Then, change the host class back to the initial one.
 
-#### Is DB host backup enabled by default? {#default-backup}
+#### Is database host backup enabled by default? {#default-backup}
 
 Yes, backup is enabled by default. For {{ RD }}, a full backup takes place once a day and saves all DB cluster transaction logs. This allows you to restore the cluster state to any point in time during the backup storage period, except for the last 30 seconds.
 
 By default, backups are stored for seven days.
 
-#### When are backups performed? Is a DB cluster available during backup? {#backup-window}
+#### When are backups performed? Is a database cluster available during backup? {#backup-window}
 
 The backup window is an interval during which a full daily backup of the DB cluster is performed. The backup window is from 01:00 to 05:00 (UTC+3).
 
@@ -152,12 +152,12 @@ Monitoring can be performed with a minimum granularity of 5 seconds.
 
 [Create an alert](../../managed-redis/operations/monitoring.md#monitoring-integration) with the `disk.used_bytes` metric in {{ monitoring-full-name }}. This metric shows the disk space usage in the {{ mrd-name }} cluster.
 
-For `disk.used_bytes`, use notification thresholds. Here are their recommended values:
+For `disk.used_bytes`, use notification thresholds. The recommended values are as follows:
 
-* `Alarm`: 90% of disk space
-* `Warning`: 80% of disk space
+* `Alarm`: 90% of the disk space
+* `Warning`: 80% of the disk space
 
-The thresholds are only set in bytes. For example, the recommended values for a 100 GB disk are as follows:
+Thresholds are set in bytes only. For example, the recommended values for a 100 GB disk are as follows:
 
 * `Alarm`: `96,636,764,160` bytes (90%)
 * `Warning`: `85,899,345,920` bytes (80%)
@@ -176,11 +176,15 @@ Your storage may have insufficient maximum [IOPS and bandwidth](../../compute/co
 
 The maximum IOPS and bandwidth values increase by a fixed value when the storage size increases by a certain step. The step and increment values depend on the disk type:
 
-| Disk type | Step, GB | Max IOPS increase (read/write) | Max bandwidth increase (read/write), MB/s |
+| Disk type                  | Step, GB | Max IOPS increase (read/write) | Max bandwidth increase (read/write), MB/s |
 |-----------------------------|---------|------------------------------------|-----------------------------------------------|
-| `network-ssd` | 32 | 1,000/1,000 | 15/15 |
-| `network-ssd-nonreplicated` | 93 | 28,000/5,600 | 110/82 |
+| `network-ssd`               | 32      | 1,000/1,000                          | 15/15                                         |
+| `network-ssd-nonreplicated` | 93      | 28,000/5,600                         | 110/82                                        |
 
 To increase the maximum IOPS and bandwidth values and make throttling less likely, increase the storage size when you [update your cluster](../../managed-redis/operations/update.md#change-disk-size).
 
 Consider switching to a faster disk type by [restoring the cluster](../../managed-redis/operations/cluster-backups.md#restore) from a backup.
+
+#### Can I connect to cluster hosts via SSH or get superuser permissions on hosts? {#connect-ssh}
+
+{% include [connect-via-ssh](../../_includes/mdb/connect-via-ssh.md) %}

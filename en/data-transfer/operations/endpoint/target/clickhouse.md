@@ -36,7 +36,7 @@ description: In this tutorial, you will learn how to set up a {{ CH }} target en
     * [Loading data from {{ objstorage-name }} to {{ CH }}](../../../tutorials/object-storage-to-clickhouse.md).
     * [Loading data from {{ ydb-short-name }} to the {{ CH }} data mart](../../../tutorials/ydb-to-clickhouse.md).
 
-For a detailed description of possible {{ data-transfer-full-name }} data transfer scenarios, see [Tutorials](../../../tutorials/index.md).
+For a detailed description of possible {{ data-transfer-full-name }} scenarios, see [Tutorials](../../../tutorials/index.md).
 
 ## Configuring the data source {#supported-sources}
 
@@ -55,7 +55,13 @@ Configure one of the supported data sources:
 * [{{ ES }}](../source/elasticsearch.md)
 * [{{ OS }}](../source/opensearch.md)
 
-For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available Transfers](../../../transfer-matrix.md).
+For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available transfers](../../../transfer-matrix.md).
+
+{% note info %}
+
+{{ CH }} has date range restrictions. If the source database contains unsupported dates, this may result in an [error](#date-range) and stop the transfer.
+
+{% endnote %}
 
 ## Preparing the target database {#prepare}
 
@@ -270,13 +276,16 @@ After configuring the data source and target, [create and start the transfer](..
 
 ## Troubleshooting data transfer issues {#troubleshooting}
 
-* [New tables are not added](#no-new-tables)
-* [Data is not transferred](#no-transfer)
+* [New tables are not added](#no-new-tables).
+* [Data is not transferred](#no-transfer).
+* [Unsupported date range](#date-range).
 
 For more troubleshooting tips, see [Troubleshooting](../../../troubleshooting/index.md).
 
 {% include [no-new-tables](../../../../_includes/data-transfer/troubles/no-new-tables-mch.md) %}
 
 {% include [table-names](../../../../_includes/data-transfer/troubles/table-names.md) %}
+
+{% include [date-range](../../../../_includes/data-transfer/troubles/date-range.md) %}
 
 {% include [clickhouse-disclaimer](../../../../_includes/clickhouse-disclaimer.md) %}

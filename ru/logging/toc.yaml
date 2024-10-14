@@ -51,6 +51,8 @@ items:
           Передача логов кластера Yandex Managed Service for Kubernetes в Cloud
           Logging
         href: tutorials/k8s-fluent-bit-logging.md
+      - name: Передача логов {{ metastore-name }} в {{ cloud-logging-name }}
+        href: tutorials/metastore-logging.md
       - name: Передача логов с ВМ в Cloud Logging
         href: tutorials/vm-fluent-bit-logging.md
       - name: Передача логов с COI в Cloud Logging

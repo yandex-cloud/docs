@@ -7,10 +7,9 @@ description: This section contains {{ dataproc-name }} release notes.
 
 {% include [Tags](../../_includes/mdb/release-notes-tags.md) %}
 
-
 ## September 2024 {#sep-2024}
 
-{{ metastore-name }} clusters have become part of {{ metadata-hub-full-name }}. See information about {{ metastore-name }} clusters in [{{ metadata-hub-name }} documentation](../../metadata-hub/concepts/metastore.md).
+{{ metastore-name }} clusters are now part of {{ metadata-hub-full-name }}. For information on {{ metastore-name }} clusters, see the [{{ metadata-hub-name }} documentation](../../metadata-hub/concepts/metastore.md).
 
 ## April 2024 {#apr-2024}
 
@@ -18,7 +17,7 @@ A stable line of 2.1 images is available. With it, you can create a cluster with
 
 ## Q2 2023 {#q2-2023}
 
-Creating [{{ metastore-name }}](../concepts/metastore.md) clusters is now available. This feature is at the [Preview](../../overview/concepts/launch-stages.md) stage.
+Сreating [{{ metastore-name }}](../../metadata-hub/concepts/metastore.md) clusters is now available. This feature is at the [Preview](../../overview/concepts/launch-stages.md) stage.
 
 ## Q3 2022 {#q3-2022}
 
@@ -39,4 +38,3 @@ Creating [{{ metastore-name }}](../concepts/metastore.md) clusters is now availa
 * Added the ability to [cancel a job](../operations/jobs-spark#cancel). {{ tag-con }} {{ tag-cli }}
 * Added the build number in [image version {{ dataproc-name }}](../concepts/environment.md).
 * Added the ability to provide the `packages`, `repositories`, and `exclude_packages` parameters for Spark and PySpark jobs. By using these parameters, you can download additional dependencies and packages from external repositories. {{ tag-con }} {{ tag-cli }}
-

@@ -46,16 +46,16 @@ You can specify more detailed rules for your security groups, e.g., to allow tra
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a server.
     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-    1. In the left-hand panel, select ![image](../../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**.
+    1. In the left-hand panel, select the ![image](../../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}** page.
     1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
     1. Enter a name for the cluster. It must be unique within the folder.
     1. (Optional) Enter a cluster description.
-    1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select the network and subnet to host the {{ metastore-name }} cluster. Specify the security group that you previously set up.
+    1. (Optional) Add [{{ yandex-cloud }} labels](../../../resource-manager/concepts/labels.md) to break resources into logical groups.
+    1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select the network and subnet to host the {{ metastore-name }} cluster. Specify the security group you configured previously.
     1. To enable a {{ metastore-name }} cluster to interact with {{ objstorage-full-name }}, under **{{ ui-key.yacloud.metastore.title_s3config }}**, specify the **{{ ui-key.yacloud.metastore.field_s3config-access-key-id }}** and **{{ ui-key.yacloud.metastore.field_s3config-secret-access-key }}** of the [AWS-compatible static access key](../../../iam/concepts/authorization/access-key.md).
-
     1. If required, enable protection of the cluster from accidental deletion by a user.
 
-       {% include [Cluster deletion protection limits](../../../_includes/mdb/deletion-protection-limits-data.md) %}
+        {% include [Cluster deletion protection limits](../../../_includes/mdb/deletion-protection-limits-data.md) %}
 
     1. Click **{{ ui-key.yacloud.common.create }}**.
 

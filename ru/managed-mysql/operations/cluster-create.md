@@ -347,35 +347,297 @@ description: Следуя данной инструкции, вы сможете
 
      {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
-- API {#api}
+- REST API {#api}
 
-  Чтобы создать кластер {{ MY }}, воспользуйтесь методом REST API [create](../api-ref/Cluster/create.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Create](../api-ref/grpc/cluster_service.md#Create) и передайте в запросе:
-  * Идентификатор [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором должен быть размещен кластер {{ mmy-name }}, в параметре `folderId`.
-  * Имя кластера {{ mmy-name }} в параметре `name`. Имя кластера должно быть уникальным в рамках каталога.
-  * Окружение кластера {{ mmy-name }} в параметре `environment`.
-  * Конфигурацию кластера {{ mmy-name }} в параметре `configSpec`.
-  * Конфигурацию БД в одном или нескольких параметрах `databaseSpecs`.
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-    {% include [db-name-limits](../../_includes/mdb/mmy/note-info-db-name-limits.md) %}
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  * Настройки пользователей в одном или нескольких параметрах `userSpecs`.
-  * Конфигурацию хостов кластера {{ mmy-name }} в одном или нескольких параметрах `hostSpecs`.
-  * Идентификатор [сети](../../vpc/concepts/network.md#network) в параметре `networkId`.
+  1. Создайте файл `body.json` и добавьте в него следующее содержимое:
 
 
-  * Идентификаторы [групп безопасности](../concepts/network.md#security-groups) в параметре `securityGroupIds`.
+      ```json
+      {
+          "folderId": "<идентификатор_каталога>",
+          "name": "<имя_кластера>",
+          "environment": "<окружение>",
+          "networkId": "<идентификатор_сети>",
+          "securityGroupIds": [
+              "<идентификатор_группы_безопасности_1>",
+              "<идентификатор_группы_безопасности_2>",
+              ...
+              "<идентификатор_группы_безопасности_N>"
+          ],
+          "deletionProtection": <защита_от_удаления:_true_или_false>,
+          "configSpec": {
+              "version": "<версия_{{ MY }}>",
+              "resources": {
+                  "resourcePresetId": "<класс_хостов>",
+                  "diskSize": "<размер_хранилища_в_байтах>",
+                  "diskTypeId": "<тип_диска>"
+              },
+              "access": {
+                  "dataLens": <доступ_к_{{ datalens-name }}:_true_или_false>,
+                  "webSql": <доступ_к_{{ websql-name }}:_true_или_false>,
+                  "dataTransfer": <доступ_к_Data_Transfer:_true_или_false>
+              },
+              "performanceDiagnostics": {
+                  "enabled": <активация_сбора_статистики:_true_или_false>,
+                  "sessionsSamplingInterval": "<интервал_сбора_сессий>",
+                  "statementsSamplingInterval": "<интервал_сбора_запросов>"
+              }
+          },
+          "databaseSpecs": [
+              {
+                  "name": "<имя_БД>"
+              },
+              { <аналогичный_набор_настроек_для_БД_2> },
+              { ... },
+              { <аналогичный_набор_настроек_для_БД_N> }
+          ],
+          "userSpecs": [
+              {
+                  "name": "<имя_пользователя>",
+                  "password": "<пароль_пользователя>",
+                  "permissions": [
+                      {
+                          "databaseName": "<имя_БД>",
+                          "roles": [
+                              "<привилегия_1>", "<привилегия_2>", ..., "<привилегия_N>"
+                          ]
+                      }
+                  ]
+              },
+              { <аналогичный_набор_настроек_для_пользователя_2> },
+              { ... },
+              { <аналогичный_набор_настроек_для_пользователя_N> }
+          ],
+          "hostSpecs": [
+              {
+                  "zoneId": "<зона_доступности>",
+                  "subnetId": "<идентификатор_подсети>",
+                  "assignPublicIp": <публичный_адрес_хоста:_true_или_false>
+              },
+              { <аналогичный_набор_настроек_для_хоста_2> },
+              { ... },
+              { <аналогичный_набор_настроек_для_хоста_N> }
+          ]
+      }
+      ```
 
 
-  При необходимости передайте время начала [резервного копирования](../concepts/backup.md) в параметре `configSpec.backupWindowStart` и срок хранения автоматических резервных копий (в днях) в параметре `configSpec.backupRetainPeriodDays`. Допустимые значения: от `7` до `60`. Значение по умолчанию — `7`.
+      Где:
 
-  Чтобы разрешить [подключение](connect.md) к хостам кластера из интернета, передайте значение `true` в параметре `hostSpecs.assignPublicIp`.
+      * `folderId` — идентификатор каталога. Его можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md).
+      * `name` — имя кластера.
+      * `environment` — окружение кластера: `PRODUCTION` или `PRESTABLE`.
+      * `networkId` — идентификатор [сети](../../vpc/concepts/network.md#network), в которой будет размещен кластер.
 
-  {% include [datalens access](../../_includes/mdb/api/datalens-access.md) %}
 
-  Чтобы активировать сбор статистики для [диагностики производительности кластера](performance-diagnostics.md), передайте значение `true` в параметре `configSpec.performanceDiagnostics.enabled`. Опционально добавьте параметры:
+      * `securityGroupIds` — идентификаторы [групп безопасности](../concepts/network.md#security-groups).
 
-    * `configSpec.performanceDiagnostics.sessionsSamplingInterval` — интервал сбора сессий. Допустимые значения — от `1` до `86400` секунд.
-    * `configSpec.performanceDiagnostics.statementsSamplingInterval` — интервал сбора запросов. Допустимые значения — от `1` до `86400` секунд.
+
+      * `deletionProtection` — защита от удаления кластера, его баз данных и пользователей.
+      * `configSpec` — настройки кластера:
+
+          * `version` — версия {{ PG }}.
+          * `resources` — ресурсы кластера:
+
+              * `resourcePresetId` — [класс хостов](../concepts/instance-types.md);
+              * `diskSize` — размер диска в байтах;
+              * `diskTypeId` — [тип диска](../concepts/storage.md).
+
+
+          * `access` — настройки доступа кластера к следующим сервисам {{ yandex-cloud }}:
+
+              * `dataLens` — [{{ datalens-full-name }}](../../datalens/index.yaml);
+              * `webSql` — [{{ websql-full-name }}](../../websql/index.yaml);
+              * `dataTransfer` — [{{ data-transfer-full-name }}](../../data-transfer/index.yaml).
+
+
+      * `performanceDiagnostics` — настройки для [сбора статистики](performance-diagnostics.md#activate-stats-collector):
+
+          * `enabled` — активация сбора статистики;
+          * `sessionsSamplingInterval` — интервал сбора сессий: от `1` до `86400` секунд;
+          * `statementsSamplingInterval` — интервал сбора запросов: от `1` до `86400` секунд.
+
+      * `databaseSpecs` — настройки баз данных в виде массива элементов. Каждый элемент соответствует отдельной БД и содержит параметр `name` — имя БД.
+
+          {% include [db-name-limits](../../_includes/mdb/mmy/note-info-db-name-limits.md) %}
+
+      * `userSpecs` — настройки пользователей в виде массива элементов. Каждый элемент соответствует отдельному пользователю и имеет следующую структуру:
+
+          * `name` — имя пользователя.
+          * `password` — пароль пользователя.
+          * `permissions` — настройки разрешений пользователя:
+
+              * `databaseName` — имя базы данных, к которой пользователь получает доступ.
+              * `roles` — массив привилегий пользователя. Каждая привилегия представлена в виде отдельной строки в массиве. Список доступных значений см. в разделе [Привилегии пользователей в кластере](../concepts/user-rights.md#db-privileges).
+
+              Для каждой базы данных добавьте отдельный элемент с настройками разрешений в массив `permissions`.
+
+      * `hostSpecs` — настройки хостов кластера в виде массива элементов. Каждый элемент соответствует отдельному хосту и имеет следующую структуру:
+
+          * `zoneId` — [зона доступности](../../overview/concepts/geo-scope.md);
+          * `subnetId` — идентификатор [подсети](../../vpc/concepts/network.md#subnet);
+          * `assignPublicIp` — разрешение на [подключение](connect.md) к хосту из интернета.
+
+  1. Воспользуйтесь методом [Cluster.create](../api-ref/Cluster/create.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+      ```bash
+      curl \
+          --request POST \
+          --header "Authorization: Bearer $IAM_TOKEN" \
+          --header "Content-Type: application/json" \
+          --url 'https://{{ api-host-mdb }}/managed-mysql/v1/clusters' \
+          --data "@body.json"
+      ```
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/create.md#responses).
+
+- gRPC API {#grpc-api}
+
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Создайте файл `body.json` и добавьте в него следующее содержимое:
+
+
+      ```json
+      {
+          "folder_id": "<идентификатор_каталога>",
+          "name": "<имя_кластера>",
+          "environment": "<окружение>",
+          "network_id": "<идентификатор_сети>",
+          "security_group_ids": [
+              "<идентификатор_группы_безопасности_1>",
+              "<идентификатор_группы_безопасности_2>",
+              ...
+              "<идентификатор_группы_безопасности_N>"
+          ],
+          "deletion_protection": <защита_от_удаления:_true_или_false>,
+          "config_spec": {
+              "version": "<версия_{{ MY }}>",
+              "resources": {
+                  "resource_preset_id": "<класс_хостов>",
+                  "disk_size": "<размер_хранилища_в_байтах>",
+                  "disk_type_id": "<тип_диска>"
+              },
+              "access": {
+                  "data_lens": <доступ_к_{{ datalens-name }}:_true_или_false>,
+                  "web_sql": <доступ_к_{{ websql-name }}:_true_или_false>,
+                  "data_transfer": <доступ_к_Data_Transfer:_true_или_false>
+              },
+              "performance_diagnostics": {
+                  "enabled": <активация_сбора_статистики:_true_или_false>,
+                  "sessions_sampling_interval": "<интервал_сбора_сессий>",
+                  "statements_sampling_interval": "<интервал_сбора_запросов>"
+              }
+          },
+          "database_specs": [
+                {
+                    "name": "<имя_БД>"
+                },
+                { <аналогичный_набор_настроек_для_БД_2> },
+                { ... },
+                { <аналогичный_набор_настроек_для_БД_N> }
+            ],
+          "user_specs": [
+              {
+                  "name": "<имя_пользователя>",
+                  "password": "<пароль_пользователя>",
+                  "permissions": [
+                      {
+                          "database_name": "<имя_БД>",
+                          "roles": [
+                              "<привилегия_1>", "<привилегия_2>", ..., "<привилегия_N>"
+                          ]
+                      }
+                  ]
+              }
+          ],
+          "host_specs": [
+              {
+                  "zone_id": "<зона_доступности>",
+                  "subnet_id": "<идентификатор_подсети>",
+                  "assign_public_ip": <публичный_адрес_хоста:_true_или_false>
+              }
+          ]
+      }
+      ```
+
+
+      Где:
+
+      * `folder_id` — идентификатор каталога. Его можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md).
+      * `name` — имя кластера.
+      * `environment` — окружение кластера: `PRODUCTION` или `PRESTABLE`.
+      * `network_id` — идентификатор [сети](../../vpc/concepts/network.md#network), в которой будет размещен кластер.
+
+
+      * `security_group_ids` — идентификаторы [групп безопасности](../concepts/network.md#security-groups).
+
+
+      * `deletion_protection` — защита от удаления кластера, его баз данных и пользователей.
+      * `config_spec` — настройки кластера:
+
+          * `version` — версия {{ PG }}.
+          * `resources` — ресурсы кластера:
+
+              * `resource_preset_id` — [класс хостов](../concepts/instance-types.md);
+              * `disk_size` — размер диска в байтах;
+              * `disk_type_id` — [тип диска](../concepts/storage.md).
+
+
+          * `access` — настройки доступа кластера к следующим сервисам {{ yandex-cloud }}:
+
+              * `data_lens` — [{{ datalens-full-name }}](../../datalens/index.yaml);
+              * `web_sql` — [{{ websql-full-name }}](../../websql/index.yaml);
+              * `data_transfer` — [{{ data-transfer-full-name }}](../../data-transfer/index.yaml).
+
+
+      * `performance_diagnostics` — настройки для [сбора статистики](performance-diagnostics.md#activate-stats-collector):
+
+          * `enabled` — активация сбора статистики;
+          * `sessions_sampling_interval` — интервал сбора сессий: от `1` до `86400` секунд;
+          * `statements_sampling_interval` — интервал сбора запросов: от `60` до `86400` секунд.
+
+      * `database_specs` — настройки баз данных в виде массива элементов. Каждый элемент соответствует отдельной БД и содержит параметр `name` — имя БД.
+      * `user_specs` — настройки пользователей в виде массива элементов. Каждый элемент соответствует отдельному пользователю и имеет следующую структуру:
+
+          * `name` — имя пользователя.
+          * `password` — пароль пользователя.
+          * `permissions` — настройки разрешений пользователя:
+
+              * `database_name` — имя базы данных, к которой пользователь получает доступ.
+              * `roles` — массив привилегий пользователя. Каждая привилегия представлена в виде отдельной строки в массиве. Список доступных значений см. в разделе [Привилегии пользователей в кластере](../concepts/user-rights.md#db-privileges).
+
+              Для каждой базы данных добавьте отдельный элемент с настройками разрешений в массив `permissions`.
+
+      * `host_specs` — настройки хостов кластера в виде массива элементов. Каждый элемент соответствует отдельному хосту и имеет следующую структуру:
+
+          * `zone_id` — [зона доступности](../../overview/concepts/geo-scope.md);
+          * `subnet_id` — идентификатор [подсети](../../vpc/concepts/network.md#subnet);
+          * `assign_public_ip` — разрешение на [подключение](connect.md) к хосту из интернета.
+
+  1. Воспользуйтесь вызовом [ClusterService/Create](../api-ref/grpc/cluster_service.md#Create) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+      ```bash
+      grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/mdb/mysql/v1/cluster_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d @ \
+          {{ api-host-mdb }}:{{ port-https }} \
+          yandex.cloud.mdb.mysql.v1.ClusterService.Create \
+          < body.json
+      ```
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/cluster_service.md#Operation).
 
 {% endlist %}
 

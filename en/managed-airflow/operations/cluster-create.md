@@ -58,6 +58,9 @@ Every {{ maf-name }} cluster consists of a set of {{ AF }} components, each of w
       * [Availability zones](../../overview/concepts/geo-scope) for the cluster
       * Cloud network
       * Subnet in each of the selected availability zones
+
+        {{ yandex-cloud }} manages {{ maf-name }} cluster components in the auxiliary subnet. Make sure the IP address range of the subnets you selected does not overlap with the `{{ airflow-service-address }}` auxiliary subnet address range. Otherwise, you will get an error when creating a cluster.
+
       * [Security group](../../vpc/concepts/security-groups.md) for the cluster network traffic
 
         {% include [sg-ui-access](../../_includes/mdb/maf/note-sg-ui-access.md) %}
@@ -102,11 +105,11 @@ Every {{ maf-name }} cluster consists of a set of {{ AF }} components, each of w
 
   1. (Optional) Under **{{ ui-key.yacloud.airflow.section_airflow-configuration }}**:
   
-      * Specify [{{ AF }} additional properties](https://airflow.apache.org/docs/apache-airflow/2.2.4/configurations-ref.html), e.g., the `api.maximum_page_limit` key with `150` for its value.
+      * Specify [{{ AF }} additional properties](https://airflow.apache.org/docs/apache-airflow/2.2.4/configurations-ref.html) additional properties, e.g., `api.maximum_page_limit` as a key and `150` as its value.
 
-        Populate the fields manually or import a configuration from a file (see [sample configuration file](https://{{ s3-storage-host }}/doc-files/managed-airflow/airflow.cfg)).
+        Fill out the fields manually or import the settings from a configuration file (see [configuration file example](https://{{ s3-storage-host }}/doc-files/managed-airflow/airflow.cfg)).
 
-      * Enable the **{{ ui-key.yacloud.airflow.field_lockbox }}** option to use secrets in [{{ lockbox-full-name }}](../../lockbox/concepts/index.md) to [store {{ AF }} configuration data, variables, and connection parameters](../concepts/impersonation.md#lockbox-integration).
+      * Enable the **{{ ui-key.yacloud.airflow.field_lockbox }}** option to use secrets in [{{ lockbox-full-name }}](../../lockbox/concepts/index.md) for [storing {{ AF }} configuration data, variables, and connection parameters](../concepts/impersonation.md#lockbox-integration).
 
         {% include [sa-roles-for-lockbox](../../_includes/managed-airflow/sa-roles-for-lockbox.md) %}
 

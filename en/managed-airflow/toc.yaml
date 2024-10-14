@@ -43,6 +43,10 @@ items:
     href: security/index.md
   - name: Pricing policy
     href: pricing.md
+  - name: CLI reference
+    href: ../cli/cli-ref/managed-services/managed-airflow/index.md
+  - name: '{{ TF }} reference'
+    href: tf-ref.md
   - name: API reference
     items:
       - name: Authentication with the API
@@ -83,5 +87,7 @@ items:
     href: metrics.md
   - name: Release notes
     href: release-notes.md
+  - name: FAQ
+    href: qa/index.md
 base: en/managed-airflow
 deepBase: 2

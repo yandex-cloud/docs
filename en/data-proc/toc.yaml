@@ -79,7 +79,7 @@ items:
         href: tutorials/index.md
       - name: Network settings and cluster maintenance
         items:
-          - name: Configuring networks for {{ dataproc-name }}
+          - name: Configuring a network for {{ dataproc-name }}
             href: tutorials/configure-network.md
           - name: Migrating an HDFS cluster to a different availability zone
             href: tutorials/hdfs-cluster-migration.md
@@ -113,17 +113,25 @@ items:
                 href: tutorials/copy-files-from-object-storage.md
               - name: >-
                   Importing data from {{ objstorage-name }}, processing and
-                  exporting it to {{ mch-name }}
+                  exporting to {{ mch-name }}
                 href: tutorials/s3-dataproc-ch.md
               - name: >-
                   Mounting buckets to the file system of {{ dataproc-name }}
                   hosts
                 href: tutorials/geesefs-init-actions.md
+          - name: '{{ metastore-full-name }}'
+            items:
+              - name: Shared use of tables through {{ metastore-name }}
+                href: tutorials/dataproc-to-dataproc.md
+              - name: >-
+                  Transferring metadata between {{ dataproc-name }} clusters
+                  using {{ metastore-name }}
+                href: tutorials/metastore-import.md
           - name: Exchanging data with {{ mch-name }}
             href: tutorials/exchange-data-with-mch.md
-          - name: Importing data from {{ mmy-name }} clusters using Sqoop
+          - name: Importing data from a {{ mmy-name }} cluster using Sqoop
             href: tutorials/sqoop-mmy.md
-          - name: Importing data from {{ mpg-name }} clusters using Sqoop
+          - name: Importing data from a {{ mpg-name }} cluster using Sqoop
             href: tutorials/sqoop-mpg.md
           - name: Integration with {{ ml-platform-name }}
             href: tutorials/datasphere-integration.md
@@ -131,14 +139,6 @@ items:
             href: tutorials/kafka.md
           - name: Automating operations using {{ maf-name }}
             href: tutorials/airflow-automation.md
-      - name: Working with {{ metastore-name }}
-        items:
-          - name: Shared use of tables through {{ metastore-name }}
-            href: tutorials/dataproc-to-dataproc.md
-          - name: >-
-              Transferring metadata between {{ dataproc-name }} clusters using
-              {{ metastore-name }}
-            href: tutorials/metastore-import.md
   - name: Concepts
     items:
       - name: Resource relationships

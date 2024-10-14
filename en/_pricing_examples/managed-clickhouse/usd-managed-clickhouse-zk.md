@@ -1,10 +1,10 @@
-3 × (2 × $0.005600 + 4 × $0.002240) = $0.060480
+> 3 × (2 × {{ sku|USD|mdb.zk.clickhouse.v3.cpu.c50|string }} + 4 × {{ sku|USD|mdb.zk.clickhouse.v3.ram|string }}) = {% calc 3 × (2 × {{ sku|USD|mdb.zk.clickhouse.v3.cpu.c50|number }} + 4 × {{ sku|USD|mdb.zk.clickhouse.v3.ram|number }}) %}
 >
-> Total: $0.060480, per hour cost of {{ ZK }} hosts.
+> Total: {% calc 3 × (2 × {{ sku|USD|mdb.zk.clickhouse.v3.cpu.c50|number }} + 4 × {{ sku|USD|mdb.zk.clickhouse.v3.ram|number }}) %}, cost of operation of {{ ZK }} hosts per hour.
 
 Where:
 * 3: Number of {{ ZK }} hosts.
 * 2: Number of vCPUs.
-* $0.005600: Cost of using 50% vCPU per hour.
+* {{ sku|USD|mdb.zk.clickhouse.v3.cpu.c50|string }}: Cost of using 50% vCPU per hour.
 * 4: Amount of RAM per {{ ZK }} host (in GB).
-* $0.002240: Cost of using 1 GB of RAM at 50% vCPU per hour.
+* {{ sku|USD|mdb.zk.clickhouse.v3.ram|string }}: Cost of using 1 GB of RAM at 50% vCPU per hour.

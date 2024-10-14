@@ -6,4 +6,6 @@
 
 * [Why cannot I connect to a multi-host cluster?](#to-multi-host-cluster)
 
+* [Can I connect to cluster hosts via SSH or get superuser permissions on hosts?](#connect-ssh)
+
 * [Why would the connection limit be exceeded?](#connection-limit)

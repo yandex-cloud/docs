@@ -18,7 +18,7 @@ You interact with database clusters in {{ mmg-short-name }} the same way you int
 
 #### What part of database management and maintenance is {{ mmg-short-name }} responsible for? {#services}
 
-When creating clusters, {{ mmg-short-name }} allocates resources, installs the DBMS, and creates databases.
+When you create clusters, {{ mmg-short-name }} allocates resources, installs the DBMS, and creates databases.
 
 For the created and running databases, {{ mmg-short-name }} automatically creates backups and applies fixes and updates to the DBMS.
 
@@ -43,17 +43,17 @@ A _database cluster_ is one or more database hosts between which replication can
 
 {{ mmg-short-name }} is available to any registered {{ yandex-cloud }} user.
 
-To create a database cluster in {{ mmg-short-name }}, you must define its characteristics:
+To create a database cluster in {{ mmg-short-name }}, you need to define its parameters:
 
 - [Host class](../../managed-mongodb/concepts/instance-types.md) (performance characteristics, such as CPUs, RAM, etc.).
 - [Disk type](../../managed-mongodb/concepts/storage.md) and size (reserved in full when creating a cluster).
 - Network your cluster will be connected to.
 - Number of hosts for the cluster and the availability zone for each host.
 
-For a detailed guide, see [{#T}](../../managed-mongodb/quickstart.md).
+For detailed instructions, see [{#T}](../../managed-mongodb/quickstart.md).
 
 
-#### How many DB hosts can a cluster contain? {#how-many-hosts}
+#### How many database hosts can a cluster contain? {#how-many-hosts}
 
 The minimum number of hosts per cluster depends on the following:
 * Selected [platform and host class](../../managed-mongodb/concepts/instance-types.md).
@@ -88,7 +88,7 @@ For more information, see [Maintenance](../../managed-mongodb/concepts/maintenan
 
 #### Which {{ MG }} version does {{ mmg-short-name }} use? {#dbms-version}
 
-{{ mmg-short-name }} supports {{ MG }} versions 4.2, 4.4, 5.0, and 6.0. Enterprise [Edition](../../managed-mongodb/concepts/editions.md) is supported for versions 4.4, 5.0, and 6.0.
+{{ mmg-short-name }} supports {{ MG }} versions 5.0 and 6.0 Community Edition.
 
 
 #### What happens when a new DBMS version is released? {#new-version}
@@ -109,8 +109,8 @@ In {{ mmg-short-name }}, the usage cost is calculated based on the following par
 
 - Selected host class.
 - Size of the storage reserved for the database host.
-- Size of the database cluster backups. Backup space in the amount of the reserved storage is free of charge. Backup storage that exceeds this size is charged at [special rates](../../managed-mongodb/pricing.md).
-- Number of hours of database host operation. Partial hours are rounded to an integer value. You can find the cost per hour of operation for each host class in [Pricing policy](../../managed-mongodb/pricing.md).
+- Size of the database cluster backups. Backup size equal to the storage size is free of charge. Backup storage that exceeds this size is charged at [special rates](../../managed-mongodb/pricing.md).
+- Number of hours of database host operation. Partial hours are rounded to an integer value. You can find the cost per hour of operation for each host class in the [Pricing policy](../../managed-mongodb/pricing.md) section.
 
 #### How can I change the computing resources and storage size for a database cluster? {#resources-change}
 
@@ -119,13 +119,13 @@ You can change computing resources and storage size in the management console. A
 The cluster characteristics change within 30 minutes. During this period, other maintenance activities may also be enabled for the cluster, such as installing updates.
 
 
-#### Is DB host backup enabled by default? {#default-backup}
+#### Is database host backup enabled by default? {#default-backup}
 
 Yes, backup is enabled by default. For {{ MG }}, a full backup is performed once a day with the possibility to restore it to any saved backup.
 
 By default, backups are stored for seven days.
 
-#### When are backups performed? Is a DB cluster available during backup? {#backup-window}
+#### When are backups performed? Is a database cluster available during backup? {#backup-window}
 
 The backup window is an interval during which a full daily backup of the DB cluster is performed. The backup window is from 01:00 to 05:00 (UTC+3).
 
@@ -152,10 +152,10 @@ Monitoring can be performed with a minimum granularity of 5 seconds.
 
 For `disk.used_bytes`, use notification thresholds. The recommended values are as follows:
 
-* `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`: 90% of the disk space
-* `{{ ui-key.yacloud_monitoring.alert.status_warn }}`: 70% of the disk space
+* `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`: 90% of disk space
+* `{{ ui-key.yacloud_monitoring.alert.status_warn }}`: 70% of disk space
 
 Thresholds are set in bytes only. For example, the recommended values for a 100 GB disk are as follows:
 
-* `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`: `96,636,764,160` bytes (90%)
-* `{{ ui-key.yacloud_monitoring.alert.status_warn }}`: `75,161,927,680` bytes (70%)
+* `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`: `96636764160` bytes (90%)
+* `{{ ui-key.yacloud_monitoring.alert.status_warn }}`: `75161927680` bytes (70%)

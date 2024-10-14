@@ -18,6 +18,6 @@ You can create [{{ metastore-full-name }} clusters](../operations/metastore/clus
 * Provides fault tolerance, scalable storage, and metadata backup.
 * Simplifies sending logs and metrics, as well as the update and migration processes.
 
-Certain Apache® products, such as [Hive](https://hive.apache.org/), [Spark](https://spark.apache.org/), and [Impala](https://impala.apache.org/overview.html), support working directly with {{ metastore-name }}.
+Some Apache® products, including [Hive](https://hive.apache.org/), [Spark](https://spark.apache.org/), and [Impala](https://impala.apache.org/overview.html), feature {{ metastore-name }} support.
 
-For more information about {{ metastore-full-name }}, see the [Apache® documentation](https://cwiki.apache.org/confluence/display/hive/design#Design-Metastore).
+For more information about {{ metastore-name }}, see the [Apache® documentation](https://cwiki.apache.org/confluence/display/hive/design#Design-Metastore).

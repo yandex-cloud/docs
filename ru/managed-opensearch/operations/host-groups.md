@@ -83,6 +83,10 @@ keywords:
 
             {% include [storages-step-settings](../../_includes/mdb/settings-storages-no-broadwell.md) %}
 
+        * (Опционально) В блоке **{{ ui-key.yacloud.mdb.cluster.section_disk-scaling }}** настройте автоматическое увеличение размера диска:
+
+            {% include [console-autoscaling](../../_includes/mdb/mos/console_autoscaling.md) %}
+
         * Расположение хостов по зонам доступности и подсетям.
 
         * Количество создаваемых хостов.
@@ -257,6 +261,10 @@ keywords:
                 * для платформы **Intel Ice Lake** — с шагом {{ local-ssd-v3-step }}.
             * Нереплицируемые SSD-диски — с шагом 93 ГБ.
 
+
+        * (Опционально) В блоке **{{ ui-key.yacloud.mdb.cluster.section_disk-scaling }}** настройте автоматическое увеличение размера диска:
+
+            {% include [console-autoscaling](../../_includes/mdb/mos/console_autoscaling.md) %}
 
         * Расположение хостов по зонам доступности и подсетям.
 

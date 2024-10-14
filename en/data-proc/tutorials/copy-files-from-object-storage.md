@@ -21,28 +21,28 @@ To authenticate in {{ objstorage-name }}, you can use one of the following appro
 
 1. Use the [IAM token of the cluster service account](../../iam/operations/iam-token/create-for-sa.md).
 1. Use [CredentialProvider](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/CredentialProviderAPI.html).
-1. Pass the `access key` and `secret key` parameters of [static access keys](../../iam/concepts/authorization/access-key.md) when creating a job.
+1. Provide the `access key` and `secret key` parameters of [static access keys](../../iam/concepts/authorization/access-key.md) when creating jobs.
 
 ### Accessing S3 with authentication via the IAM token of a cluster service account {#s3-access-using-iam}
 
 1. When creating a cluster, specify a [service account](../../iam/operations/sa/create.md#create-sa). If the cluster is already created, add a service account using the **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** button in the management console.
 
-   Make sure to [assign](../../iam/operations/sa/assign-role-for-sa.md) the following roles to the service account:
+    Make sure to [assign](../../iam/operations/sa/assign-role-for-sa.md) the following roles to the service account:
 
-   {% include [sa-roles](../../_includes/data-proc/sa-roles.md) %}
+    {% include [sa-roles](../../_includes/data-proc/sa-roles.md) %}
 
-1. The service account must have access to the appropriate bucket. To do this, grant the service account privileges in the [bucket ACL](../../storage/concepts/acl), or the `storage.viewer` or `storage.editor` roles.
+1. The service account must have access to the appropriate bucket. To do this, grant the service account permissions in the [bucket ACL](../../storage/concepts/acl), or the `storage.viewer` or `storage.editor` role.
 
-   For more information about these roles, see the [{{ objstorage-name }} documentation](../../storage/security/index.md).
+    For more information about these roles, see the [{{ objstorage-name }} documentation](../../storage/security/index.md).
 
-> For example, get a list of files located in the `yc-mdb-examples` public bucket at the path `dataproc/example01/set01`. To do this, connect to the [cluster](../operations/connect.md) and run the command:
+> For example, get a list of files located in the `yc-mdb-examples` public bucket at `dataproc/example01/set01`. To do this, connect to the [cluster](../operations/connect.md) and run the command:
 >
 > ```bash
 > hadoop fs -ls s3a://yc-mdb-examples/dataproc/example01/set01
 > ```
 >
 > Result:
->
+> 
 > ```text
 > Found 12 items
 > -rw-rw-rw-   1 root root   19327838 2019-09-13 17:17 s3a://yc-mdb-examples/dataproc/example01/set01/On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2018_1.parquet
@@ -53,44 +53,44 @@ To authenticate in {{ objstorage-name }}, you can use one of the following appro
 
 ### Copying via CredentialProvider {#copying-via-credentialprovider}
 
-To use a secret storage provider, place the secrets within the components that need access to {{ objstorage-name }}. To do this, you can use [JCEKS](https://docs.oracle.com/javase/8/docs/technotes/guides/security/crypto/CryptoSpec.html) (Java Cryptography Extension KeyStore).
+To use a secret storage provider, place the secrets within the components that need access to {{ objstorage-name }}. To do this, you can use [JCEKS](https://docs.oracle.com/javase/8/docs/technotes/guides/security/crypto/CryptoSpec.html) (Java Cryptography Extension KeyStore). 
 In this example, you first create a file with secrets and then place it in HDFS:
 
 1. Specify the static and secret keys, e.g.:
 
-   ```bash
-   hadoop credential create fs.s3a.access.key \
-          -value <static_key> \
-          -provider localjceks://file/home/jack/yc.jceks && \
-   hadoop credential create fs.s3a.secret.key \
-          -value <secret_key> \
-          -provider localjceks://file/home/jack/yc.jceks
-   ```
+    ```bash
+    hadoop credential create fs.s3a.access.key \
+           -value <static_key> \
+           -provider localjceks://file/home/jack/yc.jceks && \
+    hadoop credential create fs.s3a.secret.key \
+           -value <secret_key> \
+           -provider localjceks://file/home/jack/yc.jceks
+    ```
 
 1. Copy the secrets file to your local HDFS:
 
-   ```bash
-   hdfs dfs -put /home/jack/yc.jceks /user/root/
-   ```
+    ```bash
+    hdfs dfs -put /home/jack/yc.jceks /user/root/
+    ```
 
 1. Copy the file from {{ objstorage-name }} directly to HDFS:
 
-   ```bash
-   hadoop distcp \
-          -D fs.s3a.bucket.dataproc-examples.endpoint={{ s3-storage-host }} \
-          -D hadoop.security.credential.provider.path=jceks://hdfs/user/root/yc.jceks \
-          -update \
-          -skipcrccheck \
-          -numListstatusThreads 10 \
-          s3a://yc-mdb-examples/dataproc/example01/set01 \
-          hdfs://<HDFS_host>/<path>/
-   ```
+    ```bash
+    hadoop distcp \
+           -D fs.s3a.bucket.dataproc-examples.endpoint={{ s3-storage-host }} \
+           -D hadoop.security.credential.provider.path=jceks://hdfs/user/root/yc.jceks \
+           -update \
+           -skipcrccheck \
+           -numListstatusThreads 10 \
+           s3a://yc-mdb-examples/dataproc/example01/set01 \
+           hdfs://<HDFS_host>/<path>/
+    ```
 
-   `<HDFS_host>` is the target HDFS server you use. You can get the default server using the command:
+    `<HDFS_host>` is the target HDFS server you are using. You can get the default server using the command:
 
-   ```bash
-   hdfs getconf -confKey fs.defaultFS
-   ```
+    ```bash
+    hdfs getconf -confKey fs.defaultFS
+    ```
 
 Example of the command to copy files from the bucket:
 
@@ -124,10 +124,10 @@ hadoop distcp \
 
 ## Optimizing file reads from {{ objstorage-name }} {#s3-read-optimize}
 
-The method for reading data from a bucket depends on the `fs.s3a.experimental.input.fadvise` [setting](https://hadoop.apache.org/docs/stable/hadoop-aws/tools/hadoop-aws/performance.html#Improving_data_input_performance_through_fadvise). Its value depends on the image version used:
+The method for reading data from a bucket is decided by the `fs.s3a.experimental.input.fadvise` [setting](https://hadoop.apache.org/docs/stable/hadoop-aws/tools/hadoop-aws/performance.html#Improving_data_input_performance_through_fadvise). Its value depends on the image version used:
 
-* In image versions `1.0` through `1.4`, the default value is `sequential`. It is a good choice for sequential file reads, but slow for random access. If you use random file access more frequently, add `random` to the cluster component properties or job settings.
-* For version `2.0` images, the default is `normal`: files are accessed sequentially but if an application is performing random access operations, the mode automatically switches to `random`.
+* Image versions `1.0` through `1.4` use `sequential` as the default value. It is a good choice for sequential file reads, but slow for random access. If you use random file access more frequently, add `random` to the cluster component properties or job settings.
+* For version `2.0` images, the default is `normal`: files are accessed sequentially; however, if an application is performing random access operations, `random` mode activates automatically.
 
 For more information on the component versions used, see [{#T}](../concepts/environment.md).
 
@@ -152,54 +152,54 @@ S3A committers are not used or required for operations with tables that are mana
 
 S3A committers run in three basic modes:
 
-| Mode | Environment | HDFS is required | Writing data to partitioned</br>tables | Write speed |
+| Mode         | Environment            | HDFS required             | Writing data to partitioned</br>tables | Write speed |
 |---------------|------------------|----------------------------|-------------------------------------|-----------------|
-| `directory` | MapReduce, Spark | Yes^*^ | Complete overwrite | Standard |
-| `magic` | MapReduce, Spark | No (data is written directly to S3) | Not supported | Maximum |
-| `partitioned` | Spark | Yes^*^ | Replacing partitions and appending them | Standard |
+| `directory`   | MapReduce, Spark | Yes^*^                      | Complete overwrite                   | Standard         |
+| `magic`       | MapReduce, Spark | No (data is written directly to S3) | Not supported                   | Maximum    |
+| `partitioned` | Spark            | Yes^*^                      | Replacing partitions and appending them        | Standard         |
 
-^*^ In `directory` and `partitioned` modes, no checks are made for whether there is HDFS for storing intermediate data. Some jobs may be successfully completed with no HDFS used. However, this might cause issues with complex jobs, such as "file not found" errors or incomplete uploads of job results to {{ objstorage-name }}.
+^*^ In `directory` and `partitioned` modes, no checks are made for actual presence of HDFS for storing intermediate data. Some jobs may be successfully completed without HDFS. However, this may cause issues with complex jobs, such as "file not found" errors or incomplete uploads of job results to {{ objstorage-name }}.
 
-To enable S3A committers, specify the values of the following [settings](../concepts/settings-list.md):
+To enable S3A committers, configure the following [settings](../concepts/settings-list.md):
 
-* `core:fs.s3a.committer.magic.enabled : true` if jobs are to run in `magic` mode.
-* `core:fs.s3a.committer.name`: Default mode (`directory`, `magic`, or `partitioned`).
-* `core:fs.s3a.committer.staging.abort.pending.uploads : false` for Hadoop 3.2.2 as part of the [{{ dataproc-name }} image](../concepts/environment.md#current-images) version 2.0 or `core:fs.s3a.committer.abort.pending.uploads : false` for Hadoop 3.3.2 as part of the image version 2.1, if multiple concurrent jobs are writing data to the same table.
+* `core:fs.s3a.committer.magic.enabled : true` if jobs will use the `magic` mode.
+* `core:fs.s3a.committer.name` with `directory`, `magic`, or `partitioned` as the default mode.
+* `core:fs.s3a.committer.staging.abort.pending.uploads : false` for Hadoop 3.2.2 as part of [{{ dataproc-name }} image](../concepts/environment.md#current-images) 2.0 or `core:fs.s3a.committer.abort.pending.uploads : false` for Hadoop 3.3.2 as part of image 2.1 if multiple concurrent jobs are writing data to the same table.
 * `core:mapreduce.outputcommitter.factory.scheme.s3a : org.apache.hadoop.fs.s3a.commit.S3ACommitterFactory`.
-* `spark:spark.hadoop.fs.s3a.committer.name`: Default mode (`directory`, `magic`, or `partitioned`).
+* `spark:spark.hadoop.fs.s3a.committer.name` with `directory`, `magic`, or `partitioned` as the default mode.
 * `spark:spark.sql.parquet.output.committer.class : org.apache.spark.internal.io.cloud.BindingParquetOutputCommitter`.
 * `spark:spark.sql.sources.commitProtocolClass : org.apache.spark.internal.io.cloud.PathOutputCommitProtocol`.
-* (Optional) `core:fs.s3a.committer.staging.conflict-mode`: Action to perform if any existing data partitions are found in the target table (for `partitioned` mode):
-   * `append`: Append new data to an existing partition.
-   * `fail`: When making an attempt to overwrite the existing partition, the job fails.
-   * `replace`: Data in the existing partition is replaced with a new partition's data.
+* (Optional) `core:fs.s3a.committer.staging.conflict-mode`: Action if existing data partitions are found in the target table (for `partitioned` mode):
+    * `append`: Append new data to an existing partition.
+    * `fail`: When attempting to overwrite an existing partition, the job terminates with an error.
+    * `replace`: Existing partition data is replaced with new partition data.
 
-The used S3A committer mode may be overridden for a specific job by setting `fs.s3a.committer.name` and `spark.hadoop.fs.s3a.committer.name` to the appropriate value (`directory`, `magic`, or `partitioned`).
+The current S3A committer mode may be overridden for a specific job by setting `fs.s3a.committer.name` and `spark.hadoop.fs.s3a.committer.name` to `directory`, `magic`, or `partitioned` as required.
 
-Do not change the default `spark.hadoop.mapreduce.fileoutputcommitter.algorithm.version` setting value, since {{ objstorage-full-name }} does not support atomic directory renames.
+Do not change the default value for `spark.hadoop.mapreduce.fileoutputcommitter.algorithm.version` because {{ objstorage-full-name }} does not support atomic folder renames.
 
 ### Apache Hadoop settings {#s3-write-optimize-hadoop}
 
 
-The method of writing data to a {{ objstorage-name }} bucket depends on the `core:fs.s3a.fast.upload` setting. Its value depends on the image version used:
+The method of writing data to an {{ objstorage-name }} bucket is decided by the `core:fs.s3a.fast.upload` setting. Its value depends on the image version used:
 
-* In image versions `1.0` through `1.4`, the default value is `false` to save RAM. Set this property to `true` in the cluster component properties or the job settings. This will improve bucket write performance for large files and prevent node storage from filling up.
-* In image `2.0`, the `fs.s3a.fast.upload` setting is enabled by default.
+* Image versions `1.0` through `1.4` use `false` as the default value to save RAM. Set it to `true` in the cluster component properties or job settings. This will improve bucket write performance for large files and prevent node storage from filling up.
+* In image `2.0`, `fs.s3a.fast.upload` is enabled by default.
 
 
 
-If required, set values for [other settings](https://hadoop.apache.org/docs/r2.10.0/hadoop-aws/tools/hadoop-aws/index.html) responsible for write mode in {{ objstorage-name }}:
+If required, configure [other settings](https://hadoop.apache.org/docs/r2.10.0/hadoop-aws/tools/hadoop-aws/index.html) responsible for write mode in {{ objstorage-name }}:
 
-* `fs.s3a.committer.threads`: Number of threads that are committing changes in {{ objstorage-name }} when the job is completed.
+* `fs.s3a.committer.threads`: Number of threads committing changes in {{ objstorage-name }} towards the end of the job.
 * `fs.s3a.connection.maximum`: Number of allowed {{ objstorage-name }} connections.
 * `fs.s3a.connection.timeout`: Maximum {{ objstorage-name }} connection timeout in milliseconds.
-* `fs.s3a.fast.upload.active.blocks`: Maximum number of blocks in a single output stream.
-* `fs.s3a.fast.upload.buffer`: Type of buffer used for the temporary storage of uploaded data:
-   * `disk`: Data is saved to the folder specified in the `fs.s3a.buffer.dir` setting.
-   * `array`: Arrays on the JVM heap are used.
-   * `bytebuffer`: RAM from outside the JVM heap is used.
-* `fs.s3a.max.total.tasks`: Size of queued {{ objstorage-name }} bucket operations that cannot be run due to reaching the thread limit.
-* `fs.s3a.multipart.size`: Size of chunks in bytes that data bucket copy or upload operations will partition the data into.
+* `fs.s3a.fast.upload.active.blocks`: Maximum number of blocks in a single output thread.
+* `fs.s3a.fast.upload.buffer`: Type of buffer used for temporary storage of the upload data:
+    * `disk`: Save data to the folder specified in `fs.s3a.buffer.dir`.
+    * `array`: Use arrays in the JVM heap.
+    * `bytebuffer`: Use RAM from outside the JVM heap.
+* `fs.s3a.max.total.tasks`: Size of queued {{ objstorage-name }} bucket operations that cannot run due to reaching the thread limit.
+* `fs.s3a.multipart.size`: Size of chunks in bytes the data will be broken down into when copying or uploading to a bucket.
 * `fs.s3a.threads.max`: Number of threads in the AWS Transfer Manager.
 
 {% note info %}
@@ -226,15 +226,15 @@ When working with data in Orc format, the following Spark job settings are recom
 * `spark.sql.orc.filterPushdown : true`
 * `spark.sql.orc.splits.include.file.footer : true`
 
-It may take a long time for the jobs creating or updating a large number (hundreds and thousands) of table partitions to update partition records in {{ metastore-full-name }}. To speed up this process, increase the values of the following settings:
+It may take a long time for the jobs creating or updating massive numbers (hundreds and thousands) of table partitions to update partition records in the [{{ metastore-full-name }} cluster](../../metadata-hub/concepts/metastore.md). To speed up this process, increase the following values:
 
-* `hive:datanucleus.connectionPool.maxPoolSize`: Maximum size of the {{ metastore-full-name }} DB connection pool.
-* `hive:hive.metastore.fshandler.threads`: Number of threads running background operations with the file system within {{ metastore-full-name }}.
-* `spark:spark.sql.addPartitionInBatch.size`: Number of partitions updated per {{ metastore-full-name }} call. The optimal value is `10 × <hive:hive.metastore.fshandler.threads_setting_value>` or higher.
+* `hive:datanucleus.connectionPool.maxPoolSize`: Maximum size of the {{ metastore-name }} DB connection pool.
+* `hive:hive.metastore.fshandler.threads`: Number of threads running background operations with the file system within {{ metastore-name }}.
+* `spark:spark.sql.addPartitionInBatch.size`: Number of partitions updated per {{ metastore-name }} call. The optimal value is `10 × <hive:hive.metastore.fshandler.threads_setting_value>` or higher.
 
 {% note info %}
 
-If these parameters are set to too large a value, you might run out of {{ metastore-full-name }} system resources. If the size of the {{ metastore-full-name }} database connection pool is large, you might need to change the settings and increase the amount of your cluster's computing resources.
+If these values are excessively high, you may run out of {{ metastore-name }} system resources. A large {{ metastore-name }} database connection pool may require updating the settings and ramping up the cluster's computing resources.
 
 {% endnote %}
 
@@ -242,7 +242,7 @@ For more information, see the [Apache Spark documentation](https://spark.apache.
 
 ## Using s3fs {#s3fs}
 
-`s3fs` allows you to mount {{ objstorage-name }} buckets using Fuse. Read more about using the utility at [s3fs](../../storage/tools/s3fs.md).
+`s3fs` allows mounting {{ objstorage-name }} buckets using Fuse. Read more about using the utility at [s3fs](../../storage/tools/s3fs.md).
 
 ## Using {{ objstorage-name }} from Spark {#objstorage-spark}
 
@@ -250,64 +250,64 @@ For more information, see the [Apache Spark documentation](https://spark.apache.
 
 - Spark Shell
 
-   Implement the desired access option:
+  Implement the desired access option:
 
-   * Using JCEKS:
+  * Using JCEKS:
 
-      ```scala
-      sc.hadoopConfiguration.set("fs.s3a.endpoint", "{{ s3-storage-host }}");
-      sc.hadoopConfiguration.set("fs.s3a.signing-algorithm", "");
-      sc.hadoopConfiguration.set("fs.s3a.aws.credentials.provider", "org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider");
-      sc.hadoopConfiguration.set("hadoop.security.credential.provider.path", "jceks://hdfs/<path_to_JCEKS_file>");
-      ```
-   * Using your access key and secret:
+    ```scala
+    sc.hadoopConfiguration.set("fs.s3a.endpoint", "{{ s3-storage-host }}");
+    sc.hadoopConfiguration.set("fs.s3a.signing-algorithm", "");
+    sc.hadoopConfiguration.set("fs.s3a.aws.credentials.provider", "org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider");
+    sc.hadoopConfiguration.set("hadoop.security.credential.provider.path", "jceks://hdfs/<path_to_JCEKS_file>");
+    ```
+  * Using your access key and secret:
 
-      ```scala
-      sc.hadoopConfiguration.set("fs.s3a.endpoint", "{{ s3-storage-host }}");
-      sc.hadoopConfiguration.set("fs.s3a.signing-algorithm", "");
-      sc.hadoopConfiguration.set("fs.s3a.aws.credentials.provider", "org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider");
-      sc.hadoopConfiguration.set("fs.s3a.access.key","<access_key>");
-      sc.hadoopConfiguration.set("fs.s3a.secret.key","<bucket_secret>");
-      ```
+    ```scala
+    sc.hadoopConfiguration.set("fs.s3a.endpoint", "{{ s3-storage-host }}");
+    sc.hadoopConfiguration.set("fs.s3a.signing-algorithm", "");
+    sc.hadoopConfiguration.set("fs.s3a.aws.credentials.provider", "org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider");
+    sc.hadoopConfiguration.set("fs.s3a.access.key","<access_key>");
+    sc.hadoopConfiguration.set("fs.s3a.secret.key","<bucket_secret>");
+    ```
 
-   You can then read the file from {{ objstorage-name }}:
+  You can then read the file from {{ objstorage-name }}:
 
-   ```scala
-   val sqlContext = new org.apache.spark.sql.SQLContext(sc)
-   val df = sqlContext.read.parquet("s3a://<bucket_name>/<object_path>")
-   ```
+  ```scala
+  val sqlContext = new org.apache.spark.sql.SQLContext(sc)
+  val df = sqlContext.read.parquet("s3a://<bucket_name>/<object_path>")
+  ```
 
 - PySpark Shell
 
-   Select the access method:
+  Select the access method:
 
-   * Accessing the {{ objstorage-name }} objects using JCEKS:
+  * Accessing the {{ objstorage-name }} objects using JCEKS:
 
-      ```python
-      sc._jsc.hadoopConfiguration().set("fs.s3a.endpoint", "{{ s3-storage-host }}")
-      sc._jsc.hadoopConfiguration().set("fs.s3a.signing-algorithm", "")
-      sc._jsc.hadoopConfiguration().set("fs.s3a.aws.credentials.provider", "org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider")
-      sc._jsc.hadoopConfiguration().set("hadoop.security.credential.provider.path", "jceks://hdfs/<path_to_JCEKS_file>")
-      ```
+    ```python
+    sc._jsc.hadoopConfiguration().set("fs.s3a.endpoint", "{{ s3-storage-host }}")
+    sc._jsc.hadoopConfiguration().set("fs.s3a.signing-algorithm", "")
+    sc._jsc.hadoopConfiguration().set("fs.s3a.aws.credentials.provider", "org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider")
+    sc._jsc.hadoopConfiguration().set("hadoop.security.credential.provider.path", "jceks://hdfs/<path_to_JCEKS_file>")
+    ```
 
-   * Reading a file using an access key and bucket secret:
+  * Reading a file using an access key and bucket secret:
 
-      ```python
-      sc._jsc.hadoopConfiguration().set("fs.s3a.endpoint", "{{ s3-storage-host }}")
-      sc._jsc.hadoopConfiguration().set("fs.s3a.signing-algorithm", "")
-      sc._jsc.hadoopConfiguration().set("fs.s3a.aws.credentials.provider", "org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider")
-      sc._jsc.hadoopConfiguration().set("fs.s3a.access.key","<access_key>")
-      sc._jsc.hadoopConfiguration().set("fs.s3a.secret.key","<bucket_secret>")
-      ```
+    ```python
+    sc._jsc.hadoopConfiguration().set("fs.s3a.endpoint", "{{ s3-storage-host }}")
+    sc._jsc.hadoopConfiguration().set("fs.s3a.signing-algorithm", "")
+    sc._jsc.hadoopConfiguration().set("fs.s3a.aws.credentials.provider", "org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider")
+    sc._jsc.hadoopConfiguration().set("fs.s3a.access.key","<access_key>")
+    sc._jsc.hadoopConfiguration().set("fs.s3a.secret.key","<bucket_secret>")
+    ```
 
-   Once you have access, you can read the file directly from {{ objstorage-name }}:
+  Once you have access, you can read the file directly from {{ objstorage-name }}:
 
-   ```python
-   from pyspark.sql import SQLContext
+  ```python
+  from pyspark.sql import SQLContext
 
-   sql = SQLContext(sc)
-   df = sql.read.parquet("s3a://<bucket_name>/<object_path>")
-   ```
+  sql = SQLContext(sc)
+  df = sql.read.parquet("s3a://<bucket_name>/<object_path>")
+  ```
 
 {% endlist %}
 

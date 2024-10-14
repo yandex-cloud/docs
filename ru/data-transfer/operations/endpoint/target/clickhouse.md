@@ -318,6 +318,7 @@ description: Из статьи вы узнаете, как задать наст
 * [Не переносятся данные](#no-transfer)
 * [Неподдерживаемый диапазон дат](#date-range)
 * [Нехватка ресурсов или растущая задержка передачи данных](#pod-restarted)
+* [Превышение количества блоков данных](#partition-blocks)
 
 См. полный список рекомендаций в разделе [Решение проблем](../../../troubleshooting/index.md).
 
@@ -328,5 +329,7 @@ description: Из статьи вы узнаете, как задать наст
 {% include [date-range](../../../../_includes/data-transfer/troubles/clickhouse/date-range.md) %}
 
 {% include [pod-restarted](../../../../_includes/data-transfer/troubles/clickhouse/pod-restarted.md) %}
+
+{% include [max-partitions](../../../../_includes/data-transfer/troubles/clickhouse/max-partitions.md) %}
 
 {% include [clickhouse-disclaimer](../../../../_includes/clickhouse-disclaimer.md) %}
