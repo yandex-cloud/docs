@@ -81,6 +81,8 @@ items:
             href: concepts/reports/index.md
           - name: Форма оценки
             href: concepts/reports/evaluation-form.md
+          - name: Сравнение
+            href: concepts/reports/comparison.md
           - name: Детализация
             href: concepts/reports/details.md
           - name: Нейропараметры

@@ -18,7 +18,7 @@ The only way data may be lost is if the cluster's only host fails.
 
 #### Can I deploy a {{ MG }} cluster in multiple availability zones? {#multiple-az}
 
-Yes, you can. A database cluster may consist of hosts that reside in different availability zones and even different availability regions.
+Yes. A database cluster may consist of hosts that reside in different availability zones and even different availability regions.
 
 
 #### What is the backup procedure for {{ MG }} clusters? {#backup}
@@ -28,7 +28,7 @@ Backups are created every 24 hours and stored for seven days after being created
 
 #### How does replication work for {{ MG }}? {#replication}
 
-{{ mmg-short-name }} uses {{ MG }} standard replication: if a cluster has multiple active hosts, one of them is automatically elected as the primary server for handling write queries.
+{{ mmg-short-name }} uses the standard {{ MG }} replication mechanism: if a cluster has more than one active host, one of them is automatically selected as the primary server to handle write requests.
 
 For more information about how replication works in {{ MG }}, read the [relevant documentation](https://docs.mongodb.com/manual/replication/).
 
@@ -57,3 +57,7 @@ To grant a user read access to `oplog`, assign them the `mdbReplication` role in
 ```
 
 To avoid deleting user roles that are already assigned, list both the existing and new roles in the command.
+
+#### Can I connect to cluster hosts via SSH or get superuser permissions on hosts? {#connect-ssh}
+
+{% include [connect-via-ssh](../../_includes/mdb/connect-via-ssh.md) %}

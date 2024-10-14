@@ -1,0 +1,1 @@
+**{{ ui-key.yacloud.mdb.forms.additional-field-yandex-query_ru }}** — опция разрешает выполнять YQL-запросы из сервиса [{{ yq-full-name }}](../../../query/concepts/index.md) к управляемой базе данных {{ mgp-name }}.

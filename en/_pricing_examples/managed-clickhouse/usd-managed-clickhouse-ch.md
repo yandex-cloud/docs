@@ -1,6 +1,6 @@
-> 3 × (2&nbsp;×&nbsp;{{ sku|USD|mdb.cluster.clickhouse.v3.cpu.c100|string }} + 8&nbsp;×&nbsp;{{ sku|USD|mdb.cluster.clickhouse.v3.ram|string }}) = {% calc [currency=USD] 3 × (2 × {{ sku|USD|mdb.cluster.clickhouse.v3.cpu.c100|number }} + 8 × {{ sku|USD|mdb.cluster.clickhouse.v3.ram|number }}) %}
+> 3 × (2 × {{ sku|USD|mdb.cluster.clickhouse.v3.cpu.c100|string }} + 8 × {{ sku|USD|mdb.cluster.clickhouse.v3.ram|string }}) = {% calc [currency=USD] 3 × (2 × {{ sku|USD|mdb.cluster.clickhouse.v3.cpu.c100|number }} + 8 × {{ sku|USD|mdb.cluster.clickhouse.v3.ram|number }}) %}
 >
-> Total: {% calc [currency=USD] 3 × (2 × {{ sku|USD|mdb.cluster.clickhouse.v3.cpu.c100|number }} + 8 × {{ sku|USD|mdb.cluster.clickhouse.v3.ram|number }}) %}, per hour cost of {{ CH }} hosts.
+> Total: {% calc [currency=USD] 3 × (2 × {{ sku|USD|mdb.cluster.clickhouse.v3.cpu.c100|number }} + 8 × {{ sku|USD|mdb.cluster.clickhouse.v3.ram|number }}) %}, cost of operation of {{ CH }} hosts per hour.
 
 Where:
 * 3: Number of {{ CH }} hosts.

@@ -63,6 +63,10 @@ keywords:
 
           {% include [storages-step-settings](../../_includes/mdb/settings-storages-no-broadwell.md) %}
 
+      1. (Опционально) В блоке **{{ ui-key.yacloud.mdb.cluster.section_disk-scaling }}** настройте автоматическое увеличение размера диска:
+
+          {% include [console-autoscaling](../../_includes/mdb/mos/console_autoscaling.md) %}
+
       1. Укажите расположение хостов по [зонам доступности](../../overview/concepts/geo-scope.md) и подсетям.
 
       1. Выберите количество создаваемых хостов.

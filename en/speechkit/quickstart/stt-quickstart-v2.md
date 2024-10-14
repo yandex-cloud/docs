@@ -1,13 +1,11 @@
 # How to recognize long audio files in {{ speechkit-name }}
 
-The service can recognize speech [in different ways](../stt/index.md#stt-ways). The example below demonstrates [asynchronous recognition](../stt/transcribation.md) of an audio file. The following limits apply:
+The service can recognize speech [in different ways](../stt/index.md#stt-ways). The provided example demonstrates [asynchronous recognition](../stt/transcribation.md) of an audio file. Asynchronous recognition is available via API v3 and API v2. Asynchronous recognition is subject to these restrictions:
 
 * Maximum audio duration: {{ stt-long-audioLength }}
 * Maximum file size: {{ stt-long-fileSize }}
 
-For asynchronous recognition, two API versions are supported: v3 and v2. Learn how to perform speech recognition using both API versions.
-
-In the example below, the API is used via the [cURL](https://curl.se/) utility. If you want to use the API via a Python script, see [the relevant tutorials](../tutorials/index.md#async-stt).
+In the example, the API is used via the [cURL](https://curl.se/) utility. If you want to use the API via a Python script, see [the relevant tutorials](../tutorials/index.md#async-stt).
 
 ## Getting started {#before-you-begin}
 
@@ -21,7 +19,7 @@ In the example below, the API is used via the [cURL](https://curl.se/) utility. 
    {% endnote %}
 
 1. [Assign](../../iam/operations/sa/assign-role-for-sa.md) to the service account the `storage.uploader` and `ai.speechkit-stt.user` roles for the folder you had created the bucket in.
-1. [Get an API key](../../iam/operations/api-key/create.md) for the service account you created.
+1. [Get an API key](../../iam/operations/api-key/create.md) or [IAM token](../../iam/operations/iam-token/create-for-sa.md) for your service account.
 1. Download a sample audio file:
 
    * For API v3: a WAV file.
@@ -29,7 +27,17 @@ In the example below, the API is used via the [cURL](https://curl.se/) utility. 
 
 ## Speech recognition {#speech-recognition}
 
-{% include [async-recognition](../../_includes/speechkit/async-recognition.md) %}
+{% list tabs %}
+
+- API v3
+
+  {% include [async-recognition](../../_includes/speechkit/async-recognition-v3.md) %}
+
+- API v2
+
+  {% include [async-recognition](../../_includes/speechkit/async-recognition.md) %}
+
+{% endlist %}
 
 #### See also {#what-is-next}
 

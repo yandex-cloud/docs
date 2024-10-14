@@ -1,5 +1,5 @@
 ---
-title: Tutorials for {{ dataproc-full-name }}
+title: '{{ dataproc-full-name }} tutorials'
 description: Various {{ dataproc-full-name }} use cases in {{ yandex-cloud }}.
 ---
 
@@ -31,14 +31,11 @@ description: Various {{ dataproc-full-name }} use cases in {{ yandex-cloud }}.
 * [{#T}](./copy-files-from-object-storage.md)
 * [{#T}](./s3-dataproc-ch.md)
 * [{#T}](./geesefs-init-actions.md)
+* [{#T}](./dataproc-to-dataproc.md)
+* [{#T}](./metastore-import.md)
 * [{#T}](./exchange-data-with-mch.md)
 * [{#T}](./sqoop-mmy.md)
 * [{#T}](./sqoop-mpg.md)
 * [{#T}](./datasphere-integration.md)
 * [{#T}](./kafka.md)
 * [{#T}](./airflow-automation.md)
-
-## Working with {{ metastore-name }} {#metastore}
-
-* [{#T}](./dataproc-to-dataproc.md)
-* [{#T}](./metastore-import.md)

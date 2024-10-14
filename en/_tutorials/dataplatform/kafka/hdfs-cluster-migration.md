@@ -58,10 +58,10 @@ To create a {{ dataproc-name }} cluster in a different availability zone with th
    1. Place the file in the new `imported-cluster` directory.
    1. Modify the copied configuration so that you can create a new cluster from it:
 
-      * Specify a new cluster name in the `resource` string and the `name` parameter.
+      * Specify the new cluster name in the `resource` string and the `name` parameter.
       * Delete the `created_at`, `host_group_ids`, `id`, and `subcluster_spec.id` parameters.
       * Change the availability zone in the `zone_id` parameter.
-      * Specify the ID of the new subnet created in the required availability zone in the `subnet_id` parameters in the `subcluster_spec` sections.
+      * In the `subnet_id` parameters of the `subcluster_spec` sections, specify the ID of the new subnet created in the required availability zone.
       * Change the SSH key format in the `ssh_public_keys` parameter. Source format:
 
          ```hcl
@@ -80,7 +80,7 @@ To create a {{ dataproc-name }} cluster in a different availability zone with th
          ]
          ```
 
-   1. In the `imported-cluster` directory, [get the authentication data](../../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials).
+   1. [Get the authentication credentials](../../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) in the `imported-cluster` directory.
    1. In the same directory, [configure and initialize a provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). There is no need to create a provider configuration file manually, you can [download it](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
    1. Place the configuration file in the `imported-cluster` directory and [specify the parameter values](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). If you did not add the authentication credentials to environment variables, specify them in the configuration file.
    1. Make sure the {{ TF }} configuration files are correct using this command:
@@ -133,7 +133,7 @@ To create a {{ dataproc-name }} cluster in a different availability zone with th
    In the example below, only the `/user/foo` and `/user/test` test directories are copied for demonstration purposes.
 
 1. Connect via SSH to the master host of the new cluster.
-1. Create the `srclist` file:
+1. Create a file named `srclist`:
 
    ```bash
    nano srclist
@@ -148,7 +148,7 @@ To create a {{ dataproc-name }} cluster in a different availability zone with th
 
    In the command, specify the FQDN of the master host of the initial cluster. For information on how to obtain an FQDN, read the [tutorial](../../../data-proc/operations/connect.md#fqdn).
 
-1. Place the `srclist` file into the `/user` HDFS directory:
+1. Put the `srclist` file into the `/user` HDFS directory:
 
    ```bash
    hdfs dfs -put srclist /user

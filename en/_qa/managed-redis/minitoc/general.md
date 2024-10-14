@@ -10,7 +10,7 @@
 
 * [How many database hosts can a cluster contain?](#how-many-hosts)
 
-* [How can I access a running database host?](#db-access)
+* [How can I access a running DB host?](#db-access)
 
 * [How many clusters can I create within a single cloud?](#db-limit)
 
@@ -30,7 +30,7 @@
 
 * [Is database host backup enabled by default?](#default-backup)
 
-* [When are backups performed? Is a database cluster available during backup?](#backup-window)
+* [When are backups performed? Is a database cluster available during a backup?](#backup-window)
 
 * [What metrics and processes can be tracked using monitoring?](#monitoring)
 
@@ -39,3 +39,5 @@
 * [How do I get the logs of my actions in the services?](#logs)
 
 * [Why is the cluster slow even though the computing resources are not used fully?](#throttling)
+
+* [Can I connect to cluster hosts via SSH or get superuser permissions on hosts?](#connect-ssh)

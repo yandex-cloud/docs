@@ -723,7 +723,7 @@ description: Следуя данной инструкции, вы сможете
 
       host {
         zone       = "{{ region-id }}-d"
-        subnet_id  = yandex_vpc.subnet.subnet-d.id
+        subnet_id  = yandex_vpc_subnet.subnet-d.id
         shard_name = "shard3"
       }
     }

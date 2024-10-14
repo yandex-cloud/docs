@@ -3,15 +3,15 @@
 
 {% include notitle [preview](../../_includes/note-preview.md) %}
 
-{{ metadata-hub-full-name }} allows you to manage connections in {{ yandex-cloud }}. You can:
+{{ metadata-hub-full-name }} allows you to manage data in {{ yandex-cloud }}. You can:
 
-* Create database connections and manage their settings.
-* Receive and store data exchange schemas and see their evolution.
-* Receive and visualize metadata on data storages and their connections.
+* Create database connections and manage their parameters.
+* Collect and store data exchange schemas and follow their evolution.
+* Collect and visualize meta information about data storages and links between them.
 
-Begin working with {{ metadata-hub-name }} tools:
+Get started with {{ metadata-hub-name }} tools:
 
-* [{{ connection-manager-full-name }}](connection-manager.md). It allows you to manage connections to your databases. See more on {{ connection-manager-name }} functionalities in [Concepts](../concepts/connection-manager.md).
+* [{{ connection-manager-full-name }}](connection-manager.md). Use it to manage database connection parameters. For more information on {{ connection-manager-name }} features, see [Concepts](../concepts/connection-manager.md).
 
-* [{{ metastore-full-name }}](metastore.md). It allows you to manage data in applications that support integration with {{ metastore-name }}. See more on {{ metastore-name }} clusters in [Concepts](../concepts/metastore.md).
+* [{{ metastore-full-name }}](metastore.md). Use it to manage data in applications supporting integration with {{ metastore-name }}. For more information about {{ metastore-name }} clusters, see [Concepts](../concepts/metastore.md).
 

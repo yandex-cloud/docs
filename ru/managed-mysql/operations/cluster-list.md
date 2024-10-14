@@ -38,9 +38,56 @@ description: Вы можете запросить детальную инфор�
   +----------------------+--------------+---------------------+--------+---------+
   ```
 
-- API {#api}
+- REST API {#api}
 
-  Чтобы получить список кластеров БД в каталоге, воспользуйтесь методом REST API [list](../api-ref/Cluster/list.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/List](../api-ref/grpc/cluster_service.md#List) и передайте в запросе идентификатор каталога в параметре `folderId`.
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. Воспользуйтесь методом [Cluster.list](../api-ref/Cluster/list.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+      ```bash
+      curl \
+          --request GET \
+          --header "Authorization: Bearer $IAM_TOKEN" \
+          --url 'https://{{ api-host-mdb }}/managed-mysql/v1/clusters' \
+          --url-query folderId=<идентификатор_каталога>
+      ```
+
+
+      Идентификатор каталога можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md).
+
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/list.md#responses).
+
+- gRPC API {#grpc-api}
+
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Воспользуйтесь вызовом [ClusterService/List](../api-ref/grpc/cluster_service.md#List) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+      ```bash
+      grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/mdb/mysql/v1/cluster_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d '{
+                "folder_id": "<идентификатор_каталога>"
+              }' \
+          {{ api-host-mdb }}:{{ port-https }} \
+          yandex.cloud.mdb.mysql.v1.ClusterService.List
+      ```
+
+
+      Идентификатор каталога можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md).
+
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/cluster_service.md#ListClustersResponse).
 
 {% endlist %}
 
@@ -67,11 +114,51 @@ description: Вы можете запросить детальную инфор�
 
   Идентификатор и имя кластера можно запросить со [списком кластеров в каталоге](#list-clusters).
 
-- API {#api}
+- REST API {#api}
 
-  Чтобы получить детальную информацию о кластере, воспользуйтесь методом REST API [get](../api-ref/Cluster/get.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Get](../api-ref/grpc/cluster_service.md#Get) и передайте в запросе идентификатор кластера.
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-  {% include [Получение идентификатора кластера](../../_includes/mdb/mmy/note-api-get-cluster-id.md) %}
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. Воспользуйтесь методом [Cluster.get](../api-ref/Cluster/get.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+      ```bash
+      curl \
+          --request GET \
+          --header "Authorization: Bearer $IAM_TOKEN" \
+          --url 'https://{{ api-host-mdb }}/managed-mysql/v1/clusters/<идентификатор_кластера>'
+      ```
+
+      Идентификатор кластера можно запросить со [списком кластеров в каталоге](#list-clusters).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/get.md#responses).
+
+- gRPC API {#grpc-api}
+
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Воспользуйтесь вызовом [ClusterService/Get](../api-ref/grpc/cluster_service.md#Get) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+      ```bash
+      grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/mdb/mysql/v1/cluster_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d '{
+                "cluster_id": "<идентификатор_кластера>"
+              }' \
+          {{ api-host-mdb }}:{{ port-https }} \
+          yandex.cloud.mdb.mysql.v1.ClusterService.Get
+      ```
+
+      Идентификатор кластера можно запросить со [списком кластеров в каталоге](#list-clusters).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/cluster_service.md#Cluster).
 
 {% endlist %}
 
@@ -144,11 +231,51 @@ description: Вы можете запросить детальную инфор�
   ...
   ```
 
-- API {#api}
+- REST API {#api}
 
-  Воспользуйтесь методом REST API [listOperations](../api-ref/Cluster/listOperations.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/ListOperations](../api-ref/grpc/cluster_service.md#ListOperations) и передайте в запросе идентификатор кластера.
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-  {% include [Получение идентификатора кластера](../../_includes/mdb/mmy/note-api-get-cluster-id.md) %}
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. Воспользуйтесь методом [Cluster.listOperations](../api-ref/Cluster/listOperations.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+      ```bash
+      curl \
+          --request GET \
+          --header "Authorization: Bearer $IAM_TOKEN" \
+          --url 'https://{{ api-host-mdb }}/managed-mysql/v1/clusters/<идентификатор_кластера>/operations'
+      ```
+
+      Идентификатор кластера можно запросить со [списком кластеров в каталоге](#list-clusters).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/listOperations.md#responses).
+
+- gRPC API {#grpc-api}
+
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Воспользуйтесь вызовом [ClusterService/ListOperations](../api-ref/grpc/cluster_service.md#ListOperations) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+      ```bash
+      grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/mdb/mysql/v1/cluster_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d '{
+                "cluster_id": "<идентификатор_кластера>"
+              }' \
+          {{ api-host-mdb }}:{{ port-https }} \
+          yandex.cloud.mdb.mysql.v1.ClusterService.ListOperations
+      ```
+
+      Идентификатор кластера можно запросить со [списком кластеров в каталоге](#list-clusters).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/cluster_service.md#ListClusterOperationsResponse).
 
 {% endlist %}
 
@@ -158,43 +285,81 @@ description: Вы можете запросить детальную инфор�
 1. Скопируйте идентификатор нужной операции.
 1. Получите подробную информацию об операции:
 
-   {% list tabs group=instructions %}
+    {% list tabs group=instructions %}
 
-   - CLI {#cli}
+    - CLI {#cli}
 
-     {% include [cli-install](../../_includes/cli-install.md) %}
+      {% include [cli-install](../../_includes/cli-install.md) %}
 
-     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+      {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-     Выполните команду:
+      Выполните команду:
 
-     ```bash
-     yc operation get <идентификатор_операции>
-     ```
+      ```bash
+      yc operation get <идентификатор_операции>
+      ```
 
-     Результат:
+      Результат:
 
-     ```text
-     id: c9ql6o8jm80n********
-     description: Create MySQL cluster
-     created_at: "2024-08-06T05:47:26.423618Z"
-     created_by: ajej2i98kcjd********
-     modified_at: "2024-08-06T05:58:36.571719Z"
-     done: true
-     metadata:
-       '@type': type.googleapis.com/yandex.cloud.mdb.mysql.v1.CreateClusterMetadata
-       cluster_id: c9qnfo2eh7js********
-     response:
-       '@type': type.googleapis.com/yandex.cloud.mdb.mysql.v1.Cluster
-     ...
-     ```
+      ```text
+      id: c9ql6o8jm80n********
+      description: Create MySQL cluster
+      created_at: "2024-08-06T05:47:26.423618Z"
+      created_by: ajej2i98kcjd********
+      modified_at: "2024-08-06T05:58:36.571719Z"
+      done: true
+      metadata:
+        '@type': type.googleapis.com/yandex.cloud.mdb.mysql.v1.CreateClusterMetadata
+        cluster_id: c9qnfo2eh7js********
+      response:
+        '@type': type.googleapis.com/yandex.cloud.mdb.mysql.v1.Cluster
+      ...
+      ```
 
-   - API {#api}
+    - REST API {#api}
 
-     Воспользуйтесь методом REST API [get](../api-ref/Cluster/get.md) для ресурса [Operation](../api-ref/Operation/index.md) или вызовом gRPC API [OperationService/Get](../api-ref/grpc/operation_service.md#Get) и передайте в запросе идентификатор операции.
+      1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-   {% endlist %}
+          {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-### См. также {#see-also}
+      1. Воспользуйтесь методом [Operation.get](../api-ref/Operation/get.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+          ```bash
+          curl \
+              --request GET \
+              --header "Authorization: Bearer $IAM_TOKEN" \
+              --url 'https://{{ api-host-operation }}/operations/<идентификатор_операции>'
+          ```
+
+      1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Operation/get.md#responses).
+
+    - gRPC API {#grpc-api}
+
+      1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+      1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+      1. Воспользуйтесь вызовом [OperationService/Get](../api-ref/grpc/operation_service.md#Get) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+          ```bash
+          grpcurl \
+              -format json \
+              -import-path ~/cloudapi/ \
+              -import-path ~/cloudapi/third_party/googleapis/ \
+              -proto ~/cloudapi/yandex/cloud/operation/operation_service.proto \
+              -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+              -d '{
+                    "operation_id": "<идентификатор_операции>"
+                  }' \
+              {{ api-host-operation }}:{{ port-https }} \
+              yandex.cloud.operation.OperationService.Get
+          ```
+
+      1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/operation_service.md#Operation).
+
+    {% endlist %}
+
+#### См. также {#see-also}
 
 * [{#T}](../../api-design-guide/concepts/about-async.md)

@@ -130,7 +130,7 @@
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Чтобы включить сбор статистики при **создании кластера**:
+  1. Чтобы включить сбор статистики при создании кластера:
 
      1. Воспользуйтесь методом [ClusterService/Create](../api-ref/grpc/cluster_service.md#Create) и добавьте параметр `config_spec.performance_diagnostics` в [команду grpcurl по созданию кластера](cluster-create.md#grpc-api):
 
@@ -164,7 +164,7 @@
 
      1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/cluster_service.md#Operation).
 
-  1. Чтобы включить сбор статистики при **изменении существующего кластера**:
+  1. Чтобы включить сбор статистики при изменении существующего кластера:
 
      1. Воспользуйтесь вызовом [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 

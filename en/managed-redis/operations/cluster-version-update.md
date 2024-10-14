@@ -1,15 +1,15 @@
-# Upgrading the {{ RD }} version
+# {{ RD }} version upgrade
 
 You can upgrade a {{ mrd-name }} cluster to any supported version.
 
-You can only upgrade to a version that immediately follows the current one, such as version 6.2 to 7.0. Upgrades to higher versions are performed in steps. For example, upgrading the {{ RD }} version from 6.0 to 7.0 is performed in the following sequence: 6.0 → 6.2 → 7.0.
+You can only upgrade to a version that immediately follows the current one, e.g., from version 7.0 to 7.2. Upgrades to higher versions are performed in steps. For example, upgrading {{ RD }} from version 6.2 to 7.2 is performed in the following sequence: 6.2 → 7.0 → 7.2.
 
 ## Supported versions {#version-supported}
 
 All {{ RD }} versions, which were supported in {{ mrd-name }}, will remain available as long as the vendor continues to support them. Normally, this is for 24 months after a version is released. For more information, see the [{{ RD }} documentation](https://docs.redis.com/latest/rs/release-notes/).
 
 
-As of June 1, 2022, {{ RD }} versions 5.0 and 6.0 are discontinued. You cannot create a cluster with these versions. The version of existing clusters was automatically upgraded to 6.2.
+As of September 9, 2024, {{ RD }} versions 6.2 and 7.0 are discontinued. You cannot create a cluster with these versions. All existing clusters will be automatically upgraded to version 7.2.
 
 
 ### Viewing a list of available {{ RD }} versions {#version-list}

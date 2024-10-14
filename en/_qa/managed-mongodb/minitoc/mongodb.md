@@ -13,3 +13,5 @@
 * [Why is the cluster slow even though the computing resources are not used fully?](#throttling)
 
 * [How do I get access to the local.oplog.rs service collection?](#oplog-permission)
+
+* [Can I connect to cluster hosts via SSH or get superuser permissions on hosts?](#connect-ssh)

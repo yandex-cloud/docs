@@ -1,6 +1,6 @@
 #### How are {{ OS }} clusters maintained? {#service-window}
 
-Maintenance in {{ mos-short-name }} implies:
+In {{ mos-short-name }}, maintenance implies:
 
 * Automatic installation of {{ OS }} updates and fixes for your database hosts.
 * Changes to the host class and storage size.
@@ -47,3 +47,7 @@ Thresholds are set in bytes only. For example, the recommended values for a 100Â
 {% include [throttling](../throttling.md) %}
 
 To increase the maximum IOPS and bandwidth values and make throttling less likely, increase the storage size or switch to a faster disk type by [restoring the cluster](../../managed-opensearch/operations/cluster-backups.md#restore) from a backup.
+
+#### Can I connect to cluster hosts via SSH or get superuser permissions on hosts? {#connect-ssh}
+
+{% include [connect-via-ssh](../../_includes/mdb/connect-via-ssh.md) %}

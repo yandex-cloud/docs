@@ -40,3 +40,7 @@ Thresholds are set in bytes only. For example, the recommended values for a 100Â
 {% include [throttling](../throttling.md) %}
 
 To increase the maximum IOPS and bandwidth values and make throttling less likely, [increase the storage size](../../managed-kafka/operations/storage-space.md#change-disk-size).
+
+#### Can I connect to cluster hosts via SSH or get superuser permissions on hosts? {#connect-ssh}
+
+{% include [connect-via-ssh](../../_includes/mdb/connect-via-ssh.md) %}

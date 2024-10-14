@@ -5,11 +5,11 @@ description: Access management in the service for creation and management of Apa
 
 # Access management in {{ dataproc-name }}
 
-{{ yandex-cloud }} users can only perform operations on resources that are allowed by the roles assigned to them. If a user does not have any roles assigned, almost all operations are forbidden.
+{{ yandex-cloud }} users can only perform operations on resources that are allowed by the roles assigned to them. As long as a user has no roles assigned, almost all operations are forbidden.
 
 To enable access to {{ dataproc-name }} resources (clusters and subclusters), assign the required roles from the list below to a Yandex account, [service account](../../iam/concepts/users/service-accounts.md), [federated users](../../iam/concepts/federations.md), [user group](../../organization/operations/manage-groups.md), [system group](../../iam/concepts/access-control/system-group.md), or [public group](../../iam/concepts/access-control/public-group.md). Currently, a role can only be assigned for a parent resource (folder or cloud). Roles are inherited by nested resources.
 
-Roles for a resource can be assigned by users who have the `mdb.admin`, `dataproc.admin`, or one of the following roles for that resource:
+Roles for a resource can be assigned by users who have the `mdb.admin` role or one of the following roles for that resource:
 
 {% include [roles-list](../../_includes/iam/roles-list.md) %}
 

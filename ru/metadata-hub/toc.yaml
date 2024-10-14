@@ -74,6 +74,8 @@ items:
           Перенос метаданных между кластерами {{ dataproc-name }} с помощью {{
           metastore-name }}
         href: tutorials/metastore-import.md
+      - name: Передача логов {{ metastore-name }} в {{ cloud-logging-name }}
+        href: tutorials/metastore-logging.md
   - name: Концепции
     items:
       - name: О сервисе {{ metadata-hub-full-name }}

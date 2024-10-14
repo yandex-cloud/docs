@@ -13,7 +13,7 @@ For more information about {{ yandex-cloud }} pricing as well as pricing rules f
 ## Fees for individual services {#billable}
 
 
-Billable service costs are calculated based on the resources consumed and time used. Each service implements its own consumed resources calculation logic.
+Billable service costs are calculated based on the amount of consumed resources and the time for which they are used. Each service has its own calculation logic for consumed resources.
 
 * [{{ api-gw-full-name }}](../api-gateway/pricing.md)
 * [{{ alb-full-name }}](../application-load-balancer/pricing.md)
@@ -36,6 +36,7 @@ Billable service costs are calculated based on the resources consumed and time u
 * [{{ kms-full-name }}](../kms/pricing.md)
 * [{{ load-testing-full-name }}](../load-testing/pricing.md)
 * [{{ lockbox-name }}](../lockbox/pricing.md)
+* [{{ maf-full-name }}](../managed-airflow/pricing.md)
 * [{{ mkf-full-name }}](../managed-kafka/pricing.md)
 * [{{ mch-full-name }}](../managed-clickhouse/pricing.md)
 * [{{ mgl-full-name }}](../managed-gitlab/pricing.md)
@@ -75,11 +76,10 @@ The following services are always free of charge:
 * {{ preview-stage }} [{{ ca-full-name }}](../code-assistant/pricing.md)
 * [{{ forms-full-name }}](../forms/pricing.md)
 * [{{ iam-full-name }}](../iam/pricing.md)
-* {{ preview-stage }} [{{ maf-full-name }}](../managed-airflow/pricing.md)
 * {{ preview-stage }} [{{ metadata-hub-full-name }}](../metadata-hub/pricing.md)
 * {{ preview-stage }} [{{ postbox-name }}](../postbox/pricing.md)
 * [{{ resmgr-full-name }}](../resource-manager/pricing.md)
 * [{{ websql-full-name }}](../websql/pricing.md)
 * [{{ wiki-full-name }}](../wiki/pricing.md)
 
- Services at the [Preview](../overview/concepts/launch-stages.md) stage are labeled {{ preview-stage }}.
+ Services at the [Preview](../overview/concepts/launch-stages.md) stage are labeled as {{ preview-stage }}.

@@ -35,6 +35,8 @@ items:
             href: operations/connect/non-sharded.md
           - name: Connecting to a sharded cluster
             href: operations/connect/sharded.md
+          - name: Queries to {{ websql-full-name }}
+            href: operations/web-sql-query.md
       - name: Sharding and fault-tolerance
         items:
           - name: Managing shards
@@ -67,7 +69,7 @@ items:
             items:
               - name: Before June 20, 2023
                 href: concepts/instance-types-archive/instance-types-20062023.md
-      - name: Network in {{ mrd-name }}
+      - name: Networking in {{ mrd-name }}
         href: concepts/network.md
       - name: Sharding
         href: concepts/sharding.md

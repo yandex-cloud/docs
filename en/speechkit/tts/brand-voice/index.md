@@ -6,8 +6,8 @@ The {{ brand-voice-name }} technology allows you to create unique voices for you
 | | [{{ brand-voice-premium }}](#premium) | [{{ brand-voice-core }}](#ss) | [{{ brand-voice-cc }}](#cc) |
 |---|---|---|---|
 | Voice | Voice based on artist recordings | Voice based on artist recordings | Voice copy from the pattern |
-| Usage | Full-text synthesis. Pattern-based synthesis. | Full-text synthesis. Pattern-based synthesis. | Pattern-based synthesis. The variable part should not exceed 25% of the pattern. |
-| Emotions and roles | Coping emotions in pattern-based synthesis. </br>Developing additional [roles](../index.md#role). | Coping emotions in pattern-based synthesis. | Coping emotions in pattern-based synthesis. |
+| Usage | Full-text synthesis. Pattern-based synthesis. | Full-text synthesis. Pattern-based synthesis. | Pattern-based synthesis. The variable part should not exceed 25% of the pattern. The same restriction applies to the duration of the variable part relative to the duration of the final audio. |
+| Emotions and roles | Copying emotions in pattern-based synthesis. </br>Developing additional [roles](../index.md#role). | Copying emotions in pattern-based synthesis.  | Copying emotions in pattern-based synthesis.   |
 | Sampling frequency in source audio recordings | 48 kHz | 48 kHz | {{ tts-cc-quality }} or higher. |
 | Sampling frequency in synthesized audio recordings | 22 kHz | 22 kHz | {{ tts-cc-quality }} |
 
@@ -56,21 +56,21 @@ With {{ brand-voice-cc }}, you do not have to train a special model based on you
 
 You can use {{ brand-voice-cc-name }} to automate your standard dialogs.
 
-> For example, if you have an audio with the phrase `Hi Michael, I am calling from Thunderclouds. My name is Anastasia. Is it a good time to talk?` you can transform it to `Hi Ann, I am calling from New Doors. My name is Matt. Is it a good time to talk?` without having to record any additional phrases.
+> For example, if you have an audio with the phrase `Hi Michael, I am calling from Thunderclouds. My name is Anastasia. Is it a good time to talk?`, you can transform it to `Hi Ann, I am calling from New Doors. My name is Matt. Is it a good time to talk?` without having to record any additional phrases.
 
-### {{ brand-voice-cc-name }} requirements and restrictions {#restrictions-cc}
+### Requirements and restrictions {{ brand-voice-cc-name }} {#restrictions-cc}
 
 For speech synthesis, you need an audio file with your phrase pattern and a text with marked up variables. To learn more about text requirements, see [{#T}](../templates.md#requirements-text).
 
 The sampling frequency in the synthesized audio recording is {{ tts-cc-quality }}. This is enough for phone calls. However, in other scenarios, you might hear some noises and flaws of synthesis.
 
-{{ brand-voice-cc-name }} is designed for phone calls. The texts for synthesis should be short enough. The duration of a synthesized phrase cannot not be more than {{ tts-v3-time }}, while its length, including the variable part, cannot exceed {{ tts-v3-count }}. The variable part of a synthesized phrase cannot exceed 25% of its length.
+{{ brand-voice-cc-name }} is designed for phone calls. The texts for synthesis should be short enough. The duration of a synthesized phrase cannot not be more than {{ tts-v3-time }}, while its length, including the variable part, cannot exceed {{ tts-v3-count }}. The variable part of a normalized text in a phrase cannot be longer than 25% of the phrase. The same restriction applies to the duration of the variable part relative to the duration of the final audio.
 
-{{ brand-voice-cc-name }} logs your transmitted patterns (both text and audio). However, the synthesized audio recordings and variable parts, including your sensitive data, are not logged. To improve the quality of a model running on your data, you can enable variable logging through the `x-data-logging-enabled: true` [header](../../concepts/support-headers#request-headers).
+{{ brand-voice-cc-name }} logs your transmitted patterns (both text and audio). However, the synthesized audio recordings and variable parts, including your sensitive data, are not logged. To improve the model's performance with your data, you can enable variable logging through the `x-data-logging-enabled: true` [header](../../concepts/support-headers#request-headers).
 
 {% note info %}
 
-It may be useful to log data if synthesis errors occur. If you do not want to log all data, only include the logging header in requests with issues after clearing the variable part of personal data as much as possible.
+Data logging may prove useful if synthesis errors occur. If you do not want to log all data, only include the logging header in requests with issues after clearing the variable part of personal data as much as possible.
 
 {% endnote %}
 
