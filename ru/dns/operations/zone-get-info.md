@@ -71,7 +71,7 @@ title: Как получить информацию о зоне DNS в {{ dns-fu
      * `output "zone"` — выходная переменная, которая содержит информацию о типе зоне DNS:
        * `value` — возвращаемое значение.
 
-     Вместо `public` вы можете выбрать любой другой параметр для получения информации. Более подробно о параметрах источника данных `yandex_dns_zone` см. в [документации провайдера]({{ tf-provider-datasources-link }}/datasource_dns_zone).
+     Вместо `public` вы можете выбрать любой другой параметр для получения информации. Более подробно о параметрах источника данных `yandex_dns_zone` см. в [документации провайдера]({{ tf-provider-datasources-link }}/dns_zone).
   1. Создайте ресурсы:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

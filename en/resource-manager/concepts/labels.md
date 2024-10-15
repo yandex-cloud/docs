@@ -9,11 +9,11 @@ Labels are subject to the following limitations:
 
 * Maximum number of labels per resource: 64.
 * The key:
-   * From 1 to 63 characters long.
+   * Must be from 1 to 63 characters long.
    * May contain lowercase Latin letters, numbers, hyphens, and underscores.
    * Use a letter for the first character.
 * The value:
-   * Up to 63 characters long.
+   * May be up to 63 characters long.
    * May contain lowercase Latin letters, numbers, hyphens, and underscores.
 
 ## Label usage examples {#examples}

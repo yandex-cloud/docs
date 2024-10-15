@@ -31,22 +31,23 @@ Home appliances |	Health and beauty equipment |	Pickup |	2 387 410 |	550 |	581
 
 To simplify the comparison of different values and make the information easier to comprehend, you can use advanced settings when [creating a table](#create-diagram):
 
-* [Renaming table columns](#change-columns-names).
-* [Setting up table data sorting by multiple columns](#sorting-columns).
-* [Setting up the width of table columns](#set-column-width).
-* [Freezing table columns](#column-fixation)
-* [Adding a row with totals](#add-totals).
-* [Adding row color](#add-column-colour).
-* [Setting up a field fill color](#set-field-colour).
-* [Adding a linear indicator to a column with a measure](#add-linear-indicator).
+* [{#T}](#change-columns-names)
+* [{#T}](#hint-column)
+* [{#T}](#sorting-columns)
+* [{#T}](#set-column-width)
+* [{#T}](#column-fixation)
+* [{#T}](#add-totals)
+* [{#T}](#add-column-color)
+* [{#T}](#set-field-color)
+* [{#T}](#add-linear-indicator)
 
 ## Wizard sections {#wizard-sections}
 
-Section<br/> in the wizard| Description
+Wizard<br/> section| Description
 ----- | ----
 Columns | Dimensions and measures to be used as columns. The field name appears in the column header. You can use [markup functions](../function-ref/markup-functions.md) in columns.
 Colors | Measure. Affects shading of all cells within a row. It may only contain one measure.
-Sorting | Dimensions and measures specified in the **Columns** section.<br/>Multiple dimensions and measures can be used.<br/>The order of fields in the section affects the sorting order of the table fields. The sorting direction is marked with an icon next to the field: ![image](../../_assets/console-icons/bars-ascending-align-left.svg) for ascending or ![image](../../_assets/console-icons/bars-descending-align-left.svg) for descending. To change the sorting direction, click the icon.
+Sorting | Dimensions and measures specified in the **Columns** section.<br/>You can use multiple dimensions and measures.<br/>The order of fields in the section affects the sorting order of the table fields. The sorting direction is marked with an icon next to the field: ![image](../../_assets/console-icons/bars-ascending-align-left.svg) for ascending or ![image](../../_assets/console-icons/bars-descending-align-left.svg) for descending. To change the sorting direction, click the icon.
 Filters | Dimension or measure. Used as a filter.
 
 ## Creating a table {#create-diagram}
@@ -73,7 +74,7 @@ To create a table:
 
 ## Additional settings {#additional-settings}
 
-### Renaming table columns {#change-columns-names}
+### Renaming columns {#change-columns-names}
 
 1. Under **Columns**, click the icon to the left of the dimension or measure name.
 1. In the window that opens, change the **Name** field value and click **Apply**.
@@ -94,7 +95,7 @@ When the option is enabled, the ![image](../../_assets/console-icons/circle-ques
 ### Setting the width of table columns {#set-column-width}
 
 1. In the top-right corner of the **Columns** section, click ![image](../../_assets/console-icons/gear.svg) (the icon is displayed when you hover over the section).
-1. In the window that opens, set the width for each column:
+1. Under **Width**, select the values for columns and rows:
 
    * `Auto`: Automatic column width.
    * `%`: Column width as a percentage of the table's total width.
@@ -127,7 +128,7 @@ To set the width of any column to `Auto`, click **Reset**.
 ### Adding a row with totals {#add-totals}
 
 1. On the left side of the screen above the chart, click ![image](../../_assets/console-icons/gear.svg).
-1. Enable the **Totals** settings.
+1. Enable the **Results** option and click **Apply**.
 
 The **Total** row is displayed in the table. Values in the row are calculated using the same formulas as [aggregation](../dataset/data-model.md#aggregation) in the measure.
 
@@ -137,7 +138,7 @@ Values in the **Total** row are calculated only for measures. For dimensions, th
 
 {% endnote %}
 
-### Adding row color {#add-column-colour}
+### Adding row color {#add-column-color}
 
 1. Drag a measure to the **Color** section.
 1. In the top-right corner of the **Colors** section, click ![image](../../_assets/console-icons/gear.svg) (the icon is displayed when you hover over the section).
@@ -148,7 +149,7 @@ Values in the **Total** row are calculated only for measures. For dimensions, th
       * Gradient direction: Change the gradient direction using the ![image](../../_assets/console-icons/arrow-right-arrow-left.svg) icon.
     * **Set threshold values**: Set numeric thresholds for each color.
 
-### Setting the field fill color {#set-field-colour}
+### Setting the field fill color {#set-field-color}
 
 1. Under **Columns**, click the icon to the left of the dimension or measure name.
 1. In the window that opens, enable **Column fill color**.
@@ -215,7 +216,7 @@ Values in the **Total** row are calculated only for measures. For dimensions, th
 
 ## Recommendations {#recomendations}
 
-* Limit the size of your tables or use filters/sorting. Tables with too many rows or columns are hard to read.
+* Limit the size of your table or use filters and sorting. Tables with too many rows or columns are hard to read.
 * Use tables for their intended purpose only. Do not replace all data visualization types with them.
 * Place dimensions on the left and measures on the right. This makes the data easier to comprehend.
 * Make sure column names you use are short and readable.

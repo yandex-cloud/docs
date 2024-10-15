@@ -27,5 +27,5 @@ description: На этой странице приведен справочни�
 
 | **Источник данных {{ TF }}** | **Описание** |
 | --- | --- |
-| [yandex_resourcemanager_cloud]({{ tf-provider-datasources-link }}/datasource_resourcemanager_cloud) | Информация об [облаке](./concepts/resources-hierarchy.md#cloud) |
-| [yandex_resourcemanager_folder]({{ tf-provider-datasources-link }}/datasource_resourcemanager_folder) | Информация о [каталоге](./concepts/resources-hierarchy.md#folder) |
+| [yandex_resourcemanager_cloud]({{ tf-provider-datasources-link }}/resourcemanager_cloud) | Информация об [облаке](./concepts/resources-hierarchy.md#cloud) |
+| [yandex_resourcemanager_folder]({{ tf-provider-datasources-link }}/resourcemanager_folder) | Информация о [каталоге](./concepts/resources-hierarchy.md#folder) |

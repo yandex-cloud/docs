@@ -8,3 +8,4 @@ description: Из статьи вы узнаете, какие рекоменд�
 * [{#T}](iaas-checklist.md)
 * [{#T}](iam-checklist.md)
 * [{#T}](kubernetes.md)
+* [{#T}](architecture-isolated.md)

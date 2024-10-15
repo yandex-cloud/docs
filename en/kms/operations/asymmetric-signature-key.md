@@ -31,7 +31,7 @@ To create a digital signature key pair:
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. View a description of the CLI command to create a digital signature key pair:
+  1. See the description of the CLI command to create a digital signature key pair:
 
       ```bash
       yc kms asymmetric-signature-key create --help
@@ -94,7 +94,7 @@ To update a digital signature key pair:
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. In the left-hand panel, select ![image](../../_assets/kms/asymmetric-key.svg) **{{ ui-key.yacloud.kms.switch_asymmetric-keys }}**.
   1. Go to the **{{ ui-key.yacloud.kms.asymmetric-key.form.label_signature }}** tab.
-  1. In the line with the appropriate key pair, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**. In the window that opens:
+  1. In the row with the appropriate key pair, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**. In the window that opens:
       1. Change the required key pair attributes.
       1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -104,7 +104,7 @@ To update a digital signature key pair:
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. View a description of the CLI command to update a digital signature key pair:
+  1. See the description of the CLI command to update a digital signature key pair:
 
       ```bash
       yc kms asymmetric-signature-key update --help
@@ -156,7 +156,7 @@ To delete a digital signature key pair:
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. In the left-hand panel, select ![image](../../_assets/kms/asymmetric-key.svg) **{{ ui-key.yacloud.kms.switch_asymmetric-keys }}**.
   1. Go to the **{{ ui-key.yacloud.kms.asymmetric-key.form.label_signature }}** tab.
-  1. In the line with the appropriate key pair, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
+  1. In the row with the appropriate key pair, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
   1. Confirm the deletion.
 
 - CLI {#cli}
@@ -165,7 +165,7 @@ To delete a digital signature key pair:
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. View a description of the CLI command to delete a signature key pair:
+  1. See the description of the CLI command to delete a signature key pair:
 
       ```bash
       yc kms asymmetric-signature-key delete --help

@@ -124,11 +124,11 @@ For the Amazon DynamoDB-compatible mode, use a serverless database configuration
         1. Click **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
      1. Under **{{ ui-key.yacloud.ydb.forms.field_subnetworks }}**, select a subnet or create a new one for each [availability zone](../overview/concepts/geo-scope.md):
         1. Click **{{ ui-key.yacloud.ydb.forms.button_create-subnetwork-new }}**.
-        1. In the window that opens, enter a **{{ ui-key.yacloud.component.vpc.create-subnetwork-dialog.field_name }}** for the new subnet.
-        1. (Optional) Enter a **{{ ui-key.yacloud.component.vpc.create-subnetwork-dialog.field_description }}** of the subnet.
-        1. Select the availability zone you need from the **{{ ui-key.yacloud.component.vpc.create-subnetwork-dialog.field_zone }}** list.
-        1. Specify the subnet address in [**{{ ui-key.yacloud.component.vpc.create-subnetwork-dialog.field_cidr }}**](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) format.
-        1. Click **{{ ui-key.yacloud.component.vpc.create-subnetwork-dialog.button_create }}**.
+        1. In the window that opens, enter a **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}** for the new subnet.
+        1. (Optional) Enter a **{{ ui-key.yacloud.vpc.subnetworks.create.field_description }}** of the subnet.
+        1. Select the availability zone you need from the **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}** list.
+        1. Specify the subnet address in [**{{ ui-key.yacloud.vpc.subnetworks.create.field_ip }}**](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) format.
+        1. Click **{{ ui-key.yacloud.vpc.subnetworks.create.button_create }}**.
 
      You cannot change the settings of the **{{ ui-key.yacloud.ydb.forms.label_section-network }}** section after the database is created.
   1. Click **{{ ui-key.yacloud.ydb.forms.button_create-database }}**.

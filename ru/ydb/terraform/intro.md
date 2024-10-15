@@ -44,5 +44,5 @@ description: 'Статья содержит: описание основных �
 
 | **Источник данных {{ TF }}** | **Описание** |
 | --- | --- |
-| [yandex_ydb_database_dedicated]({{ tf-provider-datasources-link }}/datasource_ydb_database_dedicated) | Информация о базе данных [на выделенных ресурсах](../concepts/resources.md#resource-presets) (Dedicated) |
-| [yandex_ydb_database_serverless]({{ tf-provider-datasources-link }}/datasource_ydb_database_serverless) | Информация о [бессерверной](../concepts/resources.md#serverless) базе данных (Serverless) |
+| [yandex_ydb_database_dedicated]({{ tf-provider-datasources-link }}/ydb_database_dedicated) | Информация о базе данных [на выделенных ресурсах](../concepts/resources.md#resource-presets) (Dedicated) |
+| [yandex_ydb_database_serverless]({{ tf-provider-datasources-link }}/ydb_database_serverless) | Информация о [бессерверной](../concepts/resources.md#serverless) базе данных (Serverless) |

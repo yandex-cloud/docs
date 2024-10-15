@@ -10,12 +10,12 @@
 
 
 1. На стартовой странице [**Моя страница**](https://tracker.yandex.ru/pages/my), на виджете **{{ ui-key.startrek.ui_components_dashboard_InfoPresetsWidget.widget-title }}**, нажмите кнопку **{{ ui-key.startrek.ui_components_dashboard_InfoPresetsWidget.choose-template-button }}**.
-1. Выберите **{{ ui-key.startrek.ui_components_new-process_ProcessTypeStep.process-type-standard }}** и нажмите кнопку **{{ ui-key.startrek.ui_components_new-process_ProcessTypeStep.next-button }}**.
+1. Выберите **{{ ui-key.startrek.ui_components_new-process_ProcessTypeStepRedesign.process-type-standard }}** и нажмите кнопку **{{ ui-key.startrek.ui_components_new-process_QueueSetupForm.next-button }}**.
 1. Укажите параметры очереди:
     * Название очереди задач;
     * [Ключ очереди](manager/create-queue.md#key);
     * Права доступа.
-1. Нажмите кнопку **{{ ui-key.startrek.ui_components_new-process_ProcessTypeStep.next-button }}**.
+1. Нажмите кнопку **{{ ui-key.startrek.ui_components_new-process_QueueSetupForm.next-button }}**.
 
 Будет создана очередь с базовым набором [типов и статусов](manager/workflow.md) задач и [простая доска задач](manager/agile.md#sec_boards).
 

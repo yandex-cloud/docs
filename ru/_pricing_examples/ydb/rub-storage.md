@@ -5,13 +5,13 @@
 * 128 — стоимость запроса за 1 МБ данных.
 * 1 024 × 10 — объем скопированных данных в МБ.
 
-Потраченное количество RU 1 310 720 [свыше 1 000 000](#prices), следовательно, цена создания резервной копии составит 21,38&nbsp;₽ за 1 000 000 RU.
+Потраченное количество RU 1 310 720 [свыше 1 000 000](#prices), следовательно, цена создания резервной копии составит {{ sku|RUB|ydb.v1.serverless.requests|pricingRate.1|string }} за 1 000 000 RU.
 
-> (1 310 720 RU - 1 000 000 RU) / 1 000 000 × 21,38&nbsp;₽ = 6,6431936&nbsp;₽
+> (1 310 720 RU - 1 000 000 RU) / 1 000 000 × {{ sku|RUB|ydb.v1.serverless.requests|pricingRate.1|string }} = {% calc [currency=RUB] (1310720 - 1000000) / 1000000 × {{ sku|RUB|ydb.v1.serverless.requests|pricingRate.1|number }} %}
 >
-> Итого: 6,6432&nbsp;₽ — стоимость создания резервной копии 10 ГБ данных.
+> Итого: {% calc [currency=RUB] (1310720 - 1000000) / 1000000 × {{ sku|RUB|ydb.v1.serverless.requests|pricingRate.1|number }} %} — стоимость создания резервной копии 10 ГБ данных.
 
 Где:
 
 * 1 310 720 RU — фактическое потребление RU в месяц.
-* 21,38&nbsp;₽ — цена 1 миллиона RU.
+* {{ sku|RUB|ydb.v1.serverless.requests|pricingRate.1|string }} — цена 1 миллиона RU.

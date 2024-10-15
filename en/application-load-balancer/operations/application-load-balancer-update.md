@@ -45,7 +45,7 @@ To update the parameters of an L7 load balancer:
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. View a description of the CLI command for updating the load balancer parameters:
+  1. View the description of the CLI command for updating the load balancer parameters:
 
      ```bash
      yc alb load-balancer update --help
@@ -142,7 +142,7 @@ To update the parameters of an L7 load balancer:
 
      * HTTP listener:
 
-       1. View a description of the CLI command for updating the parameters of an HTTP listener for an L7 load balancer:
+       1. View the description of the CLI command for updating the parameters of an HTTP listener for an L7 load balancer:
 
           ```bash
           yc alb load-balancer update-listener --help
@@ -159,7 +159,7 @@ To update the parameters of an L7 load balancer:
 
      * Stream listener:
 
-       1. View a description of the CLI command for updating the parameters of a Stream listener for an L7 load balancer:
+       1. View the description of the CLI command for updating the parameters of a Stream listener for an L7 load balancer:
 
           ```bash
           yc alb load-balancer update-stream-listener --help
@@ -329,8 +329,8 @@ To delete a listener for your L7 load balancer:
 
   1. In the [management console]({{ link-console-main }}), select the folder where the load balancer was created.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-  1. Next to the load balancer name, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
-  1. Under **{{ ui-key.yacloud.alb.label_listeners }}**, next to the listener name, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
+  1. Next to the load balancer name you need, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
+  1. Under **{{ ui-key.yacloud.alb.label_listeners }}**, next to the appropriate listener name, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
@@ -396,7 +396,7 @@ To delete a listener for your L7 load balancer:
      ...
      ```
 
-     For more information about the `yandex_alb_load_balancer` parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/alb_load_balancer).
+     For more information about the `yandex_alb_load_balancer` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/alb_load_balancer).
 
   1. Check the configuration using this command:
 

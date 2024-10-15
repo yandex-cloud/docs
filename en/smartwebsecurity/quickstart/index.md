@@ -1,6 +1,6 @@
 # Getting started with {{ sws-full-name }}
 
-{{ sws-name }} protects your infrastructure from DDoS attacks and bots at the [OSI model's](https://en.wikipedia.org/wiki/OSI_model) application layer L7.
+{{ sws-name }} protects your infrastructure from DDoS attacks and bots at application layer L7 of the [OSI model](https://en.wikipedia.org/wiki/OSI_model).
 
 In a nutshell, the service checks the HTTP requests sent to the protected resource via a {{ alb-full-name }} [virtual host](../../application-load-balancer/concepts/http-router.md#virtual-host) against the [rules](../concepts/rules.md) configured in the [security profile](../concepts/profiles.md).
 
@@ -14,3 +14,4 @@ To get started with the service:
 * [Create a security profile and connect it to an existing virtual host of an L7 load balancer](../quickstart.md).
 * [Create a WAF profile and connect it to an existing security profile](quickstart-waf.md).
 * [Create an ARL profile and connect it to an existing security profile](quickstart-arl.md).
+* [Configure the L7 network load balancer for additional protection](../concepts/index.md#alb-settings-recommendation)

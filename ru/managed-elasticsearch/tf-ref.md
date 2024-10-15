@@ -21,4 +21,4 @@ description: На этой странице приведен справочни�
 
 | **Источник данных {{ TF }}** | **Описание** |
 | --- | --- |
-| [yandex_mdb_elasticsearch_cluster]({{ tf-provider-datasources-link }}/datasource_mdb_elasticsearch_cluster) | Информация о [кластере](./concepts/index.md) |
+| [yandex_mdb_elasticsearch_cluster]({{ tf-provider-datasources-link }}/mdb_elasticsearch_cluster) | Информация о [кластере](./concepts/index.md) |

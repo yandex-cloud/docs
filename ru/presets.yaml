@@ -724,26 +724,26 @@ default:
   tf-docs-link: https://terraform-provider.yandexcloud.net
   tf-folder-id: b1gia87mbaom********
   TF-full: HashiCorp Terraform
-  tf-provider-alb-backendgroup: https://terraform-provider.yandexcloud.net/Resources/alb_backend_group
-  tf-provider-alb-targetgroup: https://terraform-provider.yandexcloud.net/Resources/alb_target_group
-  tf-provider-datasources-link: https://terraform-provider.yandexcloud.net/DataSources
-  tf-provider-dt-endpoint: https://terraform-provider.yandexcloud.net/Resources/datatransfer_endpoint
-  tf-provider-dt-transfer: https://terraform-provider.yandexcloud.net/Resources/datatransfer_transfer
-  tf-provider-k8s-cluster: https://terraform-provider.yandexcloud.net/Resources/kubernetes_cluster
-  tf-provider-k8s-nodegroup: https://terraform-provider.yandexcloud.net/Resources/kubernetes_node_group
+  tf-provider-alb-backendgroup: https://terraform-provider.yandexcloud.net/resources/alb_backend_group
+  tf-provider-alb-targetgroup: https://terraform-provider.yandexcloud.net/resources/alb_target_group
+  tf-provider-datasources-link: https://terraform-provider.yandexcloud.net/data-sources
+  tf-provider-dt-endpoint: https://terraform-provider.yandexcloud.net/resources/datatransfer_endpoint
+  tf-provider-dt-transfer: https://terraform-provider.yandexcloud.net/resources/datatransfer_transfer
+  tf-provider-k8s-cluster: https://terraform-provider.yandexcloud.net/resources/kubernetes_cluster
+  tf-provider-k8s-nodegroup: https://terraform-provider.yandexcloud.net/resources/kubernetes_node_group
   tf-provider-link: https://terraform-provider.yandexcloud.net/
-  tf-provider-maf: https://terraform-provider.yandexcloud.net/Resources/airflow_cluster
-  tf-provider-mch: https://terraform-provider.yandexcloud.net/Resources/mdb_clickhouse_cluster
+  tf-provider-maf: https://terraform-provider.yandexcloud.net/resources/airflow_cluster
+  tf-provider-mch: https://terraform-provider.yandexcloud.net/resources/mdb_clickhouse_cluster
   tf-provider-mes: >-
-    https://terraform-provider.yandexcloud.net/Resources/mdb_elasticsearch_cluster
-  tf-provider-mgp: https://terraform-provider.yandexcloud.net/Resources/mdb_greenplum_cluster
-  tf-provider-mkf: https://terraform-provider.yandexcloud.net/Resources/mdb_kafka_cluster
-  tf-provider-mmg: https://terraform-provider.yandexcloud.net/Resources/mdb_mongodb_cluster
-  tf-provider-mmy: https://terraform-provider.yandexcloud.net/Resources/mdb_mysql_cluster
-  tf-provider-mos: https://terraform-provider.yandexcloud.net/Resources/mdb_opensearch_cluster
-  tf-provider-mpg: https://terraform-provider.yandexcloud.net/Resources/mdb_postgresql_cluster
-  tf-provider-mrd: https://terraform-provider.yandexcloud.net/Resources/mdb_redis_cluster
-  tf-provider-resources-link: https://terraform-provider.yandexcloud.net/Resources
+    https://terraform-provider.yandexcloud.net/resources/mdb_elasticsearch_cluster
+  tf-provider-mgp: https://terraform-provider.yandexcloud.net/resources/mdb_greenplum_cluster
+  tf-provider-mkf: https://terraform-provider.yandexcloud.net/resources/mdb_kafka_cluster
+  tf-provider-mmg: https://terraform-provider.yandexcloud.net/resources/mdb_mongodb_cluster
+  tf-provider-mmy: https://terraform-provider.yandexcloud.net/resources/mdb_mysql_cluster
+  tf-provider-mos: https://terraform-provider.yandexcloud.net/resources/mdb_opensearch_cluster
+  tf-provider-mpg: https://terraform-provider.yandexcloud.net/resources/mdb_postgresql_cluster
+  tf-provider-mrd: https://terraform-provider.yandexcloud.net/resources/mdb_redis_cluster
+  tf-provider-resources-link: https://terraform-provider.yandexcloud.net/resources
   TF-version: '0.90'
   TR: Trino
   tracker-full-name: Yandex Tracker
@@ -884,13 +884,16 @@ default:
       cpu:
         c100:
           v1|string: "6,5794\_₸"
+          v3|number: 5,9139
           v3|string: "5,9139\_₸"
           v4|string: "9,70\_₸"
       localssd:
         v1|month|string: "44,00\_₸"
+        v1|number: 0,0611
         v1|string: "0,0611\_₸"
       ram:
         v1|string: "1,7423\_₸"
+        v3|number: 1,5665
         v3|string: "1,5665\_₸"
         v4|string: "1,75\_₸"
     image|month|string: "15,60\_₸"
@@ -916,6 +919,7 @@ default:
             v3|string: "1,45\_₸"
           preemptible|string: "1,70\_₸"
           v2|string: "5,95\_₸"
+          v3|number: 5,25
           v3|string: "5,25\_₸"
         c100|string: "5,60\_₸"
         c20:
@@ -924,6 +928,7 @@ default:
             v3|string: "0,70\_₸"
           preemptible|string: "1,35\_₸"
           v2|string: "2,45\_₸"
+          v3|number: 2,20
           v3|string: "2,20\_₸"
         c20|string: "4,40\_₸"
         c50:
@@ -959,6 +964,7 @@ default:
           v3|string: "0,35\_₸"
         preemptible|string: "0,60\_₸"
         v2|string: "1,55\_₸"
+        v3|number: 1,40
         v3|string: "1,40\_₸"
       ram|string: "1,95\_₸"
   sku|KZT|cr:
@@ -990,9 +996,11 @@ default:
     requests:
       public:
         authoritative:
+          v1|number: 160,00
           v1|string: "160,00\_₸"
         recursive:
           v1|pricingRate:
+            1|number: 160,00
             1|string: "160,00\_₸"
           v1|string: Не тарифицируется
     zones:
@@ -1515,10 +1523,13 @@ default:
       dgauge:
         store|string: Не тарифицируется
       prometheus:
+        export|number: 35,00
         export|pricingRate:
           50|string: "21,00\_₸"
         export|string: "35,00\_₸"
+      write|number: 49,00
       write|pricingRate:
+        50|number: 28,00
         50|string: "28,00\_₸"
       write|string: "49,00\_₸"
     prometheus:
@@ -1548,7 +1559,9 @@ default:
         antiddos:
           qrator|string: "12,15\_₸"
     public_fips:
+      deallocated|number: 1,55
       deallocated|string: "1,55\_₸"
+    public_fips|number: 1,20
     public_fips|string: "1,20\_₸"
   sku|KZT|nlb:
     balancer:
@@ -1909,6 +1922,7 @@ default:
     v1:
       serverless:
         requests|pricingRate:
+          1|number: 106,90
           1|string: "106,90\_₸"
   sku|KZT|yds:
     events:
@@ -2000,13 +2014,16 @@ default:
       cpu:
         c100:
           v1|string: "1,3159\_₽"
+          v3|number: 1,1828
           v3|string: "1,1828\_₽"
           v4|string: "1,94\_₽"
       localssd:
         v1|month|string: "8,80\_₽"
+        v1|number: 0,0122
         v1|string: "0,0122\_₽"
       ram:
         v1|string: "0,3485\_₽"
+        v3|number: 0,3133
         v3|string: "0,3133\_₽"
         v4|string: "0,35\_₽"
     image|month|string: "3,12\_₽"
@@ -2032,6 +2049,7 @@ default:
             v3|string: "0,29\_₽"
           preemptible|string: "0,34\_₽"
           v2|string: "1,19\_₽"
+          v3|number: 1,05
           v3|string: "1,05\_₽"
         c100|string: "1,12\_₽"
         c20:
@@ -2040,6 +2058,7 @@ default:
             v3|string: "0,14\_₽"
           preemptible|string: "0,27\_₽"
           v2|string: "0,49\_₽"
+          v3|number: 0,44
           v3|string: "0,44\_₽"
         c20|string: "0,88\_₽"
         c50:
@@ -2075,6 +2094,7 @@ default:
           v3|string: "0,07\_₽"
         preemptible|string: "0,12\_₽"
         v2|string: "0,31\_₽"
+        v3|number: 0,28
         v3|string: "0,28\_₽"
       ram|string: "0,39\_₽"
   sku|RUB|cr:
@@ -2106,9 +2126,11 @@ default:
     requests:
       public:
         authoritative:
+          v1|number: 32,00
           v1|string: "32,00\_₽"
         recursive:
           v1|pricingRate:
+            1|number: 32,00
             1|string: "32,00\_₽"
           v1|string: Не тарифицируется
     zones:
@@ -2631,10 +2653,13 @@ default:
       dgauge:
         store|string: Не тарифицируется
       prometheus:
+        export|number: 7,00
         export|pricingRate:
           50|string: "4,20\_₽"
         export|string: "7,00\_₽"
+      write|number: 9,80
       write|pricingRate:
+        50|number: 5,60
         50|string: "5,60\_₽"
       write|string: "9,80\_₽"
     prometheus:
@@ -2664,7 +2689,9 @@ default:
         antiddos:
           qrator|string: "2,43\_₽"
     public_fips:
+      deallocated|number: 0,31
       deallocated|string: "0,31\_₽"
+    public_fips|number: 0,24
     public_fips|string: "0,24\_₽"
   sku|RUB|nlb:
     balancer:
@@ -3025,6 +3052,7 @@ default:
     v1:
       serverless:
         requests|pricingRate:
+          1|number: 21,38
           1|string: "21,38\_₽"
   sku|RUB|yds:
     events:
@@ -3116,13 +3144,16 @@ default:
       cpu:
         c100:
           v1|string: "0,010527\_$"
+          v3|number: 0,009462
           v3|string: "0,009462\_$"
           v4|string: "0,015520\_$"
       localssd:
         v1|month|string: "0,070400\_$"
+        v1|number: 0,000098
         v1|string: "0,000098\_$"
       ram:
         v1|string: "0,002788\_$"
+        v3|number: 0,002506
         v3|string: "0,002506\_$"
         v4|string: "0,002800\_$"
     image|month|string: "0,024960\_$"
@@ -3148,6 +3179,7 @@ default:
             v3|string: "0,002320\_$"
           preemptible|string: "0,002720\_$"
           v2|string: "0,009520\_$"
+          v3|number: 0,008400
           v3|string: "0,008400\_$"
         c100|string: "0,008960\_$"
         c20:
@@ -3156,6 +3188,7 @@ default:
             v3|string: "0,001120\_$"
           preemptible|string: "0,002160\_$"
           v2|string: "0,003920\_$"
+          v3|number: 0,003520
           v3|string: "0,003520\_$"
         c20|string: "0,007040\_$"
         c50:
@@ -3191,6 +3224,7 @@ default:
           v3|string: "0,000560\_$"
         preemptible|string: "0,000960\_$"
         v2|string: "0,002480\_$"
+        v3|number: 0,002240
         v3|string: "0,002240\_$"
       ram|string: "0,003120\_$"
   sku|USD|cr:
@@ -3222,9 +3256,11 @@ default:
     requests:
       public:
         authoritative:
+          v1|number: 0,256000
           v1|string: "0,256000\_$"
         recursive:
           v1|pricingRate:
+            1|number: 0,256000
             1|string: "0,256000\_$"
           v1|string: Не тарифицируется
     zones:
@@ -3731,10 +3767,13 @@ default:
       dgauge:
         store|string: Не тарифицируется
       prometheus:
+        export|number: 0,056000
         export|pricingRate:
           50|string: "0,033600\_$"
         export|string: "0,056000\_$"
+      write|number: 0,078400
       write|pricingRate:
+        50|number: 0,044800
         50|string: "0,044800\_$"
       write|string: "0,078400\_$"
     prometheus:
@@ -3764,7 +3803,9 @@ default:
         antiddos:
           qrator|string: "0,019440\_$"
     public_fips:
+      deallocated|number: 0,002480
       deallocated|string: "0,002480\_$"
+    public_fips|number: 0,001920
     public_fips|string: "0,001920\_$"
   sku|USD|nlb:
     balancer:
@@ -4171,6 +4212,7 @@ default:
     v1:
       serverless:
         requests|pricingRate:
+          1|number: 0,171040
           1|string: "0,171040\_$"
         requests|string: Не тарифицируется
         storage|month|string: Не тарифицируется
@@ -4301,8 +4343,14 @@ default:
           data_type: Тип данных
     datalens:
       component:
+        access-rights:
+          view:
+            button_access-to-dash: Права на дашборд
+            button_add: Добавить
+            section_main-title: Права доступа
         aside-header:
           view:
+            switch_dashboards: Дашборды
             switch_datasets: Датасеты
             switch_root: Все объекты
       connection:
@@ -4884,13 +4932,14 @@ default:
         save: Сохранить
       ui_components_navigation:
         invite-user: Добавить пользователя
-      ui_components_new-process_ProcessTypeStep:
-        next-button: Продолжить
+      ui_components_new-process_ProcessTypeStepRedesign:
+        information-time-tracking-title: Учёт времени
         process-type-development: Разработка
         process-type-project: Управление проектами
-        process-type-standard: Базовый шаблон
+        process-type-standard: Базовый
         process-type-support: Поддержка
-        standard-info-section-time: Учёт времени
+      ui_components_new-process_QueueSetupForm:
+        next-button: Продолжить
       ui_components_page-admin_BillingAccountInfo:
         person-type-company: Юридическое лицо или ИП
         person-type-invididual: Физическое лицо
@@ -5648,7 +5697,7 @@ default:
           value_role-source-filter_direct: Назначенные напрямую
           value_role-source-filter_group: Назначенные через группу
       layout:
-        identity: Организация
+        organization: Организация
       page:
         acl-diagnostics:
           action_select-subject: Выбрать субъект
@@ -6021,7 +6070,8 @@ default:
         field_password: Пароль
         field_server-count: Число серверов
         field_server-lease-duration: Период аренды
-        field_server-user: Пользователь
+        field_server-pool: Пул
+        field_server-zone: Зона доступности
         field_ssh-public-key: Публичный SSH-ключ
         label_networks: VRF
         label_one-month-duration: 1 месяц
@@ -6226,6 +6276,7 @@ default:
           switch_explore: SQL
           switch_explore-websql: WebSQL
           switch_format-schemas: Схемы формата данных
+          switch_hosts: Хосты
           switch_logs: Логи
           switch_ml-models: Машинное обучение
           switch_monitoring: Мониторинг
@@ -6421,8 +6472,14 @@ default:
         navigation-menu:
           label_account: Учетная запись
           label_billing: Биллинг
+          label_load-balancer: Network Load Balancer
+          label_managed-clickhouse: Managed Service for ClickHouse
+          label_managed-kubernetes: Managed Service for Kubernetes
+          label_managed-postgresql: Managed Service for PostgreSQL
           label_monitoring: Monitoring
           label_notifications: Уведомления
+          label_serverless-containers: Serverless Containers
+          label_serverless-functions: Cloud Functions
           label_vpc: Virtual Private Cloud
         security-group-field:
           label_sg-auto: Автоматически
@@ -6440,12 +6497,6 @@ default:
         vpc-security-group-select:
           label_add-security-group: Добавить группу безопасности
         vpc:
-          create-subnetwork-dialog:
-            button_create: Создать
-            field_cidr: CIDR
-            field_description: Описание
-            field_name: Имя
-            field_zone: Зона доступности
           network-select:
             button_create-network: Создать сеть
             button_create-subnetwork: Создать подсеть
@@ -6454,6 +6505,9 @@ default:
           button_attach: Подключить
           field_instance: ВМ
         button_relocate-to-another-zone: Перенести в другую зону
+        component:
+          instance-storage-dialog:
+            button_add-disk: Добавить диск
         disk-form:
           field_size: Размер
           field_type: Тип
@@ -6604,6 +6658,7 @@ default:
           button_create: Создать виртуальную машину
           button_gr-action-stop: Остановить
           button_start-instance-relocation: Начать перенос
+          column_internal-ip: Внутренний IPv4
           create-disk:
             button_create: Добавить
             field_name: Имя
@@ -6619,7 +6674,6 @@ default:
             button_create-subnetwork-new: Создать подсеть
             button_net_empty-create: Создать сеть
             button_show-all-marketplace-products: Показать все продукты Marketplace
-            button_show-all-os-products: Показать все операционные системы
             field_access-advanced: Дополнительно
             field_coi-arguments: Аргументы команды
             field_coi-command: Команда
@@ -6642,11 +6696,8 @@ default:
             field_zone: Зона доступности
             image_coi_label_empty-button: Настроить
             image_value_coi: Container Solution
-            image_value_custom: Свой образ
             image_value_custom_new: Пользовательский
             image_value_marketplace: Marketplace
-            image_value_os-products: Операционные системы
-            label_add-disk: Добавить диск
             label_add-network-interface: Добавить сетевой интерфейс
             section_access: Доступ
             section_additional: Дополнительные настройки
@@ -7115,6 +7166,7 @@ default:
             label_health: Состояние
             label_master-title: Мастер
             label_status: Статус
+            label_title: Обзор
           switch_custom-resources: Пользовательские ресурсы
           switch_events: События
           switch_marketplace: Marketplace
@@ -8361,6 +8413,7 @@ default:
           button_create-gateway: Создать шлюз
           field_name: Имя
           field_type: Тип
+          label_gateways: Шлюзы
           value_gateway-type-egress-nat: NAT-шлюз
         label_network: Сеть
         network:
@@ -8420,6 +8473,7 @@ default:
         subnet:
           add-route-table:
             button_add: Привязать
+            field_route-table-id: Таблица маршрутизации
             label_title: Привязка таблицы маршрутизации
         subnetworks:
           button_action-add-route-table: Привязать таблицу маршрутизации

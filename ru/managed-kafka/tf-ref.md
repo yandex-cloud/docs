@@ -24,7 +24,7 @@ description: На этой странице приведен справочни�
 
 | **Источник данных {{ TF }}** | **Описание** |
 | --- | --- |
-| [yandex_mdb_kafka_cluster]({{ tf-provider-datasources-link }}/datasource_mdb_kafka_cluster) | Информация о [кластере {{ KF }}](./concepts/index.md) |
-| [yandex_mdb_kafka_connector]({{ tf-provider-datasources-link }}/datasource_mdb_kafka_connector) | Информация о [коннекторе](./concepts/connectors.md) |
-| [yandex_mdb_kafka_topic]({{ tf-provider-datasources-link }}/datasource_mdb_kafka_topic) | Информация о [топике](./concepts/topics.md) |
-| [yandex_mdb_kafka_user]({{ tf-provider-datasources-link }}/datasource_mdb_kafka_user) | Информация о [пользователе](./concepts/managed-schema-registry.md#msr-auth) |
+| [yandex_mdb_kafka_cluster]({{ tf-provider-datasources-link }}/mdb_kafka_cluster) | Информация о [кластере {{ KF }}](./concepts/index.md) |
+| [yandex_mdb_kafka_connector]({{ tf-provider-datasources-link }}/mdb_kafka_connector) | Информация о [коннекторе](./concepts/connectors.md) |
+| [yandex_mdb_kafka_topic]({{ tf-provider-datasources-link }}/mdb_kafka_topic) | Информация о [топике](./concepts/topics.md) |
+| [yandex_mdb_kafka_user]({{ tf-provider-datasources-link }}/mdb_kafka_user) | Информация о [пользователе](./concepts/managed-schema-registry.md#msr-auth) |

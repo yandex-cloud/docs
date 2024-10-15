@@ -131,7 +131,7 @@ You can get detailed [information about a secret](#secret-info) and [secret cont
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. View a description of the CLI command to get the contents of a secret:
+  1. See the description of the CLI command to get the contents of a secret:
 
       ```bash
       yc lockbox payload get --help
@@ -180,7 +180,7 @@ You can get detailed [information about a secret](#secret-info) and [secret cont
      * `output "my_secret_entries"`: Output variable which stores the contents of the secret:
        * `value`: Returned value.
 
-     For more information about the `yandex_lockbox_secret_version` data source parameters, see the [relevant provider documentation]({{ tf-provider-datasources-link }}/datasource_lockbox_secret_version).
+     For more information about the `yandex_lockbox_secret_version` data source parameters, see the [provider documentation]({{ tf-provider-datasources-link }}/datasource_lockbox_secret_version).
 
   1. Create resources:
 
@@ -231,7 +231,7 @@ You can get detailed [information about a secret](#secret-info) and [secret cont
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. View a description of the CLI command to view access permissions to a secret:
+  1. See the description of the CLI command to view access permissions to a secret:
 
       ```bash
       yc lockbox secret list-access-bindings --help

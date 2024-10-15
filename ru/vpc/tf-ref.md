@@ -28,10 +28,10 @@ description: На этой странице приведен справочни�
 
 | **Источник данных {{ TF }}** | **Описание** |
 | --- | --- |
-| [yandex_vpc_address]({{ tf-provider-datasources-link }}/datasource_vpc_address) | Информация об [адресе облачного ресурса](./concepts/address.md) |
-| [yandex_vpc_gateway]({{ tf-provider-datasources-link }}/datasource_vpc_gateway) | Информация о [шлюзе](./concepts/gateways.md) |
-| [yandex_vpc_network]({{ tf-provider-datasources-link }}/datasource_vpc_network) | Информация об [облачной сети](./concepts/network.md#network) |
-| [yandex_vpc_route_table]({{ tf-provider-datasources-link }}/datasource_vpc_route_table) | Информация о [таблице маршрутизации](./concepts/routing.md#rt-vpc) |
-| [yandex_vpc_security_group]({{ tf-provider-datasources-link }}/datasource_vpc_security_group) | Информация о [группе безопасности](./concepts/security-groups.md) |
-| [yandex_vpc_security_group_rule]({{ tf-provider-datasources-link }}/datasource_vpc_security_group_rule) | Информация о [правиле группы безопасности](./concepts/security-groups.md#security-groups-rules) |
-| [yandex_vpc_subnet]({{ tf-provider-datasources-link }}/datasource_vpc_subnet) | Информация о [подсети](./concepts/network.md#subnet) |
+| [yandex_vpc_address]({{ tf-provider-datasources-link }}/vpc_address) | Информация об [адресе облачного ресурса](./concepts/address.md) |
+| [yandex_vpc_gateway]({{ tf-provider-datasources-link }}/vpc_gateway) | Информация о [шлюзе](./concepts/gateways.md) |
+| [yandex_vpc_network]({{ tf-provider-datasources-link }}/vpc_network) | Информация об [облачной сети](./concepts/network.md#network) |
+| [yandex_vpc_route_table]({{ tf-provider-datasources-link }}/vpc_route_table) | Информация о [таблице маршрутизации](./concepts/routing.md#rt-vpc) |
+| [yandex_vpc_security_group]({{ tf-provider-datasources-link }}/vpc_security_group) | Информация о [группе безопасности](./concepts/security-groups.md) |
+| [yandex_vpc_security_group_rule]({{ tf-provider-datasources-link }}/vpc_security_group_rule) | Информация о [правиле группы безопасности](./concepts/security-groups.md#security-groups-rules) |
+| [yandex_vpc_subnet]({{ tf-provider-datasources-link }}/vpc_subnet) | Информация о [подсети](./concepts/network.md#subnet) |

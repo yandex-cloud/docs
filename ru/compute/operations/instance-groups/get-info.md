@@ -63,7 +63,7 @@
      * `output "instancegroupvm_external_ip"` — список всех [публичных IP-адресов](../../../vpc/concepts/address.md#public-addresses) ВМ из группы, который будет выводиться в результате:
        * `value` — возвращаемое значение.
 
-     Более подробную информацию о параметрах источника данных `yandex_compute_instance_group` см. в [документации провайдера]({{ tf-provider-datasources-link }}/datasource_compute_instance_group).
+     Более подробную информацию о параметрах источника данных `yandex_compute_instance_group` см. в [документации провайдера]({{ tf-provider-datasources-link }}/compute_instance_group).
   1. Создайте ресурсы:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

@@ -74,7 +74,7 @@
      * `output "instance_external_ip"` — [публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses) ВМ, который будет выводиться в результате:
        * `value` — возвращаемое значение.
 
-     Более подробную информацию о параметрах источника данных `yandex_compute_instance` см. в [документации провайдера]({{ tf-provider-datasources-link }}/datasource_compute_instance).
+     Более подробную информацию о параметрах источника данных `yandex_compute_instance` см. в [документации провайдера]({{ tf-provider-datasources-link }}/compute_instance).
   1. Создайте ресурсы:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

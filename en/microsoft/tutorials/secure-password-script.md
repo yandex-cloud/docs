@@ -227,6 +227,8 @@ The password must:
       * `kms_key_id`: ID of the [{{ kms-name }} encryption key](../../kms/concepts/key.md). The specified {{ kms-name }} key is used to encrypt your secret.
       * `entries`: Contents of the secret.
 
+      {% include [secret-version-tf-note](../../_includes/lockbox/secret-version-tf-note.md) %}
+
       {% note warning %}
 
       To improve security, you should set the password in the configuration file using the environment variable.
@@ -374,7 +376,7 @@ Create a VM with the Windows OS having the administrator and user accounts.
    {% endlist %}
 
 
-## Log in to the Windows OS {#login-windows}
+## Log in to Windows {#login-windows}
 
 To check that the data from the secret was successfully used to create users, log in to the VM's OS:
 

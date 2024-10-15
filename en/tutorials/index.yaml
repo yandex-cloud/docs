@@ -1,41 +1,33 @@
 title: Yandex Cloud tutorials
 description:
   - >-
-    These tutorials will help you solve various tasks using {{ yandex-cloud }}
-    services.
+    These tutorials will help you meet various challenges with {{ yandex-cloud
+    }} services.
 meta:
   title: Tutorials
   description: >-
-    These tutorials will help you solve various tasks using {{ yandex-cloud }}
-    services.
+    These tutorials will help you meet various challenges with {{ yandex-cloud
+    }} services.
 links:
-  - title: Web service
-    description: Create websites using various CMS's and network technologies
-    href: web/
+  - title: Security
+    description: Set up infrastructure security using {{ yandex-cloud }}
+    href: security/
   - title: Storing and recovering data
     description: Set up data backup and recovery
     href: archive/
-  - title: Developers
-    description: Use {{ yandex-cloud }} services for your development tasks
+  - title: Development and testing
+    description: Use {{ yandex-cloud }} services in development and testing
     href: dev/
   - title: Basic infrastructure
     description: >-
-      Deploy your basic infrastructure using convenient tools for managing cloud
+      Deploy a basic infrastructure using convenient tools for managing cloud
       resources
     href: infrastructure/
   - title: Application solutions
-    description: Solve your hands-on tasks using {{ yandex-cloud }}
+    description: Achieve real-life objectives using {{ yandex-cloud }} tools
     href: applied/
-  - title: Test environment
-    description: Test applications on VMs
-    href: testing/
-  - title: Infrastructure management
-    description: >-
-      Deploy your infrastructure using convenient tools for managing cloud
-      resources
-    href: infrastructure-management/
   - title: Building a data platform
-    description: Create your data platform with {{ yandex-cloud }}
+    description: Create a data platform with {{ yandex-cloud }}
     href: dataplatform/
   - title: Microsoft products in {{ yandex-cloud }}
     description: Deploy Microsoft products in {{ yandex-cloud }}
@@ -48,4 +40,4 @@ links:
     href: datalens/
   - title: Serverless technologies
     description: Create your own apps and set up integrations with serverless technologies
-    href: serverless/serverless-url-shortener
+    href: serverless/

@@ -13,11 +13,11 @@ description: Следуя данной инструкции, вы сможете
   1. В списке сервисов выберите **{{ baremetal-name }}**.
   1. Нажмите кнопку **Заказать сервер**.
   1. Выберите [зону доступности](../../../overview/concepts/geo-scope.md), в которой будет арендован сервер.
-  1. Выберите [пул](../../concepts/index.md#server-pools), из которого будет арендован сервер.
+  1. Выберите [пул](../../concepts/servers.md#server-pools), из которого будет арендован сервер.
   1. В блоке **{{ ui-key.yacloud.baremetal.title_section-server-config }}**:
   
      1. Выберите [конфигурацию сервера](../../concepts/server-configurations.md).
-     1. Настройте разметку диска:
+     1. (Опционально) Настройте разметку диска:
 
         1. Нажмите кнопку **{{ ui-key.yacloud.baremetal.action_disk-layout-settings }}**.
         1. Укажите параметры разделов. Чтобы создать новый раздел, нажмите кнопку ![icon](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.baremetal.actions_add-partition }}**.
@@ -38,7 +38,7 @@ description: Следуя данной инструкции, вы сможете
   
   1. В блоке **{{ ui-key.yacloud.baremetal.title_section-server-network-settings }}**:
 
-     1. Укажите идентификатор существующей [приватной подсети](../../concepts/index.md#private-subnet) или нажмите кнопку **{{ ui-key.yacloud.common.create }}** для создания новой.
+     1. Укажите идентификатор существующей [приватной подсети](../../concepts/network.md#private-subnet) или нажмите кнопку **{{ ui-key.yacloud.common.create }}** для создания новой.
 
         Если у вас нет подсетей, нажмите ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.baremetal.action-create-subnetwork }}** и создайте ее:
 
@@ -49,13 +49,8 @@ description: Следуя данной инструкции, вы сможете
 
         * `{{ ui-key.yacloud.baremetal.label_public-ip-auto }}` — чтобы назначить случайный IP-адрес.
         * `{{ ui-key.yacloud.baremetal.label_public-ip-no }}` — чтобы не назначать публичный IP-адрес.
-  
-  1. В блоке **{{ ui-key.yacloud.baremetal.title_server-access }}**:
 
-     1. В поле **{{ ui-key.yacloud.baremetal.field_server-user }}** введите имя пользователя.
-     1. В поле **{{ ui-key.yacloud.baremetal.field_password }}** введите или сгенерируйте пароль пользователя.
-     1. В поле **{{ ui-key.yacloud.baremetal.field_ssh-public-key }}** вставьте содержимое файла открытого ключа. Пару ключей для подключения по SSH необходимо [создать](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
-
+  1. {% include [server-lease-access](../../../_includes/baremetal/server-lease-access.md) %}
   1. В блоке **{{ ui-key.yacloud.baremetal.title_section-server-info }}**:
 
      1. В поле **{{ ui-key.yacloud.baremetal.field_name }}** введите имя сервера.

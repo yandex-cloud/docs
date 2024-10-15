@@ -91,8 +91,6 @@ items:
         href: concepts/scenarios.md
       - name: Recommendations for use
         href: concepts/best-practices.md
-      - name: Monitoring
-        href: concepts/monitoring.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Access management
@@ -185,6 +183,8 @@ items:
         href: k8s-ref/service.md
       - name: NetworkPolicy
         href: k8s-ref/networkpolicy.md
+  - name: '{{ monitoring-name }} metrics'
+    href: metrics.md
   - name: '{{ at-name }} events'
     href: at-ref.md
   - name: FAQ

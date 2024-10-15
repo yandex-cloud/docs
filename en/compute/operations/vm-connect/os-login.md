@@ -5,7 +5,7 @@ description: Follow this guide to connect to a VM via OS Login.
 
 # Connecting to a virtual machine via OS Login
 
-[OS Login](../../../organization/concepts/os-login.md) is used to provide users with SSH access to VMs through {{ iam-short-name }}. To grant access to a VM that supports OS Login at the OS level, [assign](../../../iam/operations/roles/grant.md) a user the `compute.osLogin` or `compute.osAdminLogin` role.
+[OS Login](../../../organization/concepts/os-login.md) is used to provide users and [service accounts](../../../iam/concepts/users/service-accounts.md) with SSH access to VMs using {{ iam-short-name }}.
 
 ## Getting started {#before-you-begin}
 
@@ -16,6 +16,8 @@ description: Follow this guide to connect to a VM via OS Login.
 [Create](./os-login-create-vm.md) a new virtual machine with OS Login support or [set up](./enable-os-login.md) access via OS Login for an existing VM as needed.
 
 ## Connecting to a VM via OS Login using an SSH certificate over the YC CLI {#connect-via-cli}
+
+{% include [os-login-yc-cli-roles-needed](../../../_includes/organization/os-login-yc-cli-roles-needed.md) %}
 
 {% include [oslogin-connect-with-cli](../../../_includes/compute/oslogin-connect-with-cli.md) %}
 
@@ -31,6 +33,8 @@ The certificate is valid for one hour. After this time has elapsed, you will nee
 
 ## Connecting to a VM via OS Login using an SSH key over the YC CLI {#connect-via-key}
 
+{% include [os-login-yc-cli-roles-needed](../../../_includes/organization/os-login-yc-cli-roles-needed.md) %}
+
 {% include [oslogin-connect-with-key](../../../_includes/compute/oslogin-connect-with-key.md) %}
 
 #### See also {#see-also}
@@ -39,3 +43,4 @@ The certificate is valid for one hour. After this time has elapsed, you will nee
 * [{#T}](../../../organization/operations/add-ssh.md)
 * [{#T}](./os-login-export-certificate.md)
 * [Connecting to a {{ k8s }} node via OS Login](../../../managed-kubernetes/operations/node-connect-oslogin.md)
+* [Using a service account with an OS Login profile for VM management via Ansible](../../../tutorials/security/sa-oslogin-ansible.md)

@@ -110,7 +110,7 @@ description: Из статьи вы узнаете, как получить ин
 
       Вместо `scheduling` вы можете выбрать любой другой [параметр политики]({{ tf-provider-resources-link }}/backup_policy) для получения информации.
 
-      Более подробно о параметрах источника данных `yandex_backup_policy` см. в [документации провайдера]({{ tf-provider-datasources-link }}/datasource_backup_policy).
+      Более подробно о параметрах источника данных `yandex_backup_policy` см. в [документации провайдера]({{ tf-provider-datasources-link }}/backup_policy).
 
   1. Создайте ресурсы:
 

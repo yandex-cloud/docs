@@ -1,8 +1,8 @@
-> 0,24 ₽ + 0,31 ₽ = 0,55 ₽
+> {{ sku|RUB|network.public_fips|string }} + {{ sku|RUB|network.public_fips.deallocated|string }} = {% calc [currency=RUB] {{ sku|RUB|network.public_fips|number }} + {{ sku|RUB|network.public_fips.deallocated|number }} %}
 > 
-> Итого: 0,55 ₽ за час.
+> Итого: {% calc [currency=RUB] {{ sku|RUB|network.public_fips|number }} + {{ sku|RUB|network.public_fips.deallocated|number }} %} за час.
 
 Где:
 
-* 0,24 ₽ — стоимость часа использования публичного IP-адреса.
-* 0,31 ₽ — стоимость часа резервирования неактивного публичного статического IP-адреса.
+* {{ sku|RUB|network.public_fips|string }} — стоимость часа использования публичного IP-адреса.
+* {{ sku|RUB|network.public_fips.deallocated|string }} — стоимость часа резервирования неактивного публичного статического IP-адреса.

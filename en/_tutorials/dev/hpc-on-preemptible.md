@@ -93,7 +93,7 @@ To create a VM:
    * In the **{{ ui-key.yacloud.compute.groups.create.field_service-account }}** field, add a [service account](../../compute/concepts/instance-groups/access.md) to the instance group. If you do not have a service account, click **{{ ui-key.yacloud.component.service-account-select.button_create-account-new }}**, enter a name, and click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
    * In the **{{ ui-key.yacloud.compute.groups.create.field_zone }}** field, choose the availability zone the `master-node` VM is in. Make sure the VMs are in the same availability zone to reduce latency between them.
    * Under **{{ ui-key.yacloud.compute.groups.create.section_instance }}**, click **{{ ui-key.yacloud.compute.groups.create.button_instance_empty-create }}**. This opens a screen for creating a [template](../../compute/concepts/instance-groups/instance-template.md).
-      * Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, select **{{ ui-key.yacloud.compute.instances.create.label_add-disk }}**. In the window that opens, specify:
+      * Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, select **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**. In the window that opens, specify:
          * **{{ ui-key.yacloud.compute.disk-form.field_type }}**: [SSD](../../compute/concepts/disk.md#disks-types)
          * **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}**: From the created [snapshot](../../compute/concepts/snapshot.md) named `master-node-snapshot`
       * Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, specify the same configuration as that of the master VM:

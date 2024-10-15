@@ -139,7 +139,7 @@ description: Step-by-step guide for editing a backend group.
 
        {% include [session-affinity-prereqs](../../_includes/application-load-balancer/session-affinity-prereqs.md) %}
 
-       * `connection`: Mode of session affinity by [IP address](../../vpc/concepts/address.md) (`source_ip`). Its possible values are `true` or `false`. The `cookie` and `header` modes are also available. Only one of the modes should be specified. If the backend group is of the `Stream` type (consists of the `stream_backend` resources), you can only use the `connection` mode for session affinity.
+       * `connection`: Mode of session affinity by [IP address](../../vpc/concepts/address.md) (`source_ip`). It can either be `true` or `false`. The `cookie` and `header` modes are also available. Only one of the modes should be specified. If the backend group is of the `Stream` type (consists of the `stream_backend` resources), you can only use the `connection` mode for session affinity.
 
      For more information about the `yandex_alb_backend_group` resource parameters, see the [{{ TF }} provider documentation]({{ tf-provider-alb-backendgroup }}).
   1. Apply the changes:
@@ -309,7 +309,7 @@ description: Step-by-step guide for editing a backend group.
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. View a description of the CLI command for updating the backend parameters:
+  1. See the description of the CLI command for updating the backend parameters:
 
      ```bash
      yc alb backend-group update-<backend_type>-backend --help
@@ -473,7 +473,7 @@ To remove a backend from a group:
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. View a description of the CLI command for removing a backend from a group:
+  1. See the description of the CLI command for removing a backend from a group:
 
      ```bash
      yc application-load-balancer delete-<backend_type>-backend --help

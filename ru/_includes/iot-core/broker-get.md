@@ -59,7 +59,7 @@
       * `output "broker_params"` — выходная переменная, которая содержит информацию о временной метке создания брокера:
         * `value` — возвращаемое значение.
 
-      Вместо `created_at` вы можете выбрать любой другой параметр для получения информации. Более подробно о параметрах источника данных `yandex_iot_core_broker` см. в [документации провайдера]({{ tf-provider-datasources-link }}/datasource_iot_core_broker).
+      Вместо `created_at` вы можете выбрать любой другой параметр для получения информации. Более подробно о параметрах источника данных `yandex_iot_core_broker` см. в [документации провайдера]({{ tf-provider-datasources-link }}/iot_core_broker).
   1. Создайте ресурсы:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

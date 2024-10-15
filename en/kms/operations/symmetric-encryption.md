@@ -1,6 +1,6 @@
 # Symmetric data encryption
 
-In this section, you will learn how to use {{ kms-short-name }} to encrypt and decrypt small-sized data (up to 32 KB) in [symmetric encryption](../concepts/symmetric-encryption.md) mode using the CLI and API. For more information about available encryption methods, see [{#T}](../tutorials/encrypt/index.md).
+In this section, you will learn how to use {{ kms-short-name }} to encrypt and decrypt small-sized data (up to 32 KB) in [symmetric encryption](../concepts/symmetric-encryption.md) mode using the CLI and API. For more information about the available encryption methods, see [{#T}](../tutorials/encrypt/index.md).
 
 ## Getting started {#before-you-begin}
 
