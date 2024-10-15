@@ -141,7 +141,7 @@ Auxiliary Hystax Cloud Agent VMs are created automatically in the default securi
           * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `16 {{ ui-key.yacloud.common.units.label_gigabyte }}`
       1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
           * Select a cloud [network](../../vpc/concepts/network.md#network) from the list. If you do not have a network, click **{{ ui-key.yacloud.component.vpc.network-select.button_create-network }}**. Set the network parameters and click **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
-          * Select a [subnet](../../vpc/concepts/network.md#subnet). If you do not have a subnet, click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.vpc.network-select.button_create-subnetwork }}**. Set the subnet parameters and click **{{ ui-key.yacloud.component.vpc.create-subnetwork-dialog.button_create }}**. Save the subnet ID. You will need it later.
+          * Select a [subnet](../../vpc/concepts/network.md#subnet). If you do not have a subnet, click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.vpc.network-select.button_create-subnetwork }}**. Set the subnet parameters and click **{{ ui-key.yacloud.vpc.subnetworks.create.button_create }}**. Save the subnet ID. You will need it later.
           * In the **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** field, select the [security group](../../vpc/concepts/security-groups.md#default-security-group) for which you previously configured network traffic permissions.
 
       1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the data for access to the VM:

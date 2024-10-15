@@ -861,13 +861,16 @@ default:
       cpu:
         c100:
           v1|string: ₸6.5794
+          v3|number: '5.9139'
           v3|string: ₸5.9139
           v4|string: ₸9.70
       localssd:
         v1|month|string: ₸44.00
+        v1|number: '0.0611'
         v1|string: ₸0.0611
       ram:
         v1|string: ₸1.7423
+        v3|number: '1.5665'
         v3|string: ₸1.5665
         v4|string: ₸1.75
     image|month|string: ₸15.60
@@ -893,6 +896,7 @@ default:
             v3|string: ₸1.45
           preemptible|string: ₸1.70
           v2|string: ₸5.95
+          v3|number: '5.25'
           v3|string: ₸5.25
         c100|string: ₸5.60
         c20:
@@ -901,6 +905,7 @@ default:
             v3|string: ₸0.70
           preemptible|string: ₸1.35
           v2|string: ₸2.45
+          v3|number: '2.20'
           v3|string: ₸2.20
         c20|string: ₸4.40
         c50:
@@ -936,6 +941,7 @@ default:
           v3|string: ₸0.35
         preemptible|string: ₸0.60
         v2|string: ₸1.55
+        v3|number: '1.40'
         v3|string: ₸1.40
       ram|string: ₸1.95
   sku|KZT|cr:
@@ -967,9 +973,11 @@ default:
     requests:
       public:
         authoritative:
+          v1|number: '160.00'
           v1|string: ₸160.00
         recursive:
           v1|pricingRate:
+            1|number: '160.00'
             1|string: ₸160.00
           v1|string: Free
     zones:
@@ -1492,10 +1500,13 @@ default:
       dgauge:
         store|string: Free
       prometheus:
+        export|number: '35.00'
         export|pricingRate:
           50|string: ₸21.00
         export|string: ₸35.00
+      write|number: '49.00'
       write|pricingRate:
+        50|number: '28.00'
         50|string: ₸28.00
       write|string: ₸49.00
     prometheus:
@@ -1525,7 +1536,9 @@ default:
         antiddos:
           qrator|string: ₸12.15
     public_fips:
+      deallocated|number: '1.55'
       deallocated|string: ₸1.55
+    public_fips|number: '1.20'
     public_fips|string: ₸1.20
   sku|KZT|nlb:
     balancer:
@@ -1886,6 +1899,7 @@ default:
     v1:
       serverless:
         requests|pricingRate:
+          1|number: '106.90'
           1|string: ₸106.90
   sku|KZT|yds:
     events:
@@ -1977,13 +1991,16 @@ default:
       cpu:
         c100:
           v1|string: ₽1.3159
+          v3|number: '1.1828'
           v3|string: ₽1.1828
           v4|string: ₽1.94
       localssd:
         v1|month|string: ₽8.80
+        v1|number: '0.0122'
         v1|string: ₽0.0122
       ram:
         v1|string: ₽0.3485
+        v3|number: '0.3133'
         v3|string: ₽0.3133
         v4|string: ₽0.35
     image|month|string: ₽3.12
@@ -2009,6 +2026,7 @@ default:
             v3|string: ₽0.29
           preemptible|string: ₽0.34
           v2|string: ₽1.19
+          v3|number: '1.05'
           v3|string: ₽1.05
         c100|string: ₽1.12
         c20:
@@ -2017,6 +2035,7 @@ default:
             v3|string: ₽0.14
           preemptible|string: ₽0.27
           v2|string: ₽0.49
+          v3|number: '0.44'
           v3|string: ₽0.44
         c20|string: ₽0.88
         c50:
@@ -2052,6 +2071,7 @@ default:
           v3|string: ₽0.07
         preemptible|string: ₽0.12
         v2|string: ₽0.31
+        v3|number: '0.28'
         v3|string: ₽0.28
       ram|string: ₽0.39
   sku|RUB|cr:
@@ -2083,9 +2103,11 @@ default:
     requests:
       public:
         authoritative:
+          v1|number: '32.00'
           v1|string: ₽32.00
         recursive:
           v1|pricingRate:
+            1|number: '32.00'
             1|string: ₽32.00
           v1|string: Free
     zones:
@@ -2608,10 +2630,13 @@ default:
       dgauge:
         store|string: Free
       prometheus:
+        export|number: '7.00'
         export|pricingRate:
           50|string: ₽4.20
         export|string: ₽7.00
+      write|number: '9.80'
       write|pricingRate:
+        50|number: '5.60'
         50|string: ₽5.60
       write|string: ₽9.80
     prometheus:
@@ -2641,7 +2666,9 @@ default:
         antiddos:
           qrator|string: ₽2.43
     public_fips:
+      deallocated|number: '0.31'
       deallocated|string: ₽0.31
+    public_fips|number: '0.24'
     public_fips|string: ₽0.24
   sku|RUB|nlb:
     balancer:
@@ -3002,6 +3029,7 @@ default:
     v1:
       serverless:
         requests|pricingRate:
+          1|number: '21.38'
           1|string: ₽21.38
   sku|RUB|yds:
     events:
@@ -3093,13 +3121,16 @@ default:
       cpu:
         c100:
           v1|string: $0.010527
+          v3|number: '0.009462'
           v3|string: $0.009462
           v4|string: $0.015520
       localssd:
         v1|month|string: $0.070400
+        v1|number: '0.000098'
         v1|string: $0.000098
       ram:
         v1|string: $0.002788
+        v3|number: '0.002506'
         v3|string: $0.002506
         v4|string: $0.002800
     image|month|string: $0.024960
@@ -3125,6 +3156,7 @@ default:
             v3|string: $0.002320
           preemptible|string: $0.002720
           v2|string: $0.009520
+          v3|number: '0.008400'
           v3|string: $0.008400
         c100|string: $0.008960
         c20:
@@ -3133,6 +3165,7 @@ default:
             v3|string: $0.001120
           preemptible|string: $0.002160
           v2|string: $0.003920
+          v3|number: '0.003520'
           v3|string: $0.003520
         c20|string: $0.007040
         c50:
@@ -3168,6 +3201,7 @@ default:
           v3|string: $0.000560
         preemptible|string: $0.000960
         v2|string: $0.002480
+        v3|number: '0.002240'
         v3|string: $0.002240
       ram|string: $0.003120
   sku|USD|cr:
@@ -3199,9 +3233,11 @@ default:
     requests:
       public:
         authoritative:
+          v1|number: '0.256000'
           v1|string: $0.256000
         recursive:
           v1|pricingRate:
+            1|number: '0.256000'
             1|string: $0.256000
           v1|string: Free
     zones:
@@ -3708,10 +3744,13 @@ default:
       dgauge:
         store|string: Free
       prometheus:
+        export|number: '0.056000'
         export|pricingRate:
           50|string: $0.033600
         export|string: $0.056000
+      write|number: '0.078400'
       write|pricingRate:
+        50|number: '0.044800'
         50|string: $0.044800
       write|string: $0.078400
     prometheus:
@@ -3741,7 +3780,9 @@ default:
         antiddos:
           qrator|string: $0.019440
     public_fips:
+      deallocated|number: '0.002480'
       deallocated|string: $0.002480
+    public_fips|number: '0.001920'
     public_fips|string: $0.001920
   sku|USD|nlb:
     balancer:
@@ -4148,6 +4189,7 @@ default:
     v1:
       serverless:
         requests|pricingRate:
+          1|number: '0.171040'
           1|string: $0.171040
         requests|string: Free
         storage|month|string: Free
@@ -4278,8 +4320,14 @@ default:
           data_type: Data type
     datalens:
       component:
+        access-rights:
+          view:
+            button_access-to-dash: Dashboard access
+            button_add: Add
+            section_main-title: Permissions
         aside-header:
           view:
+            switch_dashboards: Dashboards
             switch_datasets: Datasets
             switch_root: All objects
       connection:
@@ -4861,13 +4909,14 @@ default:
         save: Save
       ui_components_navigation:
         invite-user: Add user
-      ui_components_new-process_ProcessTypeStep:
-        next-button: Next
+      ui_components_new-process_ProcessTypeStepRedesign:
+        information-time-tracking-title: Time tracking
         process-type-development: Development
         process-type-project: Project management
-        process-type-standard: Basic template
+        process-type-standard: Basic
         process-type-support: Support
-        standard-info-section-time: Time spent
+      ui_components_new-process_QueueSetupForm:
+        next-button: Next
       ui_components_page-admin_BillingAccountInfo:
         person-type-company: Legal entity or individual entrepreneur
         person-type-invididual: Individual
@@ -5623,7 +5672,7 @@ default:
           value_role-source-filter_direct: Directly appointed
           value_role-source-filter_group: Assigned via group
       layout:
-        identity: Organization
+        organization: Organization
       page:
         acl-diagnostics:
           action_select-subject: Select subject
@@ -5996,7 +6045,8 @@ default:
         field_password: Password
         field_server-count: Number of servers
         field_server-lease-duration: Lease duration
-        field_server-user: User
+        field_server-pool: Pool
+        field_server-zone: Availability zone
         field_ssh-public-key: Public SSH key
         label_networks: VRF
         label_one-month-duration: 1 month
@@ -6201,6 +6251,7 @@ default:
           switch_explore: SQL
           switch_explore-websql: WebSQL
           switch_format-schemas: Data format schemas
+          switch_hosts: Hosts
           switch_logs: Logs
           switch_ml-models: Machine learning
           switch_monitoring: Monitoring
@@ -6396,8 +6447,14 @@ default:
         navigation-menu:
           label_account: Account
           label_billing: Billing
+          label_load-balancer: Network Load Balancer
+          label_managed-clickhouse: Managed Service for ClickHouse
+          label_managed-kubernetes: Managed Service for Kubernetes
+          label_managed-postgresql: Managed Service for PostgreSQL
           label_monitoring: Monitoring
           label_notifications: Notifications
+          label_serverless-containers: Serverless Containers
+          label_serverless-functions: Cloud Functions
           label_vpc: Virtual Private Cloud
         security-group-field:
           label_sg-auto: Auto
@@ -6415,12 +6472,6 @@ default:
         vpc-security-group-select:
           label_add-security-group: Add security group
         vpc:
-          create-subnetwork-dialog:
-            button_create: Create
-            field_cidr: CIDR
-            field_description: Description
-            field_name: Name
-            field_zone: Availability zone
           network-select:
             button_create-network: Create network
             button_create-subnetwork: Create subnet
@@ -6429,6 +6480,9 @@ default:
           button_attach: Attach
           field_instance: VM
         button_relocate-to-another-zone: Relocate to another zone
+        component:
+          instance-storage-dialog:
+            button_add-disk: Add disk
         disk-form:
           field_size: Size
           field_type: Type
@@ -6579,6 +6633,7 @@ default:
           button_create: Create virtual machine
           button_gr-action-stop: Stop
           button_start-instance-relocation: Start relocation
+          column_internal-ip: Internal IPv4
           create-disk:
             button_create: Add
             field_name: Name
@@ -6594,7 +6649,6 @@ default:
             button_create-subnetwork-new: Create subnet
             button_net_empty-create: Create a network
             button_show-all-marketplace-products: Show all Marketplace products
-            button_show-all-os-products: Show all OS's
             field_access-advanced: Advanced
             field_coi-arguments: Command arguments
             field_coi-command: Command
@@ -6615,11 +6669,8 @@ default:
             field_zone: Availability zone
             image_coi_label_empty-button: Configure
             image_value_coi: Container Solution
-            image_value_custom: Custom image
             image_value_custom_new: Custom
             image_value_marketplace: Marketplace
-            image_value_os-products: Operating systems
-            label_add-disk: Add disk
             label_add-network-interface: Add network interface
             section_access: Access
             section_additional: Additional settings
@@ -7088,6 +7139,7 @@ default:
             label_health: State
             label_master-title: Master
             label_status: Status
+            label_title: Overview
           switch_custom-resources: Custom resources
           switch_events: Events
           switch_marketplace: Marketplace
@@ -8334,6 +8386,7 @@ default:
           button_create-gateway: Create gateway
           field_name: Name
           field_type: Type
+          label_gateways: Gateways
           value_gateway-type-egress-nat: Egress NAT
         label_network: Network
         network:
@@ -8393,6 +8446,7 @@ default:
         subnet:
           add-route-table:
             button_add: Link
+            field_route-table-id: Route table
             label_title: Link routing table
         subnetworks:
           button_action-add-route-table: Link routing table

@@ -306,11 +306,11 @@ You can use the management console or {{ yandex-cloud }} CLI to:
          * Click **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
       1. Under **{{ ui-key.yacloud.ydb.forms.field_subnetworks }}**, select a subnet or create a new one for each availability zone:
          * Click **{{ ui-key.yacloud.ydb.forms.button_create-subnetwork-new }}**.
-         * In the window that opens, enter a **{{ ui-key.yacloud.component.vpc.create-subnetwork-dialog.field_name }}** for the new subnet.
-         * (Optional) Enter a **{{ ui-key.yacloud.component.vpc.create-subnetwork-dialog.field_description }}** of the subnet.
-         * Select the availability zone you need from the **{{ ui-key.yacloud.component.vpc.create-subnetwork-dialog.field_zone }}** list.
-         * Specify the subnet address in [**{{ ui-key.yacloud.component.vpc.create-subnetwork-dialog.field_cidr }}**](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) format.
-         * Click **{{ ui-key.yacloud.component.vpc.create-subnetwork-dialog.button_create }}**.
+         * In the window that opens, enter a **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}** for the new subnet.
+         * (Optional) Enter a **{{ ui-key.yacloud.vpc.subnetworks.create.field_description }}** of the subnet.
+         * Select the availability zone you need from the **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}** list.
+         * Specify the subnet address in [**{{ ui-key.yacloud.vpc.subnetworks.create.field_ip }}**](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) format.
+         * Click **{{ ui-key.yacloud.vpc.subnetworks.create.button_create }}**.
    1. Click **{{ ui-key.yacloud.ydb.forms.button_create-database }}**.
 
    Wait for the database status to change to `Running`.

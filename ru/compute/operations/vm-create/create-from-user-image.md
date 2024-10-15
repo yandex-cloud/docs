@@ -31,7 +31,7 @@ description: Следуя данной инструкции, вы сможете
       * Нажмите кнопку **{{ ui-key.yacloud.common.select }}** и в открывшемся окне выберите **{{ ui-key.yacloud.common.create-new }}**.
       * В поле **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** выберите `{{ ui-key.yacloud.compute.instances.create-disk.value_source-image }}` и в списке ниже выберите нужный образ.
       * (Опционально) В поле **{{ ui-key.yacloud.compute.field_additional }}** включите опцию **{{ ui-key.yacloud.compute.field_disk-autodelete }}**, если вы хотите автоматически удалять этот диск при удалении ВМ.
-      * Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.label_add-disk }}**.
+      * Нажмите кнопку **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
 
   1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
   1. Добавьте [диск](../../concepts/disk.md):
@@ -43,7 +43,7 @@ description: Следуя данной инструкции, вы сможете
       * Выберите [тип диска](../../concepts/disk.md#disks_types).
       * Задайте нужные размер диска и размер блока.
       * (Опционально) В поле **{{ ui-key.yacloud.compute.field_additional }}** включите опцию **{{ ui-key.yacloud.compute.field_disk-autodelete }}**, если вы хотите автоматически удалять этот диск при удалении ВМ.
-      * Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.label_add-disk }}**.
+      * Нажмите кнопку **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
 
   1. {% include [encryption-section-secondary](../../../_includes/compute/encryption-section-secondary.md) %}
   1. {% include [section-storages-filesystem](../../../_includes/compute/create/section-storages-filesystem.md) %}

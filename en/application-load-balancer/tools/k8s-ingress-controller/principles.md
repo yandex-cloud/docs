@@ -3,7 +3,7 @@ title: How the {{ alb-full-name }} Ingress controller works
 description: Learn about the {{ alb-name }} Ingress controller and the relationships between {{ alb-name }} and {{ k8s }} resources.
 ---
 
-# {{ alb-name }} Ingress controller operation principles
+# How the {{ alb-name }} Ingress controller works
 
 
 An [{{ alb-name }} Ingress controller for {{ managed-k8s-name }}](index.md) has two [pods](../../../managed-kubernetes/concepts/index.md#pod):

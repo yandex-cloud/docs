@@ -57,9 +57,9 @@ description: Follow this guide to edit basic settings in a {{ sws-full-name }} s
      * `--new-name`: New name for the security profile. This is an optional parameter if the profile name remains unchanged.
      * `--description`: Text description of the security profile. This is an optional parameter.
      * `--labels`: List of [labels](../../resource-manager/concepts/labels.md) to add to the profile in `KEY=VALUE` format. This is an optional parameter. For example: `--labels foo=baz,bar=baz'`.
-     * `--default-action`: Action to perform for traffic that mismatches the criteria of other rules. This is an optional parameter. The default value is `allow`, which allows all requests to {{ sws-full-name }}. To block requests, set the parameter to `deny`.
+     * `--default-action`: Action to perform for the traffic that mismatches the criteria of other rules. This is an optional parameter. The default value is `allow`, which allows all requests to {{ sws-full-name }}. To block requests, set the parameter to `deny`.
      * `--captcha-id`: ID of the CAPTCHA in [{{ captcha-name }}](../../smartcaptcha/) to verify suspicious requests. This is an optional parameter.
-     * `--security-rules-file`: Path to the [YAML](https://en.wikipedia.org/wiki/YAML) file with security rules. This is an optional parameter. For example:
+     * `--security-rules-file`: Path to the [YAML](https://en.wikipedia.org/wiki/YAML) file with security rule description. This is an optional parameter. For example:
 
          {% include [profile-create-yaml-example](../../_includes/smartwebsecurity/profile-create-yaml-example.md) %}
 

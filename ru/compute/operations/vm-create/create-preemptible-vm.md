@@ -336,3 +336,6 @@
 #### См. также {#see-also}
 
 * [{#T}](../vm-connect/ssh.md).
+* [{#T}](../../tutorials/nodejs-cron-restart-vm.md).
+* [{#T}](../../tutorials/hpc-on-preemptible.md).
+* [{#T}](../../tutorials/serverless-trigger-budget-vm.md).

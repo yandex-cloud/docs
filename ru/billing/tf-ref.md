@@ -21,4 +21,4 @@ description: На этой странице приведен справочни�
 
 | **Источник данных {{ TF }}** | **Описание** |
 | --- | --- |
-| [yandex_billing_cloud_binding]({{ tf-provider-datasources-link }}/datasource_billing_cloud_binding) | Информация о привязке [облака](../resource-manager/concepts/resources-hierarchy.md#cloud) к [платежному аккаунту](./concepts/billing-account.md) |
+| [yandex_billing_cloud_binding]({{ tf-provider-datasources-link }}/billing_cloud_binding) | Информация о привязке [облака](../resource-manager/concepts/resources-hierarchy.md#cloud) к [платежному аккаунту](./concepts/billing-account.md) |

@@ -39,6 +39,16 @@ Home appliances |	Fabrika Komforta |	Pickup |	1 072 286 |	2 170 431 |	4 178
 
 {% endcut %}
 
+When [creating a pivot table](#create-diagram), you can use these advanced settings:
+
+* [{#T}](#change-columns-names)
+* [{#T}](#hint-column)
+* [{#T}](#set-column-width)
+* [{#T}](#column-fixation)
+* [{#T}](#add-totals)
+* [{#T}](#set-field-color)
+* [{#T}](#add-linear-indicator)
+
 ## Wizard sections {#wizard-sections}
 
 Wizard<br/> section| Description
@@ -116,6 +126,18 @@ When the option is enabled, the ![image](../../_assets/console-icons/circle-ques
 
 To set the width of any column to `Auto`, click **Reset**.
 
+### Freezing table columns {#column-fixation}
+
+{% note info %}
+
+You can only freeze columns generated from dimensions in the **Rows** section.
+
+{% endnote %}
+
+1. In the top-right corner of the **Columns** or **Rows** section, click ![image](../../_assets/console-icons/gear.svg) (this icon appears when you hover over the section).
+1. In the **Freeze** window that opens, enter the number of columns to freeze. These columns will be frozen in place as you scroll horizontally.
+1. Click **Apply**.
+
 ### Adding rows with subtotals {#add-totals}
 
 1. Under **Columns** or **Rows**, click the icon in front of the field name.
@@ -188,7 +210,7 @@ To output the common **Total** row, enable **Sub-totals** in the settings for th
    * **Show labels**: This option enables displaying measure values in a cell.
    * **Show in totals**: This option enables displaying the indicator in cells with totals.
    * **Align**: Left or right alignment of the indicator position in a column. Only applies if all numbers in a column are either positive or negative.
-   * **Scale**: Sets the indicator scale. If you set it manually, specify the **min** and **max** values. Make sure the **min** value is less than or equal to `0` and the **max** value is larger than or equal to `0`.
+   * **Scale**: Sets the indicator scale. If you set a scale manually, specify the **min** and **max** values. Make sure the **min** value is less than or equal to `0` and the **max** value is larger than or equal to `0`.
 
    {% cut "Example of linear indicator settings" %}
 
@@ -203,7 +225,7 @@ To output the common **Total** row, enable **Sub-totals** in the settings for th
 * Use a pivot table to represent aggregate data in table format.
 * Place dimensions on the left and measures on the right. This makes the data easier to comprehend.
 * Make sure column names you use are short and readable.
-* Limit the size of your tables or use filters/sorting. Tables with too many rows or columns are hard to read.
+* Limit the size of your table or use filters and sorting. Tables with too many rows or columns are hard to read.
 * You can color table cells depending on the values of a measure. This will help you to highlight the values.
 * Use tables for their intended purpose only. Do not replace all data visualization types with them.
 * When posting a table on a dashboard, enable auto height in the widget settings. This will help you save dashboard space.

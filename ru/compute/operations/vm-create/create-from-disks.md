@@ -30,7 +30,7 @@ description: Следуя данной инструкции, вы сможете
       * В открывшемся окне выберите **{{ ui-key.yacloud.compute.instances.create-disk.value_source-disk }}** → `Подключить существующий`.
       * Выберите нужный диск.
       * (Опционально) В поле **{{ ui-key.yacloud.compute.field_additional }}** включите опцию **{{ ui-key.yacloud.compute.field_disk-autodelete }}**, если вы хотите автоматически удалять этот диск при удалении ВМ.
-      * Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.label_add-disk }}**.
+      * Нажмите кнопку **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
 
   1. {% include [encryption-section-secondary](../../../_includes/compute/encryption-section-secondary.md) %}
   1. {% include [section-storages-filesystem](../../../_includes/compute/create/section-storages-filesystem.md) %}

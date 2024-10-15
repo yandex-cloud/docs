@@ -21,4 +21,4 @@ description: На этой странице приведен справочни�
 
 | **Источник данных {{ TF }}** | **Описание** |
 | --- | --- |
-| [yandex_message_queue]({{ tf-provider-datasources-link }}/datasource_message_queue) | Информация об [очереди сообщений](./concepts/queue.md) |
+| [yandex_message_queue]({{ tf-provider-datasources-link }}/message_queue) | Информация об [очереди сообщений](./concepts/queue.md) |

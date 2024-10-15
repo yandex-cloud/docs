@@ -23,4 +23,4 @@ description: На этой странице приведен справочни�
 
 | **Источник данных {{ TF }}** | **Описание** |
 | --- | --- |
-| [yandex_serverless_container]({{ tf-provider-datasources-link }}/datasource_serverless_container) | Информация о [контейнере](./concepts/container.md) |
+| [yandex_serverless_container]({{ tf-provider-datasources-link }}/serverless_container) | Информация о [контейнере](./concepts/container.md) |

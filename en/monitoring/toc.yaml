@@ -37,7 +37,7 @@ items:
             href: operations/dashboard/add-parameters.md
           - name: Deleting widgets from a dashboard
             href: operations/dashboard/delete-widget.md
-          - name: Deleting dashboards
+          - name: Deleting a dashboard
             href: operations/dashboard/delete-dashboard.md
           - name: Examples of working with the gRPC API
             href: operations/dashboard/api-examples.md
@@ -89,7 +89,7 @@ items:
             href: concepts/visualization/query-string.md
           - name: Widgets
             href: concepts/visualization/widget.md
-          - name: Dashboards
+          - name: Dashboard
             href: concepts/visualization/dashboard.md
       - name: Query language
         href: concepts/querying.md

@@ -24,5 +24,5 @@ description: На этой странице приведен справочни�
 
 | **Источник данных {{ TF }}** | **Описание** |
 | --- | --- |
-| [yandex_lockbox_secret]({{ tf-provider-datasources-link }}/datasource_lockbox_secret) | Информация о [секрете](./concepts/secret.md#secret) |
-| [yandex_lockbox_secret_version]({{ tf-provider-datasources-link }}/datasource_lockbox_secret_version) | Информация о [версии секрета](./concepts/secret.md#version) |
+| [yandex_lockbox_secret]({{ tf-provider-datasources-link }}/lockbox_secret) | Информация о [секрете](./concepts/secret.md#secret) |
+| [yandex_lockbox_secret_version]({{ tf-provider-datasources-link }}/lockbox_secret_version) | Информация о [версии секрета](./concepts/secret.md#version) |

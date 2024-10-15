@@ -69,7 +69,7 @@ description: Следуя данной инструкции, вы сможете
      * `output "network"` — выходная переменная, которая содержит информацию о временной метке создания сети:
        * `value` — возвращаемое значение.
 
-     Вместо `created_at` вы можете выбрать любой другой параметр для получения информации. Более подробно о параметрах источника данных `yandex_vpc_network` см. в [документации провайдера]({{ tf-provider-datasources-link }}/datasource_vpc_network).
+     Вместо `created_at` вы можете выбрать любой другой параметр для получения информации. Более подробно о параметрах источника данных `yandex_vpc_network` см. в [документации провайдера]({{ tf-provider-datasources-link }}/vpc_network).
   1. Создайте ресурсы:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

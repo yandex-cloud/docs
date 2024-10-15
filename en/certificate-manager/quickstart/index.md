@@ -24,7 +24,7 @@ To get started with {{ certificate-manager-name }}, you need:
 
     - Management console {#console}
 
-        1. In the [management console]({{ link-console-main }}), select the folder where you wish to create the [bucket](../../storage/concepts/bucket.md).
+        1. In the [management console]({{ link-console-main }}), select the folder you want to create a [bucket](../../storage/concepts/bucket.md) in.
         1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
         1. Click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
         1. Enter exactly the same name for the bucket as the domain name.

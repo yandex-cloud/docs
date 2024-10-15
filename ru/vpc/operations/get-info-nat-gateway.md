@@ -68,7 +68,7 @@ description: Следуя данной инструкции, вы сможете
      * `output "gateway"` — выходная переменная, которая содержит информацию о времени создания NAT-шлюза:
        * `value` — возвращаемое значение.
 
-     Вместо `created_at` вы можете выбрать любой другой параметр для получения информации. Более подробно о параметрах источника данных `yandex_vpc_gateway` см. в [документации провайдера]({{ tf-provider-datasources-link }}/datasource_vpc_gateway).
+     Вместо `created_at` вы можете выбрать любой другой параметр для получения информации. Более подробно о параметрах источника данных `yandex_vpc_gateway` см. в [документации провайдера]({{ tf-provider-datasources-link }}/vpc_gateway).
   1. Создайте ресурсы:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

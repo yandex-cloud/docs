@@ -37,7 +37,7 @@ A signature based on a private key is used for messages of up to 32 KB.
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
       1. In the left-hand panel, select ![image](../../_assets/kms/asymmetric-key.svg) **{{ ui-key.yacloud.kms.switch_asymmetric-keys }}**.
       1. Go to the **{{ ui-key.yacloud.kms.asymmetric-key.form.label_signature }}** tab.
-      1. In the line with the appropriate key pair, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.kms.asymmetric-keys.action_public-key }}**.
+      1. In the row with the appropriate key pair, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.kms.asymmetric-keys.action_public-key }}**.
       1. In the window that opens, click **{{ ui-key.yacloud.kms.asymmetric-keys.button_download }}** to download the digital signature public key.
 
     - CLI {#cli}
@@ -149,7 +149,7 @@ A hash-based signature is used for messages or files over 32 KB in size.
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
       1. In the left-hand panel, select ![image](../../_assets/kms/asymmetric-key.svg) **{{ ui-key.yacloud.kms.switch_asymmetric-keys }}**.
       1. Go to the **{{ ui-key.yacloud.kms.asymmetric-key.form.label_signature }}** tab.
-      1. In the line with the appropriate key pair, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.kms.asymmetric-keys.action_public-key }}**.
+      1. In the row with the appropriate key pair, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.kms.asymmetric-keys.action_public-key }}**.
       1. In the window that opens, click **{{ ui-key.yacloud.kms.asymmetric-keys.button_download }}** to download the signature public key.
 
     - CLI {#cli}
@@ -187,7 +187,7 @@ A hash-based signature is used for messages or files over 32 KB in size.
       ```
 
       Where:
-      * `<hashing_algorithm>`: Hashing algorithm used when creating a digital signature key pair. The hashing algorithm is specified above in the `SIGNATURE ALGORITHM` field of the results you get with the list of key pairs. Possible values:
+      * `<hashing_algorithm>`: Hashing algorithm used when creating a digital signature key pair. The hashing algorithm is specified above in the `SIGNATURE ALGORITHM` field of the results you get with the list of key pairs. The possible values are:
           * `sha256sum`: For SHA-256 algorithms.
           * `sha384sum`: For SHA-384 algorithms.
           * `sha512sum`: For SHA-512 algorithms.
@@ -206,7 +206,7 @@ A hash-based signature is used for messages or files over 32 KB in size.
       ```
 
       Where:
-      * `<hashing_algorithm>`: Hashing algorithm used when creating a signature key pair. The hashing algorithm is specified above in the `SIGNATURE ALGORITHM` field of the results you get with the list of key pairs. Possible values:
+      * `<hashing_algorithm>`: Hashing algorithm used when creating a signature key pair. The hashing algorithm is specified above in the `SIGNATURE ALGORITHM` field of the results you get with the list of key pairs. The possible values are:
           * `SHA256`: For SHA-256 algorithms.
           * `SHA384`: For SHA-384 algorithms.
           * `SHA512`: For SHA-512 algorithms.
@@ -247,7 +247,7 @@ A hash-based signature is used for messages or files over 32 KB in size.
           * `--id`: ID of the digital signature key pair.
           * `--signature-output-file`: Path to the file to save the digital signature to.
           * `--message-hash-file`: Path to the previously created hash file.
-          * `--inform`: Hash file format. The example uses the common `hex` format supported by all platforms. Possible values: `raw` (default), `base64`, and `hex`.
+          * `--inform`: Hash file format. The example uses the common `hex` format that is supported by all platforms. Possible values: `raw` (default), `base64`, and `hex`.
 
           Result:
 

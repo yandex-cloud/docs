@@ -1,6 +1,6 @@
 | Ресурс | Стоимость за час | Доступно | Итого |
 | --- | --- | --- | ---: |
-| vCPU | 1,1828 ₽/vCPU | 108 vCPU | 127,7424 ₽ |
-| RAM | 0,3133 ₽/ГБ | 704 ГБ | 220,5632 ₽ |
-| Диск | 0,0122 ₽/ГБ | 19&nbsp;200 ГБ | 234,2400 ₽ |
-| | | **Итого** | **582,5456 ₽** |
+| vCPU | {{ sku|RUB|compute.hostgroup.cpu.c100.v3|string }}/vCPU | 108 vCPU | {% calc [currency=RUB] {{ sku|RUB|compute.hostgroup.cpu.c100.v3|number }} × 108 %} |
+| RAM | {{ sku|RUB|compute.hostgroup.ram.v3|string }}/ГБ | 704 ГБ | {% calc [currency=RUB] {{ sku|RUB|compute.hostgroup.ram.v3|number }} × 704 %} |
+| Диск | {{ sku|RUB|compute.hostgroup.localssd.v1|string }}/ГБ | 19&nbsp;200 ГБ | {% calc [currency=RUB] {{ sku|RUB|compute.hostgroup.localssd.v1|number }} × 19200 %} |
+| | | **Итого** | **{% calc [currency=RUB] {{ sku|RUB|compute.hostgroup.cpu.c100.v3|number }} × 108 + {{ sku|RUB|compute.hostgroup.ram.v3|number }} × 704 + {{ sku|RUB|compute.hostgroup.localssd.v1|number }} × 19200 %}** |

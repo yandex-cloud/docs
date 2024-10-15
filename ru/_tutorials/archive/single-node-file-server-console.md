@@ -80,7 +80,7 @@
           * **{{ ui-key.yacloud.compute.disk-form.field_type }}** — `{{ ui-key.yacloud.compute.value_disk-type-network-ssd }}`.
           * **{{ ui-key.yacloud.compute.disk-form.field_size }}** — `100 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
 
-      * Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.label_add-disk }}**.
+      * Нажмите кнопку **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
 
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** перейдите на вкладку **{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}**, выберите [платформу](../../compute/concepts/vm-platforms.md) и укажите рекомендуемые параметры для файлового сервера:
 

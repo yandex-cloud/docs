@@ -150,6 +150,10 @@ items:
         href: tutorials/remote-wireguard-vpn.md
       - name: Создание и настройка шлюза UserGate в режиме прокси-сервера
         href: tutorials/usergate-proxy.md
+      - name: >-
+          Миграция кластера {{ dataproc-full-name }} с файловой системой HDFS в
+          другую зону доступности
+        href: tutorials/hdfs-cluster-migration.md
       - name: Настройка сети для {{ dataproc-full-name }}
         href: tutorials/dataproc-nat-instance.md
       - name: Сеть между каталогами

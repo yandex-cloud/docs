@@ -38,7 +38,7 @@
      * В блоке **{{ ui-key.yacloud.compute.instances.create.section_disk }}**:
        * Выберите [тип диска](../../../compute/concepts/disk.md#disks_types).
        * Укажите размер диска.
-       * Чтобы добавить дополнительные диски, нажмите **{{ ui-key.yacloud.compute.instances.create.label_add-disk }}**.
+       * Чтобы добавить дополнительные диски, нажмите **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
      * В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
        * Выберите [платформу](../../../compute/concepts/vm-platforms.md).
        * Укажите необходимое количество vCPU, [гарантированную долю vCPU](../../concepts/performance-levels.md) и объем RAM.

@@ -54,7 +54,7 @@ If you can't access the serial console, do the following to recover the public p
    ```
 
 1. [Stop](../vm-control/vm-stop-and-start.md) the auxiliary VM and [detach](../vm-control/vm-detach-disk.md) the disk with the fixed SSH key from it.
-1. [Create](../vm-create/create-from-disks.md) a new VM. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, go to the **{{ ui-key.yacloud.compute.instances.create.image_value_custom }}** tab and select the disk with the fixed SSH key as the boot disk.
+1. [Create](../vm-create/create-from-disks.md) a new VM. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, go to the **{{ ui-key.yacloud.compute.instances.create.image_value_custom_new }}** tab and select the disk with the fixed SSH key as the boot disk.
 
    {% note info %}
 
@@ -99,4 +99,4 @@ If you cannot start a VM, get access to data on the disk as follows:
 1. [Attach the disk](../vm-control/vm-attach-disk.md) as secondary to the auxiliary VM.
 1. Change the configuration files that affect the VM startup or copy important data.
 1. [Detach the disk](../vm-control/vm-detach-disk.md) from the auxiliary VM.
-1. If you found and fixed the startup issue, create a new VM. When creating a VM, go to the **{{ ui-key.yacloud.compute.instances.create.image_value_custom }}** tab under **{{ ui-key.yacloud.compute.instances.create.section_image }}** and select the fixed disk as the boot disk.
+1. If you found and fixed the startup issue, create a new VM. When creating a VM, go to the **{{ ui-key.yacloud.compute.instances.create.image_value_custom_new }}** tab under **{{ ui-key.yacloud.compute.instances.create.section_image }}** and select the fixed disk as the boot disk.

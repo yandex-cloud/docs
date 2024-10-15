@@ -21,4 +21,4 @@ description: На этой странице приведен справочни�
 
 | **Источник данных {{ TF }}** | **Описание** |
 | --- | --- |
-| [yandex_logging_group]({{ tf-provider-datasources-link }}/datasource_logging_group) | Информация о [лог-группе](./concepts/log-group.md) |
+| [yandex_logging_group]({{ tf-provider-datasources-link }}/logging_group) | Информация о [лог-группе](./concepts/log-group.md) |

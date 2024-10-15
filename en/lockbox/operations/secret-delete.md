@@ -14,7 +14,7 @@ To delete a secret:
   1. In the [management console]({{ link-console-main }}), select the folder the secret belongs to.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
   1. In the left-hand menu, select **{{ ui-key.yacloud.lockbox.label_section-secrets }}**.
-  1. Across from the secret you need, click ![image](../../_assets/console-icons/ellipsis.svg).
+  1. Next to the secret you need, click ![image](../../_assets/console-icons/ellipsis.svg).
   1. In the menu that opens, select **{{ ui-key.yacloud.common.delete }}**.
   1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
@@ -87,7 +87,7 @@ To delete a secret:
 
   1. Open the {{ TF }} configuration file and delete the part with the secret description:
 
-      {% cut "Sample secret description in the {{ TF }} configuration" %}
+     {% cut "Sample secret description in the {{ TF }} configuration" %}
 
      ```hcl
      ...
