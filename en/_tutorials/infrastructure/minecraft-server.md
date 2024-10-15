@@ -72,7 +72,7 @@ Create a [security group](../../vpc/concepts/security-groups.md), with a rule al
       1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
          * In the **Name** field, enter the VM name: `minecraft-server`.
          * Select an [availability zone](../../overview/concepts/geo-scope.md) to place your VM in.
-      1. Under **{{ ui-key.yacloud.compute.instances.create.section_image}}**, go to the **{{ ui-key.yacloud.compute.instances.create.image_value_os-products }}** tab and select the [Ubuntu 22.04 LTS](/marketplace/products/yc/ubuntu-22-04-lts) operating system image.
+      1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select the [Ubuntu 22.04 LTS](/marketplace/products/yc/ubuntu-22-04-lts) operating system image.
       1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages}}**, select an 18 GB HDD.
       1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, specify the recommended configuration for the Minecraft server:
          * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: Intel Ice Lake

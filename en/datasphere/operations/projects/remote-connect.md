@@ -4,14 +4,19 @@
 
 {% note info %}
 
-Only users with the `{{ roles-datasphere-project-developer }}` [role](../../security/index.md#roles-list) or higher can get a link to connect to a project from an IDE.
+You must have the `{{ roles-datasphere-communities-admin }}` [role](../../security/index.md#roles-list) in the community to enable the remote IDE feature. Only users with the `{{ roles-datasphere-project-developer }}` role or higher can get a link to connect to a project from an IDE.
 
 {% endnote %}
 
 Here is an example of connecting to a project using [Visual Studio Code](https://code.visualstudio.com/):
 
-1. {% include [include](../../../_includes/datasphere/ui-find-project.md) %}
-1. In the project settings, select a [VM configuration](../../concepts/configurations.md) for a remote connection and run the project.
+1. {% include [include](../../../_includes/datasphere/ui-find-community.md) %}
+1. Select the community your project is in.
+1. Go to the **{{ ui-key.yc-ui-datasphere.common.restrictions }}** tab.
+1. Under **{{ ui-key.yc-ui-datasphere.restrictions.project-mode }}**, enable the **{{ ui-key.yc-ui-datasphere.restrictions.JUPYTER_TOKEN }}** option.
+1. Go to the **{{ ui-key.yc-ui-datasphere.common.projects }}** tab and select your project.
+1. In the project settings, under **{{ ui-key.yc-ui-datasphere.common.general }}**, click **{{ ui-key.yc-ui-datasphere.common.edit }}**.
+1. In the **{{ ui-key.yc-ui-datasphere.external-ide.external-ide-vm-configuration }}** field, select [VM configuration](../../concepts/configurations.md) and run the project.
 1. In the top-right corner, click **Share** ⟶ **Link for external IDE**.
 1. Click **Copy link**.
 1. Open an `ipynb` file in Visual Studio Code.
@@ -20,9 +25,3 @@ Here is an example of connecting to a project using [Visual Studio Code](https:/
 1. Paste the link you get and press **Enter**.
 
 Once connection is established, all computations will be run in {{ ml-platform-name }}. The started VM will be running until you stop it in the {{ ml-platform-name }} interface.
-
-{% note info %}
-
-You can [disable](../community/manage-community-config.md) the connection to an external IDE in the community settings.
-
-{% endnote %}

@@ -1,6 +1,6 @@
 | Resource | Cost per hour | Available | Total |
 | --- | --- | --- | ---: |
-| vCPU | $0.009462/vCPU | 108 vCPU | $1.021896 |
-| RAM | $0.002506/GB | 704 GB | $1.764224 |
-| Disk | $0.000098/GB | 19200 GB | $1.881600 |
-| | | **Total** | **$4.667720** |
+| vCPU | {{ sku|USD|compute.hostgroup.cpu.c100.v3|string }}/vCPU | 108 vCPU | {% calc [currency=USD] {{ sku|USD|compute.hostgroup.cpu.c100.v3|number }} × 108 %} |
+| RAM | {{ sku|USD|compute.hostgroup.ram.v3|string }}/GB | 704 GB | {% calc [currency=USD] {{ sku|USD|compute.hostgroup.ram.v3|number }} × 704 %} |
+| Disk | {{ sku|USD|compute.hostgroup.localssd.v1|string }}/GB | 19&nbsp;200 GB | {% calc [currency=USD] {{ sku|USD|compute.hostgroup.localssd.v1|number }} × 19200 %} |
+| | | **Total** | **{% calc [currency=USD] {{ sku|USD|compute.hostgroup.cpu.c100.v3|number }} × 108 + {{ sku|USD|compute.hostgroup.ram.v3|number }} × 704 + {{ sku|USD|compute.hostgroup.localssd.v1|number }} × 19200 %}** |

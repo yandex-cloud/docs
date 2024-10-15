@@ -78,7 +78,7 @@ title: Как получить информацию о секрете в {{ lock
      * `output "current_version"` — выходная переменная, которая содержит информацию о текущей версии секрета:
        * `value` — возвращаемое значение.
 
-     Вместо `current_version` вы можете выбрать любой другой параметр для получения информации. Более подробно о параметрах источника данных `yandex_lockbox_secret` см. в [документации провайдера]({{ tf-provider-datasources-link }}/datasource_lockbox_secret).
+     Вместо `current_version` вы можете выбрать любой другой параметр для получения информации. Более подробно о параметрах источника данных `yandex_lockbox_secret` см. в [документации провайдера]({{ tf-provider-datasources-link }}/lockbox_secret).
   1. Создайте ресурсы:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
@@ -180,7 +180,7 @@ title: Как получить информацию о секрете в {{ lock
      * `output "my_secret_entries"` — выходная переменная, которая хранит содержимое секрета:
        * `value` — возвращаемое значение.
 
-     Более подробно о параметрах источника данных `yandex_lockbox_secret_version` см. в [документации провайдера]({{ tf-provider-datasources-link }}/datasource_lockbox_secret_version).
+     Более подробно о параметрах источника данных `yandex_lockbox_secret_version` см. в [документации провайдера]({{ tf-provider-datasources-link }}/lockbox_secret_version).
 
   1. Создайте ресурсы:
 

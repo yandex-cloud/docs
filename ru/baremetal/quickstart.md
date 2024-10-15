@@ -31,10 +31,10 @@ description: Следуя данной инструкции, вы сможете
   1. В блоке **{{ ui-key.yacloud.baremetal.title_section-server-config }}**:
   
      1. Выберите конфигурацию сервера `BA-i103-S-10G`.
-     1. Настройте разметку диска:
+     1. (Опционально) Настройте разметку диска:
 
         1. Нажмите кнопку **{{ ui-key.yacloud.baremetal.action_disk-layout-settings }}**.
-        1. Оставьте разметку по умолчанию и нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+        1. Укажите параметры разметки и нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
   
   1. В блоке **{{ ui-key.yacloud.baremetal.title_section-server-product }}** выберите образ `Ubuntu 22.04 LTS`.
   1. В блоке **{{ ui-key.yacloud.baremetal.title_section-lease-conditions }}** укажите:
@@ -44,23 +44,11 @@ description: Следуя данной инструкции, вы сможете
   
   1. В блоке **{{ ui-key.yacloud.baremetal.title_section-server-network-settings }}**:
 
-     1. Нажмите кнопку ![image](../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.baremetal.action-create-subnetwork }}**.
-     1. (опционально) Если вам требуется включить DHCP для автоматического назначения IP-адресов, сделайте это в блоке **Настройки для маршрутизации**.
+     1. В поле **Приватная подсеть** нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
      1. Введите имя подсети `bm-subnetwork` и нажмите кнопку **Создать подсеть**.
      1. В поле **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** выберите `{{ ui-key.yacloud.baremetal.label_public-ip-auto }}`.
   
-  1. В блоке **{{ ui-key.yacloud.baremetal.title_server-access }}**:
-
-     1. Сгенерируйте пароль для root-пользователя. Для этого напротив поля **{{ ui-key.yacloud.baremetal.field_password }}** нажмите кнопку **Сгенерировать**. 
-
-     {% note warning %}
-     
-     После заказа сервера пароль больше нигде нельзя посмотреть. Сразу сохраните пароль в надежном месте.
-
-     {% endnote %}
-
-     1. В поле **{{ ui-key.yacloud.baremetal.field_ssh-public-key }}** вставьте содержимое файла открытого ключа. Пару ключей для подключения по SSH необходимо [создать](../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
-
+  1. {% include [server-lease-access](../_includes/baremetal/server-lease-access.md) %}
   1. В блоке **{{ ui-key.yacloud.baremetal.title_section-server-info }}** введите **{{ ui-key.yacloud.baremetal.field_name }}** сервера — `bm-server`.
   1. Нажмите кнопку **Заказать сервер**.
 
@@ -74,8 +62,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит сервер.
   1. В списке сервисов выберите **{{ baremetal-name }}**.
-  1. В строке с нужным сервером нажмите значок ![image](../_assets/console-icons/ellipsis.svg) и выберите **Запустить KVM-консоль**.
-  1. В открывшемся окне нажмите кнопку **KVM-консоль**.
+  1. В строке с нужным сервером нажмите значок ![image](../_assets/console-icons/ellipsis.svg) и выберите **KVM-консоль**.
 
 - Linux/macOS {#linux-macos}
    

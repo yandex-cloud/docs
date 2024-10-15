@@ -9,7 +9,7 @@
 
 Существует несколько вариантов восстановить виртуальную машину, SSH-ключи для подключения к которой были утеряны.
 
-Если пароль для пользователя Linux не был установлен, вы можете [создать снимок диска](../../../compute/operations/disk-control/create-snapshot.md) проблемной виртуальной машины, после чего создать новую ВМ из данного снимка, выбрав на странице создания ВМ **{{ ui-key.yacloud.compute.instances.create.label_add-disk }}** → **{{ ui-key.yacloud.compute.disk.overview.label_snapshot }}**.
+Если пароль для пользователя Linux не был установлен, вы можете [создать снимок диска](../../../compute/operations/disk-control/create-snapshot.md) проблемной виртуальной машины, после чего создать новую ВМ из данного снимка, выбрав на странице создания ВМ **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}** → **{{ ui-key.yacloud.compute.disk.overview.label_snapshot }}**.
 
 Если описанный выше способ не решил проблему, выполните следующие действия:
 

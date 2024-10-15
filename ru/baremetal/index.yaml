@@ -18,7 +18,7 @@ links:
     href: concepts/
   - title: Квоты и лимиты
     description: Технические и организационные ограничения сервиса
-    href: concepts/
+    href: concepts/limits
   - title: Правила тарификации
     description: Цены и правила расчета стоимости услуг сервиса
     href: pricing

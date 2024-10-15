@@ -37,7 +37,7 @@ To create an instance group:
    * Under **{{ ui-key.yacloud.compute.instances.create.section_disk }}**:
       * Select the [disk type](../../compute/concepts/disk.md#disks_types).
       * Specify the disk size.
-      * (Optional) Click **{{ ui-key.yacloud.compute.instances.create.label_add-disk }}** to add more disks.
+      * (Optional) Click **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}** to add more disks.
    * Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
       * Choose a [platform](../../compute/concepts/vm-platforms.md).
       * Specify the [guaranteed share](../../compute/concepts/performance-levels.md) and the required number of vCPUs, as well as the amount of RAM.
@@ -46,7 +46,7 @@ To create an instance group:
       * Select a [cloud network](../../compute/concepts/vm.md#network) and [subnet](../../compute/concepts/network.md#subnet). If there is no subnet, create one:
          * Click **{{ ui-key.yacloud.compute.instances.create.button_create-subnetwork-new }}**.
          * Enter a name and a description for the new subnet. Specify an availability zone and a CIDR.
-         * Click **{{ ui-key.yacloud.component.vpc.create-subnetwork-dialog.button_create }}**.
+         * Click **{{ ui-key.yacloud.vpc.subnetworks.create.button_create }}**.
       * In the **{{ ui-key.yacloud.compute.instances.create.field_instance-group-address }}** field, choose a method for assigning an IP address:
          * `{{ ui-key.yacloud.compute.instances.create.value_address-auto }}`: Assign a random IP address from the {{ yandex-cloud }} IP pool.
          * `{{ ui-key.yacloud.compute.instances.create.value_address-none }}`: Do not assign a public IP address.

@@ -29,7 +29,7 @@ You can create a [VM](../../concepts/vm.md) from existing [disks](../../concepts
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select an [image](../../concepts/image.md).
    1. {% include [encryption-section-boot](../../../_includes/compute/encryption-section-boot.md) %}
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**, [add a disk](create-from-disks.md):
-      * Click **{{ ui-key.yacloud.compute.instances.create.label_add-disk }}**.
+      * Click **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
       * Enter the disk name.
       * Select the [disk type](../../concepts/disk.md#disks_types).
       * Specify the required block size.

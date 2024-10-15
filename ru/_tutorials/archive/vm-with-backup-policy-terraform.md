@@ -99,7 +99,7 @@
     * [Сеть](../../vpc/concepts/network.md#network) — [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network).
     * [Подсеть](../../vpc/concepts/network.md#subnet) — [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet).
     * [Группа безопасности](../../vpc/concepts/security-groups.md) — [yandex_vpc_security_group]({{ tf-provider-resources-link }}/vpc_security_group).
-    * Данные [образа ВМ](../../compute/concepts/image.md) — [yandex_compute_image]({{ tf-provider-datasources-link }}/datasource_compute_image).
+    * Данные [образа ВМ](../../compute/concepts/image.md) — [yandex_compute_image]({{ tf-provider-datasources-link }}/compute_image).
     * Загрузочный [диск](../../compute/concepts/disk.md) виртуальной машины — [yandex_compute_disk]({{ tf-provider-resources-link }}/compute_disk).
     * [Виртуальная машина](../../compute/concepts/vm.md) — [yandex_compute_instance]({{ tf-provider-resources-link }}/compute_instance).
     * [Политика резервного копирования](../../backup/concepts/policy.md) — [yandex_backup_policy]({{ tf-provider-resources-link }}/backup_policy). Вы можете создать новую или использовать одну из политик, автоматически созданных при активации сервиса.

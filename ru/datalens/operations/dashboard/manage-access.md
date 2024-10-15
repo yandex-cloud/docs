@@ -7,9 +7,18 @@ description: Следуя данной инструкции, вы сможете
 
 Чтобы настроить права доступа к дашборду:
 
-1. На странице навигации найдите дашборд, у которого необходимо изменить права доступа.
-1. В правой части нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Права доступа**.
-1. Нажмите кнопку **Права на дашборд**.
+1. На панели слева нажмите ![image](../../../_assets/console-icons/layout-cells-large.svg) **{{ ui-key.datalens.component.aside-header.view.switch_dashboards }}**.
+   
+   ![screen01](../../../_assets/datalens/operations/dashboard/manage-access/screen01.png)
+
+1. В строке с нужным дашбордом нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.datalens.component.access-rights.view.section_main-title }}**.
+
+   ![screen02](../../../_assets/datalens/operations/dashboard/manage-access/screen02.png)
+
+1. Нажмите кнопку **{{ ui-key.datalens.component.access-rights.view.button_access-to-dash }}**.
+
+   ![screen03](../../../_assets/datalens/operations/dashboard/manage-access/screen03.png)
+
 1. Введите имя пользователя или группу **Все**.
 
 
@@ -17,7 +26,9 @@ description: Следуя данной инструкции, вы сможете
    
 
 1. (опционально) Напишите комментарий для пользователя, которому выдаете доступ.
-1. Укажите права доступа и нажмите кнопку **Добавить**.
+1. Укажите права доступа и нажмите кнопку **{{ ui-key.datalens.component.access-rights.view.button_add }}**.
+
+   ![screen04](../../../_assets/datalens/operations/dashboard/manage-access/screen04.png)
 
 
 {% include [datalens-federation-user-link](../../../_includes/datalens/datalens-federation-user-link.md) %}

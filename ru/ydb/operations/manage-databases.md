@@ -306,11 +306,11 @@
           * Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
       1. В блоке **{{ ui-key.yacloud.ydb.forms.field_subnetworks }}** для каждой зоны доступности выберите подсеть или создайте новую:
           * Нажмите кнопку **{{ ui-key.yacloud.ydb.forms.button_create-subnetwork-new }}**.
-          * В открывшемся окне укажите **{{ ui-key.yacloud.component.vpc.create-subnetwork-dialog.field_name }}** новой подсети.
-          * (Опционально) Введите **{{ ui-key.yacloud.component.vpc.create-subnetwork-dialog.field_description }}** подсети.
-          * Выберите из списка **{{ ui-key.yacloud.component.vpc.create-subnetwork-dialog.field_zone }}** нужную зону.
-          * Задайте адрес подсети в формате [**{{ ui-key.yacloud.component.vpc.create-subnetwork-dialog.field_cidr }}**](https://ru.wikipedia.org/wiki/Бесклассовая_адресация).
-          * Нажмите кнопку **{{ ui-key.yacloud.component.vpc.create-subnetwork-dialog.button_create }}**.
+          * В открывшемся окне укажите **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}** новой подсети.
+          * (Опционально) Введите **{{ ui-key.yacloud.vpc.subnetworks.create.field_description }}** подсети.
+          * Выберите из списка **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}** нужную зону.
+          * Задайте адрес подсети в формате [**{{ ui-key.yacloud.vpc.subnetworks.create.field_ip }}**](https://ru.wikipedia.org/wiki/Бесклассовая_адресация).
+          * Нажмите кнопку **{{ ui-key.yacloud.vpc.subnetworks.create.button_create }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.ydb.forms.button_create-database }}**.
 
     Дождитесь, когда статус БД изменится на `Running`.

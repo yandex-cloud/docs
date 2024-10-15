@@ -27,7 +27,7 @@ With secret version management, you can:
     1. Under **{{ ui-key.yacloud.lockbox.label_secret-versions-section }}**, click **{{ ui-key.yacloud.lockbox.button_add-version }}**.
     1. Add the following parameters:
         * (Optional) **{{ ui-key.yacloud.common.description }}**: Version description.
-        * **{{ ui-key.yacloud.lockbox.forms.label_key }}**: Non-secret name you will use to identify a value.
+        * **{{ ui-key.yacloud.lockbox.forms.label_key }}**: Non-secret name that identifies a value.
         * **{{ ui-key.yacloud.lockbox.forms.label_value }}**: Explicitly represented secret data.
         You can create multiple key-value pairs per version.
         
@@ -57,7 +57,7 @@ With secret version management, you can:
 
       * `secret_id`: ID of the secret you are creating a version for.
       * (Optional) `description`: Any comment on the secret version.
-      * `key_N`: Secret key. Non-secret name you will use to identify a value.
+      * `key_N`: Secret key. Non-secret name that identifies a value.
       * `text_value_N`: Explicitly represented secret data.
 
       The `key_N/text_value_N` pairs are numbered sequentially from 1 to 10 (10 pairs are supported). If only one pair is required, use `key_1/text_value_1`.
@@ -151,7 +151,7 @@ With secret version management, you can:
     1. Select **{{ ui-key.yacloud.lockbox.button_action-open-version-add-dialog }}**.
     1. Edit or add the following parameters:
         * (Optional) **{{ ui-key.yacloud.common.description }}**: Version description.
-        * **{{ ui-key.yacloud.lockbox.forms.label_key }}**: Non-secret name you will use to identify a value.
+        * **{{ ui-key.yacloud.lockbox.forms.label_key }}**: Non-secret name that identifies a value.
         * For a user secret, **{{ ui-key.yacloud.lockbox.forms.label_value }}**: Secret data in an explicit form.
         You can create multiple key-value pairs per version.
         * For a generated secret, you can change the key and the value parameters. To do this, click **Edit secret** and [specify new parameters](secret-update.md).
@@ -266,7 +266,7 @@ With secret version management, you can:
 
 - {{ TF }} {#tf}
 
-  To schedule the removal of a version, remove the resource description for that version from the configuration file. You cannot use {{ TF }} to set time to deletion, it will be set by default: 7 days.
+  To schedule the removal of a version, remove the resource description for that version from the configuration file. Using {{ TF }} you cannot set the time until deletion, the time will be set by default: 7 days.
 
 - API {#api}
 

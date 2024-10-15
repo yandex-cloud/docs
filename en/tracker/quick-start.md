@@ -10,12 +10,12 @@ In {{ tracker-name }}, you can [create](manager/create-queue.md) and [set up](ma
 
 
 1. On the [**My page**](https://tracker.yandex.ru/pages/my) home page, click **{{ ui-key.startrek.ui_components_dashboard_InfoPresetsWidget.choose-template-button }}** in the **{{ ui-key.startrek.ui_components_dashboard_InfoPresetsWidget.widget-title }}** widget.
-1. Select **{{ ui-key.startrek.ui_components_new-process_ProcessTypeStep.process-type-standard }}** and click **{{ ui-key.startrek.ui_components_new-process_ProcessTypeStep.next-button }}**.
+1. Select **{{ ui-key.startrek.ui_components_new-process_ProcessTypeStepRedesign.process-type-standard }}** and click **{{ ui-key.startrek.ui_components_new-process_QueueSetupForm.next-button }}**.
 1. Specify the queue parameters:
    * Issue queue name
    * [Queue key](manager/create-queue.md#key)
    * Permissions
-1. Click **{{ ui-key.startrek.ui_components_new-process_ProcessTypeStep.next-button }}**.
+1. Click **{{ ui-key.startrek.ui_components_new-process_QueueSetupForm.next-button }}**.
 
 This will create a queue with a basic set of issue [types and statuses](manager/workflow.md) and a [simple issue board](manager/agile.md#sec_boards).
 

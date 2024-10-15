@@ -46,7 +46,7 @@ To create a private [DNS zone](../concepts/dns-zone.md):
 
      Where:
 
-     * `--name`: Zone name It must be unique within the folder. This is an optional parameter.
+     * `--name`: Zone name. It must be unique within the folder. This is an optional parameter.
      * `--zone`: Domain zone. The zone name must end with a dot. You cannot create public top-level domain (TLD) zones. To create a domain zone with non-Latin characters, use the [Punycode](https://{{ lang }}.wikipedia.org/wiki/Punycode) encoding. This is a required parameter.
      * `--private-visibility`: Flag for creating a private zone.
      * `--network-ids`: IDs of the networks whose resources will be included in the zone.
@@ -90,15 +90,14 @@ To create a private [DNS zone](../concepts/dns-zone.md):
 
      Where:
 
-     * `name`: Zone name It must be unique within the folder. This is an optional parameter.
+     * `name`: Zone name. It must be unique within the folder. This is an optional parameter.
      * `description`: Zone description. This is an optional parameter.
      * `labels`: DNS zone labels. This is an optional parameter.
      * `zone`: Domain zone. The zone name must end with a dot. You cannot create public top-level domain (TLD) zones. To create a domain zone with non-Latin characters, use the [Punycode](https://{{ lang }}.wikipedia.org/wiki/Punycode) encoding. This is a required parameter.
      * `public`: Zone visibility, public or private. This is an optional parameter.
      * `private_networks`: IDs of the networks that have access to domain names within this zone. This is an optional parameter.
 
-     For more information about the `yandex_dns_zone` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/dns_zone).
-
+     For more information about the `yandex_dns_zone` resource properties, see the [provider documentation]({{ tf-provider-resources-link }}/dns_zone).
   1. Create resources:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

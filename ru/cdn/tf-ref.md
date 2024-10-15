@@ -22,5 +22,5 @@ description: На этой странице приведен справочни�
 
 | **Источник данных {{ TF }}** | **Описание** |
 | --- | --- |
-| [yandex_cdn_origin_group]({{ tf-provider-datasources-link }}/datasource_cdn_origin_group) | Информация о [группе источников](./concepts/origins.md#groups) |
-| [yandex_cdn_resource]({{ tf-provider-datasources-link }}/datasource_cdn_resource) | Информация о [CDN-ресурсе](./concepts/resource.md) |
+| [yandex_cdn_origin_group]({{ tf-provider-datasources-link }}/cdn_origin_group) | Информация о [группе источников](./concepts/origins.md#groups) |
+| [yandex_cdn_resource]({{ tf-provider-datasources-link }}/cdn_resource) | Информация о [CDN-ресурсе](./concepts/resource.md) |

@@ -42,7 +42,7 @@ Versions can't be changed. Whenever you need to change the number of key-value p
 
   {% include [default-catalogue](../_includes/default-catalogue.md) %}
 
-  1. View a description of the CLI command to get the contents of a secret:
+  1. See the description of the CLI command to get the contents of a secret:
 
       ```bash
       yc lockbox payload get --help

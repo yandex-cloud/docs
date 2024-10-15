@@ -41,7 +41,6 @@ description: Следуя данной инструкции, вы сможете
 1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
 1. На вкладке ![image](../../_assets/load-testing/test.svg) **{{ ui-key.yacloud.load-testing.label_tests-list }}** нажмите **{{ ui-key.yacloud.load-testing.button_create-test }}**.
 1. [Выберите](../concepts/agent-select.md) или создайте агент тестирования.
-1. (Опционально) Выберите или создайте [лог-группу](../../logging/concepts/log-group.md).
 1. В блоке **Прикрепленные файлы**:
     1. Нажмите кнопку **{{ ui-key.yacloud.load-testing.label_choose-from-bucket }}**.
     1. Найдите бакет в выпадающем списке и укажите путь к файлу с тестовыми данными.

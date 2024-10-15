@@ -34,7 +34,7 @@ To go to cloud and service management:
 
 ## Cloud {#cloud}
 
-A cloud is your organization's workspace. All the clouds connected to your organization are displayed in the **{{ ui-key.yacloud_org.pages.raw_services }}** section.
+A cloud is your organization's workspace. All clouds connected to your organization are displayed in the **{{ ui-key.yacloud_org.pages.raw_services }}** section.
 
 A corporate administrator can create new directories and resources in the cloud, connect {{ yandex-cloud }} services, and manage relevant access. Learn more about using {{ yandex-cloud }} resources in the [{{ resmgr-full-name }} documentation](../../resource-manager/concepts/resources-hierarchy.md).
 

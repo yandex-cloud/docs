@@ -19,8 +19,6 @@ items:
         href: operations/export-test-reports.md
       - name: Собрать пользовательские запросы с помощью Dispatcher
         href: operations/payload-dispatcher.md
-      - name: Передать логи теста в {{ cloud-logging-name }}
-        href: operations/logging.md
       - name: Создать и настроить дашборд регрессий
         href: operations/regressions.md
       - name: Проверить превышение порогов метрик регрессий

@@ -72,7 +72,7 @@ title: Как получить информацию о подсети в {{ vpc-
      * `output "subnet"` — выходная переменная, которая содержит название зоны доступности подсети:
        * `value` — возвращаемое значение.
 
-     Вместо `zone` вы можете выбрать любой другой параметр для получения информации. Более подробно о параметрах источника данных `yandex_vpc_subnet` см. в [документации провайдера]({{ tf-provider-datasources-link }}/datasource_vpc_subnet).
+     Вместо `zone` вы можете выбрать любой другой параметр для получения информации. Более подробно о параметрах источника данных `yandex_vpc_subnet` см. в [документации провайдера]({{ tf-provider-datasources-link }}/vpc_subnet).
   1. Создайте ресурсы:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

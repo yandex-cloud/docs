@@ -26,11 +26,44 @@
            --name-ids <список_Name_ID_пользователей>
         ```
 
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
+
+      ```hcl
+      resource "yandex_organizationmanager_saml_federation_user_account" "some_account" {
+        federation_id = "<идентификатор_федерации>"
+        name_id       = "<Name_ID_пользователя>"
+      }
+      ```
+
+      Где:
+      * `federation_id` — идентификатор федерации для добавления пользователя.
+      * `name_id` — Name ID пользователя.
+
+      Более подробную информацию о параметрах ресурса `yandex_organizationmanager_saml_federation_user_account` см. в [документации провайдера]({{ tf-provider-resources-link }}/organizationmanager_saml_federation_user_account).
+
+  1. Создайте ресурсы:
+
+      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+      {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/):
+
+      ```bash
+      yc organization-manager federations saml \
+        --organization-id <идентификатор_организации> list-user-accounts \
+        --id <идентификатор_федерации>
+      ```
+
 - API {#api}
 
-    Воспользуйтесь методом REST API [addUserAccounts](../../iam/api-ref/Federation/addUserAccounts.md) для ресурса [Federation](../../iam/api-ref/Federation/index.md) или вызовом gRPC API [FederationService/AddUserAccounts](../../iam/api-ref/grpc/federation_service.md#AddUserAccounts) и передайте в запросе:
+  Воспользуйтесь методом REST API [addUserAccounts](../../iam/api-ref/Federation/addUserAccounts.md) для ресурса [Federation](../../iam/api-ref/Federation/index.md) или вызовом gRPC API [FederationService/AddUserAccounts](../../iam/api-ref/grpc/federation_service.md#AddUserAccounts) и передайте в запросе:
 
-    * Идентификатор федерации в параметре `federationId`.
-    * Список Name ID пользователей в параметре `nameIds`.
+  * Идентификатор федерации в параметре `federationId`.
+  * Список Name ID пользователей в параметре `nameIds`.
 
 {% endlist %}

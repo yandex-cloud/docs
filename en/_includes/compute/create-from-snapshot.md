@@ -18,7 +18,7 @@
 
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, choose a snapshot:
 
-      * Go to the **{{ ui-key.yacloud.compute.instances.create.image_value_custom }}** tab and click **{{ ui-key.yacloud.common.select }}**.
+      * Go to the **{{ ui-key.yacloud.compute.instances.create.image_value_custom_new }}** tab and click **{{ ui-key.yacloud.common.select }}**.
       * In the window that opens, go to the **{{ ui-key.yacloud.compute.instances.create-disk.value_source-snapshot }}** tab.
       * Select a disk snapshot from the list and click **{{ ui-key.yacloud.common.apply }}**.
 
@@ -28,7 +28,7 @@
 
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**, [add a disk](../../compute/operations/vm-create/create-from-disks.md):
 
-      * Click **{{ ui-key.yacloud.compute.instances.create.label_add-disk }}**.
+      * Click **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
       * Enter the disk name.
       * Select the [disk type](../../compute/concepts/disk.md#disks_types).
       * Specify the required block size.

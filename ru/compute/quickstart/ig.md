@@ -37,7 +37,7 @@
    * В блоке **{{ ui-key.yacloud.compute.instances.create.section_disk }}**:
      * Выберите [тип диска](../../compute/concepts/disk.md#disks_types).
      * Укажите размер диска.
-     * (Опционально) Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.label_add-disk }}**, чтобы добавить дополнительные диски.
+     * (Опционально) Нажмите кнопку **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**, чтобы добавить дополнительные диски.
    * В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
      * Выберите [платформу](../../compute/concepts/vm-platforms.md).
      * Укажите [гарантированную долю](../../compute/concepts/performance-levels.md) и необходимое количество vCPU, а также объем RAM.
@@ -46,7 +46,7 @@
      * Выберите [облачную сеть](../../compute/concepts/vm.md#network) и [подсеть](../../compute/concepts/network.md#subnet). Если подсети нет, создайте ее:
        * Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create-subnetwork-new }}**.
        * Введите имя и описание новой подсети, укажите зону доступности и CIDR.
-       * Нажмите кнопку **{{ ui-key.yacloud.component.vpc.create-subnetwork-dialog.button_create }}**.
+       * Нажмите кнопку **{{ ui-key.yacloud.vpc.subnetworks.create.button_create }}**.
      * В поле **{{ ui-key.yacloud.compute.instances.create.field_instance-group-address }}** выберите способ назначения адреса:
        * `{{ ui-key.yacloud.compute.instances.create.value_address-auto }}` — чтобы назначить случайный IP-адрес из пула адресов {{ yandex-cloud }}.
        * `{{ ui-key.yacloud.compute.instances.create.value_address-none }}` — чтобы не назначать публичный IP-адрес.

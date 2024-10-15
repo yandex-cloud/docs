@@ -53,7 +53,7 @@ To get the ID of the {{ cloud-logging-full-name }} [log group](../../logging/con
         log_group_id: e23ujjda632o********
       ```
 
-      The {{ cloud-logging-name }} log group ID will be specified in the `log_group_id` field under `log_options`. Please note that the `log_group_id` field that follows the `subnet_id` field contains a different ID that refers to the outdated logging service.
+      The {{ cloud-logging-name }} log group ID will be specified in the `log_group_id` field under `log_options`. Note that the `log_group_id` field that follows the `subnet_id` field contains a different ID that refers to the outdated logging service.
 
 - API {#api}
 
@@ -88,7 +88,7 @@ If, when creating an L7 load balancer, you kept the **{{ ui-key.yacloud.alb.labe
   ```
 
   Where:
-  * `--name`: Name of the default log group, `default`.
+  * `--name`: Name of the default log group, which is `default`.
   * `--folder-id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) where the load balancer was created.
 
   Result:

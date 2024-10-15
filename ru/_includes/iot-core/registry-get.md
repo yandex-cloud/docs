@@ -59,7 +59,7 @@
      * `output "registry_params"` — выходная переменная, которая содержит информацию о временной метке создания реестра:
        * `value` — возвращаемое значение.
 
-     Вместо `created_at` вы можете выбрать любой другой параметр для получения информации. Более подробно о параметрах источника данных `yandex_iot_core_registry` см. в [документации провайдера]({{ tf-provider-datasources-link }}/datasource_iot_core_registry).
+     Вместо `created_at` вы можете выбрать любой другой параметр для получения информации. Более подробно о параметрах источника данных `yandex_iot_core_registry` см. в [документации провайдера]({{ tf-provider-datasources-link }}/iot_core_registry).
   1. Создайте ресурсы:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

@@ -113,6 +113,7 @@ Viewing information on {{ PG }} connections | `{{ roles.mpg.viewer }}` for an or
 Viewing information on {{ MY }} connections | `{{ roles.mmy.viewer }}` for an organization, cloud, or folder
 Viewing information on {{ CH }} connections | `{{ roles.mch.viewer }}` for an organization, cloud, or folder
 Viewing information on {{ RD }} connections | `{{ roles.mrd.viewer }}` for an organization, cloud, or folder
+Viewing metadata of published queries | `websql.auditor` for an organization, cloud, or folder
 Viewing published queries | `websql.viewer` for an organization, cloud, or folder
 **Viewing and running queries** |
 Using a database connection | `{{ roles-connection-manager-user }}` for an organization, cloud, folder, or connection

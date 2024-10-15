@@ -21,4 +21,4 @@ description: На этой странице приведен справочни�
 
 | **Источник данных {{ TF }}** | **Описание** |
 | --- | --- |
-| [yandex_loadtesting_agent]({{ tf-provider-datasources-link }}/datasource_loadtesting_agent) | Информация об [агенте](./concepts/agent.md) |
+| [yandex_loadtesting_agent]({{ tf-provider-datasources-link }}/loadtesting_agent) | Информация об [агенте](./concepts/agent.md) |

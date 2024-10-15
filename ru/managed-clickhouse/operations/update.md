@@ -38,15 +38,21 @@ description: Следуя данной инструкции, вы сможете
 
 ## Изменить настройки сервисного аккаунта {#change-service-account}
 
+
+Для привязки сервисного аккаунта к кластеру {{ mch-name }} [убедитесь](../../iam/operations/roles/get-assigned-roles.md), что вашему аккаунту в {{ yandex-cloud }} назначена роль [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) или выше.
+
+
+{% include [mdb-service-account-update](../../_includes/mdb/service-account-update.md) %}
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
+    Чтобы изменить настройки сервисного аккаунта:
+
     1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
     1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** на панели сверху.
     1. В разделе **{{ ui-key.yacloud.mdb.forms.section_service-settings }}** выберите нужный сервисный аккаунт из списка или [создайте новый](../../iam/operations/sa/create.md). Подробнее о настройке сервисного аккаунта см. в разделе [{#T}](s3-access.md).
-
-       {% include [mdb-service-account-update](../../_includes/mdb/service-account-update.md) %}
 
 {% endlist %}
 

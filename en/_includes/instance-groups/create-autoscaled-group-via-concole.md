@@ -22,7 +22,7 @@
    * Under **{{ ui-key.yacloud.compute.instances.create.section_disk }}**:
       * Select the [disk type](../../compute/concepts/disk.md#disks_types).
       * Specify the disk size.
-      * To add more disks, click **{{ ui-key.yacloud.compute.instances.create.label_add-disk }}**.
+      * To add more disks, click **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
    * Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
       * Choose a [platform](../../compute/concepts/vm-platforms.md).
       * Enter the required number of vCPUs, [guaranteed vCPU performance](../../compute/concepts/performance-levels.md), and the amount of RAM.

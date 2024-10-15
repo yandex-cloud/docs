@@ -15,6 +15,7 @@ description: Различные сценарии использования {{ v
 * [{#T}](clickhouse-dns-peering.md)
 * [Защищенный доступ пользователей к облачным ресурсам на основе WireGuard VPN](remote-wireguard-vpn.md)
 * [Создание и настройка шлюза UserGate в режиме прокси-сервера](usergate-proxy.md)
+* [Миграция кластера {{ dataproc-full-name }} с файловой системой HDFS в другую зону доступности](hdfs-cluster-migration.md)
 * [Настройка сети для {{ dataproc-full-name }}](dataproc-nat-instance.md)
 * [Сеть между каталогами (Multi-folder-VPC)](multi-folder-vpc.md)
 * [Настройка PT Application Firewall](pt-application-firewall.md)

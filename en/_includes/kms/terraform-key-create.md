@@ -21,7 +21,7 @@ To create a key:
       {% include [name-format](../../_includes/name-format.md) %}
 
    * `description`: Key description.
-   * `default-algorithm`: Encryption algorithm. Possible values: `AES-128`, `AES-192`, and `AES-256`.
+   * `default-algorithm`: Encryption algorithm. The possible values are `AES-128`, `AES-192`, or `AES-256`.
    * `rotation-period`: [Rotation](../../kms/concepts/version.md#rotate-key) period (how often to change key versions). To create a key without automatic rotation, do not specify the `rotation-period` parameter.
 
    {% note warning %}
@@ -30,7 +30,7 @@ To create a key:
 
    {% endnote %}
 
-   For more information about resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/kms_symmetric_key).
+   For more information about resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/kms_symmetric_key).
 
 1. Check the configuration using this command:
 
@@ -60,7 +60,7 @@ To create a key:
 
 1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-   All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
+   All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}) or these [CLI](../../cli/quickstart.md) commands:
 
    ```bash
    yc kms symmetric-key list

@@ -1,6 +1,6 @@
 # Test agent monitoring
 
-This monitoring enables you to collect data (metrics) related to the test agent status and show them on charts. You can collect metrics using the [Telegraf](https://github.com/influxdata/telegraf) agent or YCMonitoring plugin. The monitoring charts are shown on the **{{ ui-key.yacloud.load-testing.label_monitoring-report }}** tab for the selected test.
+Monitoring enables you to collect data (metrics) related to the target and test agent state and visualize this data using charts. You can collect metrics using the [Telegraf](https://github.com/influxdata/telegraf) agent or YCMonitoring plugin. The monitoring charts are shown on the **{{ ui-key.yacloud.load-testing.label_monitoring-report }}** tab for the selected test.
 
 You can enable test agent monitoring in the settings when you [create a test](../operations/create-test-bucket.md#create-test):
 
@@ -21,7 +21,7 @@ You can enable test agent monitoring in the settings when you [create a test](..
 
    {% note warning %}
 
-   To use the plugin, the service account needs the `monitoring.viewer role` in the relevant folder.
+   To use the plugin, the service account needs the `monitoring.viewer` role in the relevant folder.
    Before using the plugin, make sure the test agent is running the latest version. Update the agent, if required.
 
    {% endnote %}
@@ -44,7 +44,7 @@ You can enable test agent monitoring in the settings when you [create a test](..
 
    To set up metric collection using the Telegraf plugin, specify the agent's monitoring configuration in the `telegraf` section of the configuration file. You can set up each metric using all the options that are available for it in Telegraf.
 
-   Sample settings of the `telegraf` section in the test configuration file:
+   Here is an example of the `telegraf` section settings in the test configuration file:
 
    ```yaml
    telegraf:
@@ -63,7 +63,7 @@ You can enable test agent monitoring in the settings when you [create a test](..
 
    In the monitoring agent configuration, you can also describe the metrics that are missing in Telegraf.
 
-   Sample `custom` metric:
+   Here is an example of the `custom` metric description:
 
    ```yaml
    telegraf:
@@ -80,11 +80,11 @@ You can enable test agent monitoring in the settings when you [create a test](..
 
 - YCMonitoring
 
-   To set up metric collection using the YCMonitoring plugin, specify the agent's monitoring configuration in the `ycmonitoring` section of the configuration file. With this plugin, you can collect monitoring metrics from the {{ monitoring-full-name }} API.
+   To set up metric collection using the YCMonitoring plugin, specify the agent's monitoring configuration under `ycmonitoring` in the configuration file. With this plugin, you can collect monitoring metrics from the {{ monitoring-full-name }} API.
 
    {% note warning %}
 
-   To use the plugin, the service account needs the `monitoring.viewer role` in the relevant folder.
+   To use the plugin, the service account needs the `monitoring.viewer` role in the relevant folder.
    Before using the plugin, make sure the test agent is running the latest version. Update the agent, if required.
 
    {% endnote %}
@@ -113,12 +113,12 @@ You can enable test agent monitoring in the settings when you [create a test](..
            - <query3>
    ```
    Where:
-   * `panels`: Dictionary of panels for collecting monitoring metrics.
-   * `panel_name`: Dictionary key and chart name on the dashboard.
+   * `panels`: Dictionary of panels for monitoring metric collection.
+   * `panel_name`: Dictionary key and chart name on the monitoring panel.
    * `group_name`: Panel grouping key. The default value is the address of the API host used to collect metrics.
    * `query`: Query in the [{{ monitoring-name }} query language](../../monitoring/concepts/querying.md).
 
-   Here is an example of the `telegraf` section settings in the test configuration file:
+   Here is an example of the `ycmonitoring` section settings in the test configuration file:
 
    ```yaml
    ycmonitoring:
@@ -157,11 +157,11 @@ You can enable test agent monitoring in the settings when you [create a test](..
    Where:
    * `api_host`: Address of the {{ monitoring-name }} API used to collect data. The default value is `monitoring.api.cloud.yandex.net:443`.
    * `token`: [IAM token](../../iam/concepts/authorization/iam-token.md) file path. The default value is taken from the `LOADTESTING_YC_TOKEN` environment variable.
-   * `timeout`: Timeout for the plugin to shut down once the load test is over. The default value is 5 seconds.
-   * `request_timeout`: {{ monitoring-name }} API request timeout. The default value is 10 seconds.
+   * `timeout`: Plugin shutdown timeout after the load test is over. The default value is five seconds.
+   * `request_timeout`: {{ monitoring-name }} API request timeout. The default value is ten seconds.
    * `poll_interval`: Interval between {{ monitoring-name }} API requests. The default value is 60 seconds.
-   * `priority_labels`: List of labels to use in naming the monitoring metric.
-   * `ignore_labels`: List of labels to ignore in naming the monitoring metric.
+   * `priority_labels`: List of labels to build the monitoring metric name.
+   * `ignore_labels`: List of labels to ignore when building the monitoring metric name.
 
    The last two parameters are used to generate names for metrics on the charts. Each metric name is based on the dictionary keys of the relevant request and items in the `ignore_labels` and `priority_labels` lists. Non-alphanumeric characters in names are replaced with hyphens.
 

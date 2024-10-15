@@ -527,7 +527,7 @@ You will use the AWS CLI to perform the final step of the script: [checking inst
   1. Under **{{ ui-key.yacloud.compute.groups.create.section_allocation }}**, select `{{ region-id }}-a` in the **{{ ui-key.yacloud.compute.groups.create.field_zone }}** field.
   1. Under **{{ ui-key.yacloud.compute.groups.create.section_instance }}**, click **{{ ui-key.yacloud.compute.groups.create.button_instance_empty-create }}** and do the following in the window that opens:
   
-     1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, go to the **{{ ui-key.yacloud.compute.instances.create.image_value_custom }}** tab and click **{{ ui-key.yacloud.common.select }}**.
+     1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, go to the **{{ ui-key.yacloud.compute.instances.create.image_value_custom_new }}** tab and click **{{ ui-key.yacloud.common.select }}**.
      1. In the window that opens, select the created image as a boot disk:
      
         1. Go to the **{{ ui-key.yacloud.compute.instances.create-disk.value_source-image }}** tab.

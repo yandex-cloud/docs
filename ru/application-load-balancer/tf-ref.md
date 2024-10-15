@@ -25,8 +25,8 @@ description: На этой странице приведен справочни�
 
 | **Источник данных {{ TF }}** | **Описание** |
 | --- | --- |
-| [yandex_alb_backend_group]({{ tf-provider-datasources-link }}/datasource_alb_backend_group) | Информация о [группе бэкендов](./concepts/backend-group.md) |
-| [yandex_alb_http_router]({{ tf-provider-datasources-link }}/datasource_alb_http_router) | Информация об [HTTP-роутере](./concepts/http-router.md) |
-| [yandex_alb_load_balancer]({{ tf-provider-datasources-link }}/datasource_alb_load_balancer) | Информация об [L7-балансировщике нагрузки](./concepts/application-load-balancer.md) |
-| [yandex_alb_target_group]({{ tf-provider-datasources-link }}/datasource_alb_target_group) | Информация о [целевой группе](./concepts/target-group.md) |
-| [yandex_alb_virtual_host]({{ tf-provider-datasources-link }}/datasource_alb_virtual_host) | Информация о [виртуальном хосте](./concepts/http-router.md#virtual-host) |
+| [yandex_alb_backend_group]({{ tf-provider-datasources-link }}/alb_backend_group) | Информация о [группе бэкендов](./concepts/backend-group.md) |
+| [yandex_alb_http_router]({{ tf-provider-datasources-link }}/alb_http_router) | Информация об [HTTP-роутере](./concepts/http-router.md) |
+| [yandex_alb_load_balancer]({{ tf-provider-datasources-link }}/alb_load_balancer) | Информация об [L7-балансировщике нагрузки](./concepts/application-load-balancer.md) |
+| [yandex_alb_target_group]({{ tf-provider-datasources-link }}/alb_target_group) | Информация о [целевой группе](./concepts/target-group.md) |
+| [yandex_alb_virtual_host]({{ tf-provider-datasources-link }}/alb_virtual_host) | Информация о [виртуальном хосте](./concepts/http-router.md#virtual-host) |

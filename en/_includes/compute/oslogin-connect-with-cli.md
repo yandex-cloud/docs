@@ -1,6 +1,8 @@
+To connect to a VM via OS Login with an SSH certificate using the YC CLI:
+
 1. [Enable](../../organization/operations/os-login-access.md) access via OS Login at the organization level.
 
-    To connect to a VM via OS Login using an SSH certificate over the YC CLI, enable **{{ ui-key.yacloud_org.form.oslogin-settings.title_ssh-certificate-settings }}**.
+    To connect to a VM via OS Login with an SSH certificate using the YC CLI, enable **{{ ui-key.yacloud_org.form.oslogin-settings.title_ssh-certificate-settings }}**.
 
 1. View the description of the CLI command to connect to a VM:
 

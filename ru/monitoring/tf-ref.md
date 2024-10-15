@@ -21,4 +21,4 @@ description: На этой странице приведен справочни�
 
 | **Источник данных {{ TF }}** | **Описание** |
 | --- | --- |
-| [yandex_monitoring_dashboard]({{ tf-provider-datasources-link }}/datasource_monitoring_dashboard) | Информация о [дашборде](./concepts/visualization/dashboard.md) |
+| [yandex_monitoring_dashboard]({{ tf-provider-datasources-link }}/monitoring_dashboard) | Информация о [дашборде](./concepts/visualization/dashboard.md) |

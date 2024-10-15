@@ -439,7 +439,7 @@ You can create a new policy or use one of those automatically generated upon ser
   1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}** and click **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. Enter a name for the VM: `backup-instance`.
   1. Select the `{{ region-id }}-d` [availability zone](../../overview/concepts/geo-scope.md).
-  1. In the **{{ ui-key.yacloud.compute.instances.create.section_image }}** section on the **{{ ui-key.yacloud.compute.instances.create.image_value_os-products }}** tab, select `Ubuntu 22.04`.
+  1. In the **{{ ui-key.yacloud.compute.instances.create.section_image }}** section, select [Ubuntu 22.04 LTS](/marketplace/products/yc/ubuntu-22-04-lts).
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
       1. Select the`cloud-network-{{ region-id }}-d` subnet.
