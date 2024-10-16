@@ -175,6 +175,8 @@ items:
         href: tutorials/gatsby-static-website.md
       - name: Хранение статического ключа доступа в секрете {{ lockbox-name }}
         href: tutorials/static-key-in-lockbox.md
+      - name: Миграция базы данных из {{ mpg-name }} в {{ objstorage-name }}
+        href: tutorials/mpg-to-objstorage.md
       - name: Обмен данными между {{ mch-full-name }} и {{ dataproc-full-name }}
         href: tutorials/dp-mch-data-exchange.md
       - name: >-

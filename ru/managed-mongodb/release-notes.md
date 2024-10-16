@@ -5,15 +5,13 @@ description: В разделе представлена история изме�
 
 # История изменений в {{ mmg-full-name }}
 
-{% include [Tags](../_includes/mdb/release-notes-tags.md) %}
-
 ## Сентябрь 2024 {#sep-2024}
 
 Добавлена поддержка {{ MG }} версии 7.0. О том, как обновить кластер до последней версии, см. раздел [{#T}](operations/cluster-version-update.md).
 
 ## Февраль 2024 {#feb-2024}
 
-Добавлена поддержка настроек `flowControl`, `changeStreamOptions`, `net.compression.compressors` и `storage.wiredTiger.indexConfig.prefixCompression`. {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
+Добавлена поддержка настроек `flowControl`, `changeStreamOptions`, `net.compression.compressors` и `storage.wiredTiger.indexConfig.prefixCompression`.
 
 ## I квартал 2023 {#q1-2023}
 

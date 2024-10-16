@@ -370,6 +370,8 @@ items:
             href: ml-ai/recognizer-bot.md
           - name: Развертывание сервера Minecraft в {{ yandex-cloud }}
             href: infrastructure/minecraft-server.md
+          - name: Развертывание мультиплеер-сервера для GTA V в {{ yandex-cloud }}
+            href: infrastructure/gta-v-server.md
   - name: Построение Data Platform
     items:
       - name: Все руководства
@@ -728,6 +730,10 @@ items:
           Сегментация облачной инфраструктуры с помощью решения Check Point
           Next-Generation Firewall
         href: routing/network-segmentation-checkpoint.md
+      - name: >-
+          Реализация защищенной высокодоступной сетевой инфраструктуры с
+          выделением DMZ на основе UserGate NGFW
+        href: routing/high-accessible-dmz-usergate.md
       - name: Настройка защищенного туннеля GRE поверх IPsec
         href: routing/gre-over-ipsec.md
       - name: Настройка сети для {{ dataproc-name }}

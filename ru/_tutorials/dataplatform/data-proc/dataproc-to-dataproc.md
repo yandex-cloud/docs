@@ -83,6 +83,12 @@
 
 {% endlist %}
 
+{% note warning %}
+
+Не назначайте на бакет [политику доступа](../../../storage/security/policy.md), иначе кластер {{ metastore-name }} не сможет записывать данные в бакет.
+
+{% endnote %}
+
 ## Подключите {{ dataproc-name }} к {{ metastore-name }} {#connect}
 
 1. [Создайте кластер {{ metastore-name }}](../../../metadata-hub/operations/metastore/cluster-create.md) в сети `dataproc-network`.

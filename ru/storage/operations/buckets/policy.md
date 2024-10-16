@@ -9,6 +9,14 @@ description: Следуя данной инструкции, вы научите
 
 [Политики доступа (bucket policy)](../../concepts/policy.md) устанавливают права на действия с [бакетами](../../concepts/bucket.md), [объектами](../../concepts/object.md) и группами объектов.
 
+
+{% note warning %}
+
+Если с бакетом взаимодействует кластер [{{ metastore-full-name }}](../../../metadata-hub/concepts/metastore.md), не назначайте на бакет политику доступа. Иначе кластер не сможет записывать данные в бакет.
+
+{% endnote %}
+
+
 ## Применить или изменить политику {#apply-policy}
 
 Минимально необходимая роль для применения или изменения политики доступа — `storage.configurer`. См. [описание роли](../../../storage/security/index.md#storage-configurer).
