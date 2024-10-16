@@ -38,7 +38,7 @@ ACL, загруженный для объектов, применяется мг
   * С помощью [CLI или API {{ iam-short-name }}](../../../iam/operations/users/get.md).
 * [Сервисный аккаунт](../../../iam/concepts/users/service-accounts)
 
-  Для получения идентификатора перейдите в раздел **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** консоли управления.
+  Для получения идентификатора в консоли управления в списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**, на панели слева выберите ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}** и выберите нужный сервисный аккаунт.
 
 * [Публичная группа](#public-groups)
 

@@ -15,6 +15,12 @@
 1. [Создайте бакет](../../../storage/operations/buckets/create.md) `my-bucket` в {{ objstorage-name }}. В нем будет храниться файл с метаданными для импорта и экспорта.
 1. [Выдайте разрешение](../../../storage/operations/buckets/edit-acl.md) `READ и WRITE` сервисному аккаунту `my-account` на бакет `my-bucket`.
 
+{% note warning %}
+
+Не назначайте на бакет [политику доступа](../../../storage/security/policy.md), иначе кластер {{ metastore-name }} не сможет записывать данные в бакет.
+
+{% endnote %}
+
 ## Экспортируйте данные {#export}
 
 {% list tabs group=instructions %}

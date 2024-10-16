@@ -6936,6 +6936,7 @@ default:
             value_hdfs: HDFS
             value_hive: Hive
             value_jdbc: JDBC
+            value_pxf: PXF
             value_s3: S3
           user-auth:
             action_add-rule: Add rule
@@ -7089,6 +7090,7 @@ default:
               popup-confirm_button_delete: Delete
               popup-key_button_close: Close
               popup-key_button_create: Create
+              section_api_keys: API keys
               section_keys: Authorized keys
               section_service-account-keys: Access keys
             popup-robot_button_add: Create
@@ -7107,6 +7109,7 @@ default:
           switch_dashboard: Folder dashboard
           switch_service-accounts: Service accounts
           switch_service-notifications: Service notifications
+        label_service-accounts: Service accounts
       iot:
         button_add-alias: Add alias
         button_add-device: Add device
@@ -7601,6 +7604,7 @@ default:
           switch_hosts: Hosts
           switch_jobs: Jobs
           switch_monitoring: Monitoring
+          switch_network: Network
           switch_subclusters: Subclusters
           switch_users: Users
           users:

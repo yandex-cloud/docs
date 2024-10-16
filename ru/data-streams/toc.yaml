@@ -85,6 +85,8 @@ items:
         href: tutorials/kafka-to-yds.md
       - name: Захват изменений {{ ydb-short-name }} и поставка в {{ DS }}
         href: tutorials/ydb-to-yds.md
+      - name: Захват изменений {{ PG }} и поставка в {{ DS }}
+        href: tutorials/mpg-to-yds.md
       - name: Захват изменений {{ MY }} и поставка в {{ DS }}
         href: tutorials/mmy-to-yds.md
       - name: Хранение статического ключа доступа в секрете {{ lockbox-name }}

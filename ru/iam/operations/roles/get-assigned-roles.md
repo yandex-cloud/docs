@@ -28,8 +28,9 @@ description: Следуя данной инструкции, вы сможете
   Чтобы посмотреть роли [сервисного аккаунта](../../concepts/users/service-accounts.md) на каталог и его дочерние ресурсы:
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, которому принадлежит сервисный аккаунт.
-  1. В верхней части экрана перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}**.
-  1. Роли сервисного аккаунта перечислены в столбце **{{ ui-key.yacloud.iam.folder.service-accounts.column_roles }}**.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. На панели слева выберите ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
+  1. Роли сервисного аккаунта перечислены в поле **{{ ui-key.yacloud.iam.folder.service-accounts.column_roles }}**.
 
 - CLI {#cli}
 

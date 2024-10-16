@@ -42,7 +42,7 @@
   1. Создайте сервисный аккаунт `queue-autoscale-sa` и назначьте ему роль `editor` в каталоге `example-folder`:
   
      1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
-     1. В верхней части экрана перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}**.
+     1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
      1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
      1. В поле **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_name }}** укажите `queue-autoscale-sa`.
      1. Нажмите значок ![](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите роль `editor`.
@@ -345,14 +345,15 @@
      {% cut "Как узнать идентификатор сервисного аккаунта" %}
      
      {% list tabs group=instructions %}
-     
+
      - Консоль управления {#console}
-     
+
        1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
-       1. В верхней части экрана перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}**.
-       1. В списке сервисных аккаунтов выберите `queue-autoscale-sa`.
+       1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+       1. На панели слева выберите ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
+       1. В открывшемся списке выберите сервисный аккаунт `queue-autoscale-sa`.
        1. Скопируйте **{{ ui-key.yacloud.iam.folder.service-account.overview.label_id }}** сервисного аккаунта.
-     
+
      - CLI {#cli}
      
        Выполните следующую команду:
