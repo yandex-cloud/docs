@@ -11,7 +11,7 @@ The metric name is written in the `name` label.
 --- | ---
 | `resources.storage.limit_bytes`<br>`IGAUGE`, bytes | Limit on the size of user and service data that a database can store in distributed network storage. |
 | `resources.storage.topic.used_bytes`<br>`DGAUGE`, bytes | Topic storage size in use |
-| `resources.storage.used_bytes`<br>`IGAUGE`, bytes | Size of user and service data stored in the distributed network storage. Service data includes the data from the primary and [secondary indexes](https://ydb.tech/en/docs/concepts/secondary_indexes). |
+| `resources.storage.used_bytes`<br>`IGAUGE`, bytes | Size of user and service data stored in the distributed network storage. Service data includes the data from the primary and [secondary indexes](https://ydb.tech/docs/en/concepts/secondary_indexes). |
 | `resources.stream.limit_shards`<br>`DGAUGE`, number | Limit on the number of shards per stream |
 | `resources.stream.storage.limit_bytes`<br>`DGAUGE`, bytes | Stream storage size limit |
 | `resources.stream.storage.reserved_bytes`<br>`DGAUGE`, bytes | Reserved stream storage size |
@@ -28,9 +28,9 @@ The metric name is written in the `name` label.
 | `api.grpc.request.inflight_bytes`<br>`IGAUGE`, bytes | Size of queries concurrently handled by the database over a certain period of time.<br>Labels:<ul><li>`api_service`: gRPC API service name, e.g., `table`.</li><li>`method`: Name of the gRPC API service method, e.g., `ExecuteDataQuery`.</li></ul> |
 | `api.grpc.request.inflight_count`<br>`IGAUGE`, number | Number of queries concurrently handled by the database over a certain period of time.<br>Labels:<ul><li>`api_service`: gRPC API service name, e.g., `table`.</li><li>`method`: Name of the gRPC API service method, e.g., `ExecuteDataQuery`.</li></ul> |
 | `api.grpc.response.bytes`<br>`RATE`, bytes | Size of responses sent by the database over a certain period of time.<br>Labels:<ul><li>`api_service`: gRPC API service name, e.g., `table`.</li><li>`method`: Name of the gRPC API service method, e.g., `ExecuteDataQuery`.</li></ul> |
-| `api.grpc.response.count`<br>`RATE`, number | Number of responses sent by the database over a certain period of time.<br>Labels:<ul><li>`api_service`: gRPC API service name, e.g., `table`.</li><li>`method`: Name of the gRPC API service method, e.g., `ExecuteDataQuery`.</li><li>`status`: Query execution status; for more information about statuses, see [Handling errors](https://ydb.tech/en/docs/reference/ydb-sdk/error_handling).</li></ul> |
+| `api.grpc.response.count`<br>`RATE`, number | Number of responses sent by the database over a certain period of time.<br>Labels:<ul><li>`api_service`: gRPC API service name, e.g., `table`.</li><li>`method`: Name of the gRPC API service method, e.g., `ExecuteDataQuery`.</li><li>`status`: Query execution status; for more information about statuses, see [Handling errors](https://ydb.tech/docs/en/reference/ydb-sdk/error_handling).</li></ul> |
 | `api.grpc.response.dropped_count`<br>`RATE`, number | Number of responses dropped at the transport (gRPC) layer due to an error.<br>Labels:<ul><li>`api_service`: gRPC API service name, e.g., `table`.</li><li>`method`: Name of the gRPC API service method, e.g., `ExecuteDataQuery`.</li></ul> |
-| `api.grpc.response.issues`<br>`RATE`, number | Number of errors of a certain type, which occurred when executing queries during a certain period of time.<br>Labels:<ul><li>`issue_type`: Error type; the only value is `optimistic_locks_invalidation`. For more information about lock invalidation, see [{{ ydb-short-name }} transactions and queries](https://ydb.tech/en/docs/concepts/transactions).</li></ul> |
+| `api.grpc.response.issues`<br>`RATE`, number | Number of errors of a certain type, which occurred when executing queries during a certain period of time.<br>Labels:<ul><li>`issue_type`: Error type; the only value is `optimistic_locks_invalidation`. For more information about lock invalidation, see [{{ ydb-short-name }} transactions and queries](https://ydb.tech/docs/en/concepts/transactions).</li></ul> |
 | `api.request.completed_per_second`<br>`DGAUGE`, requests/s | API request completion rate |
 | `api.request.latency_milliseconds`<br>`IGAUGE`, milliseconds | API latency |
 | `api.request.latency_milliseconds_count`<br>`COUNTER`, number of requests | Total number of API requests for which latency was measured |
@@ -112,6 +112,6 @@ You can analyze a transaction's execution time using a histogram counter. The in
 
 | Metric name<br>Type<br>units of measurement | Description<br>Labels |
 --- | ---
-| `table.query.compilation.cache_evictions`<br>`RATE`, number | Number of queries evicted from the cache of [prepared queries](https://ydb.tech/en/docs/reference/ydb-sdk/example/#param-queries) within a certain period |
+| `table.query.compilation.cache_evictions`<br>`RATE`, number | Number of queries evicted from the cache of [prepared queries](https://ydb.tech/docs/en/reference/ydb-sdk/example/#param-queries) within a certain period |
 | `table.query.compilation.cache_size_bytes`<br>`IGAUGE`, bytes | Size of the cache of prepared queries |
 | `table.query.compilation.cached_query_count`<br>`IGAUGE`, number | Size of the cache of prepared queries |

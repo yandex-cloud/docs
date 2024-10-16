@@ -31,6 +31,6 @@ GROUP BY                                -- CASE проверяет список 
 
 ## Смотрите также {#see-also}
 
-* Оператор [SELECT](https://ydb.tech/ru/docs/yql/reference/syntax/select).
-* Оператор [GROUP BY](https://ydb.tech/ru/docs/yql/reference/syntax/group_by).
-* Оператор [CASE](https://ydb.tech/ru/docs/yql/reference/syntax/expressions#case).
+* Оператор [SELECT](https://ydb.tech/docs/ru/yql/reference/syntax/select).
+* Оператор [GROUP BY](https://ydb.tech/docs/ru/yql/reference/syntax/group_by).
+* Оператор [CASE](https://ydb.tech/docs/ru/yql/reference/syntax/expressions#case).

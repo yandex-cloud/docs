@@ -8,7 +8,7 @@ sourcePath: overlay/public_talks.md
 
 ## Database {#database}
 
-A [{{ ydb-short-name }} database](https://ydb.tech/en/docs/concepts/databases#database) in {{ ydb-name }} can be created either based on the [serverless](../operations/manage-databases.md#create-db-serverless) configuration or with [dedicated servers](../operations/manage-databases.md#create-db-dedicated). For more information about differences between configurations, see [Serverless and dedicated modes](serverless-and-dedicated.md).
+A [{{ ydb-short-name }} database](https://ydb.tech/docs/en/concepts/databases#database) in {{ ydb-name }} can be created either based on the [serverless](../operations/manage-databases.md#create-db-serverless) configuration or with [dedicated servers](../operations/manage-databases.md#create-db-dedicated). For more information about differences between configurations, see [Serverless and dedicated modes](serverless-and-dedicated.md).
 
 ### Serverless database {#serverless}
 
@@ -53,13 +53,13 @@ A {{ ydb-short-name }} cluster is a set of {{ ydb-short-name }} nodes the load i
 
 The {{ ydb-name }} team takes care of cluster maintenance, while application developers can work directly with {{ ydb-short-name }}.
 
-For more information about {{ ydb-short-name }} clusters, see the [relevant documentation](https://ydb.tech/en/docs/concepts/databases#cluster).
+For more information about {{ ydb-short-name }} clusters, see the [relevant documentation](https://ydb.tech/docs/en/concepts/databases#cluster).
 
 ## Storage groups {#storage-groups}
 
 {{ ydb-full-name }} uses three disks in each of the three availability zones, both for databases on dedicated resources and serverless databases. This configuration ensures fault tolerance if a zone or disk fails, as well as provides a redundancy factor of 3.
 
-For more information about {{ ydb-short-name }} storage groups, see the [relevant documentation](https://ydb.tech/en/docs/concepts/databases#storage-groups).
+For more information about {{ ydb-short-name }} storage groups, see the [relevant documentation](https://ydb.tech/docs/en/concepts/databases#storage-groups).
 
 ## Regions and availability zones {#regions-az}
 

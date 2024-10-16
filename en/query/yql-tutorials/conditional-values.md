@@ -31,6 +31,6 @@ Query results are available in the **{{ ui-key.yql.yq-query-results.result.tab-t
 
 ## See also {#see-also}
 
-* [SELECT](https://ydb.tech/en/docs/yql/reference/syntax/select).
-* [GROUP BY](https://ydb.tech/en/docs/yql/reference/syntax/group_by).
-* [CASE](https://ydb.tech/en/docs/yql/reference/syntax/expressions#case).
+* [SELECT](https://ydb.tech/docs/en/yql/reference/syntax/select).
+* [GROUP BY](https://ydb.tech/docs/en/yql/reference/syntax/group_by).
+* [CASE](https://ydb.tech/docs/en/yql/reference/syntax/expressions#case).
