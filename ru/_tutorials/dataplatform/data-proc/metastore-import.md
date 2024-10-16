@@ -154,6 +154,12 @@
 
 {% endlist %}
 
+{% note warning %}
+
+Не назначайте на бакет [политику доступа](../../../storage/security/policy.md), иначе кластер {{ metastore-name }} не сможет записывать данные в бакет.
+
+{% endnote %}
+
 ## Создайте тестовую таблицу {#create-table}
 
 В кластере `dataproc-source` создайте тестовую таблицу `countries`:

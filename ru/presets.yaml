@@ -6963,6 +6963,7 @@ default:
             value_hdfs: HDFS
             value_hive: Hive
             value_jdbc: JDBC
+            value_pxf: PXF
             value_s3: S3
           user-auth:
             action_add-rule: Добавить правило
@@ -7116,6 +7117,7 @@ default:
               popup-confirm_button_delete: Удалить
               popup-key_button_close: Закрыть
               popup-key_button_create: Создать
+              section_api_keys: API-ключи
               section_keys: Авторизованные ключи
               section_service-account-keys: Ключи доступа
             popup-robot_button_add: Создать
@@ -7134,6 +7136,7 @@ default:
           switch_dashboard: Дашборд каталога
           switch_service-accounts: Сервисные аккаунты
           switch_service-notifications: Уведомления сервисов
+        label_service-accounts: Сервисные аккаунты
       iot:
         button_add-alias: Добавить алиас
         button_add-device: Добавить устройство
@@ -7628,6 +7631,7 @@ default:
           switch_hosts: Хосты
           switch_jobs: Задания
           switch_monitoring: Мониторинг
+          switch_network: Сеть
           switch_subclusters: Подкластеры
           switch_users: Пользователи
           users:
