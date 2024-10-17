@@ -49,8 +49,8 @@ VALUES
 
 ## Смотрите также {#see-also}
 
-* Оператор [SELECT](https://ydb.tech/ru/docs/yql/reference/syntax/select).
-* Функция [JSON_EXISTS](https://ydb.tech/ru/docs/yql/reference/builtins/json#json_exists).
-* Функция [JSON_VALUE](https://ydb.tech/ru/docs/yql/reference/builtins/json#json_value).
-* Функция [JSON_QUERY](https://ydb.tech/ru/docs/yql/reference/builtins/json#json_query).
-* [Функции для работы с JSON](https://ydb.tech/ru/docs/yql/reference/builtins/json).
+* Оператор [SELECT](https://ydb.tech/docs/ru/yql/reference/syntax/select).
+* Функция [JSON_EXISTS](https://ydb.tech/docs/ru/yql/reference/builtins/json#json_exists).
+* Функция [JSON_VALUE](https://ydb.tech/docs/ru/yql/reference/builtins/json#json_value).
+* Функция [JSON_QUERY](https://ydb.tech/docs/ru/yql/reference/builtins/json#json_query).
+* [Функции для работы с JSON](https://ydb.tech/docs/ru/yql/reference/builtins/json).

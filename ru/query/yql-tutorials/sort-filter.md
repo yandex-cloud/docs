@@ -25,6 +25,6 @@ LIMIT 10                    -- Взять только 10 записей.
 
 ## Смотрите также {#see-also}
 
-* Оператор [SELECT](https://ydb.tech/ru/docs/yql/reference/syntax/select).
-* Оператор [WHERE](https://ydb.tech/ru/docs/yql/reference/syntax/select#where).
-* Оператор [ORDER BY](https://ydb.tech/ru/docs/yql/reference/syntax/select#order-by).
+* Оператор [SELECT](https://ydb.tech/docs/ru/yql/reference/syntax/select).
+* Оператор [WHERE](https://ydb.tech/docs/ru/yql/reference/syntax/select#where).
+* Оператор [ORDER BY](https://ydb.tech/docs/ru/yql/reference/syntax/select#order-by).
