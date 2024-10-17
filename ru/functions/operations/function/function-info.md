@@ -41,7 +41,7 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-    Чтобы получить подробную информацию о функции, воспользуйтесь методом REST API [get](../../functions/api-ref/Function/get.md) для ресурса [Function](../../functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/Get](../../functions/api-ref/grpc/function_service.md#Get).
+    Чтобы получить подробную информацию о функции, воспользуйтесь методом REST API [get](../../functions/api-ref/Function/get.md) для ресурса [Function](../../functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/Get](../../functions/api-ref/grpc/Function/get.md).
 
 
 - {{ yandex-cloud }} Toolkit {#yc-toolkit}

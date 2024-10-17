@@ -150,7 +150,7 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
 
 - API {#api}
 
-   To add function scaling settings, use the [setScalingPolicy](../../functions/api-ref/Function/setScalingPolicy.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/SetScalingPolicy](../../functions/api-ref/grpc/function_service.md#SetScalingPolicy) gRPC API call.
+   To add function scaling settings, use the [setScalingPolicy](../../functions/api-ref/Function/setScalingPolicy.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/SetScalingPolicy](../../functions/api-ref/grpc/Function/setScalingPolicy.md) gRPC API call.
 
 
 - {{ yandex-cloud }} Toolkit {#yc-toolkit}

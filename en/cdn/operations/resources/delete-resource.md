@@ -120,6 +120,6 @@ description: Follow this guide to delete a resource.
 
 - API {#api}
 
-  To delete a resource, use the [delete](../../api-ref/Resource/delete.md) REST API method for the [Resource](../../api-ref/Resource/index.md) resource or the [ResourceService/Delete](../../api-ref/grpc/resource_service.md#Delete) gRPC API call.
+  To delete a resource, use the [delete](../../api-ref/Resource/delete.md) REST API method for the [Resource](../../api-ref/Resource/index.md) resource or the [ResourceService/Delete](../../api-ref/grpc/Resource/delete.md) gRPC API call.
 
 {% endlist %}

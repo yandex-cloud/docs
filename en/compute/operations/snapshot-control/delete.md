@@ -67,6 +67,6 @@ To delete a snapshot:
 
 - API {#api}
 
-   Use the [delete](../../api-ref/Snapshot/delete.md) REST API method for the [Snapshot](../../api-ref/Snapshot/index.md) resource or the [SnapshotService/Delete](../../api-ref/grpc/snapshot_service.md#Delete) gRPC API call.
+   Use the [delete](../../api-ref/Snapshot/delete.md) REST API method for the [Snapshot](../../api-ref/Snapshot/index.md) resource or the [SnapshotService/Delete](../../api-ref/grpc/Snapshot/delete.md) gRPC API call.
 
 {% endlist %}

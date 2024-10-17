@@ -125,7 +125,7 @@ To create a static access key:
 
 - API {#api}
 
-  To create an access key, use the [create](../../api-ref/AccessKey/create.md) REST API method for the [AccessKey](../../api-ref/AccessKey/index.md) resource or the [AccessKeyService/Create](../../api-ref/grpc/access_key_service.md#Create) gRPC API call.
+  To create an access key, use the [create](../../awscompatibility/api-ref/AccessKey/create.md) REST API method for the [AccessKey](../../awscompatibility/api-ref/AccessKey/index.md) resource or the [AccessKeyService/Create](../../awscompatibility/api-ref/grpc/AccessKey/create.md) gRPC API call.
 
 {% endlist %}
 

@@ -22,7 +22,7 @@
 
   Воспользуйтесь методом REST API `listOperations` для соответствующего ресурса или вызовом gRPC API `<сервис>/ListOperations`.
 
-  Например, для реестра воспользуйтесь методом REST API [listOperations](../api-ref/Registry/listOperations.md) для ресурса [Registry](../api-ref/Registry/index.md) или вызовом gRPC API [RegistryService/ListOperations](../api-ref/grpc/registry_service.md#ListOperations).
+  Например, для реестра воспользуйтесь методом REST API [listOperations](../api-ref/Registry/listOperations.md) для ресурса [Registry](../api-ref/Registry/index.md) или вызовом gRPC API [RegistryService/ListOperations](../api-ref/grpc/Registry/listOperations.md).
 
 {% endlist %}
 
@@ -71,7 +71,7 @@
 
    - API {#api}
 
-      Воспользуйтесь вызовом gRPC API [OperationService/Get](../api-ref/grpc/operation_service.md#Get).
+      Воспользуйтесь вызовом gRPC API [OperationService/Get](../api-ref/grpc/Operation/get.md).
 
     {% endlist %}
 

@@ -48,9 +48,9 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Чтобы получить подробную информацию о лог-группе, воспользуйтесь методом REST API [get](../api-ref/LogGroup/get.md) для ресурса [LogGroup](../api-ref/LogGroup/index.md) или вызовом gRPC API [LogGroupService/Get](../api-ref/grpc/log_group_service.md#Get).
+  Чтобы получить подробную информацию о лог-группе, воспользуйтесь методом REST API [get](../api-ref/LogGroup/get.md) для ресурса [LogGroup](../api-ref/LogGroup/index.md) или вызовом gRPC API [LogGroupService/Get](../api-ref/grpc/LogGroup/get.md).
 
-  Чтобы получить статистику лог-группы, воспользуйтесь методом REST API [stats](../api-ref/LogGroup/stats.md) для ресурса [LogGroup](../api-ref/LogGroup/index.md) или вызовом gRPC API [LogGroupService/Stats](../api-ref/grpc/log_group_service.md#Stats).
+  Чтобы получить статистику лог-группы, воспользуйтесь методом REST API [stats](../api-ref/LogGroup/stats.md) для ресурса [LogGroup](../api-ref/LogGroup/index.md) или вызовом gRPC API [LogGroupService/Stats](../api-ref/grpc/LogGroup/stats.md).
 
   **Примеры запросов**
 

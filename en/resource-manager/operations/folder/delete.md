@@ -94,7 +94,7 @@ To delete a [folder](../../concepts/resources-hierarchy.md#folder), you must hav
 
 - API {#api}
 
-  To delete a folder, use the [delete](../../api-ref/Folder/delete.md) REST API method for the [Folder](../../api-ref/Folder/index.md) resource or the [FolderService/Delete](../../api-ref/grpc/folder_service.md#Delete) gRPC API call.
+  To delete a folder, use the [delete](../../api-ref/Folder/delete.md) REST API method for the [Folder](../../api-ref/Folder/index.md) resource or the [FolderService/Delete](../../api-ref/grpc/Folder/delete.md) gRPC API call.
 
 {% endlist %}
 

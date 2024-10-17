@@ -108,7 +108,7 @@ Hystax Acura Backup будет выполнять действия от имен
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [create](../../storage/api-ref/Bucket/create.md) для ресурса [Bucket](../../storage/api-ref/Bucket/) или вызовом gRPC API [BucketService/Create](../../storage/api-ref/grpc/bucket_service.md#Create).
+  Воспользуйтесь методом REST API [create](../../storage/api-ref/Bucket/create.md) для ресурса [Bucket](../../storage/api-ref/Bucket/) или вызовом gRPC API [BucketService/Create](../../storage/api-ref/grpc/Bucket/create.md).
 
 {% endlist %}
 
@@ -196,7 +196,7 @@ Hystax Acura Backup будет выполнять действия от имен
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [create](../../compute/api-ref/Instance/create.md) для ресурса [Instance](../../compute/api-ref/Instance/) или вызовом gRPC API [InstanceService/Create](../../compute/api-ref/grpc/instance_service.md#Create).
+  Воспользуйтесь методом REST API [create](../../compute/api-ref/Instance/create.md) для ресурса [Instance](../../compute/api-ref/Instance/) или вызовом gRPC API [InstanceService/Create](../../compute/api-ref/grpc/Instance/create.md).
 
 {% endlist %}
 
@@ -270,7 +270,7 @@ Hystax Acura Backup будет выполнять действия от имен
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [update](../../vpc/api-ref/Address/update.md) для ресурса [Address](../../vpc/api-ref/Address/index.md) или вызовом gRPC API [AddressService/Update](../../vpc/api-ref/grpc/address_service.md#Update).
+  Воспользуйтесь методом REST API [update](../../vpc/api-ref/Address/update.md) для ресурса [Address](../../vpc/api-ref/Address/index.md) или вызовом gRPC API [AddressService/Update](../../vpc/api-ref/grpc/Address/update.md).
 
 {% endlist %}
 

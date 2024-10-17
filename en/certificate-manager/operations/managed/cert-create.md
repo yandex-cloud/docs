@@ -93,7 +93,7 @@ To add a new Let's Encrypt® certificate:
 
 - API {#api}
 
-   To add a certificate, use the [requestNew](../../api-ref/Certificate/requestNew.md) REST API method for the [Certificate](../../api-ref/Certificate/) resource or the [CertificateService/RequestNew](../../api-ref/grpc/certificate_service.md#RequestNew) gRPC API call.
+   To add a certificate, use the [requestNew](../../api-ref/Certificate/requestNew.md) REST API method for the [Certificate](../../api-ref/Certificate/) resource or the [CertificateService/RequestNew](../../api-ref/grpc/Certificate/requestNew.md) gRPC API call.
 
 {% endlist %}
 

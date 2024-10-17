@@ -50,7 +50,7 @@ You can only link a VM to a policy if it is connected to {{ backup-full-name }}.
 
 - API {#api}
 
-   Use the [apply](../../backup/api-ref/Policy/apply.md) REST API method for the [Policy](../../backup/api-ref/Policy/index.md) resource or the [PolicyService/Apply](../../backup/api-ref/grpc/policy_service.md#Apply) gRPC API call.
+   Use the [apply](../../backup/api-ref/Policy/apply.md) REST API method for the [Policy](../../backup/api-ref/Policy/index.md) resource or the [PolicyService/Apply](../../backup/api-ref/grpc/Policy/apply.md) gRPC API call.
 
 {% endlist %}
 

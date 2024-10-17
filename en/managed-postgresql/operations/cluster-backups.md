@@ -237,7 +237,7 @@ When restored to the current state, the new cluster will match the state of:
 
 - API {#api}
 
-   To restore a cluster from a backup, use the [restore](../api-ref/Cluster/restore.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Restore](../api-ref/grpc/cluster_service.md#Restore) gRPC API call and provide the following in the request:
+   To restore a cluster from a backup, use the [restore](../api-ref/Cluster/restore.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Restore](../api-ref/grpc/Cluster/restore.md) gRPC API call and provide the following in the request:
 
    * Backup ID in the `backupId` parameter. To find out the ID, [retrieve a list of cluster backups](#list-backups).
    * Time point to which you want to restore the cluster, in the `time` parameter.
@@ -282,7 +282,7 @@ When restored to the current state, the new cluster will match the state of:
 
 - API {#api}
 
-   To create a cluster backup, use the [backup](../api-ref/Cluster/backup.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Backup](../api-ref/grpc/cluster_service.md#Backup) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
+   To create a cluster backup, use the [backup](../api-ref/Cluster/backup.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Backup](../api-ref/grpc/Cluster/get.md#yandex.cloud.mdb.postgresql.v1.Backup) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
    You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -325,9 +325,9 @@ When restored to the current state, the new cluster will match the state of:
 
 - API {#api}
 
-   To get a list of cluster backups, use the [listBackups](../api-ref/Cluster/listBackups.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/ListBackups](../api-ref/grpc/cluster_service.md#ListBackups) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
+   To get a list of cluster backups, use the [listBackups](../api-ref/Cluster/listBackups.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/ListBackups](../api-ref/grpc/Cluster/listBackups.md) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
-   To get a list of backups for all the {{ mpg-name }} clusters in the folder, use the [list](../api-ref/Backup/list.md) REST API method for the [Backup](../api-ref/Backup/index.md) resource or the [BackupService/List](../api-ref/grpc/backup_service.md#List) gRPC API call and provide the folder ID in the `folderId` request parameter.
+   To get a list of backups for all the {{ mpg-name }} clusters in the folder, use the [list](../api-ref/Backup/list.md) REST API method for the [Backup](../api-ref/Backup/index.md) resource or the [BackupService/List](../api-ref/grpc/Backup/list.md) gRPC API call and provide the folder ID in the `folderId` request parameter.
 
    You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -364,7 +364,7 @@ When restored to the current state, the new cluster will match the state of:
 
 - API {#api}
 
-   To get information about a cluster backup, use the [get](../api-ref/Backup/get.md) REST API method for the [Backup](../api-ref/Backup/index.md) resource or the [BackupService/Get](../api-ref/grpc/backup_service.md#Get) gRPC API call and provide the backup ID in the `backupId` request parameter.
+   To get information about a cluster backup, use the [get](../api-ref/Backup/get.md) REST API method for the [Backup](../api-ref/Backup/index.md) resource or the [BackupService/Get](../api-ref/grpc/Backup/get.md) gRPC API call and provide the backup ID in the `backupId` request parameter.
 
    You can retrieve the backup ID with the [backup list](#list-backups).
 
@@ -446,7 +446,7 @@ When restored to the current state, the new cluster will match the state of:
 
 - API {#api}
 
-   To set the backup start time, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
+   To set the backup start time, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) gRPC API call and provide the following in the request:
 
    * Cluster ID in the `clusterId` parameter. You can retrieve it with a [list of clusters in the folder](cluster-list.md#list-clusters).
    * New backup start time in the `configSpec.backupWindowStart` parameter.
@@ -495,7 +495,7 @@ You can only delete backups that were created manually.
 
 - API {#api}
 
-   To delete a backup, use the [delete](../api-ref/Backup/delete.md) REST API method for the [Backup](../api-ref/Backup/index.md) resource or the [BackupService/Delete](../api-ref/grpc/backup_service.md#Delete) gRPC API call and provide the backup ID in the `backupId` request parameter.
+   To delete a backup, use the [delete](../api-ref/Backup/delete.md) REST API method for the [Backup](../api-ref/Backup/index.md) resource or the [BackupService/Delete](../api-ref/grpc/Backup/delete.md) gRPC API call and provide the backup ID in the `backupId` request parameter.
 
    You can retrieve the backup ID with a [list of backups](#list-backups).
 

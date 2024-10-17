@@ -42,6 +42,6 @@ title: How to get a list of DNS zones
 
 - API {#api}
 
-  To get a list of [DNS zones](../concepts/dns-zone.md), use the [list](../api-ref/DnsZone/list.md) REST API method for the [DnsZone](../api-ref/DnsZone/index.md) resource or the [DnsZoneService/List](../api-ref/grpc/dns_zone_service.md#List) gRPC API call.
+  To get a list of [DNS zones](../concepts/dns-zone.md), use the [list](../api-ref/DnsZone/list.md) REST API method for the [DnsZone](../api-ref/DnsZone/index.md) resource or the [DnsZoneService/List](../api-ref/grpc/DnsZone/list.md) gRPC API call.
 
 {% endlist %}

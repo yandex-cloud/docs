@@ -136,7 +136,7 @@ When restored to the current state, the new cluster will match the state of:
 
 - API {#api}
 
-    To restore an existing cluster from a backup, use the [restore](../api-ref/Cluster/restore.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Restore](../api-ref/grpc/cluster_service.md#Restore) gRPC API call and provide the following in the request:
+    To restore an existing cluster from a backup, use the [restore](../api-ref/Cluster/restore.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Restore](../api-ref/grpc/Cluster/restore.md) gRPC API call and provide the following in the request:
 
     * ID of the backup you need, in the `backupId` parameter. To find out the ID, [retrieve a list of cluster backups](#list-backups).
     * Name of the new cluster that will contain the data recovered from the backup, in the `name` parameter. It must be unique within the folder.
@@ -181,7 +181,7 @@ When restored to the current state, the new cluster will match the state of:
 
 - API {#api}
 
-    To create a backup, use the [backup](../api-ref/Cluster/backup.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Backup](../api-ref/grpc/cluster_service.md#Backup) gRPC API call and provide the cluster ID in the `clusterId` parameter of your request.
+    To create a backup, use the [backup](../api-ref/Cluster/backup.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Backup](../api-ref/grpc/Cluster/backup.md) gRPC API call and provide the cluster ID in the `clusterId` parameter of your request.
 
     You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -247,11 +247,11 @@ When restored to the current state, the new cluster will match the state of:
 
 - API {#api}
 
-    To get a list of cluster backups, use the [listBackups](../api-ref/Cluster/listBackups.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/ListBackups](../api-ref/grpc/cluster_service.md#ListBackups) gRPC API call and provide the cluster ID in the `clusterId` parameter of your request. 
+    To get a list of cluster backups, use the [listBackups](../api-ref/Cluster/listBackups.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/ListBackups](../api-ref/grpc/Cluster/listBackups.md) gRPC API call and provide the cluster ID in the `clusterId` parameter of your request. 
 
     You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    To get a list of backups for all the {{ mmg-name }} clusters in the folder, use the [list](../api-ref/Backup/list.md) REST API method for the [Backup](../api-ref/Backup/index.md) resource or the [BackupService/List](../api-ref/grpc/backup_service.md#List) gRPC API call and provide the folder ID in the `folderId` parameter of your request.
+    To get a list of backups for all the {{ mmg-name }} clusters in the folder, use the [list](../api-ref/Backup/list.md) REST API method for the [Backup](../api-ref/Backup/index.md) resource or the [BackupService/List](../api-ref/grpc/Backup/list.md) gRPC API call and provide the folder ID in the `folderId` parameter of your request.
 
 {% endlist %}
 
@@ -285,7 +285,7 @@ When restored to the current state, the new cluster will match the state of:
 
 - API {#api}
 
-    To get information about a backup, use the [get](../api-ref/Backup/get.md) REST API method for the [Backup](../api-ref/Backup/index.md) resource or the [BackupService/Get](../api-ref/grpc/backup_service.md#Get) gRPC API call and provide the backup ID in the `backupId` parameter of your request.
+    To get information about a backup, use the [get](../api-ref/Backup/get.md) REST API method for the [Backup](../api-ref/Backup/index.md) resource or the [BackupService/Get](../api-ref/grpc/Backup/get.md) gRPC API call and provide the backup ID in the `backupId` parameter of your request.
 
     To find out the ID, [retrieve a list of backups](#list-backups).
 

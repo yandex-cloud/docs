@@ -95,6 +95,6 @@ title: Как получить информацию о расписании, п�
 
 - API {#api}
 
-  Чтобы получить подробную информацию о [расписании снимков дисков](../../concepts/snapshot-schedule.md), воспользуйтесь методом REST API [get](../../api-ref/SnapshotSchedule/get.md) для ресурса [SnapshotSchedule](../../api-ref/SnapshotSchedule/index.md), или вызовом gRPC API [SnapshotScheduleService/Get](../../api-ref/grpc/snapshot_schedule_service.md#Get).
+  Чтобы получить подробную информацию о [расписании снимков дисков](../../concepts/snapshot-schedule.md), воспользуйтесь методом REST API [get](../../api-ref/SnapshotSchedule/get.md) для ресурса [SnapshotSchedule](../../api-ref/SnapshotSchedule/index.md), или вызовом gRPC API [SnapshotScheduleService/Get](../../api-ref/grpc/SnapshotSchedule/get.md).
 
 {% endlist %}

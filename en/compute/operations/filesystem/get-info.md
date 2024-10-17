@@ -95,6 +95,6 @@ You can get the file storage size, availability zone, and other file storage inf
 
 - API {#api}
 
-  To get detailed information about a [file storage](../../concepts/filesystem.md), use the [get](../../api-ref/Filesystem/get.md) REST API method for the [Filesystem](../../api-ref/Filesystem/index.md) resource or the [FilesystemService/Get](../../api-ref/grpc/filesystem_service.md#Get) gRPC API call.
+  To get detailed information about a [file storage](../../concepts/filesystem.md), use the [get](../../api-ref/Filesystem/get.md) REST API method for the [Filesystem](../../api-ref/Filesystem/index.md) resource or the [FilesystemService/Get](../../api-ref/grpc/Filesystem/get.md) gRPC API call.
 
 {% endlist %}

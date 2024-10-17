@@ -101,7 +101,7 @@ To grant a user, group, or [service account](../../iam/concepts/users/service-ac
 
 - API {#api}
 
-  To assign a role, use the [updateAccessBindings](../api-ref/DnsZone/updateAccessBindings.md) REST API method for the [DnsZone](../api-ref/DnsZone/index.md) resource or the [DnsZoneService/UpdateAccessBindings](../api-ref/grpc/dns_zone_service.md#UpdateAccessBindings) gRPC API call. In the request body, set the `action` property to `ADD` and specify the user type and ID in the `subject` property.
+  To assign a role, use the [updateAccessBindings](../api-ref/DnsZone/updateAccessBindings.md) REST API method for the [DnsZone](../api-ref/DnsZone/index.md) resource or the [DnsZoneService/UpdateAccessBindings](../api-ref/grpc/DnsZone/updateAccessBindings.md) gRPC API call. In the request body, set the `action` property to `ADD` and specify the user type and ID in the `subject` property.
 
 {% endlist %}
 
@@ -202,7 +202,7 @@ To grant a user, group, or [service account](../../iam/concepts/users/service-ac
 
 - API {#api}
 
-  To assign roles for a resource, use the [setAccessBindings](../api-ref/DnsZone/setAccessBindings.md) REST API method for the [DnsZone](../api-ref/DnsZone/index.md) resource or the [DnsZoneService/SetAccessBindings](../api-ref/grpc/dns_zone_service.md#SetAccessBindings) gRPC API call.
+  To assign roles for a resource, use the [setAccessBindings](../api-ref/DnsZone/setAccessBindings.md) REST API method for the [DnsZone](../api-ref/DnsZone/index.md) resource or the [DnsZoneService/SetAccessBindings](../api-ref/grpc/DnsZone/setAccessBindings.md) gRPC API call.
 
   {% note alert %}
 
@@ -286,6 +286,6 @@ To grant a user, group, or [service account](../../iam/concepts/users/service-ac
 
 - API {#api}
 
-  To revoke a role, use the [updateAccessBindings](../api-ref/DnsZone/updateAccessBindings.md) REST API method for the [DnsZone](../api-ref/DnsZone/index.md) resource or the [DnsZoneService/UpdateAccessBindings](../api-ref/grpc/dns_zone_service.md#UpdateAccessBindings) gRPC API call. In the request body, set the `action` property to `REMOVE` and specify the user type and ID in the `subject` property.
+  To revoke a role, use the [updateAccessBindings](../api-ref/DnsZone/updateAccessBindings.md) REST API method for the [DnsZone](../api-ref/DnsZone/index.md) resource or the [DnsZoneService/UpdateAccessBindings](../api-ref/grpc/DnsZone/updateAccessBindings.md) gRPC API call. In the request body, set the `action` property to `REMOVE` and specify the user type and ID in the `subject` property.
 
 {% endlist %}

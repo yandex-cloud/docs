@@ -149,7 +149,7 @@
 
 - API {#api}
 
-  Чтобы добавить сертификат, воспользуйтесь методом REST API [create](../../api-ref/Certificate/create.md) для ресурса [Certificate](../../api-ref/Certificate/) или вызовом gRPC API [CertificateService/Create](../../api-ref/grpc/certificate_service.md#Create).
+  Чтобы добавить сертификат, воспользуйтесь методом REST API [create](../../api-ref/Certificate/create.md) для ресурса [Certificate](../../api-ref/Certificate/) или вызовом gRPC API [CertificateService/Create](../../api-ref/grpc/Certificate/create.md).
 
 {% endlist %}
 

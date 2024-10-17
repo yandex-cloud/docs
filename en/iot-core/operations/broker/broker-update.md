@@ -102,7 +102,7 @@ To access a broker, use its unique ID or name. For info on how to get the unique
 
 - API {#api}
 
-  To rename a broker, use the [update](../../broker/api-ref/Broker/update.md) REST API method for the [Broker](../../broker/api-ref/Broker/index.md) resource or the [BrokerService/Update](../../broker/api-ref/grpc/broker_service.md#Update) gRPC API call.
+  To rename a broker, use the [update](../../broker/api-ref/Broker/update.md) REST API method for the [Broker](../../broker/api-ref/Broker/index.md) resource or the [BrokerService/Update](../../broker/api-ref/grpc/Broker/update.md) gRPC API call.
 
 {% endlist %}
 
@@ -200,7 +200,7 @@ To access a broker, use its unique ID or name. For info on how to get the unique
 
 - API {#api}
 
-  To update a broker description, use the [update](../../broker/api-ref/Broker/update.md) REST API method for the [Broker](../../broker/api-ref/Broker/index.md) resource or the [BrokerService/Update](../../broker/api-ref/grpc/broker_service.md#Update) gRPC API call.
+  To update a broker description, use the [update](../../broker/api-ref/Broker/update.md) REST API method for the [Broker](../../broker/api-ref/Broker/index.md) resource or the [BrokerService/Update](../../broker/api-ref/grpc/Broker/update.md) gRPC API call.
 
 {% endlist %}
 
@@ -312,7 +312,7 @@ You can perform the following actions with broker labels:
 
 - API {#api}
 
-  To add a label to a broker, use the [update](../../broker/api-ref/Broker/update.md) REST API method for the [Broker](../../broker/api-ref/Broker/index.md) resource or the [BrokerService/Update](../../broker/api-ref/grpc/broker_service.md#Update) gRPC API call.
+  To add a label to a broker, use the [update](../../broker/api-ref/Broker/update.md) REST API method for the [Broker](../../broker/api-ref/Broker/index.md) resource or the [BrokerService/Update](../../broker/api-ref/grpc/Broker/update.md) gRPC API call.
 
 {% endlist %}
 
@@ -417,7 +417,7 @@ You can perform the following actions with broker labels:
 
 - API {#api}
 
-  To update a broker label, use the [update](../../broker/api-ref/Broker/update.md) REST API method for the [Broker](../../broker/api-ref/Broker/index.md) resource or the [BrokerService/Update](../../broker/api-ref/grpc/broker_service.md#Update) gRPC API call.
+  To update a broker label, use the [update](../../broker/api-ref/Broker/update.md) REST API method for the [Broker](../../broker/api-ref/Broker/index.md) resource or the [BrokerService/Update](../../broker/api-ref/grpc/Broker/update.md) gRPC API call.
 
 {% endlist %}
 
@@ -514,6 +514,6 @@ You can perform the following actions with broker labels:
 
 - API {#api}
 
-  To delete a broker label, use the [update](../../broker/api-ref/Broker/update.md) REST API method for the [Broker](../../broker/api-ref/Broker/index.md) resource or the [BrokerService/Update](../../broker/api-ref/grpc/broker_service.md#Update) gRPC API call.
+  To delete a broker label, use the [update](../../broker/api-ref/Broker/update.md) REST API method for the [Broker](../../broker/api-ref/Broker/index.md) resource or the [BrokerService/Update](../../broker/api-ref/grpc/Broker/update.md) gRPC API call.
 
 {% endlist %}

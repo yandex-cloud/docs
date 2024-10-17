@@ -116,7 +116,7 @@ description: Следуя данной инструкции, вы сможете
 
    {% include [set-access-bindings-api](../../_includes/iam/set-access-bindings-api.md) %}
 
-   Воспользуйтесь методом [setAccessBindings](../api-ref/Group/setAccessBindings.md) для ресурса [Group](../api-ref/Group/index.md) или вызовом gRPC API [GroupService/SetAccessBindings](../api-ref/grpc/group_service.md#SetAccessBindings). Передайте в запросе массив из объектов, каждый из которых соответствует отдельной роли и содержит следующие данные:
+   Воспользуйтесь методом [setAccessBindings](../api-ref/Group/setAccessBindings.md) для ресурса [Group](../api-ref/Group/index.md) или вызовом gRPC API [GroupService/SetAccessBindings](../api-ref/grpc/Group/setAccessBindings.md). Передайте в запросе массив из объектов, каждый из которых соответствует отдельной роли и содержит следующие данные:
 
    * Роль в параметре `accessBindings[].roleId`.
    * Идентификатор субъекта, на кого назначаются роли, в параметре `accessBindings[].subject.id`.

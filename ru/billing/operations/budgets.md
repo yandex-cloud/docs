@@ -59,7 +59,7 @@
 
 - API {#api}
 
-  Чтобы создать бюджет, воспользуйтесь методом REST API [create](../api-ref/Budget/create.md) для ресурса [Budget](../api-ref/Budget/index.md) или вызовом gRPC API [BudgetService/Create](../api-ref/grpc/budget_service.md#Create).
+  Чтобы создать бюджет, воспользуйтесь методом REST API [create](../api-ref/Budget/create.md) для ресурса [Budget](../api-ref/Budget/index.md) или вызовом gRPC API [BudgetService/Create](../api-ref/grpc/Budget/create.md).
   
 {% endlist %}
 

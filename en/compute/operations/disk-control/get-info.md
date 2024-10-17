@@ -95,6 +95,6 @@ description: Follow this guide to get information about a disk.
 
 - API {#api}
 
-  To get information about a [disk](../../concepts/disk.md), use the [get](../../api-ref/Disk/get.md) REST API method for the [Disk](../../api-ref/Disk/index.md) resource or the [DiskService/Get](../../api-ref/grpc/disk_service.md#Get) gRPC API call.
+  To get information about a [disk](../../concepts/disk.md), use the [get](../../api-ref/Disk/get.md) REST API method for the [Disk](../../api-ref/Disk/index.md) resource or the [DiskService/Get](../../api-ref/grpc/Disk/get.md) gRPC API call.
 
 {% endlist %}

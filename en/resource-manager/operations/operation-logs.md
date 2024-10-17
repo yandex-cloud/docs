@@ -84,7 +84,7 @@ All actions with {{ resmgr-name }} resources are logged as a list of operations.
 
   Use the `listOperations` REST API method for the relevant resource or the `<service>/ListOperations` gRPC API call.
 
-  For example, to get a list of operations for a folder, use either the [listOperations](../api-ref/Folder/listOperations.md) REST API method for the [Folder](../api-ref/Folder/index.md) resource or the [FolderService/ListOperations](../api-ref/grpc/folder_service.md#ListOperations) gRPC API call.
+  For example, to get a list of operations for a folder, use either the [listOperations](../api-ref/Folder/listOperations.md) REST API method for the [Folder](../api-ref/Folder/index.md) resource or the [FolderService/ListOperations](../api-ref/grpc/Folder/listOperations.md) gRPC API call.
 
 {% endlist %}
 
@@ -126,7 +126,7 @@ All actions with {{ resmgr-name }} resources are logged as a list of operations.
 
    - API {#api}
 
-     Use the [OperationService/Get](../api-ref/grpc/operation_service.md#Get) gRPC API call.
+     Use the [OperationService/Get](../api-ref/grpc/Operation/get.md) gRPC API call.
 
    {% endlist %}
 

@@ -38,7 +38,7 @@ description: Чтобы сделать резервное копирование
 
    - API {#api}
 
-     Чтобы получить идентификатор сертификата, воспользуйтесь методом REST API [list](../api-ref/Certificate/list.md) для ресурса [Certificate](../api-ref/Certificate/) или вызовом gRPC API [CertificateService/List](../api-ref/grpc/certificate_service.md#List).
+     Чтобы получить идентификатор сертификата, воспользуйтесь методом REST API [list](../api-ref/Certificate/list.md) для ресурса [Certificate](../api-ref/Certificate/) или вызовом gRPC API [CertificateService/List](../api-ref/grpc/Certificate/list.md).
 
 
    {% endlist %}
@@ -71,7 +71,7 @@ description: Чтобы сделать резервное копирование
 
    - API {#api}
 
-     Чтобы получить содержимое сертификата, воспользуйтесь методом REST API [get](../api-ref/CertificateContent/get.md) для ресурса [CertificateContent](../api-ref/CertificateContent/) или вызовом gRPC API [CertificateContentService/Get](../api-ref/grpc/certificate_content_service.md#Get).
+     Чтобы получить содержимое сертификата, воспользуйтесь методом REST API [get](../api-ref/CertificateContent/get.md) для ресурса [CertificateContent](../api-ref/CertificateContent/) или вызовом gRPC API [CertificateContentService/Get](../api-ref/grpc/CertificateContent/get.md).
 
    {% endlist %}
 
@@ -134,7 +134,7 @@ description: Чтобы сделать резервное копирование
 
    - API {#api}
 
-     Чтобы импортировать сертификат, воспользуйтесь методом REST API [create](../api-ref/Certificate/create.md) для ресурса [Certificate](../api-ref/Certificate/) или вызовом gRPC API [CertificateService/Create](../api-ref/grpc/certificate_service.md#Create).
+     Чтобы импортировать сертификат, воспользуйтесь методом REST API [create](../api-ref/Certificate/create.md) для ресурса [Certificate](../api-ref/Certificate/) или вызовом gRPC API [CertificateService/Create](../api-ref/grpc/Certificate/create.md).
 
    {% endlist %}
 

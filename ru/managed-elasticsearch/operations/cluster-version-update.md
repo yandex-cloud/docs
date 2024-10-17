@@ -101,7 +101,7 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-    Чтобы обновить версию, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) и передайте в запросе:
+    Чтобы обновить версию, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и передайте в запросе:
 
     * Идентификатор кластера в параметре `clusterId`.
 
@@ -195,7 +195,7 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-    Чтобы изменить редакцию {{ ES }}, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) и передайте в запросе:
+    Чтобы изменить редакцию {{ ES }}, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и передайте в запросе:
 
     * Идентификатор кластера в параметре `clusterId`.
 

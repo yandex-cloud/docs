@@ -45,6 +45,6 @@ description: In this tutorial, you will learn how to get a cloud ID in {{ yandex
 
 - API {#api}
 
-   To get the list of clouds with IDs, use the [list](../../api-ref/Cloud/list.md) REST API method for the [Cloud](../../api-ref/Cloud/index.md) resource or the [CloudService/List](../../api-ref/grpc/cloud_service.md#List) gRPC API call.
+   To get the list of clouds with IDs, use the [list](../../api-ref/Cloud/list.md) REST API method for the [Cloud](../../api-ref/Cloud/index.md) resource or the [CloudService/List](../../api-ref/grpc/Cloud/list.md) gRPC API call.
 
 {% endlist %}

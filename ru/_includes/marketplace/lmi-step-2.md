@@ -1,6 +1,6 @@
 Периодическая проверка того, что подписка активна.
 
-Получить актуальную информацию о подписке можно с помощью метода REST API [list](../../marketplace/license-manager/api-ref/Instance/list.md) для ресурса [Instance](../../marketplace/license-manager/api-ref/Instance/index.md) или вызова gRPC API [InstanceService/List](../../marketplace/license-manager/api-ref/grpc/instance_service.md#List).
+Получить актуальную информацию о подписке можно с помощью метода REST API [list](../../marketplace/license-manager/api-ref/Instance/list.md) для ресурса [Instance](../../marketplace/license-manager/api-ref/Instance/index.md) или вызова gRPC API [InstanceService/List](../../marketplace/license-manager/api-ref/grpc/Instance/list.md).
 
 {% note info %}
 

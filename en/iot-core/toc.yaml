@@ -155,16 +155,98 @@ items:
         items:
           - name: Overview
             href: api-ref/grpc/index.md
-          - name: DeviceDataService
-            href: api-ref/grpc/device_data_service.md
-          - name: DeviceService
-            href: api-ref/grpc/device_service.md
-          - name: RegistryDataService
-            href: api-ref/grpc/registry_data_service.md
-          - name: RegistryService
-            href: api-ref/grpc/registry_service.md
-          - name: OperationService
-            href: api-ref/grpc/operation_service.md
+          - name: DeviceData
+            items:
+              - name: Overview
+                href: api-ref/grpc/DeviceData/index.md
+              - name: Publish
+                href: api-ref/grpc/DeviceData/publish.md
+          - name: Device
+            items:
+              - name: Overview
+                href: api-ref/grpc/Device/index.md
+              - name: Get
+                href: api-ref/grpc/Device/get.md
+              - name: GetByName
+                href: api-ref/grpc/Device/getByName.md
+              - name: List
+                href: api-ref/grpc/Device/list.md
+              - name: Create
+                href: api-ref/grpc/Device/create.md
+              - name: Update
+                href: api-ref/grpc/Device/update.md
+              - name: Delete
+                href: api-ref/grpc/Device/delete.md
+              - name: ListCertificates
+                href: api-ref/grpc/Device/listCertificates.md
+              - name: AddCertificate
+                href: api-ref/grpc/Device/addCertificate.md
+              - name: DeleteCertificate
+                href: api-ref/grpc/Device/deleteCertificate.md
+              - name: ListPasswords
+                href: api-ref/grpc/Device/listPasswords.md
+              - name: AddPassword
+                href: api-ref/grpc/Device/addPassword.md
+              - name: DeletePassword
+                href: api-ref/grpc/Device/deletePassword.md
+              - name: ListOperations
+                href: api-ref/grpc/Device/listOperations.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/grpc/Operation/index.md
+              - name: Get
+                href: api-ref/grpc/Operation/get.md
+              - name: Cancel
+                href: api-ref/grpc/Operation/cancel.md
+          - name: RegistryData
+            items:
+              - name: Overview
+                href: api-ref/grpc/RegistryData/index.md
+              - name: Publish
+                href: api-ref/grpc/RegistryData/publish.md
+          - name: Registry
+            items:
+              - name: Overview
+                href: api-ref/grpc/Registry/index.md
+              - name: Get
+                href: api-ref/grpc/Registry/get.md
+              - name: GetByName
+                href: api-ref/grpc/Registry/getByName.md
+              - name: List
+                href: api-ref/grpc/Registry/list.md
+              - name: Create
+                href: api-ref/grpc/Registry/create.md
+              - name: Update
+                href: api-ref/grpc/Registry/update.md
+              - name: Delete
+                href: api-ref/grpc/Registry/delete.md
+              - name: ListCertificates
+                href: api-ref/grpc/Registry/listCertificates.md
+              - name: AddCertificate
+                href: api-ref/grpc/Registry/addCertificate.md
+              - name: DeleteCertificate
+                href: api-ref/grpc/Registry/deleteCertificate.md
+              - name: ListPasswords
+                href: api-ref/grpc/Registry/listPasswords.md
+              - name: AddPassword
+                href: api-ref/grpc/Registry/addPassword.md
+              - name: DeletePassword
+                href: api-ref/grpc/Registry/deletePassword.md
+              - name: ListDeviceTopicAliases
+                href: api-ref/grpc/Registry/listDeviceTopicAliases.md
+              - name: ListDataStreamExports
+                href: api-ref/grpc/Registry/listDataStreamExports.md
+              - name: AddDataStreamExport
+                href: api-ref/grpc/Registry/addDataStreamExport.md
+              - name: DeleteDataStreamExport
+                href: api-ref/grpc/Registry/deleteDataStreamExport.md
+              - name: ListOperations
+                href: api-ref/grpc/Registry/listOperations.md
+              - name: Disable
+                href: api-ref/grpc/Registry/disable.md
+              - name: Enable
+                href: api-ref/grpc/Registry/enable.md
       - name: REST
         items:
           - name: Overview
@@ -173,80 +255,88 @@ items:
             items:
               - name: Overview
                 href: api-ref/DeviceData/index.md
-              - name: publish
+              - name: Publish
                 href: api-ref/DeviceData/publish.md
           - name: Device
             items:
               - name: Overview
                 href: api-ref/Device/index.md
-              - name: addCertificate
-                href: api-ref/Device/addCertificate.md
-              - name: addPassword
-                href: api-ref/Device/addPassword.md
-              - name: create
-                href: api-ref/Device/create.md
-              - name: delete
-                href: api-ref/Device/delete.md
-              - name: deleteCertificate
-                href: api-ref/Device/deleteCertificate.md
-              - name: deletePassword
-                href: api-ref/Device/deletePassword.md
-              - name: get
+              - name: Get
                 href: api-ref/Device/get.md
-              - name: getByName
+              - name: GetByName
                 href: api-ref/Device/getByName.md
-              - name: list
+              - name: List
                 href: api-ref/Device/list.md
-              - name: listCertificates
-                href: api-ref/Device/listCertificates.md
-              - name: listOperations
-                href: api-ref/Device/listOperations.md
-              - name: listPasswords
-                href: api-ref/Device/listPasswords.md
-              - name: update
+              - name: Create
+                href: api-ref/Device/create.md
+              - name: Update
                 href: api-ref/Device/update.md
+              - name: Delete
+                href: api-ref/Device/delete.md
+              - name: ListCertificates
+                href: api-ref/Device/listCertificates.md
+              - name: AddCertificate
+                href: api-ref/Device/addCertificate.md
+              - name: DeleteCertificate
+                href: api-ref/Device/deleteCertificate.md
+              - name: ListPasswords
+                href: api-ref/Device/listPasswords.md
+              - name: AddPassword
+                href: api-ref/Device/addPassword.md
+              - name: DeletePassword
+                href: api-ref/Device/deletePassword.md
+              - name: ListOperations
+                href: api-ref/Device/listOperations.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/Operation/index.md
+              - name: Get
+                href: api-ref/Operation/get.md
+              - name: Cancel
+                href: api-ref/Operation/cancel.md
           - name: RegistryData
             items:
               - name: Overview
                 href: api-ref/RegistryData/index.md
-              - name: publish
+              - name: Publish
                 href: api-ref/RegistryData/publish.md
           - name: Registry
             items:
               - name: Overview
                 href: api-ref/Registry/index.md
-              - name: addCertificate
-                href: api-ref/Registry/addCertificate.md
-              - name: addPassword
-                href: api-ref/Registry/addPassword.md
-              - name: create
-                href: api-ref/Registry/create.md
-              - name: delete
-                href: api-ref/Registry/delete.md
-              - name: deleteCertificate
-                href: api-ref/Registry/deleteCertificate.md
-              - name: deletePassword
-                href: api-ref/Registry/deletePassword.md
-              - name: disable
-                href: api-ref/Registry/disable.md
-              - name: enable
-                href: api-ref/Registry/enable.md
-              - name: get
+              - name: Get
                 href: api-ref/Registry/get.md
-              - name: getByName
+              - name: GetByName
                 href: api-ref/Registry/getByName.md
-              - name: list
+              - name: List
                 href: api-ref/Registry/list.md
-              - name: listCertificates
-                href: api-ref/Registry/listCertificates.md
-              - name: listDeviceTopicAliases
-                href: api-ref/Registry/listDeviceTopicAliases.md
-              - name: listOperations
-                href: api-ref/Registry/listOperations.md
-              - name: listPasswords
-                href: api-ref/Registry/listPasswords.md
-              - name: update
+              - name: Create
+                href: api-ref/Registry/create.md
+              - name: Update
                 href: api-ref/Registry/update.md
+              - name: Delete
+                href: api-ref/Registry/delete.md
+              - name: ListCertificates
+                href: api-ref/Registry/listCertificates.md
+              - name: AddCertificate
+                href: api-ref/Registry/addCertificate.md
+              - name: DeleteCertificate
+                href: api-ref/Registry/deleteCertificate.md
+              - name: ListPasswords
+                href: api-ref/Registry/listPasswords.md
+              - name: AddPassword
+                href: api-ref/Registry/addPassword.md
+              - name: DeletePassword
+                href: api-ref/Registry/deletePassword.md
+              - name: ListDeviceTopicAliases
+                href: api-ref/Registry/listDeviceTopicAliases.md
+              - name: ListOperations
+                href: api-ref/Registry/listOperations.md
+              - name: Disable
+                href: api-ref/Registry/disable.md
+              - name: Enable
+                href: api-ref/Registry/enable.md
   - name: Broker API reference
     items:
       - name: Authentication with the API
@@ -255,12 +345,48 @@ items:
         items:
           - name: Overview
             href: broker/api-ref/grpc/index.md
-          - name: BrokerDataService
-            href: broker/api-ref/grpc/broker_data_service.md
-          - name: BrokerService
-            href: broker/api-ref/grpc/broker_service.md
-          - name: OperationService
-            href: broker/api-ref/grpc/operation_service.md
+          - name: BrokerData
+            items:
+              - name: Overview
+                href: broker/api-ref/grpc/BrokerData/index.md
+              - name: Publish
+                href: broker/api-ref/grpc/BrokerData/publish.md
+          - name: Broker
+            items:
+              - name: Overview
+                href: broker/api-ref/grpc/Broker/index.md
+              - name: Get
+                href: broker/api-ref/grpc/Broker/get.md
+              - name: List
+                href: broker/api-ref/grpc/Broker/list.md
+              - name: Create
+                href: broker/api-ref/grpc/Broker/create.md
+              - name: Update
+                href: broker/api-ref/grpc/Broker/update.md
+              - name: Delete
+                href: broker/api-ref/grpc/Broker/delete.md
+              - name: ListCertificates
+                href: broker/api-ref/grpc/Broker/listCertificates.md
+              - name: AddCertificate
+                href: broker/api-ref/grpc/Broker/addCertificate.md
+              - name: DeleteCertificate
+                href: broker/api-ref/grpc/Broker/deleteCertificate.md
+              - name: ListPasswords
+                href: broker/api-ref/grpc/Broker/listPasswords.md
+              - name: AddPassword
+                href: broker/api-ref/grpc/Broker/addPassword.md
+              - name: DeletePassword
+                href: broker/api-ref/grpc/Broker/deletePassword.md
+              - name: ListOperations
+                href: broker/api-ref/grpc/Broker/listOperations.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: broker/api-ref/grpc/Operation/index.md
+              - name: Get
+                href: broker/api-ref/grpc/Operation/get.md
+              - name: Cancel
+                href: broker/api-ref/grpc/Operation/cancel.md
       - name: REST
         items:
           - name: Overview
@@ -269,36 +395,44 @@ items:
             items:
               - name: Overview
                 href: broker/api-ref/BrokerData/index.md
-              - name: publish
+              - name: Publish
                 href: broker/api-ref/BrokerData/publish.md
           - name: Broker
             items:
               - name: Overview
                 href: broker/api-ref/Broker/index.md
-              - name: addCertificate
-                href: broker/api-ref/Broker/addCertificate.md
-              - name: addPassword
-                href: broker/api-ref/Broker/addPassword.md
-              - name: create
-                href: broker/api-ref/Broker/create.md
-              - name: delete
-                href: broker/api-ref/Broker/delete.md
-              - name: deleteCertificate
-                href: broker/api-ref/Broker/deleteCertificate.md
-              - name: deletePassword
-                href: broker/api-ref/Broker/deletePassword.md
-              - name: get
+              - name: Get
                 href: broker/api-ref/Broker/get.md
-              - name: list
+              - name: List
                 href: broker/api-ref/Broker/list.md
-              - name: listCertificates
-                href: broker/api-ref/Broker/listCertificates.md
-              - name: listOperations
-                href: broker/api-ref/Broker/listOperations.md
-              - name: listPasswords
-                href: broker/api-ref/Broker/listPasswords.md
-              - name: update
+              - name: Create
+                href: broker/api-ref/Broker/create.md
+              - name: Update
                 href: broker/api-ref/Broker/update.md
+              - name: Delete
+                href: broker/api-ref/Broker/delete.md
+              - name: ListCertificates
+                href: broker/api-ref/Broker/listCertificates.md
+              - name: AddCertificate
+                href: broker/api-ref/Broker/addCertificate.md
+              - name: DeleteCertificate
+                href: broker/api-ref/Broker/deleteCertificate.md
+              - name: ListPasswords
+                href: broker/api-ref/Broker/listPasswords.md
+              - name: AddPassword
+                href: broker/api-ref/Broker/addPassword.md
+              - name: DeletePassword
+                href: broker/api-ref/Broker/deletePassword.md
+              - name: ListOperations
+                href: broker/api-ref/Broker/listOperations.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: broker/api-ref/Operation/index.md
+              - name: Get
+                href: broker/api-ref/Operation/get.md
+              - name: Cancel
+                href: broker/api-ref/Operation/cancel.md
   - name: '{{ monitoring-name }} metrics'
     href: metrics.md
   - name: '{{ at-name }} events'

@@ -111,7 +111,7 @@
 
 - API {#api}
 
-    Чтобы расширить кластер, воспользуйтесь методом REST API [expand](../../api-ref/Cluster/expand.md) для ресурса [Cluster](../../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Expand](../../api-ref/grpc/cluster_service.md#Expand) и передайте в запросе:
+    Чтобы расширить кластер, воспользуйтесь методом REST API [expand](../../api-ref/Cluster/expand.md) для ресурса [Cluster](../../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Expand](../../api-ref/grpc/Cluster/expand.md) и передайте в запросе:
 
     * Идентификатор кластера в параметре `clusterId`.
 

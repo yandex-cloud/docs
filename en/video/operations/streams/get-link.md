@@ -31,6 +31,6 @@ description: Follow this guide to get a {{ video-full-name }} embed code or link
 
 - API {#api}
 
-  Use the [EpisodeService/GetPlayerURL](../../api-ref/grpc/episode_service.md#GetPlayerURL) gRPC API call or the [getPlayerURL](../../api-ref/Episode/getPlayerURL.md) REST API method for the [Episode](../../api-ref/Video/index.md) resource.
+  Use the [EpisodeService/GetPlayerURL](../../api-ref/grpc/Episode/getPlayerURL.md) gRPC API call or the [getPlayerURL](../../api-ref/Episode/getPlayerURL.md) REST API method for the [Episode](../../api-ref/Video/index.md) resource.
 
 {% endlist %}

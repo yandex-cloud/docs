@@ -217,8 +217,8 @@ All resources belong to the same [cloud network](../../vpc/concepts/network.md).
 
 - API
 
-   1. Create a network named `example-network` using the [NetworkService/Create](../../vpc/api-ref/grpc/network_service.md#Create) gRPC API call or the [create](../../vpc/api-ref/Network/create.md) REST API method.
-   1. Create the `example-subnet-{{ region-id }}-a`, `example-subnet-{{ region-id }}-b` and `example-subnet-{{ region-id }}-c` in the three availability zones by calling the gRPC API [SubnetService/Create](../../vpc/api-ref/grpc/subnet_service.md#Create) or the REST API [create](../../vpc/api-ref/Subnet/create.md) method.
+   1. Create a network named `example-network` using the [NetworkService/Create](../../vpc/api-ref/grpc/Network/create.md) gRPC API call or the [create](../../vpc/api-ref/Network/create.md) REST API method.
+   1. Create the `example-subnet-{{ region-id }}-a`, `example-subnet-{{ region-id }}-b` and `example-subnet-{{ region-id }}-c` in the three availability zones by calling the gRPC API [SubnetService/Create](../../vpc/api-ref/grpc/Subnet/create.md) or the REST API [create](../../vpc/api-ref/Subnet/create.md) method.
 
 {% endlist %}
 
@@ -552,9 +552,9 @@ To create security groups:
 
 - API
 
-   Use the [SecurityGroupService/Create](../../vpc/api-ref/grpc/security_group_service.md#Create) gRPC API call or the [create](../../vpc/api-ref/SecurityGroup/create.md) REST API method.
+   Use the [SecurityGroupService/Create](../../vpc/api-ref/grpc/SecurityGroup/create.md) gRPC API call or the [create](../../vpc/api-ref/SecurityGroup/create.md) REST API method.
 
-   To add a rule for load balancer health checks, use the `loadbalancer_healthchecks` parameter in the [SecurityGroupRuleSpec.target.predefined_target](../../vpc/api-ref/grpc/security_group_service.md#SecurityGroupRuleSpec) field for the gRPC API or the [predefinedTarget](../../vpc/api-ref/SecurityGroup/create.md#body_params) field for the REST API.
+   To add a rule for load balancer health checks, use the `loadbalancer_healthchecks` parameter in the [SecurityGroupRuleSpec.target.predefined_target](../../vpc/api-ref/grpc/SecurityGroup/create.md#yandex.cloud.vpc.v1.SecurityGroupRuleSpec) field for the gRPC API or the [predefinedTarget](../../vpc/api-ref/SecurityGroup/create.md#body_params) field for the REST API.
 
 {% endlist %}
 
@@ -581,7 +581,7 @@ To create security groups:
 
 - API
 
-   Use the [BackendGroupService/Create](../../application-load-balancer/api-ref/grpc/backend_group_service.md#Create) gRPC API call or the [create](../../application-load-balancer/api-ref/BackendGroup/create.md) REST API method.
+   Use the [BackendGroupService/Create](../../application-load-balancer/api-ref/grpc/BackendGroup/create.md) gRPC API call or the [create](../../application-load-balancer/api-ref/BackendGroup/create.md) REST API method.
 
 {% endlist %}
 
@@ -729,8 +729,8 @@ To create security groups:
 
 - API
 
-   1. Create the `example-router` HTTP router using the gRPC API [HttpRouterService/Create](../../application-load-balancer/api-ref/grpc/http_router_service.md#Create) call or the [create](../../application-load-balancer/api-ref/HttpRouter/create.md) REST API method.
-   1. Create the `example-vh` virtual host linked to the router and its route using the gRPC API [VirtualHostService/Create](../../application-load-balancer/api-ref/grpc/virtual_host_service.md#Create) call or the [create](../../application-load-balancer/api-ref/VirtualHost/create.md) REST API method.
+   1. Create the `example-router` HTTP router using the gRPC API [HttpRouterService/Create](../../application-load-balancer/api-ref/grpc/HttpRouter/create.md) call or the [create](../../application-load-balancer/api-ref/HttpRouter/create.md) REST API method.
+   1. Create the `example-vh` virtual host linked to the router and its route using the gRPC API [VirtualHostService/Create](../../application-load-balancer/api-ref/grpc/VirtualHost/create.md) call or the [create](../../application-load-balancer/api-ref/VirtualHost/create.md) REST API method.
 
 {% endlist %}
 
@@ -952,7 +952,7 @@ To create security groups:
 
 - API
 
-   Use the [LoadBalancerService/Create](../../application-load-balancer/api-ref/grpc/load_balancer_service.md#Create) gRPC API call or the [create](../../application-load-balancer/api-ref/LoadBalancer/create.md) REST API method.
+   Use the [LoadBalancerService/Create](../../application-load-balancer/api-ref/grpc/LoadBalancer/create.md) gRPC API call or the [create](../../application-load-balancer/api-ref/LoadBalancer/create.md) REST API method.
 
 {% endlist %}
 
@@ -1154,7 +1154,7 @@ To create security groups:
 
 - API
 
-   Use the [ResourceService/Create](../../cdn/api-ref/grpc/resource_service.md#Create) gRPC API call or the [create](../../cdn/api-ref/Resource/create.md) REST API method.
+   Use the [ResourceService/Create](../../cdn/api-ref/grpc/Resource/create.md) gRPC API call or the [create](../../cdn/api-ref/Resource/create.md) REST API method.
 
 {% endlist %}
 
@@ -1290,8 +1290,8 @@ To configure DNS:
 
    - API
 
-      1. Create a DNS zone named `example-dns-zone` using the gRPC API [DnsZoneService/Create](../../dns/api-ref/grpc/dns_zone_service.md#Create) call or the [create](../../dns/api-ref/DnsZone/create.md) REST API method.
-      1. Add the `cdn` CNAME record to the zone, copying the `cl-****edgecdn.ru` value with the [DnsZoneService/UpdateRecordSets](../../dns/api-ref/grpc/dns_zone_service.md#UpdateRecordSets) gRPC API call or the [updateRecordSets](../../dns/api-ref/DnsZone/updateRecordSets.md) REST API method.
+      1. Create a DNS zone named `example-dns-zone` using the gRPC API [DnsZoneService/Create](../../dns/api-ref/grpc/DnsZone/create.md) call or the [create](../../dns/api-ref/DnsZone/create.md) REST API method.
+      1. Add the `cdn` CNAME record to the zone, copying the `cl-****edgecdn.ru` value with the [DnsZoneService/UpdateRecordSets](../../dns/api-ref/grpc/DnsZone/updateRecordSets.md) gRPC API call or the [updateRecordSets](../../dns/api-ref/DnsZone/updateRecordSets.md) REST API method.
 
    {% endlist %}
 

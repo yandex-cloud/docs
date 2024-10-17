@@ -36,6 +36,6 @@
 
 - API {#api}
 
-   To get a list of brokers, use the [list](../../iot-core/broker/api-ref/Broker/list.md) REST API method for the [Broker](../../iot-core/broker/api-ref/Broker/index.md) resource or the [BrokerService/List](../../iot-core/broker/api-ref/grpc/broker_service.md#List) gRPC API call.
+   To get a list of brokers, use the [list](../../iot-core/broker/api-ref/Broker/list.md) REST API method for the [Broker](../../iot-core/broker/api-ref/Broker/index.md) resource or the [BrokerService/List](../../iot-core/broker/api-ref/grpc/Broker/list.md) gRPC API call.
 
 {% endlist %}

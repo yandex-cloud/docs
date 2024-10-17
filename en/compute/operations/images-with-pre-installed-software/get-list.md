@@ -32,7 +32,7 @@ When creating a VM, you need to select its [image](../../concepts/image.md) with
       *[Guide](../../../iam/operations/iam-token/create.md) for users with a Yandex account.
       * [Guide](../../../iam/operations/iam-token/create-for-sa.md) for a service account.
       * [Guide](../../../iam/operations/iam-token/create-for-federation.md) for a federated account.
-   1. Get the list of public images from {{ yandex-cloud }} using the [list](../../api-ref/Image/list.md) REST API method for the [Image](../../api-ref/Image/index.md) resource or the [ImageService/List](../../api-ref/grpc/image_service.md#List) gRPC API call. In the request, specify the following parameters:
+   1. Get the list of public images from {{ yandex-cloud }} using the [list](../../api-ref/Image/list.md) REST API method for the [Image](../../api-ref/Image/index.md) resource or the [ImageService/List](../../api-ref/grpc/Image/list.md) gRPC API call. In the request, specify the following parameters:
       * Specify `standard-images` as the folder ID.
       * The folder contains many images, so specify `pageSize=1000` or use the obtained value of `nextPageToken` to get the next page.
 

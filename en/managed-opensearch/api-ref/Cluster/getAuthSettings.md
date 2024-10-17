@@ -3,49 +3,75 @@ editable: false
 sourcePath: en/_api-ref/mdb/opensearch/v1/api-ref/Cluster/getAuthSettings.md
 ---
 
-# Managed Service for OpenSearch API, REST: Cluster.getAuthSettings
-Retrieves auth settings for specified cluster.
- 
+# Managed Service for OpenSearch API, REST: Cluster.GetAuthSettings {#GetAuthSettings}
 
- 
-## HTTP request {#https-request}
+Retrieves auth settings for specified cluster.
+
+## HTTP request
+
 ```
 GET https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/{clusterId}/auth
 ```
- 
-## Path parameters {#path_params}
- 
-Parameter | Description
---- | ---
-clusterId | <p>Required. Required. ID of the OpenSearch cluster.</p> <p>The maximum string length in characters is 50.</p> 
- 
-## Response {#responses}
+
+## Path parameters
+
+#|
+||Field | Description ||
+|| clusterId | **string**
+
+Required field. Required. ID of the OpenSearch cluster. ||
+|#
+
+## Response {#yandex.cloud.mdb.opensearch.v1.AuthSettings}
+
 **HTTP Code: 200 - OK**
 
-```json 
+```json
 {
   "saml": {
-    "enabled": true,
+    "enabled": "boolean",
     "idpEntityId": "string",
     "idpMetadataFile": "string",
     "spEntityId": "string",
     "dashboardsUrl": "string",
     "rolesKey": "string",
     "subjectKey": "string",
-    "jwtDefaultExpirationTimeout": "integer"
+    "jwtDefaultExpirationTimeout": "string"
   }
 }
 ```
 
- 
-Field | Description
---- | ---
-saml | **object**<br><p>SAML settings</p> 
-saml.<br>enabled | **boolean** (boolean)
-saml.<br>idpEntityId | **string**<br><p>Required. The entity ID of your IdP.</p> <p>The maximum string length in characters is 250.</p> 
-saml.<br>idpMetadataFile | **string** (byte)<br><p>Required. The SAML 2.0 metadata file of your IdP.</p> <p>The maximum string length in characters is 10000.</p> 
-saml.<br>spEntityId | **string**<br><p>Required. The entity ID of the service provider.</p> <p>The maximum string length in characters is 250.</p> 
-saml.<br>dashboardsUrl | **string**<br><p>Required. The OpenSearch Dashboards base URL.</p> <p>The maximum string length in characters is 250.</p> 
-saml.<br>rolesKey | **string**<br><p>Optional. The attribute in the SAML response where the roles are stored. If not configured, no roles are used.</p> <p>The maximum string length in characters is 250.</p> 
-saml.<br>subjectKey | **string**<br><p>Optional. The attribute in the SAML response where the subject is stored. If not configured, the NameID attribute is used.</p> <p>The maximum string length in characters is 250.</p> 
-saml.<br>jwtDefaultExpirationTimeout | **integer** (int64)<br><p>default jwt expiration timeout.</p> 
+#|
+||Field | Description ||
+|| saml | **[SAMLSettings](#yandex.cloud.mdb.opensearch.v1.SAMLSettings)**
+
+SAML settings ||
+|#
+
+## SAMLSettings {#yandex.cloud.mdb.opensearch.v1.SAMLSettings}
+
+#|
+||Field | Description ||
+|| enabled | **boolean** ||
+|| idpEntityId | **string**
+
+Required. The entity ID of your IdP. ||
+|| idpMetadataFile | **string** (bytes)
+
+Required. The SAML 2.0 metadata file of your IdP. ||
+|| spEntityId | **string**
+
+Required. The entity ID of the service provider. ||
+|| dashboardsUrl | **string**
+
+Required. The OpenSearch Dashboards base URL. ||
+|| rolesKey | **string**
+
+Optional. The attribute in the SAML response where the roles are stored. If not configured, no roles are used. ||
+|| subjectKey | **string**
+
+Optional. The attribute in the SAML response where the subject is stored. If not configured, the NameID attribute is used. ||
+|| jwtDefaultExpirationTimeout | **string** (int64)
+
+default jwt expiration timeout. ||
+|#

@@ -80,7 +80,7 @@ Limitations when moving a VM:
 
 - API {#api}
 
-   Use the [move](../../api-ref/Instance/move.md) REST API method for the [Instance](../../api-ref/Instance/index.md) resource or the [InstanceService/Move](../../api-ref/grpc/instance_service.md#Move) gRPC API call.
+   Use the [move](../../api-ref/Instance/move.md) REST API method for the [Instance](../../api-ref/Instance/index.md) resource or the [InstanceService/Move](../../api-ref/grpc/Instance/move.md) gRPC API call.
 
    **Example**
 
@@ -294,6 +294,6 @@ Moved VM's network interfaces remain connected to the [subnets](../../../vpc/con
 
 - API {#api}
 
-   Use the [updateNetworkInterface](../../api-ref/Instance/updateNetworkInterface.md) REST API method for the [Instance](../../api-ref/Instance/index.md) resource or the [InstanceService/UpdateNetworkInterface](../../api-ref/grpc/instance_service.md#UpdateNetworkInterface) gRPC API call.
+   Use the [updateNetworkInterface](../../api-ref/Instance/updateNetworkInterface.md) REST API method for the [Instance](../../api-ref/Instance/index.md) resource or the [InstanceService/UpdateNetworkInterface](../../api-ref/grpc/Instance/updateNetworkInterface.md) gRPC API call.
 
 {% endlist %}

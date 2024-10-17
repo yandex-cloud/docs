@@ -3,31 +3,67 @@ editable: false
 sourcePath: en/_api-ref/containerregistry/v1/api-ref/Scanner/list.md
 ---
 
-# Container Registry API, REST: Scanner.list
-Retrieves the list of ScanResults for specified Image.
- 
+# Container Registry API, REST: Scanner.List {#List}
 
- 
-## HTTP request {#https-request}
+Retrieves the list of ScanResults for specified Image.
+
+## HTTP request
+
 ```
 GET https://container-registry.{{ api-host }}/container-registry/v1/scans
 ```
- 
-## Query parameters {#query_params}
- 
-Parameter | Description
---- | ---
-imageId | <p>The maximum string length in characters is 50.</p> 
-repositoryId | <p>The maximum string length in characters is 50.</p> 
-pageSize | <p>The maximum number of results per page to return. If the number of available results is larger than <a href="/docs/container-registry/api-ref/Scanner/list#query_params">pageSize</a>, the service returns a <a href="/docs/container-registry/api-ref/Registry/list#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests. Default value: 100.</p> <p>Acceptable values are 0 to 1000, inclusive.</p> 
-pageToken | <p>Page token. To get the next page of results, set <a href="/docs/container-registry/api-ref/Scanner/list#query_params">pageToken</a> to the <a href="/docs/container-registry/api-ref/Registry/list#responses">nextPageToken</a> returned by a previous list request.</p> <p>The maximum string length in characters is 100.</p> 
-filter | <p>A filter expression that filters resources listed in the response. The expression must specify:</p> <ol> <li>The field name. Currently you can use filtering only on ``status`` field.</li> <li>An ``=`` operator.</li> <li>The value in double quotes (``"``).</li> </ol> <p>The maximum string length in characters is 1000.</p> 
-orderBy | <p>An order expression that orders resources listed in the response. The expression must specify:</p> <ol> <li>The field name. Currently you can use filtering only on ``status`` field.</li> <li>Order selector. Currently you can use ordering only on ``ScanResult.status`` field (critical first).</li> </ol> <p>The maximum string length in characters is 100.</p> 
- 
-## Response {#responses}
+
+## Query parameters {#yandex.cloud.containerregistry.v1.ListScanResultsRequest}
+
+#|
+||Field | Description ||
+|| imageId | **string**
+
+Includes only one of the fields `imageId`, `repositoryId`.
+
+ID of the Image or Repository to list ScanResults for.
+
+To get the image ID use a [yandex.cloud.containerregistry.v1.ImageService.List](/docs/container-registry/api-ref/Image/list#List) request.
+To get the repository ID use a [yandex.cloud.containerregistry.v1.RepositoryService.List](/docs/container-registry/api-ref/Repository/list#List) request. ||
+|| repositoryId | **string**
+
+Includes only one of the fields `imageId`, `repositoryId`.
+
+ID of the Image or Repository to list ScanResults for.
+
+To get the image ID use a [yandex.cloud.containerregistry.v1.ImageService.List](/docs/container-registry/api-ref/Image/list#List) request.
+To get the repository ID use a [yandex.cloud.containerregistry.v1.RepositoryService.List](/docs/container-registry/api-ref/Repository/list#List) request. ||
+|| pageSize | **string** (int64)
+
+The maximum number of results per page to return. If the number of available
+results is larger than `pageSize`,
+the service returns a [ListRegistriesResponse.nextPageToken](/docs/container-registry/api-ref/Registry/list#yandex.cloud.containerregistry.v1.ListRegistriesResponse)
+that can be used to get the next page of results in subsequent list requests.
+Default value: 100. ||
+|| pageToken | **string**
+
+Page token. To get the next page of results, set `pageToken` to the
+[ListRegistriesResponse.nextPageToken](/docs/container-registry/api-ref/Registry/list#yandex.cloud.containerregistry.v1.ListRegistriesResponse) returned by a previous list request. ||
+|| filter | **string**
+
+A filter expression that filters resources listed in the response.
+The expression must specify:
+1. The field name. Currently you can use filtering only on [ScanResult.status](#yandex.cloud.containerregistry.v1.ScanResult) field.
+2. An `=` operator.
+3. The value in double quotes (`"`). ||
+|| orderBy | **string**
+
+An order expression that orders resources listed in the response.
+The expression must specify:
+1. The field name. Currently you can use filtering only on [ScanResult.status](#yandex.cloud.containerregistry.v1.ScanResult) field.
+2. Order selector. Currently you can use ordering only on `ScanResult.status` field (critical first). ||
+|#
+
+## Response {#yandex.cloud.containerregistry.v1.ListScanResultsResponse}
+
 **HTTP Code: 200 - OK**
 
-```json 
+```json
 {
   "scanResults": [
     {
@@ -49,19 +85,78 @@ orderBy | <p>An order expression that orders resources listed in the response. T
 }
 ```
 
- 
-Field | Description
---- | ---
-scanResults[] | **object**<br><p>List of ScanResult resources.</p> 
-scanResults[].<br>id | **string**<br><p>Output only. ID of the ScanResult.</p> 
-scanResults[].<br>imageId | **string**<br><p>Output only. ID of the Image that the ScanResult belongs to.</p> 
-scanResults[].<br>scannedAt | **string** (date-time)<br><p>Output only. The timestamp in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format when the scan been finished.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
-scanResults[].<br>status | **string**<br><p>Output only. The status of the ScanResult.</p> <ul> <li>RUNNING: Image scan is in progress.</li> <li>READY: Image has been scanned and result is ready.</li> <li>ERROR: Image scan is failed.</li> </ul> 
-scanResults[].<br>vulnerabilities | **object**<br><p>Output only. Summary information about vulnerabilities found.</p> <p>A VulnerabilityStats resource.</p> 
-scanResults[].<br>vulnerabilities.<br>critical | **string** (int64)<br><p>Count of CRITICAL vulnerabilities.</p> 
-scanResults[].<br>vulnerabilities.<br>high | **string** (int64)<br><p>Count of HIGH vulnerabilities.</p> 
-scanResults[].<br>vulnerabilities.<br>medium | **string** (int64)<br><p>Count of MEDIUM vulnerabilities.</p> 
-scanResults[].<br>vulnerabilities.<br>low | **string** (int64)<br><p>Count of LOW vulnerabilities.</p> 
-scanResults[].<br>vulnerabilities.<br>negligible | **string** (int64)<br><p>Count of NEGLIGIBLE vulnerabilities.</p> 
-scanResults[].<br>vulnerabilities.<br>undefined | **string** (int64)<br><p>Count of other vulnerabilities.</p> 
-nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is larger than <a href="/docs/container-registry/api-ref/Image/list#query_params">pageSize</a>, use the <a href="/docs/container-registry/api-ref/Scanner/list#responses">nextPageToken</a> as the value for the <a href="/docs/container-registry/api-ref/Image/list#query_params">pageToken</a> query parameter in the next list request. Each subsequent list request will have its own <a href="/docs/container-registry/api-ref/Scanner/list#responses">nextPageToken</a> to continue paging through the results.</p> 
+#|
+||Field | Description ||
+|| scanResults[] | **[ScanResult](#yandex.cloud.containerregistry.v1.ScanResult)**
+
+List of ScanResult resources. ||
+|| nextPageToken | **string**
+
+This token allows you to get the next page of results for list requests. If the number of results
+is larger than [ListImagesRequest.pageSize](/docs/container-registry/api-ref/Image/list#yandex.cloud.containerregistry.v1.ListImagesRequest), use
+the `nextPageToken` as the value
+for the [ListImagesRequest.pageToken](/docs/container-registry/api-ref/Image/list#yandex.cloud.containerregistry.v1.ListImagesRequest) query parameter
+in the next list request. Each subsequent list request will have its own
+`nextPageToken` to continue paging through the results. ||
+|#
+
+## ScanResult {#yandex.cloud.containerregistry.v1.ScanResult}
+
+A ScanResult resource.
+
+#|
+||Field | Description ||
+|| id | **string**
+
+Output only. ID of the ScanResult. ||
+|| imageId | **string**
+
+Output only. ID of the Image that the ScanResult belongs to. ||
+|| scannedAt | **string** (date-time)
+
+Output only. The timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format when the scan been finished.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| status | **enum** (Status)
+
+Output only. The status of the ScanResult.
+
+- `STATUS_UNSPECIFIED`
+- `RUNNING`: Image scan is in progress.
+- `READY`: Image has been scanned and result is ready.
+- `ERROR`: Image scan is failed. ||
+|| vulnerabilities | **[VulnerabilityStats](#yandex.cloud.containerregistry.v1.VulnerabilityStats)**
+
+Output only. Summary information about vulnerabilities found. ||
+|#
+
+## VulnerabilityStats {#yandex.cloud.containerregistry.v1.VulnerabilityStats}
+
+A VulnerabilityStats resource.
+
+#|
+||Field | Description ||
+|| critical | **string** (int64)
+
+Count of CRITICAL vulnerabilities. ||
+|| high | **string** (int64)
+
+Count of HIGH vulnerabilities. ||
+|| medium | **string** (int64)
+
+Count of MEDIUM vulnerabilities. ||
+|| low | **string** (int64)
+
+Count of LOW vulnerabilities. ||
+|| negligible | **string** (int64)
+
+Count of NEGLIGIBLE vulnerabilities. ||
+|| undefined | **string** (int64)
+
+Count of other vulnerabilities. ||
+|#

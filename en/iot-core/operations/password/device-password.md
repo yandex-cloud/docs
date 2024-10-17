@@ -132,7 +132,7 @@ You can add a password to an already created device or set it when creating a de
 
 - API {#api}
 
-   To add a password to a device, use the [addPassword](../../api-ref/Device/addPassword.md) REST API method for the [Device](../../api-ref/Device/index.md) resource or the [DeviceService/AddPassword](../../api-ref/grpc/device_service.md#AddPassword) gRPC API call.
+   To add a password to a device, use the [addPassword](../../api-ref/Device/addPassword.md) REST API method for the [Device](../../api-ref/Device/index.md) resource or the [DeviceService/AddPassword](../../api-ref/grpc/Device/addPassword.md) gRPC API call.
 
 {% endlist %}
 
@@ -185,7 +185,7 @@ You can add a password to an already created device or set it when creating a de
 
 - API {#api}
 
-   To set a password for a device when creating it, use the [create](../../api-ref/Device/create.md) REST API method for the [Device](../../api-ref/Device/index.md) resource or the [DeviceService/Create](../../api-ref/grpc/device_service.md#Create) gRPC API call.
+   To set a password for a device when creating it, use the [create](../../api-ref/Device/create.md) REST API method for the [Device](../../api-ref/Device/index.md) resource or the [DeviceService/Create](../../api-ref/grpc/Device/create.md) gRPC API call.
 
 {% endlist %}
 
@@ -246,7 +246,7 @@ You can add a password to an already created device or set it when creating a de
 
 - API {#api}
 
-   To get a list of device passwords, use the [listPasswords](../../api-ref/Device/listPasswords.md) REST API method for the [Device](../../api-ref/Device/index.md) resource or the [DeviceService/ListPasswords](../../api-ref/grpc/device_service.md#ListPasswords) gRPC API call.
+   To get a list of device passwords, use the [listPasswords](../../api-ref/Device/listPasswords.md) REST API method for the [Device](../../api-ref/Device/index.md) resource or the [DeviceService/ListPasswords](../../api-ref/grpc/Device/listPasswords.md) gRPC API call.
 
 {% endlist %}
 
@@ -367,6 +367,6 @@ You can add a password to an already created device or set it when creating a de
 
 - API {#api}
 
-   To delete a device password, use the [deletePassword](../../api-ref/Device/deletePassword.md) REST API method for the [Device](../../api-ref/Device/index.md) resource or the [DeviceService/DeletePassword](../../api-ref/grpc/device_service.md#DeletePassword) gRPC API call.
+   To delete a device password, use the [deletePassword](../../api-ref/Device/deletePassword.md) REST API method for the [Device](../../api-ref/Device/index.md) resource or the [DeviceService/DeletePassword](../../api-ref/grpc/Device/deletePassword.md) gRPC API call.
 
 {% endlist %}

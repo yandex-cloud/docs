@@ -3,26 +3,30 @@ editable: false
 sourcePath: en/_api-ref/cdn/v1/api-ref/Provider/listActivated.md
 ---
 
-# Cloud CDN API, REST: Provider.listActivated
-List activated providers for specified client.
- 
+# Cloud CDN API, REST: Provider.ListActivated {#ListActivated}
 
- 
-## HTTP request {#https-request}
+List activated providers for specified client.
+
+## HTTP request
+
 ```
 GET https://cdn.{{ api-host }}/cdn/v1/providers
 ```
- 
-## Query parameters {#query_params}
- 
-Parameter | Description
---- | ---
-folderId | <p>Required. ID of the folder that the activate provider belongs to.</p> <p>The maximum string length in characters is 50.</p> 
- 
-## Response {#responses}
+
+## Query parameters {#yandex.cloud.cdn.v1.ListActivatedProvidersRequest}
+
+#|
+||Field | Description ||
+|| folderId | **string**
+
+Required field. ID of the folder that the activate provider belongs to. ||
+|#
+
+## Response {#yandex.cloud.cdn.v1.ListActivatedProvidersResponse}
+
 **HTTP Code: 200 - OK**
 
-```json 
+```json
 {
   "providers": [
     "string"
@@ -30,7 +34,9 @@ folderId | <p>Required. ID of the folder that the activate provider belongs to.<
 }
 ```
 
- 
-Field | Description
---- | ---
-providers[] | **string**<br><p>Creates a list of providers.</p> 
+#|
+||Field | Description ||
+|| providers[] | **string**
+
+Creates a list of providers. ||
+|#

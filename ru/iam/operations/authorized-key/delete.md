@@ -44,6 +44,6 @@ description: Из статьи вы узнаете, как удалить авт
 
 - API {#api}
 
-  Чтобы удалить авторизованный ключ, воспользуйтесь методом REST API [delete](../../api-ref/Key/delete.md) для ресурса [Key](../../api-ref/Key/index.md) или вызовом gRPC API [KeyService/Delete](../../api-ref/grpc/key_service.md#Delete).
+  Чтобы удалить авторизованный ключ, воспользуйтесь методом REST API [delete](../../api-ref/Key/delete.md) для ресурса [Key](../../api-ref/Key/index.md) или вызовом gRPC API [KeyService/Delete](../../api-ref/grpc/Key/delete.md).
 
 {% endlist %}

@@ -103,6 +103,6 @@ description: Из статьи вы узнаете, как удалить бро
 
 - API {#api}
 
-  Чтобы удалить брокер, воспользуйтесь методом REST API [delete](../../broker/api-ref/Broker/delete.md) для ресурса [Broker](../../broker/api-ref/Broker/index.md) или вызовом gRPC API [BrokerService/Delete](../../broker/api-ref/grpc/broker_service.md#Delete).
+  Чтобы удалить брокер, воспользуйтесь методом REST API [delete](../../broker/api-ref/Broker/delete.md) для ресурса [Broker](../../broker/api-ref/Broker/index.md) или вызовом gRPC API [BrokerService/Delete](../../broker/api-ref/grpc/Broker/delete.md).
 
 {% endlist %}

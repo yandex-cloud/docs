@@ -22,7 +22,7 @@ You can specify a [cloud network](../../vpc/concepts/network.md#network) to host
 
 - API {#api}
 
-  To specify a cloud network to host an API gateway, use the [update](../apigateway/api-ref/ApiGateway/update.md) REST API method for the [ApiGateway](../apigateway/api-ref/ApiGateway/index.md) resource or the [ApiGatewayService/Update](../apigateway/api-ref/grpc/apigateway_service.md#Update) gRPC API call.
+  To specify a cloud network to host an API gateway, use the [update](../apigateway/api-ref/ApiGateway/update.md) REST API method for the [ApiGateway](../apigateway/api-ref/ApiGateway/index.md) resource or the [ApiGatewayService/Update](../apigateway/api-ref/grpc/ApiGateway/update.md) gRPC API call.
 
 {% endlist %}
 

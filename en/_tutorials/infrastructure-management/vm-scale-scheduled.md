@@ -104,7 +104,7 @@ The [service account](../../iam/concepts/users/service-accounts.md) will be link
 
 - API
 
-   1. Create a service account named `vm-scale-scheduled-sa`. To do this, use the [create](../../iam/api-ref/ServiceAccount/create.md) REST API method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/Create](../../iam/api-ref/grpc/service_account_service.md#Create) gRPC API call.
+   1. Create a service account named `vm-scale-scheduled-sa`. To do this, use the [create](../../iam/api-ref/ServiceAccount/create.md) REST API method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/Create](../../iam/api-ref/grpc/ServiceAccount/create.md) gRPC API call.
 
    1. Assign the service account the following roles for the current folder:
 
@@ -112,7 +112,7 @@ The [service account](../../iam/concepts/users/service-accounts.md) will be link
       * `iam.serviceAccounts.user` to link the service account to instances in the group.
       * `serverless.functions.invoker` to invoke the {{ sf-name }} function.
 
-      To do this, use the [setAccessBindings](../../resource-manager/api-ref/Folder/setAccessBindings.md) REST API method for the [Folder](../../resource-manager/api-ref/Folder/index.md) resource or the [FolderService/SetAccessBindings](../../resource-manager/api-ref/grpc/folder_service.md#SetAccessBindings) gRPC API call.
+      To do this, use the [setAccessBindings](../../resource-manager/api-ref/Folder/setAccessBindings.md) REST API method for the [Folder](../../resource-manager/api-ref/Folder/index.md) resource or the [FolderService/SetAccessBindings](../../resource-manager/api-ref/grpc/Folder/setAccessBindings.md) gRPC API call.
 
 
 - {{ TF }}
@@ -205,9 +205,9 @@ Your instance group will be hosted in the [cloud network](../../vpc/concepts/net
 
 - API
 
-   1. Create a `vm-scale-scheduled-network` using the [create](../../vpc/api-ref/Network/create.md) REST API method for the [Network](../../vpc/api-ref/Network/index.md) resource or the [NetworkService/Create](../../vpc/api-ref/grpc/network_service.md#Create) gRPC API call.
+   1. Create a `vm-scale-scheduled-network` using the [create](../../vpc/api-ref/Network/create.md) REST API method for the [Network](../../vpc/api-ref/Network/index.md) resource or the [NetworkService/Create](../../vpc/api-ref/grpc/Network/create.md) gRPC API call.
 
-   1. Create a subnet named `vm-scale-scheduled-subnet-a` in the `{{ region-id }}-a` availability zone and `vm-scale-scheduled-subnet-b` in the `{{ region-id }}-b` availability zone using the [create](../../vpc/api-ref/Subnet/create.md) REST API method for the [Subnet](../../vpc/api-ref/Subnet/index.md) resource or the [SubnetService/Create](../../vpc/api-ref/grpc/subnet_service.md#Create) gRPC API call.
+   1. Create a subnet named `vm-scale-scheduled-subnet-a` in the `{{ region-id }}-a` availability zone and `vm-scale-scheduled-subnet-b` in the `{{ region-id }}-b` availability zone using the [create](../../vpc/api-ref/Subnet/create.md) REST API method for the [Subnet](../../vpc/api-ref/Subnet/index.md) resource or the [SubnetService/Create](../../vpc/api-ref/grpc/Subnet/create.md) gRPC API call.
 
 
 - {{ TF }}
@@ -378,17 +378,17 @@ An instance group is created with manual [scaling](../../compute/concepts/instan
 
    1. Get the IDs of the resources you created at the previous steps:
 
-      * `vm-scale-scheduled-sa` service account ID: Using the [get](../../iam/api-ref/ServiceAccount/get.md) REST API method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/Get](../../iam/api-ref/grpc/service_account_service.md#Get) gRPC API call.
-      * `vm-scale-scheduled-network` ID: Using the [get](../../vpc/api-ref/Network/get.md) REST API method for the [Network](../../vpc/api-ref/Network/index.md) resource or the [NetworkService/Get](../../vpc/api-ref/grpc/network_service.md#Get) gRPC API call.
-      * `vm-scale-scheduled-subnet-a` and `vm-scale-scheduled-subnet-b` IDs: Using the [get](../../vpc/api-ref/Subnet/get.md) REST API method for the [Subnet](../../vpc/api-ref/Subnet/index.md) resource or the [SubnetService/Get](../../vpc/api-ref/grpc/subnet_service.md#Get) gRPC API call.
+      * `vm-scale-scheduled-sa` service account ID: Using the [get](../../iam/api-ref/ServiceAccount/get.md) REST API method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/Get](../../iam/api-ref/grpc/ServiceAccount/get.md) gRPC API call.
+      * `vm-scale-scheduled-network` ID: Using the [get](../../vpc/api-ref/Network/get.md) REST API method for the [Network](../../vpc/api-ref/Network/index.md) resource or the [NetworkService/Get](../../vpc/api-ref/grpc/Network/get.md) gRPC API call.
+      * `vm-scale-scheduled-subnet-a` and `vm-scale-scheduled-subnet-b` IDs: Using the [get](../../vpc/api-ref/Subnet/get.md) REST API method for the [Subnet](../../vpc/api-ref/Subnet/index.md) resource or the [SubnetService/Get](../../vpc/api-ref/grpc/Subnet/get.md) gRPC API call.
 
-   1. Get the ID of the latest version of the public [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts) image in the `standard-images` family using the [getLatestByFamily](../../compute/api-ref/Image/getLatestByFamily.md) REST API method for the [Image](../../compute/api-ref/Image/index.md) resource or the [ImageService/GetLatestByFamily](../../compute/api-ref/grpc/image_service.md#GetLatestByFamily) gRPC API call.
+   1. Get the ID of the latest version of the public [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts) image in the `standard-images` family using the [getLatestByFamily](../../compute/api-ref/Image/getLatestByFamily.md) REST API method for the [Image](../../compute/api-ref/Image/index.md) resource or the [ImageService/GetLatestByFamily](../../compute/api-ref/grpc/Image/getLatestByFamily.md) gRPC API call.
 
    1. Insert the obtained IDs in the `specification.yaml` file with the instance group specification:
 
       {% include [vm-scale-scheduled-yaml-spec-init](../../_includes/instance-groups/vm-scale-scheduled-yaml-spec-init.md) %}
 
-   1. Create an instance group named `vm-scale-scheduled-ig` based on the specification provided in `specification.yaml`. To do this, use the [createFromYaml](../../compute/api-ref/InstanceGroup/createFromYaml.md) REST API method for the [InstanceGroup](../../compute/api-ref/InstanceGroup/index.md) resource or the [InstanceGroupService/CreateFromYaml](../../compute/api-ref/grpc/instance_group_service.md#CreateFromYaml) gRPC API call.
+   1. Create an instance group named `vm-scale-scheduled-ig` based on the specification provided in `specification.yaml`. To do this, use the [createFromYaml](../../compute/instancegroup/api-ref/InstanceGroup/createFromYaml.md) REST API method for the [InstanceGroup](../../compute/instancegroup/api-ref/InstanceGroup/index.md) resource or the [InstanceGroupService/CreateFromYaml](../../compute/instancegroup/api-ref/grpc/InstanceGroup/createFromYaml.md) gRPC API call.
 
 
 - {{ TF }}
@@ -502,8 +502,8 @@ The function will contain the code with [{{ yandex-cloud }} CLI](../../cli/) com
 
 - API
 
-   1. Create a `vm-scale-scheduled-function` using the [create](../../functions/functions/api-ref/Function/create.md) REST API method for the [Function](../../functions/functions/api-ref/Function/index.md) resource or the [FunctionService/Create](../../functions/functions/api-ref/grpc/function_service.md#Create) gRPC API call. You can find the ID of the created function in the output.
-   1. Create a function version using the [createVersion](../../functions/functions/api-ref/Function/createVersion.md) REST API method for the [Function](../../functions/functions/api-ref/Function/index.md) resource or the [FunctionService/CreateVersion](../../functions/functions/api-ref/grpc/function_service.md#CreateVersion) gRPC API call. The function version should have the following code:
+   1. Create a `vm-scale-scheduled-function` using the [create](../../functions/functions/api-ref/Function/create.md) REST API method for the [Function](../../functions/functions/api-ref/Function/index.md) resource or the [FunctionService/Create](../../functions/functions/api-ref/grpc/Function/create.md) gRPC API call. You can find the ID of the created function in the output.
+   1. Create a function version using the [createVersion](../../functions/functions/api-ref/Function/createVersion.md) REST API method for the [Function](../../functions/functions/api-ref/Function/index.md) resource or the [FunctionService/CreateVersion](../../functions/functions/api-ref/grpc/Function/create.mdVersion) gRPC API call. The function version should have the following code:
 
       {% include [vm-scale-scheduled-function-code.md](../../_includes/instance-groups/vm-scale-scheduled-function-code.md) %}
 
@@ -575,7 +575,7 @@ A [trigger](../../functions/concepts/trigger/index.md) sets conditions for runni
 
 - API
 
-   Use the [create](../../functions/triggers/api-ref/Trigger/create.md) REST API method for the [Trigger](../../functions/triggers/api-ref/Trigger/index.md) resource or the [TriggerService/Create](../../functions/triggers/api-ref/grpc/trigger_service.md#Create) gRPC API call to create a trigger of the `timer` type with the `*/2 * * * ?` cron expression *` linked to the function `vm-scale-scheduled-function` of the `$latest` version and the `vm-scale-scheduled-sa` service account.
+   Use the [create](../../functions/triggers/api-ref/Trigger/create.md) REST API method for the [Trigger](../../functions/triggers/api-ref/Trigger/index.md) resource or the [TriggerService/Create](../../functions/triggers/api-ref/grpc/Trigger/create.md) gRPC API call to create a trigger of the `timer` type with the `*/2 * * * ?` cron expression *` linked to the function `vm-scale-scheduled-function` of the `$latest` version and the `vm-scale-scheduled-sa` service account.
 
 
 - {{ TF }}
@@ -625,7 +625,7 @@ A [trigger](../../functions/concepts/trigger/index.md) sets conditions for runni
 
 - API
 
-   Get information about the `vm-scale-scheduled-ig` instance group multiple times using the [get](../../compute/api-ref/InstanceGroup/get.md) REST API method for the [InstanceGroup](../../compute/api-ref/InstanceGroup/index.md) resource or the [InstanceGroupService/Get](../../compute/api-ref/grpc/instance_group_service.md#Get) gRPC API call. The value of the `target_size` field for the group should change from `2` to `3` and back.
+   Get information about the `vm-scale-scheduled-ig` instance group multiple times using the [get](../../compute/instancegroup/api-ref/InstanceGroup/get.md) REST API method for the [InstanceGroup](../../compute/instancegroup/api-ref/InstanceGroup/index.md) resource or the [InstanceGroupService/Get](../../compute/instancegroup/api-ref/grpc/InstanceGroup/get.md) gRPC API call. The value of the `target_size` field for the group should change from `2` to `3` and back.
 
 {% endlist %}
 

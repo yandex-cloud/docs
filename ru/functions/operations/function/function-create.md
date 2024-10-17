@@ -144,7 +144,7 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-    Чтобы создать функцию, воспользуйтесь методом REST API [create](../../functions/api-ref/Function/create.md) для ресурса [Function](../../functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/Create](../../functions/api-ref/grpc/function_service.md#Create).
+    Чтобы создать функцию, воспользуйтесь методом REST API [create](../../functions/api-ref/Function/create.md) для ресурса [Function](../../functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/Create](../../functions/api-ref/grpc/Function/create.md).
 
 
 - {{ yandex-cloud }} Toolkit {#yc-toolkit}

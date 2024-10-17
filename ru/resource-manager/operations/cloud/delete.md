@@ -70,7 +70,7 @@
 
 - API {#api}
 
-  Чтобы удалить облако, воспользуйтесь вызовом gRPC API [CloudService/Delete](../../api-ref/grpc/cloud_service.md#Delete).
+  Чтобы удалить облако, воспользуйтесь вызовом gRPC API [CloudService/Delete](../../api-ref/grpc/Cloud/delete.md).
 
 {% endlist %}
 

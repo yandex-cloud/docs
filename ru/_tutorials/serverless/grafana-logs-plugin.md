@@ -178,9 +178,9 @@
 
 - API {#api}
 
-  Чтобы создать сервисный аккаунт, воспользуйтесь методом [create](../../iam/api-ref/ServiceAccount/create.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/Create](../../iam/api-ref/grpc/service_account_service.md#Create).
+  Чтобы создать сервисный аккаунт, воспользуйтесь методом [create](../../iam/api-ref/ServiceAccount/create.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/Create](../../iam/api-ref/grpc/ServiceAccount/create.md).
 
-  Чтобы назначить сервисному аккаунту роль `logging.reader` на каталог, воспользуйтесь методом [setAccessBindings](../../iam/api-ref/ServiceAccount/setAccessBindings.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/SetAccessBindings](../../iam/api-ref/grpc/service_account_service.md#SetAccessBindings).
+  Чтобы назначить сервисному аккаунту роль `logging.reader` на каталог, воспользуйтесь методом [setAccessBindings](../../iam/api-ref/ServiceAccount/setAccessBindings.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/SetAccessBindings](../../iam/api-ref/grpc/ServiceAccount/setAccessBindings.md).
 
 {% endlist %}
 
@@ -274,7 +274,7 @@
 
 - API {#api}
 
-  Чтобы создать ключ доступа, воспользуйтесь методом REST API [create](../../iam/api-ref/Key/create.md) для ресурса [Key](../../iam/api-ref/Key/index.md) или вызовом gRPC API [KeyService/Create](../../iam/api-ref/grpc/key_service.md#Create).
+  Чтобы создать ключ доступа, воспользуйтесь методом REST API [create](../../iam/api-ref/Key/create.md) для ресурса [Key](../../iam/api-ref/Key/index.md) или вызовом gRPC API [KeyService/Create](../../iam/api-ref/grpc/Key/create.md).
 
   Пример запроса с помощью cURL для метода REST API `create`:
 
@@ -408,7 +408,7 @@
 
 - API {#api}
 
-  Чтобы создать лог-группу, воспользуйтесь методом REST API [create](../../logging/api-ref/LogGroup/create.md) для ресурса [LogGroup](../../logging/api-ref/LogGroup/index.md) или вызовом gRPC API [LogGroupService/Create](../../logging/api-ref/grpc/log_group_service.md#Create).
+  Чтобы создать лог-группу, воспользуйтесь методом REST API [create](../../logging/api-ref/LogGroup/create.md) для ресурса [LogGroup](../../logging/api-ref/LogGroup/index.md) или вызовом gRPC API [LogGroupService/Create](../../logging/api-ref/grpc/LogGroup/create.md).
 
 {% endlist %}
 
@@ -461,7 +461,7 @@
 
 - API {#api}
 
-  Чтобы добавить записи в лог-группу, воспользуйтесь вызовом gRPC API [LogIngestionService/Write](../../logging/api-ref/grpc/log_ingestion_service.md#Write).
+  Чтобы добавить записи в лог-группу, воспользуйтесь вызовом gRPC API [LogIngestionService/Write](../../logging/api-ref/grpc/LogIngestion/write.md).
 
 {% endlist %}
 

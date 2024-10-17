@@ -203,7 +203,7 @@ By default, the [cloud](../../../resource-manager/concepts/resources-hierarchy.m
 
 - API {#api}
 
-   To create a VM, use the [create](../../api-ref/Instance/create.md) REST API method for the [Instance](../../api-ref/Instance/) resource or the [InstanceService/Create](../../api-ref/grpc/instance_service.md#Create) gRPC API call.
+   To create a VM, use the [create](../../api-ref/Instance/create.md) REST API method for the [Instance](../../api-ref/Instance/) resource or the [InstanceService/Create](../../api-ref/grpc/Instance/create.md) gRPC API call.
 
 {% endlist %}
 

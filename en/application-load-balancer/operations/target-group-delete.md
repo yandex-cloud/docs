@@ -94,6 +94,6 @@ To delete a [target group](../concepts/target-group.md):
 
 - API {#api}
 
-   Use the [delete](../api-ref/TargetGroup/delete.md) REST API method for the [TargetGroup](../api-ref/TargetGroup/index.md) resource or the [TargetGroupService/Delete](../api-ref/grpc/target_group_service.md#Delete) gRPC API call.
+   Use the [delete](../api-ref/TargetGroup/delete.md) REST API method for the [TargetGroup](../api-ref/TargetGroup/index.md) resource or the [TargetGroupService/Delete](../api-ref/grpc/TargetGroup/delete.md) gRPC API call.
 
 {% endlist %}

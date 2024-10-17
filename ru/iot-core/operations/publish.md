@@ -100,7 +100,7 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Чтобы отправить данные с устройства в топик устройства, воспользуйтесь методом REST API [publish](../api-ref/DeviceData/publish.md) для ресурса [DeviceData](../api-ref/DeviceData/index.md) или вызовом gRPC API [DeviceDataService/Publish](../api-ref/grpc/device_data_service.md#Publish).
+  Чтобы отправить данные с устройства в топик устройства, воспользуйтесь методом REST API [publish](../api-ref/DeviceData/publish.md) для ресурса [DeviceData](../api-ref/DeviceData/index.md) или вызовом gRPC API [DeviceDataService/Publish](../api-ref/grpc/DeviceData/publish.md).
 
 {% endlist %}          
 
@@ -172,7 +172,7 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Чтобы отправить данные с устройства в топик реестра, воспользуйтесь методом REST API [publish](../api-ref/DeviceData/publish.md) для ресурса [DeviceData](../api-ref/DeviceData/index.md) или вызовом gRPC API [DeviceDataService/Publish](../api-ref/grpc/device_data_service.md#Publish).
+  Чтобы отправить данные с устройства в топик реестра, воспользуйтесь методом REST API [publish](../api-ref/DeviceData/publish.md) для ресурса [DeviceData](../api-ref/DeviceData/index.md) или вызовом gRPC API [DeviceDataService/Publish](../api-ref/grpc/DeviceData/publish.md).
 
 {% endlist %}
 
@@ -247,7 +247,7 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Чтобы отправить команду одному устройству, воспользуйтесь методом REST API [publish](../api-ref/RegistryData/publish.md) для ресурса [RegistryData](../api-ref/RegistryData/index.md) или вызовом gRPC API [RegistryDataService/Publish](../api-ref/grpc/registry_data_service.md#Publish).
+  Чтобы отправить команду одному устройству, воспользуйтесь методом REST API [publish](../api-ref/RegistryData/publish.md) для ресурса [RegistryData](../api-ref/RegistryData/index.md) или вызовом gRPC API [RegistryDataService/Publish](../api-ref/grpc/RegistryData/publish.md).
 
 {% endlist %}
 
@@ -316,7 +316,7 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Чтобы отправить команду всем устройствам, добавленным в реестр, воспользуйтесь методом REST API [publish](../api-ref/RegistryData/publish.md) для ресурса [RegistryData](../api-ref/RegistryData/index.md) или вызовом gRPC API [RegistryDataService/Publish](../api-ref/grpc/registry_data_service.md#Publish).
+  Чтобы отправить команду всем устройствам, добавленным в реестр, воспользуйтесь методом REST API [publish](../api-ref/RegistryData/publish.md) для ресурса [RegistryData](../api-ref/RegistryData/index.md) или вызовом gRPC API [RegistryDataService/Publish](../api-ref/grpc/RegistryData/publish.md).
 
 {% endlist %}
 
@@ -366,6 +366,6 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Чтобы отправить сообщение в брокере, воспользуйтесь методом REST API [publish](../broker/api-ref/BrokerData/publish.md) для ресурса [BrokerData](../broker/api-ref/BrokerData/index.md) или вызовом gRPC API [BrokerDataService/Publish](../broker/api-ref/grpc/broker_data_service.md#Publish).
+  Чтобы отправить сообщение в брокере, воспользуйтесь методом REST API [publish](../broker/api-ref/BrokerData/publish.md) для ресурса [BrokerData](../broker/api-ref/BrokerData/index.md) или вызовом gRPC API [BrokerDataService/Publish](../broker/api-ref/grpc/BrokerData/publish.md).
 
 {% endlist %}

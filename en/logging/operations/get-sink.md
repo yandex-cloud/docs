@@ -44,6 +44,6 @@ description: Follow this guide to get information about a sink.
 
 - API {#api}
 
-  To get detailed information about a sink, use the [get](../api-ref/Sink/get.md) REST API method for the [Sink](../api-ref/Sink/index.md) resource or the [SinkService/Get](../api-ref/grpc/sink_service.md#Get) gRPC API call.
+  To get detailed information about a sink, use the [get](../api-ref/Sink/get.md) REST API method for the [Sink](../api-ref/Sink/index.md) resource or the [SinkService/Get](../api-ref/grpc/Sink/get.md) gRPC API call.
 
 {% endlist %}

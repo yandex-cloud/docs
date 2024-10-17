@@ -173,6 +173,6 @@ To create a [target group](../concepts/target-group.md):
 
 - API {#api}
 
-  Use the [create](../api-ref/TargetGroup/create.md) REST API method for the [TargetGroup](../api-ref/TargetGroup/index.md) resource or the [TargetGroupService/Create](../api-ref/grpc/target_group_service.md#Create) gRPC API call.
+  Use the [create](../api-ref/TargetGroup/create.md) REST API method for the [TargetGroup](../api-ref/TargetGroup/index.md) resource or the [TargetGroupService/Create](../api-ref/grpc/TargetGroup/create.md) gRPC API call.
 
 {% endlist %}

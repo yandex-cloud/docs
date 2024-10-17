@@ -37,6 +37,6 @@ description: In this tutorial, you will learn how to get a list of triggers and 
 
 - API {#api}
 
-   To get a list of triggers, use the [list](../../triggers/api-ref/Trigger/list.md) REST API method for the [Trigger](../../triggers/api-ref/Trigger/index.md) resource or the [TriggerService/List](../../triggers/api-ref/grpc/trigger_service.md#List) gRPC API call.
+   To get a list of triggers, use the [list](../../triggers/api-ref/Trigger/list.md) REST API method for the [Trigger](../../triggers/api-ref/Trigger/index.md) resource or the [TriggerService/List](../../triggers/api-ref/grpc/Trigger/list.md) gRPC API call.
 
 {% endlist %}

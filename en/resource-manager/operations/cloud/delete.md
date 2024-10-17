@@ -70,7 +70,7 @@ To delete a cloud, you must have the [editor](../../../iam/roles-reference.md#ed
 
 - API {#api}
 
-  To delete the cloud, use the [CloudService/Delete](../../api-ref/grpc/cloud_service.md#Delete) gRPC API call.
+  To delete the cloud, use the [CloudService/Delete](../../api-ref/grpc/Cloud/delete.md) gRPC API call.
 
 {% endlist %}
 

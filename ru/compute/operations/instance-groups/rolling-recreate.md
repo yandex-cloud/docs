@@ -125,6 +125,6 @@
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [rollingRecreate](../../api-ref/InstanceGroup/rollingRecreate.md) для ресурса [InstanceGroup](../../api-ref/InstanceGroup/index.md) или вызовом gRPC API [InstanceGroupService/RollingRecreate](../../api-ref/grpc/instance_group_service.md#RollingRecreate).
+  Воспользуйтесь методом REST API [rollingRecreate](../../instancegroup/api-ref/InstanceGroup/rollingRecreate.md) для ресурса [InstanceGroup](../../instancegroup/api-ref/InstanceGroup/index.md) или вызовом gRPC API [InstanceGroupService/RollingRecreate](../../instancegroup/api-ref/grpc/InstanceGroup/rollingRecreate.md).
 
 {% endlist %}

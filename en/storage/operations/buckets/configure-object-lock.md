@@ -81,7 +81,7 @@ To enable object locks:
 
 - API {#api}
 
-  Use the [putObjectLockConfiguration](../../s3/api-ref/bucket/putobjectlockconfiguration.md) S3 API method, [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource, or the [BucketService/Update](../../api-ref/grpc/bucket_service.md#Update) gRPC API call.
+  Use the [putObjectLockConfiguration](../../s3/api-ref/bucket/putobjectlockconfiguration.md) S3 API method, [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource, or the [BucketService/Update](../../api-ref/grpc/Bucket/update.md) gRPC API call.
 
 {% endlist %}
 
@@ -272,7 +272,7 @@ To disable object locks:
 
 - API {#api}
 
-  To disable object lock for a bucket, use the[putObjectLockConfiguration](../../s3/api-ref/bucket/putobjectlockconfiguration.md) S3 API method, [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource, or the [BucketService/Update](../../api-ref/grpc/bucket_service.md#Update) gRPC API call.
+  To disable object lock for a bucket, use the[putObjectLockConfiguration](../../s3/api-ref/bucket/putobjectlockconfiguration.md) S3 API method, [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource, or the [BucketService/Update](../../api-ref/grpc/Bucket/update.md) gRPC API call.
 
   In the request body, send the object lock parameter with an empty value:
 

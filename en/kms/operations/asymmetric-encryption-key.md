@@ -68,7 +68,7 @@ You can use {{ kms-name }} to create, update, and destroy asymmetric encryption 
 
 - API {#api}
 
-  To create an encryption key pair, use the [AsymmetricEncryptionKeyService/Create](../api-ref/grpc/asymmetric_encryption_key_service.md#Create) gRPC API call.
+  To create an encryption key pair, use the [AsymmetricEncryptionKeyService/Create](../asymmetricencryption/api-ref/grpc/AsymmetricEncryptionKey/create.md) gRPC API call.
 
 {% endlist %}
 
@@ -134,7 +134,7 @@ After creating an encryption key pair, you can change its name, description, and
 
 - API {#api}
 
-  To update an encryption key pair, use the [AsymmetricEncryptionKeyService/Update](../api-ref/grpc/asymmetric_encryption_key_service.md#Update) gRPC API call.
+  To update an encryption key pair, use the [AsymmetricEncryptionKeyService/Update](../asymmetricencryption/api-ref/grpc/AsymmetricEncryptionKey/update.md) gRPC API call.
 
 {% endlist %}
 
@@ -186,6 +186,6 @@ After creating an encryption key pair, you can change its name, description, and
 
 - API {#api}
 
-  To delete an encryption key pair, use the [AsymmetricEncryptionKeyService/Delete](../api-ref/grpc/asymmetric_encryption_key_service.md#Delete) gRPC API call.
+  To delete an encryption key pair, use the [AsymmetricEncryptionKeyService/Delete](../asymmetricencryption/api-ref/grpc/AsymmetricEncryptionKey/delete.md) gRPC API call.
 
 {% endlist %}

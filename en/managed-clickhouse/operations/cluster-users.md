@@ -62,7 +62,7 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
 
 - API {#api}
 
-    To get a list of users, use the [list](../api-ref/User/list.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/List](../api-ref/grpc/user_service.md#List) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
+    To get a list of users, use the [list](../api-ref/User/list.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/List](../api-ref/grpc/User/list.md) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
     You can get the cluster ID with a [list of clusters in the folder](#list-clusters).
 
@@ -176,7 +176,7 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
 
 - API {#api}
 
-    To create a user, use the [create](../api-ref/User/create.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/Create](../api-ref/grpc/user_service.md#Create) gRPC API call and provide the following in the request:
+    To create a user, use the [create](../api-ref/User/create.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/Create](../api-ref/grpc/User/create.md) gRPC API call and provide the following in the request:
 
     * Cluster ID in the `clusterId` parameter. You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
     * New username, in the `userSpec.name` parameter.
@@ -270,7 +270,7 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
 
 - API {#api}
 
-    To update a password, use the [update](../api-ref/User/update.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/Update](../api-ref/grpc/user_service.md#Update) gRPC API call and provide the following in the request:
+    To update a password, use the [update](../api-ref/User/update.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/Update](../api-ref/grpc/User/update.md) gRPC API call and provide the following in the request:
 
     * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
     * New password in the `password` parameter.
@@ -345,7 +345,7 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
 
 - API {#api}
 
-    To update the `admin` user's password, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
+    To update the `admin` user's password, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) gRPC API call and provide the following in the request:
 
     * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
     * New password in the `configSpec.adminPassword` parameter.
@@ -513,7 +513,7 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
 
 - API {#api}
 
-    To update user settings, use the [update](../api-ref/User/update.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/Update](../api-ref/grpc/user_service.md#Update) gRPC API call and provide the following in the request:
+    To update user settings, use the [update](../api-ref/User/update.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/Update](../api-ref/grpc/User/update.md) gRPC API call and provide the following in the request:
 
     * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
     * Username with the settings to be changed, in the `userName` parameter. To find out the name, [get a list of users](#list-users).
@@ -594,7 +594,7 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
 
 - API {#api}
 
-    To delete a user, use the [delete](../api-ref/User/delete.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/Delete](../api-ref/grpc/user_service.md#Delete) gRPC API call and provide the following in the request:
+    To delete a user, use the [delete](../api-ref/User/delete.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/Delete](../api-ref/grpc/User/delete.md) gRPC API call and provide the following in the request:
 
     * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
     * Username with the settings to be changed, in the `userName` parameter. To find out the name, [get a list of users](#list-users).

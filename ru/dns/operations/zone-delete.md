@@ -102,6 +102,6 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Чтобы удалить зону DNS, воспользуйтесь методом REST API [delete](../api-ref/DnsZone/delete.md) для ресурса [DnsZone](../api-ref/DnsZone/index.md) или вызовом gRPC API [DnsZoneService/Delete](../api-ref/grpc/dns_zone_service.md#Delete).
+  Чтобы удалить зону DNS, воспользуйтесь методом REST API [delete](../api-ref/DnsZone/delete.md) для ресурса [DnsZone](../api-ref/DnsZone/index.md) или вызовом gRPC API [DnsZoneService/Delete](../api-ref/grpc/DnsZone/delete.md).
 
 {% endlist %}

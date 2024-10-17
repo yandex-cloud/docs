@@ -125,6 +125,6 @@
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [rollingRestart](../../api-ref/InstanceGroup/rollingRestart.md) для ресурса [InstanceGroup](../../api-ref/InstanceGroup/index.md) или вызовом gRPC API [InstanceGroupService/RollingRestart](../../api-ref/grpc/instance_group_service.md#RollingRestart).
+  Воспользуйтесь методом REST API [rollingRestart](../../instancegroup/api-ref/InstanceGroup/rollingRestart.md) для ресурса [InstanceGroup](../../instancegroup/api-ref/InstanceGroup/index.md) или вызовом gRPC API [InstanceGroupService/RollingRestart](../../instancegroup/api-ref/grpc/InstanceGroup/rollingRestart.md).
 
 {% endlist %}

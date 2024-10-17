@@ -76,7 +76,7 @@
 
 - API {#api}
 
-   Чтобы создать каталог, воспользуйтесь методом REST API [create](../../resource-manager/api-ref/Folder/create.md) для ресурса [Folder](../../resource-manager/api-ref/Folder/index.md) или вызовом gRPC API [FolderService/Create](../../resource-manager/api-ref/grpc/folder_service.md#Create).
+   Чтобы создать каталог, воспользуйтесь методом REST API [create](../../resource-manager/api-ref/Folder/create.md) для ресурса [Folder](../../resource-manager/api-ref/Folder/index.md) или вызовом gRPC API [FolderService/Create](../../resource-manager/api-ref/grpc/Folder/create.md).
 
 - {{ TF }} {#tf}
 

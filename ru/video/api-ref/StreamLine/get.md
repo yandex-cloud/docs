@@ -3,36 +3,36 @@ editable: false
 sourcePath: en/_api-ref/video/v1/api-ref/StreamLine/get.md
 ---
 
-# Video API, REST: StreamLine.get
-Returns the specific stream line.
- 
+# Video API, REST: StreamLine.Get {#Get}
 
- 
-## HTTP request {#https-request}
+Returns the specific stream line.
+
+## HTTP request
+
 ```
 GET https://video.{{ api-host }}/video/v1/streamLines/{streamLineId}
 ```
- 
-## Path parameters {#path_params}
- 
-Parameter | Description
---- | ---
-streamLineId | <p>ID of the line.</p> 
- 
-## Response {#responses}
+
+## Path parameters
+
+#|
+||Field | Description ||
+|| streamLineId | **string**
+
+Required field. ID of the line. ||
+|#
+
+## Response {#yandex.cloud.video.v1.StreamLine}
+
 **HTTP Code: 200 - OK**
 
-```json 
+```json
 {
   "id": "string",
   "channelId": "string",
   "title": "string",
   "thumbnailId": "string",
-  "createdAt": "string",
-  "updatedAt": "string",
-  "labels": "object",
-
-  //  includes only one of the fields `manualLine`, `autoLine`
+  // Includes only one of the fields `rtmpPush`, `srtPush`, `rtmpPull`, `srtPull`, `tcpPull`, `rtspPull`
   "rtmpPush": {
     "url": "string"
   },
@@ -52,36 +52,180 @@ streamLineId | <p>ID of the line.</p>
     "url": "string"
   },
   // end of the list of possible fields
-
-  "manualLine": {},
+  // Includes only one of the fields `manualLine`, `autoLine`
+  "manualLine": "object",
   "autoLine": {
     "status": "string"
-  }
+  },
+  // end of the list of possible fields
+  "createdAt": "string",
+  "updatedAt": "string",
+  "labels": "string"
 }
 ```
+
 Entity that is responsible for the incoming video signal settings.
- 
-Field | Description
---- | ---
-id | **string**<br><p>ID of the line.</p> 
-channelId | **string**<br><p>ID of the channel where the line was created.</p> 
-title | **string**<br><p>Line title.</p> 
-thumbnailId | **string**<br><p>ID of the thumbnail.</p> 
-createdAt | **string** (date-time)<br><p>Time when line was created.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
-updatedAt | **string** (date-time)<br><p>Time of last line update.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
-labels | **object**<br><p>Custom labels as ``key:value`` pairs. Maximum 64 per resource.</p> 
-rtmpPush | **object**<br>RTMP push input type. <br> includes only one of the fields `rtmpPush`, `srtPush`, `rtmpPull`, `srtPull`, `tcpPull`, `rtspPull`<br>
-rtmpPush.<br>url | **string**<br><p>RTMP server url.</p> 
-srtPush | **object**<br>SRT push input type. <br> includes only one of the fields `rtmpPush`, `srtPush`, `rtmpPull`, `srtPull`, `tcpPull`, `rtspPull`<br>
-srtPush.<br>url | **string**<br><p>SRT server url.</p> 
-rtmpPull | **object**<br>RTMP pull input type. <br> includes only one of the fields `rtmpPush`, `srtPush`, `rtmpPull`, `srtPull`, `tcpPull`, `rtspPull`<br>
-rtmpPull.<br>url | **string**<br><p>RTMP url for receiving video signal.</p> 
-srtPull | **object**<br>SRT pull input type. <br> includes only one of the fields `rtmpPush`, `srtPush`, `rtmpPull`, `srtPull`, `tcpPull`, `rtspPull`<br>
-srtPull.<br>url | **string**<br><p>SRT url for receiving video signal.</p> 
-tcpPull | **object**<br>TCP pull input type. <br> includes only one of the fields `rtmpPush`, `srtPush`, `rtmpPull`, `srtPull`, `tcpPull`, `rtspPull`<br>
-tcpPull.<br>url | **string**<br><p>TCP url for receiving video signal.</p> 
-rtspPull | **object**<br>RTSP pull input type. <br> includes only one of the fields `rtmpPush`, `srtPush`, `rtmpPull`, `srtPull`, `tcpPull`, `rtspPull`<br>
-rtspPull.<br>url | **string**<br><p>RTSP url for receiving video signal.</p> 
-manualLine | **object**<br>Manual control of stream. <br> includes only one of the fields `manualLine`, `autoLine`<br>
-autoLine | **object**<br>Automatic control of stream. <br> includes only one of the fields `manualLine`, `autoLine`<br>
-autoLine.<br>status | **string**<br><p>Status of auto line.</p> <p>Auto line status.</p> <ul> <li>AUTO_LINE_STATUS_UNSPECIFIED: Auto line status unspecified. - DEACTIVATED: Auto line deactivated.</li> <li>ACTIVE: Auto line active.</li> </ul> 
+
+#|
+||Field | Description ||
+|| id | **string**
+
+ID of the line. ||
+|| channelId | **string**
+
+ID of the channel where the line was created. ||
+|| title | **string**
+
+Line title. ||
+|| thumbnailId | **string**
+
+ID of the thumbnail. ||
+|| rtmpPush | **[RTMPPushInput](#yandex.cloud.video.v1.RTMPPushInput)**
+
+RTMP push input type.
+
+Includes only one of the fields `rtmpPush`, `srtPush`, `rtmpPull`, `srtPull`, `tcpPull`, `rtspPull`.
+
+Video signal settings. ||
+|| srtPush | **[SRTPushInput](#yandex.cloud.video.v1.SRTPushInput)**
+
+SRT push input type.
+
+Includes only one of the fields `rtmpPush`, `srtPush`, `rtmpPull`, `srtPull`, `tcpPull`, `rtspPull`.
+
+Video signal settings. ||
+|| rtmpPull | **[RTMPPullInput](#yandex.cloud.video.v1.RTMPPullInput)**
+
+RTMP pull input type.
+
+Includes only one of the fields `rtmpPush`, `srtPush`, `rtmpPull`, `srtPull`, `tcpPull`, `rtspPull`.
+
+Video signal settings. ||
+|| srtPull | **[SRTPullInput](#yandex.cloud.video.v1.SRTPullInput)**
+
+SRT pull input type.
+
+Includes only one of the fields `rtmpPush`, `srtPush`, `rtmpPull`, `srtPull`, `tcpPull`, `rtspPull`.
+
+Video signal settings. ||
+|| tcpPull | **[TCPPullInput](#yandex.cloud.video.v1.TCPPullInput)**
+
+TCP pull input type.
+
+Includes only one of the fields `rtmpPush`, `srtPush`, `rtmpPull`, `srtPull`, `tcpPull`, `rtspPull`.
+
+Video signal settings. ||
+|| rtspPull | **[RTSPPullInput](#yandex.cloud.video.v1.RTSPPullInput)**
+
+RTSP pull input type.
+
+Includes only one of the fields `rtmpPush`, `srtPush`, `rtmpPull`, `srtPull`, `tcpPull`, `rtspPull`.
+
+Video signal settings. ||
+|| manualLine | **object**
+
+Manual control of stream.
+
+Includes only one of the fields `manualLine`, `autoLine`.
+
+Line type. ||
+|| autoLine | **[AutoLine](#yandex.cloud.video.v1.AutoLine)**
+
+Automatic control of stream.
+
+Includes only one of the fields `manualLine`, `autoLine`.
+
+Line type. ||
+|| createdAt | **string** (date-time)
+
+Time when line was created.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| updatedAt | **string** (date-time)
+
+Time of last line update.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| labels | **string**
+
+Custom labels as `` key:value `` pairs. Maximum 64 per resource. ||
+|#
+
+## RTMPPushInput {#yandex.cloud.video.v1.RTMPPushInput}
+
+#|
+||Field | Description ||
+|| url | **string**
+
+RTMP server url. ||
+|#
+
+## SRTPushInput {#yandex.cloud.video.v1.SRTPushInput}
+
+#|
+||Field | Description ||
+|| url | **string**
+
+SRT server url. ||
+|#
+
+## RTMPPullInput {#yandex.cloud.video.v1.RTMPPullInput}
+
+#|
+||Field | Description ||
+|| url | **string**
+
+RTMP url for receiving video signal. ||
+|#
+
+## SRTPullInput {#yandex.cloud.video.v1.SRTPullInput}
+
+#|
+||Field | Description ||
+|| url | **string**
+
+SRT url for receiving video signal. ||
+|#
+
+## TCPPullInput {#yandex.cloud.video.v1.TCPPullInput}
+
+#|
+||Field | Description ||
+|| url | **string**
+
+TCP url for receiving video signal. ||
+|#
+
+## RTSPPullInput {#yandex.cloud.video.v1.RTSPPullInput}
+
+#|
+||Field | Description ||
+|| url | **string**
+
+RTSP url for receiving video signal. ||
+|#
+
+## AutoLine {#yandex.cloud.video.v1.AutoLine}
+
+Auto line type.
+
+#|
+||Field | Description ||
+|| status | **enum** (AutoLineStatus)
+
+Status of auto line.
+
+- `AUTO_LINE_STATUS_UNSPECIFIED`: Auto line status unspecified.
+- `DEACTIVATED`: Auto line deactivated.
+- `ACTIVE`: Auto line active. ||
+|#

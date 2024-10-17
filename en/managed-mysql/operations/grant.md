@@ -102,7 +102,7 @@ You can manage user permissions at the level of an individual database by updati
 
 - API {#api}
 
-   To update user privileges, use the [update](../api-ref/User/update.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/Update](../api-ref/grpc/user_service.md#Update) gRPC API call and provide the following in the request:
+   To update user privileges, use the [update](../api-ref/User/update.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/Update](../api-ref/grpc/User/update.md) gRPC API call and provide the following in the request:
 
    * ID of the cluster in which the user is located, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * Username in the `userName` parameter. To find out the name, [get a list of users in the cluster](cluster-users.md#list-users).

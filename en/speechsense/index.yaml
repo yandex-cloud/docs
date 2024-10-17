@@ -15,7 +15,7 @@ description:
     speechsense-full-name }}</a>.
   - >-
     For terms of use, see the <a href
-    ="https://yandex.com/legal/cloud_sla_speechsense">{{ speechsense-full-name
+    ="https://yandex.com/legal/cloud_terms_speechsense">{{ speechsense-full-name
     }} Terms of Use</a>.
 meta:
   title: '{{ speechsense-full-name }}'

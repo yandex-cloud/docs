@@ -3,27 +3,26 @@ editable: false
 sourcePath: en/_api-ref/serverless/eventrouter/v1/eventrouter/api-ref/Connector/create.md
 ---
 
-# EventRouter Service, REST: Connector.create
-Creates a connector in the specified folder.
- 
+# EventRouter Service, REST: Connector.Create {#Create}
 
- 
-## HTTP request {#https-request}
+Creates a connector in the specified folder.
+
+## HTTP request
+
 ```
 POST https://serverless-eventrouter.{{ api-host }}/eventrouter/v1/connectors
 ```
- 
-## Body parameters {#body_params}
- 
-```json 
+
+## Body parameters {#yandex.cloud.serverless.eventrouter.v1.CreateConnectorRequest}
+
+```json
 {
   "busId": "string",
   "name": "string",
   "description": "string",
-  "labels": "object",
+  "labels": "string",
   "source": {
-
-    // `source` includes only one of the fields `dataStream`, `messageQueue`
+    // Includes only one of the fields `dataStream`, `messageQueue`
     "dataStream": {
       "database": "string",
       "streamName": "string",
@@ -36,49 +35,105 @@ POST https://serverless-eventrouter.{{ api-host }}/eventrouter/v1/connectors
       "visibilityTimeout": "string",
       "batchSize": "string",
       "pollingTimeout": "string"
-    },
-    // end of the list of possible fields`source`
-
+    }
+    // end of the list of possible fields
   },
-  "deletionProtection": true
+  "deletionProtection": "boolean"
 }
 ```
 
- 
-Field | Description
---- | ---
-busId | **string**<br><p>Required. ID of the bus to create a connector in.</p> 
-name | **string**<br><p>Name of the connector.</p> <p>Value must match the regular expression ``\|[a-z][-a-z0-9]{1,61}[a-z0-9]``.</p> 
-description | **string**<br><p>Description of the connector.</p> <p>The maximum string length in characters is 256.</p> 
-labels | **object**<br><p>Labels for the connector.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression ``[a-z][-_0-9a-z]*``. The maximum string length in characters for each value is 63. Each value must match the regular expression ``[-_0-9a-z]*``.</p> 
-source | **object**<br><p>Source of the connector.</p> 
-source.<br>dataStream | **object** <br>`source` includes only one of the fields `dataStream`, `messageQueue`<br>
-source.<br>dataStream.<br>database | **string**<br><p>Required. Stream database. example: /ru-central1/aoegtvhtp8ob********/cc8004q4lbo6********</p> 
-source.<br>dataStream.<br>streamName | **string**<br><p>Required. Stream name, absolute or relative.</p> 
-source.<br>dataStream.<br>consumer | **string**<br><p>Required. Consumer name.</p> 
-source.<br>dataStream.<br>serviceAccountId | **string**<br><p>Required. Service account which has read permission on the stream.</p> 
-source.<br>messageQueue | **object** <br>`source` includes only one of the fields `dataStream`, `messageQueue`<br>
-source.<br>messageQueue.<br>queueArn | **string**<br><p>Required. Queue ARN. Example: yrn:yc:ymq:ru-central1:aoe***:test</p> 
-source.<br>messageQueue.<br>serviceAccountId | **string**<br><p>Required. Service account which has read access to the queue.</p> <p>The maximum string length in characters is 50.</p> 
-source.<br>messageQueue.<br>visibilityTimeout | **string**<br><p>Queue visibility timeout override.</p> <p>The maximum value is 43200 seconds.</p> 
-source.<br>messageQueue.<br>batchSize | **string** (int64)<br><p>Batch size for polling.</p> <p>The maximum value is 10.</p> 
-source.<br>messageQueue.<br>pollingTimeout | **string**<br><p>Queue polling timeout.</p> <p>The maximum value is 20 seconds.</p> 
-deletionProtection | **boolean** (boolean)<br><p>Flag that disallow deletion of the connector.</p> 
- 
-## Response {#responses}
+#|
+||Field | Description ||
+|| busId | **string**
+
+Required field. ID of the bus to create a connector in. ||
+|| name | **string**
+
+Name of the connector. ||
+|| description | **string**
+
+Description of the connector. ||
+|| labels | **string**
+
+Labels for the connector. ||
+|| source | **[Source](#yandex.cloud.serverless.eventrouter.v1.Source)**
+
+Source of the connector. ||
+|| deletionProtection | **boolean**
+
+Flag that disallow deletion of the connector. ||
+|#
+
+## Source {#yandex.cloud.serverless.eventrouter.v1.Source}
+
+#|
+||Field | Description ||
+|| dataStream | **[DataStream](#yandex.cloud.serverless.eventrouter.v1.DataStream)**
+
+Includes only one of the fields `dataStream`, `messageQueue`. ||
+|| messageQueue | **[MessageQueue](#yandex.cloud.serverless.eventrouter.v1.MessageQueue)**
+
+Includes only one of the fields `dataStream`, `messageQueue`. ||
+|#
+
+## DataStream {#yandex.cloud.serverless.eventrouter.v1.DataStream}
+
+#|
+||Field | Description ||
+|| database | **string**
+
+Required field. Stream database.
+example: /ru-central1/aoegtvhtp8ob********/cc8004q4lbo6******** ||
+|| streamName | **string**
+
+Required field. Stream name, absolute or relative. ||
+|| consumer | **string**
+
+Required field. Consumer name. ||
+|| serviceAccountId | **string**
+
+Required field. Service account which has read permission on the stream. ||
+|#
+
+## MessageQueue {#yandex.cloud.serverless.eventrouter.v1.MessageQueue}
+
+#|
+||Field | Description ||
+|| queueArn | **string**
+
+Required field. Queue ARN.
+Example: yrn:yc:ymq:ru-central1:aoe***:test ||
+|| serviceAccountId | **string**
+
+Required field. Service account which has read access to the queue. ||
+|| visibilityTimeout | **string** (duration)
+
+Queue visibility timeout override. ||
+|| batchSize | **string** (int64)
+
+Batch size for polling. ||
+|| pollingTimeout | **string** (duration)
+
+Queue polling timeout. ||
+|#
+
+## Response {#yandex.cloud.operation.Operation}
+
 **HTTP Code: 200 - OK**
 
-```json 
+```json
 {
   "id": "string",
   "description": "string",
   "createdAt": "string",
   "createdBy": "string",
   "modifiedAt": "string",
-  "done": true,
-  "metadata": "object",
-
-  //  includes only one of the fields `error`, `response`
+  "done": "boolean",
+  "metadata": {
+    "connectorId": "string",
+    "busId": "string"
+  },
+  // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
     "message": "string",
@@ -86,24 +141,239 @@ deletionProtection | **boolean** (boolean)<br><p>Flag that disallow deletion of 
       "object"
     ]
   },
-  "response": "object",
+  "response": {
+    "id": "string",
+    "busId": "string",
+    "folderId": "string",
+    "cloudId": "string",
+    "createdAt": "string",
+    "name": "string",
+    "description": "string",
+    "labels": "string",
+    "source": {
+      // Includes only one of the fields `dataStream`, `messageQueue`
+      "dataStream": {
+        "database": "string",
+        "streamName": "string",
+        "consumer": "string",
+        "serviceAccountId": "string"
+      },
+      "messageQueue": {
+        "queueArn": "string",
+        "serviceAccountId": "string",
+        "visibilityTimeout": "string",
+        "batchSize": "string",
+        "pollingTimeout": "string"
+      }
+      // end of the list of possible fields
+    },
+    "deletionProtection": "boolean",
+    "status": "string"
+  }
   // end of the list of possible fields
-
 }
 ```
+
 An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).
- 
-Field | Description
---- | ---
-id | **string**<br><p>ID of the operation.</p> 
-description | **string**<br><p>Description of the operation. 0-256 characters long.</p> 
-createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
-createdBy | **string**<br><p>ID of the user or service account who initiated the operation.</p> 
-modifiedAt | **string** (date-time)<br><p>The time when the Operation resource was last modified.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
-done | **boolean** (boolean)<br><p>If the value is ``false``, it means the operation is still in progress. If ``true``, the operation is completed, and either ``error`` or ``response`` is available.</p> 
-metadata | **object**<br><p>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any.</p> 
-error | **object**<br>The error result of the operation in case of failure or cancellation. <br> includes only one of the fields `error`, `response`<br>
-error.<br>code | **integer** (int32)<br><p>Error code. An enum value of <a href="https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto">google.rpc.Code</a>.</p> 
-error.<br>message | **string**<br><p>An error message.</p> 
-error.<br>details[] | **object**<br><p>A list of messages that carry the error details.</p> 
-response | **object** <br> includes only one of the fields `error`, `response`<br><br><p>The normal response of the operation in case of success. If the original method returns no data on success, such as Delete, the response is <a href="https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty">google.protobuf.Empty</a>. If the original method is the standard Create/Update, the response should be the target resource of the operation. Any method that returns a long-running operation should document the response type, if any.</p> 
+
+#|
+||Field | Description ||
+|| id | **string**
+
+ID of the operation. ||
+|| description | **string**
+
+Description of the operation. 0-256 characters long. ||
+|| createdAt | **string** (date-time)
+
+Creation timestamp.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| createdBy | **string**
+
+ID of the user or service account who initiated the operation. ||
+|| modifiedAt | **string** (date-time)
+
+The time when the Operation resource was last modified.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| done | **boolean**
+
+If the value is `false`, it means the operation is still in progress.
+If `true`, the operation is completed, and either `error` or `response` is available. ||
+|| metadata | **[CreateConnectorMetadata](#yandex.cloud.serverless.eventrouter.v1.CreateConnectorMetadata)**
+
+Service-specific metadata associated with the operation.
+It typically contains the ID of the target resource that the operation is performed on.
+Any method that returns a long-running operation should document the metadata type, if any. ||
+|| error | **[Status](#google.rpc.Status)**
+
+The error result of the operation in case of failure or cancellation.
+
+Includes only one of the fields `error`, `response`.
+
+The operation result.
+If `done == false` and there was no failure detected, neither `error` nor `response` is set.
+If `done == false` and there was a failure detected, `error` is set.
+If `done == true`, exactly one of `error` or `response` is set. ||
+|| response | **[Connector](#yandex.cloud.serverless.eventrouter.v1.Connector)**
+
+The normal response of the operation in case of success.
+If the original method returns no data on success, such as Delete,
+the response is [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty).
+If the original method is the standard Create/Update,
+the response should be the target resource of the operation.
+Any method that returns a long-running operation should document the response type, if any.
+
+Includes only one of the fields `error`, `response`.
+
+The operation result.
+If `done == false` and there was no failure detected, neither `error` nor `response` is set.
+If `done == false` and there was a failure detected, `error` is set.
+If `done == true`, exactly one of `error` or `response` is set. ||
+|#
+
+## CreateConnectorMetadata {#yandex.cloud.serverless.eventrouter.v1.CreateConnectorMetadata}
+
+#|
+||Field | Description ||
+|| connectorId | **string**
+
+ID of the connector that is being created. ||
+|| busId | **string**
+
+ID of the bus that the connector is created in. ||
+|#
+
+## Status {#google.rpc.Status}
+
+The error result of the operation in case of failure or cancellation.
+
+#|
+||Field | Description ||
+|| code | **integer** (int32)
+
+Error code. An enum value of [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto). ||
+|| message | **string**
+
+An error message. ||
+|| details[] | **object**
+
+A list of messages that carry the error details. ||
+|#
+
+## Connector {#yandex.cloud.serverless.eventrouter.v1.Connector}
+
+#|
+||Field | Description ||
+|| id | **string**
+
+ID of the connector. ||
+|| busId | **string**
+
+ID of the bus that the connector belongs to. ||
+|| folderId | **string**
+
+ID of the folder that the connector resides in. ||
+|| cloudId | **string**
+
+ID of the cloud that the connector resides in. ||
+|| createdAt | **string** (date-time)
+
+Creation timestamp.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| name | **string**
+
+Name of the connector. ||
+|| description | **string**
+
+Description of the connector. ||
+|| labels | **string**
+
+Resource labels as `key:value` pairs. ||
+|| source | **[Source](#yandex.cloud.serverless.eventrouter.v1.Source2)**
+
+Source of the connector. ||
+|| deletionProtection | **boolean**
+
+Deletion protection. ||
+|| status | **enum** (Status)
+
+Status of the connector.
+
+- `STATUS_UNSPECIFIED`
+- `RUNNING`
+- `STOPPED`: disabled by user
+- `RESOURCE_NOT_FOUND`: source does not exist
+- `PERMISSION_DENIED`: service account does not have read permission on source
+- `SUBJECT_NOT_FOUND`: service account not found ||
+|#
+
+## Source {#yandex.cloud.serverless.eventrouter.v1.Source2}
+
+#|
+||Field | Description ||
+|| dataStream | **[DataStream](#yandex.cloud.serverless.eventrouter.v1.DataStream2)**
+
+Includes only one of the fields `dataStream`, `messageQueue`. ||
+|| messageQueue | **[MessageQueue](#yandex.cloud.serverless.eventrouter.v1.MessageQueue2)**
+
+Includes only one of the fields `dataStream`, `messageQueue`. ||
+|#
+
+## DataStream {#yandex.cloud.serverless.eventrouter.v1.DataStream2}
+
+#|
+||Field | Description ||
+|| database | **string**
+
+Required field. Stream database.
+example: /ru-central1/aoegtvhtp8ob********/cc8004q4lbo6******** ||
+|| streamName | **string**
+
+Required field. Stream name, absolute or relative. ||
+|| consumer | **string**
+
+Required field. Consumer name. ||
+|| serviceAccountId | **string**
+
+Required field. Service account which has read permission on the stream. ||
+|#
+
+## MessageQueue {#yandex.cloud.serverless.eventrouter.v1.MessageQueue2}
+
+#|
+||Field | Description ||
+|| queueArn | **string**
+
+Required field. Queue ARN.
+Example: yrn:yc:ymq:ru-central1:aoe***:test ||
+|| serviceAccountId | **string**
+
+Required field. Service account which has read access to the queue. ||
+|| visibilityTimeout | **string** (duration)
+
+Queue visibility timeout override. ||
+|| batchSize | **string** (int64)
+
+Batch size for polling. ||
+|| pollingTimeout | **string** (duration)
+
+Queue polling timeout. ||
+|#

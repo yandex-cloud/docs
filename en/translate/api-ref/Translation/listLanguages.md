@@ -3,33 +3,38 @@ editable: false
 sourcePath: en/_api-ref/ai/translate/v2/api-ref/Translation/listLanguages.md
 ---
 
-# Translate API v2, REST: Translation.listLanguages
-Retrieves the list of supported languages.
- 
+# Translate API v2, REST: Translation.ListLanguages {#ListLanguages}
 
- 
-## HTTP request {#https-request}
+Retrieves the list of supported languages.
+
+## HTTP request
+
 ```
 POST https://translate.{{ api-host }}/translate/v2/languages
 ```
- 
-## Body parameters {#body_params}
- 
-```json 
+
+## Body parameters {#yandex.cloud.ai.translate.v2.ListLanguagesRequest}
+
+```json
 {
   "folderId": "string"
 }
 ```
 
- 
-Field | Description
---- | ---
-folderId | **string**<br><p>ID of the folder to which you have access. Required for authorization with a user account (see <a href="/docs/iam/api-ref/UserAccount#representation">UserAccount</a> resource). Don't specify this field if you make the request on behalf of a service account.</p> <p>The maximum string length in characters is 50.</p> 
- 
-## Response {#responses}
+#|
+||Field | Description ||
+|| folderId | **string**
+
+ID of the folder to which you have access.
+Required for authorization with a user account (see [yandex.cloud.iam.v1.UserAccount](/docs/iam/api-ref/Federation/listUserAccounts#yandex.cloud.iam.v1.UserAccount) resource).
+Don't specify this field if you make the request on behalf of a service account. ||
+|#
+
+## Response {#yandex.cloud.ai.translate.v2.ListLanguagesResponse}
+
 **HTTP Code: 200 - OK**
 
-```json 
+```json
 {
   "languages": [
     {
@@ -40,9 +45,22 @@ folderId | **string**<br><p>ID of the folder to which you have access. Required 
 }
 ```
 
- 
-Field | Description
---- | ---
-languages[] | **object**<br><p>List of supported languages.</p> 
-languages[].<br>code | **string**<br><p>The language code. Specified in <a href="https://en.wikipedia.org/wiki/ISO_639-1">ISO 639-1</a> format (for example, ``en``).</p> 
-languages[].<br>name | **string**<br><p>The name of the language (for example, ``English``).</p> 
+#|
+||Field | Description ||
+|| languages[] | **[Language](#yandex.cloud.ai.translate.v2.Language)**
+
+List of supported languages. ||
+|#
+
+## Language {#yandex.cloud.ai.translate.v2.Language}
+
+#|
+||Field | Description ||
+|| code | **string**
+
+The language code.
+Specified in [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) format (for example, `` en ``). ||
+|| name | **string**
+
+The name of the language (for example, `` English ``). ||
+|#

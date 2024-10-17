@@ -108,7 +108,7 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Чтобы получить идентификатор [публичного образа](../../concepts/image.md#public) диска, воспользуйтесь методом REST API [get](../../api-ref/Image/get.md) для ресурса [Image](../../api-ref/Image/index.md), или вызовом gRPC API [ImageService/Get](../../api-ref/grpc/image_service.md#Get).
+  Чтобы получить идентификатор [публичного образа](../../concepts/image.md#public) диска, воспользуйтесь методом REST API [get](../../api-ref/Image/get.md) для ресурса [Image](../../api-ref/Image/index.md), или вызовом gRPC API [ImageService/Get](../../api-ref/grpc/Image/get.md).
 
 {% endlist %}
 
@@ -211,7 +211,7 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Чтобы получить подробную информацию об [публичном образе](../../concepts/image.md#public) диска, воспользуйтесь методом REST API [get](../../api-ref/Image/get.md) для ресурса [Image](../../api-ref/Image/index.md), или вызовом gRPC API [ImageService/Get](../../api-ref/grpc/image_service.md#Get).
+  Чтобы получить подробную информацию об [публичном образе](../../concepts/image.md#public) диска, воспользуйтесь методом REST API [get](../../api-ref/Image/get.md) для ресурса [Image](../../api-ref/Image/index.md), или вызовом gRPC API [ImageService/Get](../../api-ref/grpc/Image/get.md).
 
 {% endlist %}
 

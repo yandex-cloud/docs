@@ -31,7 +31,7 @@ description: Следуя данной инструкции, вы научите
 
 - API {#api}
 
-    Чтобы получить список установленных плагинов, воспользуйтесь методом REST API [get](../api-ref/Cluster/get.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Get](../api-ref/grpc/cluster_service.md#Get) и передайте в запросе идентификатор кластера в параметре `clusterId`.
+    Чтобы получить список установленных плагинов, воспользуйтесь методом REST API [get](../api-ref/Cluster/get.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Get](../api-ref/grpc/Cluster/get.md) и передайте в запросе идентификатор кластера в параметре `clusterId`.
 
     Включенные плагины будут перечислены в списке `plugins`.
 
@@ -90,7 +90,7 @@ description: Следуя данной инструкции, вы научите
 
 - API {#api}
 
-    Чтобы изменить список установленных плагинов, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) и передайте в запросе:
+    Чтобы изменить список установленных плагинов, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и передайте в запросе:
     * Идентификатор кластера в параметре `clusterId`.
 
       {% include [get-cluster-id](../../_includes/managed-elasticsearch/get-cluster-id.md) %}

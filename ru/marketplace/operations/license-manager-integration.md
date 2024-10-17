@@ -60,13 +60,13 @@
 
     1. Привяжите уникальный идентификатор пользователя (`resourceId`) к купленной пользователем подписке (`license_instance_id`).
 
-        Привязать идентификатор к подписке можно с помощью метода REST API [ensure](../license-manager/saas/api-ref/Lock/ensure.md) для ресурса [Lock](../license-manager/saas/api-ref/Lock/index.md) или вызова gRPC API [LockService/Ensure](../license-manager/saas/api-ref/grpc/lock_service.md#Ensure).
+        Привязать идентификатор к подписке можно с помощью метода REST API [ensure](../license-manager/saas/api-ref/Lock/ensure.md) для ресурса [Lock](../license-manager/saas/api-ref/Lock/index.md) или вызова gRPC API [LockService/Ensure](../license-manager/saas/api-ref/grpc/Lock/ensure.md).
 
         Передайте в запросе JWT-токен (`instanceToken`) и уникальный идентификатор пользователя (`resourceId`). В [ответе](../license-manager/saas/api-ref/Lock/ensure.md#responses) вы получите идентификатор привязки (`lock_id`) — он находится в параметре `metadata`. Если в ответе ошибка, значит, подписка не привязалась к сервису и нужно попросить пользователя заново пройти все шаги.
 
     1. Организуйте периодическую проверку того, что привязка подписки активна. Используйте для этого идентификатор привязки (`lock_id`), полученный на предыдущем шаге.
 
-       Получить актуальную информацию о привязке подписки можно с помощью метода REST API [get](../license-manager/saas/api-ref/Lock/get.md) для ресурса [Lock](../license-manager/saas/api-ref/Lock/index.md) или вызова gRPC API [LockService/Get](../license-manager/saas/api-ref/grpc/lock_service.md#Get).
+       Получить актуальную информацию о привязке подписки можно с помощью метода REST API [get](../license-manager/saas/api-ref/Lock/get.md) для ресурса [Lock](../license-manager/saas/api-ref/Lock/index.md) или вызова gRPC API [LockService/Get](../license-manager/saas/api-ref/grpc/Lock/get.md).
 
        В ответе должен возвращаться активный ресурс Lock, для которого `state = LOCKED`, а время окончания действия подписки `end_time` находится в будущем.
 

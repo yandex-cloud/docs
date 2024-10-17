@@ -206,6 +206,6 @@
 
 - API {#api}
 
-  To manage CORS configurations for buckets, use the [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource, the [BucketService/Update](../../api-ref/grpc/bucket_service.md#Update) gRPC API call, or the [upload](../../s3/api-ref/cors/upload.md) S3 API method.
+  To manage CORS configurations for buckets, use the [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource, the [BucketService/Update](../../api-ref/grpc/Bucket/update.md) gRPC API call, or the [upload](../../s3/api-ref/cors/upload.md) S3 API method.
 
 {% endlist %}

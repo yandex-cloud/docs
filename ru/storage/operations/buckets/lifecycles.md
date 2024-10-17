@@ -481,7 +481,7 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Чтобы управлять жизненными циклами объектов в бакете, воспользуйтесь методом REST API [update](../../api-ref/Bucket/update.md) для ресурса [Bucket](../../api-ref/Bucket/index.md), вызовом gRPC API [BucketService/Update](../../api-ref/grpc/bucket_service.md#Update) или методом S3 API [upload](../../s3/api-ref/lifecycles/upload.md).
+  Чтобы управлять жизненными циклами объектов в бакете, воспользуйтесь методом REST API [update](../../api-ref/Bucket/update.md) для ресурса [Bucket](../../api-ref/Bucket/index.md), вызовом gRPC API [BucketService/Update](../../api-ref/grpc/Bucket/update.md) или методом S3 API [upload](../../s3/api-ref/lifecycles/upload.md).
 
   Если вы используете S3 API, задайте конфигурацию жизненного цикла в [формате XML](../../s3/api-ref/lifecycles/xml-config.md).
 

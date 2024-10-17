@@ -19,7 +19,7 @@ When the certificate changes on the IdP provider side, you also need to replace
 As an example, you can use a guide on how to add a certificate to a federation manually from AD FS.
 This process is described on the ["Authenticating using Active Directory"](../../../organization/tutorials/federations/integration-adfs.md#add-certificate) documentation page.
 
-You can also automate the certificate update process using the [`create` method](../../../organization/api-ref/Certificate/create.md) for the `Certificate` resource or using [YC CLI](../../../cli/quickstart.md#install).
+You can also automate the certificate update process using the [`create` method](../../../organization/saml/api-ref/Certificate/create.md) for the `Certificate` resource or using [YC CLI](../../../cli/quickstart.md#install).
 
 To update the certificate on the federation side using YC CLI, run the command:
 

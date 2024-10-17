@@ -67,11 +67,11 @@ description: In this tutorial, you will learn how to disconnect a domain from th
 
 - API {#api}
 
-   To disconnect a domain from an API gateway, use the [removeDomain](../apigateway/api-ref/ApiGateway/removeDomain.md) REST API method for the [ApiGateway](../apigateway/api-ref/ApiGateway/index.md) resource or the [ApiGatewayService/RemoveDomain](../apigateway/api-ref/grpc/apigateway_service.md#RemoveDomain) gRPC API call.
+   To disconnect a domain from an API gateway, use the [removeDomain](../apigateway/api-ref/ApiGateway/removeDomain.md) REST API method for the [ApiGateway](../apigateway/api-ref/ApiGateway/index.md) resource or the [ApiGatewayService/RemoveDomain](../apigateway/api-ref/grpc/ApiGateway/removeDomain.md) gRPC API call.
 
    Delete the resource record created when connecting the domain to the API gateway:
 
-   * If your domain is delegated to {{ dns-name }}, use the [updateRecordSets](../../dns/api-ref/DnsZone/updateRecordSets.md) REST API method for the [DnsZone](../../dns/api-ref/DnsZone/index.md) resource or the [DnsZoneService/UpdateRecordSets](../../dns/api-ref/grpc/dns_zone_service.md#UpdateRecordSets) gRPC API call.
+   * If your domain is delegated to {{ dns-name }}, use the [updateRecordSets](../../dns/api-ref/DnsZone/updateRecordSets.md) REST API method for the [DnsZone](../../dns/api-ref/DnsZone/index.md) resource or the [DnsZoneService/UpdateRecordSets](../../dns/api-ref/grpc/DnsZone/updateRecordSets.md) gRPC API call.
 
    * If a third-party DNS provider manages your domain, delete the record on the domain management page of your provider.
 

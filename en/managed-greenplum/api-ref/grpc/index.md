@@ -1,16 +1,20 @@
 ---
-sourcePath: en/_api-ref-grpc/managed-greenplum/api-ref/grpc/index.md
+editable: false
+sourcePath: en/_api-ref-grpc/mdb/greenplum/v1/api-ref/grpc/index.md
 ---
+
 # Managed Service for Greenplum® API: gRPC reference
-This API reference is organized by resource. Actions are performed by sending HTTP requests to resource URLs or making RPC calls. For more information about API architecture, see [API Concepts]({{ api-url-prefix }}/api-design-guide/).
+
+Actions are performed by making RPC calls. For more information about API architecture, see [API Concepts]({{ api-url-prefix }}/api-design-guide/).
 
 See the interface definitions of the API on [GitHub](https://github.com/yandex-cloud/cloudapi).
 
-Service | Description
---- | ---
-[BackupService](./backup_service.md) | A set of methods for managing backups.
-[ClusterService](./cluster_service.md) | A set of methods for managing Greenplum® clusters.
-[HBARuleService](./hba_rule_service.md) | A set of methods for managing Greenplum clusters.
-[PXFDatasourceService](./pxf_service.md) | 
-[ResourcePresetService](./resource_preset_service.md) | A set of methods for managing resource presets.
-[OperationService](./operation_service.md) | A set of methods for managing operations for asynchronous API requests.
+#|
+||Service | Description ||
+|| [Backup](Backup/index.md) | A set of methods for managing backups. ||
+|| [Cluster](Cluster/index.md) | A set of methods for managing Greenplum® clusters. ||
+|| [HBARule](HBARule/index.md) | A set of methods for managing Greenplum clusters. ||
+|| [Operation](Operation/index.md) | A set of methods for managing operations for asynchronous API requests. ||
+|| [PXFDatasource](PXFDatasource/index.md) |  ||
+|| [ResourcePreset](ResourcePreset/index.md) | A set of methods for managing resource presets. ||
+|#

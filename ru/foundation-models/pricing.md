@@ -31,7 +31,7 @@ editable: false
 
 #### Токенизация {#rules-tokens}
 
-Использование токенизатора (вызовы [TokenizerService](./text-generation/api-ref/grpc/TokenizerService.md) и методы [Tokenizer](./text-generation/api-ref/Tokenizer/index.md)) не тарифицируются.
+Использование токенизатора (вызовы [TokenizerService](./text-generation/api-ref/grpc/Tokenizer/index.md) и методы [Tokenizer](./text-generation/api-ref/Tokenizer/index.md)) не тарифицируются.
 
 #### Дообученные модели {#rules-tuned-generating}
 

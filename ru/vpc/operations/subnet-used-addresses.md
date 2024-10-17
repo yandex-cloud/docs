@@ -48,7 +48,7 @@
 
 - API {#api}
 
-   Воспользуйтесь методом REST API [listUsedAddresses](../api-ref/Subnet/listUsedAddresses) для ресурса [Subnet](../api-ref/Subnet/index.md) или вызовом gRPC API [SubnetService/ListUsedAddresses](../api-ref/grpc/subnet_service.md#ListUsedAddresses) и передайте в запросе идентификатор изменяемой подсети в параметре `subnetId`.
+   Воспользуйтесь методом REST API [listUsedAddresses](../api-ref/Subnet/listUsedAddresses) для ресурса [Subnet](../api-ref/Subnet/index.md) или вызовом gRPC API [SubnetService/ListUsedAddresses](../api-ref/grpc/Subnet/listUsedAddresses.md) и передайте в запросе идентификатор изменяемой подсети в параметре `subnetId`.
 
    {% include [get-subnet-id](../../_includes/vpc/get-subnet-id.md) %}
 

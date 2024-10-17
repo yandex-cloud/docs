@@ -64,7 +64,7 @@ To get the database connection details:
 
 - API {#api}
 
-   Use the [get](../api-ref/Database/get.md) REST API method for the [Database](../api-ref/Database/index.md) resource or the [DatabaseService/Get](../api-ref/grpc/database_service.md#Get) gRPC API call and provide the database ID in the `databaseId` request parameter.
+   Use the [get](../api-ref/Database/get.md) REST API method for the [Database](../api-ref/Database/index.md) resource or the [DatabaseService/Get](../api-ref/grpc/Database/get.md) gRPC API call and provide the database ID in the `databaseId` request parameter.
 
    Database connection details are specified in the `endpoint` parameter.
 

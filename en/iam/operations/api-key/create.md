@@ -117,7 +117,7 @@ To create an API key:
   * `SERVICEACCOUNT_ID`: Service account [ID](../sa/get-id.md). This is a required parameter.
   * `IAM_TOKEN`: [IAM token](../../concepts/authorization/iam-token.md). This is a required parameter.
 
-  You can also create an API key using the [ApiKeyService/Create](../../api-ref/grpc/api_key_service.md#Create) gRPC API call.
+  You can also create an API key using the [ApiKeyService/Create](../../api-ref/grpc/ApiKey/create.md) gRPC API call.
 
 {% endlist %}
 

@@ -177,7 +177,7 @@ You can host your static website in {{ objstorage-name }}. A static website is b
 
 - API {#api}
 
-  To set up hosting for a static website, use the [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource, the [BucketService/Update](../../api-ref/grpc/bucket_service.md#Update) gRPC API call, or the [upload](../../s3/api-ref/hosting/upload.md) S3 API method.
+  To set up hosting for a static website, use the [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource, the [BucketService/Update](../../api-ref/grpc/Bucket/update.md) gRPC API call, or the [upload](../../s3/api-ref/hosting/upload.md) S3 API method.
 
 {% endlist %}
 
@@ -318,7 +318,7 @@ You can host your static website in {{ objstorage-name }}. A static website is b
 
 - API {#api}
 
-  To set up a redirect for all bucket requests, use the [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource, the [BucketService/Update](../../api-ref/grpc/bucket_service.md#Update) gRPC API call, or the [upload](../../s3/api-ref/hosting/upload.md) S3 API method.
+  To set up a redirect for all bucket requests, use the [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource, the [BucketService/Update](../../api-ref/grpc/Bucket/update.md) gRPC API call, or the [upload](../../s3/api-ref/hosting/upload.md) S3 API method.
 
 {% endlist %}
 
@@ -507,7 +507,7 @@ Using routing rules, you can redirect requests based on the object name prefixes
 
 - API {#api}
 
-  To set up a conditional redirect of bucket requests, use the [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource, the [BucketService/Update](../../api-ref/grpc/bucket_service.md#Update) gRPC API call, or the [upload](../../s3/api-ref/hosting/upload.md) S3 API method.
+  To set up a conditional redirect of bucket requests, use the [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource, the [BucketService/Update](../../api-ref/grpc/Bucket/update.md) gRPC API call, or the [upload](../../s3/api-ref/hosting/upload.md) S3 API method.
 
 {% endlist %}
 

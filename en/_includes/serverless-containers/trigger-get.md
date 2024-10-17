@@ -46,6 +46,6 @@
 
 - API {#api}
 
-  To get information about a trigger, use the [get](../../serverless-containers/triggers/api-ref/Trigger/get.md) REST API method for the [Trigger](../../serverless-containers/triggers/api-ref/Trigger/index.md) resource or the [TriggerService/Get](../../serverless-containers/triggers/api-ref/grpc/trigger_service.md#Get) gRPC API call.
+  To get information about a trigger, use the [get](../../serverless-containers/triggers/api-ref/Trigger/get.md) REST API method for the [Trigger](../../serverless-containers/triggers/api-ref/Trigger/index.md) resource or the [TriggerService/Get](../../serverless-containers/triggers/api-ref/grpc/Trigger/get.md) gRPC API call.
 
 {% endlist %}

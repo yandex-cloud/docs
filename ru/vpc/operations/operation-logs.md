@@ -76,7 +76,7 @@
 
   Чтобы получить список операций, воспользуйтесь методом REST API `listOperations` для соответствующего ресурса или вызовом gRPC API `<сервис>/ListOperations`.
 
-  Например, для облачной сети воспользуйтесь методом REST API [listOperations](../api-ref/Network/listOperations.md) для ресурса [Network](../api-ref/Network/index.md) или вызовом gRPC API [NetworkService/ListOperations](../api-ref/grpc/network_service.md#ListOperations).
+  Например, для облачной сети воспользуйтесь методом REST API [listOperations](../api-ref/Network/listOperations.md) для ресурса [Network](../api-ref/Network/index.md) или вызовом gRPC API [NetworkService/ListOperations](../api-ref/grpc/Network/listOperations.md).
 
 {% endlist %}
 
@@ -123,7 +123,7 @@
 
     - API {#api}
 
-      Воспользуйтесь методом REST API [get](../api-ref/Operation/get.md) для ресурса [Operation](../api-ref/Operation/index.md) или вызовом gRPC API [OperationService/Get](../api-ref/grpc/operation_service.md#Get).
+      Воспользуйтесь методом REST API [get](../api-ref/Operation/get.md) для ресурса [Operation](../api-ref/Operation/index.md) или вызовом gRPC API [OperationService/Get](../api-ref/grpc/Operation/get.md).
 
     {% endlist %}
 

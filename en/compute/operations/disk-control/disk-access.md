@@ -111,7 +111,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
 - API {#api}
 
-  Use the [updateAccessBindings](../../api-ref/Disk/updateAccessBindings.md) REST API method for the [Disk](../../api-ref/Disk/) resource or the [DiskService/UpdateAccessBindings](../../api-ref/grpc/disk_service.md#UpdateAccessBindings) gRPC API call. In the request body, set the `action` property to `ADD` and specify the user type and ID in the `subject` property.
+  Use the [updateAccessBindings](../../api-ref/Disk/updateAccessBindings.md) REST API method for the [Disk](../../api-ref/Disk/) resource or the [DiskService/UpdateAccessBindings](../../api-ref/grpc/Disk/updateAccessBindings.md) gRPC API call. In the request body, set the `action` property to `ADD` and specify the user type and ID in the `subject` property.
 
 {% endlist %}
 
@@ -221,7 +221,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
 - API {#api}
 
-  Use the [setAccessBindings](../../api-ref/Disk/setAccessBindings.md) REST API method for the [Disk](../../api-ref/Disk/) resource or the [DiskService/SetAccessBindings](../../api-ref/grpc/disk_service.md#SetAccessBindings) gRPC API call.
+  Use the [setAccessBindings](../../api-ref/Disk/setAccessBindings.md) REST API method for the [Disk](../../api-ref/Disk/) resource or the [DiskService/SetAccessBindings](../../api-ref/grpc/Disk/setAccessBindings.md) gRPC API call.
 
 {% endlist %}
 
@@ -310,6 +310,6 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
 - API {#api}
 
-  To revoke disk roles, use the [updateAccessBindings](../../api-ref/Disk/updateAccessBindings.md) REST API method for the [Disk](../../api-ref/Disk/) resource or the [DiskService/UpdateAccessBindings](../../api-ref/grpc/disk_service.md#UpdateAccessBindings) gRPC API call. In the request body, set the `action` property to `REMOVE` and specify the user type and ID in the `subject` property.
+  To revoke disk roles, use the [updateAccessBindings](../../api-ref/Disk/updateAccessBindings.md) REST API method for the [Disk](../../api-ref/Disk/) resource or the [DiskService/UpdateAccessBindings](../../api-ref/grpc/Disk/updateAccessBindings.md) gRPC API call. In the request body, set the `action` property to `REMOVE` and specify the user type and ID in the `subject` property.
 
 {% endlist %}

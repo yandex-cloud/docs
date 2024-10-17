@@ -53,6 +53,6 @@ description: In this guide, you will learn how to create a log sink in {{ cloud-
 
 - API {#api}
 
-    To create a log sink, use the [create](../api-ref/Sink/create.md) REST API method for the [Sink](../api-ref/Sink/index.md) resource or the [SinkService/Create](../api-ref/grpc/sink_service.md#Create) gRPC API call.
+    To create a log sink, use the [create](../api-ref/Sink/create.md) REST API method for the [Sink](../api-ref/Sink/index.md) resource or the [SinkService/Create](../api-ref/grpc/Sink/create.md) gRPC API call.
 
 {% endlist %}

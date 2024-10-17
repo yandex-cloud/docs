@@ -3,50 +3,76 @@ editable: false
 sourcePath: en/_api-ref/ai/llm/v1alpha/api-ref/v1alpha/Tokenizer/tokenize.md
 ---
 
-# YandexGPT API, REST: Tokenizer.tokenize
-RPC method for tokenizing input text.
- 
+# YandexGPT API, REST: Tokenizer.Tokenize {#Tokenize}
 
- 
-## HTTP request {#https-request}
+RPC method for tokenizing input text.
+
+## HTTP request
+
 ```
 POST https://llm.{{ api-host }}/llm/v1alpha/tokenize
 ```
- 
-## Body parameters {#body_params}
- 
-```json 
+
+## Body parameters {#yandex.cloud.ai.llm.v1alpha.TokenizeRequest}
+
+```json
 {
   "model": "string",
   "text": "string"
 }
 ```
+
 Request to tokenize input text.
- 
-Field | Description
---- | ---
-model | **string**<br><p>The name or identifier of the model to be used for tokenization. Possible values for now: ``general``, ``general:embedding``.</p> <p>The maximum string length in characters is 50.</p> 
-text | **string**<br><p>The input text to tokenize.</p> 
- 
-## Response {#responses}
+
+#|
+||Field | Description ||
+|| model | **string**
+
+The name or identifier of the model to be used for tokenization.
+Possible values for now: `general`, `general:embedding`. ||
+|| text | **string**
+
+The input text to tokenize. ||
+|#
+
+## Response {#yandex.cloud.ai.llm.v1alpha.TokenizeResponse}
+
 **HTTP Code: 200 - OK**
 
-```json 
+```json
 {
   "tokens": [
     {
       "id": "string",
       "text": "string",
-      "special": true
+      "special": "boolean"
     }
   ]
 }
 ```
+
 Tokenization response.
- 
-Field | Description
---- | ---
-tokens[] | **object**<br><p>A list of tokens obtained from tokenization.</p> 
-tokens[].<br>id | **string** (int64)<br><p>An internal token identifier.</p> 
-tokens[].<br>text | **string**<br><p>The textual representation of the token.</p> 
-tokens[].<br>special | **boolean** (boolean)<br><p>Indicates whether the token is special or not. Special tokens define the model's behavior and are not visible to users.</p> 
+
+#|
+||Field | Description ||
+|| tokens[] | **[Token](#yandex.cloud.ai.llm.v1alpha.Token)**
+
+A list of tokens obtained from tokenization. ||
+|#
+
+## Token {#yandex.cloud.ai.llm.v1alpha.Token}
+
+Represents a token, the basic unit of text, used by the LLM.
+
+#|
+||Field | Description ||
+|| id | **string** (int64)
+
+An internal token identifier. ||
+|| text | **string**
+
+The textual representation of the token. ||
+|| special | **boolean**
+
+Indicates whether the token is special or not. Special tokens define the model's behavior and are not visible to users. ||
+|#

@@ -335,7 +335,7 @@ So far, {{ yandex-cloud }} does not support version 2, so it is strongly recomme
 
 The Google Compute Engine metadata service uses an additional header to protect against SSRF and enhance security.
 
-You can disable getting a service account token via Amazon EC2 using the [aws_v1_http_token:DISABLED](../../../compute/api-ref/grpc/instance_service.md#MetadataOptions) VM parameter.
+You can disable getting a service account token via Amazon EC2 using the [aws_v1_http_token:DISABLED](../../../compute/api-ref/grpc/Instance/create.md#yandex.cloud.compute.v1.MetadataOptions) VM parameter.
 
 {% list tabs group=instructions %}
 
@@ -365,7 +365,7 @@ You can disable getting a service account token via Amazon EC2 using the [aws_v1
 
 **Guides and solutions to use:**
 
-Under metadata_options, set the [aws_v1_http_token](../../../compute/api-ref/grpc/instance_service.md#MetadataOptions) parameter to `DISABLED` for the found VMs:
+Under metadata_options, set the [aws_v1_http_token](../../../compute/api-ref/grpc/Instance/create.md#yandex.cloud.compute.v1.MetadataOptions) parameter to `DISABLED` for the found VMs:
 
 ```bash
 yc compute instance update <VM_ID> \

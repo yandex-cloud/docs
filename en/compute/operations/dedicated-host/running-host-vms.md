@@ -103,9 +103,9 @@ To create a VM:
 
 - API {#api}
 
-  1. Find out the ID of the dedicated host group using the [list](../../api-ref/HostGroup/list.md) REST API method for the [HostGroup](../../api-ref/HostGroup/index.md) resource or the [HostGroupService/List](../../api-ref/grpc/host_group_service.md#List) gRPC API call.
-  1. Find out the IDs of dedicated hosts in the group using the [listHosts](../../api-ref/HostGroup/listHosts.md) REST API method for the [HostGroup](../../api-ref/HostGroup/index.md) resource or the [HostGroupService/ListHosts](../../api-ref/grpc/host_group_service.md#ListHosts) gRPC API call.
-  1. Create a VM instance using the [create](../../api-ref/Instance/create.md) REST API method for the [Instance](../../api-ref/Instance/index.md) resource or the [InstanceService/Create](../../api-ref/grpc/instance_service.md#Create) gRPC API call.
+  1. Find out the ID of the dedicated host group using the [list](../../api-ref/HostGroup/list.md) REST API method for the [HostGroup](../../api-ref/HostGroup/index.md) resource or the [HostGroupService/List](../../api-ref/grpc/HostGroup/list.md) gRPC API call.
+  1. Find out the IDs of dedicated hosts in the group using the [listHosts](../../api-ref/HostGroup/listHosts.md) REST API method for the [HostGroup](../../api-ref/HostGroup/index.md) resource or the [HostGroupService/ListHosts](../../api-ref/grpc/HostGroup/list.mdHosts) gRPC API call.
+  1. Create a VM instance using the [create](../../api-ref/Instance/create.md) REST API method for the [Instance](../../api-ref/Instance/index.md) resource or the [InstanceService/Create](../../api-ref/grpc/Instance/create.md) gRPC API call.
 
 {% endlist %}
 

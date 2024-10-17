@@ -45,6 +45,6 @@ description: Из статьи вы узнаете, как получить ид
 
 - API {#api}
 
-  Чтобы получить список облаков с идентификаторами, воспользуйтесь методом REST API [list](../../api-ref/Cloud/list.md) для ресурса [Cloud](../../api-ref/Cloud/index.md) или вызовом gRPC API [CloudService/List](../../api-ref/grpc/cloud_service.md#List).
+  Чтобы получить список облаков с идентификаторами, воспользуйтесь методом REST API [list](../../api-ref/Cloud/list.md) для ресурса [Cloud](../../api-ref/Cloud/index.md) или вызовом gRPC API [CloudService/List](../../api-ref/grpc/Cloud/list.md).
 
 {% endlist %}

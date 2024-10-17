@@ -133,7 +133,7 @@ keywords:
 
 - API {#api}
 
-  Создайте новый образ с помощью метода REST API [create](../../api-ref/Image/create.md) для ресурса [Image](../../api-ref/Image/index.md) или вызова gRPC API [ImageService/Create](../../api-ref/grpc/image_service.md#Create). В запросе укажите ссылку на образ.
+  Создайте новый образ с помощью метода REST API [create](../../api-ref/Image/create.md) для ресурса [Image](../../api-ref/Image/index.md) или вызова gRPC API [ImageService/Create](../../api-ref/grpc/Image/create.md). В запросе укажите ссылку на образ.
 
 {% endlist %}
 

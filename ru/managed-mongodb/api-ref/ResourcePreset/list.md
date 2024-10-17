@@ -3,27 +3,37 @@ editable: false
 sourcePath: en/_api-ref/mdb/mongodb/v1/api-ref/ResourcePreset/list.md
 ---
 
-# Managed Service for MongoDB API, REST: ResourcePreset.list
-Retrieves the list of available ResourcePreset resources.
- 
+# Managed Service for MongoDB API, REST: ResourcePreset.List {#List}
 
- 
-## HTTP request {#https-request}
+Retrieves the list of available ResourcePreset resources.
+
+## HTTP request
+
 ```
 GET https://{{ api-host-mdb }}/managed-mongodb/v1/resourcePresets
 ```
- 
-## Query parameters {#query_params}
- 
-Parameter | Description
---- | ---
-pageSize | <p>The maximum number of results per page to return. If the number of available results is larger than <a href="/docs/managed-mongodb/api-ref/ResourcePreset/list#query_params">pageSize</a>, the service returns a <a href="/docs/managed-mongodb/api-ref/ResourcePreset/list#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 1000, inclusive. Default value: 100.</p> <p>The maximum value is 1000.</p> 
-pageToken | <p>Page token. To get the next page of results, set <a href="/docs/managed-mongodb/api-ref/ResourcePreset/list#query_params">pageToken</a> to the <a href="/docs/managed-mongodb/api-ref/ResourcePreset/list#responses">nextPageToken</a> returned by the previous list request.</p> <p>The maximum string length in characters is 100.</p> 
- 
-## Response {#responses}
+
+## Query parameters {#yandex.cloud.mdb.mongodb.v1.ListResourcePresetsRequest}
+
+#|
+||Field | Description ||
+|| pageSize | **string** (int64)
+
+The maximum number of results per page to return. If the number of available
+results is larger than `pageSize`, the service returns a [ListResourcePresetsResponse.nextPageToken](#yandex.cloud.mdb.mongodb.v1.ListResourcePresetsResponse)
+that can be used to get the next page of results in subsequent list requests.
+Acceptable values are 0 to 1000, inclusive. Default value: 100. ||
+|| pageToken | **string**
+
+Page token. To get the next page of results, set `pageToken` to the
+[ListResourcePresetsResponse.nextPageToken](#yandex.cloud.mdb.mongodb.v1.ListResourcePresetsResponse) returned by the previous list request. ||
+|#
+
+## Response {#yandex.cloud.mdb.mongodb.v1.ListResourcePresetsResponse}
+
 **HTTP Code: 200 - OK**
 
-```json 
+```json
 {
   "resourcePresets": [
     {
@@ -39,12 +49,35 @@ pageToken | <p>Page token. To get the next page of results, set <a href="/docs/m
 }
 ```
 
- 
-Field | Description
---- | ---
-resourcePresets[] | **object**<br><p>List of ResourcePreset resources.</p> 
-resourcePresets[].<br>id | **string**<br><p>ID of the ResourcePreset resource.</p> 
-resourcePresets[].<br>zoneIds[] | **string**<br><p>IDs of availability zones where the resource preset is available.</p> 
-resourcePresets[].<br>cores | **string** (int64)<br><p>Number of CPU cores for a MongoDB host created with the preset.</p> 
-resourcePresets[].<br>memory | **string** (int64)<br><p>RAM volume for a MongoDB host created with the preset, in bytes.</p> 
-nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is larger than <a href="/docs/managed-mongodb/api-ref/ResourcePreset/list#query_params">pageSize</a>, use the <a href="/docs/managed-mongodb/api-ref/ResourcePreset/list#responses">nextPageToken</a> as the value for the <a href="/docs/managed-mongodb/api-ref/ResourcePreset/list#query_params">pageToken</a> parameter in the next list request. Each subsequent list request will have its own <a href="/docs/managed-mongodb/api-ref/ResourcePreset/list#responses">nextPageToken</a> to continue paging through the results.</p> 
+#|
+||Field | Description ||
+|| resourcePresets[] | **[ResourcePreset](#yandex.cloud.mdb.mongodb.v1.ResourcePreset)**
+
+List of ResourcePreset resources. ||
+|| nextPageToken | **string**
+
+This token allows you to get the next page of results for list requests. If the number of results
+is larger than [ListResourcePresetsRequest.pageSize](#yandex.cloud.mdb.mongodb.v1.ListResourcePresetsRequest), use the `nextPageToken` as the value
+for the [ListResourcePresetsRequest.pageToken](#yandex.cloud.mdb.mongodb.v1.ListResourcePresetsRequest) parameter in the next list request. Each subsequent
+list request will have its own `nextPageToken` to continue paging through the results. ||
+|#
+
+## ResourcePreset {#yandex.cloud.mdb.mongodb.v1.ResourcePreset}
+
+A ResourcePreset resource for describing hardware configuration presets.
+
+#|
+||Field | Description ||
+|| id | **string**
+
+ID of the ResourcePreset resource. ||
+|| zoneIds[] | **string**
+
+IDs of availability zones where the resource preset is available. ||
+|| cores | **string** (int64)
+
+Number of CPU cores for a MongoDB host created with the preset. ||
+|| memory | **string** (int64)
+
+RAM volume for a MongoDB host created with the preset, in bytes. ||
+|#

@@ -102,7 +102,7 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Чтобы изменить имя брокера, воспользуйтесь методом REST API [update](../../broker/api-ref/Broker/update.md) для ресурса [Broker](../../broker/api-ref/Broker/index.md) или вызовом gRPC API [BrokerService/Update](../../broker/api-ref/grpc/broker_service.md#Update).
+  Чтобы изменить имя брокера, воспользуйтесь методом REST API [update](../../broker/api-ref/Broker/update.md) для ресурса [Broker](../../broker/api-ref/Broker/index.md) или вызовом gRPC API [BrokerService/Update](../../broker/api-ref/grpc/Broker/update.md).
 
 {% endlist %}
 
@@ -200,7 +200,7 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Чтобы изменить описание брокера, воспользуйтесь методом REST API [update](../../broker/api-ref/Broker/update.md) для ресурса [Broker](../../broker/api-ref/Broker/index.md) или вызовом gRPC API [BrokerService/Update](../../broker/api-ref/grpc/broker_service.md#Update).
+  Чтобы изменить описание брокера, воспользуйтесь методом REST API [update](../../broker/api-ref/Broker/update.md) для ресурса [Broker](../../broker/api-ref/Broker/index.md) или вызовом gRPC API [BrokerService/Update](../../broker/api-ref/grpc/Broker/update.md).
 
 {% endlist %}
 
@@ -312,7 +312,7 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Чтобы добавить метку брокеру, воспользуйтесь методом REST API [update](../../broker/api-ref/Broker/update.md) для ресурса [Broker](../../broker/api-ref/Broker/index.md) или вызовом gRPC API [BrokerService/Update](../../broker/api-ref/grpc/broker_service.md#Update).
+  Чтобы добавить метку брокеру, воспользуйтесь методом REST API [update](../../broker/api-ref/Broker/update.md) для ресурса [Broker](../../broker/api-ref/Broker/index.md) или вызовом gRPC API [BrokerService/Update](../../broker/api-ref/grpc/Broker/update.md).
 
 {% endlist %}
 
@@ -417,7 +417,7 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Чтобы изменить метку брокера, воспользуйтесь методом REST API [update](../../broker/api-ref/Broker/update.md) для ресурса [Broker](../../broker/api-ref/Broker/index.md) или вызовом gRPC API [BrokerService/Update](../../broker/api-ref/grpc/broker_service.md#Update).
+  Чтобы изменить метку брокера, воспользуйтесь методом REST API [update](../../broker/api-ref/Broker/update.md) для ресурса [Broker](../../broker/api-ref/Broker/index.md) или вызовом gRPC API [BrokerService/Update](../../broker/api-ref/grpc/Broker/update.md).
 
 {% endlist %}
 
@@ -514,6 +514,6 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Чтобы удалить метку брокера, воспользуйтесь методом REST API [update](../../broker/api-ref/Broker/update.md) для ресурса [Broker](../../broker/api-ref/Broker/index.md) или вызовом gRPC API [BrokerService/Update](../../broker/api-ref/grpc/broker_service.md#Update).
+  Чтобы удалить метку брокера, воспользуйтесь методом REST API [update](../../broker/api-ref/Broker/update.md) для ресурса [Broker](../../broker/api-ref/Broker/index.md) или вызовом gRPC API [BrokerService/Update](../../broker/api-ref/grpc/Broker/update.md).
 
 {% endlist %}

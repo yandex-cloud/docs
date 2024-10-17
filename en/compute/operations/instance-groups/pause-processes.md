@@ -16,6 +16,6 @@ To pause an instance group:
 
 - API {#api}
 
-   Use the [pauseProcesses](../../api-ref/InstanceGroup/pauseProcesses.md) REST API method for the [InstanceGroup](../../api-ref/InstanceGroup/index.md) resource or the [InstanceGroupService/PauseProcesses](../../api-ref/grpc/instance_group_service.md#PauseProcesses) gRPC API call.
+   Use the [pauseProcesses](../../instancegroup/api-ref/InstanceGroup/pauseProcesses.md) REST API method for the [InstanceGroup](../../instancegroup/api-ref/InstanceGroup/index.md) resource or the [InstanceGroupService/PauseProcesses](../../instancegroup/api-ref/grpc/InstanceGroup/pauseProcesses.md) gRPC API call.
 
 {% endlist %}

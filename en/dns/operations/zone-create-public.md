@@ -102,7 +102,7 @@ To create a public [DNS zone](../concepts/dns-zone.md):
 
 - API {#api}
 
-  To create a public DNS zone, use the [create](../api-ref/DnsZone/create.md) REST API method for the [DnsZone](../api-ref/DnsZone/index.md) resource or the [DnsZoneService/Create](../api-ref/grpc/dns_zone_service.md#Create) gRPC API call.
+  To create a public DNS zone, use the [create](../api-ref/DnsZone/create.md) REST API method for the [DnsZone](../api-ref/DnsZone/index.md) resource or the [DnsZoneService/Create](../api-ref/grpc/DnsZone/create.md) gRPC API call.
 
 {% endlist %}
 

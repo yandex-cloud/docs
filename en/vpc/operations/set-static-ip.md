@@ -72,7 +72,7 @@ Make sure to check out our [pricing policy](../pricing.md#prices-public-ip) for 
 
 - API {#api}
 
-  To change the type of a public IP address from dynamic to static, use the [update](../api-ref/Address/update.md) REST API method for the [Address](../api-ref/Address/index.md) resource or the [AddressService/Update](../api-ref/grpc/address_service.md#Update) gRPC API call, and provide the following in the request:
+  To change the type of a public IP address from dynamic to static, use the [update](../api-ref/Address/update.md) REST API method for the [Address](../api-ref/Address/index.md) resource or the [AddressService/Update](../api-ref/grpc/Address/update.md) gRPC API call, and provide the following in the request:
 
   * ID of the IP address you want to convert to static in the `addressId` parameter.
 

@@ -34,7 +34,7 @@
 
 - API {#api}
 
-   Use the [addUserAccounts](../../iam/api-ref/Federation/addUserAccounts.md) REST API method for the [Federation](../../iam/api-ref/Federation/index.md) resource or the [FederationService/AddUserAccounts](../../iam/api-ref/grpc/federation_service.md#AddUserAccounts) gRPC API call and provide the following in the request:
+   Use the [addUserAccounts](../../iam/saml/api-ref/Federation/addUserAccounts.md) REST API method for the [Federation](../../iam/saml/api-ref/Federation/index.md) resource or the [FederationService/AddUserAccounts](../../iam/saml/api-ref/grpc/Federation/addUserAccounts.md) gRPC API call and provide the following in the request:
 
    * Federation ID in the `federationId` parameter.
    * List of user name IDs in the `nameIds` parameter.

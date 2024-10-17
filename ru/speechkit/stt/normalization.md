@@ -57,7 +57,7 @@
 ### API v3 {#api-v3}
 
 
-Для включения нормализации задайте в [API](../stt-v3/api-ref/grpc/stt_service.md) параметр `text_normalization=TEXT_NORMALIZATION_ENABLED`. Некоторые опции включаются дополнительными параметрами, когда задан `text_normalization=TEXT_NORMALIZATION_ENABLED`.
+Для включения нормализации задайте в [API](../stt-v3/api-ref/grpc/Recognizer/index.md) параметр `text_normalization=TEXT_NORMALIZATION_ENABLED`. Некоторые опции включаются дополнительными параметрами, когда задан `text_normalization=TEXT_NORMALIZATION_ENABLED`.
 
 | Уровень нормализации | Параметр API |
 | :----- | :------|

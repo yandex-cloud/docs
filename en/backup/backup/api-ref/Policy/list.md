@@ -3,27 +3,33 @@ editable: false
 sourcePath: en/_api-ref/backup/v1/backup/api-ref/Policy/list.md
 ---
 
-# Cloud Backup API, REST: Policy.list
-List [policies](/docs/backup/concepts/policy) of specified folder.
- 
+# Cloud Backup API, REST: Policy.List {#List}
 
- 
-## HTTP request {#https-request}
+List [policies](/docs/backup/concepts/policy) of specified folder.
+
+## HTTP request
+
 ```
 GET https://backup.{{ api-host }}/backup/v1/policies
 ```
- 
-## Query parameters {#query_params}
- 
-Parameter | Description
---- | ---
-folderId | <p>Folder ID. Either Folder ID or Compute Cloud instance ID should be set.</p> <p>The maximum string length in characters is 50.</p> 
-computeInstanceId | <p>Compute Cloud instance ID. Either Folder ID or Compute Cloud instance ID should be set.</p> 
- 
-## Response {#responses}
+
+## Query parameters {#yandex.cloud.backup.v1.ListPoliciesRequest}
+
+#|
+||Field | Description ||
+|| folderId | **string**
+
+Folder ID. Either Folder ID or Compute Cloud instance ID should be set. ||
+|| computeInstanceId | **string**
+
+Compute Cloud instance ID. Either Folder ID or Compute Cloud instance ID should be set. ||
+|#
+
+## Response {#yandex.cloud.backup.v1.ListPoliciesResponse}
+
 **HTTP Code: 200 - OK**
 
-```json 
+```json
 {
   "policies": [
     {
@@ -31,26 +37,26 @@ computeInstanceId | <p>Compute Cloud instance ID. Either Folder ID or Compute Cl
       "name": "string",
       "createdAt": "string",
       "updatedAt": "string",
-      "enabled": true,
+      "enabled": "boolean",
       "settings": {
         "compression": "string",
         "format": "string",
-        "multiVolumeSnapshottingEnabled": true,
-        "preserveFileSecuritySettings": true,
+        "multiVolumeSnapshottingEnabled": "boolean",
+        "preserveFileSecuritySettings": "boolean",
         "reattempts": {
-          "enabled": true,
+          "enabled": "boolean",
           "interval": {
             "type": "string",
             "count": "string"
           },
           "maxAttempts": "string"
         },
-        "silentModeEnabled": true,
+        "silentModeEnabled": "boolean",
         "splitting": {
           "size": "string"
         },
         "vmSnapshotReattempts": {
-          "enabled": true,
+          "enabled": "boolean",
           "interval": {
             "type": "string",
             "count": "string"
@@ -58,14 +64,14 @@ computeInstanceId | <p>Compute Cloud instance ID. Either Folder ID or Compute Cl
           "maxAttempts": "string"
         },
         "vss": {
-          "enabled": true,
+          "enabled": "boolean",
           "provider": "string"
         },
         "archive": {
           "name": "string"
         },
         "performanceWindow": {
-          "enabled": true
+          "enabled": "boolean"
         },
         "retention": {
           "rules": [
@@ -73,25 +79,21 @@ computeInstanceId | <p>Compute Cloud instance ID. Either Folder ID or Compute Cl
               "backupSet": [
                 "string"
               ],
-
-              // `policies[].settings.retention.rules[]` includes only one of the fields `maxAge`, `maxCount`
+              // Includes only one of the fields `maxAge`, `maxCount`
               "maxAge": {
                 "type": "string",
                 "count": "string"
               },
-              "maxCount": "string",
-              // end of the list of possible fields`policies[].settings.retention.rules[]`
-
+              "maxCount": "string"
+              // end of the list of possible fields
             }
           ],
-          "beforeBackup": true
+          "beforeBackup": "boolean"
         },
         "scheduling": {
           "backupSets": [
             {
-              "type": "string",
-
-              // `policies[].settings.scheduling.backupSets[]` includes only one of the fields `time`, `sinceLastExecTime`
+              // Includes only one of the fields `time`, `sinceLastExecTime`
               "time": {
                 "weekdays": [
                   "string"
@@ -117,7 +119,7 @@ computeInstanceId | <p>Compute Cloud instance ID. Either Folder ID or Compute Cl
                 "monthdays": [
                   "string"
                 ],
-                "includeLastDayOfMonth": true,
+                "includeLastDayOfMonth": "boolean",
                 "months": [
                   "string"
                 ],
@@ -129,11 +131,11 @@ computeInstanceId | <p>Compute Cloud instance ID. Either Folder ID or Compute Cl
                   "count": "string"
                 }
               },
-              // end of the list of possible fields`policies[].settings.scheduling.backupSets[]`
-
+              // end of the list of possible fields
+              "type": "string"
             }
           ],
-          "enabled": true,
+          "enabled": "boolean",
           "maxParallelBackups": "string",
           "randMaxDelay": {
             "type": "string",
@@ -143,8 +145,8 @@ computeInstanceId | <p>Compute Cloud instance ID. Either Folder ID or Compute Cl
           "weeklyBackupDay": "string"
         },
         "cbt": "string",
-        "fastBackupEnabled": true,
-        "quiesceSnapshottingEnabled": true
+        "fastBackupEnabled": "boolean",
+        "quiesceSnapshottingEnabled": "boolean"
       },
       "folderId": "string"
     }
@@ -152,83 +154,371 @@ computeInstanceId | <p>Compute Cloud instance ID. Either Folder ID or Compute Cl
 }
 ```
 
- 
-Field | Description
---- | ---
-policies[] | **object**
-policies[].<br>id | **string**<br><p>Required. Policy ID.</p> <p>The maximum string length in characters is 50.</p> 
-policies[].<br>name | **string**<br><p>Required. Policy name.</p> <p>The maximum string length in characters is 50.</p> 
-policies[].<br>createdAt | **string** (date-time)<br><p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
-policies[].<br>updatedAt | **string** (date-time)<br><p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
-policies[].<br>enabled | **boolean** (boolean)<br><p>If this field is true, it means that the policy is enabled.</p> 
-policies[].<br>settings | **object**<br><p>Set of policy settings</p> <p>Set of policy settings</p> 
-policies[].<br>settings.<br>compression | **string**<br><p>Required. Archive compression level.</p> <p>Compression rate of the backups.</p> 
-policies[].<br>settings.<br>format | **string**<br><p>Required. Format of the Acronis backup archive.</p> <p>Format of the backup in policy. For backup locations that can be browsed with a file manager, the backup format determines the number of files and their extension.</p> <ul> <li>VERSION_11: A legacy backup format used in older versions. It's not recommended to use.</li> <li>VERSION_12: A new format recommended in most cases for fast backup and recovery.</li> <li>AUTO: Automatic version selection. Will be used version 12 unless the protection plan (policy) appends backups to the ones created by earlier product versions.</li> </ul> 
-policies[].<br>settings.<br>multiVolumeSnapshottingEnabled | **boolean** (boolean)<br><p>If true, snapshots of multiple volumes will be taken simultaneously.</p> 
-policies[].<br>settings.<br>preserveFileSecuritySettings | **boolean** (boolean)<br><p>If true, the file security settings will be preserved.</p> 
-policies[].<br>settings.<br>reattempts | **object**<br><p>Required. Configuration of retries on recoverable errors during the backup operations like reconnection to destination. No attempts to fix recoverable errors will be made if retry configuration is not set.</p> 
-policies[].<br>settings.<br>reattempts.<br>enabled | **boolean** (boolean)<br><p>If true, enables retry on errors.</p> 
-policies[].<br>settings.<br>reattempts.<br>interval | **object**<br><p>Required. An interval between retry attempts.</p> 
-policies[].<br>settings.<br>reattempts.<br>interval.<br>type | **string**<br><p>Required. A type of the interval.</p> 
-policies[].<br>settings.<br>reattempts.<br>interval.<br>count | **string** (int64)<br><p>The amount of value specified in ``Interval.Type``.</p> <p>Value must be greater than 0.</p> 
-policies[].<br>settings.<br>reattempts.<br>maxAttempts | **string** (int64)<br><p>Max number of retry attempts. Operation will be considered as failed when max number of retry attempts is reached.</p> <p>Value must be greater than 0.</p> 
-policies[].<br>settings.<br>silentModeEnabled | **boolean** (boolean)<br><p>If true, a user interaction will be avoided when possible. Equals to false if value is not specified.</p> 
-policies[].<br>settings.<br>splitting | **object**<br><p>Required. Determines the size to split backups on. Splitting is not performed if value is not specified.</p> 
-policies[].<br>settings.<br>splitting.<br>size | **string** (int64)<br><p>The size of split backup file in bytes.</p> 
-policies[].<br>settings.<br>vmSnapshotReattempts | **object**<br><p>Required. Configuration of retries on errors during the creation of the virtual machine snapshot. No attempts to fix recoverable errors will be made if retry configuration is not set.</p> 
-policies[].<br>settings.<br>vmSnapshotReattempts.<br>enabled | **boolean** (boolean)<br><p>If true, enables retry on errors.</p> 
-policies[].<br>settings.<br>vmSnapshotReattempts.<br>interval | **object**<br><p>Required. An interval between retry attempts.</p> 
-policies[].<br>settings.<br>vmSnapshotReattempts.<br>interval.<br>type | **string**<br><p>Required. A type of the interval.</p> 
-policies[].<br>settings.<br>vmSnapshotReattempts.<br>interval.<br>count | **string** (int64)<br><p>The amount of value specified in ``Interval.Type``.</p> <p>Value must be greater than 0.</p> 
-policies[].<br>settings.<br>vmSnapshotReattempts.<br>maxAttempts | **string** (int64)<br><p>Max number of retry attempts. Operation will be considered as failed when max number of retry attempts is reached.</p> <p>Value must be greater than 0.</p> 
-policies[].<br>settings.<br>vss | **object**<br><p>Required. Settings for the Volume Shadow Copy Service (VSS) provider. If not set, no VSS provider is used.</p> <p>Settings for Volume Shadow Copy Services which allows to notify VSS-aware applications that backup is about to start. This will ensure the consistent state of all data used by the applications.</p> 
-policies[].<br>settings.<br>vss.<br>enabled | **boolean** (boolean)<br><p>If true, the VSS will be enabled.</p> 
-policies[].<br>settings.<br>vss.<br>provider | **string**<br><p>Required. A type of VSS provider to use in backup.</p> 
-policies[].<br>settings.<br>archive | **object**<br><p>The archive properties.</p> 
-policies[].<br>settings.<br>archive.<br>name | **string**<br><p>The name of the generated archive. The name may use the following variables: ``[Machine Name]``, ``[Plan ID]``, ``[Plan Name]``, ``[Unique ID]``, ``[Virtualization Server Type]``. Default value: ``[Machine Name]-[Plan ID]-[Unique ID]A``.</p> 
-policies[].<br>settings.<br>performanceWindow | **object**<br><p>Required. Time windows for performance limitations of backup and storage maintenance operations.</p> 
-policies[].<br>settings.<br>performanceWindow.<br>enabled | **boolean** (boolean)<br><p>If true, the time windows will be enabled.</p> 
-policies[].<br>settings.<br>retention | **object**<br><p>Required. Configuration of backup retention rules.</p> 
-policies[].<br>settings.<br>retention.<br>rules[] | **object**<br><p>A list of retention rules.</p> 
-policies[].<br>settings.<br>retention.<br>rules[].<br>backupSet[] | **string**<br><p>A list of backup sets where rules are effective.</p> 
-policies[].<br>settings.<br>retention.<br>rules[].<br>maxAge | **object** <br>`policies[].settings.retention.rules[]` includes only one of the fields `maxAge`, `maxCount`<br>
-policies[].<br>settings.<br>retention.<br>rules[].<br>maxAge.<br>type | **string**<br><p>Required. A type of the interval.</p> 
-policies[].<br>settings.<br>retention.<br>rules[].<br>maxAge.<br>count | **string** (int64)<br><p>The amount of value specified in ``Interval.Type``.</p> <p>Value must be greater than 0.</p> 
-policies[].<br>settings.<br>retention.<br>rules[].<br>maxCount | **string** (int64) <br>`policies[].settings.retention.rules[]` includes only one of the fields `maxAge`, `maxCount`<br>
-policies[].<br>settings.<br>retention.<br>beforeBackup | **boolean** (boolean)<br><p>If true, retention rules will be applied before backup is finished.</p> 
-policies[].<br>settings.<br>scheduling | **object**<br><p>Required. Configuration of the backup schedule.</p> 
-policies[].<br>settings.<br>scheduling.<br>backupSets[] | **object**<br><p>Required. A list of schedules with backup sets that compose the whole scheme.</p> <p>Must contain at least one element.</p> 
-policies[].<br>settings.<br>scheduling.<br>backupSets[].<br>type | **string**<br>BackupSet type -- one of incr, full, differential or auto. if custom scheme is used the BackupSet type should be specified
-policies[].<br>settings.<br>scheduling.<br>backupSets[].<br>time | **object** <br>`policies[].settings.scheduling.backupSets[]` includes only one of the fields `time`, `sinceLastExecTime`<br>
-policies[].<br>settings.<br>scheduling.<br>backupSets[].<br>time.<br>weekdays[] | **string**<br><p>Days in a week to perform a backup.</p> 
-policies[].<br>settings.<br>scheduling.<br>backupSets[].<br>time.<br>repeatAt[] | **object**<br><p>Time to repeat the backup.</p> 
-policies[].<br>settings.<br>scheduling.<br>backupSets[].<br>time.<br>repeatAt[].<br>hour | **string** (int64)<br><p>Hours.</p> 
-policies[].<br>settings.<br>scheduling.<br>backupSets[].<br>time.<br>repeatAt[].<br>minute | **string** (int64)<br><p>Minutes.</p> 
-policies[].<br>settings.<br>scheduling.<br>backupSets[].<br>time.<br>repeatEvery | **object**<br><p>Frequency of backup repetition.</p> 
-policies[].<br>settings.<br>scheduling.<br>backupSets[].<br>time.<br>repeatEvery.<br>type | **string**<br><p>Required. A type of the interval.</p> 
-policies[].<br>settings.<br>scheduling.<br>backupSets[].<br>time.<br>repeatEvery.<br>count | **string** (int64)<br><p>The amount of value specified in ``Interval.Type``.</p> <p>Value must be greater than 0.</p> 
-policies[].<br>settings.<br>scheduling.<br>backupSets[].<br>time.<br>timeFrom | **object**<br><p>The start time of the backup time interval.</p> 
-policies[].<br>settings.<br>scheduling.<br>backupSets[].<br>time.<br>timeFrom.<br>hour | **string** (int64)<br><p>Hours.</p> 
-policies[].<br>settings.<br>scheduling.<br>backupSets[].<br>time.<br>timeFrom.<br>minute | **string** (int64)<br><p>Minutes.</p> 
-policies[].<br>settings.<br>scheduling.<br>backupSets[].<br>time.<br>timeTo | **object**<br><p>The end time of the backup time interval.</p> 
-policies[].<br>settings.<br>scheduling.<br>backupSets[].<br>time.<br>timeTo.<br>hour | **string** (int64)<br><p>Hours.</p> 
-policies[].<br>settings.<br>scheduling.<br>backupSets[].<br>time.<br>timeTo.<br>minute | **string** (int64)<br><p>Minutes.</p> 
-policies[].<br>settings.<br>scheduling.<br>backupSets[].<br>time.<br>monthdays[] | **string** (int64)<br><p>Days in a month to perform a backup. Allowed values are from 1 to 31.</p> 
-policies[].<br>settings.<br>scheduling.<br>backupSets[].<br>time.<br>includeLastDayOfMonth | **boolean** (boolean)<br><p>If set to true, last day of month will activate the policy.</p> 
-policies[].<br>settings.<br>scheduling.<br>backupSets[].<br>time.<br>months[] | **string** (int64)<br><p>Set of values. Allowed values form 1 to 12.</p> 
-policies[].<br>settings.<br>scheduling.<br>backupSets[].<br>time.<br>type | **string**<br><p>Required. Possible types: ``REPEATE_PERIOD_UNSPECIFIED``, ``HOURLY``, ``DAILY``, ``WEEKLY``, ``MONTHLY``.</p> 
-policies[].<br>settings.<br>scheduling.<br>backupSets[].<br>sinceLastExecTime | **object** <br>`policies[].settings.scheduling.backupSets[]` includes only one of the fields `time`, `sinceLastExecTime`<br>
-policies[].<br>settings.<br>scheduling.<br>backupSets[].<br>sinceLastExecTime.<br>delay | **object**<br><p>Required. The interval between backups.</p> 
-policies[].<br>settings.<br>scheduling.<br>backupSets[].<br>sinceLastExecTime.<br>delay.<br>type | **string**<br><p>Required. A type of the interval.</p> 
-policies[].<br>settings.<br>scheduling.<br>backupSets[].<br>sinceLastExecTime.<br>delay.<br>count | **string** (int64)<br><p>The amount of value specified in ``Interval.Type``.</p> <p>Value must be greater than 0.</p> 
-policies[].<br>settings.<br>scheduling.<br>enabled | **boolean** (boolean)<br><p>If true, the backup schedule will be enabled.</p> 
-policies[].<br>settings.<br>scheduling.<br>maxParallelBackups | **string** (int64)<br><p>Max number of backup processes allowed to run in parallel. Unlimited if not set.</p> 
-policies[].<br>settings.<br>scheduling.<br>randMaxDelay | **object**<br><p>Required. Configuration of the random delay between the execution of parallel tasks.</p> 
-policies[].<br>settings.<br>scheduling.<br>randMaxDelay.<br>type | **string**<br><p>Required. A type of the interval.</p> 
-policies[].<br>settings.<br>scheduling.<br>randMaxDelay.<br>count | **string** (int64)<br><p>The amount of value specified in ``Interval.Type``.</p> <p>Value must be greater than 0.</p> 
-policies[].<br>settings.<br>scheduling.<br>scheme | **string**<br><p>Required. A backup scheme. Available values: ``simple``, ``always_full``, ``always_incremental``, ``weekly_incremental``, ``weekly_full_daily_incremental``, ``custom``, ``cdp``.</p> <p>Scheme of backups.</p> <ul> <li>CUSTOM: Custom will require to specify schedules for full, differential and incremental backups additionally.</li> </ul> 
-policies[].<br>settings.<br>scheduling.<br>weeklyBackupDay | **string**<br><p>Required. A day of week to start weekly backups.</p> 
-policies[].<br>settings.<br>cbt | **string**<br><p>Required. A configuration of Changed Block Tracking (CBT).</p> 
-policies[].<br>settings.<br>fastBackupEnabled | **boolean** (boolean)<br><p>If true, determines whether a file has changed by the file size and timestamp. Otherwise, the entire file contents are compared to those stored in the backup.</p> 
-policies[].<br>settings.<br>quiesceSnapshottingEnabled | **boolean** (boolean)<br><p>If true, a quiesced snapshot of the virtual machine will be taken.</p> 
-policies[].<br>folderId | **string**<br><p>ID of the folder that the policy belongs to.</p> 
+#|
+||Field | Description ||
+|| policies[] | **[Policy](#yandex.cloud.backup.v1.Policy)** ||
+|#
+
+## Policy {#yandex.cloud.backup.v1.Policy}
+
+#|
+||Field | Description ||
+|| id | **string**
+
+Required field. Policy ID. ||
+|| name | **string**
+
+Required field. Policy name. ||
+|| createdAt | **string** (date-time)
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| updatedAt | **string** (date-time)
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| enabled | **boolean**
+
+If this field is true, it means that the policy is enabled. ||
+|| settings | **[PolicySettings](#yandex.cloud.backup.v1.PolicySettings)**
+
+Set of policy settings ||
+|| folderId | **string**
+
+ID of the folder that the policy belongs to. ||
+|#
+
+## PolicySettings {#yandex.cloud.backup.v1.PolicySettings}
+
+Set of policy settings
+
+#|
+||Field | Description ||
+|| compression | **enum** (Compression)
+
+Required field. Archive compression level.
+
+- `COMPRESSION_UNSPECIFIED`
+- `NORMAL`
+- `HIGH`
+- `MAX`
+- `OFF` ||
+|| format | **enum** (Format)
+
+Required field. Format of the Acronis backup archive.
+
+- `FORMAT_UNSPECIFIED`
+- `VERSION_11`: A legacy backup format used in older versions. It's not recommended to use.
+- `VERSION_12`: A new format recommended in most cases for fast backup and recovery.
+- `AUTO`: Automatic version selection. Will be used version 12 unless the protection
+plan (policy) appends backups to the ones created by earlier product
+versions. ||
+|| multiVolumeSnapshottingEnabled | **boolean**
+
+If true, snapshots of multiple volumes will be taken simultaneously. ||
+|| preserveFileSecuritySettings | **boolean**
+
+If true, the file security settings will be preserved. ||
+|| reattempts | **[RetriesConfiguration](#yandex.cloud.backup.v1.PolicySettings.RetriesConfiguration)**
+
+Required field. Configuration of retries on recoverable errors during the backup operations like reconnection to destination. No attempts to fix recoverable errors will be made if retry configuration is not set. ||
+|| silentModeEnabled | **boolean**
+
+If true, a user interaction will be avoided when possible. Equals to false if value is not specified. ||
+|| splitting | **[Splitting](#yandex.cloud.backup.v1.PolicySettings.Splitting)**
+
+Required field. Determines the size to split backups on. Splitting is not performed if value is not specified. ||
+|| vmSnapshotReattempts | **[RetriesConfiguration](#yandex.cloud.backup.v1.PolicySettings.RetriesConfiguration)**
+
+Required field. Configuration of retries on errors during the creation of the virtual machine snapshot. No attempts to fix recoverable errors will be made if retry configuration is not set. ||
+|| vss | **[VolumeShadowCopyServiceSettings](#yandex.cloud.backup.v1.PolicySettings.VolumeShadowCopyServiceSettings)**
+
+Required field. Settings for the Volume Shadow Copy Service (VSS) provider. If not set, no VSS provider is used. ||
+|| archive | **[ArchiveProperties](#yandex.cloud.backup.v1.PolicySettings.ArchiveProperties)**
+
+The archive properties. ||
+|| performanceWindow | **[PerformanceWindow](#yandex.cloud.backup.v1.PolicySettings.PerformanceWindow)**
+
+Required field. Time windows for performance limitations of backup and storage maintenance operations. ||
+|| retention | **[Retention](#yandex.cloud.backup.v1.PolicySettings.Retention)**
+
+Required field. Configuration of backup retention rules. ||
+|| scheduling | **[Scheduling](#yandex.cloud.backup.v1.PolicySettings.Scheduling)**
+
+Required field. Configuration of the backup schedule. ||
+|| cbt | **enum** (ChangedBlockTracking)
+
+Required field. A configuration of Changed Block Tracking (CBT).
+
+- `CHANGED_BLOCK_TRACKING_UNSPECIFIED`
+- `USE_IF_ENABLED`
+- `ENABLE_AND_USE`
+- `DO_NOT_USE` ||
+|| fastBackupEnabled | **boolean**
+
+If true, determines whether a file has changed by the file size and timestamp. Otherwise, the entire file contents are compared to those stored in the backup. ||
+|| quiesceSnapshottingEnabled | **boolean**
+
+If true, a quiesced snapshot of the virtual machine will be taken. ||
+|#
+
+## RetriesConfiguration {#yandex.cloud.backup.v1.PolicySettings.RetriesConfiguration}
+
+#|
+||Field | Description ||
+|| enabled | **boolean**
+
+If true, enables retry on errors. ||
+|| interval | **[Interval](#yandex.cloud.backup.v1.PolicySettings.Interval)**
+
+Required field. An interval between retry attempts. ||
+|| maxAttempts | **string** (int64)
+
+Max number of retry attempts. Operation will be considered as failed
+when max number of retry attempts is reached. ||
+|#
+
+## Interval {#yandex.cloud.backup.v1.PolicySettings.Interval}
+
+#|
+||Field | Description ||
+|| type | **enum** (Type)
+
+Required field. A type of the interval.
+
+- `TYPE_UNSPECIFIED`
+- `SECONDS`
+- `MINUTES`
+- `HOURS`
+- `DAYS`
+- `WEEKS`
+- `MONTHS` ||
+|| count | **string** (int64)
+
+The amount of value specified in `Interval.Type`. ||
+|#
+
+## Splitting {#yandex.cloud.backup.v1.PolicySettings.Splitting}
+
+#|
+||Field | Description ||
+|| size | **string** (int64)
+
+The size of split backup file in bytes. ||
+|#
+
+## VolumeShadowCopyServiceSettings {#yandex.cloud.backup.v1.PolicySettings.VolumeShadowCopyServiceSettings}
+
+Settings for Volume Shadow Copy Services which allows to notify
+VSS-aware applications that backup is about to start. This will
+ensure the consistent state of all data used by the applications.
+
+#|
+||Field | Description ||
+|| enabled | **boolean**
+
+If true, the VSS will be enabled. ||
+|| provider | **enum** (VSSProvider)
+
+Required field. A type of VSS provider to use in backup.
+
+- `VSS_PROVIDER_UNSPECIFIED`
+- `NATIVE`
+- `TARGET_SYSTEM_DEFINED` ||
+|#
+
+## ArchiveProperties {#yandex.cloud.backup.v1.PolicySettings.ArchiveProperties}
+
+#|
+||Field | Description ||
+|| name | **string**
+
+The name of the generated archive. The name may use the following variables: `[Machine Name]`, `[Plan ID]`, `[Plan Name]`, `[Unique ID]`, `[Virtualization Server Type]`.
+Default value: `[Machine Name]-[Plan ID]-[Unique ID]A`. ||
+|#
+
+## PerformanceWindow {#yandex.cloud.backup.v1.PolicySettings.PerformanceWindow}
+
+#|
+||Field | Description ||
+|| enabled | **boolean**
+
+If true, the time windows will be enabled. ||
+|#
+
+## Retention {#yandex.cloud.backup.v1.PolicySettings.Retention}
+
+#|
+||Field | Description ||
+|| rules[] | **[RetentionRule](#yandex.cloud.backup.v1.PolicySettings.Retention.RetentionRule)**
+
+A list of retention rules. ||
+|| beforeBackup | **boolean**
+
+If true, retention rules will be applied before backup is finished. ||
+|#
+
+## RetentionRule {#yandex.cloud.backup.v1.PolicySettings.Retention.RetentionRule}
+
+#|
+||Field | Description ||
+|| backupSet[] | **enum** (RepeatePeriod)
+
+A list of backup sets where rules are effective.
+
+- `REPEATE_PERIOD_UNSPECIFIED`
+- `HOURLY`
+- `DAILY`
+- `WEEKLY`
+- `MONTHLY` ||
+|| maxAge | **[Interval](#yandex.cloud.backup.v1.PolicySettings.Interval)**
+
+Includes only one of the fields `maxAge`, `maxCount`. ||
+|| maxCount | **string** (int64)
+
+Includes only one of the fields `maxAge`, `maxCount`. ||
+|#
+
+## Scheduling {#yandex.cloud.backup.v1.PolicySettings.Scheduling}
+
+#|
+||Field | Description ||
+|| backupSets[] | **[BackupSet](#yandex.cloud.backup.v1.PolicySettings.Scheduling.BackupSet)**
+
+A list of schedules with backup sets that compose the whole scheme. ||
+|| enabled | **boolean**
+
+If true, the backup schedule will be enabled. ||
+|| maxParallelBackups | **string** (int64)
+
+Max number of backup processes allowed to run in parallel. Unlimited if not set. ||
+|| randMaxDelay | **[Interval](#yandex.cloud.backup.v1.PolicySettings.Interval)**
+
+Required field. Configuration of the random delay between the execution of parallel tasks. ||
+|| scheme | **enum** (Scheme)
+
+Required field. A backup scheme. Available values: `simple`, `always_full`, `always_incremental`, `weekly_incremental`, `weekly_full_daily_incremental`, `custom`, `cdp`.
+
+- `SCHEME_UNSPECIFIED`
+- `SIMPLE`
+- `ALWAYS_FULL`
+- `ALWAYS_INCREMENTAL`
+- `WEEKLY_INCREMENTAL`
+- `WEEKLY_FULL_DAILY_INCREMENTAL`
+- `CUSTOM`: Custom will require to specify schedules for full, differential
+and incremental backups additionally.
+- `CDP` ||
+|| weeklyBackupDay | **enum** (Day)
+
+Required field. A day of week to start weekly backups.
+
+- `DAY_UNSPECIFIED`
+- `MONDAY`
+- `TUESDAY`
+- `WEDNESDAY`
+- `THURSDAY`
+- `FRIDAY`
+- `SATURDAY`
+- `SUNDAY` ||
+|#
+
+## BackupSet {#yandex.cloud.backup.v1.PolicySettings.Scheduling.BackupSet}
+
+#|
+||Field | Description ||
+|| time | **[Time](#yandex.cloud.backup.v1.PolicySettings.Scheduling.BackupSet.Time)**
+
+Includes only one of the fields `time`, `sinceLastExecTime`. ||
+|| sinceLastExecTime | **[SinceLastExecTime](#yandex.cloud.backup.v1.PolicySettings.Scheduling.BackupSet.SinceLastExecTime)**
+
+Includes only one of the fields `time`, `sinceLastExecTime`. ||
+|| type | **enum** (Type)
+
+BackupSet type -- one of incr, full, differential or auto.
+if custom scheme is used the BackupSet type should be specified
+
+- `TYPE_UNSPECIFIED`
+- `TYPE_AUTO`
+- `TYPE_FULL`
+- `TYPE_INCREMENTAL`
+- `TYPE_DIFFERENTIAL` ||
+|#
+
+## Time {#yandex.cloud.backup.v1.PolicySettings.Scheduling.BackupSet.Time}
+
+#|
+||Field | Description ||
+|| weekdays[] | **enum** (Day)
+
+Days in a week to perform a backup.
+
+- `DAY_UNSPECIFIED`
+- `MONDAY`
+- `TUESDAY`
+- `WEDNESDAY`
+- `THURSDAY`
+- `FRIDAY`
+- `SATURDAY`
+- `SUNDAY` ||
+|| repeatAt[] | **[TimeOfDay](#yandex.cloud.backup.v1.PolicySettings.TimeOfDay)**
+
+Time to repeat the backup. ||
+|| repeatEvery | **[Interval](#yandex.cloud.backup.v1.PolicySettings.Interval)**
+
+Frequency of backup repetition. ||
+|| timeFrom | **[TimeOfDay](#yandex.cloud.backup.v1.PolicySettings.TimeOfDay)**
+
+The start time of the backup time interval. ||
+|| timeTo | **[TimeOfDay](#yandex.cloud.backup.v1.PolicySettings.TimeOfDay)**
+
+The end time of the backup time interval. ||
+|| monthdays[] | **string** (int64)
+
+Days in a month to perform a backup.
+Allowed values are from 1 to 31. ||
+|| includeLastDayOfMonth | **boolean**
+
+If set to true, last day of month will activate
+the policy. ||
+|| months[] | **string** (int64)
+
+Set of values. Allowed values form 1 to 12. ||
+|| type | **enum** (RepeatePeriod)
+
+Required field. Possible types: `REPEATE_PERIOD_UNSPECIFIED`, `HOURLY`, `DAILY`, `WEEKLY`, `MONTHLY`.
+
+- `REPEATE_PERIOD_UNSPECIFIED`
+- `HOURLY`
+- `DAILY`
+- `WEEKLY`
+- `MONTHLY` ||
+|#
+
+## TimeOfDay {#yandex.cloud.backup.v1.PolicySettings.TimeOfDay}
+
+#|
+||Field | Description ||
+|| hour | **string** (int64)
+
+Hours. ||
+|| minute | **string** (int64)
+
+Minutes. ||
+|#
+
+## SinceLastExecTime {#yandex.cloud.backup.v1.PolicySettings.Scheduling.BackupSet.SinceLastExecTime}
+
+#|
+||Field | Description ||
+|| delay | **[Interval](#yandex.cloud.backup.v1.PolicySettings.Interval)**
+
+Required field. The interval between backups. ||
+|#

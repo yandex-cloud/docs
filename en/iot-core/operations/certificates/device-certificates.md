@@ -133,7 +133,7 @@ To access a [device](../../concepts/index.md#device), use its unique ID or name.
 
 - API {#api}
 
-  To add a certificate to a device, use the [addCertificate](../../api-ref/Device/addCertificate.md) REST API method for the [Device](../../api-ref/Device/index.md) resource or the [DeviceService/AddCertificate](../../api-ref/grpc/device_service.md#AddCertificate) gRPC API call.
+  To add a certificate to a device, use the [addCertificate](../../api-ref/Device/addCertificate.md) REST API method for the [Device](../../api-ref/Device/index.md) resource or the [DeviceService/AddCertificate](../../api-ref/grpc/Device/addCertificate.md) gRPC API call.
 
 {% endlist %}
 
@@ -241,6 +241,6 @@ To access a [device](../../concepts/index.md#device), use its unique ID or name.
 
 - API {#api}
 
-  To delete a device certificate, use the [deleteCertificate](../../api-ref/Device/deleteCertificate.md) REST API method for the [Device](../../api-ref/Device/index.md) resource or the [DeviceService/DeleteCertificate](../../api-ref/grpc/device_service.md#DeleteCertificate) gRPC API call.
+  To delete a device certificate, use the [deleteCertificate](../../api-ref/Device/deleteCertificate.md) REST API method for the [Device](../../api-ref/Device/index.md) resource or the [DeviceService/DeleteCertificate](../../api-ref/grpc/Device/deleteCertificate.md) gRPC API call.
 
 {% endlist %}

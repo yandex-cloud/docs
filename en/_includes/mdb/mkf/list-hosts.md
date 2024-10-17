@@ -22,7 +22,7 @@
 
 - API {#api}
 
-   To get a list of cluster hosts, use the [listHosts](../../../managed-kafka/api-ref/Cluster/listHosts.md) REST API method for the [Cluster](../../../managed-kafka/api-ref/Cluster/index.md) resource or the [ClusterService/ListHosts](../../../managed-kafka/api-ref/grpc/cluster_service.md#ListHosts) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
+   To get a list of cluster hosts, use the [listHosts](../../../managed-kafka/api-ref/Cluster/listHosts.md) REST API method for the [Cluster](../../../managed-kafka/api-ref/Cluster/index.md) resource or the [ClusterService/ListHosts](../../../managed-kafka/api-ref/grpc/Cluster/listHosts.md) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
    To find out the cluster ID, [get a list of clusters in the folder](../../../managed-kafka/operations/cluster-list.md#list-clusters).
 

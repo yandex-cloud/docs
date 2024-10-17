@@ -27,8 +27,8 @@ description: В разделе представлена история изме�
   * [Ubuntu 20.04 LTS OS Login](/marketplace/products/yc/ubuntu-2004-lts-oslogin)
   * [Ubuntu 18.04 LTS OS Login](/marketplace/products/yc/ubuntu-1804-lts-oslogin)
   * [CentOS 7 OS Login](/marketplace/products/yc/centos-7-oslogin)
-* Добавлены метод REST API [listTasks](./backup/api-ref/Resource/listTasks.md) для ресурса [Resource](./backup/api-ref/Resource/index.md) и вызов gRPC API [ResourceService/ListTasks](./backup/api-ref/grpc/resource_service.md#ListTasks). С их помощью вы можете просматривать действия по резервному копированию подключенных ВМ.
-* В методах REST API для ресурса [Resource](./backup/api-ref/Resource/index.md) и в вызовах gRPC API [ResourceService](./backup/api-ref/grpc/resource_service.md) добавлены параметры:
+* Добавлены метод REST API [listTasks](./backup/api-ref/Resource/listTasks.md) для ресурса [Resource](./backup/api-ref/Resource/index.md) и вызов gRPC API [ResourceService/ListTasks](backup/api-ref/grpc/Resource/listTasks.md). С их помощью вы можете просматривать действия по резервному копированию подключенных ВМ.
+* В методах REST API для ресурса [Resource](./backup/api-ref/Resource/index.md) и в вызовах gRPC API [ResourceService](backup/api-ref/grpc/Resource/index.md) добавлены параметры:
   * `initStatus` — статус инициализации ВМ в {{ backup-name }};
   * `metadata` — метаданные для получения подробной информации о процессе регистрации ВМ в {{ backup-name }}.
 * [Аудитные логи](at-ref.md) сервиса дополнены событиями:

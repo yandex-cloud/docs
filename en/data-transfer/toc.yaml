@@ -299,12 +299,46 @@ items:
         items:
           - name: Overview
             href: api-ref/grpc/index.md
-          - name: EndpointService
-            href: api-ref/grpc/endpoint_service.md
-          - name: TransferService
-            href: api-ref/grpc/transfer_service.md
-          - name: OperationService
-            href: api-ref/grpc/operation_service.md
+          - name: Endpoint
+            items:
+              - name: Overview
+                href: api-ref/grpc/Endpoint/index.md
+              - name: Get
+                href: api-ref/grpc/Endpoint/get.md
+              - name: List
+                href: api-ref/grpc/Endpoint/list.md
+              - name: Create
+                href: api-ref/grpc/Endpoint/create.md
+              - name: Update
+                href: api-ref/grpc/Endpoint/update.md
+              - name: Delete
+                href: api-ref/grpc/Endpoint/delete.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/grpc/Operation/index.md
+              - name: Get
+                href: api-ref/grpc/Operation/get.md
+              - name: Cancel
+                href: api-ref/grpc/Operation/cancel.md
+          - name: Transfer
+            items:
+              - name: Overview
+                href: api-ref/grpc/Transfer/index.md
+              - name: Create
+                href: api-ref/grpc/Transfer/create.md
+              - name: Update
+                href: api-ref/grpc/Transfer/update.md
+              - name: Delete
+                href: api-ref/grpc/Transfer/delete.md
+              - name: List
+                href: api-ref/grpc/Transfer/list.md
+              - name: Get
+                href: api-ref/grpc/Transfer/get.md
+              - name: Deactivate
+                href: api-ref/grpc/Transfer/deactivate.md
+              - name: Activate
+                href: api-ref/grpc/Transfer/activate.md
       - name: REST
         items:
           - name: Overview
@@ -313,40 +347,42 @@ items:
             items:
               - name: Overview
                 href: api-ref/Endpoint/index.md
-              - name: create
-                href: api-ref/Endpoint/create.md
-              - name: delete
-                href: api-ref/Endpoint/delete.md
-              - name: get
+              - name: Get
                 href: api-ref/Endpoint/get.md
-              - name: list
+              - name: List
                 href: api-ref/Endpoint/list.md
-              - name: update
+              - name: Create
+                href: api-ref/Endpoint/create.md
+              - name: Update
                 href: api-ref/Endpoint/update.md
-          - name: Transfer
-            items:
-              - name: Overview
-                href: api-ref/Transfer/index.md
-              - name: activate
-                href: api-ref/Transfer/activate.md
-              - name: create
-                href: api-ref/Transfer/create.md
-              - name: deactivate
-                href: api-ref/Transfer/deactivate.md
-              - name: delete
-                href: api-ref/Transfer/delete.md
-              - name: get
-                href: api-ref/Transfer/get.md
-              - name: list
-                href: api-ref/Transfer/list.md
-              - name: update
-                href: api-ref/Transfer/update.md
+              - name: Delete
+                href: api-ref/Endpoint/delete.md
           - name: Operation
             items:
               - name: Overview
                 href: api-ref/Operation/index.md
-              - name: get
+              - name: Get
                 href: api-ref/Operation/get.md
+              - name: Cancel
+                href: api-ref/Operation/cancel.md
+          - name: Transfer
+            items:
+              - name: Overview
+                href: api-ref/Transfer/index.md
+              - name: Create
+                href: api-ref/Transfer/create.md
+              - name: Update
+                href: api-ref/Transfer/update.md
+              - name: Delete
+                href: api-ref/Transfer/delete.md
+              - name: List
+                href: api-ref/Transfer/list.md
+              - name: Get
+                href: api-ref/Transfer/get.md
+              - name: Deactivate
+                href: api-ref/Transfer/deactivate.md
+              - name: Activate
+                href: api-ref/Transfer/activate.md
   - name: '{{ monitoring-name }} metrics'
     href: metrics.md
   - name: '{{ at-name }} events'

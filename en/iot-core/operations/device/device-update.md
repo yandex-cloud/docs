@@ -96,7 +96,7 @@ To access a device, use its unique ID or name. For information about how to get 
 
 - API {#api}
 
-  To rename a device, use the [update](../../api-ref/Device/update.md) REST API method for the [Device](../../api-ref/Device/index.md) resource or the [DeviceService/Update](../../api-ref/grpc/device_service.md#Update) gRPC API call.
+  To rename a device, use the [update](../../api-ref/Device/update.md) REST API method for the [Device](../../api-ref/Device/index.md) resource or the [DeviceService/Update](../../api-ref/grpc/Device/update.md) gRPC API call.
 
 {% endlist %}
 
@@ -194,6 +194,6 @@ To access a device, use its unique ID or name. For information about how to get 
 
 - API {#api}
 
-  To update a device description, use the [update](../../api-ref/Device/update.md) REST API method for the [Device](../../api-ref/Device/index.md) resource or the [DeviceService/Update](../../api-ref/grpc/device_service.md#Update) gRPC API call.
+  To update a device description, use the [update](../../api-ref/Device/update.md) REST API method for the [Device](../../api-ref/Device/index.md) resource or the [DeviceService/Update](../../api-ref/grpc/Device/update.md) gRPC API call.
 
 {% endlist %}

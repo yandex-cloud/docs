@@ -394,7 +394,7 @@ To set up log transfer:
 
 - API {#api}
 
-    To view log group records, use the [LogReadingService/Read](../../logging/api-ref/grpc/log_reading_service.md#Read) gRPC API call.
+    To view log group records, use the [LogReadingService/Read](../../logging/api-ref/grpc/LogReading/read.md) gRPC API call.
 
 {% endlist %}
 

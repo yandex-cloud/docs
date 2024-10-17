@@ -94,6 +94,6 @@
       }
       ```
 
-     Информацию о сервисных аккаунтах в каталоге можно также получить с помощью вызова gRPC API [ServiceAccountService/List](../../api-ref/grpc/service_account_service.md#List).
+     Информацию о сервисных аккаунтах в каталоге можно также получить с помощью вызова gRPC API [ServiceAccountService/List](../../api-ref/grpc/ServiceAccount/list.md).
 
 {% endlist %}

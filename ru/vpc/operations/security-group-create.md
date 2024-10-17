@@ -164,7 +164,7 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [create](../api-ref/SecurityGroup/create.md) для ресурса [SecurityGroup](../api-ref/SecurityGroup/index.md) или вызовом gRPC API [SecurityGroupService/Create](../api-ref/grpc/security_group_service.md#Create) и передайте в запросе:
+  Воспользуйтесь методом REST API [create](../api-ref/SecurityGroup/create.md) для ресурса [SecurityGroup](../api-ref/SecurityGroup/index.md) или вызовом gRPC API [SecurityGroupService/Create](../api-ref/grpc/SecurityGroup/create.md) и передайте в запросе:
 
   * Идентификатор каталога, в котором будет размещена группа безопасности, в параметре `folderId`.
   * Идентификатор сети, в которой будет размещена группа безопасности, в параметре `networkId`.

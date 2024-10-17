@@ -42,7 +42,7 @@ To link a service account to a VM, you must have permission to use this account.
 
 - API {#api}
 
-   Use the [update](../../api-ref/Instance/update.md) REST API method for the [Instance](../../api-ref/Instance/) resource or the [InstanceService/Update](../../api-ref/grpc/instance_service.md#Update) gRPC API call. Specify the service account ID in your request.
+   Use the [update](../../api-ref/Instance/update.md) REST API method for the [Instance](../../api-ref/Instance/) resource or the [InstanceService/Update](../../api-ref/grpc/Instance/update.md) gRPC API call. Specify the service account ID in your request.
 
 {% endlist %}
 
@@ -76,7 +76,7 @@ To link a service account to a VM, you must have permission to use this account.
 
 - API {#api}
 
-   Use the [create](../../api-ref/Instance/create.md) REST API method for the [Instance](../../api-ref/Instance/) resource or the [InstanceService/Create](../../api-ref/grpc/instance_service.md#Create) gRPC API call. Specify the service account ID in your request.
+   Use the [create](../../api-ref/Instance/create.md) REST API method for the [Instance](../../api-ref/Instance/) resource or the [InstanceService/Create](../../api-ref/grpc/Instance/create.md) gRPC API call. Specify the service account ID in your request.
 
 {% endlist %}
 

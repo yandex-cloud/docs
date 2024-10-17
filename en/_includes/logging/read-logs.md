@@ -68,7 +68,7 @@ The log time is [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time).
 
 - API {#api}
 
-    To view log group records, use the [LogReadingService/Read](../../logging/api-ref/grpc/log_reading_service.md#Read) gRPC API call.
+    To view log group records, use the [LogReadingService/Read](../../logging/api-ref/grpc/LogReading/read.md) gRPC API call.
 
 - SDK {#sdk}
 

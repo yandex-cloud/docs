@@ -96,7 +96,7 @@ The list, structure, and descriptions of specification fields are provided:
 
 * In the specification of the [CreateInstanceGroupRequest](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/compute/v1/instancegroup/instance_group_service.proto#L219) structure and other [structures used in it](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/compute/v1/instancegroup/instance_group.proto), in the API repository on GitHub ([Protobuf](https://en.wikipedia.org/wiki/Protocol_Buffers) format).
 * In the description of the [create](../../api-ref/InstanceGroup/create) REST API method of the `InstanceGroup` resource ([JSON](https://en.wikipedia.org/wiki/JSON) format).
-* In the description of the [InstanceGroupService/Create](../../api-ref/grpc/instance_group_service.md#Create) gRPC API call.
+* In the description of the [InstanceGroupService/Create](../../instancegroup/api-ref/grpc/InstanceGroup/create.md) gRPC API call.
 
 API references are generated from specifications published on GitHub.
 

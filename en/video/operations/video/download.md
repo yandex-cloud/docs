@@ -15,6 +15,6 @@ description: Follow this guide to download videos from {{ video-full-name }}.
 
 - API {#api}
 
-   Use the [VideoService/Get](../../api-ref/grpc/video_service.md#Get) gRPC API call.
+   Use the [VideoService/Get](../../api-ref/grpc/Video/get.md) gRPC API call.
 
 {% endlist %}

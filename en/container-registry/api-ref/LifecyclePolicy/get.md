@@ -3,26 +3,32 @@ editable: false
 sourcePath: en/_api-ref/containerregistry/v1/api-ref/LifecyclePolicy/get.md
 ---
 
-# Container Registry API, REST: LifecyclePolicy.get
+# Container Registry API, REST: LifecyclePolicy.Get {#Get}
+
 Returns the specified lifecycle policy.
- 
-To get the list of all available lifecycle policies, make a [list](/docs/container-registry/api-ref/LifecyclePolicy/list) request.
- 
-## HTTP request {#https-request}
+
+To get the list of all available lifecycle policies, make a [List](/docs/container-registry/api-ref/LifecyclePolicy/list#List) request.
+
+## HTTP request
+
 ```
 GET https://container-registry.{{ api-host }}/container-registry/v1/lifecyclePolicies/{lifecyclePolicyId}
 ```
- 
-## Path parameters {#path_params}
- 
-Parameter | Description
---- | ---
-lifecyclePolicyId | <p>Required. ID of the lifecycle policy.</p> <p>The maximum string length in characters is 50.</p> 
- 
-## Response {#responses}
+
+## Path parameters
+
+#|
+||Field | Description ||
+|| lifecyclePolicyId | **string**
+
+Required field. ID of the lifecycle policy. ||
+|#
+
+## Response {#yandex.cloud.containerregistry.v1.LifecyclePolicy}
+
 **HTTP Code: 200 - OK**
 
-```json 
+```json
 {
   "id": "string",
   "name": "string",
@@ -35,25 +41,70 @@ lifecyclePolicyId | <p>Required. ID of the lifecycle policy.</p> <p>The maximum 
       "description": "string",
       "expirePeriod": "string",
       "tagRegexp": "string",
-      "untagged": true,
+      "untagged": "boolean",
       "retainedTop": "string"
     }
   ]
 }
 ```
 
- 
-Field | Description
---- | ---
-id | **string**<br><p>ID of the lifecycle policy.</p> 
-name | **string**<br><p>Name of the lifecycle policy.</p> 
-repositoryId | **string**<br><p>ID of the repository that the lifecycle policy belongs to. Required. The maximum string length in characters is 50.</p> 
-description | **string**<br><p>Description of the lifecycle policy. The maximum string length in characters is 256.</p> 
-status | **string**<br><p>Status of lifecycle policy.</p> <ul> <li>ACTIVE: Policy is active and regularly deletes Docker images according to the established rules.</li> <li>DISABLED: Policy is disabled and does not delete Docker images in the repository. Policies in this status can be used for preparing and testing rules.</li> </ul> 
-createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
-rules[] | **object**<br><p>The rules of lifecycle policy.</p> 
-rules[].<br>description | **string**<br><p>Description of the lifecycle policy rule.</p> <p>The maximum string length in characters is 256.</p> 
-rules[].<br>expirePeriod | **string**<br><p>Period of time for automatic deletion. Period must be a multiple of 24 hours.</p> <p>The minimum value is 86400 seconds.</p> 
-rules[].<br>tagRegexp | **string**<br><p>Tag for specifying a filter in the form of a regular expression.</p> <p>The maximum string length in characters is 256.</p> 
-rules[].<br>untagged | **boolean** (boolean)<br><p>Tag for applying the rule to Docker images without tags.</p> 
-rules[].<br>retainedTop | **string** (int64)<br><p>Number of Docker images (falling under the specified filter by tags) that must be left, even if the expire_period has already expired.</p> <p>The minimum value is 0.</p> 
+#|
+||Field | Description ||
+|| id | **string**
+
+ID of the lifecycle policy. ||
+|| name | **string**
+
+Name of the lifecycle policy. ||
+|| repositoryId | **string**
+
+ID of the repository that the lifecycle policy belongs to.
+Required. The maximum string length in characters is 50. ||
+|| description | **string**
+
+Description of the lifecycle policy.
+The maximum string length in characters is 256. ||
+|| status | **enum** (Status)
+
+Status of lifecycle policy.
+
+- `STATUS_UNSPECIFIED`
+- `ACTIVE`: Policy is active and regularly deletes Docker images according to the established rules.
+- `DISABLED`: Policy is disabled and does not delete Docker images in the repository.
+Policies in this status can be used for preparing and testing rules. ||
+|| createdAt | **string** (date-time)
+
+Creation timestamp.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| rules[] | **[LifecycleRule](#yandex.cloud.containerregistry.v1.LifecycleRule)**
+
+The rules of lifecycle policy. ||
+|#
+
+## LifecycleRule {#yandex.cloud.containerregistry.v1.LifecycleRule}
+
+#|
+||Field | Description ||
+|| description | **string**
+
+Description of the lifecycle policy rule. ||
+|| expirePeriod | **string** (duration)
+
+Period of time for automatic deletion.
+Period must be a multiple of 24 hours. ||
+|| tagRegexp | **string**
+
+Tag for specifying a filter in the form of a regular expression. ||
+|| untagged | **boolean**
+
+Tag for applying the rule to Docker images without tags. ||
+|| retainedTop | **string** (int64)
+
+Number of Docker images (falling under the specified filter by tags) that must be left, even if the expire_period has already expired. ||
+|#

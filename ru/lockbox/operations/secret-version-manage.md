@@ -76,7 +76,7 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Чтобы создать новую версию секрета, воспользуйтесь методом REST API [addVersion](../api-ref/Secret/addVersion.md) для ресурса [Secret](../api-ref/Secret/index.md) или вызовом gRPC API [SecretService/AddVersion](../api-ref/grpc/secret_service.md#AddVersion).
+  Чтобы создать новую версию секрета, воспользуйтесь методом REST API [addVersion](../api-ref/Secret/addVersion.md) для ресурса [Secret](../api-ref/Secret/index.md) или вызовом gRPC API [SecretService/AddVersion](../api-ref/grpc/Secret/addVersion.md).
 
 {% endlist %}
 
@@ -134,7 +134,7 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Чтобы получить информацию о версии, воспользуйтесь методом REST API [listVersions](../api-ref/Secret/listVersions.md) для ресурса [Secret](../api-ref/Secret/index.md) или вызовом gRPC API [SecretService/ListVersions](../api-ref/grpc/secret_service.md#ListVersions).
+  Чтобы получить информацию о версии, воспользуйтесь методом REST API [listVersions](../api-ref/Secret/listVersions.md) для ресурса [Secret](../api-ref/Secret/index.md) или вызовом gRPC API [SecretService/ListVersions](../api-ref/grpc/Secret/listVersions.md).
 
 {% endlist %}
 
@@ -197,7 +197,7 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Чтобы создать версию на основе существующей, воспользуйтесь методом REST API [addVersion](../api-ref/Secret/addVersion.md) для ресурса [Secret](../api-ref/Secret/index.md) или вызовом gRPC API [SecretService/AddVersion](../api-ref/grpc/secret_service.md#AddVersion).
+  Чтобы создать версию на основе существующей, воспользуйтесь методом REST API [addVersion](../api-ref/Secret/addVersion.md) для ресурса [Secret](../api-ref/Secret/index.md) или вызовом gRPC API [SecretService/AddVersion](../api-ref/grpc/Secret/addVersion.md).
 
 {% endlist %}
 
@@ -216,7 +216,7 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Чтобы изменить текущую версию, воспользуйтесь методом REST API [addVersion](../api-ref/Secret/addVersion.md) для ресурса [Secret](../api-ref/Secret/index.md) или вызовом gRPC API [SecretService/AddVersion](../api-ref/grpc/secret_service.md#AddVersion) с указанием целевой версии.
+  Чтобы изменить текущую версию, воспользуйтесь методом REST API [addVersion](../api-ref/Secret/addVersion.md) для ресурса [Secret](../api-ref/Secret/index.md) или вызовом gRPC API [SecretService/AddVersion](../api-ref/grpc/Secret/addVersion.md) с указанием целевой версии.
 
 {% endlist %}
 
@@ -270,7 +270,7 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Чтобы запланировать удаление версии, воспользуйтесь методом REST API [scheduleVersionDestruction](../api-ref/Secret/addVersion.md) для ресурса [Secret](../api-ref/Secret/index.md) или вызовом gRPC API [SecretService/ScheduleVersionDestruction](../api-ref/grpc/secret_service.md#ScheduleVersionDestruction).
+  Чтобы запланировать удаление версии, воспользуйтесь методом REST API [scheduleVersionDestruction](../api-ref/Secret/addVersion.md) для ресурса [Secret](../api-ref/Secret/index.md) или вызовом gRPC API [SecretService/ScheduleVersionDestruction](../api-ref/grpc/Secret/scheduleVersionDestruction.md).
 
 {% endlist %}
 

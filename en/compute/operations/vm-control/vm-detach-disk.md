@@ -72,6 +72,6 @@ To detach a disk from a VM:
 
 - API {#api}
 
-   Use the [detachDisk](../../api-ref/Instance/detachDisk.md) REST API method for the [Instance](../../api-ref/Instance/) resource or the [InstanceService/DetachDisk](../../api-ref/grpc/instance_service.md#DetachDisk) gRPC API call.
+   Use the [detachDisk](../../api-ref/Instance/detachDisk.md) REST API method for the [Instance](../../api-ref/Instance/) resource or the [InstanceService/DetachDisk](../../api-ref/grpc/Instance/detachDisk.md) gRPC API call.
 
 {% endlist %}

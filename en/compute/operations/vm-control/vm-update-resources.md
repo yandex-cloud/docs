@@ -78,7 +78,7 @@ This section provides guidelines for changing the number and performance of vCPU
 
 - API {#api}
 
-   To change vCPU and RAM of a VM, use the [update](../../api-ref/Instance/update.md) REST API method for the [Instance](../../api-ref/Instance/) resource or the [InstanceService/Update](../../api-ref/grpc/instance_service.md#Update) gRPC API call.
+   To change vCPU and RAM of a VM, use the [update](../../api-ref/Instance/update.md) REST API method for the [Instance](../../api-ref/Instance/) resource or the [InstanceService/Update](../../api-ref/grpc/Instance/update.md) gRPC API call.
 
 {% endlist %}
 
@@ -167,7 +167,7 @@ To add a [GPU](../../concepts/gpus.md) to an existing VM, change the platform an
 
 - API {#api}
 
-   To change a VM's platform and configuration, use the [update](../../api-ref/Instance/update.md) REST API method for the [Instance](../../api-ref/Instance/) resource or the [InstanceService/Update](../../api-ref/grpc/instance_service.md#Update) gRPC API call.
+   To change a VM's platform and configuration, use the [update](../../api-ref/Instance/update.md) REST API method for the [Instance](../../api-ref/Instance/) resource or the [InstanceService/Update](../../api-ref/grpc/Instance/update.md) gRPC API call.
 
 {% endlist %}
 
@@ -239,7 +239,7 @@ To add a [GPU](../../concepts/gpus.md) to an existing VM, change the platform an
 
 - API {#api}
 
-   To change the number of GPUs, use the [update](../../api-ref/Instance/update.md) REST API method for the [Instance](../../api-ref/Instance/) resource or the [InstanceService/Update](../../api-ref/grpc/instance_service.md#Update) gRPC API call.
+   To change the number of GPUs, use the [update](../../api-ref/Instance/update.md) REST API method for the [Instance](../../api-ref/Instance/) resource or the [InstanceService/Update](../../api-ref/grpc/Instance/update.md) gRPC API call.
 
 {% endlist %}
 

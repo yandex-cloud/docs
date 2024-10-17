@@ -95,7 +95,7 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [prefetch](../../api-ref/Cache/prefetch.md) для ресурса [Cache](../../api-ref/Cache/index.md) или вызовом gRPC API [CacheService/Prefetch](../../api-ref/grpc/cache_service.md#Prefetch).
+  Воспользуйтесь методом REST API [prefetch](../../api-ref/Cache/prefetch.md) для ресурса [Cache](../../api-ref/Cache/index.md) или вызовом gRPC API [CacheService/Prefetch](../../api-ref/grpc/Cache/prefetch.md).
 
 {% endlist %}
   

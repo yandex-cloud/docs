@@ -97,7 +97,7 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Чтобы подключить целевую группу к сетевому балансировщику, воспользуйтесь методом REST API [attachTargetGroup](../api-ref/NetworkLoadBalancer/attachTargetGroup.md) для ресурса [NetworkLoadBalancer](../api-ref/NetworkLoadBalancer/index.md) или вызовом gRPC API [NetworkLoadBalancerService/AttachTargetGroup](../api-ref/grpc/network_load_balancer_service.md#AttachTargetGroup) и передайте в запросе:
+  Чтобы подключить целевую группу к сетевому балансировщику, воспользуйтесь методом REST API [attachTargetGroup](../api-ref/NetworkLoadBalancer/attachTargetGroup.md) для ресурса [NetworkLoadBalancer](../api-ref/NetworkLoadBalancer/index.md) или вызовом gRPC API [NetworkLoadBalancerService/AttachTargetGroup](../api-ref/grpc/NetworkLoadBalancer/attachTargetGroup.md) и передайте в запросе:
 
   * Идентификатор балансировщика в параметре `networkLoadBalancerId`.
   * Идентификатор целевой группы в параметре `attachedTargetGroup.targetGroupId`.

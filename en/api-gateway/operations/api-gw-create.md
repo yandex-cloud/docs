@@ -92,7 +92,7 @@ paths:
 
 - API {#api}
 
-   To create an [API gateway](../concepts/index.md), use the [create](../apigateway/api-ref/ApiGateway/create.md) REST API method for the [ApiGateway](../apigateway/api-ref/ApiGateway/index.md) resource or the [ApiGatewayService/Create](../apigateway/api-ref/grpc/apigateway_service.md#Create) gRPC API call.
+   To create an [API gateway](../concepts/index.md), use the [create](../apigateway/api-ref/ApiGateway/create.md) REST API method for the [ApiGateway](../apigateway/api-ref/ApiGateway/index.md) resource or the [ApiGatewayService/Create](../apigateway/api-ref/grpc/ApiGateway/create.md) gRPC API call.
 
 - {{ yandex-cloud }} Toolkit {#yc-toolkit}
 

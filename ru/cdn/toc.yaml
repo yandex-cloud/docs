@@ -131,22 +131,100 @@ items:
         items:
           - name: Overview
             href: api-ref/grpc/index.md
-          - name: CacheService
-            href: api-ref/grpc/cache_service.md
-          - name: OriginGroupService
-            href: api-ref/grpc/origin_group_service.md
-          - name: OriginService
-            href: api-ref/grpc/origin_service.md
-          - name: ProviderService
-            href: api-ref/grpc/provider_service.md
-          - name: RawLogsService
-            href: api-ref/grpc/raw_logs_service.md
-          - name: ResourceService
-            href: api-ref/grpc/resource_service.md
-          - name: ResourceRulesService
-            href: api-ref/grpc/rule_service.md
-          - name: OperationService
-            href: api-ref/grpc/operation_service.md
+          - name: Cache
+            items:
+              - name: Overview
+                href: api-ref/grpc/Cache/index.md
+              - name: Purge
+                href: api-ref/grpc/Cache/purge.md
+              - name: Prefetch
+                href: api-ref/grpc/Cache/prefetch.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/grpc/Operation/index.md
+              - name: Get
+                href: api-ref/grpc/Operation/get.md
+              - name: Cancel
+                href: api-ref/grpc/Operation/cancel.md
+          - name: OriginGroup
+            items:
+              - name: Overview
+                href: api-ref/grpc/OriginGroup/index.md
+              - name: Get
+                href: api-ref/grpc/OriginGroup/get.md
+              - name: List
+                href: api-ref/grpc/OriginGroup/list.md
+              - name: Create
+                href: api-ref/grpc/OriginGroup/create.md
+              - name: Update
+                href: api-ref/grpc/OriginGroup/update.md
+              - name: Delete
+                href: api-ref/grpc/OriginGroup/delete.md
+          - name: Origin
+            items:
+              - name: Overview
+                href: api-ref/grpc/Origin/index.md
+              - name: Get
+                href: api-ref/grpc/Origin/get.md
+              - name: List
+                href: api-ref/grpc/Origin/list.md
+              - name: Create
+                href: api-ref/grpc/Origin/create.md
+              - name: Update
+                href: api-ref/grpc/Origin/update.md
+              - name: Delete
+                href: api-ref/grpc/Origin/delete.md
+          - name: Provider
+            items:
+              - name: Overview
+                href: api-ref/grpc/Provider/index.md
+              - name: Activate
+                href: api-ref/grpc/Provider/activate.md
+              - name: ListActivated
+                href: api-ref/grpc/Provider/listActivated.md
+          - name: RawLogs
+            items:
+              - name: Overview
+                href: api-ref/grpc/RawLogs/index.md
+              - name: Activate
+                href: api-ref/grpc/RawLogs/activate.md
+              - name: Deactivate
+                href: api-ref/grpc/RawLogs/deactivate.md
+              - name: Get
+                href: api-ref/grpc/RawLogs/get.md
+              - name: Update
+                href: api-ref/grpc/RawLogs/update.md
+          - name: ResourceRules
+            items:
+              - name: Overview
+                href: api-ref/grpc/ResourceRules/index.md
+              - name: List
+                href: api-ref/grpc/ResourceRules/list.md
+              - name: Create
+                href: api-ref/grpc/ResourceRules/create.md
+              - name: Get
+                href: api-ref/grpc/ResourceRules/get.md
+              - name: Update
+                href: api-ref/grpc/ResourceRules/update.md
+              - name: Delete
+                href: api-ref/grpc/ResourceRules/delete.md
+          - name: Resource
+            items:
+              - name: Overview
+                href: api-ref/grpc/Resource/index.md
+              - name: Get
+                href: api-ref/grpc/Resource/get.md
+              - name: List
+                href: api-ref/grpc/Resource/list.md
+              - name: Create
+                href: api-ref/grpc/Resource/create.md
+              - name: Update
+                href: api-ref/grpc/Resource/update.md
+              - name: Delete
+                href: api-ref/grpc/Resource/delete.md
+              - name: GetProviderCName
+                href: api-ref/grpc/Resource/getProviderCName.md
       - name: REST (англ.)
         items:
           - name: Overview
@@ -155,88 +233,96 @@ items:
             items:
               - name: Overview
                 href: api-ref/Cache/index.md
-              - name: prefetch
-                href: api-ref/Cache/prefetch.md
-              - name: purge
+              - name: Purge
                 href: api-ref/Cache/purge.md
+              - name: Prefetch
+                href: api-ref/Cache/prefetch.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/Operation/index.md
+              - name: Get
+                href: api-ref/Operation/get.md
+              - name: Cancel
+                href: api-ref/Operation/cancel.md
           - name: OriginGroup
             items:
               - name: Overview
                 href: api-ref/OriginGroup/index.md
-              - name: create
-                href: api-ref/OriginGroup/create.md
-              - name: delete
-                href: api-ref/OriginGroup/delete.md
-              - name: get
+              - name: Get
                 href: api-ref/OriginGroup/get.md
-              - name: list
+              - name: List
                 href: api-ref/OriginGroup/list.md
-              - name: update
+              - name: Create
+                href: api-ref/OriginGroup/create.md
+              - name: Update
                 href: api-ref/OriginGroup/update.md
+              - name: Delete
+                href: api-ref/OriginGroup/delete.md
           - name: Origin
             items:
               - name: Overview
                 href: api-ref/Origin/index.md
-              - name: create
-                href: api-ref/Origin/create.md
-              - name: delete
-                href: api-ref/Origin/delete.md
-              - name: get
+              - name: Get
                 href: api-ref/Origin/get.md
-              - name: list
+              - name: List
                 href: api-ref/Origin/list.md
-              - name: update
+              - name: Create
+                href: api-ref/Origin/create.md
+              - name: Update
                 href: api-ref/Origin/update.md
+              - name: Delete
+                href: api-ref/Origin/delete.md
           - name: Provider
             items:
               - name: Overview
                 href: api-ref/Provider/index.md
-              - name: activate
+              - name: Activate
                 href: api-ref/Provider/activate.md
-              - name: listActivated
+              - name: ListActivated
                 href: api-ref/Provider/listActivated.md
           - name: RawLogs
             items:
               - name: Overview
                 href: api-ref/RawLogs/index.md
-              - name: activate
+              - name: Activate
                 href: api-ref/RawLogs/activate.md
-              - name: deactivate
+              - name: Deactivate
                 href: api-ref/RawLogs/deactivate.md
-              - name: get
+              - name: Get
                 href: api-ref/RawLogs/get.md
-              - name: update
+              - name: Update
                 href: api-ref/RawLogs/update.md
-          - name: Resource
-            items:
-              - name: Overview
-                href: api-ref/Resource/index.md
-              - name: create
-                href: api-ref/Resource/create.md
-              - name: delete
-                href: api-ref/Resource/delete.md
-              - name: get
-                href: api-ref/Resource/get.md
-              - name: getProviderCName
-                href: api-ref/Resource/getProviderCName.md
-              - name: list
-                href: api-ref/Resource/list.md
-              - name: update
-                href: api-ref/Resource/update.md
           - name: ResourceRules
             items:
               - name: Overview
                 href: api-ref/ResourceRules/index.md
-              - name: create
-                href: api-ref/ResourceRules/create.md
-              - name: delete
-                href: api-ref/ResourceRules/delete.md
-              - name: get
-                href: api-ref/ResourceRules/get.md
-              - name: list
+              - name: List
                 href: api-ref/ResourceRules/list.md
-              - name: update
+              - name: Create
+                href: api-ref/ResourceRules/create.md
+              - name: Get
+                href: api-ref/ResourceRules/get.md
+              - name: Update
                 href: api-ref/ResourceRules/update.md
+              - name: Delete
+                href: api-ref/ResourceRules/delete.md
+          - name: Resource
+            items:
+              - name: Overview
+                href: api-ref/Resource/index.md
+              - name: Get
+                href: api-ref/Resource/get.md
+              - name: List
+                href: api-ref/Resource/list.md
+              - name: Create
+                href: api-ref/Resource/create.md
+              - name: Update
+                href: api-ref/Resource/update.md
+              - name: Delete
+                href: api-ref/Resource/delete.md
+              - name: GetProviderCName
+                href: api-ref/Resource/getProviderCName.md
   - name: Метрики {{ monitoring-name }}
     href: metrics.md
   - name: Аудитные логи {{ at-name }}

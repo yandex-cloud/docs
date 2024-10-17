@@ -130,7 +130,7 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Чтобы выбрать сертификат из {{ certificate-manager-name }}, воспользуйтесь методом REST API [setHTTPSConfig](../../api-ref/Bucket/setHTTPSConfig.md) для ресурса [Bucket](../../api-ref/Bucket/index.md) или вызовом gRPC API [BucketService/SetHTTPSConfig](../../api-ref/grpc/bucket_service.md#SetHTTPSConfig).
+  Чтобы выбрать сертификат из {{ certificate-manager-name }}, воспользуйтесь методом REST API [setHTTPSConfig](../../api-ref/Bucket/setHTTPSConfig.md) для ресурса [Bucket](../../api-ref/Bucket/index.md) или вызовом gRPC API [BucketService/SetHTTPSConfig](../../api-ref/grpc/Bucket/setHTTPSConfig.md).
 
 {% endlist %}
 
@@ -162,7 +162,7 @@ cat domain.pem intermediate.pem rootca.pem > bundle.pem
 
 - API {#api}
 
-  Чтобы загрузить собственный сертификат безопасности, воспользуйтесь методом REST API [setHTTPSConfig](../../api-ref/Bucket/setHTTPSConfig.md) для ресурса [Bucket](../../api-ref/Bucket/index.md) или вызовом gRPC API [BucketService/SetHTTPSConfig](../../api-ref/grpc/bucket_service.md#SetHTTPSConfig).
+  Чтобы загрузить собственный сертификат безопасности, воспользуйтесь методом REST API [setHTTPSConfig](../../api-ref/Bucket/setHTTPSConfig.md) для ресурса [Bucket](../../api-ref/Bucket/index.md) или вызовом gRPC API [BucketService/SetHTTPSConfig](../../api-ref/grpc/Bucket/setHTTPSConfig.md).
 
 {% endlist %}
 

@@ -3,33 +3,40 @@ editable: false
 sourcePath: en/_api-ref/vpc/v1/api-ref/Subnet/get.md
 ---
 
-# Virtual Private Cloud API, REST: Subnet.get
+# Virtual Private Cloud API, REST: Subnet.Get {#Get}
+
 Returns the specified Subnet resource.
- 
-To get the list of available Subnet resources, make a [list](/docs/vpc/api-ref/Subnet/list) request.
- 
-## HTTP request {#https-request}
+
+To get the list of available Subnet resources, make a [List](/docs/vpc/api-ref/Subnet/list#List) request.
+
+## HTTP request
+
 ```
 GET https://vpc.{{ api-host }}/vpc/v1/subnets/{subnetId}
 ```
- 
-## Path parameters {#path_params}
- 
-Parameter | Description
---- | ---
-subnetId | <p>Required. ID of the Subnet resource to return. To get the subnet ID use a <a href="/docs/vpc/api-ref/Subnet/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
- 
-## Response {#responses}
+
+## Path parameters
+
+#|
+||Field | Description ||
+|| subnetId | **string**
+
+Required field. ID of the Subnet resource to return.
+To get the subnet ID use a [SubnetService.List](/docs/vpc/api-ref/Subnet/list#List) request. ||
+|#
+
+## Response {#yandex.cloud.vpc.v1.Subnet}
+
 **HTTP Code: 200 - OK**
 
-```json 
+```json
 {
   "id": "string",
   "folderId": "string",
   "createdAt": "string",
   "name": "string",
   "description": "string",
-  "labels": "object",
+  "labels": "string",
   "networkId": "string",
   "zoneId": "string",
   "v4CidrBlocks": [
@@ -50,22 +57,78 @@ subnetId | <p>Required. ID of the Subnet resource to return. To get the subnet I
   }
 }
 ```
+
 A Subnet resource. For more information, see [Subnets](/docs/vpc/concepts/network#subnet).
- 
-Field | Description
---- | ---
-id | **string**<br><p>ID of the subnet.</p> 
-folderId | **string**<br><p>ID of the folder that the subnet belongs to.</p> 
-createdAt | **string** (date-time)<br><p>Creation timestamp in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
-name | **string**<br><p>Name of the subnet. The name must be unique within the folder. Value must match the regular expression ``\\|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-9])?``.</p> 
-description | **string**<br><p>Optional description of the subnet. 0-256 characters long.</p> 
-labels | **object**<br><p>Resource labels, ``key:value`` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ``[-_0-9a-z]*``. The string length in characters for each key must be 1-63. Each key must match the regular expression ``[a-z][-_0-9a-z]*``.</p> 
-networkId | **string**<br><p>ID of the network the subnet belongs to.</p> 
-zoneId | **string**<br><p>ID of the availability zone where the subnet resides.</p> 
-v4CidrBlocks[] | **string**<br><p>CIDR block. The range of internal addresses that are defined for this subnet. This field can be set only at Subnet resource creation time and cannot be changed. For example, 10.0.0.0/22 or 192.168.0.0/24. Minimum subnet size is /28, maximum subnet size is /16.</p> 
-v6CidrBlocks[] | **string**<br><p>IPv6 not available yet.</p> 
-routeTableId | **string**<br><p>ID of route table the subnet is linked to.</p> 
-dhcpOptions | **object**<br><p>DHCP options for the subnet.</p> 
-dhcpOptions.<br>domainNameServers[] | **string**<br><p>A list of DHCP servers for this subnet.</p> 
-dhcpOptions.<br>domainName | **string**<br><p>A domain name to us as a suffix when resolving host names in this subnet.</p> 
-dhcpOptions.<br>ntpServers[] | **string**<br><p>List of NTP servers for this subnet.</p> 
+
+#|
+||Field | Description ||
+|| id | **string**
+
+ID of the subnet. ||
+|| folderId | **string**
+
+ID of the folder that the subnet belongs to. ||
+|| createdAt | **string** (date-time)
+
+Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| name | **string**
+
+Name of the subnet.
+The name must be unique within the folder.
+Value must match the regular expression ``\\|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-9])?``. ||
+|| description | **string**
+
+Optional description of the subnet. 0-256 characters long. ||
+|| labels | **string**
+
+Resource labels, `key:value` pairs.
+No more than 64 per resource.
+The maximum string length in characters for each value is 63.
+Each value must match the regular expression `[-_0-9a-z]*`.
+The string length in characters for each key must be 1-63.
+Each key must match the regular expression `[a-z][-_0-9a-z]*`. ||
+|| networkId | **string**
+
+ID of the network the subnet belongs to. ||
+|| zoneId | **string**
+
+ID of the availability zone where the subnet resides. ||
+|| v4CidrBlocks[] | **string**
+
+CIDR block.
+The range of internal addresses that are defined for this subnet.
+This field can be set only at Subnet resource creation time and cannot be changed.
+For example, 10.0.0.0/22 or 192.168.0.0/24.
+Minimum subnet size is /28, maximum subnet size is /16. ||
+|| v6CidrBlocks[] | **string**
+
+IPv6 not available yet. ||
+|| routeTableId | **string**
+
+ID of route table the subnet is linked to. ||
+|| dhcpOptions | **[DhcpOptions](#yandex.cloud.vpc.v1.DhcpOptions)**
+
+DHCP options for the subnet. ||
+|#
+
+## DhcpOptions {#yandex.cloud.vpc.v1.DhcpOptions}
+
+#|
+||Field | Description ||
+|| domainNameServers[] | **string**
+
+A list of DHCP servers for this subnet. ||
+|| domainName | **string**
+
+A domain name to us as a suffix when resolving host names in this subnet. ||
+|| ntpServers[] | **string**
+
+List of NTP servers for this subnet. ||
+|#

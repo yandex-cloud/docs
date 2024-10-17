@@ -57,7 +57,7 @@ Rules for the presentation of normalized text may change. Please consider this d
 ### API v3 {#api-v3}
 
 
-To enable normalization, set the `text_normalization=TEXT_NORMALIZATION_ENABLED` parameter in the [API](../stt-v3/api-ref/grpc/stt_service.md). Some options are activated by additional parameters if you set `text_normalization=TEXT_NORMALIZATION_ENABLED`.
+To enable normalization, set the `text_normalization=TEXT_NORMALIZATION_ENABLED` parameter in the [API](../stt-v3/api-ref/grpc/Recognizer/index.md). Some options are activated by additional parameters if you set `text_normalization=TEXT_NORMALIZATION_ENABLED`.
 
 | Normalization level | API parameter |
 | :----- | :------|

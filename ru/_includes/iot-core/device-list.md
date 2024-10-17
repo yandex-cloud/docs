@@ -37,6 +37,6 @@
 
 - API {#api}
 
-    Чтобы получить список устройств в реестре, воспользуйтесь методом REST API [list](../../iot-core/api-ref/Device/list.md) для ресурса [Device](../../iot-core/api-ref/Device/index.md) или вызовом gRPC API [DeviceService/List](../../iot-core/api-ref/grpc/device_service.md#List).
+    Чтобы получить список устройств в реестре, воспользуйтесь методом REST API [list](../../iot-core/api-ref/Device/list.md) для ресурса [Device](../../iot-core/api-ref/Device/index.md) или вызовом gRPC API [DeviceService/List](../../iot-core/api-ref/grpc/Device/list.md).
 
 {% endlist %}

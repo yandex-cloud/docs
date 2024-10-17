@@ -3,26 +3,32 @@ editable: false
 sourcePath: en/_api-ref/mdb/mysql/v1/api-ref/ResourcePreset/get.md
 ---
 
-# Managed Service for MySQL API, REST: ResourcePreset.get
-Retrieves information about a resource preset.
- 
+# Managed Service for MySQL API, REST: ResourcePreset.Get {#Get}
 
- 
-## HTTP request {#https-request}
+Retrieves information about a resource preset.
+
+## HTTP request
+
 ```
 GET https://{{ api-host-mdb }}/managed-mysql/v1/resourcePresets/{resourcePresetId}
 ```
- 
-## Path parameters {#path_params}
- 
-Parameter | Description
---- | ---
-resourcePresetId | <p>Required. ID of the resource preset to return information about.</p> <p>To get this ID, make a <a href="/docs/managed-mysql/api-ref/ResourcePreset/list">list</a> request.</p> 
- 
-## Response {#responses}
+
+## Path parameters
+
+#|
+||Field | Description ||
+|| resourcePresetId | **string**
+
+Required field. ID of the resource preset to return information about.
+
+To get this ID, make a [ResourcePresetService.List](/docs/managed-mysql/api-ref/ResourcePreset/list#List) request. ||
+|#
+
+## Response {#yandex.cloud.mdb.mysql.v1.ResourcePreset}
+
 **HTTP Code: 200 - OK**
 
-```json 
+```json
 {
   "id": "string",
   "zoneIds": [
@@ -32,14 +38,24 @@ resourcePresetId | <p>Required. ID of the resource preset to return information 
   "memory": "string"
 }
 ```
+
 An object that represents MySQL resource preset.
 A resource preset defines hardware configuration for cluster hosts.
 
 See [the documentation](/docs/managed-mysql/concepts/instance-types) for details.
- 
-Field | Description
---- | ---
-id | **string**<br><p>ID of the resource preset that defines available computational resources (vCPU, RAM, etc.) for a cluster host.</p> 
-zoneIds[] | **string**<br><p>IDs of availability zones where the resource preset is available.</p> 
-cores | **string** (int64)<br><p>Number of CPU cores for a MySQL host created with the preset.</p> 
-memory | **string** (int64)<br><p>RAM volume for a MySQL host created with the preset, in bytes.</p> 
+
+#|
+||Field | Description ||
+|| id | **string**
+
+ID of the resource preset that defines available computational resources (vCPU, RAM, etc.) for a cluster host. ||
+|| zoneIds[] | **string**
+
+IDs of availability zones where the resource preset is available. ||
+|| cores | **string** (int64)
+
+Number of CPU cores for a MySQL host created with the preset. ||
+|| memory | **string** (int64)
+
+RAM volume for a MySQL host created with the preset, in bytes. ||
+|#

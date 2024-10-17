@@ -60,6 +60,22 @@ SELECT * FROM <соединение>.<имя_таблицы>
 
 {% include [!](_includes/predicate_pushdown.md) %}
 
+|Тип данных {{ yq-full-name }}|
+|----|
+|`Bool`|
+|`Int8`|
+|`Uint8`|
+|`Int16`|
+|`Uint16`|
+|`Int32`|
+|`Uint32`|
+|`Int64`|
+|`Uint64`|
+|`Float`|
+|`Double`|
+|`String`|
+|`Utf8`|
+
 ## Поддерживаемые типы данных {#supported_types}
 
 Ниже приведены таблицы соответствия типов данных в {{ ydb-name }} и {{ yq-full-name }}. Типы данных, не указанные в таблицах, не поддерживаются.

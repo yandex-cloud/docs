@@ -97,7 +97,7 @@ description: Follow this guide to add a listener to a network load balancer.
 
 - API {#api}
 
-   To add a listener to the network load balancer, use the [addListener](../api-ref/NetworkLoadBalancer/addListener.md) REST API method for the [NetworkLoadBalancer](../api-ref/NetworkLoadBalancer/index.md) resource or the [NetworkLoadBalancerService/AddListener](../api-ref/grpc/network_load_balancer_service.md#AddListener) gRPC API call.
+   To add a listener to the network load balancer, use the [addListener](../api-ref/NetworkLoadBalancer/addListener.md) REST API method for the [NetworkLoadBalancer](../api-ref/NetworkLoadBalancer/index.md) resource or the [NetworkLoadBalancerService/AddListener](../api-ref/grpc/NetworkLoadBalancer/addListener.md) gRPC API call.
 
 {% endlist %}
 

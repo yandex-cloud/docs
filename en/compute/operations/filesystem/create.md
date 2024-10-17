@@ -132,6 +132,6 @@ To create a file [storage](../../concepts/filesystem.md):
 
 - API {#api}
 
-   Use the [create](../../api-ref/Filesystem/create.md) REST API method for the [Filesystem](../../api-ref/Filesystem/index.md) resource or the [FilesystemService/Create](../../api-ref/grpc/filesystem_service.md#Create) gRPC API call.
+   Use the [create](../../api-ref/Filesystem/create.md) REST API method for the [Filesystem](../../api-ref/Filesystem/index.md) resource or the [FilesystemService/Create](../../api-ref/grpc/Filesystem/create.md) gRPC API call.
 
 {% endlist %}

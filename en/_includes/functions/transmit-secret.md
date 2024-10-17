@@ -121,6 +121,6 @@ A new version of a function is created when secrets are transmitted. You cannot 
 
 - API {#api}
 
-   To transmit a {{ lockbox-name }} secret to a function, use the [createVersion](../../functions/functions/api-ref/Function/createVersion.md) REST API method for the [Function](../../functions/functions/api-ref/Function/index.md) resource or the [FunctionsService/CreateVersion](../../functions/functions/api-ref/grpc/function_service.md#CreateVersion) gRPC API call.
+   To transmit a {{ lockbox-name }} secret to a function, use the [createVersion](../../functions/functions/api-ref/Function/createVersion.md) REST API method for the [Function](../../functions/functions/api-ref/Function/index.md) resource or the [FunctionsService/CreateVersion](../../functions/functions/api-ref/grpc/Function/createVersion.md) gRPC API call.
 
 {% endlist %}

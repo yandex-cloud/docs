@@ -69,8 +69,8 @@ description: Удалить можно только не подключенны�
 
 - API {#api}
 
-  Чтобы удалить диск, воспользуйтесь методом REST API [delete](../../api-ref/Disk/delete.md) для ресурса [Disk](../../api-ref/Disk/index.md) или вызовом gRPC API [DiskService/Delete](../../api-ref/grpc/disk_service.md#Delete).
+  Чтобы удалить диск, воспользуйтесь методом REST API [delete](../../api-ref/Disk/delete.md) для ресурса [Disk](../../api-ref/Disk/index.md) или вызовом gRPC API [DiskService/Delete](../../api-ref/grpc/Disk/delete.md).
 
-  Список доступных дисков запрашивайте методом REST API [list](../../api-ref/Disk/list.md) или вызовом gRPC API [DiskService/List](../../api-ref/grpc/disk_service.md#List).
+  Список доступных дисков запрашивайте методом REST API [list](../../api-ref/Disk/list.md) или вызовом gRPC API [DiskService/List](../../api-ref/grpc/Disk/list.md).
 
 {% endlist %}

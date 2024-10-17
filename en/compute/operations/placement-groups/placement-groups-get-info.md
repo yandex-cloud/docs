@@ -89,6 +89,6 @@ title: How to get information about a placement group in {{ compute-full-name }}
 
 - API {#api}
 
-  To get detailed information about a [placement group](../../concepts/placement-groups.md), use the [get](../../api-ref/PlacementGroup/get.md) REST API method for the [PlacementGroup](../../api-ref/PlacementGroup/index.md) resource or the [PlacementGroupService/Get](../../api-ref/grpc/placement_group_service.md#Get) gRPC API call.
+  To get detailed information about a [placement group](../../concepts/placement-groups.md), use the [get](../../api-ref/PlacementGroup/get.md) REST API method for the [PlacementGroup](../../api-ref/PlacementGroup/index.md) resource or the [PlacementGroupService/Get](../../api-ref/grpc/PlacementGroup/get.md) gRPC API call.
 
 {% endlist %}

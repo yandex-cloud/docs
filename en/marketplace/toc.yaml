@@ -61,20 +61,51 @@ items:
             items:
               - name: Overview
                 href: metering/api-ref/grpc/index.md
-              - name: ImageProductUsageService
-                href: metering/api-ref/grpc/image_product_usage_service.md
+              - name: ImageProductUsage
+                items:
+                  - name: Overview
+                    href: metering/api-ref/grpc/ImageProductUsage/index.md
+                  - name: Write
+                    href: metering/api-ref/grpc/ImageProductUsage/write.md
       - name: License Manager API reference
         items:
           - name: gRPC
             items:
               - name: Overview
                 href: license-manager/api-ref/grpc/index.md
-              - name: InstanceService
-                href: license-manager/api-ref/grpc/instance_service.md
-              - name: LockService
-                href: license-manager/api-ref/grpc/lock_service.md
-              - name: OperationService
-                href: license-manager/api-ref/grpc/operation_service.md
+              - name: Instance
+                items:
+                  - name: Overview
+                    href: license-manager/api-ref/grpc/Instance/index.md
+                  - name: Get
+                    href: license-manager/api-ref/grpc/Instance/get.md
+                  - name: List
+                    href: license-manager/api-ref/grpc/Instance/list.md
+              - name: Lock
+                items:
+                  - name: Overview
+                    href: license-manager/api-ref/grpc/Lock/index.md
+                  - name: Get
+                    href: license-manager/api-ref/grpc/Lock/get.md
+                  - name: GetByInstanceAndResource
+                    href: >-
+                      license-manager/api-ref/grpc/Lock/getByInstanceAndResource.md
+                  - name: List
+                    href: license-manager/api-ref/grpc/Lock/list.md
+                  - name: Create
+                    href: license-manager/api-ref/grpc/Lock/create.md
+                  - name: Ensure
+                    href: license-manager/api-ref/grpc/Lock/ensure.md
+                  - name: Delete
+                    href: license-manager/api-ref/grpc/Lock/delete.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: license-manager/api-ref/grpc/Operation/index.md
+                  - name: Get
+                    href: license-manager/api-ref/grpc/Operation/get.md
+                  - name: Cancel
+                    href: license-manager/api-ref/grpc/Operation/cancel.md
           - name: REST
             items:
               - name: Overview
@@ -83,38 +114,62 @@ items:
                 items:
                   - name: Overview
                     href: license-manager/api-ref/Instance/index.md
-                  - name: get
+                  - name: Get
                     href: license-manager/api-ref/Instance/get.md
-                  - name: list
+                  - name: List
                     href: license-manager/api-ref/Instance/list.md
               - name: Lock
                 items:
                   - name: Overview
                     href: license-manager/api-ref/Lock/index.md
-                  - name: create
-                    href: license-manager/api-ref/Lock/create.md
-                  - name: delete
-                    href: license-manager/api-ref/Lock/delete.md
-                  - name: ensure
-                    href: license-manager/api-ref/Lock/ensure.md
-                  - name: get
+                  - name: Get
                     href: license-manager/api-ref/Lock/get.md
-                  - name: getByInstanceAndResource
+                  - name: GetByInstanceAndResource
                     href: license-manager/api-ref/Lock/getByInstanceAndResource.md
-                  - name: list
+                  - name: List
                     href: license-manager/api-ref/Lock/list.md
+                  - name: Create
+                    href: license-manager/api-ref/Lock/create.md
+                  - name: Ensure
+                    href: license-manager/api-ref/Lock/ensure.md
+                  - name: Delete
+                    href: license-manager/api-ref/Lock/delete.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: license-manager/api-ref/Operation/index.md
+                  - name: Get
+                    href: license-manager/api-ref/Operation/get.md
+                  - name: Cancel
+                    href: license-manager/api-ref/Operation/cancel.md
       - name: License Manager SaaS API reference
         items:
           - name: gRPC
             items:
               - name: Overview
                 href: license-manager/saas/api-ref/grpc/index.md
-              - name: InstanceService
-                href: license-manager/saas/api-ref/grpc/instance_service.md
-              - name: LockService
-                href: license-manager/saas/api-ref/grpc/lock_service.md
-              - name: OperationService
-                href: license-manager/saas/api-ref/grpc/operation_service.md
+              - name: Instance
+                items:
+                  - name: Overview
+                    href: license-manager/saas/api-ref/grpc/Instance/index.md
+                  - name: Get
+                    href: license-manager/saas/api-ref/grpc/Instance/get.md
+              - name: Lock
+                items:
+                  - name: Overview
+                    href: license-manager/saas/api-ref/grpc/Lock/index.md
+                  - name: Ensure
+                    href: license-manager/saas/api-ref/grpc/Lock/ensure.md
+                  - name: Get
+                    href: license-manager/saas/api-ref/grpc/Lock/get.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: license-manager/saas/api-ref/grpc/Operation/index.md
+                  - name: Get
+                    href: license-manager/saas/api-ref/grpc/Operation/get.md
+                  - name: Cancel
+                    href: license-manager/saas/api-ref/grpc/Operation/cancel.md
           - name: REST
             items:
               - name: Overview
@@ -123,16 +178,24 @@ items:
                 items:
                   - name: Overview
                     href: license-manager/saas/api-ref/Instance/index.md
-                  - name: get
+                  - name: Get
                     href: license-manager/saas/api-ref/Instance/get.md
               - name: Lock
                 items:
                   - name: Overview
                     href: license-manager/saas/api-ref/Lock/index.md
-                  - name: ensure
+                  - name: Ensure
                     href: license-manager/saas/api-ref/Lock/ensure.md
-                  - name: get
+                  - name: Get
                     href: license-manager/saas/api-ref/Lock/get.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: license-manager/saas/api-ref/Operation/index.md
+                  - name: Get
+                    href: license-manager/saas/api-ref/Operation/get.md
+                  - name: Cancel
+                    href: license-manager/saas/api-ref/Operation/cancel.md
   - name: Users
     expanded: true
     items:

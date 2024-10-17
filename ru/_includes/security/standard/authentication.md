@@ -341,7 +341,7 @@
 
 Сервис метаданных Google Compute Engine использует дополнительный заголовок для защиты от SSRF и повышения безопасности.
 
-Отключить получение токена сервисного аккаунта через Amazon EC2 сервис метаданных можно с помощью параметра ВМ [aws_v1_http_token:DISABLED](../../../compute/api-ref/grpc/instance_service.md#MetadataOptions).
+Отключить получение токена сервисного аккаунта через Amazon EC2 сервис метаданных можно с помощью параметра ВМ [aws_v1_http_token:DISABLED](../../../compute/api-ref/grpc/Instance/create.md#yandex.cloud.compute.v1.MetadataOptions).
 
 {% list tabs group=instructions %}
 
@@ -371,7 +371,7 @@
 
 **Инструкции и решения по выполнению:**
 
-В блоке metadata_options задайте параметру [aws_v1_http_token](../../../compute/api-ref/grpc/instance_service.md#MetadataOptions) значение `DISABLED` у найденных ВМ:
+В блоке metadata_options задайте параметру [aws_v1_http_token](../../../compute/api-ref/grpc/Instance/create.md#yandex.cloud.compute.v1.MetadataOptions) значение `DISABLED` у найденных ВМ:
 
 ```bash
 yc compute instance update <ID_виртуальной_машины> \

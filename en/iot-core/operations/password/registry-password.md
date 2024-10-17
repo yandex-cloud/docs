@@ -128,7 +128,7 @@ You can add a password to an existing registry or set it when creating a registr
 
 - API {#api}
 
-   To add a password to a registry, use the [addPassword](../../api-ref/Registry/addPassword.md) REST API method for the [Registry](../../api-ref/Registry/index.md) resource or the [RegistryService/AddPassword](../../api-ref/grpc/registry_service.md#AddPassword) gRPC API call.
+   To add a password to a registry, use the [addPassword](../../api-ref/Registry/addPassword.md) REST API method for the [Registry](../../api-ref/Registry/index.md) resource or the [RegistryService/AddPassword](../../api-ref/grpc/Registry/addPassword.md) gRPC API call.
 
 {% endlist %}
 
@@ -169,7 +169,7 @@ You can add a password to an existing registry or set it when creating a registr
 
 - API {#api}
 
-   To set a password for a registry when creating it, use the [create](../../api-ref/Registry/create.md) REST API method for the [Registry](../../api-ref/Registry/index.md) resource or the [RegistryService/Create](../../api-ref/grpc/registry_service.md#Create) gRPC API call.
+   To set a password for a registry when creating it, use the [create](../../api-ref/Registry/create.md) REST API method for the [Registry](../../api-ref/Registry/index.md) resource or the [RegistryService/Create](../../api-ref/grpc/Registry/create.md) gRPC API call.
 
 {% endlist %}
 
@@ -225,7 +225,7 @@ You can add a password to an existing registry or set it when creating a registr
 
 - API {#api}
 
-   To get a list of registry passwords, use the [listPasswords](../../api-ref/Registry/listPasswords.md) REST API method for the [Registry](../../api-ref/Registry/index.md) resource or the [RegistryService/ListPasswords](../../api-ref/grpc/registry_service.md#ListPasswords) gRPC API call.
+   To get a list of registry passwords, use the [listPasswords](../../api-ref/Registry/listPasswords.md) REST API method for the [Registry](../../api-ref/Registry/index.md) resource or the [RegistryService/ListPasswords](../../api-ref/grpc/Registry/listPasswords.md) gRPC API call.
 
 {% endlist %}
 
@@ -345,6 +345,6 @@ You can add a password to an existing registry or set it when creating a registr
 
 - API {#api}
 
-   To delete a registry password, use the [deletePassword](../../api-ref/Registry/deletePassword.md) REST API method for the [Registry](../../api-ref/Registry/index.md) resource or the [RegistryService/DeletePassword](../../api-ref/grpc/registry_service.md#DeletePassword) gRPC API call.
+   To delete a registry password, use the [deletePassword](../../api-ref/Registry/deletePassword.md) REST API method for the [Registry](../../api-ref/Registry/index.md) resource or the [RegistryService/DeletePassword](../../api-ref/grpc/Registry/deletePassword.md) gRPC API call.
 
 {% endlist %}

@@ -132,7 +132,7 @@ To move an [instance group](../../concepts/instance-groups/index.md) with an [[{
 
    - API {#api}
 
-     Use the [update](../../../application-load-balancer/api-ref/LoadBalancer/update.md) REST API method for the [LoadBalancer](../../../application-load-balancer/api-ref/LoadBalancer/index.md) resource or the [LoadBalancerService/Update](../../../application-load-balancer/api-ref/grpc/load_balancer_service.md#Update) gRPC API call.
+     Use the [update](../../../application-load-balancer/api-ref/LoadBalancer/update.md) REST API method for the [LoadBalancer](../../../application-load-balancer/api-ref/LoadBalancer/index.md) resource or the [LoadBalancerService/Update](../../../application-load-balancer/api-ref/grpc/LoadBalancer/update.md) gRPC API call.
 
    {% endlist %}
 

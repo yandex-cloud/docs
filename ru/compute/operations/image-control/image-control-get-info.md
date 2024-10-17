@@ -92,6 +92,6 @@ title: Как получить информацию об образе диска
 
 - API {#api}
 
-  Чтобы получить подробную информацию об [образе](../../concepts/image.md) диска, воспользуйтесь методом REST API [get](../../api-ref/Image/get.md) для ресурса [Image](../../api-ref/Image/index.md), или вызовом gRPC API [ImageService/Get](../../api-ref/grpc/image_service.md#Get).
+  Чтобы получить подробную информацию об [образе](../../concepts/image.md) диска, воспользуйтесь методом REST API [get](../../api-ref/Image/get.md) для ресурса [Image](../../api-ref/Image/index.md), или вызовом gRPC API [ImageService/Get](../../api-ref/grpc/Image/get.md).
 
 {% endlist %}

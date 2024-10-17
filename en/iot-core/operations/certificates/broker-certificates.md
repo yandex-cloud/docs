@@ -142,7 +142,7 @@ To access a [broker](../../concepts/index.md#broker), use its unique ID or name.
 
 - API {#api}
 
-  To add a certificate to a broker, use the [addCertificate](../../broker/api-ref/Broker/addCertificate.md) REST API method for the [Broker](../../broker/api-ref/Broker/index.md) resource or the [BrokerService/AddCertificate](../../broker/api-ref/grpc/broker_service.md#AddCertificate) gRPC API call.
+  To add a certificate to a broker, use the [addCertificate](../../broker/api-ref/Broker/addCertificate.md) REST API method for the [Broker](../../broker/api-ref/Broker/index.md) resource or the [BrokerService/AddCertificate](../../broker/api-ref/grpc/Broker/addCertificate.md) gRPC API call.
 
 {% endlist %}
 
@@ -249,6 +249,6 @@ To access a [broker](../../concepts/index.md#broker), use its unique ID or name.
 
 - API {#api}
 
-  To delete a broker certificate, use the [deleteCertificate](../../broker/api-ref/Broker/deleteCertificate.md) REST API method for the [Broker](../../broker/api-ref/Broker/index.md) resource or the [BrokerService/DeleteCertificate](../../broker/api-ref/grpc/broker_service.md#DeleteCertificate) gRPC API call.
+  To delete a broker certificate, use the [deleteCertificate](../../broker/api-ref/Broker/deleteCertificate.md) REST API method for the [Broker](../../broker/api-ref/Broker/index.md) resource or the [BrokerService/DeleteCertificate](../../broker/api-ref/grpc/Broker/deleteCertificate.md) gRPC API call.
 
 {% endlist %}

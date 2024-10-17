@@ -99,7 +99,7 @@ To [purge the cache](../../concepts/caching.md) of the resource:
 
 - API {#api}
 
-  Use the [purge](../../api-ref/Cache/purge.md) REST API method for the [Cache](../../api-ref/Cache/index.md) resource or the [CacheService/Purge](../../api-ref/grpc/cache_service.md#Purge) gRPC API call.
+  Use the [purge](../../api-ref/Cache/purge.md) REST API method for the [Cache](../../api-ref/Cache/index.md) resource or the [CacheService/Purge](../../api-ref/grpc/Cache/purge.md) gRPC API call.
 
 {% endlist %}
 

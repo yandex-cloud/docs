@@ -3,36 +3,49 @@ editable: false
 sourcePath: en/_api-ref/billing/v1/api-ref/Service/get.md
 ---
 
-# Billing API, REST: Service.get
-Returns the specified service.
- 
+# Billing API, REST: Service.Get {#Get}
 
- 
-## HTTP request {#https-request}
+Returns the specified service.
+
+## HTTP request
+
 ```
 GET https://billing.{{ api-host }}/billing/v1/services/{id}
 ```
- 
-## Path parameters {#path_params}
- 
-Parameter | Description
---- | ---
-id | <p>Required. ID of the service to return. To get the service ID, use <a href="/docs/billing/api-ref/Service/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
- 
-## Response {#responses}
+
+## Path parameters
+
+#|
+||Field | Description ||
+|| id | **string**
+
+Required field. ID of the service to return.
+To get the service ID, use [ServiceService.List](/docs/billing/api-ref/Service/list#List) request. ||
+|#
+
+## Response {#yandex.cloud.billing.v1.Service}
+
 **HTTP Code: 200 - OK**
 
-```json 
+```json
 {
   "id": "string",
   "name": "string",
   "description": "string"
 }
 ```
+
 A Service resource.
- 
-Field | Description
---- | ---
-id | **string**<br><p>ID of the service.</p> 
-name | **string**<br><p>Name of the service, e.g. ``Compute Cloud``, ``VPC``.</p> 
-description | **string**<br><p>Description of the service.</p> 
+
+#|
+||Field | Description ||
+|| id | **string**
+
+ID of the service. ||
+|| name | **string**
+
+Name of the service, e.g. `Compute Cloud`, `VPC`. ||
+|| description | **string**
+
+Description of the service. ||
+|#

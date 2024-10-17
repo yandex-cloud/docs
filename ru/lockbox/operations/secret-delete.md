@@ -119,7 +119,7 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Чтобы удалить секрет, воспользуйтесь методом REST API [delete](../api-ref/Secret/delete.md) для ресурса [Secret](../api-ref/Secret/index.md) или вызовом gRPC API [SecretService/Delete](../api-ref/grpc/secret_service.md#Delete).
+  Чтобы удалить секрет, воспользуйтесь методом REST API [delete](../api-ref/Secret/delete.md) для ресурса [Secret](../api-ref/Secret/index.md) или вызовом gRPC API [SecretService/Delete](../api-ref/grpc/Secret/delete.md).
 
 {% endlist %}
 

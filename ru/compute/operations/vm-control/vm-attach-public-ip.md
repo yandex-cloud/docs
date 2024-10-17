@@ -122,7 +122,7 @@
 
 - API {#api}
 
-  Чтобы привязать публичный IP-адрес к сетевому интерфейсу ВМ, воспользуйтесь методом REST API [addOneToOneNat](../../api-ref/Instance/addOneToOneNat.md) для ресурса [Instance](../../api-ref/Instance/index.md) или вызовом gRPC API [InstanceService/AddOneToOneNat](../../api-ref/grpc/instance_service.md#AddOneToOneNat).
+  Чтобы привязать публичный IP-адрес к сетевому интерфейсу ВМ, воспользуйтесь методом REST API [addOneToOneNat](../../api-ref/Instance/addOneToOneNat.md) для ресурса [Instance](../../api-ref/Instance/index.md) или вызовом gRPC API [InstanceService/AddOneToOneNat](../../api-ref/grpc/Instance/addOneToOneNat.md).
 
 {% endlist %}
 

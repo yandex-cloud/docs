@@ -16,7 +16,7 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [update](../../api-ref/Channel/update.md) для ресурса [Channel](../../api-ref/Channel/index.md) или вызовом gRPC API [ChannelService/Update](../../api-ref/grpc/channel_service.md#Update).
+  Воспользуйтесь методом REST API [update](../../api-ref/Channel/update.md) для ресурса [Channel](../../api-ref/Channel/index.md) или вызовом gRPC API [ChannelService/Update](../../api-ref/grpc/Channel/update.md).
 
 {% endlist %}
 

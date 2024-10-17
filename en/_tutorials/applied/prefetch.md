@@ -454,7 +454,7 @@ Make sure that, when a user sends a request, files are downloaded from the CDN s
 
 - API {#api}
 
-  Use the gRPC API [ResourceService/Create](../../cdn/api-ref/grpc/resource_service.md#Create) call or the REST API [create](../../cdn/api-ref/Resource/create.md) method. To enable [caching](../../cdn/concepts/caching.md) on CDN servers, add the `edge_cache_settings` field to the request body.
+  Use the gRPC API [ResourceService/Create](../../cdn/api-ref/grpc/Resource/create.md) call or the REST API [create](../../cdn/api-ref/Resource/create.md) method. To enable [caching](../../cdn/concepts/caching.md) on CDN servers, add the `edge_cache_settings` field to the request body.
 
 {% endlist %}
 
@@ -562,8 +562,8 @@ Make sure that, when a user sends a request, files are downloaded from the CDN s
 
    - API {#api}
 
-     1. If you do not have a public DNS zone, create one using a gRPC API call to [DnsZoneService/Create](../../dns/api-ref/grpc/dns_zone_service.md#Create) or the REST API [create](../../dns/api-ref/DnsZone/create.md) method. To make the zone public, add the `public_visibility` (gRPC) or `publicVisibility` (REST) field to the request body.
-     1. Create the `cdn CNAME cl-********.edgecdn.ru.` [record](../../dns/concepts/resource-record.md) in the zone using the [DnsZoneService/UpdateRecordSets](../../dns/api-ref/grpc/dns_zone_service.md#UpdateRecordSets) gRPC API call or the [updateRecordSets](../../dns/api-ref/DnsZone/updateRecordSets.md) REST API method.
+     1. If you do not have a public DNS zone, create one using a gRPC API call to [DnsZoneService/Create](../../dns/api-ref/grpc/DnsZone/create.md) or the REST API [create](../../dns/api-ref/DnsZone/create.md) method. To make the zone public, add the `public_visibility` (gRPC) or `publicVisibility` (REST) field to the request body.
+     1. Create the `cdn CNAME cl-********.edgecdn.ru.` [record](../../dns/concepts/resource-record.md) in the zone using the [DnsZoneService/UpdateRecordSets](../../dns/api-ref/grpc/DnsZone/updateRecordSets.md) gRPC API call or the [updateRecordSets](../../dns/api-ref/DnsZone/updateRecordSets.md) REST API method.
 
    {% endlist %}
 
@@ -604,7 +604,7 @@ Make sure that, when a user sends a request, files are downloaded from the CDN s
 
 - API {#api}
 
-  Use the gRPC API [CacheService/Prefetch](../../cdn/api-ref/grpc/cache_service.md#Prefetch) call or the [prefetch](../../cdn/api-ref/Cache/prefetch.md) REST API method.
+  Use the gRPC API [CacheService/Prefetch](../../cdn/api-ref/grpc/Cache/prefetch.md) call or the [prefetch](../../cdn/api-ref/Cache/prefetch.md) REST API method.
 
 {% endlist %}
 

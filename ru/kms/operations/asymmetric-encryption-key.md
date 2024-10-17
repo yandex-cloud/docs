@@ -68,7 +68,7 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Чтобы создать ключевую пару шифрования, воспользуйтесь вызовом gRPC API [AsymmetricEncryptionKeyService/Create](../api-ref/grpc/asymmetric_encryption_key_service.md#Create).
+  Чтобы создать ключевую пару шифрования, воспользуйтесь вызовом gRPC API [AsymmetricEncryptionKeyService/Create](../asymmetricencryption/api-ref/grpc/AsymmetricEncryptionKey/create.md).
 
 {% endlist %}
 
@@ -134,7 +134,7 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Чтобы изменить ключевую пару шифрования, воспользуйтесь вызовом gRPC API [AsymmetricEncryptionKeyService/Update](../api-ref/grpc/asymmetric_encryption_key_service.md#Update).
+  Чтобы изменить ключевую пару шифрования, воспользуйтесь вызовом gRPC API [AsymmetricEncryptionKeyService/Update](../asymmetricencryption/api-ref/grpc/AsymmetricEncryptionKey/update.md).
 
 {% endlist %}
 
@@ -186,6 +186,6 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Чтобы удалить ключевую пару шифрования, воспользуйтесь вызовом gRPC API [AsymmetricEncryptionKeyService/Delete](../api-ref/grpc/asymmetric_encryption_key_service.md#Delete).
+  Чтобы удалить ключевую пару шифрования, воспользуйтесь вызовом gRPC API [AsymmetricEncryptionKeyService/Delete](../asymmetricencryption/api-ref/grpc/AsymmetricEncryptionKey/delete.md).
 
 {% endlist %}

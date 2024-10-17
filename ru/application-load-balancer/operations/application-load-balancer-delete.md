@@ -121,6 +121,6 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [delete](../api-ref/LoadBalancer/delete.md) для ресурса [LoadBalancer](../api-ref/LoadBalancer/index.md) или вызовом gRPC API [LoadBalancerService/Delete](../api-ref/grpc/load_balancer_service.md#Delete).
+  Воспользуйтесь методом REST API [delete](../api-ref/LoadBalancer/delete.md) для ресурса [LoadBalancer](../api-ref/LoadBalancer/index.md) или вызовом gRPC API [LoadBalancerService/Delete](../api-ref/grpc/LoadBalancer/delete.md).
 
 {% endlist %}

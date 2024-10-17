@@ -82,7 +82,7 @@ description: Follow this guide to export messages to {{ yds-name }}.
 
 - API {#api}
 
-   To add the export to {{ yds-name }} for a registry, use the [RegistryService/AddDataStreamExport](../api-ref/grpc/registry_service.md#AddDataStreamExport) gRPC API call.
+   To add the export to {{ yds-name }} for a registry, use the [RegistryService/AddDataStreamExport](../api-ref/grpc/Registry/addDataStreamExport.md) gRPC API call.
 
 {% endlist %}
 

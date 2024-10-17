@@ -75,7 +75,7 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/InstanceGroup/updateAccessBindings.md) для ресурса [InstanceGroup](../../api-ref/InstanceGroup/) или вызовом gRPC API [InstanceGroupService/UpdateAccessBindings](../../api-ref/grpc/instance_group_service.md#UpdateAccessBindings). В теле запроса в свойстве `action` укажите `ADD`, а в свойстве `subject` — тип и идентификатор пользователя.
+  Воспользуйтесь методом REST API [updateAccessBindings](../../instancegroup/api-ref/InstanceGroup/updateAccessBindings.md) для ресурса [InstanceGroup](../../instancegroup/api-ref/InstanceGroup/) или вызовом gRPC API [InstanceGroupService/UpdateAccessBindings](../../instancegroup/api-ref/grpc/InstanceGroup/updateAccessBindings.md). В теле запроса в свойстве `action` укажите `ADD`, а в свойстве `subject` — тип и идентификатор пользователя.
 
 {% endlist %}
 
@@ -143,7 +143,7 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [setAccessBindings](../../api-ref/InstanceGroup/setAccessBindings.md) для ресурса [InstanceGroup](../../api-ref/InstanceGroup/) или вызовом gRPC API [InstanceGroupService/SetAccessBindings](../../api-ref/grpc/instance_group_service.md#SetAccessBindings).
+  Воспользуйтесь методом REST API [setAccessBindings](../../instancegroup/api-ref/InstanceGroup/setAccessBindings.md) для ресурса [InstanceGroup](../../instancegroup/api-ref/InstanceGroup/) или вызовом gRPC API [InstanceGroupService/SetAccessBindings](../../instancegroup/api-ref/grpc/InstanceGroup/setAccessBindings.md).
 
 {% endlist %}
 
@@ -203,6 +203,6 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Чтобы отозвать роли на ВМ, воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/InstanceGroup/updateAccessBindings.md) для ресурса [InstanceGroup](../../api-ref/InstanceGroup/) или вызовом gRPC API [InstanceGroupService/UpdateAccessBindings](../../api-ref/grpc/instance_group_service.md#UpdateAccessBindings). В теле запроса в свойстве `action` укажите `REMOVE`, а в свойстве `subject` — тип и идентификатор пользователя.
+  Чтобы отозвать роли на ВМ, воспользуйтесь методом REST API [updateAccessBindings](../../instancegroup/api-ref/InstanceGroup/updateAccessBindings.md) для ресурса [InstanceGroup](../../instancegroup/api-ref/InstanceGroup/) или вызовом gRPC API [InstanceGroupService/UpdateAccessBindings](../../instancegroup/api-ref/grpc/InstanceGroup/updateAccessBindings.md). В теле запроса в свойстве `action` укажите `REMOVE`, а в свойстве `subject` — тип и идентификатор пользователя.
 
 {% endlist %}

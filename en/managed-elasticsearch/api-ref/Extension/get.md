@@ -3,41 +3,57 @@ editable: false
 sourcePath: en/_api-ref/mdb/elasticsearch/v1/api-ref/Extension/get.md
 ---
 
-# Managed Service for Elasticsearch API, REST: Extension.get
-Returns the specified extension of Elasticsearch cluster.
- 
+# Managed Service for Elasticsearch API, REST: Extension.Get {#Get}
 
- 
-## HTTP request {#https-request}
+Returns the specified extension of Elasticsearch cluster.
+
+## HTTP request
+
 ```
 GET https://{{ api-host-mdb }}/managed-elasticsearch/v1/clusters/{clusterId}/extensions/{extensionId}
 ```
- 
-## Path parameters {#path_params}
- 
-Parameter | Description
---- | ---
-clusterId | <p>Required. ID of the cluster.</p> <p>The maximum string length in characters is 50.</p> 
-extensionId | <p>Required. ID of the extension to return.</p> 
- 
-## Response {#responses}
+
+## Path parameters
+
+#|
+||Field | Description ||
+|| clusterId | **string**
+
+Required field. ID of the cluster. ||
+|| extensionId | **string**
+
+Required field. ID of the extension to return. ||
+|#
+
+## Response {#yandex.cloud.mdb.elasticsearch.v1.Extension}
+
 **HTTP Code: 200 - OK**
 
-```json 
+```json
 {
   "name": "string",
   "id": "string",
   "clusterId": "string",
   "version": "string",
-  "active": true
+  "active": "boolean"
 }
 ```
 
- 
-Field | Description
---- | ---
-name | **string**<br><p>Name of the extension.</p> 
-id | **string**<br><p>Unique ID of the extension.</p> 
-clusterId | **string**<br><p>ID of the Elasticsearch cluster the extension belongs to.</p> 
-version | **string** (int64)<br><p>Version of the extension.</p> 
-active | **boolean** (boolean)<br><p>The flag shows whether the extension is active.</p> 
+#|
+||Field | Description ||
+|| name | **string**
+
+Name of the extension. ||
+|| id | **string**
+
+Unique ID of the extension. ||
+|| clusterId | **string**
+
+ID of the Elasticsearch cluster the extension belongs to. ||
+|| version | **string** (int64)
+
+Version of the extension. ||
+|| active | **boolean**
+
+The flag shows whether the extension is active. ||
+|#

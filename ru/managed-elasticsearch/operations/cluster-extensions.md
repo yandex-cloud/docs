@@ -29,7 +29,7 @@ description: Следуя данной инструкции, вы научите
 
 - API {#api}
 
-    Чтобы получить список установленных пользовательских расширений, воспользуйтесь методом REST API [list](../api-ref/Extension/list.md) для ресурса [Extension](../api-ref/Extension/index.md) или вызовом gRPC API [ExtensionService/List](../api-ref/grpc/extension_service.md#List) и передайте в запросе идентификатор кластера в параметре `clusterId`.
+    Чтобы получить список установленных пользовательских расширений, воспользуйтесь методом REST API [list](../api-ref/Extension/list.md) для ресурса [Extension](../api-ref/Extension/index.md) или вызовом gRPC API [ExtensionService/List](../api-ref/grpc/Extension/list.md) и передайте в запросе идентификатор кластера в параметре `clusterId`.
 
     {% include [get-cluster-id](../../_includes/managed-elasticsearch/get-cluster-id.md) %}
 
@@ -76,7 +76,7 @@ description: Следуя данной инструкции, вы научите
 
 - API {#api}
 
-    Чтобы добавить или обновить пользовательское расширение, воспользуйтесь методом REST API [create](../api-ref/Extension/create.md) для ресурса [Extension](../api-ref/Extension/index.md) или вызовом gRPC API [ExtensionService/Create](../api-ref/grpc/extension_service.md#Create) и передайте в запросе:
+    Чтобы добавить или обновить пользовательское расширение, воспользуйтесь методом REST API [create](../api-ref/Extension/create.md) для ресурса [Extension](../api-ref/Extension/index.md) или вызовом gRPC API [ExtensionService/Create](../api-ref/grpc/Extension/create.md) и передайте в запросе:
     * Идентификатор кластера в параметре `clusterId`.
 
       {% include [get-cluster-id](../../_includes/managed-elasticsearch/get-cluster-id.md) %}
@@ -118,7 +118,7 @@ description: Следуя данной инструкции, вы научите
 
 - API {#api}
 
-    Чтобы включить или выключить пользовательское расширение, воспользуйтесь методом REST API [update](../api-ref/Extension/update.md) для ресурса [Extension](../api-ref/Extension/index.md) или вызовом gRPC API [ExtensionService/Update](../api-ref/grpc/extension_service.md#Update) и передайте в запросе:
+    Чтобы включить или выключить пользовательское расширение, воспользуйтесь методом REST API [update](../api-ref/Extension/update.md) для ресурса [Extension](../api-ref/Extension/index.md) или вызовом gRPC API [ExtensionService/Update](../api-ref/grpc/Extension/update.md) и передайте в запросе:
 
     * Идентификатор кластера в параметре `clusterId`.
 
@@ -150,7 +150,7 @@ description: Следуя данной инструкции, вы научите
 
 - API {#api}
 
-    Чтобы удалить пользовательское расширение, воспользуйтесь методом REST API [delete](../api-ref/Extension/delete.md) для ресурса [Extension](../api-ref/Extension/index.md) или вызовом gRPC API [ExtensionService/Delete](../api-ref/grpc/extension_service.md#Delete) и передайте в запросе:
+    Чтобы удалить пользовательское расширение, воспользуйтесь методом REST API [delete](../api-ref/Extension/delete.md) для ресурса [Extension](../api-ref/Extension/index.md) или вызовом gRPC API [ExtensionService/Delete](../api-ref/grpc/Extension/delete.md) и передайте в запросе:
 
     * Идентификатор кластера в параметре `clusterId`.
 

@@ -651,7 +651,7 @@ When exchanging the JWT for an IAM token, make sure the following conditions are
 
 - API {#api}
 
-   To get an IAM token, use the [create](../../api-ref/IamToken/create.md) REST API method for the [IamToken](../../api-ref/IamToken/index.md) resource or the [IamTokenService/CreateForServiceAccount](../../api-ref/grpc/iam_token_service.md#CreateForServiceAccount) gRPC API call.
+   To get an IAM token, use the [create](../../api-ref/IamToken/create.md) REST API method for the [IamToken](../../api-ref/IamToken/index.md) resource or the [IamTokenService/CreateForServiceAccount](../../api-ref/grpc/IamToken/createForServiceAccount.md) gRPC API call.
 
    Sample request using cURL for the `create` REST API method:
 

@@ -10,7 +10,7 @@
 
 {% endnote %}
 
-Классификаторы могут применяться к промежуточным и окончательным результатам распознавания. Чтобы включить классификатор, определите параметр [`recognition_classifier`](../stt-v3/api-ref/grpc/stt_service.md#RecognitionClassifierOptions) в настройках сессии. Результаты срабатывания классификаторов будут приходить отдельным сообщением сразу после [событий](../stt-v3/api-ref/grpc/stt_service.md#StreamingResponse), указанных в настройках классификатора. Для классификаторов это могут быть события типа `partial`, `eou_update` или `final`.
+Классификаторы могут применяться к промежуточным и окончательным результатам распознавания. Чтобы включить классификатор, определите параметр [`recognition_classifier`](../stt-v3/api-ref/grpc/Recognizer/recognizeStreaming.md#speechkit.stt.v3.RecognitionClassifierOptions) в настройках сессии. Результаты срабатывания классификаторов будут приходить отдельным сообщением сразу после [событий](../stt-v3/api-ref/grpc/Recognizer/recognizeStreaming.md#speechkit.stt.v3.StreamingResponse), указанных в настройках классификатора. Для классификаторов это могут быть события типа `partial`, `eou_update` или `final`.
 
 {{ speechkit-name }} поддерживает следующие классификаторы:
 
@@ -59,7 +59,7 @@
 
 ## Статистики аудио {#statistics}
 
-{{ speechkit-name }} позволяет анализировать диалоги и речь отдельных участников и подсчитывать статистики для каждого участника и для диалога в целом. Результаты анализа содержат дискретные характеристики аудио и [описательные статистики](../stt-v3/api-ref/grpc/stt_service.md#DescriptiveStatistics) распределений этих значений.
+{{ speechkit-name }} позволяет анализировать диалоги и речь отдельных участников и подсчитывать статистики для каждого участника и для диалога в целом. Результаты анализа содержат дискретные характеристики аудио и [описательные статистики](../stt-v3/api-ref/grpc/Recognizer/recognizeStreaming.md#speechkit.stt.v3.DescriptiveStatistics) распределений этих значений.
 
 Для каждого участника диалога можно определить:
 
@@ -72,7 +72,7 @@
 * длительность одновременной речи и пауз;
 * количество и временные метки перебиваний.
 
-Чтобы включить подсчет статистик, в настройках сессии определите параметр [speech_analysis](../stt-v3/api-ref/grpc/stt_service.md#SpeechAnalysisOptions).
+Чтобы включить подсчет статистик, в настройках сессии определите параметр [speech_analysis](../stt-v3/api-ref/grpc/Recognizer/recognizeStreaming.md#speechkit.stt.v3.SpeechAnalysisOptions).
 
 ```python
 recognize_options = stt_pb2.StreamingOptions(
@@ -87,5 +87,5 @@ recognize_options = stt_pb2.StreamingOptions(
         )
 ```
 
-Результаты анализа будут приходить в сообщениях [`speaker_analysis`](../stt-v3/api-ref/grpc/stt_service.md#SpeakerAnalysis) и [`conversation_analysis`](../stt-v3/api-ref/grpc/stt_service.md#ConversationAnalysis).
+Результаты анализа будут приходить в сообщениях [`speaker_analysis`](../stt-v3/api-ref/grpc/Recognizer/recognizeStreaming.md#speechkit.stt.v3.SpeakerAnalysis) и [`conversation_analysis`](../stt-v3/api-ref/grpc/Recognizer/recognizeStreaming.md#speechkit.stt.v3.ConversationAnalysis).
 

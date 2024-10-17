@@ -130,7 +130,7 @@
 
 - API {#api}
 
-  Чтобы добавить сертификат реестру, воспользуйтесь методом REST API [addCertificate](../../api-ref/Registry/addCertificate.md) для ресурса [Registry](../../api-ref/Registry/index.md) или вызовом gRPC API [RegistryService/AddCertificate](../../api-ref/grpc/registry_service.md#AddCertificate).
+  Чтобы добавить сертификат реестру, воспользуйтесь методом REST API [addCertificate](../../api-ref/Registry/addCertificate.md) для ресурса [Registry](../../api-ref/Registry/index.md) или вызовом gRPC API [RegistryService/AddCertificate](../../api-ref/grpc/Registry/addCertificate.md).
 
 {% endlist %}
 
@@ -236,6 +236,6 @@
 
 - API {#api}
 
-  Чтобы удалить сертификат реестра, воспользуйтесь методом REST API [deleteCertificate](../../api-ref/Registry/deleteCertificate.md) для ресурса [Registry](../../api-ref/Registry/index.md) или вызовом gRPC API [RegistryService/DeleteCertificate](../../api-ref/grpc/registry_service.md#DeleteCertificate).
+  Чтобы удалить сертификат реестра, воспользуйтесь методом REST API [deleteCertificate](../../api-ref/Registry/deleteCertificate.md) для ресурса [Registry](../../api-ref/Registry/index.md) или вызовом gRPC API [RegistryService/DeleteCertificate](../../api-ref/grpc/Registry/deleteCertificate.md).
 
 {% endlist %}

@@ -40,7 +40,7 @@ You can add and remove [cluster hosts](../concepts/index.md), resync the hosts, 
 
 - API {#api}
 
-   To get a list of {{ mmg-name }} cluster hosts, use the [listHosts](../api-ref/Cluster/listHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/ListHosts](../api-ref/grpc/cluster_service.md#ListHosts) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
+   To get a list of {{ mmg-name }} cluster hosts, use the [listHosts](../api-ref/Cluster/listHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/ListHosts](../api-ref/grpc/Cluster/listHosts.md) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
    You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -199,7 +199,7 @@ You can add different types of hosts to a {{ mmg-name }} cluster. Their number d
 
 - API {#api}
 
-   To add a host to a cluster, use the [addHosts](../api-ref/Cluster/addHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/AddHosts](../api-ref/grpc/cluster_service.md#AddHosts) gRPC API call and provide the following in the request:
+   To add a host to a cluster, use the [addHosts](../api-ref/Cluster/addHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/AddHosts](../api-ref/grpc/Cluster/addHosts.md) gRPC API call and provide the following in the request:
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * New host settings in one or more `hostSpecs` parameters.
 
@@ -271,7 +271,7 @@ From a [sharded {{ mmg-name }} cluster](../operations/shards.md#enable), you may
 
 - API {#api}
 
-   To delete a host, use the [deleteHosts](../api-ref/Cluster/deleteHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/DeleteHosts](../api-ref/grpc/cluster_service.md#DeleteHosts) gRPC API call and provide the following in the request:
+   To delete a host, use the [deleteHosts](../api-ref/Cluster/deleteHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/DeleteHosts](../api-ref/grpc/Cluster/deleteHosts.md) gRPC API call and provide the following in the request:
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * Name(s) of the host(s) to delete in the `hostNames` parameter.
 
@@ -320,7 +320,7 @@ During this operation:
 
 - API {#api}
 
-   To resync a host, use the [resetupHosts](../api-ref/Cluster/resetupHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/ResetupHosts](../api-ref/grpc/cluster_service.md#ResetupHosts) gRPC API call and provide the following in the request:
+   To resync a host, use the [resetupHosts](../api-ref/Cluster/resetupHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/ResetupHosts](../api-ref/grpc/Cluster/resetupHosts.md) gRPC API call and provide the following in the request:
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
    * Host name, in the `hostNames` parameter. To find out the name, [get a list of hosts in the cluster](#list-hosts).
 
@@ -359,7 +359,7 @@ You can only restart one host at a time.
 
 - API {#api}
 
-   To restart a host, use the [restartHosts](../api-ref/Cluster/restartHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/RestartHosts](../api-ref/grpc/cluster_service.md#RestartHosts) gRPC API call and provide the following in the request:
+   To restart a host, use the [restartHosts](../api-ref/Cluster/restartHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/RestartHosts](../api-ref/grpc/Cluster/restartHosts.md) gRPC API call and provide the following in the request:
    * {{ mmg-name }} cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
    * Host name, in the `hostNames` parameter. To find out the name, [get a list of hosts in the cluster](#list-hosts).
 

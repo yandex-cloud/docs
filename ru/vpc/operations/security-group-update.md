@@ -85,7 +85,7 @@
 
 - API {#api}
 
-  Чтобы изменить имя или описание группы, воспользуйтесь методом REST API [update](../api-ref/SecurityGroup/update.md) для ресурса [SecurityGroup](../api-ref/SecurityGroup/index.md) или вызовом gRPC API [SecurityGroupService/Update](../api-ref/grpc/security_group_service.md#Update) и передайте в запросе:
+  Чтобы изменить имя или описание группы, воспользуйтесь методом REST API [update](../api-ref/SecurityGroup/update.md) для ресурса [SecurityGroup](../api-ref/SecurityGroup/index.md) или вызовом gRPC API [SecurityGroupService/Update](../api-ref/grpc/SecurityGroup/update.md) и передайте в запросе:
 
   * Идентификатор изменяемой группы безопасности в параметре `securityGroupId`.
 

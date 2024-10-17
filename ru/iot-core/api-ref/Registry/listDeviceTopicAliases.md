@@ -3,33 +3,48 @@ editable: false
 sourcePath: en/_api-ref/iot/devices/v1/api-ref/Registry/listDeviceTopicAliases.md
 ---
 
-# IoT Core Service, REST: Registry.listDeviceTopicAliases
-Retrieves the list of device topic aliases for the specified registry.
- 
+# IoT Core Service, REST: Registry.ListDeviceTopicAliases {#ListDeviceTopicAliases}
 
- 
-## HTTP request {#https-request}
+Retrieves the list of device topic aliases for the specified registry.
+
+## HTTP request
+
 ```
 GET https://iot-devices.{{ api-host }}/iot-devices/v1/registries/{registryId}:listDeviceTopicAliases
 ```
- 
-## Path parameters {#path_params}
- 
-Parameter | Description
---- | ---
-registryId | <p>Required. ID of the registry to list aliases for device topic.</p> <p>To get a registry ID make a <a href="/docs/iot-core/api-ref/Registry/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
- 
-## Query parameters {#query_params}
- 
-Parameter | Description
---- | ---
-pageSize | <p>The maximum number of results per page that should be returned. If the number of available results is larger than ``page_size``, the service returns a <a href="/docs/iot-core/api-ref/Registry/listDeviceTopicAliases#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests. Default value: 100.</p> <p>Acceptable values are 0 to 1000, inclusive.</p> 
-pageToken | <p>Page token. To get the next page of results, set ``page_token`` to the <a href="/docs/iot-core/api-ref/Registry/listDeviceTopicAliases#responses">nextPageToken</a> returned by a previous list request.</p> <p>The maximum string length in characters is 100.</p> 
- 
-## Response {#responses}
+
+## Path parameters
+
+#|
+||Field | Description ||
+|| registryId | **string**
+
+Required field. ID of the registry to list aliases for device topic.
+
+To get a registry ID make a [RegistryService.List](/docs/iot-core/api-ref/Registry/list#List) request. ||
+|#
+
+## Query parameters {#yandex.cloud.iot.devices.v1.ListDeviceTopicAliasesRequest}
+
+#|
+||Field | Description ||
+|| pageSize | **string** (int64)
+
+The maximum number of results per page that should be returned. If the number of available
+results is larger than `page_size`, the service returns a [ListDeviceTopicAliasesResponse.nextPageToken](#yandex.cloud.iot.devices.v1.ListDeviceTopicAliasesResponse)
+that can be used to get the next page of results in subsequent list requests.
+Default value: 100. ||
+|| pageToken | **string**
+
+Page token. To get the next page of results, set `page_token` to the
+[ListDeviceTopicAliasesResponse.nextPageToken](#yandex.cloud.iot.devices.v1.ListDeviceTopicAliasesResponse) returned by a previous list request. ||
+|#
+
+## Response {#yandex.cloud.iot.devices.v1.ListDeviceTopicAliasesResponse}
+
 **HTTP Code: 200 - OK**
 
-```json 
+```json
 {
   "aliases": [
     {
@@ -42,11 +57,35 @@ pageToken | <p>Page token. To get the next page of results, set ``page_token`` t
 }
 ```
 
- 
-Field | Description
---- | ---
-aliases[] | **object**<br><p>List of device aliases for the specified registry.</p> 
-aliases[].<br>deviceId | **string**<br><p>ID of the device that the alias belongs to.</p> 
-aliases[].<br>topicPrefix | **string**<br><p>Prefix of a canonical topic name to be aliased, e.g. ``$devices/abcdef``.</p> 
-aliases[].<br>alias | **string**<br><p>Alias of a device topic.</p> 
-nextPageToken | **string**<br><p>Token for getting the next page of the list. If the number of results is greater than the specified <a href="/docs/iot-core/api-ref/Registry/listDeviceTopicAliases#query_params">pageSize</a>, use ``next_page_token`` as the value for the <a href="/docs/iot-core/api-ref/Registry/listDeviceTopicAliases#query_params">pageToken</a> parameter in the next list request.</p> <p>Each subsequent page will have its own ``next_page_token`` to continue paging through the results.</p> 
+#|
+||Field | Description ||
+|| aliases[] | **[DeviceAlias](#yandex.cloud.iot.devices.v1.DeviceAlias)**
+
+List of device aliases for the specified registry. ||
+|| nextPageToken | **string**
+
+Token for getting the next page of the list. If the number of results is greater than
+the specified [ListDeviceTopicAliasesRequest.pageSize](#yandex.cloud.iot.devices.v1.ListDeviceTopicAliasesRequest), use `next_page_token` as the value
+for the [ListDeviceTopicAliasesRequest.pageToken](#yandex.cloud.iot.devices.v1.ListDeviceTopicAliasesRequest) parameter in the next list request.
+
+Each subsequent page will have its own `next_page_token` to continue paging through the results. ||
+|#
+
+## DeviceAlias {#yandex.cloud.iot.devices.v1.DeviceAlias}
+
+A device topic alias.
+
+Alias is an alternate name of a device topic assigned by the user. Map alias to canonical topic name prefix, e.g. `my/custom/alias` match to `$device/abcdef/events`. For more information, see [Using topic aliases](/docs/iot-core/concepts/topic#aliases).
+
+#|
+||Field | Description ||
+|| deviceId | **string**
+
+ID of the device that the alias belongs to. ||
+|| topicPrefix | **string**
+
+Prefix of a canonical topic name to be aliased, e.g. `$devices/abcdef`. ||
+|| alias | **string**
+
+Alias of a device topic. ||
+|#

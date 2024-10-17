@@ -122,6 +122,6 @@ description: In this tutorial, you will learn how to delete a backup policy in *
 
 - API {#api}
 
-   To delete a [backup policy](../../concepts/policy.md), use the [delete](../../backup/api-ref/Policy/delete.md) REST API method for the [Policy](../../backup/api-ref/Policy/index.md) resource or the [PolicyService/Delete](../../backup/api-ref/grpc/policy_service.md#Delete) gRPC API call.
+   To delete a [backup policy](../../concepts/policy.md), use the [delete](../../backup/api-ref/Policy/delete.md) REST API method for the [Policy](../../backup/api-ref/Policy/index.md) resource or the [PolicyService/Delete](../../backup/api-ref/grpc/Policy/delete.md) gRPC API call.
 
 {% endlist %}

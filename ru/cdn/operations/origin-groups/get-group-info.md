@@ -52,7 +52,7 @@ title: Как получить информацию об источнике в {
 
 - API {#api}
 
-  Чтобы получить подробную информацию об источнике, воспользуйтесь методом REST API [get](../../api-ref/Origin/get.md) для ресурса [Origin](../../api-ref/Origin/index.md) или вызовом gRPC API [OriginService/Get](../../api-ref/grpc/origin_service.md#Get).
+  Чтобы получить подробную информацию об источнике, воспользуйтесь методом REST API [get](../../api-ref/Origin/get.md) для ресурса [Origin](../../api-ref/Origin/index.md) или вызовом gRPC API [OriginService/Get](../../api-ref/grpc/Origin/get.md).
 
 {% endlist %}
 
@@ -171,6 +171,6 @@ title: Как получить информацию об источнике в {
 
 - API {#api}
 
-  Чтобы получить подробную информацию о группе источников, воспользуйтесь методом REST API [get](../../api-ref/OriginGroup/get.md) для ресурса [OriginGroup](../../api-ref/OriginGroup/index.md) или вызовом gRPC API [OriginGroupService/Get](../../api-ref/grpc/origin_group_service.md#Get).
+  Чтобы получить подробную информацию о группе источников, воспользуйтесь методом REST API [get](../../api-ref/OriginGroup/get.md) для ресурса [OriginGroup](../../api-ref/OriginGroup/index.md) или вызовом gRPC API [OriginGroupService/Get](../../api-ref/grpc/OriginGroup/get.md).
 
 {% endlist %}

@@ -46,7 +46,7 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-    Чтобы посмотреть любую настройку масштабирования, кроме количества вызовов, одновременно обрабатываемых одним экземпляром функции (`concurrency`), воспользуйтесь методом REST API [listScalingPolicies](../../functions/api-ref/Function/listScalingPolicies.md) для ресурса [Function](../../functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/ListScalingPolicies](../../functions/api-ref/grpc/function_service.md#ListScalingPolicies).
+    Чтобы посмотреть любую настройку масштабирования, кроме количества вызовов, одновременно обрабатываемых одним экземпляром функции (`concurrency`), воспользуйтесь методом REST API [listScalingPolicies](../../functions/api-ref/Function/listScalingPolicies.md) для ресурса [Function](../../functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/ListScalingPolicies](../../functions/api-ref/grpc/Function/listScalingPolicies.md).
 
 - {{ yandex-cloud }} Toolkit {#yc-toolkit}
 

@@ -41,6 +41,6 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Чтобы получить подробную информацию о политике доступа к реестру, воспользуйтесь методом REST API [listIpPermission](../../api-ref/Registry/listIpPermission.md) для ресурса [Registry](../../api-ref/Registry/index.md) или вызовом gRPC API [RegistryService/ListIpPermission](../../api-ref/grpc/registry_service.md#ListIpPermission).
+  Чтобы получить подробную информацию о политике доступа к реестру, воспользуйтесь методом REST API [listIpPermission](../../api-ref/Registry/listIpPermission.md) для ресурса [Registry](../../api-ref/Registry/index.md) или вызовом gRPC API [RegistryService/ListIpPermission](../../api-ref/grpc/Registry/listIpPermission.md).
 
 {% endlist %}

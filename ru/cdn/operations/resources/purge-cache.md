@@ -99,7 +99,7 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [purge](../../api-ref/Cache/purge.md) для ресурса [Cache](../../api-ref/Cache/index.md) или вызовом gRPC API [CacheService/Purge](../../api-ref/grpc/cache_service.md#Purge).
+  Воспользуйтесь методом REST API [purge](../../api-ref/Cache/purge.md) для ресурса [Cache](../../api-ref/Cache/index.md) или вызовом gRPC API [CacheService/Purge](../../api-ref/grpc/Cache/purge.md).
 
 {% endlist %}
   

@@ -137,6 +137,6 @@ description: Follow this guide to detach a file storage from a VM.
 
    - API {#api}
 
-      Use the [detachFilesystem](../../api-ref/Instance/detachFilesystem.md) REST API method for the [Instance](../../api-ref/Instance/index.md) resource or the [InstanceService/DetachFilesystem](../../api-ref/grpc/instance_service.md#DetachFilesystem) gRPC API call.
+      Use the [detachFilesystem](../../api-ref/Instance/detachFilesystem.md) REST API method for the [Instance](../../api-ref/Instance/index.md) resource or the [InstanceService/DetachFilesystem](../../api-ref/grpc/Instance/detachFilesystem.md) gRPC API call.
 
    {% endlist %}

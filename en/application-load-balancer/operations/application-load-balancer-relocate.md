@@ -125,7 +125,7 @@ To move a [VM](../../compute/concepts/vm.md) behind an [L7 load balancer](../con
 
    - API {#api}
 
-     Use the [update](../api-ref/LoadBalancer/update.md) REST API method for the [LoadBalancer](../api-ref/LoadBalancer/index.md) resource or the [LoadBalancerService/Update](../api-ref/grpc/load_balancer_service.md#Update) gRPC API call.
+     Use the [update](../api-ref/LoadBalancer/update.md) REST API method for the [LoadBalancer](../api-ref/LoadBalancer/index.md) resource or the [LoadBalancerService/Update](../api-ref/grpc/LoadBalancer/update.md) gRPC API call.
 
    {% endlist %}
 
@@ -146,7 +146,7 @@ To move a [VM](../../compute/concepts/vm.md) behind an [L7 load balancer](../con
 
    - API {#api}
 
-     Use the [getTargetStates](../api-ref/LoadBalancer/getTargetStates.md) REST API method for the [LoadBalancer](../api-ref/LoadBalancer/index.md) resource or the [LoadBalancerService/GetTargetStates](../api-ref/grpc/load_balancer_service.md#GetTargetStates) gRPC API call.
+     Use the [getTargetStates](../api-ref/LoadBalancer/getTargetStates.md) REST API method for the [LoadBalancer](../api-ref/LoadBalancer/index.md) resource or the [LoadBalancerService/GetTargetStates](../api-ref/grpc/LoadBalancer/getTargetStates.md) gRPC API call.
 
    {% endlist %}
 

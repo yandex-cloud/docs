@@ -42,7 +42,7 @@
 
 - API {#api}
 
-  Чтобы изменить ВМ, воспользуйтесь методом REST API [update](../../api-ref/Instance/update.md) для ресурса [Instance](../../api-ref/Instance/) или вызовом gRPC API [InstanceService/Update](../../api-ref/grpc/instance_service.md#Update).
+  Чтобы изменить ВМ, воспользуйтесь методом REST API [update](../../api-ref/Instance/update.md) для ресурса [Instance](../../api-ref/Instance/) или вызовом gRPC API [InstanceService/Update](../../api-ref/grpc/Instance/update.md).
 
 {% endlist %}
 
@@ -95,7 +95,7 @@
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [update](../../api-ref/Instance/update.md) для ресурса [Instance](../../api-ref/Instance/) или вызовом gRPC API [InstanceService/Update](../../api-ref/grpc/instance_service.md#Update).
+  Воспользуйтесь методом REST API [update](../../api-ref/Instance/update.md) для ресурса [Instance](../../api-ref/Instance/) или вызовом gRPC API [InstanceService/Update](../../api-ref/grpc/Instance/update.md).
 
 {% endlist %}
 
@@ -182,7 +182,7 @@
 
 - API {#api}
 
-  Передайте в поле `metadata` пару `enable-oslogin=true` в методе REST API [update](../../api-ref/Instance/update.md) для ресурса [Instance](../../api-ref/Instance/) или в вызове gRPC API [InstanceService/Update](../../api-ref/grpc/instance_service.md#Update).
+  Передайте в поле `metadata` пару `enable-oslogin=true` в методе REST API [update](../../api-ref/Instance/update.md) для ресурса [Instance](../../api-ref/Instance/) или в вызове gRPC API [InstanceService/Update](../../api-ref/grpc/Instance/update.md).
 
 {% endlist %}
 

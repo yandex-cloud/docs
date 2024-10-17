@@ -3,39 +3,44 @@ editable: false
 sourcePath: en/_api-ref/iot/broker/v1/broker/api-ref/BrokerData/publish.md
 ---
 
-# IoT Core Broker Service, REST: BrokerData.publish
-Publishes message on behalf of specified broker
- 
+# IoT Core Broker Service, REST: BrokerData.Publish {#Publish}
 
- 
-## HTTP request {#https-request}
+Publishes message on behalf of specified broker
+
+## HTTP request
+
 ```
 POST https://iot-data.{{ api-host }}/iot-broker/v1/brokers/{brokerId}/publish
 ```
- 
-## Path parameters {#path_params}
- 
-Parameter | Description
---- | ---
-brokerId | <p>Required. ID of broker publishing message</p> <p>The maximum string length in characters is 50.</p> 
- 
-## Body parameters {#body_params}
- 
-```json 
+
+## Path parameters
+
+#|
+||Field | Description ||
+|| brokerId | **string**
+
+Required field. ID of broker publishing message ||
+|#
+
+## Body parameters {#yandex.cloud.iot.broker.v1.PublishBrokerDataRequest}
+
+```json
 {
   "topic": "string",
   "data": "string"
 }
 ```
 
- 
-Field | Description
---- | ---
-topic | **string**<br><p>Required. Topic where message should be published</p> <p>The maximum string length in characters is 1024.</p> 
-data | **string** (byte)<br><p>Content of the message</p> <p>The maximum string length in characters is 262144.</p> 
- 
-## Response {#responses}
+#|
+||Field | Description ||
+|| topic | **string**
+
+Required field. Topic where message should be published ||
+|| data | **string** (bytes)
+
+Content of the message ||
+|#
+
+## Response {#yandex.cloud.iot.broker.v1.PublishBrokerDataResponse}
+
 **HTTP Code: 200 - OK**
-
-
-

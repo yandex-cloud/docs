@@ -123,7 +123,7 @@
 
 * Улучшено качество распознавания на узбекском, немецком, французском, голландском, итальянском, польском языках и иврите.
 * Добавлена [нормализация](stt/normalization.md) чисел для узбекского языка.
-* В режиме FullData появилась поддержка [разделения текста на фразы](stt/eou.md) сообщением [`eou_update`](stt-v3/api-ref/grpc/stt_service.md#StreamingResponse).
+* В режиме FullData появилась поддержка [разделения текста на фразы](stt/eou.md) сообщением [`eou_update`](stt-v3/api-ref/grpc/Recognizer/recognizeStreaming.md#speechkit.stt.v3.StreamingResponse).
 
 ### Релиз 25.05.23 {#250523}
 

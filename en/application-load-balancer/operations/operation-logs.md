@@ -102,7 +102,7 @@ All actions with {{ alb-name }} resources are logged as a list of operations. Ea
 
   Use the `listOperations` REST API method for the relevant resource or the `<service>/ListOperations` gRPC API call.
 
-  For example, for a load balancer, use either the [listOperations](../api-ref/LoadBalancer/listOperations.md) REST API method for the [LoadBalancer](../api-ref/LoadBalancer/index.md) resource or the [LoadBalancerService/ListOperations](../api-ref/grpc/load_balancer_service.md#ListOperations) gRPC API call.
+  For example, for a load balancer, use either the [listOperations](../api-ref/LoadBalancer/listOperations.md) REST API method for the [LoadBalancer](../api-ref/LoadBalancer/index.md) resource or the [LoadBalancerService/ListOperations](../api-ref/grpc/LoadBalancer/listOperations.md) gRPC API call.
 
 {% endlist %}
 
@@ -158,7 +158,7 @@ All actions with {{ alb-name }} resources are logged as a list of operations. Ea
 
    - API {#api}
 
-     Use the [OperationService/Get](../api-ref/grpc/operation_service.md#Get) gRPC API call.
+     Use the [OperationService/Get](../api-ref/grpc/Operation/get.md) gRPC API call.
 
    {% endlist %}
 

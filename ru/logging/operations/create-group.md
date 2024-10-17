@@ -143,7 +143,7 @@ description: Из статьи вы узнаете, как создать лог
 
 - API {#api}
 
-  Чтобы создать [лог-группу](../concepts/log-group.md), воспользуйтесь методом REST API [create](../api-ref/LogGroup/create.md) для ресурса [LogGroup](../api-ref/LogGroup/index.md) или вызовом gRPC API [LogGroupService/Create](../api-ref/grpc/log_group_service.md#Create).
+  Чтобы создать [лог-группу](../concepts/log-group.md), воспользуйтесь методом REST API [create](../api-ref/LogGroup/create.md) для ресурса [LogGroup](../api-ref/LogGroup/index.md) или вызовом gRPC API [LogGroupService/Create](../api-ref/grpc/LogGroup/create.md).
 
   **Пример запроса**
 

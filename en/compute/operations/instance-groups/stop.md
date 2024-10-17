@@ -47,8 +47,8 @@ Only disks are billable for stopped instances. If you do not want to pay for dis
 
 - API {#api}
 
-   You can stop an instance group by using the [stop](../../api-ref/InstanceGroup/stop.md) REST API method for the [InstanceGroup](../../api-ref/InstanceGroup/index.md) resource or the [InstanceGroupService/Stop](../../api-ref/grpc/instance_group_service.md#Stop) gRPC API call.
+   You can stop an instance group by using the [stop](../../instancegroup/api-ref/InstanceGroup/stop.md) REST API method for the [InstanceGroup](../../instancegroup/api-ref/InstanceGroup/index.md) resource or the [InstanceGroupService/Stop](../../instancegroup/api-ref/grpc/InstanceGroup/stop.md) gRPC API call.
 
-   To request the list of available instance groups, use the [listInstances](../../api-ref/InstanceGroup/listInstances.md) REST API method or the [InstanceGroupService/ListInstances](../../api-ref/grpc/instance_group_service.md#ListInstances) gRPC API call.
+   To request the list of available instance groups, use the [listInstances](../../instancegroup/api-ref/InstanceGroup/listInstances.md) REST API method or the [InstanceGroupService/ListInstances](../../instancegroup/api-ref/grpc/InstanceGroup/listInstances.md) gRPC API call.
 
 {% endlist %}

@@ -49,7 +49,7 @@ description: В разделе представлена история изме�
 
 ## II квартал 2023 {#q2-2023}
 
-* Добавлена возможность экспортировать сырые данные диагностики производительности с помощью вызовов gRPC API [PerformanceDiagnosticsService/ListRawSessionStates](api-ref/grpc/perf_diag_service.md#ListRawSessionStates) и [PerformanceDiagnosticsService/ListRawStatements](api-ref/grpc/perf_diag_service.md#ListRawStatements).
+* Добавлена возможность экспортировать сырые данные диагностики производительности с помощью вызовов gRPC API [PerformanceDiagnosticsService/ListRawSessionStates](api-ref/grpc/PerformanceDiagnostics/listRawSessionStates.md) и [PerformanceDiagnosticsService/ListRawStatements](api-ref/grpc/PerformanceDiagnostics/listRawStatements.md).
 * Добавлена настройка `Session duration timeout`, регулирующая время жизни самой длинной активной сессии или транзакции. Значение по умолчанию — 12 часов.
 
 ## IV квартал 2022 {#q4-2022}

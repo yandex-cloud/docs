@@ -3,30 +3,58 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/GpuCluster/list.md
 ---
 
-# Compute Cloud API, REST: GpuCluster.list
-Retrieves the list of GPU clusters in the specified folder.
- 
+# Compute Cloud API, REST: GpuCluster.List {#List}
 
- 
-## HTTP request {#https-request}
+Retrieves the list of GPU clusters in the specified folder.
+
+## HTTP request
+
 ```
 GET https://compute.{{ api-host }}/compute/v1/gpuClusters
 ```
- 
-## Query parameters {#query_params}
- 
-Parameter | Description
---- | ---
-folderId | <p>Required. ID of the folder to list GPU clusters in.</p> <p>To get the folder ID, make a <a href="/docs/resource-manager/api-ref/Folder/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
-pageSize | <p>The maximum number of results per page to return. If the number of available results is larger than ``page_size``, the service returns a <a href="/docs/compute/api-ref/GpuCluster/list#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests.</p> <p>The maximum value is 1000.</p> 
-pageToken | <p>Page token. To get the next page of results, set ``page_token`` to the <a href="/docs/compute/api-ref/GpuCluster/list#responses">nextPageToken</a> returned by a previous list request.</p> <p>The maximum string length in characters is 100.</p> 
-filter | <p>A filter expression that filters GPU clusters listed in the response.</p> <p>The expression must specify:</p> <ol> <li>The field name. Currently you can use filtering only on <a href="/docs/compute/api-ref/GpuCluster#representation">GpuCluster.name</a> field.</li> <li>An operator. Can be either ``=`` or ``!=`` for single values, ``IN`` or ``NOT IN`` for lists of values.</li> <li>The value. Must be 3-63 characters long and match the regular expression ``^[a-z][-a-z0-9]{1,61}[a-z0-9]``. Example of a filter: ``name=my-schedule``.</li> </ol> <p>The maximum string length in characters is 1000.</p> 
-orderBy | <p>A sorting expression that sorts GPU clusters listed in the response.</p> <p>The expression must specify the field name from <a href="/docs/compute/api-ref/GpuCluster#representation">GpuCluster</a> and ``asc``ending or ``desc``ending order, e.g. ``createdAt desc``.</p> <p>Default value: ``id asc``.</p> <p>The maximum string length in characters is 100.</p> 
- 
-## Response {#responses}
+
+## Query parameters {#yandex.cloud.compute.v1.ListGpuClustersRequest}
+
+#|
+||Field | Description ||
+|| folderId | **string**
+
+Required field. ID of the folder to list GPU clusters in.
+
+To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request. ||
+|| pageSize | **string** (int64)
+
+The maximum number of results per page to return. If the number of available
+results is larger than `page_size`, the service returns a [ListGpuClustersResponse.nextPageToken](#yandex.cloud.compute.v1.ListGpuClustersResponse)
+that can be used to get the next page of results in subsequent list requests. ||
+|| pageToken | **string**
+
+Page token. To get the next page of results, set `page_token` to the
+[ListGpuClustersResponse.nextPageToken](#yandex.cloud.compute.v1.ListGpuClustersResponse) returned by a previous list request. ||
+|| filter | **string**
+
+A filter expression that filters GPU clusters listed in the response.
+
+The expression must specify:
+1. The field name. Currently you can use filtering only on [GpuCluster.name](#yandex.cloud.compute.v1.GpuCluster) field.
+2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
+3. The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]`.
+Example of a filter: `name=my-schedule`. ||
+|| orderBy | **string**
+
+A sorting expression that sorts GPU clusters listed in the response.
+
+The expression must specify the field name from [GpuCluster](#yandex.cloud.compute.v1.GpuCluster) and `asc`ending or `desc`ending order,
+e.g. `createdAt desc`.
+
+Default value: `id asc`. ||
+|#
+
+## Response {#yandex.cloud.compute.v1.ListGpuClustersResponse}
+
 **HTTP Code: 200 - OK**
 
-```json 
+```json
 {
   "gpuClusters": [
     {
@@ -35,7 +63,7 @@ orderBy | <p>A sorting expression that sorts GPU clusters listed in the response
       "createdAt": "string",
       "name": "string",
       "description": "string",
-      "labels": "object",
+      "labels": "string",
       "status": "string",
       "zoneId": "string",
       "interconnectType": "string"
@@ -45,17 +73,69 @@ orderBy | <p>A sorting expression that sorts GPU clusters listed in the response
 }
 ```
 
- 
-Field | Description
---- | ---
-gpuClusters[] | **object**<br><p>List of GPU clusters in the specified folder.</p> 
-gpuClusters[].<br>id | **string**<br><p>ID of GPU cluster.</p> 
-gpuClusters[].<br>folderId | **string**<br><p>ID of the folder that the GPU cluster belongs to.</p> 
-gpuClusters[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
-gpuClusters[].<br>name | **string**<br><p>Name of the GPU cluster.</p> <p>The name is unique within the folder.</p> 
-gpuClusters[].<br>description | **string**<br><p>Description of the GPU cluster.</p> 
-gpuClusters[].<br>labels | **object**<br><p>GPU cluster labels as ``key:value`` pairs.</p> 
-gpuClusters[].<br>status | **string**<br><p>Status of the GPU cluster.</p> <ul> <li>CREATING: GPU cluster is being created.</li> <li>READY: GPU cluster is ready to use.</li> <li>ERROR: GPU cluster encountered a problem and cannot operate.</li> <li>DELETING: GPU cluster is being deleted.</li> </ul> 
-gpuClusters[].<br>zoneId | **string**<br><p>ID of the availability zone where the GPU cluster resides.</p> 
-gpuClusters[].<br>interconnectType | **string**<br><p>Type of interconnect used for this GPU cluster.</p> <ul> <li>INFINIBAND: InfiniBand interconnect.</li> </ul> 
-nextPageToken | **string**<br><p>Token for getting the next page of the list. If the number of results is greater than the specified <a href="/docs/compute/api-ref/GpuCluster/list#query_params">pageSize</a>, use ``next_page_token`` as the value for the <a href="/docs/compute/api-ref/GpuCluster/list#query_params">pageToken</a> parameter in the next list request.</p> <p>Each subsequent page will have its own ``next_page_token`` to continue paging through the results.</p> 
+#|
+||Field | Description ||
+|| gpuClusters[] | **[GpuCluster](#yandex.cloud.compute.v1.GpuCluster)**
+
+List of GPU clusters in the specified folder. ||
+|| nextPageToken | **string**
+
+Token for getting the next page of the list. If the number of results is greater than
+the specified [ListGpuClustersRequest.pageSize](#yandex.cloud.compute.v1.ListGpuClustersRequest), use `next_page_token` as the value
+for the [ListGpuClustersRequest.pageToken](#yandex.cloud.compute.v1.ListGpuClustersRequest) parameter in the next list request.
+
+Each subsequent page will have its own `next_page_token` to continue paging through the results. ||
+|#
+
+## GpuCluster {#yandex.cloud.compute.v1.GpuCluster}
+
+A GPU cluster. For details about the concept, see [documentation](/docs/compute/concepts/gpu-cluster).
+
+#|
+||Field | Description ||
+|| id | **string**
+
+ID of GPU cluster. ||
+|| folderId | **string**
+
+ID of the folder that the GPU cluster belongs to. ||
+|| createdAt | **string** (date-time)
+
+Creation timestamp.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| name | **string**
+
+Name of the GPU cluster.
+
+The name is unique within the folder. ||
+|| description | **string**
+
+Description of the GPU cluster. ||
+|| labels | **string**
+
+GPU cluster labels as `key:value` pairs. ||
+|| status | **enum** (Status)
+
+Status of the GPU cluster.
+
+- `STATUS_UNSPECIFIED`
+- `CREATING`: GPU cluster is being created.
+- `READY`: GPU cluster is ready to use.
+- `ERROR`: GPU cluster encountered a problem and cannot operate.
+- `DELETING`: GPU cluster is being deleted. ||
+|| zoneId | **string**
+
+ID of the availability zone where the GPU cluster resides. ||
+|| interconnectType | **enum** (GpuInterconnectType)
+
+Type of interconnect used for this GPU cluster.
+
+- `GPU_INTERCONNECT_TYPE_UNSPECIFIED`
+- `INFINIBAND`: InfiniBand interconnect. ||
+|#

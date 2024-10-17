@@ -49,38 +49,68 @@ items:
             items:
               - name: Overview
                 href: text-generation/api-ref/index.md
-              - name: TextGeneration
+              - name: Operation
                 items:
                   - name: Overview
-                    href: text-generation/api-ref/TextGeneration/index.md
-                  - name: completion
-                    href: text-generation/api-ref/TextGeneration/completion.md
+                    href: text-generation/api-ref/Operation/index.md
+                  - name: Get
+                    href: text-generation/api-ref/Operation/get.md
+                  - name: Cancel
+                    href: text-generation/api-ref/Operation/cancel.md
               - name: TextGenerationAsync
                 items:
                   - name: Overview
                     href: text-generation/api-ref/TextGenerationAsync/index.md
-                  - name: completion
+                  - name: Completion
                     href: text-generation/api-ref/TextGenerationAsync/completion.md
+              - name: TextGeneration
+                items:
+                  - name: Overview
+                    href: text-generation/api-ref/TextGeneration/index.md
+                  - name: Completion
+                    href: text-generation/api-ref/TextGeneration/completion.md
               - name: Tokenizer
                 items:
                   - name: Overview
                     href: text-generation/api-ref/Tokenizer/index.md
-                  - name: tokenize
+                  - name: Tokenize
                     href: text-generation/api-ref/Tokenizer/tokenize.md
-                  - name: tokenizeCompletion
+                  - name: TokenizeCompletion
                     href: text-generation/api-ref/Tokenizer/tokenizeCompletion.md
           - name: gRPC
             items:
               - name: Overview
                 href: text-generation/api-ref/grpc/index.md
-              - name: TextGenerationService
-                href: text-generation/api-ref/grpc/text_generation_service.md
-              - name: TextGenerationAsyncService
-                href: text-generation/api-ref/grpc/TextGenerationAsyncService.md
-              - name: TokenizerService
-                href: text-generation/api-ref/grpc/TokenizerService.md
-              - name: OperationService
-                href: text-generation/api-ref/grpc/operation_service.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: text-generation/api-ref/grpc/Operation/index.md
+                  - name: Get
+                    href: text-generation/api-ref/grpc/Operation/get.md
+                  - name: Cancel
+                    href: text-generation/api-ref/grpc/Operation/cancel.md
+              - name: TextGenerationAsync
+                items:
+                  - name: Overview
+                    href: text-generation/api-ref/grpc/TextGenerationAsync/index.md
+                  - name: Completion
+                    href: >-
+                      text-generation/api-ref/grpc/TextGenerationAsync/completion.md
+              - name: TextGeneration
+                items:
+                  - name: Overview
+                    href: text-generation/api-ref/grpc/TextGeneration/index.md
+                  - name: Completion
+                    href: text-generation/api-ref/grpc/TextGeneration/completion.md
+              - name: Tokenizer
+                items:
+                  - name: Overview
+                    href: text-generation/api-ref/grpc/Tokenizer/index.md
+                  - name: Tokenize
+                    href: text-generation/api-ref/grpc/Tokenizer/tokenize.md
+                  - name: TokenizeCompletion
+                    href: >-
+                      text-generation/api-ref/grpc/Tokenizer/tokenizeCompletion.md
       - name: Embeddings API (англ.)
         items:
           - name: REST
@@ -91,60 +121,96 @@ items:
                 items:
                   - name: Overview
                     href: embeddings/api-ref/Embeddings/index.md
-                  - name: textEmbedding
+                  - name: TextEmbedding
                     href: embeddings/api-ref/Embeddings/textEmbedding.md
           - name: gRPC
             items:
               - name: Overview
                 href: embeddings/api-ref/grpc/index.md
-              - name: EmbeddingsService
-                href: embeddings/api-ref/grpc/embedding_service.md
+              - name: Embeddings
+                items:
+                  - name: Overview
+                    href: embeddings/api-ref/grpc/Embeddings/index.md
+                  - name: TextEmbedding
+                    href: embeddings/api-ref/grpc/Embeddings/textEmbedding.md
       - name: API v1alpha (устаревший)
         items:
           - name: REST (англ.)
             items:
               - name: Overview
                 href: api-ref/v1alpha/index.md
-              - name: TextGeneration
-                items:
-                  - name: Overview
-                    href: api-ref/v1alpha/TextGeneration/index.md
-                  - name: chat
-                    href: api-ref/v1alpha/TextGeneration/chat.md
-                  - name: instruct
-                    href: api-ref/v1alpha/TextGeneration/instruct.md
-              - name: Tokenizer
-                items:
-                  - name: Overview
-                    href: api-ref/v1alpha/Tokenizer/index.md
-                  - name: tokenize
-                    href: api-ref/v1alpha/Tokenizer/tokenize.md
               - name: Embeddings
                 items:
                   - name: Overview
                     href: api-ref/v1alpha/Embeddings/index.md
-                  - name: embedding
+                  - name: Embedding
                     href: api-ref/v1alpha/Embeddings/embedding.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: api-ref/v1alpha/Operation/index.md
+                  - name: Get
+                    href: api-ref/v1alpha/Operation/get.md
+                  - name: Cancel
+                    href: api-ref/v1alpha/Operation/cancel.md
               - name: TextGenerationAsync
                 items:
                   - name: Overview
                     href: api-ref/v1alpha/TextGenerationAsync/index.md
-                  - name: instruct
+                  - name: Instruct
                     href: api-ref/v1alpha/TextGenerationAsync/instruct.md
+              - name: TextGeneration
+                items:
+                  - name: Overview
+                    href: api-ref/v1alpha/TextGeneration/index.md
+                  - name: Instruct
+                    href: api-ref/v1alpha/TextGeneration/instruct.md
+                  - name: Chat
+                    href: api-ref/v1alpha/TextGeneration/chat.md
+              - name: Tokenizer
+                items:
+                  - name: Overview
+                    href: api-ref/v1alpha/Tokenizer/index.md
+                  - name: Tokenize
+                    href: api-ref/v1alpha/Tokenizer/tokenize.md
           - name: gRPC (англ.)
             items:
               - name: Overview
                 href: api-ref/v1alpha/grpc/index.md
-              - name: TextGenerationService
-                href: api-ref/v1alpha/grpc/llm_service.md
-              - name: TokenizerService
-                href: api-ref/v1alpha/grpc/TokenizerService.md
-              - name: EmbeddingsService
-                href: api-ref/v1alpha/grpc/EmbeddingsService.md
-              - name: TextGenerationAsyncService
-                href: api-ref/v1alpha/grpc/TextGenerationAsyncService.md
-              - name: OperationService
-                href: api-ref/v1alpha/grpc/operation_service.md
+              - name: Embeddings
+                items:
+                  - name: Overview
+                    href: api-ref/v1alpha/grpc/Embeddings/index.md
+                  - name: Embedding
+                    href: api-ref/v1alpha/grpc/Embeddings/embedding.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: api-ref/v1alpha/grpc/Operation/index.md
+                  - name: Get
+                    href: api-ref/v1alpha/grpc/Operation/get.md
+                  - name: Cancel
+                    href: api-ref/v1alpha/grpc/Operation/cancel.md
+              - name: TextGenerationAsync
+                items:
+                  - name: Overview
+                    href: api-ref/v1alpha/grpc/TextGenerationAsync/index.md
+                  - name: Instruct
+                    href: api-ref/v1alpha/grpc/TextGenerationAsync/instruct.md
+              - name: TextGeneration
+                items:
+                  - name: Overview
+                    href: api-ref/v1alpha/grpc/TextGeneration/index.md
+                  - name: Instruct
+                    href: api-ref/v1alpha/grpc/TextGeneration/instruct.md
+                  - name: Chat
+                    href: api-ref/v1alpha/grpc/TextGeneration/chat.md
+              - name: Tokenizer
+                items:
+                  - name: Overview
+                    href: api-ref/v1alpha/grpc/Tokenizer/index.md
+                  - name: Tokenize
+                    href: api-ref/v1alpha/grpc/Tokenizer/tokenize.md
   - name: Библиотека промтов
     items:
       - name: Все промты

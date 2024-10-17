@@ -91,7 +91,7 @@ The number of shards in {{ mch-name }} clusters is limited by the CPU and RAM qu
 
 - API {#api}
 
-  To create a shard, use the [addShard](../api-ref/Cluster/addShard.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/AddShard](../api-ref/grpc/cluster_service.md#AddShard) gRPC API call.
+  To create a shard, use the [addShard](../api-ref/Cluster/addShard.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/AddShard](../api-ref/grpc/Cluster/addShard.md) gRPC API call.
 
   To copy the data schema from a random replica of one of the shards to the hosts of the new shard, include the `copySchema` parameter set to `true` in the request.
 
@@ -128,7 +128,7 @@ Use the copy data schema option only if the schema is the same on all cluster sh
 
 - API {#api}
 
-  To get a list of cluster shards, use the [listShards](../api-ref/Cluster/listShards.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/ListShards](../api-ref/grpc/cluster_service.md#ListShards) gRPC API call.
+  To get a list of cluster shards, use the [listShards](../api-ref/Cluster/listShards.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/ListShards](../api-ref/grpc/Cluster/listShards.md) gRPC API call.
 
 {% endlist %}
 
@@ -176,7 +176,7 @@ You can change the shard weight as well as [host class](../concepts/instance-typ
 
 - API {#api}
 
-  To update a shard, use the [updateShard](../api-ref/Cluster/updateShard.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/UpdateShard](../api-ref/grpc/cluster_service.md#UpdateShard) gRPC API call and provide the following in the request:
+  To update a shard, use the [updateShard](../api-ref/Cluster/updateShard.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/UpdateShard](../api-ref/grpc/Cluster/updateShard.md) gRPC API call and provide the following in the request:
   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
   * Shard name in the `shardName` parameter.
   * Shard settings in the `configSpec` parameter.
@@ -237,7 +237,7 @@ When you delete a shard, all tables and data that are saved on that shard are de
 
 - API {#api}
 
-  To delete a shard, use the [deleteShard](../api-ref/Cluster/deleteShard.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/DeleteShard](../api-ref/grpc/cluster_service.md#DeleteShard) gRPC API call.
+  To delete a shard, use the [deleteShard](../api-ref/Cluster/deleteShard.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/DeleteShard](../api-ref/grpc/Cluster/deleteShard.md) gRPC API call.
 
 {% endlist %}
 

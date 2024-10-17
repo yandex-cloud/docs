@@ -9,7 +9,7 @@ Number of concurrent generations | 1
 Number of requests per second, [asynchronous mode](../foundation-models/concepts/index.md#working-mode) (request) | 10
 Number of requests per second, asynchronous mode (getting a response) | 50
 Number of requests per hour, asynchronous mode (request) | 5000
-Number of [tokenization](../foundation-models/text-generation/api-ref/grpc/TokenizerService.md) requests per second | 50
+Number of [tokenization](../foundation-models/text-generation/api-ref/grpc/Tokenizer/index.md) requests per second | 50
 **[Text classification](../foundation-models/concepts/classifier/index.md)** |
 Number of text classification requests per second | 1
 **[Image generation](../foundation-models/concepts/yandexart/index.md)** |

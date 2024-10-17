@@ -123,6 +123,6 @@
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [delete](../../api-ref/PlacementGroup/delete.md) для ресурса [PlacementGroup](../../api-ref/PlacementGroup/index.md) или вызовом gRPC API [PlacementGroupService/Delete](../../api-ref/grpc/placement_group_service.md#Delete).
+  Воспользуйтесь методом REST API [delete](../../api-ref/PlacementGroup/delete.md) для ресурса [PlacementGroup](../../api-ref/PlacementGroup/index.md) или вызовом gRPC API [PlacementGroupService/Delete](../../api-ref/grpc/PlacementGroup/delete.md).
 
 {% endlist %}

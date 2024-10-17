@@ -122,7 +122,7 @@ If a VM has multiple [network interfaces](../../concepts/network.md), you can as
 
 - API {#api}
 
-   To associate a public IP address with a VM's network interface, use the [addOneToOneNat](../../api-ref/Instance/addOneToOneNat.md) REST API method for the [Instance](../../api-ref/Instance/index.md) resource or the [InstanceService/AddOneToOneNat](../../api-ref/grpc/instance_service.md#AddOneToOneNat) gRPC API call.
+   To associate a public IP address with a VM's network interface, use the [addOneToOneNat](../../api-ref/Instance/addOneToOneNat.md) REST API method for the [Instance](../../api-ref/Instance/index.md) resource or the [InstanceService/AddOneToOneNat](../../api-ref/grpc/Instance/addOneToOneNat.md) gRPC API call.
 
 {% endlist %}
 

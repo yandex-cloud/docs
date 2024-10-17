@@ -166,7 +166,7 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
 
 - API {#api}
 
-  Use the [updateAccessBindings](../../api-ref/Folder/updateAccessBindings.md) REST API method for the [Folder](../../api-ref/Folder/index.md) resource or the [FolderService/UpdateAccessBindings](../../api-ref/grpc/folder_service.md#UpdateAccessBindings) gRPC API call. You will need the folder ID and the ID of the user to whom you want to assign the role for the folder.
+  Use the [updateAccessBindings](../../api-ref/Folder/updateAccessBindings.md) REST API method for the [Folder](../../api-ref/Folder/index.md) resource or the [FolderService/UpdateAccessBindings](../../api-ref/grpc/Folder/updateAccessBindings.md) gRPC API call. You will need the folder ID and the ID of the user to whom you want to assign the role for the folder.
 
   1. Find out the folder ID using the [list](../../api-ref/Folder/list.md) REST API method:
       ```bash
@@ -374,7 +374,7 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
     https://resource-manager.{{ api-host }}/resource-manager/v1/folders/b1gd129pp9ha********:updateAccessBindings
   ```
 
-  You can also assign roles using the [setAccessBindings](../../api-ref/Folder/setAccessBindings.md) REST API method for the [Folder](../../api-ref/Folder/index.md) resource or the [FolderService/SetAccessBindings](../../api-ref/grpc/folder_service.md#SetAccessBindings) gRPC API call.
+  You can also assign roles using the [setAccessBindings](../../api-ref/Folder/setAccessBindings.md) REST API method for the [Folder](../../api-ref/Folder/index.md) resource or the [FolderService/SetAccessBindings](../../api-ref/grpc/Folder/setAccessBindings.md) gRPC API call.
 
   {% note alert %}
 

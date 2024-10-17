@@ -108,6 +108,6 @@ Aliases are linked to specific devices. To update an alias, you [need the device
 
 - API {#api}
 
-  To update an alias, use the [update](../../../api-ref/Device/update.md) REST API method for the [Device](../../../api-ref/Device/index.md) resource or the [DeviceService/Update](../../../api-ref/grpc/device_service.md#Update) gRPC API call.
+  To update an alias, use the [update](../../../api-ref/Device/update.md) REST API method for the [Device](../../../api-ref/Device/index.md) resource or the [DeviceService/Update](../../../api-ref/grpc/Device/update.md) gRPC API call.
 
 {% endlist %}

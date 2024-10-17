@@ -82,6 +82,6 @@
 
 - API {#api}
 
-    Воспользуйтесь методом REST API [Group.create](../../organization/api-ref/Group/create.md) для ресурса [Group](../../organization/api-ref/Group/index.md) или вызовом gRPC API [GroupService/Create](../../organization/api-ref/grpc/group_service.md#Create).
+    Воспользуйтесь методом REST API [Group.create](../../organization/api-ref/Group/create.md) для ресурса [Group](../../organization/api-ref/Group/index.md) или вызовом gRPC API [GroupService/Create](../../organization/api-ref/grpc/Group/create.md).
 
 {% endlist %}

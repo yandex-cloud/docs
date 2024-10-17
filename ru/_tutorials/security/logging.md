@@ -564,7 +564,7 @@
   
 - API {#api}
 
-  Используйте вызов gRPC API [TriggerService/Create](../../functions/triggers/api-ref/grpc/trigger_service.md#Create) или метод REST API [create](../../functions/triggers/api-ref/Trigger/create.md).
+  Используйте вызов gRPC API [TriggerService/Create](../../functions/triggers/api-ref/grpc/Trigger/create.md) или метод REST API [create](../../functions/triggers/api-ref/Trigger/create.md).
   
 {% endlist %}
   

@@ -149,7 +149,7 @@ To assign a role for a service account, you need the `iam.serviceAccounts.admin`
 
 - API {#api}
 
-   Use the [updateAccessBindings](../../api-ref/ServiceAccount/updateAccessBindings.md) REST API method for the [ServiceAccount](../../api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/UpdateAccessBindings](../../api-ref/grpc/service_account_service.md#UpdateAccessBindings) gRPC API call. You will need the ID of the service account and the ID of the user to whom you want to assign the role for the service account.
+   Use the [updateAccessBindings](../../api-ref/ServiceAccount/updateAccessBindings.md) REST API method for the [ServiceAccount](../../api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/UpdateAccessBindings](../../api-ref/grpc/ServiceAccount/updateAccessBindings.md) gRPC API call. You will need the ID of the service account and the ID of the user to whom you want to assign the role for the service account.
 
    1. Find out the service account ID using the [list](../../api-ref/ServiceAccount/list.md) REST API method:
 
@@ -357,7 +357,7 @@ To assign a role for a service account, you need the `iam.serviceAccounts.admin`
        https://iam.{{ api-host }}/iam/v1/serviceAccounts/aje6o61dvog2********:updateAccessBindings
    ```
 
-    You can also assign roles using the [setAccessBindings](../../api-ref/ServiceAccount/setAccessBindings.md) REST API method for the [ServiceAccount](../../api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/SetAccessBindings](../../api-ref/grpc/service_account_service.md#SetAccessBindings) gRPC API call.
+    You can also assign roles using the [setAccessBindings](../../api-ref/ServiceAccount/setAccessBindings.md) REST API method for the [ServiceAccount](../../api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/SetAccessBindings](../../api-ref/grpc/ServiceAccount/setAccessBindings.md) gRPC API call.
 
     {% note alert %}
 

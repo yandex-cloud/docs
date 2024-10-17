@@ -231,7 +231,7 @@
 
 - API {#api}
 
-  Чтобы включить шардирование кластера, воспользуйтесь методом REST API [enableSharding](../api-ref/Cluster/enableSharding.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/EnableSharding](../api-ref/grpc/cluster_service.md#EnableSharding) и передайте в запросе идентификатор кластера в параметре `clusterId`.
+  Чтобы включить шардирование кластера, воспользуйтесь методом REST API [enableSharding](../api-ref/Cluster/enableSharding.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/EnableSharding](../api-ref/grpc/Cluster/enableSharding.md) и передайте в запросе идентификатор кластера в параметре `clusterId`.
 
   Идентификатор кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -273,7 +273,7 @@
 
 - API {#api}
 
-  Чтобы получить список шардов кластера, воспользуйтесь методом REST API [listShards](../api-ref/Cluster/listShards.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/ListShards](../api-ref/grpc/cluster_service.md#ListShards) и передайте в запросе идентификатор кластера в параметре `clusterId`.
+  Чтобы получить список шардов кластера, воспользуйтесь методом REST API [listShards](../api-ref/Cluster/listShards.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/ListShards](../api-ref/grpc/Cluster/listShards.md) и передайте в запросе идентификатор кластера в параметре `clusterId`.
 
   Идентификатор кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -348,7 +348,7 @@
 
 - API {#api}
 
-  Чтобы создать шард, воспользуйтесь методом REST API [addShard](../api-ref/Cluster/addShard.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/AddShard](../api-ref/grpc/cluster_service.md#AddShard) и передайте в запросе:
+  Чтобы создать шард, воспользуйтесь методом REST API [addShard](../api-ref/Cluster/addShard.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/AddShard](../api-ref/grpc/Cluster/addShard.md) и передайте в запросе:
 
   * Идентификатор кластера в параметре `clusterId`.
   * Имя шарда в параметре `shardName`.
@@ -411,7 +411,7 @@
 
 - API {#api}
 
-  Чтобы удалить шард, воспользуйтесь методом REST API [deleteShard](../api-ref/Cluster/deleteShard.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/DeleteShard](../api-ref/grpc/cluster_service.md#DeleteShard) и передайте в запросе:
+  Чтобы удалить шард, воспользуйтесь методом REST API [deleteShard](../api-ref/Cluster/deleteShard.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/DeleteShard](../api-ref/grpc/Cluster/deleteShard.md) и передайте в запросе:
 
   * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
   * Имя удаляемого шарда в параметре `shardName`.

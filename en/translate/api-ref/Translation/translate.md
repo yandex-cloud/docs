@@ -3,19 +3,19 @@ editable: false
 sourcePath: en/_api-ref/ai/translate/v2/api-ref/Translation/translate.md
 ---
 
-# Translate API v2, REST: Translation.translate
-Translates the text to the specified language.
- 
+# Translate API v2, REST: Translation.Translate {#Translate}
 
- 
-## HTTP request {#https-request}
+Translates the text to the specified language.
+
+## HTTP request
+
 ```
 POST https://translate.{{ api-host }}/translate/v2/translate
 ```
- 
-## Body parameters {#body_params}
- 
-```json 
+
+## Body parameters {#yandex.cloud.ai.translate.v2.TranslateRequest}
+
+```json
 {
   "sourceLanguageCode": "string",
   "targetLanguageCode": "string",
@@ -26,41 +26,102 @@ POST https://translate.{{ api-host }}/translate/v2/translate
   "folderId": "string",
   "model": "string",
   "glossaryConfig": {
+    // Includes only one of the fields `glossaryData`
     "glossaryData": {
       "glossaryPairs": [
         {
           "sourceText": "string",
           "translatedText": "string",
-          "exact": true
+          "exact": "boolean"
         }
       ]
     }
+    // end of the list of possible fields
   },
-  "speller": true
+  "speller": "boolean"
 }
 ```
 
- 
-Field | Description
---- | ---
-sourceLanguageCode | **string**<br><p>The text language to translate from. Specified in <a href="https://en.wikipedia.org/wiki/ISO_639-1">ISO 639-1</a> format (for example, ``ru``).</p> <p>Required for translating with glossary.</p> <p>The maximum string length in characters is 3.</p> 
-targetLanguageCode | **string**<br><p>Required. The target language to translate the text. Specified in <a href="https://en.wikipedia.org/wiki/ISO_639-1">ISO 639-1</a> format (for example, ``en``).</p> <p>The maximum string length in characters is 3.</p> 
-format | **string**<br><p>Format of the text.</p> <ul> <li>PLAIN_TEXT: Text without markup. Default value.</li> <li>HTML: Text in the HTML format.</li> </ul> 
-texts[] | **string**<br><p>Required. Array of the strings to translate. The maximum total length of all strings is 10000 characters.</p> <p>Must contain at least one element.</p> 
-folderId | **string**<br><p>ID of the folder to which you have access. Required for authorization with a user account (see <a href="/docs/iam/api-ref/UserAccount#representation">UserAccount</a> resource). Don't specify this field if you make the request on behalf of a service account.</p> <p>The maximum string length in characters is 50.</p> 
-model | **string**<br><p>Do not specify this field, custom models are not supported yet.</p> <p>The maximum string length in characters is 50.</p> 
-glossaryConfig | **object**<br><p>Glossary to be applied for the translation. For more information, see <a href="/docs/translate/concepts/glossary">Glossaries</a>.</p> 
-glossaryConfig.<br>glossaryData | **object**<br>Pass glossary data in the request. Currently, only this way to pass glossary is supported.
-glossaryConfig.<br>glossaryData.<br>glossaryPairs[] | **object**<br><p>Required. Array of text pairs.</p> <p>The maximum total length of all source texts is 10000 characters. The maximum total length of all translated texts is 10000 characters.</p> <p>The number of elements must be in the range 1-50.</p> 
-glossaryConfig.<br>glossaryData.<br>glossaryPairs[].<br>sourceText | **string**<br><p>Required. Text in the source language.</p> 
-glossaryConfig.<br>glossaryData.<br>glossaryPairs[].<br>translatedText | **string**<br><p>Required. Text in the target language.</p> 
-glossaryConfig.<br>glossaryData.<br>glossaryPairs[].<br>exact | **boolean** (boolean)
-speller | **boolean** (boolean)<br><p>use speller</p> 
- 
-## Response {#responses}
+#|
+||Field | Description ||
+|| sourceLanguageCode | **string**
+
+The text language to translate from.
+Specified in [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) format (for example, `` ru ``).
+
+Required for translating with glossary. ||
+|| targetLanguageCode | **string**
+
+Required field. The target language to translate the text.
+Specified in [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) format (for example, `` en ``). ||
+|| format | **enum** (Format)
+
+Format of the text.
+
+- `FORMAT_UNSPECIFIED`
+- `PLAIN_TEXT`: Text without markup. Default value.
+- `HTML`: Text in the HTML format. ||
+|| texts[] | **string**
+
+Array of the strings to translate.
+The maximum total length of all strings is 10000 characters. ||
+|| folderId | **string**
+
+ID of the folder to which you have access.
+Required for authorization with a user account (see [yandex.cloud.iam.v1.UserAccount](/docs/iam/api-ref/Federation/listUserAccounts#yandex.cloud.iam.v1.UserAccount) resource).
+Don't specify this field if you make the request on behalf of a service account. ||
+|| model | **string**
+
+Do not specify this field, custom models are not supported yet. ||
+|| glossaryConfig | **[TranslateGlossaryConfig](#yandex.cloud.ai.translate.v2.TranslateGlossaryConfig)**
+
+Glossary to be applied for the translation. For more information, see [Glossaries](/docs/translate/concepts/glossary). ||
+|| speller | **boolean**
+
+use speller ||
+|#
+
+## TranslateGlossaryConfig {#yandex.cloud.ai.translate.v2.TranslateGlossaryConfig}
+
+#|
+||Field | Description ||
+|| glossaryData | **[GlossaryData](#yandex.cloud.ai.translate.v2.GlossaryData)**
+
+Pass glossary data in the request. Currently, only this way to pass glossary is supported.
+
+Includes only one of the fields `glossaryData`. ||
+|#
+
+## GlossaryData {#yandex.cloud.ai.translate.v2.GlossaryData}
+
+#|
+||Field | Description ||
+|| glossaryPairs[] | **[GlossaryPair](#yandex.cloud.ai.translate.v2.GlossaryPair)**
+
+Array of text pairs.
+
+The maximum total length of all source texts is 10000 characters.
+The maximum total length of all translated texts is 10000 characters. ||
+|#
+
+## GlossaryPair {#yandex.cloud.ai.translate.v2.GlossaryPair}
+
+#|
+||Field | Description ||
+|| sourceText | **string**
+
+Required field. Text in the source language. ||
+|| translatedText | **string**
+
+Required field. Text in the target language. ||
+|| exact | **boolean** ||
+|#
+
+## Response {#yandex.cloud.ai.translate.v2.TranslateResponse}
+
 **HTTP Code: 200 - OK**
 
-```json 
+```json
 {
   "translations": [
     {
@@ -71,9 +132,22 @@ speller | **boolean** (boolean)<br><p>use speller</p>
 }
 ```
 
- 
-Field | Description
---- | ---
-translations[] | **object**<br><p>Array of the translations.</p> 
-translations[].<br>text | **string**<br><p>Translated text.</p> 
-translations[].<br>detectedLanguageCode | **string**<br><p>The language code of the source text. Specified in <a href="https://en.wikipedia.org/wiki/ISO_639-1">ISO 639-1</a> format (for example, ``en``).</p> 
+#|
+||Field | Description ||
+|| translations[] | **[TranslatedText](#yandex.cloud.ai.translate.v2.TranslatedText)**
+
+Array of the translations. ||
+|#
+
+## TranslatedText {#yandex.cloud.ai.translate.v2.TranslatedText}
+
+#|
+||Field | Description ||
+|| text | **string**
+
+Translated text. ||
+|| detectedLanguageCode | **string**
+
+The language code of the source text.
+Specified in [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) format (for example, `` en ``). ||
+|#

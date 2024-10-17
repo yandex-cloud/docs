@@ -3,27 +3,37 @@ editable: false
 sourcePath: en/_api-ref/mdb/postgresql/v1/api-ref/Database/get.md
 ---
 
-# Managed Service for PostgreSQL API, REST: Database.get
+# Managed Service for PostgreSQL API, REST: Database.Get {#Get}
+
 Returns the specified PostgreSQL Database resource.
- 
-To get the list of available PostgreSQL Database resources, make a [list](/docs/managed-postgresql/api-ref/Database/list) request.
- 
-## HTTP request {#https-request}
+
+To get the list of available PostgreSQL Database resources, make a [List](/docs/managed-postgresql/api-ref/Database/list#List) request.
+
+## HTTP request
+
 ```
 GET https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/{clusterId}/databases/{databaseName}
 ```
- 
-## Path parameters {#path_params}
- 
-Parameter | Description
---- | ---
-clusterId | <p>Required. ID of the PostgreSQL cluster that the database belongs to. To get the cluster ID use a <a href="/docs/managed-postgresql/api-ref/Cluster/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
-databaseName | <p>Required. Name of the PostgreSQL Database resource to return. To get the name of the database use a <a href="/docs/managed-postgresql/api-ref/Database/list">list</a> request.</p> <p>The maximum string length in characters is 63. Value must match the regular expression ``[a-zA-Z0-9_-]*``.</p> 
- 
-## Response {#responses}
+
+## Path parameters
+
+#|
+||Field | Description ||
+|| clusterId | **string**
+
+Required field. ID of the PostgreSQL cluster that the database belongs to.
+To get the cluster ID use a [ClusterService.List](/docs/managed-postgresql/api-ref/Cluster/list#List) request. ||
+|| databaseName | **string**
+
+Required field. Name of the PostgreSQL Database resource to return.
+To get the name of the database use a [DatabaseService.List](/docs/managed-postgresql/api-ref/Database/list#List) request. ||
+|#
+
+## Response {#yandex.cloud.mdb.postgresql.v1.Database}
+
 **HTTP Code: 200 - OK**
 
-```json 
+```json
 {
   "name": "string",
   "clusterId": "string",
@@ -37,21 +47,54 @@ databaseName | <p>Required. Name of the PostgreSQL Database resource to return. 
     }
   ],
   "templateDb": "string",
-  "deletionProtection": true
+  "deletionProtection": "boolean"
 }
 ```
+
 A PostgreSQL Database resource. For more information, see
 the [Developer's Guide](/docs/managed-postgresql/concepts).
- 
-Field | Description
---- | ---
-name | **string**<br><p>Name of the database.</p> 
-clusterId | **string**<br><p>ID of the PostgreSQL cluster that the database belongs to.</p> 
-owner | **string**<br><p>Name of the user assigned as the owner of the database.</p> 
-lcCollate | **string**<br><p>POSIX locale for string sorting order. Can only be set at creation time.</p> 
-lcCtype | **string**<br><p>POSIX locale for character classification. Can only be set at creation time.</p> 
-extensions[] | **object**<br><p>PostgreSQL extensions enabled for the database.</p> 
-extensions[].<br>name | **string**<br><p>Name of the extension, e.g. ``pg_trgm`` or ``pg_btree``. Extensions supported by Managed Service for PostgreSQL are <a href="/docs/managed-postgresql/operations/extensions/cluster-extensions">listed in the Developer's Guide</a>.</p> 
-extensions[].<br>version | **string**<br><p>Version of the extension.</p> 
-templateDb | **string**<br><p>Name of the database template.</p> 
-deletionProtection | **boolean** (boolean)<br><p>Deletion Protection inhibits deletion of the database</p> <p>Default value: ``unspecified`` (inherits cluster's deletion_protection)</p> 
+
+#|
+||Field | Description ||
+|| name | **string**
+
+Name of the database. ||
+|| clusterId | **string**
+
+ID of the PostgreSQL cluster that the database belongs to. ||
+|| owner | **string**
+
+Name of the user assigned as the owner of the database. ||
+|| lcCollate | **string**
+
+POSIX locale for string sorting order.
+Can only be set at creation time. ||
+|| lcCtype | **string**
+
+POSIX locale for character classification.
+Can only be set at creation time. ||
+|| extensions[] | **[Extension](#yandex.cloud.mdb.postgresql.v1.Extension)**
+
+PostgreSQL extensions enabled for the database. ||
+|| templateDb | **string**
+
+Name of the database template. ||
+|| deletionProtection | **boolean**
+
+Deletion Protection inhibits deletion of the database
+
+Default value: `unspecified` (inherits cluster's deletion_protection) ||
+|#
+
+## Extension {#yandex.cloud.mdb.postgresql.v1.Extension}
+
+#|
+||Field | Description ||
+|| name | **string**
+
+Name of the extension, e.g. `pg_trgm` or `pg_btree`.
+Extensions supported by Managed Service for PostgreSQL are [listed in the Developer's Guide](/docs/managed-postgresql/operations/extensions/cluster-extensions). ||
+|| version | **string**
+
+Version of the extension. ||
+|#

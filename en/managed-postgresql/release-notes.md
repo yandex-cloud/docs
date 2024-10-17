@@ -46,7 +46,7 @@ description: This section contains {{ mpg-name }} release notes.
 
 ## Q2 2023 {#q2-2023}
 
-* You can now export raw data on performance diagnostics using the [PerformanceDiagnosticsService/ListRawSessionStates](api-ref/grpc/perf_diag_service.md#ListRawSessionStates) and [PerformanceDiagnosticsService/ListRawStatements](api-ref/grpc/perf_diag_service.md#ListRawStatements) gRPC API calls.
+* You can now export raw data on performance diagnostics using the [PerformanceDiagnosticsService/ListRawSessionStates](api-ref/grpc/PerformanceDiagnostics/listRawSessionStates.md) and [PerformanceDiagnosticsService/ListRawStatements](api-ref/grpc/PerformanceDiagnostics/listRawStatements.md) gRPC API calls.
 * Added the `Session duration timeout` setting that controls the lifetime of the longest active session or transaction. The default value is 12 hours.
 
 ## Q4 2022 {#q4-2022}

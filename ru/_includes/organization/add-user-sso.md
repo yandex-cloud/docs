@@ -61,7 +61,7 @@
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [addUserAccounts](../../iam/api-ref/Federation/addUserAccounts.md) для ресурса [Federation](../../iam/api-ref/Federation/index.md) или вызовом gRPC API [FederationService/AddUserAccounts](../../iam/api-ref/grpc/federation_service.md#AddUserAccounts) и передайте в запросе:
+  Воспользуйтесь методом REST API [addUserAccounts](../../iam/saml/api-ref/Federation/addUserAccounts.md) для ресурса [Federation](../../iam/saml/api-ref/Federation/index.md) или вызовом gRPC API [FederationService/AddUserAccounts](../../iam/saml/api-ref/grpc/Federation/addUserAccounts.md) и передайте в запросе:
 
   * Идентификатор федерации в параметре `federationId`.
   * Список Name ID пользователей в параметре `nameIds`.

@@ -28,6 +28,6 @@ The user needs the `editor` [role](../../iam/concepts/access-control/roles.md) t
 
 - API {#api}
 
-   To create a budget, use the [create](../../billing/api-ref/Budget/create.md) method for the [Budget](../../billing/api-ref/Budget/index.md) resource or the [BudgetService/Create](../../billing/api-ref/grpc/budget_service.md#Create) gRPC API call.
+   To create a budget, use the [create](../../billing/api-ref/Budget/create.md) method for the [Budget](../../billing/api-ref/Budget/index.md) resource or the [BudgetService/Create](../../billing/api-ref/grpc/Budget/create.md) gRPC API call.
 
 {% endlist %}

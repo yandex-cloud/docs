@@ -14,7 +14,13 @@ items:
           - name: Загрузка переписки из чата
             href: operations/data/upload-chat-text.md
           - name: Поиск данных
-            href: operations/data/search-data.md
+            items:
+              - name: Обзор
+                href: operations/data/search-data.md
+              - name: Поиск данных через gRPC API
+                href: operations/data/search-data-grpc.md
+              - name: Поиск данных через REST API
+                href: operations/data/search-data-rest.md
           - name: Работа с диалогами
             href: operations/data/manage-dialogs.md
           - name: Просмотр связанных диалогов
@@ -97,12 +103,58 @@ items:
         items:
           - name: Overview
             href: api-ref/grpc/index.md
-          - name: ProjectService
-            href: api-ref/grpc/project_service.md
-          - name: TalkService
-            href: api-ref/grpc/talk_service.md
-          - name: OperationService
-            href: api-ref/grpc/operation_service.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/grpc/Operation/index.md
+              - name: Get
+                href: api-ref/grpc/Operation/get.md
+              - name: Cancel
+                href: api-ref/grpc/Operation/cancel.md
+          - name: Project
+            items:
+              - name: Overview
+                href: api-ref/grpc/Project/index.md
+              - name: Create
+                href: api-ref/grpc/Project/create.md
+          - name: Talk
+            items:
+              - name: Overview
+                href: api-ref/grpc/Talk/index.md
+              - name: UploadAsStream
+                href: api-ref/grpc/Talk/uploadAsStream.md
+              - name: Upload
+                href: api-ref/grpc/Talk/upload.md
+              - name: UploadText
+                href: api-ref/grpc/Talk/uploadText.md
+              - name: Search
+                href: api-ref/grpc/Talk/search.md
+              - name: Get
+                href: api-ref/grpc/Talk/get.md
+      - name: REST (англ.)
+        items:
+          - name: Overview
+            href: api-ref/index.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/Operation/index.md
+              - name: Get
+                href: api-ref/Operation/get.md
+              - name: Cancel
+                href: api-ref/Operation/cancel.md
+          - name: Talk
+            items:
+              - name: Overview
+                href: api-ref/Talk/index.md
+              - name: Upload
+                href: api-ref/Talk/upload.md
+              - name: UploadText
+                href: api-ref/Talk/uploadText.md
+              - name: Search
+                href: api-ref/Talk/search.md
+              - name: Get
+                href: api-ref/Talk/get.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md
   - name: Управление доступом

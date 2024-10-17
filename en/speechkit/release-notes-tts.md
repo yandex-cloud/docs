@@ -37,8 +37,8 @@ Added the [REST API v3](./tts-v3/api-ref/index.md) support.
 ### Release as of 10/01/24 {#100124}
 
 1. Added support for cardinal number normalization (English). Normalization works for positive integers only. Ordinal numbers are not supported.
-1. Added [DurationHint](./tts-v3/api-ref/grpc/tts_service.md#DurationHint) to the API which you can use to specify minimum and maximum time spent on synthesizing the text.
-1. Added the `text_chunk`, `start_ms`, and `length_ms` fields to the [UtteranceSynthesisResponse](./tts-v3/api-ref/grpc/tts_service.md#UtteranceSynthesisResponse) message. These fields store the info on the text, as well as the start and end time of the audio that came with the fragment.
+1. Added [DurationHint](tts-v3/api-ref/grpc/Synthesizer/utteranceSynthesis.md#speechkit.tts.v3.DurationHint) to the API which you can use to specify minimum and maximum time spent on synthesizing the text.
+1. Added the `text_chunk`, `start_ms`, and `length_ms` fields to the [UtteranceSynthesisResponse](tts-v3/api-ref/grpc/Synthesizer/utteranceSynthesis.md#speechkit.tts.v3.UtteranceSynthesisResponse) message. These fields store the info on the text, as well as the start and end time of the audio that came with the fragment.
 
 ### Release as of 05/12/23 {#051223}
 
@@ -53,7 +53,7 @@ Improved the quality of speech synthesis for all languages except Russian.
 
 ### Release as of 27/07/23 {#270723}
 
-1. Added the `pitch_shift` parameter to [API v3](tts-v3/api-ref/grpc/tts_service.md). You can use it to increase the pitch contour of an entire synthesized audio by a fixed value in Hz. Shifting the contour makes a voice sound more lively.
+1. Added the `pitch_shift` parameter to [API v3](tts-v3/api-ref/grpc/Synthesizer/index.md). You can use it to increase the pitch contour of an entire synthesized audio by a fixed value in Hz. Shifting the contour makes a voice sound more lively.
 1. Seven new [voices](tts/voices.md) are now available for speech synthesis in Russian: `dasha`, `julia`, `lera`, `marina`, `alexander`, `kirill`, and `anton`.
 
 ### Release as of 19/06/23 {#190623}
@@ -130,7 +130,7 @@ The `general` branch now has these new voices: `amira` and `john`.
 
 1. Added the ability to synthesize audio files in MP3 format. This feature is available in API v3 and when using premium voices in API v1.
 
-1. New voices now support roles (extended emotional tones). See the `emotion` parameter in [API v1](tts/request.md#body_params) and `role` in [API v3](tts-v3/api-ref/grpc/tts_service.md#Hints) for details. Different roles are available for different voices. For a complete list of values, see [{#T}](tts/voices.md). If an incorrect role is selected, the service will return an error.
+1. New voices now support roles (extended emotional tones). See the `emotion` parameter in [API v1](tts/request.md#body_params) and `role` in [API v3](tts-v3/api-ref/grpc/Synthesizer/index.md#Hints) for details. Different roles are available for different voices. For a complete list of values, see [{#T}](tts/voices.md). If an incorrect role is selected, the service will return an error.
 
 1. Fixed the emphasis placement quality regression issue for the `alena` and `filipp` voices. Improved emphasis placement and subjective perception for all voices.
 

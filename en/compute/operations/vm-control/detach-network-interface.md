@@ -125,6 +125,6 @@ To delete a network interface from a virtual machine:
 
 - API {#api}
 
-   Use the [detachNetworkInterface](../../api-ref/Instance/detachNetworkInterface.md) REST API method for the [Instance](../../api-ref/Instance/index.md) resource or the [InstanceService/DetachNetworkInterface](../../api-ref/grpc/instance_service.md#DetachNetworkInterface) gRPC API call.
+   Use the [detachNetworkInterface](../../api-ref/Instance/detachNetworkInterface.md) REST API method for the [Instance](../../api-ref/Instance/index.md) resource or the [InstanceService/DetachNetworkInterface](../../api-ref/grpc/Instance/detachNetworkInterface.md) gRPC API call.
 
 {% endlist %}

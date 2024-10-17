@@ -76,7 +76,7 @@ To test tunneling between two different virtual networks, place {{ yandex-cloud 
 
 - API {#api}
 
-   To create a folder, use the [create](../../resource-manager/api-ref/Folder/create.md) REST API method for the [Folder](../../resource-manager/api-ref/Folder/index.md) resource or the [FolderService/Create](../../resource-manager/api-ref/grpc/folder_service.md#Create) gRPC API call.
+   To create a folder, use the [create](../../resource-manager/api-ref/Folder/create.md) REST API method for the [Folder](../../resource-manager/api-ref/Folder/index.md) resource or the [FolderService/Create](../../resource-manager/api-ref/grpc/Folder/create.md) gRPC API call.
 
 - {{ TF }} {#tf}
 

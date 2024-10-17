@@ -30,6 +30,6 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [update](../../api-ref/StreamLine/update.md) для ресурса [StreamLine](../../api-ref/StreamLine/index.md) или вызовом gRPC API [StreamLineService/Update](../../api-ref/grpc/stream_line_service.md#Update).
+  Воспользуйтесь методом REST API [update](../../api-ref/StreamLine/update.md) для ресурса [StreamLine](../../api-ref/StreamLine/index.md) или вызовом gRPC API [StreamLineService/Update](../../api-ref/grpc/StreamLine/update.md).
 
 {% endlist %}

@@ -53,7 +53,7 @@ A secret can be either active or deactivated. When a secret is active, it enable
 
 - API {#api}
 
-  To deactivate a secret, use the [deactivate](../api-ref/Secret/deactivate.md) REST API method for the [Secret](../api-ref/Secret/index.md) resource or the [SecretService/Deactivate](../api-ref/grpc/secret_service.md#Deactivate) gRPC API call.
+  To deactivate a secret, use the [deactivate](../api-ref/Secret/deactivate.md) REST API method for the [Secret](../api-ref/Secret/index.md) resource or the [SecretService/Deactivate](../api-ref/grpc/Secret/deactivate.md) gRPC API call.
 
 {% endlist %}
 
@@ -102,7 +102,7 @@ A secret can be either active or deactivated. When a secret is active, it enable
 
 - API {#api}
 
-  To activate a secret, use the [activate](../api-ref/Secret/activate.md) REST API method for the [Secret](../api-ref/Secret/index.md) resource or the [SecretService/Activate](../api-ref/grpc/secret_service.md#Activate) gRPC API call.
+  To activate a secret, use the [activate](../api-ref/Secret/activate.md) REST API method for the [Secret](../api-ref/Secret/index.md) resource or the [SecretService/Activate](../api-ref/grpc/Secret/activate.md) gRPC API call.
 
 {% endlist %}
 

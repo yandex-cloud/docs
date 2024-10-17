@@ -46,7 +46,7 @@ To make a version primary:
 
 - API {#api}
 
-   Use the [setPrimaryVersion](../../kms/api-ref/SymmetricKey/setPrimaryVersion.md) REST API method for the [SymmetricKey](../../kms/api-ref/SymmetricKey/index.md) resource or the [SymmetricKeyService/SetPrimaryVersion](../../kms/api-ref/grpc/symmetric_key_service.md#SetPrimaryVersion) gRPC API call.
+   Use the [setPrimaryVersion](../../kms/api-ref/SymmetricKey/setPrimaryVersion.md) REST API method for the [SymmetricKey](../../kms/api-ref/SymmetricKey/index.md) resource or the [SymmetricKeyService/SetPrimaryVersion](../../kms/api-ref/grpc/SymmetricKey/setPrimaryVersion.md) gRPC API call.
 
 {% endlist %}
 
@@ -110,7 +110,7 @@ At the scheduled time and date, the key version is permanently destroyed: if you
 
 - API {#api}
 
-   Use the [scheduleVersionDestruction](../../kms/api-ref/SymmetricKey/scheduleVersionDestruction.md) REST API method for the [SymmetricKey](../../kms/api-ref/SymmetricKey/index.md) resource or the [SymmetricKeyService/ScheduleVersionDestruction](../../kms/api-ref/grpc/symmetric_key_service.md#ScheduleVersionDestruction) gRPC API call.
+   Use the [scheduleVersionDestruction](../../kms/api-ref/SymmetricKey/scheduleVersionDestruction.md) REST API method for the [SymmetricKey](../../kms/api-ref/SymmetricKey/index.md) resource or the [SymmetricKeyService/ScheduleVersionDestruction](../../kms/api-ref/grpc/SymmetricKey/scheduleVersionDestruction.md) gRPC API call.
 
 {% endlist %}
 
@@ -162,7 +162,7 @@ If you scheduled the destruction of a key version, you can cancel it before the 
 
 - API {#api}
 
-   Use the [cancelVersionDestruction](../../kms/api-ref/SymmetricKey/cancelVersionDestruction.md) REST API method for the [SymmetricKey](../../kms/api-ref/SymmetricKey/index.md) resource or the [SymmetricKeyService/CancelVersionDestruction](../../kms/api-ref/grpc/symmetric_key_service.md#CancelVersionDestruction) gRPC API call.
+   Use the [cancelVersionDestruction](../../kms/api-ref/SymmetricKey/cancelVersionDestruction.md) REST API method for the [SymmetricKey](../../kms/api-ref/SymmetricKey/index.md) resource or the [SymmetricKeyService/CancelVersionDestruction](../../kms/api-ref/grpc/SymmetricKey/cancelVersionDestruction.md) gRPC API call.
 
 {% endlist %}
 

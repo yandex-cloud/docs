@@ -104,8 +104,8 @@ To delete a [disk snapshot](../../concepts/snapshot.md) [schedule](../../concept
 
 - API {#api}
 
-   1. Get the list of schedules using the [list](../../api-ref/SnapshotSchedule/list.md) REST API method for the [SnapshotSchedule](../../api-ref/SnapshotSchedule/index.md) resource or the [SnapshotScheduleService/List](../../api-ref/grpc/snapshot_schedule_service.md#List) gRPC API call.
-   1. Delete a snapshot schedule using the [delete](../../api-ref/SnapshotSchedule/delete.md) REST API method for the `SnapshotSchedule` resource or the [SnapshotScheduleService/Delete](../../api-ref/grpc/snapshot_schedule_service.md#Delete) gRPC API call.
+   1. Get the list of schedules using the [list](../../api-ref/SnapshotSchedule/list.md) REST API method for the [SnapshotSchedule](../../api-ref/SnapshotSchedule/index.md) resource or the [SnapshotScheduleService/List](../../api-ref/grpc/SnapshotSchedule/list.md) gRPC API call.
+   1. Delete a snapshot schedule using the [delete](../../api-ref/SnapshotSchedule/delete.md) REST API method for the `SnapshotSchedule` resource or the [SnapshotScheduleService/Delete](../../api-ref/grpc/SnapshotSchedule/delete.md) gRPC API call.
 
 {% endlist %}
 

@@ -3,39 +3,55 @@ editable: false
 sourcePath: en/_api-ref/iot/devices/v1/api-ref/Device/get.md
 ---
 
-# IoT Core Service, REST: Device.get
+# IoT Core Service, REST: Device.Get {#Get}
+
 Returns the specified device.
- 
-To get the list of available devices, make a [list](/docs/iot-core/api-ref/Device/list) request.
- 
-## HTTP request {#https-request}
+
+To get the list of available devices, make a [List](/docs/iot-core/api-ref/Device/list#List) request.
+
+## HTTP request
+
 ```
 GET https://iot-devices.{{ api-host }}/iot-devices/v1/devices/{deviceId}
 ```
- 
-## Path parameters {#path_params}
- 
-Parameter | Description
---- | ---
-deviceId | <p>Required. ID of the device to return.</p> <p>To get a device ID make a <a href="/docs/iot-core/api-ref/Device/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
- 
-## Query parameters {#query_params}
- 
-Parameter | Description
---- | ---
-deviceView | <p>Specifies which parts of the device resource should be returned in the response.</p> <ul> <li>BASIC: Server responses without monitoring data. The default value.</li> <li>FULL: Server responses with monitoring data.</li> </ul> 
- 
-## Response {#responses}
+
+## Path parameters
+
+#|
+||Field | Description ||
+|| deviceId | **string**
+
+Required field. ID of the device to return.
+
+To get a device ID make a [DeviceService.List](/docs/iot-core/api-ref/Device/list#List) request. ||
+|#
+
+## Query parameters {#yandex.cloud.iot.devices.v1.GetDeviceRequest}
+
+#|
+||Field | Description ||
+|| deviceView | **enum** (DeviceView)
+
+Specifies which parts of the device resource should be returned
+in the response.
+
+- `BASIC`: Server responses without monitoring data.
+The default value.
+- `FULL`: Server responses with monitoring data. ||
+|#
+
+## Response {#yandex.cloud.iot.devices.v1.Device}
+
 **HTTP Code: 200 - OK**
 
-```json 
+```json
 {
   "id": "string",
   "registryId": "string",
   "createdAt": "string",
   "name": "string",
   "description": "string",
-  "topicAliases": "object",
+  "topicAliases": "string",
   "status": "string",
   "monitoringData": {
     "lastAuthIp": "string",
@@ -46,20 +62,86 @@ deviceView | <p>Specifies which parts of the device resource should be returned 
   }
 }
 ```
+
 A device. For more information, see [Device](/docs/iot-core/concepts/index#device).
- 
-Field | Description
---- | ---
-id | **string**<br><p>ID of the device.</p> 
-registryId | **string**<br><p>ID of the registry that the device belongs to.</p> 
-createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
-name | **string**<br><p>Name of the device. The name is unique within the registry.</p> 
-description | **string**<br><p>Description of the device. 0-256 characters long.</p> 
-topicAliases | **object**<br><p>Alias of a device topic.</p> <p>Alias is an alternate name of a device topic assigned by the user. Map alias to canonical topic name prefix, e.g. ``my/custom/alias`` match to ``$device/abcdef/events``.</p> 
-status | **string**<br><p>Status of the device.</p> <ul> <li>CREATING: Device is being created.</li> <li>ACTIVE: Device is ready to use.</li> <li>DELETING: Device is being deleted.</li> </ul> 
-monitoringData | **object**<br><p>Device monitoring data, returns if FULL view specified.</p> 
-monitoringData.<br>lastAuthIp | **string**
-monitoringData.<br>lastAuthTime | **string** (date-time)<br><p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
-monitoringData.<br>lastPubActivityTime | **string** (date-time)<br><p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
-monitoringData.<br>lastSubActivityTime | **string** (date-time)<br><p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
-monitoringData.<br>lastOnlineTime | **string** (date-time)<br><p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
+
+#|
+||Field | Description ||
+|| id | **string**
+
+ID of the device. ||
+|| registryId | **string**
+
+ID of the registry that the device belongs to. ||
+|| createdAt | **string** (date-time)
+
+Creation timestamp.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| name | **string**
+
+Name of the device. The name is unique within the registry. ||
+|| description | **string**
+
+Description of the device. 0-256 characters long. ||
+|| topicAliases | **string**
+
+Alias of a device topic.
+
+Alias is an alternate name of a device topic assigned by the user. Map alias to canonical topic name prefix, e.g. `my/custom/alias` match to `$device/abcdef/events`. ||
+|| status | **enum** (Status)
+
+Status of the device.
+
+- `STATUS_UNSPECIFIED`
+- `CREATING`: Device is being created.
+- `ACTIVE`: Device is ready to use.
+- `DELETING`: Device is being deleted. ||
+|| monitoringData | **[DeviceMonitoringData](#yandex.cloud.iot.devices.v1.DeviceMonitoringData)**
+
+Device monitoring data, returns if FULL view specified. ||
+|#
+
+## DeviceMonitoringData {#yandex.cloud.iot.devices.v1.DeviceMonitoringData}
+
+#|
+||Field | Description ||
+|| lastAuthIp | **string** ||
+|| lastAuthTime | **string** (date-time)
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| lastPubActivityTime | **string** (date-time)
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| lastSubActivityTime | **string** (date-time)
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| lastOnlineTime | **string** (date-time)
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|#

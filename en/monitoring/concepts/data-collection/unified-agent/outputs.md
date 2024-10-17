@@ -108,7 +108,7 @@ Parameter descriptions:
 
 ## yc_logs output {#yc_logs_output}
 
-Output used for sending logs to [{{ cloud-logging-full-name }}](../../../../logging/) via [gRPC](../../../../logging/api-ref/grpc/log_ingestion_service.md).
+Output used for sending logs to [{{ cloud-logging-full-name }}](../../../../logging/) via [gRPC](../../../../logging/api-ref/grpc/LogIngestion/index.md).
 
 {% note info %}
 

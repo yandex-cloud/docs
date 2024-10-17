@@ -90,7 +90,7 @@ You can only attach a local disk to a VM on a [dedicated host](../../concepts/de
 
 - API {#api}
 
-   Use the [attachDisk](../../api-ref/Instance/attachDisk.md) REST API method for the [Instance](../../api-ref/Instance/) resource or the [InstanceService/AttachDisk](../../api-ref/grpc/instance_service.md#AttachDisk) gRPC API call.
+   Use the [attachDisk](../../api-ref/Instance/attachDisk.md) REST API method for the [Instance](../../api-ref/Instance/) resource or the [InstanceService/AttachDisk](../../api-ref/grpc/Instance/attachDisk.md) gRPC API call.
 
 {% endlist %}
 

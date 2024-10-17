@@ -48,9 +48,9 @@ description: Follow this guide to get information about a log group.
 
 - API {#api}
 
-  To get detailed information about a log group, use the [get](../api-ref/LogGroup/get.md) REST API method for the [LogGroup](../api-ref/LogGroup/index.md) resource or the [LogGroupService/Get](../api-ref/grpc/log_group_service.md#Get) gRPC API call.
+  To get detailed information about a log group, use the [get](../api-ref/LogGroup/get.md) REST API method for the [LogGroup](../api-ref/LogGroup/index.md) resource or the [LogGroupService/Get](../api-ref/grpc/LogGroup/get.md) gRPC API call.
 
-  To get log group statistics, use the [stats](../api-ref/LogGroup/stats.md) REST API method for the [LogGroup](../api-ref/LogGroup/index.md) resource or the [LogGroupService/Stats](../api-ref/grpc/log_group_service.md#Stats) gRPC API call.
+  To get log group statistics, use the [stats](../api-ref/LogGroup/stats.md) REST API method for the [LogGroup](../api-ref/LogGroup/index.md) resource or the [LogGroupService/Stats](../api-ref/grpc/LogGroup/stats.md) gRPC API call.
 
   **Request examples**
 

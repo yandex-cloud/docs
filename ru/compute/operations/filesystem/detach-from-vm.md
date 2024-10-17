@@ -137,6 +137,6 @@ description: Следуя данной инструкции, вы сможете
 
    - API {#api}
 
-     Воспользуйтесь методом REST API [detachFilesystem](../../api-ref/Instance/detachFilesystem.md) для ресурса [Instance](../../api-ref/Instance/index.md) или вызовом gRPC API [InstanceService/DetachFilesystem](../../api-ref/grpc/instance_service.md#DetachFilesystem).
+     Воспользуйтесь методом REST API [detachFilesystem](../../api-ref/Instance/detachFilesystem.md) для ресурса [Instance](../../api-ref/Instance/index.md) или вызовом gRPC API [InstanceService/DetachFilesystem](../../api-ref/grpc/Instance/detachFilesystem.md).
 
    {% endlist %}

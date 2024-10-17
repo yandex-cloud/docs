@@ -56,6 +56,6 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Чтобы создать репозиторий, воспользуйтесь методом REST API [upsert](../../api-ref/Repository/upsert.md) для ресурса [Repository](../../api-ref/Repository/index.md), или вызовом gRPC API [RepositoryService/Upsert](../../api-ref/grpc/repository_service.md#Upsert).
+  Чтобы создать репозиторий, воспользуйтесь методом REST API [upsert](../../api-ref/Repository/upsert.md) для ресурса [Repository](../../api-ref/Repository/index.md), или вызовом gRPC API [RepositoryService/Upsert](../../api-ref/grpc/Repository/upsert.md).
 
 {% endlist %}

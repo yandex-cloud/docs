@@ -44,6 +44,6 @@ description: Из статьи вы узнаете, как удалить ста
 
 - API {#api}
 
-  Чтобы удалить статический ключ, воспользуйтесь методом REST API [delete](../../api-ref/AccessKey/delete.md) для ресурса [AccessKey](../../api-ref/AccessKey/index.md) или вызовом gRPC API [AccessKeyService/Delete](../../api-ref/grpc/access_key_service.md#Delete).
+  Чтобы удалить статический ключ, воспользуйтесь методом REST API [delete](../../awscompatibility/api-ref/AccessKey/delete.md) для ресурса [AccessKey](../../awscompatibility/api-ref/AccessKey/index.md) или вызовом gRPC API [AccessKeyService/Delete](../../awscompatibility/api-ref/grpc/AccessKey/delete.md).
 
 {% endlist %}

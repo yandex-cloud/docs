@@ -184,7 +184,7 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [create](../../organization/api-ref/UserSshKey/create.md) для ресурса [UserSshKey](../../organization/api-ref/UserSshKey/index.md) или вызовом gRPC API [UserSshKeyService/Create](../../organization/api-ref/grpc/user_ssh_key_service.md#Create).
+  Воспользуйтесь методом REST API [create](../../organization/api-ref/UserSshKey/create.md) для ресурса [UserSshKey](../../organization/api-ref/UserSshKey/index.md) или вызовом gRPC API [UserSshKeyService/Create](../../organization/api-ref/grpc/UserSshKey/create.md).
 
 {% endlist %}
 

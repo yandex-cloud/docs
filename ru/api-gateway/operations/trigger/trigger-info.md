@@ -45,6 +45,6 @@ description: Из статьи вы узнаете, как получить сп
 
 - API {#api}
 
-  Чтобы получить информацию о триггере, воспользуйтесь методом REST API [get](../../triggers/api-ref/Trigger/get.md) для ресурса [Trigger](../../triggers/api-ref/Trigger/index.md) или вызовом gRPC API [TriggerService/Get](../../triggers/api-ref/grpc/trigger_service.md#Get).
+  Чтобы получить информацию о триггере, воспользуйтесь методом REST API [get](../../triggers/api-ref/Trigger/get.md) для ресурса [Trigger](../../triggers/api-ref/Trigger/index.md) или вызовом gRPC API [TriggerService/Get](../../triggers/api-ref/grpc/Trigger/get.md).
 
 {% endlist %}

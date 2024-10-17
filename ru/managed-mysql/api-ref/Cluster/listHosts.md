@@ -3,33 +3,48 @@ editable: false
 sourcePath: en/_api-ref/mdb/mysql/v1/api-ref/Cluster/listHosts.md
 ---
 
-# Managed Service for MySQL API, REST: Cluster.listHosts
-Retrieves a list of hosts for a cluster.
- 
+# Managed Service for MySQL API, REST: Cluster.ListHosts {#ListHosts}
 
- 
-## HTTP request {#https-request}
+Retrieves a list of hosts for a cluster.
+
+## HTTP request
+
 ```
 GET https://{{ api-host-mdb }}/managed-mysql/v1/clusters/{clusterId}/hosts
 ```
- 
-## Path parameters {#path_params}
- 
-Parameter | Description
---- | ---
-clusterId | <p>Required. ID of the cluster to list hosts for.</p> <p>To get this ID, make a <a href="/docs/managed-mysql/api-ref/Cluster/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
- 
-## Query parameters {#query_params}
- 
-Parameter | Description
---- | ---
-pageSize | <p>The maximum number of results per page to return.</p> <p>If the number of available results is larger than <a href="/docs/managed-mysql/api-ref/Cluster/listHosts#query_params">pageSize</a>, the API returns a <a href="/docs/managed-mysql/api-ref/Cluster/listHosts#responses">nextPageToken</a> that can be used to get the next page of results in the subsequent <a href="/docs/managed-mysql/api-ref/Cluster/listHosts">listHosts</a> requests.</p> <p>Acceptable values are 0 to 1000, inclusive.</p> 
-pageToken | <p>Page token that can be used to iterate through multiple pages of results.</p> <p>To get the next page of results, set <a href="/docs/managed-mysql/api-ref/Cluster/listHosts#query_params">pageToken</a> to the <a href="/docs/managed-mysql/api-ref/Cluster/listHosts#responses">nextPageToken</a> returned by the previous <a href="/docs/managed-mysql/api-ref/Cluster/listHosts">listHosts</a> request.</p> <p>The maximum string length in characters is 100.</p> 
- 
-## Response {#responses}
+
+## Path parameters
+
+#|
+||Field | Description ||
+|| clusterId | **string**
+
+Required field. ID of the cluster to list hosts for.
+
+To get this ID, make a [ClusterService.List](/docs/managed-mysql/api-ref/Cluster/list#List) request. ||
+|#
+
+## Query parameters {#yandex.cloud.mdb.mysql.v1.ListClusterHostsRequest}
+
+#|
+||Field | Description ||
+|| pageSize | **string** (int64)
+
+The maximum number of results per page to return.
+
+If the number of available results is larger than `pageSize`, the API returns a [ListClusterHostsResponse.nextPageToken](#yandex.cloud.mdb.mysql.v1.ListClusterHostsResponse) that can be used to get the next page of results in the subsequent [ClusterService.ListHosts](#ListHosts) requests. ||
+|| pageToken | **string**
+
+Page token that can be used to iterate through multiple pages of results.
+
+To get the next page of results, set `pageToken` to the [ListClusterHostsResponse.nextPageToken](#yandex.cloud.mdb.mysql.v1.ListClusterHostsResponse) returned by the previous [ClusterService.ListHosts](#ListHosts) request. ||
+|#
+
+## Response {#yandex.cloud.mdb.mysql.v1.ListClusterHostsResponse}
+
 **HTTP Code: 200 - OK**
 
-```json 
+```json
 {
   "hosts": [
     {
@@ -50,7 +65,7 @@ pageToken | <p>Page token that can be used to iterate through multiple pages of 
         }
       ],
       "subnetId": "string",
-      "assignPublicIp": true,
+      "assignPublicIp": "boolean",
       "replicationSource": "string",
       "backupPriority": "string",
       "priority": "string"
@@ -60,25 +75,118 @@ pageToken | <p>Page token that can be used to iterate through multiple pages of 
 }
 ```
 
- 
-Field | Description
---- | ---
-hosts[] | **object**<br><p>List of hosts in the cluster.</p> 
-hosts[].<br>name | **string**<br><p>Name of the host.</p> <p>This name is assigned by the platform at the time of creation. The name is unique across all MDB hosts that exist on the platform, as it defines the FQDN of the host.</p> 
-hosts[].<br>clusterId | **string**<br><p>ID of the cluster the host belongs to.</p> 
-hosts[].<br>zoneId | **string**<br><p>ID of the availability zone where the host resides.</p> 
-hosts[].<br>resources | **object**<br><p>Resources allocated to the host.</p> <p>Cluster resource preset.</p> 
-hosts[].<br>resources.<br>resourcePresetId | **string**<br><p>ID of the resource preset that defines available computational resources (vCPU, RAM, etc.) for a cluster host.</p> <p>All available presets are listed in <a href="/docs/managed-mysql/concepts/instance-types">the documentation</a>.</p> 
-hosts[].<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage (for each cluster host, in bytes).</p> 
-hosts[].<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage.</p> <p>Possible values:</p> <ul> <li>``network-hdd`` - standard network storage</li> <li>``network-ssd`` - fast network storage</li> <li>``network-ssd-nonreplicated`` - fast network nonreplicated storage</li> <li>``local-ssd`` - fast local storage.</li> </ul> <p>See <a href="/docs/managed-mysql/concepts/storage">the documentation</a> for details.</p> 
-hosts[].<br>role | **string**<br><p>Role of the host in the cluster. If the field has default value, it is not returned in the response.</p> <ul> <li>ROLE_UNKNOWN: Role of the host is unknown. Default value.</li> <li>MASTER: Host is the master.</li> <li>REPLICA: Host is a replica.</li> </ul> 
-hosts[].<br>health | **string**<br><p>Aggregated health of the host. If the field has default value, it is not returned in the response.</p> <ul> <li>HEALTH_UNKNOWN: Health of the host is unknown. Default value.</li> <li>ALIVE: Host is performing all its functions normally.</li> <li>DEAD: Host is inoperable, and cannot perform any of its essential functions.</li> <li>DEGRADED: Host is degraded, and can perform only some of its essential functions.</li> <li>READONLY: Host is alive, but in read-only mode.</li> </ul> 
-hosts[].<br>services[] | **object**<br><p>List of services provided by the host.</p> 
-hosts[].<br>services[].<br>type | **string**<br><p>Type of the service provided by the host. If the field has default value, it is not returned in the response.</p> <ul> <li>TYPE_UNSPECIFIED: Service type of the host is unspecified. Default value. - MYSQL: The host is a MySQL server.</li> </ul> 
-hosts[].<br>services[].<br>health | **string**<br><p>Aggregated health of the service. If the field has default value, it is not returned in the response.</p> <ul> <li>HEALTH_UNKNOWN: Health of the service is unknown. Default value.</li> <li>ALIVE: The service is working normally.</li> <li>DEAD: The service is dead or unresponsive.</li> <li>READONLY: The service is in read-only mode.</li> </ul> 
-hosts[].<br>subnetId | **string**<br><p>ID of the subnet that the host belongs to.</p> 
-hosts[].<br>assignPublicIp | **boolean** (boolean)<br><p>Flag that shows if public IP address is assigned to the host so that the host can be accessed from the internet.</p> 
-hosts[].<br>replicationSource | **string**<br><p>Name of the host to be used as the replication source for cascading replication.</p> 
-hosts[].<br>backupPriority | **string** (int64)<br><p>Host backup priority.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
-hosts[].<br>priority | **string** (int64)<br><p>Host master promotion priority.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
-nextPageToken | **string**<br><p>The token that can be used to get the next page of results.</p> <p>If the number of results is larger than <a href="/docs/managed-mysql/api-ref/Cluster/listHosts#query_params">pageSize</a>, use the <a href="/docs/managed-mysql/api-ref/Cluster/listHosts#responses">nextPageToken</a> as the value for the <a href="/docs/managed-mysql/api-ref/Cluster/listHosts#query_params">pageToken</a> in the subsequent <a href="/docs/managed-mysql/api-ref/Cluster/listHosts">listHosts</a> request to iterate through multiple pages of results.</p> <p>Each of the subsequent <a href="/docs/managed-mysql/api-ref/Cluster/listHosts">listHosts</a> requests should use the <a href="/docs/managed-mysql/api-ref/Cluster/listHosts#responses">nextPageToken</a> value returned by the previous request to continue paging through the results.</p> 
+#|
+||Field | Description ||
+|| hosts[] | **[Host](#yandex.cloud.mdb.mysql.v1.Host)**
+
+List of hosts in the cluster. ||
+|| nextPageToken | **string**
+
+The token that can be used to get the next page of results.
+
+If the number of results is larger than [ListClusterHostsRequest.pageSize](#yandex.cloud.mdb.mysql.v1.ListClusterHostsRequest), use the `nextPageToken` as the value for the [ListClusterHostsRequest.pageToken](#yandex.cloud.mdb.mysql.v1.ListClusterHostsRequest) in the subsequent [ClusterService.ListHosts](#ListHosts) request to iterate through multiple pages of results.
+
+Each of the subsequent [ClusterService.ListHosts](#ListHosts) requests should use the `nextPageToken` value returned by the previous request to continue paging through the results. ||
+|#
+
+## Host {#yandex.cloud.mdb.mysql.v1.Host}
+
+#|
+||Field | Description ||
+|| name | **string**
+
+Name of the host.
+
+This name is assigned by the platform at the time of creation.
+The name is unique across all MDB hosts that exist on the platform, as it defines the FQDN of the host. ||
+|| clusterId | **string**
+
+ID of the cluster the host belongs to. ||
+|| zoneId | **string**
+
+ID of the availability zone where the host resides. ||
+|| resources | **[Resources](#yandex.cloud.mdb.mysql.v1.Resources)**
+
+Resources allocated to the host. ||
+|| role | **enum** (Role)
+
+Role of the host in the cluster. If the field has default value, it is not returned in the response.
+
+- `ROLE_UNKNOWN`: Role of the host is unknown. Default value.
+- `MASTER`: Host is the master.
+- `REPLICA`: Host is a replica. ||
+|| health | **enum** (Health)
+
+Aggregated health of the host. If the field has default value, it is not returned in the response.
+
+- `HEALTH_UNKNOWN`: Health of the host is unknown. Default value.
+- `ALIVE`: Host is performing all its functions normally.
+- `DEAD`: Host is inoperable, and cannot perform any of its essential functions.
+- `DEGRADED`: Host is degraded, and can perform only some of its essential functions.
+- `READONLY`: Host is alive, but in read-only mode. ||
+|| services[] | **[Service](#yandex.cloud.mdb.mysql.v1.Service)**
+
+List of services provided by the host. ||
+|| subnetId | **string**
+
+ID of the subnet that the host belongs to. ||
+|| assignPublicIp | **boolean**
+
+Flag that shows if public IP address is assigned to the host so that the host can be accessed from the internet. ||
+|| replicationSource | **string**
+
+Name of the host to be used as the replication source for cascading replication. ||
+|| backupPriority | **string** (int64)
+
+Host backup priority. ||
+|| priority | **string** (int64)
+
+Host master promotion priority. ||
+|#
+
+## Resources {#yandex.cloud.mdb.mysql.v1.Resources}
+
+Cluster resource preset.
+
+#|
+||Field | Description ||
+|| resourcePresetId | **string**
+
+ID of the resource preset that defines available computational resources (vCPU, RAM, etc.) for a cluster host.
+
+All available presets are listed in [the documentation](/docs/managed-mysql/concepts/instance-types). ||
+|| diskSize | **string** (int64)
+
+Volume of the storage (for each cluster host, in bytes). ||
+|| diskTypeId | **string**
+
+Type of the storage.
+
+Possible values:
+* `network-hdd` - standard network storage
+* `network-ssd` - fast network storage
+* `network-ssd-nonreplicated` - fast network nonreplicated storage
+* `local-ssd` - fast local storage.
+
+See [the documentation](/docs/managed-mysql/concepts/storage) for details. ||
+|#
+
+## Service {#yandex.cloud.mdb.mysql.v1.Service}
+
+#|
+||Field | Description ||
+|| type | **enum** (Type)
+
+Type of the service provided by the host. If the field has default value, it is not returned in the response.
+
+- `TYPE_UNSPECIFIED`: Service type of the host is unspecified. Default value.
+- `MYSQL`: The host is a MySQL server. ||
+|| health | **enum** (Health)
+
+Aggregated health of the service. If the field has default value, it is not returned in the response.
+
+- `HEALTH_UNKNOWN`: Health of the service is unknown. Default value.
+- `ALIVE`: The service is working normally.
+- `DEAD`: The service is dead or unresponsive.
+- `READONLY`: The service is in read-only mode. ||
+|#

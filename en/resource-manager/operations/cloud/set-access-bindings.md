@@ -142,7 +142,7 @@ To grant a user access to cloud resources, assign the user a [role](../../../iam
 
 - API {#api}
 
-  Use the [updateAccessBindings](../../api-ref/Cloud/updateAccessBindings.md) REST API method for the [Cloud](../../api-ref/Cloud/index.md) resource or the [CloudService/UpdateAccessBindings](../../api-ref/grpc/cloud_service.md#UpdateAccessBindings) gRPC API call.
+  Use the [updateAccessBindings](../../api-ref/Cloud/updateAccessBindings.md) REST API method for the [Cloud](../../api-ref/Cloud/index.md) resource or the [CloudService/UpdateAccessBindings](../../api-ref/grpc/Cloud/updateAccessBindings.md) gRPC API call.
 
   You will need the cloud ID and the ID of the user who is assigned the role for the cloud.
 
@@ -323,7 +323,7 @@ To grant a user access to cloud resources, assign the user a [role](../../../iam
       https://resource-manager.{{ api-host }}/resource-manager/v1/clouds/b1gg8sgd16g7********:updateAccessBindings
   ```
 
-  You can also assign roles using the [setAccessBindings](../../api-ref/Cloud/setAccessBindings.md) REST API method for the [Cloud](../../api-ref/Cloud/index.md) resource or the [CloudService/SetAccessBindings](../../api-ref/grpc/cloud_service.md#SetAccessBindings) gRPC API call.
+  You can also assign roles using the [setAccessBindings](../../api-ref/Cloud/setAccessBindings.md) REST API method for the [Cloud](../../api-ref/Cloud/index.md) resource or the [CloudService/SetAccessBindings](../../api-ref/grpc/Cloud/setAccessBindings.md) gRPC API call.
 
   {% note alert %}
 

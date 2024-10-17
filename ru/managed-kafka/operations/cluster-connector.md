@@ -52,7 +52,7 @@
 
 - API {#api}
 
-    Чтобы получить список коннекторов, воспользуйтесь методом REST API [list](../api-ref/Connector/list.md) для ресурса [Connector](../api-ref/Connector/index.md) или вызовом gRPC API [ConnectorService/List](../api-ref/grpc/connector_service.md#List) и передайте в запросе идентификатор кластера в параметре `clusterId`.
+    Чтобы получить список коннекторов, воспользуйтесь методом REST API [list](../api-ref/Connector/list.md) для ресурса [Connector](../api-ref/Connector/index.md) или вызовом gRPC API [ConnectorService/List](../api-ref/grpc/Connector/list.md) и передайте в запросе идентификатор кластера в параметре `clusterId`.
 
     Чтобы узнать идентификатор кластера, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -95,7 +95,7 @@
 
 - API {#api}
 
-    Чтобы получить детальную информацию о коннекторе, воспользуйтесь методом REST API [get](../api-ref/Connector/get.md) для ресурса [Connector](../api-ref/Connector/index.md) или вызовом gRPC API [ConnectorService/Get](../api-ref/grpc/connector_service.md#Get) и передайте в запросе:
+    Чтобы получить детальную информацию о коннекторе, воспользуйтесь методом REST API [get](../api-ref/Connector/get.md) для ресурса [Connector](../api-ref/Connector/index.md) или вызовом gRPC API [ConnectorService/Get](../api-ref/grpc/Connector/get.md) и передайте в запросе:
 
     * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, получите [список кластеров в каталоге](cluster-list.md#list-clusters).
     * Имя коннектора в параметре `connectorName`. Чтобы узнать имя, получите [список коннекторов в кластере](#list).
@@ -285,7 +285,7 @@
 
 - API {#api}
 
-    Чтобы создать коннектор, воспользуйтесь методом API [create](../api-ref/Connector/create.md) для ресурса [Connector](../api-ref/Connector/index.md) или вызовом gRPC API [ConnectorService/Create](../api-ref/grpc/connector_service.md#Create) и передайте в запросе:
+    Чтобы создать коннектор, воспользуйтесь методом API [create](../api-ref/Connector/create.md) для ресурса [Connector](../api-ref/Connector/index.md) или вызовом gRPC API [ConnectorService/Create](../api-ref/grpc/Connector/create.md) и передайте в запросе:
 
     * Идентификатор кластера, в котором нужно создать коннектор, в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
     * Настройки коннектора в параметре `connectorSpec`.
@@ -656,7 +656,7 @@
 
 - API {#api}
 
-    Чтобы изменить коннектор, воспользуйтесь методом REST API [update](../api-ref/Connector/update.md) для ресурса [Connector](../api-ref/Connector/index.md) или вызовом gRPC API [ConnectorService/Update](../api-ref/grpc/connector_service.md#Update) и передайте в запросе:
+    Чтобы изменить коннектор, воспользуйтесь методом REST API [update](../api-ref/Connector/update.md) для ресурса [Connector](../api-ref/Connector/index.md) или вызовом gRPC API [ConnectorService/Update](../api-ref/grpc/Connector/update.md) и передайте в запросе:
 
     * Идентификатор кластера, в котором нужно изменить коннектор, в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
     * Настройки коннектора в параметре `connectorSpec`.
@@ -696,7 +696,7 @@
 
 - API {#api}
 
-    Чтобы приостановить работу коннектора, воспользуйтесь методом REST API [pause](../api-ref/Connector/pause.md) для ресурса [Connector](../api-ref/Connector/index.md) или вызовом gRPC API [ConnectorService/Pause](../api-ref/grpc/connector_service.md#Pause) и передайте в запросе:
+    Чтобы приостановить работу коннектора, воспользуйтесь методом REST API [pause](../api-ref/Connector/pause.md) для ресурса [Connector](../api-ref/Connector/index.md) или вызовом gRPC API [ConnectorService/Pause](../api-ref/grpc/Connector/pause.md) и передайте в запросе:
 
     * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
     * Имя коннектора в параметре `connectorName`. Чтобы узнать имя, [получите список коннекторов в кластере](#list-connectors).
@@ -729,7 +729,7 @@
 
 - API {#api}
 
-    Чтобы возобновить работу коннектора, воспользуйтесь методом REST API [resume](../api-ref/Connector/resume.md) для ресурса [Connector](../api-ref/Connector/index.md) или вызовом gRPC API [ConnectorService/Resume](../api-ref/grpc/connector_service.md#Resume) и передайте в запросе:
+    Чтобы возобновить работу коннектора, воспользуйтесь методом REST API [resume](../api-ref/Connector/resume.md) для ресурса [Connector](../api-ref/Connector/index.md) или вызовом gRPC API [ConnectorService/Resume](../api-ref/grpc/Connector/resume.md) и передайте в запросе:
 
     * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
     * Имя коннектора в параметре `connectorName`. Чтобы узнать имя, [получите список коннекторов в кластере](#list-connectors).
@@ -804,7 +804,7 @@
 
 - API {#api}
 
-    Чтобы удалить коннектор, воспользуйтесь методом REST API [delete](../api-ref/Connector/delete.md) для ресурса [Connector](../api-ref/Connector/index.md) или вызовом gRPC API [ConnectorService/Delete](../api-ref/grpc/connector_service.md#Delete) и передайте в запросе:
+    Чтобы удалить коннектор, воспользуйтесь методом REST API [delete](../api-ref/Connector/delete.md) для ресурса [Connector](../api-ref/Connector/index.md) или вызовом gRPC API [ConnectorService/Delete](../api-ref/grpc/Connector/delete.md) и передайте в запросе:
 
     * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
     * Имя коннектора в параметре `connectorName`. Чтобы узнать имя, [получите список коннекторов в кластере](#list-connectors).

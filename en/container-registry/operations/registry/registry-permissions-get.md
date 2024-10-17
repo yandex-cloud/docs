@@ -41,6 +41,6 @@ description: Follow this guide to get information about registry access policies
 
 - API {#api}
 
-  To get registry access policy details, use the [listIpPermission](../../api-ref/Registry/listIpPermission.md) REST API method for the [Registry](../../api-ref/Registry/index.md) resource or the [RegistryService/ListIpPermission](../../api-ref/grpc/registry_service.md#ListIpPermission) gRPC API call.
+  To get registry access policy details, use the [listIpPermission](../../api-ref/Registry/listIpPermission.md) REST API method for the [Registry](../../api-ref/Registry/index.md) resource or the [RegistryService/ListIpPermission](../../api-ref/grpc/Registry/listIpPermission.md) gRPC API call.
 
 {% endlist %}

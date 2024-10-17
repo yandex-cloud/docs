@@ -46,7 +46,7 @@ You can [create a sharded cluster](./cluster-create.md#create-cluster) or [enabl
 
 - API {#api}
 
-   To get a list of cluster shards, use the [listShards](../api-ref/Cluster/listShards.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/ListShards](../api-ref/grpc/cluster_service.md#ListShards) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
+   To get a list of cluster shards, use the [listShards](../api-ref/Cluster/listShards.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/ListShards](../api-ref/grpc/Cluster/listShards.md) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
    You can request the cluster ID and name with a [list of clusters in the folder](cluster-list.md).
 
@@ -70,7 +70,7 @@ You can [create a sharded cluster](./cluster-create.md#create-cluster) or [enabl
 
 - API {#api}
 
-   To get shard details, use the [getShard](../api-ref/Cluster/getShard.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/GetShard](../api-ref/grpc/cluster_service.md#GetShard) gRPC API call and provide the following in the request:
+   To get shard details, use the [getShard](../api-ref/Cluster/getShard.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/GetShard](../api-ref/grpc/Cluster/getShard.md) gRPC API call and provide the following in the request:
    * Cluster ID in the `clusterId` parameter.
    * Name of the shard you need in the `shardName` parameter.
 
@@ -161,7 +161,7 @@ For clusters with the **local-ssd** disk type, the minimum allowed number of hos
 
 - API {#api}
 
-   To create a shard, use the [addShard](../api-ref/Cluster/addShard.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/AddShard](../api-ref/grpc/cluster_service.md#AddShard) gRPC API call and provide the following in the request:
+   To create a shard, use the [addShard](../api-ref/Cluster/addShard.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/AddShard](../api-ref/grpc/Cluster/addShard.md) gRPC API call and provide the following in the request:
    * Cluster ID in the `clusterId` parameter.
    * Name of the shard in the `shardName` parameter.
    * Shard host configuration in the array of `hostSpecs` parameters.
@@ -226,7 +226,7 @@ To be able to place data in the new shard, start [rebalancing](#rebalance-cluste
 
 - API {#api}
 
-   To delete a shard, use the [deleteShard](../api-ref/Cluster/deleteShard.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/DeleteShard](../api-ref/grpc/cluster_service.md#DeleteShard) gRPC API call and provide the following in the request:
+   To delete a shard, use the [deleteShard](../api-ref/Cluster/deleteShard.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/DeleteShard](../api-ref/grpc/Cluster/deleteShard.md) gRPC API call and provide the following in the request:
    * Cluster ID in the `clusterId` parameter.
    * Name of the shard to delete in the `shardName` parameter.
 
@@ -273,6 +273,6 @@ For more information, see [{#T}](../concepts/sharding.md#scaling).
 
 - API {#api}
 
-   To rebalance a cluster, use the [rebalance](../api-ref/Cluster/rebalance.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Rebalance](../api-ref/grpc/cluster_service.md#Rebalance) gRPC API call.
+   To rebalance a cluster, use the [rebalance](../api-ref/Cluster/rebalance.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Rebalance](../api-ref/grpc/Cluster/rebalance.md) gRPC API call.
 
 {% endlist %}

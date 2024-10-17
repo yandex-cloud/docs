@@ -36,6 +36,6 @@
 
 - API {#api}
 
-  To get a list of registries, use the [list](../../iot-core/api-ref/Registry/list.md) REST API method for the [Registry](../../iot-core/api-ref/Registry/index.md) resource or the [RegistryService/List](../../iot-core/api-ref/grpc/registry_service.md#List) gRPC API call.
+  To get a list of registries, use the [list](../../iot-core/api-ref/Registry/list.md) REST API method for the [Registry](../../iot-core/api-ref/Registry/index.md) resource or the [RegistryService/List](../../iot-core/api-ref/grpc/Registry/list.md) gRPC API call.
 
 {% endlist %}

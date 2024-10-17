@@ -91,7 +91,7 @@ To update a [folder](../../concepts/resources-hierarchy.md#folder) name or descr
 
 - API {#api}
 
-   To update a folder, use the [update](../../api-ref/Folder/update.md) REST API method for the [Folder](../../api-ref/Folder/index.md) resource or the [FolderService/Update](../../api-ref/grpc/folder_service.md#Update) gRPC API call.
+   To update a folder, use the [update](../../api-ref/Folder/update.md) REST API method for the [Folder](../../api-ref/Folder/index.md) resource or the [FolderService/Update](../../api-ref/grpc/Folder/update.md) gRPC API call.
 
 {% endlist %}
 

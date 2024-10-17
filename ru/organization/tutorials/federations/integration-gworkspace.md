@@ -310,7 +310,7 @@
 
 - API {#api}
 
-  Воспользуйтесь методом [create](../../api-ref/Certificate/create.md) для ресурса [Certificate](../../api-ref/Certificate/index.md):
+  Воспользуйтесь методом [create](../../saml/api-ref/Certificate/create.md) для ресурса [Certificate](../../saml/api-ref/Certificate/index.md):
 
   1. Сформируйте тело запроса. В свойстве `data` укажите содержимое сертификата:
 

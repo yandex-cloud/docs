@@ -112,7 +112,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
 - API {#api}
 
-  Use the [updateAccessBindings](../../api-ref/SnapshotSchedule/updateAccessBindings.md) REST API method for the [SnapshotSchedule](../../api-ref/SnapshotSchedule/) resource or the [SnapshotSchedule/UpdateAccessBindings](../../api-ref/grpc/snapshot_schedule_service.md#UpdateAccessBindings) gRPC API call. In the request body, set the `action` property to `ADD` and specify the user type and ID in the `subject` property.
+  Use the [updateAccessBindings](../../api-ref/SnapshotSchedule/updateAccessBindings.md) REST API method for the [SnapshotSchedule](../../api-ref/SnapshotSchedule/) resource or the [SnapshotSchedule/UpdateAccessBindings](../../api-ref/grpc/SnapshotSchedule/updateAccessBindings.md) gRPC API call. In the request body, set the `action` property to `ADD` and specify the user type and ID in the `subject` property.
 
 {% endlist %}
 
@@ -221,7 +221,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
 - API {#api}
 
-  Use the [setAccessBindings](../../api-ref/SnapshotSchedule/setAccessBindings.md) REST API method for the [SnapshotSchedule](../../api-ref/SnapshotSchedule/) resource or the [SnapshotSchedule/SetAccessBindings](../../api-ref/grpc/snapshot_schedule_service.md#SetAccessBindings) gRPC API call.
+  Use the [setAccessBindings](../../api-ref/SnapshotSchedule/setAccessBindings.md) REST API method for the [SnapshotSchedule](../../api-ref/SnapshotSchedule/) resource or the [SnapshotSchedule/SetAccessBindings](../../api-ref/grpc/SnapshotSchedule/setAccessBindings.md) gRPC API call.
 
 {% endlist %}
 
@@ -309,6 +309,6 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
 - API {#api}
 
-  To revoke a role for a disk snapshot schedule, use the [updateAccessBindings](../../api-ref/SnapshotSchedule /updateAccessBindings.md) REST API method for the [SnapshotSchedule](../../api-ref/SnapshotSchedule/) resource or the [SnapshotScheduleService/UpdateAccessBindings](../../api-ref/grpc/snapshot_schedule_service.md#UpdateAccessBindings) gRPC API call. In the request body, set the `action` property to `REMOVE` and specify the user type and ID in the `subject` property.
+  To revoke a role for a disk snapshot schedule, use the [updateAccessBindings](../../api-ref/SnapshotSchedule /updateAccessBindings.md) REST API method for the [SnapshotSchedule](../../api-ref/SnapshotSchedule/) resource or the [SnapshotScheduleService/UpdateAccessBindings](../../api-ref/grpc/SnapshotSchedule/updateAccessBindings.md) gRPC API call. In the request body, set the `action` property to `REMOVE` and specify the user type and ID in the `subject` property.
 
 {% endlist %}

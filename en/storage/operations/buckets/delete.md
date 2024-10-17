@@ -195,7 +195,7 @@ To delete the bucket that [stores the logs](../../concepts/server-logs.md) of an
 
 - API {#api}
 
-  To delete a bucket, use the [delete](../../api-ref/Bucket/delete.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource, the [BucketService/Delete](../../api-ref/grpc/bucket_service.md#Delete) gRPC API call, or the [deleteBucket](../../s3/api-ref/bucket/delete.md) S3 API method.
+  To delete a bucket, use the [delete](../../api-ref/Bucket/delete.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource, the [BucketService/Delete](../../api-ref/grpc/Bucket/delete.md) gRPC API call, or the [deleteBucket](../../s3/api-ref/bucket/delete.md) S3 API method.
 
   {% include [work-with-multiple-buckets](../../../_includes/storage/work-with-multiple-buckets.md) %}
 

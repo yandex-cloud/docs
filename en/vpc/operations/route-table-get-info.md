@@ -97,6 +97,6 @@ title: Getting information about a route table in {{ vpc-full-name }}
 
 - API {#api}
 
-   To get detailed information about a [route table](../concepts/routing.md), use the [get](../api-ref/RouteTable/get.md) REST API method for the [RouteTable](../api-ref/RouteTable/index.md) resource or the [RouteTableService/Get](../api-ref/grpc/route_table_service.md#Get) gRPC API call.
+   To get detailed information about a [route table](../concepts/routing.md), use the [get](../api-ref/RouteTable/get.md) REST API method for the [RouteTable](../api-ref/RouteTable/index.md) resource or the [RouteTableService/Get](../api-ref/grpc/RouteTable/get.md) gRPC API call.
 
 {% endlist %}

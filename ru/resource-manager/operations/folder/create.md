@@ -105,6 +105,6 @@ _Каталог_  — это пространство, в котором соз�
 
 - API {#api}
 
-  Чтобы создать каталог, воспользуйтесь методом REST API [create](../../api-ref/Folder/create.md) для ресурса [Folder](../../api-ref/Folder/index.md) или вызовом gRPC API [FolderService/Create](../../api-ref/grpc/folder_service.md#Create).
+  Чтобы создать каталог, воспользуйтесь методом REST API [create](../../api-ref/Folder/create.md) для ресурса [Folder](../../api-ref/Folder/index.md) или вызовом gRPC API [FolderService/Create](../../api-ref/grpc/Folder/create.md).
 
 {% endlist %}

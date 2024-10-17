@@ -61,6 +61,6 @@ description: Из статьи вы узнаете, как получить ид
 
 - API {#api}
 
-  Чтобы получить список [каталогов](../../concepts/resources-hierarchy.md#folder) с идентификаторами, воспользуйтесь методом REST API [list](../../api-ref/Folder/list.md) для ресурса [Folder](../../api-ref/Folder/index.md) или вызовом gRPC API [FolderService/List](../../api-ref/grpc/folder_service.md#List).
+  Чтобы получить список [каталогов](../../concepts/resources-hierarchy.md#folder) с идентификаторами, воспользуйтесь методом REST API [list](../../api-ref/Folder/list.md) для ресурса [Folder](../../api-ref/Folder/index.md) или вызовом gRPC API [FolderService/List](../../api-ref/grpc/Folder/list.md).
 
 {% endlist %}

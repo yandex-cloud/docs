@@ -29,7 +29,7 @@ keywords:
 
 - API {#api}
 
-    Чтобы остановить кластер, воспользуйтесь методом REST API [stop](../api-ref/Cluster/stop.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Stop](../api-ref/grpc/cluster_service.md#Stop) и передайте в запросе идентификатор нужного кластера в параметре `clusterId`.
+    Чтобы остановить кластер, воспользуйтесь методом REST API [stop](../api-ref/Cluster/stop.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Stop](../api-ref/grpc/Cluster/stop.md) и передайте в запросе идентификатор нужного кластера в параметре `clusterId`.
 
     {% include [get-cluster-id](../../_includes/managed-opensearch/get-cluster-id.md) %}
 
@@ -49,7 +49,7 @@ keywords:
 
 - API {#api}
 
-    Чтобы запустить кластер, воспользуйтесь методом REST API [start](../api-ref/Cluster/start.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Start](../api-ref/grpc/cluster_service.md#Start) и передайте в запросе идентификатор нужного кластера в параметре `clusterId`.
+    Чтобы запустить кластер, воспользуйтесь методом REST API [start](../api-ref/Cluster/start.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Start](../api-ref/grpc/Cluster/start.md) и передайте в запросе идентификатор нужного кластера в параметре `clusterId`.
 
     {% include [get-cluster-id](../../_includes/managed-opensearch/get-cluster-id.md) %}
 

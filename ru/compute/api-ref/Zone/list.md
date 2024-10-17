@@ -3,27 +3,37 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/Zone/list.md
 ---
 
-# Compute Cloud API, REST: Zone.list
-Retrieves the list of availability zones.
- 
+# Compute Cloud API, REST: Zone.List {#List}
 
- 
-## HTTP request {#https-request}
+Retrieves the list of availability zones.
+
+## HTTP request
+
 ```
 GET https://compute.{{ api-host }}/compute/v1/zones
 ```
- 
-## Query parameters {#query_params}
- 
-Parameter | Description
---- | ---
-pageSize | <p>The maximum number of results per page to return. If the number of available results is larger than <a href="/docs/compute/api-ref/Zone/list#query_params">pageSize</a>, the service returns a <a href="/docs/compute/api-ref/Zone/list#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests.</p> <p>The maximum value is 1000.</p> 
-pageToken | <p>Page token. To get the next page of results, set <a href="/docs/compute/api-ref/Zone/list#query_params">pageToken</a> to the <a href="/docs/compute/api-ref/Zone/list#responses">nextPageToken</a> returned by a previous list request.</p> <p>The maximum string length in characters is 100.</p> 
- 
-## Response {#responses}
+
+## Query parameters {#yandex.cloud.compute.v1.ListZonesRequest}
+
+#|
+||Field | Description ||
+|| pageSize | **string** (int64)
+
+The maximum number of results per page to return. If the number of available
+results is larger than `pageSize`,
+the service returns a [ListZonesResponse.nextPageToken](#yandex.cloud.compute.v1.ListZonesResponse)
+that can be used to get the next page of results in subsequent list requests. ||
+|| pageToken | **string**
+
+Page token. To get the next page of results, set `pageToken` to the
+[ListZonesResponse.nextPageToken](#yandex.cloud.compute.v1.ListZonesResponse) returned by a previous list request. ||
+|#
+
+## Response {#yandex.cloud.compute.v1.ListZonesResponse}
+
 **HTTP Code: 200 - OK**
 
-```json 
+```json
 {
   "zones": [
     {
@@ -36,11 +46,38 @@ pageToken | <p>Page token. To get the next page of results, set <a href="/docs/c
 }
 ```
 
- 
-Field | Description
---- | ---
-zones[] | **object**<br><p>List of availability zones.</p> 
-zones[].<br>id | **string**<br><p>ID of the zone.</p> 
-zones[].<br>regionId | **string**<br><p>ID of the region.</p> 
-zones[].<br>status | **string**<br><p>Status of the zone.</p> <ul> <li>UP: Zone is available. You can access the resources allocated in this zone.</li> <li>DOWN: Zone is not available.</li> </ul> 
-nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is larger than <a href="/docs/compute/api-ref/Zone/list#query_params">pageSize</a>, use the <a href="/docs/compute/api-ref/Zone/list#query_params">pageToken</a> as the value for the <a href="/docs/compute/api-ref/Zone/list#query_params">pageToken</a> query parameter in the next list request. Subsequent list requests will have their own <a href="/docs/compute/api-ref/Zone/list#query_params">pageToken</a> to continue paging through the results.</p> 
+#|
+||Field | Description ||
+|| zones[] | **[Zone](#yandex.cloud.compute.v1.Zone)**
+
+List of availability zones. ||
+|| nextPageToken | **string**
+
+This token allows you to get the next page of results for list requests. If the number of results
+is larger than [ListZonesRequest.pageSize](#yandex.cloud.compute.v1.ListZonesRequest), use
+the [ListZonesRequest.pageToken](#yandex.cloud.compute.v1.ListZonesRequest) as the value
+for the [ListZonesRequest.pageToken](#yandex.cloud.compute.v1.ListZonesRequest) query parameter
+in the next list request. Subsequent list requests will have their own
+[ListZonesRequest.pageToken](#yandex.cloud.compute.v1.ListZonesRequest) to continue paging through the results. ||
+|#
+
+## Zone {#yandex.cloud.compute.v1.Zone}
+
+Availability zone. For more information, see [Availability zones](/docs/overview/concepts/geo-scope).
+
+#|
+||Field | Description ||
+|| id | **string**
+
+ID of the zone. ||
+|| regionId | **string**
+
+ID of the region. ||
+|| status | **enum** (Status)
+
+Status of the zone.
+
+- `STATUS_UNSPECIFIED`
+- `UP`: Zone is available. You can access the resources allocated in this zone.
+- `DOWN`: Zone is not available. ||
+|#

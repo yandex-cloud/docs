@@ -15,11 +15,11 @@ description: Управление ресурсами {{ ml-platform-full-name }}
 
 | Описание | gRPC | REST |
 | --- | --- | --- |
-| Создает новое сообщество в указанной организации | [Create](grpc/community_service.md#Create) | [create](Community/create.md) |
-| Обновляет сообщество | [Update](grpc/community_service.md#Update) | [update](Community/update.md) |
-| Удаляет сообщество | [Delete](grpc/community_service.md#Delete) | [delete](Community/delete.md) |
-| Возвращает информацию о сообществе | [Get](grpc/community_service.md#Get) | [get](Community/get.md) |
-| Возвращает список сообществ в указанной организации | [List](grpc/community_service.md#List) | [list](Community/list.md) |
+| Создает новое сообщество в указанной организации | [Create](grpc/Community/create.md) | [create](Community/create.md) |
+| Обновляет сообщество | [Update](grpc/Community/update.md) | [update](Community/update.md) |
+| Удаляет сообщество | [Delete](grpc/Community/delete.md) | [delete](Community/delete.md) |
+| Возвращает информацию о сообществе | [Get](grpc/Community/get.md) | [get](Community/get.md) |
+| Возвращает список сообществ в указанной организации | [List](grpc/Community/list.md) | [list](Community/list.md) |
 
 {% list tabs group=api_type %}
 
@@ -45,7 +45,7 @@ description: Управление ресурсами {{ ml-platform-full-name }}
       yandex.cloud.datasphere.v2.CommunityService/List
     ```
 
-  Подробную информацию о вызовах `CommunityService` см. в [API-документации](grpc/community_service.md).
+  Подробную информацию о вызовах `CommunityService` см. в [API-документации](grpc/Community/index.md).
 
 - REST {#rest-api}
 
@@ -79,12 +79,12 @@ description: Управление ресурсами {{ ml-platform-full-name }}
 
 | Описание | gRPC | REST |
 | --- | --- | --- |
-| Создает новый проект в указанном сообществе | [Create](grpc/project_service.md#Create) | [create](Project/create.md) |
-| Обновляет проект | [Update](grpc/project_service.md#Update) | [update](Project/update.md) |
-| Удаляет проект | [Delete](grpc/project_service.md#Delete) | [delete](Project/delete.md) |
-| Открывает проект | [Open](grpc/project_service.md#Open) | [open](Project/open.md) |
-| Возвращает информацию о проекте | [Get](grpc/project_service.md#Get) | [get](Project/get.md) |
-| Возвращает список проектов в указанном сообществе | [List](grpc/project_service.md#List) | [list](Project/list.md) |
+| Создает новый проект в указанном сообществе | [Create](grpc/Project/create.md) | [create](Project/create.md) |
+| Обновляет проект | [Update](grpc/Project/update.md) | [update](Project/update.md) |
+| Удаляет проект | [Delete](grpc/Project/delete.md) | [delete](Project/delete.md) |
+| Открывает проект | [Open](grpc/Project/open.md) | [open](Project/open.md) |
+| Возвращает информацию о проекте | [Get](grpc/Project/get.md) | [get](Project/get.md) |
+| Возвращает список проектов в указанном сообществе | [List](grpc/Project/list.md) | [list](Project/list.md) |
 
 {% list tabs group=api_type %}
 
@@ -110,7 +110,7 @@ description: Управление ресурсами {{ ml-platform-full-name }}
       yandex.cloud.datasphere.v2.ProjectService/List
     ```
 
-  Подробную информацию о вызовах `ProjectService` см. в [API-документации](grpc/project_service.md).
+  Подробную информацию о вызовах `ProjectService` см. в [API-документации](grpc/Project/index.md).
 
 - REST {#rest-api}
 
@@ -144,7 +144,7 @@ description: Управление ресурсами {{ ml-platform-full-name }}
 
 | Описание | gRPC | REST |
 | --- | --- | --- |
-| Запускает заданный ноутбук | [Execute](grpc/project_service.md#Execute) | [execute](Project/execute.md) |
+| Запускает заданный ноутбук | [Execute](grpc/Project/index.md#Execute) | [execute](Project/execute.md) |
 
 
 {% list tabs group=api_type %}
@@ -163,7 +163,7 @@ description: Управление ресурсами {{ ml-platform-full-name }}
 
   Чтобы получить идентификатор ноутбука, воспользуйтесь инструкцией [{#T}](../operations/projects/get-notebook-cell-ids.md).
 
-  Подробную информацию о вызовах `ProjectService` см. в [API-документации](grpc/project_service.md).
+  Подробную информацию о вызовах `ProjectService` см. в [API-документации](grpc/Project/index.md).
 
 - REST {#rest-api}
 
@@ -191,11 +191,11 @@ description: Управление ресурсами {{ ml-platform-full-name }}
 
 | Описание | gRPC | REST |
 | --- | --- | --- |
-| Активирует датасет | [Activate](grpc/dataset_service.md#Activate) | [activate](Dataset/activate.md) |
-| Деактивирует датасет | [Deactivate](grpc/dataset_service.md#Deactivate) | [deactivate](Dataset/deactivate.md) |
-| Активирует коннектор S3 | [Activate](grpc/s3_service.md#Activate) | [activate](S3/activate.md) |
-| Деактивирует коннектор S3 | [Deactivate](grpc/s3_service.md#Deactivate) | [deactivate](S3/deactivate.md) |
-| Активирует Docker-образ | [Activate](grpc/docker_image_service.md#Activate) | [activate](DockerImage/activate.md) |
+| Активирует датасет | [Activate](grpc/Dataset/activate.md) | [activate](Dataset/activate.md) |
+| Деактивирует датасет | [Deactivate](grpc/Dataset/deactivate.md) | [deactivate](Dataset/deactivate.md) |
+| Активирует коннектор S3 | [Activate](grpc/S3/activate.md) | [activate](S3/activate.md) |
+| Деактивирует коннектор S3 | [Deactivate](grpc/S3/deactivate.md) | [deactivate](S3/deactivate.md) |
+| Активирует Docker-образ | [Activate](grpc/DockerImage/activate.md) | [activate](DockerImage/activate.md) |
 
 {% list tabs group=api_type %}
 
@@ -221,7 +221,7 @@ description: Управление ресурсами {{ ml-platform-full-name }}
       yandex.cloud.datasphere.v2.DatasetService/Deactivate
     ```
 
-  Подробную информацию о вызовах `DatasetService` см. в [API-документации](grpc/dataset_service.md).
+  Подробную информацию о вызовах `DatasetService` см. в [API-документации](grpc/Dataset/index.md).
 
 - REST {#rest-api}
 
@@ -257,10 +257,10 @@ description: Управление ресурсами {{ ml-platform-full-name }}
 
 | Описание | gRPC | REST |
 | --- | --- | --- |
-| Добавляет ресурс в сообщество | [AddResource](grpc/community_service.md#AddResource) | [addResource](Community/addResource.md) |
-| Удаляет ресурс из сообщества | [RemoveResource](grpc/community_service.md#RemoveResource) | [removeResource](Community/removeResource.md) |
-| Добавляет ресурс в проект | [AddResource](grpc/project_service.md#AddResource) | [addResource](Project/addResource.md) |
-| Удаляет ресурс из проекта | [RemoveResource](grpc/project_service.md#RemoveResource) | [removeResource](Project/removeResource.md) |
+| Добавляет ресурс в сообщество | [AddResource](grpc/Community/index.md#AddResource) | [addResource](Community/addResource.md) |
+| Удаляет ресурс из сообщества | [RemoveResource](grpc/Community/index.md#RemoveResource) | [removeResource](Community/removeResource.md) |
+| Добавляет ресурс в проект | [AddResource](grpc/Project/index.md#AddResource) | [addResource](Project/addResource.md) |
+| Удаляет ресурс из проекта | [RemoveResource](grpc/Project/index.md#RemoveResource) | [removeResource](Project/removeResource.md) |
 
 {% list tabs group=api_type %}
 
@@ -286,7 +286,7 @@ description: Управление ресурсами {{ ml-platform-full-name }}
       yandex.cloud.datasphere.v2.ProjectService/RemoveResource
     ```
 
-  Подробную информацию о вызовах `ProjectService` см. в [API-документации](grpc/project_service.md).
+  Подробную информацию о вызовах `ProjectService` см. в [API-документации](grpc/Project/index.md).
 
 - REST {#rest-api}
 
@@ -320,12 +320,12 @@ description: Управление ресурсами {{ ml-platform-full-name }}
 
 | Описание | gRPC | REST |
 | --- | --- | --- |
-| Возвращает список доступов к проекту | [ListAccessBindings](grpc/project_service.md#ListAccessBindings) | [listAccessBindings](Project/listAccessBindings.md) |
-| Устанавливает доступ к проекту | [SetAccessBindings](grpc/project_service.md#SetAccessBindings) | [setAccessBindings](Project/setAccessBindings.md) |
-| Обновляет доступ к проекту | [UpdateAccessBindings](grpc/project_service.md#UpdateAccessBindings) | [updateAccessBindings](Project/updateAccessBindings.md) |
-| Возвращает список доступов к сообществу | [ListAccessBindings](grpc/community_service.md#ListAccessBindings) | [listAccessBindings](Community/listAccessBindings.md) |
-| Устанавливает доступ к сообществу | [SetAccessBindings](grpc/community_service.md#SetAccessBindings) | [setAccessBindings](Community/setAccessBindings.md) |
-| Обновляет доступ к сообществу | [UpdateAccessBindings](grpc/community_service.md#UpdateAccessBindings) | [updateAccessBindings](Community/updateAccessBindings.md) |
+| Возвращает список доступов к проекту | [ListAccessBindings](grpc/Project/list.mdAccessBindings) | [listAccessBindings](Project/listAccessBindings.md) |
+| Устанавливает доступ к проекту | [SetAccessBindings](grpc/Project/index.md#SetAccessBindings) | [setAccessBindings](Project/setAccessBindings.md) |
+| Обновляет доступ к проекту | [UpdateAccessBindings](grpc/Project/update.mdAccessBindings) | [updateAccessBindings](Project/updateAccessBindings.md) |
+| Возвращает список доступов к сообществу | [ListAccessBindings](grpc/Community/list.mdAccessBindings) | [listAccessBindings](Community/listAccessBindings.md) |
+| Устанавливает доступ к сообществу | [SetAccessBindings](grpc/Community/index.md#SetAccessBindings) | [setAccessBindings](Community/setAccessBindings.md) |
+| Обновляет доступ к сообществу | [UpdateAccessBindings](grpc/Community/update.mdAccessBindings) | [updateAccessBindings](Community/updateAccessBindings.md) |
 
 {% list tabs group=api_type %}
 
@@ -351,7 +351,7 @@ description: Управление ресурсами {{ ml-platform-full-name }}
       yandex.cloud.datasphere.v2.CommunityService/ListAccessBindings
     ```
 
-  Подробную информацию о методах см. в API-документации [ProjectService](grpc/project_service.md) и [CommunityService](grpc/community_service.md).
+  Подробную информацию о методах см. в API-документации [ProjectService](grpc/Project/index.md) и [CommunityService](grpc/Community/index.md).
 
 - REST {#rest-api}
 
@@ -383,8 +383,8 @@ description: Управление ресурсами {{ ml-platform-full-name }}
 
 | Описание | gRPC | REST |
 | --- | --- | --- |
-| Возвращает баланс проекта | [GetUnitBalance](grpc/project_service.md#GetUnitBalance) | [getUnitBalance](Project/getUnitBalance.md) |
-| Устанавливает баланс проекта | [SetUnitBalance](grpc/project_service.md#SetUnitBalance) | [setUnitBalance](Project/setUnitBalance.md) |
+| Возвращает баланс проекта | [GetUnitBalance](grpc/Project/get.mdUnitBalance) | [getUnitBalance](Project/getUnitBalance.md) |
+| Устанавливает баланс проекта | [SetUnitBalance](grpc/Project/index.md#SetUnitBalance) | [setUnitBalance](Project/setUnitBalance.md) |
 
 {% list tabs group=api_type %}
 
@@ -400,7 +400,7 @@ description: Управление ресурсами {{ ml-platform-full-name }}
       yandex.cloud.datasphere.v2.ProjectService/GetUnitBalance
     ```
 
-  Подробную информацию о вызовах `ProjectService` см. в [API-документации](grpc/project_service.md).
+  Подробную информацию о вызовах `ProjectService` см. в [API-документации](grpc/Project/index.md).
 
 - REST {#rest-api}
 

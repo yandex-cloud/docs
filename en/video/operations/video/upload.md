@@ -43,7 +43,7 @@ description: Follow this guide to upload a video to {{ video-full-name }}.
 
 - API {#api}
 
-  Use the [VideoService/Create](../../api-ref/grpc/video_service.md#Create) gRPC API call.
+  Use the [VideoService/Create](../../api-ref/grpc/Video/create.md) gRPC API call.
 
 {% endlist %}
 

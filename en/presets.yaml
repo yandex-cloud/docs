@@ -786,7 +786,7 @@ default:
     aws-ep: >-
       https://docapi.serverless.yandexcloud.net/ru-central1/b1gia87mbaomkfvs6rgl/etnudu2n9ri35luqe4h1
     cli: ydb
-    docs: https://ydb.tech/docs/en/
+    docs: https://ydb.tech/en/docs/
     document-api-endpoint: https://docapi.serverless.yandexcloud.net
     ep-dedicated: grpcs://lb.etnk1u65e4shtgj338va.ydb.mdb.yandexcloud.net:2135
     ep-serverless: grpcs://ydb.serverless.yandexcloud.net:2135
@@ -9844,6 +9844,7 @@ default:
         edit: Edit
         save: Save
       connections:
+        connection: Connection
         fields:
           client: Client
           operator: Agent
@@ -9853,6 +9854,7 @@ default:
         add-dictionary: Add dictionary
       projects:
         dialogs: Dialogs
+        projects: Projects
       tags:
         binding-events-key-value: Limitations
         binding-events:

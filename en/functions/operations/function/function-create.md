@@ -144,7 +144,7 @@ description: Follow this guide to create a function.
 
 - API {#api}
 
-   To create a function, use the [create](../../functions/api-ref/Function/create.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/Create](../../functions/api-ref/grpc/function_service.md#Create) gRPC API call.
+   To create a function, use the [create](../../functions/api-ref/Function/create.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/Create](../../functions/api-ref/grpc/Function/create.md) gRPC API call.
 
 
 - {{ yandex-cloud }} Toolkit {#yc-toolkit}

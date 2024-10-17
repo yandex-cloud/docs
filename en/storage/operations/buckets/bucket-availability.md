@@ -153,7 +153,7 @@ By default, [buckets](../../concepts/bucket.md) are created with restricted [acc
 
 - API {#api}
 
-  To allow public access to operations with your bucket, use the [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource or the [BucketService/Update](../../api-ref/grpc/bucket_service.md#Update) gRPC API call.
+  To allow public access to operations with your bucket, use the [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource or the [BucketService/Update](../../api-ref/grpc/Bucket/update.md) gRPC API call.
 
 {% endlist %}
 
@@ -301,7 +301,7 @@ If your bucket has access policies, you will also need to [configure](./policy.m
 
 - API {#api}
 
-  To disable public access to operations with your bucket, use the [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource or the [BucketService/Update](../../api-ref/grpc/bucket_service.md#Update) gRPC API call.
+  To disable public access to operations with your bucket, use the [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource or the [BucketService/Update](../../api-ref/grpc/Bucket/update.md) gRPC API call.
 
 {% endlist %}
 

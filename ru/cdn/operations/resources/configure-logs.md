@@ -28,7 +28,7 @@
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [activate](../../api-ref/RawLogs/activate.md) для ресурса [RawLogs](../../api-ref/RawLogs/index.md) или вызовом gRPC API [RawLogsService/Activate](../../api-ref/grpc/raw_logs_service.md#Activate).
+  Воспользуйтесь методом REST API [activate](../../api-ref/RawLogs/activate.md) для ресурса [RawLogs](../../api-ref/RawLogs/index.md) или вызовом gRPC API [RawLogsService/Activate](../../api-ref/grpc/RawLogs/activate.md).
 
 {% endlist %}
 
@@ -58,7 +58,7 @@
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [update](../../api-ref/RawLogs/update.md) для ресурса [RawLogs](../../api-ref/RawLogs/index.md) или вызовом gRPC API [RawLogsService/Update](../../api-ref/grpc/raw_logs_service.md#Update).
+  Воспользуйтесь методом REST API [update](../../api-ref/RawLogs/update.md) для ресурса [RawLogs](../../api-ref/RawLogs/index.md) или вызовом gRPC API [RawLogsService/Update](../../api-ref/grpc/RawLogs/update.md).
 
 {% endlist %}
 
@@ -82,6 +82,6 @@
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [deactivate](../../api-ref/RawLogs/deactivate.md) для ресурса [RawLogs](../../api-ref/RawLogs/index.md) или вызовом gRPC API [RawLogsService/Deactivate](../../api-ref/grpc/raw_logs_service.md#Deactivate).
+  Воспользуйтесь методом REST API [deactivate](../../api-ref/RawLogs/deactivate.md) для ресурса [RawLogs](../../api-ref/RawLogs/index.md) или вызовом gRPC API [RawLogsService/Deactivate](../../api-ref/grpc/RawLogs/deactivate.md).
 
 {% endlist %}

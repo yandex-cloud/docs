@@ -99,6 +99,6 @@
 
 - API {#api}
 
-  Чтобы изменить внутренний IP-адрес сетевого интерфейса ВМ, воспользуйтесь методом REST API [updateNetworkInterface](../../api-ref/Instance/updateNetworkInterface.md) для ресурса [Instance](../../api-ref/Instance/index.md) или вызовом gRPC API [InstanceService/PrimaryAddress](../../api-ref/grpc/instance_service.md#PrimaryAddress).
+  Чтобы изменить внутренний IP-адрес сетевого интерфейса ВМ, воспользуйтесь методом REST API [updateNetworkInterface](../../api-ref/Instance/updateNetworkInterface.md) для ресурса [Instance](../../api-ref/Instance/index.md) или вызовом gRPC API [InstanceService/PrimaryAddress](../../api-ref/grpc/Instance/get.md#yandex.cloud.compute.v1.PrimaryAddress).
 
 {% endlist %}

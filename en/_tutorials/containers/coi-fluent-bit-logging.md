@@ -272,7 +272,7 @@ yc compute instance create \
 
 - API {#api}
 
-  You can view the log group records using the [LogReadingService/Read](../../logging/api-ref/grpc/log_reading_service.md#Read) gRPC API call.
+  You can view the log group records using the [LogReadingService/Read](../../logging/api-ref/grpc/LogReading/read.md) gRPC API call.
 
 {% endlist %}
 

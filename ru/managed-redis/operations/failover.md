@@ -51,7 +51,7 @@
 
 - API {#api}
 
-    Чтобы переключить мастер, воспользуйтесь методом REST API [startFailover](../api-ref/Cluster/startFailover.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/StartFailover](../api-ref/grpc/cluster_service.md#StartFailover) и передайте в запросе:
+    Чтобы переключить мастер, воспользуйтесь методом REST API [startFailover](../api-ref/Cluster/startFailover.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/StartFailover](../api-ref/grpc/Cluster/startFailover.md) и передайте в запросе:
 
     * Идентификатор кластера, в котором нужно переключить мастер, в параметре `clusterId`. Чтобы узнать идентификатор, получите [список кластеров в каталоге](cluster-list.md).
     * Только для шардированного кластера: имя текущего мастера нужного вам шарда в параметре `hostNames`. Чтобы узнать имя, получите [список хостов в кластере](hosts.md#list).

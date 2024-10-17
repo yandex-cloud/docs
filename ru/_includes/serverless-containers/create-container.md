@@ -104,6 +104,6 @@
 
 - API {#api}
 
-  Чтобы создать [контейнер](../../serverless-containers/concepts/container.md), воспользуйтесь методом REST API [create](../../serverless-containers/containers/api-ref/Container/create.md) для ресурса [Container](../../serverless-containers/containers/api-ref/Container/index.md) или вызовом gRPC API [ContainerService/Create](../../serverless-containers/containers/api-ref/grpc/container_service.md#Create).
+  Чтобы создать [контейнер](../../serverless-containers/concepts/container.md), воспользуйтесь методом REST API [create](../../serverless-containers/containers/api-ref/Container/create.md) для ресурса [Container](../../serverless-containers/containers/api-ref/Container/index.md) или вызовом gRPC API [ContainerService/Create](../../serverless-containers/containers/api-ref/grpc/Container/create.md).
 
 {% endlist %}

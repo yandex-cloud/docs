@@ -125,7 +125,7 @@ After creating a cloud network, you can change its name, description, and tags.
 
 - API {#api}
 
-   To update a [cloud network](../concepts/network.md), use the [update](../api-ref/Network/update.md) REST API method for the [Network](../api-ref/Network/index.md) resource or the [NetworkService/Update](../api-ref/grpc/network_service.md#Update) gRPC API call, and provide the following in the request:
+   To update a [cloud network](../concepts/network.md), use the [update](../api-ref/Network/update.md) REST API method for the [Network](../api-ref/Network/index.md) resource or the [NetworkService/Update](../api-ref/grpc/Network/update.md) gRPC API call, and provide the following in the request:
 
    * ID of the cloud network you want to update, in the `networkId` parameter.
 

@@ -77,7 +77,7 @@
 
   Воспользуйтесь методом REST API `listOperations` для соответствующего ресурса или вызовом gRPC API `<сервис>/ListOperations`.
 
-  Например, для функции воспользуйтесь методом REST API [listOperations](../functions/api-ref/Function/listOperations.md) для ресурса [Function](../functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/ListOperations](../functions/api-ref/grpc/function_service.md#ListOperations).
+  Например, для функции воспользуйтесь методом REST API [listOperations](../functions/api-ref/Function/listOperations.md) для ресурса [Function](../functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/ListOperations](../functions/api-ref/grpc/Function/listOperations.md).
 
 {% endlist %}
 
@@ -125,7 +125,7 @@
 
    - API {#api}
 
-      Воспользуйтесь вызовом gRPC API [OperationService/Get](../functions/api-ref/grpc/operation_service.md#Get).
+      Воспользуйтесь вызовом gRPC API [OperationService/Get](../functions/api-ref/grpc/Operation/get.md).
 
     {% endlist %}
 

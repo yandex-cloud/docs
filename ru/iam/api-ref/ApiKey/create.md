@@ -3,19 +3,19 @@ editable: false
 sourcePath: en/_api-ref/iam/v1/api-ref/ApiKey/create.md
 ---
 
-# Identity and Access Management API, REST: ApiKey.create
-Creates an API key for the specified service account.
- 
+# Identity and Access Management API, REST: ApiKey.Create {#Create}
 
- 
-## HTTP request {#https-request}
+Creates an API key for the specified service account.
+
+## HTTP request
+
 ```
 POST https://iam.{{ api-host }}/iam/v1/apiKeys
 ```
- 
-## Body parameters {#body_params}
- 
-```json 
+
+## Body parameters {#yandex.cloud.iam.v1.CreateApiKeyRequest}
+
+```json
 {
   "serviceAccountId": "string",
   "description": "string",
@@ -24,18 +24,36 @@ POST https://iam.{{ api-host }}/iam/v1/apiKeys
 }
 ```
 
- 
-Field | Description
---- | ---
-serviceAccountId | **string**<br><p>ID of the service account to create an API key for. To get the service account ID, use a <a href="/docs/iam/api-ref/ServiceAccount/list">list</a> request. If not specified, it defaults to the subject that made the request.</p> <p>The maximum string length in characters is 50.</p> 
-description | **string**<br><p>Description of the API key.</p> <p>The maximum string length in characters is 256.</p> 
-scope | **string**<br><p>Scope of the API key.</p> <p>The maximum string length in characters is 256.</p> 
-expiresAt | **string** (date-time)<br><p>API key expiration timestamp, if not specified, then the API key doesn't expire</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
- 
-## Response {#responses}
+#|
+||Field | Description ||
+|| serviceAccountId | **string**
+
+ID of the service account to create an API key for.
+To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/ServiceAccount/list#List) request.
+If not specified, it defaults to the subject that made the request. ||
+|| description | **string**
+
+Description of the API key. ||
+|| scope | **string**
+
+Scope of the API key. ||
+|| expiresAt | **string** (date-time)
+
+API key expiration timestamp, if not specified, then the API key doesn't expire
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|#
+
+## Response {#yandex.cloud.iam.v1.CreateApiKeyResponse}
+
 **HTTP Code: 200 - OK**
 
-```json 
+```json
 {
   "apiKey": {
     "id": "string",
@@ -50,15 +68,62 @@ expiresAt | **string** (date-time)<br><p>API key expiration timestamp, if not sp
 }
 ```
 
- 
-Field | Description
---- | ---
-apiKey | **object**<br><p>ApiKey resource.</p> <p>An ApiKey resource. For more information, see <a href="/docs/iam/concepts/authorization/api-key">Api-Key</a>.</p> 
-apiKey.<br>id | **string**<br><p>ID of the API Key.</p> 
-apiKey.<br>serviceAccountId | **string**<br><p>ID of the service account that the API key belongs to.</p> 
-apiKey.<br>createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
-apiKey.<br>description | **string**<br><p>Description of the API key. 0-256 characters long.</p> 
-apiKey.<br>lastUsedAt | **string** (date-time)<br><p>Timestamp for the last authentication using this API key.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
-apiKey.<br>scope | **string**<br><p>Scope of the API key. 0-256 characters long.</p> 
-apiKey.<br>expiresAt | **string** (date-time)<br><p>API key expiration timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
-secret | **string**<br><p>Secret part of the API key. This secret key you may use in the requests for authentication.</p> 
+#|
+||Field | Description ||
+|| apiKey | **[ApiKey](#yandex.cloud.iam.v1.ApiKey)**
+
+ApiKey resource. ||
+|| secret | **string**
+
+Secret part of the API key. This secret key you may use in the requests for authentication. ||
+|#
+
+## ApiKey {#yandex.cloud.iam.v1.ApiKey}
+
+An ApiKey resource. For more information, see [Api-Key](/docs/iam/concepts/authorization/api-key).
+
+#|
+||Field | Description ||
+|| id | **string**
+
+ID of the API Key. ||
+|| serviceAccountId | **string**
+
+ID of the service account that the API key belongs to. ||
+|| createdAt | **string** (date-time)
+
+Creation timestamp.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| description | **string**
+
+Description of the API key. 0-256 characters long. ||
+|| lastUsedAt | **string** (date-time)
+
+Timestamp for the last authentication using this API key.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| scope | **string**
+
+Scope of the API key. 0-256 characters long. ||
+|| expiresAt | **string** (date-time)
+
+API key expiration timestamp.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|#

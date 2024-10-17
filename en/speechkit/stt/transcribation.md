@@ -55,7 +55,7 @@ The {{ speechkit-name }} API v2 and v3 are used for asynchronous speech recognit
    * Using the [API v2](api/transcribation-api.md#get-result)
    * Using the [API v3](../stt-v3/api-ref/AsyncRecognizer/getRecognition.md):
        * [REST](../stt-v3/api-ref/AsyncRecognizer/getRecognition.md)
-       * [gRPC](../stt-v3/api-ref/grpc/AsyncRecognizer.md#GetRecognition)
+       * [gRPC](../stt-v3/api-ref/grpc/AsyncRecognizer/getRecognition.md)
 
    Specify the same authentication credentials in the HTTP header.
 

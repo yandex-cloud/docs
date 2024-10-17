@@ -25,6 +25,6 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Используйте вызов [InstanceGroupService/CreateFromYaml](../../api-ref/grpc/instance_group_service.md#CreateFromYaml) gRPC API или метод [createFromYaml](../../api-ref/InstanceGroup/createFromYaml.md) ресурса `InstanceGroup` REST API.
+  Используйте вызов [InstanceGroupService/CreateFromYaml](../../instancegroup/api-ref/grpc/InstanceGroup/createFromYaml.md) gRPC API или метод [createFromYaml](../../instancegroup/api-ref/InstanceGroup/createFromYaml.md) ресурса `InstanceGroup` REST API.
 
 {% endlist %}

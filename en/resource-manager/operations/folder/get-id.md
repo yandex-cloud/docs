@@ -61,6 +61,6 @@ description: In this tutorial, you will learn how to get a folder ID in {{ yande
 
 - API {#api}
 
-  To get the list of [folders](../../concepts/resources-hierarchy.md#folder) with IDs, use the [list](../../api-ref/Folder/list.md) REST API method for the [Folder](../../api-ref/Folder/index.md) resource or the [FolderService/List](../../api-ref/grpc/folder_service.md#List) gRPC API call.
+  To get the list of [folders](../../concepts/resources-hierarchy.md#folder) with IDs, use the [list](../../api-ref/Folder/list.md) REST API method for the [Folder](../../api-ref/Folder/index.md) resource or the [FolderService/List](../../api-ref/grpc/Folder/list.md) gRPC API call.
 
 {% endlist %}

@@ -42,6 +42,6 @@ title: Как получить список зон DNS
 
 - API {#api}
 
-  Чтобы получить список [зон DNS](../concepts/dns-zone.md), воспользуйтесь методом REST API [list](../api-ref/DnsZone/list.md) для ресурса [DnsZone](../api-ref/DnsZone/index.md) или вызовом gRPC API [DnsZoneService/List](../api-ref/grpc/dns_zone_service.md#List).
+  Чтобы получить список [зон DNS](../concepts/dns-zone.md), воспользуйтесь методом REST API [list](../api-ref/DnsZone/list.md) для ресурса [DnsZone](../api-ref/DnsZone/index.md) или вызовом gRPC API [DnsZoneService/List](../api-ref/grpc/DnsZone/list.md).
 
 {% endlist %}

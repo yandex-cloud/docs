@@ -36,6 +36,6 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Чтобы посмотреть роли на функцию, воспользуйтесь методом REST API [listAccessBindings](../../functions/api-ref/Function/listAccessBindings.md) для ресурса [Function](../../functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/ListAccessBindings](../../functions/api-ref/grpc/function_service.md#ListAccessBindings).
+  Чтобы посмотреть роли на функцию, воспользуйтесь методом REST API [listAccessBindings](../../functions/api-ref/Function/listAccessBindings.md) для ресурса [Function](../../functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/ListAccessBindings](../../functions/api-ref/grpc/Function/listAccessBindings.md).
 
 {% endlist %}

@@ -77,7 +77,7 @@ All actions with {{ serverless-containers-name }} resources are logged as a list
 
   Use the `listOperations` REST API method for the relevant resource or this gRPC API call: `<service>/ListOperations`.
 
-  For example, for a container, use either the [listOperations](../containers/api-ref/Container/listOperations.md) REST API method for the [Container](../containers/api-ref/Container/index.md) resource or the [ContainerService/ListOperations](../containers/api-ref/grpc/container_service.md#ListOperations) gRPC API call.
+  For example, for a container, use either the [listOperations](../containers/api-ref/Container/listOperations.md) REST API method for the [Container](../containers/api-ref/Container/index.md) resource or the [ContainerService/ListOperations](../containers/api-ref/grpc/Container/listOperations.md) gRPC API call.
 
 {% endlist %}
 
@@ -125,7 +125,7 @@ All actions with {{ serverless-containers-name }} resources are logged as a list
 
    - API {#api}
 
-      Use the [OperationService/Get](../containers/api-ref/grpc/operation_service.md#Get) gRPC API call.
+      Use the [OperationService/Get](../containers/api-ref/grpc/Operation/get.md) gRPC API call.
 
     {% endlist %}
 

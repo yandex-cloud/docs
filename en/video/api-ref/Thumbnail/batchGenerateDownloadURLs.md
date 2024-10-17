@@ -3,19 +3,19 @@ editable: false
 sourcePath: en/_api-ref/video/v1/api-ref/Thumbnail/batchGenerateDownloadURLs.md
 ---
 
-# Video API, REST: Thumbnail.batchGenerateDownloadURLs
-Generate urls for download images.
- 
+# Video API, REST: Thumbnail.BatchGenerateDownloadURLs {#BatchGenerateDownloadURLs}
 
- 
-## HTTP request {#https-request}
+Generate urls for download images.
+
+## HTTP request
+
 ```
 POST https://video.{{ api-host }}/video/v1/thumbnails:batchGenerateDownloadURLs
 ```
- 
-## Body parameters {#body_params}
- 
-```json 
+
+## Body parameters {#yandex.cloud.video.v1.BatchGenerateDownloadURLsRequest}
+
+```json
 {
   "channelId": "string",
   "thumbnailIds": [
@@ -24,16 +24,21 @@ POST https://video.{{ api-host }}/video/v1/thumbnails:batchGenerateDownloadURLs
 }
 ```
 
- 
-Field | Description
---- | ---
-channelId | **string**<br><p>ID of the channel.</p> 
-thumbnailIds[] | **string**<br><p>List of thumbnails IDs.</p> 
- 
-## Response {#responses}
+#|
+||Field | Description ||
+|| channelId | **string**
+
+ID of the channel. ||
+|| thumbnailIds[] | **string**
+
+List of thumbnails IDs. ||
+|#
+
+## Response {#yandex.cloud.video.v1.BatchGenerateDownloadURLsResponse}
+
 **HTTP Code: 200 - OK**
 
-```json 
+```json
 {
   "downloadUrls": [
     {
@@ -44,9 +49,21 @@ thumbnailIds[] | **string**<br><p>List of thumbnails IDs.</p>
 }
 ```
 
- 
-Field | Description
---- | ---
-downloadUrls[] | **object**<br><p>List of download urls.</p> 
-downloadUrls[].<br>thumbnailId | **string**<br><p>ID of the thumbnail.</p> 
-downloadUrls[].<br>downloadUrl | **string**<br><p>Download url.</p> 
+#|
+||Field | Description ||
+|| downloadUrls[] | **[ThumbnailDownloadURL](#yandex.cloud.video.v1.ThumbnailDownloadURL)**
+
+List of download urls. ||
+|#
+
+## ThumbnailDownloadURL {#yandex.cloud.video.v1.ThumbnailDownloadURL}
+
+#|
+||Field | Description ||
+|| thumbnailId | **string**
+
+ID of the thumbnail. ||
+|| downloadUrl | **string**
+
+Download url. ||
+|#

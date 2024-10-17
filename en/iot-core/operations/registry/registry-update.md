@@ -94,7 +94,7 @@ To access a registry, use its unique ID or name. For information about how to fi
 
 - API {#api}
 
-  To rename a registry, use the [update](../../api-ref/Registry/update.md) REST API method for the [Registry](../../api-ref/Registry/index.md) resource or the [RegistryService/Update](../../api-ref/grpc/registry_service.md#Update) gRPC API call.
+  To rename a registry, use the [update](../../api-ref/Registry/update.md) REST API method for the [Registry](../../api-ref/Registry/index.md) resource or the [RegistryService/Update](../../api-ref/grpc/Registry/update.md) gRPC API call.
 
 {% endlist %}
 
@@ -191,7 +191,7 @@ To access a registry, use its unique ID or name. For information about how to fi
 
 - API {#api}
 
-  To update a registry description, use the [update](../../api-ref/Registry/update.md) REST API method for the [Registry](../../api-ref/Registry/index.md) resource or the [RegistryService/Update](../../api-ref/grpc/registry_service.md#Update) gRPC API call.
+  To update a registry description, use the [update](../../api-ref/Registry/update.md) REST API method for the [Registry](../../api-ref/Registry/index.md) resource or the [RegistryService/Update](../../api-ref/grpc/Registry/update.md) gRPC API call.
 
 {% endlist %}
 
@@ -302,7 +302,7 @@ You can perform the following actions related to registry labels:
 
 - API {#api}
 
-  To add a label to a registry, use the [update](../../api-ref/Registry/update.md) REST API method for the [Registry](../../api-ref/Registry/index.md) resource or the [RegistryService/Update](../../api-ref/grpc/registry_service.md#Update) gRPC API call.
+  To add a label to a registry, use the [update](../../api-ref/Registry/update.md) REST API method for the [Registry](../../api-ref/Registry/index.md) resource or the [RegistryService/Update](../../api-ref/grpc/Registry/update.md) gRPC API call.
 
 {% endlist %}
 
@@ -406,7 +406,7 @@ You can perform the following actions related to registry labels:
 
 - API {#api}
 
-  To update a registry label, use the [update](../../api-ref/Registry/update.md) REST API method for the [Registry](../../api-ref/Registry/index.md) resource or the [RegistryService/Update](../../api-ref/grpc/registry_service.md#Update) gRPC API call.
+  To update a registry label, use the [update](../../api-ref/Registry/update.md) REST API method for the [Registry](../../api-ref/Registry/index.md) resource or the [RegistryService/Update](../../api-ref/grpc/Registry/update.md) gRPC API call.
 
 {% endlist %}
 
@@ -502,6 +502,6 @@ You can perform the following actions related to registry labels:
 
 - API {#api}
 
-  To delete a registry label, use the [update](../../api-ref/Registry/update.md) REST API method for the [Registry](../../api-ref/Registry/index.md) resource or the [RegistryService/Update](../../api-ref/grpc/registry_service.md#Update) gRPC API call.
+  To delete a registry label, use the [update](../../api-ref/Registry/update.md) REST API method for the [Registry](../../api-ref/Registry/index.md) resource or the [RegistryService/Update](../../api-ref/grpc/Registry/update.md) gRPC API call.
 
 {% endlist %}

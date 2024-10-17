@@ -227,6 +227,6 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Чтобы создать устройство, воспользуйтесь методом REST API [create](../../api-ref/Device/create.md) для ресурса [Device](../../api-ref/Device/index.md) или вызовом gRPC API [DeviceService/Create](../../api-ref/grpc/device_service.md#Create).
+  Чтобы создать устройство, воспользуйтесь методом REST API [create](../../api-ref/Device/create.md) для ресурса [Device](../../api-ref/Device/index.md) или вызовом gRPC API [DeviceService/Create](../../api-ref/grpc/Device/create.md).
 
 {% endlist %}

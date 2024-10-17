@@ -30,6 +30,6 @@ description: Из статьи вы узнаете, как выгружать л
 
 - API {#api}
 
-    Чтобы выгрузить логи, воспользуйтесь методом REST API [run](../api-ref/Export/run.md) для ресурса [Export](../api-ref/Export/index.md) или вызовом gRPC API [ExportService/Run](../api-ref/grpc/export_service.md#Run).
+    Чтобы выгрузить логи, воспользуйтесь методом REST API [run](../api-ref/Export/run.md) для ресурса [Export](../api-ref/Export/index.md) или вызовом gRPC API [ExportService/Run](../api-ref/grpc/Export/run.md).
 
 {% endlist %}

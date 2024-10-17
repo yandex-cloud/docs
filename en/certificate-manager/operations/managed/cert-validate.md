@@ -180,7 +180,7 @@ To [check domain rights](../../concepts/challenges.md):
 
 - API {#api}
 
-   To get the information required to pass the rights check for a domain, use the [get](../../api-ref/Certificate/get.md) REST API method for the [Certificate](../../api-ref/Certificate/) resource or the [CertificateService/Get](../../api-ref/grpc/certificate_service.md#Get) gRPC API call with the `view=FULL` flag.
+   To get the information required to pass the rights check for a domain, use the [get](../../api-ref/Certificate/get.md) REST API method for the [Certificate](../../api-ref/Certificate/) resource or the [CertificateService/Get](../../api-ref/grpc/Certificate/get.md) gRPC API call with the `view=FULL` flag.
 
 {% endlist %}
 

@@ -103,6 +103,6 @@ description: Follow this guide to delete an API key.
     curl -X DELETE -H "Authorization: Bearer $IAM_TOKEN" \
         https://iam.{{ api-host }}/iam/v1/apiKeys/$APIKEY_ID
     ```
-   You can also delete the API key using the [ApiKeyService/Delete](../../api-ref/grpc/api_key_service.md#Delete) gRPC API call.
+   You can also delete the API key using the [ApiKeyService/Delete](../../api-ref/grpc/ApiKey/delete.md) gRPC API call.
 
 {% endlist %}

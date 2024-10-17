@@ -16,6 +16,6 @@
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [resumeProcesses](../../api-ref/InstanceGroup/resumeProcesses.md) для ресурса [InstanceGroup](../../api-ref/InstanceGroup/index.md) или вызовом gRPC API [InstanceGroupService/ResumeProcesses](../../api-ref/grpc/instance_group_service.md#ResumeProcesses).
+  Воспользуйтесь методом REST API [resumeProcesses](../../instancegroup/api-ref/InstanceGroup/resumeProcesses.md) для ресурса [InstanceGroup](../../instancegroup/api-ref/InstanceGroup/index.md) или вызовом gRPC API [InstanceGroupService/ResumeProcesses](../../instancegroup/api-ref/grpc/InstanceGroup/resumeProcesses.md).
 
 {% endlist %}

@@ -3,26 +3,32 @@ editable: false
 sourcePath: en/_api-ref/marketplace/licensemanager/v1/license-manager/api-ref/Instance/get.md
 ---
 
-# Yandex Cloud Marketplace License Manager, REST: Instance.get
+# Yandex Cloud Marketplace License Manager, REST: Instance.Get {#Get}
+
 Returns the specified subscription instance.
- 
-To get the list of all available subscription instances, make a [list](/docs/marketplace/license-manager/api-ref/Instance/list) request.
- 
-## HTTP request {#https-request}
+
+To get the list of all available subscription instances, make a [List](/docs/marketplace/license-manager/api-ref/Instance/list#List) request.
+
+## HTTP request
+
 ```
 GET https://marketplace.{{ api-host }}/marketplace/license-manager/v1/instances/{instanceId}
 ```
- 
-## Path parameters {#path_params}
- 
-Parameter | Description
---- | ---
-instanceId | <p>Required. ID of the subscription instance.</p> 
- 
-## Response {#responses}
+
+## Path parameters
+
+#|
+||Field | Description ||
+|| instanceId | **string**
+
+Required field. ID of the subscription instance. ||
+|#
+
+## Response {#yandex.cloud.marketplace.licensemanager.v1.Instance}
+
 **HTTP Code: 200 - OK**
 
-```json 
+```json
 {
   "id": "string",
   "cloudId": "string",
@@ -64,39 +70,206 @@ instanceId | <p>Required. ID of the subscription instance.</p>
 }
 ```
 
- 
-Field | Description
---- | ---
-id | **string**<br><p>ID of the subscription instance.</p> 
-cloudId | **string**<br><p>ID of the cloud that the subscription instance belongs to.</p> 
-folderId | **string**<br><p>ID of the folder that the subscription instance belongs to.</p> 
-templateId | **string**<br><p>ID of the subscription template that was used to create subscription instance.</p> 
-templateVersionId | **string**<br><p>ID of the version of subscription template.</p> 
-description | **string**<br><p>Description of the subscription instance.</p> 
-startTime | **string** (date-time)<br><p>Timestamp of the start of the subscription.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
-endTime | **string** (date-time)<br><p>Timestamp of the end of the subscription.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
-createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
-updatedAt | **string** (date-time)<br><p>Update timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
-state | **string**<br><p>Subscription state.</p> <ul> <li>PENDING: Subscription created but not active yet.</li> <li>ACTIVE: Subscription is active.</li> <li>CANCELLED: Subscription canceled. It is still active, but won't be automatically renewed after the end of the current period.</li> <li>EXPIRED: Subscription expired.</li> <li>DEPRECATED: Subscription deprecated.</li> <li>DELETED: Subscription deleted.</li> </ul> 
-locks[] | **object**<br><p>List of subscription locks.</p> 
-locks[].<br>id | **string**<br><p>ID of the subscription lock.</p> 
-locks[].<br>instanceId | **string**<br><p>ID of the subscription instance.</p> 
-locks[].<br>resourceId | **string**<br><p>ID of the resource.</p> 
-locks[].<br>startTime | **string** (date-time)<br><p>Timestamp of the start of the subscription lock.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
-locks[].<br>endTime | **string** (date-time)<br><p>Timestamp of the end of the subscription lock.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
-locks[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
-locks[].<br>updatedAt | **string** (date-time)<br><p>Update timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
-locks[].<br>state | **string**<br><p>Subscription lock state.</p> <ul> <li>UNLOCKED: Subscription unlocked.</li> <li>LOCKED: Subscription locked to the resource.</li> <li>DELETED: Subscription lock deleted.</li> </ul> 
-locks[].<br>templateId | **string**<br><p>ID of the subscription template.</p> 
-licenseTemplate | **object**<br><p>Subscription template.</p> 
-licenseTemplate.<br>id | **string**<br><p>ID of the subscription template.</p> 
-licenseTemplate.<br>versionId | **string**<br><p>Version of the subscription template.</p> 
-licenseTemplate.<br>name | **string**<br><p>Name of the subscription template.</p> 
-licenseTemplate.<br>publisherId | **string**<br><p>ID of publisher.</p> 
-licenseTemplate.<br>productId | **string**<br><p>ID of product.</p> 
-licenseTemplate.<br>tariffId | **string**<br><p>ID of tariff.</p> 
-licenseTemplate.<br>licenseSkuId | **string**<br><p>ID of subscription SKU.</p> 
-licenseTemplate.<br>period | **string**<br><p>Subscription period.</p> 
-licenseTemplate.<br>createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
-licenseTemplate.<br>updatedAt | **string** (date-time)<br><p>Update timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
-licenseTemplate.<br>state | **string**<br><p>Subscription template state.</p> <ul> <li>PENDING: Subscription template created but not active yet.</li> <li>ACTIVE: Subscription template is active.</li> <li>DEPRECATED: Subscription template deprecated.</li> <li>DELETED: Subscription template deleted.</li> </ul> 
+#|
+||Field | Description ||
+|| id | **string**
+
+ID of the subscription instance. ||
+|| cloudId | **string**
+
+ID of the cloud that the subscription instance belongs to. ||
+|| folderId | **string**
+
+ID of the folder that the subscription instance belongs to. ||
+|| templateId | **string**
+
+ID of the subscription template that was used to create subscription instance. ||
+|| templateVersionId | **string**
+
+ID of the version of subscription template. ||
+|| description | **string**
+
+Description of the subscription instance. ||
+|| startTime | **string** (date-time)
+
+Timestamp of the start of the subscription.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| endTime | **string** (date-time)
+
+Timestamp of the end of the subscription.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| createdAt | **string** (date-time)
+
+Creation timestamp.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| updatedAt | **string** (date-time)
+
+Update timestamp.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| state | **enum** (State)
+
+Subscription state.
+
+- `STATE_UNSPECIFIED`
+- `PENDING`: Subscription created but not active yet.
+- `ACTIVE`: Subscription is active.
+- `CANCELLED`: Subscription canceled. It is still active, but won't be automatically renewed after the end of the current period.
+- `EXPIRED`: Subscription expired.
+- `DEPRECATED`: Subscription deprecated.
+- `DELETED`: Subscription deleted. ||
+|| locks[] | **[Lock](#yandex.cloud.marketplace.licensemanager.v1.Lock)**
+
+List of subscription locks. ||
+|| licenseTemplate | **[Template](#yandex.cloud.marketplace.licensemanager.v1.Template)**
+
+Subscription template. ||
+|#
+
+## Lock {#yandex.cloud.marketplace.licensemanager.v1.Lock}
+
+#|
+||Field | Description ||
+|| id | **string**
+
+ID of the subscription lock. ||
+|| instanceId | **string**
+
+ID of the subscription instance. ||
+|| resourceId | **string**
+
+ID of the resource. ||
+|| startTime | **string** (date-time)
+
+Timestamp of the start of the subscription lock.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| endTime | **string** (date-time)
+
+Timestamp of the end of the subscription lock.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| createdAt | **string** (date-time)
+
+Creation timestamp.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| updatedAt | **string** (date-time)
+
+Update timestamp.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| state | **enum** (State)
+
+Subscription lock state.
+
+- `STATE_UNSPECIFIED`
+- `UNLOCKED`: Subscription unlocked.
+- `LOCKED`: Subscription locked to the resource.
+- `DELETED`: Subscription lock deleted. ||
+|| templateId | **string**
+
+ID of the subscription template. ||
+|#
+
+## Template {#yandex.cloud.marketplace.licensemanager.v1.Template}
+
+#|
+||Field | Description ||
+|| id | **string**
+
+ID of the subscription template. ||
+|| versionId | **string**
+
+Version of the subscription template. ||
+|| name | **string**
+
+Name of the subscription template. ||
+|| publisherId | **string**
+
+ID of publisher. ||
+|| productId | **string**
+
+ID of product. ||
+|| tariffId | **string**
+
+ID of tariff. ||
+|| licenseSkuId | **string**
+
+ID of subscription SKU. ||
+|| period | **string**
+
+Subscription period. ||
+|| createdAt | **string** (date-time)
+
+Creation timestamp.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| updatedAt | **string** (date-time)
+
+Update timestamp.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| state | **enum** (State)
+
+Subscription template state.
+
+- `STATE_UNSPECIFIED`
+- `PENDING`: Subscription template created but not active yet.
+- `ACTIVE`: Subscription template is active.
+- `DEPRECATED`: Subscription template deprecated.
+- `DELETED`: Subscription template deleted. ||
+|#

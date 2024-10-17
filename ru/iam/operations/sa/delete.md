@@ -104,7 +104,7 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Чтобы удалить сервисный аккаунт, воспользуйтесь методом REST API [delete](../../api-ref/ServiceAccount/delete.md) для ресурса [ServiceAccount](../../api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/Delete](../../api-ref/grpc/service_account_service.md#Delete).
+  Чтобы удалить сервисный аккаунт, воспользуйтесь методом REST API [delete](../../api-ref/ServiceAccount/delete.md) для ресурса [ServiceAccount](../../api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/Delete](../../api-ref/grpc/ServiceAccount/delete.md).
 
 {% endlist %}
 

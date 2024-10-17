@@ -154,7 +154,7 @@ description: Пошаговая инструкция по изменению г�
 
 - API {#api}
 
-  Чтобы изменить базовые параметры [группы бэкендов](../concepts/backend-group.md), воспользуйтесь методом REST API [update](../api-ref/BackendGroup/update.md) для ресурса [BackendGroup](../api-ref/BackendGroup/index.md) или вызовом gRPC API [BackendGroupService/Update](../api-ref/grpc/backend_group_service.md#Update).
+  Чтобы изменить базовые параметры [группы бэкендов](../concepts/backend-group.md), воспользуйтесь методом REST API [update](../api-ref/BackendGroup/update.md) для ресурса [BackendGroup](../api-ref/BackendGroup/index.md) или вызовом gRPC API [BackendGroupService/Update](../api-ref/grpc/BackendGroup/update.md).
 
 {% endlist %}
 
@@ -285,7 +285,7 @@ description: Пошаговая инструкция по изменению г�
 
 - API {#api}
 
-  Чтобы изменить базовые параметры группы, воспользуйтесь методом REST API [addBackend](../api-ref/BackendGroup/addBackend.md) для ресурса [BackendGroup](../api-ref/BackendGroup/index.md) или вызовом gRPC API [BackendGroupService/AddBackend](../api-ref/grpc/backend_group_service.md#AddBackend).
+  Чтобы изменить базовые параметры группы, воспользуйтесь методом REST API [addBackend](../api-ref/BackendGroup/addBackend.md) для ресурса [BackendGroup](../api-ref/BackendGroup/index.md) или вызовом gRPC API [BackendGroupService/AddBackend](../api-ref/grpc/BackendGroup/addBackend.md).
 
 {% endlist %}
 
@@ -448,7 +448,7 @@ description: Пошаговая инструкция по изменению г�
 
 - API {#api}
 
-  Чтобы изменить параметры бэкенда в группе, воспользуйтесь методом REST API [updateBackend](../api-ref/BackendGroup/updateBackend.md) для ресурса [BackendGroup](../api-ref/BackendGroup/index.md) или вызовом gRPC API [BackendGroupService/UpdateBackend](../api-ref/grpc/backend_group_service.md#UpdateBackend).
+  Чтобы изменить параметры бэкенда в группе, воспользуйтесь методом REST API [updateBackend](../api-ref/BackendGroup/updateBackend.md) для ресурса [BackendGroup](../api-ref/BackendGroup/index.md) или вызовом gRPC API [BackendGroupService/UpdateBackend](../api-ref/grpc/BackendGroup/update.mdBackend).
 
 {% endlist %}
 
@@ -561,7 +561,7 @@ description: Пошаговая инструкция по изменению г�
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [removeBackend](../api-ref/BackendGroup/removeBackend.md) для ресурса [BackendGroup](../api-ref/BackendGroup/index.md) или вызовом gRPC API [BackendGroupService/RemoveBackend](../api-ref/grpc/backend_group_service.md#RemoveBackend).
+  Воспользуйтесь методом REST API [removeBackend](../api-ref/BackendGroup/removeBackend.md) для ресурса [BackendGroup](../api-ref/BackendGroup/index.md) или вызовом gRPC API [BackendGroupService/RemoveBackend](../api-ref/grpc/BackendGroup/removeBackend.md).
 
 {% endlist %}
 

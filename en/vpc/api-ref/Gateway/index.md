@@ -3,38 +3,17 @@ editable: false
 sourcePath: en/_api-ref/vpc/v1/api-ref/Gateway/index.md
 ---
 
-# Virtual Private Cloud API, REST: Gateway methods
+# Virtual Private Cloud API, REST: Gateway
 
-## JSON Representation {#representation}
-```json 
-{
-  "id": "string",
-  "folderId": "string",
-  "createdAt": "string",
-  "name": "string",
-  "description": "string",
-  "labels": "object",
-  "sharedEgressGateway": {}
-}
-```
- 
-Field | Description
---- | ---
-id | **string**<br><p>ID of the gateway. Generated at creation time.</p> 
-folderId | **string**<br><p>ID of the folder that the gateway belongs to.</p> 
-createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
-name | **string**<br><p>Name of the gateway. The name is unique within the folder. Value must match the regular expression ``\\|[a-z]([-a-z0-9]{0,61}[a-z0-9])?``.</p> 
-description | **string**<br><p>Description of the gateway. 0-256 characters long.</p> 
-labels | **object**<br><p>Gateway labels as ``key:value`` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ``[-_./\\@0-9a-z]*``. The string length in characters for each key must be 1-63. Each key must match the regular expression ``[a-z][-_./\\@0-9a-z]*``.</p> 
-sharedEgressGateway | **object**<br><p>Shared Egress Gateway configuration</p> 
+## Methods
 
-## Methods {#methods}
-Method | Description
---- | ---
-[create](create.md) | Creates a gateway in the specified folder.
-[delete](delete.md) | Deletes the specified gateway.
-[get](get.md) | Returns the specified Gateway resource.
-[list](list.md) | Retrieves the list of Gateway resources in the specified folder.
-[listOperations](listOperations.md) | List operations for the specified gateway.
-[move](move.md) | Move a gateway to another folder
-[update](update.md) | Updates the specified gateway.
+#|
+||Method | Description ||
+|| [Get](get.md) | Returns the specified Gateway resource. ||
+|| [List](list.md) | Retrieves the list of Gateway resources in the specified folder. ||
+|| [Create](create.md) | Creates a gateway in the specified folder. ||
+|| [Update](update.md) | Updates the specified gateway. ||
+|| [Delete](delete.md) | Deletes the specified gateway. ||
+|| [ListOperations](listOperations.md) | List operations for the specified gateway. ||
+|| [Move](move.md) | Move a gateway to another folder ||
+|#

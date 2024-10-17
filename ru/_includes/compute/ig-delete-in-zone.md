@@ -71,6 +71,6 @@
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [update](../../compute/api-ref/InstanceGroup/update.md) для ресурса [InstanceGroup](../../compute/api-ref/InstanceGroup/index.md) или вызовом gRPC API [InstanceGroupService/Update](../../compute/api-ref/grpc/instance_group_service.md#Update).
+  Воспользуйтесь методом REST API [update](../../compute/instancegroup/api-ref/InstanceGroup/update.md) для ресурса [InstanceGroup](../../compute/instancegroup/api-ref/InstanceGroup/index.md) или вызовом gRPC API [InstanceGroupService/Update](../../compute/instancegroup/api-ref/grpc/InstanceGroup/update.md).
 
 {% endlist %}

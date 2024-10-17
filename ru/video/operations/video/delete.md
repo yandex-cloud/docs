@@ -16,7 +16,7 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [delete](../../api-ref/Video/delete.md) для ресурса [Video](../../api-ref/Video/index.md) или вызовом gRPC API [VideoService/Delete](../../api-ref/grpc/video_service.md#Delete).
+  Воспользуйтесь методом REST API [delete](../../api-ref/Video/delete.md) для ресурса [Video](../../api-ref/Video/index.md) или вызовом gRPC API [VideoService/Delete](../../api-ref/grpc/Video/delete.md).
 
 
 {% endlist %}

@@ -46,7 +46,7 @@
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [setPrimaryVersion](../../kms/api-ref/SymmetricKey/setPrimaryVersion.md) для ресурса [SymmetricKey](../../kms/api-ref/SymmetricKey/index.md) или вызовом gRPC API [SymmetricKeyService/SetPrimaryVersion](../../kms/api-ref/grpc/symmetric_key_service.md#SetPrimaryVersion).
+  Воспользуйтесь методом REST API [setPrimaryVersion](../../kms/api-ref/SymmetricKey/setPrimaryVersion.md) для ресурса [SymmetricKey](../../kms/api-ref/SymmetricKey/index.md) или вызовом gRPC API [SymmetricKeyService/SetPrimaryVersion](../../kms/api-ref/grpc/SymmetricKey/setPrimaryVersion.md).
 
 {% endlist %}
 
@@ -110,7 +110,7 @@
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [scheduleVersionDestruction](../../kms/api-ref/SymmetricKey/scheduleVersionDestruction.md) для ресурса [SymmetricKey](../../kms/api-ref/SymmetricKey/index.md) или вызовом gRPC API [SymmetricKeyService/ScheduleVersionDestruction](../../kms/api-ref/grpc/symmetric_key_service.md#ScheduleVersionDestruction).
+  Воспользуйтесь методом REST API [scheduleVersionDestruction](../../kms/api-ref/SymmetricKey/scheduleVersionDestruction.md) для ресурса [SymmetricKey](../../kms/api-ref/SymmetricKey/index.md) или вызовом gRPC API [SymmetricKeyService/ScheduleVersionDestruction](../../kms/api-ref/grpc/SymmetricKey/scheduleVersionDestruction.md).
 
 {% endlist %}
 
@@ -162,7 +162,7 @@
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [cancelVersionDestruction](../../kms/api-ref/SymmetricKey/cancelVersionDestruction.md) для ресурса [SymmetricKey](../../kms/api-ref/SymmetricKey/index.md) или вызовом gRPC API [SymmetricKeyService/CancelVersionDestruction](../../kms/api-ref/grpc/symmetric_key_service.md#CancelVersionDestruction).
+  Воспользуйтесь методом REST API [cancelVersionDestruction](../../kms/api-ref/SymmetricKey/cancelVersionDestruction.md) для ресурса [SymmetricKey](../../kms/api-ref/SymmetricKey/index.md) или вызовом gRPC API [SymmetricKeyService/CancelVersionDestruction](../../kms/api-ref/grpc/SymmetricKey/cancelVersionDestruction.md).
 
 {% endlist %}
 

@@ -213,7 +213,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 - API {#api}
 
-    To view log group records, use the [LogReadingService/Read](../../logging/api-ref/grpc/log_reading_service.md#Read) gRPC API call.
+    To view log group records, use the [LogReadingService/Read](../../logging/api-ref/grpc/LogReading/read.md) gRPC API call.
 
 {% endlist %}
 

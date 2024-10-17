@@ -13,7 +13,7 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [create](../../api-ref/Channel/create.md) для ресурса [Channel](../../api-ref/Channel/index.md) или вызовом gRPC API [ChannelService/Create](../../api-ref/grpc/channel_service.md#Create).
+  Воспользуйтесь методом REST API [create](../../api-ref/Channel/create.md) для ресурса [Channel](../../api-ref/Channel/index.md) или вызовом gRPC API [ChannelService/Create](../../api-ref/grpc/Channel/create.md).
   
   Подробности о создании канала см. в инструкции [Как начать работать с API {{ video-full-name }}](../../api-ref/quickstart.md#create-channel).
 
