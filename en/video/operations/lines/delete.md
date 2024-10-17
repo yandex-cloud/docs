@@ -16,6 +16,6 @@ description: Follow this guide to delete a {{ video-full-name }} line.
 
 - API {#api}
 
-   Use the [StreamLineService/Delete](../../api-ref/grpc/stream_line_service.md#Delete) gRPC API call.
+   Use the [StreamLineService/Delete](../../api-ref/grpc/StreamLine/delete.md) gRPC API call.
 
 {% endlist %}

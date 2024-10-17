@@ -78,7 +78,7 @@ description: Для группы выделенных хостов {{ compute-na
 
 - API {#api}
 
-  Чтобы назначить роль, воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/HostGroup/updateAccessBindings.md) для ресурса [HostGroup](../../api-ref/HostGroup/index.md) или вызовом gRPC API [HostGroupService/UpdateAccessBindings](../../api-ref/grpc/host_group_service.md#UpdateAccessBindings). В теле запроса в свойстве `action` укажите `ADD`, а в свойстве `subject` — тип и идентификатор пользователя.
+  Чтобы назначить роль, воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/HostGroup/updateAccessBindings.md) для ресурса [HostGroup](../../api-ref/HostGroup/index.md) или вызовом gRPC API [HostGroupService/UpdateAccessBindings](../../api-ref/grpc/HostGroup/updateAccessBindings.md). В теле запроса в свойстве `action` укажите `ADD`, а в свойстве `subject` — тип и идентификатор пользователя.
 
 {% endlist %}
 
@@ -147,7 +147,7 @@ description: Для группы выделенных хостов {{ compute-na
 
 - API {#api}
 
-  Чтобы назначить роли на ресурс, воспользуйтесь методом REST API [setAccessBindings](../../api-ref/HostGroup/setAccessBindings.md) для ресурса [HostGroup](../../api-ref/HostGroup/index.md) или вызовом gRPC API [HostGroupService/SetAccessBindings](../../api-ref/grpc/host_group_service.md#SetAccessBindings).
+  Чтобы назначить роли на ресурс, воспользуйтесь методом REST API [setAccessBindings](../../api-ref/HostGroup/setAccessBindings.md) для ресурса [HostGroup](../../api-ref/HostGroup/index.md) или вызовом gRPC API [HostGroupService/SetAccessBindings](../../api-ref/grpc/HostGroup/setAccessBindings.md).
 
   {% note alert %}
 
@@ -213,6 +213,6 @@ description: Для группы выделенных хостов {{ compute-na
 
 - API {#api}
 
-  Чтобы отозвать роль, воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/HostGroup/updateAccessBindings.md) для ресурса [HostGroup](../../api-ref/HostGroup/index.md) или вызовом gRPC API [HostGroupService/UpdateAccessBindings](../../api-ref/grpc/host_group_service.md#UpdateAccessBindings). В теле запроса в свойстве `action` укажите `REMOVE`, а в свойстве `subject` — тип и идентификатор пользователя.
+  Чтобы отозвать роль, воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/HostGroup/updateAccessBindings.md) для ресурса [HostGroup](../../api-ref/HostGroup/index.md) или вызовом gRPC API [HostGroupService/UpdateAccessBindings](../../api-ref/grpc/HostGroup/updateAccessBindings.md). В теле запроса в свойстве `action` укажите `REMOVE`, а в свойстве `subject` — тип и идентификатор пользователя.
 
 {% endlist %}

@@ -101,7 +101,7 @@
 
 - API {#api}
 
-    Чтобы добавить тег версии функции, воспользуйтесь методом REST API [setTag](../../functions/api-ref/Function/setTag.md) для ресурса [Function](../../functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/SetTag](../../functions/api-ref/grpc/function_service.md#SetTag).
+    Чтобы добавить тег версии функции, воспользуйтесь методом REST API [setTag](../../functions/api-ref/Function/setTag.md) для ресурса [Function](../../functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/SetTag](../../functions/api-ref/grpc/Function/setTag.md).
 
 
 - {{ yandex-cloud }} Toolkit {#yc-toolkit}

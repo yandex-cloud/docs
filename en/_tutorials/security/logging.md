@@ -564,7 +564,7 @@ To create a trigger:
   
 - API {#api}
 
-  Use the [TriggerService/Create](../../functions/triggers/api-ref/grpc/trigger_service.md#Create) gRPC API call or the [create](../../functions/triggers/api-ref/Trigger/create.md) REST API method.
+  Use the [TriggerService/Create](../../functions/triggers/api-ref/grpc/Trigger/create.md) gRPC API call or the [create](../../functions/triggers/api-ref/Trigger/create.md) REST API method.
   
 {% endlist %}
   

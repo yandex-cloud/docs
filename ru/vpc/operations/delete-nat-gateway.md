@@ -119,13 +119,13 @@
 
 - API {#api}
 
-  Чтобы отвязать NAT-шлюз от таблицы маршрутизации, нужно удалить из таблицы маршрутизации статический маршрут с этим NAT-шлюзом. Для этого воспользуйтесь методом REST API [update](../api-ref/RouteTable/update.md) для ресурса [RouteTable](../api-ref/RouteTable/index.md) или вызовом gRPC API [RouteTableService/Update](../api-ref/grpc/route_table_service.md#Update) и передайте в запросе список статических маршрутов без удаляемого маршрута в параметре:
+  Чтобы отвязать NAT-шлюз от таблицы маршрутизации, нужно удалить из таблицы маршрутизации статический маршрут с этим NAT-шлюзом. Для этого воспользуйтесь методом REST API [update](../api-ref/RouteTable/update.md) для ресурса [RouteTable](../api-ref/RouteTable/index.md) или вызовом gRPC API [RouteTableService/Update](../api-ref/grpc/RouteTable/update.md) и передайте в запросе список статических маршрутов без удаляемого маршрута в параметре:
     * `staticRoutes` для REST API;
     * `static_routes` для gRPC API.
 
   Если в списке содержался только один статический маршрут, передайте пустой список.
 
-  Чтобы получить список статических маршрутов, воспользуйтесь методом REST API [get](../api-ref/RouteTable/get.md) для ресурса [RouteTable](../api-ref/RouteTable/index.md) или вызовом gRPC API [RouteTableService/Get](../api-ref/grpc/route_table_service.md#Get) и передайте в запросе идентификатор таблицы маршрутизации в параметре:
+  Чтобы получить список статических маршрутов, воспользуйтесь методом REST API [get](../api-ref/RouteTable/get.md) для ресурса [RouteTable](../api-ref/RouteTable/index.md) или вызовом gRPC API [RouteTableService/Get](../api-ref/grpc/RouteTable/get.md) и передайте в запросе идентификатор таблицы маршрутизации в параметре:
     * `routeTableId` для REST API;
     * `route_table_id` для gRPC API.
 
@@ -247,11 +247,11 @@
 
 - API {#api}
 
-  Чтобы удалить NAT-шлюз, воспользуйтесь методом REST API [delete](../api-ref/Gateway/delete.md) для ресурса [Gateway](../api-ref/Gateway/index.md) или вызовом gRPC API [GatewayService/Delete](../api-ref/grpc/gateway_service.md#Delete) и передайте в запросе идентификатор удаляемого NAT-шлюза в параметре:
+  Чтобы удалить NAT-шлюз, воспользуйтесь методом REST API [delete](../api-ref/Gateway/delete.md) для ресурса [Gateway](../api-ref/Gateway/index.md) или вызовом gRPC API [GatewayService/Delete](../api-ref/grpc/Gateway/delete.md) и передайте в запросе идентификатор удаляемого NAT-шлюза в параметре:
     * `gatewayId` для REST API;
     * `gateway_id` для gRPC API.
 
-  Чтобы узнать идентификатор NAT-шлюза, воспользуйтесь методом REST API [list](../api-ref/Gateway/list.md) для ресурса [Gateway](../api-ref/Gateway/index.md) или вызовом gRPC API [GatewayService/List](../api-ref/grpc/gateway_service.md#List) и передайте в запросе идентификатор каталога в параметре:
+  Чтобы узнать идентификатор NAT-шлюза, воспользуйтесь методом REST API [list](../api-ref/Gateway/list.md) для ресурса [Gateway](../api-ref/Gateway/index.md) или вызовом gRPC API [GatewayService/List](../api-ref/grpc/Gateway/list.md) и передайте в запросе идентификатор каталога в параметре:
     * `folderId` для REST API;
     * `folder_id` для gRPC API.
 

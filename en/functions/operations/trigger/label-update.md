@@ -117,6 +117,6 @@ description: Follow this guide to update a trigger label in {{ sf-name }}.
 
 - API {#api}
 
-   To update a trigger label, use the [update](../../triggers/api-ref/Trigger/update.md) REST API method for the [Trigger](../../triggers/api-ref/Trigger/index.md) resource or the [TriggerService/Update](../../triggers/api-ref/grpc/trigger_service.md#Update) gRPC API call.
+   To update a trigger label, use the [update](../../triggers/api-ref/Trigger/update.md) REST API method for the [Trigger](../../triggers/api-ref/Trigger/index.md) resource or the [TriggerService/Update](../../triggers/api-ref/grpc/Trigger/update.md) gRPC API call.
 
 {% endlist %}

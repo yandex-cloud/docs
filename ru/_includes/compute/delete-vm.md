@@ -55,6 +55,6 @@
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [delete](../../compute/api-ref/Instance/delete.md) для ресурса [Instance](../../compute/api-ref/Instance/) или вызовом gRPC API [InstanceService/Delete](../../compute/api-ref/grpc/instance_service.md#Delete).
+  Воспользуйтесь методом REST API [delete](../../compute/api-ref/Instance/delete.md) для ресурса [Instance](../../compute/api-ref/Instance/) или вызовом gRPC API [InstanceService/Delete](../../compute/api-ref/grpc/Instance/delete.md).
 
 {% endlist %}

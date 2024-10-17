@@ -30,6 +30,6 @@ description: Follow this guide to edit a {{ video-full-name }} line.
 
 - API {#api}
 
-   Use the [StreamLineService/Update](../../api-ref/grpc/stream_line_service.md#Update) gRPC API call.
+   Use the [StreamLineService/Update](../../api-ref/grpc/StreamLine/update.md) gRPC API call.
 
 {% endlist %}

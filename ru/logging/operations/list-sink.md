@@ -37,6 +37,6 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Чтобы получить список приемников логов, воспользуйтесь методом REST API [list](../api-ref/Sink/list.md) для ресурса [Sink](../api-ref/Sink/index.md) или вызовом gRPC API [SinkService/List](../api-ref/grpc/sink_service.md#List).
+  Чтобы получить список приемников логов, воспользуйтесь методом REST API [list](../api-ref/Sink/list.md) для ресурса [Sink](../api-ref/Sink/index.md) или вызовом gRPC API [SinkService/List](../api-ref/grpc/Sink/list.md).
 
 {% endlist %}

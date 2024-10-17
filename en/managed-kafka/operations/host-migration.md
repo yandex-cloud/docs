@@ -89,7 +89,7 @@ To move a {{ mkf-name }} host to a different availability zone in an {{ KF }} cl
 
    - API {#api}
 
-      To edit the availability zone of a cluster and its {{ KF }} host, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
+      To edit the availability zone of a cluster and its {{ KF }} host, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) gRPC API call and provide the following in the request:
 
       * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
       * New availability zone in the `configSpec.zoneId` parameter.
@@ -154,7 +154,7 @@ To move {{ KF }} hosts to a different availability zone in a cluster:
 
    - API {#api}
 
-      Use the [listHosts](../api-ref/Cluster/listHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/listHosts](../api-ref/grpc/cluster_service.md#ListHosts) gRPC API call and provide the cluster ID in the `clusterId` request parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+      Use the [listHosts](../api-ref/Cluster/listHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/listHosts](../api-ref/grpc/Cluster/listHosts.md) gRPC API call and provide the cluster ID in the `clusterId` request parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
 
       The availability zone is specified in the response under `hosts[].zoneId` .
 
@@ -268,7 +268,7 @@ To move {{ KF }} hosts to a different availability zone in a cluster:
 
    - API {#api}
 
-      To edit the availability zones of a cluster and its {{ KF }} host, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
+      To edit the availability zones of a cluster and its {{ KF }} host, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) gRPC API call and provide the following in the request:
 
       * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
       * New set of availability zones in the `configSpec.zoneId` parameter. Their number must not decrease.

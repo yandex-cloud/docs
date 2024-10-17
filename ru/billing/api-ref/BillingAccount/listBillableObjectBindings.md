@@ -3,33 +3,48 @@ editable: false
 sourcePath: en/_api-ref/billing/v1/api-ref/BillingAccount/listBillableObjectBindings.md
 ---
 
-# Billing API, REST: BillingAccount.listBillableObjectBindings
-Retrieves the list of billable object bindings associated with the specified billing account.
- 
+# Billing API, REST: BillingAccount.ListBillableObjectBindings {#ListBillableObjectBindings}
 
- 
-## HTTP request {#https-request}
+Retrieves the list of billable object bindings associated with the specified billing account.
+
+## HTTP request
+
 ```
 GET https://billing.{{ api-host }}/billing/v1/billingAccounts/{billingAccountId}/billableObjectBindings
 ```
- 
-## Path parameters {#path_params}
- 
-Parameter | Description
---- | ---
-billingAccountId | <p>Required. ID of the billing account to list associated billable object bindings. To get the billing account ID, use <a href="/docs/billing/api-ref/BillingAccount/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
- 
-## Query parameters {#query_params}
- 
-Parameter | Description
---- | ---
-pageSize | <p>The maximum number of results per page to return. If the number of available results is larger than <a href="/docs/billing/api-ref/BillingAccount/listBillableObjectBindings#query_params">pageSize</a>, the service returns a <a href="/docs/billing/api-ref/BillingAccount/listBillableObjectBindings#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests.</p> <p>The maximum value is 1000.</p> 
-pageToken | <p>Page token. To get the next page of results, set <a href="/docs/billing/api-ref/BillingAccount/listBillableObjectBindings#query_params">pageToken</a> to the <a href="/docs/billing/api-ref/BillingAccount/listBillableObjectBindings#responses">nextPageToken</a> returned by a previous list request.</p> <p>The maximum string length in characters is 100.</p> 
- 
-## Response {#responses}
+
+## Path parameters
+
+#|
+||Field | Description ||
+|| billingAccountId | **string**
+
+Required field. ID of the billing account to list associated billable object bindings.
+To get the billing account ID, use [BillingAccountService.List](/docs/billing/api-ref/BillingAccount/list#List) request. ||
+|#
+
+## Query parameters {#yandex.cloud.billing.v1.ListBillableObjectBindingsRequest}
+
+#|
+||Field | Description ||
+|| pageSize | **string** (int64)
+
+The maximum number of results per page to return. If the number of available
+results is larger than `pageSize`,
+the service returns a [ListBillableObjectBindingsResponse.nextPageToken](#yandex.cloud.billing.v1.ListBillableObjectBindingsResponse)
+that can be used to get the next page of results in subsequent list requests. ||
+|| pageToken | **string**
+
+Page token. To get the next page of results,
+set `pageToken` to the [ListBillableObjectBindingsResponse.nextPageToken](#yandex.cloud.billing.v1.ListBillableObjectBindingsResponse)
+returned by a previous list request. ||
+|#
+
+## Response {#yandex.cloud.billing.v1.ListBillableObjectBindingsResponse}
+
 **HTTP Code: 200 - OK**
 
-```json 
+```json
 {
   "billableObjectBindings": [
     {
@@ -44,12 +59,54 @@ pageToken | <p>Page token. To get the next page of results, set <a href="/docs/b
 }
 ```
 
- 
-Field | Description
---- | ---
-billableObjectBindings[] | **object**<br><p>List of billable object bindings.</p> 
-billableObjectBindings[].<br>effectiveTime | **string** (date-time)<br><p>Timestamp when binding was created.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
-billableObjectBindings[].<br>billableObject | **object**<br><p>Object that is bound to billing account.</p> <p>Represents a link to an object in other service. This object is being billed in the scope of a billing account.</p> 
-billableObjectBindings[].<br>billableObject.<br>id | **string**<br><p>ID of the object in other service.</p> 
-billableObjectBindings[].<br>billableObject.<br>type | **string**<br><p>Billable object type. Can be one of the following:</p> <ul> <li>``cloud``</li> </ul> 
-nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is larger than <a href="/docs/billing/api-ref/BillingAccount/listBillableObjectBindings#query_params">pageSize</a>, use <a href="/docs/billing/api-ref/BillingAccount/listBillableObjectBindings#responses">nextPageToken</a> as the value for the <a href="/docs/billing/api-ref/BillingAccount/listBillableObjectBindings#query_params">pageToken</a> query parameter in the next list request. Each subsequent list request will have its own <a href="/docs/billing/api-ref/BillingAccount/listBillableObjectBindings#responses">nextPageToken</a> to continue paging through the results.</p> 
+#|
+||Field | Description ||
+|| billableObjectBindings[] | **[BillableObjectBinding](#yandex.cloud.billing.v1.BillableObjectBinding)**
+
+List of billable object bindings. ||
+|| nextPageToken | **string**
+
+This token allows you to get the next page of results for list requests. If the number of results
+is larger than [ListBillableObjectBindingsRequest.pageSize](#yandex.cloud.billing.v1.ListBillableObjectBindingsRequest), use
+`nextPageToken` as the value
+for the [ListBillableObjectBindingsRequest.pageToken](#yandex.cloud.billing.v1.ListBillableObjectBindingsRequest) query parameter
+in the next list request. Each subsequent list request will have its own
+`nextPageToken` to continue paging through the results. ||
+|#
+
+## BillableObjectBinding {#yandex.cloud.billing.v1.BillableObjectBinding}
+
+Represents a binding of the BillableObject to a BillingAccount.
+
+#|
+||Field | Description ||
+|| effectiveTime | **string** (date-time)
+
+Timestamp when binding was created.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| billableObject | **[BillableObject](#yandex.cloud.billing.v1.BillableObject)**
+
+Object that is bound to billing account. ||
+|#
+
+## BillableObject {#yandex.cloud.billing.v1.BillableObject}
+
+Represents a link to an object in other service.
+This object is being billed in the scope of a billing account.
+
+#|
+||Field | Description ||
+|| id | **string**
+
+ID of the object in other service. ||
+|| type | **string**
+
+Billable object type. Can be one of the following:
+* `cloud` ||
+|#

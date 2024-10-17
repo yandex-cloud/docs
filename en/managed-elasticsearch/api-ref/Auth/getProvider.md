@@ -3,36 +3,43 @@ editable: false
 sourcePath: en/_api-ref/mdb/elasticsearch/v1/api-ref/Auth/getProvider.md
 ---
 
-# Managed Service for Elasticsearch API, REST: Auth.getProvider
-Returns registered auth provider by name.
- 
+# Managed Service for Elasticsearch API, REST: Auth.GetProvider {#GetProvider}
 
- 
-## HTTP request {#https-request}
+Returns registered auth provider by name.
+
+## HTTP request
+
 ```
 GET https://{{ api-host-mdb }}/managed-elasticsearch/v1/clusters/{clusterId}/auth/providers/{name}
 ```
- 
-## Path parameters {#path_params}
- 
-Parameter | Description
---- | ---
-clusterId | <p>Required. Required. ID of the ElasticSearch cluster.</p> <p>The maximum string length in characters is 50.</p> 
-name | <p>Required. Required. Name of the provider to delete.</p> <p>The maximum string length in characters is 50. Value must match the regular expression ``[a-z][a-z0-9_-]*``.</p> 
- 
-## Response {#responses}
+
+## Path parameters
+
+#|
+||Field | Description ||
+|| clusterId | **string**
+
+Required field. Required. ID of the ElasticSearch cluster. ||
+|| name | **string**
+
+Required field. Required. Name of the provider to delete. ||
+|#
+
+## Response {#yandex.cloud.mdb.elasticsearch.v1.AuthProvider}
+
 **HTTP Code: 200 - OK**
 
-```json 
+```json
 {
   "type": "string",
   "name": "string",
   "order": "string",
-  "enabled": true,
-  "hidden": true,
+  "enabled": "boolean",
+  "hidden": "boolean",
   "description": "string",
   "hint": "string",
   "icon": "string",
+  // Includes only one of the fields `saml`
   "saml": {
     "idpEntityId": "string",
     "idpMetadataFile": "string",
@@ -44,27 +51,42 @@ name | <p>Required. Required. Name of the provider to delete.</p> <p>The maximum
     "attributeEmail": "string",
     "attributeDn": "string"
   }
+  // end of the list of possible fields
 }
 ```
 
- 
-Field | Description
---- | ---
-type | **string**
-name | **string**<br><p>The maximum string length in characters is 50. Value must match the regular expression ``[a-z][a-z0-9_-]*``.</p> 
-order | **string** (int64)
-enabled | **boolean** (boolean)
-hidden | **boolean** (boolean)<br><p>selector ui settings</p> 
-description | **string**<br><p>The maximum string length in characters is 50.</p> 
-hint | **string**<br><p>The maximum string length in characters is 250.</p> 
-icon | **string**<br><p>The maximum string length in characters is 250.</p> 
-saml | **object**
-saml.<br>idpEntityId | **string**<br><p>The maximum string length in characters is 250.</p> 
-saml.<br>idpMetadataFile | **string** (byte)<br><p>The maximum string length in characters is 10000.</p> 
-saml.<br>spEntityId | **string**<br><p>The maximum string length in characters is 250.</p> 
-saml.<br>kibanaUrl | **string**<br><p>The maximum string length in characters is 250.</p> 
-saml.<br>attributePrincipal | **string**<br><p>The maximum string length in characters is 50.</p> 
-saml.<br>attributeGroups | **string**<br><p>The maximum string length in characters is 50.</p> 
-saml.<br>attributeName | **string**<br><p>The maximum string length in characters is 50.</p> 
-saml.<br>attributeEmail | **string**<br><p>The maximum string length in characters is 50.</p> 
-saml.<br>attributeDn | **string**<br><p>The maximum string length in characters is 50.</p> 
+#|
+||Field | Description ||
+|| type | **enum** (Type)
+
+- `TYPE_UNSPECIFIED`
+- `NATIVE`
+- `SAML` ||
+|| name | **string** ||
+|| order | **string** (int64) ||
+|| enabled | **boolean** ||
+|| hidden | **boolean**
+
+selector ui settings ||
+|| description | **string** ||
+|| hint | **string** ||
+|| icon | **string** ||
+|| saml | **[SamlSettings](#yandex.cloud.mdb.elasticsearch.v1.SamlSettings)**
+
+Includes only one of the fields `saml`. ||
+|#
+
+## SamlSettings {#yandex.cloud.mdb.elasticsearch.v1.SamlSettings}
+
+#|
+||Field | Description ||
+|| idpEntityId | **string** ||
+|| idpMetadataFile | **string** (bytes) ||
+|| spEntityId | **string** ||
+|| kibanaUrl | **string** ||
+|| attributePrincipal | **string** ||
+|| attributeGroups | **string** ||
+|| attributeName | **string** ||
+|| attributeEmail | **string** ||
+|| attributeDn | **string** ||
+|#

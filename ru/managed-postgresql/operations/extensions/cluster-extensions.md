@@ -80,7 +80,7 @@
      {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Воспользуйтесь вызовом [DatabaseService/Get](../../api-ref/grpc/database_service.md#Get) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [DatabaseService/Get](../../api-ref/grpc/Database/get.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
      ```bash
      grpcurl \
@@ -99,7 +99,7 @@
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](../cluster-list.md#list-clusters), а имя БД — со [списком БД в кластере](../databases.md#list-db).
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../../api-ref/grpc/database_service.md#Database).
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../../api-ref/grpc/Database/get.md#yandex.cloud.mdb.postgresql.v1.Database).
 
      Список установленных расширений приведен в параметре `extensions` в выводе команды.
 
@@ -219,7 +219,7 @@
      {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Воспользуйтесь вызовом [DatabaseService/Update](../../api-ref/grpc/database_service.md#Update) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [DatabaseService/Update](../../api-ref/grpc/Database/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
      {% include [note-grpc-updatemask](../../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -267,7 +267,7 @@
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](../cluster-list.md#list-clusters), а имя БД — со [списком БД в кластере](../databases.md#list-db).
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../../api-ref/grpc/database_service.md#Operation1).
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../../api-ref/grpc/Database/create.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 

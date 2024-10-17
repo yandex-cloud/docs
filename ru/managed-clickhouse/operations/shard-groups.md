@@ -28,7 +28,7 @@
 
 - API {#api}
 
-  Чтобы получить список групп шардов в кластере, воспользуйтесь методом REST API [listShardGroups](../api-ref/Cluster/listShardGroups.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/ListShardGroups](../api-ref/grpc/cluster_service.md#ListShardGroups) и передайте в запросе идентификатор требуемого кластера в параметре `clusterId`.
+  Чтобы получить список групп шардов в кластере, воспользуйтесь методом REST API [listShardGroups](../api-ref/Cluster/listShardGroups.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/ListShardGroups](../api-ref/grpc/Cluster/listShardGroups.md) и передайте в запросе идентификатор требуемого кластера в параметре `clusterId`.
 
   Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -62,7 +62,7 @@
 
 - API {#api}
 
-  Чтобы получить детальную информацию о группе шардов, воспользуйтесь методом REST API [getShardGroup](../api-ref/Cluster/getShardGroup.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/GetShardGroup](../api-ref/grpc/cluster_service.md#GetShardGroup) и передайте в запросе:
+  Чтобы получить детальную информацию о группе шардов, воспользуйтесь методом REST API [getShardGroup](../api-ref/Cluster/getShardGroup.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/GetShardGroup](../api-ref/grpc/Cluster/getShardGroup.md) и передайте в запросе:
   * Идентификатор требуемого кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
   * Имя группы шардов в параметре `shardGroupName`. Чтобы узнать имя, [получите список групп шардов](#list-shard-groups) в кластере.
 
@@ -138,7 +138,7 @@
 
 - API {#api}
 
-  Чтобы создать группу шардов, воспользуйтесь методом REST API [createShardGroup](../api-ref/Cluster/createShardGroup.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/CreateShardGroup](../api-ref/grpc/cluster_service.md#CreateShardGroup) и передайте в запросе:
+  Чтобы создать группу шардов, воспользуйтесь методом REST API [createShardGroup](../api-ref/Cluster/createShardGroup.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/CreateShardGroup](../api-ref/grpc/Cluster/createShardGroup.md) и передайте в запросе:
   * Идентификатор кластера, в котором требуется создать группу, в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
   * Имя группы шардов в параметре `shardGroupName`.
   * Список имен шардов, которые требуется включить в группу, в параметре `shardNames`. Чтобы узнать имена, [получите список шардов](shards.md#list-shards) в кластере.
@@ -219,7 +219,7 @@
 
 - API {#api}
 
-  Чтобы изменить группу шардов, воспользуйтесь методом REST API [updateShardGroup](../api-ref/Cluster/updateShardGroup.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/UpdateShardGroup](../api-ref/grpc/cluster_service.md#UpdateShardGroup) и передайте в запросе:
+  Чтобы изменить группу шардов, воспользуйтесь методом REST API [updateShardGroup](../api-ref/Cluster/updateShardGroup.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/UpdateShardGroup](../api-ref/grpc/Cluster/updateShardGroup.md) и передайте в запросе:
   * Идентификатор кластера, в котором требуется изменить группу, в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
   * Имя группы шардов в параметре `shardGroupName`. Чтобы узнать имя, [получите список групп шардов](#list-shard-groups) в кластере.
   * При необходимости, новое описание группы шардов в параметре `description`.
@@ -282,7 +282,7 @@
 
 - API {#api}
 
-  Чтобы удалить группу шардов, воспользуйтесь методом REST API [deleteShardGroup](../api-ref/Cluster/deleteShardGroup.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/DeleteShardGroup](../api-ref/grpc/cluster_service.md#DeleteShardGroup) и передайте в запросе:
+  Чтобы удалить группу шардов, воспользуйтесь методом REST API [deleteShardGroup](../api-ref/Cluster/deleteShardGroup.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/DeleteShardGroup](../api-ref/grpc/Cluster/deleteShardGroup.md) и передайте в запросе:
   * Идентификатор кластера, из которого требуется удалить группу, в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
   * Имя группы шардов в параметре `shardGroupName`. Чтобы узнать имя, [получите список групп шардов](#list-shard-groups) в кластере.
 

@@ -71,6 +71,6 @@ You can also view logs in [{{ cloud-logging-full-name }}](../../logging/):
 
 - API {#api}
 
-   To view log group entries, use the [LogReadingService/Read](../../logging/api-ref/grpc/log_reading_service.md#Read) gRPC API call.
+   To view log group entries, use the [LogReadingService/Read](../../logging/api-ref/grpc/LogReading/read.md) gRPC API call.
 
 {% endlist %}

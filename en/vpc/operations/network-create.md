@@ -140,7 +140,7 @@ In addition to the cloud network in the default folder, you can create cloud net
 
 - API {#api}
 
-   To create a [cloud network](../concepts/network.md), use the [create](../api-ref/Network/create.md) REST API method for the [Network](../api-ref/Network/index.md) resource or the [NetworkService/Create](../api-ref/grpc/network_service.md#Create) gRPC API call, and provide the following in the request:
+   To create a [cloud network](../concepts/network.md), use the [create](../api-ref/Network/create.md) REST API method for the [Network](../api-ref/Network/index.md) resource or the [NetworkService/Create](../api-ref/grpc/Network/create.md) gRPC API call, and provide the following in the request:
 
     * ID of the folder where the network will be placed, in the `folderId` parameter.
     * Name of the new network, in the `name` parameter. The name must be from 3 to 63 characters long, the last character cannot be a hyphen.

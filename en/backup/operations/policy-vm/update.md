@@ -203,7 +203,7 @@ description: In this tutorial, you will learn how to update a backup policy in {
 
 - API {#api}
 
-   To update the basic parameters of a [backup policy](../../concepts/policy.md), use the [update](../../backup/api-ref/Policy/update.md) REST API method for the [Policy](../../backup/api-ref/Policy/index.md) resource or the [PolicyService/Update](../../backup/api-ref/grpc/policy_service.md#Update) gRPC API call.
+   To update the basic parameters of a [backup policy](../../concepts/policy.md), use the [update](../../backup/api-ref/Policy/update.md) REST API method for the [Policy](../../backup/api-ref/Policy/index.md) resource or the [PolicyService/Update](../../backup/api-ref/grpc/Policy/update.md) gRPC API call.
 
 {% endlist %}
 
@@ -275,7 +275,7 @@ description: In this tutorial, you will learn how to update a backup policy in {
 
 - API {#api}
 
-   To edit the list of VMs whose backups are created according to a [backup policy](../../concepts/policy.md), use the [update](../../backup/api-ref/Policy/update.md) REST API method for the [Policy](../../backup/api-ref/Policy/index.md) resource or the [PolicyService/Update](../../backup/api-ref/grpc/policy_service.md#Update) gRPC API call.
+   To edit the list of VMs whose backups are created according to a [backup policy](../../concepts/policy.md), use the [update](../../backup/api-ref/Policy/update.md) REST API method for the [Policy](../../backup/api-ref/Policy/index.md) resource or the [PolicyService/Update](../../backup/api-ref/grpc/Policy/update.md) gRPC API call.
 
 {% endlist %}
 

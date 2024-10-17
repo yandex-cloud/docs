@@ -3,37 +3,42 @@ editable: false
 sourcePath: en/_api-ref/mdb/elasticsearch/v1/api-ref/Auth/listProviders.md
 ---
 
-# Managed Service for Elasticsearch API, REST: Auth.listProviders
-Retrieves the list of registered auth providers for Elasticsearch cluster.
- 
+# Managed Service for Elasticsearch API, REST: Auth.ListProviders {#ListProviders}
 
- 
-## HTTP request {#https-request}
+Retrieves the list of registered auth providers for Elasticsearch cluster.
+
+## HTTP request
+
 ```
 GET https://{{ api-host-mdb }}/managed-elasticsearch/v1/clusters/{clusterId}/auth/providers
 ```
- 
-## Path parameters {#path_params}
- 
-Parameter | Description
---- | ---
-clusterId | <p>Required. Required. ID of the ElasticSearch cluster.</p> <p>The maximum string length in characters is 50.</p> 
- 
-## Response {#responses}
+
+## Path parameters
+
+#|
+||Field | Description ||
+|| clusterId | **string**
+
+Required field. Required. ID of the ElasticSearch cluster. ||
+|#
+
+## Response {#yandex.cloud.mdb.elasticsearch.v1.ListAuthProvidersResponse}
+
 **HTTP Code: 200 - OK**
 
-```json 
+```json
 {
   "providers": [
     {
       "type": "string",
       "name": "string",
       "order": "string",
-      "enabled": true,
-      "hidden": true,
+      "enabled": "boolean",
+      "hidden": "boolean",
       "description": "string",
       "hint": "string",
       "icon": "string",
+      // Includes only one of the fields `saml`
       "saml": {
         "idpEntityId": "string",
         "idpMetadataFile": "string",
@@ -45,30 +50,53 @@ clusterId | <p>Required. Required. ID of the ElasticSearch cluster.</p> <p>The m
         "attributeEmail": "string",
         "attributeDn": "string"
       }
+      // end of the list of possible fields
     }
   ]
 }
 ```
 
- 
-Field | Description
---- | ---
-providers[] | **object**<br><p>List of auth providers of the Elasticsearch cluster.</p> 
-providers[].<br>type | **string**
-providers[].<br>name | **string**<br><p>The maximum string length in characters is 50. Value must match the regular expression ``[a-z][a-z0-9_-]*``.</p> 
-providers[].<br>order | **string** (int64)
-providers[].<br>enabled | **boolean** (boolean)
-providers[].<br>hidden | **boolean** (boolean)<br><p>selector ui settings</p> 
-providers[].<br>description | **string**<br><p>The maximum string length in characters is 50.</p> 
-providers[].<br>hint | **string**<br><p>The maximum string length in characters is 250.</p> 
-providers[].<br>icon | **string**<br><p>The maximum string length in characters is 250.</p> 
-providers[].<br>saml | **object**
-providers[].<br>saml.<br>idpEntityId | **string**<br><p>The maximum string length in characters is 250.</p> 
-providers[].<br>saml.<br>idpMetadataFile | **string** (byte)<br><p>The maximum string length in characters is 10000.</p> 
-providers[].<br>saml.<br>spEntityId | **string**<br><p>The maximum string length in characters is 250.</p> 
-providers[].<br>saml.<br>kibanaUrl | **string**<br><p>The maximum string length in characters is 250.</p> 
-providers[].<br>saml.<br>attributePrincipal | **string**<br><p>The maximum string length in characters is 50.</p> 
-providers[].<br>saml.<br>attributeGroups | **string**<br><p>The maximum string length in characters is 50.</p> 
-providers[].<br>saml.<br>attributeName | **string**<br><p>The maximum string length in characters is 50.</p> 
-providers[].<br>saml.<br>attributeEmail | **string**<br><p>The maximum string length in characters is 50.</p> 
-providers[].<br>saml.<br>attributeDn | **string**<br><p>The maximum string length in characters is 50.</p> 
+#|
+||Field | Description ||
+|| providers[] | **[AuthProvider](#yandex.cloud.mdb.elasticsearch.v1.AuthProvider)**
+
+List of auth providers of the Elasticsearch cluster. ||
+|#
+
+## AuthProvider {#yandex.cloud.mdb.elasticsearch.v1.AuthProvider}
+
+#|
+||Field | Description ||
+|| type | **enum** (Type)
+
+- `TYPE_UNSPECIFIED`
+- `NATIVE`
+- `SAML` ||
+|| name | **string** ||
+|| order | **string** (int64) ||
+|| enabled | **boolean** ||
+|| hidden | **boolean**
+
+selector ui settings ||
+|| description | **string** ||
+|| hint | **string** ||
+|| icon | **string** ||
+|| saml | **[SamlSettings](#yandex.cloud.mdb.elasticsearch.v1.SamlSettings)**
+
+Includes only one of the fields `saml`. ||
+|#
+
+## SamlSettings {#yandex.cloud.mdb.elasticsearch.v1.SamlSettings}
+
+#|
+||Field | Description ||
+|| idpEntityId | **string** ||
+|| idpMetadataFile | **string** (bytes) ||
+|| spEntityId | **string** ||
+|| kibanaUrl | **string** ||
+|| attributePrincipal | **string** ||
+|| attributeGroups | **string** ||
+|| attributeName | **string** ||
+|| attributeEmail | **string** ||
+|| attributeDn | **string** ||
+|#

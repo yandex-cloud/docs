@@ -123,6 +123,6 @@ Aliases are linked to specific devices. To create an alias, you need to [find th
 
 - API {#api}
 
-  To create an alias, use the [create](../../../api-ref/Device/create.md) REST API method for the [Device](../../../api-ref/Device/index.md) resource or the [DeviceService/Create](../../../api-ref/grpc/device_service.md#Create) gRPC API call.
+  To create an alias, use the [create](../../../api-ref/Device/create.md) REST API method for the [Device](../../../api-ref/Device/index.md) resource or the [DeviceService/Create](../../../api-ref/grpc/Device/create.md) gRPC API call.
 
 {% endlist %}

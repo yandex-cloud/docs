@@ -29,6 +29,6 @@
 
 - API {#api}
 
-  To view a list of containers, use the [list](../../serverless-containers/containers/api-ref/Container/list.md) REST API method for the [Container](../../serverless-containers/containers/api-ref/Container/index.md) resource or the [ContainerService/List](../../serverless-containers/containers/api-ref/grpc/container_service.md#List) gRPC API call.
+  To view a list of containers, use the [list](../../serverless-containers/containers/api-ref/Container/list.md) REST API method for the [Container](../../serverless-containers/containers/api-ref/Container/index.md) resource or the [ContainerService/List](../../serverless-containers/containers/api-ref/grpc/Container/list.md) gRPC API call.
 
 {% endlist %}

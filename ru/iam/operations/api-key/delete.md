@@ -103,6 +103,6 @@ description: Следуя данной инструкции, вы сможете
         --header "Authorization: Bearer $IAM_TOKEN" \
         https://iam.{{ api-host }}/iam/v1/apiKeys/$APIKEY_ID
     ```
-   Также API-ключ можно удалить с помощью gRPC API [ApiKeyService/Delete](../../api-ref/grpc/api_key_service.md#Delete).
+   Также API-ключ можно удалить с помощью gRPC API [ApiKeyService/Delete](../../api-ref/grpc/ApiKey/delete.md).
 
 {% endlist %}

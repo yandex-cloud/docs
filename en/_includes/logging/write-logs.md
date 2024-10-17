@@ -50,6 +50,6 @@
 
 - API {#api}
 
-  To add records to the log group, use the [LogIngestionService/Write](../../logging/api-ref/grpc/log_ingestion_service.md#Write) gRPC API call.
+  To add records to the log group, use the [LogIngestionService/Write](../../logging/api-ref/grpc/LogIngestion/write.md) gRPC API call.
 
 {% endlist %}

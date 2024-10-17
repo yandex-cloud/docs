@@ -3,27 +3,39 @@ editable: false
 sourcePath: en/_api-ref/mdb/kafka/v1/api-ref/User/get.md
 ---
 
-# Managed Service for Apache Kafka® API, REST: User.get
+# Managed Service for Apache Kafka® API, REST: User.Get {#Get}
+
 Returns the specified Kafka user.
- 
-To get the list of available Kafka users, make a [list](/docs/managed-kafka/api-ref/User/list) request.
- 
-## HTTP request {#https-request}
+
+To get the list of available Kafka users, make a [List](/docs/managed-kafka/api-ref/User/list#List) request.
+
+## HTTP request
+
 ```
 GET https://{{ api-host-mdb }}/managed-kafka/v1/clusters/{clusterId}/users/{userName}
 ```
- 
-## Path parameters {#path_params}
- 
-Parameter | Description
---- | ---
-clusterId | <p>Required. ID of the Apache Kafka® cluster the user belongs to.</p> <p>To get the cluster ID, make a <a href="/docs/managed-kafka/api-ref/Cluster/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
-userName | <p>Required. Name of the Kafka user to return.</p> <p>To get the name of the user, make a <a href="/docs/managed-kafka/api-ref/User/list">list</a> request.</p> <p>The string length in characters must be 1-63. Value must match the regular expression ``[a-zA-Z0-9_]*``.</p> 
- 
-## Response {#responses}
+
+## Path parameters
+
+#|
+||Field | Description ||
+|| clusterId | **string**
+
+Required field. ID of the Apache Kafka® cluster the user belongs to.
+
+To get the cluster ID, make a [ClusterService.List](/docs/managed-kafka/api-ref/Cluster/list#List) request. ||
+|| userName | **string**
+
+Required field. Name of the Kafka user to return.
+
+To get the name of the user, make a [UserService.List](/docs/managed-kafka/api-ref/User/list#List) request. ||
+|#
+
+## Response {#yandex.cloud.mdb.kafka.v1.User}
+
 **HTTP Code: 200 - OK**
 
-```json 
+```json
 {
   "name": "string",
   "clusterId": "string",
@@ -38,14 +50,49 @@ userName | <p>Required. Name of the Kafka user to return.</p> <p>To get the name
   ]
 }
 ```
+
 A Kafka user.
 For more information, see the [Operations -> Accounts](/docs/managed-kafka/operations/cluster-accounts) section of the documentation.
- 
-Field | Description
---- | ---
-name | **string**<br><p>Name of the Kafka user.</p> 
-clusterId | **string**<br><p>ID of the Apache Kafka® cluster the user belongs to.</p> <p>To get the Apache Kafka® cluster ID, make a <a href="/docs/managed-kafka/api-ref/Cluster/list">list</a> request.</p> 
-permissions[] | **object**<br><p>Set of permissions granted to this user.</p> 
-permissions[].<br>topicName | **string**<br><p>Name or prefix-pattern with wildcard for the topic that the permission grants access to.</p> <p>To get the topic name, make a <a href="/docs/managed-kafka/api-ref/Topic/list">list</a> request.</p> 
-permissions[].<br>role | **string**<br><p>Access role type to grant to the user.</p> <ul> <li>ACCESS_ROLE_PRODUCER: Producer role for the user.</li> <li>ACCESS_ROLE_CONSUMER: Consumer role for the user.</li> <li>ACCESS_ROLE_ADMIN: Admin role for the user.</li> </ul> 
-permissions[].<br>allowHosts[] | **string**<br><p>Lists hosts allowed for this permission. When not defined, access from any host is allowed.</p> <p>Bare in mind that the same host might appear in multiple permissions at the same time, hence removing individual permission doesn't automatically restricts access from the ``allowHosts`` of the permission. If the same host(s) is listed for another permission of the same principal/topic, the host(s) remains allowed.</p> 
+
+#|
+||Field | Description ||
+|| name | **string**
+
+Name of the Kafka user. ||
+|| clusterId | **string**
+
+ID of the Apache Kafka® cluster the user belongs to.
+
+To get the Apache Kafka® cluster ID, make a [ClusterService.List](/docs/managed-kafka/api-ref/Cluster/list#List) request. ||
+|| permissions[] | **[Permission](#yandex.cloud.mdb.kafka.v1.Permission)**
+
+Set of permissions granted to this user. ||
+|#
+
+## Permission {#yandex.cloud.mdb.kafka.v1.Permission}
+
+#|
+||Field | Description ||
+|| topicName | **string**
+
+Name or prefix-pattern with wildcard for the topic that the permission grants access to.
+
+To get the topic name, make a [TopicService.List](/docs/managed-kafka/api-ref/Topic/list#List) request. ||
+|| role | **enum** (AccessRole)
+
+Access role type to grant to the user.
+
+- `ACCESS_ROLE_UNSPECIFIED`
+- `ACCESS_ROLE_PRODUCER`: Producer role for the user.
+- `ACCESS_ROLE_CONSUMER`: Consumer role for the user.
+- `ACCESS_ROLE_ADMIN`: Admin role for the user. ||
+|| allowHosts[] | **string**
+
+Lists hosts allowed for this permission.
+Only ip-addresses allowed as value of single host.
+When not defined, access from any host is allowed.
+
+Bare in mind that the same host might appear in multiple permissions at the same time,
+hence removing individual permission doesn't automatically restricts access from the `allowHosts` of the permission.
+If the same host(s) is listed for another permission of the same principal/topic, the host(s) remains allowed. ||
+|#

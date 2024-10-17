@@ -90,6 +90,6 @@ title: Как получить информацию о зоне DNS в {{ dns-fu
 
 - API {#api}
 
-  Чтобы получить подробную информацию о [зоне DNS](../concepts/dns-zone.md), воспользуйтесь методом REST API [get](../api-ref/DnsZone/get.md) для ресурса [DnsZone](../api-ref/DnsZone/index.md), или вызовом gRPC API [DnsZoneService/Get](../api-ref/grpc/dns_zone_service.md#Get).
+  Чтобы получить подробную информацию о [зоне DNS](../concepts/dns-zone.md), воспользуйтесь методом REST API [get](../api-ref/DnsZone/get.md) для ресурса [DnsZone](../api-ref/DnsZone/index.md), или вызовом gRPC API [DnsZoneService/Get](../api-ref/grpc/DnsZone/get.md).
 
 {% endlist %}

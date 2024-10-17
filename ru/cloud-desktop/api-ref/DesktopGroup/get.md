@@ -3,26 +3,34 @@ editable: false
 sourcePath: en/_api-ref/clouddesktop/v1/api-ref/DesktopGroup/get.md
 ---
 
-# Cloud Desktop API, REST: DesktopGroup.get
+# Cloud Desktop API, REST: DesktopGroup.Get {#Get}
+
 Returns the specified desktop group resource.
- 
-To get the list of available desktop groups, make a [list](/docs/cloud-desktop/api-ref/DesktopGroup/list) request.
- 
-## HTTP request {#https-request}
+
+To get the list of available desktop groups, make a [List](/docs/cloud-desktop/api-ref/DesktopGroup/list#List) request.
+
+## HTTP request
+
 ```
 GET https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/desktopGroups/{desktopGroupId}
 ```
- 
-## Path parameters {#path_params}
- 
-Parameter | Description
---- | ---
-desktopGroupId | <p>Required. ID of the desktop group resource to return.</p> <p>To get the desktop group ID use a <a href="/docs/cloud-desktop/api-ref/DesktopGroup/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
- 
-## Response {#responses}
+
+## Path parameters
+
+#|
+||Field | Description ||
+|| desktopGroupId | **string**
+
+Required field. ID of the desktop group resource to return.
+
+To get the desktop group ID use a [DesktopGroupService.List](/docs/cloud-desktop/api-ref/DesktopGroup/list#List) request. ||
+|#
+
+## Response {#yandex.cloud.clouddesktop.v1.api.DesktopGroup}
+
 **HTTP Code: 200 - OK**
 
-```json 
+```json
 {
   "id": "string",
   "folderId": "string",
@@ -43,20 +51,73 @@ desktopGroupId | <p>Required. ID of the desktop group resource to return.</p> <p
   }
 }
 ```
+
 A desktop group resource.
- 
-Field | Description
---- | ---
-id | **string**<br><p>Desktop group ID.</p> 
-folderId | **string**<br><p>ID of the folder that the desktop group belongs to.</p> 
-createdAt | **string** (date-time)<br><p>Creation timestamp in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
-status | **string**<br><p>Status of the desktop group.</p> <ul> <li>CREATING: Desktop group is being created.</li> <li>ACTIVE: Desktop group is ready to use.</li> <li>DELETING: Desktop group is being deleted.</li> </ul> 
-name | **string**<br><p>Name of the desktop group.</p> 
-description | **string**<br><p>Description of the desktop group.</p> 
-resourcesSpec | **object**<br><p>Resource specification of the desktop group.</p> 
-resourcesSpec.<br>memory | **string** (int64)<br><p>RAM volume, in bytes.</p> <p>The minimum value is 1.</p> 
-resourcesSpec.<br>cores | **string** (int64)<br><p>Number of CPU cores.</p> <p>The minimum value is 1.</p> 
-resourcesSpec.<br>coreFraction | **string** (int64)<br><p>Baseline level of CPU performance with the ability to burst performance above that baseline level. This field sets baseline performance for each core.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
-networkInterfaceSpec | **object**<br><p>Network interface specification of the desktop group.</p> 
-networkInterfaceSpec.<br>networkId | **string**<br><p>Required. ID of the network interface specification.</p> <p>The maximum string length in characters is 50.</p> 
-networkInterfaceSpec.<br>subnetIds[] | **string**<br><p>Required. List of subnet IDs.</p> <p>Must contain at least one element. The maximum string length in characters for each value is 50.</p> 
+
+#|
+||Field | Description ||
+|| id | **string**
+
+Desktop group ID. ||
+|| folderId | **string**
+
+ID of the folder that the desktop group belongs to. ||
+|| createdAt | **string** (date-time)
+
+Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| status | **enum** (Status)
+
+Status of the desktop group.
+
+- `STATUS_UNSPECIFIED`
+- `CREATING`: Desktop group is being created.
+- `ACTIVE`: Desktop group is ready to use.
+- `DELETING`: Desktop group is being deleted. ||
+|| name | **string**
+
+Name of the desktop group. ||
+|| description | **string**
+
+Description of the desktop group. ||
+|| resourcesSpec | **[ResourcesSpec](#yandex.cloud.clouddesktop.v1.api.ResourcesSpec)**
+
+Resource specification of the desktop group. ||
+|| networkInterfaceSpec | **[NetworkInterfaceSpec](#yandex.cloud.clouddesktop.v1.api.NetworkInterfaceSpec)**
+
+Network interface specification of the desktop group. ||
+|#
+
+## ResourcesSpec {#yandex.cloud.clouddesktop.v1.api.ResourcesSpec}
+
+#|
+||Field | Description ||
+|| memory | **string** (int64)
+
+RAM volume, in bytes. ||
+|| cores | **string** (int64)
+
+Number of CPU cores. ||
+|| coreFraction | **string** (int64)
+
+Baseline level of CPU performance with the ability to burst performance above that baseline level.
+This field sets baseline performance for each core. ||
+|#
+
+## NetworkInterfaceSpec {#yandex.cloud.clouddesktop.v1.api.NetworkInterfaceSpec}
+
+#|
+||Field | Description ||
+|| networkId | **string**
+
+Required field. ID of the network interface specification. ||
+|| subnetIds[] | **string**
+
+List of subnet IDs. ||
+|#

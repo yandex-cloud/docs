@@ -3,13 +3,14 @@ editable: false
 sourcePath: en/_api-ref/cdn/v1/api-ref/RawLogs/index.md
 ---
 
-# Cloud CDN API, REST: RawLogs methods
+# Cloud CDN API, REST: RawLogs
 
+## Methods
 
-## Methods {#methods}
-Method | Description
---- | ---
-[activate](activate.md) | 
-[deactivate](deactivate.md) | 
-[get](get.md) | 
-[update](update.md) | 
+#|
+||Method | Description ||
+|| [Activate](activate.md) |  ||
+|| [Deactivate](deactivate.md) |  ||
+|| [Get](get.md) |  ||
+|| [Update](update.md) |  ||
+|#

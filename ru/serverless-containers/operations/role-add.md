@@ -47,6 +47,6 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Чтобы назначить роли на контейнер, воспользуйтесь методом REST API [setAccessBindings](../containers/api-ref/Container/setAccessBindings.md) для ресурса [Container](../containers/api-ref/Container/index.md) или вызовом gRPC API [ContainerService/SetAccessBindings](../containers/api-ref/grpc/container_service.md#SetAccessBindings).
+  Чтобы назначить роли на контейнер, воспользуйтесь методом REST API [setAccessBindings](../containers/api-ref/Container/setAccessBindings.md) для ресурса [Container](../containers/api-ref/Container/index.md) или вызовом gRPC API [ContainerService/SetAccessBindings](../containers/api-ref/grpc/Container/setAccessBindings.md).
 
 {% endlist %}

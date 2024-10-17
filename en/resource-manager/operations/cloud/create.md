@@ -65,7 +65,7 @@ To create an additional cloud:
 
 - API {#api}
 
-   To create a cloud, use the [create](../../api-ref/Cloud/create.md) REST API method for the [Cloud](../../api-ref/Cloud/index.md) resource or the [CloudService/Create](../../api-ref/grpc/cloud_service.md#Create) gRPC API call.
+   To create a cloud, use the [create](../../api-ref/Cloud/create.md) REST API method for the [Cloud](../../api-ref/Cloud/index.md) resource or the [CloudService/Create](../../api-ref/grpc/Cloud/create.md) gRPC API call.
 
 {% endlist %}
 

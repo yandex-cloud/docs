@@ -16,6 +16,6 @@ description: Follow this guide to delete a {{ video-full-name }} broadcast.
 
 - API {#api}
 
-   Use the [StreamService/Delete](../../api-ref/grpc/stream_service.md#Delete) gRPC API call.
+   Use the [StreamService/Delete](../../api-ref/grpc/Stream/delete.md) gRPC API call.
 
 {% endlist %}

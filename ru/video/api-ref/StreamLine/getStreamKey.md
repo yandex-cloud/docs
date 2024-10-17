@@ -3,32 +3,40 @@ editable: false
 sourcePath: en/_api-ref/video/v1/api-ref/StreamLine/getStreamKey.md
 ---
 
-# Video API, REST: StreamLine.getStreamKey
-Returns unique stream key.
- 
+# Video API, REST: StreamLine.GetStreamKey {#GetStreamKey}
 
- 
-## HTTP request {#https-request}
+Returns unique stream key.
+
+## HTTP request
+
 ```
 GET https://video.{{ api-host }}/video/v1/streamLines/{streamLineId}:getStreamKey
 ```
- 
-## Path parameters {#path_params}
- 
-Parameter | Description
---- | ---
-streamLineId | <p>ID of the line.</p> 
- 
-## Response {#responses}
+
+## Path parameters
+
+#|
+||Field | Description ||
+|| streamLineId | **string**
+
+Required field. ID of the line. ||
+|#
+
+## Response {#yandex.cloud.video.v1.PushStreamKey}
+
 **HTTP Code: 200 - OK**
 
-```json 
+```json
 {
   "key": "string"
 }
 ```
+
 Push stream key.
- 
-Field | Description
---- | ---
-key | **string**<br><p>Unique stream key.</p> 
+
+#|
+||Field | Description ||
+|| key | **string**
+
+Unique stream key. ||
+|#

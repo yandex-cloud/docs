@@ -3,26 +3,30 @@ editable: false
 sourcePath: en/_api-ref/dataproc/v1/api-ref/Cluster/listUILinks.md
 ---
 
-# Data Proc API, REST: Cluster.listUILinks
-Retrieves a list of links to web interfaces being proxied by Data Proc UI Proxy.
- 
+# Data Proc API, REST: Cluster.ListUILinks {#ListUILinks}
 
- 
-## HTTP request {#https-request}
+Retrieves a list of links to web interfaces being proxied by Data Proc UI Proxy.
+
+## HTTP request
+
 ```
 GET https://dataproc.{{ api-host }}/dataproc/v1/clusters/{clusterId}/ui_links
 ```
- 
-## Path parameters {#path_params}
- 
-Parameter | Description
---- | ---
-clusterId | <p>Required. ID of the Hadoop cluster.</p> <p>The maximum string length in characters is 50.</p> 
- 
-## Response {#responses}
+
+## Path parameters
+
+#|
+||Field | Description ||
+|| clusterId | **string**
+
+Required field. Required. ID of the Hadoop cluster. ||
+|#
+
+## Response {#yandex.cloud.dataproc.v1.ListUILinksResponse}
+
 **HTTP Code: 200 - OK**
 
-```json 
+```json
 {
   "links": [
     {
@@ -33,9 +37,17 @@ clusterId | <p>Required. ID of the Hadoop cluster.</p> <p>The maximum string len
 }
 ```
 
- 
-Field | Description
---- | ---
-links[] | **object**<br><p>Requested list of ui links.</p> 
-links[].<br>name | **string**
-links[].<br>url | **string**
+#|
+||Field | Description ||
+|| links[] | **[UILink](#yandex.cloud.dataproc.v1.UILink)**
+
+Requested list of ui links. ||
+|#
+
+## UILink {#yandex.cloud.dataproc.v1.UILink}
+
+#|
+||Field | Description ||
+|| name | **string** ||
+|| url | **string** ||
+|#

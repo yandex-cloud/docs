@@ -78,7 +78,7 @@
 
   Чтобы получить список операций, воспользуйтесь методом REST API `listOperations` для соответствующего ресурса или вызовом gRPC API `<сервис>/ListOperations`.
 
-  Например, для сетевого балансировщика воспользуйтесь методом REST API [listOperations](../api-ref/NetworkLoadBalancer/listOperations.md) для ресурса [NetworkLoadBalancer](../api-ref/NetworkLoadBalancer/index.md), или вызовом gRPC API [NetworkLoadBalancerService/ListOperations](../api-ref/grpc/network_load_balancer_service.md#ListOperations) и передайте идентификатор сетевого балансировщика в параметре `networkLoadBalancerId` запроса.
+  Например, для сетевого балансировщика воспользуйтесь методом REST API [listOperations](../api-ref/NetworkLoadBalancer/listOperations.md) для ресурса [NetworkLoadBalancer](../api-ref/NetworkLoadBalancer/index.md), или вызовом gRPC API [NetworkLoadBalancerService/ListOperations](../api-ref/grpc/NetworkLoadBalancer/listOperations.md) и передайте идентификатор сетевого балансировщика в параметре `networkLoadBalancerId` запроса.
 
   Идентификатор сетевого балансировщика можно получить со [списком сетевых балансировщиков в каталоге](load-balancer-list.md#list).
 
@@ -129,7 +129,7 @@
 
     - API {#api}
 
-      Воспользуйтесь методом REST API [get](../api-ref/Operation/get.md) для ресурса [Operation](../api-ref/Operation/index.md) или вызовом gRPC API [OperationService/Get](../api-ref/grpc/operation_service.md#Get).
+      Воспользуйтесь методом REST API [get](../api-ref/Operation/get.md) для ресурса [Operation](../api-ref/Operation/index.md) или вызовом gRPC API [OperationService/Get](../api-ref/grpc/Operation/get.md).
 
     {% endlist %}
 

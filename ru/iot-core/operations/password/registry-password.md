@@ -128,7 +128,7 @@
 
 - API {#api}
 
-  Чтобы добавить пароль реестру, воспользуйтесь методом REST API [addPassword](../../api-ref/Registry/addPassword.md) для ресурса [Registry](../../api-ref/Registry/index.md) или вызовом gRPC API [RegistryService/AddPassword](../../api-ref/grpc/registry_service.md#AddPassword).
+  Чтобы добавить пароль реестру, воспользуйтесь методом REST API [addPassword](../../api-ref/Registry/addPassword.md) для ресурса [Registry](../../api-ref/Registry/index.md) или вызовом gRPC API [RegistryService/AddPassword](../../api-ref/grpc/Registry/addPassword.md).
 
 {% endlist %}
 
@@ -169,7 +169,7 @@
 
 - API {#api}
 
-  Чтобы задать пароль реестру при создании, воспользуйтесь методом REST API [create](../../api-ref/Registry/create.md) для ресурса [Registry](../../api-ref/Registry/index.md) или вызовом gRPC API [RegistryService/Create](../../api-ref/grpc/registry_service.md#Create).
+  Чтобы задать пароль реестру при создании, воспользуйтесь методом REST API [create](../../api-ref/Registry/create.md) для ресурса [Registry](../../api-ref/Registry/index.md) или вызовом gRPC API [RegistryService/Create](../../api-ref/grpc/Registry/create.md).
 
 {% endlist %}
 
@@ -225,7 +225,7 @@
 
 - API {#api}
 
-  Чтобы получить список паролей реестра, воспользуйтесь методом REST API [listPasswords](../../api-ref/Registry/listPasswords.md) для ресурса [Registry](../../api-ref/Registry/index.md) или вызовом gRPC API [RegistryService/ListPasswords](../../api-ref/grpc/registry_service.md#ListPasswords).
+  Чтобы получить список паролей реестра, воспользуйтесь методом REST API [listPasswords](../../api-ref/Registry/listPasswords.md) для ресурса [Registry](../../api-ref/Registry/index.md) или вызовом gRPC API [RegistryService/ListPasswords](../../api-ref/grpc/Registry/listPasswords.md).
 
 {% endlist %}
    
@@ -345,6 +345,6 @@
 
 - API {#api}
 
-  Чтобы удалить пароль реестра, воспользуйтесь методом REST API [deletePassword](../../api-ref/Registry/deletePassword.md) для ресурса [Registry](../../api-ref/Registry/index.md) или вызовом gRPC API [RegistryService/DeletePassword](../../api-ref/grpc/registry_service.md#DeletePassword).
+  Чтобы удалить пароль реестра, воспользуйтесь методом REST API [deletePassword](../../api-ref/Registry/deletePassword.md) для ресурса [Registry](../../api-ref/Registry/index.md) или вызовом gRPC API [RegistryService/DeletePassword](../../api-ref/grpc/Registry/deletePassword.md).
 
 {% endlist %}       

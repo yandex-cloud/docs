@@ -112,7 +112,7 @@ To use the AWS tools, follow these steps:
 
    - API {#api}
 
-      To create an access key, use the [create](../../../iam/api-ref/AccessKey/create.md) method for the [AccessKey](../../../iam/api-ref/AccessKey/index.md) resource.
+      To create an access key, use the [create](../../../iam/awscompatibility/api-ref/AccessKey/create.md) method for the [AccessKey](../../../iam/awscompatibility/api-ref/AccessKey/index.md) resource.
 
    {% endlist %}
 

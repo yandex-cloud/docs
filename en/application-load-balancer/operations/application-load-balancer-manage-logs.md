@@ -111,7 +111,7 @@ You can send [logs](../concepts/application-load-balancer.md#logging) of the [L7
 
 - API {#api}
 
-   To enable logging, use the [update](../api-ref/LoadBalancer/update.md) REST API method for the [LoadBalancer](../api-ref/LoadBalancer/index.md) resource or the [LoadBalancerService/Update](../api-ref/grpc/load_balancer_service.md#Update) gRPC API call.
+   To enable logging, use the [update](../api-ref/LoadBalancer/update.md) REST API method for the [LoadBalancer](../api-ref/LoadBalancer/index.md) resource or the [LoadBalancerService/Update](../api-ref/grpc/LoadBalancer/update.md) gRPC API call.
 
 {% endlist %}
 
@@ -221,7 +221,7 @@ You can send [logs](../concepts/application-load-balancer.md#logging) of the [L7
 
 - API {#api}
 
-   To update the logging parameters, use the [update](../api-ref/LoadBalancer/update.md) REST API method for the [LoadBalancer](../api-ref/LoadBalancer/index.md) resource or the [LoadBalancerService/Update](../api-ref/grpc/load_balancer_service.md#Update) gRPC API call.
+   To update the logging parameters, use the [update](../api-ref/LoadBalancer/update.md) REST API method for the [LoadBalancer](../api-ref/LoadBalancer/index.md) resource or the [LoadBalancerService/Update](../api-ref/grpc/LoadBalancer/update.md) gRPC API call.
 
 {% endlist %}
 
@@ -292,6 +292,6 @@ You can send [logs](../concepts/application-load-balancer.md#logging) of the [L7
 
 - API {#api}
 
-   To disable logging, use the [update](../api-ref/LoadBalancer/update.md) REST API method for the [LoadBalancer](../api-ref/LoadBalancer/index.md) resource or the [LoadBalancerService/Update](../api-ref/grpc/load_balancer_service.md#Update) gRPC API call.
+   To disable logging, use the [update](../api-ref/LoadBalancer/update.md) REST API method for the [LoadBalancer](../api-ref/LoadBalancer/index.md) resource or the [LoadBalancerService/Update](../api-ref/grpc/LoadBalancer/update.md) gRPC API call.
 
 {% endlist %}

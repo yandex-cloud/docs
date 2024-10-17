@@ -64,7 +64,7 @@
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [get](../api-ref/Database/get.md) для ресурса [Database](../api-ref/Database/index.md) или вызовом gRPC API [DatabaseService/Get](../api-ref/grpc/database_service.md#Get) и передайте в запросе идентификатор требуемой БД в параметре `databaseId`.
+  Воспользуйтесь методом REST API [get](../api-ref/Database/get.md) для ресурса [Database](../api-ref/Database/index.md) или вызовом gRPC API [DatabaseService/Get](../api-ref/grpc/Database/get.md) и передайте в запросе идентификатор требуемой БД в параметре `databaseId`.
 
   Реквизиты для подключения к БД указаны в параметре `endpoint`.
 

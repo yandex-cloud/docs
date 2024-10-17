@@ -137,7 +137,7 @@ You can only set a [lifecycle policy](../../concepts/lifecycle-policy.md) for a 
 
 - API {#api}
 
-   To create a lifecycle policy, use the [Create](../../api-ref/grpc/lifecycle_policy_service.md#Create) method for the [LifecyclePolicyService](../../api-ref/grpc/lifecycle_policy_service.md) resource.
+   To create a lifecycle policy, use the [Create](../../api-ref/grpc/LifecyclePolicy/create.md) method for the [LifecyclePolicyService](../../api-ref/grpc/LifecyclePolicy/index.md) resource.
 
 {% endlist %}
 

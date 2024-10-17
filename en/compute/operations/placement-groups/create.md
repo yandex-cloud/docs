@@ -113,7 +113,7 @@ Create a [placement group](../../concepts/placement-groups.md).
 
 - API {#api}
 
-   Use the [create](../../api-ref/PlacementGroup/create.md) REST API method for the [PlacementGroup](../../api-ref/PlacementGroup/index.md) resource or the [PlacementGroupService/Create](../../api-ref/grpc/placement_group_service.md#Create) gRPC API call.
+   Use the [create](../../api-ref/PlacementGroup/create.md) REST API method for the [PlacementGroup](../../api-ref/PlacementGroup/index.md) resource or the [PlacementGroupService/Create](../../api-ref/grpc/PlacementGroup/create.md) gRPC API call.
 
 {% endlist %}
 

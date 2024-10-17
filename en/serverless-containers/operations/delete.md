@@ -89,6 +89,6 @@ description: Follow this guide to delete a container.
 
 - API {#api}
 
-   To delete a container, use the [delete](../containers/api-ref/Container/delete.md) REST API method for the [Container](../containers/api-ref/Container/index.md) resource or the [ContainerService/Delete](../containers/api-ref/grpc/container_service.md#Delete) gRPC API call.
+   To delete a container, use the [delete](../containers/api-ref/Container/delete.md) REST API method for the [Container](../containers/api-ref/Container/index.md) resource or the [ContainerService/Delete](../containers/api-ref/grpc/Container/delete.md) gRPC API call.
 
 {% endlist %}

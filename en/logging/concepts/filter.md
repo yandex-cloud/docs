@@ -51,7 +51,7 @@ You can filter log group records using the filter expression language. With the 
 
 - API {#api}
 
-   You can set a filter using the [LogReadingService/Read](../api-ref/grpc/log_reading_service.md#Read) gRPC API call.
+   You can set a filter using the [LogReadingService/Read](../api-ref/grpc/LogReading/read.md) gRPC API call.
 
 {% endlist %}
 

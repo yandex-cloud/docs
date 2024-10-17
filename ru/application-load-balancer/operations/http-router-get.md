@@ -102,6 +102,6 @@ title: Как получить информацию об HTTP-роутере в 
 
 - API {#api}
 
-  Чтобы получить подробную информацию об HTTP-роутере, воспользуйтесь методом REST API [get](../api-ref/HttpRouter/get.md) для ресурса [HttpRouter](../api-ref/HttpRouter/index.md) или вызовом gRPC API [HttpRouterService/Get](../api-ref/grpc/http_router_service.md#Get).
+  Чтобы получить подробную информацию об HTTP-роутере, воспользуйтесь методом REST API [get](../api-ref/HttpRouter/get.md) для ресурса [HttpRouter](../api-ref/HttpRouter/index.md) или вызовом gRPC API [HttpRouterService/Get](../api-ref/grpc/HttpRouter/get.md).
 
 {% endlist %}

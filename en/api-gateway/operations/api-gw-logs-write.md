@@ -155,6 +155,6 @@ description: Follow this guide to configure API gateway logging.
 
 - API {#api}
 
-    To write to the execution log in {{ api-gw-full-name }}, use the [update](../apigateway/api-ref/ApiGateway/update.md) REST API method for the [ApiGateway](../apigateway/api-ref/ApiGateway/index.md) resource or the [ApiGatewayService/Update](../apigateway/api-ref/grpc/apigateway_service.md#Update) gRPC API call.
+    To write to the execution log in {{ api-gw-full-name }}, use the [update](../apigateway/api-ref/ApiGateway/update.md) REST API method for the [ApiGateway](../apigateway/api-ref/ApiGateway/index.md) resource or the [ApiGatewayService/Update](../apigateway/api-ref/grpc/ApiGateway/update.md) gRPC API call.
 
 {% endlist %}

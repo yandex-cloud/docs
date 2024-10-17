@@ -3,39 +3,48 @@ editable: false
 sourcePath: en/_api-ref/serverless/apigateway/websocket/v1/apigateway/websocket/api-ref/Connection/send.md
 ---
 
-# API Gateway WebSocket Connection Service, REST: Connection.send
-Sends data to the specified connection.
- 
+# API Gateway WebSocket Connection Service, REST: Connection.Send {#Send}
 
- 
-## HTTP request {#https-request}
+Sends data to the specified connection.
+
+## HTTP request
+
 ```
 POST https://apigateway-connections.{{ api-host }}/apigateways/websocket/v1/connections/{connectionId}:send
 ```
- 
-## Path parameters {#path_params}
- 
-Parameter | Description
---- | ---
-connectionId | <p>Required. ID of the connection to which send.</p> <p>The maximum string length in characters is 50.</p> 
- 
-## Body parameters {#body_params}
- 
-```json 
+
+## Path parameters
+
+#|
+||Field | Description ||
+|| connectionId | **string**
+
+Required field. ID of the connection to which send. ||
+|#
+
+## Body parameters {#yandex.cloud.serverless.apigateway.websocket.v1.SendToConnectionRequest}
+
+```json
 {
   "data": "string",
   "type": "string"
 }
 ```
 
- 
-Field | Description
---- | ---
-data | **string** (byte)<br><p>Required. Data to send.</p> <p>The maximum string length in characters is 131072.</p> 
-type | **string**<br><p>Type of the sending data.</p> <ul> <li>BINARY: Binary data.</li> <li>TEXT: Text data.</li> </ul> 
- 
-## Response {#responses}
+#|
+||Field | Description ||
+|| data | **string** (bytes)
+
+Required field. Data to send. ||
+|| type | **enum** (DataType)
+
+Type of the sending data.
+
+- `DATA_TYPE_UNSPECIFIED`
+- `BINARY`: Binary data.
+- `TEXT`: Text data. ||
+|#
+
+## Response {#yandex.cloud.serverless.apigateway.websocket.v1.SendToConnectionResponse}
+
 **HTTP Code: 200 - OK**
-
-
-

@@ -88,7 +88,7 @@ description: Follow this guide to get information about a cloud network.
 
 - API {#api}
 
-  To get detailed information about a [cloud network](../concepts/network.md#network), use the [get](../api-ref/Network/get.md) REST API method for the [Network](../api-ref/Network/index.md) resource or the [NetworkService/Get](../api-ref/grpc/network_service.md#Get) gRPC API call and provide the ID of the cloud network you need in the `networkId` request parameter.
+  To get detailed information about a [cloud network](../concepts/network.md#network), use the [get](../api-ref/Network/get.md) REST API method for the [Network](../api-ref/Network/index.md) resource or the [NetworkService/Get](../api-ref/grpc/Network/get.md) gRPC API call and provide the ID of the cloud network you need in the `networkId` request parameter.
 
   {% include [get-network-id](../../_includes/vpc/get-network-id.md) %}
 

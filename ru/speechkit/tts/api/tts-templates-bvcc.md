@@ -19,11 +19,11 @@ description: Следуя данной инструкции, вы сможете
 
 * Контейнерные форматы OggOpus, MP3 или WAV — к файлу с синтезированной речью применяются стандартные для {{ speechkit-name }} [характеристики](../../formats.md) и алгоритмы сжатия аудиосигнала.
 
-    Для таких форматов аудио используйте параметр [container_audio](../../tts-v3/api-ref/grpc/tts_service.md#AudioFormatOptions) при отправке запроса к API v3.
+    Для таких форматов аудио используйте параметр [container_audio](../../tts-v3/api-ref/grpc/Synthesizer/utteranceSynthesis.md#speechkit.tts.v3.AudioFormatOptions) при отправке запроса к API v3.
 
 * Необработанный формат RAW — к файлу с синтезированной речью не применяются алгоритмы сжатия, и вы можете задать свою частоту дискретизации.
 
-    Для необработанного формата аудио используйте параметр [raw_audio](../../tts-v3/api-ref/grpc/tts_service.md#AudioFormatOptions) при отправке запроса к API v3.
+    Для необработанного формата аудио используйте параметр [raw_audio](../../tts-v3/api-ref/grpc/Synthesizer/utteranceSynthesis.md#speechkit.tts.v3.AudioFormatOptions) при отправке запроса к API v3.
 
 Ниже приведены примеры использования API v3, с помощью которых можно синтезировать речь в стандартном или необработанном формате аудио. Используйте эти примеры для создания своего решения для синтеза речи с помощью сервиса {{ brand-voice-cc-name }}.
 
@@ -337,7 +337,7 @@ description: Следуя данной инструкции, вы сможете
                   audio.export(fp, format='wav')
           ```
 
-          Чтобы использовать необработанный формат и задать свои настройки для сгенерированного аудио, в параметре `output_audio_spec.raw_audio` используется параметр [RawAudio()](../../tts-v3/api-ref/grpc/tts_service.md#RawAudio), поддержанный в API {{ speechkit-name }}. В `RawAudio()` вложены следующие параметры:
+          Чтобы использовать необработанный формат и задать свои настройки для сгенерированного аудио, в параметре `output_audio_spec.raw_audio` используется параметр [RawAudio()](../../tts-v3/api-ref/grpc/Synthesizer/utteranceSynthesis.md#speechkit.tts.v3.RawAudio), поддержанный в API {{ speechkit-name }}. В `RawAudio()` вложены следующие параметры:
 
           * `audio_encoding` — тип кодирования аудио. Поддерживается только формат [LPCM](../../formats.md#lpcm).
           * `sample_rate_hertz` — частота дискретизации сгенерированного аудио в герцах.

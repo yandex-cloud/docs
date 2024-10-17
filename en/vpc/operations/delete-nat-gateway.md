@@ -119,13 +119,13 @@ If you no longer need a NAT gateway, you can [delete it](#delete-nat-gateway). B
 
 - API {#api}
 
-  To detach a NAT gateway from a route table, delete the static route with that NAT gateway from the route table. To do this, use the [update](../api-ref/RouteTable/update.md) REST API method for the [RouteTable](../api-ref/RouteTable/index.md) resource or the [RouteTableService/Update](../api-ref/grpc/route_table_service.md#Update) gRPC API call. In your request, provide a list of static routes without the route you want to delete under:
+  To detach a NAT gateway from a route table, delete the static route with that NAT gateway from the route table. To do this, use the [update](../api-ref/RouteTable/update.md) REST API method for the [RouteTable](../api-ref/RouteTable/index.md) resource or the [RouteTableService/Update](../api-ref/grpc/RouteTable/update.md) gRPC API call. In your request, provide a list of static routes without the route you want to delete under:
     * `staticRoutes`: For REST API
     * `static_routes`: For gRPC API
 
   If the list contained a single static route, provide an empty list.
 
-  To get a list of static routes, use the [get](../api-ref/RouteTable/get.md) REST API method for the [RouteTable](../api-ref/RouteTable/index.md) resource or the [RouteTableService/Get](../api-ref/grpc/route_table_service.md#Get) gRPC API call. In your request, provide the route table ID in this parameter:
+  To get a list of static routes, use the [get](../api-ref/RouteTable/get.md) REST API method for the [RouteTable](../api-ref/RouteTable/index.md) resource or the [RouteTableService/Get](../api-ref/grpc/RouteTable/get.md) gRPC API call. In your request, provide the route table ID in this parameter:
     * `routeTableId`: For REST API
     * `route_table_id`: For gRPC API
 
@@ -247,11 +247,11 @@ Before deleting a NAT gateway, [detach it](#unlink-route-table) from all route t
 
 - API {#api}
 
-  To delete a NAT gateway, use the [delete](../api-ref/Gateway/delete.md) REST API method for the [Gateway](../api-ref/Gateway/index.md) resource or the [GatewayService/Delete](../api-ref/grpc/gateway_service.md#Delete) gRPC API call. In your request, provide the ID of the NAT gateway you want to delete in this parameter:
+  To delete a NAT gateway, use the [delete](../api-ref/Gateway/delete.md) REST API method for the [Gateway](../api-ref/Gateway/index.md) resource or the [GatewayService/Delete](../api-ref/grpc/Gateway/delete.md) gRPC API call. In your request, provide the ID of the NAT gateway you want to delete in this parameter:
     * `gatewayId`: For REST API
     * `gateway_id`: For gRPC API
 
-  To get the NAT gateway ID, use the [list](../api-ref/Gateway/list.md) REST API method for the [Gateway](../api-ref/Gateway/index.md) resource or the [GatewayService/List](../api-ref/grpc/gateway_service.md#List) gRPC API call. In your request, provide the folder ID in this parameter:
+  To get the NAT gateway ID, use the [list](../api-ref/Gateway/list.md) REST API method for the [Gateway](../api-ref/Gateway/index.md) resource or the [GatewayService/List](../api-ref/grpc/Gateway/list.md) gRPC API call. In your request, provide the folder ID in this parameter:
     * `folderId`: For REST API
     * `folder_id`: For gRPC API
 

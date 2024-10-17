@@ -1,17 +1,20 @@
 ---
+editable: false
 sourcePath: en/_api-ref-grpc/datasphere/v2/api-ref/grpc/index.md
 ---
+
 # DataSphere API v2: gRPC reference
-This API reference is organized by resource. Actions are performed by sending HTTP requests to resource URLs or making RPC calls. For more information about API architecture, see [API Concepts]({{ api-url-prefix }}/api-design-guide/).
+
+Actions are performed by making RPC calls. For more information about API architecture, see [API Concepts]({{ api-url-prefix }}/api-design-guide/).
 
 See the interface definitions of the API on [GitHub](https://github.com/yandex-cloud/cloudapi).
 
-Service | Description
---- | ---
-[CommunityService](./community_service.md) | A set of methods for managing Community resources.
-[DatasetService](./dataset_service.md) | A set of methods for managing Datasets.
-[DockerImageService](./docker_image_service.md) | A set of methods for managing Docker Images.
-[ProjectService](./project_service.md) | A set of methods for managing Project resources.
-[S3Service](./s3_service.md) | A set of methods for managing S3 configurations.
-[ProjectJobService](./project_job_service.md) | A set of methods for managing Project Jobs. Do not use these methods manually. For working with DataSphere Jobs, install DataSphere CLI via `pip install datasphere`.
-[OperationService](./operation_service.md) | A set of methods for managing operations for asynchronous API requests.
+#|
+||Service | Description ||
+|| [Community](Community/index.md) | A set of methods for managing Community resources. ||
+|| [Dataset](Dataset/index.md) | A set of methods for managing Datasets. ||
+|| [DockerImage](DockerImage/index.md) | A set of methods for managing Docker Images. ||
+|| [Operation](Operation/index.md) | A set of methods for managing operations for asynchronous API requests. ||
+|| [Project](Project/index.md) | A set of methods for managing Project resources. ||
+|| [S3](S3/index.md) | A set of methods for managing S3 configurations. ||
+|#

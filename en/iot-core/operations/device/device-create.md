@@ -227,6 +227,6 @@ description: Follow this guide to create a device.
 
 - API {#api}
 
-   To create a device, use the [create](../../api-ref/Device/create.md) REST API method for the [Device](../../api-ref/Device/index.md) resource or the [DeviceService/Create](../../api-ref/grpc/device_service.md#Create) gRPC API call.
+   To create a device, use the [create](../../api-ref/Device/create.md) REST API method for the [Device](../../api-ref/Device/index.md) resource or the [DeviceService/Create](../../api-ref/grpc/Device/create.md) gRPC API call.
 
 {% endlist %}

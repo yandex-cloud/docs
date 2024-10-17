@@ -12,7 +12,7 @@
 
 ## API {#api}
 
-Запустить рабочий процесс можно с помощью метода REST API [start](../../workflows/api-ref/Execution/start.md) для ресурса [Execution](../../workflows/api-ref/Execution/index.md) или вызова gRPC API [ExecutionService/Start](../../workflows/api-ref/grpc/execution_service.md#Start).
+Запустить рабочий процесс можно с помощью метода REST API [start](../../workflows/api-ref/Execution/start.md) для ресурса [Execution](../../workflows/api-ref/Execution/index.md) или вызова gRPC API [ExecutionService/Start](../../workflows/api-ref/grpc/Execution/start.md).
 
 ## {{ er-name }} {#eventrouter}
 

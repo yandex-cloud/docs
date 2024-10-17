@@ -107,7 +107,7 @@ All actions with {{ compute-name }} resources are logged as a list of operations
 
   Use the `listOperations` REST API method for the relevant resource or the gRPC API call `<service>/ListOperations`.
 
-  For example, to obtain a list of operations for a VM, use either the [listOperations](../api-ref/Instance/listOperations.md) REST API method for the [Instance](../api-ref/Instance/index.md) resource or the [InstanceService/ListOperations](../api-ref/grpc/instance_service.md#ListOperations) gRPC API call.
+  For example, to obtain a list of operations for a VM, use either the [listOperations](../api-ref/Instance/listOperations.md) REST API method for the [Instance](../api-ref/Instance/index.md) resource or the [InstanceService/ListOperations](../api-ref/grpc/Instance/listOperations.md) gRPC API call.
 
 {% endlist %}
 
@@ -150,7 +150,7 @@ All actions with {{ compute-name }} resources are logged as a list of operations
 
    - API {#api}
 
-     Use the [get](../api-ref/Operation/get.md) REST API method for the [Operation](../api-ref/Operation/index.md) resource or the [OperationService/Get](../api-ref/grpc/operation_service.md#Get) gRPC API call.
+     Use the [get](../api-ref/Operation/get.md) REST API method for the [Operation](../api-ref/Operation/index.md) resource or the [OperationService/Get](../api-ref/grpc/Operation/get.md) gRPC API call.
 
    {% endlist %}
 

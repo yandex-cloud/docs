@@ -117,6 +117,6 @@
 
 - API {#api}
 
-  To create a [container](../../serverless-containers/concepts/container.md) [revision](../../serverless-containers/concepts/container.md#revision), use the [deployRevision](../../serverless-containers/containers/api-ref/Container/deployRevision.md) REST API method for the [Container](../../serverless-containers/containers/api-ref/Container/index.md) resource or the [ContainerService/DeployRevision](../../serverless-containers/containers/api-ref/grpc/container_service.md#DeployRevision) gRPC API call.
+  To create a [container](../../serverless-containers/concepts/container.md) [revision](../../serverless-containers/concepts/container.md#revision), use the [deployRevision](../../serverless-containers/containers/api-ref/Container/deployRevision.md) REST API method for the [Container](../../serverless-containers/containers/api-ref/Container/index.md) resource or the [ContainerService/DeployRevision](../../serverless-containers/containers/api-ref/grpc/Container/deployRevision.md) gRPC API call.
 
 {% endlist %}

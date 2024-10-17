@@ -85,7 +85,7 @@ Incorrect settings may cause the cluster to fail.
 - API {#api}
 
     1. Convert the metadata file received from the Identity Provider Issuer to Base64 format.
-    1. To set identity provider settings on the cluster side, use the [updateAuthSettings](../api-ref/Cluster/updateAuthSettings.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/UpdateAuthSettings](../api-ref/grpc/cluster_service.md#UpdateAuthSettings) gRPC API call, and provide the following in the request:
+    1. To set identity provider settings on the cluster side, use the [updateAuthSettings](../api-ref/Cluster/updateAuthSettings.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/UpdateAuthSettings](../api-ref/grpc/Cluster/updateAuthSettings.md) gRPC API call, and provide the following in the request:
 
         * Cluster ID in the `clusterId` parameter.
 

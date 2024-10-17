@@ -132,7 +132,7 @@ If you no longer need a route table, you can [delete](#delete-route-table) it. B
 
 - API {#api}
 
-  To disassociate a route table from a subnet, use the [update](../api-ref/Subnet/update.md) REST API method for the [Subnet](../api-ref/Subnet/index.md) resource or the [SubnetService/Update](../api-ref/grpc/subnet_service.md#Update) gRPC API call and provide an empty string in the following request parameters:
+  To disassociate a route table from a subnet, use the [update](../api-ref/Subnet/update.md) REST API method for the [Subnet](../api-ref/Subnet/index.md) resource or the [SubnetService/Update](../api-ref/grpc/Subnet/update.md) gRPC API call and provide an empty string in the following request parameters:
     * `routeTableId`: For REST API
     * `route_table_id`: For gRPC API
 
@@ -258,11 +258,11 @@ Before deleting a table, [disassociate it](#unlink-route-table) from all subnets
 
 - API {#api}
 
-  To delete a route table, use the [delete](../api-ref/RouteTable/delete.md) REST API method for the [RouteTable](../api-ref/RouteTable/index.md) resource or the [RouteTableService/Delete](../api-ref/grpc/route_table_service.md#Delete) gRPC API call and provide the ID of the route table you want to delete in the following request parameters:
+  To delete a route table, use the [delete](../api-ref/RouteTable/delete.md) REST API method for the [RouteTable](../api-ref/RouteTable/index.md) resource or the [RouteTableService/Delete](../api-ref/grpc/RouteTable/delete.md) gRPC API call and provide the ID of the route table you want to delete in the following request parameters:
     * `routeTableID`: For REST API
     * `route_table_id`: For gRPC API
 
-  To get the route table ID, use the [list](../api-ref/RouteTable/list.md) REST API method for the [RouteTable](../api-ref/RouteTable/index.md) resource or the [RouteTableService/List](../api-ref/grpc/route_table_service.md#List) gRPC API call and provide the folder ID in the following request parameters:
+  To get the route table ID, use the [list](../api-ref/RouteTable/list.md) REST API method for the [RouteTable](../api-ref/RouteTable/index.md) resource or the [RouteTableService/List](../api-ref/grpc/RouteTable/list.md) gRPC API call and provide the folder ID in the following request parameters:
     * `folderID`: For REST API
     * `folder_id`: For gRPC API
 

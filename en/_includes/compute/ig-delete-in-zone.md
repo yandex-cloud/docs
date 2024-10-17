@@ -71,6 +71,6 @@
 
 - API {#api}
 
-   Use the [update](../../compute/api-ref/InstanceGroup/update.md) REST API method for the [InstanceGroup](../../compute/api-ref/InstanceGroup/index.md) resource or the [InstanceGroupService/Update](../../compute/api-ref/grpc/instance_group_service.md#Update) gRPC API call.
+   Use the [update](../../compute/instancegroup/api-ref/InstanceGroup/update.md) REST API method for the [InstanceGroup](../../compute/instancegroup/api-ref/InstanceGroup/index.md) resource or the [InstanceGroupService/Update](../../compute/instancegroup/api-ref/grpc/InstanceGroup/update.md) gRPC API call.
 
 {% endlist %}

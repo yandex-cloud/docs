@@ -110,7 +110,7 @@ description: Следуя данной инструкции, вы настрои
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/Instance/updateAccessBindings.md) для ресурса [Instance](../../api-ref/Instance/) или вызовом gRPC API [InstanceService/UpdateAccessBindings](../../api-ref/grpc/instance_service.md#UpdateAccessBindings). В теле запроса в свойстве `action` укажите `ADD`, а в свойстве `subject` — тип и идентификатор пользователя.
+  Воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/Instance/updateAccessBindings.md) для ресурса [Instance](../../api-ref/Instance/) или вызовом gRPC API [InstanceService/UpdateAccessBindings](../../api-ref/grpc/Instance/updateAccessBindings.md). В теле запроса в свойстве `action` укажите `ADD`, а в свойстве `subject` — тип и идентификатор пользователя.
 
 {% endlist %}
 
@@ -217,7 +217,7 @@ description: Следуя данной инструкции, вы настрои
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [setAccessBindings](../../api-ref/Instance/setAccessBindings.md) для ресурса [Instance](../../api-ref/Instance/) или вызовом gRPC API [InstanceService/SetAccessBindings](../../api-ref/grpc/instance_service.md#SetAccessBindings).
+  Воспользуйтесь методом REST API [setAccessBindings](../../api-ref/Instance/setAccessBindings.md) для ресурса [Instance](../../api-ref/Instance/) или вызовом gRPC API [InstanceService/SetAccessBindings](../../api-ref/grpc/Instance/setAccessBindings.md).
 
 {% endlist %}
 
@@ -302,6 +302,6 @@ description: Следуя данной инструкции, вы настрои
 
 - API {#api}
 
-  Чтобы отозвать роли на ВМ, воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/Instance/updateAccessBindings.md) для ресурса [Instance](../../api-ref/Instance/) или вызовом gRPC API [InstanceService/UpdateAccessBindings](../../api-ref/grpc/instance_service.md#UpdateAccessBindings). В теле запроса в свойстве `action` укажите `REMOVE`, а в свойстве `subject` — тип и идентификатор пользователя.
+  Чтобы отозвать роли на ВМ, воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/Instance/updateAccessBindings.md) для ресурса [Instance](../../api-ref/Instance/) или вызовом gRPC API [InstanceService/UpdateAccessBindings](../../api-ref/grpc/Instance/updateAccessBindings.md). В теле запроса в свойстве `action` укажите `REMOVE`, а в свойстве `subject` — тип и идентификатор пользователя.
 
 {% endlist %}

@@ -57,7 +57,7 @@ All actions with {{ dns-name }} zones are logged as a list of operations. Each o
 
 - API {#api}
 
-  To get a list of operations for a zone, use the [listOperations](../api-ref/DnsZone/listOperations.md) REST API method for the [DnsZone](../api-ref/DnsZone/index.md) resource or the [DnsZoneService/ListOperations](../api-ref/grpc/dns_zone_service.md#ListOperations) gRPC API call.
+  To get a list of operations for a zone, use the [listOperations](../api-ref/DnsZone/listOperations.md) REST API method for the [DnsZone](../api-ref/DnsZone/index.md) resource or the [DnsZoneService/ListOperations](../api-ref/grpc/DnsZone/listOperations.md) gRPC API call.
 
 {% endlist %}
 
@@ -104,7 +104,7 @@ All actions with {{ dns-name }} zones are logged as a list of operations. Each o
 
     - API {#api}
 
-      Use the [get](../../api-design-guide/concepts/operation.md#monitoring) REST API method or the [OperationService/Get](../api-ref/grpc/operation_service.md#Get) gRPC API call.
+      Use the [get](../../api-design-guide/concepts/operation.md#monitoring) REST API method or the [OperationService/Get](../api-ref/grpc/Operation/get.md) gRPC API call.
 
     {% endlist %}
 

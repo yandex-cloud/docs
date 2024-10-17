@@ -36,6 +36,6 @@
 
 - API {#api}
 
-  Чтобы получить вывод последовательного порта, воспользуйтесь методом REST API [getSerialPortOutput](../../api-ref/Instance/getSerialPortOutput.md) ресурса [Instance](../../api-ref/Instance/index.md) или вызовом gRPC API [InstanceService/GetSerialPortOutput](../../api-ref/grpc/instance_service.md#GetSerialPortOutput).
+  Чтобы получить вывод последовательного порта, воспользуйтесь методом REST API [getSerialPortOutput](../../api-ref/Instance/getSerialPortOutput.md) ресурса [Instance](../../api-ref/Instance/index.md) или вызовом gRPC API [InstanceService/GetSerialPortOutput](../../api-ref/grpc/Instance/getSerialPortOutput.md).
 
 {% endlist %}

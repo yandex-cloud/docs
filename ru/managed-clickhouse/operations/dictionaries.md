@@ -51,7 +51,7 @@
 
 - API {#api}
 
-    Чтобы просмотреть список словарей, воспользуйтесь методом REST API [get](../api-ref/Cluster/get.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Get](../api-ref/grpc/cluster_service.md#Get).
+    Чтобы просмотреть список словарей, воспользуйтесь методом REST API [get](../api-ref/Cluster/get.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Get](../api-ref/grpc/Cluster/get.md).
 
 - SQL {#sql}
 
@@ -114,7 +114,7 @@
 
     {% endnote %}
 
-    Чтобы создать словарь, воспользуйтесь методом REST API [createExternalDictionary](../api-ref/Cluster/createExternalDictionary.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/CreateExternalDictionary](../api-ref/grpc/cluster_service.md#CreateExternalDictionary).
+    Чтобы создать словарь, воспользуйтесь методом REST API [createExternalDictionary](../api-ref/Cluster/createExternalDictionary.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/CreateExternalDictionary](../api-ref/grpc/Cluster/createExternalDictionary.md).
 
 - SQL {#sql}
 
@@ -173,7 +173,7 @@
 
 - API {#api}
 
-    Чтобы удалить словарь, воспользуйтесь методом REST API [deleteExternalDictionary](../api-ref/Cluster/deleteExternalDictionary.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/DeleteExternalDictionary](../api-ref/grpc/cluster_service.md#DeleteExternalDictionary).
+    Чтобы удалить словарь, воспользуйтесь методом REST API [deleteExternalDictionary](../api-ref/Cluster/deleteExternalDictionary.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/DeleteExternalDictionary](../api-ref/grpc/Cluster/deleteExternalDictionary.md).
 
 - SQL {#sql}
 

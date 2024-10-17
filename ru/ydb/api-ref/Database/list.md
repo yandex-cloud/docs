@@ -3,28 +3,38 @@ editable: false
 sourcePath: en/_api-ref/ydb/v1/api-ref/Database/list.md
 ---
 
-# Managed Service for YDB API, REST: Database.list
-Retrieves a list of databases.
- 
+# Managed Service for YDB API, REST: Database.List {#List}
 
- 
-## HTTP request {#https-request}
+Retrieves a list of databases.
+
+## HTTP request
+
 ```
 GET https://ydb.{{ api-host }}/ydb/v1/databases
 ```
- 
-## Query parameters {#query_params}
- 
-Parameter | Description
---- | ---
-folderId | 
-pageSize | <p>The maximum number of results per page that should be returned. If the number of available results is larger than ``page_size``, the service returns a ``next_page_token`` that can be used to get the next page of results in subsequent ListDatabases requests. Acceptable values are 0 to 1000, inclusive. Default value: 100.</p> <p>Acceptable values are 0 to 1000, inclusive.</p> 
-pageToken | <p>Page token. Set ``page_token`` to the ``next_page_token`` returned by a previous ListDatabases request to get the next page of results.</p> <p>The maximum string length in characters is 100.</p> 
- 
-## Response {#responses}
+
+## Query parameters {#yandex.cloud.ydb.v1.ListDatabasesRequest}
+
+#|
+||Field | Description ||
+|| folderId | **string** ||
+|| pageSize | **string** (int64)
+
+The maximum number of results per page that should be returned. If the number of available
+results is larger than `page_size`, the service returns a `next_page_token` that can be used
+to get the next page of results in subsequent ListDatabases requests.
+Acceptable values are 0 to 1000, inclusive. Default value: 100. ||
+|| pageToken | **string**
+
+Page token. Set `page_token` to the `next_page_token` returned by a previous ListDatabases
+request to get the next page of results. ||
+|#
+
+## Response {#yandex.cloud.ydb.v1.ListDatabasesResponse}
+
 **HTTP Code: 200 - OK**
 
-```json 
+```json
 {
   "databases": [
     {
@@ -46,26 +56,65 @@ pageToken | <p>Page token. Set ``page_token`` to the ``next_page_token`` returne
         "storageSizeLimit": "string"
       },
       "scalePolicy": {
+        // Includes only one of the fields `fixedScale`
         "fixedScale": {
           "size": "string"
         }
+        // end of the list of possible fields
       },
       "networkId": "string",
       "subnetIds": [
         "string"
       ],
-      "assignPublicIps": true,
+      // Includes only one of the fields `zonalDatabase`, `regionalDatabase`, `dedicatedDatabase`, `serverlessDatabase`
+      "zonalDatabase": {
+        "zoneId": "string"
+      },
+      "regionalDatabase": {
+        "regionId": "string"
+      },
+      "dedicatedDatabase": {
+        "resourcePresetId": "string",
+        "storageConfig": {
+          "storageOptions": [
+            {
+              "storageTypeId": "string",
+              "groupCount": "string"
+            }
+          ],
+          "storageSizeLimit": "string"
+        },
+        "scalePolicy": {
+          // Includes only one of the fields `fixedScale`
+          "fixedScale": {
+            "size": "string"
+          }
+          // end of the list of possible fields
+        },
+        "networkId": "string",
+        "subnetIds": [
+          "string"
+        ],
+        "assignPublicIps": "boolean"
+      },
+      "serverlessDatabase": {
+        "throttlingRcuLimit": "string",
+        "storageSizeLimit": "string",
+        "enableThrottlingRcuLimit": "boolean",
+        "provisionedRcuLimit": "string",
+        "topicWriteQuota": "string"
+      },
+      // end of the list of possible fields
+      "assignPublicIps": "boolean",
       "locationId": "string",
-      "labels": "object",
+      "labels": "string",
       "backupConfig": {
         "backupSettings": [
           {
             "name": "string",
             "description": "string",
             "backupSchedule": {
-              "nextExecuteTime": "string",
-
-              // `databases[].backupConfig.backupSettings[].backupSchedule` includes only one of the fields `dailyBackupSchedule`, `weeklyBackupSchedule`, `recurringBackupSchedule`
+              // Includes only one of the fields `dailyBackupSchedule`, `weeklyBackupSchedule`, `recurringBackupSchedule`
               "dailyBackupSchedule": {
                 "executeTime": {
                   "hours": "integer",
@@ -93,8 +142,8 @@ pageToken | <p>Page token. Set ``page_token`` to the ``next_page_token`` returne
                 "startTime": "string",
                 "recurrence": "string"
               },
-              // end of the list of possible fields`databases[].backupConfig.backupSettings[].backupSchedule`
-
+              // end of the list of possible fields
+              "nextExecuteTime": "string"
             },
             "backupTimeToLive": "string",
             "sourcePaths": [
@@ -129,11 +178,10 @@ pageToken | <p>Page token. Set ``page_token`` to the ``next_page_token`` returne
             ],
             "alertParameters": [
               {
-
-                // `databases[].monitoringConfig.alerts[].alertParameters[]` includes only one of the fields `doubleParameterValue`, `integerParameterValue`, `textParameterValue`, `textListParameterValue`, `labelListParameterValue`
+                // Includes only one of the fields `doubleParameterValue`, `integerParameterValue`, `textParameterValue`, `textListParameterValue`, `labelListParameterValue`
                 "doubleParameterValue": {
                   "name": "string",
-                  "value": "number"
+                  "value": "string"
                 },
                 "integerParameterValue": {
                   "name": "string",
@@ -154,18 +202,16 @@ pageToken | <p>Page token. Set ``page_token`` to the ``next_page_token`` returne
                   "values": [
                     "string"
                   ]
-                },
-                // end of the list of possible fields`databases[].monitoringConfig.alerts[].alertParameters[]`
-
+                }
+                // end of the list of possible fields
               }
             ],
             "alertThresholds": [
               {
-
-                // `databases[].monitoringConfig.alerts[].alertThresholds[]` includes only one of the fields `doubleParameterValue`, `integerParameterValue`, `textParameterValue`, `textListParameterValue`, `labelListParameterValue`
+                // Includes only one of the fields `doubleParameterValue`, `integerParameterValue`, `textParameterValue`, `textListParameterValue`, `labelListParameterValue`
                 "doubleParameterValue": {
                   "name": "string",
-                  "value": "number"
+                  "value": "string"
                 },
                 "integerParameterValue": {
                   "name": "string",
@@ -186,180 +232,468 @@ pageToken | <p>Page token. Set ``page_token`` to the ``next_page_token`` returne
                   "values": [
                     "string"
                   ]
-                },
-                // end of the list of possible fields`databases[].monitoringConfig.alerts[].alertThresholds[]`
-
+                }
+                // end of the list of possible fields
               }
             ]
           }
         ]
       },
-      "deletionProtection": true,
-
-      // `databases[]` includes only one of the fields `zonalDatabase`, `regionalDatabase`, `dedicatedDatabase`, `serverlessDatabase`
-      "zonalDatabase": {
-        "zoneId": "string"
-      },
-      "regionalDatabase": {
-        "regionId": "string"
-      },
-      "dedicatedDatabase": {
-        "resourcePresetId": "string",
-        "storageConfig": {
-          "storageOptions": [
-            {
-              "storageTypeId": "string",
-              "groupCount": "string"
-            }
-          ],
-          "storageSizeLimit": "string"
-        },
-        "scalePolicy": {
-          "fixedScale": {
-            "size": "string"
-          }
-        },
-        "networkId": "string",
-        "subnetIds": [
-          "string"
-        ],
-        "assignPublicIps": true
-      },
-      "serverlessDatabase": {
-        "throttlingRcuLimit": "string",
-        "storageSizeLimit": "string",
-        "enableThrottlingRcuLimit": true,
-        "provisionedRcuLimit": "string",
-        "topicWriteQuota": "string"
-      },
-      // end of the list of possible fields`databases[]`
-
+      "deletionProtection": "boolean"
     }
   ],
   "nextPageToken": "string"
 }
 ```
 
- 
-Field | Description
---- | ---
-databases[] | **object**<br><p>YDB database.</p> 
-databases[].<br>id | **string**
-databases[].<br>folderId | **string**
-databases[].<br>createdAt | **string** (date-time)<br><p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
-databases[].<br>name | **string**
-databases[].<br>description | **string**
-databases[].<br>status | **string**
-databases[].<br>endpoint | **string**
-databases[].<br>resourcePresetId | **string**
-databases[].<br>storageConfig | **object**
-databases[].<br>storageConfig.<br>storageOptions[] | **object**<br><p>Required. The minimum number of elements is 1.</p> 
-databases[].<br>storageConfig.<br>storageOptions[].<br>storageTypeId | **string**
-databases[].<br>storageConfig.<br>storageOptions[].<br>groupCount | **string** (int64)
-databases[].<br>storageConfig.<br>storageSizeLimit | **string** (int64)<br><p>output only field: storage size limit of dedicated database.</p> 
-databases[].<br>scalePolicy | **object**
-databases[].<br>scalePolicy.<br>fixedScale | **object**
-databases[].<br>scalePolicy.<br>fixedScale.<br>size | **string** (int64)<br><p>The minimum value is 1.</p> 
-databases[].<br>networkId | **string**
-databases[].<br>subnetIds[] | **string**
-databases[].<br>assignPublicIps | **boolean** (boolean)
-databases[].<br>locationId | **string**
-databases[].<br>labels | **object**
-databases[].<br>backupConfig | **object**
-databases[].<br>backupConfig.<br>backupSettings[] | **object**
-databases[].<br>backupConfig.<br>backupSettings[].<br>name | **string**<br><p>name of backup settings</p> <p>The maximum string length in characters is 256.</p> 
-databases[].<br>backupConfig.<br>backupSettings[].<br>description | **string**<br><p>human readable description.</p> <p>The maximum string length in characters is 256.</p> 
-databases[].<br>backupConfig.<br>backupSettings[].<br>backupSchedule | **object**<br><p>provide schedule. if empty, backup will be disabled.</p> 
-databases[].<br>backupConfig.<br>backupSettings[].<br>backupSchedule.<br>nextExecuteTime | **string** (date-time)<br><p>output only field: when next backup will be executed using provided schedule.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
-databases[].<br>backupConfig.<br>backupSettings[].<br>backupSchedule.<br>dailyBackupSchedule | **object** <br>`databases[].backupConfig.backupSettings[].backupSchedule` includes only one of the fields `dailyBackupSchedule`, `weeklyBackupSchedule`, `recurringBackupSchedule`<br>
-databases[].<br>backupConfig.<br>backupSettings[].<br>backupSchedule.<br>dailyBackupSchedule.<br>executeTime | **object**<br><p>Required.</p> <p>Represents a time of day. The date and time zone are either not significant or are specified elsewhere. An API may choose to allow leap seconds. Related types are <a href="https://github.com/googleapis/googleapis/blob/master/google/type/date.proto">google.type.Date</a> and <a href="https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/timestamp.proto">google.protobuf.Timestamp</a>.</p> 
-databases[].<br>backupConfig.<br>backupSettings[].<br>backupSchedule.<br>dailyBackupSchedule.<br>executeTime.<br>hours | **integer** (int32)<br><p>Hours of day in 24 hour format. Should be from 0 to 23. An API may choose to allow the value "24:00:00" for scenarios like business closing time.</p> 
-databases[].<br>backupConfig.<br>backupSettings[].<br>backupSchedule.<br>dailyBackupSchedule.<br>executeTime.<br>minutes | **integer** (int32)<br><p>Minutes of hour of day. Must be from 0 to 59.</p> 
-databases[].<br>backupConfig.<br>backupSettings[].<br>backupSchedule.<br>dailyBackupSchedule.<br>executeTime.<br>seconds | **integer** (int32)<br><p>Seconds of minutes of the time. Must normally be from 0 to 59. An API may allow the value 60 if it allows leap-seconds.</p> 
-databases[].<br>backupConfig.<br>backupSettings[].<br>backupSchedule.<br>dailyBackupSchedule.<br>executeTime.<br>nanos | **integer** (int32)<br><p>Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.</p> 
-databases[].<br>backupConfig.<br>backupSettings[].<br>backupSchedule.<br>weeklyBackupSchedule | **object** <br>`databases[].backupConfig.backupSettings[].backupSchedule` includes only one of the fields `dailyBackupSchedule`, `weeklyBackupSchedule`, `recurringBackupSchedule`<br>
-databases[].<br>backupConfig.<br>backupSettings[].<br>backupSchedule.<br>weeklyBackupSchedule.<br>daysOfWeek[] | **object**<br><p>Required. The number of elements must be in the range 1-7.</p> 
-databases[].<br>backupConfig.<br>backupSettings[].<br>backupSchedule.<br>weeklyBackupSchedule.<br>daysOfWeek[].<br>days[] | **string**<br><p>Required. The number of elements must be in the range 1-7.</p> <ul> <li>MONDAY: The day-of-week of Monday.</li> <li>TUESDAY: The day-of-week of Tuesday.</li> <li>WEDNESDAY: The day-of-week of Wednesday.</li> <li>THURSDAY: The day-of-week of Thursday.</li> <li>FRIDAY: The day-of-week of Friday.</li> <li>SATURDAY: The day-of-week of Saturday.</li> <li>SUNDAY: The day-of-week of Sunday.</li> </ul> 
-databases[].<br>backupConfig.<br>backupSettings[].<br>backupSchedule.<br>weeklyBackupSchedule.<br>daysOfWeek[].<br>executeTime | **object**<br><p>Required.</p> <p>Represents a time of day. The date and time zone are either not significant or are specified elsewhere. An API may choose to allow leap seconds. Related types are <a href="https://github.com/googleapis/googleapis/blob/master/google/type/date.proto">google.type.Date</a> and <a href="https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/timestamp.proto">google.protobuf.Timestamp</a>.</p> 
-databases[].<br>backupConfig.<br>backupSettings[].<br>backupSchedule.<br>weeklyBackupSchedule.<br>daysOfWeek[].<br>executeTime.<br>hours | **integer** (int32)<br><p>Hours of day in 24 hour format. Should be from 0 to 23. An API may choose to allow the value "24:00:00" for scenarios like business closing time.</p> 
-databases[].<br>backupConfig.<br>backupSettings[].<br>backupSchedule.<br>weeklyBackupSchedule.<br>daysOfWeek[].<br>executeTime.<br>minutes | **integer** (int32)<br><p>Minutes of hour of day. Must be from 0 to 59.</p> 
-databases[].<br>backupConfig.<br>backupSettings[].<br>backupSchedule.<br>weeklyBackupSchedule.<br>daysOfWeek[].<br>executeTime.<br>seconds | **integer** (int32)<br><p>Seconds of minutes of the time. Must normally be from 0 to 59. An API may allow the value 60 if it allows leap-seconds.</p> 
-databases[].<br>backupConfig.<br>backupSettings[].<br>backupSchedule.<br>weeklyBackupSchedule.<br>daysOfWeek[].<br>executeTime.<br>nanos | **integer** (int32)<br><p>Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.</p> 
-databases[].<br>backupConfig.<br>backupSettings[].<br>backupSchedule.<br>recurringBackupSchedule | **object** <br>`databases[].backupConfig.backupSettings[].backupSchedule` includes only one of the fields `dailyBackupSchedule`, `weeklyBackupSchedule`, `recurringBackupSchedule`<br>
-databases[].<br>backupConfig.<br>backupSettings[].<br>backupSchedule.<br>recurringBackupSchedule.<br>startTime | **string** (date-time)<br><p>Required. Timestamp of the first recurrence.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
-databases[].<br>backupConfig.<br>backupSettings[].<br>backupSchedule.<br>recurringBackupSchedule.<br>recurrence | **string**<br><p>Required. An RRULE (https://tools.ietf.org/html/rfc5545#section-3.8.5.3) for how this backup reccurs. The FREQ values of MINUTELY, and SECONDLY are not supported.</p> 
-databases[].<br>backupConfig.<br>backupSettings[].<br>backupTimeToLive | **string**<br><p>provide time to live of backup.</p> 
-databases[].<br>backupConfig.<br>backupSettings[].<br>sourcePaths[] | **string**<br><p>provide a list of source paths. Each path can be directory, table or even database itself. Each directory (or database) will be traversed recursively and all childs of directory will be included to backup. By default, backup will be created for full database.</p> <p>The maximum number of elements is 256.</p> 
-databases[].<br>backupConfig.<br>backupSettings[].<br>sourcePathsToExclude[] | **string**<br><p>provide a list of paths to exclude from backup. Each path is a directory, table, or database. Each directory (or database) will be traversed recursively and all childs of directory will be excluded.</p> <p>The maximum number of elements is 256.</p> 
-databases[].<br>backupConfig.<br>backupSettings[].<br>type | **string**
-databases[].<br>backupConfig.<br>backupSettings[].<br>storageClass | **string**
-databases[].<br>documentApiEndpoint | **string**
-databases[].<br>kinesisApiEndpoint | **string**
-databases[].<br>kafkaApiEndpoint | **string**
-databases[].<br>monitoringConfig | **object**
-databases[].<br>monitoringConfig.<br>alerts[] | **object**
-databases[].<br>monitoringConfig.<br>alerts[].<br>alertId | **string**<br><p>output only field.</p> 
-databases[].<br>monitoringConfig.<br>alerts[].<br>alertTemplateId | **string**<br><p>template of the alert.</p> 
-databases[].<br>monitoringConfig.<br>alerts[].<br>name | **string**<br><p>name of the alert.</p> 
-databases[].<br>monitoringConfig.<br>alerts[].<br>description | **string**<br><p>human readable description of the alert.</p> 
-databases[].<br>monitoringConfig.<br>alerts[].<br>notificationChannels[] | **object**<br><p>the notification channels of the alert.</p> 
-databases[].<br>monitoringConfig.<br>alerts[].<br>notificationChannels[].<br>notificationChannelId | **string**
-databases[].<br>monitoringConfig.<br>alerts[].<br>notificationChannels[].<br>notifyAboutStatuses[] | **string**
-databases[].<br>monitoringConfig.<br>alerts[].<br>notificationChannels[].<br>repeateNotifyDelayMs | **string** (int64)
-databases[].<br>monitoringConfig.<br>alerts[].<br>alertParameters[] | **object**<br><p>alert parameters to override.</p> 
-databases[].<br>monitoringConfig.<br>alerts[].<br>alertParameters[].<br>doubleParameterValue | **object** <br>`databases[].monitoringConfig.alerts[].alertParameters[]` includes only one of the fields `doubleParameterValue`, `integerParameterValue`, `textParameterValue`, `textListParameterValue`, `labelListParameterValue`<br>
-databases[].<br>monitoringConfig.<br>alerts[].<br>alertParameters[].<br>doubleParameterValue.<br>name | **string**<br><p>Required. Parameter name</p> 
-databases[].<br>monitoringConfig.<br>alerts[].<br>alertParameters[].<br>doubleParameterValue.<br>value | **number** (double)<br><p>Required. Parameter value</p> 
-databases[].<br>monitoringConfig.<br>alerts[].<br>alertParameters[].<br>integerParameterValue | **object** <br>`databases[].monitoringConfig.alerts[].alertParameters[]` includes only one of the fields `doubleParameterValue`, `integerParameterValue`, `textParameterValue`, `textListParameterValue`, `labelListParameterValue`<br>
-databases[].<br>monitoringConfig.<br>alerts[].<br>alertParameters[].<br>integerParameterValue.<br>name | **string**<br><p>Required. Parameter name</p> 
-databases[].<br>monitoringConfig.<br>alerts[].<br>alertParameters[].<br>integerParameterValue.<br>value | **string** (int64)<br><p>Required. Parameter value</p> 
-databases[].<br>monitoringConfig.<br>alerts[].<br>alertParameters[].<br>textParameterValue | **object** <br>`databases[].monitoringConfig.alerts[].alertParameters[]` includes only one of the fields `doubleParameterValue`, `integerParameterValue`, `textParameterValue`, `textListParameterValue`, `labelListParameterValue`<br>
-databases[].<br>monitoringConfig.<br>alerts[].<br>alertParameters[].<br>textParameterValue.<br>name | **string**<br><p>Required. Parameter name</p> 
-databases[].<br>monitoringConfig.<br>alerts[].<br>alertParameters[].<br>textParameterValue.<br>value | **string**<br><p>Required. Parameter value</p> 
-databases[].<br>monitoringConfig.<br>alerts[].<br>alertParameters[].<br>textListParameterValue | **object** <br>`databases[].monitoringConfig.alerts[].alertParameters[]` includes only one of the fields `doubleParameterValue`, `integerParameterValue`, `textParameterValue`, `textListParameterValue`, `labelListParameterValue`<br>
-databases[].<br>monitoringConfig.<br>alerts[].<br>alertParameters[].<br>textListParameterValue.<br>name | **string**<br><p>Required. Parameter name</p> 
-databases[].<br>monitoringConfig.<br>alerts[].<br>alertParameters[].<br>textListParameterValue.<br>values[] | **string**<br><p>Required. Parameter value</p> 
-databases[].<br>monitoringConfig.<br>alerts[].<br>alertParameters[].<br>labelListParameterValue | **object** <br>`databases[].monitoringConfig.alerts[].alertParameters[]` includes only one of the fields `doubleParameterValue`, `integerParameterValue`, `textParameterValue`, `textListParameterValue`, `labelListParameterValue`<br>
-databases[].<br>monitoringConfig.<br>alerts[].<br>alertParameters[].<br>labelListParameterValue.<br>name | **string**<br><p>Required. Parameter name</p> 
-databases[].<br>monitoringConfig.<br>alerts[].<br>alertParameters[].<br>labelListParameterValue.<br>values[] | **string**<br><p>Required. Parameter value</p> 
-databases[].<br>monitoringConfig.<br>alerts[].<br>alertThresholds[] | **object**<br><p>alert paratemers to override.</p> 
-databases[].<br>monitoringConfig.<br>alerts[].<br>alertThresholds[].<br>doubleParameterValue | **object** <br>`databases[].monitoringConfig.alerts[].alertThresholds[]` includes only one of the fields `doubleParameterValue`, `integerParameterValue`, `textParameterValue`, `textListParameterValue`, `labelListParameterValue`<br>
-databases[].<br>monitoringConfig.<br>alerts[].<br>alertThresholds[].<br>doubleParameterValue.<br>name | **string**<br><p>Required. Parameter name</p> 
-databases[].<br>monitoringConfig.<br>alerts[].<br>alertThresholds[].<br>doubleParameterValue.<br>value | **number** (double)<br><p>Required. Parameter value</p> 
-databases[].<br>monitoringConfig.<br>alerts[].<br>alertThresholds[].<br>integerParameterValue | **object** <br>`databases[].monitoringConfig.alerts[].alertThresholds[]` includes only one of the fields `doubleParameterValue`, `integerParameterValue`, `textParameterValue`, `textListParameterValue`, `labelListParameterValue`<br>
-databases[].<br>monitoringConfig.<br>alerts[].<br>alertThresholds[].<br>integerParameterValue.<br>name | **string**<br><p>Required. Parameter name</p> 
-databases[].<br>monitoringConfig.<br>alerts[].<br>alertThresholds[].<br>integerParameterValue.<br>value | **string** (int64)<br><p>Required. Parameter value</p> 
-databases[].<br>monitoringConfig.<br>alerts[].<br>alertThresholds[].<br>textParameterValue | **object** <br>`databases[].monitoringConfig.alerts[].alertThresholds[]` includes only one of the fields `doubleParameterValue`, `integerParameterValue`, `textParameterValue`, `textListParameterValue`, `labelListParameterValue`<br>
-databases[].<br>monitoringConfig.<br>alerts[].<br>alertThresholds[].<br>textParameterValue.<br>name | **string**<br><p>Required. Parameter name</p> 
-databases[].<br>monitoringConfig.<br>alerts[].<br>alertThresholds[].<br>textParameterValue.<br>value | **string**<br><p>Required. Parameter value</p> 
-databases[].<br>monitoringConfig.<br>alerts[].<br>alertThresholds[].<br>textListParameterValue | **object** <br>`databases[].monitoringConfig.alerts[].alertThresholds[]` includes only one of the fields `doubleParameterValue`, `integerParameterValue`, `textParameterValue`, `textListParameterValue`, `labelListParameterValue`<br>
-databases[].<br>monitoringConfig.<br>alerts[].<br>alertThresholds[].<br>textListParameterValue.<br>name | **string**<br><p>Required. Parameter name</p> 
-databases[].<br>monitoringConfig.<br>alerts[].<br>alertThresholds[].<br>textListParameterValue.<br>values[] | **string**<br><p>Required. Parameter value</p> 
-databases[].<br>monitoringConfig.<br>alerts[].<br>alertThresholds[].<br>labelListParameterValue | **object** <br>`databases[].monitoringConfig.alerts[].alertThresholds[]` includes only one of the fields `doubleParameterValue`, `integerParameterValue`, `textParameterValue`, `textListParameterValue`, `labelListParameterValue`<br>
-databases[].<br>monitoringConfig.<br>alerts[].<br>alertThresholds[].<br>labelListParameterValue.<br>name | **string**<br><p>Required. Parameter name</p> 
-databases[].<br>monitoringConfig.<br>alerts[].<br>alertThresholds[].<br>labelListParameterValue.<br>values[] | **string**<br><p>Required. Parameter value</p> 
-databases[].<br>deletionProtection | **boolean** (boolean)
-databases[].<br>zonalDatabase | **object**<br>deprecated field <br>`databases[]` includes only one of the fields `zonalDatabase`, `regionalDatabase`, `dedicatedDatabase`, `serverlessDatabase`<br>
-databases[].<br>zonalDatabase.<br>zoneId | **string**<br><p>Required.</p> 
-databases[].<br>regionalDatabase | **object**<br>deprecated field <br>`databases[]` includes only one of the fields `zonalDatabase`, `regionalDatabase`, `dedicatedDatabase`, `serverlessDatabase`<br>
-databases[].<br>regionalDatabase.<br>regionId | **string**<br><p>Required.</p> 
-databases[].<br>dedicatedDatabase | **object** <br>`databases[]` includes only one of the fields `zonalDatabase`, `regionalDatabase`, `dedicatedDatabase`, `serverlessDatabase`<br>
-databases[].<br>dedicatedDatabase.<br>resourcePresetId | **string**
-databases[].<br>dedicatedDatabase.<br>storageConfig | **object**
-databases[].<br>dedicatedDatabase.<br>storageConfig.<br>storageOptions[] | **object**<br><p>Required. The minimum number of elements is 1.</p> 
-databases[].<br>dedicatedDatabase.<br>storageConfig.<br>storageOptions[].<br>storageTypeId | **string**
-databases[].<br>dedicatedDatabase.<br>storageConfig.<br>storageOptions[].<br>groupCount | **string** (int64)
-databases[].<br>dedicatedDatabase.<br>storageConfig.<br>storageSizeLimit | **string** (int64)<br><p>output only field: storage size limit of dedicated database.</p> 
-databases[].<br>dedicatedDatabase.<br>scalePolicy | **object**
-databases[].<br>dedicatedDatabase.<br>scalePolicy.<br>fixedScale | **object**
-databases[].<br>dedicatedDatabase.<br>scalePolicy.<br>fixedScale.<br>size | **string** (int64)<br><p>The minimum value is 1.</p> 
-databases[].<br>dedicatedDatabase.<br>networkId | **string**
-databases[].<br>dedicatedDatabase.<br>subnetIds[] | **string**
-databases[].<br>dedicatedDatabase.<br>assignPublicIps | **boolean** (boolean)
-databases[].<br>serverlessDatabase | **object** <br>`databases[]` includes only one of the fields `zonalDatabase`, `regionalDatabase`, `dedicatedDatabase`, `serverlessDatabase`<br>
-databases[].<br>serverlessDatabase.<br>throttlingRcuLimit | **string** (int64)<br><p>Let's define 1 RU  - 1 request unit Let's define 1 RCU - 1 request capacity unit, which is 1 RU per second. If ``enable_throttling_rcu_limit`` flag is true, the database will be throttled using ``throttling_rcu_limit`` value. Otherwise, the database is throttled using the cloud quotas. If zero, all requests will be blocked until non zero value is set.</p> 
-databases[].<br>serverlessDatabase.<br>storageSizeLimit | **string** (int64)<br><p>Specify serverless database storage size limit. If zero, default value is applied.</p> 
-databases[].<br>serverlessDatabase.<br>enableThrottlingRcuLimit | **boolean** (boolean)<br><p>If false, the database is throttled by cloud value.</p> 
-databases[].<br>serverlessDatabase.<br>provisionedRcuLimit | **string** (int64)<br><p>Specify the number of provisioned RCUs to pay less if the database has predictable load. You will be charged for the provisioned capacity regularly even if this capacity is not fully consumed. You will be charged for the on-demand consumption only if provisioned capacity is consumed.</p> 
-databases[].<br>serverlessDatabase.<br>topicWriteQuota | **string** (int64)<br><p>write quota for topic service, defined in bytes per second.</p> 
-nextPageToken | **string**<br><p>This token allows you to get the next page of results for ListDatabases requests, if the number of results is larger than ``page_size`` specified in the request. To get the next page, specify the value of ``next_page_token`` as a value for the ``page_token`` parameter in the next ListDatabases request. Subsequent ListDatabases requests will have their own ``next_page_token`` to continue paging through the results.</p> 
+#|
+||Field | Description ||
+|| databases[] | **[Database](#yandex.cloud.ydb.v1.Database)** ||
+|| nextPageToken | **string**
+
+This token allows you to get the next page of results for ListDatabases requests,
+if the number of results is larger than `page_size` specified in the request.
+To get the next page, specify the value of `next_page_token` as a value for
+the `page_token` parameter in the next ListDatabases request. Subsequent ListDatabases
+requests will have their own `next_page_token` to continue paging through the results. ||
+|#
+
+## Database {#yandex.cloud.ydb.v1.Database}
+
+YDB database.
+
+#|
+||Field | Description ||
+|| id | **string** ||
+|| folderId | **string** ||
+|| createdAt | **string** (date-time)
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| name | **string** ||
+|| description | **string** ||
+|| status | **enum** (Status)
+
+- `STATUS_UNSPECIFIED`
+- `PROVISIONING`
+- `RUNNING`
+- `UPDATING`
+- `ERROR`
+- `DELETING`
+- `STARTING`
+- `STOPPED` ||
+|| endpoint | **string** ||
+|| resourcePresetId | **string** ||
+|| storageConfig | **[StorageConfig](#yandex.cloud.ydb.v1.StorageConfig)** ||
+|| scalePolicy | **[ScalePolicy](#yandex.cloud.ydb.v1.ScalePolicy)** ||
+|| networkId | **string** ||
+|| subnetIds[] | **string** ||
+|| zonalDatabase | **[ZonalDatabase](#yandex.cloud.ydb.v1.ZonalDatabase)**
+
+deprecated field
+
+Includes only one of the fields `zonalDatabase`, `regionalDatabase`, `dedicatedDatabase`, `serverlessDatabase`. ||
+|| regionalDatabase | **[RegionalDatabase](#yandex.cloud.ydb.v1.RegionalDatabase)**
+
+deprecated field
+
+Includes only one of the fields `zonalDatabase`, `regionalDatabase`, `dedicatedDatabase`, `serverlessDatabase`. ||
+|| dedicatedDatabase | **[DedicatedDatabase](#yandex.cloud.ydb.v1.DedicatedDatabase)**
+
+Includes only one of the fields `zonalDatabase`, `regionalDatabase`, `dedicatedDatabase`, `serverlessDatabase`. ||
+|| serverlessDatabase | **[ServerlessDatabase](#yandex.cloud.ydb.v1.ServerlessDatabase)**
+
+Includes only one of the fields `zonalDatabase`, `regionalDatabase`, `dedicatedDatabase`, `serverlessDatabase`. ||
+|| assignPublicIps | **boolean** ||
+|| locationId | **string** ||
+|| labels | **string** ||
+|| backupConfig | **[BackupConfig](#yandex.cloud.ydb.v1.BackupConfig)** ||
+|| documentApiEndpoint | **string** ||
+|| kinesisApiEndpoint | **string** ||
+|| kafkaApiEndpoint | **string** ||
+|| monitoringConfig | **[MonitoringConfig](#yandex.cloud.ydb.v1.MonitoringConfig)** ||
+|| deletionProtection | **boolean** ||
+|#
+
+## StorageConfig {#yandex.cloud.ydb.v1.StorageConfig}
+
+#|
+||Field | Description ||
+|| storageOptions[] | **[StorageOption](#yandex.cloud.ydb.v1.StorageOption)** ||
+|| storageSizeLimit | **string** (int64)
+
+output only field: storage size limit of dedicated database. ||
+|#
+
+## StorageOption {#yandex.cloud.ydb.v1.StorageOption}
+
+#|
+||Field | Description ||
+|| storageTypeId | **string** ||
+|| groupCount | **string** (int64) ||
+|#
+
+## ScalePolicy {#yandex.cloud.ydb.v1.ScalePolicy}
+
+#|
+||Field | Description ||
+|| fixedScale | **[FixedScale](#yandex.cloud.ydb.v1.ScalePolicy.FixedScale)**
+
+Includes only one of the fields `fixedScale`. ||
+|#
+
+## FixedScale {#yandex.cloud.ydb.v1.ScalePolicy.FixedScale}
+
+#|
+||Field | Description ||
+|| size | **string** (int64) ||
+|#
+
+## ZonalDatabase {#yandex.cloud.ydb.v1.ZonalDatabase}
+
+#|
+||Field | Description ||
+|| zoneId | **string**
+
+Required field.  ||
+|#
+
+## RegionalDatabase {#yandex.cloud.ydb.v1.RegionalDatabase}
+
+#|
+||Field | Description ||
+|| regionId | **string**
+
+Required field.  ||
+|#
+
+## DedicatedDatabase {#yandex.cloud.ydb.v1.DedicatedDatabase}
+
+#|
+||Field | Description ||
+|| resourcePresetId | **string** ||
+|| storageConfig | **[StorageConfig](#yandex.cloud.ydb.v1.StorageConfig)** ||
+|| scalePolicy | **[ScalePolicy](#yandex.cloud.ydb.v1.ScalePolicy)** ||
+|| networkId | **string** ||
+|| subnetIds[] | **string** ||
+|| assignPublicIps | **boolean** ||
+|#
+
+## ServerlessDatabase {#yandex.cloud.ydb.v1.ServerlessDatabase}
+
+#|
+||Field | Description ||
+|| throttlingRcuLimit | **string** (int64)
+
+Let's define 1 RU  - 1 request unit
+Let's define 1 RCU - 1 request capacity unit, which is 1 RU per second.
+If `enable_throttling_rcu_limit` flag is true, the database will be throttled using `throttling_rcu_limit` value.
+Otherwise, the database is throttled using the cloud quotas.
+If zero, all requests will be blocked until non zero value is set. ||
+|| storageSizeLimit | **string** (int64)
+
+Specify serverless database storage size limit. If zero, default value is applied. ||
+|| enableThrottlingRcuLimit | **boolean**
+
+If false, the database is throttled by cloud value. ||
+|| provisionedRcuLimit | **string** (int64)
+
+Specify the number of provisioned RCUs to pay less if the database has predictable load.
+You will be charged for the provisioned capacity regularly even if this capacity is not fully consumed.
+You will be charged for the on-demand consumption only if provisioned capacity is consumed. ||
+|| topicWriteQuota | **string** (int64)
+
+write quota for topic service, defined in bytes per second. ||
+|#
+
+## BackupConfig {#yandex.cloud.ydb.v1.BackupConfig}
+
+#|
+||Field | Description ||
+|| backupSettings[] | **[BackupSettings](#yandex.cloud.ydb.v1.BackupSettings)** ||
+|#
+
+## BackupSettings {#yandex.cloud.ydb.v1.BackupSettings}
+
+#|
+||Field | Description ||
+|| name | **string**
+
+name of backup settings ||
+|| description | **string**
+
+human readable description. ||
+|| backupSchedule | **[BackupSchedule](#yandex.cloud.ydb.v1.BackupSchedule)**
+
+provide schedule. if empty, backup will be disabled. ||
+|| backupTimeToLive | **string** (duration)
+
+provide time to live of backup. ||
+|| sourcePaths[] | **string**
+
+provide a list of source paths. Each path can be directory, table or even database itself.
+Each directory (or database) will be traversed recursively and all childs of directory will be included to backup.
+By default, backup will be created for full database. ||
+|| sourcePathsToExclude[] | **string**
+
+provide a list of paths to exclude from backup.
+Each path is a directory, table, or database.
+Each directory (or database) will be traversed recursively and all childs of directory will be excluded. ||
+|| type | **enum** (Type)
+
+- `TYPE_UNSPECIFIED`
+- `SYSTEM`
+- `USER` ||
+|| storageClass | **enum** (StorageClass)
+
+- `STORAGE_CLASS_UNSPECIFIED`
+- `STANDARD`
+- `REDUCED_REDUNDANCY`
+- `STANDARD_IA`
+- `ONEZONE_IA`
+- `INTELLIGENT_TIERING`
+- `GLACIER`
+- `DEEP_ARCHIVE`
+- `OUTPOSTS` ||
+|#
+
+## BackupSchedule {#yandex.cloud.ydb.v1.BackupSchedule}
+
+#|
+||Field | Description ||
+|| dailyBackupSchedule | **[DailyBackupSchedule](#yandex.cloud.ydb.v1.DailyBackupSchedule)**
+
+Includes only one of the fields `dailyBackupSchedule`, `weeklyBackupSchedule`, `recurringBackupSchedule`. ||
+|| weeklyBackupSchedule | **[WeeklyBackupSchedule](#yandex.cloud.ydb.v1.WeeklyBackupSchedule)**
+
+Includes only one of the fields `dailyBackupSchedule`, `weeklyBackupSchedule`, `recurringBackupSchedule`. ||
+|| recurringBackupSchedule | **[RecurringBackupSchedule](#yandex.cloud.ydb.v1.RecurringBackupSchedule)**
+
+Includes only one of the fields `dailyBackupSchedule`, `weeklyBackupSchedule`, `recurringBackupSchedule`. ||
+|| nextExecuteTime | **string** (date-time)
+
+output only field: when next backup will be executed
+using provided schedule.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|#
+
+## DailyBackupSchedule {#yandex.cloud.ydb.v1.DailyBackupSchedule}
+
+#|
+||Field | Description ||
+|| executeTime | **[TimeOfDay](#google.type.TimeOfDay)**
+
+Required field.  ||
+|#
+
+## TimeOfDay {#google.type.TimeOfDay}
+
+Represents a time of day. The date and time zone are either not significant
+or are specified elsewhere. An API may choose to allow leap seconds. Related
+types are [google.type.Date](https://github.com/googleapis/googleapis/blob/master/google/type/date.proto) and [google.protobuf.Timestamp](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/timestamp.proto).
+
+#|
+||Field | Description ||
+|| hours | **integer** (int32)
+
+Hours of day in 24 hour format. Should be from 0 to 23. An API may choose
+to allow the value "24:00:00" for scenarios like business closing time. ||
+|| minutes | **integer** (int32)
+
+Minutes of hour of day. Must be from 0 to 59. ||
+|| seconds | **integer** (int32)
+
+Seconds of minutes of the time. Must normally be from 0 to 59. An API may
+allow the value 60 if it allows leap-seconds. ||
+|| nanos | **integer** (int32)
+
+Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999. ||
+|#
+
+## WeeklyBackupSchedule {#yandex.cloud.ydb.v1.WeeklyBackupSchedule}
+
+#|
+||Field | Description ||
+|| daysOfWeek[] | **[DaysOfWeekBackupSchedule](#yandex.cloud.ydb.v1.DaysOfWeekBackupSchedule)** ||
+|#
+
+## DaysOfWeekBackupSchedule {#yandex.cloud.ydb.v1.DaysOfWeekBackupSchedule}
+
+#|
+||Field | Description ||
+|| days[] | **enum** (DayOfWeek)
+
+- `DAY_OF_WEEK_UNSPECIFIED`: The unspecified day-of-week.
+- `MONDAY`: The day-of-week of Monday.
+- `TUESDAY`: The day-of-week of Tuesday.
+- `WEDNESDAY`: The day-of-week of Wednesday.
+- `THURSDAY`: The day-of-week of Thursday.
+- `FRIDAY`: The day-of-week of Friday.
+- `SATURDAY`: The day-of-week of Saturday.
+- `SUNDAY`: The day-of-week of Sunday. ||
+|| executeTime | **[TimeOfDay](#google.type.TimeOfDay)**
+
+Required field.  ||
+|#
+
+## RecurringBackupSchedule {#yandex.cloud.ydb.v1.RecurringBackupSchedule}
+
+#|
+||Field | Description ||
+|| startTime | **string** (date-time)
+
+Required field. Timestamp of the first recurrence.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| recurrence | **string**
+
+Required field. An RRULE (https://tools.ietf.org/html/rfc5545#section-3.8.5.3) for how
+this backup reccurs.
+The FREQ values of MINUTELY, and SECONDLY are not supported. ||
+|#
+
+## MonitoringConfig {#yandex.cloud.ydb.v1.MonitoringConfig}
+
+#|
+||Field | Description ||
+|| alerts[] | **[Alert](#yandex.cloud.ydb.v1.Alert)** ||
+|#
+
+## Alert {#yandex.cloud.ydb.v1.Alert}
+
+#|
+||Field | Description ||
+|| alertId | **string**
+
+output only field. ||
+|| alertTemplateId | **string**
+
+template of the alert. ||
+|| name | **string**
+
+name of the alert. ||
+|| description | **string**
+
+human readable description of the alert. ||
+|| notificationChannels[] | **[NotificationChannel](#yandex.cloud.ydb.v1.NotificationChannel)**
+
+the notification channels of the alert. ||
+|| alertParameters[] | **[AlertParameter](#yandex.cloud.ydb.v1.AlertParameter)**
+
+alert parameters to override. ||
+|| alertThresholds[] | **[AlertParameter](#yandex.cloud.ydb.v1.AlertParameter)**
+
+alert paratemers to override. ||
+|#
+
+## NotificationChannel {#yandex.cloud.ydb.v1.NotificationChannel}
+
+#|
+||Field | Description ||
+|| notificationChannelId | **string** ||
+|| notifyAboutStatuses[] | **enum** (AlertEvaluationStatus)
+
+- `ALERT_EVALUATION_STATUS_UNSPECIFIED`
+- `ALERT_EVALUATION_STATUS_OK`
+- `ALERT_EVALUATION_STATUS_NO_DATA`
+- `ALERT_EVALUATION_STATUS_ERROR`
+- `ALERT_EVALUATION_STATUS_ALARM`
+- `ALERT_EVALUATION_STATUS_WARN` ||
+|| repeateNotifyDelayMs | **string** (int64) ||
+|#
+
+## AlertParameter {#yandex.cloud.ydb.v1.AlertParameter}
+
+#|
+||Field | Description ||
+|| doubleParameterValue | **[DoubleParameterValue](#yandex.cloud.ydb.v1.AlertParameter.DoubleParameterValue)**
+
+Includes only one of the fields `doubleParameterValue`, `integerParameterValue`, `textParameterValue`, `textListParameterValue`, `labelListParameterValue`. ||
+|| integerParameterValue | **[IntegerParameterValue](#yandex.cloud.ydb.v1.AlertParameter.IntegerParameterValue)**
+
+Includes only one of the fields `doubleParameterValue`, `integerParameterValue`, `textParameterValue`, `textListParameterValue`, `labelListParameterValue`. ||
+|| textParameterValue | **[TextParameterValue](#yandex.cloud.ydb.v1.AlertParameter.TextParameterValue)**
+
+Includes only one of the fields `doubleParameterValue`, `integerParameterValue`, `textParameterValue`, `textListParameterValue`, `labelListParameterValue`. ||
+|| textListParameterValue | **[TextListParameterValue](#yandex.cloud.ydb.v1.AlertParameter.TextListParameterValue)**
+
+Includes only one of the fields `doubleParameterValue`, `integerParameterValue`, `textParameterValue`, `textListParameterValue`, `labelListParameterValue`. ||
+|| labelListParameterValue | **[LabelListParameterValue](#yandex.cloud.ydb.v1.AlertParameter.LabelListParameterValue)**
+
+Includes only one of the fields `doubleParameterValue`, `integerParameterValue`, `textParameterValue`, `textListParameterValue`, `labelListParameterValue`. ||
+|#
+
+## DoubleParameterValue {#yandex.cloud.ydb.v1.AlertParameter.DoubleParameterValue}
+
+#|
+||Field | Description ||
+|| name | **string**
+
+Required. Parameter name ||
+|| value | **string**
+
+Required. Parameter value ||
+|#
+
+## IntegerParameterValue {#yandex.cloud.ydb.v1.AlertParameter.IntegerParameterValue}
+
+#|
+||Field | Description ||
+|| name | **string**
+
+Required. Parameter name ||
+|| value | **string** (int64)
+
+Required. Parameter value ||
+|#
+
+## TextParameterValue {#yandex.cloud.ydb.v1.AlertParameter.TextParameterValue}
+
+#|
+||Field | Description ||
+|| name | **string**
+
+Required. Parameter name ||
+|| value | **string**
+
+Required. Parameter value ||
+|#
+
+## TextListParameterValue {#yandex.cloud.ydb.v1.AlertParameter.TextListParameterValue}
+
+#|
+||Field | Description ||
+|| name | **string**
+
+Required. Parameter name ||
+|| values[] | **string**
+
+Required. Parameter value ||
+|#
+
+## LabelListParameterValue {#yandex.cloud.ydb.v1.AlertParameter.LabelListParameterValue}
+
+#|
+||Field | Description ||
+|| name | **string**
+
+Required. Parameter name ||
+|| values[] | **string**
+
+Required. Parameter value ||
+|#

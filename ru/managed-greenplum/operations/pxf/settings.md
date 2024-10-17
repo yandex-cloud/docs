@@ -128,7 +128,7 @@
 
 - API {#api}
 
-    Чтобы изменить настройки PXF, воспользуйтесь методом REST API [update](../../api-ref/Cluster/update.md) для ресурса [Cluster](../../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../../api-ref/grpc/cluster_service.md#Update) и передайте в запросе:
+    Чтобы изменить настройки PXF, воспользуйтесь методом REST API [update](../../api-ref/Cluster/update.md) для ресурса [Cluster](../../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../../api-ref/grpc/Cluster/update.md) и передайте в запросе:
 
     * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](../cluster-list.md#list-clusters).
     * Список изменяемых настроек PXF в параметре `configSpec.pxfConfig`:

@@ -76,7 +76,7 @@ description: Перед удалением целевой группы ее не
 
 - API {#api}
 
-  Чтобы удалить целевую группу, воспользуйтесь методом REST API [delete](../api-ref/TargetGroup/delete.md) для ресурса [TargetGroup](../api-ref/TargetGroup/index.md) или вызовом gRPC API [TargetGroupService/Delete](../api-ref/grpc/target_group_service.md#Delete).
+  Чтобы удалить целевую группу, воспользуйтесь методом REST API [delete](../api-ref/TargetGroup/delete.md) для ресурса [TargetGroup](../api-ref/TargetGroup/index.md) или вызовом gRPC API [TargetGroupService/Delete](../api-ref/grpc/TargetGroup/delete.md).
 
   Идентификатор целевой группы можно получить со [списком целевых групп в каталоге](target-group-list.md#list).
 

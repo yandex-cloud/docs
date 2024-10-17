@@ -103,7 +103,7 @@
 
 - API {#api}
 
-  Чтобы восстановить виртуальную машину из резервной копии другой виртуальной машины, воспользуйтесь методом REST API [startRecovery](../../backup/api-ref/Backup/startRecovery.md) для ресурса [Backup](../../backup/api-ref/Backup/index.md) или вызовом gRPC API [BackupService/StartRecovery](../../backup/api-ref/grpc/backup_service.md#StartRecovery).
+  Чтобы восстановить виртуальную машину из резервной копии другой виртуальной машины, воспользуйтесь методом REST API [startRecovery](../../backup/api-ref/Backup/startRecovery.md) для ресурса [Backup](../../backup/api-ref/Backup/index.md) или вызовом gRPC API [BackupService/StartRecovery](../../backup/api-ref/grpc/Backup/startRecovery.md).
 
 {% endlist %}
 

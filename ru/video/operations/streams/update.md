@@ -42,6 +42,6 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [update](../../api-ref/Stream/update.md) для ресурса [Stream](../../api-ref/Stream/index.md) или вызовом gRPC API [StreamService/Update](../../api-ref/grpc/stream_service.md#Update).
+  Воспользуйтесь методом REST API [update](../../api-ref/Stream/update.md) для ресурса [Stream](../../api-ref/Stream/index.md) или вызовом gRPC API [StreamService/Update](../../api-ref/grpc/Stream/update.md).
 
 {% endlist %}

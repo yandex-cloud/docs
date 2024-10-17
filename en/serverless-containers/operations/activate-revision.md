@@ -52,6 +52,6 @@ description: Follow this guide to make a container revision active.
 
 - API {#api}
 
-  To make a container revision active, use either the [rollback](../../serverless-containers/containers/api-ref/Container/rollback.md) REST API method for the [Container](../../serverless-containers/containers/api-ref/Container/index.md) resource or the [ContainerService/Rollback](../../serverless-containers/containers/api-ref/grpc/container_service.md#Rollback) gRPC API call.
+  To make a container revision active, use either the [rollback](../../serverless-containers/containers/api-ref/Container/rollback.md) REST API method for the [Container](../../serverless-containers/containers/api-ref/Container/index.md) resource or the [ContainerService/Rollback](../../serverless-containers/containers/api-ref/grpc/Container/rollback.md) gRPC API call.
 
 {% endlist %}

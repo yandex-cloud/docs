@@ -38,7 +38,7 @@
 
    - API {#api}
 
-     Воспользуйтесь методом REST API [list](../../api-ref/Image/list.md) для ресурса [Image](../../api-ref/Image/index.md) или вызовом gRPC API [ImageService/List](../../api-ref/grpc/image_service.md#List).
+     Воспользуйтесь методом REST API [list](../../api-ref/Image/list.md) для ресурса [Image](../../api-ref/Image/index.md) или вызовом gRPC API [ImageService/List](../../api-ref/grpc/Image/list.md).
 
    {% endlist %}
 
@@ -72,7 +72,7 @@
 
    - API {#api}
 
-     Чтобы получить список облаков с идентификаторами, воспользуйтесь методом REST API [list](../../../resource-manager/api-ref/Cloud/list.md) для ресурса [Cloud](../../../resource-manager/api-ref/Cloud/index.md) или вызовом gRPC API [CloudService/List](../../../resource-manager/api-ref/grpc/cloud_service.md#List).
+     Чтобы получить список облаков с идентификаторами, воспользуйтесь методом REST API [list](../../../resource-manager/api-ref/Cloud/list.md) для ресурса [Cloud](../../../resource-manager/api-ref/Cloud/index.md) или вызовом gRPC API [CloudService/List](../../../resource-manager/api-ref/grpc/Cloud/list.md).
 
    {% endlist %}
 
@@ -94,7 +94,7 @@
 
    - API {#api}
 
-     Воспользуйтесь методом REST API [create](../../api-ref/Image/create.md) для ресурса [Image](../../api-ref/Image/index.md) или вызовом gRPC API [ImageService/Create](../../api-ref/grpc/image_service.md#Create). В запросе укажите идентификатор образа.
+     Воспользуйтесь методом REST API [create](../../api-ref/Image/create.md) для ресурса [Image](../../api-ref/Image/index.md) или вызовом gRPC API [ImageService/Create](../../api-ref/grpc/Image/create.md). В запросе укажите идентификатор образа.
 
    {% endlist %}
 

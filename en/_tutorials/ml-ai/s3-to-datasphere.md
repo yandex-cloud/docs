@@ -116,7 +116,7 @@ To access {{ objstorage-name }} from {{ ml-platform-name }}, you need a [static 
 
 - API {#api}
 
-  To create a static access key, use the [create](../../iam/api-ref/AccessKey/create.md) method for the [AccessKey](../../iam/api-ref/AccessKey/index.md) resource.
+  To create a static access key, use the [create](../../iam/awscompatibility/api-ref/AccessKey/create.md) method for the [AccessKey](../../iam/awscompatibility/api-ref/AccessKey/index.md) resource.
 
 {% endlist %}
 
@@ -178,7 +178,7 @@ To access {{ objstorage-name }} from {{ ml-platform-name }}, you need a [static 
 
 - API {#api}
 
-  Use the [create](../../storage/api-ref/Bucket/create.md) REST API method for the [Bucket](../../storage/api-ref/Bucket/index.md) resource, the [BucketService/Create](../../storage/api-ref/grpc/bucket_service.md#Create) gRPC API call, or the [create](../../storage/s3/api-ref/bucket/create.md) S3 API method.
+  Use the [create](../../storage/api-ref/Bucket/create.md) REST API method for the [Bucket](../../storage/api-ref/Bucket/index.md) resource, the [BucketService/Create](../../storage/api-ref/grpc/Bucket/create.md) gRPC API call, or the [create](../../storage/s3/api-ref/bucket/create.md) S3 API method.
 
 {% endlist %}
 

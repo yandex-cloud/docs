@@ -3,27 +3,30 @@ editable: false
 sourcePath: en/_api-ref/ai/vision/v1/vision/api-ref/Vision/batchAnalyze.md
 ---
 
-# Vision API, REST: Vision.batchAnalyze
-Analyzes a batch of images and returns results with annotations.
- 
+# Vision API, REST: Vision.BatchAnalyze {#BatchAnalyze}
 
- 
-## HTTP request {#https-request}
+Analyzes a batch of images and returns results with annotations.
+
+## HTTP request
+
 ```
 POST https://vision.{{ api-host }}/vision/v1/batchAnalyze
 ```
- 
-## Body parameters {#body_params}
- 
-```json 
+
+## Body parameters {#yandex.cloud.ai.vision.v1.BatchAnalyzeRequest}
+
+```json
 {
   "analyzeSpecs": [
     {
+      // Includes only one of the fields `content`, `signature`
+      "content": "string",
+      "signature": "string",
+      // end of the list of possible fields
       "features": [
         {
           "type": "string",
-
-          // `analyzeSpecs[].features[]` includes only one of the fields `classificationConfig`, `textDetectionConfig`
+          // Includes only one of the fields `classificationConfig`, `textDetectionConfig`
           "classificationConfig": {
             "model": "string"
           },
@@ -32,58 +35,118 @@ POST https://vision.{{ api-host }}/vision/v1/batchAnalyze
               "string"
             ],
             "model": "string"
-          },
-          // end of the list of possible fields`analyzeSpecs[].features[]`
-
+          }
+          // end of the list of possible fields
         }
       ],
-      "mimeType": "string",
-
-      // `analyzeSpecs[]` includes only one of the fields `content`, `signature`
-      "content": "string",
-      "signature": "string",
-      // end of the list of possible fields`analyzeSpecs[]`
-
+      "mimeType": "string"
     }
   ],
   "folderId": "string"
 }
 ```
 
- 
-Field | Description
---- | ---
-analyzeSpecs[] | **object**<br><p>Required. A list of specifications. Each specification contains the file to analyze and features to use for analysis.</p> <p>Restrictions:</p> <ul> <li>Supported file formats: ``JPEG``, ``PNG``.</li> <li>Maximum file size: 1 MB.</li> <li>Image size should not exceed 20M pixels (length x width).</li> </ul> <p>The number of elements must be in the range 1-8.</p> 
-analyzeSpecs[].<br>features[] | **object**<br><p>Required. Requested features to use for analysis.</p> <p>Max count of requested features for one file is 8.</p> <p>The number of elements must be in the range 1-8.</p> 
-analyzeSpecs[].<br>features[].<br>type | **string**<br>Type of requested feature.<br><ul> <li>TEXT_DETECTION: Text detection (OCR) feature.</li> <li>CLASSIFICATION: Classification feature.</li> <li>FACE_DETECTION: Face detection feature.</li> <li>IMAGE_COPY_SEARCH: Image copy search.</li> </ul> 
-analyzeSpecs[].<br>features[].<br>classificationConfig | **object**<br>Required for the `CLASSIFICATION` type. Specifies configuration for the classification feature. <br>`analyzeSpecs[].features[]` includes only one of the fields `classificationConfig`, `textDetectionConfig`<br>
-analyzeSpecs[].<br>features[].<br>classificationConfig.<br>model | **string**<br><p>Model to use for image classification.</p> <p>The maximum string length in characters is 256.</p> 
-analyzeSpecs[].<br>features[].<br>textDetectionConfig | **object**<br>Required for the `TEXT_DETECTION` type. Specifies configuration for the text detection (OCR) feature. <br>`analyzeSpecs[].features[]` includes only one of the fields `classificationConfig`, `textDetectionConfig`<br>
-analyzeSpecs[].<br>features[].<br>textDetectionConfig.<br>languageCodes[] | **string**<br><p>Required. List of the languages to recognize text. Specified in <a href="https://en.wikipedia.org/wiki/ISO_639-1">ISO 639-1</a> format (for example, ``ru``).</p> <p>The number of elements must be in the range 1-8. The maximum string length in characters for each value is 3.</p> 
-analyzeSpecs[].<br>features[].<br>textDetectionConfig.<br>model | **string**<br><p>Model to use for text detection. Possible values:</p> <ul> <li>``page`` (default): this model is suitable for detecting multiple text entries in an image.</li> <li>``line``: this model is suitable for cropped images with one line of text.</li> </ul> <p>The maximum string length in characters is 50.</p> 
-analyzeSpecs[].<br>mimeType | **string**<br><p><a href="https://en.wikipedia.org/wiki/Media_type">MIME type</a> of content (for example, ``application/pdf``).</p> <p>The maximum string length in characters is 255.</p> 
-analyzeSpecs[].<br>content | **string** (byte) <br>`analyzeSpecs[]` includes only one of the fields `content`, `signature`<br><br><p>Image content, represented as a stream of bytes. Note: As with all bytes fields, protobuffers use a pure binary representation, whereas JSON representations use base64.</p> <p>The maximum string length in characters is 10485760.</p> 
-analyzeSpecs[].<br>signature | **string** <br>`analyzeSpecs[]` includes only one of the fields `content`, `signature`<br><br><p>The maximum string length in characters is 16384.</p> 
-folderId | **string**<br><p>ID of the folder to which you have access. Required for authorization with a user account (see <a href="/docs/iam/api-ref/UserAccount#representation">UserAccount</a> resource). Don't specify this field if you make the request on behalf of a service account.</p> <p>The maximum string length in characters is 50.</p> 
- 
-## Response {#responses}
+#|
+||Field | Description ||
+|| analyzeSpecs[] | **[AnalyzeSpec](#yandex.cloud.ai.vision.v1.AnalyzeSpec)**
+
+A list of specifications. Each specification contains the file to analyze and features to use for analysis.
+
+Restrictions:
+* Supported file formats: `JPEG`, `PNG`.
+* Maximum file size: 1 MB.
+* Image size should not exceed 20M pixels (length x width). ||
+|| folderId | **string**
+
+ID of the folder to which you have access.
+Required for authorization with a user account (see [yandex.cloud.iam.v1.UserAccount](/docs/iam/api-ref/Federation/listUserAccounts#yandex.cloud.iam.v1.UserAccount) resource).
+Don't specify this field if you make the request on behalf of a service account. ||
+|#
+
+## AnalyzeSpec {#yandex.cloud.ai.vision.v1.AnalyzeSpec}
+
+#|
+||Field | Description ||
+|| content | **string** (bytes)
+
+Image content, represented as a stream of bytes.
+Note: As with all bytes fields, protobuffers use a pure binary representation, whereas JSON representations use base64.
+
+Includes only one of the fields `content`, `signature`. ||
+|| signature | **string**
+
+Includes only one of the fields `content`, `signature`. ||
+|| features[] | **[Feature](#yandex.cloud.ai.vision.v1.Feature)**
+
+Requested features to use for analysis.
+
+Max count of requested features for one file is 8. ||
+|| mimeType | **string**
+
+[MIME type](https://en.wikipedia.org/wiki/Media_type) of content (for example, `` application/pdf ``). ||
+|#
+
+## Feature {#yandex.cloud.ai.vision.v1.Feature}
+
+#|
+||Field | Description ||
+|| type | **enum** (Type)
+
+Type of requested feature.
+
+- `TYPE_UNSPECIFIED`
+- `TEXT_DETECTION`: Text detection (OCR) feature.
+- `CLASSIFICATION`: Classification feature.
+- `FACE_DETECTION`: Face detection feature.
+- `IMAGE_COPY_SEARCH`: Image copy search. ||
+|| classificationConfig | **[FeatureClassificationConfig](#yandex.cloud.ai.vision.v1.FeatureClassificationConfig)**
+
+Required for the `CLASSIFICATION` type. Specifies configuration for the classification feature.
+
+Includes only one of the fields `classificationConfig`, `textDetectionConfig`. ||
+|| textDetectionConfig | **[FeatureTextDetectionConfig](#yandex.cloud.ai.vision.v1.FeatureTextDetectionConfig)**
+
+Required for the `TEXT_DETECTION` type. Specifies configuration for the text detection (OCR) feature.
+
+Includes only one of the fields `classificationConfig`, `textDetectionConfig`. ||
+|#
+
+## FeatureClassificationConfig {#yandex.cloud.ai.vision.v1.FeatureClassificationConfig}
+
+#|
+||Field | Description ||
+|| model | **string**
+
+Model to use for image classification. ||
+|#
+
+## FeatureTextDetectionConfig {#yandex.cloud.ai.vision.v1.FeatureTextDetectionConfig}
+
+#|
+||Field | Description ||
+|| languageCodes[] | **string**
+
+List of the languages to recognize text.
+Specified in [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) format (for example, `ru`). ||
+|| model | **string**
+
+Model to use for text detection.
+Possible values:
+* `page` (default): this model is suitable for detecting multiple text entries in an image.
+* `line`: this model is suitable for cropped images with one line of text. ||
+|#
+
+## Response {#yandex.cloud.ai.vision.v1.BatchAnalyzeResponse}
+
 **HTTP Code: 200 - OK**
 
-```json 
+```json
 {
   "results": [
     {
       "results": [
         {
-          "error": {
-            "code": "integer",
-            "message": "string",
-            "details": [
-              "object"
-            ]
-          },
-
-          // `results[].results[]` includes only one of the fields `textDetection`, `classification`, `faceDetection`, `imageCopySearch`
+          // Includes only one of the fields `textDetection`, `classification`, `faceDetection`, `imageCopySearch`
           "textDetection": {
             "pages": [
               {
@@ -120,17 +183,17 @@ folderId | **string**<br><p>ID of the folder to which you have access. Required 
                               ]
                             },
                             "text": "string",
-                            "confidence": "number",
+                            "confidence": "string",
                             "languages": [
                               {
                                 "languageCode": "string",
-                                "confidence": "number"
+                                "confidence": "string"
                               }
                             ],
                             "entityIndex": "string"
                           }
                         ],
-                        "confidence": "number"
+                        "confidence": "string"
                       }
                     ]
                   }
@@ -148,7 +211,7 @@ folderId | **string**<br><p>ID of the folder to which you have access. Required 
             "properties": [
               {
                 "name": "string",
-                "probability": "number"
+                "probability": "string"
               }
             ]
           },
@@ -177,8 +240,14 @@ folderId | **string**<br><p>ID of the folder to which you have access. Required 
               }
             ]
           },
-          // end of the list of possible fields`results[].results[]`
-
+          // end of the list of possible fields
+          "error": {
+            "code": "integer",
+            "message": "string",
+            "details": [
+              "object"
+            ]
+          }
         }
       ],
       "error": {
@@ -193,62 +262,263 @@ folderId | **string**<br><p>ID of the folder to which you have access. Required 
 }
 ```
 
- 
-Field | Description
---- | ---
-results[] | **object**<br><p>Request results. Results have the same order as specifications in the request.</p> 
-results[].<br>results[] | **object**<br><p>Results for each requested feature. Feature results have the same order as in the request.</p> 
-results[].<br>results[].<br>error | **object**<br>Return error in case of error during the specified feature processing.
-results[].<br>results[].<br>error.<br>code | **integer** (int32)<br><p>Error code. An enum value of <a href="https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto">google.rpc.Code</a>.</p> 
-results[].<br>results[].<br>error.<br>message | **string**<br><p>An error message.</p> 
-results[].<br>results[].<br>error.<br>details[] | **object**<br><p>A list of messages that carry the error details.</p> 
-results[].<br>results[].<br>textDetection | **object**<br>Text detection (OCR) result. <br>`results[].results[]` includes only one of the fields `textDetection`, `classification`, `faceDetection`, `imageCopySearch`<br>
-results[].<br>results[].<br>textDetection.<br>pages[] | **object**<br><p>Pages of the recognized file.</p> <p>For JPEG and PNG files contains only 1 page.</p> 
-results[].<br>results[].<br>textDetection.<br>pages[].<br>width | **string** (int64)<br><p>Page width in pixels.</p> 
-results[].<br>results[].<br>textDetection.<br>pages[].<br>height | **string** (int64)<br><p>Page height in pixels.</p> 
-results[].<br>results[].<br>textDetection.<br>pages[].<br>blocks[] | **object**<br><p>Recognized text blocks in this page.</p> 
-results[].<br>results[].<br>textDetection.<br>pages[].<br>blocks[].<br>boundingBox | **object**<br><p>Area on the page where the text block is located.</p> 
-results[].<br>results[].<br>textDetection.<br>pages[].<br>blocks[].<br>boundingBox.<br>vertices[] | **object**<br><p>The bounding polygon vertices.</p> 
-results[].<br>results[].<br>textDetection.<br>pages[].<br>blocks[].<br>boundingBox.<br>vertices[].<br>x | **string** (int64)<br><p>X coordinate in pixels.</p> 
-results[].<br>results[].<br>textDetection.<br>pages[].<br>blocks[].<br>boundingBox.<br>vertices[].<br>y | **string** (int64)<br><p>Y coordinate in pixels.</p> 
-results[].<br>results[].<br>textDetection.<br>pages[].<br>blocks[].<br>lines[] | **object**<br><p>Recognized lines in this block.</p> 
-results[].<br>results[].<br>textDetection.<br>pages[].<br>blocks[].<br>lines[].<br>boundingBox | **object**<br><p>Area on the page where the line is located.</p> 
-results[].<br>results[].<br>textDetection.<br>pages[].<br>blocks[].<br>lines[].<br>boundingBox.<br>vertices[] | **object**<br><p>The bounding polygon vertices.</p> 
-results[].<br>results[].<br>textDetection.<br>pages[].<br>blocks[].<br>lines[].<br>boundingBox.<br>vertices[].<br>x | **string** (int64)<br><p>X coordinate in pixels.</p> 
-results[].<br>results[].<br>textDetection.<br>pages[].<br>blocks[].<br>lines[].<br>boundingBox.<br>vertices[].<br>y | **string** (int64)<br><p>Y coordinate in pixels.</p> 
-results[].<br>results[].<br>textDetection.<br>pages[].<br>blocks[].<br>lines[].<br>words[] | **object**<br><p>Recognized words in this line.</p> 
-results[].<br>results[].<br>textDetection.<br>pages[].<br>blocks[].<br>lines[].<br>words[].<br>boundingBox | **object**<br><p>Area on the page where the word is located.</p> 
-results[].<br>results[].<br>textDetection.<br>pages[].<br>blocks[].<br>lines[].<br>words[].<br>boundingBox.<br>vertices[] | **object**<br><p>The bounding polygon vertices.</p> 
-results[].<br>results[].<br>textDetection.<br>pages[].<br>blocks[].<br>lines[].<br>words[].<br>boundingBox.<br>vertices[].<br>x | **string** (int64)<br><p>X coordinate in pixels.</p> 
-results[].<br>results[].<br>textDetection.<br>pages[].<br>blocks[].<br>lines[].<br>words[].<br>boundingBox.<br>vertices[].<br>y | **string** (int64)<br><p>Y coordinate in pixels.</p> 
-results[].<br>results[].<br>textDetection.<br>pages[].<br>blocks[].<br>lines[].<br>words[].<br>text | **string**<br><p>Recognized word value.</p> 
-results[].<br>results[].<br>textDetection.<br>pages[].<br>blocks[].<br>lines[].<br>words[].<br>confidence | **number** (double)<br><p>Confidence of the OCR results for the word. Range [0, 1].</p> 
-results[].<br>results[].<br>textDetection.<br>pages[].<br>blocks[].<br>lines[].<br>words[].<br>languages[] | **object**<br><p>A list of detected languages together with confidence.</p> 
-results[].<br>results[].<br>textDetection.<br>pages[].<br>blocks[].<br>lines[].<br>words[].<br>languages[].<br>languageCode | **string**<br><p>Detected language code.</p> 
-results[].<br>results[].<br>textDetection.<br>pages[].<br>blocks[].<br>lines[].<br>words[].<br>languages[].<br>confidence | **number** (double)<br><p>Confidence of detected language. Range [0, 1].</p> 
-results[].<br>results[].<br>textDetection.<br>pages[].<br>blocks[].<br>lines[].<br>words[].<br>entityIndex | **string** (int64)<br><p>Id of recognized word in entities array</p> 
-results[].<br>results[].<br>textDetection.<br>pages[].<br>blocks[].<br>lines[].<br>confidence | **number** (double)<br><p>Confidence of the OCR results for the line. Range [0, 1].</p> 
-results[].<br>results[].<br>textDetection.<br>pages[].<br>entities[] | **object**<br><p>Recognized entities</p> 
-results[].<br>results[].<br>textDetection.<br>pages[].<br>entities[].<br>name | **string**<br><p>Entity name</p> 
-results[].<br>results[].<br>textDetection.<br>pages[].<br>entities[].<br>text | **string**<br><p>Recognized entity text</p> 
-results[].<br>results[].<br>classification | **object**<br>Classification result. <br>`results[].results[]` includes only one of the fields `textDetection`, `classification`, `faceDetection`, `imageCopySearch`<br>
-results[].<br>results[].<br>classification.<br>properties[] | **object**<br><p>Properties extracted by a specified model.</p> <p>For example, if you ask to evaluate the image quality, the service could return such properties as ``good`` and ``bad``.</p> 
-results[].<br>results[].<br>classification.<br>properties[].<br>name | **string**<br><p>Property name.</p> 
-results[].<br>results[].<br>classification.<br>properties[].<br>probability | **number** (double)<br><p>Probability of the property, from 0 to 1.</p> 
-results[].<br>results[].<br>faceDetection | **object**<br>Face detection result. <br>`results[].results[]` includes only one of the fields `textDetection`, `classification`, `faceDetection`, `imageCopySearch`<br>
-results[].<br>results[].<br>faceDetection.<br>faces[] | **object**<br><p>An array of detected faces for the specified image.</p> 
-results[].<br>results[].<br>faceDetection.<br>faces[].<br>boundingBox | **object**<br><p>Area on the image where the face is located.</p> 
-results[].<br>results[].<br>faceDetection.<br>faces[].<br>boundingBox.<br>vertices[] | **object**<br><p>The bounding polygon vertices.</p> 
-results[].<br>results[].<br>faceDetection.<br>faces[].<br>boundingBox.<br>vertices[].<br>x | **string** (int64)<br><p>X coordinate in pixels.</p> 
-results[].<br>results[].<br>faceDetection.<br>faces[].<br>boundingBox.<br>vertices[].<br>y | **string** (int64)<br><p>Y coordinate in pixels.</p> 
-results[].<br>results[].<br>imageCopySearch | **object**<br>Image Copy Search result. <br>`results[].results[]` includes only one of the fields `textDetection`, `classification`, `faceDetection`, `imageCopySearch`<br>
-results[].<br>results[].<br>imageCopySearch.<br>copyCount | **string** (int64)<br><p>Number of image copies</p> 
-results[].<br>results[].<br>imageCopySearch.<br>topResults[] | **object**<br><p>Top relevance result of image copy search</p> 
-results[].<br>results[].<br>imageCopySearch.<br>topResults[].<br>imageUrl | **string**<br><p>url of image</p> 
-results[].<br>results[].<br>imageCopySearch.<br>topResults[].<br>pageUrl | **string**<br><p>url of page that contains image</p> 
-results[].<br>results[].<br>imageCopySearch.<br>topResults[].<br>title | **string**<br><p>page title that contains image</p> 
-results[].<br>results[].<br>imageCopySearch.<br>topResults[].<br>description | **string**<br><p>image description</p> 
-results[].<br>error | **object**<br><p>Return error in case of error with file processing.</p> <p>The error result of the operation in case of failure or cancellation.</p> 
-results[].<br>error.<br>code | **integer** (int32)<br><p>Error code. An enum value of <a href="https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto">google.rpc.Code</a>.</p> 
-results[].<br>error.<br>message | **string**<br><p>An error message.</p> 
-results[].<br>error.<br>details[] | **object**<br><p>A list of messages that carry the error details.</p> 
+#|
+||Field | Description ||
+|| results[] | **[AnalyzeResult](#yandex.cloud.ai.vision.v1.AnalyzeResult)**
+
+Request results.
+Results have the same order as specifications in the request. ||
+|#
+
+## AnalyzeResult {#yandex.cloud.ai.vision.v1.AnalyzeResult}
+
+#|
+||Field | Description ||
+|| results[] | **[FeatureResult](#yandex.cloud.ai.vision.v1.FeatureResult)**
+
+Results for each requested feature.
+Feature results have the same order as in the request. ||
+|| error | **[Status](#google.rpc.Status)**
+
+The error result of the operation in case of failure or cancellation. ||
+|#
+
+## FeatureResult {#yandex.cloud.ai.vision.v1.FeatureResult}
+
+#|
+||Field | Description ||
+|| textDetection | **[TextAnnotation](#yandex.cloud.ai.vision.v1.TextAnnotation)**
+
+Text detection (OCR) result.
+
+Includes only one of the fields `textDetection`, `classification`, `faceDetection`, `imageCopySearch`. ||
+|| classification | **[ClassAnnotation](#yandex.cloud.ai.vision.v1.ClassAnnotation)**
+
+Classification result.
+
+Includes only one of the fields `textDetection`, `classification`, `faceDetection`, `imageCopySearch`. ||
+|| faceDetection | **[FaceAnnotation](#yandex.cloud.ai.vision.v1.FaceAnnotation)**
+
+Face detection result.
+
+Includes only one of the fields `textDetection`, `classification`, `faceDetection`, `imageCopySearch`. ||
+|| imageCopySearch | **[ImageCopySearchAnnotation](#yandex.cloud.ai.vision.v1.ImageCopySearchAnnotation)**
+
+Image Copy Search result.
+
+Includes only one of the fields `textDetection`, `classification`, `faceDetection`, `imageCopySearch`. ||
+|| error | **[Status](#google.rpc.Status)**
+
+The error result of the operation in case of failure or cancellation. ||
+|#
+
+## TextAnnotation {#yandex.cloud.ai.vision.v1.TextAnnotation}
+
+#|
+||Field | Description ||
+|| pages[] | **[Page](#yandex.cloud.ai.vision.v1.Page)**
+
+Pages of the recognized file.
+
+For JPEG and PNG files contains only 1 page. ||
+|#
+
+## Page {#yandex.cloud.ai.vision.v1.Page}
+
+#|
+||Field | Description ||
+|| width | **string** (int64)
+
+Page width in pixels. ||
+|| height | **string** (int64)
+
+Page height in pixels. ||
+|| blocks[] | **[Block](#yandex.cloud.ai.vision.v1.Block)**
+
+Recognized text blocks in this page. ||
+|| entities[] | **[Entity](#yandex.cloud.ai.vision.v1.Entity)**
+
+Recognized entities ||
+|#
+
+## Block {#yandex.cloud.ai.vision.v1.Block}
+
+#|
+||Field | Description ||
+|| boundingBox | **[Polygon](#yandex.cloud.ai.vision.v1.Polygon)**
+
+Area on the page where the text block is located. ||
+|| lines[] | **[Line](#yandex.cloud.ai.vision.v1.Line)**
+
+Recognized lines in this block. ||
+|#
+
+## Polygon {#yandex.cloud.ai.vision.v1.Polygon}
+
+#|
+||Field | Description ||
+|| vertices[] | **[Vertex](#yandex.cloud.ai.vision.v1.Vertex)**
+
+The bounding polygon vertices. ||
+|#
+
+## Vertex {#yandex.cloud.ai.vision.v1.Vertex}
+
+#|
+||Field | Description ||
+|| x | **string** (int64)
+
+X coordinate in pixels. ||
+|| y | **string** (int64)
+
+Y coordinate in pixels. ||
+|#
+
+## Line {#yandex.cloud.ai.vision.v1.Line}
+
+#|
+||Field | Description ||
+|| boundingBox | **[Polygon](#yandex.cloud.ai.vision.v1.Polygon)**
+
+Area on the page where the line is located. ||
+|| words[] | **[Word](#yandex.cloud.ai.vision.v1.Word)**
+
+Recognized words in this line. ||
+|| confidence | **string**
+
+Confidence of the OCR results for the line. Range [0, 1]. ||
+|#
+
+## Word {#yandex.cloud.ai.vision.v1.Word}
+
+#|
+||Field | Description ||
+|| boundingBox | **[Polygon](#yandex.cloud.ai.vision.v1.Polygon)**
+
+Area on the page where the word is located. ||
+|| text | **string**
+
+Recognized word value. ||
+|| confidence | **string**
+
+Confidence of the OCR results for the word. Range [0, 1]. ||
+|| languages[] | **[DetectedLanguage](#yandex.cloud.ai.vision.v1.Word.DetectedLanguage)**
+
+A list of detected languages together with confidence. ||
+|| entityIndex | **string** (int64)
+
+Id of recognized word in entities array ||
+|#
+
+## DetectedLanguage {#yandex.cloud.ai.vision.v1.Word.DetectedLanguage}
+
+#|
+||Field | Description ||
+|| languageCode | **string**
+
+Detected language code. ||
+|| confidence | **string**
+
+Confidence of detected language. Range [0, 1]. ||
+|#
+
+## Entity {#yandex.cloud.ai.vision.v1.Entity}
+
+#|
+||Field | Description ||
+|| name | **string**
+
+Entity name ||
+|| text | **string**
+
+Recognized entity text ||
+|#
+
+## ClassAnnotation {#yandex.cloud.ai.vision.v1.ClassAnnotation}
+
+#|
+||Field | Description ||
+|| properties[] | **[Property](#yandex.cloud.ai.vision.v1.Property)**
+
+Properties extracted by a specified model.
+
+For example, if you ask to evaluate the image quality,
+the service could return such properties as `good` and `bad`. ||
+|#
+
+## Property {#yandex.cloud.ai.vision.v1.Property}
+
+#|
+||Field | Description ||
+|| name | **string**
+
+Property name. ||
+|| probability | **string**
+
+Probability of the property, from 0 to 1. ||
+|#
+
+## FaceAnnotation {#yandex.cloud.ai.vision.v1.FaceAnnotation}
+
+#|
+||Field | Description ||
+|| faces[] | **[Face](#yandex.cloud.ai.vision.v1.Face)**
+
+An array of detected faces for the specified image. ||
+|#
+
+## Face {#yandex.cloud.ai.vision.v1.Face}
+
+#|
+||Field | Description ||
+|| boundingBox | **[Polygon](#yandex.cloud.ai.vision.v1.Polygon)**
+
+Area on the image where the face is located. ||
+|#
+
+## ImageCopySearchAnnotation {#yandex.cloud.ai.vision.v1.ImageCopySearchAnnotation}
+
+#|
+||Field | Description ||
+|| copyCount | **string** (int64)
+
+Number of image copies ||
+|| topResults[] | **[CopyMatch](#yandex.cloud.ai.vision.v1.CopyMatch)**
+
+Top relevance result of image copy search ||
+|#
+
+## CopyMatch {#yandex.cloud.ai.vision.v1.CopyMatch}
+
+#|
+||Field | Description ||
+|| imageUrl | **string**
+
+url of image ||
+|| pageUrl | **string**
+
+url of page that contains image ||
+|| title | **string**
+
+page title that contains image ||
+|| description | **string**
+
+image description ||
+|#
+
+## Status {#google.rpc.Status}
+
+The error result of the operation in case of failure or cancellation.
+
+#|
+||Field | Description ||
+|| code | **integer** (int32)
+
+Error code. An enum value of [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto). ||
+|| message | **string**
+
+An error message. ||
+|| details[] | **object**
+
+A list of messages that carry the error details. ||
+|#

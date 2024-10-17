@@ -120,6 +120,6 @@ description: Следуя данной инструкции, вы научите
 
 - API {#api}
 
-  Чтобы управлять версионированием бакета, воспользуйтесь методом REST API [update](../../api-ref/Bucket/update.md) для ресурса [Bucket](../../api-ref/Bucket/index.md), вызовом gRPC API [BucketService/Update](../../api-ref/grpc/bucket_service.md#Update) или методом S3 API [putBucketVersioning](../../s3/api-ref/bucket/putBucketVersioning.md).
+  Чтобы управлять версионированием бакета, воспользуйтесь методом REST API [update](../../api-ref/Bucket/update.md) для ресурса [Bucket](../../api-ref/Bucket/index.md), вызовом gRPC API [BucketService/Update](../../api-ref/grpc/Bucket/update.md) или методом S3 API [putBucketVersioning](../../s3/api-ref/bucket/putBucketVersioning.md).
 
 {% endlist %}

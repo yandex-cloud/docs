@@ -16,6 +16,6 @@ description: Follow this guide to delete a {{ video-full-name }} video.
 
 - API {#api}
 
-   Use the [VideoService/Delete](../../api-ref/grpc/video_service.md#Delete) gRPC API call.
+   Use the [VideoService/Delete](../../api-ref/grpc/Video/delete.md) gRPC API call.
 
 {% endlist %}

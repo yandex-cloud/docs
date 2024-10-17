@@ -101,6 +101,6 @@ title: Как получить информацию о целевой групп
 
 - API {#api}
 
-  Чтобы получить подробную информацию о [целевой группе](../concepts/target-group.md), воспользуйтесь методом REST API [get](../api-ref/TargetGroup/get.md) для ресурса [TargetGroup](../api-ref/TargetGroup/index.md) или вызовом gRPC API [TargetGroupService/Get](../api-ref/grpc/target_group_service.md#Get).
+  Чтобы получить подробную информацию о [целевой группе](../concepts/target-group.md), воспользуйтесь методом REST API [get](../api-ref/TargetGroup/get.md) для ресурса [TargetGroup](../api-ref/TargetGroup/index.md) или вызовом gRPC API [TargetGroupService/Get](../api-ref/grpc/TargetGroup/get.md).
 
 {% endlist %}

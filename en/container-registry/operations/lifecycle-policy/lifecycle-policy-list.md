@@ -68,7 +68,7 @@ Find out how to get:
 
 - API {#api}
 
-  To retrieve a list of lifecycle policies, use the [List](../../api-ref/grpc/lifecycle_policy_service.md#List) method for the [LifecyclePolicyService](../../api-ref/grpc/lifecycle_policy_service.md) resource.
+  To retrieve a list of lifecycle policies, use the [List](../../api-ref/grpc/LifecyclePolicy/list.md) method for the [LifecyclePolicyService](../../api-ref/grpc/LifecyclePolicy/index.md) resource.
 
 {% endlist %}
 
@@ -109,8 +109,8 @@ Find out how to get:
 
 - API {#api}
 
-  To get detailed information about a lifecycle policy, use the [Get](../../api-ref/grpc/lifecycle_policy_service.md#Get) method for the [LifecyclePolicyService](../../api-ref/grpc/lifecycle_policy_service.md) resource. Specify the policy ID in the `lifecycle_policy_id` parameter.
+  To get detailed information about a lifecycle policy, use the [Get](../../api-ref/grpc/LifecyclePolicy/index.md#Get) method for the [LifecyclePolicyService](../../api-ref/grpc/LifecyclePolicy/index.md) resource. Specify the policy ID in the `lifecycle_policy_id` parameter.
 
-  You can retrieve a list of policies using the [List](../../api-ref/grpc/lifecycle_policy_service.md#List) method for the [LifecyclePolicyService](../../api-ref/grpc/lifecycle_policy_service.md) resource.
+  You can retrieve a list of policies using the [List](../../api-ref/grpc/LifecyclePolicy/list.md) method for the [LifecyclePolicyService](../../api-ref/grpc/LifecyclePolicy/index.md) resource.
 
 {% endlist %}

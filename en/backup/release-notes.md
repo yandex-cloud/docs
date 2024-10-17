@@ -18,8 +18,8 @@ description: This section contains {{ backup-name }} release notes.
   * [Ubuntu 20.04 LTS OS Login](/marketplace/products/yc/ubuntu-2004-lts-oslogin)
   * [Ubuntu 18.04 LTS OS Login](/marketplace/products/yc/ubuntu-1804-lts-oslogin)
   * [CentOS 7 OS Login](/marketplace/products/yc/centos-7-oslogin)
-* Added the REST API [listTasks](./backup/api-ref/Resource/listTasks.md) method for the [Resource](./backup/api-ref/Resource/index.md) resource and the [ResourceService/ListTasks](./backup/api-ref/grpc/resource_service.md#ListTasks) gRPC API call. You can use them to view the backup activities of connected VMs.
-* Added the following parameters to the REST API methods for the [Resource](./backup/api-ref/Resource/index.md) resource and to the [ResourceService](./backup/api-ref/grpc/resource_service.md) gRPC API calls:
+* Added the REST API [listTasks](./backup/api-ref/Resource/listTasks.md) method for the [Resource](./backup/api-ref/Resource/index.md) resource and the [ResourceService/ListTasks](backup/api-ref/grpc/Resource/listTasks.md) gRPC API call. You can use them to view the backup activities of connected VMs.
+* Added the following parameters to the REST API methods for the [Resource](./backup/api-ref/Resource/index.md) resource and to the [ResourceService](backup/api-ref/grpc/Resource/index.md) gRPC API calls:
   * `initStatus`: VM initialization status in {{ backup-name }}.
   * `metadata`: Metadata for detailed information about the VM registration process in {{ backup-name }}.
 * Added these events to the service's [audit logs](at-ref.md):

@@ -3,40 +3,62 @@ editable: false
 sourcePath: en/_api-ref/clouddesktop/v1/api-ref/Desktop/getRdpFile.md
 ---
 
-# Cloud Desktop API, REST: Desktop.getRdpFile
-Returns a RDP file for the specified desktop.
- 
+# Cloud Desktop API, REST: Desktop.GetRdpFile {#GetRdpFile}
 
- 
-## HTTP request {#https-request}
+Returns a RDP file for the specified desktop.
+
+## HTTP request
+
 ```
 GET https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/desktops/{desktopId}:getRdpFile
 ```
- 
-## Path parameters {#path_params}
- 
-Parameter | Description
---- | ---
-desktopId | <p>Required. ID of the desktop resource to return.</p> <p>To get the desktop ID use a <a href="/docs/cloud-desktop/api-ref/Desktop/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
- 
-## Query parameters {#query_params}
- 
-Parameter | Description
---- | ---
-user.subjectId | <p>Required. Identity of the access binding.</p> 
- 
-## Response {#responses}
+
+## Path parameters
+
+#|
+||Field | Description ||
+|| desktopId | **string**
+
+Required field. ID of the desktop resource to return.
+
+To get the desktop ID use a [DesktopService.List](/docs/cloud-desktop/api-ref/Desktop/list#List) request. ||
+|#
+
+## Query parameters {#yandex.cloud.clouddesktop.v1.api.GetRdpFileRequest}
+
+#|
+||Field | Description ||
+|| user | **[User](#yandex.cloud.clouddesktop.v1.api.User)**
+
+User of the desktop. ||
+|#
+
+## User {#yandex.cloud.clouddesktop.v1.api.User}
+
+#|
+||Field | Description ||
+|| subjectId | **string**
+
+Required field. Identity of the access binding. ||
+|#
+
+## Response {#yandex.cloud.clouddesktop.v1.api.RdpFileResponse}
+
 **HTTP Code: 200 - OK**
 
-```json 
+```json
 {
-  "headers": "object",
+  "headers": "string",
   "content": "string"
 }
 ```
 
- 
-Field | Description
---- | ---
-headers | **object**<br><p>HTTP headers mapping.</p> 
-content | **string**<br><p>RDP file content.</p> 
+#|
+||Field | Description ||
+|| headers | **string**
+
+HTTP headers mapping. ||
+|| content | **string**
+
+RDP file content. ||
+|#

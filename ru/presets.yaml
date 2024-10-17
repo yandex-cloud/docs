@@ -569,6 +569,7 @@ default:
   roles-speechkit-tts: ai.speechkit-tts.user
   roles-speechsense-admin: Admin
   roles-speechsense-data-editor: Data editor
+  roles-speechsense-data-viewer: Data viewer
   roles-speechsense-editor: Editor
   roles-speechsense-viewer: Viewer
   roles-translate-user: ai.translate.user
@@ -9869,6 +9870,7 @@ default:
         edit: Редактировать
         save: Сохранить
       connections:
+        connection: Подключение
         fields:
           client: Клиент
           operator: Оператор
@@ -9878,6 +9880,7 @@ default:
         add-dictionary: Добавить словарь
       projects:
         dialogs: Диалоги
+        projects: Проекты
       tags:
         binding-events-key-value: Ограничения
         binding-events:

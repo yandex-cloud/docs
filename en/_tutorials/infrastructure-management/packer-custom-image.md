@@ -115,7 +115,7 @@ The cost of building a VM image and creating a VM from it includes:
 
    - API
 
-      Use the [list](../../vpc/api-ref/Subnet/list.md) REST API method for the [Subnet](../../vpc/api-ref/Subnet/index.md) resource or the [SubnetService/List](../../vpc/api-ref/grpc/subnet_service.md#List) gRPC API call.
+      Use the [list](../../vpc/api-ref/Subnet/list.md) REST API method for the [Subnet](../../vpc/api-ref/Subnet/index.md) resource or the [SubnetService/List](../../vpc/api-ref/grpc/Subnet/list.md) gRPC API call.
 
    {% endlist %}
 
@@ -369,7 +369,7 @@ The cost of building a VM image and creating a VM from it includes:
 
    - API
 
-      Use the [list](../../compute/api-ref/Image/list.md) REST API method for the [Image](../../compute/api-ref/Image/) resource or the [ImageService/List](../../compute/api-ref/grpc/image_service.md#List) gRPC API call.
+      Use the [list](../../compute/api-ref/Image/list.md) REST API method for the [Image](../../compute/api-ref/Image/) resource or the [ImageService/List](../../compute/api-ref/grpc/Image/list.md) gRPC API call.
 
    {% endlist %}
 
@@ -437,7 +437,7 @@ The cost of building a VM image and creating a VM from it includes:
 
    - API
 
-      Use the [create](../../compute/api-ref/Instance/create.md) REST API method for the [Instance](../../compute/api-ref/Instance/) resource or the [InstanceService/Create](../../compute/api-ref/grpc/instance_service.md#Create) gRPC API call.
+      Use the [create](../../compute/api-ref/Instance/create.md) REST API method for the [Instance](../../compute/api-ref/Instance/) resource or the [InstanceService/Create](../../compute/api-ref/grpc/Instance/create.md) gRPC API call.
 
    {% endlist %}
 

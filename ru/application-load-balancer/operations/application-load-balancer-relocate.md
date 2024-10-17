@@ -125,7 +125,7 @@ description: Следуя данной инструкции, вы сможете
 
    - API {#api}
 
-     Воспользуйтесь методом REST API [update](../api-ref/LoadBalancer/update.md) для ресурса [LoadBalancer](../api-ref/LoadBalancer/index.md) или вызовом gRPC API [LoadBalancerService/Update](../api-ref/grpc/load_balancer_service.md#Update).
+     Воспользуйтесь методом REST API [update](../api-ref/LoadBalancer/update.md) для ресурса [LoadBalancer](../api-ref/LoadBalancer/index.md) или вызовом gRPC API [LoadBalancerService/Update](../api-ref/grpc/LoadBalancer/update.md).
 
    {% endlist %}
 
@@ -146,7 +146,7 @@ description: Следуя данной инструкции, вы сможете
 
    - API {#api}
 
-     Воспользуйтесь методом REST API [getTargetStates](../api-ref/LoadBalancer/getTargetStates.md) для ресурса [LoadBalancer](../api-ref/LoadBalancer/index.md) или вызовом gRPC API [LoadBalancerService/GetTargetStates](../api-ref/grpc/load_balancer_service.md#GetTargetStates).
+     Воспользуйтесь методом REST API [getTargetStates](../api-ref/LoadBalancer/getTargetStates.md) для ресурса [LoadBalancer](../api-ref/LoadBalancer/index.md) или вызовом gRPC API [LoadBalancerService/GetTargetStates](../api-ref/grpc/LoadBalancer/getTargetStates.md).
 
    {% endlist %}
 

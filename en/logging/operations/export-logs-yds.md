@@ -34,7 +34,7 @@ description: In this tutorial, you will learn how to export logs from {{ cloud-l
 
 - API {#api}
 
-   To export logs to a [data stream](../../data-streams/concepts/glossary.md#stream-concepts), use the [update](../api-ref/LogGroup/update.md) REST API method for the [LogGroup](../api-ref/LogGroup/index.md) resource or the [LogGroupService/Update](../api-ref/grpc/log_group_service.md#Update) gRPC API call.
+   To export logs to a [data stream](../../data-streams/concepts/glossary.md#stream-concepts), use the [update](../api-ref/LogGroup/update.md) REST API method for the [LogGroup](../api-ref/LogGroup/index.md) resource or the [LogGroupService/Update](../api-ref/grpc/LogGroup/update.md) gRPC API call.
 
 {% endlist %}
 

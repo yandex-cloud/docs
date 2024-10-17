@@ -28,7 +28,7 @@
 
 - API {#api}
 
-   To remove SSH keys from the VM metadata, use the [updateMetadata](../../compute/api-ref/Instance/updateMetadata.md) REST API method for the [Instance](../../compute/api-ref/Instance/) resource or the [InstanceService/UpdateMetadata](../../compute/api-ref/grpc/instance_service.md#UpdateMetadata) gRPC API call.
+   To remove SSH keys from the VM metadata, use the [updateMetadata](../../compute/api-ref/Instance/updateMetadata.md) REST API method for the [Instance](../../compute/api-ref/Instance/) resource or the [InstanceService/UpdateMetadata](../../compute/api-ref/grpc/Instance/updateMetadata.md) gRPC API call.
 
    In your request, provide the `delete` parameter with the SSH key.
 

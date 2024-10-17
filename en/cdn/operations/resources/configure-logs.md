@@ -28,7 +28,7 @@ To enable log export for a [resource](../../concepts/resource.md):
 
 - API {#api}
 
-   Use the [activate](../../api-ref/RawLogs/activate.md) REST API method for the [RawLogs](../../api-ref/RawLogs/index.md) resource or the [RawLogsService/Activate](../../api-ref/grpc/raw_logs_service.md#Activate) gRPC API call.
+   Use the [activate](../../api-ref/RawLogs/activate.md) REST API method for the [RawLogs](../../api-ref/RawLogs/index.md) resource or the [RawLogsService/Activate](../../api-ref/grpc/RawLogs/activate.md) gRPC API call.
 
 {% endlist %}
 
@@ -58,7 +58,7 @@ To edit export parameters:
 
 - API {#api}
 
-   Use the [update](../../api-ref/RawLogs/update.md) REST API method for the [RawLogs](../../api-ref/RawLogs/index.md) resource or the [RawLogsService/Update](../../api-ref/grpc/raw_logs_service.md#Update) gRPC API call.
+   Use the [update](../../api-ref/RawLogs/update.md) REST API method for the [RawLogs](../../api-ref/RawLogs/index.md) resource or the [RawLogsService/Update](../../api-ref/grpc/RawLogs/update.md) gRPC API call.
 
 {% endlist %}
 
@@ -82,6 +82,6 @@ To disable export:
 
 - API {#api}
 
-   Use the [deactivate](../../api-ref/RawLogs/deactivate.md) REST API method for the [RawLogs](../../api-ref/RawLogs/index.md) resource or the [RawLogsService/Deactivate](../../api-ref/grpc/raw_logs_service.md#Deactivate) gRPC API call.
+   Use the [deactivate](../../api-ref/RawLogs/deactivate.md) REST API method for the [RawLogs](../../api-ref/RawLogs/index.md) resource or the [RawLogsService/Deactivate](../../api-ref/grpc/RawLogs/deactivate.md) gRPC API call.
 
 {% endlist %}

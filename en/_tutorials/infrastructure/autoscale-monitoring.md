@@ -192,11 +192,11 @@ The cost of the infrastructure includes:
      
 - API {#api}
 
-  1. Create a service account named `queue-autoscale-sa` using the [ServiceAccountService/Create](../../iam/api-ref/grpc/service_account_service.md#Create) gRPC API call or the [create](../../iam/api-ref/ServiceAccount/create.md) REST API method. The response will contain the service account ID.
-  1. Assign the service account the `editor` role for `example-folder` using the [FolderService/UpdateAccessBindings](../../resource-manager/api-ref/grpc/folder_service.md#UpdateAccessBindings) gRPC API call or the [updateAccessBindings](../../resource-manager/api-ref/Folder/updateAccessBindings.md) REST API method. In the request body, specify the service account ID.
+  1. Create a service account named `queue-autoscale-sa` using the [ServiceAccountService/Create](../../iam/api-ref/grpc/ServiceAccount/create.md) gRPC API call or the [create](../../iam/api-ref/ServiceAccount/create.md) REST API method. The response will contain the service account ID.
+  1. Assign the service account the `editor` role for `example-folder` using the [FolderService/UpdateAccessBindings](../../resource-manager/api-ref/grpc/Folder/updateAccessBindings.md) gRPC API call or the [updateAccessBindings](../../resource-manager/api-ref/Folder/updateAccessBindings.md) REST API method. In the request body, specify the service account ID.
   1. Create a [static access key](../../iam/concepts/authorization/access-key.md) to enable the service account to work with {{ message-queue-name }} and save the key to the `access_key` file:
   
-     1. Use the [AccessKeyService/Create](../../iam/api-ref/grpc/access_key_service.md#Create) gRPC API call or the [create](../../iam/api-ref/AccessKey/create.md) REST API method.
+     1. Use the [AccessKeyService/Create](../../iam/awscompatibility/api-ref/grpc/AccessKey/create.md) gRPC API call or the [create](../../iam/awscompatibility/api-ref/AccessKey/create.md) REST API method.
      1. Add the key ID and secret key to the `access_key` file in the following format:
           
         ```yaml
@@ -205,8 +205,8 @@ The cost of the infrastructure includes:
         secret: <secret_key>
         ```
         
-  1. Create a cloud network named `queue-autoscale-network` using the [NetworkService/Create](../../vpc/api-ref/grpc/network_service.md#Create) gRPC API call or the [create](../../vpc/api-ref/Network/create.md) REST API method. The response will contain the network ID.
-  1. Create a subnet named `queue-autoscale-subnet-a` in the `{{ region-id }}-a` availability zone with the `192.168.1.0/24` CIDR using the [SubnetService/Create](../../vpc/api-ref/grpc/subnet_service.md#Create) gRPC API call or the [create](../../vpc/api-ref/Subnet/create.md) REST API method. In the request body, specify the network ID.
+  1. Create a cloud network named `queue-autoscale-network` using the [NetworkService/Create](../../vpc/api-ref/grpc/Network/create.md) gRPC API call or the [create](../../vpc/api-ref/Network/create.md) REST API method. The response will contain the network ID.
+  1. Create a subnet named `queue-autoscale-subnet-a` in the `{{ region-id }}-a` availability zone with the `192.168.1.0/24` CIDR using the [SubnetService/Create](../../vpc/api-ref/grpc/Subnet/create.md) gRPC API call or the [create](../../vpc/api-ref/Subnet/create.md) REST API method. In the request body, specify the network ID.
   
 {% endlist %}
 
@@ -372,7 +372,7 @@ You will use the AWS CLI to perform the final step of the script: [checking inst
      
      - API {#api}
      
-       Use the [list](../../iam/api-ref/ServiceAccount/list.md) REST API method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/List](../../iam/api-ref/grpc/service_account_service.md#List) gRPC API call.
+       Use the [list](../../iam/api-ref/ServiceAccount/list.md) REST API method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/List](../../iam/api-ref/grpc/ServiceAccount/list.md) gRPC API call.
      
      {% endlist %}
      
@@ -408,7 +408,7 @@ You will use the AWS CLI to perform the final step of the script: [checking inst
        
      - API {#api}
      
-       Use the [list](../../resource-manager/api-ref/Folder/list.md) REST API method for the [Folder](../../resource-manager/api-ref/Folder/index.md) resource or the [FolderService/List](../../resource-manager/api-ref/grpc/folder_service.md#List) gRPC API call.
+       Use the [list](../../resource-manager/api-ref/Folder/list.md) REST API method for the [Folder](../../resource-manager/api-ref/Folder/index.md) resource or the [FolderService/List](../../resource-manager/api-ref/grpc/Folder/list.md) gRPC API call.
      
      {% endlist %}
      
@@ -450,7 +450,7 @@ You will use the AWS CLI to perform the final step of the script: [checking inst
        
      - API {#api}
      
-       Use the [list](../../vpc/api-ref/Subnet/list.md) REST API method for the [Subnet](../../vpc/api-ref/Subnet/index.md) resource or the [SubnetService/List](../../vpc/api-ref/grpc/subnet_service.md#List) gRPC API call.
+       Use the [list](../../vpc/api-ref/Subnet/list.md) REST API method for the [Subnet](../../vpc/api-ref/Subnet/index.md) resource or the [SubnetService/List](../../vpc/api-ref/grpc/Subnet/list.md) gRPC API call.
      
      {% endlist %}
      
@@ -487,7 +487,7 @@ You will use the AWS CLI to perform the final step of the script: [checking inst
      
    - API {#api}
 
-     Use the [create](../../iam/api-ref/Key/create.md) REST API method for the [Key](../../iam/api-ref/Key/index.md) resource or the [KeyService/Create](../../iam/api-ref/grpc/key_service.md#Create) gRPC API call.
+     Use the [create](../../iam/api-ref/Key/create.md) REST API method for the [Key](../../iam/api-ref/Key/index.md) resource or the [KeyService/Create](../../iam/api-ref/grpc/Key/create.md) gRPC API call.
 
    {% endlist %}
      
@@ -635,7 +635,7 @@ You will use the AWS CLI to perform the final step of the script: [checking inst
           
        - API {#api}
         
-         Use the [list](../../vpc/api-ref/Network/list.md) REST API method for the [Network](../../vpc/api-ref/Network/index.md) resource or the [NetworkService/List](../../vpc/api-ref/grpc/network_service.md#List) gRPC API call.
+         Use the [list](../../vpc/api-ref/Network/list.md) REST API method for the [Network](../../vpc/api-ref/Network/index.md) resource or the [NetworkService/List](../../vpc/api-ref/grpc/Network/list.md) gRPC API call.
         
        {% endlist %}
         
@@ -655,7 +655,7 @@ You will use the AWS CLI to perform the final step of the script: [checking inst
      
 - API {#api}
 
-  1. Get the ID of the previously created image from the `queue-autoscale-image` family. To do this, use the [ImageService/GetLatestByFamily](../../compute/api-ref/grpc/image_service.md#GetLatestByFamily) gRPC API call or the [getLatestByFamily](../../compute/api-ref/Image/getLatestByFamily.md) REST API method.
+  1. Get the ID of the previously created image from the `queue-autoscale-image` family. To do this, use the [ImageService/GetLatestByFamily](../../compute/api-ref/grpc/Image/getLatestByFamily.md) gRPC API call or the [getLatestByFamily](../../compute/api-ref/Image/getLatestByFamily.md) REST API method.
   1. Edit the `spec.yaml` instance group specification file:
     
      * In the `folder_id` field, specify the ID of the folder in {{ yandex-cloud }}.
@@ -691,7 +691,7 @@ You will use the AWS CLI to perform the final step of the script: [checking inst
          
        - API {#api}
         
-         Use the [list](../../vpc/api-ref/Network/list.md) REST API method for the [Network](../../vpc/api-ref/Network/index.md) resource or the [NetworkService/List](../../vpc/api-ref/grpc/network_service.md#List) gRPC API call.
+         Use the [list](../../vpc/api-ref/Network/list.md) REST API method for the [Network](../../vpc/api-ref/Network/index.md) resource or the [NetworkService/List](../../vpc/api-ref/grpc/Network/list.md) gRPC API call.
 
        {% endlist %}
         
@@ -701,7 +701,7 @@ You will use the AWS CLI to perform the final step of the script: [checking inst
      
      To learn how to get the IDs of resources (except for images and networks), see step 3 in the section [Create an image with an application](#create-image).
      
-  1. Create an instance group named `queue-autoscale-ig` based on the `spec.yaml` specification. To do this, use the [InstanceGroupService/CreateFromYaml](../../compute/api-ref/grpc/instance_group_service.md#CreateFromYaml) gRPC API call or the [createFromYaml](../../compute/api-ref/InstanceGroup/createFromYaml.md) REST API method.
+  1. Create an instance group named `queue-autoscale-ig` based on the `spec.yaml` specification. To do this, use the [InstanceGroupService/CreateFromYaml](../../compute/instancegroup/api-ref/grpc/InstanceGroup/createFromYaml.md) gRPC API call or the [createFromYaml](../../compute/instancegroup/api-ref/InstanceGroup/createFromYaml.md) REST API method.
 
 {% endlist %}
 

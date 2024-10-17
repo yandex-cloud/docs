@@ -68,7 +68,7 @@ This guide uses [OpenSSL](https://www.openssl.org/) for encrypting data through 
 
     - API {#api}
 
-      To get a public encryption key, use the [AsymmetricEncryptionCryptoService/GetPublicKey](../api-ref/grpc/asymmetric_encryption_crypto_service.md#GetPublicKey) gRPC API call.
+      To get a public encryption key, use the [AsymmetricEncryptionCryptoService/GetPublicKey](../asymmetricencryption/api-ref/grpc/AsymmetricEncryptionCrypto/getPublicKey.md) gRPC API call.
 
     {% endlist %}
 
@@ -308,6 +308,6 @@ This guide uses [OpenSSL](https://www.openssl.org/) for encrypting data through 
 
 - API {#api}
 
-  To decrypt data, use the [AsymmetricEncryptionCryptoService/Decrypt](../api-ref/grpc/asymmetric_encryption_crypto_service.md#Decrypt) gRPC API call.
+  To decrypt data, use the [AsymmetricEncryptionCryptoService/Decrypt](../asymmetricencryption/api-ref/grpc/AsymmetricEncryptionCrypto/decrypt.md) gRPC API call.
 
 {% endlist %}

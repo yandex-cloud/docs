@@ -167,7 +167,7 @@ For granular network access, use [security groups](../../vpc/concepts/security-g
 
    - API {#api}
 
-     Use the [create](../../resource-manager/api-ref/Folder/create.md) REST API method for the [Folder](../../resource-manager/api-ref/Folder/) resource or the [FolderService/Create](../../resource-manager/api-ref/grpc/folder_service.md#Create) gRPC API call.
+     Use the [create](../../resource-manager/api-ref/Folder/create.md) REST API method for the [Folder](../../resource-manager/api-ref/Folder/) resource or the [FolderService/Create](../../resource-manager/api-ref/grpc/Folder/create.md) gRPC API call.
 
    {% endlist %}
 
@@ -236,7 +236,7 @@ In `net-folder`, create a network named `shared-net` with three subnets that hav
 
    - API {#api}
 
-     Use the [create](../../vpc/api-ref/Network/create.md) REST API method for the [Network](../../vpc/api-ref/Network/) resource or the [NetworkService/Create](../../vpc/api-ref/grpc/network_service.md#Create) gRPC API call.
+     Use the [create](../../vpc/api-ref/Network/create.md) REST API method for the [Network](../../vpc/api-ref/Network/) resource or the [NetworkService/Create](../../vpc/api-ref/grpc/Network/create.md) gRPC API call.
 
    {% endlist %}
 
@@ -331,7 +331,7 @@ In `net-folder`, create a network named `shared-net` with three subnets that hav
 
    - API {#api}
 
-     Use the [create](../../vpc/api-ref/Subnet/create.md) REST API method for the [Subnet](../../vpc/api-ref/Subnet/) resource or the [SubnetService/Create](../../vpc/api-ref/grpc/subnet_service.md#Create) gRPC API call.
+     Use the [create](../../vpc/api-ref/Subnet/create.md) REST API method for the [Subnet](../../vpc/api-ref/Subnet/) resource or the [SubnetService/Create](../../vpc/api-ref/grpc/Subnet/create.md) gRPC API call.
 
    {% endlist %}
 
@@ -367,7 +367,7 @@ In `net-folder`, create a network named `shared-net` with three subnets that hav
 
 - API {#api}
 
-  Use the [move](../../vpc/api-ref/Subnet/move.md) REST API method for the [Subnet](../../vpc/api-ref/Subnet/) resource or the [SubnetService/Move](../../vpc/api-ref/grpc/subnet_service.md#Move) gRPC API call.
+  Use the [move](../../vpc/api-ref/Subnet/move.md) REST API method for the [Subnet](../../vpc/api-ref/Subnet/) resource or the [SubnetService/Move](../../vpc/api-ref/grpc/Subnet/move.md) gRPC API call.
 
 {% endlist %}
 
@@ -653,7 +653,7 @@ Create [VMs](../../compute/concepts/vm.md) with the following parameters:
 
 - API {#api}
 
-  To create a VM, use the [create](../../compute/api-ref/Instance/create.md) REST API method for the [Compute Instance](../../compute/api-ref/Instance/) resource or the [InstanceService/Create](../../compute/api-ref/grpc/instance_service.md#Create) gRPC API call.
+  To create a VM, use the [create](../../compute/api-ref/Instance/create.md) REST API method for the [Compute Instance](../../compute/api-ref/Instance/) resource or the [InstanceService/Create](../../compute/api-ref/grpc/Instance/create.md) gRPC API call.
 
 {% endlist %}
 

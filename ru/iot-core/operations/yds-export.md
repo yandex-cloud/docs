@@ -82,7 +82,7 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Чтобы добавить экспорт в {{ yds-name }} для реестра, воспользуйтесь вызовом gRPC API [RegistryService/AddDataStreamExport](../api-ref/grpc/registry_service.md#AddDataStreamExport).
+  Чтобы добавить экспорт в {{ yds-name }} для реестра, воспользуйтесь вызовом gRPC API [RegistryService/AddDataStreamExport](../api-ref/grpc/Registry/addDataStreamExport.md).
 
 {% endlist %}
 

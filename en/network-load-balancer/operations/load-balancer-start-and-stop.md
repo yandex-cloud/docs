@@ -29,7 +29,7 @@ You can stop and restart a network load balancer, if required.
 
 - API {#api}
 
-   To stop a network load balancer, use the [stop](../api-ref/NetworkLoadBalancer/stop.md) REST API method for the [NetworkLoadBalancer](../api-ref/NetworkLoadBalancer/index.md) resource or the [NetworkLoadBalancerService/Stop](../api-ref/grpc/network_load_balancer_service.md#Stop) gRPC API call.
+   To stop a network load balancer, use the [stop](../api-ref/NetworkLoadBalancer/stop.md) REST API method for the [NetworkLoadBalancer](../api-ref/NetworkLoadBalancer/index.md) resource or the [NetworkLoadBalancerService/Stop](../api-ref/grpc/NetworkLoadBalancer/stop.md) gRPC API call.
 
    You can get the load balancer ID with a [list of network load balancers in the folder](load-balancer-list.md#list).
 
@@ -64,7 +64,7 @@ You can restart network load balancers that have the `Stopped` status.
 
 - API {#api}
 
-   To start a network load balancer, use the [start](../api-ref/NetworkLoadBalancer/start.md) REST API method for the [NetworkLoadBalancer](../api-ref/NetworkLoadBalancer/index.md) resource or the [NetworkLoadBalancerService/Start](../api-ref/grpc/network_load_balancer_service.md#Start) gRPC API call.
+   To start a network load balancer, use the [start](../api-ref/NetworkLoadBalancer/start.md) REST API method for the [NetworkLoadBalancer](../api-ref/NetworkLoadBalancer/index.md) resource or the [NetworkLoadBalancerService/Start](../api-ref/grpc/NetworkLoadBalancer/start.md) gRPC API call.
 
    You can get the load balancer ID with a [list of network load balancers in the folder](load-balancer-list.md#list).
 

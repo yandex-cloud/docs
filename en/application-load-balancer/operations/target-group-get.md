@@ -101,6 +101,6 @@ title: How to get information about a target group in {{ alb-full-name }}
 
 - API {#api}
 
-  For detailed information about a [target group](../concepts/target-group.md), use the [get](../api-ref/TargetGroup/get.md) REST API method for the [TargetGroup](../api-ref/TargetGroup/index.md) resource or the [TargetGroupService/Get](../api-ref/grpc/target_group_service.md#Get) gRPC API call.
+  For detailed information about a [target group](../concepts/target-group.md), use the [get](../api-ref/TargetGroup/get.md) REST API method for the [TargetGroup](../api-ref/TargetGroup/index.md) resource or the [TargetGroupService/Get](../api-ref/grpc/TargetGroup/get.md) gRPC API call.
 
 {% endlist %}

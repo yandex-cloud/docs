@@ -3,66 +3,96 @@ editable: false
 sourcePath: en/_api-ref/lockbox/v1/api-ref/Secret/addVersion.md
 ---
 
-# Lockbox API, REST: Secret.addVersion
-Adds new version based on a previous one.
- 
+# Lockbox API, REST: Secret.AddVersion {#AddVersion}
 
- 
-## HTTP request {#https-request}
+Adds new version based on a previous one.
+
+## HTTP request
+
 ```
 POST https://{{ api-host-lockbox }}/lockbox/v1/secrets/{secretId}:addVersion
 ```
- 
-## Path parameters {#path_params}
- 
-Parameter | Description
---- | ---
-secretId | <p>Required. ID of the secret.</p> <p>The maximum string length in characters is 50.</p> 
- 
-## Body parameters {#body_params}
- 
-```json 
+
+## Path parameters
+
+#|
+||Field | Description ||
+|| secretId | **string**
+
+Required field. ID of the secret. ||
+|#
+
+## Body parameters {#yandex.cloud.lockbox.v1.AddVersionRequest}
+
+```json
 {
   "description": "string",
   "payloadEntries": [
     {
       "key": "string",
-
-      // `payloadEntries[]` includes only one of the fields `textValue`, `binaryValue`
+      // Includes only one of the fields `textValue`, `binaryValue`
       "textValue": "string",
-      "binaryValue": "string",
-      // end of the list of possible fields`payloadEntries[]`
-
+      "binaryValue": "string"
+      // end of the list of possible fields
     }
   ],
   "baseVersionId": "string"
 }
 ```
 
- 
-Field | Description
---- | ---
-description | **string**<br><p>Description of the version.</p> <p>The maximum string length in characters is 1024.</p> 
-payloadEntries[] | **object**<br><p>Describe how payload entries of the base version change in the added version.</p> <p>The maximum number of elements is 32.</p> 
-payloadEntries[].<br>key | **string**<br><p>Required. Non-confidential key of the entry.</p> <p>The maximum string length in characters is 256. Value must match the regular expression ``[-_./\\@0-9a-zA-Z]+``.</p> 
-payloadEntries[].<br>textValue | **string** <br>`payloadEntries[]` includes only one of the fields `textValue`, `binaryValue`<br><br><p>Use the field to set a text value.</p> <p>The maximum string length in characters is 65536.</p> 
-payloadEntries[].<br>binaryValue | **string** (byte) <br>`payloadEntries[]` includes only one of the fields `textValue`, `binaryValue`<br><br><p>Use the field to set a binary value.</p> <p>The maximum string length in characters is 65536.</p> 
-baseVersionId | **string**<br><p>Optional base version id. Defaults to the current version if not specified</p> <p>The maximum string length in characters is 50.</p> 
- 
-## Response {#responses}
+#|
+||Field | Description ||
+|| description | **string**
+
+Description of the version. ||
+|| payloadEntries[] | **[PayloadEntryChange](#yandex.cloud.lockbox.v1.PayloadEntryChange)**
+
+Describe how payload entries of the base version change in the added version. ||
+|| baseVersionId | **string**
+
+Optional base version id. Defaults to the current version if not specified ||
+|#
+
+## PayloadEntryChange {#yandex.cloud.lockbox.v1.PayloadEntryChange}
+
+#|
+||Field | Description ||
+|| key | **string**
+
+Required field. Non-confidential key of the entry. ||
+|| textValue | **string**
+
+Use the field to set a text value.
+
+Includes only one of the fields `textValue`, `binaryValue`.
+
+Confidential value of the entry. ||
+|| binaryValue | **string** (bytes)
+
+Use the field to set a binary value.
+
+Includes only one of the fields `textValue`, `binaryValue`.
+
+Confidential value of the entry. ||
+|#
+
+## Response {#yandex.cloud.operation.Operation}
+
 **HTTP Code: 200 - OK**
 
-```json 
+```json
 {
   "id": "string",
   "description": "string",
   "createdAt": "string",
   "createdBy": "string",
   "modifiedAt": "string",
-  "done": true,
-  "metadata": "object",
-
-  //  includes only one of the fields `error`, `response`
+  "done": "boolean",
+  "metadata": {
+    "secretId": "string",
+    "versionId": "string"
+  },
+  // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
     "message": "string",
@@ -70,24 +100,211 @@ baseVersionId | **string**<br><p>Optional base version id. Defaults to the curre
       "object"
     ]
   },
-  "response": "object",
+  "response": {
+    "id": "string",
+    "secretId": "string",
+    "createdAt": "string",
+    "destroyAt": "string",
+    "description": "string",
+    "status": "string",
+    "payloadEntryKeys": [
+      "string"
+    ],
+    // Includes only one of the fields `passwordPayloadSpecification`
+    "passwordPayloadSpecification": {
+      "passwordKey": "string",
+      "length": "string",
+      "includeUppercase": "boolean",
+      "includeLowercase": "boolean",
+      "includeDigits": "boolean",
+      "includePunctuation": "boolean",
+      "includedPunctuation": "string",
+      "excludedPunctuation": "string"
+    }
+    // end of the list of possible fields
+  }
   // end of the list of possible fields
-
 }
 ```
+
 An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).
- 
-Field | Description
---- | ---
-id | **string**<br><p>ID of the operation.</p> 
-description | **string**<br><p>Description of the operation. 0-256 characters long.</p> 
-createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
-createdBy | **string**<br><p>ID of the user or service account who initiated the operation.</p> 
-modifiedAt | **string** (date-time)<br><p>The time when the Operation resource was last modified.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
-done | **boolean** (boolean)<br><p>If the value is ``false``, it means the operation is still in progress. If ``true``, the operation is completed, and either ``error`` or ``response`` is available.</p> 
-metadata | **object**<br><p>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any.</p> 
-error | **object**<br>The error result of the operation in case of failure or cancellation. <br> includes only one of the fields `error`, `response`<br>
-error.<br>code | **integer** (int32)<br><p>Error code. An enum value of <a href="https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto">google.rpc.Code</a>.</p> 
-error.<br>message | **string**<br><p>An error message.</p> 
-error.<br>details[] | **object**<br><p>A list of messages that carry the error details.</p> 
-response | **object** <br> includes only one of the fields `error`, `response`<br><br><p>The normal response of the operation in case of success. If the original method returns no data on success, such as Delete, the response is <a href="https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty">google.protobuf.Empty</a>. If the original method is the standard Create/Update, the response should be the target resource of the operation. Any method that returns a long-running operation should document the response type, if any.</p> 
+
+#|
+||Field | Description ||
+|| id | **string**
+
+ID of the operation. ||
+|| description | **string**
+
+Description of the operation. 0-256 characters long. ||
+|| createdAt | **string** (date-time)
+
+Creation timestamp.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| createdBy | **string**
+
+ID of the user or service account who initiated the operation. ||
+|| modifiedAt | **string** (date-time)
+
+The time when the Operation resource was last modified.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| done | **boolean**
+
+If the value is `false`, it means the operation is still in progress.
+If `true`, the operation is completed, and either `error` or `response` is available. ||
+|| metadata | **[AddVersionMetadata](#yandex.cloud.lockbox.v1.AddVersionMetadata)**
+
+Service-specific metadata associated with the operation.
+It typically contains the ID of the target resource that the operation is performed on.
+Any method that returns a long-running operation should document the metadata type, if any. ||
+|| error | **[Status](#google.rpc.Status)**
+
+The error result of the operation in case of failure or cancellation.
+
+Includes only one of the fields `error`, `response`.
+
+The operation result.
+If `done == false` and there was no failure detected, neither `error` nor `response` is set.
+If `done == false` and there was a failure detected, `error` is set.
+If `done == true`, exactly one of `error` or `response` is set. ||
+|| response | **[Version](#yandex.cloud.lockbox.v1.Version)**
+
+The normal response of the operation in case of success.
+If the original method returns no data on success, such as Delete,
+the response is [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty).
+If the original method is the standard Create/Update,
+the response should be the target resource of the operation.
+Any method that returns a long-running operation should document the response type, if any.
+
+Includes only one of the fields `error`, `response`.
+
+The operation result.
+If `done == false` and there was no failure detected, neither `error` nor `response` is set.
+If `done == false` and there was a failure detected, `error` is set.
+If `done == true`, exactly one of `error` or `response` is set. ||
+|#
+
+## AddVersionMetadata {#yandex.cloud.lockbox.v1.AddVersionMetadata}
+
+#|
+||Field | Description ||
+|| secretId | **string**
+
+ID of the secret. ||
+|| versionId | **string**
+
+ID of the added version. ||
+|#
+
+## Status {#google.rpc.Status}
+
+The error result of the operation in case of failure or cancellation.
+
+#|
+||Field | Description ||
+|| code | **integer** (int32)
+
+Error code. An enum value of [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto). ||
+|| message | **string**
+
+An error message. ||
+|| details[] | **object**
+
+A list of messages that carry the error details. ||
+|#
+
+## Version {#yandex.cloud.lockbox.v1.Version}
+
+#|
+||Field | Description ||
+|| id | **string**
+
+ID of the version. ||
+|| secretId | **string**
+
+ID of the secret that the version belongs to. ||
+|| createdAt | **string** (date-time)
+
+Time when the version was created.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| destroyAt | **string** (date-time)
+
+Time when the version is going to be destroyed. Empty unless the status
+is `SCHEDULED_FOR_DESTRUCTION`.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| description | **string**
+
+Description of the version. ||
+|| status | **enum** (Status)
+
+Status of the secret.
+
+- `STATUS_UNSPECIFIED`
+- `ACTIVE`: The version is active and the secret payload can be accessed.
+- `SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed
+is specified in the `Version.destroyAt` field.
+- `DESTROYED`: The version is destroyed and cannot be recovered. ||
+|| payloadEntryKeys[] | **string**
+
+Keys of the entries contained in the version payload. ||
+|| passwordPayloadSpecification | **[PasswordPayloadSpecification](#yandex.cloud.lockbox.v1.PasswordPayloadSpecification)**
+
+Includes only one of the fields `passwordPayloadSpecification`. ||
+|#
+
+## PasswordPayloadSpecification {#yandex.cloud.lockbox.v1.PasswordPayloadSpecification}
+
+#|
+||Field | Description ||
+|| passwordKey | **string**
+
+Required field. key of the entry to store generated password value ||
+|| length | **string** (int64)
+
+password length; by default, a reasonable length will be decided ||
+|| includeUppercase | **boolean**
+
+whether at least one A..Z character is included in the password, true by default ||
+|| includeLowercase | **boolean**
+
+whether at least one a..z character is included in the password, true by default ||
+|| includeDigits | **boolean**
+
+whether at least one 0..9 character is included in the password, true by default ||
+|| includePunctuation | **boolean**
+
+whether at least one punctuation character is included in the password, true by default
+punctuation characters by default (there are 32): !"#$%&'()*+,-./:;<=>?@[\]^_`{\|}~
+to customize the punctuation characters, see included_punctuation and excluded_punctuation below ||
+|| includedPunctuation | **string**
+
+If include_punctuation is true, one of these two fields (not both) may be used optionally to customize the punctuation:
+a string of specific punctuation characters to use (at most, all the 32) ||
+|| excludedPunctuation | **string**
+
+a string of punctuation characters to exclude from the default (at most 31, it's not allowed to exclude all the 32) ||
+|#

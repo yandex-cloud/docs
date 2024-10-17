@@ -32,6 +32,6 @@
 
 - API {#api}
 
-  To get a list of broker certificates, use the [listCertificates](../../iot-core/broker/api-ref/Broker/listCertificates.md) REST API method for the [Broker](../../iot-core/broker/api-ref/Broker/index.md) resource or the [BrokerService/ListCertificates](../../iot-core/broker/api-ref/grpc/broker_service.md#ListCertificates) gRPC API call.
+  To get a list of broker certificates, use the [listCertificates](../../iot-core/broker/api-ref/Broker/listCertificates.md) REST API method for the [Broker](../../iot-core/broker/api-ref/Broker/index.md) resource or the [BrokerService/ListCertificates](../../iot-core/broker/api-ref/grpc/Broker/listCertificates.md) gRPC API call.
 
 {% endlist %}

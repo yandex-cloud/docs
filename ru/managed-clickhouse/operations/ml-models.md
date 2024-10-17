@@ -44,7 +44,7 @@
 
 - API {#api}
 
-    Чтобы получить список моделей в кластере, воспользуйтесь методом REST API [list](../api-ref/MlModel/list.md) для ресурса [MlModel](../api-ref/MlModel/index.md) или вызовом gRPC API [MlModelService/List](../api-ref/grpc/ml_model_service.md#List) и передайте в запросе идентификатор кластера в параметре `clusterId`.
+    Чтобы получить список моделей в кластере, воспользуйтесь методом REST API [list](../api-ref/MlModel/list.md) для ресурса [MlModel](../api-ref/MlModel/index.md) или вызовом gRPC API [MlModelService/List](../api-ref/grpc/MlModel/list.md) и передайте в запросе идентификатор кластера в параметре `clusterId`.
 
     Идентификатор кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -76,7 +76,7 @@
 
 - API {#api}
 
-    Чтобы получить детальную информацию о модели, воспользуйтесь методом REST API [get](../api-ref/MlModel/get.md) для ресурса [MlModel](../api-ref/MlModel/index.md) или вызовом gRPC API [MlModelService/Get](../api-ref/grpc/ml_model_service.md#Get) и передайте в запросе:
+    Чтобы получить детальную информацию о модели, воспользуйтесь методом REST API [get](../api-ref/MlModel/get.md) для ресурса [MlModel](../api-ref/MlModel/index.md) или вызовом gRPC API [MlModelService/Get](../api-ref/grpc/MlModel/get.md) и передайте в запросе:
 
     * Идентификатор кластера в параметре `clusterId`.
     * Имя модели в параметре `mlModelName`.
@@ -161,7 +161,7 @@
 
 - API {#api}
 
-    Чтобы создать модель, воспользуйтесь методом REST API [create](../api-ref/MlModel/create.md) для ресурса [MlModel](../api-ref/MlModel/index.md) или вызовом gRPC API [MlModelService/Create](../api-ref/grpc/ml_model_service.md#Create) и передайте в запросе:
+    Чтобы создать модель, воспользуйтесь методом REST API [create](../api-ref/MlModel/create.md) для ресурса [MlModel](../api-ref/MlModel/index.md) или вызовом gRPC API [MlModelService/Create](../api-ref/grpc/MlModel/create.md) и передайте в запросе:
 
     * Идентификатор кластера в параметре `clusterId`.
     * Имя модели в параметре `mlModelName`.
@@ -265,7 +265,7 @@
 
 - API {#api}
 
-    Чтобы изменить модель, воспользуйтесь методом REST API [update](../api-ref/MlModel/update.md) для ресурса [MlModel](../api-ref/MlModel/index.md) или вызовом gRPC API [MlModelService/Update](../api-ref/grpc/ml_model_service.md#Update) и передайте в запросе:
+    Чтобы изменить модель, воспользуйтесь методом REST API [update](../api-ref/MlModel/update.md) для ресурса [MlModel](../api-ref/MlModel/index.md) или вызовом gRPC API [MlModelService/Update](../api-ref/grpc/MlModel/update.md) и передайте в запросе:
 
     * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](./cluster-list.md#list-clusters).
     * Имя модели в параметре `mlModelName`.
@@ -331,7 +331,7 @@
 
 - API {#api}
 
-    Чтобы удалить модель, воспользуйтесь методом REST API [delete](../api-ref/MlModel/delete.md) для ресурса [MlModel](../api-ref/MlModel/index.md) или вызовом gRPC API [MlModelService/Delete](../api-ref/grpc/ml_model_service.md#Delete) и передайте в запросе:
+    Чтобы удалить модель, воспользуйтесь методом REST API [delete](../api-ref/MlModel/delete.md) для ресурса [MlModel](../api-ref/MlModel/index.md) или вызовом gRPC API [MlModelService/Delete](../api-ref/grpc/MlModel/delete.md) и передайте в запросе:
 
     * Идентификатор кластера в параметре `clusterId`.
     * Имя модели в параметре `mlModelName`.

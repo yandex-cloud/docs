@@ -53,7 +53,7 @@ keywords:
 
 - API {#api}
 
-  Чтобы удалить кластер, воспользуйтесь методом REST API [delete](../api-ref/Cluster/delete.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Delete](../api-ref/grpc/cluster_service.md#Delete) и передайте в запросе идентификатор удаляемого кластера в параметре `clusterId`.
+  Чтобы удалить кластер, воспользуйтесь методом REST API [delete](../api-ref/Cluster/delete.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Delete](../api-ref/grpc/Cluster/delete.md) и передайте в запросе идентификатор удаляемого кластера в параметре `clusterId`.
 
   {% include [get-cluster-id](../../_includes/managed-elasticsearch/get-cluster-id.md) %}
 

@@ -106,7 +106,7 @@ The name of the [default log group](../concepts/log-group.md) is `default`. The 
 
 - API {#api}
 
-   To delete a custom log group, use the [delete](../api-ref/LogGroup/delete.md) REST API method for the [LogGroup](../api-ref/LogGroup/index.md) resource or the [LogGroupService/Delete](../api-ref/grpc/log_group_service.md#Delete) gRPC API call.
+   To delete a custom log group, use the [delete](../api-ref/LogGroup/delete.md) REST API method for the [LogGroup](../api-ref/LogGroup/index.md) resource or the [LogGroupService/Delete](../api-ref/grpc/LogGroup/delete.md) gRPC API call.
 
 
    **Sample request**

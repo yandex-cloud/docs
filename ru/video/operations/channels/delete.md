@@ -15,6 +15,6 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [delete](../../api-ref/Channel/delete.md) для ресурса [Channel](../../api-ref/Channel/index.md) или вызовом gRPC API [ChannelService/Delete](../../api-ref/grpc/channel_service.md#Delete).
+  Воспользуйтесь методом REST API [delete](../../api-ref/Channel/delete.md) для ресурса [Channel](../../api-ref/Channel/index.md) или вызовом gRPC API [ChannelService/Delete](../../api-ref/grpc/Channel/delete.md).
 
 {% endlist %}

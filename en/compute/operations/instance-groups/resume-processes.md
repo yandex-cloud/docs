@@ -16,6 +16,6 @@ To resume processes in an instance group:
 
 - API {#api}
 
-   Use the [resumeProcesses](../../api-ref/InstanceGroup/resumeProcesses.md) REST API method for the [InstanceGroup](../../api-ref/InstanceGroup/index.md) resource or the [InstanceGroupService/ResumeProcesses](../../api-ref/grpc/instance_group_service.md#ResumeProcesses) gRPC API call.
+   Use the [resumeProcesses](../../instancegroup/api-ref/InstanceGroup/resumeProcesses.md) REST API method for the [InstanceGroup](../../instancegroup/api-ref/InstanceGroup/index.md) resource or the [InstanceGroupService/ResumeProcesses](../../instancegroup/api-ref/grpc/InstanceGroup/resumeProcesses.md) gRPC API call.
 
 {% endlist %}

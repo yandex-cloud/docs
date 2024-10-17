@@ -1,6 +1,6 @@
 Regular subscription active status check.
 
-You can get the up-to-date subscription information using the [list](../../marketplace/license-manager/api-ref/Instance/list.md) REST API method for the [Instance](../../marketplace/license-manager/api-ref/Instance/index.md) resource or the [InstanceService/List](../../marketplace/license-manager/api-ref/grpc/instance_service.md#List) gRPC API call.
+You can get the up-to-date subscription information using the [list](../../marketplace/license-manager/api-ref/Instance/list.md) REST API method for the [Instance](../../marketplace/license-manager/api-ref/Instance/index.md) resource or the [InstanceService/List](../../marketplace/license-manager/api-ref/grpc/Instance/list.md) gRPC API call.
 
 {% note info %}
 

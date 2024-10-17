@@ -39,6 +39,6 @@ description: Follow this guide to create a {{ video-full-name }} broadcast.
 
 - API {#api}
 
-   Use the [StreamService/Create](../../api-ref/grpc/stream_service.md#Create) gRPC API call.
+   Use the [StreamService/Create](../../api-ref/grpc/Stream/create.md) gRPC API call.
 
 {% endlist %}

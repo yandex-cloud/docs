@@ -95,7 +95,7 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Чтобы изменить секрет, воспользуйтесь методом REST API [update](../api-ref/Secret/update.md) для ресурса [Secret](../api-ref/Secret/index.md) или вызовом gRPC API [SecretService/Update](../api-ref/grpc/secret_service.md#Update).
+  Чтобы изменить секрет, воспользуйтесь методом REST API [update](../api-ref/Secret/update.md) для ресурса [Secret](../api-ref/Secret/index.md) или вызовом gRPC API [SecretService/Update](../api-ref/grpc/Secret/update.md).
 
 {% endlist %}
 

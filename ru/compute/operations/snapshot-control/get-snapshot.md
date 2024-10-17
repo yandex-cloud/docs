@@ -88,6 +88,6 @@ title: Как получить информацию о снимке диска �
 
 - API {#api}
 
-  Чтобы получить подробную информацию о [снимке диска](../../concepts/snapshot.md), воспользуйтесь методом REST API [get](../../api-ref/Snapshot/get.md) для ресурса [Snapshot](../../api-ref/Snapshot/index.md), или вызовом gRPC API [SnapshotService/Get](../../api-ref/grpc/snapshot_service.md#Get).
+  Чтобы получить подробную информацию о [снимке диска](../../concepts/snapshot.md), воспользуйтесь методом REST API [get](../../api-ref/Snapshot/get.md) для ресурса [Snapshot](../../api-ref/Snapshot/index.md), или вызовом gRPC API [SnapshotService/Get](../../api-ref/grpc/Snapshot/get.md).
 
 {% endlist %}

@@ -3,33 +3,48 @@ editable: false
 sourcePath: en/_api-ref/kms/v1/api-ref/SymmetricKey/listOperations.md
 ---
 
-# Key Management Service API, REST: SymmetricKey.listOperations
-Lists operations for the specified symmetric KMS key.
- 
+# Key Management Service API, REST: SymmetricKey.ListOperations {#ListOperations}
 
- 
-## HTTP request {#https-request}
+Lists operations for the specified symmetric KMS key.
+
+## HTTP request
+
 ```
 GET https://{{ api-host-kms }}/kms/v1/keys/{keyId}/operations
 ```
- 
-## Path parameters {#path_params}
- 
-Parameter | Description
---- | ---
-keyId | <p>Required. ID of the symmetric KMS key to get operations for.</p> <p>To get the key ID, use a <a href="/docs/kms/api-ref/SymmetricKey/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
- 
-## Query parameters {#query_params}
- 
-Parameter | Description
---- | ---
-pageSize | <p>The maximum number of results per page that should be returned. If the number of available results is larger than <a href="/docs/kms/api-ref/SymmetricKey/listOperations#query_params">pageSize</a>, the service returns a <a href="/docs/kms/api-ref/SymmetricKey/listOperations#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests. Default value: 100.</p> <p>The maximum value is 1000.</p> 
-pageToken | <p>Page token. To get the next page of results, set <a href="/docs/kms/api-ref/SymmetricKey/listOperations#query_params">pageToken</a> to the <a href="/docs/kms/api-ref/SymmetricKey/listOperations#responses">nextPageToken</a> returned by a previous list request.</p> <p>The maximum string length in characters is 100.</p> 
- 
-## Response {#responses}
+
+## Path parameters
+
+#|
+||Field | Description ||
+|| keyId | **string**
+
+Required field. ID of the symmetric KMS key to get operations for.
+
+To get the key ID, use a [SymmetricKeyService.List](/docs/kms/api-ref/SymmetricKey/list#List) request. ||
+|#
+
+## Query parameters {#yandex.cloud.kms.v1.ListSymmetricKeyOperationsRequest}
+
+#|
+||Field | Description ||
+|| pageSize | **string** (int64)
+
+The maximum number of results per page that should be returned. If the number of available
+results is larger than `pageSize`, the service returns a [ListSymmetricKeyOperationsResponse.nextPageToken](#yandex.cloud.kms.v1.ListSymmetricKeyOperationsResponse)
+that can be used to get the next page of results in subsequent list requests.
+Default value: 100. ||
+|| pageToken | **string**
+
+Page token. To get the next page of results, set `pageToken` to the
+[ListSymmetricKeyOperationsResponse.nextPageToken](#yandex.cloud.kms.v1.ListSymmetricKeyOperationsResponse) returned by a previous list request. ||
+|#
+
+## Response {#yandex.cloud.kms.v1.ListSymmetricKeyOperationsResponse}
+
 **HTTP Code: 200 - OK**
 
-```json 
+```json
 {
   "operations": [
     {
@@ -38,10 +53,9 @@ pageToken | <p>Page token. To get the next page of results, set <a href="/docs/k
       "createdAt": "string",
       "createdBy": "string",
       "modifiedAt": "string",
-      "done": true,
+      "done": "boolean",
       "metadata": "object",
-
-      // `operations[]` includes only one of the fields `error`, `response`
+      // Includes only one of the fields `error`, `response`
       "error": {
         "code": "integer",
         "message": "string",
@@ -49,29 +63,111 @@ pageToken | <p>Page token. To get the next page of results, set <a href="/docs/k
           "object"
         ]
       },
-      "response": "object",
-      // end of the list of possible fields`operations[]`
-
+      "response": "object"
+      // end of the list of possible fields
     }
   ],
   "nextPageToken": "string"
 }
 ```
 
- 
-Field | Description
---- | ---
-operations[] | **object**<br><p>List of operations for the specified key.</p> 
-operations[].<br>id | **string**<br><p>ID of the operation.</p> 
-operations[].<br>description | **string**<br><p>Description of the operation. 0-256 characters long.</p> 
-operations[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
-operations[].<br>createdBy | **string**<br><p>ID of the user or service account who initiated the operation.</p> 
-operations[].<br>modifiedAt | **string** (date-time)<br><p>The time when the Operation resource was last modified.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
-operations[].<br>done | **boolean** (boolean)<br><p>If the value is ``false``, it means the operation is still in progress. If ``true``, the operation is completed, and either ``error`` or ``response`` is available.</p> 
-operations[].<br>metadata | **object**<br><p>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any.</p> 
-operations[].<br>error | **object**<br>The error result of the operation in case of failure or cancellation. <br>`operations[]` includes only one of the fields `error`, `response`<br>
-operations[].<br>error.<br>code | **integer** (int32)<br><p>Error code. An enum value of <a href="https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto">google.rpc.Code</a>.</p> 
-operations[].<br>error.<br>message | **string**<br><p>An error message.</p> 
-operations[].<br>error.<br>details[] | **object**<br><p>A list of messages that carry the error details.</p> 
-operations[].<br>response | **object** <br>`operations[]` includes only one of the fields `error`, `response`<br><br><p>The normal response of the operation in case of success. If the original method returns no data on success, such as Delete, the response is <a href="https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty">google.protobuf.Empty</a>. If the original method is the standard Create/Update, the response should be the target resource of the operation. Any method that returns a long-running operation should document the response type, if any.</p> 
-nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is larger than <a href="/docs/kms/api-ref/SymmetricKey/listOperations#query_params">pageSize</a>, use the <a href="/docs/kms/api-ref/SymmetricKey/listOperations#responses">nextPageToken</a> as the value for the <a href="/docs/kms/api-ref/SymmetricKey/listOperations#query_params">pageToken</a> query parameter in the next list request. Each subsequent list request will have its own <a href="/docs/kms/api-ref/SymmetricKey/listOperations#responses">nextPageToken</a> to continue paging through the results.</p> 
+#|
+||Field | Description ||
+|| operations[] | **[Operation](#yandex.cloud.operation.Operation)**
+
+List of operations for the specified key. ||
+|| nextPageToken | **string**
+
+This token allows you to get the next page of results for list requests. If the number of results
+is larger than [ListSymmetricKeyOperationsRequest.pageSize](#yandex.cloud.kms.v1.ListSymmetricKeyOperationsRequest), use the `nextPageToken` as the value
+for the [ListSymmetricKeyOperationsRequest.pageToken](#yandex.cloud.kms.v1.ListSymmetricKeyOperationsRequest) query parameter in the next list request.
+Each subsequent list request will have its own `nextPageToken` to continue paging through the results. ||
+|#
+
+## Operation {#yandex.cloud.operation.Operation}
+
+An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).
+
+#|
+||Field | Description ||
+|| id | **string**
+
+ID of the operation. ||
+|| description | **string**
+
+Description of the operation. 0-256 characters long. ||
+|| createdAt | **string** (date-time)
+
+Creation timestamp.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| createdBy | **string**
+
+ID of the user or service account who initiated the operation. ||
+|| modifiedAt | **string** (date-time)
+
+The time when the Operation resource was last modified.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| done | **boolean**
+
+If the value is `false`, it means the operation is still in progress.
+If `true`, the operation is completed, and either `error` or `response` is available. ||
+|| metadata | **object**
+
+Service-specific metadata associated with the operation.
+It typically contains the ID of the target resource that the operation is performed on.
+Any method that returns a long-running operation should document the metadata type, if any. ||
+|| error | **[Status](#google.rpc.Status)**
+
+The error result of the operation in case of failure or cancellation.
+
+Includes only one of the fields `error`, `response`.
+
+The operation result.
+If `done == false` and there was no failure detected, neither `error` nor `response` is set.
+If `done == false` and there was a failure detected, `error` is set.
+If `done == true`, exactly one of `error` or `response` is set. ||
+|| response | **object**
+
+The normal response of the operation in case of success.
+If the original method returns no data on success, such as Delete,
+the response is [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty).
+If the original method is the standard Create/Update,
+the response should be the target resource of the operation.
+Any method that returns a long-running operation should document the response type, if any.
+
+Includes only one of the fields `error`, `response`.
+
+The operation result.
+If `done == false` and there was no failure detected, neither `error` nor `response` is set.
+If `done == false` and there was a failure detected, `error` is set.
+If `done == true`, exactly one of `error` or `response` is set. ||
+|#
+
+## Status {#google.rpc.Status}
+
+The error result of the operation in case of failure or cancellation.
+
+#|
+||Field | Description ||
+|| code | **integer** (int32)
+
+Error code. An enum value of [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto). ||
+|| message | **string**
+
+An error message. ||
+|| details[] | **object**
+
+A list of messages that carry the error details. ||
+|#

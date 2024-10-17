@@ -82,6 +82,6 @@
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [move](../../api-ref/Disk/move.md) для ресурса [Disk](../../api-ref/Disk/index.md) или вызовом gRPC API [DiskService/Move](../../api-ref/grpc/disk_service.md#Move).
+  Воспользуйтесь методом REST API [move](../../api-ref/Disk/move.md) для ресурса [Disk](../../api-ref/Disk/index.md) или вызовом gRPC API [DiskService/Move](../../api-ref/grpc/Disk/move.md).
 
 {% endlist %}

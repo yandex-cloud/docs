@@ -125,6 +125,6 @@ To recreate group instances one by one:
 
 - API {#api}
 
-   Use the [rollingRecreate](../../api-ref/InstanceGroup/rollingRecreate.md) REST API method for the [InstanceGroup](../../api-ref/InstanceGroup/index.md) resource or the [InstanceGroupService/RollingRecreate](../../api-ref/grpc/instance_group_service.md#RollingRecreate) gRPC API call.
+   Use the [rollingRecreate](../../instancegroup/api-ref/InstanceGroup/rollingRecreate.md) REST API method for the [InstanceGroup](../../instancegroup/api-ref/InstanceGroup/index.md) resource or the [InstanceGroupService/RollingRecreate](../../instancegroup/api-ref/grpc/InstanceGroup/rollingRecreate.md) gRPC API call.
 
 {% endlist %}

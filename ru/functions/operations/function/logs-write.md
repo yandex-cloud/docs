@@ -177,7 +177,7 @@
 
 - API {#api}
 
-    Чтобы записывать логи в журнал выполнения функции, воспользуйтесь методом REST API [createVersion](../../functions/api-ref/Function/createVersion.md) для ресурса [Function](../../functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/LogOptions](../../functions/api-ref/grpc/function_service.md#LogOptions).
+    Чтобы записывать логи в журнал выполнения функции, воспользуйтесь методом REST API [createVersion](../../functions/api-ref/Function/createVersion.md) для ресурса [Function](../../functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/LogOptions](../../functions/api-ref/grpc/Function/createVersion.md#yandex.cloud.serverless.functions.v1.LogOptions).
 
 {% endlist %}
 

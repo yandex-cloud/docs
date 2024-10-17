@@ -74,7 +74,7 @@ All actions with {{ api-gw-name }} resources are logged as a list of operations.
 
   Use the `listOperations` REST API method for the relevant resource or the `<service>/ListOperations` gRPC API call.
 
-  For example, for an API gateway, use either the [listOperations](../apigateway/api-ref/ApiGateway/listOperations.md) REST API method for the [ApiGateway](../apigateway/api-ref/ApiGateway/index.md) resource or the [ApiGatewayService/ListOperations](../apigateway/api-ref/grpc/apigateway_service.md#ListOperations) gRPC API call.
+  For example, for an API gateway, use either the [listOperations](../apigateway/api-ref/ApiGateway/listOperations.md) REST API method for the [ApiGateway](../apigateway/api-ref/ApiGateway/index.md) resource or the [ApiGatewayService/ListOperations](../apigateway/api-ref/grpc/ApiGateway/listOperations.md) gRPC API call.
 
 {% endlist %}
 
@@ -126,7 +126,7 @@ All actions with {{ api-gw-name }} resources are logged as a list of operations.
 
     - API {#api}
 
-      Use the [OperationService/Get](../apigateway/api-ref/grpc/operation_service.md#Get) gRPC API call.
+      Use the [OperationService/Get](../apigateway/api-ref/grpc/Operation/get.md) gRPC API call.
 
     {% endlist %}
 

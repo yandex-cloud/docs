@@ -186,7 +186,7 @@ Create a [{{ container-registry-name }} trigger](../../functions/concepts/trigge
 
 - API {#api}
 
-  To create a trigger for {{ container-registry-name }}, use the [create](../../functions/triggers/api-ref/Trigger/create.md) REST API method for the [Trigger](../../functions/triggers/api-ref/Trigger/index.md) resource or the [TriggerService/Create](../../functions/triggers/api-ref/grpc/trigger_service.md#Create) gRPC API call.
+  To create a trigger for {{ container-registry-name }}, use the [create](../../functions/triggers/api-ref/Trigger/create.md) REST API method for the [Trigger](../../functions/triggers/api-ref/Trigger/index.md) resource or the [TriggerService/Create](../../functions/triggers/api-ref/grpc/Trigger/create.md) gRPC API call.
 
 {% endlist %}
 

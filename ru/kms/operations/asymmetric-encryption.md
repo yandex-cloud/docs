@@ -68,7 +68,7 @@ description: Следуя данной инструкции, вы сможете
 
     - API {#api}
 
-      Чтобы получить открытый ключ шифрования, воспользуйтесь вызовом gRPC API [AsymmetricEncryptionCryptoService/GetPublicKey](../api-ref/grpc/asymmetric_encryption_crypto_service.md#GetPublicKey).
+      Чтобы получить открытый ключ шифрования, воспользуйтесь вызовом gRPC API [AsymmetricEncryptionCryptoService/GetPublicKey](../asymmetricencryption/api-ref/grpc/AsymmetricEncryptionCrypto/getPublicKey.md).
 
     {% endlist %}
 
@@ -308,6 +308,6 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Чтобы расшифровать данные, воспользуйтесь вызовом gRPC API [AsymmetricEncryptionCryptoService/Decrypt](../api-ref/grpc/asymmetric_encryption_crypto_service.md#Decrypt).
+  Чтобы расшифровать данные, воспользуйтесь вызовом gRPC API [AsymmetricEncryptionCryptoService/Decrypt](../asymmetricencryption/api-ref/grpc/AsymmetricEncryptionCrypto/decrypt.md).
 
 {% endlist %}

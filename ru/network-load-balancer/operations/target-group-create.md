@@ -81,8 +81,8 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Чтобы создать новую целевую группу, воспользуйтесь методом REST API [create](../api-ref/TargetGroup/create.md) для ресурса [TargetGroup](../api-ref/TargetGroup/index.md) или вызовом gRPC API [TargetGroupService/Create](../api-ref/grpc/target_group_service.md#Create).
+  Чтобы создать новую целевую группу, воспользуйтесь методом REST API [create](../api-ref/TargetGroup/create.md) для ресурса [TargetGroup](../api-ref/TargetGroup/index.md) или вызовом gRPC API [TargetGroupService/Create](../api-ref/grpc/TargetGroup/create.md).
   
-  После создания целевой группы следует добавить в нее целевые ресурсы, по которым будет распределяться нагрузка. Для этого воспользуйтесь методом REST API [addTargets](../api-ref/TargetGroup/addTargets) для ресурса [TargetGroup](../api-ref/TargetGroup/index.md) или вызовом gRPC API [TargetGroupService/AddTargets](../api-ref/grpc/target_group_service.md#AddTargets).
+  После создания целевой группы следует добавить в нее целевые ресурсы, по которым будет распределяться нагрузка. Для этого воспользуйтесь методом REST API [addTargets](../api-ref/TargetGroup/addTargets) для ресурса [TargetGroup](../api-ref/TargetGroup/index.md) или вызовом gRPC API [TargetGroupService/AddTargets](../api-ref/grpc/TargetGroup/addTargets.md).
 
 {% endlist %}

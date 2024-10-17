@@ -91,7 +91,7 @@
 
 * API {#api}
 
-    Чтобы создать лог-группу, воспользуйтесь методом REST API [create](../../logging/api-ref/LogGroup/create.md) для ресурса [LogGroup](../../logging/api-ref/LogGroup/index.md) или вызовом gRPC API [LogGroupService/Create](../../logging/api-ref/grpc/log_group_service.md#Create) и передайте в теле запроса:
+    Чтобы создать лог-группу, воспользуйтесь методом REST API [create](../../logging/api-ref/LogGroup/create.md) для ресурса [LogGroup](../../logging/api-ref/LogGroup/index.md) или вызовом gRPC API [LogGroupService/Create](../../logging/api-ref/grpc/LogGroup/create.md) и передайте в теле запроса:
 
     * Идентификатор каталога в параметре `folderId`. Идентификатор можно получить со [списком каталогов](../../resource-manager/operations/folder/get-id.md).
     * Имя лог-группы `metastore-log-group` в параметре `name`.
@@ -173,7 +173,7 @@
 
 * API {#api}
 
-    Чтобы создать сервисный аккаунт, воспользуйтесь методом REST API [create](../../iam/api-ref/ServiceAccount/create.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/Create](../../iam/api-ref/grpc/service_account_service.md#Create) и передайте в теле запроса:
+    Чтобы создать сервисный аккаунт, воспользуйтесь методом REST API [create](../../iam/api-ref/ServiceAccount/create.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/Create](../../iam/api-ref/grpc/ServiceAccount/create.md) и передайте в теле запроса:
 
     * идентификатор каталога в параметре `folderId`;
     * имя сервисного аккаунта `metastore-logging-sa` в параметре `name`.
@@ -254,7 +254,7 @@
 
 * API {#api}
 
-    Чтобы назначить роль, воспользуйтесь методом REST API [updateAccessBindings](../../resource-manager/api-ref/Folder/updateAccessBindings.md) для ресурса [Folder](../../resource-manager/api-ref/Folder/index.md) или вызовом gRPC API [FolderService/UpdateAccessBindings](../../resource-manager/api-ref/grpc/folder_service.md#UpdateAccessBindings) и передайте в теле запроса:
+    Чтобы назначить роль, воспользуйтесь методом REST API [updateAccessBindings](../../resource-manager/api-ref/Folder/updateAccessBindings.md) для ресурса [Folder](../../resource-manager/api-ref/Folder/index.md) или вызовом gRPC API [FolderService/UpdateAccessBindings](../../resource-manager/api-ref/grpc/Folder/updateAccessBindings.md) и передайте в теле запроса:
 
     * Значение `ADD` в параметре `accessBindingDeltas.action`, чтобы добавить роль.
     * Роль `{{ roles.metastore.integrationProvider }}` в параметре `accessBindingDeltas.accessBinding.roleId`.
@@ -336,7 +336,7 @@
 
 * API {#api}
 
-    Чтобы посмотреть записи в лог-группе, воспользуйтесь вызовом gRPC API [LogReadingService/Read](../../logging/api-ref/grpc/log_reading_service.md#Read).
+    Чтобы посмотреть записи в лог-группе, воспользуйтесь вызовом gRPC API [LogReadingService/Read](../../logging/api-ref/grpc/LogReading/read.md).
 
 {% endlist %}
 

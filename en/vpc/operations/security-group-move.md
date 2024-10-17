@@ -96,7 +96,7 @@ description: Follow this guide to move a security group to a different folder.
 
 - API {#api}
 
-   To move a [security group](../concepts/security-groups.md) to a different folder, use the [move](../api-ref/SecurityGroup/move.md) REST API method for the [SecurityGroup](../api-ref/SecurityGroup/index.md) resource or the [SecurityGroupService/Move](../api-ref/grpc/security_group_service.md#Move) gRPC API call, and provide the following in the request:
+   To move a [security group](../concepts/security-groups.md) to a different folder, use the [move](../api-ref/SecurityGroup/move.md) REST API method for the [SecurityGroup](../api-ref/SecurityGroup/index.md) resource or the [SecurityGroupService/Move](../api-ref/grpc/SecurityGroup/move.md) gRPC API call, and provide the following in the request:
 
    * ID of the security group to be moved, in the `securityGroupId` parameter.
 

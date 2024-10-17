@@ -36,7 +36,7 @@
 
 - API {#api}
 
-  Чтобы посмотреть роли, назначенные на пользовательскую лог-группу, воспользуйтесь методом REST API [listAccessBindings](../api-ref/LogGroup/listAccessBindings.md) для ресурса [LogGroup](../api-ref/LogGroup/index.md) или вызовом gRPC API [LogGroupService/ListAccessBindings](../api-ref/grpc/log_group_service.md#ListAccessBindings).
+  Чтобы посмотреть роли, назначенные на пользовательскую лог-группу, воспользуйтесь методом REST API [listAccessBindings](../api-ref/LogGroup/listAccessBindings.md) для ресурса [LogGroup](../api-ref/LogGroup/index.md) или вызовом gRPC API [LogGroupService/ListAccessBindings](../api-ref/grpc/LogGroup/listAccessBindings.md).
 
 {% endlist %}
 
@@ -95,7 +95,7 @@
 
 - API {#api}
 
-  Чтобы назначить роли на пользовательскую лог-группу, воспользуйтесь методом REST API [setAccessBindings](../api-ref/LogGroup/setAccessBindings.md) для ресурса [LogGroup](../api-ref/LogGroup/index.md) или вызовом gRPC API [LogGroupService/SetAccessBindings](../api-ref/grpc/log_group_service.md#SetAccessBindings).
+  Чтобы назначить роли на пользовательскую лог-группу, воспользуйтесь методом REST API [setAccessBindings](../api-ref/LogGroup/setAccessBindings.md) для ресурса [LogGroup](../api-ref/LogGroup/index.md) или вызовом gRPC API [LogGroupService/SetAccessBindings](../api-ref/grpc/LogGroup/setAccessBindings.md).
 
 {% endlist %}
 
@@ -154,6 +154,6 @@
 
 - API {#api}
 
-  Чтобы отозвать роли, назначенные на пользовательскую лог-группу, воспользуйтесь методом REST API [updateAccessBindings](../api-ref/LogGroup/updateAccessBindings.md) для ресурса [LogGroup](../api-ref/LogGroup/index.md) или вызовом gRPC API [LogGroupService/UpdateAccessBindings](../api-ref/grpc/log_group_service.md#UpdateAccessBindings).
+  Чтобы отозвать роли, назначенные на пользовательскую лог-группу, воспользуйтесь методом REST API [updateAccessBindings](../api-ref/LogGroup/updateAccessBindings.md) для ресурса [LogGroup](../api-ref/LogGroup/index.md) или вызовом gRPC API [LogGroupService/UpdateAccessBindings](../api-ref/grpc/LogGroup/updateAccessBindings.md).
 
 {% endlist %}

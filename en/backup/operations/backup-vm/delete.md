@@ -52,7 +52,7 @@ description: In this tutorial, you will learn how to delete a VM backup in **{{ 
 
 - API {#api}
 
-   To delete a backup, use the [delete](../../backup/api-ref/Backup/delete.md) REST API method for the [Backup](../../backup/api-ref/Backup/index.md) resource or the [BackupService/Delete](../../backup/api-ref/grpc/backup_service.md#Delete) gRPC API call.
+   To delete a backup, use the [delete](../../backup/api-ref/Backup/delete.md) REST API method for the [Backup](../../backup/api-ref/Backup/index.md) resource or the [BackupService/Delete](../../backup/api-ref/grpc/Backup/delete.md) gRPC API call.
 
 {% endlist %}
 

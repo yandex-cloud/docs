@@ -95,6 +95,6 @@ title: How to get information about a disk snapshot schedule in {{ compute-full-
 
 - API {#api}
 
-  To get detailed information about a [disk snapshot schedule](../../concepts/snapshot-schedule.md), use the [get](../../api-ref/SnapshotSchedule/get.md) REST API method for the [SnapshotSchedule](../../api-ref/SnapshotSchedule/index.md) resource or the [SnapshotScheduleService/Get](../../api-ref/grpc/snapshot_schedule_service.md#Get) gRPC API call.
+  To get detailed information about a [disk snapshot schedule](../../concepts/snapshot-schedule.md), use the [get](../../api-ref/SnapshotSchedule/get.md) REST API method for the [SnapshotSchedule](../../api-ref/SnapshotSchedule/index.md) resource or the [SnapshotScheduleService/Get](../../api-ref/grpc/SnapshotSchedule/get.md) gRPC API call.
 
 {% endlist %}

@@ -132,7 +132,7 @@ description: Из статьи вы узнаете, как можно перен
 
    - API {#api}
 
-     Воспользуйтесь методом REST API [update](../../../application-load-balancer/api-ref/LoadBalancer/update.md) для ресурса [LoadBalancer](../../../application-load-balancer/api-ref/LoadBalancer/index.md) или вызовом gRPC API [LoadBalancerService/Update](../../../application-load-balancer/api-ref/grpc/load_balancer_service.md#Update).
+     Воспользуйтесь методом REST API [update](../../../application-load-balancer/api-ref/LoadBalancer/update.md) для ресурса [LoadBalancer](../../../application-load-balancer/api-ref/LoadBalancer/index.md) или вызовом gRPC API [LoadBalancerService/Update](../../../application-load-balancer/api-ref/grpc/LoadBalancer/update.md).
 
    {% endlist %}
 

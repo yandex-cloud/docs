@@ -95,6 +95,6 @@ To allow any user to invoke a function without passing an authorization header, 
 
 - API {#api}
 
-   To make a function public, use the [setAccessBindings](../../functions/api-ref/Function/setAccessBindings.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/SetAccessBindings](../../functions/api-ref/grpc/function_service.md#SetAccessBindings) gRPC API call.
+   To make a function public, use the [setAccessBindings](../../functions/api-ref/Function/setAccessBindings.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/SetAccessBindings](../../functions/api-ref/grpc/Function/setAccessBindings.md) gRPC API call.
 
 {% endlist %}

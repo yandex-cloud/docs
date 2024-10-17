@@ -98,7 +98,7 @@ description: Следуя данной инструкции, вы научите
 
 - API {#api}
 
-    Чтобы создать схему формата данных, воспользуйтесь методом REST API [create](../api-ref/FormatSchema/create.md) для ресурса [FormatSchema](../api-ref/FormatSchema/index.md) или вызовом gRPC API [FormatSchemaService/Create](../api-ref/grpc/format_schema_service.md#Create) и передайте в запросе:
+    Чтобы создать схему формата данных, воспользуйтесь методом REST API [create](../api-ref/FormatSchema/create.md) для ресурса [FormatSchema](../api-ref/FormatSchema/index.md) или вызовом gRPC API [FormatSchemaService/Create](../api-ref/grpc/FormatSchema/create.md) и передайте в запросе:
 
     * Идентификатор кластера в параметре `clusterId`. Идентификатор кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
     * Имя схемы формата в параметре `formatSchemaName`.
@@ -176,7 +176,7 @@ description: Следуя данной инструкции, вы научите
 
 - API {#api}
 
-    Чтобы изменить схему формата данных, воспользуйтесь методом REST API [update](../api-ref/FormatSchema/update.md) для ресурса [FormatSchema](../api-ref/FormatSchema/index.md) или вызовом gRPC API [FormatSchemaService/Update](../api-ref/grpc/format_schema_service.md#Update) и передайте в запросе:
+    Чтобы изменить схему формата данных, воспользуйтесь методом REST API [update](../api-ref/FormatSchema/update.md) для ресурса [FormatSchema](../api-ref/FormatSchema/index.md) или вызовом gRPC API [FormatSchemaService/Update](../api-ref/grpc/FormatSchema/update.md) и передайте в запросе:
 
     * Идентификатор кластера в параметре `clusterId`. Идентификатор кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
     * Имя схемы формата в параметре `formatSchemaName`. Имя схемы можно запросить со [списком схем формата данных в кластере](#list-format-schemas).
@@ -242,7 +242,7 @@ description: Следуя данной инструкции, вы научите
 
 - API {#api}
 
-    Чтобы удалить схему формата данных, воспользуйтесь методом REST API [delete](../api-ref/FormatSchema/delete.md) для ресурса [FormatSchema](../api-ref/FormatSchema/index.md) или вызовом gRPC API [FormatSchemaService/Delete](../api-ref/grpc/format_schema_service.md#Delete) и передайте в запросе:
+    Чтобы удалить схему формата данных, воспользуйтесь методом REST API [delete](../api-ref/FormatSchema/delete.md) для ресурса [FormatSchema](../api-ref/FormatSchema/index.md) или вызовом gRPC API [FormatSchemaService/Delete](../api-ref/grpc/FormatSchema/delete.md) и передайте в запросе:
 
     * Идентификатор кластера в параметре `clusterId`. Идентификатор кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
     * Имя схемы формата в параметре `formatSchemaName`. Имя схемы можно запросить со [списком схем формата данных в кластере](#list-format-schemas).
@@ -274,7 +274,7 @@ description: Следуя данной инструкции, вы научите
 
 - API {#api}
 
-    Чтобы получить список схем формата данных, воспользуйтесь методом REST API [list](../api-ref/FormatSchema/list.md) для ресурса [FormatSchema](../api-ref/FormatSchema/index.md) или вызовом gRPC API [FormatSchemaService/List](../api-ref/grpc/format_schema_service.md#List) и передайте в запросе идентификатор кластера в параметре `clusterId`.
+    Чтобы получить список схем формата данных, воспользуйтесь методом REST API [list](../api-ref/FormatSchema/list.md) для ресурса [FormatSchema](../api-ref/FormatSchema/index.md) или вызовом gRPC API [FormatSchemaService/List](../api-ref/grpc/FormatSchema/list.md) и передайте в запросе идентификатор кластера в параметре `clusterId`.
 
     Идентификатор кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -301,7 +301,7 @@ description: Следуя данной инструкции, вы научите
 
 - API {#api}
 
-    Чтобы получить детальную информацию о схеме формата данных, воспользуйтесь методом REST API [get](../api-ref/FormatSchema/get.md) для ресурса [FormatSchema](../api-ref/FormatSchema/index.md) или вызовом gRPC API [FormatSchemaService/Get](../api-ref/grpc/format_schema_service.md#Get) и передайте в запросе:
+    Чтобы получить детальную информацию о схеме формата данных, воспользуйтесь методом REST API [get](../api-ref/FormatSchema/get.md) для ресурса [FormatSchema](../api-ref/FormatSchema/index.md) или вызовом gRPC API [FormatSchemaService/Get](../api-ref/grpc/FormatSchema/get.md) и передайте в запросе:
 
     * Идентификатор кластера в параметре `clusterId`. Идентификатор кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
     * Имя схемы формата в параметре `formatSchemaName`. Имя схемы можно запросить со [списком схем формата данных в кластере](#list-format-schemas).

@@ -51,7 +51,7 @@ description: Команда Остановить выключает виртуа
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [stop](../../api-ref/Instance/stop.md) для ресурса [Instance](../../api-ref/Instance/) или вызовом gRPC API [InstanceService/Stop](../../api-ref/grpc/instance_service.md#Stop).
+  Воспользуйтесь методом REST API [stop](../../api-ref/Instance/stop.md) для ресурса [Instance](../../api-ref/Instance/) или вызовом gRPC API [InstanceService/Stop](../../api-ref/grpc/Instance/stop.md).
 
 {% endlist %}
 
@@ -99,7 +99,7 @@ description: Команда Остановить выключает виртуа
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [start](../../api-ref/Instance/start.md) для ресурса [Instance](../../api-ref/Instance/) или вызовом gRPC API [InstanceService/Start](../../api-ref/grpc/instance_service.md#Start).
+  Воспользуйтесь методом REST API [start](../../api-ref/Instance/start.md) для ресурса [Instance](../../api-ref/Instance/) или вызовом gRPC API [InstanceService/Start](../../api-ref/grpc/Instance/start.md).
 
 {% endlist %}
 
@@ -145,6 +145,6 @@ description: Команда Остановить выключает виртуа
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [restart](../../api-ref/Instance/restart.md) для ресурса [Instance](../../api-ref/Instance/) или вызовом gRPC API [InstanceService/Restart](../../api-ref/grpc/instance_service.md#Restart).
+  Воспользуйтесь методом REST API [restart](../../api-ref/Instance/restart.md) для ресурса [Instance](../../api-ref/Instance/) или вызовом gRPC API [InstanceService/Restart](../../api-ref/grpc/Instance/restart.md).
 
 {% endlist %}

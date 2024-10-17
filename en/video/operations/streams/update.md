@@ -42,6 +42,6 @@ description: Follow this guide to edit a {{ video-full-name }} broadcast.
 
 - API {#api}
 
-   Use the [StreamService/Update](../../api-ref/grpc/stream_service.md#Update) gRPC API call.
+   Use the [StreamService/Update](../../api-ref/grpc/Stream/update.md) gRPC API call.
 
 {% endlist %}

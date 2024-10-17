@@ -95,6 +95,6 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Чтобы получить информацию о [диске](../../concepts/disk.md), воспользуйтесь методом REST API [get](../../api-ref/Disk/get.md) для ресурса [Disk](../../api-ref/Disk/index.md) или вызовом gRPC API [DiskService/Get](../../api-ref/grpc/disk_service.md#Get).
+  Чтобы получить информацию о [диске](../../concepts/disk.md), воспользуйтесь методом REST API [get](../../api-ref/Disk/get.md) для ресурса [Disk](../../api-ref/Disk/index.md) или вызовом gRPC API [DiskService/Get](../../api-ref/grpc/Disk/get.md).
 
 {% endlist %}

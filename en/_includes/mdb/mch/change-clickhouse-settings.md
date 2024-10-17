@@ -115,7 +115,7 @@
 
 - API {#api}
 
-   To configure {{ CH }}, use the [update](../../../managed-clickhouse/api-ref/Cluster/update.md) REST API method for the [Cluster](../../../managed-clickhouse/api-ref/Cluster/index.md) resource or the [ClusterService/Update](../../../managed-clickhouse/api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
+   To configure {{ CH }}, use the [update](../../../managed-clickhouse/api-ref/Cluster/update.md) REST API method for the [Cluster](../../../managed-clickhouse/api-ref/Cluster/index.md) resource or the [ClusterService/Update](../../../managed-clickhouse/api-ref/grpc/Cluster/update.md) gRPC API call and provide the following in the request:
 
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](../../../managed-clickhouse/operations/cluster-list.md#list-clusters).
    * Required values in the `configSpec.clickhouse.config` parameter.

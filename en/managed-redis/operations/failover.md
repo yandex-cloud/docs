@@ -51,7 +51,7 @@ A [sharded cluster](../concepts/sharding.md) contains one or more master hosts: 
 
 - API {#api}
 
-   To switch the master, use the [startFailover](../api-ref/Cluster/startFailover.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/StartFailover](../api-ref/grpc/cluster_service.md#StartFailover) gRPC API call and provide the following in the request:
+   To switch the master, use the [startFailover](../api-ref/Cluster/startFailover.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/StartFailover](../api-ref/grpc/Cluster/startFailover.md) gRPC API call and provide the following in the request:
 
    * ID of the cluster where you want to switch the master, in the `clusterId` parameter. To find out the cluster ID, get a [list of clusters in the folder](cluster-list.md).
    * For a sharded cluster only: the name of the current master host of the desired shard in the `hostNames` parameter. To find out the name, get a [list of hosts in the cluster](hosts.md#list).

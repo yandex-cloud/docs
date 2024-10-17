@@ -276,7 +276,7 @@ Creating a policy becomes available after you [activate](../../concepts/index.md
 
 - API {#api}
 
-  To create a [backup policy](../../concepts/policy.md), use the [create](../../backup/api-ref/Policy/create.md) REST API method for the [Policy](../../backup/api-ref/Policy/index.md) resource or the [PolicyService/Create](../../backup/api-ref/grpc/policy_service.md#Create) gRPC API call.
+  To create a [backup policy](../../concepts/policy.md), use the [create](../../backup/api-ref/Policy/create.md) REST API method for the [Policy](../../backup/api-ref/Policy/index.md) resource or the [PolicyService/Create](../../backup/api-ref/grpc/Policy/create.md) gRPC API call.
 
 {% endlist %}
 

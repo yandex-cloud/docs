@@ -22,7 +22,7 @@ All actions with security profiles, WAF, and ARL are logged as a list of operati
 
    - API {#api}
 
-      Use the [OperationService/Get](../api-ref/grpc/operation_service.md#Get) gRPC API call.
+      Use the [OperationService/Get](../api-ref/grpc/Operation/get.md) gRPC API call.
 
    {% endlist %}
 

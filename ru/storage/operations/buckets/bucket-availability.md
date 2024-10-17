@@ -152,7 +152,7 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Чтобы открыть публичный доступ к операциям с бакетом, воспользуйтесь методом REST API [update](../../api-ref/Bucket/update.md) для ресурса [Bucket](../../api-ref/Bucket/index.md) или вызовом gRPC API [BucketService/Update](../../api-ref/grpc/bucket_service.md#Update).
+  Чтобы открыть публичный доступ к операциям с бакетом, воспользуйтесь методом REST API [update](../../api-ref/Bucket/update.md) для ресурса [Bucket](../../api-ref/Bucket/index.md) или вызовом gRPC API [BucketService/Update](../../api-ref/grpc/Bucket/update.md).
 
 {% endlist %}
 
@@ -299,7 +299,7 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Чтобы закрыть публичный доступ к операциям с бакетом, воспользуйтесь методом REST API [update](../../api-ref/Bucket/update.md) для ресурса [Bucket](../../api-ref/Bucket/index.md) или вызовом gRPC API [BucketService/Update](../../api-ref/grpc/bucket_service.md#Update).
+  Чтобы закрыть публичный доступ к операциям с бакетом, воспользуйтесь методом REST API [update](../../api-ref/Bucket/update.md) для ресурса [Bucket](../../api-ref/Bucket/index.md) или вызовом gRPC API [BucketService/Update](../../api-ref/grpc/Bucket/update.md).
 
 {% endlist %}
 

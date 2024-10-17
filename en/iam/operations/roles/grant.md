@@ -107,9 +107,9 @@ To select roles, look them up in the [role reference](../../roles-reference.md).
 
 - API {#api}
 
-   To assign a role for a cloud, use the [updateAccessBindings](../../../resource-manager/api-ref/Cloud/updateAccessBindings.md) REST API method for the [Cloud](../../../resource-manager/api-ref/Cloud/index.md) resource or the [CloudService/UpdateAccessBindings](../../../resource-manager/api-ref/grpc/cloud_service.md#UpdateAccessBindings) gRPC API call.
+   To assign a role for a cloud, use the [updateAccessBindings](../../../resource-manager/api-ref/Cloud/updateAccessBindings.md) REST API method for the [Cloud](../../../resource-manager/api-ref/Cloud/index.md) resource or the [CloudService/UpdateAccessBindings](../../../resource-manager/api-ref/grpc/Cloud/updateAccessBindings.md) gRPC API call.
 
-   To assign a role for a folder, use the [updateAccessBindings](../../../resource-manager/api-ref/Folder/updateAccessBindings.md) REST API method for the [Folder](../../../resource-manager/api-ref/Folder/index.md) resource or the [FolderService/UpdateAccessBindings](../../../resource-manager/api-ref/grpc/folder_service.md#UpdateAccessBindings) gRPC API call.
+   To assign a role for a folder, use the [updateAccessBindings](../../../resource-manager/api-ref/Folder/updateAccessBindings.md) REST API method for the [Folder](../../../resource-manager/api-ref/Folder/index.md) resource or the [FolderService/UpdateAccessBindings](../../../resource-manager/api-ref/grpc/Folder/updateAccessBindings.md) gRPC API call.
 
    Provide the following in the request:
 
@@ -256,7 +256,7 @@ To grant access permissions for an organization, you need the `{{ roles-organiza
 
 - API {#api}
 
-   To assign a role for the organization, use the [updateAccessBindings](../../../organization/api-ref/Organization/updateAccessBindings.md) REST API method for the [Organization](../../../organization/api-ref/Organization/index.md) resource or the [OrganizationService/UpdateAccessBindings](../../../organization/api-ref/grpc/organization_service.md#UpdateAccessBindings) gRPC API call and provide the following in the request:
+   To assign a role for the organization, use the [updateAccessBindings](../../../organization/api-ref/Organization/updateAccessBindings.md) REST API method for the [Organization](../../../organization/api-ref/Organization/index.md) resource or the [OrganizationService/UpdateAccessBindings](../../../organization/api-ref/grpc/Organization/updateAccessBindings.md) gRPC API call and provide the following in the request:
 
    * `ADD` value in the `accessBindingDeltas[].action` parameter to add a role.
    * Role in the `accessBindingDeltas[].accessBinding.roleId` parameter.

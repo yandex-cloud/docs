@@ -126,7 +126,7 @@
 
 - API {#api}
 
-  Чтобы создать ключ доступа, воспользуйтесь методом REST API [create](../../api-ref/AccessKey/create.md) для ресурса [AccessKey](../../api-ref/AccessKey/index.md) или вызовом gRPC API [AccessKeyService/Create](../../api-ref/grpc/access_key_service.md#Create).
+  Чтобы создать ключ доступа, воспользуйтесь методом REST API [create](../../awscompatibility/api-ref/AccessKey/create.md) для ресурса [AccessKey](../../awscompatibility/api-ref/AccessKey/index.md) или вызовом gRPC API [AccessKeyService/Create](../../awscompatibility/api-ref/grpc/AccessKey/create.md).
 
 {% endlist %}
 

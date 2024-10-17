@@ -1,16 +1,20 @@
 ---
-sourcePath: en/_api-ref-grpc/load-testing/user/user/api-ref/grpc/index.md
+editable: false
+sourcePath: en/_api-ref-grpc/loadtesting/api/v1/user/api-ref/grpc/index.md
 ---
+
 # Load Testing API: gRPC reference
-This API reference is organized by resource. Actions are performed by sending HTTP requests to resource URLs or making RPC calls. For more information about API architecture, see [API Concepts]({{ api-url-prefix }}/api-design-guide/).
+
+Actions are performed by making RPC calls. For more information about API architecture, see [API Concepts]({{ api-url-prefix }}/api-design-guide/).
 
 See the interface definitions of the API on [GitHub](https://github.com/yandex-cloud/cloudapi).
 
-Service | Description
---- | ---
-[AgentService](./agent_service.md) | A set of methods for managing Load Testing agents.
-[ConfigService](./config_service.md) | A set of methods for managing test configurations.
-[RegressionDashboardService](./regression_dashboard_service.md) | A set of methods for managing Load Testing Regression Dashboards.
-[ReportService](./report_service.md) | A set of methods for managing test reports.
-[TestService](./test_service.md) | A set of methods for managing tests.
-[OperationService](./operation_service.md) | A set of methods for managing operations for asynchronous API requests.
+#|
+||Service | Description ||
+|| [Agent](Agent/index.md) | A set of methods for managing Load Testing agents. ||
+|| [Config](Config/index.md) | A set of methods for managing test configurations. ||
+|| [Operation](Operation/index.md) | A set of methods for managing operations for asynchronous API requests. ||
+|| [RegressionDashboard](RegressionDashboard/index.md) | A set of methods for managing Load Testing Regression Dashboards. ||
+|| [Report](Report/index.md) | A set of methods for managing test reports. ||
+|| [Test](Test/index.md) | A set of methods for managing tests. ||
+|#

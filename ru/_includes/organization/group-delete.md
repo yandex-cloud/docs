@@ -72,6 +72,6 @@
 
 - API {#api}
 
-    Воспользуйтесь методом REST API [Group.delete](../../organization/api-ref/Group/delete.md) для ресурса [Group](../../organization/api-ref/Group/index.md) или вызовом gRPC API [GroupService/Delete](../../organization/api-ref/grpc/group_service.md#Delete).
+    Воспользуйтесь методом REST API [Group.delete](../../organization/api-ref/Group/delete.md) для ресурса [Group](../../organization/api-ref/Group/index.md) или вызовом gRPC API [GroupService/Delete](../../organization/api-ref/grpc/Group/delete.md).
 
 {% endlist %}

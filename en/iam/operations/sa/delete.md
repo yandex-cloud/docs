@@ -104,7 +104,7 @@ Deleting a [service account](../../concepts/users/service-accounts.md) is perman
 
 - API {#api}
 
-   To delete a service account, use the [delete](../../api-ref/ServiceAccount/delete.md) REST API method for the [ServiceAccount](../../api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/Delete](../../api-ref/grpc/service_account_service.md#Delete) gRPC API call.
+   To delete a service account, use the [delete](../../api-ref/ServiceAccount/delete.md) REST API method for the [ServiceAccount](../../api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/Delete](../../api-ref/grpc/ServiceAccount/delete.md) gRPC API call.
 
 {% endlist %}
 

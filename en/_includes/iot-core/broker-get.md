@@ -78,6 +78,6 @@
 
 - API {#api}
 
-   To get detailed information about a broker, use the [get](../../iot-core/broker/api-ref/Broker/get.md) REST API method for the [Broker](../../iot-core/broker/api-ref/Broker/index.md) resource or the [BrokerService/Get](../../iot-core/broker/api-ref/grpc/broker_service.md#Get) gRPC API call.
+   To get detailed information about a broker, use the [get](../../iot-core/broker/api-ref/Broker/get.md) REST API method for the [Broker](../../iot-core/broker/api-ref/Broker/index.md) resource or the [BrokerService/Get](../../iot-core/broker/api-ref/grpc/Broker/get.md) gRPC API call.
 
 {% endlist %}

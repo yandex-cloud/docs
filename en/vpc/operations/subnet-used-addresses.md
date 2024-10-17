@@ -48,7 +48,7 @@ To view a list of internal addresses used in a subnet:
 
 - API {#api}
 
-   Use the [listUsedAddresses](../api-ref/Subnet/listUsedAddresses) REST API method for the [Subnet](../api-ref/Subnet/index.md) resource or the [SubnetService/ListUsedAddresses](../api-ref/grpc/subnet_service.md#ListUsedAddresses) gRPC API call and provide the ID of the subnet you want to update in the `subnetId` request parameter.
+   Use the [listUsedAddresses](../api-ref/Subnet/listUsedAddresses) REST API method for the [Subnet](../api-ref/Subnet/index.md) resource or the [SubnetService/ListUsedAddresses](../api-ref/grpc/Subnet/listUsedAddresses.md) gRPC API call and provide the ID of the subnet you want to update in the `subnetId` request parameter.
 
    {% include [get-subnet-id](../../_includes/vpc/get-subnet-id.md) %}
 

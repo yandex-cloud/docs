@@ -3,32 +3,47 @@ editable: false
 sourcePath: en/_api-ref/mdb/greenplum/v1/api-ref/ResourcePreset/get.md
 ---
 
-# Managed Service for Greenplum® API, REST: ResourcePreset.get
+# Managed Service for Greenplum® API, REST: ResourcePreset.Get {#Get}
+
 Returns the specified resource preset.
- 
-To get the list of available resource presets, make a [list](/docs/managed-greenplum/api-ref/ResourcePreset/list) request.
- 
-## HTTP request {#https-request}
+
+To get the list of available resource presets, make a [List](/docs/managed-greenplum/api-ref/ResourcePreset/list#List) request.
+
+## HTTP request
+
 ```
 GET https://{{ api-host-mdb }}/managed-greenplum/v1/resourcePresets/{resourcePresetId}
 ```
- 
-## Path parameters {#path_params}
- 
-Parameter | Description
---- | ---
-resourcePresetId | <p>Required. ID of the resource preset to return.</p> <p>To get the resource preset ID, use a <a href="/docs/managed-greenplum/api-ref/ResourcePreset/list">list</a> request.</p> 
- 
-## Query parameters {#query_params}
- 
-Parameter | Description
---- | ---
-type | <p>Required. Required. ResourcePreset type - master or segment.</p> <ul> <li>MASTER: Greenplum® master host.</li> <li>SEGMENT: Greenplum® segment host.</li> </ul> 
- 
-## Response {#responses}
+
+## Path parameters
+
+#|
+||Field | Description ||
+|| resourcePresetId | **string**
+
+Required field. ID of the resource preset to return.
+
+To get the resource preset ID, use a [ResourcePresetService.List](/docs/managed-greenplum/api-ref/ResourcePreset/list#List) request. ||
+|#
+
+## Query parameters {#yandex.cloud.mdb.greenplum.v1.GetResourcePresetRequest}
+
+#|
+||Field | Description ||
+|| type | **enum** (Type)
+
+Required field. Required. ResourcePreset type - master or segment.
+
+- `TYPE_UNSPECIFIED`
+- `MASTER`: Greenplum® master host.
+- `SEGMENT`: Greenplum® segment host. ||
+|#
+
+## Response {#yandex.cloud.mdb.greenplum.v1.ResourcePreset}
+
 **HTTP Code: 200 - OK**
 
-```json 
+```json
 {
   "id": "string",
   "zoneIds": [
@@ -44,15 +59,37 @@ type | <p>Required. Required. ResourcePreset type - master or segment.</p> <ul> 
   "maxSegmentInHostCount": "string"
 }
 ```
+
 A preset of resources for hardware configuration of Greenplum® hosts.
- 
-Field | Description
---- | ---
-id | **string**<br><p>ID of the resource preset.</p> 
-zoneIds[] | **string**<br><p>IDs of availability zones where the resource preset is available.</p> 
-diskTypeIds[] | **string**<br><p>IDs of availability disk types available in the resource preset.</p> 
-cores | **string** (int64)<br><p>Number of CPU cores for a Greenplum® host created with the preset.</p> 
-memory | **string** (int64)<br><p>RAM volume for a Greenplum® host created with the preset, in bytes.</p> 
-type | **string**<br><p>Host type.</p> <ul> <li>MASTER: Greenplum® master host.</li> <li>SEGMENT: Greenplum® segment host.</li> </ul> 
-hostCountDivider | **string** (int64)<br><p>The number of hosts must be divisible by <a href="/docs/managed-greenplum/api-ref/ResourcePreset#representation">hostCountDivider</a>.</p> 
-maxSegmentInHostCount | **string** (int64)<br><p>Maximum number of segments in segment host.</p> 
+
+#|
+||Field | Description ||
+|| id | **string**
+
+ID of the resource preset. ||
+|| zoneIds[] | **string**
+
+IDs of availability zones where the resource preset is available. ||
+|| diskTypeIds[] | **string**
+
+IDs of availability disk types available in the resource preset. ||
+|| cores | **string** (int64)
+
+Number of CPU cores for a Greenplum® host created with the preset. ||
+|| memory | **string** (int64)
+
+RAM volume for a Greenplum® host created with the preset, in bytes. ||
+|| type | **enum** (Type)
+
+Host type.
+
+- `TYPE_UNSPECIFIED`
+- `MASTER`: Greenplum® master host.
+- `SEGMENT`: Greenplum® segment host. ||
+|| hostCountDivider | **string** (int64)
+
+The number of hosts must be divisible by `hostCountDivider`. ||
+|| maxSegmentInHostCount | **string** (int64)
+
+Maximum number of segments in segment host. ||
+|#

@@ -548,10 +548,36 @@ items:
             items:
               - name: Overview
                 href: api-ref/grpc/index.md
-              - name: BucketService
-                href: api-ref/grpc/bucket_service.md
-              - name: OperationService
-                href: api-ref/grpc/operation_service.md
+              - name: Bucket
+                items:
+                  - name: Overview
+                    href: api-ref/grpc/Bucket/index.md
+                  - name: List
+                    href: api-ref/grpc/Bucket/list.md
+                  - name: Get
+                    href: api-ref/grpc/Bucket/get.md
+                  - name: Create
+                    href: api-ref/grpc/Bucket/create.md
+                  - name: Update
+                    href: api-ref/grpc/Bucket/update.md
+                  - name: Delete
+                    href: api-ref/grpc/Bucket/delete.md
+                  - name: GetStats
+                    href: api-ref/grpc/Bucket/getStats.md
+                  - name: GetHTTPSConfig
+                    href: api-ref/grpc/Bucket/getHTTPSConfig.md
+                  - name: SetHTTPSConfig
+                    href: api-ref/grpc/Bucket/setHTTPSConfig.md
+                  - name: DeleteHTTPSConfig
+                    href: api-ref/grpc/Bucket/deleteHTTPSConfig.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: api-ref/grpc/Operation/index.md
+                  - name: Get
+                    href: api-ref/grpc/Operation/get.md
+                  - name: Cancel
+                    href: api-ref/grpc/Operation/cancel.md
           - name: REST (англ.)
             items:
               - name: Overview
@@ -560,24 +586,32 @@ items:
                 items:
                   - name: Overview
                     href: api-ref/Bucket/index.md
-                  - name: create
-                    href: api-ref/Bucket/create.md
-                  - name: delete
-                    href: api-ref/Bucket/delete.md
-                  - name: deleteHTTPSConfig
-                    href: api-ref/Bucket/deleteHTTPSConfig.md
-                  - name: get
-                    href: api-ref/Bucket/get.md
-                  - name: getHTTPSConfig
-                    href: api-ref/Bucket/getHTTPSConfig.md
-                  - name: getStats
-                    href: api-ref/Bucket/getStats.md
-                  - name: list
+                  - name: List
                     href: api-ref/Bucket/list.md
-                  - name: setHTTPSConfig
-                    href: api-ref/Bucket/setHTTPSConfig.md
-                  - name: update
+                  - name: Get
+                    href: api-ref/Bucket/get.md
+                  - name: Create
+                    href: api-ref/Bucket/create.md
+                  - name: Update
                     href: api-ref/Bucket/update.md
+                  - name: Delete
+                    href: api-ref/Bucket/delete.md
+                  - name: GetStats
+                    href: api-ref/Bucket/getStats.md
+                  - name: GetHTTPSConfig
+                    href: api-ref/Bucket/getHTTPSConfig.md
+                  - name: SetHTTPSConfig
+                    href: api-ref/Bucket/setHTTPSConfig.md
+                  - name: DeleteHTTPSConfig
+                    href: api-ref/Bucket/deleteHTTPSConfig.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: api-ref/Operation/index.md
+                  - name: Get
+                    href: api-ref/Operation/get.md
+                  - name: Cancel
+                    href: api-ref/Operation/cancel.md
   - name: Метрики {{ monitoring-name }}
     href: metrics.md
   - name: Аудитные логи {{ at-name }}

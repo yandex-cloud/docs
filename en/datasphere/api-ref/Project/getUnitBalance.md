@@ -3,32 +3,38 @@ editable: false
 sourcePath: en/_api-ref/datasphere/v2/api-ref/Project/getUnitBalance.md
 ---
 
-# DataSphere API v2, REST: Project.getUnitBalance
-Returns the unit balance of the specified project.
- 
+# DataSphere API v2, REST: Project.GetUnitBalance {#GetUnitBalance}
 
- 
-## HTTP request {#https-request}
+Returns the unit balance of the specified project.
+
+## HTTP request
+
 ```
 GET https://datasphere.{{ api-host }}/datasphere/v2/projects/{projectId}:unitBalance
 ```
- 
-## Path parameters {#path_params}
- 
-Parameter | Description
---- | ---
-projectId | <p>Required. ID of the project to return the unit balance for.</p> <p>The maximum string length in characters is 50.</p> 
- 
-## Response {#responses}
+
+## Path parameters
+
+#|
+||Field | Description ||
+|| projectId | **string**
+
+Required field. ID of the project to return the unit balance for. ||
+|#
+
+## Response {#yandex.cloud.datasphere.v2.GetUnitBalanceResponse}
+
 **HTTP Code: 200 - OK**
 
-```json 
+```json
 {
-  "unitBalance": "integer"
+  "unitBalance": "string"
 }
 ```
 
- 
-Field | Description
---- | ---
-unitBalance | **integer** (int64)<br><p>The number of units available to the project.</p> 
+#|
+||Field | Description ||
+|| unitBalance | **string** (int64)
+
+The number of units available to the project. ||
+|#

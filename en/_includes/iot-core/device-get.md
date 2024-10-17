@@ -79,6 +79,6 @@
 
 - API {#api}
 
-  To get detailed information about a device, use the [get](../../iot-core/api-ref/Device/get.md) REST API method for the [Device](../../iot-core/api-ref/Device/index.md) resource or the [DeviceService/Get](../../iot-core/api-ref/grpc/device_service.md#Get) gRPC API call.
+  To get detailed information about a device, use the [get](../../iot-core/api-ref/Device/get.md) REST API method for the [Device](../../iot-core/api-ref/Device/index.md) resource or the [DeviceService/Get](../../iot-core/api-ref/grpc/Device/get.md) gRPC API call.
 
 {% endlist %}

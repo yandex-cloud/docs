@@ -223,13 +223,13 @@ To create a [resource](../../concepts/resource.md):
 
 - API {#api}
 
-  If you have not created any resources before, connect to the CDN provider. To do this, use the [activate](../../api-ref/Provider/activate.md) REST API method for the [Provider](../../api-ref/Provider/index.md) resource or the [ProviderService/Activate](../../api-ref/grpc/provider_service.md#Activate) gRPC API call.
-  1. Use the [create](../../api-ref/Resource/create.md) REST API method for the [Resource](../../api-ref/Resource/index.md) resource or the [ResourceService/Create](../../api-ref/grpc/resource_service.md#Create) gRPC API call.
+  If you have not created any resources before, connect to the CDN provider. To do this, use the [activate](../../api-ref/Provider/activate.md) REST API method for the [Provider](../../api-ref/Provider/index.md) resource or the [ProviderService/Activate](../../api-ref/grpc/Provider/activate.md) gRPC API call.
+  1. Use the [create](../../api-ref/Resource/create.md) REST API method for the [Resource](../../api-ref/Resource/index.md) resource or the [ResourceService/Create](../../api-ref/grpc/Resource/create.md) gRPC API call.
 
      You can restrict access to the resource with [secure tokens](../../concepts/secure-tokens.md) and an [IP-based access policy](../../concepts/ip-address-acl.md).
   1. Create a [CNAME record](../../../dns/concepts/resource-record.md#cname) for the CDN resource in [{{ dns-full-name }}](../../../dns):
-     * To get the CNAME record value for a CDN resource, use the [getProviderCName](../../api-ref/Resource/getProviderCName.md) REST API method for the [Resource](../../api-ref/Resource/index.md) resource or the [ResourceService/GetProviderCName](../../api-ref/grpc/resource_service.md#GetProviderCName) gRPC API call.
-     * To create a resource record in a DNS zone, use the [updateRecordSets](../../../dns/api-ref/DnsZone/updateRecordSets.md) REST API method for the [DnsZone](../../../dns/api-ref/DnsZone/index.md) resource or the [DnsZoneService/UpdateRecordSets](../../../dns/api-ref/grpc/dns_zone_service.md#UpdateRecordSets) gRPC API call.
+     * To get the CNAME record value for a CDN resource, use the [getProviderCName](../../api-ref/Resource/getProviderCName.md) REST API method for the [Resource](../../api-ref/Resource/index.md) resource or the [ResourceService/GetProviderCName](../../api-ref/grpc/Resource/getProviderCName.md) gRPC API call.
+     * To create a resource record in a DNS zone, use the [updateRecordSets](../../../dns/api-ref/DnsZone/updateRecordSets.md) REST API method for the [DnsZone](../../../dns/api-ref/DnsZone/index.md) resource or the [DnsZoneService/UpdateRecordSets](../../../dns/api-ref/grpc/DnsZone/updateRecordSets.md) gRPC API call.
 
 {% endlist %}
 

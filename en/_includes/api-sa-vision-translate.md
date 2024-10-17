@@ -75,7 +75,7 @@ To set up authorization on behalf of a service account:
 
       {% include [name-format](./name-format.md) %}
 
-   You can also create a service account using the [ServiceAccountService/Create](../iam/api-ref/grpc/service_account_service.md#Create) gRPC call.
+   You can also create a service account using the [ServiceAccountService/Create](../iam/api-ref/grpc/ServiceAccount/create.md) gRPC call.
 
 {% endlist %}
 
@@ -133,7 +133,7 @@ To set up authorization on behalf of a service account:
    * `<role_ID>`: `ai.translate.user` for {{ translate-full-name }} or `ai.vision.user` for {{ vision-full-name }}.
    * `<service_account_ID>`: `sa-api` service account ID.
 
-   You can also assign service account roles using the [ServiceAccountService/SetAccessBindings](../iam/api-ref/grpc/service_account_service.md#SetAccessBindings) gRPC call.
+   You can also assign service account roles using the [ServiceAccountService/SetAccessBindings](../iam/api-ref/grpc/ServiceAccount/setAccessBindings.md) gRPC call.
 
 {% endlist %}
 
@@ -206,7 +206,7 @@ To set up authorization on behalf of a service account:
    * `<IAM_token>`: Valid authorization token.
    * `<service_account_ID>`: `sa-api` service account ID.
 
-   You can also create an API key using the [ApiKeyService/Create](../iam/api-ref/grpc/api_key_service.md#Create) gRPC API call.
+   You can also create an API key using the [ApiKeyService/Create](../iam/api-ref/grpc/ApiKey/create.md) gRPC API call.
 
 {% endlist %}
 

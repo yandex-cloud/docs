@@ -338,6 +338,6 @@ To create an [L7 load balancer](../concepts/application-load-balancer.md):
 
 - API {#api}
 
-   Use the [create](../api-ref/LoadBalancer/create.md) REST API method for the [LoadBalancer](../api-ref/LoadBalancer/index.md) resource or the [LoadBalancer/Create](../api-ref/grpc/load_balancer_service.md#Create) gRPC API call.
+   Use the [create](../api-ref/LoadBalancer/create.md) REST API method for the [LoadBalancer](../api-ref/LoadBalancer/index.md) resource or the [LoadBalancer/Create](../api-ref/grpc/LoadBalancer/create.md) gRPC API call.
 
 {% endlist %}

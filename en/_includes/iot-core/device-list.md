@@ -37,6 +37,6 @@
 
 - API {#api}
 
-   To get a list of devices in a registry, use the [list](../../iot-core/api-ref/Device/list.md) REST API method for the [Device](../../iot-core/api-ref/Device/index.md) resource or the [DeviceService/List](../../iot-core/api-ref/grpc/device_service.md#List) gRPC API call.
+   To get a list of devices in a registry, use the [list](../../iot-core/api-ref/Device/list.md) REST API method for the [Device](../../iot-core/api-ref/Device/index.md) resource or the [DeviceService/List](../../iot-core/api-ref/grpc/Device/list.md) gRPC API call.
 
 {% endlist %}

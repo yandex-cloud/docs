@@ -108,6 +108,6 @@ To create a [placement group](../../concepts/disk-placement-group.md) for [non-r
 
 - API {#api}
 
-   Use the [create](../../api-ref/DiskPlacementGroup/create.md) REST API method for the [DiskPlacementGroup](../../api-ref/DiskPlacementGroup/index.md) resource or the [DiskPlacementGroupService/Create](../../api-ref/grpc/disk_placement_group_service.md#Create) gRPC API call.
+   Use the [create](../../api-ref/DiskPlacementGroup/create.md) REST API method for the [DiskPlacementGroup](../../api-ref/DiskPlacementGroup/index.md) resource or the [DiskPlacementGroupService/Create](../../api-ref/grpc/DiskPlacementGroup/create.md) gRPC API call.
 
 {% endlist %}

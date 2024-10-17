@@ -74,7 +74,7 @@ description: Из статьи вы узнаете, как удалить гру
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [delete](../../api-ref/OriginGroup/delete.md) для ресурса [OriginGroup](../../api-ref/OriginGroup/index.md) или вызовом gRPC API [OriginGroupService/Delete](../../api-ref/grpc/origin_group_service.md#Delete).
+  Воспользуйтесь методом REST API [delete](../../api-ref/OriginGroup/delete.md) для ресурса [OriginGroup](../../api-ref/OriginGroup/index.md) или вызовом gRPC API [OriginGroupService/Delete](../../api-ref/grpc/OriginGroup/delete.md).
 
 {% endlist %}
 

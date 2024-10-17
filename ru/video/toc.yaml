@@ -156,20 +156,116 @@ items:
         items:
           - name: Overview
             href: api-ref/grpc/index.md
-          - name: ChannelService
-            href: api-ref/grpc/channel_service.md
-          - name: EpisodeService
-            href: api-ref/grpc/episode_service.md
-          - name: StreamLineService
-            href: api-ref/grpc/stream_line_service.md
-          - name: StreamService
-            href: api-ref/grpc/stream_service.md
-          - name: ThumbnailService
-            href: api-ref/grpc/thumbnail_service.md
-          - name: VideoService
-            href: api-ref/grpc/video_service.md
-          - name: OperationService
-            href: api-ref/grpc/operation_service.md
+          - name: Channel
+            items:
+              - name: Overview
+                href: api-ref/grpc/Channel/index.md
+              - name: Get
+                href: api-ref/grpc/Channel/get.md
+              - name: List
+                href: api-ref/grpc/Channel/list.md
+              - name: Create
+                href: api-ref/grpc/Channel/create.md
+              - name: Update
+                href: api-ref/grpc/Channel/update.md
+              - name: Delete
+                href: api-ref/grpc/Channel/delete.md
+          - name: Episode
+            items:
+              - name: Overview
+                href: api-ref/grpc/Episode/index.md
+              - name: Get
+                href: api-ref/grpc/Episode/get.md
+              - name: List
+                href: api-ref/grpc/Episode/list.md
+              - name: Create
+                href: api-ref/grpc/Episode/create.md
+              - name: Update
+                href: api-ref/grpc/Episode/update.md
+              - name: Delete
+                href: api-ref/grpc/Episode/delete.md
+              - name: PerformAction
+                href: api-ref/grpc/Episode/performAction.md
+              - name: GetPlayerURL
+                href: api-ref/grpc/Episode/getPlayerURL.md
+              - name: GetManifests
+                href: api-ref/grpc/Episode/getManifests.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/grpc/Operation/index.md
+              - name: Get
+                href: api-ref/grpc/Operation/get.md
+              - name: Cancel
+                href: api-ref/grpc/Operation/cancel.md
+          - name: StreamLine
+            items:
+              - name: Overview
+                href: api-ref/grpc/StreamLine/index.md
+              - name: Get
+                href: api-ref/grpc/StreamLine/get.md
+              - name: List
+                href: api-ref/grpc/StreamLine/list.md
+              - name: Create
+                href: api-ref/grpc/StreamLine/create.md
+              - name: Update
+                href: api-ref/grpc/StreamLine/update.md
+              - name: Delete
+                href: api-ref/grpc/StreamLine/delete.md
+              - name: PerformAction
+                href: api-ref/grpc/StreamLine/performAction.md
+              - name: GetStreamKey
+                href: api-ref/grpc/StreamLine/getStreamKey.md
+              - name: UpdateStreamKey
+                href: api-ref/grpc/StreamLine/updateStreamKey.md
+          - name: Stream
+            items:
+              - name: Overview
+                href: api-ref/grpc/Stream/index.md
+              - name: Get
+                href: api-ref/grpc/Stream/get.md
+              - name: List
+                href: api-ref/grpc/Stream/list.md
+              - name: Create
+                href: api-ref/grpc/Stream/create.md
+              - name: Update
+                href: api-ref/grpc/Stream/update.md
+              - name: Delete
+                href: api-ref/grpc/Stream/delete.md
+              - name: PerformAction
+                href: api-ref/grpc/Stream/performAction.md
+          - name: Thumbnail
+            items:
+              - name: Overview
+                href: api-ref/grpc/Thumbnail/index.md
+              - name: List
+                href: api-ref/grpc/Thumbnail/list.md
+              - name: Create
+                href: api-ref/grpc/Thumbnail/create.md
+              - name: BatchGenerateDownloadURLs
+                href: api-ref/grpc/Thumbnail/batchGenerateDownloadURLs.md
+              - name: GenerateUploadURL
+                href: api-ref/grpc/Thumbnail/generateUploadURL.md
+          - name: Video
+            items:
+              - name: Overview
+                href: api-ref/grpc/Video/index.md
+              - name: Get
+                href: api-ref/grpc/Video/get.md
+              - name: List
+                href: api-ref/grpc/Video/list.md
+              - name: Create
+                href: api-ref/grpc/Video/create.md
+              - name: Update
+                href: api-ref/grpc/Video/update.md
+              - name: Delete
+                href: api-ref/grpc/Video/delete.md
+              - name: PerformAction
+                href: api-ref/grpc/Video/performAction.md
+              - name: GetPlayerURL
+                href: api-ref/grpc/Video/getPlayerURL.md
+              - name: GetManifests
+                href: api-ref/grpc/Video/getManifests.md
       - name: REST (англ.)
         items:
           - name: Overview
@@ -178,104 +274,112 @@ items:
             items:
               - name: Overview
                 href: api-ref/Channel/index.md
-              - name: create
-                href: api-ref/Channel/create.md
-              - name: delete
-                href: api-ref/Channel/delete.md
-              - name: get
+              - name: Get
                 href: api-ref/Channel/get.md
-              - name: list
+              - name: List
                 href: api-ref/Channel/list.md
-              - name: update
+              - name: Create
+                href: api-ref/Channel/create.md
+              - name: Update
                 href: api-ref/Channel/update.md
+              - name: Delete
+                href: api-ref/Channel/delete.md
           - name: Episode
             items:
               - name: Overview
                 href: api-ref/Episode/index.md
-              - name: create
-                href: api-ref/Episode/create.md
-              - name: delete
-                href: api-ref/Episode/delete.md
-              - name: get
+              - name: Get
                 href: api-ref/Episode/get.md
-              - name: getManifests
-                href: api-ref/Episode/getManifests.md
-              - name: getPlayerURL
-                href: api-ref/Episode/getPlayerURL.md
-              - name: list
+              - name: List
                 href: api-ref/Episode/list.md
-              - name: performAction
-                href: api-ref/Episode/performAction.md
-              - name: update
+              - name: Create
+                href: api-ref/Episode/create.md
+              - name: Update
                 href: api-ref/Episode/update.md
+              - name: Delete
+                href: api-ref/Episode/delete.md
+              - name: PerformAction
+                href: api-ref/Episode/performAction.md
+              - name: GetPlayerURL
+                href: api-ref/Episode/getPlayerURL.md
+              - name: GetManifests
+                href: api-ref/Episode/getManifests.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/Operation/index.md
+              - name: Get
+                href: api-ref/Operation/get.md
+              - name: Cancel
+                href: api-ref/Operation/cancel.md
           - name: StreamLine
             items:
               - name: Overview
                 href: api-ref/StreamLine/index.md
-              - name: create
-                href: api-ref/StreamLine/create.md
-              - name: delete
-                href: api-ref/StreamLine/delete.md
-              - name: get
+              - name: Get
                 href: api-ref/StreamLine/get.md
-              - name: getStreamKey
-                href: api-ref/StreamLine/getStreamKey.md
-              - name: list
+              - name: List
                 href: api-ref/StreamLine/list.md
-              - name: performAction
-                href: api-ref/StreamLine/performAction.md
-              - name: update
+              - name: Create
+                href: api-ref/StreamLine/create.md
+              - name: Update
                 href: api-ref/StreamLine/update.md
-              - name: updateStreamKey
+              - name: Delete
+                href: api-ref/StreamLine/delete.md
+              - name: PerformAction
+                href: api-ref/StreamLine/performAction.md
+              - name: GetStreamKey
+                href: api-ref/StreamLine/getStreamKey.md
+              - name: UpdateStreamKey
                 href: api-ref/StreamLine/updateStreamKey.md
           - name: Stream
             items:
               - name: Overview
                 href: api-ref/Stream/index.md
-              - name: create
-                href: api-ref/Stream/create.md
-              - name: delete
-                href: api-ref/Stream/delete.md
-              - name: get
+              - name: Get
                 href: api-ref/Stream/get.md
-              - name: list
+              - name: List
                 href: api-ref/Stream/list.md
-              - name: performAction
-                href: api-ref/Stream/performAction.md
-              - name: update
+              - name: Create
+                href: api-ref/Stream/create.md
+              - name: Update
                 href: api-ref/Stream/update.md
+              - name: Delete
+                href: api-ref/Stream/delete.md
+              - name: PerformAction
+                href: api-ref/Stream/performAction.md
           - name: Thumbnail
             items:
               - name: Overview
                 href: api-ref/Thumbnail/index.md
-              - name: batchGenerateDownloadURLs
-                href: api-ref/Thumbnail/batchGenerateDownloadURLs.md
-              - name: create
-                href: api-ref/Thumbnail/create.md
-              - name: generateUploadURL
-                href: api-ref/Thumbnail/generateUploadURL.md
-              - name: list
+              - name: List
                 href: api-ref/Thumbnail/list.md
+              - name: Create
+                href: api-ref/Thumbnail/create.md
+              - name: BatchGenerateDownloadURLs
+                href: api-ref/Thumbnail/batchGenerateDownloadURLs.md
+              - name: GenerateUploadURL
+                href: api-ref/Thumbnail/generateUploadURL.md
           - name: Video
             items:
               - name: Overview
                 href: api-ref/Video/index.md
-              - name: create
-                href: api-ref/Video/create.md
-              - name: delete
-                href: api-ref/Video/delete.md
-              - name: get
+              - name: Get
                 href: api-ref/Video/get.md
-              - name: getManifests
-                href: api-ref/Video/getManifests.md
-              - name: getPlayerURL
-                href: api-ref/Video/getPlayerURL.md
-              - name: list
+              - name: List
                 href: api-ref/Video/list.md
-              - name: performAction
-                href: api-ref/Video/performAction.md
-              - name: update
+              - name: Create
+                href: api-ref/Video/create.md
+              - name: Update
                 href: api-ref/Video/update.md
+              - name: Delete
+                href: api-ref/Video/delete.md
+              - name: PerformAction
+                href: api-ref/Video/performAction.md
+              - name: GetPlayerURL
+                href: api-ref/Video/getPlayerURL.md
+              - name: GetManifests
+                href: api-ref/Video/getManifests.md
   - name: История изменений
     href: release-notes.md
 base: ru/video

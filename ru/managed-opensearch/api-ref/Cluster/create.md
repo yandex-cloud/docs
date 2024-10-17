@@ -3,24 +3,24 @@ editable: false
 sourcePath: en/_api-ref/mdb/opensearch/v1/api-ref/Cluster/create.md
 ---
 
-# Managed Service for OpenSearch API, REST: Cluster.create
-Creates an OpenSearch cluster in the specified folder.
- 
+# Managed Service for OpenSearch API, REST: Cluster.Create {#Create}
 
- 
-## HTTP request {#https-request}
+Creates an OpenSearch cluster in the specified folder.
+
+## HTTP request
+
 ```
 POST https://{{ api-host-mdb }}/managed-opensearch/v1/clusters
 ```
- 
-## Body parameters {#body_params}
- 
-```json 
+
+## Body parameters {#yandex.cloud.mdb.opensearch.v1.CreateClusterRequest}
+
+```json
 {
   "folderId": "string",
   "name": "string",
   "description": "string",
-  "labels": "object",
+  "labels": "string",
   "environment": "string",
   "configSpec": {
     "version": "string",
@@ -44,7 +44,7 @@ POST https://{{ api-host-mdb }}/managed-opensearch/v1/clusters
           "subnetIds": [
             "string"
           ],
-          "assignPublicIp": true,
+          "assignPublicIp": "boolean",
           "roles": [
             "string"
           ],
@@ -55,17 +55,19 @@ POST https://{{ api-host-mdb }}/managed-opensearch/v1/clusters
           }
         }
       ],
+      // Includes only one of the fields `opensearchConfig_2`
+      "opensearchConfig_2": {
+        "maxClauseCount": "string",
+        "fielddataCacheSize": "string",
+        "reindexRemoteWhitelist": "string"
+      },
+      // end of the list of possible fields
       "keystoreSettings": [
         {
           "name": "string",
           "value": "string"
         }
-      ],
-      "opensearchConfig_2": {
-        "maxClauseCount": "integer",
-        "fielddataCacheSize": "string",
-        "reindexRemoteWhitelist": "string"
-      }
+      ]
     },
     "dashboardsSpec": {
       "nodeGroups": [
@@ -83,7 +85,7 @@ POST https://{{ api-host-mdb }}/managed-opensearch/v1/clusters
           "subnetIds": [
             "string"
           ],
-          "assignPublicIp": true,
+          "assignPublicIp": "boolean",
           "diskSizeAutoscaling": {
             "plannedUsageThreshold": "string",
             "emergencyUsageThreshold": "string",
@@ -93,8 +95,8 @@ POST https://{{ api-host-mdb }}/managed-opensearch/v1/clusters
       ]
     },
     "access": {
-      "dataTransfer": true,
-      "serverless": true
+      "dataTransfer": "boolean",
+      "serverless": "boolean"
     }
   },
   "networkId": "string",
@@ -102,98 +104,308 @@ POST https://{{ api-host-mdb }}/managed-opensearch/v1/clusters
     "string"
   ],
   "serviceAccountId": "string",
-  "deletionProtection": true,
+  "deletionProtection": "boolean",
   "maintenanceWindow": {
-
-    // `maintenanceWindow` includes only one of the fields `anytime`, `weeklyMaintenanceWindow`
-    "anytime": {},
+    // Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`
+    "anytime": "object",
     "weeklyMaintenanceWindow": {
       "day": "string",
       "hour": "string"
-    },
-    // end of the list of possible fields`maintenanceWindow`
-
+    }
+    // end of the list of possible fields
   }
 }
 ```
 
- 
-Field | Description
---- | ---
-folderId | **string**<br><p>Required. ID of the folder to create the OpenSearch cluster in.</p> <p>The maximum string length in characters is 50.</p> 
-name | **string**<br><p>Required. Name of the OpenSearch cluster. The name must be unique within the folder.</p> <p>The maximum string length in characters is 63. Value must match the regular expression ``[a-zA-Z0-9_-]*``.</p> 
-description | **string**<br><p>Description of the OpenSearch cluster.</p> <p>The maximum string length in characters is 256.</p> 
-labels | **object**<br><p>Custom labels for the OpenSearch cluster as ``key:value`` pairs. For example, ``"project": "mvp"`` or ``"source": "dictionary"``.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression ``[a-z][-_0-9a-z]*``. The maximum string length in characters for each value is 63. Each value must match the regular expression ``[-_0-9a-z]*``.</p> 
-environment | **string**<br><p>Deployment environment of the OpenSearch cluster.</p> <ul> <li>PRODUCTION: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li> <li>PRESTABLE: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li> </ul> 
-configSpec | **object**<br><p>Required. OpenSearch cluster configuration.</p> 
-configSpec.<br>version | **string**<br><p>OpenSearch version.</p> 
-configSpec.<br>adminPassword | **string**<br><p>Required. OpenSearch admin password.</p> 
-configSpec.<br>opensearchSpec | **object**<br><p>OpenSearch configuration.</p> <p>OpenSearch create-time configuration.</p> 
-configSpec.<br>opensearchSpec.<br>plugins[] | **string**<br><p>Names of the cluster plugins.</p> 
-configSpec.<br>opensearchSpec.<br>nodeGroups[] | **object**<br><p>OpenSearch type host groups of the cluster.</p> 
-configSpec.<br>opensearchSpec.<br>nodeGroups[].<br>name | **string**<br><p>Required. Name of the group.</p> <p>The maximum string length in characters is 63. Value must match the regular expression ``[a-zA-Z0-9_-]*``.</p> 
-configSpec.<br>opensearchSpec.<br>nodeGroups[].<br>resources | **object**<br><p>Resources allocated to the hosts.</p> <p>A list of computational resources allocated to a host.</p> 
-configSpec.<br>opensearchSpec.<br>nodeGroups[].<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources allocated to a host.</p> 
-configSpec.<br>opensearchSpec.<br>nodeGroups[].<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage used by the host, in bytes.</p> 
-configSpec.<br>opensearchSpec.<br>nodeGroups[].<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage used by the host: ``network-hdd``, ``network-ssd`` or ``local-ssd``.</p> 
-configSpec.<br>opensearchSpec.<br>nodeGroups[].<br>hostsCount | **string** (int64)<br><p>Number of hosts in the group.</p> <p>The minimum value is 1.</p> 
-configSpec.<br>opensearchSpec.<br>nodeGroups[].<br>zoneIds[] | **string**<br><p>IDs of the availability zones the hosts belong to.</p> <p>The maximum number of elements is 10. The maximum string length in characters for each value is 50.</p> 
-configSpec.<br>opensearchSpec.<br>nodeGroups[].<br>subnetIds[] | **string**<br><p>IDs of the subnets that the hosts belong to.</p> <p>The maximum number of elements is 10. The maximum string length in characters for each value is 50.</p> 
-configSpec.<br>opensearchSpec.<br>nodeGroups[].<br>assignPublicIp | **boolean** (boolean)<br><p>Determines whether a public IP is assigned to the hosts in the group.</p> 
-configSpec.<br>opensearchSpec.<br>nodeGroups[].<br>roles[] | **string**<br><p>Roles of the hosts in the group.</p> 
-configSpec.<br>opensearchSpec.<br>nodeGroups[].<br>diskSizeAutoscaling | **object**<br><p>Disk size autoscaling settings</p> 
-configSpec.<br>opensearchSpec.<br>nodeGroups[].<br>diskSizeAutoscaling.<br>plannedUsageThreshold | **string** (int64)<br><p>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
-configSpec.<br>opensearchSpec.<br>nodeGroups[].<br>diskSizeAutoscaling.<br>emergencyUsageThreshold | **string** (int64)<br><p>Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
-configSpec.<br>opensearchSpec.<br>nodeGroups[].<br>diskSizeAutoscaling.<br>diskSizeLimit | **string** (int64)<br><p>Limit on how large the storage for database instances can automatically grow, in bytes.</p> 
-configSpec.<br>opensearchSpec.<br>keystoreSettings[] | **object**<br><p>Initial cluster keystore settings.</p> 
-configSpec.<br>opensearchSpec.<br>keystoreSettings[].<br>name | **string**<br><p>Keystore entry name.</p> 
-configSpec.<br>opensearchSpec.<br>keystoreSettings[].<br>value | **string**<br><p>Keystore entry value.</p> 
-configSpec.<br>opensearchSpec.<br>opensearchConfig_2 | **object**
-configSpec.<br>opensearchSpec.<br>opensearchConfig_2.<br>maxClauseCount | **integer** (int64)<br><p>the maximum number of allowed boolean clauses in a query</p> 
-configSpec.<br>opensearchSpec.<br>opensearchConfig_2.<br>fielddataCacheSize | **string**<br><p>the percentage or absolute value (10%, 512mb) of heap space that is allocated to fielddata</p> 
-configSpec.<br>opensearchSpec.<br>opensearchConfig_2.<br>reindexRemoteWhitelist | **string**
-configSpec.<br>dashboardsSpec | **object**<br><p>Dashboards configuration.</p> <p>Dashboards create-time configuration.</p> 
-configSpec.<br>dashboardsSpec.<br>nodeGroups[] | **object**<br><p>Dashboards type host groups of the cluster.</p> 
-configSpec.<br>dashboardsSpec.<br>nodeGroups[].<br>name | **string**<br><p>Required. Name of the group.</p> <p>The maximum string length in characters is 63. Value must match the regular expression ``[a-zA-Z0-9_-]*``.</p> 
-configSpec.<br>dashboardsSpec.<br>nodeGroups[].<br>resources | **object**<br><p>Resources allocated to the hosts.</p> <p>A list of computational resources allocated to a host.</p> 
-configSpec.<br>dashboardsSpec.<br>nodeGroups[].<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources allocated to a host.</p> 
-configSpec.<br>dashboardsSpec.<br>nodeGroups[].<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage used by the host, in bytes.</p> 
-configSpec.<br>dashboardsSpec.<br>nodeGroups[].<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage used by the host: ``network-hdd``, ``network-ssd`` or ``local-ssd``.</p> 
-configSpec.<br>dashboardsSpec.<br>nodeGroups[].<br>hostsCount | **string** (int64)<br><p>Number of hosts in the group.</p> <p>The minimum value is 1.</p> 
-configSpec.<br>dashboardsSpec.<br>nodeGroups[].<br>zoneIds[] | **string**<br><p>IDs of the availability zones the hosts belong to.</p> 
-configSpec.<br>dashboardsSpec.<br>nodeGroups[].<br>subnetIds[] | **string**<br><p>IDs of the subnets that the hosts belong to.</p> <p>The maximum number of elements is 10. The maximum string length in characters for each value is 50.</p> 
-configSpec.<br>dashboardsSpec.<br>nodeGroups[].<br>assignPublicIp | **boolean** (boolean)<br><p>Determines whether a public IP is assigned to the hosts in the group.</p> 
-configSpec.<br>dashboardsSpec.<br>nodeGroups[].<br>diskSizeAutoscaling | **object**<br><p>Disk size autoscaling settings</p> 
-configSpec.<br>dashboardsSpec.<br>nodeGroups[].<br>diskSizeAutoscaling.<br>plannedUsageThreshold | **string** (int64)<br><p>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
-configSpec.<br>dashboardsSpec.<br>nodeGroups[].<br>diskSizeAutoscaling.<br>emergencyUsageThreshold | **string** (int64)<br><p>Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
-configSpec.<br>dashboardsSpec.<br>nodeGroups[].<br>diskSizeAutoscaling.<br>diskSizeLimit | **string** (int64)<br><p>Limit on how large the storage for database instances can automatically grow, in bytes.</p> 
-configSpec.<br>access | **object**<br><p>Access policy for external services.</p> <p>Access policy for external services.</p> 
-configSpec.<br>access.<br>dataTransfer | **boolean** (boolean)<br><p>Determines whether the access to Data Transfer is allowed.</p> 
-configSpec.<br>access.<br>serverless | **boolean** (boolean)<br><p>Determines whether the access to Serverless is allowed.</p> 
-networkId | **string**<br><p>Required. ID of the network to create the cluster in.</p> <p>The maximum string length in characters is 50.</p> 
-securityGroupIds[] | **string**<br><p>User security groups.</p> 
-serviceAccountId | **string**<br><p>ID of the service account used to access Object Storage.</p> 
-deletionProtection | **boolean** (boolean)<br><p>Determines whether the cluster is protected from being deleted.</p> 
-maintenanceWindow | **object**<br><p>Cluster maintenance window. Should be defined by either one of the two options.</p> <p>An OpenSearch cluster maintenance window. Should be defined by either one of the two options.</p> 
-maintenanceWindow.<br>anytime | **object**<br>An any-time maintenance window. <br>`maintenanceWindow` includes only one of the fields `anytime`, `weeklyMaintenanceWindow`<br>
-maintenanceWindow.<br>weeklyMaintenanceWindow | **object**<br>A weekly maintenance window. <br>`maintenanceWindow` includes only one of the fields `anytime`, `weeklyMaintenanceWindow`<br>
-maintenanceWindow.<br>weeklyMaintenanceWindow.<br>day | **string**<br><p>Day of the week.</p> <ul> <li>MON: Monday</li> <li>TUE: Tuesday</li> <li>WED: Wednesday</li> <li>THU: Thursday</li> <li>FRI: Friday</li> <li>SAT: Saturday</li> <li>SUN: Sunday</li> </ul> 
-maintenanceWindow.<br>weeklyMaintenanceWindow.<br>hour | **string** (int64)<br><p>Hour of the day in the UTC timezone.</p> <p>Acceptable values are 1 to 24, inclusive.</p> 
- 
-## Response {#responses}
+#|
+||Field | Description ||
+|| folderId | **string**
+
+Required field. ID of the folder to create the OpenSearch cluster in. ||
+|| name | **string**
+
+Required field. Name of the OpenSearch cluster. The name must be unique within the folder. ||
+|| description | **string**
+
+Description of the OpenSearch cluster. ||
+|| labels | **string**
+
+Custom labels for the OpenSearch cluster as `key:value` pairs.
+For example, `"project": "mvp"` or `"source": "dictionary"`. ||
+|| environment | **enum** (Environment)
+
+Deployment environment of the OpenSearch cluster.
+
+- `ENVIRONMENT_UNSPECIFIED`
+- `PRODUCTION`: Stable environment with a conservative update policy:
+only hotfixes are applied during regular maintenance.
+- `PRESTABLE`: Environment with more aggressive update policy: new versions
+are rolled out irrespective of backward compatibility. ||
+|| configSpec | **[ConfigCreateSpec](#yandex.cloud.mdb.opensearch.v1.ConfigCreateSpec)**
+
+Required field. OpenSearch cluster configuration. ||
+|| networkId | **string**
+
+Required field. ID of the network to create the cluster in. ||
+|| securityGroupIds[] | **string**
+
+User security groups. ||
+|| serviceAccountId | **string**
+
+ID of the service account used to access Object Storage. ||
+|| deletionProtection | **boolean**
+
+Determines whether the cluster is protected from being deleted. ||
+|| maintenanceWindow | **[MaintenanceWindow](#yandex.cloud.mdb.opensearch.v1.MaintenanceWindow)**
+
+Cluster maintenance window. Should be defined by either one of the two options. ||
+|#
+
+## ConfigCreateSpec {#yandex.cloud.mdb.opensearch.v1.ConfigCreateSpec}
+
+#|
+||Field | Description ||
+|| version | **string**
+
+OpenSearch version. ||
+|| adminPassword | **string**
+
+Required field. OpenSearch admin password. ||
+|| opensearchSpec | **[OpenSearchCreateSpec](#yandex.cloud.mdb.opensearch.v1.OpenSearchCreateSpec)**
+
+OpenSearch configuration. ||
+|| dashboardsSpec | **[DashboardsCreateSpec](#yandex.cloud.mdb.opensearch.v1.DashboardsCreateSpec)**
+
+Dashboards configuration. ||
+|| access | **[Access](#yandex.cloud.mdb.opensearch.v1.Access)**
+
+Access policy for external services. ||
+|#
+
+## OpenSearchCreateSpec {#yandex.cloud.mdb.opensearch.v1.OpenSearchCreateSpec}
+
+OpenSearch create-time configuration.
+
+#|
+||Field | Description ||
+|| plugins[] | **string**
+
+Names of the cluster plugins. ||
+|| nodeGroups[] | **[NodeGroup](#yandex.cloud.mdb.opensearch.v1.OpenSearchCreateSpec.NodeGroup)**
+
+OpenSearch type host groups of the cluster. ||
+|| opensearchConfig_2 | **[OpenSearchConfig2](#yandex.cloud.mdb.opensearch.v1.config.OpenSearchConfig2)**
+
+Includes only one of the fields `opensearchConfig_2`. ||
+|| keystoreSettings[] | **[KeystoreSetting](#yandex.cloud.mdb.opensearch.v1.KeystoreSetting)**
+
+Initial cluster keystore settings. ||
+|#
+
+## NodeGroup {#yandex.cloud.mdb.opensearch.v1.OpenSearchCreateSpec.NodeGroup}
+
+Configuration of the host group.
+
+#|
+||Field | Description ||
+|| name | **string**
+
+Required field. Name of the group. ||
+|| resources | **[Resources](#yandex.cloud.mdb.opensearch.v1.Resources)**
+
+Resources allocated to the hosts. ||
+|| hostsCount | **string** (int64)
+
+Number of hosts in the group. ||
+|| zoneIds[] | **string**
+
+IDs of the availability zones the hosts belong to. ||
+|| subnetIds[] | **string**
+
+IDs of the subnets that the hosts belong to. ||
+|| assignPublicIp | **boolean**
+
+Determines whether a public IP is assigned to the hosts in the group. ||
+|| roles[] | **enum** (GroupRole)
+
+Roles of the hosts in the group.
+
+- `GROUP_ROLE_UNSPECIFIED`
+- `DATA`
+- `MANAGER` ||
+|| diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.opensearch.v1.DiskSizeAutoscaling)**
+
+Disk size autoscaling settings ||
+|#
+
+## Resources {#yandex.cloud.mdb.opensearch.v1.Resources}
+
+A list of computational resources allocated to a host.
+
+#|
+||Field | Description ||
+|| resourcePresetId | **string**
+
+ID of the preset for computational resources allocated to a host. ||
+|| diskSize | **string** (int64)
+
+Volume of the storage used by the host, in bytes. ||
+|| diskTypeId | **string**
+
+Type of the storage used by the host: `network-hdd`, `network-ssd` or `local-ssd`. ||
+|#
+
+## DiskSizeAutoscaling {#yandex.cloud.mdb.opensearch.v1.DiskSizeAutoscaling}
+
+#|
+||Field | Description ||
+|| plannedUsageThreshold | **string** (int64)
+
+Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent. ||
+|| emergencyUsageThreshold | **string** (int64)
+
+Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent. ||
+|| diskSizeLimit | **string** (int64)
+
+Limit on how large the storage for database instances can automatically grow, in bytes. ||
+|#
+
+## OpenSearchConfig2 {#yandex.cloud.mdb.opensearch.v1.config.OpenSearchConfig2}
+
+#|
+||Field | Description ||
+|| maxClauseCount | **string** (int64)
+
+the maximum number of allowed boolean clauses in a query ||
+|| fielddataCacheSize | **string**
+
+the percentage or absolute value (10%, 512mb) of heap space that is allocated to fielddata ||
+|| reindexRemoteWhitelist | **string** ||
+|#
+
+## KeystoreSetting {#yandex.cloud.mdb.opensearch.v1.KeystoreSetting}
+
+Single keystore entry.
+
+#|
+||Field | Description ||
+|| name | **string**
+
+Keystore entry name. ||
+|| value | **string**
+
+Keystore entry value. ||
+|#
+
+## DashboardsCreateSpec {#yandex.cloud.mdb.opensearch.v1.DashboardsCreateSpec}
+
+Dashboards create-time configuration.
+
+#|
+||Field | Description ||
+|| nodeGroups[] | **[NodeGroup](#yandex.cloud.mdb.opensearch.v1.DashboardsCreateSpec.NodeGroup)**
+
+Dashboards type host groups of the cluster. ||
+|#
+
+## NodeGroup {#yandex.cloud.mdb.opensearch.v1.DashboardsCreateSpec.NodeGroup}
+
+#|
+||Field | Description ||
+|| name | **string**
+
+Required field. Name of the group. ||
+|| resources | **[Resources](#yandex.cloud.mdb.opensearch.v1.Resources)**
+
+Resources allocated to the hosts. ||
+|| hostsCount | **string** (int64)
+
+Number of hosts in the group. ||
+|| zoneIds[] | **string**
+
+IDs of the availability zones the hosts belong to. ||
+|| subnetIds[] | **string**
+
+IDs of the subnets that the hosts belong to. ||
+|| assignPublicIp | **boolean**
+
+Determines whether a public IP is assigned to the hosts in the group. ||
+|| diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.opensearch.v1.DiskSizeAutoscaling)**
+
+Disk size autoscaling settings ||
+|#
+
+## Access {#yandex.cloud.mdb.opensearch.v1.Access}
+
+Access policy for external services.
+
+#|
+||Field | Description ||
+|| dataTransfer | **boolean**
+
+Determines whether the access to Data Transfer is allowed. ||
+|| serverless | **boolean**
+
+Determines whether the access to Serverless is allowed. ||
+|#
+
+## MaintenanceWindow {#yandex.cloud.mdb.opensearch.v1.MaintenanceWindow}
+
+An OpenSearch cluster maintenance window. Should be defined by either one of the two options.
+
+#|
+||Field | Description ||
+|| anytime | **object**
+
+An any-time maintenance window.
+
+Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`. ||
+|| weeklyMaintenanceWindow | **[WeeklyMaintenanceWindow](#yandex.cloud.mdb.opensearch.v1.WeeklyMaintenanceWindow)**
+
+A weekly maintenance window.
+
+Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`. ||
+|#
+
+## WeeklyMaintenanceWindow {#yandex.cloud.mdb.opensearch.v1.WeeklyMaintenanceWindow}
+
+A weekly maintenance window.
+
+#|
+||Field | Description ||
+|| day | **enum** (WeekDay)
+
+Day of the week.
+
+- `WEEK_DAY_UNSPECIFIED`
+- `MON`: Monday
+- `TUE`: Tuesday
+- `WED`: Wednesday
+- `THU`: Thursday
+- `FRI`: Friday
+- `SAT`: Saturday
+- `SUN`: Sunday ||
+|| hour | **string** (int64)
+
+Hour of the day in the UTC timezone. ||
+|#
+
+## Response {#yandex.cloud.operation.Operation}
+
 **HTTP Code: 200 - OK**
 
-```json 
+```json
 {
   "id": "string",
   "description": "string",
   "createdAt": "string",
   "createdBy": "string",
   "modifiedAt": "string",
-  "done": true,
-  "metadata": "object",
-
-  //  includes only one of the fields `error`, `response`
+  "done": "boolean",
+  "metadata": {
+    "clusterId": "string"
+  },
+  // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
     "message": "string",
@@ -201,24 +413,595 @@ maintenanceWindow.<br>weeklyMaintenanceWindow.<br>hour | **string** (int64)<br><
       "object"
     ]
   },
-  "response": "object",
+  "response": {
+    "id": "string",
+    "folderId": "string",
+    "createdAt": "string",
+    "name": "string",
+    "description": "string",
+    "labels": "string",
+    "environment": "string",
+    "monitoring": [
+      {
+        "name": "string",
+        "description": "string",
+        "link": "string"
+      }
+    ],
+    "config": {
+      "version": "string",
+      "opensearch": {
+        "plugins": [
+          "string"
+        ],
+        "nodeGroups": [
+          {
+            "name": "string",
+            "resources": {
+              "resourcePresetId": "string",
+              "diskSize": "string",
+              "diskTypeId": "string"
+            },
+            "hostsCount": "string",
+            "zoneIds": [
+              "string"
+            ],
+            "subnetIds": [
+              "string"
+            ],
+            "assignPublicIp": "boolean",
+            "roles": [
+              "string"
+            ],
+            "diskSizeAutoscaling": {
+              "plannedUsageThreshold": "string",
+              "emergencyUsageThreshold": "string",
+              "diskSizeLimit": "string"
+            }
+          }
+        ],
+        // Includes only one of the fields `opensearchConfigSet_2`
+        "opensearchConfigSet_2": {
+          "effectiveConfig": {
+            "maxClauseCount": "string",
+            "fielddataCacheSize": "string",
+            "reindexRemoteWhitelist": "string"
+          },
+          "userConfig": {
+            "maxClauseCount": "string",
+            "fielddataCacheSize": "string",
+            "reindexRemoteWhitelist": "string"
+          },
+          "defaultConfig": {
+            "maxClauseCount": "string",
+            "fielddataCacheSize": "string",
+            "reindexRemoteWhitelist": "string"
+          }
+        },
+        // end of the list of possible fields
+        "keystoreSettings": [
+          "string"
+        ]
+      },
+      "dashboards": {
+        "nodeGroups": [
+          {
+            "name": "string",
+            "resources": {
+              "resourcePresetId": "string",
+              "diskSize": "string",
+              "diskTypeId": "string"
+            },
+            "hostsCount": "string",
+            "zoneIds": [
+              "string"
+            ],
+            "subnetIds": [
+              "string"
+            ],
+            "assignPublicIp": "boolean",
+            "diskSizeAutoscaling": {
+              "plannedUsageThreshold": "string",
+              "emergencyUsageThreshold": "string",
+              "diskSizeLimit": "string"
+            }
+          }
+        ]
+      },
+      "access": {
+        "dataTransfer": "boolean",
+        "serverless": "boolean"
+      }
+    },
+    "networkId": "string",
+    "health": "string",
+    "status": "string",
+    "securityGroupIds": [
+      "string"
+    ],
+    "serviceAccountId": "string",
+    "deletionProtection": "boolean",
+    "maintenanceWindow": {
+      // Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`
+      "anytime": "object",
+      "weeklyMaintenanceWindow": {
+        "day": "string",
+        "hour": "string"
+      }
+      // end of the list of possible fields
+    },
+    "plannedOperation": {
+      "info": "string",
+      "delayedUntil": "string",
+      "latestMaintenanceTime": "string",
+      "nextMaintenanceWindowTime": "string"
+    }
+  }
   // end of the list of possible fields
-
 }
 ```
+
 An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).
- 
-Field | Description
---- | ---
-id | **string**<br><p>ID of the operation.</p> 
-description | **string**<br><p>Description of the operation. 0-256 characters long.</p> 
-createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
-createdBy | **string**<br><p>ID of the user or service account who initiated the operation.</p> 
-modifiedAt | **string** (date-time)<br><p>The time when the Operation resource was last modified.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
-done | **boolean** (boolean)<br><p>If the value is ``false``, it means the operation is still in progress. If ``true``, the operation is completed, and either ``error`` or ``response`` is available.</p> 
-metadata | **object**<br><p>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any.</p> 
-error | **object**<br>The error result of the operation in case of failure or cancellation. <br> includes only one of the fields `error`, `response`<br>
-error.<br>code | **integer** (int32)<br><p>Error code. An enum value of <a href="https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto">google.rpc.Code</a>.</p> 
-error.<br>message | **string**<br><p>An error message.</p> 
-error.<br>details[] | **object**<br><p>A list of messages that carry the error details.</p> 
-response | **object** <br> includes only one of the fields `error`, `response`<br><br><p>The normal response of the operation in case of success. If the original method returns no data on success, such as Delete, the response is <a href="https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty">google.protobuf.Empty</a>. If the original method is the standard Create/Update, the response should be the target resource of the operation. Any method that returns a long-running operation should document the response type, if any.</p> 
+
+#|
+||Field | Description ||
+|| id | **string**
+
+ID of the operation. ||
+|| description | **string**
+
+Description of the operation. 0-256 characters long. ||
+|| createdAt | **string** (date-time)
+
+Creation timestamp.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| createdBy | **string**
+
+ID of the user or service account who initiated the operation. ||
+|| modifiedAt | **string** (date-time)
+
+The time when the Operation resource was last modified.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| done | **boolean**
+
+If the value is `false`, it means the operation is still in progress.
+If `true`, the operation is completed, and either `error` or `response` is available. ||
+|| metadata | **[CreateClusterMetadata](#yandex.cloud.mdb.opensearch.v1.CreateClusterMetadata)**
+
+Service-specific metadata associated with the operation.
+It typically contains the ID of the target resource that the operation is performed on.
+Any method that returns a long-running operation should document the metadata type, if any. ||
+|| error | **[Status](#google.rpc.Status)**
+
+The error result of the operation in case of failure or cancellation.
+
+Includes only one of the fields `error`, `response`.
+
+The operation result.
+If `done == false` and there was no failure detected, neither `error` nor `response` is set.
+If `done == false` and there was a failure detected, `error` is set.
+If `done == true`, exactly one of `error` or `response` is set. ||
+|| response | **[Cluster](#yandex.cloud.mdb.opensearch.v1.Cluster)**
+
+The normal response of the operation in case of success.
+If the original method returns no data on success, such as Delete,
+the response is [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty).
+If the original method is the standard Create/Update,
+the response should be the target resource of the operation.
+Any method that returns a long-running operation should document the response type, if any.
+
+Includes only one of the fields `error`, `response`.
+
+The operation result.
+If `done == false` and there was no failure detected, neither `error` nor `response` is set.
+If `done == false` and there was a failure detected, `error` is set.
+If `done == true`, exactly one of `error` or `response` is set. ||
+|#
+
+## CreateClusterMetadata {#yandex.cloud.mdb.opensearch.v1.CreateClusterMetadata}
+
+#|
+||Field | Description ||
+|| clusterId | **string**
+
+ID of the OpenSearch cluster that is being created. ||
+|#
+
+## Status {#google.rpc.Status}
+
+The error result of the operation in case of failure or cancellation.
+
+#|
+||Field | Description ||
+|| code | **integer** (int32)
+
+Error code. An enum value of [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto). ||
+|| message | **string**
+
+An error message. ||
+|| details[] | **object**
+
+A list of messages that carry the error details. ||
+|#
+
+## Cluster {#yandex.cloud.mdb.opensearch.v1.Cluster}
+
+An OpenSearch cluster resource.
+
+#|
+||Field | Description ||
+|| id | **string**
+
+ID of the OpenSearch cluster.
+This ID is assigned by the platform at the moment of cluster creation. ||
+|| folderId | **string**
+
+ID of the folder that the OpenSearch cluster belongs to. ||
+|| createdAt | **string** (date-time)
+
+Time when the cluster was created.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| name | **string**
+
+Name of the OpenSearch cluster.
+The name is unique within the folder. 1-63 characters long. ||
+|| description | **string**
+
+Description of the OpenSearch cluster. 0-256 characters long. ||
+|| labels | **string**
+
+Custom labels for the OpenSearch cluster as `key:value` pairs.
+Maximum 64 labels per resource. ||
+|| environment | **enum** (Environment)
+
+Deployment environment of the OpenSearch cluster.
+
+- `ENVIRONMENT_UNSPECIFIED`
+- `PRODUCTION`: Stable environment with a conservative update policy:
+only hotfixes are applied during regular maintenance.
+- `PRESTABLE`: Environment with more aggressive update policy: new versions
+are rolled out irrespective of backward compatibility. ||
+|| monitoring[] | **[Monitoring](#yandex.cloud.mdb.opensearch.v1.Monitoring)**
+
+Description of monitoring systems relevant to the OpenSearch cluster. ||
+|| config | **[ClusterConfig](#yandex.cloud.mdb.opensearch.v1.ClusterConfig)**
+
+Configuration of the OpenSearch cluster. ||
+|| networkId | **string**
+
+ID of the cloud network that the cluster belongs to. ||
+|| health | **enum** (Health)
+
+Aggregated cluster health.
+
+- `HEALTH_UNKNOWN`: Health of the cluster is unknown ([Host.health](/docs/managed-opensearch/api-ref/Cluster/listHosts#yandex.cloud.mdb.opensearch.v1.Host) for every host in the cluster is UNKNOWN).
+- `ALIVE`: Cluster is working normally ([Host.health](/docs/managed-opensearch/api-ref/Cluster/listHosts#yandex.cloud.mdb.opensearch.v1.Host) for every host in the cluster is ALIVE).
+- `DEAD`: Cluster is inoperable ([Host.health](/docs/managed-opensearch/api-ref/Cluster/listHosts#yandex.cloud.mdb.opensearch.v1.Host) for every host in the cluster is DEAD).
+- `DEGRADED`: Cluster is working below capacity ([Host.health](/docs/managed-opensearch/api-ref/Cluster/listHosts#yandex.cloud.mdb.opensearch.v1.Host) for at least one host in the cluster is not ALIVE). ||
+|| status | **enum** (Status)
+
+Current state of the cluster.
+
+- `STATUS_UNKNOWN`: Cluster state is unknown.
+- `CREATING`: Cluster is being created.
+- `RUNNING`: Cluster is running normally.
+- `ERROR`: Cluster has encountered a problem and cannot operate.
+- `UPDATING`: Cluster is being updated.
+- `STOPPING`: Cluster is stopping.
+- `STOPPED`: Cluster has stopped.
+- `STARTING`: Cluster is starting. ||
+|| securityGroupIds[] | **string**
+
+User security groups. ||
+|| serviceAccountId | **string**
+
+ID of the service account used to access Object Storage. ||
+|| deletionProtection | **boolean**
+
+Determines whether the cluster is protected from being deleted. ||
+|| maintenanceWindow | **[MaintenanceWindow](#yandex.cloud.mdb.opensearch.v1.MaintenanceWindow2)**
+
+Cluster maintenance window. Should be defined by either one of the two options. ||
+|| plannedOperation | **[MaintenanceOperation](#yandex.cloud.mdb.opensearch.v1.MaintenanceOperation)**
+
+Maintenance operation planned at nearest `maintenanceWindow`. ||
+|#
+
+## Monitoring {#yandex.cloud.mdb.opensearch.v1.Monitoring}
+
+Monitoring system metadata.
+
+#|
+||Field | Description ||
+|| name | **string**
+
+Name of the monitoring system. ||
+|| description | **string**
+
+Description of the monitoring system. ||
+|| link | **string**
+
+Link to the monitoring system charts for the OpenSearch cluster. ||
+|#
+
+## ClusterConfig {#yandex.cloud.mdb.opensearch.v1.ClusterConfig}
+
+The OpenSearch cluster configuration.
+
+#|
+||Field | Description ||
+|| version | **string**
+
+Version of the OpenSearch server software. ||
+|| opensearch | **[OpenSearch](#yandex.cloud.mdb.opensearch.v1.OpenSearch)**
+
+OpenSearch configuration. ||
+|| dashboards | **[Dashboards](#yandex.cloud.mdb.opensearch.v1.Dashboards)**
+
+Dashboards configuration. ||
+|| access | **[Access](#yandex.cloud.mdb.opensearch.v1.Access2)**
+
+Access policy for external services. ||
+|#
+
+## OpenSearch {#yandex.cloud.mdb.opensearch.v1.OpenSearch}
+
+The OpenSearch host group type configuration.
+
+#|
+||Field | Description ||
+|| plugins[] | **string**
+
+Names of the cluster plugins. ||
+|| nodeGroups[] | **[NodeGroup](#yandex.cloud.mdb.opensearch.v1.OpenSearch.NodeGroup)**
+
+Host groups of the OpenSearch type. ||
+|| opensearchConfigSet_2 | **[OpenSearchConfigSet2](#yandex.cloud.mdb.opensearch.v1.config.OpenSearchConfigSet2)**
+
+Includes only one of the fields `opensearchConfigSet_2`. ||
+|| keystoreSettings[] | **string**
+
+Keystore entries names. ||
+|#
+
+## NodeGroup {#yandex.cloud.mdb.opensearch.v1.OpenSearch.NodeGroup}
+
+Configuration of the host group.
+
+#|
+||Field | Description ||
+|| name | **string**
+
+Name of the group. Must be 1-63 characters long. ||
+|| resources | **[Resources](#yandex.cloud.mdb.opensearch.v1.Resources2)**
+
+Resources allocated to the hosts. ||
+|| hostsCount | **string** (int64)
+
+Number of hosts in the group. ||
+|| zoneIds[] | **string**
+
+IDs of the availability zones the hosts belong to. ||
+|| subnetIds[] | **string**
+
+IDs of the subnets that the hosts belong to. ||
+|| assignPublicIp | **boolean**
+
+Determines whether a public IP is assigned to the hosts in the group. ||
+|| roles[] | **enum** (GroupRole)
+
+Roles of the host group.
+
+- `GROUP_ROLE_UNSPECIFIED`
+- `DATA`
+- `MANAGER` ||
+|| diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.opensearch.v1.DiskSizeAutoscaling2)**
+
+Disk size autoscaling settings ||
+|#
+
+## Resources {#yandex.cloud.mdb.opensearch.v1.Resources2}
+
+A list of computational resources allocated to a host.
+
+#|
+||Field | Description ||
+|| resourcePresetId | **string**
+
+ID of the preset for computational resources allocated to a host. ||
+|| diskSize | **string** (int64)
+
+Volume of the storage used by the host, in bytes. ||
+|| diskTypeId | **string**
+
+Type of the storage used by the host: `network-hdd`, `network-ssd` or `local-ssd`. ||
+|#
+
+## DiskSizeAutoscaling {#yandex.cloud.mdb.opensearch.v1.DiskSizeAutoscaling2}
+
+#|
+||Field | Description ||
+|| plannedUsageThreshold | **string** (int64)
+
+Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent. ||
+|| emergencyUsageThreshold | **string** (int64)
+
+Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent. ||
+|| diskSizeLimit | **string** (int64)
+
+Limit on how large the storage for database instances can automatically grow, in bytes. ||
+|#
+
+## OpenSearchConfigSet2 {#yandex.cloud.mdb.opensearch.v1.config.OpenSearchConfigSet2}
+
+#|
+||Field | Description ||
+|| effectiveConfig | **[OpenSearchConfig2](#yandex.cloud.mdb.opensearch.v1.config.OpenSearchConfig22)**
+
+Required field.  ||
+|| userConfig | **[OpenSearchConfig2](#yandex.cloud.mdb.opensearch.v1.config.OpenSearchConfig22)** ||
+|| defaultConfig | **[OpenSearchConfig2](#yandex.cloud.mdb.opensearch.v1.config.OpenSearchConfig22)** ||
+|#
+
+## OpenSearchConfig2 {#yandex.cloud.mdb.opensearch.v1.config.OpenSearchConfig22}
+
+#|
+||Field | Description ||
+|| maxClauseCount | **string** (int64)
+
+the maximum number of allowed boolean clauses in a query ||
+|| fielddataCacheSize | **string**
+
+the percentage or absolute value (10%, 512mb) of heap space that is allocated to fielddata ||
+|| reindexRemoteWhitelist | **string** ||
+|#
+
+## Dashboards {#yandex.cloud.mdb.opensearch.v1.Dashboards}
+
+The Dashboards host group type configuration.
+
+#|
+||Field | Description ||
+|| nodeGroups[] | **[NodeGroup](#yandex.cloud.mdb.opensearch.v1.Dashboards.NodeGroup)**
+
+Host groups of the Dashboards type. ||
+|#
+
+## NodeGroup {#yandex.cloud.mdb.opensearch.v1.Dashboards.NodeGroup}
+
+#|
+||Field | Description ||
+|| name | **string**
+
+Name of the group. 1-63 characters long. ||
+|| resources | **[Resources](#yandex.cloud.mdb.opensearch.v1.Resources2)**
+
+Resources allocated to the hosts. ||
+|| hostsCount | **string** (int64)
+
+Number of hosts in the group. ||
+|| zoneIds[] | **string**
+
+IDs of the availability zones the hosts belong to. ||
+|| subnetIds[] | **string**
+
+IDs of the subnets that the hosts belong to. ||
+|| assignPublicIp | **boolean**
+
+Determines whether a public IP is assigned to the hosts in the group. ||
+|| diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.opensearch.v1.DiskSizeAutoscaling2)**
+
+Disk size autoscaling settings ||
+|#
+
+## Access {#yandex.cloud.mdb.opensearch.v1.Access2}
+
+Access policy for external services.
+
+#|
+||Field | Description ||
+|| dataTransfer | **boolean**
+
+Determines whether the access to Data Transfer is allowed. ||
+|| serverless | **boolean**
+
+Determines whether the access to Serverless is allowed. ||
+|#
+
+## MaintenanceWindow {#yandex.cloud.mdb.opensearch.v1.MaintenanceWindow2}
+
+An OpenSearch cluster maintenance window. Should be defined by either one of the two options.
+
+#|
+||Field | Description ||
+|| anytime | **object**
+
+An any-time maintenance window.
+
+Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`. ||
+|| weeklyMaintenanceWindow | **[WeeklyMaintenanceWindow](#yandex.cloud.mdb.opensearch.v1.WeeklyMaintenanceWindow2)**
+
+A weekly maintenance window.
+
+Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`. ||
+|#
+
+## WeeklyMaintenanceWindow {#yandex.cloud.mdb.opensearch.v1.WeeklyMaintenanceWindow2}
+
+A weekly maintenance window.
+
+#|
+||Field | Description ||
+|| day | **enum** (WeekDay)
+
+Day of the week.
+
+- `WEEK_DAY_UNSPECIFIED`
+- `MON`: Monday
+- `TUE`: Tuesday
+- `WED`: Wednesday
+- `THU`: Thursday
+- `FRI`: Friday
+- `SAT`: Saturday
+- `SUN`: Sunday ||
+|| hour | **string** (int64)
+
+Hour of the day in the UTC timezone. ||
+|#
+
+## MaintenanceOperation {#yandex.cloud.mdb.opensearch.v1.MaintenanceOperation}
+
+#|
+||Field | Description ||
+|| info | **string**
+
+The description of the operation. ||
+|| delayedUntil | **string** (date-time)
+
+Delay time for the maintenance operation.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| latestMaintenanceTime | **string** (date-time)
+
+Time of the last maintenance window.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| nextMaintenanceWindowTime | **string** (date-time)
+
+Time of the next maintenance window.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|#

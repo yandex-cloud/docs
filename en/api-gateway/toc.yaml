@@ -231,10 +231,42 @@ items:
         items:
           - name: Overview
             href: apigateway/api-ref/grpc/index.md
-          - name: ApiGatewayService
-            href: apigateway/api-ref/grpc/apigateway_service.md
-          - name: OperationService
-            href: apigateway/api-ref/grpc/operation_service.md
+          - name: ApiGateway
+            items:
+              - name: Overview
+                href: apigateway/api-ref/grpc/ApiGateway/index.md
+              - name: Get
+                href: apigateway/api-ref/grpc/ApiGateway/get.md
+              - name: List
+                href: apigateway/api-ref/grpc/ApiGateway/list.md
+              - name: Create
+                href: apigateway/api-ref/grpc/ApiGateway/create.md
+              - name: Update
+                href: apigateway/api-ref/grpc/ApiGateway/update.md
+              - name: Delete
+                href: apigateway/api-ref/grpc/ApiGateway/delete.md
+              - name: AddDomain
+                href: apigateway/api-ref/grpc/ApiGateway/addDomain.md
+              - name: RemoveDomain
+                href: apigateway/api-ref/grpc/ApiGateway/removeDomain.md
+              - name: GetOpenapiSpec
+                href: apigateway/api-ref/grpc/ApiGateway/getOpenapiSpec.md
+              - name: ListOperations
+                href: apigateway/api-ref/grpc/ApiGateway/listOperations.md
+              - name: ListAccessBindings
+                href: apigateway/api-ref/grpc/ApiGateway/listAccessBindings.md
+              - name: SetAccessBindings
+                href: apigateway/api-ref/grpc/ApiGateway/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: apigateway/api-ref/grpc/ApiGateway/updateAccessBindings.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: apigateway/api-ref/grpc/Operation/index.md
+              - name: Get
+                href: apigateway/api-ref/grpc/Operation/get.md
+              - name: Cancel
+                href: apigateway/api-ref/grpc/Operation/cancel.md
       - name: REST
         items:
           - name: Overview
@@ -243,30 +275,38 @@ items:
             items:
               - name: Overview
                 href: apigateway/api-ref/ApiGateway/index.md
-              - name: addDomain
-                href: apigateway/api-ref/ApiGateway/addDomain.md
-              - name: create
-                href: apigateway/api-ref/ApiGateway/create.md
-              - name: delete
-                href: apigateway/api-ref/ApiGateway/delete.md
-              - name: get
+              - name: Get
                 href: apigateway/api-ref/ApiGateway/get.md
-              - name: getOpenapiSpec
-                href: apigateway/api-ref/ApiGateway/getOpenapiSpec.md
-              - name: list
+              - name: List
                 href: apigateway/api-ref/ApiGateway/list.md
-              - name: listAccessBindings
-                href: apigateway/api-ref/ApiGateway/listAccessBindings.md
-              - name: listOperations
-                href: apigateway/api-ref/ApiGateway/listOperations.md
-              - name: removeDomain
-                href: apigateway/api-ref/ApiGateway/removeDomain.md
-              - name: setAccessBindings
-                href: apigateway/api-ref/ApiGateway/setAccessBindings.md
-              - name: update
+              - name: Create
+                href: apigateway/api-ref/ApiGateway/create.md
+              - name: Update
                 href: apigateway/api-ref/ApiGateway/update.md
-              - name: updateAccessBindings
+              - name: Delete
+                href: apigateway/api-ref/ApiGateway/delete.md
+              - name: AddDomain
+                href: apigateway/api-ref/ApiGateway/addDomain.md
+              - name: RemoveDomain
+                href: apigateway/api-ref/ApiGateway/removeDomain.md
+              - name: GetOpenapiSpec
+                href: apigateway/api-ref/ApiGateway/getOpenapiSpec.md
+              - name: ListOperations
+                href: apigateway/api-ref/ApiGateway/listOperations.md
+              - name: ListAccessBindings
+                href: apigateway/api-ref/ApiGateway/listAccessBindings.md
+              - name: SetAccessBindings
+                href: apigateway/api-ref/ApiGateway/setAccessBindings.md
+              - name: UpdateAccessBindings
                 href: apigateway/api-ref/ApiGateway/updateAccessBindings.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: apigateway/api-ref/Operation/index.md
+              - name: Get
+                href: apigateway/api-ref/Operation/get.md
+              - name: Cancel
+                href: apigateway/api-ref/Operation/cancel.md
   - name: Websocket API reference
     items:
       - name: Authentication with the API
@@ -275,8 +315,16 @@ items:
         items:
           - name: Overview
             href: apigateway/websocket/api-ref/grpc/index.md
-          - name: ConnectionService
-            href: apigateway/websocket/api-ref/grpc/connection_service.md
+          - name: Connection
+            items:
+              - name: Overview
+                href: apigateway/websocket/api-ref/grpc/Connection/index.md
+              - name: Get
+                href: apigateway/websocket/api-ref/grpc/Connection/get.md
+              - name: Send
+                href: apigateway/websocket/api-ref/grpc/Connection/send.md
+              - name: Disconnect
+                href: apigateway/websocket/api-ref/grpc/Connection/disconnect.md
       - name: REST
         items:
           - name: Overview
@@ -285,12 +333,12 @@ items:
             items:
               - name: Overview
                 href: apigateway/websocket/api-ref/Connection/index.md
-              - name: disconnect
-                href: apigateway/websocket/api-ref/Connection/disconnect.md
-              - name: get
+              - name: Get
                 href: apigateway/websocket/api-ref/Connection/get.md
-              - name: send
+              - name: Send
                 href: apigateway/websocket/api-ref/Connection/send.md
+              - name: Disconnect
+                href: apigateway/websocket/api-ref/Connection/disconnect.md
   - name: API Triggers reference
     items:
       - name: Authentication with the API
@@ -299,34 +347,66 @@ items:
         items:
           - name: Overview
             href: triggers/api-ref/grpc/index.md
-          - name: TriggerService
-            href: triggers/api-ref/grpc/trigger_service.md
-          - name: OperationService
-            href: triggers/api-ref/grpc/operation_service.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: triggers/api-ref/grpc/Operation/index.md
+              - name: Get
+                href: triggers/api-ref/grpc/Operation/get.md
+              - name: Cancel
+                href: triggers/api-ref/grpc/Operation/cancel.md
+          - name: Trigger
+            items:
+              - name: Overview
+                href: triggers/api-ref/grpc/Trigger/index.md
+              - name: Get
+                href: triggers/api-ref/grpc/Trigger/get.md
+              - name: List
+                href: triggers/api-ref/grpc/Trigger/list.md
+              - name: Create
+                href: triggers/api-ref/grpc/Trigger/create.md
+              - name: Update
+                href: triggers/api-ref/grpc/Trigger/update.md
+              - name: Delete
+                href: triggers/api-ref/grpc/Trigger/delete.md
+              - name: Pause
+                href: triggers/api-ref/grpc/Trigger/pause.md
+              - name: Resume
+                href: triggers/api-ref/grpc/Trigger/resume.md
+              - name: ListOperations
+                href: triggers/api-ref/grpc/Trigger/listOperations.md
       - name: REST
         items:
           - name: Overview
             href: triggers/api-ref/index.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: triggers/api-ref/Operation/index.md
+              - name: Get
+                href: triggers/api-ref/Operation/get.md
+              - name: Cancel
+                href: triggers/api-ref/Operation/cancel.md
           - name: Trigger
             items:
               - name: Overview
                 href: triggers/api-ref/Trigger/index.md
-              - name: create
-                href: triggers/api-ref/Trigger/create.md
-              - name: delete
-                href: triggers/api-ref/Trigger/delete.md
-              - name: get
+              - name: Get
                 href: triggers/api-ref/Trigger/get.md
-              - name: list
+              - name: List
                 href: triggers/api-ref/Trigger/list.md
-              - name: listOperations
-                href: triggers/api-ref/Trigger/listOperations.md
-              - name: pause
-                href: triggers/api-ref/Trigger/pause.md
-              - name: resume
-                href: triggers/api-ref/Trigger/resume.md
-              - name: update
+              - name: Create
+                href: triggers/api-ref/Trigger/create.md
+              - name: Update
                 href: triggers/api-ref/Trigger/update.md
+              - name: Delete
+                href: triggers/api-ref/Trigger/delete.md
+              - name: Pause
+                href: triggers/api-ref/Trigger/pause.md
+              - name: Resume
+                href: triggers/api-ref/Trigger/resume.md
+              - name: ListOperations
+                href: triggers/api-ref/Trigger/listOperations.md
   - name: '{{ monitoring-name }} metrics'
     href: metrics.md
   - name: '{{ at-name }} events'

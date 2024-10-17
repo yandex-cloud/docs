@@ -13,6 +13,6 @@ description: Follow this guide to create a {{ video-full-name }} channel.
 
 - API {#api}
 
-   Use the [ChannelService/Create](../../api-ref/grpc/channel_service.md#Create) gRPC API call.
+   Use the [ChannelService/Create](../../api-ref/grpc/Channel/create.md) gRPC API call.
 
 {% endlist %}

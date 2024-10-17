@@ -103,12 +103,46 @@ items:
         items:
           - name: Overview
             href: api-ref/grpc/index.md
-          - name: CertificateContentService
-            href: api-ref/grpc/certificate_content_service.md
-          - name: CertificateService
-            href: api-ref/grpc/certificate_service.md
-          - name: OperationService
-            href: api-ref/grpc/operation_service.md
+          - name: CertificateContent
+            items:
+              - name: Overview
+                href: api-ref/grpc/CertificateContent/index.md
+              - name: Get
+                href: api-ref/grpc/CertificateContent/get.md
+          - name: Certificate
+            items:
+              - name: Overview
+                href: api-ref/grpc/Certificate/index.md
+              - name: Get
+                href: api-ref/grpc/Certificate/get.md
+              - name: List
+                href: api-ref/grpc/Certificate/list.md
+              - name: ListVersions
+                href: api-ref/grpc/Certificate/listVersions.md
+              - name: Create
+                href: api-ref/grpc/Certificate/create.md
+              - name: Update
+                href: api-ref/grpc/Certificate/update.md
+              - name: Delete
+                href: api-ref/grpc/Certificate/delete.md
+              - name: RequestNew
+                href: api-ref/grpc/Certificate/requestNew.md
+              - name: ListOperations
+                href: api-ref/grpc/Certificate/listOperations.md
+              - name: ListAccessBindings
+                href: api-ref/grpc/Certificate/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/grpc/Certificate/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: api-ref/grpc/Certificate/updateAccessBindings.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/grpc/Operation/index.md
+              - name: Get
+                href: api-ref/grpc/Operation/get.md
+              - name: Cancel
+                href: api-ref/grpc/Operation/cancel.md
       - name: REST
         items:
           - name: Overview
@@ -117,34 +151,42 @@ items:
             items:
               - name: Overview
                 href: api-ref/CertificateContent/index.md
-              - name: get
+              - name: Get
                 href: api-ref/CertificateContent/get.md
           - name: Certificate
             items:
               - name: Overview
                 href: api-ref/Certificate/index.md
-              - name: create
-                href: api-ref/Certificate/create.md
-              - name: delete
-                href: api-ref/Certificate/delete.md
-              - name: get
+              - name: Get
                 href: api-ref/Certificate/get.md
-              - name: list
+              - name: List
                 href: api-ref/Certificate/list.md
-              - name: listAccessBindings
-                href: api-ref/Certificate/listAccessBindings.md
-              - name: listOperations
-                href: api-ref/Certificate/listOperations.md
-              - name: listVersions
+              - name: ListVersions
                 href: api-ref/Certificate/listVersions.md
-              - name: requestNew
-                href: api-ref/Certificate/requestNew.md
-              - name: setAccessBindings
-                href: api-ref/Certificate/setAccessBindings.md
-              - name: update
+              - name: Create
+                href: api-ref/Certificate/create.md
+              - name: Update
                 href: api-ref/Certificate/update.md
-              - name: updateAccessBindings
+              - name: Delete
+                href: api-ref/Certificate/delete.md
+              - name: RequestNew
+                href: api-ref/Certificate/requestNew.md
+              - name: ListOperations
+                href: api-ref/Certificate/listOperations.md
+              - name: ListAccessBindings
+                href: api-ref/Certificate/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/Certificate/setAccessBindings.md
+              - name: UpdateAccessBindings
                 href: api-ref/Certificate/updateAccessBindings.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/Operation/index.md
+              - name: Get
+                href: api-ref/Operation/get.md
+              - name: Cancel
+                href: api-ref/Operation/cancel.md
   - name: '{{ monitoring-name }} metrics'
     href: metrics.md
   - name: '{{ at-name }} events'

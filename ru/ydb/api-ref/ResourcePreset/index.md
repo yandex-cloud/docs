@@ -3,25 +3,12 @@ editable: false
 sourcePath: en/_api-ref/ydb/v1/api-ref/ResourcePreset/index.md
 ---
 
-# Managed Service for YDB API, REST: ResourcePreset methods
+# Managed Service for YDB API, REST: ResourcePreset
 
-## JSON Representation {#representation}
-```json 
-{
-  "id": "string",
-  "cores": "string",
-  "memory": "string"
-}
-```
- 
-Field | Description
---- | ---
-id | **string**
-cores | **string** (int64)
-memory | **string** (int64)
+## Methods
 
-## Methods {#methods}
-Method | Description
---- | ---
-[get](get.md) | Returns the specified resource preset.
-[list](list.md) | Returns the list of available resource presets.
+#|
+||Method | Description ||
+|| [Get](get.md) | Returns the specified resource preset. ||
+|| [List](list.md) | Returns the list of available resource presets. ||
+|#

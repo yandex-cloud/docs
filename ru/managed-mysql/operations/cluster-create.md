@@ -622,7 +622,7 @@ description: Следуя данной инструкции, вы сможете
           * `subnet_id` — идентификатор [подсети](../../vpc/concepts/network.md#subnet);
           * `assign_public_ip` — разрешение на [подключение](connect.md) к хосту из интернета.
 
-  1. Воспользуйтесь вызовом [ClusterService/Create](../api-ref/grpc/cluster_service.md#Create) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService/Create](../api-ref/grpc/Cluster/create.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
       ```bash
       grpcurl \
@@ -637,7 +637,7 @@ description: Следуя данной инструкции, вы сможете
           < body.json
       ```
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/cluster_service.md#Operation).
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 

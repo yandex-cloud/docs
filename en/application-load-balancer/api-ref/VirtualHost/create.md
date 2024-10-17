@@ -3,25 +3,30 @@ editable: false
 sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/VirtualHost/create.md
 ---
 
-# Application Load Balancer API, REST: VirtualHost.create
-Creates a virtual host in the specified HTTP router.
- 
+# Application Load Balancer API, REST: VirtualHost.Create {#Create}
 
- 
-## HTTP request {#https-request}
+Creates a virtual host in the specified HTTP router.
+
+## HTTP request
+
 ```
 POST https://alb.{{ api-host }}/apploadbalancer/v1/httpRouters/{httpRouterId}/virtualHosts
 ```
- 
-## Path parameters {#path_params}
- 
-Parameter | Description
---- | ---
-httpRouterId | <p>Required. ID of the HTTP router to create a virtual host in.</p> <p>To get the HTTP router ID, make a <a href="/docs/application-load-balancer/api-ref/HttpRouter/list">list</a> request.</p> 
- 
-## Body parameters {#body_params}
- 
-```json 
+
+## Path parameters
+
+#|
+||Field | Description ||
+|| httpRouterId | **string**
+
+Required field. ID of the HTTP router to create a virtual host in.
+
+To get the HTTP router ID, make a [HttpRouterService.List](/docs/application-load-balancer/api-ref/HttpRouter/list#List) request. ||
+|#
+
+## Body parameters {#yandex.cloud.apploadbalancer.v1.CreateVirtualHostRequest}
+
+```json
 {
   "name": "string",
   "authority": [
@@ -30,31 +35,130 @@ httpRouterId | <p>Required. ID of the HTTP router to create a virtual host in.</
   "routes": [
     {
       "name": "string",
+      // Includes only one of the fields `http`, `grpc`
+      "http": {
+        "match": {
+          "httpMethod": [
+            "string"
+          ],
+          "path": {
+            // Includes only one of the fields `exactMatch`, `prefixMatch`, `regexMatch`
+            "exactMatch": "string",
+            "prefixMatch": "string",
+            "regexMatch": "string"
+            // end of the list of possible fields
+          }
+        },
+        // Includes only one of the fields `route`, `redirect`, `directResponse`
+        "route": {
+          "backendGroupId": "string",
+          "timeout": "string",
+          "idleTimeout": "string",
+          // Includes only one of the fields `hostRewrite`, `autoHostRewrite`
+          "hostRewrite": "string",
+          "autoHostRewrite": "boolean",
+          // end of the list of possible fields
+          "prefixRewrite": "string",
+          "upgradeTypes": [
+            "string"
+          ],
+          "rateLimit": {
+            "allRequests": {
+              // Includes only one of the fields `perSecond`, `perMinute`
+              "perSecond": "string",
+              "perMinute": "string"
+              // end of the list of possible fields
+            },
+            "requestsPerIp": {
+              // Includes only one of the fields `perSecond`, `perMinute`
+              "perSecond": "string",
+              "perMinute": "string"
+              // end of the list of possible fields
+            }
+          }
+        },
+        "redirect": {
+          "replaceScheme": "string",
+          "replaceHost": "string",
+          "replacePort": "string",
+          // Includes only one of the fields `replacePath`, `replacePrefix`
+          "replacePath": "string",
+          "replacePrefix": "string",
+          // end of the list of possible fields
+          "removeQuery": "boolean",
+          "responseCode": "string"
+        },
+        "directResponse": {
+          "status": "string",
+          "body": {
+            // Includes only one of the fields `text`
+            "text": "string"
+            // end of the list of possible fields
+          }
+        }
+        // end of the list of possible fields
+      },
+      "grpc": {
+        "match": {
+          "fqmn": {
+            // Includes only one of the fields `exactMatch`, `prefixMatch`, `regexMatch`
+            "exactMatch": "string",
+            "prefixMatch": "string",
+            "regexMatch": "string"
+            // end of the list of possible fields
+          }
+        },
+        // Includes only one of the fields `route`, `statusResponse`
+        "route": {
+          "backendGroupId": "string",
+          "maxTimeout": "string",
+          "idleTimeout": "string",
+          // Includes only one of the fields `hostRewrite`, `autoHostRewrite`
+          "hostRewrite": "string",
+          "autoHostRewrite": "boolean",
+          // end of the list of possible fields
+          "rateLimit": {
+            "allRequests": {
+              // Includes only one of the fields `perSecond`, `perMinute`
+              "perSecond": "string",
+              "perMinute": "string"
+              // end of the list of possible fields
+            },
+            "requestsPerIp": {
+              // Includes only one of the fields `perSecond`, `perMinute`
+              "perSecond": "string",
+              "perMinute": "string"
+              // end of the list of possible fields
+            }
+          }
+        },
+        "statusResponse": {
+          "status": "string"
+        }
+        // end of the list of possible fields
+      },
+      // end of the list of possible fields
       "routeOptions": {
         "modifyRequestHeaders": [
           {
             "name": "string",
-
-            // `routes[].routeOptions.modifyRequestHeaders[]` includes only one of the fields `append`, `replace`, `remove`, `rename`
+            // Includes only one of the fields `append`, `replace`, `remove`, `rename`
             "append": "string",
             "replace": "string",
-            "remove": true,
-            "rename": "string",
-            // end of the list of possible fields`routes[].routeOptions.modifyRequestHeaders[]`
-
+            "remove": "boolean",
+            "rename": "string"
+            // end of the list of possible fields
           }
         ],
         "modifyResponseHeaders": [
           {
             "name": "string",
-
-            // `routes[].routeOptions.modifyResponseHeaders[]` includes only one of the fields `append`, `replace`, `remove`, `rename`
+            // Includes only one of the fields `append`, `replace`, `remove`, `rename`
             "append": "string",
             "replace": "string",
-            "remove": true,
-            "rename": "string",
-            // end of the list of possible fields`routes[].routeOptions.modifyResponseHeaders[]`
-
+            "remove": "boolean",
+            "rename": "string"
+            // end of the list of possible fields
           }
         ],
         "rbac": {
@@ -63,173 +167,72 @@ httpRouterId | <p>Required. ID of the HTTP router to create a virtual host in.</
             {
               "andPrincipals": [
                 {
-
-                  // `routes[].routeOptions.rbac.principals[].andPrincipals[]` includes only one of the fields `header`, `remoteIp`, `any`
+                  // Includes only one of the fields `header`, `remoteIp`, `any`
                   "header": {
                     "name": "string",
                     "value": {
-
-                      // `routes[].routeOptions.rbac.principals[].andPrincipals[].header.value` includes only one of the fields `exactMatch`, `prefixMatch`, `regexMatch`
+                      // Includes only one of the fields `exactMatch`, `prefixMatch`, `regexMatch`
                       "exactMatch": "string",
                       "prefixMatch": "string",
-                      "regexMatch": "string",
-                      // end of the list of possible fields`routes[].routeOptions.rbac.principals[].andPrincipals[].header.value`
-
+                      "regexMatch": "string"
+                      // end of the list of possible fields
                     }
                   },
                   "remoteIp": "string",
-                  "any": true,
-                  // end of the list of possible fields`routes[].routeOptions.rbac.principals[].andPrincipals[]`
-
+                  "any": "boolean"
+                  // end of the list of possible fields
                 }
               ]
             }
           ]
         },
         "securityProfileId": "string"
-      },
-
-      // `routes[]` includes only one of the fields `http`, `grpc`
-      "http": {
-        "match": {
-          "httpMethod": [
-            "string"
-          ],
-          "path": {
-
-            // `routes[].http.match.path` includes only one of the fields `exactMatch`, `prefixMatch`, `regexMatch`
-            "exactMatch": "string",
-            "prefixMatch": "string",
-            "regexMatch": "string",
-            // end of the list of possible fields`routes[].http.match.path`
-
-          }
-        },
-
-        // `routes[].http` includes only one of the fields `route`, `redirect`, `directResponse`
-        "route": {
-          "backendGroupId": "string",
-          "timeout": "string",
-          "idleTimeout": "string",
-          "prefixRewrite": "string",
-          "upgradeTypes": [
-            "string"
-          ],
-
-          // `routes[].http.route` includes only one of the fields `hostRewrite`, `autoHostRewrite`
-          "hostRewrite": "string",
-          "autoHostRewrite": true,
-          // end of the list of possible fields`routes[].http.route`
-
-        },
-        "redirect": {
-          "replaceScheme": "string",
-          "replaceHost": "string",
-          "replacePort": "string",
-          "removeQuery": true,
-          "responseCode": "string",
-
-          // `routes[].http.redirect` includes only one of the fields `replacePath`, `replacePrefix`
-          "replacePath": "string",
-          "replacePrefix": "string",
-          // end of the list of possible fields`routes[].http.redirect`
-
-        },
-        "directResponse": {
-          "status": "string",
-          "body": {
-            "text": "string"
-          }
-        },
-        // end of the list of possible fields`routes[].http`
-
-      },
-      "grpc": {
-        "match": {
-          "fqmn": {
-
-            // `routes[].grpc.match.fqmn` includes only one of the fields `exactMatch`, `prefixMatch`, `regexMatch`
-            "exactMatch": "string",
-            "prefixMatch": "string",
-            "regexMatch": "string",
-            // end of the list of possible fields`routes[].grpc.match.fqmn`
-
-          }
-        },
-
-        // `routes[].grpc` includes only one of the fields `route`, `statusResponse`
-        "route": {
-          "backendGroupId": "string",
-          "maxTimeout": "string",
-          "idleTimeout": "string",
-
-          // `routes[].grpc.route` includes only one of the fields `hostRewrite`, `autoHostRewrite`
-          "hostRewrite": "string",
-          "autoHostRewrite": true,
-          // end of the list of possible fields`routes[].grpc.route`
-
-        },
-        "statusResponse": {
-          "status": "string"
-        },
-        // end of the list of possible fields`routes[].grpc`
-
-      },
-      // end of the list of possible fields`routes[]`
-
+      }
     }
   ],
   "modifyRequestHeaders": [
     {
       "name": "string",
-
-      // `modifyRequestHeaders[]` includes only one of the fields `append`, `replace`, `remove`, `rename`
+      // Includes only one of the fields `append`, `replace`, `remove`, `rename`
       "append": "string",
       "replace": "string",
-      "remove": true,
-      "rename": "string",
-      // end of the list of possible fields`modifyRequestHeaders[]`
-
+      "remove": "boolean",
+      "rename": "string"
+      // end of the list of possible fields
     }
   ],
   "modifyResponseHeaders": [
     {
       "name": "string",
-
-      // `modifyResponseHeaders[]` includes only one of the fields `append`, `replace`, `remove`, `rename`
+      // Includes only one of the fields `append`, `replace`, `remove`, `rename`
       "append": "string",
       "replace": "string",
-      "remove": true,
-      "rename": "string",
-      // end of the list of possible fields`modifyResponseHeaders[]`
-
+      "remove": "boolean",
+      "rename": "string"
+      // end of the list of possible fields
     }
   ],
   "routeOptions": {
     "modifyRequestHeaders": [
       {
         "name": "string",
-
-        // `routeOptions.modifyRequestHeaders[]` includes only one of the fields `append`, `replace`, `remove`, `rename`
+        // Includes only one of the fields `append`, `replace`, `remove`, `rename`
         "append": "string",
         "replace": "string",
-        "remove": true,
-        "rename": "string",
-        // end of the list of possible fields`routeOptions.modifyRequestHeaders[]`
-
+        "remove": "boolean",
+        "rename": "string"
+        // end of the list of possible fields
       }
     ],
     "modifyResponseHeaders": [
       {
         "name": "string",
-
-        // `routeOptions.modifyResponseHeaders[]` includes only one of the fields `append`, `replace`, `remove`, `rename`
+        // Includes only one of the fields `append`, `replace`, `remove`, `rename`
         "append": "string",
         "replace": "string",
-        "remove": true,
-        "rename": "string",
-        // end of the list of possible fields`routeOptions.modifyResponseHeaders[]`
-
+        "remove": "boolean",
+        "rename": "string"
+        // end of the list of possible fields
       }
     ],
     "rbac": {
@@ -238,161 +241,641 @@ httpRouterId | <p>Required. ID of the HTTP router to create a virtual host in.</
         {
           "andPrincipals": [
             {
-
-              // `routeOptions.rbac.principals[].andPrincipals[]` includes only one of the fields `header`, `remoteIp`, `any`
+              // Includes only one of the fields `header`, `remoteIp`, `any`
               "header": {
                 "name": "string",
                 "value": {
-
-                  // `routeOptions.rbac.principals[].andPrincipals[].header.value` includes only one of the fields `exactMatch`, `prefixMatch`, `regexMatch`
+                  // Includes only one of the fields `exactMatch`, `prefixMatch`, `regexMatch`
                   "exactMatch": "string",
                   "prefixMatch": "string",
-                  "regexMatch": "string",
-                  // end of the list of possible fields`routeOptions.rbac.principals[].andPrincipals[].header.value`
-
+                  "regexMatch": "string"
+                  // end of the list of possible fields
                 }
               },
               "remoteIp": "string",
-              "any": true,
-              // end of the list of possible fields`routeOptions.rbac.principals[].andPrincipals[]`
-
+              "any": "boolean"
+              // end of the list of possible fields
             }
           ]
         }
       ]
     },
     "securityProfileId": "string"
+  },
+  "rateLimit": {
+    "allRequests": {
+      // Includes only one of the fields `perSecond`, `perMinute`
+      "perSecond": "string",
+      "perMinute": "string"
+      // end of the list of possible fields
+    },
+    "requestsPerIp": {
+      // Includes only one of the fields `perSecond`, `perMinute`
+      "perSecond": "string",
+      "perMinute": "string"
+      // end of the list of possible fields
+    }
   }
 }
 ```
 
- 
-Field | Description
---- | ---
-name | **string**<br><p>Name of the virtual host. The name must be unique within the HTTP router and cannot be changed after creation.</p> <p>Value must match the regular expression ``([a-z]([-a-z0-9]{0,61}[a-z0-9])?)?``.</p> 
-authority[] | **string**<br><p>List of domains that are attributed to the virtual host.</p> <p>The host is selected to process the request received by the load balancer if the domain specified in the HTTP/1.1 ``Host`` header or the HTTP/2 ``:authority`` pseudo-header matches a domain specified in the host.</p> <p>A wildcard asterisk character (``*``) matches 0 or more characters.</p> <p>If not specified, all domains are attributed to the host, which is the same as specifying a ``*`` value. An HTTP router must not contain more than one virtual host to which all domains are attributed.</p> 
-routes[] | **object**<br><p>Routes of the virtual host.</p> <p>A route contains a set of conditions (predicates) that are used by the load balancer to select the route for the request and an action on the request. For details about the concept, see <a href="/docs/application-load-balancer/concepts/http-router#routes">documentation</a>.</p> <p>The order of routes matters: the first route whose predicate matches the request is selected. The most specific routes should be at the top of the list, so that they are not overridden. For example, if the first HTTP route is configured, via ``match``, to match paths prefixed with just ``/``, other routes are never matched.</p> 
-routes[].<br>name | **string**<br><p>Required. Name of the route.</p> 
-routes[].<br>routeOptions | **object**
-routes[].<br>routeOptions.<br>modifyRequestHeaders[] | **object**<br><p>Apply the following modifications to the request headers.</p> 
-routes[].<br>routeOptions.<br>modifyRequestHeaders[].<br>name | **string**<br><p>Name of the header.</p> 
-routes[].<br>routeOptions.<br>modifyRequestHeaders[].<br>append | **string** <br>`routes[].routeOptions.modifyRequestHeaders[]` includes only one of the fields `append`, `replace`, `remove`, `rename`<br><br><p>Appends the specified string to the header value.</p> <p>Variables <a href="https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers">defined for Envoy proxy</a> are supported.</p> 
-routes[].<br>routeOptions.<br>modifyRequestHeaders[].<br>replace | **string** <br>`routes[].routeOptions.modifyRequestHeaders[]` includes only one of the fields `append`, `replace`, `remove`, `rename`<br><br><p>Replaces the value of the header with the specified string.</p> <p>Variables <a href="https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers">defined for Envoy proxy</a> are supported.</p> 
-routes[].<br>routeOptions.<br>modifyRequestHeaders[].<br>remove | **boolean** (boolean) <br>`routes[].routeOptions.modifyRequestHeaders[]` includes only one of the fields `append`, `replace`, `remove`, `rename`<br><br><p>Removes the header.</p> 
-routes[].<br>routeOptions.<br>modifyRequestHeaders[].<br>rename | **string** <br>`routes[].routeOptions.modifyRequestHeaders[]` includes only one of the fields `append`, `replace`, `remove`, `rename`<br><br><p>Replaces the name of the header with the specified string. This operation is only supported for ALB Virtual Hosts.</p> 
-routes[].<br>routeOptions.<br>modifyResponseHeaders[] | **object**<br><p>Apply the following modifications to the response headers.</p> 
-routes[].<br>routeOptions.<br>modifyResponseHeaders[].<br>name | **string**<br><p>Name of the header.</p> 
-routes[].<br>routeOptions.<br>modifyResponseHeaders[].<br>append | **string** <br>`routes[].routeOptions.modifyResponseHeaders[]` includes only one of the fields `append`, `replace`, `remove`, `rename`<br><br><p>Appends the specified string to the header value.</p> <p>Variables <a href="https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers">defined for Envoy proxy</a> are supported.</p> 
-routes[].<br>routeOptions.<br>modifyResponseHeaders[].<br>replace | **string** <br>`routes[].routeOptions.modifyResponseHeaders[]` includes only one of the fields `append`, `replace`, `remove`, `rename`<br><br><p>Replaces the value of the header with the specified string.</p> <p>Variables <a href="https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers">defined for Envoy proxy</a> are supported.</p> 
-routes[].<br>routeOptions.<br>modifyResponseHeaders[].<br>remove | **boolean** (boolean) <br>`routes[].routeOptions.modifyResponseHeaders[]` includes only one of the fields `append`, `replace`, `remove`, `rename`<br><br><p>Removes the header.</p> 
-routes[].<br>routeOptions.<br>modifyResponseHeaders[].<br>rename | **string** <br>`routes[].routeOptions.modifyResponseHeaders[]` includes only one of the fields `append`, `replace`, `remove`, `rename`<br><br><p>Replaces the name of the header with the specified string. This operation is only supported for ALB Virtual Hosts.</p> 
-routes[].<br>routeOptions.<br>rbac | **object**<br><p>Role Based Access Control (RBAC) provides router, virtual host, and route access control for the ALB service. Requests are allowed or denied based on the ``action`` and whether a matching principal is found. For instance, if the action is ALLOW and a matching principal is found the request should be allowed.</p> 
-routes[].<br>routeOptions.<br>rbac.<br>action | **string**<br><p>Required. The action to take if a principal matches. Every action either allows or denies a request.</p> <ul> <li>ALLOW: Allows the request if and only if there is a principal that matches the request.</li> <li>DENY: Allows the request if and only if there are no principal that match the request.</li> </ul> 
-routes[].<br>routeOptions.<br>rbac.<br>principals[] | **object**<br><p>Required. Required. A match occurs when at least one matches the request.</p> <p>The minimum number of elements is 1.</p> 
-routes[].<br>routeOptions.<br>rbac.<br>principals[].<br>andPrincipals[] | **object**<br><p>Required. Required. A match occurs when all principals match the request.</p> <p>The minimum number of elements is 1.</p> 
-routes[].<br>routeOptions.<br>rbac.<br>principals[].<br>andPrincipals[].<br>header | **object**<br>A header (or pseudo-header such as :path or :method) of the incoming HTTP request. <br>`routes[].routeOptions.rbac.principals[].andPrincipals[]` includes only one of the fields `header`, `remoteIp`, `any`<br>
-routes[].<br>routeOptions.<br>rbac.<br>principals[].<br>andPrincipals[].<br>header.<br>name | **string**<br><p>Required. Specifies the name of the header in the request.</p> 
-routes[].<br>routeOptions.<br>rbac.<br>principals[].<br>andPrincipals[].<br>header.<br>value | **object**<br><p>Specifies how the header match will be performed to route the request. In the absence of value a request that has specified header name will match, regardless of the header's value.</p> <p>A string matcher resource.</p> 
-routes[].<br>routeOptions.<br>rbac.<br>principals[].<br>andPrincipals[].<br>header.<br>value.<br>exactMatch | **string** <br>`routes[].routeOptions.rbac.principals[].andPrincipals[].header.value` includes only one of the fields `exactMatch`, `prefixMatch`, `regexMatch`<br><br><p>Exact match string.</p> 
-routes[].<br>routeOptions.<br>rbac.<br>principals[].<br>andPrincipals[].<br>header.<br>value.<br>prefixMatch | **string** <br>`routes[].routeOptions.rbac.principals[].andPrincipals[].header.value` includes only one of the fields `exactMatch`, `prefixMatch`, `regexMatch`<br><br><p>Prefix match string.</p> 
-routes[].<br>routeOptions.<br>rbac.<br>principals[].<br>andPrincipals[].<br>header.<br>value.<br>regexMatch | **string** <br>`routes[].routeOptions.rbac.principals[].andPrincipals[].header.value` includes only one of the fields `exactMatch`, `prefixMatch`, `regexMatch`<br><br><p>Regular expression match string.</p> 
-routes[].<br>routeOptions.<br>rbac.<br>principals[].<br>andPrincipals[].<br>remoteIp | **string** <br>`routes[].routeOptions.rbac.principals[].andPrincipals[]` includes only one of the fields `header`, `remoteIp`, `any`<br><br><p>A CIDR block or IP that describes the request remote/origin address, e.g. ``192.0.0.0/24`` or``192.0.0.4`` .</p> 
-routes[].<br>routeOptions.<br>rbac.<br>principals[].<br>andPrincipals[].<br>any | **boolean** (boolean) <br>`routes[].routeOptions.rbac.principals[].andPrincipals[]` includes only one of the fields `header`, `remoteIp`, `any`<br><br><p>When any is set, it matches any request.</p> 
-routes[].<br>routeOptions.<br>securityProfileId | **string**<br><p>Security profile that will take effect to all requests routed via particular virtual host.</p> 
-routes[].<br>http | **object**<br>HTTP route configuration. <br>`routes[]` includes only one of the fields `http`, `grpc`<br>
-routes[].<br>http.<br>match | **object**<br>Condition (predicate) used to select the route.
-routes[].<br>http.<br>match.<br>httpMethod[] | **string**<br><p>HTTP method specified in the request.</p> 
-routes[].<br>http.<br>match.<br>path | **object**<br><p>Match settings for the path specified in the request.</p> <p>If not specified, the route matches all paths.</p> <p>A string matcher resource.</p> 
-routes[].<br>http.<br>match.<br>path.<br>exactMatch | **string** <br>`routes[].http.match.path` includes only one of the fields `exactMatch`, `prefixMatch`, `regexMatch`<br><br><p>Exact match string.</p> 
-routes[].<br>http.<br>match.<br>path.<br>prefixMatch | **string** <br>`routes[].http.match.path` includes only one of the fields `exactMatch`, `prefixMatch`, `regexMatch`<br><br><p>Prefix match string.</p> 
-routes[].<br>http.<br>match.<br>path.<br>regexMatch | **string** <br>`routes[].http.match.path` includes only one of the fields `exactMatch`, `prefixMatch`, `regexMatch`<br><br><p>Regular expression match string.</p> 
-routes[].<br>http.<br>route | **object**<br>Forwards the request to a backend group for processing as configured. <br>`routes[].http` includes only one of the fields `route`, `redirect`, `directResponse`<br>
-routes[].<br>http.<br>route.<br>backendGroupId | **string**<br><p>Required. Backend group to forward requests to.</p> <p>Stream (TCP) backend groups are not supported.</p> 
-routes[].<br>http.<br>route.<br>timeout | **string**<br><p>Overall timeout for an HTTP connection between a load balancer node an a backend from the backend group: the maximum time the connection is kept alive for, regardless of whether data is transferred over it.</p> <p>If a connection times out, the load balancer responds to the client with a ``504 Gateway Timeout`` status code.</p> <p>Default value: ``60``.</p> 
-routes[].<br>http.<br>route.<br>idleTimeout | **string**<br><p>Idle timeout for an HTTP connection between a load balancer node an a backend from the backend group: the maximum time the connection is allowed to be idle, i.e. without any data transferred over it.</p> <p>Specifying meaningful values for both ``timeout`` and ``idle_timeout`` is useful for implementing server-push mechanisms such as long polling, server-sent events (``EventSource`` interface) etc.</p> <p>If a connection times out, the load balancer responds to the client with a ``504 Gateway Timeout`` status code.</p> <p>If not specified, no idle timeout is used, and an alive connection may be idle for any duration (see ``timeout``).</p> 
-routes[].<br>http.<br>route.<br>prefixRewrite | **string**<br><p>Replacement for the path prefix matched by ``StringMatch``.</p> <p>For instance, if ``prefixMatch`` value is ``/foo`` and ``prefix_rewrite`` value is ``/bar``, a request with ``/foobaz`` path is forwarded with ``/barbaz`` path. For ``exactMatch``, the whole path is replaced.</p> <p>If not specified, the path is not changed.</p> 
-routes[].<br>http.<br>route.<br>upgradeTypes[] | **string**<br><p>Supported values for HTTP ``Upgrade`` header. E.g. ``websocket``.</p> 
-routes[].<br>http.<br>route.<br>hostRewrite | **string** <br>`routes[].http.route` includes only one of the fields `hostRewrite`, `autoHostRewrite`<br><br><p>Host replacement.</p> 
-routes[].<br>http.<br>route.<br>autoHostRewrite | **boolean** (boolean) <br>`routes[].http.route` includes only one of the fields `hostRewrite`, `autoHostRewrite`<br><br><p>Automatically replaces the host with that of the target.</p> 
-routes[].<br>http.<br>redirect | **object**<br>Redirects the request as configured. <br>`routes[].http` includes only one of the fields `route`, `redirect`, `directResponse`<br>
-routes[].<br>http.<br>redirect.<br>replaceScheme | **string**<br><p>URI scheme replacement.</p> <p>If ``http`` or ``https`` scheme is to be replaced and ``80`` or ``443`` port is specified in the original URI, the port is also removed.</p> <p>If not specified, the original scheme and port are used.</p> 
-routes[].<br>http.<br>redirect.<br>replaceHost | **string**<br><p>URI host replacement.</p> <p>If not specified, the original host is used.</p> 
-routes[].<br>http.<br>redirect.<br>replacePort | **string** (int64)<br><p>URI host replacement.</p> <p>If not specified, the original host is used.</p> 
-routes[].<br>http.<br>redirect.<br>removeQuery | **boolean** (boolean)<br><p>Removes URI query.</p> 
-routes[].<br>http.<br>redirect.<br>responseCode | **string**<br>HTTP status code to use in redirect responses.<br><ul> <li>MOVED_PERMANENTLY: ``301 Moved Permanently`` status code.</li> <li>FOUND: ``302 Found`` status code.</li> <li>SEE_OTHER: ``303 See Other`` status code.</li> <li>TEMPORARY_REDIRECT: ``307 Temporary Redirect`` status code.</li> <li>PERMANENT_REDIRECT: ``308 Permanent Redirect`` status code.</li> </ul> 
-routes[].<br>http.<br>redirect.<br>replacePath | **string** <br>`routes[].http.redirect` includes only one of the fields `replacePath`, `replacePrefix`<br><br><p>Replacement for the whole path.</p> 
-routes[].<br>http.<br>redirect.<br>replacePrefix | **string** <br>`routes[].http.redirect` includes only one of the fields `replacePath`, `replacePrefix`<br><br><p>Replacement for the path prefix matched by ``StringMatch``.</p> <p>For instance, if ``prefixMatch`` value is ``/foo`` and ``replace_prefix`` value is ``/bar``, a request with ``https://example.com/foobaz`` URI is redirected to ``https://example.com/barbaz``. For ``exactMatch``, the whole path is replaced.</p> 
-routes[].<br>http.<br>directResponse | **object**<br>Instructs the load balancer to respond directly as configured. <br>`routes[].http` includes only one of the fields `route`, `redirect`, `directResponse`<br>
-routes[].<br>http.<br>directResponse.<br>status | **string** (int64)<br><p>HTTP status code to use in responses.</p> <p>Acceptable values are 100 to 599, inclusive.</p> 
-routes[].<br>http.<br>directResponse.<br>body | **object**<br><p>Response body.</p> <p>A health check payload resource.</p> 
-routes[].<br>http.<br>directResponse.<br>body.<br>text | **string**<br><p>Payload text.</p> <p>The string length in characters must be greater than 0.</p> 
-routes[].<br>grpc | **object**<br>gRPC route configuration. <br>`routes[]` includes only one of the fields `http`, `grpc`<br>
-routes[].<br>grpc.<br>match | **object**<br>Condition (predicate) used to select the route.
-routes[].<br>grpc.<br>match.<br>fqmn | **object**<br><p>Match settings for gRPC service method called in the request.</p> <p>A match string must be a fully qualified method name, e.g. ``foo.bar.v1.BazService/Get``, or a prefix of such.</p> <p>If not specified, the route matches all methods.</p> <p>A string matcher resource.</p> 
-routes[].<br>grpc.<br>match.<br>fqmn.<br>exactMatch | **string** <br>`routes[].grpc.match.fqmn` includes only one of the fields `exactMatch`, `prefixMatch`, `regexMatch`<br><br><p>Exact match string.</p> 
-routes[].<br>grpc.<br>match.<br>fqmn.<br>prefixMatch | **string** <br>`routes[].grpc.match.fqmn` includes only one of the fields `exactMatch`, `prefixMatch`, `regexMatch`<br><br><p>Prefix match string.</p> 
-routes[].<br>grpc.<br>match.<br>fqmn.<br>regexMatch | **string** <br>`routes[].grpc.match.fqmn` includes only one of the fields `exactMatch`, `prefixMatch`, `regexMatch`<br><br><p>Regular expression match string.</p> 
-routes[].<br>grpc.<br>route | **object**<br>Forwards the request to a backend group for processing as configured. <br>`routes[].grpc` includes only one of the fields `route`, `statusResponse`<br>
-routes[].<br>grpc.<br>route.<br>backendGroupId | **string**<br><p>Required. Backend group to forward requests to.</p> 
-routes[].<br>grpc.<br>route.<br>maxTimeout | **string**<br><p>Overall timeout for an underlying HTTP connection between a load balancer node an a backend from the backend group: the maximum time the connection is kept alive for, regardless of whether data is transferred over it.</p> <p>If a client specifies a lower timeout in HTTP ``grpc-timeout`` header, the ``max_timeout`` value is ignored.</p> <p>If a connection times out, the load balancer responds to the client with an ``UNAVAILABLE`` status code.</p> <p>Default value: ``60``.</p> 
-routes[].<br>grpc.<br>route.<br>idleTimeout | **string**<br><p>Idle timeout for an underlying HTTP connection between a load balancer node an a backend from the backend group: the maximum time the connection is allowed to be idle, i.e. without any data transferred over it.</p> <p>Specifying meaningful values for both ``maxTimeout`` and ``idle_timeout`` is useful for implementing server-push mechanisms such as long polling, server-sent events etc.</p> <p>If a connection times out, the load balancer responds to the client with an ``UNAVAILABLE`` status code.</p> <p>If not specified, no idle timeout is used, and an alive connection may be idle for any duration (see ``maxTimeout``).</p> 
-routes[].<br>grpc.<br>route.<br>hostRewrite | **string** <br>`routes[].grpc.route` includes only one of the fields `hostRewrite`, `autoHostRewrite`<br><br><p>Host replacement.</p> 
-routes[].<br>grpc.<br>route.<br>autoHostRewrite | **boolean** (boolean) <br>`routes[].grpc.route` includes only one of the fields `hostRewrite`, `autoHostRewrite`<br><br><p>Automatically replaces the host with that of the target.</p> 
-routes[].<br>grpc.<br>statusResponse | **object**<br>Instructs the load balancer to respond directly with a specified status. <br>`routes[].grpc` includes only one of the fields `route`, `statusResponse`<br>
-routes[].<br>grpc.<br>statusResponse.<br>status | **string**<br><p>gRPC <a href="https://grpc.github.io/grpc/core/md_doc_statuscodes.html">status code</a> to use in responses.</p> <p>gRPC status code supported for use in responses.</p> <ul> <li>OK: ``OK`` (0) status code.</li> <li>INVALID_ARGUMENT: ``INVALID_ARGUMENT`` (3) status code.</li> <li>NOT_FOUND: ``NOT_FOUND`` (5) status code.</li> <li>PERMISSION_DENIED: ``PERMISSION_DENIED`` (7) status code.</li> <li>UNAUTHENTICATED: ``UNAUTHENTICATED`` (16) status code.</li> <li>UNIMPLEMENTED: ``UNIMPLEMENTED`` (12) status code.</li> <li>INTERNAL: ``INTERNAL`` (13) status code.</li> <li>UNAVAILABLE: ``UNAVAILABLE`` (14) status code.</li> </ul> 
-modifyRequestHeaders[] | **object**<br><p>Modifications that are made to the headers of incoming HTTP requests before they are forwarded to backends.</p> 
-modifyRequestHeaders[].<br>name | **string**<br><p>Name of the header.</p> 
-modifyRequestHeaders[].<br>append | **string** <br>`modifyRequestHeaders[]` includes only one of the fields `append`, `replace`, `remove`, `rename`<br><br><p>Appends the specified string to the header value.</p> <p>Variables <a href="https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers">defined for Envoy proxy</a> are supported.</p> 
-modifyRequestHeaders[].<br>replace | **string** <br>`modifyRequestHeaders[]` includes only one of the fields `append`, `replace`, `remove`, `rename`<br><br><p>Replaces the value of the header with the specified string.</p> <p>Variables <a href="https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers">defined for Envoy proxy</a> are supported.</p> 
-modifyRequestHeaders[].<br>remove | **boolean** (boolean) <br>`modifyRequestHeaders[]` includes only one of the fields `append`, `replace`, `remove`, `rename`<br><br><p>Removes the header.</p> 
-modifyRequestHeaders[].<br>rename | **string** <br>`modifyRequestHeaders[]` includes only one of the fields `append`, `replace`, `remove`, `rename`<br><br><p>Replaces the name of the header with the specified string. This operation is only supported for ALB Virtual Hosts.</p> 
-modifyResponseHeaders[] | **object**<br><p>Modifications that are made to the headers of HTTP responses received from backends before responses are forwarded to clients.</p> 
-modifyResponseHeaders[].<br>name | **string**<br><p>Name of the header.</p> 
-modifyResponseHeaders[].<br>append | **string** <br>`modifyResponseHeaders[]` includes only one of the fields `append`, `replace`, `remove`, `rename`<br><br><p>Appends the specified string to the header value.</p> <p>Variables <a href="https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers">defined for Envoy proxy</a> are supported.</p> 
-modifyResponseHeaders[].<br>replace | **string** <br>`modifyResponseHeaders[]` includes only one of the fields `append`, `replace`, `remove`, `rename`<br><br><p>Replaces the value of the header with the specified string.</p> <p>Variables <a href="https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers">defined for Envoy proxy</a> are supported.</p> 
-modifyResponseHeaders[].<br>remove | **boolean** (boolean) <br>`modifyResponseHeaders[]` includes only one of the fields `append`, `replace`, `remove`, `rename`<br><br><p>Removes the header.</p> 
-modifyResponseHeaders[].<br>rename | **string** <br>`modifyResponseHeaders[]` includes only one of the fields `append`, `replace`, `remove`, `rename`<br><br><p>Replaces the name of the header with the specified string. This operation is only supported for ALB Virtual Hosts.</p> 
-routeOptions | **object**<br><p>Route options for the virtual host.</p> 
-routeOptions.<br>modifyRequestHeaders[] | **object**<br><p>Apply the following modifications to the request headers.</p> 
-routeOptions.<br>modifyRequestHeaders[].<br>name | **string**<br><p>Name of the header.</p> 
-routeOptions.<br>modifyRequestHeaders[].<br>append | **string** <br>`routeOptions.modifyRequestHeaders[]` includes only one of the fields `append`, `replace`, `remove`, `rename`<br><br><p>Appends the specified string to the header value.</p> <p>Variables <a href="https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers">defined for Envoy proxy</a> are supported.</p> 
-routeOptions.<br>modifyRequestHeaders[].<br>replace | **string** <br>`routeOptions.modifyRequestHeaders[]` includes only one of the fields `append`, `replace`, `remove`, `rename`<br><br><p>Replaces the value of the header with the specified string.</p> <p>Variables <a href="https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers">defined for Envoy proxy</a> are supported.</p> 
-routeOptions.<br>modifyRequestHeaders[].<br>remove | **boolean** (boolean) <br>`routeOptions.modifyRequestHeaders[]` includes only one of the fields `append`, `replace`, `remove`, `rename`<br><br><p>Removes the header.</p> 
-routeOptions.<br>modifyRequestHeaders[].<br>rename | **string** <br>`routeOptions.modifyRequestHeaders[]` includes only one of the fields `append`, `replace`, `remove`, `rename`<br><br><p>Replaces the name of the header with the specified string. This operation is only supported for ALB Virtual Hosts.</p> 
-routeOptions.<br>modifyResponseHeaders[] | **object**<br><p>Apply the following modifications to the response headers.</p> 
-routeOptions.<br>modifyResponseHeaders[].<br>name | **string**<br><p>Name of the header.</p> 
-routeOptions.<br>modifyResponseHeaders[].<br>append | **string** <br>`routeOptions.modifyResponseHeaders[]` includes only one of the fields `append`, `replace`, `remove`, `rename`<br><br><p>Appends the specified string to the header value.</p> <p>Variables <a href="https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers">defined for Envoy proxy</a> are supported.</p> 
-routeOptions.<br>modifyResponseHeaders[].<br>replace | **string** <br>`routeOptions.modifyResponseHeaders[]` includes only one of the fields `append`, `replace`, `remove`, `rename`<br><br><p>Replaces the value of the header with the specified string.</p> <p>Variables <a href="https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers">defined for Envoy proxy</a> are supported.</p> 
-routeOptions.<br>modifyResponseHeaders[].<br>remove | **boolean** (boolean) <br>`routeOptions.modifyResponseHeaders[]` includes only one of the fields `append`, `replace`, `remove`, `rename`<br><br><p>Removes the header.</p> 
-routeOptions.<br>modifyResponseHeaders[].<br>rename | **string** <br>`routeOptions.modifyResponseHeaders[]` includes only one of the fields `append`, `replace`, `remove`, `rename`<br><br><p>Replaces the name of the header with the specified string. This operation is only supported for ALB Virtual Hosts.</p> 
-routeOptions.<br>rbac | **object**<br><p>Role Based Access Control (RBAC) provides router, virtual host, and route access control for the ALB service. Requests are allowed or denied based on the ``action`` and whether a matching principal is found. For instance, if the action is ALLOW and a matching principal is found the request should be allowed.</p> 
-routeOptions.<br>rbac.<br>action | **string**<br><p>Required. The action to take if a principal matches. Every action either allows or denies a request.</p> <ul> <li>ALLOW: Allows the request if and only if there is a principal that matches the request.</li> <li>DENY: Allows the request if and only if there are no principal that match the request.</li> </ul> 
-routeOptions.<br>rbac.<br>principals[] | **object**<br><p>Required. Required. A match occurs when at least one matches the request.</p> <p>The minimum number of elements is 1.</p> 
-routeOptions.<br>rbac.<br>principals[].<br>andPrincipals[] | **object**<br><p>Required. Required. A match occurs when all principals match the request.</p> <p>The minimum number of elements is 1.</p> 
-routeOptions.<br>rbac.<br>principals[].<br>andPrincipals[].<br>header | **object**<br>A header (or pseudo-header such as :path or :method) of the incoming HTTP request. <br>`routeOptions.rbac.principals[].andPrincipals[]` includes only one of the fields `header`, `remoteIp`, `any`<br>
-routeOptions.<br>rbac.<br>principals[].<br>andPrincipals[].<br>header.<br>name | **string**<br><p>Required. Specifies the name of the header in the request.</p> 
-routeOptions.<br>rbac.<br>principals[].<br>andPrincipals[].<br>header.<br>value | **object**<br><p>Specifies how the header match will be performed to route the request. In the absence of value a request that has specified header name will match, regardless of the header's value.</p> <p>A string matcher resource.</p> 
-routeOptions.<br>rbac.<br>principals[].<br>andPrincipals[].<br>header.<br>value.<br>exactMatch | **string** <br>`routeOptions.rbac.principals[].andPrincipals[].header.value` includes only one of the fields `exactMatch`, `prefixMatch`, `regexMatch`<br><br><p>Exact match string.</p> 
-routeOptions.<br>rbac.<br>principals[].<br>andPrincipals[].<br>header.<br>value.<br>prefixMatch | **string** <br>`routeOptions.rbac.principals[].andPrincipals[].header.value` includes only one of the fields `exactMatch`, `prefixMatch`, `regexMatch`<br><br><p>Prefix match string.</p> 
-routeOptions.<br>rbac.<br>principals[].<br>andPrincipals[].<br>header.<br>value.<br>regexMatch | **string** <br>`routeOptions.rbac.principals[].andPrincipals[].header.value` includes only one of the fields `exactMatch`, `prefixMatch`, `regexMatch`<br><br><p>Regular expression match string.</p> 
-routeOptions.<br>rbac.<br>principals[].<br>andPrincipals[].<br>remoteIp | **string** <br>`routeOptions.rbac.principals[].andPrincipals[]` includes only one of the fields `header`, `remoteIp`, `any`<br><br><p>A CIDR block or IP that describes the request remote/origin address, e.g. ``192.0.0.0/24`` or``192.0.0.4`` .</p> 
-routeOptions.<br>rbac.<br>principals[].<br>andPrincipals[].<br>any | **boolean** (boolean) <br>`routeOptions.rbac.principals[].andPrincipals[]` includes only one of the fields `header`, `remoteIp`, `any`<br><br><p>When any is set, it matches any request.</p> 
-routeOptions.<br>securityProfileId | **string**<br><p>Security profile that will take effect to all requests routed via particular virtual host.</p> 
- 
-## Response {#responses}
+#|
+||Field | Description ||
+|| name | **string**
+
+Name of the virtual host. The name must be unique within the HTTP router and cannot be changed after creation. ||
+|| authority[] | **string**
+
+List of domains that are attributed to the virtual host.
+
+The host is selected to process the request received by the load balancer
+if the domain specified in the HTTP/1.1 `Host` header or the HTTP/2 `:authority` pseudo-header matches a domain
+specified in the host.
+
+A wildcard asterisk character (`*`) matches 0 or more characters.
+
+If not specified, all domains are attributed to the host, which is the same as specifying a `*` value.
+An HTTP router must not contain more than one virtual host to which all domains are attributed. ||
+|| routes[] | **[Route](#yandex.cloud.apploadbalancer.v1.Route)**
+
+Routes of the virtual host.
+
+A route contains a set of conditions (predicates) that are used by the load balancer to select the route
+for the request and an action on the request.
+For details about the concept, see [documentation](/docs/application-load-balancer/concepts/http-router#routes).
+
+The order of routes matters: the first route whose predicate matches the request is selected.
+The most specific routes should be at the top of the list, so that they are not overridden.
+For example, if the first HTTP route is configured, via [HttpRoute.match](#yandex.cloud.apploadbalancer.v1.HttpRoute), to match paths prefixed with just `/`,
+other routes are never matched. ||
+|| modifyRequestHeaders[] | **[HeaderModification](#yandex.cloud.apploadbalancer.v1.HeaderModification)**
+
+Modifications that are made to the headers of incoming HTTP requests before they are forwarded to backends. ||
+|| modifyResponseHeaders[] | **[HeaderModification](#yandex.cloud.apploadbalancer.v1.HeaderModification)**
+
+Modifications that are made to the headers of HTTP responses received from backends
+before responses are forwarded to clients. ||
+|| routeOptions | **[RouteOptions](#yandex.cloud.apploadbalancer.v1.RouteOptions)**
+
+Route options for the virtual host. ||
+|| rateLimit | **[RateLimit](#yandex.cloud.apploadbalancer.v1.RateLimit)**
+
+RateLimit is a rate limit configuration applied for a whole virtual host. ||
+|#
+
+## Route {#yandex.cloud.apploadbalancer.v1.Route}
+
+A route resource.
+For details about the concept, see [documentation](/docs/application-load-balancer/concepts/http-router#routes).
+
+#|
+||Field | Description ||
+|| name | **string**
+
+Required field. Name of the route. ||
+|| http | **[HttpRoute](#yandex.cloud.apploadbalancer.v1.HttpRoute)**
+
+HTTP route configuration.
+
+Includes only one of the fields `http`, `grpc`.
+
+Route configuration. ||
+|| grpc | **[GrpcRoute](#yandex.cloud.apploadbalancer.v1.GrpcRoute)**
+
+gRPC route configuration.
+
+Includes only one of the fields `http`, `grpc`.
+
+Route configuration. ||
+|| routeOptions | **[RouteOptions](#yandex.cloud.apploadbalancer.v1.RouteOptions)** ||
+|#
+
+## HttpRoute {#yandex.cloud.apploadbalancer.v1.HttpRoute}
+
+An HTTP route configuration resource.
+
+#|
+||Field | Description ||
+|| match | **[HttpRouteMatch](#yandex.cloud.apploadbalancer.v1.HttpRouteMatch)**
+
+Condition (predicate) used to select the route. ||
+|| route | **[HttpRouteAction](#yandex.cloud.apploadbalancer.v1.HttpRouteAction)**
+
+Forwards the request to a backend group for processing as configured.
+
+Includes only one of the fields `route`, `redirect`, `directResponse`.
+
+Action performed on the request if the route is selected. ||
+|| redirect | **[RedirectAction](#yandex.cloud.apploadbalancer.v1.RedirectAction)**
+
+Redirects the request as configured.
+
+Includes only one of the fields `route`, `redirect`, `directResponse`.
+
+Action performed on the request if the route is selected. ||
+|| directResponse | **[DirectResponseAction](#yandex.cloud.apploadbalancer.v1.DirectResponseAction)**
+
+Instructs the load balancer to respond directly as configured.
+
+Includes only one of the fields `route`, `redirect`, `directResponse`.
+
+Action performed on the request if the route is selected. ||
+|#
+
+## HttpRouteMatch {#yandex.cloud.apploadbalancer.v1.HttpRouteMatch}
+
+An HTTP route condition (predicate) resource.
+
+#|
+||Field | Description ||
+|| httpMethod[] | **string**
+
+HTTP method specified in the request. ||
+|| path | **[StringMatch](#yandex.cloud.apploadbalancer.v1.StringMatch)**
+
+Match settings for the path specified in the request.
+
+If not specified, the route matches all paths. ||
+|#
+
+## StringMatch {#yandex.cloud.apploadbalancer.v1.StringMatch}
+
+A string matcher resource.
+
+#|
+||Field | Description ||
+|| exactMatch | **string**
+
+Exact match string.
+
+Includes only one of the fields `exactMatch`, `prefixMatch`, `regexMatch`.
+
+Match string for either exact or prefix match. ||
+|| prefixMatch | **string**
+
+Prefix match string.
+
+Includes only one of the fields `exactMatch`, `prefixMatch`, `regexMatch`.
+
+Match string for either exact or prefix match. ||
+|| regexMatch | **string**
+
+Regular expression match string.
+
+Includes only one of the fields `exactMatch`, `prefixMatch`, `regexMatch`.
+
+Match string for either exact or prefix match. ||
+|#
+
+## HttpRouteAction {#yandex.cloud.apploadbalancer.v1.HttpRouteAction}
+
+An HTTP route action resource.
+
+#|
+||Field | Description ||
+|| backendGroupId | **string**
+
+Required field. Backend group to forward requests to.
+
+Stream (TCP) backend groups are not supported. ||
+|| timeout | **string** (duration)
+
+Overall timeout for an HTTP connection between a load balancer node an a backend from the backend group:
+the maximum time the connection is kept alive for, regardless of whether data is transferred over it.
+
+If a connection times out, the load balancer responds to the client with a `504 Gateway Timeout` status code.
+
+Default value: `60`. ||
+|| idleTimeout | **string** (duration)
+
+Idle timeout for an HTTP connection between a load balancer node an a backend from the backend group:
+the maximum time the connection is allowed to be idle, i.e. without any data transferred over it.
+
+Specifying meaningful values for both `timeout` and `idle_timeout` is useful for implementing
+server-push mechanisms such as long polling, server-sent events (`EventSource` interface) etc.
+
+If a connection times out, the load balancer responds to the client with a `504 Gateway Timeout` status code.
+
+If not specified, no idle timeout is used, and an alive connection may be idle for any duration (see `timeout`). ||
+|| hostRewrite | **string**
+
+Host replacement.
+
+Includes only one of the fields `hostRewrite`, `autoHostRewrite`.
+
+Value rewrite settings for HTTP/1.1 `Host` headers and HTTP/2 `:authority` pseudo-headers.
+
+If not specified, the host is not changed. ||
+|| autoHostRewrite | **boolean**
+
+Automatically replaces the host with that of the target.
+
+Includes only one of the fields `hostRewrite`, `autoHostRewrite`.
+
+Value rewrite settings for HTTP/1.1 `Host` headers and HTTP/2 `:authority` pseudo-headers.
+
+If not specified, the host is not changed. ||
+|| prefixRewrite | **string**
+
+Replacement for the path prefix matched by [StringMatch](#yandex.cloud.apploadbalancer.v1.StringMatch).
+
+For instance, if [StringMatch.prefixMatch](#yandex.cloud.apploadbalancer.v1.StringMatch) value is `/foo` and `prefix_rewrite` value is `/bar`,
+a request with `/foobaz` path is forwarded with `/barbaz` path.
+For [StringMatch.exactMatch](#yandex.cloud.apploadbalancer.v1.StringMatch), the whole path is replaced.
+
+If not specified, the path is not changed. ||
+|| upgradeTypes[] | **string**
+
+Supported values for HTTP `Upgrade` header. E.g. `websocket`. ||
+|| rateLimit | **[RateLimit](#yandex.cloud.apploadbalancer.v1.RateLimit)**
+
+RateLimit is a rate limit configuration applied for route. ||
+|#
+
+## RateLimit {#yandex.cloud.apploadbalancer.v1.RateLimit}
+
+RateLimit is a set of settings for global rate limiting.
+
+#|
+||Field | Description ||
+|| allRequests | **[Limit](#yandex.cloud.apploadbalancer.v1.RateLimit.Limit)**
+
+AllRequests is a rate limit configuration applied to all incoming requests. ||
+|| requestsPerIp | **[Limit](#yandex.cloud.apploadbalancer.v1.RateLimit.Limit)**
+
+RequestsPerIp is a rate limit configuration applied separately for each set of requests
+grouped by client IP address. ||
+|#
+
+## Limit {#yandex.cloud.apploadbalancer.v1.RateLimit.Limit}
+
+Limit is a rate limit value settings.
+
+#|
+||Field | Description ||
+|| perSecond | **string** (int64)
+
+PerSecond is a limit value specified with per second time unit.
+
+Includes only one of the fields `perSecond`, `perMinute`. ||
+|| perMinute | **string** (int64)
+
+PerMinute is a limit value specified with per minute time unit.
+
+Includes only one of the fields `perSecond`, `perMinute`. ||
+|#
+
+## RedirectAction {#yandex.cloud.apploadbalancer.v1.RedirectAction}
+
+A redirect action resource.
+
+#|
+||Field | Description ||
+|| replaceScheme | **string**
+
+URI scheme replacement.
+
+If `http` or `https` scheme is to be replaced and `80` or `443` port is specified in the original URI,
+the port is also removed.
+
+If not specified, the original scheme and port are used. ||
+|| replaceHost | **string**
+
+URI host replacement.
+
+If not specified, the original host is used. ||
+|| replacePort | **string** (int64)
+
+URI host replacement.
+
+If not specified, the original host is used. ||
+|| replacePath | **string**
+
+Replacement for the whole path.
+
+Includes only one of the fields `replacePath`, `replacePrefix`.
+
+URI path replacement.
+
+If not specified, the original path is used. ||
+|| replacePrefix | **string**
+
+Replacement for the path prefix matched by [StringMatch](#yandex.cloud.apploadbalancer.v1.StringMatch).
+
+For instance, if [StringMatch.prefixMatch](#yandex.cloud.apploadbalancer.v1.StringMatch) value is `/foo` and `replace_prefix` value is `/bar`,
+a request with `https://example.com/foobaz` URI is redirected to `https://example.com/barbaz`.
+For [StringMatch.exactMatch](#yandex.cloud.apploadbalancer.v1.StringMatch), the whole path is replaced.
+
+Includes only one of the fields `replacePath`, `replacePrefix`.
+
+URI path replacement.
+
+If not specified, the original path is used. ||
+|| removeQuery | **boolean**
+
+Removes URI query. ||
+|| responseCode | **enum** (RedirectResponseCode)
+
+HTTP status code to use in redirect responses.
+
+- `MOVED_PERMANENTLY`: `301 Moved Permanently` status code.
+- `FOUND`: `302 Found` status code.
+- `SEE_OTHER`: `303 See Other` status code.
+- `TEMPORARY_REDIRECT`: `307 Temporary Redirect` status code.
+- `PERMANENT_REDIRECT`: `308 Permanent Redirect` status code. ||
+|#
+
+## DirectResponseAction {#yandex.cloud.apploadbalancer.v1.DirectResponseAction}
+
+A direct response action resource.
+
+#|
+||Field | Description ||
+|| status | **string** (int64)
+
+HTTP status code to use in responses. ||
+|| body | **[Payload](#yandex.cloud.apploadbalancer.v1.Payload)**
+
+Response body. ||
+|#
+
+## Payload {#yandex.cloud.apploadbalancer.v1.Payload}
+
+A health check payload resource.
+
+#|
+||Field | Description ||
+|| text | **string**
+
+Payload text.
+
+Includes only one of the fields `text`.
+
+Payload. ||
+|#
+
+## GrpcRoute {#yandex.cloud.apploadbalancer.v1.GrpcRoute}
+
+A gRPC route configuration resource.
+
+#|
+||Field | Description ||
+|| match | **[GrpcRouteMatch](#yandex.cloud.apploadbalancer.v1.GrpcRouteMatch)**
+
+Condition (predicate) used to select the route. ||
+|| route | **[GrpcRouteAction](#yandex.cloud.apploadbalancer.v1.GrpcRouteAction)**
+
+Forwards the request to a backend group for processing as configured.
+
+Includes only one of the fields `route`, `statusResponse`.
+
+Action performed on the request if the route is selected. ||
+|| statusResponse | **[GrpcStatusResponseAction](#yandex.cloud.apploadbalancer.v1.GrpcStatusResponseAction)**
+
+Instructs the load balancer to respond directly with a specified status.
+
+Includes only one of the fields `route`, `statusResponse`.
+
+Action performed on the request if the route is selected. ||
+|#
+
+## GrpcRouteMatch {#yandex.cloud.apploadbalancer.v1.GrpcRouteMatch}
+
+A gRPC route condition (predicate) resource.
+
+#|
+||Field | Description ||
+|| fqmn | **[StringMatch](#yandex.cloud.apploadbalancer.v1.StringMatch)**
+
+Match settings for gRPC service method called in the request.
+
+A match string must be a fully qualified method name, e.g. `foo.bar.v1.BazService/Get`, or a prefix of such.
+
+If not specified, the route matches all methods. ||
+|#
+
+## GrpcRouteAction {#yandex.cloud.apploadbalancer.v1.GrpcRouteAction}
+
+A gRPC route action resource.
+
+#|
+||Field | Description ||
+|| backendGroupId | **string**
+
+Required field. Backend group to forward requests to. ||
+|| maxTimeout | **string** (duration)
+
+Overall timeout for an underlying HTTP connection between a load balancer node an a backend from the backend group:
+the maximum time the connection is kept alive for, regardless of whether data is transferred over it.
+
+If a client specifies a lower timeout in HTTP `grpc-timeout` header, the `max_timeout` value is ignored.
+
+If a connection times out, the load balancer responds to the client with an `UNAVAILABLE` status code.
+
+Default value: `60`. ||
+|| idleTimeout | **string** (duration)
+
+Idle timeout for an underlying HTTP connection between a load balancer node an a backend from the backend group:
+the maximum time the connection is allowed to be idle, i.e. without any data transferred over it.
+
+Specifying meaningful values for both `maxTimeout` and `idle_timeout` is useful for implementing
+server-push mechanisms such as long polling, server-sent events etc.
+
+If a connection times out, the load balancer responds to the client with an `UNAVAILABLE` status code.
+
+If not specified, no idle timeout is used, and an alive connection may be idle for any duration
+(see `maxTimeout`). ||
+|| hostRewrite | **string**
+
+Host replacement.
+
+Includes only one of the fields `hostRewrite`, `autoHostRewrite`.
+
+Value rewrite settings for HTTP/1.1 `Host` headers and HTTP/2 `:authority` pseudo-headers.
+
+If not specified, the host is not changed. ||
+|| autoHostRewrite | **boolean**
+
+Automatically replaces the host with that of the target.
+
+Includes only one of the fields `hostRewrite`, `autoHostRewrite`.
+
+Value rewrite settings for HTTP/1.1 `Host` headers and HTTP/2 `:authority` pseudo-headers.
+
+If not specified, the host is not changed. ||
+|| rateLimit | **[RateLimit](#yandex.cloud.apploadbalancer.v1.RateLimit)**
+
+RateLimit is a rate limit configuration applied for route. ||
+|#
+
+## GrpcStatusResponseAction {#yandex.cloud.apploadbalancer.v1.GrpcStatusResponseAction}
+
+A gRPC status response action resource.
+
+#|
+||Field | Description ||
+|| status | **enum** (Status)
+
+gRPC [status code](https://grpc.github.io/grpc/core/md_doc_statuscodes.html) to use in responses.
+
+- `OK`: `OK` (0) status code.
+- `INVALID_ARGUMENT`: `INVALID_ARGUMENT` (3) status code.
+- `NOT_FOUND`: `NOT_FOUND` (5) status code.
+- `PERMISSION_DENIED`: `PERMISSION_DENIED` (7) status code.
+- `UNAUTHENTICATED`: `UNAUTHENTICATED` (16) status code.
+- `UNIMPLEMENTED`: `UNIMPLEMENTED` (12) status code.
+- `INTERNAL`: `INTERNAL` (13) status code.
+- `UNAVAILABLE`: `UNAVAILABLE` (14) status code. ||
+|#
+
+## RouteOptions {#yandex.cloud.apploadbalancer.v1.RouteOptions}
+
+#|
+||Field | Description ||
+|| modifyRequestHeaders[] | **[HeaderModification](#yandex.cloud.apploadbalancer.v1.HeaderModification)**
+
+Apply the following modifications to the request headers. ||
+|| modifyResponseHeaders[] | **[HeaderModification](#yandex.cloud.apploadbalancer.v1.HeaderModification)**
+
+Apply the following modifications to the response headers. ||
+|| rbac | **[RBAC](#yandex.cloud.apploadbalancer.v1.RBAC)** ||
+|| securityProfileId | **string**
+
+Security profile that will take effect to all requests routed via particular virtual host. ||
+|#
+
+## HeaderModification {#yandex.cloud.apploadbalancer.v1.HeaderModification}
+
+A header modification resource.
+
+#|
+||Field | Description ||
+|| name | **string**
+
+Name of the header. ||
+|| append | **string**
+
+Appends the specified string to the header value.
+
+Variables [defined for Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers)
+are supported.
+
+Includes only one of the fields `append`, `replace`, `remove`, `rename`.
+
+Operation to perform on the header. ||
+|| replace | **string**
+
+Replaces the value of the header with the specified string.
+
+Variables [defined for Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers)
+are supported.
+
+Includes only one of the fields `append`, `replace`, `remove`, `rename`.
+
+Operation to perform on the header. ||
+|| remove | **boolean**
+
+Removes the header.
+
+Includes only one of the fields `append`, `replace`, `remove`, `rename`.
+
+Operation to perform on the header. ||
+|| rename | **string**
+
+Replaces the name of the header with the specified string.
+This operation is only supported for ALB Virtual Hosts.
+
+Includes only one of the fields `append`, `replace`, `remove`, `rename`.
+
+Operation to perform on the header. ||
+|#
+
+## RBAC {#yandex.cloud.apploadbalancer.v1.RBAC}
+
+Role Based Access Control (RBAC) provides router, virtual host, and route access control for the ALB
+service. Requests are allowed or denied based on the `action` and whether a matching principal is
+found. For instance, if the action is ALLOW and a matching principal is found the request should be
+allowed.
+
+#|
+||Field | Description ||
+|| action | **enum** (Action)
+
+Required field. The action to take if a principal matches. Every action either allows or denies a request.
+
+- `ACTION_UNSPECIFIED`
+- `ALLOW`: Allows the request if and only if there is a principal that matches the request.
+- `DENY`: Allows the request if and only if there are no principal that match the request. ||
+|| principals[] | **[Principals](#yandex.cloud.apploadbalancer.v1.Principals)**
+
+Required. A match occurs when at least one matches the request. ||
+|#
+
+## Principals {#yandex.cloud.apploadbalancer.v1.Principals}
+
+Principals define a group of identities for a request.
+
+#|
+||Field | Description ||
+|| andPrincipals[] | **[Principal](#yandex.cloud.apploadbalancer.v1.Principal)**
+
+Required. A match occurs when all principals match the request. ||
+|#
+
+## Principal {#yandex.cloud.apploadbalancer.v1.Principal}
+
+Principal defines an identity for a request.
+
+#|
+||Field | Description ||
+|| header | **[HeaderMatcher](#yandex.cloud.apploadbalancer.v1.Principal.HeaderMatcher)**
+
+A header (or pseudo-header such as :path or :method) of the incoming HTTP request.
+
+Includes only one of the fields `header`, `remoteIp`, `any`. ||
+|| remoteIp | **string**
+
+A CIDR block or IP that describes the request remote/origin address, e.g. ``192.0.0.0/24`` or``192.0.0.4`` .
+
+Includes only one of the fields `header`, `remoteIp`, `any`. ||
+|| any | **boolean**
+
+When any is set, it matches any request.
+
+Includes only one of the fields `header`, `remoteIp`, `any`. ||
+|#
+
+## HeaderMatcher {#yandex.cloud.apploadbalancer.v1.Principal.HeaderMatcher}
+
+#|
+||Field | Description ||
+|| name | **string**
+
+Required field. Specifies the name of the header in the request. ||
+|| value | **[StringMatch](#yandex.cloud.apploadbalancer.v1.StringMatch)**
+
+Specifies how the header match will be performed to route the request.
+In the absence of value a request that has specified header name will match,
+regardless of the header's value. ||
+|#
+
+## Response {#yandex.cloud.operation.Operation}
+
 **HTTP Code: 200 - OK**
 
-```json 
+```json
 {
   "id": "string",
   "description": "string",
   "createdAt": "string",
   "createdBy": "string",
   "modifiedAt": "string",
-  "done": true,
-  "metadata": "object",
-
-  //  includes only one of the fields `error`, `response`
+  "done": "boolean",
+  "metadata": {
+    "httpRouterId": "string",
+    "virtualHostName": "string"
+  },
+  // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
     "message": "string",
@@ -400,24 +883,936 @@ routeOptions.<br>securityProfileId | **string**<br><p>Security profile that will
       "object"
     ]
   },
-  "response": "object",
+  "response": {
+    "name": "string",
+    "authority": [
+      "string"
+    ],
+    "routes": [
+      {
+        "name": "string",
+        // Includes only one of the fields `http`, `grpc`
+        "http": {
+          "match": {
+            "httpMethod": [
+              "string"
+            ],
+            "path": {
+              // Includes only one of the fields `exactMatch`, `prefixMatch`, `regexMatch`
+              "exactMatch": "string",
+              "prefixMatch": "string",
+              "regexMatch": "string"
+              // end of the list of possible fields
+            }
+          },
+          // Includes only one of the fields `route`, `redirect`, `directResponse`
+          "route": {
+            "backendGroupId": "string",
+            "timeout": "string",
+            "idleTimeout": "string",
+            // Includes only one of the fields `hostRewrite`, `autoHostRewrite`
+            "hostRewrite": "string",
+            "autoHostRewrite": "boolean",
+            // end of the list of possible fields
+            "prefixRewrite": "string",
+            "upgradeTypes": [
+              "string"
+            ],
+            "rateLimit": {
+              "allRequests": {
+                // Includes only one of the fields `perSecond`, `perMinute`
+                "perSecond": "string",
+                "perMinute": "string"
+                // end of the list of possible fields
+              },
+              "requestsPerIp": {
+                // Includes only one of the fields `perSecond`, `perMinute`
+                "perSecond": "string",
+                "perMinute": "string"
+                // end of the list of possible fields
+              }
+            }
+          },
+          "redirect": {
+            "replaceScheme": "string",
+            "replaceHost": "string",
+            "replacePort": "string",
+            // Includes only one of the fields `replacePath`, `replacePrefix`
+            "replacePath": "string",
+            "replacePrefix": "string",
+            // end of the list of possible fields
+            "removeQuery": "boolean",
+            "responseCode": "string"
+          },
+          "directResponse": {
+            "status": "string",
+            "body": {
+              // Includes only one of the fields `text`
+              "text": "string"
+              // end of the list of possible fields
+            }
+          }
+          // end of the list of possible fields
+        },
+        "grpc": {
+          "match": {
+            "fqmn": {
+              // Includes only one of the fields `exactMatch`, `prefixMatch`, `regexMatch`
+              "exactMatch": "string",
+              "prefixMatch": "string",
+              "regexMatch": "string"
+              // end of the list of possible fields
+            }
+          },
+          // Includes only one of the fields `route`, `statusResponse`
+          "route": {
+            "backendGroupId": "string",
+            "maxTimeout": "string",
+            "idleTimeout": "string",
+            // Includes only one of the fields `hostRewrite`, `autoHostRewrite`
+            "hostRewrite": "string",
+            "autoHostRewrite": "boolean",
+            // end of the list of possible fields
+            "rateLimit": {
+              "allRequests": {
+                // Includes only one of the fields `perSecond`, `perMinute`
+                "perSecond": "string",
+                "perMinute": "string"
+                // end of the list of possible fields
+              },
+              "requestsPerIp": {
+                // Includes only one of the fields `perSecond`, `perMinute`
+                "perSecond": "string",
+                "perMinute": "string"
+                // end of the list of possible fields
+              }
+            }
+          },
+          "statusResponse": {
+            "status": "string"
+          }
+          // end of the list of possible fields
+        },
+        // end of the list of possible fields
+        "routeOptions": {
+          "modifyRequestHeaders": [
+            {
+              "name": "string",
+              // Includes only one of the fields `append`, `replace`, `remove`, `rename`
+              "append": "string",
+              "replace": "string",
+              "remove": "boolean",
+              "rename": "string"
+              // end of the list of possible fields
+            }
+          ],
+          "modifyResponseHeaders": [
+            {
+              "name": "string",
+              // Includes only one of the fields `append`, `replace`, `remove`, `rename`
+              "append": "string",
+              "replace": "string",
+              "remove": "boolean",
+              "rename": "string"
+              // end of the list of possible fields
+            }
+          ],
+          "rbac": {
+            "action": "string",
+            "principals": [
+              {
+                "andPrincipals": [
+                  {
+                    // Includes only one of the fields `header`, `remoteIp`, `any`
+                    "header": {
+                      "name": "string",
+                      "value": {
+                        // Includes only one of the fields `exactMatch`, `prefixMatch`, `regexMatch`
+                        "exactMatch": "string",
+                        "prefixMatch": "string",
+                        "regexMatch": "string"
+                        // end of the list of possible fields
+                      }
+                    },
+                    "remoteIp": "string",
+                    "any": "boolean"
+                    // end of the list of possible fields
+                  }
+                ]
+              }
+            ]
+          },
+          "securityProfileId": "string"
+        }
+      }
+    ],
+    "modifyRequestHeaders": [
+      {
+        "name": "string",
+        // Includes only one of the fields `append`, `replace`, `remove`, `rename`
+        "append": "string",
+        "replace": "string",
+        "remove": "boolean",
+        "rename": "string"
+        // end of the list of possible fields
+      }
+    ],
+    "modifyResponseHeaders": [
+      {
+        "name": "string",
+        // Includes only one of the fields `append`, `replace`, `remove`, `rename`
+        "append": "string",
+        "replace": "string",
+        "remove": "boolean",
+        "rename": "string"
+        // end of the list of possible fields
+      }
+    ],
+    "routeOptions": {
+      "modifyRequestHeaders": [
+        {
+          "name": "string",
+          // Includes only one of the fields `append`, `replace`, `remove`, `rename`
+          "append": "string",
+          "replace": "string",
+          "remove": "boolean",
+          "rename": "string"
+          // end of the list of possible fields
+        }
+      ],
+      "modifyResponseHeaders": [
+        {
+          "name": "string",
+          // Includes only one of the fields `append`, `replace`, `remove`, `rename`
+          "append": "string",
+          "replace": "string",
+          "remove": "boolean",
+          "rename": "string"
+          // end of the list of possible fields
+        }
+      ],
+      "rbac": {
+        "action": "string",
+        "principals": [
+          {
+            "andPrincipals": [
+              {
+                // Includes only one of the fields `header`, `remoteIp`, `any`
+                "header": {
+                  "name": "string",
+                  "value": {
+                    // Includes only one of the fields `exactMatch`, `prefixMatch`, `regexMatch`
+                    "exactMatch": "string",
+                    "prefixMatch": "string",
+                    "regexMatch": "string"
+                    // end of the list of possible fields
+                  }
+                },
+                "remoteIp": "string",
+                "any": "boolean"
+                // end of the list of possible fields
+              }
+            ]
+          }
+        ]
+      },
+      "securityProfileId": "string"
+    },
+    "rateLimit": {
+      "allRequests": {
+        // Includes only one of the fields `perSecond`, `perMinute`
+        "perSecond": "string",
+        "perMinute": "string"
+        // end of the list of possible fields
+      },
+      "requestsPerIp": {
+        // Includes only one of the fields `perSecond`, `perMinute`
+        "perSecond": "string",
+        "perMinute": "string"
+        // end of the list of possible fields
+      }
+    }
+  }
   // end of the list of possible fields
-
 }
 ```
+
 An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).
- 
-Field | Description
---- | ---
-id | **string**<br><p>ID of the operation.</p> 
-description | **string**<br><p>Description of the operation. 0-256 characters long.</p> 
-createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
-createdBy | **string**<br><p>ID of the user or service account who initiated the operation.</p> 
-modifiedAt | **string** (date-time)<br><p>The time when the Operation resource was last modified.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
-done | **boolean** (boolean)<br><p>If the value is ``false``, it means the operation is still in progress. If ``true``, the operation is completed, and either ``error`` or ``response`` is available.</p> 
-metadata | **object**<br><p>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any.</p> 
-error | **object**<br>The error result of the operation in case of failure or cancellation. <br> includes only one of the fields `error`, `response`<br>
-error.<br>code | **integer** (int32)<br><p>Error code. An enum value of <a href="https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto">google.rpc.Code</a>.</p> 
-error.<br>message | **string**<br><p>An error message.</p> 
-error.<br>details[] | **object**<br><p>A list of messages that carry the error details.</p> 
-response | **object** <br> includes only one of the fields `error`, `response`<br><br><p>The normal response of the operation in case of success. If the original method returns no data on success, such as Delete, the response is <a href="https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty">google.protobuf.Empty</a>. If the original method is the standard Create/Update, the response should be the target resource of the operation. Any method that returns a long-running operation should document the response type, if any.</p> 
+
+#|
+||Field | Description ||
+|| id | **string**
+
+ID of the operation. ||
+|| description | **string**
+
+Description of the operation. 0-256 characters long. ||
+|| createdAt | **string** (date-time)
+
+Creation timestamp.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| createdBy | **string**
+
+ID of the user or service account who initiated the operation. ||
+|| modifiedAt | **string** (date-time)
+
+The time when the Operation resource was last modified.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| done | **boolean**
+
+If the value is `false`, it means the operation is still in progress.
+If `true`, the operation is completed, and either `error` or `response` is available. ||
+|| metadata | **[CreateVirtualHostMetadata](#yandex.cloud.apploadbalancer.v1.CreateVirtualHostMetadata)**
+
+Service-specific metadata associated with the operation.
+It typically contains the ID of the target resource that the operation is performed on.
+Any method that returns a long-running operation should document the metadata type, if any. ||
+|| error | **[Status](#google.rpc.Status)**
+
+The error result of the operation in case of failure or cancellation.
+
+Includes only one of the fields `error`, `response`.
+
+The operation result.
+If `done == false` and there was no failure detected, neither `error` nor `response` is set.
+If `done == false` and there was a failure detected, `error` is set.
+If `done == true`, exactly one of `error` or `response` is set. ||
+|| response | **[VirtualHost](#yandex.cloud.apploadbalancer.v1.VirtualHost)**
+
+The normal response of the operation in case of success.
+If the original method returns no data on success, such as Delete,
+the response is [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty).
+If the original method is the standard Create/Update,
+the response should be the target resource of the operation.
+Any method that returns a long-running operation should document the response type, if any.
+
+Includes only one of the fields `error`, `response`.
+
+The operation result.
+If `done == false` and there was no failure detected, neither `error` nor `response` is set.
+If `done == false` and there was a failure detected, `error` is set.
+If `done == true`, exactly one of `error` or `response` is set. ||
+|#
+
+## CreateVirtualHostMetadata {#yandex.cloud.apploadbalancer.v1.CreateVirtualHostMetadata}
+
+#|
+||Field | Description ||
+|| httpRouterId | **string**
+
+Required field. ID of the HTTP router that the virtual host is being created in. ||
+|| virtualHostName | **string**
+
+Name of the virtual host that is being created. ||
+|#
+
+## Status {#google.rpc.Status}
+
+The error result of the operation in case of failure or cancellation.
+
+#|
+||Field | Description ||
+|| code | **integer** (int32)
+
+Error code. An enum value of [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto). ||
+|| message | **string**
+
+An error message. ||
+|| details[] | **object**
+
+A list of messages that carry the error details. ||
+|#
+
+## VirtualHost {#yandex.cloud.apploadbalancer.v1.VirtualHost}
+
+A virtual host resource.
+For details about the concept, see [documentation](/docs/application-load-balancer/concepts/http-router#virtual-host).
+
+#|
+||Field | Description ||
+|| name | **string**
+
+Required field. Name of the virtual host. The name is unique within the HTTP router. ||
+|| authority[] | **string**
+
+List of domains that are attributed to the virtual host.
+
+The host is selected to process the request received by the load balancer
+if the domain specified in the HTTP/1.1 `Host` header or the HTTP/2 `:authority` pseudo-header matches a domain
+specified in the host.
+
+A wildcard asterisk character (`*`) matches 0 or more characters.
+
+If not specified, all domains are attributed to the host, which is the same as specifying a `*` value.
+An HTTP router must not contain more than one virtual host to which all domains are attributed. ||
+|| routes[] | **[Route](#yandex.cloud.apploadbalancer.v1.Route2)**
+
+Routes of the virtual host.
+
+A route contains a set of conditions (predicates) that are used by the load balancer to select the route
+for the request and an action on the request.
+For details about the concept, see [documentation](/docs/application-load-balancer/concepts/http-router#routes).
+
+The order of routes matters: the first route whose predicate matches the request is selected.
+The most specific routes should be at the top of the list, so that they are not overridden.
+For example, if the first HTTP route is configured, via [HttpRoute.match](#yandex.cloud.apploadbalancer.v1.HttpRoute2), to match paths prefixed with just `/`,
+other routes are never matched. ||
+|| modifyRequestHeaders[] | **[HeaderModification](#yandex.cloud.apploadbalancer.v1.HeaderModification2)**
+
+Deprecated, use route_options.modify_request_headers. ||
+|| modifyResponseHeaders[] | **[HeaderModification](#yandex.cloud.apploadbalancer.v1.HeaderModification2)**
+
+Deprecated, use route_options.modify_response_headers. ||
+|| routeOptions | **[RouteOptions](#yandex.cloud.apploadbalancer.v1.RouteOptions2)** ||
+|| rateLimit | **[RateLimit](#yandex.cloud.apploadbalancer.v1.RateLimit2)**
+
+RateLimit is a rate limit configuration applied for a whole virtual host. ||
+|#
+
+## Route {#yandex.cloud.apploadbalancer.v1.Route2}
+
+A route resource.
+For details about the concept, see [documentation](/docs/application-load-balancer/concepts/http-router#routes).
+
+#|
+||Field | Description ||
+|| name | **string**
+
+Required field. Name of the route. ||
+|| http | **[HttpRoute](#yandex.cloud.apploadbalancer.v1.HttpRoute2)**
+
+HTTP route configuration.
+
+Includes only one of the fields `http`, `grpc`.
+
+Route configuration. ||
+|| grpc | **[GrpcRoute](#yandex.cloud.apploadbalancer.v1.GrpcRoute2)**
+
+gRPC route configuration.
+
+Includes only one of the fields `http`, `grpc`.
+
+Route configuration. ||
+|| routeOptions | **[RouteOptions](#yandex.cloud.apploadbalancer.v1.RouteOptions2)** ||
+|#
+
+## HttpRoute {#yandex.cloud.apploadbalancer.v1.HttpRoute2}
+
+An HTTP route configuration resource.
+
+#|
+||Field | Description ||
+|| match | **[HttpRouteMatch](#yandex.cloud.apploadbalancer.v1.HttpRouteMatch2)**
+
+Condition (predicate) used to select the route. ||
+|| route | **[HttpRouteAction](#yandex.cloud.apploadbalancer.v1.HttpRouteAction2)**
+
+Forwards the request to a backend group for processing as configured.
+
+Includes only one of the fields `route`, `redirect`, `directResponse`.
+
+Action performed on the request if the route is selected. ||
+|| redirect | **[RedirectAction](#yandex.cloud.apploadbalancer.v1.RedirectAction2)**
+
+Redirects the request as configured.
+
+Includes only one of the fields `route`, `redirect`, `directResponse`.
+
+Action performed on the request if the route is selected. ||
+|| directResponse | **[DirectResponseAction](#yandex.cloud.apploadbalancer.v1.DirectResponseAction2)**
+
+Instructs the load balancer to respond directly as configured.
+
+Includes only one of the fields `route`, `redirect`, `directResponse`.
+
+Action performed on the request if the route is selected. ||
+|#
+
+## HttpRouteMatch {#yandex.cloud.apploadbalancer.v1.HttpRouteMatch2}
+
+An HTTP route condition (predicate) resource.
+
+#|
+||Field | Description ||
+|| httpMethod[] | **string**
+
+HTTP method specified in the request. ||
+|| path | **[StringMatch](#yandex.cloud.apploadbalancer.v1.StringMatch2)**
+
+Match settings for the path specified in the request.
+
+If not specified, the route matches all paths. ||
+|#
+
+## StringMatch {#yandex.cloud.apploadbalancer.v1.StringMatch2}
+
+A string matcher resource.
+
+#|
+||Field | Description ||
+|| exactMatch | **string**
+
+Exact match string.
+
+Includes only one of the fields `exactMatch`, `prefixMatch`, `regexMatch`.
+
+Match string for either exact or prefix match. ||
+|| prefixMatch | **string**
+
+Prefix match string.
+
+Includes only one of the fields `exactMatch`, `prefixMatch`, `regexMatch`.
+
+Match string for either exact or prefix match. ||
+|| regexMatch | **string**
+
+Regular expression match string.
+
+Includes only one of the fields `exactMatch`, `prefixMatch`, `regexMatch`.
+
+Match string for either exact or prefix match. ||
+|#
+
+## HttpRouteAction {#yandex.cloud.apploadbalancer.v1.HttpRouteAction2}
+
+An HTTP route action resource.
+
+#|
+||Field | Description ||
+|| backendGroupId | **string**
+
+Required field. Backend group to forward requests to.
+
+Stream (TCP) backend groups are not supported. ||
+|| timeout | **string** (duration)
+
+Overall timeout for an HTTP connection between a load balancer node an a backend from the backend group:
+the maximum time the connection is kept alive for, regardless of whether data is transferred over it.
+
+If a connection times out, the load balancer responds to the client with a `504 Gateway Timeout` status code.
+
+Default value: `60`. ||
+|| idleTimeout | **string** (duration)
+
+Idle timeout for an HTTP connection between a load balancer node an a backend from the backend group:
+the maximum time the connection is allowed to be idle, i.e. without any data transferred over it.
+
+Specifying meaningful values for both `timeout` and `idle_timeout` is useful for implementing
+server-push mechanisms such as long polling, server-sent events (`EventSource` interface) etc.
+
+If a connection times out, the load balancer responds to the client with a `504 Gateway Timeout` status code.
+
+If not specified, no idle timeout is used, and an alive connection may be idle for any duration (see `timeout`). ||
+|| hostRewrite | **string**
+
+Host replacement.
+
+Includes only one of the fields `hostRewrite`, `autoHostRewrite`.
+
+Value rewrite settings for HTTP/1.1 `Host` headers and HTTP/2 `:authority` pseudo-headers.
+
+If not specified, the host is not changed. ||
+|| autoHostRewrite | **boolean**
+
+Automatically replaces the host with that of the target.
+
+Includes only one of the fields `hostRewrite`, `autoHostRewrite`.
+
+Value rewrite settings for HTTP/1.1 `Host` headers and HTTP/2 `:authority` pseudo-headers.
+
+If not specified, the host is not changed. ||
+|| prefixRewrite | **string**
+
+Replacement for the path prefix matched by [StringMatch](#yandex.cloud.apploadbalancer.v1.StringMatch2).
+
+For instance, if [StringMatch.prefixMatch](#yandex.cloud.apploadbalancer.v1.StringMatch2) value is `/foo` and `prefix_rewrite` value is `/bar`,
+a request with `/foobaz` path is forwarded with `/barbaz` path.
+For [StringMatch.exactMatch](#yandex.cloud.apploadbalancer.v1.StringMatch2), the whole path is replaced.
+
+If not specified, the path is not changed. ||
+|| upgradeTypes[] | **string**
+
+Supported values for HTTP `Upgrade` header. E.g. `websocket`. ||
+|| rateLimit | **[RateLimit](#yandex.cloud.apploadbalancer.v1.RateLimit2)**
+
+RateLimit is a rate limit configuration applied for route. ||
+|#
+
+## RateLimit {#yandex.cloud.apploadbalancer.v1.RateLimit2}
+
+RateLimit is a set of settings for global rate limiting.
+
+#|
+||Field | Description ||
+|| allRequests | **[Limit](#yandex.cloud.apploadbalancer.v1.RateLimit.Limit2)**
+
+AllRequests is a rate limit configuration applied to all incoming requests. ||
+|| requestsPerIp | **[Limit](#yandex.cloud.apploadbalancer.v1.RateLimit.Limit2)**
+
+RequestsPerIp is a rate limit configuration applied separately for each set of requests
+grouped by client IP address. ||
+|#
+
+## Limit {#yandex.cloud.apploadbalancer.v1.RateLimit.Limit2}
+
+Limit is a rate limit value settings.
+
+#|
+||Field | Description ||
+|| perSecond | **string** (int64)
+
+PerSecond is a limit value specified with per second time unit.
+
+Includes only one of the fields `perSecond`, `perMinute`. ||
+|| perMinute | **string** (int64)
+
+PerMinute is a limit value specified with per minute time unit.
+
+Includes only one of the fields `perSecond`, `perMinute`. ||
+|#
+
+## RedirectAction {#yandex.cloud.apploadbalancer.v1.RedirectAction2}
+
+A redirect action resource.
+
+#|
+||Field | Description ||
+|| replaceScheme | **string**
+
+URI scheme replacement.
+
+If `http` or `https` scheme is to be replaced and `80` or `443` port is specified in the original URI,
+the port is also removed.
+
+If not specified, the original scheme and port are used. ||
+|| replaceHost | **string**
+
+URI host replacement.
+
+If not specified, the original host is used. ||
+|| replacePort | **string** (int64)
+
+URI host replacement.
+
+If not specified, the original host is used. ||
+|| replacePath | **string**
+
+Replacement for the whole path.
+
+Includes only one of the fields `replacePath`, `replacePrefix`.
+
+URI path replacement.
+
+If not specified, the original path is used. ||
+|| replacePrefix | **string**
+
+Replacement for the path prefix matched by [StringMatch](#yandex.cloud.apploadbalancer.v1.StringMatch2).
+
+For instance, if [StringMatch.prefixMatch](#yandex.cloud.apploadbalancer.v1.StringMatch2) value is `/foo` and `replace_prefix` value is `/bar`,
+a request with `https://example.com/foobaz` URI is redirected to `https://example.com/barbaz`.
+For [StringMatch.exactMatch](#yandex.cloud.apploadbalancer.v1.StringMatch2), the whole path is replaced.
+
+Includes only one of the fields `replacePath`, `replacePrefix`.
+
+URI path replacement.
+
+If not specified, the original path is used. ||
+|| removeQuery | **boolean**
+
+Removes URI query. ||
+|| responseCode | **enum** (RedirectResponseCode)
+
+HTTP status code to use in redirect responses.
+
+- `MOVED_PERMANENTLY`: `301 Moved Permanently` status code.
+- `FOUND`: `302 Found` status code.
+- `SEE_OTHER`: `303 See Other` status code.
+- `TEMPORARY_REDIRECT`: `307 Temporary Redirect` status code.
+- `PERMANENT_REDIRECT`: `308 Permanent Redirect` status code. ||
+|#
+
+## DirectResponseAction {#yandex.cloud.apploadbalancer.v1.DirectResponseAction2}
+
+A direct response action resource.
+
+#|
+||Field | Description ||
+|| status | **string** (int64)
+
+HTTP status code to use in responses. ||
+|| body | **[Payload](#yandex.cloud.apploadbalancer.v1.Payload2)**
+
+Response body. ||
+|#
+
+## Payload {#yandex.cloud.apploadbalancer.v1.Payload2}
+
+A health check payload resource.
+
+#|
+||Field | Description ||
+|| text | **string**
+
+Payload text.
+
+Includes only one of the fields `text`.
+
+Payload. ||
+|#
+
+## GrpcRoute {#yandex.cloud.apploadbalancer.v1.GrpcRoute2}
+
+A gRPC route configuration resource.
+
+#|
+||Field | Description ||
+|| match | **[GrpcRouteMatch](#yandex.cloud.apploadbalancer.v1.GrpcRouteMatch2)**
+
+Condition (predicate) used to select the route. ||
+|| route | **[GrpcRouteAction](#yandex.cloud.apploadbalancer.v1.GrpcRouteAction2)**
+
+Forwards the request to a backend group for processing as configured.
+
+Includes only one of the fields `route`, `statusResponse`.
+
+Action performed on the request if the route is selected. ||
+|| statusResponse | **[GrpcStatusResponseAction](#yandex.cloud.apploadbalancer.v1.GrpcStatusResponseAction2)**
+
+Instructs the load balancer to respond directly with a specified status.
+
+Includes only one of the fields `route`, `statusResponse`.
+
+Action performed on the request if the route is selected. ||
+|#
+
+## GrpcRouteMatch {#yandex.cloud.apploadbalancer.v1.GrpcRouteMatch2}
+
+A gRPC route condition (predicate) resource.
+
+#|
+||Field | Description ||
+|| fqmn | **[StringMatch](#yandex.cloud.apploadbalancer.v1.StringMatch2)**
+
+Match settings for gRPC service method called in the request.
+
+A match string must be a fully qualified method name, e.g. `foo.bar.v1.BazService/Get`, or a prefix of such.
+
+If not specified, the route matches all methods. ||
+|#
+
+## GrpcRouteAction {#yandex.cloud.apploadbalancer.v1.GrpcRouteAction2}
+
+A gRPC route action resource.
+
+#|
+||Field | Description ||
+|| backendGroupId | **string**
+
+Required field. Backend group to forward requests to. ||
+|| maxTimeout | **string** (duration)
+
+Overall timeout for an underlying HTTP connection between a load balancer node an a backend from the backend group:
+the maximum time the connection is kept alive for, regardless of whether data is transferred over it.
+
+If a client specifies a lower timeout in HTTP `grpc-timeout` header, the `max_timeout` value is ignored.
+
+If a connection times out, the load balancer responds to the client with an `UNAVAILABLE` status code.
+
+Default value: `60`. ||
+|| idleTimeout | **string** (duration)
+
+Idle timeout for an underlying HTTP connection between a load balancer node an a backend from the backend group:
+the maximum time the connection is allowed to be idle, i.e. without any data transferred over it.
+
+Specifying meaningful values for both `maxTimeout` and `idle_timeout` is useful for implementing
+server-push mechanisms such as long polling, server-sent events etc.
+
+If a connection times out, the load balancer responds to the client with an `UNAVAILABLE` status code.
+
+If not specified, no idle timeout is used, and an alive connection may be idle for any duration
+(see `maxTimeout`). ||
+|| hostRewrite | **string**
+
+Host replacement.
+
+Includes only one of the fields `hostRewrite`, `autoHostRewrite`.
+
+Value rewrite settings for HTTP/1.1 `Host` headers and HTTP/2 `:authority` pseudo-headers.
+
+If not specified, the host is not changed. ||
+|| autoHostRewrite | **boolean**
+
+Automatically replaces the host with that of the target.
+
+Includes only one of the fields `hostRewrite`, `autoHostRewrite`.
+
+Value rewrite settings for HTTP/1.1 `Host` headers and HTTP/2 `:authority` pseudo-headers.
+
+If not specified, the host is not changed. ||
+|| rateLimit | **[RateLimit](#yandex.cloud.apploadbalancer.v1.RateLimit2)**
+
+RateLimit is a rate limit configuration applied for route. ||
+|#
+
+## GrpcStatusResponseAction {#yandex.cloud.apploadbalancer.v1.GrpcStatusResponseAction2}
+
+A gRPC status response action resource.
+
+#|
+||Field | Description ||
+|| status | **enum** (Status)
+
+gRPC [status code](https://grpc.github.io/grpc/core/md_doc_statuscodes.html) to use in responses.
+
+- `OK`: `OK` (0) status code.
+- `INVALID_ARGUMENT`: `INVALID_ARGUMENT` (3) status code.
+- `NOT_FOUND`: `NOT_FOUND` (5) status code.
+- `PERMISSION_DENIED`: `PERMISSION_DENIED` (7) status code.
+- `UNAUTHENTICATED`: `UNAUTHENTICATED` (16) status code.
+- `UNIMPLEMENTED`: `UNIMPLEMENTED` (12) status code.
+- `INTERNAL`: `INTERNAL` (13) status code.
+- `UNAVAILABLE`: `UNAVAILABLE` (14) status code. ||
+|#
+
+## RouteOptions {#yandex.cloud.apploadbalancer.v1.RouteOptions2}
+
+#|
+||Field | Description ||
+|| modifyRequestHeaders[] | **[HeaderModification](#yandex.cloud.apploadbalancer.v1.HeaderModification2)**
+
+Apply the following modifications to the request headers. ||
+|| modifyResponseHeaders[] | **[HeaderModification](#yandex.cloud.apploadbalancer.v1.HeaderModification2)**
+
+Apply the following modifications to the response headers. ||
+|| rbac | **[RBAC](#yandex.cloud.apploadbalancer.v1.RBAC2)** ||
+|| securityProfileId | **string**
+
+Security profile that will take effect to all requests routed via particular virtual host. ||
+|#
+
+## HeaderModification {#yandex.cloud.apploadbalancer.v1.HeaderModification2}
+
+A header modification resource.
+
+#|
+||Field | Description ||
+|| name | **string**
+
+Name of the header. ||
+|| append | **string**
+
+Appends the specified string to the header value.
+
+Variables [defined for Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers)
+are supported.
+
+Includes only one of the fields `append`, `replace`, `remove`, `rename`.
+
+Operation to perform on the header. ||
+|| replace | **string**
+
+Replaces the value of the header with the specified string.
+
+Variables [defined for Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers)
+are supported.
+
+Includes only one of the fields `append`, `replace`, `remove`, `rename`.
+
+Operation to perform on the header. ||
+|| remove | **boolean**
+
+Removes the header.
+
+Includes only one of the fields `append`, `replace`, `remove`, `rename`.
+
+Operation to perform on the header. ||
+|| rename | **string**
+
+Replaces the name of the header with the specified string.
+This operation is only supported for ALB Virtual Hosts.
+
+Includes only one of the fields `append`, `replace`, `remove`, `rename`.
+
+Operation to perform on the header. ||
+|#
+
+## RBAC {#yandex.cloud.apploadbalancer.v1.RBAC2}
+
+Role Based Access Control (RBAC) provides router, virtual host, and route access control for the ALB
+service. Requests are allowed or denied based on the `action` and whether a matching principal is
+found. For instance, if the action is ALLOW and a matching principal is found the request should be
+allowed.
+
+#|
+||Field | Description ||
+|| action | **enum** (Action)
+
+Required field. The action to take if a principal matches. Every action either allows or denies a request.
+
+- `ACTION_UNSPECIFIED`
+- `ALLOW`: Allows the request if and only if there is a principal that matches the request.
+- `DENY`: Allows the request if and only if there are no principal that match the request. ||
+|| principals[] | **[Principals](#yandex.cloud.apploadbalancer.v1.Principals2)**
+
+Required. A match occurs when at least one matches the request. ||
+|#
+
+## Principals {#yandex.cloud.apploadbalancer.v1.Principals2}
+
+Principals define a group of identities for a request.
+
+#|
+||Field | Description ||
+|| andPrincipals[] | **[Principal](#yandex.cloud.apploadbalancer.v1.Principal2)**
+
+Required. A match occurs when all principals match the request. ||
+|#
+
+## Principal {#yandex.cloud.apploadbalancer.v1.Principal2}
+
+Principal defines an identity for a request.
+
+#|
+||Field | Description ||
+|| header | **[HeaderMatcher](#yandex.cloud.apploadbalancer.v1.Principal.HeaderMatcher2)**
+
+A header (or pseudo-header such as :path or :method) of the incoming HTTP request.
+
+Includes only one of the fields `header`, `remoteIp`, `any`. ||
+|| remoteIp | **string**
+
+A CIDR block or IP that describes the request remote/origin address, e.g. ``192.0.0.0/24`` or``192.0.0.4`` .
+
+Includes only one of the fields `header`, `remoteIp`, `any`. ||
+|| any | **boolean**
+
+When any is set, it matches any request.
+
+Includes only one of the fields `header`, `remoteIp`, `any`. ||
+|#
+
+## HeaderMatcher {#yandex.cloud.apploadbalancer.v1.Principal.HeaderMatcher2}
+
+#|
+||Field | Description ||
+|| name | **string**
+
+Required field. Specifies the name of the header in the request. ||
+|| value | **[StringMatch](#yandex.cloud.apploadbalancer.v1.StringMatch2)**
+
+Specifies how the header match will be performed to route the request.
+In the absence of value a request that has specified header name will match,
+regardless of the header's value. ||
+|#

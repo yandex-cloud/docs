@@ -189,6 +189,6 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Чтобы создать брокер, воспользуйтесь методом REST API [create](../../broker/api-ref/Broker/create.md) для ресурса [Broker](../../broker/api-ref/Broker/index.md) или вызовом gRPC API [BrokerService/Create](../../broker/api-ref/grpc/broker_service.md#Create).
+  Чтобы создать брокер, воспользуйтесь методом REST API [create](../../broker/api-ref/Broker/create.md) для ресурса [Broker](../../broker/api-ref/Broker/index.md) или вызовом gRPC API [BrokerService/Create](../../broker/api-ref/grpc/Broker/create.md).
 
 {% endlist %}

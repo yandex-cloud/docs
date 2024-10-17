@@ -102,7 +102,7 @@ To create an [authorized key](../../concepts/authorization/key.md):
 
 - API {#api}
 
-   To create an access key, use the [create](../../api-ref/Key/create.md) REST API method for the [Key](../../api-ref/Key/index.md) resource or the [KeyService/Create](../../api-ref/grpc/key_service.md#Create) gRPC API call.
+   To create an access key, use the [create](../../api-ref/Key/create.md) REST API method for the [Key](../../api-ref/Key/index.md) resource or the [KeyService/Create](../../api-ref/grpc/Key/create.md) gRPC API call.
 
    Sample request using cURL for the `create` REST API method:
 

@@ -123,7 +123,7 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [createProfile](../../organization/api-ref/OsLogin/createProfile.md) для ресурса [OsLogin](../../organization/api-ref/OsLogin/index.md) или вызовом gRPC API [OsLoginService/CreateProfile](../../organization/api-ref/grpc/os_login_service.md#CreateProfile).
+  Воспользуйтесь методом REST API [createProfile](../../organization/api-ref/OsLogin/createProfile.md) для ресурса [OsLogin](../../organization/api-ref/OsLogin/index.md) или вызовом gRPC API [OsLoginService/CreateProfile](../../organization/api-ref/grpc/OsLogin/createProfile.md).
 
 {% endlist %}
 

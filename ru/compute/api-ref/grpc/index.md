@@ -1,25 +1,28 @@
 ---
-sourcePath: en/_api-ref-grpc/compute/api-ref/grpc/index.md
+editable: false
+sourcePath: en/_api-ref-grpc/compute/v1/api-ref/grpc/index.md
 ---
+
 # Compute Cloud API: gRPC reference
-This API reference is organized by resource. Actions are performed by sending HTTP requests to resource URLs or making RPC calls. For more information about API architecture, see [API Concepts]({{ api-url-prefix }}/api-design-guide/).
+
+Actions are performed by making RPC calls. For more information about API architecture, see [API Concepts]({{ api-url-prefix }}/api-design-guide/).
 
 See the interface definitions of the API on [GitHub](https://github.com/yandex-cloud/cloudapi).
 
-Service | Description
---- | ---
-[DiskPlacementGroupService](./disk_placement_group_service.md) | A set of methods for managing DiskPlacementGroup resources.
-[DiskService](./disk_service.md) | A set of methods for managing Disk resources.
-[DiskTypeService](./disk_type_service.md) | A set of methods to retrieve information about disk types.
-[FilesystemService](./filesystem_service.md) | A set of methods for managing filesystems.
-[GpuClusterService](./gpu_cluster_service.md) | A set of methods for managing GPU clusters.
-[HostGroupService](./host_group_service.md) | A set of methods for managing groups of dedicated hosts.
-[HostTypeService](./host_type_service.md) | Set of methods to view possible host configurations.
-[ImageService](./image_service.md) | A set of methods for managing Image resources.
-[InstanceService](./instance_service.md) | A set of methods for managing Instance resources.
-[PlacementGroupService](./placement_group_service.md) | A set of methods for managing placement groups.
-[SnapshotScheduleService](./snapshot_schedule_service.md) | A set of methods for managing snapshot schedules.
-[SnapshotService](./snapshot_service.md) | A set of methods for managing Snapshot resources.
-[ZoneService](./zone_service.md) | A set of methods to retrieve information about availability zones.
-[InstanceGroupService](./instance_group_service.md) | A set of methods for managing InstanceGroup resources.
-[OperationService](./operation_service.md) | A set of methods for managing operations for asynchronous API requests.
+#|
+||Service | Description ||
+|| [DiskPlacementGroup](DiskPlacementGroup/index.md) | A set of methods for managing DiskPlacementGroup resources. ||
+|| [Disk](Disk/index.md) | A set of methods for managing Disk resources. ||
+|| [DiskType](DiskType/index.md) | A set of methods to retrieve information about disk types. ||
+|| [Filesystem](Filesystem/index.md) | A set of methods for managing filesystems. ||
+|| [GpuCluster](GpuCluster/index.md) | A set of methods for managing GPU clusters. ||
+|| [HostGroup](HostGroup/index.md) | A set of methods for managing groups of dedicated hosts. ||
+|| [HostType](HostType/index.md) | Set of methods to view possible host configurations. ||
+|| [Image](Image/index.md) | A set of methods for managing Image resources. ||
+|| [Instance](Instance/index.md) | A set of methods for managing Instance resources. ||
+|| [Operation](Operation/index.md) | A set of methods for managing operations for asynchronous API requests. ||
+|| [PlacementGroup](PlacementGroup/index.md) | A set of methods for managing placement groups. ||
+|| [SnapshotSchedule](SnapshotSchedule/index.md) | A set of methods for managing snapshot schedules. ||
+|| [Snapshot](Snapshot/index.md) | A set of methods for managing Snapshot resources. ||
+|| [Zone](Zone/index.md) | A set of methods to retrieve information about availability zones. ||
+|#

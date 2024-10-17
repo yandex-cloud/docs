@@ -3,24 +3,24 @@ editable: false
 sourcePath: en/_api-ref/loadbalancer/v1/api-ref/NetworkLoadBalancer/create.md
 ---
 
-# Network Load Balancer API, REST: NetworkLoadBalancer.create
-Creates a network load balancer in the specified folder using the data specified in the request.
- 
+# Network Load Balancer API, REST: NetworkLoadBalancer.Create {#Create}
 
- 
-## HTTP request {#https-request}
+Creates a network load balancer in the specified folder using the data specified in the request.
+
+## HTTP request
+
 ```
 POST https://load-balancer.{{ api-host }}/load-balancer/v1/networkLoadBalancers
 ```
- 
-## Body parameters {#body_params}
- 
-```json 
+
+## Body parameters {#yandex.cloud.loadbalancer.v1.CreateNetworkLoadBalancerRequest}
+
+```json
 {
   "folderId": "string",
   "name": "string",
   "description": "string",
-  "labels": "object",
+  "labels": "string",
   "regionId": "string",
   "type": "string",
   "listenerSpecs": [
@@ -28,9 +28,7 @@ POST https://load-balancer.{{ api-host }}/load-balancer/v1/networkLoadBalancers
       "name": "string",
       "port": "string",
       "protocol": "string",
-      "targetPort": "string",
-
-      // `listenerSpecs[]` includes only one of the fields `externalAddressSpec`, `internalAddressSpec`
+      // Includes only one of the fields `externalAddressSpec`, `internalAddressSpec`
       "externalAddressSpec": {
         "address": "string",
         "ipVersion": "string"
@@ -40,8 +38,8 @@ POST https://load-balancer.{{ api-host }}/load-balancer/v1/networkLoadBalancers
         "subnetId": "string",
         "ipVersion": "string"
       },
-      // end of the list of possible fields`listenerSpecs[]`
-
+      // end of the list of possible fields
+      "targetPort": "string"
     }
   ],
   "attachedTargetGroups": [
@@ -54,75 +52,234 @@ POST https://load-balancer.{{ api-host }}/load-balancer/v1/networkLoadBalancers
           "timeout": "string",
           "unhealthyThreshold": "string",
           "healthyThreshold": "string",
-
-          // `attachedTargetGroups[].healthChecks[]` includes only one of the fields `tcpOptions`, `httpOptions`
+          // Includes only one of the fields `tcpOptions`, `httpOptions`
           "tcpOptions": {
             "port": "string"
           },
           "httpOptions": {
             "port": "string",
             "path": "string"
-          },
-          // end of the list of possible fields`attachedTargetGroups[].healthChecks[]`
-
+          }
+          // end of the list of possible fields
         }
       ]
     }
   ],
-  "deletionProtection": true
+  "deletionProtection": "boolean"
 }
 ```
 
- 
-Field | Description
---- | ---
-folderId | **string**<br><p>Required. ID of the folder to create a network load balancer in. To get the folder ID, use a <a href="/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
-name | **string**<br><p>Name of the network load balancer. The name must be unique within the folder.</p> <p>Value must match the regular expression ``\|[a-z][-a-z0-9]{1,61}[a-z0-9]``.</p> 
-description | **string**<br><p>Description of the network load balancer.</p> <p>The maximum string length in characters is 256.</p> 
-labels | **object**<br><p>Resource labels as ``key:value`` pairs.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression ``[a-z][-_0-9a-z]*``. The maximum string length in characters for each value is 63. Each value must match the regular expression ``[-_0-9a-z]*``.</p> 
-regionId | **string**<br><p>ID of the region where the network load balancer resides.</p> <p>The maximum string length in characters is 50.</p> 
-type | **string**<br><p>Required. Type of the network load balancer.</p> <ul> <li>EXTERNAL: External network load balancer.</li> <li>INTERNAL: Internal network load balancer.</li> </ul> 
-listenerSpecs[] | **object**<br><p>List of listeners and their specs for the network load balancer.</p> <p>The maximum number of elements is 1000.</p> 
-listenerSpecs[].<br>name | **string**<br><p>Required. Name of the listener. The name must be unique for each listener on a single load balancer. 3-63 characters long.</p> <p>Value must match the regular expression ``\|[a-z][-a-z0-9]{1,61}[a-z0-9]``.</p> 
-listenerSpecs[].<br>port | **string** (int64)<br><p>Port for incoming traffic.</p> <p>Acceptable values are 1 to 65535, inclusive.</p> 
-listenerSpecs[].<br>protocol | **string**<br>Required. Protocol for incoming traffic.
-listenerSpecs[].<br>targetPort | **string** (int64)<br><p>Port of a target. Acceptable values are 1 to 65535, inclusive.</p> 
-listenerSpecs[].<br>externalAddressSpec | **object**<br>External IP address specification. <br>`listenerSpecs[]` includes only one of the fields `externalAddressSpec`, `internalAddressSpec`<br>
-listenerSpecs[].<br>externalAddressSpec.<br>address | **string**<br><p>Public IP address for a listener. If you provide a static public IP address for the <a href="/docs/network-load-balancer/api-ref/NetworkLoadBalancer/update">update</a> method, it will replace the existing listener address.</p> 
-listenerSpecs[].<br>externalAddressSpec.<br>ipVersion | **string**<br><p>IP version.</p> <p>IP version of the addresses that the load balancer works with. Only IPv4 is currently available.</p> <ul> <li>IPV4: IPv4</li> <li>IPV6: IPv6</li> </ul> 
-listenerSpecs[].<br>internalAddressSpec | **object**<br>Internal IP address specification. <br>`listenerSpecs[]` includes only one of the fields `externalAddressSpec`, `internalAddressSpec`<br>
-listenerSpecs[].<br>internalAddressSpec.<br>address | **string**<br><p>Internal IP address for a listener.</p> 
-listenerSpecs[].<br>internalAddressSpec.<br>subnetId | **string**<br><p>ID of the subnet.</p> 
-listenerSpecs[].<br>internalAddressSpec.<br>ipVersion | **string**<br><p>IP version.</p> <p>IP version of the addresses that the load balancer works with. Only IPv4 is currently available.</p> <ul> <li>IPV4: IPv4</li> <li>IPV6: IPv6</li> </ul> 
-attachedTargetGroups[] | **object**<br><p>List of attached target groups for the network load balancer.</p> <p>The maximum number of elements is 1000.</p> 
-attachedTargetGroups[].<br>targetGroupId | **string**<br><p>Required. ID of the target group.</p> <p>The maximum string length in characters is 50.</p> 
-attachedTargetGroups[].<br>healthChecks[] | **object**<br><p>Required. A health check to perform on the target group. For now we accept only one health check per AttachedTargetGroup.</p> <p>Must contain exactly 1 element.</p> 
-attachedTargetGroups[].<br>healthChecks[].<br>name | **string**<br><p>Required. Name of the health check. The name must be unique for each target group that attached to a single load balancer. 3-63 characters long.</p> <p>Value must match the regular expression ``\|[a-z][-a-z0-9]{1,61}[a-z0-9]``.</p> 
-attachedTargetGroups[].<br>healthChecks[].<br>interval | **string**<br><p>The interval between health checks. The default is 2 seconds.</p> 
-attachedTargetGroups[].<br>healthChecks[].<br>timeout | **string**<br><p>Timeout for a target to return a response for the health check. The default is 1 second.</p> 
-attachedTargetGroups[].<br>healthChecks[].<br>unhealthyThreshold | **string** (int64)<br><p>Number of failed health checks before changing the status to ``UNHEALTHY``. The default is 2.</p> <p>Acceptable values are 2 to 10, inclusive.</p> 
-attachedTargetGroups[].<br>healthChecks[].<br>healthyThreshold | **string** (int64)<br><p>Number of successful health checks required in order to set the ``HEALTHY`` status for the target. The default is 2.</p> <p>Acceptable values are 2 to 10, inclusive.</p> 
-attachedTargetGroups[].<br>healthChecks[].<br>tcpOptions | **object**<br>Options for TCP health check. <br>`attachedTargetGroups[].healthChecks[]` includes only one of the fields `tcpOptions`, `httpOptions`<br>
-attachedTargetGroups[].<br>healthChecks[].<br>tcpOptions.<br>port | **string** (int64)<br><p>Port to use for TCP health checks.</p> <p>Acceptable values are 1 to 65535, inclusive.</p> 
-attachedTargetGroups[].<br>healthChecks[].<br>httpOptions | **object**<br>Options for HTTP health check. <br>`attachedTargetGroups[].healthChecks[]` includes only one of the fields `tcpOptions`, `httpOptions`<br>
-attachedTargetGroups[].<br>healthChecks[].<br>httpOptions.<br>port | **string** (int64)<br><p>Port to use for HTTP health checks.</p> <p>Acceptable values are 1 to 65535, inclusive.</p> 
-attachedTargetGroups[].<br>healthChecks[].<br>httpOptions.<br>path | **string**<br><p>URL path to set for health checking requests for every target in the target group. For example ``/ping``. The default path is ``/``.</p> 
-deletionProtection | **boolean** (boolean)<br><p>Specifies if network load balancer protected from deletion.</p> 
- 
-## Response {#responses}
+#|
+||Field | Description ||
+|| folderId | **string**
+
+Required field. ID of the folder to create a network load balancer in.
+To get the folder ID, use a [NetworkLoadBalancerService.List](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list#List) request. ||
+|| name | **string**
+
+Name of the network load balancer.
+The name must be unique within the folder. ||
+|| description | **string**
+
+Description of the network load balancer. ||
+|| labels | **string**
+
+Resource labels as `` key:value `` pairs. ||
+|| regionId | **string**
+
+ID of the region where the network load balancer resides. ||
+|| type | **enum** (Type)
+
+Required field. Type of the network load balancer.
+
+- `TYPE_UNSPECIFIED`
+- `EXTERNAL`: External network load balancer.
+- `INTERNAL`: Internal network load balancer. ||
+|| listenerSpecs[] | **[ListenerSpec](#yandex.cloud.loadbalancer.v1.ListenerSpec)**
+
+List of listeners and their specs for the network load balancer. ||
+|| attachedTargetGroups[] | **[AttachedTargetGroup](#yandex.cloud.loadbalancer.v1.AttachedTargetGroup)**
+
+List of attached target groups for the network load balancer. ||
+|| deletionProtection | **boolean**
+
+Specifies if network load balancer protected from deletion. ||
+|#
+
+## ListenerSpec {#yandex.cloud.loadbalancer.v1.ListenerSpec}
+
+Listener specification that will be used by a network load balancer.
+
+#|
+||Field | Description ||
+|| name | **string**
+
+Required field. Name of the listener. The name must be unique for each listener on a single load balancer. 3-63 characters long. ||
+|| port | **string** (int64)
+
+Port for incoming traffic. ||
+|| protocol | **enum** (Protocol)
+
+Required field. Protocol for incoming traffic.
+
+- `PROTOCOL_UNSPECIFIED`
+- `TCP`
+- `UDP` ||
+|| externalAddressSpec | **[ExternalAddressSpec](#yandex.cloud.loadbalancer.v1.ExternalAddressSpec)**
+
+External IP address specification.
+
+Includes only one of the fields `externalAddressSpec`, `internalAddressSpec`.
+
+IP address for incoming traffic. Either the ID of the previously created address or the address specification. ||
+|| internalAddressSpec | **[InternalAddressSpec](#yandex.cloud.loadbalancer.v1.InternalAddressSpec)**
+
+Internal IP address specification.
+
+Includes only one of the fields `externalAddressSpec`, `internalAddressSpec`.
+
+IP address for incoming traffic. Either the ID of the previously created address or the address specification. ||
+|| targetPort | **string** (int64)
+
+Port of a target.
+Acceptable values are 1 to 65535, inclusive. ||
+|#
+
+## ExternalAddressSpec {#yandex.cloud.loadbalancer.v1.ExternalAddressSpec}
+
+External address specification that is used by [ListenerSpec](#yandex.cloud.loadbalancer.v1.ListenerSpec).
+
+#|
+||Field | Description ||
+|| address | **string**
+
+Public IP address for a listener.
+If you provide a static public IP address for the [NetworkLoadBalancerService.Update](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/update#Update)
+method, it will replace the existing listener address. ||
+|| ipVersion | **enum** (IpVersion)
+
+IP version.
+
+- `IP_VERSION_UNSPECIFIED`
+- `IPV4`: IPv4
+- `IPV6`: IPv6 ||
+|#
+
+## InternalAddressSpec {#yandex.cloud.loadbalancer.v1.InternalAddressSpec}
+
+Internal address specification that is used by [ListenerSpec](#yandex.cloud.loadbalancer.v1.ListenerSpec).
+
+#|
+||Field | Description ||
+|| address | **string**
+
+Internal IP address for a listener. ||
+|| subnetId | **string**
+
+ID of the subnet. ||
+|| ipVersion | **enum** (IpVersion)
+
+IP version.
+
+- `IP_VERSION_UNSPECIFIED`
+- `IPV4`: IPv4
+- `IPV6`: IPv6 ||
+|#
+
+## AttachedTargetGroup {#yandex.cloud.loadbalancer.v1.AttachedTargetGroup}
+
+An AttachedTargetGroup resource. For more information, see [Targets and groups](/docs/network-load-balancer/concepts/target-resources).
+
+#|
+||Field | Description ||
+|| targetGroupId | **string**
+
+Required field. ID of the target group. ||
+|| healthChecks[] | **[HealthCheck](#yandex.cloud.loadbalancer.v1.HealthCheck)**
+
+A health check to perform on the target group.
+For now we accept only one health check per AttachedTargetGroup. ||
+|#
+
+## HealthCheck {#yandex.cloud.loadbalancer.v1.HealthCheck}
+
+A HealthCheck resource. For more information, see [Health check](/docs/network-load-balancer/concepts/health-check).
+
+#|
+||Field | Description ||
+|| name | **string**
+
+Required field. Name of the health check. The name must be unique for each target group that attached to a single load balancer. 3-63 characters long. ||
+|| interval | **string** (duration)
+
+The interval between health checks. The default is 2 seconds. ||
+|| timeout | **string** (duration)
+
+Timeout for a target to return a response for the health check. The default is 1 second. ||
+|| unhealthyThreshold | **string** (int64)
+
+Number of failed health checks before changing the status to `` UNHEALTHY ``. The default is 2. ||
+|| healthyThreshold | **string** (int64)
+
+Number of successful health checks required in order to set the `` HEALTHY `` status for the target. The default is 2. ||
+|| tcpOptions | **[TcpOptions](#yandex.cloud.loadbalancer.v1.HealthCheck.TcpOptions)**
+
+Options for TCP health check.
+
+Includes only one of the fields `tcpOptions`, `httpOptions`.
+
+Protocol to use for the health check. Either TCP or HTTP. ||
+|| httpOptions | **[HttpOptions](#yandex.cloud.loadbalancer.v1.HealthCheck.HttpOptions)**
+
+Options for HTTP health check.
+
+Includes only one of the fields `tcpOptions`, `httpOptions`.
+
+Protocol to use for the health check. Either TCP or HTTP. ||
+|#
+
+## TcpOptions {#yandex.cloud.loadbalancer.v1.HealthCheck.TcpOptions}
+
+Configuration option for a TCP health check.
+
+#|
+||Field | Description ||
+|| port | **string** (int64)
+
+Port to use for TCP health checks. ||
+|#
+
+## HttpOptions {#yandex.cloud.loadbalancer.v1.HealthCheck.HttpOptions}
+
+Configuration option for an HTTP health check.
+
+#|
+||Field | Description ||
+|| port | **string** (int64)
+
+Port to use for HTTP health checks. ||
+|| path | **string**
+
+URL path to set for health checking requests for every target in the target group.
+For example `` /ping ``. The default path is `` / ``. ||
+|#
+
+## Response {#yandex.cloud.operation.Operation}
+
 **HTTP Code: 200 - OK**
 
-```json 
+```json
 {
   "id": "string",
   "description": "string",
   "createdAt": "string",
   "createdBy": "string",
   "modifiedAt": "string",
-  "done": true,
-  "metadata": "object",
-
-  //  includes only one of the fields `error`, `response`
+  "done": "boolean",
+  "metadata": {
+    "networkLoadBalancerId": "string"
+  },
+  // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
     "message": "string",
@@ -130,24 +287,335 @@ deletionProtection | **boolean** (boolean)<br><p>Specifies if network load balan
       "object"
     ]
   },
-  "response": "object",
+  "response": {
+    "id": "string",
+    "folderId": "string",
+    "createdAt": "string",
+    "name": "string",
+    "description": "string",
+    "labels": "string",
+    "regionId": "string",
+    "status": "string",
+    "type": "string",
+    "sessionAffinity": "string",
+    "listeners": [
+      {
+        "name": "string",
+        "address": "string",
+        "port": "string",
+        "protocol": "string",
+        "targetPort": "string",
+        "subnetId": "string",
+        "ipVersion": "string"
+      }
+    ],
+    "attachedTargetGroups": [
+      {
+        "targetGroupId": "string",
+        "healthChecks": [
+          {
+            "name": "string",
+            "interval": "string",
+            "timeout": "string",
+            "unhealthyThreshold": "string",
+            "healthyThreshold": "string",
+            // Includes only one of the fields `tcpOptions`, `httpOptions`
+            "tcpOptions": {
+              "port": "string"
+            },
+            "httpOptions": {
+              "port": "string",
+              "path": "string"
+            }
+            // end of the list of possible fields
+          }
+        ]
+      }
+    ],
+    "deletionProtection": "boolean"
+  }
   // end of the list of possible fields
-
 }
 ```
+
 An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).
- 
-Field | Description
---- | ---
-id | **string**<br><p>ID of the operation.</p> 
-description | **string**<br><p>Description of the operation. 0-256 characters long.</p> 
-createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
-createdBy | **string**<br><p>ID of the user or service account who initiated the operation.</p> 
-modifiedAt | **string** (date-time)<br><p>The time when the Operation resource was last modified.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
-done | **boolean** (boolean)<br><p>If the value is ``false``, it means the operation is still in progress. If ``true``, the operation is completed, and either ``error`` or ``response`` is available.</p> 
-metadata | **object**<br><p>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any.</p> 
-error | **object**<br>The error result of the operation in case of failure or cancellation. <br> includes only one of the fields `error`, `response`<br>
-error.<br>code | **integer** (int32)<br><p>Error code. An enum value of <a href="https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto">google.rpc.Code</a>.</p> 
-error.<br>message | **string**<br><p>An error message.</p> 
-error.<br>details[] | **object**<br><p>A list of messages that carry the error details.</p> 
-response | **object** <br> includes only one of the fields `error`, `response`<br><br><p>The normal response of the operation in case of success. If the original method returns no data on success, such as Delete, the response is <a href="https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty">google.protobuf.Empty</a>. If the original method is the standard Create/Update, the response should be the target resource of the operation. Any method that returns a long-running operation should document the response type, if any.</p> 
+
+#|
+||Field | Description ||
+|| id | **string**
+
+ID of the operation. ||
+|| description | **string**
+
+Description of the operation. 0-256 characters long. ||
+|| createdAt | **string** (date-time)
+
+Creation timestamp.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| createdBy | **string**
+
+ID of the user or service account who initiated the operation. ||
+|| modifiedAt | **string** (date-time)
+
+The time when the Operation resource was last modified.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| done | **boolean**
+
+If the value is `false`, it means the operation is still in progress.
+If `true`, the operation is completed, and either `error` or `response` is available. ||
+|| metadata | **[CreateNetworkLoadBalancerMetadata](#yandex.cloud.loadbalancer.v1.CreateNetworkLoadBalancerMetadata)**
+
+Service-specific metadata associated with the operation.
+It typically contains the ID of the target resource that the operation is performed on.
+Any method that returns a long-running operation should document the metadata type, if any. ||
+|| error | **[Status](#google.rpc.Status)**
+
+The error result of the operation in case of failure or cancellation.
+
+Includes only one of the fields `error`, `response`.
+
+The operation result.
+If `done == false` and there was no failure detected, neither `error` nor `response` is set.
+If `done == false` and there was a failure detected, `error` is set.
+If `done == true`, exactly one of `error` or `response` is set. ||
+|| response | **[NetworkLoadBalancer](#yandex.cloud.loadbalancer.v1.NetworkLoadBalancer)**
+
+The normal response of the operation in case of success.
+If the original method returns no data on success, such as Delete,
+the response is [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty).
+If the original method is the standard Create/Update,
+the response should be the target resource of the operation.
+Any method that returns a long-running operation should document the response type, if any.
+
+Includes only one of the fields `error`, `response`.
+
+The operation result.
+If `done == false` and there was no failure detected, neither `error` nor `response` is set.
+If `done == false` and there was a failure detected, `error` is set.
+If `done == true`, exactly one of `error` or `response` is set. ||
+|#
+
+## CreateNetworkLoadBalancerMetadata {#yandex.cloud.loadbalancer.v1.CreateNetworkLoadBalancerMetadata}
+
+#|
+||Field | Description ||
+|| networkLoadBalancerId | **string**
+
+ID of the network load balancer that is being created. ||
+|#
+
+## Status {#google.rpc.Status}
+
+The error result of the operation in case of failure or cancellation.
+
+#|
+||Field | Description ||
+|| code | **integer** (int32)
+
+Error code. An enum value of [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto). ||
+|| message | **string**
+
+An error message. ||
+|| details[] | **object**
+
+A list of messages that carry the error details. ||
+|#
+
+## NetworkLoadBalancer {#yandex.cloud.loadbalancer.v1.NetworkLoadBalancer}
+
+A NetworkLoadBalancer resource. For more information, see [Network Load Balancer](/docs/network-load-balancer/concepts).
+
+#|
+||Field | Description ||
+|| id | **string**
+
+ID of the network load balancer. ||
+|| folderId | **string**
+
+ID of the folder that the network load balancer belongs to. ||
+|| createdAt | **string** (date-time)
+
+Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| name | **string**
+
+Name of the network load balancer. The name is unique within the folder. 3-63 characters long. ||
+|| description | **string**
+
+Optional description of the network load balancer. 0-256 characters long. ||
+|| labels | **string**
+
+Resource labels as `` key:value `` pairs. Maximum of 64 per resource. ||
+|| regionId | **string**
+
+ID of the region that the network load balancer belongs to. ||
+|| status | **enum** (Status)
+
+Status of the network load balancer.
+
+- `STATUS_UNSPECIFIED`
+- `CREATING`: Network load balancer is being created.
+- `STARTING`: Network load balancer is being started.
+- `ACTIVE`: Network load balancer is active and sends traffic to the targets.
+- `STOPPING`: Network load balancer is being stopped.
+- `STOPPED`: Network load balancer is stopped and doesn't send traffic to the targets.
+- `DELETING`: Network load balancer is being deleted.
+- `INACTIVE`: The load balancer doesn't have any listeners or target groups, or
+attached target groups are empty. The load balancer doesn't perform any health checks or
+send traffic in this state. ||
+|| type | **enum** (Type)
+
+Type of the network load balancer. Only external network load balancers are available now.
+
+- `TYPE_UNSPECIFIED`
+- `EXTERNAL`: External network load balancer.
+- `INTERNAL`: Internal network load balancer. ||
+|| sessionAffinity | **enum** (SessionAffinity)
+
+Type of the session affinity. Only 5-tuple affinity is available now.
+
+- `SESSION_AFFINITY_UNSPECIFIED`
+- `CLIENT_IP_PORT_PROTO`: 5-tuple affinity. ||
+|| listeners[] | **[Listener](#yandex.cloud.loadbalancer.v1.Listener)**
+
+List of listeners for the network load balancer. ||
+|| attachedTargetGroups[] | **[AttachedTargetGroup](#yandex.cloud.loadbalancer.v1.AttachedTargetGroup2)**
+
+List of target groups attached to the network load balancer. ||
+|| deletionProtection | **boolean**
+
+Specifies if network load balancer protected from deletion. ||
+|#
+
+## Listener {#yandex.cloud.loadbalancer.v1.Listener}
+
+A Listener resource. For more information, see [Listener](/docs/network-load-balancer/concepts/listener)
+
+#|
+||Field | Description ||
+|| name | **string**
+
+Name of the listener. The name must be unique for each listener on a single load balancer. 3-63 characters long. ||
+|| address | **string**
+
+IP address for the listener. ||
+|| port | **string** (int64)
+
+Port. ||
+|| protocol | **enum** (Protocol)
+
+Network protocol for incoming traffic.
+
+- `PROTOCOL_UNSPECIFIED`
+- `TCP`
+- `UDP` ||
+|| targetPort | **string** (int64)
+
+Port of a target. ||
+|| subnetId | **string**
+
+ID of the subnet. ||
+|| ipVersion | **enum** (IpVersion)
+
+IP version of the external address.
+
+- `IP_VERSION_UNSPECIFIED`
+- `IPV4`: IPv4
+- `IPV6`: IPv6 ||
+|#
+
+## AttachedTargetGroup {#yandex.cloud.loadbalancer.v1.AttachedTargetGroup2}
+
+An AttachedTargetGroup resource. For more information, see [Targets and groups](/docs/network-load-balancer/concepts/target-resources).
+
+#|
+||Field | Description ||
+|| targetGroupId | **string**
+
+Required field. ID of the target group. ||
+|| healthChecks[] | **[HealthCheck](#yandex.cloud.loadbalancer.v1.HealthCheck2)**
+
+A health check to perform on the target group.
+For now we accept only one health check per AttachedTargetGroup. ||
+|#
+
+## HealthCheck {#yandex.cloud.loadbalancer.v1.HealthCheck2}
+
+A HealthCheck resource. For more information, see [Health check](/docs/network-load-balancer/concepts/health-check).
+
+#|
+||Field | Description ||
+|| name | **string**
+
+Required field. Name of the health check. The name must be unique for each target group that attached to a single load balancer. 3-63 characters long. ||
+|| interval | **string** (duration)
+
+The interval between health checks. The default is 2 seconds. ||
+|| timeout | **string** (duration)
+
+Timeout for a target to return a response for the health check. The default is 1 second. ||
+|| unhealthyThreshold | **string** (int64)
+
+Number of failed health checks before changing the status to `` UNHEALTHY ``. The default is 2. ||
+|| healthyThreshold | **string** (int64)
+
+Number of successful health checks required in order to set the `` HEALTHY `` status for the target. The default is 2. ||
+|| tcpOptions | **[TcpOptions](#yandex.cloud.loadbalancer.v1.HealthCheck.TcpOptions2)**
+
+Options for TCP health check.
+
+Includes only one of the fields `tcpOptions`, `httpOptions`.
+
+Protocol to use for the health check. Either TCP or HTTP. ||
+|| httpOptions | **[HttpOptions](#yandex.cloud.loadbalancer.v1.HealthCheck.HttpOptions2)**
+
+Options for HTTP health check.
+
+Includes only one of the fields `tcpOptions`, `httpOptions`.
+
+Protocol to use for the health check. Either TCP or HTTP. ||
+|#
+
+## TcpOptions {#yandex.cloud.loadbalancer.v1.HealthCheck.TcpOptions2}
+
+Configuration option for a TCP health check.
+
+#|
+||Field | Description ||
+|| port | **string** (int64)
+
+Port to use for TCP health checks. ||
+|#
+
+## HttpOptions {#yandex.cloud.loadbalancer.v1.HealthCheck.HttpOptions2}
+
+Configuration option for an HTTP health check.
+
+#|
+||Field | Description ||
+|| port | **string** (int64)
+
+Port to use for HTTP health checks. ||
+|| path | **string**
+
+URL path to set for health checking requests for every target in the target group.
+For example `` /ping ``. The default path is `` / ``. ||
+|#

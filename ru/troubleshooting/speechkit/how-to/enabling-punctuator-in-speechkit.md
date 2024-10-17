@@ -21,7 +21,7 @@
 
 - gRPC API v2
   
-  За функциональность пунктуатора отвечает параметр `TEXT_NORMALIZATION_ENABLED`. Этот параметр включает режим нормализации текста и расстановку пунктуации. Описание допустимых значений параметра приведено [в соответствующем разделе API-спецификации {{ speechkit-name }}](../../../{{ speechkit-slug }}/stt-v3/api-ref/grpc/stt_service.md#TextNormalizationOptions).
+  За функциональность пунктуатора отвечает параметр `TEXT_NORMALIZATION_ENABLED`. Этот параметр включает режим нормализации текста и расстановку пунктуации. Описание допустимых значений параметра приведено [в соответствующем разделе API-спецификации {{ speechkit-name }}](../../../{{ speechkit-slug }}/stt-v3/api-ref/grpc/AsyncRecognizer/recognizeFile.md#speechkit.stt.v3.TextNormalizationOptions).
 
 - API v3
   

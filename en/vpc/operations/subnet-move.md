@@ -91,7 +91,7 @@ You can move [subnets](../concepts/network.md) between folders within a single [
 
 - API {#api}
 
-   To move a [subnet](../concepts/network.md#subnet) to a different folder, use the [move](../api-ref/Subnet/move.md) REST API method for the [Subnet](../api-ref/Subnet/index.md) resource or the [SubnetService/Move](../api-ref/grpc/subnet_service.md#Move) gRPC API call, and provide the following in the request:
+   To move a [subnet](../concepts/network.md#subnet) to a different folder, use the [move](../api-ref/Subnet/move.md) REST API method for the [Subnet](../api-ref/Subnet/index.md) resource or the [SubnetService/Move](../api-ref/grpc/Subnet/move.md) gRPC API call, and provide the following in the request:
 
    * ID of the subnet to be moved, in the `subnetId` parameter.
 

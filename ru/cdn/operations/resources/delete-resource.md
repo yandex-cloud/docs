@@ -120,6 +120,6 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Чтобы удалить ресурс, воспользуйтесь методом REST API [delete](../../api-ref/Resource/delete.md) для ресурса [Resource](../../api-ref/Resource/index.md) или вызовом gRPC API [ResourceService/Delete](../../api-ref/grpc/resource_service.md#Delete).
+  Чтобы удалить ресурс, воспользуйтесь методом REST API [delete](../../api-ref/Resource/delete.md) для ресурса [Resource](../../api-ref/Resource/index.md) или вызовом gRPC API [ResourceService/Delete](../../api-ref/grpc/Resource/delete.md).
 
 {% endlist %}

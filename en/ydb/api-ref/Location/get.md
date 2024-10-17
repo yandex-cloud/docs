@@ -3,34 +3,38 @@ editable: false
 sourcePath: en/_api-ref/ydb/v1/api-ref/Location/get.md
 ---
 
-# Managed Service for YDB API, REST: Location.get
-Returns the specified location.
- 
+# Managed Service for YDB API, REST: Location.Get {#Get}
 
- 
-## HTTP request {#https-request}
+Returns the specified location.
+
+## HTTP request
+
 ```
 GET https://ydb.{{ api-host }}/ydb/v1/locations/{locationId}
 ```
- 
-## Path parameters {#path_params}
- 
-Parameter | Description
---- | ---
-locationId | <p>Required. Required. ID of the location to return.</p> 
- 
-## Response {#responses}
+
+## Path parameters
+
+#|
+||Field | Description ||
+|| locationId | **string**
+
+Required field. Required. ID of the location to return. ||
+|#
+
+## Response {#yandex.cloud.ydb.v1.Location}
+
 **HTTP Code: 200 - OK**
 
-```json 
+```json
 {
   "id": "string",
   "description": "string"
 }
 ```
 
- 
-Field | Description
---- | ---
-id | **string**
-description | **string**
+#|
+||Field | Description ||
+|| id | **string** ||
+|| description | **string** ||
+|#

@@ -89,7 +89,7 @@ All actions with {{ certificate-manager-name }} resources are logged as a list o
 
 - API {#api}
 
-  Use the [listOperations](../api-ref/Certificate/listOperations.md) REST API method for the [Certificate](../api-ref/Certificate/index.md) resource or the [CertificateService/ListOperations](../api-ref/grpc/certificate_service.md#ListOperations) gRPC API call.
+  Use the [listOperations](../api-ref/Certificate/listOperations.md) REST API method for the [Certificate](../api-ref/Certificate/index.md) resource or the [CertificateService/ListOperations](../api-ref/grpc/Certificate/listOperations.md) gRPC API call.
 
 {% endlist %}
 
@@ -149,7 +149,7 @@ All actions with {{ certificate-manager-name }} resources are logged as a list o
 
     - API {#api}
 
-      Use the [OperationService/Get](../api-ref/grpc/operation_service.md#Get) gRPC API call.
+      Use the [OperationService/Get](../api-ref/grpc/Operation/get.md) gRPC API call.
 
     {% endlist %}
 

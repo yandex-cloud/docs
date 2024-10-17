@@ -117,8 +117,8 @@
 
 - API {#api}
 
-  1. Получите список образов с помощью вызова gRPC API [ImageService/List](../../api-ref/grpc/image_service.md#List) или метода [list](../../api-ref/Image/list.md) ресурса `Image` REST API.
-  1. Создайте диск с помощью вызова gRPC API [DiskService/Create](../../api-ref/grpc/disk_service.md#Create) или метода [create](../../api-ref/Disk/create.md) ресурса `Disk` REST API. В запросе укажите идентификатор образа.
+  1. Получите список образов с помощью вызова gRPC API [ImageService/List](../../api-ref/grpc/Image/list.md) или метода [list](../../api-ref/Image/list.md) ресурса `Image` REST API.
+  1. Создайте диск с помощью вызова gRPC API [DiskService/Create](../../api-ref/grpc/Disk/create.md) или метода [create](../../api-ref/Disk/create.md) ресурса `Disk` REST API. В запросе укажите идентификатор образа.
 
 {% endlist %}
 

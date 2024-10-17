@@ -131,7 +131,7 @@
 
     - API {#api}
 
-      Чтобы создать сервисный аккаунт, воспользуйтесь методом REST API [create](../../iam/api-ref/ServiceAccount/create.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/Create](../../iam/api-ref/grpc/service_account_service.md#Create).
+      Чтобы создать сервисный аккаунт, воспользуйтесь методом REST API [create](../../iam/api-ref/ServiceAccount/create.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/Create](../../iam/api-ref/grpc/ServiceAccount/create.md).
 
     {% endlist %}
 
@@ -204,7 +204,7 @@
 
     - API {#api}
 
-      Чтобы назначить сервисному аккаунту роль на облако, воспользуйтесь методом REST API [setAccessBindings](../../iam/api-ref/ServiceAccount/setAccessBindings.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/SetAccessBindings](../../iam/api-ref/grpc/service_account_service.md#SetAccessBindings).
+      Чтобы назначить сервисному аккаунту роль на облако, воспользуйтесь методом REST API [setAccessBindings](../../iam/api-ref/ServiceAccount/setAccessBindings.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/SetAccessBindings](../../iam/api-ref/grpc/ServiceAccount/setAccessBindings.md).
 
     {% endlist %}
 
@@ -355,6 +355,6 @@
 
 - API {#api}
 
-  Чтобы удалить каталог, воспользуйтесь методом REST API [delete](../../resource-manager/api-ref/Folder/delete.md) для ресурса [Folder](../../resource-manager/api-ref/Folder/index.md) или вызовом gRPC API [FolderService/Delete](../../resource-manager/api-ref/grpc/folder_service.md#Delete).
+  Чтобы удалить каталог, воспользуйтесь методом REST API [delete](../../resource-manager/api-ref/Folder/delete.md) для ресурса [Folder](../../resource-manager/api-ref/Folder/index.md) или вызовом gRPC API [FolderService/Delete](../../resource-manager/api-ref/grpc/Folder/delete.md).
 
 {% endlist %}

@@ -3,55 +3,96 @@ editable: false
 sourcePath: en/_api-ref/backup/v1/backup/api-ref/Policy/listApplications.md
 ---
 
-# Cloud Backup API, REST: Policy.listApplications
-List applied policies using filters.
- 
+# Cloud Backup API, REST: Policy.ListApplications {#ListApplications}
 
- 
-## HTTP request {#https-request}
+List applied policies using filters.
+
+## HTTP request
+
 ```
 GET https://backup.{{ api-host }}/backup/v1/policies/{policyId}/applications
 ```
- 
-## Path parameters {#path_params}
- 
-Parameter | Description
---- | ---
-policyId | <p>Policy ID.</p> 
- 
-## Query parameters {#query_params}
- 
-Parameter | Description
---- | ---
-folderId | <p>Folder ID.</p> 
-computeInstanceId | <p>Compute Cloud instance ID.</p> 
-showProcessing | <p>If true, also returns applications that in the process of binding.</p> 
- 
-## Response {#responses}
+
+## Path parameters
+
+#|
+||Field | Description ||
+|| policyId | **string**
+
+Required field. Policy ID.
+
+Includes only one of the fields `folderId`, `policyId`, `computeInstanceId`. ||
+|#
+
+## Query parameters {#yandex.cloud.backup.v1.ListApplicationsRequest}
+
+#|
+||Field | Description ||
+|| folderId | **string**
+
+Folder ID.
+
+Includes only one of the fields `folderId`, `policyId`, `computeInstanceId`. ||
+|| computeInstanceId | **string**
+
+Compute Cloud instance ID.
+
+Includes only one of the fields `folderId`, `policyId`, `computeInstanceId`. ||
+|| showProcessing | **boolean**
+
+If true, also returns applications that in the process of binding. ||
+|#
+
+## Response {#yandex.cloud.backup.v1.ListApplicationsResponse}
+
 **HTTP Code: 200 - OK**
 
-```json 
+```json
 {
   "applications": [
     {
       "policyId": "string",
       "computeInstanceId": "string",
-      "enabled": true,
+      "enabled": "boolean",
       "status": "string",
       "createdAt": "string",
-      "isProcessing": true
+      "isProcessing": "boolean"
     }
   ]
 }
 ```
 
- 
-Field | Description
---- | ---
-applications[] | **object**
-applications[].<br>policyId | **string**<br><p>Policy ID.</p> 
-applications[].<br>computeInstanceId | **string**<br><p>Compute Cloud instance ID.</p> 
-applications[].<br>enabled | **boolean** (boolean)
-applications[].<br>status | **string**<br><ul> <li>OK: Application is applied and everything is OK.</li> <li>RUNNING: Application is currently running.</li> <li>DISABLED: Application is disabled.</li> </ul> 
-applications[].<br>createdAt | **string** (date-time)<br><p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
-applications[].<br>isProcessing | **boolean** (boolean)<br><p>If true, then the policy is in in the process of binding to the instance.</p> 
+#|
+||Field | Description ||
+|| applications[] | **[PolicyApplication](#yandex.cloud.backup.v1.PolicyApplication)** ||
+|#
+
+## PolicyApplication {#yandex.cloud.backup.v1.PolicyApplication}
+
+#|
+||Field | Description ||
+|| policyId | **string**
+
+Policy ID. ||
+|| computeInstanceId | **string**
+
+Compute Cloud instance ID. ||
+|| enabled | **boolean** ||
+|| status | **enum** (Status)
+
+- `STATUS_UNSPECIFIED`
+- `OK`: Application is applied and everything is OK.
+- `RUNNING`: Application is currently running.
+- `DISABLED`: Application is disabled. ||
+|| createdAt | **string** (date-time)
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| isProcessing | **boolean**
+
+If true, then the policy is in in the process of binding to the instance. ||
+|#

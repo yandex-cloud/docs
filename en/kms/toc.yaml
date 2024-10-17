@@ -111,68 +111,338 @@ items:
         items:
           - name: Overview
             href: api-ref/grpc/index.md
-          - name: SymmetricCryptoService
-            href: api-ref/grpc/symmetric_crypto_service.md
-          - name: SymmetricKeyService
-            href: api-ref/grpc/symmetric_key_service.md
-          - name: AsymmetricEncryptionCryptoService
-            href: api-ref/grpc/asymmetric_encryption_crypto_service.md
-          - name: AsymmetricEncryptionKeyService
-            href: api-ref/grpc/asymmetric_encryption_key_service.md
-          - name: AsymmetricSignatureCryptoService
-            href: api-ref/grpc/asymmetric_signature_crypto_service.md
-          - name: AsymmetricSignatureKeyService
-            href: api-ref/grpc/asymmetric_signature_key_service.md
-          - name: OperationService
-            href: api-ref/grpc/operation_service.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/grpc/Operation/index.md
+              - name: Get
+                href: api-ref/grpc/Operation/get.md
+              - name: Cancel
+                href: api-ref/grpc/Operation/cancel.md
+          - name: SymmetricCrypto
+            items:
+              - name: Overview
+                href: api-ref/grpc/SymmetricCrypto/index.md
+              - name: Encrypt
+                href: api-ref/grpc/SymmetricCrypto/encrypt.md
+              - name: Decrypt
+                href: api-ref/grpc/SymmetricCrypto/decrypt.md
+              - name: ReEncrypt
+                href: api-ref/grpc/SymmetricCrypto/reEncrypt.md
+              - name: GenerateDataKey
+                href: api-ref/grpc/SymmetricCrypto/generateDataKey.md
+          - name: SymmetricKey
+            items:
+              - name: Overview
+                href: api-ref/grpc/SymmetricKey/index.md
+              - name: Create
+                href: api-ref/grpc/SymmetricKey/create.md
+              - name: Get
+                href: api-ref/grpc/SymmetricKey/get.md
+              - name: List
+                href: api-ref/grpc/SymmetricKey/list.md
+              - name: ListVersions
+                href: api-ref/grpc/SymmetricKey/listVersions.md
+              - name: Update
+                href: api-ref/grpc/SymmetricKey/update.md
+              - name: Delete
+                href: api-ref/grpc/SymmetricKey/delete.md
+              - name: SetPrimaryVersion
+                href: api-ref/grpc/SymmetricKey/setPrimaryVersion.md
+              - name: ScheduleVersionDestruction
+                href: api-ref/grpc/SymmetricKey/scheduleVersionDestruction.md
+              - name: CancelVersionDestruction
+                href: api-ref/grpc/SymmetricKey/cancelVersionDestruction.md
+              - name: Rotate
+                href: api-ref/grpc/SymmetricKey/rotate.md
+              - name: ListOperations
+                href: api-ref/grpc/SymmetricKey/listOperations.md
+              - name: ListAccessBindings
+                href: api-ref/grpc/SymmetricKey/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/grpc/SymmetricKey/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: api-ref/grpc/SymmetricKey/updateAccessBindings.md
+          - name: Key Management Service API
+            items:
+              - name: Overview
+                href: asymmetricencryption/api-ref/grpc/index.md
+              - name: AsymmetricEncryptionCrypto
+                items:
+                  - name: Overview
+                    href: >-
+                      asymmetricencryption/api-ref/grpc/AsymmetricEncryptionCrypto/index.md
+                  - name: Decrypt
+                    href: >-
+                      asymmetricencryption/api-ref/grpc/AsymmetricEncryptionCrypto/decrypt.md
+                  - name: GetPublicKey
+                    href: >-
+                      asymmetricencryption/api-ref/grpc/AsymmetricEncryptionCrypto/getPublicKey.md
+              - name: AsymmetricEncryptionKey
+                items:
+                  - name: Overview
+                    href: >-
+                      asymmetricencryption/api-ref/grpc/AsymmetricEncryptionKey/index.md
+                  - name: Create
+                    href: >-
+                      asymmetricencryption/api-ref/grpc/AsymmetricEncryptionKey/create.md
+                  - name: Get
+                    href: >-
+                      asymmetricencryption/api-ref/grpc/AsymmetricEncryptionKey/get.md
+                  - name: List
+                    href: >-
+                      asymmetricencryption/api-ref/grpc/AsymmetricEncryptionKey/list.md
+                  - name: Update
+                    href: >-
+                      asymmetricencryption/api-ref/grpc/AsymmetricEncryptionKey/update.md
+                  - name: Delete
+                    href: >-
+                      asymmetricencryption/api-ref/grpc/AsymmetricEncryptionKey/delete.md
+                  - name: ListOperations
+                    href: >-
+                      asymmetricencryption/api-ref/grpc/AsymmetricEncryptionKey/listOperations.md
+                  - name: ListAccessBindings
+                    href: >-
+                      asymmetricencryption/api-ref/grpc/AsymmetricEncryptionKey/listAccessBindings.md
+                  - name: SetAccessBindings
+                    href: >-
+                      asymmetricencryption/api-ref/grpc/AsymmetricEncryptionKey/setAccessBindings.md
+                  - name: UpdateAccessBindings
+                    href: >-
+                      asymmetricencryption/api-ref/grpc/AsymmetricEncryptionKey/updateAccessBindings.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: asymmetricencryption/api-ref/grpc/Operation/index.md
+                  - name: Get
+                    href: asymmetricencryption/api-ref/grpc/Operation/get.md
+                  - name: Cancel
+                    href: asymmetricencryption/api-ref/grpc/Operation/cancel.md
+          - name: Key Management Service API
+            items:
+              - name: Overview
+                href: asymmetricsignature/api-ref/grpc/index.md
+              - name: AsymmetricSignatureCrypto
+                items:
+                  - name: Overview
+                    href: >-
+                      asymmetricsignature/api-ref/grpc/AsymmetricSignatureCrypto/index.md
+                  - name: Sign
+                    href: >-
+                      asymmetricsignature/api-ref/grpc/AsymmetricSignatureCrypto/sign.md
+                  - name: SignHash
+                    href: >-
+                      asymmetricsignature/api-ref/grpc/AsymmetricSignatureCrypto/signHash.md
+                  - name: GetPublicKey
+                    href: >-
+                      asymmetricsignature/api-ref/grpc/AsymmetricSignatureCrypto/getPublicKey.md
+              - name: AsymmetricSignatureKey
+                items:
+                  - name: Overview
+                    href: >-
+                      asymmetricsignature/api-ref/grpc/AsymmetricSignatureKey/index.md
+                  - name: Create
+                    href: >-
+                      asymmetricsignature/api-ref/grpc/AsymmetricSignatureKey/create.md
+                  - name: Get
+                    href: >-
+                      asymmetricsignature/api-ref/grpc/AsymmetricSignatureKey/get.md
+                  - name: List
+                    href: >-
+                      asymmetricsignature/api-ref/grpc/AsymmetricSignatureKey/list.md
+                  - name: Update
+                    href: >-
+                      asymmetricsignature/api-ref/grpc/AsymmetricSignatureKey/update.md
+                  - name: Delete
+                    href: >-
+                      asymmetricsignature/api-ref/grpc/AsymmetricSignatureKey/delete.md
+                  - name: ListOperations
+                    href: >-
+                      asymmetricsignature/api-ref/grpc/AsymmetricSignatureKey/listOperations.md
+                  - name: ListAccessBindings
+                    href: >-
+                      asymmetricsignature/api-ref/grpc/AsymmetricSignatureKey/listAccessBindings.md
+                  - name: SetAccessBindings
+                    href: >-
+                      asymmetricsignature/api-ref/grpc/AsymmetricSignatureKey/setAccessBindings.md
+                  - name: UpdateAccessBindings
+                    href: >-
+                      asymmetricsignature/api-ref/grpc/AsymmetricSignatureKey/updateAccessBindings.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: asymmetricsignature/api-ref/grpc/Operation/index.md
+                  - name: Get
+                    href: asymmetricsignature/api-ref/grpc/Operation/get.md
+                  - name: Cancel
+                    href: asymmetricsignature/api-ref/grpc/Operation/cancel.md
       - name: REST
         items:
           - name: Overview
             href: api-ref/index.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/Operation/index.md
+              - name: Get
+                href: api-ref/Operation/get.md
+              - name: Cancel
+                href: api-ref/Operation/cancel.md
           - name: SymmetricCrypto
             items:
               - name: Overview
                 href: api-ref/SymmetricCrypto/index.md
-              - name: decrypt
-                href: api-ref/SymmetricCrypto/decrypt.md
-              - name: encrypt
+              - name: Encrypt
                 href: api-ref/SymmetricCrypto/encrypt.md
-              - name: generateDataKey
-                href: api-ref/SymmetricCrypto/generateDataKey.md
-              - name: reEncrypt
+              - name: Decrypt
+                href: api-ref/SymmetricCrypto/decrypt.md
+              - name: ReEncrypt
                 href: api-ref/SymmetricCrypto/reEncrypt.md
+              - name: GenerateDataKey
+                href: api-ref/SymmetricCrypto/generateDataKey.md
           - name: SymmetricKey
             items:
               - name: Overview
                 href: api-ref/SymmetricKey/index.md
-              - name: cancelVersionDestruction
-                href: api-ref/SymmetricKey/cancelVersionDestruction.md
-              - name: create
+              - name: Create
                 href: api-ref/SymmetricKey/create.md
-              - name: delete
-                href: api-ref/SymmetricKey/delete.md
-              - name: get
+              - name: Get
                 href: api-ref/SymmetricKey/get.md
-              - name: list
+              - name: List
                 href: api-ref/SymmetricKey/list.md
-              - name: listAccessBindings
-                href: api-ref/SymmetricKey/listAccessBindings.md
-              - name: listOperations
-                href: api-ref/SymmetricKey/listOperations.md
-              - name: listVersions
+              - name: ListVersions
                 href: api-ref/SymmetricKey/listVersions.md
-              - name: rotate
-                href: api-ref/SymmetricKey/rotate.md
-              - name: scheduleVersionDestruction
-                href: api-ref/SymmetricKey/scheduleVersionDestruction.md
-              - name: setAccessBindings
-                href: api-ref/SymmetricKey/setAccessBindings.md
-              - name: setPrimaryVersion
-                href: api-ref/SymmetricKey/setPrimaryVersion.md
-              - name: update
+              - name: Update
                 href: api-ref/SymmetricKey/update.md
-              - name: updateAccessBindings
+              - name: Delete
+                href: api-ref/SymmetricKey/delete.md
+              - name: SetPrimaryVersion
+                href: api-ref/SymmetricKey/setPrimaryVersion.md
+              - name: ScheduleVersionDestruction
+                href: api-ref/SymmetricKey/scheduleVersionDestruction.md
+              - name: CancelVersionDestruction
+                href: api-ref/SymmetricKey/cancelVersionDestruction.md
+              - name: Rotate
+                href: api-ref/SymmetricKey/rotate.md
+              - name: ListOperations
+                href: api-ref/SymmetricKey/listOperations.md
+              - name: ListAccessBindings
+                href: api-ref/SymmetricKey/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/SymmetricKey/setAccessBindings.md
+              - name: UpdateAccessBindings
                 href: api-ref/SymmetricKey/updateAccessBindings.md
+          - name: Key Management Service API
+            items:
+              - name: Overview
+                href: asymmetricencryption/api-ref/index.md
+              - name: AsymmetricEncryptionCrypto
+                items:
+                  - name: Overview
+                    href: >-
+                      asymmetricencryption/api-ref/AsymmetricEncryptionCrypto/index.md
+                  - name: Decrypt
+                    href: >-
+                      asymmetricencryption/api-ref/AsymmetricEncryptionCrypto/decrypt.md
+                  - name: GetPublicKey
+                    href: >-
+                      asymmetricencryption/api-ref/AsymmetricEncryptionCrypto/getPublicKey.md
+              - name: AsymmetricEncryptionKey
+                items:
+                  - name: Overview
+                    href: >-
+                      asymmetricencryption/api-ref/AsymmetricEncryptionKey/index.md
+                  - name: Create
+                    href: >-
+                      asymmetricencryption/api-ref/AsymmetricEncryptionKey/create.md
+                  - name: Get
+                    href: >-
+                      asymmetricencryption/api-ref/AsymmetricEncryptionKey/get.md
+                  - name: List
+                    href: >-
+                      asymmetricencryption/api-ref/AsymmetricEncryptionKey/list.md
+                  - name: Update
+                    href: >-
+                      asymmetricencryption/api-ref/AsymmetricEncryptionKey/update.md
+                  - name: Delete
+                    href: >-
+                      asymmetricencryption/api-ref/AsymmetricEncryptionKey/delete.md
+                  - name: ListOperations
+                    href: >-
+                      asymmetricencryption/api-ref/AsymmetricEncryptionKey/listOperations.md
+                  - name: ListAccessBindings
+                    href: >-
+                      asymmetricencryption/api-ref/AsymmetricEncryptionKey/listAccessBindings.md
+                  - name: SetAccessBindings
+                    href: >-
+                      asymmetricencryption/api-ref/AsymmetricEncryptionKey/setAccessBindings.md
+                  - name: UpdateAccessBindings
+                    href: >-
+                      asymmetricencryption/api-ref/AsymmetricEncryptionKey/updateAccessBindings.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: asymmetricencryption/api-ref/Operation/index.md
+                  - name: Get
+                    href: asymmetricencryption/api-ref/Operation/get.md
+                  - name: Cancel
+                    href: asymmetricencryption/api-ref/Operation/cancel.md
+          - name: Key Management Service API
+            items:
+              - name: Overview
+                href: asymmetricsignature/api-ref/index.md
+              - name: AsymmetricSignatureCrypto
+                items:
+                  - name: Overview
+                    href: >-
+                      asymmetricsignature/api-ref/AsymmetricSignatureCrypto/index.md
+                  - name: Sign
+                    href: >-
+                      asymmetricsignature/api-ref/AsymmetricSignatureCrypto/sign.md
+                  - name: SignHash
+                    href: >-
+                      asymmetricsignature/api-ref/AsymmetricSignatureCrypto/signHash.md
+                  - name: GetPublicKey
+                    href: >-
+                      asymmetricsignature/api-ref/AsymmetricSignatureCrypto/getPublicKey.md
+              - name: AsymmetricSignatureKey
+                items:
+                  - name: Overview
+                    href: >-
+                      asymmetricsignature/api-ref/AsymmetricSignatureKey/index.md
+                  - name: Create
+                    href: >-
+                      asymmetricsignature/api-ref/AsymmetricSignatureKey/create.md
+                  - name: Get
+                    href: asymmetricsignature/api-ref/AsymmetricSignatureKey/get.md
+                  - name: List
+                    href: asymmetricsignature/api-ref/AsymmetricSignatureKey/list.md
+                  - name: Update
+                    href: >-
+                      asymmetricsignature/api-ref/AsymmetricSignatureKey/update.md
+                  - name: Delete
+                    href: >-
+                      asymmetricsignature/api-ref/AsymmetricSignatureKey/delete.md
+                  - name: ListOperations
+                    href: >-
+                      asymmetricsignature/api-ref/AsymmetricSignatureKey/listOperations.md
+                  - name: ListAccessBindings
+                    href: >-
+                      asymmetricsignature/api-ref/AsymmetricSignatureKey/listAccessBindings.md
+                  - name: SetAccessBindings
+                    href: >-
+                      asymmetricsignature/api-ref/AsymmetricSignatureKey/setAccessBindings.md
+                  - name: UpdateAccessBindings
+                    href: >-
+                      asymmetricsignature/api-ref/AsymmetricSignatureKey/updateAccessBindings.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: asymmetricsignature/api-ref/Operation/index.md
+                  - name: Get
+                    href: asymmetricsignature/api-ref/Operation/get.md
+                  - name: Cancel
+                    href: asymmetricsignature/api-ref/Operation/cancel.md
   - name: '{{ monitoring-name }} metrics'
     href: metrics.md
   - name: '{{ at-name }} events'

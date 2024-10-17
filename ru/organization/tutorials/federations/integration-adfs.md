@@ -300,7 +300,7 @@ Get-AdfsRelyingPartyTrust -Name YC | Set-AdfsRelyingPartyTrust -AlwaysRequireAut
 
 - API {#api}
 
-  Чтобы добавить сертификат, воспользуйтесь методом [create](../../api-ref/Certificate/create.md) для ресурса [Certificate](../../api-ref/Certificate/index.md):
+  Чтобы добавить сертификат, воспользуйтесь методом [create](../../saml/api-ref/Certificate/create.md) для ресурса [Certificate](../../saml/api-ref/Certificate/index.md):
 
   1. Сформируйте тело запроса, указав содержимое сертификата в свойстве `data`:
 

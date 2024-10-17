@@ -3,134 +3,273 @@ editable: false
 sourcePath: en/_api-ref/mdb/kafka/v1/api-ref/Connector/list.md
 ---
 
-# Managed Service for Apache Kafka® API, REST: Connector.list
-Retrieves the list of Apache Kafka® connectors in a cluster.
- 
+# Managed Service for Apache Kafka® API, REST: Connector.List {#List}
 
- 
-## HTTP request {#https-request}
+Retrieves the list of Apache Kafka® connectors in a cluster.
+
+## HTTP request
+
 ```
 GET https://{{ api-host-mdb }}/managed-kafka/v1/clusters/{clusterId}/connectors
 ```
- 
-## Path parameters {#path_params}
- 
-Parameter | Description
---- | ---
-clusterId | <p>Required. ID of the Apache Kafka® cluster to list connectors in.</p> <p>To get this ID, make a <a href="/docs/managed-kafka/api-ref/Cluster/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
- 
-## Query parameters {#query_params}
- 
-Parameter | Description
---- | ---
-pageSize | <p>The maximum number of results per page to return.</p> <p>If the number of available results is larger than <a href="/docs/managed-kafka/api-ref/Connector/list#query_params">pageSize</a>, the API returns a <a href="/docs/managed-kafka/api-ref/Connector/list#responses">nextPageToken</a> that can be used to get the next page of results in the subsequent <a href="/docs/managed-kafka/api-ref/Connector/list">list</a> requests.</p> <p>The maximum value is 1000.</p> 
-pageToken | <p>Page token that can be used to iterate through multiple pages of results.</p> <p>To get the next page of results, set <a href="/docs/managed-kafka/api-ref/Connector/list#query_params">pageToken</a> to the <a href="/docs/managed-kafka/api-ref/Connector/list#responses">nextPageToken</a> returned by the previous <a href="/docs/managed-kafka/api-ref/Connector/list">list</a> request.</p> <p>The maximum string length in characters is 100.</p> 
- 
-## Response {#responses}
+
+## Path parameters
+
+#|
+||Field | Description ||
+|| clusterId | **string**
+
+Required field. ID of the Apache Kafka® cluster to list connectors in.
+
+To get this ID, make a [ClusterService.List](/docs/managed-kafka/api-ref/Cluster/list#List) request. ||
+|#
+
+## Query parameters {#yandex.cloud.mdb.kafka.v1.ListConnectorsRequest}
+
+#|
+||Field | Description ||
+|| pageSize | **string** (int64)
+
+The maximum number of results per page to return.
+
+If the number of available results is larger than `pageSize`, the API returns a [ListConnectorsResponse.nextPageToken](#yandex.cloud.mdb.kafka.v1.ListConnectorsResponse) that can be used to get the next page of results in the subsequent [ConnectorService.List](#List) requests. ||
+|| pageToken | **string**
+
+Page token that can be used to iterate through multiple pages of results.
+
+To get the next page of results, set `pageToken` to the [ListConnectorsResponse.nextPageToken](#yandex.cloud.mdb.kafka.v1.ListConnectorsResponse) returned by the previous [ConnectorService.List](#List) request. ||
+|#
+
+## Response {#yandex.cloud.mdb.kafka.v1.ListConnectorsResponse}
+
 **HTTP Code: 200 - OK**
 
-```json 
+```json
 {
   "connectors": [
     {
       "name": "string",
-      "tasksMax": "integer",
-      "properties": "object",
+      "tasksMax": "string",
+      "properties": "string",
       "health": "string",
       "status": "string",
       "clusterId": "string",
-
-      // `connectors[]` includes only one of the fields `connectorConfigMirrormaker`, `connectorConfigS3Sink`
+      // Includes only one of the fields `connectorConfigMirrormaker`, `connectorConfigS3Sink`
       "connectorConfigMirrormaker": {
         "sourceCluster": {
           "alias": "string",
-
-          // `connectors[].connectorConfigMirrormaker.sourceCluster` includes only one of the fields `thisCluster`, `externalCluster`
-          "thisCluster": {},
+          // Includes only one of the fields `thisCluster`, `externalCluster`
+          "thisCluster": "object",
           "externalCluster": {
             "bootstrapServers": "string",
             "saslUsername": "string",
             "saslMechanism": "string",
             "securityProtocol": "string"
-          },
-          // end of the list of possible fields`connectors[].connectorConfigMirrormaker.sourceCluster`
-
+          }
+          // end of the list of possible fields
         },
         "targetCluster": {
           "alias": "string",
-
-          // `connectors[].connectorConfigMirrormaker.targetCluster` includes only one of the fields `thisCluster`, `externalCluster`
-          "thisCluster": {},
+          // Includes only one of the fields `thisCluster`, `externalCluster`
+          "thisCluster": "object",
           "externalCluster": {
             "bootstrapServers": "string",
             "saslUsername": "string",
             "saslMechanism": "string",
             "securityProtocol": "string"
-          },
-          // end of the list of possible fields`connectors[].connectorConfigMirrormaker.targetCluster`
-
+          }
+          // end of the list of possible fields
         },
         "topics": "string",
-        "replicationFactor": "integer"
+        "replicationFactor": "string"
       },
       "connectorConfigS3Sink": {
         "topics": "string",
         "fileCompressionType": "string",
-        "fileMaxRecords": "integer",
+        "fileMaxRecords": "string",
         "s3Connection": {
           "bucketName": "string",
+          // Includes only one of the fields `externalS3`
           "externalS3": {
             "accessKeyId": "string",
             "endpoint": "string",
             "region": "string"
           }
+          // end of the list of possible fields
         }
-      },
-      // end of the list of possible fields`connectors[]`
-
+      }
+      // end of the list of possible fields
     }
   ],
   "nextPageToken": "string"
 }
 ```
 
- 
-Field | Description
---- | ---
-connectors[] | **object**<br><p>List of Apache Kafka® Connectors.</p> 
-connectors[].<br>name | **string**<br><p>Name of the connector.</p> 
-connectors[].<br>tasksMax | **integer** (int64)<br><p>Maximum number of connector tasks. Default value is the number of brokers.</p> 
-connectors[].<br>properties | **object**<br><p>A set of properties passed to Managed Service for Apache Kafka® with the connector configuration. Example: ``sync.topics.config.enabled: true``.</p> 
-connectors[].<br>health | **string**<br>Connector health.<br><ul> <li>HEALTH_UNKNOWN: Health of the connector is unknown.</li> <li>ALIVE: Connector is running.</li> <li>DEAD: Connector has failed to start.</li> </ul> 
-connectors[].<br>status | **string**<br>Current status of the connector.<br><ul> <li>STATUS_UNKNOWN: Connector state is unknown.</li> <li>RUNNING: Connector is running normally.</li> <li>ERROR: Connector has encountered a problem and cannot operate.</li> <li>PAUSED: Connector is paused.</li> </ul> 
-connectors[].<br>clusterId | **string**<br><p>ID of the Apache Kafka® cluster that the connector belongs to.</p> 
-connectors[].<br>connectorConfigMirrormaker | **object**<br>Configuration of the MirrorMaker connector. <br>`connectors[]` includes only one of the fields `connectorConfigMirrormaker`, `connectorConfigS3Sink`<br>
-connectors[].<br>connectorConfigMirrormaker.<br>sourceCluster | **object**<br><p>Source cluster connection configuration.</p> 
-connectors[].<br>connectorConfigMirrormaker.<br>sourceCluster.<br>alias | **string**<br><p>Alias of cluster connection configuration. Examples: ``source``, ``target``.</p> 
-connectors[].<br>connectorConfigMirrormaker.<br>sourceCluster.<br>thisCluster | **object**<br>Connection configuration of the cluster the connector belongs to. As all credentials are already known, leave this parameter empty. <br>`connectors[].connectorConfigMirrormaker.sourceCluster` includes only one of the fields `thisCluster`, `externalCluster`<br>
-connectors[].<br>connectorConfigMirrormaker.<br>sourceCluster.<br>externalCluster | **object**<br>Configuration of connection to an external cluster with all the necessary credentials. <br>`connectors[].connectorConfigMirrormaker.sourceCluster` includes only one of the fields `thisCluster`, `externalCluster`<br>
-connectors[].<br>connectorConfigMirrormaker.<br>sourceCluster.<br>externalCluster.<br>bootstrapServers | **string**<br><p>List of bootstrap servers of the cluster, separated by ``,``.</p> 
-connectors[].<br>connectorConfigMirrormaker.<br>sourceCluster.<br>externalCluster.<br>saslUsername | **string**<br><p>SASL username to use for connection to the cluster.</p> 
-connectors[].<br>connectorConfigMirrormaker.<br>sourceCluster.<br>externalCluster.<br>saslMechanism | **string**<br><p>SASL mechanism to use for connection to the cluster.</p> 
-connectors[].<br>connectorConfigMirrormaker.<br>sourceCluster.<br>externalCluster.<br>securityProtocol | **string**<br><p>Security protocol to use for connection to the cluster.</p> 
-connectors[].<br>connectorConfigMirrormaker.<br>targetCluster | **object**<br><p>Target cluster connection configuration.</p> 
-connectors[].<br>connectorConfigMirrormaker.<br>targetCluster.<br>alias | **string**<br><p>Alias of cluster connection configuration. Examples: ``source``, ``target``.</p> 
-connectors[].<br>connectorConfigMirrormaker.<br>targetCluster.<br>thisCluster | **object**<br>Connection configuration of the cluster the connector belongs to. As all credentials are already known, leave this parameter empty. <br>`connectors[].connectorConfigMirrormaker.targetCluster` includes only one of the fields `thisCluster`, `externalCluster`<br>
-connectors[].<br>connectorConfigMirrormaker.<br>targetCluster.<br>externalCluster | **object**<br>Configuration of connection to an external cluster with all the necessary credentials. <br>`connectors[].connectorConfigMirrormaker.targetCluster` includes only one of the fields `thisCluster`, `externalCluster`<br>
-connectors[].<br>connectorConfigMirrormaker.<br>targetCluster.<br>externalCluster.<br>bootstrapServers | **string**<br><p>List of bootstrap servers of the cluster, separated by ``,``.</p> 
-connectors[].<br>connectorConfigMirrormaker.<br>targetCluster.<br>externalCluster.<br>saslUsername | **string**<br><p>SASL username to use for connection to the cluster.</p> 
-connectors[].<br>connectorConfigMirrormaker.<br>targetCluster.<br>externalCluster.<br>saslMechanism | **string**<br><p>SASL mechanism to use for connection to the cluster.</p> 
-connectors[].<br>connectorConfigMirrormaker.<br>targetCluster.<br>externalCluster.<br>securityProtocol | **string**<br><p>Security protocol to use for connection to the cluster.</p> 
-connectors[].<br>connectorConfigMirrormaker.<br>topics | **string**<br><p>List of Kafka topics, separated by ``,``.</p> 
-connectors[].<br>connectorConfigMirrormaker.<br>replicationFactor | **integer** (int64)<br><p>Replication factor for automatically created topics.</p> 
-connectors[].<br>connectorConfigS3Sink | **object**<br>Configuration of S3-Sink connector. <br>`connectors[]` includes only one of the fields `connectorConfigMirrormaker`, `connectorConfigS3Sink`<br>
-connectors[].<br>connectorConfigS3Sink.<br>topics | **string**<br><p>List of Kafka topics, separated by ','.</p> 
-connectors[].<br>connectorConfigS3Sink.<br>fileCompressionType | **string**<br><p>The compression type used for files put on GCS. The supported values are: ``gzip``, ``snappy``, ``zstd``, ``none``. Optional, the default is ``none``.</p> 
-connectors[].<br>connectorConfigS3Sink.<br>fileMaxRecords | **integer** (int64)<br><p>Max records per file.</p> 
-connectors[].<br>connectorConfigS3Sink.<br>s3Connection | **object**<br><p>Credentials for connecting to S3 storage.</p> <p>Resource for S3Connection - settings of connection to AWS-compatible S3 storage, that are source or target of Kafka S3-connectors. YC Object Storage is AWS-compatible.</p> 
-connectors[].<br>connectorConfigS3Sink.<br>s3Connection.<br>bucketName | **string**
-connectors[].<br>connectorConfigS3Sink.<br>s3Connection.<br>externalS3 | **object**
-connectors[].<br>connectorConfigS3Sink.<br>s3Connection.<br>externalS3.<br>accessKeyId | **string**
-connectors[].<br>connectorConfigS3Sink.<br>s3Connection.<br>externalS3.<br>endpoint | **string**
-connectors[].<br>connectorConfigS3Sink.<br>s3Connection.<br>externalS3.<br>region | **string**<br><p>Default is 'us-east-1'</p> 
-nextPageToken | **string**<br><p>The token that can be used to get the next page of results.</p> <p>If the number of results is larger than <a href="/docs/managed-kafka/api-ref/Connector/list#query_params">pageSize</a>, use the <a href="/docs/managed-kafka/api-ref/Connector/list#responses">nextPageToken</a> as the value for the <a href="/docs/managed-kafka/api-ref/Connector/list#query_params">pageToken</a> in the subsequent <a href="/docs/managed-kafka/api-ref/Connector/list">list</a> request to iterate through multiple pages of results.</p> 
+#|
+||Field | Description ||
+|| connectors[] | **[Connector](#yandex.cloud.mdb.kafka.v1.Connector)**
+
+List of Apache Kafka® Connectors. ||
+|| nextPageToken | **string**
+
+The token that can be used to get the next page of results.
+
+If the number of results is larger than [ListConnectorsRequest.pageSize](#yandex.cloud.mdb.kafka.v1.ListConnectorsRequest), use the `nextPageToken` as the value for the [ListConnectorsRequest.pageToken](#yandex.cloud.mdb.kafka.v1.ListConnectorsRequest) in the subsequent [ConnectorService.List](#List) request to iterate through multiple pages of results. ||
+|#
+
+## Connector {#yandex.cloud.mdb.kafka.v1.Connector}
+
+#|
+||Field | Description ||
+|| name | **string**
+
+Name of the connector. ||
+|| tasksMax | **string** (int64)
+
+Maximum number of connector tasks. Default value is the number of brokers. ||
+|| properties | **string**
+
+A set of properties passed to Managed Service for Apache Kafka® with the connector configuration.
+Example: `sync.topics.config.enabled: true`. ||
+|| health | **enum** (Health)
+
+Connector health.
+
+- `HEALTH_UNKNOWN`: Health of the connector is unknown.
+- `ALIVE`: Connector is running.
+- `DEAD`: Connector has failed to start. ||
+|| status | **enum** (Status)
+
+Current status of the connector.
+
+- `STATUS_UNKNOWN`: Connector state is unknown.
+- `RUNNING`: Connector is running normally.
+- `ERROR`: Connector has encountered a problem and cannot operate.
+- `PAUSED`: Connector is paused. ||
+|| clusterId | **string**
+
+ID of the Apache Kafka® cluster that the connector belongs to. ||
+|| connectorConfigMirrormaker | **[ConnectorConfigMirrorMaker](#yandex.cloud.mdb.kafka.v1.ConnectorConfigMirrorMaker)**
+
+Configuration of the MirrorMaker connector.
+
+Includes only one of the fields `connectorConfigMirrormaker`, `connectorConfigS3Sink`.
+
+Additional settings for the connector. ||
+|| connectorConfigS3Sink | **[ConnectorConfigS3Sink](#yandex.cloud.mdb.kafka.v1.ConnectorConfigS3Sink)**
+
+Configuration of S3-Sink connector.
+
+Includes only one of the fields `connectorConfigMirrormaker`, `connectorConfigS3Sink`.
+
+Additional settings for the connector. ||
+|#
+
+## ConnectorConfigMirrorMaker {#yandex.cloud.mdb.kafka.v1.ConnectorConfigMirrorMaker}
+
+#|
+||Field | Description ||
+|| sourceCluster | **[ClusterConnection](#yandex.cloud.mdb.kafka.v1.ClusterConnection)**
+
+Source cluster connection configuration. ||
+|| targetCluster | **[ClusterConnection](#yandex.cloud.mdb.kafka.v1.ClusterConnection)**
+
+Target cluster connection configuration. ||
+|| topics | **string**
+
+List of Kafka topics, separated by `,`. ||
+|| replicationFactor | **string** (int64)
+
+Replication factor for automatically created topics. ||
+|#
+
+## ClusterConnection {#yandex.cloud.mdb.kafka.v1.ClusterConnection}
+
+#|
+||Field | Description ||
+|| alias | **string**
+
+Alias of cluster connection configuration.
+Examples: `source`, `target`. ||
+|| thisCluster | **object**
+
+Connection configuration of the cluster the connector belongs to. As all credentials are already known, leave this parameter empty.
+
+Includes only one of the fields `thisCluster`, `externalCluster`.
+
+Type of connection to Apache Kafka® cluster. ||
+|| externalCluster | **[ExternalClusterConnection](#yandex.cloud.mdb.kafka.v1.ExternalClusterConnection)**
+
+Configuration of connection to an external cluster with all the necessary credentials.
+
+Includes only one of the fields `thisCluster`, `externalCluster`.
+
+Type of connection to Apache Kafka® cluster. ||
+|#
+
+## ExternalClusterConnection {#yandex.cloud.mdb.kafka.v1.ExternalClusterConnection}
+
+#|
+||Field | Description ||
+|| bootstrapServers | **string**
+
+List of bootstrap servers of the cluster, separated by `,`. ||
+|| saslUsername | **string**
+
+SASL username to use for connection to the cluster. ||
+|| saslMechanism | **string**
+
+SASL mechanism to use for connection to the cluster. ||
+|| securityProtocol | **string**
+
+Security protocol to use for connection to the cluster. ||
+|#
+
+## ConnectorConfigS3Sink {#yandex.cloud.mdb.kafka.v1.ConnectorConfigS3Sink}
+
+An Apache Kafka® S3-Sink
+connector resource.
+
+#|
+||Field | Description ||
+|| topics | **string**
+
+List of Kafka topics, separated by ','. ||
+|| fileCompressionType | **string**
+
+The compression type used for files put on GCS.
+The supported values are: `gzip`, `snappy`, `zstd`, `none`.
+Optional, the default is `none`. ||
+|| fileMaxRecords | **string** (int64)
+
+Max records per file. ||
+|| s3Connection | **[S3Connection](#yandex.cloud.mdb.kafka.v1.S3Connection)**
+
+Credentials for connecting to S3 storage. ||
+|#
+
+## S3Connection {#yandex.cloud.mdb.kafka.v1.S3Connection}
+
+Resource for S3Connection -
+settings of connection to AWS-compatible S3 storage, that
+are source or target of Kafka S3-connectors.
+YC Object Storage is AWS-compatible.
+
+#|
+||Field | Description ||
+|| bucketName | **string** ||
+|| externalS3 | **[ExternalS3Storage](#yandex.cloud.mdb.kafka.v1.ExternalS3Storage)**
+
+Includes only one of the fields `externalS3`. ||
+|#
+
+## ExternalS3Storage {#yandex.cloud.mdb.kafka.v1.ExternalS3Storage}
+
+#|
+||Field | Description ||
+|| accessKeyId | **string** ||
+|| endpoint | **string** ||
+|| region | **string**
+
+Default is 'us-east-1' ||
+|#

@@ -51,7 +51,7 @@ description: Follow this guide to view container scaling settings.
 
 - API {#api}
 
-  To view container scaling settings, use the [getRevision](../containers/api-ref/Container/getRevision.md) REST API method for the [Container](../containers/api-ref/Container/index.md) resource or the [ContainerService/GetRevision](../containers/api-ref/grpc/container_service.md#GetRevision) gRPC API call.
+  To view container scaling settings, use the [getRevision](../containers/api-ref/Container/getRevision.md) REST API method for the [Container](../containers/api-ref/Container/index.md) resource or the [ContainerService/GetRevision](../containers/api-ref/grpc/Container/getRevision.md) gRPC API call.
 
 {% endlist %}
 

@@ -3,32 +3,39 @@ editable: false
 sourcePath: en/_api-ref/backup/v1/backup/api-ref/Backup/get.md
 ---
 
-# Cloud Backup API, REST: Backup.get
-Get backup by its id.
- 
+# Cloud Backup API, REST: Backup.Get {#Get}
 
- 
-## HTTP request {#https-request}
+Get backup by its id.
+
+## HTTP request
+
 ```
 GET https://backup.{{ api-host }}/backup/v1/backups/{backupId}
 ```
- 
-## Path parameters {#path_params}
- 
-Parameter | Description
---- | ---
-backupId | <p>Required. Backup ID.</p> 
- 
-## Query parameters {#query_params}
- 
-Parameter | Description
---- | ---
-folderId | <p>Required. Folder ID.</p> 
- 
-## Response {#responses}
+
+## Path parameters
+
+#|
+||Field | Description ||
+|| backupId | **string**
+
+Required field. Backup ID. ||
+|#
+
+## Query parameters {#yandex.cloud.backup.v1.GetBackupRequest}
+
+#|
+||Field | Description ||
+|| folderId | **string**
+
+Required field. Folder ID. ||
+|#
+
+## Response {#yandex.cloud.backup.v1.Backup}
+
 **HTTP Code: 200 - OK**
 
-```json 
+```json
 {
   "id": "string",
   "vaultId": "string",
@@ -52,8 +59,8 @@ folderId | <p>Required. Folder ID.</p>
       "volumes": [
         {
           "freeSpace": "string",
-          "isBootable": true,
-          "isSystem": true,
+          "isBootable": "boolean",
+          "isSystem": "boolean",
           "name": "string",
           "size": "string",
           "mountStrid": "string"
@@ -62,40 +69,122 @@ folderId | <p>Required. Folder ID.</p>
     }
   ],
   "type": "string",
-  "deleted": true,
+  "deleted": "boolean",
   "policyId": "string",
   "resourceId": "string"
 }
 ```
 
- 
-Field | Description
---- | ---
-id | **string**<br><p>ID of the backup.</p> 
-vaultId | **string**<br><p>ID of the backup vault.</p> 
-archiveId | **string**<br><p>ID of the backup archive.</p> 
-createdAt | **string** (date-time)<br><p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
-lastSeenAt | **string** (date-time)<br><p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
-size | **string** (int64)<br><p>Backup size.</p> 
-deduplicatedSize | **string** (int64)<br><p>Deduplicated backup size.</p> 
-backedUpDataSize | **string** (int64)<br><p>Backed up data size.</p> 
-originalDataSize | **string** (int64)<br><p>Original data size.</p> 
-attributes | **object**<br><p>Backup attributes.</p> 
-attributes.<br>streamName | **string**<br><p>Backup stream name.</p> 
-attributes.<br>uri | **string**<br><p>URI of the backup archive.</p> 
-computeInstanceId | **string**<br><p>Compute Cloud instance ID.</p> 
-disks[] | **object**
-disks[].<br>deviceModel | **string**<br><p>Device model.</p> 
-disks[].<br>name | **string**<br><p>Disk name.</p> 
-disks[].<br>size | **string** (int64)<br><p>Disk size.</p> 
-disks[].<br>volumes[] | **object**
-disks[].<br>volumes[].<br>freeSpace | **string** (int64)<br><p>Free space in the volume.</p> 
-disks[].<br>volumes[].<br>isBootable | **boolean** (boolean)<br><p>If this field is true, it means that the volume is bootable.</p> 
-disks[].<br>volumes[].<br>isSystem | **boolean** (boolean)<br><p>If this field is true, it means that the volume is a system volume.</p> 
-disks[].<br>volumes[].<br>name | **string**<br><p>Volume name.</p> 
-disks[].<br>volumes[].<br>size | **string** (int64)<br><p>Volume size.</p> 
-disks[].<br>volumes[].<br>mountStrid | **string**<br><p>Mount string ID.</p> 
-type | **string**<br><p>Backup type. For detailed information, please see <a href="/docs/backup/concepts/backup#types">Backup types</a>.</p> 
-deleted | **boolean** (boolean)<br><p>If this field is true, it means that the backup was deleted.</p> 
-policyId | **string**<br><p><a href="/docs/backup/concepts/policy">Policy</a> ID.</p> 
-resourceId | **string**<br><p>Resource ID. It identifies Compute Cloud instance in backup service.</p> 
+#|
+||Field | Description ||
+|| id | **string**
+
+ID of the backup. ||
+|| vaultId | **string**
+
+ID of the backup vault. ||
+|| archiveId | **string**
+
+ID of the backup archive. ||
+|| createdAt | **string** (date-time)
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| lastSeenAt | **string** (date-time)
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| size | **string** (int64)
+
+Backup size. ||
+|| deduplicatedSize | **string** (int64)
+
+Deduplicated backup size. ||
+|| backedUpDataSize | **string** (int64)
+
+Backed up data size. ||
+|| originalDataSize | **string** (int64)
+
+Original data size. ||
+|| attributes | **[BackupAttributes](#yandex.cloud.backup.v1.Backup.BackupAttributes)** ||
+|| computeInstanceId | **string**
+
+Compute Cloud instance ID. ||
+|| disks[] | **[Disk](#yandex.cloud.backup.v1.Disk)** ||
+|| type | **enum** (Type)
+
+- `TYPE_UNSPECIFIED`
+- `FULL`
+- `INCREMENTAL` ||
+|| deleted | **boolean**
+
+If this field is true, it means that the backup was deleted. ||
+|| policyId | **string**
+
+[Policy](/docs/backup/concepts/policy) ID. ||
+|| resourceId | **string**
+
+Resource ID. It identifies Compute Cloud instance in backup service. ||
+|#
+
+## BackupAttributes {#yandex.cloud.backup.v1.Backup.BackupAttributes}
+
+Backup attributes.
+
+#|
+||Field | Description ||
+|| streamName | **string**
+
+Backup stream name. ||
+|| uri | **string**
+
+URI of the backup archive. ||
+|#
+
+## Disk {#yandex.cloud.backup.v1.Disk}
+
+#|
+||Field | Description ||
+|| deviceModel | **string**
+
+Device model. ||
+|| name | **string**
+
+Disk name. ||
+|| size | **string** (int64)
+
+Disk size. ||
+|| volumes[] | **[Volume](#yandex.cloud.backup.v1.Volume)** ||
+|#
+
+## Volume {#yandex.cloud.backup.v1.Volume}
+
+#|
+||Field | Description ||
+|| freeSpace | **string** (int64)
+
+Free space in the volume. ||
+|| isBootable | **boolean**
+
+If this field is true, it means that the volume is bootable. ||
+|| isSystem | **boolean**
+
+If this field is true, it means that the volume is a system volume. ||
+|| name | **string**
+
+Volume name. ||
+|| size | **string** (int64)
+
+Volume size. ||
+|| mountStrid | **string**
+
+Mount string ID. ||
+|#

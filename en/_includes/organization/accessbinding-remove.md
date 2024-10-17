@@ -58,7 +58,7 @@
 
 - API {#api}
 
-   Use the [updateAccessBindings](../../organization/api-ref/Group/updateAccessBindings.md) method for the [Group](../../organization/api-ref/Group/index.md) resource or the [GroupService/UpdateAccessBindings](../../organization/api-ref/grpc/group_service.md#UpdateAccessBindings) gRPC API call and provide the following in the request:
+   Use the [updateAccessBindings](../../organization/api-ref/Group/updateAccessBindings.md) method for the [Group](../../organization/api-ref/Group/index.md) resource or the [GroupService/UpdateAccessBindings](../../organization/api-ref/grpc/Group/updateAccessBindings.md) gRPC API call and provide the following in the request:
 
    * `REMOVE` in the `accessBindingDeltas[].action` parameter to revoke the role.
    * Role in the `accessBindingDeltas[].accessBinding.roleId` parameter.

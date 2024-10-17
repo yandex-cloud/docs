@@ -135,7 +135,7 @@
 
 - API {#api}
 
-  Чтобы создать политику удаления, воспользуйтесь методом [Create](../../api-ref/grpc/lifecycle_policy_service.md#Create) для ресурса [LifecyclePolicyService](../../api-ref/grpc/lifecycle_policy_service.md).
+  Чтобы создать политику удаления, воспользуйтесь методом [Create](../../api-ref/grpc/LifecyclePolicy/create.md) для ресурса [LifecyclePolicyService](../../api-ref/grpc/LifecyclePolicy/index.md).
 
 {% endlist %}
 

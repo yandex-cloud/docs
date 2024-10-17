@@ -252,7 +252,7 @@ To create a [backend group](../concepts/backend-group.md):
 
 - API {#api}
 
-  Use the [create](../api-ref/BackendGroup/create.md) REST API method for the [BackendGroup](../api-ref/BackendGroup/index.md) resource or the [BackendGroupService/Create](../api-ref/grpc/backend_group_service.md#Create) gRPC API call.
+  Use the [create](../api-ref/BackendGroup/create.md) REST API method for the [BackendGroup](../api-ref/BackendGroup/index.md) resource or the [BackendGroupService/Create](../api-ref/grpc/BackendGroup/create.md) gRPC API call.
 
 {% endlist %}
 

@@ -3,42 +3,64 @@ editable: false
 sourcePath: en/_api-ref/video/v1/api-ref/Video/getPlayerURL.md
 ---
 
-# Video API, REST: Video.getPlayerURL
-Returns url to the player.
- 
+# Video API, REST: Video.GetPlayerURL {#GetPlayerURL}
 
- 
-## HTTP request {#https-request}
+Returns url to the player.
+
+## HTTP request
+
 ```
 GET https://video.{{ api-host }}/video/v1/videos/{videoId}:getPlayerURL
 ```
- 
-## Path parameters {#path_params}
- 
-Parameter | Description
---- | ---
-videoId | <p>ID of the video.</p> 
- 
-## Query parameters {#query_params}
- 
-Parameter | Description
---- | ---
-params.mute | <p>If true, a player will be muted by default.</p> 
-params.autoplay | <p>If true, playback will start automatically.</p> 
-params.hidden | <p>If true, a player interface will be hidden by default.</p> 
- 
-## Response {#responses}
+
+## Path parameters
+
+#|
+||Field | Description ||
+|| videoId | **string**
+
+Required field. ID of the video. ||
+|#
+
+## Query parameters {#yandex.cloud.video.v1.GetVideoPlayerURLRequest}
+
+#|
+||Field | Description ||
+|| params | **[VideoPlayerParams](#yandex.cloud.video.v1.VideoPlayerParams)** ||
+|#
+
+## VideoPlayerParams {#yandex.cloud.video.v1.VideoPlayerParams}
+
+#|
+||Field | Description ||
+|| mute | **boolean**
+
+If true, a player will be muted by default. ||
+|| autoplay | **boolean**
+
+If true, playback will start automatically. ||
+|| hidden | **boolean**
+
+If true, a player interface will be hidden by default. ||
+|#
+
+## Response {#yandex.cloud.video.v1.GetVideoPlayerURLResponse}
+
 **HTTP Code: 200 - OK**
 
-```json 
+```json
 {
   "playerUrl": "string",
   "html": "string"
 }
 ```
 
- 
-Field | Description
---- | ---
-playerUrl | **string**<br><p>Direct link to the video.</p> 
-html | **string**<br><p>HTML embed code in Iframe format.</p> 
+#|
+||Field | Description ||
+|| playerUrl | **string**
+
+Direct link to the video. ||
+|| html | **string**
+
+HTML embed code in Iframe format. ||
+|#

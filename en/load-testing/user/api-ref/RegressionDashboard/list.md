@@ -3,29 +3,61 @@ editable: false
 sourcePath: en/_api-ref/loadtesting/api/v1/user/api-ref/RegressionDashboard/list.md
 ---
 
-# Load Testing API, REST: RegressionDashboard.list
-Retrieves the list of regression dashboards in the specified folder.
- 
+# Load Testing API, REST: RegressionDashboard.List {#List}
 
- 
-## HTTP request {#https-request}
+Retrieves the list of regression dashboards in the specified folder.
+
+## HTTP request
+
 ```
 GET https://loadtesting.{{ api-host }}/loadtesting/api/v1/regressionDashboards
 ```
- 
-## Query parameters {#query_params}
- 
-Parameter | Description
---- | ---
-folderId | <p>Required. ID of the folder to list dashboards in.</p> <p>The maximum string length in characters is 50.</p> 
-pageSize | <p>The maximum number of results per page to return. If the number of available results is larger than ``page_size``, the service returns a <a href="/docs/load-testing/user/api-ref/RegressionDashboard/list#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests. Default value: 100.</p> <p>The maximum value is 1000.</p> 
-pageToken | <p>Page token. To get the next page of results, set ``page_token`` to the <a href="/docs/load-testing/user/api-ref/RegressionDashboard/list#responses">nextPageToken</a> returned by a previous list request.</p> <p>The maximum string length in characters is 100.</p> 
-filter | <p>A filter expression that filters dashboards listed in the response.</p> <p>The filter expression may contain multiple field expressions joined by ``AND``. The field expression must specify:</p> <ol> <li>The field name.</li> <li>An operator: <ul> <li>``=``, ``!=``, ``CONTAINS``, for single values.</li> <li>``IN`` or ``NOT IN`` for lists of values.</li> </ul> </li> <li>The value. String values must be encosed in ``"``, boolean values are {``true``, ``false``}, timestamp values in ISO-8601.</li> </ol> <p>Currently supported fields:</p> <ul> <li>``id`` ``id`` <ul> <li>operators: ``=``, ``!=``, ``IN``, ``NOT IN``</li> </ul> </li> <li>``name`` ``name`` <ul> <li>operators: ``=``, ``!=``, ``IN``, ``NOT IN``, ``CONTAINS``</li> </ul> </li> </ul> <p>Examples:</p> <ul> <li>``id IN ("1", "2", "3")``</li> <li>``name CONTAINS "my-dashboard" AND id NOT IN ("4", "5")``</li> </ul> <p>The maximum string length in characters is 1000.</p> 
- 
-## Response {#responses}
+
+## Query parameters {#yandex.cloud.loadtesting.api.v1.ListRegressionDashboardsRequest}
+
+#|
+||Field | Description ||
+|| folderId | **string**
+
+Required field. ID of the folder to list dashboards in. ||
+|| pageSize | **string** (int64)
+
+The maximum number of results per page to return. If the number of available
+results is larger than `page_size`, the service returns a [ListRegressionDashboardsResponse.nextPageToken](#yandex.cloud.loadtesting.api.v1.ListRegressionDashboardsResponse)
+that can be used to get the next page of results in subsequent list requests.
+Default value: 100. ||
+|| pageToken | **string**
+
+Page token. To get the next page of results, set `page_token` to the
+[ListRegressionDashboardsResponse.nextPageToken](#yandex.cloud.loadtesting.api.v1.ListRegressionDashboardsResponse) returned by a previous list request. ||
+|| filter | **string**
+
+A filter expression that filters dashboards listed in the response.
+
+The filter expression may contain multiple field expressions joined by `AND`.
+The field expression must specify:
+1. The field name.
+2. An operator:
+- `=`, `!=`, `CONTAINS`, for single values.
+- `IN` or `NOT IN` for lists of values.
+3. The value. String values must be encosed in `"`, boolean values are {`true`, `false`}, timestamp values in ISO-8601.
+
+Currently supported fields:
+- `id` [yandex.cloud.loadtesting.api.v1.regression.Dashboard.id](#yandex.cloud.loadtesting.api.v1.regression.Dashboard)
+- operators: `=`, `!=`, `IN`, `NOT IN`
+- `name` [yandex.cloud.loadtesting.api.v1.regression.Dashboard.name](#yandex.cloud.loadtesting.api.v1.regression.Dashboard)
+- operators: `=`, `!=`, `IN`, `NOT IN`, `CONTAINS`
+
+Examples:
+- `id IN ("1", "2", "3")`
+- `name CONTAINS "my-dashboard" AND id NOT IN ("4", "5")` ||
+|#
+
+## Response {#yandex.cloud.loadtesting.api.v1.ListRegressionDashboardsResponse}
+
 **HTTP Code: 200 - OK**
 
-```json 
+```json
 {
   "dashboards": [
     {
@@ -46,8 +78,7 @@ filter | <p>A filter expression that filters dashboards listed in the response.<
               "width": "string",
               "height": "string"
             },
-
-            // `dashboards[].content.widgets[]` includes only one of the fields `chart`, `text`, `title`
+            // Includes only one of the fields `chart`, `text`, `title`
             "chart": {
               "id": "string",
               "name": "string",
@@ -57,15 +88,14 @@ filter | <p>A filter expression that filters dashboards listed in the response.<
               "kpis": [
                 {
                   "selector": {
-
-                    // `dashboards[].content.widgets[].chart.kpis[].selector` includes only one of the fields `responseTime`, `instances`, `imbalanceRps`, `protocolCodesAbsolute`, `protocolCodesRelative`, `networkCodesAbsolute`, `networkCodesRelative`
+                    // Includes only one of the fields `responseTime`, `instances`, `imbalanceRps`, `protocolCodesAbsolute`, `protocolCodesRelative`, `networkCodesAbsolute`, `networkCodesRelative`
                     "responseTime": {
                       "quantile": "string"
                     },
                     "instances": {
                       "agg": "string"
                     },
-                    "imbalanceRps": {},
+                    "imbalanceRps": "object",
                     "protocolCodesAbsolute": {
                       "codesPatterns": [
                         "string"
@@ -85,12 +115,11 @@ filter | <p>A filter expression that filters dashboards listed in the response.<
                       "codesPatterns": [
                         "string"
                       ]
-                    },
-                    // end of the list of possible fields`dashboards[].content.widgets[].chart.kpis[].selector`
-
+                    }
+                    // end of the list of possible fields
                   },
                   "threshold": {
-                    "value": "number",
+                    "value": "string",
                     "comparison": "string"
                   }
                 }
@@ -102,9 +131,8 @@ filter | <p>A filter expression that filters dashboards listed in the response.<
             "title": {
               "text": "string",
               "size": "string"
-            },
-            // end of the list of possible fields`dashboards[].content.widgets[]`
-
+            }
+            // end of the list of possible fields
           }
         ]
       }
@@ -114,52 +142,346 @@ filter | <p>A filter expression that filters dashboards listed in the response.<
 }
 ```
 
- 
-Field | Description
---- | ---
-dashboards[] | **object**<br><p>List of dashboards in the specified folder.</p> 
-dashboards[].<br>id | **string**<br><p>ID of the dashboard.</p> 
-dashboards[].<br>name | **string**<br><p>Name of the dashboard.</p> 
-dashboards[].<br>description | **string**<br><p>Description of the dashboard.</p> 
-dashboards[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
-dashboards[].<br>updatedAt | **string** (date-time)<br><p>Last update timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
-dashboards[].<br>createdBy | **string**<br><p>UA or SA that created the dashboard.</p> 
-dashboards[].<br>updatedBy | **string**<br><p>UA or SA that updated the dashboard last time.</p> 
-dashboards[].<br>etag | **string**<br><p>Etag of the dashboard.</p> 
-dashboards[].<br>content | **object**<br><p>Dashboard content.</p> <p>Content of regression dashboard.</p> 
-dashboards[].<br>content.<br>widgets[] | **object**<br><p>Widgets.</p> 
-dashboards[].<br>content.<br>widgets[].<br>position | **object**<br>Widget position.
-dashboards[].<br>content.<br>widgets[].<br>position.<br>x | **string** (int64)<br><p>X.</p> 
-dashboards[].<br>content.<br>widgets[].<br>position.<br>y | **string** (int64)<br><p>Y.</p> 
-dashboards[].<br>content.<br>widgets[].<br>position.<br>width | **string** (int64)<br><p>Width.</p> 
-dashboards[].<br>content.<br>widgets[].<br>position.<br>height | **string** (int64)<br><p>Height.</p> 
-dashboards[].<br>content.<br>widgets[].<br>chart | **object**<br>Chart widget. <br>`dashboards[].content.widgets[]` includes only one of the fields `chart`, `text`, `title`<br>
-dashboards[].<br>content.<br>widgets[].<br>chart.<br>id | **string**<br><p>ID of the chart.</p> 
-dashboards[].<br>content.<br>widgets[].<br>chart.<br>name | **string**<br><p>Name of the chart.</p> 
-dashboards[].<br>content.<br>widgets[].<br>chart.<br>description | **string**<br><p>Description of the chart.</p> 
-dashboards[].<br>content.<br>widgets[].<br>chart.<br>filterStr | **string**<br><p>Test filter selector to show KPI values for.</p> 
-dashboards[].<br>content.<br>widgets[].<br>chart.<br>testCase | **string**<br><p>Test case to show KPI values for.</p> 
-dashboards[].<br>content.<br>widgets[].<br>chart.<br>kpis[] | **object**<br><p>KPIs to show.</p> 
-dashboards[].<br>content.<br>widgets[].<br>chart.<br>kpis[].<br>selector | **object**<br><p>Kind of KPI.</p> <p>KPI selector.</p> 
-dashboards[].<br>content.<br>widgets[].<br>chart.<br>kpis[].<br>selector.<br>responseTime | **object**<br>Response time cummulative quantile (percentile). <br>`dashboards[].content.widgets[].chart.kpis[].selector` includes only one of the fields `responseTime`, `instances`, `imbalanceRps`, `protocolCodesAbsolute`, `protocolCodesRelative`, `networkCodesAbsolute`, `networkCodesRelative`<br>
-dashboards[].<br>content.<br>widgets[].<br>chart.<br>kpis[].<br>selector.<br>responseTime.<br>quantile | **string**<br><p>Cummulative quantile (percentile).</p> <p>Quantiles (percentiles).</p> <ul> <li>QUANTILE_TYPE_UNSPECIFIED: Unspecified percentile. - QUANTILE_TYPE_50: 50 percentile (median).</li> <li>QUANTILE_TYPE_75: 75 percentile.</li> <li>QUANTILE_TYPE_80: 80 percentile.</li> <li>QUANTILE_TYPE_85: 85 percentile.</li> <li>QUANTILE_TYPE_90: 90 percentile.</li> <li>QUANTILE_TYPE_95: 95 percentile.</li> <li>QUANTILE_TYPE_98: 98 percentile.</li> <li>QUANTILE_TYPE_99: 99 percentile.</li> <li>QUANTILE_TYPE_100: 100 percentile (maximum or minimum).</li> </ul> 
-dashboards[].<br>content.<br>widgets[].<br>chart.<br>kpis[].<br>selector.<br>instances | **object**<br>A number of instances throughout the test. <br>`dashboards[].content.widgets[].chart.kpis[].selector` includes only one of the fields `responseTime`, `instances`, `imbalanceRps`, `protocolCodesAbsolute`, `protocolCodesRelative`, `networkCodesAbsolute`, `networkCodesRelative`<br>
-dashboards[].<br>content.<br>widgets[].<br>chart.<br>kpis[].<br>selector.<br>instances.<br>agg | **string**<br><p>Aggregation function.</p> <p>Aggregation function.</p> <ul> <li>AGGREGATION_UNSPECIFIED: Unspecified. - AGGREGATION_MIN: Minimum.</li> <li>AGGREGATION_MAX: Maximum.</li> <li>AGGREGATION_AVG: Average.</li> <li>AGGREGATION_MEDIAN: Median.</li> <li>AGGREGATION_STD_DEV: Standard deviation.</li> </ul> 
-dashboards[].<br>content.<br>widgets[].<br>chart.<br>kpis[].<br>selector.<br>imbalanceRps | **object**<br>An RPS at the moment the test has been auto-stopped. <br>`dashboards[].content.widgets[].chart.kpis[].selector` includes only one of the fields `responseTime`, `instances`, `imbalanceRps`, `protocolCodesAbsolute`, `protocolCodesRelative`, `networkCodesAbsolute`, `networkCodesRelative`<br>
-dashboards[].<br>content.<br>widgets[].<br>chart.<br>kpis[].<br>selector.<br>protocolCodesAbsolute | **object**<br>A total number of requests completed with certain protocol (HTTP, GRPC, etc.) codes. <br>`dashboards[].content.widgets[].chart.kpis[].selector` includes only one of the fields `responseTime`, `instances`, `imbalanceRps`, `protocolCodesAbsolute`, `protocolCodesRelative`, `networkCodesAbsolute`, `networkCodesRelative`<br>
-dashboards[].<br>content.<br>widgets[].<br>chart.<br>kpis[].<br>selector.<br>protocolCodesAbsolute.<br>codesPatterns[] | **string**<br><p>Protocol (HTTP, GRPC) code patterns to match.</p> <p>All successful HTTP responses: ['2xx', '3xx']. All failed HTTP responses: ['0', '4xx', '5xx'].</p> 
-dashboards[].<br>content.<br>widgets[].<br>chart.<br>kpis[].<br>selector.<br>protocolCodesRelative | **object**<br>A percentage of requests completed with certain protocol (HTTP, GRPC, etc.) codes. <br>`dashboards[].content.widgets[].chart.kpis[].selector` includes only one of the fields `responseTime`, `instances`, `imbalanceRps`, `protocolCodesAbsolute`, `protocolCodesRelative`, `networkCodesAbsolute`, `networkCodesRelative`<br>
-dashboards[].<br>content.<br>widgets[].<br>chart.<br>kpis[].<br>selector.<br>protocolCodesRelative.<br>codesPatterns[] | **string**<br><p>Protocol (HTTP, GRPC) code patterns to match.</p> <p>All successful HTTP responses: ['2xx', '3xx']. All failed HTTP responses: ['0', '4xx', '5xx'].</p> 
-dashboards[].<br>content.<br>widgets[].<br>chart.<br>kpis[].<br>selector.<br>networkCodesAbsolute | **object**<br>A total number of requests completed with certain network codes. <br>`dashboards[].content.widgets[].chart.kpis[].selector` includes only one of the fields `responseTime`, `instances`, `imbalanceRps`, `protocolCodesAbsolute`, `protocolCodesRelative`, `networkCodesAbsolute`, `networkCodesRelative`<br>
-dashboards[].<br>content.<br>widgets[].<br>chart.<br>kpis[].<br>selector.<br>networkCodesAbsolute.<br>codesPatterns[] | **string**<br><p>Network code patterns to match.</p> <p>All successful network responses: ['0']. All failed network responses: ['xx', 'xxx'].</p> 
-dashboards[].<br>content.<br>widgets[].<br>chart.<br>kpis[].<br>selector.<br>networkCodesRelative | **object**<br>A percentage of requests completed with certain network codes. <br>`dashboards[].content.widgets[].chart.kpis[].selector` includes only one of the fields `responseTime`, `instances`, `imbalanceRps`, `protocolCodesAbsolute`, `protocolCodesRelative`, `networkCodesAbsolute`, `networkCodesRelative`<br>
-dashboards[].<br>content.<br>widgets[].<br>chart.<br>kpis[].<br>selector.<br>networkCodesRelative.<br>codesPatterns[] | **string**<br><p>Network code patterns to match.</p> <p>All successful network responses: ['0']. All failed network responses: ['xx', 'xxx'].</p> 
-dashboards[].<br>content.<br>widgets[].<br>chart.<br>kpis[].<br>threshold | **object**<br><p>A condition that should be specified.</p> <p>KPI threshold represents a condition that an actual value of test's KPI should satisfy.</p> 
-dashboards[].<br>content.<br>widgets[].<br>chart.<br>kpis[].<br>threshold.<br>value | **number** (double)<br><p>Value for comparison with an actual KPI value.</p> 
-dashboards[].<br>content.<br>widgets[].<br>chart.<br>kpis[].<br>threshold.<br>comparison | **string**<br><p>Comparison operator for comparing actual with the threshold value.</p> <p>Rule: actual (&lt;/&lt;=/&gt;/&gt;=) reference</p> <p>Comparison operator.</p> <ul> <li>COMPARISON_UNSPECIFIED: Unspecified. - COMPARISON_LT: Less than the specified value.</li> <li>COMPARISON_LTE: Less than or equal to the specified value.</li> <li>COMPARISON_GT: Greater than the specified value.</li> <li>COMPARISON_GTE: Greater than or equal to the specified value.</li> </ul> 
-dashboards[].<br>content.<br>widgets[].<br>text | **object**<br>Text widget. <br>`dashboards[].content.widgets[]` includes only one of the fields `chart`, `text`, `title`<br>
-dashboards[].<br>content.<br>widgets[].<br>text.<br>text | **string** <br>`dashboards[].content.widgets[]` includes only one of the fields `chart`, `text`, `title`<br><br><p>Text string.</p> 
-dashboards[].<br>content.<br>widgets[].<br>title | **object**<br>Title widget. <br>`dashboards[].content.widgets[]` includes only one of the fields `chart`, `text`, `title`<br>
-dashboards[].<br>content.<br>widgets[].<br>title.<br>text | **string** <br>`dashboards[].content.widgets[]` includes only one of the fields `chart`, `text`, `title`<br><br><p>Title string.</p> 
-dashboards[].<br>content.<br>widgets[].<br>title.<br>size | **string**<br><p>Title size.</p> <p>Title size.</p> <ul> <li>TITLE_SIZE_UNSPECIFIED: Unspecified. - TITLE_SIZE_XS: Extra small.</li> <li>TITLE_SIZE_S: Small.</li> <li>TITLE_SIZE_M: Medium.</li> <li>TITLE_SIZE_L: Large.</li> </ul> 
-nextPageToken | **string**<br><p>Token for getting the next page of the list. If the number of results is greater than the specified <a href="/docs/load-testing/user/api-ref/RegressionDashboard/list#query_params">pageSize</a>, use ``next_page_token`` as the value for the <a href="/docs/load-testing/user/api-ref/RegressionDashboard/list#query_params">pageToken</a> parameter in the next list request.</p> <p>Each subsequent page will have its own ``next_page_token`` to continue paging through the results.</p> <p>The maximum string length in characters is 100.</p> 
+#|
+||Field | Description ||
+|| dashboards[] | **[Dashboard](#yandex.cloud.loadtesting.api.v1.regression.Dashboard)**
+
+List of dashboards in the specified folder. ||
+|| nextPageToken | **string**
+
+Token for getting the next page of the list. If the number of results is greater than
+the specified [ListRegressionDashboardsRequest.pageSize](#yandex.cloud.loadtesting.api.v1.ListRegressionDashboardsRequest), use `next_page_token` as the value
+for the [ListRegressionDashboardsRequest.pageToken](#yandex.cloud.loadtesting.api.v1.ListRegressionDashboardsRequest) parameter in the next list request.
+
+Each subsequent page will have its own `next_page_token` to continue paging through the results. ||
+|#
+
+## Dashboard {#yandex.cloud.loadtesting.api.v1.regression.Dashboard}
+
+Regression dashboard.
+
+#|
+||Field | Description ||
+|| id | **string**
+
+ID of the dashboard. ||
+|| name | **string**
+
+Name of the dashboard. ||
+|| description | **string**
+
+Description of the dashboard. ||
+|| createdAt | **string** (date-time)
+
+Creation timestamp.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| updatedAt | **string** (date-time)
+
+Last update timestamp.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| createdBy | **string**
+
+UA or SA that created the dashboard. ||
+|| updatedBy | **string**
+
+UA or SA that updated the dashboard last time. ||
+|| etag | **string**
+
+Etag of the dashboard. ||
+|| content | **[Content](#yandex.cloud.loadtesting.api.v1.regression.Dashboard.Content)**
+
+Dashboard content. ||
+|#
+
+## Content {#yandex.cloud.loadtesting.api.v1.regression.Dashboard.Content}
+
+Content of regression dashboard.
+
+#|
+||Field | Description ||
+|| widgets[] | **[Widget](#yandex.cloud.loadtesting.api.v1.regression.Widget)**
+
+Widgets. ||
+|#
+
+## Widget {#yandex.cloud.loadtesting.api.v1.regression.Widget}
+
+Regression dashboard widget.
+
+#|
+||Field | Description ||
+|| position | **[LayoutPosition](#yandex.cloud.loadtesting.api.v1.regression.Widget.LayoutPosition)**
+
+Widget position. ||
+|| chart | **[ChartWidget](#yandex.cloud.loadtesting.api.v1.regression.ChartWidget)**
+
+Chart widget.
+
+Includes only one of the fields `chart`, `text`, `title`. ||
+|| text | **[TextWidget](#yandex.cloud.loadtesting.api.v1.regression.TextWidget)**
+
+Text widget.
+
+Includes only one of the fields `chart`, `text`, `title`. ||
+|| title | **[TitleWidget](#yandex.cloud.loadtesting.api.v1.regression.TitleWidget)**
+
+Title widget.
+
+Includes only one of the fields `chart`, `text`, `title`. ||
+|#
+
+## LayoutPosition {#yandex.cloud.loadtesting.api.v1.regression.Widget.LayoutPosition}
+
+Widget position.
+
+#|
+||Field | Description ||
+|| x | **string** (int64)
+
+X. ||
+|| y | **string** (int64)
+
+Y. ||
+|| width | **string** (int64)
+
+Width. ||
+|| height | **string** (int64)
+
+Height. ||
+|#
+
+## ChartWidget {#yandex.cloud.loadtesting.api.v1.regression.ChartWidget}
+
+Regression chart.
+
+#|
+||Field | Description ||
+|| id | **string**
+
+ID of the chart. ||
+|| name | **string**
+
+Name of the chart. ||
+|| description | **string**
+
+Description of the chart. ||
+|| filterStr | **string**
+
+Test filter selector to show KPI values for. ||
+|| testCase | **string**
+
+Test case to show KPI values for. ||
+|| kpis[] | **[Kpi](#yandex.cloud.loadtesting.api.v1.report.Kpi)**
+
+KPIs to show. ||
+|#
+
+## Kpi {#yandex.cloud.loadtesting.api.v1.report.Kpi}
+
+KPI (Key Performance Indicator) represents some integral indicator measured during test.
+
+#|
+||Field | Description ||
+|| selector | **[KpiSelector](#yandex.cloud.loadtesting.api.v1.report.KpiSelector)**
+
+Kind of KPI. ||
+|| threshold | **[KpiThreshold](#yandex.cloud.loadtesting.api.v1.report.KpiThreshold)**
+
+A condition that should be specified. ||
+|#
+
+## KpiSelector {#yandex.cloud.loadtesting.api.v1.report.KpiSelector}
+
+KPI selector.
+
+#|
+||Field | Description ||
+|| responseTime | **[ResponseTime](#yandex.cloud.loadtesting.api.v1.report.KpiSelector.ResponseTime)**
+
+Response time cummulative quantile (percentile).
+
+Includes only one of the fields `responseTime`, `instances`, `imbalanceRps`, `protocolCodesAbsolute`, `protocolCodesRelative`, `networkCodesAbsolute`, `networkCodesRelative`. ||
+|| instances | **[Instances](#yandex.cloud.loadtesting.api.v1.report.KpiSelector.Instances)**
+
+A number of instances throughout the test.
+
+Includes only one of the fields `responseTime`, `instances`, `imbalanceRps`, `protocolCodesAbsolute`, `protocolCodesRelative`, `networkCodesAbsolute`, `networkCodesRelative`. ||
+|| imbalanceRps | **object**
+
+An RPS at the moment the test has been auto-stopped.
+
+Includes only one of the fields `responseTime`, `instances`, `imbalanceRps`, `protocolCodesAbsolute`, `protocolCodesRelative`, `networkCodesAbsolute`, `networkCodesRelative`. ||
+|| protocolCodesAbsolute | **[ProtocolCodesAbsolute](#yandex.cloud.loadtesting.api.v1.report.KpiSelector.ProtocolCodesAbsolute)**
+
+A total number of requests completed with certain protocol (HTTP, GRPC, etc.) codes.
+
+Includes only one of the fields `responseTime`, `instances`, `imbalanceRps`, `protocolCodesAbsolute`, `protocolCodesRelative`, `networkCodesAbsolute`, `networkCodesRelative`. ||
+|| protocolCodesRelative | **[ProtocolCodesRelative](#yandex.cloud.loadtesting.api.v1.report.KpiSelector.ProtocolCodesRelative)**
+
+A percentage of requests completed with certain protocol (HTTP, GRPC, etc.) codes.
+
+Includes only one of the fields `responseTime`, `instances`, `imbalanceRps`, `protocolCodesAbsolute`, `protocolCodesRelative`, `networkCodesAbsolute`, `networkCodesRelative`. ||
+|| networkCodesAbsolute | **[NetworkCodesAbsolute](#yandex.cloud.loadtesting.api.v1.report.KpiSelector.NetworkCodesAbsolute)**
+
+A total number of requests completed with certain network codes.
+
+Includes only one of the fields `responseTime`, `instances`, `imbalanceRps`, `protocolCodesAbsolute`, `protocolCodesRelative`, `networkCodesAbsolute`, `networkCodesRelative`. ||
+|| networkCodesRelative | **[NetworkCodesRelative](#yandex.cloud.loadtesting.api.v1.report.KpiSelector.NetworkCodesRelative)**
+
+A percentage of requests completed with certain network codes.
+
+Includes only one of the fields `responseTime`, `instances`, `imbalanceRps`, `protocolCodesAbsolute`, `protocolCodesRelative`, `networkCodesAbsolute`, `networkCodesRelative`. ||
+|#
+
+## ResponseTime {#yandex.cloud.loadtesting.api.v1.report.KpiSelector.ResponseTime}
+
+Response time.
+
+#|
+||Field | Description ||
+|| quantile | **enum** (QuantileType)
+
+Cummulative quantile (percentile).
+
+- `QUANTILE_TYPE_UNSPECIFIED`: Unspecified percentile.
+- `QUANTILE_TYPE_50`: 50 percentile (median).
+- `QUANTILE_TYPE_75`: 75 percentile.
+- `QUANTILE_TYPE_80`: 80 percentile.
+- `QUANTILE_TYPE_85`: 85 percentile.
+- `QUANTILE_TYPE_90`: 90 percentile.
+- `QUANTILE_TYPE_95`: 95 percentile.
+- `QUANTILE_TYPE_98`: 98 percentile.
+- `QUANTILE_TYPE_99`: 99 percentile.
+- `QUANTILE_TYPE_100`: 100 percentile (maximum or minimum). ||
+|#
+
+## Instances {#yandex.cloud.loadtesting.api.v1.report.KpiSelector.Instances}
+
+Aggregated number of instances.
+
+#|
+||Field | Description ||
+|| agg | **enum** (Aggregation)
+
+Aggregation function.
+
+- `AGGREGATION_UNSPECIFIED`: Unspecified.
+- `AGGREGATION_MIN`: Minimum.
+- `AGGREGATION_MAX`: Maximum.
+- `AGGREGATION_AVG`: Average.
+- `AGGREGATION_MEDIAN`: Median.
+- `AGGREGATION_STD_DEV`: Standard deviation. ||
+|#
+
+## ProtocolCodesAbsolute {#yandex.cloud.loadtesting.api.v1.report.KpiSelector.ProtocolCodesAbsolute}
+
+#|
+||Field | Description ||
+|| codesPatterns[] | **string**
+
+Protocol (HTTP, GRPC) code patterns to match.
+
+All successful HTTP responses: ['2xx', '3xx'].
+All failed HTTP responses: ['0', '4xx', '5xx']. ||
+|#
+
+## ProtocolCodesRelative {#yandex.cloud.loadtesting.api.v1.report.KpiSelector.ProtocolCodesRelative}
+
+#|
+||Field | Description ||
+|| codesPatterns[] | **string**
+
+Protocol (HTTP, GRPC) code patterns to match.
+
+All successful HTTP responses: ['2xx', '3xx'].
+All failed HTTP responses: ['0', '4xx', '5xx']. ||
+|#
+
+## NetworkCodesAbsolute {#yandex.cloud.loadtesting.api.v1.report.KpiSelector.NetworkCodesAbsolute}
+
+#|
+||Field | Description ||
+|| codesPatterns[] | **string**
+
+Network code patterns to match.
+
+All successful network responses: ['0'].
+All failed network responses: ['xx', 'xxx']. ||
+|#
+
+## NetworkCodesRelative {#yandex.cloud.loadtesting.api.v1.report.KpiSelector.NetworkCodesRelative}
+
+#|
+||Field | Description ||
+|| codesPatterns[] | **string**
+
+Network code patterns to match.
+
+All successful network responses: ['0'].
+All failed network responses: ['xx', 'xxx']. ||
+|#
+
+## KpiThreshold {#yandex.cloud.loadtesting.api.v1.report.KpiThreshold}
+
+KPI threshold represents a condition that an actual value of test's KPI should satisfy.
+
+#|
+||Field | Description ||
+|| value | **string**
+
+Value for comparison with an actual KPI value. ||
+|| comparison | **enum** (Comparison)
+
+Comparison operator for comparing actual with the threshold value.
+
+Rule: actual (</<=/>/>=) reference
+
+- `COMPARISON_UNSPECIFIED`: Unspecified.
+- `COMPARISON_LT`: Less than the specified value.
+- `COMPARISON_LTE`: Less than or equal to the specified value.
+- `COMPARISON_GT`: Greater than the specified value.
+- `COMPARISON_GTE`: Greater than or equal to the specified value. ||
+|#
+
+## TextWidget {#yandex.cloud.loadtesting.api.v1.regression.TextWidget}
+
+Text widget.
+
+#|
+||Field | Description ||
+|| text | **string**
+
+Text string. ||
+|#
+
+## TitleWidget {#yandex.cloud.loadtesting.api.v1.regression.TitleWidget}
+
+Title widget.
+
+#|
+||Field | Description ||
+|| text | **string**
+
+Title string. ||
+|| size | **enum** (TitleSize)
+
+Title size.
+
+- `TITLE_SIZE_UNSPECIFIED`: Unspecified.
+- `TITLE_SIZE_XS`: Extra small.
+- `TITLE_SIZE_S`: Small.
+- `TITLE_SIZE_M`: Medium.
+- `TITLE_SIZE_L`: Large. ||
+|#

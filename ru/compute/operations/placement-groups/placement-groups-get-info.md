@@ -89,6 +89,6 @@ title: Как получить информацию о группе размещ
 
 - API {#api}
 
-  Чтобы получить подробную информацию о [группе размещения](../../concepts/placement-groups.md), воспользуйтесь методом REST API [get](../../api-ref/PlacementGroup/get.md) для ресурса [PlacementGroup](../../api-ref/PlacementGroup/index.md), или вызовом gRPC API [PlacementGroupService/Get](../../api-ref/grpc/placement_group_service.md#Get).
+  Чтобы получить подробную информацию о [группе размещения](../../concepts/placement-groups.md), воспользуйтесь методом REST API [get](../../api-ref/PlacementGroup/get.md) для ресурса [PlacementGroup](../../api-ref/PlacementGroup/index.md), или вызовом gRPC API [PlacementGroupService/Get](../../api-ref/grpc/PlacementGroup/get.md).
 
 {% endlist %}

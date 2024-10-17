@@ -138,6 +138,6 @@ You can only change the storage size using the [CLI](../../../cli/) or API. You 
 
 - API {#api}
 
-   Use the [update](../../api-ref/Filesystem/update.md) REST API method for the [Filesystem](../../api-ref/Filesystem/index.md) resource or the [FilesystemService/Update](../../api-ref/grpc/filesystem_service.md#Update) gRPC API call.
+   Use the [update](../../api-ref/Filesystem/update.md) REST API method for the [Filesystem](../../api-ref/Filesystem/index.md) resource or the [FilesystemService/Update](../../api-ref/grpc/Filesystem/update.md) gRPC API call.
 
 {% endlist %}

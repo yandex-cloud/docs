@@ -109,7 +109,7 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-    Чтобы изменить описание функции, воспользуйтесь методом REST API [update](../../functions/api-ref/Function/update.md) для ресурса [Function](../../functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/Update](../../functions/api-ref/grpc/function_service.md#Update).
+    Чтобы изменить описание функции, воспользуйтесь методом REST API [update](../../functions/api-ref/Function/update.md) для ресурса [Function](../../functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/Update](../../functions/api-ref/grpc/Function/update.md).
 
 
 - {{ yandex-cloud }} Toolkit {#yc-toolkit}

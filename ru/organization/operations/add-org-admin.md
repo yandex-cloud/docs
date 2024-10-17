@@ -83,7 +83,7 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [updateAccessBindings](../api-ref/Organization/updateAccessBindings.md) для ресурса [Organization](../api-ref/Organization/index.md) или вызовом gRPC API [OrganizationService/UpdateAccessBindings](../api-ref/grpc/organization_service.md#UpdateAccessBindings) и передайте в запросе:
+  Воспользуйтесь методом REST API [updateAccessBindings](../api-ref/Organization/updateAccessBindings.md) для ресурса [Organization](../api-ref/Organization/index.md) или вызовом gRPC API [OrganizationService/UpdateAccessBindings](../api-ref/grpc/Organization/updateAccessBindings.md) и передайте в запросе:
 
   * Идентификатор [роли](../../iam/concepts/access-control/roles.md) `organization-manager.admin` или `organization-manager.organizations.owner` в параметре `roleId` для REST API или `role_id` для gRPC API.
   * Идентификатор и тип пользователя в блоке `subject`.

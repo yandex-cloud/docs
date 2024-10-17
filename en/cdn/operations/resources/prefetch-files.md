@@ -95,6 +95,6 @@ To [prefetch content](../../concepts/caching.md#prefetch) from [origins](../../c
 
 - API {#api}
 
-  Use the [prefetch](../../api-ref/Cache/prefetch.md) REST API method for the [Cache](../../api-ref/Cache/index.md) resource or the [CacheService/Prefetch](../../api-ref/grpc/cache_service.md#Prefetch) gRPC API call.
+  Use the [prefetch](../../api-ref/Cache/prefetch.md) REST API method for the [Cache](../../api-ref/Cache/index.md) resource or the [CacheService/Prefetch](../../api-ref/grpc/Cache/prefetch.md) gRPC API call.
 
 {% endlist %}

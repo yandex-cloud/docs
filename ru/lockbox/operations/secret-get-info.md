@@ -109,7 +109,7 @@ title: Как получить информацию о секрете в {{ lock
 
 - API {#api}
 
-  Чтобы получить информацию о [секрете](../concepts/secret.md), воспользуйтесь методом REST API [get](../api-ref/Secret/get.md) для ресурса [Secret](../api-ref/Secret/index.md) или вызовом gRPC API [SecretService/Get](../api-ref/grpc/secret_service.md#Get).
+  Чтобы получить информацию о [секрете](../concepts/secret.md), воспользуйтесь методом REST API [get](../api-ref/Secret/get.md) для ресурса [Secret](../api-ref/Secret/index.md) или вызовом gRPC API [SecretService/Get](../api-ref/grpc/Secret/get.md).
 
 {% endlist %}
 
@@ -209,7 +209,7 @@ title: Как получить информацию о секрете в {{ lock
 
 - API {#api}
 
-  Чтобы получить содержимое секрета, воспользуйтесь методом REST API [get](../api-ref/Payload/get.md) для ресурса [Payload](../api-ref/Payload/index.md) или вызовом gRPC API [PayloadService/Get](../api-ref/grpc/payload_service.md#Get).
+  Чтобы получить содержимое секрета, воспользуйтесь методом REST API [get](../api-ref/Payload/get.md) для ресурса [Payload](../api-ref/Payload/index.md) или вызовом gRPC API [PayloadService/Get](../api-ref/grpc/Payload/get.md).
 
 {% endlist %}
 
@@ -255,6 +255,6 @@ title: Как получить информацию о секрете в {{ lock
 
 - API {#api}
 
-  Чтобы посмотреть права доступа к секрету, воспользуйтесь методом REST API [ListAccessBindings](../api-ref/Secret/listAccessBindings.md) для ресурса [Secret](../api-ref/Secret/index.md) или вызовом gRPC API [SecretService/ListAccessBindings](../api-ref/grpc/secret_service.md#ListAccessBindings).
+  Чтобы посмотреть права доступа к секрету, воспользуйтесь методом REST API [ListAccessBindings](../api-ref/Secret/listAccessBindings.md) для ресурса [Secret](../api-ref/Secret/index.md) или вызовом gRPC API [SecretService/ListAccessBindings](../api-ref/grpc/Secret/listAccessBindings.md).
 
 {% endlist %}

@@ -156,7 +156,7 @@
 
 - API {#api}
 
-  1. Чтобы отключить ресурсы от [целевой группы](../../network-load-balancer/concepts/target-resources.md), воспользуйтесь методом REST API [removeTargets](../../network-load-balancer/api-ref/TargetGroup/removeTargets.md) для ресурса [TargetGroup](../../network-load-balancer/api-ref/TargetGroup/index.md) или вызовом gRPC API [TargetGroupService/RemoveTargets](../../network-load-balancer/api-ref/grpc/target_group_service.md#RemoveTargets).
-  1. Чтобы подключить ресурсы к целевой группе, воспользуйтесь методом REST API [addTargets](../../network-load-balancer/api-ref/TargetGroup/addTargets.md) для ресурса [TargetGroup](../../network-load-balancer/api-ref/TargetGroup/index.md) или вызовом gRPC API [TargetGroupService/AddTargets](../../network-load-balancer/api-ref/grpc/target_group_service.md#AddTargets).
+  1. Чтобы отключить ресурсы от [целевой группы](../../network-load-balancer/concepts/target-resources.md), воспользуйтесь методом REST API [removeTargets](../../network-load-balancer/api-ref/TargetGroup/removeTargets.md) для ресурса [TargetGroup](../../network-load-balancer/api-ref/TargetGroup/index.md) или вызовом gRPC API [TargetGroupService/RemoveTargets](../../network-load-balancer/api-ref/grpc/TargetGroup/removeTargets.md).
+  1. Чтобы подключить ресурсы к целевой группе, воспользуйтесь методом REST API [addTargets](../../network-load-balancer/api-ref/TargetGroup/addTargets.md) для ресурса [TargetGroup](../../network-load-balancer/api-ref/TargetGroup/index.md) или вызовом gRPC API [TargetGroupService/AddTargets](../../network-load-balancer/api-ref/grpc/TargetGroup/addTargets.md).
 
 {% endlist %}

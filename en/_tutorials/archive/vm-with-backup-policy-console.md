@@ -86,9 +86,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 - API {#api}
 
-  To create a service account, use the [create](../../iam/api-ref/ServiceAccount/create.md) REST API method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/Create](../../iam/api-ref/grpc/service_account_service.md#Create) gRPC API call.
+  To create a service account, use the [create](../../iam/api-ref/ServiceAccount/create.md) REST API method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/Create](../../iam/api-ref/grpc/ServiceAccount/create.md) gRPC API call.
 
-  To assign the `backup.editor` role for the folder to the service account, use the [setAccessBindings](../../iam/api-ref/ServiceAccount/setAccessBindings.md) method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/SetAccessBindings](../../iam/api-ref/grpc/service_account_service.md#SetAccessBindings) gRPC API call.
+  To assign the `backup.editor` role for the folder to the service account, use the [setAccessBindings](../../iam/api-ref/ServiceAccount/setAccessBindings.md) method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/SetAccessBindings](../../iam/api-ref/grpc/ServiceAccount/setAccessBindings.md) gRPC API call.
 
 {% endlist %}
 
@@ -153,8 +153,8 @@ Create a [cloud network](../../vpc/concepts/network.md#network) with a [subnet](
 
 - API {#api}
 
-  1. Create a network named `cloud-network` using the [create](../../vpc/api-ref/Network/create.md) REST API method for the [Network](../../vpc/api-ref/Network/index.md) resource or the [NetworkService/Create](../../vpc/api-ref/grpc/network_service.md#Create) gRPC API call.
-  1. Create the `cloud-network-{{ region-id }}-d` subnet using the [create](../../vpc/api-ref/Subnet/create.md) REST API method for the [Subnet](../../vpc/api-ref/Subnet/index.md) resource or the [SubnetService/Create](../../vpc/api-ref/grpc/subnet_service.md#Create) gRPC API call.
+  1. Create a network named `cloud-network` using the [create](../../vpc/api-ref/Network/create.md) REST API method for the [Network](../../vpc/api-ref/Network/index.md) resource or the [NetworkService/Create](../../vpc/api-ref/grpc/Network/create.md) gRPC API call.
+  1. Create the `cloud-network-{{ region-id }}-d` subnet using the [create](../../vpc/api-ref/Subnet/create.md) REST API method for the [Subnet](../../vpc/api-ref/Subnet/index.md) resource or the [SubnetService/Create](../../vpc/api-ref/grpc/Subnet/create.md) gRPC API call.
 
 {% endlist %}
 
@@ -254,7 +254,7 @@ A rule to enable VM access over SSH will also be added to the security group.
 
 - API {#api}
 
-  To create a security group, use the [create](../../vpc/api-ref/SecurityGroup/create.md) REST API method for the [SecurityGroup](../../vpc/api-ref/SecurityGroup/index.md) resource or the [SecurityGroupService/Create](../../vpc/api-ref/grpc/security_group_service.md#Create) gRPC API call.
+  To create a security group, use the [create](../../vpc/api-ref/SecurityGroup/create.md) REST API method for the [SecurityGroup](../../vpc/api-ref/SecurityGroup/index.md) resource or the [SecurityGroupService/Create](../../vpc/api-ref/grpc/SecurityGroup/create.md) gRPC API call.
 
 {% endlist %}
 
@@ -424,7 +424,7 @@ You can create a new policy or use one of those automatically generated upon ser
 
 - API {#api}
 
-  To create a [backup policy](../../backup/concepts/policy.md), use the [create](../../backup/backup/api-ref/Policy/create.md) REST API method for the [Policy](../../backup/backup/api-ref/Policy/index.md) resource or the [PolicyService/Create](../../backup/backup/api-ref/grpc/policy_service.md#Create) gRPC API call.
+  To create a [backup policy](../../backup/concepts/policy.md), use the [create](../../backup/backup/api-ref/Policy/create.md) REST API method for the [Policy](../../backup/backup/api-ref/Policy/index.md) resource or the [PolicyService/Create](../../backup/backup/api-ref/grpc/Policy/create.md) gRPC API call.
 
 {% endlist %}
 
@@ -507,7 +507,7 @@ You can create a new policy or use one of those automatically generated upon ser
 
 - API {#api}
 
-  To create a VM, use the [create](../../compute/api-ref/Instance/create.md) REST API method for the [Instance](../../compute/api-ref/Instance/index.md) resource or the [InstanceService/Create](../../compute/api-ref/grpc/instance_service.md#Create) gRPC API call.
+  To create a VM, use the [create](../../compute/api-ref/Instance/create.md) REST API method for the [Instance](../../compute/api-ref/Instance/index.md) resource or the [InstanceService/Create](../../compute/api-ref/grpc/Instance/create.md) gRPC API call.
 
   In the request body, specify:
 

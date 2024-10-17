@@ -169,18 +169,98 @@ items:
         items:
           - name: Overview
             href: api-ref/grpc/index.md
-          - name: BackupService
-            href: api-ref/grpc/backup_service.md
-          - name: ClusterService
-            href: api-ref/grpc/cluster_service.md
-          - name: HBARuleService
-            href: api-ref/grpc/hba_rule_service.md
-          - name: PXFDatasourceService
-            href: api-ref/grpc/pxf_service.md
-          - name: ResourcePresetService
-            href: api-ref/grpc/resource_preset_service.md
-          - name: OperationService
-            href: api-ref/grpc/operation_service.md
+          - name: Backup
+            items:
+              - name: Overview
+                href: api-ref/grpc/Backup/index.md
+              - name: Get
+                href: api-ref/grpc/Backup/get.md
+              - name: List
+                href: api-ref/grpc/Backup/list.md
+              - name: Delete
+                href: api-ref/grpc/Backup/delete.md
+          - name: Cluster
+            items:
+              - name: Overview
+                href: api-ref/grpc/Cluster/index.md
+              - name: Get
+                href: api-ref/grpc/Cluster/get.md
+              - name: List
+                href: api-ref/grpc/Cluster/list.md
+              - name: Create
+                href: api-ref/grpc/Cluster/create.md
+              - name: Update
+                href: api-ref/grpc/Cluster/update.md
+              - name: Expand
+                href: api-ref/grpc/Cluster/expand.md
+              - name: Delete
+                href: api-ref/grpc/Cluster/delete.md
+              - name: Start
+                href: api-ref/grpc/Cluster/start.md
+              - name: Stop
+                href: api-ref/grpc/Cluster/stop.md
+              - name: Move
+                href: api-ref/grpc/Cluster/move.md
+              - name: ListOperations
+                href: api-ref/grpc/Cluster/listOperations.md
+              - name: ListMasterHosts
+                href: api-ref/grpc/Cluster/listMasterHosts.md
+              - name: ListSegmentHosts
+                href: api-ref/grpc/Cluster/listSegmentHosts.md
+              - name: ListLogs
+                href: api-ref/grpc/Cluster/listLogs.md
+              - name: StreamLogs
+                href: api-ref/grpc/Cluster/streamLogs.md
+              - name: ListBackups
+                href: api-ref/grpc/Cluster/listBackups.md
+              - name: Backup
+                href: api-ref/grpc/Cluster/backup.md
+              - name: Restore
+                href: api-ref/grpc/Cluster/restore.md
+          - name: HBARule
+            items:
+              - name: Overview
+                href: api-ref/grpc/HBARule/index.md
+              - name: List
+                href: api-ref/grpc/HBARule/list.md
+              - name: ListAtRevision
+                href: api-ref/grpc/HBARule/listAtRevision.md
+              - name: Create
+                href: api-ref/grpc/HBARule/create.md
+              - name: Update
+                href: api-ref/grpc/HBARule/update.md
+              - name: Delete
+                href: api-ref/grpc/HBARule/delete.md
+              - name: BatchUpdate
+                href: api-ref/grpc/HBARule/batchUpdate.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/grpc/Operation/index.md
+              - name: Get
+                href: api-ref/grpc/Operation/get.md
+              - name: Cancel
+                href: api-ref/grpc/Operation/cancel.md
+          - name: PXFDatasource
+            items:
+              - name: Overview
+                href: api-ref/grpc/PXFDatasource/index.md
+              - name: List
+                href: api-ref/grpc/PXFDatasource/list.md
+              - name: Create
+                href: api-ref/grpc/PXFDatasource/create.md
+              - name: Update
+                href: api-ref/grpc/PXFDatasource/update.md
+              - name: Delete
+                href: api-ref/grpc/PXFDatasource/delete.md
+          - name: ResourcePreset
+            items:
+              - name: Overview
+                href: api-ref/grpc/ResourcePreset/index.md
+              - name: Get
+                href: api-ref/grpc/ResourcePreset/get.md
+              - name: List
+                href: api-ref/grpc/ResourcePreset/list.md
       - name: REST
         items:
           - name: Overview
@@ -189,92 +269,94 @@ items:
             items:
               - name: Overview
                 href: api-ref/Backup/index.md
-              - name: delete
-                href: api-ref/Backup/delete.md
-              - name: get
+              - name: Get
                 href: api-ref/Backup/get.md
-              - name: list
+              - name: List
                 href: api-ref/Backup/list.md
+              - name: Delete
+                href: api-ref/Backup/delete.md
           - name: Cluster
             items:
               - name: Overview
                 href: api-ref/Cluster/index.md
-              - name: backup
-                href: api-ref/Cluster/backup.md
-              - name: create
-                href: api-ref/Cluster/create.md
-              - name: delete
-                href: api-ref/Cluster/delete.md
-              - name: expand
-                href: api-ref/Cluster/expand.md
-              - name: get
+              - name: Get
                 href: api-ref/Cluster/get.md
-              - name: list
+              - name: List
                 href: api-ref/Cluster/list.md
-              - name: listBackups
-                href: api-ref/Cluster/listBackups.md
-              - name: listLogs
-                href: api-ref/Cluster/listLogs.md
-              - name: listMasterHosts
-                href: api-ref/Cluster/listMasterHosts.md
-              - name: listOperations
-                href: api-ref/Cluster/listOperations.md
-              - name: listSegmentHosts
-                href: api-ref/Cluster/listSegmentHosts.md
-              - name: move
-                href: api-ref/Cluster/move.md
-              - name: restore
-                href: api-ref/Cluster/restore.md
-              - name: start
-                href: api-ref/Cluster/start.md
-              - name: stop
-                href: api-ref/Cluster/stop.md
-              - name: streamLogs
-                href: api-ref/Cluster/streamLogs.md
-              - name: update
+              - name: Create
+                href: api-ref/Cluster/create.md
+              - name: Update
                 href: api-ref/Cluster/update.md
+              - name: Expand
+                href: api-ref/Cluster/expand.md
+              - name: Delete
+                href: api-ref/Cluster/delete.md
+              - name: Start
+                href: api-ref/Cluster/start.md
+              - name: Stop
+                href: api-ref/Cluster/stop.md
+              - name: Move
+                href: api-ref/Cluster/move.md
+              - name: ListOperations
+                href: api-ref/Cluster/listOperations.md
+              - name: ListMasterHosts
+                href: api-ref/Cluster/listMasterHosts.md
+              - name: ListSegmentHosts
+                href: api-ref/Cluster/listSegmentHosts.md
+              - name: ListLogs
+                href: api-ref/Cluster/listLogs.md
+              - name: StreamLogs
+                href: api-ref/Cluster/streamLogs.md
+              - name: ListBackups
+                href: api-ref/Cluster/listBackups.md
+              - name: Backup
+                href: api-ref/Cluster/backup.md
+              - name: Restore
+                href: api-ref/Cluster/restore.md
           - name: HBARule
             items:
               - name: Overview
                 href: api-ref/HBARule/index.md
-              - name: batchUpdate
-                href: api-ref/HBARule/batchUpdate.md
-              - name: create
-                href: api-ref/HBARule/create.md
-              - name: delete
-                href: api-ref/HBARule/delete.md
-              - name: list
+              - name: List
                 href: api-ref/HBARule/list.md
-              - name: listAtRevision
+              - name: ListAtRevision
                 href: api-ref/HBARule/listAtRevision.md
-              - name: update
+              - name: Create
+                href: api-ref/HBARule/create.md
+              - name: Update
                 href: api-ref/HBARule/update.md
-          - name: PXFDatasource
-            items:
-              - name: Overview
-                href: api-ref/PXFDatasource/index.md
-              - name: create
-                href: api-ref/PXFDatasource/create.md
-              - name: delete
-                href: api-ref/PXFDatasource/delete.md
-              - name: list
-                href: api-ref/PXFDatasource/list.md
-              - name: update
-                href: api-ref/PXFDatasource/update.md
-          - name: ResourcePreset
-            items:
-              - name: Overview
-                href: api-ref/ResourcePreset/index.md
-              - name: get
-                href: api-ref/ResourcePreset/get.md
-              - name: list
-                href: api-ref/ResourcePreset/list.md
+              - name: Delete
+                href: api-ref/HBARule/delete.md
+              - name: BatchUpdate
+                href: api-ref/HBARule/batchUpdate.md
           - name: Operation
             items:
               - name: Overview
                 href: api-ref/Operation/index.md
-              - name: get
+              - name: Get
                 href: api-ref/Operation/get.md
+              - name: Cancel
+                href: api-ref/Operation/cancel.md
+          - name: PXFDatasource
+            items:
+              - name: Overview
+                href: api-ref/PXFDatasource/index.md
+              - name: List
+                href: api-ref/PXFDatasource/list.md
+              - name: Create
+                href: api-ref/PXFDatasource/create.md
+              - name: Update
+                href: api-ref/PXFDatasource/update.md
+              - name: Delete
+                href: api-ref/PXFDatasource/delete.md
+          - name: ResourcePreset
+            items:
+              - name: Overview
+                href: api-ref/ResourcePreset/index.md
+              - name: Get
+                href: api-ref/ResourcePreset/get.md
+              - name: List
+                href: api-ref/ResourcePreset/list.md
   - name: '{{ monitoring-name }} metrics'
     href: metrics.md
   - name: '{{ at-name }} events'

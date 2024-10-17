@@ -3,30 +3,57 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/HostGroup/list.md
 ---
 
-# Compute Cloud API, REST: HostGroup.list
-Retrieves the list of host groups in the specified folder.
- 
+# Compute Cloud API, REST: HostGroup.List {#List}
 
- 
-## HTTP request {#https-request}
+Retrieves the list of host groups in the specified folder.
+
+## HTTP request
+
 ```
 GET https://compute.{{ api-host }}/compute/v1/hostGroups
 ```
- 
-## Query parameters {#query_params}
- 
-Parameter | Description
---- | ---
-folderId | <p>Required. ID of the folder to list host groups in. To get the folder ID, use <a href="/docs/resource-manager/api-ref/Folder/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
-pageSize | <p>The maximum number of results per page to return. If the number of available results is larger than <a href="/docs/compute/api-ref/HostGroup/list#query_params">pageSize</a>, the service returns a <a href="/docs/compute/api-ref/HostGroup/list#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests.</p> <p>The maximum value is 1000.</p> 
-pageToken | <p>Page token. To get the next page of results, set <a href="/docs/compute/api-ref/HostGroup/list#query_params">pageToken</a> to the <a href="/docs/compute/api-ref/HostGroup/list#responses">nextPageToken</a> returned by a previous list request.</p> <p>The maximum string length in characters is 100.</p> 
-filter | <p>A filter expression that filters resources listed in the response. The expression consists of one or more conditions united by ``AND`` operator: ``<condition1> [AND <condition2> [<...> AND <conditionN>]]``.</p> <p>Each condition has the form ``<field> <operator> <value>``, where:</p> <ol> <li>``<field>`` is the field name. Currently you can use filtering only on the limited number of fields.</li> <li>``<operator>`` is a logical operator, one of ``=``, ``!=``, ``IN``, ``NOT IN``.</li> <li>``<value>`` represents a value. String values should be written in double (``"``) or single (``'``) quotes. C-style escape sequences are supported (``\"`` turns to ``"``, ``\'`` to ``'``, ``\\`` to backslash).</li> </ol> <p>The maximum string length in characters is 1000.</p> 
-orderBy | <p>By which column the listing should be ordered and in which direction, format is "createdAt desc". "id asc" if omitted. The default sorting order is ascending</p> <p>The maximum string length in characters is 100.</p> 
- 
-## Response {#responses}
+
+## Query parameters {#yandex.cloud.compute.v1.ListHostGroupsRequest}
+
+#|
+||Field | Description ||
+|| folderId | **string**
+
+Required field. ID of the folder to list host groups in.
+To get the folder ID, use [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request. ||
+|| pageSize | **string** (int64)
+
+The maximum number of results per page to return. If the number of available
+results is larger than `pageSize`,
+the service returns a [ListHostGroupsResponse.nextPageToken](#yandex.cloud.compute.v1.ListHostGroupsResponse)
+that can be used to get the next page of results in subsequent list requests. ||
+|| pageToken | **string**
+
+Page token. To get the next page of results,
+set `pageToken` to the [ListHostGroupsResponse.nextPageToken](#yandex.cloud.compute.v1.ListHostGroupsResponse)
+returned by a previous list request. ||
+|| filter | **string**
+
+A filter expression that filters resources listed in the response.
+The expression consists of one or more conditions united by `AND` operator: `<condition1> [AND <condition2> [<...> AND <conditionN>]]`.
+
+Each condition has the form `<field> <operator> <value>`, where:
+1. `<field>` is the field name. Currently you can use filtering only on the limited number of fields.
+2. `<operator>` is a logical operator, one of `=`, `!=`, `IN`, `NOT IN`.
+3. `<value>` represents a value.
+String values should be written in double (`"`) or single (`'`) quotes. C-style escape sequences are supported (`\"` turns to `"`, `\'` to `'`, `\\` to backslash). ||
+|| orderBy | **string**
+
+By which column the listing should be ordered and in which direction,
+format is "createdAt desc". "id asc" if omitted.
+The default sorting order is ascending ||
+|#
+
+## Response {#yandex.cloud.compute.v1.ListHostGroupsResponse}
+
 **HTTP Code: 200 - OK**
 
-```json 
+```json
 {
   "hostGroups": [
     {
@@ -35,15 +62,17 @@ orderBy | <p>By which column the listing should be ordered and in which directio
       "createdAt": "string",
       "name": "string",
       "description": "string",
-      "labels": "object",
+      "labels": "string",
       "zoneId": "string",
       "status": "string",
       "typeId": "string",
       "maintenancePolicy": "string",
       "scalePolicy": {
+        // Includes only one of the fields `fixedScale`
         "fixedScale": {
           "size": "string"
         }
+        // end of the list of possible fields
       }
     }
   ],
@@ -51,21 +80,91 @@ orderBy | <p>By which column the listing should be ordered and in which directio
 }
 ```
 
- 
-Field | Description
---- | ---
-hostGroups[] | **object**<br><p>Lists host groups for the specified folder.</p> 
-hostGroups[].<br>id | **string**<br><p>ID of the group.</p> 
-hostGroups[].<br>folderId | **string**<br><p>ID of the folder that the group belongs to.</p> 
-hostGroups[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
-hostGroups[].<br>name | **string**<br><p>Name of the group. The name is unique within the folder.</p> 
-hostGroups[].<br>description | **string**<br><p>Description of the group.</p> 
-hostGroups[].<br>labels | **object**<br><p>Resource labels as ``key:value`` pairs.</p> 
-hostGroups[].<br>zoneId | **string**<br><p>Availability zone where all dedicated hosts are allocated.</p> 
-hostGroups[].<br>status | **string**<br><p>Status of the group.</p> 
-hostGroups[].<br>typeId | **string**<br><p>ID of host type. Resources provided by each host of the group.</p> 
-hostGroups[].<br>maintenancePolicy | **string**<br><p>Behaviour on maintenance events.</p> <ul> <li>RESTART: Restart instance to move it to another host during maintenance</li> <li>MIGRATE: Use live migration to move instance to another host during maintenance</li> </ul> 
-hostGroups[].<br>scalePolicy | **object**<br><p>Scale policy. Only fixed number of hosts are supported at this moment.</p> 
-hostGroups[].<br>scalePolicy.<br>fixedScale | **object**
-hostGroups[].<br>scalePolicy.<br>fixedScale.<br>size | **string** (int64)
-nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is larger than <a href="/docs/compute/api-ref/HostGroup/list#query_params">pageSize</a>, use <a href="/docs/compute/api-ref/HostGroup/list#responses">nextPageToken</a> as the value for the <a href="/docs/compute/api-ref/HostGroup/list#query_params">pageToken</a> query parameter in the next list request. Each subsequent list request will have its own <a href="/docs/compute/api-ref/HostGroup/list#responses">nextPageToken</a> to continue paging through the results.</p> 
+#|
+||Field | Description ||
+|| hostGroups[] | **[HostGroup](#yandex.cloud.compute.v1.HostGroup)**
+
+Lists host groups for the specified folder. ||
+|| nextPageToken | **string**
+
+This token allows you to get the next page of results for list requests. If the number of results
+is larger than [ListHostGroupsRequest.pageSize](#yandex.cloud.compute.v1.ListHostGroupsRequest), use
+`nextPageToken` as the value
+for the [ListHostGroupsRequest.pageToken](#yandex.cloud.compute.v1.ListHostGroupsRequest) query parameter
+in the next list request. Each subsequent list request will have its own
+`nextPageToken` to continue paging through the results. ||
+|#
+
+## HostGroup {#yandex.cloud.compute.v1.HostGroup}
+
+Represents group of dedicated hosts
+
+#|
+||Field | Description ||
+|| id | **string**
+
+ID of the group. ||
+|| folderId | **string**
+
+ID of the folder that the group belongs to. ||
+|| createdAt | **string** (date-time)
+
+Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| name | **string**
+
+Name of the group. The name is unique within the folder. ||
+|| description | **string**
+
+Description of the group. ||
+|| labels | **string**
+
+Resource labels as `key:value` pairs. ||
+|| zoneId | **string**
+
+Availability zone where all dedicated hosts are allocated. ||
+|| status | **enum** (Status)
+
+Status of the group.
+
+- `STATUS_UNSPECIFIED`
+- `CREATING`
+- `READY`
+- `UPDATING`
+- `DELETING` ||
+|| typeId | **string**
+
+ID of host type. Resources provided by each host of the group. ||
+|| maintenancePolicy | **enum** (MaintenancePolicy)
+
+Behaviour on maintenance events.
+
+- `MAINTENANCE_POLICY_UNSPECIFIED`
+- `RESTART`: Restart instance to move it to another host during maintenance
+- `MIGRATE`: Use live migration to move instance to another host during maintenance ||
+|| scalePolicy | **[ScalePolicy](#yandex.cloud.compute.v1.ScalePolicy)**
+
+Scale policy. Only fixed number of hosts are supported at this moment. ||
+|#
+
+## ScalePolicy {#yandex.cloud.compute.v1.ScalePolicy}
+
+#|
+||Field | Description ||
+|| fixedScale | **[FixedScale](#yandex.cloud.compute.v1.ScalePolicy.FixedScale)**
+
+Includes only one of the fields `fixedScale`. ||
+|#
+
+## FixedScale {#yandex.cloud.compute.v1.ScalePolicy.FixedScale}
+
+#|
+||Field | Description ||
+|| size | **string** (int64) ||
+|#

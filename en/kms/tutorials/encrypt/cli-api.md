@@ -30,7 +30,7 @@ In {{ kms-short-name }}, you can encrypt and decrypt small amounts of data (up t
 
 - API {#api}
 
-  To encrypt data, use the [encrypt](../../api-ref/SymmetricCrypto/encrypt.md) REST API method for the [SymmetricCrypto](../../api-ref/SymmetricCrypto/index.md) resource or the [SymmetricCryptoService/Encrypt](../../api-ref/grpc/symmetric_crypto_service.md#Encrypt) gRPC API call.
+  To encrypt data, use the [encrypt](../../api-ref/SymmetricCrypto/encrypt.md) REST API method for the [SymmetricCrypto](../../api-ref/SymmetricCrypto/index.md) resource or the [SymmetricCryptoService/Encrypt](../../api-ref/grpc/SymmetricCrypto/encrypt.md) gRPC API call.
 
 {% endlist %}
 
@@ -57,7 +57,7 @@ In {{ kms-short-name }}, you can encrypt and decrypt small amounts of data (up t
 
 - API {#api}
 
-  To decrypt data, use the [decrypt](../../api-ref/SymmetricCrypto/decrypt.md) REST API method for the [SymmetricCrypto](../../api-ref/SymmetricCrypto/index.md) resource or the [SymmetricCryptoService/Decrypt](../../api-ref/grpc/symmetric_crypto_service.md#Decrypt) gRPC API call.
+  To decrypt data, use the [decrypt](../../api-ref/SymmetricCrypto/decrypt.md) REST API method for the [SymmetricCrypto](../../api-ref/SymmetricCrypto/index.md) resource or the [SymmetricCryptoService/Decrypt](../../api-ref/grpc/SymmetricCrypto/decrypt.md) gRPC API call.
 
 {% endlist %}
 

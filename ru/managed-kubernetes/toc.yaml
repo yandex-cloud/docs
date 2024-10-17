@@ -324,14 +324,62 @@ items:
         items:
           - name: Overview
             href: managed-kubernetes/api-ref/grpc/index.md
-          - name: ClusterService
-            href: managed-kubernetes/api-ref/grpc/cluster_service.md
-          - name: NodeGroupService
-            href: managed-kubernetes/api-ref/grpc/node_group_service.md
-          - name: VersionService
-            href: managed-kubernetes/api-ref/grpc/version_service.md
-          - name: OperationService
-            href: managed-kubernetes/api-ref/grpc/operation_service.md
+          - name: Cluster
+            items:
+              - name: Overview
+                href: managed-kubernetes/api-ref/grpc/Cluster/index.md
+              - name: Get
+                href: managed-kubernetes/api-ref/grpc/Cluster/get.md
+              - name: List
+                href: managed-kubernetes/api-ref/grpc/Cluster/list.md
+              - name: Create
+                href: managed-kubernetes/api-ref/grpc/Cluster/create.md
+              - name: Update
+                href: managed-kubernetes/api-ref/grpc/Cluster/update.md
+              - name: Delete
+                href: managed-kubernetes/api-ref/grpc/Cluster/delete.md
+              - name: Stop
+                href: managed-kubernetes/api-ref/grpc/Cluster/stop.md
+              - name: Start
+                href: managed-kubernetes/api-ref/grpc/Cluster/start.md
+              - name: ListNodeGroups
+                href: managed-kubernetes/api-ref/grpc/Cluster/listNodeGroups.md
+              - name: ListOperations
+                href: managed-kubernetes/api-ref/grpc/Cluster/listOperations.md
+              - name: ListNodes
+                href: managed-kubernetes/api-ref/grpc/Cluster/listNodes.md
+          - name: NodeGroup
+            items:
+              - name: Overview
+                href: managed-kubernetes/api-ref/grpc/NodeGroup/index.md
+              - name: Get
+                href: managed-kubernetes/api-ref/grpc/NodeGroup/get.md
+              - name: List
+                href: managed-kubernetes/api-ref/grpc/NodeGroup/list.md
+              - name: Create
+                href: managed-kubernetes/api-ref/grpc/NodeGroup/create.md
+              - name: Update
+                href: managed-kubernetes/api-ref/grpc/NodeGroup/update.md
+              - name: Delete
+                href: managed-kubernetes/api-ref/grpc/NodeGroup/delete.md
+              - name: ListOperations
+                href: managed-kubernetes/api-ref/grpc/NodeGroup/listOperations.md
+              - name: ListNodes
+                href: managed-kubernetes/api-ref/grpc/NodeGroup/listNodes.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: managed-kubernetes/api-ref/grpc/Operation/index.md
+              - name: Get
+                href: managed-kubernetes/api-ref/grpc/Operation/get.md
+              - name: Cancel
+                href: managed-kubernetes/api-ref/grpc/Operation/cancel.md
+          - name: Version
+            items:
+              - name: Overview
+                href: managed-kubernetes/api-ref/grpc/Version/index.md
+              - name: List
+                href: managed-kubernetes/api-ref/grpc/Version/list.md
       - name: Managed Service for Kubernetes REST (англ.)
         items:
           - name: Overview
@@ -340,58 +388,84 @@ items:
             items:
               - name: Overview
                 href: managed-kubernetes/api-ref/Cluster/index.md
-              - name: create
-                href: managed-kubernetes/api-ref/Cluster/create.md
-              - name: delete
-                href: managed-kubernetes/api-ref/Cluster/delete.md
-              - name: get
+              - name: Get
                 href: managed-kubernetes/api-ref/Cluster/get.md
-              - name: list
+              - name: List
                 href: managed-kubernetes/api-ref/Cluster/list.md
-              - name: listNodeGroups
-                href: managed-kubernetes/api-ref/Cluster/listNodeGroups.md
-              - name: listNodes
-                href: managed-kubernetes/api-ref/Cluster/listNodes.md
-              - name: listOperations
-                href: managed-kubernetes/api-ref/Cluster/listOperations.md
-              - name: start
-                href: managed-kubernetes/api-ref/Cluster/start.md
-              - name: stop
-                href: managed-kubernetes/api-ref/Cluster/stop.md
-              - name: update
+              - name: Create
+                href: managed-kubernetes/api-ref/Cluster/create.md
+              - name: Update
                 href: managed-kubernetes/api-ref/Cluster/update.md
+              - name: Delete
+                href: managed-kubernetes/api-ref/Cluster/delete.md
+              - name: Stop
+                href: managed-kubernetes/api-ref/Cluster/stop.md
+              - name: Start
+                href: managed-kubernetes/api-ref/Cluster/start.md
+              - name: ListNodeGroups
+                href: managed-kubernetes/api-ref/Cluster/listNodeGroups.md
+              - name: ListOperations
+                href: managed-kubernetes/api-ref/Cluster/listOperations.md
+              - name: ListNodes
+                href: managed-kubernetes/api-ref/Cluster/listNodes.md
           - name: NodeGroup
             items:
               - name: Overview
                 href: managed-kubernetes/api-ref/NodeGroup/index.md
-              - name: create
-                href: managed-kubernetes/api-ref/NodeGroup/create.md
-              - name: delete
-                href: managed-kubernetes/api-ref/NodeGroup/delete.md
-              - name: get
+              - name: Get
                 href: managed-kubernetes/api-ref/NodeGroup/get.md
-              - name: list
+              - name: List
                 href: managed-kubernetes/api-ref/NodeGroup/list.md
-              - name: listNodes
-                href: managed-kubernetes/api-ref/NodeGroup/listNodes.md
-              - name: listOperations
-                href: managed-kubernetes/api-ref/NodeGroup/listOperations.md
-              - name: update
+              - name: Create
+                href: managed-kubernetes/api-ref/NodeGroup/create.md
+              - name: Update
                 href: managed-kubernetes/api-ref/NodeGroup/update.md
+              - name: Delete
+                href: managed-kubernetes/api-ref/NodeGroup/delete.md
+              - name: ListOperations
+                href: managed-kubernetes/api-ref/NodeGroup/listOperations.md
+              - name: ListNodes
+                href: managed-kubernetes/api-ref/NodeGroup/listNodes.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: managed-kubernetes/api-ref/Operation/index.md
+              - name: Get
+                href: managed-kubernetes/api-ref/Operation/get.md
+              - name: Cancel
+                href: managed-kubernetes/api-ref/Operation/cancel.md
           - name: Version
             items:
               - name: Overview
                 href: managed-kubernetes/api-ref/Version/index.md
-              - name: list
+              - name: List
                 href: managed-kubernetes/api-ref/Version/list.md
       - name: Kubernetes Marketplace gRPC (англ.)
         items:
           - name: Overview
             href: kubernetes-marketplace/api-ref/grpc/index.md
-          - name: HelmReleaseService
-            href: kubernetes-marketplace/api-ref/grpc/helm_release_service.md
-          - name: OperationService
-            href: kubernetes-marketplace/api-ref/grpc/operation_service.md
+          - name: HelmRelease
+            items:
+              - name: Overview
+                href: kubernetes-marketplace/api-ref/grpc/HelmRelease/index.md
+              - name: List
+                href: kubernetes-marketplace/api-ref/grpc/HelmRelease/list.md
+              - name: Get
+                href: kubernetes-marketplace/api-ref/grpc/HelmRelease/get.md
+              - name: Install
+                href: kubernetes-marketplace/api-ref/grpc/HelmRelease/install.md
+              - name: Update
+                href: kubernetes-marketplace/api-ref/grpc/HelmRelease/update.md
+              - name: Uninstall
+                href: kubernetes-marketplace/api-ref/grpc/HelmRelease/uninstall.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: kubernetes-marketplace/api-ref/grpc/Operation/index.md
+              - name: Get
+                href: kubernetes-marketplace/api-ref/grpc/Operation/get.md
+              - name: Cancel
+                href: kubernetes-marketplace/api-ref/grpc/Operation/cancel.md
       - name: Kubernetes Marketplace REST (англ.)
         items:
           - name: Overview
@@ -400,16 +474,24 @@ items:
             items:
               - name: Overview
                 href: kubernetes-marketplace/api-ref/HelmRelease/index.md
-              - name: get
-                href: kubernetes-marketplace/api-ref/HelmRelease/get.md
-              - name: install
-                href: kubernetes-marketplace/api-ref/HelmRelease/install.md
-              - name: list
+              - name: List
                 href: kubernetes-marketplace/api-ref/HelmRelease/list.md
-              - name: uninstall
-                href: kubernetes-marketplace/api-ref/HelmRelease/uninstall.md
-              - name: update
+              - name: Get
+                href: kubernetes-marketplace/api-ref/HelmRelease/get.md
+              - name: Install
+                href: kubernetes-marketplace/api-ref/HelmRelease/install.md
+              - name: Update
                 href: kubernetes-marketplace/api-ref/HelmRelease/update.md
+              - name: Uninstall
+                href: kubernetes-marketplace/api-ref/HelmRelease/uninstall.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: kubernetes-marketplace/api-ref/Operation/index.md
+              - name: Get
+                href: kubernetes-marketplace/api-ref/Operation/get.md
+              - name: Cancel
+                href: kubernetes-marketplace/api-ref/Operation/cancel.md
   - name: Метрики {{ monitoring-name }}
     href: metrics.md
   - name: Аудитные логи {{ at-name }}

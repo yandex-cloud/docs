@@ -111,7 +111,7 @@ You can only set up a canary release for [OpenAPI specifications](https://en.wik
 
 - API {#api}
 
-   To set up a [canary release](../concepts/extensions/canary.md), use the [update](../apigateway/api-ref/ApiGateway/update.md) REST API method for the [ApiGateway](../apigateway/api-ref/ApiGateway/index.md) resource or the [ApiGatewayService/Update](../apigateway/api-ref/grpc/apigateway_service.md#Update) gRPC API call.
+   To set up a [canary release](../concepts/extensions/canary.md), use the [update](../apigateway/api-ref/ApiGateway/update.md) REST API method for the [ApiGateway](../apigateway/api-ref/ApiGateway/index.md) resource or the [ApiGatewayService/Update](../apigateway/api-ref/grpc/ApiGateway/update.md) gRPC API call.
 
 {% endlist %}
 

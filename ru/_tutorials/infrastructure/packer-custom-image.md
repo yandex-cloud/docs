@@ -116,7 +116,7 @@
 
     - API {#api}
     
-      Воспользуйтесь методом REST API [list](../../vpc/api-ref/Subnet/list.md) для ресурса [Subnet](../../vpc/api-ref/Subnet/index.md) или вызовом gRPC API [SubnetService/List](../../vpc/api-ref/grpc/subnet_service.md#List).
+      Воспользуйтесь методом REST API [list](../../vpc/api-ref/Subnet/list.md) для ресурса [Subnet](../../vpc/api-ref/Subnet/index.md) или вызовом gRPC API [SubnetService/List](../../vpc/api-ref/grpc/Subnet/list.md).
 
     {% endlist %}
 
@@ -369,7 +369,7 @@
 
     - API {#api}
 
-      Воспользуйтесь методом REST API [list](../../compute/api-ref/Image/list.md) для ресурса [Image](../../compute/api-ref/Image/) или вызовом gRPC API [ImageService/List](../../compute/api-ref/grpc/image_service.md#List).
+      Воспользуйтесь методом REST API [list](../../compute/api-ref/Image/list.md) для ресурса [Image](../../compute/api-ref/Image/) или вызовом gRPC API [ImageService/List](../../compute/api-ref/grpc/Image/list.md).
 
     {% endlist %}
 
@@ -437,7 +437,7 @@
 
     - API {#api}
 
-      Воспользуйтесь методом REST API [create](../../compute/api-ref/Instance/create.md) для ресурса [Instance](../../compute/api-ref/Instance/) или вызовом gRPC API [InstanceService/Create](../../compute/api-ref/grpc/instance_service.md#Create).
+      Воспользуйтесь методом REST API [create](../../compute/api-ref/Instance/create.md) для ресурса [Instance](../../compute/api-ref/Instance/) или вызовом gRPC API [InstanceService/Create](../../compute/api-ref/grpc/Instance/create.md).
 
     {% endlist %}
 

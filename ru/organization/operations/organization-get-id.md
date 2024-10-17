@@ -47,6 +47,6 @@ description: С помощью этой инструкции вы узнаете
 
 - API {#api}
 
-    Воспользуйтесь методом REST API [list](../../organization/api-ref/Organization/list.md) для ресурса [Organization](../../organization/api-ref/Organization/index.md) или вызовом gRPC API [OrganizationService/List](../../organization/api-ref/grpc/organization_service.md#List).
+    Воспользуйтесь методом REST API [list](../../organization/api-ref/Organization/list.md) для ресурса [Organization](../../organization/api-ref/Organization/index.md) или вызовом gRPC API [OrganizationService/List](../../organization/api-ref/grpc/Organization/list.md).
 
 {% endlist %}

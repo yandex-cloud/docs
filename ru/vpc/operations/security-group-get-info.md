@@ -105,7 +105,7 @@ title: Как получить информацию о группе безопа
 
 - API {#api}
 
-  Чтобы получить подробную информацию о [группе безопасности](../concepts/security-groups.md), воспользуйтесь методом REST API [get](../api-ref/SecurityGroup/get) для ресурса [SecurityGroup](../api-ref/SecurityGroup/index.md), или вызовом gRPC API [SecurityGroupService/Get](../api-ref/grpc/security_group_service.md#Get).
+  Чтобы получить подробную информацию о [группе безопасности](../concepts/security-groups.md), воспользуйтесь методом REST API [get](../api-ref/SecurityGroup/get) для ресурса [SecurityGroup](../api-ref/SecurityGroup/index.md), или вызовом gRPC API [SecurityGroupService/Get](../api-ref/grpc/SecurityGroup/get.md).
 
 {% endlist %}
 

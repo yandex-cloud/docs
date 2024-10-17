@@ -77,7 +77,7 @@
 
       {% include [name-format](./name-format.md) %}
 
-   Также сервисный аккаунт можно создать с помощью вызова gRPC [ServiceAccountService/Create](../iam/api-ref/grpc/service_account_service.md#Create).
+   Также сервисный аккаунт можно создать с помощью вызова gRPC [ServiceAccountService/Create](../iam/api-ref/grpc/ServiceAccount/create.md).
 
 {% endlist %}
 
@@ -136,7 +136,7 @@
    * `<идентификатор_роли>` — `ai.translate.user` для {{ translate-full-name }} или `ai.vision.user` для {{ vision-full-name }}.
    * `<идентификатор_сервисного_аккаунта>` — идентификатор сервисного аккаунта `sa-api`.
 
-   Также назначить сервисному аккаунту роль можно с помощью вызова gRPC [ServiceAccountService/SetAccessBindings](../iam/api-ref/grpc/service_account_service.md#SetAccessBindings).
+   Также назначить сервисному аккаунту роль можно с помощью вызова gRPC [ServiceAccountService/SetAccessBindings](../iam/api-ref/grpc/ServiceAccount/setAccessBindings.md).
 
 {% endlist %}
 
@@ -210,7 +210,7 @@
    * `<IAM-токен>` — действующий токен авторизации.
    * `<идентификатор_сервисного_аккаунта>` — идентификатор сервисного аккаунта `sa-api`.
 
-   Также API-ключ можно создать с помощью вызова gRPC API [ApiKeyService/Create](../iam/api-ref/grpc/api_key_service.md#Create).
+   Также API-ключ можно создать с помощью вызова gRPC API [ApiKeyService/Create](../iam/api-ref/grpc/ApiKey/create.md).
 
 {% endlist %}
 

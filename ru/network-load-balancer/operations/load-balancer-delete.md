@@ -78,7 +78,7 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Чтобы удалить сетевой балансировщик, воспользуйтесь методом REST API [delete](../api-ref/NetworkLoadBalancer/delete.md) для ресурса [NetworkLoadBalancer](../api-ref/NetworkLoadBalancer/index.md) или вызовом gRPC API [NetworkLoadBalancerService/Delete](../api-ref/grpc/network_load_balancer_service.md#Delete).
+  Чтобы удалить сетевой балансировщик, воспользуйтесь методом REST API [delete](../api-ref/NetworkLoadBalancer/delete.md) для ресурса [NetworkLoadBalancer](../api-ref/NetworkLoadBalancer/index.md) или вызовом gRPC API [NetworkLoadBalancerService/Delete](../api-ref/grpc/NetworkLoadBalancer/delete.md).
 
 {% endlist %}
 

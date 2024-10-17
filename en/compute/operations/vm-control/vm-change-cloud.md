@@ -38,7 +38,7 @@ You cannot move a VM to another cloud; however, you can create an image from its
 
    - API {#api}
 
-     Use the [list](../../api-ref/Image/list.md) REST API method for the [Image](../../api-ref/Image/index.md) resource or the [ImageService/List](../../api-ref/grpc/image_service.md#List) gRPC API call.
+     Use the [list](../../api-ref/Image/list.md) REST API method for the [Image](../../api-ref/Image/index.md) resource or the [ImageService/List](../../api-ref/grpc/Image/list.md) gRPC API call.
 
    {% endlist %}
 
@@ -72,7 +72,7 @@ You cannot move a VM to another cloud; however, you can create an image from its
 
    - API {#api}
 
-     To get the list of clouds with IDs, use the [list](../../../resource-manager/api-ref/Cloud/list.md) REST API method for the [Cloud](../../../resource-manager/api-ref/Cloud/index.md) resource or the [CloudService/List](../../../resource-manager/api-ref/grpc/cloud_service.md#List) gRPC API call.
+     To get the list of clouds with IDs, use the [list](../../../resource-manager/api-ref/Cloud/list.md) REST API method for the [Cloud](../../../resource-manager/api-ref/Cloud/index.md) resource or the [CloudService/List](../../../resource-manager/api-ref/grpc/Cloud/list.md) gRPC API call.
 
    {% endlist %}
 
@@ -94,7 +94,7 @@ You cannot move a VM to another cloud; however, you can create an image from its
 
    - API {#api}
 
-     Use the [create](../../api-ref/Image/create.md) REST API method for the [Image](../../api-ref/Image/index.md) resource or the [ImageService/Create](../../api-ref/grpc/image_service.md#Create) gRPC API call. Specify the image ID in your request.
+     Use the [create](../../api-ref/Image/create.md) REST API method for the [Image](../../api-ref/Image/index.md) resource or the [ImageService/Create](../../api-ref/grpc/Image/create.md) gRPC API call. Specify the image ID in your request.
 
    {% endlist %}
 

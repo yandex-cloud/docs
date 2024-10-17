@@ -3,26 +3,30 @@ editable: false
 sourcePath: en/_api-ref/ydb/v1/api-ref/ResourcePreset/get.md
 ---
 
-# Managed Service for YDB API, REST: ResourcePreset.get
-Returns the specified resource preset.
- 
+# Managed Service for YDB API, REST: ResourcePreset.Get {#Get}
 
- 
-## HTTP request {#https-request}
+Returns the specified resource preset.
+
+## HTTP request
+
 ```
 GET https://ydb.{{ api-host }}/ydb/v1/resourcePresets/{resourcePresetId}
 ```
- 
-## Path parameters {#path_params}
- 
-Parameter | Description
---- | ---
-resourcePresetId | <p>Required. Required. ID of the resource preset to return.</p> 
- 
-## Response {#responses}
+
+## Path parameters
+
+#|
+||Field | Description ||
+|| resourcePresetId | **string**
+
+Required field. Required. ID of the resource preset to return. ||
+|#
+
+## Response {#yandex.cloud.ydb.v1.ResourcePreset}
+
 **HTTP Code: 200 - OK**
 
-```json 
+```json
 {
   "id": "string",
   "cores": "string",
@@ -30,9 +34,9 @@ resourcePresetId | <p>Required. Required. ID of the resource preset to return.</
 }
 ```
 
- 
-Field | Description
---- | ---
-id | **string**
-cores | **string** (int64)
-memory | **string** (int64)
+#|
+||Field | Description ||
+|| id | **string** ||
+|| cores | **string** (int64) ||
+|| memory | **string** (int64) ||
+|#

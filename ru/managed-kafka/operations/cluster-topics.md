@@ -101,7 +101,7 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Чтобы создать топик, воспользуйтесь методом REST API [create](../api-ref/Topic/create.md) для ресурса [Topic](../api-ref/Topic/index.md) или вызовом gRPC API [TopicService/Create](../api-ref/grpc/topic_service.md#Create) и передайте в запросе:
+  Чтобы создать топик, воспользуйтесь методом REST API [create](../api-ref/Topic/create.md) для ресурса [Topic](../api-ref/Topic/index.md) или вызовом gRPC API [TopicService/Create](../api-ref/grpc/Topic/create.md) и передайте в запросе:
   * Идентификатор кластера, в котором нужно создать топик, в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
   * Настройки топика в параметре `topicSpec`.
 
@@ -192,7 +192,7 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Чтобы изменить настройки топика, воспользуйтесь методом REST API [update](../api-ref/Topic/update.md) для ресурса [Topic](../api-ref/Topic/index.md) или вызовом gRPC API [TopicService/Update](../api-ref/grpc/topic_service.md#Update) и передайте в запросе:
+  Чтобы изменить настройки топика, воспользуйтесь методом REST API [update](../api-ref/Topic/update.md) для ресурса [Topic](../api-ref/Topic/index.md) или вызовом gRPC API [TopicService/Update](../api-ref/grpc/Topic/update.md) и передайте в запросе:
   * Идентификатор кластера, в котором находится топик, в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
   * Имя топика в параметре `topicName`. Чтобы узнать имя, [получите список топиков в кластере](#list-topics).
   * Новые значения [настроек топика](../concepts/settings-list.md#topic-settings) в параметре `topicSpec`.
@@ -228,7 +228,7 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Чтобы получить список топиков в кластере, воспользуйтесь методом REST API [list](../api-ref/Topic/list.md) для ресурса [Topic](../api-ref/Topic/index.md) или вызовом gRPC API [TopicService/List](../api-ref/grpc/topic_service.md#List) и передайте в запросе идентификатор требуемого кластера в параметре `clusterId`.
+  Чтобы получить список топиков в кластере, воспользуйтесь методом REST API [list](../api-ref/Topic/list.md) для ресурса [Topic](../api-ref/Topic/index.md) или вызовом gRPC API [TopicService/List](../api-ref/grpc/Topic/list.md) и передайте в запросе идентификатор требуемого кластера в параметре `clusterId`.
 
   Чтобы узнать идентификатор кластера, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -261,7 +261,7 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Чтобы получить детальную информацию о топике, воспользуйтесь методом REST API [get](../api-ref/Topic/get.md) для ресурса [Topic](../api-ref/Topic/index.md) или вызовом gRPC API [TopicService/Get](../api-ref/grpc/topic_service.md#Get) и передайте в запросе:
+  Чтобы получить детальную информацию о топике, воспользуйтесь методом REST API [get](../api-ref/Topic/get.md) для ресурса [Topic](../api-ref/Topic/index.md) или вызовом gRPC API [TopicService/Get](../api-ref/grpc/Topic/get.md) и передайте в запросе:
   * Идентификатор кластера, в котором находится топик, в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
   * Имя топика в параметре `topicName`. Чтобы узнать имя, [получите список топиков в кластере](#list-topics).
 
@@ -344,7 +344,7 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Чтобы удалить топик, воспользуйтесь методом REST API [delete](../api-ref/Topic/delete.md) для ресурса [Topic](../api-ref/Topic/index.md) или вызовом gRPC API [TopicService/Delete](../api-ref/grpc/topic_service.md#Delete) и передайте в запросе:
+  Чтобы удалить топик, воспользуйтесь методом REST API [delete](../api-ref/Topic/delete.md) для ресурса [Topic](../api-ref/Topic/index.md) или вызовом gRPC API [TopicService/Delete](../api-ref/grpc/Topic/delete.md) и передайте в запросе:
   * Идентификатор кластера, в котором находится топик, в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
   * Имя топика в параметре `topicName`. Чтобы узнать имя, [получите список топиков в кластере](#list-topics).
 

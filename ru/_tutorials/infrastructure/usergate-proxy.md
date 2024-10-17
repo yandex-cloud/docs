@@ -136,8 +136,8 @@
 
 - API {#api}
 
-  1. Создайте сеть `usergate-network` с помощью вызова gRPC API [NetworkService/Create](../../vpc/api-ref/grpc/network_service.md#Create) или метода REST API [create](../../vpc/api-ref/Network/create.md) для ресурса Network.
-  1. Создайте подсеть `usergate-subnet-{{ region-id }}-a` с помощью вызова gRPC API [SubnetService/Create](../../vpc/api-ref/grpc/subnet_service.md#Create) или метода REST API [create](../../vpc/api-ref/Subnet/create.md) для ресурса Subnet.
+  1. Создайте сеть `usergate-network` с помощью вызова gRPC API [NetworkService/Create](../../vpc/api-ref/grpc/Network/create.md) или метода REST API [create](../../vpc/api-ref/Network/create.md) для ресурса Network.
+  1. Создайте подсеть `usergate-subnet-{{ region-id }}-a` с помощью вызова gRPC API [SubnetService/Create](../../vpc/api-ref/grpc/Subnet/create.md) или метода REST API [create](../../vpc/api-ref/Subnet/create.md) для ресурса Subnet.
 
 {% endlist %}
 
@@ -331,7 +331,7 @@
 
 - API {#api}
 
-  Используйте вызов gRPC API [SecurityGroupService/Create](../../vpc/api-ref/grpc/security_group_service.md#Create) или метод REST API [create](../../vpc/api-ref/SecurityGroup/create.md).
+  Используйте вызов gRPC API [SecurityGroupService/Create](../../vpc/api-ref/grpc/SecurityGroup/create.md) или метод REST API [create](../../vpc/api-ref/SecurityGroup/create.md).
      
 {% endlist %}
 

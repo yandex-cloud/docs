@@ -130,7 +130,7 @@ To access a [registry](../../concepts/index.md#registry), use its unique ID or n
 
 - API {#api}
 
-   To add a certificate to a registry, use the [addCertificate](../../api-ref/Registry/addCertificate.md) REST API method for the [Registry](../../api-ref/Registry/index.md) resource or the [RegistryService/AddCertificate](../../api-ref/grpc/registry_service.md#AddCertificate) gRPC API call.
+   To add a certificate to a registry, use the [addCertificate](../../api-ref/Registry/addCertificate.md) REST API method for the [Registry](../../api-ref/Registry/index.md) resource or the [RegistryService/AddCertificate](../../api-ref/grpc/Registry/addCertificate.md) gRPC API call.
 
 {% endlist %}
 
@@ -236,6 +236,6 @@ To access a [registry](../../concepts/index.md#registry), use its unique ID or n
 
 - API {#api}
 
-   To delete a registry certificate, use the [deleteCertificate](../../api-ref/Registry/deleteCertificate.md) REST API method for the [Registry](../../api-ref/Registry/index.md) resource or the [RegistryService/DeleteCertificate](../../api-ref/grpc/registry_service.md#DeleteCertificate) gRPC API call.
+   To delete a registry certificate, use the [deleteCertificate](../../api-ref/Registry/deleteCertificate.md) REST API method for the [Registry](../../api-ref/Registry/index.md) resource or the [RegistryService/DeleteCertificate](../../api-ref/grpc/Registry/deleteCertificate.md) gRPC API call.
 
 {% endlist %}

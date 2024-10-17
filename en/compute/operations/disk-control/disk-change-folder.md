@@ -82,6 +82,6 @@ To change a disk's folder:
 
 - API {#api}
 
-   Use the [move](../../api-ref/Disk/move.md) REST API method for the [Disk](../../api-ref/Disk/index.md) resource or the [DiskService/Move](../../api-ref/grpc/disk_service.md#Move) gRPC API call.
+   Use the [move](../../api-ref/Disk/move.md) REST API method for the [Disk](../../api-ref/Disk/index.md) resource or the [DiskService/Move](../../api-ref/grpc/Disk/move.md) gRPC API call.
 
 {% endlist %}

@@ -108,7 +108,7 @@ Auxiliary Hystax Cloud Agent VMs are created automatically in the default securi
 
 - API {#api}
 
-  Use the [create](../../storage/api-ref/Bucket/create.md) REST API method for the [Bucket](../../storage/api-ref/Bucket/) resource or the [BucketService/Create](../../storage/api-ref/grpc/bucket_service.md#Create) gRPC API call.
+  Use the [create](../../storage/api-ref/Bucket/create.md) REST API method for the [Bucket](../../storage/api-ref/Bucket/) resource or the [BucketService/Create](../../storage/api-ref/grpc/Bucket/create.md) gRPC API call.
 
 {% endlist %}
 
@@ -188,7 +188,7 @@ Auxiliary Hystax Cloud Agent VMs are created automatically in the default securi
 
     - API {#api}
 
-      Use the [create](../../compute/api-ref/Instance/create.md) REST API method for the [Instance](../../compute/api-ref/Instance/) resource or the [InstanceService/Create](../../compute/api-ref/grpc/instance_service.md#Create) gRPC API call.
+      Use the [create](../../compute/api-ref/Instance/create.md) REST API method for the [Instance](../../compute/api-ref/Instance/) resource or the [InstanceService/Create](../../compute/api-ref/grpc/Instance/create.md) gRPC API call.
 
     {% endlist %}
 
@@ -262,7 +262,7 @@ VMs are created with a public dynamic IP. Since a VM with Hystax Acura Backup ma
 
 - API {#api}
 
-  Use the [update](../../vpc/api-ref/Address/update.md) REST API method for the [Address](../../vpc/api-ref/Address/index.md) resource or the [AddressService/Update](../../vpc/api-ref/grpc/address_service.md#Update) gRPC API call.
+  Use the [update](../../vpc/api-ref/Address/update.md) REST API method for the [Address](../../vpc/api-ref/Address/index.md) resource or the [AddressService/Update](../../vpc/api-ref/grpc/Address/update.md) gRPC API call.
 
 {% endlist %}
 

@@ -207,7 +207,7 @@ description: Следуя данной инструкции, вы сможете
   > testuser1:ssh-ed25519 AAAAB3NzaC***********lP1ww testuser1\r\ntestuser2:ssh-ed25519 ONEMOREkey***********avEHw testuser2
   > ```
 
-  Воспользуйтесь методом REST API [create](../managed-kubernetes/api-ref/NodeGroup/create.md) для ресурса [NodeGroup](../managed-kubernetes/api-ref/NodeGroup/index.md) или вызовом gRPC API [NodeGroupService/Create](../managed-kubernetes/api-ref/grpc/node_group_service.md#Create).
+  Воспользуйтесь методом REST API [create](../managed-kubernetes/api-ref/NodeGroup/create.md) для ресурса [NodeGroup](../managed-kubernetes/api-ref/NodeGroup/index.md) или вызовом gRPC API [NodeGroupService/Create](../managed-kubernetes/api-ref/grpc/NodeGroup/create.md).
 
   Реквизиты для подключения по SSH передаются в параметре `nodeTemplate.metadata` в ключе `ssh-keys`.
 

@@ -130,7 +130,7 @@
   * `scope` — область действия для [ключа с ограниченным доступом](../../concepts/authorization/api-key.md#scoped-api-keys). Необязательный параметр.
   * `expiresAt` — дата и время истечения срока действия ключа с ограниченным доступом. Необязательный параметр.
 
-  Также API-ключ можно создать с помощью вызова gRPC API [ApiKeyService/Create](../../api-ref/grpc/api_key_service.md#Create).
+  Также API-ключ можно создать с помощью вызова gRPC API [ApiKeyService/Create](../../api-ref/grpc/ApiKey/create.md).
 
 {% endlist %}
 

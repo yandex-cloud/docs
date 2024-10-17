@@ -29,8 +29,8 @@
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [update](../../api-ref/Disk/update.md) для ресурса [Disk](../../api-ref/Disk/index.md) или вызовом gRPC API [DiskService/Update](../../api-ref/grpc/disk_service.md#Update).
+  Воспользуйтесь методом REST API [update](../../api-ref/Disk/update.md) для ресурса [Disk](../../api-ref/Disk/index.md) или вызовом gRPC API [DiskService/Update](../../api-ref/grpc/Disk/update.md).
 
-  Список доступных дисков запрашивайте методом REST API [list](../../api-ref/Disk/list.md) для ресурса [Disk](../../api-ref/Disk/index.md) или вызовом gRPC API [DiskService/List](../../api-ref/grpc/disk_service.md#List).
+  Список доступных дисков запрашивайте методом REST API [list](../../api-ref/Disk/list.md) для ресурса [Disk](../../api-ref/Disk/index.md) или вызовом gRPC API [DiskService/List](../../api-ref/grpc/Disk/list.md).
 
 {% endlist %}

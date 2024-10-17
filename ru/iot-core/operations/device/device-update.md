@@ -96,7 +96,7 @@
 
 - API {#api}
 
-  Чтобы изменить имя устройства, воспользуйтесь методом REST API [update](../../api-ref/Device/update.md) для ресурса [Device](../../api-ref/Device/index.md) или вызовом gRPC API [DeviceService/Update](../../api-ref/grpc/device_service.md#Update).
+  Чтобы изменить имя устройства, воспользуйтесь методом REST API [update](../../api-ref/Device/update.md) для ресурса [Device](../../api-ref/Device/index.md) или вызовом gRPC API [DeviceService/Update](../../api-ref/grpc/Device/update.md).
 
 {% endlist %}
 
@@ -194,6 +194,6 @@
 
 - API {#api}
 
-  Чтобы изменить описание устройства, воспользуйтесь методом REST API [update](../../api-ref/Device/update.md) для ресурса [Device](../../api-ref/Device/index.md) или вызовом gRPC API [DeviceService/Update](../../api-ref/grpc/device_service.md#Update).
+  Чтобы изменить описание устройства, воспользуйтесь методом REST API [update](../../api-ref/Device/update.md) для ресурса [Device](../../api-ref/Device/index.md) или вызовом gRPC API [DeviceService/Update](../../api-ref/grpc/Device/update.md).
 
 {% endlist %}

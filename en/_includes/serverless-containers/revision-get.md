@@ -40,6 +40,6 @@
 
 - API {#api}
 
-  To get information about a container revision, use the [getRevision](../../serverless-containers/containers/api-ref/Container/getRevision.md) REST API method for the [Container](../../serverless-containers/containers/api-ref/Container/index.md) resource or the [ContainerService/GetRevision](../../serverless-containers/containers/api-ref/grpc/container_service.md#GetRevision) gRPC API call.
+  To get information about a container revision, use the [getRevision](../../serverless-containers/containers/api-ref/Container/getRevision.md) REST API method for the [Container](../../serverless-containers/containers/api-ref/Container/index.md) resource or the [ContainerService/GetRevision](../../serverless-containers/containers/api-ref/grpc/Container/getRevision.md) gRPC API call.
 
 {% endlist %}

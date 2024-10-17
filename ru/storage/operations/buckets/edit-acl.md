@@ -286,6 +286,6 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Чтобы редактировать ACL бакета, воспользуйтесь методом REST API [update](../../api-ref/Bucket/update.md) для ресурса [Bucket](../../api-ref/Bucket/index.md), вызовом gRPC API [BucketService/Update](../../api-ref/grpc/bucket_service.md#Update) или методом S3 API [bucketPutAcl](../../s3/api-ref/acl/bucketput.md).
+  Чтобы редактировать ACL бакета, воспользуйтесь методом REST API [update](../../api-ref/Bucket/update.md) для ресурса [Bucket](../../api-ref/Bucket/index.md), вызовом gRPC API [BucketService/Update](../../api-ref/grpc/Bucket/update.md) или методом S3 API [bucketPutAcl](../../s3/api-ref/acl/bucketput.md).
 
 {% endlist %}

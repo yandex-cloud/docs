@@ -51,7 +51,7 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
 
 - API {#api}
 
-   To get a list of dictionaries, use the [get](../api-ref/Cluster/get.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Get](../api-ref/grpc/cluster_service.md#Get) gRPC API call.
+   To get a list of dictionaries, use the [get](../api-ref/Cluster/get.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Get](../api-ref/grpc/Cluster/get.md) gRPC API call.
 
 - SQL {#sql}
 
@@ -114,7 +114,7 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
 
    {% endnote %}
 
-   To create a dictionary, use the [createExternalDictionary](../api-ref/Cluster/createExternalDictionary.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/CreateExternalDictionary](../api-ref/grpc/cluster_service.md#CreateExternalDictionary) gRPC API call.
+   To create a dictionary, use the [createExternalDictionary](../api-ref/Cluster/createExternalDictionary.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/CreateExternalDictionary](../api-ref/grpc/Cluster/createExternalDictionary.md) gRPC API call.
 
 - SQL {#sql}
 
@@ -173,7 +173,7 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
 
 - API {#api}
 
-   To delete a dictionary, use the [deleteExternalDictionary](../api-ref/Cluster/deleteExternalDictionary.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/DeleteExternalDictionary](../api-ref/grpc/cluster_service.md#DeleteExternalDictionary) gRPC API call.
+   To delete a dictionary, use the [deleteExternalDictionary](../api-ref/Cluster/deleteExternalDictionary.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/DeleteExternalDictionary](../api-ref/grpc/Cluster/deleteExternalDictionary.md) gRPC API call.
 
 - SQL {#sql}
 

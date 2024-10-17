@@ -144,7 +144,7 @@
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [update](../../compute/api-ref/InstanceGroup/update.md) для ресурса [InstanceGroup](../../compute/api-ref/InstanceGroup/index.md) или вызовом gRPC API [InstanceGroupService/Update](../../compute/api-ref/grpc/instance_group_service.md#Update).
+  Воспользуйтесь методом REST API [update](../../compute/instancegroup/api-ref/InstanceGroup/update.md) для ресурса [InstanceGroup](../../compute/instancegroup/api-ref/InstanceGroup/index.md) или вызовом gRPC API [InstanceGroupService/Update](../../compute/instancegroup/api-ref/grpc/InstanceGroup/update.md).
 
   Если у вас группа ВМ с [ручным масштабированием](../../compute/concepts/instance-groups/scale.md#fixed-scale), задайте размер группы, достаточный для размещения ВМ во всех выбранных зонах доступности. Вернуть изначальное количество ВМ можно будет после воссоздания всех ВМ группы в новой зоне доступности и удаления всех ВМ в старой.
 

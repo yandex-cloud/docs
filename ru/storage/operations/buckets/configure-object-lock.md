@@ -94,7 +94,7 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Воспользуйтесь методом S3 API [putObjectLockConfiguration](../../s3/api-ref/bucket/putobjectlockconfiguration.md), методом REST API [update](../../api-ref/Bucket/update.md) для ресурса [Bucket](../../api-ref/Bucket/index.md) или вызовом gRPC API [BucketService/Update](../../api-ref/grpc/bucket_service.md#Update).
+  Воспользуйтесь методом S3 API [putObjectLockConfiguration](../../s3/api-ref/bucket/putobjectlockconfiguration.md), методом REST API [update](../../api-ref/Bucket/update.md) для ресурса [Bucket](../../api-ref/Bucket/index.md) или вызовом gRPC API [BucketService/Update](../../api-ref/grpc/Bucket/update.md).
 
 {% endlist %}
 
@@ -306,7 +306,7 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Чтобы выключить возможность блокировок версий объектов в бакете, воспользуйтесь методом S3 API [putObjectLockConfiguration](../../s3/api-ref/bucket/putobjectlockconfiguration.md), методом REST API [update](../../api-ref/Bucket/update.md) для ресурса [Bucket](../../api-ref/Bucket/index.md) или вызовом gRPC API [BucketService/Update](../../api-ref/grpc/bucket_service.md#Update).
+  Чтобы выключить возможность блокировок версий объектов в бакете, воспользуйтесь методом S3 API [putObjectLockConfiguration](../../s3/api-ref/bucket/putobjectlockconfiguration.md), методом REST API [update](../../api-ref/Bucket/update.md) для ресурса [Bucket](../../api-ref/Bucket/index.md) или вызовом gRPC API [BucketService/Update](../../api-ref/grpc/Bucket/update.md).
 
   В теле запроса передайте параметр блокировки версий объектов с пустым значением:
 

@@ -35,7 +35,7 @@
 
 - API {#api}
 
-    To get a list of function versions, use the [listVersions](../../functions/functions/api-ref/Function/listVersions.md) REST API method for the [Function](../../functions/functions/api-ref/Function/index.md) resource or the [FunctionsService/ListVersions](../../functions/functions/api-ref/grpc/function_service.md#ListVersions) gRPC API call.
+    To get a list of function versions, use the [listVersions](../../functions/functions/api-ref/Function/listVersions.md) REST API method for the [Function](../../functions/functions/api-ref/Function/index.md) resource or the [FunctionsService/ListVersions](../../functions/functions/api-ref/grpc/Function/listVersions.md) gRPC API call.
 
 
 - {{ yandex-cloud }} Toolkit {#yc-toolkit}

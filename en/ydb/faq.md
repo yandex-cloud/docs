@@ -1,6 +1,5 @@
 # Questions and answers about {{ ydb-name }}
 
-
 This page shows answers to the questions about {{ ydb-name }}. For frequently asked questions about {{ ydb-short-name }}, see the [documentation](https://ydb.tech/docs/en/faq/).
 
 ## {{ ydb-name }} databases in Serverless mode

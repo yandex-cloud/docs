@@ -53,6 +53,6 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [delete](../backup/api-ref/Resource/delete.md) для ресурса [Resource](../backup/api-ref/Resource/index.md) или вызовом gRPC API [ResourceService/Delete](../backup/api-ref/grpc/resource_service.md#Delete).
+  Воспользуйтесь методом REST API [delete](../backup/api-ref/Resource/delete.md) для ресурса [Resource](../backup/api-ref/Resource/index.md) или вызовом gRPC API [ResourceService/Delete](../backup/api-ref/grpc/Resource/delete.md).
 
 {% endlist %}

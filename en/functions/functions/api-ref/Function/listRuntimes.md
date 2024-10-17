@@ -3,20 +3,21 @@ editable: false
 sourcePath: en/_api-ref/serverless/functions/v1/functions/api-ref/Function/listRuntimes.md
 ---
 
-# Cloud Functions Service, REST: Function.listRuntimes
-Lists available runtime environments for the specified function.
- 
+# Cloud Functions Service, REST: Function.ListRuntimes {#ListRuntimes}
 
- 
-## HTTP request {#https-request}
+Lists available runtime environments for the specified function.
+
+## HTTP request
+
 ```
 GET https://serverless-functions.{{ api-host }}/functions/v1/runtimes
 ```
- 
-## Response {#responses}
+
+## Response {#yandex.cloud.serverless.functions.v1.ListRuntimesResponse}
+
 **HTTP Code: 200 - OK**
 
-```json 
+```json
 {
   "runtimes": [
     "string"
@@ -24,7 +25,9 @@ GET https://serverless-functions.{{ api-host }}/functions/v1/runtimes
 }
 ```
 
- 
-Field | Description
---- | ---
-runtimes[] | **string**<br><p>Runtime environments available for the specified function.</p> 
+#|
+||Field | Description ||
+|| runtimes[] | **string**
+
+Runtime environments available for the specified function. ||
+|#

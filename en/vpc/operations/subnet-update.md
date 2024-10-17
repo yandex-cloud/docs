@@ -126,7 +126,7 @@ After creating a [subnet](../concepts/network.md#subnet), you can change its nam
 
 - API {#api}
 
-   To change the [subnet](../concepts/network.md#subnet), use the [update](../api-ref/Subnet/update.md) REST API method for the [Subnet](../api-ref/Subnet/index.md) resource or the [SubnetService/Update](../api-ref/grpc/subnet_service.md#Update) gRPC API call, and provide the following in the request:
+   To change the [subnet](../concepts/network.md#subnet), use the [update](../api-ref/Subnet/update.md) REST API method for the [Subnet](../api-ref/Subnet/index.md) resource or the [SubnetService/Update](../api-ref/grpc/Subnet/update.md) gRPC API call, and provide the following in the request:
 
    * ID of the subnet to be changed, in the `subnetId` parameter.
 

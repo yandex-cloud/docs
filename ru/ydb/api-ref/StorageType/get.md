@@ -3,26 +3,30 @@ editable: false
 sourcePath: en/_api-ref/ydb/v1/api-ref/StorageType/get.md
 ---
 
-# Managed Service for YDB API, REST: StorageType.get
-Returns the specified storage types.
- 
+# Managed Service for YDB API, REST: StorageType.Get {#Get}
 
- 
-## HTTP request {#https-request}
+Returns the specified storage types.
+
+## HTTP request
+
 ```
 GET https://ydb.{{ api-host }}/ydb/v1/storageTypes/{storageTypeId}
 ```
- 
-## Path parameters {#path_params}
- 
-Parameter | Description
---- | ---
-storageTypeId | <p>Required. Required. ID of the storage type to return.</p> 
- 
-## Response {#responses}
+
+## Path parameters
+
+#|
+||Field | Description ||
+|| storageTypeId | **string**
+
+Required field. Required. ID of the storage type to return. ||
+|#
+
+## Response {#yandex.cloud.ydb.v1.StorageType}
+
 **HTTP Code: 200 - OK**
 
-```json 
+```json
 {
   "id": "string",
   "deviceType": "string",
@@ -30,9 +34,9 @@ storageTypeId | <p>Required. Required. ID of the storage type to return.</p>
 }
 ```
 
- 
-Field | Description
---- | ---
-id | **string**
-deviceType | **string**
-redundancyType | **string**
+#|
+||Field | Description ||
+|| id | **string** ||
+|| deviceType | **string** ||
+|| redundancyType | **string** ||
+|#

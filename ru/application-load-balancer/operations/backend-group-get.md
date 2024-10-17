@@ -121,6 +121,6 @@ title: Как получить информацию о группе бэкенд
 
 - API {#api}
 
-  Чтобы получить подробную информацию о [группе бэкендов](../concepts/backend-group.md), воспользуйтесь методом REST API [get](../api-ref/BackendGroup/get.md) для ресурса [BackendGroup](../api-ref/BackendGroup/index.md) или вызовом gRPC API [BackendGroupService/Get](../api-ref/grpc/backend_group_service.md#Get).
+  Чтобы получить подробную информацию о [группе бэкендов](../concepts/backend-group.md), воспользуйтесь методом REST API [get](../api-ref/BackendGroup/get.md) для ресурса [BackendGroup](../api-ref/BackendGroup/index.md) или вызовом gRPC API [BackendGroupService/Get](../api-ref/grpc/BackendGroup/get.md).
 
 {% endlist %}

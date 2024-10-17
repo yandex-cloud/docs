@@ -90,7 +90,7 @@ description: Follow this guide to create a {{ sws-full-name }} security profile.
 
 - API {#api}
 
-  Use the [create](../api-ref/SecurityProfile/create.md) REST API method for the [SecurityProfile](../api-ref/SecurityProfile/) resource or the [SecurityProfileService/Create](../api-ref/grpc/security_profile_service.md#Create) gRPC API call.
+  Use the [create](../api-ref/SecurityProfile/create.md) REST API method for the [SecurityProfile](../api-ref/SecurityProfile/) resource or the [SecurityProfileService/Create](../api-ref/grpc/SecurityProfile/create.md) gRPC API call.
 
 {% endlist %}
 

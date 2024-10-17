@@ -111,7 +111,7 @@ description: Следуя данной инструкции, вы настрои
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/Snapshot/updateAccessBindings.md) для ресурса [Snapshot](../../api-ref/Snapshot/) или вызовом gRPC API [SnapshotService/UpdateAccessBindings](../../api-ref/grpc/snapshot_service.md#UpdateAccessBindings). В теле запроса в свойстве `action` укажите `ADD`, а в свойстве `subject` — тип и идентификатор пользователя.
+  Воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/Snapshot/updateAccessBindings.md) для ресурса [Snapshot](../../api-ref/Snapshot/) или вызовом gRPC API [SnapshotService/UpdateAccessBindings](../../api-ref/grpc/Snapshot/updateAccessBindings.md). В теле запроса в свойстве `action` укажите `ADD`, а в свойстве `subject` — тип и идентификатор пользователя.
 
 {% endlist %}
 
@@ -219,7 +219,7 @@ description: Следуя данной инструкции, вы настрои
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [setAccessBindings](../../api-ref/Snapshot/setAccessBindings.md) для ресурса [Snapshot](../../api-ref/Snapshot/) или вызовом gRPC API [SnapshotService/SetAccessBindings](../../api-ref/grpc/snapshot_service.md#SetAccessBindings).
+  Воспользуйтесь методом REST API [setAccessBindings](../../api-ref/Snapshot/setAccessBindings.md) для ресурса [Snapshot](../../api-ref/Snapshot/) или вызовом gRPC API [SnapshotService/SetAccessBindings](../../api-ref/grpc/Snapshot/setAccessBindings.md).
 
 {% endlist %}
 
@@ -305,6 +305,6 @@ description: Следуя данной инструкции, вы настрои
 
 - API {#api}
 
-  Чтобы отозвать роли на снимок диска, воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/Snapshot/updateAccessBindings.md) для ресурса [Snapshot](../../api-ref/Snapshot/) или вызовом gRPC API [SnapshotService/UpdateAccessBindings](../../api-ref/grpc/snapshot_service.md#UpdateAccessBindings). В теле запроса в свойстве `action` укажите `REMOVE`, а в свойстве `subject` — тип и идентификатор пользователя.
+  Чтобы отозвать роли на снимок диска, воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/Snapshot/updateAccessBindings.md) для ресурса [Snapshot](../../api-ref/Snapshot/) или вызовом gRPC API [SnapshotService/UpdateAccessBindings](../../api-ref/grpc/Snapshot/updateAccessBindings.md). В теле запроса в свойстве `action` укажите `REMOVE`, а в свойстве `subject` — тип и идентификатор пользователя.
 
 {% endlist %}

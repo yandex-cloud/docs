@@ -44,6 +44,6 @@ description: In this tutorial, you will learn how to delete static access keys i
 
 - API {#api}
 
-   To delete a static key, use the [delete](../../api-ref/AccessKey/delete.md) REST API method for the [AccessKey](../../api-ref/AccessKey/index.md) REST API resource or the [AccessKeyService/Delete](../../api-ref/grpc/access_key_service.md#Delete) gRPC API call.
+   To delete a static key, use the [delete](../../awscompatibility/api-ref/AccessKey/delete.md) REST API method for the [AccessKey](../../awscompatibility/api-ref/AccessKey/index.md) REST API resource or the [AccessKeyService/Delete](../../awscompatibility/api-ref/grpc/AccessKey/delete.md) gRPC API call.
 
 {% endlist %}

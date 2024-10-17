@@ -172,7 +172,7 @@ To add an SSH key to an OS Login profile:
 
 - API {#api}
 
-  Use the [create](../../organization/api-ref/UserSshKey/create.md) REST API method for the [UserSshKey](../../organization/api-ref/UserSshKey/index.md) resource or the [UserSshKeyService/Create](../../organization/api-ref/grpc/user_ssh_key_service.md#Create) gRPC API call.
+  Use the [create](../../organization/api-ref/UserSshKey/create.md) REST API method for the [UserSshKey](../../organization/api-ref/UserSshKey/index.md) resource or the [UserSshKeyService/Create](../../organization/api-ref/grpc/UserSshKey/create.md) gRPC API call.
 
 {% endlist %}
 

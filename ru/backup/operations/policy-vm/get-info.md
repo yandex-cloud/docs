@@ -148,6 +148,6 @@ description: Из статьи вы узнаете, как получить ин
 
 - API {#api}
 
-  Чтобы получить подробную информацию о [политике резервного копирования](../../concepts/policy.md), воспользуйтесь методом REST API [get](../../backup/api-ref/Policy/get.md) для ресурса [Policy](../../backup/api-ref/Policy/index.md) или вызовом gRPC API [PolicyService/Get](../../backup/api-ref/grpc/policy_service.md#Get).
+  Чтобы получить подробную информацию о [политике резервного копирования](../../concepts/policy.md), воспользуйтесь методом REST API [get](../../backup/api-ref/Policy/get.md) для ресурса [Policy](../../backup/api-ref/Policy/index.md) или вызовом gRPC API [PolicyService/Get](../../backup/api-ref/grpc/Policy/get.md).
 
 {% endlist %}

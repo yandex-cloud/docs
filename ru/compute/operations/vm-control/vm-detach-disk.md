@@ -72,6 +72,6 @@
   
 - API {#api}
   
-  Воспользуйтесь методом REST API [detachDisk](../../api-ref/Instance/detachDisk.md) для ресурса [Instance](../../api-ref/Instance/) или вызовом gRPC API [InstanceService/DetachDisk](../../api-ref/grpc/instance_service.md#DetachDisk).
+  Воспользуйтесь методом REST API [detachDisk](../../api-ref/Instance/detachDisk.md) для ресурса [Instance](../../api-ref/Instance/) или вызовом gRPC API [InstanceService/DetachDisk](../../api-ref/grpc/Instance/detachDisk.md).
   
 {% endlist %}

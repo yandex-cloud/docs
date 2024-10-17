@@ -219,9 +219,9 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-    Чтобы задать любую настройку масштабирования, кроме количества вызовов, обрабатываемых одним экземпляром функции (`concurrency`), воспользуйтесь методом REST API [setScalingPolicy](../../functions/api-ref/Function/setScalingPolicy.md) для ресурса [Function](../../functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/SetScalingPolicy](../../functions/api-ref/grpc/function_service.md#SetScalingPolicy).
+    Чтобы задать любую настройку масштабирования, кроме количества вызовов, обрабатываемых одним экземпляром функции (`concurrency`), воспользуйтесь методом REST API [setScalingPolicy](../../functions/api-ref/Function/setScalingPolicy.md) для ресурса [Function](../../functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/SetScalingPolicy](../../functions/api-ref/grpc/Function/setScalingPolicy.md).
 
-    Чтобы задать количества вызовов, обрабатываемых одним экземпляром функции (`concurrency`), создайте версию функции с помощью метода REST API [createVersion](../../functions/api-ref/Function/createVersion.md) для ресурса [Function](../../functions/api-ref/Function/index.md) или вызова gRPC API [FunctionService/CreateVersion](../../functions/api-ref/grpc/function_service.md#CreateVersion). В тело запроса добавьте поле `concurrency`.
+    Чтобы задать количества вызовов, обрабатываемых одним экземпляром функции (`concurrency`), создайте версию функции с помощью метода REST API [createVersion](../../functions/api-ref/Function/createVersion.md) для ресурса [Function](../../functions/api-ref/Function/index.md) или вызова gRPC API [FunctionService/CreateVersion](../../functions/api-ref/grpc/Function/createVersion.md). В тело запроса добавьте поле `concurrency`.
 
 - {{ yandex-cloud }} Toolkit {#yc-toolkit}
 
