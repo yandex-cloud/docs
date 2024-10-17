@@ -24,7 +24,7 @@ GROUP BY
 
 ## See also {#see-also}
 
-* [SELECT](https://ydb.tech/en/docs/yql/reference/syntax/select).
-* [GROUP BY](https://ydb.tech/en/docs/yql/reference/syntax/group_by).
+* [SELECT](https://ydb.tech/docs/en/yql/reference/syntax/select).
+* [GROUP BY](https://ydb.tech/docs/en/yql/reference/syntax/group_by).
 * [HOP](../concepts/stream-processing-windows.md).
-* [Aggregate functions](https://ydb.tech/en/docs/yql/reference/builtins/aggregation).
+* [Aggregate functions](https://ydb.tech/docs/en/yql/reference/builtins/aggregation).

@@ -16,19 +16,19 @@
 
 {{ ydb-short-name }} позволяет обрабатывать транзакции в реальном времени ([OLTP](../../glossary/oltp.md)) и аналитические запросы в режиме онлайн ([OLAP](../../glossary/olap.md)).
 
-Для взаимодействия с {{ ydb-short-name }} доступен [{{ ydb-short-name }} CLI](https://ydb.tech/ru/docs/reference/ydb-cli/), а также [SDK](https://ydb.tech/ru/docs/reference/ydb-sdk/) для C++, Java, Python, Node.js, PHP и Go. В качестве языка запросов к базе данных используется язык [YQL](https://ydb.tech/ru/docs/yql/reference/) (диалект SQL). О назначении и лучших практиках применения инструментов {{ ydb-short-name }} при разработке приложений читайте в разделе [Рекомендации](https://ydb.tech/ru/docs/best_practices/).
+Для взаимодействия с {{ ydb-short-name }} доступен [{{ ydb-short-name }} CLI](https://ydb.tech/docs/ru/reference/ydb-cli/), а также [SDK](https://ydb.tech/docs/ru/reference/ydb-sdk/) для C++, Java, Python, Node.js, PHP и Go. В качестве языка запросов к базе данных используется язык [YQL](https://ydb.tech/docs/ru/yql/reference/) (диалект SQL). О назначении и лучших практиках применения инструментов {{ ydb-short-name }} при разработке приложений читайте в разделе [Рекомендации](https://ydb.tech/docs/ru/best_practices/).
 
 Подробнее о концепциях {{ ydb-short-name }} читайте в следующих статьях:
 
-* [Термины и определения](https://ydb.tech/ru/docs/concepts/databases).
-* [Модель данных и схема](https://ydb.tech/ru/docs/concepts/datamodel).
-* [Транзакции](https://ydb.tech/ru/docs/concepts/transactions).
-* [Вторичные индексы](https://ydb.tech/ru/docs/concepts/secondary_indexes).
-* [Change Data Capture (CDC)](https://ydb.tech/ru/docs/concepts/cdc).
-* [Time to Live (TTL)](https://ydb.tech/ru/docs/concepts/ttl).
-* [Скан запросы](https://ydb.tech/ru/docs/concepts/scan_query).
-* [Ограничения базы данных](https://ydb.tech/ru/docs/concepts/limits-ydb).
-* [Кластер {{ ydb-short-name }}](https://ydb.tech/ru/docs/concepts/cluster/).
+* [Термины и определения](https://ydb.tech/docs/ru/concepts/databases).
+* [Модель данных и схема](https://ydb.tech/docs/ru/concepts/datamodel).
+* [Транзакции](https://ydb.tech/docs/ru/concepts/transactions).
+* [Вторичные индексы](https://ydb.tech/docs/ru/concepts/secondary_indexes).
+* [Change Data Capture (CDC)](https://ydb.tech/docs/ru/concepts/cdc).
+* [Time to Live (TTL)](https://ydb.tech/docs/ru/concepts/ttl).
+* [Скан запросы](https://ydb.tech/docs/ru/concepts/scan_query).
+* [Ограничения базы данных](https://ydb.tech/docs/ru/concepts/limits-ydb).
+* [Кластер {{ ydb-short-name }}](https://ydb.tech/docs/ru/concepts/cluster/).
 
 
 ## Соглашение об уровне обслуживания {#sla}

@@ -63,7 +63,7 @@ description: Следуя данной инструкции, вы сможете
 
      * `--registry-name` — имя реестра.
      * `--name` — имя экспорта.
-     * `--database` — [размещение базы данных](https://ydb.tech/ru/docs/concepts/connect#database), в которой хранятся данные потока: вторая часть значения поля **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** (часть после вхождения `/?database=`). Например, `/{{ region-id }}/r1gra875baom********/g5n22e7ejf**********`.
+     * `--database` — [размещение базы данных](https://ydb.tech/docs/ru/concepts/connect#database), в которой хранятся данные потока: вторая часть значения поля **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** (часть после вхождения `/?database=`). Например, `/{{ region-id }}/r1gra875baom********/g5n22e7ejf**********`.
      * `--stream` — имя [потока данных](../../data-streams/concepts/glossary.md#stream-concepts), в который будут отправляться сообщения из MQTT-топиков.
      * `--mqtt-topic-filter` — топик, из которого будут экспортироваться сообщения, или фильтр с использованием [символов подстановки](../concepts/topic/usage.md#wildcards). Если параметр не указан, экспортируются сообщения из всех топиков реестра и всех топиков устройств внутри реестра.
      * `--stream-service-account-name` — имя [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) с ролью `yds-writer`.

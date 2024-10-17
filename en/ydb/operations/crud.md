@@ -23,7 +23,7 @@ To send an SQL query to a database from the management console:
 
 ## Insert and update data {#change-data}
 
-To insert data into {{ ydb-short-name }}, use the [REPLACE](https://ydb.tech/en/docs/yql/reference/syntax/replace_into), [UPSERT](https://ydb.tech/en/docs/yql/reference/syntax/upsert_into), and [INSERT](https://ydb.tech/en/docs/yql/reference/syntax/insert_into) statements.
+To insert data into {{ ydb-short-name }}, use the [REPLACE](https://ydb.tech/docs/en/yql/reference/syntax/replace_into), [UPSERT](https://ydb.tech/docs/en/yql/reference/syntax/upsert_into), and [INSERT](https://ydb.tech/docs/en/yql/reference/syntax/insert_into) statements.
 
 When executing REPLACE and UPSERT statements, a blind write is performed. With an INSERT statement, data is read before writing. This ensures that the primary key is unique.
 
@@ -44,13 +44,13 @@ REPLACE INTO episodes (series_id, season_id, episode_id, title) VALUES (1, 1, 2,
 
 ### REPLACE {#replace}
 
-Once you create the `series`, `seasons`, and `episodes` tables, you can insert data into the table using the [REPLACE](https://ydb.tech/en/docs/yql/reference/syntax/replace_into) statement. Basic syntax:
+Once you create the `series`, `seasons`, and `episodes` tables, you can insert data into the table using the [REPLACE](https://ydb.tech/docs/en/yql/reference/syntax/replace_into) statement. Basic syntax:
 
 ```sql
 REPLACE INTO <table_name> (<column_list>) VALUES (<list_of_added_values>);
 ```
 
-The [REPLACE](https://ydb.tech/en/docs/yql/reference/syntax/replace_into) statement is used to add a new or change an existing row at a given value of the primary key. If a row with the specified primary key value does not exist, it is created. If the row exists already, the column values of the existing row are replaced with the new values. *The values of columns not involved in the operation are set to their default values.* This is the only way the `UPSERT` statement is different.
+The [REPLACE](https://ydb.tech/docs/en/yql/reference/syntax/replace_into) statement is used to add a new or change an existing row at a given value of the primary key. If a row with the specified primary key value does not exist, it is created. If the row exists already, the column values of the existing row are replaced with the new values. *The values of columns not involved in the operation are set to their default values.* This is the only way the `UPSERT` statement is different.
 
 {% note info %}
 
@@ -96,7 +96,7 @@ VALUES
 
 ### UPSERT {#upsert}
 
-The [UPSERT](https://ydb.tech/en/docs/yql/reference/syntax/upsert_into) statement is used to add a new or change an existing row at a given value of the primary key. If a row with the specified primary key value does not exist, it is created. If the row exists already, the column values of the existing row are replaced with the new values. *However, the values of columns not involved in the operation are not changed. This is what makes it different from the REPLACE statement.*
+The [UPSERT](https://ydb.tech/docs/en/yql/reference/syntax/upsert_into) statement is used to add a new or change an existing row at a given value of the primary key. If a row with the specified primary key value does not exist, it is created. If the row exists already, the column values of the existing row are replaced with the new values. *However, the values of columns not involved in the operation are not changed. This is what makes it different from the REPLACE statement.*
 
 {% note info %}
 
@@ -128,7 +128,7 @@ VALUES
 
 ### INSERT {#insert}
 
-The [INSERT](https://ydb.tech/en/docs/yql/reference/syntax/insert_into) statement is used to insert one or more rows. If you try to insert a row into a table with an existing primary key value, {{ ydb-short-name }} returns the following error message: `Transaction rolled back due to constraint violation: insert_pk.`.
+The [INSERT](https://ydb.tech/docs/en/yql/reference/syntax/insert_into) statement is used to insert one or more rows. If you try to insert a row into a table with an existing primary key value, {{ ydb-short-name }} returns the following error message: `Transaction rolled back due to constraint violation: insert_pk.`.
 
 {% note info %}
 
@@ -160,7 +160,7 @@ VALUES
 
 ### UPDATE {#update}
 
-The [UPDATE](https://ydb.tech/en/docs/yql/reference/syntax/update) statement changes the values of columns for the table rows filtered by the WHERE clause. Basic syntax:
+The [UPDATE](https://ydb.tech/docs/en/yql/reference/syntax/update) statement changes the values of columns for the table rows filtered by the WHERE clause. Basic syntax:
 
 ```sql
 UPDATE <table_name> SET <column_1_name>=<new_column_1_value>, ... ,<column_N_name>=<new_column_N_value> WHERE <condition_for_row_filter>;
@@ -180,7 +180,7 @@ WHERE
 
 ### DELETE {#delete}
 
-The [DELETE](https://ydb.tech/en/docs/yql/reference/syntax/delete) statement deletes the rows from the table filtered by the WHERE clause. The code below removes an `episode` with `series_id = 2`, `season_id = 5`, and `episode_id = 21` from the episodes table.
+The [DELETE](https://ydb.tech/docs/en/yql/reference/syntax/delete) statement deletes the rows from the table filtered by the WHERE clause. The code below removes an `episode` with `series_id = 2`, `season_id = 5`, and `episode_id = 21` from the episodes table.
 
 ```sql
 DELETE
@@ -194,7 +194,7 @@ WHERE
 
 ## Query data using SELECT {#select}
 
-To read data in the table, use the [SELECT](https://ydb.tech/en/docs/yql/reference/syntax/select) statement.
+To read data in the table, use the [SELECT](https://ydb.tech/docs/en/yql/reference/syntax/select) statement.
 
 To query data from the `series` table, execute the code shown below.
 
@@ -216,7 +216,7 @@ FROM series;
 
 {% note info %}
 
-To learn more about querying data by a secondary index, [read the YQL documentation](https://ydb.tech/en/docs/yql/reference/syntax/select#secondary_index).
+To learn more about querying data by a secondary index, [read the YQL documentation](https://ydb.tech/docs/en/yql/reference/syntax/select#secondary_index).
 
 {% endnote %}
 

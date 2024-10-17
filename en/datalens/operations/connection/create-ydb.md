@@ -11,7 +11,7 @@ description: Follow this guide to create a connection to {{ ydb-name }}.
 To create a connection, you will need a [service account](../../../iam/concepts/users/service-accounts.md) with the **ydb.viewer** or **viewer** [role](../../../iam/operations/sa/assign-role-for-sa.md).
 
 
-To write subqueries in datasets and queries in QL charts, use [YQL syntax](https://ydb.tech/en/docs/yql/reference/syntax/).
+To write subqueries in datasets and queries in QL charts, use [YQL syntax](https://ydb.tech/docs/en/yql/reference/syntax/).
 
 {% endnote %}
 

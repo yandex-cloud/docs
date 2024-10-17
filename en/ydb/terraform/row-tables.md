@@ -60,18 +60,18 @@ Full list of fields in the `yandex_ydb_table` resource:
 |connection_string|`string`|`required`|Connection string|
 |column|`array[column]`|`required`|Column data type|
 |family|`array[family]`|`optional`|Column group|
-|primary_key|`array[string]`|`required`|[Table primary key](https://ydb.tech/ru/docs/yql/reference/syntax/create_table)|
+|primary_key|`array[string]`|`required`|[Table primary key](https://ydb.tech/docs/ru/yql/reference/syntax/create_table)|
 |ttl|`ttl`|`optional`|TTL settings|
 |attributes|`map[string]string`|`optional`|Table attributes|
 |partitioning_settings|`partitioning_settings`|`optional`|Partitioning settings|
-|key_bloom_filter|`boolean`|`optional`|Using the [Bloom filter for the primary key](https://ydb.tech/ru/docs/concepts/datamodel/table#bloom-filter)|
-|read_replicas_settings|`string`|`optional`|[Read replication settings](https://ydb.tech/ru/docs/concepts/datamodel/table#read_only_replicas)|
+|key_bloom_filter|`boolean`|`optional`|Using the [Bloom filter for the primary key](https://ydb.tech/docs/ru/concepts/datamodel/table#bloom-filter)|
+|read_replicas_settings|`string`|`optional`|[Read replication settings](https://ydb.tech/docs/ru/concepts/datamodel/table#read_only_replicas)|
 
 In the `yandex_ydb_table` section, there are nested `column` sections to describe individual column properties, such as:
 | **Field name** | **Type** | **Description** |
 | --- | --- | --- |
 |name|`string`<br>`required`|Column name|
-|type|`string`<br>`required`|Column data type. [YQL data types](https://ydb.tech/ru/docs/yql/reference/types/) are used.|
+|type|`string`<br>`required`|Column data type. [YQL data types](https://ydb.tech/docs/ru/yql/reference/types/) are used.|
 |family|`string`<br>`optional`|Column group|
 |not_null|`boolean`<br>`optional`<br>Default: `false`|A column cannot have the NULL data type.|
 
@@ -91,7 +91,7 @@ Currently, you cannot delete a column using {{ TF }}, you can only add one. To d
 
 {% endnote %}
 
-You can group columns into [families](https://ydb.tech/ru/docs/yql/reference/syntax/create_table#column-family) to set shared parameters for them, such as the following:
+You can group columns into [families](https://ydb.tech/docs/ru/yql/reference/syntax/create_table#column-family) to set shared parameters for them, such as the following:
 * `DATA`: Type of storage device for column data in this family (acceptable values: `ssd`, `rot` (from HDD spindle rotation)).
 * `COMPRESSION`: Data codec (acceptable values: `off`, `lz4`).
 
@@ -136,7 +136,7 @@ resource "yandex_ydb_table" "test_table" {
 }
 ```
 
-{{ ydb-short-name }} allows you to create a [TTL column](https://ydb.tech/en/docs/concepts/ttl), i.e., a special column type, whose values determine the time-to-live for rows. The TTL mechanism automatically deletes the item from your table after the specified number of seconds elapses from the time set in the TTL column. You can define only a single TTL column. Here are the possible TTL column types: `Date`, `Datetime`, `Timestamp`, `Uint32`, `Uint64`, and `DyNumber`.
+{{ ydb-short-name }} allows you to create a [TTL column](https://ydb.tech/docs/en/concepts/ttl), i.e., a special column type, whose values determine the time-to-live for rows. The TTL mechanism automatically deletes the item from your table after the specified number of seconds elapses from the time set in the TTL column. You can define only a single TTL column. Here are the possible TTL column types: `Date`, `Datetime`, `Timestamp`, `Uint32`, `Uint64`, and `DyNumber`.
 
 The TTL column is configured by the following section:
 ```tf

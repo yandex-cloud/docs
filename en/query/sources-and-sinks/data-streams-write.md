@@ -114,7 +114,7 @@ The processing results are written to the {{ yds-full-name }} output stream. To 
     ))))
 ```
 
-The YQL documentation provides a detailed description of modules such as [Yson](https://ydb.tech/en/docs/yql/reference/udf/list/yson), [Json](https://ydb.tech/en/docs/yql/reference/types/json) and [its functions](https://ydb.tech/en/docs/yql/reference/builtins/json), [<|"key": value|>](https://ydb.tech/en/docs/yql/reference/builtins/struct).
+The YQL documentation provides a detailed description of modules such as [Yson](https://ydb.tech/docs/en/yql/reference/udf/list/yson), [Json](https://ydb.tech/docs/en/yql/reference/types/json) and [its functions](https://ydb.tech/docs/en/yql/reference/builtins/json), [<|"key": value|>](https://ydb.tech/docs/en/yql/reference/builtins/struct).
 
 ## Supported write formats
 

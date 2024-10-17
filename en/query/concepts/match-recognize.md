@@ -307,7 +307,7 @@ ORDER BY orderItem1 [ ... , orderItemN] [ASC]
 orderItem ::= { <column_names> | <expression> }
 ```
 
-`ORDER BY` determines sorting of the input data. That is, before all pattern search operations are performed, the data will be pre-sorted according to the specified keys or expressions. The syntax is similar to the `ORDER BY` SQL expression. Sorting is only allowed by fields of the [TimeStamp](https://ydb.tech/en/docs/yql/reference/types/primitive#datetime) type, with only ascending direction (`ASC`) supported.
+`ORDER BY` determines sorting of the input data. That is, before all pattern search operations are performed, the data will be pre-sorted according to the specified keys or expressions. The syntax is similar to the `ORDER BY` SQL expression. Sorting is only allowed by fields of the [TimeStamp](https://ydb.tech/docs/en/yql/reference/types/primitive#datetime) type, with only ascending direction (`ASC`) supported.
 
 ##### **Example** {#order_by-example}
 
@@ -340,7 +340,7 @@ PARTITION BY building
 ## Limitations {#limitations}
 
 Our support for the `MATCH_RECOGNIZE` command will eventually comply with [SQL-2016](https://ru.wikipedia.org/wiki/SQL:2016); currently, however, the following limitations apply:
-- [`ORDER_BY`](#order_by). As sorting columns, you can specify exactly one column (expression) with the [`Timestamp`](https://ydb.tech/en/docs/yql/reference/types/primitive#datetime) type. Only the ascending (`ASC`) sorting order is supported.
+- [`ORDER_BY`](#order_by). As sorting columns, you can specify exactly one column (expression) with the [`Timestamp`](https://ydb.tech/docs/en/yql/reference/types/primitive#datetime) type. Only the ascending (`ASC`) sorting order is supported.
 - [`MEASURES`](#measures). Neither aggregation functions nor `PREV`/`NEXT` are supported.
 - [`ROWS PER MATCH`](#rows_per_match). Only the `ONE ROW PER MATCH` mode is supported; `ALL ROWS PER MATCH` is not.
 - [`PATTERN`](#pattern). Union pattern variables are not implemented.
