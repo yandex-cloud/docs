@@ -97,7 +97,7 @@
 
 - API {#api}
 
-  Чтобы зарезервировать статический публичный IP-адрес, воспользуйтесь методом REST API [create](../api-ref/Address/create.md) для ресурса [Address](../api-ref/Address/index.md) или вызовом gRPC API [AddressService/Create](../api-ref/grpc/address_service.md#Create) и передайте в запросе:
+  Чтобы зарезервировать статический публичный IP-адрес, воспользуйтесь методом REST API [create](../api-ref/Address/create.md) для ресурса [Address](../api-ref/Address/index.md) или вызовом gRPC API [AddressService/Create](../api-ref/grpc/Address/create.md) и передайте в запросе:
 
     * Идентификатор каталога, в котором будет размещен статический IP-адрес, в параметре `folderId`.
     * Имя статического публичного IP-адреса в параметре `name`. Формат имени:

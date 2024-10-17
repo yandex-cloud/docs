@@ -139,6 +139,6 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Чтобы ограничить максимальный размер бакета, воспользуйтесь методом REST API [update](../../api-ref/Bucket/update.md) для ресурса [Bucket](../../api-ref/Bucket/index.md) или вызовом gRPC API [BucketService/Update](../../api-ref/grpc/bucket_service.md#Update).
+  Чтобы ограничить максимальный размер бакета, воспользуйтесь методом REST API [update](../../api-ref/Bucket/update.md) для ресурса [Bucket](../../api-ref/Bucket/index.md) или вызовом gRPC API [BucketService/Update](../../api-ref/grpc/Bucket/update.md).
 
 {% endlist %}

@@ -118,6 +118,6 @@
 
 - API {#api}
 
-  Чтобы создать [ревизию](../../serverless-containers/concepts/container.md#revision) [контейнера](../../serverless-containers/concepts/container.md), воспользуйтесь методом REST API [deployRevision](../../serverless-containers/containers/api-ref/Container/deployRevision.md) для ресурса [Container](../../serverless-containers/containers/api-ref/Container/index.md) или вызовом gRPC API [ContainerService/DeployRevision](../../serverless-containers/containers/api-ref/grpc/container_service.md#DeployRevision).
+  Чтобы создать [ревизию](../../serverless-containers/concepts/container.md#revision) [контейнера](../../serverless-containers/concepts/container.md), воспользуйтесь методом REST API [deployRevision](../../serverless-containers/containers/api-ref/Container/deployRevision.md) для ресурса [Container](../../serverless-containers/containers/api-ref/Container/index.md) или вызовом gRPC API [ContainerService/DeployRevision](../../serverless-containers/containers/api-ref/grpc/Container/deployRevision.md).
 
 {% endlist %}

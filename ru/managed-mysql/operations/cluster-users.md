@@ -53,7 +53,7 @@
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Воспользуйтесь вызовом [UserService/List](../api-ref/grpc/user_service.md#List) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [UserService/List](../api-ref/grpc/User/list.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
       ```bash
       grpcurl \
@@ -71,7 +71,7 @@
 
       Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/user_service.md#ListUsersResponse).
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/User/list.mdUsersResponse).
 
 {% endlist %}
 
@@ -257,7 +257,7 @@
 
       Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-  1. Воспользуйтесь вызовом [UserService/Create](../api-ref/grpc/user_service.md#Create) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [UserService/Create](../api-ref/grpc/User/create.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
       ```bash
       grpcurl \
@@ -272,7 +272,7 @@
           < body.json
       ```
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/user_service.md#Operation).
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/User/create.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 
@@ -381,7 +381,7 @@
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Воспользуйтесь вызовом [UserService/Update](../api-ref/grpc/user_service.md#Update) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [UserService/Update](../api-ref/grpc/User/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
       {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -418,7 +418,7 @@
 
       Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), а имя пользователя — со [списком пользователей в кластере](#list-users).
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/user_service.md#Operation1).
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/User/create.md#yandex.cloud.operation.Operation1).
 
 {% endlist %}
 
@@ -578,7 +578,7 @@
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Воспользуйтесь вызовом [UserService/Update](../api-ref/grpc/user_service.md#Update) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [UserService/Update](../api-ref/grpc/User/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
       {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -620,7 +620,7 @@
       Где:
 
       * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
-      * `global_permissions` — массив административных привилегий. Каждая привилегия представлена в виде отдельной строки в массиве. Список доступных значений см. в [описании метода](../api-ref/grpc/user_service.md#UpdateUserRequest).
+      * `global_permissions` — массив административных привилегий. Каждая привилегия представлена в виде отдельной строки в массиве. Список доступных значений см. в [описании метода](../api-ref/grpc/User/update.mdUserRequest).
       * `connection_limits` — настройки подключений для пользователя:
 
           * `max_questions_per_hour` — максимальное количество запросов в час;
@@ -630,11 +630,11 @@
 
           Минимальное значение для каждой настройки подключений — `0`.
 
-      * `authentication_plugin` — плагин аутентификации пользователя. Список доступных плагинов см. в [описании метода](../api-ref/grpc/user_service.md#UpdateUserRequest).
+      * `authentication_plugin` — плагин аутентификации пользователя. Список доступных плагинов см. в [описании метода](../api-ref/grpc/User/update.mdUserRequest).
 
       Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), а имя пользователя — со [списком пользователей в кластере](#list-users).
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/user_service.md#Operation1).
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/User/create.md#yandex.cloud.operation.Operation1).
 
 {% endlist %}
 
@@ -706,7 +706,7 @@
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Воспользуйтесь вызовом [UserService/Delete](../api-ref/grpc/user_service.md#Delete) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [UserService/Delete](../api-ref/grpc/User/delete.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
       ```bash
       grpcurl \
@@ -725,7 +725,7 @@
 
       Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), а имя пользователя — со [списком пользователей в кластере](#list-users).
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/user_service.md#Operation2).
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/User/create.md#yandex.cloud.operation.Operation2).
 
 {% endlist %}
 

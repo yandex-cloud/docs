@@ -3,10 +3,13 @@ editable: false
 sourcePath: en/_api-ref/iot/broker/v1/broker/api-ref/BrokerData/index.md
 ---
 
-# IoT Core Broker Service, REST: BrokerData methods
+# IoT Core Broker Service, REST: BrokerData
+
 A set of methods to work with IoT Core messages on behalf of broker
 
-## Methods {#methods}
-Method | Description
---- | ---
-[publish](publish.md) | Publishes message on behalf of specified broker
+## Methods
+
+#|
+||Method | Description ||
+|| [Publish](publish.md) | Publishes message on behalf of specified broker ||
+|#

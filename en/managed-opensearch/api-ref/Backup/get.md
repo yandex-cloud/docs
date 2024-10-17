@@ -3,26 +3,30 @@ editable: false
 sourcePath: en/_api-ref/mdb/opensearch/v1/api-ref/Backup/get.md
 ---
 
-# Managed Service for OpenSearch API, REST: Backup.get
-Returns the specified backup of an OpenSearch cluster.
- 
+# Managed Service for OpenSearch API, REST: Backup.Get {#Get}
 
- 
-## HTTP request {#https-request}
+Returns the specified backup of an OpenSearch cluster.
+
+## HTTP request
+
 ```
 GET https://{{ api-host-mdb }}/managed-opensearch/v1/backups/{backupId}
 ```
- 
-## Path parameters {#path_params}
- 
-Parameter | Description
---- | ---
-backupId | <p>Required. ID of the backup to return.</p> 
- 
-## Response {#responses}
+
+## Path parameters
+
+#|
+||Field | Description ||
+|| backupId | **string**
+
+Required field. ID of the backup to return. ||
+|#
+
+## Response {#yandex.cloud.mdb.opensearch.v1.Backup}
+
 **HTTP Code: 200 - OK**
 
-```json 
+```json
 {
   "id": "string",
   "folderId": "string",
@@ -38,15 +42,47 @@ backupId | <p>Required. ID of the backup to return.</p>
 }
 ```
 
- 
-Field | Description
---- | ---
-id | **string**<br><p>Required. ID of the backup.</p> 
-folderId | **string**<br><p>ID of the folder that the backup belongs to.</p> 
-sourceClusterId | **string**<br><p>ID of the OpenSearch cluster that the backup was created for.</p> 
-startedAt | **string** (date-time)<br><p>Time when the backup operation was started.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
-createdAt | **string** (date-time)<br><p>Time when the backup operation was completed.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
-indices[] | **string**<br><p>Names of indices in the backup.</p> <p>The maximum number of elements is 100.</p> 
-opensearchVersion | **string**<br><p>OpenSearch version used to create the backup.</p> 
-sizeBytes | **string** (int64)<br><p>Size of the backup in bytes.</p> 
-indicesTotal | **string** (int64)<br><p>The number of indices in the backup.</p> 
+#|
+||Field | Description ||
+|| id | **string**
+
+Required. ID of the backup. ||
+|| folderId | **string**
+
+ID of the folder that the backup belongs to. ||
+|| sourceClusterId | **string**
+
+ID of the OpenSearch cluster that the backup was created for. ||
+|| startedAt | **string** (date-time)
+
+Time when the backup operation was started.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| createdAt | **string** (date-time)
+
+Time when the backup operation was completed.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| indices[] | **string**
+
+Names of indices in the backup. ||
+|| opensearchVersion | **string**
+
+OpenSearch version used to create the backup. ||
+|| sizeBytes | **string** (int64)
+
+Size of the backup in bytes. ||
+|| indicesTotal | **string** (int64)
+
+The number of indices in the backup. ||
+|#

@@ -10,7 +10,7 @@ description:
   - >-
     Для сервиса действует <a href="https://yandex.ru/legal/cloud_sla">соглашение
     об уровне обслуживания</a>. Уровень обслуживания сервиса определен в
-    документе <a href="https://yandex.ru/legal/cloud_terms_speechsense">Уровень
+    документе <a href="https://yandex.ru/legal/cloud_sla_speechsense/">Уровень
     обслуживания {{ speechsense-full-name }}</a>.
   - >-
     Правила использования сервиса определены в документе <a href

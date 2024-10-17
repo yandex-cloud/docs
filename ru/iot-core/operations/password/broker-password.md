@@ -71,7 +71,7 @@ description: Из статьи вы узнаете, как получить сп
 
 - API {#api}
 
-  Чтобы добавить пароль брокеру, воспользуйтесь методом REST API [addPassword](../../broker/api-ref/Broker/addPassword.md) для ресурса [Broker](../../broker/api-ref/Broker/index.md) или вызовом gRPC API [BrokerService/AddPassword](../../broker/api-ref/grpc/broker_service.md#AddPassword).
+  Чтобы добавить пароль брокеру, воспользуйтесь методом REST API [addPassword](../../broker/api-ref/Broker/addPassword.md) для ресурса [Broker](../../broker/api-ref/Broker/index.md) или вызовом gRPC API [BrokerService/AddPassword](../../broker/api-ref/grpc/Broker/addPassword.md).
 
 {% endlist %}
 
@@ -108,7 +108,7 @@ description: Из статьи вы узнаете, как получить сп
 
 - API {#api}
 
-  Чтобы задать пароль брокеру при создании, воспользуйтесь методом REST API [create](../../broker/api-ref/Broker/create.md) для ресурса [Broker](../../broker/api-ref/Broker/index.md) или вызовом gRPC API [BrokerService/Create](../../broker/api-ref/grpc/broker_service.md#Create).
+  Чтобы задать пароль брокеру при создании, воспользуйтесь методом REST API [create](../../broker/api-ref/Broker/create.md) для ресурса [Broker](../../broker/api-ref/Broker/index.md) или вызовом gRPC API [BrokerService/Create](../../broker/api-ref/grpc/Broker/create.md).
 
 {% endlist %}
 
@@ -163,7 +163,7 @@ description: Из статьи вы узнаете, как получить сп
 
 - API {#api}
 
-  Чтобы получить список паролей брокера, воспользуйтесь методом REST API [listPasswords](../../broker/api-ref/Broker/listPasswords.md) для ресурса [Broker](../../broker/api-ref/Broker/index.md) или вызовом gRPC API [BrokerService/ListPasswords](../../broker/api-ref/grpc/broker_service.md#ListPasswords).
+  Чтобы получить список паролей брокера, воспользуйтесь методом REST API [listPasswords](../../broker/api-ref/Broker/listPasswords.md) для ресурса [Broker](../../broker/api-ref/Broker/index.md) или вызовом gRPC API [BrokerService/ListPasswords](../../broker/api-ref/grpc/Broker/listPasswords.md).
 
 {% endlist %}
    
@@ -222,6 +222,6 @@ description: Из статьи вы узнаете, как получить сп
 
 - API {#api}
 
-  Чтобы удалить пароль брокера, воспользуйтесь методом REST API [deletePassword](../../broker/api-ref/Broker/deletePassword.md) для ресурса [Broker](../../broker/api-ref/Broker/index.md) или вызовом gRPC API [BrokerService/DeletePassword](../../broker/api-ref/grpc/broker_service.md#DeletePassword).
+  Чтобы удалить пароль брокера, воспользуйтесь методом REST API [deletePassword](../../broker/api-ref/Broker/deletePassword.md) для ресурса [Broker](../../broker/api-ref/Broker/index.md) или вызовом gRPC API [BrokerService/DeletePassword](../../broker/api-ref/grpc/Broker/deletePassword.md).
 
 {% endlist %}       

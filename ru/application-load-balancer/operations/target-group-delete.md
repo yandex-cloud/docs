@@ -94,6 +94,6 @@ description: Чтобы удалить целевую группу, в конс�
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [delete](../api-ref/TargetGroup/delete.md) для ресурса [TargetGroup](../api-ref/TargetGroup/index.md) или вызовом gRPC API [TargetGroupService/Delete](../api-ref/grpc/target_group_service.md#Delete).
+  Воспользуйтесь методом REST API [delete](../api-ref/TargetGroup/delete.md) для ресурса [TargetGroup](../api-ref/TargetGroup/index.md) или вызовом gRPC API [TargetGroupService/Delete](../api-ref/grpc/TargetGroup/delete.md).
 
 {% endlist %}

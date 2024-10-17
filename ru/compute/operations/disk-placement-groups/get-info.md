@@ -93,6 +93,6 @@ title: Как получить информацию о группе размещ
 
 - API {#api}
 
-  Чтобы получить подробную информацию о [группе размещения дисков](../../concepts/disk-placement-group.md), воспользуйтесь методом REST API [get](../../api-ref/DiskPlacementGroup/get.md) для ресурса [DiskPlacementGroup](../../api-ref/DiskPlacementGroup/index.md), или вызовом gRPC API [DiskPlacementGroupService/Get](../../api-ref/grpc/disk_placement_group_service.md#Get).
+  Чтобы получить подробную информацию о [группе размещения дисков](../../concepts/disk-placement-group.md), воспользуйтесь методом REST API [get](../../api-ref/DiskPlacementGroup/get.md) для ресурса [DiskPlacementGroup](../../api-ref/DiskPlacementGroup/index.md), или вызовом gRPC API [DiskPlacementGroupService/Get](../../api-ref/grpc/DiskPlacementGroup/get.md).
 
 {% endlist %}

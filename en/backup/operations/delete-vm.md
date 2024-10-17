@@ -53,6 +53,6 @@ To delete a VM from {{ backup-name }}:
 
 - API {#api}
 
-   Use the [delete](../backup/api-ref/Resource/delete.md) REST API method for the [Resource](../backup/api-ref/Resource/index.md) resource or the [ResourceService/Delete](../backup/api-ref/grpc/resource_service.md#Delete) gRPC API call.
+   Use the [delete](../backup/api-ref/Resource/delete.md) REST API method for the [Resource](../backup/api-ref/Resource/index.md) resource or the [ResourceService/Delete](../backup/api-ref/grpc/Resource/delete.md) gRPC API call.
 
 {% endlist %}

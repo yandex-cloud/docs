@@ -202,7 +202,7 @@
 
    - API {#api}
 
-     Воспользуйтесь методом [CreateFromYaml](../../compute/api-ref/InstanceGroup/createFromYaml.md) для ресурса `InstanceGroup`.
+     Воспользуйтесь методом [CreateFromYaml](../../compute/instancegroup/api-ref/InstanceGroup/createFromYaml.md) для ресурса `InstanceGroup`.
 
    {% endlist %}
 
@@ -236,7 +236,7 @@
 
    - API {#api}
 
-     Посмотрите список созданных ВМ с помощью метода [List](../../compute/api-ref/InstanceGroup/list.md) для ресурса `InstanceGroup`.
+     Посмотрите список созданных ВМ с помощью метода [List](../../compute/instancegroup/api-ref/InstanceGroup/list.md) для ресурса `InstanceGroup`.
 
    {% endlist %}
 

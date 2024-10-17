@@ -86,7 +86,7 @@
 
 - API {#api}
 
-   1. Get the list of disks using the [list](../../compute/api-ref/Disk/list.md) REST API method for the [Disk](../../compute/api-ref/Disk/index.md) resource or the [DiskService/List](../../compute/api-ref/grpc/disk_service.md#List) gRPC API call.
-   1. Create a snapshot using the [create](../../compute/api-ref/Snapshot/create.md) REST API method for the [Snapshot](../../compute/api-ref/Snapshot/index.md) resource or the [SnapshotService/Create](../../compute/api-ref/grpc/snapshot_service.md#Create) gRPC API call.
+   1. Get the list of disks using the [list](../../compute/api-ref/Disk/list.md) REST API method for the [Disk](../../compute/api-ref/Disk/index.md) resource or the [DiskService/List](../../compute/api-ref/grpc/Disk/list.md) gRPC API call.
+   1. Create a snapshot using the [create](../../compute/api-ref/Snapshot/create.md) REST API method for the [Snapshot](../../compute/api-ref/Snapshot/index.md) resource or the [SnapshotService/Create](../../compute/api-ref/grpc/Snapshot/create.md) gRPC API call.
 
 {% endlist %}

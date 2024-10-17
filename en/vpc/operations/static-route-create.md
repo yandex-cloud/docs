@@ -197,7 +197,7 @@ The `0.0.0.0/0` default static route is used for VMs with public IP addresses. I
 
 - API {#api}
 
-  To create a route table and add [static routes](../concepts/routing.md) to it, use the [create](../api-ref/RouteTable/create.md) REST API method for the [RouteTable](../api-ref/RouteTable/index.md) resource or the [RouteTableService/Create](../api-ref/grpc/route_table_service.md#Create) gRPC API call, and provide the following in the request:
+  To create a route table and add [static routes](../concepts/routing.md) to it, use the [create](../api-ref/RouteTable/create.md) REST API method for the [RouteTable](../api-ref/RouteTable/index.md) resource or the [RouteTableService/Create](../api-ref/grpc/RouteTable/create.md) gRPC API call, and provide the following in the request:
 
   * ID of the folder the route table will reside in, in the `folderId` parameter.
   * Route table name in the `name` parameter. The name format is as follows:
@@ -207,7 +207,7 @@ The `0.0.0.0/0` default static route is used for VMs with public IP addresses. I
   * Destination subnet prefix in CIDR notation in the `staticRoutes[].destinationPrefix` parameter.
   * Internal IP address of the VM the traffic will be routed through in the `staticRoutes[].nextHopAddress` parameter. The IP address must be within the [allowed range](../concepts/network.md#subnet).
 
-  To use static routes, link the route table to a subnet. Use the [update](../api-ref/Subnet/update.md) REST API method for the [Subnet](../api-ref/Subnet/index.md) resource or the [SubnetService/Update](../api-ref/grpc/subnet_service.md#Update) gRPC API call and provide the following in the request:
+  To use static routes, link the route table to a subnet. Use the [update](../api-ref/Subnet/update.md) REST API method for the [Subnet](../api-ref/Subnet/index.md) resource or the [SubnetService/Update](../api-ref/grpc/Subnet/update.md) gRPC API call and provide the following in the request:
 
   * Network ID in the `subnetId` parameter.
 

@@ -315,7 +315,7 @@ To update the parameters of an L7 load balancer:
 
 - API {#api}
 
-  Use the [update](../api-ref/LoadBalancer/update.md) REST API method for the [LoadBalancer](../api-ref/LoadBalancer/index.md) resource or the [LoadBalancerService/Update](../api-ref/grpc/load_balancer_service.md#Update) gRPC API call.
+  Use the [update](../api-ref/LoadBalancer/update.md) REST API method for the [LoadBalancer](../api-ref/LoadBalancer/index.md) resource or the [LoadBalancerService/Update](../api-ref/grpc/LoadBalancer/update.md) gRPC API call.
 
 {% endlist %}
 
@@ -434,6 +434,6 @@ To delete a listener for your L7 load balancer:
 
 - API {#api}
 
-  Use the [removeListener](../api-ref/LoadBalancer/removeListener.md) REST API method for the [LoadBalancer](../api-ref/LoadBalancer/index.md) resource or the [LoadBalancerService/RemoveListener](../api-ref/grpc/load_balancer_service.md#RemoveListener) gRPC API call.
+  Use the [removeListener](../api-ref/LoadBalancer/removeListener.md) REST API method for the [LoadBalancer](../api-ref/LoadBalancer/index.md) resource or the [LoadBalancerService/RemoveListener](../api-ref/grpc/LoadBalancer/removeListener.md) gRPC API call.
 
 {% endlist %}

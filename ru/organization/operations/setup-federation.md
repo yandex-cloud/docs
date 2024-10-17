@@ -308,7 +308,7 @@
           }
           ```
 
-      1. Воспользуйтесь методом REST API [create](../api-ref/Certificate/create.md) для ресурса [Certificate](../api-ref/Certificate/index.md) или вызовом gRPC API [CertificateService/Create](../../grpc/certificate_service#Create) и передайте в запросе файл с параметрами запроса.
+      1. Воспользуйтесь методом REST API [create](../saml/api-ref/Certificate/create.md) для ресурса [Certificate](../saml/api-ref/Certificate/index.md) или вызовом gRPC API [CertificateService/Create](../../grpc/certificate_service#Create) и передайте в запросе файл с параметрами запроса.
 
       Пример cURL-запроса:
 

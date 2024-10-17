@@ -89,7 +89,7 @@ A service account is created inside a [folder](../../../resource-manager/concept
 
 - API {#api}
 
-  To create a service account, use the [create](../../api-ref/ServiceAccount/create.md) REST API method for the [ServiceAccount](../../api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/Create](../../api-ref/grpc/service_account_service.md#Create) gRPC API call.
+  To create a service account, use the [create](../../api-ref/ServiceAccount/create.md) REST API method for the [ServiceAccount](../../api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/Create](../../api-ref/grpc/ServiceAccount/create.md) gRPC API call.
 
 {% endlist %}
 

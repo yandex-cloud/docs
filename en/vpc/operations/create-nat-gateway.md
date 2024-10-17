@@ -138,14 +138,14 @@ To create and set up a NAT gateway:
 
 - API {#api}
 
-   1. Create a NAT gateway. Use the [create](../api-ref/Gateway/create.md) REST API method for the [Gateway](../api-ref/Gateway/index.md) resource or the [GatewayService/Create](../api-ref/grpc/gateway_service.md#Create) gRPC API call, and provide the following in the request:
+   1. Create a NAT gateway. Use the [create](../api-ref/Gateway/create.md) REST API method for the [Gateway](../api-ref/Gateway/index.md) resource or the [GatewayService/Create](../api-ref/grpc/Gateway/create.md) gRPC API call, and provide the following in the request:
 
       * ID of the folder where the gateway will be placed, in the `folderId` parameter.
       * Gateway name, in the `name` parameter. The name format is as follows:
 
          {% include [name-format](../../_includes/name-format.md) %}
 
-   1. Link the NAT gateway to the new routing table. For this, use the [create](../api-ref/RouteTable/create.md) REST API method for the [RouteTable](../api-ref/RouteTable/index.md) resource or the [RouteTableService/Create](../api-ref/grpc/route_table_service.md#Create) gRPC API call, and provide the following in the request:
+   1. Link the NAT gateway to the new routing table. For this, use the [create](../api-ref/RouteTable/create.md) REST API method for the [RouteTable](../api-ref/RouteTable/index.md) resource or the [RouteTableService/Create](../api-ref/grpc/RouteTable/create.md) gRPC API call, and provide the following in the request:
 
       * ID of the folder where the route table will be placed, in the `folderId` parameter.
       * Route table name, in the `name` parameter. The name format is as follows:
@@ -157,7 +157,7 @@ To create and set up a NAT gateway:
 
          {% include [get-nat-gateway](../../_includes/vpc/get-nat-gateway.md) %}
 
-   1. Link the route table to the subnet. For this, use the [update](../api-ref/Subnet/update.md) REST API method for the [Subnet](../api-ref/Subnet/index.md) resource or the [SubnetService/Update](../api-ref/grpc/subnet_service.md#Update) gRPC API call, and provide the following in the request:
+   1. Link the route table to the subnet. For this, use the [update](../api-ref/Subnet/update.md) REST API method for the [Subnet](../api-ref/Subnet/index.md) resource or the [SubnetService/Update](../api-ref/grpc/Subnet/update.md) gRPC API call, and provide the following in the request:
 
       * Subnet ID, in the `subnetId` parameter.
 

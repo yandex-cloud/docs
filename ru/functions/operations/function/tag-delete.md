@@ -103,7 +103,7 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-    Чтобы удалить тег версии функции, воспользуйтесь методом REST API [removeTag](../../functions/api-ref/Function/removeTag.md) для ресурса [Function](../../functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/RemoveTag](../../functions/api-ref/grpc/function_service.md#RemoveTag).
+    Чтобы удалить тег версии функции, воспользуйтесь методом REST API [removeTag](../../functions/api-ref/Function/removeTag.md) для ресурса [Function](../../functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/RemoveTag](../../functions/api-ref/grpc/Function/removeTag.md).
 
 
 - {{ yandex-cloud }} Toolkit {#yc-toolkit}

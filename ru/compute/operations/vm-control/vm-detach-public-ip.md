@@ -37,6 +37,6 @@
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [removeOneToOneNat](../../api-ref/Instance/removeOneToOneNat.md) для ресурса [Instance](../../api-ref/Instance/) или вызовом gRPC API [InstanceService/RemoveOneToOneNat](../../api-ref/grpc/instance_service.md#RemoveOneToOneNat).
+  Воспользуйтесь методом REST API [removeOneToOneNat](../../api-ref/Instance/removeOneToOneNat.md) для ресурса [Instance](../../api-ref/Instance/) или вызовом gRPC API [InstanceService/RemoveOneToOneNat](../../api-ref/grpc/Instance/removeOneToOneNat.md).
 
 {% endlist %}

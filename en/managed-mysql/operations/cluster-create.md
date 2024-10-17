@@ -346,7 +346,7 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
 - API {#api}
 
-   To create a {{ MY }} cluster, use the [create](../api-ref/Cluster/create.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Create](../api-ref/grpc/cluster_service.md#Create) gRPC API call and provide the following in the request:
+   To create a {{ MY }} cluster, use the [create](../api-ref/Cluster/create.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Create](../api-ref/grpc/Cluster/create.md) gRPC API call and provide the following in the request:
    * ID of the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to host the {{ mmy-name }} cluster in the `folderId` parameter.
    * {{ mmy-name }} cluster name in the `name` parameter. It must be unique within the folder.
    * {{ mmy-name }} cluster environment in the `environment` parameter.

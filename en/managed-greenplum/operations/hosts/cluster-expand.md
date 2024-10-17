@@ -111,7 +111,7 @@ When a cluster is being expanded, its data is automatically redistributed evenly
 
 - API {#api}
 
-    To expand a cluster, use the [expand](../../api-ref/Cluster/expand.md) REST API method for the [Cluster](../../api-ref/Cluster/index.md) resource or the [ClusterService/Expand](../../api-ref/grpc/cluster_service.md#Expand) gRPC API call and provide the following in the request:
+    To expand a cluster, use the [expand](../../api-ref/Cluster/expand.md) REST API method for the [Cluster](../../api-ref/Cluster/index.md) resource or the [ClusterService/Expand](../../api-ref/grpc/Cluster/expand.md) gRPC API call and provide the following in the request:
 
     * Cluster ID in the `clusterId` parameter.
 

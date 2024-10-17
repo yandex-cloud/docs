@@ -79,6 +79,16 @@ SELECT * FROM <соединение>.<имя_таблицы>
 
 {% include [!](_includes/predicate_pushdown.md) %}
 
+|Тип данных {{ yq-full-name }}|
+|----|
+|`Bool`|
+|`Int8`|
+|`Int16`|
+|`Int32`|
+|`Int64`|
+|`Float`|
+|`Double`|
+
 ## Поддерживаемые типы данных {#supported_types}
 
 В базе данных {{ GP }} признак опциональности значений колонки (разрешено или запрещено колонке содержать значения `NULL`) не является частью системы типов. Ограничение (constraint) `NOT NULL` для каждой колонки реализуется в виде атрибута `attnotnull` в системном каталоге [pg_attribute](https://docs.vmware.com/en/VMware-Greenplum/7/greenplum-database/ref_guide-system_catalogs-pg_attribute.html), то есть на уровне метаданных таблицы. Следовательно, все базовые типы {{ GP }} по умолчанию могут содержать значения `NULL`, и в системе типов {{ yq-short-name }} они должны отображаться в [опциональные](https://ydb.tech/docs/ru/yql/reference/types/optional) типы. 

@@ -83,7 +83,7 @@ description: Следуя данной инструкции, вы сможете
 
 * API {#api}
 
-   Воспользуйтесь вызовом gRPC API [AsymmetricEncryptionKeyService/UpdateAccessBindings](../api-ref/grpc/asymmetric_encryption_key_service.md#UpdateAccessBindings) и передайте в запросе:
+   Воспользуйтесь вызовом gRPC API [AsymmetricEncryptionKeyService/UpdateAccessBindings](../asymmetricencryption/api-ref/grpc/AsymmetricEncryptionKey/updateAccessBindings.md) и передайте в запросе:
 
    * Значение `ADD` в параметре `access_binding_deltas[].action`, чтобы добавить роль.
    * Роль в параметре `access_binding_deltas[].access_binding.role_id`.
@@ -185,7 +185,7 @@ description: Следуя данной инструкции, вы сможете
 
    {% include [set-access-bindings-api](../../_includes/iam/set-access-bindings-api.md) %}
 
-   Воспользуйтесь вызовом gRPC API [AsymmetricEncryptionKeyService/SetAccessBindings](../api-ref/grpc/asymmetric_encryption_key_service.md#SetAccessBindings). Передайте в запросе массив из объектов, каждый из которых соответствует отдельной роли и содержит следующие данные:
+   Воспользуйтесь вызовом gRPC API [AsymmetricEncryptionKeyService/SetAccessBindings](../asymmetricencryption/api-ref/grpc/AsymmetricEncryptionKey/setAccessBindings.md). Передайте в запросе массив из объектов, каждый из которых соответствует отдельной роли и содержит следующие данные:
 
    * Роль в параметре `access_bindings[].role_id`.
    * Идентификатор субъекта, на кого назначаются роли, в параметре `access_bindings[].subject.id`.

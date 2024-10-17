@@ -72,9 +72,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 - API {#api}
 
-  To create a service account, use the [create](../../iam/api-ref/ServiceAccount/create.md) REST API method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/Create](../../iam/api-ref/grpc/service_account_service.md#Create) gRPC API call.
+  To create a service account, use the [create](../../iam/api-ref/ServiceAccount/create.md) REST API method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/Create](../../iam/api-ref/grpc/ServiceAccount/create.md) gRPC API call.
 
-  To assign the service account the `editor` role for the folder, use the [setAccessBindings](../../iam/api-ref/ServiceAccount/setAccessBindings.md) method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/SetAccessBindings](../../iam/api-ref/grpc/service_account_service.md#SetAccessBindings) gRPC API call.
+  To assign the service account the `editor` role for the folder, use the [setAccessBindings](../../iam/api-ref/ServiceAccount/setAccessBindings.md) method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/SetAccessBindings](../../iam/api-ref/grpc/ServiceAccount/setAccessBindings.md) gRPC API call.
 
 {% endlist %}
 
@@ -121,7 +121,7 @@ Create a static access key for the `airflow-sa` service account:
 
 - API {#api}
 
-  To create an access key, use the [create](../../iam/api-ref/AccessKey/create.md) REST API method for the [AccessKey](../../iam/api-ref/AccessKey/index.md) resource or the [AccessKeyService/Create](../../iam/api-ref/grpc/access_key_service.md#Create) gRPC API call.
+  To create an access key, use the [create](../../iam/awscompatibility/api-ref/AccessKey/create.md) REST API method for the [AccessKey](../../iam/awscompatibility/api-ref/AccessKey/index.md) resource or the [AccessKeyService/Create](../../iam/awscompatibility/api-ref/grpc/AccessKey/create.md) gRPC API call.
 
 {% endlist %}
 
@@ -206,9 +206,9 @@ All resources you create in the tutorial will belong to the same [cloud network]
 
 - API {#api}
 
-  1. To create a network, use the [create](../../vpc/api-ref/Network/create.md) REST API method for the [Network](../../vpc/api-ref/Network/index.md) resource or the [NetworkService/Create](../../vpc/api-ref/grpc/network_service.md#Create) gRPC API call.
+  1. To create a network, use the [create](../../vpc/api-ref/Network/create.md) REST API method for the [Network](../../vpc/api-ref/Network/index.md) resource or the [NetworkService/Create](../../vpc/api-ref/grpc/Network/create.md) gRPC API call.
 
-  1. To create subnets, use the [create](../../vpc/api-ref/Subnet/create.md) REST API method for the [Subnet](../../vpc/api-ref/Subnet/index.md) resource or the [SubnetService/Create](../../vpc/api-ref/grpc/subnet_service.md#Create) gRPC API call.
+  1. To create subnets, use the [create](../../vpc/api-ref/Subnet/create.md) REST API method for the [Subnet](../../vpc/api-ref/Subnet/index.md) resource or the [SubnetService/Create](../../vpc/api-ref/grpc/Subnet/create.md) gRPC API call.
 
 {% endlist %}
 
@@ -253,7 +253,7 @@ All resources you create in the tutorial will belong to the same [cloud network]
 
 - API {#api}
 
-  To create a bucket, use the [create](../../storage/api-ref/Bucket/create.md) REST API method for the [Bucket](../../storage/api-ref/Bucket/index.md) resource, the [BucketService/Create](../../storage/api-ref/grpc/bucket_service.md#Create) gRPC API call, or the [create](../../storage/s3/api-ref/bucket/create.md) S3 API method.
+  To create a bucket, use the [create](../../storage/api-ref/Bucket/create.md) REST API method for the [Bucket](../../storage/api-ref/Bucket/index.md) resource, the [BucketService/Create](../../storage/api-ref/grpc/Bucket/create.md) gRPC API call, or the [create](../../storage/s3/api-ref/bucket/create.md) S3 API method.
 
 {% endlist %}
 
@@ -298,7 +298,7 @@ All resources you create in the tutorial will belong to the same [cloud network]
 
 - API {#api}
 
-  To create a NAT gateway, use the [create](../../vpc/api-ref/Gateway/create.md) REST API method for the [Gateway](../../vpc/api-ref/Gateway/index.md) resource or the [GatewayService/Create](../../vpc/api-ref/grpc/gateway_service.md#Create) gRPC API call.
+  To create a NAT gateway, use the [create](../../vpc/api-ref/Gateway/create.md) REST API method for the [Gateway](../../vpc/api-ref/Gateway/index.md) resource or the [GatewayService/Create](../../vpc/api-ref/grpc/Gateway/create.md) gRPC API call.
 
 {% endlist %}
 
@@ -346,7 +346,7 @@ All resources you create in the tutorial will belong to the same [cloud network]
 
 - API {#api}
 
-  To create a route table, use the [create](../../vpc/api-ref/RouteTable/create.md) REST API method for the [RouteTable](../../vpc/api-ref/RouteTable/index.md) resource or the [RouteTableService/Create](../../vpc/api-ref/grpc/route_table_service.md#Create) gRPC API call.
+  To create a route table, use the [create](../../vpc/api-ref/RouteTable/create.md) REST API method for the [RouteTable](../../vpc/api-ref/RouteTable/index.md) resource or the [RouteTableService/Create](../../vpc/api-ref/grpc/RouteTable/create.md) gRPC API call.
 
 {% endlist %}
 
@@ -391,7 +391,7 @@ Link the route table to a subnet to route subnet traffic via the NAT gateway:
 
 - API {#api}
 
-  To link a route table to a subnet, use the [update](../../vpc/api-ref/Subnet/update.md) REST API method for the [Subnet](../../vpc/api-ref/Subnet/index.md) resource or the [SubnetService/Update](../../vpc/api-ref/grpc/subnet_service.md#Update) gRPC API call.
+  To link a route table to a subnet, use the [update](../../vpc/api-ref/Subnet/update.md) REST API method for the [Subnet](../../vpc/api-ref/Subnet/index.md) resource or the [SubnetService/Update](../../vpc/api-ref/grpc/Subnet/update.md) gRPC API call.
 
   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 

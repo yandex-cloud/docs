@@ -84,6 +84,6 @@
 
 - API {#api}
 
-    Use the [Group.update](../../organization/api-ref/Group/update.md) REST API method for the [Group](../../organization/api-ref/Group/index.md) resource or the [GroupService/Update](../../organization/api-ref/grpc/group_service.md#Update) gRPC API call.
+    Use the [Group.update](../../organization/api-ref/Group/update.md) REST API method for the [Group](../../organization/api-ref/Group/index.md) resource or the [GroupService/Update](../../organization/api-ref/grpc/Group/update.md) gRPC API call.
 
 {% endlist %}

@@ -15,6 +15,6 @@ description: Follow this guide to delete a {{ video-full-name }} channel.
 
 - API {#api}
 
-   Use the [ChannelService/Delete](../../api-ref/grpc/channel_service.md#Delete) gRPC API call.
+   Use the [ChannelService/Delete](../../api-ref/grpc/Channel/delete.md) gRPC API call.
 
 {% endlist %}

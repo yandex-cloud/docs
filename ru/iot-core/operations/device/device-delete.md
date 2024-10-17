@@ -97,6 +97,6 @@
 
 - API {#api}
 
-  Чтобы удалить устройство, воспользуйтесь методом REST API [delete](../../api-ref/Device/delete.md) для ресурса [Device](../../api-ref/Device/index.md) или вызовом gRPC API [DeviceService/Delete](../../api-ref/grpc/device_service.md#Delete).
+  Чтобы удалить устройство, воспользуйтесь методом REST API [delete](../../api-ref/Device/delete.md) для ресурса [Device](../../api-ref/Device/index.md) или вызовом gRPC API [DeviceService/Delete](../../api-ref/grpc/Device/delete.md).
 
 {% endlist %}

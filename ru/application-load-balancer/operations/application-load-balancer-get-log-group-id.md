@@ -57,7 +57,7 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [get](../api-ref/LoadBalancer/get.md) для ресурса [LoadBalancer](../api-ref/LoadBalancer/index.md) или вызовом gRPC API [LoadBalancerService/Get](../api-ref/grpc/load_balancer_service.md#Get).
+  Воспользуйтесь методом REST API [get](../api-ref/LoadBalancer/get.md) для ресурса [LoadBalancer](../api-ref/LoadBalancer/index.md) или вызовом gRPC API [LoadBalancerService/Get](../api-ref/grpc/LoadBalancer/get.md).
 
   Идентификатор лог-группы {{ cloud-logging-name }} будет указан в блоке `logOptions` в поле `logGroupId`. Обратите внимание, поле `logGroupId`, приведенное вне блока `logOptions`, содержит другой идентификатор, который относится к устаревшему сервису логирования.
 

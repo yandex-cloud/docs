@@ -74,7 +74,7 @@ All actions with {{ lockbox-name }} resources are logged as a list of operations
 
 - API {#api}
 
-  Use either the [listOperations](../api-ref/Secret/listOperations.md) REST API method for the [Secret](../api-ref/Secret/index.md) resource or the [SecretService/ListOperations](../api-ref/grpc/secret_service.md#ListOperations) gRPC API call.
+  Use either the [listOperations](../api-ref/Secret/listOperations.md) REST API method for the [Secret](../api-ref/Secret/index.md) resource or the [SecretService/ListOperations](../api-ref/grpc/Secret/listOperations.md) gRPC API call.
 
 {% endlist %}
 
@@ -131,7 +131,7 @@ All actions with {{ lockbox-name }} resources are logged as a list of operations
 
     - API {#api}
 
-      Use the [OperationService/Get](../api-ref/grpc/operation_service.md#Get) gRPC API call.
+      Use the [OperationService/Get](../api-ref/grpc/Operation/get.md) gRPC API call.
 
     {% endlist %}
 

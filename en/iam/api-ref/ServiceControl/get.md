@@ -3,33 +3,57 @@ editable: false
 sourcePath: en/_api-ref/iam/v1/api-ref/ServiceControl/get.md
 ---
 
-# Identity and Access Management API, REST: ServiceControl.get
+# Identity and Access Management API, REST: ServiceControl.Get {#Get}
+
 Returns the Service information in the specified resource container.
- 
-To get the list of available Services, make a [list](/docs/iam/api-ref/ServiceControl/list) request.
- 
-## HTTP request {#https-request}
+
+To get the list of available Services, make a [List](/docs/iam/api-ref/ServiceControl/list#List) request.
+
+## HTTP request
+
 ```
 GET https://iam.{{ api-host }}/iam/v1/services/{serviceId}
 ```
- 
-## Path parameters {#path_params}
- 
-Parameter | Description
---- | ---
-serviceId | <p>Required. ID of the Service.</p> <p>The maximum string length in characters is 50.</p> 
- 
-## Query parameters {#query_params}
- 
-Parameter | Description
---- | ---
-resource.id | <p>Required. ID of the resource.</p> <p>The maximum string length in characters is 50.</p> 
-resource.type | <p>Required. The type of the resource, e.g. resource-manager.folder, billing.account, compute.snapshot, etc.</p> <p>The maximum string length in characters is 64.</p> 
- 
-## Response {#responses}
+
+## Path parameters
+
+#|
+||Field | Description ||
+|| serviceId | **string**
+
+Required field. ID of the Service. ||
+|#
+
+## Query parameters {#yandex.cloud.iam.v1.GetServiceRequest}
+
+#|
+||Field | Description ||
+|| resource | **[Resource](#yandex.cloud.iam.v1.Resource)**
+
+Required field. Resource container to get a service information in.
+
+It is supported only resource-manager.cloud resource container now. ||
+|#
+
+## Resource {#yandex.cloud.iam.v1.Resource}
+
+A Resource. For more information, see [Resource](/docs/iam/concepts/access-control/resources-with-access-control).
+
+#|
+||Field | Description ||
+|| id | **string**
+
+Required field. ID of the resource. ||
+|| type | **string**
+
+Required field. The type of the resource, e.g. resource-manager.folder, billing.account, compute.snapshot, etc. ||
+|#
+
+## Response {#yandex.cloud.iam.v1.Service}
+
 **HTTP Code: 200 - OK**
 
-```json 
+```json
 {
   "serviceId": "string",
   "resource": {
@@ -40,13 +64,53 @@ resource.type | <p>Required. The type of the resource, e.g. resource-manager.fol
   "status": "string"
 }
 ```
+
 A Service.
- 
-Field | Description
---- | ---
-serviceId | **string**<br><p>ID of the service.</p> 
-resource | **object**<br><p>Resource that the service belongs to.</p> <p>A Resource. For more information, see <a href="/docs/iam/concepts/access-control/resources-with-access-control">Resource</a>.</p> 
-resource.<br>id | **string**<br><p>Required. ID of the resource.</p> <p>The maximum string length in characters is 50.</p> 
-resource.<br>type | **string**<br><p>Required. The type of the resource, e.g. resource-manager.folder, billing.account, compute.snapshot, etc.</p> <p>The maximum string length in characters is 64.</p> 
-updatedAt | **string** (date-time)<br><p>Time of the last status update of the service.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
-status | **string**<br><p>Current status of the service.</p> <ul> <li>ENABLED: The service is enabled.</li> <li>PAUSED: The service is paused.</li> <li>DISABLED: The service is disabled.</li> <li>ENABLING: The service is being enabled.</li> <li>RESUMING: The service is being resumed.</li> <li>PAUSING: The service is being paused.</li> <li>DISABLING: The service is being disabled.</li> <li>ERROR: The service is in error state.</li> <li>DEFAULT: The service could be auto enabled.</li> </ul> 
+
+#|
+||Field | Description ||
+|| serviceId | **string**
+
+ID of the service. ||
+|| resource | **[Resource](#yandex.cloud.iam.v1.Resource2)**
+
+Resource that the service belongs to. ||
+|| updatedAt | **string** (date-time)
+
+Time of the last status update of the service.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| status | **enum** (Status)
+
+Current status of the service.
+
+- `STATUS_UNSPECIFIED`
+- `ENABLED`: The service is enabled.
+- `PAUSED`: The service is paused.
+- `DISABLED`: The service is disabled.
+- `ENABLING`: The service is being enabled.
+- `RESUMING`: The service is being resumed.
+- `PAUSING`: The service is being paused.
+- `DISABLING`: The service is being disabled.
+- `ERROR`: The service is in error state.
+- `DEFAULT`: The service could be auto enabled. ||
+|#
+
+## Resource {#yandex.cloud.iam.v1.Resource2}
+
+A Resource. For more information, see [Resource](/docs/iam/concepts/access-control/resources-with-access-control).
+
+#|
+||Field | Description ||
+|| id | **string**
+
+Required field. ID of the resource. ||
+|| type | **string**
+
+Required field. The type of the resource, e.g. resource-manager.folder, billing.account, compute.snapshot, etc. ||
+|#

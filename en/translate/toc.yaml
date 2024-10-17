@@ -41,8 +41,16 @@ items:
         items:
           - name: Overview
             href: api-ref/grpc/index.md
-          - name: TranslationService
-            href: api-ref/grpc/translation_service.md
+          - name: Translation
+            items:
+              - name: Overview
+                href: api-ref/grpc/Translation/index.md
+              - name: Translate
+                href: api-ref/grpc/Translation/translate.md
+              - name: DetectLanguage
+                href: api-ref/grpc/Translation/detectLanguage.md
+              - name: ListLanguages
+                href: api-ref/grpc/Translation/listLanguages.md
       - name: REST
         items:
           - name: v2
@@ -57,12 +65,12 @@ items:
                 items:
                   - name: Overview
                     href: api-ref/Translation/index.md
-                  - name: detectLanguage
-                    href: api-ref/Translation/detectLanguage.md
-                  - name: listLanguages
-                    href: api-ref/Translation/listLanguages.md
-                  - name: translate
+                  - name: Translate
                     href: api-ref/Translation/translate.md
+                  - name: DetectLanguage
+                    href: api-ref/Translation/detectLanguage.md
+                  - name: ListLanguages
+                    href: api-ref/Translation/listLanguages.md
           - name: v1 (DEPRECATED)
             items:
               - name: Overview

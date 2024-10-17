@@ -50,7 +50,7 @@ In the program, specify {{ ui-key.yacloud_video.stream-lines.label_stream-key }}
 
 - API {#api}
 
-   Use the [StreamService/Create](../../api-ref/grpc/stream_service.md#Create) gRPC API call.
+   Use the [StreamService/Create](../../api-ref/grpc/Stream/create.md) gRPC API call.
 
 {% endlist %}
 
@@ -72,6 +72,6 @@ In the program, specify {{ ui-key.yacloud_video.stream-lines.label_stream-key }}
 
 - API {#api}
 
-   Use the [EpisodeService/GetPlayerURL](../../api-ref/grpc/episode_service.md#GetPlayerURL) gRPC API call.
+   Use the [EpisodeService/GetPlayerURL](../../api-ref/grpc/Episode/getPlayerURL.md) gRPC API call.
 
 {% endlist %}

@@ -101,7 +101,7 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-    Чтобы удалить любую настройку масштабирования, кроме количества вызовов, одновременно обрабатываемых одним экземпляром функции (`concurrency`), воспользуйтесь методом REST API [removeScalingPolicy](../../functions/api-ref/Function/removeScalingPolicy.md) для ресурса [Function](../../functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/RemoveScalingPolicy](../../functions/api-ref/grpc/function_service.md#RemoveScalingPolicy).
+    Чтобы удалить любую настройку масштабирования, кроме количества вызовов, одновременно обрабатываемых одним экземпляром функции (`concurrency`), воспользуйтесь методом REST API [removeScalingPolicy](../../functions/api-ref/Function/removeScalingPolicy.md) для ресурса [Function](../../functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/RemoveScalingPolicy](../../functions/api-ref/grpc/Function/removeScalingPolicy.md).
 
 - {{ yandex-cloud }} Toolkit {#yc-toolkit}
 

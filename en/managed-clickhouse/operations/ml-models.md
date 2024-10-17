@@ -47,7 +47,7 @@ Read more about the `catboostEvaluate()` function in the [{{ CH }} documentation
 
 - API {#api}
 
-    To get a list of models in a cluster, use the [list](../api-ref/MlModel/list.md) REST API method for the [MlModel](../api-ref/MlModel/index.md) resource or the [MlModelService/List](../api-ref/grpc/ml_model_service.md#List) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
+    To get a list of models in a cluster, use the [list](../api-ref/MlModel/list.md) REST API method for the [MlModel](../api-ref/MlModel/index.md) resource or the [MlModelService/List](../api-ref/grpc/MlModel/list.md) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
     You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -79,7 +79,7 @@ Read more about the `catboostEvaluate()` function in the [{{ CH }} documentation
 
 - API {#api}
 
-    To get model details, use the [get](../api-ref/MlModel/get.md) REST API method for the [MlModel](../api-ref/MlModel/index.md) resource or the [MlModelService/Get](../api-ref/grpc/ml_model_service.md#Get) gRPC API call and provide the following in the request:
+    To get model details, use the [get](../api-ref/MlModel/get.md) REST API method for the [MlModel](../api-ref/MlModel/index.md) resource or the [MlModelService/Get](../api-ref/grpc/MlModel/get.md) gRPC API call and provide the following in the request:
 
     * Cluster ID in the `clusterId` parameter.
     * Model name in the `mlModelName` parameter.
@@ -164,7 +164,7 @@ The only supported model type is CatBoost: `ML_MODEL_TYPE_CATBOOST`.
 
 - API {#api}
 
-    To create a model, use the [create](../api-ref/MlModel/create.md) REST API method for the [MlModel](../api-ref/MlModel/index.md) resource or the [MlModelService/Create](../api-ref/grpc/ml_model_service.md#Create) gRPC API call and provide the following in the request:
+    To create a model, use the [create](../api-ref/MlModel/create.md) REST API method for the [MlModel](../api-ref/MlModel/index.md) resource or the [MlModelService/Create](../api-ref/grpc/MlModel/create.md) gRPC API call and provide the following in the request:
 
     * Cluster ID in the `clusterId` parameter.
     * Model name in the `mlModelName` parameter.
@@ -268,7 +268,7 @@ To update the contents of a model that is already connected to the cluster:
 
 - API {#api}
 
-    To update a model, use the [update](../api-ref/MlModel/update.md) REST API method for the [MlModel](../api-ref/MlModel/index.md) resource or the [MlModelService/Update](../api-ref/grpc/ml_model_service.md#Update) gRPC API call and provide the following in the request:
+    To update a model, use the [update](../api-ref/MlModel/update.md) REST API method for the [MlModel](../api-ref/MlModel/index.md) resource or the [MlModelService/Update](../api-ref/grpc/MlModel/update.md) gRPC API call and provide the following in the request:
 
     * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
     * Model name in the `mlModelName` parameter.
@@ -334,7 +334,7 @@ After disabling a model, the corresponding object is kept in the {{ objstorage-f
 
 - API {#api}
 
-    To delete a model, use the [delete](../api-ref/MlModel/delete.md) REST API method for the [MlModel](../api-ref/MlModel/index.md) resource or the [MlModelService/Delete](../api-ref/grpc/ml_model_service.md#Delete) gRPC API call and provide the following in the request:
+    To delete a model, use the [delete](../api-ref/MlModel/delete.md) REST API method for the [MlModel](../api-ref/MlModel/index.md) resource or the [MlModelService/Delete](../api-ref/grpc/MlModel/delete.md) gRPC API call and provide the following in the request:
 
     * Cluster ID in the `clusterId` parameter.
     * Model name in the `mlModelName` parameter.

@@ -3,27 +3,31 @@ editable: false
 sourcePath: en/_api-ref/serverless/eventrouter/v1/eventrouter/api-ref/Connector/get.md
 ---
 
-# EventRouter Service, REST: Connector.get
-Returns the specified bus.
-To get the list of all available connectors, make a [list](/docs/functions/eventrouter/api-ref/Connector/list) request.
- 
+# EventRouter Service, REST: Connector.Get {#Get}
 
- 
-## HTTP request {#https-request}
+Returns the specified bus.
+To get the list of all available connectors, make a [List](/docs/functions/eventrouter/api-ref/Connector/list#List) request.
+
+## HTTP request
+
 ```
 GET https://serverless-eventrouter.{{ api-host }}/eventrouter/v1/connectors/{connectorId}
 ```
- 
-## Path parameters {#path_params}
- 
-Parameter | Description
---- | ---
-connectorId | <p>Required. ID of the connector to return.</p> 
- 
-## Response {#responses}
+
+## Path parameters
+
+#|
+||Field | Description ||
+|| connectorId | **string**
+
+Required field. ID of the connector to return. ||
+|#
+
+## Response {#yandex.cloud.serverless.eventrouter.v1.Connector}
+
 **HTTP Code: 200 - OK**
 
-```json 
+```json
 {
   "id": "string",
   "busId": "string",
@@ -32,10 +36,9 @@ connectorId | <p>Required. ID of the connector to return.</p>
   "createdAt": "string",
   "name": "string",
   "description": "string",
-  "labels": "object",
+  "labels": "string",
   "source": {
-
-    // `source` includes only one of the fields `dataStream`, `messageQueue`
+    // Includes only one of the fields `dataStream`, `messageQueue`
     "dataStream": {
       "database": "string",
       "streamName": "string",
@@ -48,37 +51,114 @@ connectorId | <p>Required. ID of the connector to return.</p>
       "visibilityTimeout": "string",
       "batchSize": "string",
       "pollingTimeout": "string"
-    },
-    // end of the list of possible fields`source`
-
+    }
+    // end of the list of possible fields
   },
-  "deletionProtection": true,
+  "deletionProtection": "boolean",
   "status": "string"
 }
 ```
 
- 
-Field | Description
---- | ---
-id | **string**<br><p>ID of the connector.</p> 
-busId | **string**<br><p>ID of the bus that the connector belongs to.</p> 
-folderId | **string**<br><p>ID of the folder that the connector resides in.</p> 
-cloudId | **string**<br><p>ID of the cloud that the connector resides in.</p> 
-createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
-name | **string**<br><p>Name of the connector.</p> 
-description | **string**<br><p>Description of the connector.</p> 
-labels | **object**<br><p>Resource labels as ``key:value`` pairs.</p> 
-source | **object**<br><p>Source of the connector.</p> 
-source.<br>dataStream | **object** <br>`source` includes only one of the fields `dataStream`, `messageQueue`<br>
-source.<br>dataStream.<br>database | **string**<br><p>Required. Stream database. example: /ru-central1/aoegtvhtp8ob********/cc8004q4lbo6********</p> 
-source.<br>dataStream.<br>streamName | **string**<br><p>Required. Stream name, absolute or relative.</p> 
-source.<br>dataStream.<br>consumer | **string**<br><p>Required. Consumer name.</p> 
-source.<br>dataStream.<br>serviceAccountId | **string**<br><p>Required. Service account which has read permission on the stream.</p> 
-source.<br>messageQueue | **object** <br>`source` includes only one of the fields `dataStream`, `messageQueue`<br>
-source.<br>messageQueue.<br>queueArn | **string**<br><p>Required. Queue ARN. Example: yrn:yc:ymq:ru-central1:aoe***:test</p> 
-source.<br>messageQueue.<br>serviceAccountId | **string**<br><p>Required. Service account which has read access to the queue.</p> <p>The maximum string length in characters is 50.</p> 
-source.<br>messageQueue.<br>visibilityTimeout | **string**<br><p>Queue visibility timeout override.</p> <p>The maximum value is 43200 seconds.</p> 
-source.<br>messageQueue.<br>batchSize | **string** (int64)<br><p>Batch size for polling.</p> <p>The maximum value is 10.</p> 
-source.<br>messageQueue.<br>pollingTimeout | **string**<br><p>Queue polling timeout.</p> <p>The maximum value is 20 seconds.</p> 
-deletionProtection | **boolean** (boolean)<br><p>Deletion protection.</p> 
-status | **string**<br><p>Status of the connector.</p> <p>Status of the connector.</p> <ul> <li>STOPPED: disabled by user</li> <li>RESOURCE_NOT_FOUND: source does not exist</li> <li>PERMISSION_DENIED: service account does not have read permission on source</li> <li>SUBJECT_NOT_FOUND: service account not found</li> </ul> 
+#|
+||Field | Description ||
+|| id | **string**
+
+ID of the connector. ||
+|| busId | **string**
+
+ID of the bus that the connector belongs to. ||
+|| folderId | **string**
+
+ID of the folder that the connector resides in. ||
+|| cloudId | **string**
+
+ID of the cloud that the connector resides in. ||
+|| createdAt | **string** (date-time)
+
+Creation timestamp.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| name | **string**
+
+Name of the connector. ||
+|| description | **string**
+
+Description of the connector. ||
+|| labels | **string**
+
+Resource labels as `key:value` pairs. ||
+|| source | **[Source](#yandex.cloud.serverless.eventrouter.v1.Source)**
+
+Source of the connector. ||
+|| deletionProtection | **boolean**
+
+Deletion protection. ||
+|| status | **enum** (Status)
+
+Status of the connector.
+
+- `STATUS_UNSPECIFIED`
+- `RUNNING`
+- `STOPPED`: disabled by user
+- `RESOURCE_NOT_FOUND`: source does not exist
+- `PERMISSION_DENIED`: service account does not have read permission on source
+- `SUBJECT_NOT_FOUND`: service account not found ||
+|#
+
+## Source {#yandex.cloud.serverless.eventrouter.v1.Source}
+
+#|
+||Field | Description ||
+|| dataStream | **[DataStream](#yandex.cloud.serverless.eventrouter.v1.DataStream)**
+
+Includes only one of the fields `dataStream`, `messageQueue`. ||
+|| messageQueue | **[MessageQueue](#yandex.cloud.serverless.eventrouter.v1.MessageQueue)**
+
+Includes only one of the fields `dataStream`, `messageQueue`. ||
+|#
+
+## DataStream {#yandex.cloud.serverless.eventrouter.v1.DataStream}
+
+#|
+||Field | Description ||
+|| database | **string**
+
+Required field. Stream database.
+example: /ru-central1/aoegtvhtp8ob********/cc8004q4lbo6******** ||
+|| streamName | **string**
+
+Required field. Stream name, absolute or relative. ||
+|| consumer | **string**
+
+Required field. Consumer name. ||
+|| serviceAccountId | **string**
+
+Required field. Service account which has read permission on the stream. ||
+|#
+
+## MessageQueue {#yandex.cloud.serverless.eventrouter.v1.MessageQueue}
+
+#|
+||Field | Description ||
+|| queueArn | **string**
+
+Required field. Queue ARN.
+Example: yrn:yc:ymq:ru-central1:aoe***:test ||
+|| serviceAccountId | **string**
+
+Required field. Service account which has read access to the queue. ||
+|| visibilityTimeout | **string** (duration)
+
+Queue visibility timeout override. ||
+|| batchSize | **string** (int64)
+
+Batch size for polling. ||
+|| pollingTimeout | **string** (duration)
+
+Queue polling timeout. ||
+|#

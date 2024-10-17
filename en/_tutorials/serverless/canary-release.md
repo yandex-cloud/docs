@@ -133,9 +133,9 @@ The cost of resources to support a web application includes:
 
 - API {#api}
 
-   To create a service account, use the [create](../../iam/api-ref/ServiceAccount/create.md) REST API method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/Create](../../iam/api-ref/grpc/service_account_service.md#Create) gRPC API call.
+   To create a service account, use the [create](../../iam/api-ref/ServiceAccount/create.md) REST API method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/Create](../../iam/api-ref/grpc/ServiceAccount/create.md) gRPC API call.
 
-   To assign the service account the `editor` role for the folder, use the [setAccessBindings](../../iam/api-ref/ServiceAccount/setAccessBindings.md) method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/SetAccessBindings](../../iam/api-ref/grpc/service_account_service.md#SetAccessBindings) gRPC API call.
+   To assign the service account the `editor` role for the folder, use the [setAccessBindings](../../iam/api-ref/ServiceAccount/setAccessBindings.md) method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/SetAccessBindings](../../iam/api-ref/grpc/ServiceAccount/setAccessBindings.md) gRPC API call.
 
 {% endlist %}
 
@@ -240,7 +240,7 @@ Add the `stable` tag to the first function version and the `canary` tag to the s
 
 - API {#api}
 
-   To add a function version tag, use the [setTag](../../functions/functions/api-ref/Function/setTag.md) REST API method for the [Function](../../functions/functions/api-ref/Function/index.md) resource or the [FunctionService/SetTag](../../functions/functions/api-ref/grpc/function_service.md#SetTag) gRPC API call.
+   To add a function version tag, use the [setTag](../../functions/functions/api-ref/Function/setTag.md) REST API method for the [Function](../../functions/functions/api-ref/Function/index.md) resource or the [FunctionService/SetTag](../../functions/functions/api-ref/grpc/Function/setTag.md) gRPC API call.
 
 {% endlist %}
 
@@ -426,7 +426,7 @@ Add the `stable` tag to the first function version and the `canary` tag to the s
 
 - API {#api}
 
-   To create an API gateway, use the [create](../../api-gateway/apigateway/api-ref/ApiGateway/create.md) REST API method for the [ApiGateway](../../api-gateway/apigateway/api-ref/ApiGateway/index.md) resource or the [ApiGatewayService/Create](../../api-gateway/apigateway/api-ref/grpc/apigateway_service.md#Create) gRPC API call.
+   To create an API gateway, use the [create](../../api-gateway/apigateway/api-ref/ApiGateway/create.md) REST API method for the [ApiGateway](../../api-gateway/apigateway/api-ref/ApiGateway/index.md) resource or the [ApiGatewayService/Create](../../api-gateway/apigateway/api-ref/grpc/ApiGateway/create.md) gRPC API call.
 
 {% endlist %}
 

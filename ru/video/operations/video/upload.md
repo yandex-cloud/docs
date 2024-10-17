@@ -44,7 +44,7 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [create](../../api-ref/Video/create.md) для ресурса [Video](../../api-ref/Video/index.md) или вызовом gRPC API [VideoService/Create](../../api-ref/grpc/video_service.md#Create).
+  Воспользуйтесь методом REST API [create](../../api-ref/Video/create.md) для ресурса [Video](../../api-ref/Video/index.md) или вызовом gRPC API [VideoService/Create](../../api-ref/grpc/Video/create.md).
   
   Запрос зарегистрирует видео на канале. После это загрузите файл с видео по протоколу [tus](https://tus.io/protocols/resumable-upload). Загрузку вы можете реализовать самостоятельно на любом языке программирования или воспользоваться для этого [готовыми библиотеками](https://tus.io/implementations).
   

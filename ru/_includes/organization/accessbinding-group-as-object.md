@@ -64,7 +64,7 @@
 
 - API {#api}
 
-   Воспользуйтесь методом [updateAccessBindings](../../organization/api-ref/Group/updateAccessBindings.md) для ресурса [Group](../../organization/api-ref/Group/index.md) или вызовом gRPC API [GroupService/UpdateAccessBindings](../../organization/api-ref/grpc/group_service.md#UpdateAccessBindings) и передайте в запросе:
+   Воспользуйтесь методом [updateAccessBindings](../../organization/api-ref/Group/updateAccessBindings.md) для ресурса [Group](../../organization/api-ref/Group/index.md) или вызовом gRPC API [GroupService/UpdateAccessBindings](../../organization/api-ref/grpc/Group/updateAccessBindings.md) и передайте в запросе:
 
    * Значение `ADD` в параметре `accessBindingDeltas[].action`, чтобы добавить роль.
    * Роль в параметре `accessBindingDeltas[].accessBinding.roleId`.

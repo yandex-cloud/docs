@@ -3,25 +3,28 @@ editable: false
 sourcePath: en/_api-ref/containerregistry/v1/api-ref/Registry/updateIpPermission.md
 ---
 
-# Container Registry API, REST: Registry.updateIpPermission
-Update ip permissions for the specified registry.
- 
+# Container Registry API, REST: Registry.UpdateIpPermission {#UpdateIpPermission}
 
- 
-## HTTP request {#https-request}
+Update ip permissions for the specified registry.
+
+## HTTP request
+
 ```
 POST https://container-registry.{{ api-host }}/container-registry/v1/registries/{registryId}:updateIpPermission
 ```
- 
-## Path parameters {#path_params}
- 
-Parameter | Description
---- | ---
-registryId | <p>Required. ID of the registry for which ip permissions are being updated.</p> <p>The maximum string length in characters is 50.</p> 
- 
-## Body parameters {#body_params}
- 
-```json 
+
+## Path parameters
+
+#|
+||Field | Description ||
+|| registryId | **string**
+
+Required field. ID of the registry for which ip permissions are being updated. ||
+|#
+
+## Body parameters {#yandex.cloud.containerregistry.v1.UpdateIpPermissionRequest}
+
+```json
 {
   "ipPermissionDeltas": [
     {
@@ -35,54 +38,144 @@ registryId | <p>Required. ID of the registry for which ip permissions are being 
 }
 ```
 
- 
-Field | Description
---- | ---
-ipPermissionDeltas[] | **object**<br><p>Updates to IP permissions.</p> 
-ipPermissionDeltas[].<br>action | **string**<br><p>Required. The action that is being performed on an ip permission.</p> <ul> <li>ADD: Addition of an ip permission.</li> <li>REMOVE: Removal of an ip permission.</li> </ul> 
-ipPermissionDeltas[].<br>ipPermission | **object**<br><p>Required. Ip permission.</p> 
-ipPermissionDeltas[].<br>ipPermission.<br>action | **string**
-ipPermissionDeltas[].<br>ipPermission.<br>ip | **string**
- 
-## Response {#responses}
+#|
+||Field | Description ||
+|| ipPermissionDeltas[] | **[IpPermissionDelta](#yandex.cloud.containerregistry.v1.IpPermissionDelta)**
+
+Updates to IP permissions. ||
+|#
+
+## IpPermissionDelta {#yandex.cloud.containerregistry.v1.IpPermissionDelta}
+
+#|
+||Field | Description ||
+|| action | **enum** (IpPermissionAction)
+
+Required field. The action that is being performed on an ip permission.
+
+- `IP_PERMISSION_ACTION_UNSPECIFIED`
+- `ADD`: Addition of an ip permission.
+- `REMOVE`: Removal of an ip permission. ||
+|| ipPermission | **[IpPermission](#yandex.cloud.containerregistry.v1.IpPermission)**
+
+Required field. Ip permission. ||
+|#
+
+## IpPermission {#yandex.cloud.containerregistry.v1.IpPermission}
+
+#|
+||Field | Description ||
+|| action | **enum** (Action)
+
+- `ACTION_UNSPECIFIED`
+- `PULL`
+- `PUSH` ||
+|| ip | **string** ||
+|#
+
+## Response {#yandex.cloud.operation.Operation}
+
 **HTTP Code: 200 - OK**
 
-```json 
+```json
 {
   "id": "string",
   "description": "string",
   "createdAt": "string",
   "createdBy": "string",
   "modifiedAt": "string",
-  "done": true,
-  "metadata": "object",
-
-  //  includes only one of the fields `error`, `response`
+  "done": "boolean",
+  "metadata": {
+    "registryId": "string"
+  },
+  // Includes only one of the fields `error`
   "error": {
     "code": "integer",
     "message": "string",
     "details": [
       "object"
     ]
-  },
-  "response": "object",
+  }
   // end of the list of possible fields
-
 }
 ```
+
 An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).
- 
-Field | Description
---- | ---
-id | **string**<br><p>ID of the operation.</p> 
-description | **string**<br><p>Description of the operation. 0-256 characters long.</p> 
-createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
-createdBy | **string**<br><p>ID of the user or service account who initiated the operation.</p> 
-modifiedAt | **string** (date-time)<br><p>The time when the Operation resource was last modified.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
-done | **boolean** (boolean)<br><p>If the value is ``false``, it means the operation is still in progress. If ``true``, the operation is completed, and either ``error`` or ``response`` is available.</p> 
-metadata | **object**<br><p>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any.</p> 
-error | **object**<br>The error result of the operation in case of failure or cancellation. <br> includes only one of the fields `error`, `response`<br>
-error.<br>code | **integer** (int32)<br><p>Error code. An enum value of <a href="https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto">google.rpc.Code</a>.</p> 
-error.<br>message | **string**<br><p>An error message.</p> 
-error.<br>details[] | **object**<br><p>A list of messages that carry the error details.</p> 
-response | **object** <br> includes only one of the fields `error`, `response`<br><br><p>The normal response of the operation in case of success. If the original method returns no data on success, such as Delete, the response is <a href="https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty">google.protobuf.Empty</a>. If the original method is the standard Create/Update, the response should be the target resource of the operation. Any method that returns a long-running operation should document the response type, if any.</p> 
+
+#|
+||Field | Description ||
+|| id | **string**
+
+ID of the operation. ||
+|| description | **string**
+
+Description of the operation. 0-256 characters long. ||
+|| createdAt | **string** (date-time)
+
+Creation timestamp.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| createdBy | **string**
+
+ID of the user or service account who initiated the operation. ||
+|| modifiedAt | **string** (date-time)
+
+The time when the Operation resource was last modified.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| done | **boolean**
+
+If the value is `false`, it means the operation is still in progress.
+If `true`, the operation is completed, and either `error` or `response` is available. ||
+|| metadata | **[UpdateIpPermissionMetadata](#yandex.cloud.containerregistry.v1.UpdateIpPermissionMetadata)**
+
+Service-specific metadata associated with the operation.
+It typically contains the ID of the target resource that the operation is performed on.
+Any method that returns a long-running operation should document the metadata type, if any. ||
+|| error | **[Status](#google.rpc.Status)**
+
+The error result of the operation in case of failure or cancellation.
+
+Includes only one of the fields `error`.
+
+The operation result.
+If `done == false` and there was no failure detected, neither `error` nor `response` is set.
+If `done == false` and there was a failure detected, `error` is set.
+If `done == true`, exactly one of `error` or `response` is set. ||
+|#
+
+## UpdateIpPermissionMetadata {#yandex.cloud.containerregistry.v1.UpdateIpPermissionMetadata}
+
+#|
+||Field | Description ||
+|| registryId | **string**
+
+ID of the registry that ip permission is being updated. ||
+|#
+
+## Status {#google.rpc.Status}
+
+The error result of the operation in case of failure or cancellation.
+
+#|
+||Field | Description ||
+|| code | **integer** (int32)
+
+Error code. An enum value of [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto). ||
+|| message | **string**
+
+An error message. ||
+|| details[] | **object**
+
+A list of messages that carry the error details. ||
+|#

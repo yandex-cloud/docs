@@ -128,7 +128,7 @@ The [PXF](../external-tables.md) settings you can configure using the {{ yandex-
 
 - API {#api}
 
-   To change PXF settings, use the [update](../../api-ref/Cluster/update.md) REST API method for the [Cluster](../../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
+   To change PXF settings, use the [update](../../api-ref/Cluster/update.md) REST API method for the [Cluster](../../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../../api-ref/grpc/Cluster/update.md) gRPC API call and provide the following in the request:
 
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](../cluster-list.md#list-clusters).
    * List of PXF settings to change in the `configSpec.pxfConfig` parameter:

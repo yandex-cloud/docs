@@ -311,7 +311,7 @@ To add a certificate to a federation:
 
 - API {#api}
 
-   To add a certificate, use the [create](../../api-ref/Certificate/create.md) method for the [Certificate](../../api-ref/Certificate/index.md) resource:
+   To add a certificate, use the [create](../../saml/api-ref/Certificate/create.md) method for the [Certificate](../../saml/api-ref/Certificate/index.md) resource:
 
    1. Create the request body by specifying the contents of the certificate's `data` property:
 

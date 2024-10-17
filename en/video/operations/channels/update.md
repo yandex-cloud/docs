@@ -16,7 +16,7 @@ description: Follow this guide to edit a {{ video-full-name }} channel.
 
 - API {#api}
 
-   Use the [ChannelService/Update](../../api-ref/grpc/channel_service.md#Update) gRPC API call.
+   Use the [ChannelService/Update](../../api-ref/grpc/Channel/update.md) gRPC API call.
 
 {% endlist %}
 

@@ -174,7 +174,7 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Для получения информации, необходимой для прохождения процедуры проверки прав на домены, воспользуйтесь методом REST API [get](../../api-ref/Certificate/get.md) для ресурса [Certificate](../../api-ref/Certificate/) или вызовом gRPC API [CertificateService/Get](../../api-ref/grpc/certificate_service.md#Get) с флагом `view=FULL`.
+  Для получения информации, необходимой для прохождения процедуры проверки прав на домены, воспользуйтесь методом REST API [get](../../api-ref/Certificate/get.md) для ресурса [Certificate](../../api-ref/Certificate/) или вызовом gRPC API [CertificateService/Get](../../api-ref/grpc/Certificate/get.md) с флагом `view=FULL`.
 
 {% endlist %}
 

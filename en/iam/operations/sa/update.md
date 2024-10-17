@@ -118,6 +118,6 @@ To change a service account's roles, follow [this guide](assign-role-for-sa.md).
 
 - API {#api}
 
-  To update a service account, use the [update](../../api-ref/ServiceAccount/update.md) REST API method for the [ServiceAccount](../../api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/Update](../../api-ref/grpc/service_account_service.md#Update) gRPC API call.
+  To update a service account, use the [update](../../api-ref/ServiceAccount/update.md) REST API method for the [ServiceAccount](../../api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/Update](../../api-ref/grpc/ServiceAccount/update.md) gRPC API call.
 
 {% endlist %}

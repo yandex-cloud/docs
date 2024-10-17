@@ -27,6 +27,6 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [create](../../api-ref/StreamLine/create.md) для ресурса [StreamLine](../../api-ref/StreamLine/index.md) или вызовом gRPC API [StreamLineService/Create](../../api-ref/grpc/stream_line_service.md#Create).
+  Воспользуйтесь методом REST API [create](../../api-ref/StreamLine/create.md) для ресурса [StreamLine](../../api-ref/StreamLine/index.md) или вызовом gRPC API [StreamLineService/Create](../../api-ref/grpc/StreamLine/create.md).
 
 {% endlist %}

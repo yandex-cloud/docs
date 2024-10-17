@@ -102,6 +102,6 @@ To get information about an HTTP router:
 
 - API {#api}
 
-  To get detailed information about an HTTP router, use the [get](../api-ref/HttpRouter/get.md) REST API method for the [Origin](../api-ref/HttpRouter/index.md) resource or the [HttpRouterService/Get](../api-ref/grpc/http_router_service.md#Get) gRPC API call.
+  To get detailed information about an HTTP router, use the [get](../api-ref/HttpRouter/get.md) REST API method for the [Origin](../api-ref/HttpRouter/index.md) resource or the [HttpRouterService/Get](../api-ref/grpc/HttpRouter/get.md) gRPC API call.
 
 {% endlist %}

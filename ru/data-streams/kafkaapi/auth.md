@@ -14,7 +14,7 @@
 1. [Назначить сервисному аккаунту роли](../../iam/operations/sa/assign-role-for-sa):
    * Для чтения из потока данных: `ydb.kafkaApi.client` и `ydb.viewer`.
    * Для записи в поток данных: `ydb.kafkaApi.client` и `ydb.editor`.
-1. [Создать API-ключ](../../iam/operations/api-key/create).
+1. [Создать API-ключ](../../iam/operations/api-key/create) c областью действия `yc.ydb.topics.manage`.
 
 
 ## Аутентификация {#auth}
@@ -31,7 +31,7 @@
 
 Эти параметры будут использоваться для аутентификации при чтении и записи сообщений:
 
-* `<sasl.username>` = `@<database>`
+* `<sasl.username>` = `@<database>` (обратите внимание, что перед путем к базе данных необходимо поставить символ `@`)
 * `<sasl.password>` = `<api-key>`
 
 ## Пример записи и чтения сообщения {#example}

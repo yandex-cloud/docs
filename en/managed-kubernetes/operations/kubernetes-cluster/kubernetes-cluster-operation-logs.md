@@ -98,7 +98,7 @@ All actions with {{ managed-k8s-name }} resources are logged as a list of operat
 
 - API {#api}
 
-  Use either the [listOperations](../../managed-kubernetes/api-ref/Cluster/listOperations.md) REST API method for the [Cluster](../../managed-kubernetes/api-ref/Cluster/index.md) resource or the [ClusterService/ListOperations](../../managed-kubernetes/api-ref/grpc/cluster_service.md#ListOperations) gRPC API call.
+  Use either the [listOperations](../../managed-kubernetes/api-ref/Cluster/listOperations.md) REST API method for the [Cluster](../../managed-kubernetes/api-ref/Cluster/index.md) resource or the [ClusterService/ListOperations](../../managed-kubernetes/api-ref/grpc/Cluster/listOperations.md) gRPC API call.
 
 {% endlist %}
 
@@ -151,7 +151,7 @@ All actions with {{ managed-k8s-name }} resources are logged as a list of operat
 
    - API {#api}
 
-     Use the [OperationService/Get](../../managed-kubernetes/api-ref/grpc/operation_service.md#Get) gRPC API call.
+     Use the [OperationService/Get](../../managed-kubernetes/api-ref/grpc/Operation/get.md) gRPC API call.
 
    {% endlist %}
 

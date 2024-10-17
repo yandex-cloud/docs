@@ -132,7 +132,7 @@
 
 - API {#api}
 
-  Чтобы отвязать таблицу маршрутизации от подсети, воспользуйтесь методом REST API [update](../api-ref/Subnet/update.md) для ресурса [Subnet](../api-ref/Subnet/index.md) или вызовом gRPC API [SubnetService/Update](../api-ref/grpc/subnet_service.md#Update) и передайте в запросе пустую строку в параметре:
+  Чтобы отвязать таблицу маршрутизации от подсети, воспользуйтесь методом REST API [update](../api-ref/Subnet/update.md) для ресурса [Subnet](../api-ref/Subnet/index.md) или вызовом gRPC API [SubnetService/Update](../api-ref/grpc/Subnet/update.md) и передайте в запросе пустую строку в параметре:
     * `routeTableId` для REST API;
     * `route_table_id` для gRPC API.
 
@@ -258,11 +258,11 @@
 
 - API {#api}
 
-  Чтобы удалить таблицу маршрутизации, воспользуйтесь методом REST API [delete](../api-ref/RouteTable/delete.md) для ресурса [RouteTable](../api-ref/RouteTable/index.md) или вызовом gRPC API [RouteTableService/Delete](../api-ref/grpc/route_table_service.md#Delete) и передайте в запросе идентификатор удаляемой таблицы маршрутизации в параметре:
+  Чтобы удалить таблицу маршрутизации, воспользуйтесь методом REST API [delete](../api-ref/RouteTable/delete.md) для ресурса [RouteTable](../api-ref/RouteTable/index.md) или вызовом gRPC API [RouteTableService/Delete](../api-ref/grpc/RouteTable/delete.md) и передайте в запросе идентификатор удаляемой таблицы маршрутизации в параметре:
     * `routeTableID` для REST API;
     * `route_table_id` для gRPC API.
 
-  Чтобы узнать идентификатор таблицы маршрутизации, воспользуйтесь методом REST API [list](../api-ref/RouteTable/list.md) для ресурса [RouteTable](../api-ref/RouteTable/index.md) или вызовом gRPC API [RouteTableService/List](../api-ref/grpc/route_table_service.md#List) и передайте в запросе идентификатор каталога в параметре:
+  Чтобы узнать идентификатор таблицы маршрутизации, воспользуйтесь методом REST API [list](../api-ref/RouteTable/list.md) для ресурса [RouteTable](../api-ref/RouteTable/index.md) или вызовом gRPC API [RouteTableService/List](../api-ref/grpc/RouteTable/list.md) и передайте в запросе идентификатор каталога в параметре:
     * `folderID` для REST API;
     * `folder_id` для gRPC API.
 

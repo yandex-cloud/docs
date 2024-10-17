@@ -37,6 +37,6 @@ description: Follow this guide to get a list of sinks.
 
 - API {#api}
 
-   To get a list of sinks, use the [list](../api-ref/Sink/list.md) REST API method for the [Sink](../api-ref/Sink/index.md) resource or the [SinkService/List](../api-ref/grpc/sink_service.md#List) gRPC API call.
+   To get a list of sinks, use the [list](../api-ref/Sink/list.md) REST API method for the [Sink](../api-ref/Sink/index.md) resource or the [SinkService/List](../api-ref/grpc/Sink/list.md) gRPC API call.
 
 {% endlist %}

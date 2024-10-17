@@ -92,6 +92,6 @@ title: How to get information about a disk image in {{ compute-full-name }}
 
 - API {#api}
 
-  To get detailed information about a disk [image](../../concepts/image.md), use the [get](../../api-ref/Image/get.md) REST API method for the [Image](../../api-ref/Image/index.md) resource or the [ImageService/Get](../../api-ref/grpc/image_service.md#Get) gRPC API call.
+  To get detailed information about a disk [image](../../concepts/image.md), use the [get](../../api-ref/Image/get.md) REST API method for the [Image](../../api-ref/Image/index.md) resource or the [ImageService/Get](../../api-ref/grpc/Image/get.md) gRPC API call.
 
 {% endlist %}

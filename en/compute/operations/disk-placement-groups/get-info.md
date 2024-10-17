@@ -93,6 +93,6 @@ title: How to get information about a disk placement group in {{ compute-full-na
 
 - API {#api}
 
-  To get detailed information about a [disk placement group](../../concepts/disk-placement-group.md), use the [get](../../api-ref/DiskPlacementGroup/get.md) REST API method for the [DiskPlacementGroup](../../api-ref/DiskPlacementGroup/index.md) resource or the [DiskPlacementGroupService/Get](../../api-ref/grpc/disk_placement_group_service.md#Get) gRPC API call.
+  To get detailed information about a [disk placement group](../../concepts/disk-placement-group.md), use the [get](../../api-ref/DiskPlacementGroup/get.md) REST API method for the [DiskPlacementGroup](../../api-ref/DiskPlacementGroup/index.md) resource or the [DiskPlacementGroupService/Get](../../api-ref/grpc/DiskPlacementGroup/get.md) gRPC API call.
 
 {% endlist %}

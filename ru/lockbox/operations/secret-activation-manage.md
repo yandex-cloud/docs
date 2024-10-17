@@ -53,7 +53,7 @@ description: Из статьи вы узнаете, как деактивиро�
 
 - API {#api}
 
-  Чтобы деактивировать секрет, воспользуйтесь методом REST API [deactivate](../api-ref/Secret/deactivate.md) для ресурса [Secret](../api-ref/Secret/index.md) или вызовом gRPC API [SecretService/Deactivate](../api-ref/grpc/secret_service.md#Deactivate).
+  Чтобы деактивировать секрет, воспользуйтесь методом REST API [deactivate](../api-ref/Secret/deactivate.md) для ресурса [Secret](../api-ref/Secret/index.md) или вызовом gRPC API [SecretService/Deactivate](../api-ref/grpc/Secret/deactivate.md).
 
 {% endlist %}
 
@@ -102,7 +102,7 @@ description: Из статьи вы узнаете, как деактивиро�
 
 - API {#api}
 
-  Чтобы активировать секрет, воспользуйтесь методом REST API [activate](../api-ref/Secret/activate.md) для ресурса [Secret](../api-ref/Secret/index.md) или вызовом gRPC API [SecretService/Activate](../api-ref/grpc/secret_service.md#Activate).
+  Чтобы активировать секрет, воспользуйтесь методом REST API [activate](../api-ref/Secret/activate.md) для ресурса [Secret](../api-ref/Secret/index.md) или вызовом gRPC API [SecretService/Activate](../api-ref/grpc/Secret/activate.md).
 
 {% endlist %}
 

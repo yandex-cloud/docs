@@ -2,7 +2,7 @@
 
 The deployment algorithm switches an instance group from one state to another using short iterative changes. Each iteration takes into account the restrictions set by the user.
 
-A feature of the deployment algorithm is that before deleting and updating an instance using [update](../../../api-ref/grpc/instance_service.md#Update), the algorithm always stops the instance using a separate [stop](../../../api-ref/grpc/instance_service.md#Stop) call. Delete or update is run during the next iteration.
+A feature of the deployment algorithm is that before deleting and updating an instance using [update](../../../api-ref/grpc/Instance/update.md), the algorithm always stops the instance using a separate [stop](../../../api-ref/grpc/Instance/stop.md) call. Delete or update is run during the next iteration.
 
 The attributes that don't require the instance to be stopped (such as the `description` fields) are updated simultaneously for all running instances, because this doesn't violate any restrictions.
 

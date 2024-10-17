@@ -92,6 +92,6 @@ title: How to get information about a GPU cluster in {{ compute-full-name }}
 
 - API {#api}
 
-  To get detailed information about a [GPU cluster](../../concepts/gpus.md#gpu-clusters), use the [get](../../api-ref/GpuCluster/get.md) REST API method for the [GpuCluster](../../api-ref/GpuCluster/index.md) resource or the [GpuClusterService/Get](../../api-ref/grpc/gpu_cluster_service.md#Get) gRPC API call.
+  To get detailed information about a [GPU cluster](../../concepts/gpus.md#gpu-clusters), use the [get](../../api-ref/GpuCluster/get.md) REST API method for the [GpuCluster](../../api-ref/GpuCluster/index.md) resource or the [GpuClusterService/Get](../../api-ref/grpc/GpuCluster/get.md) gRPC API call.
 
 {% endlist %}

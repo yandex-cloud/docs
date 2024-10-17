@@ -95,7 +95,7 @@ To update a secret:
 
 - API {#api}
 
-   To update a secret, use the [update](../api-ref/Secret/update.md) REST API method for the [Secret](../api-ref/Secret/index.md) resource or the [SecretService/Update](../api-ref/grpc/secret_service.md#Update) gRPC API call.
+   To update a secret, use the [update](../api-ref/Secret/update.md) REST API method for the [Secret](../api-ref/Secret/index.md) resource or the [SecretService/Update](../api-ref/grpc/Secret/update.md) gRPC API call.
 
 {% endlist %}
 

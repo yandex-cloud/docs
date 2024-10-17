@@ -72,6 +72,6 @@ To rename a cloud, you must have the [`editor`](../../../iam/roles-reference.md#
 
 - API {#api}
 
-  To rename a cloud, use the [update](../../api-ref/Cloud/update.md) REST API method for the [Cloud](../../api-ref/Cloud/index.md) resource or the [CloudService/Update](../../api-ref/grpc/cloud_service.md#Update) gRPC API call.
+  To rename a cloud, use the [update](../../api-ref/Cloud/update.md) REST API method for the [Cloud](../../api-ref/Cloud/index.md) resource or the [CloudService/Update](../../api-ref/grpc/Cloud/update.md) gRPC API call.
 
 {% endlist %}

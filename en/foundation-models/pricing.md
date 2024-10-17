@@ -34,7 +34,7 @@ The total number of billing units is based on the overall number of prompt and r
 
 #### Tokenization {#rules-tokens}
 
-The use of tokenizer ([TokenizerService](./text-generation/api-ref/grpc/TokenizerService.md) calls and [Tokenizer](./text-generation/api-ref/Tokenizer/index.md) methods) is not charged.
+The use of tokenizer ([TokenizerService](./text-generation/api-ref/grpc/Tokenizer/index.md) calls and [Tokenizer](./text-generation/api-ref/Tokenizer/index.md) methods) is not charged.
 
 #### Fine-tuned models {#rules-tuned-generating}
 

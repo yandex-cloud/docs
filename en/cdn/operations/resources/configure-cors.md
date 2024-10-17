@@ -186,7 +186,7 @@ To configure cross-domain requests with [CORS](../../concepts/cors.md) for the [
 
 - API {#api}
 
-  Use the [update](../../api-ref/Resource/update.md) REST API method for the [Resource](../../api-ref/Resource/index.md) resource or the [ResourceService/Update](../../api-ref/grpc/resource_service.md#Update) gRPC API call.
+  Use the [update](../../api-ref/Resource/update.md) REST API method for the [Resource](../../api-ref/Resource/index.md) resource or the [ResourceService/Update](../../api-ref/grpc/Resource/update.md) gRPC API call.
 
 {% endlist %}
 

@@ -1,6 +1,6 @@
 # Speaker labeling in recognition results
 
-In recognition results, the [API v3](../stt-v3/api-ref/grpc/stt_service.md) can specify which speaker uttered each recognized phrase.
+In recognition results, the [API v3](../stt-v3/api-ref/grpc/Recognizer/index.md) can specify which speaker uttered each recognized phrase.
 
 Speaker labeling is only available for recognition in the `FULL_DATA` mode for mono records. Recognition results may not feature more than two speakers.
 

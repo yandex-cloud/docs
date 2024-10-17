@@ -123,7 +123,7 @@ Fixed switching to English during Russian speech recognition in `general:rc`.
 
 * Improved the recognition accuracy for Uzbek, German, French, Dutch, Italian, Polish, and Hebrew.
 * Added number [normalization](stt/normalization.md) for Uzbek.
-* Added support for [splitting text into phrases](stt/eou.md) using [`eou_update`](stt-v3/api-ref/grpc/stt_service.md#StreamingResponse) in FullData mode.
+* Added support for [splitting text into phrases](stt/eou.md) using [`eou_update`](stt-v3/api-ref/grpc/Recognizer/recognizeStreaming.md#speechkit.stt.v3.StreamingResponse) in FullData mode.
 
 ### Release on May 25, 2023 {#250523}
 

@@ -94,7 +94,7 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Чтобы переместить [NAT-шлюз](../concepts/gateways.md) в другой каталог, воспользуйтесь методом REST API [move](../api-ref/Gateway/move.md) для ресурса [Gateway](../api-ref/Gateway/index.md) или вызовом gRPC API [GatewayService/Move](../api-ref/grpc/gateway_service.md#Move) и передайте в запросе:
+  Чтобы переместить [NAT-шлюз](../concepts/gateways.md) в другой каталог, воспользуйтесь методом REST API [move](../api-ref/Gateway/move.md) для ресурса [Gateway](../api-ref/Gateway/index.md) или вызовом gRPC API [GatewayService/Move](../api-ref/grpc/Gateway/move.md) и передайте в запросе:
 
   * Идентификатор NAT-шлюза, который нужно перенести, в параметре `gatewayId`.
 

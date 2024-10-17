@@ -54,7 +54,7 @@ Enabling a shared library will cause {{ PG }} to restart on the master host.
 
 - API {#api}
 
-   To get a list of extensions for a database, use the [get](../../api-ref/Database/get.md) REST API method for the [Database](../../api-ref/Database/index.md) resource or the [DatabaseService/Get](../../api-ref/grpc/database_service.md#Get) gRPC API call and provide the following in the request:
+   To get a list of extensions for a database, use the [get](../../api-ref/Database/get.md) REST API method for the [Database](../../api-ref/Database/index.md) resource or the [DatabaseService/Get](../../api-ref/grpc/Database/get.md) gRPC API call and provide the following in the request:
 
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](../cluster-list.md#list-clusters).
    * Database name in the `databaseName` parameter.
@@ -123,7 +123,7 @@ Enabling a shared library will cause {{ PG }} to restart on the master host.
 
 - API {#api}
 
-   To edit the list of extensions for a database, use the [update](../../api-ref/Database/update.md) REST API method for the [Database](../../api-ref/Database/index.md) resource or the [DatabaseService/Update](../../api-ref/grpc/database_service.md#Update) gRPC API call and provide the following in the request:
+   To edit the list of extensions for a database, use the [update](../../api-ref/Database/update.md) REST API method for the [Database](../../api-ref/Database/index.md) resource or the [DatabaseService/Update](../../api-ref/grpc/Database/update.md) gRPC API call and provide the following in the request:
 
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](../cluster-list.md#list-clusters).
    * Name of the database to update in the `databaseName` parameter. To find out the database name, [retrieve a list of databases in the cluster](../databases.md#list-db).

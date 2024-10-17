@@ -96,8 +96,8 @@ description: Из статьи вы узнаете, как остановить 
 
 - API {#api}
 
-  1. Получите список расписаний с помощью метода REST API [list](../../api-ref/SnapshotSchedule/list.md) для ресурса [SnapshotSchedule](../../api-ref/SnapshotSchedule/index.md) или вызова gRPC API [SnapshotScheduleService/List](../../api-ref/grpc/snapshot_schedule_service.md#List).
-  1. Остановите расписание снимков с помощью метода REST API [disable](../../api-ref/SnapshotSchedule/disable.md) для ресурса `SnapshotSchedule` или вызова gRPC API [SnapshotScheduleService/Disable](../../api-ref/grpc/snapshot_schedule_service.md#Disable).
+  1. Получите список расписаний с помощью метода REST API [list](../../api-ref/SnapshotSchedule/list.md) для ресурса [SnapshotSchedule](../../api-ref/SnapshotSchedule/index.md) или вызова gRPC API [SnapshotScheduleService/List](../../api-ref/grpc/SnapshotSchedule/list.md).
+  1. Остановите расписание снимков с помощью метода REST API [disable](../../api-ref/SnapshotSchedule/disable.md) для ресурса `SnapshotSchedule` или вызова gRPC API [SnapshotScheduleService/Disable](../../api-ref/grpc/SnapshotSchedule/disable.md).
 
 {% endlist %}
 
@@ -195,8 +195,8 @@ description: Из статьи вы узнаете, как остановить 
 
 - API {#api}
 
-  1. Получите список расписаний с помощью метода REST API [list](../../api-ref/SnapshotSchedule/list.md) для ресурса [SnapshotSchedule](../../api-ref/SnapshotSchedule/index.md) или вызова gRPC API [SnapshotScheduleService/List](../../api-ref/grpc/snapshot_schedule_service.md#List).
-  1. Запустите расписание снимков с помощью метода REST API [enable](../../api-ref/SnapshotSchedule/enable.md) для ресурса `SnapshotSchedule` или вызова gRPC API [SnapshotScheduleService/Enable](../../api-ref/grpc/snapshot_schedule_service.md#Enable).
+  1. Получите список расписаний с помощью метода REST API [list](../../api-ref/SnapshotSchedule/list.md) для ресурса [SnapshotSchedule](../../api-ref/SnapshotSchedule/index.md) или вызова gRPC API [SnapshotScheduleService/List](../../api-ref/grpc/SnapshotSchedule/list.md).
+  1. Запустите расписание снимков с помощью метода REST API [enable](../../api-ref/SnapshotSchedule/enable.md) для ресурса `SnapshotSchedule` или вызова gRPC API [SnapshotScheduleService/Enable](../../api-ref/grpc/SnapshotSchedule/enable.md).
 
 {% endlist %}
 

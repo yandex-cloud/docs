@@ -27,6 +27,6 @@ description: Follow this guide to create a {{ video-full-name }} line.
 
 - API {#api}
 
-   Use the [StreamLineService/Create](../../api-ref/grpc/stream_line_service.md#Create) gRPC API call.
+   Use the [StreamLineService/Create](../../api-ref/grpc/StreamLine/create.md) gRPC API call.
 
 {% endlist %}

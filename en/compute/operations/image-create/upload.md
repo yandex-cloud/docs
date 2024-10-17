@@ -133,7 +133,7 @@ Create a new image from the link obtained in {{ objstorage-name }}:
 
 - API {#api}
 
-   Create a new image using the [create](../../api-ref/Image/create.md) REST API method for the [Image](../../api-ref/Image/index.md) resource or the [ImageService/Create](../../api-ref/grpc/image_service.md#Create) gRPC API call. In the request, specify the link to the image.
+   Create a new image using the [create](../../api-ref/Image/create.md) REST API method for the [Image](../../api-ref/Image/index.md) resource or the [ImageService/Create](../../api-ref/grpc/Image/create.md) gRPC API call. In the request, specify the link to the image.
 
 {% endlist %}
 

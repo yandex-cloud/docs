@@ -195,7 +195,7 @@ To view a cluster's state and status:
 
 - API {#api}
 
-   Use the [get](../api-ref/Cluster/get.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Get](../api-ref/grpc/cluster_service.md#Get) gRPC API call and provide the ID of the cluster to delete in the `clusterId` request parameter.
+   Use the [get](../api-ref/Cluster/get.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Get](../api-ref/grpc/Cluster/get.md) gRPC API call and provide the ID of the cluster to delete in the `clusterId` request parameter.
 
    The cluster health and status will be shown in the `health` and `status` parameters, respectively.
 

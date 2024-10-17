@@ -116,7 +116,7 @@
 
 - API {#api}
 
-    Чтобы подключить геобазу к кластеру {{ CH }}, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) и передайте в запросе ссылку на архив с геобазой в {{ objstorage-name }} в параметре `geobaseUri`.
+    Чтобы подключить геобазу к кластеру {{ CH }}, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и передайте в запросе ссылку на архив с геобазой в {{ objstorage-name }} в параметре `geobaseUri`.
 
     {% note warning %}
 

@@ -122,7 +122,7 @@ description: Follow this guide to delete an API gateway.
 
 - API {#api}
 
-   To delete an [API gateway](../concepts/index.md), use the [delete](../apigateway/api-ref/ApiGateway/delete.md) REST API method for the [ApiGateway](../apigateway/api-ref/ApiGateway/index.md) resource or the [ApiGatewayService/Delete](../apigateway/api-ref/grpc/apigateway_service.md#Delete) gRPC API call.
+   To delete an [API gateway](../concepts/index.md), use the [delete](../apigateway/api-ref/ApiGateway/delete.md) REST API method for the [ApiGateway](../apigateway/api-ref/ApiGateway/index.md) resource or the [ApiGatewayService/Delete](../apigateway/api-ref/grpc/ApiGateway/delete.md) gRPC API call.
 
 - {{ yandex-cloud }} Toolkit {#yc-toolkit}
 

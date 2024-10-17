@@ -47,8 +47,8 @@
 
 - API {#api}
 
-  Остановить группу можно с помощью метода REST API [stop](../../api-ref/InstanceGroup/stop.md) для ресурса [InstanceGroup](../../api-ref/InstanceGroup/index.md) или вызова gRPC API [InstanceGroupService/Stop](../../api-ref/grpc/instance_group_service.md#Stop).
+  Остановить группу можно с помощью метода REST API [stop](../../instancegroup/api-ref/InstanceGroup/stop.md) для ресурса [InstanceGroup](../../instancegroup/api-ref/InstanceGroup/index.md) или вызова gRPC API [InstanceGroupService/Stop](../../instancegroup/api-ref/grpc/InstanceGroup/stop.md).
 
-  Список доступных групп запрашивайте методом REST API [listInstances](../../api-ref/InstanceGroup/listInstances.md) или вызовом gRPC API [InstanceGroupService/ListInstances](../../api-ref/grpc/instance_group_service.md#ListInstances).
+  Список доступных групп запрашивайте методом REST API [listInstances](../../instancegroup/api-ref/InstanceGroup/listInstances.md) или вызовом gRPC API [InstanceGroupService/ListInstances](../../instancegroup/api-ref/grpc/InstanceGroup/listInstances.md).
 
 {% endlist %}

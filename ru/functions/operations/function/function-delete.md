@@ -105,7 +105,7 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-    Чтобы удалить функцию, воспользуйтесь методом REST API [delete](../../functions/api-ref/Function/delete.md) для ресурса [Function](../../functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/Delete](../../functions/api-ref/grpc/function_service.md#Delete).
+    Чтобы удалить функцию, воспользуйтесь методом REST API [delete](../../functions/api-ref/Function/delete.md) для ресурса [Function](../../functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/Delete](../../functions/api-ref/grpc/Function/delete.md).
 
 
 - {{ yandex-cloud }} Toolkit {#yc-toolkit}

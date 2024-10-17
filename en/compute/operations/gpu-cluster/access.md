@@ -115,7 +115,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
 - API {#api}
 
-  To assign a role, use the [updateAccessBindings](../../api-ref/GpuCluster/updateAccessBindings.md) REST API method for the [GpuCluster](../../api-ref/GpuCluster/index.md) resource or the [GpuClusterService/UpdateAccessBindings](../../api-ref/grpc/gpu_cluster_service.md#UpdateAccessBindings) gRPC API call. In the request body, set the `action` property to `ADD` and specify the user type and ID under `subject`.
+  To assign a role, use the [updateAccessBindings](../../api-ref/GpuCluster/updateAccessBindings.md) REST API method for the [GpuCluster](../../api-ref/GpuCluster/index.md) resource or the [GpuClusterService/UpdateAccessBindings](../../api-ref/grpc/GpuCluster/updateAccessBindings.md) gRPC API call. In the request body, set the `action` property to `ADD` and specify the user type and ID under `subject`.
 
 {% endlist %}
 
@@ -227,7 +227,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
 - API {#api}
 
-  To assign roles for a resource, use the [setAccessBindings](../../api-ref/GpuCluster/setAccessBindings.md) REST API method for the [GpuCluster](../../api-ref/GpuCluster/index.md) resource or the [GpuClusterService/SetAccessBindings](../../api-ref/grpc/gpu_cluster_service.md#SetAccessBindings) gRPC API call.
+  To assign roles for a resource, use the [setAccessBindings](../../api-ref/GpuCluster/setAccessBindings.md) REST API method for the [GpuCluster](../../api-ref/GpuCluster/index.md) resource or the [GpuClusterService/SetAccessBindings](../../api-ref/grpc/GpuCluster/setAccessBindings.md) gRPC API call.
 
   {% note alert %}
 
@@ -321,6 +321,6 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
 - API {#api}
 
-  To revoke a role, use the [updateAccessBindings](../../api-ref/GpuCluster/updateAccessBindings.md) REST API method for the [GpuCluster](../../api-ref/GpuCluster/index.md) resource or the [GpuClusterService/UpdateAccessBindings](../../api-ref/grpc/gpu_cluster_service.md#UpdateAccessBindings) gRPC API call. In the request body, set the `action` property to `REMOVE` and specify the user type and ID under `subject`.
+  To revoke a role, use the [updateAccessBindings](../../api-ref/GpuCluster/updateAccessBindings.md) REST API method for the [GpuCluster](../../api-ref/GpuCluster/index.md) resource or the [GpuClusterService/UpdateAccessBindings](../../api-ref/grpc/GpuCluster/updateAccessBindings.md) gRPC API call. In the request body, set the `action` property to `REMOVE` and specify the user type and ID under `subject`.
 
 {% endlist %}

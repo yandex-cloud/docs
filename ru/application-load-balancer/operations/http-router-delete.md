@@ -122,6 +122,6 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [delete](../api-ref/HttpRouter/delete.md) для ресурса [HttpRouter](../api-ref/HttpRouter/index.md) или вызовом gRPC API [HttpRouterService/Delete](../api-ref/grpc/http_router_service.md#Delete).
+  Воспользуйтесь методом REST API [delete](../api-ref/HttpRouter/delete.md) для ресурса [HttpRouter](../api-ref/HttpRouter/index.md) или вызовом gRPC API [HttpRouterService/Delete](../api-ref/grpc/HttpRouter/delete.md).
 
 {% endlist %}

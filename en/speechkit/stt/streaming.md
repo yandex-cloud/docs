@@ -67,12 +67,12 @@ The most straightforward way to authenticate an application is to use a service 
 
 To recognize speech, the application must first send a message with recognition settings:
 
-* For the API v3, the [RecognizeStreaming](../stt-v3/api-ref/grpc/stt_service.md#RecognizeStreaming) message with the `session_options` type.
+* For the API v3, the [RecognizeStreaming](../stt-v3/api-ref/grpc/Recognizer/recognizeStreaming.md) message with the `session_options` type.
 * For the API v2, the `StreamingRecognitionRequest` message with the [RecognitionConfig](api/streaming-api.md#specification-msg) type.
 
 
 
-When the session is set up, the server will wait for messages with audio fragments (chunks). Send the `RecognizeStreaming` message with the [session_options](../stt-v3/api-ref/grpc/stt_service.md#RecognizeStreaming) type or the `StreamingRecognitionRequest` message with the [audio_content](api/streaming-api.md#audio-msg) type in the API v2. Take the following recommendations into account when sending messages:
+When the session is set up, the server will wait for messages with audio fragments (chunks). Send the `RecognizeStreaming` message with the [session_options](../stt-v3/api-ref/grpc/Recognizer/recognizeStreaming.md) type or the `StreamingRecognitionRequest` message with the [audio_content](api/streaming-api.md#audio-msg) type in the API v2. Take the following recommendations into account when sending messages:
 
 * Do not send audio fragments too often or infrequently. The time between messages to the service should be approximately the same as the duration of the audio fragments you send, but no more than 5 seconds. For example, send 400 ms of audio for recognition every 400 ms.
 * Maximum duration of transmitted audio for the entire session: {{ stt-streaming-audioLength }}.
@@ -84,7 +84,7 @@ If messages aren't sent to the service within 5 seconds or the data duration or 
 
 ### Recognition result {#results}
 
-In each recognition result message ([StreamingResponse](../stt-v3/api-ref/grpc/stt_service.md#StreamingResponse) or [StreamingRecognitionResponse](api/streaming-api.md#response)), the {{ speechkit-name }} server returns one or more speech fragments that it recognized during this period (`chunks`). A list of recognized text alternatives is specified for each speech fragment (`alternatives`).
+In each recognition result message ([StreamingResponse](../stt-v3/api-ref/grpc/Recognizer/recognizeStreaming.md#speechkit.stt.v3.StreamingResponse) or [StreamingRecognitionResponse](api/streaming-api.md#response)), the {{ speechkit-name }} server returns one or more speech fragments that it recognized during this period (`chunks`). A list of recognized text alternatives is specified for each speech fragment (`alternatives`).
 
 The {{ speechkit-name }} server returns recognition results together with their type:
 
@@ -99,7 +99,7 @@ In the API v2, if recognition is not yet complete, the results will include the 
 Speech recognition completes and delivers final results upon [EOU (End-of-Utterance)](eou.md). It is a marker of where an utterance ends. EOU occurs in the following cases:
 
 * The gRPC session has terminated.
-* Silence has been recognized in the last speech fragment. Use one of these [two parameters](../stt-v3/api-ref/grpc/stt_service.md#StreamingRequest) to provide silence:
+* Silence has been recognized in the last speech fragment. Use one of these [two parameters](../stt-v3/api-ref/grpc/Recognizer/recognizeStreaming.md#speechkit.stt.v3.StreamingRequest) to provide silence:
 
    * `chunk`: Sound segment recognized as silence.
    * `silence_chunk`: Silence duration in milliseconds. This parameter allows you to reduce the audio packet size by excluding silence that does not require recognition.
@@ -109,7 +109,7 @@ Speech recognition completes and delivers final results upon [EOU (End-of-Uttera
 * [{#T}](../formats.md)
 * [{#T}](models.md)
 * [{#T}](../concepts/auth.md)
-* [API v3 reference](../stt-v3/api-ref/grpc/stt_service.md)
+* [API v3 reference](../stt-v3/api-ref/grpc/Recognizer/index.md)
 * [{#T}](api/streaming-examples-v3.md)
 * [{#T}](api/streaming-api.md)
 * [{#T}](api/streaming-examples.md)

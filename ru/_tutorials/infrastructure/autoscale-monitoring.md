@@ -192,11 +192,11 @@
      
 - API {#api}
 
-  1. Создайте сервисный аккаунт `queue-autoscale-sa` с помощью вызова gRPC API [ServiceAccountService/Create](../../iam/api-ref/grpc/service_account_service.md#Create) или метода REST API [create](../../iam/api-ref/ServiceAccount/create.md). В ответных данных будет указан идентификатор сервисного аккаунта.
-  1. Назначьте сервисному аккаунту роль `editor` в каталоге `example-folder` с помощью вызова gRPC API [FolderService/UpdateAccessBindings](../../resource-manager/api-ref/grpc/folder_service.md#UpdateAccessBindings) или метода REST API [updateAccessBindings](../../resource-manager/api-ref/Folder/updateAccessBindings.md). В теле запроса укажите идентификатор сервисного аккаунта.
+  1. Создайте сервисный аккаунт `queue-autoscale-sa` с помощью вызова gRPC API [ServiceAccountService/Create](../../iam/api-ref/grpc/ServiceAccount/create.md) или метода REST API [create](../../iam/api-ref/ServiceAccount/create.md). В ответных данных будет указан идентификатор сервисного аккаунта.
+  1. Назначьте сервисному аккаунту роль `editor` в каталоге `example-folder` с помощью вызова gRPC API [FolderService/UpdateAccessBindings](../../resource-manager/api-ref/grpc/Folder/updateAccessBindings.md) или метода REST API [updateAccessBindings](../../resource-manager/api-ref/Folder/updateAccessBindings.md). В теле запроса укажите идентификатор сервисного аккаунта.
   1. Создайте [статический ключ доступа](../../iam/concepts/authorization/access-key.md) для работы сервисного аккаунта с {{ message-queue-name }} и сохраните его в файл `access_key`:
   
-     1. Используйте вызов gRPC API [AccessKeyService/Create](../../iam/api-ref/grpc/access_key_service.md#Create) или метод REST API [create](../../iam/api-ref/AccessKey/create.md).
+     1. Используйте вызов gRPC API [AccessKeyService/Create](../../iam/awscompatibility/api-ref/grpc/AccessKey/create.md) или метод REST API [create](../../iam/awscompatibility/api-ref/AccessKey/create.md).
      1. Вставьте идентификатор ключа и секретный ключ в файл `access_key` в следующем формате:
           
         ```yaml
@@ -205,8 +205,8 @@
         secret: <секретный_ключ>
         ```
         
-  1. Создайте облачную сеть `queue-autoscale-network` с помощью вызова gRPC API [NetworkService/Create](../../vpc/api-ref/grpc/network_service.md#Create) или метода REST API [create](../../vpc/api-ref/Network/create.md). В ответных данных будет указан идентификатор сети.
-  1. Создайте подсеть `queue-autoscale-subnet-a` в зоне `{{ region-id }}-a` с CIDR `192.168.1.0/24` с помощью вызова gRPC API [SubnetService/Create](../../vpc/api-ref/grpc/subnet_service.md#Create) или метода REST API [create](../../vpc/api-ref/Subnet/create.md). В теле запроса укажите идентификатор сети.
+  1. Создайте облачную сеть `queue-autoscale-network` с помощью вызова gRPC API [NetworkService/Create](../../vpc/api-ref/grpc/Network/create.md) или метода REST API [create](../../vpc/api-ref/Network/create.md). В ответных данных будет указан идентификатор сети.
+  1. Создайте подсеть `queue-autoscale-subnet-a` в зоне `{{ region-id }}-a` с CIDR `192.168.1.0/24` с помощью вызова gRPC API [SubnetService/Create](../../vpc/api-ref/grpc/Subnet/create.md) или метода REST API [create](../../vpc/api-ref/Subnet/create.md). В теле запроса укажите идентификатор сети.
   
 {% endlist %}
 
@@ -373,7 +373,7 @@
      
      - API {#api}
      
-       Воспользуйтесь методом REST API [list](../../iam/api-ref/ServiceAccount/list.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/List](../../iam/api-ref/grpc/service_account_service.md#List).
+       Воспользуйтесь методом REST API [list](../../iam/api-ref/ServiceAccount/list.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/List](../../iam/api-ref/grpc/ServiceAccount/list.md).
      
      {% endlist %}
      
@@ -409,7 +409,7 @@
        
      - API {#api}
      
-       Воспользуйтесь методом REST API [list](../../resource-manager/api-ref/Folder/list.md) для ресурса [Folder](../../resource-manager/api-ref/Folder/index.md) или вызовом gRPC API [FolderService/List](../../resource-manager/api-ref/grpc/folder_service.md#List).
+       Воспользуйтесь методом REST API [list](../../resource-manager/api-ref/Folder/list.md) для ресурса [Folder](../../resource-manager/api-ref/Folder/index.md) или вызовом gRPC API [FolderService/List](../../resource-manager/api-ref/grpc/Folder/list.md).
      
      {% endlist %}
      
@@ -451,7 +451,7 @@
        
      - API {#api}
      
-       Воспользуйтесь методом REST API [list](../../vpc/api-ref/Subnet/list.md) для ресурса [Subnet](../../vpc/api-ref/Subnet/index.md) или вызовом gRPC API [SubnetService/List](../../vpc/api-ref/grpc/subnet_service.md#List).
+       Воспользуйтесь методом REST API [list](../../vpc/api-ref/Subnet/list.md) для ресурса [Subnet](../../vpc/api-ref/Subnet/index.md) или вызовом gRPC API [SubnetService/List](../../vpc/api-ref/grpc/Subnet/list.md).
      
      {% endlist %}
      
@@ -488,7 +488,7 @@
      
    - API {#api}
 
-     Воспользуйтесь методом REST API [create](../../iam/api-ref/Key/create.md) для ресурса [Key](../../iam/api-ref/Key/index.md) или вызовом gRPC API [KeyService/Create](../../iam/api-ref/grpc/key_service.md#Create).
+     Воспользуйтесь методом REST API [create](../../iam/api-ref/Key/create.md) для ресурса [Key](../../iam/api-ref/Key/index.md) или вызовом gRPC API [KeyService/Create](../../iam/api-ref/grpc/Key/create.md).
 
    {% endlist %}
      
@@ -636,7 +636,7 @@
           
        - API {#api}
         
-         Воспользуйтесь методом REST API [list](../../vpc/api-ref/Network/list.md) для ресурса [Network](../../vpc/api-ref/Network/index.md) или вызовом gRPC API [NetworkService/List](../../vpc/api-ref/grpc/network_service.md#List).
+         Воспользуйтесь методом REST API [list](../../vpc/api-ref/Network/list.md) для ресурса [Network](../../vpc/api-ref/Network/index.md) или вызовом gRPC API [NetworkService/List](../../vpc/api-ref/grpc/Network/list.md).
         
        {% endlist %}
         
@@ -656,7 +656,7 @@
      
 - API {#api}
 
-  1. Получите идентификатор образа из семейства `queue-autoscale-image`, созданного ранее, с помощью вызова gRPC API [ImageService/GetLatestByFamily](../../compute/api-ref/grpc/image_service.md#GetLatestByFamily) или метода REST API [getLatestByFamily](../../compute/api-ref/Image/getLatestByFamily.md).
+  1. Получите идентификатор образа из семейства `queue-autoscale-image`, созданного ранее, с помощью вызова gRPC API [ImageService/GetLatestByFamily](../../compute/api-ref/grpc/Image/getLatestByFamily.md) или метода REST API [getLatestByFamily](../../compute/api-ref/Image/getLatestByFamily.md).
   1. Измените файл со спецификацией группы виртуальных `spec.yaml`:
     
      * В поле `folder_id` укажите идентификатор каталога в {{ yandex-cloud }}.
@@ -692,7 +692,7 @@
          
        - API {#api}
         
-         Воспользуйтесь методом REST API [list](../../vpc/api-ref/Network/list.md) для ресурса [Network](../../vpc/api-ref/Network/index.md) или вызовом gRPC API [NetworkService/List](../../vpc/api-ref/grpc/network_service.md#List).
+         Воспользуйтесь методом REST API [list](../../vpc/api-ref/Network/list.md) для ресурса [Network](../../vpc/api-ref/Network/index.md) или вызовом gRPC API [NetworkService/List](../../vpc/api-ref/grpc/Network/list.md).
 
        {% endlist %}
         
@@ -702,7 +702,7 @@
      
      Как получить идентификаторы ресурсов (кроме образа и сети), см. в шаге 3 раздела [Создайте образ с приложением](#create-image).
      
-  1. Создайте группу ВМ `queue-autoscale-ig` по спецификации `spec.yaml` с помощью вызова gRPC API [InstanceGroupService/CreateFromYaml](../../compute/api-ref/grpc/instance_group_service.md#CreateFromYaml) или метода REST API [createFromYaml](../../compute/api-ref/InstanceGroup/createFromYaml.md).
+  1. Создайте группу ВМ `queue-autoscale-ig` по спецификации `spec.yaml` с помощью вызова gRPC API [InstanceGroupService/CreateFromYaml](../../compute/instancegroup/api-ref/grpc/InstanceGroup/createFromYaml.md) или метода REST API [createFromYaml](../../compute/instancegroup/api-ref/InstanceGroup/createFromYaml.md).
 
 {% endlist %}
 

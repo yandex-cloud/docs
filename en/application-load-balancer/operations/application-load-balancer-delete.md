@@ -121,6 +121,6 @@ To delete an L7 load balancer:
 
 - API {#api}
 
-  Use the [delete](../api-ref/LoadBalancer/delete.md) REST API method for the [LoadBalancer](../api-ref/LoadBalancer/index.md) resource or the [LoadBalancerService/Delete](../api-ref/grpc/load_balancer_service.md#Delete) gRPC API call.
+  Use the [delete](../api-ref/LoadBalancer/delete.md) REST API method for the [LoadBalancer](../api-ref/LoadBalancer/index.md) resource or the [LoadBalancerService/Delete](../api-ref/grpc/LoadBalancer/delete.md) gRPC API call.
 
 {% endlist %}

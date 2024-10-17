@@ -97,6 +97,6 @@ title: How to get information about an IP address in {{ vpc-full-name }}
 
 - API {#api}
 
-   To get detailed information about an [address](../concepts/address.md), use the [get](../api-ref/Address/get.md) REST API method for the [Address](../api-ref/Address/index.md) resource or the [AddressService/Get](../api-ref/grpc/address_service.md#Get) gRPC API call.
+   To get detailed information about an [address](../concepts/address.md), use the [get](../api-ref/Address/get.md) REST API method for the [Address](../api-ref/Address/index.md) resource or the [AddressService/Get](../api-ref/grpc/Address/get.md) gRPC API call.
 
 {% endlist %}

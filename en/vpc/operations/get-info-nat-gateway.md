@@ -87,7 +87,7 @@ description: Follow this guide to get information about a NAT gateway.
 
 - API {#api}
 
-   To get detailed information about a [NAT gateway](../concepts/gateways.md), use the [get](../api-ref/Gateway/get.md) REST API method for the [Gateway](../api-ref/Gateway/index.md) resource or the [GatewayService/Get](../api-ref/grpc/gateway_service.md#Get) gRPC API call and provide the NAT gateway ID in the `gatewayId` request parameter.
+   To get detailed information about a [NAT gateway](../concepts/gateways.md), use the [get](../api-ref/Gateway/get.md) REST API method for the [Gateway](../api-ref/Gateway/index.md) resource or the [GatewayService/Get](../api-ref/grpc/Gateway/get.md) gRPC API call and provide the NAT gateway ID in the `gatewayId` request parameter.
 
    {% include [get-nat-gateway](../../_includes/vpc/get-nat-gateway.md) %}
 

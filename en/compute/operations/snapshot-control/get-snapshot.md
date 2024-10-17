@@ -88,6 +88,6 @@ title: How to get information about a disk snapshot in {{ compute-full-name }}
 
 - API {#api}
 
-   To get detailed information about a [disk snapshot](../../concepts/snapshot.md), use the [get](../../api-ref/Snapshot/get.md) REST API method for the [Snapshot](../../api-ref/Snapshot/index.md) resource or the [SnapshotService/Get](../../api-ref/grpc/snapshot_service.md#Get) gRPC API call.
+   To get detailed information about a [disk snapshot](../../concepts/snapshot.md), use the [get](../../api-ref/Snapshot/get.md) REST API method for the [Snapshot](../../api-ref/Snapshot/index.md) resource or the [SnapshotService/Get](../../api-ref/grpc/Snapshot/get.md) gRPC API call.
 
 {% endlist %}

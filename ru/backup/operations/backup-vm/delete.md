@@ -52,7 +52,7 @@ description: Из статьи вы узнаете, как удалить рез
 
 - API {#api}
 
-  Чтобы удалить резервную копию, воспользуйтесь методом REST API [delete](../../backup/api-ref/Backup/delete.md) для ресурса [Backup](../../backup/api-ref/Backup/index.md) или вызовом gRPC API [BackupService/Delete](../../backup/api-ref/grpc/backup_service.md#Delete).
+  Чтобы удалить резервную копию, воспользуйтесь методом REST API [delete](../../backup/api-ref/Backup/delete.md) для ресурса [Backup](../../backup/api-ref/Backup/index.md) или вызовом gRPC API [BackupService/Delete](../../backup/api-ref/grpc/Backup/delete.md).
 
 {% endlist %}
 

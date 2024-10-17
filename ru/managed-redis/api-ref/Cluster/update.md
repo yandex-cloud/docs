@@ -3,31 +3,115 @@ editable: false
 sourcePath: en/_api-ref/mdb/redis/v1/api-ref/Cluster/update.md
 ---
 
-# Managed Service for Redis API, REST: Cluster.update
-Updates the specified Redis cluster.
- 
+# Managed Service for Redis API, REST: Cluster.Update {#Update}
 
- 
-## HTTP request {#https-request}
+Updates the specified Redis cluster.
+
+## HTTP request
+
 ```
 PATCH https://{{ api-host-mdb }}/managed-redis/v1/clusters/{clusterId}
 ```
- 
-## Path parameters {#path_params}
- 
-Parameter | Description
---- | ---
-clusterId | <p>Required. ID of the Redis cluster to update. To get the Redis cluster ID, use a <a href="/docs/managed-redis/api-ref/Cluster/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
- 
-## Body parameters {#body_params}
- 
-```json 
+
+## Path parameters
+
+#|
+||Field | Description ||
+|| clusterId | **string**
+
+Required field. ID of the Redis cluster to update.
+To get the Redis cluster ID, use a [ClusterService.List](/docs/managed-redis/api-ref/Cluster/list#List) request. ||
+|#
+
+## Body parameters {#yandex.cloud.mdb.redis.v1.UpdateClusterRequest}
+
+```json
 {
   "updateMask": "string",
   "description": "string",
-  "labels": "object",
+  "labels": "string",
   "configSpec": {
     "version": "string",
+    // Includes only one of the fields `redisConfig_5_0`, `redisConfig_6_0`, `redisConfig_6_2`, `redisConfig_7_0`
+    "redisConfig_5_0": {
+      "maxmemoryPolicy": "string",
+      "timeout": "string",
+      "password": "string",
+      "databases": "string",
+      "slowlogLogSlowerThan": "string",
+      "slowlogMaxLen": "string",
+      "notifyKeyspaceEvents": "string",
+      "clientOutputBufferLimitPubsub": {
+        "hardLimit": "string",
+        "softLimit": "string",
+        "softSeconds": "string"
+      },
+      "clientOutputBufferLimitNormal": {
+        "hardLimit": "string",
+        "softLimit": "string",
+        "softSeconds": "string"
+      }
+    },
+    "redisConfig_6_0": {
+      "maxmemoryPolicy": "string",
+      "timeout": "string",
+      "password": "string",
+      "databases": "string",
+      "slowlogLogSlowerThan": "string",
+      "slowlogMaxLen": "string",
+      "notifyKeyspaceEvents": "string",
+      "clientOutputBufferLimitPubsub": {
+        "hardLimit": "string",
+        "softLimit": "string",
+        "softSeconds": "string"
+      },
+      "clientOutputBufferLimitNormal": {
+        "hardLimit": "string",
+        "softLimit": "string",
+        "softSeconds": "string"
+      }
+    },
+    "redisConfig_6_2": {
+      "maxmemoryPolicy": "string",
+      "timeout": "string",
+      "password": "string",
+      "databases": "string",
+      "slowlogLogSlowerThan": "string",
+      "slowlogMaxLen": "string",
+      "notifyKeyspaceEvents": "string",
+      "clientOutputBufferLimitPubsub": {
+        "hardLimit": "string",
+        "softLimit": "string",
+        "softSeconds": "string"
+      },
+      "clientOutputBufferLimitNormal": {
+        "hardLimit": "string",
+        "softLimit": "string",
+        "softSeconds": "string"
+      },
+      "maxmemoryPercent": "string"
+    },
+    "redisConfig_7_0": {
+      "maxmemoryPolicy": "string",
+      "timeout": "string",
+      "password": "string",
+      "databases": "string",
+      "slowlogLogSlowerThan": "string",
+      "slowlogMaxLen": "string",
+      "notifyKeyspaceEvents": "string",
+      "clientOutputBufferLimitPubsub": {
+        "hardLimit": "string",
+        "softLimit": "string",
+        "softSeconds": "string"
+      },
+      "clientOutputBufferLimitNormal": {
+        "hardLimit": "string",
+        "softLimit": "string",
+        "softSeconds": "string"
+      },
+      "maxmemoryPercent": "string"
+    },
+    // end of the list of possible fields
     "resources": {
       "resourcePresetId": "string",
       "diskSize": "string",
@@ -40,272 +124,630 @@ clusterId | <p>Required. ID of the Redis cluster to update. To get the Redis clu
       "nanos": "integer"
     },
     "access": {
-      "dataLens": true,
-      "webSql": true
+      "dataLens": "boolean",
+      "webSql": "boolean"
     },
     "redis": {
       "maxmemoryPolicy": "string",
-      "timeout": "integer",
+      "timeout": "string",
       "password": "string",
-      "databases": "integer",
-      "slowlogLogSlowerThan": "integer",
-      "slowlogMaxLen": "integer",
+      "databases": "string",
+      "slowlogLogSlowerThan": "string",
+      "slowlogMaxLen": "string",
       "notifyKeyspaceEvents": "string",
       "clientOutputBufferLimitPubsub": {
-        "hardLimit": "integer",
-        "softLimit": "integer",
-        "softSeconds": "integer"
+        "hardLimit": "string",
+        "softLimit": "string",
+        "softSeconds": "string"
       },
       "clientOutputBufferLimitNormal": {
-        "hardLimit": "integer",
-        "softLimit": "integer",
-        "softSeconds": "integer"
+        "hardLimit": "string",
+        "softLimit": "string",
+        "softSeconds": "string"
       },
-      "maxmemoryPercent": "integer"
+      "maxmemoryPercent": "string"
     },
     "diskSizeAutoscaling": {
-      "plannedUsageThreshold": "integer",
-      "emergencyUsageThreshold": "integer",
-      "diskSizeLimit": "integer"
-    },
-
-    // `configSpec` includes only one of the fields `redisConfig_5_0`, `redisConfig_6_0`, `redisConfig_6_2`, `redisConfig_7_0`
-    "redisConfig_5_0": {
-      "maxmemoryPolicy": "string",
-      "timeout": "integer",
-      "password": "string",
-      "databases": "integer",
-      "slowlogLogSlowerThan": "integer",
-      "slowlogMaxLen": "integer",
-      "notifyKeyspaceEvents": "string",
-      "clientOutputBufferLimitPubsub": {
-        "hardLimit": "integer",
-        "softLimit": "integer",
-        "softSeconds": "integer"
-      },
-      "clientOutputBufferLimitNormal": {
-        "hardLimit": "integer",
-        "softLimit": "integer",
-        "softSeconds": "integer"
-      }
-    },
-    "redisConfig_6_0": {
-      "maxmemoryPolicy": "string",
-      "timeout": "integer",
-      "password": "string",
-      "databases": "integer",
-      "slowlogLogSlowerThan": "integer",
-      "slowlogMaxLen": "integer",
-      "notifyKeyspaceEvents": "string",
-      "clientOutputBufferLimitPubsub": {
-        "hardLimit": "integer",
-        "softLimit": "integer",
-        "softSeconds": "integer"
-      },
-      "clientOutputBufferLimitNormal": {
-        "hardLimit": "integer",
-        "softLimit": "integer",
-        "softSeconds": "integer"
-      }
-    },
-    "redisConfig_6_2": {
-      "maxmemoryPolicy": "string",
-      "timeout": "integer",
-      "password": "string",
-      "databases": "integer",
-      "slowlogLogSlowerThan": "integer",
-      "slowlogMaxLen": "integer",
-      "notifyKeyspaceEvents": "string",
-      "clientOutputBufferLimitPubsub": {
-        "hardLimit": "integer",
-        "softLimit": "integer",
-        "softSeconds": "integer"
-      },
-      "clientOutputBufferLimitNormal": {
-        "hardLimit": "integer",
-        "softLimit": "integer",
-        "softSeconds": "integer"
-      },
-      "maxmemoryPercent": "integer"
-    },
-    "redisConfig_7_0": {
-      "maxmemoryPolicy": "string",
-      "timeout": "integer",
-      "password": "string",
-      "databases": "integer",
-      "slowlogLogSlowerThan": "integer",
-      "slowlogMaxLen": "integer",
-      "notifyKeyspaceEvents": "string",
-      "clientOutputBufferLimitPubsub": {
-        "hardLimit": "integer",
-        "softLimit": "integer",
-        "softSeconds": "integer"
-      },
-      "clientOutputBufferLimitNormal": {
-        "hardLimit": "integer",
-        "softLimit": "integer",
-        "softSeconds": "integer"
-      },
-      "maxmemoryPercent": "integer"
-    },
-    // end of the list of possible fields`configSpec`
-
+      "plannedUsageThreshold": "string",
+      "emergencyUsageThreshold": "string",
+      "diskSizeLimit": "string"
+    }
   },
   "name": "string",
   "maintenanceWindow": {
-
-    // `maintenanceWindow` includes only one of the fields `anytime`, `weeklyMaintenanceWindow`
-    "anytime": {},
+    // Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`
+    "anytime": "object",
     "weeklyMaintenanceWindow": {
       "day": "string",
       "hour": "string"
-    },
-    // end of the list of possible fields`maintenanceWindow`
-
+    }
+    // end of the list of possible fields
   },
   "securityGroupIds": [
     "string"
   ],
-  "deletionProtection": true,
+  "deletionProtection": "boolean",
   "persistenceMode": "string",
   "networkId": "string",
-  "announceHostnames": true
+  "announceHostnames": "boolean"
 }
 ```
 
- 
-Field | Description
---- | ---
-updateMask | **string**<br><p>Field mask that specifies which fields of the Redis cluster should be updated.</p> <p>A comma-separated names off ALL fields to be updated. Only the specified fields will be changed. The others will be left untouched. If the field is specified in ``updateMask`` and no value for that field was sent in the request, the field's value will be reset to the default. The default value for most fields is null or 0.</p> <p>If ``updateMask`` is not sent in the request, all fields' values will be updated. Fields specified in the request will be updated to provided values. The rest of the fields will be reset to the default.</p> 
-description | **string**<br><p>New description of the Redis cluster.</p> <p>The maximum string length in characters is 256.</p> 
-labels | **object**<br><p>Custom labels for the Redis cluster as ``key:value`` pairs. Maximum 64 per cluster. For example, "project": "mvp" or "source": "dictionary".</p> <p>The new set of labels will completely replace the old ones. To add a label, request the current set with the <a href="/docs/managed-redis/api-ref/Cluster/get">get</a> method, then send an <a href="/docs/managed-redis/api-ref/Cluster/update">update</a> request with the new label added to the set.</p> <p>No more than 64 per resource. The maximum string length in characters for each key is 63. Each key must match the regular expression ``[a-z][-_0-9a-z]*``. The maximum string length in characters for each value is 63. Each value must match the regular expression ``[-_0-9a-z]*``.</p> 
-configSpec | **object**<br><p>New configuration and resources for hosts in the cluster.</p> 
-configSpec.<br>version | **string**<br><p>Version of Redis used in the cluster.</p> 
-configSpec.<br>resources | **object**<br>Resources allocated to Redis hosts.
-configSpec.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-redis/concepts/instance-types">documentation</a>.</p> 
-configSpec.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
-configSpec.<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host. Possible values:</p> <ul> <li>network-ssd - network SSD drive,</li> <li>local-ssd - local SSD storage.</li> </ul> 
-configSpec.<br>backupWindowStart | **object**<br>Time to start the daily backup, in the UTC timezone.
-configSpec.<br>backupWindowStart.<br>hours | **integer** (int32)<br><p>Hours of day in 24 hour format. Should be from 0 to 23. An API may choose to allow the value "24:00:00" for scenarios like business closing time.</p> 
-configSpec.<br>backupWindowStart.<br>minutes | **integer** (int32)<br><p>Minutes of hour of day. Must be from 0 to 59.</p> 
-configSpec.<br>backupWindowStart.<br>seconds | **integer** (int32)<br><p>Seconds of minutes of the time. Must normally be from 0 to 59. An API may allow the value 60 if it allows leap-seconds.</p> 
-configSpec.<br>backupWindowStart.<br>nanos | **integer** (int32)<br><p>Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.</p> 
-configSpec.<br>access | **object**<br>Access policy to DB
-configSpec.<br>access.<br>dataLens | **boolean** (boolean)<br><p>Allow access for DataLens</p> 
-configSpec.<br>access.<br>webSql | **boolean** (boolean)<br><p>Allow access for Web SQL.</p> 
-configSpec.<br>redis | **object**<br>Unified configuration of a Redis cluster
-configSpec.<br>redis.<br>maxmemoryPolicy | **string**<br><p>Redis key eviction policy for a dataset that reaches maximum memory, available to the host. Redis maxmemory setting depends on Managed Service for Redis <a href="/docs/managed-redis/concepts/instance-types">host class</a>.</p> <p>All policies are described in detail in <a href="https://redis.io/topics/lru-cache">Redis documentation</a>.</p> <ul> <li>VOLATILE_LRU: Try to remove less recently used (LRU) keys with ``expire set``.</li> <li>ALLKEYS_LRU: Remove less recently used (LRU) keys.</li> <li>VOLATILE_LFU: Try to remove least frequently used (LFU) keys with ``expire set``.</li> <li>ALLKEYS_LFU: Remove least frequently used (LFU) keys.</li> <li>VOLATILE_RANDOM: Try to remove keys with ``expire set`` randomly.</li> <li>ALLKEYS_RANDOM: Remove keys randomly.</li> <li>VOLATILE_TTL: Try to remove less recently used (LRU) keys with ``expire set`` and shorter TTL first.</li> <li>NOEVICTION: Return errors when memory limit was reached and commands could require more memory to be used.</li> </ul> 
-configSpec.<br>redis.<br>timeout | **integer** (int64)<br><p>Time that Redis keeps the connection open while the client is idle. If no new command is sent during that time, the connection is closed.</p> 
-configSpec.<br>redis.<br>password | **string**<br><p>Authentication password.</p> <p>Value must match the regular expression ``[a-zA-Z0-9@=+?*.,!&#$^<>_-]{8,128}``.</p> 
-configSpec.<br>redis.<br>databases | **integer** (int64)<br><p>Number of database buckets on a single redis-server process.</p> <p>Value must be greater than 0.</p> 
-configSpec.<br>redis.<br>slowlogLogSlowerThan | **integer** (int64)<br><p>Threshold for logging slow requests to server in microseconds (log only slower than it).</p> <p>The minimum value is 0.</p> 
-configSpec.<br>redis.<br>slowlogMaxLen | **integer** (int64)<br><p>Max slow requests number to log.</p> <p>The minimum value is 0.</p> 
-configSpec.<br>redis.<br>notifyKeyspaceEvents | **string**<br><p>String setting for pub\sub functionality.</p> <p>Value must match the regular expression ``[KEg$lshzxeAtm]{0,13}``.</p> 
-configSpec.<br>redis.<br>clientOutputBufferLimitPubsub | **object**<br><p>Redis connection output buffers limits for pubsub operations.</p> 
-configSpec.<br>redis.<br>clientOutputBufferLimitPubsub.<br>hardLimit | **integer** (int64)<br><p>Total limit in bytes.</p> <p>The minimum value is 0.</p> 
-configSpec.<br>redis.<br>clientOutputBufferLimitPubsub.<br>softLimit | **integer** (int64)<br><p>Limit in bytes during certain time period.</p> <p>The minimum value is 0.</p> 
-configSpec.<br>redis.<br>clientOutputBufferLimitPubsub.<br>softSeconds | **integer** (int64)<br><p>Seconds for soft limit.</p> <p>The minimum value is 0.</p> 
-configSpec.<br>redis.<br>clientOutputBufferLimitNormal | **object**<br><p>Redis connection output buffers limits for clients.</p> 
-configSpec.<br>redis.<br>clientOutputBufferLimitNormal.<br>hardLimit | **integer** (int64)<br><p>Total limit in bytes.</p> <p>The minimum value is 0.</p> 
-configSpec.<br>redis.<br>clientOutputBufferLimitNormal.<br>softLimit | **integer** (int64)<br><p>Limit in bytes during certain time period.</p> <p>The minimum value is 0.</p> 
-configSpec.<br>redis.<br>clientOutputBufferLimitNormal.<br>softSeconds | **integer** (int64)<br><p>Seconds for soft limit.</p> <p>The minimum value is 0.</p> 
-configSpec.<br>redis.<br>maxmemoryPercent | **integer** (int64)<br><p>Redis maxmemory percent</p> <p>Acceptable values are 1 to 75, inclusive.</p> 
-configSpec.<br>diskSizeAutoscaling | **object**<br>Disk size autoscaling settings
-configSpec.<br>diskSizeAutoscaling.<br>plannedUsageThreshold | **integer** (int64)<br><p>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
-configSpec.<br>diskSizeAutoscaling.<br>emergencyUsageThreshold | **integer** (int64)<br><p>Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
-configSpec.<br>diskSizeAutoscaling.<br>diskSizeLimit | **integer** (int64)<br><p>Limit on how large the storage for database instances can automatically grow, in bytes.</p> 
-configSpec.<br>redisConfig_5_0 | **object** <br>`configSpec` includes only one of the fields `redisConfig_5_0`, `redisConfig_6_0`, `redisConfig_6_2`, `redisConfig_7_0`<br><br><p>Fields and structure of ``RedisConfig`` reflects Redis configuration file parameters.</p> 
-configSpec.<br>redisConfig_5_0.<br>maxmemoryPolicy | **string**<br><p>Redis key eviction policy for a dataset that reaches maximum memory, available to the host. Redis maxmemory setting depends on Managed Service for Redis <a href="/docs/managed-redis/concepts/instance-types">host class</a>.</p> <p>All policies are described in detail in <a href="https://redis.io/topics/lru-cache">Redis documentation</a>.</p> <ul> <li>VOLATILE_LRU: Try to remove less recently used (LRU) keys with ``expire set``.</li> <li>ALLKEYS_LRU: Remove less recently used (LRU) keys.</li> <li>VOLATILE_LFU: Try to remove least frequently used (LFU) keys with ``expire set``.</li> <li>ALLKEYS_LFU: Remove least frequently used (LFU) keys.</li> <li>VOLATILE_RANDOM: Try to remove keys with ``expire set`` randomly.</li> <li>ALLKEYS_RANDOM: Remove keys randomly.</li> <li>VOLATILE_TTL: Try to remove less recently used (LRU) keys with ``expire set`` and shorter TTL first.</li> <li>NOEVICTION: Return errors when memory limit was reached and commands could require more memory to be used.</li> </ul> 
-configSpec.<br>redisConfig_5_0.<br>timeout | **integer** (int64)<br><p>Time that Redis keeps the connection open while the client is idle. If no new command is sent during that time, the connection is closed.</p> 
-configSpec.<br>redisConfig_5_0.<br>password | **string**<br><p>Authentication password.</p> <p>Value must match the regular expression ``[a-zA-Z0-9@=+?*.,!&#$^<>_-]{8,128}``.</p> 
-configSpec.<br>redisConfig_5_0.<br>databases | **integer** (int64)<br><p>Number of database buckets on a single redis-server process.</p> <p>Value must be greater than 0.</p> 
-configSpec.<br>redisConfig_5_0.<br>slowlogLogSlowerThan | **integer** (int64)<br><p>Threshold for logging slow requests to server in microseconds (log only slower than it).</p> <p>The minimum value is 0.</p> 
-configSpec.<br>redisConfig_5_0.<br>slowlogMaxLen | **integer** (int64)<br><p>Max slow requests number to log.</p> <p>The minimum value is 0.</p> 
-configSpec.<br>redisConfig_5_0.<br>notifyKeyspaceEvents | **string**<br><p>String setting for pub\sub functionality.</p> <p>Value must match the regular expression ``[KEg$lshzxeAtm]{0,12}``.</p> 
-configSpec.<br>redisConfig_5_0.<br>clientOutputBufferLimitPubsub | **object**<br><p>Redis connection output buffers limits for pubsub operations.</p> 
-configSpec.<br>redisConfig_5_0.<br>clientOutputBufferLimitPubsub.<br>hardLimit | **integer** (int64)<br><p>Total limit in bytes.</p> <p>The minimum value is 0.</p> 
-configSpec.<br>redisConfig_5_0.<br>clientOutputBufferLimitPubsub.<br>softLimit | **integer** (int64)<br><p>Limit in bytes during certain time period.</p> <p>The minimum value is 0.</p> 
-configSpec.<br>redisConfig_5_0.<br>clientOutputBufferLimitPubsub.<br>softSeconds | **integer** (int64)<br><p>Seconds for soft limit.</p> <p>The minimum value is 0.</p> 
-configSpec.<br>redisConfig_5_0.<br>clientOutputBufferLimitNormal | **object**<br><p>Redis connection output buffers limits for clients.</p> 
-configSpec.<br>redisConfig_5_0.<br>clientOutputBufferLimitNormal.<br>hardLimit | **integer** (int64)<br><p>Total limit in bytes.</p> <p>The minimum value is 0.</p> 
-configSpec.<br>redisConfig_5_0.<br>clientOutputBufferLimitNormal.<br>softLimit | **integer** (int64)<br><p>Limit in bytes during certain time period.</p> <p>The minimum value is 0.</p> 
-configSpec.<br>redisConfig_5_0.<br>clientOutputBufferLimitNormal.<br>softSeconds | **integer** (int64)<br><p>Seconds for soft limit.</p> <p>The minimum value is 0.</p> 
-configSpec.<br>redisConfig_6_0 | **object** <br>`configSpec` includes only one of the fields `redisConfig_5_0`, `redisConfig_6_0`, `redisConfig_6_2`, `redisConfig_7_0`<br><br><p>Fields and structure of ``RedisConfig`` reflects Redis configuration file parameters.</p> 
-configSpec.<br>redisConfig_6_0.<br>maxmemoryPolicy | **string**<br><p>Redis key eviction policy for a dataset that reaches maximum memory, available to the host. Redis maxmemory setting depends on Managed Service for Redis <a href="/docs/managed-redis/concepts/instance-types">host class</a>.</p> <p>All policies are described in detail in <a href="https://redis.io/topics/lru-cache">Redis documentation</a>.</p> <ul> <li>VOLATILE_LRU: Try to remove less recently used (LRU) keys with ``expire set``.</li> <li>ALLKEYS_LRU: Remove less recently used (LRU) keys.</li> <li>VOLATILE_LFU: Try to remove least frequently used (LFU) keys with ``expire set``.</li> <li>ALLKEYS_LFU: Remove least frequently used (LFU) keys.</li> <li>VOLATILE_RANDOM: Try to remove keys with ``expire set`` randomly.</li> <li>ALLKEYS_RANDOM: Remove keys randomly.</li> <li>VOLATILE_TTL: Try to remove less recently used (LRU) keys with ``expire set`` and shorter TTL first.</li> <li>NOEVICTION: Return errors when memory limit was reached and commands could require more memory to be used.</li> </ul> 
-configSpec.<br>redisConfig_6_0.<br>timeout | **integer** (int64)<br><p>Time that Redis keeps the connection open while the client is idle. If no new command is sent during that time, the connection is closed.</p> 
-configSpec.<br>redisConfig_6_0.<br>password | **string**<br><p>Authentication password.</p> <p>Value must match the regular expression ``[a-zA-Z0-9@=+?*.,!&#$^<>_-]{8,128}``.</p> 
-configSpec.<br>redisConfig_6_0.<br>databases | **integer** (int64)<br><p>Number of database buckets on a single redis-server process.</p> <p>Value must be greater than 0.</p> 
-configSpec.<br>redisConfig_6_0.<br>slowlogLogSlowerThan | **integer** (int64)<br><p>Threshold for logging slow requests to server in microseconds (log only slower than it).</p> <p>The minimum value is 0.</p> 
-configSpec.<br>redisConfig_6_0.<br>slowlogMaxLen | **integer** (int64)<br><p>Max slow requests number to log.</p> <p>The minimum value is 0.</p> 
-configSpec.<br>redisConfig_6_0.<br>notifyKeyspaceEvents | **string**<br><p>String setting for pub\sub functionality.</p> <p>Value must match the regular expression ``[KEg$lshzxeAtm]{0,13}``.</p> 
-configSpec.<br>redisConfig_6_0.<br>clientOutputBufferLimitPubsub | **object**<br><p>Redis connection output buffers limits for pubsub operations.</p> 
-configSpec.<br>redisConfig_6_0.<br>clientOutputBufferLimitPubsub.<br>hardLimit | **integer** (int64)<br><p>Total limit in bytes.</p> <p>The minimum value is 0.</p> 
-configSpec.<br>redisConfig_6_0.<br>clientOutputBufferLimitPubsub.<br>softLimit | **integer** (int64)<br><p>Limit in bytes during certain time period.</p> <p>The minimum value is 0.</p> 
-configSpec.<br>redisConfig_6_0.<br>clientOutputBufferLimitPubsub.<br>softSeconds | **integer** (int64)<br><p>Seconds for soft limit.</p> <p>The minimum value is 0.</p> 
-configSpec.<br>redisConfig_6_0.<br>clientOutputBufferLimitNormal | **object**<br><p>Redis connection output buffers limits for clients.</p> 
-configSpec.<br>redisConfig_6_0.<br>clientOutputBufferLimitNormal.<br>hardLimit | **integer** (int64)<br><p>Total limit in bytes.</p> <p>The minimum value is 0.</p> 
-configSpec.<br>redisConfig_6_0.<br>clientOutputBufferLimitNormal.<br>softLimit | **integer** (int64)<br><p>Limit in bytes during certain time period.</p> <p>The minimum value is 0.</p> 
-configSpec.<br>redisConfig_6_0.<br>clientOutputBufferLimitNormal.<br>softSeconds | **integer** (int64)<br><p>Seconds for soft limit.</p> <p>The minimum value is 0.</p> 
-configSpec.<br>redisConfig_6_2 | **object** <br>`configSpec` includes only one of the fields `redisConfig_5_0`, `redisConfig_6_0`, `redisConfig_6_2`, `redisConfig_7_0`<br><br><p>Fields and structure of ``RedisConfig`` reflects Redis configuration file parameters.</p> 
-configSpec.<br>redisConfig_6_2.<br>maxmemoryPolicy | **string**<br><p>Redis key eviction policy for a dataset that reaches maximum memory, available to the host. Redis maxmemory setting depends on Managed Service for Redis <a href="/docs/managed-redis/concepts/instance-types">host class</a>.</p> <p>All policies are described in detail in <a href="https://redis.io/topics/lru-cache">Redis documentation</a>.</p> <ul> <li>VOLATILE_LRU: Try to remove less recently used (LRU) keys with ``expire set``.</li> <li>ALLKEYS_LRU: Remove less recently used (LRU) keys.</li> <li>VOLATILE_LFU: Try to remove least frequently used (LFU) keys with ``expire set``.</li> <li>ALLKEYS_LFU: Remove least frequently used (LFU) keys.</li> <li>VOLATILE_RANDOM: Try to remove keys with ``expire set`` randomly.</li> <li>ALLKEYS_RANDOM: Remove keys randomly.</li> <li>VOLATILE_TTL: Try to remove less recently used (LRU) keys with ``expire set`` and shorter TTL first.</li> <li>NOEVICTION: Return errors when memory limit was reached and commands could require more memory to be used.</li> </ul> 
-configSpec.<br>redisConfig_6_2.<br>timeout | **integer** (int64)<br><p>Time that Redis keeps the connection open while the client is idle. If no new command is sent during that time, the connection is closed.</p> 
-configSpec.<br>redisConfig_6_2.<br>password | **string**<br><p>Authentication password.</p> <p>Value must match the regular expression ``[a-zA-Z0-9@=+?*.,!&#$^<>_-]{8,128}``.</p> 
-configSpec.<br>redisConfig_6_2.<br>databases | **integer** (int64)<br><p>Number of database buckets on a single redis-server process.</p> <p>Value must be greater than 0.</p> 
-configSpec.<br>redisConfig_6_2.<br>slowlogLogSlowerThan | **integer** (int64)<br><p>Threshold for logging slow requests to server in microseconds (log only slower than it).</p> <p>The minimum value is 0.</p> 
-configSpec.<br>redisConfig_6_2.<br>slowlogMaxLen | **integer** (int64)<br><p>Max slow requests number to log.</p> <p>The minimum value is 0.</p> 
-configSpec.<br>redisConfig_6_2.<br>notifyKeyspaceEvents | **string**<br><p>String setting for pub\sub functionality.</p> <p>Value must match the regular expression ``[KEg$lshzxeAtm]{0,13}``.</p> 
-configSpec.<br>redisConfig_6_2.<br>clientOutputBufferLimitPubsub | **object**<br><p>Redis connection output buffers limits for pubsub operations.</p> 
-configSpec.<br>redisConfig_6_2.<br>clientOutputBufferLimitPubsub.<br>hardLimit | **integer** (int64)<br><p>Total limit in bytes.</p> <p>The minimum value is 0.</p> 
-configSpec.<br>redisConfig_6_2.<br>clientOutputBufferLimitPubsub.<br>softLimit | **integer** (int64)<br><p>Limit in bytes during certain time period.</p> <p>The minimum value is 0.</p> 
-configSpec.<br>redisConfig_6_2.<br>clientOutputBufferLimitPubsub.<br>softSeconds | **integer** (int64)<br><p>Seconds for soft limit.</p> <p>The minimum value is 0.</p> 
-configSpec.<br>redisConfig_6_2.<br>clientOutputBufferLimitNormal | **object**<br><p>Redis connection output buffers limits for clients.</p> 
-configSpec.<br>redisConfig_6_2.<br>clientOutputBufferLimitNormal.<br>hardLimit | **integer** (int64)<br><p>Total limit in bytes.</p> <p>The minimum value is 0.</p> 
-configSpec.<br>redisConfig_6_2.<br>clientOutputBufferLimitNormal.<br>softLimit | **integer** (int64)<br><p>Limit in bytes during certain time period.</p> <p>The minimum value is 0.</p> 
-configSpec.<br>redisConfig_6_2.<br>clientOutputBufferLimitNormal.<br>softSeconds | **integer** (int64)<br><p>Seconds for soft limit.</p> <p>The minimum value is 0.</p> 
-configSpec.<br>redisConfig_6_2.<br>maxmemoryPercent | **integer** (int64)<br><p>Redis maxmemory percent</p> <p>Acceptable values are 1 to 75, inclusive.</p> 
-configSpec.<br>redisConfig_7_0 | **object** <br>`configSpec` includes only one of the fields `redisConfig_5_0`, `redisConfig_6_0`, `redisConfig_6_2`, `redisConfig_7_0`<br><br><p>Fields and structure of ``RedisConfig`` reflects Redis configuration file parameters.</p> 
-configSpec.<br>redisConfig_7_0.<br>maxmemoryPolicy | **string**<br><p>Redis key eviction policy for a dataset that reaches maximum memory, available to the host. Redis maxmemory setting depends on Managed Service for Redis <a href="/docs/managed-redis/concepts/instance-types">host class</a>.</p> <p>All policies are described in detail in <a href="https://redis.io/topics/lru-cache">Redis documentation</a>.</p> <ul> <li>VOLATILE_LRU: Try to remove less recently used (LRU) keys with ``expire set``.</li> <li>ALLKEYS_LRU: Remove less recently used (LRU) keys.</li> <li>VOLATILE_LFU: Try to remove least frequently used (LFU) keys with ``expire set``.</li> <li>ALLKEYS_LFU: Remove least frequently used (LFU) keys.</li> <li>VOLATILE_RANDOM: Try to remove keys with ``expire set`` randomly.</li> <li>ALLKEYS_RANDOM: Remove keys randomly.</li> <li>VOLATILE_TTL: Try to remove less recently used (LRU) keys with ``expire set`` and shorter TTL first.</li> <li>NOEVICTION: Return errors when memory limit was reached and commands could require more memory to be used.</li> </ul> 
-configSpec.<br>redisConfig_7_0.<br>timeout | **integer** (int64)<br><p>Time that Redis keeps the connection open while the client is idle. If no new command is sent during that time, the connection is closed.</p> 
-configSpec.<br>redisConfig_7_0.<br>password | **string**<br><p>Authentication password.</p> <p>Value must match the regular expression ``[a-zA-Z0-9@=+?*.,!&#$^<>_-]{8,128}``.</p> 
-configSpec.<br>redisConfig_7_0.<br>databases | **integer** (int64)<br><p>Number of database buckets on a single redis-server process.</p> <p>Value must be greater than 0.</p> 
-configSpec.<br>redisConfig_7_0.<br>slowlogLogSlowerThan | **integer** (int64)<br><p>Threshold for logging slow requests to server in microseconds (log only slower than it).</p> <p>The minimum value is 0.</p> 
-configSpec.<br>redisConfig_7_0.<br>slowlogMaxLen | **integer** (int64)<br><p>Max slow requests number to log.</p> <p>The minimum value is 0.</p> 
-configSpec.<br>redisConfig_7_0.<br>notifyKeyspaceEvents | **string**<br><p>String setting for pub\sub functionality.</p> <p>Value must match the regular expression ``[KEg$lshzxeAtm]{0,13}``.</p> 
-configSpec.<br>redisConfig_7_0.<br>clientOutputBufferLimitPubsub | **object**<br><p>Redis connection output buffers limits for pubsub operations.</p> 
-configSpec.<br>redisConfig_7_0.<br>clientOutputBufferLimitPubsub.<br>hardLimit | **integer** (int64)<br><p>Total limit in bytes.</p> <p>The minimum value is 0.</p> 
-configSpec.<br>redisConfig_7_0.<br>clientOutputBufferLimitPubsub.<br>softLimit | **integer** (int64)<br><p>Limit in bytes during certain time period.</p> <p>The minimum value is 0.</p> 
-configSpec.<br>redisConfig_7_0.<br>clientOutputBufferLimitPubsub.<br>softSeconds | **integer** (int64)<br><p>Seconds for soft limit.</p> <p>The minimum value is 0.</p> 
-configSpec.<br>redisConfig_7_0.<br>clientOutputBufferLimitNormal | **object**<br><p>Redis connection output buffers limits for clients.</p> 
-configSpec.<br>redisConfig_7_0.<br>clientOutputBufferLimitNormal.<br>hardLimit | **integer** (int64)<br><p>Total limit in bytes.</p> <p>The minimum value is 0.</p> 
-configSpec.<br>redisConfig_7_0.<br>clientOutputBufferLimitNormal.<br>softLimit | **integer** (int64)<br><p>Limit in bytes during certain time period.</p> <p>The minimum value is 0.</p> 
-configSpec.<br>redisConfig_7_0.<br>clientOutputBufferLimitNormal.<br>softSeconds | **integer** (int64)<br><p>Seconds for soft limit.</p> <p>The minimum value is 0.</p> 
-configSpec.<br>redisConfig_7_0.<br>maxmemoryPercent | **integer** (int64)<br><p>Redis maxmemory percent</p> <p>Acceptable values are 1 to 75, inclusive.</p> 
-name | **string**<br><p>New name for the cluster.</p> <p>The maximum string length in characters is 63. Value must match the regular expression ``[a-zA-Z0-9_-]*``.</p> 
-maintenanceWindow | **object**<br><p>New maintenance window settings for the cluster.</p> <p>A maintenance window settings.</p> 
-maintenanceWindow.<br>anytime | **object**<br>Maintenance operation can be scheduled anytime. <br>`maintenanceWindow` includes only one of the fields `anytime`, `weeklyMaintenanceWindow`<br>
-maintenanceWindow.<br>weeklyMaintenanceWindow | **object**<br>Maintenance operation can be scheduled on a weekly basis. <br>`maintenanceWindow` includes only one of the fields `anytime`, `weeklyMaintenanceWindow`<br>
-maintenanceWindow.<br>weeklyMaintenanceWindow.<br>day | **string**<br><p>Day of the week (in ``DDD`` format).</p> 
-maintenanceWindow.<br>weeklyMaintenanceWindow.<br>hour | **string** (int64)<br><p>Hour of the day in UTC (in ``HH`` format).</p> <p>Acceptable values are 1 to 24, inclusive.</p> 
-securityGroupIds[] | **string**<br><p>User security groups</p> 
-deletionProtection | **boolean** (boolean)<br><p>Deletion Protection inhibits deletion of the cluster</p> 
-persistenceMode | **string**<br><p>Persistence mode</p> 
-networkId | **string**<br><p>ID of the network to move the cluster to.</p> <p>The maximum string length in characters is 50.</p> 
-announceHostnames | **boolean** (boolean)<br><p>Enable FQDN instead of ip</p> 
- 
-## Response {#responses}
+#|
+||Field | Description ||
+|| updateMask | **string** (field-mask)
+
+A comma-separated names off ALL fields to be updated.
+Only the specified fields will be changed. The others will be left untouched.
+If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+the field's value will be reset to the default. The default value for most fields is null or 0.
+
+If `` updateMask `` is not sent in the request, all fields' values will be updated.
+Fields specified in the request will be updated to provided values.
+The rest of the fields will be reset to the default. ||
+|| description | **string**
+
+New description of the Redis cluster. ||
+|| labels | **string**
+
+Custom labels for the Redis cluster as `` key:value `` pairs. Maximum 64 per cluster.
+For example, "project": "mvp" or "source": "dictionary".
+
+The new set of labels will completely replace the old ones. To add a label, request the current
+set with the [ClusterService.Get](/docs/managed-redis/api-ref/Cluster/get#Get) method, then send an [ClusterService.Update](#Update) request with the new label added to the set. ||
+|| configSpec | **[ConfigSpec](#yandex.cloud.mdb.redis.v1.ConfigSpec)**
+
+New configuration and resources for hosts in the cluster. ||
+|| name | **string**
+
+New name for the cluster. ||
+|| maintenanceWindow | **[MaintenanceWindow](#yandex.cloud.mdb.redis.v1.MaintenanceWindow)**
+
+New maintenance window settings for the cluster. ||
+|| securityGroupIds[] | **string**
+
+User security groups ||
+|| deletionProtection | **boolean**
+
+Deletion Protection inhibits deletion of the cluster ||
+|| persistenceMode | **enum** (PersistenceMode)
+
+Persistence mode
+
+- `ON`: cluster persistence mode on
+- `OFF`: cluster persistence mode off ||
+|| networkId | **string**
+
+ID of the network to move the cluster to. ||
+|| announceHostnames | **boolean**
+
+Enable FQDN instead of ip ||
+|#
+
+## ConfigSpec {#yandex.cloud.mdb.redis.v1.ConfigSpec}
+
+#|
+||Field | Description ||
+|| version | **string**
+
+Version of Redis used in the cluster. ||
+|| redisConfig_5_0 | **[RedisConfig5_0](#yandex.cloud.mdb.redis.v1.config.RedisConfig5_0)**
+
+Includes only one of the fields `redisConfig_5_0`, `redisConfig_6_0`, `redisConfig_6_2`, `redisConfig_7_0`.
+
+Configuration of a Redis cluster. ||
+|| redisConfig_6_0 | **[RedisConfig6_0](#yandex.cloud.mdb.redis.v1.config.RedisConfig6_0)**
+
+Includes only one of the fields `redisConfig_5_0`, `redisConfig_6_0`, `redisConfig_6_2`, `redisConfig_7_0`.
+
+Configuration of a Redis cluster. ||
+|| redisConfig_6_2 | **[RedisConfig6_2](#yandex.cloud.mdb.redis.v1.config.RedisConfig6_2)**
+
+Includes only one of the fields `redisConfig_5_0`, `redisConfig_6_0`, `redisConfig_6_2`, `redisConfig_7_0`.
+
+Configuration of a Redis cluster. ||
+|| redisConfig_7_0 | **[RedisConfig7_0](#yandex.cloud.mdb.redis.v1.config.RedisConfig7_0)**
+
+Includes only one of the fields `redisConfig_5_0`, `redisConfig_6_0`, `redisConfig_6_2`, `redisConfig_7_0`.
+
+Configuration of a Redis cluster. ||
+|| resources | **[Resources](#yandex.cloud.mdb.redis.v1.Resources)**
+
+Resources allocated to Redis hosts. ||
+|| backupWindowStart | **[TimeOfDay](#google.type.TimeOfDay)**
+
+Time to start the daily backup, in the UTC timezone. ||
+|| access | **[Access](#yandex.cloud.mdb.redis.v1.Access)**
+
+Access policy to DB ||
+|| redis | **[RedisConfig](#yandex.cloud.mdb.redis.v1.config.RedisConfig)**
+
+Unified configuration of a Redis cluster ||
+|| diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.redis.v1.DiskSizeAutoscaling)**
+
+Disk size autoscaling settings ||
+|#
+
+## RedisConfig5_0 {#yandex.cloud.mdb.redis.v1.config.RedisConfig5_0}
+
+Fields and structure of `RedisConfig` reflects Redis configuration file
+parameters.
+
+#|
+||Field | Description ||
+|| maxmemoryPolicy | **enum** (MaxmemoryPolicy)
+
+Redis key eviction policy for a dataset that reaches maximum memory,
+available to the host. Redis maxmemory setting depends on Managed
+Service for Redis [host class](/docs/managed-redis/concepts/instance-types).
+
+All policies are described in detail in [Redis documentation](https://redis.io/topics/lru-cache).
+
+- `MAXMEMORY_POLICY_UNSPECIFIED`
+- `VOLATILE_LRU`: Try to remove less recently used (LRU) keys with `expire set`.
+- `ALLKEYS_LRU`: Remove less recently used (LRU) keys.
+- `VOLATILE_LFU`: Try to remove least frequently used (LFU) keys with `expire set`.
+- `ALLKEYS_LFU`: Remove least frequently used (LFU) keys.
+- `VOLATILE_RANDOM`: Try to remove keys with `expire set` randomly.
+- `ALLKEYS_RANDOM`: Remove keys randomly.
+- `VOLATILE_TTL`: Try to remove less recently used (LRU) keys with `expire set`
+and shorter TTL first.
+- `NOEVICTION`: Return errors when memory limit was reached and commands could require
+more memory to be used. ||
+|| timeout | **string** (int64)
+
+Time that Redis keeps the connection open while the client is idle.
+If no new command is sent during that time, the connection is closed. ||
+|| password | **string**
+
+Authentication password. ||
+|| databases | **string** (int64)
+
+Number of database buckets on a single redis-server process. ||
+|| slowlogLogSlowerThan | **string** (int64)
+
+Threshold for logging slow requests to server in microseconds (log only slower than it). ||
+|| slowlogMaxLen | **string** (int64)
+
+Max slow requests number to log. ||
+|| notifyKeyspaceEvents | **string**
+
+String setting for pub\sub functionality. ||
+|| clientOutputBufferLimitPubsub | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig5_0.ClientOutputBufferLimit)**
+
+Redis connection output buffers limits for pubsub operations. ||
+|| clientOutputBufferLimitNormal | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig5_0.ClientOutputBufferLimit)**
+
+Redis connection output buffers limits for clients. ||
+|#
+
+## ClientOutputBufferLimit {#yandex.cloud.mdb.redis.v1.config.RedisConfig5_0.ClientOutputBufferLimit}
+
+#|
+||Field | Description ||
+|| hardLimit | **string** (int64)
+
+Total limit in bytes. ||
+|| softLimit | **string** (int64)
+
+Limit in bytes during certain time period. ||
+|| softSeconds | **string** (int64)
+
+Seconds for soft limit. ||
+|#
+
+## RedisConfig6_0 {#yandex.cloud.mdb.redis.v1.config.RedisConfig6_0}
+
+Fields and structure of `RedisConfig` reflects Redis configuration file
+parameters.
+
+#|
+||Field | Description ||
+|| maxmemoryPolicy | **enum** (MaxmemoryPolicy)
+
+Redis key eviction policy for a dataset that reaches maximum memory,
+available to the host. Redis maxmemory setting depends on Managed
+Service for Redis [host class](/docs/managed-redis/concepts/instance-types).
+
+All policies are described in detail in [Redis documentation](https://redis.io/topics/lru-cache).
+
+- `MAXMEMORY_POLICY_UNSPECIFIED`
+- `VOLATILE_LRU`: Try to remove less recently used (LRU) keys with `expire set`.
+- `ALLKEYS_LRU`: Remove less recently used (LRU) keys.
+- `VOLATILE_LFU`: Try to remove least frequently used (LFU) keys with `expire set`.
+- `ALLKEYS_LFU`: Remove least frequently used (LFU) keys.
+- `VOLATILE_RANDOM`: Try to remove keys with `expire set` randomly.
+- `ALLKEYS_RANDOM`: Remove keys randomly.
+- `VOLATILE_TTL`: Try to remove less recently used (LRU) keys with `expire set`
+and shorter TTL first.
+- `NOEVICTION`: Return errors when memory limit was reached and commands could require
+more memory to be used. ||
+|| timeout | **string** (int64)
+
+Time that Redis keeps the connection open while the client is idle.
+If no new command is sent during that time, the connection is closed. ||
+|| password | **string**
+
+Authentication password. ||
+|| databases | **string** (int64)
+
+Number of database buckets on a single redis-server process. ||
+|| slowlogLogSlowerThan | **string** (int64)
+
+Threshold for logging slow requests to server in microseconds (log only slower than it). ||
+|| slowlogMaxLen | **string** (int64)
+
+Max slow requests number to log. ||
+|| notifyKeyspaceEvents | **string**
+
+String setting for pub\sub functionality. ||
+|| clientOutputBufferLimitPubsub | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig6_0.ClientOutputBufferLimit)**
+
+Redis connection output buffers limits for pubsub operations. ||
+|| clientOutputBufferLimitNormal | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig6_0.ClientOutputBufferLimit)**
+
+Redis connection output buffers limits for clients. ||
+|#
+
+## ClientOutputBufferLimit {#yandex.cloud.mdb.redis.v1.config.RedisConfig6_0.ClientOutputBufferLimit}
+
+#|
+||Field | Description ||
+|| hardLimit | **string** (int64)
+
+Total limit in bytes. ||
+|| softLimit | **string** (int64)
+
+Limit in bytes during certain time period. ||
+|| softSeconds | **string** (int64)
+
+Seconds for soft limit. ||
+|#
+
+## RedisConfig6_2 {#yandex.cloud.mdb.redis.v1.config.RedisConfig6_2}
+
+Fields and structure of `RedisConfig` reflects Redis configuration file
+parameters.
+
+#|
+||Field | Description ||
+|| maxmemoryPolicy | **enum** (MaxmemoryPolicy)
+
+Redis key eviction policy for a dataset that reaches maximum memory,
+available to the host. Redis maxmemory setting depends on Managed
+Service for Redis [host class](/docs/managed-redis/concepts/instance-types).
+
+All policies are described in detail in [Redis documentation](https://redis.io/topics/lru-cache).
+
+- `MAXMEMORY_POLICY_UNSPECIFIED`
+- `VOLATILE_LRU`: Try to remove less recently used (LRU) keys with `expire set`.
+- `ALLKEYS_LRU`: Remove less recently used (LRU) keys.
+- `VOLATILE_LFU`: Try to remove least frequently used (LFU) keys with `expire set`.
+- `ALLKEYS_LFU`: Remove least frequently used (LFU) keys.
+- `VOLATILE_RANDOM`: Try to remove keys with `expire set` randomly.
+- `ALLKEYS_RANDOM`: Remove keys randomly.
+- `VOLATILE_TTL`: Try to remove less recently used (LRU) keys with `expire set`
+and shorter TTL first.
+- `NOEVICTION`: Return errors when memory limit was reached and commands could require
+more memory to be used. ||
+|| timeout | **string** (int64)
+
+Time that Redis keeps the connection open while the client is idle.
+If no new command is sent during that time, the connection is closed. ||
+|| password | **string**
+
+Authentication password. ||
+|| databases | **string** (int64)
+
+Number of database buckets on a single redis-server process. ||
+|| slowlogLogSlowerThan | **string** (int64)
+
+Threshold for logging slow requests to server in microseconds (log only slower than it). ||
+|| slowlogMaxLen | **string** (int64)
+
+Max slow requests number to log. ||
+|| notifyKeyspaceEvents | **string**
+
+String setting for pub\sub functionality. ||
+|| clientOutputBufferLimitPubsub | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig6_2.ClientOutputBufferLimit)**
+
+Redis connection output buffers limits for pubsub operations. ||
+|| clientOutputBufferLimitNormal | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig6_2.ClientOutputBufferLimit)**
+
+Redis connection output buffers limits for clients. ||
+|| maxmemoryPercent | **string** (int64)
+
+Redis maxmemory percent ||
+|#
+
+## ClientOutputBufferLimit {#yandex.cloud.mdb.redis.v1.config.RedisConfig6_2.ClientOutputBufferLimit}
+
+#|
+||Field | Description ||
+|| hardLimit | **string** (int64)
+
+Total limit in bytes. ||
+|| softLimit | **string** (int64)
+
+Limit in bytes during certain time period. ||
+|| softSeconds | **string** (int64)
+
+Seconds for soft limit. ||
+|#
+
+## RedisConfig7_0 {#yandex.cloud.mdb.redis.v1.config.RedisConfig7_0}
+
+Fields and structure of `RedisConfig` reflects Redis configuration file
+parameters.
+
+#|
+||Field | Description ||
+|| maxmemoryPolicy | **enum** (MaxmemoryPolicy)
+
+Redis key eviction policy for a dataset that reaches maximum memory,
+available to the host. Redis maxmemory setting depends on Managed
+Service for Redis [host class](/docs/managed-redis/concepts/instance-types).
+
+All policies are described in detail in [Redis documentation](https://redis.io/topics/lru-cache).
+
+- `MAXMEMORY_POLICY_UNSPECIFIED`
+- `VOLATILE_LRU`: Try to remove less recently used (LRU) keys with `expire set`.
+- `ALLKEYS_LRU`: Remove less recently used (LRU) keys.
+- `VOLATILE_LFU`: Try to remove least frequently used (LFU) keys with `expire set`.
+- `ALLKEYS_LFU`: Remove least frequently used (LFU) keys.
+- `VOLATILE_RANDOM`: Try to remove keys with `expire set` randomly.
+- `ALLKEYS_RANDOM`: Remove keys randomly.
+- `VOLATILE_TTL`: Try to remove less recently used (LRU) keys with `expire set`
+and shorter TTL first.
+- `NOEVICTION`: Return errors when memory limit was reached and commands could require
+more memory to be used. ||
+|| timeout | **string** (int64)
+
+Time that Redis keeps the connection open while the client is idle.
+If no new command is sent during that time, the connection is closed. ||
+|| password | **string**
+
+Authentication password. ||
+|| databases | **string** (int64)
+
+Number of database buckets on a single redis-server process. ||
+|| slowlogLogSlowerThan | **string** (int64)
+
+Threshold for logging slow requests to server in microseconds (log only slower than it). ||
+|| slowlogMaxLen | **string** (int64)
+
+Max slow requests number to log. ||
+|| notifyKeyspaceEvents | **string**
+
+String setting for pub\sub functionality. ||
+|| clientOutputBufferLimitPubsub | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig7_0.ClientOutputBufferLimit)**
+
+Redis connection output buffers limits for pubsub operations. ||
+|| clientOutputBufferLimitNormal | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig7_0.ClientOutputBufferLimit)**
+
+Redis connection output buffers limits for clients. ||
+|| maxmemoryPercent | **string** (int64)
+
+Redis maxmemory percent ||
+|#
+
+## ClientOutputBufferLimit {#yandex.cloud.mdb.redis.v1.config.RedisConfig7_0.ClientOutputBufferLimit}
+
+#|
+||Field | Description ||
+|| hardLimit | **string** (int64)
+
+Total limit in bytes. ||
+|| softLimit | **string** (int64)
+
+Limit in bytes during certain time period. ||
+|| softSeconds | **string** (int64)
+
+Seconds for soft limit. ||
+|#
+
+## Resources {#yandex.cloud.mdb.redis.v1.Resources}
+
+#|
+||Field | Description ||
+|| resourcePresetId | **string**
+
+ID of the preset for computational resources available to a host (CPU, memory etc.).
+All available presets are listed in the [documentation](/docs/managed-redis/concepts/instance-types). ||
+|| diskSize | **string** (int64)
+
+Volume of the storage available to a host, in bytes. ||
+|| diskTypeId | **string**
+
+Type of the storage environment for the host.
+Possible values:
+* network-ssd - network SSD drive,
+* local-ssd - local SSD storage. ||
+|#
+
+## TimeOfDay {#google.type.TimeOfDay}
+
+Represents a time of day. The date and time zone are either not significant
+or are specified elsewhere. An API may choose to allow leap seconds. Related
+types are [google.type.Date](https://github.com/googleapis/googleapis/blob/master/google/type/date.proto) and [google.protobuf.Timestamp](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/timestamp.proto).
+
+#|
+||Field | Description ||
+|| hours | **integer** (int32)
+
+Hours of day in 24 hour format. Should be from 0 to 23. An API may choose
+to allow the value "24:00:00" for scenarios like business closing time. ||
+|| minutes | **integer** (int32)
+
+Minutes of hour of day. Must be from 0 to 59. ||
+|| seconds | **integer** (int32)
+
+Seconds of minutes of the time. Must normally be from 0 to 59. An API may
+allow the value 60 if it allows leap-seconds. ||
+|| nanos | **integer** (int32)
+
+Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999. ||
+|#
+
+## Access {#yandex.cloud.mdb.redis.v1.Access}
+
+#|
+||Field | Description ||
+|| dataLens | **boolean**
+
+Allow access for DataLens ||
+|| webSql | **boolean**
+
+Allow access for Web SQL. ||
+|#
+
+## RedisConfig {#yandex.cloud.mdb.redis.v1.config.RedisConfig}
+
+Fields and structure of `RedisConfig` reflects Redis configuration file
+parameters.
+
+#|
+||Field | Description ||
+|| maxmemoryPolicy | **enum** (MaxmemoryPolicy)
+
+Redis key eviction policy for a dataset that reaches maximum memory,
+available to the host. Redis maxmemory setting depends on Managed
+Service for Redis [host class](/docs/managed-redis/concepts/instance-types).
+
+All policies are described in detail in [Redis documentation](https://redis.io/topics/lru-cache).
+
+- `MAXMEMORY_POLICY_UNSPECIFIED`
+- `VOLATILE_LRU`: Try to remove less recently used (LRU) keys with `expire set`.
+- `ALLKEYS_LRU`: Remove less recently used (LRU) keys.
+- `VOLATILE_LFU`: Try to remove least frequently used (LFU) keys with `expire set`.
+- `ALLKEYS_LFU`: Remove least frequently used (LFU) keys.
+- `VOLATILE_RANDOM`: Try to remove keys with `expire set` randomly.
+- `ALLKEYS_RANDOM`: Remove keys randomly.
+- `VOLATILE_TTL`: Try to remove less recently used (LRU) keys with `expire set`
+and shorter TTL first.
+- `NOEVICTION`: Return errors when memory limit was reached and commands could require
+more memory to be used. ||
+|| timeout | **string** (int64)
+
+Time that Redis keeps the connection open while the client is idle.
+If no new command is sent during that time, the connection is closed. ||
+|| password | **string**
+
+Authentication password. ||
+|| databases | **string** (int64)
+
+Number of database buckets on a single redis-server process. ||
+|| slowlogLogSlowerThan | **string** (int64)
+
+Threshold for logging slow requests to server in microseconds (log only slower than it). ||
+|| slowlogMaxLen | **string** (int64)
+
+Max slow requests number to log. ||
+|| notifyKeyspaceEvents | **string**
+
+String setting for pub\sub functionality. ||
+|| clientOutputBufferLimitPubsub | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig.ClientOutputBufferLimit)**
+
+Redis connection output buffers limits for pubsub operations. ||
+|| clientOutputBufferLimitNormal | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig.ClientOutputBufferLimit)**
+
+Redis connection output buffers limits for clients. ||
+|| maxmemoryPercent | **string** (int64)
+
+Redis maxmemory percent ||
+|#
+
+## ClientOutputBufferLimit {#yandex.cloud.mdb.redis.v1.config.RedisConfig.ClientOutputBufferLimit}
+
+#|
+||Field | Description ||
+|| hardLimit | **string** (int64)
+
+Total limit in bytes. ||
+|| softLimit | **string** (int64)
+
+Limit in bytes during certain time period. ||
+|| softSeconds | **string** (int64)
+
+Seconds for soft limit. ||
+|#
+
+## DiskSizeAutoscaling {#yandex.cloud.mdb.redis.v1.DiskSizeAutoscaling}
+
+#|
+||Field | Description ||
+|| plannedUsageThreshold | **string** (int64)
+
+Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent. ||
+|| emergencyUsageThreshold | **string** (int64)
+
+Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent. ||
+|| diskSizeLimit | **string** (int64)
+
+Limit on how large the storage for database instances can automatically grow, in bytes. ||
+|#
+
+## MaintenanceWindow {#yandex.cloud.mdb.redis.v1.MaintenanceWindow}
+
+A maintenance window settings.
+
+#|
+||Field | Description ||
+|| anytime | **object**
+
+Maintenance operation can be scheduled anytime.
+
+Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`.
+
+The maintenance policy in effect. ||
+|| weeklyMaintenanceWindow | **[WeeklyMaintenanceWindow](#yandex.cloud.mdb.redis.v1.WeeklyMaintenanceWindow)**
+
+Maintenance operation can be scheduled on a weekly basis.
+
+Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`.
+
+The maintenance policy in effect. ||
+|#
+
+## WeeklyMaintenanceWindow {#yandex.cloud.mdb.redis.v1.WeeklyMaintenanceWindow}
+
+Weelky maintenance window settings.
+
+#|
+||Field | Description ||
+|| day | **enum** (WeekDay)
+
+Day of the week (in `DDD` format).
+
+- `WEEK_DAY_UNSPECIFIED`
+- `MON`
+- `TUE`
+- `WED`
+- `THU`
+- `FRI`
+- `SAT`
+- `SUN` ||
+|| hour | **string** (int64)
+
+Hour of the day in UTC (in `HH` format). ||
+|#
+
+## Response {#yandex.cloud.operation.Operation}
+
 **HTTP Code: 200 - OK**
 
-```json 
+```json
 {
   "id": "string",
   "description": "string",
   "createdAt": "string",
   "createdBy": "string",
   "modifiedAt": "string",
-  "done": true,
-  "metadata": "object",
-
-  //  includes only one of the fields `error`, `response`
+  "done": "boolean",
+  "metadata": {
+    "clusterId": "string"
+  },
+  // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
     "message": "string",
@@ -313,24 +755,1202 @@ announceHostnames | **boolean** (boolean)<br><p>Enable FQDN instead of ip</p>
       "object"
     ]
   },
-  "response": "object",
+  "response": {
+    "id": "string",
+    "folderId": "string",
+    "createdAt": "string",
+    "name": "string",
+    "description": "string",
+    "labels": "string",
+    "environment": "string",
+    "monitoring": [
+      {
+        "name": "string",
+        "description": "string",
+        "link": "string"
+      }
+    ],
+    "config": {
+      "version": "string",
+      // Includes only one of the fields `redisConfig_5_0`, `redisConfig_6_0`, `redisConfig_6_2`, `redisConfig_7_0`
+      "redisConfig_5_0": {
+        "effectiveConfig": {
+          "maxmemoryPolicy": "string",
+          "timeout": "string",
+          "password": "string",
+          "databases": "string",
+          "slowlogLogSlowerThan": "string",
+          "slowlogMaxLen": "string",
+          "notifyKeyspaceEvents": "string",
+          "clientOutputBufferLimitPubsub": {
+            "hardLimit": "string",
+            "softLimit": "string",
+            "softSeconds": "string"
+          },
+          "clientOutputBufferLimitNormal": {
+            "hardLimit": "string",
+            "softLimit": "string",
+            "softSeconds": "string"
+          }
+        },
+        "userConfig": {
+          "maxmemoryPolicy": "string",
+          "timeout": "string",
+          "password": "string",
+          "databases": "string",
+          "slowlogLogSlowerThan": "string",
+          "slowlogMaxLen": "string",
+          "notifyKeyspaceEvents": "string",
+          "clientOutputBufferLimitPubsub": {
+            "hardLimit": "string",
+            "softLimit": "string",
+            "softSeconds": "string"
+          },
+          "clientOutputBufferLimitNormal": {
+            "hardLimit": "string",
+            "softLimit": "string",
+            "softSeconds": "string"
+          }
+        },
+        "defaultConfig": {
+          "maxmemoryPolicy": "string",
+          "timeout": "string",
+          "password": "string",
+          "databases": "string",
+          "slowlogLogSlowerThan": "string",
+          "slowlogMaxLen": "string",
+          "notifyKeyspaceEvents": "string",
+          "clientOutputBufferLimitPubsub": {
+            "hardLimit": "string",
+            "softLimit": "string",
+            "softSeconds": "string"
+          },
+          "clientOutputBufferLimitNormal": {
+            "hardLimit": "string",
+            "softLimit": "string",
+            "softSeconds": "string"
+          }
+        }
+      },
+      "redisConfig_6_0": {
+        "effectiveConfig": {
+          "maxmemoryPolicy": "string",
+          "timeout": "string",
+          "password": "string",
+          "databases": "string",
+          "slowlogLogSlowerThan": "string",
+          "slowlogMaxLen": "string",
+          "notifyKeyspaceEvents": "string",
+          "clientOutputBufferLimitPubsub": {
+            "hardLimit": "string",
+            "softLimit": "string",
+            "softSeconds": "string"
+          },
+          "clientOutputBufferLimitNormal": {
+            "hardLimit": "string",
+            "softLimit": "string",
+            "softSeconds": "string"
+          }
+        },
+        "userConfig": {
+          "maxmemoryPolicy": "string",
+          "timeout": "string",
+          "password": "string",
+          "databases": "string",
+          "slowlogLogSlowerThan": "string",
+          "slowlogMaxLen": "string",
+          "notifyKeyspaceEvents": "string",
+          "clientOutputBufferLimitPubsub": {
+            "hardLimit": "string",
+            "softLimit": "string",
+            "softSeconds": "string"
+          },
+          "clientOutputBufferLimitNormal": {
+            "hardLimit": "string",
+            "softLimit": "string",
+            "softSeconds": "string"
+          }
+        },
+        "defaultConfig": {
+          "maxmemoryPolicy": "string",
+          "timeout": "string",
+          "password": "string",
+          "databases": "string",
+          "slowlogLogSlowerThan": "string",
+          "slowlogMaxLen": "string",
+          "notifyKeyspaceEvents": "string",
+          "clientOutputBufferLimitPubsub": {
+            "hardLimit": "string",
+            "softLimit": "string",
+            "softSeconds": "string"
+          },
+          "clientOutputBufferLimitNormal": {
+            "hardLimit": "string",
+            "softLimit": "string",
+            "softSeconds": "string"
+          }
+        }
+      },
+      "redisConfig_6_2": {
+        "effectiveConfig": {
+          "maxmemoryPolicy": "string",
+          "timeout": "string",
+          "password": "string",
+          "databases": "string",
+          "slowlogLogSlowerThan": "string",
+          "slowlogMaxLen": "string",
+          "notifyKeyspaceEvents": "string",
+          "clientOutputBufferLimitPubsub": {
+            "hardLimit": "string",
+            "softLimit": "string",
+            "softSeconds": "string"
+          },
+          "clientOutputBufferLimitNormal": {
+            "hardLimit": "string",
+            "softLimit": "string",
+            "softSeconds": "string"
+          },
+          "maxmemoryPercent": "string"
+        },
+        "userConfig": {
+          "maxmemoryPolicy": "string",
+          "timeout": "string",
+          "password": "string",
+          "databases": "string",
+          "slowlogLogSlowerThan": "string",
+          "slowlogMaxLen": "string",
+          "notifyKeyspaceEvents": "string",
+          "clientOutputBufferLimitPubsub": {
+            "hardLimit": "string",
+            "softLimit": "string",
+            "softSeconds": "string"
+          },
+          "clientOutputBufferLimitNormal": {
+            "hardLimit": "string",
+            "softLimit": "string",
+            "softSeconds": "string"
+          },
+          "maxmemoryPercent": "string"
+        },
+        "defaultConfig": {
+          "maxmemoryPolicy": "string",
+          "timeout": "string",
+          "password": "string",
+          "databases": "string",
+          "slowlogLogSlowerThan": "string",
+          "slowlogMaxLen": "string",
+          "notifyKeyspaceEvents": "string",
+          "clientOutputBufferLimitPubsub": {
+            "hardLimit": "string",
+            "softLimit": "string",
+            "softSeconds": "string"
+          },
+          "clientOutputBufferLimitNormal": {
+            "hardLimit": "string",
+            "softLimit": "string",
+            "softSeconds": "string"
+          },
+          "maxmemoryPercent": "string"
+        }
+      },
+      "redisConfig_7_0": {
+        "effectiveConfig": {
+          "maxmemoryPolicy": "string",
+          "timeout": "string",
+          "password": "string",
+          "databases": "string",
+          "slowlogLogSlowerThan": "string",
+          "slowlogMaxLen": "string",
+          "notifyKeyspaceEvents": "string",
+          "clientOutputBufferLimitPubsub": {
+            "hardLimit": "string",
+            "softLimit": "string",
+            "softSeconds": "string"
+          },
+          "clientOutputBufferLimitNormal": {
+            "hardLimit": "string",
+            "softLimit": "string",
+            "softSeconds": "string"
+          },
+          "maxmemoryPercent": "string"
+        },
+        "userConfig": {
+          "maxmemoryPolicy": "string",
+          "timeout": "string",
+          "password": "string",
+          "databases": "string",
+          "slowlogLogSlowerThan": "string",
+          "slowlogMaxLen": "string",
+          "notifyKeyspaceEvents": "string",
+          "clientOutputBufferLimitPubsub": {
+            "hardLimit": "string",
+            "softLimit": "string",
+            "softSeconds": "string"
+          },
+          "clientOutputBufferLimitNormal": {
+            "hardLimit": "string",
+            "softLimit": "string",
+            "softSeconds": "string"
+          },
+          "maxmemoryPercent": "string"
+        },
+        "defaultConfig": {
+          "maxmemoryPolicy": "string",
+          "timeout": "string",
+          "password": "string",
+          "databases": "string",
+          "slowlogLogSlowerThan": "string",
+          "slowlogMaxLen": "string",
+          "notifyKeyspaceEvents": "string",
+          "clientOutputBufferLimitPubsub": {
+            "hardLimit": "string",
+            "softLimit": "string",
+            "softSeconds": "string"
+          },
+          "clientOutputBufferLimitNormal": {
+            "hardLimit": "string",
+            "softLimit": "string",
+            "softSeconds": "string"
+          },
+          "maxmemoryPercent": "string"
+        }
+      },
+      // end of the list of possible fields
+      "resources": {
+        "resourcePresetId": "string",
+        "diskSize": "string",
+        "diskTypeId": "string"
+      },
+      "backupWindowStart": {
+        "hours": "integer",
+        "minutes": "integer",
+        "seconds": "integer",
+        "nanos": "integer"
+      },
+      "access": {
+        "dataLens": "boolean",
+        "webSql": "boolean"
+      },
+      "redis": {
+        "effectiveConfig": {
+          "maxmemoryPolicy": "string",
+          "timeout": "string",
+          "password": "string",
+          "databases": "string",
+          "slowlogLogSlowerThan": "string",
+          "slowlogMaxLen": "string",
+          "notifyKeyspaceEvents": "string",
+          "clientOutputBufferLimitPubsub": {
+            "hardLimit": "string",
+            "softLimit": "string",
+            "softSeconds": "string"
+          },
+          "clientOutputBufferLimitNormal": {
+            "hardLimit": "string",
+            "softLimit": "string",
+            "softSeconds": "string"
+          },
+          "maxmemoryPercent": "string"
+        },
+        "userConfig": {
+          "maxmemoryPolicy": "string",
+          "timeout": "string",
+          "password": "string",
+          "databases": "string",
+          "slowlogLogSlowerThan": "string",
+          "slowlogMaxLen": "string",
+          "notifyKeyspaceEvents": "string",
+          "clientOutputBufferLimitPubsub": {
+            "hardLimit": "string",
+            "softLimit": "string",
+            "softSeconds": "string"
+          },
+          "clientOutputBufferLimitNormal": {
+            "hardLimit": "string",
+            "softLimit": "string",
+            "softSeconds": "string"
+          },
+          "maxmemoryPercent": "string"
+        },
+        "defaultConfig": {
+          "maxmemoryPolicy": "string",
+          "timeout": "string",
+          "password": "string",
+          "databases": "string",
+          "slowlogLogSlowerThan": "string",
+          "slowlogMaxLen": "string",
+          "notifyKeyspaceEvents": "string",
+          "clientOutputBufferLimitPubsub": {
+            "hardLimit": "string",
+            "softLimit": "string",
+            "softSeconds": "string"
+          },
+          "clientOutputBufferLimitNormal": {
+            "hardLimit": "string",
+            "softLimit": "string",
+            "softSeconds": "string"
+          },
+          "maxmemoryPercent": "string"
+        }
+      },
+      "diskSizeAutoscaling": {
+        "plannedUsageThreshold": "string",
+        "emergencyUsageThreshold": "string",
+        "diskSizeLimit": "string"
+      }
+    },
+    "networkId": "string",
+    "health": "string",
+    "status": "string",
+    "sharded": "boolean",
+    "maintenanceWindow": {
+      // Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`
+      "anytime": "object",
+      "weeklyMaintenanceWindow": {
+        "day": "string",
+        "hour": "string"
+      }
+      // end of the list of possible fields
+    },
+    "plannedOperation": {
+      "info": "string",
+      "delayedUntil": "string"
+    },
+    "securityGroupIds": [
+      "string"
+    ],
+    "tlsEnabled": "boolean",
+    "deletionProtection": "boolean",
+    "persistenceMode": "string",
+    "announceHostnames": "boolean"
+  }
   // end of the list of possible fields
-
 }
 ```
+
 An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).
- 
-Field | Description
---- | ---
-id | **string**<br><p>ID of the operation.</p> 
-description | **string**<br><p>Description of the operation. 0-256 characters long.</p> 
-createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
-createdBy | **string**<br><p>ID of the user or service account who initiated the operation.</p> 
-modifiedAt | **string** (date-time)<br><p>The time when the Operation resource was last modified.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
-done | **boolean** (boolean)<br><p>If the value is ``false``, it means the operation is still in progress. If ``true``, the operation is completed, and either ``error`` or ``response`` is available.</p> 
-metadata | **object**<br><p>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any.</p> 
-error | **object**<br>The error result of the operation in case of failure or cancellation. <br> includes only one of the fields `error`, `response`<br>
-error.<br>code | **integer** (int32)<br><p>Error code. An enum value of <a href="https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto">google.rpc.Code</a>.</p> 
-error.<br>message | **string**<br><p>An error message.</p> 
-error.<br>details[] | **object**<br><p>A list of messages that carry the error details.</p> 
-response | **object** <br> includes only one of the fields `error`, `response`<br><br><p>The normal response of the operation in case of success. If the original method returns no data on success, such as Delete, the response is <a href="https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty">google.protobuf.Empty</a>. If the original method is the standard Create/Update, the response should be the target resource of the operation. Any method that returns a long-running operation should document the response type, if any.</p> 
+
+#|
+||Field | Description ||
+|| id | **string**
+
+ID of the operation. ||
+|| description | **string**
+
+Description of the operation. 0-256 characters long. ||
+|| createdAt | **string** (date-time)
+
+Creation timestamp.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| createdBy | **string**
+
+ID of the user or service account who initiated the operation. ||
+|| modifiedAt | **string** (date-time)
+
+The time when the Operation resource was last modified.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| done | **boolean**
+
+If the value is `false`, it means the operation is still in progress.
+If `true`, the operation is completed, and either `error` or `response` is available. ||
+|| metadata | **[UpdateClusterMetadata](#yandex.cloud.mdb.redis.v1.UpdateClusterMetadata)**
+
+Service-specific metadata associated with the operation.
+It typically contains the ID of the target resource that the operation is performed on.
+Any method that returns a long-running operation should document the metadata type, if any. ||
+|| error | **[Status](#google.rpc.Status)**
+
+The error result of the operation in case of failure or cancellation.
+
+Includes only one of the fields `error`, `response`.
+
+The operation result.
+If `done == false` and there was no failure detected, neither `error` nor `response` is set.
+If `done == false` and there was a failure detected, `error` is set.
+If `done == true`, exactly one of `error` or `response` is set. ||
+|| response | **[Cluster](#yandex.cloud.mdb.redis.v1.Cluster)**
+
+The normal response of the operation in case of success.
+If the original method returns no data on success, such as Delete,
+the response is [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty).
+If the original method is the standard Create/Update,
+the response should be the target resource of the operation.
+Any method that returns a long-running operation should document the response type, if any.
+
+Includes only one of the fields `error`, `response`.
+
+The operation result.
+If `done == false` and there was no failure detected, neither `error` nor `response` is set.
+If `done == false` and there was a failure detected, `error` is set.
+If `done == true`, exactly one of `error` or `response` is set. ||
+|#
+
+## UpdateClusterMetadata {#yandex.cloud.mdb.redis.v1.UpdateClusterMetadata}
+
+#|
+||Field | Description ||
+|| clusterId | **string**
+
+ID of the Redis cluster that is being updated. ||
+|#
+
+## Status {#google.rpc.Status}
+
+The error result of the operation in case of failure or cancellation.
+
+#|
+||Field | Description ||
+|| code | **integer** (int32)
+
+Error code. An enum value of [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto). ||
+|| message | **string**
+
+An error message. ||
+|| details[] | **object**
+
+A list of messages that carry the error details. ||
+|#
+
+## Cluster {#yandex.cloud.mdb.redis.v1.Cluster}
+
+Description of a Redis cluster. For more information, see
+the Managed Service for Redis [documentation](/docs/managed-redis/concepts/).
+
+#|
+||Field | Description ||
+|| id | **string**
+
+ID of the Redis cluster.
+This ID is assigned by MDB at creation time. ||
+|| folderId | **string**
+
+ID of the folder that the Redis cluster belongs to. ||
+|| createdAt | **string** (date-time)
+
+Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| name | **string**
+
+Name of the Redis cluster.
+The name is unique within the folder. 3-63 characters long. ||
+|| description | **string**
+
+Description of the Redis cluster. 0-256 characters long. ||
+|| labels | **string**
+
+Custom labels for the Redis cluster as `key:value` pairs.
+Maximum 64 per cluster. ||
+|| environment | **enum** (Environment)
+
+Deployment environment of the Redis cluster.
+
+- `ENVIRONMENT_UNSPECIFIED`
+- `PRODUCTION`: Stable environment with a conservative update policy:
+only hotfixes are applied during regular maintenance.
+- `PRESTABLE`: Environment with more aggressive update policy: new versions
+are rolled out irrespective of backward compatibility. ||
+|| monitoring[] | **[Monitoring](#yandex.cloud.mdb.redis.v1.Monitoring)**
+
+Description of monitoring systems relevant to the Redis cluster. ||
+|| config | **[ClusterConfig](#yandex.cloud.mdb.redis.v1.ClusterConfig)**
+
+Configuration of the Redis cluster. ||
+|| networkId | **string** ||
+|| health | **enum** (Health)
+
+Aggregated cluster health.
+
+- `HEALTH_UNKNOWN`: Cluster is in unknown state (we have no data)
+- `ALIVE`: Cluster is alive and well (all hosts are alive)
+- `DEAD`: Cluster is inoperable (it cannot perform any of its essential functions)
+- `DEGRADED`: Cluster is partially alive (it can perform some of its essential functions) ||
+|| status | **enum** (Status)
+
+Cluster status.
+
+- `STATUS_UNKNOWN`: Cluster status is unknown
+- `CREATING`: Cluster is being created
+- `RUNNING`: Cluster is running
+- `ERROR`: Cluster failed
+- `UPDATING`: Cluster is being updated.
+- `STOPPING`: Cluster is stopping.
+- `STOPPED`: Cluster stopped.
+- `STARTING`: Cluster is starting. ||
+|| sharded | **boolean**
+
+Redis cluster mode on/off. ||
+|| maintenanceWindow | **[MaintenanceWindow](#yandex.cloud.mdb.redis.v1.MaintenanceWindow2)**
+
+Maintenance window for the cluster. ||
+|| plannedOperation | **[MaintenanceOperation](#yandex.cloud.mdb.redis.v1.MaintenanceOperation)**
+
+Planned maintenance operation to be started for the cluster within the nearest `maintenanceWindow`. ||
+|| securityGroupIds[] | **string**
+
+User security groups ||
+|| tlsEnabled | **boolean**
+
+TLS port and functionality on\off ||
+|| deletionProtection | **boolean**
+
+Deletion Protection inhibits deletion of the cluster ||
+|| persistenceMode | **enum** (PersistenceMode)
+
+Persistence mode
+
+- `ON`: cluster persistence mode on
+- `OFF`: cluster persistence mode off ||
+|| announceHostnames | **boolean**
+
+Enable FQDN instead of ip ||
+|#
+
+## Monitoring {#yandex.cloud.mdb.redis.v1.Monitoring}
+
+#|
+||Field | Description ||
+|| name | **string**
+
+Name of the monitoring system. ||
+|| description | **string**
+
+Description of the monitoring system. ||
+|| link | **string**
+
+Link to the monitoring system charts for the Redis cluster. ||
+|#
+
+## ClusterConfig {#yandex.cloud.mdb.redis.v1.ClusterConfig}
+
+#|
+||Field | Description ||
+|| version | **string**
+
+Version of Redis server software. ||
+|| redisConfig_5_0 | **[RedisConfigSet5_0](#yandex.cloud.mdb.redis.v1.config.RedisConfigSet5_0)**
+
+Configuration of a Redis 5.0 server.
+
+Includes only one of the fields `redisConfig_5_0`, `redisConfig_6_0`, `redisConfig_6_2`, `redisConfig_7_0`.
+
+Configuration for Redis servers in the cluster. ||
+|| redisConfig_6_0 | **[RedisConfigSet6_0](#yandex.cloud.mdb.redis.v1.config.RedisConfigSet6_0)**
+
+Configuration of a Redis 6.0 server.
+
+Includes only one of the fields `redisConfig_5_0`, `redisConfig_6_0`, `redisConfig_6_2`, `redisConfig_7_0`.
+
+Configuration for Redis servers in the cluster. ||
+|| redisConfig_6_2 | **[RedisConfigSet6_2](#yandex.cloud.mdb.redis.v1.config.RedisConfigSet6_2)**
+
+Configuration of a Redis 6.2 server.
+
+Includes only one of the fields `redisConfig_5_0`, `redisConfig_6_0`, `redisConfig_6_2`, `redisConfig_7_0`.
+
+Configuration for Redis servers in the cluster. ||
+|| redisConfig_7_0 | **[RedisConfigSet7_0](#yandex.cloud.mdb.redis.v1.config.RedisConfigSet7_0)**
+
+Configuration of a Redis 7.0 server.
+
+Includes only one of the fields `redisConfig_5_0`, `redisConfig_6_0`, `redisConfig_6_2`, `redisConfig_7_0`.
+
+Configuration for Redis servers in the cluster. ||
+|| resources | **[Resources](#yandex.cloud.mdb.redis.v1.Resources2)**
+
+Resources allocated to Redis hosts. ||
+|| backupWindowStart | **[TimeOfDay](#google.type.TimeOfDay2)**
+
+Time to start the daily backup, in the UTC timezone. ||
+|| access | **[Access](#yandex.cloud.mdb.redis.v1.Access2)**
+
+Access policy to DB ||
+|| redis | **[RedisConfigSet](#yandex.cloud.mdb.redis.v1.config.RedisConfigSet)**
+
+Unified configuration of a Redis cluster. ||
+|| diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.redis.v1.DiskSizeAutoscaling2)**
+
+Disk size autoscaling settings ||
+|#
+
+## RedisConfigSet5_0 {#yandex.cloud.mdb.redis.v1.config.RedisConfigSet5_0}
+
+#|
+||Field | Description ||
+|| effectiveConfig | **[RedisConfig5_0](#yandex.cloud.mdb.redis.v1.config.RedisConfig5_02)**
+
+Effective settings for a Redis 5.0 cluster (a combination of settings
+defined in `userConfig` and `defaultConfig`). ||
+|| userConfig | **[RedisConfig5_0](#yandex.cloud.mdb.redis.v1.config.RedisConfig5_02)**
+
+User-defined settings for a Redis 5.0 cluster. ||
+|| defaultConfig | **[RedisConfig5_0](#yandex.cloud.mdb.redis.v1.config.RedisConfig5_02)**
+
+Default configuration for a Redis 5.0 cluster. ||
+|#
+
+## RedisConfig5_0 {#yandex.cloud.mdb.redis.v1.config.RedisConfig5_02}
+
+Fields and structure of `RedisConfig` reflects Redis configuration file
+parameters.
+
+#|
+||Field | Description ||
+|| maxmemoryPolicy | **enum** (MaxmemoryPolicy)
+
+Redis key eviction policy for a dataset that reaches maximum memory,
+available to the host. Redis maxmemory setting depends on Managed
+Service for Redis [host class](/docs/managed-redis/concepts/instance-types).
+
+All policies are described in detail in [Redis documentation](https://redis.io/topics/lru-cache).
+
+- `MAXMEMORY_POLICY_UNSPECIFIED`
+- `VOLATILE_LRU`: Try to remove less recently used (LRU) keys with `expire set`.
+- `ALLKEYS_LRU`: Remove less recently used (LRU) keys.
+- `VOLATILE_LFU`: Try to remove least frequently used (LFU) keys with `expire set`.
+- `ALLKEYS_LFU`: Remove least frequently used (LFU) keys.
+- `VOLATILE_RANDOM`: Try to remove keys with `expire set` randomly.
+- `ALLKEYS_RANDOM`: Remove keys randomly.
+- `VOLATILE_TTL`: Try to remove less recently used (LRU) keys with `expire set`
+and shorter TTL first.
+- `NOEVICTION`: Return errors when memory limit was reached and commands could require
+more memory to be used. ||
+|| timeout | **string** (int64)
+
+Time that Redis keeps the connection open while the client is idle.
+If no new command is sent during that time, the connection is closed. ||
+|| password | **string**
+
+Authentication password. ||
+|| databases | **string** (int64)
+
+Number of database buckets on a single redis-server process. ||
+|| slowlogLogSlowerThan | **string** (int64)
+
+Threshold for logging slow requests to server in microseconds (log only slower than it). ||
+|| slowlogMaxLen | **string** (int64)
+
+Max slow requests number to log. ||
+|| notifyKeyspaceEvents | **string**
+
+String setting for pub\sub functionality. ||
+|| clientOutputBufferLimitPubsub | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig5_0.ClientOutputBufferLimit2)**
+
+Redis connection output buffers limits for pubsub operations. ||
+|| clientOutputBufferLimitNormal | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig5_0.ClientOutputBufferLimit2)**
+
+Redis connection output buffers limits for clients. ||
+|#
+
+## ClientOutputBufferLimit {#yandex.cloud.mdb.redis.v1.config.RedisConfig5_0.ClientOutputBufferLimit2}
+
+#|
+||Field | Description ||
+|| hardLimit | **string** (int64)
+
+Total limit in bytes. ||
+|| softLimit | **string** (int64)
+
+Limit in bytes during certain time period. ||
+|| softSeconds | **string** (int64)
+
+Seconds for soft limit. ||
+|#
+
+## RedisConfigSet6_0 {#yandex.cloud.mdb.redis.v1.config.RedisConfigSet6_0}
+
+#|
+||Field | Description ||
+|| effectiveConfig | **[RedisConfig6_0](#yandex.cloud.mdb.redis.v1.config.RedisConfig6_02)**
+
+Effective settings for a Redis 6.0 cluster (a combination of settings
+defined in `userConfig` and `defaultConfig`). ||
+|| userConfig | **[RedisConfig6_0](#yandex.cloud.mdb.redis.v1.config.RedisConfig6_02)**
+
+User-defined settings for a Redis 6.0 cluster. ||
+|| defaultConfig | **[RedisConfig6_0](#yandex.cloud.mdb.redis.v1.config.RedisConfig6_02)**
+
+Default configuration for a Redis 6.0 cluster. ||
+|#
+
+## RedisConfig6_0 {#yandex.cloud.mdb.redis.v1.config.RedisConfig6_02}
+
+Fields and structure of `RedisConfig` reflects Redis configuration file
+parameters.
+
+#|
+||Field | Description ||
+|| maxmemoryPolicy | **enum** (MaxmemoryPolicy)
+
+Redis key eviction policy for a dataset that reaches maximum memory,
+available to the host. Redis maxmemory setting depends on Managed
+Service for Redis [host class](/docs/managed-redis/concepts/instance-types).
+
+All policies are described in detail in [Redis documentation](https://redis.io/topics/lru-cache).
+
+- `MAXMEMORY_POLICY_UNSPECIFIED`
+- `VOLATILE_LRU`: Try to remove less recently used (LRU) keys with `expire set`.
+- `ALLKEYS_LRU`: Remove less recently used (LRU) keys.
+- `VOLATILE_LFU`: Try to remove least frequently used (LFU) keys with `expire set`.
+- `ALLKEYS_LFU`: Remove least frequently used (LFU) keys.
+- `VOLATILE_RANDOM`: Try to remove keys with `expire set` randomly.
+- `ALLKEYS_RANDOM`: Remove keys randomly.
+- `VOLATILE_TTL`: Try to remove less recently used (LRU) keys with `expire set`
+and shorter TTL first.
+- `NOEVICTION`: Return errors when memory limit was reached and commands could require
+more memory to be used. ||
+|| timeout | **string** (int64)
+
+Time that Redis keeps the connection open while the client is idle.
+If no new command is sent during that time, the connection is closed. ||
+|| password | **string**
+
+Authentication password. ||
+|| databases | **string** (int64)
+
+Number of database buckets on a single redis-server process. ||
+|| slowlogLogSlowerThan | **string** (int64)
+
+Threshold for logging slow requests to server in microseconds (log only slower than it). ||
+|| slowlogMaxLen | **string** (int64)
+
+Max slow requests number to log. ||
+|| notifyKeyspaceEvents | **string**
+
+String setting for pub\sub functionality. ||
+|| clientOutputBufferLimitPubsub | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig6_0.ClientOutputBufferLimit2)**
+
+Redis connection output buffers limits for pubsub operations. ||
+|| clientOutputBufferLimitNormal | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig6_0.ClientOutputBufferLimit2)**
+
+Redis connection output buffers limits for clients. ||
+|#
+
+## ClientOutputBufferLimit {#yandex.cloud.mdb.redis.v1.config.RedisConfig6_0.ClientOutputBufferLimit2}
+
+#|
+||Field | Description ||
+|| hardLimit | **string** (int64)
+
+Total limit in bytes. ||
+|| softLimit | **string** (int64)
+
+Limit in bytes during certain time period. ||
+|| softSeconds | **string** (int64)
+
+Seconds for soft limit. ||
+|#
+
+## RedisConfigSet6_2 {#yandex.cloud.mdb.redis.v1.config.RedisConfigSet6_2}
+
+#|
+||Field | Description ||
+|| effectiveConfig | **[RedisConfig6_2](#yandex.cloud.mdb.redis.v1.config.RedisConfig6_22)**
+
+Effective settings for a Redis 6.2 cluster (a combination of settings
+defined in `userConfig` and `defaultConfig`). ||
+|| userConfig | **[RedisConfig6_2](#yandex.cloud.mdb.redis.v1.config.RedisConfig6_22)**
+
+User-defined settings for a Redis 6.2 cluster. ||
+|| defaultConfig | **[RedisConfig6_2](#yandex.cloud.mdb.redis.v1.config.RedisConfig6_22)**
+
+Default configuration for a Redis 6.2 cluster. ||
+|#
+
+## RedisConfig6_2 {#yandex.cloud.mdb.redis.v1.config.RedisConfig6_22}
+
+Fields and structure of `RedisConfig` reflects Redis configuration file
+parameters.
+
+#|
+||Field | Description ||
+|| maxmemoryPolicy | **enum** (MaxmemoryPolicy)
+
+Redis key eviction policy for a dataset that reaches maximum memory,
+available to the host. Redis maxmemory setting depends on Managed
+Service for Redis [host class](/docs/managed-redis/concepts/instance-types).
+
+All policies are described in detail in [Redis documentation](https://redis.io/topics/lru-cache).
+
+- `MAXMEMORY_POLICY_UNSPECIFIED`
+- `VOLATILE_LRU`: Try to remove less recently used (LRU) keys with `expire set`.
+- `ALLKEYS_LRU`: Remove less recently used (LRU) keys.
+- `VOLATILE_LFU`: Try to remove least frequently used (LFU) keys with `expire set`.
+- `ALLKEYS_LFU`: Remove least frequently used (LFU) keys.
+- `VOLATILE_RANDOM`: Try to remove keys with `expire set` randomly.
+- `ALLKEYS_RANDOM`: Remove keys randomly.
+- `VOLATILE_TTL`: Try to remove less recently used (LRU) keys with `expire set`
+and shorter TTL first.
+- `NOEVICTION`: Return errors when memory limit was reached and commands could require
+more memory to be used. ||
+|| timeout | **string** (int64)
+
+Time that Redis keeps the connection open while the client is idle.
+If no new command is sent during that time, the connection is closed. ||
+|| password | **string**
+
+Authentication password. ||
+|| databases | **string** (int64)
+
+Number of database buckets on a single redis-server process. ||
+|| slowlogLogSlowerThan | **string** (int64)
+
+Threshold for logging slow requests to server in microseconds (log only slower than it). ||
+|| slowlogMaxLen | **string** (int64)
+
+Max slow requests number to log. ||
+|| notifyKeyspaceEvents | **string**
+
+String setting for pub\sub functionality. ||
+|| clientOutputBufferLimitPubsub | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig6_2.ClientOutputBufferLimit2)**
+
+Redis connection output buffers limits for pubsub operations. ||
+|| clientOutputBufferLimitNormal | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig6_2.ClientOutputBufferLimit2)**
+
+Redis connection output buffers limits for clients. ||
+|| maxmemoryPercent | **string** (int64)
+
+Redis maxmemory percent ||
+|#
+
+## ClientOutputBufferLimit {#yandex.cloud.mdb.redis.v1.config.RedisConfig6_2.ClientOutputBufferLimit2}
+
+#|
+||Field | Description ||
+|| hardLimit | **string** (int64)
+
+Total limit in bytes. ||
+|| softLimit | **string** (int64)
+
+Limit in bytes during certain time period. ||
+|| softSeconds | **string** (int64)
+
+Seconds for soft limit. ||
+|#
+
+## RedisConfigSet7_0 {#yandex.cloud.mdb.redis.v1.config.RedisConfigSet7_0}
+
+#|
+||Field | Description ||
+|| effectiveConfig | **[RedisConfig7_0](#yandex.cloud.mdb.redis.v1.config.RedisConfig7_02)**
+
+Effective settings for a Redis 7.0 cluster (a combination of settings
+defined in `userConfig` and `defaultConfig`). ||
+|| userConfig | **[RedisConfig7_0](#yandex.cloud.mdb.redis.v1.config.RedisConfig7_02)**
+
+User-defined settings for a Redis 7.0 cluster. ||
+|| defaultConfig | **[RedisConfig7_0](#yandex.cloud.mdb.redis.v1.config.RedisConfig7_02)**
+
+Default configuration for a Redis 7.0 cluster. ||
+|#
+
+## RedisConfig7_0 {#yandex.cloud.mdb.redis.v1.config.RedisConfig7_02}
+
+Fields and structure of `RedisConfig` reflects Redis configuration file
+parameters.
+
+#|
+||Field | Description ||
+|| maxmemoryPolicy | **enum** (MaxmemoryPolicy)
+
+Redis key eviction policy for a dataset that reaches maximum memory,
+available to the host. Redis maxmemory setting depends on Managed
+Service for Redis [host class](/docs/managed-redis/concepts/instance-types).
+
+All policies are described in detail in [Redis documentation](https://redis.io/topics/lru-cache).
+
+- `MAXMEMORY_POLICY_UNSPECIFIED`
+- `VOLATILE_LRU`: Try to remove less recently used (LRU) keys with `expire set`.
+- `ALLKEYS_LRU`: Remove less recently used (LRU) keys.
+- `VOLATILE_LFU`: Try to remove least frequently used (LFU) keys with `expire set`.
+- `ALLKEYS_LFU`: Remove least frequently used (LFU) keys.
+- `VOLATILE_RANDOM`: Try to remove keys with `expire set` randomly.
+- `ALLKEYS_RANDOM`: Remove keys randomly.
+- `VOLATILE_TTL`: Try to remove less recently used (LRU) keys with `expire set`
+and shorter TTL first.
+- `NOEVICTION`: Return errors when memory limit was reached and commands could require
+more memory to be used. ||
+|| timeout | **string** (int64)
+
+Time that Redis keeps the connection open while the client is idle.
+If no new command is sent during that time, the connection is closed. ||
+|| password | **string**
+
+Authentication password. ||
+|| databases | **string** (int64)
+
+Number of database buckets on a single redis-server process. ||
+|| slowlogLogSlowerThan | **string** (int64)
+
+Threshold for logging slow requests to server in microseconds (log only slower than it). ||
+|| slowlogMaxLen | **string** (int64)
+
+Max slow requests number to log. ||
+|| notifyKeyspaceEvents | **string**
+
+String setting for pub\sub functionality. ||
+|| clientOutputBufferLimitPubsub | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig7_0.ClientOutputBufferLimit2)**
+
+Redis connection output buffers limits for pubsub operations. ||
+|| clientOutputBufferLimitNormal | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig7_0.ClientOutputBufferLimit2)**
+
+Redis connection output buffers limits for clients. ||
+|| maxmemoryPercent | **string** (int64)
+
+Redis maxmemory percent ||
+|#
+
+## ClientOutputBufferLimit {#yandex.cloud.mdb.redis.v1.config.RedisConfig7_0.ClientOutputBufferLimit2}
+
+#|
+||Field | Description ||
+|| hardLimit | **string** (int64)
+
+Total limit in bytes. ||
+|| softLimit | **string** (int64)
+
+Limit in bytes during certain time period. ||
+|| softSeconds | **string** (int64)
+
+Seconds for soft limit. ||
+|#
+
+## Resources {#yandex.cloud.mdb.redis.v1.Resources2}
+
+#|
+||Field | Description ||
+|| resourcePresetId | **string**
+
+ID of the preset for computational resources available to a host (CPU, memory etc.).
+All available presets are listed in the [documentation](/docs/managed-redis/concepts/instance-types). ||
+|| diskSize | **string** (int64)
+
+Volume of the storage available to a host, in bytes. ||
+|| diskTypeId | **string**
+
+Type of the storage environment for the host.
+Possible values:
+* network-ssd - network SSD drive,
+* local-ssd - local SSD storage. ||
+|#
+
+## TimeOfDay {#google.type.TimeOfDay2}
+
+Represents a time of day. The date and time zone are either not significant
+or are specified elsewhere. An API may choose to allow leap seconds. Related
+types are [google.type.Date](https://github.com/googleapis/googleapis/blob/master/google/type/date.proto) and [google.protobuf.Timestamp](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/timestamp.proto).
+
+#|
+||Field | Description ||
+|| hours | **integer** (int32)
+
+Hours of day in 24 hour format. Should be from 0 to 23. An API may choose
+to allow the value "24:00:00" for scenarios like business closing time. ||
+|| minutes | **integer** (int32)
+
+Minutes of hour of day. Must be from 0 to 59. ||
+|| seconds | **integer** (int32)
+
+Seconds of minutes of the time. Must normally be from 0 to 59. An API may
+allow the value 60 if it allows leap-seconds. ||
+|| nanos | **integer** (int32)
+
+Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999. ||
+|#
+
+## Access {#yandex.cloud.mdb.redis.v1.Access2}
+
+#|
+||Field | Description ||
+|| dataLens | **boolean**
+
+Allow access for DataLens ||
+|| webSql | **boolean**
+
+Allow access for Web SQL. ||
+|#
+
+## RedisConfigSet {#yandex.cloud.mdb.redis.v1.config.RedisConfigSet}
+
+#|
+||Field | Description ||
+|| effectiveConfig | **[RedisConfig](#yandex.cloud.mdb.redis.v1.config.RedisConfig2)**
+
+Effective settings for a Redis cluster (a combination of settings
+defined in `userConfig` and `defaultConfig`). ||
+|| userConfig | **[RedisConfig](#yandex.cloud.mdb.redis.v1.config.RedisConfig2)**
+
+User-defined settings for a Redis cluster. ||
+|| defaultConfig | **[RedisConfig](#yandex.cloud.mdb.redis.v1.config.RedisConfig2)**
+
+Default configuration for a Redis cluster. ||
+|#
+
+## RedisConfig {#yandex.cloud.mdb.redis.v1.config.RedisConfig2}
+
+Fields and structure of `RedisConfig` reflects Redis configuration file
+parameters.
+
+#|
+||Field | Description ||
+|| maxmemoryPolicy | **enum** (MaxmemoryPolicy)
+
+Redis key eviction policy for a dataset that reaches maximum memory,
+available to the host. Redis maxmemory setting depends on Managed
+Service for Redis [host class](/docs/managed-redis/concepts/instance-types).
+
+All policies are described in detail in [Redis documentation](https://redis.io/topics/lru-cache).
+
+- `MAXMEMORY_POLICY_UNSPECIFIED`
+- `VOLATILE_LRU`: Try to remove less recently used (LRU) keys with `expire set`.
+- `ALLKEYS_LRU`: Remove less recently used (LRU) keys.
+- `VOLATILE_LFU`: Try to remove least frequently used (LFU) keys with `expire set`.
+- `ALLKEYS_LFU`: Remove least frequently used (LFU) keys.
+- `VOLATILE_RANDOM`: Try to remove keys with `expire set` randomly.
+- `ALLKEYS_RANDOM`: Remove keys randomly.
+- `VOLATILE_TTL`: Try to remove less recently used (LRU) keys with `expire set`
+and shorter TTL first.
+- `NOEVICTION`: Return errors when memory limit was reached and commands could require
+more memory to be used. ||
+|| timeout | **string** (int64)
+
+Time that Redis keeps the connection open while the client is idle.
+If no new command is sent during that time, the connection is closed. ||
+|| password | **string**
+
+Authentication password. ||
+|| databases | **string** (int64)
+
+Number of database buckets on a single redis-server process. ||
+|| slowlogLogSlowerThan | **string** (int64)
+
+Threshold for logging slow requests to server in microseconds (log only slower than it). ||
+|| slowlogMaxLen | **string** (int64)
+
+Max slow requests number to log. ||
+|| notifyKeyspaceEvents | **string**
+
+String setting for pub\sub functionality. ||
+|| clientOutputBufferLimitPubsub | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig.ClientOutputBufferLimit2)**
+
+Redis connection output buffers limits for pubsub operations. ||
+|| clientOutputBufferLimitNormal | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig.ClientOutputBufferLimit2)**
+
+Redis connection output buffers limits for clients. ||
+|| maxmemoryPercent | **string** (int64)
+
+Redis maxmemory percent ||
+|#
+
+## ClientOutputBufferLimit {#yandex.cloud.mdb.redis.v1.config.RedisConfig.ClientOutputBufferLimit2}
+
+#|
+||Field | Description ||
+|| hardLimit | **string** (int64)
+
+Total limit in bytes. ||
+|| softLimit | **string** (int64)
+
+Limit in bytes during certain time period. ||
+|| softSeconds | **string** (int64)
+
+Seconds for soft limit. ||
+|#
+
+## DiskSizeAutoscaling {#yandex.cloud.mdb.redis.v1.DiskSizeAutoscaling2}
+
+#|
+||Field | Description ||
+|| plannedUsageThreshold | **string** (int64)
+
+Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent. ||
+|| emergencyUsageThreshold | **string** (int64)
+
+Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent. ||
+|| diskSizeLimit | **string** (int64)
+
+Limit on how large the storage for database instances can automatically grow, in bytes. ||
+|#
+
+## MaintenanceWindow {#yandex.cloud.mdb.redis.v1.MaintenanceWindow2}
+
+A maintenance window settings.
+
+#|
+||Field | Description ||
+|| anytime | **object**
+
+Maintenance operation can be scheduled anytime.
+
+Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`.
+
+The maintenance policy in effect. ||
+|| weeklyMaintenanceWindow | **[WeeklyMaintenanceWindow](#yandex.cloud.mdb.redis.v1.WeeklyMaintenanceWindow2)**
+
+Maintenance operation can be scheduled on a weekly basis.
+
+Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`.
+
+The maintenance policy in effect. ||
+|#
+
+## WeeklyMaintenanceWindow {#yandex.cloud.mdb.redis.v1.WeeklyMaintenanceWindow2}
+
+Weelky maintenance window settings.
+
+#|
+||Field | Description ||
+|| day | **enum** (WeekDay)
+
+Day of the week (in `DDD` format).
+
+- `WEEK_DAY_UNSPECIFIED`
+- `MON`
+- `TUE`
+- `WED`
+- `THU`
+- `FRI`
+- `SAT`
+- `SUN` ||
+|| hour | **string** (int64)
+
+Hour of the day in UTC (in `HH` format). ||
+|#
+
+## MaintenanceOperation {#yandex.cloud.mdb.redis.v1.MaintenanceOperation}
+
+A planned maintenance operation.
+
+#|
+||Field | Description ||
+|| info | **string**
+
+Information about this maintenance operation. ||
+|| delayedUntil | **string** (date-time)
+
+Time until which this maintenance operation is delayed.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|#

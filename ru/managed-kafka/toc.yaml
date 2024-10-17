@@ -153,18 +153,102 @@ items:
         items:
           - name: Overview
             href: api-ref/grpc/index.md
-          - name: ClusterService
-            href: api-ref/grpc/cluster_service.md
-          - name: ConnectorService
-            href: api-ref/grpc/connector_service.md
-          - name: ResourcePresetService
-            href: api-ref/grpc/resource_preset_service.md
-          - name: TopicService
-            href: api-ref/grpc/topic_service.md
-          - name: UserService
-            href: api-ref/grpc/user_service.md
-          - name: OperationService
-            href: api-ref/grpc/operation_service.md
+          - name: Cluster
+            items:
+              - name: Overview
+                href: api-ref/grpc/Cluster/index.md
+              - name: Get
+                href: api-ref/grpc/Cluster/get.md
+              - name: List
+                href: api-ref/grpc/Cluster/list.md
+              - name: Create
+                href: api-ref/grpc/Cluster/create.md
+              - name: Update
+                href: api-ref/grpc/Cluster/update.md
+              - name: Delete
+                href: api-ref/grpc/Cluster/delete.md
+              - name: Move
+                href: api-ref/grpc/Cluster/move.md
+              - name: Start
+                href: api-ref/grpc/Cluster/start.md
+              - name: Stop
+                href: api-ref/grpc/Cluster/stop.md
+              - name: RescheduleMaintenance
+                href: api-ref/grpc/Cluster/rescheduleMaintenance.md
+              - name: ListLogs
+                href: api-ref/grpc/Cluster/listLogs.md
+              - name: StreamLogs
+                href: api-ref/grpc/Cluster/streamLogs.md
+              - name: ListOperations
+                href: api-ref/grpc/Cluster/listOperations.md
+              - name: ListHosts
+                href: api-ref/grpc/Cluster/listHosts.md
+          - name: Connector
+            items:
+              - name: Overview
+                href: api-ref/grpc/Connector/index.md
+              - name: Get
+                href: api-ref/grpc/Connector/get.md
+              - name: List
+                href: api-ref/grpc/Connector/list.md
+              - name: Create
+                href: api-ref/grpc/Connector/create.md
+              - name: Update
+                href: api-ref/grpc/Connector/update.md
+              - name: Delete
+                href: api-ref/grpc/Connector/delete.md
+              - name: Resume
+                href: api-ref/grpc/Connector/resume.md
+              - name: Pause
+                href: api-ref/grpc/Connector/pause.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/grpc/Operation/index.md
+              - name: Get
+                href: api-ref/grpc/Operation/get.md
+              - name: Cancel
+                href: api-ref/grpc/Operation/cancel.md
+          - name: ResourcePreset
+            items:
+              - name: Overview
+                href: api-ref/grpc/ResourcePreset/index.md
+              - name: Get
+                href: api-ref/grpc/ResourcePreset/get.md
+              - name: List
+                href: api-ref/grpc/ResourcePreset/list.md
+          - name: Topic
+            items:
+              - name: Overview
+                href: api-ref/grpc/Topic/index.md
+              - name: Get
+                href: api-ref/grpc/Topic/get.md
+              - name: List
+                href: api-ref/grpc/Topic/list.md
+              - name: Create
+                href: api-ref/grpc/Topic/create.md
+              - name: Update
+                href: api-ref/grpc/Topic/update.md
+              - name: Delete
+                href: api-ref/grpc/Topic/delete.md
+          - name: User
+            items:
+              - name: Overview
+                href: api-ref/grpc/User/index.md
+              - name: Get
+                href: api-ref/grpc/User/get.md
+              - name: List
+                href: api-ref/grpc/User/list.md
+              - name: Create
+                href: api-ref/grpc/User/create.md
+              - name: Update
+                href: api-ref/grpc/User/update.md
+              - name: Delete
+                href: api-ref/grpc/User/delete.md
+              - name: GrantPermission
+                href: api-ref/grpc/User/grantPermission.md
+              - name: RevokePermission
+                href: api-ref/grpc/User/revokePermission.md
       - name: REST (англ.)
         items:
           - name: Overview
@@ -173,96 +257,98 @@ items:
             items:
               - name: Overview
                 href: api-ref/Cluster/index.md
-              - name: create
-                href: api-ref/Cluster/create.md
-              - name: delete
-                href: api-ref/Cluster/delete.md
-              - name: get
+              - name: Get
                 href: api-ref/Cluster/get.md
-              - name: list
+              - name: List
                 href: api-ref/Cluster/list.md
-              - name: listHosts
-                href: api-ref/Cluster/listHosts.md
-              - name: listLogs
-                href: api-ref/Cluster/listLogs.md
-              - name: listOperations
-                href: api-ref/Cluster/listOperations.md
-              - name: move
-                href: api-ref/Cluster/move.md
-              - name: rescheduleMaintenance
-                href: api-ref/Cluster/rescheduleMaintenance.md
-              - name: start
-                href: api-ref/Cluster/start.md
-              - name: stop
-                href: api-ref/Cluster/stop.md
-              - name: streamLogs
-                href: api-ref/Cluster/streamLogs.md
-              - name: update
+              - name: Create
+                href: api-ref/Cluster/create.md
+              - name: Update
                 href: api-ref/Cluster/update.md
+              - name: Delete
+                href: api-ref/Cluster/delete.md
+              - name: Move
+                href: api-ref/Cluster/move.md
+              - name: Start
+                href: api-ref/Cluster/start.md
+              - name: Stop
+                href: api-ref/Cluster/stop.md
+              - name: RescheduleMaintenance
+                href: api-ref/Cluster/rescheduleMaintenance.md
+              - name: ListLogs
+                href: api-ref/Cluster/listLogs.md
+              - name: StreamLogs
+                href: api-ref/Cluster/streamLogs.md
+              - name: ListOperations
+                href: api-ref/Cluster/listOperations.md
+              - name: ListHosts
+                href: api-ref/Cluster/listHosts.md
           - name: Connector
             items:
               - name: Overview
                 href: api-ref/Connector/index.md
-              - name: create
-                href: api-ref/Connector/create.md
-              - name: delete
-                href: api-ref/Connector/delete.md
-              - name: get
+              - name: Get
                 href: api-ref/Connector/get.md
-              - name: list
+              - name: List
                 href: api-ref/Connector/list.md
-              - name: pause
-                href: api-ref/Connector/pause.md
-              - name: resume
-                href: api-ref/Connector/resume.md
-              - name: update
+              - name: Create
+                href: api-ref/Connector/create.md
+              - name: Update
                 href: api-ref/Connector/update.md
+              - name: Delete
+                href: api-ref/Connector/delete.md
+              - name: Resume
+                href: api-ref/Connector/resume.md
+              - name: Pause
+                href: api-ref/Connector/pause.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/Operation/index.md
+              - name: Get
+                href: api-ref/Operation/get.md
+              - name: Cancel
+                href: api-ref/Operation/cancel.md
           - name: ResourcePreset
             items:
               - name: Overview
                 href: api-ref/ResourcePreset/index.md
-              - name: get
+              - name: Get
                 href: api-ref/ResourcePreset/get.md
-              - name: list
+              - name: List
                 href: api-ref/ResourcePreset/list.md
           - name: Topic
             items:
               - name: Overview
                 href: api-ref/Topic/index.md
-              - name: create
-                href: api-ref/Topic/create.md
-              - name: delete
-                href: api-ref/Topic/delete.md
-              - name: get
+              - name: Get
                 href: api-ref/Topic/get.md
-              - name: list
+              - name: List
                 href: api-ref/Topic/list.md
-              - name: update
+              - name: Create
+                href: api-ref/Topic/create.md
+              - name: Update
                 href: api-ref/Topic/update.md
+              - name: Delete
+                href: api-ref/Topic/delete.md
           - name: User
             items:
               - name: Overview
                 href: api-ref/User/index.md
-              - name: create
-                href: api-ref/User/create.md
-              - name: delete
-                href: api-ref/User/delete.md
-              - name: get
+              - name: Get
                 href: api-ref/User/get.md
-              - name: grantPermission
-                href: api-ref/User/grantPermission.md
-              - name: list
+              - name: List
                 href: api-ref/User/list.md
-              - name: revokePermission
-                href: api-ref/User/revokePermission.md
-              - name: update
+              - name: Create
+                href: api-ref/User/create.md
+              - name: Update
                 href: api-ref/User/update.md
-          - name: Operation
-            items:
-              - name: Overview
-                href: api-ref/Operation/index.md
-              - name: get
-                href: api-ref/Operation/get.md
+              - name: Delete
+                href: api-ref/User/delete.md
+              - name: GrantPermission
+                href: api-ref/User/grantPermission.md
+              - name: RevokePermission
+                href: api-ref/User/revokePermission.md
   - name: Метрики {{ monitoring-full-name }}
     href: metrics.md
   - name: Аудитные логи {{ at-name }}

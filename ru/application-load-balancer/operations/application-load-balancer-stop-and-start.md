@@ -92,7 +92,7 @@ description: Из статьи вы узнаете, как остановить 
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [stop](../api-ref/LoadBalancer/stop.md) для ресурса [LoadBalancer](../api-ref/LoadBalancer/index.md) или вызовом gRPC API [LoadBalancerService/Stop](../api-ref/grpc/load_balancer_service.md#Stop).
+  Воспользуйтесь методом REST API [stop](../api-ref/LoadBalancer/stop.md) для ресурса [LoadBalancer](../api-ref/LoadBalancer/index.md) или вызовом gRPC API [LoadBalancerService/Stop](../api-ref/grpc/LoadBalancer/stop.md).
 
 {% endlist %}
 
@@ -181,6 +181,6 @@ description: Из статьи вы узнаете, как остановить 
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [start](../api-ref/LoadBalancer/start.md) для ресурса [LoadBalancer](../api-ref/LoadBalancer/index.md) или вызовом gRPC API [LoadBalancer/Start](../api-ref/grpc/load_balancer_service.md#Start).
+  Воспользуйтесь методом REST API [start](../api-ref/LoadBalancer/start.md) для ресурса [LoadBalancer](../api-ref/LoadBalancer/index.md) или вызовом gRPC API [LoadBalancer/Start](../api-ref/grpc/LoadBalancer/start.md).
 
 {% endlist %}

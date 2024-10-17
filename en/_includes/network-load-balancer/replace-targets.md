@@ -156,7 +156,7 @@
 
 - API {#api}
 
-   1. To remove targets from a [target group](../../network-load-balancer/concepts/target-resources.md), use the [removeTargets](../../network-load-balancer/api-ref/TargetGroup/removeTargets.md) REST API method for the [TargetGroup](../../network-load-balancer/api-ref/TargetGroup/index.md) resource or the [TargetGroupService/RemoveTargets](../../network-load-balancer/api-ref/grpc/target_group_service.md#RemoveTargets) gRPC API call.
-   1. To add targets to a target group, use the [addTargets](../../network-load-balancer/api-ref/TargetGroup/addTargets.md) REST API method for the [TargetGroup](../../network-load-balancer/api-ref/TargetGroup/index.md) resource or the [TargetGroupService/AddTargets](../../network-load-balancer/api-ref/grpc/target_group_service.md#AddTargets) gRPC API call.
+   1. To remove targets from a [target group](../../network-load-balancer/concepts/target-resources.md), use the [removeTargets](../../network-load-balancer/api-ref/TargetGroup/removeTargets.md) REST API method for the [TargetGroup](../../network-load-balancer/api-ref/TargetGroup/index.md) resource or the [TargetGroupService/RemoveTargets](../../network-load-balancer/api-ref/grpc/TargetGroup/removeTargets.md) gRPC API call.
+   1. To add targets to a target group, use the [addTargets](../../network-load-balancer/api-ref/TargetGroup/addTargets.md) REST API method for the [TargetGroup](../../network-load-balancer/api-ref/TargetGroup/index.md) resource or the [TargetGroupService/AddTargets](../../network-load-balancer/api-ref/grpc/TargetGroup/addTargets.md) gRPC API call.
 
 {% endlist %}

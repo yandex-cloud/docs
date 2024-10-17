@@ -243,7 +243,7 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
 
       Use the methods:
       1. [getLatestByFamily](../../compute/api-ref/Image/getLatestByFamily.md) for the `Image` resource to get the ID of the latest version of the `container-optimized-image` image in the `standard-images` family.
-      1. [createFromYaml](../../compute/api-ref/InstanceGroup/createFromYaml.md) for the `InstanceGroup` resource to create an instance group to meet the following specification:
+      1. [createFromYaml](../../compute/instancegroup/api-ref/InstanceGroup/createFromYaml.md) for the `InstanceGroup` resource to create an instance group to meet the following specification:
 
          {% include [updating-under-load-yaml-spec-init](../../_includes/instance-groups/updating-under-load-yaml-spec-init.md) %}
 
@@ -280,7 +280,7 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
 
    - API
 
-      See the list of the instance groups you created using the method [List](../../compute/api-ref/InstanceGroup/list.md) for the resource `InstanceGroup`.
+      See the list of the instance groups you created using the method [List](../../compute/instancegroup/api-ref/InstanceGroup/list.md) for the resource `InstanceGroup`.
 
    {% endlist %}
 
@@ -491,7 +491,7 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
       ...
       ```
 
-   1. Use the method [updateFromYaml](../../compute/api-ref/InstanceGroup/updateFromYaml.md) for the resource `InstanceGroup` to update the `load-generator` instance group according to the new specification.
+   1. Use the method [updateFromYaml](../../compute/instancegroup/api-ref/InstanceGroup/updateFromYaml.md) for the resource `InstanceGroup` to update the `load-generator` instance group according to the new specification.
 
 {% endlist %}
 
@@ -563,7 +563,7 @@ To delete the created resources:
 
    Use the methods:
    1. [delete](../../network-load-balancer/api-ref/NetworkLoadBalancer/delete.md) for the `NetworkLoadBalancer` resource to delete the `load-generator` load balancer.
-   1. [delete](../../compute/api-ref/InstanceGroup/delete.md) for the `InstanceGroup` resource to delete the `load-generator` instance group.
+   1. [delete](../../compute/instancegroup/api-ref/InstanceGroup/delete.md) for the `InstanceGroup` resource to delete the `load-generator` instance group.
    1. [delete](../../iam/api-ref/ServiceAccount/delete.md) for the `ServiceAccount` resource to delete the `yc-auto-sa` service account.
    1. [delete](../../vpc/api-ref/Subnet/delete.md) for the `Subnet` resource to delete the `yc-auto-subnet-1` and `yc-auto-subnet-2` subnets.
    1. [delete](../../vpc/api-ref/Network/delete.md) for the resource `Network` to delete the network `yc-auto-network`.

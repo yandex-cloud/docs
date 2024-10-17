@@ -59,7 +59,7 @@ To create a budget:
 
 - API {#api}
 
-   To create a budget, use the [create](../api-ref/Budget/create.md) REST API method for the [Budget](../api-ref/Budget/index.md) resource or the [BudgetService/Create](../api-ref/grpc/budget_service.md#Create) gRPC API call.
+   To create a budget, use the [create](../api-ref/Budget/create.md) REST API method for the [Budget](../api-ref/Budget/index.md) resource or the [BudgetService/Create](../api-ref/grpc/Budget/create.md) gRPC API call.
 
 {% endlist %}
 

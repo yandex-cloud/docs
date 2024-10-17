@@ -319,7 +319,7 @@ To create your first trail in {{ at-name }} and start the audit log management p
 
 - API {#api}
 
-   Use the [create](../api-ref/Trail/create.md) REST API method for the [Trail](../api-ref/Trail/index.md) resource or the [TrailService/Create](../api-ref/grpc/trail_service.md#Create) gRPC API call.
+   Use the [create](../api-ref/Trail/create.md) REST API method for the [Trail](../api-ref/Trail/index.md) resource or the [TrailService/Create](../api-ref/grpc/Trail/create.md) gRPC API call.
 
 {% endlist %}
 

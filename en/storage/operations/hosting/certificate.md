@@ -126,7 +126,7 @@ Access to the bucket over HTTPS is granted within thirty minutes of uploading th
 
 - API {#api}
 
-   To select a certificate from {{ certificate-manager-name }}, use the [setHTTPSConfig](../../api-ref/Bucket/setHTTPSConfig.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource or the [BucketService/SetHTTPSConfig](../../api-ref/grpc/bucket_service.md#SetHTTPSConfig) gRPC API call.
+   To select a certificate from {{ certificate-manager-name }}, use the [setHTTPSConfig](../../api-ref/Bucket/setHTTPSConfig.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource or the [BucketService/SetHTTPSConfig](../../api-ref/grpc/Bucket/setHTTPSConfig.md) gRPC API call.
 
 {% endlist %}
 
@@ -159,7 +159,7 @@ To upload a certificate:
 
 - API {#api}
 
-   To upload your own security certificate, use the [setHTTPSConfig](../../api-ref/Bucket/setHTTPSConfig.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource or the [BucketService/SetHTTPSConfig](../../api-ref/grpc/bucket_service.md#SetHTTPSConfig) gRPC API call.
+   To upload your own security certificate, use the [setHTTPSConfig](../../api-ref/Bucket/setHTTPSConfig.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource or the [BucketService/SetHTTPSConfig](../../api-ref/grpc/Bucket/setHTTPSConfig.md) gRPC API call.
 
 {% endlist %}
 

@@ -175,7 +175,7 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [updateSettings](../../organization/api-ref/OsLogin/updateSettings.md) для ресурса [OsLogin](../../organization/api-ref/OsLogin/index.md) или вызовом gRPC API [OsLoginService/UpdateSettings](../../organization/api-ref/grpc/os_login_service.md#UpdateSettings).
+  Воспользуйтесь методом REST API [updateSettings](../../organization/api-ref/OsLogin/updateSettings.md) для ресурса [OsLogin](../../organization/api-ref/OsLogin/index.md) или вызовом gRPC API [OsLoginService/UpdateSettings](../../organization/api-ref/grpc/OsLogin/updateSettings.md).
 
 {% endlist %}
 

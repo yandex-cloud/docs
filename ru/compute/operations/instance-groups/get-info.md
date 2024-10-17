@@ -85,8 +85,8 @@
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [get](../../api-ref/InstanceGroup/get.md) для ресурса [InstanceGroup](../../api-ref/InstanceGroup/index.md) или вызовом gRPC API [InstanceGroupService/Get](../../api-ref/grpc/instance_group_service.md#Get).
+  Воспользуйтесь методом REST API [get](../../instancegroup/api-ref/InstanceGroup/get.md) для ресурса [InstanceGroup](../../instancegroup/api-ref/InstanceGroup/index.md) или вызовом gRPC API [InstanceGroupService/Get](../../instancegroup/api-ref/grpc/InstanceGroup/get.md).
 
-  Список доступных групп ВМ запрашивайте методом REST API [listInstances](../../api-ref/InstanceGroup/listInstances.md) или вызовом gRPC API [InstanceGroupService/ListInstances](../../api-ref/grpc/instance_group_service.md#ListInstances).
+  Список доступных групп ВМ запрашивайте методом REST API [listInstances](../../instancegroup/api-ref/InstanceGroup/listInstances.md) или вызовом gRPC API [InstanceGroupService/ListInstances](../../instancegroup/api-ref/grpc/InstanceGroup/listInstances.md).
 
 {% endlist %}

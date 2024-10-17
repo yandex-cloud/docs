@@ -25,6 +25,6 @@ To create an [instance group](../../concepts/instance-groups/index.md) based on 
 
 - API {#api}
 
-  Use the [InstanceGroupService/CreateFromYaml](../../api-ref/grpc/instance_group_service.md#CreateFromYaml) gRPC API call or the [createFromYaml](../../api-ref/InstanceGroup/createFromYaml.md) method of the REST API `InstanceGroup` resource.
+  Use the [InstanceGroupService/CreateFromYaml](../../instancegroup/api-ref/grpc/InstanceGroup/createFromYaml.md) gRPC API call or the [createFromYaml](../../instancegroup/api-ref/InstanceGroup/createFromYaml.md) method of the REST API `InstanceGroup` resource.
 
 {% endlist %}

@@ -109,7 +109,7 @@ You can get detailed [information about a secret](#secret-info) and [secret cont
 
 - API {#api}
 
-  To get information about a [secret](../concepts/secret.md), use the [get](../api-ref/Secret/get.md) REST API method for the [Secret](../api-ref/Secret/index.md) resource or the [SecretService/Get](../api-ref/grpc/secret_service.md#Get) gRPC API call.
+  To get information about a [secret](../concepts/secret.md), use the [get](../api-ref/Secret/get.md) REST API method for the [Secret](../api-ref/Secret/index.md) resource or the [SecretService/Get](../api-ref/grpc/Secret/get.md) gRPC API call.
 
 {% endlist %}
 
@@ -209,7 +209,7 @@ You can get detailed [information about a secret](#secret-info) and [secret cont
 
 - API {#api}
 
-  To get the secret contents, use the [get](../api-ref/Payload/get.md) REST API method for the [Payload](../api-ref/Payload/index.md) resource or the [PayloadService/Get](../api-ref/grpc/payload_service.md#Get) gRPC API call.
+  To get the secret contents, use the [get](../api-ref/Payload/get.md) REST API method for the [Payload](../api-ref/Payload/index.md) resource or the [PayloadService/Get](../api-ref/grpc/Payload/get.md) gRPC API call.
 
 {% endlist %}
 
@@ -255,6 +255,6 @@ You can get detailed [information about a secret](#secret-info) and [secret cont
 
 - API {#api}
 
-  To view access permissions to a secret, use the [ListAccessBindings](../api-ref/Secret/listAccessBindings.md) REST API method for the [Secret](../api-ref/Secret/index.md) resource or the [SecretService/ListAccessBindings](../api-ref/grpc/secret_service.md#ListAccessBindings) gRPC API call.
+  To view access permissions to a secret, use the [ListAccessBindings](../api-ref/Secret/listAccessBindings.md) REST API method for the [Secret](../api-ref/Secret/index.md) resource or the [SecretService/ListAccessBindings](../api-ref/grpc/Secret/listAccessBindings.md) gRPC API call.
 
 {% endlist %}

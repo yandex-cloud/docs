@@ -3,33 +3,44 @@ editable: false
 sourcePath: en/_api-ref/dns/v1/api-ref/DnsZone/getRecordSet.md
 ---
 
-# Cloud DNS API, REST: DnsZone.getRecordSet
-Returns the specified record set.
- 
+# Cloud DNS API, REST: DnsZone.GetRecordSet {#GetRecordSet}
 
- 
-## HTTP request {#https-request}
+Returns the specified record set.
+
+## HTTP request
+
 ```
 GET https://dns.{{ api-host }}/dns/v1/zones/{dnsZoneId}:getRecordSet
 ```
- 
-## Path parameters {#path_params}
- 
-Parameter | Description
---- | ---
-dnsZoneId | <p>ID of the DNS zone to get record set from.</p> <p>To get a DNS zone ID, make a <a href="/docs/dns/api-ref/DnsZone/list">list</a> request.</p> <p>The string length in characters must be equal to 20.</p> 
- 
-## Query parameters {#query_params}
- 
-Parameter | Description
---- | ---
-name | <p>Required. Name of the record set.</p> <p>The maximum string length in characters is 255.</p> 
-type | <p>Required. Type of the record set.</p> <p>The maximum string length in characters is 10.</p> 
- 
-## Response {#responses}
+
+## Path parameters
+
+#|
+||Field | Description ||
+|| dnsZoneId | **string**
+
+Required field. ID of the DNS zone to get record set from.
+
+To get a DNS zone ID, make a [DnsZoneService.List](/docs/dns/api-ref/DnsZone/list#List) request. ||
+|#
+
+## Query parameters {#yandex.cloud.dns.v1.GetDnsZoneRecordSetRequest}
+
+#|
+||Field | Description ||
+|| name | **string**
+
+Required field. Name of the record set. ||
+|| type | **string**
+
+Required field. Type of the record set. ||
+|#
+
+## Response {#yandex.cloud.dns.v1.RecordSet}
+
 **HTTP Code: 200 - OK**
 
-```json 
+```json
 {
   "name": "string",
   "type": "string",
@@ -39,11 +50,21 @@ type | <p>Required. Type of the record set.</p> <p>The maximum string length in 
   ]
 }
 ```
+
 A record set. For details about the concept, see [Resource record](/docs/dns/concepts/resource-record).
- 
-Field | Description
---- | ---
-name | **string**<br><p>Domain name.</p> <p>The string length in characters must be 1-254.</p> 
-type | **string**<br><p>Record type.</p> <p>The string length in characters must be 1-20.</p> 
-ttl | **string** (int64)<br><p>Time to live in seconds.</p> <p>Acceptable values are 0 to 2147483647, inclusive.</p> 
-data[] | **string**<br><p>Required. Data of the record set.</p> <p>The number of elements must be in the range 1-100. The string length in characters for each value must be 1-255.</p> 
+
+#|
+||Field | Description ||
+|| name | **string**
+
+Domain name. ||
+|| type | **string**
+
+Record type. ||
+|| ttl | **string** (int64)
+
+Time to live in seconds. ||
+|| data[] | **string**
+
+Data of the record set. ||
+|#

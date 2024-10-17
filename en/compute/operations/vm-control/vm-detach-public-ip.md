@@ -37,6 +37,6 @@ If you previously attached a public IP address to a VM's [network interface](../
 
 - API {#api}
 
-  Use the [removeOneToOneNat](../../api-ref/Instance/removeOneToOneNat.md) REST API method for the [Instance](../../api-ref/Instance/) resource or the [InstanceService/RemoveOneToOneNat](../../api-ref/grpc/instance_service.md#RemoveOneToOneNat) gRPC API call.
+  Use the [removeOneToOneNat](../../api-ref/Instance/removeOneToOneNat.md) REST API method for the [Instance](../../api-ref/Instance/) resource or the [InstanceService/RemoveOneToOneNat](../../api-ref/grpc/Instance/removeOneToOneNat.md) gRPC API call.
 
 {% endlist %}

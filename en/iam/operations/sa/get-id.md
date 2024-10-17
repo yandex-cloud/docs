@@ -71,6 +71,6 @@ If you do not have a service account, [create one](create.md).
       }
       ```
 
-      You can also get information about the service accounts in the folder using the [ServiceAccountService/List](../../api-ref/grpc/service_account_service.md#List) gRPC API call.
+      You can also get information about the service accounts in the folder using the [ServiceAccountService/List](../../api-ref/grpc/ServiceAccount/list.md) gRPC API call.
 
 {% endlist %}

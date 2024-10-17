@@ -134,8 +134,8 @@ To grant access to a [resource](../../../iam/concepts/access-control/resources-w
 
 - API {#api}
 
-  Use the [updateAccessBindings](../../api-ref/Registry/updateAccessBindings.md) REST API method for the [Registry](../../api-ref/Registry/index.md) resource or the [RegistryService/UpdateAccessBindings](../../api-ref/grpc/registry_service.md#UpdateAccessBindings) gRPC API call.
+  Use the [updateAccessBindings](../../api-ref/Registry/updateAccessBindings.md) REST API method for the [Registry](../../api-ref/Registry/index.md) resource or the [RegistryService/UpdateAccessBindings](../../api-ref/grpc/Registry/updateAccessBindings.md) gRPC API call.
 
-  Use the [updateAccessBindings](../../api-ref/Repository/updateAccessBindings.md) REST API method for the [Repository](../../api-ref/Repository/index.md) resource or the [RepositoryService/UpdateAccessBindings](../../api-ref/grpc/repository_service.md#UpdateAccessBindings) gRPC API call.
+  Use the [updateAccessBindings](../../api-ref/Repository/updateAccessBindings.md) REST API method for the [Repository](../../api-ref/Repository/index.md) resource or the [RepositoryService/UpdateAccessBindings](../../api-ref/grpc/Repository/updateAccessBindings.md) gRPC API call.
 
 {% endlist %}

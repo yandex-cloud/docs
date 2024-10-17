@@ -19,11 +19,11 @@ In {{ brand-voice-cc-name }}, you can adjust the sampling rate of the output aud
 
 * OggOpus, MP3, or WAV container formats: The synthesized speech file is processed using standard {{ speechkit-name }} [specifications](../../formats.md) and audio compression algorithms.
 
-    Use the [container_audio](../../tts-v3/api-ref/grpc/tts_service.md#AudioFormatOptions) parameter for these audio formats when submitting your request to API v3.
+    Use the [container_audio](../../tts-v3/api-ref/grpc/Synthesizer/utteranceSynthesis.md#speechkit.tts.v3.AudioFormatOptions) parameter for these audio formats when submitting your request to API v3.
 
 * RAW format: No compression algorithms are used, and you can specify a custom sampling rate.
 
-    For raw audio, use the [raw_audio](../../tts-v3/api-ref/grpc/tts_service.md#AudioFormatOptions) parameter when submitting your request to API v3.
+    For raw audio, use the [raw_audio](../../tts-v3/api-ref/grpc/Synthesizer/utteranceSynthesis.md#speechkit.tts.v3.AudioFormatOptions) parameter when submitting your request to API v3.
 
 Below are some examples of how to use API v3 to synthesize speech into a standard or raw audio format. Use these examples to create a custom speech synthesis solution with {{ brand-voice-cc-name }}.
 
@@ -338,7 +338,7 @@ Create and run a client app to send your data to the API:
                   audio.export(fp, format='wav')
           ```
 
-          To use the raw format and custom settings for the generated audio, in `output_audio_spec.raw_audio`, use the [RawAudio()](../../tts-v3/api-ref/grpc/tts_service.md#RawAudio) parameter supported by the {{ speechkit-name }} API. The following parameters are nested in `RawAudio()`:
+          To use the raw format and custom settings for the generated audio, in `output_audio_spec.raw_audio`, use the [RawAudio()](../../tts-v3/api-ref/grpc/Synthesizer/utteranceSynthesis.md#speechkit.tts.v3.RawAudio) parameter supported by the {{ speechkit-name }} API. The following parameters are nested in `RawAudio()`:
 
           * `audio_encoding`: Audio encoding type. Only the [LPCM](../../formats.md#lpcm) format is supported.
           * `sample_rate_hertz`: Sampling rate of generated audio in Hz.

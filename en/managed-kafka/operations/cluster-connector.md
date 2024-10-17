@@ -52,7 +52,7 @@ You can:
 
 - API {#api}
 
-    To get a list of connectors, use the [list](../api-ref/Connector/list.md) REST API method for the [Connector](../api-ref/Connector/index.md) resource or the [ConnectorService/List](../api-ref/grpc/connector_service.md#List) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
+    To get a list of connectors, use the [list](../api-ref/Connector/list.md) REST API method for the [Connector](../api-ref/Connector/index.md) resource or the [ConnectorService/List](../api-ref/grpc/Connector/list.md) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
     To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -95,7 +95,7 @@ You can:
 
 - API {#api}
 
-    To get connector details, use the [get](../api-ref/Connector/get.md) REST API method for the [Connector](../api-ref/Connector/index.md) resource or the [ConnectorService/Get](../api-ref/grpc/connector_service.md#Get) gRPC API call and provide the following in the request:
+    To get connector details, use the [get](../api-ref/Connector/get.md) REST API method for the [Connector](../api-ref/Connector/index.md) resource or the [ConnectorService/Get](../api-ref/grpc/Connector/get.md) gRPC API call and provide the following in the request:
 
     * Cluster ID in the `clusterId` parameter. To find out the cluster ID, get [a list of clusters in the folder](cluster-list.md#list-clusters).
     * Connector name in the `connectorName` parameter. To find out the name, retrieve a [list of cluster connectors](#list).
@@ -285,7 +285,7 @@ You can:
 
 - API {#api}
 
-    To create a connector, use the [create](../api-ref/Connector/create.md) REST API method for the [Connector](../api-ref/Connector/index.md) resource or the [ConnectorService/Create](../api-ref/grpc/connector_service.md#Create) gRPC API call and provide the following in the request:
+    To create a connector, use the [create](../api-ref/Connector/create.md) REST API method for the [Connector](../api-ref/Connector/index.md) resource or the [ConnectorService/Create](../api-ref/grpc/Connector/create.md) gRPC API call and provide the following in the request:
 
     * ID of the cluster you want to create a connector in, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
     * Connector settings in the `connectorSpec` parameter.
@@ -656,7 +656,7 @@ Specify the S3 Sink connector parameters:
 
 - API {#api}
 
-    To update a connector, use the [update](../api-ref/Connector/update.md) REST API method for the [Connector](../api-ref/Connector/index.md) resource or the [ConnectorService/Update](../api-ref/grpc/connector_service.md#Update) gRPC API call and provide the following in the request:
+    To update a connector, use the [update](../api-ref/Connector/update.md) REST API method for the [Connector](../api-ref/Connector/index.md) resource or the [ConnectorService/Update](../api-ref/grpc/Connector/update.md) gRPC API call and provide the following in the request:
 
     * ID of the cluster you want to update a connector in, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
     * Connector settings in the `connectorSpec` parameter.
@@ -696,7 +696,7 @@ To pause a connector:
 
 - API {#api}
 
-    To pause a connector, use the [pause](../api-ref/Connector/pause.md) REST API method for the [Connector](../api-ref/Connector/index.md) resource or the [ConnectorService/Pause](../api-ref/grpc/connector_service.md#Pause) gRPC API call and provide the following in the request:
+    To pause a connector, use the [pause](../api-ref/Connector/pause.md) REST API method for the [Connector](../api-ref/Connector/index.md) resource or the [ConnectorService/Pause](../api-ref/grpc/Connector/pause.md) gRPC API call and provide the following in the request:
 
     * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
     * Connector name in the `connectorName` parameter. To find out the name, retrieve a [list of cluster connectors](#list-connectors).
@@ -729,7 +729,7 @@ To pause a connector:
 
 - API {#api}
 
-    To resume a connector, use the [resume](../api-ref/Connector/resume.md) REST API method for the [Connector](../api-ref/Connector/index.md) resource or the [ConnectorService/Resume](../api-ref/grpc/connector_service.md#Resume) gRPC API call and provide the following in the request:
+    To resume a connector, use the [resume](../api-ref/Connector/resume.md) REST API method for the [Connector](../api-ref/Connector/index.md) resource or the [ConnectorService/Resume](../api-ref/grpc/Connector/resume.md) gRPC API call and provide the following in the request:
 
     * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
     * Connector name in the `connectorName` parameter. To find out the name, retrieve a [list of cluster connectors](#list-connectors).
@@ -804,7 +804,7 @@ Using import, you can bring the existing connectors under {{ TF }} management.
 
 - API {#api}
 
-    To delete a connector, use the [delete](../api-ref/Connector/delete.md) REST API method for the [Connector](../api-ref/Connector/index.md) resource or the [ConnectorService/Delete](../api-ref/grpc/connector_service.md#Delete) gRPC API call and provide the following in the request:
+    To delete a connector, use the [delete](../api-ref/Connector/delete.md) REST API method for the [Connector](../api-ref/Connector/index.md) resource or the [ConnectorService/Delete](../api-ref/grpc/Connector/delete.md) gRPC API call and provide the following in the request:
 
     * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
     * Connector name in the `connectorName` parameter. To find out the name, retrieve a [list of cluster connectors](#list-connectors).

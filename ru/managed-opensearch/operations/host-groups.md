@@ -48,7 +48,7 @@ keywords:
 
 - API {#api}
 
-  Чтобы получить список групп хостов в кластере, воспользуйтесь методом REST API [get](../api-ref/Cluster/get.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Get](../api-ref/grpc/cluster_service.md#Get) и передайте в запросе идентификатор требуемого кластера в параметре `clusterId`.
+  Чтобы получить список групп хостов в кластере, воспользуйтесь методом REST API [get](../api-ref/Cluster/get.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Get](../api-ref/grpc/Cluster/get.md) и передайте в запросе идентификатор требуемого кластера в параметре `clusterId`.
 
   {% include [get-cluster-id](../../_includes/managed-opensearch/get-cluster-id.md) %}
 
@@ -211,9 +211,9 @@ keywords:
 
 - API {#api}
 
-    Чтобы создать группу хостов `{{ OS }}`, воспользуйтесь методом REST API [addOpenSearchNodeGroup](../api-ref/Cluster/addOpenSearchNodeGroup.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/AddOpenSearchNodeGroup](../api-ref/grpc/cluster_service.md#AddOpenSearchNodeGroup).
+    Чтобы создать группу хостов `{{ OS }}`, воспользуйтесь методом REST API [addOpenSearchNodeGroup](../api-ref/Cluster/addOpenSearchNodeGroup.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/AddOpenSearchNodeGroup](../api-ref/grpc/Cluster/addOpenSearchNodeGroup.md).
 
-    Чтобы создать группу хостов `Dashboards`, воспользуйтесь методом REST API [addDashboardsNodeGroup](../api-ref/Cluster/addDashboardsNodeGroup.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/AddDashboardsNodeGroup](../api-ref/grpc/cluster_service.md#AddDashboardsNodeGroup).
+    Чтобы создать группу хостов `Dashboards`, воспользуйтесь методом REST API [addDashboardsNodeGroup](../api-ref/Cluster/addDashboardsNodeGroup.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/AddDashboardsNodeGroup](../api-ref/grpc/Cluster/addDashboardsNodeGroup.md).
 
     Передайте в запросе конфигурацию группы в блоке `nodeGroupSpec`:
 
@@ -373,9 +373,9 @@ keywords:
 
 - API {#api}
 
-    Чтобы изменить конфигурацию группы хостов `{{ OS }}`, воспользуйтесь методом REST API [updateOpenSearchNodeGroup](../api-ref/Cluster/updateOpenSearchNodeGroup.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/UpdateOpenSearchNodeGroup](../api-ref/grpc/cluster_service.md#UpdateOpenSearchNodeGroup).
+    Чтобы изменить конфигурацию группы хостов `{{ OS }}`, воспользуйтесь методом REST API [updateOpenSearchNodeGroup](../api-ref/Cluster/updateOpenSearchNodeGroup.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/UpdateOpenSearchNodeGroup](../api-ref/grpc/Cluster/updateOpenSearchNodeGroup.md).
 
-    Чтобы изменить конфигурацию группы хостов `Dashboards`, воспользуйтесь методом REST API [updateDashboardsNodeGroup](../api-ref/Cluster/updateDashboardsNodeGroup.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/UpdateDashboardsNodeGroup](../api-ref/grpc/cluster_service.md#UpdateDashboardsNodeGroup).
+    Чтобы изменить конфигурацию группы хостов `Dashboards`, воспользуйтесь методом REST API [updateDashboardsNodeGroup](../api-ref/Cluster/updateDashboardsNodeGroup.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/UpdateDashboardsNodeGroup](../api-ref/grpc/Cluster/updateDashboardsNodeGroup.md).
 
     Передайте в запросе новую конфигурацию в блоке `nodeGroupSpec`:
 
@@ -442,9 +442,9 @@ keywords:
 
 - API {#api}
 
-    Чтобы удалить группу хостов `{{ OS }}`, воспользуйтесь методом REST API [deleteOpenSearchNodeGroup](../api-ref/Cluster/deleteOpenSearchNodeGroup.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/DeleteOpenSearchNodeGroup](../api-ref/grpc/cluster_service.md#DeleteOpenSearchNodeGroup).
+    Чтобы удалить группу хостов `{{ OS }}`, воспользуйтесь методом REST API [deleteOpenSearchNodeGroup](../api-ref/Cluster/deleteOpenSearchNodeGroup.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/DeleteOpenSearchNodeGroup](../api-ref/grpc/Cluster/deleteOpenSearchNodeGroup.md).
 
-    Чтобы удалить группу хостов `Dashboards`, воспользуйтесь методом REST API [deleteDashboardsNodeGroup](../api-ref/Cluster/deleteDashboardsNodeGroup.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/DeleteDashboardsNodeGroup](../api-ref/grpc/cluster_service.md#DeleteDashboardsNodeGroup).
+    Чтобы удалить группу хостов `Dashboards`, воспользуйтесь методом REST API [deleteDashboardsNodeGroup](../api-ref/Cluster/deleteDashboardsNodeGroup.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/DeleteDashboardsNodeGroup](../api-ref/grpc/Cluster/deleteDashboardsNodeGroup.md).
 
     Передайте в запросе:
 
@@ -467,7 +467,7 @@ keywords:
 
 - API {#api}
 
-    Чтобы получить список хостов в кластере, воспользуйтесь методом REST API [listHosts](../api-ref/Cluster/listHosts.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/ListHosts](../api-ref/grpc/cluster_service.md#ListHosts) и передайте в запросе идентификатор кластера в параметре `clusterId`.
+    Чтобы получить список хостов в кластере, воспользуйтесь методом REST API [listHosts](../api-ref/Cluster/listHosts.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/ListHosts](../api-ref/grpc/Cluster/listHosts.md) и передайте в запросе идентификатор кластера в параметре `clusterId`.
 
     Чтобы узнать идентификатор кластера, [получите список кластеров в каталоге](cluster-list.md).
 

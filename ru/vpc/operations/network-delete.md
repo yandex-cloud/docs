@@ -122,7 +122,7 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-   Чтобы удалить [облачную сеть](../concepts/network.md), воспользуйтесь методом REST API [delete](../api-ref/Network/delete.md) для ресурса [Network](../api-ref/Network/index.md) или вызовом gRPC API [NetworkService/Delete](../api-ref/grpc/network_service.md#Delete) и передайте в запросе идентификатор удаляемой облачной сети в параметре `networkId`.
+   Чтобы удалить [облачную сеть](../concepts/network.md), воспользуйтесь методом REST API [delete](../api-ref/Network/delete.md) для ресурса [Network](../api-ref/Network/index.md) или вызовом gRPC API [NetworkService/Delete](../api-ref/grpc/Network/delete.md) и передайте в запросе идентификатор удаляемой облачной сети в параметре `networkId`.
 
    {% include [get-network-id](../../_includes/vpc/get-network-id.md) %}
 

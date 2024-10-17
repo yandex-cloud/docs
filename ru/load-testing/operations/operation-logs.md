@@ -55,7 +55,7 @@
 
     - API {#api}
 
-      Воспользуйтесь методом REST API [get](../../api-design-guide/concepts/operation.md#monitoring), или вызовом gRPC API [OperationService/Get](../user/api-ref/grpc/operation_service.md#Get).
+      Воспользуйтесь методом REST API [get](../../api-design-guide/concepts/operation.md#monitoring), или вызовом gRPC API [OperationService/Get](../user/api-ref/grpc/Operation/get.md).
 
     {% endlist %}
 

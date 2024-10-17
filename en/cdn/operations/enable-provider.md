@@ -50,8 +50,8 @@ To connect a folder to a CDN provider and get a `cname` value:
 
 - API {#api}
 
-  To connect to a provider, use the [activate](../../cdn/api-ref/Provider/activate.md) REST API method for the [Provider](../../cdn/api-ref/Provider/index.md) resource or the [ProviderService/Activate](../../cdn/api-ref/grpc/provider_service.md#Activate) gRPC API call.
+  To connect to a provider, use the [activate](../../cdn/api-ref/Provider/activate.md) REST API method for the [Provider](../../cdn/api-ref/Provider/index.md) resource or the [ProviderService/Activate](../../cdn/api-ref/grpc/Provider/activate.md) gRPC API call.
 
-  To get the `cname` value for a folder, use the [getProviderCName](../../cdn/api-ref/Resource/getProviderCName.md) REST API method for the [Resource](../../cdn/api-ref/Resource/index.md) resource or the [ResourceService/GetProviderCName](../../cdn/api-ref/grpc/resource_service.md#GetProviderCName) gRPC API call.
+  To get the `cname` value for a folder, use the [getProviderCName](../../cdn/api-ref/Resource/getProviderCName.md) REST API method for the [Resource](../../cdn/api-ref/Resource/index.md) resource or the [ResourceService/GetProviderCName](../../cdn/api-ref/grpc/Resource/getProviderCName.md) gRPC API call.
 
 {% endlist %}

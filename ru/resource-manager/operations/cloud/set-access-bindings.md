@@ -142,7 +142,7 @@
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/Cloud/updateAccessBindings.md) для ресурса [Cloud](../../api-ref/Cloud/index.md) или вызовом gRPC API [CloudService/UpdateAccessBindings](../../api-ref/grpc/cloud_service.md#UpdateAccessBindings).
+  Воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/Cloud/updateAccessBindings.md) для ресурса [Cloud](../../api-ref/Cloud/index.md) или вызовом gRPC API [CloudService/UpdateAccessBindings](../../api-ref/grpc/Cloud/updateAccessBindings.md).
 
   Вам понадобится идентификатор облака и идентификатор пользователя, которому назначается роль на облако.
 
@@ -327,7 +327,7 @@
     https://resource-manager.{{ api-host }}/resource-manager/v1/clouds/b1gg8sgd16g7********:updateAccessBindings
   ```
 
-  Вы также можете назначать роли с помощью метода REST API [setAccessBindings](../../api-ref/Cloud/setAccessBindings.md) для ресурса [Cloud](../../api-ref/Cloud/index.md) или вызова gRPC API [CloudService/SetAccessBindings](../../api-ref/grpc/cloud_service.md#SetAccessBindings).
+  Вы также можете назначать роли с помощью метода REST API [setAccessBindings](../../api-ref/Cloud/setAccessBindings.md) для ресурса [Cloud](../../api-ref/Cloud/index.md) или вызова gRPC API [CloudService/SetAccessBindings](../../api-ref/grpc/Cloud/setAccessBindings.md).
 
   {% note alert %}
 

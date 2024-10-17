@@ -87,7 +87,7 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Чтобы получить подробную информацию о [NAT-шлюзе](../concepts/gateways.md), воспользуйтесь методом REST API [get](../api-ref/Gateway/get.md) для ресурса [Gateway](../api-ref/Gateway/index.md), или вызовом gRPC API [GatewayService/Get](../api-ref/grpc/gateway_service.md#Get) и передайте в запросе идентификатор нужного NAT-шлюзa в параметре `gatewayId`.
+  Чтобы получить подробную информацию о [NAT-шлюзе](../concepts/gateways.md), воспользуйтесь методом REST API [get](../api-ref/Gateway/get.md) для ресурса [Gateway](../api-ref/Gateway/index.md), или вызовом gRPC API [GatewayService/Get](../api-ref/grpc/Gateway/get.md) и передайте в запросе идентификатор нужного NAT-шлюзa в параметре `gatewayId`.
 
    {% include [get-nat-gateway](../../_includes/vpc/get-nat-gateway.md) %}
 

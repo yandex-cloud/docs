@@ -130,6 +130,6 @@ description: Из статьи вы узнаете, как проверить р
 
 - API {#api}
 
-  Чтобы получить вывод последовательного порта, воспользуйтесь методом REST API [getSerialPortOutput](../../api-ref/Instance/getSerialPortOutput.md) для ресурса [Instance](../../api-ref/Instance/) или вызовом gRPC API [InstanceService/GetSerialPortOutput](../../api-ref/grpc/instance_service.md#GetSerialPortOutput). В `port` укажите значение `4`.
+  Чтобы получить вывод последовательного порта, воспользуйтесь методом REST API [getSerialPortOutput](../../api-ref/Instance/getSerialPortOutput.md) для ресурса [Instance](../../api-ref/Instance/) или вызовом gRPC API [InstanceService/GetSerialPortOutput](../../api-ref/grpc/Instance/getSerialPortOutput.md). В `port` укажите значение `4`.
 
 {% endlist %}

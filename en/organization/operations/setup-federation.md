@@ -308,7 +308,7 @@ When the identity provider (IdP) informs {{ org-full-name }} that a user has bee
       }
       ```
 
-  1. Use the [create](../api-ref/Certificate/create.md) REST API method for the [Certificate](../api-ref/Certificate/index.md) resource or the [FederationService/Create](../../grpc/certificate_service#Create) gRPC call and provide a file with the request parameters in your request.
+  1. Use the [create](../saml/api-ref/Certificate/create.md) REST API method for the [Certificate](../saml/api-ref/Certificate/index.md) resource or the [FederationService/Create](../../grpc/certificate_service#Create) gRPC call and provide a file with the request parameters in your request.
 
   Sample cURL request:
 

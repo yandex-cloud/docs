@@ -103,7 +103,7 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Чтобы создать ключ доступа, воспользуйтесь методом REST API [create](../../api-ref/Key/create.md) для ресурса [Key](../../api-ref/Key/index.md) или вызовом gRPC API [KeyService/Create](../../api-ref/grpc/key_service.md#Create).
+  Чтобы создать ключ доступа, воспользуйтесь методом REST API [create](../../api-ref/Key/create.md) для ресурса [Key](../../api-ref/Key/index.md) или вызовом gRPC API [KeyService/Create](../../api-ref/grpc/Key/create.md).
 
   Пример запроса с помощью cURL для метода REST API `create`:
 

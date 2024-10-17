@@ -31,6 +31,6 @@ description: Follow this guide to get an embed code or link to a video in {{ vid
 
 - API {#api}
 
-  Use the [VideoService/GetPlayerURL](../../api-ref/grpc/video_service.md#GetPlayerURL) gRPC API call or the [getPlayerURL](../../api-ref/Video/getPlayerURL.md) REST API method for the [Video](../../api-ref/Video/index.md) resource.
+  Use the [VideoService/GetPlayerURL](../../api-ref/grpc/Video/getPlayerURL.md) gRPC API call or the [getPlayerURL](../../api-ref/Video/getPlayerURL.md) REST API method for the [Video](../../api-ref/Video/index.md) resource.
 
 {% endlist %}

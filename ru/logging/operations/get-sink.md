@@ -44,6 +44,6 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Чтобы получить подробную информацию о приемнике логов, воспользуйтесь методом REST API [get](../api-ref/Sink/get.md) для ресурса [Sink](../api-ref/Sink/index.md) или вызовом gRPC API [SinkService/Get](../api-ref/grpc/sink_service.md#Get).
+  Чтобы получить подробную информацию о приемнике логов, воспользуйтесь методом REST API [get](../api-ref/Sink/get.md) для ресурса [Sink](../api-ref/Sink/index.md) или вызовом gRPC API [SinkService/Get](../api-ref/grpc/Sink/get.md).
 
 {% endlist %}

@@ -173,7 +173,7 @@ To enable OS Login access at the organization level:
 
 - API {#api}
 
-  Use the [updateSettings](../../organization/api-ref/OsLogin/updateSettings.md) REST API method for the [OsLogin](../../organization/api-ref/OsLogin/index.md) resource or the [OsLoginService/UpdateSettings](../../organization/api-ref/grpc/os_login_service.md#UpdateSettings) gRPC API call.
+  Use the [updateSettings](../../organization/api-ref/OsLogin/updateSettings.md) REST API method for the [OsLogin](../../organization/api-ref/OsLogin/index.md) resource or the [OsLoginService/UpdateSettings](../../organization/api-ref/grpc/OsLogin/updateSettings.md) gRPC API call.
 
 {% endlist %}
 

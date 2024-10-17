@@ -56,7 +56,7 @@ To link a cloud to a billing account or change the billing account a cloud is li
 
 - API {#api}
 
-  To link a cloud, use the [bindBillableObject](../api-ref/BillingAccount/bindBillableObject.md) REST API method for the [BillingAccount](../api-ref/BillingAccount/index.md) resource or the [BillingAccountService/BindBillableObject](../api-ref/grpc/billing_account_service.md#BindBillableObject) gRPC API call.
+  To link a cloud, use the [bindBillableObject](../api-ref/BillingAccount/bindBillableObject.md) REST API method for the [BillingAccount](../api-ref/BillingAccount/index.md) resource or the [BillingAccountService/BindBillableObject](../api-ref/grpc/BillingAccount/bindBillableObject.md) gRPC API call.
 
 {% endlist %}
 

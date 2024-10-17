@@ -130,7 +130,7 @@ The infrastructure support costs include:
 
     - API {#api}
 
-      To create a service account, use the [create](../../iam/api-ref/ServiceAccount/create.md) REST API method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/Create](../../iam/api-ref/grpc/service_account_service.md#Create) gRPC API call.
+      To create a service account, use the [create](../../iam/api-ref/ServiceAccount/create.md) REST API method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/Create](../../iam/api-ref/grpc/ServiceAccount/create.md) gRPC API call.
 
     {% endlist %}
 
@@ -203,7 +203,7 @@ The infrastructure support costs include:
 
     - API {#api}
 
-      To assign cloud roles to the service account, use the [setAccessBindings](../../iam/api-ref/ServiceAccount/setAccessBindings.md) REST API method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/SetAccessBindings](../../iam/api-ref/grpc/service_account_service.md#SetAccessBindings) gRPC API call.
+      To assign cloud roles to the service account, use the [setAccessBindings](../../iam/api-ref/ServiceAccount/setAccessBindings.md) REST API method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/SetAccessBindings](../../iam/api-ref/grpc/ServiceAccount/setAccessBindings.md) gRPC API call.
 
     {% endlist %}
 
@@ -354,6 +354,6 @@ Delete the folder with the resources required for interactive debugging of {{ sf
 
 - API {#api}
 
-  To delete a folder, use the [delete](../../resource-manager/api-ref/Folder/delete.md) REST API method for the [Folder](../../resource-manager/api-ref/Folder/index.md) resource or the [FolderService/Delete](../../resource-manager/api-ref/grpc/folder_service.md#Delete) gRPC API call.
+  To delete a folder, use the [delete](../../resource-manager/api-ref/Folder/delete.md) REST API method for the [Folder](../../resource-manager/api-ref/Folder/index.md) resource or the [FolderService/Delete](../../resource-manager/api-ref/grpc/Folder/delete.md) gRPC API call.
 
 {% endlist %}

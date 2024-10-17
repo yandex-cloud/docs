@@ -15,11 +15,11 @@ With `CommunityService` calls and `Community` methods, you can create, update, a
 
 | Description | gRPC | REST |
 | --- | --- | --- |
-| Creates a new community in the specified organization | [Create](grpc/community_service.md#Create) | [create](Community/create.md) |
-| Updates a community | [Update](grpc/community_service.md#Update) | [update](Community/update.md) |
-| Deletes a community | [Delete](grpc/community_service.md#Delete) | [delete](Community/delete.md) |
-| Returns information about a community | [Get](grpc/community_service.md#Get) | [get](Community/get.md) |
-| Returns a list of communities in the specified organization | [List](grpc/community_service.md#List) | [list](Community/list.md) |
+| Creates a new community in the specified organization | [Create](grpc/Community/create.md) | [create](Community/create.md) |
+| Updates a community | [Update](grpc/Community/update.md) | [update](Community/update.md) |
+| Deletes a community | [Delete](grpc/Community/delete.md) | [delete](Community/delete.md) |
+| Returns information about a community | [Get](grpc/Community/get.md) | [get](Community/get.md) |
+| Returns a list of communities in the specified organization | [List](grpc/Community/list.md) | [list](Community/list.md) |
 
 {% list tabs %}
 
@@ -43,7 +43,7 @@ With `CommunityService` calls and `Community` methods, you can create, update, a
      yandex.cloud.datasphere.v2.CommunityService/List
    ```
 
-   For more information about the `CommunityService` calls, see the [API documentation](grpc/community_service.md).
+   For more information about the `CommunityService` calls, see the [API documentation](grpc/Community/index.md).
 
 - REST
 
@@ -73,12 +73,12 @@ With `ProjectService` calls and `Project` methods, you can create, open, update,
 
 | Description | gRPC | REST |
 | --- | --- | --- |
-| Creates a new project in the specified community | [Create](grpc/project_service.md#Create) | [create](Project/create.md) |
-| Updates a project | [Update](grpc/project_service.md#Update) | [update](Project/update.md) |
-| Deletes a project | [Delete](grpc/project_service.md#Delete) | [delete](Project/delete.md) |
-| Opens a project | [Open](grpc/project_service.md#Open) | [open](Project/open.md) |
-| Returns information about a project | [Get](grpc/project_service.md#Get) | [get](Project/get.md) |
-| Retrieves the list of projects in the specified community | [List](grpc/project_service.md#List) | [list](Project/list.md) |
+| Creates a new project in the specified community | [Create](grpc/Project/create.md) | [create](Project/create.md) |
+| Updates a project | [Update](grpc/Project/update.md) | [update](Project/update.md) |
+| Deletes a project | [Delete](grpc/Project/delete.md) | [delete](Project/delete.md) |
+| Opens a project | [Open](grpc/Project/open.md) | [open](Project/open.md) |
+| Returns information about a project | [Get](grpc/Project/get.md) | [get](Project/get.md) |
+| Retrieves the list of projects in the specified community | [List](grpc/Project/list.md) | [list](Project/list.md) |
 
 {% list tabs %}
 
@@ -102,7 +102,7 @@ With `ProjectService` calls and `Project` methods, you can create, open, update,
      yandex.cloud.datasphere.v2.ProjectService/List
    ```
 
-   For more information about the `ProjectService` calls, see the [API documentation](grpc/project_service.md).
+   For more information about the `ProjectService` calls, see the [API documentation](grpc/Project/index.md).
 
 - REST
 
@@ -132,7 +132,7 @@ To run a notebook, you can use the `Execute` call or the `execute` method in `Pr
 
 | Description | gRPC | REST |
 | --- | --- | --- |
-| Runs the specified notebook | [Execute](grpc/project_service.md#Execute) | [execute](Project/execute.md) |
+| Runs the specified notebook | [Execute](grpc/Project/index.md#Execute) | [execute](Project/execute.md) |
 
 
 {% list tabs %}
@@ -150,7 +150,7 @@ To run a notebook, you can use the `Execute` call or the `execute` method in `Pr
 
    To get the notebook ID, follow this guide: [{#T}](../operations/projects/get-notebook-cell-ids.md).
 
-   For more information about the `ProjectService` calls, see the [API documentation](grpc/project_service.md).
+   For more information about the `ProjectService` calls, see the [API documentation](grpc/Project/index.md).
 
 - REST
 
@@ -176,11 +176,11 @@ Each resource has its own group of API methods implemented in {{ ml-platform-nam
 
 | Description | gRPC | REST |
 | --- | --- | --- |
-| Activates a dataset | [Activate](grpc/dataset_service.md#Activate) | [activate](Dataset/activate.md) |
-| Deactivates a dataset | [Deactivate](grpc/dataset_service.md#Deactivate) | [deactivate](Dataset/deactivate.md) |
-| Activates an S3 connector | [Activate](grpc/s3_service.md#Activate) | [activate](S3/activate.md) |
-| Deactivates an S3 connector | [Deactivate](grpc/s3_service.md#Deactivate) | [deactivate](S3/deactivate.md) |
-| Activates a Docker image | [Activate](grpc/docker_image_service.md#Activate) | [activate](DockerImage/activate.md) |
+| Activates a dataset | [Activate](grpc/Dataset/activate.md) | [activate](Dataset/activate.md) |
+| Deactivates a dataset | [Deactivate](grpc/Dataset/deactivate.md) | [deactivate](Dataset/deactivate.md) |
+| Activates an S3 connector | [Activate](grpc/S3/activate.md) | [activate](S3/activate.md) |
+| Deactivates an S3 connector | [Deactivate](grpc/S3/deactivate.md) | [deactivate](S3/deactivate.md) |
+| Activates a Docker image | [Activate](grpc/DockerImage/activate.md) | [activate](DockerImage/activate.md) |
 
 {% list tabs %}
 
@@ -204,7 +204,7 @@ Each resource has its own group of API methods implemented in {{ ml-platform-nam
      yandex.cloud.datasphere.v2.DatasetService/Deactivate
    ```
 
-   Learn more about the `DatasetService` calls in the [API documentation](grpc/dataset_service.md).
+   Learn more about the `DatasetService` calls in the [API documentation](grpc/Dataset/index.md).
 
 - REST
 
@@ -236,10 +236,10 @@ To enable your project to use another project's resources, you need to [share](.
 
 | Description | gRPC | REST |
 | --- | --- | --- |
-| Adds a resource to a community | [addResource](grpc/community_service.md#AddResource) | [addResource](Community/addResource.md) |
-| Deletes a resources from a community | [removeResource](grpc/community_service.md#RemoveResource) | [removeResource](Community/removeResource.md) |
-| Adds a resource to a project | [addResource](grpc/project_service.md#AddResource) | [addResource](Project/addResource.md) |
-| Deletes a resource from a project | [removeResource](grpc/project_service.md#RemoveResource) | [removeResource](Project/removeResource.md) |
+| Adds a resource to a community | [addResource](grpc/Community/index.md#AddResource) | [addResource](Community/addResource.md) |
+| Deletes a resources from a community | [removeResource](grpc/Community/index.md#RemoveResource) | [removeResource](Community/removeResource.md) |
+| Adds a resource to a project | [addResource](grpc/Project/index.md#AddResource) | [addResource](Project/addResource.md) |
+| Deletes a resource from a project | [removeResource](grpc/Project/index.md#RemoveResource) | [removeResource](Project/removeResource.md) |
 
 {% list tabs %}
 
@@ -263,7 +263,7 @@ To enable your project to use another project's resources, you need to [share](.
      yandex.cloud.datasphere.v2.ProjectService/RemoveResource
    ```
 
-   For more information about the `ProjectService` calls, see the [API documentation](grpc/project_service.md).
+   For more information about the `ProjectService` calls, see the [API documentation](grpc/Project/index.md).
 
 - REST
 
@@ -293,12 +293,12 @@ You can use the API to set up access to a project (`ProjectService`, `Project`) 
 
 | Description | gRPC | REST |
 | --- | --- | --- |
-| Returns a list of access permissions for a project | [ListAccessBindings](grpc/project_service.md#ListAccessBindings) | [ListAccessBindings](Project/listAccessBindings.md) |
-| Sets up access to a project | [SetAccessBindings](grpc/project_service.md#SetAccessBindings) | [SetAccessBindings](Project/setAccessBindings.md) |
-| Updates access to a project | [UpdateAccessBindings](grpc/project_service.md#UpdateAccessBindings) | [UpdateAccessBindings](Project/updateAccessBindings.md) |
-| Returns a list of access permissions for a community | [ListAccessBindings](grpc/community_service.md#ListAccessBindings) | [ListAccessBindings](Community/listAccessBindings.md) |
-| Sets up access to a community | [SetAccessBindings](grpc/community_service.md#SetAccessBindings) | [SetAccessBindings](Community/setAccessBindings.md) |
-| Updates access to a community | [UpdateAccessBindings](grpc/community_service.md#UpdateAccessBindings) | [UpdateAccessBindings](Community/updateAccessBindings.md) |
+| Returns a list of access permissions for a project | [ListAccessBindings](grpc/Project/list.mdAccessBindings) | [ListAccessBindings](Project/listAccessBindings.md) |
+| Sets up access to a project | [SetAccessBindings](grpc/Project/index.md#SetAccessBindings) | [SetAccessBindings](Project/setAccessBindings.md) |
+| Updates access to a project | [UpdateAccessBindings](grpc/Project/update.mdAccessBindings) | [UpdateAccessBindings](Project/updateAccessBindings.md) |
+| Returns a list of access permissions for a community | [ListAccessBindings](grpc/Community/list.mdAccessBindings) | [ListAccessBindings](Community/listAccessBindings.md) |
+| Sets up access to a community | [SetAccessBindings](grpc/Community/index.md#SetAccessBindings) | [SetAccessBindings](Community/setAccessBindings.md) |
+| Updates access to a community | [UpdateAccessBindings](grpc/Community/update.mdAccessBindings) | [UpdateAccessBindings](Community/updateAccessBindings.md) |
 
 {% list tabs %}
 
@@ -322,7 +322,7 @@ You can use the API to set up access to a project (`ProjectService`, `Project`) 
      yandex.cloud.datasphere.v2.CommunityService/ListAccessBindings
    ```
 
-   For more information about the [ProjectService](grpc/project_service.md) and [CommunityService](grpc/community_service.md) methods, see the API documentation.
+   For more information about the [ProjectService](grpc/Project/index.md) and [CommunityService](grpc/Community/index.md) methods, see the API documentation.
 
 - REST
 
@@ -350,8 +350,8 @@ You can use the API to set up consumption limits for a project (`ProjectService`
 
 | Description | gRPC | REST |
 | --- | --- | --- |
-| Returns a project's balance | [getUnitBalance](grpc/project_service.md#GetUnitBalance) | [getUnitBalance](Project/getUnitBalance.md) |
-| Sets a project's balance | [setUnitBalance](grpc/project_service.md#SetUnitBalance) | [setUnitBalance](Project/setUnitBalance.md) |
+| Returns a project's balance | [getUnitBalance](grpc/Project/get.mdUnitBalance) | [getUnitBalance](Project/getUnitBalance.md) |
+| Sets a project's balance | [setUnitBalance](grpc/Project/index.md#SetUnitBalance) | [setUnitBalance](Project/setUnitBalance.md) |
 
 {% list tabs %}
 
@@ -366,7 +366,7 @@ You can use the API to set up consumption limits for a project (`ProjectService`
      yandex.cloud.datasphere.v2.ProjectService/GetUnitBalance
    ```
 
-   For more information about the `ProjectService` calls, see the [API documentation](grpc/project_service.md).
+   For more information about the `ProjectService` calls, see the [API documentation](grpc/Project/index.md).
 
 - REST
 

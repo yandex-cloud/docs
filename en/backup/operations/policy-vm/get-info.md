@@ -148,6 +148,6 @@ Information on policies becomes available for viewing after you [activate](../..
 
 - API {#api}
 
-  To get detailed information about a [backup policy](../../concepts/policy.md), use the [get](../../backup/api-ref/Policy/get.md) REST API method for the [Policy](../../backup/api-ref/Policy/index.md) resource or the [PolicyService/Get](../../backup/api-ref/grpc/policy_service.md#Get) gRPC API call.
+  To get detailed information about a [backup policy](../../concepts/policy.md), use the [get](../../backup/api-ref/Policy/get.md) REST API method for the [Policy](../../backup/api-ref/Policy/index.md) resource or the [PolicyService/Get](../../backup/api-ref/grpc/Policy/get.md) gRPC API call.
 
 {% endlist %}

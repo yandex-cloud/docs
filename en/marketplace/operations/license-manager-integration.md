@@ -60,11 +60,11 @@ If you created a [subscription](../concepts/subscription.md) within one of these
 
       1. Linking the unique user ID to the subscription.
 
-         You can link an ID to a subscription using the [ensure](../license-manager/saas/api-ref/Lock/ensure.md) REST API method for the [Lock](../license-manager/saas/api-ref/Lock/index.md) resource or the [LockService/Ensure](../license-manager/saas/api-ref/grpc/lock_service.md#Ensure) gRPC API call.
+         You can link an ID to a subscription using the [ensure](../license-manager/saas/api-ref/Lock/ensure.md) REST API method for the [Lock](../license-manager/saas/api-ref/Lock/index.md) resource or the [LockService/Ensure](../license-manager/saas/api-ref/grpc/Lock/ensure.md) gRPC API call.
 
       1. Regular checks that your linked subscription is active.
 
-         To get up-to-date information about a linked subscription, use the [get](../license-manager/saas/api-ref/Lock/get.md) REST API method for the [Lock](../license-manager/saas/api-ref/Lock/index.md) resource or the [LockService/Get](../license-manager/saas/api-ref/grpc/lock_service.md#Get) gRPC API call.
+         To get up-to-date information about a linked subscription, use the [get](../license-manager/saas/api-ref/Lock/get.md) REST API method for the [Lock](../license-manager/saas/api-ref/Lock/index.md) resource or the [LockService/Get](../license-manager/saas/api-ref/grpc/Lock/get.md) gRPC API call.
 
          {% note info %}
 

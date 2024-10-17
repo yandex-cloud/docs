@@ -78,6 +78,6 @@
 
 - API {#api}
 
-  To get detailed information about a registry, use the [get](../../iot-core/api-ref/Registry/get.md) REST API method for the [Registry](../../iot-core/api-ref/Registry/index.md) resource or the [RegistryService/Get](../../iot-core/api-ref/grpc/registry_service.md#Get) gRPC API call.
+  To get detailed information about a registry, use the [get](../../iot-core/api-ref/Registry/get.md) REST API method for the [Registry](../../iot-core/api-ref/Registry/index.md) resource or the [RegistryService/Get](../../iot-core/api-ref/grpc/Registry/get.md) gRPC API call.
 
 {% endlist %}

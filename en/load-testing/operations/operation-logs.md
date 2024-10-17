@@ -55,7 +55,7 @@ All actions with {{ load-testing-name }} resources are logged as a list of opera
 
     - API {#api}
 
-      Use the [get](../../api-design-guide/concepts/operation.md#monitoring) REST API method or the [OperationService/Get](../user/api-ref/grpc/operation_service.md#Get) gRPC API call.
+      Use the [get](../../api-design-guide/concepts/operation.md#monitoring) REST API method or the [OperationService/Get](../user/api-ref/grpc/Operation/get.md) gRPC API call.
 
     {% endlist %}
 

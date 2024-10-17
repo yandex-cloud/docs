@@ -184,7 +184,7 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Чтобы настроить хостинг статического сайта, воспользуйтесь методом REST API [update](../../api-ref/Bucket/update.md) для ресурса [Bucket](../../api-ref/Bucket/index.md), вызовом gRPC API [BucketService/Update](../../api-ref/grpc/bucket_service.md#Update) или методом S3 API [upload](../../s3/api-ref/hosting/upload.md).
+  Чтобы настроить хостинг статического сайта, воспользуйтесь методом REST API [update](../../api-ref/Bucket/update.md) для ресурса [Bucket](../../api-ref/Bucket/index.md), вызовом gRPC API [BucketService/Update](../../api-ref/grpc/Bucket/update.md) или методом S3 API [upload](../../s3/api-ref/hosting/upload.md).
 
 {% endlist %}
 
@@ -325,7 +325,7 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Чтобы настроить переадресацию всех запросов к бакету, воспользуйтесь методом REST API [update](../../api-ref/Bucket/update.md) для ресурса [Bucket](../../api-ref/Bucket/index.md), вызовом gRPC API [BucketService/Update](../../api-ref/grpc/bucket_service.md#Update) или методом S3 API [upload](../../s3/api-ref/hosting/upload.md).
+  Чтобы настроить переадресацию всех запросов к бакету, воспользуйтесь методом REST API [update](../../api-ref/Bucket/update.md) для ресурса [Bucket](../../api-ref/Bucket/index.md), вызовом gRPC API [BucketService/Update](../../api-ref/grpc/Bucket/update.md) или методом S3 API [upload](../../s3/api-ref/hosting/upload.md).
 
 {% endlist %}
 
@@ -514,7 +514,7 @@ description: Следуя данной инструкции, вы сможете
         
 - API {#api}
 
-  Чтобы настроить условную переадресацию запросов к бакету, воспользуйтесь методом REST API [update](../../api-ref/Bucket/update.md) для ресурса [Bucket](../../api-ref/Bucket/index.md), вызовом gRPC API [BucketService/Update](../../api-ref/grpc/bucket_service.md#Update) или методом S3 API [upload](../../s3/api-ref/hosting/upload.md).
+  Чтобы настроить условную переадресацию запросов к бакету, воспользуйтесь методом REST API [update](../../api-ref/Bucket/update.md) для ресурса [Bucket](../../api-ref/Bucket/index.md), вызовом gRPC API [BucketService/Update](../../api-ref/grpc/Bucket/update.md) или методом S3 API [upload](../../s3/api-ref/hosting/upload.md).
 
 {% endlist %}
 

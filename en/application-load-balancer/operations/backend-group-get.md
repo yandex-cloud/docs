@@ -121,6 +121,6 @@ title: How to get information about a backend group in {{ alb-full-name }}
 
 - API {#api}
 
-  To get detailed information about a [backend group](../concepts/backend-group.md), use the [get](../api-ref/BackendGroup/get.md) REST API method for the [BackendGroup](../api-ref/BackendGroup/index.md) resource or the [BackendGroupService/Get](../api-ref/grpc/backend_group_service.md#Get) gRPC API call.
+  To get detailed information about a [backend group](../concepts/backend-group.md), use the [get](../api-ref/BackendGroup/get.md) REST API method for the [BackendGroup](../api-ref/BackendGroup/index.md) resource or the [BackendGroupService/Get](../api-ref/grpc/BackendGroup/get.md) gRPC API call.
 
 {% endlist %}

@@ -36,6 +36,6 @@ To access the output data, you need the `сompute.operator` or `{{ roles-viewer 
 
 - API {#api}
 
-   To get the serial port output, use the [getSerialPortOutput](../../api-ref/Instance/getSerialPortOutput.md) REST API method for the [Instance](../../api-ref/Instance/index.md) resource or the [InstanceService/GetSerialPortOutput](../../api-ref/grpc/instance_service.md#GetSerialPortOutput) gRPC API call.
+   To get the serial port output, use the [getSerialPortOutput](../../api-ref/Instance/getSerialPortOutput.md) REST API method for the [Instance](../../api-ref/Instance/index.md) resource or the [InstanceService/GetSerialPortOutput](../../api-ref/grpc/Instance/getSerialPortOutput.md) gRPC API call.
 
 {% endlist %}

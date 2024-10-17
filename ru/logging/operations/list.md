@@ -37,7 +37,7 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Чтобы получить список лог-групп, воспользуйтесь методом REST API [list](../api-ref/LogGroup/list.md) для ресурса [LogGroup](../api-ref/LogGroup/index.md) или вызовом gRPC API [LogGroupService/List](../api-ref/grpc/log_group_service.md#List).
+  Чтобы получить список лог-групп, воспользуйтесь методом REST API [list](../api-ref/LogGroup/list.md) для ресурса [LogGroup](../api-ref/LogGroup/index.md) или вызовом gRPC API [LogGroupService/List](../api-ref/grpc/LogGroup/list.md).
 
   **Пример запроса**
 

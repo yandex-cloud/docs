@@ -81,7 +81,7 @@ To edit an [origin group](../../concepts/origins.md):
 
 - API {#api}
 
-  To update an origin group, use the [update](../../api-ref/OriginGroup/update.md) REST API method for the [OriginGroup](../../api-ref/OriginGroup/index.md) resource or the [OriginGroupService/Update](../../api-ref/grpc/origin_group_service.md#Update) gRPC API call.
+  To update an origin group, use the [update](../../api-ref/OriginGroup/update.md) REST API method for the [OriginGroup](../../api-ref/OriginGroup/index.md) resource or the [OriginGroupService/Update](../../api-ref/grpc/OriginGroup/update.md) gRPC API call.
 
 {% endlist %}
 
@@ -107,7 +107,7 @@ To remove an origin from an origin group:
 
 - API {#api}
 
-  Use the [delete](../../api-ref/Origin/delete.md) REST API method for the [Origin](../../api-ref/Origin/index.md) resource or the [OriginService/Delete](../../api-ref/grpc/origin_service.md#Delete) gRPC API call.
+  Use the [delete](../../api-ref/Origin/delete.md) REST API method for the [Origin](../../api-ref/Origin/index.md) resource or the [OriginService/Delete](../../api-ref/grpc/Origin/delete.md) gRPC API call.
 
 {% endlist %}
 

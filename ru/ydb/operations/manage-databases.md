@@ -138,7 +138,7 @@
 
 - API {#api}
 
-  Чтобы создать Serverless базу данных, воспользуйтесь методом REST API [create](../api-ref/Database/create.md) для ресурса [Database](../api-ref/Database/index.md) или вызовом gRPC API [DatabaseService/Create](../api-ref/grpc/database_service.md#Create) и передайте в запросе:
+  Чтобы создать Serverless базу данных, воспользуйтесь методом REST API [create](../api-ref/Database/create.md) для ресурса [Database](../api-ref/Database/index.md) или вызовом gRPC API [DatabaseService/Create](../api-ref/grpc/Database/create.md) и передайте в запросе:
 
   * Идентификатор каталога, в котором должна быть размещена БД, в параметре `folderId`.
   * Имя БД в параметре `name`.
@@ -251,7 +251,7 @@
 
 - API {#api}
 
-  Чтобы изменить параметры Serverless базы данных, воспользуйтесь методом REST API [update](../api-ref/Database/update.md) для ресурса [Database](../api-ref/Database/index.md) или вызовом gRPC API [DatabaseService/Update](../api-ref/grpc/database_service.md#Update) и укажите в запросе идентификатор требуемой БД в параметре `databaseId`.
+  Чтобы изменить параметры Serverless базы данных, воспользуйтесь методом REST API [update](../api-ref/Database/update.md) для ресурса [Database](../api-ref/Database/index.md) или вызовом gRPC API [DatabaseService/Update](../api-ref/grpc/Database/update.md) и укажите в запросе идентификатор требуемой БД в параметре `databaseId`.
 
   {% include [get-db-id](../../_includes/ydb/get-db-id.md) %}
 
@@ -452,7 +452,7 @@
 
 - API {#api}
 
-  Чтобы создать Dedicated базу данных, воспользуйтесь методом REST API [create](../api-ref/Database/create.md) для ресурса [Database](../api-ref/Database/index.md) или вызовом gRPC API [DatabaseService/Create](../api-ref/grpc/database_service.md#Create) и передайте в запросе:
+  Чтобы создать Dedicated базу данных, воспользуйтесь методом REST API [create](../api-ref/Database/create.md) для ресурса [Database](../api-ref/Database/index.md) или вызовом gRPC API [DatabaseService/Create](../api-ref/grpc/Database/create.md) и передайте в запросе:
 
   * Идентификатор каталога, в котором должна быть размещена БД, в параметре `folderId`.
   * Имя БД в параметре `name`.
@@ -542,7 +542,7 @@
 
 - API {#api}
 
-  Чтобы изменить параметры Dedicated базы данных, воспользуйтесь методом REST API [update](../api-ref/Database/update.md) для ресурса [Database](../api-ref/Database/index.md) или вызовом gRPC API [DatabaseService/Update](../api-ref/grpc/database_service.md#Update) и укажите в запросе идентификатор требуемой БД в параметре `databaseId`.
+  Чтобы изменить параметры Dedicated базы данных, воспользуйтесь методом REST API [update](../api-ref/Database/update.md) для ресурса [Database](../api-ref/Database/index.md) или вызовом gRPC API [DatabaseService/Update](../api-ref/grpc/Database/update.md) и укажите в запросе идентификатор требуемой БД в параметре `databaseId`.
 
   {% include [get-db-id](../../_includes/ydb/get-db-id.md) %}
 
@@ -575,7 +575,7 @@
 
 - API {#api}
 
-  Чтобы получить список баз данных в каталоге, воспользуйтесь методом REST API [list](../api-ref/Database/list.md) для ресурса [Database](../api-ref/Database/index.md) или вызовом gRPC API [DatabaseService/List](../api-ref/grpc/database_service.md#List) и передайте в запросе идентификатор каталога в параметре `folderId`.
+  Чтобы получить список баз данных в каталоге, воспользуйтесь методом REST API [list](../api-ref/Database/list.md) для ресурса [Database](../api-ref/Database/index.md) или вызовом gRPC API [DatabaseService/List](../api-ref/grpc/Database/list.md) и передайте в запросе идентификатор каталога в параметре `folderId`.
 
 {% endlist %}
 
@@ -656,7 +656,7 @@
 
 * API {#api}
 
-  Воспользуйтесь вызовом gRPC API [DatabaseService/UpdateAccessBindings](../api-ref/grpc/database_service.md#UpdateAccessBindings) и передайте в запросе:
+  Воспользуйтесь вызовом gRPC API [DatabaseService/UpdateAccessBindings](../api-ref/grpc/Database/update.mdAccessBindings) и передайте в запросе:
 
   * Значение `ADD` в параметре `access_binding_deltas[].action`, чтобы добавить роль.
   * Роль в параметре `access_binding_deltas[].access_binding.role_id`.
@@ -757,7 +757,7 @@
 
   {% include [set-access-bindings-api](../../_includes/iam/set-access-bindings-api.md) %}
 
-  Воспользуйтесь вызовом gRPC API [DatabaseService/SetAccessBindings](../api-ref/grpc/database_service.md#SetAccessBindings). Передайте в запросе массив из объектов, каждый из которых соответствует отдельной роли и содержит следующие данные:
+  Воспользуйтесь вызовом gRPC API [DatabaseService/SetAccessBindings](../api-ref/grpc/Database/setAccessBindings.md). Передайте в запросе массив из объектов, каждый из которых соответствует отдельной роли и содержит следующие данные:
 
   * Роль в параметре `access_bindings[].role_id`.
   * Идентификатор субъекта, на кого назначаются роли, в параметре `access_bindings[].subject.id`.
@@ -829,7 +829,7 @@
 
 - API {#api}
 
-  Чтобы удалить базу данных, воспользуйтесь методом REST API [delete](../api-ref/Database/delete.md) для ресурса [Database](../api-ref/Database/index.md) или вызовом gRPC API [DatabaseService/Delete](../api-ref/grpc/database_service.md#Delete) и укажите в запросе идентификатор удаляемой БД в параметре `databaseId`.
+  Чтобы удалить базу данных, воспользуйтесь методом REST API [delete](../api-ref/Database/delete.md) для ресурса [Database](../api-ref/Database/index.md) или вызовом gRPC API [DatabaseService/Delete](../api-ref/grpc/Database/delete.md) и укажите в запросе идентификатор удаляемой БД в параметре `databaseId`.
 
   {% include [get-db-id](../../_includes/ydb/get-db-id.md) %}
 

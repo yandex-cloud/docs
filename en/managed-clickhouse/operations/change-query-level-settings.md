@@ -157,7 +157,7 @@ You can specify [{{ CH }} settings at the query level](https://clickhouse.com/do
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [UserService/Update](../api-ref/grpc/user_service.md#Update) call and make a request, e.g., using {{ api-examples.grpc.tool }}:
+    1. Use the [UserService/Update](../api-ref/grpc/User/update.md) call and make a request, e.g., using {{ api-examples.grpc.tool }}:
 
         {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -190,7 +190,7 @@ You can specify [{{ CH }} settings at the query level](https://clickhouse.com/do
 
         You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters). You can request the user name with the [list of users in the cluster](./cluster-users.md#list-users).
 
-    1. View the [server response](../api-ref/grpc/user_service.md#Operation1) to make sure the request was successful.
+    1. View the [server response](../api-ref/grpc/User/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
 

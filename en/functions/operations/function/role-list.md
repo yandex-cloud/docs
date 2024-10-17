@@ -36,6 +36,6 @@ A function automatically [inherits](../../security/index.md#roles-list) [roles](
 
 - API {#api}
 
-  To view function roles, use the [listAccessBindings](../../functions/api-ref/Function/listAccessBindings.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/ListAccessBindings](../../functions/api-ref/grpc/function_service.md#ListAccessBindings) gRPC API call.
+  To view function roles, use the [listAccessBindings](../../functions/api-ref/Function/listAccessBindings.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/ListAccessBindings](../../functions/api-ref/grpc/Function/listAccessBindings.md) gRPC API call.
 
 {% endlist %}

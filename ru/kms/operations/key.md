@@ -50,7 +50,7 @@
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [create](../../kms/api-ref/SymmetricKey/create.md) для ресурса [SymmetricKey](../../kms/api-ref/SymmetricKey/index.md) или вызовом gRPC API [SymmetricKeyService/Create](../../kms/api-ref/grpc/symmetric_key_service.md#Create).
+  Воспользуйтесь методом REST API [create](../../kms/api-ref/SymmetricKey/create.md) для ресурса [SymmetricKey](../../kms/api-ref/SymmetricKey/index.md) или вызовом gRPC API [SymmetricKeyService/Create](../../kms/api-ref/grpc/SymmetricKey/create.md).
 
 {% endlist %}
 
@@ -143,7 +143,7 @@
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [update](../../kms/api-ref/SymmetricKey/update.md) для ресурса [SymmetricKey](../../kms/api-ref/SymmetricKey/index.md) или вызовом gRPC API [SymmetricKeyService/Update](../../kms/api-ref/grpc/symmetric_key_service.md#Update).
+  Воспользуйтесь методом REST API [update](../../kms/api-ref/SymmetricKey/update.md) для ресурса [SymmetricKey](../../kms/api-ref/SymmetricKey/index.md) или вызовом gRPC API [SymmetricKeyService/Update](../../kms/api-ref/grpc/SymmetricKey/update.md).
 
 {% endlist %}
 
@@ -173,7 +173,7 @@
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [rotate](../../kms/api-ref/SymmetricKey/rotate.md) для ресурса [SymmetricKey](../../kms/api-ref/SymmetricKey/index.md) или вызовом gRPC API [SymmetricKeyService/Rotate](../../kms/api-ref/grpc/symmetric_key_service.md#Rotate).
+  Воспользуйтесь методом REST API [rotate](../../kms/api-ref/SymmetricKey/rotate.md) для ресурса [SymmetricKey](../../kms/api-ref/SymmetricKey/index.md) или вызовом gRPC API [SymmetricKeyService/Rotate](../../kms/api-ref/grpc/SymmetricKey/rotate.md).
 
 {% endlist %}
 
@@ -261,7 +261,7 @@
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [delete](../../kms/api-ref/SymmetricKey/delete.md) для ресурса [SymmetricKey](../../kms/api-ref/SymmetricKey/index.md) или вызовом gRPC API [SymmetricKeyService/Delete](../../kms/api-ref/grpc/symmetric_key_service.md#Delete).
+  Воспользуйтесь методом REST API [delete](../../kms/api-ref/SymmetricKey/delete.md) для ресурса [SymmetricKey](../../kms/api-ref/SymmetricKey/index.md) или вызовом gRPC API [SymmetricKeyService/Delete](../../kms/api-ref/grpc/SymmetricKey/delete.md).
 
 {% endlist %}
 

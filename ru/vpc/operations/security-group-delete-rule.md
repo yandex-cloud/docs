@@ -161,7 +161,7 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Чтобы удалить правило из группы безопасности, воспользуйтесь методом REST API [updateRules](../api-ref/SecurityGroup/updateRules.md) для ресурса [SecurityGroup](../api-ref/SecurityGroup/index.md) или вызовом gRPC API [SecurityGroupService/UpdateRules](../api-ref/grpc/security_group_service.md#UpdateRules) и передайте в запросе:
+  Чтобы удалить правило из группы безопасности, воспользуйтесь методом REST API [updateRules](../api-ref/SecurityGroup/updateRules.md) для ресурса [SecurityGroup](../api-ref/SecurityGroup/index.md) или вызовом gRPC API [SecurityGroupService/UpdateRules](../api-ref/grpc/SecurityGroup/updateRules.md) и передайте в запросе:
 
   * Идентификатор группы безопасности, из которой будут удалены правила, в параметре `securityGroupId`.
   * Идентификаторы правил, которые будут удалены, в массиве `deletionRuleIds[]`.

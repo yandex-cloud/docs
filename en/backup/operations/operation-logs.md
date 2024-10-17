@@ -50,7 +50,7 @@ All actions with {{ backup-name }} resources are logged as a list of operations.
 
     - API {#api}
 
-      Use the [OperationService/Get](../backup/api-ref/grpc/operation_service.md#Get) gRPC API call.
+      Use the [OperationService/Get](../backup/api-ref/grpc/Operation/get.md) gRPC API call.
 
     {% endlist %}
 

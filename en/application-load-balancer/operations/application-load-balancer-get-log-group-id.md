@@ -57,7 +57,7 @@ To get the ID of the {{ cloud-logging-full-name }} [log group](../../logging/con
 
 - API {#api}
 
-  Use the [get](../api-ref/LoadBalancer/get.md) REST API method for the [LoadBalancer](../api-ref/LoadBalancer/index.md) resource or the [LoadBalancerService/Get](../api-ref/grpc/load_balancer_service.md#Get) gRPC API call.
+  Use the [get](../api-ref/LoadBalancer/get.md) REST API method for the [LoadBalancer](../api-ref/LoadBalancer/index.md) resource or the [LoadBalancerService/Get](../api-ref/grpc/LoadBalancer/get.md) gRPC API call.
 
   The {{ cloud-logging-name }} log group ID will be specified in the `logGroupId` field under `logOptions`. Note that the `logGroupId` field located outside `logOptions` contains a different ID that refers to the outdated logging service.
 

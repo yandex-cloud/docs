@@ -77,6 +77,6 @@
 
 - API {#api}
 
-    Воспользуйтесь методом REST API [Group.updateMembers](../../organization/api-ref/Group/updateMembers.md) для ресурса [Group](../../organization/api-ref/Group/index.md) или вызовом gRPC API [GroupService/UpdateMembers](../../organization/api-ref/grpc/group_service.md#UpdateMembers).
+    Воспользуйтесь методом REST API [Group.updateMembers](../../organization/api-ref/Group/updateMembers.md) для ресурса [Group](../../organization/api-ref/Group/index.md) или вызовом gRPC API [GroupService/UpdateMembers](../../organization/api-ref/grpc/Group/updateMembers.md).
 
 {% endlist %}

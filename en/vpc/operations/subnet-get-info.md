@@ -91,7 +91,7 @@ title: How to get information about a subnet in {{ vpc-full-name }}
 
 - API {#api}
 
-  To get detailed information about a [subnet](../concepts/network.md#subnet), use the [get](../api-ref/Subnet/get) REST API method for the [Subnet](../api-ref/Subnet/index.md) resource or the [SubnetService/Get](../api-ref/grpc/subnet_service.md#Get) gRPC API call.
+  To get detailed information about a [subnet](../concepts/network.md#subnet), use the [get](../api-ref/Subnet/get) REST API method for the [Subnet](../api-ref/Subnet/index.md) resource or the [SubnetService/Get](../api-ref/grpc/Subnet/get.md) gRPC API call.
 
 {% endlist %}
 

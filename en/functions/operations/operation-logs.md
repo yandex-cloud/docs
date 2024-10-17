@@ -77,7 +77,7 @@ All actions with {{ sf-name }} resources are logged as a list of operations. Eac
 
   Use the `listOperations` REST API method for the relevant resource or the `<service>/ListOperations` gRPC API call.
 
-  For example, for a function, use either the [listOperations](../functions/api-ref/Function/listOperations.md) REST API method for the [Function](../functions/api-ref/Function/index.md) resource or the [FunctionService/ListOperations](../functions/api-ref/grpc/function_service.md#ListOperations) gRPC API call.
+  For example, for a function, use either the [listOperations](../functions/api-ref/Function/listOperations.md) REST API method for the [Function](../functions/api-ref/Function/index.md) resource or the [FunctionService/ListOperations](../functions/api-ref/grpc/Function/listOperations.md) gRPC API call.
 
 {% endlist %}
 
@@ -125,7 +125,7 @@ All actions with {{ sf-name }} resources are logged as a list of operations. Eac
 
     - API {#api}
 
-      Use the [OperationService/Get](../functions/api-ref/grpc/operation_service.md#Get) gRPC API call.
+      Use the [OperationService/Get](../functions/api-ref/grpc/Operation/get.md) gRPC API call.
 
     {% endlist %}
 

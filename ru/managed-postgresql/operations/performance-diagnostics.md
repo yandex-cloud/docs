@@ -132,7 +132,7 @@
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
   1. Чтобы включить сбор статистики при создании кластера:
 
-     1. Воспользуйтесь методом [ClusterService/Create](../api-ref/grpc/cluster_service.md#Create) и добавьте параметр `config_spec.performance_diagnostics` в [команду grpcurl по созданию кластера](cluster-create.md#grpc-api):
+     1. Воспользуйтесь методом [ClusterService/Create](../api-ref/grpc/Cluster/create.md) и добавьте параметр `config_spec.performance_diagnostics` в [команду grpcurl по созданию кластера](cluster-create.md#grpc-api):
 
         ```bash
         grpcurl \
@@ -162,11 +162,11 @@
         * `sessions_sampling_interval` — интервал сбора сессий. Допустимые значения — от `1` до `86400` секунд.
         * `statements_sampling_interval` — интервал сбора запросов. Допустимые значения — от `60` до `86400` секунд.
 
-     1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/cluster_service.md#Operation).
+     1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation).
 
   1. Чтобы включить сбор статистики при изменении существующего кластера:
 
-     1. Воспользуйтесь вызовом [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+     1. Воспользуйтесь вызовом [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
         {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -202,7 +202,7 @@
         * `sessions_sampling_interval` — интервал сбора сессий. Допустимые значения — от `1` до `86400` секунд.
         * `statements_sampling_interval` — интервал сбора запросов. Допустимые значения — от `60` до `86400` секунд.
 
-     1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/cluster_service.md#Cluster3).
+     1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/create.md#yandex.cloud.mdb.postgresql.v1.Cluster).
 
 {% endlist %}
 
@@ -235,7 +235,7 @@
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Воспользуйтесь вызовом [PerformanceDiagnosticsService/ListRawSessionStates](../api-ref/grpc/perf_diag_service.md#ListRawSessionStates) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [PerformanceDiagnosticsService/ListRawSessionStates](../api-ref/grpc/PerformanceDiagnostics/listRawSessionStates.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
      ```bash
      grpcurl \
@@ -260,7 +260,7 @@
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/perf_diag_service.md#ListRawSessionStatesResponse).
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/PerformanceDiagnostics/listRawSessionStates.mdResponse).
 
 {% endlist %}
 
@@ -295,7 +295,7 @@
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Воспользуйтесь вызовом [PerformanceDiagnosticsService/ListRawStatements](../api-ref/grpc/perf_diag_service.md#ListRawStatements) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [PerformanceDiagnosticsService/ListRawStatements](../api-ref/grpc/PerformanceDiagnostics/listRawStatements.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
      ```bash
      grpcurl \
@@ -320,7 +320,7 @@
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/perf_diag_service.md#ListRawStatementsResponse).
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/PerformanceDiagnostics/listRawStatements.mdResponse).
 
 {% endlist %}
 

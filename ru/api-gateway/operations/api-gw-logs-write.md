@@ -155,6 +155,6 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-    Чтобы записывать логи в журнал выполнения в {{ api-gw-full-name }} воспользуйтесь методом REST API [update](../apigateway/api-ref/ApiGateway/update.md) для ресурса [ApiGateway](../apigateway/api-ref/ApiGateway/index.md) или вызовом gRPC API [ApiGatewayService/Update](../apigateway/api-ref/grpc/apigateway_service.md#Update).
+    Чтобы записывать логи в журнал выполнения в {{ api-gw-full-name }} воспользуйтесь методом REST API [update](../apigateway/api-ref/ApiGateway/update.md) для ресурса [ApiGateway](../apigateway/api-ref/ApiGateway/index.md) или вызовом gRPC API [ApiGatewayService/Update](../apigateway/api-ref/grpc/ApiGateway/update.md).
 
 {% endlist %}

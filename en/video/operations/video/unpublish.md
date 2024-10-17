@@ -18,7 +18,7 @@ description: Follow this guide to unpublish a video in {{ video-full-name }}.
 
 - API {#api}
 
-  Use the [VideoService/Update](../../api-ref/grpc/video_service.md#Update) gRPC API call.
+  Use the [VideoService/Update](../../api-ref/grpc/Video/update.md) gRPC API call.
 
 {% endlist %}
 

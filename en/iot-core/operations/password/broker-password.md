@@ -71,7 +71,7 @@ You can add a password to an existing broker or set it when creating a broker us
 
 - API {#api}
 
-   To add a password to a broker, use the [addPassword](../../broker/api-ref/Broker/addPassword.md) REST API method for the [Broker](../../broker/api-ref/Broker/index.md) resource or the [BrokerService/AddPassword](../../broker/api-ref/grpc/broker_service.md#AddPassword) gRPC API call.
+   To add a password to a broker, use the [addPassword](../../broker/api-ref/Broker/addPassword.md) REST API method for the [Broker](../../broker/api-ref/Broker/index.md) resource or the [BrokerService/AddPassword](../../broker/api-ref/grpc/Broker/addPassword.md) gRPC API call.
 
 {% endlist %}
 
@@ -108,7 +108,7 @@ You can add a password to an existing broker or set it when creating a broker us
 
 - API {#api}
 
-   To set a password for a broker when creating it, use the [create](../../broker/api-ref/Broker/create.md) REST API method for the [Broker](../../broker/api-ref/Broker/index.md) resource or the [BrokerService/Create](../../broker/api-ref/grpc/broker_service.md#Create) gRPC API call.
+   To set a password for a broker when creating it, use the [create](../../broker/api-ref/Broker/create.md) REST API method for the [Broker](../../broker/api-ref/Broker/index.md) resource or the [BrokerService/Create](../../broker/api-ref/grpc/Broker/create.md) gRPC API call.
 
 {% endlist %}
 
@@ -163,7 +163,7 @@ You can add a password to an existing broker or set it when creating a broker us
 
 - API {#api}
 
-   To get a list of broker passwords, use the [listPasswords](../../broker/api-ref/Broker/listPasswords.md) REST API method for the [Broker](../../broker/api-ref/Broker/index.md) resource or the [BrokerService/ListPasswords](../../broker/api-ref/grpc/broker_service.md#ListPasswords) gRPC API call.
+   To get a list of broker passwords, use the [listPasswords](../../broker/api-ref/Broker/listPasswords.md) REST API method for the [Broker](../../broker/api-ref/Broker/index.md) resource or the [BrokerService/ListPasswords](../../broker/api-ref/grpc/Broker/listPasswords.md) gRPC API call.
 
 {% endlist %}
 
@@ -222,6 +222,6 @@ You can add a password to an existing broker or set it when creating a broker us
 
 - API {#api}
 
-   To delete a broker password, use the [deletePassword](../../broker/api-ref/Broker/deletePassword.md) REST API method for the [Broker](../../broker/api-ref/Broker/index.md) resource or the [BrokerService/DeletePassword](../../broker/api-ref/grpc/broker_service.md#DeletePassword) gRPC API call.
+   To delete a broker password, use the [deletePassword](../../broker/api-ref/Broker/deletePassword.md) REST API method for the [Broker](../../broker/api-ref/Broker/index.md) resource or the [BrokerService/DeletePassword](../../broker/api-ref/grpc/Broker/deletePassword.md) gRPC API call.
 
 {% endlist %}

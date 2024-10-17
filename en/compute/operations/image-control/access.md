@@ -113,7 +113,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
 - API {#api}
 
-  To assign a role, use the [updateAccessBindings](../../api-ref/Image/updateAccessBindings.md) REST API method for the [Image](../../api-ref/Image/index.md) resource or the [ImageService/UpdateAccessBindings](../../api-ref/grpc/image_service.md#UpdateAccessBindings) gRPC API call. In the request body, set the `action` property to `ADD` and specify the user type and ID in the `subject` property.
+  To assign a role, use the [updateAccessBindings](../../api-ref/Image/updateAccessBindings.md) REST API method for the [Image](../../api-ref/Image/index.md) resource or the [ImageService/UpdateAccessBindings](../../api-ref/grpc/Image/updateAccessBindings.md) gRPC API call. In the request body, set the `action` property to `ADD` and specify the user type and ID in the `subject` property.
 
 {% endlist %}
 
@@ -224,7 +224,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
 - API {#api}
 
-  To assign roles for a resource, use the [setAccessBindings](../../api-ref/Image/setAccessBindings.md) REST API method for the [Image](../../api-ref/Image/index.md) resource or the [ImageService/SetAccessBindings](../../api-ref/grpc/image_service.md#SetAccessBindings) gRPC API call.
+  To assign roles for a resource, use the [setAccessBindings](../../api-ref/Image/setAccessBindings.md) REST API method for the [Image](../../api-ref/Image/index.md) resource or the [ImageService/SetAccessBindings](../../api-ref/grpc/Image/setAccessBindings.md) gRPC API call.
 
   {% note alert %}
 
@@ -319,6 +319,6 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
 - API {#api}
 
-  To revoke roles for a disk image, use the [updateAccessBindings](../../api-ref/Image/updateAccessBindings.md) REST API method for the [Image](../../api-ref/Image/index.md) resource or the [ImageService/UpdateAccessBindings](../../api-ref/grpc/image_service.md#UpdateAccessBindings) gRPC API call. In the request body, set the `action` property to `REMOVE` and specify the user type and ID in the `subject` property.
+  To revoke roles for a disk image, use the [updateAccessBindings](../../api-ref/Image/updateAccessBindings.md) REST API method for the [Image](../../api-ref/Image/index.md) resource or the [ImageService/UpdateAccessBindings](../../api-ref/grpc/Image/updateAccessBindings.md) gRPC API call. In the request body, set the `action` property to `REMOVE` and specify the user type and ID in the `subject` property.
 
 {% endlist %}

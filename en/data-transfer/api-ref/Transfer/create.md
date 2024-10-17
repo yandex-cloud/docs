@@ -3,25 +3,24 @@ editable: false
 sourcePath: en/_api-ref/datatransfer/v1/api-ref/Transfer/create.md
 ---
 
-# Data Transfer API, REST: Transfer.create
+# Data Transfer API, REST: Transfer.Create {#Create}
 
- 
+## HTTP request
 
- 
-## HTTP request {#https-request}
 ```
 POST https://{{ api-host-data-transfer }}/v1/transfer
 ```
- 
-## Body parameters {#body_params}
- 
-```json 
+
+## Body parameters {#yandex.cloud.datatransfer.v1.CreateTransferRequest}
+
+```json
 {
   "sourceId": "string",
   "targetId": "string",
   "description": "string",
   "folderId": "string",
   "runtime": {
+    // Includes only one of the fields `ycRuntime`
     "ycRuntime": {
       "jobCount": "string",
       "uploadShardParams": {
@@ -29,15 +28,15 @@ POST https://{{ api-host-data-transfer }}/v1/transfer
         "processCount": "string"
       }
     }
+    // end of the list of possible fields
   },
   "type": "string",
   "name": "string",
-  "labels": "object",
+  "labels": "string",
   "transformation": {
     "transformers": [
       {
-
-        // `transformation.transformers[]` includes only one of the fields `maskField`, `filterColumns`, `renameTables`, `replacePrimaryKey`, `convertToString`, `sharderTransformer`, `tableSplitterTransformer`, `filterRows`
+        // Includes only one of the fields `maskField`, `filterColumns`, `renameTables`, `replacePrimaryKey`, `convertToString`, `sharderTransformer`, `tableSplitterTransformer`, `filterRows`
         "maskField": {
           "tables": {
             "includeTables": [
@@ -51,9 +50,11 @@ POST https://{{ api-host-data-transfer }}/v1/transfer
             "string"
           ],
           "function": {
+            // Includes only one of the fields `maskFunctionHash`
             "maskFunctionHash": {
               "userDefinedSalt": "string"
             }
+            // end of the list of possible fields
           }
         },
         "filterColumns": {
@@ -165,103 +166,348 @@ POST https://{{ api-host-data-transfer }}/v1/transfer
           "filters": [
             "string"
           ]
-        },
-        // end of the list of possible fields`transformation.transformers[]`
-
+        }
+        // end of the list of possible fields
       }
     ]
   }
 }
 ```
 
- 
-Field | Description
---- | ---
-sourceId | **string**
-targetId | **string**
-description | **string**
-folderId | **string**
-runtime | **object**
-runtime.<br>ycRuntime | **object**
-runtime.<br>ycRuntime.<br>jobCount | **string** (int64)
-runtime.<br>ycRuntime.<br>uploadShardParams | **object**
-runtime.<br>ycRuntime.<br>uploadShardParams.<br>jobCount | **string** (int64)
-runtime.<br>ycRuntime.<br>uploadShardParams.<br>processCount | **string** (int64)
-type | **string**<br><ul> <li>SNAPSHOT_AND_INCREMENT: Snapshot and increment</li> <li>SNAPSHOT_ONLY: Snapshot</li> <li>INCREMENT_ONLY: Increment</li> </ul> 
-name | **string**
-labels | **object**
-transformation | **object**<br><p>Transformation is converting data using special transformer functions. These functions are executed on a data stream, applied to each data change item, and transform them. A transformer can be run at both the metadata and data levels. Data can only be transformed if the source and target are of different types.</p> 
-transformation.<br>transformers[] | **object**<br><p>Transformers are set as a list. When activating a transfer, a transformation plan is made for the tables that match the specified criteria. Transformers are applied to the tables in the sequence specified in the list.</p> 
-transformation.<br>transformers[].<br>maskField | **object** <br>`transformation.transformers[]` includes only one of the fields `maskField`, `filterColumns`, `renameTables`, `replacePrimaryKey`, `convertToString`, `sharderTransformer`, `tableSplitterTransformer`, `filterRows`<br><br><p>Mask field transformer allows you to hash data</p> 
-transformation.<br>transformers[].<br>maskField.<br>tables | **object**<br><p>List of included and excluded tables</p> <p>Filter tables using lists of included and excluded tables.</p> 
-transformation.<br>transformers[].<br>maskField.<br>tables.<br>includeTables[] | **string**<br><p>List of tables that will be included to transfer</p> 
-transformation.<br>transformers[].<br>maskField.<br>tables.<br>excludeTables[] | **string**<br><p>List of tables that will be excluded to transfer</p> 
-transformation.<br>transformers[].<br>maskField.<br>columns[] | **string**<br><p>Specify the name of the column for data masking (a regular expression).</p> 
-transformation.<br>transformers[].<br>maskField.<br>function | **object**<br><p>Mask function</p> <p>Mask function</p> 
-transformation.<br>transformers[].<br>maskField.<br>function.<br>maskFunctionHash | **object**<br>Hash mask function
-transformation.<br>transformers[].<br>maskField.<br>function.<br>maskFunctionHash.<br>userDefinedSalt | **string**<br><p>This string will be used in the HMAC(sha256, salt) function applied to the column data.</p> 
-transformation.<br>transformers[].<br>filterColumns | **object** <br>`transformation.transformers[]` includes only one of the fields `maskField`, `filterColumns`, `renameTables`, `replacePrimaryKey`, `convertToString`, `sharderTransformer`, `tableSplitterTransformer`, `filterRows`<br><br><p>Set up a list of table columns to transfer</p> 
-transformation.<br>transformers[].<br>filterColumns.<br>tables | **object**<br><p>List of the tables to filter using lists of included and excluded tables.</p> <p>Filter tables using lists of included and excluded tables.</p> 
-transformation.<br>transformers[].<br>filterColumns.<br>tables.<br>includeTables[] | **string**<br><p>List of tables that will be included to transfer</p> 
-transformation.<br>transformers[].<br>filterColumns.<br>tables.<br>excludeTables[] | **string**<br><p>List of tables that will be excluded to transfer</p> 
-transformation.<br>transformers[].<br>filterColumns.<br>columns | **object**<br><p>List of the columns to transfer to the target tables using lists of included and excluded columns.</p> <p>Filter columns using lists of included and excluded columns.</p> 
-transformation.<br>transformers[].<br>filterColumns.<br>columns.<br>includeColumns[] | **string**<br><p>List of columns that will be included to transfer</p> 
-transformation.<br>transformers[].<br>filterColumns.<br>columns.<br>excludeColumns[] | **string**<br><p>List of columns that will be excluded to transfer</p> 
-transformation.<br>transformers[].<br>renameTables | **object** <br>`transformation.transformers[]` includes only one of the fields `maskField`, `filterColumns`, `renameTables`, `replacePrimaryKey`, `convertToString`, `sharderTransformer`, `tableSplitterTransformer`, `filterRows`<br><br><p>Set rules for renaming tables by specifying the current names of the tables in the source and new names for these tables in the target.</p> 
-transformation.<br>transformers[].<br>renameTables.<br>renameTables[] | **object**<br><p>List of renaming rules</p> 
-transformation.<br>transformers[].<br>renameTables.<br>renameTables[].<br>originalName | **object**<br><p>Specify the current names of the table in the source</p> 
-transformation.<br>transformers[].<br>renameTables.<br>renameTables[].<br>originalName.<br>nameSpace | **string**
-transformation.<br>transformers[].<br>renameTables.<br>renameTables[].<br>originalName.<br>name | **string**
-transformation.<br>transformers[].<br>renameTables.<br>renameTables[].<br>newName | **object**<br><p>Specify the new names for this table in the target</p> 
-transformation.<br>transformers[].<br>renameTables.<br>renameTables[].<br>newName.<br>nameSpace | **string**
-transformation.<br>transformers[].<br>renameTables.<br>renameTables[].<br>newName.<br>name | **string**
-transformation.<br>transformers[].<br>replacePrimaryKey | **object** <br>`transformation.transformers[]` includes only one of the fields `maskField`, `filterColumns`, `renameTables`, `replacePrimaryKey`, `convertToString`, `sharderTransformer`, `tableSplitterTransformer`, `filterRows`<br><br><p>Override primary keys</p> 
-transformation.<br>transformers[].<br>replacePrimaryKey.<br>tables | **object**<br><p>List of included and excluded tables</p> <p>Filter tables using lists of included and excluded tables.</p> 
-transformation.<br>transformers[].<br>replacePrimaryKey.<br>tables.<br>includeTables[] | **string**<br><p>List of tables that will be included to transfer</p> 
-transformation.<br>transformers[].<br>replacePrimaryKey.<br>tables.<br>excludeTables[] | **string**<br><p>List of tables that will be excluded to transfer</p> 
-transformation.<br>transformers[].<br>replacePrimaryKey.<br>keys[] | **string**<br><p>List of columns to be used as primary keys</p> 
-transformation.<br>transformers[].<br>convertToString | **object** <br>`transformation.transformers[]` includes only one of the fields `maskField`, `filterColumns`, `renameTables`, `replacePrimaryKey`, `convertToString`, `sharderTransformer`, `tableSplitterTransformer`, `filterRows`<br><br><p>Convert column values to strings The values will be converted depending on the source type Conversion rules are described here: https://cloud.yandex.com/en/docs/data-transfer/concepts/data-transformation#convert-to-string</p> 
-transformation.<br>transformers[].<br>convertToString.<br>tables | **object**<br><p>List of included and excluded tables</p> <p>Filter tables using lists of included and excluded tables.</p> 
-transformation.<br>transformers[].<br>convertToString.<br>tables.<br>includeTables[] | **string**<br><p>List of tables that will be included to transfer</p> 
-transformation.<br>transformers[].<br>convertToString.<br>tables.<br>excludeTables[] | **string**<br><p>List of tables that will be excluded to transfer</p> 
-transformation.<br>transformers[].<br>convertToString.<br>columns | **object**<br><p>List of included and excluded columns</p> <p>Filter columns using lists of included and excluded columns.</p> 
-transformation.<br>transformers[].<br>convertToString.<br>columns.<br>includeColumns[] | **string**<br><p>List of columns that will be included to transfer</p> 
-transformation.<br>transformers[].<br>convertToString.<br>columns.<br>excludeColumns[] | **string**<br><p>List of columns that will be excluded to transfer</p> 
-transformation.<br>transformers[].<br>sharderTransformer | **object** <br>`transformation.transformers[]` includes only one of the fields `maskField`, `filterColumns`, `renameTables`, `replacePrimaryKey`, `convertToString`, `sharderTransformer`, `tableSplitterTransformer`, `filterRows`<br><br><p>Set the number of shards for particular tables and a list of columns whose values will be used for calculating a hash to determine a shard.</p> 
-transformation.<br>transformers[].<br>sharderTransformer.<br>tables | **object**<br><p>List of included and excluded tables</p> <p>Filter tables using lists of included and excluded tables.</p> 
-transformation.<br>transformers[].<br>sharderTransformer.<br>tables.<br>includeTables[] | **string**<br><p>List of tables that will be included to transfer</p> 
-transformation.<br>transformers[].<br>sharderTransformer.<br>tables.<br>excludeTables[] | **string**<br><p>List of tables that will be excluded to transfer</p> 
-transformation.<br>transformers[].<br>sharderTransformer.<br>columns | **object**<br><p>List of included and excluded columns</p> <p>Filter columns using lists of included and excluded columns.</p> 
-transformation.<br>transformers[].<br>sharderTransformer.<br>columns.<br>includeColumns[] | **string**<br><p>List of columns that will be included to transfer</p> 
-transformation.<br>transformers[].<br>sharderTransformer.<br>columns.<br>excludeColumns[] | **string**<br><p>List of columns that will be excluded to transfer</p> 
-transformation.<br>transformers[].<br>sharderTransformer.<br>shardsCount | **string** (int64)<br><p>Number of shards</p> 
-transformation.<br>transformers[].<br>tableSplitterTransformer | **object** <br>`transformation.transformers[]` includes only one of the fields `maskField`, `filterColumns`, `renameTables`, `replacePrimaryKey`, `convertToString`, `sharderTransformer`, `tableSplitterTransformer`, `filterRows`<br><br><p>A transfer splits the X table into multiple tables (X_1, X_2, ..., X_n) based on data. If a row was located in the X table before it was split, it is now in the X_i table, where i is determined by the column list and split string parameters. Example: If the column list has two columns, month of birth and gender, specified and the split string states @, information about an employee whose name is John and who was born on February 11, 1984, from the Employees table will get to a new table named Employees@February@male.</p> 
-transformation.<br>transformers[].<br>tableSplitterTransformer.<br>tables | **object**<br><p>List of included and excluded tables</p> <p>Filter tables using lists of included and excluded tables.</p> 
-transformation.<br>transformers[].<br>tableSplitterTransformer.<br>tables.<br>includeTables[] | **string**<br><p>List of tables that will be included to transfer</p> 
-transformation.<br>transformers[].<br>tableSplitterTransformer.<br>tables.<br>excludeTables[] | **string**<br><p>List of tables that will be excluded to transfer</p> 
-transformation.<br>transformers[].<br>tableSplitterTransformer.<br>columns[] | **string**<br><p>Specify the columns in the tables to be partitioned.</p> 
-transformation.<br>transformers[].<br>tableSplitterTransformer.<br>splitter | **string**<br><p>Specify the split string to be used for merging components in a new table name.</p> 
-transformation.<br>transformers[].<br>filterRows | **object** <br>`transformation.transformers[]` includes only one of the fields `maskField`, `filterColumns`, `renameTables`, `replacePrimaryKey`, `convertToString`, `sharderTransformer`, `tableSplitterTransformer`, `filterRows`<br><br><p>This filter only applies to transfers with queues (Logbroker or Apache Kafka®) as a data source. When running a transfer, only the strings meeting the specified criteria remain in a changefeed.</p> 
-transformation.<br>transformers[].<br>filterRows.<br>tables | **object**<br><p>List of included and excluded tables.</p> <p>Filter tables using lists of included and excluded tables.</p> 
-transformation.<br>transformers[].<br>filterRows.<br>tables.<br>includeTables[] | **string**<br><p>List of tables that will be included to transfer</p> 
-transformation.<br>transformers[].<br>filterRows.<br>tables.<br>excludeTables[] | **string**<br><p>List of tables that will be excluded to transfer</p> 
-transformation.<br>transformers[].<br>filterRows.<br>filter | **string**<br><p>Filtering criterion. This can be comparison operators for numeric, string, and Boolean values, comparison to NULL, and checking whether a substring is part of a string. Details here: https://yandex.cloud/en-ru/docs/data-transfer/concepts/data-transformation#append-only-sources. Deprecated: Use filters instead.</p> 
-transformation.<br>transformers[].<br>filterRows.<br>filters[] | **string**<br><p>Data is transported if it satisfies at least one of filters. Consider that there is OR statement between filters. Each filter can be comparison operators for numeric, string, and Boolean values, comparison to NULL, and checking whether a substring is part of a string. Details in docs: https://yandex.cloud/en-ru/docs/data-transfer/concepts/data-transformation#append-only-sources.</p> 
- 
-## Response {#responses}
+#|
+||Field | Description ||
+|| sourceId | **string** ||
+|| targetId | **string** ||
+|| description | **string** ||
+|| folderId | **string** ||
+|| runtime | **[Runtime](#yandex.cloud.datatransfer.v1.Runtime)** ||
+|| type | **enum** (TransferType)
+
+- `TRANSFER_TYPE_UNSPECIFIED`
+- `SNAPSHOT_AND_INCREMENT`: Snapshot and increment
+- `SNAPSHOT_ONLY`: Snapshot
+- `INCREMENT_ONLY`: Increment ||
+|| name | **string** ||
+|| labels | **string** ||
+|| transformation | **[Transformation](#yandex.cloud.datatransfer.v1.Transformation)** ||
+|#
+
+## Runtime {#yandex.cloud.datatransfer.v1.Runtime}
+
+#|
+||Field | Description ||
+|| ycRuntime | **[YcRuntime](#yandex.cloud.datatransfer.v1.YcRuntime)**
+
+Includes only one of the fields `ycRuntime`. ||
+|#
+
+## YcRuntime {#yandex.cloud.datatransfer.v1.YcRuntime}
+
+#|
+||Field | Description ||
+|| jobCount | **string** (int64) ||
+|| uploadShardParams | **[ShardingUploadParams](#yandex.cloud.datatransfer.v1.ShardingUploadParams)** ||
+|#
+
+## ShardingUploadParams {#yandex.cloud.datatransfer.v1.ShardingUploadParams}
+
+#|
+||Field | Description ||
+|| jobCount | **string** (int64) ||
+|| processCount | **string** (int64) ||
+|#
+
+## Transformation {#yandex.cloud.datatransfer.v1.Transformation}
+
+Transformation is converting data using special transformer functions.
+These functions are executed on a data stream, applied to each data change item,
+and transform them.
+A transformer can be run at both the metadata and data levels.
+Data can only be transformed if the source and target are of different types.
+
+#|
+||Field | Description ||
+|| transformers[] | **[Transformer](#yandex.cloud.datatransfer.v1.Transformer)**
+
+Transformers are set as a list.
+When activating a transfer, a transformation plan is made for the tables that
+match the specified criteria.
+Transformers are applied to the tables in the sequence specified in the list. ||
+|#
+
+## Transformer {#yandex.cloud.datatransfer.v1.Transformer}
+
+Some transformers may have limitations and only apply to some source-target
+pairs.
+
+#|
+||Field | Description ||
+|| maskField | **[MaskFieldTransformer](#yandex.cloud.datatransfer.v1.MaskFieldTransformer)**
+
+Includes only one of the fields `maskField`, `filterColumns`, `renameTables`, `replacePrimaryKey`, `convertToString`, `sharderTransformer`, `tableSplitterTransformer`, `filterRows`. ||
+|| filterColumns | **[FilterColumnsTransformer](#yandex.cloud.datatransfer.v1.FilterColumnsTransformer)**
+
+Includes only one of the fields `maskField`, `filterColumns`, `renameTables`, `replacePrimaryKey`, `convertToString`, `sharderTransformer`, `tableSplitterTransformer`, `filterRows`. ||
+|| renameTables | **[RenameTablesTransformer](#yandex.cloud.datatransfer.v1.RenameTablesTransformer)**
+
+Includes only one of the fields `maskField`, `filterColumns`, `renameTables`, `replacePrimaryKey`, `convertToString`, `sharderTransformer`, `tableSplitterTransformer`, `filterRows`. ||
+|| replacePrimaryKey | **[ReplacePrimaryKeyTransformer](#yandex.cloud.datatransfer.v1.ReplacePrimaryKeyTransformer)**
+
+Includes only one of the fields `maskField`, `filterColumns`, `renameTables`, `replacePrimaryKey`, `convertToString`, `sharderTransformer`, `tableSplitterTransformer`, `filterRows`. ||
+|| convertToString | **[ToStringTransformer](#yandex.cloud.datatransfer.v1.ToStringTransformer)**
+
+Includes only one of the fields `maskField`, `filterColumns`, `renameTables`, `replacePrimaryKey`, `convertToString`, `sharderTransformer`, `tableSplitterTransformer`, `filterRows`. ||
+|| sharderTransformer | **[SharderTransformer](#yandex.cloud.datatransfer.v1.SharderTransformer)**
+
+Includes only one of the fields `maskField`, `filterColumns`, `renameTables`, `replacePrimaryKey`, `convertToString`, `sharderTransformer`, `tableSplitterTransformer`, `filterRows`. ||
+|| tableSplitterTransformer | **[TableSplitterTransformer](#yandex.cloud.datatransfer.v1.TableSplitterTransformer)**
+
+Includes only one of the fields `maskField`, `filterColumns`, `renameTables`, `replacePrimaryKey`, `convertToString`, `sharderTransformer`, `tableSplitterTransformer`, `filterRows`. ||
+|| filterRows | **[FilterRowsTransformer](#yandex.cloud.datatransfer.v1.FilterRowsTransformer)**
+
+Includes only one of the fields `maskField`, `filterColumns`, `renameTables`, `replacePrimaryKey`, `convertToString`, `sharderTransformer`, `tableSplitterTransformer`, `filterRows`. ||
+|#
+
+## MaskFieldTransformer {#yandex.cloud.datatransfer.v1.MaskFieldTransformer}
+
+Mask field transformer allows you to hash data
+
+#|
+||Field | Description ||
+|| tables | **[TablesFilter](#yandex.cloud.datatransfer.v1.TablesFilter)**
+
+List of included and excluded tables ||
+|| columns[] | **string**
+
+Specify the name of the column for data masking (a regular expression). ||
+|| function | **[MaskFunction](#yandex.cloud.datatransfer.v1.MaskFunction)**
+
+Mask function ||
+|#
+
+## TablesFilter {#yandex.cloud.datatransfer.v1.TablesFilter}
+
+Filter tables using lists of included and excluded tables.
+
+#|
+||Field | Description ||
+|| includeTables[] | **string**
+
+List of tables that will be included to transfer ||
+|| excludeTables[] | **string**
+
+List of tables that will be excluded to transfer ||
+|#
+
+## MaskFunction {#yandex.cloud.datatransfer.v1.MaskFunction}
+
+Mask function
+
+#|
+||Field | Description ||
+|| maskFunctionHash | **[MaskFunctionHash](#yandex.cloud.datatransfer.v1.MaskFunctionHash)**
+
+Hash mask function
+
+Includes only one of the fields `maskFunctionHash`. ||
+|#
+
+## MaskFunctionHash {#yandex.cloud.datatransfer.v1.MaskFunctionHash}
+
+Hash data using HMAC
+
+#|
+||Field | Description ||
+|| userDefinedSalt | **string**
+
+This string will be used in the HMAC(sha256, salt) function applied to the
+column data. ||
+|#
+
+## FilterColumnsTransformer {#yandex.cloud.datatransfer.v1.FilterColumnsTransformer}
+
+Set up a list of table columns to transfer
+
+#|
+||Field | Description ||
+|| tables | **[TablesFilter](#yandex.cloud.datatransfer.v1.TablesFilter)**
+
+List of the tables to filter using lists of included and excluded tables. ||
+|| columns | **[ColumnsFilter](#yandex.cloud.datatransfer.v1.ColumnsFilter)**
+
+List of the columns to transfer to the target tables using lists of included and
+excluded columns. ||
+|#
+
+## ColumnsFilter {#yandex.cloud.datatransfer.v1.ColumnsFilter}
+
+Filter columns using lists of included and excluded columns.
+
+#|
+||Field | Description ||
+|| includeColumns[] | **string**
+
+List of columns that will be included to transfer ||
+|| excludeColumns[] | **string**
+
+List of columns that will be excluded to transfer ||
+|#
+
+## RenameTablesTransformer {#yandex.cloud.datatransfer.v1.RenameTablesTransformer}
+
+Set rules for renaming tables by specifying the current names of the tables in
+the source and new names for these tables in the target.
+
+#|
+||Field | Description ||
+|| renameTables[] | **[RenameTable](#yandex.cloud.datatransfer.v1.RenameTable)**
+
+List of renaming rules ||
+|#
+
+## RenameTable {#yandex.cloud.datatransfer.v1.RenameTable}
+
+Specify rule for renaming table
+
+#|
+||Field | Description ||
+|| originalName | **[Table](#yandex.cloud.datatransfer.v1.Table)**
+
+Specify the current names of the table in the source ||
+|| newName | **[Table](#yandex.cloud.datatransfer.v1.Table)**
+
+Specify the new names for this table in the target ||
+|#
+
+## Table {#yandex.cloud.datatransfer.v1.Table}
+
+#|
+||Field | Description ||
+|| nameSpace | **string** ||
+|| name | **string** ||
+|#
+
+## ReplacePrimaryKeyTransformer {#yandex.cloud.datatransfer.v1.ReplacePrimaryKeyTransformer}
+
+Override primary keys
+
+#|
+||Field | Description ||
+|| tables | **[TablesFilter](#yandex.cloud.datatransfer.v1.TablesFilter)**
+
+List of included and excluded tables ||
+|| keys[] | **string**
+
+List of columns to be used as primary keys ||
+|#
+
+## ToStringTransformer {#yandex.cloud.datatransfer.v1.ToStringTransformer}
+
+Convert column values to strings
+The values will be converted depending on the source type
+Conversion rules are described here:
+https://cloud.yandex.com/en/docs/data-transfer/concepts/data-transformation#convert-to-string
+
+#|
+||Field | Description ||
+|| tables | **[TablesFilter](#yandex.cloud.datatransfer.v1.TablesFilter)**
+
+List of included and excluded tables ||
+|| columns | **[ColumnsFilter](#yandex.cloud.datatransfer.v1.ColumnsFilter)**
+
+List of included and excluded columns ||
+|#
+
+## SharderTransformer {#yandex.cloud.datatransfer.v1.SharderTransformer}
+
+Set the number of shards for particular tables and a list of columns whose
+values will be used for calculating a hash to determine a shard.
+
+#|
+||Field | Description ||
+|| tables | **[TablesFilter](#yandex.cloud.datatransfer.v1.TablesFilter)**
+
+List of included and excluded tables ||
+|| columns | **[ColumnsFilter](#yandex.cloud.datatransfer.v1.ColumnsFilter)**
+
+List of included and excluded columns ||
+|| shardsCount | **string** (int64)
+
+Number of shards ||
+|#
+
+## TableSplitterTransformer {#yandex.cloud.datatransfer.v1.TableSplitterTransformer}
+
+A transfer splits the X table into multiple tables (X_1, X_2, ..., X_n) based on
+data.
+If a row was located in the X table before it was split, it is now in the X_i
+table,
+where i is determined by the column list and split string parameters.
+Example:
+If the column list has two columns, month of birth and gender, specified and the
+split string states @,
+information about an employee whose name is John and who was born on February
+11, 1984,
+from the Employees table will get to a new table named Employees@February@male.
+
+#|
+||Field | Description ||
+|| tables | **[TablesFilter](#yandex.cloud.datatransfer.v1.TablesFilter)**
+
+List of included and excluded tables ||
+|| columns[] | **string**
+
+Specify the columns in the tables to be partitioned. ||
+|| splitter | **string**
+
+Specify the split string to be used for merging components in a new table name. ||
+|#
+
+## FilterRowsTransformer {#yandex.cloud.datatransfer.v1.FilterRowsTransformer}
+
+This filter only applies to transfers with queues (Logbroker or Apache Kafka®)
+as a data source.
+When running a transfer, only the strings meeting the specified criteria remain
+in a changefeed.
+
+#|
+||Field | Description ||
+|| tables | **[TablesFilter](#yandex.cloud.datatransfer.v1.TablesFilter)**
+
+List of included and excluded tables. ||
+|| filter | **string**
+
+Filtering criterion. This can be comparison operators for numeric, string, and
+Boolean values,
+comparison to NULL, and checking whether a substring is part of a string.
+Details here:
+https://yandex.cloud/en-ru/docs/data-transfer/concepts/data-transformation#append-only-sources.
+Deprecated: Use filters instead. ||
+|| filters[] | **string**
+
+Data is transported if it satisfies at least one of filters. Consider that there
+is OR statement between filters.
+Each filter can be comparison operators for numeric, string, and Boolean values,
+comparison to NULL, and
+checking whether a substring is part of a string.
+Details in docs:
+https://yandex.cloud/en-ru/docs/data-transfer/concepts/data-transformation#append-only-sources. ||
+|#
+
+## Response {#yandex.cloud.operation.Operation}
+
 **HTTP Code: 200 - OK**
 
-```json 
+```json
 {
   "id": "string",
   "description": "string",
   "createdAt": "string",
   "createdBy": "string",
   "modifiedAt": "string",
-  "done": true,
+  "done": "boolean",
   "metadata": "object",
-
-  //  includes only one of the fields `error`, `response`
+  // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
     "message": "string",
@@ -269,24 +515,93 @@ transformation.<br>transformers[].<br>filterRows.<br>filters[] | **string**<br><
       "object"
     ]
   },
-  "response": "object",
+  "response": "object"
   // end of the list of possible fields
-
 }
 ```
+
 An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).
- 
-Field | Description
---- | ---
-id | **string**<br><p>ID of the operation.</p> 
-description | **string**<br><p>Description of the operation. 0-256 characters long.</p> 
-createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
-createdBy | **string**<br><p>ID of the user or service account who initiated the operation.</p> 
-modifiedAt | **string** (date-time)<br><p>The time when the Operation resource was last modified.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
-done | **boolean** (boolean)<br><p>If the value is ``false``, it means the operation is still in progress. If ``true``, the operation is completed, and either ``error`` or ``response`` is available.</p> 
-metadata | **object**<br><p>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any.</p> 
-error | **object**<br>The error result of the operation in case of failure or cancellation. <br> includes only one of the fields `error`, `response`<br>
-error.<br>code | **integer** (int32)<br><p>Error code. An enum value of <a href="https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto">google.rpc.Code</a>.</p> 
-error.<br>message | **string**<br><p>An error message.</p> 
-error.<br>details[] | **object**<br><p>A list of messages that carry the error details.</p> 
-response | **object** <br> includes only one of the fields `error`, `response`<br><br><p>The normal response of the operation in case of success. If the original method returns no data on success, such as Delete, the response is <a href="https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty">google.protobuf.Empty</a>. If the original method is the standard Create/Update, the response should be the target resource of the operation. Any method that returns a long-running operation should document the response type, if any.</p> 
+
+#|
+||Field | Description ||
+|| id | **string**
+
+ID of the operation. ||
+|| description | **string**
+
+Description of the operation. 0-256 characters long. ||
+|| createdAt | **string** (date-time)
+
+Creation timestamp.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| createdBy | **string**
+
+ID of the user or service account who initiated the operation. ||
+|| modifiedAt | **string** (date-time)
+
+The time when the Operation resource was last modified.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| done | **boolean**
+
+If the value is `false`, it means the operation is still in progress.
+If `true`, the operation is completed, and either `error` or `response` is available. ||
+|| metadata | **object**
+
+Service-specific metadata associated with the operation.
+It typically contains the ID of the target resource that the operation is performed on.
+Any method that returns a long-running operation should document the metadata type, if any. ||
+|| error | **[Status](#google.rpc.Status)**
+
+The error result of the operation in case of failure or cancellation.
+
+Includes only one of the fields `error`, `response`.
+
+The operation result.
+If `done == false` and there was no failure detected, neither `error` nor `response` is set.
+If `done == false` and there was a failure detected, `error` is set.
+If `done == true`, exactly one of `error` or `response` is set. ||
+|| response | **object**
+
+The normal response of the operation in case of success.
+If the original method returns no data on success, such as Delete,
+the response is [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty).
+If the original method is the standard Create/Update,
+the response should be the target resource of the operation.
+Any method that returns a long-running operation should document the response type, if any.
+
+Includes only one of the fields `error`, `response`.
+
+The operation result.
+If `done == false` and there was no failure detected, neither `error` nor `response` is set.
+If `done == false` and there was a failure detected, `error` is set.
+If `done == true`, exactly one of `error` or `response` is set. ||
+|#
+
+## Status {#google.rpc.Status}
+
+The error result of the operation in case of failure or cancellation.
+
+#|
+||Field | Description ||
+|| code | **integer** (int32)
+
+Error code. An enum value of [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto). ||
+|| message | **string**
+
+An error message. ||
+|| details[] | **object**
+
+A list of messages that carry the error details. ||
+|#

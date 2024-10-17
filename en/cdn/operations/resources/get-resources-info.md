@@ -108,7 +108,7 @@ title: How to get information about a resource in {{ cdn-full-name }}
 
 - API {#api}
 
-  To get detailed information about a [resource](../../concepts/resource.md), use the [get](../../api-ref/Resource/get.md) REST API method for the [Resource](../../api-ref/Resource/index.md) resource or the [ResourceService/Get](../../api-ref/grpc/resource_service.md#Get) gRPC API call.
+  To get detailed information about a [resource](../../concepts/resource.md), use the [get](../../api-ref/Resource/get.md) REST API method for the [Resource](../../api-ref/Resource/index.md) resource or the [ResourceService/Get](../../api-ref/grpc/Resource/get.md) gRPC API call.
 
 {% endlist %}
 

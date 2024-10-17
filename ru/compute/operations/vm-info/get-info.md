@@ -93,7 +93,7 @@
 
 - API {#api}
 
-  Чтобы получить основную информацию о ВМ, воспользуйтесь методом REST API [get](../../api-ref/Instance/get.md) для ресурса [Instance](../../api-ref/Instance/index.md) или вызовом gRPC API [InstanceService/Get](../../api-ref/grpc/instance_service.md#Get).
+  Чтобы получить основную информацию о ВМ, воспользуйтесь методом REST API [get](../../api-ref/Instance/get.md) для ресурса [Instance](../../api-ref/Instance/index.md) или вызовом gRPC API [InstanceService/Get](../../api-ref/grpc/Instance/get.md).
 
   Основная информация не включает пользовательские метаданные, которые были переданы при создании или [изменении](../../operations/vm-control/vm-update.md) ВМ. Чтобы получить информацию вместе с метаданными, укажите в параметрах `view=FULL`.
 
@@ -317,7 +317,7 @@ curl http://169.254.169.254/latest/vendor/instance-identity/document
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [update](../../api-ref/Instance/update.md) для ресурса [Instance](../../api-ref/Instance/) или вызовом gRPC API [InstanceService/Update](../../api-ref/grpc/instance_service.md#Update).
+  Воспользуйтесь методом REST API [update](../../api-ref/Instance/update.md) для ресурса [Instance](../../api-ref/Instance/) или вызовом gRPC API [InstanceService/Update](../../api-ref/grpc/Instance/update.md).
 
 {% endlist %}
 

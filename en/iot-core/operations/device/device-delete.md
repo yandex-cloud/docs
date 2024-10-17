@@ -97,6 +97,6 @@ To access a [device](../../concepts/index.md#device), use its unique ID or name.
 
 - API {#api}
 
-  To delete a device, use the [delete](../../api-ref/Device/delete.md) REST API method for the [Device](../../api-ref/Device/index.md) resource or the [DeviceService/Delete](../../api-ref/grpc/device_service.md#Delete) gRPC API call.
+  To delete a device, use the [delete](../../api-ref/Device/delete.md) REST API method for the [Device](../../api-ref/Device/index.md) resource or the [DeviceService/Delete](../../api-ref/grpc/Device/delete.md) gRPC API call.
 
 {% endlist %}

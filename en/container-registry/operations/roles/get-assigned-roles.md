@@ -49,9 +49,9 @@ description: Follow this guide to view roles assigned for resources.
 
 - API {#api}
 
-  Use the [listAccessBindings](../../api-ref/Registry/listAccessBindings.md) REST API method for the [Registry](../../api-ref/Registry/index.md) resource or the [RegistryService/listAccessBindings](../../api-ref/grpc/registry_service.md#UpdateAccessBindings) gRPC API call.
+  Use the [listAccessBindings](../../api-ref/Registry/listAccessBindings.md) REST API method for the [Registry](../../api-ref/Registry/index.md) resource or the [RegistryService/listAccessBindings](../../api-ref/grpc/Registry/updateAccessBindings.md) gRPC API call.
 
-  Use the [listAccessBindings](../../api-ref/Repository/listAccessBindings.md) REST API method for the [Repository](../../api-ref/Repository/index.md) resource or the [RepositoryService/listAccessBindings](../../api-ref/grpc/repository_service.md#UpdateAccessBindings) gRPC API call.
+  Use the [listAccessBindings](../../api-ref/Repository/listAccessBindings.md) REST API method for the [Repository](../../api-ref/Repository/index.md) resource or the [RepositoryService/listAccessBindings](../../api-ref/grpc/Repository/updateAccessBindings.md) gRPC API call.
 
 {% endlist %}
 

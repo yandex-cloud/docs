@@ -47,6 +47,6 @@ description: Follow this guide to assign roles to a container.
 
 - API {#api}
 
-   To assign roles for a container, use the [setAccessBindings](../containers/api-ref/Container/setAccessBindings.md) REST API method for the [Container](../containers/api-ref/Container/index.md) resource or the [ContainerService/SetAccessBindings](../containers/api-ref/grpc/container_service.md#SetAccessBindings) gRPC API call.
+   To assign roles for a container, use the [setAccessBindings](../containers/api-ref/Container/setAccessBindings.md) REST API method for the [Container](../containers/api-ref/Container/index.md) resource or the [ContainerService/SetAccessBindings](../containers/api-ref/grpc/Container/setAccessBindings.md) gRPC API call.
 
 {% endlist %}

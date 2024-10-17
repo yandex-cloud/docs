@@ -123,7 +123,7 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-   Чтобы удалить [подсеть](../concepts/network.md#subnet), воспользуйтесь методом REST API [delete](../api-ref/Subnet/delete.md) для ресурса [Subnet](../api-ref/Subnet/index.md) или вызовом gRPC API [SubnetService/Delete](../api-ref/grpc/subnet_service.md#Delete) и передайте в запросе идентификатор удаляемой подсети в параметре `subnetId`.
+   Чтобы удалить [подсеть](../concepts/network.md#subnet), воспользуйтесь методом REST API [delete](../api-ref/Subnet/delete.md) для ресурса [Subnet](../api-ref/Subnet/index.md) или вызовом gRPC API [SubnetService/Delete](../api-ref/grpc/Subnet/delete.md) и передайте в запросе идентификатор удаляемой подсети в параметре `subnetId`.
 
    {% include [get-subnet-id](../../_includes/vpc/get-subnet-id.md) %}
 

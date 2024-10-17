@@ -150,20 +150,120 @@ items:
         items:
           - name: Overview
             href: api-ref/grpc/index.md
-          - name: ImageService
-            href: api-ref/grpc/image_service.md
-          - name: LifecyclePolicyService
-            href: api-ref/grpc/lifecycle_policy_service.md
-          - name: RegistryService
-            href: api-ref/grpc/registry_service.md
-          - name: RepositoryService
-            href: api-ref/grpc/repository_service.md
-          - name: ScanPolicyService
-            href: api-ref/grpc/scan_policy_service.md
-          - name: ScannerService
-            href: api-ref/grpc/scanner_service.md
-          - name: OperationService
-            href: api-ref/grpc/operation_service.md
+          - name: Image
+            items:
+              - name: Overview
+                href: api-ref/grpc/Image/index.md
+              - name: List
+                href: api-ref/grpc/Image/list.md
+              - name: Get
+                href: api-ref/grpc/Image/get.md
+              - name: Delete
+                href: api-ref/grpc/Image/delete.md
+          - name: LifecyclePolicy
+            items:
+              - name: Overview
+                href: api-ref/grpc/LifecyclePolicy/index.md
+              - name: Get
+                href: api-ref/grpc/LifecyclePolicy/get.md
+              - name: List
+                href: api-ref/grpc/LifecyclePolicy/list.md
+              - name: Create
+                href: api-ref/grpc/LifecyclePolicy/create.md
+              - name: Update
+                href: api-ref/grpc/LifecyclePolicy/update.md
+              - name: Delete
+                href: api-ref/grpc/LifecyclePolicy/delete.md
+              - name: DryRun
+                href: api-ref/grpc/LifecyclePolicy/dryRun.md
+              - name: GetDryRunResult
+                href: api-ref/grpc/LifecyclePolicy/getDryRunResult.md
+              - name: ListDryRunResults
+                href: api-ref/grpc/LifecyclePolicy/listDryRunResults.md
+              - name: ListDryRunResultAffectedImages
+                href: api-ref/grpc/LifecyclePolicy/listDryRunResultAffectedImages.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/grpc/Operation/index.md
+              - name: Get
+                href: api-ref/grpc/Operation/get.md
+              - name: Cancel
+                href: api-ref/grpc/Operation/cancel.md
+          - name: Registry
+            items:
+              - name: Overview
+                href: api-ref/grpc/Registry/index.md
+              - name: Get
+                href: api-ref/grpc/Registry/get.md
+              - name: List
+                href: api-ref/grpc/Registry/list.md
+              - name: Create
+                href: api-ref/grpc/Registry/create.md
+              - name: Update
+                href: api-ref/grpc/Registry/update.md
+              - name: Delete
+                href: api-ref/grpc/Registry/delete.md
+              - name: ListAccessBindings
+                href: api-ref/grpc/Registry/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/grpc/Registry/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: api-ref/grpc/Registry/updateAccessBindings.md
+              - name: ListIpPermission
+                href: api-ref/grpc/Registry/listIpPermission.md
+              - name: SetIpPermission
+                href: api-ref/grpc/Registry/setIpPermission.md
+              - name: UpdateIpPermission
+                href: api-ref/grpc/Registry/updateIpPermission.md
+          - name: Repository
+            items:
+              - name: Overview
+                href: api-ref/grpc/Repository/index.md
+              - name: Get
+                href: api-ref/grpc/Repository/get.md
+              - name: GetByName
+                href: api-ref/grpc/Repository/getByName.md
+              - name: List
+                href: api-ref/grpc/Repository/list.md
+              - name: ListAccessBindings
+                href: api-ref/grpc/Repository/listAccessBindings.md
+              - name: Upsert
+                href: api-ref/grpc/Repository/upsert.md
+              - name: Delete
+                href: api-ref/grpc/Repository/delete.md
+              - name: SetAccessBindings
+                href: api-ref/grpc/Repository/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: api-ref/grpc/Repository/updateAccessBindings.md
+          - name: Scanner
+            items:
+              - name: Overview
+                href: api-ref/grpc/Scanner/index.md
+              - name: Scan
+                href: api-ref/grpc/Scanner/scan.md
+              - name: Get
+                href: api-ref/grpc/Scanner/get.md
+              - name: GetLast
+                href: api-ref/grpc/Scanner/getLast.md
+              - name: List
+                href: api-ref/grpc/Scanner/list.md
+              - name: ListVulnerabilities
+                href: api-ref/grpc/Scanner/listVulnerabilities.md
+          - name: ScanPolicy
+            items:
+              - name: Overview
+                href: api-ref/grpc/ScanPolicy/index.md
+              - name: Get
+                href: api-ref/grpc/ScanPolicy/get.md
+              - name: GetByRegistry
+                href: api-ref/grpc/ScanPolicy/getByRegistry.md
+              - name: Create
+                href: api-ref/grpc/ScanPolicy/create.md
+              - name: Update
+                href: api-ref/grpc/ScanPolicy/update.md
+              - name: Delete
+                href: api-ref/grpc/ScanPolicy/delete.md
       - name: REST
         items:
           - name: Overview
@@ -172,108 +272,116 @@ items:
             items:
               - name: Overview
                 href: api-ref/Image/index.md
-              - name: delete
-                href: api-ref/Image/delete.md
-              - name: get
-                href: api-ref/Image/get.md
-              - name: list
+              - name: List
                 href: api-ref/Image/list.md
+              - name: Get
+                href: api-ref/Image/get.md
+              - name: Delete
+                href: api-ref/Image/delete.md
           - name: LifecyclePolicy
             items:
               - name: Overview
                 href: api-ref/LifecyclePolicy/index.md
-              - name: create
-                href: api-ref/LifecyclePolicy/create.md
-              - name: delete
-                href: api-ref/LifecyclePolicy/delete.md
-              - name: dryRun
-                href: api-ref/LifecyclePolicy/dryRun.md
-              - name: get
+              - name: Get
                 href: api-ref/LifecyclePolicy/get.md
-              - name: getDryRunResult
-                href: api-ref/LifecyclePolicy/getDryRunResult.md
-              - name: list
+              - name: List
                 href: api-ref/LifecyclePolicy/list.md
-              - name: listDryRunResultAffectedImages
-                href: api-ref/LifecyclePolicy/listDryRunResultAffectedImages.md
-              - name: listDryRunResults
-                href: api-ref/LifecyclePolicy/listDryRunResults.md
-              - name: update
+              - name: Create
+                href: api-ref/LifecyclePolicy/create.md
+              - name: Update
                 href: api-ref/LifecyclePolicy/update.md
+              - name: Delete
+                href: api-ref/LifecyclePolicy/delete.md
+              - name: DryRun
+                href: api-ref/LifecyclePolicy/dryRun.md
+              - name: GetDryRunResult
+                href: api-ref/LifecyclePolicy/getDryRunResult.md
+              - name: ListDryRunResults
+                href: api-ref/LifecyclePolicy/listDryRunResults.md
+              - name: ListDryRunResultAffectedImages
+                href: api-ref/LifecyclePolicy/listDryRunResultAffectedImages.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/Operation/index.md
+              - name: Get
+                href: api-ref/Operation/get.md
+              - name: Cancel
+                href: api-ref/Operation/cancel.md
           - name: Registry
             items:
               - name: Overview
                 href: api-ref/Registry/index.md
-              - name: create
-                href: api-ref/Registry/create.md
-              - name: delete
-                href: api-ref/Registry/delete.md
-              - name: get
+              - name: Get
                 href: api-ref/Registry/get.md
-              - name: list
+              - name: List
                 href: api-ref/Registry/list.md
-              - name: listAccessBindings
-                href: api-ref/Registry/listAccessBindings.md
-              - name: listIpPermission
-                href: api-ref/Registry/listIpPermission.md
-              - name: setAccessBindings
-                href: api-ref/Registry/setAccessBindings.md
-              - name: setIpPermission
-                href: api-ref/Registry/setIpPermission.md
-              - name: update
+              - name: Create
+                href: api-ref/Registry/create.md
+              - name: Update
                 href: api-ref/Registry/update.md
-              - name: updateAccessBindings
+              - name: Delete
+                href: api-ref/Registry/delete.md
+              - name: ListAccessBindings
+                href: api-ref/Registry/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/Registry/setAccessBindings.md
+              - name: UpdateAccessBindings
                 href: api-ref/Registry/updateAccessBindings.md
-              - name: updateIpPermission
+              - name: ListIpPermission
+                href: api-ref/Registry/listIpPermission.md
+              - name: SetIpPermission
+                href: api-ref/Registry/setIpPermission.md
+              - name: UpdateIpPermission
                 href: api-ref/Registry/updateIpPermission.md
           - name: Repository
             items:
               - name: Overview
                 href: api-ref/Repository/index.md
-              - name: delete
-                href: api-ref/Repository/delete.md
-              - name: get
+              - name: Get
                 href: api-ref/Repository/get.md
-              - name: getByName
+              - name: GetByName
                 href: api-ref/Repository/getByName.md
-              - name: list
+              - name: List
                 href: api-ref/Repository/list.md
-              - name: listAccessBindings
+              - name: ListAccessBindings
                 href: api-ref/Repository/listAccessBindings.md
-              - name: setAccessBindings
-                href: api-ref/Repository/setAccessBindings.md
-              - name: updateAccessBindings
-                href: api-ref/Repository/updateAccessBindings.md
-              - name: upsert
+              - name: Upsert
                 href: api-ref/Repository/upsert.md
-          - name: ScanPolicy
-            items:
-              - name: Overview
-                href: api-ref/ScanPolicy/index.md
-              - name: create
-                href: api-ref/ScanPolicy/create.md
-              - name: delete
-                href: api-ref/ScanPolicy/delete.md
-              - name: get
-                href: api-ref/ScanPolicy/get.md
-              - name: getByRegistry
-                href: api-ref/ScanPolicy/getByRegistry.md
-              - name: update
-                href: api-ref/ScanPolicy/update.md
+              - name: Delete
+                href: api-ref/Repository/delete.md
+              - name: SetAccessBindings
+                href: api-ref/Repository/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: api-ref/Repository/updateAccessBindings.md
           - name: Scanner
             items:
               - name: Overview
                 href: api-ref/Scanner/index.md
-              - name: get
-                href: api-ref/Scanner/get.md
-              - name: getLast
-                href: api-ref/Scanner/getLast.md
-              - name: list
-                href: api-ref/Scanner/list.md
-              - name: listVulnerabilities
-                href: api-ref/Scanner/listVulnerabilities.md
-              - name: scan
+              - name: Scan
                 href: api-ref/Scanner/scan.md
+              - name: Get
+                href: api-ref/Scanner/get.md
+              - name: GetLast
+                href: api-ref/Scanner/getLast.md
+              - name: List
+                href: api-ref/Scanner/list.md
+              - name: ListVulnerabilities
+                href: api-ref/Scanner/listVulnerabilities.md
+          - name: ScanPolicy
+            items:
+              - name: Overview
+                href: api-ref/ScanPolicy/index.md
+              - name: Get
+                href: api-ref/ScanPolicy/get.md
+              - name: GetByRegistry
+                href: api-ref/ScanPolicy/getByRegistry.md
+              - name: Create
+                href: api-ref/ScanPolicy/create.md
+              - name: Update
+                href: api-ref/ScanPolicy/update.md
+              - name: Delete
+                href: api-ref/ScanPolicy/delete.md
   - name: '{{ monitoring-name }} metrics'
     href: metrics.md
   - name: '{{ at-name }} events'

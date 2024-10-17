@@ -108,7 +108,7 @@ output:
 
 ## Выход yc_logs {#yc_logs_output}
 
-Выход для отправки логов в [{{ cloud-logging-full-name }}](../../../../logging/) по протоколу [grpc](../../../../logging/api-ref/grpc/log_ingestion_service.md).
+Выход для отправки логов в [{{ cloud-logging-full-name }}](../../../../logging/) по протоколу [grpc](../../../../logging/api-ref/grpc/LogIngestion/index.md).
 
 {% note info %}
 

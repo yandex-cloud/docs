@@ -89,6 +89,6 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Чтобы удалить контейнер, воспользуйтесь методом REST API [delete](../containers/api-ref/Container/delete.md) для ресурса [Container](../containers/api-ref/Container/index.md) или вызовом gRPC API [ContainerService/Delete](../containers/api-ref/grpc/container_service.md#Delete).
+  Чтобы удалить контейнер, воспользуйтесь методом REST API [delete](../containers/api-ref/Container/delete.md) для ресурса [Container](../containers/api-ref/Container/index.md) или вызовом gRPC API [ContainerService/Delete](../containers/api-ref/grpc/Container/delete.md).
 
 {% endlist %}

@@ -144,7 +144,7 @@
 
 - API {#api}
 
-   Use the [update](../../compute/api-ref/InstanceGroup/update.md) REST API method for the [InstanceGroup](../../compute/api-ref/InstanceGroup/index.md) resource or the [InstanceGroupService/Update](../../compute/api-ref/grpc/instance_group_service.md#Update) gRPC API call.
+   Use the [update](../../compute/instancegroup/api-ref/InstanceGroup/update.md) REST API method for the [InstanceGroup](../../compute/instancegroup/api-ref/InstanceGroup/index.md) resource or the [InstanceGroupService/Update](../../compute/instancegroup/api-ref/grpc/InstanceGroup/update.md) gRPC API call.
 
    If your instance group is [manually scaled](../../compute/concepts/instance-groups/scale.md#fixed-scale), specify a group size that will be sufficient for placing instances in all the selected availability zones. You will be able to reset the number of instances back to the initial one after all the instances in the group are moved to the new availability zone and deleted from the old one.
 

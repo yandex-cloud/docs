@@ -110,7 +110,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
 - API {#api}
 
-  Use the [updateAccessBindings](../../api-ref/Instance/updateAccessBindings.md) REST API method for the [Instance](../../api-ref/Instance/) resource or the [InstanceService/UpdateAccessBindings](../../api-ref/grpc/instance_service.md#UpdateAccessBindings) gRPC API call. In the request body, set the `action` property to `ADD` and specify the user type and ID in the `subject` property.
+  Use the [updateAccessBindings](../../api-ref/Instance/updateAccessBindings.md) REST API method for the [Instance](../../api-ref/Instance/) resource or the [InstanceService/UpdateAccessBindings](../../api-ref/grpc/Instance/updateAccessBindings.md) gRPC API call. In the request body, set the `action` property to `ADD` and specify the user type and ID in the `subject` property.
 
 {% endlist %}
 
@@ -217,7 +217,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
 - API {#api}
 
-  Use the [setAccessBindings](../../api-ref/Instance/setAccessBindings.md) REST API method for the [Instance](../../api-ref/Instance/) resource or the [InstanceService/SetAccessBindings](../../api-ref/grpc/instance_service.md#SetAccessBindings) gRPC API call.
+  Use the [setAccessBindings](../../api-ref/Instance/setAccessBindings.md) REST API method for the [Instance](../../api-ref/Instance/) resource or the [InstanceService/SetAccessBindings](../../api-ref/grpc/Instance/setAccessBindings.md) gRPC API call.
 
 {% endlist %}
 
@@ -302,6 +302,6 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
 - API {#api}
 
-  To revoke instance roles, use the [updateAccessBindings](../../api-ref/Instance/updateAccessBindings.md) REST API method for the [Instance](../../api-ref/Instance/) resource or the [InstanceService/UpdateAccessBindings](../../api-ref/grpc/instance_service.md#UpdateAccessBindings) gRPC API call. In the request body, set the `action` property to `REMOVE` and specify the user type and ID in the `subject` property.
+  To revoke instance roles, use the [updateAccessBindings](../../api-ref/Instance/updateAccessBindings.md) REST API method for the [Instance](../../api-ref/Instance/) resource or the [InstanceService/UpdateAccessBindings](../../api-ref/grpc/Instance/updateAccessBindings.md) gRPC API call. In the request body, set the `action` property to `REMOVE` and specify the user type and ID in the `subject` property.
 
 {% endlist %}

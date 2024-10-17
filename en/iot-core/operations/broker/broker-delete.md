@@ -103,6 +103,6 @@ To access a [broker](../../concepts/index.md#broker), use its unique ID or name.
 
 - API {#api}
 
-   To delete a broker, use the [delete](../../broker/api-ref/Broker/delete.md) REST API method for the [Broker](../../broker/api-ref/Broker/index.md) resource or the [BrokerService/Delete](../../broker/api-ref/grpc/broker_service.md#Delete) gRPC API call.
+   To delete a broker, use the [delete](../../broker/api-ref/Broker/delete.md) REST API method for the [Broker](../../broker/api-ref/Broker/index.md) resource or the [BrokerService/Delete](../../broker/api-ref/grpc/Broker/delete.md) gRPC API call.
 
 {% endlist %}

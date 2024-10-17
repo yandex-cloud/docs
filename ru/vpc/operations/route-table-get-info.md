@@ -97,6 +97,6 @@ title: Получить информацию о таблице маршрути�
 
 - API {#api}
 
-  Чтобы получить подробную информацию о [таблице маршрутизации](../concepts/routing.md), воспользуйтесь методом REST API [get](../api-ref/RouteTable/get.md) для ресурса [RouteTable](../api-ref/RouteTable/index.md), или вызовом gRPC API [RouteTableService/Get](../api-ref/grpc/route_table_service.md#Get).
+  Чтобы получить подробную информацию о [таблице маршрутизации](../concepts/routing.md), воспользуйтесь методом REST API [get](../api-ref/RouteTable/get.md) для ресурса [RouteTable](../api-ref/RouteTable/index.md), или вызовом gRPC API [RouteTableService/Get](../api-ref/grpc/RouteTable/get.md).
 
 {% endlist %}

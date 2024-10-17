@@ -110,7 +110,7 @@ The trigger must be in the same cloud as the broker whose topic it reads message
 
 - API {#api}
 
-   To create a trigger for {{ iot-name }}, use the [create](../../triggers/api-ref/Trigger/create.md) REST API method for the [Trigger](../../triggers/api-ref/Trigger/index.md) resource or the [TriggerService/Create](../../triggers/api-ref/grpc/trigger_service.md#Create) gRPC API call.
+   To create a trigger for {{ iot-name }}, use the [create](../../triggers/api-ref/Trigger/create.md) REST API method for the [Trigger](../../triggers/api-ref/Trigger/index.md) resource or the [TriggerService/Create](../../triggers/api-ref/grpc/Trigger/create.md) gRPC API call.
 
 {% endlist %}
 

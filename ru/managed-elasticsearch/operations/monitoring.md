@@ -159,7 +159,7 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-    Воспользуйтесь методом REST API [get](../api-ref/Cluster/get.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Get](../api-ref/grpc/cluster_service.md#Get) и передайте в запросе идентификатор требуемого кластера в параметре `clusterId`.
+    Воспользуйтесь методом REST API [get](../api-ref/Cluster/get.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Get](../api-ref/grpc/Cluster/get.md) и передайте в запросе идентификатор требуемого кластера в параметре `clusterId`.
 
     Состояние и статус кластера будут указаны в параметрах `health` и `status`.
 

@@ -3,28 +3,42 @@ editable: false
 sourcePath: en/_api-ref/mdb/greenplum/v1/api-ref/ResourcePreset/list.md
 ---
 
-# Managed Service for Greenplum® API, REST: ResourcePreset.list
-Retrieves the list of available resource presets.
- 
+# Managed Service for Greenplum® API, REST: ResourcePreset.List {#List}
 
- 
-## HTTP request {#https-request}
+Retrieves the list of available resource presets.
+
+## HTTP request
+
 ```
 GET https://{{ api-host-mdb }}/managed-greenplum/v1/resourcePresets
 ```
- 
-## Query parameters {#query_params}
- 
-Parameter | Description
---- | ---
-pageSize | <p>The maximum number of results per page to return.</p> <p>If the number of available results is larger than <a href="/docs/managed-greenplum/api-ref/ResourcePreset/list#query_params">pageSize</a>, the service returns a <a href="/docs/managed-greenplum/api-ref/ResourcePreset/list#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests.</p> <p>Acceptable values are 0 to 1000, inclusive.</p> 
-pageToken | <p>Page token. To get the next page of results, set <a href="/docs/managed-greenplum/api-ref/ResourcePreset/list#query_params">pageToken</a> to the <a href="/docs/managed-greenplum/api-ref/ResourcePreset/list#responses">nextPageToken</a> returned by the previous list request.</p> <p>The maximum string length in characters is 100.</p> 
-type | <p>Required. Required. ResourcePreset type - master or segment.</p> <ul> <li>MASTER: Greenplum® master host.</li> <li>SEGMENT: Greenplum® segment host.</li> </ul> 
- 
-## Response {#responses}
+
+## Query parameters {#yandex.cloud.mdb.greenplum.v1.ListResourcePresetsRequest}
+
+#|
+||Field | Description ||
+|| pageSize | **string** (int64)
+
+The maximum number of results per page to return.
+
+If the number of available results is larger than `pageSize`, the service returns a [ListResourcePresetsResponse.nextPageToken](#yandex.cloud.mdb.greenplum.v1.ListResourcePresetsResponse) that can be used to get the next page of results in subsequent list requests. ||
+|| pageToken | **string**
+
+Page token. To get the next page of results, set `pageToken` to the [ListResourcePresetsResponse.nextPageToken](#yandex.cloud.mdb.greenplum.v1.ListResourcePresetsResponse) returned by the previous list request. ||
+|| type | **enum** (Type)
+
+Required field. Required. ResourcePreset type - master or segment.
+
+- `TYPE_UNSPECIFIED`
+- `MASTER`: Greenplum® master host.
+- `SEGMENT`: Greenplum® segment host. ||
+|#
+
+## Response {#yandex.cloud.mdb.greenplum.v1.ListResourcePresetsResponse}
+
 **HTTP Code: 200 - OK**
 
-```json 
+```json
 {
   "resourcePresets": [
     {
@@ -46,16 +60,52 @@ type | <p>Required. Required. ResourcePreset type - master or segment.</p> <ul> 
 }
 ```
 
- 
-Field | Description
---- | ---
-resourcePresets[] | **object**<br><p>List of resource presets.</p> 
-resourcePresets[].<br>id | **string**<br><p>ID of the resource preset.</p> 
-resourcePresets[].<br>zoneIds[] | **string**<br><p>IDs of availability zones where the resource preset is available.</p> 
-resourcePresets[].<br>diskTypeIds[] | **string**<br><p>IDs of availability disk types available in the resource preset.</p> 
-resourcePresets[].<br>cores | **string** (int64)<br><p>Number of CPU cores for a Greenplum® host created with the preset.</p> 
-resourcePresets[].<br>memory | **string** (int64)<br><p>RAM volume for a Greenplum® host created with the preset, in bytes.</p> 
-resourcePresets[].<br>type | **string**<br><p>Host type.</p> <ul> <li>MASTER: Greenplum® master host.</li> <li>SEGMENT: Greenplum® segment host.</li> </ul> 
-resourcePresets[].<br>hostCountDivider | **string** (int64)<br><p>The number of hosts must be divisible by <a href="/docs/managed-greenplum/api-ref/ResourcePreset#representation">hostCountDivider</a>.</p> 
-resourcePresets[].<br>maxSegmentInHostCount | **string** (int64)<br><p>Maximum number of segments in segment host.</p> 
-nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests.</p> <p>If the number of results is larger than <a href="/docs/managed-greenplum/api-ref/ResourcePreset/list#query_params">pageSize</a>, use the <a href="/docs/managed-greenplum/api-ref/ResourcePreset/list#responses">nextPageToken</a> as the value for the <a href="/docs/managed-greenplum/api-ref/ResourcePreset/list#query_params">pageToken</a> parameter in the next list request.</p> <p>Each subsequent list request has its own <a href="/docs/managed-greenplum/api-ref/ResourcePreset/list#responses">nextPageToken</a> to continue paging through the results.</p> <p>The maximum string length in characters is 100.</p> 
+#|
+||Field | Description ||
+|| resourcePresets[] | **[ResourcePreset](#yandex.cloud.mdb.greenplum.v1.ResourcePreset)**
+
+List of resource presets. ||
+|| nextPageToken | **string**
+
+This token allows you to get the next page of results for list requests.
+
+If the number of results is larger than [ListResourcePresetsRequest.pageSize](#yandex.cloud.mdb.greenplum.v1.ListResourcePresetsRequest), use the `nextPageToken` as the value for the [ListResourcePresetsRequest.pageToken](#yandex.cloud.mdb.greenplum.v1.ListResourcePresetsRequest) parameter in the next list request.
+
+Each subsequent list request has its own `nextPageToken` to continue paging through the results. ||
+|#
+
+## ResourcePreset {#yandex.cloud.mdb.greenplum.v1.ResourcePreset}
+
+A preset of resources for hardware configuration of Greenplum® hosts.
+
+#|
+||Field | Description ||
+|| id | **string**
+
+ID of the resource preset. ||
+|| zoneIds[] | **string**
+
+IDs of availability zones where the resource preset is available. ||
+|| diskTypeIds[] | **string**
+
+IDs of availability disk types available in the resource preset. ||
+|| cores | **string** (int64)
+
+Number of CPU cores for a Greenplum® host created with the preset. ||
+|| memory | **string** (int64)
+
+RAM volume for a Greenplum® host created with the preset, in bytes. ||
+|| type | **enum** (Type)
+
+Host type.
+
+- `TYPE_UNSPECIFIED`
+- `MASTER`: Greenplum® master host.
+- `SEGMENT`: Greenplum® segment host. ||
+|| hostCountDivider | **string** (int64)
+
+The number of hosts must be divisible by `hostCountDivider`. ||
+|| maxSegmentInHostCount | **string** (int64)
+
+Maximum number of segments in segment host. ||
+|#

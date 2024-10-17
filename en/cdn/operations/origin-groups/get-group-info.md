@@ -52,7 +52,7 @@ To get the URL and other details of an origin:
 
 - API {#api}
 
-  To get detailed information about an origin, use the [get](../../api-ref/Origin/get.md) REST API method for the [Origin](../../api-ref/Origin/index.md) resource or the [OriginService/Get](../../api-ref/grpc/origin_service.md#Get) gRPC API call.
+  To get detailed information about an origin, use the [get](../../api-ref/Origin/get.md) REST API method for the [Origin](../../api-ref/Origin/index.md) resource or the [OriginService/Get](../../api-ref/grpc/Origin/get.md) gRPC API call.
 
 {% endlist %}
 
@@ -171,6 +171,6 @@ To get the name, set of origins, and other details of an origin group:
 
 - API {#api}
 
-  To get detailed information about an origin group, use the [get](../../api-ref/OriginGroup/get.md) REST API method for the [OriginGroup](../../api-ref/OriginGroup/index.md) resource or the [OriginGroupService/Get](../../api-ref/grpc/origin_group_service.md#Get) gRPC API call.
+  To get detailed information about an origin group, use the [get](../../api-ref/OriginGroup/get.md) REST API method for the [OriginGroup](../../api-ref/OriginGroup/index.md) resource or the [OriginGroupService/Get](../../api-ref/grpc/OriginGroup/get.md) gRPC API call.
 
 {% endlist %}

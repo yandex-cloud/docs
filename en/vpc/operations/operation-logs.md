@@ -76,7 +76,7 @@ All actions with {{ vpc-name }} resources are logged as a list of operations. Ea
 
   To get a list of operations, use the `listOperations` REST API method for the relevant resource or the `<service>/ListOperations` gRPC API call.
 
-  For example, to obtain a list of operations for a cloud network, use either the [listOperations](../api-ref/Network/listOperations.md) REST API method for the [Network](../api-ref/Network/index.md) resource or the [NetworkService/ListOperations](../api-ref/grpc/network_service.md#ListOperations) gRPC API call.
+  For example, to obtain a list of operations for a cloud network, use either the [listOperations](../api-ref/Network/listOperations.md) REST API method for the [Network](../api-ref/Network/index.md) resource or the [NetworkService/ListOperations](../api-ref/grpc/Network/listOperations.md) gRPC API call.
 
 {% endlist %}
 
@@ -123,7 +123,7 @@ All actions with {{ vpc-name }} resources are logged as a list of operations. Ea
 
     - API {#api}
 
-      Use the [get](../api-ref/Operation/get.md) REST API method for the [Operation](../api-ref/Operation/index.md) resource or the [OperationService/Get](../api-ref/grpc/operation_service.md#Get) gRPC API call.
+      Use the [get](../api-ref/Operation/get.md) REST API method for the [Operation](../api-ref/Operation/index.md) resource or the [OperationService/Get](../api-ref/grpc/Operation/get.md) gRPC API call.
 
     {% endlist %}
 

@@ -105,6 +105,6 @@ title: How to get information about an L7 load balancer in {{ alb-full-name }}
 
 - API {#api}
 
-  To get detailed information about an [L7 load balancer](../concepts/application-load-balancer.md), use the [get](../api-ref/LoadBalancer/get.md) REST API method for the [LoadBalancer](../api-ref/LoadBalancer/index.md) resource or the [LoadBalancerService/Get](../api-ref/grpc/load_balancer_service.md#Get) gRPC API call.
+  To get detailed information about an [L7 load balancer](../concepts/application-load-balancer.md), use the [get](../api-ref/LoadBalancer/get.md) REST API method for the [LoadBalancer](../api-ref/LoadBalancer/index.md) resource or the [LoadBalancerService/Get](../api-ref/grpc/LoadBalancer/get.md) gRPC API call.
 
 {% endlist %}

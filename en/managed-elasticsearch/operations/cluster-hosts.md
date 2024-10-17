@@ -44,7 +44,7 @@ You can only add or delete hosts with the [_Data node_](../concepts/index.md) ro
 
 - API {#api}
 
-   To get a list of cluster hosts, use the [listHosts](../api-ref/Cluster/listHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/ListHosts](../api-ref/grpc/cluster_service.md#ListHosts) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
+   To get a list of cluster hosts, use the [listHosts](../api-ref/Cluster/listHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/ListHosts](../api-ref/grpc/Cluster/listHosts.md) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
    {% include [get-cluster-id](../../_includes/managed-elasticsearch/get-cluster-id.md) %}
 
@@ -137,7 +137,7 @@ You cannot enable public access to a host once it is created.
 
 - API {#api}
 
-   To add hosts to a cluster, use the [addHosts](../api-ref/Cluster/addHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/AddHosts](../api-ref/grpc/cluster_service.md#AddHosts) gRPC API call and provide the following in the request:
+   To add hosts to a cluster, use the [addHosts](../api-ref/Cluster/addHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/AddHosts](../api-ref/grpc/Cluster/addHosts.md) gRPC API call and provide the following in the request:
    * Cluster ID in the `clusterId` parameter.
 
      {% include [get-cluster-id](../../_includes/managed-elasticsearch/get-cluster-id.md) %}
@@ -207,7 +207,7 @@ The following restrictions apply when deleting hosts:
 
 - API {#api}
 
-   To delete a host, use the [deleteHosts](../api-ref/Cluster/deleteHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/DeleteHosts](../api-ref/grpc/cluster_service.md#DeleteHosts) gRPC API call and provide the following in the request:
+   To delete a host, use the [deleteHosts](../api-ref/Cluster/deleteHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/DeleteHosts](../api-ref/grpc/Cluster/deleteHosts.md) gRPC API call and provide the following in the request:
    * Cluster ID in the `clusterId` parameter.
 
      {% include [get-cluster-id](../../_includes/managed-elasticsearch/get-cluster-id.md) %}

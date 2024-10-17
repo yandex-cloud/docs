@@ -98,7 +98,7 @@
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [listOperations](../../managed-kubernetes/api-ref/Cluster/listOperations.md) для ресурса [Cluster](../../managed-kubernetes/api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/ListOperations](../../managed-kubernetes/api-ref/grpc/cluster_service.md#ListOperations).
+  Воспользуйтесь методом REST API [listOperations](../../managed-kubernetes/api-ref/Cluster/listOperations.md) для ресурса [Cluster](../../managed-kubernetes/api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/ListOperations](../../managed-kubernetes/api-ref/grpc/Cluster/listOperations.md).
 
 {% endlist %}
 
@@ -151,7 +151,7 @@
 
    - API {#api}
 
-     Воспользуйтесь вызовом gRPC API [OperationService/Get](../../managed-kubernetes/api-ref/grpc/operation_service.md#Get).
+     Воспользуйтесь вызовом gRPC API [OperationService/Get](../../managed-kubernetes/api-ref/grpc/Operation/get.md).
 
    {% endlist %}
 

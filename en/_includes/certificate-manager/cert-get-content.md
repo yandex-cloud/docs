@@ -118,7 +118,7 @@ To get the contents of a certificate:
 
 - API {#api}
 
-  To get the certificate contents, use the [get](../../certificate-manager/api-ref/CertificateContent/get.md) REST API method for the [CertificateContent](../../certificate-manager/api-ref/CertificateContent/) resource or the [CertificateContentService/Get](../../certificate-manager/api-ref/grpc/certificate_content_service.md#Get) gRPC API call.
+  To get the certificate contents, use the [get](../../certificate-manager/api-ref/CertificateContent/get.md) REST API method for the [CertificateContent](../../certificate-manager/api-ref/CertificateContent/) resource or the [CertificateContentService/Get](../../certificate-manager/api-ref/grpc/CertificateContent/get.md) gRPC API call.
 
 {% endlist %}
 

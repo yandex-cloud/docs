@@ -33,6 +33,6 @@ A container automatically [inherits](../security/index.md#roles-list) [roles](..
 
 - API {#api}
 
-  To view container roles, use the [listAccessBindings](../containers/api-ref/Container/listAccessBindings.md) REST API method for the [Container](../containers/api-ref/Container/index.md) resource or the [ContainerService/ListAccessBindings](../containers/api-ref/grpc/container_service.md#ListAccessBindings) gRPC API call.
+  To view container roles, use the [listAccessBindings](../containers/api-ref/Container/listAccessBindings.md) REST API method for the [Container](../containers/api-ref/Container/index.md) resource or the [ContainerService/ListAccessBindings](../containers/api-ref/grpc/Container/listAccessBindings.md) gRPC API call.
 
 {% endlist %}

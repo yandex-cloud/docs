@@ -77,6 +77,6 @@
 
 - API {#api}
 
-    Use the [Group.create](../../organization/api-ref/Group/create.md) REST API method for the [Group](../../organization/api-ref/Group/index.md) resource or the [GroupService/Create](../../organization/api-ref/grpc/group_service.md#Create) gRPC API call.
+    Use the [Group.create](../../organization/api-ref/Group/create.md) REST API method for the [Group](../../organization/api-ref/Group/index.md) resource or the [GroupService/Create](../../organization/api-ref/grpc/Group/create.md) gRPC API call.
 
 {% endlist %}

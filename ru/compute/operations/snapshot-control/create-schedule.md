@@ -163,11 +163,11 @@ description: Из статьи вы узнаете, как создать рас
 
 - API {#api}
 
-  1. Получите список дисков с помощью метода REST API [list](../../api-ref/Disk/list.md) для ресурса [Disk](../../api-ref/Disk/index.md) или вызова gRPC API [DiskService/List](../../api-ref/grpc/disk_service.md#List).
+  1. Получите список дисков с помощью метода REST API [list](../../api-ref/Disk/list.md) для ресурса [Disk](../../api-ref/Disk/index.md) или вызова gRPC API [DiskService/List](../../api-ref/grpc/Disk/list.md).
 
      {% include [snapshot-disk-types](../../../_includes/compute/snapshot-disk-types.md) %}
 
-  1. Создайте расписание снимков с помощью метода REST API [create](../../api-ref/SnapshotSchedule/create.md) для ресурса [SnapshotSchedule](../../api-ref/SnapshotSchedule/index.md) или вызова gRPC API [SnapshotScheduleService/Create](../../api-ref/grpc/snapshot_schedule_service.md#Create).
+  1. Создайте расписание снимков с помощью метода REST API [create](../../api-ref/SnapshotSchedule/create.md) для ресурса [SnapshotSchedule](../../api-ref/SnapshotSchedule/index.md) или вызова gRPC API [SnapshotScheduleService/Create](../../api-ref/grpc/SnapshotSchedule/create.md).
 
 {% endlist %}
 

@@ -88,7 +88,7 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Чтобы получить подробную информацию об [облачной сети](../concepts/network.md#network), воспользуйтесь методом REST API [get](../api-ref/Network/get.md) для ресурса [Network](../api-ref/Network/index.md) или вызовом gRPC API [NetworkService/Get](../api-ref/grpc/network_service.md#Get) и передайте в запросе идентификатор нужной облачной сети в параметре `networkId`.
+  Чтобы получить подробную информацию об [облачной сети](../concepts/network.md#network), воспользуйтесь методом REST API [get](../api-ref/Network/get.md) для ресурса [Network](../api-ref/Network/index.md) или вызовом gRPC API [NetworkService/Get](../api-ref/grpc/Network/get.md) и передайте в запросе идентификатор нужной облачной сети в параметре `networkId`.
 
   {% include [get-network-id](../../_includes/vpc/get-network-id.md) %}
 

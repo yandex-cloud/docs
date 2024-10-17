@@ -3,30 +3,53 @@ editable: false
 sourcePath: en/_api-ref/serverless/eventrouter/v1/eventrouter/api-ref/Rule/list.md
 ---
 
-# EventRouter Service, REST: Rule.list
-Retrieves the list of rules in the specified folder.
- 
+# EventRouter Service, REST: Rule.List {#List}
 
- 
-## HTTP request {#https-request}
+Retrieves the list of rules in the specified folder.
+
+## HTTP request
+
 ```
 GET https://serverless-eventrouter.{{ api-host }}/eventrouter/v1/rules
 ```
- 
-## Query parameters {#query_params}
- 
-Parameter | Description
---- | ---
-busId | <p>ID of the bus to list rules in.</p> 
-folderId | <p>ID of the folder to list rules in.</p> 
-pageSize | <p>The maximum number of results per response.</p> 
-pageToken | <p>Page token. To get the next page of results, set ``page_token`` to the ``next_page_token`` returned by a previous list request.</p> 
-filter | <p>Supported fields for filter: name created_at</p> 
- 
-## Response {#responses}
+
+## Query parameters {#yandex.cloud.serverless.eventrouter.v1.ListRulesRequest}
+
+#|
+||Field | Description ||
+|| busId | **string**
+
+ID of the bus to list rules in.
+
+Includes only one of the fields `busId`, `folderId`.
+
+ID of the folder on bus to list rules in. ||
+|| folderId | **string**
+
+ID of the folder to list rules in.
+
+Includes only one of the fields `busId`, `folderId`.
+
+ID of the folder on bus to list rules in. ||
+|| pageSize | **string** (int64)
+
+The maximum number of results per response. ||
+|| pageToken | **string**
+
+Page token. To get the next page of results, set `page_token` to the
+`next_page_token` returned by a previous list request. ||
+|| filter | **string**
+
+Supported fields for filter:
+name
+created_at ||
+|#
+
+## Response {#yandex.cloud.serverless.eventrouter.v1.ListRulesResponse}
+
 **HTTP Code: 200 - OK**
 
-```json 
+```json
 {
   "rules": [
     {
@@ -37,22 +60,15 @@ filter | <p>Supported fields for filter: name created_at</p>
       "createdAt": "string",
       "name": "string",
       "description": "string",
-      "labels": "object",
+      "labels": "string",
       "filter": {
+        // Includes only one of the fields `jqFilter`
         "jqFilter": "string"
+        // end of the list of possible fields
       },
       "targets": [
         {
-          "transformer": {
-            "jqTransformer": "string"
-          },
-          "retrySettings": {
-            "retryAttempts": "string",
-            "maximumAge": "string"
-          },
-          "status": "string",
-
-          // `rules[].targets[]` includes only one of the fields `yds`, `ymq`, `function`, `container`, `gatewayWsBroadcast`, `logging`, `workflow`
+          // Includes only one of the fields `yds`, `ymq`, `function`, `container`, `gatewayWsBroadcast`, `logging`, `workflow`
           "yds": {
             "database": "string",
             "streamName": "string",
@@ -94,13 +110,11 @@ filter | <p>Supported fields for filter: name created_at</p>
             }
           },
           "logging": {
-            "serviceAccountId": "string",
-
-            // `rules[].targets[].logging` includes only one of the fields `logGroupId`, `folderId`
+            // Includes only one of the fields `logGroupId`, `folderId`
             "logGroupId": "string",
             "folderId": "string",
-            // end of the list of possible fields`rules[].targets[].logging`
-
+            // end of the list of possible fields
+            "serviceAccountId": "string"
           },
           "workflow": {
             "workflowId": "string",
@@ -111,15 +125,26 @@ filter | <p>Supported fields for filter: name created_at</p>
               "cutoff": "string"
             }
           },
-          // end of the list of possible fields`rules[].targets[]`
-
+          // end of the list of possible fields
+          "transformer": {
+            // Includes only one of the fields `jqTransformer`
+            "jqTransformer": "string"
+            // end of the list of possible fields
+          },
+          "retrySettings": {
+            "retryAttempts": "string",
+            "maximumAge": "string"
+          },
+          // Includes only one of the fields `deadLetterQueue`
           "deadLetterQueue": {
             "queueArn": "string",
             "serviceAccountId": "string"
-          }
+          },
+          // end of the list of possible fields
+          "status": "string"
         }
       ],
-      "deletionProtection": true,
+      "deletionProtection": "boolean",
       "status": "string"
     }
   ],
@@ -127,73 +152,297 @@ filter | <p>Supported fields for filter: name created_at</p>
 }
 ```
 
- 
-Field | Description
---- | ---
-rules[] | **object**<br><p>List of rules.</p> 
-rules[].<br>id | **string**<br><p>ID of the rule.</p> 
-rules[].<br>busId | **string**<br><p>ID of the bus that the rule belongs to.</p> 
-rules[].<br>folderId | **string**<br><p>ID of the folder that the rule resides in.</p> 
-rules[].<br>cloudId | **string**<br><p>ID of the cloud that the rule resides in.</p> 
-rules[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
-rules[].<br>name | **string**<br><p>Name of the rule.</p> 
-rules[].<br>description | **string**<br><p>Description of the rule.</p> 
-rules[].<br>labels | **object**<br><p>Resource labels as ``key:value`` pairs.</p> 
-rules[].<br>filter | **object**<br><p>Filter for the rule.</p> 
-rules[].<br>filter.<br>jqFilter | **string**<br><p>JQ filter for matching events.</p> <p>The maximum string length in characters is 1024.</p> 
-rules[].<br>targets[] | **object**<br><p>Required. Targets of the rule.</p> <p>The number of elements must be in the range 1-5.</p> 
-rules[].<br>targets[].<br>transformer | **object**<br>Transformer of the target.
-rules[].<br>targets[].<br>transformer.<br>jqTransformer | **string**<br><p>JQ string inrerpolation expression for changing event format.</p> <p>The maximum string length in characters is 65536.</p> 
-rules[].<br>targets[].<br>retrySettings | **object**<br>Retry settings of the target.
-rules[].<br>targets[].<br>retrySettings.<br>retryAttempts | **string** (int64)<br><p>Maximum number of retries (extra calls) before an action fails.</p> <p>Acceptable values are 0 to 10, inclusive.</p> 
-rules[].<br>targets[].<br>retrySettings.<br>maximumAge | **string**<br><p>Event goes to dlq when its age exceeds this value. Default is 24h.</p> <p>The maximum value is 86400 seconds.</p> 
-rules[].<br>targets[].<br>status | **string**<br>Status of the target.<br><ul> <li>ENABLED: Target is enabled.</li> <li>DISABLED: Target is disabled.</li> <li>RESOURCE_NOT_FOUND: Target does not exist.</li> <li>PERMISSION_DENIED: Service account does not have read permission on source.</li> <li>SUBJECT_NOT_FOUND: Service account not found.</li> </ul> 
-rules[].<br>targets[].<br>yds | **object** <br>`rules[].targets[]` includes only one of the fields `yds`, `ymq`, `function`, `container`, `gatewayWsBroadcast`, `logging`, `workflow`<br>
-rules[].<br>targets[].<br>yds.<br>database | **string**<br><p>Required. Stream database.</p> 
-rules[].<br>targets[].<br>yds.<br>streamName | **string**<br><p>Required. Full stream name, like /ru-central1/aoegtvhtp8ob********/cc8004q4lbo6********/test.</p> 
-rules[].<br>targets[].<br>yds.<br>serviceAccountId | **string**<br><p>Required. Service account, which has write permission on the stream.</p> <p>The maximum string length in characters is 50.</p> 
-rules[].<br>targets[].<br>ymq | **object** <br>`rules[].targets[]` includes only one of the fields `yds`, `ymq`, `function`, `container`, `gatewayWsBroadcast`, `logging`, `workflow`<br>
-rules[].<br>targets[].<br>ymq.<br>queueArn | **string**<br><p>Required. Queue ARN. Example: yrn:yc:ymq:ru-central1:aoe***:test</p> 
-rules[].<br>targets[].<br>ymq.<br>serviceAccountId | **string**<br><p>Required. Service account which has write access to the queue.</p> <p>The maximum string length in characters is 50.</p> 
-rules[].<br>targets[].<br>function | **object** <br>`rules[].targets[]` includes only one of the fields `yds`, `ymq`, `function`, `container`, `gatewayWsBroadcast`, `logging`, `workflow`<br>
-rules[].<br>targets[].<br>function.<br>functionId | **string**<br><p>Required. Function ID.</p> <p>The maximum string length in characters is 50.</p> 
-rules[].<br>targets[].<br>function.<br>functionTag | **string**<br><p>Function tag, optional.</p> 
-rules[].<br>targets[].<br>function.<br>serviceAccountId | **string**<br><p>Service account which has call permission on the function, optional.</p> <p>The maximum string length in characters is 50.</p> 
-rules[].<br>targets[].<br>function.<br>batchSettings | **object**<br><p>Batch settings.</p> 
-rules[].<br>targets[].<br>function.<br>batchSettings.<br>maxCount | **string** (int64)<br><p>Maximum batch size: trigger will send a batch if number of events exceeds this value.</p> <p>Acceptable values are 0 to 1000, inclusive.</p> 
-rules[].<br>targets[].<br>function.<br>batchSettings.<br>maxBytes | **string** (int64)<br><p>Maximum batch size: trigger will send a batch if total size of events exceeds this value.</p> <p>Acceptable values are 0 to 262144, inclusive.</p> 
-rules[].<br>targets[].<br>function.<br>batchSettings.<br>cutoff | **string**<br><p>Required. Maximum batch size: trigger will send a batch if its lifetime exceeds this value.</p> <p>The maximum value is 60 seconds.</p> 
-rules[].<br>targets[].<br>container | **object** <br>`rules[].targets[]` includes only one of the fields `yds`, `ymq`, `function`, `container`, `gatewayWsBroadcast`, `logging`, `workflow`<br>
-rules[].<br>targets[].<br>container.<br>containerId | **string**<br><p>Required. Container ID.</p> <p>The maximum string length in characters is 50.</p> 
-rules[].<br>targets[].<br>container.<br>containerRevisionId | **string**<br><p>Container revision ID.</p> 
-rules[].<br>targets[].<br>container.<br>path | **string**<br><p>Endpoint HTTP path to invoke.</p> 
-rules[].<br>targets[].<br>container.<br>serviceAccountId | **string**<br><p>Service account which should be used to call a container, optional.</p> <p>The maximum string length in characters is 50.</p> 
-rules[].<br>targets[].<br>container.<br>batchSettings | **object**<br><p>Batch settings.</p> 
-rules[].<br>targets[].<br>container.<br>batchSettings.<br>maxCount | **string** (int64)<br><p>Maximum batch size: trigger will send a batch if number of events exceeds this value.</p> <p>Acceptable values are 0 to 1000, inclusive.</p> 
-rules[].<br>targets[].<br>container.<br>batchSettings.<br>maxBytes | **string** (int64)<br><p>Maximum batch size: trigger will send a batch if total size of events exceeds this value.</p> <p>Acceptable values are 0 to 262144, inclusive.</p> 
-rules[].<br>targets[].<br>container.<br>batchSettings.<br>cutoff | **string**<br><p>Required. Maximum batch size: trigger will send a batch if its lifetime exceeds this value.</p> <p>The maximum value is 60 seconds.</p> 
-rules[].<br>targets[].<br>gatewayWsBroadcast | **object** <br>`rules[].targets[]` includes only one of the fields `yds`, `ymq`, `function`, `container`, `gatewayWsBroadcast`, `logging`, `workflow`<br>
-rules[].<br>targets[].<br>gatewayWsBroadcast.<br>gatewayId | **string**<br><p>Required. Gateway ID.</p> <p>The maximum string length in characters is 50.</p> 
-rules[].<br>targets[].<br>gatewayWsBroadcast.<br>path | **string**<br><p>Required. Path.</p> 
-rules[].<br>targets[].<br>gatewayWsBroadcast.<br>serviceAccountId | **string**<br><p>Required. Service account which has permission for writing to websockets.</p> <p>The maximum string length in characters is 50.</p> 
-rules[].<br>targets[].<br>gatewayWsBroadcast.<br>batchSettings | **object**<br><p>Batch settings.</p> 
-rules[].<br>targets[].<br>gatewayWsBroadcast.<br>batchSettings.<br>maxCount | **string** (int64)<br><p>Maximum batch size: trigger will send a batch if number of events exceeds this value.</p> <p>Acceptable values are 0 to 1000, inclusive.</p> 
-rules[].<br>targets[].<br>gatewayWsBroadcast.<br>batchSettings.<br>maxBytes | **string** (int64)<br><p>Maximum batch size: trigger will send a batch if total size of events exceeds this value.</p> <p>Acceptable values are 0 to 262144, inclusive.</p> 
-rules[].<br>targets[].<br>gatewayWsBroadcast.<br>batchSettings.<br>cutoff | **string**<br><p>Required. Maximum batch size: trigger will send a batch if its lifetime exceeds this value.</p> <p>The maximum value is 60 seconds.</p> 
-rules[].<br>targets[].<br>logging | **object** <br>`rules[].targets[]` includes only one of the fields `yds`, `ymq`, `function`, `container`, `gatewayWsBroadcast`, `logging`, `workflow`<br>
-rules[].<br>targets[].<br>logging.<br>serviceAccountId | **string**<br><p>Required. Service account which has permission for writing logs.</p> <p>The maximum string length in characters is 50.</p> 
-rules[].<br>targets[].<br>logging.<br>logGroupId | **string** <br>`rules[].targets[].logging` includes only one of the fields `logGroupId`, `folderId`<br><br><p>The maximum string length in characters is 63.</p> 
-rules[].<br>targets[].<br>logging.<br>folderId | **string** <br>`rules[].targets[].logging` includes only one of the fields `logGroupId`, `folderId`<br><br><p>The maximum string length in characters is 63.</p> 
-rules[].<br>targets[].<br>workflow | **object** <br>`rules[].targets[]` includes only one of the fields `yds`, `ymq`, `function`, `container`, `gatewayWsBroadcast`, `logging`, `workflow`<br>
-rules[].<br>targets[].<br>workflow.<br>workflowId | **string**<br><p>Required. Workflow ID.</p> <p>The maximum string length in characters is 50.</p> 
-rules[].<br>targets[].<br>workflow.<br>serviceAccountId | **string**<br><p>Required. SA which should be used to start workflow.</p> <p>The maximum string length in characters is 50.</p> 
-rules[].<br>targets[].<br>workflow.<br>batchSettings | **object**<br><p>Batch settings.</p> 
-rules[].<br>targets[].<br>workflow.<br>batchSettings.<br>maxCount | **string** (int64)<br><p>Maximum batch size: trigger will send a batch if number of events exceeds this value.</p> <p>Acceptable values are 0 to 1000, inclusive.</p> 
-rules[].<br>targets[].<br>workflow.<br>batchSettings.<br>maxBytes | **string** (int64)<br><p>Maximum batch size: trigger will send a batch if total size of events exceeds this value.</p> <p>Acceptable values are 0 to 262144, inclusive.</p> 
-rules[].<br>targets[].<br>workflow.<br>batchSettings.<br>cutoff | **string**<br><p>Required. Maximum batch size: trigger will send a batch if its lifetime exceeds this value.</p> <p>The maximum value is 60 seconds.</p> 
-rules[].<br>targets[].<br>deadLetterQueue | **object**<br>Dead letter queue.
-rules[].<br>targets[].<br>deadLetterQueue.<br>queueArn | **string**<br><p>ID of the queue.</p> 
-rules[].<br>targets[].<br>deadLetterQueue.<br>serviceAccountId | **string**<br><p>Required. Service account which has write permission on the queue.</p> <p>The maximum string length in characters is 50.</p> 
-rules[].<br>deletionProtection | **boolean** (boolean)<br><p>Flag that disallow deletion of the rule.</p> 
-rules[].<br>status | **string**<br><p>Rule status</p> <ul> <li>CREATING: Rule creation in progress, rule is not enabled yet</li> <li>ENABLED: Rule is operating</li> <li>UPDATING: Rule update in progress, rule is disabled during update</li> <li>DISABLED: Rule is explicitly disabled by the user</li> </ul> 
-nextPageToken | **string**<br><p>Token for getting the next page of the list of rules.</p> 
+#|
+||Field | Description ||
+|| rules[] | **[Rule](#yandex.cloud.serverless.eventrouter.v1.Rule)**
+
+List of rules. ||
+|| nextPageToken | **string**
+
+Token for getting the next page of the list of rules. ||
+|#
+
+## Rule {#yandex.cloud.serverless.eventrouter.v1.Rule}
+
+#|
+||Field | Description ||
+|| id | **string**
+
+ID of the rule. ||
+|| busId | **string**
+
+ID of the bus that the rule belongs to. ||
+|| folderId | **string**
+
+ID of the folder that the rule resides in. ||
+|| cloudId | **string**
+
+ID of the cloud that the rule resides in. ||
+|| createdAt | **string** (date-time)
+
+Creation timestamp.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| name | **string**
+
+Name of the rule. ||
+|| description | **string**
+
+Description of the rule. ||
+|| labels | **string**
+
+Resource labels as `key:value` pairs. ||
+|| filter | **[Filter](#yandex.cloud.serverless.eventrouter.v1.Filter)**
+
+Filter for the rule. ||
+|| targets[] | **[Target](#yandex.cloud.serverless.eventrouter.v1.Target)**
+
+Targets of the rule. ||
+|| deletionProtection | **boolean**
+
+Flag that disallow deletion of the rule. ||
+|| status | **enum** (Status)
+
+Rule status
+
+- `STATUS_UNSPECIFIED`
+- `CREATING`: Rule creation in progress, rule is not enabled yet
+- `ENABLED`: Rule is operating
+- `UPDATING`: Rule update in progress, rule is disabled during update
+- `DISABLED`: Rule is explicitly disabled by the user ||
+|#
+
+## Filter {#yandex.cloud.serverless.eventrouter.v1.Filter}
+
+#|
+||Field | Description ||
+|| jqFilter | **string**
+
+JQ filter for matching events.
+
+Includes only one of the fields `jqFilter`. ||
+|#
+
+## Target {#yandex.cloud.serverless.eventrouter.v1.Target}
+
+#|
+||Field | Description ||
+|| yds | **[YdsTarget](#yandex.cloud.serverless.eventrouter.v1.YdsTarget)**
+
+Includes only one of the fields `yds`, `ymq`, `function`, `container`, `gatewayWsBroadcast`, `logging`, `workflow`. ||
+|| ymq | **[YmqTarget](#yandex.cloud.serverless.eventrouter.v1.YmqTarget)**
+
+Includes only one of the fields `yds`, `ymq`, `function`, `container`, `gatewayWsBroadcast`, `logging`, `workflow`. ||
+|| function | **[FunctionTarget](#yandex.cloud.serverless.eventrouter.v1.FunctionTarget)**
+
+Includes only one of the fields `yds`, `ymq`, `function`, `container`, `gatewayWsBroadcast`, `logging`, `workflow`. ||
+|| container | **[ContainerTarget](#yandex.cloud.serverless.eventrouter.v1.ContainerTarget)**
+
+Includes only one of the fields `yds`, `ymq`, `function`, `container`, `gatewayWsBroadcast`, `logging`, `workflow`. ||
+|| gatewayWsBroadcast | **[GatewayWebsocketBroadcastTarget](#yandex.cloud.serverless.eventrouter.v1.GatewayWebsocketBroadcastTarget)**
+
+Includes only one of the fields `yds`, `ymq`, `function`, `container`, `gatewayWsBroadcast`, `logging`, `workflow`. ||
+|| logging | **[LoggingTarget](#yandex.cloud.serverless.eventrouter.v1.LoggingTarget)**
+
+Includes only one of the fields `yds`, `ymq`, `function`, `container`, `gatewayWsBroadcast`, `logging`, `workflow`. ||
+|| workflow | **[WorkflowTarget](#yandex.cloud.serverless.eventrouter.v1.WorkflowTarget)**
+
+Includes only one of the fields `yds`, `ymq`, `function`, `container`, `gatewayWsBroadcast`, `logging`, `workflow`. ||
+|| transformer | **[Transformer](#yandex.cloud.serverless.eventrouter.v1.Transformer)**
+
+Transformer of the target. ||
+|| retrySettings | **[RetrySettings](#yandex.cloud.serverless.eventrouter.v1.RetrySettings)**
+
+Retry settings of the target. ||
+|| deadLetterQueue | **[PutQueueMessage](#yandex.cloud.serverless.eventrouter.v1.PutQueueMessage)**
+
+Dead letter queue.
+
+Includes only one of the fields `deadLetterQueue`.
+
+Dead letter settings of the target. ||
+|| status | **enum** (Status)
+
+Status of the target.
+
+- `STATUS_UNSPECIFIED`
+- `ENABLED`: Target is enabled.
+- `DISABLED`: Target is disabled.
+- `RESOURCE_NOT_FOUND`: Target does not exist.
+- `PERMISSION_DENIED`: Service account does not have read permission on source.
+- `SUBJECT_NOT_FOUND`: Service account not found. ||
+|#
+
+## YdsTarget {#yandex.cloud.serverless.eventrouter.v1.YdsTarget}
+
+#|
+||Field | Description ||
+|| database | **string**
+
+Required field. Stream database. ||
+|| streamName | **string**
+
+Required field. Full stream name, like /ru-central1/aoegtvhtp8ob********/cc8004q4lbo6********/test. ||
+|| serviceAccountId | **string**
+
+Required field. Service account, which has write permission on the stream. ||
+|#
+
+## YmqTarget {#yandex.cloud.serverless.eventrouter.v1.YmqTarget}
+
+#|
+||Field | Description ||
+|| queueArn | **string**
+
+Required field. Queue ARN.
+Example: yrn:yc:ymq:ru-central1:aoe***:test ||
+|| serviceAccountId | **string**
+
+Required field. Service account which has write access to the queue. ||
+|#
+
+## FunctionTarget {#yandex.cloud.serverless.eventrouter.v1.FunctionTarget}
+
+#|
+||Field | Description ||
+|| functionId | **string**
+
+Required field. Function ID. ||
+|| functionTag | **string**
+
+Function tag, optional. ||
+|| serviceAccountId | **string**
+
+Service account which has call permission on the function, optional. ||
+|| batchSettings | **[BatchSettings](#yandex.cloud.serverless.eventrouter.v1.BatchSettings)**
+
+Batch settings. ||
+|#
+
+## BatchSettings {#yandex.cloud.serverless.eventrouter.v1.BatchSettings}
+
+#|
+||Field | Description ||
+|| maxCount | **string** (int64)
+
+Maximum batch size: trigger will send a batch if number of events exceeds this value. ||
+|| maxBytes | **string** (int64)
+
+Maximum batch size: trigger will send a batch if total size of events exceeds this value. ||
+|| cutoff | **string** (duration)
+
+Required field. Maximum batch size: trigger will send a batch if its lifetime exceeds this value. ||
+|#
+
+## ContainerTarget {#yandex.cloud.serverless.eventrouter.v1.ContainerTarget}
+
+#|
+||Field | Description ||
+|| containerId | **string**
+
+Required field. Container ID. ||
+|| containerRevisionId | **string**
+
+Container revision ID. ||
+|| path | **string**
+
+Endpoint HTTP path to invoke. ||
+|| serviceAccountId | **string**
+
+Service account which should be used to call a container, optional. ||
+|| batchSettings | **[BatchSettings](#yandex.cloud.serverless.eventrouter.v1.BatchSettings)**
+
+Batch settings. ||
+|#
+
+## GatewayWebsocketBroadcastTarget {#yandex.cloud.serverless.eventrouter.v1.GatewayWebsocketBroadcastTarget}
+
+#|
+||Field | Description ||
+|| gatewayId | **string**
+
+Required field. Gateway ID. ||
+|| path | **string**
+
+Required field. Path. ||
+|| serviceAccountId | **string**
+
+Required field. Service account which has permission for writing to websockets. ||
+|| batchSettings | **[BatchSettings](#yandex.cloud.serverless.eventrouter.v1.BatchSettings)**
+
+Batch settings. ||
+|#
+
+## LoggingTarget {#yandex.cloud.serverless.eventrouter.v1.LoggingTarget}
+
+#|
+||Field | Description ||
+|| logGroupId | **string**
+
+Includes only one of the fields `logGroupId`, `folderId`.
+
+Log group ID or folder ID. ||
+|| folderId | **string**
+
+Includes only one of the fields `logGroupId`, `folderId`.
+
+Log group ID or folder ID. ||
+|| serviceAccountId | **string**
+
+Required field. Service account which has permission for writing logs. ||
+|#
+
+## WorkflowTarget {#yandex.cloud.serverless.eventrouter.v1.WorkflowTarget}
+
+#|
+||Field | Description ||
+|| workflowId | **string**
+
+Required field. Workflow ID. ||
+|| serviceAccountId | **string**
+
+Required field. SA which should be used to start workflow. ||
+|| batchSettings | **[BatchSettings](#yandex.cloud.serverless.eventrouter.v1.BatchSettings)**
+
+Batch settings. ||
+|#
+
+## Transformer {#yandex.cloud.serverless.eventrouter.v1.Transformer}
+
+#|
+||Field | Description ||
+|| jqTransformer | **string**
+
+JQ string inrerpolation expression for changing event format.
+
+Includes only one of the fields `jqTransformer`. ||
+|#
+
+## RetrySettings {#yandex.cloud.serverless.eventrouter.v1.RetrySettings}
+
+#|
+||Field | Description ||
+|| retryAttempts | **string** (int64)
+
+Maximum number of retries (extra calls) before an action fails. ||
+|| maximumAge | **string** (duration)
+
+Event goes to dlq when its age exceeds this value. Default is 24h. ||
+|#
+
+## PutQueueMessage {#yandex.cloud.serverless.eventrouter.v1.PutQueueMessage}
+
+#|
+||Field | Description ||
+|| queueArn | **string**
+
+ID of the queue. ||
+|| serviceAccountId | **string**
+
+Required field. Service account which has write permission on the queue. ||
+|#

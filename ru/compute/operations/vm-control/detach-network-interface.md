@@ -125,6 +125,6 @@
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [detachNetworkInterface](../../api-ref/Instance/detachNetworkInterface.md) для ресурса [Instance](../../api-ref/Instance/index.md) или вызовом gRPC API [InstanceService/DetachNetworkInterface](../../api-ref/grpc/instance_service.md#DetachNetworkInterface).
+  Воспользуйтесь методом REST API [detachNetworkInterface](../../api-ref/Instance/detachNetworkInterface.md) для ресурса [Instance](../../api-ref/Instance/index.md) или вызовом gRPC API [InstanceService/DetachNetworkInterface](../../api-ref/grpc/Instance/detachNetworkInterface.md).
 
 {% endlist %}

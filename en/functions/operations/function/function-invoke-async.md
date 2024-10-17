@@ -127,7 +127,7 @@ description: Follow this guide to configure and invoke a function asynchronously
 
 - API {#api}
 
-    To set up asynchronous invocation, use the [createVersion](../../functions/api-ref/Function/createVersion.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/CreateVersion](../../functions/api-ref/grpc/function_service.md#CreateVersion) gRPC API call.
+    To set up asynchronous invocation, use the [createVersion](../../functions/api-ref/Function/createVersion.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/CreateVersion](../../functions/api-ref/grpc/Function/createVersion.md) gRPC API call.
 
 {% endlist %}
 

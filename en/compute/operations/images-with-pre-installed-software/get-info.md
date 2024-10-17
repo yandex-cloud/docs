@@ -108,7 +108,7 @@ You can get a public image ID or other information about it.
 
 - API {#api}
 
-  To get a [public image](../../concepts/image.md#public) ID, use the [get](../../api-ref/Image/get.md) REST API method for the [Image](../../api-ref/Image/index.md) resource or the [ImageService/Get](../../api-ref/grpc/image_service.md#Get) gRPC API call.
+  To get a [public image](../../concepts/image.md#public) ID, use the [get](../../api-ref/Image/get.md) REST API method for the [Image](../../api-ref/Image/index.md) resource or the [ImageService/Get](../../api-ref/grpc/Image/get.md) gRPC API call.
 
 {% endlist %}
 
@@ -211,7 +211,7 @@ You can get a public image ID or other information about it.
 
 - API {#api}
 
-  To get detailed information about a [public disk image](../../concepts/image.md#public), use the [get](../../api-ref/Image/get.md) REST API method for the [Image](../../api-ref/Image/index.md) resource or the [ImageService/Get](../../api-ref/grpc/image_service.md#Get) gRPC API call.
+  To get detailed information about a [public disk image](../../concepts/image.md#public), use the [get](../../api-ref/Image/get.md) REST API method for the [Image](../../api-ref/Image/index.md) resource or the [ImageService/Get](../../api-ref/grpc/Image/get.md) gRPC API call.
 
 {% endlist %}
 

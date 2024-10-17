@@ -111,7 +111,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
 - API {#api}
 
-  Use the [updateAccessBindings](../../api-ref/Snapshot/updateAccessBindings.md) REST API method for the [Snapshot](../../api-ref/Snapshot/) resource or the [SnapshotService/UpdateAccessBindings](../../api-ref/grpc/snapshot_service.md#UpdateAccessBindings) gRPC API call. In the request body, set the `action` property to `ADD` and specify the user type and ID in the `subject` property.
+  Use the [updateAccessBindings](../../api-ref/Snapshot/updateAccessBindings.md) REST API method for the [Snapshot](../../api-ref/Snapshot/) resource or the [SnapshotService/UpdateAccessBindings](../../api-ref/grpc/Snapshot/updateAccessBindings.md) gRPC API call. In the request body, set the `action` property to `ADD` and specify the user type and ID in the `subject` property.
 
 {% endlist %}
 
@@ -219,7 +219,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
 - API {#api}
 
-  Use the [setAccessBindings](../../api-ref/Snapshot/setAccessBindings.md) REST API method for the [Snapshot](../../api-ref/Snapshot/) resource or the [SnapshotService/SetAccessBindings](../../api-ref/grpc/snapshot_service.md#SetAccessBindings) gRPC API call.
+  Use the [setAccessBindings](../../api-ref/Snapshot/setAccessBindings.md) REST API method for the [Snapshot](../../api-ref/Snapshot/) resource or the [SnapshotService/SetAccessBindings](../../api-ref/grpc/Snapshot/setAccessBindings.md) gRPC API call.
 
 {% endlist %}
 
@@ -305,6 +305,6 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
 - API {#api}
 
-  To revoke disk snapshot roles, use the [updateAccessBindings](../../api-ref/Snapshot/updateAccessBindings.md) REST API method for the [Snapshot](../../api-ref/Snapshot/) resource or the [SnapshotService/UpdateAccessBindings](../../api-ref/grpc/snapshot_service.md#UpdateAccessBindings) gRPC API call. In the request body, set the `action` property to `REMOVE` and specify the user type and ID in the `subject` property.
+  To revoke disk snapshot roles, use the [updateAccessBindings](../../api-ref/Snapshot/updateAccessBindings.md) REST API method for the [Snapshot](../../api-ref/Snapshot/) resource or the [SnapshotService/UpdateAccessBindings](../../api-ref/grpc/Snapshot/updateAccessBindings.md) gRPC API call. In the request body, set the `action` property to `REMOVE` and specify the user type and ID in the `subject` property.
 
 {% endlist %}

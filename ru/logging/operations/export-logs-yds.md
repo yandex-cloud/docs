@@ -34,7 +34,7 @@ description: Из статьи вы узнаете, как выгрузить л
 
 - API {#api}
 
-    Чтобы выгружать логи в [поток данных](../../data-streams/concepts/glossary.md#stream-concepts), воспользуйтесь методом REST API [update](../api-ref/LogGroup/update.md) для ресурса [LogGroup](../api-ref/LogGroup/index.md) или вызовом gRPC API [LogGroupService/Update](../api-ref/grpc/log_group_service.md#Update).
+    Чтобы выгружать логи в [поток данных](../../data-streams/concepts/glossary.md#stream-concepts), воспользуйтесь методом REST API [update](../api-ref/LogGroup/update.md) для ресурса [LogGroup](../api-ref/LogGroup/index.md) или вызовом gRPC API [LogGroupService/Update](../api-ref/grpc/LogGroup/update.md).
 
 {% endlist %}
 

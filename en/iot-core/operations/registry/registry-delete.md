@@ -106,6 +106,6 @@ To access a [registry](../../concepts/index.md#registry), use its unique ID or n
 
 - API {#api}
 
-  To delete a registry, use the [delete](../../api-ref/Registry/delete.md) REST API method for the [Registry](../../api-ref/Registry/index.md) resource or the [RegistryService/Delete](../../api-ref/grpc/registry_service.md#Delete) gRPC API call.
+  To delete a registry, use the [delete](../../api-ref/Registry/delete.md) REST API method for the [Registry](../../api-ref/Registry/index.md) resource or the [RegistryService/Delete](../../api-ref/grpc/Registry/delete.md) gRPC API call.
 
 {% endlist %}

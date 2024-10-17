@@ -105,6 +105,6 @@ title: Как получить информацию об L7-балансиров
 
 - API {#api}
 
-  Чтобы получить подробную информацию об [L7-балансировщике](../concepts/application-load-balancer.md), воспользуйтесь методом REST API [get](../api-ref/LoadBalancer/get.md) для ресурса [LoadBalancer](../api-ref/LoadBalancer/index.md) или вызовом gRPC API [LoadBalancerService/Get](../api-ref/grpc/load_balancer_service.md#Get).
+  Чтобы получить подробную информацию об [L7-балансировщике](../concepts/application-load-balancer.md), воспользуйтесь методом REST API [get](../api-ref/LoadBalancer/get.md) для ресурса [LoadBalancer](../api-ref/LoadBalancer/index.md) или вызовом gRPC API [LoadBalancerService/Get](../api-ref/grpc/LoadBalancer/get.md).
 
 {% endlist %}

@@ -89,7 +89,7 @@ All actions with {{ kms-name }} resources are logged as a list of operations. Ea
 
   Use the `listOperations` REST API method for the relevant resource or the `<service>/ListOperations` gRPC API call.
 
-  For example, to obtain a list of operations for a symmetric key, use either the REST API [listOperations](../api-ref/SymmetricKey/listOperations.md) for the [SymmetricKey](../api-ref/SymmetricKey/index.md) resource or the [SymmetricKeyService/ListOperations](../api-ref/grpc/symmetric_key_service.md#ListOperations) gRPC API call.
+  For example, to obtain a list of operations for a symmetric key, use either the REST API [listOperations](../api-ref/SymmetricKey/listOperations.md) for the [SymmetricKey](../api-ref/SymmetricKey/index.md) resource or the [SymmetricKeyService/ListOperations](../api-ref/grpc/SymmetricKey/listOperations.md) gRPC API call.
 
 {% endlist %}
 
@@ -144,7 +144,7 @@ All actions with {{ kms-name }} resources are logged as a list of operations. Ea
 
    - API {#api}
 
-     Use the [OperationService/Get](../api-ref/grpc/operation_service.md#Get) gRPC API call.
+     Use the [OperationService/Get](../api-ref/grpc/Operation/get.md) gRPC API call.
 
    {% endlist %}
 

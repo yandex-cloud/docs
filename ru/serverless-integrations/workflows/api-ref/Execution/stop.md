@@ -3,32 +3,38 @@ editable: false
 sourcePath: en/_api-ref/serverless/workflows/v1/workflows/api-ref/Execution/stop.md
 ---
 
-# Workflows Service, REST: Execution.stop
-Stops specified Workflow execution.
- 
+# Workflows Service, REST: Execution.Stop {#Stop}
 
- 
-## HTTP request {#https-request}
+Stops specified Workflow execution.
+
+## HTTP request
+
 ```
 POST https://serverless-workflows.{{ api-host }}/workflows/v1/execution/{executionId}/stop
 ```
- 
-## Path parameters {#path_params}
- 
-Parameter | Description
---- | ---
-executionId | <p>Required. ID of the Workflow execution.</p> 
- 
-## Response {#responses}
+
+## Path parameters
+
+#|
+||Field | Description ||
+|| executionId | **string**
+
+Required field. ID of the Workflow execution. ||
+|#
+
+## Response {#yandex.cloud.serverless.workflows.v1.StopExecutionResponse}
+
 **HTTP Code: 200 - OK**
 
-```json 
+```json
 {
   "executionId": "string"
 }
 ```
 
- 
-Field | Description
---- | ---
-executionId | **string**<br><p>ID of the Workflow execution.</p> 
+#|
+||Field | Description ||
+|| executionId | **string**
+
+ID of the Workflow execution. ||
+|#

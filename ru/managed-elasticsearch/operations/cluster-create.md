@@ -293,7 +293,7 @@ keywords:
 
 - API {#api}
 
-  Чтобы создать кластер {{ mes-name }}, воспользуйтесь методом REST API [create](../api-ref/Cluster/create.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Create](../api-ref/grpc/cluster_service.md#Create) и передайте в запросе:
+  Чтобы создать кластер {{ mes-name }}, воспользуйтесь методом REST API [create](../api-ref/Cluster/create.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Create](../api-ref/grpc/Cluster/create.md) и передайте в запросе:
   * Идентификатор [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором должен быть размещен кластер {{ mes-name }}, в параметре `folderId`.
   * Имя кластера {{ mes-name }} в параметре `name`.
   * Версию {{ ES }} в параметре `configSpec.version`.

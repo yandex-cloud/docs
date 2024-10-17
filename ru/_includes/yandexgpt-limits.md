@@ -9,7 +9,7 @@
 Количество запросов в секунду, [асинхронный режим](../foundation-models/concepts/index.md#working-mode) (запрос) | 10
 Количество запросов в секунду, асинхронный режим (получение ответа) | 50
 Количество запросов в час, асинхронный режим (запрос) | 5000
-Количество запросов в секунду на [токенизацию](../foundation-models/text-generation/api-ref/grpc/TokenizerService.md) | 50
+Количество запросов в секунду на [токенизацию](../foundation-models/text-generation/api-ref/grpc/Tokenizer/index.md) | 50
 **[Классификация текста](../foundation-models/concepts/classifier/index.md)** |
 Количество запросов на классификацию текста в секунду | 1
 **[Генерация изображений](../foundation-models/concepts/yandexart/index.md)** |

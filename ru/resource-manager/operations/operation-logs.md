@@ -84,7 +84,7 @@
 
   Воспользуйтесь методом REST API `listOperations` для соответствующего ресурса или вызовом gRPC API `<сервис>/ListOperations`.
 
-  Например, для каталога воспользуйтесь методом REST API [listOperations](../api-ref/Folder/listOperations.md) для ресурса [Folder](../api-ref/Folder/index.md) или вызовом gRPC API [FolderService/ListOperations](../api-ref/grpc/folder_service.md#ListOperations).
+  Например, для каталога воспользуйтесь методом REST API [listOperations](../api-ref/Folder/listOperations.md) для ресурса [Folder](../api-ref/Folder/index.md) или вызовом gRPC API [FolderService/ListOperations](../api-ref/grpc/Folder/listOperations.md).
 
 {% endlist %}
 
@@ -126,7 +126,7 @@
 
    - API {#api}
 
-     Воспользуйтесь вызовом gRPC API [OperationService/Get](../api-ref/grpc/operation_service.md#Get).
+     Воспользуйтесь вызовом gRPC API [OperationService/Get](../api-ref/grpc/Operation/get.md).
 
    {% endlist %}
 

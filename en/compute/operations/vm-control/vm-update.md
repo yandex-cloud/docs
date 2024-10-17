@@ -42,7 +42,7 @@ For information about editing a VM configuration, see [{#T}](vm-update-resources
 
 - API {#api}
 
-   To update a VM, use the [update](../../api-ref/Instance/update.md) REST API method for the [Instance](../../api-ref/Instance/) resource or the [InstanceService/Update](../../api-ref/grpc/instance_service.md#Update) gRPC API call.
+   To update a VM, use the [update](../../api-ref/Instance/update.md) REST API method for the [Instance](../../api-ref/Instance/) resource or the [InstanceService/Update](../../api-ref/grpc/Instance/update.md) gRPC API call.
 
 {% endlist %}
 
@@ -95,7 +95,7 @@ To change the name and description of a VM, follow these steps:
 
 - API {#api}
 
-   Use the [update](../../api-ref/Instance/update.md) REST API method for the [Instance](../../api-ref/Instance/) resource or the [InstanceService/Update](../../api-ref/grpc/instance_service.md#Update) gRPC API call.
+   Use the [update](../../api-ref/Instance/update.md) REST API method for the [Instance](../../api-ref/Instance/) resource or the [InstanceService/Update](../../api-ref/grpc/Instance/update.md) gRPC API call.
 
 {% endlist %}
 
@@ -182,7 +182,7 @@ To make sure users can [connect](../vm-connect/os-login.md) to the VM via [OS Lo
 
 - API {#api}
 
-   In the `metadata` field, set `enable-oslogin=true` in the [update](../../api-ref/Instance/update.md) REST API method for the [Instance](../../api-ref/Instance/) resource or in the [InstanceService/Update](../../api-ref/grpc/instance_service.md#Update) gRPC API call.
+   In the `metadata` field, set `enable-oslogin=true` in the [update](../../api-ref/Instance/update.md) REST API method for the [Instance](../../api-ref/Instance/) resource or in the [InstanceService/Update](../../api-ref/grpc/Instance/update.md) gRPC API call.
 
 {% endlist %}
 

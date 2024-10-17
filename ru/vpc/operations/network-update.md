@@ -125,7 +125,7 @@
 
 - API {#api}
 
-  Чтобы изменить [облачную сеть](../concepts/network.md), воспользуйтесь методом REST API [update](../api-ref/Network/update.md) для ресурса [Network](../api-ref/Network/index.md) или вызовом gRPC API [NetworkService/Update](../api-ref/grpc/network_service.md#Update) и передайте в запросе:
+  Чтобы изменить [облачную сеть](../concepts/network.md), воспользуйтесь методом REST API [update](../api-ref/Network/update.md) для ресурса [Network](../api-ref/Network/index.md) или вызовом gRPC API [NetworkService/Update](../api-ref/grpc/Network/update.md) и передайте в запросе:
 
   * Идентификатор изменяемой облачной сети в параметре `networkId`.
 

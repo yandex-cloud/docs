@@ -70,8 +70,8 @@ To delete an instance group:
 
 - API {#api}
 
-   Use the [delete](../../api-ref/InstanceGroup/delete.md) REST API method for the [InstanceGroup](../../api-ref/InstanceGroup/index.md) resource or the [InstanceGroupService/Delete](../../api-ref/grpc/instance_group_service.md#Delete) gRPC API call.
+   Use the [delete](../../instancegroup/api-ref/InstanceGroup/delete.md) REST API method for the [InstanceGroup](../../instancegroup/api-ref/InstanceGroup/index.md) resource or the [InstanceGroupService/Delete](../../instancegroup/api-ref/grpc/InstanceGroup/delete.md) gRPC API call.
 
-   To request the list of available instance groups, use the [listInstances](../../api-ref/InstanceGroup/listInstances.md) REST API method or the [InstanceGroupService/ListInstances](../../api-ref/grpc/instance_group_service.md#ListInstances) gRPC API call.
+   To request the list of available instance groups, use the [listInstances](../../instancegroup/api-ref/InstanceGroup/listInstances.md) REST API method or the [InstanceGroupService/ListInstances](../../instancegroup/api-ref/grpc/InstanceGroup/listInstances.md) gRPC API call.
 
 {% endlist %}

@@ -76,7 +76,7 @@ With secret version management, you can:
 
 - API {#api}
 
-  To create a new secret version, use the [addVersion](../api-ref/Secret/addVersion.md) REST API method for the [Secret](../api-ref/Secret/index.md) resource or the [SecretService/AddVersion](../api-ref/grpc/secret_service.md#AddVersion) gRPC API call.
+  To create a new secret version, use the [addVersion](../api-ref/Secret/addVersion.md) REST API method for the [Secret](../api-ref/Secret/index.md) resource or the [SecretService/AddVersion](../api-ref/grpc/Secret/addVersion.md) gRPC API call.
 
 {% endlist %}
 
@@ -134,7 +134,7 @@ With secret version management, you can:
 
 - API {#api}
 
-  To get information about a version, use the [listVersions](../api-ref/Secret/listVersions.md) REST API method for the [Secret](../api-ref/Secret/index.md) resource or the [SecretService/ListVersions](../api-ref/grpc/secret_service.md#ListVersions) gRPC API call.
+  To get information about a version, use the [listVersions](../api-ref/Secret/listVersions.md) REST API method for the [Secret](../api-ref/Secret/index.md) resource or the [SecretService/ListVersions](../api-ref/grpc/Secret/listVersions.md) gRPC API call.
 
 {% endlist %}
 
@@ -197,7 +197,7 @@ With secret version management, you can:
 
 - API {#api}
 
-  To create a version based on an existing version, use the [addVersion](../api-ref/Secret/addVersion.md) REST API method for the [Secret](../api-ref/Secret/index.md) resource or the [SecretService/AddVersion](../api-ref/grpc/secret_service.md#AddVersion) gRPC API call.
+  To create a version based on an existing version, use the [addVersion](../api-ref/Secret/addVersion.md) REST API method for the [Secret](../api-ref/Secret/index.md) resource or the [SecretService/AddVersion](../api-ref/grpc/Secret/addVersion.md) gRPC API call.
 
 {% endlist %}
 
@@ -216,7 +216,7 @@ With secret version management, you can:
 
 - API {#api}
 
-  To change the current version, use the [addVersion](../api-ref/Secret/addVersion.md) REST API method for the [Secret](../api-ref/Secret/index.md) resource or the [SecretService/AddVersion](../api-ref/grpc/secret_service.md#AddVersion) gRPC API call and specify the required version.
+  To change the current version, use the [addVersion](../api-ref/Secret/addVersion.md) REST API method for the [Secret](../api-ref/Secret/index.md) resource or the [SecretService/AddVersion](../api-ref/grpc/Secret/addVersion.md) gRPC API call and specify the required version.
 
 {% endlist %}
 
@@ -270,7 +270,7 @@ With secret version management, you can:
 
 - API {#api}
 
-  To schedule a version for deletion, use the [scheduleVersionDestruction](../api-ref/Secret/addVersion.md) REST API method for the [Secret](../api-ref/Secret/index.md) resource or the [SecretService/ScheduleVersionDestruction](../api-ref/grpc/secret_service.md#ScheduleVersionDestruction) gRPC API call.
+  To schedule a version for deletion, use the [scheduleVersionDestruction](../api-ref/Secret/addVersion.md) REST API method for the [Secret](../api-ref/Secret/index.md) resource or the [SecretService/ScheduleVersionDestruction](../api-ref/grpc/Secret/scheduleVersionDestruction.md) gRPC API call.
 
 {% endlist %}
 

@@ -202,7 +202,7 @@ Docker containers are created based on the [Docker Compose](../../cos/concepts/
 
    - API {#api}
 
-     Use the [CreateFromYaml](../../compute/api-ref/InstanceGroup/createFromYaml.md) method for the `InstanceGroup` resource.
+     Use the [CreateFromYaml](../../compute/instancegroup/api-ref/InstanceGroup/createFromYaml.md) method for the `InstanceGroup` resource.
 
    {% endlist %}
 
@@ -236,7 +236,7 @@ Docker containers are created based on the [Docker Compose](../../cos/concepts/
 
    - API {#api}
 
-     View the list of created VM instances using the [List](../../compute/api-ref/InstanceGroup/list.md) method for the `InstanceGroup` resource.
+     View the list of created VM instances using the [List](../../compute/instancegroup/api-ref/InstanceGroup/list.md) method for the `InstanceGroup` resource.
 
    {% endlist %}
 

@@ -212,7 +212,7 @@ Add an existing [VM](../../concepts/vm.md) instance to a [placement group](../..
 
 - API {#api}
 
-  Use the [update](../../api-ref/Instance/update.md) REST API method for the [Instance](../../api-ref/Instance/index.md) resource or the [InstanceService/Update](../../api-ref/grpc/instance_service.md#Update) gRPC API call.
+  Use the [update](../../api-ref/Instance/update.md) REST API method for the [Instance](../../api-ref/Instance/index.md) resource or the [InstanceService/Update](../../api-ref/grpc/Instance/update.md) gRPC API call.
 
 {% endlist %}
 

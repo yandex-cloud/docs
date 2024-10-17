@@ -229,10 +229,44 @@ items:
         items:
           - name: Overview
             href: containers/api-ref/grpc/index.md
-          - name: ContainerService
-            href: containers/api-ref/grpc/container_service.md
-          - name: OperationService
-            href: containers/api-ref/grpc/operation_service.md
+          - name: Container
+            items:
+              - name: Overview
+                href: containers/api-ref/grpc/Container/index.md
+              - name: Get
+                href: containers/api-ref/grpc/Container/get.md
+              - name: List
+                href: containers/api-ref/grpc/Container/list.md
+              - name: Create
+                href: containers/api-ref/grpc/Container/create.md
+              - name: Update
+                href: containers/api-ref/grpc/Container/update.md
+              - name: Delete
+                href: containers/api-ref/grpc/Container/delete.md
+              - name: DeployRevision
+                href: containers/api-ref/grpc/Container/deployRevision.md
+              - name: Rollback
+                href: containers/api-ref/grpc/Container/rollback.md
+              - name: GetRevision
+                href: containers/api-ref/grpc/Container/getRevision.md
+              - name: ListRevisions
+                href: containers/api-ref/grpc/Container/listRevisions.md
+              - name: ListOperations
+                href: containers/api-ref/grpc/Container/listOperations.md
+              - name: ListAccessBindings
+                href: containers/api-ref/grpc/Container/listAccessBindings.md
+              - name: SetAccessBindings
+                href: containers/api-ref/grpc/Container/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: containers/api-ref/grpc/Container/updateAccessBindings.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: containers/api-ref/grpc/Operation/index.md
+              - name: Get
+                href: containers/api-ref/grpc/Operation/get.md
+              - name: Cancel
+                href: containers/api-ref/grpc/Operation/cancel.md
       - name: REST (англ.)
         items:
           - name: Overview
@@ -241,32 +275,40 @@ items:
             items:
               - name: Overview
                 href: containers/api-ref/Container/index.md
-              - name: create
-                href: containers/api-ref/Container/create.md
-              - name: delete
-                href: containers/api-ref/Container/delete.md
-              - name: deployRevision
-                href: containers/api-ref/Container/deployRevision.md
-              - name: get
+              - name: Get
                 href: containers/api-ref/Container/get.md
-              - name: getRevision
-                href: containers/api-ref/Container/getRevision.md
-              - name: list
+              - name: List
                 href: containers/api-ref/Container/list.md
-              - name: listAccessBindings
-                href: containers/api-ref/Container/listAccessBindings.md
-              - name: listOperations
-                href: containers/api-ref/Container/listOperations.md
-              - name: listRevisions
-                href: containers/api-ref/Container/listRevisions.md
-              - name: rollback
-                href: containers/api-ref/Container/rollback.md
-              - name: setAccessBindings
-                href: containers/api-ref/Container/setAccessBindings.md
-              - name: update
+              - name: Create
+                href: containers/api-ref/Container/create.md
+              - name: Update
                 href: containers/api-ref/Container/update.md
-              - name: updateAccessBindings
+              - name: Delete
+                href: containers/api-ref/Container/delete.md
+              - name: DeployRevision
+                href: containers/api-ref/Container/deployRevision.md
+              - name: Rollback
+                href: containers/api-ref/Container/rollback.md
+              - name: GetRevision
+                href: containers/api-ref/Container/getRevision.md
+              - name: ListRevisions
+                href: containers/api-ref/Container/listRevisions.md
+              - name: ListOperations
+                href: containers/api-ref/Container/listOperations.md
+              - name: ListAccessBindings
+                href: containers/api-ref/Container/listAccessBindings.md
+              - name: SetAccessBindings
+                href: containers/api-ref/Container/setAccessBindings.md
+              - name: UpdateAccessBindings
                 href: containers/api-ref/Container/updateAccessBindings.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: containers/api-ref/Operation/index.md
+              - name: Get
+                href: containers/api-ref/Operation/get.md
+              - name: Cancel
+                href: containers/api-ref/Operation/cancel.md
   - name: Справочник API Triggers
     items:
       - name: Аутентификация в API
@@ -275,34 +317,66 @@ items:
         items:
           - name: Overview
             href: triggers/api-ref/grpc/index.md
-          - name: TriggerService
-            href: triggers/api-ref/grpc/trigger_service.md
-          - name: OperationService
-            href: triggers/api-ref/grpc/operation_service.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: triggers/api-ref/grpc/Operation/index.md
+              - name: Get
+                href: triggers/api-ref/grpc/Operation/get.md
+              - name: Cancel
+                href: triggers/api-ref/grpc/Operation/cancel.md
+          - name: Trigger
+            items:
+              - name: Overview
+                href: triggers/api-ref/grpc/Trigger/index.md
+              - name: Get
+                href: triggers/api-ref/grpc/Trigger/get.md
+              - name: List
+                href: triggers/api-ref/grpc/Trigger/list.md
+              - name: Create
+                href: triggers/api-ref/grpc/Trigger/create.md
+              - name: Update
+                href: triggers/api-ref/grpc/Trigger/update.md
+              - name: Delete
+                href: triggers/api-ref/grpc/Trigger/delete.md
+              - name: Pause
+                href: triggers/api-ref/grpc/Trigger/pause.md
+              - name: Resume
+                href: triggers/api-ref/grpc/Trigger/resume.md
+              - name: ListOperations
+                href: triggers/api-ref/grpc/Trigger/listOperations.md
       - name: REST (англ.)
         items:
           - name: Overview
             href: triggers/api-ref/index.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: triggers/api-ref/Operation/index.md
+              - name: Get
+                href: triggers/api-ref/Operation/get.md
+              - name: Cancel
+                href: triggers/api-ref/Operation/cancel.md
           - name: Trigger
             items:
               - name: Overview
                 href: triggers/api-ref/Trigger/index.md
-              - name: create
-                href: triggers/api-ref/Trigger/create.md
-              - name: delete
-                href: triggers/api-ref/Trigger/delete.md
-              - name: get
+              - name: Get
                 href: triggers/api-ref/Trigger/get.md
-              - name: list
+              - name: List
                 href: triggers/api-ref/Trigger/list.md
-              - name: listOperations
-                href: triggers/api-ref/Trigger/listOperations.md
-              - name: pause
-                href: triggers/api-ref/Trigger/pause.md
-              - name: resume
-                href: triggers/api-ref/Trigger/resume.md
-              - name: update
+              - name: Create
+                href: triggers/api-ref/Trigger/create.md
+              - name: Update
                 href: triggers/api-ref/Trigger/update.md
+              - name: Delete
+                href: triggers/api-ref/Trigger/delete.md
+              - name: Pause
+                href: triggers/api-ref/Trigger/pause.md
+              - name: Resume
+                href: triggers/api-ref/Trigger/resume.md
+              - name: ListOperations
+                href: triggers/api-ref/Trigger/listOperations.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md
   - name: История изменений

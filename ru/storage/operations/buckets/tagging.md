@@ -140,7 +140,7 @@ description: Следуя данной инструкции, вы сможете
 
   {% include [tags-update-notice](../../../_includes/storage/tags-update-notice.md) %}
 
-  Чтобы добавить или изменить метки бакета, воспользуйтесь методом REST API [update](../../api-ref/Bucket/update.md) для ресурса [Bucket](../../api-ref/Bucket/index.md), вызовом gRPC API [BucketService/Update](../../api-ref/grpc/bucket_service.md#Update) или методом S3 API [putBucketTagging](../../s3/api-ref/bucket/putbuckettagging.md).
+  Чтобы добавить или изменить метки бакета, воспользуйтесь методом REST API [update](../../api-ref/Bucket/update.md) для ресурса [Bucket](../../api-ref/Bucket/index.md), вызовом gRPC API [BucketService/Update](../../api-ref/grpc/Bucket/update.md) или методом S3 API [putBucketTagging](../../s3/api-ref/bucket/putbuckettagging.md).
 
   **Пример вызова gRPC API**
 
@@ -270,7 +270,7 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Чтобы посмотреть метки бакета, воспользуйтесь методом REST API [get](../../api-ref/Bucket/get.md) для ресурса [Bucket](../../api-ref/Bucket/index.md), вызовом gRPC API [BucketService/Get](../../api-ref/grpc/bucket_service.md#Get) или методом S3 API [getBucketTagging](../../s3/api-ref/bucket/getbuckettagging.md).
+  Чтобы посмотреть метки бакета, воспользуйтесь методом REST API [get](../../api-ref/Bucket/get.md) для ресурса [Bucket](../../api-ref/Bucket/index.md), вызовом gRPC API [BucketService/Get](../../api-ref/grpc/Bucket/get.md) или методом S3 API [getBucketTagging](../../s3/api-ref/bucket/getbuckettagging.md).
 
   **Пример вызова gRPC API**
 
@@ -432,7 +432,7 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Чтобы удалить метки бакета, воспользуйтесь методом REST API [update](../../api-ref/Bucket/update.md) для ресурса [Bucket](../../api-ref/Bucket/index.md), вызовом gRPC API [BucketService/Update](../../api-ref/grpc/bucket_service.md#Update) или методом S3 API [deleteBucketTagging](../../s3/api-ref/bucket/deletebuckettagging.md).
+  Чтобы удалить метки бакета, воспользуйтесь методом REST API [update](../../api-ref/Bucket/update.md) для ресурса [Bucket](../../api-ref/Bucket/index.md), вызовом gRPC API [BucketService/Update](../../api-ref/grpc/Bucket/update.md) или методом S3 API [deleteBucketTagging](../../s3/api-ref/bucket/deletebuckettagging.md).
 
   **Пример вызова gRPC API**
 

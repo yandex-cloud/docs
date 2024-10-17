@@ -135,7 +135,7 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [delete](../api-ref/SecurityGroup/delete.md) для ресурса [SecurityGroup](../api-ref/SecurityGroup/index.md) или вызовом gRPC API [SecurityGroupService/Delete](../api-ref/grpc/security_group_service.md#Delete) и передайте в запросе идентификатор удаляемой группы безопасности в параметре `securityGroupId`.
+  Воспользуйтесь методом REST API [delete](../api-ref/SecurityGroup/delete.md) для ресурса [SecurityGroup](../api-ref/SecurityGroup/index.md) или вызовом gRPC API [SecurityGroupService/Delete](../api-ref/grpc/SecurityGroup/delete.md) и передайте в запросе идентификатор удаляемой группы безопасности в параметре `securityGroupId`.
 
   {% include [get-security-group-id](../../_includes/vpc/get-security-group-id.md) %}
 

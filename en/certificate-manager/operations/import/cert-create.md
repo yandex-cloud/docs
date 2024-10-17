@@ -151,7 +151,7 @@ To add a custom certificate to {{ certificate-manager-name }}:
 
 - API {#api}
 
-   To add a certificate, use the [create](../../api-ref/Certificate/create.md) REST API method for the [Certificate](../../api-ref/Certificate/) resource or the [CertificateService/Create](../../api-ref/grpc/certificate_service.md#Create) gRPC API call.
+   To add a certificate, use the [create](../../api-ref/Certificate/create.md) REST API method for the [Certificate](../../api-ref/Certificate/) resource or the [CertificateService/Create](../../api-ref/grpc/Certificate/create.md) gRPC API call.
 
 {% endlist %}
 

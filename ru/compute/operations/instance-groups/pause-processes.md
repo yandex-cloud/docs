@@ -16,6 +16,6 @@
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [pauseProcesses](../../api-ref/InstanceGroup/pauseProcesses.md) для ресурса [InstanceGroup](../../api-ref/InstanceGroup/index.md) или вызовом gRPC API [InstanceGroupService/PauseProcesses](../../api-ref/grpc/instance_group_service.md#PauseProcesses).
+  Воспользуйтесь методом REST API [pauseProcesses](../../instancegroup/api-ref/InstanceGroup/pauseProcesses.md) для ресурса [InstanceGroup](../../instancegroup/api-ref/InstanceGroup/index.md) или вызовом gRPC API [InstanceGroupService/PauseProcesses](../../instancegroup/api-ref/grpc/InstanceGroup/pauseProcesses.md).
 
 {% endlist %}

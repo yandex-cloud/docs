@@ -70,7 +70,7 @@ All actions with {{ at-name }} resources are logged as a list of operations. Eac
 
 - API {#api}
 
-  Use the [listOperations](../api-ref/Trail/listOperations.md) REST API method for the [Trail](../api-ref/Trail/index.md) resource or the [TrailService/ListOperations](../api-ref/grpc/trail_service.md#ListOperations) gRPC API call.
+  Use the [listOperations](../api-ref/Trail/listOperations.md) REST API method for the [Trail](../api-ref/Trail/index.md) resource or the [TrailService/ListOperations](../api-ref/grpc/Trail/listOperations.md) gRPC API call.
 
 {% endlist %}
 
@@ -132,7 +132,7 @@ All actions with {{ at-name }} resources are logged as a list of operations. Eac
 
     - API {#api}
 
-      Use the [OperationService/Get](../api-ref/grpc/operation_service.md#Get) gRPC API call.
+      Use the [OperationService/Get](../api-ref/grpc/Operation/get.md) gRPC API call.
 
     {% endlist %}
 

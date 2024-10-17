@@ -53,6 +53,6 @@ description: Из статьи вы узнаете, как создать при
 
 - API {#api}
 
-    Чтобы создать приемник логов, воспользуйтесь методом REST API [create](../api-ref/Sink/create.md) для ресурса [Sink](../api-ref/Sink/index.md) или вызовом gRPC API [SinkService/Create](../api-ref/grpc/sink_service.md#Create).
+    Чтобы создать приемник логов, воспользуйтесь методом REST API [create](../api-ref/Sink/create.md) для ресурса [Sink](../api-ref/Sink/index.md) или вызовом gRPC API [SinkService/Create](../api-ref/grpc/Sink/create.md).
 
 {% endlist %}

@@ -105,7 +105,7 @@ description: Из статьи вы узнаете, как в функции в�
 
 - API {#api}
 
-    Чтобы выделить часть оперативной памяти для директории `/tmp`, воспользуйтесь методом REST API [createVersion](../../functions/api-ref/Function/createVersion.md) для ресурса [Function](../../functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/CreateVersion](../../functions/api-ref/grpc/function_service.md#CreateVersion).
+    Чтобы выделить часть оперативной памяти для директории `/tmp`, воспользуйтесь методом REST API [createVersion](../../functions/api-ref/Function/createVersion.md) для ресурса [Function](../../functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/CreateVersion](../../functions/api-ref/grpc/Function/createVersion.md).
 
 {% endlist %}
 

@@ -3,28 +3,42 @@ editable: false
 sourcePath: en/_api-ref/iam/v1/api-ref/Role/list.md
 ---
 
-# Identity and Access Management API, REST: Role.list
-Retrieves the list of Role resources.
- 
+# Identity and Access Management API, REST: Role.List {#List}
 
- 
-## HTTP request {#https-request}
+Retrieves the list of Role resources.
+
+## HTTP request
+
 ```
 GET https://iam.{{ api-host }}/iam/v1/roles
 ```
- 
-## Query parameters {#query_params}
- 
-Parameter | Description
---- | ---
-pageSize | <p>The maximum number of results per page to return. If the number of available results is larger than <a href="/docs/iam/api-ref/Role/list#query_params">pageSize</a>, the service returns a <a href="/docs/iam/api-ref/Role/list#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests. Default value: 100.</p> <p>The maximum value is 1000.</p> 
-pageToken | <p>Page token. To get the next page of results, set <a href="/docs/iam/api-ref/Role/list#query_params">pageToken</a> to the <a href="/docs/iam/api-ref/Role/list#responses">nextPageToken</a> returned by a previous list request.</p> <p>The maximum string length in characters is 2000.</p> 
-filter | <p>A filter expression that filters resources listed in the response.</p> <p>The maximum string length in characters is 1000.</p> 
- 
-## Response {#responses}
+
+## Query parameters {#yandex.cloud.iam.v1.ListRolesRequest}
+
+#|
+||Field | Description ||
+|| pageSize | **string** (int64)
+
+The maximum number of results per page to return. If the number of available
+results is larger than `pageSize`,
+the service returns a [ListRolesResponse.nextPageToken](#yandex.cloud.iam.v1.ListRolesResponse)
+that can be used to get the next page of results in subsequent list requests.
+Default value: 100. ||
+|| pageToken | **string**
+
+Page token. To get the next page of results, set `pageToken`
+to the [ListRolesResponse.nextPageToken](#yandex.cloud.iam.v1.ListRolesResponse)
+returned by a previous list request. ||
+|| filter | **string**
+
+A filter expression that filters resources listed in the response. ||
+|#
+
+## Response {#yandex.cloud.iam.v1.ListRolesResponse}
+
 **HTTP Code: 200 - OK**
 
-```json 
+```json
 {
   "roles": [
     {
@@ -36,10 +50,31 @@ filter | <p>A filter expression that filters resources listed in the response.</
 }
 ```
 
- 
-Field | Description
---- | ---
-roles[] | **object**<br><p>List of Role resources.</p> 
-roles[].<br>id | **string**<br><p>ID of the role.</p> 
-roles[].<br>description | **string**<br><p>Description of the role. 0-256 characters long.</p> 
-nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is larger than <a href="/docs/iam/api-ref/Role/list#query_params">pageSize</a>, use the <a href="/docs/iam/api-ref/Role/list#responses">nextPageToken</a> as the value for the <a href="/docs/iam/api-ref/Role/list#query_params">pageToken</a> query parameter in the next list request. Each subsequent list request will have its own <a href="/docs/iam/api-ref/Role/list#responses">nextPageToken</a> to continue paging through the results.</p> 
+#|
+||Field | Description ||
+|| roles[] | **[Role](#yandex.cloud.iam.v1.Role)**
+
+List of Role resources. ||
+|| nextPageToken | **string**
+
+This token allows you to get the next page of results for list requests. If the number of results
+is larger than [ListRolesRequest.pageSize](#yandex.cloud.iam.v1.ListRolesRequest), use
+the `nextPageToken` as the value
+for the [ListRolesRequest.pageToken](#yandex.cloud.iam.v1.ListRolesRequest) query parameter
+in the next list request. Each subsequent list request will have its own
+`nextPageToken` to continue paging through the results. ||
+|#
+
+## Role {#yandex.cloud.iam.v1.Role}
+
+A Role resource. For more information, see [Roles](/docs/iam/concepts/access-control/roles).
+
+#|
+||Field | Description ||
+|| id | **string**
+
+ID of the role. ||
+|| description | **string**
+
+Description of the role. 0-256 characters long. ||
+|#

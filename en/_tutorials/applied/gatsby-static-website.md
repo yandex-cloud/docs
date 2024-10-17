@@ -214,7 +214,7 @@ To host your static website in the cloud, create a bucket:
 
 - API {#api}
 
-  To create a bucket, use the [create](../../storage/api-ref/Bucket/create.md) REST API method for the [Bucket](../../storage/api-ref/Bucket/index.md) resource, the [BucketService/Create](../../storage/api-ref/grpc/bucket_service.md#Create) gRPC API call, or the [create](../../storage/s3/api-ref/bucket/create.md) S3 API method.
+  To create a bucket, use the [create](../../storage/api-ref/Bucket/create.md) REST API method for the [Bucket](../../storage/api-ref/Bucket/index.md) resource, the [BucketService/Create](../../storage/api-ref/grpc/Bucket/create.md) gRPC API call, or the [create](../../storage/s3/api-ref/bucket/create.md) S3 API method.
 
 {% endlist %}
 
@@ -342,7 +342,7 @@ To configure a bucket for static website hosting:
 
 - API {#api}
 
-  To set up hosting for a static website, use the [update](../../storage/api-ref/Bucket/update.md) REST API method for the [Bucket](../../storage/api-ref/Bucket/index.md) resource, the [BucketService/Update](../../storage/api-ref/grpc/bucket_service.md#Update) gRPC API call, or the [upload](../../storage/s3/api-ref/hosting/upload.md) S3 API method.
+  To set up hosting for a static website, use the [update](../../storage/api-ref/Bucket/update.md) REST API method for the [Bucket](../../storage/api-ref/Bucket/index.md) resource, the [BucketService/Update](../../storage/api-ref/grpc/Bucket/update.md) gRPC API call, or the [upload](../../storage/s3/api-ref/hosting/upload.md) S3 API method.
 
 {% endlist %}
 
@@ -518,7 +518,7 @@ To configure access to your website over a secure protocol, get a security certi
 
    - API {#api}
 
-      To add a certificate, use the [requestNew](../../certificate-manager/api-ref/Certificate/requestNew.md) REST API method for the [Certificate](../../certificate-manager/api-ref/Certificate/) resource or the [CertificateService/RequestNew](../../certificate-manager/api-ref/grpc/certificate_service.md#RequestNew) gRPC API call.
+      To add a certificate, use the [requestNew](../../certificate-manager/api-ref/Certificate/requestNew.md) REST API method for the [Certificate](../../certificate-manager/api-ref/Certificate/) resource or the [CertificateService/RequestNew](../../certificate-manager/api-ref/grpc/Certificate/requestNew.md) gRPC API call.
 
    {% endlist %}
 
@@ -576,7 +576,7 @@ To configure access to your website over a secure protocol, get a security certi
 
    - API {#api}
 
-     To get the information required to pass the domain rights check, use the [get](../../certificate-manager/api-ref/Certificate/get.md) REST API method for the [Certificate](../../certificate-manager/api-ref/Certificate/) resource or the [CertificateService/Get](../../certificate-manager/api-ref/grpc/certificate_service.md#Get) gRPC API call with the `view=FULL` flag.
+     To get the information required to pass the domain rights check, use the [get](../../certificate-manager/api-ref/Certificate/get.md) REST API method for the [Certificate](../../certificate-manager/api-ref/Certificate/) resource or the [CertificateService/Get](../../certificate-manager/api-ref/grpc/Certificate/get.md) gRPC API call with the `view=FULL` flag.
 
    {% endlist %}
 
@@ -701,7 +701,7 @@ To configure access to your website over a secure protocol, get a security certi
 
    - API {#api}
 
-     To select a certificate from {{ certificate-manager-name }}, use the [setHTTPSConfig](../../storage/api-ref/Bucket/setHTTPSConfig.md) REST API method for the [Bucket](../../storage/api-ref/Bucket/index.md) resource or the [BucketService/SetHTTPSConfig](../../storage/api-ref/grpc/bucket_service.md#SetHTTPSConfig) gRPC API call.
+     To select a certificate from {{ certificate-manager-name }}, use the [setHTTPSConfig](../../storage/api-ref/Bucket/setHTTPSConfig.md) REST API method for the [Bucket](../../storage/api-ref/Bucket/index.md) resource or the [BucketService/SetHTTPSConfig](../../storage/api-ref/grpc/Bucket/setHTTPSConfig.md) gRPC API call.
 
    {% endlist %}
 

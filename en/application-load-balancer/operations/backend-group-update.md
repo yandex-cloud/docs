@@ -154,7 +154,7 @@ description: Step-by-step guide for editing a backend group.
 
 - API {#api}
 
-  To change the basic parameters of a [backend group](../concepts/backend-group.md), use the [update](../api-ref/BackendGroup/update.md) REST API method for the [BackendGroup](../api-ref/BackendGroup/index.md) resource or the [BackendGroupService/Update](../api-ref/grpc/backend_group_service.md#Update) gRPC API call.
+  To change the basic parameters of a [backend group](../concepts/backend-group.md), use the [update](../api-ref/BackendGroup/update.md) REST API method for the [BackendGroup](../api-ref/BackendGroup/index.md) resource or the [BackendGroupService/Update](../api-ref/grpc/BackendGroup/update.md) gRPC API call.
 
 {% endlist %}
 
@@ -285,7 +285,7 @@ description: Step-by-step guide for editing a backend group.
 
 - API {#api}
 
-  To change the basic group parameters, use the [addBackend](../api-ref/BackendGroup/addBackend.md) REST API method for the [BackendGroup](../api-ref/BackendGroup/index.md) resource or the [BackendGroupService/Update](../api-ref/grpc/backend_group_service.md#AddBackend) gRPC API call.
+  To change the basic group parameters, use the [addBackend](../api-ref/BackendGroup/addBackend.md) REST API method for the [BackendGroup](../api-ref/BackendGroup/index.md) resource or the [BackendGroupService/Update](../api-ref/grpc/BackendGroup/addBackend.md) gRPC API call.
 
 {% endlist %}
 
@@ -448,7 +448,7 @@ description: Step-by-step guide for editing a backend group.
 
 - API {#api}
 
-  To change the backend parameters in the group, use the [updateBackend](../api-ref/BackendGroup/updateBackend.md) REST API method for the [UpdateBackend](../api-ref/BackendGroup/index.md) resource or the [BackendGroupService/UpdateBackend](../api-ref/grpc/backend_group_service.md#UpdateBackend) gRPC API call.
+  To change the backend parameters in the group, use the [updateBackend](../api-ref/BackendGroup/updateBackend.md) REST API method for the [UpdateBackend](../api-ref/BackendGroup/index.md) resource or the [BackendGroupService/UpdateBackend](../api-ref/grpc/BackendGroup/update.mdBackend) gRPC API call.
 
 {% endlist %}
 
@@ -561,7 +561,7 @@ To remove a backend from a group:
 
 - API {#api}
 
-  Use the [removeBackend](../api-ref/BackendGroup/removeBackend.md) REST API method for the [BackendGroup](../api-ref/BackendGroup/index.md) resource or the [BackendGroupService/RemoveBackend](../api-ref/grpc/backend_group_service.md#RemoveBackend) gRPC API call.
+  Use the [removeBackend](../api-ref/BackendGroup/removeBackend.md) REST API method for the [BackendGroup](../api-ref/BackendGroup/index.md) resource or the [BackendGroupService/RemoveBackend](../api-ref/grpc/BackendGroup/removeBackend.md) gRPC API call.
 
 {% endlist %}
 

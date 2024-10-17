@@ -59,19 +59,37 @@ items:
             items:
               - name: Overview
                 href: api-ref/grpc/index.md
-              - name: WebSearchAsyncService
-                href: api-ref/grpc/search_service.md
-              - name: OperationService
-                href: api-ref/grpc/operation_service.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: api-ref/grpc/Operation/index.md
+                  - name: Get
+                    href: api-ref/grpc/Operation/get.md
+                  - name: Cancel
+                    href: api-ref/grpc/Operation/cancel.md
+              - name: WebSearchAsync
+                items:
+                  - name: Overview
+                    href: api-ref/grpc/WebSearchAsync/index.md
+                  - name: Search
+                    href: api-ref/grpc/WebSearchAsync/search.md
           - name: REST (англ.)
             items:
               - name: Overview
                 href: api-ref/index.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: api-ref/Operation/index.md
+                  - name: Get
+                    href: api-ref/Operation/get.md
+                  - name: Cancel
+                    href: api-ref/Operation/cancel.md
               - name: WebSearchAsync
                 items:
                   - name: Overview
                     href: api-ref/WebSearchAsync/index.md
-                  - name: search
+                  - name: Search
                     href: api-ref/WebSearchAsync/search.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md

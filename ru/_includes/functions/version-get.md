@@ -64,7 +64,7 @@
 
 - API {#api}
 
-    Чтобы получить подробную информацию о версии функции, воспользуйтесь методом REST API [getVersion](../../functions/functions/api-ref/Function/getVersion.md) для ресурса [Function](../../functions/functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionsService/GetVersion](../../functions/functions/api-ref/grpc/function_service.md#GetVersion).
+    Чтобы получить подробную информацию о версии функции, воспользуйтесь методом REST API [getVersion](../../functions/functions/api-ref/Function/getVersion.md) для ресурса [Function](../../functions/functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionsService/GetVersion](../../functions/functions/api-ref/grpc/Function/getVersion.md).
 
 
 - {{ yandex-cloud }} Toolkit {#yc-toolkit}

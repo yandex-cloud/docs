@@ -3,33 +3,46 @@ editable: false
 sourcePath: en/_api-ref/mdb/mongodb/v1/api-ref/User/list.md
 ---
 
-# Managed Service for MongoDB API, REST: User.list
-Retrieves the list of MongoDB User resources in the specified cluster.
- 
+# Managed Service for MongoDB API, REST: User.List {#List}
 
- 
-## HTTP request {#https-request}
+Retrieves the list of MongoDB User resources in the specified cluster.
+
+## HTTP request
+
 ```
 GET https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/{clusterId}/users
 ```
- 
-## Path parameters {#path_params}
- 
-Parameter | Description
---- | ---
-clusterId | <p>Required. ID of the cluster to list MongoDB users in. To get the cluster ID, use a <a href="/docs/managed-mongodb/api-ref/Cluster/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
- 
-## Query parameters {#query_params}
- 
-Parameter | Description
---- | ---
-pageSize | <p>The maximum number of results per page to return. If the number of available results is larger than <a href="/docs/managed-mongodb/api-ref/User/list#query_params">pageSize</a>, the service returns a <a href="/docs/managed-mongodb/api-ref/User/list#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests.</p> <p>The maximum value is 1000.</p> 
-pageToken | <p>Page token. To get the next page of results, set <a href="/docs/managed-mongodb/api-ref/User/list#query_params">pageToken</a> to the <a href="/docs/managed-mongodb/api-ref/User/list#responses">nextPageToken</a> returned by the previous list request.</p> <p>The maximum string length in characters is 100.</p> 
- 
-## Response {#responses}
+
+## Path parameters
+
+#|
+||Field | Description ||
+|| clusterId | **string**
+
+Required field. ID of the cluster to list MongoDB users in.
+To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref/Cluster/list#List) request. ||
+|#
+
+## Query parameters {#yandex.cloud.mdb.mongodb.v1.ListUsersRequest}
+
+#|
+||Field | Description ||
+|| pageSize | **string** (int64)
+
+The maximum number of results per page to return. If the number of available
+results is larger than `pageSize`, the service returns a [ListUsersResponse.nextPageToken](#yandex.cloud.mdb.mongodb.v1.ListUsersResponse)
+that can be used to get the next page of results in subsequent list requests. ||
+|| pageToken | **string**
+
+Page token. To get the next page of results, set `pageToken` to the
+[ListUsersResponse.nextPageToken](#yandex.cloud.mdb.mongodb.v1.ListUsersResponse) returned by the previous list request. ||
+|#
+
+## Response {#yandex.cloud.mdb.mongodb.v1.ListUsersResponse}
+
 **HTTP Code: 200 - OK**
 
-```json 
+```json
 {
   "users": [
     {
@@ -49,13 +62,45 @@ pageToken | <p>Page token. To get the next page of results, set <a href="/docs/m
 }
 ```
 
- 
-Field | Description
---- | ---
-users[] | **object**<br><p>List of MongoDB User resources.</p> 
-users[].<br>name | **string**<br><p>Name of the MongoDB user.</p> 
-users[].<br>clusterId | **string**<br><p>ID of the MongoDB cluster the user belongs to.</p> 
-users[].<br>permissions[] | **object**<br><p>Set of permissions granted to the user.</p> 
-users[].<br>permissions[].<br>databaseName | **string**<br><p>Name of the database that the permission grants access to.</p> 
-users[].<br>permissions[].<br>roles[] | **string**<br><p>MongoDB roles for the ``databaseName`` database that the permission grants.</p> 
-nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is larger than <a href="/docs/managed-mongodb/api-ref/User/list#query_params">pageSize</a>, use the <a href="/docs/managed-mongodb/api-ref/User/list#responses">nextPageToken</a> as the value for the <a href="/docs/managed-mongodb/api-ref/User/list#query_params">pageToken</a> parameter in the next list request. Each subsequent list request will have its own <a href="/docs/managed-mongodb/api-ref/User/list#responses">nextPageToken</a> to continue paging through the results.</p> 
+#|
+||Field | Description ||
+|| users[] | **[User](#yandex.cloud.mdb.mongodb.v1.User)**
+
+List of MongoDB User resources. ||
+|| nextPageToken | **string**
+
+This token allows you to get the next page of results for list requests. If the number of results
+is larger than [ListUsersRequest.pageSize](#yandex.cloud.mdb.mongodb.v1.ListUsersRequest), use the `nextPageToken` as the value
+for the [ListUsersRequest.pageToken](#yandex.cloud.mdb.mongodb.v1.ListUsersRequest) parameter in the next list request. Each subsequent
+list request will have its own `nextPageToken` to continue paging through the results. ||
+|#
+
+## User {#yandex.cloud.mdb.mongodb.v1.User}
+
+A MongoDB User resource. For more information, see the
+[Developer's Guide](/docs/managed-mongodb/concepts).
+
+#|
+||Field | Description ||
+|| name | **string**
+
+Name of the MongoDB user. ||
+|| clusterId | **string**
+
+ID of the MongoDB cluster the user belongs to. ||
+|| permissions[] | **[Permission](#yandex.cloud.mdb.mongodb.v1.Permission)**
+
+Set of permissions granted to the user. ||
+|#
+
+## Permission {#yandex.cloud.mdb.mongodb.v1.Permission}
+
+#|
+||Field | Description ||
+|| databaseName | **string**
+
+Name of the database that the permission grants access to. ||
+|| roles[] | **string**
+
+MongoDB roles for the `databaseName` database that the permission grants. ||
+|#

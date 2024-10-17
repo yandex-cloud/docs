@@ -167,7 +167,7 @@
 
    - API {#api}
 
-     Воспользуйтесь методом REST API [create](../../resource-manager/api-ref/Folder/create.md) для ресурса [Folder](../../resource-manager/api-ref/Folder/) или вызовом gRPC API [FolderService/Create](../../resource-manager/api-ref/grpc/folder_service.md#Create).
+     Воспользуйтесь методом REST API [create](../../resource-manager/api-ref/Folder/create.md) для ресурса [Folder](../../resource-manager/api-ref/Folder/) или вызовом gRPC API [FolderService/Create](../../resource-manager/api-ref/grpc/Folder/create.md).
 
    {% endlist %}
 
@@ -236,7 +236,7 @@
 
    - API {#api}
 
-     Воспользуйтесь методом REST API [create](../../vpc/api-ref/Network/create.md) для ресурса [Network](../../vpc/api-ref/Network/) или вызовом gRPC API [NetworkService/Create](../../vpc/api-ref/grpc/network_service.md#Create).
+     Воспользуйтесь методом REST API [create](../../vpc/api-ref/Network/create.md) для ресурса [Network](../../vpc/api-ref/Network/) или вызовом gRPC API [NetworkService/Create](../../vpc/api-ref/grpc/Network/create.md).
 
    {% endlist %}
 
@@ -331,7 +331,7 @@
 
    - API {#api}
 
-     Воспользуйтесь методом REST API [create](../../vpc/api-ref/Subnet/create.md) для ресурса [Subnet](../../vpc/api-ref/Subnet/) или вызовом gRPC API [SubnetService/Create](../../vpc/api-ref/grpc/subnet_service.md#Create).
+     Воспользуйтесь методом REST API [create](../../vpc/api-ref/Subnet/create.md) для ресурса [Subnet](../../vpc/api-ref/Subnet/) или вызовом gRPC API [SubnetService/Create](../../vpc/api-ref/grpc/Subnet/create.md).
 
    {% endlist %}
 
@@ -367,7 +367,7 @@
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [move](../../vpc/api-ref/Subnet/move.md) для ресурса [Subnet](../../vpc/api-ref/Subnet/) или вызовом gRPC API [SubnetService/Move](../../vpc/api-ref/grpc/subnet_service.md#Move).
+  Воспользуйтесь методом REST API [move](../../vpc/api-ref/Subnet/move.md) для ресурса [Subnet](../../vpc/api-ref/Subnet/) или вызовом gRPC API [SubnetService/Move](../../vpc/api-ref/grpc/Subnet/move.md).
 
 {% endlist %}
 
@@ -653,7 +653,7 @@
 
 - API {#api}
 
-  Чтобы создать виртуальную машину, воспользуйтесь методом REST API [create](../../compute/api-ref/Instance/create.md) для ресурса [Compute Instance](../../compute/api-ref/Instance/) или вызовом gRPC API [InstanceService/Create](../../compute/api-ref/grpc/instance_service.md#Create).
+  Чтобы создать виртуальную машину, воспользуйтесь методом REST API [create](../../compute/api-ref/Instance/create.md) для ресурса [Compute Instance](../../compute/api-ref/Instance/) или вызовом gRPC API [InstanceService/Create](../../compute/api-ref/grpc/Instance/create.md).
 
 {% endlist %}
 

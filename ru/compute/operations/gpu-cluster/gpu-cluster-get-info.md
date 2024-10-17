@@ -92,6 +92,6 @@ title: Как получить информацию о кластере GPU в {
 
 - API {#api}
 
-  Чтобы получить подробную информацию о [кластере GPU](../../concepts/gpus.md#gpu-clusters), воспользуйтесь методом REST API [get](../../api-ref/GpuCluster/get.md) для ресурса [GpuCluster](../../api-ref/GpuCluster/index.md), или вызовом gRPC API [GpuClusterService/Get](../../api-ref/grpc/gpu_cluster_service.md#Get).
+  Чтобы получить подробную информацию о [кластере GPU](../../concepts/gpus.md#gpu-clusters), воспользуйтесь методом REST API [get](../../api-ref/GpuCluster/get.md) для ресурса [GpuCluster](../../api-ref/GpuCluster/index.md), или вызовом gRPC API [GpuClusterService/Get](../../api-ref/grpc/GpuCluster/get.md).
 
 {% endlist %}
