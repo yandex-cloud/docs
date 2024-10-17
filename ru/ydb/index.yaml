@@ -8,7 +8,7 @@ description:
     Distributed SQL СУБД. YDB обеспечивает высокую доступность, горизонтальную
     масштабируемость, а также строгую консистентность и поддержку
     ACID-транзакций. Для запросов используется диалект SQL (<a
-    href="https://ydb.tech/ru/docs/yql/reference/">YQL</a>).
+    href="https://ydb.tech/docs/ru/yql/reference/">YQL</a>).
   - >-
     Инфраструктура Yandex Cloud <a
     href="https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf">защищена</a>

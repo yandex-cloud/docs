@@ -90,7 +90,7 @@
        sudo installer -pkg AWSCLIV2.pkg -target /
        ```
 
-     * [YDB CLI](https://ydb.tech/ru/docs/reference/ydb-cli/install):
+     * [YDB CLI](https://ydb.tech/docs/ru/reference/ydb-cli/install):
 
        ```bash
        curl --silent --show-error --location https://storage.yandexcloud.net/yandexcloud-ydb/install.sh | bash
@@ -155,7 +155,7 @@
        sudo installer -pkg AWSCLIV2.pkg -target /
        ```
 
-     * [YDB CLI](https://ydb.tech/ru/docs/reference/ydb-cli/install):
+     * [YDB CLI](https://ydb.tech/docs/ru/reference/ydb-cli/install):
 
        ```bash
        curl --silent --show-error --location https://storage.yandexcloud.net/yandexcloud-ydb/install.sh | bash

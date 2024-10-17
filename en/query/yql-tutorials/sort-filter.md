@@ -25,6 +25,6 @@ Query results are available in the **{{ ui-key.yql.yq-query-results.result.tab-t
 
 ## See also {#see-also}
 
-* [SELECT](https://ydb.tech/en/docs/yql/reference/syntax/select).
-* [WHERE](https://ydb.tech/en/docs/yql/reference/syntax/select#where).
-* [ORDER BY](https://ydb.tech/en/docs/yql/reference/syntax/select#order-by).
+* [SELECT](https://ydb.tech/docs/en/yql/reference/syntax/select).
+* [WHERE](https://ydb.tech/docs/en/yql/reference/syntax/select#where).
+* [ORDER BY](https://ydb.tech/docs/en/yql/reference/syntax/select#order-by).

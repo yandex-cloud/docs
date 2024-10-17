@@ -9,11 +9,11 @@ description: In this tutorial, you will learn how to calculate the cost of topic
 
 ## Pricing modes
 
-Pricing for operations with data in [{{ ydb-short-name }} topics](https://ydb.tech/en/docs/concepts/topic) using {{ ydb-short-name }} Request Units applies to topics with _On-demand pricing mode_. In this mode, topics are by default created via the {{ ydb-short-name }} CLI/SDK and while creating a [CDC stream](https://ydb.tech/en/docs/concepts/cdc).
+Pricing for operations with data in [{{ ydb-short-name }} topics](https://ydb.tech/docs/en/concepts/topic) using {{ ydb-short-name }} Request Units applies to topics with _On-demand pricing mode_. In this mode, topics are by default created via the {{ ydb-short-name }} CLI/SDK and while creating a [CDC stream](https://ydb.tech/docs/en/concepts/cdc).
 
 If you create a topic as storage for a {{ yds-short-name }} [stream](../../data-streams/concepts/glossary.md#stream-concepts), [_pricing based on allocated resources_](../../data-streams/pricing.md#rules) applies to it by default. For topics with pricing for allocated resources, no {{ ydb-short-name }} Request Units are charged. You pay for resource usage on an hourly basis within {{ yds-full-name }}.
 
-You can change any topic's pricing mode by explicitly running the [ydb topic alter](https://ydb.tech/en/docs/reference/ydb-cli/topic-alter) {{ ydb-short-name }} CLI command or SDK method.
+You can change any topic's pricing mode by explicitly running the [ydb topic alter](https://ydb.tech/docs/en/reference/ydb-cli/topic-alter) {{ ydb-short-name }} CLI command or SDK method.
 
 ## Calculation of Request Unit usage {#rules}
 

@@ -23,7 +23,7 @@ description: Следуя данной инструкции, вы сможете
 
 ## Вставьте и измените данные {#change-data}
 
-Для вставки данных в {{ ydb-short-name }} используются инструкции [REPLACE](https://ydb.tech/ru/docs/yql/reference/syntax/replace_into), [UPSERT](https://ydb.tech/ru/docs/yql/reference/syntax/upsert_into) и [INSERT](https://ydb.tech/ru/docs/yql/reference/syntax/insert_into).
+Для вставки данных в {{ ydb-short-name }} используются инструкции [REPLACE](https://ydb.tech/docs/ru/yql/reference/syntax/replace_into), [UPSERT](https://ydb.tech/docs/ru/yql/reference/syntax/upsert_into) и [INSERT](https://ydb.tech/docs/ru/yql/reference/syntax/insert_into).
 
 При выполнении инструкций REPLACE и UPSERT осуществляется слепая запись. При выполнении инструкции INSERT перед операцией записи выполняется операция чтения данных. Это позволяет убедиться, что уникальность первичного ключа будет соблюдена.
 
@@ -44,13 +44,13 @@ REPLACE INTO episodes (series_id, season_id, episode_id, title) VALUES (1, 1, 2,
 
 ### REPLACE {#replace}
 
-После создания таблиц `series`, `seasons` и `episodes` можно вставить данные в таблицу с помощью инструкции [REPLACE](https://ydb.tech/ru/docs/yql/reference/syntax/replace_into). Базовый синтаксис:
+После создания таблиц `series`, `seasons` и `episodes` можно вставить данные в таблицу с помощью инструкции [REPLACE](https://ydb.tech/docs/ru/yql/reference/syntax/replace_into). Базовый синтаксис:
 
 ```sql
 REPLACE INTO <имя_таблицы> (<список_столбцов>) VALUES (<список_добавляемых_значений>);
 ```
 
-Инструкция [REPLACE](https://ydb.tech/ru/docs/yql/reference/syntax/replace_into) используется для добавления новой или изменения существующей строки по заданному значению первичного ключа. Если строка с указанным значением первичного ключа не существует, она будет создана. Если строка уже существует, значения колонок существующей строки будут заменены новыми значениями. *При этом значения колонок, не участвующих в операции, устанавливаются в значения по умолчанию.* В этом заключается единственное отличие от инструкции UPSERT.
+Инструкция [REPLACE](https://ydb.tech/docs/ru/yql/reference/syntax/replace_into) используется для добавления новой или изменения существующей строки по заданному значению первичного ключа. Если строка с указанным значением первичного ключа не существует, она будет создана. Если строка уже существует, значения колонок существующей строки будут заменены новыми значениями. *При этом значения колонок, не участвующих в операции, устанавливаются в значения по умолчанию.* В этом заключается единственное отличие от инструкции UPSERT.
 
 {% note info %}
 
@@ -96,7 +96,7 @@ VALUES
 
 ### UPSERT {#upsert}
 
-Инструкция [UPSERT](https://ydb.tech/ru/docs/yql/reference/syntax/upsert_into) используется для добавления новой или изменения существующей строки по заданному значению первичного ключа. Если строка с указанным значением первичного ключа не существует, она будет создана. Если строка уже существует, значения колонок существующей строки будут заменены новыми значениями. *При этом значения колонок, не участвующих в операции, не изменяют свои значения. В этом заключается единственное отличие от инструкции REPLACE.*
+Инструкция [UPSERT](https://ydb.tech/docs/ru/yql/reference/syntax/upsert_into) используется для добавления новой или изменения существующей строки по заданному значению первичного ключа. Если строка с указанным значением первичного ключа не существует, она будет создана. Если строка уже существует, значения колонок существующей строки будут заменены новыми значениями. *При этом значения колонок, не участвующих в операции, не изменяют свои значения. В этом заключается единственное отличие от инструкции REPLACE.*
 
 {% note info %}
 
@@ -128,7 +128,7 @@ VALUES
 
 ### INSERT {#insert}
 
-Инструкция [INSERT](https://ydb.tech/ru/docs/yql/reference/syntax/insert_into) используется для вставки одной или нескольких строк. При попытке вставить строку в таблицу, с уже существующим значением первичного ключа {{ ydb-short-name }} вернет ошибку с сообщением `Transaction rolled back due to constraint violation: insert_pk.`.
+Инструкция [INSERT](https://ydb.tech/docs/ru/yql/reference/syntax/insert_into) используется для вставки одной или нескольких строк. При попытке вставить строку в таблицу, с уже существующим значением первичного ключа {{ ydb-short-name }} вернет ошибку с сообщением `Transaction rolled back due to constraint violation: insert_pk.`.
 
 {% note info %}
 
@@ -160,7 +160,7 @@ VALUES
 
 ### UPDATE {#update}
 
-Инструкция [UPDATE](https://ydb.tech/ru/docs/yql/reference/syntax/update) изменяет значения колонок для строк таблицы, отфильтрованных по предикату из условия WHERE. Базовый синтаксис:
+Инструкция [UPDATE](https://ydb.tech/docs/ru/yql/reference/syntax/update) изменяет значения колонок для строк таблицы, отфильтрованных по предикату из условия WHERE. Базовый синтаксис:
 
 ```sql
 UPDATE <имя_таблицы> SET <имя_столбца_1>=<новое_значение_столбца_1>, ... ,<имя_столбца_N>=<новое_значение_столбца_N> WHERE <условия_для_фильтра_строк>;
@@ -180,7 +180,7 @@ WHERE
 
 ### DELETE {#delete}
 
-Инструкция [DELETE](https://ydb.tech/ru/docs/yql/reference/syntax/delete) удаляет строки таблицы, отфильтрованные по предикату из условия WHERE. Код, приведенный ниже, удалит из таблицы `episodes` эпизод со следующими значениями столбцов: `series_id = 2`, `season_id = 5`, и `episode_id = 21`.
+Инструкция [DELETE](https://ydb.tech/docs/ru/yql/reference/syntax/delete) удаляет строки таблицы, отфильтрованные по предикату из условия WHERE. Код, приведенный ниже, удалит из таблицы `episodes` эпизод со следующими значениями столбцов: `series_id = 2`, `season_id = 5`, и `episode_id = 21`.
 
 ```sql
 DELETE
@@ -194,7 +194,7 @@ WHERE
 
 ## Запросите данные при помощи SELECT {#select}
 
-Для чтения данных в таблице используется инструкция [SELECT](https://ydb.tech/ru/docs/yql/reference/syntax/select).
+Для чтения данных в таблице используется инструкция [SELECT](https://ydb.tech/docs/ru/yql/reference/syntax/select).
 
 Чтобы запросить данные из таблицы `series`, выполните код, представленный ниже.
 
@@ -216,7 +216,7 @@ FROM series;
 
 {% note info %}
 
-Подробнее о том, как запросить данные по вторичному индексу, [читайте в документации YQL](https://ydb.tech/ru/docs/yql/reference/syntax/select#secondary_index).
+Подробнее о том, как запросить данные по вторичному индексу, [читайте в документации YQL](https://ydb.tech/docs/ru/yql/reference/syntax/select#secondary_index).
 
 {% endnote %}
 

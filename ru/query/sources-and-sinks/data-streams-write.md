@@ -114,7 +114,7 @@ FROM
     ))))
 ```
 
-В документации языка YQL доступно детальное описание модулей [Yson](https://ydb.tech/ru/docs/yql/reference/udf/list/yson), [Json](https://ydb.tech/ru/docs/yql/reference/types/json) и [его функций](https://ydb.tech/ru/docs/yql/reference/builtins/json), [<|"key": value|>](https://ydb.tech/ru/docs/yql/reference/builtins/struct).
+В документации языка YQL доступно детальное описание модулей [Yson](https://ydb.tech/docs/ru/yql/reference/udf/list/yson), [Json](https://ydb.tech/docs/ru/yql/reference/types/json) и [его функций](https://ydb.tech/docs/ru/yql/reference/builtins/json), [<|"key": value|>](https://ydb.tech/docs/ru/yql/reference/builtins/struct).
 
 ## Поддерживаемые форматы записи
 

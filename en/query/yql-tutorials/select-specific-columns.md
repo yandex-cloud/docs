@@ -25,7 +25,7 @@ Query results are available in the **{{ ui-key.yql.yq-query-results.result.tab-t
 
 ## See also {#see-also}
 
-* [SELECT](https://ydb.tech/en/docs/yql/reference/syntax/select).
-* [YQL data types](https://ydb.tech/en/docs/yql/reference/types/).
-* [Type casting in YQL](https://ydb.tech/en/docs/yql/reference/types/cast).
-* [Functions for dates](https://ydb.tech/en/docs/yql/reference/udf/list/datetime).
+* [SELECT](https://ydb.tech/docs/en/yql/reference/syntax/select).
+* [YQL data types](https://ydb.tech/docs/en/yql/reference/types/).
+* [Type casting in YQL](https://ydb.tech/docs/en/yql/reference/types/cast).
+* [Functions for dates](https://ydb.tech/docs/en/yql/reference/udf/list/datetime).

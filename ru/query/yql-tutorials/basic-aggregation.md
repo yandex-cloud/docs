@@ -28,6 +28,6 @@ GROUP BY PULocationID           -- Колонка, по которой выпо�
 
 ## Смотрите также {#see-also}
 
-* Оператор [SELECT](https://ydb.tech/ru/docs/yql/reference/syntax/select).
-* Оператор [GROUP BY](https://ydb.tech/ru/docs/yql/reference/syntax/group_by).
-* [Функции агрегации данных](https://ydb.tech/ru/docs/yql/reference/builtins/aggregation).
+* Оператор [SELECT](https://ydb.tech/docs/ru/yql/reference/syntax/select).
+* Оператор [GROUP BY](https://ydb.tech/docs/ru/yql/reference/syntax/group_by).
+* [Функции агрегации данных](https://ydb.tech/docs/ru/yql/reference/builtins/aggregation).

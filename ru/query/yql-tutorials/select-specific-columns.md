@@ -25,7 +25,7 @@ LIMIT 10
 
 ## Смотрите также {#see-also}
 
-* Оператор [SELECT](https://ydb.tech/ru/docs/yql/reference/syntax/select).
-* [Типы данных YQL](https://ydb.tech/ru/docs/yql/reference/types/).
-* [Преобразование типов данных в YQL](https://ydb.tech/ru/docs/yql/reference/types/cast).
-* [Функции работы с датами](https://ydb.tech/ru/docs/yql/reference/udf/list/datetime).
+* Оператор [SELECT](https://ydb.tech/docs/ru/yql/reference/syntax/select).
+* [Типы данных YQL](https://ydb.tech/docs/ru/yql/reference/types/).
+* [Преобразование типов данных в YQL](https://ydb.tech/docs/ru/yql/reference/types/cast).
+* [Функции работы с датами](https://ydb.tech/docs/ru/yql/reference/udf/list/datetime).

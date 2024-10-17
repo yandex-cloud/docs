@@ -27,7 +27,7 @@
 ### Операции с данными и единица запроса {#rules-ru}
 
 Бессерверный режим работы Yandex {{ ydb-name }} поддерживает несколько способов работы с данными:
-* YQL - диалект SQL для работы с реляционными таблицами, поддерживаемый в [SDK](https://ydb.tech/ru/docs/reference/ydb-sdk/), [CLI](https://ydb.tech/ru/docs/reference/ydb-cli/) и консоли управления {{ ydb-short-name }}.
+* YQL - диалект SQL для работы с реляционными таблицами, поддерживаемый в [SDK](https://ydb.tech/docs/ru/reference/ydb-sdk/), [CLI](https://ydb.tech/docs/ru/reference/ydb-cli/) и консоли управления {{ ydb-short-name }}.
 * Document API — HTTP API, совместимый с Amazon DynamoDB. С помощью этого API можно выполнять операции над документными таблицами.
 
 Кроме этого, к базе данных могут быть сделаны запросы через специализированные API, доступные в виде отдельных функций в SDK, CLI или консоли управления {{ ydb-short-name }}.

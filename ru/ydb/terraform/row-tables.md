@@ -60,18 +60,18 @@ column {
 |connection_string|`string`|`required`|Строка соединения|
 |column|`array[column]`|`required`|Тип данных column|
 |family|`array[family]`|`optional`|Группа колонок|
-|primary_key|`array[string]`|`required`|[Первичный ключ таблицы](https://ydb.tech/ru/docs/yql/reference/syntax/create_table)|
+|primary_key|`array[string]`|`required`|[Первичный ключ таблицы](https://ydb.tech/docs/ru/yql/reference/syntax/create_table)|
 |ttl|`ttl`|`optional`|Настройки TTL|
 |attributes|`map[string]string`|`optional`|Атрибуты таблицы|
 |partitioning_settings|`partitioning_settings`|`optional`|Настройки партиционирования|
-|key_bloom_filter|`boolean`|`optional`|Использование [фильтра Блума для первичного ключа](https://ydb.tech/ru/docs/concepts/datamodel/table#bloom-filter)|
-|read_replicas_settings|`string`|`optional`|[Настройки репликаций для чтения](https://ydb.tech/ru/docs/concepts/datamodel/table#read_only_replicas)|
+|key_bloom_filter|`boolean`|`optional`|Использование [фильтра Блума для первичного ключа](https://ydb.tech/docs/ru/concepts/datamodel/table#bloom-filter)|
+|read_replicas_settings|`string`|`optional`|[Настройки репликаций для чтения](https://ydb.tech/docs/ru/concepts/datamodel/table#read_only_replicas)|
 
 Внутри блока `yandex_ydb_table` заключены вложенные блоки `column`, которые описывают индивидуальные свойства колонок, такие как:
 | **Название поля** | **Тип** | **Описание** |
 | --- | --- | --- |
 |name|`string`<br>`required`|Имя колонки|
-|type|`string`<br>`required`|Тип данных колонки. Используются [YQL типы данных](https://ydb.tech/ru/docs/yql/reference/types/)|
+|type|`string`<br>`required`|Тип данных колонки. Используются [YQL типы данных](https://ydb.tech/docs/ru/yql/reference/types/)|
 |family|`string`<br>`optional`|Группа колонки|
 |not_null|`boolean`<br>`optional`<br>По умолчанию: `false`|Колонка не может быть NULL|
 
@@ -91,7 +91,7 @@ column {
 
 {% endnote %}
 
-Колонки могут быть объединены в [группы](https://ydb.tech/ru/docs/yql/reference/syntax/create_table#column-family) (семейства/family), для того чтобы задать им общие поля, такие как: 
+Колонки могут быть объединены в [группы](https://ydb.tech/docs/ru/yql/reference/syntax/create_table#column-family) (семейства/family), для того чтобы задать им общие поля, такие как: 
 * `DATA` — тип устройства хранения для данных колонок этой группы (допустимые значения: `ssd`, `rot` (от rotation — вращение шпинделя HDD)); 
 * `COMPRESSION` — кодек сжатия данных (допустимые значения: `off`, `lz4`). 
 
@@ -136,7 +136,7 @@ resource "yandex_ydb_table" "test_table" {
 }
 ```
 
-{{ ydb-short-name }} позволяет создавать специальный вид колонок — [TTL-колонки](https://ydb.tech/ru/docs/concepts/ttl), значения которой используются для определения времени жизни строк. TTL автоматически удаляет из таблицы строки, когда проходит указанное количество секунд от времени, записанного в TTL-колонку. Задать можно не более одной TTL-колонки. TTL-колонка может быть одного из следующих типов: `Date`, `Datetime`, `Timestamp`, `Uint32`, `Uint64`, `DyNumber`.
+{{ ydb-short-name }} позволяет создавать специальный вид колонок — [TTL-колонки](https://ydb.tech/docs/ru/concepts/ttl), значения которой используются для определения времени жизни строк. TTL автоматически удаляет из таблицы строки, когда проходит указанное количество секунд от времени, записанного в TTL-колонку. Задать можно не более одной TTL-колонки. TTL-колонка может быть одного из следующих типов: `Date`, `Datetime`, `Timestamp`, `Uint32`, `Uint64`, `DyNumber`.
 
 Задается TTL-колонка следующим блоком:
 ```tf
