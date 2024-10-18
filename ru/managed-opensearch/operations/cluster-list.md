@@ -148,7 +148,7 @@ keywords:
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [listOperations](../api-ref/Cluster/listOperations.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/ListOperations](../api-ref/grpc/Cluster/list.mdOperations) и передайте в запросе идентификатор требуемого кластера в параметре `clusterId`.
+  Воспользуйтесь методом REST API [listOperations](../api-ref/Cluster/listOperations.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/ListOperations](../api-ref/grpc/Cluster/listOperations.md) и передайте в запросе идентификатор требуемого кластера в параметре `clusterId`.
 
   {% include [get-cluster-id](../../_includes/managed-opensearch/get-cluster-id.md) %}
 

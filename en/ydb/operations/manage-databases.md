@@ -656,7 +656,7 @@ You can grant access to a {{ ydb-name }} database to a user, service account, or
 
 - API {#api}
 
-   Use the [DatabaseService/UpdateAccessBindings](../api-ref/grpc/Database/update.mdAccessBindings) gRPC API call and provide the following in the request:
+   Use the [DatabaseService/UpdateAccessBindings](../api-ref/grpc/Database/updateAccessBindings.md) gRPC API call and provide the following in the request:
 
    * `ADD` in the `access_binding_deltas[].action` parameter to add a role.
    * Role in the `access_binding_deltas[].access_binding.role_id` parameter.

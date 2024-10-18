@@ -132,7 +132,7 @@ To run a notebook, you can use the `Execute` call or the `execute` method in `Pr
 
 | Description | gRPC | REST |
 | --- | --- | --- |
-| Runs the specified notebook | [Execute](grpc/Project/index.md#Execute) | [execute](Project/execute.md) |
+| Runs the specified notebook | [Execute](grpc/Project/execute.md) | [execute](Project/execute.md) |
 
 
 {% list tabs %}
@@ -236,10 +236,10 @@ To enable your project to use another project's resources, you need to [share](.
 
 | Description | gRPC | REST |
 | --- | --- | --- |
-| Adds a resource to a community | [addResource](grpc/Community/index.md#AddResource) | [addResource](Community/addResource.md) |
-| Deletes a resources from a community | [removeResource](grpc/Community/index.md#RemoveResource) | [removeResource](Community/removeResource.md) |
-| Adds a resource to a project | [addResource](grpc/Project/index.md#AddResource) | [addResource](Project/addResource.md) |
-| Deletes a resource from a project | [removeResource](grpc/Project/index.md#RemoveResource) | [removeResource](Project/removeResource.md) |
+| Adds a resource to a community | [addResource](grpc/Community/addResource.md) | [addResource](Community/addResource.md) |
+| Deletes a resources from a community | [removeResource](grpc/Community/removeResource.md) | [removeResource](Community/removeResource.md) |
+| Adds a resource to a project | [addResource](grpc/Project/addResource.md) | [addResource](Project/addResource.md) |
+| Deletes a resource from a project | [removeResource](grpc/Project/removeResource.md) | [removeResource](Project/removeResource.md) |
 
 {% list tabs %}
 
@@ -293,12 +293,12 @@ You can use the API to set up access to a project (`ProjectService`, `Project`) 
 
 | Description | gRPC | REST |
 | --- | --- | --- |
-| Returns a list of access permissions for a project | [ListAccessBindings](grpc/Project/list.mdAccessBindings) | [ListAccessBindings](Project/listAccessBindings.md) |
-| Sets up access to a project | [SetAccessBindings](grpc/Project/index.md#SetAccessBindings) | [SetAccessBindings](Project/setAccessBindings.md) |
-| Updates access to a project | [UpdateAccessBindings](grpc/Project/update.mdAccessBindings) | [UpdateAccessBindings](Project/updateAccessBindings.md) |
-| Returns a list of access permissions for a community | [ListAccessBindings](grpc/Community/list.mdAccessBindings) | [ListAccessBindings](Community/listAccessBindings.md) |
-| Sets up access to a community | [SetAccessBindings](grpc/Community/index.md#SetAccessBindings) | [SetAccessBindings](Community/setAccessBindings.md) |
-| Updates access to a community | [UpdateAccessBindings](grpc/Community/update.mdAccessBindings) | [UpdateAccessBindings](Community/updateAccessBindings.md) |
+| Returns a list of access permissions for a project | [ListAccessBindings](grpc/Project/listAccessBindings.md) | [ListAccessBindings](Project/listAccessBindings.md) |
+| Sets up access to a project | [SetAccessBindings](grpc/Project/setAccessBindings.md) | [SetAccessBindings](Project/setAccessBindings.md) |
+| Updates access to a project | [UpdateAccessBindings](grpc/Project/updateAccessBindings.md) | [UpdateAccessBindings](Project/updateAccessBindings.md) |
+| Returns a list of access permissions for a community | [ListAccessBindings](grpc/Community/listAccessBindings.md) | [ListAccessBindings](Community/listAccessBindings.md) |
+| Sets up access to a community | [SetAccessBindings](grpc/Community/setAccessBindings.md) | [SetAccessBindings](Community/setAccessBindings.md) |
+| Updates access to a community | [UpdateAccessBindings](grpc/Community/updateAccessBindings.md) | [UpdateAccessBindings](Community/updateAccessBindings.md) |
 
 {% list tabs %}
 
@@ -350,8 +350,8 @@ You can use the API to set up consumption limits for a project (`ProjectService`
 
 | Description | gRPC | REST |
 | --- | --- | --- |
-| Returns a project's balance | [getUnitBalance](grpc/Project/get.mdUnitBalance) | [getUnitBalance](Project/getUnitBalance.md) |
-| Sets a project's balance | [setUnitBalance](grpc/Project/index.md#SetUnitBalance) | [setUnitBalance](Project/setUnitBalance.md) |
+| Returns a project's balance | [getUnitBalance](grpc/Project/getUnitBalance.md) | [getUnitBalance](Project/getUnitBalance.md) |
+| Sets a project's balance | [setUnitBalance](grpc/Project/setUnitBalance.md) | [setUnitBalance](Project/setUnitBalance.md) |
 
 {% list tabs %}
 

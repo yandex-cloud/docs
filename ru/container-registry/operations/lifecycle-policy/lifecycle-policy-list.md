@@ -109,7 +109,7 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Чтобы получить подробную информацию о политике удаления, воспользуйтесь методом [Get](../../api-ref/grpc/LifecyclePolicy/index.md#Get) для ресурса [LifecyclePolicyService](../../api-ref/grpc/LifecyclePolicy/index.md). В параметре `lifecycle_policy_id` укажите идентификатор политики.
+  Чтобы получить подробную информацию о политике удаления, воспользуйтесь методом [Get](../../api-ref/grpc/LifecyclePolicy/get.md) для ресурса [LifecyclePolicyService](../../api-ref/grpc/LifecyclePolicy/index.md). В параметре `lifecycle_policy_id` укажите идентификатор политики.
 
   Получить список политик удаления можно с помощью метода [List](../../api-ref/grpc/LifecyclePolicy/list.md) для ресурса [LifecyclePolicyService](../../api-ref/grpc/LifecyclePolicy/index.md).
 
