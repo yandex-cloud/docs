@@ -70,6 +70,12 @@ description: Установите плагин {{ ca-name }} для Visual Studi
 
       {% include [unable-to-download](../_includes/code-assistant/unable-to-download.md) %}
 
+      {% note info %}
+
+      {% include [plugin-ide-zip](../_includes/code-assistant/plugin-ide-zip.md) %}
+
+      {% endnote %}
+
   1. Установите плагин:
       1. Откройте IDE.
       1. Откройте настройки, для этого используйте сочетание клавиш **Ctrl** + **Alt** + **S** в Windows/Linux или **Command** + **,** в macOS.

@@ -83,6 +83,6 @@ description: Follow this guide to delete a lifecycle policy.
 
    To delete a policy, use the [Delete](../../api-ref/grpc/LifecyclePolicy/delete.md) method for the [LifecyclePolicyService](../../api-ref/grpc/LifecyclePolicy/index.md) resource. In the `lifecycle_policy_id` parameter, specify the policy ID.
 
-   You can retrieve a list of policies using the [List](../../api-ref/grpc/LifecyclePolicy/index.md#List) method for the [LifecyclePolicyService](../../api-ref/grpc/LifecyclePolicy/index.md) resource.
+   You can retrieve a list of policies using the [List](../../api-ref/grpc/LifecyclePolicy/list.md) method for the [LifecyclePolicyService](../../api-ref/grpc/LifecyclePolicy/index.md) resource.
 
 {% endlist %}

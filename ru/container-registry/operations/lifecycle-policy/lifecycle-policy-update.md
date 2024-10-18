@@ -78,7 +78,7 @@
 
   Чтобы изменить политику удаления, воспользуйтесь методом [Update](../../api-ref/grpc/LifecyclePolicy/update.md) для ресурса [LifecyclePolicyService](../../api-ref/grpc/LifecyclePolicy/index.md). В свойстве `lifecycle_policy_id` укажите идентификатор политики.
 
-  Получить список политик удаления можно с помощью метода [List](../../api-ref/grpc/LifecyclePolicy/index.md#List) для ресурса [LifecyclePolicyService](../../api-ref/grpc/LifecyclePolicy/index.md).
+  Получить список политик удаления можно с помощью метода [List](../../api-ref/grpc/LifecyclePolicy/list.md) для ресурса [LifecyclePolicyService](../../api-ref/grpc/LifecyclePolicy/index.md).
 
 {% endlist %}
 

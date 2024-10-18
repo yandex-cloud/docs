@@ -14,6 +14,6 @@
 
   Чтобы получить адрес сервера, воспользуйтесь методом REST API [get](../../video/api-ref/StreamLine/get.md) для ресурса [StreamLine](../../video/api-ref/StreamLine/index.md) или вызовом gRPC API [StreamLineService/Get](../../video/api-ref/grpc/StreamLine/get.md).
 
-  Чтобы получить ключ трансляции, воспользуйтесь методом REST API [getStreamKey](../../video/api-ref/StreamLine/getStreamKey.md) для ресурса [StreamLine](../../video/api-ref/StreamLine/index.md) или вызовом gRPC API [StreamLineService/GetStreamKey](../../video/api-ref/grpc/StreamLine/get.mdStreamKey).
+  Чтобы получить ключ трансляции, воспользуйтесь методом REST API [getStreamKey](../../video/api-ref/StreamLine/getStreamKey.md) для ресурса [StreamLine](../../video/api-ref/StreamLine/index.md) или вызовом gRPC API [StreamLineService/GetStreamKey](../../video/api-ref/grpc/StreamLine/getStreamKey.md).
 
 {% endlist %}

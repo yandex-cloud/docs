@@ -448,7 +448,7 @@ description: Step-by-step guide for editing a backend group.
 
 - API {#api}
 
-  To change the backend parameters in the group, use the [updateBackend](../api-ref/BackendGroup/updateBackend.md) REST API method for the [UpdateBackend](../api-ref/BackendGroup/index.md) resource or the [BackendGroupService/UpdateBackend](../api-ref/grpc/BackendGroup/update.mdBackend) gRPC API call.
+  To change the backend parameters in the group, use the [updateBackend](../api-ref/BackendGroup/updateBackend.md) REST API method for the [UpdateBackend](../api-ref/BackendGroup/index.md) resource or the [BackendGroupService/UpdateBackend](../api-ref/grpc/BackendGroup/updateBackend.md) gRPC API call.
 
 {% endlist %}
 

@@ -456,7 +456,7 @@
 - API {#api}
 
   1. Создайте функцию `vm-scale-scheduled-function` с помощью метода REST API [create](../../functions/functions/api-ref/Function/create.md) для ресурса [Function](../../functions/functions/api-ref/Function/index.md) или вызова gRPC API [FunctionService/Create](../../functions/functions/api-ref/grpc/Function/create.md). Из ответных данных получите идентификатор созданной функции.
-  1. Создайте версию функции с помощью метода REST API [createVersion](../../functions/functions/api-ref/Function/createVersion.md) для ресурса [Function](../../functions/functions/api-ref/Function/index.md) или вызова gRPC API [FunctionService/CreateVersion](../../functions/functions/api-ref/grpc/Function/create.mdVersion). Версия функции должна иметь следующий код:
+  1. Создайте версию функции с помощью метода REST API [createVersion](../../functions/functions/api-ref/Function/createVersion.md) для ресурса [Function](../../functions/functions/api-ref/Function/index.md) или вызова gRPC API [FunctionService/CreateVersion](../../functions/functions/api-ref/grpc/Function/createVersion.md). Версия функции должна иметь следующий код:
 
      {% include [vm-scale-scheduled-function-code.md](../../_includes/instance-groups/vm-scale-scheduled-function-code.md) %}
 
