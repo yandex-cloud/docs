@@ -144,7 +144,7 @@ description: Управление ресурсами {{ ml-platform-full-name }}
 
 | Описание | gRPC | REST |
 | --- | --- | --- |
-| Запускает заданный ноутбук | [Execute](grpc/Project/index.md#Execute) | [execute](Project/execute.md) |
+| Запускает заданный ноутбук | [Execute](grpc/Project/execute.md) | [execute](Project/execute.md) |
 
 
 {% list tabs group=api_type %}
@@ -257,10 +257,10 @@ description: Управление ресурсами {{ ml-platform-full-name }}
 
 | Описание | gRPC | REST |
 | --- | --- | --- |
-| Добавляет ресурс в сообщество | [AddResource](grpc/Community/index.md#AddResource) | [addResource](Community/addResource.md) |
-| Удаляет ресурс из сообщества | [RemoveResource](grpc/Community/index.md#RemoveResource) | [removeResource](Community/removeResource.md) |
-| Добавляет ресурс в проект | [AddResource](grpc/Project/index.md#AddResource) | [addResource](Project/addResource.md) |
-| Удаляет ресурс из проекта | [RemoveResource](grpc/Project/index.md#RemoveResource) | [removeResource](Project/removeResource.md) |
+| Добавляет ресурс в сообщество | [AddResource](grpc/Community/addResource.md) | [addResource](Community/addResource.md) |
+| Удаляет ресурс из сообщества | [RemoveResource](grpc/Community/removeResource.md) | [removeResource](Community/removeResource.md) |
+| Добавляет ресурс в проект | [AddResource](grpc/Project/addResource.md) | [addResource](Project/addResource.md) |
+| Удаляет ресурс из проекта | [RemoveResource](grpc/Project/removeResource.md) | [removeResource](Project/removeResource.md) |
 
 {% list tabs group=api_type %}
 
@@ -320,12 +320,12 @@ description: Управление ресурсами {{ ml-platform-full-name }}
 
 | Описание | gRPC | REST |
 | --- | --- | --- |
-| Возвращает список доступов к проекту | [ListAccessBindings](grpc/Project/list.mdAccessBindings) | [listAccessBindings](Project/listAccessBindings.md) |
-| Устанавливает доступ к проекту | [SetAccessBindings](grpc/Project/index.md#SetAccessBindings) | [setAccessBindings](Project/setAccessBindings.md) |
-| Обновляет доступ к проекту | [UpdateAccessBindings](grpc/Project/update.mdAccessBindings) | [updateAccessBindings](Project/updateAccessBindings.md) |
-| Возвращает список доступов к сообществу | [ListAccessBindings](grpc/Community/list.mdAccessBindings) | [listAccessBindings](Community/listAccessBindings.md) |
-| Устанавливает доступ к сообществу | [SetAccessBindings](grpc/Community/index.md#SetAccessBindings) | [setAccessBindings](Community/setAccessBindings.md) |
-| Обновляет доступ к сообществу | [UpdateAccessBindings](grpc/Community/update.mdAccessBindings) | [updateAccessBindings](Community/updateAccessBindings.md) |
+| Возвращает список доступов к проекту | [ListAccessBindings](grpc/Project/listAccessBindings.md) | [listAccessBindings](Project/listAccessBindings.md) |
+| Устанавливает доступ к проекту | [SetAccessBindings](grpc/Project/setAccessBindings.md) | [setAccessBindings](Project/setAccessBindings.md) |
+| Обновляет доступ к проекту | [UpdateAccessBindings](grpc/Project/updateAccessBindings.md) | [updateAccessBindings](Project/updateAccessBindings.md) |
+| Возвращает список доступов к сообществу | [ListAccessBindings](grpc/Community/listAccessBindings.md) | [listAccessBindings](Community/listAccessBindings.md) |
+| Устанавливает доступ к сообществу | [SetAccessBindings](grpc/Community/setAccessBindings.md) | [setAccessBindings](Community/setAccessBindings.md) |
+| Обновляет доступ к сообществу | [UpdateAccessBindings](grpc/Community/updateAccessBindings.md) | [updateAccessBindings](Community/updateAccessBindings.md) |
 
 {% list tabs group=api_type %}
 
@@ -383,8 +383,8 @@ description: Управление ресурсами {{ ml-platform-full-name }}
 
 | Описание | gRPC | REST |
 | --- | --- | --- |
-| Возвращает баланс проекта | [GetUnitBalance](grpc/Project/get.mdUnitBalance) | [getUnitBalance](Project/getUnitBalance.md) |
-| Устанавливает баланс проекта | [SetUnitBalance](grpc/Project/index.md#SetUnitBalance) | [setUnitBalance](Project/setUnitBalance.md) |
+| Возвращает баланс проекта | [GetUnitBalance](grpc/Project/getUnitBalance.md) | [getUnitBalance](Project/getUnitBalance.md) |
+| Устанавливает баланс проекта | [SetUnitBalance](grpc/Project/setUnitBalance.md) | [setUnitBalance](Project/setUnitBalance.md) |
 
 {% list tabs group=api_type %}
 

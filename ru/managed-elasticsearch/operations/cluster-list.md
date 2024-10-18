@@ -98,7 +98,7 @@ keywords:
 
 - API {#api}
 
-  Чтобы получить список операций, воспользуйтесь методом REST API [listOperations](../api-ref/Cluster/listOperations.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/ListOperations](../api-ref/grpc/Cluster/list.mdOperations) и передайте в запросе идентификатор кластера в параметре `clusterId`.
+  Чтобы получить список операций, воспользуйтесь методом REST API [listOperations](../api-ref/Cluster/listOperations.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/ListOperations](../api-ref/grpc/Cluster/listOperations.md) и передайте в запросе идентификатор кластера в параметре `clusterId`.
 
   {% include [get-cluster-id](../../_includes/managed-elasticsearch/get-cluster-id.md) %}
 

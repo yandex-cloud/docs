@@ -1,7 +1,7 @@
 
 # Вопросы и ответы про {{ ca-full-name }}
 
-#### Ошибка в Visual Studio Code при аутентификации {#crypto-is-not-defined}
+### Ошибка в Visual Studio Code при аутентификации {#crypto-is-not-defined}
 
 Текст ошибки:
 
@@ -29,6 +29,29 @@ OS: Windows_NT x64 10.0.19045
 
 См. также [Как узнать версию IDE](https://code.visualstudio.com/docs/setup/setup-overview#_how-do-i-know-which-version-im-running).
 
-#### Нужен ли для работы с {{ ca-name }} платежный аккаунт? {#billing-account}
+### Нужен ли для работы с {{ ca-name }} платежный аккаунт? {#billing-account}
 
 [Платежный аккаунт](../billing/concepts/billing-account.md) **не нужен**.
+
+### Работа в IDE от JetBrains {#jetbrains-ide}
+
+#### Плагин устанавливается некорректно {#plugin-installed-incorrectly}
+
+{% include [plugin-ide-zip](../_includes/code-assistant/plugin-ide-zip.md) %}
+
+#### Ошибка аутентификации с прокси {#auth-error-proxy}
+
+Текст ошибки:
+
+```text
+Failed to authenticate with proxy
+```
+
+Проверьте, не включен ли прокси-сервер в IDE. Если включен — отключите и попробуйте аутентифицироваться еще раз.
+
+#### Как получить логи работы IDE {#get-logs-ide}
+
+Если для решения проблем с {{ ca-short-name }} вы хотите обратиться в [техническую поддержку]({{ link-console-support }}), заранее подготовьте файл с логом IDE:
+
+1. В верхнем меню IDE нажмите **Help** и выберите **Show log in Explorer** (**Show Log in Finder** на macOS).
+1. В открывшемся окне скопируйте файл `idea.log` и приложите его к обращению в техническую поддержку.

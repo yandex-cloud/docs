@@ -35,6 +35,6 @@ description: Следуя данной инструкции, вы сможете
 
   Воспользуйтесь методом REST API [list](../../instancegroup/api-ref/InstanceGroup/list.md) для ресурса [InstanceGroup](../../instancegroup/api-ref/InstanceGroup/index.md) или вызовом gRPC API [InstanceGroupService/List](../../instancegroup/api-ref/grpc/InstanceGroup/list.md).
 
-  Список доступных групп запрашивайте методом REST API [listInstances](../../instancegroup/api-ref/InstanceGroup/listInstances.md) или вызовом gRPC API [InstanceGroupService/ListInstances](../../instancegroup/api-ref/grpc/InstanceGroup/list.mdInstances).
+  Список доступных групп запрашивайте методом REST API [listInstances](../../instancegroup/api-ref/InstanceGroup/listInstances.md) или вызовом gRPC API [InstanceGroupService/ListInstances](../../instancegroup/api-ref/grpc/InstanceGroup/listInstances.md).
 
 {% endlist %}

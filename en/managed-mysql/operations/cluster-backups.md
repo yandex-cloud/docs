@@ -458,7 +458,7 @@ The minimum host priority when creating backups is `0`, the maximum is `100`, an
 
 - API {#api}
 
-  To set the host priority, use the [updateHosts](../api-ref/Cluster/updateHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/UpdateHosts](../api-ref/grpc/Cluster/update.mdHosts) gRPC API call and provide the following in the request:
+  To set the host priority, use the [updateHosts](../api-ref/Cluster/updateHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/UpdateHosts](../api-ref/grpc/Cluster/updateHosts.md) gRPC API call and provide the following in the request:
 
   * Cluster ID in the `clusterId` parameter. You can get it with a [list of clusters in the folder](cluster-list.md#list-clusters).
   * Host name in the `updateHostSpecs.hostName` parameter. It may be retrieved with a [list of hosts in the cluster](hosts.md#list).

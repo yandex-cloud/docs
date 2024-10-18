@@ -656,7 +656,7 @@
 
 * API {#api}
 
-  Воспользуйтесь вызовом gRPC API [DatabaseService/UpdateAccessBindings](../api-ref/grpc/Database/update.mdAccessBindings) и передайте в запросе:
+  Воспользуйтесь вызовом gRPC API [DatabaseService/UpdateAccessBindings](../api-ref/grpc/Database/updateAccessBindings.md) и передайте в запросе:
 
   * Значение `ADD` в параметре `access_binding_deltas[].action`, чтобы добавить роль.
   * Роль в параметре `access_binding_deltas[].access_binding.role_id`.

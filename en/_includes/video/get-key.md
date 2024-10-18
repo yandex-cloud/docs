@@ -14,6 +14,6 @@
 
    To get the server address, use the [StreamLineService/Get](../../video/api-ref/grpc/StreamLine/get.md) gRPC API call.
 
-   To get the stream key, use the [StreamLineService/GetStreamKey](../../video/api-ref/grpc/StreamLine/get.mdStreamKey) gRPC API call.
+   To get the stream key, use the [StreamLineService/GetStreamKey](../../video/api-ref/grpc/StreamLine/getStreamKey.md) gRPC API call.
 
 {% endlist %}

@@ -260,7 +260,7 @@
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/PerformanceDiagnostics/listRawSessionStates.mdResponse).
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/PerformanceDiagnostics/listRawSessionStates.md#yandex.cloud.mdb.postgresql.v1.ListRawSessionStatesResponse).
 
 {% endlist %}
 
@@ -320,7 +320,7 @@
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/PerformanceDiagnostics/listRawStatements.mdResponse).
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/PerformanceDiagnostics/listRawStatements.md#yandex.cloud.mdb.postgresql.v1.ListRawStatementsResponse).
 
 {% endlist %}
 

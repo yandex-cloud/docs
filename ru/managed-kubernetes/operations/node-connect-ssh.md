@@ -229,6 +229,12 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
+  {% note warning %}
+
+  После изменения метаданных через [консоль управления]({{ link-console-main }}) группа узлов временно перейдет в статус `Reconciling`: все узлы в группе будут пересозданы для применения изменений.
+
+  {% endnote %}
+
   1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Выберите кластер {{ managed-k8s-name }}.
   1. На панели слева выберите **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}**.

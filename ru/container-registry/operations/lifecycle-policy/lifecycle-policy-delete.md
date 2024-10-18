@@ -83,6 +83,6 @@ description: Следуя данной инструкции, вы сможете
 
   Чтобы удалить политику, воспользуйтесь методом [Delete](../../api-ref/grpc/LifecyclePolicy/delete.md) для ресурса [LifecyclePolicyService](../../api-ref/grpc/LifecyclePolicy/index.md). В параметре `lifecycle_policy_id` укажите идентификатор политики.
 
-  Получить список политик удаления можно с помощью метода [List](../../api-ref/grpc/LifecyclePolicy/index.md#List) для ресурса [LifecyclePolicyService](../../api-ref/grpc/LifecyclePolicy/index.md).
+  Получить список политик удаления можно с помощью метода [List](../../api-ref/grpc/LifecyclePolicy/list.md) для ресурса [LifecyclePolicyService](../../api-ref/grpc/LifecyclePolicy/index.md).
 
 {% endlist %}

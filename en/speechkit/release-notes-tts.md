@@ -130,7 +130,7 @@ The `general` branch now has these new voices: `amira` and `john`.
 
 1. Added the ability to synthesize audio files in MP3 format. This feature is available in API v3 and when using premium voices in API v1.
 
-1. New voices now support roles (extended emotional tones). See the `emotion` parameter in [API v1](tts/request.md#body_params) and `role` in [API v3](tts-v3/api-ref/grpc/Synthesizer/index.md#Hints) for details. Different roles are available for different voices. For a complete list of values, see [{#T}](tts/voices.md). If an incorrect role is selected, the service will return an error.
+1. New voices now support roles (extended emotional tones). See the `emotion` parameter in [API v1](tts/request.md#body_params) and `role` in [API v3](tts-v3/api-ref/grpc/Synthesizer/utteranceSynthesis.md#speechkit.tts.v3.Hints) for details. Different roles are available for different voices. For a complete list of values, see [{#T}](tts/voices.md). If an incorrect role is selected, the service will return an error.
 
 1. Fixed the emphasis placement quality regression issue for the `alena` and `filipp` voices. Improved emphasis placement and subjective perception for all voices.
 

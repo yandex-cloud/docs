@@ -113,7 +113,7 @@ You can request detailed information about each {{ mkf-name }} cluster you creat
 
 - API {#api}
 
-   To get a list of operations, use the [listOperations](../api-ref/Cluster/listOperations.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/ListOperations](../api-ref/grpc/Cluster/list.mdOperations) gRPC API call.
+   To get a list of operations, use the [listOperations](../api-ref/Cluster/listOperations.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/ListOperations](../api-ref/grpc/Cluster/listOperations.md) gRPC API call.
 
 
 {% endlist %}
