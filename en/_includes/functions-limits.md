@@ -28,7 +28,7 @@ Unzipped ZIP archive from S3 bucket | 680 MB
 **Other restrictions** |
 Maximum size of the JSON structure of a [request](../functions/concepts/function-invoke.md#request) and [response](../functions/concepts/function-invoke.md#response) | 3.5 MB
 Maximum size of [temporary files](../functions/concepts/runtime/environment-variables.md#files) | 512 MB
-Maximum function execution time before [timeout](../functions/operations/function/version-manage.md), including original initialization at first call | 10 minutes
+Maximum function execution time before [timeout](../functions/operations/function/version-manage.md), including original initialization at first call | 1 hour
 Maximum total environment variable storage, including variable names^1^ | 4 KB
 Maximum number of [triggers](../functions/concepts/trigger/index.md) per [message queue](../message-queue/concepts/queue.md) | 1
 
@@ -37,8 +37,8 @@ Maximum number of [triggers](../functions/concepts/trigger/index.md) per [messag
 #### Other restrictions {#functions-other-restrictions}
 
 When installing dependencies:
-* The total time for installing dependencies is limited to **five minutes**. After it expires, the build will fail with an error.
-* For dependency installation, **1 GB** of RAM is allocated, of which **700 MB** is allocated for temporary file storage (tmpfs). Memory is consumed by active processes and files created and downloaded during the build.
-* **50%** of the CPU is available.
+  * The total time for installing dependencies is limited to **five minutes**. After it expires, the build will fail with an error.
+  * For dependency installation, **1 GB** of RAM is allocated, of which **700 MB** is allocated for temporary file storage (tmpfs). Memory is consumed by active processes and files created and downloaded during the build.
+  * **50%** of the CPU is available.
 
-If the build takes longer than five minutes or requires more resources, build the dependencies yourself and [download the function as a ZIP archive](../functions/operations/function/version-manage.md).
+  If the build takes longer than five minutes or requires more resources, build the dependencies yourself and [download the function as a ZIP archive](../functions/operations/function/version-manage.md).

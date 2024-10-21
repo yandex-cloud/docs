@@ -70,7 +70,7 @@ SELECT * FROM <соединение>.<имя_таблицы>
 
 Ограничения:
 1. {% include [!](_includes/supported_requests.md) %}
-1. В {{ yq-short-name }} используется [система типов](https://ydb.tech/docs/ru/yql/reference/types/primitive) {{ ydb-full-name }}. Однако диапазоны допустимых значений для типов, использующихся в {{ ydb-short-name }} при работе с датой и временем (`Date`, `Datetime`, `Timestamp`), зачастую оказываются недостаточно широкими для того, чтобы вместить значения соответствующих типов {{ CH }} (`Date`, `Date32`, `Datetime`, `Datetime64`). 
+1. В {{ yq-short-name }} используется [система типов]({{ ydb.docs }}/yql/reference/types/primitive) {{ ydb-full-name }}. Однако диапазоны допустимых значений для типов, использующихся в {{ ydb-short-name }} при работе с датой и временем (`Date`, `Datetime`, `Timestamp`), зачастую оказываются недостаточно широкими для того, чтобы вместить значения соответствующих типов {{ CH }} (`Date`, `Date32`, `Datetime`, `Datetime64`). 
 В связи с этим значения даты и времени, прочитанные из {{ CH }}, возвращаются {{ yq-short-name }} как обычные строки (тип `Utf8` для обычных колонок или тип `Optional<Utf8>` для [nullable](https://clickhouse.com/docs/ru/sql-reference/data-types/nullable) колонок) в формате [ISO-8601](https://www.iso.org/iso-8601-date-and-time-format.html).
 
 ## Пушдаун фильтров {#predicate_pushdown}

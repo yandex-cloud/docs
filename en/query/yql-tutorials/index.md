@@ -50,4 +50,4 @@ In the list on the left panel, choose a training section:
 
 #### See also {#see-also}
 
-[{{ yql-short-name }} syntax](https://ydb.tech/docs/en/yql/reference/syntax/)
+[{{ yql-short-name }} syntax]({{ ydb.docs }}/yql/reference/syntax/)

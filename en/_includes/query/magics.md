@@ -130,7 +130,7 @@ Example of using `yandex_query_magic` and the mustache syntax with a Python dict
    dct = {"a": "1", "b": "2", "c": "test", "d": "4"}
    ```
 
-   Now you can use the `dct` variable in {{ yq-name }} queries. When executing a query, `dct` will convert into a mapping [YQL Dict](https://ydb.tech/docs/ru/yql/reference/builtins/dict) object:
+   Now you can use the `dct` variable in {{ yq-name }} queries. When executing a query, `dct` will convert into a mapping [YQL Dict]({{ ydb.docs }}/yql/reference/builtins/dict) object:
 
    | Key | Value |
    |---|---|
@@ -171,7 +171,7 @@ Example of using `yandex_query_magic` and the mustache syntax with a Python list
    lst = [1,2,3]
    ```
 
-   Then, you can use the `lst` variable in {{ yq-name }} queries. When executing a query, `lst` will convert into a mapping [YQL Dict](https://ydb.tech/docs/ru/yql/reference/types/containers) object:
+   Then, you can use the `lst` variable in {{ yq-name }} queries. When executing a query, `lst` will convert into a mapping [YQL Dict]({{ ydb.docs }}/yql/reference/types/containers) object:
 
 1. Get the data:
 

@@ -565,6 +565,7 @@ default:
   roles-monitoring-viewer: monitoring.viewer
   roles-organization-admin: organization-manager.admin
   roles-organization-owner: organization-manager.organizations.owner
+  roles-resource-manager-editor: resource-manager.editor
   roles-search-api-executor: search-api.executor
   roles-speechkit-stt: ai.speechkit-stt.user
   roles-speechkit-tts: ai.speechkit-tts.user
@@ -849,6 +850,7 @@ default:
     requests:
       v1|pricingRate:
         '0':
+          1|number: 600,00
           1|string: "600,00\_₸"
       v1|string: Не тарифицируется
   sku|KZT|audit-trails:
@@ -1979,6 +1981,7 @@ default:
     requests:
       v1|pricingRate:
         '0':
+          1|number: 120,00
           1|string: "120,00\_₽"
       v1|string: Не тарифицируется
   sku|RUB|audit-trails:
@@ -3109,6 +3112,7 @@ default:
     requests:
       v1|pricingRate:
         '0':
+          1|number: 0,960000
           1|string: "0,960000\_$"
       v1|string: Не тарифицируется
   sku|USD|audit-trails:

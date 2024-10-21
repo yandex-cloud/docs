@@ -18,4 +18,4 @@ sourcePath: overlay/concepts/limits.md
 
 #### Лимиты {#ydb-limits}
 
-О лимитах базы данных {{ ydb-short-name }} читайте в [документации](https://ydb.tech/docs/ru/concepts/limits-ydb).
+О лимитах базы данных {{ ydb-short-name }} читайте в [документации]({{ ydb.docs }}/concepts/limits-ydb).

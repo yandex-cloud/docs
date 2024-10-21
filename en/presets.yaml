@@ -787,7 +787,7 @@ default:
     aws-ep: >-
       https://docapi.serverless.yandexcloud.net/ru-central1/b1gia87mbaomkfvs6rgl/etnudu2n9ri35luqe4h1
     cli: ydb
-    docs: https://ydb.tech/en/docs/
+    docs: https://ydb.tech/docs/en/
     document-api-endpoint: https://docapi.serverless.yandexcloud.net
     ep-dedicated: grpcs://lb.etnk1u65e4shtgj338va.ydb.mdb.yandexcloud.net:2135
     ep-serverless: grpcs://ydb.serverless.yandexcloud.net:2135
@@ -825,6 +825,7 @@ default:
     requests:
       v1|pricingRate:
         '0':
+          1|number: '600.00'
           1|string: ₸600.00
       v1|string: Free
   sku|KZT|audit-trails:
@@ -1955,6 +1956,7 @@ default:
     requests:
       v1|pricingRate:
         '0':
+          1|number: '120.00'
           1|string: ₽120.00
       v1|string: Free
   sku|RUB|audit-trails:
@@ -3085,6 +3087,7 @@ default:
     requests:
       v1|pricingRate:
         '0':
+          1|number: '0.960000'
           1|string: $0.960000
       v1|string: Free
   sku|USD|audit-trails:

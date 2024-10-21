@@ -4,7 +4,7 @@
 
 {% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
 
-{{ postbox-name }} cost depends on the number of sent emails per month. All emails accepted for sending are charged, regardless of whether they have been actually delivered. If one email is sent to multiple recipients, the number of outgoing emails is the same as the number of such recipients.
+{{ postbox-name }} cost depends on the number of sent emails per month. All emails accepted for sending are charged, regardless of whether they have been actually delivered. If one email is sent to multiple recipients, the number of outbound emails is the same as the number of such recipients.
 
 {% include [not-charged-postbox.md](../_includes/pricing/price-formula/not-charged-postbox.md) %}
 

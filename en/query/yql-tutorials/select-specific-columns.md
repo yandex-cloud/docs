@@ -23,9 +23,9 @@ LIMIT 10
 Take a look at the example on the right and click ![run](../../_assets/console-icons/play-fill.svg) **{{ ui-key.yql.yq-query-actions.run-query.button-text }}**.
 Query results are available in the **{{ ui-key.yql.yq-query-results.result.tab-text }}** tab as a table or schema.
 
-## See also {#see-also}
+#### See also {#see-also}
 
-* [SELECT](https://ydb.tech/docs/en/yql/reference/syntax/select).
-* [YQL data types](https://ydb.tech/docs/en/yql/reference/types/).
-* [Type casting in YQL](https://ydb.tech/docs/en/yql/reference/types/cast).
-* [Functions for dates](https://ydb.tech/docs/en/yql/reference/udf/list/datetime).
+* [SELECT]({{ ydb.docs }}/yql/reference/syntax/select)
+* [YQL data types]({{ ydb.docs }}/yql/reference/types/)
+* [Type casting in YQL]({{ ydb.docs }}/yql/reference/types/cast)
+* [Functions for dates]({{ ydb.docs }}/yql/reference/udf/list/datetime)

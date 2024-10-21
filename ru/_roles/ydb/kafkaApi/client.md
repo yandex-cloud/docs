@@ -1,1 +1,1 @@
-Роль `ydb.kafkaApi.client` позволяет работать с `ydb` по протоколу [Kafka API](https://ydb.tech/docs/ru/reference/kafka-api) с использованием plain-аутентификации через SSL-соединение.
+Роль `ydb.kafkaApi.client` позволяет работать с `ydb` по протоколу [Kafka API]({{ ydb.docs }}/reference/kafka-api) с использованием plain-аутентификации через SSL-соединение.

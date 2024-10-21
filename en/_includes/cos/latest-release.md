@@ -1,3 +1,3 @@
-## Version 3.0.0 {#latest-release}
+## Version 3.1.0 {#latest-release}
 
-* Upgraded to Ubuntu 22.04.
+* {{ coi }} is now available in the Kazakhstan [region](../../overview/concepts/region.md). To work with Docker images as a service account linked to a VM running {{ coi }}, you will use {{ container-registry-full-name }} of the same region as the VM.

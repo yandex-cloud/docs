@@ -4,9 +4,9 @@ The application is run in a virtual environment.
 
 Runtime environment characteristics:
 
-* Operating system: Ubuntu 22.04 LTS.
-* Linux kernel: 5.15.
-* Architecture: AMD64.
+* Operating system: Ubuntu 22.04 LTS
+* Linux kernel: 5.15
+* Architecture: AMD64
 
 ## Supported languages and images {#image}
 
@@ -24,9 +24,9 @@ After receiving a request, a container instance must send a response within the 
 
 The table provides a list of environment variables defined in the {{ serverless-containers-name }} runtime and available to an application. You cannot override these.
 
-| Key | Value |
+Key | Value
 ---- | ----
-| PORT | Network port the runtime uses to send HTTP requests to an application. |
+PORT | Network port the runtime uses to send HTTP requests to an application.
 
 You can add other environment variables when you [create a container revision](../operations/manage-revision.md#create) or build a [Docker image](../../container-registry/concepts/docker-image.md). The [limit](./limits.md#serverless-containers-limits) for maximum environment variable size, including variable names, is 4 KB.
 
@@ -44,7 +44,7 @@ The file system is stored in RAM. Data written to the file system is not saved w
 
 ### CPU {#cpu}
 
-A CPU resource is allocated whenever a container instance is processing at least one request. Currently, no more than 2 vCPUs may be allocated.
+A CPU resource is allocated whenever a container instance is processing at least one request. Currently, no more than 4 vCPUs can be allocated.
 
 ### RAM {#ram}
 
@@ -60,10 +60,12 @@ For example, RAM is consumed for:
 
 The number of available cores depends on the specified RAM size.
 
-| RAM | CPU |
+RAM | CPU
 --- | ---
-| 128 MB to less than 4 GB | 1 vCPU with a guaranteed vCPU share up to 100% |
-| 4 GB | 2 vCPUs with a guaranteed vCPU share of 100% |
+128 MB to less than 4 GB | 1 vCPU with a guaranteed vCPU share up to 100% 
+4 GB to less than 6 GB | 2 vCPU with a guaranteed vCPU share up to 100%
+6 GB to less than 8 GB | 3 vCPU with a guaranteed vCPU share up to 100%
+8 GB | 4 vCPU with a guaranteed vCPU share up to 100%
 
 ## Metadata service {#metadata}
 

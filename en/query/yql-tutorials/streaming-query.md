@@ -22,9 +22,9 @@ GROUP BY
     HOP(Just(CAST(tpep_pickup_datetime AS Timestamp)), "PT1M", "PT1M", "PT1M");
 ```
 
-## See also {#see-also}
+#### See also {#see-also}
 
-* [SELECT](https://ydb.tech/docs/en/yql/reference/syntax/select).
-* [GROUP BY](https://ydb.tech/docs/en/yql/reference/syntax/group_by).
-* [HOP](../concepts/stream-processing-windows.md).
-* [Aggregate functions](https://ydb.tech/docs/en/yql/reference/builtins/aggregation).
+* [SELECT]({{ ydb.docs }}/yql/reference/syntax/select)
+* [GROUP BY]({{ ydb.docs }}/yql/reference/syntax/group_by)
+* [HOP](../concepts/stream-processing-windows.md)
+* [Aggregate functions]({{ ydb.docs }}/yql/reference/builtins/aggregation)

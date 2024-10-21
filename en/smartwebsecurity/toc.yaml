@@ -72,7 +72,7 @@ items:
         href: tutorials/balancer-with-sws-profile.md
       - name: Creating an L7 load balancer with DDoS protection at OSI L3-L4
         items:
-          - name: Summary
+          - name: Overview
             href: tutorials/alb-with-ddos-protection/index.md
           - name: Management console, CLI
             href: tutorials/alb-with-ddos-protection/console.md

@@ -87,4 +87,4 @@
         -X ssl.ca.location=/usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt -Z
     ```
 
-Основную документацию по работе с {{ yds-name }} через Kafka API и больше примеров см. в [документации YDB](https://ydb.tech/docs/ru/reference/kafka-api).
+Основную документацию по работе с {{ yds-name }} через Kafka API и больше примеров см. в [документации YDB]({{ ydb.docs }}/reference/kafka-api).

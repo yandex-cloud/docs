@@ -25,7 +25,7 @@ You can only create data bindings for file-based data sources, i.e., to {{ objst
 
 ## Query {#query}
 
-A _query_ is an expression that is written in [YQL](https://ydb.tech/docs/en/yql/reference/syntax/), an SQL dialect, and used for data operations. A query consists of YQL statements and information about a [connection](#connection) or [binding](#binding). When using a connection, you need to specify a [data schema](#schema).
+A _query_ is an expression that is written in [YQL]({{ ydb.docs }}/yql/reference/syntax/), an SQL dialect, and used for data operations. A query consists of YQL statements and information about a [connection](#connection) or [binding](#binding). When using a connection, you need to specify a [data schema](#schema).
 
 Using {{ yq-full-name }} queries, you can perform [batch](batch-processing.md) and [streaming](./stream-processing.md) data processing.
 

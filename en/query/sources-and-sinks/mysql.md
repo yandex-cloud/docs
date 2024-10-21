@@ -69,7 +69,7 @@ Where:
 There are several limitations when working with {{ MY }} clusters.
 
 * {% include [!](_includes/supported_requests.md) %}
-* {{ yq-short-name }} uses the {{ ydb-full-name }} [type system](https://ydb.tech/docs/ru/yql/reference/types/primitive). However, the ranges of acceptable values for types used in {{ ydb-short-name }} for date and time operations (`Date`, `Datetime`, and `Timestamp`) often turn out to be insufficiently wide to cover the values of the relevant {{ MY }} types (`date`, `datetime`, and `timestamp`). Therefore, {{ yq-short-name }} returns date and time values read from {{ MY }} as plain strings (the `Optional<Utf8>` type) in [ISO-8601](https://www.iso.org/iso-8601-date-and-time-format.html) format.
+* {{ yq-short-name }} uses the {{ ydb-full-name }} [type system]({{ ydb.docs }}/yql/reference/types/primitive). However, the ranges of acceptable values for types used in {{ ydb-short-name }} for date and time operations (`Date`, `Datetime`, and `Timestamp`) often turn out to be insufficiently wide to cover the values of the relevant {{ MY }} types (`date`, `datetime`, and `timestamp`). Therefore, {{ yq-short-name }} returns date and time values read from {{ MY }} as plain strings (the `Optional<Utf8>` type) in [ISO-8601](https://www.iso.org/iso-8601-date-and-time-format.html) format.
 
 ## Filter pushdown {#predicate_pushdown}
 
@@ -77,7 +77,7 @@ There are several limitations when working with {{ MY }} clusters.
 
 ## Supported data types {#supported_types}
 
-In a MySQL DB, the optionality of column values (whether or not the column can contain `NULL` values) does not depend on the type system. The `NOT NULL` constraint for any column of any table is stored as a value of the `IS_NULLABLE` column in the [INFORMATION_SCHEMA.COLUMNS](https://dev.mysql.com/doc/refman/8.4/en/information-schema-columns-table.html) system table, i.e., at the table metadata level. Thus, by default, all {{ MY }} base types can contain `NULL` values and the {{ yq-short-name }} type system will represent them as [optional](https://ydb.tech/docs/ru/yql/reference/types/optional) types. 
+In a MySQL DB, the optionality of column values (whether or not the column can contain `NULL` values) does not depend on the type system. The `NOT NULL` constraint for any column of any table is stored as a value of the `IS_NULLABLE` column in the [INFORMATION_SCHEMA.COLUMNS](https://dev.mysql.com/doc/refman/8.4/en/information-schema-columns-table.html) system table, i.e., at the table metadata level. Thus, by default, all {{ MY }} base types can contain `NULL` values and the {{ yq-short-name }} type system will represent them as [optional]({{ ydb.docs }}/yql/reference/types/optional) types. 
 
 The table below shows how {{ MY }} and {{ yq-full-name }} types map. All other data types except those listed are not supported.
 
