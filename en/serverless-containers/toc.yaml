@@ -77,7 +77,7 @@ items:
             href: operations/environment-variables-add.md
           - name: Specifying a cloud network
             href: operations/network-add.md
-          - name: Transmitting {{ lockbox-full-name }} secrets
+          - name: Transferring {{ lockbox-full-name }} secrets
             href: operations/lockbox-secret-transmit.md
           - name: Mounting a bucket
             href: operations/mount-bucket.md
@@ -131,7 +131,7 @@ items:
             href: operations/data-streams-trigger-create.md
           - name: Creating an email trigger
             href: operations/mail-trigger-create.md
-      - name: Managing triggers
+      - name: Managing a trigger
         items:
           - name: Updating a trigger
             href: operations/trigger-update.md
@@ -149,6 +149,10 @@ items:
         href: concepts/container.md
       - name: Invoking a container
         href: concepts/invoke.md
+      - name: Long-lived containers
+        href: concepts/long-lived-containers.md
+      - name: Container termination notifications
+        href: concepts/termination-notifications.md
       - name: Networking
         href: concepts/networking.md
       - name: Runtime environment
@@ -177,7 +181,7 @@ items:
             href: concepts/trigger/data-streams-trigger.md
           - name: Email trigger
             href: concepts/trigger/mail-trigger.md
-      - name: Dead letter queue
+      - name: Dead-letter queue
         href: concepts/dlq.md
       - name: Container logs
         href: concepts/logs.md
@@ -194,12 +198,10 @@ items:
       - name: Building a CI/CD pipeline in {{ GL }} using serverless products
         href: tutorials/ci-cd-serverless.md
       - name: >-
-          Configuring the connection to {{ mpg-full-name }} from a {{
+          Setting up a {{ mpg-full-name }} connection from a {{
           serverless-containers-name }} container
         href: tutorials/pg-connect.md
-      - name: >-
-          Running a containerized application in {{
-          serverless-containers-full-name }}
+      - name: Running a containerized app in {{ serverless-containers-full-name }}
         href: tutorials/deploy-app-container.md
   - name: Access management
     href: security/index.md

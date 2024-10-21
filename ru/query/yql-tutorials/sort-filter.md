@@ -23,8 +23,8 @@ LIMIT 10                    -- Взять только 10 записей.
 Рассмотрите пример в блоке справа и нажмите кнопку ![run](../../_assets/console-icons/play-fill.svg) **{{ ui-key.yql.yq-query-actions.run-query.button-text }}**.
 Результат выполнения запроса отобразится на вкладке **{{ ui-key.yql.yq-query-results.result.tab-text }}** в виде таблицы или схемы.
 
-## Смотрите также {#see-also}
+#### См. также {#see-also}
 
-* Оператор [SELECT](https://ydb.tech/docs/ru/yql/reference/syntax/select).
-* Оператор [WHERE](https://ydb.tech/docs/ru/yql/reference/syntax/select#where).
-* Оператор [ORDER BY](https://ydb.tech/docs/ru/yql/reference/syntax/select#order-by).
+* Оператор [SELECT]({{ ydb.docs }}/yql/reference/syntax/select)
+* Оператор [WHERE]({{ ydb.docs }}/yql/reference/syntax/select#where)
+* Оператор [ORDER BY]({{ ydb.docs }}/yql/reference/syntax/select#order-by)

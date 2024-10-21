@@ -1,6 +1,6 @@
 # SDK
 
-{{ yq-full-name }} построен на основе [внешних таблиц {{ ydb-short-name }}](https://ydb.tech/docs/ru/concepts/datamodel/external_table), поэтому для взаимодействия с сервисом используется [{{ ydb-short-name }} SDK](https://ydb.tech/docs/ru/reference/ydb-sdk/).
+{{ yq-full-name }} построен на основе [внешних таблиц {{ ydb-short-name }}]({{ ydb.docs }}/concepts/datamodel/external_table), поэтому для взаимодействия с сервисом используется [{{ ydb-short-name }} SDK]({{ ydb.docs }}/reference/ydb-sdk/).
 
 C помощью {{ ydb-short-name }} SDK возможно использование {{ yq-full-name }} в различных языках программирования:
 * [Java SDK](https://github.com/ydb-platform/ydb-java-sdk).
@@ -68,7 +68,7 @@ with ydb.SessionPool(driver) as pool:
     return pool.retry_operation_sync(callee)
 ```
 
-{{ ydb-short-name }} поддерживает несколько способов выполнения запроса: обычный, scripting-запрос, [скан-запрос](https://ydb.tech/docs/ru/concepts/scan_query) и query-запрос.
+{{ ydb-short-name }} поддерживает несколько способов выполнения запроса: обычный, scripting-запрос, [скан-запрос]({{ ydb.docs }}/concepts/scan_query) и query-запрос.
 
 {% note info %}
 

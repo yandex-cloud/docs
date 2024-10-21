@@ -7,6 +7,49 @@ description: На странице представлены релизы YC CLI,
 
 ## Текущая версия {#latest-release}
 
+## Версия 0.136.0 (21.10.24) {#version0.136.0}
+
+### Изменения в CLI {#cli}
+
+* В команде `yc init` теперь не предлагается зона `ru-central1-c`, поскольку она больше не используется.
+
+### Изменения в сервисах {{ yandex-cloud }} {#services}
+
+#### {{ alb-name }} {#alb}
+
+* В команды `yc application-load-balancer load-balancer add-stream-listener`, `yc application-load-balancer load-balancer update-stream-listener`, `yc application-load-balancer load-balancer add-stream-sni`, `yc application-load-balancer load-balancer update-stream-sni` добавлен параметр `--idle-timeout`, позволяющий указать таймаут неактивности соединения. 
+
+#### {{ er-name }} {#eventrouter}
+
+* Дополнена валидация параметров для команды `yc serverless eventrouter`.
+* Исправлена ошибка при вызове `yc serverless eventrouter put-event`.
+
+#### {{ objstorage-name }}
+
+* Добавлена возможность проставить `--storage-endpoint` с помощью `yc config set`. Если пользователь не указал явно `--storage-endpoint`, то эндпоинт будет получен из `ApiEndpointService`.
+
+#### Сервисы управляемых баз данных {#managed-db}
+
+**{{ mrd-name }}**
+
+* В команды: `yc managed-redis cluster create`, `yc managed-redis cluster restore`, `yc managed-redis cluster update-config` добавлены параметры:
+  * `--lua-time-limit`,
+  * `--repl-backlog-size-percent`,
+  * `--cluster-require-full-coverage`,
+  * `--cluster-allow-reads-when-down`,
+  * `--cluster-allow-pubsubshard-when-down`,
+  * `--lfu-decay-time`,
+  * `--lfu-log-factor`,
+  * `--turn-before-switchover`,
+  * `--allow-data-loss`.
+
+#### {{ yc-mdb-mg }}, {{ yc-mdb-ch }}, {{ yc-mdb-gp }}, {{ yc-mdb-pg }}, {{ yc-mdb-rd }}, {{ yc-mdb-my }}, {{ yc-mdb-kf }}, {{ yc-mdb-es }}, {{ yc-mdb-os }}
+
+* Уточнено описание параметров `--disk-size`, по умолчанию размер диска передается в GB.
+
+
+## Предыдущие релизы {#previous-releases}
+
 ### Версия 0.135.0 (07.10.24) {#version0.135.0}
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
@@ -22,8 +65,6 @@ description: На странице представлены релизы YC CLI,
 ##### {{load-testing-name}}
 
 * В команду `yc loadtesting agent create` добавлены параметры `log-group-id` и `log-group-name` для указания целевой лог-группы для отправки логов агента нагрузочного тестирования.
-
-## Предыдущие релизы {#previous-releases}
 
 ### Версия 0.134.0 (02.10.24) {#version0.134.0}
 

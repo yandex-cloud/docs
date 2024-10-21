@@ -1,4 +1,4 @@
-The name of the metric is written in the `name` label.
+The metric name is written in the `name` label.
 
 Common labels for all {{ mgp-name }} metrics:
 
@@ -56,7 +56,7 @@ Additional labels: `dev` for disk ID in the system.
 | `diskio.read_time`<br/>`DGAUGE`, ms | Disk read time |
 | `diskio.reads`<br/>`DGAUGE`, number | Number of disk reads |
 | `diskio.weighted_io_time`<br/>`DGAUGE`, ms | Waiting time for I/O operations |
-| `diskio.write_bytes`<br/>`DGAUGE`, bytes | Bytes written to disk |
+| `diskio.write_bytes`<br/>`DGAUGE`, bytes | Bytes written to disk  |
 | `diskio.write_time`<br/>`DGAUGE`, ms | Disk write time |
 | `diskio.writes`<br/>`DGAUGE`, number | Number of disk writes |
 
@@ -120,7 +120,7 @@ Additional labels: `dev` for disk ID in the system.
 | `net.icmp_inparmprobs`<br/>`DGAUGE`, number | Number of ICMP Parameter Problem messages received |
 | `net.icmp_inredirects`<br/>`DGAUGE`, number | Number of ICMP redirect messages received  |
 | `net.icmp_insrcquenchs`<br/>`DGAUGE`, number | Number of ICMP Source Quench messages received  |
-| `net.icmp_intimeexcds`<br/>`DGAUGE`, number | Number of ICMP Time Exceeded messages received is greater than that of messages received  |
+| `net.icmp_intimeexcds`<br/>`DGAUGE`, number | Number of ICMP Time Exceeded messages received is greater than that of messages received  | 
 | `net.icmp_intimestampreps`<br/>`DGAUGE`, number | Number of ICMP timestamp reply messages received  |
 | `net.icmp_intimestamps`<br/>`DGAUGE`, number | Number of ICMP timestamp messages (requests) received  |
 | `net.icmp_outaddrmaskreps`<br/>`DGAUGE`, number | Number of ICMP Address Mask Reply messages sent  |
@@ -129,11 +129,11 @@ Additional labels: `dev` for disk ID in the system.
 | `net.icmp_outechoreps`<br/>`DGAUGE`, number | Number of ICMP Echo Reply messages sent  |
 | `net.icmp_outechos`<br/>`DGAUGE`, number | Number of ICMP Echo messages (requests) sent  |
 | `net.icmp_outerrors`<br/>`DGAUGE`, number | Number of ICMP messages this object did not send due to problems discovered within ICMP, such as a lack of buffers  |
-| `net.icmp_outmsgs`<br/>`DGAUGE`, number | Total number of ICMP messages which this object attempted to send. This includes all messages counted by `icmp_outerrors`.  |
+| `net.icmp_outmsgs`<br/>`DGAUGE`, number | Total number of ICMP messages which this object attempted to send. This includes all messages counted by `icmp_outerrors`.  | 
 | `net.icmp_outparmprobs`<br/>`DGAUGE`, number | Number of ICMP Parameter Problem messages sent  |
 | `net.icmp_outredirects`<br/>`DGAUGE`, number | Number of Redirect Route messages sent  |
 | `net.icmp_outsrcquenchs`<br/>`DGAUGE`, number | Number of ICMP Source Quench messages sent  |
-| `net.icmp_outtimeexcds`<br/>`DGAUGE`, number | Number of ICMP Time Exceeded messages sent is greater than that of messages sent  | 
+| `net.icmp_outtimeexcds`<br/>`DGAUGE`, number | Number of ICMP Time Exceeded messages sent is greater than that of messages sent  |
 | `net.icmp_outtimestampreps`<br/>`DGAUGE`, number | Number of ICMP timestamp reply messages sent  |
 | `net.icmp_outtimestamps`<br/>`DGAUGE`, number | Number of ICMP timestamp messages sent  |
 | `net.icmpmsg_intype0`<br/>`DGAUGE`, number | Number of ICMP Type 0 (Echo Reply) messages received  |
@@ -344,29 +344,29 @@ Additional labels: `dev` for disk ID in the system.
 ## Service metrics {#managed-greenplum-metrics}
 | Name<br/>Type, units | Description |
 | ----- | ----- |
-| `gp.conn_aborted`<br/>`DGAUGE`, number | Number of DB connections The connection status is `aborted`. |
-| `gp.conn_active`<br/>`DGAUGE`, number | Number of DB connections The connection status is `active`. |
-| `gp.conn_count`<br/>`DGAUGE`, number | Number of DB connections |
-| `gp.conn_idle`<br/>`DGAUGE`, number | Number of DB connections The connection status is `idle`. |
-| `gp.conn_idle_in_transaction`<br/>`DGAUGE`, number | Number of DB connections The connection status is `idle_in_transaction`. |
+| `gp.conn_aborted`<br/>`DGAUGE`, number | Number of DB connections. The connection status is `aborted`. |
+| `gp.conn_active`<br/>`DGAUGE`, number | Number of DB connections. The connection status is `active`. |
+| `gp.conn_count`<br/>`DGAUGE`, number | Number of DB connections. |
+| `gp.conn_idle`<br/>`DGAUGE`, number | Number of DB connections. The connection status is `idle`. |
+| `gp.conn_idle_in_transaction`<br/>`DGAUGE`, number | Number of DB connections. The connection status is `idle_in_transaction`. |
 | `gp.conn_user_count`<br/>`DGAUGE`, number | Number of established user DB connections  |
 | `gp.conn_waiting`<br/>`DGAUGE`, number | Number of pending DB connections | 
 | `gp.connect_percent`<br/>`DGAUGE`, % | Percentage of connections |
 | `gp.has_alive`<br/>`DGAUGE` | Healthy segment indicator. `1` if all segments function properly, `0` if there are no operational segments.  |
 | `gp.has_dead`<br/>`DGAUGE` | Dead segment indicator. `1` if there are failed segments, `0` if there are none.  |
-| `gp.is_alive`<br/>`DGAUGE` | Host health indicator.<br/>`1` if a DB host is alive, `0` if it is not. |
-| `gp.is_alive_segment`<br/>`DGAUGE` | Segment host health indicator.<br/>`1` if a DB host is alive, `0` if it is not. |
-| `gp.is_dead`<br/>`DGAUGE` | Host health indicator.<br/>`0` if a DB host is alive, `1` if it is not. |
-| `gp.is_master`<br/>`DGAUGE` | Host type indicator.<br/>`1` if it is a DB master host, `0` if it is not. |
+| `gp.is_alive`<br/>`DGAUGE` | Host health indicator.<br/>`1` if a DB host is alive, `0` if not. |
+| `gp.is_alive_segment`<br/>`DGAUGE` | Segment host health indicator.<br/>`1` if a DB host is alive, `0` if not. |
+| `gp.is_dead`<br/>`DGAUGE` | Host health indicator.<br/>`0` if a DB host is alive, `1` if not. |
+| `gp.is_master`<br/>`DGAUGE` | Host type indicator.<br/>`1` if it is a DB master host, `0` if not. |
 | `gp.master_replication_state`<br/>`DGAUGE` | Master replication state |
-| `gp.percent_xid_wraparound`<br/>`DGAUGE`, % | Using a transaction ID sequence.<br/>Additional labels: `db_name`. |
+| `gp.percent_xid_wraparound`<br/>`DGAUGE`, % | Using a transaction ID sequence.<br/>Additional labels: `db_name` |
 | `gp.ping`<br/>`DGAUGE` | <br/>Additional labels: `can_read`, `is_master`, and `can_write`|
-| `gp.pxf_is_alive`<br/>`DGAUGE` | PXF extension availability indicator |
+| `gp.pxf_is_alive`<br/>`DGAUGE` | PXF extension availability indicator. |
 | `gp.replication_lag_mb`<br/>`DGAUGE`, megabytes | Data replication lag between the primary and mirror segments  |
-| `gp.rg_cpu_used`<br/>`DGAUGE` | CPU allocation between resource groups.<br/>Additional labels: `resgroup`. |
-| `gp.rg_mem_available`<br/>`DGAUGE` | Available RAM allocation between resource groups.<br/>Additional labels: `resgroup`. |
-| `gp.rg_mem_used`<br/>`DGAUGE` | Used RAM allocation between resource groups.<br/>Additional labels: `resgroup`. |
-| `gp.seg_count`<br/>`DGAUGE`, number | Number of segments in the cluster |
+| `gp.rg_cpu_used`<br/>`DGAUGE` | CPU allocation between resource groups.<br/>Additional labels: `resgroup` |
+| `gp.rg_mem_available`<br/>`DGAUGE` | Available RAM allocation between resource groups.<br/>Additional labels: `resgroup` |
+| `gp.rg_mem_used`<br/>`DGAUGE` | Used RAM allocation across resource groups.<br/>Additional labels: `resgroup` |
+| `gp.seg_count`<br/>`DGAUGE`, number | Number of segments in the cluster | 
 | `gp.seg_down`<br/>`DGAUGE` | Segments that are down |
 | `gp.seg_not_pref_role`<br/>`DGAUGE`, number | Number of segments not operating in their preferred roles (e.g., a primary segment is acting as a mirror segment or vice versa)  |
 | `gp.seg_not_synch`<br/>`DGAUGE` | Unsynced segments |
@@ -391,7 +391,7 @@ Additional labels: `dev` for disk ID in the system.
 
 ## Cluster expansion metrics {#managed-greenplum-expand-metrics}
 
-These metrics enable monitoring the cluster expansion progress.
+These metrics enable monitoring the [cluster expansion](../../../managed-greenplum/concepts/expand.md) progress.
 
 | Name<br/>Type, units | Description |
 | ------------------------------ | -------- |
@@ -486,7 +486,7 @@ Additional labels:
 | `snmp.ipindiscards`<br/>`DGAUGE`, number | Number of input IP packets encountering no problems preventing their further processing but still dropped, e.g., for lack of buffer space. This counter does not include the packets dropped while awaiting reassembly (SNMP). |
 | `snmp.ipinhdrerrors`<br/>`DGAUGE`, number | Number of input packets with header errors (SNMP) |
 | `snmp.ipinreceives`<br/>`DGAUGE`, number | Total number of input packets received from interfaces, including those received through error (SNMP) |
-| `snmp.ipinunknownprotos`<br/>`DGAUGE`, number | Number of unknown protocol packets received (SNMP) |
+| `snmp.ipinunknownprotos`<br/>`DGAUGE`, number |Number of unknown protocol packets received (SNMP) |
 | `snmp.ipoutdiscards`<br/>`DGAUGE`, number | Number of output IP packets encountering no problems preventing transmission to their destination but still dropped, e.g., for lack of buffer space. Note that the counter would include packets counted in `snmp.ipforwdatagrams` if they met this (discretionary) discard criterion (SNMP). |
 | `snmp.ipoutnoroutes`<br/>`DGAUGE`, number | Number of IP packets dropped because no route could be found to transmit them to their destination. This counter includes all the packets counted in `snmp.ipforwdatagrams` that meet this no-route criterion. This includes any packets a host cannot redirect because all its default gateways are down. |
 | `snmp.ipoutrequests`<br/>`DGAUGE`, number | Total number of IP packets which local IP user protocols (including ICMP) supplied to IP in requests for transmission. This counter does not include the packets counted in `snmp.ipforwdatagrams` (SNMP). |
@@ -543,8 +543,8 @@ Additional labels:
 | `snmp6.icmp6inrouteradvertisements`<br/>`DGAUGE`, number | Number of ICMPv6 Router Advertisements (SNMP) |
 | `snmp6.icmp6inroutersolicits`<br/>`DGAUGE`, number | Number of ICMPv6 Router Solicitation requests (SNMP) |
 | `snmp6.icmp6intimeexcds`<br/>`DGAUGE`, number | Number of ICMPv6 Time Exceeded messages received is greater than that of messages received (SNMP) |
-| `snmp6.icmp6intype1`<br/>`DGAUGE`, number | Number of incoming ICMPv6 Type 3 (Destination Unreachable) messages (SNMP) |
-| `snmp6.icmp6intype128`<br/>`DGAUGE`, number | Number of incoming ICMP Type 128 (Echo Request) messages (SNMP) |
+| `snmp6.icmp6intype1`<br/>`DGAUGE`, number | Number of incoming ICMPv6 Type 1 (Destination Unreachable) messages (SNMP) |
+| `snmp6.icmp6intype128`<br/>`DGAUGE`, number | Number of incoming ICMPv6 Type 128 (Echo Request) messages (SNMP) |
 | `snmp6.icmp6intype134`<br/>`DGAUGE`, number | Number of incoming ICMPv6 Type 134 (Router Solicitation) messages (SNMP) |
 | `snmp6.icmp6intype135`<br/>`DGAUGE`, number | Number of incoming ICMPv6 Type 135 (Neighbor Solicitation) messages (SNMP) |
 | `snmp6.icmp6intype136`<br/>`DGAUGE`, number | Number of incoming ICMPv6 Type 136 (Neighbor Advertisement) messages (SNMP) |
@@ -565,14 +565,14 @@ Additional labels:
 | `snmp6.icmp6outrouteradvertisements`<br/>`DGAUGE`, number | Number of ICMPv6 Router Advertisements sent (SNMP) |
 | `snmp6.icmp6outroutersolicits`<br/>`DGAUGE`, number | Number of ICMPv6 Router Solicitation requests sent (SNMP) |
 | `snmp6.icmp6outtimeexcds`<br/>`DGAUGE`, number | Number of ICMPv6 Time Exceeded messages sent is greater than that of messages sent (SNMP) |
-| `snmp6.icmp6outtype1`<br/>`DGAUGE`, number | Number of ICMPv6 Type 3 (Destination Unreachable) messages sent (SNMP) |
+| `snmp6.icmp6outtype1`<br/>`DGAUGE`, number | Number of ICMPv6 Type 1 (Destination Unreachable) messages sent (SNMP) |
 | `snmp6.icmp6outtype129`<br/>`DGAUGE`, number | Number of ICMPv6 Type 129 messages sent (SNMP) |
 | `snmp6.icmp6outtype133`<br/>`DGAUGE`, number | Number of ICMPv6 Type 133 (Router Solicitation) messages sent (SNMP) |
 | `snmp6.icmp6outtype135`<br/>`DGAUGE`, number | Number of ICMPv6 Type 135 (Neighbor Solicitation) messages sent (SNMP) |
 | `snmp6.icmp6outtype136`<br/>`DGAUGE`, number | Number of ICMPv6 Type 136 (Neighbor Advertisement) messages sent (SNMP) |
 | `snmp6.icmp6outtype143`<br/>`DGAUGE`, number | Number of ICMPv6 Type 143 messages sent (SNMP) |
 | `snmp6.ip6fragcreates`<br/>`DGAUGE`, number | Number of IPv6 packet fragments generated as a result of fragmentation in this object (SNMP) |
-| `snmp6.ip6fragfails`<br/>`DGAUGE`, number | Number of IP packets dropped because they were subject to fragmenting in this object but could not be fragmented, e.g., due to the Do Not Fragment flag (SNMP) |
+| `snmp6.ip6fragfails`<br/>`DGAUGE`, number | Number of Ipv6 packets dropped because they were subject to fragmenting in this object but could not be fragmented, e.g., due to the Do Not Fragment flag (SNMP) |
 | `snmp6.ip6fragoks`<br/>`DGAUGE`, number | Number of successfully fragmented IPv6 packets (SNMP) |
 | `snmp6.ip6inaddrerrors`<br/>`DGAUGE`, number | Number of input packets dropped because the IP address in their IPv6 header's destination field was not a valid address to be received in this object. This count includes invalid addresses, such as `0.0.0.0`, and addresses of unsupported classes, e.g., Class E. For objects that are not IP Gateways and, as such, do not forward packets, this counter includes packets dropped because the destination address was not a local one (SNMP). |
 | `snmp6.ip6inbcastoctets`<br/>`DGAUGE`, number | Total number of input broadcast octets received which contain IPv6 addresses (SNMP) |

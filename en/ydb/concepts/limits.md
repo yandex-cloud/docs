@@ -18,4 +18,4 @@ sourcePath: overlay/concepts/limits.md
 
 #### Limits {#ydb-limits}
 
-To learn about the {{ ydb-short-name }} limits, see the [relevant documentation](https://ydb.tech/docs/en/concepts/limits-ydb).
+To learn about the {{ ydb-short-name }} limits, see the [relevant documentation]({{ ydb.docs }}/concepts/limits-ydb).

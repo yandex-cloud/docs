@@ -1,11 +1,11 @@
 # Как начать работать с {{ ydb-name }}
 
 
-В этой инструкции вы создадите базу данных [{{ ydb-short-name }}](https://ydb.tech/ru) в {{ yandex-cloud }} и выполните простой запрос к ней с помощью [консоли управления]({{ link-console-main }}) {{ yandex-cloud }} или инструментов командной строки.
+В этой инструкции вы создадите базу данных [{{ ydb-short-name }}](https://ydb.tech/{{ lang }}) в {{ yandex-cloud }} и выполните простой запрос к ней с помощью [консоли управления]({{ link-console-main }}) {{ yandex-cloud }} или инструментов командной строки.
 
 Для работы с БД в {{ ydb-full-name }} также доступны:
-* [{{ ydb-short-name }} SDK](https://ydb.tech/docs/ru/reference/ydb-sdk/).
-* [{{ ydb-short-name }} CLI](https://ydb.tech/docs/ru/reference/ydb-cli/).
+* [{{ ydb-short-name }} SDK]({{ ydb.docs }}/reference/ydb-sdk/).
+* [{{ ydb-short-name }} CLI]({{ ydb.docs }}/reference/ydb-cli/).
 * [AWS SDK](docapi/tools/aws-sdk/index.md).
 * [AWS CLI](docapi/tools/aws-cli/index.md).
 
@@ -257,7 +257,7 @@
 
   1. {% include [cli-install](../_includes/cli-install.md) %}
 
-  1. Чтобы управлять вашими БД из командной строки, [установите](https://ydb.tech/docs/ru/reference/ydb-cli/install) {{ ydb-short-name }} CLI.
+  1. Чтобы управлять вашими БД из командной строки, [установите](https://{{ ydb.docs }}/reference/ydb-cli/install) {{ ydb-short-name }} CLI.
   1. Для аутентификации {{ ydb-short-name }} CLI в {{ yandex-cloud }} получите [IAM-токен](../iam/concepts/authorization/iam-token.md) и экспортируйте его в переменную окружения:
 
      ```bash
@@ -305,4 +305,4 @@
 
 * Узнайте подробнее о [работе с БД](operations/index.md).
 * Изучите [концепции сервиса](concepts/index.md).
-* Ознакомьтесь с языком запросов [YQL](https://ydb.tech/docs/ru/yql/reference/).
+* Ознакомьтесь с языком запросов [YQL]({{ ydb.docs }}/yql/reference/).

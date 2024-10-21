@@ -72,7 +72,7 @@ SELECT * FROM <соединение>.<имя_таблицы>
 Ограничения:
 1. {% include [!](_includes/supported_requests.md) %}
 1. Чтение данных выполняется в один поток через мастер-хост, также известный как [хост-координатор](https://docs.vmware.com/en/VMware-Greenplum/7/greenplum-database/admin_guide-intro-arch_overview.html) кластера {{ GP }}. Массивно-параллельное чтение в настоящее время не поддерживается.
-1. В {{ yq-short-name }} используется [система типов](https://ydb.tech/docs/ru/yql/reference/types/primitive) {{ ydb-full-name }}. Однако диапазоны допустимых значений для типов, использующихся в {{ ydb-short-name }} при работе с датой и временем (`Date`, `Datetime`, `Timestamp`), зачастую оказываются недостаточно широкими для того, чтобы вместить значения соответствующих типов {{ GP }} (`date`, `timestamp`). 
+1. В {{ yq-short-name }} используется [система типов]({{ ydb.docs }}/yql/reference/types/primitive) {{ ydb-full-name }}. Однако диапазоны допустимых значений для типов, использующихся в {{ ydb-short-name }} при работе с датой и временем (`Date`, `Datetime`, `Timestamp`), зачастую оказываются недостаточно широкими для того, чтобы вместить значения соответствующих типов {{ GP }} (`date`, `timestamp`). 
 В связи с этим значения даты и времени, прочитанные из {{ GP }}, возвращаются {{ yq-short-name }} как обычные строки (тип `Optional<Utf8>`) в формате [ISO-8601](https://www.iso.org/iso-8601-date-and-time-format.html).
 
 ## Пушдаун фильтров {#predicate_pushdown}
@@ -91,7 +91,7 @@ SELECT * FROM <соединение>.<имя_таблицы>
 
 ## Поддерживаемые типы данных {#supported_types}
 
-В базе данных {{ GP }} признак опциональности значений колонки (разрешено или запрещено колонке содержать значения `NULL`) не является частью системы типов. Ограничение (constraint) `NOT NULL` для каждой колонки реализуется в виде атрибута `attnotnull` в системном каталоге [pg_attribute](https://docs.vmware.com/en/VMware-Greenplum/7/greenplum-database/ref_guide-system_catalogs-pg_attribute.html), то есть на уровне метаданных таблицы. Следовательно, все базовые типы {{ GP }} по умолчанию могут содержать значения `NULL`, и в системе типов {{ yq-short-name }} они должны отображаться в [опциональные](https://ydb.tech/docs/ru/yql/reference/types/optional) типы. 
+В базе данных {{ GP }} признак опциональности значений колонки (разрешено или запрещено колонке содержать значения `NULL`) не является частью системы типов. Ограничение (constraint) `NOT NULL` для каждой колонки реализуется в виде атрибута `attnotnull` в системном каталоге [pg_attribute](https://docs.vmware.com/en/VMware-Greenplum/7/greenplum-database/ref_guide-system_catalogs-pg_attribute.html), то есть на уровне метаданных таблицы. Следовательно, все базовые типы {{ GP }} по умолчанию могут содержать значения `NULL`, и в системе типов {{ yq-short-name }} они должны отображаться в [опциональные]({{ ydb.docs }}/yql/reference/types/optional) типы. 
 
 Ниже приведена таблица соответствия типов {{ GP }} и {{ yq-full-name }}. Все остальные типы данных, за исключением перечисленных, не поддерживаются.
 

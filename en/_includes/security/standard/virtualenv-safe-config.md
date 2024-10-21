@@ -699,11 +699,11 @@ If necessary, you can specify a cloud network in function settings. In this case
 
 #### 3.21 Recommendations for using confidential data in {{ ydb-short-name }} are followed {#ydb-confidential-data}
 
-It's prohibited to use confidential data as the names of databases, tables, columns, directories, and so on. It's prohibited to send critical data, such as payment card details, to {{ ydb-name }} (both Dedicated and Serverless) as clear text. Prior to sending data, be sure to encrypt it at the application level. For this you can use the KMS service or any other method compliant with the regulator standard. For data where the storage period is known in advance, we recommend that you configure the [Time To Live](https://ydb.tech/docs/ru/concepts/ttl) option.
+It's prohibited to use confidential data as the names of databases, tables, columns, directories, and so on. It's prohibited to send critical data, such as payment card details, to {{ ydb-name }} (both Dedicated and Serverless) as clear text. Prior to sending data, be sure to encrypt it at the application level. For this you can use the KMS service or any other method compliant with the regulator standard. For data where the storage period is known in advance, we recommend that you configure the [Time To Live]({{ ydb.docs }}/concepts/ttl) option.
 
 #### 3.22 Recommendations for SQL injection protection in {{ ydb-short-name }} are followed {#ydb-sql-injection}
 
-When working with the database, use [parameterized prepared statements](https://ydb.tech/docs/ru/reference/ydb-sdk/example/#param-queries) to protect against SQL injection. If the application dynamically generates query templates, you must prevent the injection of untrusted user input into the SQL query template.
+When working with the database, use [parameterized prepared statements]({{ ydb.docs }}/reference/ydb-sdk/example/#param-queries) to protect against SQL injection. If the application dynamically generates query templates, you must prevent the injection of untrusted user input into the SQL query template.
 
 #### 3.23 No public access to {{ ydb-short-name }} is allowed {#ydb-public}
 

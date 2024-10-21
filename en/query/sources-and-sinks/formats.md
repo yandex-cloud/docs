@@ -149,7 +149,7 @@ Query results:
 {% endcut %}
 
 #### Raw {#raw}
-This format allows reading raw data as is. The data read this way can be processed using [YQL](https://ydb.tech/docs/en/yql/reference/udf/list/string) tools by splitting it into rows and columns.
+This format allows reading raw data as is. The data read this way can be processed using [YQL]({{ ydb.docs }}/yql/reference/udf/list/string) tools by splitting it into rows and columns.
 
 Use this format if the built-in features for parsing source data in {{ yq-full-name }} are insufficient.
 

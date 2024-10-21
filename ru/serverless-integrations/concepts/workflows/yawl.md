@@ -1,3 +1,14 @@
+---
+title: Спецификация YaWL в {{ sw-full-name }}
+description: В статье описана спецификация YaWL в {{ sw-name }}.
+keywords:
+  - workflows
+  - workflow
+  - воркфлоу
+  - рабочий процесс
+  - спецификация YaWL
+---
+
 # Спецификация YaWL
 
 ## Рабочий процесс {#workflow}

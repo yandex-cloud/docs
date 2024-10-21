@@ -128,7 +128,7 @@ The cost of resources includes:
 
         * `name`: Service account name. This is a required parameter.
         * `folder_id`: [Folder ID](../../resource-manager/operations/folder/get-id.md). This is an optional parameter. By default, the value specified in the provider settings is used.
-        * `role`: Role being assigned.
+        * `role`: Role you want to assign.
 
         For more information about the `yandex_iam_service_account` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/iam_service_account).
 
@@ -219,7 +219,7 @@ Create a [static access key](../../iam/concepts/authorization/access-key.md) for
 
      Where `service_account_id` is the `s3-copy-fn` service account ID.
 
-     For more information about the `yandex_iam_service_account_static_access_key` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/iam_service_account_static_access_key).
+     For more information about the `yandex_iam_service_account_static_access_key` parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/iam_service_account_static_access_key).
          
   1. Make sure the configuration files are correct.
 
@@ -245,7 +245,7 @@ Create a [static access key](../../iam/concepts/authorization/access-key.md) for
         If any errors occur when creating the key, {{ TF }} will indicate them.
         If the key is successfully created, {{ TF }} will write it into its configuration, but will not show it to the user. The terminal will only display the ID of the created key.
 
-        You can verify that the key of the service account is there in the [management console]({{ link-console-main }}) or using the [CLI](../../cli/quickstart.md) command:
+        You can check the new service account key in the [management console]({{ link-console-main }}) or using the [CLI](../../cli/quickstart.md) command:
          
         ```bash
         yc iam access-key list --service-account-name=s3-copy-fn
@@ -339,6 +339,8 @@ Create a {{ lockbox-name }} [secret](../../lockbox/quickstart.md) to store your 
      * `key`: Key name
      * `text_value`: Key value
 
+     {% include [secret-version-tf-note](../../_includes/lockbox/secret-version-tf-note.md) %}
+
      For more information about the parameters of resources used in {{ TF }}, see the provider documentation:
 
      * [yandex_lockbox_secret]({{ tf-provider-resources-link }}/lockbox_secret)
@@ -379,7 +381,7 @@ Create two buckets: the main one to store files and the backup one to copy the m
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder where you want to create your buckets.
+  1. In the [management console]({{ link-console-main }}), select the folder you want to create buckets in.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Create the main bucket:
 
@@ -501,18 +503,18 @@ Create a function that will copy a new [object](../../storage/concepts/object.md
      1. Specify the entry point: `handler.sh`.
      1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}**, specify:
 
-        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `600`
-        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `128 {{ ui-key.yacloud.common.units.label_megabyte }}`
-        * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `s3-copy-fn`
+        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `600`.
+        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `128 {{ ui-key.yacloud.common.units.label_megabyte }}`.
+        * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `s3-copy-fn`.
         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**:
 
-          * `S3_ENDPOINT`: `https://{{ s3-storage-host }}`
-          * `DST_BUCKET`: Name of the backup bucket to copy files to
+          * `S3_ENDPOINT`: `https://{{ s3-storage-host }}`.
+          * `DST_BUCKET`: Name of the backup bucket to copy files to.
 
         * **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-secret }}**:
 
-          * `AWS_ACCESS_KEY_ID`: `key_id` of the `s3-static-key` secret
-          * `AWS_SECRET_ACCESS_KEY`: `secret` key of the `s3-static-key` secret
+          * `AWS_ACCESS_KEY_ID`: `key_id` of the `s3-static-key` secret.
+          * `AWS_SECRET_ACCESS_KEY`: `secret` key of the `s3-static-key` secret.
       
       1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 

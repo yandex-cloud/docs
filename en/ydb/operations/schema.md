@@ -31,10 +31,10 @@ You can create a row-oriented table or a [document table](../concepts/dynamodb-t
       * Column **{{ ui-key.yacloud.ydb.table.form.column_name }}**. Must be unique within the table.
       * Column data **{{ ui-key.yacloud.ydb.table.form.column_type }}**. Regardless of the data type, each column may contain a `NULL` value.
       * **{{ ui-key.yacloud.ydb.table.form.column_primary-key }}**. Specify whether the column is part of the primary key. Primary indexes are automatically created based on the primary key.
-   1. Set up [secondary indexes](https://ydb.tech/docs/en/concepts/secondary_indexes) if needed.
+   1. Set up [secondary indexes]({{ ydb.docs }}/concepts/secondary_indexes) if needed.
       * Secondary index **{{ ui-key.yacloud.ydb.table.form.column_name }}**. Must be unique within the table.
       * **{{ ui-key.yacloud.ydb.table.form.column_index-key }}**: One or more columns that make up a key for creating a secondary index.
-   1. Set up the [partitioning](https://ydb.tech/docs/en/concepts/datamodel) policy.
+   1. Set up the [partitioning]({{ ydb.docs }}/concepts/datamodel) policy.
       * `{{ ui-key.yacloud.ydb.table.form.value_partitions-none }}`: The table is not partitioned.
       * `{{ ui-key.yacloud.ydb.table.form.value_partitions-uniform }}`: The entire range of values of Uint32 or Uint64 key columns (from 0 to the maximum value) is split into same-length intervals. When using this policy, set the number of intervals in the **{{ ui-key.yacloud.ydb.table.form.field_uniform-partitions }}** field.
       * `{{ ui-key.yacloud.ydb.table.form.value_partitions-explicit }}`: Lets you explicitly specify values for keys that will act as boundaries for the initial partitioning of the table. To add another boundary value, click **{{ ui-key.yacloud.ydb.table.form.button_add-split-point }}**.
@@ -48,7 +48,7 @@ You can create a row-oriented table or a [document table](../concepts/dynamodb-t
       * **{{ ui-key.yacloud.ydb.table.form.field_key-bloom-filter }}**: If enabled, applies the [Bloom filter](https://en.wikipedia.org/wiki/Bloom_filter) to search data by a key. In some cases, it can speed up key reads.
    1. Click **{{ ui-key.yacloud.ydb.table.create.button_create }}**.
 
-   To create row-oriented tables, you can also use the [`CREATE TABLE`](https://ydb.tech/docs/en/yql/reference/syntax/create_table) command based on the [YQL](https://ydb.tech/docs/en/yql/reference/) query language.
+   To create row-oriented tables, you can also use the [`CREATE TABLE`]({{ ydb.docs }}/yql/reference/syntax/create_table) command based on the [YQL]({{ ydb.docs }}/yql/reference/) query language.
 
 
 - {{ TF }} {#tf}
@@ -145,7 +145,7 @@ You can create a row-oriented table or a [document table](../concepts/dynamodb-t
 
 {% endlist %}
 
-To alter row-oriented tables, you can also use the [`ALTER TABLE`](https://ydb.tech/docs/en/yql/reference/syntax/alter_table) command based on the [YQL](https://ydb.tech/docs/en/yql/reference/) query language.
+To alter row-oriented tables, you can also use the [`ALTER TABLE`]({{ ydb.docs }}/yql/reference/syntax/alter_table) command based on the [YQL]({{ ydb.docs }}/yql/reference/) query language.
 
 ## Deleting a table {#drop-table}
 
@@ -184,7 +184,7 @@ To alter row-oriented tables, you can also use the [`ALTER TABLE`](https://ydb.t
 {% endlist %}
 
 
-To drop row-oriented tables, you can also use the [`DROP TABLE`](https://ydb.tech/docs/en/yql/reference/syntax/drop_table) command based on the [YQL](https://ydb.tech/docs/en/yql/reference/) query language.
+To drop row-oriented tables, you can also use the [`DROP TABLE`]({{ ydb.docs }}/yql/reference/syntax/drop_table) command based on the [YQL]({{ ydb.docs }}/yql/reference/) query language.
 
 ## Creating and deleting directories {#directories}
 

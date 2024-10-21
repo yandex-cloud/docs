@@ -45,7 +45,7 @@ items:
             href: operations/function/version-list.md
           - name: Getting information about a function
             href: operations/function/function-info.md
-          - name: Getting information about a function version
+          - name: Getting the function version information
             href: operations/function/version-info.md
       - name: Managing permissions to access a function
         items:
@@ -183,6 +183,10 @@ items:
         href: concepts/function-invoke.md
       - name: Asynchronous function invocation
         href: concepts/function-invoke-async.md
+      - name: Long-lived functions
+        href: concepts/long-lived-functions.md
+      - name: Function termination notifications
+        href: concepts/termination-notifications.md
       - name: Networking
         href: concepts/networking.md
       - name: Runtime environment
@@ -447,6 +451,11 @@ items:
           Creating a trigger that invokes a function to stop VM instances and
           send a Telegram notification
         href: tutorials/serverless-trigger-budget-queue-vm-tg.md
+      - name: >-
+          Loading data from {{ yandex-direct }} to a {{ mch-full-name }} data
+          mart using {{ sf-full-name }}, {{ objstorage-full-name }}, and {{
+          data-transfer-full-name }}
+        href: tutorials/data-transfer-direct-to-mch.md
       - name: Scheduled scaling of instance groups
         href: tutorials/vm-scale-scheduled.md
       - name: Status monitoring of geographically distributed devices

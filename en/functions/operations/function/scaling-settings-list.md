@@ -9,6 +9,8 @@ description: Follow this guide to view function scaling settings.
 
 - Management console {#console}
 
+    To view any scaling setting other than the number of calls processed concurrently by a single function instance (`concurrency`):
+
     1. In the [management console]({{ link-console-main }}), select the folder containing the function.
     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Select a function.
@@ -24,16 +26,15 @@ description: Follow this guide to view function scaling settings.
 
     {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-    To view the function scaling settings, run this command:
+    To view any scaling setting other than the number of calls processed concurrently by a single function instance (`concurrency`), run this command:
 
     ```bash
     yc serverless function list-scaling-policies --id=<function_ID>
     ```
 
-    Where `--id` is the function ID. To find out the ID, [request](./function-list.md) a list of functions.
+    Where `--id` is the ID of the function. To find out the ID, [request](./function-list.md) a list of functions.
 
     Result:
-
 
     ```text
     +----------------------+---------+----------------------+---------------------+-----------------------------+
@@ -43,17 +44,16 @@ description: Follow this guide to view function scaling settings.
     +----------------------+---------+----------------------+---------------------+-----------------------------+
     ```
 
-
 - API {#api}
 
     To view function scaling settings, use the [listScalingPolicies](../../functions/api-ref/Function/listScalingPolicies.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/ListScalingPolicies](../../functions/api-ref/grpc/Function/listScalingPolicies.md) gRPC API call.
 
-
 - {{ yandex-cloud }} Toolkit {#yc-toolkit}
 
-    You can view the function scaling settings using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [JetBrains](https://www.jetbrains.com/) [IntelliJ platform](https://www.jetbrains.com/opensource/idea/).
-
+    You can view any function scaling setting other than the number of calls processed concurrently by a single function instance (`concurrency`) using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [JetBrains](https://www.jetbrains.com/) [IntelliJ platform](https://www.jetbrains.com/opensource/idea/).
 
 {% endlist %}
+
+You can look up the [number of calls simultaneously processed by a single function instance](../../concepts/function.md#concurrency) (`concurrency`) by getting the [function version information](../../operations/function/version-info.md).
 
 {% include [see-also-scaling](../../../_includes/functions/see-also-scaling.md) %}
