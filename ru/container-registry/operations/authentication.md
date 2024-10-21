@@ -41,7 +41,7 @@ description: Перед началом работы с {{ container-registry-nam
   1. Выполните команду:
 
      ```bash
-     echo <OAuth-токен> | docker login \
+     echo <OAuth-токен>|docker login \
        --username oauth \
        --password-stdin \
       {{ registry }}
@@ -65,7 +65,7 @@ description: Перед началом работы с {{ container-registry-nam
   1. Выполните команду:
 
       ```bash
-      echo <IAM-токен> | docker login \
+      echo <IAM-токен>|docker login \
         --username iam \
         --password-stdin \
         {{ registry }}
