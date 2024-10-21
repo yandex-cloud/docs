@@ -2,7 +2,7 @@
 
 The {{ ydb-short-name }} CLI is a tool for managing your data in {{ ydb-full-name }} from the command line. You can use the {{ ydb-short-name }} CLI to perform actions with your database in systems that have no GUI or to automate your tasks using scripts.
 
-Before you start, install the [{{ ydb-short-name }} CLI](https://ydb.tech/docs/en/reference/ydb-cli/install). To connect to your {{ ydb-full-name }} database from the {{ ydb-short-name }} CLI, specify the [endpoint and path](#endpoint-and-path) and [select and set up](#auth) authentication mode.
+Before you start, install the [{{ ydb-short-name }} CLI]({{ ydb.docs }}/reference/ydb-cli/install). To connect to your {{ ydb-full-name }} database from the {{ ydb-short-name }} CLI, specify the [endpoint and path](#endpoint-and-path) and [select and set up](#auth) authentication mode.
 
 ## Configuring security groups {#configuring-security-groups}
 
@@ -98,7 +98,7 @@ Set up the selected mode:
 
    Get an OAuth token by sending a [request]({{ link-cloud-oauth }}) and save it to a file. When running a {{ ydb-short-name }} CLI command, specify the path to the file with your OAuth token in the `--yc-token-file` parameter.
 
-   To avoid entering it every time you run commands, save the OAuth token value to the `YC_TOKEN` environment variable or [set up a {{ ydb-short-name }} CLI profile](https://ydb.tech/docs/en/reference/ydb-cli/profile/create).
+   To avoid entering it every time you run commands, save the OAuth token value to the `YC_TOKEN` environment variable or [set up a {{ ydb-short-name }} CLI profile]({{ ydb.docs }}/reference/ydb-cli/profile/create).
 
    Check that the connection is correct by requesting user information:
 
@@ -142,7 +142,7 @@ Set up the selected mode:
    1. Save the token to a file.
    1. When running a {{ ydb-short-name }} CLI command, specify the path to the file with your IAM token in the `--iam-token-file` parameter.
 
-      To avoid entering it every time you run commands, save the IAM token value to the `IAM_TOKEN` environment variable or [set up a {{ ydb-short-name }} CLI profile](https://ydb.tech/docs/en/reference/ydb-cli/profile/create).
+      To avoid entering it every time you run commands, save the IAM token value to the `IAM_TOKEN` environment variable or [set up a {{ ydb-short-name }} CLI profile]({{ ydb.docs }}/reference/ydb-cli/profile/create).
    1. Check that the connection is correct by requesting user information:
 
       ```bash
@@ -190,7 +190,7 @@ Set up the selected mode:
 
    1. When running a {{ ydb-short-name }} CLI command, specify the path to the file with your service account's authorized access key in the `--sa-key-file` parameter.
 
-      To avoid entering it every time you run commands, save the file path to the `SA_KEY_FILE` environment variable or [set up a {{ ydb-short-name }} CLI profile](https://ydb.tech/docs/en/reference/ydb-cli/profile/create).
+      To avoid entering it every time you run commands, save the file path to the `SA_KEY_FILE` environment variable or [set up a {{ ydb-short-name }} CLI profile]({{ ydb.docs }}/reference/ydb-cli/profile/create).
 
    1. Check that the connection is correct by requesting user information:
 
@@ -226,7 +226,7 @@ Set up the selected mode:
 
    When running a {{ ydb-short-name }} CLI command from a {{ yandex-cloud }} VM, specify the `--use-metadata-credentials` parameter. The {{ ydb-short-name }} CLI will get an IAM token via the metadata service.
 
-   To avoid entering it every time you run commands, set the `USE_METADATA_CREDENTIALS` environment variable to `1` or [set up a {{ ydb-short-name }} CLI profile](https://ydb.tech/docs/en/reference/ydb-cli/profile/create).
+   To avoid entering it every time you run commands, set the `USE_METADATA_CREDENTIALS` environment variable to `1` or [set up a {{ ydb-short-name }} CLI profile]({{ ydb.docs }}/reference/ydb-cli/profile/create).
 
    Check that the connection is correct by requesting user information:
 

@@ -11,7 +11,7 @@ description: Следуя данной инструкции, вы сможете
 Для создания подключения вам потребуется [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) с [ролью](../../../iam/operations/sa/assign-role-for-sa.md) **ydb.viewer** (или **viewer**).
 
 
-Для написания подзапросов в датасетах и запросов в QL-чартах используйте [синтаксис YQL](https://ydb.tech/docs/ru/yql/reference/syntax/).
+Для написания подзапросов в датасетах и запросов в QL-чартах используйте [синтаксис YQL]({{ ydb.docs }}/yql/reference/syntax/).
 
 {% endnote %}
 

@@ -1,7 +1,7 @@
-# Streaming {{ postbox-full-name }} events to {{ yds-full-name }} and analyzing them with {{ datalens-full-name }}
+# Streaming {{ postbox-full-name }} events to {{ yds-full-name }} and analyzing them using {{ datalens-full-name }}
 
 
-In this tutorial, you will configure streaming of [{{ postbox-full-name }}](../../postbox/) events to [{{ yds-full-name }}](../../data-streams/) and their visualization in [{{ datalens-full-name }}](../../datalens/) for later analysis. The events are created by sending emails.
+In this tutorial you will configure streaming of [{{ postbox-full-name }}](../../postbox/) events to [{{ yds-full-name }}](../../data-streams/) and their visualization in [{{ datalens-full-name }}](../../datalens/) for later analysis. The events are produced by outgoing emails.
 
 You can implement all the solutions from this tutorial in the {{ yandex-cloud }} [management console]({{ link-console-main }}); no development skills are required. To process and store data, you will use [{{ sf-full-name }}](../../functions/) and [{{ ydb-full-name }}](../../ydb/).
 
@@ -52,7 +52,7 @@ The infrastructure support costs include:
 
 ## Configure a {{ ydb-name }} database {#ydb}
 
-You can use any DBMS suitable for analytical tasks as event storage. In this tutorial, we use the {{ ydb-name }} [serverless database](../../ydb/concepts/resources.md#serverless). If you use another DBMS, the SQL query for creating a table and code for loading events into that table may be different.
+You can use any DBMS suitable for analytical tasks as an event storage. In this tutorial, we use the {{ ydb-name }} [serverless database](../../ydb/concepts/resources.md#serverless). If you use another DBMS, the SQL query for creating a table and the code for loading events into that table may be different.
 
 
 ### Create a database {#create-db}
@@ -137,7 +137,7 @@ Create a [data stream](../../data-streams/concepts/glossary.md#stream-concepts) 
 
 ## Prepare the {{ postbox-name }} and {{ dns-name }} resources {#postbox}
 
-Create an [address](../../postbox/concepts/glossary.md#adress) to send emails from, [verify](../../postbox/operations/check-domain.md) your domain ownership, and [configure](../../postbox/concepts/glossary.md#subscription) logging events to {{ yds-name }}.
+Create an [address](../../postbox/concepts/glossary.md#adress) to send emails from, [verify](../../postbox/operations/check-domain.md) your domain ownership, and [configure](../../postbox/concepts/glossary.md#subscription) event logging to {{ yds-name }}.
 
 
 ### Create an address {#address}
@@ -236,11 +236,11 @@ Create a [function](../../functions/concepts/function.md) to send data from the 
   1. Select the folder hosting your DB and go to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. Select the DB you want to get the endpoint and path for.
 
-      * The DB endpoint is specified under **{{ ui-key.yacloud.ydb.overview.section_connection }}** in the initial part of the **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field value (preceding `/?database=`):
+      * The DB endpoint is specified under **{{ ui-key.yacloud.ydb.overview.section_connection }}** in the first part of the **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field value (preceding `/?database=`):
 
           >For example, this is the endpoint of a DB in serverless mode: `{{ ydb.ep-serverless }}`.
 
-      * The DB path is specified under **{{ ui-key.yacloud.ydb.overview.section_connection }}** in the final part of the **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field value (following `/?database=`).
+      * The DB path is specified under **{{ ui-key.yacloud.ydb.overview.section_connection }}** in the second part of the **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field value (following `/?database=`).
 
           >Example of a DB path: `{{ ydb.path-serverless }}`.
 
@@ -310,10 +310,10 @@ To create a function, you will need the function code and DB connection details.
 
 ## Send emails {#send-letters}
 
-1. [Create](../../postbox/quickstart.md#service-account-and-keys) create a service account named `postbox-user` with the `postbox.sender` role and static access keys.
+1. [Create](../../postbox/quickstart.md#service-account-and-keys) the `postbox-user` service account with the `postbox.sender` role and static access keys.
 1. [Send](../../postbox/quickstart.md#send-test-letter) several test emails using the address you created [earlier](#address).
 1. Make sure the emails were sent: check the inbox of the address you sent the emails to.
-1. Make sure data is delivered to the services:
+1. Make sure data is delivered to services:
 
     {% list tabs group=instructions %}
 
@@ -447,7 +447,7 @@ In this tutorial, we will create the [Events by day](#events-by-days) and [Event
 
   1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
   1. Click **Create dashboard**.
-  1. Add the `Events by day`, `Event list`, and other charts you created earlier to your dashboard:
+  1. Add the `Events by day`, `List of events`, and other charts you created earlier to your dashboard:
 
       1. In the bottom panel, click **Chart**.
       1. In the **Chart** field of the window that opens, click **Select** and select `Events by day`.

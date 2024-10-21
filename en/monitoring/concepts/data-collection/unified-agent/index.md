@@ -1,11 +1,12 @@
 # Agent for delivering metrics
 
+
 {{ unified-agent-full-name }} is the agent for delivering additional metrics of virtual machines and user applications to {{ monitoring-full-name }}.
 
 The agent supports:
 
 - [Collecting Linux system metrics](../../../operations/unified-agent/linux_metrics.md) (CPU, RAM, disk).
-- Collecting metrics in [Prometheus](https://prometheus.io/) format.
+- Collecting metrics in [Prometheus](https://prometheus.io) format.
 - Delivering metrics to {{ monitoring-full-name }}.
 - File storage for reliable data delivery.
 
@@ -46,9 +47,9 @@ See also the [list of available inputs](inputs.md).
 
 ## Outputs {#outputs}
 
-Outputs are used by the agent to send messages to third-party systems. The currently supported outputs are `yc_metrics`, which writes a metric to the {{ monitoring-full-name }} API, and several debug outputs.
+Outputs are used by the agent to send messages to third-party systems. The currently supported outputs are the `yc_metrics` output, which writes metrics to the {{ monitoring-full-name }} API, and several debug outputs.
 
-See also [the list of available outputs](outputs.md).
+See also the [list of available outputs](outputs.md).
 
 ## Filters {#filters}
 

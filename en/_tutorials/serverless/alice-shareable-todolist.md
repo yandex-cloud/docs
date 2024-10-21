@@ -18,7 +18,7 @@ To deploy a project:
 1. [Create a folder](../../resource-manager/operations/folder/create.md) if you do not have any. For convenience, you can use a separate folder named `alice-skill`.
 1. Install and initialize the following programs:
    * [{{ yandex-cloud }} CLI](../../cli/quickstart.md).
-   * [{{ ydb-short-name }} CLI](https://ydb.tech/docs/en/reference/ydb-cli/install).
+   * [{{ ydb-short-name }} CLI]({{ ydb.docs }}/reference/ydb-cli/install).
    * [Bash command interpreter](http://www.gnu.org/software/bash/).
    * [AWS CLI](../../storage/tools/aws-cli.md).
    * [jq](https://stedolan.github.io/jq/download/).

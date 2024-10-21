@@ -90,7 +90,7 @@ description: Из статьи вы узнаете, как задать наст
         Если настройка задана, в таблицы добавляется колонка `_shard_col`. Значения в ней вычисляются как остаток от деления `H/N`, где `H` — результат хеш-функции от текущего времени, а `N` — указанное настройкой количество шардов.
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTargetAdvancedSettings.default_compression.title }}** — задайте настройку `COMPRESSION` для группы колонок по умолчанию (FAMILY default).
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTargetAdvancedSettings.path.title }}** — укажите [поддиректорию](https://ydb.tech/docs/ru/concepts/datamodel/dir) для размещения таблиц.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTargetAdvancedSettings.path.title }}** — укажите [поддиректорию]({{ ydb.docs }}/concepts/datamodel/dir) для размещения таблиц.
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTargetAdvancedSettings.partition_policy.title }}**:
 
@@ -105,7 +105,7 @@ description: Из статьи вы узнаете, как задать наст
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbPartitionPolicy.time_column.title }}** — по значениям какой колонки разбивать (_партицировать_) таблицу. Колонка должна иметь тип <q>время</q>.
 
 
-            Подробнее о партицировании таблиц см. в документации [{{ ydb-full-name }}](https://ydb.tech/docs/ru/concepts/datamodel/table#partitioning).
+            Подробнее о партицировании таблиц см. в документации [{{ ydb-full-name }}]({{ ydb.docs }}/concepts/datamodel/table#partitioning).
 
 
         Если используется эта настройка, в базе-приемнике создается указанное количество таблиц для данных за различные интервалы времени. Имя каждой таблицы выбирается автоматически по дате и времени начала интервала. В зависимости от значений в указанной колонке таблицы-источника, исходные строки распределяются по соответствующим таблицам базы-приемника.

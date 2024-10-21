@@ -10,7 +10,7 @@ This document describes connecting with DBeaver, but the connection process will
 
 ### JDBC driver {#jdbc}
 
-To connect to {{ yq-full-name }} from DBeaver, you will need a JDBC driver. {{ yq-full-name }} is based on {{ ydb-short-name }} [federated queries](https://ydb.tech/docs/ru/concepts/federated_query/), so the connection will use a {{ ydb-short-name }} JDBC driver.
+To connect to {{ yq-full-name }} from DBeaver, you will need a JDBC driver. {{ yq-full-name }} is based on {{ ydb-short-name }} [federated queries]({{ ydb.docs }}/concepts/federated_query/), so the connection will use a {{ ydb-short-name }} JDBC driver.
 
 Follow these steps to download the driver:
 1. Go to the [ydb-jdbc-driver repository](https://github.com/ydb-platform/ydb-jdbc-driver/releases).

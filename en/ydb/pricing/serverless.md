@@ -27,7 +27,7 @@ Other consumed resources to be additionally paid for:
 ### Data operations and request units {#rules-ru}
 
 The serverless mode of {{ ydb-name }} supports multiple ways to work with data:
-* YQL is an SQL-like language for accessing relational tables that is supported by the [SDK](https://ydb.tech/docs/en/reference/ydb-sdk/), [CLI](https://ydb.tech/docs/en/reference/ydb-cli/), and the {{ ydb-short-name }} management console.
+* YQL is an SQL-like language for accessing relational tables that is supported by the [SDK]({{ ydb.docs }}/reference/ydb-sdk/), [CLI]({{ ydb.docs }}/reference/ydb-cli/), and the {{ ydb-short-name }} management console.
 * Document API is the Amazon DynamoDB-compatible HTTP API. You can use this API to perform operations on document tables.
 
 You can also query the database through the special APIs available as stand-alone features in the {{ ydb-short-name }} SDK, CLI, or management console.

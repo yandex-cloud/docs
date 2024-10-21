@@ -21,8 +21,8 @@ Maximum RAM per container instance | 4 GB
 Maximum size of an HTTP request to the container, including HTTP headers and the request body | 3.5 MB
 Maximum size of the container HTTP response, including HTTP headers and the response body | 3.5 MB
 Maximum size of temporary files | 512 MB
-Maximum time for request processing by the container before timeout, including original initialization at first launch | 10 minutes
-Maximum size of environment variables, including their names^1^ | 4 KB
+Maximum time for request processing by the container before timeout, including original initialization at first launch | 1 hour
+Maximum total environment variable storage, including variable names^1^ | 4 KB
 Maximum number of triggers per [message queue](../../message-queue/concepts/queue.md) | 1
 
 ^1^ {{ lockbox-short-name }} secrets are provided via environment variables and are also counted towards this limit.

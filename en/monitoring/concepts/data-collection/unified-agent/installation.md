@@ -15,6 +15,7 @@ description: In this tutorial, you will learn about installing and running {{ un
 - Fedora 32 or higher (Docker image)
 - Fedora CoreOS (Docker image)
 
+
 ## Before you begin installation {#before-you-begin}
 
 Prior to installing {{ unified-agent-full-name }}, follow these steps:
@@ -198,7 +199,7 @@ Install {{ unified-agent-short-name }} using one of the following methods:
 
   You can also [configure](./configuration.md) the delivery of custom metrics or [logs to {{ cloud-logging-name }}](./outputs.md#yc_logs_output).
   
-  Once the VM is deployed, {{ unified-agent-short-name }} will run automatically and start sending basic VM metrics to {{ monitoring-full-name }}.
+  Once the VM is deployed, {{ unified-agent-short-name }} will run automatically and begin providing basic VM metrics to {{ monitoring-full-name }}.
   
   You are responsible for updating and maintaining the agent.
 

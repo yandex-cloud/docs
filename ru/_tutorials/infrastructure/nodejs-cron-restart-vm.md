@@ -51,12 +51,17 @@
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
   1. В поле **{{ ui-key.yacloud.common.name }}** введите имя секрета, например `oauth-token`.
+  1. В поле **{{ ui-key.yacloud.lockbox.forms.title_secret-type }}** выберите `{{ ui-key.yacloud.lockbox.forms.title_secret-type-custom }}`.
   1. В блоке **{{ ui-key.yacloud.lockbox.label_version-dialog-title }}**:
      * В поле **{{ ui-key.yacloud.lockbox.forms.label_key }}** введите `key_token`.
-     * В поле **{{ ui-key.yacloud.lockbox.forms.label_value }}** введите значение OAuth-токена, необходимого для авторизации функции.
+     * В поле **{{ ui-key.yacloud.lockbox.forms.label_value }}** введите значение [OAuth-токена]({{ link-cloud-oauth }}), необходимого для авторизации функции.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
   Чтобы создать секрет, выполните команду:
 
@@ -65,7 +70,7 @@
     --payload "[{'key': 'key_token', 'text_value': '<OAuth-токен>'}]"
   ```
 
-  Где `text_value` — значение OAuth-токена, необходимого для авторизации функции.
+  Где `text_value` — значение [OAuth-токена]({{ link-cloud-oauth }}), необходимого для авторизации функции.
 
   Результат:
 
@@ -101,7 +106,7 @@
 
      * `name` — имя секрета.
      * `key` — ключ секрета.
-     * `text_value` — значение OAuth-токена, необходимого для авторизации функции.
+     * `text_value` — значение [OAuth-токена]({{ link-cloud-oauth }}), необходимого для авторизации функции.
 
      {% include [secret-version-tf-note](../../_includes/lockbox/secret-version-tf-note.md) %}
 
@@ -233,10 +238,6 @@
      1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
 - CLI {#cli}
-
-  {% include [cli-install](../../_includes/cli-install.md) %}
-
-  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
   1. Создайте функцию `function-restart-vms`:
 
