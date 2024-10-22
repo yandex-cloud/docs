@@ -74,7 +74,7 @@ description: Следуя данной инструкции, вы сможете
      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.advanced_settings.title }}** — необходимые CSV [ConvertOptions](https://arrow.apache.org/docs/python/generated/pyarrow.csv.ConvertOptions.html#pyarrow.csv.ConvertOptions) для редактирования. Указываются в виде JSON-строки.
      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.Csv.additional_options.title }}** — необходимые CSV [ReadOptions](https://arrow.apache.org/docs/python/generated/pyarrow.csv.ReadOptions.html#pyarrow.csv.ReadOptions) для редактирования. Указываются в виде JSON-строки.
 
-- {{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.parquet.title }}  
+- {{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.parquet.title }}
 
 - {{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.jsonl.title }}
   
@@ -85,7 +85,7 @@ description: Следуя данной инструкции, вы сможете
 - proto
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.logbroker.console.form.logbroker.ParserConfigProto.proto_desc.title }}** — загрузите файл-дескриптор.
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.logbroker.console.form.logbroker.ParserConfigProto.msg_package_type.title }}** — укажите способ упаковки сообщений: 
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.logbroker.console.form.logbroker.ParserConfigProto.msg_package_type.title }}** — укажите способ упаковки сообщений:
         * `{{ ui-key.yc-data-transfer.data-transfer.console.form.logbroker.console.form.logbroker.ProtoMessagePackageType.PROTOSEQ.title }}` — последовательность целевых сообщений с разделителем;
         * `{{ ui-key.yc-data-transfer.data-transfer.console.form.logbroker.console.form.logbroker.ProtoMessagePackageType.REPEATED.title }}` — целевое сообщение находится в поле `repeated` единственного сообщения-обертки;
         * `{{ ui-key.yc-data-transfer.data-transfer.console.form.logbroker.console.form.logbroker.ProtoMessagePackageType.SINGLE_MESSAGE.title }}` — единственное целевое сообщение;
@@ -100,7 +100,7 @@ description: Следуя данной инструкции, вы сможете
 
 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.SchemaTableFilterEntry.schema.title }}** — укажите схему служебной таблицы, которая будет использоваться для подключения.
 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.SchemaTableFilterEntry.table.title }}** — укажите имя служебной таблицы, которое будет использоваться для подключения.
-* **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageResultTable.add_system_cols.title }}** — добавить в схему результатов системные колонки `__file_name` и `__row_index`. `__file_name` соответствует имени объекта S3, из которого поступают данные. `__row_index` соответствует счетчику строк, в котором находятся данные, в объекте S3. 
+* **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageResultTable.add_system_cols.title }}** — добавить в схему результатов системные колонки `__file_name` и `__row_index`. `__file_name` соответствует имени объекта S3, из которого поступают данные. `__row_index` соответствует счетчику строк, в котором находятся данные, в объекте S3.
 
   {% note warning %}
 

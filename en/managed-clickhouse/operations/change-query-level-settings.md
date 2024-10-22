@@ -147,7 +147,7 @@ You can specify [{{ CH }} settings at the query level](https://clickhouse.com/do
 
         You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters). You can request the user name with the [list of users in the cluster](./cluster-users.md#list-users).
 
-    1. View the [server response](../api-ref/User/update.md#responses) to make sure the request was successful.
+    1. View the [server response](../api-ref/User/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 - gRPC API {#grpc-api}
 

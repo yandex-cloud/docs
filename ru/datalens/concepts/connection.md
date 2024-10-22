@@ -17,8 +17,7 @@ _Подключение_ содержит информацию о парамет
   * [{{ GP }}](../operations/connection/create-greenplum.md)
   * [MS SQL Server](../operations/connection/create-mssql-server.md)
   * [Oracle Database](../operations/connection/create-oracle.md)
-  * [{{ prometheus-name }}](../operations/connection/create-prometheus.md)
-  * [BigQuery](../operations/connection/create-big-query.md)
+  * [{{ prometheus-name }}](../operations/connection/create-prometheus.md)  
   * [Snowflake](../operations/connection/create-snowflake.md)
 
 * Файлы и сервисы:

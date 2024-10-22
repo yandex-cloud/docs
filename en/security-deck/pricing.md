@@ -2,6 +2,6 @@
 editable: false
 ---
 
-# {{ sd-full-name }} pricing
+# {{ sd-full-name }} pricing policy
 
-At the [preview](../overview/concepts/launch-stages.md) stage, {{ sd-name }} is free of charge.
+The {{ sd-name }} service and its modules can be used free of charge at the [Preview](../overview/concepts/launch-stages.md) stage.

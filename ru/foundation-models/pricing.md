@@ -49,6 +49,14 @@ editable: false
 
 На стадии [Preview](../overview/concepts/launch-stages.md) использование {{ yandexart-name }} не тарифицируется.
 
+{% note warning %}
+
+Правила тарификации, описанные ниже, начнут действовать 1 ноября 2024 года.
+
+{% endnote %}
+
+Использование {{ yandexart-name }} тарифицируется за каждый запрос на генерацию. При этом запросы не идемпотентны, поэтому два запроса с идентичными параметрами и промтом генерации считаются двумя самостоятельными запросами.
+
 ### Внутренние ошибки сервера {#error-request}
 
 {% include [error-request](../_includes/speechkit/error-request.md) %}
@@ -110,6 +118,23 @@ editable: false
 - Цены в тенге {#prices-kzt}
 
   {% include [kzt-embedding.md](../_pricing/yandexgpt/kzt-embedding.md) %}
+
+{% endlist %}
+
+
+
+### Генерация изображений {#pricing-image-generation}
+
+
+{% list tabs group=pricing %}
+
+- Цены в рублях {#prices-rub}
+
+  {% include [rub-embedding.md](../_pricing/yandexgpt/rub-image.md) %}
+
+- Цены в тенге {#prices-kzt}
+
+  {% include [kzt-embedding.md](../_pricing/yandexgpt/kzt-image.md) %}
 
 {% endlist %}
 

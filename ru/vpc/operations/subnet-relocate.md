@@ -90,7 +90,7 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [relocate](../api-ref/Subnet/relocate.md) для ресурса [Subnet](../api-ref/Subnet/index.md) или вызовом gRPC API [SubnetService/Relocate](../api-ref/grpc/subnet_service#Relocate).
+  Воспользуйтесь методом REST API [relocate](../api-ref/Subnet/relocate.md) для ресурса [Subnet](../api-ref/Subnet/index.md) или вызовом gRPC API [SubnetService/Relocate](../api-ref/grpc/Subnet/relocate.md).
 
   **Пример запроса**
 

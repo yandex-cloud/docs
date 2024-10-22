@@ -16,17 +16,19 @@ editable: false
 
 The cost of using {{ search-api-name }} is calculated based on the number of search requests initiated within a calendar month ([reporting period](../billing/concepts/reporting-period.md)).
 
+At the [Preview](../overview/concepts/launch-stages.md) stage, deferred requests are free of charge.
+
 ## Prices for the Russia region {#prices}
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
-Free tier includes 1,000 requests per user per month during night hours^1^ from 00:00:00 to 07:59:59. The following pricing applies to requests beyond this threshold.
+Free tier includes 1,000 synchronous requests per user per month during night hours^1^ from 00:00:00 to 07:59:59. The following pricing applies to requests beyond this threshold.
 
 
 
 {% include [usd](../_pricing/search-api/usd.md) %}
 
 
-The service has a quota of 30,000 requests per month (1,000 requests per day) for all new users. For more information on limits, see [Quotas and limits](concepts/limits.md). To request a change in quotas, contact [technical support]({{ link-console-support }}) or your account manager.
+The service has a quota of 30,000 synchronous requests per month (1,000 requests per day) for all new users. For more information on limits, see [Quotas and limits](concepts/limits.md). To request a change in quotas, contact [technical support]({{ link-console-support }}) or your account manager.
 
 ^1^ All times are [UTC+3](https://en.wikipedia.org/wiki/UTC%2B03:00).

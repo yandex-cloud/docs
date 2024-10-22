@@ -1,6 +1,6 @@
 ---
-title: How to manage connections. Step-by-step guides
-description: Step-by-step guides on using {{ metadata-hub-full-name }} in {{ yandex-cloud }}. In this tutorial, you will learn how to create, view, modify, and delete connections.
+title: Step-by-step guides
+description: Step-by-step guides on using {{ metadata-hub-full-name }} in {{ yandex-cloud }}. In this article, you will learn how to work with connections and schema registry.
 ---
 
 # All step-by-step guides
@@ -23,3 +23,18 @@ description: Step-by-step guides on using {{ metadata-hub-full-name }} in {{ yan
 * [{#T}](metastore/export-and-import.md)
 * [{#T}](metastore/cluster-delete.md)
 
+
+## {{ schema-registry-name }} {#instructions-schema-registry}
+
+* Namespace:
+  * [{#T}](create-name-space.md)
+  * [{#T}](update-name-space.md)
+  * [{#T}](delete-name-space.md)
+* Schemas:
+  * [{#T}](create-subject.md)
+  * [{#T}](add-schema.md)
+  * [{#T}](delete-schema.md)
+  * [{#T}](compare-schemas.md)
+* Subjects:
+  * [{#T}](update-subject.md)
+  * [{#T}](delete-subject.md)

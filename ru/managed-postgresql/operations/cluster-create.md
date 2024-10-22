@@ -474,7 +474,7 @@ description: Следуя данной инструкции, вы сможете
        * `subnetId` — идентификатор [подсети](../../vpc/concepts/network.md#subnet);
        * `assignPublicIp` — разрешение на [подключение](connect.md) к хосту из интернета.
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/create.md#responses).
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/create.md#yandex.cloud.operation.Operation).
 
 - gRPC API {#grpc-api}
 

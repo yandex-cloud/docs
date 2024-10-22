@@ -52,6 +52,14 @@ The cost of text [vectorization](./concepts/embeddings.md) (getting text embeddi
 
 At the [Preview](../overview/concepts/launch-stages.md) stage, {{ yandexart-name }} is free of charge.
 
+{% note warning %}
+
+The pricing below will apply starting November 1, 2024.
+
+{% endnote %}
+
+You are charged for each generation query in {{ yandexart-name }}. The queries are not idempotent, which means two queries with different settings and generation prompts are two separate queries.
+
 ### Internal server errors {#error-request}
 
 {% include [error-request](../_includes/speechkit/error-request.md) %}
@@ -72,6 +80,13 @@ At the [Preview](../overview/concepts/launch-stages.md) stage, {{ yandexart-name
 
 
 {% include [usd-embedding.md](../_pricing/yandexgpt/usd-embedding.md) %}
+
+
+### Image generation {#pricing-image-generation}
+
+
+
+{% include [usd-embedding.md](../_pricing/yandexgpt/usd-image.md) %}
 
 
 ## Examples of {{ yagpt-full-name }} usage cost calculation {#price-examples}

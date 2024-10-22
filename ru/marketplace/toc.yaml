@@ -45,8 +45,10 @@ items:
             href: concepts/trial-period.md
       - name: Управление доступом
         href: security/partners.md
-      - name: Справочник API
+      - name: Справочник Metering API
         items:
+          - name: Начало работы с API
+            href: api-ref/quickstart.md
           - name: REST
             items:
               - name: Обзор

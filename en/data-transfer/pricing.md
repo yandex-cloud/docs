@@ -51,6 +51,7 @@ Data delivery for transfers that are at the Preview stage is free of charge. For
 ## Examples of cost calculation {#price-example}
 
 When doing your cost calculation, remember that one [worker](concepts/index.md#worker) uses 2 vCPUs and 4 GB of RAM by default.
+
 ### Single data copying from {{ PG }} to {{ CH }} {#copy}
 
 The number of data rows transferred from {{ PG }} to {{ CH }} during the reporting month is 500,000,000. The copying was performed by one worker (2 vCPUs and 4 GB RAM) and took 24 hours.

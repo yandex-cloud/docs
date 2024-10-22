@@ -23,5 +23,10 @@ Event name | Description
 `UpdateKey` | Updating a key pair
 `UpdateServiceAccount` | Updating a service account
 `UpdateServiceAccountAccessBindings` | Updating access permissions for a service account
+`workload.CreateFederatedCredential` | Creating [a link](../../../iam/concepts/workload-identity.md#federated-credentials) in a service account federation
+`workload.DeleteFederatedCredential` | Deleting a link from a service account federation
+`workload.oidc.CreateFederation` | Creating a [service account federation](../../../iam/concepts/workload-identity.md)
+`workload.oidc.DeleteFederation` | Deleting a service account federation
+`workload.oidc.UpdateFederation` | Updating a service account federation
 
 \* The event is not logged in the audit log unless the [audit log collection scope](../../../audit-trails/concepts/trail.md#collecting-area) for the trail is `Organization`.

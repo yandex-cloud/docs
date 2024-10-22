@@ -9,8 +9,8 @@ description: Следуя данной инструкции, вы сможете
 
 * [язык](../models.md#languages) — русский;
 * формат аудиопотока — [LPCM](../../formats.md#LPCM) с частотой дискретизации 8000 Гц;
-* [количество аудиоканалов](../../stt-v3/api-ref/grpc/stt_service#RawAudio) — 1 (значение по умолчанию);
-* включен [фильтр ненормативной лексики](../../stt-v3/api-ref/grpc/stt_service#TextNormalizationOptions);
+* [количество аудиоканалов](../../stt-v3/api-ref/grpc/AsyncRecognizer/recognizeFile#speechkit.stt.v3.RawAudio) — 1 (значение по умолчанию);
+* включен [фильтр ненормативной лексики](../../stt-v3/api-ref/grpc/AsyncRecognizer/recognizeFile#speechkit.stt.v3.TextNormalizationOptions);
 * остальные параметры оставлены по умолчанию.
 
 Аутентификация происходит от имени сервисного аккаунта с помощью [API-ключа](../../../iam/concepts/authorization/api-key.md) или [IAM-токена](../../../iam/concepts/authorization/iam-token.md). Подробнее об [аутентификации в API {{ speechkit-name }}](../../concepts/auth.md).
@@ -151,8 +151,8 @@ description: Следуя данной инструкции, вы сможете
          * `audio_encoding` — [формат](../../formats.md) аудиопотока.
          * `sample_rate_hertz` — частота дискретизации аудиопотока.
          * `audio_channel_count` — количество аудиоканалов.
-         * `profanity_filter` — [фильтр ненормативной лексики](../../stt-v3/api-ref/grpc/stt_service#TextNormalizationOptions).
-         * `literature_text` — [флаг для написания распознанного текста в литературном стиле](../../stt-v3/api-ref/grpc/stt_service#TextNormalizationOptions).
+         * `profanity_filter` — [фильтр ненормативной лексики](../../stt-v3/api-ref/grpc/AsyncRecognizer/recognizeFile#speechkit.stt.v3.TextNormalizationOptions).
+         * `literature_text` — [флаг для написания распознанного текста в литературном стиле](../../stt-v3/api-ref/grpc/AsyncRecognizer/recognizeFile#speechkit.stt.v3.TextNormalizationOptions).
          * `language_code` — [язык](../index.md#langs), для которого будет выполнено распознавание.
 
       1. Задайте [IAM-токен](../../../iam/concepts/authorization/iam-token.md) сервисного аккаунта:

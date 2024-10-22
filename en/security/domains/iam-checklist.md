@@ -47,7 +47,7 @@ This section provides recommendations on how to make the best use of {{ yandex-c
 
 ✔ **Using an IAM token for authentication**: If you need to use static credentials, consider using an [IAM token](../../iam/concepts/authorization/iam-token.md). Keys have an unlimited lifetime, while IAM tokens are valid for {{ iam-token-lifetime }}.
 
-✔ **Using service accounts**: Use [service accounts](../../iam/concepts/users/service-accounts.md) to automate your work with {{ yandex-cloud }}.
+✔ **Using service accounts**: Use [service accounts](../../iam/concepts/users/service-accounts.md) to automate your work with {{ yandex-cloud }}. You can check the date and time of the last authentication on the service account information page in the management console: this information allows you to track cases of unauthorized use of service accounts.
 
 ✔ **Dedicated service accounts for different tasks**: This will enable you to assign to service accounts only the roles you really need. You can revoke roles from a service account or delete it without affecting other service accounts.
 
@@ -55,7 +55,7 @@ This section provides recommendations on how to make the best use of {{ yandex-c
 
 ✔ **Storing service account keys in secrets**: If using static keys, [store them in {{ lockbox-name }} secrets](../../lockbox/tutorials/static-key-in-lockbox.md).
 
-✔ **Periodic rotation of service account keys**: Keys with no expiration date ([API keys](../../iam/concepts/authorization/api-key.md), [authorized keys](../../iam/concepts/authorization/key.md), and [static keys](../../iam/concepts/authorization/access-key.md)) require [manual rotation](../../iam/operations/compromised-credentials.md#key-reissue). You can check out the date when a key was created in its properties. Perform key rotation at least once in 90 days.
+✔ **Periodic rotation of service account keys**: Keys with no expiration date ([authorized keys](../../iam/concepts/authorization/key.md), and [static keys](../../iam/concepts/authorization/access-key.md)) require [manual rotation](../../iam/operations/compromised-credentials.md#key-reissue). You can check out the date when a key was created in its properties. Perform key rotation at least once in 90 days.
 
 ## Secrets {#secrets}
 
@@ -64,3 +64,13 @@ This section provides recommendations on how to make the best use of {{ yandex-c
 ✔ **Handling compromised secrets**: If secrets were compromised, revoke them and issue new ones; check for unauthorized actions and delete unauthorized resources. Report the incident to the [support]({{ link-console-support }}) team and protect your secrets against vulnerabilities. You can learn more about action plan for handling compromised secrets [here](../../iam/operations/compromised-credentials.md).
 
 ✔ **Using {{ lockbox-name }} secrets for storing access keys and tokens**: Store keys and tokens in [{{ lockbox-name }} secrets](../../lockbox/tutorials/static-key-in-lockbox.md) and use their payload when you need to apply a key or token.
+
+✔ **Using API keys with limited access**: Create [API keys with limited scope and validity period](../../iam/concepts/authorization/api-key.md#scoped-api-keys) for working with the list of relevant services to lower the risk of unauthorized use of the keys.
+
+## Other recommendations {#other-recommendations}
+
+✔ **Relevance of contact information of the person in charge of the organization**: Specify relevant contact information using [this guide](../../billing/operations/change-data.md#change-address).
+
+✔ **Access management for contractors and third parties**: If you grant third-party contractors access to your clouds, make sure to follow these security measures:
+   * Assign permissions to contractor employees based on the principle of least privilege.
+   * Where possible, create a separate account for third-party employees in your corporate IdP and assign the relevant policies to this account.

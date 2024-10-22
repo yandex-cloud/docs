@@ -47,7 +47,7 @@ items:
             href: operations/function/function-info.md
           - name: Getting the function version information
             href: operations/function/version-info.md
-      - name: Managing permissions to access a function
+      - name: Managing function access permissions
         items:
           - name: Making a function public
             href: operations/function/function-public.md
@@ -97,8 +97,12 @@ items:
             href: operations/function/lockbox-secret-transmit.md
           - name: Allocating memory for the /tmp directory
             href: operations/function/allocate-memory-tmp.md
-          - name: Mounting a bucket
-            href: operations/function/mount-bucket.md
+          - name: Mounting file systems
+            items:
+              - name: Mounting a bucket
+                href: operations/function/mount-bucket.md
+              - name: Mounting an ephemeral disk
+                href: operations/function/mount-ephemeral-disk.md
           - name: Managing tags
             items:
               - name: Adding a tag
@@ -199,7 +203,7 @@ items:
             href: concepts/runtime/execution-context.md
           - name: Preloaded runtime environment
             href: concepts/runtime/preload-runtime.md
-      - name: Mounting a bucket
+      - name: Mounting file systems
         href: concepts/mounting.md
       - name: Builder
         href: concepts/builder.md
@@ -225,7 +229,7 @@ items:
             href: concepts/trigger/data-streams-trigger.md
           - name: Email trigger
             href: concepts/trigger/mail-trigger.md
-      - name: Dead-letter queue
+      - name: Dead Letter Queue
         href: concepts/dlq.md
       - name: Function logs
         href: concepts/logs.md
@@ -466,7 +470,7 @@ items:
         href: tutorials/iot-emulation.md
       - name: >-
           Streaming {{ postbox-full-name }} events to {{ yds-full-name }} and
-          analyzing them using {{ datalens-full-name }}
+          analyzing them with {{ datalens-full-name }}
         href: tutorials/events-from-postbox-to-yds.md
   - name: Pricing policy
     href: pricing.md

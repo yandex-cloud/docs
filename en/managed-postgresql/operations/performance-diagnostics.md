@@ -99,7 +99,7 @@ For information on how to identify and troubleshoot cluster performance problems
 
 - API
 
-   To get statistics for sessions, use the [PerformanceDiagnosticsService/ListRawSessionStates](../api-ref/grpc/perf_diag_service#ListRawSessionStates) gRPC API call and include the following in your request:
+   To get statistics for sessions, use the [PerformanceDiagnosticsService/ListRawSessionStates](../api-ref/grpc/PerformanceDiagnostics/listRawSessionStates.md) gRPC API call and include the following in your request:
 
    * Cluster ID in the `cluster_id` parameter.
 
@@ -143,7 +143,7 @@ For more information about what statistics you can get, see the [{{ PG }} docume
 
 - API
 
-   To get statistics for queries, use the [PerformanceDiagnosticsService/ListRawStatements](../api-ref/grpc/perf_diag_service#ListRawStatements) gRPC API call and include the following in your request:
+   To get statistics for queries, use the [PerformanceDiagnosticsService/ListRawStatements](../api-ref/grpc/PerformanceDiagnostics/listRawStatements.md) gRPC API call and include the following in your request:
 
    * Cluster ID in the `cluster_id` parameter.
 

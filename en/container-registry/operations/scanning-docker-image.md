@@ -115,7 +115,7 @@ You can [scan](../concepts/vulnerability-scanner.md) [Docker images](../concepts
 
    To scan a Docker image, use the [scan](../api-ref/Scanner/scan.md) REST API method for the [Scanner](../api-ref/Scanner/) resource or the [ScannerService/Scan](../api-ref/grpc/Scanner/scan.md) gRPC API call.
 
-   To get the `scanResultId` scan result ID, use the [getLast](../api-ref/Scanner/getLast) REST API method for the [Scanner](../Scanner/) resource or the [ScannerService/GetLast](../api-ref/grpc/scanner_service#GetLast) gRPC API call.
+   To get the `scanResultId` scan result ID, use the [getLast](../api-ref/Scanner/getLast) REST API method for the [Scanner](../Scanner/) resource or the [ScannerService/GetLast](../api-ref/grpc/Scanner/getLast.md) gRPC API call.
 
    To get detailed information about the scan results, use the [listVulnerabilities](../api-ref/Scanner/listVulnerabilities.md) REST API method for the [Scanner](../api-ref/Scanner/) resource or the [ScannerService/ListVulnerabilities](../api-ref/grpc/Scanner/listVulnerabilities.md) gRPC API call.
 
@@ -144,7 +144,7 @@ You can [scan](../concepts/vulnerability-scanner.md) [Docker images](../concepts
 
    To automatically scan Docker images on push to a registry, use the [create](../api-ref/ScanPolicy/create.md) REST API method for the [ScanPolicy](../api-ref/ScanPolicy/) resource or the [ScanPolicyService/Create](../api-ref/grpc/ScanPolicy/create.md) gRPC API call.
 
-   To get the `scanResultId` scan result ID, use the [getLast](../api-ref/Scanner/getLast) REST API method for the [Scanner](../Scanner/) resource or the [ScannerService/GetLast](../api-ref/grpc/scanner_service#GetLast) gRPC API call.
+   To get the `scanResultId` scan result ID, use the [getLast](../api-ref/Scanner/getLast) REST API method for the [Scanner](../Scanner/) resource or the [ScannerService/GetLast](../api-ref/grpc/Scanner/getLast.md) gRPC API call.
 
    To get detailed information about the scan results, use the [listVulnerabilities](../api-ref/Scanner/listVulnerabilities.md) REST API method for the [Scanner](../api-ref/Scanner/) resource or the [ScannerService/ListVulnerabilitiesListVulnerabilities](../api-ref/grpc/Scanner/listVulnerabilities.md) gRPC API call.
 
@@ -175,7 +175,7 @@ You can [scan](../concepts/vulnerability-scanner.md) [Docker images](../concepts
 
    To run scheduled Docker image scans, use the [create](../api-ref/ScanPolicy/create.md) REST API method for the [ScanPolicy](../api-ref/ScanPolicy/) resource or the [ScanPolicyService/Create](../api-ref/grpc/ScanPolicy/create.md) gRPC API call.
 
-   To get the `scanResultId` scan result ID, use the [getLast](../api-ref/Scanner/getLast) REST API method for the [Scanner](../Scanner/) resource or the [ScannerService/GetLast](../api-ref/grpc/scanner_service#GetLast) gRPC API call.
+   To get the `scanResultId` scan result ID, use the [getLast](../api-ref/Scanner/getLast) REST API method for the [Scanner](../Scanner/) resource or the [ScannerService/GetLast](../api-ref/grpc/Scanner/getLast.md) gRPC API call.
 
    To get detailed information about the scan results, use the [listVulnerabilities](../api-ref/Scanner/listVulnerabilities.md) REST API method for the [Scanner](../api-ref/Scanner/) resource or the [ScannerService/ListVulnerabilitiesListVulnerabilities](../api-ref/grpc/Scanner/listVulnerabilities.md) gRPC API call.
 

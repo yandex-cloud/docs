@@ -1,4 +1,4 @@
-To create a federation, use the [create](../../organization/saml/api-ref/Federation/create.md) REST API method for the [Federation](../../organization/saml/api-ref/Federation/index.md) resource or the [FederationService/Create](../../organization/api-ref/grpc/federation_service#Create) gRPC API call and provide a file with the request parameters in your request.
+To create a federation, use the [create](../../organization/saml/api-ref/Federation/create.md) REST API method for the [Federation](../../organization/saml/api-ref/Federation/index.md) resource or the [FederationService/Create](../../organization/saml/api-ref/grpc/Federation/create.md) gRPC API call and provide a file with the request parameters in your request.
 
 Sample request:
 

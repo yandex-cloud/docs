@@ -578,6 +578,38 @@ description: В статье приведен полный справочник 
 
 ## {{ datalens-full-name }} {#datalens-roles}
 
+#### datalens.workbooks.limitedViewer {#datalens-workbooks-limitedViewer}
+
+{% include [datalens.workbooks.limitedViewer](../_roles/datalens/workbooks/limitedViewer.md) %}
+
+#### datalens.workbooks.viewer {#datalens-workbooks-viewer}
+
+{% include [datalens.workbooks.viewer](../_roles/datalens/workbooks/viewer.md) %}
+
+#### datalens.workbooks.editor {#datalens-workbooks-editor}
+
+{% include [datalens.workbooks.editor](../_roles/datalens/workbooks/editor.md) %}
+
+#### datalens.workbooks.admin {#datalens-workbooks-admin}
+
+{% include [datalens.workbooks.admin](../_roles/datalens/workbooks/admin.md) %}
+
+#### datalens.collections.limitedViewer {#datalens-collections-limitedViewer}
+
+{% include [datalens.collections.limitedViewer](../_roles/datalens/collections/limitedViewer.md) %}
+
+#### datalens.collections.viewer {#datalens-collections-viewer}
+
+{% include [datalens.collections.viewer](../_roles/datalens/collections/viewer.md) %}
+
+#### datalens.collections.editor {#datalens-collections-editor}
+
+{% include [datalens.collections.editor](../_roles/datalens/collections/editor.md) %}
+
+#### datalens.collections.admin {#datalens-collections-admin}
+
+{% include [datalens.collections.admin](../_roles/datalens/collections/admin.md) %}
+
 #### datalens.visitor {#datalens-visitor}
 
 {% include [datalens-visitor](../_roles/datalens/visitor.md) %}

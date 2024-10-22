@@ -28,8 +28,6 @@ For more information on how to [set up a secure virtual environment](../standard
 
 ✔ **Regular backups**: Configure scheduled [disk snapshots](../../compute/operations/snapshot-control/create-schedule.md) using {{ compute-full-name }} or automatic VM [backups](../../backup/quickstart.md) using {{ backup-full-name }}.
 
-Learn more about vulnerability management in the [respective section](../standard/vulnerabilities.md) of the {{ yandex-cloud }} security standard.
-
 ## Network security {#network-security}
 
 ✔ **Controlled use of public IP addresses**: Follow our [recommendations](../../vpc/best-practices/public-ip-recommendations.md) to minimize the use of public IP addresses and build a more stable infrastructure.

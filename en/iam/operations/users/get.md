@@ -38,6 +38,6 @@ You can get the ID, email address, and other user information.
   
   If you know the user's ID, use the [get](../../api-ref/UserAccount/get.md) REST API method for the [UserAccount](../../api-ref/UserAccount/index.md) resource or the [UserAccountService/Get](../../api-ref/grpc/ServiceAccount/get.md) gRPC API call.
 
-  To get information about federated users, use the [listUserAccounts](../../../organization/api-ref/Federation/listUserAccounts) REST API method for the [Federation](../../../organization/api-ref/Federation/) resource or the [FederationService/ListUserAccounts](../../../organization/api-ref/grpc/federation_service#ListUserAccounts) gRPC API call. To get information about a specific federated user, use the `filter` parameter to filter users by login.
+  To get information about federated users, use the [listUserAccounts](../../../organization/saml/api-ref/Federation/listUserAccounts) REST API method for the [Federation](../../../organization/saml/api-ref/Federation/) resource or the [FederationService/ListUserAccounts](../../../organization/saml/api-ref/grpc/Federation/listUserAccounts.md) gRPC API call. To get information about a specific federated user, use the `filter` parameter to filter users by login.
 
 {% endlist %}

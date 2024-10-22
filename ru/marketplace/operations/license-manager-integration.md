@@ -62,7 +62,7 @@
 
         Привязать идентификатор к подписке можно с помощью метода REST API [ensure](../license-manager/saas/api-ref/Lock/ensure.md) для ресурса [Lock](../license-manager/saas/api-ref/Lock/index.md) или вызова gRPC API [LockService/Ensure](../license-manager/saas/api-ref/grpc/Lock/ensure.md).
 
-        Передайте в запросе JWT-токен (`instanceToken`) и уникальный идентификатор пользователя (`resourceId`). В [ответе](../license-manager/saas/api-ref/Lock/ensure.md#responses) вы получите идентификатор привязки (`lock_id`) — он находится в параметре `metadata`. Если в ответе ошибка, значит, подписка не привязалась к сервису и нужно попросить пользователя заново пройти все шаги.
+        Передайте в запросе JWT-токен (`instanceToken`) и уникальный идентификатор пользователя (`resourceId`). В [ответе](../license-manager/saas/api-ref/Lock/ensure.md#yandex.cloud.operation.Operation) вы получите идентификатор привязки (`lock_id`) — он находится в параметре `metadata`. Если в ответе ошибка, значит, подписка не привязалась к сервису и нужно попросить пользователя заново пройти все шаги.
 
     1. Организуйте периодическую проверку того, что привязка подписки активна. Используйте для этого идентификатор привязки (`lock_id`), полученный на предыдущем шаге.
 

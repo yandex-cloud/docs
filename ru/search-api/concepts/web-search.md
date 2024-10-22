@@ -1,15 +1,15 @@
 ---
-title: Отложенный режим выполнения поисковых запросов в {{ search-api-full-name }}
-description: В данном разделе вы узнаете об отложенных поисковых запросах в сервисе {{ search-api-name }}.
+title: Поисковые запросы через API v2 сервиса {{ search-api-full-name }}
+description: В данном разделе вы узнаете об особенностях использования и формате поисковых запросов при обращении к сервису {{ search-api-name }} через интерфейс API v2.
 ---
 
-# Отложенный режим выполнения поисковых запросов в {{ search-api-name }}
+# Текстовый поиск с помощью API v2
 
-_Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md)._
+{% include [note-preview](../../_includes/note-preview.md) %}
 
-{{ search-api-name }} позволяет выполнять запросы к поисковой базе Яндекса с получением ответа в отложенном режиме. Выполнять запросы можно с помощью [REST API](../api-ref/) и [gPRC API](../api-ref/grpc/) сервиса {{ search-api-name }}. Поисковая выдача зависит от заданных в запросе [параметров](#parameters).
+Интерфейс API v2 сервиса {{ search-api-name }} позволяет выполнять запросы к поисковой базе Яндекса с получением ответа в отложенном (асинхронном) режиме. Выполнять запросы можно с помощью [REST API](../api-ref/) и [gPRC API](../api-ref/grpc/). Поисковая выдача зависит от заданных в запросе [параметров](#parameters).
 
-[Выполнять запросы](../operations/web-search.md) может пользователь или [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), которому назначена [роль](../../iam/concepts/access-control/roles.md) `search-api.webSearch.user`.
+[Выполнять запросы](../operations/web-search.md) может пользователь или [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), которому назначена [роль](../security/index.md#search-api-webSearch-user) `search-api.webSearch.user`.
 
 В ответ на отложенный запрос {{ search-api-name }} возвращает [объект Operation](#response-format), содержащий информацию об операции: статус, идентификатор, время вызова и т.д. 
 

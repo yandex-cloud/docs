@@ -4,7 +4,7 @@
 
 Вы можете безопасно встроить непубличные [чарты](../concepts/chart/index.md) и [дашборды](../concepts/dashboard.md) на сайт или в приложение с помощью специальных ссылок с [JWT-токеном](https://ru.wikipedia.org/wiki/JSON_Web_Token).
 
-Встраивание непубличных объектов работает только в новой объектной модели {{ datalens-short-name }} на уровне [воркбуков](../workbooks-collections/index.md) и доступно только [администратору](./roles.md#workbooks-admin) воркбука.
+Встраивание непубличных объектов работает только в новой объектной модели {{ datalens-short-name }} на уровне [воркбуков](../workbooks-collections/index.md) и доступно только [администратору](./roles.md#datalens-workbooks-admin) воркбука.
 
 {% include [datalens-embeded-connection-stop-list](../../_includes/datalens/datalens-embeded-connection-stop-list.md) %}
 
