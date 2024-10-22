@@ -150,7 +150,7 @@ description: При работе с {{ TF }} в облаке важно искл
        endpoints = {
          s3       = "https://{{ s3-storage-host }}"
          dynamodb = "<эндпоинт_Document_API_БД>"
-
+       }
        bucket            = "<имя_бакета>"
        region            = "{{ region-id }}"
        key               = "<путь_к_файлу_состояния_в_бакете>/<имя_файла_состояния>.tfstate"
@@ -161,11 +161,11 @@ description: При работе с {{ TF }} в облаке важно искл
        skip_credentials_validation = true
        skip_requesting_account_id  = true # Необходимая опция {{ TF }} для версии 1.6.1 и старше.
        skip_s3_checksum            = true # Необходимая опция при описании бэкенда для {{ TF }} версии 1.6.3 и старше.
-       }
      }
+   }
 
-     provider "yandex" {
-       zone = "<зона_доступности_по_умолчанию>"
+   provider "yandex" {
+     zone = "<зона_доступности_по_умолчанию>"
    }
    ```
 
