@@ -53,7 +53,7 @@ You can request detailed information about each {{ mch-short-name }} cluster you
       You can request the folder ID with a [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
 
-   1. View the [server response](../api-ref/Cluster/list.md#responses) to make sure the request was successful.
+   1. View the [server response](../api-ref/Cluster/list.md#yandex.cloud.mdb.clickhouse.v1.ListClustersResponse) to make sure the request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -127,7 +127,7 @@ You can request detailed information about each {{ mch-short-name }} cluster you
 
       You can request the cluster ID with a [list of clusters in the folder](#list-clusters).
 
-   1. View the [server response](../api-ref/Cluster/get.md#responses) to make sure the request was successful.
+   1. View the [server response](../api-ref/Cluster/get.md#yandex.cloud.mdb.clickhouse.v1.Cluster) to make sure the request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -202,7 +202,7 @@ You can request detailed information about each {{ mch-short-name }} cluster you
 
       You can request the cluster ID with a [list of clusters in the folder](#list-clusters).
 
-   1. View the [server response](../api-ref/Cluster/listOperations.md#responses) to make sure the request was successful.
+   1. View the [server response](../api-ref/Cluster/listOperations.md#yandex.cloud.mdb.clickhouse.v1.ListClusterOperationsResponse) to make sure the request was successful.
 
 - gRPC API {#grpc-api}
 

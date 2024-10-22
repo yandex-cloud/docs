@@ -4,7 +4,7 @@
 
 API {{ foundation-models-name }} спроектированы на основе [механизма gRPC](../../glossary/grpc.md). Для описания методов и структур данных в API используется Protocol Buffers (proto 3).
 
-Сервис {{ foundation-models-name }} не поддерживает ресурсо-ориентированный подход, так как не оперирует ресурсами {{ yandex-cloud }}. Запросы к {{ yagpt-full-name }} не идемпотентны.
+Сервис {{ foundation-models-name }} не поддерживает ресурсо-ориентированный подход, так как не оперирует ресурсами {{ yandex-cloud }}. Запросы к моделям {{ foundation-models-name }} не идемпотентны.
 
 #### Читайте также {#see-also}
 

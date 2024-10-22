@@ -36,4 +36,4 @@
 | Minimum duration of a pattern for synthesis | 1 second |
 | Maximum REST request size | 5,000 characters |
 | Maximum gRPC request size | {{ tts-v3-count }} and {{ tts-v3-time }} |
-| Maximum gRPC request size in [unsafe](../{{ speechkit-slug }}/tts-v3/api-ref/grpc/tts_service#UtteranceSynthesisRequest) mode | 5,000 characters |
+| Maximum gRPC request size in [unsafe](../{{ speechkit-slug }}/tts-v3/api-ref/grpc/Synthesizer/utteranceSynthesis.md#speechkit.tts.v3.UtteranceSynthesisRequest) mode | 5,000 characters |

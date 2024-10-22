@@ -17,7 +17,7 @@ items:
         href: operations/compromised-credentials.md
       - name: Users
         items:
-          - name: Adding users
+          - name: Adding a user
             href: operations/users/create.md
           - name: Getting user information
             href: operations/users/get.md
@@ -41,7 +41,7 @@ items:
             href: operations/sa/assign-role-for-sa.md
           - name: Setting up service account access permissions
             href: operations/sa/set-access-bindings.md
-          - name: Getting service account ID
+          - name: Getting information about a service account
             href: operations/sa/get-id.md
           - name: Deleting a service account
             href: operations/sa/delete.md
@@ -51,7 +51,7 @@ items:
             href: operations/roles/grant.md
           - name: Viewing assigned roles
             href: operations/roles/get-assigned-roles.md
-          - name: Revoking roles
+          - name: Revoking a role
             href: operations/roles/revoke.md
       - name: IAM tokens
         items:
@@ -125,11 +125,13 @@ items:
             href: concepts/authorization/access-key.md
       - name: Identity federations
         href: concepts/federations.md
+      - name: Workload identity federations
+        href: concepts/workload-identity.md
       - name: '{{ sts-name }}'
         href: concepts/authorization/sts.md
       - name: Quotas and limits
         href: concepts/limits.md
-  - name: Using {{ yandex-cloud }} securely
+  - name: Secure use of {{ yandex-cloud }}
     href: best-practices/using-iam-securely.md
   - name: Access management
     href: security/index.md

@@ -36,7 +36,7 @@
       * `schemaType` — тип схемы: [Avro](https://avro.apache.org/), [JSON Schema](https://json-schema.org/) или [Protobuf](https://protobuf.dev/).
 
       
-     ```bash
+      ```bash
       curl \
         --request POST "https://<идентификатор_пространства_имен>.schema-registry.yandexcloud.net/v1/namespace"\
         --header "accept: application/json" \

@@ -6,10 +6,10 @@
 
 * [язык](../models.md#languages) — русский;
 * формат аудиопотока — [LPCM](../../formats.md#LPCM) с частотой дискретизации 8000 Гц;
-* [количество аудиоканалов](../../stt-v3/api-ref/grpc/stt_service#RawAudio) — 1;
+* [количество аудиоканалов](../../stt-v3/api-ref/grpc/AsyncRecognizer/recognizeFile#speechkit.stt.v3.RawAudio) — 1;
 * размер буфера записи — 4096;
 * длительность записи голоса — 30 секунд;
-* [фильтр ненормативной лексики](../../stt-v3/api-ref/grpc/stt_service#TextNormalizationOptions) — включен.
+* [фильтр ненормативной лексики](../../stt-v3/api-ref/grpc/AsyncRecognizer/recognizeFile#speechkit.stt.v3.TextNormalizationOptions) — включен.
 
 Для работы с API нужны пакеты `grpcio-tools`, `PortAudio` и `PyAudio`.
 
@@ -192,7 +192,7 @@
       * `RECORD_SECONDS` — длительность записи голоса, в секундах.
       * `WAVE_OUTPUT_FILENAME` — название аудиофайла с записью голоса. Файл создается в результате работы скрипта.
       * `profanity_filter` — фильтр ненормативной лексики.
-      * `literature_text` — [флаг для написания распознанного текста в литературном стиле](../../stt-v3/api-ref/grpc/stt_service#TextNormalizationOptions).
+      * `literature_text` — [флаг для написания распознанного текста в литературном стиле](../../stt-v3/api-ref/grpc/AsyncRecognizer/recognizeFile#speechkit.stt.v3.TextNormalizationOptions).
       * `language_code` — язык, для которого будет выполнено распознавание.
 
    1. Задайте API-ключ сервисного аккаунта в виде переменной окружения:

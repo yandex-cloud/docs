@@ -1,6 +1,6 @@
 # {{ yq-full-name }} overview
 
-{{ yq-full-name }} is a data service that can run federated queries against [{{ objstorage-full-name }}](../../storage/concepts/index.md) object storage, [{{ mpg-name }}](https://yandex.cloud/en/services/managed-postgresql) and [{{ mch-name }}](https://yandex.cloud/en/services/managed-clickhouse) databases, and [{{ yds-full-name }}](../../data-streams/concepts/index.md) real-time streams. {{ yq-full-name }} uses YQL – a unified SQL dialect – to aggregate query results [between these systems](../concepts/federated-processing.md).
+{{ yq-full-name }} is a data service that can run federated queries against [{{ objstorage-full-name }}](../../storage/concepts/index.md) object storage, [{{ mch-name }}](https://yandex.cloud/en/services/managed-clickhouse), [{{ mgp-name }}](https://yandex.cloud/en/services/managed-greenplum), [{{ mmy-name }}](https://yandex.cloud/en/services/managed-mysql), [{{ mpg-name }}](https://yandex.cloud/en/services/managed-postgresql), and [{{ ydb-name }}](https://yandex.cloud/en/services/ydb) managed databases, and [{{ yds-full-name }}](../../data-streams/concepts/index.md) real-time streams. {{ yq-full-name }} uses YQL – a unified SQL dialect – to aggregate query results [across these systems](../concepts/federated-processing.md).
 
 {{ yq-full-name }} is a fully managed cloud service, meaning that you need no running servers with software deployed. All the resources you need for your queries are allocated the moment you run them and vacated as soon as the queries are complete. The queries themselves start running instantly.
 
@@ -40,7 +40,7 @@ Streaming processing results are exported to:
 
 ### Batch processing {#analytic}
 
-Analytical queries in {{ yq-full-name }} can get data from {{ objstorage-full-name }} in [JSON, CSV/TSV, and Parquet formats compressed using different algorithms](../sources-and-sinks/formats.md). You can also run analytical queries against the [{{ mpg-name }}](https://yandex.cloud/en/services/managed-postgresql) and [{{ mch-name }}](https://yandex.cloud/en/services/managed-clickhouse) managed databases.
+Analytical queries in {{ yq-full-name }} can get data from {{ objstorage-full-name }} in [JSON, CSV/TSV, and Parquet formats compressed using different algorithms](../sources-and-sinks/formats.md). You can also run analytical queries against [{{ mch-name }}](https://yandex.cloud/en/services/managed-clickhouse), [{{ mgp-name }}](https://yandex.cloud/en/services/managed-greenplum), [{{ mmy-name }}](https://yandex.cloud/en/services/managed-mysql), [{{ mpg-name }}](https://yandex.cloud/en/services/managed-postgresql), and [{{ ydb-name }}](https://yandex.cloud/en/services/ydb) managed databases.
 
 You can use {{ yq-full-name }} for cross-service data analytics, accessing all supported data sources in a single query.
 

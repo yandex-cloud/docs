@@ -1,3 +1,8 @@
+---
+title: Data event reference {{ at-full-name }}
+description: This section provides descriptions of the data events collected in {{ yandex-cloud }} services.
+---
+
 # Data event reference
 
 The value of the `event_type` field in a data event audit log is determined by the event source service.

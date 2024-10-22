@@ -303,6 +303,8 @@ items:
     items:
       - name: Обзор
         href: lang/bash/index.md
+      - name: Управление зависимостями
+        href: lang/bash/dependencies.md
       - name: Обработчик запросов
         href: lang/bash/handler.md
       - name: Журналирование

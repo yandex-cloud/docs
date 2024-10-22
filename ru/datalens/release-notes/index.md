@@ -133,7 +133,6 @@ MARKUP(
 
 Теперь нельзя создать [непубличное встраивание](../security/private-embedded-objects.md) для объекта, если у него есть зависимые объекты, которые построены на основе следующих подключений:
 
-* [Google BigQuery](../operations/connection/create-big-query.md)
 * [Snowflake](../operations/connection/create-snowflake.md)
 * [Metrica](../operations/connection/create-metrica-api.md)
 * [AppMetrica](../operations/connection/create-appmetrica.md)

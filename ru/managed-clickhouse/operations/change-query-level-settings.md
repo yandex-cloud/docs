@@ -147,7 +147,7 @@
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters). Имя пользователя можно запросить со [списком пользователей в кластере](./cluster-users.md#list-users).
 
-    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/User/update.md#responses).
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/User/update.md#yandex.cloud.operation.Operation).
 
 - gRPC API {#grpc-api}
 

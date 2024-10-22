@@ -56,7 +56,7 @@ The price is calculated based on the amount of resources consumed over the curre
 
 
 
-  {% include [usd-support-one-ba](../_pricing_examples/support/usd-one-ba.md) %} 
+{% include [usd-support-one-ba](../_pricing_examples/support/usd-one-ba.md) %}
 
 
 #### Example of calculating the cost for an organization whose resources are paid from two billing accounts {#business-example-two-ba}

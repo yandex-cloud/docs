@@ -77,6 +77,8 @@ items:
             href: sources-and-sinks/data-streams-write.md
       - name: Working with {{ mch-name }} databases
         href: sources-and-sinks/clickhouse.md
+      - name: Working with {{ mgp-name }} databases
+        href: sources-and-sinks/greenplum.md
       - name: Working with {{ mmy-name }} databases
         href: sources-and-sinks/mysql.md
       - name: Working with {{ mpg-name }} databases

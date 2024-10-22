@@ -1,0 +1,316 @@
+title: '{{ si-full-name }}'
+stage: preview
+href: index.yaml
+items:
+  - name: Getting started
+    items:
+      - name: Overview
+        href: quickstart/index.md
+      - name: '{{ sw-name }}'
+        href: quickstart/workflows.md
+      - name: '{{ er-name }}'
+        href: quickstart/eventrouter.md
+  - name: Concepts
+    items:
+      - name: Overview
+        href: concepts/index.md
+      - name: '{{ sw-name }}'
+        items:
+          - name: Workflow
+            href: concepts/workflows/workflow.md
+          - name: Starting workflow
+            href: concepts/workflows/execution.md
+          - name: YaWL specification
+            href: concepts/workflows/yawl.md
+          - name: Templating
+            href: concepts/workflows/templating.md
+      - name: '{{ er-name }}'
+        items:
+          - name: Bus
+            href: concepts/eventrouter/bus.md
+          - name: Connector
+            href: concepts/eventrouter/connector.md
+          - name: Statement
+            href: concepts/eventrouter/rule.md
+      - name: Quotas and limits
+        href: concepts/limits.md
+  - name: Pricing policy
+    href: pricing.md
+  - name: '{{ sw-name }} API reference'
+    items:
+      - name: Authentication with the API
+        href: api-ref/workflows/authentication.md
+      - name: gRPC
+        items:
+          - name: Overview
+            href: workflows/api-ref/grpc/index.md
+          - name: Execution
+            items:
+              - name: Overview
+                href: workflows/api-ref/grpc/Execution/index.md
+              - name: Start
+                href: workflows/api-ref/grpc/Execution/start.md
+              - name: Stop
+                href: workflows/api-ref/grpc/Execution/stop.md
+              - name: Get
+                href: workflows/api-ref/grpc/Execution/get.md
+              - name: GetHistory
+                href: workflows/api-ref/grpc/Execution/getHistory.md
+              - name: List
+                href: workflows/api-ref/grpc/Execution/list.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: workflows/api-ref/grpc/Operation/index.md
+              - name: Get
+                href: workflows/api-ref/grpc/Operation/get.md
+              - name: Cancel
+                href: workflows/api-ref/grpc/Operation/cancel.md
+          - name: Workflow
+            items:
+              - name: Overview
+                href: workflows/api-ref/grpc/Workflow/index.md
+              - name: Create
+                href: workflows/api-ref/grpc/Workflow/create.md
+              - name: Update
+                href: workflows/api-ref/grpc/Workflow/update.md
+              - name: Get
+                href: workflows/api-ref/grpc/Workflow/get.md
+              - name: Delete
+                href: workflows/api-ref/grpc/Workflow/delete.md
+              - name: List
+                href: workflows/api-ref/grpc/Workflow/list.md
+              - name: ListOperations
+                href: workflows/api-ref/grpc/Workflow/listOperations.md
+      - name: REST
+        items:
+          - name: Overview
+            href: workflows/api-ref/index.md
+          - name: Execution
+            items:
+              - name: Overview
+                href: workflows/api-ref/Execution/index.md
+              - name: Start
+                href: workflows/api-ref/Execution/start.md
+              - name: Stop
+                href: workflows/api-ref/Execution/stop.md
+              - name: Get
+                href: workflows/api-ref/Execution/get.md
+              - name: GetHistory
+                href: workflows/api-ref/Execution/getHistory.md
+              - name: List
+                href: workflows/api-ref/Execution/list.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: workflows/api-ref/Operation/index.md
+              - name: Get
+                href: workflows/api-ref/Operation/get.md
+              - name: Cancel
+                href: workflows/api-ref/Operation/cancel.md
+          - name: Workflow
+            items:
+              - name: Overview
+                href: workflows/api-ref/Workflow/index.md
+              - name: Create
+                href: workflows/api-ref/Workflow/create.md
+              - name: Update
+                href: workflows/api-ref/Workflow/update.md
+              - name: Get
+                href: workflows/api-ref/Workflow/get.md
+              - name: Delete
+                href: workflows/api-ref/Workflow/delete.md
+              - name: List
+                href: workflows/api-ref/Workflow/list.md
+              - name: ListOperations
+                href: workflows/api-ref/Workflow/listOperations.md
+  - name: '{{ er-name }} API reference'
+    items:
+      - name: Authentication with the API
+        href: api-ref/eventrouter/authentication.md
+      - name: gRPC
+        items:
+          - name: Overview
+            href: eventrouter/api-ref/grpc/index.md
+          - name: Bus
+            items:
+              - name: Overview
+                href: eventrouter/api-ref/grpc/Bus/index.md
+              - name: Get
+                href: eventrouter/api-ref/grpc/Bus/get.md
+              - name: List
+                href: eventrouter/api-ref/grpc/Bus/list.md
+              - name: Create
+                href: eventrouter/api-ref/grpc/Bus/create.md
+              - name: Update
+                href: eventrouter/api-ref/grpc/Bus/update.md
+              - name: Delete
+                href: eventrouter/api-ref/grpc/Bus/delete.md
+              - name: ListOperations
+                href: eventrouter/api-ref/grpc/Bus/listOperations.md
+              - name: ListAccessBindings
+                href: eventrouter/api-ref/grpc/Bus/listAccessBindings.md
+              - name: SetAccessBindings
+                href: eventrouter/api-ref/grpc/Bus/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: eventrouter/api-ref/grpc/Bus/updateAccessBindings.md
+          - name: Connector
+            items:
+              - name: Overview
+                href: eventrouter/api-ref/grpc/Connector/index.md
+              - name: Get
+                href: eventrouter/api-ref/grpc/Connector/get.md
+              - name: List
+                href: eventrouter/api-ref/grpc/Connector/list.md
+              - name: Create
+                href: eventrouter/api-ref/grpc/Connector/create.md
+              - name: Update
+                href: eventrouter/api-ref/grpc/Connector/update.md
+              - name: Delete
+                href: eventrouter/api-ref/grpc/Connector/delete.md
+              - name: Start
+                href: eventrouter/api-ref/grpc/Connector/start.md
+              - name: Stop
+                href: eventrouter/api-ref/grpc/Connector/stop.md
+              - name: ListAccessBindings
+                href: eventrouter/api-ref/grpc/Connector/listAccessBindings.md
+              - name: SetAccessBindings
+                href: eventrouter/api-ref/grpc/Connector/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: eventrouter/api-ref/grpc/Connector/updateAccessBindings.md
+              - name: ListOperations
+                href: eventrouter/api-ref/grpc/Connector/listOperations.md
+          - name: Event
+            items:
+              - name: Overview
+                href: eventrouter/api-ref/grpc/Event/index.md
+              - name: Put
+                href: eventrouter/api-ref/grpc/Event/put.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: eventrouter/api-ref/grpc/Operation/index.md
+              - name: Get
+                href: eventrouter/api-ref/grpc/Operation/get.md
+              - name: Cancel
+                href: eventrouter/api-ref/grpc/Operation/cancel.md
+          - name: Rule
+            items:
+              - name: Overview
+                href: eventrouter/api-ref/grpc/Rule/index.md
+              - name: Get
+                href: eventrouter/api-ref/grpc/Rule/get.md
+              - name: List
+                href: eventrouter/api-ref/grpc/Rule/list.md
+              - name: Create
+                href: eventrouter/api-ref/grpc/Rule/create.md
+              - name: Update
+                href: eventrouter/api-ref/grpc/Rule/update.md
+              - name: Delete
+                href: eventrouter/api-ref/grpc/Rule/delete.md
+              - name: Enable
+                href: eventrouter/api-ref/grpc/Rule/enable.md
+              - name: Disable
+                href: eventrouter/api-ref/grpc/Rule/disable.md
+              - name: ListAccessBindings
+                href: eventrouter/api-ref/grpc/Rule/listAccessBindings.md
+              - name: SetAccessBindings
+                href: eventrouter/api-ref/grpc/Rule/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: eventrouter/api-ref/grpc/Rule/updateAccessBindings.md
+              - name: ListOperations
+                href: eventrouter/api-ref/grpc/Rule/listOperations.md
+      - name: REST
+        items:
+          - name: Overview
+            href: eventrouter/api-ref/index.md
+          - name: Bus
+            items:
+              - name: Overview
+                href: eventrouter/api-ref/Bus/index.md
+              - name: Get
+                href: eventrouter/api-ref/Bus/get.md
+              - name: List
+                href: eventrouter/api-ref/Bus/list.md
+              - name: Create
+                href: eventrouter/api-ref/Bus/create.md
+              - name: Update
+                href: eventrouter/api-ref/Bus/update.md
+              - name: Delete
+                href: eventrouter/api-ref/Bus/delete.md
+              - name: ListOperations
+                href: eventrouter/api-ref/Bus/listOperations.md
+              - name: ListAccessBindings
+                href: eventrouter/api-ref/Bus/listAccessBindings.md
+              - name: SetAccessBindings
+                href: eventrouter/api-ref/Bus/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: eventrouter/api-ref/Bus/updateAccessBindings.md
+          - name: Connector
+            items:
+              - name: Overview
+                href: eventrouter/api-ref/Connector/index.md
+              - name: Get
+                href: eventrouter/api-ref/Connector/get.md
+              - name: List
+                href: eventrouter/api-ref/Connector/list.md
+              - name: Create
+                href: eventrouter/api-ref/Connector/create.md
+              - name: Update
+                href: eventrouter/api-ref/Connector/update.md
+              - name: Delete
+                href: eventrouter/api-ref/Connector/delete.md
+              - name: Start
+                href: eventrouter/api-ref/Connector/start.md
+              - name: Stop
+                href: eventrouter/api-ref/Connector/stop.md
+              - name: ListAccessBindings
+                href: eventrouter/api-ref/Connector/listAccessBindings.md
+              - name: SetAccessBindings
+                href: eventrouter/api-ref/Connector/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: eventrouter/api-ref/Connector/updateAccessBindings.md
+              - name: ListOperations
+                href: eventrouter/api-ref/Connector/listOperations.md
+          - name: Event
+            items:
+              - name: Overview
+                href: eventrouter/api-ref/Event/index.md
+              - name: Put
+                href: eventrouter/api-ref/Event/put.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: eventrouter/api-ref/Operation/index.md
+              - name: Get
+                href: eventrouter/api-ref/Operation/get.md
+              - name: Cancel
+                href: eventrouter/api-ref/Operation/cancel.md
+          - name: Rule
+            items:
+              - name: Overview
+                href: eventrouter/api-ref/Rule/index.md
+              - name: Get
+                href: eventrouter/api-ref/Rule/get.md
+              - name: List
+                href: eventrouter/api-ref/Rule/list.md
+              - name: Create
+                href: eventrouter/api-ref/Rule/create.md
+              - name: Update
+                href: eventrouter/api-ref/Rule/update.md
+              - name: Delete
+                href: eventrouter/api-ref/Rule/delete.md
+              - name: Enable
+                href: eventrouter/api-ref/Rule/enable.md
+              - name: Disable
+                href: eventrouter/api-ref/Rule/disable.md
+              - name: ListAccessBindings
+                href: eventrouter/api-ref/Rule/listAccessBindings.md
+              - name: SetAccessBindings
+                href: eventrouter/api-ref/Rule/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: eventrouter/api-ref/Rule/updateAccessBindings.md
+              - name: ListOperations
+                href: eventrouter/api-ref/Rule/listOperations.md
+base: en/serverless-integrations
+deepBase: 2

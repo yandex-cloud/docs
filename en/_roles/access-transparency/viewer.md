@@ -1,0 +1,1 @@
+The `access-transparency.viewer` role enables viewing the list of subscriptions to the events when Yandex Cloud employees access organization resources and approving or disapproving the result of the neural network-driven analysis of such events.

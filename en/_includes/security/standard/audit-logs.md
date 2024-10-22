@@ -5,8 +5,8 @@
 
 An audit log is a record of all events in the system, including access to it and operations performed. By collecting and verifying audit logs, you can monitor compliance with the established security procedures and standards and identify vulnerabilities in your security mechanisms.
 
-Events in audit logs occur on different levels:
-* [{{ yandex-cloud }} level](#cloud-level): Events that occur with {{ yandex-cloud }} resources.
+There are different levels of audit log events:
+* [{{ yandex-cloud }} level](#cloud-level): Events related to {{ yandex-cloud }} resources.
 * [OS level](#os-level).
 * [Application level](#app-level).
 * [Network level](#network-level) (Flow Logs).
@@ -19,9 +19,15 @@ For more information about {{ k8s }} events, see [Collecting, monitoring, and an
 
 #### 5.1 {{ at-full-name }} is enabled at the organization level {#audit-trails}
 
-The main tool for collecting {{ yandex-cloud }} level logs is [{{ at-full-name }}](../../../audit-trails/concepts/index.md). This service allows you to collect audit logs about events happening to {{ yandex-cloud }} resources and upload these logs to {{ objstorage-full-name }} buckets or {{ cloud-logging-name }} log groups for further analysis or export. See [this guide](../../../audit-trails/quickstart.md) on how to start collecting logs. You can also learn more about the [event format](../../../audit-trails/concepts/format.md) or check out the [event reference](../../../audit-trails/concepts/events.md).
+The main tool for collecting {{ yandex-cloud }} level logs is [{{ at-full-name }}](../../../audit-trails/concepts/index.md). This service allows you to collect audit logs about events happening to {{ yandex-cloud }} resources and upload these logs to {{ objstorage-full-name }} buckets or {{ cloud-logging-name }} log groups for further analysis or export. For information on how to start collecting logs, see [this guide](../../../audit-trails/quickstart.md).
 
-To collect metrics, analyze {{ yandex-cloud }}-level events, and set up notifications, we recommend using [{{ monitoring-full-name }}](../../../monitoring/). It helps you track, for example, a sharp increase in the load on {{ compute-name }}, the number of {{ alb-name }} requests per second (RPS), or significant changes in event statistics in {{ iam-name }}.
+{{ at-name }} audit logs may contain two types of events: [management events](../../../audit-trails/concepts/events.md) and [data events](../../../audit-trails/concepts/events-data-plane.md).
+
+[Management events](../../../audit-trails/concepts/format.md) are actions you take to configure {{ yandex-cloud }} resources, such as creating, updating, or deleting infrastructure components, users, or policies. [Data events](../../../audit-trails/concepts/format-data-plane.md) are updates and actions performed on data and resources within {{ yandex-cloud }} services. By default, {{ at-name }} does not log data events. You need to [enable](../../../audit-trails/quickstart.md#the-trail-creation) collection of data event audit logs individually for each supported service.
+
+For more information, see [{#T}](../../../audit-trails/concepts/control-plane-vs-data-plane.md).
+
+To collect metrics, analyze {{ yandex-cloud }}-level events, and set up notifications, we recommend using [{{ monitoring-full-name }}](../../../monitoring/). For example, it can help you track spikes in {{ compute-name }} workload, {{ alb-name }} RPS, or significant changes in {{ iam-name }} event statistics.
 
 You can also use {{ monitoring-name }} to monitor the health of the {{ at-name }} service itself and track security events. You can export metrics to a SIEM system via the API, see the [instructions](../../../monitoring/operations/metric/get.md).
 
@@ -39,10 +45,10 @@ You can enable {{ at-full-name }} at the folder, cloud, and organization level. 
 
 - Performing a check in the management console {#console}
 
-   1. In the management console, select the cloud or folder to check the functions in.
-   1. In the list of services, select {{ at-full-name }}.
-   1. Make sure the Filter parameter is set to Organization.
-   1. In addition, check that the destination of logs is {{ objstorage-full-name }} bucket, [{{ cloud-logging-name }}](../../../logging/) log group, and {{ yds-name }}, that they are up and running, and that the logs are available for further analysis.
+  1. In the management console, select the cloud or folder to check the functions in.
+  1. In the list of services, select {{ at-full-name }}.
+  1. Make sure the Filter parameter is set to Organization.
+  1. In addition, check that the destination of logs is {{ objstorage-full-name }} bucket, [{{ cloud-logging-name }}](../../../logging/) log group, and {{ yds-name }}, that they are up and running, and that the logs are available for further analysis.
 
 {% endlist %}
 
@@ -61,7 +67,7 @@ Solutions for exporting {{ yandex-cloud }} audit logs are available for the foll
 
 For more information about MaxPatrol, see this [section](../../../audit-trails/tutorials/maxpatrol.md).
 
-You can set up export to any SIEM using [GeeseFS](../../../storage/tools/geesefs.md) or [s3fs](../../../storage/tools/s3fs.md). These utilities allow mounting a {{ objstorage-full-name }} bucket as a VM local disk. Next, you need to install a SIEM connector on your VM and configure reading JSON files from the bucket. You can also use utilities compatible with AWS Kinesis datastreams if sending audit logs to {{ yds-full-name }}.
+You can set up export to any SIEM using [GeeseFS](../../../storage/tools/geesefs.md) or [s3fs](../../../storage/tools/s3fs.md). These utilities allow mounting a {{ objstorage-full-name }} bucket as a VM local disk. Next, you need to install a SIEM connector on the VM and configure reading JSON files from the bucket. You can also use utilities compatible with AWS Kinesis datastreams if sending audit logs to {{ yds-full-name }}.
 
 If you have no SIEM, you can also analyze audit logs manually using one of the following methods (in descending order of convenience):
 
@@ -75,7 +81,7 @@ If you have no SIEM, you can also analyze audit logs manually using one of the f
 
 - Manual check {#manual}
 
-   Make sure that audit logs from {{ at-full-name }} are exported for analysis to a SIEM system or analyzed in the cloud using one of the available methods.
+  Make sure that audit logs from {{ at-full-name }} are exported for analysis to a SIEM system or analyzed in the cloud using one of the available methods.
 
 {% endlist %}
 
@@ -103,16 +109,16 @@ You can use a solution for secure {{ objstorage-full-name }} bucket setup with {
 
 - Manual check {#manual}
 
-   Run a manual check.
+  Run a manual check.
 
 {% endlist %}
 
 #### 5.5 Audit logs are collected at the OS level {#os-collection}
 
 When using IaaS cloud services and {{ k8s }} node groups, the customer is responsible for ensuring OS security and collecting OS-level events on their own. Free tools for collecting standard OS-generated events and exporting them to the customer's SIEM system include:
-* [Osquery](https://osquery.io/)
-* [Filebeat (ELK)](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-system.html)
-* [Wazuh](https://documentation.wazuh.com/current/getting-started/use_cases/log_analysis.html)
+  * [Osquery](https://osquery.io/)
+  * [Filebeat (ELK)](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-system.html)
+  * [Wazuh](https://documentation.wazuh.com/current/getting-started/use_cases/log_analysis.html)
 
 Additional event generation options can be implemented using Auditd for Linux or Sysmon for Windows.
 
@@ -128,7 +134,7 @@ To get the exact time of OS- and application-level events, configure clock synch
 
 - Manual check {#manual}
 
-   Run a manual check.
+  Run a manual check.
 
 {% endlist %}
 
@@ -140,7 +146,7 @@ Customers may collect events that occur at the level of applications deployed on
 
 - Manual check {#manual}
 
-   Run a manual check.
+  Run a manual check.
 
 {% endlist %}
 
@@ -152,6 +158,37 @@ Currently, {{ vpc-short-name }} network traffic event logs (Flow Logs) can only 
 
 - Manual check {#manual}
 
-   Run a manual check.
+  Run a manual check.
+
+{% endlist %}
+
+#### 5.8 Data events are monitored {#data-plane-events}
+
+A [data event audit log](../../../audit-trails/concepts/format-data-plane.md) is a JSON object with a record of events related to {{ yandex-cloud }} resources. Data event monitoring makes it easier for you to collect additional events from cloud services and, as a result, effectively respond to security incidents in clouds. This also helps you ensure your cloud infrastructure meets regulatory requirements and industry standards. For example, you can keep track of your employees' access permissions to sensitive data stored in [buckets](../../../storage/concepts/bucket.md).
+
+{% list tabs group=instructions %}
+
+- Performing a check in the management console {#console}
+
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where your [trail](../../../audit-trails/concepts/trail.md) is located.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
+  1. Select the trail you need.
+  1. Make sure the trail info page in **{{ ui-key.yacloud.audit-trails.label_event-filter-section }}** lists all the services you want to collect data event logs for, specifying the correct audit log [scope](../../../audit-trails/concepts/trail.md#collecting-area) for each service.
+
+      List of supported services:
+
+      * [{{ dns-full-name }}](#dns)
+      * [{{ compute-full-name }}](#compute)
+      * [{{ iam-full-name }}](#iam)
+      * [{{ kms-full-name }}](#kms)
+      * [{{ lockbox-full-name }}](#lockbox)
+      * [{{ mmg-full-name }}](#mmg)
+      * [{{ mmy-full-name }}](#mmy)
+      * [{{ mpg-full-name }}](#mpg)
+      * [{{ objstorage-full-name }}](#objstorage)
+      * [{{ speechsense-full-name }}](#speechsense)
+      * [{{ sws-full-name }}](#sws)
+      * [{{ wiki-full-name }}](#wiki)
+      * [{{ websql-full-name }}](#websql)
 
 {% endlist %}

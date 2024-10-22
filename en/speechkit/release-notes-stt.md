@@ -111,7 +111,7 @@ Resampling fixed, new dialog metrics now available in the `general` model.
 Сhanges to `general:rc`:
 
 * Two-channel audio resampling bug fixed in [API v3](stt-v3/api-ref/grpc/).
-* Dialog metrics can now be calculated for speech analytics. Metric calculation is set up using the `speech_analysis` option in the [`StreamingOptions`](stt-v3/api-ref/grpc/stt_service#StreamingOptions) message.
+* Dialog metrics can now be calculated for speech analytics. Metric calculation is set up using the `speech_analysis` option in the [`StreamingOptions`](stt-v3/api-ref/grpc/Recognizer/recognizeStreaming#speechkit.stt.v3.StreamingOptions) message.
 
 ### Release on June 13, 2023 {#130623}
 
@@ -156,7 +156,7 @@ For the `general:rc` model:
 ### Release on February 8, 2023 {#080223}
 
 1. The first version of Uzbek speech recognition is now available in the `general:rc` model for all API versions. Under some acoustic conditions, Uzbek can be recognized as Kazakh. The issue will be fixed in future model releases.
-1. To access the `general:rc` model in [API v3](./stt-v3/api-ref/grpc/), you can now specify this value in the [`model` parameter](./stt-v3/api-ref/grpc/stt_service#RecognitionModelOptions).
+1. To access the `general:rc` model in [API v3](./stt-v3/api-ref/grpc/), you can now specify this value in the [`model` parameter](./stt-v3/api-ref/grpc/Recognizer/recognizeStreaming#speechkit.stt.v3.RecognitionModelOptions).
 
 ### Release on December 20, 2022 {#201222}
 

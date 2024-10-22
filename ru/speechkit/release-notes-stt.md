@@ -111,7 +111,7 @@
 В `general:rc` доступны следующие изменения:
 
 * Исправлена ошибка ресемплинга двухканальных аудио в [API v3](stt-v3/api-ref/grpc/).
-* Добавлена возможность подсчета метрик диалога для речевой аналитики. Подсчет метрик настраивается с помощью опции `speech_analysis` в сообщении [`StreamingOptions`](stt-v3/api-ref/grpc/stt_service#StreamingOptions).
+* Добавлена возможность подсчета метрик диалога для речевой аналитики. Подсчет метрик настраивается с помощью опции `speech_analysis` в сообщении [`StreamingOptions`](stt-v3/api-ref/grpc/Recognizer/recognizeStreaming#speechkit.stt.v3.StreamingOptions).
 
 ### Релиз 13.06.23 {#130623}
 
@@ -156,7 +156,7 @@
 ### Релиз 08.02.23 {#080223}
 
 1. В модели `general:rc` для всех версий API доступна первая версия распознавания на узбекском языке. Пока при некоторых акустических условиях узбекский язык может быть распознан как казахский. Эта проблема будет исправлена в следующих релизах модели.
-1. Теперь чтобы обратиться к модели `general:rc` в [API v3](./stt-v3/api-ref/grpc/), передавайте это значение в [параметре `model`](./stt-v3/api-ref/grpc/stt_service#RecognitionModelOptions).
+1. Теперь чтобы обратиться к модели `general:rc` в [API v3](./stt-v3/api-ref/grpc/), передавайте это значение в [параметре `model`](./stt-v3/api-ref/grpc/Recognizer/recognizeStreaming#speechkit.stt.v3.RecognitionModelOptions).
 
 ### Релиз 20.12.22 {#201222}
 

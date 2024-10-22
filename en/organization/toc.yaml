@@ -43,9 +43,9 @@ items:
             href: operations/add-member-group.md
           - name: Editing a group
             href: operations/edit-group.md
-          - name: Setting up permissions to manage a group
+          - name: Configuring group management access
             href: operations/access-manage-group.md
-          - name: Configuring group access to Yandex Cloud
+          - name: Granting permissions to a group
             href: operations/access-group.md
           - name: Deleting members
             href: operations/delete-member-group.md
@@ -125,7 +125,7 @@ items:
         href: diagnostics.md
       - name: Errors in SAML 2.0 federations
         href: saml-diagnostics.md
-      - name: Authentication errors when using a Yandex account
+      - name: Authentication errors with Yandex account
         href: yandex-id-diagnostics.md
   - name: Access management
     href: security/index.md

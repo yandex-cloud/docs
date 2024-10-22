@@ -4,7 +4,7 @@
 
 You can securely embed private [charts](../concepts/chart/index.md) or [dashboards](../concepts/dashboard.md) into a website or app using special [JWT token](https://en.wikipedia.org/wiki/JSON_Web_Token) links.
 
-Embedding private objects only works in the new {{ datalens-short-name }} object model at the [workbook](../workbooks-collections/index.md) level and is only available to the workbook [administrator](./roles.md#workbooks-admin).
+Embedding private objects only works in the new {{ datalens-short-name }} object model at the [workbook](../workbooks-collections/index.md) level and is only available to the workbook [administrator](./roles.md#datalens-workbooks-admin).
 
 {% include [datalens-embeded-connection-stop-list](../../_includes/datalens/datalens-embeded-connection-stop-list.md) %}
 

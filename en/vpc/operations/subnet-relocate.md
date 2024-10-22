@@ -90,7 +90,7 @@ To move a subnet to a different availability zone:
 
 - API {#api}
 
-  Use the [relocate](../api-ref/Subnet/relocate.md) REST API method for the [Subnet](../api-ref/Subnet/index.md) resource or the [SubnetService/Relocate](../api-ref/grpc/subnet_service#Relocate) gRPC API call.
+  Use the [relocate](../api-ref/Subnet/relocate.md) REST API method for the [Subnet](../api-ref/Subnet/index.md) resource or the [SubnetService/Relocate](../api-ref/grpc/Subnet/relocate.md) gRPC API call.
 
   **Request example**
 

@@ -24,7 +24,7 @@ To create an API key:
       yc iam api-key create --help
       ```
 
-  1. Select a service account, e.g., `my-robot`:
+  1. Get a list of service accounts in the default folder:
 
       ```bash
       yc iam service-account list
@@ -41,17 +41,23 @@ To create an API key:
       +----------------------+------------------+-------------------------------+
       ```
 
-  1. Create an API key for the service account and save the response to the file:
+  1. Create an API key for the required service account and save the response to the `api_key.yaml` file:
 
       ```bash
-      yc iam api-key create --service-account-name <service_account_name> > api_key.yaml
+      yc iam api-key create \
+        --service-account-name <service_account_name> \
+        --scope <scope> \
+        --expires-at <date_and_time> \
+        > api_key.yaml
       ```
 
       Where:
-
+      
       * `--service-account-name`: Service account name. This is a required parameter.
+      * `--scope`: Key scope. This is an optional parameter.
+      * `--expires-at`: Key expiration date and time. This is an optional parameter.
       * `api_key.yaml`: File to save the response to.
-
+      
       As a result, you will get the `api_key.yaml` file with the API key value in the `secret` field:
 
       ```yaml
@@ -108,7 +114,11 @@ To create an API key:
   curl -X POST \
     -H "Content-Type: application/json" \
     -H "Authorization: Bearer $IAM_TOKEN" \
-    -d "{ \"serviceAccountId\": \"$SERVICEACCOUNT_ID\" }" \
+    -d "{
+        \"serviceAccountId\": \"$SERVICEACCOUNT_ID\",
+        \"scope\": \"<scope>\",
+        \"expiresAt\": \"<date_and_time>\"
+    }" \
     https://iam.{{ api-host }}/iam/v1/apiKeys
   ```
 
@@ -116,6 +126,8 @@ To create an API key:
 
   * `SERVICEACCOUNT_ID`: Service account [ID](../sa/get-id.md). This is a required parameter.
   * `IAM_TOKEN`: [IAM token](../../concepts/authorization/iam-token.md). This is a required parameter.
+  * `scope`: Scope of the key [with restricted access](../../concepts/authorization/api-key.md#scoped-api-keys). This is an optional parameter.
+  * `expiresAt`: Expiration date and time for the key with restricted access. This is an optional parameter.
 
   You can also create an API key using the [ApiKeyService/Create](../../api-ref/grpc/ApiKey/create.md) gRPC API call.
 

@@ -7912,13 +7912,17 @@ default:
         switch_list: Кластеры
         switch_operations: Операции
       search-api:
+        overview:
+          label_button-edit: Редактировать
         test-query:
           label_button-run-test: Запустить тест
+          label_field-body: Тело запроса
           label_field-method: Метод запроса
           label_field-query: Текст поискового запроса
           label_search_type-international: Международный
           label_search_type-russian: Русский
           label_search_type-turkish: Турецкий
+          label_section-url: Поисковый запрос
           label_title: Тестирование запросов
       serverless-containers:
         button_create-container: Создать контейнер
@@ -9621,12 +9625,18 @@ default:
             RenameTablesTransformer:
               rename_tables:
                 array_item_label: Таблица
+            ToStringTransformer:
+              columns:
+                title: Список колонок
             Transformation:
               transformers:
                 array_item_label: Преобразование
             Transformer:
               convert_to_string:
                 title: Преобразовать значения в строки
+              table_splitter:
+                title: Трансформер разделения на подтаблицы
+              title: Трансформер
     yc-ui-datasphere:
       alias:
         private: Приватный

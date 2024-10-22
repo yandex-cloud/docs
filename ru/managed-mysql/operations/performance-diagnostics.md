@@ -99,7 +99,7 @@
             * `sessionsSamplingInterval` — интервал сбора сессий: от `1` до `86400` секунд;
             * `statementsSamplingInterval` — интервал сбора запросов: от `60` до `86400` секунд.
 
-        1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/create.md#responses).
+        1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/create.md#yandex.cloud.operation.Operation).
 
     1. Чтобы включить сбор статистики при изменении существующего кластера:
 
@@ -131,7 +131,7 @@
             * `sessionsSamplingInterval` — интервал сбора сессий: от `1` до `86400` секунд;
             * `statementsSamplingInterval` — интервал сбора запросов: от `60` до `86400` секунд.
 
-        1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#responses).
+        1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation).
 
 * gRPC API {#grpc-api}
 
@@ -212,7 +212,7 @@
             * `sessions_sampling_interval` — интервал сбора сессий: от `1` до `86400` секунд;
             * `statements_sampling_interval` — интервал сбора запросов: от `60` до `86400` секунд.
 
-        1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation1).
+        1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 

@@ -58,7 +58,7 @@ To restart a host:
 
       You can request the cluster ID with a [list of clusters in the folder](../../../managed-clickhouse/operations/cluster-list.md#list-clusters).
 
-   1. View the [server response](../../../managed-clickhouse/api-ref/Cluster/restartHosts.md#responses) to make sure the request was successful.
+   1. View the [server response](../../../managed-clickhouse/api-ref/Cluster/restartHosts.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 - gRPC API {#grpc-api}
 

@@ -21,7 +21,7 @@ During migration, {{ datalens-short-name }} finds linked objects recursively acr
 {% note warning %}
 
 * Objects within a workbook cannot be migrated back to a folder.
-* Immediately after the migration, all access rights to the transferred objects are revoked, and you become a sole [administrator](../security/roles.md#workbooks-admin) of the workbook who can assign [access rights](./security.md) to other users and user groups.
+* Immediately after the migration, all access rights to the transferred objects are revoked, and you become a sole [administrator](../security/roles.md#datalens-workbooks-admin) of the workbook who can assign [access rights](./security.md) to other users and user groups.
 
 {% endnote %}
 

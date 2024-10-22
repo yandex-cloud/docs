@@ -119,8 +119,6 @@ items:
             href: operations/connection/create-oracle.md
           - name: Создание подключения к {{ prometheus-name }}
             href: operations/connection/create-prometheus.md
-          - name: Создание подключения к BigQuery
-            href: operations/connection/create-big-query.md
           - name: Создание подключения к Snowflake
             href: operations/connection/create-snowflake.md
       - name: Файлы и сервисы
