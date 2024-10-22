@@ -1,6 +1,6 @@
 {% include [overview](../../_includes/security/standard/overview.md) %}
 
-## 1. Authentication and access control {#authentication}
+## 1. Authentication and access management {#authentication}
 
 {% include notitle [authentication](../../_includes/security/standard/authentication.md) %}
 
@@ -20,22 +20,22 @@
 
 {% include notitle [audit-logs](../../_includes/security/standard/audit-logs.md) %}
 
-## 6. Managing vulnerabilities {#vulnerabilities}
-
-{% include notitle [vulnerabilities](../../_includes/security/standard/vulnerabilities.md) %}
-
-## 7. Backups {#backup}
+## 6. Backups {#backup}
 
 {% include notitle [backup](../../_includes/security/standard/backup.md) %}
 
 
-## 8. Physical security {#physical-security}
+## 7. Physical security {#physical-security}
 
 {% include notitle [physical-security](../../_includes/security/standard/physical-security.md) %}
 
-## 9. Application security {#app-security}
+## 8. Application security {#app-security}
 
 {% include notitle [app-security](../../_includes/security/standard/app-security.md) %}
 
+
+## 9. {{ k8s }} security {#kubernetes-security}
+
+{% include notitle [kubernetes-security](../../_includes/security/standard/kubernetes-security.md) %}
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

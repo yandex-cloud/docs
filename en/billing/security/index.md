@@ -12,7 +12,7 @@ description: Billing account access is provided through {{ billing-name }}. The 
 * If you or your employee have no account yet, create one on [Yandex](https://passport.yandex.ru/registration) or [Yandex 360](https://yandex.com/support/business/add-users.html).
 * If using a social network profile to log in to Yandex, [create a username and password](https://passport.yandex.ru/passport?mode=postregistration&create_login=1).
 
-The operations a user can perform on a billing account depend on the role assigned. You can assign roles to a Yandex account, [service account](../../iam/concepts/users/service-accounts.md), [federated users](../../iam/concepts/federations.md), [user group](../../organization/operations/manage-groups.md), [system group](../../iam/concepts/access-control/system-group.md), or [public group](../../iam/concepts/access-control/public-group.md).
+The operations a user can perform on a billing account depend on the assigned role. You can assign roles to a Yandex account, [service account](../../iam/concepts/users/service-accounts.md), [federated users](../../iam/concepts/federations.md), [user group](../../organization/operations/manage-groups.md), [system group](../../iam/concepts/access-control/system-group.md), or [public group](../../iam/concepts/access-control/public-group.md).
 
 {% note info %}
 
@@ -184,7 +184,7 @@ The steps for revoking a billing account role depend on whether this billing acc
   1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
   1. Select a billing account.
   1. In the left-hand panel, select ![persons](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud_billing.billing.account.switch_users }}**.
-  1. Find the required user, service account, or user group in the users list or use the filter. 
+  1. Find the required user, service account, or user group in the users list or use the filter.
   1. In the line with the required user, service account, or group, click ![image](../../_assets/horizontal-ellipsis.svg) and select ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud_billing.common.resource-acl.button_assign-binding }}**. In the window that opens:
 
       1. Click ![image](../../_assets/cross.svg) to the right of the role you want to revoke.

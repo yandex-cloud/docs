@@ -96,6 +96,8 @@ default:
   cloud-logging-short-name: Cloud Logging
   cloud-logs-name: Cloud Logs
   cloud-notify-bot: YandexCloudNotify_bot
+  cloud-registry-full-name: Yandex Cloud Registry
+  cloud-registry-name: Cloud Registry
   cluster-id: cat0adul1fj0********
   cname-example: cl-msa87*****.edgecdn.ru
   cns-full-name: Yandex Cloud Notification Service
@@ -172,6 +174,8 @@ default:
   dt-white-ip-list-uri: >-
     https://stat.ripe.net/widget/announced-prefixes#w.resource%3DAS200350%26w.min_peers_seeing%3D0
   emb-vector: 256
+  er-full-name: Yandex EventRouter
+  er-name: EventRouter
   ES: Elasticsearch
   external-ip-examples:
     '0': 84.201.155.117
@@ -493,6 +497,7 @@ default:
   port-ssh: 22
   postbox-endpoint: https://postbox.cloud.yandex.net
   postbox-full-name: Yandex Cloud Postbox
+  postbox-host: postbox.cloud.yandex.net
   postbox-name: Yandex Cloud Postbox
   preview-stage: <code><b><small>Preview</small></b></code>
   price-per-hour-count-per-second: Prices are shown for 1 hour of use. Billing occurs per second.
@@ -661,6 +666,8 @@ default:
   sf-name: Cloud Functions
   sf-short-name: Cloud Functions
   sf-url: functions.yandexcloud.net
+  si-full-name: Yandex Serverless Integrations
+  si-name: Serverless Integrations
   sk-hybrid-full-name: Yandex SpeechKit Hybrid
   sk-hybrid-name: SpeechKit Hybrid
   speechkit-full-name: Yandex SpeechKit
@@ -687,6 +694,8 @@ default:
   subnet-id: b0rcctk2rvtr8efcch64
   subnet-name: default-ru-central1-c
   support-center-name: Support Center
+  sw-full-name: Yandex Workflows
+  sw-name: Workflows
   sws-full-name: Yandex Smart Web Security
   sws-name: Smart Web Security
   t4-ice-lake: Intel Ice Lake with NVIDIA® Tesla® T4
@@ -7883,13 +7892,17 @@ default:
         switch_list: Clusters
         switch_operations: Operations
       search-api:
+        overview:
+          label_button-edit: Edit
         test-query:
           label_button-run-test: Run test
+          label_field-body: Request body
           label_field-method: Request method
           label_field-query: Search query text
           label_search_type-international: International
           label_search_type-russian: Russian
           label_search_type-turkish: Turkish
+          label_section-url: Search query
           label_title: Test queries
       serverless-containers:
         button_create-container: Create container
@@ -9594,12 +9607,18 @@ default:
             RenameTablesTransformer:
               rename_tables:
                 array_item_label: Table
+            ToStringTransformer:
+              columns:
+                title: Columns
             Transformation:
               transformers:
                 array_item_label: Transformation
             Transformer:
               convert_to_string:
                 title: Convert values to string
+              table_splitter:
+                title: Table splitter transformer
+              title: Transformer
     yc-ui-datasphere:
       alias:
         private: Private

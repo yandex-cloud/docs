@@ -10,6 +10,8 @@ items:
         href: quickstart/connection-manager.md
       - name: '{{ metastore-full-name }}'
         href: quickstart/metastore.md
+      - name: Schema Registry
+        href: quickstart/schema-registry.md
   - name: Step-by-step guides
     items:
       - name: All guides
@@ -36,12 +38,38 @@ items:
             href: operations/metastore/export-and-import.md
           - name: Deleting a {{ metastore-name }} cluster
             href: operations/metastore/cluster-delete.md
+      - name: Schema Registry
+        items:
+          - name: Namespace
+            items:
+              - name: Creating a namespace
+                href: operations/create-name-space.md
+              - name: Editing a namespace
+                href: operations/update-name-space.md
+              - name: Deleting a namespace
+                href: operations/delete-name-space.md
+          - name: Schemas
+            items:
+              - name: Uploading a schema to a new subject
+                href: operations/create-subject.md
+              - name: Adding a schema to an existing subject
+                href: operations/add-schema.md
+              - name: Deleting a schema
+                href: operations/delete-schema.md
+              - name: Comparing schemas
+                href: operations/compare-schemas.md
+          - name: Subjects
+            items:
+              - name: Changing a subject
+                href: operations/update-subject.md
+              - name: Deleting a subject
+                href: operations/delete-subject.md
   - name: Tutorials
     items:
-      - name: Shared use of tables through {{ metastore-name }}
+      - name: Shared use of {{ dataproc-name }} tables through {{ metastore-name }}
         href: tutorials/sharing-tables.md
       - name: >-
-          Transferring metadata between {{ dataproc-name }} clusters using {{
+          Transferring data between {{ dataproc-name }} clusters using {{
           metastore-name }}
         href: tutorials/metastore-import.md
   - name: Concepts
@@ -60,6 +88,10 @@ items:
             href: concepts/metastore.md
           - name: Impersonation in {{ metastore-name }}
             href: concepts/metastore-impersonation.md
+      - name: Schema Registry
+        items:
+          - name: Schema registry
+            href: concepts/schema-registry.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Access management
@@ -70,6 +102,14 @@ items:
         href: security/connection-manager-roles.md
       - name: '{{ metastore-name }} roles'
         href: security/metastore-roles.md
+      - name: '{{ schema-registry-name }} roles'
+        href: security/schema-registry-roles.md
+  - name: API reference
+    items:
+      - name: Authentication with the API
+        href: api-ref/authentication.md
+      - name: Schema Registry
+        href: api-ref/schema-registry/index.md
   - name: Release notes
     href: release-notes/index.md
   - name: Pricing policy

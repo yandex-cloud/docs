@@ -625,7 +625,7 @@
 
   Используйте вызов gRPC API [SecurityGroupService/Create](../vpc/api-ref/grpc/SecurityGroup/create.md) или метод REST API [create](../vpc/api-ref/SecurityGroup/create.md).
 
-  Чтобы добавить правило для проверок состояния балансировщика, используйте параметр `loadbalancer_healthchecks` в поле [SecurityGroupRuleSpec.target.predefined_target](../vpc/api-ref/grpc/SecurityGroup/create.md#yandex.cloud.vpc.v1.SecurityGroupRuleSpec) для gRPC API или в поле [predefinedTarget](../vpc/api-ref/SecurityGroup/create.md#body_params) для REST API.
+  Чтобы добавить правило для проверок состояния балансировщика, используйте параметр `loadbalancer_healthchecks` в поле [SecurityGroupRuleSpec.target.predefined_target](../vpc/api-ref/grpc/SecurityGroup/create.md#yandex.cloud.vpc.v1.SecurityGroupRuleSpec) для gRPC API или в поле [predefinedTarget](../vpc/api-ref/SecurityGroup/create.md#yandex.cloud.vpc.v1.CreateSecurityGroupRequest) для REST API.
 
 {% endlist %}
 
@@ -1543,7 +1543,7 @@
    - API {#api}
 
      1. Получите идентификатор созданного CDN-ресурса с помощью вызова gRPC API [ResourceService/List](../cdn/api-ref/grpc/Resource/list.md) или метода REST API [list](../cdn/api-ref/Resource/list.md).
-     1. Удалите файл `index.html` из кеша с помощью вызова gRPC API [CacheService/Purge](../cdn/api-ref/grpc/cache_service#Purge) или метода [purge](../cdn/api-ref/Cache/purge.md). 
+     1. Удалите файл `index.html` из кеша с помощью вызова gRPC API [CacheService/Purge](../cdn/api-ref/grpc/Cache/purge.md) или метода [purge](../cdn/api-ref/Cache/purge.md). 
 
    {% endlist %}
 
@@ -1630,7 +1630,7 @@
    - API {#api}
 
      1. Получите идентификатор созданного CDN-ресурса с помощью вызова gRPC API [ResourceService/List](../cdn/api-ref/grpc/Resource/list.md) или метода REST API [list](../cdn/api-ref/Resource/list.md).
-     1. Удалите файл `index.html` из кеша с помощью вызова gRPC API [CacheService/Purge](../cdn/api-ref/grpc/cache_service#Purge) или метода [purge](../cdn/api-ref/Cache/purge.md). 
+     1. Удалите файл `index.html` из кеша с помощью вызова gRPC API [CacheService/Purge](../cdn/api-ref/grpc/Cache/purge.md) или метода [purge](../cdn/api-ref/Cache/purge.md). 
 
    {% endlist %}
 
@@ -1822,7 +1822,7 @@
    - API {#api}
 
      1. Получите идентификатор созданного CDN-ресурса с помощью вызова gRPC API [ResourceService/List](../cdn/api-ref/grpc/Resource/list.md) или метода REST API [list](../cdn/api-ref/Resource/list.md).
-     1. Удалите файл `index.html` из кеша с помощью вызова gRPC API [CacheService/Purge](../cdn/api-ref/grpc/cache_service#Purge) или метода [purge](../cdn/api-ref/Cache/purge.md). 
+     1. Удалите файл `index.html` из кеша с помощью вызова gRPC API [CacheService/Purge](../cdn/api-ref/grpc/Cache/purge.md) или метода [purge](../cdn/api-ref/Cache/purge.md). 
 
    {% endlist %}
 

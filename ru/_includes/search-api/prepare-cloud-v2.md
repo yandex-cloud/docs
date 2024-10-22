@@ -1,0 +1,5 @@
+1. Для аутентификации в API v2 от имени сервисного аккаунта [создайте](../../iam/operations/sa/create.md) сервисный аккаунт.
+1. [Назначьте](../../iam/operations/sa/assign-role-for-sa.md#binding-role-resource) пользователю или [сервисному аккаунту](../../iam/concepts/users/service-accounts.md), от имени которого будут выполняться запросы, [роль](../../search-api/security/index.md#search-api-webSearch-user) `search-api.webSearch.user`.
+1. [Получите](../../iam/operations/index.md#iam-tokens) IAM-токен, необходимый для [аутентификации](../../search-api/api-ref/authentication.md). 
+
+    В приведенных примерах используется аутентификация с помощью [IAM-токена](../../iam/concepts/authorization/iam-token.md). Чтобы использовать для аутентификации [API-ключ](../../iam/concepts/authorization/api-key.md) сервисного аккаунта, измените в примерах запросов заголовок `Authorization`. Подробнее см. в разделе [{#T}](../../search-api/api-ref/authentication.md).

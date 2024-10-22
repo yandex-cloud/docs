@@ -12,8 +12,9 @@ This section provides the basic information about integrating {{ yq-full-name }}
 | --- | :---: | :---: | --- |
 | [{{ objstorage-name }}](../storage/quickstart.md) | ![yes](../_assets/common/yes.svg) | ![yes](../_assets/common/yes.svg) | [Description](./sources-and-sinks/object-storage-binding.md) |
 | [{{ mch-full-name }}](../managed-clickhouse/quickstart.md) | ![yes](../_assets/common/yes.svg) | ![no](../_assets/common/no.svg)  | [Description](./sources-and-sinks/clickhouse.md) |
-| [{{ mpg-full-name }}](../managed-postgresql/quickstart.md) | ![yes](../_assets/common/yes.svg) | ![no](../_assets/common/no.svg)  | [Description](./sources-and-sinks/postgresql.md) |
+| [{{ mgp-full-name }}](../managed-greenplum/quickstart.md) | ![yes](../_assets/common/yes.svg) | ![no](../_assets/common/no.svg)  | [Description](./sources-and-sinks/greenplum.md) |
 | [{{ mmy-full-name }}](../managed-mysql/quickstart.md) | ![yes](../_assets/common/yes.svg) | ![no](../_assets/common/no.svg)  | [Description](./sources-and-sinks/mysql.md) |
+| [{{ mpg-full-name }}](../managed-postgresql/quickstart.md) | ![yes](../_assets/common/yes.svg) | ![no](../_assets/common/no.svg)  | [Description](./sources-and-sinks/postgresql.md) |
 | [{{ ydb-full-name }}](../ydb/quickstart.md) | ![yes](../_assets/common/yes.svg) | ![no](../_assets/common/no.svg)  | [Description](./sources-and-sinks/ydb.md) |
 
 

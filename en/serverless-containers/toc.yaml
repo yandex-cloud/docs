@@ -79,8 +79,12 @@ items:
             href: operations/network-add.md
           - name: Transferring {{ lockbox-full-name }} secrets
             href: operations/lockbox-secret-transmit.md
-          - name: Mounting a bucket
-            href: operations/mount-bucket.md
+          - name: Mounting file systems
+            items:
+              - name: Mounting a bucket
+                href: operations/mount-bucket.md
+              - name: Mounting an ephemeral disk
+                href: operations/mount-ephemeral-disk.md
           - name: Managing labels
             items:
               - name: Adding a label
@@ -157,7 +161,7 @@ items:
         href: concepts/networking.md
       - name: Runtime environment
         href: concepts/runtime.md
-      - name: Mounting a bucket
+      - name: Mounting file systems
         href: concepts/mounting.md
       - name: Trigger
         items:

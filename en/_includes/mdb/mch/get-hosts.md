@@ -48,7 +48,7 @@
 
       You can request the cluster ID with a [list of clusters in the folder](../../../managed-clickhouse/operations/cluster-list.md#list-clusters).
 
-   1. View the [server response](../../../managed-clickhouse/api-ref/Cluster/listHosts.md#responses) to make sure the request was successful.
+   1. View the [server response](../../../managed-clickhouse/api-ref/Cluster/listHosts.md#yandex.cloud.mdb.clickhouse.v1.ListClusterHostsResponse) to make sure the request was successful.
 
 - gRPC API {#grpc-api}
 

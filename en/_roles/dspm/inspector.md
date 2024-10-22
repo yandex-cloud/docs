@@ -1,0 +1,1 @@
+The `dspm.inspector` role enables creating DSPM [data sources](../../security-deck/concepts/dspm.md#data-source) using the specified Yandex Cloud resources. To create a DSPM data source, assign this role to a user for the appropriate cloud resource.

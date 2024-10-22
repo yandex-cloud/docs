@@ -233,7 +233,7 @@ We recommend that you only allow access to your cloud infrastructure through con
 {{ yandex-cloud }} has basic and extended DDoS protection. Make sure to use at least basic protection.
 
 * [{{ ddos-protection-full-name }}](../../../vpc/ddos-protection/index.md) is a {{ vpc-name }} component that safeguards cloud resources from DDoS attacks. {{ ddos-protection-name }} is provided in partnership with Qrator Labs. You can enable it yourself for an external [IP address](../../../vpc/concepts/address.md) through cloud administration tools. Supported up to OSI L4.
-* [Advanced](/services/ddos-protection) protection against DDoS attacks operates at Levels 3 and 7 of the OSI model. You can also follow load and attack parameters and enable Solidwall WAF in your Qrator Labs account. To enable advanced protection, contact your manager or technical support.
+* [Advanced](/services/ddos-protection) DDoS protection operates at Levels 3 and 7 of the OSI model. You can also follow load and attack parameters and enable Solidwall WAF in your Qrator Labs account. To enable advanced protection, contact your manager or technical support.
 
 {% list tabs group=instructions %}
 

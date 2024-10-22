@@ -6,10 +6,10 @@ This example uses the following parameters:
 
 * [Language](../models.md#languages): Russian.
 * Format of the audio stream: [LPCM](../../formats.md#LPCM) with a sampling rate of 8000 Hz.
-* [Number of audio channels](../../stt-v3/api-ref/grpc/stt_service#RawAudio): 1.
+* [Number of audio channels](../../stt-v3/api-ref/grpc/AsyncRecognizer/recognizeFile#speechkit.stt.v3.RawAudio): 1.
 * Recording buffer size: 4096.
 * Audio recording duration: 30 seconds.
-* [Profanity filter](../../stt-v3/api-ref/grpc/stt_service#TextNormalizationOptions): Enabled.
+* [Profanity filter](../../stt-v3/api-ref/grpc/AsyncRecognizer/recognizeFile#speechkit.stt.v3.TextNormalizationOptions): Enabled.
 
 To use the API, you need the `grpcio-tools`, `PortAudio`, and `PyAudio` packages.
 
@@ -192,7 +192,7 @@ Authentication is performed under a service account using an [API key](../../../
       * `RECORD_SECONDS`: Audio recording duration in seconds.
       * `WAVE_OUTPUT_FILENAME`: Name of the audio file with the recorded speech. The file is created by a script.
       * `profanity_filter`: Profanity filter.
-      * `literature_text`: [Flag to generate the recognized text in a literary style](../../stt-v3/api-ref/grpc/stt_service#TextNormalizationOptions).
+      * `literature_text`: [Flag to generate the recognized text in a literary style](../../stt-v3/api-ref/grpc/AsyncRecognizer/recognizeFile#speechkit.stt.v3.TextNormalizationOptions).
       * `language_code`: Recognition language.
 
    1. Set the service account's API key as an environment variable:

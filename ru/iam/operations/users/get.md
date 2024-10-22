@@ -39,6 +39,6 @@
   
   Если вы знаете идентификатор пользователя, воспользуйтесь методом REST API [get](../../api-ref/UserAccount/get.md) для ресурса [UserAccount](../../api-ref/UserAccount/index.md) или вызовом gRPC API [UserAccountService/Get](../../api-ref/grpc/ServiceAccount/get.md).
 
-  Чтобы получить информацию о федеративных пользователях, воспользуйтесь методом REST API [listUserAccounts](../../../organization/api-ref/Federation/listUserAccounts) для ресурса [Federation](../../../organization/api-ref/Federation/) или вызовом gRPC API [FederationService/ListUserAccounts](../../../organization/api-ref/grpc/federation_service#ListUserAccounts). Чтобы получить информацию об определенном федеративном пользователе, примените фильтрацию по логину с помощью параметра `filter`.
+  Чтобы получить информацию о федеративных пользователях, воспользуйтесь методом REST API [listUserAccounts](../../../organization/saml/api-ref/Federation/listUserAccounts) для ресурса [Federation](../../../organization/saml/api-ref/Federation/) или вызовом gRPC API [FederationService/ListUserAccounts](../../../organization/saml/api-ref/grpc/Federation/listUserAccounts.md). Чтобы получить информацию об определенном федеративном пользователе, примените фильтрацию по логину с помощью параметра `filter`.
 
 {% endlist %}

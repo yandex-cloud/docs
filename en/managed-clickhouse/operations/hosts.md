@@ -187,7 +187,7 @@ Using the CLI, {{ TF }}, and API, you can create multiple hosts in a cluster in 
 
       You can request the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
 
-   1. View the [server response](../api-ref/Cluster/addHosts.md#responses) to make sure the request was successful.
+   1. View the [server response](../api-ref/Cluster/addHosts.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -355,7 +355,7 @@ You can modify public access settings for every host in a {{ mch-name }} cluster
 
       You can request the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
 
-   1. View the [server response](../api-ref/Cluster/updateHosts.md#responses) to make sure the request was successful.
+   1. View the [server response](../api-ref/Cluster/updateHosts.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -501,7 +501,7 @@ You cannot delete hosts used for [{{ CK }}](../concepts/replication.md#ck) place
 
       You can request the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
 
-   1. View the [server response](../api-ref/Cluster/deleteHosts.md#responses) to make sure the request was successful.
+   1. View the [server response](../api-ref/Cluster/deleteHosts.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 - gRPC API {#grpc-api}
 

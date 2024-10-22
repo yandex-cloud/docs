@@ -1,6 +1,11 @@
-# Аутентификация в {{ search-api-full-name }}
+---
+title: Как аутентифицироваться в API v1 сервиса {{ search-api-full-name }}
+description: В данном разделе приведены способы аутентификации в API v1 сервиса {{ search-api-name }}.
+---
 
-Для работы с {{ search-api-name }} необходимо отправлять запросы к API от имени сервисного аккаунта. {{ search-api-name }} поддерживает только аутентификацию с помощью [API-ключей](../../iam/concepts/authorization/api-key.md).
+# Аутентификация в API v1
+
+Для работы с {{ search-api-name }} при помощи [API v1](../concepts/index.md#api-v1) необходимо отправлять запросы к API от имени сервисного аккаунта. API v1 поддерживает только аутентификацию с помощью [API-ключей](../../iam/concepts/authorization/api-key.md).
 
 {% note warning %}
 
@@ -10,22 +15,33 @@ API-ключи не имеют срока действия. Если ваш кл
 
 1. [Получите идентификатор каталога](../../resource-manager/operations/folder/get-id.md) сервисного аккаунта.
 1. [Получите API-ключ](../../iam/operations/api-key/create.md).
-1. Полученные значения передавайте в каждом запросе. 
+1. Полученные значения передавайте в каждом запросе:
+
+    {% list tabs %}
+
+    - GET-запросы
+
+      В [GET-запросах](../concepts/get-request.md) передавайте значения идентификатора каталога и API-ключа в [URL запроса](../concepts/get-request.md#get-request-format) в полях `folderid` и `apikey`:
    
-  * Для [POST-запросов](../concepts/post-request.md) передавайте значения идентификатора каталога и API-ключа в заголовке `Authorization` в следующем формате:
+      ```text
+      curl 'https://yandex.<домен>/search/xml?folderid=<идентификатор_каталога>&apikey=<значение_API-ключа>&query=<текст_поискового_запроса>'
+      ```
 
-    ```curl
-    Authorization: Api-Key <API-ключ>
-    ```
+    - POST-запросы
 
-    Идентификатор каталога должен передаваться в теле запроса в поле `folderid`:
+      В [POST-запросах](../concepts/post-request.md) передавайте значение API-ключа в заголовке запроса `Authorization` в следующем формате:
 
-    ```httpget
-    https://yandex.<домен>/search/xml?folderid=<идентификатор_каталога>
-    ```
+      ```bash
+      curl \
+        --request POST \
+        --header "Authorization: Api-Key <API-ключ>" \
+        ...
+      ```
 
-  * Для [GET-запросов](../concepts/get-request.md) передавайте значения идентификатора каталога и API-ключа в теле запроса в полях `folderid` и `apikey`:
-   
-    ```curl
-    curl 'https://yandex.<домен>/search/xml?folderid=<идентификатор_каталога>&apikey=<значение_API-ключа>&query=<текст_поискового_запроса>'
-    ```
+      Идентификатор каталога передавайте в [URL запроса](../concepts/post-request.md#post-request-format) в поле `folderid`:
+
+      ```text
+      https://yandex.<домен>/search/xml?folderid=<идентификатор_каталога>
+      ```
+
+    {% endlist %}

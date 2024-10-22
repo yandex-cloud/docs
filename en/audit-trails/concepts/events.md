@@ -1,3 +1,8 @@
+---
+title: Management event reference {{ at-full-name }}
+description: This section provides descriptions of management events collected in {{ yandex-cloud }} services.
+---
+
 # Management event reference
 
 The value of the `event_type` field in a management event audit log is determined by the event source service.
@@ -22,6 +27,7 @@ On this page, you will find events for the following services:
 * [{{ cloud-logging-full-name }}](#cloud-logging)
 * [{{ marketplace-full-name }}](#marketplace)
 * [{{ org-full-name }}](#organization)
+* [{{ postbox-full-name }}](#postbox)
 * [{{ compute-full-name }}](#compute)
 * [{{ container-registry-full-name }}](#container-registry)
 * [{{ dataproc-full-name }}](#dataproc)
@@ -139,6 +145,12 @@ Service name: `marketplace.licensemanager`.
 Service name: `organizationmanager`.
 
 {% include [org-events](../../_includes/audit-trails/events/org-events.md) %}
+
+## {{ postbox-full-name }} {#postbox}
+
+Service name: `postbox`.
+
+{% include [postbox-events](../../_includes/audit-trails/events/postbox-events.md) %}
 
 ## {{ compute-full-name }} {#compute}
 

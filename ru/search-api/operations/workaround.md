@@ -1,6 +1,13 @@
+---
+title: Общий порядок подключения к {{ search-api-full-name }} для интерфейса API v1
+description: Следуя данной инструкции, вы сможете подключиться к сервису {{ search-api-name }} для работы с ним через интерфейс API v1.
+---
+
 # Общий порядок подключения
 
-Для отправления запросов к поисковой базе Яндекса с помощью сервиса {{ search-api-full-name }} вам понадобится [сервисный аккаунт](../../iam/concepts/users/service-accounts.md). 
+Для отправки запросов к поисковой базе Яндекса с помощью сервиса {{ search-api-full-name }} через интерфейс API v1 вам понадобится [сервисный аккаунт](../../iam/concepts/users/service-accounts.md). 
+
+Чтобы настроить сервис {{ search-api }} для использования через API v1, выполните следующие действия:
 
 ## Перед началом работы {#before-you-begin}
 
@@ -10,23 +17,41 @@
 
 ### Создайте сервисный аккаунт {#create-sa}
 
-{% include [create-sa](../../_includes/iam/create-sa-via-console-without-role.md) %}
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  {% include [create-sa](../../_includes/iam/create-sa-via-console-without-role.md) %}
+
+{% endlist %}
 
 ### Назначьте роль {#grant-role}
 
-Чтобы сервисный аккаунт мог отправлять запросы, ему понадобится [роль](../../iam/concepts/access-control/roles.md) работы с сервисом {{ search-api-name }}. Назначьте сервисному аккаунту роль `{{ roles-search-api-executor }}`:
+Чтобы сервисный аккаунт мог отправлять запросы к сервису {{ search-api-name }} через API v1, [назначьте](../../iam/operations/sa/assign-role-for-sa.md#binding-role-resource) ему [роль](../security/index.md#search-api-executor) `{{ roles-search-api-executor }}`:
 
-{% include [create-sa](../../_includes/grant-role-console-sa.md) %}
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  {% include [create-sa](../../_includes/grant-role-console-sa.md) %}
+
+{% endlist %}
 
 ### Создайте API-ключ {#create-api-key}
 
-Для аутентификации в сервисе {{ search-api }} сервисному аккаунту понадобится [API-ключ](../../iam/concepts/authorization/api-key.md). Создайте API-ключ для сервисного аккаунта:
+Для [аутентификации](./auth.md) в API v1 {{ search-api }} сервисному аккаунту понадобится [API-ключ](../../iam/concepts/authorization/api-key.md). Создайте API-ключ для сервисного аккаунта:
 
-{% include [create-console](../../_includes/iam/create-api-key-console.md) %}  
+{% list tabs group=instructions %}
 
-Для подключения и использования сервиса {{ search-api }} выполните следующие действия:
+- Консоль управления {#console}
+
+  {% include [create-console](../../_includes/iam/create-api-key-console.md) %}  
+
+{% endlist %}
 
 ## Регистрация {#registration}
+
+Чтобы использовать интерфейс API v1, необходимо зарегистрироваться в сервисе {{ search-api-name }}:
 
 {% include [registration](../../_includes/search-api/registration.md) %}
 
@@ -37,6 +62,6 @@
 
 ## Настройте интеграцию с {{ search-api }} {#results}
 
-1. Узнайте об особенностях [аутентификации](../operations/auth.md) в {{ yandex-cloud }} и настройте отправку запросов.
+1. Узнайте об особенностях [аутентификации](./auth.md) в API v1 и настройте отправку запросов.
 1. Настройте обработку ответа с учетом формата ответа в [XML](../concepts/response.md) или [HTML](../concepts/html-response.md).
 1. При необходимости [запросите](../concepts/limits.md) информацию о часовых ограничениях на ближайшие сутки.

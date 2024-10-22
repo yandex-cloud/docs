@@ -47,7 +47,7 @@ description: 'При необходимости вы можете останов
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/stop.md#responses).
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/stop.md#yandex.cloud.operation.Operation).
 
 * gRPC API {#grpc-api}
 
@@ -121,7 +121,7 @@ description: 'При необходимости вы можете останов
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/start.md#responses).
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/start.md#yandex.cloud.operation.Operation).
 
 * gRPC API {#grpc-api}
 

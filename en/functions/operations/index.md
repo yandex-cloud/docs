@@ -1,5 +1,5 @@
 ---
-title: How to work with {{ sf-full-name }}
+title: Guides on using {{ sf-full-name }}
 description: In this article, you will learn how to work with {{ sf-full-name }} in {{ yandex-cloud }}. Find out how to manage a function (create, modify, invoke, and delete a function) and a trigger (create a timer or trigger for {{ message-queue-name }}, {{ iot-full-name }}, {{ container-registry-name }}).
 ---
 
@@ -15,7 +15,7 @@ description: In this article, you will learn how to work with {{ sf-full-name }}
 * [{#T}](function/function-info.md)
 * [{#T}](function/version-info.md)
 
-## Managing rights to access functions {#function-access-rights}
+## Managing function access permissions {#function-access-rights}
 
 * [{#T}](function/function-public.md)
 * [{#T}](function/function-private.md)
@@ -46,14 +46,15 @@ description: In this article, you will learn how to work with {{ sf-full-name }}
 * [{#T}](function/lockbox-secret-transmit.md)
 * [Allocating memory for the /tmp directory](function/allocate-memory-tmp.md)
 * [Mounting a bucket](function/mount-bucket.md)
+* [Mounting an ephemeral disk](function/mount-ephemeral-disk.md)
 * [Adding a tag](function/tag-add.md)
-* [Removing a tag](function/tag-delete.md)
+* [Deleting a tag](function/tag-delete.md)
 * [Adding a label](function/label-add.md)
 * [Updating a label](function/label-update.md)
-* [Removing a label](function/label-delete.md)
+* [Deleting a label](function/label-delete.md)
 * [Viewing monitoring charts](function/function-monitoring.md)
 * [Viewing logs](function/function-logs.md)
-* [Logging data to the execution log](function/logs-write.md)
+* [Writing to the execution log](function/logs-write.md)
 * [{#T}](function/migration.md)
 * [{#T}](function/function-delete.md)
 
@@ -81,6 +82,6 @@ description: In this article, you will learn how to work with {{ sf-full-name }}
 * [Updating a trigger](trigger/trigger-update.md)
 * [Adding a label](trigger/label-add.md)
 * [Updating a label](trigger/label-update.md)
-* [Removing a label](trigger/label-delete.md)
+* [Deleting a label](trigger/label-delete.md)
 * [Viewing monitoring charts](trigger/trigger-monitoring.md)
 * [Deleting a trigger](trigger/trigger-delete.md)

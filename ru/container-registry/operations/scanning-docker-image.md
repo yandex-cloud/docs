@@ -115,7 +115,7 @@ description: Следуя данной инструкции, вы сможете
 
   Чтобы сканировать Docker-образ, воспользуйтесь методом REST API [scan](../api-ref/Scanner/scan.md) для ресурса [Scanner](../api-ref/Scanner/) или вызовом gRPC API [ScannerService/Scan](../api-ref/grpc/Scanner/scan.md).
 
-  Чтобы получить идентификатор результата сканирования `scanResultId`, воспользуйтесь методом REST API [getLast](../api-ref/Scanner/getLast) для ресурса [Scanner](../Scanner/) или вызовом gRPC API [ScannerService/GetLast](../api-ref/grpc/scanner_service#GetLast).
+  Чтобы получить идентификатор результата сканирования `scanResultId`, воспользуйтесь методом REST API [getLast](../api-ref/Scanner/getLast) для ресурса [Scanner](../Scanner/) или вызовом gRPC API [ScannerService/GetLast](../api-ref/grpc/Scanner/getLast.md).
 
   Чтобы получить детальную информацию о результатах сканирования, воспользуйтесь методом REST API [listVulnerabilities](../api-ref/Scanner/listVulnerabilities.md) для ресурса [Scanner](../api-ref/Scanner/) или вызовом gRPC API [ScannerService/ListVulnerabilities](../api-ref/grpc/Scanner/listVulnerabilities.md).
 
@@ -144,7 +144,7 @@ description: Следуя данной инструкции, вы сможете
 
   Чтобы автоматически сканировать Docker-образы при загрузке в реестр, воспользуйтесь методом REST API [create](../api-ref/ScanPolicy/create.md) для ресурса [ScanPolicy](../api-ref/ScanPolicy/) или вызовом gRPC API [ScanPolicyService/Create](../api-ref/grpc/ScanPolicy/create.md).
 
-  Чтобы получить идентификатор результата сканирования `scanResultId`, воспользуйтесь методом REST API [getLast](../api-ref/Scanner/getLast) для ресурса [Scanner](../Scanner/) или вызовом gRPC API [ScannerService/GetLast](../api-ref/grpc/scanner_service#GetLast).
+  Чтобы получить идентификатор результата сканирования `scanResultId`, воспользуйтесь методом REST API [getLast](../api-ref/Scanner/getLast) для ресурса [Scanner](../Scanner/) или вызовом gRPC API [ScannerService/GetLast](../api-ref/grpc/Scanner/getLast.md).
 
   Чтобы получить детальную информацию о результатах сканирования, воспользуйтесь методом REST API [listVulnerabilities](../api-ref/Scanner/listVulnerabilities.md) для ресурса [Scanner](../api-ref/Scanner/) или вызовом gRPC API [ScannerService/ListVulnerabilitiesListVulnerabilities](../api-ref/grpc/Scanner/listVulnerabilities.md).
 
@@ -175,7 +175,7 @@ description: Следуя данной инструкции, вы сможете
 
   Чтобы сканировать Docker-образы по расписанию, воспользуйтесь методом REST API [create](../api-ref/ScanPolicy/create.md) для ресурса [ScanPolicy](../api-ref/ScanPolicy/) или вызовом gRPC API [ScanPolicyService/Create](../api-ref/grpc/ScanPolicy/create.md).
 
-  Чтобы получить идентификатор результата сканирования `scanResultId`, воспользуйтесь методом REST API [getLast](../api-ref/Scanner/getLast) для ресурса [Scanner](../Scanner/) или вызовом gRPC API [ScannerService/GetLast](../api-ref/grpc/scanner_service#GetLast).
+  Чтобы получить идентификатор результата сканирования `scanResultId`, воспользуйтесь методом REST API [getLast](../api-ref/Scanner/getLast) для ресурса [Scanner](../Scanner/) или вызовом gRPC API [ScannerService/GetLast](../api-ref/grpc/Scanner/getLast.md).
 
   Чтобы получить детальную информацию о результатах сканирования, воспользуйтесь методом REST API [listVulnerabilities](../api-ref/Scanner/listVulnerabilities.md) для ресурса [Scanner](../api-ref/Scanner/) или вызовом gRPC API [ScannerService/ListVulnerabilitiesListVulnerabilities](../api-ref/grpc/Scanner/listVulnerabilities.md).
 

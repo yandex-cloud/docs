@@ -29,7 +29,7 @@
 - API
 
     * [REST](../../../compute/api-ref/Instance/updateNetworkInterface);
-    * [gRPC](../../../compute/api-ref/grpc/instance_service#UpdateNetworkInterface).
+    * [gRPC](../../../compute/api-ref/grpc/Instance/updateNetworkInterface).
 
     Выполните команду ```yc compute instance update-network-interface <идентификатор_вм> --network-interface-index=0 --ipv4-address=<новый_IP_адрес>```.
 
