@@ -121,7 +121,7 @@ Where:
 * `restart`: Docker container restart policy settings.
 * `volumes`: Description of the volumes used in the Docker container.
 * `x-yc-disks`: Section that describes the [disks](../../compute/concepts/disk.md) to attach. It is an [extension of the Docker Compose specification](https://docs.docker.com/compose/compose-file/#extension-fields). Used when preparing to run Docker containers, before running the Docker Compose file. Docker Compose skips this section.
-* `device_name`: Device name.
+* `device_name`: The device name. Not the same as the disk name. It is specified when attaching a disk to a VM. It is used on the VM to search for the disk through the `/dev/disk/by-id/virtio-<device_name>` tree. It is specified in flags and CLI commands for adding disks to a VM using the `device-name` parameter. In the management console, it is specified in the pop-up window when [attaching a disk to a VM](../../compute/operations/vm-control/vm-attach-disk#attach).
 * `fs_type`: File system type. The supported file systems are ext4 and xfs.
 * `host_path`: Directory the disk is mounted to.
 * `partition`: Disk partition being used.
