@@ -108,7 +108,7 @@ Where:
 
       * `tls` (`BackendTLS`)
 
-         TLC connection settings for the load balancer nodes and backend endpoints.
+         TLS connection settings for the load balancer nodes and backend endpoints.
 
          If the field is specified, the load balancer established TLS connections with the backend and compares the certificates received to the certificate specified in the `trustedCa` field. If the field is not specified, the load balancer will make unencrypted connections to the backend.
 
